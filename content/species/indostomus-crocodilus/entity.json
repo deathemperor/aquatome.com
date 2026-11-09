@@ -1,0 +1,260 @@
+{
+  "id": "indostomus-crocodilus",
+  "scientificName": "Indostomus crocodilus",
+  "order": "Gasterosteiformes",
+  "family": "Indostomidae",
+  "genus": "Indostomus",
+  "group": "other",
+  "places": [
+    "asia",
+    "thailand",
+    "tapi",
+    "malaysia",
+    "kelantan"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "MY"
+      ],
+      "regions": [
+        "Tapi River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Indostomus crocodilus is a tiny indostomid, 25 to 30 mm long, from southern Thailand and Kelantan state in northeastern Peninsular Malaysia.",
+          "countries": [
+            "TH",
+            "MY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Nae Nam Tod Deng, about 6 kilometers north of Sungai Kolok, Narathiwat Province, Thailand', and it is also known from the Tapi River watershed in Surat Thani province, so it is presumably found throughout southern Thailand.",
+          "countries": [],
+          "regions": [
+            "Tapi River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2356565,
+      "total": 10,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "TH",
+          8
+        ],
+        [
+          "FR",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          1.40625,
+          46.40625,
+          2,
+          0
+        ],
+        [
+          98.4375,
+          14.0625,
+          6,
+          6
+        ],
+        [
+          101.25,
+          5.625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 40
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/indostomus-crocodilus",
+      "html": "<p>Indostomus crocodilus is a tiny indostomid, 25 to 30 mm long, from southern Thailand and Kelantan state in northeastern Peninsular Malaysia. Its type series came from a blackwater stream in peat swamp forest, among submerged roots and leaf litter in slow-moving or standing water. A poor competitor, it is best kept alone or with similarly-sized, placid species, and males have dark brown to black bars in the dorsal and anal fins.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/indostomus-crocodilus",
+      "html": "<p>Type locality is 'Nae Nam Tod Deng, about 6 kilometers north of Sungai Kolok, Narathiwat Province, Thailand', and it is also known from the Tapi River watershed in Surat Thani province, so it is presumably found throughout southern Thailand. There are also records from Kelantan state, northeastern Peninsular Malaysia, which shares a border with Narathiwat.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/indostomus-crocodilus",
+      "html": "<p>The type series was collected from a blackwater stream in Toh Daeng peat swamp forest, with the fish found in slow-moving or standing habitats among submerged shoreline roots and leaf litter. In the Tapi River floodplain it was collected from stagnant waters, one of which was an oxbow lake approximately 200 m long and 30 m across at its widest point, surrounded by 'freshwater scrub and swamp trees'. The substrate was composed of mud, woody structures including fallen twigs and branches, and decomposing plant material.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/indostomus-crocodilus",
+      "html": "<p>An aquarium with base dimensions of 40 × 20 cm or more is sufficient (about 16 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/indostomus-crocodilus",
+      "html": "<p>Fares best in a well-planted set-up with a soft substrate although fine-grade gravel is acceptable. Driftwood roots or branches, floating plants and leaf litter can all be added to lend a more natural feel and further increase structural complexity while also serving to diffuse the light entering the tank, while lengths of suitably-sized plastic piping can also provide useful refuges and spawning sites. It naturally inhabits sluggish or still environments therefore filtration, or at least water flow, should not be very strong.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/indostomus-crocodilus",
+      "html": "<ul><li>Temperature: 22–27°C</li><li>pH: 5.0–7.0</li><li>Hardness: 0–5 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/indostomus-crocodilus",
+      "html": "<p>Chiefly a micropredator feeding on tiny aquatic crustaceans, worms, insect larvae and other zooplankton. In the aquarium it does not accept dried or frozen products as far as is known and must be offered small live foods such as Artemia nauplii, Daphnia, micro worm, etc., although grindal worm is normally refused for some reason. In mature, planted aquaria the naturally-occurring microfauna is likely to provide a useful additional food source.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/indostomus-crocodilus",
+      "html": "<p>A poor competitor and will be preyed upon by larger fishes so it's best kept alone or with similarly-sized, placid species such as members of Boraras, Danionella or Dario. Though not gregarious in the sense of schooling/shoaling fishes it does seem to benefit from interaction with conspecifics and displays more interesting behaviour when maintained in numbers, therefore the purchase of no less than 4-6 individuals is recommended. Males are territorial towards rivals but do not damage each other.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/indostomus-crocodilus",
+      "html": "<p>Adult males possess broad, elongated pelvic fins with the outer rays curved inwards, while in females the pelvic fins are straight and more slender. Gravid female individuals typically display a rounded abdomen.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/indostomus-crocodilus",
+      "html": "<p>Has been bred in aquaria on numerous occasions. Spawning occurs in small caves or crevices including artificial alternatives such as small lengths of bamboo or plastic piping. Individual males select spawning sites and defend the area around these for a distance of a few cm in each direction. During the spawning period they take on an overall lighter colouration, and pigmentation in the dorsal and anal fins becomes more intense. Females are courted via a display involving erect fins and quivering movements of the caudal region, taking place at the entrance to the spawning site. Receptive, ripe females take on a significantly paler colour pattern prior to and throughout spawning, and the protruding genital papilla is clearly visible. Eggs are most often deposited on the roof of the spawning site with both fish upside down during spawning. The overall process may involve several separate events with the female leaving the site briefly between each, and a typical clutch consists of 5-40 eggs. Post-spawning the female leaves the site and the male assumes sole responsibility for brood care, remaining in the tube or cave except for short periods of feeding. This behaviour is maintained until the fry are free-swimming and begin to disperse. In mature aquaria with an absence of predators it's possible that some fry may survive or they can be siphoned into a separate container as and when spotted. The latter is no easy task, however, as newly-emergent fry are minute and if removed require microscopic food such as rotifers, Paramecium, etc. for the initial period.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/indostomus-crocodilus",
+      "html": "<p>This species can be told apart from congeners by the following characters: presence of dark brown to black bars in dorsal and anal fins of males; ventral surface light brown; throat white, occasionally with a few brown spots; ridges of head bones weakly serrated. In I. paradoxus adult males do not possess dark bars in the dorsal and anal fins, though sexually-active individuals do display light brown bars. It's otherwise similar to I. crocodilus, whereas in I. spinosus the ventral surface is coloured dark brown, throat marked with numerous brown spots, and the ridges of the head bones are strongly serrated.</p><p>The family Indostomidae currently contains just a single genus with three species of which I. paradoxus is the type. It was raised alongside both family and genus by Prashad and Mukerji (1929), and remained the only member for 70 years until I. crocodilus and I. spinosus were described by Britz and Kottelat (1999). It's included in the order Gasterosteiformes which also includes the well-known stickleback family Gasterosteidae, and on description was considered most closely related to pipefishes, seahorses, and sea dragons of the families Solenostomidae and Syngnathidae. However the view of its placement has since changed several times with some wildly different suggestions. Banister (1970) studied the osteology of I. paradoxus and removed it from Gasterosteiformes, placing it in his new order Indostomiformes and recommending it be placed close to Gobiesociformes (clingfishes). Subsequent authors including Fraser (1972), Pietsch (1978), Patterson (1993), and Orr (1995) placed it variously close to, within, or unrelated to Gasterosteiformes. Britz and Johnson (2002) demonstrated that Indostomus spp. are probably related to gasterosteoid gasterosteiforms via an analysis of I. paradoxus ontogeny. The two families display some notable similarities in structure and development of the body armour which are unique among fishes, but further study is still required to confirm the precise placement of Indostomus within the Gasterosteiformes.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/indostomus-crocodilus",
+      "html": "<ul><li>Banister, K. E. (1970). The anatomy and taxonomy of Indostomus paradoxus Prashad &amp; Mukerji. Bulletin of the British Museum (Natural History) Zoology 19(5), 181-209</li><li>Britz, R. (2000). Aspects of the reproduction and development of Indostomus paradoxus (Teleostei: Indostomidae). Ichthyological Exploration of Freshwaters 11(4), 305-314</li><li>Britz, R. and M. Kottelat (1999). Two new species of gasterosteiform fishes of the genus Indostomus (Teleostei: Indostomidae). Ichthyological Exploration of Freshwaters 10(4), 327-336</li><li>Britz, R. and G. D. Johnson (2002). ‘‘Paradox Lost’’: Skeletal Ontogeny of Indostomus paradoxus and Its Significance for the Phylogenetic Relationships of Indostomidae (Teleostei, Gasterosteiformes). American Museum Novitates 3383, 1-43</li><li>Prashad, B. and D. D. Mukerji (1929). The fish of the Indawgyi Lake and the streams of the Myitkyina District (Upper Burma). Records of the Indian Museum (Calcutta) 31(3), 161-223</li><li>Rainboth, W. J. (1996). Fishes of the Cambodian Mekong. FAO Species Identification Field Guide for Fishery Purposes. FAO, Rome, 1-265</li><li>Lheknim, V. (2004). Annotated Checklist for a Collection of Fishes from Tapi River Basin, south Thailand. The Natural History Journal of Chulalongkorn University 4(2), 83-98</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/22ee708014c9abae.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/22ee708014c9abae-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/indostomus-crocodilus",
+      "caption": "Specimen collected from Narathiwat province, southern Thailand.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/017b953185151074.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/017b953185151074-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/indostomus-crocodilus",
+      "caption": "Captive-bred fry.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 40cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia nauplii",
+        "bo bo sống",
+        "trùng chỉ nhỏ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi mini",
+        "máy lọc bể nhỏ dòng chảy nhẹ"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh nổi",
+        "rêu thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

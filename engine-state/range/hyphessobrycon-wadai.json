@@ -1,0 +1,46 @@
+{
+  "id": "hyphessobrycon-wadai",
+  "native": {
+    "input": "781c630389160e0f",
+    "at": "2026-11-09T05:57:45.266Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Rio Tapajós",
+        "source": "glaser",
+        "quote": "The natural distribution is the upper basin of the Rio Tapajós.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BR"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hyphessobrycon wadai",
+    "status": "ACCEPTED",
+    "taxonKey": 9655807,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        2
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-09T05:57:45.266Z"
+  }
+}

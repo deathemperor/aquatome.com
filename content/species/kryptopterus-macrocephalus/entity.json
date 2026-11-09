@@ -1,0 +1,380 @@
+{
+  "id": "kryptopterus-macrocephalus",
+  "scientificName": "Kryptopterus macrocephalus",
+  "order": "Siluriformes",
+  "family": "Siluridae",
+  "genus": "Kryptopterus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "thailand",
+    "malaysia",
+    "sarawak",
+    "singapore",
+    "indonesia",
+    "sumatra"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "MY",
+        "SG"
+      ],
+      "regions": [
+        "Sumatra",
+        "Borneo",
+        "Java"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The striped glass catfish, Kryptopterus macrocephalus, is a silurid catfish from Thailand, Malaysia, Singapore and the Greater Sunda Islands.",
+          "countries": [
+            "TH",
+            "MY",
+            "SG"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known from southern (peninsular) Thailand, Peninsular Malaysia, Singapore and the Greater Sunda Islands of Sumatra, Borneo and Java.",
+          "countries": [],
+          "regions": [
+            "Sumatra",
+            "Borneo",
+            "Java"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2337908,
+      "total": 28,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "MY",
+          11
+        ],
+        [
+          "ID",
+          9
+        ],
+        [
+          "TH",
+          6
+        ],
+        [
+          "SG",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          99.84375,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          99.84375,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          12.65625,
+          2,
+          2
+        ],
+        [
+          101.25,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          101.25,
+          5.625,
+          3,
+          3
+        ],
+        [
+          102.65625,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          0,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          1.40625,
+          3,
+          3
+        ],
+        [
+          102.65625,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          104.0625,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          108.28125,
+          0,
+          1,
+          0
+        ],
+        [
+          109.6875,
+          0,
+          2,
+          0
+        ],
+        [
+          111.09375,
+          -2.8125,
+          3,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 4,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 10
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/kryptopterus-macrocephalus",
+      "html": "<p>The striped glass catfish, Kryptopterus macrocephalus, is a silurid catfish from Thailand, Malaysia, Singapore and the Greater Sunda Islands. A stenotypic inhabitant of peat swamp forests and associated blackwater streams, it is also known as the false, mottled or tawny glass catfish. Striped and mottled colour forms exist that may or may not be conspecific, and the similar K. piperatus has a pale brown body with scattered dark spots.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/kryptopterus-macrocephalus",
+      "html": "<p>Known from southern (peninsular) Thailand, Peninsular Malaysia, Singapore and the Greater Sunda Islands of Sumatra, Borneo and Java.</p><p>Type locality is usually given as 'Padang, Sumatra' although habitats in that area are said to be unsuitable for this species and it has never been recorded there since the description.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/kryptopterus-macrocephalus",
+      "html": "<p>This species is a stenotypic inhabitant of peat swamp forests and associated blackwater streams.</p><p>Many such habitats have suffered large-scale degradation of some kind but in unaltered cases the dense canopy of branches above means very little light penetrates the surface of such environments, and riparian vegetation also tends to grow thickly.</p><p>Substrates are usually littered with fallen leaves, branches and submerged tree roots though in some places aquatic plants from genera such as Cryptocoryne or Barcalaya can be found.</p><p>The water is typically stained darkly with humic acids and other chemicals released by decaying organic materials, the dissolved mineral content generally negligible and pH as low as 3.0 or 4.0.</p><p>For example in Sarawak state, Malaysia (Borneo) it has been collected from a blackwater river known as the Sungai Kepayan which flows through remnant and intact peat swamp forest. In 1998 pH was measured at 4.1 and depth ranged from 20 cm to 2 metres or more.</p><p>Syntopic fish species included Osteochilus spilurus, 'Puntius' rhomboocellatus, Brevibora dorsiocellata, Trigonopoma gracile, T. pauciperforatum, Sundadanio cf. axelrodi, Kottelatlimia pristes, Neohomaloptera johorensis, Nanobagrus fuscus, Ompok weberi, Silurichthys phaiosoma, Hemirhamphodon phaiosoma, Betta edithae, B. midas, Nandus nebulosus, Belontia hasseltii, Luciocephalus pulcher, Parosphromenus anjunganensis, P. ornaticauda, and Sphaerichthys osphromenoides.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/kryptopterus-macrocephalus",
+      "html": "<p>Standard length: 10 cm SL. Aquarium base: 120 × 30 cm. Volume: approx. 108 litres.</p><p>An aquarium with base dimensions of 120 × 30 cm or equivalent should be the smallest considered.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/kryptopterus-macrocephalus",
+      "html": "<p>Best kept in a well-decorated set-up with some surface or floating vegetation since it appears to prefer relatively dim conditions.</p><p>The addition of dried leaf litter and/or alder cones would further emphasise the natural feel while the tannins and other chemicals released by these as they decompose are considered beneficial for fishes from blackwater environments.</p><p>Do not add this fish to a biologically immature aquarium as it can be susceptible to swings in water chemistry.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/kryptopterus-macrocephalus",
+      "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 4.0–7.0</li><li>Hardness: 1–8 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/kryptopterus-macrocephalus",
+      "html": "<p>Probably a predator feeding on crustaceans, invertebrates and smaller fishes in nature, although there should be no need to use such live foods in captivity.</p><p>Offer a varied diet comprising sinking dried foods, live and frozen bloodworm, Tubifex, etc., and perhaps the occasional small earthworm.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/kryptopterus-macrocephalus",
+      "html": "<p>Generally peaceful though it may predate on smaller fishes and is somewhat timid so does not compete well with much larger, robust or otherwise boisterous species.</p><p>Peaceful, comparably-sized cyprinids, loaches and other catfishes perhaps constitute the best options but be sure to research your choices thoroughly prior to purchase.</p><p>K. macrocephalus is gregarious and tends to form schools so ideally four or more specimens should be purchased.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/kryptopterus-macrocephalus",
+      "html": "<p>Adult males are noticeably slimmer than females and the posterior edge of the pectoral-fin spine is serrated (vs. smooth in females).</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/kryptopterus-macrocephalus",
+      "html": "<p>Unrecorded.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/kryptopterus-macrocephalus",
+      "html": "<p>This species is also referred to as 'false glass catfish', 'mottled glass catfish' or 'tawny glass catfish'.</p><p>Roberts (1989) discusses the existence of striped and mottled colour forms but investigation is apparently required to establish whether these are conspecific or not.</p><p>The congener K. piperatus is very similar but has a colour pattern comprising a pale brown body with scattered dark spots vs. prominent dark brown spots or stripes in K. macrocephalus.</p><p>Kryptopterus species are found only in Southeast Asia and the genus has been considered polyphyletic since Bornbusch (1995) with some former species already moved to the genera Phalacronotus and Micronema.</p><p>Those still contained within the genus are assigned to a number of putative species groups as follows:</p><ul><li>K. bicirrhis group: K. bicirrhis, K. lais, K. palembangensis, K. macrocephalus, K. minor, K. piperatus, K. vitreolus</li><li>K. cryptopterus group: K. cryptopterus, K. geminus</li><li>K. limpok group: K. limpok, K. mononema, K. dissitus, K. baramensis, K. hesperius</li><li>K. schilbeides group: K. schilbeides, K. paraschilbeides</li></ul><p>Bornbusch (1995) identified the K. bicirrhis group as a distinct clade although he didn't propose any synapomorphy to diagnose it.</p><p>Ng and Kottelat (2013) later noted that members normally have fewer anal-fin rays (46–67 vs. 64–85) than other congeners and placed K. piperatus and K. vitreolus within the group based on this character.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/kryptopterus-macrocephalus",
+      "html": "<ul><li>Bornbusch, A. H. (1995). Phylogenetic relationships within the Eurasian catfish family Siluridae (Pisces: Siluriformes), with comments on generic validities and biogeography. Zoological Journal of the Linnean Society 115, 1-46</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Parenti, L. R. and K. K. P. Lim (2005). Fishes of the Rajang Basin, Sarawak, Malaysia. Raffles Bulletin of Zoology Supplement 13, 175-208</li><li>Tan, H. H. and H. H. Ng (2000). The catfishes (Teleostei: Siluriformes) of central Sumatra. Journal of Natural History 34(2), 267-303</li><li>Roberts, T. R. (1989). The freshwater fishes of western Borneo (Kalimantan Barat, Indonesia). Memoirs of the California Academy of Sciences 14, 1-210</li><li>Ng, H-H. and M. Kottelat (2013). After eighty years of misidentification, a name for the glass catfish (Teleostei: Siluridae). Zootaxa 3630, 308-316</li><li>Ng, H. H., S. Wirjoatmodjo and R. K. Hadiaty (2004). Kryptopterus piperatus, a new species of silurid catfish (Teleostei: Siluridae) from northern Sumatra. Ichthyological Exploration of Freshwaters 15(1), 91-95</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/962122a70217608a.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/962122a70217608a-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/kryptopterus-macrocephalus",
+      "caption": "Specimen of unconfirmed origin.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/84aa2c93f9cdeb42.webp",
+      "thumb": "https://media.aquatome.com/scotcat/84aa2c93f9cdeb42-480.webp",
+      "width": 500,
+      "height": 284,
+      "licence": "dùng với sự cho phép",
+      "author": "Chris Ralph / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/siluridae/kryptopterus_macrocephalus.htm",
+      "caption": "Kryptopterus macrocephalus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/02d78f19e7a6959c.webp",
+      "thumb": "https://media.aquatome.com/scotcat/02d78f19e7a6959c-480.webp",
+      "width": 500,
+      "height": 242,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/siluridae/kryptopterus_macrocephalus.htm",
+      "caption": "Kryptopterus macrocephalus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/e7ca89fdb720a835.webp",
+      "thumb": "https://media.aquatome.com/scotcat/e7ca89fdb720a835-480.webp",
+      "width": 500,
+      "height": 310,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/siluridae/kryptopterus_macrocephalus.htm",
+      "caption": "Kryptopterus macrocephalus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/d779b6e0721e7cbd.webp",
+      "thumb": "https://media.aquatome.com/scotcat/d779b6e0721e7cbd-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/siluridae/kryptopterus_macrocephalus.htm",
+      "caption": "Kryptopterus macrocephalus",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "máy lọc cho bể nước đen"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá da trơn",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "lá bàng khô",
+        "cây thủy sinh nổi"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

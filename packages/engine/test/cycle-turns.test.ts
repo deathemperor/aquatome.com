@@ -9,7 +9,7 @@ const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
 const CHECKS = join(ROOT, 'scripts/cycle-checks.sh')
 
 /**
- * verify (scripts/cycle-checks.sh) as on the Mac, with lockf stood in for: it notes when a step takes the checks lock
+ * verify (scripts/cycle-checks.sh) as on the Mac, with its turn (checks.sh, lockf) stood in for: it notes when a step takes the checks lock
  * and gives it back, and hands it to `waiter` (a job that queued meanwhile, as lockf's queue does) at the first give.
  * Returns what took the lock, in order, how often the checks waited for the Mac to calm, and verify's exit code.
  */
@@ -22,9 +22,8 @@ function turns(steps: string[], waiter = '') {
     source "${CHECKS}"
     calm() { echo CALM; }
     waiter='${waiter}'
-    lockf() {
-      [ "$1 $2" = "-k $HOME/.cache/aquatome/checks.lock" ] || return 9
-      shift 2; echo "TAKE \${*: -1}"; "$@"; local r=$?; echo GIVE
+    turn() {
+      echo "TAKE \${*: -1}"; "$@"; local r=$?; echo GIVE
       if [ -n "$waiter" ]; then echo "TAKE $waiter"; echo GIVE; waiter=; fi
       return $r
     }

@@ -1,0 +1,126 @@
+{
+  "id": "limia-tridens",
+  "scientificName": "Limia tridens",
+  "order": "Cyprinodontiformes",
+  "family": "Poeciliidae",
+  "genus": "Limia",
+  "group": "livebearers",
+  "places": [],
+  "range": {
+    "records": {
+      "taxonKey": 5203860,
+      "total": 5,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "DO",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          -71.71875,
+          18.28125,
+          3
+        ],
+        [
+          -71.71875,
+          19.6875,
+          1
+        ],
+        [
+          -70.3125,
+          18.28125,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 24,
+          "max": 24
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/poecilia-limia-tridens-2/",
+      "html": "<p>All Limia species love warmth and should therefore be cared for at temperatures above 24°C.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/poecilia-limia-tridens-2/",
+      "html": "<p>All Limia species need vegetable supplementary food; algae, vegetable-based flake food, scalded salad, spinach or dandelion cover this need.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/poecilia-limia-tridens-2/",
+      "html": "<p>So that strongly coloured, dominant males form, these animals should be kept in swarms if possible, i.e. several males with several females.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/poecilia-limia-tridens-2/",
+      "html": "<p>There is no agreement on the systematic position of the livebearers living on the Caribbean islands. According to anatomical characteristics, the genus Limia is today mostly regarded as synonymous with Poecilia, but they have so many independent characteristics that Limia is almost always mentioned as a subgenus.</p><p>Aquaristically this is not so important whether Limia is a genus or a subgenus; it is much more important that they are beautiful animals. P. tridens is currently available as pond-bred offspring from Southeast Asia.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "MM_GwEX4oXE",
+      "title": "Limia Tridens",
+      "durationSec": 14,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ZFP4a8nibUY",
+      "title": "Limia tridens (aquarium strain)",
+      "durationSec": 25,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "jYgmiDGLavU",
+      "title": "Limia Tridens",
+      "durationSec": 6,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "n7QYX6HHXwE",
+      "title": "Beautiful Limia Tridens, A Mexican livebearer species  (✨️ brilliant stripes w/ blue and gold 💙)",
+      "durationSec": 16,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá",
+        "máy sưởi thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá bảy màu",
+        "cám vảy thực vật"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá cảnh 60cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

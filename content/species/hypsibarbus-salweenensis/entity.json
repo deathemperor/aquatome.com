@@ -1,0 +1,129 @@
+{
+  "id": "hypsibarbus-salweenensis",
+  "scientificName": "Hypsibarbus salweenensis",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Hypsibarbus",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "china",
+    "yunnan",
+    "myanmar",
+    "salween",
+    "thailand"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN",
+        "MM",
+        "TH"
+      ],
+      "regions": [
+        "Salween"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Hypsibarbus salweenensis is a large cyprinid endemic to the Salween river system in Yunnan province, China, eastern Myanmar and northwestern Thailand.",
+          "countries": [
+            "CN",
+            "MM",
+            "TH"
+          ],
+          "regions": [
+            "Salween"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2365513,
+      "total": 2,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "TH",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          16.875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 30
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypsibarbus-salweenensis",
+      "html": "<p>Hypsibarbus salweenensis is a large cyprinid endemic to the Salween river system in Yunnan province, China, eastern Myanmar and northwestern Thailand. It has been collected from submontane headwater streams, larger tributaries and main river channels, and appears to be abundant on a seasonal basis in the lower Salween, suggesting a migratory lifestyle. Growing to at least 300 mm, it belongs to a genus of valued food fishes.</p><ul><li>Needs a very large tank</li><li>Needs to be kept in a group</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypsibarbus-salweenensis",
+      "html": "<p>Endemic to the Salween river system in Yunnan province, southern China, eastern Myanmar, and northwestern Thailand.</p><p>Type locality is 'Salween River midway between Mae Sam Laep and Paleh, Mae Hong Son province, Thailand.'</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypsibarbus-salweenensis",
+      "html": "<p>Has been collected from submontane headwater streams, larger tributaries and main river channels. Apparently it is abundant on a seasonal basis in the lower Salween, suggesting a migratory lifestyle.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypsibarbus-salweenensis",
+      "html": "<p>H. salweenensis is distinguished from congeners by the following combination of characters: barbels long, with maxillary pair 29% and rostral pair 23% HL; eye moderately-sized, with an orbit fitting around 1.9 times in the interorbital space in 200 mm specimens; 10-14, modally 12, rakers on first gill arch; 14-16 circumpeduncular scale rows; 30+ lateral line scales.</p><p>Hypsibarbus species are valued food fishes throughout their range although most species are thought to be in decline due to human activity, particularly damming of rivers and agriculture.</p><p>The genus is diagnosed as follows: two pairs of barbels; strongly serrated dorsal-fin spine; 8 branched pelvic-fin rays; skin of lower lip discontinuous with lower jaw, separated by a shallow groove; anal-fin base approximately 60% HL; scales with black margins resulting in reticulated appearance; fins often with extended falcate tips; anal and pelvic fins often brightly-coloured.</p><p>Etymology: Hypsibarbus comes from the Ancient Greek ὕψι (húpsi) and the generic name Barbus, presumably in allusion to the deep body shape in members of this genus. salweenensis is named for the Salween River, to which this species is endemic.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypsibarbus-salweenensis",
+      "html": "<ul><li>Rainboth, W. J. (1996). The taxonomy, systematics, and zoogeography of Hypsibarbus, a new genus of large barbs (Pisces, Cyprinidae) from the rivers of southeastern Asia. University of California Publications in Zoology v. 129, i-xiii + 1-199</li><li>Rainboth, W. J. (1996). FAO species identification field guide for fishery purposes. FAO, Rome, 1-265</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể kính cỡ lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy bơm tạo dòng chảy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

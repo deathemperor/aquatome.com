@@ -88,7 +88,7 @@ export async function listComments(db: D1Database, state: CommentState, cursor?:
 }
 
 /** The posting rules' reasons as rules.ts writes them. */
-const RULE_REASONS = /^(contains <|more than one link|blocked term: .+|duplicate within 24 h|more than 5 posts today)$/
+const RULE_REASONS = /^(contains <|more than one link|blocked term: .+|rude word: .+|duplicate within 24 h|more than 5 posts today)$/
 /**
  * This week's comments, the scoreboard's week (Monday, Vietnam's time): posted; held when posted; reported (by anyone:
  * whether a report held one isn't kept); hidden (by the moderator or the owner). A decision writes over the rule's reason,
@@ -140,6 +140,7 @@ export async function decideComment(db: D1Database, id: string, action: 'show' |
 /** Each posting rule's reason (rules.ts) as a sentence. */
 const RULES: [RegExp, (m: RegExpExecArray) => string][] = [
   [/^blocked term: (.+)$/, m => `it has “${m[1]}”, a blocked term`],
+  [/^rude word: (.+)$/, m => `it has “${m[1]}”, a rude word`],
   [/^contains <$/, () => 'it has a “<”'],
   [/^more than one link$/, () => 'it has more than one link'],
   [/^duplicate within 24 h$/, () => 'the same text was posted on this page in the 24 hours before'],
@@ -178,7 +179,6 @@ export function commentItem(r: CommentRow, pages: Map<string, PageInfo> | undefi
 }
 
 const count = (n: number) => n.toLocaleString('en-GB')
-const LEDE = 'Held comments wait for you: Show puts one on its page, Hide takes it off.'
 const AFTER = (tz: string, now: Date) => `Rules check each comment as it is posted and hold some, and a signed-in reader's report holds a shown one. The moderator looks at new and held comments each day; once you show or hide one here, it leaves it alone unless a reader reports it later. Hidden comments can be shown again for 30 days, then they are deleted. 50 a page, newest first. Times are in your time zone (${zoneName(tz, now)}).`
 /** A comment's page when the site no longer has it: said, never its key. */
 export const GONE_PAGE = 'a page no longer on the site'
@@ -187,7 +187,7 @@ const TALK_HEAD = ['Page', 'Shown comments', 'Photos']
 const NO_TALK = 'No comments or photos shown yet.'
 const emptyOf = (s: CommentState) => `No ${LABEL[s].toLowerCase()} comments.`
 const webHref = (s: CommentState) => `${COMMENTS_PATH}?state=${s}`
-const failedText = (what: string) => `Couldn't load ${what}.`
+const failedText = (what: string) => `Couldn’t load ${what}.`
 const failedHtml = (what: string, f: Failed) => `<div class="failed" role="status">${esc(failedText(what))}<code>${esc(f.failed)}</code></div>`
 const failedBlock = (what: string, f: Failed) => note(`${failedText(what)} ${f.failed}`, 'bad')
 
@@ -214,7 +214,7 @@ function itemHtml(r: CommentRow, d: CommentsData): string {
 }
 
 export function commentsPage(d: CommentsData): string {
-  let body = `<h1>Comments</h1><p class="lede">${esc(LEDE)}</p>`
+  let body = '<h1>Comments</h1>'
   if (isFailed(d.list)) body += failedHtml('the comments', d.list)
   else {
     const l = d.list
@@ -236,7 +236,7 @@ export function commentsPage(d: CommentsData): string {
 }
 
 export function commentsSection(d: CommentsData): Section {
-  const blocks: Block[] = [note(LEDE)]
+  const blocks: Block[] = []
   if (isFailed(d.list)) blocks.push(failedBlock('the comments', d.list))
   else {
     const l = d.list

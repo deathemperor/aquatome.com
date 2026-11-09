@@ -28,7 +28,8 @@
       ],
       "sources": [
         "glaser",
-        "seriouslyfish"
+        "seriouslyfish",
+        "aquariumcoop"
       ],
       "quotes": [
         {
@@ -152,6 +153,13 @@
           "min": 20,
           "max": 26
         }
+      },
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
       }
     ],
     "sizeCm": [
@@ -161,6 +169,10 @@
       },
       {
         "source": "seriouslyfish",
+        "value": 3.5
+      },
+      {
+        "source": "aquariumcoop",
         "value": 3.5
       }
     ],
@@ -180,6 +192,13 @@
         "value": {
           "min": 5.5,
           "max": 7.5
+        }
+      },
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 6,
+          "max": 8
         }
       }
     ],
@@ -213,6 +232,18 @@
       "html": "<p>Max size: 35 mm SL. Aquarium size: 60 × 30 cm. Temperature: 20–26°C. pH 5.5–7.5. Hardness: 2–10 dGH.</p><p>The salt and pepper cory, Hoplisoma habrosum, long known as Corydoras habrosus, is a tiny armoured catfish from left bank tributaries of the upper Orinoco in Colombia and Venezuela. Most records come from the Río Apure watershed in the Llanos, where it apparently favours lagoons, streams, inundated forest and grassland with little flow. It has 2-3 dark markings along the side of the body, against 4-5 in the similar H. cochui.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/habrosus-corydoras",
+      "html": "<p><em>Corydoras habrosus</em> is the largest of the three species of \"dwarf corydoras\". Females are round-bellied and reach 3.5 cm; males are slightly smaller and slimmer.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/habrosus-corydoras",
+      "html": "<p>Unlike the other two dwarf corydoras that hover in the middle of the tank, habrosus corys prefer to swim near the bottom, using their little barbels to search for food. They are very active yet peaceful and show many of the personality quirks of their larger cousins. Expect to see them dart up to the surface for a gulp of air or \"wink\" at you while resting on the ground.</p><p>All three dwarf corydoras are similar in size and coloration, but their patterns differ:</p><ul><li>C. habrosus (salt and pepper cory): silvery-tan body with an uneven, horizontal black stripe, a striped tail, and darker splotches on the head and back</li><li>C. hastatus (tail spot cory): silvery body with a big black spot at the base of the tail, flanked by small white dots</li><li>C. pygmaeus (pygmy cory): silvery body with a thin, horizontal black stripe</li></ul><p>Do not confuse it with the \"peppered cory catfish\", C. paleatus, which also has a mottled pattern but grows up to 6,4 cm long.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-habrosus-2/",
@@ -231,10 +262,22 @@
       "html": "<p>This species occurs in the Llanos Orientales region, a vast tropical grassland plain traversed by the Orinoco and some of its major left bank tributaries. Large swathes of these plains become flooded during the annual wet season, forming an enormous wetland which is a paradise for wildlife.</p><p>Hoplisoma habrosum apparently displays a preference for lagoons, tributary streams, inundated forest and grassland, and marginal zones, where water flow is not strong. It tends to form aggregations close to submerged vegetation or solid structures such as tree branches or roots.</p><p>Other fishes occurring in the region and available in the aquarium trade include Brochis delphax, Platydoras costatus, Baryancistrus beggini, Hypancistrus inspector, Panaqolus maccus, Panaque nigrolineatus, Hemigrammus rhodostomus, H. stictus, Hyphessobrycon sweglesi, Paracheirodon axelrodi, Pristella maxillaris, Copella nattereri, Biotodoma wavrini, Heros severus, Mesonauta insignis, Geophagus abalios, Satanoperca daemon and Uaru fernandezyepezi.</p>"
     },
     {
+      "key": "habitat",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/habrosus-corydoras",
+      "html": "<p>The habrosus cory is found in the flooded forests and slow-moving streams of Colombia and Venezuela, which are full of underwater foliage and tree roots. Hundreds of them congregate around dense cover while sifting through the substrate.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-habrosum",
       "html": "<p>Minimum base dimensions of 60 × 30 cm are recommended (about 54 litres). This species is unsuitable for modern 'nano' aquaria.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/habrosus-corydoras",
+      "html": "<p>A 40-litre aquarium is a good starting point, depending on the size of the school and number of tank mates.</p>"
     },
     {
       "key": "maintenance",
@@ -261,6 +304,18 @@
       "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 5.5–7.5</li><li>Hardness: 2–10 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/habrosus-corydoras",
+      "html": "<p>Because they are accustomed to the changing parameters of the rainy seasons, they can be kept at pH 6–8, 20–26°C, in soft to moderately hard water.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/habrosus-corydoras",
+      "html": "<p>Use a filter with gentle flow, with lots of live aquarium plants and driftwood to simulate their natural habitat.</p>"
+    },
+    {
       "key": "diet",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/corydoras-habrosus-2/",
@@ -273,10 +328,22 @@
       "html": "<p>Corydoras spp. are foraging omnivores, and most will accept sinking dried foods as well as small live and frozen varieties such as chironomid larvae (bloodworm), Tubifex, etc.</p><p>Feeding a varied diet will ensure the fish are in optimum condition.</p><p>Under no circumstances should they be expected to survive on 'left-overs' from other inhabitants of the aquarium or relied on to 'clean' the aquarium.</p>"
     },
     {
+      "key": "diet",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/habrosus-corydoras",
+      "html": "<p>Although they are excellent \"vacuum cleaners\" that suck up any morsels they find, cory catfish cannot live on leftovers alone and must be fed a variety of sinking foods. They are not fast eaters and take their time foraging, so be careful about pairing them with fast swimmers that will eat every crumb before it reaches the bottom.</p><p>A mixture of nano pellets, sinking wafers, frozen daphnia, baby brine shrimp and live micro worms works well. Repashy gel food is a favourite since it stays solid in the water for up to 24 hours, allowing them to graze all day. They love meaty foods and generally do not go after algae or vegetables.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-habrosum",
       "html": "<p>Peaceful and gregarious. Should be maintained in a group of at least 4-6 individuals, ideally 10 or more.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/habrosus-corydoras",
+      "html": "<p>As a smaller schooling fish, they feel most comfortable in a larger group of at least 8–12 habrosus corys. The greater the numbers, the more their personalities shine.</p><p>They are very mild-mannered and get along with virtually any peaceful community fish that isn't big enough to eat them. Common tank mates include chili rasboras, celestial pearl danios, clown killifish, green neon tetras, snails and other small catfish. They can live with adult dwarf shrimp but may opportunistically eat baby shrimp or fish fry.</p>"
     },
     {
       "key": "dimorphism",
@@ -289,6 +356,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-habrosum",
       "html": "<p>Can be bred in a similar fashion to many other Corydoras species.</p><p>Use a ratio of two or more males per female if possible, and when the females are visibly full of eggs perform a large (50-70%) water change with soft, cool water, and increase oxygenation and flow in the tank. Repeat this daily until the fish spawn.</p><p>Eggs may be deposited on the aquarium glass, among fine-leaved vegetation or within sunken spawning mops, with the latter particularly recommended since they facilitate easy removal of eggs.</p><p>Once spawning is complete either adults or eggs should be removed; the latter can usually be rolled gently up the glass with a finger. The new container should contain the same water as the spawning tank and be similarly well-oxygenated.</p><p>Most breeders add a few drops of methylene blue, or an alder cone or two at this point in order to prevent the eggs developing fungus.</p><p>Incubation is normally 3-4 days and once the fry have fully-absorbed their yolk sacs they are able to accept small live foods such as microworm, Artemia nauplii, etc.</p><p>They are not the easiest to raise, requiring excellent water quality, but seem less susceptible to ailments when maintained over a thin layer of sand rather than in a bare arrangement.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/habrosus-corydoras",
+      "html": "<p>Like most corydoras, they can be conditioned for spawning by increasing the amount of food. Some breeders recommend having more males than females and doing frequent, large water changes with cooler, soft water to imitate the rainy season. When the female is plump and full of eggs, the males chase her until she is ready to mate.</p><p>The sticky, fertilized eggs are typically deposited on aquarium walls, plant leaves or a spawning mop sunk to the bottom. The adults eat their own eggs, so remove either all the fish or the eggs. Eggs can be gently rolled off with a finger, or remove the whole spawning mop.</p><p>Corydoras eggs are prone to fungus, so to increase the hatch rate, consider placing them in a catch cup with an air stone and adding a few drops of methylene blue or alder cones as an antifungal. Once the fry have hatched, change the water to remove the methylene blue and feed tiny sinking foods like vinegar eels, powdered fry food and raw Repashy powder. Keep water quality high with frequent water changes, and once they are big enough, feed live baby brine shrimp to boost growth significantly.</p><p>Alder cones and other botanicals add brown tannins to the water and have very mild antifungal properties.</p>"
     },
     {
       "key": "notes",
@@ -325,9 +398,67 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/hoplisoma-habrosum",
       "caption": "Two males (left) pursue a larger gravid female (right).",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/51c8d60c4d7d4fdb.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/51c8d60c4d7d4fdb-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/habrosus-corydoras",
+      "caption": "Care Guide for Habrosus Corydoras — The Largest Dwarf Cory Catfish - Aquarium Co-Op",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/2a1aa25fc90fc8b2.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/2a1aa25fc90fc8b2-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/habrosus-corydoras",
+      "caption": "Corydoras habrosus in planted tank",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/abb2f5506dccc501.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/abb2f5506dccc501-480.webp",
+      "width": 1000,
+      "height": 750,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/habrosus-corydoras",
+      "caption": "salt and pepper cory catfish during feeding time",
+      "source": "aquariumcoop"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "DT0o1s1Vygk",
+      "title": "Habrosus Corydoras: What I Learned",
+      "durationSec": 367,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "MU-VJS8HUEs",
+      "title": "Panda Cory VS Habrosus Cory: Which is Right For You?",
+      "durationSec": 521,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "wcn0s7d2hS0",
+      "title": "Corydoras Habrosus feeding and breeding #fish #fishfeeding #corydoras",
+      "durationSec": 12,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ehvlcftTWTg",
+      "title": "Quirlige Zwergpanzerwelse | Corydoras pygmeus C. hastatus & C. habrosus | Türchen 22",
+      "durationSec": 791,
+      "lang": "de"
+    }
+  ],
   "productSlots": [
     {
       "category": "phan-nen",
@@ -349,5 +480,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-09"
 }

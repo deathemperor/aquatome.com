@@ -1,0 +1,132 @@
+{
+  "id": "metaloricaria-nijsseni",
+  "scientificName": "Metaloricaria nijsseni",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Metaloricaria",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "suriname",
+    "guyana",
+    "corantijn"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 29.5
+      },
+      {
+        "source": "scotcat",
+        "value": 29.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 25,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1316",
+      "html": "<ul><li>Scientific name: Metaloricaria nijsseni (Boeseman, 1976)</li><li>Type locality: Sipaliwini River, southwestern Suriname.</li><li>IUCN Red List: Least Concern (last assessed 2021).</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/metaloricaria_nijsseni.htm",
+      "html": "<p>Family: Loricariidae. Common name: none. Synonym: Harttia nijsseni. Size: 29.5 cm. Temperature: 25–30°C. pH: 6.0–7.0.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1316",
+      "html": "<p>South America: Suriname, Saramacca, Nickerie and Corantijn River basins. Guyana waters, coastal rivers of the Guianas, Suriname coastal rivers.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/metaloricaria_nijsseni.htm",
+      "html": "<p>South America: Suriname, Saramacca, Nickerie, and Corantijn River basins. Type locality: Sipaliwini River, southwestern Surinam.</p><p>The species is widespread in the Corantijne, Sipaliwini, Nickerie, Saramacca, and Suriname drainages. It has a wide distribution with an extent of occurrence (EOO) of 77,184 km2 and an area of occupancy (AOO) of 13,568 km2. Therefore, this species is assessed as Least Concern (IUCN 2023).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/metaloricaria_nijsseni.htm",
+      "html": "<p>Not kept very often, but its requirements would be similar to those of the Harttia genus: they are not the easiest species to keep, as they need clean, oxygen-rich water, a large tank and a strong current.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/metaloricaria_nijsseni.htm",
+      "html": "<p>Dry foods, algae wafers, Spirulina and normal tablet foods. Frozen foods, Artemia nauplii, glass worms and Daphnia.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1316",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/metaloricaria_nijsseni.htm",
+      "html": "<p>Similar to the Rineloricaria and Pseudoloricaria genera. The genus Metaloricaria has a very wide lower lip. There are only two species in this genus, the other being M. paucidens from the Morani and Oyapock rivers in French Guiana.</p><p>Etymology: the specific name nijsseni is named in honour of Dr. Han Nijssen.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1316",
+      "html": "<p>Zoologische Mededelingen (Leiden) v. 50 (no. 11), pp170, Pl. 8</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/metaloricaria_nijsseni.htm",
+      "html": "<p>Ballen, G.A. 2023. Metaloricaria nijsseni. The IUCN Red List of Threatened Species 2023. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2015. FishBase. World Wide Web electronic publication. www.fishbase.org, (01/2016). www.l-welse.com</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy tạo dòng chảy",
+        "sục khí oxy"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300w"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "viên tảo cho cá lau kiếng",
+        "thức ăn viên chìm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

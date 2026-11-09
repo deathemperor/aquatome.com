@@ -10,8 +10,16 @@
   "https://media.aquatome.com/seriouslyfish/67be0327b4c9bc00.webp": "222406307054b909",
   "https://media.aquatome.com/seriouslyfish/e246412aaba76664.webp": "6c97c5fc3439a586",
   "https://media.aquatome.com/seriouslyfish/0cc3417910e7c45b.webp": "ccc9c9cbf8e8f0f4",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/172961897/original.jpeg": "030e302634939b9e",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/172961916/original.jpeg": "dbf0f07031333367"
+  "https://media.aquatome.com/inaturalist/172961897.webp": "030e302614139b9e",
+  "https://media.aquatome.com/inaturalist/172961916.webp": "dbf0f0703133276f"
  },
- "commons": "2026-11-08"
+ "commons": "2026-11-08",
+ "inat": {
+  "taxon": 609126,
+  "pass": "done",
+  "after": {
+   "research": 103358856,
+   "agree": 0
+  }
+ }
 }

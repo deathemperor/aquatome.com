@@ -73,8 +73,11 @@ final class ViAtRootFlowTests: XCTestCase {
     app.terminate()
 
     app = launch(reset: false)
-    XCTAssertTrue(app.staticTexts["Đọc gần đây"].waitForExistence(timeout: 5), "not listed as read")
-    XCTAssertTrue(app.staticTexts["Đã lưu để đọc sau"].exists, "not listed as saved")
+    let read = app.descendants(matching: .any)["recent"].descendants(matching: .any).matching(identifier: "item")
+    XCTAssertTrue(read.matching(NSPredicate(format: "label BEGINSWITH 'Nuôi cá neon'")).firstMatch.waitForExistence(timeout: 5), "not listed as read")
+    let saved = app.descendants(matching: .any)["all-saved"].firstMatch
+    XCTAssertTrue(saved.exists && saved.label.contains("1"), "not listed as saved")
+    saved.tap()
     app.descendants(matching: .any).matching(identifier: "item").matching(NSPredicate(format: "label BEGINSWITH 'Nuôi cá neon'")).firstMatch.tap()
     XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "the saved guide didn't open")
     XCTAssertEqual(app.buttons["save-for-later"].label, "Bỏ lưu", "not saved at its new path")
@@ -84,7 +87,7 @@ final class ViAtRootFlowTests: XCTestCase {
 
   private func launch(atRoot: Bool = true, reset: Bool = true) -> XCUIApplication {
     let app = XCUIApplication()
-    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook"]
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-v2", "NO"]
       + (atRoot ? ["-vi-at-root"] : []) + (reset ? ["-reset-defaults"] : [])
     app.launch()
     return app

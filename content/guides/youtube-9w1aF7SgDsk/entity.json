@@ -8,9 +8,10 @@
   "mentions": [
     "micranthemum-tweediei-monte-carlo",
     "eleocharis-parvula",
-    "glossostigma-elatinoides"
+    "glossostigma-elatinoides",
+    "micranthemum-tweediei"
   ],
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "9w1aF7SgDsk",
     "title": "INTERMEDIATE PLANT: Micranthemum 'Monte Carlo'",
@@ -32,37 +33,28 @@
       "Micranthemum tweediei",
       "Eleocharis parvula",
       "Hemianthus callitrichoides",
-      "Glossostigma elatinoides"
+      "Glossostigma elatinoides",
+      "Marsilea sp."
     ],
     "gear": [
       {
         "category": "den",
         "type": "thuy-sinh",
-        "brand": "Finnex",
-        "model": "Planted+ 24/7 SE",
+        "brand": "Fluval",
+        "model": "Plant 3.0",
         "t": 376
       },
       {
         "category": "khac",
         "brand": "Seachem",
-        "model": "Excel",
+        "model": "Flourish Excel",
         "t": 561
       },
       {
         "category": "khac",
         "brand": "Easy Green",
+        "model": "Easy Green",
         "t": 594
-      },
-      {
-        "category": "phan-nen",
-        "type": "phan",
-        "t": 626
-      },
-      {
-        "category": "khac",
-        "brand": "ADA",
-        "model": "Power Sand",
-        "t": 626
       },
       {
         "category": "phan-nen",
@@ -74,83 +66,142 @@
       {
         "category": "phan-nen",
         "type": "phan",
-        "brand": "Fluorite",
+        "brand": "ADA",
+        "model": "Power Sand",
+        "t": 626
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "brand": "Flourite",
         "t": 626
       }
     ],
     "figures": [
       {
-        "heading": "Nên mua cây cấy mô hay cây chậu",
+        "heading": "Cắm cây sao cho không bị nổi",
         "moments": [
           {
-            "t": 10,
-            "url": "https://media.aquatome.com/video/9w1aF7SgDsk/t10.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể thủy sinh có đá và vài mảng cây xanh phía trong."
+            "t": 285,
+            "url": "https://media.aquatome.com/video/9w1aF7SgDsk/at285-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Toàn cảnh bể thủy sinh mới setup với đá và cây trải thảm.",
+            "sharpness": 906.2,
+            "person": false
+          },
+          {
+            "t": 320,
+            "url": "https://media.aquatome.com/video/9w1aF7SgDsk/at320-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Các khóm cây thảm nhỏ cắm sát nền giữa những tảng đá.",
+            "sharpness": 154.2,
+            "person": false
           }
-        ]
-      },
-      {
-        "heading": "Chia khóm và cắm cây thế nào",
-        "moments": [],
+        ],
         "photo": {
-          "url": "https://media.aquatome.com/video/9w1aF7SgDsk/p1-J1LUluZGlhLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/9w1aF7SgDsk/p1-J1LUluZGlhLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/9w1aF7SgDsk/p2-ydS1JbmRpYS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/9w1aF7SgDsk/p2-ydS1JbmRpYS5qcGc-480.webp",
           "width": 960,
           "height": 720,
           "licence": "CC BY 4.0",
           "author": "Yercaud-elango",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Micranthemum_tweediei-2-veda_aquarium-bengaluru-India.jpg",
-          "caption": "Thảm Monte Carlo mọc kín xanh mướt sau khi cắm rải thành nhiều khóm."
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Staurgyne_repens-1-veda_aquarium-bengaluru-India.jpg",
+          "caption": "Thảm ngò lông xanh mướt mọc kín nền, xen đá và cây lá rộng."
         }
       },
       {
-        "heading": "Chăm sóc trong vài tuần đầu",
+        "heading": "Mấy tuần đầu cần để ý gì",
         "moments": [
           {
-            "t": 15,
-            "url": "https://media.aquatome.com/video/9w1aF7SgDsk/t15.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể thủy sinh mới setup với đá, chưa trồng nhiều cây, cần để yên."
+            "t": 350,
+            "url": "https://media.aquatome.com/video/9w1aF7SgDsk/at350-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Các khóm Monte Carlo nhỏ mới trồng trên nền, xen giữa đá.",
+            "sharpness": 979.7,
+            "person": false
+          },
+          {
+            "t": 355,
+            "url": "https://media.aquatome.com/video/9w1aF7SgDsk/at355-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Thảm Monte Carlo mới cắm rải rác trên nền tối cạnh đá.",
+            "sharpness": 223.1,
+            "person": false
           }
         ]
       },
       {
-        "heading": "Đèn và CO2 cần đến mức nào",
+        "heading": "Đèn và CO2",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/9w1aF7SgDsk/p3-1bV9MaWdodC5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/9w1aF7SgDsk/p3-1bV9MaWdodC5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/9w1aF7SgDsk/p4-1bV9MaWdodC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/9w1aF7SgDsk/p4-1bV9MaWdodC5qcGc-480.webp",
           "width": 960,
           "height": 666,
           "licence": "CC BY-SA 3.0",
           "author": "Lime Huang",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_Aquarium_Light.jpg",
-          "caption": "Bể thủy sinh thấp trồng đầy cây, có đèn LED gắn phía trên."
+          "caption": "Bể thủy sinh không cao, có đèn LED gắn phía trên, cây xanh mọc dày."
         }
       },
       {
-        "heading": "Phân nước và nền dinh dưỡng",
+        "heading": "Phân nước và nền",
         "moments": [
           {
-            "t": 20,
-            "url": "https://media.aquatome.com/video/9w1aF7SgDsk/t20.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Hồ mới setup với đá và lớp nền, chưa trồng cây trải thảm."
+            "t": 655,
+            "url": "https://media.aquatome.com/video/9w1aF7SgDsk/at655-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh bày đá, nền sẫm và vài mảng cây xanh.",
+            "sharpness": 1434.2,
+            "person": false
+          },
+          {
+            "t": 665,
+            "url": "https://media.aquatome.com/video/9w1aF7SgDsk/at665-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Góc nghiêng bể cho thấy lớp nền và đá hoa văn.",
+            "sharpness": 637.1,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Cây lan thành thảm ra sao",
+        "moments": [
+          {
+            "t": 440,
+            "url": "https://media.aquatome.com/video/9w1aF7SgDsk/at440-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Những khóm Monte Carlo nhỏ mới trồng rải rác trên nền đất.",
+            "sharpness": 149.4,
+            "person": false
+          },
+          {
+            "t": 470,
+            "url": "https://media.aquatome.com/video/9w1aF7SgDsk/at470-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Monte Carlo mọc thành các bụi thấp xen giữa đá trên nền.",
+            "sharpness": 175.7,
+            "person": false
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/9w1aF7SgDsk/p4-AxOF9hXzAxLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/9w1aF7SgDsk/p4-AxOF9hXzAxLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/9w1aF7SgDsk/p6-X1NoYXJqYWguanBn.webp",
+          "thumb": "https://media.aquatome.com/video/9w1aF7SgDsk/p6-X1NoYXJqYWguanBn-480.webp",
           "width": 960,
           "height": 720,
           "licence": "CC BY-SA 4.0",
-          "author": "Lamiot",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Flore_subaquatique_d%27une_mare_citerne_en_vall%C3%A9e_de_l%27Esteron_fin_avril_2018_a_01.jpg",
-          "caption": "Cây thủy sinh xanh tốt mọc dày trên nền dinh dưỡng trong hồ."
+          "author": "Ranjith-chemmad",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Freshwater_aquariums_Sharjah.jpg",
+          "caption": "Monte Carlo đã lan kín nền thành thảm xanh dày, thấp sát đáy."
         }
       }
     ]

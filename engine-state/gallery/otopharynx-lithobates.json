@@ -1,17 +1,11 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Cichlid-image-rtisbute-steven-viemeister-6.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Cichlid-image-rtisbute-steven-viemeister-6.jpg/500px-Cichlid-image-rtisbute-steven-viemeister-6.jpg",
-   "width": 1024,
-   "height": 683,
-   "licence": "CC BY 2.5",
-   "author": "The original uploader was Sviemeister at English Wikipedia.",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cichlid-image-rtisbute-steven-viemeister-6.jpg",
-   "caption": "The copyright holder of this file, Steven Viemeister - rtisbtue, allows anyone to use it for any purpose, provided that the copyright holder is properly attribu",
-   "key": "File:Cichlid-image-rtisbute-steven-viemeister-6.jpg"
-  }
+ "queue": [],
+ "judged": [
+  "File:Cichlid-image-rtisbute-steven-viemeister-6.jpg"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/seriouslyfish/07ffef91dcef3aac.webp": "1e26caa66e646666",
+  "https://media.aquatome.com/commons/a96cc124cd9f2b0a.webp": "3f3f1d194cf176cc"
+ },
+ "commons": "2026-11-09"
 }

@@ -1,0 +1,366 @@
+{
+  "id": "lobocheilos-rhabdoura",
+  "scientificName": "Lobocheilos rhabdoura",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Lobocheilos",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "laos",
+    "mekong",
+    "thailand",
+    "chao-phraya",
+    "cambodia",
+    "vietnam",
+    "dong-nai",
+    "malaysia",
+    "peninsular-malaysia"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "LA",
+        "TH",
+        "KH",
+        "VN",
+        "MY"
+      ],
+      "regions": [
+        "Mekong",
+        "Chao Phraya",
+        "Mae Klong",
+        "Dong Nai"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the Mekong River in Laos, Thailand, Cambodia, and Vietnam, the Dong Nai basin in southern Vietnam, the Chao Phraya and Mae Klong systems in central and western Thailand, and several smaller drainages in peninsular Thailand and northern Peninsular Malaysia.",
+          "countries": [
+            "LA",
+            "TH",
+            "KH",
+            "VN",
+            "MY"
+          ],
+          "regions": [
+            "Mekong",
+            "Chao Phraya",
+            "Mae Klong",
+            "Dong Nai"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5205930,
+      "total": 22,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "TH",
+          10
+        ],
+        [
+          "KH",
+          6
+        ],
+        [
+          "LA",
+          3
+        ],
+        [
+          "MY",
+          2
+        ],
+        [
+          "VN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          16.875,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          5.625,
+          2,
+          2
+        ],
+        [
+          99.84375,
+          19.6875,
+          2,
+          2
+        ],
+        [
+          101.25,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          101.25,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          101.25,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          11.25,
+          5,
+          5
+        ],
+        [
+          104.0625,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          11.25,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          14.0625,
+          3,
+          3
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 22
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 180
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lobocheilos-rhabdoura",
+      "html": "<p>Lobocheilos rhabdoura is a grazing cyprinid from Indochina, found in the Mekong, Chao Phraya and Mae Klong systems and south to Peninsular Malaysia. One of the most abundant species in the seasonal cyprinid migrations of the mainstream Mekong, it is available on a sporadic basis. It differs from L. melanotaenia in its shallower body, wider mouth and larger snout tubercules. It can be aggressive at feeding times and is not particularly tolerant of conspecifics.</p><ul><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li><li>Needs a very large tank</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lobocheilos-rhabdoura",
+      "html": "<p>Native to the Mekong River in Laos, Thailand, Cambodia, and Vietnam, the Dong Nai basin in southern Vietnam, the Chao Phraya and Mae Klong systems in central and western Thailand, and several smaller drainages in peninsular Thailand and northern Peninsular Malaysia.</p><p>Type locality is 'Chieng Mai, North Siam', corresponding to the Ping River basin, a tributary within the Chao Phraya watershed in Chiang Mai province, northern Thailand.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lobocheilos-rhabdoura",
+      "html": "<p>This species is considered to be one of the most abundant species in the massive seasonal migrations of cyprinid fishes that occur in the mainstream Mekong river in December to February and May to July.</p><p>Otherwise, it has been recorded in rivers and streams of all sizes down to around 2-3 m in width, mostly with moderate to fast flow and rocky substrates.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lobocheilos-rhabdoura",
+      "html": "<p>An aquarium with base dimensions of 180 × 60 cm or equivalent should be the smallest considered. Volume is about 648 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lobocheilos-rhabdoura",
+      "html": "<p>A display arranged to resemble a flowing stream or river, with a substrate of variably-sized, water-worn rocks, sand, fine gravel and perhaps some small boulders, is highly recommended. This can be further furnished with driftwood roots or branches and hardy aquatic plants such as Microsorum, Bolbitis, or Anubias spp., which can be grown attached to items of décor.</p><p>Most importantly, the water must be clean and well-oxygenated with turnover preferably in excess of 10 times per hour; additional powerheads and airstones can be employed to achieve the desired flow and oxygenation if necessary. Bright lighting will promote development of a biofilm on solid surfaces, upon which the fish will graze.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lobocheilos-rhabdoura",
+      "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 6.0–8.0</li><li>Hardness: 2–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lobocheilos-rhabdoura",
+      "html": "<p>Lobocheilos species are specialised grazers of periphyton, benthic algae, and other organisms which grow attached to rocks and other solid surfaces, and they typically leave visible scrape marks in places where they have been feeding.</p><p>They are by no means herbivorous and should be offered meaty foods such as live or frozen chironomid larvae (bloodworm), Tubifex, Artemia, chopped prawn, etc., along with good quality, sinking dried products, at least some of which should contain a significant proportion of vegetable matter such as Spirulina or similar.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lobocheilos-rhabdoura",
+      "html": "<p>Can be aggressive at times, especially when food is added to the aquarium, and will often actively pursue fishes straying into the vicinity.</p><p>The most suitable tankmates are active, peaceful cyprinids since they are normally agile enough to avoid such attacks. Slow-moving or long-finned species should be omitted in the majority of circumstances.</p><p>It is not particularly tolerant of conspecifics, especially if space is limited, but normally exists in loose aggregations in the wild and should ideally be maintained in a group.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lobocheilos-rhabdoura",
+      "html": "<p>Sexually mature females are deeper-bodied than males, while males possess more extensive tuberculation on the head and snout.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lobocheilos-rhabdoura",
+      "html": "<p>Unreported in aquaria. Wild fish undertake seasonal spawning migrations, moving from the lower Mekong and Tonlé Sap system to the middle portion of the Mekong basin in Laos to spawn.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lobocheilos-rhabdoura",
+      "html": "<p>The majority of Lobocheilos species are endemic to the Greater Sunda Islands of Borneo, Sumatra, and Java, and are uncommon in the aquarium trade, but the widespread Indochinese taxa L. rhabdoura and L. melanotaenia are available on a sporadic basis.</p><p>L. rhabdoura can be distinguished from L. melanotaenia by the following combination of characters: body relatively shallow, depth fits 3.7-4.6 times in SL; mouth relatively wide, as wide as head; tubercules on snout relatively large; 10 predorsal scales; 5+28 rakers on anterior side of first gill arch.</p><p>Lobocheilos species are considered members of the tribe Labeonini within the putative cyprinid subfamily Cyprininae or simply the subfamily Labeoninae (name varies with author). According to the most recent phylogenetic research, this grouping is further divided into four subtribes; Labeoina, Garraina, Osteochilina, and Semilabeoina (Yang et al., 2012). Among these, it is included in the Osteochilina alongside the genera Epalzeorhynchos, Crossocheilus, Barbichthys, Thynnichthys, Labiobarbus, and Osteochilus, among others.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lobocheilos-rhabdoura",
+      "html": "<ul><li>Fowler, H. W. (1934). Zoological results of the third De Schauensee Siamese Expedition, Part I.--Fishes. Proceedings of the Academy of Natural Sciences of Philadelphia 86, 67-163</li><li>Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Kottelat, M. (1998). Fishes of the Nam Theun and Xe Bangfai basins, Laos, with diagnoses of twenty-two new species (Teleostei: Cyprinidae, Balitoridae, Cobitidae, Coiidae and Odontobutidae). Ichthyological Exploration of Freshwaters 9(1), 1-128</li><li>Rainboth, W. J. (1996). FAO species identification field guide for fishery purposes. Fishes of the Cambodian Mekong. Rome, FAO, 1-265</li><li>Freyhof, J., D. V. Serov and T. N. Nguyen (2000). A preliminary checklist of the freshwater fishes of the River Dong Nai, South Vietnam. Bonner Zoologische Beiträge 49(1-4), 93-99</li><li>Yang, L., M. Arunachalam, T. Sado, B. A. Levin, A. S. Golubtsov, J. Freyhof, J. P. Friel, W-J. Chen, M. V. Hirt, R. Manickam, M. K. Agnew, A. M. Simons, K. Saitoh, M. Miya, R. L. Mayden, and S. He (2012). Molecular phylogeny of the cyprinid tribe Labeonini (Teleostei: Cypriniformes). Molecular Phylogenetics and Evolution 65(2), 362-379</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/b5f43d911e5aaf30.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/b5f43d911e5aaf30-480.webp",
+      "width": 820,
+      "height": 414,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lobocheilos-rhabdoura",
+      "caption": "Putative adult male specimen from the Mekong River system.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/c2034e1d2b6aba58.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/c2034e1d2b6aba58-480.webp",
+      "width": 820,
+      "height": 615,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lobocheilos-rhabdoura",
+      "caption": "Detail of tubercules on snout; specimen from northern Peninsular Malaysia.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/a3345b7ac2b44c4b.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/a3345b7ac2b44c4b-480.webp",
+      "width": 820,
+      "height": 615,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lobocheilos-rhabdoura",
+      "caption": "Underside of head; specimen from northern Peninsular Malaysia.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/f5d8b2350baf10ab.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/f5d8b2350baf10ab-480.webp",
+      "width": 820,
+      "height": 549,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lobocheilos-rhabdoura",
+      "caption": "Subadult from Ratanakiri province, northeastern Cambodia.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 180cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "lọc thùng bể lớn",
+        "sủi oxy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá",
+        "trùng huyết đông lạnh",
+        "thức ăn spirulina"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi sông",
+        "cát sông bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

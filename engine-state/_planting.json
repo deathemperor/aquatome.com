@@ -14,6 +14,22 @@
     "score": 0.88,
     "kept": true
   },
+  "anubias-barteri-var-coffeifolia": {
+    "at": "2026-11-08",
+    "score": 0.65,
+    "kept": false,
+    "notes": [
+      "Added placement advice not in INPUT: \"nên lúc chọn chỗ gắn cần tính thêm phần thân rễ đó\". The INPUT gives the rhizome length but never says to allow space for it.",
+      "\"Bể lớn hay bể nhỏ đặt nó đều đẹp\" leaves out the INPUT's reason (the leaf colour and shape). It isn't wrong, but on its own it reads like an unsupported claim.",
+      "\"Bể có cá ăn cây cũng trồng được\" goes slightly beyond the source. The INPUT only says plant-eating fish don't touch it. This is minor.",
+      "\"chỗ của nó là trên lũa hoặc đá\" is a little stiff. Something like \"buộc/gắn lên lũa, đá\" would sound more natural to a hobbyist."
+    ]
+  },
+  "aponogeton-ulvaceus": {
+    "at": "2026-11-08",
+    "score": 0.85,
+    "kept": true
+  },
   "bacopa-monnieri": {
     "at": "2026-11-08",
     "kept": false
@@ -60,13 +76,26 @@
     "at": "2026-11-07",
     "kept": false
   },
+  "ceratopteris-thalictroides": {
+    "at": "2026-11-09",
+    "score": 0.85,
+    "kept": true
+  },
   "crinum-calamistratum": {
     "at": "2026-11-07",
     "score": 0.85,
     "kept": true
   },
+  "cryptocoryne-albida": {
+    "at": "2026-11-08",
+    "kept": false
+  },
   "cryptocoryne-beckettii": {
     "at": "2026-11-07",
+    "kept": false
+  },
+  "cryptocoryne-crispatula": {
+    "at": "2026-11-09",
     "kept": false
   },
   "cryptocoryne-nurii": {
@@ -93,6 +122,10 @@
     "at": "2026-11-08",
     "kept": false
   },
+  "echinodorus-aquartica": {
+    "at": "2026-11-09",
+    "kept": false
+  },
   "echinodorus-cordifolius": {
     "at": "2026-11-07",
     "kept": false
@@ -110,9 +143,18 @@
     "score": 0.95,
     "kept": true
   },
+  "echinodorus-red-diamond": {
+    "at": "2026-11-09",
+    "kept": false
+  },
   "echinodorus-reni": {
     "at": "2026-11-06",
     "kept": false
+  },
+  "echinodorus-x-barthii": {
+    "at": "2026-11-09",
+    "score": 0.8,
+    "kept": true
   },
   "eleocharis-acicularis": {
     "at": "2026-11-07",
@@ -126,9 +168,18 @@
       "The whole splitting and grid-planting method is copied from the dwarf hair grass guide and applied to the parent species without saying so."
     ]
   },
+  "eleocharis-montevidensis": {
+    "at": "2026-11-09",
+    "kept": false
+  },
   "eleocharis-parvula": {
     "at": "2026-11-06",
     "score": 0.82,
+    "kept": true
+  },
+  "eleocharis-pusilla": {
+    "at": "2026-11-08",
+    "score": 0.8,
     "kept": true
   },
   "eriocaulon-sp-vietnam": {
@@ -145,8 +196,16 @@
     "at": "2026-11-08",
     "kept": false
   },
+  "helanthium-bolivianum": {
+    "at": "2026-11-08",
+    "kept": false
+  },
   "helanthium-tenellum": {
     "at": "2026-11-07",
+    "kept": false
+  },
+  "hottonia-palustris": {
+    "at": "2026-11-09",
     "kept": false
   },
   "hydrocotyle-tripartita": {
@@ -157,9 +216,23 @@
     "at": "2026-11-07",
     "kept": false
   },
+  "hygrophila-lancea-araguaia": {
+    "at": "2026-11-08",
+    "kept": false
+  },
+  "hygrophila-polysperma-rosanervig": {
+    "at": "2026-11-09",
+    "score": 0.9,
+    "kept": true
+  },
   "lagenandra-meeboldii": {
     "at": "2026-11-08",
     "kept": false
+  },
+  "limnobium-laevigatum": {
+    "at": "2026-11-09",
+    "score": 0.8,
+    "kept": true
   },
   "limnophila-aquatica": {
     "at": "2026-11-08",
@@ -168,6 +241,11 @@
   "lindernia-rotundifolia": {
     "at": "2026-11-08",
     "kept": false
+  },
+  "littorella-uniflora": {
+    "at": "2026-11-09",
+    "score": 0.8,
+    "kept": true
   },
   "ludwigia-glandulosa": {
     "at": "2026-11-07",
@@ -204,6 +282,28 @@
     "at": "2026-11-07",
     "kept": false
   },
+  "najas-guadalupensis": {
+    "at": "2026-11-09",
+    "score": 0.85,
+    "kept": true
+  },
+  "nymphoides-hydrophylla": {
+    "at": "2026-11-09",
+    "kept": false
+  },
+  "plagiomnium-sp-thyme-moss": {
+    "at": "2026-11-09",
+    "kept": false
+  },
+  "pogostemon-stellatus": {
+    "at": "2026-11-09",
+    "score": 0.85,
+    "kept": true
+  },
+  "ranunculus-inundatus": {
+    "at": "2026-11-08",
+    "kept": false
+  },
   "rotala-rotundifolia-h-ra": {
     "at": "2026-11-08",
     "kept": false
@@ -211,6 +311,19 @@
   "rotala-wallichii": {
     "at": "2026-11-07",
     "kept": false
+  },
+  "sagittaria-subulata": {
+    "at": "2026-11-08",
+    "kept": false
+  },
+  "selaginella-uncinata": {
+    "at": "2026-11-09",
+    "kept": false
+  },
+  "utricularia-graminifolia": {
+    "at": "2026-11-09",
+    "score": 0.85,
+    "kept": true
   },
   "vallisneria-sp-gigantea": {
     "at": "2026-11-08",

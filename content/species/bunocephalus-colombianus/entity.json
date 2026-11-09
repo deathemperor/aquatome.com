@@ -17,10 +17,15 @@
       ],
       "regions": [
         "Atrato",
-        "Magdalena"
+        "Magdalena",
+        "Cauca",
+        "San Jorge",
+        "Sinu",
+        "Patía"
       ],
       "sources": [
-        "planetcatfish"
+        "planetcatfish",
+        "scotcat"
       ],
       "quotes": [
         {
@@ -38,6 +43,17 @@
           "regions": [
             "Atrato",
             "Magdalena"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Atrato and Magdalena River basins, also Cauca, San Jorge, Sinu and Patía basins, Colombia.",
+          "countries": [],
+          "regions": [
+            "Cauca",
+            "San Jorge",
+            "Sinu",
+            "Patía"
           ]
         }
       ]

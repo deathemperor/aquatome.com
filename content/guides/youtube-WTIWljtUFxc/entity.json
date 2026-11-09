@@ -8,7 +8,7 @@
   "mentions": [
     "staurogyne-repens"
   ],
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "WTIWljtUFxc",
     "title": "BEGINNER PLANT:  Staurogyne repens",
@@ -32,14 +32,13 @@
     ],
     "gear": [
       {
+        "category": "co2",
+        "t": 33
+      },
+      {
         "category": "cay-thuy-sinh",
         "type": "trong-nen",
         "t": 0
-      },
-      {
-        "category": "co2",
-        "type": "binh",
-        "t": 32
       }
     ],
     "figures": [
@@ -47,18 +46,20 @@
         "heading": "Có cần CO2 không",
         "moments": [
           {
-            "t": 10,
-            "url": "https://media.aquatome.com/video/WTIWljtUFxc/t10.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Toàn cảnh bể cây rậm, cây mọc đều dưới ánh đèn."
+            "t": 75,
+            "url": "https://media.aquatome.com/video/WTIWljtUFxc/at75-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh không CO2 với bụi cây xanh dày bên cạnh đá.",
+            "sharpness": 368.9
           },
           {
-            "t": 89,
-            "url": "https://media.aquatome.com/video/WTIWljtUFxc/t89.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể thủy sinh không CO2 với thảm cây xanh rậm quanh đá."
+            "t": 255,
+            "url": "https://media.aquatome.com/video/WTIWljtUFxc/at255-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh bụi cây rậm khỏe mạnh trong bể, có cá bơi phía sau.",
+            "sharpness": 793.4
           }
         ],
         "photo": {
@@ -69,44 +70,48 @@
           "licence": "CC BY-SA 4.0",
           "author": "Lennart Jöhnk",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquascaping-minilandschaft-lennart.jpg",
-          "caption": "Bể thủy sinh với thảm cây xanh rậm phủ kín nền và đá."
+          "caption": "Bể thủy sinh không CO2 với những bụi cây xanh dày mọc trên đá."
         }
       },
       {
         "heading": "Nên mua cây cấy mô hay cây chậu",
         "moments": [
           {
-            "t": 108,
-            "url": "https://media.aquatome.com/video/WTIWljtUFxc/t108.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể thủy sinh với các bụi cây xanh tốt mọc quanh đá."
+            "t": 95,
+            "url": "https://media.aquatome.com/video/WTIWljtUFxc/at95-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh với thảm cây xanh trải quanh các hòn đá.",
+            "sharpness": 1086.6
           },
           {
-            "t": 143,
-            "url": "https://media.aquatome.com/video/WTIWljtUFxc/t143.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh bụi cây xanh mướt trồng trên thảm cỏ."
+            "t": 160,
+            "url": "https://media.aquatome.com/video/WTIWljtUFxc/at160-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cây trồng thành hàng quanh hòn đá, nhìn rõ thảm cây phía trước.",
+            "sharpness": 850.8
           }
         ]
       },
       {
-        "heading": "Cắm cây thế nào",
+        "heading": "Cách tách và cắm cây",
         "moments": [
           {
-            "t": 216,
-            "url": "https://media.aquatome.com/video/WTIWljtUFxc/t216.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Các cụm cây cắm trên nền xanh bên cạnh hòn đá trong hồ."
+            "t": 165,
+            "url": "https://media.aquatome.com/video/WTIWljtUFxc/at165-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cây thân mảnh cắm thành cụm gần đá trong hồ thủy sinh.",
+            "sharpness": 327.1
           },
           {
-            "t": 226,
-            "url": "https://media.aquatome.com/video/WTIWljtUFxc/t226.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh gốc cây cắm sát nền, thân chìm xuống đất."
+            "t": 215,
+            "url": "https://media.aquatome.com/video/WTIWljtUFxc/at215-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Các khóm cây cắm quanh hòn đá trên nền cỏ xanh mướt.",
+            "sharpness": 1217.3
           }
         ],
         "photo": {
@@ -117,85 +122,60 @@
           "licence": "CC BY 4.0",
           "author": "Abhik.Mazumdar.73",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:An_Aquascapist_Planting_Aquatic_Plant_Anubias_Petite_with_Tweezers_in_an_Aquarium.jpg",
-          "caption": "Dùng nhíp cắm một gốc cây nhỏ xuống nền trong hồ thủy sinh."
+          "caption": "Dùng nhíp cắm một ngọn cây nhỏ vào nền bên cạnh lũa."
         }
       },
       {
-        "heading": "Bao lâu thì cây lên",
+        "heading": "Tỉa thế nào cho cây rậm",
         "moments": [
           {
-            "t": 236,
-            "url": "https://media.aquatome.com/video/WTIWljtUFxc/t236.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cây thân mọc xanh tốt, vươn lên cao bên cạnh gốc cây đã lên."
+            "t": 320,
+            "url": "https://media.aquatome.com/video/WTIWljtUFxc/at320-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Các bụi cây xanh tươi rậm rạp cạnh đá, có cá bơi phía sau.",
+            "sharpness": 776.4
           },
           {
-            "t": 251,
-            "url": "https://media.aquatome.com/video/WTIWljtUFxc/t251.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể thủy sinh với thảm cỏ phủ kín và các bụi cây mọc đẹp quanh đá."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/WTIWljtUFxc/p3-LWxlbm5hcnQuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/WTIWljtUFxc/p3-LWxlbm5hcnQuanBn-480.webp",
-          "width": 960,
-          "height": 337,
-          "licence": "CC BY-SA 4.0",
-          "author": "Lennart Jöhnk",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquascaping-minilandschaft-lennart.jpg",
-          "caption": "Bể thủy sinh đã lên kín thảm cỏ và các bụi rêu xanh mướt."
-        }
-      },
-      {
-        "heading": "Tỉa cho bụi dày",
-        "moments": [
-          {
-            "t": 339,
-            "url": "https://media.aquatome.com/video/WTIWljtUFxc/t339.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bụi Staurogyne repens rậm, xanh tươi cạnh hòn đá trong hồ thủy sinh."
-          },
-          {
-            "t": 384,
-            "url": "https://media.aquatome.com/video/WTIWljtUFxc/t384.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Thảm Staurogyne repens mọc dày thấp dưới chân hòn đá."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/WTIWljtUFxc/p4-LWxlbm5hcnQuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/WTIWljtUFxc/p4-LWxlbm5hcnQuanBn-480.webp",
-          "width": 960,
-          "height": 337,
-          "licence": "CC BY-SA 4.0",
-          "author": "Lennart Jöhnk",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquascaping-minilandschaft-lennart.jpg",
-          "caption": "Những bụi cây xanh rậm, dày đặc phủ kín nền và đá trong hồ thủy sinh."
-        }
-      },
-      {
-        "heading": "Trải thảm hay làm trung cảnh",
-        "moments": [
-          {
-            "t": 182,
-            "url": "https://media.aquatome.com/video/WTIWljtUFxc/t182.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bụi Staurogyne trồng ở trung cảnh, ôm quanh chân đá."
-          },
-          {
-            "t": 388,
-            "url": "https://media.aquatome.com/video/WTIWljtUFxc/t388.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cây mọc thành bụi xanh quanh chân đá, nhìn rất tự nhiên."
+            "t": 340,
+            "url": "https://media.aquatome.com/video/WTIWljtUFxc/at340-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bụi cây rậm, dày đặc ở gốc, đặt cạnh đá trong hồ.",
+            "sharpness": 162.5
           }
         ]
+      },
+      {
+        "heading": "Bố trí trong bể: thảm hay bụi trung cảnh",
+        "moments": [
+          {
+            "t": 175,
+            "url": "https://media.aquatome.com/video/WTIWljtUFxc/at175-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "S. repens trồng thành bụi quanh hòn đá, cạnh thảm cây tiền cảnh.",
+            "sharpness": 891.8
+          },
+          {
+            "t": 400,
+            "url": "https://media.aquatome.com/video/WTIWljtUFxc/at400-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bụi S. repens bao quanh chân đá, phía trước là thảm cây xanh.",
+            "sharpness": 285.5
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/WTIWljtUFxc/p4-FzY2FwaW5nLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/WTIWljtUFxc/p4-FzY2FwaW5nLmpwZw-480.webp",
+          "width": 960,
+          "height": 338,
+          "licence": "CC BY 3.0",
+          "author": "Ghostsword",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Embalo_Aquascaping.jpg",
+          "caption": "Bể thủy sinh có thảm cây tiền cảnh và các bụi cây cắt cắm phía sau."
+        }
       }
     ]
   }

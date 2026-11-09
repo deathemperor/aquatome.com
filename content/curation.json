@@ -419,9 +419,10 @@
   },
   {
    "date": "2026-11-16",
-   "img": "https://media.aquatome.com/bwaquatics/34c8854d928bd864.webp",
+   "fish": "species/paracheirodon-innesi",
+   "img": "https://media.aquatome.com/commons/038fd41622de2f10-large.webp",
    "guide": "guides/aquariumcoop-blogs-aquarium-schooling-fish-for-beginners",
-   "why": "Guide: 5 loài cá đàn tốt nhất cho người mới chơi bể nước ngọt, on this week's list."
+   "why": "Fish: Cá neon xanh, a small schooling fish for a small tank, well known."
   },
   {
    "date": "2026-11-17",
@@ -460,8 +461,8 @@
    "date": "2026-11-20",
    "img": "https://media.aquatome.com/commons/4f94899e8e811e8e-large.webp",
    "guide": "guides/aquatome-ca-bi-xu-vay-benh-phu-dropsy-nguyen-nhan-cach-chua-va-phong",
-   "why": "Guide: Cá bị xù vảy (bệnh phù, dropsy): nguyên nhân, cách chữa và phòng, 2 search impressions.",
-   "card": "cards/trivia-glass-catfish-name"
+   "card": "cards/trivia-glass-catfish-name",
+   "why": "Guide: Cá bị xù vảy (bệnh phù, dropsy): nguyên nhân, cách chữa và phòng, 2 search impressions."
   },
   {
    "date": "2026-11-21",
@@ -510,17 +511,19 @@
   },
   {
    "date": "2026-11-27",
-   "img": "https://media.aquatome.com/commons/f29e8529f2571332-large.webp",
+   "fish": "species/dermogenys-pusilla",
+   "img": "https://media.aquatome.com/commons/8679c734cd0bb8e0.webp",
    "guide": "guides/sprucepets-aquarium-catfish-breeds-5115234",
    "guideImg": "https://media.aquatome.com/sprucepets/eb26692e4b7b47a6.webp",
-   "why": "Guide: 11 loài cá da trơn phù hợp cho bể cá tại nhà, 1 search impression."
+   "why": "Fish: Cá lìm kìm đấu, native to Vietnam."
   },
   {
    "date": "2026-11-28",
-   "img": "https://media.aquatome.com/commons/d6469d9d31e58aa4-large.webp",
+   "fish": "species/misgurnus-anguillicaudatus",
+   "img": "https://media.aquatome.com/commons/c58b9359825a4664-large.webp",
    "guide": "guides/2hraquarist-blogs-algae-control-how-to-get-rid-of-staghorn-algae",
    "guideImg": "https://media.aquatome.com/2hraquarist/2ff2150b8977932c.webp",
-   "why": "Guide: Cách loại bỏ tảo gạc nai (staghorn algae), the best left with a big enough photo."
+   "why": "Fish: Cá chạch bùn, native to Vietnam."
   },
   {
    "date": "2026-11-29",
@@ -529,6 +532,13 @@
    "guide": "guides/2hraquarist-blogs-algae-control-how-to-control-bba",
    "guideImg": "https://media.aquatome.com/2hraquarist/eeaa072abc3396d6.webp",
    "why": "Guide: Cách loại bỏ tảo râu đen (BBA), the best left with a big enough photo."
+  },
+  {
+   "date": "2026-11-30",
+   "fish": "species/cyphotilapia-frontosa",
+   "img": "https://media.aquatome.com/commons/c61a7aecabf37bf2-large.webp",
+   "guide": "guides/youtube-ohUzvlrSQDs",
+   "why": "Fish: Cá frontosa, on this week's list. Guide: Set bể thủy sinh chủ đề châu Phi cho cichlid bướm và cá Congo, on this week's list, the week's video guide."
   }
  ],
  "loops": {
@@ -607,16 +617,14 @@
   "https://media.aquatome.com/2hraquarist/8a54f19dbc68c9c7.webp": "two photos joined side by side, with a slanted seam across the card"
  },
  "off": {
-  "breeds/blue-diamond-discus": "reader fit: units",
   "breeds/ranchu-goldfish": "reader fit: source, units",
-  "guides/aquatome-cham-soc-ca-canh-mua-he-va-mua-dong-mua-mua": "reader fit: elsewhere, units, source",
   "species/betta-splendens": "reader fit: elsewhere",
   "species/boraras-maculatus": "reader fit: source",
   "species/boraras-merah": "reader fit: elsewhere, source",
   "species/channa-asiatica": "reader fit: source",
   "species/channa-gachua": "reader fit: source",
   "species/channa-micropeltes": "reader fit: elsewhere",
-  "species/hemigrammus-erythrozonus": "reader fit: units, elsewhere",
+  "species/hemigrammus-erythrozonus": "reader fit: elsewhere",
   "species/mikrogeophagus-ramirezi": "reader fit: source",
   "species/oryzias-latipes": "reader fit: elsewhere",
   "species/poecilia-reticulata": "reader fit: units, elsewhere",
@@ -624,7 +632,8 @@
   "species/pterophyllum-scalare": "reader fit: source",
   "species/symphysodon-aequifasciatus": "reader fit: source",
   "species/tanichthys-albonubes": "reader fit: source, elsewhere",
-  "species/thayeria-boehlkei": "reader fit: units, elsewhere",
+  "species/thayeria-boehlkei": "reader fit: elsewhere",
+  "species/trichopodus-pectoralis": "reader fit: elsewhere",
   "species/trichopodus-trichopterus": "reader fit: elsewhere"
  }
 }

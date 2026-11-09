@@ -7,8 +7,16 @@
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/700f7cdd628c90f3.webp": "1626b6cc25fa0dc4",
   "https://media.aquatome.com/seriouslyfish/e48e267d3969dbdb.webp": "d3f372bac490e492",
-  "https://upload.wikimedia.org/wikipedia/commons/a/a6/Hemibarbus_maculatus_Shanghai_Aquarium.jpg": "425e922c1f5eefe3",
-  "https://upload.wikimedia.org/wikipedia/commons/e/e6/Hemibarbus_maculatus.JPG": "45400d5924c0a087"
+  "https://media.aquatome.com/commons/2d711d0c3a474e6f.webp": "835c03241d5ee7e3",
+  "https://media.aquatome.com/commons/bd473851549f48d4.webp": "07400d4b0cc0a687"
  },
- "commons": "2026-11-08"
+ "commons": "2026-11-08",
+ "inat": {
+  "taxon": 128276,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ }
 }

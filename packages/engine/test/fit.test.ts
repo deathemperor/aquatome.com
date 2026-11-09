@@ -19,6 +19,119 @@ test('the chief\'s samples: each is found, by the check it belongs to', () => {
   expect(found('price', '<p>Tiền ship và phí vận chuyển bằng đường hàng không từ Canada.</p>')).toEqual(['phí vận chuyển'])
 })
 
+test('harmful doses as other pages write them; and what is not one: a water change, another medicine\'s ppm, a stock solution, another line', () => {
+  const harm = (html: string, lang: Page['lang'] = 'vi') => found('harm', html, { lang })
+  for (const [html, lang] of [
+    // A salt dip by g/L or ‰, the time first, an hour as "tiếng" or "ชม."
+    ['<p>Tắm muối 30 g/L trong 20 phút.</p>', 'vi'],
+    ['<p>Ngâm 20–30‰ trong 15–30 phút.</p>', 'vi'],
+    ['<p>Tắm cá 15–30 phút trong nước muối 2–3%.</p>', 'vi'],
+    ['<p>Rendam ikan 15 menit dalam larutan garam 3%.</p>', 'id'],
+    ['<p>Tắm muối 2% trong 1 tiếng.</p>', 'vi'],
+    ['<p>แช่เกลือ 3% นาน 1 ชม.</p>', 'th'],
+    // Grams per litre with other joining words, or the medicine after the unit; local spellings.
+    ['<p>Pha kanamycin 2 g cho 1 lít nước.</p>', 'vi'],
+    ['<p>Hòa 0,8 g quinine trong 1 lít.</p>', 'vi'],
+    ['<p>Larutkan kanamisin 2 gram dalam 1 liter.</p>', 'id'],
+    ['<p>ควินิน 0.8 กรัมต่อน้ำ 1 ลิตร</p>', 'th'],
+    ['<p>Ngâm 2–5 g/L kanamycin.</p>', 'vi'],
+    ['<p>คานามัยซิน 2–5 กรัมต่อลิตร</p>', 'th'],
+    ['<p>Rendam kanamisin 2–5 g/L.</p>', 'id'],
+    // Copper as a formula, a table cell, another name; a chelate named in another clause.
+    ['<p>Dùng CuSO4 1,5 ppm.</p>', 'vi'],
+    ['<p>Cho 2 mg/L CuSO4 vào bể.</p>', 'vi'],
+    ['<p>Cu 1,5 ppm là đủ.</p>', 'vi'],
+    ['<p>Đồng sunphat 1,5 ppm.</p>', 'vi'],
+    ['<p>Sunfat đồng 1,5–2 ppm.</p>', 'vi'],
+    ['<table><tr><td>Đồng</td><td>1,5–2 ppm</td></tr></table>', 'vi'],
+    ['<p>จุนสี 1.5 ppm</p>', 'th'],
+    ['<p>Đồng chelate an toàn hơn; còn đồng sunfat thì giữ 1,5–2 ppm.</p>', 'vi'],
+    // One table row, or list item, can't lend the one after it a label.
+    ['<table><tr><td>Thuốc tím</td><td>theo nhãn</td></tr><tr><td>Đồng sunfat</td><td>2 ppm</td></tr></table>', 'vi'],
+    ['<ul><li>Xanh methylen: theo nhãn</li><li>Đồng sunfat: 2 ppm</li></ul>', 'vi'],
+    // A strength given in both units, either first; "hingga" brings the water to a strength, it's no bound.
+    ['<p>Tắm muối 3% (khoảng 30 g/L) trong 20 phút.</p>', 'vi'],
+    ['<p>Tắm muối 30 g/L (3%) trong 20 phút.</p>', 'vi'],
+    ['<p>Rendam garam 3% (30 g/L) selama 20 menit.</p>', 'id'],
+    ['<p>แช่เกลือ 3% (30 กรัมต่อลิตร) นาน 20 นาที</p>', 'th'],
+    ['<p>Tambahkan garam hingga 3%, rendam 30 menit.</p>', 'id'],
+    // A medicine a word after its unit; "vào", "ในน้ำ"; other spellings.
+    ['<p>Pha 2 g/lít xanh methylen để ngâm cá.</p>', 'vi'],
+    ['<p>Hòa 1 g kanamycin vào 1 lít nước.</p>', 'vi'],
+    ['<p>ละลายควินิน 1 กรัมในน้ำ 1 ลิตร</p>', 'th'],
+    ['<p>ฟอร์มาลีน 2 กรัมต่อลิตร</p>', 'th'],
+    ['<p>Rendam dengan formol 2 g/L.</p>', 'id'],
+    // Copper as Vietnamese keepers name it, beside the words "đồng" also is.
+    ['<p>Ion đồng 1,5 ppm.</p>', 'vi'],
+    ['<p>Giữ nồng độ đồng 1,5–2 ppm trong 14 ngày.</p>', 'vi'],
+  ] as const) expect(harm(html, lang), html).toHaveLength(1)
+  for (const [html, lang] of [
+    ['<p>Sau khi tắm muối, thay 30% nước sau 24 giờ.</p>', 'vi'],
+    ['<p>Setelah perawatan garam, ganti 30% air setiap 24 jam.</p>', 'id'],
+    ['<p>หลังแช่เกลือ เปลี่ยนน้ำ 30% ทุก 24 ชั่วโมง</p>', 'th'],
+    ['<p>Tắm muối giúp giảm 70% ký sinh trùng chỉ sau 30 phút.</p>', 'vi'],
+    ['<p>Tép rất nhạy với thuốc đồng, nên dùng formalin 25 ppm.</p>', 'vi'],
+    ['<p>Udang sensitif terhadap tembaga, jadi gunakan formalin 15–25 ppm.</p>', 'id'],
+    ['<p>Đồng sunfat độc với tép, nên thay bằng thuốc tím 2 ppm.</p>', 'vi'],
+    ['<p>Nồng độ đồng đều trong bể, giữ 2 ppm thuốc tím.</p>', 'vi'],
+    ['<p>Xanh methylen bán ở dạng dung dịch 1% (10 g/L), dùng 2 ml cho 10 lít.</p>', 'vi'],
+    ['<p>Formalin là dung dịch formaldehyde 37% (khoảng 370 g/L), dùng theo nhãn.</p>', 'vi'],
+    ['<p>Thuốc tím: pha dung dịch gốc 10 g/L rồi lấy 1 ml cho 5 lít.</p>', 'vi'],
+    ['<ul><li>Kanamycin: liều theo nhãn</li><li>Baking soda 1 g/L</li></ul>', 'vi'],
+    ['<p>Hidrasi kista dulu selama sekitar 1 jam dalam air dengan kadar garam di bawah 100 g/l, diaerasi.</p>', 'id'],
+    ['<p>ผสมเกลือ: สูตรหลักคือเกลือเม็ดไม่เสริมไอโอดีน 30 กรัมต่อน้ำ 1 ลิตร เปิดลมไว้ราว 24 ชั่วโมงให้ไข่อาร์ทีเมียฟัก</p>', 'th'],
+    ['<p>จุ่มเกลือ 30–35 g/L นาน 3–5 นาที ถ้าอาการไม่เฉียบพลัน แช่เกลือเจือจาง 5 g/L นาน 90 นาที</p>', 'th'],
+    ['<p>เริ่มจากละลายเกลือไม่เสริมไอโอดีนประมาณ 30 กรัมต่อน้ำ 1 ลิตร ใส่ไข่ในปริมาณพอดี คุมอุณหภูมิราว 25–28 °C แล้วรอ 20–24 ชั่วโมง</p>', 'th'],
+    // "Đồng" is also together, a field, a fellow, the currency and a province.
+    ['<p>Cộng đồng người chơi cá dĩa giữ nitrat dưới 20 ppm.</p>', 'vi'],
+    ['<p>Cá rô đồng sống tốt ở TDS 50–300 ppm.</p>', 'vi'],
+    ['<p>Cá ăn thịt đồng loại khi nitrat lên 40 ppm.</p>', 'vi'],
+    ['<p>Bút đo giá 150 nghìn đồng đo tới 100 ppm.</p>', 'vi'],
+    ['<p>Ở Đồng Tháp, nước kênh có TDS 200 ppm.</p>', 'vi'],
+    // A tank's salinity, beside its hours of light.
+    ['<p>Độ mặn 10–20‰, chiếu sáng 8–10 giờ mỗi ngày.</p>', 'vi'],
+    ['<p>ความเค็ม 25 ppt เปิดไฟ 8 ชั่วโมง</p>', 'th'],
+    // The dip's own time, not the wait after it, a fast before it or a repeat.
+    ['<p>Tắm muối 2% trong 5–10 phút, lặp lại sau 24 giờ nếu cần.</p>', 'vi'],
+    ['<p>Tắm muối 2% trong 5 phút rồi theo dõi cá 24 giờ.</p>', 'vi'],
+    ['<p>Rendam garam 2% selama 5 menit, ulangi setelah 24 jam.</p>', 'id'],
+    ['<p>Cho cá nhịn ăn 24 giờ, rồi tắm muối 2% trong 5 phút.</p>', 'vi'],
+    ['<p>Tắm muối 3%, lặp lại sau 24 giờ.</p>', 'vi'],
+    // A water change, or what a share of the parasites does, after a salt word.
+    ['<p>Sau khi tắm muối, thay 10% lượng nước sau 24 giờ.</p>', 'vi'],
+    ['<p>Setelah perawatan garam, ganti air 10% setiap 24 jam.</p>', 'id'],
+    ['<p>Setelah mandi garam, ganti 10% volume air setiap 24 jam.</p>', 'id'],
+    ['<p>หลังแช่เกลือ เปลี่ยนน้ำ 10% ทุก 24 ชั่วโมง</p>', 'th'],
+    ['<p>Tắm muối giúp diệt 5% ký sinh trùng sau 30 phút.</p>', 'vi'],
+    // A stock solution named after its strength.
+    ['<p>Hòa 1 g metronidazole trong 1 lít nước, rồi lấy 10 ml cho mỗi 40 lít.</p>', 'vi'],
+    ['<p>Larutkan 1 g metronidazol dalam 1 liter air sebagai larutan stok.</p>', 'id'],
+    // A table row's first cell names its copper's type for the whole row.
+    ['<table><tr><td>Kuprum terkelat (chelated copper)</td><td>Ikut label produk yang dibeli. Penternak itu menyasarkan kira-kira 1.5–2.0 ppm kuprum.</td></tr></table>', 'ms'],
+  ] as const) expect(harm(html, lang), html).toEqual([])
+})
+
+test('three reviews\' sentences, in four languages: each harmful dose is found, and none of the rest', async () => {
+  // Days and overnight are no dip's time: a marine tank's salt left to mix, gravel soaked, would be held.
+  const cases: { harm: boolean; lang: Page['lang']; html: string }[] = JSON.parse(await readFile(new URL('./harm-cases.json', import.meta.url), 'utf8'))
+  expect(cases.length).toBeGreaterThan(300)
+  for (const c of cases) expect(found('harm', c.html, { lang: c.lang }).length > 0, `${c.lang} ${c.html}`).toBe(c.harm)
+})
+
+test('a fact\'s source number copied into the text is found; a count of sources or a table of them is not', () => {
+  const id = { lang: 'id' as const }, ms = { lang: 'ms' as const }, th = { lang: 'th' as const }
+  expect(found('source', '<p>Yang paling sering ditemukan adalah Lernaea cyprinacea (sumber 8).</p>', id)).toEqual(['(sumber 8)'])
+  expect(found('source', '<p>Penyakit bintik putih dan Costia (sumber 2, 3, 9).</p>', id)).toEqual(['(sumber 2, 3, 9)'])
+  expect(found('source', '<p>Sumber 0 menyebut parasit ini memerlukan cahaya.</p><ul><li>Sumber 1: suhu tinggi mempercepat kitaran hidup.</li></ul>', ms)).toEqual(['Sumber 0', 'Sumber 1'])
+  expect(found('source', '<p>รักษาแยกจากตู้หลัก (แหล่งที่ 3)</p><p>แหล่งที่ 2 ระบุว่าปรสิตต้องใช้แสง</p>', th)).toEqual(['(แหล่งที่ 3)', 'แหล่งที่ 2'])
+  expect(found('source', '<p>Cá bị nấm thứ phát (nguồn 4). Nguồn 1 cho rằng muối giúp được.</p>')).toEqual(['(nguồn 4)', 'Nguồn 1'])
+  expect(found('source', '<p>Dua sumber memberi 22–28 °C, satu sumber 24–29 °C.</p>', ms)).toEqual([])
+  expect(found('source', '<p>Panjang ikan menurut satu sumber 4–7 cm.</p>', id)).toEqual([])
+  expect(found('source', '<p>Cắm bộ đổi nguồn 12 v vào máy sục. Nguồn điện yếu thì dùng pin.</p>')).toEqual([])
+  expect(found('source', '<table><tr><th>Thông số</th><th>Nguồn 1</th><th>Nguồn 2</th></tr><tr><td>nhiệt độ</td><td>24 °C</td><td>26 °C</td></tr></table>')).toEqual([])
+  expect(found('source', '<table><tr><th>หัวข้อ</th><th>แหล่งที่ 1</th><th>แหล่งที่ 2</th></tr><tr><td>อุณหภูมิ</td><td>24 °C</td><td>26 °C</td></tr></table>', th)).toEqual([])
+})
+
 test('a sentence opening on "mình" and a verb is the writer\'s voice; a fish\'s body is not', () => {
   expect(found('source', '<p>Không biết cá bị gì. Mình chỉ thấy cá có gì đó không ổn.</p>')).toEqual(['Mình chỉ'])
   expect(found('source', '<p>Thân dài. Mình cá dẹp, cá cọ mình vào đá.</p>')).toEqual([])
@@ -121,6 +234,48 @@ test('advice that would hurt is a finding the checker keeps, and its prompt asks
   const harm = { check: 'harm', part: 'P1', quote: 'Tăng CO₂ gấp 5 đến 10 lần và tắt lọc', why: 'fish suffocate', fix: '', product: '' }
   expect(keepFit([harm], text, 'vi').map(x => x.check)).toEqual(['harm'])
   expect(fitPrompt('vi', 'guides')).toContain('- harm: ')
+})
+
+test('doses that need no reading to call harmful, as the guides of 8 Nov had them, in each language', () => {
+  const harm = (html: string, lang: Page['lang'] = 'vi') => found('harm', html, { lang })
+  // A medicine in grams per litre: named before the figure, after a salt's own figure, or between the figure and its unit.
+  expect(harm('<ul><li>Kanamycin ngâm: 2–5 g/L</li></ul>')).toEqual(['Kanamycin ngâm: 2–5 g/L'])
+  expect(harm('<p>Đốm trắng: pha muối 1% cùng 0.8 g quinine mỗi lít.</p>')).toHaveLength(1)
+  expect(harm('<p>Bintik putih: garam 1% dengan kina 0,8 g per liter.</p>', 'id')).toHaveLength(1)
+  expect(harm('<p>เกลือ 1% ร่วมกับควินิน 0.8 กรัมต่อลิตร</p>', 'th')).toHaveLength(1)
+  expect(harm('<p>Sumber ini juga menyenaraikan mandian kanamycin 2–5 g/L.</p>', 'ms')).toHaveLength(1)
+  // A salt dip of 2% or more over 10 minutes, in a table too.
+  expect(harm('<p>Khuyến nông khuyên tắm muối 2–3% định kỳ, mỗi lần 15–20 phút.</p>')).toHaveLength(1)
+  expect(harm('<table><tr><td>Tắm muối NaCl</td><td>Nồng độ 2–3% trong 15–30 phút</td></tr></table>')).toHaveLength(1)
+  expect(harm('<p>Rendaman garam rutin 2–3% selama 15–20 menit.</p>', 'id')).toHaveLength(1)
+  expect(harm('<p>แช่เกลือ 2–3% เป็นประจำครั้งละ 15–20 นาทีเพื่อฆ่าไข่</p>', 'th')).toHaveLength(1)
+  expect(harm('<p>Tắm muối 2% trong 1 giờ.</p>')).toHaveLength(1)
+  // Copper at 1 ppm or more with nothing to say which product or type it is.
+  expect(harm('<p>Họ ước tính mức này vào khoảng 1,5–2,0 ppm đồng, giữ nước ấm 30 ngày.</p>')).toHaveLength(1)
+  expect(harm('<p>ซึ่งร้านระบุว่าราว 1.5–2.0 ppm copper ที่อุณหภูมิ 29°C</p>', 'th')).toHaveLength(1)
+  expect(harm('<p>Đồng sunfat giữ ở 1,5 ppm trong 10 ngày.</p>')).toHaveLength(1)
+
+  // What only looks like one: a vet's dip, a salt figure, a soak for decor, a copper type or label named, a weak copper
+  // level, alkalinity, "đồng ý", a word that holds "kina", a stock solution's strength, a dose in milligrams.
+  for (const [html, lang] of [
+    ['<p>Tắm muối 30 g/lít, từ 30 giây đến 10 phút tùy loài; cá nghiêng mình thì vớt ra ngay.</p>', 'vi'],
+    ['<p>Tắm muối 3% trong 5–10 phút.</p>', 'vi'],
+    ['<p>Một nghiên cứu còn thấy nâng độ mặn từ 0 lên 3 g/L làm số sán tăng. Praziquantel diệt sán trưởng thành.</p>', 'vi'],
+    ['<p>Ngâm đồ trong nước muối 1–2% khoảng 10–15 phút, xả lại rồi đặt vào bể.</p>', 'vi'],
+    ['<p>Dekorasi: rendam dalam air garam 2% selama 10–15 menit, bilas.</p>', 'id'],
+    ['<p>Thuốc đồng: liều theo nhãn thuốc bạn mua. Mỗi loại giữ một mức riêng: đồng chelate thường 1,5–2,0 ppm, đồng sunfat thấp hơn nhiều.</p>', 'vi'],
+    ['<p>Kuprum terkelat komersial pada kira-kira 5 ml bagi setiap 20 liter (sekitar 1.5–2.0 ppm kuprum).</p>', 'ms'],
+    ['<p>Liều dùng là 0,15 ppm ion đồng, ngâm tối đa 10 ngày.</p>', 'vi'],
+    ['<p>Đồng sunfat: không dùng khi độ kiềm dưới 50 mg/L.</p>', 'vi'],
+    ['<p>คอปเปอร์ซัลเฟต: ห้ามใช้เมื่อค่าอัลคาลินิตีต่ำกว่า 50 mg/L</p>', 'th'],
+    ['<p>ใส่คอปเปอร์ซัลเฟต ความเข้มข้นควรอย่างน้อย 1.5–2 mg/l แล้วกำจัดทองแดงออกก่อนปล่อยปลา</p>', 'th'],
+    ['<p>Merck thì không đồng ý và ghi rằng 2 mg/L NH3 đủ giết nhiều loài cá.</p>', 'vi'],
+    ['<p>Kemungkinan 3 g per liter pupuk cukup.</p>', 'id'],
+    ['<p>Dung dịch 1–2,5% glutaraldehyde thường chứa 10–25 g/L.</p>', 'vi'],
+    ['<p>Kanamycin 50–100 mg/L.</p>', 'vi'],
+  ] as const) expect(harm(html, lang), html).toEqual([])
+  // Each is held as harm: a finding of the rules', with why.
+  expect(fitRules(page('<p>Kanamycin ngâm: 2–5 g/L</p>')).find(f => f.check === 'harm')).toMatchObject({ by: 'rule', why: expect.stringContaining('milligrams') })
 })
 
 test('the report counts and never lists a page', () => {
@@ -240,4 +395,34 @@ test("a card's checklist: its dated sources are expected, and its own check is r
   const card = { ...page('<p>Các nhà khoa học vừa phát hiện một loài rasbora.</p>'), kind: 'cards' as const }
   expect((await readFit(llm, card, 'm', new Date('2026-11-08'))).findings.map(f => f.check)).toEqual(['card'])
   expect((await readFit(llm, page('<p>Các nhà khoa học vừa phát hiện một loài rasbora.</p>'), 'm', new Date('2026-11-08'))).findings).toEqual([])
+})
+
+test("a test's lethal level with its figure is found on any page, in each language; a plain threshold or a disease's toll is not", () => {
+  for (const [lang, s] of [
+    ['vi', 'Nồng độ gây chết 50% sau 96 giờ ở cá hồi vân là 0,24–11,0 mg/L NO2-N, trong khi ở cá chép là 88,0 mg/L.'],
+    ['vi', 'Ở cá chẽm, LC50 (nồng độ làm chết một nửa số cá thử nghiệm) giảm từ 274 mg/L ở 17 °C xuống còn 154 mg/L ở 27 °C.'],
+    ['vi', 'Mức nhiệt làm chết một nửa số cá là 39°C.'],
+    ['vi', 'Thí nghiệm cho thấy con trưởng thành chịu được pH 2,43 trong 96 giờ (ngưỡng LC50).'],
+    ['vi', 'Lymnaea stagnalis (ốc ao) (LC50 > 7,9 mg N/L hay 7,9 ppm)'],
+    ['id', 'Ikan air dingin seperti rainbow trout (LC50 96 jam: 0,24–11,0 mg/L NO2-N) jauh lebih peka daripada ikan mas (88,0 mg/L).'],
+    ['id', 'Konsentrasi mematikan (kematian 50%) berada pada pH 5,71 dan 8,22.'],
+    ['id', 'Suhu yang mematikan 50% populasi adalah 39 °C.'],
+    ['ms', 'Kepekatan maut (50% kematian) adalah pada pH 5.71 dan 8.22.'],
+    ['ms', 'Suhu yang membunuh 50% populasi ialah 39 °C.'],
+    ['th', 'ค่าที่ทำให้ตาย 50% คือ pH 5.71 และ 8.22'],
+    ['th', 'อุณหภูมิที่ทำให้ประชากรตาย 50% คือ 39 °C'],
+    ['th', 'กุ้งน้ำจืดมีค่า LC50 ที่ 96 ชั่วโมงเท่ากับ 8.6 มก./ลิตร'],
+    ['vi', 'The temperature lethal to 50% of the population was 39°C.'],
+    ['vi', 'The lethal concentration (50% mortality) was at pH 5.71 and 8.22.'],
+    ['vi', 'Its oral LD50 in rats is 300 mg/kg.'],
+  ] as const) expect(found('lethal', `<p>${s}</p>`, { lang }), s).toHaveLength(1)
+  for (const [lang, s] of [
+    ['vi', 'Một mức đồng tương đối an toàn ở pH cao vẫn có thể thành liều gây chết khi pH thấp hơn.'],
+    ['vi', 'Bệnh nhung có thể làm chết một nửa số cá trong 3 ngày nếu không chữa.'],
+    ['vi', 'Trong khoa học, LC50 là nồng độ làm chết một nửa số con vật thử nghiệm.'],
+    ['vi', 'About 2 mg/L of un-ionized ammonia is lethal to many fish.'],
+    ['vi', 'Velvet can kill half the fish in 3 days.'],
+    ['id', 'Nitrit di atas 0,1 mg/L bersifat racun.'],
+    ['th', 'ปลาตายครึ่งหนึ่งภายใน 3 วัน'],
+  ] as const) expect(found('lethal', `<p>${s}</p>`, { lang }), s).toEqual([])
 })

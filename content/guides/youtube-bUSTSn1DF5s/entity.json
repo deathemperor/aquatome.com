@@ -8,9 +8,11 @@
   "mentions": [
     "carassius-auratus",
     "pterophyllum-scalare",
-    "taxiphyllum-barbieri"
+    "taxiphyllum-barbieri",
+    "andinoacara-pulcher",
+    "pygocentrus-nattereri"
   ],
-  "updatedAt": "2026-11-05",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "bUSTSn1DF5s",
     "title": "How to build an aquarium sump filter with a CONVERSION KIT",
@@ -30,14 +32,14 @@
     },
     "transcribed": true,
     "taxa": [
-      "Cichlasoma sp.",
-      "Acarichthys sp.",
-      "Botia sp.",
+      "Andinoacara pulcher",
+      "Acanthocephala sp.",
+      "Pangio sp.",
       "Ancistrus sp.",
       "Carassius auratus",
       "Pterophyllum scalare",
-      "Taxiphyllum barbieri",
-      "Pygocentrus sp."
+      "Vesicularia dreanai",
+      "Pygocentrus nattereri"
     ],
     "gear": [
       {
@@ -47,37 +49,31 @@
       },
       {
         "category": "loc",
-        "type": "thung",
-        "t": 2
+        "type": "bot-bien",
+        "t": 170
       },
       {
         "category": "loc",
-        "type": "bot-bien",
-        "t": 3
+        "type": "thung",
+        "t": 120
       },
       {
         "category": "suoi",
         "type": "chinh-nhiet",
-        "t": 10
+        "t": 120
       }
     ],
     "figures": [
       {
-        "heading": "Sump là gì và vì sao nên dùng",
+        "heading": "Sump dùng để làm gì",
         "moments": [
           {
             "t": 10,
-            "url": "https://media.aquatome.com/video/bUSTSn1DF5s/t10.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Khối nước sump đặt thấp bên dưới hệ thống bể."
-          },
-          {
-            "t": 39,
-            "url": "https://media.aquatome.com/video/bUSTSn1DF5s/t39.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Các bể xếp tầng nối với nhau bằng ống dẫn nước."
+            "url": "https://media.aquatome.com/video/bUSTSn1DF5s/at10-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể sump đặt thấp bên dưới, nằm ngoài bể chính.",
+            "sharpness": 56
           }
         ],
         "photo": {
@@ -88,8 +84,35 @@
           "licence": "Public domain",
           "author": "Gtstricky",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reef_Aquarium_New_Sump.jpg",
-          "caption": "Sump acrylic nhiều ngăn lọc đặt dưới bể, có máy bơm và thiết bị đi kèm."
+          "caption": "Bể sump acrylic nhiều ngăn đặt riêng, có bơm và thiết bị lắp bên trong."
         }
+      },
+      {
+        "heading": "Tính cỡ sump cho bể",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/bUSTSn1DF5s/p1-TmV3X1N1bXAuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/bUSTSn1DF5s/p1-TmV3X1N1bXAuanBn-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "Public domain",
+          "author": "Gtstricky",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reef_Aquarium_New_Sump.jpg",
+          "caption": "Sump acrylic nhiều ngăn đặt dưới bể, kèm bơm hồi nước."
+        }
+      },
+      {
+        "heading": "Bộ chuyển đổi gồm gì và tốn bao nhiêu",
+        "moments": [
+          {
+            "t": 20,
+            "url": "https://media.aquatome.com/video/bUSTSn1DF5s/at20-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh vách ngăn lắp bên trong bể kính để làm sump.",
+            "sharpness": 25.7
+          }
+        ]
       }
     ]
   }

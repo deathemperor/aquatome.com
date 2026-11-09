@@ -1,0 +1,58 @@
+{
+  "id": "jinshaia-sinensis",
+  "native": {
+    "input": "ce2ead5ce78eeb4f",
+    "at": "2026-11-09T09:57:55.009Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Jinshaia sinensis is a balitorid loach known only from the Jinsha river basin, the westernmost headwater tributary of the Yangtze in China.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Yangtze (also known as Chang Jiang) river system in China, specifically the Jinsha river basin, its westernmost headwater tributary.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Jinsha",
+        "source": "seriouslyfish",
+        "quote": "Jinshaia sinensis is a balitorid loach known only from the Jinsha river basin, the westernmost headwater tributary of the Yangtze in China.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Yangtze",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Yangtze (also known as Chang Jiang) river system in China, specifically the Jinsha river basin, its westernmost headwater tributary.",
+        "country": "CN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Jinshaia sinensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2358711,
+    "datasets": [],
+    "native": [
+      "CN"
+    ],
+    "requests": 2,
+    "at": "2026-11-09T09:57:55.009Z"
+  }
+}

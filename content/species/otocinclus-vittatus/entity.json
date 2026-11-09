@@ -55,6 +55,15 @@
       "html": "<p>South America: Amazon, Orinoco, Paraná/Paraguay, Xingu and Tocantins River basins. Type locality: Descalvados, Rio Paraguay system, Mato Grosso State, Brazil.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Một người nuôi có bể thủy sinh 450 lít, lá crypt và anubias nana vàng trong bể bị rêu bám. Sau khi thả 15 con vào, chỉ 48 giờ là trên lá không còn chút rêu nào, kể cả rêu sợi. Đó là chuyện của một bể, chưa chắc bể nào cũng nhanh như vậy.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "waterConditions",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=107",
@@ -73,16 +82,43 @@
       "html": "<p>Initially algae: add a shoal to an \"algaefied\" tank and then supplement the diet with sinking tablets and the usual cucumber, lettuce or courgette (zucchini).</p>"
     },
     {
+      "key": "diet",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này nổi tiếng ăn tảo nâu, rêu đốm xanh và rêu bụi xanh. Mấy thứ đó phủ thành lớp dày trên lá và chắn mất ánh sáng, thế là cây yếu dần rồi chết.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "behaviour",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=107",
       "html": "<p>Peaceful. Keep in groups (preferably at least six) with any small to mid-sized community fish.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Một người nuôi thấy đàn cá hay tụ lại và bơi đồng loạt khắp bể, rõ nhất là lúc sáng sớm và chập tối. Ban ngày, thỉnh thoảng có con tách ra ở một mình.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "dimorphism",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=107",
       "html": "<p>Females are larger and broader, especially when viewed from above.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Soi thật gần sẽ thấy trên thân loài này có những cái gai li ti. Đó là thứ nó dùng để tự vệ, đỡ được phần nào trước những con cá săn mồi lớn hơn ngoài tự nhiên.</p>",
+      "refs": [
+        0
+      ]
     },
     {
       "key": "references",
@@ -115,7 +151,14 @@
       "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "6C3cORsXseY",
+      "title": "Meet the Adorable Otocinclus Catfish - Otocinclus vittatus - Best Algae Eating Fish",
+      "durationSec": 220,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -145,5 +188,11 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-09",
+  "refs": [
+    {
+      "url": "https://www.youtube.com/watch?v=6C3cORsXseY",
+      "title": "Meet the Adorable Otocinclus Catfish - Otocinclus vittatus - Best Algae Eating Fish"
+    }
+  ]
 }

@@ -1,0 +1,164 @@
+{
+  "id": "hyphessobrycon-anisitsi",
+  "native": {
+    "input": "766275b222accb60",
+    "at": "2026-11-08T22:57:48.089Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Buenos Aires tetra, Psalidodon anisitsi, is a characid from the Paraná and Uruguay river systems in Brazil, Paraguay, Argentina and Uruguay.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Buenos Aires tetra, Psalidodon anisitsi, is a characid from the Paraná and Uruguay river systems in Brazil, Paraguay, Argentina and Uruguay.",
+        "words": "Paraguay",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Buenos Aires tetra, Psalidodon anisitsi, is a characid from the Paraná and Uruguay river systems in Brazil, Paraguay, Argentina and Uruguay.",
+        "words": "Argentina",
+        "ok": true
+      },
+      {
+        "code": "UY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Buenos Aires tetra, Psalidodon anisitsi, is a characid from the Paraná and Uruguay river systems in Brazil, Paraguay, Argentina and Uruguay.",
+        "words": "Uruguay",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Paraná",
+        "source": "seriouslyfish",
+        "quote": "Widely-distributed throughout much of the Paraná river system in Brazil, Paraguay, and Argentina, plus the Uruguay watershed in Uruguay and Brazil.",
+        "ok": true
+      },
+      {
+        "name": "Uruguay",
+        "source": "seriouslyfish",
+        "quote": "Widely-distributed throughout much of the Paraná river system in Brazil, Paraguay, and Argentina, plus the Uruguay watershed in Uruguay and Brazil.",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Esteros del Iberá",
+        "source": "seriouslyfish",
+        "quote": "In the Esteros del Iberá wetland reserve, Argentina, it occurs sympatrically with a number of other genus members including H. auca, H. elachys, H. eques, H. igneus, H. luetkeni, H. meridionalis, H. reticulatus and H. wajat.",
+        "country": "AR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hyphessobrycon anisitsi",
+    "status": "ACCEPTED",
+    "taxonKey": 2354671,
+    "datasets": [
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        101
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        93
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        39
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        23
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        19
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        15
+      ],
+      [
+        "d4b3cce1-4594-47bb-b1e2-1ace65458a11",
+        8
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        7
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        7
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        7
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        4
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ],
+      [
+        "faf9bd60-071c-4ed4-8705-faa17e645f60",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "PY",
+      "AR",
+      "UY"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T22:57:48.089Z"
+  }
+}

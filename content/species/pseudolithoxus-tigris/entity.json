@@ -19,12 +19,38 @@
           "min": 23,
           "max": 27
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 25,
+          "max": 29
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 9.4
+      },
+      {
+        "source": "scotcat",
+        "value": 9
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "scotcat",
+        "value": 120
       }
     ]
   },
@@ -36,10 +62,46 @@
       "html": "<p><strong>Scientific name:</strong> Pseudolithoxus tigris (Armbruster &amp; Provenzano, 2000)</p><p><strong>Common names:</strong> L257, Tigerstribet Flyversugemalle (Denmark), Tigerstriped Plane Pleco</p><p><strong>Synonym:</strong> Lasiancistrus tigris</p><p><strong>Pronunciation:</strong> sue doh lith ox uss</p><p><strong>Size:</strong> 94 mm (3.7\") SL</p><p><strong>Temperature:</strong> 23.0-27.0°C (73.4-80.6°F)</p><p><strong>IUCN Red List category:</strong> Least Concern, last assessed 2021.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pseudolithoxus_tigris.htm",
+      "html": "<ul><li>Common names: L257, Tiger flyer cat</li><li>Synonym: Lasiancistrus tigris</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1153",
       "html": "<p>South America: Orinoco, Upper Orinoco, Ventuari.</p><p>Type locality: backwater of Río Orinoco behind a sand playa, approximately 0.5 hr upstream from Isla Temblador, 3°04'N, 66°28'W, Estado Amazonas, Venezuela.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pseudolithoxus_tigris.htm",
+      "html": "<p>South America: Upper Orinoco and Ventuari River basins in Venezuela.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pseudolithoxus_tigris.htm",
+      "html": "<p>A minimum size of 120 x 45 x 45 cm is suggested for one or two of these catfish, with plenty of hiding places amongst bogwood and plants.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pseudolithoxus_tigris.htm",
+      "html": "<p>The ideal substrate is aquarium sand such as BD Aquarium Sand. As with all other species of fish, water quality and general husbandry are very important, and a minimum of 25% of the water should be changed on a weekly basis. This fish has similar requirements to other loricariids, so should do well under normal aquarium conditions.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pseudolithoxus_tigris.htm",
+      "html": "<p>Omnivore: vegetable and animal foods such as green foods, vegetable tablets, live and frozen foods.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pseudolithoxus_tigris.htm",
+      "html": "<p>Females have a narrower head with a larger body, while males possess odontodes on the edge of the snout, behind the gill cover and on the pectoral fin spine.</p>"
     },
     {
       "key": "reproduction",
@@ -54,10 +116,22 @@
       "html": "<p>Etymology: Greek, pseudes = false + Greek, lithos = stone + Greek, oxys = sharp. Lorica, Loricare = cuirass of corslet of leather (a suit of armour made of leather).</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pseudolithoxus_tigris.htm",
+      "html": "<p>The genus Pseudolithoxus now includes six species, P. anthrax, P. dumus, P. nicoi, P. tigris, P. kelsorum and P. kinja. Previously described as the Lasiancistrus anthrax group. They are characterised by evertible cheek plates, a very dorsoventrally flattened body, extremely hypertrophied odontodes (integumentary teeth) on elongated pectoral spines and along the snout margin, and 3 rows of plates on the caudal peduncle. In addition, it appears as if females as well as males develop hypertrophied snout and pectoral-fin odontodes, traits normally restricted to nuptial males in other Loricariids.</p><p>Dorsal spines (total): 2; dorsal soft rays (total): 7; anal spines: 1; anal soft rays: 5. Body and head with numerous black bars. Lateral line plates 23-24; dorsal plates 7-8; interdorsal plates 4-5; adipose-caudal plates 7-8; folded dorsal fin plates 11-12; and postanal plates 11-12.</p><p>Etymology: the specific name tigris means striped like a tiger.</p><p>IUCN Red List: Pseudolithoxus tigris is widely distributed in the upper Orinoco River, and most of these areas are far from human civilization. It appears to be under no threat and is considered Least Concern; however, the species should be monitored due to the increase in mining in the heart of its range (IUCN 2023).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1153",
       "html": "<p>Ichthyological Exploration of Freshwaters v. 11 (no. 3), pp 251, Fig. 5.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pseudolithoxus_tigris.htm",
+      "html": "<p>Armbruster, J.W. 2023. Pseudolithoxus tigris. The IUCN Red List of Threatened Species 2023.</p><p>Armbruster, J.W. and F. Provenzano, 2000. Four new species of the suckermouth armored catfish genus Lasiancistrus (Loricariidae: Ancistrinae). Ichthyol. Explor. Freshwat. 11(3):241-254.</p>"
     }
   ],
   "photos": [
@@ -111,8 +185,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 80cm",
-        "bể cá thủy sinh"
+        "bể cá 120cm"
       ]
     },
     {
@@ -129,5 +202,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-09"
 }

@@ -1,0 +1,84 @@
+{
+  "id": "indostomus-crocodilus",
+  "native": {
+    "input": "9607ac5e4aacf408",
+    "at": "2026-11-09T09:57:55.009Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Indostomus crocodilus is a tiny indostomid, 25 to 30 mm long, from southern Thailand and Kelantan state in northeastern Peninsular Malaysia.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Indostomus crocodilus is a tiny indostomid, 25 to 30 mm long, from southern Thailand and Kelantan state in northeastern Peninsular Malaysia.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Nae Nam Tod Deng, about 6 kilometers north of Sungai Kolok, Narathiwat Province, Thailand', and it is also known from the Tapi River watershed in Surat Thani province, so it is presumably found throughout southern Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "There are also records from Kelantan state, northeastern Peninsular Malaysia, which shares a border with Narathiwat.",
+        "words": "Malaysia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Tapi River",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Nae Nam Tod Deng, about 6 kilometers north of Sungai Kolok, Narathiwat Province, Thailand', and it is also known from the Tapi River watershed in Surat Thani province, so it is presumably found throughout southern Thailand.",
+        "ok": true
+      },
+      {
+        "name": "Peninsular Malaysia",
+        "source": "seriouslyfish",
+        "quote": "There are also records from Kelantan state, northeastern Peninsular Malaysia, which shares a border with Narathiwat.",
+        "country": "MY",
+        "ok": false,
+        "why": "a country"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Indostomus crocodilus",
+    "status": "ACCEPTED",
+    "taxonKey": 2356565,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        8
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ]
+    ],
+    "native": [
+      "TH",
+      "MY"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T09:57:55.009Z"
+  }
+}

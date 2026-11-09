@@ -1,71 +1,19 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Fish_Georgia_aquarium_-_37513153766.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Fish_Georgia_aquarium_-_37513153766.jpg/500px-Fish_Georgia_aquarium_-_37513153766.jpg",
-   "width": 4496,
-   "height": 3000,
-   "licence": "CC BY 2.0",
-   "author": "lwolfartist",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_Georgia_aquarium_-_37513153766.jpg",
-   "caption": "Unidentified species",
-   "key": "File:Fish Georgia aquarium - 37513153766.jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/3/32/Fish_Georgia_aquarium_-_36850900884.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Fish_Georgia_aquarium_-_36850900884.jpg/500px-Fish_Georgia_aquarium_-_36850900884.jpg",
-   "width": 3000,
-   "height": 4496,
-   "licence": "CC BY 2.0",
-   "author": "lwolfartist",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_Georgia_aquarium_-_36850900884.jpg",
-   "caption": "Unidentified species",
-   "key": "File:Fish Georgia aquarium - 36850900884.jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/7/79/Unidentified_fish_-_1.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Unidentified_fish_-_1.jpg/500px-Unidentified_fish_-_1.jpg",
-   "width": 4496,
-   "height": 3000,
-   "licence": "CC BY 2.0",
-   "author": "lwolfartist",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Unidentified_fish_-_1.jpg",
-   "caption": "Unidentified species",
-   "key": "File:Unidentified fish - 1.jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/1/10/Fish_Georgia_aquarium_-_36891583363.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Fish_Georgia_aquarium_-_36891583363.jpg/500px-Fish_Georgia_aquarium_-_36891583363.jpg",
-   "width": 3000,
-   "height": 4496,
-   "licence": "CC BY 2.0",
-   "author": "lwolfartist",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_Georgia_aquarium_-_36891583363.jpg",
-   "caption": "Unidentified species",
-   "key": "File:Fish Georgia aquarium - 36891583363.jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/9/99/Rasbora_caudimaculata.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Rasbora_caudimaculata.jpg/500px-Rasbora_caudimaculata.jpg",
-   "width": 1536,
-   "height": 1024,
-   "licence": "CC BY-SA 4.0",
-   "author": "M.I.Norhakim",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rasbora_caudimaculata.jpg",
-   "caption": "Rasbora caudimaculata from Johor, Malaysia",
-   "key": "File:Rasbora caudimaculata.jpg"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/663437037/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/663437037/medium.jpg",
-   "width": 1691,
-   "height": 704,
-   "licence": "CC BY",
-   "author": "Shane Austin",
-   "sourceUrl": "https://www.inaturalist.org/photos/663437037",
-   "key": "inat:663437037"
-  }
+ "queue": [],
+ "judged": [
+  "File:Fish Georgia aquarium - 37513153766.jpg",
+  "File:Fish Georgia aquarium - 36850900884.jpg",
+  "File:Unidentified fish - 1.jpg",
+  "File:Fish Georgia aquarium - 36891583363.jpg",
+  "File:Rasbora caudimaculata.jpg",
+  "inat:663437037"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/seriouslyfish/0e545f96337de257.webp": "4000391f8b8437be",
+  "https://media.aquatome.com/commons/a478be8dfa73fb13.webp": "4f5e76188583078f",
+  "https://media.aquatome.com/commons/cfc39aebacbbb423.webp": "33f7376b1b13191b",
+  "https://media.aquatome.com/commons/0de10f7e6240f6ad.webp": "6341712d256c68f4",
+  "https://media.aquatome.com/commons/7d8ea26fb3402558.webp": "76d8b90c1286981a"
+ },
+ "commons": "2026-11-09"
 }

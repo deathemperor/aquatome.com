@@ -16,7 +16,8 @@ struct OwnerOverview: View {
     VStack(alignment: .leading, spacing: 10) {
       if let at = d.asOf { Text(verbatim: Self.read(at, tz: d.tz)).font(.subheadline).foregroundStyle(.secondary).padding(.horizontal, 4) }
       tiles(d.tiles)
-      header((d.tiles.first { $0.key == "needs" }?.label ?? "Needs you") + (d.needs.isEmpty ? "" : " · \(d.needs.count)")).id("needs")
+      // Its count is the tile's (the Design Lead, 8 Nov).
+      header(d.tiles.first { $0.key == "needs" }?.label ?? "Needs you").id("needs")
       needs(d)
       if let a = d.answers { answers(a) }
       if let s = d.shipped { shipped(s) }
@@ -130,20 +131,38 @@ struct OwnerOverview: View {
     .ownerCard(padded: false)
   }
 
-  /// One line each, its icon by kind, the readers' photos waiting as thumbnails; nothing: one line that says so.
+  /// Its icon by kind, level with its title on one line (up to three at the largest text), the line under it (the pages,
+  /// or the source) and the readers' photos waiting as thumbnails, as the site draws them (the Design Lead, 9 Nov).
+  /// Nothing: one line that says so, and the owner's last action under it, opening the section it was in.
   @ViewBuilder private func needs(_ d: Owner.Dashboard) -> some View {
     if d.needs.isEmpty {
-      Label { Text(verbatim: d.needsEmpty) } icon: { Image(systemName: "checkmark.circle.fill").foregroundStyle(.green) }
-        .ownerCard()
-        .accessibilityIdentifier("owner-needs-empty")
+      VStack(alignment: .leading, spacing: 8) {
+        Label { Text(verbatim: d.needsEmpty) } icon: { Image(systemName: "checkmark.circle.fill").foregroundStyle(.green) }
+          .ownerCard()
+          .accessibilityIdentifier("owner-needs-empty")
+        if let a = d.lastAction {
+          draw.go(a.to, AnyView((Text(verbatim: a.title).foregroundStyle(a.to == nil ? Color.secondary : OwnerChart.green)
+                                 + Text(verbatim: a.figure.map { " · " + $0 } ?? "").foregroundStyle(.secondary))
+            .font(.subheadline)
+            .padding(.horizontal, 4)
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel(Text(verbatim: OwnerDraw.said(a.title, a.figure)))), "owner-last-action")
+        }
+      }
     } else {
       list(d.needs.map { n in
         draw.go(n.to, AnyView(HStack(spacing: 12) {
-          Image(systemName: Self.icon(n.kind)).font(.title3).foregroundStyle(n.tone.color).frame(width: 28).accessibilityHidden(true)
-          (Text(verbatim: n.text) + (n.sub.map { Text(verbatim: "\n" + $0).font(.subheadline).foregroundStyle(.secondary) } ?? Text(verbatim: "")))
+          HStack(alignment: .firstTextBaseline, spacing: 12) {
+            Image(systemName: Self.icon(n.kind)).font(.title3).foregroundStyle(n.tone.color).frame(width: 28).accessibilityHidden(true)
+            VStack(alignment: .leading, spacing: 2) {
+              Text(verbatim: n.text).lineLimit(size.isAccessibilitySize ? 3 : 1)
+              if let sub = n.sub { Text(verbatim: sub).font(.subheadline).foregroundStyle(.secondary) }
+              if !size.isAccessibilitySize, !n.photos.isEmpty {
+                HStack(spacing: 4) { ForEach(n.photos.prefix(2).indices, id: \.self) { OwnerImage(src: n.photos[$0]).frame(width: 36, height: 36) } }
+                  .padding(.top, 4)
+              }
+            }
             .frame(maxWidth: .infinity, alignment: .leading)
-          if !size.isAccessibilitySize {
-            ForEach(n.photos.prefix(2).indices, id: \.self) { OwnerImage(src: n.photos[$0]).frame(width: 40, height: 40) }
           }
           if n.to != nil { OwnerRow.chevron }
         }

@@ -19,7 +19,10 @@
   "inat:454535210",
   "inat:454535197",
   "File:Pseudomugil gertrudae ARUII Maennchen.jpg",
-  "File:Getrudae Rainbowfish.jpg"
+  "File:Getrudae Rainbowfish.jpg",
+  "flickr:13380384145",
+  "flickr:13380744024",
+  "flickr:13380525063"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/1ab6cab2c60600a5.webp": "1b1b7f471f436fb4",
@@ -32,7 +35,8 @@
   "https://media.aquatome.com/inaturalist/682650379.webp": "f871780707411888",
   "https://media.aquatome.com/inaturalist/691923446.webp": "70706d0e1e7cdb68",
   "https://media.aquatome.com/inaturalist/746460013.webp": "e9cb4bd9bcb48cad",
-  "https://media.aquatome.com/seriouslyfish/47ce9a92531591db.webp": "8c9ada8f1ad0c1e3"
+  "https://media.aquatome.com/seriouslyfish/47ce9a92531591db.webp": "8c9ada8f1ad0c1e3",
+  "https://live.staticflickr.com/2880/13380384145_18022b5639_b.jpg": "c9c1416121010123"
  },
  "inat": {
   "taxon": 530745,
@@ -46,5 +50,9 @@
  "gbif": {
   "key": 2411747,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-09"
 }

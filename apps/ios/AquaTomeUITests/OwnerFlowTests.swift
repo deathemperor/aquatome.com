@@ -15,9 +15,13 @@ final class OwnerFlowTests: XCTestCase {
     open(app, "owner-dashboard")
     XCTAssertTrue(app.navigationBars["Dashboard"].waitForExistence(timeout: 10), "not the dashboard")
     for key in ["needs", "answers", "shipped", "cost"] { XCTAssertTrue(app.buttons["owner-tile-" + key].exists, "no \(key) tile") }
-    XCTAssertTrue(app.buttons["owner-tile-needs"].label.hasPrefix("Needs you, 10"), app.buttons["owner-tile-needs"].label)
+    XCTAssertTrue(app.buttons["owner-tile-needs"].label.hasPrefix("Needs you, 9"), app.buttons["owner-tile-needs"].label)
     XCTAssertTrue(app.staticTexts["Wednesday 4 Nov · figures as of 16:00"].exists, "when the figures were read")
-    XCTAssertEqual(app.buttons.matching(identifier: "owner-need").count, 5, "a line each of what needs the owner")
+    XCTAssertEqual(app.buttons.matching(identifier: "owner-need").count, 4, "a line each of what needs the owner")
+    // Each line its title and the line under it, as the site draws them; the count is the tile's, not the heading's.
+    let key = app.buttons.matching(identifier: "owner-need").firstMatch
+    XCTAssertTrue(key.label.hasPrefix("Fish ID and chat are down, Every key resting, the first until Wed 4 Nov, 16:30."), key.label)
+    XCTAssertFalse(app.staticTexts["Needs you · 4"].exists, "a count beside the heading")
 
     // The cost tile scrolls to the costs, far down; the keys' line opens their section at its heading.
     app.buttons["owner-tile-cost"].tap()
@@ -25,7 +29,7 @@ final class OwnerFlowTests: XCTestCase {
     XCTAssertTrue(becomesHittable(keys), "the cost tile didn't go to the costs")
     XCTAssertTrue(keys.label.hasPrefix("Anthropic keys, 2 of 2 resting"), keys.label)
     keys.tap()
-    let heading = app.staticTexts["Key Anthropic"]
+    let heading = app.staticTexts["Anthropic keys"]
     XCTAssertTrue(heading.waitForExistence(timeout: 10), "the section didn't open")
     XCTAssertTrue(becomesHittable(heading), "not at its heading")
     back(app)
@@ -47,6 +51,20 @@ final class OwnerFlowTests: XCTestCase {
     XCTAssertTrue(becomesHittable(app.buttons["owner-keys"]), "the cost tile didn't go to the costs")
   }
 
+  /// The report button floats over every screen of the owner's: the overview's last row ends above it.
+  func testTheOverviewsLastRowEndsAboveTheReportButton() {
+    let app = launch()
+    signIn(app)
+    open(app, "owner-dashboard")
+    XCTAssertTrue(app.buttons["owner-tile-needs"].waitForExistence(timeout: 10), "the overview didn't load")
+    let button = app.buttons["owner-report"]
+    XCTAssertTrue(button.waitForExistence(timeout: 10), "no report button")
+    for _ in 0..<12 { app.swipeUp() }
+    let last = app.buttons.matching(identifier: "owner-page").allElementsBoundByIndex.last
+    XCTAssertNotNil(last, "no pages")
+    XCTAssertLessThanOrEqual(last!.frame.maxY, button.frame.minY, "the last row ends under the report button")
+  }
+
   func testNothingNeedingTheOwnerSaysSoInOneLine() {
     let app = launch("-owner-overview", "dashboard: nothing needs you")
     signIn(app)
@@ -55,6 +73,12 @@ final class OwnerFlowTests: XCTestCase {
     XCTAssertTrue(app.buttons["owner-tile-needs"].label.hasPrefix("Needs you, All clear"), app.buttons["owner-tile-needs"].label)
     XCTAssertTrue(app.descendants(matching: .any)["owner-needs-empty"].exists, "not said in one line")
     XCTAssertFalse(app.buttons["owner-need"].exists)
+    // Under it, the owner's last action, which opens the section it was in.
+    let last = app.buttons["owner-last-action"]
+    XCTAssertTrue(last.exists, "no last action")
+    XCTAssertEqual(last.label, "You hid a comment on Ikan neon (Indonesian), Wed 4 Nov, 8:00")
+    last.tap()
+    XCTAssertTrue(app.segmentedControls["owner-comment-filter"].waitForExistence(timeout: 10), "its section didn't open")
   }
 
   /// The owner asked for a bar's own figures on a phone: a tap on a column, or a finger dragged across, reads that day,
@@ -65,7 +89,7 @@ final class OwnerFlowTests: XCTestCase {
     open(app, "owner-dashboard")
     section(app, "Calls and keys")
     let chart = app.descendants(matching: .any).matching(identifier: "owner-chart")
-      .containing(NSPredicate(format: "label == 'Lượt gửi ảnh mỗi ngày, theo kết quả'")).firstMatch
+      .containing(NSPredicate(format: "label == 'Calls by day'")).firstMatch
     let columns = chart.descendants(matching: .any)["owner-chart-columns"], day = chart.descendants(matching: .any)["owner-chart-day"]
     XCTAssertTrue(columns.waitForExistence(timeout: 10), "no chart")
     // All of it on screen, not just its top: a finger at its middle must be on the screen.
@@ -82,15 +106,15 @@ final class OwnerFlowTests: XCTestCase {
     let below = app.windows.firstMatch.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.45))
     below.press(forDuration: 0.05, thenDragTo: below.withOffset(CGVector(dx: 0, dy: top - columns.frame.minY)), withVelocity: .slow, thenHoldForDuration: 0.3)
     XCTAssertTrue(shown() && abs(columns.frame.minY - top) < 40, "the chart isn't back where it was: \(columns.frame.minY) for \(top)")
-    // Untouched: today, the last of its 30 days, not over yet.
-    XCTAssertTrue(day.label.hasPrefix("11 có kết quả") && day.label.contains("Thứ Tư 04/11 · chưa hết ngày"), day.label)
-    let at = { (i: Double) in columns.coordinate(withNormalizedOffset: CGVector(dx: (i + 0.5) / 30, dy: 0.8)) }
+    // Untouched: today, the third of its week's seven, not over yet.
+    XCTAssertTrue(reads(day, "17 named", "Wed 4 Nov, so far"), day.label)
+    let at = { (i: Double) in columns.coordinate(withNormalizedOffset: CGVector(dx: (i + 0.5) / 7, dy: 0.8)) }
     // A tap on the first column: its day and figures.
     at(0).tap()
-    XCTAssertTrue(reads(day, "12 có kết quả", "Thứ Ba 06/10"), day.label)
-    // A finger pressed there and dragged to the third: the column under it.
-    at(0).press(forDuration: 0.1, thenDragTo: at(2))
-    XCTAssertTrue(reads(day, "14 có kết quả", "Thứ Năm 08/10"), day.label)
+    XCTAssertTrue(reads(day, "24 named", "Mon 2 Nov"), day.label)
+    // A finger pressed there and dragged to the second: the column under it.
+    at(0).press(forDuration: 0.1, thenDragTo: at(1))
+    XCTAssertTrue(reads(day, "16 named", "Tue 3 Nov"), day.label)
   }
 
   /// The overview's chart and its tile's small columns: a tap reads that day, and a tap on the tile's columns neither
@@ -105,7 +129,7 @@ final class OwnerFlowTests: XCTestCase {
     bars.coordinate(withNormalizedOffset: CGVector(dx: 1.5 / 7, dy: 0.7)).tap()
     let read = app.staticTexts["owner-bars-day"]
     XCTAssertTrue(read.waitForExistence(timeout: 5), "the tap read nothing")
-    XCTAssertEqual(read.label, "3 found an answer · Tue 3 Nov · 7 readers · 0 shop clicks")
+    XCTAssertEqual(read.label, "4 found an answer · Tue 3 Nov · 8 readers · 1 shop click")
     XCTAssertTrue(app.buttons["owner-tile-needs"].isHittable, "the tap scrolled away")
 
     let columns = app.descendants(matching: .any).matching(identifier: "owner-chart-columns").firstMatch
@@ -115,9 +139,9 @@ final class OwnerFlowTests: XCTestCase {
     repeatUntil(shown(), times: 6) { app.swipeUp(velocity: .slow) }
     XCTAssertTrue(shown(), "the chart isn't on screen")
     // Untouched: today, Wednesday, so far.
-    XCTAssertTrue(reads(day, "4 found an answer", "Wed 4 Nov, so far"), day.label)
+    XCTAssertTrue(reads(day, "5 found an answer", "Wed 4 Nov, so far"), day.label)
     columns.coordinate(withNormalizedOffset: CGVector(dx: 0.5 / 7, dy: 0.8)).tap()
-    XCTAssertTrue(reads(day, "6 found an answer", "Mon 2 Nov · 9 readers · 1 shop click"), day.label)
+    XCTAssertTrue(reads(day, "3 found an answer", "Mon 2 Nov · 6 readers · 0 shop clicks"), day.label)
   }
 
   /// A review's notes (some 4 KB on the site, a note a line) show two lines until tapped, and the review's line always.
@@ -130,7 +154,7 @@ final class OwnerFlowTests: XCTestCase {
     let notes = app.buttons.matching(NSPredicate(format: "identifier == 'owner-fold' AND label CONTAINS 'Phụ đề tự động' AND label CONTAINS %@",
                                                  "Keep them hedged & <don't> give")).firstMatch
     XCTAssertTrue(notes.waitForExistence(timeout: 10), "no notes cell")
-    XCTAssertTrue(notes.label.contains("Đánh giá bài viết từ video, 03/11 · 3 nhận xét"), notes.label)
+    XCTAssertTrue(notes.label.contains("Review of the video guide, 3 Nov · 3 notes"), notes.label)
     XCTAssertEqual(notes.value as? String, "More")
     // Down the section to its table, then across it to the notes' column: dragged and held, never flung, so it isn't
     // scrolled past.
@@ -166,13 +190,12 @@ final class OwnerFlowTests: XCTestCase {
     section(app, "Calls and keys")
     let menu = app.buttons["owner-period"]
     XCTAssertTrue(menu.waitForExistence(timeout: 10), "no period menu")
-    XCTAssertEqual(menu.value as? String, "7 ngày")
-    XCTAssertTrue(figure(app, "Lượt gọi Claude · 7 ngày").label.contains("84"))
+    XCTAssertEqual(menu.value as? String, "This week")
+    XCTAssertTrue(figure(app, "Claude calls, 58").exists, figure(app, "Claude calls").label)
     menu.tap()
-    app.buttons["30 ngày"].tap()
-    XCTAssertTrue(figure(app, "Lượt gọi Claude · 30 ngày").waitForExistence(timeout: 10), "not read for 30 days")
-    XCTAssertTrue(figure(app, "Lượt gọi Claude · 30 ngày").label.contains("360"))
-    XCTAssertEqual(menu.value as? String, "30 ngày")
+    app.buttons["30 days"].tap()
+    XCTAssertTrue(figure(app, "Claude calls, 570").waitForExistence(timeout: 10), "not read for 30 days")
+    XCTAssertEqual(menu.value as? String, "30 days")
   }
 
   /// A folded table opens its rows on a page of its own; a long one shows its first 50 rows and reads the rest on asking.
@@ -181,21 +204,25 @@ final class OwnerFlowTests: XCTestCase {
     signIn(app)
     open(app, "owner-dashboard")
     section(app, "Calls and keys")
-    let folded = app.buttons.matching(NSPredicate(format: "identifier == 'owner-folded' AND label BEGINSWITH 'Bảng đầy đủ: kết quả, token'")).firstMatch
-    XCTAssertTrue(folded.waitForExistence(timeout: 10), "no folded table")
+    XCTAssertTrue(folded(app, "Since 7:00, in detail").waitForExistence(timeout: 10), "no folded table")
     app.scrollToAndTap("owner-folded")
-    XCTAssertTrue(app.navigationBars["Bảng đầy đủ: kết quả, token"].waitForExistence(timeout: 10), "its page didn't open")
+    XCTAssertTrue(app.navigationBars["Since 7:00, in detail"].waitForExistence(timeout: 10), "its page didn't open")
     XCTAssertTrue(app.descendants(matching: .any)["owner-table"].waitForExistence(timeout: 10), "its rows weren't read")
-    XCTAssertTrue(app.staticTexts["12.000"].exists, "not its rows")
+    XCTAssertTrue(app.staticTexts["Fell back to one call"].exists, "not its rows")
     back(app)
 
-    // The 100 latest calls: 50, then the other 10.
+    // Every request this week: 50, then the other 9.
+    let requests = folded(app, "Every request")
+    repeatUntil(requests.exists && requests.isHittable, times: 10) { app.swipeUp(velocity: .slow) }
+    requests.tap()
+    XCTAssertTrue(app.navigationBars["Every request"].waitForExistence(timeout: 10), "its page didn't open")
     let more = app.buttons["owner-more"]
-    repeatUntil(more.exists && more.isHittable, times: 30) { app.swipeUp() }
-    XCTAssertEqual(more.label, "Show 10 more of 60")
-    XCTAssertFalse(app.staticTexts["04/11 14:04"].exists, "the last row before it was read")
+    XCTAssertTrue(more.waitForExistence(timeout: 10), "no more to read")
+    repeatUntil(more.isHittable, times: 30) { app.swipeUp() }
+    XCTAssertEqual(more.label, "Show 9 more of 59")
+    XCTAssertFalse(app.staticTexts["Mon 2 Nov, 0:30"].exists, "the last row before it was read")
     more.tap()
-    let last = app.staticTexts["04/11 14:04"]
+    let last = app.staticTexts["Mon 2 Nov, 0:30"]
     XCTAssertTrue(last.waitForExistence(timeout: 10), "the rest weren't read")
     XCTAssertFalse(more.exists, "more to read after the last page")
   }
@@ -213,8 +240,12 @@ final class OwnerFlowTests: XCTestCase {
     XCTAssertTrue(held.exists)
     XCTAssertTrue(held.descendants(matching: .any)["owner-comment-reason"].label.contains("Held when posted: it has “zalo:”, a blocked term"))
     XCTAssertEqual(app.descendants(matching: .any).matching(identifier: "owner-comment").count, 3)
-    // The other two held, 50 at a time.
-    app.scrollToAndTap("owner-more")
+    XCTAssertFalse(app.staticTexts["Held"].exists, "a Held badge under the Held filter")
+    // The other two held, 50 at a time, said as how many are left.
+    let more = app.buttons["owner-more"]
+    repeatUntil(more.exists && more.isHittable, times: 6) { app.swipeUp() }
+    XCTAssertEqual(more.label, "Show 2 more of 5")
+    more.tap()
     XCTAssertTrue(comment(app, "Reader 00").waitForExistence(timeout: 10), "the rest weren't read")
     XCTAssertTrue(comment(app, "Reader 00").staticTexts["a page no longer on the site"].exists)
 
@@ -247,16 +278,16 @@ final class OwnerFlowTests: XCTestCase {
     signIn(app)
     open(app, "owner-dashboard")
     section(app, "Reader photos")
-    // Lan's photo: its Duyệt goes with it.
-    let approve = app.buttons.matching(NSPredicate(format: "identifier == 'owner-action' AND label == 'Duyệt'")).firstMatch
-    let remove = app.buttons.matching(NSPredicate(format: "identifier == 'owner-action' AND label == 'Gỡ'")).firstMatch
+    // Lan's photo: its Approve goes with it.
+    let approve = app.buttons.matching(NSPredicate(format: "identifier == 'owner-action' AND label == 'Approve'")).firstMatch
+    let remove = app.buttons.matching(NSPredicate(format: "identifier == 'owner-action' AND label == 'Remove'")).firstMatch
     XCTAssertTrue(remove.waitForExistence(timeout: 10), "no photo to remove")
     XCTAssertTrue(approve.exists)
     remove.tap()
     // Asked first, and nothing gone before the answer.
     XCTAssertTrue(app.staticTexts["This can't be undone."].waitForExistence(timeout: 5), "removed without asking")
     XCTAssertTrue(approve.exists, "removed before the answer")
-    app.buttons.matching(NSPredicate(format: "label == 'Gỡ' AND identifier != 'owner-action'")).firstMatch.tap()
+    app.buttons.matching(NSPredicate(format: "label == 'Remove' AND identifier != 'owner-action'")).firstMatch.tap()
     let gone = expectation(for: NSPredicate(format: "exists == false"), evaluatedWith: approve)
     wait(for: [gone], timeout: 10)
   }
@@ -266,10 +297,10 @@ final class OwnerFlowTests: XCTestCase {
     signIn(app)
     open(app, "owner-dashboard")
     section(app, "Reader photos")
-    let approve = app.buttons.matching(NSPredicate(format: "identifier == 'owner-action' AND label == 'Duyệt'")).firstMatch
+    let approve = app.buttons.matching(NSPredicate(format: "identifier == 'owner-action' AND label == 'Approve'")).firstMatch
     XCTAssertTrue(approve.waitForExistence(timeout: 10), "no photo waiting")
     // Lan's photo, the one waiting to be approved.
-    let approved = text(app, "label BEGINSWITH 'Lan' AND label CONTAINS 'Đã duyệt · đăng trong lượt duyệt tới'")
+    let approved = text(app, "label BEGINSWITH 'Lan' AND label CONTAINS 'Approved · goes up at the next pass'")
     XCTAssertFalse(approved.exists)
     approve.tap()
     // Read again: the photo approved is marked so, and has nothing more to approve.
@@ -286,9 +317,9 @@ final class OwnerFlowTests: XCTestCase {
     let page = text(app, "label BEGINSWITH '/ca/ca-y/'")
     XCTAssertTrue(page.waitForExistence(timeout: 10), "not listed as hidden")
     XCTAssertTrue(page.label.contains("sai loài"), page.label)
-    // The newest first: its "Hiện lại".
-    let again = app.buttons.matching(NSPredicate(format: "identifier == 'owner-action' AND label == 'Hiện lại'")).firstMatch
-    XCTAssertEqual(app.buttons.matching(NSPredicate(format: "identifier == 'owner-action' AND label == 'Hiện lại'")).count, 3)
+    // The newest first: its "Show again".
+    let again = app.buttons.matching(NSPredicate(format: "identifier == 'owner-action' AND label == 'Show again'")).firstMatch
+    XCTAssertEqual(app.buttons.matching(NSPredicate(format: "identifier == 'owner-action' AND label == 'Show again'")).count, 3)
     again.tap()
     let gone = expectation(for: NSPredicate(format: "exists == false"), evaluatedWith: page)
     wait(for: [gone], timeout: 10)
@@ -409,7 +440,7 @@ final class OwnerFlowTests: XCTestCase {
   /// the Tài khoản sheet.
   private func launch(owner: String = "ui-apple", _ args: String...) -> XCUIApplication {
     let app = XCUIApplication()
-    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-fake-accounts", "on", "-reset-defaults",
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-v2", "YES", "-fake-accounts", "on", "-reset-defaults",
                            "-reset-fake-server", "-fake-owner", owner] + args
     app.launch()
     app.openAccount()
@@ -558,6 +589,10 @@ final class OwnerFlowTests: XCTestCase {
   /// A section's figure, by what it counts.
   private func figure(_ app: XCUIApplication, _ label: String) -> XCUIElement {
     app.descendants(matching: .any).matching(NSPredicate(format: "identifier == 'owner-figure' AND label BEGINSWITH %@", label + ",")).firstMatch
+  }
+  /// A folded table's row, by its name.
+  private func folded(_ app: XCUIApplication, _ name: String) -> XCUIElement {
+    app.buttons.matching(NSPredicate(format: "identifier == 'owner-folded' AND label BEGINSWITH %@", name)).firstMatch
   }
   /// A comment, by the name its reader gave.
   private func comment(_ app: XCUIApplication, _ name: String) -> XCUIElement {

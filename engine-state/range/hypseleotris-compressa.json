@@ -1,0 +1,177 @@
+{
+  "id": "hypseleotris-compressa",
+  "native": {
+    "input": "4baf421c9cca5604",
+    "at": "2026-11-09T05:57:45.266Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Available size: 4–5 cm. Origin: Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species occurs in the wild in northern Australia and southern New Guinea.",
+        "words": "Australia",
+        "ok": true
+      },
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs in northern and eastern Australia and southern New Guinea.",
+        "words": "Australia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "New Guinea",
+        "source": "glaser",
+        "quote": "The species occurs in the wild in northern Australia and southern New Guinea.",
+        "ok": true
+      },
+      {
+        "name": "New Guinea",
+        "source": "seriouslyfish",
+        "quote": "Occurs in northern and eastern Australia and southern New Guinea.",
+        "ok": true
+      },
+      {
+        "name": "Towamba",
+        "source": "seriouslyfish",
+        "quote": "In the former its range extends from the Pilbara and Kimberley regions of Western Australia state around the northern and eastern coastlines of the continent as far as the Towamba river system in New South Wales state.",
+        "ok": true
+      },
+      {
+        "name": "Clarence River",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Clarence River and creeks near Port Denison, Australia'.",
+        "country": "AU",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "PG"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hypseleotris compressa",
+    "status": "ACCEPTED",
+    "taxonKey": 2386343,
+    "datasets": [
+      [
+        "e4473544-f4cd-4429-b791-39d6e1fdb0a4",
+        2013
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        466
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        197
+      ],
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        143
+      ],
+      [
+        "0645ccdb-e001-4ab0-9729-51f1755e007e",
+        74
+      ],
+      [
+        "fa375330-6c8a-11de-8226-b8a03c50a862",
+        59
+      ],
+      [
+        "39905320-6c8a-11de-8226-b8a03c50a862",
+        45
+      ],
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        35
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        28
+      ],
+      [
+        "4c313e80-c48b-4fc8-bd19-d8226b0a6921",
+        15
+      ],
+      [
+        "37beb6ea-e591-41e3-b781-e384250dc42c",
+        9
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        7
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        6
+      ],
+      [
+        "18c93d12-34fb-4d3f-903c-b77215a1dcc9",
+        6
+      ],
+      [
+        "d51f93a6-a5b7-4025-83a9-3f7b8525755a",
+        6
+      ],
+      [
+        "84a649ce-ff81-420d-9c41-aa1de59e3766",
+        5
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        3
+      ],
+      [
+        "10710e0f-205f-46d4-b1f3-1a92bd21a4f3",
+        2
+      ],
+      [
+        "358fbd61-739f-4102-afc9-9d468f571e4d",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "19729f12-88c3-4e56-a84f-b42a5cf052ad",
+        1
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "ID",
+      "AU"
+    ],
+    "requests": 13,
+    "at": "2026-11-09T05:57:45.266Z"
+  }
+}

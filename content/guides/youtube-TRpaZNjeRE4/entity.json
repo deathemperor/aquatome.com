@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "TRpaZNjeRE4",
     "title": "Hướng Dẫn Setup Bể Thủy Sinh từ A-Z v2 - Aquarium Setup",
@@ -26,9 +26,7 @@
     },
     "transcribed": true,
     "lang": "vi",
-    "taxa": [
-      "Taxiphyllum sp."
-    ],
+    "taxa": [],
     "gear": [
       {
         "category": "be-ca",
@@ -46,7 +44,7 @@
         "type": "phan",
         "brand": "JBL",
         "model": "Florapol",
-        "t": 215
+        "t": 225
       },
       {
         "category": "co2",
@@ -68,22 +66,12 @@
       {
         "category": "phan-nen",
         "type": "soi",
-        "t": 125
-      },
-      {
-        "category": "cay-thuy-sinh",
-        "type": "reu",
-        "t": 125
-      },
-      {
-        "category": "cay-thuy-sinh",
-        "type": "gan-lua",
-        "t": 125
+        "t": 150
       },
       {
         "category": "khac",
         "brand": "Sonoff",
-        "t": 0
+        "t": 215
       },
       {
         "category": "khac",
@@ -92,8 +80,9 @@
       },
       {
         "category": "khac",
-        "brand": "Magic support",
-        "t": 0
+        "brand": "Magic",
+        "model": "Magic support",
+        "t": 740
       },
       {
         "category": "khac",
@@ -104,194 +93,65 @@
       {
         "category": "khac",
         "brand": "Plant Care",
-        "t": 0
+        "t": 17
       }
     ],
     "figures": [
       {
         "heading": "Cần chuẩn bị những gì",
-        "moments": [
-          {
-            "t": 169,
-            "url": "https://media.aquatome.com/video/TRpaZNjeRE4/t169.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Lũa lớn và đá nham thạch bày sẵn để làm bố cục."
-          },
-          {
-            "t": 199,
-            "url": "https://media.aquatome.com/video/TRpaZNjeRE4/t199.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Các túi phân nền GEX xanh dùng để làm nền hồ."
-          }
-        ]
-      },
-      {
-        "heading": "Xử lý lũa, đá và cát trước khi cho vào bể",
-        "moments": [
-          {
-            "t": 149,
-            "url": "https://media.aquatome.com/video/TRpaZNjeRE4/t149.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Lũa được đun sôi trong nồi trên bếp củi để làm sạch."
-          },
-          {
-            "t": 179,
-            "url": "https://media.aquatome.com/video/TRpaZNjeRE4/t179.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Lũa và đá được bày ra để xử lý trước khi dựng bể."
-          }
-        ],
+        "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/TRpaZNjeRE4/p1-YXJkc2NhcGUuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/TRpaZNjeRE4/p1-YXJkc2NhcGUuanBn-480.webp",
-          "width": 960,
-          "height": 638,
-          "licence": "CC BY 4.0",
-          "author": "Abhik.Mazumdar.73",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Tank_Mermaid_and_Poseidon_Statue_Driftwood_Hardscape.jpg",
-          "caption": "Bể có lũa đã xử lý sạch và nền cát trắng, chưa trồng cây."
-        }
-      },
-      {
-        "heading": "Chuẩn bị bể và dựng nền",
-        "moments": [
-          {
-            "t": 348,
-            "url": "https://media.aquatome.com/video/TRpaZNjeRE4/t348.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể đã dán decal đen mặt sau, bên cạnh là các khay rêu chuẩn bị trải."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/TRpaZNjeRE4/p2-FzY2FwaW5nLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/TRpaZNjeRE4/p2-FzY2FwaW5nLmpwZw-480.webp",
-          "width": 960,
-          "height": 338,
-          "licence": "CC BY 3.0",
-          "author": "Ghostsword",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Embalo_Aquascaping.jpg",
-          "caption": "Bể thủy sinh đã trồng cây dày, phủ thảm xanh và nền sạch đẹp."
-        }
-      },
-      {
-        "heading": "Lắp CO2 thế nào cho tan tốt",
-        "moments": [
-          {
-            "t": 1033,
-            "url": "https://media.aquatome.com/video/TRpaZNjeRE4/t1033.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Ống dẫn trong suốt gắn vào bể thủy sinh có cây."
-          },
-          {
-            "t": 1063,
-            "url": "https://media.aquatome.com/video/TRpaZNjeRE4/t1063.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Lọc thùng, nơi nước chảy ra để nối sang cốc trộn CO2."
-          }
-        ]
-      },
-      {
-        "heading": "Lắp lọc và các đầu in/out",
-        "moments": [
-          {
-            "t": 844,
-            "url": "https://media.aquatome.com/video/TRpaZNjeRE4/t844.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đầu out thủy tinh gắn trên thành bể thủy sinh, cạnh thùng lọc."
-          },
-          {
-            "t": 1072,
-            "url": "https://media.aquatome.com/video/TRpaZNjeRE4/t1072.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Thùng lọc HW-3000 có chế độ đèn UV diệt rêu hại."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/TRpaZNjeRE4/p4-JfRmlsdGVyLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/TRpaZNjeRE4/p4-JfRmlsdGVyLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/TRpaZNjeRE4/p0-YXJpdW1fMDEuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/TRpaZNjeRE4/p0-YXJpdW1fMDEuanBn-480.webp",
           "width": 960,
           "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Fish Tank Society",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
-          "caption": "Lọc thùng đặt trong tủ bể với các ống in/out nối ra ngoài."
+          "licence": "CC BY 4.0",
+          "author": "Jesaya Li",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fire_eel_in_the_corner_of_aquarium_01.jpg",
+          "caption": "Hồ cá có đá, sỏi trải nền và đá lớn để bố cục."
         }
       },
       {
-        "heading": "Hẹn giờ đèn và CO2 bằng công tắc wifi",
-        "moments": [
-          {
-            "t": 904,
-            "url": "https://media.aquatome.com/video/TRpaZNjeRE4/t904.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Tay cầm công tắc wifi Sonoff gắn trên ổ cắm cạnh bể."
-          },
-          {
-            "t": 933,
-            "url": "https://media.aquatome.com/video/TRpaZNjeRE4/t933.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Công tắc wifi Sonoff trắng cắm trên ổ điện, dây nối đến thiết bị."
-          }
-        ]
+        "heading": "Xử lý lũa thế nào",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/TRpaZNjeRE4/p1-aXNoYm93bC5qcGVn.webp",
+          "thumb": "https://media.aquatome.com/video/TRpaZNjeRE4/p1-aXNoYm93bC5qcGVn-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 3.0",
+          "author": "User:Rijans007",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Driftwood_in_fishbowl.jpeg",
+          "caption": "Khúc lũa đã xử lý chìm hẳn trong bể cầu tròn nuôi cá."
+        }
       },
       {
         "heading": "Giữ lọc chạy khi mất điện",
-        "moments": [
-          {
-            "t": 943,
-            "url": "https://media.aquatome.com/video/TRpaZNjeRE4/t943.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bộ UPS và ắc quy dùng để giữ cho lọc chạy khi mất điện."
-          },
-          {
-            "t": 1013,
-            "url": "https://media.aquatome.com/video/TRpaZNjeRE4/t1013.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể thủy sinh nhiều cây, cây quang hợp tự nhả oxy vào nước."
-          }
-        ],
+        "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/TRpaZNjeRE4/p6-QU19FUzUyNS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/TRpaZNjeRE4/p6-QU19FUzUyNS5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/TRpaZNjeRE4/p5-xlOlVQU18yLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/TRpaZNjeRE4/p5-xlOlVQU18yLmpwZw-480.webp",
           "width": 960,
-          "height": 720,
-          "licence": "CC0",
-          "author": "MSDN.WhiteKnight",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:APC_Back-UPS_ES525.jpg",
-          "caption": "Bộ UPS nhỏ có nhiều ổ cắm, loại dùng để giữ lọc chạy khi mất điện."
+          "height": 442,
+          "licence": "CC BY-SA 4.0",
+          "author": "Sarathkumaran Ranganathan",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:UPS_2.jpg",
+          "caption": "Bộ lưu điện UPS nhỏ gọn, dùng để giữ máy lọc chạy khi mất điện."
         }
       },
       {
-        "heading": "Châm thuốc và chờ bể ổn định",
-        "moments": [
-          {
-            "t": 1331,
-            "url": "https://media.aquatome.com/video/TRpaZNjeRE4/t1331.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cây thủy sinh và rêu trải nền lên xanh tốt trong bể."
-          },
-          {
-            "t": 1529,
-            "url": "https://media.aquatome.com/video/TRpaZNjeRE4/t1529.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Toàn cảnh bể thủy sinh sáng đèn sau khi ổn định."
-          }
-        ]
+        "heading": "Khi nào thả cá và sau đó ra sao",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/TRpaZNjeRE4/p7-YXF1YXJpdW0ucG5n.webp",
+          "thumb": "https://media.aquatome.com/video/TRpaZNjeRE4/p7-YXF1YXJpdW0ucG5n-480.webp",
+          "width": 960,
+          "height": 628,
+          "licence": "CC BY-SA 4.0",
+          "author": "Hamid.Moghadam",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cherry_shrimps_in_freshwater_aquarium.png",
+          "caption": "Đàn tép cherry đỏ và vàng bò trên nền sỏi đen trong bể thủy sinh."
+        }
       }
     ]
   }

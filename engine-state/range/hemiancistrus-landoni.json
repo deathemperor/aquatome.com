@@ -1,0 +1,93 @@
+{
+  "id": "hemiancistrus-landoni",
+  "native": {
+    "input": "4ae3633f76ca3a33",
+    "at": "2026-11-09T05:57:45.266Z",
+    "claims": [
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Hemiancistrus landoni Eigenmann, 1916. Type locality: Naranjito, Ecuador. Maximum size 210 mm SL. Temperature 24–28°C.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Hemiancistrus landoni is distributed throughout the Guayas, Arenillas, Puyango and Zaracay rivers on the Pacific slope of Ecuador.",
+        "words": "Ecuador",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Guayas",
+        "source": "scotcat",
+        "quote": "Hemiancistrus landoni is distributed throughout the Guayas, Arenillas, Puyango and Zaracay rivers on the Pacific slope of Ecuador.",
+        "country": "EC",
+        "ok": true
+      },
+      {
+        "name": "Arenillas",
+        "source": "scotcat",
+        "quote": "Hemiancistrus landoni is distributed throughout the Guayas, Arenillas, Puyango and Zaracay rivers on the Pacific slope of Ecuador.",
+        "country": "EC",
+        "ok": true
+      },
+      {
+        "name": "Puyango",
+        "source": "scotcat",
+        "quote": "Hemiancistrus landoni is distributed throughout the Guayas, Arenillas, Puyango and Zaracay rivers on the Pacific slope of Ecuador.",
+        "country": "EC",
+        "ok": true
+      },
+      {
+        "name": "Zaracay",
+        "source": "scotcat",
+        "quote": "Hemiancistrus landoni is distributed throughout the Guayas, Arenillas, Puyango and Zaracay rivers on the Pacific slope of Ecuador.",
+        "country": "EC",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hemiancistrus landoni",
+    "status": "ACCEPTED",
+    "taxonKey": 2340143,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        8
+      ],
+      [
+        "1a827faf-4ba6-4e0a-99f7-134104627212",
+        7
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ]
+    ],
+    "native": [
+      "EC"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T22:57:48.089Z"
+  }
+}

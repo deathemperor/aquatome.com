@@ -1,5 +1,5 @@
 {
- "day": "2026-11-08",
+ "day": "2026-11-10",
  "baseline": {
   "day": "2026-11-08",
   "pct": {
@@ -11,32 +11,32 @@
  },
  "langs": {
   "vi": {
-   "pages": 2985,
-   "read": 2645,
-   "wrong": 1272,
+   "pages": 3679,
+   "read": 3387,
+   "wrong": 1541,
    "pct": 46,
-   "held": 22
+   "held": 221
   },
   "id": {
-   "pages": 978,
-   "read": 848,
-   "wrong": 260,
+   "pages": 1102,
+   "read": 1035,
+   "wrong": 323,
    "pct": 31,
-   "held": 3
+   "held": 17
   },
   "th": {
-   "pages": 971,
-   "read": 850,
-   "wrong": 250,
+   "pages": 1095,
+   "read": 1028,
+   "wrong": 310,
    "pct": 30,
-   "held": 5
+   "held": 16
   },
   "ms": {
-   "pages": 127,
-   "read": 99,
-   "wrong": 39,
-   "pct": 42,
-   "held": 1
+   "pages": 171,
+   "read": 141,
+   "wrong": 54,
+   "pct": 38,
+   "held": 9
   }
  },
  "labels": {
@@ -53,14 +53,15 @@
   "card": "Thẻ ghi loài mới là \"phát hiện\" hay thiếu ngày công bố, hay xu hướng thiếu số liệu và nguồn",
   "dose-purpose": "Liều không nói để trị gì",
   "dose-conflict": "Cùng một cách trị mà trang này liều khác trang kia",
-  "dose-caution": "Liều thiếu lời dặn cho tép và con vật nhạy"
+  "dose-caution": "Liều thiếu lời dặn cho tép và con vật nhạy",
+  "lethal": "Mức gây chết trong thí nghiệm (LC50, LD50), người đọc dễ hiểu nhầm là mức con vật chịu được"
  },
  "sample": [
   {
    "lang": "vi",
-   "path": "/vi/ca/ca-ty-ba-buom-myersi/",
-   "url": "https://aquatome.com/ca/ca-ty-ba-buom-myersi/",
-   "title": "Cá tỳ bà bướm myersi",
+   "path": "/vi/ca/ca-tetra-lung-do/",
+   "url": "https://aquatome.com/ca/ca-tetra-lung-do/",
+   "title": "Cá tetra tim chảy máu lưng lửa",
    "wrong": [
     {
      "check": "words",
@@ -68,40 +69,40 @@
     },
     {
      "check": "words",
-     "quote": "giới chơi"
+     "quote": "Tuy vậy"
     },
     {
      "check": "words",
-     "quote": "thị trường cá cảnh"
+     "quote": "gần như không"
     }
    ]
-  },
-  {
-   "lang": "ms",
-   "path": "/ms/ikan/ikan-toman/",
-   "url": "https://aquatome.com/ms/ikan/ikan-toman/",
-   "title": "Ikan toman",
-   "wrong": []
   },
   {
    "lang": "vi",
-   "path": "/vi/huong-dan/uon-cong-tam-mica-acrylic-bang-lo-nuong-de-tu-lam-be-mat/",
-   "url": "https://aquatome.com/huong-dan/uon-cong-tam-mica-acrylic-bang-lo-nuong-de-tu-lam-be-mat/",
-   "title": "Uốn cong tấm mica acrylic bằng lò nướng để tự làm bể mặt cong",
+   "path": "/vi/huong-dan/5-loai-tep-nuoc-ngot-dang-nuoi-cho-be-thuy-sinh/",
+   "url": "https://aquatome.com/huong-dan/5-loai-tep-nuoc-ngot-dang-nuoi-cho-be-thuy-sinh/",
+   "title": "5 loại tép nước ngọt đáng nuôi cho bể thủy sinh",
    "wrong": [
     {
-     "check": "words",
-     "quote": "nhiều khả năng"
+     "check": "product",
+     "quote": "Wonder Shell"
     },
     {
-     "check": "words",
-     "quote": "Dù vậy"
+     "check": "elsewhere",
+     "quote": "Loại này dễ mua ở các chuỗi cửa hàng thú cưng lớn"
     },
     {
-     "check": "words",
-     "quote": "bắt buộc phải"
+     "check": "source",
+     "quote": "bạn xem bài chi tiết về nhân giống tép cherry"
     }
    ]
+  },
+  {
+   "lang": "id",
+   "path": "/id/ikan/dichotomyctere-fluviatilis/",
+   "url": "https://aquatome.com/id/ikan/dichotomyctere-fluviatilis/",
+   "title": "Dichotomyctere fluviatilis",
+   "wrong": []
   }
  ]
 }

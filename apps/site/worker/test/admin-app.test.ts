@@ -50,31 +50,31 @@ test('rows → views per page and screen, actions per version, shop taps, and ea
   ])
 })
 
-test('the page with data: every part, in Vietnamese, the paths as links, what the app sent escaped', () => {
+test('the page with data: every part, in English, the paths as links, what the app sent escaped', () => {
   const rows = { ...ROWS, errors: [...ROWS.errors, { act: 'fishid', why: '<b>x</b>', n: '1' }] }
   const html = appPage(NOW, false, summariseApp(rows, false))
-  expect(html).toContain('aria-current="page">Ứng dụng<')
-  for (const part of ['Lượt xem', 'Thao tác', 'Lỗi hay gặp', 'Bấm sang sàn', 'Ổn định và hiệu năng theo phiên bản']) expect(html).toContain(part)
+  expect(html).toContain('aria-current="page">iPhone app<')
+  for (const part of ['Views', 'Actions', 'Common failures', 'Taps to shops', 'Stability and speed by version']) expect(html).toContain(part)
   expect(html).toContain('<a href="/ca/ca-neon-vua/">/ca/ca-neon-vua/</a>')
-  expect(html).toContain('Kết nối đèn <code>light.connect</code></th><td class="l">1.0 (114)</td><td>20</td><td>75,0%</td><td>25,0%</td>')
-  expect(html).toContain('<th>1.0 (114)</th><td>30</td><td>3</td><td>1</td><td>4</td><td>1.100 ms</td><td>3.000 ms</td><td>150 MB</td><td>150 MB</td>')
+  expect(html).toContain('Connect a light <code>light.connect</code></th><td class="l">1.0 (114)</td><td>20</td><td>75.0%</td><td>25.0%</td>')
+  expect(html).toContain('<th>1.0 (114)</th><td>30</td><td>3</td><td>1</td><td>4</td><td>1,100 ms</td><td>3,000 ms</td><td>150 MB</td><td>150 MB</td>')
   expect(html).toContain('&lt;b&gt;x&lt;/b&gt;')
   expect(html).not.toContain('<b>x</b>')
   expect(html).toContain('href="/_ab/ung-dung/?test=1"')
-  expect(html).not.toContain('Chưa có gì')
+  expect(html).not.toContain('Nothing yet')
 })
 
 test('nothing yet: the page says so, and every part says it has nothing, without failing', () => {
   const html = appPage(NOW, false, summariseApp(NONE, false))
-  expect(html).toContain('Chưa có gì: ứng dụng chưa gửi sự kiện hay báo cáo nào')
-  expect(html).toContain('Chưa có báo cáo nào.')
+  expect(html).toContain('Nothing yet: the app hasn’t sent events or reports')
+  expect(html).toContain('No reports yet.')
   expect(html).not.toContain('class="failed"')
   const tests = appPage(NOW, true, summariseApp(NONE, true))
-  expect(tests).toContain('Đang xem các bản thử')
-  expect(tests).toContain('chưa bản thử nào gửi')
-  expect(tests).toContain('href="/_ab/ung-dung/">Xem bản App Store')
+  expect(tests).toContain('Showing the test builds')
+  expect(tests).toContain('no test build has sent')
+  expect(tests).toContain('href="/_ab/ung-dung/">See the App Store build')
   // Not set up: says what is missing, in its place.
-  expect(appPage(NOW, false, unset('AE_API_TOKEN và CF_ACCOUNT_ID'))).toContain('Chưa cấu hình AE_API_TOKEN và CF_ACCOUNT_ID.')
+  expect(appPage(NOW, false, unset('AE_API_TOKEN and CF_ACCOUNT_ID'))).toContain('Not set up: AE_API_TOKEN and CF_ACCOUNT_ID.')
 })
 
 afterEach(() => { vi.restoreAllMocks() })

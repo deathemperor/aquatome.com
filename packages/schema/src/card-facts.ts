@@ -90,6 +90,18 @@ export function dropItems(en: string, html: string, drop: number[]): string {
 /** `dropItems` with the positions `cardRepeats` finds: one call for a page or the engine. */
 export const dropCardRepeats = (en: string, html: string, source: string, card: Card) => dropItems(en, html, cardRepeats(en, source, card))
 
+/** Tropica's row for how little CO₂ a plant asks for, as its pages word it: a level, with figures only for Medium (6–14 mg/L) and High (15–25). */
+const LOW_CO2 = /^co[2₂]( demand)?\s*:\s*low\.?$/
+/**
+ * A plant's quick facts without Tropica's "Low" row where the plant's card answers otherwise: "Không cần" or "Bắt buộc" says
+ * whether to add CO₂, and "Thấp" beside it reads as a second answer to that. The card is the page's figure. Beside "Tùy chọn"
+ * the row stays, since how little the plant asks for is more than that card says.
+ */
+export function dropLowCo2(en: string, html: string, co2: 'none' | 'optional' | 'required'): string {
+  if (co2 === 'optional') return html
+  return dropItems(en, html, parse(en).querySelectorAll('li').flatMap((li, i) => (LOW_CO2.test(text(li.innerHTML).toLowerCase()) ? [i] : [])))
+}
+
 // Numbers as the three languages and English write them (3,5 or 3.5), and the words that join a range.
 const NUM = String.raw`(\d+(?:[.,]\d+)?)`
 const TO = String.raw`\s*(?:–|—|-|−|~|to|đến|tới|sampai|hingga|ถึง)\s*`

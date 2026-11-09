@@ -11,13 +11,36 @@
     "maroni",
     "suriname",
     "guyana",
-    "essequibo"
+    "essequibo",
+    "oyapock"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 20
+      },
+      {
+        "source": "scotcat",
+        "value": 20
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 26,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
       }
     ]
   },
@@ -29,16 +52,58 @@
       "html": "<p>Pseudancistrus barbatus (Valenciennes, 1840). Common name: Wreath Pleco. Type locality: La Mana River, French Guiana. Size: 200 mm (7.9\") SL.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pseudancistrus_barbatus.htm",
+      "html": "<ul><li>Common name: Bearded catfish</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1170",
       "html": "<p>South America: Oyapock, Mana, Maroni, Suriname, Corantijn and Essequibo River basins.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pseudancistrus_barbatus.htm",
+      "html": "<p>South America: Oyapock, Mana, Maroni, Suriname, Corantijn and Essequibo River basins. Type locality: Surinam.</p><p>Pseudancistrus barbatus is restricted to river basins in French Guiana, where it occurs in the Marowijne River at the border with Suriname, in Mana River, and in Oyapock River at the border with Brazil. The extent of occurrence (EOO) is estimated at 87,877 km2, and the area of occupancy (AOO) at 40,288 km2. There are local impacts in the lower portion of Oyapock basin in the coastal line of French Guiana close to the populated areas, and also along the main channel of Marowijne River basin along several cities, associated with pollution, increase of sediment, and agriculture activities impacting the ecosystem. Additionally, the species is sought after as part of a small-scale fishery by local communities, and illegal gold mining is fairly widespread in French Guiana. Except for local impacts, the overall distribution region seems relatively well preserved and there are no major threats. Thus, Pseudancistrus barbatus is assessed as Least Concern (LC) (IUCN 2022).</p>"
+    },
+    {
       "key": "habitat",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1170",
       "html": "<p>Occurs in rapids where it lives in the rocky anfractuosities in the strong current zones. The length of the male snout bristles might be related with the hierarchic level of the individual within the population.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pseudancistrus_barbatus.htm",
+      "html": "<p>Occurs in rapids where it lives in the rocky crevices in the strong current zones. Fished by harpoons or bows in the shallow zones.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pseudancistrus_barbatus.htm",
+      "html": "<p>Not the easiest species to maintain in the aquarium as it will need pristine water conditions with well filtered water which should not be too hard. Warm water should be the norm. Adult males are very territorial and will not get on with other large Loricariid catfish.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pseudancistrus_barbatus.htm",
+      "html": "<p>Temperature: 26-30°C. pH: 6.0-7.0. Water should be well filtered and not too hard.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pseudancistrus_barbatus.htm",
+      "html": "<p>Aufwuchs grazer, mainly vegetarian, with lettuce, spinach, cucumber and courgette (zucchini), vegetarian flake and tablets. Will eat other foods also such as insect larvae, zooplankton and soft wood but will need to be kept on a mainly green diet.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pseudancistrus_barbatus.htm",
+      "html": "<p>The length of the male snout bristles might be related with the hierarchic level of the individual within the population. Males have a broad head and possess long bristles along the edge of the snout.</p>"
     },
     {
       "key": "reproduction",
@@ -53,10 +118,22 @@
       "html": "<p>Pseudancistrus is the only genus of the Ancistrini (former Ancistrinae) that lacks evertible cheek plates. Because of this characteristic, it has at times been placed in the Hypostominae.</p><p>Etymology: Greek, pseudes = false + Greek, agkistron = hook or barb, \"False Ancistrus\". The specific epithet literally means bearded (barbatus = bearded).</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pseudancistrus_barbatus.htm",
+      "html": "<p>Etymology: The specific name barbatus means bearded, alluding to the bristles.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1170",
       "html": "<p>Histoire naturelle des poissons v. 15, pp 506.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pseudancistrus_barbatus.htm",
+      "html": "<p>Calegari, B.B. 2022. Pseudancistrus barbatus. The IUCN Red List of Threatened Species 2022.</p><p>Armbruster, J.W., 2004. Pseudancistrus sidereus, a new species from southern Venezuela (Siluriformes: Loricariidae) with a redescription of Pseudancistrus. Zootaxa 628:1-15.</p><p>Froese, R. and D. Pauly. Editors. 2016. FishBase. World Wide Web electronic publication. www.fishbase.org, (04/2018).</p><p>Seidel, I. 2008. Back to Nature guide to L-catfishes, Ettlingen, Germany 208 p.</p>"
     }
   ],
   "photos": [
@@ -106,23 +183,23 @@
     },
     {
       "url": "https://media.aquatome.com/commons/5d5b4a3724a2c423.webp",
+      "thumb": "https://media.aquatome.com/commons/5d5b4a3724a2c423-480.webp",
       "width": 960,
       "height": 1072,
       "licence": "CC BY 2.0",
       "author": "Phylogeny Figures",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zookeys-406-001-g006_(14126050318).jpg",
-      "caption": "Source: Gabriel de Souza da Costa e Silva , Fábio Fernandes Roxo , Ricardo Britzke , Claudio Oliveira , New species of the Pseudancistrus barbatus group (Siluriformes, Loricariidae) with comments on i",
-      "thumb": "https://media.aquatome.com/commons/5d5b4a3724a2c423-480.webp"
+      "caption": "Source: Gabriel de Souza da Costa e Silva , Fábio Fernandes Roxo , Ricardo Britzke , Claudio Oliveira , New species of the Pseudancistrus barbatus group (Siluriformes, Loricariidae) with comments on i"
     },
     {
       "url": "https://media.aquatome.com/commons/0d746020fbe39466.webp",
+      "thumb": "https://media.aquatome.com/commons/0d746020fbe39466-480.webp",
       "width": 960,
       "height": 1017,
       "licence": "CC BY 2.0",
       "author": "Phylogeny Figures",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zookeys-406-001-g002_(14126183787).jpg",
-      "caption": "Source: Gabriel de Souza da Costa e Silva , Fábio Fernandes Roxo , Ricardo Britzke , Claudio Oliveira , New species of the Pseudancistrus barbatus group (Siluriformes, Loricariidae) with comments on i",
-      "thumb": "https://media.aquatome.com/commons/0d746020fbe39466-480.webp"
+      "caption": "Source: Gabriel de Souza da Costa e Silva , Fábio Fernandes Roxo , Ricardo Britzke , Claudio Oliveira , New species of the Pseudancistrus barbatus group (Siluriformes, Loricariidae) with comments on i"
     }
   ],
   "videos": [],
@@ -148,5 +225,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-09"
 }

@@ -87,6 +87,22 @@ test('a part its reviewer passes is written and recorded with the page\'s new ha
   expect(JSON.parse(await readFile(join(root, 'engine-state/rewritten.json'), 'utf8'))).toEqual({ 'vi/species/danio-margaritatus': { at: '2026-11-08T09:00:00.000Z', hash: fitText(now).hash } })
 })
 
+test('a part a person fixed is not rewritten, whatever the reading finds in it', async () => {
+  const root = await content()
+  const dir = join(root, 'content/species', ID)
+  const e = JSON.parse(await readFile(join(dir, 'entity.json'), 'utf8'))
+  e.sections.find((x: { key: string; source: string }) => x.key === 'habitat' && x.source === 'seriouslyfish').fixed = true
+  await writeFile(join(dir, 'entity.json'), JSON.stringify(e))
+  const p = await danio(root)
+  const before = await readFile(join(dir, 'vi.json'), 'utf8')
+  const passing = fakeLlm(vi => vi.replace('Ao cạn nhiều cỏ', 'Vũng nước cạn, nhiều cỏ'), 0.9)
+  const r = await fitRewrite(root, [p], reading(p, found(p)), { llm: passing.llm, now: () => new Date('2026-11-08T09:00:00Z') }, { limit: 5 })
+  expect(r.rewritten).toEqual([])
+  expect(r.skipped).toEqual(['vi/species/danio-margaritatus sections.habitat:seriouslyfish: a person fixed its text'])
+  expect(passing.calls).toEqual([])
+  expect(await readFile(join(dir, 'vi.json'), 'utf8')).toBe(before)
+})
+
 test('stopped part way, a page keeps the parts already kept, and is tried again next batch', async () => {
   const root = await content()
   const file = join(root, 'content/species', ID, 'vi.json')

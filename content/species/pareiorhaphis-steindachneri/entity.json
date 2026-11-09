@@ -8,13 +8,36 @@
   "places": [
     "south-america",
     "brazil",
-    "santa-catarina"
+    "santa-catarina",
+    "itajai-acu"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 12.4
+      },
+      {
+        "source": "scotcat",
+        "value": 14.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
       }
     ]
   },
@@ -26,10 +49,34 @@
       "html": "<p><strong>Scientific name:</strong> Pareiorhaphis steindachneri (Miranda Ribeiro, 1918)</p><p><strong>Type locality:</strong> Rio Itapucú, Santa Catharina, Brazil.</p><p><strong>Size:</strong> 124 mm (4.9 in) SL.</p><p><strong>IUCN Red List:</strong> Least Concern (last assessed 2018).</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pareiorhaphis_steindachneri.htm",
+      "html": "<p>Family: Loricariidae. Size: 14.5 cm. Temperature: 22-26°C. pH: 6.0-7.5. Common name: none. Specific name steindachneri honours Franz Steindachner, the Austrian ichthyologist (1834-1919).</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1141",
       "html": "<p>South America: Brazil. Rivers of Santa Catarina State: Cubatão, Tubarão and Araranguá.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pareiorhaphis_steindachneri.htm",
+      "html": "<p>South America: Cubatão, Itapocu, and Itajaí-Açu River basins in Brazil, in the states of Paraná and Santa Catarina. Type locality: Flum. Rio Itapucú (Santa Catharina) [Brazil].</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pareiorhaphis_steindachneri.htm",
+      "html": "<p>A frequent and abundant species that inhabits fast-flowing, well-oxygenated, cold waters with rocky substrates and preserved vegetation cover. It is found under rocks in fast flowing waters. In parts of its range there are threats such as deforestation, mining, and pollution from pesticides, but these do not represent a risk of extinction. The species occurs in several conservation units (e.g., Serra de Itajaí National Park) and is categorised as Least Concern (LC) (IUCN 2022).</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pareiorhaphis_steindachneri.htm",
+      "html": "<p>Temperature 22-26°C, pH 6.0-7.5. Will need a good water flow in the aquarium.</p>"
     },
     {
       "key": "dimorphism",
@@ -44,10 +91,22 @@
       "html": "<p>Unreported. There is no breeding report.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pareiorhaphis_steindachneri.htm",
+      "html": "<p>Description: dorsal spines (total): 1; dorsal soft rays (total): 7; anal soft rays: 6. Preadipose azygous plates 1-2; hypertrophied odontodes on head margins longer than mandibular ramus and shorter than snout length in fully mature males; cleithral width 27.9-33.7% SL; adipose fin present; pectoral fin spine curved and short, not passing half of pelvic fin when adpressed; head length 30.2-36.4% SL.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1141",
       "html": "<p>Revista da Sociedade Brasileira de Sciências (Rio de Janeiro) v. 2, pp 107.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pareiorhaphis_steindachneri.htm",
+      "html": "<p>Chico Mendes Institute for Biodiversity Conservation (ICMBio). 2022. Pareiorhaphis steindachneri. The IUCN Red List of Threatened Species 2022.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2016. FishBase. World Wide Web electronic publication. www.fishbase.org, (10/2016).</p><p>Pereira, E.H. and R.E. Reis, 2002. Revision of the loricariid genera Hemipsilichthys and Isbrueckerichthys (Teleostei: Siluriformes), with descriptions of five new species of Hemipsilichthys. Ichthyol. Explor. Freshwat. 13(2):97-146.</p>"
     }
   ],
   "photos": [
@@ -64,6 +123,22 @@
     }
   ],
   "videos": [],
-  "productSlots": [],
-  "updatedAt": "2026-10-31"
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "lọc thùng bể cá",
+        "máy sục khí"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "quạt làm mát bể cá",
+        "máy làm lạnh nước bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
 }

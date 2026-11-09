@@ -1,0 +1,141 @@
+{
+  "id": "pseudopimelodus-bufonius",
+  "scientificName": "Pseudopimelodus bufonius",
+  "order": "Siluriformes",
+  "family": "Pseudopimelodidae",
+  "genus": "Pseudopimelodus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "venezuela",
+    "maracaibo",
+    "brazil",
+    "colombia",
+    "orinoco",
+    "french-guiana",
+    "guyana",
+    "essequibo",
+    "suriname"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 24.5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudopimelodus-bufonius",
+      "html": "<p>The giant bumblebee catfish, Pseudopimelodus bufonius, is distributed throughout northeastern South America, from Venezuela to eastern Brazil. Its range extends from the Lake Maracaibo basin, and it grows to 245 mm SL. The type locality is uncertain but probably Cayenne, French Guiana.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudopimelodus-bufonius",
+      "html": "<p>Distributed throughout northeastern South America from the Lake Maracaibo basin in Venezuela to eastern Brazil.</p><p>Type locality is uncertain but probably Cayenne, French Guiana.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudopimelodus-bufonius",
+      "html": "<p>Etymology: Pseudopimelodus: from the Ancient Greek ψευδής (pseudes), meaning 'false, lying, untrue', and the generic name Pimelodus.</p><p>bufonius: 'toad-like'.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudopimelodus-bufonius",
+      "html": "<ul><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/99ff4410117db65e.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/99ff4410117db65e-480.webp",
+      "width": 806,
+      "height": 511,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudopimelodus-bufonius",
+      "caption": "Subadult from the German aquarium trade measuring around 80 mm TL.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/c2ad51752408bc0d.webp",
+      "thumb": "https://media.aquatome.com/scotcat/c2ad51752408bc0d-480.webp",
+      "width": 500,
+      "height": 331,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/pseudopimelodidae/pseudopimelodus_bufonius.htm",
+      "caption": "Pseudopimelodus bufonius",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/8262a068e573606e.webp",
+      "thumb": "https://media.aquatome.com/scotcat/8262a068e573606e-480.webp",
+      "width": 500,
+      "height": 218,
+      "licence": "dùng với sự cho phép",
+      "author": "Jim Makin / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/pseudopimelodidae/pseudopimelodus_bufonius.htm",
+      "caption": "Pseudopimelodus bufonius",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/5de83a646495275b.webp",
+      "thumb": "https://media.aquatome.com/scotcat/5de83a646495275b-480.webp",
+      "width": 500,
+      "height": 268,
+      "licence": "dùng với sự cho phép",
+      "author": "Wolfgang Ros / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/pseudopimelodidae/pseudopimelodus_bufonius.htm",
+      "caption": "Pseudopimelodus bufonius",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/6444b8b7bbd956c5.webp",
+      "thumb": "https://media.aquatome.com/scotcat/6444b8b7bbd956c5-480.webp",
+      "width": 500,
+      "height": 334,
+      "licence": "dùng với sự cho phép",
+      "author": "Wolfgang Ros / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/pseudopimelodidae/pseudopimelodus_bufonius.htm",
+      "caption": "Pseudopimelodus bufonius: showing head area",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá lớn nuôi cá da trơn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá da trơn",
+        "thức ăn chìm cho cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

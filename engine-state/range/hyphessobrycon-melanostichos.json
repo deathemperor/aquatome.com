@@ -1,0 +1,83 @@
+{
+  "id": "hyphessobrycon-melanostichos",
+  "native": {
+    "input": "3617c3b725bd9511",
+    "at": "2026-11-09T05:57:45.266Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The black stripe tetra, Hyphessobrycon melanostichos, is a characid endemic to the Rio Doze de Outubro in the upper Rio Tapajos basin, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Rio Doze de Outubro of the upper Rio Tapajos basin of Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Tapajos",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Rio Doze de Outubro of the upper Rio Tapajos basin of Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Doze de Outubro",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Rio Doze de Outubro of the upper Rio Tapajos basin of Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hyphessobrycon melanostichos",
+    "status": "ACCEPTED",
+    "taxonKey": 2354523,
+    "datasets": [
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        13
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        10
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        5
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        2
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T05:57:45.266Z"
+  }
+}

@@ -150,15 +150,7 @@
     "figures": [
       {
         "heading": "Thiết bị cho bể",
-        "moments": [
-          {
-            "t": 130,
-            "url": "https://media.aquatome.com/video/Z2Cd9uCSRv0/at130-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể cube kính siêu trong còn trống, có đèn gắn trên thành bể."
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/Z2Cd9uCSRv0/p1-xfZmlsdGVyLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/Z2Cd9uCSRv0/p1-xfZmlsdGVyLmpwZw-480.webp",
@@ -178,14 +170,9 @@
             "url": "https://media.aquatome.com/video/Z2Cd9uCSRv0/at220-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh các bao phân nền và soil dùng làm lớp nền nuôi cây."
-          },
-          {
-            "t": 230,
-            "url": "https://media.aquatome.com/video/Z2Cd9uCSRv0/at230-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Rắc vật liệu xuống đáy bể trống để làm các lớp nền."
+            "caption": "Cận cảnh các bao phân nền và soil dùng làm lớp nền nuôi cây.",
+            "sharpness": 1799.8,
+            "person": false
           }
         ]
       },
@@ -197,14 +184,18 @@
             "url": "https://media.aquatome.com/video/Z2Cd9uCSRv0/at260-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể thủy sinh hoàn chỉnh với nhiều cây đỏ và lũa."
+            "caption": "Bể thủy sinh hoàn chỉnh với nhiều cây đỏ và lũa.",
+            "sharpness": 1187.4,
+            "person": false
           },
           {
             "t": 310,
             "url": "https://media.aquatome.com/video/Z2Cd9uCSRv0/at310-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Các cốc cây cấy mô đặt trên nền đất trong bể trống."
+            "caption": "Các cốc cây cấy mô đặt trên nền đất trong bể trống.",
+            "sharpness": 658.5,
+            "person": false
           }
         ],
         "photo": {
@@ -220,22 +211,7 @@
       },
       {
         "heading": "Trồng cây",
-        "moments": [
-          {
-            "t": 430,
-            "url": "https://media.aquatome.com/video/Z2Cd9uCSRv0/at430-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng nhíp trồng cây nhìn từ trên xuống để canh vị trí."
-          },
-          {
-            "t": 440,
-            "url": "https://media.aquatome.com/video/Z2Cd9uCSRv0/at440-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các bụi cây đã trồng trên nền, nhìn từ trên xuống."
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/Z2Cd9uCSRv0/p4-1bV9wbGFudC5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/Z2Cd9uCSRv0/p4-1bV9wbGFudC5qcGc-480.webp",
@@ -255,7 +231,9 @@
             "url": "https://media.aquatome.com/video/Z2Cd9uCSRv0/at670-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể có nền phân nền, cây cắt cắm mọc nhanh và bèo nổi trên mặt nước."
+            "caption": "Bể có nền phân nền, cây cắt cắm mọc nhanh và bèo nổi trên mặt nước.",
+            "sharpness": 1224.2,
+            "person": false
           }
         ],
         "photo": {
@@ -277,14 +255,18 @@
             "url": "https://media.aquatome.com/video/Z2Cd9uCSRv0/at710-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Hai bể thủy sinh cây xanh um tùm, sạch rêu hại."
+            "caption": "Hai bể thủy sinh cây xanh um tùm, sạch rêu hại.",
+            "sharpness": 1329.8,
+            "person": false
           },
           {
             "t": 850,
             "url": "https://media.aquatome.com/video/Z2Cd9uCSRv0/at850-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh cây thân đỏ khỏe mạnh, không thấy rêu hại."
+            "caption": "Cận cảnh cây thân đỏ khỏe mạnh, không thấy rêu hại.",
+            "sharpness": 465.9,
+            "person": false
           }
         ],
         "photo": {

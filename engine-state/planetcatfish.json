@@ -3120,5 +3120,170 @@
     "processedHash": "0fd1d7c95ca8741201bae1138d71d971ab48ceb31a81d5a583da360495a6c936",
     "status": "skipped",
     "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1312": {
+    "entityIds": [],
+    "updatedAt": "2026-11-08T19:02:58.085Z",
+    "hash": "71fa661e218fbaf336cdd748103edf8eebae5b47009aeee3b792d4a28425b53a",
+    "processedHash": "71fa661e218fbaf336cdd748103edf8eebae5b47009aeee3b792d4a28425b53a",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1313": {
+    "entityIds": [],
+    "updatedAt": "2026-11-08T19:03:47.510Z",
+    "hash": "bd12b90fe7ab165ab054df5d23fc582b1bb3b40394b39832027d8aaa0ffd19c8",
+    "processedHash": "bd12b90fe7ab165ab054df5d23fc582b1bb3b40394b39832027d8aaa0ffd19c8",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1314": {
+    "entityIds": [],
+    "updatedAt": "2026-11-08T19:03:53.801Z",
+    "hash": "7c0648abdd2ed56cad731bfcbd2e456273a82cbe0b2102988f1e2917845b39bb",
+    "processedHash": "7c0648abdd2ed56cad731bfcbd2e456273a82cbe0b2102988f1e2917845b39bb",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1315": {
+    "entityIds": [],
+    "updatedAt": "2026-11-08T19:04:55.091Z",
+    "hash": "fa7f04caa7f3421a5fbbc92b80bdb226a7c4b6c74b40639a08dd26cd14560e5a",
+    "processedHash": "fa7f04caa7f3421a5fbbc92b80bdb226a7c4b6c74b40639a08dd26cd14560e5a",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1316": {
+    "entityIds": [
+      "species/metaloricaria-nijsseni"
+    ],
+    "updatedAt": "2026-11-08T19:06:11.447Z",
+    "hash": "502ca78eb23e012ec90484334e70f62b45bf3869f6a0df20b70860983d74bb21",
+    "processedHash": "502ca78eb23e012ec90484334e70f62b45bf3869f6a0df20b70860983d74bb21",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1317": {
+    "entityIds": [],
+    "updatedAt": "2026-11-08T19:07:02.283Z",
+    "hash": "f0829c94d9a1f58fd1711e02cbc9fa7210d48e1abe590b62f4688f4bc7aa210a",
+    "processedHash": "f0829c94d9a1f58fd1711e02cbc9fa7210d48e1abe590b62f4688f4bc7aa210a",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1318": {
+    "entityIds": [],
+    "updatedAt": "2026-11-08T19:07:59.676Z",
+    "hash": "3631411e97ca8844a98005b5a2f964b9cd667b900f1722233ff98e71542ef52c",
+    "processedHash": "3631411e97ca8844a98005b5a2f964b9cd667b900f1722233ff98e71542ef52c",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1319": {
+    "entityIds": [
+      "species/dolichancistrus-cobrensis"
+    ],
+    "updatedAt": "2026-11-08T19:08:50.318Z",
+    "hash": "4e4f98689cd3fe9a888f6c1618a19ae3db17455b2e132c3764a28707a153945e",
+    "processedHash": "4e4f98689cd3fe9a888f6c1618a19ae3db17455b2e132c3764a28707a153945e",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=132": {
+    "entityIds": [
+      "species/rhinodoras-boehlkei"
+    ],
+    "updatedAt": "2026-11-08T19:10:28.095Z",
+    "hash": "956323fad3d0a11f83f38844009b52fed935f4042c31daf466c74243d7c0673b",
+    "processedHash": "956323fad3d0a11f83f38844009b52fed935f4042c31daf466c74243d7c0673b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1320": {
+    "entityIds": [
+      "species/exastilithoxus-fimbriatus"
+    ],
+    "updatedAt": "2026-11-08T19:12:04.682Z",
+    "hash": "fdaf23216199a7087491038c80e8f09f3a83f44940ef1ec23afdf2c62429067e",
+    "processedHash": "fdaf23216199a7087491038c80e8f09f3a83f44940ef1ec23afdf2c62429067e",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1321": {
+    "entityIds": [
+      "species/hemiancistrus-landoni"
+    ],
+    "updatedAt": "2026-11-08T19:12:52.783Z",
+    "hash": "8900bc88ecc97c6a3103de79c6a79d73b526bd203fed0dff50f5504f93f351d3",
+    "processedHash": "8900bc88ecc97c6a3103de79c6a79d73b526bd203fed0dff50f5504f93f351d3",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1322": {
+    "entityIds": [
+      "species/hemiancistrus-aspidolepis"
+    ],
+    "updatedAt": "2026-11-08T19:13:37.232Z",
+    "hash": "da79d34689ae91bf1ca905bca4263cb28f1f0dbb4728c154bbd47e273405986f",
+    "processedHash": "da79d34689ae91bf1ca905bca4263cb28f1f0dbb4728c154bbd47e273405986f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1323": {
+    "entityIds": [
+      "species/hypostomus-ericius"
+    ],
+    "updatedAt": "2026-11-08T19:14:30.801Z",
+    "hash": "6dabf842dcafe3be452d5542ec3c540e9ab136b76b709a0b5bd11c5818f10ceb",
+    "processedHash": "6dabf842dcafe3be452d5542ec3c540e9ab136b76b709a0b5bd11c5818f10ceb",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1324": {
+    "entityIds": [
+      "species/hypostomus-cochliodon"
+    ],
+    "updatedAt": "2026-11-08T19:15:35.878Z",
+    "hash": "580163a29d75ff6ae0fd4272388ec76ca8bbf756972b508f5260c60945cce3f6",
+    "processedHash": "580163a29d75ff6ae0fd4272388ec76ca8bbf756972b508f5260c60945cce3f6",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1325": {
+    "entityIds": [
+      "species/hypostomus-hemicochliodon"
+    ],
+    "updatedAt": "2026-11-08T19:16:49.241Z",
+    "hash": "5fb08df6309f3b987b7a7a845799c5ed4bf1e386afb0b87777a574bb60b295f7",
+    "processedHash": "5fb08df6309f3b987b7a7a845799c5ed4bf1e386afb0b87777a574bb60b295f7",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1326": {
+    "entityIds": [
+      "species/hypostomus-hondae"
+    ],
+    "updatedAt": "2026-11-08T19:18:49.954Z",
+    "hash": "73d601a0434817f967c2f9dccd52749e8b2e3da8fa01c3bbc08721017879da37",
+    "processedHash": "73d601a0434817f967c2f9dccd52749e8b2e3da8fa01c3bbc08721017879da37",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1328": {
+    "entityIds": [
+      "species/hypostomus-pagei"
+    ],
+    "updatedAt": "2026-11-08T19:19:49.334Z",
+    "hash": "c5be8f550250880c52f9e6384c80d6e99a8f17bef1d560caf43c22096016b46f",
+    "processedHash": "c5be8f550250880c52f9e6384c80d6e99a8f17bef1d560caf43c22096016b46f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.planetcatfish.com/common/species.php?species_id=1329": {
+    "entityIds": [],
+    "updatedAt": "2026-11-09T15:50:22.714Z",
+    "status": "error",
+    "attempts": 0,
+    "error": "no archived copy (HTTP 429)"
   }
 }

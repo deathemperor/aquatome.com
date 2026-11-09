@@ -17,7 +17,8 @@ calm() { [ -z "${GITHUB_ACTIONS:-}" ] || return 0; local cores; cores=$(sysctl -
 # Engine work waits for cooler hours: under heat macOS takes cores away from work, and on 2026-11-08 it ran work on 6-8 of
 # its 16 while every lead's work slowed, a 0.4 s job taking up to 54 s. A run waits while any core is taken away, up to 2 h,
 # then goes ahead at its low priority. Its heat level alone says less: it read heavy with all 16 cores at work and that job
-# at 0.3 s. GitHub's runners, and anywhere without these readings, count none taken.
+# at 0.3 s. Anywhere without these readings counts none taken. In GitHub Actions it waits only on this Mac's own runner
+# (TestFlight's upload, testflight.yml): GitHub's runners aren't this Mac.
 cores_taken() {
   local all mask n=0
   all=$(sysctl -n hw.ncpu 2>/dev/null) && mask=$(sysctl -n kern.sched_recommended_cores 2>/dev/null) || { echo 0; return; }
@@ -25,32 +26,111 @@ cores_taken() {
   [ "$all" -gt "$n" ] 2>/dev/null && echo $((all - n)) || echo 0
 }
 cool() {
-  [ -z "${GITHUB_ACTIONS:-}" ] || return 0
+  [ -z "${GITHUB_ACTIONS:-}" ] || [ "${RUNNER_ENVIRONMENT:-}" = self-hosted ] || return 0
   for _ in $(seq "${COOL_TRIES:-240}"); do
     [ "$(cores_taken)" -eq 0 ] && return 0
     sleep "${COOL_PAUSE:-30}"
   done
   log "still hot after the wait: going ahead"
 }
-# One step, under the lock on the Mac (GitHub: a runner of its own).
-checks() { if [ -n "${GITHUB_ACTIONS:-}" ]; then bash -c "$1"; else lockf -k "$HOME/.cache/aquatome/checks.lock" bash -c "$1"; fi; }
+# One step, under the lock on the Mac (GitHub: a runner of its own). Through checks.sh, which steps back while the chief of
+# staff keeps the next turn for another run: a content update can wait, the owner's builds can't (2026-11-09).
+CHECKS_SH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/checks.sh"
+turn() { "$CHECKS_SH" "$@"; }
+checks() { if [ -n "${GITHUB_ACTIONS:-}" ]; then bash -c "$1"; else turn bash -c "$1"; fi; }
 # The checks, a step an argument, their output in $TEST_LOG. Tests that ran out of time ran on a Mac too busy for them,
 # not on a broken build: the sf cycle of 2026-11-04 lost five hours of pages to 32 timeouts at a 5-minute load of 700 on
 # 16 cores (the next cycle starts by dropping a failed one's work). So once the load has fallen (calm), the step that
 # ran out of time runs once more, and the steps before it, which passed, don't: on 2026-11-07 the pages part's tests ran
-# out of time, and their second run queued the whole build again.
+# out of time, and their second run queued the whole build again. Tests that run out of time on that run too set
+# TIMED_OUT, and the run's work is kept for the next run (keep_timed_out).
 verify() {
-  local step again=
+  local step again= from
   : >"$TEST_LOG"
+  TIMED_OUT=
   calm
   for step in "$@"; do
+    from=$(wc -c <"$TEST_LOG")
     checks "$step" >>"$TEST_LOG" 2>&1 && continue
-    [ -z "$again" ] && grep -q 'Test timed out in' "$TEST_LOG" || return 1
+    ran_out "$from" || return 1
+    [ -z "$again" ] || { TIMED_OUT=1; return 1; }
     again=1
     log "tests ran out of time on a busy Mac: checking again once it is calmer"
     calm
-    checks "$step" >>"$TEST_LOG" 2>&1 || return 1
+    from=$(wc -c <"$TEST_LOG")
+    checks "$step" >>"$TEST_LOG" 2>&1 && continue
+    ran_out "$from" && TIMED_OUT=1
+    return 1
   done
+}
+# Whether the tests' output since byte $1 of $TEST_LOG has one that ran out of time. grep reads it all (-c, not -q): under
+# pipefail, tail cut off by grep's early exit would make a match read as none.
+ran_out() { tail -c +"$(($1 + 1))" "$TEST_LOG" | grep -c 'Test timed out in' >/dev/null; }
+
+# A run whose tests ran out of time even on their second try (TIMED_OUT) ran on a Mac too busy for them, not on broken
+# work: its commit goes on a branch of its own, kept/<job>/<when>, which the next run's start from main (from_main)
+# leaves alone, and that run publishes it before its own work (publish_kept). Until 2026-11-08 the next run dropped it:
+# that day a videos run and a photos run lost their work to load, redone from nothing. Only in the Mac's engine clones,
+# which a run resets as it starts: GitHub's runners keep nothing past a run, and any other checkout is someone's own.
+# `keep_timed_out <job>`, where a run gives up publishing.
+engine_clone() { [ -z "${GITHUB_ACTIONS:-}" ] && case "$PWD/" in "$HOME/.local/share/aquatome/"*) true ;; *) false ;; esac; }
+keep_timed_out() {
+  [ -n "${TIMED_OUT:-}" ] && engine_clone || return 0
+  local branch
+  branch="kept/$1/$(date -u +%Y%m%dT%H%M%S)"
+  git branch -q -f "$branch" HEAD && log "tests ran out of time: this run's work is kept on $branch for the next run"
+}
+# The work earlier runs of <job> kept, oldest first: each on main as it is now, swept and checked as any run's commit is,
+# then pushed. Only tests that fail for real move it to kept-failed/<job>/<when>, never pushed, as the gate's crash keeps
+# its work (gate_or_keep); anything else (tests out of time again, a push that didn't land, a clash it couldn't settle)
+# keeps it for the run after. Then this run's own work starts from main. `publish_kept <job>`, after the run's install
+# and merge drivers.
+publish_kept() {
+  local branch
+  engine_clone || return 0
+  for branch in $(git for-each-ref --sort=refname --format='%(refname:short)' "refs/heads/kept/$1/"); do
+    log "publishing $branch, kept when its tests ran out of time"
+    git reset -q --hard "$branch"
+    if push_kept; then
+      git branch -q -D "$branch"
+      log "published $branch"
+    elif [ -n "$KEPT_FAILED" ]; then
+      git branch -q -M "$branch" "kept-failed/${branch#kept/}"
+      log "$branch failed its tests: on kept-failed/${branch#kept/}, not pushed"
+    else
+      log "$branch isn't published yet ($KEPT_WHY): it stays kept for the next run"
+    fi
+    git fetch -q origin || true
+    git reset -q --hard origin/main
+  done
+}
+# The checked-out kept work on top of main, swept and checked, pushed. As push() does, lines both changed give way to the
+# kept work's, a clash in the calendar plans it again, and after any merge it's swept and checked again. KEPT_FAILED
+# when its tests failed for real; KEPT_WHY says why it isn't published.
+push_kept() {
+  local check=1 clash
+  KEPT_FAILED= KEPT_WHY=
+  for _ in 1 2 3; do
+    if ! git pull -q --rebase origin main; then
+      clash=$(git diff --name-only --diff-filter=U | tr '\n' ' ')
+      git rebase --abort 2>/dev/null || true
+      git pull -q --rebase -X theirs origin main || { git rebase --abort 2>/dev/null || true; KEPT_WHY="a clash with main"; return 1; }
+      replan_merged "$clash"
+      check=1
+    fi
+    if [ -n "$check" ]; then
+      sweep_merged
+      if ! verify 'pnpm test'; then
+        if [ -n "$TIMED_OUT" ]; then KEPT_WHY="tests out of time again"; else KEPT_FAILED=1; fi
+        return 1
+      fi
+      check=
+    fi
+    git push -q origin HEAD:main && return 0
+    sleep "${PUSH_PAUSE:-30}"
+  done
+  KEPT_WHY="the push didn't land"
+  return 1
 }
 # verify, as a cycle's commit needs it: the tests, which build the site from their own fixture content. The real site
 # (about 7,600 pages) isn't built here: that build was about 14 of the checks' 16 minutes on a GitHub runner and 1 to 3
@@ -91,6 +171,29 @@ catch_up() {
 # started with, so a run went on with its old script against main's code: on 2026-11-08 a video run tested before it
 # committed, as its old script did, though main's now commits first, and its failed tests left its work uncommitted. The
 # run starts again from the top of main's script, once for each commit it resets to (AQ_SCRIPT_HEAD). Call it as
+# The gate (gate.ts), last of the steps that write pages, timed for the Mac's load report (150 Opus reads at 3 jobs is real
+# time on a big rewrite day). A crash stops the run before it publishes, and the run's work goes on a branch of its own,
+# committed and never pushed, to gate and publish by hand: the next run's reset (from_main) would drop it uncommitted,
+# and a commit left on main would go out ungated with a later push. `gate_or_keep "<commit message>" <paths it commits>`.
+gate_or_keep() {
+  local msg=$1 start=$SECONDS rc=0 branch
+  shift
+  pnpm engine gate || rc=$?
+  log "gate: took $((SECONDS - start)) s"
+  [ "$rc" -eq 0 ] && return 0
+  if [ -n "$(git status --porcelain -- "$@")" ]; then
+    branch="gate-crashed/$(date -u +%Y%m%dT%H%M%S)"
+    if git checkout -q -b "$branch" && git add -- "$@" && git commit -q -m "$msg, gate crashed, not published $(date -u +%F)"; then
+      log "gate: crashed, not publishing: this run's work is committed on $branch, not pushed"
+    else
+      log "gate: crashed, not publishing, and keeping this run's work on $branch failed"
+    fi
+  else
+    log "gate: crashed, not publishing"
+  fi
+  return 1
+}
+
 # `from_main "$@"`.
 from_main() {
   git fetch -q origin && git checkout -q main && git reset -q --hard origin/main

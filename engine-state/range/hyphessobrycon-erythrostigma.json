@@ -1,0 +1,148 @@
+{
+  "id": "hyphessobrycon-erythrostigma",
+  "native": {
+    "input": "90a623923d2dd363",
+    "at": "2026-11-09T05:57:45.266Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The bleeding heart tetra, Megalamphodus erythrostigma, is a characid from the upper Amazon basin where the borders of Brazil, Peru and Colombia meet.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The bleeding heart tetra, Megalamphodus erythrostigma, is a characid from the upper Amazon basin where the borders of Brazil, Peru and Colombia meet.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The bleeding heart tetra, Megalamphodus erythrostigma, is a characid from the upper Amazon basin where the borders of Brazil, Peru and Colombia meet.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The “Peru Bleeding Heart” (Hyphessobrycon erythrostigma) is exported primarily from Peru, but is quite widely distributed in the upper Amazon and is also found in Brazil, Ecuador, and Colombia.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The “Peru Bleeding Heart” (Hyphessobrycon erythrostigma) is exported primarily from Peru, but is quite widely distributed in the upper Amazon and is also found in Brazil, Ecuador, and Colombia.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The “Peru Bleeding Heart” (Hyphessobrycon erythrostigma) is exported primarily from Peru, but is quite widely distributed in the upper Amazon and is also found in Brazil, Ecuador, and Colombia.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The “Peru Bleeding Heart” (Hyphessobrycon erythrostigma) is exported primarily from Peru, but is quite widely distributed in the upper Amazon and is also found in Brazil, Ecuador, and Colombia.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "The bleeding heart tetra, Megalamphodus erythrostigma, is a characid from the upper Amazon basin where the borders of Brazil, Peru and Colombia meet.",
+        "ok": true
+      },
+      {
+        "name": "Purus",
+        "source": "seriouslyfish",
+        "quote": "Its range is currently understood to extend from the rio Purus in Brazil at least as far upstream as the Nanay watershed close to Iquitos, Peru, and it also occurs in some Colombian tributaries.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Nanay",
+        "source": "seriouslyfish",
+        "quote": "Its range is currently understood to extend from the rio Purus in Brazil at least as far upstream as the Nanay watershed close to Iquitos, Peru, and it also occurs in some Colombian tributaries.",
+        "country": "PE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hyphessobrycon erythrostigma",
+    "status": "ACCEPTED",
+    "taxonKey": 2354681,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        15
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        8
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        7
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        4
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        3
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        3
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "PE",
+      "CO",
+      "EC"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T05:57:45.266Z"
+  }
+}

@@ -87,7 +87,9 @@
             "url": "https://media.aquatome.com/video/fxi-Vt9xrDM/at310-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đàn cá nhỏ bơi trong bể bán ở tiệm cá."
+            "caption": "Đàn cá nhỏ bơi trong bể bán ở tiệm cá.",
+            "sharpness": 148.3,
+            "person": false
           }
         ],
         "photo": {
@@ -123,14 +125,18 @@
             "url": "https://media.aquatome.com/video/fxi-Vt9xrDM/at490-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Túi cá đang được thả làm quen nước bên cạnh khúc lũa."
+            "caption": "Túi cá đang được thả làm quen nước bên cạnh khúc lũa.",
+            "sharpness": 1094.2,
+            "person": false
           },
           {
             "t": 600,
             "url": "https://media.aquatome.com/video/fxi-Vt9xrDM/at600-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cá nhỏ bơi gần nền cát trong bể thủy sinh có lũa."
+            "caption": "Cá nhỏ bơi gần nền cát trong bể thủy sinh có lũa.",
+            "sharpness": 888.9,
+            "person": false
           }
         ],
         "photo": {
@@ -152,14 +158,9 @@
             "url": "https://media.aquatome.com/video/fxi-Vt9xrDM/at510-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Các túi cá được thả nổi trong bể để cá thích nghi nhiệt độ."
-          },
-          {
-            "t": 710,
-            "url": "https://media.aquatome.com/video/fxi-Vt9xrDM/at710-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đang đổ cá từ túi ra bể thủy sinh."
+            "caption": "Các túi cá được thả nổi trong bể để cá thích nghi nhiệt độ.",
+            "sharpness": 1295.2,
+            "person": false
           }
         ]
       },
@@ -171,14 +172,18 @@
             "url": "https://media.aquatome.com/video/fxi-Vt9xrDM/at610-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Túi cá mới được thả vào hồ để cá làm quen môi trường."
+            "caption": "Túi cá mới được thả vào hồ để cá làm quen môi trường.",
+            "sharpness": 990.1,
+            "person": false
           },
           {
             "t": 740,
             "url": "https://media.aquatome.com/video/fxi-Vt9xrDM/at740-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Toàn cảnh bể thủy sinh nơi cá mới thả đang làm quen dòng chảy."
+            "caption": "Toàn cảnh bể thủy sinh nơi cá mới thả đang làm quen dòng chảy.",
+            "sharpness": 3102.9,
+            "person": false
           }
         ]
       },
@@ -190,35 +195,24 @@
             "url": "https://media.aquatome.com/video/fxi-Vt9xrDM/at870-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đàn cá nhỏ bơi quanh gốc lũa trong bể thủy sinh."
+            "caption": "Đàn cá nhỏ bơi quanh gốc lũa trong bể thủy sinh.",
+            "sharpness": 1089.1,
+            "person": false
           },
           {
             "t": 880,
             "url": "https://media.aquatome.com/video/fxi-Vt9xrDM/at880-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Layout đá và lũa rậm rạp, cá dễ ẩn nấp phía sau."
+            "caption": "Layout đá và lũa rậm rạp, cá dễ ẩn nấp phía sau.",
+            "sharpness": 1632.9,
+            "person": false
           }
         ]
       },
       {
         "heading": "Chuyển Corydoras từ bể tạm sang bể chính",
-        "moments": [
-          {
-            "t": 100,
-            "url": "https://media.aquatome.com/video/fxi-Vt9xrDM/at100-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh trồng dày cây và lũa, rất khó bắt cá."
-          },
-          {
-            "t": 130,
-            "url": "https://media.aquatome.com/video/fxi-Vt9xrDM/at130-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh bể trồng dày rậm rạp, cá dễ trốn trong cây."
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/fxi-Vt9xrDM/p7-0NTM1Mjh-Mi5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/fxi-Vt9xrDM/p7-0NTM1Mjh-Mi5qcGc-480.webp",

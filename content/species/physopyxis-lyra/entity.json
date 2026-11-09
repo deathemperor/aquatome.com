@@ -22,12 +22,32 @@
           "min": 23,
           "max": 26
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 26
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 3.5
+      },
+      {
+        "source": "scotcat",
+        "value": 3.5
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7
+        }
       }
     ]
   },
@@ -39,10 +59,22 @@
       "html": "<ul><li>Scientific name: Physopyxis lyra Cope, 1872</li><li>Common name: Robocop Catfish (Peru)</li><li>Type locality: Río Ampiyacu, Peru.</li><li>Size: 35 mm (1.4\") SL.</li><li>Temperature: 23.0-26.0°C (73.4-78.8°F)</li><li>IUCN Red List: Least Concern (last assessed 2020).</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/physopyxis_lyra.htm",
+      "html": "<ul><li>IUCN Red List: Least Concern (2023)</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1094",
       "html": "<p>South America: Amazon and Essequibo River basins, including the Upper Amazon and Ampiyacu, and Guyana waters, coastal rivers of the Guianas and Essequibo.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/physopyxis_lyra.htm",
+      "html": "<p>South America: Amazon River basin, Peru and Brazil. Type locality: Amazon. Described in more detail in Cope (1872a: 273, pl. 5, figs. 1a–1c), with locality as Ambyiacu River, Ecuador (now Peru).</p>"
     },
     {
       "key": "habitat",
@@ -51,16 +83,34 @@
       "html": "<p>Usually found in places with accumulated organic debris, like dense meshes of roots of floating aquatic plants. Specimens also can be found among submersed leaf litter and among root mats of river bank plants. Aquarium observations indicate that P. lyra is predominantly nocturnal, and spends most of day time sheltered among submersed root mats or buried in sand.</p>"
     },
     {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/physopyxis_lyra.htm",
+      "html": "<p>It is usually found in places with accumulated organic debris, like dense meshes of roots of floating macrophytes that are abundant in rivers with turbid water. Specimens also can be found among submersed leaf litter and among root mats of riparian plants, like Symmeria paniculata (Polygonaceae).</p>"
+    },
+    {
       "key": "diet",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1094",
       "html": "<p>A nocturnal scavenger. The best way to ensure this fish is properly fed is to introduce sinking food into the tank after dark. Most foods would be accepted gluttonously. Individuals will gorge themselves on food to the point of appearing fit to burst.</p>"
     },
     {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/physopyxis_lyra.htm",
+      "html": "<p>Will eat most prepared foods such as sunken flake and tablet foods but has a liking for frozen bloodworm.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1094",
       "html": "<p>Peaceful and small, would be perfect with anything that wouldn't consider it food. Due to its diminutive size tank mates should be relatively small, Apistogramma species are found in the same habitat.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/physopyxis_lyra.htm",
+      "html": "<p>Predominantly nocturnal, and spends most of day time sheltered among submersed root mats or buried in sand.</p>"
     },
     {
       "key": "reproduction",
@@ -75,10 +125,22 @@
       "html": "<p>Physopyxis can be distinguished from the other Doradidae by the miniature size (adults generally less than 31 mm SL) and a unique combination of additional features: extreme development of the exposed pectoral girdle; well developed coracoid process longer than the postcleithral process; anterior plate of the nuchal shield absent; dorsal spine serrated only along the basal portion of its anterior margin; two infraorbital bones in young that become fused into a single plate in adult specimens; pectoral spine reaching to base of anal fin.</p><p>Physopyxis lyra differs from the other species of the genus by possessing a single row of spines on the lateral plates and a strong scapular girdle with long, broad coracoid processes having distal tips enlarged and divergent.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/physopyxis_lyra.htm",
+      "html": "<p>There are three species in this genus, P. ananas, P. cristata and the more well known P. lyra, with the first two being described by Sousa and Py-Daniel (2005).</p><p>Description: Physopyxis lyra differs from the other species of the genus by possessing a single row of spines on the lateral plates and a strong scapular girdle with long, broad coracoid processes having distal tips enlarged and divergent outwards following expansion of process. Dorsal and pectoral spines strongly ossified. Dorsal spine pentagonal in cross-section with longitudinal groove along each lateral side, serrate along basal portion of anterior margin, posterior margin smooth. Pectoral spine well developed, depressed and curved, its tip usually reaching anal-fin origin.</p><p>Etymology: The specific name lyra is Latin for lyre, referring to the postcoracoid processes, \"curved, and the extremities dilated outwards, so as to present with the thoracic portion exactly the form of the Grecian lyre\".</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1094",
       "html": "<p>Proceedings of the Academy of Natural Sciences of Philadelphia v. 23, pp 273, Pl. 5 (figs. 1a-1c).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/physopyxis_lyra.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Salvador, G.N. 2023. Physopyxis lyra. The IUCN Red List of Threatened Species 2023.</p><p>ScotCat Factsheet no. 181. July 2011.</p><p>Sousa, L.M. and L.H. Rapp Py-Daniel 2005 Description of two new species of Physopyxis and redescription of P. lyra (Siluriformes: Doradidae). Neotrop. Ichthyol. 3(4):625-636.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
@@ -128,16 +190,23 @@
     },
     {
       "url": "https://media.aquatome.com/commons/e453eaa06cde61b7.webp",
+      "thumb": "https://media.aquatome.com/commons/e453eaa06cde61b7-480.webp",
       "width": 960,
       "height": 702,
       "licence": "Public domain",
       "author": "Sandra Raredon/Smithsonian Institution",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Physopyxis_lyra_SI.jpg",
-      "caption": "Physopyxis lyra",
-      "thumb": "https://media.aquatome.com/commons/e453eaa06cde61b7-480.webp"
+      "caption": "Physopyxis lyra"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "1ImrZ4ZBXS8",
+      "title": "UNBOXING 40+ AWESOME CATFISH",
+      "durationSec": 416,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -161,5 +230,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-09"
 }

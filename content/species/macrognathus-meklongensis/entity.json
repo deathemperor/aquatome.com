@@ -1,0 +1,104 @@
+{
+  "id": "macrognathus-meklongensis",
+  "scientificName": "Macrognathus meklongensis",
+  "order": "Synbranchiformes",
+  "family": "Mastacembelidae",
+  "genus": "Macrognathus",
+  "group": "other",
+  "places": [
+    "asia",
+    "thailand",
+    "mae-klong"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 15
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/22-spiny-eels/macrognathus_meklongensis_en/",
+      "html": "<p>One of the smallest and most beautiful species of spiny eel, imported for the first time from Thailand. It reaches hardly 15 cm in length and is only as thick as a forefinger.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/22-spiny-eels/macrognathus_meklongensis_en/",
+      "html": "<p>It is necessary to furnish the aquarium with many caves and other hiding places during the settling-in phase, but after that phase the spiny eels will be visible very often. It is of great importance to cover the tank completely, as spiny eels are real masters of escape.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/22-spiny-eels/macrognathus_meklongensis_en/",
+      "html": "<p>Regarding water parameters the spiny eels are totally undemanding. Water temperature should be between 22 and 28°C.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/22-spiny-eels/macrognathus_meklongensis_en/",
+      "html": "<p>It mainly feeds on small invertebrates, especially mosquito larvae and bloodworms, which are also readily taken when frozen. If you have the opportunity to feed live water fleas, you should not miss it.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/22-spiny-eels/macrognathus_meklongensis_en/",
+      "html": "<p>The coloration differs very much depending on mood. The basic colour is a nice golden bronze, the fins become yellow-red when the fish feels good, and below the dorsal fin (which has black stripes) are small ocelli (eye-spots).</p><p>The species is very peaceful towards tankmates, whether of its own species or other ones. Very small fish will be eaten, but the spiny eel is not a predator at all. It is really funny to observe how the spiny eels, bringing their body into an S-shape (which looks a bit like a seahorse), pick the water fleas out of the water column.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/22-spiny-eels/macrognathus_meklongensis_en/",
+      "html": "<p>Macrognathus: from ancient Greek, means \"with large jaws\". meklongensis: originating from the Meklong river.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/panitvong/Mamek_u0.webp",
+      "thumb": "https://media.aquatome.com/panitvong/Mamek_u0-480.webp",
+      "width": 640,
+      "height": 359,
+      "licence": "dùng với sự cho phép",
+      "author": "Nonn Panitvong",
+      "sourceUrl": "https://fishbase.se/photos/PicturesSummary.php?pic=Mamek_u0.jpg&personnel=1825&what=collab_pic",
+      "source": "panitvong"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 100cm",
+        "bể cá có nắp đậy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "bo bo đông lạnh"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

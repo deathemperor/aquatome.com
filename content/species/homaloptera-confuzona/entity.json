@@ -13,6 +13,82 @@
     "thailand",
     "mae-klong"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LA",
+        "KH",
+        "TH"
+      ],
+      "regions": [
+        "Mekong",
+        "Mae Klong"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Most records pertain to the Mekong River basin downstream of the Khone waterfalls in Laos and Cambodia, but this species is also known from some smaller river drainages in southern Thailand, including parts of the Mae Klong system.",
+          "countries": [
+            "LA",
+            "KH",
+            "TH"
+          ],
+          "regions": [
+            "Mekong",
+            "Mae Klong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2358573,
+      "total": 9,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "KH",
+          3
+        ],
+        [
+          "SE",
+          3
+        ],
+        [
+          "TH",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          9.84375,
+          57.65625,
+          3,
+          0
+        ],
+        [
+          101.25,
+          11.25,
+          3,
+          3
+        ],
+        [
+          102.65625,
+          11.25,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          12.65625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

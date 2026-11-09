@@ -41,7 +41,7 @@ struct OwnerDraw {
         return AnyView(OwnerTable(columns: t.columns, rows: t.rows, empty: t.empty, id: t.id, count: t.count, next: t.next, draw: self))
       }
       // Folded: a row naming it, its figure on the right, opening its rows on a page of their own.
-      let route = OwnerTableRoute(key: key, id: id, title: folded, columns: t.columns, period: period)
+      let route = OwnerTableRoute(key: key, id: id, title: folded, columns: t.columns, count: t.count, period: period)
       return AnyView(NavigationLink(value: route) {
         OwnerRow(title: folded, figure: t.figure ?? t.count.map(String.init), tone: .plain, chevron: true)
       }

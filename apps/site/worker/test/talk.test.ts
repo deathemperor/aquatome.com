@@ -624,7 +624,7 @@ test('a photo already shown, reported as another fish, moves to that fish\'s pag
   expect(row).not.toHaveProperty('why')
 
   // The owner's dashboard: under the goldfish's page, saying where it was sent, on the page and in the app's blocks.
-  const moved = `Kiểm duyệt chuyển từ ${PAGE}`
+  const moved = `Moved by moderation from ${PAGE}`
   const html = await (await handle(new Request(`${ORIGIN}/_ab/anh-ban-doc/`, { headers: { cookie: `${COOKIE}=${owner.web}` } }), t.env)).text()
   const tr = html.split('<tr').find(r => r.includes(`value="${p.id}"`))!
   expect(tr).toContain(`<br>${GOLDFISH}<br><span class="muted">${moved}</span>`)

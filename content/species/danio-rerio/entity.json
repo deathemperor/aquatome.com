@@ -23,13 +23,15 @@
         "LK"
       ],
       "regions": [
+        "Kosi River",
         "Ganges",
         "Brahmaputra",
         "Krishna"
       ],
       "sources": [
         "seriouslyfish",
-        "aquariumbreeder"
+        "aquariumbreeder",
+        "aquariumcoop"
       ],
       "quotes": [
         {
@@ -39,12 +41,13 @@
             "IN"
           ],
           "regions": [
+            "Kosi River",
             "Ganges"
           ]
         },
         {
           "source": "seriouslyfish",
-          "quote": "The zebra danio, Danio rerio, is a small cyprinid from India and Bangladesh, found mostly in slow or still pools and mature rice paddies.",
+          "quote": "At any rate it may be restricted to India (with the Eastern/Western Ghats mountain ranges representing its southern limit), Bangladesh and possibly Bhutan.",
           "countries": [
             "BD"
           ],
@@ -528,6 +531,13 @@
           "min": 24,
           "max": 28
         }
+      },
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 18,
+          "max": 24
+        }
       }
     ],
     "ph": [
@@ -549,6 +559,13 @@
         "source": "aquariumbreeder",
         "value": {
           "min": 7,
+          "max": 8
+        }
+      },
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 6,
           "max": 8
         }
       }
@@ -588,6 +605,10 @@
       {
         "source": "aquariumbreeder",
         "value": 4
+      },
+      {
+        "source": "aquariumcoop",
+        "value": 6
       }
     ],
     "tankCm": [
@@ -607,6 +628,10 @@
       },
       {
         "source": "aquariumbreeder",
+        "value": 2
+      },
+      {
+        "source": "aquariumcoop",
         "value": 2
       }
     ],
@@ -647,6 +672,12 @@
       "html": "<ul><li><strong>Common name:</strong> Zebrafish</li><li><strong>Other names:</strong> Zebra danio, Rerio, Striped danio, Zebra, Leopard danio, Longfin danio</li><li><strong>Minimum tank size:</strong> 15 gallons (~60 litres), long</li><li><strong>Breeding:</strong> Easy to medium</li><li><strong>Dwells:</strong> mostly mid-water</li><li><strong>Diet:</strong> carnivore / omnivore</li><li><strong>Temperament:</strong> peaceful</li><li><strong>Lifespan:</strong> up to 3 years</li><li><strong>Colour:</strong> striped with dark blue, gold and iridescent</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/zebra-danio",
+      "html": "<p>The zebra danio (Brachydanio rerio, formerly Danio rerio) is a torpedo-shaped danio that reaches about 5–6 cm, depending on the variety. The regular wild type has black or dark blue horizontal stripes running from behind the head through the entire tail, and the anal fin has matching stripes. Many colour variations exist in the pet trade, such as long fin, albino, GloFish and leopard.</p><p>Leopard danios look like a different species because of their light gold body covered in dark dots, but they are apparently the same Brachydanio rerio with a genetic mutation or hybridization. It is one of the most popular beginner fish, known for its stripes, low cost and adaptability to a wide range of water parameters. It is also widely used in scientific research (genetics, environmental studies, medical research) because it breeds easily.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/zebra-danio-1378473",
@@ -671,6 +702,12 @@
       "html": "<p>Danio rerio is indigenous to South Asia, widely distributed over the Indian subcontinent. It occurs in:</p><ul><li>the Ganges and Brahmaputra river basins in north-eastern India,</li><li>Bangladesh and Nepal,</li><li>the Krishna river basin,</li><li>the states of Rajasthan, Gujarat and Andhra Pradesh (river basins draining into the Arabian Sea),</li><li>northern Myanmar and Sri Lanka.</li></ul><p>Note: this region has a monsoon climate with pronounced rainy and dry seasons, which have a profound effect on habitat parameters, including water chemistry and resource abundance.</p>"
     },
     {
+      "key": "distribution",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/zebra-danio",
+      "html": "<p>This freshwater danio comes from northern India and surrounding countries.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/danio-rerio",
@@ -689,6 +726,12 @@
       "html": "<p>Zebrafish have been reported in a wide variety of habitats, including ponds, pools, channels, irrigation ditches, paddy (rice) fields, and the edges of streams and rivers.</p><p>They prefer shallow (10–40 cm deep), still or slow-flowing water (up to 10 cm/s) in unshaded locations with some overhanging vegetation.</p><p>Note: Danio rerio is also reported in fast rivers and hill streams. Some researchers believe this inconsistency probably results from taxonomic confusion between the genera Danio and Devario.</p>"
     },
     {
+      "key": "habitat",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/zebra-danio",
+      "html": "<p>It is usually found in slow-moving ponds, streams and rice paddies full of vegetation. Because of the seasonal monsoons, it is used to rapidly changing parameters.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/danio-rerio",
@@ -705,6 +748,12 @@
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/danio-rerio-detailed-guide-care-diet-and-breeding/",
       "html": "<p>Although Danio rerio is small, it needs a lot of space; these fish are very fast and active and are not suitable for nano tanks.</p><p>Technically, 5–6 danios can be kept in a 10-gallon (40-litre) tank, but their true behaviour will not be seen, so it is not recommended. A group of 6–8 zebrafish needs at least a 15-gallon (60-litre) long tank, or larger, to show their true personality.</p><p>Note: in laboratories, larger groups are often housed, for example 15–30 fish per 40-litre tank. These experiments have different purposes and may conflict with the fish's natural preferences.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/zebra-danio",
+      "html": "<p>A long aquarium of 75 litres or longer is recommended, with plenty of plants to simulate the native habitat, but leave lots of open space for swimming.</p>"
     },
     {
       "key": "maintenance",
@@ -743,6 +792,12 @@
       "html": "<p><strong>Temperature:</strong> Zebrafish tolerate a very wide temperature range. In the wild they survive from about 6°C in winter to 38°C in summer. In the aquarium they thrive at 24–28°C. This does not mean the tank temperature may fluctuate that much over short periods: tolerance is strongly influenced by acclimation temperature; fish acclimated to lower temperatures extend their lower tolerance further than fish acclimated to higher temperatures.</p><p><strong>pH:</strong> They tolerate a wider range of 6.5–9.0 but are more comfortable in neutral to alkaline water. The ideal range is 7.0–8.0.</p><p><strong>Hardness:</strong> Zebrafish are classified as a hard-water species and do not like soft water. In a study, the highest mortalities occurred at the lowest (5.5 dGH) and highest (32.5 dGH) tested levels. They prefer hard water of 10–20 GH.</p><p><strong>Salinity:</strong> A freshwater species, but it can tolerate a small range of salinity (up to 1 ppt), which technically extends to brackish conditions.</p><p><strong>Dissolved oxygen:</strong> Zebrafish have high metabolic rates and consume more oxygen per unit weight than larger fish. Oxygen should be kept at or just under saturation (~8 mg/L at 28°C).</p><p><strong>Nitrogen compounds:</strong> In laboratory experiments, excess ammonia (0.02 ppm) and nitrite (1 ppm) were typically toxic. The fish tolerate nitrate relatively well, but prolonged exposure to nitrate (up to 100 ppm) causes health problems.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/zebra-danio",
+      "html": "<p>Temperature: 18–24°C. pH: 6–8. They can easily handle soft to hard water. The tank can be unheated.</p>"
+    },
+    {
       "key": "equipment",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/zebra-danio-1378473",
@@ -753,6 +808,12 @@
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/danio-rerio-detailed-guide-care-diet-and-breeding/",
       "html": "<p><strong>Filtration and water flow:</strong> Zebrafish prefer still or slow-moving water, so choose a filter whose flow can be adjusted (to the lowest possible setting for the tank). Some filter intakes can suck in these small fish, so use an extra sponge pre-filter.</p><p><strong>Lighting:</strong> No special requirements. Zebrafish have a distinct diurnal activity pattern synchronised with the light/dark and feeding cycles, and spawning is influenced by photoperiod.</p><p><strong>Substrate:</strong> No special requirements if you are not breeding them; adapt the substrate to the plants in the tank. For breeding, gravel is generally more favourable as it lets eggs escape predation by the parents.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/zebra-danio",
+      "html": "<p>A sponge filter with gentle flow is appreciated. A heater is not necessary.</p>"
     },
     {
       "key": "diet",
@@ -773,6 +834,12 @@
       "html": "<p>Zebrafish are opportunistic omnivores with a strong preference for high-protein food.</p><p>Gut content analysis shows they feed primarily on aquatic invertebrates (such as zooplankton). Filamentous algae, aquatic plant material, phytoplankton, invertebrate eggs, fish scales, spores, detritus, sand and even mud have also been found in their stomachs.</p><p>In the aquarium, feed live prey or a mixture with artificial diets. An ideal diet can include:</p><ul><li>brine shrimp,</li><li>artemia nauplii,</li><li>rotifers,</li><li>daphnia,</li><li>moina,</li><li>bloodworms,</li><li>blackworms,</li><li>fruit flies,</li><li>mosquito larvae,</li><li>grindal worms,</li><li>cyclops, etc.</li></ul><p>Live diets (such as Artemia and rotifers) have balanced nutritional profiles for adult and young zebrafish. Large prey (bloodworms, grindal worms, etc.) is more appropriate for adults. An exclusively artificial diet is not recommended, as fish showed slightly reduced growth and survival compared to Artemia alone.</p><p>Zebrafish are mid-dwellers and mostly feed in the water column. Although terrestrial insects, inorganic material and detritus in their guts suggest they can also feed at the surface and on the substrate, this is not their primary way.</p><p><strong>How often:</strong> Adults can be fed once a day, juveniles at least twice a day. As a small, very active fish with a fast metabolism, they do best with small but frequent meals throughout the day for maximum growth. They are very aggressive eaters. Adults can safely be fasted for a day or two.</p><p><strong>How much:</strong> There are two main approaches: feeding to satiation (the \"five-minute rule\") and feeding by body weight. The five-minute rule is the easiest and most popular (though not optimal): the fish should consume all the food within 5–7 minutes. Feeding by body weight means giving a fixed percentage of body weight daily: adults up to 10%, larvae up to 50–300%, which is why juveniles should be fed several times a day.</p><p><strong>Important:</strong> it is better to underfeed than overfeed. Overfeeding deteriorates water quality, causes infections and disease. Siphon out uneaten food and waste after every feeding.</p>"
     },
     {
+      "key": "diet",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/zebra-danio",
+      "html": "<p>In the wild, zebra danios eat all sorts of small crustaceans, insects, worms and other microorganisms. In captivity they are very easy to feed and will consume all sorts of tropical fish foods small enough to fit in their mouths.</p><p>A balanced diet of fish flakes, nano pellets, freeze-dried foods, frozen bloodworms and live baby brine shrimp works well. Offer a variety of foods to avoid nutrient deficiencies and spread out the food so that every fish gets a bite.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/danio-rerio",
@@ -789,6 +856,12 @@
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/danio-rerio-detailed-guide-care-diet-and-breeding/",
       "html": "<p>Understanding behaviour is one of the most important aspects of caring for zebrafish, helping reduce aggression towards conspecifics and tankmates.</p><p><strong>Sociality:</strong> Zebrafish are highly social shoaling fish, forming tight groups. In nature this provides defence against predators, access to mates and efficient foraging. Shoaling is innate and starts soon after hatching. Keep at least 6 (bare minimum); larger groups make them happier. They use olfactory cues in kin recognition. Keeping them in too small numbers is one reason they become aggressive towards other fish and each other.</p><p><strong>Activity:</strong> They are not shy, and move quickly almost all the time. They are playful but play roughly, which may look like fighting; in a large enough school they mostly confine this to each other. This enthusiasm can stress, sicken or even kill tankmates. They may nip other fish to get them to play, especially in small groups. They are diurnal, rely heavily on vision, and hide in darker areas when in danger.</p><p><strong>Dominance:</strong> Both sexes establish dominance hierarchies. Aggression includes chasing and sometimes biting; splayed fins and slowly circling each other while ascending is a sign they are ready to fight. Dominant fish are usually darker and more intensely coloured, subordinates paler. Once hierarchies are formed, aggression lessens. Hierarchies are relatively stable: fish separated for 4–5 days re-established the same ranks when reunited. Sex is not an important factor; the role of size is controversial.</p><p><strong>Aggression:</strong> Generally quite peaceful, though some individuals (mostly males) may show territoriality and antagonism. They are fin-nippers but rarely malevolent; it is mostly play.</p><p><strong>Signs of alarm:</strong> increased shoal cohesion, agitated swimming or freezing on the substrate, decreased feeding rate, increased aggression (including nipping).</p><p><strong>Response to stimuli:</strong> Fish on a black background tend to be darker than on a light background, a natural camouflage reaction. Stressed and scared fish quickly lose colour and become pale, so a white substrate, light background or aggressive tankmates will fade their colour.</p><p><strong>Learning:</strong> Zebrafish are relatively smart and can learn and remember for long periods. In one experiment, adults trained to swim to alternate sides of a divided tank for a food reward remembered the task after 10 days. Juveniles of 6–8 weeks learned as well as or better than adults, whereas those of 3–4 weeks could not. Preference for particular colour patterns is learned: cross-reared fish prefer the pattern they were raised with. They learn by visual and olfactory cues, which helps them tell familiar from unfamiliar conspecifics, and show stress responses to visual and olfactory cues associated with predators.</p><p><strong>Compatible tankmates:</strong> Generally peaceful in large schools, but there is always a chance they become nippers in a community tank. Not recommended with slow fish, long-finned fish (such as Betta) and fish that cannot stand up for themselves; they are aggressive eaters and there will be much fighting at feeding time. Potentially compatible fish include Glowlight Danio, Harlequin Rasbora, Pygmy Cory, Boraras, Swordtails, Panda Garra, Neon Tetras, Brilliant Rummynose Tetras, Dwarf Ember Barbs, Clown Killifish, Least Killifish, Cherry barbs, Guppies, Ghost Glass Catfish, Dwarf Chain loaches, Kuhli Loaches, Endlers and Medaka Ricefish. Monitor their interaction.</p><p><strong>Dwarf shrimp:</strong> Not a good idea if you plan to breed shrimp: they will feed on shrimplets, and being very active, they may even kill adult shrimp while moulting, when soft and unprotected.</p><p><strong>Snails:</strong> They usually leave freshwater snails alone but may periodically nip off their antennae.</p><p><strong>Bad tankmates:</strong></p><ul><li>Larger or aggressive fish</li><li>Timid, slow-moving and long-finned fish</li><li>Any crayfish</li><li>Any freshwater crab</li><li>Dwarf frogs</li></ul>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/zebra-danio",
+      "html": "<p>Zebra danios have very outgoing personalities and make excellent dither fish to help calm down both timid and territorial tankmates. They may fin nip if their school isn't big enough to keep them entertained, so keep at least 5–6 fish. Avoid pairing them with slower swimmers (e.g. betta fish) that may be bothered by their hyperactivity or outcompeted at mealtimes. More suitable tank mates include rainbowfish, livebearers, barbs and loaches.</p>"
     },
     {
       "key": "dimorphism",
@@ -809,6 +882,12 @@
       "html": "<p>Adult zebrafish are sexually dimorphic, but the difference can be hard to see. The sex of juveniles cannot be reliably determined without dissection.</p><ul><li><strong>Size:</strong> females are generally larger than males.</li><li><strong>Growth rate:</strong> females grow faster.</li><li><strong>Colour:</strong> males are generally darker, with more yellow in the anal fin. Females have little, if any, gold on the underside.</li><li><strong>Abdomen:</strong> females have a bigger underbelly; males are more slender and torpedo-shaped.</li><li><strong>Genitals:</strong> females have a small genital papilla in front of the anal fin.</li></ul><p>Every zebrafish starts developing as an immature female; future males undergo a 'gonadal transformation' to produce functional testes at approximately 5–7 weeks after hatching (1–1.5 cm total length).</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/zebra-danio",
+      "html": "<p>Look for a slender male and a thick-bodied female with a round abdomen. Females tend to be thicker, while males are thinner in profile.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/danio-rerio",
@@ -825,6 +904,12 @@
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/danio-rerio-detailed-guide-care-diet-and-breeding/",
       "html": "<p>Zebrafish are asynchronous group spawners and egg scatterers. They can breed under a wide range of conditions but still show complex breeding behaviour involving competition among both males and females, mate preference, substrate preference, etc.</p><p><strong>Maturity:</strong> Danio rerio matures after 75 days at 25.5°C, when females are around 2.5 cm long. Males mature at approximately 2.3 cm.</p><p><strong>Spawning cycle:</strong> Domesticated fish can breed all year round in the laboratory, whereas in nature spawning is more seasonal.</p><p><strong>Mating:</strong> Females usually prefer the odour of larger, unrelated males. The dominant male also excludes other males. Spawning starts in the morning (within the first minute of exposure to light after darkness) and continues for about an hour. Males release steroid pheromones to induce ovulation in females; after ovulation, females release hormones that prompt male mating behaviour. Female pheromones appear able to suppress reproduction of subordinate females, and dominant females produce more eggs than subordinates.</p><p><strong>Courtship:</strong> The male chases the female and nudges her flanks with his snout to lead her to a spawning site, or circles her and swims back and forth between her and the site. Some males become territorial around potential spawning sites, because females are choosy about oviposition sites; in choice experiments, females clearly preferred gravel over silt. Fertilisation is external: the male swims over the eggs to release milt. Zebrafish do not mate for life; males and females change partners easily.</p><p><strong>Eggs:</strong> Females usually produce clutches of 150–190 eggs; the number correlates positively with female size, and large females can produce more than 700 eggs. Females produce higher-quality eggs when exposed to male pheromones for several days before spawning than isolated females. Eggs are about 0.7 mm in diameter, non-adhesive and demersal; fertilised eggs are transparent. Females release eggs directly over the substrate without preparation. Zebrafish do not care for eggs or hatchlings and leave the spawning grounds soon after fertilisation.</p><p><strong>Hatching:</strong> Depending on temperature, eggs hatch in only 2–3 days at 28°C. Newly hatched juveniles average about 3 mm and are optically clear. After hatching, larvae adhere to hard surfaces by specialised cells on the head. By day 5 they must inflate their swim bladders by swallowing air at the surface, after which they can swim and hold position in the water column. Rapid growth occurs in the first 3 months and stops completely by about 18 months. Under optimal conditions they can reach 1.8 cm in the first 45 days and 2.5 cm after one year.</p><p><strong>Breeding tank:</strong></p><ul><li>A separate spawning tank is needed because parents eat the eggs scattered over the bottom. Fill the tank with gravel or marbles. Some breeders use a net on a frame 2.5 cm above the bottom to create a double floor that protects the eggs.</li><li>Remove the parents to the main tank to avoid cannibalism of the larvae.</li><li>Lighting is needed; reproduction is strongly regulated by photoperiod, and they generally spawn at dawn.</li><li>Temperature around 28°C; low temperature is very bad for egg development.</li><li>Feed the parents live food 2–3 times a day for 1–2 weeks before spawning to induce breeding.</li><li>Feed the larvae from 4–5 days after fertilisation, when they start swimming, with a mixture of ciliates, rotifers and Artemia nauplii. Live prey is preferable as it is generally more nutritionally balanced, attractive, digestible and evenly distributed in the water column.</li><li>Water quality is of paramount importance: do large daily water changes (30–50%) to remove toxic waste that harms larval growth and survival, and remove dead or diseased larvae and debris.</li><li>Very little or no water flow: flow forces larvae to expend energy holding position and makes prey harder to capture.</li></ul><p><strong>Inducing breeding:</strong> In nature, zebrafish spawn during heavy rains, so a small drop in water temperature and a slight rise in water level may trigger breeding.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/zebra-danio",
+      "html": "<p>Zebra danios mature quickly and can release 100 or more eggs per spawning. You need at least one fish of each sex. To trigger breeding, increase the amount of food and watch for chasing behaviour during courtship.</p><p>The danios will eat their eggs unless the tank has a huge, dense mass of java moss or other spawning material as cover. Another method is to cover the tank bottom with a layer of large pebbles or glass marbles so the eggs slip between the gaps and avoid predation. Some breeders recommend cooler water changes to imitate monsoon rain, or lowering the water to just a few centimetres above the marbles like a shallow riverbank.</p><p>Once the eggs have been laid and the females no longer have swollen bellies, remove all the adults. Fry should initially be given tiny foods such as infusoria, live vinegar eels and powdered fry food under 100 microns. After two weeks, switch to live baby brine shrimp for fast, strong growth.</p>"
     },
     {
       "key": "notes",
@@ -846,6 +931,28 @@
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/9664ae6c38256d7d.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/9664ae6c38256d7d-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/zebra-danio",
+      "caption": "Care Guide for Zebra and Leopard Danios – Energetic Little Speedsters - Aquarium Co-Op",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/feac9b185b8bbe66.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/feac9b185b8bbe66-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/zebra-danio",
+      "caption": "zebra danio with java fern",
+      "source": "aquariumcoop"
+    },
     {
       "url": "https://media.aquatome.com/sprucepets/9de74927ec87b9fc.webp",
       "thumb": "https://media.aquatome.com/sprucepets/9de74927ec87b9fc-480.webp",
@@ -877,6 +984,28 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/danio-rerio",
       "caption": "The 'leopard danio' (aka 'B. rerio var. frankei') is an ornamental form of the species.",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/06eb6d988d32c622.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/06eb6d988d32c622-480.webp",
+      "width": 1000,
+      "height": 659,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/zebra-danio",
+      "caption": "leopard danio",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/2e8dc9601bf036ba.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/2e8dc9601bf036ba-480.webp",
+      "width": 1000,
+      "height": 697,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/zebra-danio",
+      "caption": "GloFish zebra danio",
+      "source": "aquariumcoop"
     }
   ],
   "videos": [
@@ -934,5 +1063,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-09"
 }

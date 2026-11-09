@@ -364,9 +364,20 @@ final class HandbookModel {
       // `-whats-new`: the index names the site's what's new too (`fixtureLatest`).
       let latest = args.contains("-whats-new") ? "/app/latest/vi.json" : nil
       // `-breeds`: the site lists a breed of the discus too, as it lists breeds.
-      let items = (args.contains("-breeds") ? f.items + HandbookIndex.fixtureBreeds : f.items) + (kit ? HandbookIndex.fixtureKit : [])
+      var items = (args.contains("-breeds") ? f.items + HandbookIndex.fixtureBreeds : f.items) + (kit ? HandbookIndex.fixtureKit : [])
+      // `-series N`: N video series, the fixture's own first (0: none, as the Indonesian and Thai sites have).
+      if let n = args.firstIndex(of: "-series").flatMap({ $0 + 1 < args.count ? Int(args[$0 + 1]) : nil }) {
+        let own = items.filter { $0.kind == .video }
+        items.removeAll { $0.kind == .video }
+        items += Array(own.prefix(n)) + (own.count..<max(n, own.count)).map {
+          .init(kind: .video, name: "Bộ video \($0 + 1)", sub: "Kênh \($0 + 1)", path: "/vi/video/bo-video-\($0 + 1)/", parts: $0 + 2)
+        }
+      }
+      // `-plan`: the editors have planned Hôm nay's days (`fixtureDays`).
+      var home = f.home
+      if args.contains("-plan") { home?.days = HandbookIndex.fixtureDays }
       // `-site-telemetry`: the site takes the app's anonymous telemetry (the fixed index says nothing of it otherwise).
-      return .fixed(HandbookIndex(lang: f.lang, items: items, home: f.home, labels: f.labels, pages: pages, places: f.places,
+      return .fixed(HandbookIndex(lang: f.lang, items: items, home: home, labels: f.labels, pages: pages, places: f.places,
                                   telemetry: args.contains("-site-telemetry"),
                                   latest: latest))
     }
@@ -410,6 +421,20 @@ final class HandbookModel {
 
 #if DEBUG
 extension HandbookIndex {
+  /// UI tests' calendar (`-plan`): 13 November planned whole, its fish one Hôm nay's own picks never are, each card with
+  /// its photo; the 14th planned with no fish, and a guide and a story without a photo, the story's
+  /// line as long as the editors write them; the 15th not planned. The 13th's story tells the guide the app's own picks
+  /// lead with, in the editors' words.
+  static let fixtureDays: [Home.Day] = [
+    .init(date: "2026-11-13", fish: "/vi/ca/ca-ngua-van/", img: "https://media.aquatome.com/a/danio-large.webp",
+          guide: "/vi/huong-dan/cach-han-che-reu-hai/", guideImg: "https://media.aquatome.com/a/reu-hai-large.webp",
+          story: .init(path: "/vi/huong-dan/nuoi-ca-neon/", img: "https://media.aquatome.com/a/neon-large.webp", eyebrow: "Cho người mới",
+                       title: "Đàn neon đầu tiên", dek: "Sáu con trở lên, nước mềm, thả khi bể đã chạy ổn định")),
+    .init(date: "2026-11-14", guide: "/vi/huong-dan/nuoi-ca-neon/",
+          story: .init(path: "/vi/huong-dan/cach-han-che-reu-hai/", eyebrow: "Mẹo chăm bể", title: "Ít rêu hơn khi bể đủ cây",
+                       dek: "Đèn bật 6 đến 8 tiếng, trồng dày cây mọc nhanh ngay từ đầu, thay nước đều mỗi tuần và cho ăn vừa đủ cá ăn hết")),
+  ]
+
   /// UI tests' index: a few pages of each kind, as the site writes them.
   static let fixture = HandbookIndex(lang: "vi", items: [
     .init(kind: .fish, contentId: "symphysodon-aequifasciatus", name: "Cá đĩa", sub: "Symphysodon aequifasciatus", aka: ["Discus"], path: "/vi/ca/ca-dia/",

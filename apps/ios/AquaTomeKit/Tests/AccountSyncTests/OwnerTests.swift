@@ -194,6 +194,10 @@ func overviewRead(_ d: Owner.Dashboard, _ o: Object, _ name: Comment) throws {
   #expect(d.needs.map { target($0.to) } == needs.map { target($0) } && d.needs.allSatisfy { $0.to != nil }, name)
   #expect(d.needs.map(\.photos) == needs.map { ($0["photos"]?.array ?? []).map { "/_ab/anh/" + $0.string! } }, name)
   #expect(d.needsEmpty == o["needsEmpty"]!.string! && !d.needsEmpty.isEmpty, name)
+  // The owner's last action: what, when, and the section it was in.
+  let last = o["lastAction"]?.object
+  #expect(d.lastAction?.title == last?["text"]?.string && d.lastAction?.figure == last?["when"]?.string, name)
+  #expect(target(d.lastAction?.to) == last?["section"]?.string && (last == nil) == (d.lastAction == nil), name)
 
   let answers = o["answers"]!.object!, a = try #require(d.answers, name), chart = answers["chart"]?.object
   #expect(a.title == answers["title"]!.string! && a.note == answers["note"]?.object?["text"]?.string, name)
@@ -260,8 +264,8 @@ func nothingDropped() throws {
       headings[String(at.dropFirst(sectionPrefix.count)), default: []].formUnion(s.blocks.compactMap { if case .heading(_, _, let a?) = $0 { a } else { nil } })
     }
   }
-  // The three overviews: as usual, with nothing to do, and with the readers' beacon down.
-  #expect(overviews == 3)
+  // The four overviews: as usual, with nothing to do, with the readers' beacon down, and with the AI spend near its cap.
+  #expect(overviews == 4)
   // Every anchor the overview names is a heading's of its section.
   #expect(anchors["nhan-dien-ca"] == ["key"] && anchors["noi-dung"] == ["engine"])
   for (k, a) in anchors { #expect(a.isSubset(of: headings[k] ?? []), "\(k): \(a)") }
@@ -399,10 +403,10 @@ func reportDelivery() async throws {
 @Test("A form sends its fields (trimmed, an empty optional one left out) with its body as one object, and not while a field it needs is empty")
 func forms() throws {
   let form = try #require(Owner.Section(dict(named("section an-trang")["body"]!)).blocks.compactMap { if case .form(let f) = $0 { f } else { nil } }.first)
-  #expect(form.fields.map(\.name) == ["path", "note"] && form.fields.map(\.required) == [true, false] && form.submit == "Ẩn")
+  #expect(form.fields.map(\.name) == ["path", "note"] && form.fields.map(\.required) == [true, false] && form.submit == "Hide")
   #expect(form.action([:]) == nil && form.action(["path": "  ", "note": "sai loài"]) == nil)
   let a = try #require(form.action(["path": " /ca/ca-y/ ", "note": "sai loài"]))
-  #expect(a.method == "POST" && a.path == "/api/owner/hidden" && a.label == "Ẩn" && !a.asks)
+  #expect(a.method == "POST" && a.path == "/api/owner/hidden" && a.label == "Hide" && !a.asks)
   #expect(a.body == #"{"hide":true,"note":"sai loài","path":"/ca/ca-y/"}"#)
   #expect(form.action(["path": "https://aquatome.com/ca/ca-y/", "note": " "])?.body == #"{"hide":true,"path":"https://aquatome.com/ca/ca-y/"}"#)
   let multiline = Owner.Section(dict(#"{"title":"T","blocks":[{"kind":"form","method":"POST","path":"/api/owner/x","submit":"Gửi","fields":[{"name":"n","label":"L","kind":"textarea"}]}]}"#))
@@ -534,13 +538,17 @@ func standInWhoGetsIn() async throws {
   #expect(await failure { _ = try await mine.section("no-such-section") } == "notFound")
 
   let src = try #require(photos(try await mine.section("anh-ban-doc")).first?.src ?? nil)
-  #expect(await mine.image(src) != nil)
+  #expect(await mine.image(src) == FakeOwner.picture)
+  #expect(await theirs.image(src) == nil)
+  // Its own picture, once the stand-in has it: to the owner only.
+  fake.owner?.webp[src] = Data("koi".utf8)
+  #expect(await mine.image(src) == Data("koi".utf8))
   #expect(await theirs.image(src) == nil)
   #expect(await gone.image(src) == nil)
   #expect(await theirs.image("https://media.aquatome.com/p/c3d4-thumb.webp") != nil)
   // Each private photo went with the owner's bearer, the public one without.
   let images = fake.requests.filter { $0.url?.path.hasPrefix("/_ab/") == true || $0.url?.host != "aquatome.com" }
-  #expect(images.map { $0.value(forHTTPHeaderField: "Authorization") != nil } == [true, true, true, false])
+  #expect(images.map { $0.value(forHTTPHeaderField: "Authorization") != nil } == [true, true, true, true, true, false])
 }
 
 @MainActor @Test("A waiting photo the overview lists is the owner's to see even where no section shows it, and no one else's")
@@ -567,12 +575,12 @@ func standInButtons() async throws {
   let mine = try await api.signedIn("ui-apple")
   var waiting = photos(try await mine.section("anh-ban-doc"))
   let first = waiting[0]
-  #expect(first.actions.map(\.label) == ["Duyệt", "Gỡ"])
+  #expect(first.actions.map(\.label) == ["Approve", "Remove"])
 
   try await mine.run(first.actions[0])
   waiting = photos(try await mine.section("anh-ban-doc"))
-  #expect(waiting[0].actions.map(\.label) == ["Gỡ"])
-  #expect(waiting[0].lines.last == "Đã duyệt · đăng trong lượt duyệt tới")
+  #expect(waiting[0].actions.map(\.label) == ["Remove"])
+  #expect(waiting[0].lines.last == "Approved · goes up at the next pass")
   try await mine.run(waiting[0].actions[0])
   #expect(!photos(try await mine.section("anh-ban-doc")).contains { $0.src == first.src })
   // Gone, though the overview still lists it as waiting.
@@ -583,7 +591,7 @@ func standInButtons() async throws {
   try await mine.run(shot.actions[0])
   #expect(photos(try await mine.section("anh-nhan-dien")).map(\.src) == ["/_ab/anh-nhan-dien/anh/reader-1/0b4c6a8e-1f2d-4c3b-9a8e-7d6c5b4a3f21"])
 
-  // Hidden by the section's form, at the top as the newest, then back by its "Hiện lại"; by a whole address too.
+  // Hidden by the section's form, at the top as the newest, then back by its "Show again"; by a whole address too.
   let section = try await mine.section("an-trang")
   let before = hiddenPages(section)
   let form = try #require(section.blocks.compactMap { if case .form(let f) = $0 { f } else { nil } }.first)
@@ -591,7 +599,7 @@ func standInButtons() async throws {
   let after = try await mine.section("an-trang")
   #expect(hiddenPages(after) == ["/ca/ca-y/"] + before)
   guard case .cards(let h, _, true)? = after.blocks.last else { Issue.record("no hidden block"); return }
-  #expect(h[0].lines == ["sai loài", "04/11 16:00"])
+  #expect(h[0].lines == ["sai loài", "Wed 4 Nov, 16:00"])
   try await mine.run(h[0].actions[0])
   #expect(hiddenPages(try await mine.section("an-trang")) == before)
   try await mine.run(try #require(form.action(["path": "https://aquatome.com/ca/ca-z/"])))
@@ -689,36 +697,37 @@ func standInPeriods() async throws {
   let mine = try await api.signedIn("ui-apple")
   let d30 = try await mine.section("nhan-dien-ca", period: "d30")
   #expect(d30.period == "d30" && same(d30, Owner.Section(dict(named("period: fish ID, 30 days")["body"]!))))
-  let first = try await mine.section("nhan-dien-ca", period: "d7")
-  #expect(first.period == "d7" && first.periods.map(\.key) == ["d7", "today", "d30", "month"])
+  let first = try await mine.section("nhan-dien-ca", period: "week")
+  #expect(first.period == "week" && first.periods.map(\.key) == ["week", "today", "d7", "d30", "month"])
   #expect(same(first, try await mine.section("nhan-dien-ca")))
   // One it offers that the vectors don't have: the section as it is, for that period.
   #expect(try await mine.section("nhan-dien-ca", period: "today").period == "today")
   let offers = named("a period the section doesn't offer"), none = named("a period on a section with none")
-  #expect(refusal(offers) == "\(OwnerError.refused("bad_request", message: "period: one of d7, today, d30, month."))")
+  #expect(refusal(offers) == "\(OwnerError.refused("bad_request", message: "period: one of week, today, d7, d30, month."))")
   #expect(refusal(none) == "\(OwnerError.refused("bad_request", message: "This section has no periods."))")
-  for (key, period, said) in [("nhan-dien-ca", "week", offers), ("nhan-dien-ca", "year", offers), ("an-trang", "d7", none), ("doc-gia", "d30", none),
+  for (key, period, said) in [("nhan-dien-ca", "year", offers), ("nhan-dien-ca", "d90", offers), ("an-trang", "d7", none), ("doc-gia", "d30", none),
                               ("binh-luan", "d7", none)] {
     #expect(await failure { _ = try await mine.section(key, period: period) } == refusal(said), "\(key) \(period)")
   }
 }
 
-@MainActor @Test("The stand-in's tables: a folded one's rows, a long one's last page (nothing after it), its first page as the section has it; a table that isn't one 404, a cursor it never gave 400")
+@MainActor @Test("The stand-in's tables: a folded one's rows, a long one's first page and its last (nothing after it), read for the section's period as none; a table that isn't one 404, a cursor it never gave 400")
 func standInTables() async throws {
   let (_, api) = ownerServer()
   let mine = try await api.signedIn("ui-apple")
   let s = try await mine.section("nhan-dien-ca")
   let tables = s.blocks.compactMap { if case .table(let t) = $0, t.id != nil { t } else { nil } }
-  let folded = try #require(tables.first { $0.folded != nil }), long = try #require(tables.first { $0.next != nil })
-  #expect(folded.id == "t2" && folded.rows.isEmpty && folded.count == 4 && long.id == "t5" && long.count == 60 && long.rows.count == 50)
+  let folded = try #require(tables.first { $0.folded != nil }), long = try #require(tables.first { $0.folded == "Every request" })
+  #expect(folded.id == "t2" && folded.rows.isEmpty && folded.count == 6 && long.id == "t8" && long.rows.isEmpty && long.count == 59)
   // Read for the section's period as it was read: its first, the same as none.
   let rows = try await mine.table("nhan-dien-ca", folded.id!, cursor: nil, period: s.period)
-  #expect(same(rows, Owner.Page<[Owner.Link]>(rows: dict(named(#"table: fish ID's folded "Bảng đầy đủ: kết quả, token""#)["body"]!))))
+  #expect(same(rows, Owner.Page<[Owner.Link]>(rows: dict(named(#"table: fish ID's folded "Since 7:00, in detail""#)["body"]!))))
   #expect(rows.items.count == folded.count && rows.next == nil)
-  let last = try await mine.table("nhan-dien-ca", long.id!, cursor: long.next, period: s.period)
-  #expect(last.items.count == long.count! - long.rows.count && last.next == nil)
-  let firstPage = try await mine.table("nhan-dien-ca", long.id!, cursor: nil, period: nil)
-  #expect(firstPage.items.count == long.rows.count && firstPage.next == long.next)
+  let firstPage = try await mine.table("nhan-dien-ca", long.id!, cursor: nil, period: s.period)
+  #expect(firstPage.items.count == 50 && firstPage.next == "50")
+  #expect(same(firstPage, try await mine.table("nhan-dien-ca", long.id!, cursor: nil, period: nil)))
+  let last = try await mine.table("nhan-dien-ca", long.id!, cursor: firstPage.next, period: s.period)
+  #expect(last.items.count == long.count! - firstPage.items.count && last.next == nil)
   #expect(await failure { _ = try await mine.table("an-trang", "t9", cursor: nil, period: nil) } == "notFound")
   #expect(await failure { _ = try await mine.table("nhan-dien-ca", "t9", cursor: nil, period: nil) } == "notFound")
   let cursor = refusal(named("a table's cursor that isn't one"))
@@ -730,7 +739,7 @@ func standInTables() async throws {
 func standInOverview() async throws {
   let (fake, api) = ownerServer()
   let mine = try await api.signedIn("ui-apple")
-  #expect(try await mine.dashboard().needs.count == 5)
+  #expect(try await mine.dashboard().needs.count == 4)
   fake.owner?.overview = "dashboard: nothing needs you"
   let clear = try await mine.dashboard()
   #expect(clear.needs.isEmpty && clear.needsEmpty == "Nothing needs you right now" && clear.tiles.first?.value == "All clear")
@@ -753,18 +762,18 @@ func standInReportSettings() async throws {
   let bell = try await mine.reportSettings()
   #expect(bell.email && bell.push)
   var now = try await shown()
-  #expect(now.line == "Email: đang bật. Thông báo trên điện thoại: đang bật, gửi đến 1 điện thoại.")
-  #expect(now.buttons.map(\.label) == ["Tắt email", "Tắt thông báo"])
+  #expect(now.line == "Email: on. Phone notifications: on, to 1 phone.")
+  #expect(now.buttons.map(\.label) == ["Turn off email", "Turn off notifications"])
   try await mine.run(now.buttons[0])
   now = try await shown()
-  #expect(now.line == "Email: đang tắt. Thông báo trên điện thoại: đang bật, gửi đến 1 điện thoại.")
-  #expect(now.buttons.map(\.label) == ["Bật email", "Tắt thông báo"])
+  #expect(now.line == "Email: off. Phone notifications: on, to 1 phone.")
+  #expect(now.buttons.map(\.label) == ["Turn on email", "Turn off notifications"])
   try await mine.run(now.buttons[1])
   now = try await shown()
-  #expect(now.line == "Email: đang tắt. Thông báo trên điện thoại: đang tắt.")
-  #expect(now.buttons.map(\.label) == ["Bật email", "Bật thông báo"])
+  #expect(now.line == "Email: off. Phone notifications: off.")
+  #expect(now.buttons.map(\.label) == ["Turn on email", "Turn on notifications"])
   try await mine.run(now.buttons[0])
-  #expect(try await shown().buttons.map(\.label) == ["Tắt email", "Bật thông báo"])
+  #expect(try await shown().buttons.map(\.label) == ["Turn off email", "Turn on notifications"])
 
   // Read as the Worker answers it; turned on, what each is now and whether this request changed it.
   #expect(try await sentAsIs(fake, "GET", "/api/owner/report-settings").1 == named("the report's delivery")["body"])
@@ -778,7 +787,7 @@ func standInReportSettings() async throws {
   #expect(try await mine.reportEmail(false) == false)
   let off = try await mine.reportSettings()
   #expect(!off.email && off.push)
-  #expect(try await shown().line == "Email: đang tắt. Thông báo trên điện thoại: đang bật, gửi đến 1 điện thoại.")
+  #expect(try await shown().line == "Email: off. Phone notifications: on, to 1 phone.")
 
   // Refused as the Worker refuses: not true or false, nothing named, or something else named.
   // "yes" is a vector's own request, answered as recorded; "no" reaches the stand-in's own check.
@@ -809,7 +818,7 @@ func standInStorageDown() async throws {
   let mine = try await api.signedIn("ui-apple")
   fake.owner?.storageDownAtNextSection = true
   #expect(await failure { _ = try await mine.section("doc-gia") } == refusal(named("storage down")))
-  #expect(try await mine.section("doc-gia").title == "Người đọc thật")
+  #expect(try await mine.section("doc-gia").title == "Readers")
   // The dashboard isn't down: the vector of it down is the knob's, never replayed.
   _ = try await mine.dashboard()
 }

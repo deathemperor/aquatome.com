@@ -9,6 +9,84 @@
     "asia",
     "taiwan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TW"
+      ],
+      "regions": [
+        "Central Mountain Range"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Taiwan where it's found most abundant in river systems draining the western slopes of the island's Central Mountain Range, plus a few northern drainages.",
+          "countries": [
+            "TW"
+          ],
+          "regions": [
+            "Central Mountain Range"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2358790,
+      "total": 1311,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "TW",
+          1310
+        ],
+        [
+          "CN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          104.0625,
+          37.96875,
+          1,
+          0
+        ],
+        [
+          119.53125,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          119.53125,
+          22.5,
+          644,
+          644
+        ],
+        [
+          119.53125,
+          23.90625,
+          152,
+          152
+        ],
+        [
+          120.9375,
+          22.5,
+          20,
+          20
+        ],
+        [
+          120.9375,
+          23.90625,
+          492,
+          492
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

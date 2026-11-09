@@ -61,8 +61,10 @@ import { speciesRanges } from './range'
 import { gbifClient } from './range-records'
 import { speciesWater } from './water'
 import { topicCheck } from './topic-check'
+import { retagSources } from './source-kinds'
 import { COVER_SCHEMA, videoCovers } from './video-covers'
 import { videoImages } from './video-images'
+import { scoreStills } from './still-sharpness'
 import { videoStills } from './video-stills'
 import { searchCommons } from './photos'
 import { REWRITE_KINDS, rewriteExisting } from './vi-backfill'
@@ -87,7 +89,7 @@ import { throttled, VIDEO_GAP_MS, videoGuides, ytApi, ytDlp, ytFinder, ytFrames,
 import { isMarketplace } from './marketplaces'
 import { checkPagePhotos, PHOTO_CHECK_SCHEMA, recheckCandidates } from './photo-check'
 import { DEAD_SCREEN_SCHEMA, screenDead } from './dead-screen'
-import { GUIDE_PHOTO_SCHEMA, screenGuidePhotos } from './guide-photos'
+import { GUIDE_PHOTO_SCHEMA, screenGuidePhotos, type GuidePhotoDeps } from './guide-photos'
 import { screenWatermarks, visionText, WATERMARK_SCHEMA } from './watermarks'
 import { ArchiveFetcher } from './archive'
 import { localizeCards } from './cards-intl'
@@ -128,6 +130,9 @@ const readersWanted = (() => {
     return listReaderWants({ accountId: conf('CF_ACCOUNT_ID', 'cf-account'), namespace, token })
   }
 })()
+
+/** No people or marks: the model guide-photos and video-stills ask. */
+const guidePhotoLook: GuidePhotoDeps['look'] = (file, prompt) => claudeVision({ system: 'You look at pictures for an aquarium handbook. Reply only with JSON.', prompt, schema: GUIDE_PHOTO_SCHEMA, file, model: process.env.GUIDE_PHOTOS_MODEL ?? 'opus' })
 
 const { positionals, values } = parseArgs({ allowPositionals: true, options: { sources: { type: 'string' }, phrases: { type: 'boolean' }, except: { type: 'string' }, limit: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' }, channels: { type: 'string' }, lang: { type: 'string' }, category: { type: 'string' }, type: { type: 'string' }, kind: { type: 'string' }, 'based-on': { type: 'string' }, match: { type: 'string' }, 'dry-run': { type: 'boolean' }, backfill: { type: 'boolean' }, seed: { type: 'string' }, parallel: { type: 'string' }, jobs: { type: 'string' }, sheets: { type: 'string' }, shard: { type: 'string' }, pages: { type: 'string' }, fix: { type: 'boolean' }, rewrites: { type: 'string' }, popular: { type: 'boolean' }, titles: { type: 'string' }, records: { type: 'string' }, 'no-new-pages': { type: 'boolean' }, video: { type: 'string' }, 'reviewed-before': { type: 'string' }, 'rechecked-since': { type: 'string' }, class: { type: 'string' }, clear: { type: 'boolean' }, days: { type: 'string' }, check: { type: 'boolean' }, gsc: { type: 'string' }, from: { type: 'string' } } })
 
@@ -334,13 +339,14 @@ if (cmd === 'run' || cmd === 'card-fill') {
   for (const x of r.failed.slice(0, 30)) console.log(`failed: ${x}`)
 } else if (cmd === 'guide-photos') {
   // No people or logos in guides' and equipment guides' photos and video guides' stills (guide-photos.ts): --limit model
-  // calls a run (default 20), 6 photos each, leads first, stills last; a person or a mark leaves every page for good, a
+  // calls a run (default 20), 6 photos each, leads first, then stills; a person or a mark leaves every page for good, a
   // brand on a product leaves the guides (not a still). A tile video-stills will replace waits for the video's frame.
+  // --only id,id: these guides alone.
   const r = await screenGuidePhotos(ROOT, {
     get: async u => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
-    look: (file, prompt) => claudeVision({ system: 'You look at pictures for an aquarium handbook. Reply only with JSON.', prompt, schema: GUIDE_PHOTO_SCHEMA, file, model: process.env.GUIDE_PHOTOS_MODEL ?? 'opus' }),
-  }, { limit: values.limit ? Number(values.limit) : 20, parallel: values.parallel ? Number(values.parallel) : 1 })
-  console.log(`guide-photos: ${r.sheets} sheets, ${r.judged} judged, ${r.off.length} off, ${r.removed.length} removed, ${r.left} left for later, ${r.waiting} stills waiting for their frame, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+    look: guidePhotoLook,
+  }, { limit: values.limit ? Number(values.limit) : 20, parallel: values.parallel ? Number(values.parallel) : 1, ...(values.only ? { only: values.only.split(',').map(x => x.trim()).filter(Boolean) } : {}) })
+  console.log(`guide-photos: ${r.sheets} sheets, ${r.judged} judged, ${r.cleared} cleared to show, ${r.off.length} off, ${r.removed.length} removed, ${r.left} left for later, ${r.waiting} stills waiting for their frame, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   for (const x of r.off) console.log(`off: ${x}`)
   for (const x of r.removed) console.log(`removed: ${x}`)
   for (const x of r.kept) console.log(`kept (a required hero with nothing to replace it): ${x}`)
@@ -558,6 +564,13 @@ if (cmd === 'run' || cmd === 'card-fill') {
   const r = await speciesWater(ROOT, { llm: claudeCli, now: () => new Date(), order }, { limit: Number(values.limit ?? 20), ...(values.only ? { only: values.only.split(',') } : {}) })
   for (const x of [...r.salt, ...r.failed.map(x => `failed: ${x}`)]) console.log(`  ${x}`)
   console.log(`water: ${r.read.length} read (${r.calls} model calls), ${r.quiet.length} fresh with no call, ${r.salt.length} brackish or marine, ${r.failed.length} failed`)
+} else if (cmd === 'source-kinds') {
+  // Guide research tagged before the kinds a page names its sources by, tagged again (source-kinds.ts): --only id,id,
+  // --dry-run prints what would change and writes nothing.
+  const r = await retagSources(ROOT, claudeCli, { ...(values.only ? { only: values.only.split(',') } : {}), dryRun: values['dry-run'] })
+  for (const c of r.changed) console.log(`  ${c}`)
+  const counts = (m: Map<string, number>) => [...m].sort((a, b) => b[1] - a[1]).map(([k, n]) => `${k} ${n}`).join(', ')
+  console.log(`source-kinds: ${r.topics} topics, ${r.changed.length} sources changed\n  before: ${counts(r.before)}\n  after: ${counts(r.after)}`)
 } else if (cmd === 'topic-check') {
   // Guides keep to their title's subject: sections about something else (a video drifting off topic) are dropped.
   const r = await topicCheck(ROOT, claudeCli, { limit: Number(values.limit ?? 40), ...(values.only ? { only: values.only.split(',') } : {}) })
@@ -668,11 +681,15 @@ if (cmd === 'run' || cmd === 'card-fill') {
   if (r.stopped) console.log(`stopped: ${r.stopped}`)
 } else if (cmd === 'video-stills') {
   // Older video guides' stills (storyboard tiles) become the video's own frames, screened as a new guide's, and their
-  // times the seconds they show (video-stills.ts).
+  // times the seconds they show (video-stills.ts). First, every full-size still gets its sharpness (still-sharpness.ts).
+  const fetchStill = async (u: string) => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) }
+  const sc = await scoreStills(ROOT, fetchStill)
+  console.log(`still sharpness: ${sc.scored} measured in ${sc.guides} guides, ${sc.failed} failed`)
   const r = await videoStills(ROOT, {
     frames: ytFrames, grab: ytGrab, faces: visionFaces, read: files => visionText(files), media: media(), now: () => new Date(),
-    get: async u => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
+    get: fetchStill,
     look: (file, prompt) => claudeVision({ system: 'You spot watermarks on photos. Reply only with JSON.', prompt, schema: WATERMARK_SCHEMA, file, model: process.env.WATERMARK_MODEL ?? 'opus' }),
+    judge: guidePhotoLook,
   }, { limit: Number(values.limit ?? 15), ...(values.only ? { only: values.only.split(',').map(x => x.trim()).filter(Boolean) } : {}) })
   for (const x of [...r.done, ...r.dropped.map(x => `dropped: ${x}`), ...r.kept.map(x => `kept as a tile: ${x}`), ...r.failed.map(x => `failed: ${x}`)]) console.log(x)
   console.log(`video-stills: ${r.done.length} guides, ${r.dropped.length} stills dropped, ${r.kept.length} kept as tiles, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
@@ -962,6 +979,6 @@ if (cmd === 'run' || cmd === 'card-fill') {
   const t = await thinSpecies(join(ROOT, 'content'), popularityOrder(await popularFirst(ROOT)))
   printDepth(depthReport(t.pages, t.thin))
 } else {
-  console.log(`usage: pnpm engine run [--sources a,b | --except a,b] [--limit N] [--max-minutes M] [--only <url regex> [--force]] [--retry-blocked] | pnpm engine moderate | pnpm engine summaries [--top N] [--jobs N] [--only id,id] | pnpm engine summaries approve <id,id|all> | pnpm engine traits [--limit N] [--only id,id] | pnpm engine range [--limit N] [--records N] [--only id,id] | pnpm engine water [--limit N] [--only id,id] | pnpm engine topic-check [--limit N] [--only id,id] | pnpm engine review-backfill [--kind ${BACKFILL_KINDS.join(',')}] [--limit N] [--only id,id | --reviewed-before <ISO time>] [--parallel N] | pnpm engine video-hold --class ${HOLD_CLASSES.join('|')} [--clear] | pnpm engine reviews | pnpm engine videos [--playlist ID,ID] [--limit N] [--max-minutes M] [--redo [--rechecked-since <ISO time> [--parallel N]]] [--only videoId,videoId] | pnpm engine discover-videos [--channels a,b | --lang vi] [--limit N] [--force] | pnpm engine youtube-add <url>... | pnpm engine product <brand> <model> --category C [--type T] | pnpm engine product-candidates [--limit N] | pnpm engine product-reviews [--limit N] [--only id,id] [--no-new-pages] [--dry-run] | pnpm engine video-items [--limit N] | pnpm engine gallery [--sheets N] [--only id] [--shard i/n] | pnpm engine facebook [--limit N] [--max-minutes M] [--retry-blocked] [--backfill] | pnpm engine unsplash [--limit N] | pnpm engine breed-photos [--limit N] | pnpm engine breed-care [--only id,id] [--limit N] | pnpm engine breed "<name>" [--kind K] [--based-on id] [--redo] | pnpm engine topic "<chủ đề>" --kind K [--redo] | pnpm engine species "<Genus species>" [--video id,id] [--redo] | pnpm engine species-videos [--only id,id] [--limit N] [--channels a,b] | pnpm engine ideas [--force] | pnpm engine write-ideas [--limit N a day] | pnpm engine covers [--redo] [--limit N] | pnpm engine rewrite-vi [--limit N] [--only kinds] | pnpm engine thumbs | pnpm engine picture-hashes [--limit N] [--jobs N] | pnpm engine photos [--limit N] [--kind species,plants,guides] | pnpm engine mirror-photos [--limit N] [--dry-run] | pnpm engine fishbase-photos | pnpm engine crypts-photos | pnpm engine own-photos <list.json> | pnpm engine faces | pnpm engine watermarks [--limit N] [--parallel N] | pnpm engine check-photos [--limit N] [--parallel N] [--only id] | pnpm engine guide-photos [--limit N] [--parallel N] | pnpm engine audit [--fix] | pnpm engine reader [--limit N] [--rewrites N] [--only lang/kind/id,…] | pnpm engine metric | pnpm engine localize --lang ${WRITTEN_OTHER_LANGS.join('|')} [--kind plants] [--only ids | --top N] [--limit N] [--redo] | pnpm engine localize-guides --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only ids] [--limit N] [--redo] | pnpm engine localize-breeds --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only ids] [--limit N] [--redo] | pnpm engine localize-glossary --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only ids] [--redo] | pnpm engine localize-places --lang ${WRITTEN_OTHER_LANGS.join('|')} [--redo] | pnpm engine localize-captions --lang ${WRITTEN_OTHER_LANGS.join('|')} [--limit N] | pnpm engine wikidata-names --lang ${WRITTEN_OTHER_LANGS.join('|')} | pnpm engine localize-equipment --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only cats] [--redo] | pnpm engine status`)
+  console.log(`usage: pnpm engine run [--sources a,b | --except a,b] [--limit N] [--max-minutes M] [--only <url regex> [--force]] [--retry-blocked] | pnpm engine moderate | pnpm engine summaries [--top N] [--jobs N] [--only id,id] | pnpm engine summaries approve <id,id|all> | pnpm engine traits [--limit N] [--only id,id] | pnpm engine range [--limit N] [--records N] [--only id,id] | pnpm engine water [--limit N] [--only id,id] | pnpm engine topic-check [--limit N] [--only id,id] | pnpm engine source-kinds [--only id,id] [--dry-run] | pnpm engine review-backfill [--kind ${BACKFILL_KINDS.join(',')}] [--limit N] [--only id,id | --reviewed-before <ISO time>] [--parallel N] | pnpm engine video-hold --class ${HOLD_CLASSES.join('|')} [--clear] | pnpm engine reviews | pnpm engine videos [--playlist ID,ID] [--limit N] [--max-minutes M] [--redo [--rechecked-since <ISO time> [--parallel N]]] [--only videoId,videoId] | pnpm engine discover-videos [--channels a,b | --lang vi] [--limit N] [--force] | pnpm engine youtube-add <url>... | pnpm engine product <brand> <model> --category C [--type T] | pnpm engine product-candidates [--limit N] | pnpm engine product-reviews [--limit N] [--only id,id] [--no-new-pages] [--dry-run] | pnpm engine video-items [--limit N] | pnpm engine gallery [--sheets N] [--only id] [--shard i/n] | pnpm engine facebook [--limit N] [--max-minutes M] [--retry-blocked] [--backfill] | pnpm engine unsplash [--limit N] | pnpm engine breed-photos [--limit N] | pnpm engine breed-care [--only id,id] [--limit N] | pnpm engine breed "<name>" [--kind K] [--based-on id] [--redo] | pnpm engine topic "<chủ đề>" --kind K [--redo] | pnpm engine species "<Genus species>" [--video id,id] [--redo] | pnpm engine species-videos [--only id,id] [--limit N] [--channels a,b] | pnpm engine ideas [--force] | pnpm engine write-ideas [--limit N a day] | pnpm engine covers [--redo] [--limit N] | pnpm engine rewrite-vi [--limit N] [--only kinds] | pnpm engine thumbs | pnpm engine picture-hashes [--limit N] [--jobs N] | pnpm engine photos [--limit N] [--kind species,plants,guides] | pnpm engine mirror-photos [--limit N] [--dry-run] | pnpm engine fishbase-photos | pnpm engine crypts-photos | pnpm engine own-photos <list.json> | pnpm engine faces | pnpm engine watermarks [--limit N] [--parallel N] | pnpm engine check-photos [--limit N] [--parallel N] [--only id] | pnpm engine guide-photos [--limit N] [--parallel N] | pnpm engine audit [--fix] | pnpm engine reader [--limit N] [--rewrites N] [--only lang/kind/id,…] | pnpm engine metric | pnpm engine localize --lang ${WRITTEN_OTHER_LANGS.join('|')} [--kind plants] [--only ids | --top N] [--limit N] [--redo] | pnpm engine localize-guides --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only ids] [--limit N] [--redo] | pnpm engine localize-breeds --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only ids] [--limit N] [--redo] | pnpm engine localize-glossary --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only ids] [--redo] | pnpm engine localize-places --lang ${WRITTEN_OTHER_LANGS.join('|')} [--redo] | pnpm engine localize-captions --lang ${WRITTEN_OTHER_LANGS.join('|')} [--limit N] | pnpm engine wikidata-names --lang ${WRITTEN_OTHER_LANGS.join('|')} | pnpm engine localize-equipment --lang ${WRITTEN_OTHER_LANGS.join('|')} [--only cats] [--redo] | pnpm engine status`)
   process.exitCode = 1
 }

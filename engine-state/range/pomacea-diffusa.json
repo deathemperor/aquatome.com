@@ -1,0 +1,93 @@
+{
+  "id": "pomacea-diffusa",
+  "native": {
+    "input": "6fae2935b9265e7e",
+    "at": "2026-11-08T18:57:48.756Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pomacea diffusa",
+    "status": "ACCEPTED",
+    "taxonKey": 8110535,
+    "datasets": [
+      [
+        "d6cc311c-c5ab-4f23-9a20-10514f9eb9c4",
+        21
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        18
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        11
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        9
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        7
+      ],
+      [
+        "398bbcfa-4fc8-4456-8fc9-1964257faac2",
+        4
+      ],
+      [
+        "4be877d9-b751-4c27-83e3-56eba52348d7",
+        4
+      ],
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        4
+      ],
+      [
+        "d244db0c-1e0e-402a-b277-564f4fd70c0d",
+        3
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "07ae2aa8-5031-4312-b26e-84a5c753daac",
+        1
+      ],
+      [
+        "240e848b-47bc-40a3-a44c-6e745901d2d0",
+        1
+      ],
+      [
+        "51c49096-dc31-4077-b35c-4510a8ee1ee8",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "763f9aee-060c-4d71-a538-16c383e53a4d",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-08T18:57:48.756Z"
+  }
+}

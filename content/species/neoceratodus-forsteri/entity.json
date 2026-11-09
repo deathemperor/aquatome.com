@@ -1,0 +1,201 @@
+{
+  "id": "neoceratodus-forsteri",
+  "scientificName": "Neoceratodus forsteri",
+  "order": "Ceratodontiformes",
+  "family": "Neoceratodontidae",
+  "genus": "Neoceratodus",
+  "group": "other",
+  "places": [
+    "oceania",
+    "australia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 170
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 180,
+        "hidden": "shorter than twice the fish (170 cm)"
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neoceratodus-forsteri",
+      "html": "<ul><li>Needs a very large tank.</li><li>Needs a tight-fitting lid as this species is known to jump. It will escape given the slightest opportunity.</li></ul><p>The Australian lungfish, Neoceratodus forsteri, is endemic to parts of Australia, where it lives in pools, swamps and other still or sluggish waters. It has a single lung and must reach atmospheric air, but it cannot survive completely dry conditions for long. It is very hardy and protected by CITES. Lungfish are unpredictable with tankmates, and it is best kept singly and alone.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neoceratodus-forsteri",
+      "html": "<p>Endemic to parts of Australia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neoceratodus-forsteri",
+      "html": "<p>Pools, swamps, and other still or sluggish waters.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neoceratodus-forsteri",
+      "html": "<p>Standard length: 170 cm SL. Aquarium base: 180 × 90 cm. Volume: ~1944 litres.</p><p>A fairly sedentary species that can be kept in a tank measuring 180 × 90 × 120 cm (~1944 litres). Bear in mind that this may need to be upgraded if the fish reaches anything like its maximum size.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neoceratodus-forsteri",
+      "html": "<p>Water movement should be kept to a minimum. The species is unfussy with regards to decor. Some cover can be provided in the form of roots, branches or large, smooth rocks, and any artificial lighting should be very dim. A sandy or muddy substrate is beneficial but not essential. What is most important is that the cover of the tank cannot be moved by the fish, and contains no gaps. It will escape given the slightest opportunity. A gap of around 15 cm should be left between the water surface and the cover to allow it access to the atmospheric air it needs to survive.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neoceratodus-forsteri",
+      "html": "<ul><li>Temperature: 22–28°C</li><li>pH: 6.5–8.0</li><li>Hardness: 5–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neoceratodus-forsteri",
+      "html": "<p>Omnivorous in nature, feeding on fish, shellfish, amphibians and plant matter. It will adapt to a variety of foods in an aquarium. Offer prawn, mussel, lancefish, algae wafers and other vegetable matter. Larger specimens can be fed whole fish such as trout or sprats.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neoceratodus-forsteri",
+      "html": "<p>Best kept singly and alone. Some hobbyists do keep these with other large species but it's very risky. Lungfish are unpredictable and can bite chunks out of other fish at will. Specimens that have been kept in a community situation for some time have been known to suddenly turn on their tankmates. It is also completely intolerant of congeners and should always be kept as a single specimen.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neoceratodus-forsteri",
+      "html": "<p>Unknown.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neoceratodus-forsteri",
+      "html": "<p>Not achieved in aquaria, but it is being produced commercially on a single farm in Australia. In nature the fish spawn just prior to the rainy season, and in contrast to other lungfish species, exhibit no parental care whatsoever. The young are initially capable of taking in air via their skin surfaces.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neoceratodus-forsteri",
+      "html": "<p>Lungfish are among the most intriguing of \"oddball\" aquarium subjects, being able to survive in the most extreme conditions. They are very ancient fish, having remained virtually unchanged for millions of years. Unlike its African relatives, N. forsteri cannot survive in completely dry conditions for long, although it does require access to atmospheric air to survive. It possesses only a single lung (the African species have paired lungs), which is formed via a modification of the swim bladder. This large organ is divided internally into 2 chambers and is highly vascularised. It's thought that the lung acts primarily as an accessory, rather than alternative breathing organ in this species. It regularly rises to the surface to take in air, and emits a strange bellow-like sound as it exhales. The Australian lung is very hardy, easy to maintain and can become quite tame, although you're unlikely to ever see one for sale. It's protected by CITES (Appendix 2), and a permit is required to collect it from the wild. There is only one breeder currently licensed to produce specimens for the trade. These are microchipped, come with a special certificate and are very expensive. There are quite a few public aquarium specimens throughout the world, including one particularly famous individual kept at the Chicago Shedd Aquarium in the United States that's thought to be over 80 years old.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/eb075aba0971c023.webp",
+      "width": 849,
+      "height": 347,
+      "licence": "CC BY-SA 3.0",
+      "author": "User:Tannin",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Australian-Lungfish.jpg",
+      "caption": "Australian lungfish (Neoceratodus forsteri)",
+      "thumb": "https://media.aquatome.com/commons/eb075aba0971c023-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/810ee5eccafc1c31.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 3.0",
+      "author": "User:Violetto mm",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Australian_lungfish_2013-09-13_11-30.jpg",
+      "caption": "Australian lungfish",
+      "thumb": "https://media.aquatome.com/commons/810ee5eccafc1c31-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/af6a78e9276322be.webp",
+      "width": 960,
+      "height": 332,
+      "licence": "CC BY-SA 4.0",
+      "author": "Gunnar Creutz",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neoceratodus_forsteri_at_G%C3%B6teborgs_Naturhistoriska_Museum_2339.jpg",
+      "caption": "Neoceratodus forsteri at Göteborgs Naturhistoriska Museum",
+      "thumb": "https://media.aquatome.com/commons/af6a78e9276322be-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/d28da40504dd3289.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC0",
+      "author": "タウナギ",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neoceratodus_forsteri_Nagoya1.jpg",
+      "caption": "Neoceratodus forsteri in the Port of Nagoya Public Aquarium",
+      "thumb": "https://media.aquatome.com/commons/d28da40504dd3289-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 180cm",
+        "bể kính cường lực cỡ lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy lọc bể cá 2000 lít"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá công suất lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá lớn",
+        "tôm trai cho cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

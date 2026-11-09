@@ -1,98 +1,20 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Pseudosphromenus_dayi_hi_res.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Pseudosphromenus_dayi_hi_res.jpg/500px-Pseudosphromenus_dayi_hi_res.jpg",
-   "width": 6000,
-   "height": 3725,
-   "licence": "CC BY-SA 4.0",
-   "author": "Beta Mahatvaraj",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudosphromenus_dayi_hi_res.jpg",
-   "caption": "Pseudosphromenus dayi (Spike Tailed Paradise Fish)",
-   "key": "File:Pseudosphromenus dayi hi res.jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Pseudosphromenus_dayi_hi_res_2.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Pseudosphromenus_dayi_hi_res_2.jpg/500px-Pseudosphromenus_dayi_hi_res_2.jpg",
-   "width": 4261,
-   "height": 2840,
-   "licence": "CC BY-SA 4.0",
-   "author": "Beta Mahatvaraj",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudosphromenus_dayi_hi_res_2.jpg",
-   "caption": "Pseudosphromenus dayi (Spike Tailed Paradise Fish)",
-   "key": "File:Pseudosphromenus dayi hi res 2.jpg"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/520136839/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/520136839/medium.jpg",
-   "width": 2048,
-   "height": 1426,
-   "licence": "CC BY",
-   "author": "renjus box",
-   "sourceUrl": "https://www.inaturalist.org/photos/520136839",
-   "key": "inat:520136839"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/228885731/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/228885731/medium.jpeg",
-   "width": 2048,
-   "height": 1376,
-   "licence": "CC BY",
-   "author": "renjus box",
-   "sourceUrl": "https://www.inaturalist.org/photos/228885731",
-   "key": "inat:228885731"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/65031110/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/65031110/medium.jpeg",
-   "width": 2048,
-   "height": 1365,
-   "licence": "CC BY",
-   "author": "Christopher",
-   "sourceUrl": "https://www.inaturalist.org/photos/65031110",
-   "key": "inat:65031110"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/57431087/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/57431087/medium.jpg",
-   "width": 2043,
-   "height": 1357,
-   "licence": "CC BY-SA",
-   "author": "Rohit",
-   "sourceUrl": "https://www.inaturalist.org/photos/57431087",
-   "key": "inat:57431087"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/57431079/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/57431079/medium.jpg",
-   "width": 2043,
-   "height": 1357,
-   "licence": "CC BY-SA",
-   "author": "Rohit",
-   "sourceUrl": "https://www.inaturalist.org/photos/57431079",
-   "key": "inat:57431079"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/667502553/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/667502553/medium.jpg",
-   "width": 1697,
-   "height": 1311,
-   "licence": "CC BY",
-   "author": "renjus box",
-   "sourceUrl": "https://www.inaturalist.org/photos/667502553",
-   "key": "inat:667502553"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/228885773/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/228885773/medium.jpeg",
-   "width": 921,
-   "height": 2048,
-   "licence": "CC BY",
-   "author": "renjus box",
-   "sourceUrl": "https://www.inaturalist.org/photos/228885773",
-   "key": "inat:228885773"
-  }
+ "queue": [],
+ "judged": [
+  "File:Pseudosphromenus dayi hi res.jpg",
+  "File:Pseudosphromenus dayi hi res 2.jpg",
+  "inat:520136839",
+  "inat:228885731",
+  "inat:65031110",
+  "inat:57431087",
+  "inat:57431079",
+  "inat:667502553",
+  "inat:228885773"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/seriouslyfish/2d29bfc8622cfbb8.webp": "01311d8fa6130900",
+  "https://media.aquatome.com/commons/a8300f0efd7f73f8.webp": "66a73f4f97c3c361",
+  "https://media.aquatome.com/inaturalist/65031110.webp": "cc4c0c0d386c664c"
+ },
+ "commons": "2026-11-09"
 }

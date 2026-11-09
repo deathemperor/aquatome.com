@@ -1,0 +1,278 @@
+{
+  "id": "lamprologus-callipterus",
+  "scientificName": "Lamprologus callipterus",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Lamprologus",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "burundi",
+    "lake-tanganyika",
+    "democratic-republic-of-the-congo",
+    "tanzania",
+    "zambia"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BI",
+        "CD",
+        "TZ",
+        "ZM"
+      ],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Tanganyika (Burundi, DR Congo, Tanzania and Zambia).",
+          "countries": [
+            "BI",
+            "CD",
+            "TZ",
+            "ZM"
+          ],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371712,
+      "total": 196,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "TZ",
+          71
+        ],
+        [
+          "ZM",
+          53
+        ],
+        [
+          "CD",
+          52
+        ],
+        [
+          "BI",
+          20
+        ]
+      ],
+      "cells": [
+        [
+          28.125,
+          -7.03125,
+          11,
+          11
+        ],
+        [
+          28.125,
+          -5.625,
+          7,
+          7
+        ],
+        [
+          28.125,
+          -4.21875,
+          36,
+          36
+        ],
+        [
+          29.53125,
+          -9.84375,
+          17,
+          17
+        ],
+        [
+          29.53125,
+          -8.4375,
+          37,
+          37
+        ],
+        [
+          29.53125,
+          -7.03125,
+          19,
+          19
+        ],
+        [
+          29.53125,
+          -5.625,
+          28,
+          28
+        ],
+        [
+          29.53125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          30.9375,
+          -9.84375,
+          35,
+          35
+        ],
+        [
+          30.9375,
+          -8.4375,
+          5,
+          5
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7.5,
+          "max": 9
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 10,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 15
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-callipterus",
+      "html": "<p>Neolamprologus callipterus is a shell-brooding cichlid endemic to Lake Tanganyika, in which males grow many times larger than females. Males must be large enough to carry snail shells and females small enough to fit inside them, and in nature the nests of large males can measure several metres across. Males are territorial and aggressive, and the species is not very popular in the hobby because of its relatively drab colouration and aggressive nature.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-callipterus",
+      "html": "<p>Endemic to Lake Tanganyika (Burundi, DR Congo, Tanzania and Zambia).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-callipterus",
+      "html": "<p>It inhabits the transition zone where rocky shores give way to open waters. These areas are characterised by scattered piles of rocks.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-callipterus",
+      "html": "<p>Standard length: 15 cm SL. Aquarium base: 90 × 30 cm. Volume: ~81 litres.</p><p>A tank of 90 × 30 × 30 cm (~81 litres) is suitable for a single male with a group of 5-6 females.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-callipterus",
+      "html": "<p>The aquarium should contain piles of rocks arranged to form hiding places. Leave some areas of open water between these. The substrate should be sandy and the open areas should be scattered with empty snail shells (see breeding section below). Hard and alkaline water is essential.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-callipterus",
+      "html": "<ul><li>Temperature: 24–27°C</li><li>pH: 7.5–9.0</li><li>Hardness: 10–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-callipterus",
+      "html": "<p>N. callipterus will accept most foods offered but live and frozen varieties should form the bulk of the diet.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-callipterus",
+      "html": "<p>Males of the species are territorial and aggressive and should only be combined with other species in a big tank. Choose similarly-sized tankmates that occupy different areas in the aquarium eg. rockdwellers such as Altolamprologus or larger Julidochromis sp. and open water species such as Cyprichromis sp. Males are also very aggressive towards conspecifics and each should be given plenty of room if more than one is to be kept.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-callipterus",
+      "html": "<p>Males grow many times larger and may weigh over 20 times more than females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-callipterus",
+      "html": "<p>Possible. Polygamous shell brooder. It may breed in the community aquarium but if you want to raise a full brood of these, a separate tank should be used. Set it up as suggested above. Provide a good number of snail shells, in which the females will lay their eggs. Escargot shells are a good choice and can be obtained from most decent delicatessens. Water should be hard and alkaline with a pH of around 8.0-8.5 and a temperature of 25 – 26.5 °C. In nature, dominant males will command harems of up to 30 females, so at least 3 females should be provided per male. Condition the fish well on a good diet of live and frozen foods, as males must be around 9 cm long before they are able to carry snail shells (see below). When in breeding condition the male will excavate a large, shallow pit in the substrate. He will then proceed to collect snail shells from around the aquarium and deposit them in this pit, creating a spawning nest in which all his harem of females will breed. When an interested female approaches the nest the male will perform undulating movements and mouth in the direction of shell entrances. The females lay their eggs in a selected shell and the male fertilises these by depositing his sperm directly over the entrance to the shell as he is too large to enter the shell himself. He may do this several times. The female will stay in the shell for around 10-17 days tending to the eggs while the male guards his territory. She will not feed during this period. Once the fry are free swimming, they are released and can be fed microworm and brine shrimp nauplii. No further broodcare is exhibited by either parent and at this point it is probably better to remove the fry to a separate rearing tank to ensure the best survival rate.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-callipterus",
+      "html": "<p>In nature, the spawning nests of large male fish may measure several meters across and contain hundreds of snail shells. Interestingly, when they are protecting brooding females males do not eat and eventually become so weak that their territories are taken over by stronger fish. Immature and sub-dominant males can be seen over areas of open substrate where they feed voraciously in large shoals. Females are only ever found in areas containing the nests of dominant males. It appears that the massive degree of sexual dimorphism exhibited by this species (one of the largest weight differences between sexes in the animal world) is due to the method of breeding. Males must be large enough to move the snail shells, whilst females must be small enough to fit inside them. Sub-dominant male fish also exhibit parasitic spawning behaviour in two ways. In the first, they will sneak into a dominant male's territory and attempt to deposit sperm into shells containing females. Secondly, there exist 'dwarf' males that are small enough to enter the females' shells. These fish hide in empty shells and also enter the shells of females. It is thought that they try to fertilise any eggs they find. N. callipterus is not a very popular species in the hobby due to its relatively drab colouration and aggressive nature but it makes a fascinating breeding project if you have space to devote to it.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 90cm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền cho cichlid",
+        "cát san hô tăng pH"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cichlid Tanganyika",
+        "artemia đông lạnh"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100W"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

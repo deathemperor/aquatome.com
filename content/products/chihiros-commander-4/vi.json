@@ -1,0 +1,114 @@
+{
+  "slug": "chihiros-commander-4",
+  "name": "Bộ điều khiển đèn Chihiros Commander 4",
+  "altNames": [
+    "Chihiros Commander 4"
+  ],
+  "sections": {},
+  "body": "<h3>Hợp với bể nào</h3>\n<p>Commander 4 không chọn theo cỡ bể mà theo loại đèn đang treo trên bể. Hãng làm nó cho đèn Chihiros WRGB đời đầu, và nó chạy được cả với dòng Vivid và A Plus RGB. Có một điểm chưa rõ: một shop ở Ấn Độ nói bản A Plus RGB 36V không dùng được với Commander 4. Còn một bản sao sách hướng dẫn Commander do bên thứ ba đăng lại thì ghi tải định mức là đèn dưới 36 V, nhưng không rõ bản đó viết cho mẫu nào. Nếu đèn của bạn là A Plus RGB bản 36V thì nên hỏi kỹ shop trước khi mua.</p>\n<p>Các đèn A, C, E, S và Wabi-kusa không hợp với Commander 4. Những đèn này dùng Commander 1. Các mẫu WRGB II đời mới đã có Bluetooth trong đèn nên không cần bộ này.</p>\n<p>Thiếu bộ điều khiển thì đèn WRGB chỉ sáng màu cố định và không có hẹn giờ. Vì thế các shop thủy sinh ở Việt Nam bán Commander 4 chủ yếu làm đồ thay thế khi bộ điều khiển đi kèm đèn WRGB bị hỏng.</p>\n<h3>Chọn cỡ nào</h3>\n<p>Commander 4 chỉ có một bản. Việc cần chọn là giữa nó và Commander 1. Commander 4 cho chỉnh riêng từng kênh màu. Commander 1 thì giảm sáng tất cả LED cùng lúc, không tách màu, và dùng cho một nhóm đèn khác (xem bảng phía trên).</p>\n<p>Nếu mua combo đèn WRGB kèm bộ điều khiển thì chọn đèn theo chiều dài bể. Thủy Sinh 365 chia combo theo khoảng chiều dài bể, từ bể 30–45 cm lên đến bể 120–140 cm. Chẳng hạn đèn WRGB 60 đi kèm Commander 4 ghi là dành cho bể 60–80 cm.</p>\n<h3>Lắp và dùng</h3>\n<ol>\n<li>Cắm Commander 4 vào giữa đèn và bộ nguồn của đèn.</li>\n<li>Cài app My Chihiros (tên cũ là Chihiros Magic) trên điện thoại iOS hoặc Android, rồi kết nối với bộ điều khiển qua Bluetooth.</li>\n<li>Đặt lịch chiếu sáng trong ngày: giờ bật, giờ tắt, và nếu muốn thì thêm chế độ bình minh, nghỉ trưa, hoàng hôn. Bộ này có sẵn hẹn giờ nên không cần mua thêm timer.</li>\n</ol>\n<p>Đặt bộ điều khiển trong nhà, chỗ khô ráo, tránh chỗ nước bắn tới. Với đèn WRGB mà nó điều khiển thì treo đèn cách mặt nước ít nhất 6 cm, rút điện trước khi lau chùi, và đừng để cục nguồn trên nắp bể.</p>\n<h3>Lỗi hay gặp</h3>\n<ul>\n<li><strong>App không tìm thấy bộ điều khiển:</strong> người dùng có kể là lúc cài đặt, app đôi khi không thấy Commander 4. Trên một diễn đàn ở Anh, người chơi cho rằng lỗi nằm ở chính bộ điều khiển nhiều hơn là ở app. Nghe nói về sau Chihiros đã đổi mạch điện tử mà không thông báo, nên hàng ở các đợt khác nhau có thể không giống nhau.</li>\n<li><strong>Rớt Bluetooth:</strong> thiết bị Chihiros nói chung hay mất kết nối Bluetooth. Người dùng thường khởi động lại app là chạy lại. Một số người chuyển sang điều khiển bằng Home Assistant, một phần mềm mã nguồn mở.</li>\n<li><strong>Mất điện:</strong> shop nói bộ này giữ được cài đặt độ sáng sau khi mất điện. Nhưng một người mua kể là sau một lần cúp điện thì đèn không sáng lại.</li>\n<li><strong>Khó mua:</strong> hàng ở Việt Nam ít, nhiều shop báo hết Commander 4 hoặc hết các combo đèn kèm bộ điều khiển.</li>\n</ul>\n<h3>Nếu không chọn cái này</h3>\n<ul>\n<li><strong>Chihiros WRGB II (WRGB 2):</strong> nếu set bể mới thì đèn này hơn cặp WRGB cũ cộng Commander 4, vì bộ điều khiển đã nằm sẵn trong đèn.</li>\n<li><strong>Chihiros Commander 1:</strong> rẻ hơn, dành cho đèn một kênh như A, C, Wabi-kusa. Đổi lại nó không chỉnh riêng từng màu được.</li>\n<li><strong>Chihiros Universal WRGB:</strong> một dòng đèn RGB của Chihiros có bán ở Việt Nam với nhiều chiều dài khác nhau, nhưng Shrimp Home hiện đang hết hàng.</li>\n</ul>",
+  "summary": [
+    "Commander 4 là bộ điều khiển Bluetooth cho đèn Chihiros. Bản thân nó không phải đèn. Nó dành cho người đang dùng đèn WRGB đời đầu, Vivid hoặc A Plus RGB và muốn chỉnh riêng từng màu đỏ, xanh lá, xanh dương, trắng, hẹn giờ bật tắt bằng app My Chihiros.",
+    "Nếu set bể mới thì dòng WRGB II đã có sẵn Bluetooth trong đèn, không cần mua thêm Commander 4. Đèn A, C, E, S hay Wabi-kusa thì phải dùng Commander 1.",
+    "Trước khi mua nên biết là người dùng có kể app đôi khi không tìm thấy bộ điều khiển, Bluetooth hay rớt kết nối, và hàng ở Việt Nam đang khan."
+  ],
+  "faq": [
+    {
+      "q": "Commander 4 có phải là đèn không?",
+      "a": "Không. Đây là bộ điều khiển Bluetooth để chỉnh độ sáng và hẹn giờ cho đèn Chihiros. Phải có đèn tương thích mới dùng được."
+    },
+    {
+      "q": "Đèn WRGB II có cần mua thêm Commander 4 không?",
+      "a": "Không cần. Các mẫu WRGB II đã có sẵn Bluetooth trong đèn."
+    },
+    {
+      "q": "Đèn Chihiros A hoặc C dùng Commander 4 được không?",
+      "a": "Không. Đèn A, C, E, S và Wabi-kusa dùng Commander 1. Commander 4 dành cho WRGB, Vivid và A Plus RGB."
+    },
+    {
+      "q": "Có cần mua thêm timer không?",
+      "a": "Không cần. Commander 4 có sẵn hẹn giờ, đặt giờ bật tắt ngay trong app My Chihiros."
+    },
+    {
+      "q": "Mất điện thì có mất cài đặt không?",
+      "a": "Shop nói bộ này giữ cài đặt độ sáng sau khi mất điện. Tuy vậy, một người mua kể đèn không sáng lại sau một lần cúp điện."
+    }
+  ],
+  "labels": {
+    "Product type": "Loại sản phẩm",
+    "Bluetooth dimming controller for Chihiros LED lights; not a light itself": "Bộ điều khiển độ sáng Bluetooth cho đèn LED Chihiros, bản thân không phải đèn",
+    "Channels": "Kênh màu",
+    "4 channels (red, green, blue, white), each adjusted on its own": "4 kênh (đỏ, xanh lá, xanh dương, trắng), chỉnh riêng từng kênh",
+    "Control app": "App điều khiển",
+    "My Chihiros (formerly Chihiros Magic), for iOS and Android": "My Chihiros (tên cũ Chihiros Magic), cho iOS và Android",
+    "Programming": "Lập lịch",
+    "Daily light schedule with sunrise, midday pause and sunset presets, a light-curve graph and stepless dimming; built-in timer": "Lịch chiếu sáng hằng ngày, có chế độ bình minh, nghỉ trưa, hoàng hôn, biểu đồ đường sáng và chỉnh sáng vô cấp. Có sẵn hẹn giờ",
+    "Power-off memory": "Nhớ cài đặt khi mất điện",
+    "Seller says it keeps brightness settings after a power cut": "Shop nói giữ được cài đặt độ sáng sau khi mất điện",
+    "Rated load (generic Commander manual)": "Tải định mức (sách hướng dẫn Commander chung)",
+    "Constant-voltage LED lamps under 36 V and up to 100 W (third-party copy of the manual; the model it covers is unclear)": "Đèn LED điện áp cố định dưới 36 V, tối đa 100 W (bản sao sách hướng dẫn do bên thứ ba đăng, không rõ dùng cho mẫu nào)",
+    "Environment": "Môi trường dùng",
+    "Indoor use only; keep away from water and damp": "Chỉ dùng trong nhà, tránh nước và chỗ ẩm",
+    "Warranty": "Bảo hành",
+    "6 months from delivery (Shrimp Home's policy for Chihiros spare parts)": "6 tháng từ ngày giao (chính sách của Shrimp Home cho linh kiện Chihiros)",
+    "SKU (India distributor)": "Mã SKU (nhà phân phối Ấn Độ)",
+    "Compatible lights": "Đèn tương thích",
+    "WRGB, Vivid and A Plus RGB series": "Dòng WRGB, Vivid và A Plus RGB",
+    "EU price": "Giá ở EU",
+    "A, A Plus, C, E, S, RGB, X100, X200 and Wabi-kusa lights": "Đèn A, A Plus, C, E, S, RGB, X100, X200 và Wabi-kusa",
+    "Control": "Điều khiển",
+    "All LEDs dimmed together; no separate colour channels": "Giảm sáng tất cả LED cùng lúc, không tách kênh màu",
+    "Power": "Công suất",
+    "Luminous flux": "Quang thông",
+    "Dimensions": "Kích thước",
+    "Tank length": "Chiều dài bể",
+    "LED lifespan": "Tuổi thọ LED",
+    "Commander 4": "Commander 4",
+    "Commander 1 (sister model)": "Commander 1 (mẫu cùng dòng)",
+    "Chihiros WRGB light bundles sold with the controller (Thủy Sinh 365)": "Combo đèn Chihiros WRGB kèm bộ điều khiển (Thủy Sinh 365)",
+    "Chihiros WRGB 60 (bundled with Commander 4)": "Chihiros WRGB 60 (kèm Commander 4)",
+    "WRGB 60 light + Commander 4 bundle (stock nearly gone)": "Combo đèn WRGB 60 + Commander 4 (sắp hết hàng)",
+    "WRGB 45 light + controller bundle": "Combo đèn WRGB 45 + bộ điều khiển",
+    "WRGB 30–45 cm + Commander bundle (out of stock)": "Combo WRGB 30–45 cm + Commander (hết hàng)",
+    "WRGB 60–80 cm + Commander bundle (out of stock)": "Combo WRGB 60–80 cm + Commander (hết hàng)",
+    "WRGB 120–140 cm + Commander bundle (out of stock)": "Combo WRGB 120–140 cm + Commander (hết hàng)",
+    "Chihiros Bluetooth spare-part option (Commander 4 not named; out of stock)": "Tùy chọn linh kiện Bluetooth Chihiros (không ghi rõ Commander 4, hết hàng)"
+  },
+  "tested": [
+    {
+      "text": "AquaTome thử trên Chihiros WRGB II Slim, bản firmware 24, thấy mất điện là đồng hồ của đèn quay về 0, và vì lịch đã lưu chạy theo đồng hồ này nên sau mỗi lần mất điện phải chỉnh lại giờ.",
+      "cites": [
+        {
+          "url": "https://github.com/deathemperor/aquatome.com/blob/main/docs/research/aquarium-device-control.md#hands-on-results-2026-10-31"
+        }
+      ]
+    },
+    {
+      "text": "Đèn trả lại được lịch đã lưu khi hỏi, còn mức sáng chỉnh tay của từng kênh thì không, nên ứng dụng điều khiển phải tự nhớ các mức đó.",
+      "cites": [
+        {
+          "url": "https://github.com/deathemperor/aquatome.com/blob/main/docs/research/aquarium-device-control.md#hands-on-results-2026-10-31"
+        }
+      ]
+    },
+    {
+      "text": "Lịch đọc lại từ đèn chỉ hiện một mức sáng là mức của kênh đầu tiên, còn mức trong lịch của các kênh khác thì không đọc lại được.",
+      "cites": [
+        {
+          "url": "https://github.com/deathemperor/aquatome.com/blob/main/docs/research/aquarium-device-control.md#hands-on-results-2026-10-31"
+        }
+      ]
+    },
+    {
+      "text": "Lịch mới sẽ thay hẳn lịch đã lưu chứ không cộng thêm vào.",
+      "cites": [
+        {
+          "url": "https://github.com/deathemperor/aquatome.com/blob/main/docs/research/aquarium-device-control.md#hands-on-results-2026-10-31"
+        }
+      ]
+    }
+  ],
+  "quality": {
+    "score": 0.82,
+    "indexable": true
+  }
+}

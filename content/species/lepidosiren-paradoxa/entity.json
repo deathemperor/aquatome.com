@@ -1,0 +1,519 @@
+{
+  "id": "lepidosiren-paradoxa",
+  "scientificName": "Lepidosiren paradoxa",
+  "order": "Ceratodontiformes",
+  "family": "Lepidosirenidae",
+  "genus": "Lepidosiren",
+  "group": "other",
+  "places": [
+    "south-america",
+    "brazil",
+    "amazon",
+    "colombia",
+    "venezuela",
+    "french-guiana",
+    "peru",
+    "bolivia",
+    "paraguay",
+    "argentina",
+    "parana"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO",
+        "VE",
+        "GF",
+        "PE",
+        "BR",
+        "PY",
+        "AR"
+      ],
+      "regions": [
+        "Amazon",
+        "Rio Paraguay",
+        "Rio Paraná"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Populations exist in parts of Colombia, Venezuela, French Guiana, Peru, Brazil, Paraguay and Argentina.",
+          "countries": [
+            "CO",
+            "VE",
+            "GF",
+            "PE",
+            "BR",
+            "PY",
+            "AR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's very widely distributed in nature, and is found throughout much of the Amazon, Rio Paraguay and lower Rio Paraná basins.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Rio Paraguay",
+            "Rio Paraná"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2441263,
+      "total": 134,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "BR",
+          50
+        ],
+        [
+          "GF",
+          41
+        ],
+        [
+          "AR",
+          16
+        ],
+        [
+          "PY",
+          15
+        ],
+        [
+          "BO",
+          6
+        ],
+        [
+          "PE",
+          5
+        ],
+        [
+          "CO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          -73.125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -11.25,
+          2,
+          0
+        ],
+        [
+          -67.5,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -29.53125,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          -11.25,
+          2,
+          0
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -23.90625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -15.46875,
+          1,
+          0
+        ],
+        [
+          -60.46875,
+          -26.71875,
+          5,
+          5
+        ],
+        [
+          -60.46875,
+          -22.5,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          7,
+          7
+        ],
+        [
+          -59.0625,
+          -28.125,
+          5,
+          5
+        ],
+        [
+          -59.0625,
+          -26.71875,
+          4,
+          4
+        ],
+        [
+          -59.0625,
+          -25.3125,
+          4,
+          4
+        ],
+        [
+          -59.0625,
+          -23.90625,
+          4,
+          4
+        ],
+        [
+          -59.0625,
+          -22.5,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -21.09375,
+          2,
+          2
+        ],
+        [
+          -59.0625,
+          -19.6875,
+          1,
+          0
+        ],
+        [
+          -59.0625,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -26.71875,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -21.09375,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -19.6875,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -16.875,
+          5,
+          5
+        ],
+        [
+          -56.25,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -2.8125,
+          11,
+          11
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          5,
+          5
+        ],
+        [
+          -53.4375,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          2.8125,
+          20,
+          20
+        ],
+        [
+          -53.4375,
+          4.21875,
+          14,
+          14
+        ],
+        [
+          -52.03125,
+          4.21875,
+          7,
+          7
+        ],
+        [
+          -50.625,
+          -2.8125,
+          7,
+          7
+        ],
+        [
+          -49.21875,
+          -22.5,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -36.5625,
+          -7.03125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 125
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 240,
+        "hidden": "shorter than twice the fish (125 cm)"
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidosiren-paradoxa",
+      "html": "<ul><li>Difficulty: Difficult (5 of 8 measures); rated difficult because it needs a tank at least 2 m long</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidosiren-paradoxa",
+      "html": "<ul><li>Needs a tight-fitting lid as this species is known to jump. A lungfish can and probably will escape given the opportunity.</li></ul><p>The South American lungfish, Lepidosiren paradoxa, is found across the Amazon, Rio Paraguay and lower Paraná basins. The only lungfish known from South America, it is an obligatory air breather and survives the dry season by aestivating in a mucous cocoon inside a burrow in the mud. It can reach 125 cm and live for well over 20 years, so whether it should be considered an aquarium subject at all is debatable.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidosiren-paradoxa",
+      "html": "<p>It's very widely distributed in nature, and is found throughout much of the Amazon, Rio Paraguay and lower Rio Paraná basins. Populations exist in parts of Colombia, Venezuela, French Guiana, Peru, Brazil, Paraguay and Argentina.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidosiren-paradoxa",
+      "html": "<p>Slow moving and stagnant waters, including weedy creeks, swamps and tributaries. Many of these biotopes are hypoxic (starved of oxygen), and some are completely devoid of water during the dry season.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidosiren-paradoxa",
+      "html": "<p>Standard length: 125 cm SL. Aquarium base: 240 × 90 cm. Volume: ~3240 litres.</p><p>A massive tank is needed to adequately house one of these. Length and width are the most important dimensions and it can actually be quite shallow if you wish. It's not a terribly active species but something in the region of 240 × 90 × 150 cm (~3240 litres) should still be the minimum size considered for a fully grown fish.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidosiren-paradoxa",
+      "html": "<p>Decor is unimportant, but water movement should be kept to a minimum. Some cover can be provided in the form of roots, branches or large, smooth rocks. Ensure that any such furnishings are too heavy to be moved around or secured to the tank in some way. A sandy or muddy substrate is beneficial but not essential, and the tank base can actually be left bare if you wish. Any artificial lighting should be very dim.</p><p>What's most important is that the cover of the tank can't be moved by the fish, and contains no gaps around its edges. A lungfish can and probably will escape given the opportunity. A gap of around 15 cm should also be left between the water surface and the cover to allow it access to the atmospheric air it needs to survive.</p><p>Obviously a massive and efficient filtration system is needed to cope with the amount of waste produced by a fish of this bulk. If possible choose a sump-type arrangement, as this allows most of the equipment to be located outside the tank. A large specimen can easily destroy glass heaterstats, thermometers etc.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidosiren-paradoxa",
+      "html": "<ul><li>Temperature: 24–28°C</li><li>pH: 6.0–8.0</li><li>Hardness: 2–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidosiren-paradoxa",
+      "html": "<p>Omnivorous in nature, feeding on fish, shellfish, amphibians and plant matter. It will adapt to a variety of foods in the aquarium. Offer prawn, mussel, lancefish, algae wafers and other vegetable matter. Larger specimens can be fed whole fish, such as trout or sprats. Feed every day when very small but as the fish grows reduce the frequency. An adult specimen needs only a single meal per week at most.</p><p>As with most fish, this species should not be fed the meat of mammals such as beef heart or chicken. Some of the lipids contained in these meats cannot be properly metabolised by the fish, and can cause excess deposits of fat and even organ degeneration. Similarly there is no benefit in the use of 'feeder' fish such as livebearers or small goldfish. Risks involved with feeding these include the potential of disease introduction.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidosiren-paradoxa",
+      "html": "<p>Generally peaceful with tankmates too large to be considered food. It can be a little unpredictable, with some specimens taking exception to other bottom-dwelling species. Possible companions could include big Doradid or Pimelodid catfish, bichirs, larger characins, cyprinids, Datnioides spp., South American arowana and cichlids such as Cichla spp. It goes without saying that an enormous tank would be needed for a community containing even a handful of fish from this list.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidosiren-paradoxa",
+      "html": "<p>Unknown.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidosiren-paradoxa",
+      "html": "<p>Unreported in the hobby. In nature it spawns during the wet season and the eggs are deposited into a nest guarded by the male. This consists of a deep burrow lined with pieces of vegetation. The male also develops temporary gill-like structures on the pelvic fins that actively absorb carbon dioxide and release oxygen. These are used to provide additional oxygen to the eggs. Upon hatching the fry possess external gills that are used exclusively for respiration until the 'lung' develops fully, at around 2 months of age. At this point the gills begin to recede. The young are very strikingly coloured, being black with a patterning of bright gold spots.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidosiren-paradoxa",
+      "html": "<p>Lungfish are among the most intriguing of \"oddball\" aquarium species, being able to survive in extreme conditions. They are very ancient fish, having remained virtually unchanged for millions of years. This is the only species known from South America, and is the sole representative of its genus. Most hail from Africa, with a single species native to Australia. They belong to the class Sarcopterygii (lobe-finned fishes), members of which are actually more closely related to terrestrial vertebrates than to the Actinopterygii (ray-finned bony fishes).</p><p>Some of the natural waters of L. paradoxa dry out completely at times and the fish has developed several incredible adaptations in order to survive these periods. When the waters begin to recede, the fish will find a suitable nesting site, usually amongst heavy vegetation. Here, it will dig down into the muddy substrate, forming a tunnel. When it reaches a certain depth (this varies depending on the fish, but is typically around 30 cm), it writhes around until it forms a bulb shaped chamber, in which it will spend the dry season. It then positions itself in such a way that its head is pointing upwards, towards the entrance. The chamber is often filled with water initially and the fish has to rise to the entrance of the burrow to take in air. However, as the water level drops further, it becomes completely exposed to the air. At this point, it excretes copious amounts of a special mucous, which dries to form a \"cocoon\" around its body. Its metabolic rate also decreases drastically. There it remains, completely motionless, until the rains return. This state is known as aestivation.</p><p>Although it possesses both gills and a set of paired lungs, it's an obligatory air breather and will drown if not granted access to atmospheric air. The gills are rudimentary in structure and the fish has to rise to the surface periodically to obtain oxygen. The lungs are similar in structure to those of primitive amphibians and are formed from the heavily modified swim bladder. The limb-like fins are long, thin and fleshy. They are used mainly for touch. However, they are supported by a strong set of muscles and allow the fish to \"crawl\" across patches of dry land if necessary. There are four of these, located in the same positions as tetrapod legs. Other similarities between lungfish and tetrapods include the possession of tooth enamel, the way in which the bones of the skull are arranged and the distinct separation between pulmonary and body blood flow. Unlike most other fish species, the heart has 4 distinct chambers, facilitating the latter.</p><p>It's debatable as to whether this species should be considered an aquarium subject at all given its eventual size. All too often juveniles are sold without adequate information regarding their long term care. These can and will attain something close to their maximum size in captivity, and will do so quite quickly. The myth that fish will only grow to match the size of the tank they're kept in is just that. It's also worth noting that it can live for well over 20 years, making it a considerable long term commitment.</p><p>Many aquarists buy a young specimen with the intention of buying a bigger tank as it grows. However due to life's unpredictable nature very few actually take this step, instead attempting to rehome the fish. Public aquaria are already inundated with far too many 'cast offs' from the hobby, and are unlikely to take a big fish off your hands. Very few fellow hobbyists will have the facilities to do so, either. It's sad to think how many hundreds of these are doomed to a drastically reduced existence by the aquatic trade. Please don't buy one unless you have the resources required to house it for life already in place.</p><p>Those few that do will find it to be very hardy and undemanding. Some specimens even become very tame and seem to enjoy being 'petted' by their owner. If attempting this, be aware that it can inflict a nasty bite and should be approached with caution.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/c094518e0034f09e.webp",
+      "width": 960,
+      "height": 549,
+      "licence": "CC BY-SA 2.5",
+      "author": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lepidosiren_paradoxa_0.jpg",
+      "caption": "Lepidosiren paradoxa 0.jpg",
+      "thumb": "https://media.aquatome.com/commons/c094518e0034f09e-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/391f45e9ace526ed.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY 4.0",
+      "author": "Vincent A. Vos",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lepidosiren_paradoxa_118537122.jpg",
+      "caption": "South American lungfish (Lepidosiren paradoxa)",
+      "thumb": "https://media.aquatome.com/commons/391f45e9ace526ed-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/d63bff14661e9df5.webp",
+      "width": 960,
+      "height": 960,
+      "licence": "CC BY-SA 2.5",
+      "author": "Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lepidosiren_paradoxa.jpg",
+      "caption": "Lepidosiren paradoxa.jpg",
+      "thumb": "https://media.aquatome.com/commons/d63bff14661e9df5-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 240cm",
+        "bể kính cỡ lớn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "hệ lọc sump",
+        "lọc tổng bể lớn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "máy sưởi bể cá lớn",
+        "bộ điều nhiệt bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá ăn thịt",
+        "thức ăn cá cảnh cỡ lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

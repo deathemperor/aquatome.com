@@ -10,6 +10,79 @@
     "indonesia",
     "sumatra"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Sumatra",
+        "Barisan",
+        "Bohorok"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Homalopterula ripleyi is a hillstream loach known only from a small area of northern Sumatra, Indonesia, on the eastern slopes of the Barisan range.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Sumatra",
+            "Barisan"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The fish were collected from two new localities. The first, in February 2003, was an unnamed tributary of the Sungai (river) Bohorok measuring just 0.5–1.2 m wide and 10–30 cm deep, with the composition and structure of the riparian vegetation suggesting it rarely exceeds 1 m in depth.",
+          "countries": [],
+          "regions": [
+            "Bohorok"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2358585,
+      "total": 8,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "ID",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          97.03125,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          2.8125,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

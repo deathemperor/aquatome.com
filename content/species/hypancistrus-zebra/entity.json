@@ -11,6 +11,79 @@
     "brazil",
     "xingu"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Xingu",
+        "Rio Xingú"
+      ],
+      "sources": [
+        "glaser",
+        "scotcat",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Brazil",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Hypancistrus zebra is endemic to Brazil, occurring in the Volta Grande region of the Xingu River, in the state of Pará.",
+          "countries": [],
+          "regions": [
+            "Xingu"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Rio Xingú basin, Brazil.",
+          "countries": [],
+          "regions": [
+            "Rio Xingú"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339299,
+      "total": 22,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "BR",
+          22
+        ]
+      ],
+      "cells": [
+        [
+          -54.84375,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          14,
+          14
+        ],
+        [
+          -52.03125,
+          -4.21875,
+          7,
+          7
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

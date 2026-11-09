@@ -53,7 +53,9 @@
             "url": "https://media.aquatome.com/video/_cadRIECpmo/at15-hd.webp",
             "width": 1200,
             "height": 689,
-            "caption": "Bể trồng cây thủy sinh có đá, cỡ vừa, dùng nuôi cặp cichlid."
+            "caption": "Bể trồng cây thủy sinh có đá, cỡ vừa, dùng nuôi cặp cichlid.",
+            "sharpness": 1530.5,
+            "person": false
           }
         ]
       },
@@ -93,19 +95,11 @@
             "url": "https://media.aquatome.com/video/_cadRIECpmo/at20-hd.webp",
             "width": 1200,
             "height": 689,
-            "caption": "Bể thủy sinh có cây xanh mướt, đá và đèn sáng."
+            "caption": "Bể thủy sinh có cây xanh mướt, đá và đèn sáng.",
+            "sharpness": 1261.1,
+            "person": false
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/_cadRIECpmo/p7-hX3NocmltcC5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/_cadRIECpmo/p7-hX3NocmltcC5qcGc-480.webp",
-          "width": 960,
-          "height": 718,
-          "licence": "CC BY 4.0",
-          "author": "Snehayan",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Live_planted_aquarium_with_neocaridina_shrimp.jpg",
-          "caption": "Bể thủy sinh cây xanh mướt, đèn sáng, có lũa và đá."
-        }
+        ]
       }
     ]
   }

@@ -1,0 +1,71 @@
+{
+  "id": "corydoras-kanei",
+  "native": {
+    "input": "845741fc908e71c8",
+    "at": "2026-11-08T18:57:48.756Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Hoplisoma kanei, long known as Corydoras kanei, is an armoured catfish that appears to be native to the rio Negro basin in Brazil, possibly only the rio Branco drainage.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Aquarium specimen, said to be from Brazil, Roraima State near Boa Vista, possibly from the Rio Branco'.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "rio Negro",
+        "source": "seriouslyfish",
+        "quote": "Hoplisoma kanei, long known as Corydoras kanei, is an armoured catfish that appears to be native to the rio Negro basin in Brazil, possibly only the rio Branco drainage.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "rio Branco",
+        "source": "seriouslyfish",
+        "quote": "Hoplisoma kanei, long known as Corydoras kanei, is an armoured catfish that appears to be native to the rio Negro basin in Brazil, possibly only the rio Branco drainage.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras kanei",
+    "status": "ACCEPTED",
+    "taxonKey": 2342648,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T18:57:48.756Z"
+  }
+}

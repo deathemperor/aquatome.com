@@ -43,18 +43,6 @@
     ],
     "figures": [
       {
-        "heading": "Cần chuẩn bị gì",
-        "moments": [
-          {
-            "t": 220,
-            "url": "https://media.aquatome.com/video/oyoTrsauIgc/at220-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bi lọc vi sinh xếp trong bể cá."
-          }
-        ]
-      },
-      {
         "heading": "Lọc chai hoạt động thế nào",
         "moments": [
           {
@@ -62,35 +50,24 @@
             "url": "https://media.aquatome.com/video/oyoTrsauIgc/at385-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Lọc chai đặt trong bể, vật liệu lọc xếp trong lòng chai."
+            "caption": "Lọc chai đặt trong bể, vật liệu lọc xếp trong lòng chai.",
+            "sharpness": 180,
+            "person": false
           },
           {
             "t": 395,
             "url": "https://media.aquatome.com/video/oyoTrsauIgc/at395-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh các viên vật liệu lọc trong chai với bơm ở đáy."
+            "caption": "Cận cảnh các viên vật liệu lọc trong chai với bơm ở đáy.",
+            "sharpness": 335.2,
+            "person": false
           }
         ]
       },
       {
         "heading": "Bao nhiêu vật liệu lọc là đủ",
-        "moments": [
-          {
-            "t": 390,
-            "url": "https://media.aquatome.com/video/oyoTrsauIgc/at390-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Túi vật liệu lọc dạng viên tròn đầy ắp được cầm trong bể."
-          },
-          {
-            "t": 405,
-            "url": "https://media.aquatome.com/video/oyoTrsauIgc/at405-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh túi vật liệu lọc đầy viên sứ đặt cạnh bể."
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/oyoTrsauIgc/p4-0ODQ3NjE5KS5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/oyoTrsauIgc/p4-0ODQ3NjE5KS5qcGc-480.webp",
@@ -101,18 +78,6 @@
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_complete_aquarium_book;_the_care_and_breeding_of_goldfish_and_tropical_fishes_(1936)_(20484847619).jpg",
           "caption": "Sơ đồ bể cá cũ với lớp vật liệu lọc nằm bên dưới."
         }
-      },
-      {
-        "heading": "Chăm bể khi dùng lọc tạm",
-        "moments": [
-          {
-            "t": 415,
-            "url": "https://media.aquatome.com/video/oyoTrsauIgc/at415-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Chai lọc tạm chứa đầy bi lọc đặt trong bể cá."
-          }
-        ]
       }
     ]
   }

@@ -1,0 +1,48 @@
+{
+  "id": "lentipes-ikeae",
+  "native": {
+    "input": "7faca9cc3fe1efbe",
+    "at": "2026-11-09T12:58:06.259Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Native to clear, fast-flowing mountain streams of Java, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Java",
+        "source": "bwaquatics",
+        "quote": "Native to clear, fast-flowing mountain streams of Java, Indonesia.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Lentipes ikeae",
+    "status": "ACCEPTED",
+    "taxonKey": 7861524,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        20
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T12:58:06.259Z"
+  }
+}

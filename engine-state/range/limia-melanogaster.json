@@ -1,0 +1,57 @@
+{
+  "id": "limia-melanogaster",
+  "native": {
+    "input": "cfa8007edbf90165",
+    "at": "2026-11-09T16:24:16.651Z",
+    "claims": [
+      {
+        "code": "JM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Jamaica.",
+        "words": "Jamaica",
+        "ok": false,
+        "why": "no sentence"
+      },
+      {
+        "code": "JM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The black-bellied limia, Limia melanogaster, is a small livebearer endemic to Jamaica, where it usually lives in small streams.",
+        "words": "Jamaica",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Limia melanogaster",
+    "status": "ACCEPTED",
+    "taxonKey": 5203841,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        8
+      ],
+      [
+        "6a901195-ee9a-43ad-a43d-9095fd2aab0c",
+        1
+      ],
+      [
+        "e1a01804-881b-42ae-8f97-1e80f697fd56",
+        1
+      ]
+    ],
+    "native": [
+      "JM"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T16:24:16.651Z"
+  }
+}

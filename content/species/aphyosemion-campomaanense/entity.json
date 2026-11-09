@@ -1,0 +1,117 @@
+{
+  "id": "aphyosemion-campomaanense",
+  "scientificName": "Aphyosemion campomaanense",
+  "order": "Cyprinodontiformes",
+  "family": "Nothobranchiidae",
+  "genus": "Aphyosemion",
+  "group": "killifish",
+  "places": [
+    "africa",
+    "cameroon",
+    "campo-ma-an"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CM"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This fish originates from Cameroon.",
+          "countries": [
+            "CM"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348415,
+      "total": 6,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "CM",
+          4
+        ],
+        [
+          "DE",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          9.84375,
+          1.40625,
+          4,
+          4
+        ],
+        [
+          9.84375,
+          50.625,
+          2,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyosemion_campomaanense_en/",
+      "html": "<p>Aphyosemion campomaanense is a killifish growing up to 5 cm long. It was scientifically described in 2009. The specimens offered are German bred, in sizes of 4–5 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyosemion_campomaanense_en/",
+      "html": "<p>This fish originates from Cameroon. The species is named after its type locality, the Campo-Ma'an National Park in Cameroon.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/aphyosemion_campomaanense_en/",
+      "html": "<p>The closest relative of this species is the well known Aphyosemion ahli. The easiest way to distinguish the two species is by the coloration of the caudal fin, which in A. ahli is bordered by two almost identically broad yellow bars. In A. campomaanense the upper bar is much narrower and whitish.</p><p>Etymology: Aphyosemion comes from ancient Greek and means \"small fish with flag-like fins\". campomaanense: after the type locality, the Campo-Ma'an National Park in Cameroon. ahli: a dedication name for Ernst Ahl, at times an ichthyologist working in Berlin.</p><p>Suggested common name: Campomaan-killi.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nhỏ 40cm",
+        "bể cá killi"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi mini",
+        "lọc bọt khí cho bể nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "artemia đông lạnh",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

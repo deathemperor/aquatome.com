@@ -1,6 +1,6 @@
 import { parse } from 'node-html-parser'
 import { slugify } from '@aq/schema/slug'
-import { THUMB_WIDTH, thumbOf, type Content, type GuideEntity, type Localized, type Photo, type PictureSet, type Series } from '@aq/schema'
+import { stillShown, THUMB_WIDTH, thumbOf, type Content, type GuideEntity, type Localized, type Photo, type PictureSet, type Series } from '@aq/schema'
 import { translator, type Lang } from './i18n'
 import { photoMark } from './cite'
 import { guideImage } from './mentions'
@@ -80,7 +80,7 @@ const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
 /**
  * A still the video's own frame (1200 px) also has its 480 px copy. The stills' grid (pages/huong-dan/[slug].astro, columns
  * of 11rem or more in the text's width, the window's less 3rem): one a row below 412 px, two below 600 px, then three of
- * at most 14rem. A storyboard tile (320 px or less) is drawn as it is.
+ * at most 14rem. A frame no wider than the copy is drawn as it is.
  */
 function stillSrcset(m: { url: string; width: number }): string {
   const small = m.width > THUMB_WIDTH ? thumbOf(m.url) : undefined
@@ -99,8 +99,10 @@ export function illustrate(lang: Lang, html: string, v: NonNullable<GuideEntity[
   for (const h of root.querySelectorAll('h2, h3')) { // h2: a heading over sub-sections (lib/toc.ts)
     const f0 = byHeading.get(h.textContent.replace(/\s+/g, ' ').trim())
     if (!f0) continue
-    // Nothing the page already shows: a photo picked for two sections, two stills of the same scene.
-    const f = shown ? { ...f0, photo: shown.take([f0.photo]), moments: f0.moments.filter(m => shown.take([m])) } : f0
+    // No still under 480p (a storyboard tile, a low-resolution video): the section keeps its words, and the page its
+    // video. Then nothing the page already shows: a photo picked for two sections, two stills of the same scene.
+    const sharp = f0.moments.filter(stillShown)
+    const f = shown ? { ...f0, photo: shown.take([f0.photo]), moments: sharp.filter(m => shown.take([m])) } : { ...f0, moments: sharp }
     if (!f.photo && !f.moments.length) continue
     const photo = f.photo
       ? `<figure class="vphoto"><img src="${esc(f.photo.url)}" width="${f.photo.width}" height="${f.photo.height}" alt="${esc(f.photo.caption ?? '')}" loading="lazy"><figcaption>${esc(f.photo.caption ?? '')}${photoMark(lang, f.photo)}</figcaption></figure>`

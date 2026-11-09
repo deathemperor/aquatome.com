@@ -11,6 +11,177 @@
     "rio-tapajos",
     "tapajos"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Tapajós",
+        "Tapajós",
+        "Arinos-Juruena"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Hyphessobrycon vilmae originates from the upper reaches of the Rio Tapajós in Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Tapajós"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Hyphessobrycon vilmae is a small characid that appears to be endemic to the upper rio Tapajós basin in Amazonas and Mato Grosso states, Brazil.",
+          "countries": [],
+          "regions": [
+            "Tapajós"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'upper Arinos-Juruena basin, Brazil'.",
+          "countries": [],
+          "regions": [
+            "Arinos-Juruena"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354589,
+      "total": 77,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "BR",
+          77
+        ]
+      ],
+      "cells": [
+        [
+          -61.875,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -11.25,
+          9,
+          9
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -12.65625,
+          4,
+          4
+        ],
+        [
+          -57.65625,
+          -15.46875,
+          6,
+          6
+        ],
+        [
+          -57.65625,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          -12.65625,
+          8,
+          8
+        ],
+        [
+          -57.65625,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -14.0625,
+          12,
+          12
+        ],
+        [
+          -56.25,
+          -12.65625,
+          23,
+          23
+        ],
+        [
+          -56.25,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -15.46875,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          -15.46875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

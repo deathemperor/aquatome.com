@@ -1,0 +1,208 @@
+{
+  "id": "jinshaia-sinensis",
+  "scientificName": "Jinshaia sinensis",
+  "order": "Cypriniformes",
+  "family": "Balitoridae",
+  "genus": "Jinshaia",
+  "group": "loaches",
+  "places": [
+    "asia",
+    "china",
+    "jinsha"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Jinsha",
+        "Yangtze"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Jinshaia sinensis is a balitorid loach known only from the Jinsha river basin, the westernmost headwater tributary of the Yangtze in China.",
+          "countries": [
+            "CN"
+          ],
+          "regions": [
+            "Jinsha"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the Yangtze (also known as Chang Jiang) river system in China, specifically the Jinsha river basin, its westernmost headwater tributary.",
+          "countries": [],
+          "regions": [
+            "Yangtze"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2358711,
+      "total": 0,
+      "fetched": "2026-11-09",
+      "countries": [],
+      "cells": []
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 7.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/jinshaia-sinensis",
+      "html": "<p>Jinshaia sinensis is a balitorid loach known only from the Jinsha river basin, the westernmost headwater tributary of the Yangtze in China. Like other balitorids it has a flattened head and body and horizontally extended paired fins that form a powerful sucking cup. It lives only in riffles, runs and cascades of swift, clear, oxygen-saturated water, and the aquarium must be set up to resemble such a habitat.</p><p>This species has probably not yet been exported for aquaria.</p><ul><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/jinshaia-sinensis",
+      "html": "<p>Known only from the Yangtze (also known as Chang Jiang) river system in China, specifically the Jinsha river basin, its westernmost headwater tributary.</p><p>Type locality is given as 'Teang-chan-hien (Se-tchuan), China'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/jinshaia-sinensis",
+      "html": "<p>An obligate dweller of swiftly-flowing streams and headwaters containing clear, oxygen-saturated water. It often inhabits riffles, runs and cascades and is likely to show a preference for shallower zones.</p><p>Substrates are generally composed of gravel, rocks, boulders or bedrock carpeted with a rich biofilm formed by algae and other micro-organisms. Patches of aquatic plants are only occasionally present but riparian vegetation is usually well-developed.</p><p>Kottelat and Chu (1988) note that it's often found in high-gradient streams and unlike most other balitorids is 'supposedly' a strong swimmer.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/jinshaia-sinensis",
+      "html": "<p>Standard length: 75 mm SL.</p><p>An aquarium with base dimensions of 90 × 30 cm should be the smallest considered. Volume: ~81 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/jinshaia-sinensis",
+      "html": "<p>Since this species is an exclusive resident of riffles and rapids in nature it's essential to keep it in a tank set up to resemble such a habitat.</p><p>Use a substrate of gravel, sand (or a mixture) and add a layer of variably-sized water-worn rocks and boulders plus perhaps some driftwood roots or branches.</p><p>While the majority of aquatic plants will fail to thrive in such surroundings hardy types such as Microsorum, Bolbitis or Anubias spp. can be grown attached to the décor, and bright lighting will promote the growth of aufwuchs upon which the fish will graze.</p><p>Like many species that naturally inhabit running waters it's intolerant to the accumulation of organic wastes and requires spotless water at all times in order to thrive.</p><p>It's also essential to provide high levels of dissolved oxygen and water movement so an over-sized filter is suggested as a minimum requirement plus additional powerheads or airstones if necessary.</p><p>Since stable water conditions and the presence of a biofilm are obligatory for its well-being this fish should never be added to biologically-immature aquaria.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/jinshaia-sinensis",
+      "html": "<ul><li>Temperature: 20–24°C</li><li>pH: 6.0–7.5</li><li>Hardness: 1–10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/jinshaia-sinensis",
+      "html": "<p>Much of the natural diet is likely to be composed of benthic algae plus associated micro-organisms which are rasped from solid surfaces.</p><p>In captivity it will accept good-quality dried foods and meatier items like live or frozen bloodworm but may suffer internal problems if the diet contains excessive protein.</p><p>Home-made foods using a mixture of natural ingredients bound with gelatin are very useful since they can be tailored to contain a high proportion of fresh vegetables, Spirulina and similar ingredients.</p><p>For long-term success it's best to provide a mature aquarium with a plentiful supply of algae-covered rocks and other surfaces.</p><p>If unable to grow sufficient algae in the main tank or you have a community containing numerous herbivorous fishes which consume what's available quickly it may be necessary to maintain a separate tank in which to grow algae on rocks and switch them with those in the main tank on a cyclical basis.</p><p>Such a 'nursery' doesn't have to be very large, requires only strong lighting and in sunny climates can be kept outdoors. Algal type is also important with diatoms and softer, green varieties preferred to tougher types such as rhodophytic 'black brush' algae.</p><p>Gastromyzontids are often seen on sale in an emaciated state which can be difficult to correct. A good dealer will have done something about this prior to sale but if you decide to take a chance with severely weakened specimens they'll initially require a constant source of suitable foods in the absence of competitors if they're to recover.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/jinshaia-sinensis",
+      "html": "<p>Likely to be peaceful although its environmental requirements limit the choice of suitable tankmates somewhat.</p><p>Species inhabiting similar natural waters include Barilius, Garra, Devario, some Rasbora, Rhinogobius, Sicyopterus and Stiphodon gobies plus catfishes like Glyptothorax, Akysis and Oreoglanis.</p><p>Many loaches from the family Nemacheilidae, Balitoridae and Gastromyzontidae should also be suitable although harmless squabbles may occur with the latter group in particular.</p><p>No studies regarding this species' ecology (at least in English) could be found, so it's unclear whether it naturally exists in aggregations or not.</p><p>Related species tend to form groups so if lucky enough to find this fish on sale the purchase of at least half-a-dozen is recommended.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/jinshaia-sinensis",
+      "html": "<p>Sexually mature females are likely to be a little larger and fuller-bodied than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/jinshaia-sinensis",
+      "html": "<p>Presumably a seasonal spawner in nature but nothing has been recorded in aquaria as far as is known.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/jinshaia-sinensis",
+      "html": "<p>This species may not yet have been seen in the aquarium trade outside its native country but has been maintained by a few private collectors.</p><p>There are currently three species recognised in the genus, all endemic to the Yangtze river drainage, and they're separated from other balitorids by a combination of characters including: relatively long, deeply-forked caudal-fin; rounded or squared caudal peduncle section; body flattened and widened posterior to dorsal-fin; 11-14 simple and 12-15 branched pectoral-fin rays; 3-5 simple and 10-15 branched pelvic-fin rays.</p><p>Like all balitorids it has morphology specialised for life in fast-flowing water, i.e., the paired fins are orientated and extended horizontally, head and body flattened, belly depressed. These features form a powerful sucking cup which allows the fish to cling tightly to solid surfaces. The ability to swim in open water is greatly reduced and they instead appear to crawl and hop their way over rocks and other surfaces.</p><p>This species was initially described in the genus Psilorhynchus and subsequently placed in Hemimyzon until Kottelat and Chu (1988) erected the present genus for this species and J. abbreviata. The third species, J. niulanjiangensis, was described by Mao &amp; Lu in 1998.</p><p>The family Balitoridae as recognised by Kottelat (2012) is widely-distributed across much of the Indian subcontinent, Southeast Asia and China.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/jinshaia-sinensis",
+      "html": "<ul><li>Kottelat, M. and X.-L. Chu (1988). A synopsis of Chinese balitorine loaches (Osteichthyes: Homalopteridae) with comments on their phylogeny and description of a new genus. Revue Suisse de Zoologie 95(1), 181-201</li><li>Šlechtová, V., J. Bohlen and H. H. Tan (2007). Families of Cobitoidea (Teleostei; Cypriniformes) as revealed from nuclear genetic data and the position of the mysterious genera Barbucca, Psilorhynchus, Serpenticobitis and Vaillantella. Molecular Phylogenetics and Evolution 44(3), 1358-1365</li><li>Tang, Q., H. Liu, R. Mayden and B. Xiong (2006). Comparison of evolutionary rates in the mitochondrial DNA cytochrome b gene and control region and their implications for phylogeny of the Cobitoidea (Teleostei: Cypriniformes). Molecular Phylogenetics and Evolution 39(2), 347-357</li><li>Kottelat, M. (2012). Conspectus cobitidum: an inventory of the loaches of the world (Teleostei: Cypriniformes: Cobitoidei). Raffles Bulletin of Zoology Supplement 26, 1-199</li></ul>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 90cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng",
+        "bộ lọc ngoài công suất lớn",
+        "sủi oxy"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "quạt làm mát bể cá",
+        "máy làm lạnh nước bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn tảo spirulina cho cá",
+        "thức ăn viên chìm cho cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

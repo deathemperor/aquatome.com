@@ -15,37 +15,37 @@
     {
       "url": "https://fishdoc.co.uk/miscellaneous-diseases-dropsy-hypoxia-and-gas-bubble-disease/",
       "title": "Miscellaneous Diseases: Dropsy, Hypoxia and Gas-bubble Disease (FishDoc)",
-      "kind": "article"
+      "kind": "vet"
     },
     {
       "url": "https://www.practicalfishkeeping.co.uk/features/what-should-i-do-if-my-fish-are-gasping/",
       "title": "What should I do if my fish are gasping? (Practical Fishkeeping)",
-      "kind": "article"
+      "kind": "magazine"
     },
     {
       "url": "https://www.globalseafood.org/advocate/nitrite-toxicity-affected-by-species-susceptibility-environmental-conditions/",
       "title": "Nitrite toxicity affected by species susceptibility, environmental conditions (Global Seafood Alliance)",
-      "kind": "article"
+      "kind": "farm"
     },
     {
       "url": "https://vietvetpharma.com/blogs/thong-tin-ky-thuat/ca-noi-dau-ngap-khi-nguyen-nhan-va-cach-khac-phuc",
       "title": "Cá nổi đầu, ngáp khí: nguyên nhân và cách khắc phục (Vietvet Pharma)",
-      "kind": "maker"
+      "kind": "farm"
     },
     {
       "url": "https://sonnmt.phutho.gov.vn/vi/thuy-san/khac-phuc-tinh-trang-ca-noi-dau-trong-ao-nuoi",
       "title": "Khắc phục tình trạng cá nổi đầu trong ao nuôi (Sở NN&MT Phú Thọ)",
-      "kind": "other"
+      "kind": "farm"
     },
     {
       "url": "https://www.aquariumcoop.com/blogs/aquarium/power-outage-preparation",
       "title": "How to Care for Your Aquarium Fish During a Power Outage (Aquarium Co-Op)",
-      "kind": "maker"
+      "kind": "shop"
     },
     {
       "url": "https://www.chewy.com/education/fish/general/how-to-keep-your-aquarium-fish-alive-during-a-power-outage",
       "title": "How to Keep Your Aquarium Fish Alive During a Power Outage (Chewy)",
-      "kind": "article"
+      "kind": "shop"
     },
     {
       "url": "https://read.qxmd.com/read/30570160/hypoxia-induced-developmental-plasticity-of-larval-growth-gill-and-labyrinth-organ-morphometrics-in-two-anabantoid-fish-the-facultative-air-breather-siamese-fighting-fish-betta-splendens-and-the-obligate-air-breather-the-blue-gourami-trichopodus-trichopter",
@@ -55,7 +55,7 @@
     {
       "url": "https://microbelift.vn/ca-thieu-oxy-nguyen-nhan-dau-hieu-khac-phuc/",
       "title": "Cá thiếu oxy: Nguyên nhân, dấu hiệu và cách khắc phục (Microbe-Lift Việt Nam)",
-      "kind": "maker"
+      "kind": "farm"
     }
   ],
   "facts": [
@@ -276,11 +276,6 @@
     },
     {
       "section": "treatment",
-      "fact": "To limit nitrite toxicity, keep dissolved oxygen above 3 mg/L for warmwater fish or 5 mg/L for coldwater fish.",
-      "source": 3
-    },
-    {
-      "section": "treatment",
       "fact": "Replace a heater that is malfunctioning.",
       "source": 2
     },
@@ -340,11 +335,6 @@
       "source": 6
     },
     {
-      "section": "prevention",
-      "fact": "Safe long-term nitrite-nitrogen is about 0.5–2.5 mg/L for warmwater fish and freshwater invertebrates, and 0.0125–0.5 mg/L for coldwater fish.",
-      "source": 3
-    },
-    {
       "section": "mistakes",
       "fact": "Don't always blame temperature. Sudden gasping is often linked to pollution or disease.",
       "source": 2
@@ -388,11 +378,6 @@
       "section": "vietnam",
       "fact": "A Vietnamese maker of biological products sells Microbe-Lift AQUA SA and AQUA C bacteria to break down organic waste and reduce H2S and NH3. These are pond products.",
       "source": 9
-    },
-    {
-      "section": "other",
-      "fact": "Nitrite sensitivity varies widely by species. Coldwater fish such as rainbow trout (96-h LC50 0.24–11.0 mg/L NO2-N) are far more sensitive than common carp (88.0 mg/L).",
-      "source": 3
     },
     {
       "section": "other",

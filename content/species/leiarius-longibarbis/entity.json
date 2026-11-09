@@ -1,0 +1,234 @@
+{
+  "id": "leiarius-longibarbis",
+  "scientificName": "Leiarius longibarbis",
+  "order": "Siluriformes",
+  "family": "Pimelodidae",
+  "genus": "Leiarius",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "colombia",
+    "orinoco",
+    "venezuela",
+    "guyana",
+    "essequibo",
+    "brazil",
+    "amazon",
+    "peru",
+    "bolivia"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO",
+        "VE",
+        "GY",
+        "BR",
+        "PE",
+        "BO"
+      ],
+      "regions": [
+        "Rio Orinoco",
+        "Rio Essequibo",
+        "Amazon"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known from the Rio Orinoco in Colombia and Venezuela, Rio Essequibo in Guyana, and the Amazon basin in Brazil, Peru and Bolivia.",
+          "countries": [
+            "CO",
+            "VE",
+            "GY",
+            "BR",
+            "PE",
+            "BO"
+          ],
+          "regions": [
+            "Rio Orinoco",
+            "Rio Essequibo",
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2338860,
+      "total": 5,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "VE",
+          3
+        ],
+        [
+          "BR",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -67.5,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -12.65625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 21,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.8,
+          "max": 7.4
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 80
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 300
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leiarius-longibarbis",
+      "html": "<p>The marbled pim, Leiarius longibarbis, is a large pimelodid catfish from the Rio Orinoco, Rio Essequibo and Amazon basins. It grows to around 80 cm and can live for well over 20 years, and whether it should be considered an aquarium subject at all is debatable. Much of the literature still lists it as L. marmoratus, a name treated as a junior synonym since a reclassification in 2003.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leiarius-longibarbis",
+      "html": "<p>Known from the Rio Orinoco in Colombia and Venezuela, Rio Essequibo in Guyana, and the Amazon basin in Brazil, Peru and Bolivia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leiarius-longibarbis",
+      "html": "<p>Inhabits large rivers and lakes. It lurks among submerged tree roots and other refuges during daylight hours, emerging at night to feed.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leiarius-longibarbis",
+      "html": "<p>Standard length: 80 cm. Aquarium base: 300 × 90 cm. Volume: ~3240 litres.</p><p>Something in the region of 300 × 90 × 120 cm (~3240 litres) would be needed for a fully-grown fish.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leiarius-longibarbis",
+      "html": "<p>Strictly speaking, decor isn't necessary for a tank containing an adult, provided the lighting is fairly dim. You can however add some large chunks of bogwood, beech branches or smooth rocks if you wish. Ensure that any such furnishings are too heavy to be moved around or secured to the tank in some way, and that there's plenty of open swimming space. Juveniles enjoy hiding places in the form of bogwood, tangles of roots and branches, rock piles or lengths of plastic piping of a suitable bore.</p><p>Choice of substrate can be an issue, as most grades of gravel can either be swallowed or become caught in the delicate gills. Sand is ok, but don't expect it to stay in one place. A layer of large, smooth pebbles is a better option. Some hobbyists simply leave the substrate out altogether, which certainly makes cleaning the tank an easier task.</p><p>A large and efficient biological filter is needed to cope with the amounts of waste produced by a fish of this size. If possible, choose a sump-type arrangement, as this allows most of the equipment to be located outside the tank. A large specimen can easily destroy glass heaterstats, thermometers etc.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leiarius-longibarbis",
+      "html": "<ul><li>Temperature: 21–26°C</li><li>pH: 5.8–7.4</li><li>Hardness: 5–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leiarius-longibarbis",
+      "html": "<p>Piscivorous by nature, but usually adapts well to dead foods in captivity. It relishes meaty items such as prawns, mussels, cockle, lancefish or earthworms. Larger specimens can be offered whole fish fillets (use white fish). Try to keep the diet varied or you may find it becomes too accustomed to a particular food and is reluctant to accept anything else.</p><p>Also take care not to overfeed. It's easy for predatory species to become overweight in captivity, especially when fed a high protein diet. This can lead to health problems in the long term. Feed every other day when juvenile but as the fish grows reduce the frequency. An adult specimen needs only a single meal per week at most.</p><p>This species should not be fed the meat of mammals such as beef heart or chicken. Some of the lipids contained in these meats cannot be properly metabolised by the fish, and can cause excess deposits of fat and even organ degeneration. Similarly, there is no benefit in the use of 'feeder' fish such as livebearers or small goldfish. Risks involved with feeding these include the potential of disease introduction.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leiarius-longibarbis",
+      "html": "<p>Whilst it won't hesitate to gobble any smaller fish, it's actually quite peaceful and can be kept alongside other similarly-sized species in suitable surroundings. You'd need a tank approaching public aquarium size in order to do this, though. Particularly suitable companions include Doradids such as Oxydoras niger, Megalodoras urunoscopus or Pterodoras granulosus. If the tank is also very deep larger characins, cyprinids, South american arowana and various cichlids such as Cichla species can also be added.</p><p>It's territorial towards both conspecifics and other large Pimelodids, so should be the only fish of this type kept in most situations.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leiarius-longibarbis",
+      "html": "<p>Virtually impossible to sex by external characteristics. Adult females are likely to be stockier in build than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leiarius-longibarbis",
+      "html": "<p>Unreported in captivity.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leiarius-longibarbis",
+      "html": "<p>It's debatable as to whether this species should be considered an aquarium subject at all, given its eventual size. All too often, juveniles are sold without adequate information regarding their long term care. These cats can and will attain something close to their maximum size in captivity, and will do so quite quickly. The myth that they will only grow to match the size of the tank they're kept in is just that. It's also worth noting that species such as this can live for well over 20 years, making it a considerable long term commitment.</p><p>Many aquarists buy a young specimen with the intention of buying a bigger tank as it grows. However, due to life's unpredictable nature very few actually take this step, instead attempting to rehome the fish. Public aquaria are already inundated with far too many 'cast offs' from the hobby, and are unlikely to take a big fish off your hands. Very few fellow hobbyists will have the facilities to do so, either. It's sad to think how many hundreds of these are doomed to a drastically reduced existence by the aquatic trade. Please don't buy one unless you have the resources required to house it for life already in place.</p><p>For those select few that do, it's a magnificent specimen catfish that can show a good degree of intelligence and will develop a real personality as it grows. It also has an amazing set of very long barbels that can move independently of each other. These barbels are one of the reasons why the fish needs a wide tank, as it can become stressed if there isn't enough room to extend them fully.</p><p>Most of the available literature still lists the species with the invalid name L. marmoratus. This is now considered a junior synonym of L. longibarbis following a reclassification in 2003, in which it was discovered that these were the same fish. L. longibarbis was described 15 years earlier than L. marmoratus and therefore that name was given precedence.</p><p>Further confusion arises when attempting to distinguish it from the very similar, but much rarer Perrunichthys perruno. So similar are these two that some experts believe they're one and the same species. The only visible difference appears to be in the number of dorsal fin rays. L. longibarbis has 10 or 11 of these rays, while P. perruno has only 8. Apparently they also differ slightly in the morphology of the skull. It's easier to tell it apart from its only congener, L. pictus, as this species has a much larger dorsal fin than L. longibarbis.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 300cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sump bể lớn",
+        "máy bơm hồ cá lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá săn mồi",
+        "thức ăn cho cá da trơn lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

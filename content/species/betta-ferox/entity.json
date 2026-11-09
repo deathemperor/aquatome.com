@@ -1,0 +1,170 @@
+{
+  "id": "betta-ferox",
+  "scientificName": "Betta ferox",
+  "order": "Perciformes",
+  "family": "Osphronemidae",
+  "genus": "Betta",
+  "group": "labyrinth",
+  "places": [
+    "asia",
+    "thailand",
+    "bori-pat"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The species is known so far only from a very small area in Thailand (Bori Pat).",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2393990,
+      "total": 31,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "TH",
+          31
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          5.625,
+          2,
+          2
+        ],
+        [
+          98.4375,
+          7.03125,
+          8,
+          8
+        ],
+        [
+          99.84375,
+          5.625,
+          17,
+          17
+        ],
+        [
+          99.84375,
+          7.03125,
+          4,
+          4
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 25,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/betta_ferox_en/",
+      "html": "<p>A very rare mouthbrooding Betta species. Maximum reported length is about 8 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/betta_ferox_en/",
+      "html": "<p>The species is known so far only from a very small area in Thailand (Bori Pat).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/betta_ferox_en/",
+      "html": "<p>The fish inhabit brooks with soft and slightly acidic water. The water temperature there is around 25°C.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/betta_ferox_en/",
+      "html": "<p>Males generally become larger than females. Females have almost no shining scales on the body.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/betta_ferox_en/",
+      "html": "<p>A very small number of fully grown German-bred specimens of this very rare Betta species were received.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "W9_TgHbe6WM",
+      "title": "The secrets of Betta ferox",
+      "durationSec": 1683,
+      "lang": "de-DE"
+    },
+    {
+      "youtubeId": "54tCX2sUJuc",
+      "title": "Betta ferox in wild habitat! #wildbetta #bettaferox #bettafish",
+      "durationSec": 26,
+      "lang": "en-GB"
+    },
+    {
+      "youtubeId": "CNW1J-ir_H0",
+      "title": "The secrets of Betta ferox II",
+      "durationSec": 1692,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "nYsN6kYWhqU",
+      "title": "Betta ferox, first day in tank. Schlangenkopffische.de",
+      "durationSec": 55,
+      "lang": "de"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể thủy sinh nhỏ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "lọc bọt khí cho bể betta"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 50w"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

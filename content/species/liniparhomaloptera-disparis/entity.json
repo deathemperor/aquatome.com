@@ -12,6 +12,87 @@
     "hong-kong",
     "vietnam"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN",
+        "VN"
+      ],
+      "regions": [
+        "Pearl River",
+        "Hainan"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from Guangdong Province on the southern coast of mainland China and since recorded from various parts of the Pearl River (Zhu Jiang) system which drains the majority of Guangdong and Guangxi provinces plus parts of Yunnan, Guizhou, Hunan and Jiangxi as well as extending into northeastern Vietnam.",
+          "countries": [
+            "CN",
+            "VN"
+          ],
+          "regions": [
+            "Pearl River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's also known from Hong Kong and Hainan islands (see 'Notes').",
+          "countries": [],
+          "regions": [
+            "Hainan"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 4286905,
+      "total": 16,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "CN",
+          8
+        ],
+        [
+          "HK",
+          7
+        ],
+        [
+          "NO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          14.0625,
+          66.09375,
+          1,
+          0
+        ],
+        [
+          112.5,
+          22.5,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          21.09375,
+          6,
+          0
+        ],
+        [
+          113.90625,
+          22.5,
+          8,
+          7
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

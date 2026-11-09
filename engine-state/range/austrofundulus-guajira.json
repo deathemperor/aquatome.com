@@ -1,0 +1,33 @@
+{
+  "id": "austrofundulus-guajira",
+  "native": {
+    "input": "58e8a6015be42133",
+    "at": "2026-11-09T12:58:06.259Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Austrofundulus guajira",
+    "status": "ACCEPTED",
+    "taxonKey": 2349143,
+    "datasets": [
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        6
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        4
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-09T12:58:06.259Z"
+  }
+}

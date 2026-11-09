@@ -50,6 +50,9 @@ public enum Owner {
     public let needs: [Need]
     /// The line when nothing needs the owner.
     public let needsEmpty: String
+    /// The owner's last action, said under that line: what it was (`title`), when (`figure`) and the section it was in;
+    /// nil before the owner has done anything.
+    public let lastAction: Link?
     public let answers: Answers?
     public let shipped: Shipped?
     public let costs: Costs?
@@ -551,6 +554,9 @@ extension Owner.Dashboard {
       return Owner.Need(kind: kind, text: text, sub: str(n, "sub"), label: str(n, "label"), tone: tone(n), to: destination(n), photos: photos)
     }
     needsEmpty = str(o, "needsEmpty") ?? ""
+    lastAction = (obj(o, "lastAction")).flatMap { a in
+      str(a, "text").map { Owner.Link(title: $0, figure: str(a, "when"), to: str(a, "section").flatMap { Owner.isKey($0) ? .section($0, anchor: nil) : nil }) }
+    }
     answers = (obj(o, "answers")).flatMap { a in
       str(a, "title").map { title in
         Owner.Answers(title: title, figure: (obj(a, "figure")).flatMap(figure), chart: (obj(a, "chart")).flatMap(chart),

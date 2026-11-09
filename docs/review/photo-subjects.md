@@ -1,17 +1,19 @@
 # Photos that don't show their page's subject
 
-Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules: docs/governance.md, "Photos".
-4733 verdicts. Shows it: 3227; its habitat (asked again): 4; something else: 207; not a photo of it: 174; dead or as food: 236; a person in it: 72; a logo on it: 22; can't tell: 775.
+Written by `pnpm engine check-photos` (2026-11-09), most-read pages first. Rules: docs/governance.md, "Photos".
+5167 verdicts. Shows it: 3522; its habitat (asked again): 3; something else: 272; not a photo of it: 185; dead or as food: 250; a person in it: 85; a logo on it: 31; can't tell: 802.
 
-## Left with no photo (53)
+## Left with no photo (57)
 
 - plants/vesicularia-ferriei
 - plants/cyperus-helferi
 - species/hyphessobrycon-elachys
 - species/channa-stewartii
+- species/vittina-waigiensis
 - species/symphysodon-discus
 - species/bagrichthys-hypselopterus
 - species/betta-bellica
+- species/betta-falx
 - species/chaetostoma-fischeri
 - species/clarias-pachynema
 - species/cyclocheilichthys-janthochir
@@ -41,7 +43,6 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 - species/aphyocharax-rathbuni
 - species/aphyosemion-bualanum
 - species/barbodes-everetti
-- species/betta-falx
 - species/catoprion-mento
 - species/channa-ornatipinnis
 - species/cherax-snowden
@@ -52,14 +53,17 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 - species/eutropiichthys-cetosus
 - species/garra-arupi
 - species/garra-kalpangi
-- species/garra-mullya
-- species/jordanella-floridae
+- species/hypselecara-coryphaenoides
+- species/labeo-pierrei
 - species/laides-hexanema
 - species/laides-longibarbis
+- species/lobocheilos-melanotaenia
+- species/melanochromis-chipokae
+- species/metynnis-maculatus
 - species/opsarius-pulchellus
 - species/parambassis-wolffii
 
-## Can't tell: still shown (775)
+## Can't tell: still shown (802)
 
 | Page | Photo | What the model saw |
 | --- | --- | --- |
@@ -100,6 +104,8 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 | breeds/super-red-arowana | [photo](https://media.aquatome.com/commons/882693881008ce4d.webp) | silvery juvenile arowanas with reddish fins, red line not yet clear |
 | species/betta-splendens | [photo](https://media.aquatome.com/commons/81a36ecb45e52d4f.webp) | blurry dark betta-like silhouette in a glass bowl |
 | species/poecilia-reticulata | [photo](https://media.aquatome.com/inaturalist/131701420.webp) | distant small pale fish in murky wild water |
+| species/poecilia-reticulata (a guide photo) | [photo](https://media.aquatome.com/video/4lG_4wSx_bQ/p6-uaXNfbWFsZS5qcGc.webp) | mosquitofish (Gambusia), caption is about the look-alike, not the guppy |
+| species/paracheirodon-innesi (a guide photo) | [photo](https://media.aquatome.com/video/cPBLU4VMwWU/p5-b25fdGV0cmEuanBn.webp) | tetra with blue stripe but no red visible on rear body; may be green neon, not clearly a neon tetra; rocks and grass tan |
 | species/paracheirodon-axelrodi (a guide photo) | [photo](https://media.aquatome.com/aquariumcoop/a17c77649a4cb40b.webp) | angelfish in planted tank; cardinals barely visible if at all |
 | species/paracheirodon-axelrodi | [photo](https://media.aquatome.com/seriouslyfish/1d17284367e74705.webp) | tiny fry/larva without adult colours, cannot confirm species |
 | species/trigonostigma-heteromorpha | [photo](https://media.aquatome.com/sprucepets/58663e83a1d25277.webp) | slender gold fish with narrow wedge; could be T. espei |
@@ -151,6 +157,7 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 | plants/cryptocoryne-crispatula | [photo](https://media.aquatome.com/commons/c0092856d962c461.webp) | small emersed Cryptocoryne rosette on wet rock in the wild; wavy lanceolate leaves, species unclear |
 | plants/helanthium-tenellum | [photo](https://media.aquatome.com/inaturalist/223377639.webp) | dense emersed carpet covered in tiny white flowers, species unclear |
 | plants/helanthium-tenellum | [photo](https://media.aquatome.com/inaturalist/430158356.webp) | close-up of single white three-petalled flower; foliage unclear, can't confirm species |
+| plants/acorus-gramineus | [photo](https://media.aquatome.com/aquariumbreeder/1f96698a9c5619b9.webp) | submerged grassy rosette on dark background; soft radiating leaves look more like Blyxa than fan-shaped Acorus, can't te |
 | plants/acorus-gramineus | [photo](https://media.aquatome.com/commons/34fa5cabb2823a06.webp) | grassy clump on bark mulch, could be Acorus or a Carex/sedge |
 | species/garra-flavatra | [photo](https://media.aquatome.com/commons/8bef81e73813c3bb.webp) | blurry dark fish on leaf plus pencilfish, markings unclear |
 | species/garra-flavatra | [photo](https://media.aquatome.com/commons/9e23fabdfd062d15.webp) | blurry dark small fish resting on leaf, markings not visible |
@@ -168,11 +175,11 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 | plants/echinodorus-grisebachii | [photo](https://media.aquatome.com/commons/88437892163cbca8.webp) | emersed Echinodorus with flower stalks in a bucket with floating plants, species unclear |
 | plants/echinodorus-grisebachii | [photo](https://media.aquatome.com/commons/981ef650c6ba6161.webp) | emersed Echinodorus in a bucket, same plant as 4, species unclear |
 | plants/echinodorus-grisebachii | [photo](https://media.aquatome.com/commons/fb267a0e9d9dc4a9.webp) | close-up of a flower bud on a stalk, can't identify the species |
+| species/caridina-multidentata | [photo](https://media.aquatome.com/inaturalist/103111757.webp) | brownish shrimp among stones, markings not visible |
+| species/caridina-multidentata | [photo](https://media.aquatome.com/inaturalist/458429689.webp) | blurry shrimp under purple light on rock |
 | plants/hygrophila-difformis | [photo](https://media.aquatome.com/aquariumcoop/d5844b8750d866c6.webp) | potted emersed stem plant packshot, ID unclear |
 | plants/hygrophila-difformis | [photo](https://media.aquatome.com/commons/43afb5813886e48a.webp) | emersed plant with toothed hairy leaves on land, possibly emersed form |
 | plants/hygrophila-difformis | [photo](https://media.aquatome.com/commons/f57d6c0f0d1f99db.webp) | very finely divided stem plant, possibly high-light water wisteria |
-| species/caridina-multidentata | [photo](https://media.aquatome.com/inaturalist/103111757.webp) | brownish shrimp among stones, markings not visible |
-| species/caridina-multidentata | [photo](https://media.aquatome.com/inaturalist/458429689.webp) | blurry shrimp under purple light on rock |
 | plants/hygrophila-corymbosa | [photo](https://media.aquatome.com/inaturalist/123606759.webp) | leaf rosette at water surface, washed-out view, ID not certain |
 | plants/hygrophila-corymbosa | [photo](https://media.aquatome.com/inaturalist/123606812.webp) | dull emersed stand at water edge, poor colours, ID not certain |
 | plants/hygrophila-corymbosa | [photo](https://media.aquatome.com/inaturalist/16338969.webp) | close-up of hairy purple flowers with dusty grey leaves, ID unclear |
@@ -194,21 +201,20 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 | species/hyphessobrycon-pulchripinnis | [photo](https://media.aquatome.com/seriouslyfish/10d5fbb1a6d28e84.webp) | orange tetra with red eye; no yellow and black anal fin, so it may be an orange form of lemon tetra or a different speci |
 | species/hyphessobrycon-pulchripinnis | [photo](https://media.aquatome.com/seriouslyfish/8d87f58ca1897b6e.webp) | same orange red-eyed tetra; lacks lemon tetra fin markings |
 | species/thayeria-boehlkei | [photo](https://media.aquatome.com/commons/ea4fbcdf3ba0b903.webp) | pinkish fish facing camera, odd lighting, marks not visible |
-| species/labidochromis-caeruleus | [photo](https://media.aquatome.com/commons/0c5670f2f7a40286.webp) | yellow cichlid without the black dorsal and pelvic fin marks; may be a hybrid or a look-alike |
 | species/labidochromis-caeruleus | [photo](https://media.aquatome.com/commons/2e3623660bd7d8f9.webp) | yellow cichlid with no black dorsal band, resting on gravel |
 | species/labidochromis-caeruleus | [photo](https://media.aquatome.com/commons/fa4b14abacda5ecc.webp) | albino-type yellow cichlid with red eye, no black fin markings; can't confirm species |
 | plants/ammannia-gracilis | [photo](https://media.aquatome.com/commons/3aa850397ea64daa.webp) | green stem with narrow wavy leaves; possibly green low-light Ammannia or Hygrophila angustifolia |
 | plants/ammannia-gracilis | [photo](https://media.aquatome.com/commons/801f329539edd738.webp) | green stem plant with pinkish tips among grassy plants; could be Hygrophila or another stem plant |
+| plants/pogostemon-stellatus | [photo](https://media.aquatome.com/commons/69b90479574f6db2.webp) | submersed whorled stem plant, pale, blurry underwater view |
+| plants/pogostemon-stellatus | [photo](https://media.aquatome.com/inaturalist/288941429.webp) | broad light-green leaved stem plant in a tank, ID unclear |
 | species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/190994960.webp) | brownish shiner with orange fins in white tray; may be a different Notropis |
 | species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/198085365.webp) | brown shiner with orange fins and purple cheek in a photo tank |
 | species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/345078269.webp) | plain brownish minnow in a viewing tank; no rainbow colours, could be another shiner |
 | species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/487219627.webp) | small red fish in a clear container, far away |
 | species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/594690233.webp) | close-up of a shiner with a red stripe; may be a different species |
-| plants/pogostemon-stellatus | [photo](https://media.aquatome.com/commons/69b90479574f6db2.webp) | submersed whorled stem plant, pale, blurry underwater view |
-| plants/pogostemon-stellatus | [photo](https://media.aquatome.com/inaturalist/288941429.webp) | broad light-green leaved stem plant in a tank, ID unclear |
 | plants/egeria-densa | [photo](https://media.aquatome.com/inaturalist/111784032.webp) | blurry underwater view of leafy stems; could be Egeria or a look-alike such as Elodea or Hydrilla |
-| species/poecilia-latipinna | [photo](https://media.aquatome.com/inaturalist/193338948.webp) | small livebearers in shallow wild water; may be mollies or mosquitofish |
 | species/poecilia-latipinna | [photo](https://media.aquatome.com/inaturalist/252129078.webp) | group of small fish seen from above in wild, can't confirm species |
+| species/poecilia-latipinna | [photo](https://media.aquatome.com/inaturalist/313886713.webp) | single small pale livebearer over the bottom; too distant to confirm |
 | species/poecilia-latipinna | [photo](https://media.aquatome.com/inaturalist/4183108.webp) | blurry dark mottled fish among stems, can't confirm |
 | species/poecilia-latipinna | [photo](https://media.aquatome.com/inaturalist/61406053.webp) | two fish from above in shallow water, one with orange chest; too unclear to confirm molly |
 | species/poecilia-latipinna | [photo](https://media.aquatome.com/inaturalist/88927621.webp) | distant small silvery fish seen from above in murky water |
@@ -227,233 +233,264 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 | plants/ludwigia-repens | [photo](https://media.aquatome.com/inaturalist/376469273.webp) | flowering stem with pinkish narrow leaves in the wild, maybe another Ludwigia species |
 | plants/ludwigia-repens | [photo](https://media.aquatome.com/inaturalist/532997089.webp) | Top-down view of Ludwigia stem tips with orange-green rounded leaves; could be plain L. repens rather than the deep red  |
 | species/melanotaenia-praecox | [photo](https://media.aquatome.com/aquariumcoop/c61a37ab4bcae461.webp) | mixed community tank with small rainbowfish and other fish, distant view |
-| plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/commons/d2cd6fcbfc5adc13.webp) | emersed lanceolate-leaved Ludwigia-like plant at a muddy water edge; can't confirm species |
-| plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/commons/df63d71447a3164f.webp) | Ludwigia with conspicuous yellow 4-petal flower; L. glandulosa is usually petal-less, so possibly another Ludwigia |
-| plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/inaturalist/497708173.webp) | upright stem with narrow lanceolate leaves among grasses; could be L. glandulosa but no flowers visible |
-| plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/inaturalist/8935602.webp) | dense patch of reddish-stemmed plants with elliptic leaves; may be another Ludwigia such as L. palustris |
-| species/dario-dario | [photo](https://media.aquatome.com/commons/ae6db82c859bca17.webp) | dark purplish fish with blue scale spots; looks more like a Badis species than Dario dario |
-| species/dario-dario | [photo](https://media.aquatome.com/seriouslyfish/28f5360bfd4a3c2a.webp) | plain grey fish with blue pelvic fins; possibly a female or subdued Dario, but other Dario species can't be ruled out |
-| species/dario-dario | [photo](https://media.aquatome.com/seriouslyfish/51339d13f52952c0.webp) | red fish with spotted scales and blue-edged fins but no vertical bars; could be Dario hysginon or another Dario |
-| plants/mayaca-fluviatilis | [photo](https://media.aquatome.com/commons/138c974e0726444f.webp) | distant view of tiny seedlings and one pale flower on wet mud; species hard to confirm |
-| species/xiphophorus-hellerii | [photo](https://media.aquatome.com/commons/c740a3ce403f3fd8.webp) | red wagtail fish with a deep, short body; looks like a platy, though a swordtail female can't be ruled out |
-| species/xiphophorus-hellerii | [photo](https://media.aquatome.com/inaturalist/177220108.webp) | pale fish seen from above on sandy bottom; can't confirm species |
-| plants/utricularia-graminifolia | [photo](https://media.aquatome.com/commons/6930df1f5d6bc641.webp) | same labelled pot: grassy leaves and a white flower, species unclear |
-| plants/utricularia-graminifolia | [photo](https://media.aquatome.com/commons/ebe1aaad5e48cab1.webp) | potted plant with a white flower; could be another white-flowered Utricularia |
-| plants/utricularia-graminifolia | [photo](https://media.aquatome.com/inaturalist/625494083.webp) | small blue flower over grassy leaves and moss; not clearly identifiable |
-| plants/utricularia-graminifolia | [photo](https://media.aquatome.com/inaturalist/625494105.webp) | one blue flower above small leaves; colour could fit a look-alike Utricularia, can't rule it out |
-| species/poropanchax-normani | [photo](https://media.aquatome.com/commons/9cf5f820c1bfd232.webp) | top view of mixed small pale fish; some may be other species |
-| species/poropanchax-normani | [photo](https://media.aquatome.com/commons/a81e5a564c071170.webp) | greenish killifish with dark eye, no clear lampeye shine; ID uncertain |
-| plants/glossostigma-elatinoides | [photo](https://media.aquatome.com/inaturalist/1436526.webp) | mat with many white star-shaped flowers and pink buds; may be a look-alike |
-| plants/glossostigma-elatinoides | [photo](https://media.aquatome.com/inaturalist/260097118.webp) | close-up of rounded yellow-green leaves; species uncertain |
-| plants/glossostigma-elatinoides | [photo](https://media.aquatome.com/inaturalist/4705204.webp) | close-up of hairy white flowers; may be a Glossostigma relative or a look-alike |
+| plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/commons/d2cd6fcbfc5adc13.webp) | emersed Ludwigia stems over muddy water, seen from a distance |
+| plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/commons/df63d71447a3164f.webp) | emersed Ludwigia with a yellow four-petalled flower; L. glandulosa has no petals, so this may be L. perennis or another  |
+| plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/flickr/50184495328.webp) | leafy Ludwigia-like plant over muddy water; species can't be confirmed |
+| plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/inaturalist/219942095.webp) | emersed plant with reddish capsules on dry ground; could be a different Ludwigia |
+| plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/inaturalist/497708173.webp) | upright emersed stem with narrow leaves, possibly a Ludwigia |
+| plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/inaturalist/8935602.webp) | dense emersed growth with spotted leaves; species unclear |
+| species/dario-dario | [photo](https://media.aquatome.com/seriouslyfish/28f5360bfd4a3c2a.webp) | greyish fish with red throat, possibly a female Dario or a related species |
+| species/dario-dario | [photo](https://media.aquatome.com/seriouslyfish/51339d13f52952c0.webp) | red spotted fish without bars, possibly another Dario species such as D. hysginon |
+| plants/limnophila-aromatica | [photo](https://media.aquatome.com/2hraquarist/62aa0610bc94050d.webp) | dense red-green stem plants in tank, possibly L. aromatica, narrow leaves unclear |
+| plants/limnophila-aromatica | [photo](https://media.aquatome.com/commons/1695b2d849ba5326.webp) | top view of a whorl of serrated lanceolate leaves, no flowers |
+| plants/limnophila-aromatica | [photo](https://media.aquatome.com/flickr/3453471951.webp) | close-up of reddish narrow-leaved stem plant with bubbles, ID unclear |
+| plants/limnophila-aromatica | [photo](https://media.aquatome.com/inaturalist/259982701.webp) | flowering plant in the wild, dim and distant view |
+| species/xiphophorus-hellerii | [photo](https://media.aquatome.com/inaturalist/177220108.webp) | pale orange fish over sandy bottom, seen from above, too unclear to identify |
+| plants/utricularia-graminifolia | [photo](https://media.aquatome.com/commons/6930df1f5d6bc641.webp) | potted grassy bladderwort with white flower and label |
+| plants/utricularia-graminifolia | [photo](https://media.aquatome.com/commons/ebe1aaad5e48cab1.webp) | white bladderwort flower over potted plants; white form or other species |
+| plants/utricularia-graminifolia | [photo](https://media.aquatome.com/inaturalist/50292634.webp) | wild bladderworts with many small pale lilac flowers among grass; species unclear |
+| plants/utricularia-graminifolia | [photo](https://media.aquatome.com/inaturalist/520939686.webp) | many pink flowers on mossy wet rock by water; species unclear |
+| species/poropanchax-normani | [photo](https://media.aquatome.com/commons/34b932da7a8b9da4.webp) | golden lampeye-type fish, white eye ring rather than blue; species unclear |
+| species/poropanchax-normani | [photo](https://media.aquatome.com/commons/3e52589ec729a533.webp) | two small silvery fish seen from above, blurry |
+| species/poropanchax-normani | [photo](https://media.aquatome.com/commons/9cf5f820c1bfd232.webp) | several small silvery fish from above, blurry |
+| species/poropanchax-normani | [photo](https://media.aquatome.com/commons/a81e5a564c071170.webp) | greenish-gold killifish with large eye; could be another lampeye |
+| species/hasemania-nana | [photo](https://media.aquatome.com/commons/2a4b5de304e67272.webp) | small distant reddish tetra among plants, likely copper male but too small to confirm |
+| plants/glossostigma-elatinoides | [photo](https://media.aquatome.com/inaturalist/1436526.webp) | dense mat with many white four-lobed flowers and pink buds; flowers look too large and many for Glossostigma |
+| plants/glossostigma-elatinoides | [photo](https://media.aquatome.com/inaturalist/260097118.webp) | close-up of glossy ovate leaves among moss; could be wild Glossostigma, but ID not certain |
+| plants/glossostigma-elatinoides | [photo](https://media.aquatome.com/inaturalist/30805810.webp) | dense clump of elongated spoon-shaped leaves, possibly emersed Glosso |
+| plants/glossostigma-elatinoides | [photo](https://media.aquatome.com/inaturalist/4705204.webp) | close-up of white hairy flowers among reddish leaves; can't confirm species |
 | plants/marsilea-hirsuta | [photo](https://media.aquatome.com/commons/1308260503c30cac.webp) | green, almost hairless Marsilea fronds among grass; can't tell which species |
-| plants/marsilea-hirsuta | [photo](https://media.aquatome.com/commons/8cbb3e84a6503aaf.webp) | close-up of one large hairy frond; large fan-shaped leaflets could be M. drummondii |
-| plants/marsilea-hirsuta | [photo](https://media.aquatome.com/commons/98ebe29575cc024d.webp) | very hairy silvery Marsilea with crenate leaflets; could be M. drummondii |
-| plants/marsilea-hirsuta | [photo](https://media.aquatome.com/commons/d3991c6a37e496ce.webp) | floating Marsilea mat in water with tall stalks; species can't be confirmed |
-| plants/marsilea-hirsuta | [photo](https://media.aquatome.com/inaturalist/346813138.webp) | fronds with crenate leaflet edges and only light hair; could be another Marsilea |
-| plants/sagittaria-subulata | [photo](https://media.aquatome.com/inaturalist/38202100.webp) | emersed plants with broader spatulate leaves and white flowers on a mudflat; could be another Sagittaria |
-| plants/sagittaria-subulata | [photo](https://media.aquatome.com/inaturalist/38202122.webp) | emersed plant with spoon-shaped blades on mud; can't rule out another Sagittaria or Alisma |
-| species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/569742325.webp) | group of pale golden gouramis over lava gravel |
-| species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/569742327.webp) | pale pinkish gouramis in a tank, no clear stripes |
-| plants/lilaeopsis-brasiliensis | [photo](https://media.aquatome.com/inaturalist/257979017.webp) | a few yellowing strap leaves in a carpet of a different fine-leaved plant |
-| plants/lilaeopsis-brasiliensis | [photo](https://media.aquatome.com/inaturalist/312876772.webp) | tall, narrow leaves divided into sections, growing in dark water with pennywort; could be another Lilaeopsis species |
+| plants/marsilea-hirsuta | [photo](https://media.aquatome.com/commons/e0586b414c960cbc.webp) | clover-like Marsilea leaves among grass, species unclear |
+| plants/marsilea-hirsuta | [photo](https://media.aquatome.com/flickr/6260053443.webp) | dense Marsilea mat; leaves look smooth, so the species can't be confirmed |
+| species/erpetoichthys-calabaricus | [photo](https://media.aquatome.com/commons/26708ef33c0f05d3.webp) | head close-up only; could be a bichir instead |
+| plants/sagittaria-subulata | [photo](https://media.aquatome.com/commons/b16acc6ad306e741.webp) | wild grass-like leaves mixed with duckweed, hard to confirm |
+| plants/sagittaria-subulata | [photo](https://media.aquatome.com/inaturalist/38202100.webp) | emersed plants with spatulate leaves and white flowers on tidal mud, distant |
+| plants/sagittaria-subulata | [photo](https://media.aquatome.com/inaturalist/38202122.webp) | emersed rosette with broad stalked leaves on mud; species unclear |
+| species/trichopsis-vittata | [photo](https://media.aquatome.com/commons/e96225bb097394c9.webp) | pale fish with iridescent blue fins, no stripes visible |
+| species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/543890514.webp) | faded olive gourami-like fish in a glass tank outdoors; stripes faint, can't confirm species |
+| species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/569742325.webp) | group of pale pinkish gouramis with no stripes |
+| species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/569742327.webp) | pale pinkish gouramis with no stripes, may be washed-out Trichopsis |
+| plants/lilaeopsis-brasiliensis | [photo](https://media.aquatome.com/inaturalist/312876772.webp) | tall septate rush-like leaves in water with pennywort; may be a larger Lilaeopsis species |
 | plants/lilaeopsis-brasiliensis | [photo](https://media.aquatome.com/inaturalist/7571227.webp) | emersed grassy carpet on a stream bank under a tree; could be wild Lilaeopsis but too distant and mixed with grasses to  |
-| plants/lilaeopsis-brasiliensis | [photo](https://media.aquatome.com/inaturalist/7571435.webp) | dense fine grassy mat outdoors, species can't be confirmed |
-| plants/taxiphyllum-alternans | [photo](https://media.aquatome.com/inaturalist/472757565.webp) | Yellow-green terrestrial moss mat on soil with twigs; can't confirm it is Taxiphyllum alternans rather than another moss |
-| species/carassius-auratus | [photo](https://media.aquatome.com/inaturalist/172831572.webp) | very blurry pinkish fish in cloudy water |
-| species/carassius-auratus | [photo](https://media.aquatome.com/inaturalist/221208693.webp) | pale orange and dark fish in murky pond from above; koi not ruled out |
-| species/carassius-auratus | [photo](https://media.aquatome.com/inaturalist/73215815.webp) | red fish in pond seen through rippled surface; goldfish or koi unclear |
-| plants/fissidens-fontanus | [photo](https://media.aquatome.com/commons/2b2afd251f08b1a2.webp) | emersed moss mat on a wet rock; can't be told apart from other mosses |
-| plants/fissidens-fontanus | [photo](https://media.aquatome.com/commons/81db0ee988f0156a.webp) | long submerged moss strands in a stream with leaves; might be F. fontanus but too blurry to confirm |
+| plants/lilaeopsis-brasiliensis | [photo](https://media.aquatome.com/inaturalist/7571435.webp) | dense fine-leaved grassy turf in the wild; can't confirm the species |
+| species/boraras-urophthalmoides | [photo](https://media.aquatome.com/inaturalist/251523954.webp) | orange fish with dark stripe in photo tank; markings not clear enough to confirm |
+| plants/taxiphyllum-alternans | [photo](https://media.aquatome.com/flickr/24486132179.webp) | wild moss carpet with grass stems; looks like a different moss with swollen shoot tips |
+| plants/taxiphyllum-alternans | [photo](https://media.aquatome.com/flickr/24760273561.webp) | wild terrestrial moss mat with leaf litter; species can't be confirmed |
+| plants/taxiphyllum-alternans | [photo](https://media.aquatome.com/inaturalist/472757565.webp) | yellow-green wild moss on the ground; can't confirm the species |
+| species/carassius-auratus | [photo](https://media.aquatome.com/inaturalist/172831572.webp) | very blurry red fish in murky water, can't identify |
+| species/carassius-auratus | [photo](https://media.aquatome.com/inaturalist/221208693.webp) | pond fish in orange, pale and dark colours, could be koi |
+| plants/fissidens-fontanus | [photo](https://media.aquatome.com/commons/2b2afd251f08b1a2.webp) | emersed moss mat on rock, could be another moss |
+| plants/fissidens-fontanus | [photo](https://media.aquatome.com/commons/81db0ee988f0156a.webp) | submerged trailing moss in stream, fine branched look, ID unclear |
 | plants/fissidens-fontanus | [photo](https://media.aquatome.com/inaturalist/654013920.webp) | green moss mat in shallow stream with leaves; moss species can't be confirmed |
-| plants/fissidens-fontanus | [photo](https://media.aquatome.com/inaturalist/660001611.webp) | bright green feathery moss clump on sand; could be Fissidens but a look-alike can't be ruled out |
-| plants/fissidens-fontanus | [photo](https://media.aquatome.com/inaturalist/660002030.webp) | small tuft of fine spiky moss on rock; flattened two-ranked Fissidens fronds not clearly visible |
-| species/poecilia-sphenops | [photo](https://media.aquatome.com/inaturalist/611221064.webp) | slender olive livebearer, could be wild-type molly or Gambusia; blurry |
-| species/cyprinus-rubrofuscus | [photo](https://media.aquatome.com/commons/00b64e596a77e9a4.webp) | wild-type bronze carp underwater; can't rule out common carp (C. carpio) from this view |
-| plants/cryptocoryne-beckettii | [photo](https://media.aquatome.com/commons/bb46c885946b1a33.webp) | emersed crypt mass, olive leaves; species can't be confirmed |
-| plants/cryptocoryne-beckettii | [photo](https://media.aquatome.com/cryptspages/bec_x_B1_134.webp) | green spathe with brown collar; can't confirm it is beckettii |
-| species/corydoras-panda | [photo](https://media.aquatome.com/commons/ccd6c50890efdf3c.webp) | Cory with a dark band along the rear body and no clear spot at the tail base; doesn't look like a panda |
-| species/corydoras-sterbai | [photo](https://media.aquatome.com/commons/a96f10a210cb97aa.webp) | pale head with dark wavy lines and faint orange on the fins; could be C. haraldschultzi |
-| species/corydoras-sterbai | [photo](https://media.aquatome.com/inaturalist/339901824.webp) | blurry, dim view of a lined cory among plants; head spots and orange pectoral spines not clear enough to confirm sterbai |
-| species/osteoglossum-bicirrhosum | [photo](https://media.aquatome.com/commons/61a0587d79794d90.webp) | greenish arowana in dim light; could be an Asian green arowana |
-| species/scleropages-jardinii | [photo](https://media.aquatome.com/commons/2dc6180128240a53.webp) | Dark arowana in a dim public tank; can't rule out Asian arowana |
-| species/scleropages-jardinii | [photo](https://media.aquatome.com/commons/cd15fb87ae088bf3.webp) | Plain greenish-gold arowana in a tank; no clear red scale spots, so it could be an Asian arowana |
-| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/504131566.webp) | snakehead barely visible in murky water |
-| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/631236296.webp) | blurry snakehead seen from above in shallow water |
-| species/atractosteus-spatula | [photo](https://media.aquatome.com/inaturalist/207230565.webp) | gar surfacing in green water; snout looks fairly long and slender, so longnose or spotted gar can't be ruled out |
-| species/atractosteus-spatula | [photo](https://media.aquatome.com/inaturalist/589928706.webp) | distant top view of a gar at the water surface |
-| species/atractosteus-spatula | [photo](https://media.aquatome.com/inaturalist/589928733.webp) | distant top view of a fish in murky water; species can't be told |
-| species/atractosteus-spatula | [photo](https://media.aquatome.com/inaturalist/666055063.webp) | slender gar seen from above in murky water; can't tell which gar |
-| species/atractosteus-spatula | [photo](https://media.aquatome.com/seriouslyfish/3e3a1938b76daf4e.webp) | juvenile gar with very long, thin snout and spots; could be longnose or spotted gar |
-| plants/hydrocotyle-verticillata | [photo](https://media.aquatome.com/commons/96029aeaf5ba0663.webp) | small round pennywort leaves creeping on soil; no flowers, so the species can't be confirmed |
-| plants/hydrocotyle-verticillata | [photo](https://media.aquatome.com/inaturalist/11338982.webp) | overlapping rounded leaves, some seem notched; may be another Hydrocotyle |
-| plants/hydrocotyle-verticillata | [photo](https://media.aquatome.com/inaturalist/1682695.webp) | peltate pennywort leaves on a forest floor; no flowers, so the species can't be confirmed |
-| plants/hydrocotyle-verticillata | [photo](https://media.aquatome.com/inaturalist/53070271.webp) | single peltate leaf close-up; cannot rule out H. umbellata |
-| plants/hydrocotyle-verticillata | [photo](https://media.aquatome.com/inaturalist/57266711.webp) | a few peltate leaves among grasses; partial view |
-| plants/hydrocotyle-verticillata | [photo](https://media.aquatome.com/inaturalist/6860110.webp) | dense pennywort mat growing out of water; no flowers, so the species can't be confirmed |
-| species/phractocephalus-hemioliopterus | [photo](https://media.aquatome.com/inaturalist/250985358.webp) | yellowish speckled catfish seen head-on; cannot confirm it is a red-tail and not another pimelodid |
-| species/hyphessobrycon-sweglesi | [photo](https://media.aquatome.com/commons/f0191fe49b0301ff.webp) | pale silvery tetras with red fins and dark-tipped dorsal; could be a rosy/bentosi tetra rather than red phantom |
-| plants/micranthemum-callitrichoides | [photo](https://media.aquatome.com/inaturalist/628894758.webp) | emersed carpet with small white star flowers and thumb; leaves look rather large, could be another carpeting plant |
-| species/boraras-brigittae | [photo](https://media.aquatome.com/aquariumcoop/32658b3923020409.webp) | pale small rasboras with dark stripe over leaves; can't rule out another Boraras species |
+| species/poecilia-sphenops | [photo](https://media.aquatome.com/inaturalist/611221064.webp) | blurry slender fish over gravel, possibly a topminnow or mosquitofish |
+| species/cyprinus-rubrofuscus | [photo](https://media.aquatome.com/commons/00b64e596a77e9a4.webp) | wild-type bronze carp, may be common carp rather than koi |
+| species/cyprinus-rubrofuscus | [photo](https://media.aquatome.com/panitvong/inat-179590023.webp) | dense school of dark fish in shallow stream with one orange fish; species unclear |
+| plants/cryptocoryne-beckettii | [photo](https://media.aquatome.com/commons/bb46c885946b1a33.webp) | emersed crypt mat over water, could be another Cryptocoryne |
+| plants/cryptocoryne-beckettii | [photo](https://media.aquatome.com/commons/de048b7682a01b6b.webp) | dense emersed crypt stand, species not clear |
+| plants/cryptocoryne-beckettii | [photo](https://media.aquatome.com/cryptspages/bec_x_B1_134.webp) | close-up of green spathe with reddish petioles |
+| species/osteoglossum-bicirrhosum | [photo](https://media.aquatome.com/commons/61a0587d79794d90.webp) | greenish arowana in dim tank, shape suggests possible Asian arowana |
+| species/scleropages-jardinii | [photo](https://media.aquatome.com/commons/cd15fb87ae088bf3.webp) | large arowana, plain scales without clear spots; could be another Scleropages |
+| plants/bolbitis-heteroclita | [photo](https://media.aquatome.com/inaturalist/32075373.webp) | wild terrestrial pinnate fern on forest floor; toothed pinnae, could be another Bolbitis species |
+| species/channa-asiatica | [photo](https://media.aquatome.com/commons/940d5c4b49fcb3d8.webp) | small reddish-barred white-spotted snakehead, possibly young; look-alikes possible |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/504131566.webp) | barred snakehead in murky water, poorly visible |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/631236296.webp) | barred snakehead seen from above in shallow wild water, blurry |
+| species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/81679461.webp) | dark white-spotted snakehead among plants, no clear eyespot visible |
+| species/atractosteus-spatula | [photo](https://media.aquatome.com/inaturalist/207230565.webp) | gar surfacing in green water; snout looks fairly long, may be longnose gar |
+| species/atractosteus-spatula | [photo](https://media.aquatome.com/inaturalist/589928706.webp) | gar seen from above at surface of murky water, distant |
+| species/atractosteus-spatula | [photo](https://media.aquatome.com/inaturalist/589928733.webp) | distant top view of a large fish in murky water, species unclear |
+| species/atractosteus-spatula | [photo](https://media.aquatome.com/inaturalist/666055063.webp) | gar faintly seen in murky brown water |
+| species/atractosteus-spatula | [photo](https://media.aquatome.com/seriouslyfish/3e3a1938b76daf4e.webp) | juvenile gar with very long slender spotted snout; could be longnose gar |
+| plants/echinodorus-cordifolius | [photo](https://media.aquatome.com/inaturalist/77750672.webp) | close-up of white flowers only, species hard to confirm |
+| plants/hydrocotyle-verticillata | [photo](https://media.aquatome.com/commons/96029aeaf5ba0663.webp) | small pennywort leaves on dark soil bank, species unclear |
+| plants/hydrocotyle-verticillata | [photo](https://media.aquatome.com/inaturalist/38495149.webp) | dense mat of round pennywort leaves on a wet stream bank; can't confirm peltate leaves to rule out H. ranunculoides or o |
+| plants/hydrocotyle-verticillata | [photo](https://media.aquatome.com/inaturalist/6860110.webp) | lush pennywort mass, leaves not clearly peltate |
+| species/phractocephalus-hemioliopterus | [photo](https://media.aquatome.com/inaturalist/250985358.webp) | head-on view of a mottled yellow-brown catfish without the red-tail's dark back and white flank; probably a different sp |
+| species/hyphessobrycon-sweglesi | [photo](https://media.aquatome.com/commons/f0191fe49b0301ff.webp) | three pale, see-through tetras with red fins and a shoulder spot; the dark, white-tipped dorsal looks like a rosy tetra  |
+| plants/micranthemum-callitrichoides | [photo](https://media.aquatome.com/commons/fb645fc661ecb3ba.webp) | aquascape with distant foreground carpet, species hard to confirm |
+| plants/micranthemum-callitrichoides | [photo](https://media.aquatome.com/flickr/28073865218.webp) | macro of emersed leaves and white flowers; leaves look large and oval, could be Monte Carlo |
+| plants/micranthemum-callitrichoides | [photo](https://media.aquatome.com/flickr/40946246435.webp) | emersed dome of tiny-leaved carpet plant in pot among garden plants |
+| plants/micranthemum-callitrichoides | [photo](https://media.aquatome.com/flickr/41226862534.webp) | emersed mound of tiny leaves with a star-shaped white flower |
+| species/boraras-brigittae | [photo](https://media.aquatome.com/aquariumcoop/32658b3923020409.webp) | several pale small rasboras near plants, colour faded; may be another Boraras species |
 | plants/eleocharis-parvula | [photo](https://media.aquatome.com/commons/59838f064cc6671f.webp) | Emersed flowering turf of fine sedge with pale fluffy heads; could be E. parvula, but other small sedges (e.g. Isolepis, |
-| plants/eleocharis-parvula | [photo](https://media.aquatome.com/commons/b33bf2187b30d8ae.webp) | emersed flowering spikerush clump; could be E. acicularis |
-| plants/eleocharis-parvula | [photo](https://media.aquatome.com/inaturalist/359434721.webp) | dense stand of fairly thick glaucous spikerush stems; looks like a larger Eleocharis, can't confirm E. parvula |
-| species/agamyxis-pectinifrons | [photo](https://media.aquatome.com/scotcat/67612b75b977d677.webp) | dark thorny catfish, few faded white spots and pale dorsal line; could be Agamyxis or an Amblydoras look-alike |
-| species/chitala-ornata | [photo](https://media.aquatome.com/commons/3888c566b68bbca8.webp) | Two knifefish; the front fish has small, ringless dots that don't match the clown knifefish's large ocelli and may be an |
-| species/chitala-ornata | [photo](https://media.aquatome.com/inaturalist/130041777.webp) | small fish in a bowl with a row of small dots along the upper body, unlike typical ocelli; could be another Chitala |
-| species/apteronotus-albifrons | [photo](https://media.aquatome.com/aquariumcoop/cd6c57ddca2403d0.webp) | grey knifefish with white tail band but no white snout blaze; colour looks off for black ghost, could be a brown ghost o |
+| plants/eleocharis-parvula | [photo](https://media.aquatome.com/commons/b33bf2187b30d8ae.webp) | emersed flowering spikerush clump, species unclear |
+| plants/eleocharis-parvula | [photo](https://media.aquatome.com/commons/c201f4164e45ecac.webp) | flowering spikerush mat, species unclear |
+| plants/eleocharis-parvula | [photo](https://media.aquatome.com/inaturalist/359434721.webp) | dense emersed spikerush stand with small terminal spikelets; Eleocharis sp., can't confirm E. parvula over other spikeru |
+| species/gymnarchus-niloticus | [photo](https://media.aquatome.com/commons/8771eea3195c3784.webp) | pale thick-bodied eel-like fish among plants, dorsal fin and tail not visible |
+| species/gymnarchus-niloticus | [photo](https://media.aquatome.com/commons/95ac72e841ecbbfd.webp) | elongate fish in public aquarium; tail looks finned, can't confirm aba |
+| species/gymnarchus-niloticus | [photo](https://media.aquatome.com/commons/fe45718a404011c1.webp) | same pale fish as photo 1, cropped differently |
+| species/agamyxis-pectinifrons | [photo](https://media.aquatome.com/scotcat/67612b75b977d677.webp) | dark doradid with faint spots by wood, spotting too faded to confirm |
+| species/chitala-ornata | [photo](https://media.aquatome.com/commons/3888c566b68bbca8.webp) | featherback with small dark spots, not clear ocelli; could be another Chitala |
 | species/apteronotus-albifrons | [photo](https://media.aquatome.com/commons/07e3872f4877fb53.webp) | brownish knifefish with banded tail in a photo tank; no white snout blaze visible, could be preserved or brown ghost loo |
-| species/apteronotus-albifrons | [photo](https://media.aquatome.com/commons/1d2b339b5ea25a06.webp) | Bluish eel-like fish with a distinct dorsal fin and a wavy tail; doesn't match a black ghost, possibly a catfish or an e |
-| species/apteronotus-albifrons | [photo](https://media.aquatome.com/commons/6fdcc0a3df3ad5b8.webp) | Pale grey knifefish among plants; could be a brown ghost knifefish, can't confirm |
-| plants/limnophila-sessiliflora | [photo](https://media.aquatome.com/commons/68fabaacb18bb816.webp) | dense land shrub with narrow, undivided leaves and white buds; doesn't look like Limnophila |
-| species/gnathonemus-petersii | [photo](https://media.aquatome.com/commons/ca4b5ae0f8b0d600.webp) | Dark mormyrid in planted tank, blurry; can't see the white bars |
-| species/gnathonemus-petersii | [photo](https://media.aquatome.com/inaturalist/486540220.webp) | Blurry brown mormyrid with long downturned tubular snout; could be Campylomormyrus rather than G. petersii |
-| plants/cryptocoryne-nurii | [photo](https://media.aquatome.com/cryptspages/nur_B802_x_2494.webp) | dark narrow-leaved Cryptocoryne in dry grass in the wild; can't confirm the species |
-| species/osphronemus-goramy | [photo](https://media.aquatome.com/inaturalist/53544572.webp) | murky water, one head at the surface, too unclear to confirm |
-| species/osphronemus-goramy | [photo](https://media.aquatome.com/inaturalist/53544577.webp) | murky pond, fish heads breaking the surface, can't confirm species |
-| plants/cryptocoryne-undulata | [photo](https://media.aquatome.com/cryptspages/und_x_B195_834.webp) | close-up of green Cryptocoryne spathe only; can't identify species |
-| plants/cryptocoryne-undulata | [photo](https://media.aquatome.com/cryptspages/und_x_B195_835.webp) | dissected Cryptocoryne spathe kettle showing spadix; not identifiable |
-| plants/cryptocoryne-undulata | [photo](https://media.aquatome.com/cryptspages/und_x_B31_206.webp) | emersed potted Cryptocoryne with pale twisted spathe; species not verifiable |
-| species/ctenolucius-hujeta | [photo](https://media.aquatome.com/inaturalist/341710206.webp) | Distant top-down view of a long-snouted fish on an orange sandy bottom, likely in the wild; can't rule out Boulengerella |
-| species/ctenolucius-hujeta | [photo](https://media.aquatome.com/inaturalist/341710565.webp) | Dark gar-like characin over sandy bottom in the wild, possibly Boulengerella; hard to confirm |
-| plants/cryptocoryne-usteriana | [photo](https://media.aquatome.com/cryptspages/ust_Bogner1644_B580_1915.webp) | close-up of a warty yellow-orange spathe; can't confirm the species from the flower alone |
-| plants/cryptocoryne-usteriana | [photo](https://media.aquatome.com/cryptspages/ust_Morco_B784_2383.webp) | uprooted dark crypt with wavy leaves; not clearly bullate, so it could be another species |
-| plants/cryptocoryne-usteriana | [photo](https://media.aquatome.com/inaturalist/255933719.webp) | crypt growing in shallow water in the wild; leaves are bumpy but the species is unclear |
-| species/epalzeorhynchos-kalopterus | [photo](https://media.aquatome.com/commons/3842c3b3366920ed.webp) | dull brownish fish with faint lateral stripe on rock; lacks flying fox's bold black stripe and dark-edged fins, possibly |
-| species/epalzeorhynchos-kalopterus | [photo](https://media.aquatome.com/commons/4978ce7ceab738d2.webp) | slender fish with black stripe into tail but clear pelvic/anal fins; looks more like Siamese algae eater than flying fox |
-| species/monodactylus-argenteus | [photo](https://media.aquatome.com/inaturalist/242436884.webp) | two pale silvery fish over weed, too murky to confirm mono |
-| species/monodactylus-argenteus | [photo](https://media.aquatome.com/inaturalist/242436915.webp) | single silvery deep-bodied fish in murky water, no clear marks |
-| plants/cardamine-lyrata | [photo](https://media.aquatome.com/commons/ec5f4712c3e6a57f.webp) | mat of round, scalloped leaves on a mossy bank; looks more like Hydrocotyle/Centella than Cardamine lyrata |
-| species/pseudomugil-furcatus | [photo](https://media.aquatome.com/aquariumcoop/2e3911aecf45166b.webp) | Blue-eye with orange throat and orange-yellow fins that have no black edging; may be another Pseudomugil, e.g. P. ivants |
-| species/pseudomugil-furcatus | [photo](https://media.aquatome.com/inaturalist/309615729.webp) | pale, washed-out blue-eye in murky tank with a neon tetra; can't confirm the species |
-| species/pseudomugil-furcatus | [photo](https://media.aquatome.com/seriouslyfish/134ac9be0cc5e85f.webp) | dull blue-eye, likely a female or young Pseudomugil; no yellow fork-tail fin marks, so the species can't be confirmed |
-| plants/ceratopteris-thalictroides | [photo](https://media.aquatome.com/commons/a45202582c706b11.webp) | floating rounded leaves, possibly juvenile floating form; can't confirm |
-| species/amphilophus-labiatus | [photo](https://media.aquatome.com/commons/89d4bb7e563f046d.webp) | white-pink cichlid with nuchal hump and thin lips; may be Midas cichlid |
-| species/pethia-conchonius | [photo](https://media.aquatome.com/commons/e12da29458d9d6e7.webp) | golden/orange barb, tail spot hidden; possibly golden rosy barb variety |
-| plants/gratiola-viscidula | [photo](https://media.aquatome.com/inaturalist/319134277.webp) | small plant with one flower among sedges, distant view in wild habitat |
-| species/synodontis-eupterus | [photo](https://media.aquatome.com/commons/82b28ac86538c14c.webp) | dark brown spotted Synodontis half-hidden behind plants; dorsal fin not visible, so it can't be confirmed |
-| species/synodontis-eupterus | [photo](https://media.aquatome.com/inaturalist/233486434.webp) | dull spotted Synodontis, dorsal looks short; blurry, ID unclear |
-| species/synodontis-eupterus | [photo](https://media.aquatome.com/inaturalist/233486443.webp) | dull spotted Synodontis, poor view; not clearly eupterus |
-| plants/juncus-repens | [photo](https://media.aquatome.com/commons/2b2a035fc045e10e.webp) | close-up of Juncus flower clusters; species not certain |
-| plants/juncus-repens | [photo](https://media.aquatome.com/commons/c29f743b8aca0420.webp) | Juncus inflorescence of separate stalked flowers; doesn't match the clustered flower heads of J. repens, species unclear |
-| plants/juncus-repens | [photo](https://media.aquatome.com/commons/d14de16fe307ee33.webp) | Macro of a single Juncus flower with feathery stigmas; individually stalked flower looks more like J. tenuis/dichotomus  |
-| plants/juncus-repens | [photo](https://media.aquatome.com/inaturalist/127907167.webp) | emersed tufts mixed with other plants in the wild; not clear |
-| plants/juncus-repens | [photo](https://media.aquatome.com/inaturalist/54487885.webp) | emersed grassy rush clump among leaf litter; can't confirm it's J. repens |
-| species/maylandia-estherae | [photo](https://media.aquatome.com/inaturalist/258281751.webp) | pale pinkish-white mbuna, possibly washed-out red zebra but could be another pink/albino mbuna |
-| species/hyphessobrycon-amandae | [photo](https://media.aquatome.com/aquariumcoop/95a0063ecc6ff295.webp) | pale golden tetra, washed-out colour; possibly a stressed ember tetra but can't be confirmed |
-| species/hyphessobrycon-amandae | [photo](https://media.aquatome.com/inaturalist/63005894.webp) | dull, blurry greenish-brown tetra; poor view |
-| plants/lagenandra-meeboldii | [photo](https://media.aquatome.com/commons/71eb23d9b3b20b5b.webp) | crop of photo 2; narrow green leaves through glass, ID unclear |
-| plants/lagenandra-meeboldii | [photo](https://media.aquatome.com/commons/b470cc121edfabd6.webp) | crop of photo 4; pale bumpy heart-shaped leaves, ID unclear |
-| plants/lagenandra-meeboldii | [photo](https://media.aquatome.com/commons/eb450ce4d59d3edd.webp) | pale green bumpy heart-shaped leaves seen underwater; not the red form, could be a Cryptocoryne |
-| plants/lagenandra-meeboldii | [photo](https://media.aquatome.com/commons/f2fed929b0887548.webp) | submerged narrow green-yellow leaves seen through glass; can't confirm the species |
-| species/trigonostigma-espei | [photo](https://media.aquatome.com/commons/ab7d31b513f53bc1.webp) | three translucent rasboras with thin wedge and glowing orange line; could be T. hengeli |
-| species/microdevario-kubotai | [photo](https://media.aquatome.com/seriouslyfish/a614ef35f4e8daf4.webp) | tiny larval fry against white background, too small to identify |
-| plants/littorella-uniflora | [photo](https://media.aquatome.com/commons/d115b2f77faabc33.webp) | dense turf on a muddy shore; too far away to tell it apart from other turf-forming plants |
-| plants/murdannia-keisak | [photo](https://media.aquatome.com/inaturalist/25068301.webp) | dense mat with many tiny pale pink flowers; may be a different small Murdannia |
-| species/tanichthys-albonubes | [photo](https://media.aquatome.com/aquariumcoop/c6884a8a9ac03882.webp) | Mixed community tank: yellowish fish could be golden white clouds, shown with rainbowfish; no clear main subject |
-| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/2842166591-ced7b993d7101623.webp) | emersed Myriophyllum creeping on mud; can't rule out M. aquaticum or another milfoil |
-| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/3905434571-a683ae41f60ac9a6.webp) | Myriophyllum shoot tip at pond surface among duckweed; could be parrot feather (M. aquaticum), can't confirm species |
-| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/4410788833-25cda6f0b7057c24.webp) | emersed feathery rosette at surface, typical of parrot's feather look-alike |
-| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/4410788833-7b64e4789efee984.webp) | emersed shoot tip in pond; parrot's feather-like |
-| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/4410788833-861fc878a5bddc45.webp) | pond full of emersed Myriophyllum; looks like parrot's feather (M. aquaticum), can't rule out |
-| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/4462501227-83a68ddedb1b4684.webp) | Emersed Myriophyllum mat on the water surface; probably parrot feather (M. aquaticum), not clearly M. mattogrossense |
-| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/5283401603-39c538f07966c055.webp) | Emersed Myriophyllum stand at a ditch edge with pennywort; looks like parrot feather (M. aquaticum), can't confirm M. ma |
-| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/5283401603-b98792816f7df2ee.webp) | close-up of emersed Myriophyllum shoots; species unclear |
-| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/5283401603-ce7522f583b0b1aa.webp) | dense emersed Myriophyllum with pennywort; resembles parrot's feather |
-| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/inaturalist/323641718.webp) | submerged fine-leaved whorled stems in planted aquarium; could be M. mattogrossense, not certain |
-| plants/nymphoides-hydrophylla | [photo](https://media.aquatome.com/inaturalist/327658694.webp) | floating leaves and stems only, no flowers; species can't be confirmed |
-| species/paracheirodon-simulans | [photo](https://media.aquatome.com/bwaquatics/0b413da48f8882f9.webp) | school over plants; red belly marks could be neon or cardinal tetra |
-| species/paracheirodon-simulans | [photo](https://media.aquatome.com/commons/d24e3f9d4a2545b9.webp) | distant blurry school in dark; can't rule out neon tetra |
-| plants/pogostemon-deccanensis | [photo](https://media.aquatome.com/commons/370f8bd580b63fc0.webp) | Pogostemon-like spikes but broader leaves; may be another species |
-| plants/pogostemon-deccanensis | [photo](https://media.aquatome.com/commons/3b6a265c300f0f60.webp) | bushy flowering stand in dry grassland; could be another Pogostemon |
-| plants/pogostemon-deccanensis | [photo](https://media.aquatome.com/commons/d11030dc5c5018d5.webp) | close-up of a single purple flower spike, leaves not visible |
-| plants/pogostemon-deccanensis | [photo](https://media.aquatome.com/inaturalist/230324388.webp) | flower spike among fine leaves near water; hard to confirm species |
-| species/hyphessobrycon-rosaceus | [photo](https://media.aquatome.com/commons/919ef27ae71477f1.webp) | same red-dorsal tetra without black dorsal blotch; possible look-alike |
-| species/hyphessobrycon-rosaceus | [photo](https://media.aquatome.com/commons/d679db7082c53ec9.webp) | pinkish tetra with red dorsal, no black dorsal patch; could be bentosi or a colour form |
-| plants/proserpinaca-palustris | [photo](https://media.aquatome.com/inaturalist/183488460.webp) | distant view of feathery submerged shoots in clear shallow water; could be this plant but too small to confirm |
-| species/pterygoplichthys-joselimaianus | [photo](https://media.aquatome.com/commons/56179958967c5f69.webp) | fine dense gold dots; could be another spotted pleco |
-| species/pterygoplichthys-joselimaianus | [photo](https://media.aquatome.com/commons/e410ffdfb8b05df8.webp) | head close-up with small yellow dots; can't confirm species |
-| species/sewellia-lineolata | [photo](https://media.aquatome.com/seriouslyfish/2cc06d5e5082a31e.webp) | underside on glass; no back pattern visible to confirm the species |
-| species/sewellia-lineolata | [photo](https://media.aquatome.com/seriouslyfish/dfbd7e7ff94dfb48.webp) | underside on glass; the barred fins fit, but a belly view can't rule out other hillstream loaches |
-| plants/rotala-macrandra | [photo](https://media.aquatome.com/commons/a2c38b71059b7fc3.webp) | Dried reddish flower spikes on soil; species can't be confirmed |
-| plants/rotala-macrandra | [photo](https://media.aquatome.com/inaturalist/255471269.webp) | Flowering emersed plant with pink spikes on wet mud; could be a Rotala but can't rule out R. rotundifolia |
-| species/botia-almorhae | [photo](https://media.aquatome.com/commons/71be289cdae71b35.webp) | dull brownish loach with faded blotches among plants; pattern unclear, may be an older yo-yo loach |
-| species/botia-almorhae | [photo](https://media.aquatome.com/commons/fa03ec707ba1a28e.webp) | small banded loach on white gravel; could be a yo-yo loach, but a striped Botia can't be ruled out |
-| species/botia-almorhae | [photo](https://media.aquatome.com/inaturalist/411470254.webp) | blurry view of a loach hiding in a cave ornament; lohachata-type netted pattern |
-| species/vittina-waigiensis (a guide photo) | [photo](https://media.aquatome.com/aquariumcoop/8e362893e1346949.webp) | caption is about horned nerite (Clithon sp.) on algae-covered rock, not V. waigiensis |
-| species/vittina-waigiensis (a guide photo) | [photo](https://media.aquatome.com/aquariumcoop/fb433cb2c3a7d8ad.webp) | caption is about horned nerite (Clithon sp.), a different snail with spined shell |
-| species/clarias-batrachus | [photo](https://media.aquatome.com/commons/e000e9ffdecbc952.webp) | crowd of Clarias-type catfish mixed with common carp at feeding spot; species unclear (could be African catfish/hybrids) |
-| species/clarias-batrachus | [photo](https://media.aquatome.com/inaturalist/417855996.webp) | blurry elongate catfish in shallow murky water, can't confirm species |
-| species/amatitlania-nigrofasciata | [photo](https://media.aquatome.com/commons/08c5b596e416121c.webp) | orange-pink unbarred cichlid; could be a pink/gold convict form, but the orange colour and body shape don't rule out ano |
-| species/andinoacara-rivulatus | [photo](https://media.aquatome.com/commons/517323d9ef683537.webp) | close-up of head and front half only; brownish acara with blue face lines, can't rule out blue acara or other Andinoacar |
-| species/herichthys-carpintis | [photo](https://media.aquatome.com/commons/6ac591361d759904.webp) | slender green-gold reticulated cichlid, no hump; could be carpintis but Jack Dempsey-like shape |
-| species/monopterus-albus | [photo](https://media.aquatome.com/inaturalist/469852828.webp) | small reddish-brown eel-like animal on mud; could be juvenile swamp eel or an earthworm, head unclear |
-| species/macrognathus-siamensis | [photo](https://media.aquatome.com/commons/0f4a074a80eae220.webp) | long-snouted eel in planted tank, no eyespots visible; a banded orange spiny eel also in view |
-| species/macrognathus-siamensis | [photo](https://media.aquatome.com/inaturalist/423648215.webp) | spiny eel with red-edged fins and netted pattern, no clear eyespots; could be a different Macrognathus |
-| species/macrognathus-siamensis (a guide photo) | [photo](https://media.aquatome.com/sprucepets/faf05fb1b59b6f13.webp) | Red tail catfish (Phractocephalus hemioliopterus), not the spiny eel Macrognathus siamensis; the caption names a differe |
-| species/mastacembelus-armatus | [photo](https://media.aquatome.com/commons/12f19a3a1b01c2eb.webp) | spiny eel partly hidden in a car ornament; its spotted, honeycomb-like pattern could be M. armatus or a look-alike such  |
-| species/trichopodus-trichopterus | [photo](https://media.aquatome.com/inaturalist/371607430.webp) | Main fish are striped with blue eye rings, possibly a different gourami; spotted gouramis are only in the background |
-| species/trichopodus-trichopterus | [photo](https://media.aquatome.com/inaturalist/616354370.webp) | two distant gourami-like fish in shallow water; spots barely visible |
-| species/trichopodus-trichopterus | [photo](https://media.aquatome.com/inaturalist/618952563.webp) | pale, blurry gourami-shaped fish; no spots visible |
-| species/yasuhikotakia-modesta | [photo](https://media.aquatome.com/commons/64daa8052e9fbf9e.webp) | Washed-out grey loach with pale grey fins; shape fits but orange fins missing, so not certain |
-| species/parambassis-ranga | [photo](https://media.aquatome.com/commons/c0c66a46c6b3925b.webp) | greenish glassfish with dark lengthwise lines, seen at an angle; can't rule out another Parambassis/Chanda species |
-| species/piaractus-brachypomus | [photo](https://media.aquatome.com/commons/c9edc751ed21b785.webp) | large dark pacu; could be tambaqui (Colossoma macropomum) |
-| species/piaractus-brachypomus | [photo](https://media.aquatome.com/commons/e5401ccadf4d0dde.webp) | very dark adult pacu; tambaqui can't be ruled out |
-| species/piaractus-brachypomus | [photo](https://media.aquatome.com/inaturalist/235937720.webp) | distant pacu-like fish over a river bottom; can't rule out tambaqui |
-| species/piaractus-brachypomus | [photo](https://media.aquatome.com/inaturalist/235937736.webp) | several distant pacu-like fish in murky river; species unclear |
-| species/piaractus-brachypomus | [photo](https://media.aquatome.com/inaturalist/259009576.webp) | large grey pacu head-on in a display tank; angle prevents confirmation |
-| species/piaractus-brachypomus | [photo](https://media.aquatome.com/inaturalist/30274716.webp) | large dark pacu in a public aquarium; may be tambaqui (Colossoma) |
-| species/piaractus-brachypomus | [photo](https://media.aquatome.com/inaturalist/468542986.webp) | dark tagged fish seen from above in shallow water; too elongated and murky to confirm pacu |
-| species/piaractus-brachypomus | [photo](https://media.aquatome.com/inaturalist/604831979.webp) | pale pacu seen from above in murky water |
-| species/piaractus-brachypomus | [photo](https://media.aquatome.com/inaturalist/606726185.webp) | distant dark fish in a shallow pool, view is poor |
-| species/piaractus-brachypomus | [photo](https://media.aquatome.com/inaturalist/722674967.webp) | large grey fish underwater; body shape doesn't clearly match pacu, could be a different characin |
-| species/aphyocharax-anisitsi | [photo](https://media.aquatome.com/inaturalist/63954585.webp) | Slender silvery tetra with only a faint red patch at the tail base and none on the other fins; could be a pale or young  |
-| species/pterygoplichthys-pardalis | [photo](https://media.aquatome.com/commons/80b38cf4cd7e9c78.webp) | sailfin plecos with vermiculated maze pattern; may be P. disjunctivus rather than pardalis |
-| species/pterygoplichthys-pardalis | [photo](https://media.aquatome.com/commons/a6e25aaa7d8407e0.webp) | pale juvenile sailfin pleco with bold leopard spots; could be P. gibbiceps |
-| species/pterygoplichthys-pardalis | [photo](https://media.aquatome.com/commons/b81769d9074f3a6a.webp) | pale wavy lines on dark body; looks more like P. disjunctivus |
-| species/pterygoplichthys-pardalis | [photo](https://media.aquatome.com/scotcat/9a7490f69612d611.webp) | reticulated/vermiculated pattern all over; could be P. disjunctivus or a hybrid |
-| species/ancistrus-dolichopterus | [photo](https://media.aquatome.com/commons/1a64512fbba99da7.webp) | Greenish-olive bristlenose with fine pale spots and a tall dorsal fin, plus young; colour is off and there are no white  |
-| species/ancistrus-dolichopterus | [photo](https://media.aquatome.com/commons/2b6b392b944e74e5.webp) | heavily bristled male Ancistrus, grey with pale spots, no white fin edges visible |
-| species/ancistrus-dolichopterus | [photo](https://media.aquatome.com/commons/3c90564e0669a175.webp) | close-up of same bristled male Ancistrus; not clearly starlight pattern |
-| species/ancistrus-dolichopterus | [photo](https://media.aquatome.com/commons/968784cefda5f792.webp) | dark Ancistrus with faint fine spots; white fin edges not visible |
-| species/ancistrus-dolichopterus | [photo](https://media.aquatome.com/commons/97ed36b806f0a84b.webp) | Ancistrus on gravel, olive-brown with fine pale dots and no white fin edges; looks more like a common bristlenose than b |
-| species/ancistrus-dolichopterus | [photo](https://media.aquatome.com/commons/b984f7ac451dfa80.webp) | brown Ancistrus with yellowish spots, no white fin edges; may be a different Ancistrus species |
-| species/poecilia-wingei | [photo](https://media.aquatome.com/commons/4ed2042725466dba.webp) | blue-red guppy-like male; may be a fancy guppy or Endler hybrid, not the classic Endler pattern |
+| species/apteronotus-albifrons | [photo](https://media.aquatome.com/commons/6fdcc0a3df3ad5b8.webp) | greyish knifefish seen from above among plants; no white back stripe or tail bands clearly visible, could be brown ghost |
+| plants/limnophila-sessiliflora | [photo](https://media.aquatome.com/commons/68fabaacb18bb816.webp) | emersed bushy plant with reddish stems and white buds, unclear ID |
+| plants/limnophila-sessiliflora | [photo](https://media.aquatome.com/inaturalist/26529369.webp) | dense compact emersed plant on sand, possibly terrestrial form |
+| species/gnathonemus-petersii | [photo](https://media.aquatome.com/commons/ca4b5ae0f8b0d600.webp) | mormyrid without visible bands or chin trunk, blurry |
+| species/gnathonemus-petersii | [photo](https://media.aquatome.com/inaturalist/420403716.webp) | mormyrid with long slender snout, no bands seen; possibly Campylomormyrus |
+| plants/cryptocoryne-nurii | [photo](https://media.aquatome.com/cryptspages/nur_B802_x_2494.webp) | clump of narrow dark leaves among dry grass in the wild, too unclear to identify |
+| plants/cryptocoryne-nurii | [photo](https://media.aquatome.com/cryptspages/nur_B803_x_2502.webp) | blurry spathe and bullate leaf, species unclear |
+| species/osphronemus-goramy | [photo](https://media.aquatome.com/inaturalist/53544572.webp) | blurry fish head at a murky water surface |
+| species/osphronemus-goramy | [photo](https://media.aquatome.com/inaturalist/53544577.webp) | blurry fish mouths at a murky water surface |
+| plants/cryptocoryne-undulata | [photo](https://media.aquatome.com/cryptspages/und_x_B195_834.webp) | close-up of a Cryptocoryne spathe only |
+| plants/cryptocoryne-undulata | [photo](https://media.aquatome.com/cryptspages/und_x_B195_835.webp) | opened Cryptocoryne spathe kettle showing flower parts |
+| plants/cryptocoryne-undulata | [photo](https://media.aquatome.com/cryptspages/und_x_B31_206.webp) | potted Cryptocoryne in flower with pale spathe; species not confirmable |
+| plants/cryptocoryne-undulata | [photo](https://media.aquatome.com/inaturalist/323632049.webp) | dense low Cryptocoryne carpet with narrow wavy leaves, could be another crypt |
+| species/ctenolucius-hujeta | [photo](https://media.aquatome.com/commons/ec46a8af327340ea.webp) | pike-characin swallowing a fish, with reflection; could be Boulengerella |
+| species/ctenolucius-hujeta | [photo](https://media.aquatome.com/inaturalist/341710206.webp) | slender pike-like fish over sandy bottom, species unclear |
+| species/ctenolucius-hujeta | [photo](https://media.aquatome.com/inaturalist/341710565.webp) | dark pike-characin seen from above over orange substrate; could be Boulengerella |
+| plants/cryptocoryne-usteriana | [photo](https://media.aquatome.com/inaturalist/255933719.webp) | submerged plant in natural stream habitat, algae-covered, hard to confirm |
+| species/epalzeorhynchos-kalopterus | [photo](https://media.aquatome.com/commons/3842c3b3366920ed.webp) | faded brownish fish on a rock; no clear stripe or fin marks, so the species can't be confirmed |
+| species/epalzeorhynchos-kalopterus | [photo](https://media.aquatome.com/commons/4978ce7ceab738d2.webp) | small striped fish seen from far away; fins look clear, so it could be a Siamese algae eater look-alike |
+| species/monodactylus-argenteus | [photo](https://media.aquatome.com/inaturalist/242436884.webp) | two blurry grey fish over weed, too unclear to identify |
+| species/monodactylus-argenteus | [photo](https://media.aquatome.com/inaturalist/242436915.webp) | blurry grey deep-bodied fish over the bottom, too unclear to identify |
+| species/monodactylus-argenteus | [photo](https://media.aquatome.com/inaturalist/249776077.webp) | distant school of deep-bodied grey fish with yellow tails, could be monos but hard to confirm |
+| species/monodactylus-argenteus | [photo](https://media.aquatome.com/inaturalist/258028860.webp) | single fish very blurry in murky water, possibly mono |
+| species/pseudomugil-furcatus | [photo](https://media.aquatome.com/aquariumcoop/2a3f6f00ca4019c1.webp) | Pseudomugil with dark caudal fin, not the usual yellow lobes; may be another blue-eye |
+| species/pseudomugil-furcatus | [photo](https://media.aquatome.com/inaturalist/309615729.webp) | hazy washed-out view of pale fish with a neon tetra; can't confirm species |
+| plants/ceratopteris-thalictroides | [photo](https://media.aquatome.com/commons/92b97a86c4af3399.webp) | small ferny seedlings on wet soil, possibly young water sprite |
+| plants/ceratopteris-thalictroides | [photo](https://media.aquatome.com/commons/a45202582c706b11.webp) | rounded floating leaves on water, possibly juvenile Ceratopteris |
+| species/amphilophus-labiatus | [photo](https://media.aquatome.com/commons/fc9ccca176726701.webp) | juvenile wild-type barred pattern; may be a Midas cichlid |
+| species/amphilophus-labiatus | [photo](https://media.aquatome.com/inaturalist/569828374.webp) | juvenile wild-type pattern with dark blotches; may be a juvenile Midas cichlid |
+| species/epalzeorhynchos-bicolor | [photo](https://media.aquatome.com/seriouslyfish/07d4ba46d4e2dc72.webp) | albino shark with red tail only; could be albino rainbow shark rather than this species |
+| species/pethia-conchonius | [photo](https://media.aquatome.com/sprucepets/27e4299594bc51a4.webp) | golden barb with irregular dark blotches, possibly a rosy barb colour form |
+| plants/gratiola-viscidula | [photo](https://media.aquatome.com/inaturalist/319134277.webp) | small plant among grasses in the wild, distant view |
+| species/synodontis-eupterus | [photo](https://media.aquatome.com/commons/82b28ac86538c14c.webp) | dark brown spotted Synodontis partly hidden by plants, dorsal not seen |
+| species/synodontis-eupterus | [photo](https://media.aquatome.com/inaturalist/233486434.webp) | grey spotted squeaker, blurry, dorsal not featherlike |
+| species/synodontis-eupterus | [photo](https://media.aquatome.com/inaturalist/233486443.webp) | grey spotted squeaker, hazy view, short dorsal |
+| plants/juncus-repens | [photo](https://media.aquatome.com/commons/2b2a035fc045e10e.webp) | close-up of Juncus flowers; species cannot be confirmed |
+| plants/juncus-repens | [photo](https://media.aquatome.com/commons/c29f743b8aca0420.webp) | branched rush inflorescence with separate flowers; looks more like another Juncus species than J. repens' clustered head |
+| plants/juncus-repens | [photo](https://media.aquatome.com/commons/d14de16fe307ee33.webp) | close-up of a single rush flower; can't confirm it is J. repens rather than another Juncus |
+| species/maylandia-estherae | [photo](https://media.aquatome.com/commons/736eadce41b0b51a.webp) | yellow mbuna with blue fins and egg spots; could be yellow zebra form or another Maylandia |
+| species/maylandia-estherae | [photo](https://media.aquatome.com/inaturalist/258281751.webp) | pale pinkish cichlid, faded color, possibly pale estherae |
+| species/hyphessobrycon-amandae | [photo](https://media.aquatome.com/commons/f53d11b707c98f68.webp) | pale translucent tetra with reddish head among plants; possibly faded ember tetra, unclear |
+| species/hyphessobrycon-amandae | [photo](https://media.aquatome.com/inaturalist/63005894.webp) | dull, washed-out greenish fish, poor view |
+| species/hyphessobrycon-amandae | [photo](https://media.aquatome.com/seriouslyfish/44e15b1953f7f6a9.webp) | slender pale gold fish, body shape more like a rasbora than an ember tetra |
+| plants/lagenandra-meeboldii | [photo](https://media.aquatome.com/commons/71eb23d9b3b20b5b.webp) | same pale green lanceolate leaves, crop of photo 2 |
+| plants/lagenandra-meeboldii | [photo](https://media.aquatome.com/commons/b470cc121edfabd6.webp) | same bullate leaves, enlarged crop |
+| plants/lagenandra-meeboldii | [photo](https://media.aquatome.com/commons/eb450ce4d59d3edd.webp) | pale bullate leaves through glass, unclear species |
+| plants/lagenandra-meeboldii | [photo](https://media.aquatome.com/commons/f2fed929b0887548.webp) | pale green lanceolate leaves in tank, hard to identify |
+| plants/lagenandra-meeboldii | [photo](https://media.aquatome.com/flickr/54550977466.webp) | broad, spotted green leaves on a stream bank; the species is unclear |
+| plants/lagenandra-meeboldii | [photo](https://media.aquatome.com/flickr/54564110157.webp) | clump with wavy-edged leaves in leaf litter; could be a different Lagenandra or a Cryptocoryne |
+| plants/lagenandra-meeboldii | [photo](https://media.aquatome.com/flickr/54565219198.webp) | Lagenandra-like rosette growing on the forest floor; the species can't be confirmed |
+| plants/lagenandra-meeboldii | [photo](https://media.aquatome.com/flickr/54592332486.webp) | dense stand of green aroid plants on forest floor, possibly Cryptocoryne |
+| plants/lagenandra-meeboldii | [photo](https://media.aquatome.com/flickr/54592527904.webp) | exposed rhizomes and dark leaves on dry ground; the species is unclear |
+| species/trigonostigma-espei | [photo](https://media.aquatome.com/commons/ab7d31b513f53bc1.webp) | translucent bodies with orange line above patch, possibly T. hengeli |
+| plants/littorella-uniflora | [photo](https://media.aquatome.com/commons/1d17b55218684557.webp) | few narrow leaves in shallow water with duckweed and algae |
+| plants/littorella-uniflora | [photo](https://media.aquatome.com/commons/5e2306a4baf957f3.webp) | tall slender tufted leaves with duckweed; could be Eleocharis or rush |
+| plants/littorella-uniflora | [photo](https://media.aquatome.com/commons/d115b2f77faabc33.webp) | dense fine turf on shore, species not clearly identifiable |
+| plants/littorella-uniflora | [photo](https://media.aquatome.com/inaturalist/45779729.webp) | dense fine grass-like leaves with tiny flowers, could be shoreweed or a spikerush |
+| species/danio-choprae | [photo](https://media.aquatome.com/commons/3beec92879a0b656.webp) | purple-bodied fish with red rear stripe and bars; odd colouring, possibly choprae under unusual lighting |
+| species/danio-choprae | [photo](https://media.aquatome.com/commons/f316e07b5ca825b2.webp) | close-up of the same purple-red fish; colouring unusual for glowlight danio |
+| plants/murdannia-keisak | [photo](https://media.aquatome.com/inaturalist/25146997.webp) | blue flower close-up, could be another dayflower |
+| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/3905434571-a683ae41f60ac9a6.webp) | floating Myriophyllum rosette in pond with duckweed; could be M. aquaticum |
+| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/4410788833-25cda6f0b7057c24.webp) | top view of feathery Myriophyllum rosette at surface |
+| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/4410788833-7b64e4789efee984.webp) | emersed stem above water, looks like parrot's feather (M. aquaticum) |
+| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/4461737432-737f1b11c9432068.webp) | close-up of pale green submerged pinnate Myriophyllum shoots; species unclear |
+| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/4462501227-83a68ddedb1b4684.webp) | grey-green emersed Myriophyllum rosettes covering a pond; likely M. aquaticum, can't confirm |
+| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/5283401603-39c538f07966c055.webp) | emersed Myriophyllum stand on a stream bank in the wild; looks like parrot's feather (M. aquaticum), can't confirm speci |
+| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/5283401603-b98792816f7df2ee.webp) | emersed Myriophyllum tips, possibly parrot's feather (M. aquaticum) |
+| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/inaturalist/323641718.webp) | fine green Myriophyllum stems in aquarium; species not certain |
+| plants/nymphoides-hydrophylla | [photo](https://media.aquatome.com/commons/028e21e999201c76.webp) | single small white flower and floating leaf in murky water; poor view to tell from other white Nymphoides |
+| plants/nymphoides-hydrophylla | [photo](https://media.aquatome.com/flickr/7202551806.webp) | distant patch of small white-flowered floating leaves on lake shore |
+| plants/nymphoides-hydrophylla | [photo](https://media.aquatome.com/inaturalist/327658694.webp) | floating leaves and stems only, no flowers, species unclear |
+| plants/nymphoides-hydrophylla | [photo](https://media.aquatome.com/inaturalist/341567660.webp) | small white flowers on green heart-shaped leaves; look-alike Nymphoides not ruled out |
+| species/paracheirodon-simulans | [photo](https://media.aquatome.com/bwaquatics/0b413da48f8882f9.webp) | small group of blue-striped tetras, could be neon tetras |
+| species/paracheirodon-simulans | [photo](https://media.aquatome.com/bwaquatics/72e065dab2201632.webp) | distant school of tetras with red rear half, possibly neon tetras |
+| species/hyphessobrycon-rosaceus | [photo](https://media.aquatome.com/commons/21b8fc8fd884dc91.webp) | silvery tetra with red fins and dark-tipped long dorsal; rosy tetra's black dorsal patch not clear |
+| plants/proserpinaca-palustris | [photo](https://media.aquatome.com/inaturalist/183488460.webp) | small finely divided submerged shoots in pond, distant view |
+| plants/proserpinaca-palustris | [photo](https://media.aquatome.com/inaturalist/97762589.webp) | comb-leaved plants on wet ground; could be P. pectinata or land form |
+| species/pterygoplichthys-joselimaianus | [photo](https://media.aquatome.com/scotcat/f9e074275336b83d.webp) | pleco with banded tail and lined body, pattern unlike white spots |
+| plants/ranunculus-inundatus | [photo](https://media.aquatome.com/inaturalist/98294780.webp) | close-up of a yellow buttercup flower with dew; species cannot be confirmed from the flower alone |
+| species/sewellia-lineolata | [photo](https://media.aquatome.com/aquariumcoop/9a5ec1b467c2e38d.webp) | reddish-toned hillstream loach, unusual colour, may be another Sewellia |
+| plants/rotala-macrandra | [photo](https://media.aquatome.com/commons/a2c38b71059b7fc3.webp) | small reddish flowering plant on soil, blurry; species unclear |
+| plants/rotala-macrandra | [photo](https://media.aquatome.com/inaturalist/255471269.webp) | emersed creeping plant with pink flower spikes on mud; can't be sure it's R. macrandra |
+| species/botia-almorhae | [photo](https://media.aquatome.com/inaturalist/617422035.webp) | mixed loaches: a pale reticulated one plus orange loaches with white spots |
+| species/botia-almorhae | [photo](https://media.aquatome.com/seriouslyfish/8a2302ab1a4767c0.webp) | pale loach with bold reticulated bars, may be Botia lohachata |
+| species/pseudomugil-gertrudae | [photo](https://media.aquatome.com/inaturalist/655883282.webp) | pale fish with spotted rows and spotted fins, dull view through glass; species unclear |
+| species/pseudomugil-gertrudae | [photo](https://media.aquatome.com/inaturalist/682650379.webp) | yellowish small fish with a dotted line, possibly a female or juvenile; look-alikes not ruled out |
+| species/pseudomugil-gertrudae | [photo](https://media.aquatome.com/inaturalist/695711336.webp) | two small golden fish with rows of dark spots; could be Danio tinwini rather than P. gertrudae females |
+| species/atyopsis-moluccensis | [photo](https://media.aquatome.com/commons/4712899f243feaa1.webp) | two small distant shrimps on wood, hard to identify |
+| species/vittina-waigiensis (a guide photo) | [photo](https://media.aquatome.com/aquariumcoop/8e362893e1346949.webp) | caption about horned nerite on algae-covered rock, not this species |
+| species/vittina-waigiensis (a guide photo) | [photo](https://media.aquatome.com/aquariumcoop/fb433cb2c3a7d8ad.webp) | caption about horned nerites (Clithon), not this species; horned snails on plants |
+| species/clarias-batrachus | [photo](https://media.aquatome.com/commons/e000e9ffdecbc952.webp) | crowd of catfish and carp at feeding pond edge; species unclear |
+| species/cyrtocara-moorii | [photo](https://media.aquatome.com/seriouslyfish/1f0e0215abdcd3c7.webp) | slender blue cichlid without hump; possibly young moorii or a Placidochromis look-alike |
+| species/amatitlania-nigrofasciata | [photo](https://media.aquatome.com/commons/08c5b596e416121c.webp) | plain orange-pink cichlid on black background; maybe a pink/orange convict form, could be another cichlid |
+| species/amatitlania-nigrofasciata | [photo](https://media.aquatome.com/flickr/42695826130.webp) | pale grey cichlid with faded, broken bars and orange dorsal edge; could be a washed-out convict or a relative like Amati |
+| species/amatitlania-nigrofasciata | [photo](https://media.aquatome.com/inaturalist/595295183.webp) | barred cichlid with red flank blotches in a photo tank with ruler; possibly convict female or a related Amatitlania |
+| species/amatitlania-nigrofasciata | [photo](https://media.aquatome.com/inaturalist/818934.webp) | blurry striped fish seen from above, poor view |
+| species/andinoacara-rivulatus | [photo](https://media.aquatome.com/inaturalist/540996701.webp) | pale acara with no orange fin edges; could be a female or another Andinoacara |
+| species/herichthys-carpintis | [photo](https://media.aquatome.com/inaturalist/142764458.webp) | wild fish under rock; could be Texas cichlid H. cyanoguttatus |
+| species/herichthys-carpintis | [photo](https://media.aquatome.com/inaturalist/142984934.webp) | wild fish under rock; could be Texas cichlid H. cyanoguttatus |
+| species/macrognathus-siamensis | [photo](https://media.aquatome.com/commons/0f4a074a80eae220.webp) | spiny eel in a planted tank, markings unclear; a banded eel behind it |
+| species/macrognathus-siamensis | [photo](https://media.aquatome.com/inaturalist/423648215.webp) | spiny eel with reddish fins, no clear eyespots, possibly another Macrognathus |
+| species/macrognathus-siamensis (a guide photo) | [photo](https://media.aquatome.com/sprucepets/faf05fb1b59b6f13.webp) | redtail catfish, caption names a different fish |
+| species/mastacembelus-armatus | [photo](https://media.aquatome.com/commons/12f19a3a1b01c2eb.webp) | spiny eel in a car ornament, ringed/reticulated pattern; partial view, could be M. favus |
+| species/trichopodus-trichopterus | [photo](https://media.aquatome.com/inaturalist/371607430.webp) | group of striped juvenile gourami-like fish in white container, stressed pattern |
+| species/trichopodus-trichopterus | [photo](https://media.aquatome.com/inaturalist/39291869.webp) | pale fish seen from above, poor distant view |
+| species/trichopodus-trichopterus | [photo](https://media.aquatome.com/inaturalist/618952563.webp) | pale, blurry fish seen from above in murky water, no marks visible |
+| species/piaractus-brachypomus | [photo](https://media.aquatome.com/commons/c9edc751ed21b785.webp) | large grey pacu with dark mottling; could be tambaqui (Colossoma) |
+| species/piaractus-brachypomus | [photo](https://media.aquatome.com/commons/e5401ccadf4d0dde.webp) | very dark pacu; may be tambaqui (Colossoma macropomum) |
+| species/piaractus-brachypomus | [photo](https://media.aquatome.com/inaturalist/235937720.webp) | distant pacu-shaped fish over the bottom; no red belly visible |
+| species/piaractus-brachypomus | [photo](https://media.aquatome.com/inaturalist/235937736.webp) | two distant pacu-like fish in murky water |
+| species/piaractus-brachypomus | [photo](https://media.aquatome.com/inaturalist/259009576.webp) | pacu in an aquarium seen through distorting glass with reflections |
+| species/piaractus-brachypomus | [photo](https://media.aquatome.com/inaturalist/30274716.webp) | large dark pacu in a public aquarium; could be tambaqui (Colossoma) |
+| species/piaractus-brachypomus | [photo](https://media.aquatome.com/inaturalist/468542986.webp) | dark, slender fish in shallow water with a tag; species unclear |
+| species/piaractus-brachypomus | [photo](https://media.aquatome.com/inaturalist/604831979.webp) | pacu seen from above in murky water, turtle at the corner |
+| species/piaractus-brachypomus | [photo](https://media.aquatome.com/inaturalist/606726185.webp) | distant dark fish in shallow water seen from above |
+| species/piaractus-brachypomus | [photo](https://media.aquatome.com/inaturalist/722674967.webp) | slender grey fish swimming over sand; looks more carp-like than pacu |
+| species/aphyocharax-anisitsi | [photo](https://media.aquatome.com/inaturalist/63954585.webp) | pale tetra with only faint red at tail base; fins mostly clear, might be a juvenile or another Aphyocharax |
+| species/pterygoplichthys-pardalis | [photo](https://media.aquatome.com/commons/5ce52af41d91272a.webp) | dark pleco with vermiculated body, possibly P. disjunctivus |
+| species/pterygoplichthys-pardalis | [photo](https://media.aquatome.com/scotcat/2ce94b0ba3bf0e94.webp) | sailfin pleco, spots partly merging; pardalis vs disjunctivus unclear |
+| species/ancistrus-dolichopterus | [photo](https://media.aquatome.com/commons/1a64512fbba99da7.webp) | spotted bristlenose with young, greenish cast; could be common Ancistrus |
+| species/ancistrus-dolichopterus | [photo](https://media.aquatome.com/commons/968784cefda5f792.webp) | dark bristlenose with faint spots, no white fin edges visible |
+| species/ancistrus-dolichopterus | [photo](https://media.aquatome.com/commons/97ed36b806f0a84b.webp) | brownish spotted Ancistrus, could be common bristlenose |
+| species/ancistrus-dolichopterus | [photo](https://media.aquatome.com/commons/bfcb2df1ebf3c447.webp) | dark spotted Ancistrus with spotted fins and no clear white edges |
+| species/poecilia-wingei | [photo](https://media.aquatome.com/commons/4ed2042725466dba.webp) | metallic male livebearer, could be guppy or Endler hybrid |
 | species/poecilia-wingei | [photo](https://media.aquatome.com/inaturalist/358769752.webp) | distant yellowish males in green water; maybe yellow Endler form or guppy hybrid |
 | species/poecilia-wingei | [photo](https://media.aquatome.com/inaturalist/471890936.webp) | pinkish male with large black spots; may be an Endler line strain or a guppy hybrid, blurry |
-| species/poecilia-wingei | [photo](https://media.aquatome.com/inaturalist/643307274.webp) | very blurry group of small livebearers, can't confirm Endler vs guppy |
-| species/poecilia-wingei | [photo](https://media.aquatome.com/inaturalist/746196666.webp) | dim, distant tank view of many small orange livebearers; cannot pick out the species |
-| species/macropodus-opercularis | [photo](https://media.aquatome.com/inaturalist/654836322.webp) | dull brownish anabantoid on wet substrate; could be a female/young paradise fish or a related Macropodus species |
-| species/heros-severus | [photo](https://media.aquatome.com/commons/5c0d18d3b3d08dad.webp) | Heros with red belly and a dark bar at the tail base; could be the Rotkeil (red-shoulder) form or H. efasciatus |
-| species/rocio-octofasciata | [photo](https://media.aquatome.com/commons/8c9c9ddbc141c2bd.webp) | cichlid with black squiggly marks on blue-green; can't confirm species |
-| species/channa-micropeltes | [photo](https://media.aquatome.com/commons/1d7cc28b34b9354b.webp) | Iridescent purple-green snakehead with dark saddle bars on the rear back and a pale belly; looks more like Channa striat |
-| species/channa-micropeltes | [photo](https://media.aquatome.com/commons/bb8bff362f94eebd.webp) | close-up of a large plain grey snakehead head, no clear diagnostic markings |
-| species/channa-micropeltes | [photo](https://media.aquatome.com/inaturalist/563378799.webp) | snakehead seen from above in murky water; chevron bars, species marks unclear |
-| species/channa-micropeltes | [photo](https://media.aquatome.com/inaturalist/591552903.webp) | distant view from above of a pale snakehead at the water surface |
-| species/datnioides-microlepis | [photo](https://media.aquatome.com/seriouslyfish/ddb802f08d11f201.webp) | orange spiny fish with scattered black spots and thin bars, mouth open; doesn't match the broad tiger bars of D. microle |
-| species/datnioides-pulcher | [photo](https://media.aquatome.com/commons/3c736744cee17c47.webp) | tiger perch with broad bars on orange body, dim view; D. microlepis not ruled out |
-| species/datnioides-pulcher | [photo](https://media.aquatome.com/seriouslyfish/11754bae2dbfb786.webp) | Tiger perch on black background; bars narrower and more numerous than usual for D. pulcher, so it could be D. microlepis |
-| species/toxotes-jaculatrix (a guide photo) | [photo](https://media.aquatome.com/aquariumcoop/8c361dc00e47991a.webp) | Group of archerfish over driftwood. The main fish has many blotches of mixed size rather than 4–5 wedge-shaped bars, whi |
-| species/toxotes-jaculatrix | [photo](https://media.aquatome.com/inaturalist/337329997.webp) | archerfish, possibly a juvenile, with short round blotches rather than wedge-shaped bars and yellow fins; species unclea |
-| species/toxotes-jaculatrix | [photo](https://media.aquatome.com/inaturalist/337330025.webp) | school of archerfish in shallow water; spots fairly many and small, could be T. chatareus |
-| species/toxotes-jaculatrix | [photo](https://media.aquatome.com/inaturalist/337801605.webp) | archerfish over sand; rounded spots, could be seven-spot archerfish |
-| species/toxotes-jaculatrix | [photo](https://media.aquatome.com/inaturalist/376731428.webp) | archerfish group in a mangrove; many smaller spots look more like T. chatareus, hard to tell at this distance |
-| species/toxotes-jaculatrix | [photo](https://media.aquatome.com/inaturalist/376731436.webp) | two archerfish near surface; alternating large and small spots suggest possible T. chatareus |
-| species/amblydoras-nauticus | [photo](https://media.aquatome.com/scotcat/054607a789cd95cc.webp) | tan marbled doradid catfish resting on substrate, side view; could be Amblydoras but Acanthodoras-type look-alikes can't |
-| species/aphanotorulus-unicolor | [photo](https://media.aquatome.com/commons/96aa04b3f3933668.webp) | plain brown plec with pale stripe along the back, resting under a rock ledge; doesn't have the dense dark spotting, so i |
-| species/boraras-merah | [photo](https://media.aquatome.com/commons/0100ace42ee6de22.webp) | pale fish with long dark mid-lateral band instead of the round blotch; possibly a female or another Boraras |
-| species/boraras-merah | [photo](https://media.aquatome.com/seriouslyfish/063c669da6671734.webp) | pale fish with elongated blotch and thin lateral line; could be a female merah, but B. brigittae can't be ruled out |
-| species/brachyplatystoma-vaillantii | [photo](https://media.aquatome.com/commons/fe091f77544a4b75.webp) | silvery long-snouted catfish; could be another Brachyplatystoma or a related look-alike |
-| species/brevibora-dorsiocellata | [photo](https://media.aquatome.com/seriouslyfish/af8777b43f80e5d1.webp) | slender silvery fish with a blue eye and a dark-streaked dorsal fin; it lacks the clear black, white-edged dorsal spot o |
-| species/brochis-multiradiatus | [photo](https://media.aquatome.com/commons/18fbcd29fe9b7752.webp) | two Brochis on gravel; snout length not clear enough to rule out B. splendens |
-| species/brochis-multiradiatus | [photo](https://media.aquatome.com/seriouslyfish/68b82eecd5ae10a7.webp) | group of emerald Brochis on gravel; snout looks fairly short, could be B. splendens |
-| species/corydoras-fowleri | [photo](https://media.aquatome.com/commons/f6b38b36aa0fa967.webp) | blurry, green-tinted view of a long-snouted Corydoras with blotched flanks; can't rule out look-alikes |
+| species/poecilia-wingei | [photo](https://media.aquatome.com/inaturalist/746196666.webp) | blurry tank through dirty glass, small orange fish can't be identified |
+| species/macropodus-opercularis | [photo](https://media.aquatome.com/inaturalist/654836322.webp) | dull, round-tailed Macropodus on sand in very shallow water; could be another Macropodus species |
+| species/pelvicachromis-pulcher | [photo](https://media.aquatome.com/commons/28963cfe9daf502f.webp) | small fish peeking from a clay cave, too hidden to identify |
+| species/rocio-octofasciata | [photo](https://media.aquatome.com/commons/8c9c9ddbc141c2bd.webp) | green-turquoise cichlid with black marbling; possible look-alike |
+| species/rocio-octofasciata | [photo](https://media.aquatome.com/seriouslyfish/363884a2cb6d3626.webp) | turquoise cichlid with black marbling; may be a young Jack Dempsey but could be a look-alike |
+| species/channa-bleheri | [photo](https://media.aquatome.com/commons/8078ffe1d00cbf54.webp) | pale bluish dwarf snakehead with red tail marks and plain pectorals, possibly C. andrao |
+| species/channa-micropeltes | [photo](https://media.aquatome.com/commons/1d7cc28b34b9354b.webp) | snakehead with dark bars and pale lateral band, purple sheen; look-alike not ruled out |
+| species/channa-micropeltes | [photo](https://media.aquatome.com/commons/bb8bff362f94eebd.webp) | grey snakehead head close-up; not clearly giant snakehead markings |
+| species/channa-micropeltes | [photo](https://media.aquatome.com/inaturalist/217826899.webp) | yellow and black blotched snakehead in murky water, probably another Channa |
+| species/channa-micropeltes | [photo](https://media.aquatome.com/inaturalist/461111532.webp) | mottled snakehead surfacing in murky water, blue on head; likely adult giant snakehead but only partly seen and other Ch |
+| species/channa-micropeltes | [photo](https://media.aquatome.com/inaturalist/563378799.webp) | snakehead seen from above in murky water, chevron marks; species unclear |
+| species/channa-micropeltes | [photo](https://media.aquatome.com/inaturalist/591552903.webp) | barred snakehead at the surface, seen from above, distant |
+| species/pangasianodon-hypophthalmus | [photo](https://media.aquatome.com/inaturalist/56317257.webp) | school of catfish seen dimly through murky water |
+| species/dichotomyctere-nigroviridis | [photo](https://media.aquatome.com/inaturalist/556360607.webp) | puffer from above in murky water, could be D. fluviatilis |
+| species/toxotes-jaculatrix | [photo](https://media.aquatome.com/inaturalist/337330025.webp) | school of archerfish seen from above in the wild; spot pattern could be seven-spot archerfish |
+| species/toxotes-jaculatrix | [photo](https://media.aquatome.com/inaturalist/347574010.webp) | archerfish from above in murky water; species unclear |
+| species/toxotes-jaculatrix | [photo](https://media.aquatome.com/inaturalist/376731428.webp) | archerfish near surface with alternating large and small spots, possibly T. chatareus |
+| species/toxotes-jaculatrix | [photo](https://media.aquatome.com/inaturalist/376731436.webp) | two archerfish with round blotches on the upper body, possibly seven-spot archerfish |
+| species/toxotes-jaculatrix | [photo](https://media.aquatome.com/inaturalist/436160001.webp) | archerfish from above, row of spots alternating in size, possibly T. chatareus |
+| species/pomacea-diffusa | [photo](https://media.aquatome.com/inaturalist/128999990.webp) | small brown snail among leaves, distant view |
+| species/pomacea-diffusa | [photo](https://media.aquatome.com/inaturalist/248052587.webp) | yellow-brown apple snails among twigs in water |
+| species/pomacea-diffusa | [photo](https://media.aquatome.com/inaturalist/248052622.webp) | brown apple snail in shallow water; can't rule out P. canaliculata |
+| species/pomacea-diffusa | [photo](https://media.aquatome.com/inaturalist/248052636.webp) | brown apple snail among leaf litter; possible P. canaliculata |
+| species/pomacea-diffusa | [photo](https://media.aquatome.com/inaturalist/505012227.webp) | murky view of brown snail by glass beside a dead fish tail and shrimp |
+| species/pomacea-diffusa | [photo](https://media.aquatome.com/inaturalist/6911643.webp) | several gold and brown apple snails in a shallow container; species unclear |
+| species/amblydoras-nauticus | [photo](https://media.aquatome.com/seriouslyfish/30013ecc858854fb.webp) | spotted slender doradid on a rock; doesn't clearly match Amblydoras's marbled pattern |
+| species/boraras-merah | [photo](https://media.aquatome.com/bwaquatics/a27bcea776e7fe65.webp) | pale, distant fish among a blurred group; species unclear |
+| species/boraras-merah | [photo](https://media.aquatome.com/commons/0100ace42ee6de22.webp) | pale fish with a dark barred mid-line stripe; may be another Boraras |
+| species/brevibora-dorsiocellata | [photo](https://media.aquatome.com/commons/774dddb37bbec0cf.webp) | slender silver rasbora with black dorsal-fin blotch under yellow light; no blue eye seen, could be a look-alike |
+| species/brochis-multiradiatus | [photo](https://media.aquatome.com/seriouslyfish/68b82eecd5ae10a7.webp) | group of brochis, snout looks shorter; possibly common emerald brochis |
+| species/colomesus-asellus | [photo](https://media.aquatome.com/aquariumcoop/eeba5a715fc7378b.webp) | puffer seen from the front under purple light, markings not visible |
+| species/corydoras-fowleri | [photo](https://media.aquatome.com/commons/f6b38b36aa0fa967.webp) | dim greenish shot of long-snouted corys, markings unclear |
+| species/corydoras-fowleri | [photo](https://media.aquatome.com/scotcat/cb95afdf78fce497.webp) | spotted cory with dark band, snout looks shorter; possibly juvenile or look-alike |
+| species/corydoras-habrosus | [photo](https://media.aquatome.com/commons/3b83c57aaadccbb0.webp) | blurry dark mottled cory, hard to identify |
+| species/corydoras-habrosus | [photo](https://media.aquatome.com/commons/b9c9f54b7eb9d843.webp) | blurry head-on close-up of small cory |
+| species/corydoras-semiaquilus | [photo](https://media.aquatome.com/commons/04789c9defeb4cd4.webp) | same dark grey cory cut out on white, flank band not visible |
+| species/corydoras-semiaquilus | [photo](https://media.aquatome.com/commons/512d9c722b992661.webp) | uniformly dark grey long-snouted cory, lacks the distinct flank band |
 | species/heterandria-formosa | [photo](https://media.aquatome.com/inaturalist/386790975.webp) | top-down view of a small striped fish on gravel; poor view |
 | species/hypancistrus-inspector | [photo](https://media.aquatome.com/scotcat/93acf5519862c906.webp) | brownish pleco with dark saddles and yellow spots; L102 is usually uniform black, could be another Hypancistrus |
 | species/kryptopterus-geminus | [photo](https://media.aquatome.com/scotcat/5f09e9a65e1b519b.webp) | Silvery catfish with long barbels and dark side stripes, body not see-through; may be a young Pangasius or Mystus rather |
 | species/loricaria-simillima | [photo](https://media.aquatome.com/scotcat/14ba24992deb26ca.webp) | blurry, dark view of a marbled whiptail-type catfish; could be another loricariine |
 | species/megalancistrus-parananus | [photo](https://media.aquatome.com/inaturalist/510961164.webp) | spotted pleco seen from above in a blue tub; could be Megalancistrus but Pterygoplichthys can't be ruled out |
 | species/megalancistrus-parananus | [photo](https://media.aquatome.com/seriouslyfish/91d0639ea17ee4a8.webp) | big-spotted pleco with tall dorsal fin among gouramis; could be a sailfin pleco |
+| species/misgurnus-anguillicaudatus | [photo](https://media.aquatome.com/inaturalist/695915082.webp) | distant view of greyish spotted loaches on gravel under blue light; Paramisgurnus can't be ruled out |
 | species/trichogaster-chuna | [photo](https://media.aquatome.com/commons/2591df3723a615d7.webp) | pinkish-silver gourami with red fins and no stripe; may be a honey gourami colour form, but the ID is uncertain |
 | species/acestrorhynchus-altus | [photo](https://media.aquatome.com/seriouslyfish/18fd763749741980.webp) | small juvenile Acestrorhynchus on white background; can't confirm species |
 | species/acestrorhynchus-altus | [photo](https://media.aquatome.com/seriouslyfish/9e0ea741a2b1d392.webp) | Acestrorhynchus with shoulder and tail spots, but fins yellowish rather than red; could be another species in the genus |
@@ -469,6 +506,9 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 | species/amia-calva | [photo](https://media.aquatome.com/inaturalist/128409833.webp) | murky water, fish barely visible |
 | species/amia-calva | [photo](https://media.aquatome.com/inaturalist/401928889.webp) | blurry top-down view of a long dark fish over a sandy bottom, seen through a viewer; can't confirm the species |
 | species/amia-calva | [photo](https://media.aquatome.com/inaturalist/504091996.webp) | mottled long-bodied fish in a display tank; could be a snakehead, no tail eyespot visible |
+| species/anabas-testudineus | [photo](https://media.aquatome.com/inaturalist/455287801.webp) | blurry elongated fish in green water, could be a snakehead |
+| species/anabas-testudineus | [photo](https://media.aquatome.com/inaturalist/617710483.webp) | murky mottled elongated fish in a pond, possibly a snakehead |
+| species/anabas-testudineus | [photo](https://media.aquatome.com/inaturalist/617710654.webp) | blurry blotched fish seen from above in murky water; can't confirm the species, may be a snakehead |
 | species/ariopsis-felis | [photo](https://media.aquatome.com/inaturalist/127738278.webp) | dense group of sea catfish in shallow water seen from above; can't confirm the species |
 | species/ariopsis-felis | [photo](https://media.aquatome.com/inaturalist/446544212.webp) | two blurry catfish over the bottom in murky water |
 | species/ariopsis-felis | [photo](https://media.aquatome.com/inaturalist/446544227.webp) | two catfish seen from above through murky shallow water; too blurry to confirm species |
@@ -531,19 +571,26 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 | species/cambarellus-diminutus | [photo](https://media.aquatome.com/commons/43ac135ac908d19e.webp) | Small pale beige dwarf crayfish (Cambarellus) on plant stem; clear adult view, but no species marks visible, so C. dimin |
 | species/chaetostoma-leucomelas | [photo](https://media.aquatome.com/scotcat/2f663a9653d438f0.webp) | Ventral view of a Chaetostoma-type suckermouth catfish specimen; species can't be confirmed from the belly side |
 | species/chalceus-erythrurus | [photo](https://media.aquatome.com/commons/5c8f476b67fe9c6a.webp) | live fish in planted tank with red fins; no yellow pectoral/pelvic fins visible, could be C. macrolepidotus |
+| species/channa-maculata | [photo](https://media.aquatome.com/commons/3d9bdbb968b50c68.webp) | live blotched snakehead seen from above in a pond; could be C. maculata or C. argus |
 | species/channa-marulioides | [photo](https://media.aquatome.com/commons/d01e942875483c03.webp) | dark brown snakehead with white-spotted lower flank; can't be sure it's marulioides |
 | species/channa-marulioides | [photo](https://media.aquatome.com/inaturalist/369305065.webp) | distant snakehead in murky green water, species can't be confirmed |
 | species/channa-marulius | [photo](https://media.aquatome.com/commons/3bd500a873967b13.webp) | Dark, red-eyed snakehead guarding a swarm of fry underwater; murky view, can't confirm the species |
 | species/channa-marulius | [photo](https://media.aquatome.com/commons/459ccd95664ceec2.webp) | Close-up of the head of a plain dark-grey snakehead; no marks visible to confirm the species |
+| species/cherax-quadricarinatus | [photo](https://media.aquatome.com/commons/206e900705893162.webp) | small pale blue crayfish in tank, could be Procambarus alleni or blue morph |
+| species/cherax-quadricarinatus | [photo](https://media.aquatome.com/commons/2e76354295280191.webp) | blue crayfish beside coconut hut, species unclear |
+| species/cherax-quadricarinatus | [photo](https://media.aquatome.com/commons/3f9891c7c07d88c8.webp) | small blue crayfish, front view, species unclear |
+| species/cherax-quadricarinatus | [photo](https://media.aquatome.com/commons/658635477e293405.webp) | orange crayfish in tank corner, species unclear |
+| species/cherax-quadricarinatus | [photo](https://media.aquatome.com/commons/68181f409faaace2.webp) | blue crayfish under rock, could be another blue crayfish species |
+| species/cherax-quadricarinatus | [photo](https://media.aquatome.com/commons/6dafc6a7dbb51200.webp) | spiny crayfish with orange spines on leaf litter, possibly Euastacus |
+| species/cherax-quadricarinatus | [photo](https://media.aquatome.com/commons/8f0ffb5d462587de.webp) | orange crayfish; could be an orange morph or an orange Procambarus |
+| species/cherax-quadricarinatus | [photo](https://media.aquatome.com/commons/9a0367924b096880.webp) | all-blue crayfish on gravel with snails, may be Procambarus alleni |
+| species/cherax-quadricarinatus | [photo](https://media.aquatome.com/commons/b1936b03aeaf497a.webp) | cyan crayfish on a mossy rock, possibly Cherax destructor |
+| species/cherax-quadricarinatus | [photo](https://media.aquatome.com/commons/df1e9f856e27cbba.webp) | bright electric-blue crayfish; could be a blue morph or Procambarus alleni |
 | species/cichla-orinocensis | [photo](https://media.aquatome.com/commons/1f42fa7c3a0503dc.webp) | Aquarium Cichla with three solid dark bars and no ringed ocelli; could be another Cichla species (e.g. temensis or kelbe |
 | species/cichla-orinocensis | [photo](https://media.aquatome.com/commons/737bf0684108ef83.webp) | Adult peacock bass, close front-side view. Its three dark blotches look ragged and bar-like, not clearly the ringed eyes |
 | species/corydoras-atropersonatus | [photo](https://media.aquatome.com/seriouslyfish/40eb62f2783721c1.webp) | spotted cory digging in the substrate; mask not visible, so a look-alike can't be ruled out |
 | species/corydoras-britskii | [photo](https://media.aquatome.com/seriouslyfish/bcc5bf65f5f4c158.webp) | live Brochis in a tank, side view; dorsal fin looks short, so it could be B. splendens rather than B. britskii |
 | species/corydoras-eques | [photo](https://media.aquatome.com/seriouslyfish/9d65e8e6140e952d.webp) | pale, washed-out fish with metallic body and orange head; could be a C. aeneus form |
-| species/corydoras-habrosus | [photo](https://media.aquatome.com/commons/24568acefb8ea8de.webp) | two spotted dwarf corys from the front; markings too unclear to confirm |
-| species/corydoras-habrosus | [photo](https://media.aquatome.com/commons/367c202bbe22612e.webp) | dark mottled cory from the front on sand; key markings not clearly visible |
-| species/corydoras-habrosus | [photo](https://media.aquatome.com/commons/3b83c57aaadccbb0.webp) | dark mottled dwarf cory, close side view; markings too dark and blurred to confirm habrosus |
-| species/corydoras-habrosus | [photo](https://media.aquatome.com/commons/b9c9f54b7eb9d843.webp) | front close-up of a small cory with a speckled face; body pattern not visible |
 | species/corydoras-schwartzi | [photo](https://media.aquatome.com/commons/23fa4829e8bac6a2.webp) | cory seen head-on from above on driftwood, markings not visible enough to identify |
 | species/corydoras-schwartzi | [photo](https://media.aquatome.com/commons/90ccf625ecd59619.webp) | striped/dashed cory side view; could be schwartzi but similar to C. trilineatus/julii-group look-alikes |
 | species/corydoras-vittatus | [photo](https://media.aquatome.com/scotcat/32ccc145370662c9.webp) | Blurry spotted Corydoras on gravel; could be vittatus, but the marks are too unclear to rule out look-alikes like C. tri |
@@ -650,7 +697,6 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 | species/metynnis-lippincottianus | [photo](https://media.aquatome.com/commons/3fab5c7011b0e881.webp) | spotted greenish fish with red throat and dark shoulder spot, looks like juvenile piranha |
 | species/metynnis-lippincottianus | [photo](https://media.aquatome.com/commons/43f8b151fc517104.webp) | spotted fish with red throat, possibly juvenile red-bellied piranha, beside silver disc fish |
 | species/metynnis-lippincottianus | [photo](https://media.aquatome.com/inaturalist/733956018.webp) | small, blurry, distant disc-shaped fish against a blue background |
-| species/misgurnus-anguillicaudatus | [photo](https://media.aquatome.com/inaturalist/695915082.webp) | distant view of greyish spotted loaches on gravel under blue light; Paramisgurnus can't be ruled out |
 | species/moenkhausia-oligolepis | [photo](https://media.aquatome.com/commons/71084a5c8fadf2f3.webp) | Single live golden tetra side-on, with netted scales and a red eye, but the expected black tail-base spot is missing |
 | species/moenkhausia-oligolepis | [photo](https://media.aquatome.com/inaturalist/11831777.webp) | Four live Moenkhausia-like tetras by a submerged log, with large netted scales and red eyes, but no clear black tail-bas |
 | species/monocirrhus-polyacanthus | [photo](https://media.aquatome.com/commons/f3981236ca4c840b.webp) | small brown fish head-down among plants; snout hidden, can't confirm the species |
@@ -746,7 +792,6 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 | species/silonia-silondia | [photo](https://media.aquatome.com/scotcat/b2c1cd03b4b9ad26.webp) | Small silvery schilbeid in a tank; may be a juvenile, could also be Clupisoma or a similar species |
 | species/sinibotia-robusta | [photo](https://media.aquatome.com/seriouslyfish/df0a1dbee6b7fe2a.webp) | Sinibotia loach with fewer, broader bars; could be another Sinibotia such as S. pulchra |
 | species/sphaerichthys-selatanensis | [photo](https://media.aquatome.com/seriouslyfish/0b8ddfe53e1c35e7.webp) | many tiny fry in a plastic tub, too small to confirm species |
-| species/sphaerichthys-vaillanti | [photo](https://media.aquatome.com/commons/4e6a31967276fa12.webp) | dim view of a striped gourami among branches |
 | species/stigmatogobius-sadanundio | [photo](https://media.aquatome.com/inaturalist/425156099.webp) | brownish goby on shells and sand, not clearly knight goby |
 | species/stiphodon-atropurpureus | [photo](https://media.aquatome.com/inaturalist/198782077.webp) | patterned female-type goby on a rock in a stream; could be a female Stiphodon but the species can't be confirmed |
 | species/stiphodon-atropurpureus | [photo](https://media.aquatome.com/inaturalist/387228644.webp) | slender pale fish swimming over rock in a stream, distant and blurry, species can't be confirmed |
@@ -787,9 +832,6 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 | species/amblyceps-mangois | [photo](https://media.aquatome.com/scotcat/929551974b6e1076.webp) | group of small translucent yellowish catfish with long barbels and fairly large eyes; Amblyceps has tiny eyes and short  |
 | species/ameiurus-platycephalus | [photo](https://media.aquatome.com/inaturalist/725280670.webp) | Close-up of a dark bullhead's head and barbels underwater; could be any Ameiurus, flat head not clear |
 | species/ameiurus-platycephalus | [photo](https://media.aquatome.com/inaturalist/725280703.webp) | Mottled, flattened catfish under a rock, head and tail partly cut off; looks like a flat bullhead but flathead catfish n |
-| species/anabas-testudineus | [photo](https://media.aquatome.com/inaturalist/455287801.webp) | blurry elongated fish in green water, could be a snakehead |
-| species/anabas-testudineus | [photo](https://media.aquatome.com/inaturalist/617710483.webp) | murky mottled elongated fish in a pond, possibly a snakehead |
-| species/anabas-testudineus | [photo](https://media.aquatome.com/inaturalist/617710654.webp) | blurry blotched fish seen from above in murky water; can't confirm the species, may be a snakehead |
 | species/anatolichthys-villwocki | [photo](https://media.aquatome.com/seriouslyfish/eeb0c620f8c32168.webp) | plain olive female-type small toothcarp with a dark spot on the tail base; no bars, could be a female Anatolichthys or a |
 | species/andinoacara-latifrons | [photo](https://media.aquatome.com/inaturalist/203183453.webp) | small pale fish over rocks in the wild, distant view, species unclear |
 | species/andinoacara-pulcher | [photo](https://media.aquatome.com/commons/c46df7276ec4e372.webp) | acara-like cichlid head-on under strong blue lighting; colours distorted, can't confirm the species |
@@ -820,17 +862,6 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 | species/brachygobius-xanthozonus | [photo](https://media.aquatome.com/commons/dfdd9415c1333fe8.webp) | banded bumblebee goby on a leaf, colours heavily distorted (purple/white); Brachygobius species can't be confirmed |
 | species/candidia-barbata | [photo](https://media.aquatome.com/inaturalist/298292300.webp) | plain silvery small cyprinid in a gridded measuring tray, apparently in water; no clear Candidia marks visible |
 | species/channa-baramensis | [photo](https://media.aquatome.com/commons/f1cf8895771162e6.webp) | slender brown fish in shallow water over mossy rock; can't confirm it is C. baramensis, may be a loach or juvenile |
-| species/channa-maculata | [photo](https://media.aquatome.com/commons/3d9bdbb968b50c68.webp) | live blotched snakehead seen from above in a pond; could be C. maculata or C. argus |
-| species/cherax-quadricarinatus | [photo](https://media.aquatome.com/commons/206e900705893162.webp) | small pale blue crayfish in tank, could be Procambarus alleni or blue morph |
-| species/cherax-quadricarinatus | [photo](https://media.aquatome.com/commons/2e76354295280191.webp) | blue crayfish beside coconut hut, species unclear |
-| species/cherax-quadricarinatus | [photo](https://media.aquatome.com/commons/3f9891c7c07d88c8.webp) | small blue crayfish, front view, species unclear |
-| species/cherax-quadricarinatus | [photo](https://media.aquatome.com/commons/658635477e293405.webp) | orange crayfish in tank corner, species unclear |
-| species/cherax-quadricarinatus | [photo](https://media.aquatome.com/commons/68181f409faaace2.webp) | blue crayfish under rock, could be another blue crayfish species |
-| species/cherax-quadricarinatus | [photo](https://media.aquatome.com/commons/6dafc6a7dbb51200.webp) | spiny crayfish with orange spines on leaf litter, possibly Euastacus |
-| species/cherax-quadricarinatus | [photo](https://media.aquatome.com/commons/8f0ffb5d462587de.webp) | orange crayfish; could be an orange morph or an orange Procambarus |
-| species/cherax-quadricarinatus | [photo](https://media.aquatome.com/commons/9a0367924b096880.webp) | all-blue crayfish on gravel with snails, may be Procambarus alleni |
-| species/cherax-quadricarinatus | [photo](https://media.aquatome.com/commons/b1936b03aeaf497a.webp) | cyan crayfish on a mossy rock, possibly Cherax destructor |
-| species/cherax-quadricarinatus | [photo](https://media.aquatome.com/commons/df1e9f856e27cbba.webp) | bright electric-blue crayfish; could be a blue morph or Procambarus alleni |
 | species/corydoras-agassizii | [photo](https://media.aquatome.com/commons/29e1f1418fdd5619.webp) | spotted cory with dark dorsal blotch, angled soft view; can't rule out C. ambiacus or similar look-alikes |
 | species/crossocheilus-reticulatus | [photo](https://media.aquatome.com/seriouslyfish/1969690369b30074.webp) | distant murky wild view of a fish grazing on a log, marks unclear |
 | species/dario-tigris | [photo](https://media.aquatome.com/commons/7e5a72bb82589d86.webp) | tan fish with red bars and spotted head; possibly a female Dario but species unclear |
@@ -839,7 +870,7 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 | species/nemacheilus-binotatus | [photo](https://media.aquatome.com/seriouslyfish/2a6c6ba0df2ab10a.webp) | wild stream bottom, two small striped fish seen from above, too distant to confirm |
 | species/nemacheilus-binotatus | [photo](https://media.aquatome.com/seriouslyfish/5cb4fe636c844fc7.webp) | wild stream bed, small distant slender fish among rocks, species unclear |
 
-## Removed (701)
+## Removed (811)
 
 "Something else" names what the photo shows instead; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
 
@@ -882,6 +913,7 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 | breeds/super-red-arowana | [photo](https://media.aquatome.com/commons/b78790b4052d821e.webp) | people: red arowana swimming below surface with reflection; blurred pinkish shape top right may be a person |
 | species/betta-splendens | [photo](https://media.aquatome.com/commons/78302919749a9d91.webp) | its Commons file names Betta mahachaiensis |
 | species/betta-splendens | [photo](https://media.aquatome.com/commons/f7a43db1dedf2bb9.webp) | logo: close-up of blue halfmoon betta; blurred green logo top left |
+| species/poecilia-reticulata (a guide photo) | [photo](https://media.aquatome.com/video/cJLZq603RAY/p3-Nyb3BwZWQpLmpwZw.webp) | pearl gourami (Trichopodus leeri), male: pearl-dotted body, black lateral line, red-orange throat, thread-like pelvic fi |
 | species/trigonostigma-heteromorpha | [photo](https://media.aquatome.com/flickr/4126097617.webp) | logo: three harlequins in a planted tank; faint vertical watermark text at left edge |
 | species/trigonostigma-heteromorpha (a guide photo) | [photo](https://media.aquatome.com/video/TEZjYpuJFsU/p0-RfZmVtYWxlLmpwZw.webp) | slender fish with red lateral line and red tail base, no black triangle patch; not a harlequin rasbora (possibly a red-s |
 | species/trigonostigma-heteromorpha (a guide photo) | [photo](https://media.aquatome.com/video/TEZjYpuJFsU/p1-hZV90ZXRyYS5KUEc.webp) | serpae tetra (Hyphessobrycon eques), long-finned: black comma spot behind gill, black dorsal fin, red anal fin; no black |
@@ -924,7 +956,9 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 | species/melanotaenia-trifasciata | [photo](https://media.aquatome.com/inaturalist/17630675.webp) | dead: banded rainbowfish lying on a white surface, apparently a dead specimen |
 | species/melanotaenia-trifasciata | [photo](https://media.aquatome.com/inaturalist/17630677.webp) | dead: male rainbowfish lying on a white tray, specimen photo |
 | species/melanotaenia-boesemani | [photo](https://media.aquatome.com/aquariumcoop/54c668e6b938ba1a.webp) | drawing of the fish on a sticker product with a barcode |
+| plants/cryptocoryne-parva (a guide photo) | [photo](https://media.aquatome.com/aquariumcoop/b742d86907b94fc9.webp) | people: tissue culture cup of narrow-leaved crypt held in a hand, matches caption |
 | species/puntigrus-tetrazona | [photo](https://media.aquatome.com/inaturalist/177678755.webp) | people: few tiger barbs in decorated tank, distant; person silhouette in background behind glass |
+| plants/taxiphyllum-barbieri (a guide photo) | [photo](https://media.aquatome.com/video/8SwotDmf5eM/p0-lOlBvZGEwMS5KUEc.webp) | people: several aquarium plants laid on paper, including a small clump labelled java moss; red name labels and a date stamp adde |
 | species/corydoras-aeneus | [photo](https://media.aquatome.com/commons/67e6ecee304f3b17.webp) | masked cory with orange head patch (C. adolfoi-type) beside an albino cory |
 | species/corydoras-aeneus | [photo](https://media.aquatome.com/inaturalist/179490757.webp) | logo: bronze cory on gravel, side view; round green logo bottom left |
 | species/chromobotia-macracanthus | [photo](https://media.aquatome.com/inaturalist/339892454.webp) | people: two clown loaches on sand; a person's orange clothing reflected in the glass at top left |
@@ -971,10 +1005,11 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 | species/hyphessobrycon-elachys | [photo](https://media.aquatome.com/commons/900234466da5d80e.webp) | dead: preserved museum specimen with scale ruler, faded |
 | species/hyphessobrycon-elachys | [photo](https://media.aquatome.com/commons/936f63ab8128658c.webp) | dead: preserved museum specimen with scale ruler, faded |
 | species/hyphessobrycon-eques | [photo](https://media.aquatome.com/commons/11f47fe29e06233f.webp) | rosy tetra (H. rosaceus/bentosi): no comma shoulder spot, white-tipped black dorsal and anal fins |
-| species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/289154653.webp) | people: iridescent blue-pink shiner in a photo tank held outdoors; hand partly visible at right edge |
-| species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/487219656.webp) | people: breeding male in red-and-violet colour in a photo tank; fingers at the left edge holding the tank |
+| species/labidochromis-caeruleus | [photo](https://media.aquatome.com/commons/0c5670f2f7a40286.webp) | its Commons file names Maylandia lombardoi |
 | plants/pogostemon-stellatus (a guide photo) | [photo](https://media.aquatome.com/aquariumcoop/f51b9d3d8e6c077a.webp) | people: potted plant held in a hand |
 | plants/pogostemon-stellatus | [photo](https://media.aquatome.com/commons/ef003b0bbd18a6d2.webp) | likely Pogostemon erectus: very fine needle-like leaves, not broad serrated whorls |
+| species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/289154653.webp) | people: iridescent blue-pink shiner in a photo tank held outdoors; hand partly visible at right edge |
+| species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/487219656.webp) | people: breeding male in red-and-violet colour in a photo tank; fingers at the left edge holding the tank |
 | species/poecilia-latipinna | [photo](https://media.aquatome.com/commons/81f08b1ad835e8ec.webp) | people: wild sailfin molly with orange-spotted flanks held in fingers, ring visible |
 | species/poecilia-latipinna | [photo](https://media.aquatome.com/commons/bf71c7e751807fff.webp) | people: young wild sailfin molly lying on an open palm, fins folded |
 | species/poecilia-latipinna | [photo](https://media.aquatome.com/commons/dca7170c20b3170e.webp) | people: wild female sailfin molly with rows of dark spots, on a palm |
@@ -992,30 +1027,47 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 | plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/commons/73812bcf523fca03.webp) | botanical line drawing with flower and seed details |
 | plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/commons/fef38eb1faa2676f.webp) | line drawing of a stem plant and grass-like rosette plants |
 | plants/ludwigia-glandulosa | [photo](https://media.aquatome.com/inaturalist/272605148.webp) | people: emersed stem with narrow alternate leaves held in fingers in a field; could be Ludwigia glandulosa, but other narrow-lea |
+| species/dario-dario | [photo](https://media.aquatome.com/commons/ae6db82c859bca17.webp) | dark purple body with blue spots, likely a Badis species |
+| plants/limnophila-aromatica | [photo](https://media.aquatome.com/2hraquarist/23c32762f38f1076.webp) | fertiliser bottle and box product packshot |
+| plants/limnophila-aromatica | [photo](https://media.aquatome.com/2hraquarist/370f9f563d36df11.webp) | fertiliser bottle packshot with red plant cutouts |
+| plants/limnophila-aromatica | [photo](https://media.aquatome.com/2hraquarist/d7a3f5776faeec0a.webp) | aquascape with mixed stem plants, subject not clearly picked out |
 | plants/glossostigma-elatinoides | [photo](https://media.aquatome.com/commons/090289bd3dc93c3f.webp) | herbarium sheet with packet of muddy clumps; plant not discernible |
 | plants/glossostigma-elatinoides | [photo](https://media.aquatome.com/commons/9da4fc94051c5b7e.webp) | dead: pressed herbarium sheet (Auckland Museum) with colour chart and label |
 | plants/marsilea-hirsuta | [photo](https://media.aquatome.com/commons/1fb503a4fb12c06c.webp) | people: Marsilea frond held between fingertips over grass; can't tell from other Marsilea species |
 | plants/marsilea-hirsuta | [photo](https://media.aquatome.com/commons/bd6432c483538954.webp) | Oxalis (wood sorrel): three heart-shaped leaflets, not four-leaflet Marsilea |
 | plants/marsilea-hirsuta | [photo](https://media.aquatome.com/commons/f2263587189a1c3f.webp) | people: single Marsilea four-leaf frond held between fingers; species can't be confirmed from one leaf |
 | species/gyrinocheilus-aymonieri | [photo](https://media.aquatome.com/commons/6e34d0871b891148.webp) | its Commons file names Macrotocinclus affinis |
+| species/erpetoichthys-calabaricus | [photo](https://media.aquatome.com/commons/667ab15cee54d193.webp) | its Commons file names Polypterus ornatipinnis |
 | species/trichopsis-vittata | [photo](https://media.aquatome.com/commons/123991e9c578a3dc.webp) | dead: croaking gourami lying on grey background, fins hanging as in a specimen photo |
 | species/trichopsis-vittata | [photo](https://media.aquatome.com/commons/7b7bcddffff6bd8c.webp) | black-and-white drawing of gouramis by a bubble nest |
 | species/trichopsis-vittata | [photo](https://media.aquatome.com/commons/e13ecfe1afc12de2.webp) | dead: croaking gourami laid flat on plain background, looks like a fresh specimen photo |
 | species/trichopsis-vittata | [photo](https://media.aquatome.com/inaturalist/251105703.webp) | people: croaking gourami in a small container, murky, washed-out colours; fingers behind the glass |
 | species/trichopsis-vittata | [photo](https://media.aquatome.com/panitvong/inat-179239938.webp) | dead: caught gourami held out of water in a palm, net nearby |
 | species/trichopsis-vittata | [photo](https://media.aquatome.com/panitvong/inat-707077438.webp) | dead: caught striped fish lying in a hand, can't tell if it's alive |
+| plants/lilaeopsis-brasiliensis | [photo](https://media.aquatome.com/inaturalist/257979017.webp) | mostly a carpet of a different small-leaved whorled plant, with a few Lilaeopsis-like leaves |
+| species/boraras-urophthalmoides | [photo](https://media.aquatome.com/flickr/14436045529.webp) | logo: least rasbora among plants; title text top, copyright text left edge |
+| species/boraras-urophthalmoides | [photo](https://media.aquatome.com/flickr/14619429711.webp) | logo: two least rasboras in planted tank; title text top, copyright text left edge |
+| species/boraras-urophthalmoides | [photo](https://media.aquatome.com/flickr/14620558614.webp) | logo: fish among plants; caption text at top and copyright along left edge |
 | plants/lobelia-cardinalis | [photo](https://media.aquatome.com/commons/e9ac982755eaa4e4.webp) | botanical illustration (Merian-style) with moth and caterpillar |
 | plants/lobelia-cardinalis | [photo](https://media.aquatome.com/inaturalist/4348553.webp) | people: flowering cardinal flower spike in the wild; hand holding the stem at the bottom |
 | species/carassius-auratus (a guide photo) | [photo](https://media.aquatome.com/video/JVhrBudj8U8/p0-fY3VsdHVyZS5qcGc.webp) | logo: smooth multicoloured pebbles laid out outdoors, no fish; caption is about decor; small yellow text tag bottom centre |
+| species/carassius-auratus (a guide photo) | [photo](https://media.aquatome.com/video/zikyuEMALJE/p0-1fb2ZfQXJ0LmpwZw.webp) | people: oil painting of a goldfish bowl on a table, painted figures top right; not a photo |
+| species/carassius-auratus (a guide photo) | [photo](https://media.aquatome.com/video/zikyuEMALJE/p1-1fb2ZfQXJ0LmpwZw.webp) | painting (Matisse-style still life) of a goldfish bowl on a table, not a photo; painted figures and the painter's signat |
 | species/poecilia-sphenops | [photo](https://media.aquatome.com/commons/42ab0d7ad5d41fc5.webp) | dead: dead molly-like fish lying on gravel, bloody gills |
+| species/poecilia-sphenops | [photo](https://media.aquatome.com/commons/bc6d7868f4a60995.webp) | dead: wild-type molly lying out of water on gravel |
+| species/poecilia-sphenops | [photo](https://media.aquatome.com/flickr/6702014271.webp) | logo: red platy (Xiphophorus maculatus): short, deep body with a small mouth; faint signature bottom right |
 | plants/cryptocoryne-beckettii | [photo](https://media.aquatome.com/commons/956c44b16aa5ae88.webp) | planted tank with a small fish; crypt not identifiable |
 | species/corydoras-panda | [photo](https://media.aquatome.com/commons/67e6ecee304f3b17.webp) | Looks like Corydoras metae (black band along the back, not a spot at the tail base) next to an albino cory |
+| species/corydoras-panda | [photo](https://media.aquatome.com/commons/ccd6c50890efdf3c.webp) | different Corydoras: no black eye mask or tail-base spot, dark lateral band instead |
 | species/osteoglossum-bicirrhosum | [photo](https://media.aquatome.com/commons/54130c70cf012968.webp) | old drawing labelled Ischnosoma bicirrhosum |
 | species/scleropages-jardinii | [photo](https://media.aquatome.com/commons/1f864e6bdd321dd8.webp) | Australasian darter (bird) swallowing a fish; the fish can't be identified |
 | species/scleropages-jardinii | [photo](https://media.aquatome.com/commons/70be41189d3fa6ec.webp) | Australasian darter (bird) holding a long fish or eel on the ground |
 | species/scleropages-jardinii | [photo](https://media.aquatome.com/commons/a78a1d479380f7b5.webp) | Australasian darter (bird) swallowing a fish; the fish can't be identified |
 | species/scleropages-jardinii | [photo](https://media.aquatome.com/commons/ace21161fbd77db5.webp) | its Commons file names Scleropages leichardti |
 | species/scleropages-jardinii | [photo](https://media.aquatome.com/commons/ee51a0296b067c20.webp) | its Commons file names Scleropages formosus |
+| species/scleropages-jardinii | [photo](https://media.aquatome.com/inaturalist/454534997.webp) | people: Gulf saratoga in tank; person reflected in glass at top |
+| species/scleropages-jardinii | [photo](https://media.aquatome.com/inaturalist/454535028.webp) | people: saratoga with snake-necked turtles; person reflected in glass |
+| species/scleropages-jardinii | [photo](https://media.aquatome.com/inaturalist/485318860.webp) | people: hazy view of saratoga; shoe of a person at top right |
 | species/scleropages-formosus | [photo](https://media.aquatome.com/commons/29aa9891fa0c8ee5.webp) | its Commons file names Osteoglossum bicirrhosum |
 | species/scleropages-formosus | [photo](https://media.aquatome.com/commons/42dfeafb914fffe5.webp) | its Commons file names Osteoglossum bicirrhosum |
 | species/scleropages-formosus | [photo](https://media.aquatome.com/commons/84f557378f0c3b1d.webp) | its Commons file names Osteoglossum bicirrhosum |
@@ -1023,37 +1075,54 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 | species/scleropages-formosus | [photo](https://media.aquatome.com/commons/f94f05478fb3c9a6.webp) | its Commons file names Osteoglossum bicirrhosum |
 | species/scleropages-formosus | [photo](https://media.aquatome.com/commons/fdb933c97d6ae947.webp) | its Commons file names Osteoglossum bicirrhosum |
 | species/scleropages-formosus | [photo](https://media.aquatome.com/flickr/8445099001.webp) | likely silver arowana (Osteoglossum bicirrhosum): many rows of small scales, long tapering body |
+| species/polypterus-senegalus | [photo](https://media.aquatome.com/commons/667ab15cee54d193.webp) | its Commons file names Polypterus ornatipinnis |
 | species/channa-stewartii | [photo](https://media.aquatome.com/commons/25337a8fe27ca115.webp) | Full Day plate with four Ophiocephalus species drawn on it; not a photo |
 | species/channa-stewartii | [photo](https://media.aquatome.com/commons/985b7199d988c19c.webp) | Day's Fishes of India drawing of C. stewartii (fig. 3); an illustration, not a photo |
 | species/channa-stewartii | [photo](https://media.aquatome.com/commons/ba0d7bc1fcaf33b3.webp) | Mirrored copy of the same Day plate drawing of C. stewartii |
+| species/channa-andrao | [photo](https://media.aquatome.com/inaturalist/80516645.webp) | logo: close-up of tail and fins only; camera EXIF text bottom left |
+| plants/bolbitis-heteroclita | [photo](https://media.aquatome.com/inaturalist/610888905.webp) | people: dense wild stand with elongated rooting frond tips |
 | species/channa-asiatica | [photo](https://media.aquatome.com/inaturalist/707105250.webp) | dead: landed catch with a spinner lure in its mouth, lying on mud beside a lens cap |
 | species/channa-asiatica | [photo](https://media.aquatome.com/seriouslyfish/0e017df20c190878.webp) | dead: caught Channa asiatica (eyespot at tail base, white spots) held up in two hands over a net |
 | species/channa-aurantimaculata | [photo](https://media.aquatome.com/commons/43ce07d22a881d54.webp) | dark snakehead with white speckles, yellow chevrons and blue fins, no orange spots; likely C. barca/stewartii group |
 | species/channa-aurantimaculata | [photo](https://media.aquatome.com/commons/d5e4b3ab525c9741.webp) | greenish-yellow barred snakehead head close-up, no orange spots; likely a different Channa (e.g. marulioides-type) |
 | species/channa-aurantimaculata | [photo](https://media.aquatome.com/seriouslyfish/4c040d1ca763231c.webp) | brown snakehead with yellow chevron band, no orange spots; possibly C. stewartii-type, not aurantimaculata |
+| species/atractosteus-spatula | [photo](https://media.aquatome.com/flickr/3584837610.webp) | people: alligator gar in public aquarium tank, visitor silhouettes in front |
 | plants/echinodorus-cordifolius | [photo](https://media.aquatome.com/inaturalist/45037000.webp) | people: emersed sword plant with white flowers in wet ground, flower stalk held by fingers |
 | plants/hydrocotyle-verticillata | [photo](https://media.aquatome.com/commons/5401ef9dc4762f5f.webp) | botanical drawing and key text from a flora book |
 | plants/hydrocotyle-verticillata | [photo](https://media.aquatome.com/commons/c3ac433f4b78bf02.webp) | likely H. umbellata or bonariensis: flowers in rounded umbel heads, not whorls on a spike |
+| plants/hydrocotyle-verticillata | [photo](https://media.aquatome.com/inaturalist/38273617.webp) | likely Hydrocotyle umbellata: flowers in ball-shaped umbels at stalk tips, not in whorls |
 | plants/hydrocotyle-verticillata | [photo](https://media.aquatome.com/inaturalist/59368548.webp) | likely Hydrocotyle bonariensis: branched compound umbel, not the whorled spike of verticillata |
 | species/phractocephalus-hemioliopterus | [photo](https://media.aquatome.com/commons/2abf15ae3934d927.webp) | its Commons file names Brachyplatystoma filamentosum |
 | species/phractocephalus-hemioliopterus | [photo](https://media.aquatome.com/commons/c26d6bd3b78a154c.webp) | Main fish is a pacu facing the camera; small red-tail catfish lies on the bottom |
 | species/phractocephalus-hemioliopterus | [photo](https://media.aquatome.com/inaturalist/179491799.webp) | logo: live red-tail catfish in tank, white flank band visible but tail out of frame, murky view; round green logo bottom left |
+| species/hyphessobrycon-megalopterus (a guide photo) | [photo](https://media.aquatome.com/aquariumcoop/3586c40ba11208b3.webp) | school of red phantom tetras (Hyphessobrycon sweglesi): orange-red body, no black fins |
 | species/hyphessobrycon-megalopterus | [photo](https://media.aquatome.com/commons/547b2dfc17de0718.webp) | historical scientific plate drawing of Megalamphodus megalopterus |
 | species/hyphessobrycon-megalopterus | [photo](https://media.aquatome.com/commons/ef36174ae100202b.webp) | anatomical drawings of skull and jaw teeth |
 | plants/vesicularia-montagnei | [photo](https://media.aquatome.com/commons/be4fac0fa1eb9325.webp) | Mostly Riccia fluitans (crystalwort): light-green flat ribbons that fork in Y shapes, not Christmas moss's triangular, l |
 | plants/micranthemum-callitrichoides | [photo](https://media.aquatome.com/commons/61f6a0c3ecb3b340.webp) | wide aquascape with mountain rocks; carpet too distant to identify |
+| plants/micranthemum-callitrichoides | [photo](https://media.aquatome.com/inaturalist/628894758.webp) | people: emersed carpet with tiny white flowers, thumb at bottom; camera timestamp text bottom right |
 | plants/eleocharis-parvula | [photo](https://media.aquatome.com/commons/9fc71787d3cd4530.webp) | sedge with clusters of several spikelets per stem (like Isolepis/Fimbristylis); Eleocharis has one terminal spikelet |
+| plants/eleocharis-parvula | [photo](https://media.aquatome.com/flickr/21025434875.webp) | dead: uprooted specimen laid on paper with grid scale |
+| plants/eleocharis-parvula | [photo](https://media.aquatome.com/flickr/21033000101.webp) | emersed sedge on dry sandy ground with clustered multi-spikelet heads and bracts (Bulbostylis/Fimbristylis-like); Eleoch |
 | species/agamyxis-pectinifrons | [photo](https://media.aquatome.com/commons/389b8952f1d2096d.webp) | Synodontis-type squeaker catfish: long banded barbels, smooth skin with no thorny scutes |
 | species/chitala-ornata | [photo](https://media.aquatome.com/seriouslyfish/73bb5d5c325f5744.webp) | dead: dead clown knifefish in a blue tub at a market |
 | species/gnathonemus-petersii | [photo](https://media.aquatome.com/commons/5687fed9c124e9e1.webp) | Likely Campylomormyrus: brown, slender, long down-curved tubular snout |
 | species/gnathonemus-petersii | [photo](https://media.aquatome.com/commons/bbc2af53338844fa.webp) | Likely Campylomormyrus: long tubular snout, slender body, no Gnathonemus chin trunk |
 | species/gnathonemus-petersii | [photo](https://media.aquatome.com/inaturalist/304494901.webp) | Likely Campylomormyrus: two slender fish with long tubular snouts |
+| species/gnathonemus-petersii | [photo](https://media.aquatome.com/inaturalist/486540220.webp) | likely Campylomormyrus: long curved tubular snout, no white bands |
+| species/garra-rufa | [photo](https://media.aquatome.com/flickr/52545518228.webp) | people: group of doctor fish through hazy glass, pinkish blur at right may be a hand |
+| species/garra-rufa | [photo](https://media.aquatome.com/flickr/52659337605.webp) | people: group of doctor fish feeding on a submerged leg in a tank |
+| species/garra-rufa | [photo](https://media.aquatome.com/flickr/52659383438.webp) | people: group of doctor fish clustering on what looks like a submerged leg/skin in a tank |
 | species/garra-rufa | [photo](https://media.aquatome.com/seriouslyfish/52eabfc2c36fc4cd.webp) | people: fish spa: people's legs and feet in a tank with many small fish nibbling; fish too small to identify, could be a substit |
 | species/osphronemus-goramy (a guide photo) | [photo](https://media.aquatome.com/video/8DffJuK_nqI/p1-1lbm9pZGVzLmpwZw.webp) | Likely a chocolate gourami (Sphaerichthys osphromenoides): small brown fish with thin pale vertical bands and yellow-edg |
+| species/osphronemus-goramy (a guide photo) | [photo](https://media.aquatome.com/video/viyR7oU9kBs/p2-NlbGxhdHVzLmpwZw.webp) | oscar (Astronotus ocellatus): orange marbling, eye-spot pattern, cichlid shape |
 | plants/cryptocoryne-usteriana | [photo](https://media.aquatome.com/commons/956c44b16aa5ae88.webp) | planted aquarium with a fish; no Cryptocoryne usteriana can be picked out |
 | plants/cryptocoryne-usteriana | [photo](https://media.aquatome.com/inaturalist/255933778.webp) | people: dense stand of bullate-leaved plants in a stream bed among fallen leaves, possibly a wild Cryptocoryne but not clearly i |
+| species/astyanax-mexicanus | [photo](https://media.aquatome.com/commons/5daded6f6849c60d.webp) | dead: lab specimen on black background with scale bar; panel letters and scale bar added |
+| species/astyanax-mexicanus | [photo](https://media.aquatome.com/flickr/14339090568.webp) | logo: school of sighted surface-form Mexican tetras in planted tank; title text top and copyright text left edge |
 | species/iriatherina-werneri | [photo](https://media.aquatome.com/bwaquatics/cf6a56a53ceb687f.webp) | screenshot of image search results grid, many small thumbnails |
 | plants/cardamine-lyrata | [photo](https://media.aquatome.com/commons/0786d88f613f4e17.webp) | botanical drawing of Cardamine lyrata |
+| plants/cardamine-lyrata | [photo](https://media.aquatome.com/commons/ec5f4712c3e6a57f.webp) | likely Hydrocotyle: round crenate leaves with veins radiating from centre, no lyrate side lobes |
 | plants/cardamine-lyrata | [photo](https://media.aquatome.com/inaturalist/657989897.webp) | another Cardamine in flower: leaves are ovate and toothed, not round like lyrata's |
 | plants/ceratopteris-thalictroides | [photo](https://media.aquatome.com/commons/f2bd094727ae17f8.webp) | people: young uprooted water sprite plantlet with lobed fronds, held in fingers |
 | species/pethia-conchonius | [photo](https://media.aquatome.com/sprucepets/3213eda1134f0646.webp) | slender barb with dark blotchy pattern and red fins, no single tail spot; not a rosy barb, probably another small Pethia |
@@ -1061,10 +1130,16 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 | species/microdevario-kubotai | [photo](https://media.aquatome.com/seriouslyfish/06c590db66183438.webp) | hand holding a magnifier up to the tank, tiny fry barely visible |
 | species/microdevario-kubotai | [photo](https://media.aquatome.com/seriouslyfish/3ce22d73a82e9f8a.webp) | hand holding a magnifier up to the tank with heater and filter |
 | plants/murdannia-keisak | [photo](https://media.aquatome.com/commons/f31b3d9dbf2e1170.webp) | line drawing of stem with leaves and flower |
+| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/2842166591-ced7b993d7101623.webp) | emersed stiff whorled shoots on mud, likely parrot feather M. aquaticum |
+| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/4410788833-861fc878a5bddc45.webp) | emersed stand in a lake, likely parrot feather M. aquaticum |
+| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/5283401603-ce7522f583b0b1aa.webp) | emersed parrot feather-like shoots with pennywort, likely M. aquaticum |
 | species/inpaichthys-kerri | [photo](https://media.aquatome.com/commons/87925fc5b9a4ac1f.webp) | Likely emperor tetra (Nematobrycon palmeri): yellowish body, black stripe, bright blue eye, dark-edged fins |
 | species/inpaichthys-kerri | [photo](https://media.aquatome.com/commons/f4dcb8c6c76eb211.webp) | Plate of many preserved fish species labelled a–m, not the subject |
 | plants/nymphoides-hydrophylla | [photo](https://media.aquatome.com/commons/1a3e6c2d93ba96b0.webp) | people: white Nymphoides-type flower with yellow centre held in fingers; species can't be confirmed from the flower alone |
 | species/paracheirodon-simulans | [photo](https://media.aquatome.com/commons/23b754fe984f074e.webp) | cardinal tetra: red band fills the whole lower body from gill to tail base; green neon has red only on the rear belly |
+| plants/pogostemon-deccanensis | [photo](https://media.aquatome.com/2hraquarist/23c32762f38f1076.webp) | fertilizer product packshot, amber bottle and box |
+| plants/pogostemon-deccanensis | [photo](https://media.aquatome.com/2hraquarist/370f9f563d36df11.webp) | fertilizer bottle packshot with red stem plants |
+| plants/pogostemon-deccanensis | [photo](https://media.aquatome.com/2hraquarist/881912be3f678bf6.webp) | fertilizer product packshot, green bottle and box |
 | species/hyphessobrycon-rosaceus | [photo](https://media.aquatome.com/commons/2cc98205851f778c.webp) | dead: preserved museum specimen with scale ruler |
 | species/hyphessobrycon-rosaceus | [photo](https://media.aquatome.com/commons/4e7bac394b8ca01d.webp) | dead: preserved museum specimen with scale ruler |
 | plants/ranunculus-inundatus | [photo](https://media.aquatome.com/commons/6e82640ab984f274.webp) | people: pulled plant with dissected leaves held in hand against sky |
@@ -1072,17 +1147,25 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 | plants/ranunculus-inundatus | [photo](https://media.aquatome.com/commons/c0df0147758d39eb.webp) | people: yellow multi-petalled flower held between fingers |
 | plants/rotala-macrandra | [photo](https://media.aquatome.com/commons/00bf8bec5be8fe32.webp) | Same green Bacopa-like stem plant in a pot; not Rotala macrandra |
 | plants/rotala-macrandra | [photo](https://media.aquatome.com/commons/bc9c858e7a31e596.webp) | Green stem plant with small roundish leaves in a pot; looks like Bacopa (e.g. B. monnieri), not giant red rotala |
+| species/marosatherina-ladigesi | [photo](https://media.aquatome.com/commons/43027cbb342dcc46.webp) | logo: male with long yellow-edged fins among plants; signature bottom left |
 | species/atyopsis-moluccensis | [photo](https://media.aquatome.com/commons/cb558bb39d51d86f.webp) | small mottled berried dwarf shrimp (Caridina/Neocaridina type), no fan-bearing claws |
 | species/vittina-waigiensis (a guide photo) | [photo](https://media.aquatome.com/aquariumcoop/39f8f230c254d8dc.webp) | horned nerite (Clithon sp.): dark dotted shell with long spines, which V. waigiensis lacks |
 | species/vittina-waigiensis (a guide photo) | [photo](https://media.aquatome.com/aquariumcoop/71c51b1f32273749.webp) | zebra nerite (Neritina natalensis): bold yellow and black radial stripes, not the variable Waigiou pattern |
 | species/vittina-waigiensis (a guide photo) | [photo](https://media.aquatome.com/aquariumcoop/7de6919a9ff11b94.webp) | same image as 1: spiny horned nerite (Clithon sp.), not V. waigiensis |
 | species/vittina-waigiensis (a guide photo) | [photo](https://media.aquatome.com/aquariumcoop/a2ea9bbbfa016f14.webp) | zebra nerite (Neritina natalensis): even black/yellow radial stripes, not V. waigiensis' variable pattern |
+| species/vittina-waigiensis | [photo](https://media.aquatome.com/commons/115f8e2d2404182e.webp) | dead: empty shells, red-banded form, specimen views |
+| species/vittina-waigiensis | [photo](https://media.aquatome.com/commons/c06e33274619d75b.webp) | dead: empty museum shells of many colour forms on black |
+| species/vittina-waigiensis | [photo](https://media.aquatome.com/commons/da91c1572f8c2738.webp) | dead: empty shells, zigzag pattern, specimen views |
 | species/clarias-batrachus | [photo](https://media.aquatome.com/commons/cd01af2bb1fc790f.webp) | Bloch's historical hand-coloured drawing of Silurus batrachus and S. fossilis, not a photo |
 | species/clarias-batrachus | [photo](https://media.aquatome.com/commons/fc98e8e2f9ff1877.webp) | dead: Clarias catfish lying flat on a grey background, appears to be a specimen photo |
+| species/clarias-batrachus | [photo](https://media.aquatome.com/inaturalist/417855996.webp) | dead: catfish lying on its side in a shallow muddy puddle, may be dead |
 | species/monopterus-albus | [photo](https://media.aquatome.com/commons/22f678a3e0f84764.webp) | dead: swamp eels piled in a tray for sale as food at a market |
 | species/monopterus-albus | [photo](https://media.aquatome.com/commons/431472853029c2b8.webp) | dead: swamp eels crowded in a tub for sale as food, one pale/albino |
 | species/monopterus-albus | [photo](https://media.aquatome.com/inaturalist/2873738.webp) | dead: caught swamp eels lying in a plastic basket; yellow photographer text top left |
+| species/monopterus-albus | [photo](https://media.aquatome.com/inaturalist/469852828.webp) | dead: small eel lying out of water on mud, can't tell if alive |
+| species/monopterus-albus | [photo](https://media.aquatome.com/inaturalist/472204886.webp) | dead: many swamp eels crowded in a market display tank, sold as food |
 | species/monopterus-albus | [photo](https://media.aquatome.com/inaturalist/744705668.webp) | dead: swamp eels in a basin for sale as food at a market |
+| species/mastacembelus-erythrotaenia | [photo](https://media.aquatome.com/commons/b18f6d47ec824403.webp) | dead: fire eel lying out of water on artificial turf against blue backdrop, can't tell if alive |
 | species/trichopodus-trichopterus | [photo](https://media.aquatome.com/commons/6a48a232d99c8b0b.webp) | dead: three-spot gourami lying on wet wood, a landed catch |
 | species/trichopodus-trichopterus | [photo](https://media.aquatome.com/commons/88dde4c7b32997c5.webp) | its Commons file names Xiphophorus maculatus |
 | species/botia-kubotai | [photo](https://media.aquatome.com/seriouslyfish/ab08fd880a5eb9ab.webp) | underwater river habitat with logs and distant small fish; subject not identifiable |
@@ -1117,30 +1200,45 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 | species/symphysodon-discus | [photo](https://media.aquatome.com/sprucepets/9d5a6550519a7967.webp) | red bred discus, a form of Symphysodon aequifasciatus, not the wild Heckel discus |
 | species/pterygoplichthys-pardalis | [photo](https://images.unsplash.com/photo-1747133482499-8b0d78240e69?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8NHx8UHRlcnlnb3BsaWNodGh5cyUyMHBhcmRhbGlzfGVufDF8fHx8MTc5MzQ5NDY0Nnww&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | mottled catfish with long barbels and no sucker mouth, likely an auchenipterid/driftwood catfish, not a pleco |
 | species/pterygoplichthys-pardalis | [photo](https://media.aquatome.com/commons/7d51443a469716ee.webp) | dead: pile of caught sailfin plecos lying on a plastic bag on the ground |
+| species/pterygoplichthys-pardalis | [photo](https://media.aquatome.com/commons/b81769d9074f3a6a.webp) | likely P. disjunctivus: wavy lines on body and fins, not spots |
+| species/pterygoplichthys-pardalis | [photo](https://media.aquatome.com/scotcat/9a7490f69612d611.webp) | likely P. disjunctivus: chain-like vermiculated body pattern instead of spots |
 | species/ancistrus-dolichopterus | [photo](https://media.aquatome.com/commons/0b50511348d0540d.webp) | brown Ancistrus with gold spots and barred dorsal; lacks L183's black body and white fin edges |
 | species/ancistrus-dolichopterus | [photo](https://media.aquatome.com/commons/1e2ef91978ad7430.webp) | Marbled, blotchy pleco with no white spots, likely a common bristlenose or another loricariid rather than the spotted L1 |
+| species/ancistrus-dolichopterus | [photo](https://media.aquatome.com/commons/2b6b392b944e74e5.webp) | common bristlenose type: olive-grey with yellow dots, no white fin edges |
+| species/ancistrus-dolichopterus | [photo](https://media.aquatome.com/commons/3c90564e0669a175.webp) | common bristlenose type, close-up of a bristly male; olive with yellow dots, no white fin edges |
+| species/ancistrus-dolichopterus | [photo](https://media.aquatome.com/commons/77a709fd26f5e3d7.webp) | common bristlenose (Ancistrus sp.): mottled olive-yellow pattern, no white dots or white fin edges of L183 |
 | species/ancistrus-dolichopterus | [photo](https://media.aquatome.com/commons/a5af5cb58518b276.webp) | mottled common bristlenose Ancistrus type, blotched not white-spotted |
+| species/ancistrus-dolichopterus | [photo](https://media.aquatome.com/commons/b984f7ac451dfa80.webp) | brown Ancistrus with orange spots and banded fins, not L183 |
 | species/ancistrus-dolichopterus | [photo](https://media.aquatome.com/commons/c1be7598e026b9ac.webp) | large reticulated pleco, likely Pterygoplichthys sailfin pleco |
 | species/hemigrammus-erythrozonus | [photo](https://media.aquatome.com/commons/213696c7a2ad8eec.webp) | old greyscale drawing of a small tetra; no clear glowlight stripe, so species can't be confirmed |
 | species/thorichthys-meeki | [photo](https://media.aquatome.com/commons/6197df837609b992.webp) | its Commons file names Heros efasciatus |
+| species/channa-micropeltes | [photo](https://media.aquatome.com/inaturalist/187021335.webp) | logo: marbled snakehead in public aquarium, could be another Channa; faint text bottom left |
 | species/channa-micropeltes | [photo](https://media.aquatome.com/panitvong/inat-553519898.webp) | water surface with ripples, possibly a fry ball; no fish can be picked out |
 | species/channa-micropeltes | [photo](https://media.aquatome.com/seriouslyfish/0eba1b8bee726eca.webp) | dead: giant snakehead lying on a wet table, landed catch |
+| species/datnioides-microlepis | [photo](https://media.aquatome.com/seriouslyfish/ddb802f08d11f201.webp) | not a tiger perch: orange fish with scattered black spots, looks like a Siniperca (mandarin fish) |
 | species/datnioides-pulcher | [photo](https://images.unsplash.com/photo-1576469156683-912fcb231955?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MTl8fFNpYW1lc2UlMjB0aWdlcmZpc2h8ZW58MXx8fHwxNzkzNjgyNTYwfDA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | not Datnioides: narrow red-orange oblique bands on silver, small pointed snout; probably a marine banded perch-like fish |
 | species/datnioides-pulcher | [photo](https://images.unsplash.com/photo-1775145885932-1e2bff3643ad?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MjF8fFNpYW1lc2UlMjB0aWdlcmZpc2h8ZW58MXx8fHwxNzkzNjgyNTYwfDA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | old wife (Enoplosus armatus), marine; tall split dorsal fin, black-and-white bands; pineapplefish below |
 | species/datnioides-pulcher | [photo](https://media.aquatome.com/commons/3648721bcece0c66.webp) | its Commons file names Datnioides campbelli |
+| species/pangasianodon-hypophthalmus | [photo](https://media.aquatome.com/commons/85aed283b556b527.webp) | its Commons file names Pangasius sanitwongsei |
+| species/pangasianodon-hypophthalmus | [photo](https://media.aquatome.com/commons/e8c2f03ba5629268.webp) | its Commons file names Pangasius sanitwongsei |
+| species/pangasianodon-hypophthalmus | [photo](https://media.aquatome.com/commons/f29e8529f2571332.webp) | its Commons file names Pangasius sanitwongsei |
 | species/dichotomyctere-nigroviridis | [photo](https://media.aquatome.com/commons/1554e58fefb68ef0.webp) | people: small green spotted puffers, inflated, caught in a hand net; thumb visible |
+| species/epiplatys-annulatus | [photo](https://media.aquatome.com/aquariumcoop/3ee6003cede44915.webp) | decal sticker drawing, product packshot |
+| species/epiplatys-annulatus | [photo](https://media.aquatome.com/commons/6150986c9dfe812a.webp) | logo: small clown killifish seen from a distance; faint signature bottom left |
 | species/akysis-vespa | [photo](https://media.aquatome.com/seriouslyfish/c3f5a84df3511b1b.webp) | forest stream habitat with small rapids, no fish visible |
+| species/aphanotorulus-unicolor | [photo](https://media.aquatome.com/commons/96aa04b3f3933668.webp) | stocky banded pleco, Panaque-like, not the slender spotted Aphanotorulus |
 | species/aphanotorulus-unicolor | [photo](https://media.aquatome.com/commons/a6e1a857982ec1a4.webp) | dead: caught pleco held up in a hand over river water |
 | species/aphanotorulus-unicolor | [photo](https://media.aquatome.com/scotcat/227dd83b837b7404.webp) | dead: caught spotted pleco held up on an open palm |
 | species/aphanotorulus-unicolor | [photo](https://media.aquatome.com/scotcat/fb6ab6fc7691fa7a.webp) | dead: caught spotted pleco held up in two hands |
 | species/brachyplatystoma-vaillantii | [photo](https://media.aquatome.com/commons/172533759dbac642.webp) | old hand-drawn watercolour labelled Piramutaba |
 | species/brachyplatystoma-vaillantii | [photo](https://media.aquatome.com/commons/9d5798afeca44766.webp) | dead: pile of dead long-whiskered catfish (likely piramutaba) on wooden boards, catch |
+| species/brachyplatystoma-vaillantii | [photo](https://media.aquatome.com/commons/d75d202d7b6a65f8.webp) | colour drawing of the catfish |
 | species/brevibora-dorsiocellata | [photo](https://media.aquatome.com/seriouslyfish/e7740e460b859421.webp) | main fish is a larger silvery cyprinid with no dorsal spot; only a small eyespot rasbora in the background |
+| species/corydoras-habrosus | [photo](https://media.aquatome.com/aquariumcoop/787af7baa5b5d445.webp) | comparison chart of three dwarf corys (habrosus, hastatus, pygmaeus) |
 | species/corydoras-semiaquilus | [photo](https://media.aquatome.com/scotcat/bc3a3bc540bf777c.webp) | short-snouted, all-dark cory with banded tail, likely black Venezuela/C. aeneus black form; lacks semiaquilus' long snou |
 | species/corydoras-splendens | [photo](https://media.aquatome.com/commons/10b1f13837523d9e.webp) | illustration plate of multiple fish species |
 | species/corydoras-splendens | [photo](https://media.aquatome.com/commons/e044ec089fb3306b.webp) | historical lithograph plate of three catfishes incl. Callichthys splendens |
 | species/denticetopsis-seducta | [photo](https://media.aquatome.com/scotcat/fd108b399fc94d0e.webp) | dead: preserved catfish specimen laid on blue background, faded brown |
-| species/epiplatys-annulatus | [photo](https://media.aquatome.com/aquariumcoop/3ee6003cede44915.webp) | decal sticker drawing, product packshot |
 | species/heterandria-formosa | [photo](https://media.aquatome.com/inaturalist/311676389.webp) | people: gravid female with dark lateral stripe and bars, live in a fine net that seems to be held over a hand (skin visible thro |
 | species/hypancistrus-inspector | [photo](https://media.aquatome.com/scotcat/0c47e60d0f78ba34.webp) | people: live snowball pleco (L201) held out of water in fingers, dorsal fin erect |
 | species/hypancistrus-inspector | [photo](https://media.aquatome.com/scotcat/a51ae50024d9ad8c.webp) | people: live snowball pleco held in fingers in front of a tank, fins spread |
@@ -1149,6 +1247,8 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 | species/loricaria-simillima | [photo](https://media.aquatome.com/commons/5377260d03d03a66.webp) | dead: numbered collage of field-caught fish specimens, many held in hands or lying on trays |
 | species/loricaria-simillima | [photo](https://media.aquatome.com/commons/b6b8c344ec243ab0.webp) | dead: preserved dark armoured catfish (callichthyid-like) cut out on white background |
 | species/megalancistrus-parananus | [photo](https://media.aquatome.com/scotcat/b28e625d01d88835.webp) | dead: spotted pleco, likely L113, held up out of water in a hand |
+| species/sphaerichthys-osphromenoides | [photo](https://media.aquatome.com/seriouslyfish/a980e23f293549d8.webp) | forest swamp habitat landscape, no fish visible |
+| species/sphaerichthys-osphromenoides | [photo](https://media.aquatome.com/seriouslyfish/fd218fdc09252be4.webp) | shallow blackwater habitat with plants, no fish visible |
 | species/trichogaster-chuna | [photo](https://media.aquatome.com/seriouslyfish/01d9c8c57cfdebbb.webp) | bubble nest under a plant leaf; no fish visible |
 | species/trichogaster-chuna | [photo](https://media.aquatome.com/seriouslyfish/a15a7b9ce03ec530.webp) | bubble nest at the water surface; no fish visible |
 | species/acentronichthys-leptos | [photo](https://media.aquatome.com/commons/64dc9b4d256af605.webp) | plate of preserved specimens from several different heptapterid species (A–I) |
@@ -1164,6 +1264,7 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 | species/amaralia-hypsiura | [photo](https://media.aquatome.com/scotcat/a74aec4d6da376d5.webp) | dead: banjo catfish lying out of water on a black ledge, appear dried |
 | species/ambastaia-sidthimunki | [photo](https://media.aquatome.com/aquariumcoop/10e73d2ec32f3f4f.webp) | in-focus front fish is Ambastaia nigrolineata (plain stripes, no spots); dwarf chain loach behind, out of focus |
 | species/amia-calva | [photo](https://media.aquatome.com/commons/681d4d1568a540ca.webp) | dead: bowfin lying on wooden dock boards at night, caught fish |
+| species/anabas-testudineus | [photo](https://media.aquatome.com/inaturalist/330904380.webp) | dead: three caught climbing perch lying in a blue bucket, a landed catch |
 | species/ancharius-fuscus | [photo](https://media.aquatome.com/commons/186c925dfd0a1d37.webp) | Engraved drawing of Ancharius fuscus, side view from plate |
 | species/ancharius-fuscus | [photo](https://media.aquatome.com/commons/380932ac35ad9cb6.webp) | Engraved drawing of Ancharius fuscus, side view (mirrored) |
 | species/ancharius-fuscus | [photo](https://media.aquatome.com/commons/79551bd0d5984e72.webp) | Old scientific plate drawing: Paratilapia? eel-like catfish and Ancharius fuscus with head details |
@@ -1188,6 +1289,7 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 | species/batrochoglanis-villosus | [photo](https://media.aquatome.com/scotcat/10cac58c446e6b0c.webp) | dead: dark catfish catch held in a hand over a river; can't tell if it is alive |
 | species/betta-bellica | [photo](https://media.aquatome.com/commons/c481446684993faf.webp) | its Commons file names Betta albimarginata |
 | species/betta-channoides | [photo](https://media.aquatome.com/commons/0957138ee905bd5a.webp) | looks like a pufferfish seen head-on, not a betta |
+| species/betta-falx | [photo](https://media.aquatome.com/commons/881254e03544ced0.webp) | people: golden-brown wild betta in a bag/container, poor washed-out view; can't confirm B. falx over other pugnax-group species; |
 | species/betta-macrostoma | [photo](https://media.aquatome.com/seriouslyfish/081a24acda117a64.webp) | rainforest stream habitat, no fish visible |
 | species/betta-patoti | [photo](https://media.aquatome.com/bwaquatics/d2cb7c7fc9ac9de2.webp) | people: reddish Betta patoti with green gill cover, held out of water on a wet palm |
 | species/betta-persephone | [photo](https://media.aquatome.com/commons/eae3a49459290e2b.webp) | looks like a wild Betta from the splendens group (e.g. B. smaragdina/imbellis): greyish scaled body, red pelvic fins, al |
@@ -1264,6 +1366,7 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 | species/ilyodon-furcidens | [photo](https://media.aquatome.com/commons/bc568922a9d27a0b.webp) | logo: collage of lakes, marsh and rocky stream habitats; panel letters A-D added |
 | species/imparfinis-mirini | [photo](https://media.aquatome.com/commons/f8798c07a3755cf0.webp) | plate of many species: characins, knifefish and several small catfish, not specifically I. mirini |
 | species/indostomus-paradoxus | [photo](https://media.aquatome.com/seriouslyfish/2b680afc97297e27.webp) | sunset over a lake with small boats, no fish visible |
+| species/jordanella-floridae | [photo](https://media.aquatome.com/seriouslyfish/fd1c45f0e717ea01.webp) | wetland marsh landscape with egrets, no fish visible |
 | species/labeo-boga | [photo](https://media.aquatome.com/commons/66756e48b27e8e5d.webp) | black-and-white engraving of a labeo with mouth detail |
 | species/labeo-boga | [photo](https://media.aquatome.com/commons/bc831dcd86daa531.webp) | hand-coloured historical plate of Cyprinus falcatus (Bloch) |
 | species/labeo-boga | [photo](https://media.aquatome.com/commons/d120ce15f82d82e4.webp) | black-and-white engraving of a labeo with mouth detail |
@@ -1295,6 +1398,7 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 | species/marisa-cornuarietis | [photo](https://media.aquatome.com/commons/94d647683cabfcba.webp) | dead: empty Marisa shell, museum-style multi-view specimen on black background |
 | species/marisa-cornuarietis | [photo](https://media.aquatome.com/inaturalist/248981318.webp) | dead: apparently empty Marisa-like shell lying on dry grass, no body visible |
 | species/mastiglanis-asopos | [photo](https://media.aquatome.com/commons/35d7ceefb64645c3.webp) | dead: Mastiglanis asopos with long filament fin rays, apparently a collected specimen laid flat on black for a lab photo |
+| species/maylandia-callainos | [photo](https://media.aquatome.com/commons/afadd1f9d913779d.webp) | its Commons file names Sciaenochromis fryeri |
 | species/megalancistrus-barrae | [photo](https://media.aquatome.com/scotcat/11abb21c93fc318c.webp) | people: live black spiny pleco held out of water in gloved hands, other side |
 | species/megalancistrus-barrae | [photo](https://media.aquatome.com/scotcat/6c1a46461b198d92.webp) | people: live black spiny pleco held out of water in gloved hands, white background |
 | species/megalonema-platycephalum | [photo](https://media.aquatome.com/scotcat/3485a53d526aefb8.webp) | dead: catfish lying on a wooden board, a landed catch |
@@ -1376,8 +1480,6 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 | species/serrasalmus-rhombeus | [photo](https://media.aquatome.com/commons/c4260f1298482af8.webp) | old engraved plate of Salmo rhombeus (Bloch) |
 | species/silonia-silondia | [photo](https://media.aquatome.com/scotcat/82681e637f6c2942.webp) | dead: dead catfish lying on red tray at a market |
 | species/silonia-silondia | [photo](https://media.aquatome.com/scotcat/916d6ac8add48994.webp) | dead: head of a dead catfish in a metal basin at a market |
-| species/sphaerichthys-osphromenoides | [photo](https://media.aquatome.com/seriouslyfish/a980e23f293549d8.webp) | forest swamp habitat landscape, no fish visible |
-| species/sphaerichthys-osphromenoides | [photo](https://media.aquatome.com/seriouslyfish/fd218fdc09252be4.webp) | shallow blackwater habitat with plants, no fish visible |
 | species/stigmatogobius-sadanundio | [photo](https://media.aquatome.com/commons/c88efd51ccb46067.webp) | engraved drawing of the goby |
 | species/stiphodon-pelewensis | [photo](https://media.aquatome.com/seriouslyfish/d42c9626ec80c054.webp) | rocky forest stream habitat, no fish visible |
 | species/sundadanio-axelrodi | [photo](https://media.aquatome.com/seriouslyfish/3e5b742f31a87938.webp) | blackwater peat swamp habitat, no fish visible |
@@ -1431,7 +1533,6 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 | species/ameiurus-platycephalus | [photo](https://media.aquatome.com/scotcat/84a1271ce27afdf7.webp) | dead: caught flat bullhead held up in a hand over a river |
 | species/ameiurus-serracanthus | [photo](https://media.aquatome.com/scotcat/397e8c8bf2d402d4.webp) | dead: caught spotted bullhead held up in a hand by a river |
 | species/ameiurus-serracanthus | [photo](https://media.aquatome.com/scotcat/ad39e43342777e1e.webp) | dead: caught spotted bullhead held up in a hand over the sandy bank |
-| species/anabas-testudineus | [photo](https://media.aquatome.com/inaturalist/330904380.webp) | dead: three caught climbing perch lying in a blue bucket, a landed catch |
 | species/anableps-anableps | [photo](https://media.aquatome.com/seriouslyfish/5cd3d208639aa972.webp) | mangrove roots on mudflat, habitat only, no fish visible |
 | species/anatolichthys-saldae | [photo](https://media.aquatome.com/seriouslyfish/5aaf2fb2815f4324.webp) | Lake Salda landscape, no fish visible |
 | species/anatolichthys-saldae | [photo](https://media.aquatome.com/seriouslyfish/ec2d2f840963fc8c.webp) | grassy plain and mountains, no fish |
@@ -1464,7 +1565,6 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 | species/batasio-travancoria | [photo](https://media.aquatome.com/scotcat/080765d96e840ba8.webp) | dead: small catfish caught and held up in hands over a net; can't tell if it's alive |
 | species/bedotia-geayi | [photo](https://media.aquatome.com/commons/2ea1984d294916db.webp) | its Commons file names Bedotia madagascariensis |
 | species/bedotia-madagascariensis | [photo](https://media.aquatome.com/commons/e22737f8a2707271.webp) | its Commons file names Bedotia geayi |
-| species/betta-falx | [photo](https://media.aquatome.com/commons/881254e03544ced0.webp) | people: golden-brown wild betta in a bag/container, poor washed-out view; can't confirm B. falx over other pugnax-group species; |
 | species/betta-pugnax | [photo](https://media.aquatome.com/commons/76ead7216b8a7406.webp) | logo: adult male in a tank, book scan; letter 'a' top right |
 | species/betta-pugnax | [photo](https://media.aquatome.com/inaturalist/512357919.webp) | dead: mouthbrooding betta lying out of water on sand, can't tell it is alive |
 | species/botia-lohachata | [photo](https://media.aquatome.com/commons/fa03ec707ba1a28e.webp) | its Commons file names Botia almorhae |
@@ -1513,34 +1613,75 @@ Written by `pnpm engine check-photos` (2026-11-08), most-read pages first. Rules
 | species/geophagus-neambi | [photo](https://media.aquatome.com/seriouslyfish/7bd971af90551404.webp) | dead: Geophagus fish lying on a styrofoam board, landed catch |
 | species/geophagus-proximus | [photo](https://media.aquatome.com/seriouslyfish/66918ca6c4cbadc9.webp) | river landscape with forested bank, no fish visible |
 | species/hemiancistrus-subviridis | [photo](https://media.aquatome.com/commons/cb6ade438fdc84ea.webp) | its Commons file names Baryancistrus demantoides |
+| species/hemibagrus-spilopterus | [photo](https://media.aquatome.com/scotcat/9052553c2134041a.webp) | people: live Hemibagrus-type catfish in a photo tank, held up by a hand; no clear fin spots visible to confirm the species |
 | species/herichthys-cyanoguttatus | [photo](https://media.aquatome.com/commons/1fe955d6d5ae9f7d.webp) | dead: Texas cichlid caught and held up in a hand over water |
 | species/herichthys-cyanoguttatus | [photo](https://media.aquatome.com/commons/b3a9389660458443.webp) | dead: Texas cichlid caught and held up in a hand at a weir |
+| species/hoplias-aimara | [photo](https://media.aquatome.com/commons/ce6bec729b4aef27.webp) | its Commons file names Hydrolycus armatus |
 | species/hoplias-malabaricus | [photo](https://media.aquatome.com/commons/22f2ef688d132c11.webp) | dead: landed trahira head held in fingers over a tiled floor, mouth open showing teeth |
 | species/horadandia-atukorali | [photo](https://media.aquatome.com/seriouslyfish/b9e0665c06839e96.webp) | wetland habitat landscape with palms, no fish visible |
-| species/jordanella-floridae | [photo](https://media.aquatome.com/seriouslyfish/fd1c45f0e717ea01.webp) | wetland marsh landscape with egrets, no fish visible |
+| species/hydrolycus-tatauaia | [photo](https://media.aquatome.com/seriouslyfish/19ce309bb50c7acc.webp) | dead: dead payara-type fish lying on a white surface |
+| species/hyphessobrycon-bentosi | [photo](https://media.aquatome.com/commons/21b8fc8fd884dc91.webp) | its Commons file names Hyphessobrycon rosaceus |
+| species/hyphessobrycon-bentosi | [photo](https://media.aquatome.com/commons/612593bd78747901.webp) | its Commons file names Hyphessobrycon rosaceus |
+| species/hyphessobrycon-stegemanni | [photo](https://media.aquatome.com/seriouslyfish/7b0da118d55416d0.webp) | savanna landscape with palms and mesa, no fish |
+| species/hypoptopoma-incognitum | [photo](https://media.aquatome.com/seriouslyfish/15a667b04899675e.webp) | dead: small Hypoptopoma-like otothrichin catfish caught and held up between fingers |
+| species/hypselecara-coryphaenoides | [photo](https://media.aquatome.com/commons/152050227c838485.webp) | its Commons file names Astronotus ocellatus |
+| species/julidochromis-ornatus | [photo](https://media.aquatome.com/commons/e21d878bee64002f.webp) | its Commons file names Julidochromis regani |
+| species/kryptopterus-bicirrhis | [photo](https://media.aquatome.com/commons/1d6d874985b49ace.webp) | its Commons file names Kryptopterus vitreolus |
 | species/kryptopterus-bicirrhis | [photo](https://media.aquatome.com/scotcat/82761dfd5ea0d7b0.webp) | dead: opaque white preserved specimen photographed on black background, long barbels; not transparent like live fish |
+| species/labeo-pierrei | [photo](https://media.aquatome.com/commons/3577abb180b2f8c8.webp) | its Commons file names Hypsibarbus pierrei |
 | species/laides-hexanema | [photo](https://media.aquatome.com/scotcat/25cbd4a5fc832d82.webp) | dead: dead schilbid catfish specimen lying on a green board |
 | species/laides-longibarbis | [photo](https://media.aquatome.com/scotcat/e3dd61489176688f.webp) | dead: catch held up in a hand by a river; silvery long-barbelled schilbeid catfish |
 | species/lasiancistrus-caucanus | [photo](https://media.aquatome.com/scotcat/d3433e34ad54b13a.webp) | people: small brown pleco held in a palm; can't confirm it's Lasiancistrus |
 | species/lepidocephalichthys-thermalis | [photo](https://media.aquatome.com/seriouslyfish/2758554c285d600e.webp) | people: river habitat with people standing at the water's edge, no fish visible |
 | species/lepidocephalichthys-thermalis | [photo](https://media.aquatome.com/seriouslyfish/3a6d88ab70df5f48.webp) | sandy river habitat landscape, no fish visible |
+| species/leptobarbus-rubripinna | [photo](https://media.aquatome.com/commons/c8bfaf17ac77346e.webp) | its Commons file names Leptobarbus hoevenii |
+| species/lobocheilos-melanotaenia | [photo](https://media.aquatome.com/commons/424d8986f21b2086.webp) | its Commons file names Lobocheilos rhabdoura |
+| species/malapterurus-microstoma | [photo](https://media.aquatome.com/commons/24c1648410e5de5d.webp) | its Commons file names Malapterurus electricus |
+| species/melanochromis-chipokae | [photo](https://media.aquatome.com/commons/fc699f251b89aed0.webp) | its Commons file names Melanochromis auratus |
+| species/metynnis-maculatus | [photo](https://media.aquatome.com/commons/45a67cce66467000.webp) | its Commons file names Myloplus rubripinnis |
+| species/mogurnda-mogurnda | [photo](https://media.aquatome.com/commons/041fa1d9016d9b26.webp) | its Commons file names Mogurnda adspersa |
 | species/mystus-bleekeri | [photo](https://media.aquatome.com/scotcat/70a17d47febc0d43.webp) | dead: striped Mystus with shoulder spot, catch held in an open hand |
 | species/mystus-bleekeri | [photo](https://media.aquatome.com/scotcat/90d37c7654ef9381.webp) | dead: striped Mystus catch held in a palm; can't tell if alive |
 | species/mystus-singaringan | [photo](https://media.aquatome.com/commons/383250458234936c.webp) | dead: Mystus singaringan, likely a fresh specimen photographed on a plain grey backdrop with fins spread; can't tell if alive |
 | species/mystus-singaringan | [photo](https://media.aquatome.com/commons/afb3835213d45661.webp) | dead: close-up of the head of a caught fish held in a hand |
 | species/mystus-singaringan | [photo](https://media.aquatome.com/commons/c2977a4956da24f7.webp) | dead: caught Mystus singaringan held up in an open palm, may not be alive |
+| species/nannostomus-unifasciatus | [photo](https://media.aquatome.com/commons/5ecc81372753f183.webp) | its Commons file names Nannostomus eques |
 | species/nemacheilus-ornatus | [photo](https://media.aquatome.com/seriouslyfish/9f4774f536188ec7.webp) | shallow stream habitat with grassy banks, no fish visible |
 | species/nemacheilus-pallidus | [photo](https://media.aquatome.com/seriouslyfish/3b8f3c555376f3a7.webp) | rocky forest stream habitat, no fish visible |
+| species/neolamprologus-brichardi | [photo](https://media.aquatome.com/commons/82b4328bc658958b.webp) | its Commons file names Neolamprologus pulcher |
+| species/neolamprologus-olivaceous | [photo](https://media.aquatome.com/commons/31d7515acc11b8f6.webp) | its Commons file names Neolamprologus brichardi |
+| species/neolamprologus-pulcher | [photo](https://media.aquatome.com/commons/0c8aeaa0cafc60a6.webp) | its Commons file names Neolamprologus brichardi |
+| species/neolamprologus-pulcher | [photo](https://media.aquatome.com/commons/c3adefdcaa27f12b.webp) | its Commons file names Neolamprologus brichardi |
 | species/noturus-gilberti | [photo](https://media.aquatome.com/scotcat/a9487d62d781626a.webp) | dead: orangefin madtom caught and held in an open palm; can't tell if alive |
 | species/noturus-miurus | [photo](https://media.aquatome.com/scotcat/3f0aa360ee207f7e.webp) | people: likely tadpole madtom: plain brown with dark side line, no saddles; held in a hand |
 | species/noturus-miurus | [photo](https://media.aquatome.com/scotcat/455f54620d3a3894.webp) | dead: madtom catch held in a hand over a net |
 | species/opsarius-pulchellus | [photo](https://media.aquatome.com/seriouslyfish/9bde674a074bb629.webp) | logo: shallow sandy stream bed seen through water, faint barred fish hard to make out; tiny text in centre |
+| species/pangasius-sanitwongsei | [photo](https://media.aquatome.com/scotcat/289a55462b92af4d.webp) | dead: angler's catch held up in his hands on a dock, with the man's body and face in the shot |
 | species/parabotia-fasciata | [photo](https://media.aquatome.com/seriouslyfish/a9071abcb1198e53.webp) | dead: Parabotia fasciata caught and held up in two hands |
 | species/parachanna-obscura | [photo](https://media.aquatome.com/commons/ae22f1199773dcc7.webp) | its Commons file names Channa asiatica |
 | species/parambassis-wolffii | [photo](https://media.aquatome.com/commons/700e42141303ae56.webp) | dead: mounted museum skeleton labelled 'Ambasis wolffii de Cochinchine' |
 | species/parotocinclus-maculicauda | [photo](https://media.aquatome.com/commons/c4d4b936183ab67c.webp) | dead: small wild-caught loricariid held up in fingers outdoors; looks like a dwarf pleco but has little red in the fins |
 | species/pimelodella-gracilis | [photo](https://media.aquatome.com/commons/aec7d2b7a4d89428.webp) | dead: old black-and-white photo of a preserved museum specimen; figure number '2' printed below the fish |
+| species/polypterus-bichir | [photo](https://media.aquatome.com/commons/2d626aa2e5a4abae.webp) | its Commons file names Polypterus senegalus |
+| species/polypterus-bichir | [photo](https://media.aquatome.com/commons/32cf30329b6fc223.webp) | its Commons file names Polypterus senegalus |
+| species/polypterus-bichir | [photo](https://media.aquatome.com/commons/573f01e5b2d9fcec.webp) | its Commons file names Polypterus senegalus |
+| species/polypterus-bichir | [photo](https://media.aquatome.com/commons/86d6b262a66bb2af.webp) | its Commons file names Polypterus senegalus |
+| species/polypterus-palmas | [photo](https://media.aquatome.com/commons/32cf30329b6fc223.webp) | its Commons file names Polypterus senegalus |
+| species/polypterus-palmas | [photo](https://media.aquatome.com/commons/573f01e5b2d9fcec.webp) | its Commons file names Polypterus senegalus |
+| species/polypterus-palmas | [photo](https://media.aquatome.com/commons/86d6b262a66bb2af.webp) | its Commons file names Polypterus senegalus |
+| species/protopterus-dolloi | [photo](https://media.aquatome.com/commons/1e056bfc7483adb4.webp) | dead: preserved museum specimen in a jar with label |
+| species/pseudocrenilabrus-nicholsi | [photo](https://media.aquatome.com/commons/3b63ff9931dd11b0.webp) | its Commons file names Pseudocrenilabrus multicolor |
+| species/puntius | [photo](https://media.aquatome.com/commons/3ffb4d380b1214e0.webp) | its Commons file names Sahyadria denisonii |
+| species/puntius | [photo](https://media.aquatome.com/commons/6fd661700931add3.webp) | its Commons file names Puntigrus anchisporus |
+| species/puntius | [photo](https://media.aquatome.com/commons/9a8b1b422bec8eee.webp) | its Commons file names Sahyadria denisonii |
+| species/puntius | [photo](https://media.aquatome.com/commons/b8b490aebfe56acc.webp) | its Commons file names Pethia conchonius |
 | species/puntius-mahecola | [photo](https://media.aquatome.com/seriouslyfish/39ae40ec0cdc9b12.webp) | dead: small silvery barb with caudal spot held between fingers out of water, likely caught; can't tell if alive |
+| species/rasbora-rasbora | [photo](https://media.aquatome.com/commons/397dba6ef0b45c85.webp) | its Commons file names Rasbora cephalotaenia |
+| species/rasbora-rasbora | [photo](https://media.aquatome.com/commons/3d68b4ab331a392e.webp) | its Commons file names Rasbora argyrotaenia |
+| species/rasbora-rasbora | [photo](https://media.aquatome.com/commons/4b9eed3ad83207cb.webp) | its Commons file names Rasbora daniconius |
+| species/rasbora-rasbora | [photo](https://media.aquatome.com/commons/96d638272f8c1af7.webp) | its Commons file names Rasbora paucisqualis |
+| species/rasbora-rasbora | [photo](https://media.aquatome.com/commons/ca2f9315c16f62b7.webp) | its Commons file names Rasbora argyrotaenia |
+| species/rasbora-rasbora | [photo](https://media.aquatome.com/commons/cc3af09ba3bc8627.webp) | its Commons file names Rasbora daniconius |
 | species/sulcospira-testudinaria | [photo](https://media.aquatome.com/commons/ab7ef29218707e20.webp) | dead: single empty museum shell with Naturalis labels |
 | species/sulcospira-testudinaria | [photo](https://media.aquatome.com/commons/e1c1490121b0a7d3.webp) | dead: museum shells with Naturalis labels and a vial |
 | species/tinca-tinca | [photo](https://media.aquatome.com/commons/04744fab0c981d6d.webp) | dead: mounted taxidermy tench on wood plaque with label 'lín obecný (Tinca tinca)' |

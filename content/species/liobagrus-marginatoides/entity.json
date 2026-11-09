@@ -10,6 +10,50 @@
     "china",
     "yangtze"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Changjiang River"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "China: Changjiang River (Yangtze River).",
+          "countries": [
+            "CN"
+          ],
+          "regions": [
+            "Changjiang River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342828,
+      "total": 1,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "CN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          29.53125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

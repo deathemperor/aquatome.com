@@ -1,0 +1,359 @@
+{
+  "id": "leporacanthicus-galaxias",
+  "scientificName": "Leporacanthicus galaxias",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Leporacanthicus",
+  "group": "catfish",
+  "lNumber": "L029",
+  "places": [
+    "south-america",
+    "brazil",
+    "tocantins",
+    "venezuela"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Amazon",
+        "Tocantins"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The galaxy plec, Leporacanthicus galaxias (L029), is a suckermouth catfish from the Amazon, Tocantins and other river basins in Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Amazon",
+            "Tocantins"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339395,
+      "total": 43,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "BR",
+          33
+        ],
+        [
+          "VE",
+          10
+        ]
+      ],
+      "cells": [
+        [
+          -67.5,
+          2.8125,
+          7,
+          0
+        ],
+        [
+          -66.09375,
+          4.21875,
+          2,
+          0
+        ],
+        [
+          -64.6875,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -63.28125,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          3,
+          3
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          3,
+          3
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -16.875,
+          2,
+          2
+        ],
+        [
+          -52.03125,
+          -16.875,
+          3,
+          3
+        ],
+        [
+          -50.625,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -50.625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -7.03125,
+          3,
+          3
+        ],
+        [
+          -49.21875,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -15.46875,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -2.8125,
+          9,
+          9
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.6,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 25
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporacanthicus-galaxias",
+      "html": "<p>The galaxy plec, Leporacanthicus galaxias (L029), is a suckermouth catfish from the Amazon, Tocantins and other river basins in Brazil. Also sold as the vampire or tusken plec, it lives in rapids and other fast-flowing waters. Four similar undescribed variants, L007, L240, L241 and L294, are known as L. cf. galaxias and are best referred to by their L numbers.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporacanthicus-galaxias",
+      "html": "<p>Various river basins in Brazil, including the Amazon and Tocantins.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporacanthicus-galaxias",
+      "html": "<p>A reophilic species that lives in rapids and other fast-flowing waters.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporacanthicus-galaxias",
+      "html": "<p>It is territorial, so a tank measuring at least 120 × 45 × 45 cm (about 243 litres) is required to house one properly.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporacanthicus-galaxias",
+      "html": "<p>A spacious tank is required, preferably with a sandy substrate. Provide hiding places and shade with some big chunks of driftwood and smooth rocks. Dim lighting is also beneficial and it's imperative that the water is highly oxygenated, preferably with a good amount of movement. Consider the use of powerheads or large airstones to produce the desired effect. An efficient filter is needed to deal with the large amounts of waste it produces.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporacanthicus-galaxias",
+      "html": "<ul><li>Temperature: 22–26°C</li><li>pH: 5.6–7.0</li><li>Hardness: 0–10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporacanthicus-galaxias",
+      "html": "<p>Not a particularly vegetarian Loricariid, L. galaxias will accept most sinking dried foods, and also enjoys munching on meatier fare such as earthworms, prawns, mussels, bloodworm and suchlike. Oddly for a Loricariid, it also relishes snails.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporacanthicus-galaxias",
+      "html": "<p>Generally peaceful with species inhabiting other parts of the tank. In a biotope setup good tankmates include larger characins such as Anostomus, Hemiodus, Semaprochilodus and Metynnis species, reophilic cichlids such as Retroculus and in a big tank, other Loricariids requiring similar conditions. It's territorial towards other benthic species, particularly those with similar colour patterns. A group would need very roomy quarters.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporacanthicus-galaxias",
+      "html": "<p>When viewed from above mature males have a noticeably longer and wider head than females. They also have a bigger dorsal fin and more numerous odontotes than females.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporacanthicus-galaxias",
+      "html": "<p>Has been bred in the hobby, but no details are available. It spawns in deep holes in river banks during the wet season in nature.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporacanthicus-galaxias",
+      "html": "<p>A very stylish looking plec, L. galaxias can also be seen for sale as the vampire or tusken plec. Both these names relate to features of morphology that are shared by all members of the genus. The latter arose from the presence of a characteristic growth on the head of the fish. The vampire moniker, meanwhile, is derived from the unique upper jaw dentition, consisting of two large teeth or \"fangs\". The exact use for these is unknown, but they're probably utilised to grip prey items such as snails or other aquatic invertebrates in some way.</p><p>There are four similar but undescribed variants of this species available, which may turn out to be geographical forms or species in their own right. They are all known as Leporacanthicus cf. galaxias and so are best referred to by their L numbers. The first, L007 is imported from Brazil and has a pattern consisting of larger spots than the true L. galaxias. It also has a shorter nose and bigger dorsal fin than galaxias. Both L240 and L241 are Venezuelan in origin. L240 is very difficult to tell apart from galaxias and may turn out to be the same fish, while L241 has a more flattened profile when viewed side on. The fourth variant, L294 is also from Brazil, but very little other information is available.</p><p>A final point to note. When buying these (or any Loricariid), check the fish has a rounded belly and that its eyes aren't sunken, as these are classic signs of emaciation in newly imported specimens.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/c6e2c2236a2aa9ac.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/c6e2c2236a2aa9ac-480.webp",
+      "width": 707,
+      "height": 300,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/leporacanthicus-galaxias",
+      "caption": "Galaxy Plec, L029 (Leporacanthicus galaxias)",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/b9b09213a48c8600.webp",
+      "thumb": "https://media.aquatome.com/scotcat/b9b09213a48c8600-480.webp",
+      "width": 500,
+      "height": 253,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan James / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/leporacanthicus_galaxias.htm",
+      "caption": "Leporacanthicus galaxias: juvenile L 007",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/3ceab3c47d683c4e.webp",
+      "thumb": "https://media.aquatome.com/scotcat/3ceab3c47d683c4e-480.webp",
+      "width": 500,
+      "height": 335,
+      "licence": "dùng với sự cho phép",
+      "author": "Danny Blundell / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/leporacanthicus_galaxias.htm",
+      "caption": "Leporacanthicus galaxias: adult L29",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/f4a304caff3eb9f3.webp",
+      "thumb": "https://media.aquatome.com/scotcat/f4a304caff3eb9f3-480.webp",
+      "width": 500,
+      "height": 296,
+      "licence": "dùng với sự cho phép",
+      "author": "Danny Blundell / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/leporacanthicus_galaxias.htm",
+      "caption": "Leporacanthicus galaxias",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy tạo dòng chảy",
+        "sủi khí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá lau kiếng",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

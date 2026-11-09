@@ -9,11 +9,11 @@ import XCTest
 /// largest text size, with more found than listed, and with a kind picked that it finds none of, at both sizes; the app's
 /// icon picker; the lights tab's card for the fake light, its clock lost, warning of its outlet's timer on the stand-in
 /// Tuya cloud; Tìm's tools, light, dark and at the largest text; what's new, its row on the home then its list, and kit's
-/// section on the home then a long list's whole list, light and dark; Bể của tôi, empty and with a tank; and the owner's dashboard on the stand-in server, its
+/// section on the home then a long list's whole list, light and dark; a gallery's photo grid, light, dark and at the largest text; Bể của tôi, empty and with a tank; and the owner's dashboard on the stand-in server, its
 /// overview (light, dark, at the largest text, and with nothing to do), its bell's sheet, a section with charts and tables
 /// and Comments (each light, dark and at the largest text), and the daily report's settings; the tab bar over what scrolls
 /// under it, a fish's long text and Tìm's photos, light and dark, on the site's own pages; and v2's Hôm nay, its fish of the
-/// day's page and Khám phá, light, dark and at the largest text. Each checks only that its screen opened:
+/// day's page and Khám phá, light, dark and at the largest text, and in Malay. Each checks only that its screen opened:
 /// what it shows, the other flows check.
 final class PageShotsFlowTests: XCTestCase {
   override func setUp() { continueAfterFailure = false }
@@ -34,6 +34,8 @@ final class PageShotsFlowTests: XCTestCase {
   func testTheOwnersDashboard() { shootOwner("owner-light", section: nil) }
   func testTheOwnersDashboardInTheDark() { shootOwner("owner-dark", section: nil, dark: true) }
   func testTheOwnersDashboardInTheLargestText() { shootOwner("owner-largest", section: nil, size: largest) }
+  /// The needs rows at the largest text, from the Needs you tile, which scrolls to them.
+  func testTheOwnersNeedsInTheLargestText() { shootOwner("owner-needs-largest", section: nil, size: largest, tile: "needs", screens: 3) }
   func testTheOwnersDashboardWithNothingToDo() { shootOwner("owner-all-clear", section: nil, more: ["-owner-overview", "dashboard: nothing needs you"]) }
   func testTheDailyReportsDelivery() { shootOwner("owner-bell-light", section: nil, bell: true) }
   func testAnOwnersSection() { shootOwner("owner-section-light", section: "Calls and keys") }
@@ -56,6 +58,10 @@ final class PageShotsFlowTests: XCTestCase {
   func testTheToolsOnTim() { shootTools("tools-light") }
   func testTheToolsOnTimInTheDark() { shootTools("tools-dark", dark: true) }
   func testTheToolsOnTimInTheLargestText() { shootTools("tools-largest-light", size: largest, screens: 2) }
+  func testTheHome() { shootHome("tim-light") }
+  func testTheHomeOnANewPhone() { shootHome("tim-new-light", read: false) }
+  func testTheHomeInTheDark() { shootHome("tim-dark", dark: true) }
+  func testTheHomeInTheLargestText() { shootHome("tim-largest-light", size: largest) }
   func testKitOnTheHomeAndALongList() { shootKit("kit-home-light") }
   func testKitOnTheHomeAndALongListInTheDark() { shootKit("kit-home-dark", dark: true) }
   func testWhatsNew() { shootWhatsNew("whats-new-light") }
@@ -67,6 +73,7 @@ final class PageShotsFlowTests: XCTestCase {
   func testV2() { shootV2("v2-light") }
   func testV2InTheDark() { shootV2("v2-dark", dark: true) }
   func testV2InTheLargestText() { shootV2("v2-largest-light", size: largest) }
+  func testV2InMalayInTheDarkAtTheLargestText() { shootV2("v2-ms-largest-dark", dark: true, size: largest, lang: ("ms", "ms_MY", "Teroka")) }
 
   // Three to a page (`-search-page`), so "Xem thêm kết quả" shows on the first screen, as it does under 200 rows.
   func testASearchFindingMoreThanItLists() { shootSearch("search-more-light", more: ["-search-page", "3"]) }
@@ -89,7 +96,7 @@ final class PageShotsFlowTests: XCTestCase {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fake-accounts", "on",
                            "-reset-fake-server"]
-    app.launchForFlow()
+    app.launchForFlow(.old)
     app.openTab("Bể của tôi")
     let first = app.buttons["add-first"]
     XCTAssertTrue(first.waitForExistence(timeout: 5), "no tanks tab")
@@ -154,7 +161,7 @@ final class PageShotsFlowTests: XCTestCase {
   private func shootTabBar(_ name: String, overText: Bool, dark: Bool = false) {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults"] + (dark ? ["-dark"] : [])
-    app.launchForFlow()
+    app.launchForFlow(.old)
     let field = app.searchFields.firstMatch
     XCTAssertTrue(field.waitForExistence(timeout: 30), "no home")
     XCTAssertTrue(app.descendants(matching: .any).matching(identifier: "item").firstMatch.waitForExistence(timeout: 30), "the handbook didn't come")
@@ -176,7 +183,7 @@ final class PageShotsFlowTests: XCTestCase {
   private func shootWhatsNew(_ name: String, dark: Bool = false) {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fixed-pictures", "-whats-new"] + (dark ? ["-dark"] : [])
-    app.launchForFlow()
+    app.launchForFlow(.old)
     let row = app.descendants(matching: .any)["all-latest"]
     XCTAssertTrue(app.searchFields.firstMatch.waitForExistence(timeout: 5), "no home")
     repeatUntil(row.exists && row.isHittable, times: 8) { app.swipeUp() }
@@ -194,13 +201,15 @@ final class PageShotsFlowTests: XCTestCase {
     }
   }
 
-  /// v2 (V2Root, `-v2 YES`): Hôm nay's first screen, its fish of the day's page, Hôm nay's next screen, and Khám phá's
-  /// first.
-  private func shootV2(_ name: String, dark: Bool = false, size: String? = nil) {
+  /// v2 (V2Root), the app's look: Hôm nay's first screen, its fish of the day's page, Hôm nay's next screen, and Khám
+  /// phá's first. `lang`: the app's language, its locale and its name for Khám phá (the fixed handbook's pages stay
+  /// Vietnamese).
+  private func shootV2(_ name: String, dark: Bool = false, size: String? = nil,
+                       lang: (code: String, locale: String, khamPha: String) = ("vi", "vi_VN", "Khám phá")) {
     let app = XCUIApplication()
-    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fixed-pictures",
-                           "-v2", "YES"] + (dark ? ["-dark"] : []) + (size.map { ["-UIPreferredContentSizeCategoryName", $0] } ?? [])
-    app.launchForFlow()
+    app.launchArguments = ["-AppleLanguages", "(\(lang.code))", "-AppleLocale", lang.locale, "-reset-defaults", "-fixed-handbook",
+                           "-fixed-pictures"] + (dark ? ["-dark"] : []) + (size.map { ["-UIPreferredContentSizeCategoryName", $0] } ?? [])
+    app.launchForFlow(.v2)
     let fish = app.buttons["v2-fish-of-the-day"]
     XCTAssertTrue(fish.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
     var n = 0
@@ -220,8 +229,8 @@ final class PageShotsFlowTests: XCTestCase {
     XCTAssertTrue(fish.waitForExistence(timeout: 5), "not back on Hôm nay")
     app.swipeUp()
     shot()
-    app.openTab("Khám phá")
-    XCTAssertTrue(app.navigationBars["Khám phá"].waitForExistence(timeout: 5), "no Khám phá")
+    app.openTab(lang.khamPha)
+    XCTAssertTrue(app.navigationBars[lang.khamPha].waitForExistence(timeout: 5), "no Khám phá")
     shot()
   }
 
@@ -241,10 +250,39 @@ final class PageShotsFlowTests: XCTestCase {
     }
   }
 
+  /// Tìm before a search, top to bottom, with every shelf (nine video series, a kind of kit, what's new): after a page is
+  /// read and saved ("Đọc tiếp"), or on a new phone (`read` false).
+  private func shootHome(_ name: String, dark: Bool = false, size: String? = nil, read: Bool = true) {
+    let app = launch(dark: dark, size: size, ["-equipment", "-whats-new", "-series", "9"])
+    XCTAssertTrue(app.buttons["tool-fish-id"].waitForExistence(timeout: 5), "no home")
+    if read {
+      let field = app.searchFields.firstMatch
+      field.tap()
+      field.typeText("nuoi ca neon")
+      let guide = app.descendants(matching: .any).matching(identifier: "item").matching(NSPredicate(format: "label BEGINSWITH 'Nuôi cá neon'")).firstMatch
+      XCTAssertTrue(guide.waitForExistence(timeout: 5), "the guide not found")
+      guide.tap()
+      let save = app.buttons["save-for-later"]
+      XCTAssertTrue(save.waitForExistence(timeout: 5), "the guide didn't open")
+      save.tap()
+      app.navigationBars.buttons.element(boundBy: 0).tap()
+      let close = app.buttons.matching(NSPredicate(format: "label IN {'Đóng', 'Hủy'}")).firstMatch
+      XCTAssertTrue(close.waitForExistence(timeout: 5), "no way out of the search")
+      close.tap()
+      // Under the tools (at the largest text, screens down), then back to the top for the shots.
+      let saved = app.descendants(matching: .any)["all-saved"].firstMatch
+      XCTAssertTrue(saved.waitForExistence(timeout: 2) || app.scrolledDown(to: saved).exists, "nothing read and saved")
+      let top = app.buttons["tool-fish-id"]
+      repeatUntil(top.exists && top.isHittable, times: 8) { app.swipeDown() }
+      app.swipeDown()
+    }
+    capture(app, name, dark: dark, large: size != nil, screens: size == nil ? 6 : 16)
+  }
+
   /// The home's section for kit, then a long list's whole list: screens a kind of kit's own shots don't reach.
   private func shootKit(_ name: String, dark: Bool = false) {
     let app = launch(dark: dark, size: nil, ["-equipment"])
-    let row = app.descendants(matching: .any).matching(identifier: "item").matching(NSPredicate(format: "label BEGINSWITH %@", "Lọc")).firstMatch
+    let row = app.buttons.matching(identifier: "kit").matching(NSPredicate(format: "label BEGINSWITH %@", "Lọc")).firstMatch
     XCTAssertTrue(app.searchFields.firstMatch.waitForExistence(timeout: 5), "no home")
     repeatUntil(row.exists && row.isHittable, times: 8) { app.swipeUp() }
     XCTAssertTrue(row.exists, "no kit on the home")
@@ -269,7 +307,7 @@ final class PageShotsFlowTests: XCTestCase {
   private func shootIcons(_ name: String, dark: Bool = false) {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-app-icons"] + (dark ? ["-dark"] : [])
-    app.launchForFlow()
+    app.launchForFlow(.old)
     XCTAssertTrue(app.buttons["app-icon-default"].waitForExistence(timeout: 10), "the picker didn't open")
     for n in 1...2 {
       settle()
@@ -330,7 +368,7 @@ final class PageShotsFlowTests: XCTestCase {
   /// The owner's dashboard, signed in as its owner on the stand-in server: the overview, or one of its sections.
   /// `shows`: what the section has once it's loaded.
   private func shootOwner(_ name: String, section: String?, shows: String = "owner-chart", dark: Bool = false, size: String? = nil,
-                          more: [String] = [], bell: Bool = false) {
+                          more: [String] = [], bell: Bool = false, tile: String? = nil, screens: Int? = nil) {
     let app = launch(dark: dark, size: size, XCUIApplication.standInOwner + more)
     app.openAccount()
     app.signInWithStandInApple()
@@ -340,12 +378,13 @@ final class PageShotsFlowTests: XCTestCase {
       app.openOwnersSection(section)
       XCTAssertTrue(app.descendants(matching: .any)[shows].firstMatch.waitForExistence(timeout: 10), "\(section) didn't load")
     }
+    if let tile { app.buttons["owner-tile-" + tile].tap() }
     if bell {
       app.buttons["owner-bell"].tap()
       XCTAssertTrue(app.switches["owner-email"].waitForExistence(timeout: 10), "the bell's sheet didn't open")
     }
     // The sheet: its one screen, no end to find.
-    capture(app, name, dark: dark, large: size != nil || bell, screens: bell ? 1 : size != nil ? 30 : 16)
+    capture(app, name, dark: dark, large: size != nil || bell, screens: screens ?? (bell ? 1 : size != nil ? 30 : 16))
   }
 
   /// Each screen from where it is, scrolled most of a screen at a time without a fling, to its end.
@@ -424,7 +463,7 @@ final class PageShotsFlowTests: XCTestCase {
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fixed-pictures"]
       + (dark ? ["-dark"] : [])
       + (size.map { ["-UIPreferredContentSizeCategoryName", $0] } ?? []) + more
-    app.launchForFlow()
+    app.launchForFlow(.old)
     return app
   }
 
@@ -471,6 +510,47 @@ final class PageShotsFlowTests: XCTestCase {
     while Date() < until { RunLoop.current.run(until: Date().addingTimeInterval(0.1)) }
   }
 
+  // The photo grid, top, further down and the readers' part (`-hundreds-gallery`: 300 of a gallery's shapes).
+  func testThePhotoGrid() { shootGrid("grid-light") }
+  func testThePhotoGridInTheDark() { shootGrid("grid-dark", dark: true) }
+  func testThePhotoGridInTheLargestText() { shootGrid("grid-largest-light", size: largest) }
+
+  private func shootGrid(_ name: String, dark: Bool = false, size: String? = nil) {
+    let app = launch(dark: dark, size: size, ["-hundreds-gallery"])
+    let field = app.searchFields.firstMatch
+    XCTAssertTrue(field.waitForExistence(timeout: 5), "no search field")
+    field.tap()
+    field.typeText("ca neon")
+    let item = app.descendants(matching: .any).matching(identifier: "item").matching(NSPredicate(format: "label BEGINSWITH 'Cá neon'")).firstMatch
+    XCTAssertTrue(item.waitForExistence(timeout: 5), "no Cá neon")
+    item.tap()
+    let lead = app.buttons["lead-photo-grid"]
+    XCTAssertTrue(lead.waitForExistence(timeout: 5), "no way into the grid")
+    settle()
+    snap("\(name)-lead")
+    lead.tap()
+    XCTAssertTrue(app.buttons["grid-photo-1"].waitForExistence(timeout: 5), "no grid")
+    settle()
+    snap("\(name)-01")
+    app.swipeUp()
+    settle()
+    snap("\(name)-02")
+    app.swipeDown(velocity: .fast)
+    app.swipeDown(velocity: .fast)
+    let link = app.links["Xem 2 ảnh bạn đọc gửi ↓"].firstMatch
+    XCTAssertTrue(link.waitForExistence(timeout: 5), "no link to the readers' photos")
+    link.tap()
+    settle()
+    snap("\(name)-03")
+  }
+
+  private func snap(_ name: String) {
+    let a = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+    a.name = "shot-" + name
+    a.lifetime = .keepAlways
+    add(a)
+  }
+
   // The photo viewer over the fish's gallery, black whatever the phone's appearance: so its light, dark and large-text
   // shots differ in the page they open over and in the words' size.
   func testTheGalleryViewer() { shootViewer("viewer-light") }
@@ -483,7 +563,7 @@ final class PageShotsFlowTests: XCTestCase {
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fixed-pictures"]
       + (dark ? ["-dark"] : [])
       + (large ? ["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityL"] : [])
-    app.launchForFlow()
+    app.launchForFlow(.old)
     let field = app.searchFields.firstMatch
     XCTAssertTrue(field.waitForExistence(timeout: 5), "no search field")
     field.tap()

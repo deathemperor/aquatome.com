@@ -61,7 +61,13 @@ export function guideList() {
     for (const b of buttons) b.setAttribute('aria-pressed', String(b.dataset.kind === kind))
     // The beginner row is for the whole list: a reader who picked a subject goes straight to it.
     if (start) start.hidden = kind !== ''
-    if (kind && !items && !(await load())) return failed()
+    // The page's own guides of that subject at once, the rest when the data file comes: never the whole list under a chip
+    // that says otherwise while it's on its way (aquatome.com's check of 8 November, on a slow fetch).
+    if (kind && !items) {
+      render()
+      list.setAttribute('aria-busy', 'true')
+      if (!(await load())) return failed()
+    }
     render()
   }
   document.getElementById('guide-kinds')?.addEventListener('click', e => {

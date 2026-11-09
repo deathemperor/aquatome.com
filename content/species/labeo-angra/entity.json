@@ -1,0 +1,200 @@
+{
+  "id": "labeo-angra",
+  "scientificName": "Labeo angra",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Labeo",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "pakistan",
+    "nepal",
+    "india",
+    "brahmaputra",
+    "bangladesh",
+    "myanmar"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "PK",
+        "NP",
+        "IN",
+        "BD",
+        "MM"
+      ],
+      "regions": [
+        "Brahmaputra",
+        "Kosi",
+        "Karnali"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Labeo angra is a benthic cyprinid from Pakistan, Nepal, northern India, Bangladesh and Myanmar, described from the Brahmaputra.",
+          "countries": [
+            "PK",
+            "NP",
+            "IN",
+            "BD",
+            "MM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Brahmaputra River, India'.",
+          "countries": [],
+          "regions": [
+            "Brahmaputra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "This species is widely distributed with records from Pakistan (North West Frontier Province and Punjab), Nepal (Kosi and Karnali rivers), northern India (states of Assam, West Bengal, Bihar, Uttar Pradesh, Punjab and Orissa), Bangladesh, and Myanmar.",
+          "countries": [],
+          "regions": [
+            "Kosi",
+            "Karnali"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5206200,
+      "total": 11,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "NP",
+          7
+        ],
+        [
+          "BD",
+          3
+        ],
+        [
+          "IN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          80.15625,
+          28.125,
+          3,
+          3
+        ],
+        [
+          85.78125,
+          25.3125,
+          4,
+          4
+        ],
+        [
+          87.1875,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          88.59375,
+          25.3125,
+          3,
+          3
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 20
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-angra",
+      "html": "<p>Labeo angra is a benthic cyprinid from Pakistan, Nepal, northern India, Bangladesh and Myanmar, described from the Brahmaputra. It can be identified by a brownish back, yellowish flanks and belly, and a black to bluish stripe from the eye to the caudal-fin base. It undertakes annual spawning migrations within its native river systems.</p><p>Maximum size: 20 cm SL.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-angra",
+      "html": "<p>This species is widely distributed with records from Pakistan (North West Frontier Province and Punjab), Nepal (Kosi and Karnali rivers), northern India (states of Assam, West Bengal, Bihar, Uttar Pradesh, Punjab and Orissa), Bangladesh, and Myanmar.</p><p>Type locality is 'Brahmaputra River, India'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-angra",
+      "html": "<p>This species is primarily benthic and undertakes annual spawning migrations within its native river systems.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-angra",
+      "html": "<p>This species can be identified by colour pattern comprising a brownish dorsal surface, yellowish flanks and abdomen, and a black to bluish lateral stripe extending from the eye to the caudal-fin base.</p><p>The genus Labeo is an enigmatic grouping containing more than 100 species which is critically in need of revision. Members occur throughout much of Africa and Asia, and they are considered members of the tribe Labeonini within the putative cyprinid subfamily Cyprininae or simply the subfamily Labeoninae (name varies with author). According to the most recent phylogenetic research, this grouping is further divided into four subtribes; Labeoina, Garraina, Osteochilina, and Semilabeoina (Yang et al., 2012). Among these, Labeo is included in the Labeoina alongside Bangana sensu stricto (which includes the genus Nukta), Cirrhinus sensu stricto, Cirrhinus microlepis (which is of a different genetic lineage to other Cirrhinus species), Gymnostomus, and Incisilabeo.</p><p>Thirty Labeo species were used in the study, and the genus was found to be polyphyletic, although all were nested within the Labeoina clade (Yang et al., 2012). Labeo boggut, L. bata and L. bata var. formed a clade with Incisilabeo behri, Schismatorhynchos nukta, and Bangana dero (the type species of the genus) and B. sp. Salween. All other Labeo species comprised a group referred to as Labeo sensu stricto which also includes Gibelion catla, and the authors recommended that the latter be synonymised with Labeo, although this does not appear to have been widely accepted (eg. Kottelat, 2013).</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-angra",
+      "html": "<ul><li>Hamilton, F. (1822). An account of the fishes found in the river Ganges and its branches. An account of the fishes found in the river Ganges and its branches., i-vii + 1-405</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Yang, L. and R. L. Mayden (2010). Phylogenetic relationships, subdivision, and biogeography of the cyprinid tribe Labeonini (sensu Rainboth, 1991) (Teleostei: Cypriniformes), with comments on the implications of lips and associated structures in the labeonin classification. Molecular Phylogenetics and Evolution 54(1), 254-265</li><li>Stiassny, M. L. J. and A. Getahun (2007). An overview of labeonin relationships and the phylogenetic placement of the Afro-Asian genus Garra Hamilton, 1922 (Teleostei: Cyprinidae), with the description of five new species of Garra from Ethiopia, and a key to all African species. Zoological Journal of the Linnean Society 150(1), 41-83</li><li>Yang, L., M. Arunachalam, T. Sado, B. A. Levin, A. S. Golubtsov, J. Freyhof, J. P. Friel, W-J. Chen, M. V. Hirt, R. Manickam, M. K. Agnew, A. M. Simons, K. Saitoh, M. Miya, R. L. Mayden, and S. He (2012). Molecular phylogeny of the cyprinid tribe Labeonini (Teleostei: Cypriniformes). Molecular Phylogenetics and Evolution 65(2), 362-379</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/b86b3dd3b9611369.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/b86b3dd3b9611369-480.webp",
+      "width": 800,
+      "height": 533,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-angra",
+      "caption": "Adult individual.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/13fefdc34dac1cde.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/13fefdc34dac1cde-480.webp",
+      "width": 640,
+      "height": 234,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeo-angra",
+      "caption": "Individual from the Padma River, Rajshahi Division, Bangladesh.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn 300 lít",
+        "bể cá dài 150cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy bơm tạo dòng chảy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

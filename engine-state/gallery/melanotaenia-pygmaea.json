@@ -1,28 +1,12 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Melanotaenia_pygmaea_male.png",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Melanotaenia_pygmaea_male.png/500px-Melanotaenia_pygmaea_male.png",
-   "width": 2049,
-   "height": 1072,
-   "licence": "CC BY-SA 4.0",
-   "author": "Andrewbogott",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Melanotaenia_pygmaea_male.png",
-   "caption": "Male Melanotaenia pygmaea (pygmy rainbowfish)",
-   "key": "File:Melanotaenia pygmaea male.png"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/4/40/Melanotaenia_pygmaea_female.png",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Melanotaenia_pygmaea_female.png/500px-Melanotaenia_pygmaea_female.png",
-   "width": 1236,
-   "height": 610,
-   "licence": "CC BY-SA 4.0",
-   "author": "Andrewbogott",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Melanotaenia_pygmaea_female.png",
-   "caption": "Female Melanotaenia pygmaea (pygmy rainbowfish)",
-   "key": "File:Melanotaenia pygmaea female.png"
-  }
+ "queue": [],
+ "judged": [
+  "File:Melanotaenia pygmaea male.png",
+  "File:Melanotaenia pygmaea female.png"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/commons/402f95a0f21a00ac.webp": "0f5f1f3f1f97361f",
+  "https://media.aquatome.com/commons/23327d9e103825d1.webp": "dfdf5f0743fb7ef3"
+ },
+ "commons": "2026-11-08"
 }

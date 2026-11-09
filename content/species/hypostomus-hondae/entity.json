@@ -1,0 +1,408 @@
+{
+  "id": "hypostomus-hondae",
+  "scientificName": "Hypostomus hondae",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Hypostomus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "colombia",
+    "magdalena",
+    "venezuela",
+    "lake-maracaibo"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO",
+        "VE"
+      ],
+      "regions": [
+        "Magdalena River",
+        "Lake Maracaibo",
+        "Lago Maracaibo",
+        "Río Magdalena",
+        "Río Sinú",
+        "Río Atrato"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Hypostomus hondae (Regan, 1912). Family Loricariidae. Type locality: Honda, Colombia. Maximum size 350 mm SL. IUCN Red List: Not Evaluated.",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Lago Maracaibo drainage of Colombia and Venezuela, and the Río Magdalena, Río Sinú, and Río Atrato drainages of Colombia. Type locality: Honda, Colombia.",
+          "countries": [
+            "VE"
+          ],
+          "regions": [
+            "Lago Maracaibo",
+            "Río Magdalena",
+            "Río Sinú",
+            "Río Atrato"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Magdalena River and Lake Maracaibo basins, and Colombian Caribbean rivers.",
+          "countries": [],
+          "regions": [
+            "Magdalena River",
+            "Lake Maracaibo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202142,
+      "total": 1536,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "CO",
+          1505
+        ],
+        [
+          "VE",
+          31
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -77.34375,
+          4.21875,
+          8,
+          8
+        ],
+        [
+          -77.34375,
+          5.625,
+          9,
+          9
+        ],
+        [
+          -77.34375,
+          7.03125,
+          5,
+          5
+        ],
+        [
+          -75.9375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          2.8125,
+          19,
+          19
+        ],
+        [
+          -75.9375,
+          4.21875,
+          130,
+          130
+        ],
+        [
+          -75.9375,
+          5.625,
+          891,
+          891
+        ],
+        [
+          -75.9375,
+          7.03125,
+          336,
+          336
+        ],
+        [
+          -75.9375,
+          8.4375,
+          24,
+          24
+        ],
+        [
+          -75.9375,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          5.625,
+          7,
+          7
+        ],
+        [
+          -74.53125,
+          7.03125,
+          8,
+          8
+        ],
+        [
+          -74.53125,
+          8.4375,
+          44,
+          44
+        ],
+        [
+          -74.53125,
+          9.84375,
+          9,
+          9
+        ],
+        [
+          -73.125,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          8.4375,
+          13,
+          13
+        ],
+        [
+          -73.125,
+          9.84375,
+          10,
+          10
+        ],
+        [
+          -73.125,
+          11.25,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          8.4375,
+          8,
+          8
+        ],
+        [
+          -71.71875,
+          9.84375,
+          3,
+          3
+        ],
+        [
+          -70.3125,
+          9.84375,
+          2,
+          2
+        ],
+        [
+          -68.90625,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          5.625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 35
+      },
+      {
+        "source": "scotcat",
+        "value": 35
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 24,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "scotcat",
+        "value": 120
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1326",
+      "html": "<p>Hypostomus hondae (Regan, 1912). Family Loricariidae. Type locality: Honda, Colombia. Maximum size 350 mm SL. IUCN Red List: Not Evaluated.</p><p>Synonyms: Cochliodon hondae, Cochliodon pospisili, Plecostomus hondae.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_hondae.htm",
+      "html": "<ul><li>Conservation status: Least Concern (IUCN 2023)</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1326",
+      "html": "<p>South America: Magdalena River and Lake Maracaibo basins, and Colombian Caribbean rivers.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_hondae.htm",
+      "html": "<p>South America: Lago Maracaibo drainage of Colombia and Venezuela, and the Río Magdalena, Río Sinú, and Río Atrato drainages of Colombia. Type locality: Honda, Colombia.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_hondae.htm",
+      "html": "<p>Fairly easy to keep in a larger tank over 120 cm.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_hondae.htm",
+      "html": "<p>Adults are rather intolerant towards other large Loricariid catfishes. It produces a lot of waste in the aquarium, so frequent water changes are a must.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_hondae.htm",
+      "html": "<p>Wood eaters, so they need soft wood in the aquarium. Food tablets, pellets and vegetable foods are also taken, along with insect larvae.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_hondae.htm",
+      "html": "<p>Males grow larger and have longer fins.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1326",
+      "html": "<p>Unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1326",
+      "html": "<p>Previously placed in Cochliodon and now included in the larger genus Hypostomus as a member of the Hypostomus Cochliodon group. All these species have higher backs than other related species and spoon-shaped teeth (like Panaque).</p><p>Etymology: Greek hypo = under + Greek stoma = mouth. Named after the river Honda where the type specimen was captured.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_hondae.htm",
+      "html": "<p>Placed in the Hypostomus cochliodon species group, which have a shorter, higher-backed body than other Hypostomus. They have a small number of spatulate teeth with a single cusp, with the jaws arranged in a V shape. Most H. hondae can be distinguished from all other members of the H. cochliodon group by more plates in the skin between the dorsal fin and the lateral plates anterior of the dorsal-fin spine. Some Colombian specimens do not have many plates around the dorsal fin; the number depends on the size of the fish, and some very small specimens lack plates in this region, though most have at least one or more isolated odontodes. It is most similar to H. pagei and H. plecostomoides. It differs from H. pagei by having spots on the caudal-fin spines (except in very melanistic specimens), darker colouration, a different juvenile colouration, and a pectoral-fin spine reaching 2–3 plates beyond the pelvic fin when depressed (vs. 0–1). No additional characters can distinguish it from H. plecostomoides.</p><p>Etymology: the specific name hondae is from Honda in Colombia.</p><p>IUCN: despite not being abundant and ongoing threats causing a slow population decline, the species has a relatively wide range and is assessed as Least Concern (IUCN 2023).</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1326",
+      "html": "<p>Proceedings of the Zoological Society of London 1912 (pt 3) (art. 36), pp 666, Pl. 76 (fig. 3).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_hondae.htm",
+      "html": "<p>Armbruster W. Jonathan; 2003. The species of the Hypostomus cochliodon group (Siluriformes: Loricariidae) Zootaxa 249: 1-60 (2003). Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2015. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 04/2015 ). Mesa-Salazar, L., Sanchez-Duarte, P. &amp; Perez, A. 2023. Hypostomus hondae. The IUCN Red List of Threatened Species 2023.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/30e90b1cd7b6e702.webp",
+      "thumb": "https://media.aquatome.com/scotcat/30e90b1cd7b6e702-480.webp",
+      "width": 500,
+      "height": 334,
+      "licence": "dùng với sự cho phép",
+      "author": "Mark Henry Sabaj / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_hondae.htm",
+      "caption": "Hypostomus hondae",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/0bd25fa86bf2470d.webp",
+      "thumb": "https://media.aquatome.com/scotcat/0bd25fa86bf2470d-480.webp",
+      "width": 500,
+      "height": 303,
+      "licence": "dùng với sự cho phép",
+      "author": "Ictiologia Universidad Católica de Oriente / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_hondae.htm",
+      "caption": "Hypostomus hondae",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/666377cf769dd0e7.webp",
+      "thumb": "https://media.aquatome.com/commons/666377cf769dd0e7-480.webp",
+      "width": 960,
+      "height": 582,
+      "licence": "CC BY 2.0",
+      "author": "Ictiologia Universidad Católica de Oriente",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hypostomus_hondae.jpg",
+      "caption": "By: Zuluaga-Gómez A."
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "viên chìm cá da trơn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

@@ -1,6 +1,6 @@
 {
   "id": "youtube-py-6gyQwVWU",
-  "kind": "breeding",
+  "kind": "discovery",
   "source": "youtube",
   "sourceUrl": "https://www.youtube.com/watch?v=py-6gyQwVWU",
   "html": "",
@@ -8,9 +8,11 @@
   "mentions": [
     "neolamprologus-multifasciatus",
     "cyphotilapia-frontosa",
-    "astronotus-ocellatus"
+    "astronotus-ocellatus",
+    "tetraodon-lineatus",
+    "scleropages-formosus"
   ],
-  "updatedAt": "2026-11-03",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "py-6gyQwVWU",
     "title": "African Shell dweller aquarium fish tank",
@@ -30,10 +32,10 @@
     },
     "taxa": [
       "Neolamprologus multifasciatus",
-      "Astatotilapia burtoni",
       "Cyphotilapia frontosa",
       "Tetraodon lineatus",
-      "Astronotus ocellatus"
+      "Astronotus ocellatus",
+      "Scleropages formosus"
     ],
     "gear": [
       {
@@ -45,29 +47,27 @@
         "category": "phan-nen",
         "type": "cat",
         "t": 464
-      },
-      {
-        "category": "be-ca",
-        "t": 105
       }
     ],
     "figures": [
       {
-        "heading": "Phân biệt đực cái và khi nào cá trưởng thành",
+        "heading": "Phân biệt đực cái và tuổi sinh sản",
         "moments": [
           {
-            "t": 183,
-            "url": "https://media.aquatome.com/video/py-6gyQwVWU/t183.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cá cạnh đàn vỏ ốc được gom lại thành một cụm trên nền cát."
+            "t": 185,
+            "url": "https://media.aquatome.com/video/py-6gyQwVWU/at185-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá cichlid nhỏ bơi gần vỏ ốc trên nền cát trong bể.",
+            "sharpness": 93.6
           },
           {
-            "t": 237,
-            "url": "https://media.aquatome.com/video/py-6gyQwVWU/t237.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cá đực bới cát quanh các vỏ ốc để làm tổ."
+            "t": 195,
+            "url": "https://media.aquatome.com/video/py-6gyQwVWU/at195-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Một con cá bơi giữa đá và vỏ ốc, thân rõ nét.",
+            "sharpness": 60.9
           }
         ],
         "photo": {
@@ -78,132 +78,164 @@
           "licence": "CC BY-SA 3.0",
           "author": "Richard A. Ingebrigtsen",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neolamprologus_multifasciatus_male.JPG",
-          "caption": "Cá đực to hơn hẳn đang bơi cạnh hai con cái nhỏ hơn trong bể."
+          "caption": "Cá đực to hơn đang bơi cạnh những con cái nhỏ hơn trong bể trồng cây."
         }
       },
       {
-        "heading": "Chuẩn bị chỗ ở: vỏ ốc hay đá",
+        "heading": "Cá đực dựng nhà, cá cái chờ được chọn",
         "moments": [
           {
-            "t": 287,
-            "url": "https://media.aquatome.com/video/py-6gyQwVWU/t287.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cát phẳng với nhiều vỏ ốc và đá làm chỗ ở cho cá."
+            "t": 240,
+            "url": "https://media.aquatome.com/video/py-6gyQwVWU/at240-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Những chiếc vỏ ốc xếp trên nền cát trong bể cá.",
+            "sharpness": 396.4
           },
           {
-            "t": 322,
-            "url": "https://media.aquatome.com/video/py-6gyQwVWU/t322.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cá bơi gần các vỏ ốc trên nền cát cạnh đống đá."
+            "t": 275,
+            "url": "https://media.aquatome.com/video/py-6gyQwVWU/at275-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Nhiều vỏ ốc được xếp thành cụm dưới đá trong bể.",
+            "sharpness": 208.1
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/py-6gyQwVWU/p1-lbGVuYV8wMS5KUEc.webp",
-          "thumb": "https://media.aquatome.com/video/py-6gyQwVWU/p1-lbGVuYV8wMS5KUEc-480.webp",
+          "url": "https://media.aquatome.com/video/py-6gyQwVWU/p1-Y2lhdHVzXzMuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/py-6gyQwVWU/p1-Y2lhdHVzXzMuanBn-480.webp",
           "width": 960,
-          "height": 821,
-          "licence": "CC BY-SA 3.0",
-          "author": "H. Zell",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anentome_helena_01.JPG",
-          "caption": "Vỏ ốc rỗng nhìn từ nhiều góc, loại vỏ cá sống ở vỏ ốc hay dùng làm chỗ ở."
+          "height": 720,
+          "licence": "Public domain",
+          "author": "Richard Andre Ingebrigtsen, Department of Aquatic Biosciences, University of Tromsø, Rex shock at en.wikipedia",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neolamprologus_multifasciatus_3.jpg",
+          "caption": "Một con cá cichlid nhỏ bơi giữa đám vỏ ốc mà nó dùng làm tổ."
         }
       },
       {
-        "heading": "Nuôi nhiều cặp trong cùng một bể",
+        "heading": "Có bắt buộc phải dùng vỏ ốc không",
         "moments": [
           {
-            "t": 336,
-            "url": "https://media.aquatome.com/video/py-6gyQwVWU/t336.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Nhiều con cá đực bơi quanh các cụm vỏ ốc trên nền cát."
+            "t": 305,
+            "url": "https://media.aquatome.com/video/py-6gyQwVWU/at305-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hòn đá lớn trên nền cát, tạo chỗ che tầm nhìn cho cá.",
+            "sharpness": 25
           },
           {
-            "t": 341,
-            "url": "https://media.aquatome.com/video/py-6gyQwVWU/t341.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cá bơi gần cụm vỏ ốc, có đá tạo góc khuất phía sau."
+            "t": 330,
+            "url": "https://media.aquatome.com/video/py-6gyQwVWU/at330-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá đực bơi gần đống đá và vỏ ốc trong bể.",
+            "sharpness": 428.2
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/py-6gyQwVWU/p2-NuYWlsXzExLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/py-6gyQwVWU/p2-NuYWlsXzExLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Almostway2004",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Snail_11.jpg",
+          "caption": "Một chiếc vỏ ốc rỗng nằm trên nền cát sỏi, giống vỏ cá làm nhà."
+        }
+      },
+      {
+        "heading": "Nuôi nhiều cặp thì cần bao nhiêu vỏ",
+        "moments": [
+          {
+            "t": 325,
+            "url": "https://media.aquatome.com/video/py-6gyQwVWU/at325-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá đực bơi gần khu vỏ ốc của nó trên nền cát.",
+            "sharpness": 21.4
+          },
+          {
+            "t": 340,
+            "url": "https://media.aquatome.com/video/py-6gyQwVWU/at340-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hai con cá sống gần nhau quanh các vỏ ốc và đá.",
+            "sharpness": 62.9
           }
         ]
       },
       {
-        "heading": "Cá bố mẹ bảo vệ cá con thế nào",
+        "heading": "Cách cá bố mẹ báo động cho cá con",
         "moments": [
           {
-            "t": 406,
-            "url": "https://media.aquatome.com/video/py-6gyQwVWU/t406.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cá bơi lượn phía trên những chiếc vỏ làm chỗ trú cho cá con."
+            "t": 375,
+            "url": "https://media.aquatome.com/video/py-6gyQwVWU/at375-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá nằm cạnh các vỏ ốc dưới đáy bể.",
+            "sharpness": 225.6
           },
           {
-            "t": 420,
-            "url": "https://media.aquatome.com/video/py-6gyQwVWU/t420.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cá bố mẹ bơi gần đám vỏ ốc trong bể."
+            "t": 425,
+            "url": "https://media.aquatome.com/video/py-6gyQwVWU/at425-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá bố mẹ bơi gần những chiếc vỏ ốc trên nền cát.",
+            "sharpness": 58.3
           }
         ]
       },
       {
-        "heading": "Bể riêng hay nuôi chung với frontosa",
+        "heading": "Nuôi riêng và nuôi chung với frontosa: chuyện đã xảy ra",
         "moments": [
           {
-            "t": 534,
-            "url": "https://media.aquatome.com/video/py-6gyQwVWU/t534.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đàn frontosa bơi trong hồ có cát trắng, đá và vỏ ốc của shell dweller."
+            "t": 460,
+            "url": "https://media.aquatome.com/video/py-6gyQwVWU/at460-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn shell dweller nằm rải rác trên nền cát trắng trong bể.",
+            "sharpness": 235.3
           },
           {
-            "t": 549,
-            "url": "https://media.aquatome.com/video/py-6gyQwVWU/t549.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Hồ nuôi chung frontosa với shell dweller, vỏ ốc rải trên nền cát."
+            "t": 540,
+            "url": "https://media.aquatome.com/video/py-6gyQwVWU/at540-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể có frontosa bơi trên nền cát trắng, cạnh đá và đàn shell dweller.",
+            "sharpness": 241.6
           }
         ]
       },
       {
-        "heading": "Bể nuôi chung không thấy cá con thì thử gì",
+        "heading": "Vì sao bể lớn không ra cá con: vài giả thuyết",
         "moments": [
           {
-            "t": 594,
-            "url": "https://media.aquatome.com/video/py-6gyQwVWU/t594.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể nuôi với cụm đá xếp cao và cây thủy sinh bên cạnh."
+            "t": 595,
+            "url": "https://media.aquatome.com/video/py-6gyQwVWU/at595-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể cá cichlid với đá, cây thủy sinh và vài con cá bơi quanh khu đá.",
+            "sharpness": 455.7
           },
           {
-            "t": 608,
-            "url": "https://media.aquatome.com/video/py-6gyQwVWU/t608.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cá nhỏ bơi gần khu đá trong bể, chỗ cá có thể ẩn nấp."
+            "t": 600,
+            "url": "https://media.aquatome.com/video/py-6gyQwVWU/at600-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Góc bể có đống đá và cá bơi gần khu trú ẩn.",
+            "sharpness": 409.2
           }
-        ]
-      },
-      {
-        "heading": "Bắt đầu từ đâu",
-        "moments": [
-          {
-            "t": 455,
-            "url": "https://media.aquatome.com/video/py-6gyQwVWU/t455.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Nền cát trắng rải nhiều vỏ ốc cho cá shell dweller."
-          },
-          {
-            "t": 485,
-            "url": "https://media.aquatome.com/video/py-6gyQwVWU/t485.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể xếp đá nhiều góc khuất, có cát và vỏ ốc dưới đáy."
-          }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/py-6gyQwVWU/p6-d196b28pLTIuSlBH.webp",
+          "thumb": "https://media.aquatome.com/video/py-6gyQwVWU/p6-d196b28pLTIuSlBH-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 3.0",
+          "author": "Guérin Nicolas (messages)",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cyphotilapia_frontosa_(Wroclaw_zoo)-2.JPG",
+          "caption": "Cá frontosa sọc đen trắng bơi bên đám đá trong bể nuôi."
+        }
       }
     ]
   }

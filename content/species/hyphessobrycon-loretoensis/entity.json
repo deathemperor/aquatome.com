@@ -1,0 +1,378 @@
+{
+  "id": "hyphessobrycon-loretoensis",
+  "scientificName": "Hyphessobrycon loretoensis",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Hyphessobrycon",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "colombia",
+    "loreto-yacu",
+    "peru",
+    "ucayali",
+    "ecuador",
+    "aguarico"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO",
+        "PE",
+        "EC"
+      ],
+      "regions": [
+        "Amazon",
+        "Rio Napo",
+        "Rio Ucayali",
+        "Rio Madeira",
+        "Rio Aguarico"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Loreto tetra, Hyphessobrycon loretoensis, is a small characid from the upper Amazon basin in Colombia, Peru and Ecuador.",
+          "countries": [
+            "CO",
+            "PE",
+            "EC"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the upper Amazon River basin, with its range extending westward from Leticia in southern Colombia, at least as far as the upper rio Napo basin in Peru and Ecuador and lower rio Ucayali in Peru.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Rio Napo",
+            "Rio Ucayali"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "García-Alzate et al. (2013) report it from the Madre de Dios watershed, a tributary in the upper rio Madeira basin, which would appear to represent a significant range expansion and may indicate it to be present throughout the Peruvian Amazon; there is also an isolated record from the rio Palcazu drainage in the upper rio Ucayali basin.",
+          "countries": [],
+          "regions": [
+            "Rio Madeira"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "There exist numerous records from the rios Loreto-Yacu and Pichuna in Colombia, and the rio Aguarico, which forms a section of the border between Peru and Ecuador, but presumably it also occurs in other tributary systems in the region.",
+          "countries": [],
+          "regions": [
+            "Rio Aguarico"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354639,
+      "total": 73,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "PE",
+          55
+        ],
+        [
+          "BR",
+          9
+        ],
+        [
+          "CO",
+          8
+        ],
+        [
+          "EC",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -75.9375,
+          -1.40625,
+          5,
+          5
+        ],
+        [
+          -75.9375,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -7.03125,
+          4,
+          4
+        ],
+        [
+          -74.53125,
+          -5.625,
+          9,
+          9
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          -74.53125,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -73.125,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -73.125,
+          -4.21875,
+          18,
+          18
+        ],
+        [
+          -73.125,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -71.71875,
+          -4.21875,
+          6,
+          6
+        ],
+        [
+          -71.71875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          -5.625,
+          6,
+          0
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          4,
+          2
+        ],
+        [
+          -70.3125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -1.40625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 2.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-loretoensis",
+      "html": "<p>The Loreto tetra, Hyphessobrycon loretoensis, is a small characid from the upper Amazon basin in Colombia, Peru and Ecuador. It is relatively popular in the hobby, but most traded fish are wild-caught, so availability can be sporadic. Most records are from forest streams and minor tributaries with tea-coloured water, overhanging vegetation and leaf litter.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-loretoensis",
+      "html": "<p>Native to the upper Amazon River basin, with its range extending westward from Leticia in southern Colombia, at least as far as the upper rio Napo basin in Peru and Ecuador and lower rio Ucayali in Peru. There exist numerous records from the rios Loreto-Yacu and Pichuna in Colombia, and the rio Aguarico, which forms a section of the border between Peru and Ecuador, but presumably it also occurs in other tributary systems in the region.</p><p>García-Alzate et al. (2013) report it from the Madre de Dios watershed, a tributary in the upper rio Madeira basin, which would appear to represent a significant range expansion and may indicate it to be present throughout the Peruvian Amazon; there is also an isolated record from the rio Palcazu drainage in the upper rio Ucayali basin.</p><p>Type locality is 'Upper Amazon River, Loreto State, Peru'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-loretoensis",
+      "html": "<p>Most records pertain to forest streams and minor tributaries, and it presumably occurs in flooded forests during periods of high water.</p><p>Such habitats are characterised by large amounts of overhanging riparian vegetation, submerged branches, tree roots and leaf litter, and the water is typically stained the colour of weak tea due to substances released by decomposing organic matter.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-loretoensis",
+      "html": "<p>An aquarium with base dimensions of 60 × 30 cm or equivalent should be the smallest considered (about 54 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-loretoensis",
+      "html": "<p>Perhaps looks best in an arrangement comprising a sandy substrate plus some driftwood roots and branches although it should also thrive in a planted set-up.</p><p>The addition of dried leaf litter would further emphasise the natural feel and as well as offering additional cover for the fish brings with it the growth of microbe colonies as decomposition occurs.</p><p>The latter are useful since they provide an additional food source for both adults and fry while the humic substances released by decaying leaves are also considered beneficial.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-loretoensis",
+      "html": "<ul><li>Temperature: 22–28°C</li><li>pH: 5.0–7.0</li><li>Hardness: 1–8 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-loretoensis",
+      "html": "<p>Likely to be omnivorous feeding on small invertebrates, crustaceans, filamentous algae, fallen fruit, and suchlike in nature.</p><p>In aquaria it may survive on a diet of dried foods but like most fishes does best when offered a varied menu which in this case should also contain live and frozen chironomid larvae (bloodworm), mosquito larvae, Daphnia, Moina, etc.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-loretoensis",
+      "html": "<p>Very peaceful making it an ideal resident of the well-researched community aquarium.</p><p>It is perhaps best-maintained alongside similarly-sized characids, gasteropelecids, lebiasinids, smaller callichthyid or loricariid catfishes and non-predatory, small-to-medium-sized cichlids.</p><p>Try to buy a mixed-sex group of at least 8-10 specimens, include other schooling fishes to provide security, and you'll be rewarded with a more natural-looking spectacle.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-loretoensis",
+      "html": "<p>Sexually mature females are noticeably rounder-bodied and tend to grow slightly larger than males.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-loretoensis",
+      "html": "<p>An egg-scattering free spawner exhibiting no parental care.</p><p>When in good condition adults will spawn often and in a mature aquarium it is possible that small numbers of fry may start to appear without intervention. However if you want to maximise yield a more controlled approach is required.</p><p>The adult group can still be conditioned together but a smaller aquarium should also be set up and filled with mature water. This should be very dimly lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through but small enough so that the adults cannot reach them.</p><p>The widely available plastic 'grass'-type matting can also be used and works well, as does a layer of glass marbles. Alternatively filling much of the tank with a fine-leaved plant such as Taxiphyllum or artificial spawning mops can also return decent results.</p><p>The water itself should be of slightly acidic to neutral pH with a temperature towards the upper end of the range suggested above. An air-powered sponge filter or air stone(s) should also be included to provide oxygenation and water movement.</p><p>When the adult fish are well-conditioned a single pair or group comprising one or two males and several females can then be introduced to each container and left in place until eggs are detected (typically the following morning).</p><p>Initial food should be Paramecium or a proprietary dry food of sufficiently small (5-50 micron) grade, introducing Artemia nauplii, microworm, etc., once the fry are large enough to accept them.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-loretoensis",
+      "html": "<p>H. loretoensis is relatively popular in the aquarium hobby although most of the fish traded are wild caught meaning availability can be sporadic.</p><p>The most recent diagnosis appears to be that of Géry (1977), in which it was separated from other members of the group by the following combination of characters: dorsal-fin insertion at or slightly anterior to mid-body; caudal-fin almost entirely brick red to orange-red; body depth fits less than 3.6 times in SL; head length fits 3.4-3.5 times in SL; caudal peduncle length usually fits 1.2-1.75 times in SL; snout moderately long, more or less pointed; 10-11 predorsal scales; 33-34 longitudinal scales.</p><p>It is a member of the putative 'H. agulha-group' of closely-related species within the genus as proposed by Géry (1977), of which all members possess a dark lower half of the body, especially above the anal-fin, and usually a horizontally elongate humeral spot, more or less united with the asymmetrical, broad band. Other species in this group include H. agulha, H. metae, H. peruvianus, and H. herbertaxelrodi, although some authors have included one or more of these, including H. loretoensis, in the H. heterorhabdus group.</p><p>Lima et al. 2014 noted similarities between the H. aghula group and their revised H. heterorhabdus group which comprises Hyphessobrycon heterorhabdus, H. amapaensis, and H. eschwartzae. This trio all possess: a well-defined, elongate humeral blotch which is continuous with a dark, well-defined midlateral stripe that becomes blurred towards the caudal peduncle; a longitudinal red stripe extending along the body above the midlateral line; upper half of the eye red.</p><p>This pattern is different to that presented by several members of Géry's original H. heterorhabdus group, such as H. vilmae, H. cachimbensis, and H. stegemanni, which possess a continuous, solid dark lateral stripe on the body and no obvious humeral blotch.</p><p>Hyphessobrycon was raised by Durbin in Eigenmann (1908) as a subgenus of Hemigrammus, differing from the latter by the absence of scales on the caudal-fin.</p><p>The grouping was revised by Eigenmann (1918, 1921) while Géry (1977) created artificial groups of species based on colour pattern, and these definitions are still widely used today, e.g., the H. agulha group, the H. heterorhabdus group, etc. These cannot be considered to represent monophyletic assemblages, however, and their concepts continue to be redefined.</p><p>Weitzman &amp; Palmer (1997) hypothesised the existence of a monophyletic assemblage within the genus based on colour pattern and male fin morphology that they termed the 'rosy tetra clade', with one of the characters supporting its monophyly being presence of a prominent dark marking on the dorsal-fin. This assemblage, plus other morphologically similar species, is considered to represent Hyphessobrycon sensu stricto by some authors, with the remaining species included in a much-expanded H. heterorhabdus group.</p><p>Others have proposed conflicting, typically more restricted, views of both the genus and/or its constituent species groups, and significant confusion remains. What is clear is that, as currently recognised, Hyphessobrycon is a polyphyletic lineage containing several genera.</p><p>The process of splitting it up has already started, and Malabarba et al. (2012) revalidated the genus Ectrepopterus Fowler, previously considered a synonym of Hyphessobrycon. They also analysed its relationships within the Characidae in the context of Mirande's (2010) previous work, but included the type species, H. compressus, for the first time in such a study. The results demonstrated that H. compressus is more closely-related to 'rosy tetra' representatives such as H. eques, H. pulchripinnis, and H. socolofi than other species then placed in the genus, including Psalidodon anisitsi, H. bifasciatus, H. elachys, H. herbertaxelrodi, and H. luetkeni.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/6e7118e4b9a4409d.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/6e7118e4b9a4409d-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-loretoensis",
+      "caption": "This species has been collected from the rio Aguarico, Ecuador.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi mút",
+        "máy sục khí mini"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá tetra nhỏ",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "lá bàng khô"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

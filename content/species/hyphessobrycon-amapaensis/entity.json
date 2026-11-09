@@ -10,6 +10,83 @@
     "brazil",
     "amapa"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "rio Preto",
+        "rio Maraca"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Brazil",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from a small area within the rio Preto and rio Maraca drainages in Amapá state, northeastern Brazil.",
+          "countries": [],
+          "regions": [
+            "rio Preto",
+            "rio Maraca"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354578,
+      "total": 18,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "BR",
+          18
+        ]
+      ],
+      "cells": [
+        [
+          -59.0625,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -1.40625,
+          4,
+          4
+        ],
+        [
+          -52.03125,
+          -1.40625,
+          5,
+          5
+        ],
+        [
+          -52.03125,
+          0,
+          7,
+          7
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

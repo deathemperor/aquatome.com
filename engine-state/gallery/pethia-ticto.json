@@ -1,130 +1,27 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Ticto_barb_from_arpa_river.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Ticto_barb_from_arpa_river.jpg/500px-Ticto_barb_from_arpa_river.jpg",
-   "width": 4032,
-   "height": 3024,
-   "licence": "CC BY-SA 4.0",
-   "author": "RahulaBirdingNerd",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ticto_barb_from_arpa_river.jpg",
-   "caption": "One of the most common pethia specie found in central India.",
-   "key": "File:Ticto barb from arpa river.jpg"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/717045987/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/717045987/medium.jpg",
-   "width": 2048,
-   "height": 1542,
-   "licence": "CC BY",
-   "author": "Ravuri Krishna Chaitanya",
-   "sourceUrl": "https://www.inaturalist.org/photos/717045987",
-   "key": "inat:717045987"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/717046041/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/717046041/medium.jpg",
-   "width": 2048,
-   "height": 1542,
-   "licence": "CC BY",
-   "author": "Ravuri Krishna Chaitanya",
-   "sourceUrl": "https://www.inaturalist.org/photos/717046041",
-   "key": "inat:717046041"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/345611075/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/345611075/medium.jpg",
-   "width": 1536,
-   "height": 2048,
-   "licence": "CC BY",
-   "author": "Schrodiskitten",
-   "sourceUrl": "https://www.inaturalist.org/photos/345611075",
-   "key": "inat:345611075"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/345611103/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/345611103/medium.jpg",
-   "width": 1536,
-   "height": 2048,
-   "licence": "CC BY",
-   "author": "Schrodiskitten",
-   "sourceUrl": "https://www.inaturalist.org/photos/345611103",
-   "key": "inat:345611103"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/9/95/Pethia_ticto_-_HM_Emon_-_576727960.jpeg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Pethia_ticto_-_HM_Emon_-_576727960.jpeg/500px-Pethia_ticto_-_HM_Emon_-_576727960.jpeg",
-   "width": 2048,
-   "height": 1535,
-   "licence": "CC BY 4.0",
-   "author": "HM Emon",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pethia_ticto_-_HM_Emon_-_576727960.jpeg",
-   "caption": "Pethia ticto, Moddom Moheshpur, F7X2+CVH, Bangladesh, 2025-10-02 (iNaturalist).",
-   "key": "File:Pethia ticto - HM Emon - 576727960.jpeg"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/576727960/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/576727960/medium.jpg",
-   "width": 2048,
-   "height": 1535,
-   "licence": "CC BY",
-   "author": "HM Emon",
-   "sourceUrl": "https://www.inaturalist.org/photos/576727960",
-   "key": "inat:576727960"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/2/2e/PuntiusPadamyaFemale.JPG",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/PuntiusPadamyaFemale.JPG/500px-PuntiusPadamyaFemale.JPG",
-   "width": 3888,
-   "height": 2592,
-   "licence": "CC BY-SA 3.0",
-   "author": "Waitingonthetide",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:PuntiusPadamyaFemale.JPG",
-   "caption": "Female Odessa Barb",
-   "key": "File:PuntiusPadamyaFemale.JPG"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/600040827/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/600040827/medium.jpg",
-   "width": 1666,
-   "height": 1158,
-   "licence": "CC BY",
-   "author": "Ronith Urs",
-   "sourceUrl": "https://www.inaturalist.org/photos/600040827",
-   "key": "inat:600040827"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/600041946/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/600041946/medium.jpg",
-   "width": 1280,
-   "height": 960,
-   "licence": "CC BY",
-   "author": "Ronith Urs",
-   "sourceUrl": "https://www.inaturalist.org/photos/600041946",
-   "key": "inat:600041946"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/600042074/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/600042074/medium.jpg",
-   "width": 960,
-   "height": 1280,
-   "licence": "CC BY",
-   "author": "Ronith Urs",
-   "sourceUrl": "https://www.inaturalist.org/photos/600042074",
-   "key": "inat:600042074"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/0/04/Barbus_Puntius_ticto.JPG",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Barbus_Puntius_ticto.JPG/500px-Barbus_Puntius_ticto.JPG",
-   "width": 800,
-   "height": 533,
-   "licence": "CC BY-SA 3.0",
-   "author": "Tocekas",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Barbus_Puntius_ticto.JPG",
-   "caption": "Puntius (Pethia) padamya (male). This species has frequenly been confused with Puntius (Pethia) ticto",
-   "key": "File:Barbus Puntius ticto.JPG"
-  }
+ "queue": [],
+ "judged": [
+  "File:Ticto barb from arpa river.jpg",
+  "inat:717045987",
+  "inat:717046041",
+  "inat:345611075",
+  "inat:345611103",
+  "File:Pethia ticto - HM Emon - 576727960.jpeg",
+  "inat:576727960",
+  "File:PuntiusPadamyaFemale.JPG",
+  "inat:600040827",
+  "inat:600041946",
+  "inat:600042074",
+  "File:Barbus Puntius ticto.JPG"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/seriouslyfish/731153e85d0b3b5d.webp": "804c0c6503054c40",
+  "https://media.aquatome.com/seriouslyfish/865e4e4808a8e49a.webp": "7060d088c0e0d858",
+  "https://media.aquatome.com/seriouslyfish/637fa1f0ac87238c.webp": "70e0d0e8c0e03830",
+  "https://media.aquatome.com/inaturalist/600041946.webp": "3c9a9ca4086cee2d",
+  "https://media.aquatome.com/commons/d91761b7eda48ece.webp": "2533258549789ccb",
+  "https://media.aquatome.com/inaturalist/600040827.webp": "ff9fe1e2b1fdf9ff",
+  "https://media.aquatome.com/inaturalist/600042074.webp": "2c0c302171bbfef4"
+ },
+ "commons": "2026-11-09"
 }

@@ -1,17 +1,16 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Hyphessobrycon_dorsalis_%2831473%29.png",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Hyphessobrycon_dorsalis_%2831473%29.png/500px-Hyphessobrycon_dorsalis_%2831473%29.png",
-   "width": 1096,
-   "height": 605,
-   "licence": "CC BY 4.0",
-   "author": "D. Bork, A. Zarske, and H.J. Richter",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hyphessobrycon_dorsalis_(31473).png",
-   "caption": "Hyphessobrycon dorsalis, live shot, side view, male, not cataloged.",
-   "key": "File:Hyphessobrycon dorsalis (31473).png"
-  }
+ "queue": [],
+ "judged": [
+  "File:Hyphessobrycon dorsalis (31473).png"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {},
+ "commons": "2026-11-08",
+ "inat": {
+  "taxon": 610645,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ }
 }

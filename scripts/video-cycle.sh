@@ -36,6 +36,7 @@ git config merge.changelog.driver 'node scripts/merge-changelog.mjs %O %A %B'
 git config merge.jsonmap.driver 'node scripts/merge-json-map.mjs %O %A %B'
 git config merge.entity.driver 'node scripts/merge-entity.mjs %O %A %B'
 pnpm install --frozen-lockfile --silent
+publish_kept videos
 log "videos start"
 pnpm engine videos --max-minutes "${VIDEO_MAX_MINUTES:-90}" || log "videos: failed"
 # Guides are checked again (review-backfill) and redone from the notes by their own hourly job, video-recheck.sh, not
@@ -64,12 +65,17 @@ pnpm engine dead-screen --limit "${DEAD_SCREEN_LIMIT:-48}" || log "dead-screen: 
 pnpm engine watermarks --limit 20 || log "watermarks: failed"
 # The content rules' safe fixes, as in the GitHub cycle (a new guide whose title promises a count it lacks: the tests fail on it).
 pnpm engine sweep || log "sweep: failed"
+# Last of the steps that write pages: what this run changed is read against the reader-fit checklist (gate.ts). A new page
+# that fails is held, a live page that got worse keeps its committed text, a page built on a foreign shop's kit is held,
+# and a held page that now passes is let out. A page it can't read stays as readers have it; only a crash stops the run,
+# and keeps its work on a branch (gate_or_keep).
+gate_or_keep "content: videos" content engine-state docs/review || exit 1
 if [ -z "$(git status --porcelain -- content engine-state docs/review)" ]; then log "no changes"; exit 0; fi
 # Committed before the tests, as engine-cycle.sh does: the next run's reset drops uncommitted work for good, and a commit
 # stays in the reflog to publish by hand (the run of 2026-11-07 lost its work to timeouts).
 git add content engine-state docs/review
 git commit -q -m "content: videos $(date -u +%F)"
-if ! verify 'pnpm test'; then log "tests failed, not publishing (see $TEST_LOG)"; exit 1; fi
+if ! verify 'pnpm test'; then keep_timed_out videos; log "tests failed, not publishing (see $TEST_LOG)"; exit 1; fi
 # The GitHub engine pushes too; the files above merge through their drivers. Lines both changed (the photo verdicts
 # review page) give way to this run's, as engine-cycle.sh does; then the tests run again on the merge.
 for _ in 1 2 3; do
@@ -78,7 +84,7 @@ for _ in 1 2 3; do
     git rebase --abort 2>/dev/null || true
     if git pull -q --rebase -X theirs; then
       sweep_merged
-      verify 'pnpm test' || { log "tests failed after that merge, not publishing"; exit 1; }
+      verify 'pnpm test' || { keep_timed_out videos; log "tests failed after that merge, not publishing"; exit 1; }
     else
       git rebase --abort 2>/dev/null || true
     fi

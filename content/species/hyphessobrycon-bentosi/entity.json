@@ -1,0 +1,800 @@
+{
+  "id": "hyphessobrycon-bentosi",
+  "scientificName": "Hyphessobrycon bentosi",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Hyphessobrycon",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "brazil",
+    "amazon",
+    "colombia",
+    "peru"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Amazon"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The ornate tetra, Megalamphodus bentosi, is a small characid whose type locality lies on the main channel of the lower Amazon at Óbidos, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Amazon River at Obidos, Pará, Brazil', which corresponds to the municipality of Óbidos in the lower Amazon basin, located on the river's main channel between the mouths of the rios Trombetas and Tapajós.",
+          "countries": [],
+          "regions": [
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354507,
+      "total": 456,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "BR",
+          200
+        ],
+        [
+          "VE",
+          135
+        ],
+        [
+          "PE",
+          63
+        ],
+        [
+          "GY",
+          40
+        ],
+        [
+          "CO",
+          11
+        ],
+        [
+          "GF",
+          3
+        ],
+        [
+          "BO",
+          1
+        ],
+        [
+          "EC",
+          1
+        ],
+        [
+          "SR",
+          1
+        ],
+        [
+          "US",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -85.78125,
+          32.34375,
+          1,
+          0
+        ],
+        [
+          -77.34375,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          -77.34375,
+          -4.21875,
+          3,
+          0
+        ],
+        [
+          -75.9375,
+          -5.625,
+          6,
+          0
+        ],
+        [
+          -75.9375,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          -75.9375,
+          -1.40625,
+          3,
+          0
+        ],
+        [
+          -75.9375,
+          0,
+          2,
+          0
+        ],
+        [
+          -74.53125,
+          -7.03125,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          -5.625,
+          8,
+          0
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          10,
+          0
+        ],
+        [
+          -74.53125,
+          -2.8125,
+          5,
+          0
+        ],
+        [
+          -73.125,
+          -8.4375,
+          14,
+          14
+        ],
+        [
+          -73.125,
+          -5.625,
+          9,
+          0
+        ],
+        [
+          -73.125,
+          -4.21875,
+          11,
+          0
+        ],
+        [
+          -73.125,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -73.125,
+          4.21875,
+          4,
+          0
+        ],
+        [
+          -71.71875,
+          -4.21875,
+          4,
+          0
+        ],
+        [
+          -71.71875,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          -71.71875,
+          4.21875,
+          2,
+          0
+        ],
+        [
+          -70.3125,
+          -5.625,
+          13,
+          13
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          4,
+          3
+        ],
+        [
+          -70.3125,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -70.3125,
+          5.625,
+          2,
+          0
+        ],
+        [
+          -70.3125,
+          7.03125,
+          33,
+          0
+        ],
+        [
+          -68.90625,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          5.625,
+          9,
+          0
+        ],
+        [
+          -68.90625,
+          7.03125,
+          2,
+          0
+        ],
+        [
+          -68.90625,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -67.5,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -67.5,
+          0,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          1.40625,
+          2,
+          0
+        ],
+        [
+          -67.5,
+          2.8125,
+          5,
+          0
+        ],
+        [
+          -67.5,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          5.625,
+          64,
+          0
+        ],
+        [
+          -67.5,
+          7.03125,
+          7,
+          0
+        ],
+        [
+          -67.5,
+          8.4375,
+          3,
+          0
+        ],
+        [
+          -66.09375,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          16,
+          16
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          6,
+          6
+        ],
+        [
+          -66.09375,
+          1.40625,
+          2,
+          0
+        ],
+        [
+          -66.09375,
+          7.03125,
+          2,
+          0
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          3,
+          3
+        ],
+        [
+          -64.6875,
+          -8.4375,
+          5,
+          5
+        ],
+        [
+          -64.6875,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          -2.8125,
+          6,
+          6
+        ],
+        [
+          -64.6875,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -11.25,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          9,
+          9
+        ],
+        [
+          -63.28125,
+          -8.4375,
+          4,
+          4
+        ],
+        [
+          -63.28125,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          13,
+          13
+        ],
+        [
+          -63.28125,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          -63.28125,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          -14.0625,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -9.84375,
+          3,
+          3
+        ],
+        [
+          -61.875,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -2.8125,
+          4,
+          4
+        ],
+        [
+          -61.875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          0,
+          5,
+          5
+        ],
+        [
+          -61.875,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          7.03125,
+          2,
+          0
+        ],
+        [
+          -60.46875,
+          -15.46875,
+          3,
+          3
+        ],
+        [
+          -60.46875,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          9,
+          9
+        ],
+        [
+          -60.46875,
+          -1.40625,
+          4,
+          4
+        ],
+        [
+          -60.46875,
+          1.40625,
+          7,
+          0
+        ],
+        [
+          -60.46875,
+          2.8125,
+          22,
+          1
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          1.40625,
+          8,
+          0
+        ],
+        [
+          -59.0625,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -59.0625,
+          4.21875,
+          3,
+          0
+        ],
+        [
+          -57.65625,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -56.25,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -2.8125,
+          14,
+          14
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          2.8125,
+          3,
+          0
+        ],
+        [
+          -52.03125,
+          0,
+          4,
+          4
+        ],
+        [
+          -52.03125,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -47.8125,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -1.40625,
+          17,
+          17
+        ],
+        [
+          -43.59375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -39.375,
+          -4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 4.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-bentosi",
+      "html": "<p>The ornate tetra, Megalamphodus bentosi, is a small characid whose type locality lies on the main channel of the lower Amazon at Óbidos, Brazil. It is very similar to a number of congeners, some of them undescribed, and the rosy tetra is the one most often seen in the trade. It may also be sold as 'Bentos' tetra' or 'white-tipped tetra'. It mostly inhabits sluggish tributaries, side arms and forest lakes, often around submerged roots, branches or plants.</p><ul><li>Difficulty: Moderate, because it needs a well-established tank and stable water.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-bentosi",
+      "html": "<p>Type locality is 'Amazon River at Obidos, Pará, Brazil', which corresponds to the municipality of Óbidos in the lower Amazon basin, located on the river's main channel between the mouths of the rios Trombetas and Tapajós.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-bentosi",
+      "html": "<p>Mostly inhabits sluggish tributaries, side arms and forest lakes, and often associated with submerged woody structures such as roots, fallen branches, overhanging riparian vegetation or aquatic plants.</p><p>The water normally has a negligible dissolved mineral content, is poorly buffered and stained brown due to the gradual release of tannins and organic acids from decaying plant material.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-bentosi",
+      "html": "<p>An aquarium with base dimensions of 90 × 30 cm or equivalent should be the smallest considered (about 81 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-bentosi",
+      "html": "<p>Choice of décor is not especially critical although it tends to show better colouration when maintained in a well-furnished set-up with live plants and a dark substrate.</p><p>A natural-looking arrangement might consist of a soft, sandy substrate with wood roots and branches placed such a way that plenty of shady spots are formed.</p><p>The addition of dried leaf litter would further emphasise the biotope-style feel and with it the growth of beneficial microbe colonies as decomposition occurs. These can provide a valuable secondary food source for fry, whilst the tannins and other chemicals released by the decaying leaves will aid in simulating natural conditions. Leaves can be left in the tank to break down fully or removed and replaced every few weeks.</p><p>This species seems to do best under relatively dim lighting, and also appreciates floating vegetation.</p><p>Like many fishes that naturally inhabit pristine environments it is intolerant to accumulation of organic pollutants and requires spotless water meaning weekly water changes should be considered routine, and it should never be introduced to a biologically immature tank.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-bentosi",
+      "html": "<ul><li>Temperature: 20–28°C</li><li>pH: 5.0–7.5</li><li>Hardness: 1–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-bentosi",
+      "html": "<p>Likely to be omnivorous feeding on small invertebrates, crustacea, filamentous algae, fallen fruit and suchlike in nature.</p><p>In aquaria it may survive on a diet of dried foods but like most fishes does best when offered a varied menu which in this case should also contain live and frozen chironomid larvae (bloodworm), mosquito larvae, Daphnia, Moina, etc.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-bentosi",
+      "html": "<p>Very peaceful making it an ideal resident of the well-researched community aquarium.</p><p>It is perhaps best-maintained alongside similarly-sized characids, gasteropelecids, lebiasinids, smaller callichthyid or loricariid catfishes and non-predatory, small-to-medium-sized cichlids.</p><p>Try to buy a mixed-sex group of at least 8-10 specimens since this species forms temporary dominance hierarchies within which males compete for female attention, and therefore displays more interesting behaviour and better colouration when maintained in numbers.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-bentosi",
+      "html": "<p>Adult males tend to be less deep-bodied, slightly smaller, and more intensely-coloured than females, particularly in the dorsal and anal fins.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-bentosi",
+      "html": "<p>An egg-scattering free spawner exhibiting no parental care.</p><p>When in good condition adults will spawn often and in a mature aquarium it is possible that small numbers of fry may start to appear without intervention, but if you want to maximise yield a more controlled approach is required.</p><p>The adult group can still be conditioned together but a smaller aquarium should also be set up and filled with mature water. This should be very dimly lit and the base covered with some kind of mesh of a large enough grade so that the eggs can fall through but small enough so that the adults cannot reach them. The widely available plastic 'grass'-type matting can also be used and works well, as does a layer of glass marbles. Alternatively, filling much of the tank with a fine-leaved plant such as Taxiphyllum spp. or spawning mops can also return decent results.</p><p>The water itself should be of slightly acidic to neutral pH with a temperature towards the upper end of the range suggested above. An air-powered sponge filter or air stone(s) should also be included to provide oxygenation and water movement.</p><p>When the adult fish are well-conditioned a single pair or group comprising one or two males and several females can then be introduced to each container and left in place until eggs are detected (typically the following morning).</p><p>Initial food should be Paramecium or a proprietary dry food of sufficiently small (5-50 micron) grade, introducing Artemia nauplii, microworm, etc., once the fry are large enough to accept them.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-bentosi",
+      "html": "<p>This species gave its name to the 'Hyphessobrycon bentosi' subgroup of the H. callistus group proposed by Géry (1977), which also took in the bleeding heart tetras.</p><p>Weitzman &amp; Palmer (1997) expanded Géry's concept and proposed the existence of a putatively monophyletic assemblage based on colour pattern and male fin morphology that they termed the 'rosy tetra clade'. It was composed of species with the following shared characters which set them apart from other Hyphessobrycon species: pink to red or reddish-brown body colour; 22-29 branched anal-fin rays; 29-34 longitudinal scales; two sets of teeth on the premaxilla with 1-4 teeth in the outer series and 7-12 in the inner series.</p><p>Hyphessobrycon was raised by Durbin in Eigenmann (1908) as a subgenus of Hemigrammus, differing from the latter by the absence of scales on the caudal-fin.</p><p>The grouping was revised by Eigenmann (1918, 1921) while Géry (1977) created artificial groups of species based on colour pattern, and these definitions are still widely used today, e.g., the H. agulha group, the H. heterorhabdus group, etc. These cannot be considered to represent monophyletic assemblages, however, and their concepts continue to be redefined.</p><p>Weitzman &amp; Palmer (1997) hypothesised the existence of a monophyletic assemblage within the genus based on colour pattern and male fin morphology that they termed the 'rosy tetra clade', with one of the characters supporting its monophyly being presence of a prominent dark marking on the dorsal-fin. This assemblage, plus other morphologically similar species, is considered to represent Hyphessobrycon sensu stricto by some authors, with the remaining species included in a much-expanded H. heterorhabdus group.</p><p>Others have proposed conflicting, typically more restricted, views of both the genus and/or its constituent species groups, and significant confusion remains. What is clear is that, as currently recognised, Hyphessobrycon is a polyphyletic lineage containing several genera.</p><p>The process of splitting it up has already started, and Malabarba et al. (2012) revalidated the genus Ectrepopterus Fowler, previously considered a synonym of Hyphessobrycon. They also analysed its relationships within the Characidae in the context of Mirande's (2010) previous work, but included the type species, H. compressus, for the first time in such a study. The results demonstrated that H. compressus is more closely-related to 'rosy tetra' representatives such as H. eques, H. pulchripinnis, and H. socolofi than other species then placed in the genus, including Psalidodon anisitsi, H. bifasciatus, H. elachys, H. herbertaxelrodi, and H. luetkeni.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/megalamphodus-bentosi",
+      "html": "<ul><li>Durbin, M. L. In: Eigenmann (1908). Preliminary descriptions of new genera and species of tetragonopterid characins. (Zoölogical Results of the Thayer Brazilian expedition.). Bulletin of the Museum of Comparative Zoology 52(6), 91-106</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Calcagnotto, D., S. A. Schaefer, and R. DeSalle (2005). Relationships among characiform fishes inferred from analysis of nuclear and mitochondrial gene sequences. Molecular Phylogenetics and Evolution 36(1), 135-153</li><li>Oliveira, C. A., G. S. Avellino, K. T. Abe, T. C. Mariguela, R. C. Benine, G. Orti, R. P. Vari, and R. M. Corrêa e Castro (2011). Phylogenetic relationships within the speciose family Characidae (Teleostei: Ostariophysi: Characiformes) based on multilocus analysis and extensive ingroup sampling. BMC Evolutionary Biology 11(1), 275-300</li><li>Géry, J. (1977). Characoids of the World. T.F.H. Publications, Inc., 1-672</li><li>Weitzman, S. H. and L. Palmer (1997). A new species of Hyphessobrycon (Teleostei: Characidae) from the Neblina region of Venezuela and Brazil, with comments on the putative `rosy tetra clade'. Ichthyological Exploration of Freshwaters 7(3), 209-242</li><li>Mirande, J. M. (2010). Phylogeny of the family Characidae (Teleostei: Characiformes): from characters to taxonomy. Neotropical Ichthyology 8(3), 385-568</li><li>Malabarba, L. R., V. A. Bertaco, F. R. Carvalho &amp; T. O. Litz. (2012). Revalidation of the genus Ectrepopterus Fowler (Teleostei: Characiformes), with the redescription of its type species, E. uruguayensis. Zootaxa 3204, 47-60</li><li>Paz, F. P. C., J. D. S. Batista, and J. I. R. Porto (2014). DNA Barcodes of Rosy Tetras and Allied Species (Characiformes: Characidae: Hyphessobrycon) from the Brazilian Amazon Basin. PLoS One 9(5), e98603</li></ul>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 90cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi bọt xốp",
+        "máy sủi oxy"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá",
+        "máy sưởi thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá tetra",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

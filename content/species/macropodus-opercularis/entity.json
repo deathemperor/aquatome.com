@@ -31,18 +31,12 @@
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "The paradise fish, Macropodus opercularis, is a labyrinth fish from China south of the Yangtze, including Taiwan and Hainan, plus Vietnam and Laos.",
+          "quote": "Occurs naturally in China, south of the Yangtze (Chang Jiang) River system, including Taiwan and Hainan Island, northern and central Vietnam, and northeastern Laos.",
           "countries": [
             "CN",
             "VN",
             "LA"
           ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Occurs naturally in China, south of the Yangtze (Chang Jiang) River system, including Taiwan and Hainan Island, northern and central Vietnam, and northeastern Laos.",
-          "countries": [],
           "regions": [
             "Yangtze",
             "Hainan Island"
@@ -468,6 +462,10 @@
       {
         "source": "bwaquatics",
         "value": 6.4
+      },
+      {
+        "source": "glaser",
+        "value": 6
       }
     ],
     "tankCm": [
@@ -501,6 +499,18 @@
       "html": "<p>A colorful gourami-like fish with striking red and green stripes on its flank. IUCN Red List: LC (Least Concern). Very hardy and tolerant of different water temperatures, making it a good beginner fish.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/macropodus_opercularis_wild_en/",
+      "html": "<p>Wild-caught Paradise fish are about 6 cm long.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/macropodus_opercularis_wild_en/",
+      "html": "<p>The Paradise fish was the first exotic species of ornamental fish (leaving the goldfish aside) that reached Europe, back in 1869. Wild collected specimens are hardly ever available. Wild-caught fish of this fantastic aquarium fish could now be imported from China via Hong Kong.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/macropodus-opercularis",
@@ -511,6 +521,12 @@
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/paradise-fish-macropodus-opecularis",
       "html": "<p>Very widespread and widely distributed throughout Asia.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/macropodus_opercularis_wild_en/",
+      "html": "<p>The wild-caught fish are imported from China via Hong Kong.</p>"
     },
     {
       "key": "habitat",
@@ -573,6 +589,12 @@
       "html": "<p>Somewhat territorial, but can be kept in groups as long as there is enough space. Unlike bettas, these fish tolerate their peers and usually establish a pecking order in groups.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/macropodus_opercularis_wild_en/",
+      "html": "<p>Displaying males show a very remarkable black throat with white spots.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/macropodus-opercularis",
@@ -597,6 +619,12 @@
       "html": "<p>Bubble nester.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/macropodus_opercularis_wild_en/",
+      "html": "<p>When a pair started spawning, the female developed a breeding coloration, which has never been reported in that intensity in the almost 150 years that M. opercularis has been kept and bred in aquaria: it became light cream all over the body, with two dark stripes over the front back and a bright light blaze between the dark stripes.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/macropodus-opercularis",
@@ -607,6 +635,12 @@
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/paradise-fish-macropodus-opecularis",
       "html": "<p>Maximum size: 2.5 inches (about 6.4 cm).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/macropodus_opercularis_wild_en/",
+      "html": "<p>The fish are comparatively small (about 6 cm) but very attractive, although their fins are by far not as large as in aquarium strains. The fish currently come from the winter pause in their home country. The word \"Macropodus\" means \"large fins\"; most probably the fish will become much larger in body and develop much larger fins during the summer months.</p>"
     },
     {
       "key": "references",
@@ -628,7 +662,32 @@
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "XIhhQwmwG0s",
+      "title": "Macropodus opercularis in natural low tech aquarium setup🍂🌿❤️",
+      "durationSec": 12,
+      "lang": "it"
+    },
+    {
+      "youtubeId": "SaHLIX35GM4",
+      "title": "IL MACROPODUS OPERCULARIS - IL PESCE DEL PARADISO - ALLEVAMENTO, BIOLOGIA E ALIMENTAZIONE",
+      "durationSec": 1532,
+      "lang": "it"
+    },
+    {
+      "youtubeId": "UnwYNW5rzlk",
+      "title": "Macropodus opercular  blue Tiger in natural aquarium setup🌿🍂",
+      "durationSec": 21,
+      "lang": "it"
+    },
+    {
+      "youtubeId": "612F1ygmBCU",
+      "title": "Paradise Fish (Watch This Before Getting Yours!)",
+      "durationSec": 223,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -652,5 +711,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-09"
 }

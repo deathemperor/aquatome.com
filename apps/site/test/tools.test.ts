@@ -48,7 +48,12 @@ test('tools page: nav link, a card for every tool, sitemap; the checker\'s speci
   const redirect = (path: string) => page(path).dom.querySelectorAll('script:not([src])').map(s => s.text).find(s => s.includes('location.replace'))
   expect(redirect('/id/alat/')).toContain("location.replace('/id/alat/kecocokan-ikan/'")
   expect(redirect('/th/tools/')).toContain("location.replace('/th/tools/tank-mates/'")
-  const idx = JSON.parse(page('/cong-cu/nuoi-chung/').dom.querySelector('#species-index')!.text) as { slug: string; sizeCm?: number; temperament?: string; schoolMin?: number; img?: string; aka?: string[]; pop?: number }[]
+  // The checker's species are a file of their own: inlined, they held the page's first paint back (720 KB on aquatome.com).
+  const tm = page('/cong-cu/nuoi-chung/')
+  expect(tm.dom.querySelector('#species-index')).toBeNull()
+  expect(tm.dom.querySelector('#tm-form')!.getAttribute('data-src')).toBe('/data/vi/tank-mates.json')
+  expect(page('/th/tools/tank-mates/').dom.querySelector('#tm-form')!.getAttribute('data-src')).toBe('/data/th/tank-mates.json')
+  const idx = JSON.parse(readFileSync(`${DIST}/data/vi/tank-mates.json`, 'utf8')) as { slug: string; sizeCm?: number; temperament?: string; schoolMin?: number; img?: string; aka?: string[]; pop?: number }[]
   expect(idx.some(i => i.sizeCm !== undefined)).toBe(true)
   expect(idx.find(i => i.slug === 'ca-neon-vua')).toMatchObject({ temperament: 'peaceful', schoolMin: 8, aka: ['Cardinal tetra'], pop: 3 })
   expect(idx.find(i => i.slug === 'ca-neon-vua')?.img).toMatch(/^https:\/\//)

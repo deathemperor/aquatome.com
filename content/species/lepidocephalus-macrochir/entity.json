@@ -1,0 +1,297 @@
+{
+  "id": "lepidocephalus-macrochir",
+  "scientificName": "Lepidocephalus macrochir",
+  "order": "Cypriniformes",
+  "family": "Cobitidae",
+  "genus": "Lepidocephalus",
+  "group": "loaches",
+  "places": [
+    "asia",
+    "indonesia",
+    "sumatra",
+    "malaysia",
+    "pahang",
+    "thailand",
+    "chao-phraya"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "MY",
+        "ID"
+      ],
+      "regions": [
+        "Chao Phraya",
+        "Pahang",
+        "Sumatra",
+        "Java",
+        "Borneo",
+        "Solo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "It was described from the Lamatang and Enim rivers, Palambang Province, Sumatra and has since been recorded from Thailand (Chao Phraya River), Peninsular Malaysia (Pahang River) plus the islands of Java (Solo River) and Borneo (Kapuas and Barito rivers).",
+          "countries": [
+            "TH",
+            "MY"
+          ],
+          "regions": [
+            "Chao Phraya",
+            "Pahang",
+            "Sumatra",
+            "Java",
+            "Borneo",
+            "Solo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The full type locality is 'Confluence of Lamatang and Enim rivers, Palembang, eastern Sumatra; Pepeh River, Surakarta, central Java, Indonesia'.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5207874,
+      "total": 2,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "ID",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          106.875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          -1.40625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 9
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 75
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalus-macrochir",
+      "html": "<ul><li>Needs a tight-fitting lid as this species is known to jump. Ensure that small specimens are unable to enter filter intakes and cover the tank well as most loaches do jump at times, especially when first introduced.</li><li>Needs a soft, sandy substrate. It must be provided with a soft, sandy substrate since some of its time is spent completely buried.</li></ul><p>Lepidocephalus macrochir is a cobitid loach described from Sumatra and since recorded from Thailand, Peninsular Malaysia, Java and Borneo. It is traded sporadically as the 'pinky loach', 'deep water kuhli loach' and 'Borneo high body cave loach'. Although sometimes said to be a cave loach, Thai collectors report it from deep water, and in aquaria it spends a lot of time buried in soft substrates.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalus-macrochir",
+      "html": "<p>The distribution records for this species are somewhat confusing.</p><p>It was described from the Lamatang and Enim rivers, Palambang Province, Sumatra and has since been recorded from Thailand (Chao Phraya River), Peninsular Malaysia (Pahang River) plus the islands of Java (Solo River) and Borneo (Kapuas and Barito rivers).</p><p>The full type locality is 'Confluence of Lamatang and Enim rivers, Palembang, eastern Sumatra; Pepeh River, Surakarta, central Java, Indonesia'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalus-macrochir",
+      "html": "<p>Little information is available. Although sometimes said to be a cave loach Thai collectors have reported it to inhabit deep water and that it can only be caught during periods of extreme low water.</p><p>Under the latter scenario one would therefore expect it to be found in major river channels with aquarium behaviour suggesting it spends a lot of time buried in soft substrates.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalus-macrochir",
+      "html": "<p>Base dimensions of 75 × 30 cm or more are required.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalus-macrochir",
+      "html": "<p>Must be provided with a soft, sandy substrate since some of its time is spent completely buried. When coarser gravel is used it may become stressed or damage itself trying to dig, and feeding behaviour can be inhibited.</p><p>Other décor can include water-worn rocks and driftwood branches and tree roots arranged to form plenty of hiding places and shaded spots - add these prior to the substrate to prevent them being toppled by digging activity.</p><p>Lighting can be quite dim unless you intend to grow plants and a few handfuls of leaf litter would complement the natural effect.</p><p>High flow rates are best avoided although a degree of oxygenation is recommended. Ensure that small specimens are unable to enter filter intakes and cover the tank well as most loaches do jump at times, especially when first introduced.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalus-macrochir",
+      "html": "<ul><li>Temperature: 22–26°C</li><li>pH: 5.5–7.5</li><li>Hardness: 2–10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalus-macrochir",
+      "html": "<p>Probably a micropredator feeding on insect larvae, small crustaceans and suchlike in nature.</p><p>In the aquarium it will accept sinking dried foods but should also be offered regular meals of small live and frozen fare such as Daphnia, Artemia, bloodworm, etc.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalus-macrochir",
+      "html": "<p>Peaceful both with conspecifics and other fishes and there exist no reports of it harming tankmates though it may prey on eggs or fry.</p><p>It fares best in the presence of conspecifics and should ideally be kept in a group of 4 or more specimens.</p><p>It's a naturally shy species and therefore will easily be outcompeted for food if maintained alongside aggressive feeders such as most members of the families Botiidae and Nemacheilidae.</p><p>Better choices include Pangio, Acanthopsoides and Kottelatlimia spp., small cyprinids such as Trigonostigma, Boraras or smaller Danio spp. and anabantoids like Trichopsis pumila.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalus-macrochir",
+      "html": "<p>The second pectoral-fin ray is extended in sexually mature males while females are likely to be deeper-bodied, especially when full of eggs.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalus-macrochir",
+      "html": "<p>Unreported in captivity.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalus-macrochir",
+      "html": "<p>This species is only available in the aquarium trade sporadically and tends to be expensive. It's traded under various names including 'pinky loach', 'deep water kuhli loach' and 'Borneo high body cave loach'.</p><p>There are currently just two species in the genus with the other, L. spectrum, endemic to Borneo and lacking eyes entirely.</p><p>Lepidocephalichthys thermalis was for a number of years considered to fall within the grouping but confirmation of its correct placement was provided by Havird and Page (2010).</p><p>The family Cobitidae, often referred to as 'true' loaches, is widely-distributed across most of Eurasia with the Indian subcontinent, Southeast Asia and China representing particular centres of species diversity.</p><p>Phylogenetic analyses by Tang et al. (2006), Šlechtová et al. (2007) and Šlechtová et al. (2008) revealed that the group constitutes a separate genetic lineage to the family Botiidae (the two were previously grouped together under Cobitidae as subfamilies Cobitinae and Botiinae).</p><p>In the most recent study Lepidocephalichthys was not found to be as closely-related to Pangio, Lepidocephalus or Kottelatlimia as previously hypothesised though unfortunately the authors stop short of proposing an alternative theory.</p><p>All cobitids possess sharp, motile, sub-ocular spines which are normally concealed within a pouch of skin but erected when an individual is stressed, e.g. if removed from the water. Care is therefore necessary as these can become entangled in aquarium nets and with larger species even break human skin.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalus-macrochir",
+      "html": "<ul><li>Bleeker, P. (1854). Overzigt der ichthyologische fauna van Sumatra, met beschrijving van eenige nieuwe soorten. Natuurkundig Tijdschrift voor Nederlandsch Indië 7, 49-108</li><li>de Beaufort, L. F. (1933). On some new or rare species of Ostariophysi from the Malay Peninsula and a new species of Betta from Borneo. Bulletin of the Raffles Museum No. 8, 31-36</li><li>Roberts, T. R. (1989). The freshwater fishes of western Borneo (Kalimantan Barat, Indonesia). Memoirs of the California Academy of Sciences 14, 1-210</li><li>Šlechtová, V., J. Bohlen and H. H. Tan (2007). Families of Cobitoidea (Teleostei; Cypriniformes) as revealed from nuclear genetic data and the position of the mysterious genera Barbucca, Psilorhynchus, Serpenticobitis and Vaillantella. Molecular Phylogenetics and Evolution 44(3), 1358-1365</li><li>Šlechtová, V., J. Bohlen and A. Perdices (2008). Molecular phylogeny of the freshwater fish family Cobitidae (Cypriniformes: Teleostei): delimitation of genera, mitochondrial introgression and evolution of sexual dimorphism. Molecular Phylogenetics and Evolution 47(2), 812-831</li><li>Tang, Q., H. Liu, R. Mayden and B. Xiong (2006). Comparison of evolutionary rates in the mitochondrial DNA cytochrome b gene and control region and their implications for phylogeny of the Cobitoidea (Teleostei: Cypriniformes). Molecular Phylogenetics and Evolution 39(2), 347-357</li><li>Vaillant, L. L. (1902). Résultats zoologiques de l'expédition scientifique Néerlandaise au Bornéo central. Poissons. Notes from the Leyden Museum 24(1), 1-166</li><li>Kottelat, M. (2012). Conspectus cobitidum: an inventory of the loaches of the world (Teleostei: Cypriniformes: Cobitoidei). Raffles Bulletin of Zoology Supplement 26, 1-199</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/4867b8d6d2aa09cd.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/4867b8d6d2aa09cd-480.webp",
+      "width": 640,
+      "height": 347,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalus-macrochir",
+      "caption": "Adult specimen.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/57cab6f7c6937fed.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/57cab6f7c6937fed-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalus-macrochir",
+      "caption": "Head detail.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/93c177e693d0fd7a.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/93c177e693d0fd7a-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalus-macrochir",
+      "caption": "Newly-imported young specimen.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/f5886a90d01be0c2.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/f5886a90d01be0c2-480.webp",
+      "width": 800,
+      "height": 355,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepidocephalus-macrochir",
+      "caption": "This species is a rare find in the trade.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/panitvong/Lemac_u9.webp",
+      "thumb": "https://media.aquatome.com/panitvong/Lemac_u9-480.webp",
+      "width": 640,
+      "height": 347,
+      "licence": "dùng với sự cho phép",
+      "author": "Nonn Panitvong",
+      "sourceUrl": "https://fishbase.se/photos/PicturesSummary.php?pic=Lemac_u9.jpg&personnel=1825&what=collab_pic",
+      "source": "panitvong"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn nền bể cá",
+        "cát sông thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá chạch",
+        "trùng huyết đông lạnh",
+        "artemia đông lạnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ dòng chảy nhẹ",
+        "máy sục khí mini"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

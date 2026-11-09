@@ -1,0 +1,188 @@
+{
+  "id": "hoplias-aimara",
+  "native": {
+    "input": "8ce99b0d4c1af7c6",
+    "at": "2026-11-08T22:57:48.089Z",
+    "claims": [
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This species has been known so far only from French Guyana and Venezuela.",
+        "words": "French Guyana",
+        "ok": false,
+        "why": "\"French Guyana\" is not GF"
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This species has been known so far only from French Guyana and Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It has now been imported for the first time from the Brazilian state of Amapa.",
+        "words": "Brazilian",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "GF"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hoplias aimara",
+    "status": "ACCEPTED",
+    "taxonKey": 2352248,
+    "datasets": [
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        210
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        189
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        88
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        71
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        48
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        42
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        32
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        25
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        17
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        15
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        15
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        14
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        11
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        10
+      ],
+      [
+        "5818223b-9b8e-432c-9fca-cb4c43387e6a",
+        8
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        7
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        5
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        5
+      ],
+      [
+        "5d1e5f0d-811c-4ab0-bb38-f141cc0174de",
+        4
+      ],
+      [
+        "68ace562-4acd-4a6e-a1ef-52c73a5018d8",
+        4
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        4
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "0eb4ad83-f80d-4d86-83d8-f3a55ddd216f",
+        1
+      ],
+      [
+        "240e848b-47bc-40a3-a44c-6e745901d2d0",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "f3d6d354-239e-4686-a267-8c9516fe2aab",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ]
+    ],
+    "native": [
+      "VE",
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T22:57:48.089Z"
+  }
+}

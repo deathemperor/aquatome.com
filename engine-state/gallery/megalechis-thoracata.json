@@ -1,143 +1,30 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Megalechis_thoracata_1.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Megalechis_thoracata_1.jpg/500px-Megalechis_thoracata_1.jpg",
-   "width": 6016,
-   "height": 4000,
-   "licence": "CC BY-SA 4.0",
-   "author": "7TP (Krzysztof Bartosik)",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Megalechis_thoracata_1.jpg",
-   "caption": "Kiryśnik czarnoplamy (Megalechis thoracata)",
-   "key": "File:Megalechis thoracata 1.jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Hoplosternum-thoracatum-001.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Hoplosternum-thoracatum-001.jpg/500px-Hoplosternum-thoracatum-001.jpg",
-   "width": 2560,
-   "height": 1920,
-   "licence": "CC BY-SA 3.0",
-   "author": "Danny Steaven",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hoplosternum-thoracatum-001.jpg",
-   "caption": "Megalechis thoracata (Valenciennes, 1840)",
-   "key": "File:Hoplosternum-thoracatum-001.jpg"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/179490715/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/179490715/medium.jpeg",
-   "width": 2000,
-   "height": 1500,
-   "licence": "CC BY",
-   "author": "Diogo Luiz",
-   "sourceUrl": "https://www.inaturalist.org/photos/179490715",
-   "key": "inat:179490715"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/179490697/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/179490697/medium.jpeg",
-   "width": 2000,
-   "height": 1500,
-   "licence": "CC BY",
-   "author": "Diogo Luiz",
-   "sourceUrl": "https://www.inaturalist.org/photos/179490697",
-   "key": "inat:179490697"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/179490706/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/179490706/medium.jpeg",
-   "width": 2000,
-   "height": 1500,
-   "licence": "CC BY",
-   "author": "Diogo Luiz",
-   "sourceUrl": "https://www.inaturalist.org/photos/179490706",
-   "key": "inat:179490706"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Megalechis_thoracata.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Megalechis_thoracata.jpg/500px-Megalechis_thoracata.jpg",
-   "width": 2800,
-   "height": 1460,
-   "licence": "CC BY-SA 3.0",
-   "author": "Chrumps",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Megalechis_thoracata.jpg",
-   "caption": "Kiryśnik czarnoplamy",
-   "key": "File:Megalechis thoracata.jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/6/66/Dipneute_Salle_nautilus_1006008.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Dipneute_Salle_nautilus_1006008.jpg/500px-Dipneute_Salle_nautilus_1006008.jpg",
-   "width": 2821,
-   "height": 1425,
-   "licence": "CC BY-SA 4.0",
-   "author": "G.Garitan",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dipneute_Salle_nautilus_1006008.jpg",
-   "caption": "au rez de chaussée de l'aquarium de Nancy.",
-   "key": "File:Dipneute Salle nautilus 1006008.jpg"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/9246549/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/9246549/medium.jpeg",
-   "width": 2048,
-   "height": 1365,
-   "licence": "CC BY",
-   "author": "Michael Bakker Paiva",
-   "sourceUrl": "https://www.inaturalist.org/photos/9246549",
-   "key": "inat:9246549"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/9246559/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/9246559/medium.jpeg",
-   "width": 2048,
-   "height": 1365,
-   "licence": "CC BY",
-   "author": "Michael Bakker Paiva",
-   "sourceUrl": "https://www.inaturalist.org/photos/9246559",
-   "key": "inat:9246559"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/9246556/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/9246556/medium.jpeg",
-   "width": 2048,
-   "height": 1365,
-   "licence": "CC BY",
-   "author": "Michael Bakker Paiva",
-   "sourceUrl": "https://www.inaturalist.org/photos/9246556",
-   "key": "inat:9246556"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/3/37/Megalechis_thoracata_by_Ark.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Megalechis_thoracata_by_Ark.jpg/500px-Megalechis_thoracata_by_Ark.jpg",
-   "width": 2579,
-   "height": 1171,
-   "licence": "CC BY 3.0",
-   "author": "User:Ark pl wiki",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Megalechis_thoracata_by_Ark.jpg",
-   "caption": "probably Megalechis thoracata",
-   "key": "File:Megalechis thoracata by Ark.jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/9/97/Megalechis_thoracata_by_Ark_%28clipped%29.png",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Megalechis_thoracata_by_Ark_%28clipped%29.png/500px-Megalechis_thoracata_by_Ark_%28clipped%29.png",
-   "width": 1835,
-   "height": 898,
-   "licence": "CC BY 3.0",
-   "author": "User:Ark pl wiki",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Megalechis_thoracata_by_Ark_(clipped).png",
-   "caption": "probably Megalechis thoracata",
-   "key": "File:Megalechis thoracata by Ark (clipped).png"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Kiry%C5%9Bnik.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Kiry%C5%9Bnik.jpg/500px-Kiry%C5%9Bnik.jpg",
-   "width": 1295,
-   "height": 719,
-   "licence": "CC BY-SA 2.5",
-   "author": "Bartosz Senderek",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kiry%C5%9Bnik.jpg",
-   "caption": "Megalechis thoracata (Valenciennes, 1840)",
-   "key": "File:Kiryśnik.jpg"
-  }
+ "queue": [],
+ "judged": [
+  "File:Megalechis thoracata 1.jpg",
+  "File:Hoplosternum-thoracatum-001.jpg",
+  "inat:179490715",
+  "inat:179490697",
+  "inat:179490706",
+  "File:Megalechis thoracata.jpg",
+  "File:Dipneute Salle nautilus 1006008.jpg",
+  "inat:9246549",
+  "inat:9246559",
+  "inat:9246556",
+  "File:Megalechis thoracata by Ark.jpg",
+  "File:Megalechis thoracata by Ark (clipped).png",
+  "File:Kiryśnik.jpg"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/seriouslyfish/c7a2586a3addfb88.webp": "7b7f773674fc714d",
+  "https://media.aquatome.com/scotcat/a8250e1392976cd5.webp": "f6ffcd4f0f4f78c7",
+  "https://media.aquatome.com/scotcat/30327e79eba500dd.webp": "0f3060ccaae00023",
+  "https://media.aquatome.com/scotcat/47aaa1c2442f9cae.webp": "8dddd9c9e8d2e4c2",
+  "https://media.aquatome.com/scotcat/f0a8d1120916b4b3.webp": "7fb7a7b27a7e5e17",
+  "https://media.aquatome.com/commons/b94067a31883c49d.webp": "1f13c989c9856cee",
+  "https://media.aquatome.com/commons/8bb2650768a55b0b.webp": "2c6e2798786ecdcc",
+  "https://media.aquatome.com/commons/f682f5d76f1550b1.webp": "b9999bebdcc8a013",
+  "https://media.aquatome.com/commons/c5304b7bd6e8c45e.webp": "5352d399c9ec983b"
+ },
+ "commons": "2026-11-08"
 }

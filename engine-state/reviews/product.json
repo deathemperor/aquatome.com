@@ -1,4 +1,37 @@
 {
+  "vi/products/aquario-neo-soil": [
+    {
+      "at": "2026-11-09T10:46:42Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"an toàn cho cá, tép và ốc\": facts say safe for fish and invertebrates; \"ốc\" (snails) is specific and not stated.",
+        "\"Aquario Neo Soil No CO2: bản này rẻ hơn trong cùng dòng\": the facts call it a cheaper sibling, but the page does not give a price. This is a minor point and is supported.",
+        "\"Bản Plants và bản No CO2 đều có bao 3 L và 8 L. Hãng và shop không ghi mỗi bao đủ cho bể cỡ nào\": the claim that no coverage is listed is not in the facts. It is a mild generality.",
+        "\"hãng làm bản No CO2 dành cho cả bể tép\": the facts attribute this aim to a seller, not the manufacturer, so the attribution is a bit off.",
+        "\"dùng Neo CO2 hay bình CO2 đều được\": the facts say Neo CO2 or a pressurised system. This is roughly fine.",
+        "\"Bản Plants ... bể còn cần đèn tốt với phân đầy đủ\": the facts say adequate light and fertiliser. \"Đầy đủ\" fertiliser is a slight overstatement."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-09T10:46:42Z",
+      "model": "sonnet",
+      "score": 0.78,
+      "notes": [
+        "\"Cả hai bản đều có bao 3 L và 8 L\" is supported, but \"rồi dựa vào diện tích đáy bể để tính ra cần bao nhiêu lít\" is an unsupported instruction not in the facts.",
+        "\"Thấy thì nhặt ra\" (pick out impurities) is an unsupported recommendation.",
+        "\"Muốn biết chắc thì làm theo hướng dẫn ở trên: sau 5–6 tháng bổ sung phân nhét hoặc phân nước\" turns the 5–6 month life-extension tip into a resolution of the fertiliser contradiction. The facts do not support this.",
+        "\"Bản No CO2 ... hãng làm bản đó cho bể không CO2\" is fine, but \"loại nền cao cấp mà nhiều người lấy làm chuẩn để so\" generalises \"benchmark premium soil\" to many people.",
+        "\"Aquario Neo Soil No CO2: bản rẻ hơn trong cùng dòng\" is supported only as a cheaper sibling. The page leaves out the 280,000₫ price, which is fine.",
+        "\"Bao lâu thì phải thêm phân? Khoảng 5–6 tháng sau khi set bể\" presents the 5–6 months as a requirement. The facts only say to add fertiliser to extend the soil's life, and they don't say \"after setup\" explicitly.",
+        "\"Một shop chấm nền tốt cho bể tép\" in the FAQ, and \"hãng làm bản No CO2 cho cả bể tép\", are supported."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/products/chihiros-c-ii": [
     {
       "at": "2026-11-07T03:38:14Z",
@@ -67,6 +100,38 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "vi/products/chihiros-commander-4": [
+    {
+      "at": "2026-11-09T01:45:24Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Bộ điều khiển chỉ có một cỡ\" – the facts do not state that there is only one size/version.",
+        "\"Hãng làm bộ này cho đèn Chihiros WRGB đời đầu\" – facts say made for original WRGB; fine, but \"Các shop thủy sinh ở Việt Nam chủ yếu bán Commander 4 làm đồ thay thế\" overstates \"mainly\" (facts: Vietnamese shops sell it as a replacement).",
+        "\"App cũng có sẵn các chế độ bình minh, nghỉ trưa, hoàng hôn\" – the facts list these as programming presets, but do not specify that the app has them (minor attribution).",
+        "\"Bảo hành bao lâu? Shrimp Home bảo hành 6 tháng\" – the facts say this is the policy for Chihiros spare parts, and the page extends it to the controller as \"phụ kiện\" (slight generalisation).",
+        "\"Chihiros Commander 1: rẻ hơn, dành cho các đèn A, C, Wabi-kusa\" – this is supported. \"Đèn WRGB II… hơn cặp WRGB đời cũ cộng Commander 4\" – supported.",
+        "\"Commander 4 chỉnh riêng từng kênh màu, dành cho dòng WRGB, Vivid và A Plus RGB\" – supported. \"chỉnh màu\" in the FAQ is fine."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-09T01:45:24Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"xem bảng phía trên\" refers to a table that isn't in the page/facts (minor).",
+        "\"nên hỏi kỹ shop trước khi mua\" is a mild recommendation not in the facts, but it is reasonable.",
+        "\"Commander 4 chỉ có một bản\" is not stated in the facts (only one variant listed).",
+        "\"nên hàng ở các đợt khác nhau có thể không giống nhau\" is an inference beyond the facts; the facts only say electronics were reportedly changed without announcement.",
+        "\"Commander 1 ... dành cho đèn một kênh như A, C, Wabi-kusa\" drops E, S, RGB, X100, X200 from the compatible list, and calling them single-channel is an interpretation (the facts say they dim together).",
+        "\"Home Assistant, một phần mềm mã nguồn mở\" is slightly paraphrased; the facts say open-source Home Assistant control."
+      ],
+      "attempt": "first",
+      "kept": true
     }
   ],
   "vi/products/chihiros-universal-wrgb": [
@@ -199,6 +264,71 @@
         "\"Đó là chuyện của đời cũ, dữ kiện chưa nói Vivid III có bị như vậy hay không\": this is a meta comment inside the page. It is not a product claim, but it reads awkwardly.",
         "\"có người thấy khó chịu vì chuyện này\": facts only say it can bother people in living-room setups, so this is a mild overstatement.",
         "\"Chihiros khuyên ... Bể đã ổn định thì chọn một chế độ cài sẵn\": the facts say Chihiros staff advise this, which is supported."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/products/dennerle-scapers-soil": [
+    {
+      "at": "2026-11-09T16:47:11Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Bể nuôi chung cá hiền hay bể tép Neocaridina cũng dùng được\" - facts only mention community/Neocaridina tanks in the lifespan context, not as a stated suitability claim (minor generalisation).",
+        "\"Lúc mới đổ nước, nước đục một chút là chuyện bình thường\" is presented as a usage step, but it is the retailer's reply to a complaint, not an instruction (minor).",
+        "\"Nếu trồng ráy (Cryptocoryne) và Echinodorus\" - facts say 'crypts and swords'; mapping swords to Echinodorus is an inference, though reasonable.",
+        "\"Một lớp nền đã giữ nguyên hạt suốt 14 tháng\" and the FAQ's \"Các nguồn nói khác nhau\" framing 14 vs 18 months as conflicting: the facts do not present these as contradictory (14 months is structure held, 18 months is replacement lifespan), a slight distortion.",
+        "\"Theo nhà phân phối... Đây là lời nhà phân phối nói, chưa có số đo nào kèm theo\" - the 'no measurement attached' remark is not in the facts (minor addition).",
+        "\"Nên hỏi shop trước khi định set bể\" - advice not in the facts, harmless generality."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-09T16:47:11Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"Hãng khuyên trải lớp nền dày khoảng 4 cm\" - the facts list the 4 cm layer height as a spec (source 6) but don't say the manufacturer recommends it; attributing it to the brand is slightly unsupported.",
+        "\"Nhà phân phối nói lớp nền giữ được pH, nên châm CO2 nhiều hơn\" - the facts say the buffering is \"said to\" allow more CO2, which is reasonable, but the page presents it as a distributor claim without noting the shop/source uncertainty.",
+        "\"Người nuôi tép Caridina hay chọn loại này\" - the facts say breeders \"prefer it\" because of low ammonia; the page's \"Được\" (yes, it works) in the FAQ goes a little beyond the facts, which also say buffering fades and the soil may need partial replacement.",
+        "\"Trong bể thử, lớp nền vẫn giữ được hạt sau 14 tháng\" - the facts say the soil bed held its structure for 14 months, with no mention that this was in a test tank.",
+        "\"Nhưng ... tính theo lít thì đắt hơn\" - supported. \"hàng Việt Nam, rẻ hơn nhiều\" - supported. The page drops the 75,000 ₫ price but this is not a fault.",
+        "Page says \"Đổ thẳng ... Chạy vi sinh cho bể trước khi thả tép\" - supported; no major invented claims found."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/products/tuya-smart-life-power-strip": [
+    {
+      "at": "2026-11-09T06:23:13Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Có hướng dẫn nói ổ này vẫn giữ lịch khi mất Wi-Fi\" / \"vẫn giữ lịch đã lưu trong vài ngày\": the facts say this, but the guide is generic, and the page presents it as certain for this strip while also saying some cheap plugs switch off. Mildly overstated.",
+        "\"Sưởi thì tùy, muốn cắm cũng được\": the facts only say the heater is optional and a backup. This is a mild extrapolation.",
+        "\"Nên chỉnh phần cài đặt khi có điện lại như ở mục trên\": the facts do not say that 'Last State' fixes the reef hobbyist's all-off problem. This is an implied link.",
+        "\"Ổ cũng phụ thuộc cloud và app\": the source says this about Tuya devices in general, not specifically this strip. It is a small generalization.",
+        "\"Ổ này dành cho người đã có sẵn hub Zigbee\" and \"giống ổ này\": fine, but the Zigbee price/page status is omitted. This is not an error.",
+        "\"Đổi lại thì giá cao hơn\": supported, but the page gives no price. This is fine.",
+        "\"4P+2U ... 2 cổng USB\": supported. \"Nếu bể chỉ dùng ổ điện ... số cổng USB không ảnh hưởng gì\" is an unsupported but harmless inference."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-09T06:23:13Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"Bản 2 USB thì không thấy shop nào nói chuyện này\" is an inference; the facts only say the 4P+4U variant states remote USB switching, not that no shop mentions it for 4P+2U (minor).",
+        "\"Tổng tải của cả 4 ổ\" is fine, but \"Ổ cắm sưởi chỉ để dự phòng... bộ điều nhiệt có sẵn\" is supported only by a guide that says 'optionally'; the page's \"sưởi thì tùy, có cắm cũng được\" is slightly paraphrased and acceptable.",
+        "\"Router ở nhà hay phát 5GHz\" generalises 'many home routers use 5GHz' (minor).",
+        "\"Tapo P300... hãng này hỗ trợ tốt hơn\" matches the facts; \"Đổi lại giá cao hơn\" omits the figures but is supported.",
+        "\"Phải tự cúp điện thử một lần\" and \"hãy ngắt Wi-Fi thử\" are advice not in the facts, though they are reasonable extensions of 'check how yours behaves'.",
+        "\"Ổ cắm Wi-Fi Tuya đơn 10A ... mua vài ổ đơn này rẻ hơn\" is supported (cheaper option)."
       ],
       "attempt": "first",
       "kept": true

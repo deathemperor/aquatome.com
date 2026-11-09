@@ -8,7 +8,7 @@
   "mentions": [
     "eleocharis-acicularis"
   ],
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "85iF2nhleGM",
     "title": "Hướng Dẫn Setup Bể Thủy Sinh Cùng KST từ A-Z Trong 15 Ngày",
@@ -33,13 +33,8 @@
     "gear": [
       {
         "category": "be-ca",
-        "type": "chuan",
+        "type": "lon",
         "t": 40
-      },
-      {
-        "category": "co2",
-        "type": "binh",
-        "t": 72
       },
       {
         "category": "phan-nen",
@@ -48,9 +43,15 @@
         "t": 163
       },
       {
+        "category": "co2",
+        "type": "binh",
+        "brand": "Mufan",
+        "t": 1062
+      },
+      {
         "category": "loc",
         "type": "thung",
-        "brand": "Jebao",
+        "brand": "JEBAO",
         "model": "403",
         "t": 133
       },
@@ -69,8 +70,14 @@
       },
       {
         "category": "khac",
-        "brand": "Sonoff",
+        "brand": "SonOFF",
         "t": 769
+      },
+      {
+        "category": "khac",
+        "brand": "Seachem",
+        "model": "Stability",
+        "t": 997
       },
       {
         "category": "phan-nen",
@@ -79,186 +86,68 @@
       },
       {
         "category": "cay-thuy-sinh",
-        "type": "trong-nen",
+        "type": "gan-lua",
         "t": 103
-      },
-      {
-        "category": "khac",
-        "brand": "Seachem",
-        "model": "Stability",
-        "t": 996
-      },
-      {
-        "category": "co2",
-        "type": "binh",
-        "brand": "Mufan",
-        "t": 1064
       },
       {
         "category": "loc",
         "type": "tao-dong",
         "brand": "Sebo",
-        "t": 1327
+        "t": 1326
       }
     ],
     "figures": [
       {
         "heading": "Cần chuẩn bị những gì",
-        "moments": [
-          {
-            "t": 69,
-            "url": "https://media.aquatome.com/video/85iF2nhleGM/t69.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể kính trống đang được đo kích thước bằng thước dây."
-          },
-          {
-            "t": 139,
-            "url": "https://media.aquatome.com/video/85iF2nhleGM/t139.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Đèn thủy sinh và bộ nguồn đặt trên sàn, sẵn sàng lắp."
-          }
-        ]
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/85iF2nhleGM/p0-xdWFyaXVtLi5KUEc.webp",
+          "thumb": "https://media.aquatome.com/video/85iF2nhleGM/p0-xdWFyaXVtLi5KUEc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "Public domain",
+          "author": "T.Seiichi",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Potamogeton_dentatus_in_aquarium..JPG",
+          "caption": "Bể kính mới setup với nền cát và vài cây thủy sinh non."
+        }
       },
       {
-        "heading": "Lót nền theo thứ tự nào",
+        "heading": "Những ngày đầu sau khi đổ nước",
         "moments": [
           {
-            "t": 456,
-            "url": "https://media.aquatome.com/video/85iF2nhleGM/t456.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Đáy bể đã lót nền xong, bày đá và lũa lên trên."
-          }
-        ]
-      },
-      {
-        "heading": "Bày đá, lũa và trồng cây",
-        "moments": [
-          {
-            "t": 466,
-            "url": "https://media.aquatome.com/video/85iF2nhleGM/t466.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Hai cụm đá như ngọn núi cùng lũa bày trên nền đất đen."
-          },
-          {
-            "t": 585,
-            "url": "https://media.aquatome.com/video/85iF2nhleGM/t585.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Đá và lũa đã được cắm cây xanh phủ quanh."
-          }
-        ]
-      },
-      {
-        "heading": "Lắp lọc và chăm bể những ngày đầu",
-        "moments": [
-          {
-            "t": 872,
-            "url": "https://media.aquatome.com/video/85iF2nhleGM/t872.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể vừa châm nước còn hơi đục, lọc thùng đang chạy."
-          },
-          {
-            "t": 1011,
-            "url": "https://media.aquatome.com/video/85iF2nhleGM/t1011.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể thủy sinh đã trong hơn, nước chảy mặt từ lọc."
+            "t": 890,
+            "url": "https://media.aquatome.com/video/85iF2nhleGM/at890-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh với đá và cây mọc xanh tốt sau vài ngày.",
+            "sharpness": 1779.9,
+            "person": false
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/85iF2nhleGM/p3-JfRmlsdGVyLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/85iF2nhleGM/p3-JfRmlsdGVyLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/85iF2nhleGM/p5-JfRmlsdGVyLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/85iF2nhleGM/p5-JfRmlsdGVyLmpwZw-480.webp",
           "width": 960,
           "height": 720,
           "licence": "CC BY-SA 4.0",
           "author": "Fish Tank Society",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
-          "caption": "Lọc thùng đặt trong tủ bể, bên cạnh xô và ống hút nước thay."
+          "caption": "Thùng xô và ống hút nước cạnh lọc thùng, dùng để thay nước bể."
         }
       },
       {
-        "heading": "Lắp hệ thống CO2 đúng thứ tự",
+        "heading": "Khi nào thả cá và thả thế nào",
         "moments": [
           {
-            "t": 704,
-            "url": "https://media.aquatome.com/video/85iF2nhleGM/t704.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cốc trộn CO2 gắn bên thành bể, nối với ống dẫn khí."
-          },
-          {
-            "t": 1100,
-            "url": "https://media.aquatome.com/video/85iF2nhleGM/t1100.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Van và đồng hồ chỉnh áp CO2 kèm bộ đếm giọt."
+            "t": 1400,
+            "url": "https://media.aquatome.com/video/85iF2nhleGM/at1400-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ngâm nguyên túi cá trong bể thủy sinh để cá quen dần.",
+            "sharpness": 1951.7,
+            "person": false
           }
         ]
-      },
-      {
-        "heading": "Hẹn giờ đèn thế nào",
-        "moments": [
-          {
-            "t": 763,
-            "url": "https://media.aquatome.com/video/85iF2nhleGM/t763.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể thủy sinh với đèn gắn phía trên, đang được hẹn giờ bật tắt."
-          }
-        ]
-      },
-      {
-        "heading": "Vì sao nên chờ 15 ngày mới thả cá",
-        "moments": [
-          {
-            "t": 1259,
-            "url": "https://media.aquatome.com/video/85iF2nhleGM/t1259.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Lọc váng mặt nước vừa được gắn vào thành bể, bên dưới là cây."
-          },
-          {
-            "t": 1338,
-            "url": "https://media.aquatome.com/video/85iF2nhleGM/t1338.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể thủy sinh với lọc váng gắn trên thành, mặt nước trong sạch."
-          }
-        ]
-      },
-      {
-        "heading": "Chọn cá và thả cá thế nào",
-        "moments": [
-          {
-            "t": 1388,
-            "url": "https://media.aquatome.com/video/85iF2nhleGM/t1388.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Túi cá còn nguyên được thả nổi trong bể để cá quen nước."
-          },
-          {
-            "t": 1457,
-            "url": "https://media.aquatome.com/video/85iF2nhleGM/t1457.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Các túi cá nổi trên mặt nước bể thủy sinh có đá và cây."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/85iF2nhleGM/p7-pc2hfVGFuay5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/85iF2nhleGM/p7-pc2hfVGFuay5qcGc-480.webp",
-          "width": 960,
-          "height": 540,
-          "licence": "CC BY 3.0",
-          "author": "Kong of Lasers",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Red_Freshwater_Snail_in_Fish_Tank.jpg",
-          "caption": "Ốc sừng đỏ bò trong bể, thuộc đội dọn rêu hại."
-        }
       }
     ]
   }

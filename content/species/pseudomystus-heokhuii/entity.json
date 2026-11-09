@@ -5,12 +5,38 @@
   "family": "Bagridae",
   "genus": "Pseudomystus",
   "group": "catfish",
-  "places": [],
+  "places": [
+    "asia",
+    "indonesia",
+    "batang-hari"
+  ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 6
+      },
+      {
+        "source": "scotcat",
+        "value": 6.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 21,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 5.5,
+          "max": 6.5
+        }
       }
     ]
   },
@@ -22,10 +48,28 @@
       "html": "<p>This pretty species of bumblebee catfish was discovered and scientifically described only in 2008. It has now been imported for the first time. P. heokhuii becomes about 6 cm long and is a very peaceful species of catfish.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/pseudomystus_heokhuii.htm",
+      "html": "<p>Family: Bagridae. Adult size: 6.5 cm. Temperature: 21-26°C. pH: 5.5-6.5. Described by Lim &amp; Ng, 2008.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/pseudomystus_heokhuii.htm",
+      "html": "<p>Asia: Batang Hari and Indragiri River drainages in Sumatra, Indonesia. Type locality: Batang Hari drainage at Rantau Panjang, Jambi, Sumatra.</p>"
+    },
+    {
       "key": "habitat",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/pseudomystus_heokhuii_en/",
       "html": "<p>Pseudomystus heokhuii inhabits extreme blackwater habitats in the wild, where the pH is around 3.5-4.5.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/pseudomystus_heokhuii.htm",
+      "html": "<p>Occurs in floodplain channels and peat swamps with very acidic (pH 3.5-4.5), tannin-stained water.</p><p>The species is known only from the Batang Hari and Indragiri river drainages in Sumatra, with an Extent of Occurrence of 3,000 km2. Its habitat (blackwater peat swamp and heath forests) has undergone large-scale destruction and degradation due to logging, plantation agriculture (primarily oil palm plantations) and channelisation. Given the scope of land conversion, the number of locations is likely not more than five. These threats are severe, widespread, and capable of driving the species to extinction within a short time period. Pseudomystus heokhuii is therefore assessed as Endangered under criterion B1ab(i,iii) (IUCN 2020).</p>"
     },
     {
       "key": "waterConditions",
@@ -34,10 +78,34 @@
       "html": "<p>Despite the extreme conditions in the wild, they adapt very well to different water conditions.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/pseudomystus_heokhuii.htm",
+      "html": "<p>Temperature: 21-26°C. pH: 5.5-6.5.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/pseudomystus_heokhuii.htm",
+      "html": "<p>Dorsal spines (total): 1; dorsal soft rays (total): 7; anal soft rays: 12-14; vertebrae: 35-36. Can be differentiated from all congeners except Pseudomystus breviceps, P. bomboides, P. flavipinnis, P. myersi, P. siamensis, P. robustus, P. sobrinus and P. stenomus in having a deeper body (17.8-21.0% SL vs. 9.0-17.0). Differs from Pseudomystus leiacanthus in having two (vs. one) dark narrow irregular bars on the caudal fin, a longer pectoral spine (19.3-22.4% SL vs. 15.2-18.6), a longer caudal fin (33.5-40.0% SL vs. 25.7-31.9) with pointed (vs. rounded) lobes, longer nasal and maxillary barbels (63.1-81.1% HL vs. 31.3-51.5 and 86.2-125.3% HL vs. 70.9-91.3 respectively), a straight (vs. crescentic) premaxillary tooth patch, a more sharply tapering snout when viewed dorsally and an even (vs. slightly convex) predorsal profile.</p><p>Colouration: differs from its congeners in having a colour pattern of a pale midlateral stripe and two pale oblique bands on the sides of the body; no other congener has a distinct pale midlateral stripe.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/pseudomystus_heokhuii_en/",
       "html": "<p>The females develop spawn and even in the photo tank the male showed courtship behaviour. So it seems that this pretty bumblebee catfish will even breed in aquaria.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/pseudomystus_heokhuii.htm",
+      "html": "<p>Etymology: the genus name Pseudomystus comes from Greek pseudes = false + Greek mystax = whiskered, used by Belon in 1553 to describe all fishes with whiskers. The species name honours one of the authors, Heok Hui Ng.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/pseudomystus_heokhuii.htm",
+      "html": "<p>Froese, R. and D. Pauly. Editors. 2009. FishBase. www.fishbase.org, version (10/2011). Lim, K.K.P. and H.H. Ng 2008 Pseudomystus heokhuii, a new species of bagrid catfish from Sumatra (Teleostei:Bragidae). Zootaxa 1686:37-47. Ng, H.H. 2020. Pseudomystus heokhuii. The IUCN Red List of Threatened Species 2020.</p>"
     }
   ],
   "photos": [
@@ -87,5 +155,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-09"
 }

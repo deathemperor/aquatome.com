@@ -202,6 +202,29 @@ struct LatinName: View {
 /// A page as one line of a shelf or a card: its photo as a rounded square (the page's "icon"), its name, a line, and its
 /// button, the same wherever the page shows: "Thêm" onto a tank for a fish or plant, "Đọc" for a guide, else "Xem". The
 /// name and photo open the page; the button is its own.
+/// "Thêm vào bể"'s sheet, whose "Xem trong Bể của tôi →" opens the tank once the sheet has closed, as v1's page does
+/// (PageView): changing the tab under a closing sheet is a race.
+private struct PutOnTankSheet: ViewModifier {
+  let item: HandbookIndex.Item
+  @Binding var putting: Bool
+  @Environment(\.openScreen) private var openScreen
+  @State private var openAfter: String?
+
+  func body(content: Content) -> some View {
+    content.sheet(isPresented: $putting, onDismiss: {
+      if let id = openAfter { openAfter = nil; openScreen(.tanks(id)) }
+    }) {
+      if let life = Life(item) { NavigationStack { PutOnTank(life: life, open: { openAfter = $0; putting = false }) } }
+    }
+  }
+}
+
+extension View {
+  func v2PutOnTank(_ item: HandbookIndex.Item, isPresented: Binding<Bool>) -> some View {
+    modifier(PutOnTankSheet(item: item, putting: isPresented))
+  }
+}
+
 struct Lockup: View {
   let item: HandbookIndex.Item
   /// Its first line, the page's name unless the card already says it; that card is the stop VoiceOver reads and opens,
@@ -266,7 +289,7 @@ struct Lockup: View {
       .accessibilityHidden(title != nil)
       button
     }
-    .sheet(isPresented: $putting) { if let life = Life(item) { NavigationStack { PutOnTank(life: life) } } }
+    .v2PutOnTank(item, isPresented: $putting)
   }
 
   @ViewBuilder private var button: some View {

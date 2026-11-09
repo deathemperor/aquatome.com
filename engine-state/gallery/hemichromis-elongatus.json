@@ -1,10 +1,30 @@
 {
  "queue": [],
  "judged": [
-  "File:Parasite180080-Figure8 Micrographs of Cichlidogyrus spp & Onchobdella (Monogenea, Dactylogyridae).png"
+  "File:Parasite180080-Figure8 Micrographs of Cichlidogyrus spp & Onchobdella (Monogenea, Dactylogyridae).png",
+  "inat:24295522",
+  "inat:28836696",
+  "inat:32433677",
+  "inat:32433684",
+  "inat:47220830",
+  "inat:47220834",
+  "inat:48763169",
+  "inat:53146347",
+  "inat:97165826",
+  "inat:104446810",
+  "inat:104446816"
  ],
  "hashes": {
-  "https://media.aquatome.com/commons/acfb5f8a64e04fdd.webp": "abd89a12887b63f9"
+  "https://media.aquatome.com/commons/acfb5f8a64e04fdd.webp": "abd89a12887b63f9",
+  "https://media.aquatome.com/inaturalist/53146347.webp": "70f0f0cc8aec712d"
  },
- "commons": "2026-11-08"
+ "commons": "2026-11-08",
+ "inat": {
+  "taxon": 102479,
+  "pass": "done",
+  "after": {
+   "research": 64919233,
+   "agree": 237079466
+  }
+ }
 }

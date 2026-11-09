@@ -29,8 +29,8 @@
       ],
       "quotes": [
         {
-          "source": "seriouslyfish",
-          "quote": "Betta siamorientalis is a small bubble-nesting labyrinth fish from eastern Thailand, western Cambodia and Vietnam.",
+          "source": "bwaquatics",
+          "quote": "Native to slow-moving, shallow waters in eastern Thailand (Chachoengsao, Sa Kaeo, Prachin Buri, Chon Buri provinces), western Cambodia, and parts of Vietnam.",
           "countries": [
             "TH",
             "KH",
@@ -107,6 +107,10 @@
       {
         "source": "seriouslyfish",
         "value": 3.3
+      },
+      {
+        "source": "glaser",
+        "value": 4
       }
     ],
     "difficulty": [
@@ -149,6 +153,18 @@
       "html": "<p>Betta siamorientalis is a small bubble-nesting labyrinth fish from eastern Thailand, western Cambodia and Vietnam. It lives among submerged vegetation in marshes, flooded fields and rice paddies. Before its description in 2012 it was considered a colour form of B. imbellis known as 'black imbellis', and it has also been confused with B. splendens, but DNA analysis showed it to be distinct. Males have a dark brown to black body and a black opercle with two reddish vertical bars.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/betta_siamorientalis_en/",
+      "html": "<p>Formerly: Betta cf. imbellis \"Vietnam Black\". Origin: Vietnam. Available size: 3-4 cm. The species was scientifically described in 2013 as Betta siamorientalis.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/betta_siamorientalis_en/",
+      "html": "<p>A wild-collected Betta has been imported from Vietnam for some time. Determining the exact species proved quite complicated. Four scientifically described species belong to this complex: Betta imbellis, B. smaragdina, B. splendens and B. stiktos. An additional species, known in the hobby as B. sp. \"Mahachai\", looks very similar to B. smaragdina.</p><p>Betta splendens is one of the most enigmatic fish species. The scientific description of 1910 was already based on domesticated animals. This is comparable to describing the species \"wolf\" on the basis of a Yorkshire terrier and then trying to reconstruct the appearance of the wolf from that description. So nobody really knows what exactly B. splendens is. Pragmatically, in the hobby the two species are distinguished by the coloration of the operculum in males: B. splendens males develop two bright red stripes on the operculum, whereas B. imbellis males have shining spots on the operculum.</p><p>The Vietnamese fish were initially called Betta imbellis on this basis. Later the description of B. stiktos was published, and the fish were found to have the species-specific spots described for B. stiktos. However, preserved material does not allow reliable species distinction in Betta, so the fish were renamed Betta cf. stiktos. Later, aquarists travelled to the type locality of B. stiktos and collected the species alive. It then became clear that these fish had nothing to do with it, as B. stiktos looks almost identical to B. smaragdina.</p><p>The Vietnamese fish is distinguished from most other varieties of Betta imbellis by the lack of green or blue shining spots on the flanks, so displaying males look deep black. They were renamed B. cf. imbellis to make clear that they are not identical to the fish often imported from the Malaysian region.</p><p>Which name will be correct in the future cannot be predicted, but these are beautiful fish.</p>"
+    },
+    {
       "key": "distribution",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/betta-siamorientalis-true-wild-vietnam-long-an-wild-type-bettas",
@@ -159,6 +175,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-siamorientalis",
       "html": "<p>Currently known only from Chachoengsao, Sa Kaeo, Prachin Buri and Chon Buri provinces in eastern Thailand plus Banteay Meanchey province in western Cambodia (which borders Sa Kaeo) and at least one unspecified locality in Vietnam so it appears to be quite widely-distributed.</p><p>Type locality is 'Sai Hai village (13°42′ N, 101°13′ E), Tha Thonglang subdistrict, Bang Khla district, Chachoengsao province, Thailand'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/betta_siamorientalis_en/",
+      "html": "<p>Vietnam.</p>"
     },
     {
       "key": "habitat",
@@ -219,6 +241,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/betta-siamorientalis",
       "html": "<p>Not recommended for the standard community set-up for reasons already touched upon.</p><p>Its requirements and disposition mean it's best kept alone or with very peaceful species since much bigger or more vigorous fishes are likely to intimidate and outcompete it.</p><p>Some small cyprinids and loaches that inhabit similar environments in nature are compatible, but be sure to research your choices before purchase.</p><p>When plenty of cover and broken lines-of-sight is provided it should be possible to keep more than one male per tank although it's recommended to isolate pairs for breeding purposes.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/betta_siamorientalis_en/",
+      "html": "<p>These fish fit ideally in any well-planted community tank with peaceful tankmates. As in B. imbellis and B. smaragdina, keeping more than one male per tank is possible.</p>"
     },
     {
       "key": "dimorphism",
@@ -331,5 +359,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-09"
 }

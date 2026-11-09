@@ -13,7 +13,8 @@
     "borneo",
     "kapuas",
     "endau",
-    "singapore"
+    "singapore",
+    "malay-peninsula"
   ],
   "dataCard": {
     "tempC": [
@@ -82,6 +83,10 @@
       {
         "source": "seriouslyfish",
         "value": 4
+      },
+      {
+        "source": "glaser",
+        "value": 6
       }
     ],
     "tankCm": [
@@ -105,6 +110,18 @@
       "html": "<p>The chocolate gourami, Sphaerichthys osphromenoides, is a small gourami from Peninsular Malaysia, Sumatra and Borneo. By far the best known member of the genus, it mostly inhabits peat swamps and black water streams where the pH can drop to 3.0 or 4.0. A maternal mouthbrooder, it is slow-moving and easily outcompeted for food by more boisterous tankmates.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/sphaerichthys_osphromenoides_en/",
+      "html": "<p>Sphaerichthys osphromenoides is the most famous representative of the chocolate gouramis, which are native to southeast Asia. Like other chocolate gouramis, it is a delicate fish and, at least while settling in, a sensitive one.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/sphaerichthys_osphromenoides_en/",
+      "html": "<p>The chocolate gourami is not a fish for beginners and should only be placed in the hands of experienced hobbyists.</p>"
+    },
+    {
       "key": "distribution",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/sphaerichthys-osphromenoides-chocolate-gourami",
@@ -117,6 +134,12 @@
       "html": "<p>Type locality is given simply as 'Indies' by Canestrini but this is by far the most widely distributed species in the genus, being native to much of Peninsular Malaysia, Sumatra, and Borneo. In the latter, records exist from throughout the Malaysian state of Sarawak and Indonesian province of West Kalimantan (Kalimantan Barat).</p><p>It's also known from Singapore though this population may now have been extirpated. Some populations exhibit differences in colouration, particularly in the unpaired fins which may appear more blueish or reddish depending on population, and/or fin morphology, with males of some forms possessing more deeply-forked caudal and/or more extended dorsal and anal fins.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/sphaerichthys_osphromenoides_en/",
+      "html": "<p>Origin: Indonesia. The species is found on the Malay Peninsula.</p>"
+    },
+    {
       "key": "habitat",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/sphaerichthys-osphromenoides-chocolate-gourami",
@@ -127,6 +150,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sphaerichthys-osphromenoides",
       "html": "<p>Mostly inhabits peat swamps and associated black water streams though is also found in some clear water habitats. The former are located in forested areas and contain water that is typically stained dark brown by humic acids and other chemicals released from decaying organic material.</p><p>This results in a negligible dissolved mineral content and the pH can drop as low as 3.0 or 4.0. The dense rainforest canopy above means that very little light penetrates the water surface and the substrate is normally littered with fallen tree branches and rotting leaves.</p><p>The clear water habitats are broadly similar in terms of water chemistry but in many cases aquatic vegetation grows profusely and often includes representatives of genera such as Cryptocoryne, Blyxa, Barclaya, Eleocharis, Utricularia, and Lymnophila.</p><p>At habitat #1 in the images above S. osphromenoides was collected alongside Trigonopoma pauciperforatum, Luciocephalus pulcher, and Nandus nebulosus, while at habitat #2 sympatric species included Rasbora einthovenii, Boraras maculatus, Belontia hasselti, Betta waseri, B. tussyae, B. imbellis, and Kryptopterus macrocephalus.</p><p>Unfortunately due to logging, agriculture and other human activities throughout Southeast Asia vast tracts of primary forest have been altered or lost entirely. Fish habitats in affected regions have also been heavily modified in many cases with species diversity declining as a result.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/sphaerichthys_osphromenoides_en/",
+      "html": "<p>Its natural biotope is the shore areas of small, still and slow-moving blackwater waters on the Malay Peninsula.</p>"
     },
     {
       "key": "aquariumSize",
@@ -153,6 +182,12 @@
       "html": "<ul><li>Temperature: 26–31°C</li><li>pH: wild specimens will require a value within the range 4.0–6.5 in order to thrive, but tank-raised individuals are normally more adaptable.</li><li>Hardness: 0–3 dGH for wild fish, up to 10 dGH if captive-bred.</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/sphaerichthys_osphromenoides_en/",
+      "html": "<p>As a typical blackwater fish it needs acidic, soft water. Because the natural habitat of such extreme blackwater fish is very poor in bacteria, their ability to adapt to the high bacteria density in the aquarium is very low.</p>"
+    },
+    {
       "key": "equipment",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/sphaerichthys-osphromenoides-chocolate-gourami",
@@ -169,6 +204,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sphaerichthys-osphromenoides",
       "html": "<p>Chiefly a micropredator feeding on small aquatic crustaceans, worms, insect larvae and other zooplankton.</p><p>It can be a little picky in the aquarium and initially may not accept dried or otherwise prepared foods, though in many cases will learn to take them over time. At any rate it should be offered daily meals of small live or frozen fare such as Artemia nauplii, Daphnia, grindal worm, micro worm, etc., in order to develop ideal colour and conditioning.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/sphaerichthys_osphromenoides_en/",
+      "html": "<p>Flakes are mostly not accepted. Feeding with live or frozen brine shrimp, mosquito larvae or fruit flies is indispensable.</p>"
     },
     {
       "key": "behaviour",
@@ -199,6 +240,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sphaerichthys-osphromenoides",
       "html": "<p>Historically there has been some confusion surrounding this species' method of reproduction with some sources listing it erroneously as a bubblenester or paternal mouthbrooder when it is by all accounts a maternal mouthbrooder. This is intriguing since this species and S. selatanensis are the only anabantoids in which the female broods the eggs, with all other mouth-brooding relatives having evolved a paternal strategy.</p><p>It can be bred in a group or single pair in a set-up as suggested above, and provided the quality of both water and diet is maintained should not prove too difficult. Courtship is normally initiated by the male, or alpha male if multiple individuals are present, and nuptial behaviour can be recognised by an individual taking on a darker, almost greyish patterning, while receptive females intensify in colouration, becoming a deep chocolate brown with the light vertical bars appearing golden.</p><p>The climactic spawning embrace is similar to that seen in Luciocephalus and Parasphaerichthys species in that the pair remain almost upright, rather than the female being turned upside down as in Betta and most other anabantoid genera. The spawning process may take several hours with eggs laid and fertilised on the substrate and the female collecting them in her mouth directly. The surrounding area is defended by both fish throughout.</p><p>Brooding females tend to take refuge in a quiet area of the tank and eat very little, if at all. The eggs/fry are retained in the mouth for 7–20 days before 10–40 fully formed, free-swimming juveniles are released. The female can be removed to a separate tank a few days post-spawning in order to minimise the chances of fry predation if preferred, though in mature, heavily decorated set-ups some may survive. Alternatively the fry can be removed as they are released/spotted provided water of the same chemistry and temperature is available elsewhere.</p><p>The fry should be large enough to accept live foods such as microworm or Artemia nauplii immediately, and daily water changes of around 10% of tank volume should also be performed in order to maintain water quality and growth rate. The rearing tank must have a tightly fitting cover (some breeders use clingfilm/shrinkwrap to ensure no gaps) as they need access to a layer of warm, humid air to ensure proper development of the labyrinth organ.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/sphaerichthys_osphromenoides_en/",
+      "html": "<p>For breeding, the water quality again needs to be improved, but it should succeed with a little luck. The mouthbrooding, in which the parents carry and care for the young in the mouth for several weeks, is interesting.</p>"
     },
     {
       "key": "notes",
@@ -300,5 +347,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-09"
 }

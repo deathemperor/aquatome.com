@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-11-04",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "pXgHpSWHzFE",
     "title": "HOW TO: Build a plywood aquarium | Part 5 | Filter, plumbing and lighting TUTORIAL",
@@ -34,121 +34,148 @@
       },
       {
         "category": "loc",
-        "t": 20
+        "type": "sump",
+        "t": 0
+      },
+      {
+        "category": "den",
+        "t": 417
       }
     ],
     "figures": [
       {
-        "heading": "Dựng tháp lọc nhỏ giọt từ bể cũ",
+        "heading": "Dựng tháp lọc nhỏ giọt từ một bể cũ",
         "moments": [
           {
-            "t": 59,
-            "url": "https://media.aquatome.com/video/pXgHpSWHzFE/t59.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể kính cũ trống, đã kê vài viên gạch làm chân đỡ bên trong."
+            "t": 70,
+            "url": "https://media.aquatome.com/video/pXgHpSWHzFE/at70-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể kính trống với các miếng đệm và tấm acrylic đặt làm vách ngăn.",
+            "sharpness": 234.4
           },
           {
-            "t": 79,
-            "url": "https://media.aquatome.com/video/pXgHpSWHzFE/t79.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể kính được kê các viên gạch ở đáy để đỡ khay lọc."
+            "t": 105,
+            "url": "https://media.aquatome.com/video/pXgHpSWHzFE/at105-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tấm acrylic trắng được đưa vào trong bể kính để làm vách ngăn.",
+            "sharpness": 207.6
           }
         ]
       },
       {
-        "heading": "Khay nhỏ giọt quyết định lọc chạy tốt hay không",
+        "heading": "Làm khay nhỏ giọt từ hộp nhựa",
         "moments": [
           {
-            "t": 118,
-            "url": "https://media.aquatome.com/video/pXgHpSWHzFE/t118.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Thùng nhựa trong dùng làm khay nhỏ giọt cho tháp lọc."
+            "t": 155,
+            "url": "https://media.aquatome.com/video/pXgHpSWHzFE/at155-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hộp nhựa trong đã cắt phần trên, chỉ chừa lại phần đáy làm khay.",
+            "sharpness": 36.9
           },
           {
-            "t": 153,
-            "url": "https://media.aquatome.com/video/pXgHpSWHzFE/t153.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Khay nhựa đã đặt lên trên bể, sẵn sàng làm khay nhỏ giọt."
+            "t": 160,
+            "url": "https://media.aquatome.com/video/pXgHpSWHzFE/at160-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tấm lưới tán quang đặt trên đáy hộp, đã đánh dấu các lỗ theo ô lưới.",
+            "sharpness": 8.9
           }
         ]
       },
       {
-        "heading": "Nên khoan ống ở đáy, sau lưng hay hông bể",
+        "heading": "Khoan ống ở mặt nào của bể",
         "moments": [
           {
-            "t": 217,
-            "url": "https://media.aquatome.com/video/pXgHpSWHzFE/t217.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Ống thoát và ống PVC đi sau lưng bể, sát tường."
+            "t": 220,
+            "url": "https://media.aquatome.com/video/pXgHpSWHzFE/at220-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đường ống PVC và ống mềm đi ra từ mặt hông của bể.",
+            "sharpness": 304.9
           },
           {
-            "t": 246,
-            "url": "https://media.aquatome.com/video/pXgHpSWHzFE/t246.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Các bộ co xuyên bể (bulkhead) dùng để khoan ống cho bể."
+            "t": 250,
+            "url": "https://media.aquatome.com/video/pXgHpSWHzFE/at250-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Các đầu nối xuyên bể (bulkhead) màu đen dùng để khoan ống.",
+            "sharpness": 276.5
           }
         ]
       },
       {
-        "heading": "Khoan lỗ trên vách gỗ ép cho sạch",
+        "heading": "Khoan lỗ trên bể gỗ ép",
         "moments": [
           {
-            "t": 251,
-            "url": "https://media.aquatome.com/video/pXgHpSWHzFE/t251.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Hai mũi khoét gỗ màu đỏ dùng để khoan lỗ cho co xuyên vách."
+            "t": 255,
+            "url": "https://media.aquatome.com/video/pXgHpSWHzFE/at255-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hai mũi khoét lỗ màu đỏ dùng để khoan bể.",
+            "sharpness": 26.9
           },
           {
-            "t": 266,
-            "url": "https://media.aquatome.com/video/pXgHpSWHzFE/t266.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Dùng máy khoan gắn mũi khoét để khoan lỗ trên vách bể."
+            "t": 270,
+            "url": "https://media.aquatome.com/video/pXgHpSWHzFE/at270-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Dùng máy khoan với mũi khoét để khoan vào mặt hông bể.",
+            "sharpness": 477.1
           }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/pXgHpSWHzFE/p3-X3Nhd19iaXQuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/pXgHpSWHzFE/p3-X3Nhd19iaXQuanBn-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC0",
+          "author": "Junkyardsparkle",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:One_and_one_quarter_inch_hole_saw_bit.jpg",
+          "caption": "Mũi khoét lỗ bằng thép lưỡi răng cưa, dùng khoan gỗ ép hoặc acrylic."
+        }
       },
       {
-        "heading": "Đi ống thoát, ống hồi và ống thay nước",
+        "heading": "Lắp đường thoát, đường hồi và đường thay nước",
         "moments": [
           {
             "t": 350,
-            "url": "https://media.aquatome.com/video/pXgHpSWHzFE/t350.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Ống thoát Durso và ống phi 60 luồn xuống bể lọc dưới tủ."
+            "url": "https://media.aquatome.com/video/pXgHpSWHzFE/at350-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đường ống thoát nằm ngang dưới đáy bể, nối xuống chân tủ.",
+            "sharpness": 71.2
           },
           {
             "t": 355,
-            "url": "https://media.aquatome.com/video/pXgHpSWHzFE/t355.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Hai ống thoát trắng đặt cạnh nhau dưới đáy tủ, trên bể lọc."
+            "url": "https://media.aquatome.com/video/pXgHpSWHzFE/at355-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ống thoát PVC trắng đặt bên ngoài, nối co xuyên vách dưới đáy bể.",
+            "sharpness": 11.3
           }
         ]
       },
       {
-        "heading": "Đèn LED dây gắn trong máng xối",
+        "heading": "Đèn LED dây gắn trong máng",
         "moments": [
           {
-            "t": 428,
-            "url": "https://media.aquatome.com/video/pXgHpSWHzFE/t428.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Máng đèn đặt trên nóc bể, sơn cùng màu với bể."
+            "t": 440,
+            "url": "https://media.aquatome.com/video/pXgHpSWHzFE/at440-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Mở nắp máng đèn sơn cùng màu với bể.",
+            "sharpness": 553.5
           },
           {
-            "t": 433,
-            "url": "https://media.aquatome.com/video/pXgHpSWHzFE/t433.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Máng đèn được mở nắp ra, thấy bên trong sơn cùng màu với bể."
+            "t": 455,
+            "url": "https://media.aquatome.com/video/pXgHpSWHzFE/at455-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Máng đèn gắn trên bể, thấy dải LED dây màu xanh bên dưới.",
+            "sharpness": 243.5
           }
         ]
       }

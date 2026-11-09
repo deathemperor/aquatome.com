@@ -1,8 +1,8 @@
 {
   "id": "paracheirodon-axelrodi",
   "native": {
-    "input": "bd4d035966a78c71",
-    "at": "2026-11-06T06:16:32.822Z",
+    "input": "9630717d4278b00c",
+    "at": "2026-11-09T05:57:45.266Z",
     "claims": [
       {
         "code": "BR",
@@ -26,6 +26,30 @@
         "source": "seriouslyfish",
         "quote": "The cardinal tetra, Paracheirodon axelrodi, is a small characid from the rio Negro and Orinoco drainages of Brazil, Colombia and Venezuela.",
         "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "aquariumcoop",
+        "quote": "This species comes from the northern rivers of South America in countries like Brazil, Venezuela and Colombia.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "aquariumcoop",
+        "quote": "This species comes from the northern rivers of South America in countries like Brazil, Venezuela and Colombia.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "aquariumcoop",
+        "quote": "This species comes from the northern rivers of South America in countries like Brazil, Venezuela and Colombia.",
+        "words": "Colombia",
         "ok": true
       },
       {
@@ -75,12 +99,6 @@
         "name": "Rio Negro",
         "source": "sprucepets",
         "quote": "Originating in South America, this species is found from the Orinoco River to the Rio Negro tributary of the Amazon River, as far west as western Colombia.",
-        "ok": true
-      },
-      {
-        "name": "Vaupés",
-        "source": "seriouslyfish",
-        "quote": "Its current confirmed range extends westwards (upriver) from the area around the municipality of Santa Isabel do Rio Negro (formerly Tapuruquara) in the middle rio Negro basin, Brazil, to lower parts of the Ríos Vaupés (aka Uaupés in Brazil), Içana, Guaviare, Inírida, Meta and Vichada.",
         "ok": true
       }
     ],

@@ -12,32 +12,50 @@ final class V2FlowTests: XCTestCase {
     return app
   }
 
-  func testOffByDefaultShowsV1sTabs() {
+  /// The app's look on a new phone, and on a phone from before that never touched the switch: v2's tabs.
+  func testV2IsTheLookByDefault() {
     let app = launch()
-    app.launchForFlow()
-    XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 10), "no Tìm tab")
+    app.launchForFlow(nil)
+    XCTAssertTrue(app.tabBars.buttons["Hôm nay"].waitForExistence(timeout: 10), "v2 isn't the look by default")
+    XCTAssertTrue(app.tabBars.buttons["Khám phá"].exists)
     XCTAssertTrue(app.tabBars.buttons["Bể của tôi"].exists)
     XCTAssertTrue(app.tabBars.buttons["Đèn"].exists)
-    XCTAssertFalse(app.tabBars.buttons["Hôm nay"].exists, "v2 on by default")
+    XCTAssertFalse(app.tabBars.buttons["Tìm"].exists, "the old look's Tìm tab by default")
   }
 
-  func testTheSwitchTurnsV2OnAndBackKeepingTheTanks() {
+  func testTheSwitchGoesToTheOldLookAndBackKeepingTheTanks() {
     let app = launch("-seed-tanks", "clash")
     app.launch()
-    XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 10), "v1 didn't open")
+    XCTAssertTrue(app.tabBars.buttons["Hôm nay"].waitForExistence(timeout: 10), "v2 didn't open")
 
     flip(app)
-    XCTAssertTrue(app.tabBars.buttons["Hôm nay"].waitForExistence(timeout: 5), "v2 didn't open")
-    XCTAssertTrue(app.tabBars.buttons["Khám phá"].exists)
+    XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 5), "the old look didn't open")
+    XCTAssertFalse(app.tabBars.buttons["Hôm nay"].exists, "v2's tabs still there")
     app.openTab("Bể của tôi")
-    XCTAssertTrue(app.buttons["tank"].firstMatch.waitForExistence(timeout: 5), "v2 lost the tank")
+    XCTAssertTrue(app.buttons["tank"].firstMatch.waitForExistence(timeout: 5), "the old look lost the tank")
     XCTAssertTrue(app.buttons["tank"].firstMatch.label.contains("Bể 60"), app.buttons["tank"].firstMatch.label)
 
     flip(app)
-    XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 5), "v1 didn't come back")
-    XCTAssertFalse(app.tabBars.buttons["Hôm nay"].exists, "v2's tabs still there")
+    XCTAssertTrue(app.tabBars.buttons["Hôm nay"].waitForExistence(timeout: 5), "v2 didn't come back")
+    XCTAssertTrue(app.tabBars.buttons["Khám phá"].exists)
     app.openTab("Bể của tôi")
-    XCTAssertTrue(app.buttons["tank"].firstMatch.waitForExistence(timeout: 5), "v1 lost the tank")
+    XCTAssertTrue(app.buttons["tank"].firstMatch.waitForExistence(timeout: 5), "v2 lost the tank")
+  }
+
+  /// The old look switched on by hand stays, across a relaunch: a default doesn't take it back.
+  func testTheOldLookSwitchedOnStaysAfterARelaunch() {
+    var app = launch()
+    app.launch()
+    XCTAssertTrue(app.tabBars.buttons["Hôm nay"].waitForExistence(timeout: 10), "v2 didn't open")
+    flip(app)
+    XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 5), "the old look didn't open")
+    app.terminate()
+
+    app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook"]
+    app.launch()
+    XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 10), "the old look, switched on by hand, didn't stay")
+    XCTAssertFalse(app.tabBars.buttons["Hôm nay"].exists, "v2 came back over the reader's choice")
   }
 
   func testATankCardOpensTheTankInV2() {
@@ -51,11 +69,33 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(app.tabBars.buttons["Bể của tôi"].isSelected, "the tank opened on another tab")
   }
 
+  /// The chat opens from v2: its entry on a fish's full page goes to a screen v2's own stack knows. (Without the destination
+  /// there, the tap does nothing.)
+  func testTheChatOpensFromAFishsFullPageInV2() {
+    let app = launch("-v2", "YES", "-fake-accounts", "on", "-reset-fake-server")
+    app.launchForFlow()
+    app.openTab("Khám phá")
+    let fish = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá neon")).firstMatch
+    XCTAssertTrue(fish.waitForExistence(timeout: 5), "no Cá neon on Khám phá")
+    fish.tap()
+    let full = app.buttons["v2-full-page"]
+    repeatUntil(full.exists && full.isHittable, times: 6) { app.swipeUp() }
+    XCTAssertTrue(full.isHittable, "no Xem trang đầy đủ on the fish's page")
+    full.tap()
+    let entry = app.descendants(matching: .any)["chat-entry"].firstMatch
+    repeatUntil(entry.exists && entry.isHittable, times: 14) {
+      app.coordinate(withNormalizedOffset: CGVector(dx: 0.02, dy: 0.7))
+        .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.02, dy: 0.4)), withVelocity: .fast, thenHoldForDuration: 0.1)
+    }
+    XCTAssertTrue(entry.exists && entry.isHittable, "no chat entry on the full page")
+    entry.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["chat"].firstMatch.waitForExistence(timeout: 5), "the entry opened nothing")
+  }
+
   func testSwitchingBackWithAWholePageOpenLeavesTimTheFishsPage() {
     let app = launch()
-    app.launchForFlow()
-    XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 10), "v1 didn't open")
-    flip(app)
+    app.launchForFlow(nil)
+    XCTAssertTrue(app.tabBars.buttons["Hôm nay"].waitForExistence(timeout: 10), "v2 didn't open")
     app.openTab("Khám phá")
     let fish = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá neon")).firstMatch
     XCTAssertTrue(fish.waitForExistence(timeout: 5), "no Cá neon on Khám phá")
@@ -66,7 +106,7 @@ final class V2FlowTests: XCTestCase {
     full.tap()
     app.openTab("Hôm nay")
     flip(app)
-    XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 5), "v1 didn't come back")
+    XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 5), "the old look didn't open")
     // The fish's page, one step from Tìm's top.
     let back = app.navigationBars.buttons.element(boundBy: 0)
     XCTAssertTrue(back.waitForExistence(timeout: 5), "Tìm shows no page")
@@ -76,9 +116,7 @@ final class V2FlowTests: XCTestCase {
 
   func testSwitchingBackWithAPageOpenOnHomNayLeavesItOnTim() {
     let app = launch()
-    app.launchForFlow()
-    XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 10), "v1 didn't open")
-    flip(app)
+    app.launchForFlow(nil)
     let fish = app.buttons["v2-fish-of-the-day"]
     XCTAssertTrue(fish.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
     fish.tap()
@@ -86,7 +124,7 @@ final class V2FlowTests: XCTestCase {
     // The sheet's button is on a tab's first screen, not on a page.
     app.openTab("Khám phá")
     flip(app)
-    XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 5), "v1 didn't come back")
+    XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 5), "the old look didn't open")
     let back = app.navigationBars.buttons.element(boundBy: 0)
     XCTAssertTrue(back.waitForExistence(timeout: 5), "Tìm shows no page")
     back.tap()
@@ -105,6 +143,111 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(app.tabBars.buttons["Hôm nay"].isSelected, "the home link opened another tab")
   }
 
+  /// The editors' day (`-plan`): their fish, their guide and their story in their words, not Hôm nay's own picks (Cá neon,
+  /// and the neon guide under its own title), and the story opens its page.
+  func testHomNayShowsTheEditorsDay() {
+    let app = launch("-v2", "YES", "-plan", "-today", "2026-11-13")
+    app.launchForFlow()
+    let fish = app.buttons["v2-fish-of-the-day"]
+    XCTAssertTrue(fish.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    XCTAssertTrue(fish.label.contains("Cá ngựa vằn"), "not the editors' fish: \(fish.label)")
+    let guide = app.buttons.matching(NSPredicate(format: "label CONTAINS %@", "Cách hạn chế rêu hại")).firstMatch
+    repeatUntil(guide.exists && guide.isHittable, times: 4) { app.swipeUp() }
+    XCTAssertTrue(guide.exists, "not the editors' guide")
+    let story = app.buttons.matching(NSPredicate(format: "label CONTAINS %@", "Đàn neon đầu tiên")).firstMatch
+    repeatUntil(story.exists && story.isHittable, times: 4) { app.swipeUp() }
+    XCTAssertTrue(story.exists, "no story in the editors' words")
+    XCTAssertTrue(story.label.contains("Cho người mới") && story.label.contains("Sáu con trở lên"), story.label)
+    XCTAssertFalse(app.buttons.matching(NSPredicate(format: "label CONTAINS %@", "Nuôi cá neon trong bể nhỏ")).firstMatch.exists,
+                   "the story's page on a card under its own title too")
+    story.tap()
+    XCTAssertTrue(app.staticTexts["Nuôi cá neon trong bể nhỏ"].waitForExistence(timeout: 5), "the story's page didn't open")
+  }
+
+  /// A day the editors planned without a fish has no fish card: not one of Hôm nay's own picks in its place.
+  func testADayPlannedWithoutAFishShowsNone() {
+    let app = launch("-v2", "YES", "-plan", "-today", "2026-11-14")
+    app.launchForFlow()
+    let guide = app.buttons.matching(NSPredicate(format: "label CONTAINS %@", "Nuôi cá neon trong bể nhỏ")).firstMatch
+    XCTAssertTrue(guide.waitForExistence(timeout: 10), "not the editors' guide")
+    XCTAssertFalse(app.buttons["v2-fish-of-the-day"].exists, "a fish on a day planned without one")
+  }
+
+  /// A date the editors haven't planned has Hôm nay's own picks: for a reader with no fish yet, Cá neon.
+  func testADayNotPlannedHasHomNaysOwnPicks() {
+    let app = launch("-v2", "YES", "-plan", "-today", "2026-11-15")
+    app.launchForFlow()
+    let fish = app.buttons["v2-fish-of-the-day"]
+    XCTAssertTrue(fish.waitForExistence(timeout: 10), "no fish of the day on a day not planned")
+    XCTAssertTrue(fish.label.contains("Cá neon"), fish.label)
+  }
+
+  /// On a phone whose calendar counts the Buddhist era (a Thai phone's own: 2569), the editors' day is still found by
+  /// the date they wrote.
+  func testHomNayFindsTheEditorsDayOnAThaiCalendar() {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "th_TH@calendar=buddhist", "-fixed-handbook", "-reset-defaults",
+                           "-v2", "YES", "-plan", "-today", "2026-11-13"]
+    app.launchForFlow()
+    let fish = app.buttons["v2-fish-of-the-day"]
+    XCTAssertTrue(fish.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    XCTAssertTrue(fish.label.contains("Cá ngựa vằn"), "not the editors' fish: \(fish.label)")
+  }
+
+  /// At the largest text, a guide's or a story's card with a photo grows to hold its words: none cut to one line over an
+  /// empty band between it and the next card ("Cách hạn…", council round 2). The cards stand the page's 28 pt apart.
+  func testAGuidesCardWithAPhotoHoldsItsWordsAtTheLargestText() {
+    let app = launch("-v2", "YES", "-plan", "-today", "2026-11-13", "-fixed-pictures",
+                     "-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL")
+    app.launchForFlow()
+    func card(_ words: String) -> XCUIElement { app.buttons.matching(NSPredicate(format: "label CONTAINS %@", words)).firstMatch }
+    let guide = card("Cách hạn chế rêu hại"), story = card("Đàn neon đầu tiên"), tank = app.buttons["v2-first-tank"]
+    XCTAssertTrue(guide.waitForExistence(timeout: 10) && story.exists && tank.exists, "not the editors' day")
+    for (a, b, what) in [(guide, story, "the guide"), (story, tank, "the story")] {
+      let gap = b.frame.minY - a.frame.maxY
+      XCTAssertLessThan(gap, 40, "an empty band of \(Int(gap)) pt under \(what)'s card")
+    }
+  }
+
+  /// A guide's or story's card whose photo doesn't come (offline, nothing kept) waits on its own ground, rust or plum,
+  /// not the tank card's green: one card twice.
+  func testAPlannedCardWhosePhotoDoesntComeKeepsItsOwnGround() {
+    // No `-fixed-pictures`: with the fixed index, no photo comes.
+    let app = launch("-v2", "YES", "-plan", "-today", "2026-11-13")
+    app.launchForFlow()
+    for words in ["Cách hạn chế rêu hại", "Đàn neon đầu tiên"] {
+      let card = app.buttons.matching(NSPredicate(format: "label CONTAINS %@", words)).firstMatch
+      XCTAssertTrue(card.waitForExistence(timeout: 10), "no card for \(words)")
+      bring(app, card, to: 200)
+      let f = card.frame, ground = Pixels(XCUIScreen.main.screenshot()).at(f.midX, f.maxY - 8)
+      XCTAssertGreaterThan(ground.r - ground.g, 30, "\(words)'s card on the tank card's green: \(ground)")
+    }
+  }
+
+  /// At the largest text a card's round mark (a guide's book, a story's quote, a video's play) holds its symbol inside its
+  /// circle, and grows no bigger than at the largest size before the accessibility ones: not a play triangle out past its
+  /// circle, not a quarter of the screen of decoration. It leads each card the same way, over its eyebrow.
+  func testACardsMarkHoldsItsSymbolAndStaysSmallAtTheLargestText() {
+    let app = launch("-v2", "YES", "-plan", "-today", "2026-11-14", "-fixed-pictures",
+                     "-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL")
+    app.launchForFlow()
+    for words in ["Nuôi cá neon trong bể nhỏ", "Ít rêu hơn khi bể đủ cây", "Rêu hại từ A đến Z"] {
+      let card = app.buttons.matching(NSPredicate(format: "label CONTAINS %@", words)).firstMatch
+      XCTAssertTrue(card.waitForExistence(timeout: 10), "no card for \(words)")
+      bring(app, card, to: 230)
+      let f = card.frame
+      guard let mark = Pixels(XCUIScreen.main.screenshot()).mark(in: CGRect(x: f.minX + 14, y: f.minY + 10, width: 150, height: min(f.height - 20, 500)),
+                                                              groundX: f.minX + 8) else {
+        XCTFail("no mark found on \(words)'s card")
+        continue
+      }
+      XCTAssertLessThanOrEqual(mark.circle.width, 72, "\(words)'s mark \(Int(mark.circle.width)) pt across")
+      // First on each card, then its eyebrow: under a wrapped eyebrow it hung below a word left on its own line.
+      XCTAssertLessThan(mark.circle.minY - f.minY, 32, "\(words)'s mark isn't the first thing on its card")
+      XCTAssertTrue(mark.circle.insetBy(dx: -1, dy: -1).contains(mark.symbol), "\(words)'s symbol \(mark.symbol) out past its circle \(mark.circle)")
+    }
+  }
+
   func testALinkFromOutsideOpensItsPageOnKhamPha() {
     let app = launch("-v2", "YES")
     app.launchForFlow()
@@ -116,14 +259,17 @@ final class V2FlowTests: XCTestCase {
   }
 
   /// The row replaces Khám phá's path with one of the same length, from another tab that shares v1's: still it shows.
+  /// The guide is kept on the old look's Tìm, then v2 is switched back on.
   func testTheSheetsKeptRowOpensItsShelfOnKhamPhaFromHomNay() {
     let app = launch()
-    app.launchForFlow()
-    XCTAssertTrue(app.descendants(matching: .any)["all-fish"].waitForExistence(timeout: 10), "no handbook")
-    let all = app.descendants(matching: .any)["all-guides"]
-    repeatUntil(all.exists && all.isHittable, times: 6) { app.swipeUp() }
-    all.tap()
-    XCTAssertTrue(app.navigationBars["Tất cả hướng dẫn"].waitForExistence(timeout: 5))
+    app.launchForFlow(nil)
+    XCTAssertTrue(app.tabBars.buttons["Hôm nay"].waitForExistence(timeout: 10), "v2 didn't open")
+    flip(app)
+    XCTAssertTrue(app.handbookShown(timeout: 10), "no handbook")
+    // A topic's guides: the fixed index's one written guide is the shelf's pick, so the shelf has no whole list.
+    let topic = app.buttons.matching(NSPredicate(format: "identifier == 'shelf' AND label BEGINSWITH %@", "Chăm sóc")).firstMatch
+    app.scrolledDown(to: topic).tap()
+    XCTAssertTrue(app.navigationBars["Chăm sóc"].waitForExistence(timeout: 5), "not the topic's guides")
     app.buttons["keep-offline"].tap()
     XCTAssertTrue(app.buttons["Đã tải về đọc offline"].waitForExistence(timeout: 10), "not kept")
     app.navigationBars.buttons.element(boundBy: 0).tap()
@@ -172,6 +318,30 @@ final class V2FlowTests: XCTestCase {
     mate.tap()
     XCTAssertTrue(app.staticTexts["Cá ngựa vằn"].waitForExistence(timeout: 5), "the tank-mate's page didn't open")
     XCTAssertTrue(app.tabBars.buttons["Khám phá"].isSelected, "the tank-mate opened on another tab")
+  }
+
+  /// "Thêm vào bể" on v2's page: the fish put on the tank, and "Xem trong Bể của tôi →" opening that tank on its tab.
+  func testAFishPutOnATankFromItsPageOpensTheTank() {
+    let app = launch("-seed-tanks", "litres") // one tank, "Bể cũ", no fish
+    app.launchForFlow()
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the fish's page didn't open")
+    let add = app.buttons["v2-add"]
+    XCTAssertTrue(add.waitForExistence(timeout: 5), "no Thêm vào bể on the page")
+    add.tap()
+    let count = app.textFields["put-count"]
+    XCTAssertTrue(count.waitForExistence(timeout: 5))
+    XCTAssertEqual(count.value as? String, "6", "not the school size")
+    count.clearAndType("12")
+    app.buttons["put-save"].tap()
+    XCTAssertTrue(app.staticTexts["put-saved"].waitForExistence(timeout: 5), "no word of the save")
+    XCTAssertEqual(app.staticTexts["put-saved"].label, "Đã lưu vào “Bể cũ”.")
+    app.buttons["put-open"].tap()
+    XCTAssertTrue(app.navigationBars["Bể cũ"].waitForExistence(timeout: 5), "Xem trong Bể của tôi didn't open the tank")
+    XCTAssertTrue(app.tabBars.buttons["Bể của tôi"].isSelected, "the tank opened off its tab")
+    let neons = app.descendants(matching: .any).matching(identifier: "life").matching(NSPredicate(format: "label CONTAINS %@", "Cá neon")).firstMatch
+    XCTAssertTrue(neons.label.contains("× 12"), neons.label)
   }
 
   func testAFishsPageReportsHowFarItIsRead() {
@@ -516,6 +686,17 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(app.staticTexts["Đọc gần đây"].waitForExistence(timeout: 5), "it never took its place")
   }
 
+  /// Dragged, without a fling, until its top is `y` points down the screen.
+  private func bring(_ app: XCUIApplication, _ e: XCUIElement, to y: CGFloat) {
+    for _ in 0..<12 {
+      let dy = e.frame.minY - y
+      if abs(dy) < 24 { return }
+      let from = app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.6))
+      from.press(forDuration: 0.05, thenDragTo: from.withOffset(CGVector(dx: 0, dy: -max(-300, min(300, dy)))), withVelocity: .slow,
+                 thenHoldForDuration: 0.3)
+    }
+  }
+
   /// A link opened by the system to the running app (`XCUIApplication.open` launches it anew), past the system's question.
   private func follow(_ app: XCUIApplication, _ url: URL) {
     XCUIDevice.shared.system.open(url)
@@ -524,12 +705,12 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(app.wait(for: .runningForeground, timeout: 5), "the app isn't in front")
   }
 
-  /// The sheet's switch, tapped, and the sheet closed.
+  /// The sheet's switch to the old look, tapped, and the sheet closed.
   private func flip(_ app: XCUIApplication) {
     app.openAccount()
-    let toggle = app.switches["v2-switch"]
+    let toggle = app.switches["old-look-switch"]
     repeatUntil(toggle.exists && toggle.isHittable, times: 6) { app.swipeUp() }
-    XCTAssertTrue(toggle.exists, "no v2 switch in the Tài khoản sheet")
+    XCTAssertTrue(toggle.exists, "no switch to the old look in the Tài khoản sheet")
     // A switch's own control, at its trailing end: a tap on the row's middle doesn't flip it.
     toggle.coordinate(withNormalizedOffset: CGVector(dx: 0.93, dy: 0.5)).tap()
     app.closeAccount()
@@ -559,8 +740,70 @@ private struct Pixels {
     bitmap.draw(cg, in: CGRect(x: 0, y: 0, width: cg.width, height: cg.height))
   }
 
-  func at(_ x: CGFloat, _ y: CGFloat) -> RGB {
-    let bytes = bitmap.data!.assumingMemoryBound(to: UInt8.self), o = Int(y * scale) * bitmap.bytesPerRow + Int(x * scale) * 4
+  func at(_ x: CGFloat, _ y: CGFloat) -> RGB { pixel(Int(x * scale), Int(y * scale)) }
+
+  private func pixel(_ x: Int, _ y: Int) -> RGB {
+    let bytes = bitmap.data!.assumingMemoryBound(to: UInt8.self), o = y * bitmap.bytesPerRow + x * 4
     return RGB(r: Double(bytes[o]), g: Double(bytes[o + 1]), b: Double(bytes[o + 2]))
+  }
+
+  /// A card's round mark in `area`, in points: its circle, white at 18 % on the card's ground (read at `groundX`, left of
+  /// it, on each line), the largest solid run of that tone; and its symbol, the white joined to what's white inside the
+  /// circle, all of it, so a symbol out past its circle shows as one.
+  func mark(in area: CGRect, groundX: CGFloat) -> (circle: CGRect, symbol: CGRect)? {
+    let s = scale, x0 = max(Int(area.minX * s), 0), x1 = min(Int(area.maxX * s), bitmap.width - 1)
+    let y0 = max(Int(area.minY * s), 0), y1 = min(Int(area.maxY * s), bitmap.height - 1), gx = Int(groundX * s)
+    guard x1 > x0 + 4, y1 > y0 + 4 else { return nil }
+    let w = x1 - x0 + 1, h = y1 - y0 + 1
+    var tone = [Bool](repeating: false, count: w * h)
+    for y in 0..<h {
+      let g = pixel(gx, y + y0), c = RGB(r: g.r * 0.82 + 255 * 0.18, g: g.g * 0.82 + 255 * 0.18, b: g.b * 0.82 + 255 * 0.18)
+      for x in 0..<w where pixel(x + x0, y + y0).distance(to: c) < 18 { tone[y * w + x] = true }
+    }
+    // Solid: the tone on a pixel and the eight round it, not a letter's soft edge.
+    var solid = [Bool](repeating: false, count: w * h)
+    for y in 1..<(h - 1) {
+      for x in 1..<(w - 1) { solid[y * w + x] = (-1...1).allSatisfy { dy in (-1...1).allSatisfy { dx in tone[(y + dy) * w + x + dx] } } }
+    }
+    typealias Box = (minX: Int, minY: Int, maxX: Int, maxY: Int)
+    func run(from start: [Int], _ inside: (Int) -> Bool, _ seen: inout [Bool]) -> (n: Int, box: Box) {
+      var stack = start, n = 0, box: Box = (.max, .max, .min, .min)
+      for i in start { seen[i] = true }
+      while let j = stack.popLast() {
+        n += 1
+        let x = j % w, y = j / w
+        box = (min(box.minX, x), min(box.minY, y), max(box.maxX, x), max(box.maxY, y))
+        for (nx, ny) in [(x - 1, y), (x + 1, y), (x, y - 1), (x, y + 1)] where nx >= 0 && ny >= 0 && nx < w && ny < h {
+          let k = ny * w + nx
+          if !seen[k] && inside(k) { seen[k] = true; stack.append(k) }
+        }
+      }
+      return (n, box)
+    }
+    var seen = [Bool](repeating: false, count: w * h), circle: (n: Int, box: Box)?
+    for i in solid.indices where solid[i] && !seen[i] {
+      let r = run(from: [i], { solid[$0] }, &seen)
+      if r.n > (circle?.n ?? 0) { circle = r }
+    }
+    guard let c = circle?.box else { return nil }
+    func white(_ k: Int) -> Bool { let p = pixel(k % w + x0, k / w + y0); return min(p.r, p.g, p.b) > 225 }
+    let inner = (c.minY...c.maxY).flatMap { y in (c.minX...c.maxX).map { y * w + $0 } }.filter(white)
+    guard !inner.isEmpty else { return nil }
+    var seenWhite = [Bool](repeating: false, count: w * h)
+    let symbol = run(from: inner, white, &seenWhite).box
+    func points(_ b: Box) -> CGRect {
+      CGRect(x: CGFloat(b.minX + x0) / s, y: CGFloat(b.minY + y0) / s, width: CGFloat(b.maxX - b.minX + 1) / s, height: CGFloat(b.maxY - b.minY + 1) / s)
+    }
+    return (points(c), points(symbol))
+  }
+}
+
+private extension XCUIElement {
+  /// Taps at the end of the text, deletes it all (a few more times than it has letters: the first key can be lost while
+  /// the field takes focus), then types.
+  func clearAndType(_ text: String) {
+    let old = value as? String ?? ""
+    coordinate(withNormalizedOffset: CGVector(dx: 0.98, dy: 0.5)).tap()
+    typeText(String(repeating: XCUIKeyboardKey.delete.rawValue, count: old.count + 3) + text)
   }
 }

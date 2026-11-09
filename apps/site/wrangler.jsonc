@@ -34,6 +34,9 @@
   // account is deleted, the APPLE_SIGNIN_KEY secret (Key ID and team below).
   "d1_databases": [{ "binding": "DB", "database_name": "aquatome", "database_id": "ffebf861-d781-47a9-a77d-e7a3506af189", "migrations_dir": "migrations" }],
   // Reader photos: raw uploads wait in the private bucket; screened WebP copies go to the public media bucket (readers/).
+  // The chat's section search (worker/chat/section-search.ts): the index holds a vector a handbook section, one namespace a language.
+  "ai": { "binding": "AI" },
+  "vectorize": [{ "binding": "CHAT_SEARCH", "index_name": "aquatome-chat-sections" }],
   "r2_buckets": [{ "binding": "UPLOADS", "bucket_name": "aquatome-uploads" }, { "binding": "MEDIA", "bucket_name": "aquatome-media" }],
   // Fish ID's calls to Claude go out from the eastern US (worker/fishid/relay.ts): Anthropic refuses Cloudflare's Hong Kong
   // location. Its readers' and the site's counts and spend sit in one ledger (worker/fishid/ledger.ts): without it, fish ID is off.
@@ -63,10 +66,11 @@
     // (docs/review/fish-id-accuracy.md): top-1 53.5% → 62.5%, median 9.1 s, $30.87 per 1,000. "0" or removed: today's call.
     "FISH_ID_AGENT": "1",
     // The chat (worker/chat/api.ts, protocols/chat.openapi.json): off until the privacy page says how its conversations
-    // are kept. "1": on. Its conversations go to UPLOADS under chat-conv/<account>/ and its retries' answers under
-    // chat-turn/<account>/, deleted with the account (accounts/users.ts): conversations kept with no time limit (no
-    // lifecycle rule), retries' answers swept within a day by the daily cron (chat/store.ts).
-    "CHAT": "0",
+    // are kept. "1": on. "owner": on for the owner's accounts only (OWNER_ACCOUNTS), to try and time it on the real path
+    // before readers have it; anyone else finds it off. Its conversations go to UPLOADS under chat-conv/<account>/ and its
+    // retries' answers under chat-turn/<account>/, deleted with the account (accounts/users.ts): conversations kept with no
+    // time limit (no lifecycle rule), retries' answers swept within a day by the daily cron (chat/store.ts).
+    "CHAT": "owner",
     // The chat's model (the owner's choice, from docs/review/chat-eval.md); removed, the Worker's default, Opus 5.5.
     "CHAT_MODEL": "claude-haiku-5-5",
     // Cloudflare Access on dashboard.aquatome.com (worker/access.ts): the team domain (<team>.cloudflareaccess.com) and the

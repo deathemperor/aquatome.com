@@ -1,0 +1,49 @@
+{
+  "id": "corydoras-gladysae",
+  "native": {
+    "input": "477eb5fda12603c3",
+    "at": "2026-11-08T18:57:48.756Z",
+    "claims": [
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Currently known only from two localities within the Río Calchaquí watershed in Salta province, northwestern Argentina.",
+        "words": "Argentina",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Calchaquí",
+        "source": "seriouslyfish",
+        "quote": "Currently known only from two localities within the Río Calchaquí watershed in Salta province, northwestern Argentina.",
+        "country": "AR",
+        "ok": true
+      },
+      {
+        "name": "Río Paraná",
+        "source": "seriouslyfish",
+        "quote": "The Calchaquí is a tributary within the upper Río Paraná basin.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras gladysae",
+    "status": "ACCEPTED",
+    "taxonKey": 5961329,
+    "datasets": [],
+    "native": [
+      "AR"
+    ],
+    "requests": 2,
+    "at": "2026-11-08T18:57:48.756Z"
+  }
+}

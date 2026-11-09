@@ -1,0 +1,258 @@
+{
+  "id": "labeotropheus-trewavasae",
+  "scientificName": "Labeotropheus trewavasae",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Labeotropheus",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "malawi",
+    "lake-malawi"
+  ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Malawi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Malawi.",
+          "countries": [],
+          "regions": [
+            "Lake Malawi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2372166,
+      "total": 49,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "MW",
+          36
+        ],
+        [
+          "MZ",
+          7
+        ],
+        [
+          "TZ",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          33.75,
+          -16.875,
+          2
+        ],
+        [
+          33.75,
+          -15.46875,
+          2
+        ],
+        [
+          33.75,
+          -14.0625,
+          20
+        ],
+        [
+          33.75,
+          -12.65625,
+          14
+        ],
+        [
+          33.75,
+          -11.25,
+          9
+        ],
+        [
+          33.75,
+          -9.84375,
+          1
+        ],
+        [
+          35.15625,
+          -15.46875,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7.6,
+          "max": 8.8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 10,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 11.3
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeotropheus-trewavasae",
+      "html": "<p>Trewavas' cichlid, Labeotropheus trewavasae, is an mbuna endemic to Lake Malawi, living around rocky shorelines and islands with heavy algal growth. It is told from the similar L. fuelleborni by its more slender body and smaller adult size, and has been recorded at greater depths. Over 40 colour forms are recorded in nature, and they should not be mixed in aquaria as they may hybridise. It is very aggressive towards its own kind.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeotropheus-trewavasae",
+      "html": "<p>Endemic to Lake Malawi. It is widespread in the lake and is found at many localities including Masinje Rocks and the Maleri, Namalenje, Thumbi West, Mumbo, Nankoma, Zimbabwe, Boadzulu and Nakantenga groups of islands. It is also found between Lion's Cove and Chitande, and from Chirombo Point to Nkhata Bay.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeotropheus-trewavasae",
+      "html": "<p>It inhabits rocky areas with heavy algal growth around shorelines and islands. In the upper levels of these the water is often turbulent and has a high oxygen content.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeotropheus-trewavasae",
+      "html": "<p>Standard length: 11.3 cm SL.</p><p>Aquarium base: 90 × 45 cm.</p><p>Volume: ~154 litres (90 × 45 × 38 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeotropheus-trewavasae",
+      "html": "<p>Much of the aquarium should contain piles of rocks arranged to form caves with small areas of open water between. A sandy substrate is best and the water should be well oxygenated. There's no point adding any plants as they'll be eaten.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeotropheus-trewavasae",
+      "html": "<ul><li>Temperature: 24–28°C</li><li>pH: 7.6–8.8 (8.0 is ideal)</li><li>Hardness: 10–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeotropheus-trewavasae",
+      "html": "<p>L. trewavasae will accept most foods offered but vegetable matter in the form of spirulina flakes, blanched spinach etc. should form a large proportion of the diet. This can be supplemented with live and frozen varieties.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeotropheus-trewavasae",
+      "html": "<p>Aggressive and territorial. It should not be kept with peace loving species such as Peacocks or Utaka but it can be combined with other Mbuna. The tank should be overcrowded to reduce aggression and territory formation. It is very aggressive towards its own kind and the presence of heterospecifics helps to dissipate this. Similarly several females should be kept per male in order to reduce harassment by the male.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeotropheus-trewavasae",
+      "html": "<p>Males have clearly defined egg spots on the anal fin. In females these are much fainter or absent completely.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeotropheus-trewavasae",
+      "html": "<p>Possible. Maternal mouthbrooder. It should be spawned in a species tank in a harem of one male and at least 3 females. A 120 cm aquarium is a good size and should be furnished as suggested above. Provide some flat stones and areas of open sand to act as potential spawning sites. The pH should be around 8.2-8.5 and the temperature 25–26.5°C. Condition the fish with plenty of vegetable, live and frozen foods.</p><p>The male will clean and then display around his chosen spawning site, showing intense colour to attempt to entice females to mate with him. He can be quite aggressive in his pursuits and it is to dissipate this that the species should be spawned in a harem. When a female is willing, she will approach the spawning site and lay her eggs, after which she picks them up in her mouth. The male has egg-shaped spots on his anal fin and the female is attracted to these. When she tries to add them to the brood in her mouth she actually receives sperm from the male, thus fertilising the eggs.</p><p>The female may carry the brood of 10-40 eggs for up to 3 or 4 weeks, before releasing the free swimming fry. She will not eat during this period and can be easily spotted by her distended mouth. If a female is overly stressed she may spit out the brood prematurely or eat them, so care must be taken if you decide to move the fish, in order to avoid fry predation. It is also worth noting that if a female is away from the colony for too long she may lose her position in the pecking order of the group. It is recommended to wait as long as possible before moving a female, unless she is being harassed.</p><p>Some breeders artificially strip the fry from the mother's mouth at the 2 week stage and raise them from that point as this usually results in a larger number of fry. The fry are large enough to take brine shrimp nauplii from birth.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/labeotropheus-trewavasae",
+      "html": "<p>This species has the characteristic overhanging snout possessed by all three members of the genus. It also has chisel-shaped teeth which are designed for scraping algae off rocks. These physical adaptations give it a competitive advantage, as they allow it to graze from rocks situated in very shallow water which other species cannot reach. The position of the mouth allows the fish to remain parallel to the rock surfaces, thus enabling it to cope with the turbulence in these areas.</p><p>L. trewavasae exists in over 40 recorded colour forms in nature. The colouration of the dorsal fin is particularly variable. Female morphs also occur, including orange and orange blotch. Male fish exhibiting the much sought after blue blotch patterning are very rare and are commonly referred to as \"marmalade cats\". The different forms (and other Labeotropheus species) should not be mixed in aquaria as they may hybridise.</p><p>This species is most easily distinguished from the similar L. fuelleborni by its more slender body shape and smaller adult size. It is also found at greater depths than fuelleborni, having been recorded up to 34 metres below the surface. In some localities male fish may exhibit female colouration and have been recorded carrying broods of eggs themselves.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/2f9b7b40051bdc4d.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "CC BY-SA 2.0",
+      "author": "Victor Sounds",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Labeotropheus_trewavasae.jpg",
+      "caption": "Ciclideo africano do lago Malawi - Labeotropheus trewavasae",
+      "thumb": "https://media.aquatome.com/commons/2f9b7b40051bdc4d-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/e9ff000549d3ff38.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY-SA 3.0",
+      "author": "Jutta234",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Labeotropheus_trewawasae_-_Zoo_Frankfurt.jpg",
+      "caption": "Gestreckter Schabemaulbuntbarsch im Zoo Frankfurt",
+      "thumb": "https://media.aquatome.com/commons/e9ff000549d3ff38-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 90cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cichlid",
+        "máy sục khí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn spirulina cho cichlid",
+        "thức ăn cá mbuna"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền cho cichlid Malawi",
+        "đá tạo hang bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

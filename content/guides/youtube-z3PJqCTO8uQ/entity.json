@@ -8,7 +8,7 @@
   "mentions": [
     "scleropages-formosus"
   ],
-  "updatedAt": "2026-11-03",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "z3PJqCTO8uQ",
     "title": "My largest aquarium - the COSTS and TOUR",
@@ -27,6 +27,7 @@
       "height": 720
     },
     "taxa": [
+      "Osteoglossum sp.",
       "Scleropages formosus",
       "Metynnis sp."
     ],
@@ -44,12 +45,7 @@
       {
         "category": "loc",
         "type": "sump",
-        "t": 261
-      },
-      {
-        "category": "loc",
-        "type": "bot-bien",
-        "t": 588
+        "t": 258
       },
       {
         "category": "loc",
@@ -61,9 +57,9 @@
       {
         "category": "loc",
         "type": "suc-khi",
-        "brand": "Pond Master",
+        "brand": "Pondmaster",
         "model": "AP 60",
-        "t": 1006
+        "t": 996
       },
       {
         "category": "suoi",
@@ -75,109 +71,125 @@
         "brand": "Kaldnes",
         "model": "K1",
         "t": 261
+      },
+      {
+        "category": "loc",
+        "type": "bot-bien",
+        "t": 585
       }
     ],
     "figures": [
       {
-        "heading": "Bể và thiết bị gồm những gì",
+        "heading": "Bể to cỡ nào và trong bể có gì",
         "moments": [
           {
-            "t": 198,
-            "url": "https://media.aquatome.com/video/z3PJqCTO8uQ/t198.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể dài để trơn không nền, ba đèn thả trần phía trên."
+            "t": 200,
+            "url": "https://media.aquatome.com/video/z3PJqCTO8uQ/at200-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá rồng châu Á bơi trong bể dài, đáy trơn không trải nền.",
+            "sharpness": 830.7,
+            "person": false
           },
           {
-            "t": 208,
-            "url": "https://media.aquatome.com/video/z3PJqCTO8uQ/t208.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể acrylic dài đặt trên tủ gỗ tối màu, đáy trống."
-          }
-        ]
-      },
-      {
-        "heading": "Hộp tràn chạy êm và an toàn thế nào",
-        "moments": [
-          {
-            "t": 367,
-            "url": "https://media.aquatome.com/video/z3PJqCTO8uQ/t367.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Nhìn từ trên xuống hộp tràn, thấy các ống thoát bên trong."
-          },
-          {
-            "t": 515,
-            "url": "https://media.aquatome.com/video/z3PJqCTO8uQ/t515.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Các ống thoát trắng bên trong hộp tràn nhìn từ gần."
-          }
-        ]
-      },
-      {
-        "heading": "Sump lọc nước theo trình tự nào",
-        "moments": [
-          {
-            "t": 654,
-            "url": "https://media.aquatome.com/video/z3PJqCTO8uQ/t654.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Vật liệu K1 sủi khí chuyển động liên tục trong khoang tầng sôi."
-          },
-          {
-            "t": 704,
-            "url": "https://media.aquatome.com/video/z3PJqCTO8uQ/t704.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cận cảnh các hạt K1 va vào nhau trong khoang lọc vi sinh."
+            "t": 210,
+            "url": "https://media.aquatome.com/video/z3PJqCTO8uQ/at210-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Toàn cảnh bể acrylic dài đặt trên tủ gỗ, đáy để trống.",
+            "sharpness": 365.6,
+            "person": false
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/z3PJqCTO8uQ/p2-TmV3X1N1bXAuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/z3PJqCTO8uQ/p2-TmV3X1N1bXAuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/z3PJqCTO8uQ/p0-dsb25neXUzLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/z3PJqCTO8uQ/p0-dsb25neXUzLmpwZw-480.webp",
           "width": 960,
-          "height": 720,
-          "licence": "Public domain",
-          "author": "Gtstricky",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reef_Aquarium_New_Sump.jpg",
-          "caption": "Bể sump acrylic nhiều ngăn có skimmer, đang lắp đặt, chưa cho vật liệu lọc."
+          "height": 496,
+          "licence": "CC BY-SA 3.0",
+          "author": "Photo taken by Fanghong",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Honglongyu3.jpg",
+          "caption": "Cá rồng châu Á bơi một mình trong bể trơn, không trải nền."
         }
       },
       {
-        "heading": "Vì sao lưu lượng lọc không đủ để khuấy nước",
+        "heading": "Hộp tràn và cách đi ống cho êm, khó tràn bể",
         "moments": [
           {
-            "t": 1001,
-            "url": "https://media.aquatome.com/video/z3PJqCTO8uQ/t1001.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Máy bơm khí cùng thanh phân phối khí dùng để tạo dòng chảy."
+            "t": 370,
+            "url": "https://media.aquatome.com/video/z3PJqCTO8uQ/at370-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Nhìn từ trên xuống hộp tràn với các ống đứng bên trong.",
+            "sharpness": 123,
+            "person": false
+          },
+          {
+            "t": 520,
+            "url": "https://media.aquatome.com/video/z3PJqCTO8uQ/at520-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Các ống trắng đứng thẳng phía sau hộp tràn, nhìn cận.",
+            "sharpness": 7
           }
         ]
       },
       {
-        "heading": "Lọc tầng sôi có đáng làm không",
+        "heading": "Sump lọc tầng sôi chạy thế nào",
         "moments": [
           {
-            "t": 684,
-            "url": "https://media.aquatome.com/video/z3PJqCTO8uQ/t684.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Lớp vật liệu lọc tầng sôi đang cuộn tung trong thùng lọc."
+            "t": 690,
+            "url": "https://media.aquatome.com/video/z3PJqCTO8uQ/at690-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Khoang sump chứa đầy vật liệu lọc sinh học đang được sục sôi.",
+            "sharpness": 187.8,
+            "person": false
+          },
+          {
+            "t": 710,
+            "url": "https://media.aquatome.com/video/z3PJqCTO8uQ/at710-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh hạt vật liệu lọc vi sinh trong khoang tầng sôi.",
+            "sharpness": 5.8
           }
         ]
       },
       {
-        "heading": "Hệ nhỏ giọt giảm thay nước ra sao",
+        "heading": "Sưởi và sục khí cho bể lớn",
         "moments": [
           {
-            "t": 1179,
-            "url": "https://media.aquatome.com/video/z3PJqCTO8uQ/t1179.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cận cảnh góc bể, nơi nước sạch được nhỏ giọt vào."
+            "t": 1010,
+            "url": "https://media.aquatome.com/video/z3PJqCTO8uQ/at1010-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Máy sục khí Pondmaster nối với cục sủi dạng thanh dài.",
+            "sharpness": 733.6,
+            "person": false
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/z3PJqCTO8uQ/p4-hbnlfMjAyNC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/z3PJqCTO8uQ/p4-hbnlfMjAyNC5qcGc-480.webp",
+          "width": 960,
+          "height": 1234,
+          "licence": "CC BY-SA 4.0",
+          "author": "Nimmerwelk",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Air_Stone_Disk_aquarium_Germany_2024.jpg",
+          "caption": "Cột bọt khí sủi mạnh trong bể, bên cạnh đám cỏ thủy sinh."
+        }
+      },
+      {
+        "heading": "Lọc tầng sôi: điểm mạnh và cái giá phải trả",
+        "moments": [
+          {
+            "t": 720,
+            "url": "https://media.aquatome.com/video/z3PJqCTO8uQ/at720-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh vật liệu lọc tầng sôi dạng hạt trắng.",
+            "sharpness": 5.9
           }
         ]
       }

@@ -10,6 +10,75 @@
     "brazil",
     "ribeira-de-iguape"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Ribeira de Iguape"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Rio Betari [Betharí], Rio Pardo, Rio Iporanga, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Ribeira de Iguape River basin, São Paulo State rivers, Iguape.",
+          "countries": [],
+          "regions": [
+            "Ribeira de Iguape"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339577,
+      "total": 74,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "BR",
+          74
+        ]
+      ],
+      "cells": [
+        [
+          -50.625,
+          -25.3125,
+          2,
+          2
+        ],
+        [
+          -49.21875,
+          -26.71875,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -25.3125,
+          67,
+          67
+        ],
+        [
+          -47.8125,
+          -25.3125,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

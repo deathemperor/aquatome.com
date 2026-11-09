@@ -1,0 +1,109 @@
+{
+  "id": "henicorhynchus-ornatipinnis",
+  "native": {
+    "input": "958ce32126249819",
+    "at": "2026-11-08T18:57:48.756Z",
+    "claims": [
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Henicorhynchus ornatipinnis is a small cyprinid known only from the Mekong River system in Laos, Thailand and Cambodia.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Henicorhynchus ornatipinnis is a small cyprinid known only from the Mekong River system in Laos, Thailand and Cambodia.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Henicorhynchus ornatipinnis is a small cyprinid known only from the Mekong River system in Laos, Thailand and Cambodia.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Mekong River system in Laos, Thailand, and Cambodia.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Mekong River system in Laos, Thailand, and Cambodia.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Mekong River system in Laos, Thailand, and Cambodia.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "It does not appear to have been recorded from Vietnam.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Roadside ditch on highway 24 at kilometer 150 marker, 179 kilometers by road east of Nakorn Ratchasima, northeastern Thailand'.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Known only from the Mekong River system in Laos, Thailand, and Cambodia.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Henicorhynchus ornatipinnis",
+    "status": "ACCEPTED",
+    "taxonKey": 2361365,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        7
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ]
+    ],
+    "native": [
+      "LA",
+      "TH",
+      "KH"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T18:57:48.756Z"
+  }
+}

@@ -96,7 +96,9 @@
             "url": "https://media.aquatome.com/video/GDaWgKk-hDo/at70-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Hai bể thủy sinh cây xanh tốt đặt cạnh nhau trên kệ."
+            "caption": "Hai bể thủy sinh cây xanh tốt đặt cạnh nhau trên kệ.",
+            "sharpness": 1962.5,
+            "person": false
           },
           {
             "t": 100,
@@ -104,18 +106,6 @@
             "width": 160,
             "height": 90,
             "caption": "Hai bể 20 lít với tảng đá dragon stone và lớp aquasoil."
-          }
-        ]
-      },
-      {
-        "heading": "Châm phân Lean và EI khác nhau ra sao",
-        "moments": [
-          {
-            "t": 150,
-            "url": "https://media.aquatome.com/video/GDaWgKk-hDo/at150-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các gói phân bột tự pha của bộ kit EI Plantedbox."
           }
         ]
       },
@@ -141,14 +131,18 @@
             "url": "https://media.aquatome.com/video/GDaWgKk-hDo/at330-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể thủy sinh với Myriophyllum xanh mọc cao sau tảng đá."
+            "caption": "Bể thủy sinh với Myriophyllum xanh mọc cao sau tảng đá.",
+            "sharpness": 2359.9,
+            "person": false
           },
           {
             "t": 340,
             "url": "https://media.aquatome.com/video/GDaWgKk-hDo/at340-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Tảng đá sạch giữa thảm cỏ xanh và các bụi cây."
+            "caption": "Tảng đá sạch giữa thảm cỏ xanh và các bụi cây.",
+            "sharpness": 2311.9,
+            "person": false
           }
         ],
         "photo": {
@@ -170,14 +164,18 @@
             "url": "https://media.aquatome.com/video/GDaWgKk-hDo/at500-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Toàn cảnh bể thủy sinh với thảm tiền cảnh dày và các cây hậu cảnh."
+            "caption": "Toàn cảnh bể thủy sinh với thảm tiền cảnh dày và các cây hậu cảnh.",
+            "sharpness": 2427,
+            "person": false
           },
           {
             "t": 540,
             "url": "https://media.aquatome.com/video/GDaWgKk-hDo/at540-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh cụm cây thân mọc cao, xanh tốt bên cạnh lũa."
+            "caption": "Cận cảnh cụm cây thân mọc cao, xanh tốt bên cạnh lũa.",
+            "sharpness": 1903.1,
+            "person": false
           }
         ]
       },
@@ -189,7 +187,9 @@
             "url": "https://media.aquatome.com/video/GDaWgKk-hDo/at690-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể thủy sinh nhiều cây xanh um, có đá phủ rêu và cây lên dày."
+            "caption": "Bể thủy sinh nhiều cây xanh um, có đá phủ rêu và cây lên dày.",
+            "sharpness": 2538.9,
+            "person": false
           }
         ]
       }

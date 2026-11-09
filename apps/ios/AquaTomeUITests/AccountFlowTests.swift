@@ -36,7 +36,7 @@ final class AccountFlowTests: XCTestCase {
     add(app, "Bể tép", first: true)
     signIn(app)
     tap(app, "sign-out")
-    XCTAssertTrue(element(app, "apple-sign-in").waitForExistence(timeout: 5), "still signed in")
+    XCTAssertTrue(reached(app, "apple-sign-in").exists, "still signed in")
     XCTAssertTrue(element(app, "account-header").exists, "no account section on the Tài khoản sheet")
     XCTAssertEqual(message(app), "Đã đăng xuất. Các bể vẫn còn trên máy này.")
     XCTAssertEqual(tankCount(app), 1)
@@ -46,7 +46,7 @@ final class AccountFlowTests: XCTestCase {
     let confirm = app.buttons["Xóa tài khoản vĩnh viễn"]
     XCTAssertTrue(confirm.waitForExistence(timeout: 5), "no confirmation")
     confirm.tap()
-    XCTAssertTrue(element(app, "apple-sign-in").waitForExistence(timeout: 5), "still signed in")
+    XCTAssertTrue(reached(app, "apple-sign-in").exists, "still signed in")
     XCTAssertEqual(message(app), "Đã xóa tài khoản. Các bể vẫn còn trên máy này.")
     XCTAssertEqual(tankCount(app), 1)
     app.terminate()
@@ -196,6 +196,31 @@ final class AccountFlowTests: XCTestCase {
     choose(app, "Theo máy")
     XCTAssertTrue(drawn(app, "appearance-sheet", was), "the sheet isn't as the phone is again")
     XCTAssertTrue(drawn(app, "appearance-app", was), "the tabs aren't as the phone is again")
+  }
+
+  /// "Ngôn ngữ": a language chosen in the sheet opens the app in it from the next launch, as iOS's Settings → AquaTome →
+  /// Language would (both keep the app's AppleLanguages), with a line in that language saying so until then, and none for
+  /// the language it's in; "Theo máy" gives it back to the phone, which has none of the three (Vietnamese). The relaunches
+  /// leave out -AppleLanguages, which would stand over the kept choice. The language is read off "Bể của tôi", a tab both
+  /// looks have (v2's search tab has no title).
+  func testALanguageChosenInTheSheetOpensTheAppInItNextTime() {
+    var app = launch()
+    XCTAssertTrue(reached(app, "language").exists, "no Ngôn ngữ row")
+    XCTAssertFalse(element(app, "language-note").exists, "a note with nothing chosen")
+    pickLanguage(app, "ภาษาไทย")
+    XCTAssertEqual(reached(app, "language-note").label, "จะใช้ภาษาไทยเมื่อเปิดแอปครั้งถัดไป")
+    pickLanguage(app, "Tiếng Việt")
+    XCTAssertTrue(element(app, "language-note").waitForNonExistence(timeout: 5), "a note for the language it's in")
+    pickLanguage(app, "ภาษาไทย")
+    app = relaunchKeepingLanguage(app)
+    XCTAssertTrue(app.tabBars.buttons["ตู้ของฉัน"].waitForExistence(timeout: 10), "not in Thai after the relaunch")
+    app.openAccount()
+    XCTAssertTrue(reached(app, "language").exists, "no Ngôn ngữ row in Thai")
+    XCTAssertFalse(element(app, "language-note").exists, "the note outlived the relaunch")
+    pickLanguage(app, "ตามเครื่อง")
+    XCTAssertEqual(reached(app, "language-note").label, "Ứng dụng sẽ dùng Tiếng Việt từ lần mở sau.")
+    app = relaunchKeepingLanguage(app)
+    XCTAssertTrue(app.tabBars.buttons["Bể của tôi"].waitForExistence(timeout: 10), "not back in the phone's language")
   }
 
   /// A sync the server can't take offers only the button that helps: "Cập nhật ứng dụng" for an account's store from a
@@ -400,7 +425,8 @@ final class AccountFlowTests: XCTestCase {
   /// The account is in the profile button's sheet, from every tab: an empty "Bể của tôi" offers a hint that opens it,
   /// and a tank list signed in shows none of the account but where the tanks are kept.
   func testTheAccountIsInTheProfileSheetFromEveryTab() {
-    let app = launch(resetServer: true)
+    // The old look's tabs: v2's are Hôm nay's and Khám phá's (V2FlowTests).
+    let app = launch(resetServer: true, "-v2", "NO")
     XCTAssertTrue(element(app, "apple-sign-in").waitForExistence(timeout: 5), "no sign-in in the Tài khoản sheet")
     XCTAssertTrue(element(app, "account-header").exists, "no account section in the Tài khoản sheet")
     // Each tab's first screen has the button, and it opens the same sheet.
@@ -553,6 +579,9 @@ final class AccountFlowTests: XCTestCase {
   private func reached(_ app: XCUIApplication, _ id: String) -> XCUIElement {
     let e = element(app, id)
     if !e.waitForExistence(timeout: 3) { repeatUntil(e.exists, times: 8) { app.swipeUp() } }
+    // Else back up it: signed out at the sheet's foot, its ways to sign in are at its top, which a sheet this long no
+    // longer draws from there.
+    repeatUntil(e.exists, times: 8) { drag(app, from: 0.35, to: 0.75) }
     return e
   }
 
@@ -572,6 +601,25 @@ final class AccountFlowTests: XCTestCase {
       sum += Int(px[i + 2])
     }
     return Double(sum) / Double(w * h * 3 * 255)
+  }
+
+  /// "Ngôn ngữ" set from its menu in the sheet: the item whose name starts so ("Theo máy" has the phone's language under
+  /// it).
+  private func pickLanguage(_ app: XCUIApplication, _ name: String) {
+    tap(app, "language")
+    let item = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", name)).firstMatch
+    XCTAssertTrue(item.waitForExistence(timeout: 5), "no \(name) in the menu")
+    item.tap()
+  }
+
+  /// The app opened again as the last launch left it, in the language it keeps: no -AppleLanguages or -AppleLocale, which
+  /// would stand over it.
+  private func relaunchKeepingLanguage(_ app: XCUIApplication) -> XCUIApplication {
+    app.terminate()
+    let again = XCUIApplication()
+    again.launchArguments = ["-fixed-handbook", "-fake-accounts", "on"]
+    again.launchForFlow()
+    return again
   }
 
   /// "Giao diện" set from its menu in the sheet.

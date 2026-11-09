@@ -1,15 +1,102 @@
 {
   "id": "cherax-quadricarinatus",
   "native": {
-    "input": "80c632fa64f97558",
-    "at": "2026-11-07T06:20:08.160Z",
-    "claims": [],
-    "regions": [],
+    "input": "3709540a24b1c176",
+    "at": "2026-11-08T22:57:48.089Z",
+    "claims": [
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Cherax quadricarinatus is a tropical species of freshwater crayfish native to the Gulf of Carpentaria in northern Australia and southern New Guinea.",
+        "words": "Australia",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It has become established in Europe (the Iberian Peninsula), Asia (Singapore, Israel), South Africa, Latin America (Ecuador, Argentina, Jamaica, Puerto Rico, Cuba, Mexico and others), and even in Los Angeles, California (Lake Balboa).",
+        "words": "Singapore",
+        "ok": true
+      },
+      {
+        "code": "IL",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It has become established in Europe (the Iberian Peninsula), Asia (Singapore, Israel), South Africa, Latin America (Ecuador, Argentina, Jamaica, Puerto Rico, Cuba, Mexico and others), and even in Los Angeles, California (Lake Balboa).",
+        "words": "Israel",
+        "ok": true
+      },
+      {
+        "code": "ZA",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It has become established in Europe (the Iberian Peninsula), Asia (Singapore, Israel), South Africa, Latin America (Ecuador, Argentina, Jamaica, Puerto Rico, Cuba, Mexico and others), and even in Los Angeles, California (Lake Balboa).",
+        "words": "South Africa",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It has become established in Europe (the Iberian Peninsula), Asia (Singapore, Israel), South Africa, Latin America (Ecuador, Argentina, Jamaica, Puerto Rico, Cuba, Mexico and others), and even in Los Angeles, California (Lake Balboa).",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It has become established in Europe (the Iberian Peninsula), Asia (Singapore, Israel), South Africa, Latin America (Ecuador, Argentina, Jamaica, Puerto Rico, Cuba, Mexico and others), and even in Los Angeles, California (Lake Balboa).",
+        "words": "Argentina",
+        "ok": true
+      },
+      {
+        "code": "JM",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It has become established in Europe (the Iberian Peninsula), Asia (Singapore, Israel), South Africa, Latin America (Ecuador, Argentina, Jamaica, Puerto Rico, Cuba, Mexico and others), and even in Los Angeles, California (Lake Balboa).",
+        "words": "Jamaica",
+        "ok": true
+      },
+      {
+        "code": "CU",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It has become established in Europe (the Iberian Peninsula), Asia (Singapore, Israel), South Africa, Latin America (Ecuador, Argentina, Jamaica, Puerto Rico, Cuba, Mexico and others), and even in Los Angeles, California (Lake Balboa).",
+        "words": "Cuba",
+        "ok": true
+      },
+      {
+        "code": "MX",
+        "status": "introduced",
+        "source": "aquariumbreeder",
+        "quote": "It has become established in Europe (the Iberian Peninsula), Asia (Singapore, Israel), South Africa, Latin America (Ecuador, Argentina, Jamaica, Puerto Rico, Cuba, Mexico and others), and even in Los Angeles, California (Lake Balboa).",
+        "words": "Mexico",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Gulf of Carpentaria",
+        "source": "aquariumbreeder",
+        "quote": "Cherax quadricarinatus is a tropical species of freshwater crayfish native to the Gulf of Carpentaria in northern Australia and southern New Guinea.",
+        "country": "AU",
+        "ok": true
+      },
+      {
+        "name": "New Guinea",
+        "source": "aquariumbreeder",
+        "quote": "Cherax quadricarinatus is a tropical species of freshwater crayfish native to the Gulf of Carpentaria in northern Australia and southern New Guinea.",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {
       "pagesOnly": [
-        "AU"
+        "PG"
       ],
       "sourcesOnly": []
     }
@@ -152,8 +239,10 @@
         1
       ]
     ],
-    "native": [],
-    "requests": 10,
-    "at": "2026-11-07T06:20:08.160Z"
+    "native": [
+      "AU"
+    ],
+    "requests": 17,
+    "at": "2026-11-08T22:57:48.089Z"
   }
 }

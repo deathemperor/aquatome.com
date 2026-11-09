@@ -196,6 +196,10 @@
       {
         "source": "seriouslyfish",
         "value": 5.3
+      },
+      {
+        "source": "glaser",
+        "value": 9
       }
     ],
     "tankCm": [
@@ -219,10 +223,22 @@
       "html": "<p>The spadetailed checkerboard cichlid, Dicrossus maculatus, is a cichlid from the Rio Tapajós, Rio Maués and nearby areas of the Brazilian Amazon. Not commonly available in the trade, it is sometimes mistaken for D. filamentosus. A challenge to breed, it needs extremely acidic, very soft water for the eggs to hatch, and a brooding female herds her fry around the tank with signals from her ventral fins.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/dicrossus_maculatus_checkerboard_cichlids_part_3_en/",
+      "html": "<p>This splendid dwarf cichlid has been known to science since 1875, but is almost never found in home aquaria. This is a great pity, because there are hardly any species that are as beautiful and at the same time as peaceful. Males reach around 9 cm in length, females about 6 cm.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/dicrossus-maculatus",
       "html": "<p>Native to the Rio Tapajós, Rio Maués, and surrounding areas of the Brazilian Amazon basin.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/dicrossus_maculatus_checkerboard_cichlids_part_3_en/",
+      "html": "<p>The animals currently available originate from the rio Tapajós basin in Brazil.</p>"
     },
     {
       "key": "aquariumSize",
@@ -241,6 +257,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/dicrossus-maculatus",
       "html": "<ul><li>Temperature: 26–30°C (high temperature)</li><li>pH: 3.4–5.4 (very acidic)</li><li>Hardness: very soft, less than 1 dH</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/dicrossus_maculatus_checkerboard_cichlids_part_3_en/",
+      "html": "<p>In contrast to its close relative Dicrossus filamentosus (the only member of the genus that is almost permanently available in the trade), D. maculatus is said to prefer white water. However, this has no meaning for keeping D. maculatus in the aquarium. Of far more importance for successful keeping than hardness and pH are a low level of bacteria in the tank and a gravel composed of fine sand.</p>"
     },
     {
       "key": "diet",
@@ -265,6 +287,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/dicrossus-maculatus",
       "html": "<p>Dicrossus maculatus are a challenge to breed. They require extremely acidic water for the eggs to hatch. High quality water is also absolutely vital, especially at such low pH. It has been noted that adding a few small shoaling fish (tetras and the like) can vastly improve the paternal care that the mature Maculatus display.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/dicrossus_maculatus_checkerboard_cichlids_part_3_en/",
+      "html": "<p>To breed this species, almost distilled water (conductivity less than 50 µS/cm) and a pH below 5.5 are necessary, as otherwise the eggs cannot be fertilized and develop. Like all other checkerboard cichlids, D. maculatus is polygamous: one male mates with several females. The female alone takes care of the spawn and offspring.</p>"
     },
     {
       "key": "notes",
@@ -328,5 +356,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-09"
 }

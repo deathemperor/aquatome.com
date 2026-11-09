@@ -5,7 +5,7 @@ import { LlmError, type Llm } from './claude'
 import { FIT_TITLE, fitDue, fitFindings, fitKey, fitText, type FitCheck, type FitFinding, type FitState } from './fit'
 import { rewriteForReader } from './for-reader'
 import { METRIC_KINDS } from './metric'
-import { loadPages, type Page } from './pages'
+import { fixedParts, loadPages, type Page } from './pages'
 import { fieldOf as partOf, norm, rewritePart, type ReaderFinding } from './reader'
 
 /**
@@ -20,7 +20,7 @@ import { fieldOf as partOf, norm, rewritePart, type ReaderFinding } from './read
  * of pages to look at (page-signals) shows a rewrite until the checker has read a newer text. engine-state/_fit-rewrite.json
  * has each page tried, by the text it read: one not kept or skipped waits until its text changes, or is named (`retry`).
  */
-const MENDED: readonly FitCheck[] = ['product', 'shop', 'price', 'dose', 'source', 'elsewhere', 'dose-caution']
+const MENDED: readonly FitCheck[] = ['product', 'shop', 'price', 'dose', 'source', 'elsewhere', 'dose-caution', 'lethal']
 const PART_FIELD = /^(sections\.(?!references).+|body|definition)$/
 export type Rewritten = Record<string, { at: string; hash: string }>
 /** Each page tried, by the hash of the text it read. */
@@ -85,9 +85,10 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
       }
       const file = join(root, 'content', p.kind, p.id, 'vi.json')
       const t = JSON.parse(await readFile(file, 'utf8')) as { sections?: Record<string, string>; body?: string; definition?: string; bodyFixed?: boolean }
+      const fixed = await fixedParts(join(root, 'content', p.kind, p.id))
       for (const [field, fs] of mendable(p, state)) {
         const html = partOf(t, field)
-        if (!html || (field === 'body' && t.bodyFixed)) { report.skipped.push(`${key} ${field}: ${html ? 'a person fixed its text' : 'not in the file'}`); continue }
+        if (!html || (field === 'body' && t.bodyFixed) || fixed.has(field)) { report.skipped.push(`${key} ${field}: ${html ? 'a person fixed its text' : 'not in the file'}`); continue }
         const source = field.startsWith('sections.') ? field.split(':')[1] : p.origin?.source
         const r = await rewritePart(d.llm, html, fs.map(asNote), { en: p.en?.[field], source: source && names[source]?.name })
         if (!r) { report.skipped.push(`${key} ${field}: its quotes aren't in one block`); continue }

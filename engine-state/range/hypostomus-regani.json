@@ -1,0 +1,99 @@
+{
+  "id": "hypostomus-regani",
+  "native": {
+    "input": "47d6bdeb940ffd04",
+    "at": "2026-11-09T05:57:45.266Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Brazil, Paraguay, Uruguay and Argentina.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Brazil, Paraguay, Uruguay and Argentina.",
+        "words": "Paraguay",
+        "ok": true
+      },
+      {
+        "code": "UY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Brazil, Paraguay, Uruguay and Argentina.",
+        "words": "Uruguay",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Brazil, Paraguay, Uruguay and Argentina.",
+        "words": "Argentina",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hypostomus regani",
+    "status": "ACCEPTED",
+    "taxonKey": 5202125,
+    "datasets": [
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        113
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        94
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        56
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        48
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        38
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        14
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        12
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        5
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        3
+      ]
+    ],
+    "native": [
+      "BR",
+      "PY",
+      "UY",
+      "AR"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T05:57:45.266Z"
+  }
+}

@@ -11,6 +11,9 @@ struct GalleryViewer: View {
   let note: String
   let photos: [PageDoc.Image]
   let readers: [ReaderItem]?
+  /// Told the photo it's closing on, as it starts to go (pulled down, the page behind shows at once): the grid scrolls it
+  /// into view.
+  let closing: ((Int) -> Void)?
   @State private var index: Int
   /// The pager's place: nil only between two photos.
   @State private var position: Int?
@@ -27,11 +30,12 @@ struct GalleryViewer: View {
   @Environment(\.accessibilityReduceMotion) private var reduceMotion
   @Environment(\.accessibilityVoiceOverEnabled) private var voiceOver
 
-  init(title: String, note: String, photos: [PageDoc.Image], readers: [ReaderItem]?, index: Int) {
+  init(title: String, note: String, photos: [PageDoc.Image], readers: [ReaderItem]?, index: Int, closing: ((Int) -> Void)? = nil) {
     self.title = title
     self.note = note
     self.photos = photos
     self.readers = readers
+    self.closing = closing
     _index = State(initialValue: index)
     _position = State(initialValue: index)
     _pictures = State(initialValue: ViewerPictures(photos, at: index))
@@ -122,7 +126,10 @@ struct GalleryViewer: View {
     return ZoomablePhoto(image: shown?.full ?? shown?.thumb, aspect: CGSize(width: p.w, height: p.h), current: i == index, motion: !reduceMotion,
                          tapped: { withAnimation(.easeInOut(duration: 0.2)) { chrome.toggle() } },
                          zoomed: { if i == index { zoomed = $0 } },
-                         pulled: { pull = $0 },
+                         pulled: {
+                           if pull == 0, $0 > 0 { closing?(index) }
+                           pull = $0
+                         },
                          released: { withAnimation(.easeOut(duration: 0.2)) { pull = 1 } completion: { close(animated: false) } })
       // One element: its place in the gallery (its words, who took it and the counter follow, under it).
       .accessibilityElement(children: .ignore)
@@ -220,6 +227,7 @@ struct GalleryViewer: View {
   /// Closed by its button, after a report or block, or pulled down: without the slide with Reduce Motion, or once the
   /// pull has taken the photo away.
   private func close(animated: Bool = true) {
+    closing?(index)
     var t = Transaction()
     t.disablesAnimations = !animated || reduceMotion
     withTransaction(t) { dismiss() }
@@ -250,13 +258,20 @@ struct GalleryViewer: View {
   #endif
 
   /// A gallery's row on its page, as the site writes it. Debug builds, with `-large-gallery`: 28 photos (each its own
-  /// stand-in with `-fixed-pictures`), the first ten in the row, for the viewer's flows and for measuring it.
-  static func row(title: String, note: String, photos: [PageDoc.Image], strip: [Int]) -> NativePage.Piece {
+  /// stand-in with `-fixed-pictures`), the first ten in the row, for the viewer's flows and for measuring it; with
+  /// `-hundreds-gallery`: 300 of a gallery's shapes, for the grid's; with `-no-gallery`: none, for a page with readers'
+  /// photos only.
+  static func row(title: String, note: String, photos: [PageDoc.Image], strip: [Int]) -> NativePage.Piece? {
     #if DEBUG
-    if ProcessInfo.processInfo.arguments.contains("-large-gallery") {
-      let many = (1...28).map { k in
-        PageDoc.Image(src: "https://media.aquatome.com/g/many-\(k).webp", w: 1200, h: 800, alt: "Ảnh thử \(k)",
-                      thumb: "https://media.aquatome.com/g/many-\(k)-480.webp", credit: PageDoc.Image.Credit(text: "Ảnh: Tác giả \(k)", licence: "CC BY 4.0", url: "https://example.org/photo/\(k)"))
+    let args = ProcessInfo.processInfo.arguments
+    if args.contains("-no-gallery") { return nil }
+    let shapes = [(1200, 800), (1200, 900), (800, 1000), (1000, 1000), (1600, 900), (900, 1200), (2400, 800)]
+    let sizes: [(Int, Int)]? = args.contains("-large-gallery") ? Array(repeating: (1200, 800), count: 28) : args.contains("-hundreds-gallery") ? (0..<300).map { shapes[$0 % shapes.count] } : nil
+    if let sizes {
+      let many = sizes.enumerated().map { i, size in
+        let k = i + 1
+        return PageDoc.Image(src: "https://media.aquatome.com/g/many-\(k).webp", w: size.0, h: size.1, alt: "Ảnh thử \(k)",
+                             thumb: "https://media.aquatome.com/g/many-\(k)-480.webp", credit: PageDoc.Image.Credit(text: "Ảnh: Tác giả \(k)", licence: "CC BY 4.0", url: "https://example.org/photo/\(k)"))
       }
       return .gallery(title: title, note: note, photos: many, strip: Array(0..<10))
     }

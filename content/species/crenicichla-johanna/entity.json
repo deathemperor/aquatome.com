@@ -1,0 +1,721 @@
+{
+  "id": "crenicichla-johanna",
+  "scientificName": "Crenicichla johanna",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Crenicichla",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "colombia",
+    "orinoco",
+    "venezuela",
+    "guyana",
+    "essequibo",
+    "french-guiana",
+    "oyapock",
+    "brazil",
+    "amapa",
+    "peru",
+    "suriname",
+    "bolivia"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO",
+        "VE",
+        "GY",
+        "GF",
+        "BR",
+        "PE",
+        "SR",
+        "BO"
+      ],
+      "regions": [
+        "Orinoco",
+        "Essequibo",
+        "Oyapock",
+        "Approuague",
+        "Amazon",
+        "Rio Amapá"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "It's known from various river basins, including the Rio Orinoco in Colombia and Venezuela, Rio Essequibo in Guyana, Rio Oyapock and Rio Approuague in French Guiana and Rio Amapá in Brazil.",
+          "countries": [
+            "CO",
+            "VE",
+            "GY",
+            "GF",
+            "BR"
+          ],
+          "regions": [
+            "Rio Amapá"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Populations also exist in parts of Peru, Suriname and Bolivia.",
+          "countries": [
+            "PE",
+            "SR",
+            "BO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It is known from the Orinoco, Essequibo, Oyapock and Approuague basins among others, mostly in faster moving rivers and streams, and a number of colour forms have developed across its range.",
+          "countries": [],
+          "regions": [
+            "Orinoco",
+            "Essequibo",
+            "Oyapock",
+            "Approuague"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "As stated, this fish is found across most of the Amazon basin.",
+          "countries": [],
+          "regions": [
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371028,
+      "total": 309,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "BR",
+          174
+        ],
+        [
+          "GF",
+          72
+        ],
+        [
+          "GY",
+          23
+        ],
+        [
+          "PE",
+          21
+        ],
+        [
+          "BO",
+          6
+        ],
+        [
+          "EC",
+          5
+        ],
+        [
+          "VE",
+          5
+        ],
+        [
+          "CO",
+          2
+        ],
+        [
+          "SR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          -1.40625,
+          5,
+          0
+        ],
+        [
+          -75.9375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -5.625,
+          3,
+          3
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          12,
+          12
+        ],
+        [
+          -74.53125,
+          0,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          -8.4375,
+          4,
+          4
+        ],
+        [
+          -73.125,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          -70.3125,
+          -5.625,
+          3,
+          3
+        ],
+        [
+          -70.3125,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          0,
+          6,
+          6
+        ],
+        [
+          -68.90625,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          -15.46875,
+          2,
+          2
+        ],
+        [
+          -67.5,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          -12.65625,
+          3,
+          3
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          3,
+          3
+        ],
+        [
+          -64.6875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -11.25,
+          4,
+          4
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          9,
+          9
+        ],
+        [
+          -63.28125,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -4.21875,
+          9,
+          9
+        ],
+        [
+          -61.875,
+          -2.8125,
+          6,
+          6
+        ],
+        [
+          -61.875,
+          1.40625,
+          4,
+          4
+        ],
+        [
+          -60.46875,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          -60.46875,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          4.21875,
+          7,
+          7
+        ],
+        [
+          -60.46875,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          7,
+          7
+        ],
+        [
+          -59.0625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          -59.0625,
+          5.625,
+          10,
+          10
+        ],
+        [
+          -57.65625,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -56.25,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          4,
+          4
+        ],
+        [
+          -54.84375,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -16.875,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -15.46875,
+          3,
+          3
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -53.4375,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          -53.4375,
+          1.40625,
+          4,
+          4
+        ],
+        [
+          -53.4375,
+          2.8125,
+          79,
+          79
+        ],
+        [
+          -53.4375,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          -52.03125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          0,
+          19,
+          19
+        ],
+        [
+          -52.03125,
+          2.8125,
+          6,
+          6
+        ],
+        [
+          -50.625,
+          -7.03125,
+          6,
+          6
+        ],
+        [
+          -50.625,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -2.8125,
+          4,
+          4
+        ],
+        [
+          -49.21875,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -2.8125,
+          13,
+          13
+        ],
+        [
+          -49.21875,
+          -1.40625,
+          4,
+          4
+        ],
+        [
+          -47.8125,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -45,
+          -22.5,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 30
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 180
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-johanna",
+      "html": "<p>The red-finned pike cichlid, Lugubria johanna, is a large pike cichlid that ranges over much of northern South America. It is known from the Orinoco, Essequibo, Oyapock and Approuague basins among others, mostly in faster moving rivers and streams, and a number of colour forms have developed across its range. Growing to 30 cm, it can be aggressive, especially towards its own kind, and will eat any fish small enough to be considered food.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-johanna",
+      "html": "<p>Wide-ranging over much of northern South America. It's known from various river basins, including the Rio Orinoco in Colombia and Venezuela, Rio Essequibo in Guyana, Rio Oyapock and Rio Approuague in French Guiana and Rio Amapá in Brazil. Populations also exist in parts of Peru, Suriname and Bolivia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-johanna",
+      "html": "<p>Mostly from faster moving rivers and streams.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-johanna",
+      "html": "<p>Standard length: 30 cm SL. Aquarium base: 180 × 60 cm. Volume: ~648 litres (180 × 60 × 60 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-johanna",
+      "html": "<p>Sand substrate is recommended. This species is likely to dig and arrange the decor to suit itself. Some rockwork should be provided to form caves as pikes like to have an area to which they can retreat. Plants should be robust, ideally potted or rooted to bogwood. Water flow should be moderate to strong.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-johanna",
+      "html": "<ul><li>Temperature: 23–26 °C</li><li>pH: 6.0–7.0</li><li>Hardness: 0–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-johanna",
+      "html": "<p>Predominantly piscivorous by nature, although gut analyses of wild specimens also showed it to also consume various aquatic invertebrates. The presence of terrestrial plant matter in some fish was probably via the stomach contents of their prey.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-johanna",
+      "html": "<p>Can be aggressive, especially towards conspecifics. May be kept with other large cichlids or as a species-only setup. Likely to eat any fish small enough to be considered food - and they have big mouths!</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-johanna",
+      "html": "<p>Male is larger and likely to be more prominently marked. Females are more colourful.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-johanna",
+      "html": "<p>Has not been bred in the hobby.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-johanna",
+      "html": "<p>As stated, this fish is found across most of the Amazon basin. As a result, a number of different colour forms have developed. This pike is fairly common in the hobby due to its broad geographic range.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/ab4ad5a507e593a4.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/ab4ad5a507e593a4-480.webp",
+      "width": 629,
+      "height": 300,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-johanna",
+      "caption": "Red-finned Pike Cichlid (Crenicichla johanna)",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 180cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300W"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

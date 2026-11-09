@@ -2,13 +2,27 @@
  "queue": [],
  "judged": [
   "File:Crossocheilus siamensis pl.jpg",
-  "File:Flying fox.jpg"
+  "File:Flying fox.jpg",
+  "inat:176111270",
+  "inat:328167400",
+  "inat:328167422",
+  "inat:617422802"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/d726f126addf8474.webp": "38783e7064c50c8d",
   "https://media.aquatome.com/seriouslyfish/e09aa64a8025955b.webp": "29295b32493373f1",
   "https://media.aquatome.com/seriouslyfish/60c06596f32a308f.webp": "0f0f139949cc7c66",
-  "https://media.aquatome.com/commons/c50744e50bab6389.webp": "6c663a7366de747c"
+  "https://media.aquatome.com/commons/c50744e50bab6389.webp": "6c663a7366de747c",
+  "https://media.aquatome.com/inaturalist/328167400.webp": "db4b673353d24b99",
+  "https://media.aquatome.com/inaturalist/328167422.webp": "a2e2989da5643373"
  },
- "commons": "2026-11-08"
+ "commons": "2026-11-08",
+ "inat": {
+  "taxon": 1316318,
+  "pass": "done",
+  "after": {
+   "research": 187627742,
+   "agree": 339405287
+  }
+ }
 }

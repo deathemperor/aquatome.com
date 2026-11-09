@@ -318,13 +318,14 @@ final class ReaderPostFlowTests: XCTestCase {
     XCTAssertTrue(comment(app, "Minh").waitForExistence(timeout: 5), "let back, still hidden")
   }
 
-  /// AquaTome's contact page is a tap away on the Tìm home, signed out with accounts off.
+  /// AquaTome's contact page is a tap away in the Tài khoản sheet's "Về AquaTome", signed out with accounts off.
   func testTheContactPageIsReachableSignedOut() {
     let app = launch(accounts: "off")
     XCTAssertTrue(app.searchFields.firstMatch.waitForExistence(timeout: 5), "no search field")
-    let contact = app.descendants(matching: .any)["contact"]
+    app.openAccount()
+    let contact = app.descendants(matching: .any)["about-contact"]
     repeatUntil(contact.exists && contact.isHittable, times: 12) { app.swipeUp() }
-    XCTAssertTrue(contact.exists && contact.isHittable, "no contact link on the home")
+    XCTAssertTrue(contact.exists && contact.isHittable, "no contact link in the sheet")
     XCTAssertEqual(contact.label, "Liên hệ")
   }
 
@@ -335,7 +336,8 @@ final class ReaderPostFlowTests: XCTestCase {
     // Not reset: the same phone, still signed in to the stand-in server's account.
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN"] + (reset ? ["-reset-defaults", "-reset-fake-server"] : [])
       + ["-fixed-handbook", "-fake-accounts", accounts] + more
-    app.launchForFlow()
+    // The old look's: every flow here reaches its page through Tìm's search.
+    app.launchForFlow(.old)
     return app
   }
 

@@ -1,0 +1,79 @@
+{
+  "id": "lepidocephalichthys-kranos",
+  "native": {
+    "input": "fb76250cfd06a8b4",
+    "at": "2026-11-09T16:24:16.651Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Extensively distributed throughout the Chao Phraya river system, Thailand and the Mekong in Thailand, Laos and Vietnam.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Extensively distributed throughout the Chao Phraya river system, Thailand and the Mekong in Thailand, Laos and Vietnam.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Extensively distributed throughout the Chao Phraya river system, Thailand and the Mekong in Thailand, Laos and Vietnam.",
+        "words": "Vietnam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "Extensively distributed throughout the Chao Phraya river system, Thailand and the Mekong in Thailand, Laos and Vietnam.",
+        "ok": true
+      },
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Extensively distributed throughout the Chao Phraya river system, Thailand and the Mekong in Thailand, Laos and Vietnam.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Lepidocephalichthys kranos",
+    "status": "ACCEPTED",
+    "taxonKey": 5851061,
+    "datasets": [
+      [
+        "80f63c1e-f762-11e1-a439-00145eb45e9a",
+        5
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "LA",
+      "VN"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T16:24:16.651Z"
+  }
+}

@@ -8,7 +8,11 @@
   "File:Cichlidae - Geophagus altifrons.JPG",
   "File:Geophagus altifron.jpg",
   "File:Altifrons.jpg",
-  "File:Threadfin Eartheater, Central Water Catchment, Singapore imported from iNaturalist photo 459156281.jpg"
+  "File:Threadfin Eartheater, Central Water Catchment, Singapore imported from iNaturalist photo 459156281.jpg",
+  "inat:459156281",
+  "inat:459156296",
+  "inat:169568077",
+  "inat:273921271"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/b25b12d0eb727097.webp": "c9323f1f7f1d8c54",
@@ -16,5 +20,13 @@
   "https://media.aquatome.com/commons/88fd200d542df808.webp": "030a0f071a181307",
   "https://media.aquatome.com/commons/5c0d0e7225cb1e82.webp": "23070e1f1f070601"
  },
- "commons": "2026-11-08"
+ "commons": "2026-11-08",
+ "inat": {
+  "taxon": 371693,
+  "pass": "done",
+  "after": {
+   "research": 256132178,
+   "agree": 396028968
+  }
+ }
 }

@@ -5,8 +5,10 @@
   "sourceUrl": "https://www.youtube.com/watch?v=8SwotDmf5eM",
   "html": "",
   "photos": [],
-  "mentions": [],
-  "updatedAt": "2026-11-02",
+  "mentions": [
+    "neocaridina-davidi"
+  ],
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "8SwotDmf5eM",
     "title": "HƯỚNG DẪN SETUP LY THỦY TINH  ĐƠN GIẢN",
@@ -25,7 +27,9 @@
       "height": 720
     },
     "lang": "vi",
-    "taxa": [],
+    "taxa": [
+      "Neocaridina davidi"
+    ],
     "gear": [
       {
         "category": "be-ca",
@@ -35,12 +39,12 @@
       {
         "category": "phan-nen",
         "type": "phan",
-        "t": 152
+        "t": 150
       },
       {
         "category": "phan-nen",
         "type": "soi",
-        "t": 151
+        "t": 2
       },
       {
         "category": "co2",
@@ -50,83 +54,31 @@
     ],
     "figures": [
       {
-        "heading": "Chuẩn bị cây trước khi trồng",
+        "heading": "Đặt đá",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/8SwotDmf5eM/p0-J1LUluZGlhLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/8SwotDmf5eM/p0-J1LUluZGlhLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/8SwotDmf5eM/p2-cXVhc2NhcGUuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/8SwotDmf5eM/p2-cXVhc2NhcGUuanBn-480.webp",
           "width": 960,
-          "height": 720,
-          "licence": "CC BY 4.0",
-          "author": "Yercaud-elango",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rotala_vendetta_Green-2-veda_aquarium-bengaluru-India.jpg",
-          "caption": "Những cây thân nhỏ mới mua, còn mảnh, đặt trong bình chờ trồng."
+          "height": 549,
+          "licence": "CC0",
+          "author": "Dileepkumardr",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nature_Aquarium_Aquascape.jpg",
+          "caption": "Vài viên đá nhỏ đặt ở tiền cảnh, ngay phía trước bình thủy sinh."
         }
       },
       {
-        "heading": "Chuyện phân nền nội địa",
-        "moments": [
-          {
-            "t": 314,
-            "url": "https://media.aquatome.com/video/8SwotDmf5eM/t314.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Đổ nước vào bình thủy tinh đã có nền, màng nổi trên mặt nước."
-          },
-          {
-            "t": 323,
-            "url": "https://media.aquatome.com/video/8SwotDmf5eM/t323.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Rót nước từ từ vào bình để làm ướt lớp phân nền."
-          }
-        ]
-      },
-      {
-        "heading": "Trồng cỏ và cây thế nào",
+        "heading": "CO2 cho tân đế hồng tài",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/8SwotDmf5eM/p3-ydS1JbmRpYS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/8SwotDmf5eM/p3-ydS1JbmRpYS5qcGc-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY 4.0",
-          "author": "Yercaud-elango",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Staurgyne_repens-1-veda_aquarium-bengaluru-India.jpg",
-          "caption": "Thảm cỏ mảnh phía trước, cây lá to điểm nhấn cạnh đá."
-        }
-      },
-      {
-        "heading": "Vào nước và thay nước lần đầu",
-        "moments": [
-          {
-            "t": 764,
-            "url": "https://media.aquatome.com/video/8SwotDmf5eM/t764.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Rót nước từ từ vào bình, tay đỡ nền để không bị xới tung."
-          },
-          {
-            "t": 872,
-            "url": "https://media.aquatome.com/video/8SwotDmf5eM/t872.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Nước gần đầy nhưng còn đục, nổi màng và bọt từ lớp phân."
-          }
-        ]
-      },
-      {
-        "heading": "CO2 cho bình nhỏ",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/8SwotDmf5eM/p5-saWFfa3owMi5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/8SwotDmf5eM/p5-saWFfa3owMi5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/8SwotDmf5eM/p4-X1NoYXJqYWguanBn.webp",
+          "thumb": "https://media.aquatome.com/video/8SwotDmf5eM/p4-X1NoYXJqYWguanBn-480.webp",
           "width": 960,
           "height": 720,
           "licence": "CC BY-SA 4.0",
-          "author": "Krzysztof Ziarnek, Kenraiz",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rotala_rotundifolia_kz02.jpg",
-          "caption": "Cây tân đế hồng tài với thân đỏ và lá tròn xanh mọc sát nhau."
+          "author": "Ranjith-chemmad",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Freshwater_aquariums_Sharjah.jpg",
+          "caption": "Thảm cây tân đế mọc dày xanh mướt trong hồ thủy sinh có đá."
         }
       }
     ]

@@ -1,0 +1,19 @@
+{
+  "slug": "ca-killi-katanga",
+  "name": "Cá killi Katanga",
+  "altNames": [],
+  "sections": {
+    "distribution:glaser": "<p>Aplocheilichthys katangae được nhập về từ tỉnh Katanga của Congo. Đây là cá killi không theo mùa, sống rải rác trên một vùng rộng ở miền trung nam châu Phi.</p>",
+    "habitat:glaser": "<p>Chúng sống ở suối nhỏ và ao nông có cây cỏ mọc um tùm.</p>",
+    "quickFacts:glaser": "<p>Cá lớn tối đa khoảng 6 cm. Xuất xứ: Congo.</p>",
+    "diet:glaser": "<p>Ngoài tự nhiên, chúng ăn côn trùng nhỏ sống dưới nước và các loài giáp xác nhỏ. Nuôi trong bể thì cho ăn cám vảy hoặc thức ăn đông lạnh đều được.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.9
+    },
+    "reason": "thin"
+  }
+}

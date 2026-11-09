@@ -9,7 +9,8 @@
     "africa",
     "cote-d-ivoire",
     "ghana",
-    "liberia"
+    "liberia",
+    "guinea"
   ],
   "range": {
     "native": {
@@ -212,6 +213,12 @@
       "html": "<p>The red-chinned panchax, Epiplatys dageti, is a killifish from coastal savanna in southwestern Ghana, southern Côte d'Ivoire and southern Liberia. An aquarium stalwart since the red-throated form was first exported from Monrovia in 1908, it is relatively hardy and easy to breed, and a good choice for those new to killifishes. The Monrovia fish is often labelled E. dageti monroviae in aquarium literature.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/epiplatys_dageti_en/",
+      "html": "<p>Daget's Panchax is an absolute evergreen. Currently two forms are available: bred ones that belong to the subspecies E. d. monroviae, and wild-collected ones from Guinea, which are as beautiful as the former, but much more dainty in all parts of the body. The wild-collected ones obviously belong to the nominate subspecies, E. d. dageti.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/epiplatys-dageti-dageti",
@@ -356,5 +363,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-07"
+  "updatedAt": "2026-11-08"
 }

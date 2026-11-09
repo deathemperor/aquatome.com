@@ -1,0 +1,264 @@
+{
+  "id": "lates-angustifrons",
+  "scientificName": "Lates angustifrons",
+  "order": "Perciformes",
+  "family": "Latidae",
+  "genus": "Lates",
+  "group": "other",
+  "places": [
+    "africa",
+    "burundi",
+    "lake-tanganyika",
+    "democratic-republic-of-the-congo",
+    "tanzania",
+    "zambia"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BI",
+        "CD",
+        "TZ",
+        "ZM"
+      ],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Tanganyika (Burundi, DR Congo, Tanzania and Zambia).",
+          "countries": [
+            "BI",
+            "CD",
+            "TZ",
+            "ZM"
+          ],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2393183,
+      "total": 52,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "ZM",
+          16
+        ],
+        [
+          "CD",
+          12
+        ],
+        [
+          "TZ",
+          11
+        ],
+        [
+          "BI",
+          8
+        ],
+        [
+          "US",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          -98.4375,
+          28.125,
+          2,
+          0
+        ],
+        [
+          -97.03125,
+          28.125,
+          3,
+          0
+        ],
+        [
+          28.125,
+          -7.03125,
+          7,
+          7
+        ],
+        [
+          28.125,
+          -4.21875,
+          9,
+          9
+        ],
+        [
+          29.53125,
+          -9.84375,
+          13,
+          13
+        ],
+        [
+          29.53125,
+          -8.4375,
+          4,
+          4
+        ],
+        [
+          29.53125,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          29.53125,
+          -5.625,
+          9,
+          9
+        ],
+        [
+          30.9375,
+          -9.84375,
+          3,
+          3
+        ],
+        [
+          30.9375,
+          -8.4375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7.5,
+          "max": 9.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 40
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 200
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lates-angustifrons",
+      "html": "<p>The Tanganyika lates, Lates angustifrons, is a giant predatory fish endemic to Lake Tanganyika, growing to 200 cm. Juveniles have turned up in some aquatic stores, but the species is not suited to captive life in any respect, and housing an adult is beyond the reach of most public aquaria. Highly piscivorous, it feeds mainly on cichlids in nature, and adults live throughout the lake, usually around the lake bed.</p><ul><li>Difficulty: difficult, because it needs a tank at least 2 m long</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lates-angustifrons",
+      "html": "<p>Endemic to Lake Tanganyika (Burundi, DR Congo, Tanzania and Zambia).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lates-angustifrons",
+      "html": "<p>Young fish can be found around the shoreline of the lake, but adults are found throughout it, usually around the lake bed.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lates-angustifrons",
+      "html": "<p>A truly humongous tank (or pond) would be required by an adult specimen. Something in the region of 6 m x 1.8 m x 3 m would be considered a bare minimum. A tank like this would hold over 30,000 litres of water!</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lates-angustifrons",
+      "html": "<p>Speaking hypothetically, decor would not be critical. Obviously, an enormous filtration system would be needed to cope with the massive amounts of biological waste a fish like this produces.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lates-angustifrons",
+      "html": "<ul><li>Temperature: 22–28°C</li><li>pH: 7.5–9.5</li><li>Hardness: 20–40 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lates-angustifrons",
+      "html": "<p>Highly piscivorous in nature, feeding mainly on various cichlid species, juvenile captive specimens have been known to accept prawns, lancefish etc. An adult fish would need large amounts of fish such as whole trout. An expensive proposition!</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lates-angustifrons",
+      "html": "<p>Will not eat anything it can't fit into its mouth, but this doesn't leave many available species that can be housed with it long term. Young fish have been seen cohabiting with large tankmates such as Cichla, arowana and tankbusting catfish.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lates-angustifrons",
+      "html": "<p>Unknown.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lates-angustifrons",
+      "html": "<p>Surely impossible in aquaria. Should not even be considered an option.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lates-angustifrons",
+      "html": "<p>This species is included purely because an alarming number of juvenile fish have been showing up in some aquatic stores and, as a result, in hobbyists' tanks. This species is simply not suited to captive life in any respect. If you see one for sale, and they are undeniably an attractive fish, please don't be tempted to buy it. As responsible fishkeepers, we should consider the long term well-being of any fish that we buy, and housing a L. angustifrons for life is even beyond the reach of most public aquaria. Sadly, owning this species and others like it seems to be fashionable at the moment, with some aquarists even viewing them as a status symbol. It is to be hoped this situation can be rectified in the future, as surely all these aquarium specimens are doomed to a premature death.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc bể cá cỡ lớn",
+        "máy lọc thùng công suất lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá săn mồi",
+        "cá phi lê đông lạnh cho cá lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}
