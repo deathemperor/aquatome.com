@@ -807,6 +807,44 @@ test('a key that runs dry during a question hands the rest of the run to the nex
   }
 })
 
+test('each call asks the run\'s key first, a key set aside stays out for the rest of the run, and the answer is credited to the key that wrote it', async () => {
+  const overloaded = () => Response.json({ type: 'error', error: { type: 'overloaded_error', message: 'Overloaded' } }, { status: 529 })
+  const credit = () => Response.json({ type: 'error', error: { type: 'invalid_request_error', message: 'Your credit balance is too low to access the Anthropic API.' } }, { status: 400 })
+  const scripted = (replies: (() => Response | Promise<Response>)[]) => {
+    const keys: string[] = []
+    const fetch = (async (input: RequestInfo | URL, init?: RequestInit) => {
+      const h = new Request(input, init).headers
+      keys.push(h.get('x-api-key') ?? h.get('authorization')!.replace(/^Bearer\s+/i, ''))
+      return replies[keys.length - 1]!()
+    }) as typeof globalThis.fetch
+    return { keys, fetch }
+  }
+  {
+    // A answers the first call; overloaded on the second, B answers it; on the third B is overloaded first, as the run's
+    // key now, and A writes the answer.
+    const { e, db, ledger } = env()
+    const me = await signIn(db)
+    const read = () => reads('/vi/ca/ca-neon-xanh/')
+    const c = scripted([read, overloaded, read, overloaded, NEON[1]!])
+    const r = await run(ask(bearer(me.token)), e, deps(c.fetch))
+    expect(r.res.status).toBe(200)
+    expect(c.keys).toEqual([A, A, B, B, A])
+    const day = ledger.day()!
+    const [first] = Object.entries(day.keys).find(([, n]) => n === 2)!
+    expect(day.ok).toEqual({ [first]: 1 })
+  }
+  {
+    // A runs dry on the second call and B answers it; B is overloaded on the third, and A isn't asked again.
+    const { e, db } = env()
+    const me = await signIn(db)
+    const read = () => reads('/vi/ca/ca-neon-xanh/')
+    const c = scripted([read, credit, read, overloaded, NEON[1]!])
+    const r = await run(ask(bearer(me.token)), e, deps(c.fetch))
+    expect([r.res.status, r.body]).toEqual([503, { error: 'unavailable' }])
+    expect(c.keys).toEqual([A, A, B, B])
+  }
+})
+
 test('a later call whose text has begun isn\'t asked again of the next key when it fails: the reader gets the error, never a second answer after the first words', async () => {
   const { e, db } = env()
   const me = await signIn(db)

@@ -311,6 +311,8 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   const fetchImpl = deps.fetch ?? (env.FISHID_RELAY ? relayFetch(env.FISHID_RELAY) : undefined)
   const spends: Promise<unknown>[] = []
   const tally: Record<string, number> = {}
+  /** The key that answered the run's last call: the one that wrote the answer, as a run may change keys. */
+  let wrote: string | undefined
   const attempts: Attempt[] = []
   const began = clock()
   /** On a stream: when it sent the text's first piece and its last; when the run ended; when it sent `done` (or its error). */
@@ -358,6 +360,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
           if (!r.ok) throw new NoAnswer(r.reason)
           key = healthy.find(k => k.hash === r.hash)!
           tally[key.hash] = (tally[key.hash] ?? 0) + 1
+          wrote = key.hash
           onUsage(r.value.usage)
           return r.value
         },
@@ -406,7 +409,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
     // fishkeeping (the owner's rule), up to a day's worth of them, so looping off-topic questions can't use up chat's own
     // day for everyone. Chat's own day and the dollars spent still count. A failed answer (502) still counts, unless its
     // text had begun on the stream: only a whole answer counts, so one cut off after the reader's first words goes back too.
-    const ok = turn && Object.keys(tally).length ? Object.keys(tally).at(-1) : undefined
+    const ok = turn ? wrote : undefined
     const offTopic = done.status === 200 && trail?.answer?.offTopic === true
     const cutOff = !turn && wordsAt !== undefined
     await ledger.settle({ day, run, refund: done.status === 503 || cutOff, ...(offTopic ? { offTopic: perAccount } : {}), keys: tally, ...(ok ? { ok } : {}) }).catch(e => console.error('chat settle:', e))
