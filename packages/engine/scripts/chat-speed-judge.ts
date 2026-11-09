@@ -50,7 +50,7 @@ async function main() {
   const questions = JSON.parse(await readFile(args.questions!, 'utf8')) as HardQuestion[]
   const kept = questions.filter(q => args.split === 'all' || (args.split === 'holdout') === Boolean(q.holdout))
   await mkdir(args.cache!, { recursive: true })
-  const seen = (t: Turn) => seenOurs(t.text ?? '', t.blocks ?? [], t.suggestions ?? [])
+  const seen = (t: Turn, lang?: ReaderLang) => seenOurs(t.text ?? '', t.blocks ?? [], t.suggestions ?? [], lang)
   const judgeOnce = async (prompt: string, system = JUDGE_SYSTEM) => {
     const file = join(args.cache!, `${args.judge}-v${RUBRIC_VERSION}-${system === JUDGE_SYSTEM ? hash(prompt) : hash(system, prompt)}.json`)
     try { return JSON.parse(await readFile(file, 'utf8')) as Verdict } catch { /* not yet */ }
@@ -58,7 +58,7 @@ async function main() {
     await writeFile(file, JSON.stringify(v, null, 2))
     return v
   }
-  type Pair = { id: string; group: 'post' | 'tank' | 'everyday' | 'everyday-tank'; prompt: (x: string, y: string) => string; system?: string }
+  type Pair = { id: string; group: 'post' | 'tank' | 'everyday' | 'everyday-tank'; prompt: (x: string, y: string) => string; system?: string; lang?: ReaderLang }
   const pairs: Pair[] = sets.includes('hard') ? kept.flatMap(q => (['post', 'tank'] as const).map(c => ({
     id: `${q.id}-${c}`, group: c, prompt: (x: string, y: string) => judgePrompt(c === 'post' ? q.post : q.short, c === 'tank' && q.tank ? tankFacts(q.tank) : null, x, y),
   }))) : []
@@ -70,13 +70,13 @@ async function main() {
       const context = q.tank ? `What is true about their tank (their app holds it; they didn't type it, and the assistant could read it):\n${tankFacts(q.tank)}` : s?.from === 'fish-id' && s.identified
         ? `They asked right after the app's fish ID named their photo: ${s.identified.results.map(r => `${r.scientificName} (${Math.round(r.confidence * 100)}%)`).join(', ')}. The assistant knew this.`
         : s?.from === 'species' && s.about ? `They asked from the handbook's page on ${named(s.about)}: "this fish" is that one, and the assistant knew it.` : null
-      pairs.push({ id: q.id, group: q.tank ? 'everyday-tank' : 'everyday', prompt: (x, y) => judgePromptIn(q.lang, q.q, context, x, y), system: judgeSystemIn(q.lang) })
+      pairs.push({ id: q.id, group: q.tank ? 'everyday-tank' : 'everyday', prompt: (x, y) => judgePromptIn(q.lang, q.q, context, x, y), system: judgeSystemIn(q.lang), lang: q.lang })
     }
   }
   const failed = pairs.filter(p => !a.get(p.id)?.text || !b.get(p.id)?.text)
   const results = await pool(pairs.filter(p => a.get(p.id)?.text && b.get(p.id)?.text).map(p => async () => {
-    const x = unbrand(seen(b.get(p.id)!))
-    const y = unbrand(seen(a.get(p.id)!))
+    const x = unbrand(seen(b.get(p.id)!, p.lang))
+    const y = unbrand(seen(a.get(p.id)!, p.lang))
     // `outcome` reads the first order's X and the second's Y as "ours": here, the change.
     const [first, second] = await Promise.all([judgeOnce(p.prompt(x, y), p.system), judgeOnce(p.prompt(y, x), p.system)])
     const r = outcome({ first, second })
