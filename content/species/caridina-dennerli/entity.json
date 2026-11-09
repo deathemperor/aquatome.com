@@ -1,0 +1,85 @@
+{
+  "id": "caridina-dennerli",
+  "scientificName": "Caridina dennerli",
+  "order": "Decapoda",
+  "family": "Atyidae",
+  "genus": "Caridina",
+  "group": "shrimp",
+  "places": [],
+  "range": {
+    "records": {
+      "taxonKey": 6454959,
+      "total": 36,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "ID",
+          36
+        ]
+      ],
+      "cells": [
+        [
+          120.9375,
+          -2.8125,
+          36
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 27,
+          "max": 30
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/caridina-dennerli-2/",
+      "html": "<p>When the White Spot Bee Shrimp first appeared in larger numbers in the ornamental fish trade about 10 years ago, there was great enthusiasm for them. Sadly, it turned out that these tiny animals are very sensitive to temporary stress, for example low temperatures during transport, and die very quickly if their needs are not met perfectly. The initial enthusiasm turned into disillusion, and the shrimps came to be regarded as animals suited only to specialists.</p><p>German-bred specimens are now available. The breeder says that these shrimps are not difficult to keep at all. Even for these bred shrimps, the water temperature should not fall below 25°C for longer periods. It is not yet known how hardy they will prove to be in the long term.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/caridina-dennerli-2/",
+      "html": "<p>The best temperature to keep and breed them is 27–30°C.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể tép",
+        "máy sưởi thủy sinh 50w"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc bể tép",
+        "lọc mút xốp cho tép"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho tép cảnh"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "bộ test nước bể tép"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

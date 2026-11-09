@@ -48,7 +48,7 @@
   },
   "held": {
     "checks": [
-      "kit",
+      "elsewhere",
       "price",
       "source"
     ],

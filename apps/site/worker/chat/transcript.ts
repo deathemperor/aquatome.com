@@ -25,6 +25,8 @@ export type ChatRunRecord = {
   /** 'ok', or the error the reader got ('failed', 'unavailable'). */
   outcome: string
   ms: number
+  /** In ms from the question's arrival: to the run's start (`before`), and on a stream to the text's first piece (`words`). */
+  timing?: { before: number; words?: number }
   cost: number
   tokens: { input: number; output: number }
   agent: { calls: number; tools: number; stopped: string }

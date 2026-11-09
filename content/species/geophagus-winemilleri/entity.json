@@ -12,6 +12,110 @@
     "brazil",
     "rio-negro"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE"
+      ],
+      "regions": [
+        "Río Negro",
+        "Río Siapa",
+        "Casiquiare"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Southern Venezuela and probably northern Brazil with type locality given as 'Laguna Yocuta, 2.1347°N, 66.3742°W, Río Siapa, Amazonas, Venezuela'.",
+          "countries": [
+            "VE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Official collections have been from the upper Río Negro and Río Siapa plus the Casiquiare system of waterways which allows transfer of water between the Negro and Orinoco basins, though the species' presence in the latter drainage remains unconfirmed.",
+          "countries": [],
+          "regions": [
+            "Río Negro",
+            "Río Siapa",
+            "Casiquiare"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5208415,
+      "total": 25,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "BR",
+          17
+        ],
+        [
+          "VE",
+          7
+        ],
+        [
+          "CO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -70.3125,
+          0,
+          10,
+          0
+        ],
+        [
+          -67.5,
+          0,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          1.40625,
+          5,
+          5
+        ],
+        [
+          -67.5,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          3,
+          0
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          3,
+          0
+        ],
+        [
+          -61.875,
+          -2.8125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

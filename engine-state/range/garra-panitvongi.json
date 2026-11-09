@@ -1,0 +1,52 @@
+{
+  "id": "garra-panitvongi",
+  "native": {
+    "input": "2a050a8ea047ab86",
+    "at": "2026-11-08T18:57:48.756Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "aquatome",
+        "quote": "Loài này có ở hệ thống sông Ataran, thuộc lưu vực sông Salween, vùng đông nam Myanmar và tây Thái Lan.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "aquatome",
+        "quote": "Loài này có ở hệ thống sông Ataran, thuộc lưu vực sông Salween, vùng đông nam Myanmar và tây Thái Lan.",
+        "words": "Thái Lan",
+        "ok": false,
+        "why": "\"Thái Lan\" is not TH"
+      }
+    ],
+    "regions": [
+      {
+        "name": "Salween",
+        "source": "aquatome",
+        "quote": "Loài này có ở hệ thống sông Ataran, thuộc lưu vực sông Salween, vùng đông nam Myanmar và tây Thái Lan.",
+        "ok": true
+      },
+      {
+        "name": "Ataran",
+        "source": "aquatome",
+        "quote": "Loài này có ở hệ thống sông Ataran, thuộc lưu vực sông Salween, vùng đông nam Myanmar và tây Thái Lan.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "TH"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "unmatched": true,
+    "at": "2026-11-08T18:57:48.756Z"
+  }
+}

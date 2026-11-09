@@ -1,0 +1,27 @@
+{
+  "slug": "cephalosilurus-apurensis",
+  "name": "แคทฟิชบัมเบิ้ลบียักษ์",
+  "altNames": [
+    "Giant Bumblebee Catfish",
+    "Apure Bumblebee Catfish",
+    "บัมเบิ้ลบีแคทฟิช"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Cephalosilurus apurensis โตได้ยาวสูงสุดประมาณ 30 ซม. เป็นแคทฟิชนักล่าขนาดใหญ่ และเป็นที่ต้องการอย่างมากของผู้นิยมเลี้ยงปลากลุ่มนี้</p>",
+    "beforeYouBuy:glaser": "<p>ปลาหายากชนิดนี้มีการนำเข้ามาอีกครั้งจำนวนไม่กี่ตัว ปลามีความยาว 20–25 ซม. และเกือบโตเต็มวัยแล้ว มีเข้ามาในปริมาณน้อยมากเท่านั้น</p>",
+    "distribution:glaser": "<p>ดูเหมือนว่าปลาชนิดนี้จะเป็นปลาถิ่นเดียวของเวเนซุเอลา คือพบเฉพาะในเวเนซุเอลา</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.9
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-09"
+  }
+}

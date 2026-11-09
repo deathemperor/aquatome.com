@@ -1,0 +1,80 @@
+{
+  "id": "corydoras-xinguensis",
+  "native": {
+    "input": "e20575f77868efb0",
+    "at": "2026-11-08T18:57:48.756Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Xingu cory, Hoplisoma xinguense, long known as Corydoras xinguensis, is a small spotted armoured catfish from creeks in the upper Rio Xingu basin in Mato Grosso, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the upper Rio Xingu basin in Mato Grosso state, Brazil, and not reliably known from anywhere else.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Xingu",
+        "source": "seriouslyfish",
+        "quote": "Described from the upper Rio Xingu basin in Mato Grosso state, Brazil, and not reliably known from anywhere else.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Culuene",
+        "source": "seriouslyfish",
+        "quote": "Collected from small creeks flowing into the upper Xingu, several of them in forest, and from tributaries of the Culuene and Batovi, two of the rivers that join to form the Xingu.",
+        "ok": true
+      },
+      {
+        "name": "Batovi",
+        "source": "seriouslyfish",
+        "quote": "Collected from small creeks flowing into the upper Xingu, several of them in forest, and from tributaries of the Culuene and Batovi, two of the rivers that join to form the Xingu.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras xinguensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2342689,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        14
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        5
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T18:57:48.756Z"
+  }
+}

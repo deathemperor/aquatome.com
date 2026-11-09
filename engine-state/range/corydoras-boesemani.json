@@ -1,0 +1,60 @@
+{
+  "id": "corydoras-boesemani",
+  "native": {
+    "input": "35d1fbb29d80087a",
+    "at": "2026-11-08T18:57:48.756Z",
+    "claims": [
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species appears endemic to and abundant within the upper Suriname River system, Suriname.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Boeseman's catfish, Hoplisoma boesemani, long known as Corydoras boesemani, is an armoured catfish endemic to the upper Suriname River system in Suriname.",
+        "words": "Suriname",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Suriname River",
+        "source": "seriouslyfish",
+        "quote": "This species appears endemic to and abundant within the upper Suriname River system, Suriname.",
+        "country": "SR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras boesemani",
+    "status": "ACCEPTED",
+    "taxonKey": 2342757,
+    "datasets": [
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        4
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        3
+      ]
+    ],
+    "native": [
+      "SR"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T18:57:48.756Z"
+  }
+}

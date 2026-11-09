@@ -1,0 +1,107 @@
+{
+  "id": "hypostomus-hemicochliodon",
+  "scientificName": "Hypostomus hemicochliodon",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Hypostomus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "peru",
+    "amazon",
+    "ecuador",
+    "brazil",
+    "venezuela",
+    "orinoco"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 23
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1325",
+      "html": "<p>Hypostomus hemicochliodon Armbruster, 2003.</p><p>Size: 23 cm SL.</p><p>Temperature: 22–28°C.</p><p>IUCN Red List: Not Evaluated.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1325",
+      "html": "<p>South America: Rio Amazonas in Peru, Ecuador and Brazil, and the upper Rio Negro drainage and the upper Rio Orinoco drainage in Venezuela.</p><p>Type locality: 4.54 kilometers from Iquitos center, 269° bearing, 3°45'07\"S, 73°16'59\". Río Amazonas drainage at Pampa Chica, Río Nanay, Peru. The type locality lacks a designation of W for longitude.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1325",
+      "html": "<p>Distinguished from all other members of the Hypostomus cochliodon group except H. sculpodon by having a medium-sized buccal papilla, intermediately developed teeth and a large patch of odontodes on the opercle.</p><p>Differs from H. sculpodon by its dark brown color with closely spaced spots, by having a greater dorsal-anal length to anal-fin length ratio and almost completely by having a larger interorbital width/HL ratio.</p><p>Etymology: from the Latin hemi (half), coclea (coch-, spoon) and the Greek odon (tooth), in reference to the fact that the teeth are about half as spoon shaped as those of wood-specializing members of the Hypostomus cochliodon group.</p><p>Breeding: unreported; there is no breeding report.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1325",
+      "html": "<p>Zootaxa No. 249, pp 29, Fig. 12.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/198fce8f5d6b753f.webp",
+      "thumb": "https://media.aquatome.com/scotcat/198fce8f5d6b753f-480.webp",
+      "width": 500,
+      "height": 248,
+      "licence": "dùng với sự cho phép",
+      "author": "Mark Henry Sabaj / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_hemicochliodon.htm",
+      "caption": "Hypostomus hemicochliodon",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/316ec6fe75611b9f.webp",
+      "thumb": "https://media.aquatome.com/scotcat/316ec6fe75611b9f-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Karsten Schönherr / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_hemicochliodon.htm",
+      "caption": "Hypostomus hemicochliodon: Maynas Province, Peru",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "rong biển cho cá dọn bể"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

@@ -1,0 +1,71 @@
+{
+  "id": "corydoras-lacrimostigmata",
+  "native": {
+    "input": "e4fe1c7b52815906",
+    "at": "2026-11-08T18:57:48.756Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the rio Ivaí basin, a tributary of the rio Paraná in Paraná state, southern Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "rio Ivaí",
+        "source": "seriouslyfish",
+        "quote": "Known only from the rio Ivaí basin, a tributary of the rio Paraná in Paraná state, southern Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "rio Paraná",
+        "source": "seriouslyfish",
+        "quote": "Known only from the rio Ivaí basin, a tributary of the rio Paraná in Paraná state, southern Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras lacrimostigmata",
+    "status": "ACCEPTED",
+    "taxonKey": 8161736,
+    "datasets": [
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        9
+      ],
+      [
+        "a75b2ed4-f805-42ba-a965-dca3541aee24",
+        6
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T18:57:48.756Z"
+  }
+}

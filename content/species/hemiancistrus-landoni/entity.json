@@ -1,0 +1,165 @@
+{
+  "id": "hemiancistrus-landoni",
+  "scientificName": "Hemiancistrus landoni",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Hemiancistrus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "ecuador",
+    "guayas"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 21
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1321",
+      "html": "<p>Hemiancistrus landoni Eigenmann, 1916. Type locality: Naranjito, Ecuador. Maximum size 210 mm SL. Temperature 24–28°C.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1321",
+      "html": "<p>South America: Guayas River basin. Ecuador Pacific Coast Rivers, Guayas (Ecuador).</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1321",
+      "html": "<p>Breeding: unreported. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1321",
+      "html": "<p>Etymology: Greek, hemi = the half. While the Greek agkistron = hook is thought to be the root of the term ancistrus, hemiancistrus can be taken to mean that these species have a part (not exactly half) of the features of the genus Ancistrus, but not all of them.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1321",
+      "html": "<p>Annals of the Carnegie Museum v. 10 (nos 1-2) (art. 6), pp 84.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/d11bf0016bc1df90.webp",
+      "thumb": "https://media.aquatome.com/scotcat/d11bf0016bc1df90-480.webp",
+      "width": 500,
+      "height": 262,
+      "licence": "dùng với sự cho phép",
+      "author": "Windsor Aquirre / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hemiancistrus_landoni.htm",
+      "caption": "Hemiancistrus landoni",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá lớn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08",
+  "range": {
+    "native": {
+      "countries": [
+        "EC"
+      ],
+      "regions": [
+        "Guayas River"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Hemiancistrus landoni Eigenmann, 1916. Type locality: Naranjito, Ecuador. Maximum size 210 mm SL. Temperature 24–28°C.",
+          "countries": [
+            "EC"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Guayas River basin. Ecuador Pacific Coast Rivers, Guayas (Ecuador).",
+          "countries": [],
+          "regions": [
+            "Guayas River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340143,
+      "total": 19,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "EC",
+          19
+        ]
+      ],
+      "cells": [
+        [
+          -81.5625,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -80.15625,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -80.15625,
+          -2.8125,
+          4,
+          4
+        ],
+        [
+          -80.15625,
+          -1.40625,
+          11,
+          11
+        ]
+      ]
+    }
+  }
+}

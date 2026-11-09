@@ -1,0 +1,72 @@
+{
+  "id": "homalopterula-ripleyi",
+  "native": {
+    "input": "ad5bd989eb55d27e",
+    "at": "2026-11-08T22:57:48.089Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Homalopterula ripleyi is a hillstream loach known only from a small area of northern Sumatra, Indonesia, on the eastern slopes of the Barisan range.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The type locality lies just over the border in Aceh itself and is given by Fowler as 'Goempang River at Meloewak, Atjeh Province, Sumatra, Indonesia, elevation 1640 feet'.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Homalopterula ripleyi is a hillstream loach known only from a small area of northern Sumatra, Indonesia, on the eastern slopes of the Barisan range.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Barisan",
+        "source": "seriouslyfish",
+        "quote": "Homalopterula ripleyi is a hillstream loach known only from a small area of northern Sumatra, Indonesia, on the eastern slopes of the Barisan range.",
+        "ok": true
+      },
+      {
+        "name": "Bohorok",
+        "source": "seriouslyfish",
+        "quote": "The fish were collected from two new localities. The first, in February 2003, was an unnamed tributary of the Sungai (river) Bohorok measuring just 0.5–1.2 m wide and 10–30 cm deep, with the composition and structure of the riparian vegetation suggesting it rarely exceeds 1 m in depth.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Homalopterula ripleyi",
+    "status": "ACCEPTED",
+    "taxonKey": 2358585,
+    "datasets": [
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        4
+      ],
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        4
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T22:57:48.089Z"
+  }
+}

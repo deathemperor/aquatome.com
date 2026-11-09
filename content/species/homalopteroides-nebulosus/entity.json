@@ -12,6 +12,93 @@
     "indonesia",
     "borneo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "ID"
+      ],
+      "regions": [
+        "Sok River",
+        "Borneo",
+        "Natuna Islands",
+        "Endau"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from the Sok River, Kelantan state, northern Peninsular Malaysia, and since recorded from both Malaysian and Indonesian parts of Borneo as well as the Natuna Islands off Borneo's western tip.",
+          "countries": [
+            "MY",
+            "ID"
+          ],
+          "regions": [
+            "Sok River",
+            "Borneo",
+            "Natuna Islands"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In the Kahang River, part of the Endau drainage, it's been recorded alongside Homaloptera zollingeri, H. parclitella, H. ogilviei and Homalopteroides tweediei as well as Malayochela maassi, Crossocheilus langei, Cyclocheilichthys apogon, Mystacoleucus marginatus, Rasbora dusonensis, R. elegans, R. paucisqualis, Trigonopoma gracile, 'Puntius' partipentazona, Nemacheilus masyae, N. selangoricus, Neohomaloptera johorensis, Acanthopsoides molobrion, Pangio cuneovirgata, P. doriae, P. kuhlii, P. malayana, P. piperata, P. shelfordii, Pseudomystus fuscus, Akysis microps, A. hendricksoni, and an unidentified species of Glyptothorax.",
+          "countries": [],
+          "regions": [
+            "Endau"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9267509,
+      "total": 14,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "ID",
+          10
+        ],
+        [
+          "MY",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          108.28125,
+          0,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          -1.40625,
+          4,
+          4
+        ],
+        [
+          111.09375,
+          0,
+          1,
+          1
+        ],
+        [
+          112.5,
+          1.40625,
+          4,
+          4
+        ],
+        [
+          113.90625,
+          -1.40625,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

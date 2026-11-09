@@ -3,7 +3,8 @@
  "judged": [
   "inat:255933719",
   "inat:255933741",
-  "inat:255933778"
+  "inat:255933778",
+  "flickr:8002867641"
  ],
  "hashes": {
   "https://media.aquatome.com/cryptspages/ust_Bogner1644_B580_1982.webp": "0a4d6e3ab363e616",
@@ -23,5 +24,9 @@
  "gbif": {
   "key": 2869135,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-08"
 }

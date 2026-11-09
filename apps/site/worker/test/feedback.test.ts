@@ -166,6 +166,21 @@ test('a report keeps its words, its image and only the fields that pass; none of
   }
 })
 
+test('reports sent within one millisecond keep the order they came in, each with the time it came', async () => {
+  vi.useFakeTimers({ toFake: ['Date'] })
+  try {
+    vi.setSystemTime(new Date('2026-11-09T05:00:00.000Z'))
+    const w = await worker()
+    const sent = [1, 2, 3, 4, 5, 6, 7, 8].map(n => `Báo ${n}`)
+    for (const words of sent) expect((await post(w.e, cookie(w.ownerWeb), report({ words }))).status).toBe(201)
+    const { reports } = await (await machine(w.e, 'GET', '/_ab/feedback')).json() as { reports: { words: string; at: string }[] }
+    expect(reports.map(r => r.words)).toEqual(sent)
+    expect(new Set(reports.map(r => r.at))).toEqual(new Set(['2026-11-09T05:00:00.000Z']))
+  } finally {
+    vi.useRealTimers()
+  }
+})
+
 test('words are cut at their limit, and the words or the image can come alone; neither is refused', async () => {
   const w = await worker()
   const alone = await post(w.e, bearer(w.ownerApp), report({ words: 'Chỉ có lời', image: null }))

@@ -96,6 +96,36 @@ test('the planner fills every day from the week\'s list in order, never the same
   expect(new Set(more.calendar.days.map(d => d.fish).filter(Boolean)).size).toBe(more.calendar.days.filter(d => d.fish).length)
 })
 
+test('a fish with a loop moves up on its own, but never past the week\'s own list', () => {
+  const cands = [fish('a'), fish('b'), fish('c'), guide('g1'), guide('g2'), guide('g3')]
+  const loop = { src: 'https://media.aquatome.com/loops/c-1.mp4', poster: 'https://media.aquatome.com/loops/c-1.webp', w: 1080, h: 1080, seconds: 8, licence: 'CC0', licenceUrl: 'https://creativecommons.org/publicdomain/zero/1.0/', author: 'x', source: 'https://commons.wikimedia.org/wiki/File:C.webm' }
+  const looped = CurationSchema.parse({ version: 1, weeks: [], days: [], loops: { c: loop } })
+  // Alike but for the loop, a and b would come first by name.
+  expect(plan(empty, cands, '2026-11-09', 1).calendar.days[0]!.fish).toBe('species/a')
+  const { calendar } = plan(looped, cands, '2026-11-09', 1)
+  expect(calendar.days[0]!.fish).toBe('species/c')
+  expect(calendar.days[0]!.why).toMatch(/has a loop/)
+  const listed = CurationSchema.parse({ ...looped, weeks: [{ from: '2026-11-09', to: '2026-11-15', theme: { vi: 'x' }, fish: ['species/b'] }] })
+  expect(plan(listed, cands, '2026-11-09', 2).calendar.days.map(d => d.fish)).toEqual(['species/b', 'species/c'])
+})
+
+test('a week takes one video guide, after its own list and before the rest', () => {
+  const v = (id: string, o: Partial<Candidate> = {}) => guide(id, { source: 'youtube', ...o })
+  const a = (id: string) => guide(id, { source: id, demand: 50 })
+  const cands = [fish('f1'), fish('f2'), fish('f3'), fish('f4'), a('a1'), a('a2'), a('a3'), v('v1'), v('v2')]
+  const week = { from: '2026-11-09', to: '2026-11-15', theme: { vi: 'x' } }
+  const guides = (cur: Curation) => plan(cur, cands, '2026-11-09', 4).calendar.days.map(d => d.guide)
+  // The articles' searches would fill every day; the week still gets one video, and only one.
+  expect(guides(CurationSchema.parse({ version: 1, weeks: [week], days: [] }))).toEqual(['guides/v1', 'guides/a1', 'guides/a2', 'guides/a3'])
+  // The week's own list first.
+  expect(guides(CurationSchema.parse({ version: 1, weeks: [{ ...week, guides: ['guides/a3'] }], days: [] }))).toEqual(['guides/a3', 'guides/v1', 'guides/a1', 'guides/a2'])
+  // A week that has its video guide already takes no other.
+  const kept = CurationSchema.parse({ version: 1, weeks: [week], days: [{ date: '2026-11-12', guide: 'guides/v2', fixed: true }] })
+  expect(guides(kept)).toEqual(['guides/a1', 'guides/a2', 'guides/a3', 'guides/v2'])
+  // A day outside every week takes the nearest week's theme, not a video for it.
+  expect(guides(CurationSchema.parse({ version: 1, weeks: [{ ...week, from: '2026-11-02', to: '2026-11-08' }], days: [] }))).toEqual(['guides/a1', 'guides/a2', 'guides/a3', 'guides/v1'])
+})
+
 test('a chosen day is kept while it passes; a pick that stops passing is replaced and said why', () => {
   const cands = [fish('a'), fish('b'), guide('g1'), guide('g2')]
   const cur = CurationSchema.parse({ version: 1, weeks: [], days: [{ date: '2026-11-09', fish: 'species/a', img: cands[0]!.photo.square!.url, guide: 'guides/g1', fixed: true }] })

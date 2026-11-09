@@ -188,29 +188,94 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
   }
 
   /// What the site's home page leads with, in its order: fish groups (with a photo of one), then fish, plants and
-  /// guides by their item's path.
+  /// guides by their item's path. And the editors' calendar for Hôm nay (`days`, docs/curation.md).
   public struct Home: Codable, Sendable, Equatable {
     public struct Group: Codable, Sendable, Hashable {
       public let id: String
       public let img: String?
       public init(id: String, img: String? = nil) { self.id = id; self.img = img }
     }
+
+    /// A day of the editors' calendar, from yesterday on (`apps/site/src/lib/curation.ts`): its fish and the fish card's
+    /// photo, its guide and the guide card's photo, and a story, by their item's path. A slot left out is empty that day,
+    /// not one for the app to fill; a date not listed is the app's own.
+    public struct Day: Codable, Sendable, Equatable {
+      /// A page told in a few words, in this index's language where the editors wrote them.
+      public struct Story: Codable, Sendable, Equatable {
+        public let path: String
+        public var img: String?
+        public var eyebrow: String?
+        public var title: String?
+        public var dek: String?
+        public init(path: String, img: String? = nil, eyebrow: String? = nil, title: String? = nil, dek: String? = nil) {
+          self.path = path; self.img = img; self.eyebrow = eyebrow; self.title = title; self.dek = dek
+        }
+        enum CodingKeys: String, CodingKey { case path, img, eyebrow, title, dek }
+        public init(from decoder: any Decoder) throws {
+          let c = try decoder.container(keyedBy: CodingKeys.self)
+          func read(_ k: CodingKeys) -> String? { (try? c.decodeIfPresent(String.self, forKey: k)) ?? nil }
+          path = try c.decode(String.self, forKey: .path)
+          img = read(.img); eyebrow = read(.eyebrow); title = read(.title); dek = read(.dek)
+        }
+      }
+      /// "2026-11-13", the reader's own date (`key(_:)`).
+      public let date: String
+      public var fish: String?
+      /// The fish card's photo, big enough for it: the card shows this one, or none.
+      public var img: String?
+      public var guide: String?
+      /// The guide card's photo, likewise.
+      public var guideImg: String?
+      public var story: Story?
+
+      public init(date: String, fish: String? = nil, img: String? = nil, guide: String? = nil, guideImg: String? = nil, story: Story? = nil) {
+        self.date = date; self.fish = fish; self.img = img; self.guide = guide; self.guideImg = guideImg; self.story = story
+      }
+
+      enum CodingKeys: String, CodingKey { case date, fish, img, guide, guideImg, story }
+
+      public init(from decoder: any Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        func read<T: Decodable>(_ k: CodingKeys) -> T? { (try? c.decodeIfPresent(T.self, forKey: k)) ?? nil }
+        date = try c.decode(String.self, forKey: .date)
+        fish = read(.fish); img = read(.img); guide = read(.guide); guideImg = read(.guideImg); story = read(.story)
+      }
+
+      /// A date as the calendar names it, on the reader's clock: always the Gregorian year, as a Thai phone's own
+      /// calendar would put 2569.
+      public static func key(_ date: Date, in zone: TimeZone = .current) -> String {
+        var cal = Calendar(identifier: .gregorian)
+        cal.timeZone = zone
+        let d = cal.dateComponents([.year, .month, .day], from: date)
+        return String(format: "%04d-%02d-%02d", d.year ?? 0, d.month ?? 0, d.day ?? 0)
+      }
+    }
+
     public var groups: [Group]
     public var fish: [String]
     public var plants: [String]
     public var guides: [String]
+    public var days: [Day]
 
-    public init(groups: [Group] = [], fish: [String] = [], plants: [String] = [], guides: [String] = []) {
-      self.groups = groups; self.fish = fish; self.plants = plants; self.guides = guides
+    public init(groups: [Group] = [], fish: [String] = [], plants: [String] = [], guides: [String] = [], days: [Day] = []) {
+      self.groups = groups; self.fish = fish; self.plants = plants; self.guides = guides; self.days = days
     }
 
-    enum CodingKeys: String, CodingKey { case groups, fish, plants, guides }
+    enum CodingKeys: String, CodingKey { case groups, fish, plants, guides, days }
 
     public init(from decoder: any Decoder) throws {
       let c = try decoder.container(keyedBy: CodingKeys.self)
       func read<T: Decodable>(_ k: CodingKeys) -> T? { (try? c.decodeIfPresent(T.self, forKey: k)) ?? nil }
       groups = read(.groups) ?? []; fish = read(.fish) ?? []; plants = read(.plants) ?? []; guides = read(.guides) ?? []
+      // Day by day: one this app can't read costs only that day, which goes to the app's own picks.
+      days = (read(.days) as [Lenient<Day>]?)?.compactMap(\.value) ?? []
     }
+  }
+
+  /// An element of a list, or nil where it can't be read, so the rest of the list stays.
+  struct Lenient<T: Decodable>: Decodable {
+    let value: T?
+    init(from decoder: any Decoder) throws { value = try? T(from: decoder) }
   }
 
   /// The site's words, in the index's language, for each key items carry: by key, then by value ("group" → "tetras" →

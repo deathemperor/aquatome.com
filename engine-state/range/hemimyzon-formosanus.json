@@ -1,0 +1,104 @@
+{
+  "id": "hemimyzon-formosanus",
+  "native": {
+    "input": "7199380d6df68a22",
+    "at": "2026-11-08T18:57:48.756Z",
+    "claims": [
+      {
+        "code": "TW",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Taiwan where it's found most abundant in river systems draining the western slopes of the island's Central Mountain Range, plus a few northern drainages.",
+        "words": "Taiwan",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Central Mountain Range",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Taiwan where it's found most abundant in river systems draining the western slopes of the island's Central Mountain Range, plus a few northern drainages.",
+        "country": "TW",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hemimyzon formosanus",
+    "status": "ACCEPTED",
+    "taxonKey": 2358790,
+    "datasets": [
+      [
+        "83cbdde7-998f-4354-95de-72d885cc5863",
+        904
+      ],
+      [
+        "419e0d91-3510-485d-96f2-40499fa58495",
+        342
+      ],
+      [
+        "85bc2470-98a1-11de-b4da-b8a03c50a862",
+        33
+      ],
+      [
+        "b7dd8170-98a0-11de-b4d9-b8a03c50a862",
+        7
+      ],
+      [
+        "96ae8a00-c4f6-48e6-a99a-09e9bad57ae0",
+        5
+      ],
+      [
+        "58c0f622-f643-48f5-af09-4dd2f8d2900f",
+        4
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        3
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ],
+      [
+        "ca22abc0-98a1-11de-b4da-b8a03c50a862",
+        3
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "24f1ac6a-8f1d-4d23-8453-e5ce18bff54c",
+        1
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "e1a01804-881b-42ae-8f97-1e80f697fd56",
+        1
+      ]
+    ],
+    "native": [
+      "TW"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T18:57:48.756Z"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "slug": "centromochlus-romani",
+  "name": "โรมันส์วูดแคท",
+  "altNames": [
+    "Roman's Woodcat",
+    "Driftwood Catfish",
+    "ดริฟท์วูดแคทฟิช",
+    "วูดแคท"
+  ],
+  "sections": {
+    "quickFacts:planetcatfish": "<ul><li><strong>ชื่อวิทยาศาสตร์:</strong> Duringlanis romani (Mees, 1988)</li><li><strong>ชื่อสามัญ:</strong> Roman's Woodcat, Driftwood Catfish</li><li><strong>ขนาด:</strong> 31 มม. SL</li><li><strong>อุณหภูมิ:</strong> 24.0–28.0 °C</li><li><strong>สถานะในบัญชีแดง IUCN:</strong> กังวลน้อยที่สุด (Least Concern) (ประเมินครั้งล่าสุดปี 2020)</li></ul>",
+    "distribution:planetcatfish": "<p>ลุ่มแม่น้ำซานฮวน (San Juan) ประเทศเวเนซุเอลา เขตน่านน้ำแคริบเบียน แหล่งที่พบตัวอย่างต้นแบบ (type locality): แม่น้ำกวาราปิเช (Río Guarapiche) ซึ่งเป็นสาขาของแม่น้ำซานฮวน ใกล้โมนากัส (Monagas) ประเทศเวเนซุเอลา</p>",
+    "reproduction:planetcatfish": "<p>ดูบทความ Catfish of the Month ฉบับเดือนมกราคม 2010 มีรายงานการเพาะพันธุ์ 2 รายงาน</p>",
+    "references:planetcatfish": "<p>Proceedings of the Koninklijke Nederlandse Akademie van Wetenschappen (Series C, Biological and Medical Sciences) v. 91 (no. 4), pp 412, Figs. 3-4.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": true,
+    "bySource": {
+      "planetcatfish": 0.9
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-09"
+  }
+}

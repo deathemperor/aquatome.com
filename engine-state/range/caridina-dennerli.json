@@ -1,0 +1,33 @@
+{
+  "id": "caridina-dennerli",
+  "native": {
+    "input": "58d13e1426d45722",
+    "at": "2026-11-08T22:57:48.089Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Caridina dennerli",
+    "status": "ACCEPTED",
+    "taxonKey": 6454959,
+    "datasets": [
+      [
+        "7b84c0a2-f762-11e1-a439-00145eb45e9a",
+        20
+      ],
+      [
+        "5221e970-757c-43cb-bdd4-2f085bf36ae4",
+        16
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-08T22:57:48.089Z"
+  }
+}

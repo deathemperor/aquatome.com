@@ -56,6 +56,48 @@
       "kept": true
     }
   ],
+  "vi/plants/anubias-barteri-var-coffeifolia": [
+    {
+      "at": "2026-11-08T23:10:25Z",
+      "model": "opus",
+      "score": 0.65,
+      "notes": [
+        "Added placement advice not in INPUT: \"nên lúc chọn chỗ gắn cần tính thêm phần thân rễ đó\". The INPUT gives the rhizome length but never says to allow space for it.",
+        "\"Bể lớn hay bể nhỏ đặt nó đều đẹp\" leaves out the INPUT's reason (the leaf colour and shape). It isn't wrong, but on its own it reads like an unsupported claim.",
+        "\"Bể có cá ăn cây cũng trồng được\" goes slightly beyond the source. The INPUT only says plant-eating fish don't touch it. This is minor.",
+        "\"chỗ của nó là trên lũa hoặc đá\" is a little stiff. Something like \"buộc/gắn lên lũa, đá\" would sound more natural to a hobbyist."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T23:10:25Z",
+      "model": "opus",
+      "score": 0.4,
+      "notes": [
+        "\"Khe giữa lũa và đá là một chỗ đặt đẹp cho Anubias cỡ nhỏ\" comes from the betta-tank video guide, which was about an unnamed small Anubias. It is not about this plant.",
+        "\"Ở bể nửa nước nửa cạn, Anubias trồng được cả dưới nước lẫn lên vách rêu phía trên mặt nước\" comes from the paludarium guide, which planted Anubias nana 'Kirin' and 'Bonsai', not coffeifolia. It presents a guide's method as this plant's.",
+        "\"miễn là không khí trong bể đủ ẩm\" is a condition taken from the paludarium guide. The plant's page and figures give no humidity requirement.",
+        "\"Loài này\" is inaccurate: the page calls coffeifolia a cultivar (giống trồng) of Anubias barteri, not a species. \"Giống này\" would be correct."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/plants/aponogeton-ulvaceus": [
+    {
+      "at": "2026-11-08T19:10:41Z",
+      "model": "opus",
+      "score": 0.85,
+      "notes": [
+        "Heading \"Mấy tuần đầu\" sets a time frame the INPUT doesn't give. The guide only says \"lúc mới set\".",
+        "\"Nếu phân nền đã dùng hơn nửa năm thì nhét thêm phân nhét\" comes from the video's general advice on reusing old substrate. It isn't advice specific to this plant, so it reads a bit off-topic here.",
+        "\"củ mua về chỉ là một củ đen chưa có lá\" describes the bulbs bought in one video setup, but the passage presents it as always true of this plant."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/plants/bucephalandra-sp": [
     {
       "at": "2026-11-06T18:21:50Z",
@@ -207,6 +249,20 @@
         "\"Thảm thường mất khoảng 2–3 tháng mới kín\": the hairgrass guide gives 2–3 months for growing without CO2, and the CO2 video says about three months. The passage drops that condition while also advising stable CO2.",
         "\"cỏ lên chậm hơn hẳn\": the source only says \"lên chậm hơn\". Adding \"hẳn\" makes the slowdown sound much bigger than the INPUT does.",
         "\"thành một thảm thấp\": the Tropica text says \"thảm dày\". Changing it to \"thấp\" shifts the meaning a little."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/plants/eleocharis-pusilla": [
+    {
+      "at": "2026-11-08T23:11:03Z",
+      "model": "opus",
+      "score": 0.8,
+      "notes": [
+        "\"mỗi lần tỉa phải gỡ bớt chồi bò của nó\": the INPUT describes gỡ chồi bò during one trim session. It doesn't say this is needed every trim.",
+        "\"Cây bán dưới dạng cấy mô trong cốc gel\": the plant's page only says it is tissue culture in a sealed cup (\"đóng trong cốc kín\"). The gel comes from the guide's general in vitro section.",
+        "\"pusilla thấp nhất nên đứng trước\": the guide only ranks the heights and says the grass gets taller toward the back and centre. \"nên\" makes it sound firmer than the source, but the meaning is close."
       ],
       "attempt": "first",
       "kept": true

@@ -15,17 +15,17 @@
     {
       "url": "https://www.practicalfishkeeping.co.uk/fishkeeping-answers/what-should-i-do-if-i-detect-ammonia/",
       "title": "Practical Fishkeeping – What should I do if I detect ammonia?",
-      "kind": "article"
+      "kind": "magazine"
     },
     {
       "url": "https://www.globalseafood.org/advocate/nitrite-toxicity-affected-by-species-susceptibility-environmental-conditions/",
       "title": "Global Seafood Alliance – Nitrite toxicity affected by species susceptibility, environmental conditions",
-      "kind": "article"
+      "kind": "farm"
     },
     {
       "url": "https://bioaqua.vn/doc-tinh-nitrit-bi-tac-dong-boi-tinh-nhay-cam-cua-loai-va-cac-dieu-kien-moi-truong/",
       "title": "Bioaqua.vn – Độc tính nitrit bị tác động bởi tính nhạy cảm của loài và các điều kiện môi trường",
-      "kind": "article"
+      "kind": "farm"
     },
     {
       "url": "https://www.seachem.com/prime.php",
@@ -35,7 +35,7 @@
     {
       "url": "https://guppynhatminh.com/muoi-hot-khong-the-thieu-cho-ca-canh/",
       "title": "Guppy Nhật Minh – Muối hột không thể thiếu cho cá cảnh",
-      "kind": "article"
+      "kind": "shop"
     }
   ],
   "facts": [
@@ -108,11 +108,6 @@
       "section": "what",
       "fact": "Ammonia is more toxic at higher pH and in warmer water, and ammonia problems often come together with nitrite problems.",
       "source": 1
-    },
-    {
-      "section": "what",
-      "fact": "Estimated safe long-term nitrite-nitrogen levels are 0.5000–2.5000 mg/L for freshwater warmwater fish and invertebrates, and 0.0125–0.5000 mg/L for freshwater coldwater fish.",
-      "source": 2
     },
     {
       "section": "signs",
@@ -351,8 +346,8 @@
     },
     {
       "section": "prevention",
-      "fact": "Keep dissolved oxygen above 3 mg/L for warmwater species and above 5 mg/L for coldwater species. This also helps bacteria turn nitrite into nitrate.",
-      "source": 2
+      "fact": "Merck gives dissolved oxygen above 5 mg/L as optimal for most finfish, in fresh and salt water.",
+      "source": 0
     },
     {
       "section": "prevention",

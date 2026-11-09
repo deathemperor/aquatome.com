@@ -14,6 +14,168 @@
     "suriname",
     "courantyne"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE",
+        "GY",
+        "SR"
+      ],
+      "regions": [
+        "Essequibo",
+        "Courantyne",
+        "Rupununi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The blackstripe cory, Hoplisoma bondi, long known as Corydoras bondi, is an armoured catfish from Venezuela, Guyana and Suriname, including the Essequibo and Courantyne systems.",
+          "countries": [
+            "VE",
+            "GY",
+            "SR"
+          ],
+          "regions": [
+            "Courantyne"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The Yuruari, an affluent of the Río Cuyuni, and Rupununi are both tributaries within the larger Essequibo watershed.",
+          "countries": [],
+          "regions": [
+            "Essequibo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Río Yuruari, 3 kilometers east of El Callao, 7°18'N, 61°50'W, Bolivar, Venezuela', and this species is also known from the Rupununi River drainage in Guyana and the Courantyne/Corantijn system in Suriname.",
+          "countries": [],
+          "regions": [
+            "Rupununi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342774,
+      "total": 45,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "VE",
+          27
+        ],
+        [
+          "GY",
+          12
+        ],
+        [
+          "SR",
+          4
+        ],
+        [
+          "BR",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -66.09375,
+          5.625,
+          7,
+          7
+        ],
+        [
+          -63.28125,
+          7.03125,
+          12,
+          12
+        ],
+        [
+          -61.875,
+          -12.65625,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          5.625,
+          4,
+          4
+        ],
+        [
+          -61.875,
+          7.03125,
+          4,
+          4
+        ],
+        [
+          -60.46875,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -60.46875,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -59.0625,
+          1.40625,
+          3,
+          3
+        ],
+        [
+          -59.0625,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -59.0625,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

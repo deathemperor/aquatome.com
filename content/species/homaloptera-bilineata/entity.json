@@ -13,6 +13,76 @@
     "mae-klong",
     "nepal"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM",
+        "TH"
+      ],
+      "regions": [
+        "Salween",
+        "Sittaung",
+        "Mae Klong"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Tenasserim provinces, Myanmar', which would appear to refer to what's now known as the Sittaung (previously Sittang) River, Bago Division, south central Myanmar.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Sittaung"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's also known from various parts of the Salween River basin in Myanmar and northwestern Thailand plus some tributaries of the Mae Klong system in western Thailand, and there exist questionable records from Nepal.",
+          "countries": [
+            "TH"
+          ],
+          "regions": [
+            "Salween",
+            "Mae Klong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2358605,
+      "total": 7,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "MM",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          95.625,
+          21.09375,
+          2,
+          2
+        ],
+        [
+          97.03125,
+          14.0625,
+          4,
+          4
+        ],
+        [
+          97.03125,
+          15.46875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

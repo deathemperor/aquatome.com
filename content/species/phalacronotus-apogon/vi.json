@@ -1,7 +1,13 @@
 {
   "slug": "ca-tre-thuy-tinh-phalacronotus-apogon",
-  "name": "Cá trê thủy tinh Phalacronotus apogon",
-  "altNames": [],
+  "name": "Cá trê thủy tinh khổng lồ Phalacronotus apogon",
+  "altNames": [
+    "Cá trê thủy tinh Phalacronotus apogon",
+    "Cá nheo neon xanh",
+    "Cá nheo kim loại",
+    "Blue neon sheatfish",
+    "Metallic cheatfish"
+  ],
   "sections": {
     "quickFacts:planetcatfish": "<ul><li><strong>Tên khoa học:</strong> Phalacronotus apogon (Bleeker, 1851)</li><li><strong>Địa điểm thu mẫu chuẩn:</strong> Bandjarmasin, Borneo, Indonesia.</li><li><strong>Từ nguyên:</strong> Tên loài ghép từ tiếng Hy Lạp a- (không có) và pogon (râu). Cái tên ám chỉ bộ râu rất nhỏ của loài này.</li><li><strong>Kích thước:</strong> 70 cm SL.</li><li><strong>Nhận dạng:</strong> Cá không có vây lưng. Râu tiêu giảm mạnh, ngắn hơn đường kính mắt hoặc không có. Chiều dài chuẩn (SL) gấp 5,7–7,0 lần chiều cao thân. Răng lá mía xếp thành dải gấp góc. Vây hậu môn có 75–91 tia.</li><li><strong>Tình trạng trong Sách Đỏ IUCN:</strong> Ít quan ngại</li></ul>",
     "distribution:planetcatfish": "<p>Loài này phân bố rộng khắp Đông Nam Á, gồm sông Mekong, các vùng nước của Thái Lan, sông Chao Praya, bán đảo Malaysia, Sumatra và Borneo.</p>",
@@ -10,13 +16,26 @@
     "behaviour:planetcatfish": "<p>Đây là loài cá săn mồi, tốt nhất nên nuôi riêng một mình.</p>",
     "dimorphism:planetcatfish": "<p>Cá đực thon hơn và có hàng răng cưa khỏe ở mép sau gai vây ngực. Cá cái không có hàng răng cưa này.</p>",
     "reproduction:planetcatfish": "<p>Hiện chưa có ghi nhận nào về việc loài này sinh sản trong bể nuôi. Ở vùng lục địa Đông Nam Á, cá đẻ ngay trước khi nước bắt đầu lên. Khi nước dâng cao, cá di chuyển vào các khu rừng ven sông bị ngập và nhiều khả năng ra cả vùng đồng ngập lũ. Cá con nở trong năm bắt đầu xuất hiện từ tháng 7. Đến tháng 10, chúng bắt đầu quay về sông và vẫn còn gặp nhiều ở đó cho tới tháng 1.</p>",
-    "references:planetcatfish": "<p>Natuurkd. Tijdschr. Neder. Indiëv. 2 - pp67</p>"
+    "references:planetcatfish": "<p>Natuurkd. Tijdschr. Neder. Indiëv. 2 - pp67</p>",
+    "quickFacts:seriouslyfish": "<ul><li>Độ khó: Khó, vì cá cần bể dài ít nhất 2 m.</li></ul><p>Phalacronotus apogon là một loài cá nheo cỡ lớn thuộc họ Siluridae. Nó sống ở nhiều vùng Đông Nam Á như Thái Lan, lưu vực sông Mekong và quần đảo Đại Sunda. Cá lớn tới 700 mm, và có thể nói đây không phải loài để nuôi bể gia đình. Thế nhưng cá con thỉnh thoảng vẫn được bán dưới tên 'blue neon sheatfish' hoặc 'metallic cheatfish', mà không kèm đủ thông tin về cách nuôi lâu dài. Ở nhiều nơi trong vùng phân bố tự nhiên, đây là loài cá thịt quan trọng.</p>",
+    "distribution:seriouslyfish": "<p>Theo hiểu biết hiện nay, loài này sống ở nhiều vùng Đông Nam Á. Nó có ở các hệ sông lớn của Thái Lan, Lào, Campuchia, Việt Nam và bán đảo Malaysia, cùng các đảo Sumatra, Borneo và Java thuộc quần đảo Đại Sunda.</p><p>Nơi thu mẫu chuẩn là 'Bandjarmasin, nam Kalimantan, Borneo, Indonesia'. Đó là một thị trấn bên sông Barito, nay thường viết là 'Banjarmasin', thuộc tỉnh Nam Kalimantan (Kalimantan Selatan), Indonesia (Borneo).</p><p>Có thể quần thể ở đất liền và quần thể ở vùng Sunda là những loài khác nhau, nhưng chuyện này vẫn chưa được xác nhận. Loài này còn có hai dạng màu, một dạng có đốm loang và một dạng có sọc dọc thân.</p>",
+    "habitat:seriouslyfish": "<p>Loài này bơi ở vùng nước mở, sống trong lòng sông chính và các suối lớn, nơi nước thường đục vì phù sa lơ lửng. Vào mùa mưa, cá di chuyển vào những vùng ngập tạm thời.</p>",
+    "aquariumSize:seriouslyfish": "<p>Chiều dài chuẩn: 700 mm SL. Loài này chỉ hợp với bể trưng bày công cộng hoặc những bể cá nhân cỡ lớn nhất. Bể cần dài ít nhất 2 m.</p>",
+    "maintenance:seriouslyfish": "<p>Bày trí bể không quan trọng lắm, nhưng loài này thích ánh sáng yếu.</p><p>Đừng thả cá vào bể mới set chưa đủ vi sinh, vì nó có thể không chịu được những dao động của chỉ số nước.</p>",
+    "waterConditions:seriouslyfish": "<ul><li>Nhiệt độ: 20–27 °C</li><li>pH: 6,0–7,5</li><li>Độ cứng: 2–15 dGH</li></ul>",
+    "diet:seriouslyfish": "<p>Loài này chỉ ăn cá, nhưng không kén loại nào. Ngoài tự nhiên, nó săn các loài cá bơi ở tầng giữa và tầng trên.</p><p>Cá mới nhập về thường chỉ chịu ăn cá sống. Tuy nhiên, khi đã nhận ra đồ chết cũng ăn được thì hầu hết đều tập chuyển sang được.</p><p>Giống đại đa số cá săn mồi, không nên cho loài này ăn thịt động vật có vú hay thịt gia cầm như tim bò, thịt gà. Cho ăn cá mồi lâu dài, như cá đẻ con hay cá vàng nhỏ, cũng chẳng được lợi gì. Cá mồi có nguy cơ mang ký sinh trùng hoặc mầm bệnh vào bể, mà thường cũng không bổ mấy nếu trước đó không vỗ béo chúng đúng cách.</p>",
+    "behaviour:seriouslyfish": "<p>Tốt nhất là nuôi riêng, hoặc nuôi chung với cá cỡ tương đương và không dữ. Thực ra loài này khá hiền với những con quá lớn để làm mồi cho nó. Có vẻ nó còn nuôi được theo đàn nếu bể đủ rộng.</p>",
+    "dimorphism:seriouslyfish": "<p>Cá đực lớn thon hơn hẳn cá cái. Mép sau gai vây ngực của cá đực có răng cưa, còn ở cá cái thì trơn.</p>",
+    "reproduction:seriouslyfish": "<p>Chưa thấy ai cho loài này đẻ trong bể. Ngoài tự nhiên, cá đẻ vào đầu mùa mưa, đúng lúc các đợt lũ theo mùa kéo về.</p>",
+    "notes:seriouslyfish": "<p>Với cỡ cá lúc lớn và tập tính tự nhiên của nó, có thể nói loài này hoàn toàn không phải cá để nuôi bể gia đình. Chỉ có vài người chơi được biết là có đủ điều kiện để nuôi nó lâu dài.</p><p>Đáng tiếc là cá con thỉnh thoảng vẫn được bán dưới những tên như 'blue neon sheatfish' hoặc 'metallic cheatfish', và thường không kèm đủ thông tin về cách nuôi lâu dài.</p><p>P. apogon từng được xếp vào các chi Kryptopterus và Micronema (Rainboth, 1996), gần đây hơn là Phalacronotus (Ferraris, 2007). Ở nhiều nơi trong vùng phân bố tự nhiên, đây là loài cá thịt quan trọng.</p><p>Loài này rất giống P. micronema, nhưng phân biệt được nhờ cái đầu dài hơn. Ở P. apogon, SL dài gấp 4,6–5,3 lần chiều dài đầu, còn ở P. micronema là 5,3–5,7 lần.</p><p>Chi này hiện có bốn loài. Chúng khác các loài khác trong họ Siluridae ở tổ hợp các đặc điểm sau:</p><ul><li>không có vây lưng</li><li>vây bụng có 9–10 tia</li><li>râu hàm trên ngắn, không dài quá nắp mang</li></ul>",
+    "references:seriouslyfish": "<ul><li>Kottelat, M. and E. Widjanarti (2005). The fishes of Danau Sentarum National Park and the Kapuas Lakes area, Kalimantan Barat, Indonesia. Raffles Bulletin of Zoology Supplement 13, 139-173</li><li>Parenti, L. R. and K. K. P. Lim (2005). Fishes of the Rajang Basin, Sarawak, Malaysia. Raffles Bulletin of Zoology Supplement 13, 175-208</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Tan, H. H. and H. H. Ng (2000). The catfishes (Teleostei: Siluriformes) of central Sumatra. Journal of Natural History 34(2), 267-303</li><li>Roberts, T. R. (1989). The freshwater fishes of western Borneo (Kalimantan Barat, Indonesia). Memoirs of the California Academy of Sciences 14, 1-210</li><li>Ng, H. H., S. Wirjoatmodjo and R. K. Hadiaty (2004). Kryptopterus piperatus, a new species of silurid catfish (Teleostei: Siluridae) from northern Sumatra. Ichthyological Exploration of Freshwaters 15(1), 91-95</li><li>van Oijen, M. J. P., G. M. P. Loots and F. J. G. Limburg (2009). English translation of: P. Bleeker, A Precursor of the Fishes of the Indian Archipelago. Part 1 -- Siluri. Zoologische Mededelingen (Leiden) No. 83, iii-xi + 1-317</li></ul>"
   },
   "quality": {
     "score": 0.85,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.85
+      "planetcatfish": 0.85,
+      "seriouslyfish": 0.85
     }
   }
 }

@@ -25,12 +25,10 @@
         "GY",
         "SR",
         "GF",
-        "TT",
         "BB",
         "AG"
       ],
       "regions": [
-        "Guayre River",
         "Trinidad"
       ],
       "sources": [
@@ -53,19 +51,10 @@
             "GY",
             "SR",
             "GF",
-            "TT",
             "BB",
             "AG"
           ],
           "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Type locality is 'Guayre River, Caracas, Venezuela'.",
-          "countries": [],
-          "regions": [
-            "Guayre River"
-          ]
         },
         {
           "source": "sprucepets",
@@ -79,8 +68,8 @@
     },
     "records": {
       "taxonKey": 2350050,
-      "total": 8249,
-      "fetched": "2026-11-04",
+      "total": 8248,
+      "fetched": "2026-11-08",
       "countries": [
         [
           "BR",
@@ -116,7 +105,7 @@
         ],
         [
           "US",
-          252
+          251
         ],
         [
           "PR",
@@ -713,12 +702,6 @@
         [
           -104.0625,
           21.09375,
-          1,
-          0
-        ],
-        [
-          -104.0625,
-          28.125,
           1,
           0
         ],
@@ -1344,13 +1327,13 @@
           -61.875,
           9.84375,
           88,
-          88
+          0
         ],
         [
           -61.875,
           11.25,
           2,
-          2
+          0
         ],
         [
           -61.875,

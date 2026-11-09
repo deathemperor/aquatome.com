@@ -10,6 +10,47 @@
     "argentina",
     "rio-calchaqui"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "AR"
+      ],
+      "regions": [
+        "Río Calchaquí",
+        "Río Paraná"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Currently known only from two localities within the Río Calchaquí watershed in Salta province, northwestern Argentina.",
+          "countries": [
+            "AR"
+          ],
+          "regions": [
+            "Río Calchaquí"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The Calchaquí is a tributary within the upper Río Paraná basin.",
+          "countries": [],
+          "regions": [
+            "Río Paraná"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5961329,
+      "total": 0,
+      "fetched": "2026-11-08",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

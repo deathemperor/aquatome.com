@@ -38,7 +38,7 @@ push() {
       if git pull -q --rebase -X theirs; then
         replan_merged "$clash"
         sweep_merged
-        verify_cycle || { log "build/tests failed after that merge, not publishing"; return 1; }
+        verify_cycle || { keep_timed_out "$PART"; log "build/tests failed after that merge, not publishing"; return 1; }
       else
         git rebase --abort 2>/dev/null || true
       fi
@@ -82,7 +82,8 @@ export ENGINE_COST_LOG="${ENGINE_COST_LOG:-$COST_DIR/aquatome-cost-$PART.jsonl}"
 log "cycle start ($PART)"
 if [ -n "${GITHUB_ACTIONS:-}" ] || [[ "$REPO" == "$HOME/.local/share/aquatome/"* ]]; then
   # A runner or one of the Mac's engine clones: start from GitHub's main, as a fresh runner does. What an earlier failed
-  # cycle left here (content that failed its tests, a commit whose push failed) is dropped, and that work redone.
+  # cycle left here (content that failed its tests, a commit whose push failed) is dropped, and that work redone, but
+  # for the work of a cycle whose tests ran out of time, kept on a branch and published first (publish_kept).
   [ -z "$(git status --porcelain -- content sources)" ] || log "dropping uncommitted content from an earlier failed cycle"
   from_main "$@"
   git clean -fdq -- content sources engine-state docs/review apps/site/src/i18n
@@ -99,6 +100,7 @@ git config merge.jsonmap.driver 'node scripts/merge-json-map.mjs %O %A %B'
 # Two parts can make the same new page (from Glaser and from Seriously Fish): merge it by source, not by whole file.
 git config merge.entity.driver 'node scripts/merge-entity.mjs %O %A %B'
 pnpm install --frozen-lockfile --silent
+publish_kept "$PART"
 if part pages; then
   pnpm engine run --max-minutes "${ENGINE_MAX_MINUTES:-300}" ${ENGINE_ARGS:---except seriouslyfish}
   # Plants' other scientific names (sources' "previously named …", GBIF, a few hobby names): linked, checked, searched.
@@ -293,6 +295,11 @@ pnpm engine metric || log "metric: failed"
 # fish or a map taken off their page, card figures out of bounds hidden, titles promising a count their text lacks
 # rewritten (reviewer-gated) or their number dropped.
 pnpm engine sweep || log "sweep: failed"
+# Last of the steps that write pages: what this run changed is read against the reader-fit checklist (gate.ts). A new page
+# that fails is held, a live page that got worse keeps its committed text, a page built on a foreign shop's kit is held,
+# and a held page that now passes is let out. A page it can't read stays as readers have it; only a crash stops the run,
+# and keeps its work on a branch (gate_or_keep).
+gate_or_keep "content: engine $PART" content sources engine-state docs/review apps/site/src/i18n || exit 1
 if part photos; then
   # Reports, nothing hidden: pictures (docs/review/content-audit.md: pages without a photo, a card thumb, or pictures
   # inside the text) and every published page, in each language, against the content rules (docs/review/content-rules.md).
@@ -324,10 +331,11 @@ git add content sources engine-state docs/review apps/site/src/i18n
 git commit -q -m "content: engine $PART $(date -u +%F)"
 # Checked on top of main as it is now (catch_up), not as it was when the cycle started hours ago: the suite must pass
 # (verify_cycle; deploy.yml builds the real site before it goes live). A commit that fails stays here unpushed, and the
-# next cycle drops it.
+# next cycle drops it, unless its tests only ran out of time: then it's kept, and the next cycle publishes it first.
 catch_up
 sweep_merged
 if ! verify_cycle; then
+  keep_timed_out "$PART"
   log "build/tests failed, not publishing (see $TEST_LOG)"; exit 1
 fi
 push || exit 1

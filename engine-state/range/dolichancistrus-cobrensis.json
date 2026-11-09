@@ -1,0 +1,71 @@
+{
+  "id": "dolichancistrus-cobrensis",
+  "native": {
+    "input": "ec4c72d844f2124a",
+    "at": "2026-11-08T22:57:48.089Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Catatumbo River basin in the Lake Maracaibo drainage, Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Catatumbo",
+        "source": "planetcatfish",
+        "quote": "South America: Catatumbo River basin in the Lake Maracaibo drainage, Venezuela.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Lake Maracaibo",
+        "source": "planetcatfish",
+        "quote": "South America: Catatumbo River basin in the Lake Maracaibo drainage, Venezuela.",
+        "country": "VE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Dolichancistrus cobrensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2339334,
+    "datasets": [
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "9381a616-844f-423d-9a34-074ab3deb6b0",
+        1
+      ],
+      [
+        "eaad657f-7bda-4705-a181-053d9e38033f",
+        1
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        1
+      ]
+    ],
+    "native": [
+      "VE"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T22:57:48.089Z"
+  }
+}

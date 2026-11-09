@@ -1,0 +1,93 @@
+{
+  "id": "hemiancistrus-aspidolepis",
+  "native": {
+    "input": "5c39184415e69fe7",
+    "at": "2026-11-08T22:57:48.089Z",
+    "claims": [
+      {
+        "code": "PA",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Veragua, Panama.",
+        "words": "Panama",
+        "ok": true
+      },
+      {
+        "code": "PA",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Central America: Gatun River basin in the Caribbean coastal drainage. Panama Caribbean rivers, Chagres, Gatun.",
+        "words": "Panama",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Gatun River",
+        "source": "planetcatfish",
+        "quote": "Central America: Gatun River basin in the Caribbean coastal drainage. Panama Caribbean rivers, Chagres, Gatun.",
+        "ok": true
+      },
+      {
+        "name": "Chagres",
+        "source": "planetcatfish",
+        "quote": "Central America: Gatun River basin in the Caribbean coastal drainage. Panama Caribbean rivers, Chagres, Gatun.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hemiancistrus aspidolepis",
+    "status": "ACCEPTED",
+    "taxonKey": 2340160,
+    "datasets": [
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        15
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        13
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        6
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        6
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        4
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        4
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ]
+    ],
+    "native": [
+      "PA"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T22:57:48.089Z"
+  }
+}
