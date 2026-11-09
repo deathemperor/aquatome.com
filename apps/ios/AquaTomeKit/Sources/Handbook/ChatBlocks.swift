@@ -43,7 +43,7 @@ extension Chat {
       case .paragraph(let runs): [.paragraph(runs)]
       case let .list(ordered, items): items.enumerated().map { .item(n: ordered ? $0.offset + 1 : nil, $0.element) }
       case let .figure(img, caption, href): shown.contains(samePhoto(img.src)) ? [] : [.figure(img, caption: caption, href: href)]
-      case .heading, .web: []
+      case .heading: []
       default: [.other(b)]
       }
     }
