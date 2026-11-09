@@ -10,6 +10,63 @@
     "tanzania",
     "lake-victoria"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TZ"
+      ],
+      "regions": [
+        "Lake Victoria",
+        "Mwanza Gulf",
+        "Speke Gulf",
+        "Ukerewe Island"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Pundamilia nyererei is a maternally mouthbrooding cichlid endemic to Lake Victoria, recorded only from the southern part of the lake in Tanzania.",
+          "countries": [
+            "TZ"
+          ],
+          "regions": [
+            "Lake Victoria"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Mwanza Gulf, Tanzania, Lake Victoria', and it's also known from Speke Gulf at the lake's southwestern extremity, with the southern shoreline of Ukerewe Island (often referred to as 'Nansio' Island in the aquarium hobby) appearing to represent its northern limit.",
+          "countries": [],
+          "regions": [
+            "Mwanza Gulf",
+            "Speke Gulf",
+            "Ukerewe Island"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2373693,
+      "total": 1,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "TZ",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          32.34375,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

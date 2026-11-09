@@ -10,6 +10,64 @@
     "peru",
     "madre-de-dios"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This pretty dwarf cichlid from the Madre de Dios region in Peru is offered only very occasionally.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371224,
+      "total": 20,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "PE",
+          20
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          -14.0625,
+          8,
+          8
+        ],
+        [
+          -70.3125,
+          -12.65625,
+          10,
+          10
+        ],
+        [
+          -68.90625,
+          -12.65625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {

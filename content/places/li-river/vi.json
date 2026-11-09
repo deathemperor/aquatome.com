@@ -1,6 +1,6 @@
 {
   "slug": "li-river",
-  "name": "sông Li",
+  "name": "sông Ly",
   "altNames": [
     "Li River"
   ],
@@ -8,5 +8,6 @@
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

@@ -17,14 +17,15 @@
         "BR"
       ],
       "regions": [
-        "Amazon",
         "Madeira",
         "Tapajós",
+        "Trombetas",
         "Negro",
-        "Trombetas"
+        "Amazon"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -34,10 +35,7 @@
             "BR"
           ],
           "regions": [
-            "Amazon",
-            "Madeira",
-            "Tapajós",
-            "Negro"
+            "Amazon"
           ]
         },
         {
@@ -45,7 +43,10 @@
           "quote": "It's since recorded throughout much of the region including the lower rios Madeira, Tapajós, Trombetas and middle-to-lower Negro.",
           "countries": [],
           "regions": [
-            "Trombetas"
+            "Madeira",
+            "Tapajós",
+            "Trombetas",
+            "Negro"
           ]
         }
       ]

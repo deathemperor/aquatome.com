@@ -9,6 +9,97 @@
     "africa",
     "lake-tanganyika"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This pretty cichlid from Lake Tanganyika is only very, very occasionally found in the trade.",
+          "countries": [],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2370887,
+      "total": 56,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "ZM",
+          27
+        ],
+        [
+          "TZ",
+          17
+        ],
+        [
+          "BI",
+          7
+        ],
+        [
+          "CD",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          26.71875,
+          -14.0625,
+          2
+        ],
+        [
+          28.125,
+          -5.625,
+          4
+        ],
+        [
+          28.125,
+          -4.21875,
+          8
+        ],
+        [
+          29.53125,
+          -9.84375,
+          16
+        ],
+        [
+          29.53125,
+          -8.4375,
+          3
+        ],
+        [
+          29.53125,
+          -7.03125,
+          9
+        ],
+        [
+          29.53125,
+          -5.625,
+          5
+        ],
+        [
+          30.9375,
+          -9.84375,
+          8
+        ],
+        [
+          33.75,
+          -7.03125,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

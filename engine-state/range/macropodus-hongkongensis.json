@@ -1,0 +1,53 @@
+{
+  "id": "macropodus-hongkongensis",
+  "native": {
+    "input": "5959c53fbf57df89",
+    "at": "2026-11-09T20:43:02.940Z",
+    "claims": [
+      {
+        "code": "HK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Macropodus hongkongensis is a paradisefish from Hong Kong and the neighbouring Chinese provinces of Guangdong and Fujian.",
+        "words": "Hong Kong",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Macropodus hongkongensis is a paradisefish from Hong Kong and the neighbouring Chinese provinces of Guangdong and Fujian.",
+        "words": "Chinese",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Macropodus hongkongensis",
+    "status": "ACCEPTED",
+    "taxonKey": 5211149,
+    "datasets": [
+      [
+        "e2980e63-d152-4219-8c1e-0ffdef3ea6aa",
+        14
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ]
+    ],
+    "native": [
+      "HK",
+      "CN"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T20:43:02.940Z"
+  }
+}

@@ -20,28 +20,32 @@
       "regions": [
         "Río Meta",
         "Río Guaytiquía",
-        "Río Metica"
+        "Río Metica",
+        "Rio Arauca"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "Apistogramma macmasteri is a dwarf cichlid known only from the Río Guaytiquía and Río Metica basins in the upper Río Meta system, Colombia.",
+          "quote": "Known only from the Río Guaytiquía and Río Metica basins, upper Río Meta system, Colombia.",
           "countries": [
             "CO"
           ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Known only from the Río Guaytiquía and Río Metica basins, upper Río Meta system, Colombia.",
-          "countries": [],
           "regions": [
             "Río Meta",
             "Río Guaytiquía",
             "Río Metica"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "The city and municipality of Tame are located in Colombia in the Arauca Department at the Rio Arauca.",
+          "countries": [],
+          "regions": [
+            "Rio Arauca"
           ]
         }
       ]

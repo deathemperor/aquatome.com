@@ -20,36 +20,41 @@
     "native": {
       "countries": [
         "JP",
-        "LA",
-        "VN",
-        "CN",
         "TW",
-        "KR"
+        "CN",
+        "LA",
+        "VN"
       ],
       "regions": [
-        "Ryuku Islands",
+        "Hainan",
         "Honshu",
-        "Hainan"
+        "Ryuku Islands"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "aquariumcoop"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "It's been recorded from Laos, Vietnam, much of eastern China (including the islands of Hainan and Hong Kong), Taiwan, eastern Korea and Japan from the Ryuku Islands in the south to Honshu in the centre of the archipelago.",
+          "quote": "The medaka, Oryzias latipes, is a ricefish from Japan, Korea, Taiwan, eastern China, Laos and Vietnam.",
           "countries": [
             "JP",
-            "LA",
-            "VN",
-            "CN",
             "TW",
-            "KR"
+            "CN",
+            "LA",
+            "VN"
           ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's been recorded from Laos, Vietnam, much of eastern China (including the islands of Hainan and Hong Kong), Taiwan, eastern Korea and Japan from the Ryuku Islands in the south to Honshu in the centre of the archipelago.",
+          "countries": [],
           "regions": [
-            "Ryuku Islands",
+            "Hainan",
             "Honshu",
-            "Hainan"
+            "Ryuku Islands"
           ]
         }
       ]
@@ -57,7 +62,7 @@
     "records": {
       "taxonKey": 2368377,
       "total": 722,
-      "fetched": "2026-11-05",
+      "fetched": "2026-11-09",
       "countries": [
         [
           "KR",
@@ -273,19 +278,19 @@
           125.15625,
           33.75,
           11,
-          11
+          0
         ],
         [
           125.15625,
           35.15625,
           6,
-          6
+          0
         ],
         [
           125.15625,
           36.5625,
           7,
-          7
+          0
         ],
         [
           126.5625,
@@ -297,37 +302,37 @@
           126.5625,
           33.75,
           277,
-          277
+          0
         ],
         [
           126.5625,
           35.15625,
           8,
-          8
+          0
         ],
         [
           126.5625,
           36.5625,
           1,
-          1
+          0
         ],
         [
           127.96875,
           33.75,
           76,
-          76
+          0
         ],
         [
           127.96875,
           35.15625,
           25,
-          25
+          0
         ],
         [
           127.96875,
           37.96875,
           1,
-          1
+          0
         ],
         [
           129.375,
@@ -351,7 +356,7 @@
           129.375,
           36.5625,
           1,
-          1
+          0
         ],
         [
           130.78125,

@@ -24,10 +24,12 @@
       "regions": [
         "Amazon",
         "Ucayali",
-        "Solimões"
+        "Solimões",
+        "Rio Ucayali"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -37,16 +39,18 @@
             "PE",
             "BR"
           ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "The species is currently considered widespread throughout much of the upper Amazon basin from the ríos Ucayali and Amazonas in Peru to the Solimões in western Brazil.",
-          "countries": [],
           "regions": [
             "Amazon",
             "Ucayali",
             "Solimões"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Currently wild-collected Apistogramma cacatuoides are available, which most probably originate from the surroundings of Pucallpa, at least for sure from the Rio Ucayali basin, Peru.",
+          "countries": [],
+          "regions": [
+            "Rio Ucayali"
           ]
         }
       ]

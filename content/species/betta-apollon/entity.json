@@ -10,6 +10,62 @@
     "thailand",
     "narathiwat"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Betta apollon comes from forest streams in the hilly country west of Narathiwat in Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394046,
+      "total": 19,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "TH",
+          17
+        ],
+        [
+          "MY",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          5.625,
+          3,
+          3
+        ],
+        [
+          101.25,
+          4.21875,
+          2,
+          0
+        ],
+        [
+          101.25,
+          5.625,
+          14,
+          14
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

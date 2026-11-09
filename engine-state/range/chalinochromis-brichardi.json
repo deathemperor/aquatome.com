@@ -1,0 +1,60 @@
+{
+  "id": "chalinochromis-brichardi",
+  "native": {
+    "input": "e405d269b4f77e84",
+    "at": "2026-11-09T20:43:02.940Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Lake Tanganyika",
+        "source": "glaser",
+        "quote": "This pretty cichlid from Lake Tanganyika is only very, very occasionally found in the trade.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Chalinochromis brichardi",
+    "status": "ACCEPTED",
+    "taxonKey": 2370887,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        32
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        8
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        8
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        3
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        3
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-09T20:43:02.940Z"
+  }
+}

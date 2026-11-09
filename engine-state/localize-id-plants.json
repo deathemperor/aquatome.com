@@ -1509,16 +1509,17 @@
     ]
   },
   "micranthemum-callitrichoides": {
-    "at": "2026-11-04",
-    "from": "2026-10-31",
+    "at": "2026-11-09",
+    "from": "2026-11-09",
     "name": "HC Cuba",
     "confidence": "high",
-    "score": 0.85,
+    "score": 0.3,
     "notes": [
-      "Item 2: \"Ditemukan di Kuba\" - English says \"on Cuba\" (island); fine, but could say \"di Pulau Kuba\" for faithfulness.",
-      "Item 3: \"Sebenarnya tidak sulit\" - subject unclear and \"Sebenarnya\" adds nuance; use \"Tanaman ini tidak sulit dirawat, tetapi...\".",
-      "Item 3: \"tuntutannya lebih rendah\" is awkward; use \"perawatannya lebih mudah / kebutuhannya lebih rendah\".",
-      "Item 3: \"akarnya mati\" - fine, but \"Pangkas karpetnya\" could be \"Pangkas karpet secara rutin\"; \"latar depan\" is better as \"latar depan (foreground)\" or \"tanaman latar depan\" is OK."
+      "Item 3: the English source is not English but Vietnamese; the ID itself is faithful to it, but the original lacks an English counterpart, so check the source alignment (the source mentions 'rễ sẽ chết dần' = roots die gradually, which is rendered correctly).",
+      "Item 1: 'Asal' for Origin is a bit non-standard; use 'Asal daerah' or 'Asal usul'. Minor.",
+      "Item 4: 'tidak serewel itu' is colloquial for a handbook; use 'tidak terlalu menuntut'. Minor.",
+      "Item 4: 'Pangkas karpetnya secara rutin, kalau tidak bagian bawahnya...' is a comma splice; use 'karena jika tidak,' or 'jika tidak,'. Minor.",
+      "Item 2: 'Ditemukan di Kuba' - 'Found on Cuba' is fine; no change needed except to consider 'ditemukan di Pulau Kuba'."
     ]
   },
   "micranthemum-glomeratum": {

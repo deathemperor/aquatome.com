@@ -10,6 +10,71 @@
     "vietnam",
     "thu-bon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VN"
+      ],
+      "regions": [
+        "Thu Bồn",
+        "Hương"
+      ],
+      "sources": [
+        "bwaquatics",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "bwaquatics",
+          "quote": "Native to central Vietnam, particularly the Thu Bồn River system in Quảng Nam province and the Hương (Perfume) River basin in Thừa Thiên-Huế province.",
+          "countries": [
+            "VN"
+          ],
+          "regions": [
+            "Thu Bồn",
+            "Hương"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5211156,
+      "total": 25,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "VN",
+          25
+        ]
+      ],
+      "cells": [
+        [
+          105.46875,
+          16.875,
+          1,
+          1
+        ],
+        [
+          106.875,
+          14.0625,
+          3,
+          3
+        ],
+        [
+          106.875,
+          15.46875,
+          19,
+          19
+        ],
+        [
+          108.28125,
+          14.0625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

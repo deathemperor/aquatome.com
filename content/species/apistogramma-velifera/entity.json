@@ -10,6 +10,26 @@
     "venezuela",
     "puerto-ayacucho"
   ],
+  "range": {
+    "records": {
+      "taxonKey": 2371309,
+      "total": 2,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "VE",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -67.5,
+          5.625,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "ph": [
       {

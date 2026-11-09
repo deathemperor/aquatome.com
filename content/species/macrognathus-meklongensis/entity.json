@@ -10,6 +10,34 @@
     "thailand",
     "mae-klong"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Meklong"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "meklongensis: originating from the Meklong river.",
+          "countries": [],
+          "regions": [
+            "Meklong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5204057,
+      "total": 0,
+      "fetched": "2026-11-09",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

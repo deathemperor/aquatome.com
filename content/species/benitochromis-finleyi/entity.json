@@ -6,6 +6,49 @@
   "genus": "Benitochromis",
   "group": "cichlids",
   "places": [],
+  "range": {
+    "records": {
+      "taxonKey": 2370877,
+      "total": 47,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "CM",
+          43
+        ],
+        [
+          "GQ",
+          3
+        ],
+        [
+          "NG",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          8.4375,
+          2.8125,
+          5
+        ],
+        [
+          8.4375,
+          4.21875,
+          10
+        ],
+        [
+          9.84375,
+          1.40625,
+          24
+        ],
+        [
+          9.84375,
+          2.8125,
+          8
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

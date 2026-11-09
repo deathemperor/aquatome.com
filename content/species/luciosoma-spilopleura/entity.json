@@ -10,6 +10,89 @@
     "indonesia",
     "musi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Sumatra",
+        "Borneo",
+        "Musi",
+        "Batang Hari",
+        "Kapuas",
+        "Mahakam"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Luciosoma spilopleura is a small cyprinid known only from Sumatra and the Indonesian part of Borneo, where it prefers fast-flowing headwater streams.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Can be considered endemic to Indonesia since it is known only from Sumatra and Kalimantan, the Indonesian portion of Borneo.",
+          "countries": [],
+          "regions": [
+            "Sumatra",
+            "Borneo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "On Sumatra it has been recorded from the Batang Hari and Musi river systems in the southern half of the island, while on Borneo it is known from the upper Kapuas River in West Kalimantan (Kalimantan Barat) province and the Mahakam drainage in East Kalimantan (Kalimantan Tengah).",
+          "countries": [],
+          "regions": [
+            "Musi",
+            "Batang Hari",
+            "Kapuas",
+            "Mahakam"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2360858,
+      "total": 4,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "ID",
+          3
+        ],
+        [
+          "MY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          109.6875,
+          0,
+          1,
+          1
+        ],
+        [
+          109.6875,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          111.09375,
+          0,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

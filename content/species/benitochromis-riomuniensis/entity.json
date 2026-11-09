@@ -9,6 +9,62 @@
     "africa",
     "cameroon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CM"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Wild-collected specimens of Benitochromis riomuniensis come from Cameroon.",
+          "countries": [
+            "CM"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2370870,
+      "total": 13,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "CM",
+          9
+        ],
+        [
+          "GQ",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          8.4375,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          9.84375,
+          1.40625,
+          6,
+          2
+        ],
+        [
+          9.84375,
+          2.8125,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {

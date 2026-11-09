@@ -10,6 +10,92 @@
     "brazil",
     "amapa"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Most probably the specimens originate from Amapá in Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371281,
+      "total": 56,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "GY",
+          46
+        ],
+        [
+          "BR",
+          10
+        ]
+      ],
+      "cells": [
+        [
+          -61.875,
+          0,
+          4,
+          4
+        ],
+        [
+          -61.875,
+          2.8125,
+          4,
+          4
+        ],
+        [
+          -60.46875,
+          1.40625,
+          3,
+          1
+        ],
+        [
+          -60.46875,
+          2.8125,
+          37,
+          1
+        ],
+        [
+          -59.0625,
+          1.40625,
+          4,
+          0
+        ],
+        [
+          -59.0625,
+          2.8125,
+          2,
+          0
+        ],
+        [
+          -59.0625,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -59.0625,
+          5.625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

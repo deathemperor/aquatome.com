@@ -1039,6 +1039,29 @@
       ]
     }
   ],
+  "vi/guides/aquariumbreeder-brackish-water-plants#aquariumbreeder": [
+    {
+      "at": "2026-11-09T21:02:32Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "Table row 2: \"Rong đuôi cáo Carolina (Cabomba carolina)\" – the usual hobby name for Cabomba is \"rong đuôi chồn\"; change it.",
+        "Sections 7 and 9 and table rows 15 and 18: \"Samolus valerandi\" and \"Salvinia minima\" have no Vietnamese or common name. The English gives \"Seaside brookweed\" and \"Water spangles\". Add \"cỏ Brookweed ven biển\" and \"bèo Salvinia/bèo ong\", or at least note the common names once.",
+        "Sections 8 and 9: the pH lines are dropped because the source is garbled (\"6.5 – 0\", \"0 – 8.0\"). Keep a pH line using the likely 6.0–8.0 range, or note that the figure is unclear, so the parameter lists stay consistent.",
+        "Section 1: \"Cắm xuống sỏi hay thả nổi... thì nó cũng sống\" and \"versatility\" were paraphrased loosely. \"Dễ dùng\" is vague; say \"dễ thích nghi\".",
+        "Section 2: \"keo 502\" is a colloquial brand-like term for cyanoacrylate. Consider \"keo cyanoacrylate (keo 502)\".",
+        "Section 4: \"Dương xỉ java là một trong những cây thủy sinh tốt nhất để trồng\" is a bit stiff. Use \"cây thủy sinh đáng trồng nhất trong thú chơi\".",
+        "Section 10: \"set bể\" is slang left in English. Use \"bố trí bể\"."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.9,
+        0.92,
+        0.9
+      ]
+    }
+  ],
   "vi/guides/aquariumbreeder-breeding-and-life-cycle-of-amano-shrimp#aquariumbreeder": [
     {
       "at": "2026-11-06T12:39:37Z",
@@ -1125,6 +1148,56 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "vi/guides/aquariumbreeder-crabs-as-pets-pros-and-cons#aquariumbreeder": [
+    {
+      "at": "2026-11-09T21:07:07Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Omitted: \"Keep reading for more information...\" and the 'Related articles' lines; minor, but the Vietnamese also drops 'fascinating creatures to watch and have lots of personalities' nuance. Acceptable overall.",
+        "Table omits the 'Panda crab' row in the Breeding table and the 'Panda crab' row in the Temperament table (EN also lacks them in those tables, so fine); however the Size table mislabels 'Thai Micro crab up to 1 inch' as 'tối đa khoảng 2,5 cm' - OK.",
+        "\"Cua không thân với người, cũng không quấn người\": English only says 'not social to humans and cannot be trained'; 'không quấn người' is redundant filler.",
+        "Added fact: \"chân hay càng bị giữ chặt thì nó có thể tự bứt rời ra và mất luôn chân, càng đó\" expands on 'lose a limb by autotomy'; ok but adds explanation. Also 'Cua có cơ chế tự cắt chi' fine.",
+        "\"Có loài còn ăn rau rất háu\": 'voracious vegetarian-type eaters' - better 'ăn thực vật rất háu'.",
+        "\"Nuôi cua có thể vui nhưng... \" ok. \"Cua dễ nuôi thật, nhưng trước khi mua...\": 'Despite their simplicity' fine.",
+        "\"Trước hết cần biết loài mình chọn phải sống trong bể nước hay paludarium\" ok. \"Người mới nên chọn loài không yếu ớt và không gây hại\": ok.",
+        "\"Hỏi đáp thêm\" section: the reader comments were rewritten as a plain answer and the vampire crab one drops 'You are right'; and the first comment is rendered as an answer without the question; acceptable, but the claim 'Cua Vampire sống rất tốt...' contradicts the table 'Compatibility with plants: No' without explanation.",
+        "\"Cua ẩn sĩ\" correct term for hermit crabs. \"Bể 40 lít\" correct for 10 gallons. \"hàng trăm đô la\" keeps currency, fine.",
+        "Sentence \"Ngồi xem cua sinh hoạt rất thú vị\" is duplicated in the intro and in 'Tính cách' - repetitive; and 'mỗi con một tính' lacks the 'new pet' nuance. Also the 'Pros/Cons' intro line 'Here are some of the advantages...' dropped duplicate, fine."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "reads": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    {
+      "at": "2026-11-09T21:07:07Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Table 'Size' omits 'Panda crab 1.2–1.6 inches (3–4 cm)'? No, it is present; but 'Cua Thai Micro: tối đa 2,5 cm' is fine. Real issue: 'Trừ vài loài, bể 40 lít là đủ chỗ cho cua' changes 'A 10-gallon tank (40 liters) can suit most species' – should say 'phù hợp với hầu hết các loài'.",
+        "Breeding table omits the 'Panda crab' row? English also omits it, fine. But 'Sinh sản' paragraph: 'Có loài chưa ai cho đẻ được' ok.",
+        "Omitted the Related article lists, 'Stocking and Compatibility Calculator', and the whole comments section (6 thoughts) including the hermit crab and vampire crab planted paludarium advice (humidity, large land area, leaf litter); these care facts are dropped.",
+        "Omitted the sentence 'On my blog, you can find detailed articles...' (acceptable) but also dropped 'Keep reading for more information...' partly; fine. However 'Chọn loài cua để nuôi': 'Trước hết cần biết loài mình chọn phải sống trong bể nước hay paludarium' is OK, yet 'bedding' became 'nền' and 'harmful' became 'gây hại' – fine.",
+        "'Ngồi xem cua sinh hoạt rất thú vị, và mỗi con một tính' – OK; 'Nuôi cua có thể vui' acceptable.",
+        "'Cua dễ nuôi thật, nhưng trước khi mua vẫn nên cân nhắc' replaces 'Despite their simplicity' – fine. 'Hết thấy mới lạ' is ungrammatical/unnatural; use 'Hết thấy mới lạ' → 'Hết hứng thú mới lạ'.",
+        "'Chuyên gia vượt ngục' and 'Bể nuôi cua phải có nắp đậy khít, vừa giữ cua an toàn vừa giữ nhà cửa yên ổn' acceptable.",
+        "'Cua càng đỏ (Red claw)' and 'cua đầu quýt' are plausible but 'Tangerine-head' name is not an established Vietnamese name; check.",
+        "'Mấy thứ này cua dùng càng xé ra rất dễ' fine; 'Ngoài tiệm hay bán' is colloquial; use 'thường được bán trong ngành cá cảnh'.",
+        "'Cua không gắn bó với người' for 'not social to humans' is loose; and 'Cua có thể tự rụng chân, càng' fine but 'autotomy' unexplained."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.6,
+        0.6,
+        0.6
+      ]
     }
   ],
   "vi/guides/aquariumbreeder-diy-root-tabs-pros-and-cons#aquariumbreeder": [
@@ -1252,6 +1325,27 @@
         0.62,
         0.6,
         0.6
+      ]
+    }
+  ],
+  "vi/guides/aquariumbreeder-dwarf-shrimp-and-breeding-facts#aquariumbreeder": [
+    {
+      "at": "2026-11-09T21:09:04Z",
+      "model": "sonnet",
+      "score": 0.92,
+      "notes": [
+        "\"quạt cho trứng sạch bẩn\" is awkward; use \"quạt cho trứng sạch, không bám bẩn\".",
+        "\"Trông chúng như tép lớn thu nhỏ lại\" is fine, but \"Tép con cứ thế lớn lên\" is loose; \"phát triển thẳng thành tép trưởng thành\" is clearer.",
+        "\"Khoảng 75–80 ngày tuổi là tép đủ lớn để đẻ\": \"mature\" is better rendered as \"trưởng thành, sẵn sàng sinh sản\".",
+        "\"Tép cái to thường thành thục sớm hơn một chút, chẳng hạn 29 ngày thay vì 30 ngày\": the source's \"maturation period\" is ambiguous, so say explicitly whether it means the egg-carrying period.",
+        "\"Sức sinh sản tăng theo kích thước cơ thể, số trứng và số tép con\" reads as three correlated variables; say that the traits correlate positively with all three."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.85,
+        0.93,
+        0.92
       ]
     }
   ],
@@ -1876,6 +1970,56 @@
       ]
     }
   ],
+  "vi/guides/aquariumbreeder-why-do-crabs-bubble-at-the-mouth#aquariumbreeder": [
+    {
+      "at": "2026-11-09T21:11:01Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "Dropped the 'Related articles' lists (Crab Internal Anatomy, Hermit Crabs – Detailed Guide, etc.) and 'Related Article: 50 Most Popular Questions about Crabs'. Only drop them if they are shop or site navigation; otherwise they are omitted content.",
+        "'cua kéo' for Fiddler crab is not the standard name. Use 'cua chữ nhật/cua vĩ cầm' or give 'cua Fiddler'.",
+        "'mảnh đập nước' for 'bailers' is invented. Use the standard term 'scaphognathite' (mảnh thở/lá thở) or 'bailers' with an explanation.",
+        "'Cua xanh (blue crab)' leaves English in place and is inconsistent with the other names. Add the Latin name or write 'cua xanh' only.",
+        "'khoảng giữa lúc triều cường và triều thấp' is wrong. The source says between high tide and low tide, so write 'giữa triều cao và triều thấp'.",
+        "'Cua chủ yếu là giáp xác sống được cả dưới nước lẫn trên cạn' changes the meaning of 'The majority of crabs are amphibious crustaceans'. Write 'phần lớn cua'.",
+        "'brachial chamber' is rendered 'khoang mang'. The correct term is 'khoang mang' (branchial chamber), so this is acceptable. Keep it.",
+        "'Chúng không bị bệnh dại' drops the 'No' emphasis. This is minor.",
+        "The first bullet's 'máu quay về mang để nhả CO2' is garbled and the final clause 'released at the' was cut off in the source. Reword it clearly.",
+        "'Hermit crabs ... mang hút và thải khí' is fine. But 'cua ẩn sĩ' with 'nước mặn' drops the 'not table salt water' nuance, which is slightly vague. Say 'nước pha muối ăn' explicitly. Also the 'Aquatic crabs should be put them' error was fixed correctly."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "reads": [
+        0.72,
+        0.7,
+        0.72
+      ]
+    },
+    {
+      "at": "2026-11-09T21:11:01Z",
+      "model": "sonnet",
+      "score": 0.55,
+      "notes": [
+        "Hermit crab mistranslated as 'ốc mượn hồn' throughout; it's 'cua ẩn sĩ' (or '寄居蟹' equivalent: tôm/cua ẩn sĩ). 'Terrestrial crabs—such as the hermit crab' → 'cua ẩn sĩ'.",
+        "'Đó là cách nó giữ cho mang khỏi khô' / 'Con cua không bị dại đâu' fine, but 'This is how they protect their gills' is OK; however 'Lớp bọt giúp cua khỏi mất nước, thế là mang vẫn tiếp tục có nước lưu thông' alters the meaning of the source; rephrase faithfully.",
+        "'Có loài có, có loài không' ok, but 'Con cua không bị dại đâu' is colloquial; use more neutral encyclopedic tone.",
+        "Source has a truncated sentence ('released at the'); translation 'bọt thoát ra ngoài' invents an ending; also 'Máu nhận oxy ở mang rồi đi khắp cơ thể' adds facts not in the source.",
+        "'Lúc gấp có thể ngâm nhanh con cua vào nước' ok, but 'bể' in 'độ ẩm trong bể' is added; and 'Thấy cua sùi bọt thì không cần lo quá' fine.",
+        "'Cua xanh... Có loài cua khác lại ở ngoài nước gần như cả đời' — 'most of their lives' ok; but 'Cua chủ yếu là giáp xác sống được cả dưới nước lẫn trên cạn' OK.",
+        "'Lúc bò lên cạn... người ta được dịp thấy' ok; 'stress' left in English: use 'căng thẳng'.",
+        "'còng (fiddler crab)': 'cua kéo/cua càng vĩ cầm' is the usual name; 'Halloween Moon crab' shortened to 'cua Halloween' — keep 'cua Mặt trăng Halloween'.",
+        "'bailers' → 'tấm quạt nước' acceptable but 'scaphognathite' term is 'mảnh đập nước/ phần phụ hàm'; check term.",
+        "'Brown or foaming lasts too long' rendered ok; 'brachial chamber' (branchial) → 'khoang mang' fine."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.6,
+        0.5,
+        0.55
+      ]
+    }
+  ],
   "vi/guides/aquariumcoop-blogs-aquarium-20-gallon-oddball-fish#aquariumcoop": [
     {
       "at": "2026-11-07T02:42:37Z",
@@ -2243,6 +2387,29 @@
       "kept": true
     }
   ],
+  "vi/guides/aquariumcoop-blogs-aquarium-can-you-fly-with-aquarium-fish-here-is-how-we-do-it#aquariumcoop": [
+    {
+      "at": "2026-11-09T21:12:34Z",
+      "model": "sonnet",
+      "score": 0.86,
+      "notes": [
+        "Replace the English \"set\" in \"bể đã set xong\" and \"set bể\" with \"lắp đặt/thiết lập bể\" or \"setup xong\".",
+        "Replace \"stress\" in \"đỡ bị stress thêm\" and \"chịu thêm stress\" with \"căng thẳng/sốc\".",
+        "\"Hợp nhất là có sẵn...\" is awkward. Use \"Lý tưởng nhất là...\".",
+        "The added gloss \"(diện được qua kiểm tra an ninh nhanh)\" is not in the source. Drop it or keep \"TSA PreCheck\" alone.",
+        "\"Mấy hàng này có quy định riêng..., mọi việc có thể khó hơn\" is a run-on. Split it, e.g. \"nên việc đặt cá có thể khó hơn\".",
+        "\"Chuyến bay dài hay ngắn thì cũng chẳng ai muốn...\" changes \"Depending on how long your flight is\". Reword to \"tùy chuyến bay dài đến đâu, điều tệ nhất là...\".",
+        "\"Thân thiện và đừng để bụng\" is a loose rendering of \"Have Thick Skin\". \"Giữ thái độ thân thiện và đừng bận tâm lời phàn nàn\" is clearer."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.72,
+        0.9,
+        0.86
+      ]
+    }
+  ],
   "vi/guides/aquariumcoop-blogs-aquarium-cheap-aquarium-fish#aquariumcoop": [
     {
       "at": "2026-11-09T13:51:25Z",
@@ -2332,6 +2499,53 @@
       "kept": true
     }
   ],
+  "vi/guides/aquariumcoop-blogs-aquarium-easy-flow#aquariumcoop": [
+    {
+      "at": "2026-11-09T21:15:31Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "Minor omission: \"Not only are they simple to use...\" fine, but \"Plus, ... won't suck up\" is OK; however \"Easy Flow\" name dropped everywhere (shop talk acceptable) - fine.",
+        "\"Sau khi chuyển sang ống dâng cong\" and \"Có một phòng cá hơn 30 bể\": the fish-room owner (Cory) is removed, acceptable, but \"most of which have sponge filters\" is kept; ok.",
+        "Omitted: \"Good water current... baby brine shrimp\" fine; but \"Place plastic folder... under the light\" okay. Fix \"Lọc mút cũng hút cặn dễ hơn\" – fine; better: \"giúp lọc mút hút cặn dễ hơn\".",
+        "\"vặn nhỏ núm chỉnh khí trên máy sủi, hoặc lắp thêm van\" is missing the condition that the Aquarium Co-Op pump has an adjustable control; reword as \"nhiều máy sủi có núm chỉnh khí\" to avoid implying all pumps do.",
+        "\"cá xiêm vây dài thướt tha\" ok; \"mấy con cá sống tầng mặt\" is colloquial; prefer \"các loài cá sống ở tầng mặt\".",
+        "\"Dòng hút của nó cũng đủ nhẹ\" – ok. \"Lọc mút đời cũ dùng ống thẳng\" adds the fact \"ống thẳng\" and drops the size detail (small, medium, large, nano sold in 2024 or later) of the upgrade kit; reproduce or neutralize.",
+        "\"Dòng chảy đều hơn\" for \"Efficient Flow\" and \"Mặt nước gợn nhiều hơn\" acceptable; \"Dòng chảy ngang này ngăn lớp màng sinh học nhờn như váng dầu đóng\" reads slightly awkward; use \"ngăn lớp màng sinh học nhờn, giống váng dầu, hình thành trên mặt nước\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.8,
+        0.87
+      ]
+    },
+    {
+      "at": "2026-11-09T21:15:31Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Omitted: the closing section (recommending the sponge filter with adjustable curved uplift tube, upgrade kit for older versions and nano sizes). Shop talk may be dropped, but the useful point is lost; at least check nothing factual is lost.",
+        "Omitted: 'Aquarium Co-Op'/'Easy Flow' name is dropped, fine, but the sentence 'Not only does this prevent an oily biofilm...' is turned into 'Mặt nước gợn thì không đóng váng dầu', which weakens it; 'biofilm' should be rendered clearly (màng sinh học/váng dầu).",
+        "Omitted: the founder runs the fish room ('Our founder Cory runs...') is neutral now, ok, but 'Thay đổi nhỏ này... lọc trong bể chạy tốt hơn hẳn' drops 'overall filtration performance in our aquariums' nuance; minor.",
+        "Omitted: 'Dòng hút của nó cũng đủ nhẹ để không hút mất... ' fine, but 'Good water current ... and more' is okay; 'plant fertilizer' translated 'phân nước cho cây' is non-standard, use 'phân bón cho cây thủy sinh'.",
+        "'Chĩa đầu ống dâng cong vào những chỗ nước chảy chậm' ok; but 'Aiming ... pushes back mulm' fine.",
+        "Section 2: 'vặn nhỏ máy sủi nếu máy có núm chỉnh khí' changes the source: the original says the air pump has an adjustable air flow control OR install an air valve; ok but phrased as conditional, acceptable.",
+        "Section 4: sentence 'Vì thế ống dâng cong có kèm một vòng chia khí ở chân' lacks the 'we designed' sense and 'air collar' term 'vòng chia khí' is invented; 'cục sủi' for air stone is colloquial, prefer 'đá sủi/cục đá sủi'.",
+        "'dây oxy' for airline tubing and 'máy sủi' colloquial; acceptable but consider 'dây dẫn khí', 'máy bơm khí'.",
+        "'chỗ bán sỉ' for wholesalers is awkward; use 'đại lý bán sỉ'. 'trại cho đẻ' should be 'trại nhân giống'.",
+        "Translation 'Có một kiểu ống dâng cong' replaces the original's explanation that a curved uplift tube was designed to redirect the current; and 'Mua một bìa hồ sơ nhựa' ok. Overall omissions in the final paragraph reduce completeness."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    }
+  ],
   "vi/guides/aquariumcoop-blogs-aquarium-fish-food-types#aquariumcoop": [
     {
       "at": "2026-11-08T03:51:05Z",
@@ -2345,6 +2559,55 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "vi/guides/aquariumcoop-blogs-aquarium-fish-room-central-air-system#aquariumcoop": [
+    {
+      "at": "2026-11-09T21:17:46Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Step 9 drill bit: '3/16” drill bit' = about 5 mm, OK. But '¾” PVC' converted to 19 mm and '1”' to 25 mm are fine; '¾” hose barb' fine.",
+        "'Dĩ nhiên nếu bể nào cũng 1.135 lít' — 300 gallons ≈ 1,135 L is exact; per the rule, should be rounded sensibly (e.g. 1.140 lít). '5-gallon' → '20 lít' is OK.",
+        "Omitted fact: 'Linear piston air pumps are great ... economical, energy efficient, reliable' is kept, but the closing line 'ensure that your fish room filtration continues working properly' is rendered awkwardly: 'và hệ thống lọc của phòng cá lại chạy tốt' — should say it keeps the system running properly.",
+        "Mistranslated: 'If you only have 10-15 aquariums, you may not have enough air coming out' — the original says air may be too much / need bleeding; translation OK, but 'Có trên 20 bể thì máy LPH45 chắc là đủ' loses the nuance of 'should be adequate' vs a threshold; acceptable.",
+        "'Vòng ống nối vào hai đầu của phần ngang' fine; but 'Tê PVC ... (để nối xuống máy bơm khí)' OK.",
+        "Terminology: 'Dây oxy' for airline tubing is acceptable; 'Đầu chuyển PVC từ đầu trơn 25 mm sang ren trong 19 mm' fine; 'đai giữ ống' for conduit strap OK.",
+        "Step numbering: translation adds 'Bước 1' and 'Bước 9' labels not present in the source (source steps #2-3, #5...), and adds a sentence heading 'Cách dán mỗi mối nối như sau' — minor additions.",
+        "Removed 'Aquarium Co-Op' brand and the 'Learn More / Fish Room Builds section of our Advice Center' sentence — allowed as shop talk. However 'Aquarium Co-Op metal air valves' qualifier dropped: fine.",
+        "Added/changed facts: 'Tấm lọc bám đầy bẩn... Việc này chỉ mất hai phút' fine, but 'lông chó mèo' for 'pet hair' OK. 'Bật máy bơm lên rồi thì chỉnh ... khá dễ' ok.",
+        "Intro fragment 'Khó ở chỗ hướng dẫn... thì hiếm' is colloquial and a bit awkward for an encyclopedia; tone should be more formal."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "reads": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    },
+    {
+      "at": "2026-11-09T21:17:46Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "\"Nếu bể nào cũng 1.135 lít\": 300 gallons ≈ 1,135 L; rounding to the nearest 5 L gives 1.135 → ~1.135 is acceptable, but \"toàn bể 20 lít\" for 5-gallon is correct. This is fine, but use a consistent number format (e.g. 1.135 lít).",
+        "\"Nếu chỉ có 10–15 bể thì khí trong vòng ống có thể không có đủ đường ra\": the English says there may not be enough air OUTLETS/demand, so there is too much air and it must be bled off. The Vietnamese is garbled and hard to read. Rewrite: 'lượng khí có thể dư so với nhu cầu nên cần xả bớt'.",
+        "\"Ống chỉ dẫn khí nên loại thành mỏng ... cũng dùng được\": 'chỉ dẫn khí nên' is awkward and adds a confusing 'nên'. Say: 'Vì chỉ dẫn khí nên có thể dùng ống thành mỏng (không phải Schedule 40 hay 80), nhưng ống mỏng có thể hơi cong vênh khi cắt'.",
+        "Step 9 omitted: 'Lắp mũi 5 mm vào máy khoan' is added. The original did not say to install the bit. Also 'Step 4' is invented; the English has 'Step #5' only, so the numbering is fine but the text is reordered. In Step 4–5 the order 'Gắn đoạn ống... lên tường' comes before the wiping and gluing instructions, which is confusing; and 'Trước khi bôi keo, lau sạch' repeats information.",
+        "\"Máy sủi màng\" for diaphragm pumps: the standard term is 'máy bơm khí màng'. \"máy thổi khí\" for blowers is OK.",
+        "\"Dây oxy\" for airline tubing is OK, but \"Van khí nhựa gắn giữa dây oxy\" is awkward. Say 'van khí nhựa nối trên đường dây oxy'.",
+        "\"Để tham khảo, máy LPH45 cho ra 47 lít khí mỗi phút\": it drops the context 'We use the LPH45 in the retail store and our fish rooms'. That is fine as shop talk. However, 'Cái hay' and 'set phòng cá' are colloquial. Use 'thiết lập' instead of 'set'.",
+        "\"Vòng ống nối vào hai đầu của phần ngang\" is fine. But 'bắt móc phía trên vòng ống' should be 'gắn móc'. 'lông chó mèo' for 'pet hair' is fine.",
+        "\"Ống PVC 25 mm ... ống 19 mm\": 1\" = 25 mm and ¾\" = 19 mm are correct. '3/16\" = 5 mm' is correct. 'Đai giữ ống' for conduit straps is fine."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.6,
+        0.6,
+        0.55
+      ]
     }
   ],
   "vi/guides/aquariumcoop-blogs-aquarium-freshwater-sharks#aquariumcoop": [
@@ -2632,6 +2895,56 @@
       "kept": true
     }
   ],
+  "vi/guides/aquariumcoop-blogs-aquarium-par-for-planted-tanks#aquariumcoop": [
+    {
+      "at": "2026-11-09T21:20:13Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "65-gallon tank: 65 gal ≈ 246 L, rounded to nearest 5 L should be 245 — OK.",
+        "Dropped sentence 'making it a great, all-purpose light solution that produces excellent plant growth' is shop talk, so the omission is fine; the 'Đèn dùng khi đo' phrasing is slightly awkward and could read more naturally.",
+        "'Light or dark substrates' -> 'Nền sáng màu hay tối màu' is fine.",
+        "'Investing in a good light now will likely save you money' -> 'thì chắc là về sau sẽ tiết kiệm hơn' sounds uncertain; use 'nhiều khả năng sẽ tiết kiệm hơn'.",
+        "'Plants will grow slowly but so will algae' fine. 'Cây lên' (grow) used repeatedly is colloquial; prefer 'cây phát triển/sinh trưởng' for an encyclopedia.",
+        "'bể thủy sinh sắp lên' is colloquial; use 'sắp setup/lắp tiếp theo' or 'bể thủy sinh sắp tới'.",
+        "'Fertilizing is essential' -> 'phải bón phân thì cây mới lên đẹp' is fine, but 'Sáng yếu' headings are informal compared with 'ánh sáng yếu'.",
+        "'Is PAR Important...' answer heading ok; 'Ngoài đèn, phân, nền và lượng CO2 cũng quyết định' is OK.",
+        "'Thêm một điều nữa' for 'As a side note' fine; the 'Defining PAR' to 'PAR là gì' fine.",
+        "The 'Photosynthesis simplified' image caption is omitted; this is minor."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.7,
+        0.92
+      ]
+    },
+    {
+      "at": "2026-11-09T21:20:13Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "\"Cây thủy sinh sống tốt ở khoảng này, trừ những cây khó tính\": 'Most' is lost; use 'Phần lớn cây thủy sinh'.",
+        "\"Mức này hợp nhất với đa số cây low tech\": 'ideal' becomes 'hợp nhất', and 'mấy cây đèn rất yếu vẫn lên tốt' is garbled; say 'những cây vẫn lên tốt dưới ánh sáng rất yếu'.",
+        "\"chắc là sẽ đỡ tốn hơn về sau\": 'likely' is rendered too weakly and the wording is awkward; use 'nhiều khả năng sẽ tiết kiệm hơn về sau'.",
+        "\"Đèn thiếu thì cây có thể yếu đi\": fine, but 'PAR có quyết định bể thủy sinh đẹp hay không?' changes the heading; use 'PAR có quan trọng với bể thủy sinh thành công không?'.",
+        "The 65-gallon tank is converted to \"245 lít\", but the rule says to round to the nearest 5 litres: 65 gal ≈ 246 L, so 245 is acceptable. However, the English says the test used the Aquarium Co-Op Easy Plant LED; the Vietnamese neutralises it as 'một đèn LED thủy sinh', which is fine.",
+        "Omitted: the sentence on dimmable light 'making it a great, all-purpose light solution' and the product claims (durable, water resistant, 12-foot cord). Dropping the product claims is allowed as shop talk, but the Vietnamese also drops the 'Photosynthesis simplified' captions and the 'Plus' content; this is acceptable.",
+        "Left in English or non-standard: \"set bể high tech\", \"set\" in \"bể thủy sinh sắp set\", \"low tech\", \"high tech\", \"châm phân\"; prefer 'lên bể', 'công nghệ thấp/cao' or 'bể thủy sinh sắp lên'.",
+        "\"Ngoài tiệm\" for 'In the aquarium market' is a mistranslation; use 'Trên thị trường thủy sinh'.",
+        "\"hẹ nước vallisneria\": the established name is 'cỏ lá xoắn/vallisneria', not 'hẹ nước'; check it.",
+        "\"Tấm nhựa lấy sáng kiểu nhà kính\": 'greenhouse panels' is rendered as plastic, which adds a fact; use 'tấm kiểu nhà kính'."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.7,
+        0.72,
+        0.8
+      ]
+    }
+  ],
   "vi/guides/aquariumcoop-blogs-aquarium-plants-for-breeding-fish#aquariumcoop": [
     {
       "at": "2026-11-07T02:46:22Z",
@@ -2648,6 +2961,49 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "vi/guides/aquariumcoop-blogs-aquarium-potassium-fertilizer#aquariumcoop": [
+    {
+      "at": "2026-11-09T21:22:17Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "Omitted sentence: 'For more details on plant nutrient deficiencies, see our full article.' Either drop it deliberately as a self-reference or render it neutrally, e.g. 'Xem thêm bài về thiếu hụt dinh dưỡng ở cây.'",
+        "'kali hòa tan, K2O' for 'soluble potash': potash (K2O) is not the same as 'kali hòa tan'. Use 'kali hòa tan (potash, K2O)' or 'tính theo K2O'.",
+        "'bể thủy sinh' and 'cây thủy sinh' are used for 'planted tank' and 'aquarium plants'. This is acceptable, but 'bể trồng cây' would match 'planted tank' more closely.",
+        "'châm bằng đầu bơm hoặc nắp nhỏ giọt đều dễ' is a bit colloquial. A smoother version: 'dễ châm bằng đầu bơm hoặc nắp nhỏ giọt'.",
+        "The dosing section drops the 'comes in two sizes with easy-to-use dispensers' detail. It is partly implied by the list, so this is minor."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "reads": [
+        0.93,
+        0.9,
+        0.9
+      ]
+    },
+    {
+      "at": "2026-11-09T21:22:17Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Dosing is altered: English gives 1 pump (1 ml) per 10 gallons (≈40 L) → 2 ppm. Vietnamese 'cứ 40 lít nước châm 1 ml' is right for that, but the second dosing option (2 drops per 1 gallon ≈ 4 L → 2 ppm) is omitted.",
+        "Omitted facts: the 500 ml bottle treats 5,000 gallons (≈19,000 L) and the 120 ml bottle treats 1,200 gallons (≈4,500 L); pump-head vs dropper-cap dispensers are not mentioned. Add them, or state clearly that they were dropped.",
+        "'khoảng 9% kali hòa tan (K2O)': the original has 9.12% (and 9.21% earlier for Easy Green). The rounding drops precision and the Easy Green figure is dropped. Keep the numbers, or at least be consistent.",
+        "Added claim: 'Phân nước tổng hợp thường đã pha sẵn... kali trong đó cũng khá cao' generalizes a specific product (Easy Green) and weakens 'very strong 9.21%'. 'Phân kali bổ sung thường chứa' also turns a specific product into a generic claim. Reword neutrally without altering the facts.",
+        "Omitted: 'Easy Fertilizer line is safe for fish, shrimp, snails'. Translated as a generic claim, 'Loại này an toàn', which is acceptable, but the 'two sizes with easy-to-use dispensers for quick dosing' is missing.",
+        "Omitted: 'For more details on plant nutrient deficiencies, see our full article' (shop talk, fine). 'cây cá vẫn không bị ngộ độc': 'cây cá' is awkward; use 'cây và cá'. Also the original says 'without experiencing any toxicity issues', not 'cá'.",
+        "Terminology: 'high tech' left in English; use 'bể thủy sinh công nghệ cao' or explain it. 'enzym' is ok. 'ăn kali' and 'ráy (anubias)' are colloquial. 'châm' is fine. 'ưa đèn mạnh' is ok.",
+        "'Kali lo rất nhiều việc sống còn' and 'chở đường' are colloquial; consider 'đảm nhiệm nhiều chức năng sống còn' and 'vận chuyển đường'."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.6,
+        0.6,
+        0.6
+      ]
     }
   ],
   "vi/guides/aquariumcoop-blogs-aquarium-power-outage#aquariumcoop": [
@@ -2775,6 +3131,26 @@
       ]
     }
   ],
+  "vi/guides/aquariumcoop-blogs-aquarium-small-aquarium-ideas#aquariumcoop": [
+    {
+      "at": "2026-11-09T21:23:23Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "Minor: \"nhìn mãi không chán\" is a loose rendering of \"memorizing\" (mesmerizing); \"cuốn hút\" or \"say mê\" would be more precise.",
+        "Minor: \"set một bể cây bày đẹp\" is slangy; \"thiết kế một bể thủy sinh đẹp\" would read better in an encyclopedia.",
+        "Minor: \"có vẻ điềm hơn\" and \"chẳng bao lâu\" are colloquial; consider a more neutral encyclopedic register.",
+        "Minor: \"cá chuột\" is used for both habrosus corydoras and cory catfish. Keep it consistent and add \"(Corydoras)\" on first use."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.93,
+        0.9,
+        0.93
+      ]
+    }
+  ],
   "vi/guides/aquariumcoop-blogs-aquarium-soft-water-fish#aquariumcoop": [
     {
       "at": "2026-11-09T16:58:50Z",
@@ -2819,6 +3195,47 @@
         0.6,
         0.6
       ]
+    }
+  ],
+  "vi/guides/aquariumcoop-blogs-aquarium-the-best-small-fish-for-your-aquarium-a-guide-to-stunning-nano-fish#aquariumcoop": [
+    {
+      "at": "2026-11-09T21:25:17Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "Section 4: \"đây là giới hạn cá chịu được chứ không phải mức nên giữ\" is not in the English. Remove it, or keep only the range -1 đến 32 °C.",
+        "Section 9: \"vì thân dài ngoằng như sợi mì\" is an added explanation. Keep only the nickname and its gloss.",
+        "\"Cá kim tơ\" for White Cloud Mountain Minnow is a non-standard name. Use the more familiar \"cá white cloud\" or \"cá bạch vân sơn\" and give the English name in brackets.",
+        "Section 10: \"Dòng cichlid lùn này kén nước\" and \"Bù lại\" are slightly freer than the source. The meaning holds, but a plainer \"cần điều kiện nước riêng\" is closer.",
+        "The intro drops \"all-time favorite\" and the experience claim. This is acceptable as neutral phrasing, but \"đáng nuôi nhất\" slightly overstates the source.",
+        "Section 3: \"Galaxy Rasbora\" is given as an alias of the Celestial Pearl Danio, which is fine. \"cá galaxy\" alone is colloquial, so consider \"cá ngọc trai thiên hà\" or \"cá galaxy rasbora\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.6,
+        0.82,
+        0.85
+      ]
+    },
+    {
+      "at": "2026-11-09T21:25:17Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [
+        "Apistogramma: \"Nhiệt độ từ 28 đến 29 °C\" is wrong; 82–85°F = 28–29.5 °C, but it conflicts with the 'soft, warm' advice and rounding; use 28–29 °C only if intended — check, 82–85°F is correct as ~28–29 °C, so keep but verify. Main problem: other conversions below.",
+        "White Cloud: \"30 to 90 degrees\" = −1 to 32 °C is correct, but the 'Nhiệt độ từ -1' should be written 'từ -1 đến 32 °C' with a note that it is a tolerance, not a recommended range.",
+        "Intro: \"After years of experience... my all-time favorite\" is rendered as 'đáng nuôi nhất'; the omitted claim that the species are hardy and 'well-suited for small tanks' is kept, but the 'perfect small fish' framing is fine. Minor: 'nhìn mê' is slang, use 'cuốn hút'.",
+        "Intro: \"10-gallon tank or something even smaller\" -> 'Bể của bạn 40 lít hay còn nhỏ hơn' is fine, but 'khối loài' and 'nhìn mê' are too colloquial.",
+        "Sparkling Gourami: 'Cá sặc ánh kim' fine, but 'Đây là loài săn mồi tí hon, còn bắt giúp được một ít thủy tức' - 'micro predators' rendered OK; however 'bớt đi' omits 'control'.",
+        "Kuhli Loach: \"Danger Noodle\" translated as '\"con rắn\" tinh nghịch' loses the nickname; use 'cá \"mì nguy hiểm\"' or keep the nickname with an explanation.",
+        "Shell dwellers: English says 'I recommend feeding both our magic small fish feed ... and community pellets' — the translation converts to neutral advice, acceptable, but 'hạt thật nhỏ cho cá con, cám viên cho cá nuôi chung để cá lớn ăn' is clumsy.",
+        "Celestial Pearl Danio: 'Cá galaxy' and 'Galaxy Rasbora' are given as synonyms; 'Thích nước mát' is fine, but the 'Timeless Classic' heading as 'đẹp không bao giờ cũ' is OK. Cá chuột lùn for Pygmy Corydoras and cá kim tơ for White Cloud are non-standard; prefer 'cá bống/chuột pygmy' and 'cá White Cloud/cá tép bạc'.",
+        "Apistogramma: 'sneaker' explanation: 'con đực chưa đủ lớn để đẻ' should be 'chưa trưởng thành sinh dục'; 'cichlid lùn' fine.",
+        "Several temperature ranges (e.g., 70–80 °F → 21–27 °C, 68–78 → 20–26 °C) are acceptable, but the Apistogramma and 'nuôi đàn từ sáu con' repetition are fine."
+      ],
+      "attempt": "first",
+      "kept": false
     }
   ],
   "vi/guides/aquariumcoop-blogs-aquarium-time-saving-tips-for-aquariums#aquariumcoop": [
@@ -3071,6 +3488,53 @@
         0.85,
         0.8,
         0.72
+      ]
+    }
+  ],
+  "vi/guides/aquariumcoop-blogs-aquarium-top-5-popular-catfish#aquariumcoop": [
+    {
+      "at": "2026-11-09T21:27:48Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "Mistranslation: \"Với cỡ người như vậy\" means \"human-sized\". Use \"Với kích cỡ như vậy\" or \"Vì cỡ cá như vậy\" for \"Because of their size\".",
+        "\"Loài nào cũng thường có thân bọc giáp...\" contradicts \"most of them\". Write \"Hầu hết đều có...\" and drop \"loài nào cũng\".",
+        "\"Loài nào cũng ăn rêu giỏi\" (Otocinclus) is an overstatement. The English only says the species are excellent algae eaters as a group. Use a softer wording, e.g. \"đều là cá ăn rêu giỏi\".",
+        "\"cá otto\" is a non-standard name. Use \"cá Otocinclus\" or \"cá oto\" consistently.",
+        "\"rêu xanh mềm, tảo nâu\" mixes terms for algae. Keep \"tảo\" or \"rêu\" consistent, e.g. \"tảo lục mềm, tảo silic nâu\" for diatoms.",
+        "\"Cá bơi ngửa dài 7,5–10 cm\" drops the 3- to 4-inch range and is fine on numbers, but the sentence calls the fish \"Cá bơi ngửa\" instead of the full name. Keep \"cá da trơn bơi ngửa\" for consistency.",
+        "\"Bể cho chúng từ 75–110 lít trở lên\" is awkward. Write \"từ 75–110 lít trở lên\" as \"bể 75–110 lít hoặc lớn hơn\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.88,
+        0.6,
+        0.82
+      ]
+    },
+    {
+      "at": "2026-11-09T21:27:48Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Omitted: the 'For more details, see our full care guide and top 10 corydoras' pointers are dropped; fine as shop talk, but check consistency. Bigger omission: the 'Read more... plecostomus article' is also dropped (acceptable).",
+        "Corydoras: 'constant shuffling on the ground while they look for food' is OK, but 'feed them lots of different meaty foods, like sinking wafers' became 'thức ăn viên chìm', which loses 'wafers'; use 'viên/bánh chìm'.",
+        "'cá otto' is a non-standard name for Otocinclus; use 'cá otocinclus' or 'cá oto'.",
+        "Glass catfish: the English '2.5-inch (6.5 cm)' is fine, but 'thức ăn dạng lá' for 'fish flakes' is wrong; use 'thức ăn dạng vảy/mảnh'.",
+        "'bo bo' for daphnia is acceptable but 'cá sặc cỡ nhỏ' for 'smaller gouramis' is fine; 'cá ma' as a name for ghost catfish is OK.",
+        "Glass catfish tank: '20-gallon' → 75 L is correct (rounded to nearest 5 L), but the sentence 'Nuôi đàn từ sáu con trở lên thì chúng mới mạnh dạn hơn' states a stronger condition than the source ('to bolster their confidence').",
+        "Upside-down catfish: '30-gallon' → 115 L is right, but 'Vì cỡ khá lớn' changes the source: it says 'Because of their size... too large to be swallowed' — fine; however 'krill flakes' became 'thức ăn lá có krill' (wrong, use 'thức ăn mảnh krill').",
+        "Pictus: '4-foot aquarium' → 1.2 m is right. 'Cá lau kiếng' for plecostomus is fine, but 'cá lau kiếng mõm cao su' for rubber nose pleco should note Chaetostoma consistently.",
+        "Pleco tank: '20- to 29-gallon' → '75–110 lít trở lên' is right; 'tiệm bán lúc mới dài 7,6 cm' should be rounded (≈ 7–8 cm); 'nearly 2 feet' → 'gần 60 cm' ok.",
+        "Intro: 'ginormous', 'popular catfish commonly found at pet stores' rendered loosely; the final sentence about not shipping live fish/retailers is shop talk and properly dropped. Overall style is clipped and sometimes ungrammatical ('Nó cần bể dài...', 'Loài cá lạ này khá nhát. Nuôi đàn...')."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.6,
+        0.6,
+        0.6
       ]
     }
   ],

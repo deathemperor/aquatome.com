@@ -12,6 +12,135 @@
     "ethiopia",
     "omo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "NG"
+      ],
+      "regions": [
+        "Lake Kainji",
+        "Niger River",
+        "Volta River",
+        "White Nile",
+        "Omo River"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Lake Kainji, lower Niger River basin, Nigeria",
+          "countries": [
+            "NG"
+          ],
+          "regions": [
+            "Lake Kainji"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Africa: known from the Niger River and Volta River system, the White Nile (Barro and Alvero Rivers) and the Omo River; probably also in the Chad and Senegal basins but has not been collected there.",
+          "countries": [],
+          "regions": [
+            "Niger River",
+            "Volta River",
+            "White Nile",
+            "Omo River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342028,
+      "total": 23,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "BJ",
+          13
+        ],
+        [
+          "NG",
+          7
+        ],
+        [
+          "CI",
+          1
+        ],
+        [
+          "GH",
+          1
+        ],
+        [
+          "GN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -9.84375,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          -8.4375,
+          5.625,
+          1,
+          0
+        ],
+        [
+          0,
+          5.625,
+          1,
+          0
+        ],
+        [
+          0,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          1.40625,
+          5.625,
+          8,
+          0
+        ],
+        [
+          2.8125,
+          11.25,
+          4,
+          0
+        ],
+        [
+          4.21875,
+          5.625,
+          1,
+          1
+        ],
+        [
+          4.21875,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          5.625,
+          4.21875,
+          4,
+          4
+        ],
+        [
+          11.25,
+          7.03125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

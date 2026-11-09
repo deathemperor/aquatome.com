@@ -13,6 +13,134 @@
     "french-guiana",
     "approuague"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GY",
+        "SR",
+        "GF"
+      ],
+      "regions": [
+        "Rio Demerara",
+        "Approuague"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The white-spotted pike cichlid, Saxatilia albopunctata, is a pike cichlid from Guyana, Suriname and French Guiana.",
+          "countries": [
+            "GY",
+            "SR",
+            "GF"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Its natural range runs from the Rio Demerara in Guyana, through Suriname to the river Approuague in French Guiana.",
+          "countries": [],
+          "regions": [
+            "Rio Demerara",
+            "Approuague"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371005,
+      "total": 159,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "GF",
+          134
+        ],
+        [
+          "SR",
+          22
+        ],
+        [
+          "GY",
+          2
+        ],
+        [
+          "BR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -59.0625,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          1.40625,
+          4,
+          4
+        ],
+        [
+          -56.25,
+          2.8125,
+          10,
+          10
+        ],
+        [
+          -54.84375,
+          1.40625,
+          4,
+          4
+        ],
+        [
+          -54.84375,
+          2.8125,
+          49,
+          49
+        ],
+        [
+          -54.84375,
+          4.21875,
+          41,
+          41
+        ],
+        [
+          -53.4375,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -53.4375,
+          2.8125,
+          33,
+          33
+        ],
+        [
+          -53.4375,
+          4.21875,
+          14,
+          14
+        ],
+        [
+          -52.03125,
+          2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -14,6 +14,252 @@
     "brazil",
     "rio-purus"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "EC",
+        "PE",
+        "BR"
+      ],
+      "regions": [
+        "Rio Napo",
+        "Rio Putumayo",
+        "Rio Ucayali",
+        "Rio Pebas",
+        "Rio Purus"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Proteus pike cichlid, Saxatilia proteus, is one of the smaller pike cichlids, known from Ecuador, Peru and Brazil.",
+          "countries": [
+            "EC",
+            "PE",
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In Ecuador it's known from the Rio Napo and Rio Putumayo.",
+          "countries": [],
+          "regions": [
+            "Rio Napo",
+            "Rio Putumayo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In Peru its range extends from the Rio Ucayali to the Rio Pebas.",
+          "countries": [],
+          "regions": [
+            "Rio Ucayali",
+            "Rio Pebas"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Populations have also been recorded from the Rio Purus in Brazil.",
+          "countries": [],
+          "regions": [
+            "Rio Purus"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2370953,
+      "total": 115,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "PE",
+          69
+        ],
+        [
+          "EC",
+          29
+        ],
+        [
+          "BO",
+          7
+        ],
+        [
+          "BR",
+          7
+        ],
+        [
+          "VE",
+          2
+        ],
+        [
+          "CO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -77.34375,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -77.34375,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -77.34375,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -77.34375,
+          -2.8125,
+          5,
+          5
+        ],
+        [
+          -77.34375,
+          -1.40625,
+          10,
+          10
+        ],
+        [
+          -77.34375,
+          0,
+          10,
+          10
+        ],
+        [
+          -75.9375,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          -9.84375,
+          5,
+          5
+        ],
+        [
+          -75.9375,
+          -8.4375,
+          10,
+          10
+        ],
+        [
+          -75.9375,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          -1.40625,
+          6,
+          6
+        ],
+        [
+          -75.9375,
+          0,
+          1,
+          0
+        ],
+        [
+          -74.53125,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          -5.625,
+          13,
+          13
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          20,
+          20
+        ],
+        [
+          -73.125,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          -73.125,
+          -4.21875,
+          6,
+          6
+        ],
+        [
+          -71.71875,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          -70.3125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          -12.65625,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          -11.25,
+          8,
+          2
+        ],
+        [
+          -67.5,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          -4.21875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

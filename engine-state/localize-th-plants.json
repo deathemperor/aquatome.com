@@ -1480,17 +1480,14 @@
     ]
   },
   "micranthemum-callitrichoides": {
-    "at": "2026-11-04",
-    "from": "2026-10-31",
+    "at": "2026-11-09",
+    "from": "2026-11-09",
     "name": "HC คิวบา",
     "confidence": "high",
-    "score": 0.7,
+    "score": 0.9,
     "notes": [
-      "\"มีใบกลมขนาดเพียงไม่กี่มิลลิเมตร\" changes the source: \"millimetre-sized\" means the leaves are about 1 mm. Use \"ขนาดระดับมิลลิเมตร\" or similar.",
-      "\"เพราะเลี้ยงง่ายกว่า\" is fine, but \"ไม่ใช่ไม้น้ำที่เลี้ยงยาก\" and the shift to \"ไม้หน้าตู้\" are loose. Hobbyists also use \"ไม้ปูพื้น\" for the foreground carpet, so keep the term consistent.",
-      "\"พบในคิวบา\" drops the sense of \"on Cuba\" (the island). Use \"พบบนเกาะคิวบา\".",
-      "\"ฟองออกซิเจนเม็ดเล็กๆ เกิดขึ้นบนต้นไม้\" is vague. The source says \"on top of the plants\" and \"pearls or bubbles\", so use \"บนต้นไม้น้ำ\" or \"เหนือใบ\", and mention the pearling (ไข่มุก/ฟองอากาศ).",
-      "\"ทำให้รากตาย\" says the roots die, which matches the source. The cause, though, is lack of light in the lower parts, so \"ทำให้ส่วนล่างและรากเน่าตาย\" would read more naturally. Optional."
+      "Item 4: \"ขนาดเพียงไม่กี่มิลลิเมตร\" adds \"a few\". The English says \"millimetre-sized\", so use something like \"ขนาดระดับมิลลิเมตร\".",
+      "Item 3: the source text is Vietnamese, not English. The Thai matches its meaning, but the source should be checked."
     ]
   },
   "micranthemum-glomeratum": {

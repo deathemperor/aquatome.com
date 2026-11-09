@@ -4013,10 +4013,10 @@
     "products": []
   },
   "id/plants/micranthemum-callitrichoides": {
-    "at": "2026-11-08",
-    "hash": "d3700bcebcc43b34",
+    "at": "2026-11-09",
+    "hash": "957cb2ceade37bf6",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -6022,12 +6022,16 @@
     "products": []
   },
   "id/species/anentome-helena": {
-    "at": "2026-11-07",
-    "hash": "a852f99507823bd0",
+    "at": "2026-11-09",
+    "hash": "511d0c0452ba12cd",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
-    "products": []
+    "products": [
+      "Repashy",
+      "Easy Shrimp and Snail Shells",
+      "Hikari Fancy Guppy"
+    ]
   },
   "id/species/annamia-normani": {
     "at": "2026-11-08",
@@ -6657,10 +6661,10 @@
     "sourceRead": true
   },
   "id/species/apistogramma-agassizii": {
-    "at": "2026-11-07",
+    "at": "2026-11-09",
     "hash": "377ff78a55a040e5",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -6689,10 +6693,10 @@
     "products": []
   },
   "id/species/apistogramma-baenschi": {
-    "at": "2026-11-08",
+    "at": "2026-11-09",
     "hash": "80fd3a0c379f284f",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -6713,10 +6717,10 @@
     "products": []
   },
   "id/species/apistogramma-borellii": {
-    "at": "2026-11-08",
+    "at": "2026-11-09",
     "hash": "e52ede2af9345940",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -6729,10 +6733,10 @@
     "products": []
   },
   "id/species/apistogramma-cacatuoides": {
-    "at": "2026-11-08",
+    "at": "2026-11-09",
     "hash": "8b3e0cea30a94150",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -6745,30 +6749,30 @@
     "products": []
   },
   "id/species/apistogramma-commbrae": {
-    "at": "2026-11-08",
-    "hash": "201c52859946f826",
+    "at": "2026-11-09",
+    "hash": "9854ad9648988cb3",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
-        "check": "elsewhere",
-        "part": "P1",
-        "quote": "sebaiknya ikan ini dipelihara pada suhu yang lebih sejuk selama musim dingin",
-        "why": "Assumes the reader has a winter season, which Indonesia does not have.",
+        "check": "source",
+        "part": "P3",
+        "quote": "Ikan yang ditawarkan berasal dari Paraguay.",
+        "why": "Refers to the source shop's own stock on offer.",
         "by": "model"
       },
       {
         "check": "elsewhere",
-        "part": "P5",
-        "quote": "usahakan memelihara A. commbrae pada suhu yang lebih sejuk selama musim dingin",
-        "why": "Advice tied to the reader's own winter, which doesn't exist in Indonesia.",
+        "part": "P7",
+        "quote": "usahakan memelihara A. commbrae pada suhu yang lebih sejuk saat musim dingin",
+        "why": "Assumes the reader has a winter season; Indonesia has none.",
         "by": "model"
       },
       {
         "check": "source",
-        "part": "P11",
-        "quote": "kompleks spesies A. commbrae (lihat di bawah)",
-        "why": "Points to a list in the source article that the page does not have.",
+        "part": "P14",
+        "quote": "(lihat di bawah)",
+        "why": "Points to content below that the page does not contain.",
         "by": "model"
       }
     ],
@@ -6822,18 +6826,18 @@
     "products": []
   },
   "id/species/apistogramma-macmasteri": {
-    "at": "2026-11-08",
-    "hash": "52cc0dd3c419f3d6",
+    "at": "2026-11-09",
+    "hash": "bbb7e887327ff253",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
   "id/species/apistogramma-mendezi": {
-    "at": "2026-11-08",
+    "at": "2026-11-09",
     "hash": "89c6644969f7f952",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -9406,9 +9410,10 @@
     "products": []
   },
   "id/species/betta-uberis": {
-    "at": "2026-11-07",
-    "hash": "319fa5fe1fdcdbae",
+    "at": "2026-11-09",
+    "hash": "37ad6d5ef42da8f6",
     "model": "opus",
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -9474,10 +9479,10 @@
     "products": []
   },
   "id/species/biotoecus-opercularis": {
-    "at": "2026-11-08",
+    "at": "2026-11-09",
     "hash": "a85a2a8ebf12ef8e",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -11809,11 +11814,19 @@
     "products": []
   },
   "id/species/hyphessobrycon-amandae": {
-    "at": "2026-11-08",
-    "hash": "291669c66bafd9f7",
+    "at": "2026-11-09",
+    "hash": "543b6416565955eb",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "source",
+        "part": "P14",
+        "quote": "tetapi seperti disebutkan di atas, kelompok ini boleh dicampur dengan spesies lain yang ukurannya serupa",
+        "why": "Refers to an earlier passage of the source article that this page does not have above.",
+        "by": "model"
+      }
+    ],
     "products": [
       "Easy Fry and Small Fish Food"
     ]
@@ -12543,15 +12556,23 @@
     "products": []
   },
   "id/species/mikrogeophagus-ramirezi": {
-    "at": "2026-11-07",
-    "hash": "58e2d78b13ac3572",
+    "at": "2026-11-09",
+    "hash": "cf5f1a4daec36649",
     "model": "opus",
+    "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P2",
-        "quote": "salah satu spesimen dalam foto disebut-sebut dikoleksi dari rio Purus, Brasil",
-        "why": "It refers to a photo from the original source, and this page has no pictures.",
+        "part": "P4",
+        "quote": "Saat ini tersedia ramirezi tangkapan alam asal Venezuela yang sudah berukuran dewasa penuh.",
+        "why": "Stock announcement from the source shop, not something the reader can buy from.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P5",
+        "quote": "salah satu spesimen dalam foto disebut dikoleksi dari Sungai Purus, Brasil",
+        "why": "Refers to a photo from the original article that this page does not have.",
         "by": "model"
       }
     ],
@@ -12963,15 +12984,16 @@
     "sourceRead": true
   },
   "id/species/oryzias-latipes": {
-    "at": "2026-11-07",
+    "at": "2026-11-09",
     "hash": "8802f4b4fd5aca19",
     "model": "opus",
+    "checklist": 3,
     "findings": [
       {
         "check": "elsewhere",
         "part": "P6",
         "quote": "Di banyak negara atau di rumah yang insulasinya baik, ikan ini paling baik dipelihara tanpa pemanas sepanjang tahun.",
-        "why": "Assumes a temperate climate and insulated homes where room temperature stays at 16–22 °C, which is not the case in Indonesia.",
+        "why": "Assumes a temperate-climate home where heaters are the norm; in Indonesia room temperature is far above 16–22 °C.",
         "by": "model"
       }
     ],
@@ -13585,10 +13607,10 @@
     "products": []
   },
   "id/species/pseudeutropius-brachypopterus": {
-    "at": "2026-11-08",
-    "hash": "fb5e087d5fc64d76",
+    "at": "2026-11-09",
+    "hash": "9f603af9615b350d",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -21410,10 +21432,10 @@
     "products": []
   },
   "th/plants/micranthemum-callitrichoides": {
-    "at": "2026-11-07",
-    "hash": "900c03663c62893e",
+    "at": "2026-11-09",
+    "hash": "2f45f1197cdce117",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -23423,10 +23445,10 @@
     "products": []
   },
   "th/species/anentome-helena": {
-    "at": "2026-11-08",
+    "at": "2026-11-09",
     "hash": "86c02920e51f714d",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -24054,9 +24076,10 @@
     "sourceRead": true
   },
   "th/species/apistogramma-agassizii": {
-    "at": "2026-11-07",
+    "at": "2026-11-09",
     "hash": "f39b16a62d3cca9f",
     "model": "opus",
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -24077,10 +24100,10 @@
     "products": []
   },
   "th/species/apistogramma-baenschi": {
-    "at": "2026-11-08",
+    "at": "2026-11-09",
     "hash": "e899cc7a4fa1a3b6",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -24101,20 +24124,11 @@
     "products": []
   },
   "th/species/apistogramma-borellii": {
-    "at": "2026-11-08",
+    "at": "2026-11-09",
     "hash": "8a2c10254165582e",
     "model": "opus",
-    "checklist": 2,
-    "findings": [
-      {
-        "check": "words",
-        "part": "P8",
-        "quote": "แนะนำให้เลือกปลาที่เพาะเลี้ยงในที่เลี้ยง",
-        "why": "A literal calque of 'captive-bred'; Thai keepers say farm-bred fish instead.",
-        "by": "model",
-        "fix": "ปลาเพาะ / ปลาฟาร์ม"
-      }
-    ],
+    "checklist": 3,
+    "findings": [],
     "products": []
   },
   "th/species/apistogramma-brevis": {
@@ -24126,10 +24140,10 @@
     "products": []
   },
   "th/species/apistogramma-cacatuoides": {
-    "at": "2026-11-08",
-    "hash": "3f8758083609505a",
+    "at": "2026-11-09",
+    "hash": "b90cd8715f6d9b5a",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -24142,16 +24156,30 @@
     "products": []
   },
   "th/species/apistogramma-commbrae": {
-    "at": "2026-11-08",
-    "hash": "dc98dc8c5ffaf319",
+    "at": "2026-11-09",
+    "hash": "61035416d3d61db2",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P11",
-        "quote": "A. commbrae species complex (ดูด้านล่าง)",
-        "why": "Points the reader to a list below that this page does not contain.",
+        "part": "P2",
+        "quote": "ขนาดที่มีจำหน่าย: 3–4 ซม.",
+        "why": "This is the size the source exporter's own stock comes in, not something the reader can buy.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P3",
+        "quote": "ปลาที่นำมาจำหน่ายมีแหล่งที่มาจากปารากวัย",
+        "why": "This describes where the source shop's fish for sale come from, as if the reader knew that shop.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P14",
+        "quote": "(ดูด้านล่าง)",
+        "why": "It points to material further down that this page doesn't have.",
         "by": "model"
       }
     ],
@@ -24204,26 +24232,27 @@
     "products": []
   },
   "th/species/apistogramma-macmasteri": {
-    "at": "2026-11-07",
-    "hash": "34d3839d27c9c50d",
+    "at": "2026-11-09",
+    "hash": "207217fce03a3394",
     "model": "opus",
+    "checklist": 3,
     "findings": [
       {
         "check": "words",
-        "part": "P7",
+        "part": "P1",
         "quote": "แนะนำให้เลือกปลาที่เพาะเลี้ยงในที่เลี้ยง",
-        "why": "Literal calque of English 'captive-bred'; Thai keepers say ปลาเพาะ or ปลาเพาะพันธุ์ในฟาร์ม.",
+        "why": "Literal calque of 'captive-bred'; Thai keepers don't say it this way.",
         "by": "model",
-        "fix": "ปลาเพาะ (ปลาเพาะพันธุ์ในฟาร์ม)"
+        "fix": "ปลาเพาะ / ปลาฟาร์ม"
       }
     ],
     "products": []
   },
   "th/species/apistogramma-mendezi": {
-    "at": "2026-11-08",
+    "at": "2026-11-09",
     "hash": "711999e677574701",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -26893,9 +26922,10 @@
     "products": []
   },
   "th/species/betta-uberis": {
-    "at": "2026-11-07",
-    "hash": "d8ffcb6cee216cc2",
+    "at": "2026-11-09",
+    "hash": "a129d9aab3a80f57",
     "model": "opus",
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -26956,10 +26986,10 @@
     "products": []
   },
   "th/species/biotoecus-opercularis": {
-    "at": "2026-11-08",
-    "hash": "864b40fb3412a1b3",
+    "at": "2026-11-09",
+    "hash": "1de1583dc050e92a",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -29423,16 +29453,23 @@
     "products": []
   },
   "th/species/hyphessobrycon-amandae": {
-    "at": "2026-11-08",
-    "hash": "bd12d8de15e44c33",
+    "at": "2026-11-09",
+    "hash": "f3a56e6642c01425",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
-        "part": "P9",
-        "quote": "เลี้ยงในตู้นาโนขนาด 19 ลิตรเป็นฝูงเล็ก ๆ ได้",
-        "why": "19 litres is a converted 5-gallon tank size nobody in Thailand would use.",
+        "part": "P10",
+        "quote": "ตู้นาโนขนาด 19 ลิตร",
+        "why": "19 litres is a converted 5-gallon tank size, not one used in Thailand.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P14",
+        "quote": "แต่ดังที่กล่าวไว้ข้างต้น ฝูงนี้อาจเป็นปลาต่างชนิดที่มีขนาดใกล้เคียงกันผสมกันได้",
+        "why": "Refers back to an earlier passage of the source article that this page does not contain.",
         "by": "model"
       }
     ],
@@ -30147,16 +30184,23 @@
     "products": []
   },
   "th/species/mikrogeophagus-ramirezi": {
-    "at": "2026-11-07",
-    "hash": "335e6e7195019bc3",
+    "at": "2026-11-09",
+    "hash": "ce44ed68620fb2df",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P2",
-        "quote": "มีรายงานว่าตัวอย่างหนึ่งในภาพเก็บมาจากแม่น้ำปูรุส (rio Purus) ในบราซิล",
-        "why": "Refers to a picture from the original article that this page does not have.",
+        "part": "P4",
+        "quote": "ขณะนี้มีปลาแรมโตเต็มวัยที่จับจากธรรมชาติในเวเนซุเอลาวางจำหน่าย",
+        "why": "This is the source supplier's stock news, not something the reader can act on.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P5",
+        "quote": "มีปลาตัวอย่างหนึ่งในภาพ",
+        "why": "Refers to a picture that the page does not have.",
         "by": "model"
       }
     ],
@@ -30519,16 +30563,16 @@
     "sourceRead": true
   },
   "th/species/oryzias-latipes": {
-    "at": "2026-11-08",
+    "at": "2026-11-09",
     "hash": "54133f9986eca99c",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
         "check": "elsewhere",
         "part": "P6",
         "quote": "ในหลายประเทศหรือในบ้านที่เก็บความร้อนได้ดี ควรเลี้ยงโดยไม่ใช้ฮีตเตอร์ตลอดทั้งปี",
-        "why": "Heater advice written for cool-climate countries with heated homes; in Thailand the concern is keeping water cool enough.",
+        "why": "This assumes a cool-climate home where a heater is optional; in Thailand rooms are well above 16–22 °C, so the real question is cooling.",
         "by": "model"
       }
     ],
@@ -31161,9 +31205,10 @@
     "products": []
   },
   "th/species/pseudeutropius-brachypopterus": {
-    "at": "2026-11-07",
-    "hash": "71ce48babaf68d4f",
+    "at": "2026-11-09",
+    "hash": "2ea35c090d1189c4",
     "model": "opus",
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -33673,19 +33718,10 @@
   },
   "vi/guides/aquariumbreeder-brackish-water-plants": {
     "at": "2026-11-09",
-    "hash": "5c82e40f1731cfe0",
+    "hash": "207f0393f150f6f2",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "words",
-        "part": "P1",
-        "quote": "Bèo cái lùn (Pistia stratiotes)",
-        "why": "Calque of English 'dwarf water lettuce'; Vietnamese keepers just call Pistia 'bèo cái'.",
-        "by": "model",
-        "fix": "bèo cái"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/guides/aquariumbreeder-breeding-and-life-cycle-of-amano-shrimp": {
@@ -33954,7 +33990,7 @@
   },
   "vi/guides/aquariumbreeder-dwarf-shrimp-and-breeding-facts": {
     "at": "2026-11-09",
-    "hash": "319a13d54168643c",
+    "hash": "61a2069136136289",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -37114,36 +37150,36 @@
   },
   "vi/guides/aquariumcoop-blogs-aquarium-can-you-fly-with-aquarium-fish-here-is-how-we-do-it": {
     "at": "2026-11-09",
-    "hash": "c930231c3b89a3e1",
+    "hash": "ca9fcd8d5d263989",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "elsewhere",
         "part": "P1",
-        "quote": "Hướng dẫn chỉ áp dụng cho chuyến bay nội địa trong lục địa nước Mỹ.",
-        "why": "The whole guide is written for someone flying inside the US, not a reader in Vietnam.",
+        "quote": "Hướng dẫn chỉ áp dụng cho chuyến bay nội địa trong phần lục địa nước Mỹ.",
+        "why": "The guide is limited to US domestic flights, so it is written for a reader in the US.",
         "by": "model"
       },
       {
         "check": "elsewhere",
-        "part": "P2",
+        "part": "P1",
         "quote": "Bạn có TSA PreCheck (diện được qua kiểm tra an ninh nhanh) không?",
-        "why": "TSA PreCheck is a US airport security programme, presented as if it were the reader's own.",
+        "why": "TSA PreCheck is a US airport security scheme and is presented as if the reader might have it.",
         "by": "model"
       },
       {
         "check": "elsewhere",
-        "part": "P4",
-        "quote": "Đến đó thì tìm nhân viên TSA, báo rằng trong túi có cá cảnh còn sống, không cho qua máy soi được.",
-        "why": "Tells the reader to deal with US TSA staff at their own airport security check.",
+        "part": "P1",
+        "quote": "Đến đó thì tìm nhân viên TSA, báo rằng trong túi có cá cảnh còn sống",
+        "why": "The airport security steps are built on the US TSA, which a traveller in Vietnam does not deal with.",
         "by": "model"
       },
       {
         "check": "elsewhere",
-        "part": "P7",
+        "part": "P1",
         "quote": "nếu sắp bay xuyên nước Mỹ 6 tiếng từ Seattle đến Tampa",
-        "why": "Uses a US cross-country flight as if it were the reader's own trip.",
+        "why": "The example trip is a US domestic flight, as if it were the reader's own.",
         "by": "model"
       }
     ],
@@ -37805,13 +37841,11 @@
   },
   "vi/guides/aquariumcoop-blogs-aquarium-easy-flow": {
     "at": "2026-11-09",
-    "hash": "5494678d5aba5ed2",
+    "hash": "749e0ac141b2287b",
     "model": "opus",
     "checklist": 3,
     "findings": [],
-    "products": [
-      "Easy Flow"
-    ]
+    "products": []
   },
   "vi/guides/aquariumcoop-blogs-aquarium-egg-tumbler": {
     "at": "2026-11-08",
@@ -40369,22 +40403,22 @@
   },
   "vi/guides/aquariumcoop-blogs-aquarium-par-for-planted-tanks": {
     "at": "2026-11-09",
-    "hash": "3df26e63458aee22",
+    "hash": "05e4b99f3e4edf3a",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
         "part": "P1",
-        "quote": "Trong một lần đo thử với một đèn LED thủy sinh trên bể 245 lít",
-        "why": "245 litres is a converted 65-gallon tank, a size nobody in Vietnam would give.",
+        "quote": "bể 245 lít",
+        "why": "A 245-litre tank is a converted 65-gallon size that nobody in Vietnam would name.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
-        "quote": "Dĩ nhiên các số PAR này đo lúc đèn bật 100% độ sáng.",
-        "why": "Refers to measured PAR figures (a chart from the source) that the page does not show.",
+        "quote": "Trong một lần đo thử với một đèn LED thủy sinh trên bể 245 lít",
+        "why": "This is the original source's own measuring test with its own light. The page talks about it as if the reader knew it, and the readings are not shown.",
         "by": "model"
       }
     ],
@@ -40629,7 +40663,7 @@
         "perUnit": "litre",
         "use": "plants",
         "method": "wholeTank",
-        "quote": "Với phân kali nồng độ này, châm 1 ml cho mỗi 40 lít nước sẽ tăng thêm 2 ppm kali."
+        "quote": "châm 1 ml cho mỗi 40 lít nước sẽ tăng thêm 2 ppm kali"
       }
     ],
     "sourceRead": true
@@ -41071,31 +41105,32 @@
   },
   "vi/guides/aquariumcoop-blogs-aquarium-small-aquarium-ideas": {
     "at": "2026-11-09",
-    "hash": "ad1e73dfe9a3fdc5",
+    "hash": "6de83173ed8f7ab1",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
-        "part": "P4",
-        "quote": "đều đủ nhỏ để nuôi riêng trong một bể dài 75 lít",
-        "why": "A converted US '20 gallon long' tank size not sold as such in Vietnam.",
-        "by": "model"
-      },
-      {
-        "check": "units",
         "part": "P5",
         "quote": "bể cho đẻ cần lớp nền dày ít nhất 2,5 cm",
-        "why": "2.5 cm is a converted one-inch substrate depth.",
+        "why": "2.5 cm is a converted 1 inch substrate depth.",
         "by": "model"
       },
       {
         "check": "words",
-        "part": "P1",
-        "quote": "Cá ngọc trai thiên hà (celestial pearl danio) hay được thả trong bể thủy sinh.",
-        "why": "Literal translation of the English name; Vietnamese keepers call this fish cá thiên hà.",
+        "part": "P2",
+        "quote": "cá rasbora ớt (chili rasbora)",
+        "why": "Literal translation of 'chili rasbora'; local keepers use another name.",
         "by": "model",
-        "fix": "cá thiên hà"
+        "fix": "cá chili"
+      },
+      {
+        "check": "words",
+        "part": "P2",
+        "quote": "Cá ngọc trai thiên hà (celestial pearl danio)",
+        "why": "Literal translation of 'celestial pearl danio'.",
+        "by": "model",
+        "fix": "cá thiên hà / cá galaxy"
       }
     ],
     "products": []
@@ -41232,15 +41267,15 @@
   },
   "vi/guides/aquariumcoop-blogs-aquarium-the-best-small-fish-for-your-aquarium-a-guide-to-stunning-nano-fish": {
     "at": "2026-11-09",
-    "hash": "f3613309d63e6341",
+    "hash": "28fc39c78fd1a4f8",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P5",
-        "quote": "Nếu bạn cho chúng đẻ thành công, chia sẻ cách làm cho mọi người cùng biết nhé!",
-        "why": "The source site's own call to its readers' community to share results.",
+        "quote": "Nếu bạn cho chúng đẻ được thì chia sẻ cách làm cho mọi người cùng biết nhé!",
+        "why": "The original writer's call for readers to share in comments; this page has no such place.",
         "by": "model"
       }
     ],
@@ -41860,31 +41895,31 @@
   },
   "vi/guides/aquariumcoop-blogs-aquarium-top-5-popular-catfish": {
     "at": "2026-11-09",
-    "hash": "93795db4064314b0",
+    "hash": "e0f91fe4eadf9201",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
-        "part": "P5",
+        "part": "P4",
         "quote": "sống khỏe trong bể từ 115 lít trở lên",
-        "why": "115 litres is a converted 30-gallon tank size.",
+        "why": "115 litres is a converted 30-gallon tank size, not a size keepers in Vietnam use.",
         "by": "model"
       },
       {
         "check": "units",
-        "part": "P7",
+        "part": "P5",
         "quote": "Bể cho chúng từ 75–110 lít trở lên là được.",
-        "why": "75–110 litres is a converted 20–29 gallon range.",
+        "why": "75–110 litres is converted from 20–29 gallons.",
         "by": "model"
       },
       {
         "check": "words",
-        "part": "P3",
+        "part": "P2",
         "quote": "cá danio ngọc trai thiên hà",
-        "why": "Calque of 'celestial pearl danio'; Vietnamese keepers use a different name.",
+        "why": "Literal calque of 'celestial pearl danio'; local keepers use a different name.",
         "by": "model",
-        "fix": "cá thiên hà (cá galaxy)"
+        "fix": "cá galaxy (cá thiên hà)"
       }
     ],
     "products": [
@@ -75267,10 +75302,10 @@
     "products": []
   },
   "vi/plants/micranthemum-callitrichoides": {
-    "at": "2026-11-07",
-    "hash": "5987ac61f1c5ccd1",
+    "at": "2026-11-09",
+    "hash": "66615bba963518fc",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -106391,6 +106426,157 @@
     "hash": "1e82f25d1428c37d",
     "model": "opus",
     "checklist": 2,
+    "findings": [],
+    "products": []
+  },
+  "id/species/apistogramma-diplotaenia": {
+    "at": "2026-11-09",
+    "hash": "b022a367d6f2afdd",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P2",
+        "quote": "Saat ini ikan tangkapan alam maupun hasil penangkaran sama-sama tersedia.",
+        "why": "This is the source supplier's stock news, copied over as if it were true for the reader's market.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "id/species/apistogramma-gephyra": {
+    "at": "2026-11-09",
+    "hash": "eb394fd30c01c961",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Spesimen A. gephyra dewasa hasil penangkaran Jerman, yang dibiakkan oleh seorang penghobi yang sangat menekuni Apistogramma, tersedia dengan ukuran 4–8 cm.",
+        "why": "This describes the source exporter's own stock on offer, which the reader can't buy and doesn't know about.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "id/species/callochromis-macrops": {
+    "at": "2026-11-09",
+    "hash": "ace2740febcced8b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/pseudomugil-tenellus": {
+    "at": "2026-11-09",
+    "hash": "611c80d033c5dbce",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/pseudomystus-heokhuii": {
+    "at": "2026-11-09",
+    "hash": "a6f9494f60c9c695",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Kini spesies ini sudah diimpor untuk pertama kalinya.",
+        "why": "Stock news from the source shop announcing a first import, meaningless to a reader in Indonesia where the fish comes from.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P9",
+        "quote": "bahkan di akuarium foto pun jantannya menunjukkan perilaku kawin",
+        "why": "Refers to the source's own photo tank as if the reader knew it.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "id/species/rasbora-lacrimula": {
+    "at": "2026-11-09",
+    "hash": "50656e195ac2291e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P10",
+        "quote": "Pada awalnya bisa ditambahkan filter listrik kecil",
+        "why": "Literal calque of English 'power filter'; Indonesian keepers say 'filter mesin'.",
+        "by": "model",
+        "fix": "filter mesin kecil"
+      }
+    ],
+    "products": []
+  },
+  "th/species/apistogramma-diplotaenia": {
+    "at": "2026-11-09",
+    "hash": "7df2f3411fad5793",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/apistogramma-gephyra": {
+    "at": "2026-11-09",
+    "hash": "05b4e6a1e4f9e989",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/callochromis-macrops": {
+    "at": "2026-11-09",
+    "hash": "330a34581371324a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/pseudomugil-tenellus": {
+    "at": "2026-11-09",
+    "hash": "bdfcbe5ee1dde772",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/pseudomystus-heokhuii": {
+    "at": "2026-11-09",
+    "hash": "173b0eb642a5a71a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "และตอนนี้มีการนำเข้าเป็นครั้งแรก",
+        "why": "This is the exporter's news about its own new stock, written as if the reader followed that source.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P9",
+        "quote": "แม้แต่ในตู้ถ่ายภาพ ตัวผู้ก็แสดงพฤติกรรมเกี้ยวพาราสี",
+        "why": "It mentions the source's own photo tank as if the reader knew about it.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/rasbora-lacrimula": {
+    "at": "2026-11-09",
+    "hash": "fd87d5f71b27a36c",
+    "model": "opus",
+    "checklist": 3,
     "findings": [],
     "products": []
   }

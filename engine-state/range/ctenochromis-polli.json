@@ -1,8 +1,8 @@
 {
   "id": "ctenochromis-polli",
   "native": {
-    "input": "d6a4e419cd901cc3",
-    "at": "2026-11-08T10:57:49.558Z",
+    "input": "0f03339c2518f8ed",
+    "at": "2026-11-09T20:43:02.940Z",
     "claims": [
       {
         "code": "CD",
@@ -32,6 +32,12 @@
         "name": "Pool Malebo",
         "source": "seriouslyfish",
         "quote": "Described from \"Stanley Pool\", now known as Pool Malebo, a lake-like widening of the Congo River in western-central Africa on the border of the Democratic Republic of the Congo (formerly Zaire) and the Republic of the Congo between their respective capital cities of Kinshasa and Brazzaville.",
+        "ok": true
+      },
+      {
+        "name": "Congo River",
+        "source": "glaser",
+        "quote": "Congo, lower Congo River.",
         "ok": true
       }
     ],
