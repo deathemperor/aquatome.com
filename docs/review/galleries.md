@@ -7,10 +7,10 @@ Written by `pnpm engine gallery` (2026-11-09). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 131 | 79 | 24 | 30 | 204 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 445 | 20 | 9 | 13 | 461 |
-| rest | 20 | 1394 | 81 | 0 | 23 | 1452 |
+| covered | 30 | 447 | 20 | 9 | 13 | 463 |
+| rest | 20 | 1447 | 81 | 0 | 23 | 1505 |
 
-## Short of target: every source read (183)
+## Short of target: every source read (193)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -193,9 +193,19 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/inpaichthys-kerri | shop | 5 | 60 |
 | plants/nymphoides-hydrophylla | shop | 39 | 60 |
 | species/paracheirodon-simulans | shop | 2 | 60 |
-| plants/phyllanthus-fluitans | shop | 9 | 60 |
+| plants/phyllanthus-fluitans | shop | 8 | 60 |
 | species/pristella-maxillaris | shop | 3 | 60 |
 | species/prionobrama-filigera | shop | 1 | 60 |
 | plants/pogostemon-deccanensis | shop | 41 | 60 |
 | species/hyphessobrycon-rosaceus | shop | 4 | 60 |
+| species/carinotetraodon-travancoricus | shop | 13 | 60 |
+| species/pterygoplichthys-joselimaianus | shop | 3 | 60 |
+| plants/ranunculus-inundatus | shop | 59 | 60 |
+| species/sewellia-lineolata | shop | 3 | 60 |
+| plants/rotala-macrandra | shop | 2 | 60 |
+| species/sewellia-breviventralis | shop | 0 | 60 |
+| species/botia-almorhae | shop | 7 | 60 |
+| species/marosatherina-ladigesi | shop | 4 | 60 |
+| species/pseudomugil-gertrudae | shop | 11 | 60 |
+| species/atyopsis-moluccensis | shop | 6 | 60 |
 | species/betta-macrostoma | covered | 0 | 30 |

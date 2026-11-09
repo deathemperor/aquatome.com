@@ -8,8 +8,8 @@ under `<lang>/<path>`.
 
 | Kind | Pages reviewed | Under the bar | With notes |
 | --- | --- | --- | --- |
-| video-guide | 614 | 518 (vi 518) | 518 |
-| translation | 810 | 149 (vi 149) | 149 |
+| video-guide | 662 | 544 (vi 544) | 544 |
+| translation | 869 | 157 (vi 157) | 157 |
 | vi-rewrite | 170 | 0 | 0 |
 | reader-rewrite | 14 | 0 | 0 |
 | title | 2 | 0 | 0 |
@@ -26,23 +26,23 @@ under `<lang>/<path>`.
 
 ## video-guide: Vietnamese guides written from YouTube videos, against the transcript
 
-518 of 614 pages under the bar.
+544 of 662 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 479 | 1495 |
-| States as certain what the source hedges, or what garbled captions only hint at | 473 | 1410 |
-| Says what the source doesn't (invented, added) | 443 | 1375 |
-| A number, unit, dose or price | 212 | 307 |
-| Wording: unnatural, literal, stiff or chatty | 154 | 195 |
-| Meaning changed or wrong | 88 | 98 |
-| Repeats itself (intro, summary, steps and FAQ) | 85 | 99 |
-| Leaves out what the source says | 38 | 41 |
-| Names or points to the video, channel, creator or source | 26 | 26 |
-| Hobby terms and names | 20 | 20 |
-| Copied from the transcript or source | 10 | 10 |
-| Off the title's topic | 9 | 9 |
-| Text left in another language | 3 | 3 |
+| Other | 504 | 1551 |
+| States as certain what the source hedges, or what garbled captions only hint at | 494 | 1455 |
+| Says what the source doesn't (invented, added) | 457 | 1379 |
+| A number, unit, dose or price | 215 | 312 |
+| Wording: unnatural, literal, stiff or chatty | 174 | 221 |
+| Meaning changed or wrong | 96 | 107 |
+| Repeats itself (intro, summary, steps and FAQ) | 89 | 103 |
+| Leaves out what the source says | 40 | 43 |
+| Names or points to the video, channel, creator or source | 25 | 25 |
+| Hobby terms and names | 24 | 24 |
+| Copied from the transcript or source | 11 | 13 |
+| Off the title's topic | 11 | 11 |
+| Text left in another language | 4 | 4 |
 
 ### Other
 
@@ -124,20 +124,20 @@ under `<lang>/<path>`.
 
 ## translation: source pages translated into Vietnamese, against the English
 
-149 of 810 pages under the bar.
+157 of 869 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 145 | 464 |
-| Wording: unnatural, literal, stiff or chatty | 117 | 220 |
-| Says what the source doesn't (invented, added) | 115 | 245 |
-| Meaning changed or wrong | 101 | 161 |
-| Hobby terms and names | 69 | 90 |
-| A number, unit, dose or price | 50 | 65 |
-| Text left in another language | 50 | 63 |
-| States as certain what the source hedges, or what garbled captions only hint at | 50 | 60 |
-| Leaves out what the source says | 48 | 67 |
-| Repeats itself (intro, summary, steps and FAQ) | 39 | 49 |
+| Other | 153 | 489 |
+| Wording: unnatural, literal, stiff or chatty | 125 | 236 |
+| Says what the source doesn't (invented, added) | 121 | 260 |
+| Meaning changed or wrong | 107 | 169 |
+| Hobby terms and names | 73 | 94 |
+| States as certain what the source hedges, or what garbled captions only hint at | 53 | 63 |
+| Text left in another language | 52 | 66 |
+| A number, unit, dose or price | 51 | 66 |
+| Leaves out what the source says | 49 | 68 |
+| Repeats itself (intro, summary, steps and FAQ) | 41 | 51 |
 | Names or points to the video, channel, creator or source | 8 | 9 |
 | Copied from the transcript or source | 2 | 2 |
 
@@ -171,23 +171,23 @@ under `<lang>/<path>`.
 - Terminology: "crayfish" is rendered throughout as "tôm càng đỏ". That is the common name of Cherax quadricarinatus (red claw), not crayfish in general. Use "tôm hùm nước ngọt" or "tôm hùm đất" for crayfish, and keep "tôm càng đỏ" for red c… — vi/guides/aquariumbreeder-do-crayfish-need-to-come-out-of-water (aquariumbreeder), 0.60
 - Dwarf orange: "Dwarf orange crayfish are another common pets" ok; "tôm hùm đất" for crayfish is a standard-ish term but "tôm hùm đất lùn" and "tép" for shrimp are acceptable; "dòng" for color morph is non-standard – prefer "biến thể màu". — vi/guides/aquariumbreeder-most-popular-aquarium-crayfish-species (aquariumbreeder), 0.60
 
-### A number, unit, dose or price
-
-- Item 1: 'Max size: 75 mm SL (3.0 in SL)' - dropping the inches is fine, but keep 'SL' explained (chiều dài chuẩn) or consistent. — vi/species/tanakia-signifer (seriouslyfish), 0.55
-- Red swamp: "most will grow up to 4 – 5 inches (10 – 12 cm)" translated "dài tới 10 – 12 cm" ok, but "need at least 20 gallons... per adult crayfish" – "mỗi con cần ít nhất khoảng 80 lít" ok. Omitted: "These crayfish do particularly well in… — vi/guides/aquariumbreeder-most-popular-aquarium-crayfish-species (aquariumbreeder), 0.60
-- Item 4: Volume '108 lít' is a wrong conversion. 29 US gal is about 110 litres, and the rule is to round tanks of 5 gal or more to the nearest 5 litres, so use 110 lít. — vi/species/acanthodoras-cataphractus (seriouslyfish), 0.60
-
-### Text left in another language
-
-- Item 4: "white shark" is left in English in brackets. Remove it, or use "cá mập trắng" only. — vi/species/labeo-chrysophekadion (glaser), 0.50
-- Item 8: 'cá chình gai' for mastacembelids is fine. 'Cichlid' and 'characin' are left in English or loosely rendered; use 'cá rô phi/cichlid' and 'cá tetra họ characin' consistently. — vi/species/helostoma-temminckii (seriouslyfish), 0.55
-- Red claw: "Because of their growth potential" fine. "Blue yabby" left untranslated fine. — vi/guides/aquariumbreeder-most-popular-aquarium-crayfish-species (aquariumbreeder), 0.60
-
 ### States as certain what the source hedges, or what garbled captions only hint at
 
 - Item 5: "đầu hồi nước" is non-standard for 'outflows'; use 'đầu nước ra/ống xả'. 'đầu ra' for 'returns' is also unclear. — vi/species/helostoma-temminckii (seriouslyfish), 0.55
 - #1: 'bắt Ilyodon về làm thức ăn' – 'found on the human menu' is slightly changed; and 'Vì to như vậy' overstates causation, since 15 cm is exceptional only. — vi/species/ilyodon-furcidens (glaser), 0.55
 - "Khí hô hấp và ion trao đổi ngay lúc nước chảy qua" is awkward and its word order is unclear. Try "Việc trao đổi khí hô hấp và ion diễn ra khi nước được hút vào khoang mang và chảy qua bề mặt mang". — vi/guides/aquariumbreeder-do-crayfish-need-to-come-out-of-water (aquariumbreeder), 0.60
+
+### Text left in another language
+
+- Item 4: "white shark" is left in English in brackets. Remove it, or use "cá mập trắng" only. — vi/species/labeo-chrysophekadion (glaser), 0.50
+- Item 8: 'cá chình gai' for mastacembelids is fine. 'Cichlid' and 'characin' are left in English or loosely rendered; use 'cá rô phi/cichlid' and 'cá tetra họ characin' consistently. — vi/species/helostoma-temminckii (seriouslyfish), 0.55
+- Item 10: 'rải trứng lung tung' is too colloquial; use 'rải trứng ngẫu nhiên'. 'set thêm', 'vỗ' ok but 'set' is untranslated English slang; use 'bố trí/chuẩn bị'. 'Ai muốn thì có thể gắn thêm' is colloquial. — vi/species/microdevario-gatesi (seriouslyfish), 0.55
+
+### A number, unit, dose or price
+
+- Item 1: 'Max size: 75 mm SL (3.0 in SL)' - dropping the inches is fine, but keep 'SL' explained (chiều dài chuẩn) or consistent. — vi/species/tanakia-signifer (seriouslyfish), 0.55
+- Red swamp: "most will grow up to 4 – 5 inches (10 – 12 cm)" translated "dài tới 10 – 12 cm" ok, but "need at least 20 gallons... per adult crayfish" – "mỗi con cần ít nhất khoảng 80 lít" ok. Omitted: "These crayfish do particularly well in… — vi/guides/aquariumbreeder-most-popular-aquarium-crayfish-species (aquariumbreeder), 0.60
+- Item 4: Volume '108 lít' is a wrong conversion. 29 US gal is about 110 litres, and the rule is to round tanks of 5 gal or more to the nearest 5 litres, so use 110 lít. — vi/species/acanthodoras-cataphractus (seriouslyfish), 0.60
 
 ### Leaves out what the source says
 

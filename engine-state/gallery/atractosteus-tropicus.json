@@ -20,7 +20,9 @@
   "inat:400247485",
   "inat:404879761",
   "inat:404879721",
-  "inat:404879850"
+  "inat:404879850",
+  "gbif:1322963207:cf242fc0a5356297",
+  "gbif:1322963207:ed415fed69c08fff"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/329965939ad380d7.webp": "870707070707061c",
@@ -38,5 +40,9 @@
    "research": 363519473,
    "agree": 328506064
   }
+ },
+ "gbif": {
+  "key": 2346751,
+  "next": null
  }
 }
