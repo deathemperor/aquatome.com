@@ -82,30 +82,8 @@
     ],
     "figures": [
       {
-        "heading": "Kính thường và kính siêu trong khác nhau thế nào",
-        "moments": [
-          {
-            "t": 0,
-            "url": "https://media.aquatome.com/video/vg0xJoA0Vj4/at0-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hai bể cùng cỡ đặt cạnh nhau, bể kính thường ngả xanh, bể kính siêu trong trong hơn.",
-            "sharpness": 594.1
-          }
-        ]
-      },
-      {
         "heading": "Dán phông nền sau bể: phim keo hay phim tĩnh điện",
-        "moments": [
-          {
-            "t": 220,
-            "url": "https://media.aquatome.com/video/vg0xJoA0Vj4/at220-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "So sánh hai bể kính, một bể đã dán phông nền phía sau.",
-            "sharpness": 168.2
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/vg0xJoA0Vj4/p1-0YW5nLmFycC5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/vg0xJoA0Vj4/p1-0YW5nLmFycC5qcGc-480.webp",
@@ -154,7 +132,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây sưởi mảnh đặt sát góc bể, cạnh đám rong và cây thủy sinh.",
-            "sharpness": 787.6
+            "sharpness": 787.6,
+            "person": false
           }
         ],
         "photo": {

@@ -78,7 +78,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá cichlid sọc trong bể nước trong, nền sỏi sạch.",
-            "sharpness": 31.1
+            "sharpness": 31.1,
+            "person": false
           }
         ],
         "photo": {
@@ -96,20 +97,13 @@
         "heading": "Nước đi qua những tầng lọc nào",
         "moments": [
           {
-            "t": 180,
-            "url": "https://media.aquatome.com/video/YTSQD4zZRpQ/at180-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hệ lọc rộng phủ đầy cây nổi xanh um phía trên.",
-            "sharpness": 423.4
-          },
-          {
             "t": 255,
             "url": "https://media.aquatome.com/video/YTSQD4zZRpQ/at255-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Hộp lọc có thả cây nổi, nước chảy vào từ các ống.",
-            "sharpness": 856.4
+            "sharpness": 856.4,
+            "person": false
           }
         ]
       },
@@ -117,20 +111,13 @@
         "heading": "Khoang nước sạch không được có cá",
         "moments": [
           {
-            "t": 215,
-            "url": "https://media.aquatome.com/video/YTSQD4zZRpQ/at215-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khoang nước lớn bên dưới, nước trong và không có cá, các bể đặt phía trên.",
-            "sharpness": 668.7
-          },
-          {
             "t": 240,
             "url": "https://media.aquatome.com/video/YTSQD4zZRpQ/at240-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Các bể trồng cây xếp cạnh khoang nước, được cấp nước từ bể chứa.",
-            "sharpness": 462.4
+            "sharpness": 462.4,
+            "person": false
           }
         ],
         "photo": {
@@ -143,27 +130,6 @@
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:South_American_Freshwater_Stingray-_that%27s_the_one_at_the_far_end_(27798682122).jpg",
           "caption": "Cá đuối nước ngọt nằm trên nền cát trong bể, ảnh rõ nét."
         }
-      },
-      {
-        "heading": "Nước từ bể về hệ lọc thế nào",
-        "moments": [
-          {
-            "t": 335,
-            "url": "https://media.aquatome.com/video/YTSQD4zZRpQ/at335-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể lớn dài dọc tường, sàn phòng gọn gàng không thấy ống nào.",
-            "sharpness": 624.3
-          },
-          {
-            "t": 345,
-            "url": "https://media.aquatome.com/video/YTSQD4zZRpQ/at345-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Mặt trên các bể và trần phía trên, nơi đường ống đi qua.",
-            "sharpness": 503.9
-          }
-        ]
       },
       {
         "heading": "Không thay nước nhờ hệ nhỏ giọt",
@@ -186,7 +152,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nhìn vào trong sump to dưới chân bể, có ống nước đi vào.",
-            "sharpness": 93.4
+            "sharpness": 93.4,
+            "person": false
           }
         ],
         "photo": {
@@ -202,24 +169,7 @@
       },
       {
         "heading": "Dãy bể cách ly chạy lọc mút",
-        "moments": [
-          {
-            "t": 110,
-            "url": "https://media.aquatome.com/video/YTSQD4zZRpQ/at110-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Một con cá sọc trong bể cách ly nền cát trắng.",
-            "sharpness": 23.7
-          },
-          {
-            "t": 130,
-            "url": "https://media.aquatome.com/video/YTSQD4zZRpQ/at130-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lọc mút đặt trong bể cách ly, bên cạnh khúc lũa vàng.",
-            "sharpness": 292.3
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/YTSQD4zZRpQ/p6-JfZm9hbV8xLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/YTSQD4zZRpQ/p6-JfZm9hbV8xLmpwZw-480.webp",
@@ -230,19 +180,6 @@
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Sponge_Filter_foam_1.jpg",
           "caption": "Cận cảnh khối mút lọc đen với các lỗ xốp dùng cho lọc mút."
         }
-      },
-      {
-        "heading": "Nâng cấp hệ lọc mà cá không bị bỏ lọc",
-        "moments": [
-          {
-            "t": 605,
-            "url": "https://media.aquatome.com/video/YTSQD4zZRpQ/at605-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khu vực rộng trong cửa hàng với bể lớn, nơi dự định đặt hệ lọc mới.",
-            "sharpness": 1274.5
-          }
-        ]
       }
     ]
   }
