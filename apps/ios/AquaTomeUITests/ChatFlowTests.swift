@@ -154,7 +154,9 @@ final class ChatFlowTests: XCTestCase {
     let toEnd = app.buttons["chat-to-end"]
     XCTAssertFalse(toEnd.exists, "a ↓ with the newest question on screen")
     repeatUntil(toEnd.exists, times: 4) { element(app, "chat").swipeDown() }
-    XCTAssertTrue(toEnd.exists, "no ↓ up in the earlier turn")
+    let questions = app.staticTexts.matching(identifier: "chat-question")
+    XCTAssertTrue(toEnd.exists, "no ↓ up in the earlier turn: the newest question at \(questions.element(boundBy: 1).frame), the box at "
+                  + "\(element(app, "chat-box").frame), the first question \(questions.element(boundBy: 0).frame.height) high")
     XCTAssertEqual(toEnd.label, "Xuống cuối cuộc trò chuyện")
     toEnd.tap()
     XCTAssertTrue(toEnd.waitForNonExistence(timeout: 5), "the ↓ stayed at the end")
