@@ -13,6 +13,78 @@
     "liberia",
     "du-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GN",
+        "SL",
+        "LR"
+      ],
+      "regions": [
+        "Gbangbaia",
+        "Du"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Guinea.",
+          "countries": [
+            "GN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The jelly bean tetra, Ladigesia roloffi, is a small alestid from Sierra Leone, known with certainty only from the Kasewe Forest reserve.",
+          "countries": [
+            "SL"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "A single record from the Du river drainage in the Firestone rubber plantation near Harbel, Liberia (Van den Nieuwenhuisen, 1972), also exists.",
+          "countries": [
+            "LR"
+          ],
+          "regions": [
+            "Du"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "This species' distribution is unclear and it's only known with certainty from the type locality 'Kasewe Forest, Sierra Leone' where it's said to inhabit the upper Gbangbaia river basin.",
+          "countries": [],
+          "regions": [
+            "Gbangbaia"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2356280,
+      "total": 2,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "SL",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -12.65625,
+          7.03125,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

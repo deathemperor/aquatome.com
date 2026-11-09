@@ -1,0 +1,72 @@
+{
+  "id": "ladigesia-roloffi",
+  "native": {
+    "input": "24580f27a5001735",
+    "at": "2026-11-09T09:57:55.009Z",
+    "claims": [
+      {
+        "code": "GN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Guinea.",
+        "words": "Guinea",
+        "ok": true
+      },
+      {
+        "code": "SL",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The jelly bean tetra, Ladigesia roloffi, is a small alestid from Sierra Leone, known with certainty only from the Kasewe Forest reserve.",
+        "words": "Sierra Leone",
+        "ok": true
+      },
+      {
+        "code": "LR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "A single record from the Du river drainage in the Firestone rubber plantation near Harbel, Liberia (Van den Nieuwenhuisen, 1972), also exists.",
+        "words": "Liberia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Gbangbaia",
+        "source": "seriouslyfish",
+        "quote": "This species' distribution is unclear and it's only known with certainty from the type locality 'Kasewe Forest, Sierra Leone' where it's said to inhabit the upper Gbangbaia river basin.",
+        "ok": true
+      },
+      {
+        "name": "Du",
+        "source": "seriouslyfish",
+        "quote": "A single record from the Du river drainage in the Firestone rubber plantation near Harbel, Liberia (Van den Nieuwenhuisen, 1972), also exists.",
+        "country": "LR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Ladigesia roloffi",
+    "status": "ACCEPTED",
+    "taxonKey": 2356280,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        2
+      ]
+    ],
+    "native": [
+      "GN",
+      "SL",
+      "LR"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T09:57:55.009Z"
+  }
+}

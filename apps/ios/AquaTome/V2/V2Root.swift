@@ -2,7 +2,7 @@ import Handbook
 import SwiftUI
 
 /// The app's v2 (the App Store's approach: editorial cards that open into their pages, artwork-led shelves, colour drawn
-/// from the photos), behind "Giao diện mới (thử nghiệm)" in the Tài khoản sheet: `v2` in UserDefaults, off by default.
+/// from the photos): the app's look, unless the reader turns the old one on in the Tài khoản sheet (V2Switch).
 /// It runs on the app's own models (AquaTomeApp's environment), so switching back and forth keeps the tanks, the
 /// account and the pages kept and saved. Its tabs: Hôm nay; Khám phá, the handbook's shelves, where links from pages and
 /// from outside the app open (v1's Tìm tab, `handbookPath`); Bể của tôi and Đèn, v1's own; and Tìm, the search tab
@@ -98,15 +98,13 @@ struct V2Root: View {
   }
 }
 
-/// Whether this build offers v2's switch: debug and TestFlight builds, not the App Store's, until the owner says so.
+/// v2 or the old look. v2 is the app's look for everyone (the owner, 2026-11-08), installs from before too: on unless
+/// the reader turned it off by hand (a stored false), where it stays off. The Tài khoản sheet's switch offers the old
+/// look back; iOS 17 has the old look alone, as v2 needs iOS 18. `-v2 NO` gives a launch the old look, `-v2 YES` v2.
 enum V2Switch {
-  static var offered: Bool {
-    #if DEBUG
-    true
-    #else
-    Bundle.main.appStoreReceiptURL?.lastPathComponent == "sandboxReceipt"
-    #endif
-  }
+  /// The UserDefaults key, and its value where the reader never set it.
+  static let key = "v2"
+  static let byDefault = true
 }
 
 @available(iOS 18, *)

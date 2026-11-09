@@ -35,7 +35,7 @@ final class ProfilePictureFlowTests: XCTestCase {
     signIn(app)
     choose(app, "halfmoon-betta")
     tapScrolling(app, "sign-out")
-    XCTAssertTrue(element(app, "apple-sign-in").waitForExistence(timeout: 5), "still signed in")
+    XCTAssertTrue(signedOut(app), "still signed in")
     XCTAssertFalse(element(app, "account-picture").exists, "the picture's row signed out")
     app.closeAccount()
     XCTAssertFalse(redOnButton(app), "the fish on the button signed out")
@@ -105,7 +105,7 @@ final class ProfilePictureFlowTests: XCTestCase {
   /// Signed out from the sheet, then in again to the same account (the stand-in Apple's).
   private func signOutAndIn(_ app: XCUIApplication) {
     tapScrolling(app, "sign-out")
-    XCTAssertTrue(element(app, "apple-sign-in").waitForExistence(timeout: 5), "still signed in")
+    XCTAssertTrue(signedOut(app), "still signed in")
     tapScrolling(app, "apple-sign-in")
     XCTAssertTrue(row(app).waitForExistence(timeout: 10), "no picture row signed in again")
   }
@@ -126,6 +126,15 @@ final class ProfilePictureFlowTests: XCTestCase {
   }
 
   private func element(_ app: XCUIApplication, _ id: String) -> XCUIElement { app.descendants(matching: .any)[id].firstMatch }
+
+  /// Signed out: the sign-in at the sheet's top, scrolled back to from its foot, where "Đăng xuất" was. A sheet this long
+  /// doesn't keep its top drawn while at its foot.
+  private func signedOut(_ app: XCUIApplication) -> Bool {
+    guard element(app, "sign-out").waitForNonExistence(timeout: 5) else { return false }
+    let e = element(app, "apple-sign-in")
+    repeatUntil(e.exists, times: 4) { app.swipeDown() }
+    return e.exists
+  }
 
   /// Scrolls the sheet until the element can be tapped, then taps it.
   private func tapScrolling(_ app: XCUIApplication, _ id: String) {

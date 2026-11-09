@@ -1,0 +1,135 @@
+{
+  "id": "kryptopterus-macrocephalus",
+  "native": {
+    "input": "d551b2fb602e268e",
+    "at": "2026-11-09T09:57:55.009Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The striped glass catfish, Kryptopterus macrocephalus, is a silurid catfish from Thailand, Malaysia, Singapore and the Greater Sunda Islands.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The striped glass catfish, Kryptopterus macrocephalus, is a silurid catfish from Thailand, Malaysia, Singapore and the Greater Sunda Islands.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The striped glass catfish, Kryptopterus macrocephalus, is a silurid catfish from Thailand, Malaysia, Singapore and the Greater Sunda Islands.",
+        "words": "Singapore",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from southern (peninsular) Thailand, Peninsular Malaysia, Singapore and the Greater Sunda Islands of Sumatra, Borneo and Java.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from southern (peninsular) Thailand, Peninsular Malaysia, Singapore and the Greater Sunda Islands of Sumatra, Borneo and Java.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from southern (peninsular) Thailand, Peninsular Malaysia, Singapore and the Greater Sunda Islands of Sumatra, Borneo and Java.",
+        "words": "Singapore",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Known from southern (peninsular) Thailand, Peninsular Malaysia, Singapore and the Greater Sunda Islands of Sumatra, Borneo and Java.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Known from southern (peninsular) Thailand, Peninsular Malaysia, Singapore and the Greater Sunda Islands of Sumatra, Borneo and Java.",
+        "ok": true
+      },
+      {
+        "name": "Java",
+        "source": "seriouslyfish",
+        "quote": "Known from southern (peninsular) Thailand, Peninsular Malaysia, Singapore and the Greater Sunda Islands of Sumatra, Borneo and Java.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "ID"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Kryptopterus macrocephalus",
+    "status": "ACCEPTED",
+    "taxonKey": 2337908,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        13
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        3
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "MY",
+      "SG"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T09:57:55.009Z"
+  }
+}

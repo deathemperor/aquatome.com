@@ -121,6 +121,30 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertEqual(toEnd.frame.height, 60, accuracy: 1, "the ↓ isn't the mock's size")
   }
 
+  /// A short newest turn: the round ↓ puts its question back under the bar, where it sat when answered.
+  func testTheRoundArrowPutsAShortLastTurnBackUnderTheBar() {
+    let app = launch("-chat-uncovered")
+    openChat(app)
+    signIn(app)
+    ask(app, String(repeating: "Bể neon của mình bị rêu tóc mọc kín, ", count: 10))
+    let answers = app.descendants(matching: .any).matching(identifier: "chat-answer")
+    XCTAssertTrue(answers.element(boundBy: 0).waitForExistence(timeout: 20), "no first answer")
+    let more = app.buttons["chat-more"]
+    reveal(app, more)
+    more.tap()
+    ask(app, "Neon ăn gì?")
+    XCTAssertTrue(answers.element(boundBy: 1).waitForExistence(timeout: 20), "no second answer")
+    ask(app, "Neon sống bao lâu?")
+    XCTAssertTrue(answers.element(boundBy: 2).waitForExistence(timeout: 20), "no third answer")
+    let toEnd = app.buttons["chat-to-end"]
+    repeatUntil(toEnd.exists, times: 4) { element(app, "chat").swipeDown() }
+    XCTAssertTrue(toEnd.exists, "no ↓ up in the earlier turns")
+    toEnd.tap()
+    let bar = app.navigationBars.firstMatch, newest = app.staticTexts.matching(identifier: "chat-question").element(boundBy: 2)
+    XCTAssertTrue(soon(abs(newest.frame.minY - bar.frame.maxY) < 44),
+                  "the question isn't under the bar: its top at \(newest.frame.minY), the bar's end at \(bar.frame.maxY)")
+  }
+
   /// A long question shows its first six lines in the bubble, and "Xem thêm" under it opens it whole.
   func testALongQuestionShowsSixLinesAndXemThemOpensItWhole() {
     let app = launch()
@@ -956,6 +980,13 @@ final class ChatFlowTests: XCTestCase {
     section.press(forDuration: 1)
     XCTAssertTrue(app.buttons["Mở"].waitForExistence(timeout: 5), "no Mở on a section")
     XCTAssertTrue(app.buttons["Chia sẻ"].exists, "no Chia sẻ on a section")
+    app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.05)).tap()
+    XCTAssertTrue(app.buttons["Chia sẻ"].waitForNonExistence(timeout: 5), "the menu stayed")
+    let tool = app.descendants(matching: .any).matching(identifier: "chat-tool").firstMatch
+    reveal(app, tool)
+    tool.press(forDuration: 1)
+    XCTAssertTrue(app.buttons["Mở"].waitForExistence(timeout: 5), "no Mở on a tool")
+    XCTAssertTrue(app.buttons["Chia sẻ"].exists, "no Chia sẻ on a tool")
   }
 
   /// A comparison: a row whose figures differ says so, the one that alone differs named over "the others", a missing figure

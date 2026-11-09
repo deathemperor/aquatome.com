@@ -487,6 +487,16 @@
       "kept": true
     }
   ],
+  "id/places/bahia": [
+    {
+      "at": "2026-11-09T11:45:44Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/ban-pakong": [
     {
       "at": "2026-11-08T20:40:33Z",
@@ -980,6 +990,16 @@
       "kept": true
     }
   ],
+  "id/places/boadzulu": [
+    {
+      "at": "2026-11-09T11:45:44Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/bobonaza": [
     {
       "at": "2026-11-09T00:08:04Z",
@@ -1033,6 +1053,16 @@
   "id/places/brahmaputra-river": [
     {
       "at": "2026-11-08T05:19:45Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/branco": [
+    {
+      "at": "2026-11-09T11:45:44Z",
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
@@ -1192,6 +1222,16 @@
       "kept": true
     }
   ],
+  "id/places/cape-york": [
+    {
+      "at": "2026-11-09T11:45:44Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/cape-york-peninsula": [
     {
       "at": "2026-11-06T12:35:46Z",
@@ -1199,6 +1239,16 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/capim": [
+    {
+      "at": "2026-11-09T11:45:44Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -1524,6 +1574,26 @@
       "kept": true
     }
   ],
+  "id/places/chinyamwezi": [
+    {
+      "at": "2026-11-09T11:45:44Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/chinyankwazi": [
+    {
+      "at": "2026-11-09T11:45:44Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/chitande-island": [
     {
       "at": "2026-11-08T05:19:46Z",
@@ -1559,6 +1629,16 @@
       "at": "2026-11-06T13:59:22Z",
       "model": "sonnet",
       "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/chuksan": [
+    {
+      "at": "2026-11-09T11:45:44Z",
+      "model": "sonnet",
+      "score": 0.3,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -2106,6 +2186,16 @@
       "kept": true
     }
   ],
+  "id/places/du": [
+    {
+      "at": "2026-11-09T11:45:44Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/du-river": [
     {
       "at": "2026-11-06T12:35:46Z",
@@ -2598,6 +2688,19 @@
       "kept": true
     }
   ],
+  "id/places/han-river": [
+    {
+      "at": "2026-11-09T11:45:44Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "sông Hán → Han (Vietnamese 'sông', not Indonesian; should be Sungai Han)",
+        "Han (river) lacks 'Sungai' prefix"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/hangjiang-river": [
     {
       "at": "2026-11-08T05:20:19Z",
@@ -2665,6 +2768,16 @@
       "at": "2026-11-08T08:48:27Z",
       "model": "sonnet",
       "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/hyongsan": [
+    {
+      "at": "2026-11-09T11:45:44Z",
+      "model": "sonnet",
+      "score": 0.3,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -3005,6 +3118,19 @@
       "kept": true
     }
   ],
+  "id/places/johor-river": [
+    {
+      "at": "2026-11-09T11:45:44Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "sông Johor → Johor (Vietnamese 'sông'; should be Sungai Johor)",
+        "Johor (river) lacks 'Sungai' prefix"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/johore": [
     {
       "at": "2026-11-06T12:35:46Z",
@@ -3090,6 +3216,16 @@
   "id/places/kahajan": [
     {
       "at": "2026-11-08T05:20:20Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/kahayan": [
+    {
+      "at": "2026-11-09T11:45:44Z",
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
@@ -3260,6 +3396,16 @@
   "id/places/kapuas-river": [
     {
       "at": "2026-11-08T05:20:20Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/karnali": [
+    {
+      "at": "2026-11-09T11:45:44Z",
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
@@ -3925,6 +4071,18 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/lake-monroe": [
+    {
+      "at": "2026-11-09T11:45:44Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "hồ Monroe → Danau Monroe (source is Vietnamese; the output Danau Monroe is fine)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -5027,6 +5185,16 @@
       "kept": true
     }
   ],
+  "id/places/mindanao": [
+    {
+      "at": "2026-11-09T11:45:44Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/mishmee-hills": [
     {
       "at": "2026-11-08T20:40:33Z",
@@ -5937,6 +6105,18 @@
       "kept": true
     }
   ],
+  "id/places/perfume": [
+    {
+      "at": "2026-11-09T11:45:44Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "sông Hương → Sungai Parfum (wrong; should be Sungai Harum/Sungai Huong)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/peria-creek": [
     {
       "at": "2026-11-08T05:20:56Z",
@@ -5992,6 +6172,16 @@
       "at": "2026-11-07T03:57:48Z",
       "model": "sonnet",
       "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/phitsanulok": [
+    {
+      "at": "2026-11-09T11:45:44Z",
+      "model": "sonnet",
+      "score": 0.3,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -6167,6 +6357,16 @@
       "notes": [
         "Quảng Trị (Vietnamese; Quang Tri)"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/quanza": [
+    {
+      "at": "2026-11-09T11:45:44Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -6443,6 +6643,19 @@
       "model": "sonnet",
       "score": 0.2,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/rio-aruka": [
+    {
+      "at": "2026-11-09T11:45:44Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "sông Aruka → Aruka (Vietnamese 'sông'; should be Sungai Aruka)",
+        "Aruka (river) lacks 'Sungai' prefix"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -7677,6 +7890,16 @@
       "kept": true
     }
   ],
+  "id/places/rufiji": [
+    {
+      "at": "2026-11-09T11:45:44Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/ruki": [
     {
       "at": "2026-11-08T05:21:30Z",
@@ -8313,6 +8536,16 @@
       "kept": true
     }
   ],
+  "id/places/songcheon": [
+    {
+      "at": "2026-11-09T11:45:44Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/songhua": [
     {
       "at": "2026-11-08T05:21:59Z",
@@ -8479,6 +8712,16 @@
       "kept": true
     }
   ],
+  "id/places/tamjin": [
+    {
+      "at": "2026-11-09T11:45:44Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/tampassuk-river": [
     {
       "at": "2026-11-08T12:08:48Z",
@@ -8508,6 +8751,19 @@
       "score": 0.4,
       "notes": [
         "Sungai names given without \"Sungai\" (Singen, Sita, Sittang, Sittaung, St. Johns, Tanintharyi, Thamirabarani, Tocantins, Tonle Sap, Tshuapa, Vaal, Yamuna, Yom, Yangtze, Huang He): inconsistent with Indonesian atlas style, which uses \"Sungai X\""
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/tapi-river": [
+    {
+      "at": "2026-11-09T11:45:44Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "sông Tapi → Tapi (Vietnamese 'sông'; should be Sungai Tapi)",
+        "Tapi (river) lacks 'Sungai' prefix"
       ],
       "attempt": "first",
       "kept": true
@@ -9051,6 +9307,16 @@
       "kept": true
     }
   ],
+  "id/places/urubu": [
+    {
+      "at": "2026-11-09T11:45:44Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/vaal-river": [
     {
       "at": "2026-11-08T05:22:00Z",
@@ -9384,6 +9650,16 @@
       "notes": [
         "Sungai names given without \"Sungai\" (Singen, Sita, Sittang, Sittaung, St. Johns, Tanintharyi, Thamirabarani, Tocantins, Tonle Sap, Tshuapa, Vaal, Yamuna, Yom, Yangtze, Huang He): inconsistent with Indonesian atlas style, which uses \"Sungai X\""
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/yongdokoship": [
+    {
+      "at": "2026-11-09T11:45:44Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -20823,6 +21099,18 @@
       "kept": true
     }
   ],
+  "th/places/bahia": [
+    {
+      "at": "2026-11-09T11:49:05Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "bahia: \"บาเอีย\" is usually written บาเยีย or บาเอีย; acceptable but uncertain"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/bali": [
     {
       "at": "2026-11-06T12:36:00Z",
@@ -21337,6 +21625,16 @@
       "kept": true
     }
   ],
+  "th/places/boadzulu": [
+    {
+      "at": "2026-11-09T11:49:05Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/bobonaza": [
     {
       "at": "2026-11-09T00:10:26Z",
@@ -21395,6 +21693,18 @@
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/branco": [
+    {
+      "at": "2026-11-09T11:49:05Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "branco: \"บรังกู\" is acceptable but typically บรังโก (river Rio Branco)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -21549,6 +21859,16 @@
       "kept": true
     }
   ],
+  "th/places/cape-york": [
+    {
+      "at": "2026-11-09T11:49:05Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/cape-york-peninsula": [
     {
       "at": "2026-11-06T12:36:00Z",
@@ -21556,6 +21876,18 @@
       "score": 0.55,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/capim": [
+    {
+      "at": "2026-11-09T11:49:05Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "capim: \"กาปิง\" should be กาปิม"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -21921,6 +22253,26 @@
       "kept": true
     }
   ],
+  "th/places/chinyamwezi": [
+    {
+      "at": "2026-11-09T11:49:05Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/chinyankwazi": [
+    {
+      "at": "2026-11-09T11:49:05Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/chitande-island": [
     {
       "at": "2026-11-08T05:27:08Z",
@@ -21959,6 +22311,16 @@
       "notes": [
         "Choshui → จั๋วสุ่ย (usual: จั๋วสุ่ย OK but borderline)"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/chuksan": [
+    {
+      "at": "2026-11-09T11:49:05Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -22540,6 +22902,18 @@
       "kept": true
     }
   ],
+  "th/places/du": [
+    {
+      "at": "2026-11-09T11:49:05Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "du: \"ดู\" uncertain"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/du-river": [
     {
       "at": "2026-11-06T12:36:00Z",
@@ -23066,6 +23440,18 @@
       "kept": true
     }
   ],
+  "th/places/han-river": [
+    {
+      "at": "2026-11-09T11:49:05Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "han-river: \"ฮัน\" lacks \"แม่น้ำ\" (should be แม่น้ำฮัน)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/hangjiang-river": [
     {
       "at": "2026-11-08T05:27:55Z",
@@ -23155,6 +23541,16 @@
       "at": "2026-11-08T05:27:55Z",
       "model": "sonnet",
       "score": 0.72,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/hyongsan": [
+    {
+      "at": "2026-11-09T11:49:05Z",
+      "model": "sonnet",
+      "score": 0.6,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -23550,6 +23946,18 @@
       "kept": true
     }
   ],
+  "th/places/johor-river": [
+    {
+      "at": "2026-11-09T11:49:05Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "johor-river: \"ยะโฮร์\" lacks \"แม่น้ำ\" (should be แม่น้ำยะโฮร์)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/johore": [
     {
       "at": "2026-11-06T12:36:00Z",
@@ -23637,6 +24045,16 @@
       "at": "2026-11-08T05:27:55Z",
       "model": "sonnet",
       "score": 0.72,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/kahayan": [
+    {
+      "at": "2026-11-09T11:49:05Z",
+      "model": "sonnet",
+      "score": 0.6,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -23792,6 +24210,16 @@
       "notes": [
         "sông Kapuas → กาปวส (usual Thai is กาปูอัส)"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/karnali": [
+    {
+      "at": "2026-11-09T11:49:05Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -24537,6 +24965,16 @@
       "at": "2026-11-08T05:27:56Z",
       "model": "sonnet",
       "score": 0.72,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/lake-monroe": [
+    {
+      "at": "2026-11-09T11:49:05Z",
+      "model": "sonnet",
+      "score": 0.6,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -25686,6 +26124,16 @@
       "kept": true
     }
   ],
+  "th/places/mindanao": [
+    {
+      "at": "2026-11-09T11:49:05Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/mishmee-hills": [
     {
       "at": "2026-11-08T20:47:48Z",
@@ -26725,6 +27173,18 @@
       "kept": true
     }
   ],
+  "th/places/perfume": [
+    {
+      "at": "2026-11-09T11:49:05Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "perfume: \"แม่น้ำหอม\" is a literal translation of sông Hương (Perfume River), not a Thai atlas transliteration; Thai usually writes แม่น้ำหอม/เฮือง, questionable"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/peria-creek": [
     {
       "at": "2026-11-08T05:28:40Z",
@@ -26770,6 +27230,16 @@
       "at": "2026-11-07T04:00:41Z",
       "model": "sonnet",
       "score": 0.62,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/phitsanulok": [
+    {
+      "at": "2026-11-09T11:49:05Z",
+      "model": "sonnet",
+      "score": 0.6,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -26968,6 +27438,16 @@
         "Many entries are Thai-script transliterations, but several are questionable or incomplete.",
         "\"กวางจิ\" (Quảng Trị): the usual Thai form is กวางตรี."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/quanza": [
+    {
+      "at": "2026-11-09T11:49:05Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -27244,6 +27724,18 @@
       "score": 0.6,
       "notes": [
         "Many entries are Thai-script transliterations, but several are questionable or incomplete."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/rio-aruka": [
+    {
+      "at": "2026-11-09T11:49:05Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "rio-aruka: \"อารูกา\" lacks river designation (should be แม่น้ำอารูกา)"
       ],
       "attempt": "first",
       "kept": true
@@ -28611,6 +29103,16 @@
       "kept": true
     }
   ],
+  "th/places/rufiji": [
+    {
+      "at": "2026-11-09T11:49:05Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/ruki": [
     {
       "at": "2026-11-08T05:29:24Z",
@@ -29286,6 +29788,16 @@
       "kept": true
     }
   ],
+  "th/places/songcheon": [
+    {
+      "at": "2026-11-09T11:49:05Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/songhua": [
     {
       "at": "2026-11-08T05:30:02Z",
@@ -29486,6 +29998,16 @@
       "kept": true
     }
   ],
+  "th/places/tamjin": [
+    {
+      "at": "2026-11-09T11:49:05Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/tampassuk-river": [
     {
       "at": "2026-11-08T12:10:05Z",
@@ -29514,6 +30036,18 @@
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/tapi-river": [
+    {
+      "at": "2026-11-09T11:49:05Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "tapi-river: \"ตาปี\" lacks \"แม่น้ำ\" (should be แม่น้ำตาปี)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -30083,6 +30617,16 @@
       "kept": true
     }
   ],
+  "th/places/urubu": [
+    {
+      "at": "2026-11-09T11:49:05Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/vaal-river": [
     {
       "at": "2026-11-08T05:30:02Z",
@@ -30422,6 +30966,18 @@
       "score": 0.6,
       "notes": [
         "siem-reap-river: เสียมราฐ (Thai usually เสียมราบ / แม่น้ำเสียมราฐ is acceptable but incomplete)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/yongdokoship": [
+    {
+      "at": "2026-11-09T11:49:05Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "yongdokoship: \"ยองด็อกโอซิบ\" doubtful rendering"
       ],
       "attempt": "first",
       "kept": true
@@ -31438,6 +31994,19 @@
       "kept": true
     }
   ],
+  "vi/places/bahia": [
+    {
+      "at": "2026-11-09T11:43:20Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [
+        "None of the names is wrong.",
+        "All the other names keep the source's spelling, which is how Vietnamese writes foreign place names."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/bali": [
     {
       "at": "2026-11-07T20:32:23Z",
@@ -32171,6 +32740,19 @@
       "kept": true
     }
   ],
+  "vi/places/boadzulu": [
+    {
+      "at": "2026-11-09T11:43:20Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [
+        "None of the names is wrong.",
+        "All the other names keep the source's spelling, which is how Vietnamese writes foreign place names."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/bobonaza": [
     {
       "at": "2026-11-09T00:06:30Z",
@@ -32271,6 +32853,19 @@
       "model": "sonnet",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/branco": [
+    {
+      "at": "2026-11-09T11:43:20Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [
+        "None of the names is wrong.",
+        "All the other names keep the source's spelling, which is how Vietnamese writes foreign place names."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -32451,12 +33046,39 @@
       "kept": true
     }
   ],
+  "vi/places/cape-york": [
+    {
+      "at": "2026-11-09T11:43:20Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [
+        "None of the names is wrong.",
+        "'Cape York' keeps the source's spelling. Vietnamese also uses it as a proper name, as in 'bán đảo Cape York'.",
+        "All the other names keep the source's spelling, which is how Vietnamese writes foreign place names."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/cape-york-peninsula": [
     {
       "at": "2026-11-07T20:33:13Z",
       "model": "sonnet",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/capim": [
+    {
+      "at": "2026-11-09T11:43:20Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [
+        "None of the names is wrong.",
+        "All the other names keep the source's spelling, which is how Vietnamese writes foreign place names."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -32916,6 +33538,32 @@
       "kept": true
     }
   ],
+  "vi/places/chinyamwezi": [
+    {
+      "at": "2026-11-09T11:43:20Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [
+        "None of the names is wrong.",
+        "All the other names keep the source's spelling, which is how Vietnamese writes foreign place names."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/chinyankwazi": [
+    {
+      "at": "2026-11-09T11:43:20Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [
+        "None of the names is wrong.",
+        "All the other names keep the source's spelling, which is how Vietnamese writes foreign place names."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/chitande-island": [
     {
       "at": "2026-11-07T20:33:13Z",
@@ -32952,6 +33600,19 @@
       "model": "sonnet",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/chuksan": [
+    {
+      "at": "2026-11-09T11:43:20Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [
+        "None of the names is wrong.",
+        "All the other names keep the source's spelling, which is how Vietnamese writes foreign place names."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -33669,6 +34330,19 @@
       "score": 0.93,
       "notes": [
         "No other line names the wrong place. The Chinese-derived names (Điền Trì, Đông Giang, Hàn Giang, Phúc Kiến, Quảng Đông, Hải Nam) are correct, and so are established forms like biển Chết, Ngũ Đại Hồ, sông Hằng, sông Hán and Gyeongsang Bắc."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/du": [
+    {
+      "at": "2026-11-09T11:43:20Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [
+        "None of the names is wrong.",
+        "All the other names keep the source's spelling, which is how Vietnamese writes foreign place names."
       ],
       "attempt": "first",
       "kept": true
@@ -34397,6 +35071,20 @@
       "kept": true
     }
   ],
+  "vi/places/han-river": [
+    {
+      "at": "2026-11-09T11:43:20Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [
+        "None of the names is wrong.",
+        "'sông Hán' for the Han River in Korea is the usual Vietnamese name.",
+        "All the other names keep the source's spelling, which is how Vietnamese writes foreign place names."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/hangjiang-river": [
     {
       "at": "2026-11-07T20:34:11Z",
@@ -34553,6 +35241,19 @@
       "model": "sonnet",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/hyongsan": [
+    {
+      "at": "2026-11-09T11:43:20Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [
+        "None of the names is wrong.",
+        "All the other names keep the source's spelling, which is how Vietnamese writes foreign place names."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -35062,6 +35763,20 @@
       "kept": true
     }
   ],
+  "vi/places/johor-river": [
+    {
+      "at": "2026-11-09T11:43:20Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [
+        "None of the names is wrong.",
+        "'sông Johor', 'sông Tapi', 'sông Aruka' and 'hồ Monroe' are the source's names with the generic word put into Vietnamese.",
+        "All the other names keep the source's spelling, which is how Vietnamese writes foreign place names."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/johore": [
     {
       "at": "2026-11-07T20:35:05Z",
@@ -35192,6 +35907,19 @@
       "model": "sonnet",
       "score": 0.92,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/kahayan": [
+    {
+      "at": "2026-11-09T11:43:20Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [
+        "None of the names is wrong.",
+        "All the other names keep the source's spelling, which is how Vietnamese writes foreign place names."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -35426,6 +36154,20 @@
       "model": "sonnet",
       "score": 0.92,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/karnali": [
+    {
+      "at": "2026-11-09T11:43:20Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [
+        "None of the names is wrong.",
+        "All the other names keep the source's spelling, which is how Vietnamese writes foreign place names.",
+        "The country list for Karnali (PK, NP, IN, BD, MM) looks odd, but the name itself is fine."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -36562,6 +37304,20 @@
       "score": 0.96,
       "notes": [
         "No wrong places found. All 99 names are either names Vietnamese readers already use, or the source's own name with the generic word put into Vietnamese."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/lake-monroe": [
+    {
+      "at": "2026-11-09T11:43:20Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [
+        "None of the names is wrong.",
+        "'sông Johor', 'sông Tapi', 'sông Aruka' and 'hồ Monroe' are the source's names with the generic word put into Vietnamese.",
+        "All the other names keep the source's spelling, which is how Vietnamese writes foreign place names."
       ],
       "attempt": "first",
       "kept": true
@@ -38181,6 +38937,19 @@
       "kept": true
     }
   ],
+  "vi/places/mindanao": [
+    {
+      "at": "2026-11-09T11:43:20Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [
+        "None of the names is wrong.",
+        "All the other names keep the source's spelling, which is how Vietnamese writes foreign place names."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/minjiang": [
     {
       "at": "2026-11-07T20:36:53Z",
@@ -39760,6 +40529,20 @@
       "kept": true
     }
   ],
+  "vi/places/perfume": [
+    {
+      "at": "2026-11-09T11:43:20Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [
+        "None of the names is wrong.",
+        "'sông Hương' for Perfume is the established Vietnamese name for the Perfume River in Huế. The source calls it a region, but this is the right place.",
+        "All the other names keep the source's spelling, which is how Vietnamese writes foreign place names."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/peria-creek": [
     {
       "at": "2026-11-07T20:37:55Z",
@@ -39816,6 +40599,19 @@
       "model": "sonnet",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/phitsanulok": [
+    {
+      "at": "2026-11-09T11:43:20Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [
+        "None of the names is wrong.",
+        "All the other names keep the source's spelling, which is how Vietnamese writes foreign place names."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -40069,6 +40865,19 @@
       "notes": [
         "No wrong places found. Generic words are put into Vietnamese correctly: sông (river), vịnh (bay), hồ (lake), đảo (island). Proper names keep the source spelling.",
         "\"Đà Nẵng\", \"Quảng Trị\" and \"sông Sê San\" are the standard Vietnamese names."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/quanza": [
+    {
+      "at": "2026-11-09T11:43:20Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [
+        "None of the names is wrong.",
+        "All the other names keep the source's spelling, which is how Vietnamese writes foreign place names."
       ],
       "attempt": "first",
       "kept": true
@@ -40449,6 +41258,20 @@
       "score": 0.96,
       "notes": [
         "No wrong places found. Generic words are put into Vietnamese correctly: sông (river), vịnh (bay), hồ (lake), đảo (island). Proper names keep the source spelling."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/rio-aruka": [
+    {
+      "at": "2026-11-09T11:43:20Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [
+        "None of the names is wrong.",
+        "'sông Johor', 'sông Tapi', 'sông Aruka' and 'hồ Monroe' are the source's names with the generic word put into Vietnamese.",
+        "All the other names keep the source's spelling, which is how Vietnamese writes foreign place names."
       ],
       "attempt": "first",
       "kept": true
@@ -42150,6 +42973,19 @@
       "kept": true
     }
   ],
+  "vi/places/rufiji": [
+    {
+      "at": "2026-11-09T11:43:20Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [
+        "None of the names is wrong.",
+        "All the other names keep the source's spelling, which is how Vietnamese writes foreign place names."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/ruki": [
     {
       "at": "2026-11-07T20:39:31Z",
@@ -43197,6 +44033,19 @@
       "kept": true
     }
   ],
+  "vi/places/songcheon": [
+    {
+      "at": "2026-11-09T11:43:20Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [
+        "None of the names is wrong.",
+        "All the other names keep the source's spelling, which is how Vietnamese writes foreign place names."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/songhua": [
     {
       "at": "2026-11-07T20:40:25Z",
@@ -43496,6 +44345,19 @@
       "kept": true
     }
   ],
+  "vi/places/tamjin": [
+    {
+      "at": "2026-11-09T11:43:20Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [
+        "None of the names is wrong.",
+        "All the other names keep the source's spelling, which is how Vietnamese writes foreign place names."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/tampassuk-river": [
     {
       "at": "2026-11-08T12:08:21Z",
@@ -43554,6 +44416,20 @@
       "model": "sonnet",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/tapi-river": [
+    {
+      "at": "2026-11-09T11:43:20Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [
+        "None of the names is wrong.",
+        "'sông Johor', 'sông Tapi', 'sông Aruka' and 'hồ Monroe' are the source's names with the generic word put into Vietnamese.",
+        "All the other names keep the source's spelling, which is how Vietnamese writes foreign place names."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -44369,6 +45245,19 @@
       "kept": true
     }
   ],
+  "vi/places/urubu": [
+    {
+      "at": "2026-11-09T11:43:20Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [
+        "None of the names is wrong.",
+        "All the other names keep the source's spelling, which is how Vietnamese writes foreign place names."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/uruguay-river": [
     {
       "at": "2026-11-07T20:41:17Z",
@@ -44847,6 +45736,19 @@
       "model": "sonnet",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/yongdokoship": [
+    {
+      "at": "2026-11-09T11:43:20Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [
+        "None of the names is wrong.",
+        "All the other names keep the source's spelling, which is how Vietnamese writes foreign place names."
+      ],
       "attempt": "first",
       "kept": true
     }

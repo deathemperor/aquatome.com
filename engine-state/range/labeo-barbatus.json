@@ -1,0 +1,87 @@
+{
+  "id": "labeo-barbatus",
+  "native": {
+    "input": "f4a1fc4bd4e6b173",
+    "at": "2026-11-09T09:57:55.009Z",
+    "claims": [
+      {
+        "code": "CG",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Congo, Congo River.",
+        "words": "Congo",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Congo River",
+        "source": "glaser",
+        "quote": "Congo, Congo River.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CD"
+      ],
+      "sourcesOnly": [
+        "CG"
+      ]
+    }
+  },
+  "records": {
+    "matched": "Labeo barbatus",
+    "status": "ACCEPTED",
+    "taxonKey": 5206103,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        53
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        27
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        8
+      ],
+      [
+        "f29ab192-5964-40ae-a397-fa48ffdf0661",
+        3
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "CG"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T09:57:55.009Z"
+  }
+}

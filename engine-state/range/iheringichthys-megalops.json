@@ -1,0 +1,86 @@
+{
+  "id": "iheringichthys-megalops",
+  "native": {
+    "input": "4aa1a3134477ee12",
+    "at": "2026-11-09T09:57:55.009Z",
+    "claims": [
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Paraná River basin. Type locality: Bahia Negra, Río Paraguay, Paraguay.",
+        "words": "Paraguay",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Paraguay, Paraná River basin. Type locality: Paraguay, Bahia Negra, Río Paraguay.",
+        "words": "Paraguay",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Paraná",
+        "source": "planetcatfish",
+        "quote": "South America: Paraná River basin. Type locality: Bahia Negra, Río Paraguay, Paraguay.",
+        "ok": true
+      },
+      {
+        "name": "Río Paraguay",
+        "source": "planetcatfish",
+        "quote": "South America: Paraná River basin. Type locality: Bahia Negra, Río Paraguay, Paraguay.",
+        "country": "PY",
+        "ok": true
+      },
+      {
+        "name": "Paraná",
+        "source": "scotcat",
+        "quote": "South America: Paraguay, Paraná River basin. Type locality: Paraguay, Bahia Negra, Río Paraguay.",
+        "ok": true
+      },
+      {
+        "name": "Río Paraguay",
+        "source": "scotcat",
+        "quote": "South America: Paraguay, Paraná River basin. Type locality: Paraguay, Bahia Negra, Río Paraguay.",
+        "country": "PY",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "AR",
+        "BR"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Iheringichthys megalops",
+    "status": "ACCEPTED",
+    "taxonKey": 2338727,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "PY"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T09:57:55.009Z"
+  }
+}

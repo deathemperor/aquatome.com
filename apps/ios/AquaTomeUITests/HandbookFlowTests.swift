@@ -114,7 +114,7 @@ final class HandbookFlowTests: XCTestCase {
   func testAVideosLengthReadsAsTheSiteWritesItInIndonesianToo() {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(id)", "-AppleLocale", "id_ID", "-reset-defaults", "-fixed-handbook"]
-    app.launchForFlow()
+    app.launchForFlow(.old)
     search(app, "rêu hại")
     let video = item(app, "Cách hạn chế rêu hại")
     XCTAssertTrue(video.waitForExistence(timeout: 5))
@@ -620,7 +620,7 @@ final class HandbookFlowTests: XCTestCase {
   private func launch(_ more: String...) -> XCUIApplication {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook"] + more
-    app.launchForFlow()
+    app.launchForFlow(.old)
     return app
   }
 

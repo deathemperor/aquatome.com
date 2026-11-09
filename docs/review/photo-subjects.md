@@ -1,7 +1,7 @@
 # Photos that don't show their page's subject
 
 Written by `pnpm engine check-photos` (2026-11-09), most-read pages first. Rules: docs/governance.md, "Photos".
-5011 verdicts. Shows it: 3422; its habitat (asked again): 4; something else: 238; not a photo of it: 183; dead or as food: 241; a person in it: 84; a logo on it: 29; can't tell: 797.
+4991 verdicts. Shows it: 3404; its habitat (asked again): 4; something else: 238; not a photo of it: 180; dead or as food: 241; a person in it: 84; a logo on it: 28; can't tell: 799.
 
 ## Left with no photo (55)
 
@@ -61,7 +61,7 @@ Written by `pnpm engine check-photos` (2026-11-09), most-read pages first. Rules
 - species/opsarius-pulchellus
 - species/parambassis-wolffii
 
-## Can't tell: still shown (797)
+## Can't tell: still shown (799)
 
 | Page | Photo | What the model saw |
 | --- | --- | --- |
@@ -378,32 +378,34 @@ Written by `pnpm engine check-photos` (2026-11-09), most-read pages first. Rules
 | species/danio-choprae | [photo](https://media.aquatome.com/commons/3beec92879a0b656.webp) | purple-bodied fish with red rear stripe and bars; odd colouring, possibly choprae under unusual lighting |
 | species/danio-choprae | [photo](https://media.aquatome.com/commons/f316e07b5ca825b2.webp) | close-up of the same purple-red fish; colouring unusual for glowlight danio |
 | plants/murdannia-keisak | [photo](https://media.aquatome.com/inaturalist/25146997.webp) | blue flower close-up, could be another dayflower |
-| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/3905434571-a683ae41f60ac9a6.webp) | floating Myriophyllum rosette in pond with duckweed; could be M. aquaticum |
-| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/4410788833-25cda6f0b7057c24.webp) | top view of feathery Myriophyllum rosette at surface |
-| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/4410788833-7b64e4789efee984.webp) | emersed stem above water, looks like parrot's feather (M. aquaticum) |
+| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/3905434571-a683ae41f60ac9a6.webp) | feathery rosette at surface of outdoor water among duckweed-like floaters; distant, species unclear |
+| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/4410788833-25cda6f0b7057c24.webp) | close top view of pale green feathery rosette at surface; milfoil species unclear |
+| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/4410788833-7b64e4789efee984.webp) | emersed feathery shoot in outdoor pond; looks like parrot feather M. aquaticum, species unconfirmed |
 | plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/4462501227-83a68ddedb1b4684.webp) | Emersed Myriophyllum mat on the water surface; probably parrot feather (M. aquaticum), not clearly M. mattogrossense |
 | plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/5283401603-39c538f07966c055.webp) | Emersed Myriophyllum stand at a ditch edge with pennywort; looks like parrot feather (M. aquaticum), can't confirm M. ma |
-| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/5283401603-b98792816f7df2ee.webp) | emersed Myriophyllum tips, possibly parrot's feather (M. aquaticum) |
-| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/inaturalist/323641718.webp) | fine green Myriophyllum stems in aquarium; species not certain |
-| plants/nymphoides-hydrophylla | [photo](https://media.aquatome.com/commons/028e21e999201c76.webp) | single small white flower and floating leaf in murky water; poor view to tell from other white Nymphoides |
-| plants/nymphoides-hydrophylla | [photo](https://media.aquatome.com/flickr/7202551806.webp) | distant patch of small white-flowered floating leaves on lake shore |
-| plants/nymphoides-hydrophylla | [photo](https://media.aquatome.com/inaturalist/327658694.webp) | floating leaves and stems only, no flowers, species unclear |
-| plants/nymphoides-hydrophylla | [photo](https://media.aquatome.com/inaturalist/341567660.webp) | small white flowers on green heart-shaped leaves; look-alike Nymphoides not ruled out |
-| species/paracheirodon-simulans | [photo](https://media.aquatome.com/bwaquatics/0b413da48f8882f9.webp) | small group of blue-striped tetras, could be neon tetras |
-| species/paracheirodon-simulans | [photo](https://media.aquatome.com/bwaquatics/72e065dab2201632.webp) | distant school of tetras with red rear half, possibly neon tetras |
-| species/hyphessobrycon-rosaceus | [photo](https://media.aquatome.com/commons/21b8fc8fd884dc91.webp) | silvery tetra with red fins and dark-tipped long dorsal; rosy tetra's black dorsal patch not clear |
-| plants/proserpinaca-palustris | [photo](https://media.aquatome.com/inaturalist/183488460.webp) | small finely divided submerged shoots in pond, distant view |
-| plants/proserpinaca-palustris | [photo](https://media.aquatome.com/inaturalist/97762589.webp) | comb-leaved plants on wet ground; could be P. pectinata or land form |
-| species/pterygoplichthys-joselimaianus | [photo](https://media.aquatome.com/scotcat/f9e074275336b83d.webp) | pleco with banded tail and lined body, pattern unlike white spots |
-| plants/ranunculus-inundatus | [photo](https://media.aquatome.com/inaturalist/98294780.webp) | close-up of a yellow buttercup flower with dew; species cannot be confirmed from the flower alone |
-| species/sewellia-lineolata | [photo](https://media.aquatome.com/aquariumcoop/9a5ec1b467c2e38d.webp) | reddish-toned hillstream loach, unusual colour, may be another Sewellia |
-| plants/rotala-macrandra | [photo](https://media.aquatome.com/commons/a2c38b71059b7fc3.webp) | small reddish flowering plant on soil, blurry; species unclear |
-| plants/rotala-macrandra | [photo](https://media.aquatome.com/inaturalist/255471269.webp) | emersed creeping plant with pink flower spikes on mud; can't be sure it's R. macrandra |
-| species/botia-almorhae | [photo](https://media.aquatome.com/inaturalist/617422035.webp) | mixed loaches: a pale reticulated one plus orange loaches with white spots |
-| species/botia-almorhae | [photo](https://media.aquatome.com/seriouslyfish/8a2302ab1a4767c0.webp) | pale loach with bold reticulated bars, may be Botia lohachata |
-| species/pseudomugil-gertrudae | [photo](https://media.aquatome.com/inaturalist/655883282.webp) | pale fish with spotted rows and spotted fins, dull view through glass; species unclear |
-| species/pseudomugil-gertrudae | [photo](https://media.aquatome.com/inaturalist/682650379.webp) | yellowish small fish with a dotted line, possibly a female or juvenile; look-alikes not ruled out |
-| species/pseudomugil-gertrudae | [photo](https://media.aquatome.com/inaturalist/695711336.webp) | two small golden fish with rows of dark spots; could be Danio tinwini rather than P. gertrudae females |
+| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/5283401603-b98792816f7df2ee.webp) | bright green emersed Myriophyllum shoots; resembles M. aquaticum, look-alike not ruled out |
+| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/inaturalist/323641718.webp) | green Myriophyllum stems in planted aquarium; look-alike milfoils cannot be ruled out |
+| plants/nymphoides-hydrophylla | [photo](https://media.aquatome.com/flickr/7202551806.webp) | distant floating strand with small white flowers at a muddy shore; details not visible |
+| plants/nymphoides-hydrophylla | [photo](https://media.aquatome.com/inaturalist/327658694.webp) | pale green floating leaves and stems only, no flowers, soft image; species can't be confirmed |
+| species/paracheirodon-simulans | [photo](https://media.aquatome.com/bwaquatics/0b413da48f8882f9.webp) | small group in planted tank, rear red suggests possible neon tetra |
+| species/paracheirodon-simulans | [photo](https://media.aquatome.com/bwaquatics/72e065dab2201632.webp) | distant shoal in aquascape, could be neon tetra |
+| species/paracheirodon-simulans | [photo](https://media.aquatome.com/seriouslyfish/b508a90bce4be27e.webp) | head close-up only, body marks not visible |
+| plants/pogostemon-deccanensis | [photo](https://media.aquatome.com/commons/370f8bd580b63fc0.webp) | Pogostemon-like spikes but broader leaves; may be another species |
+| plants/pogostemon-deccanensis | [photo](https://media.aquatome.com/commons/3b6a265c300f0f60.webp) | bushy flowering stand in dry grassland; could be another Pogostemon |
+| plants/pogostemon-deccanensis | [photo](https://media.aquatome.com/commons/d11030dc5c5018d5.webp) | close-up of a single purple flower spike, leaves not visible |
+| plants/pogostemon-deccanensis | [photo](https://media.aquatome.com/inaturalist/230324388.webp) | flower spike among fine leaves near water; hard to confirm species |
+| species/hyphessobrycon-rosaceus | [photo](https://media.aquatome.com/commons/919ef27ae71477f1.webp) | same red-dorsal tetra without black dorsal blotch; possible look-alike |
+| species/hyphessobrycon-rosaceus | [photo](https://media.aquatome.com/commons/d679db7082c53ec9.webp) | pinkish tetra with red dorsal, no black dorsal patch; could be bentosi or a colour form |
+| plants/proserpinaca-palustris | [photo](https://media.aquatome.com/inaturalist/183488460.webp) | distant view of feathery submerged shoots in clear shallow water; could be this plant but too small to confirm |
+| species/pterygoplichthys-joselimaianus | [photo](https://media.aquatome.com/commons/56179958967c5f69.webp) | fine dense gold dots; could be another spotted pleco |
+| species/pterygoplichthys-joselimaianus | [photo](https://media.aquatome.com/commons/e410ffdfb8b05df8.webp) | head close-up with small yellow dots; can't confirm species |
+| species/sewellia-lineolata | [photo](https://media.aquatome.com/seriouslyfish/2cc06d5e5082a31e.webp) | underside on glass; no back pattern visible to confirm the species |
+| species/sewellia-lineolata | [photo](https://media.aquatome.com/seriouslyfish/dfbd7e7ff94dfb48.webp) | underside on glass; the barred fins fit, but a belly view can't rule out other hillstream loaches |
+| plants/rotala-macrandra | [photo](https://media.aquatome.com/commons/a2c38b71059b7fc3.webp) | Dried reddish flower spikes on soil; species can't be confirmed |
+| plants/rotala-macrandra | [photo](https://media.aquatome.com/inaturalist/255471269.webp) | Flowering emersed plant with pink spikes on wet mud; could be a Rotala but can't rule out R. rotundifolia |
+| species/botia-almorhae | [photo](https://media.aquatome.com/commons/71be289cdae71b35.webp) | dull brownish loach with faded blotches among plants; pattern unclear, may be an older yo-yo loach |
+| species/botia-almorhae | [photo](https://media.aquatome.com/commons/fa03ec707ba1a28e.webp) | small banded loach on white gravel; could be a yo-yo loach, but a striped Botia can't be ruled out |
+| species/botia-almorhae | [photo](https://media.aquatome.com/inaturalist/411470254.webp) | blurry view of a loach hiding in a cave ornament; lohachata-type netted pattern |
 | species/vittina-waigiensis (a guide photo) | [photo](https://media.aquatome.com/aquariumcoop/8e362893e1346949.webp) | caption is about horned nerite (Clithon sp.) on algae-covered rock, not V. waigiensis |
 | species/vittina-waigiensis (a guide photo) | [photo](https://media.aquatome.com/aquariumcoop/fb433cb2c3a7d8ad.webp) | caption is about horned nerite (Clithon sp.), a different snail with spined shell |
 | species/clarias-batrachus | [photo](https://media.aquatome.com/commons/e000e9ffdecbc952.webp) | crowd of Clarias-type catfish mixed with common carp at feeding spot; species unclear (could be African catfish/hybrids) |
@@ -863,7 +865,7 @@ Written by `pnpm engine check-photos` (2026-11-09), most-read pages first. Rules
 | species/nemacheilus-binotatus | [photo](https://media.aquatome.com/seriouslyfish/2a6c6ba0df2ab10a.webp) | wild stream bottom, two small striped fish seen from above, too distant to confirm |
 | species/nemacheilus-binotatus | [photo](https://media.aquatome.com/seriouslyfish/5cb4fe636c844fc7.webp) | wild stream bed, small distant slender fish among rocks, species unclear |
 
-## Removed (763)
+## Removed (759)
 
 "Something else" names what the photo shows instead; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
 
@@ -1118,9 +1120,9 @@ Written by `pnpm engine check-photos` (2026-11-09), most-read pages first. Rules
 | species/microdevario-kubotai | [photo](https://media.aquatome.com/seriouslyfish/06c590db66183438.webp) | hand holding a magnifier up to the tank, tiny fry barely visible |
 | species/microdevario-kubotai | [photo](https://media.aquatome.com/seriouslyfish/3ce22d73a82e9f8a.webp) | hand holding a magnifier up to the tank with heater and filter |
 | plants/murdannia-keisak | [photo](https://media.aquatome.com/commons/f31b3d9dbf2e1170.webp) | line drawing of stem with leaves and flower |
-| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/2842166591-ced7b993d7101623.webp) | emersed stiff whorled shoots on mud, likely parrot feather M. aquaticum |
-| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/4410788833-861fc878a5bddc45.webp) | emersed stand in a lake, likely parrot feather M. aquaticum |
-| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/5283401603-ce7522f583b0b1aa.webp) | emersed parrot feather-like shoots with pennywort, likely M. aquaticum |
+| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/2842166591-ced7b993d7101623.webp) | likely Myriophyllum aquaticum: emersed stems creeping on mud |
+| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/4410788833-861fc878a5bddc45.webp) | likely Myriophyllum aquaticum: dense emersed stand in a pond |
+| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/5283401603-ce7522f583b0b1aa.webp) | likely Myriophyllum aquaticum: bright green emersed tips with pennywort leaves |
 | species/inpaichthys-kerri | [photo](https://media.aquatome.com/commons/87925fc5b9a4ac1f.webp) | Likely emperor tetra (Nematobrycon palmeri): yellowish body, black stripe, bright blue eye, dark-edged fins |
 | species/inpaichthys-kerri | [photo](https://media.aquatome.com/commons/f4dcb8c6c76eb211.webp) | Plate of many preserved fish species labelled a–m, not the subject |
 | plants/nymphoides-hydrophylla | [photo](https://media.aquatome.com/commons/1a3e6c2d93ba96b0.webp) | people: white Nymphoides-type flower with yellow centre held in fingers; species can't be confirmed from the flower alone |

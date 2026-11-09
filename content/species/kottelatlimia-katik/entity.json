@@ -12,6 +12,42 @@
     "indonesia",
     "batang-hari"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "ID"
+      ],
+      "regions": [
+        "Batang Hari",
+        "Sumatra"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "This species was described from preserved specimens discovered in a jar with the paratypes of Nagaichthys filipes and thought to originate from Mawai, Johor state, Peninsular Malaysia, and it's also known from the Batang Hari river drainage, Sumatra, Indonesia.",
+          "countries": [
+            "MY",
+            "ID"
+          ],
+          "regions": [
+            "Batang Hari",
+            "Sumatra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2367836,
+      "total": 0,
+      "fetched": "2026-11-09",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -1,0 +1,72 @@
+{
+  "id": "isorineloricaria-acuarius",
+  "native": {
+    "input": "ea36ce1f4cdf0c78",
+    "at": "2026-11-09T09:57:55.009Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Isorineloricaria acuarius is a suckermouth catfish from the Apure and middle Orinoco drainages in the Venezuelan Llanos, where it lives on sandy runs in whitewater rivers.",
+        "words": "Venezuelan",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Rio Portuguesa, 3 km northeast of El Barriero, Portuguesa, Venezuela', at about 9.052°N, 69.488°W.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Apure",
+        "source": "seriouslyfish",
+        "quote": "It's known from the río Apure and rivers draining into it, including the Portuguesa, Guanare, Guárico and Orituco, and from the río Arauca.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "Isorineloricaria acuarius is a suckermouth catfish from the Apure and middle Orinoco drainages in the Venezuelan Llanos, where it lives on sandy runs in whitewater rivers.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Arauca",
+        "source": "seriouslyfish",
+        "quote": "It's known from the río Apure and rivers draining into it, including the Portuguesa, Guanare, Guárico and Orituco, and from the río Arauca.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Isorineloricaria acuarius",
+    "status": "ACCEPTED",
+    "taxonKey": 7798884,
+    "datasets": [
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        7
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "VE"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T09:57:55.009Z"
+  }
+}

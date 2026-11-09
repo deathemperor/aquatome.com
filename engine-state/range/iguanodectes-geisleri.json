@@ -1,0 +1,156 @@
+{
+  "id": "iguanodectes-geisleri",
+  "native": {
+    "input": "43ea0cd319325ea6",
+    "at": "2026-11-09T09:57:55.009Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Iguanodectes geisleri is a characin from the rios Madeira and Negro in Brazil and the upper Río Orinoco in Venezuela.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Iguanodectes geisleri is a characin from the rios Madeira and Negro in Brazil and the upper Río Orinoco in Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the rios Madeira and Negro within the Brazilian Amazon basin, and the upper Río Orinoco system in Venezuela.",
+        "words": "Brazilian",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the rios Madeira and Negro within the Brazilian Amazon basin, and the upper Río Orinoco system in Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Rio Jufaris, Igarapé de Paricá, Brazil, about 1°05'S, 62°10'W', which corresponds to a tributary within the middle rio Negro basin.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Marmelos Conservation Area covers parts of the Brazilian states of Amazonas and Rondônia within the rio Madeira basin and I. geisleri occurs there alongside more than 130 other fish species.",
+        "words": "Brazilian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Madeira",
+        "source": "seriouslyfish",
+        "quote": "Iguanodectes geisleri is a characin from the rios Madeira and Negro in Brazil and the upper Río Orinoco in Venezuela.",
+        "country": "BR",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Rio Negro",
+        "source": "seriouslyfish",
+        "quote": "Iguanodectes geisleri is a characin from the rios Madeira and Negro in Brazil and the upper Río Orinoco in Venezuela.",
+        "country": "BR",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "Iguanodectes geisleri is a characin from the rios Madeira and Negro in Brazil and the upper Río Orinoco in Venezuela.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the rios Madeira and Negro within the Brazilian Amazon basin, and the upper Río Orinoco system in Venezuela.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Iguanodectes geisleri",
+    "status": "ACCEPTED",
+    "taxonKey": 2354232,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        22
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        19
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        14
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        12
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        7
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        5
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        5
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        4
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        2
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "VE"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T09:57:55.009Z"
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "id": "imparfinis-mirini",
+  "native": {
+    "input": "b1c882dd43f0330e",
+    "at": "2026-11-09T09:57:55.009Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Above the falls of Rio Piracicaba-mirini, near Piracicaba, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Upper Araguaia and Paraná River basins in Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Upper Araguaia and Paraná River basins, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Araguaia",
+        "source": "planetcatfish",
+        "quote": "South America: Upper Araguaia and Paraná River basins in Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Paraná",
+        "source": "planetcatfish",
+        "quote": "South America: Upper Araguaia and Paraná River basins in Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Araguaia",
+        "source": "scotcat",
+        "quote": "South America: Upper Araguaia and Paraná River basins, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Paraná",
+        "source": "scotcat",
+        "quote": "South America: Upper Araguaia and Paraná River basins, Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Imparfinis mirini",
+    "status": "ACCEPTED",
+    "taxonKey": 2343574,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        131
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        59
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        51
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        48
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        14
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        14
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        8
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        6
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        3
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        2
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T09:57:55.009Z"
+  }
+}

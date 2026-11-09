@@ -11,6 +11,79 @@
     "venezuela",
     "orinoco"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE"
+      ],
+      "regions": [
+        "Apure",
+        "Orinoco",
+        "Arauca"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Isorineloricaria acuarius is a suckermouth catfish from the Apure and middle Orinoco drainages in the Venezuelan Llanos, where it lives on sandy runs in whitewater rivers.",
+          "countries": [
+            "VE"
+          ],
+          "regions": [
+            "Orinoco"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's known from the río Apure and rivers draining into it, including the Portuguesa, Guanare, Guárico and Orituco, and from the río Arauca.",
+          "countries": [],
+          "regions": [
+            "Apure",
+            "Arauca"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7798884,
+      "total": 8,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "VE",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          -71.71875,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -70.3125,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -68.90625,
+          8.4375,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

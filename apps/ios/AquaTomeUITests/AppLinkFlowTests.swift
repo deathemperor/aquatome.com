@@ -10,7 +10,7 @@ final class AppLinkFlowTests: XCTestCase {
 
   func testALinkFromAWebPageOpensThePageItNames() {
     let app = XCUIApplication()
-    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-index-later",
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-v2", "NO", "-reset-defaults", "-fixed-handbook", "-index-later",
                            "-no-animations"]
     // Launched by the link (XCUIApplication.open launches the app anew, with its arguments), before its index is read.
     app.open(link("https://aquatome.com/ca/ca-neon/"))
@@ -40,7 +40,7 @@ final class AppLinkFlowTests: XCTestCase {
   /// and the page opens under it.
   func testALinkWithTheAccountSheetOpenClosesIt() {
     let app = XCUIApplication()
-    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-no-animations"]
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-v2", "NO", "-reset-defaults", "-fixed-handbook", "-no-animations"]
     app.launch()
     app.openAccount()
     follow(app, link("https://aquatome.com/ca/ca-neon/"))
