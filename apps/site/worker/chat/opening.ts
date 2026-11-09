@@ -8,7 +8,7 @@ import { rudeWord } from '../moderation/words'
 import { reaches } from './contacts'
 import type { Lang } from './handbook'
 
-/** The longest line shown, in characters as the reader sees them; the prompt asks for under 160 (the box holds about that). */
+/** The longest line shown, in characters as the reader sees them; the prompt asks for under 150, and the editors would sooner a line of about 180 than none. */
 export const OPENING_CHARS = 200
 const MIN_CHARS = 10
 
@@ -31,6 +31,12 @@ const WORD = new RegExp(`(?<![\\p{L}\\p{N}])(?:${SPACED.map(w => w.replace(/[.*+
  */
 const VIET = /[àáảãạăằắẳẵặâầấẩẫậèéẻẽẹêềếểễệìíỉĩịòóỏõọôồốổỗộơờớởỡợùúủũụưừứửữựỳýỷỹỵđ]/iu
 const THAI_SCRIPT = /[\u0E00-\u0E7F]/u
+/** Where a line went wrong by opening on anything else: "Bạn muốn tra…" makes the reader the one looking; "Mari semak…" invites them to (the editors, 2026-11-10). */
+/** The line saying what it won't write, in one sentence: what the post asked of it, and the sentence check doesn't see it. */
+const REFUSES = /(?:nggak|ngga|gak|tidak|tak|không|ไม่)\s*(?:akan\s*|mau\s*|จะ\s*)?(?:menulis|nulis|tulis|ghi|viết|เขียน)|(?:sẽ không|จะไม่)\s*(?:ghi|viết|เขียน)|(?:nggak|ngga|gak|tidak|tak)\s+akan\s+(?:saya\s+|aku\s+|ku)\p{L}|(?:kamu|anda|bạn|คุณ)\s*(?:minta|suruh|menyuruh|yêu cầu|ขอให้|สั่ง)|(?:bukan|không phải|ไม่ใช่)\s*(?:soalan|pertanyaan|câu hỏi|คำถาม)/iu
+const OPENS: Record<Lang, string> = { vi: 'Mình đang tra cẩm nang', id: 'Aku lagi cek panduan', ms: 'Saya sedang semak buku panduan', th: 'เรากำลังเปิดคู่มือดูว่า' }
+/** Malay that reads as a translation's, or broken: a form no reader writes, or a word typed twice (Malay joins a doubled word with a hyphen). */
+const MALAY_ODD = /(?<![\p{L}\p{N}])(?:awak|bahawa yang|soalan bahawa|halaman ms|untuk jawapan|untuk soalan)(?![\p{L}\p{N}])|(?<![\p{L}\p{N}-])(\p{L}{2,})\s+\1(?![\p{L}\p{N}-])/iu
 const inLang = (t: string, lang: Lang) =>
   lang === 'th' ? THAI_SCRIPT.test(t) && !VIET.test(t) : !THAI_SCRIPT.test(t) && (lang === 'vi' ? VIET.test(t) : !VIET.test(t))
 
@@ -48,6 +54,9 @@ export function openingFault(text: string, lang: Lang): string | undefined {
   // sentence ends on a word's last letter or a figure, then a capital or a figure starts the next: "v.v.", "TP. HCM", a
   // quoted question ("“Vì sao…?” ") and "…" mid-line end none. Thai, which marks no sentence's end, has no second.
   if (/(?<=\p{Ll}{2}|\p{N})[.!?…]+["'”’»)\]]*\s+[\p{Lu}\p{N}]/u.test(t)) return 'more than one sentence'
+  if (REFUSES.test(t)) return 'says what it won\'t write'
+  if (!t.startsWith(OPENS[lang])) return 'doesn\'t open with the chat\'s own words'
+  if (lang === 'ms' && MALAY_ODD.test(t)) return 'Malay no reader writes'
   return undefined
 }
 
