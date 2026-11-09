@@ -89,7 +89,7 @@ import { throttled, VIDEO_GAP_MS, videoGuides, ytApi, ytDlp, ytFinder, ytFrames,
 import { isMarketplace } from './marketplaces'
 import { checkPagePhotos, PHOTO_CHECK_SCHEMA, recheckCandidates } from './photo-check'
 import { DEAD_SCREEN_SCHEMA, screenDead } from './dead-screen'
-import { GUIDE_PHOTO_SCHEMA, screenGuidePhotos } from './guide-photos'
+import { GUIDE_PHOTO_SCHEMA, screenGuidePhotos, type GuidePhotoDeps } from './guide-photos'
 import { screenWatermarks, visionText, WATERMARK_SCHEMA } from './watermarks'
 import { ArchiveFetcher } from './archive'
 import { localizeCards } from './cards-intl'
@@ -130,6 +130,9 @@ const readersWanted = (() => {
     return listReaderWants({ accountId: conf('CF_ACCOUNT_ID', 'cf-account'), namespace, token })
   }
 })()
+
+/** No people or marks: the model guide-photos and video-stills ask. */
+const guidePhotoLook: GuidePhotoDeps['look'] = (file, prompt) => claudeVision({ system: 'You look at pictures for an aquarium handbook. Reply only with JSON.', prompt, schema: GUIDE_PHOTO_SCHEMA, file, model: process.env.GUIDE_PHOTOS_MODEL ?? 'opus' })
 
 const { positionals, values } = parseArgs({ allowPositionals: true, options: { sources: { type: 'string' }, phrases: { type: 'boolean' }, except: { type: 'string' }, limit: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' }, channels: { type: 'string' }, lang: { type: 'string' }, category: { type: 'string' }, type: { type: 'string' }, kind: { type: 'string' }, 'based-on': { type: 'string' }, match: { type: 'string' }, 'dry-run': { type: 'boolean' }, backfill: { type: 'boolean' }, seed: { type: 'string' }, parallel: { type: 'string' }, jobs: { type: 'string' }, sheets: { type: 'string' }, shard: { type: 'string' }, pages: { type: 'string' }, fix: { type: 'boolean' }, rewrites: { type: 'string' }, popular: { type: 'boolean' }, titles: { type: 'string' }, records: { type: 'string' }, 'no-new-pages': { type: 'boolean' }, video: { type: 'string' }, 'reviewed-before': { type: 'string' }, 'rechecked-since': { type: 'string' }, class: { type: 'string' }, clear: { type: 'boolean' }, days: { type: 'string' }, check: { type: 'boolean' }, gsc: { type: 'string' }, from: { type: 'string' } } })
 
@@ -336,13 +339,14 @@ if (cmd === 'run' || cmd === 'card-fill') {
   for (const x of r.failed.slice(0, 30)) console.log(`failed: ${x}`)
 } else if (cmd === 'guide-photos') {
   // No people or logos in guides' and equipment guides' photos and video guides' stills (guide-photos.ts): --limit model
-  // calls a run (default 20), 6 photos each, leads first, stills last; a person or a mark leaves every page for good, a
+  // calls a run (default 20), 6 photos each, leads first, then stills; a person or a mark leaves every page for good, a
   // brand on a product leaves the guides (not a still). A tile video-stills will replace waits for the video's frame.
+  // --only id,id: these guides alone.
   const r = await screenGuidePhotos(ROOT, {
     get: async u => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
-    look: (file, prompt) => claudeVision({ system: 'You look at pictures for an aquarium handbook. Reply only with JSON.', prompt, schema: GUIDE_PHOTO_SCHEMA, file, model: process.env.GUIDE_PHOTOS_MODEL ?? 'opus' }),
-  }, { limit: values.limit ? Number(values.limit) : 20, parallel: values.parallel ? Number(values.parallel) : 1 })
-  console.log(`guide-photos: ${r.sheets} sheets, ${r.judged} judged, ${r.off.length} off, ${r.removed.length} removed, ${r.left} left for later, ${r.waiting} stills waiting for their frame, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+    look: guidePhotoLook,
+  }, { limit: values.limit ? Number(values.limit) : 20, parallel: values.parallel ? Number(values.parallel) : 1, ...(values.only ? { only: values.only.split(',').map(x => x.trim()).filter(Boolean) } : {}) })
+  console.log(`guide-photos: ${r.sheets} sheets, ${r.judged} judged, ${r.cleared} cleared to show, ${r.off.length} off, ${r.removed.length} removed, ${r.left} left for later, ${r.waiting} stills waiting for their frame, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   for (const x of r.off) console.log(`off: ${x}`)
   for (const x of r.removed) console.log(`removed: ${x}`)
   for (const x of r.kept) console.log(`kept (a required hero with nothing to replace it): ${x}`)
@@ -685,6 +689,7 @@ if (cmd === 'run' || cmd === 'card-fill') {
     frames: ytFrames, grab: ytGrab, faces: visionFaces, read: files => visionText(files), media: media(), now: () => new Date(),
     get: fetchStill,
     look: (file, prompt) => claudeVision({ system: 'You spot watermarks on photos. Reply only with JSON.', prompt, schema: WATERMARK_SCHEMA, file, model: process.env.WATERMARK_MODEL ?? 'opus' }),
+    judge: guidePhotoLook,
   }, { limit: Number(values.limit ?? 15), ...(values.only ? { only: values.only.split(',').map(x => x.trim()).filter(Boolean) } : {}) })
   for (const x of [...r.done, ...r.dropped.map(x => `dropped: ${x}`), ...r.kept.map(x => `kept as a tile: ${x}`), ...r.failed.map(x => `failed: ${x}`)]) console.log(x)
   console.log(`video-stills: ${r.done.length} guides, ${r.dropped.length} stills dropped, ${r.kept.length} kept as tiles, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)

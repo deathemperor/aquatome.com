@@ -9,6 +9,10 @@ import { LlmError, type Llm } from './claude'
 import type { Media } from './source-photos'
 import { throttled } from './youtube'
 
+const SHARP = /-hd\.webp$/
+/** A still video-stills.ts won't change again: the video's own frame, or a tile it keeps for good (`kept`, by `t`). */
+export const stillDone = (m: { t: number; url: string }, kept: Record<string, string> = {}) => SHARP.test(m.url) || String(m.t) in kept
+
 /**
  * YouTube's scrub-preview frames: sheets of rows × columns tiles. Tile k is the frame at k × `interval` seconds; `fps` is
  * yt-dlp's tiles ÷ duration, so k ÷ fps is not a second: a still's `t` was worked out that way (rounded) until
