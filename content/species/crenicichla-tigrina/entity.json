@@ -1,0 +1,159 @@
+{
+  "id": "crenicichla-tigrina",
+  "scientificName": "Crenicichla tigrina",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Crenicichla",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-trombetas"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 30
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 180
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-tigrina",
+      "html": "<p>The tiger pike cichlid, Lugubria tigrina, is a pike cichlid known only from the Rio Trombetas in the Brazilian Amazon. It is rarely seen in the hobby, and males carry the prominent black spots and stripes behind the common name. Growing to around 30 cm, it can be aggressive towards conspecifics and will eat any fish small enough to be considered food.</p><ul><li>Needs a very large tank</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-tigrina",
+      "html": "<p>Known only from the Rio Trombetas in the Brazilian Amazon.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-tigrina",
+      "html": "<p>Known only from the Rio Trombetas in the Brazilian Amazon.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-tigrina",
+      "html": "<p>Standard length: 30 cm SL. Aquarium base: 180 × 60 cm. Volume: approximately 648 litres (180 × 60 × 60 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-tigrina",
+      "html": "<p>Sand substrate is recommended. This species is likely to dig and arrange the decor to suit itself. Some rockwork should be provided to form caves as pikes like to have an area to which they can retreat. Plants should be robust, ideally potted or rooted to bogwood.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-tigrina",
+      "html": "<ul><li>Temperature: 23–26°C</li><li>pH: 6.0–7.0</li><li>Hardness: up to 20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-tigrina",
+      "html": "<p>Feed a varied diet including a good quality cichlid pellet or flake, live or frozen foods such as bloodworm or brine shrimp, meaty foods such as prawn and mussel and vegetable matter in the form of spirulina or algae wafers.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-tigrina",
+      "html": "<p>Can be aggressive, especially towards conspecifics. May be kept with other large cichlids or as a species-only setup. Likely to eat any fish small enough to be considered food - and they have big mouths!</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-tigrina",
+      "html": "<p>Male has prominent black spots and stripes (hence the common name).</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-tigrina",
+      "html": "<p>No reports of breeding in the hobby.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-tigrina",
+      "html": "<p>A strikingly marked species that is rarely seen in the hobby.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 180cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy bơm tạo dòng"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cichlid",
+        "cám cá ăn thịt"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

@@ -10,6 +10,50 @@
     "argentina",
     "esteros-del-ibera"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "AR"
+      ],
+      "regions": [
+        "Esteros del Iberá"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from two ponds within the Esteros del Iberá wetlands in Corrientes province, northern Argentina.",
+          "countries": [
+            "AR"
+          ],
+          "regions": [
+            "Esteros del Iberá"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354678,
+      "total": 1,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "AR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -61.875,
+          -39.375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

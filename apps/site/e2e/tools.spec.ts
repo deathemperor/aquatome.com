@@ -66,7 +66,7 @@ test('tank-mates: an incompatible pair answers in one sentence first, then the w
   // A whole name typed out, common or scientific, is added without a pick. Two species both the fixture and aquatome.com
   // have; the discus's name and address are read from the page's own list, so a rename on aquatome.com ("Cá đĩa nâu",
   // ca-dia-nau, until 2026-11-07) doesn't break it.
-  const discus = await page.locator('#species-index').evaluate(el => (JSON.parse(el.textContent!) as { slug: string; name: string; scientificName: string }[]).find(i => i.scientificName === 'Symphysodon aequifasciatus')!)
+  const discus = await page.locator('#tm-form').evaluate(async el => ((await (await fetch((el as HTMLElement).dataset.src!)).json()) as { slug: string; name: string; scientificName: string }[]).find(i => i.scientificName === 'Symphysodon aequifasciatus')!)
   for (const name of [discus.scientificName, 'Cá neon xanh']) {
     await page.locator('#tm-input').fill(name)
     await page.locator('#tm-input').press('Enter')
@@ -83,6 +83,25 @@ test('tank-mates: an incompatible pair answers in one sentence first, then the w
   expect(await box.evaluate(el => el.scrollWidth <= el.clientWidth)).toBe(true)
   await expect(page.locator('#tm-detail td:visible')).toHaveCount(15)
   await expect(page).toHaveURL(new RegExp(`ca=${discus.slug}:\\d+,ca-neon-xanh:\\d+`))
+})
+
+test('tank-mates: the species\' file coming late keeps the fish in the address, and what was typed gets its suggestions', async ({ page, errors }) => {
+  let release!: () => void
+  const held = new Promise<void>(r => { release = r })
+  await page.route('**/data/*/tank-mates.json', async route => { await held; await route.continue() })
+  await page.goto(`${TM}?ca=ca-neon-xanh:12`)
+  const input = page.locator('#tm-input')
+  await input.fill('neon')
+  // Nothing claims there's no such fish while the list is on its way, and the address keeps its fish.
+  await expect(page.locator('#tm-msg')).toHaveText('')
+  expect(page.url()).toContain('ca=ca-neon-xanh:12')
+  release()
+  await expect(page.locator('#tm-chosen li')).toHaveCount(1)
+  await expect(page.locator('#tm-chosen li').first()).toContainText('Cá neon xanh')
+  await expect(page.locator('#tm-chosen input').first()).toHaveValue('12')
+  await expect(page.locator('#tm-list [role=option]').first()).toBeVisible()
+  expect(page.url()).toContain('ca=ca-neon-xanh:12')
+  expect(errors).toEqual([])
 })
 
 test('tank-mates: links to the old place on the tools page open the checker with the same species', async ({ page }) => {

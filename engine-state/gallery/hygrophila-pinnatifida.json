@@ -13,7 +13,13 @@
   "File:Hygrophila pinnatifida kz04.jpg",
   "File:Hygrophila pinnatifida-1-veda aquarium-bengaluru-India.jpg",
   "File:Hygrophila pinnatifida-2-veda aquarium-bengaluru-India.jpg",
-  "File:Hygrophila pinnatifida-3-veda aquarium-bengaluru-India.jpg"
+  "File:Hygrophila pinnatifida-3-veda aquarium-bengaluru-India.jpg",
+  "flickr:54451175704",
+  "flickr:54451350195",
+  "flickr:54451175909",
+  "flickr:54450984206",
+  "flickr:54450131167",
+  "flickr:54451175689"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/795665d0c7e3a1e3.webp": "cc6c2dcb9bb95250",
@@ -26,7 +32,11 @@
   "https://media.aquatome.com/inaturalist/162234037.webp": "2db797070e3756e6",
   "https://media.aquatome.com/commons/acad1c677518f0f5.webp": "1b0a46d49cec8e0b",
   "https://media.aquatome.com/inaturalist/486322124.webp": "188c188a1799b593",
-  "https://media.aquatome.com/inaturalist/423817245.webp": "643d7ef7379f373b"
+  "https://media.aquatome.com/inaturalist/423817245.webp": "643d7ef7379f373b",
+  "https://live.staticflickr.com/65535/54451175704_5e9dfe906b_b.jpg": "9c0c1b5339b97573",
+  "https://live.staticflickr.com/65535/54451350195_e84bfa9f6b_b.jpg": "9c4d4a5686cadacc",
+  "https://live.staticflickr.com/65535/54451175909_937ae9f2cb_b.jpg": "dc8c9f47058c9271",
+  "https://live.staticflickr.com/65535/54450984206_0569fe65bf_b.jpg": "342a6a4ec7372a4a"
  },
  "inat": {
   "taxon": 193619,
@@ -40,5 +50,9 @@
  "gbif": {
   "key": 8276892,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-08"
 }

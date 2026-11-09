@@ -933,18 +933,12 @@
     "notes": []
   },
   "eleocharis-pusilla": {
-    "at": "2026-10-31",
-    "from": "2026-10-30",
-    "name": "Eleocharis Mini",
+    "at": "2026-11-09",
+    "from": "2026-11-08",
+    "name": "Eleocharis pusilla 'Mini'",
     "confidence": "medium",
-    "score": 0.75,
-    "notes": [
-      "#3: \"has even lower growth\" means lower growth height, but \"tumbuh lebih pendek lagi\" is fine; however the \"was given to Tropica by Thomas Barr\" clause is OK. The real issue is the Latin names Eleocharis pusilla and Eleocharis parvula are not italicised, while <em> is added only to \"cup\". Use <em> for the Latin names or drop it for \"cup\" to keep it consistent.",
-      "#3: \"diberikan kepada Tropica\" is a stiff passive after \"dan\". Consider \"dan berasal dari pemberian Thomas Barr dari Amerika Serikat kepada Tropica\".",
-      "#2: \"hampir tidak perlu perawatan\" overstates \"a minimum of maintenance\". Use \"perawatannya minimal\".",
-      "#2: \"Dalam waktu singkat\" is acceptable, but \"rumpun-rumpun kecil\" for \"small portions\" could be \"porsi kecil/potongan kecil\", since portions of tissue culture are not clumps.",
-      "#1: \"Kecepatan tumbuh\" is understandable, but hobbyists more often write \"Laju pertumbuhan\" or \"Kecepatan pertumbuhan\"."
-    ]
+    "score": 0.95,
+    "notes": []
   },
   "eriocaulon-cinereum": {
     "at": "2026-10-31",
@@ -1798,14 +1792,14 @@
     ]
   },
   "pogostemon-deccanensis": {
-    "at": "2026-11-05",
-    "from": "2026-10-31",
-    "name": "Pogostemon erectus",
+    "at": "2026-11-09",
+    "from": "2026-11-08",
+    "name": "Pogostemon deccanensis",
     "confidence": "medium",
     "score": 0.9,
     "notes": [
-      "\"Origin: Asia\" is rendered \"Asal: Asia\"; \"Asal\" works, but \"Asal daerah\" or \"Asal usul\" would be more natural (minor).",
-      "\"akarnya tumbuh kuat\" is fine, but \"Pertumbuhannya sedang\" could be \"laju pertumbuhan sedang\" (minor)."
+      "Item 3: \"Cahaya kuat memberi semburat kuning di bagian pucuk\" is fine, but \"pupuk kolom air\" is slightly awkward; consider \"pemupukan lewat air (kolom air)\" for naturalness.",
+      "Item 2: \"tegak lurus ke atas dengan rapi\" is slightly stiff; \"tumbuh tegak dan rapi\" reads better."
     ]
   },
   "pogostemon-helferi": {

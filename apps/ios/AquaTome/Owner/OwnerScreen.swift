@@ -24,6 +24,7 @@ struct OwnerScreen: View {
   @State private var working = false
   @State private var asking: Owner.Action?
   @State private var bell = false
+  @Environment(\.dynamicTypeSize) private var size
   /// The read in flight: a newer one cancels it, so an older answer never lands last.
   @State private var reading: Task<Void, Never>?
 
@@ -50,6 +51,7 @@ struct OwnerScreen: View {
         .padding(.horizontal)
         .padding(.bottom)
       }
+      .clearOfOwnerReport()
       .background(Color(uiColor: .systemGroupedBackground))
       // Read the first time: at the heading the link named.
       .onChange(of: section == nil) { if let anchor { proxy.scrollTo(anchor, anchor: .top) } }
@@ -82,7 +84,8 @@ struct OwnerScreen: View {
         }
       }
     }
-    .sheet(isPresented: $bell) { OwnerDelivery() }
+    // Two switches: a sheet of their height, the whole screen only at the largest text.
+    .sheet(isPresented: $bell) { OwnerDelivery().presentationDetents(size.isAccessibilitySize ? [.large] : [.medium]) }
     .refreshable { await load() }
     .task(id: "\(at ?? "")|\(period ?? "")|\(owner.era)|\(shown)") { await load() }
     // Another account, a sign-out, the session over: what this screen read goes with it.

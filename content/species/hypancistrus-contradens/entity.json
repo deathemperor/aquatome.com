@@ -12,6 +12,68 @@
     "ventuari",
     "orinoco"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE"
+      ],
+      "regions": [
+        "Orinoco",
+        "Rio Ventuari",
+        "Rio Orinoco"
+      ],
+      "sources": [
+        "glaser",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This Hypancistrus comes from the lower Rio Ventuari in Venezuela – the largest tributary of the Orinoco – as well as from the Orinoco itself in the Ventuari estuary.",
+          "countries": [
+            "VE"
+          ],
+          "regions": [
+            "Orinoco",
+            "Rio Ventuari"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Rio Orinoco in Venezuela.",
+          "countries": [],
+          "regions": [
+            "Rio Orinoco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339304,
+      "total": 20,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "VE",
+          20
+        ]
+      ],
+      "cells": [
+        [
+          -67.5,
+          2.8125,
+          19,
+          19
+        ],
+        [
+          -67.5,
+          4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

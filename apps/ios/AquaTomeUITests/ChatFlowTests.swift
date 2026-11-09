@@ -67,6 +67,20 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertEqual(box.value as? String, "Còn tép", "the draft left the box")
   }
 
+  /// A long question shows its first six lines in the bubble, and "Xem thêm" under it opens it whole.
+  func testALongQuestionShowsSixLinesAndXemThemOpensItWhole() {
+    let app = launch()
+    openChat(app)
+    signIn(app)
+    ask(app, String(repeating: "Bể neon của mình bị rêu tóc mọc kín, ", count: 10))
+    let bubble = app.staticTexts["chat-question"], more = app.buttons["chat-more"]
+    XCTAssertTrue(more.waitForExistence(timeout: 5), "no Xem thêm under a long question")
+    let cut = bubble.frame.height
+    more.tap()
+    XCTAssertTrue(more.waitForNonExistence(timeout: 5), "Xem thêm stayed")
+    XCTAssertGreaterThan(bubble.frame.height, cut * 1.5, "not opened whole")
+  }
+
   /// Off on the server: no way into the chat from a fish's page.
   func testWhileChatIsOffNoEntryShows() {
     let app = launch("-chat-off")

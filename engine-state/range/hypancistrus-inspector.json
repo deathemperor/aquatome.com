@@ -1,0 +1,112 @@
+{
+  "id": "hypancistrus-inspector",
+  "native": {
+    "input": "517029b860e3f932",
+    "at": "2026-11-08T22:57:48.089Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The snowball pleco (L102), Hypancistrus inspector, is a suckermouth catfish from the upper rio Negro in Brazil and the Casiquiare in Venezuela.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The snowball pleco (L102), Hypancistrus inspector, is a suckermouth catfish from the upper rio Negro in Brazil and the Casiquiare in Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species comes from the Rio Negro in Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Amazonas, Rio Casiquiare, upper Rio Negro drainage, Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Negro",
+        "source": "glaser",
+        "quote": "The species comes from the Rio Negro in Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Negro",
+        "source": "seriouslyfish",
+        "quote": "The snowball pleco (L102), Hypancistrus inspector, is a suckermouth catfish from the upper rio Negro in Brazil and the Casiquiare in Venezuela.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Casiquiare",
+        "source": "seriouslyfish",
+        "quote": "The snowball pleco (L102), Hypancistrus inspector, is a suckermouth catfish from the upper rio Negro in Brazil and the Casiquiare in Venezuela.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Rio Negro",
+        "source": "scotcat",
+        "quote": "South America: Amazonas, Rio Casiquiare, upper Rio Negro drainage, Venezuela.",
+        "ok": true
+      },
+      {
+        "name": "Rio Casiquiare",
+        "source": "scotcat",
+        "quote": "South America: Amazonas, Rio Casiquiare, upper Rio Negro drainage, Venezuela.",
+        "country": "VE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hypancistrus inspector",
+    "status": "ACCEPTED",
+    "taxonKey": 2339300,
+    "datasets": [
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        3
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        2
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "VE"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T22:57:48.089Z"
+  }
+}

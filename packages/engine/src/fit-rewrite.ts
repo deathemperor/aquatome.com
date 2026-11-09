@@ -5,7 +5,7 @@ import { LlmError, type Llm } from './claude'
 import { FIT_TITLE, fitDue, fitFindings, fitKey, fitText, type FitCheck, type FitFinding, type FitState } from './fit'
 import { rewriteForReader } from './for-reader'
 import { METRIC_KINDS } from './metric'
-import { loadPages, type Page } from './pages'
+import { fixedParts, loadPages, type Page } from './pages'
 import { fieldOf as partOf, norm, rewritePart, type ReaderFinding } from './reader'
 
 /**
@@ -85,9 +85,10 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
       }
       const file = join(root, 'content', p.kind, p.id, 'vi.json')
       const t = JSON.parse(await readFile(file, 'utf8')) as { sections?: Record<string, string>; body?: string; definition?: string; bodyFixed?: boolean }
+      const fixed = await fixedParts(join(root, 'content', p.kind, p.id))
       for (const [field, fs] of mendable(p, state)) {
         const html = partOf(t, field)
-        if (!html || (field === 'body' && t.bodyFixed)) { report.skipped.push(`${key} ${field}: ${html ? 'a person fixed its text' : 'not in the file'}`); continue }
+        if (!html || (field === 'body' && t.bodyFixed) || fixed.has(field)) { report.skipped.push(`${key} ${field}: ${html ? 'a person fixed its text' : 'not in the file'}`); continue }
         const source = field.startsWith('sections.') ? field.split(':')[1] : p.origin?.source
         const r = await rewritePart(d.llm, html, fs.map(asNote), { en: p.en?.[field], source: source && names[source]?.name })
         if (!r) { report.skipped.push(`${key} ${field}: its quotes aren't in one block`); continue }

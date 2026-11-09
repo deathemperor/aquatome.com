@@ -2,7 +2,7 @@ import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import { QUALITY_THRESHOLD, judgeQuality, metricPage } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
-import { reviewRewrite, reviewTranslation } from './quality'
+import { reviewRewrite, reviewTranslation, steadyRead } from './quality'
 import { lastKept, logReviews, TEXT_KINDS, type PageRef, type Review } from './review-log'
 import { METRIC_KINDS } from './metric'
 import { rewriteVi, type Part, type RewriteOpts } from './vi-rewrite'
@@ -31,7 +31,7 @@ async function jobs(contentRoot: string, kinds: readonly Kind[], match?: RegExp)
       const dir = join(contentRoot, kind, slug)
       const vi = await json<Vi>(join(dir, 'vi.json')).catch(() => null)
       if (!vi || (match && !match.test(JSON.stringify([vi.body, vi.sections, vi.definition, vi.summary, vi.faq])))) continue
-      const e = await json<{ source?: string; sections?: { key: string; source: string; html: string }[] }>(join(dir, 'entity.json')).catch(() => ({}) as { source?: string; sections?: undefined })
+      const e = await json<{ source?: string; sections?: { key: string; source: string; html: string; fixed?: boolean }[] }>(join(dir, 'entity.json')).catch(() => ({}) as { source?: string; sections?: undefined })
       const groups: Group[] = []
       if (kind === 'guides') {
         // A translated guide's English article is kept (sources/<source>/<slug>.md): the rewrite is checked against it, as a
@@ -48,7 +48,8 @@ async function jobs(contentRoot: string, kinds: readonly Kind[], match?: RegExp)
       else {
         for (const source of [...new Set((e.sections ?? []).map(s => s.source))]) {
           let g: Group = { source, parts: [] }
-          for (const s of (e.sections ?? []).filter(x => x.source === source && x.key !== 'references')) {
+          // A part a person fixed is theirs (schemas.ts Section.fixed).
+          for (const s of (e.sections ?? []).filter(x => x.source === source && x.key !== 'references' && !x.fixed)) {
             const id = `${s.key}:${s.source}`
             if (!vi.sections?.[id]) continue
             if (g.parts.length && g.parts.reduce((n, p) => n + (p.en?.length ?? 0), 0) + s.html.length > CHUNK) { groups.push(g); g = { source, parts: [] } }
@@ -92,9 +93,10 @@ export async function rewriteExisting(contentRoot: string, stateFile: string, d:
       for (const g of job.groups) {
         const opts = { ...d.opts, ...(g.source && names[g.source] ? { source: names[g.source]!.name } : {}) }
         const hasEn = g.parts.every(p => p.en)
-        const review = (m: Map<string, string>) => hasEn
+        // Near the bar, read three times and the median read counts (steadyRead).
+        const review = (m: Map<string, string>) => steadyRead(() => hasEn
           ? reviewTranslation(d.llm, g.parts.map(p => ({ en: p.en!, vi: m.get(p.id)! })))
-          : reviewRewrite(d.llm, g.parts.map(p => ({ before: p.vi, after: m.get(p.id)! })))
+          : reviewRewrite(d.llm, g.parts.map(p => ({ before: p.vi, after: m.get(p.id)! }))))
         // What the last review of this text on the site found, when it was under the bar, goes to the writer.
         const page = { id: job.id, lang: 'vi', ...(g.source ? { part: g.source } : {}) }
         const before = await lastKept(root, page, TEXT_KINDS)

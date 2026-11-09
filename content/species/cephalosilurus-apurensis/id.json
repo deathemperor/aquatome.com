@@ -1,0 +1,26 @@
+{
+  "slug": "cephalosilurus-apurensis",
+  "name": "Cephalosilurus apurensis",
+  "altNames": [
+    "Giant Bumblebee Catfish",
+    "Bumblebee Catfish Raksasa"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Cephalosilurus apurensis bisa mencapai panjang maksimal sekitar 30 cm. Ikan ini adalah lele predator berukuran besar dan sangat dicari oleh para penggemar ikan jenis ini.</p>",
+    "beforeYouBuy:glaser": "<p>Beberapa ekor ikan langka ini kembali diimpor. Ukurannya 20–25 cm dan hampir mencapai ukuran dewasa penuh. Ikan ini hanya tersedia dalam jumlah yang sangat sedikit.</p>",
+    "distribution:glaser": "<p>Spesies ini tampaknya endemik Venezuela, artinya sebarannya hanya terbatas di negara tersebut.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.9
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-09"
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "id": "lepisosteus-oculatus",
+  "scientificName": "Lepisosteus oculatus",
+  "order": "Lepisosteiformes",
+  "family": "Lepisosteidae",
+  "genus": "Lepisosteus",
+  "group": "other",
+  "places": [
+    "north-america",
+    "united-states",
+    "mississippi",
+    "mexico",
+    "rio-grande"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 12,
+          "max": 20
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 125
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepisosteus-oculatus",
+      "html": "<ul><li>Needs a tank at least 2 m long</li></ul><p>The spotted gar, Lepisosteus oculatus, ranges from Lakes Erie and Michigan south through the Mississippi basin to the Gulf of Mexico drainages. Given its size and a lifespan of several decades it should not be considered a home aquarium subject, and only some public aquaria can maintain it long-term. A modified, vascularised swim bladder allows it to breathe atmospheric air to a certain extent.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepisosteus-oculatus",
+      "html": "<p>Known from Great Lakes Erie and Michigan with distribution extending south through the Mississippi River basin to the Gulf of Mexico drainages where it's said to occur between the lower Apalachicola River in Florida and the Nueces River in Texas.</p><p>It may also be found in the Rio Grande which forms the border between Mexico and the United States further south where records include Falcon International Reservoir, for example.</p><p>Type locality is 'Duck Lake, Calhoun County, Michigan, U.S.A.'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepisosteus-oculatus",
+      "html": "<p>Found in various habitat-types, from large lakes and rivers to sluggish tributaries, backwaters and pools though it tends to show a preference for larger, low-altitude bodies of water.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepisosteus-oculatus",
+      "html": "<p>Suitable only for very large public installations.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepisosteus-oculatus",
+      "html": "<p>Relatively unfussy provided water flow is not too strong and lighting not bright.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepisosteus-oculatus",
+      "html": "<ul><li>Temperature: 12–20°C</li><li>pH: 6.0–8.0</li><li>Hardness: 5–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepisosteus-oculatus",
+      "html": "<p>Gars are ambush predators feeding on smaller fishes and aquatic crustaceans in nature.</p><p>It can sometimes be tricky to get newly-introduced captive individuals to accept dead foods though most will learn to do so following a short period of starvation.</p><p>After a short time most small individuals will accept meaty frozen foods such as prawns, lance fish, etc., while larger specimens can be offered whole fishes such as trout or sprats.</p><p>Feed every day when juvenile but as the fish grows reduce the frequency; an adult requires only one or two meals per week at most.</p><p>In extreme cases there may be no other option but to use live 'feeder' fishes for the initial period but it must be stressed that this is only advisable until an individual has built up adequate body mass to attempt a starvation period.</p><p>It's highly recommended to buy such feeders in advance and quarantine them for at least two weeks to ensure they're free of disease while feeding them a high quality diet so that the flesh is sufficiently nutritious.</p><p>This species should never be fed the meat of mammals such as beef heart or chicken since some of the lipids and other organic compounds contained in these meats cannot be properly metabolised by fishes, causing excess fat deposition and even organ degeneration over the long term.</p><p>Except for in the extreme circumstance described there's also no real benefit in the use of feeder fishes due to the risk of disease or parasite introduction.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepisosteus-oculatus",
+      "html": "<p>Best kept alone, or with similarly-sized, non-aggressive fishes it cannot fit into its mouth.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepisosteus-oculatus",
+      "html": "<p>Unrecorded in captivity.</p><p>In nature spawning occurs between the months of May and July and eggs are simply scattered among aquatic vegetation with no parental care.</p><p>As many as 20,000 eggs may be deposited in by a single female during such an event.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lepisosteus-oculatus",
+      "html": "<p>This species clearly shouldn't be considered a home aquarium subject at all given its eventual size and the fact it can live for several decades.</p><p>It is included here only because some public aquaria are able to maintain it long-term and juveniles are occasionally offered in the aquarium trade.</p><p>Gars are among the most primitive fish species still alive today.</p><p>They have a modified, vascularised swim bladder that is connected to the pharynx and allows them to breathe atmospheric air to a certain extent.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn đông lạnh cho cá săn mồi",
+        "tôm đông lạnh cho cá"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy bơm tạo dòng"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

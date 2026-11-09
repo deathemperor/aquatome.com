@@ -1,0 +1,228 @@
+{
+  "id": "heterandria-formosa",
+  "native": {
+    "input": "1fda7f523a3320ae",
+    "at": "2026-11-08T22:57:48.089Z",
+    "claims": [
+      {
+        "code": "US",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Heterandria formosa originates from Florida and neighbouring states of the USA.",
+        "words": "USA",
+        "ok": true
+      },
+      {
+        "code": "US",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "It is commonly found throughout the south-eastern United States, from at least as far west as the western Mississippi river drainage in West Baton Rouge Parish, Louisiana, throughout the Florida peninsula, and as far north as the Cape Fear River, North Carolina.",
+        "words": "United States",
+        "ok": true
+      },
+      {
+        "code": "US",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The least killifish, Heterandria formosa, is a tiny livebearer from the United States, found in heavily vegetated margins of still or sluggish water.",
+        "words": "United States",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mississippi",
+        "source": "aquariumbreeder",
+        "quote": "It is commonly found throughout the south-eastern United States, from at least as far west as the western Mississippi river drainage in West Baton Rouge Parish, Louisiana, throughout the Florida peninsula, and as far north as the Cape Fear River, North Carolina.",
+        "country": "US",
+        "ok": true
+      },
+      {
+        "name": "Florida peninsula",
+        "source": "aquariumbreeder",
+        "quote": "It is commonly found throughout the south-eastern United States, from at least as far west as the western Mississippi river drainage in West Baton Rouge Parish, Louisiana, throughout the Florida peninsula, and as far north as the Cape Fear River, North Carolina.",
+        "country": "US",
+        "ok": true
+      },
+      {
+        "name": "Cape Fear River",
+        "source": "aquariumbreeder",
+        "quote": "It is commonly found throughout the south-eastern United States, from at least as far west as the western Mississippi river drainage in West Baton Rouge Parish, Louisiana, throughout the Florida peninsula, and as far north as the Cape Fear River, North Carolina.",
+        "country": "US",
+        "ok": true
+      },
+      {
+        "name": "Lake Okeechobee",
+        "source": "seriouslyfish",
+        "quote": "Rivers and areas include: Bogue Chitto, Caloosahatchee, Coosawhatchie, Everglades National Park, Frog Creek, Greenfield Lake, Haskell Wetlands, Hatchet Creek, Hillsborough, Kanawha, Kissimmee, Lake Okeechobee, Otter Creek, Pee Dee, Santee, Shark, St. Johns, St. Louis Canal, Stanley Creek, Steinhatchee, Wakulla.",
+        "ok": true
+      },
+      {
+        "name": "St. Johns",
+        "source": "seriouslyfish",
+        "quote": "Rivers and areas include: Bogue Chitto, Caloosahatchee, Coosawhatchie, Everglades National Park, Frog Creek, Greenfield Lake, Haskell Wetlands, Hatchet Creek, Hillsborough, Kanawha, Kissimmee, Lake Okeechobee, Otter Creek, Pee Dee, Santee, Shark, St. Johns, St. Louis Canal, Stanley Creek, Steinhatchee, Wakulla.",
+        "ok": true
+      },
+      {
+        "name": "Santee",
+        "source": "seriouslyfish",
+        "quote": "Rivers and areas include: Bogue Chitto, Caloosahatchee, Coosawhatchie, Everglades National Park, Frog Creek, Greenfield Lake, Haskell Wetlands, Hatchet Creek, Hillsborough, Kanawha, Kissimmee, Lake Okeechobee, Otter Creek, Pee Dee, Santee, Shark, St. Johns, St. Louis Canal, Stanley Creek, Steinhatchee, Wakulla.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Heterandria formosa",
+    "status": "ACCEPTED",
+    "taxonKey": 2349968,
+    "datasets": [
+      [
+        "c5126b60-6dc3-428b-b479-15a921199da1",
+        385
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        225
+      ],
+      [
+        "ba5b0f3a-73dd-459f-a7f1-9abc327aed00",
+        219
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        123
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        78
+      ],
+      [
+        "5c7ff628-c336-4635-9746-38d24a4607e7",
+        73
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        70
+      ],
+      [
+        "e90a588b-0eed-4077-8a4f-7e61da35b3f8",
+        70
+      ],
+      [
+        "6a901195-ee9a-43ad-a43d-9095fd2aab0c",
+        60
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        49
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        38
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        38
+      ],
+      [
+        "175d2868-a330-4179-ba25-35da91a8214d",
+        29
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        23
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        19
+      ],
+      [
+        "96419bea-f762-11e1-a439-00145eb45e9a",
+        18
+      ],
+      [
+        "813b435e-f762-11e1-a439-00145eb45e9a",
+        10
+      ],
+      [
+        "93c707dc-4708-47fc-93d8-424702116442",
+        7
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        6
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        6
+      ],
+      [
+        "969d55f6-ed52-4be9-a6dd-7afeccdfde76",
+        6
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        6
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        5
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        5
+      ],
+      [
+        "faf9bd60-071c-4ed4-8705-faa17e645f60",
+        5
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        3
+      ],
+      [
+        "2526aea6-ccd0-4d83-a55d-46efcdb3f010",
+        2
+      ],
+      [
+        "a2254f58-8bbf-41e6-ac4e-03d1683e0ce5",
+        2
+      ],
+      [
+        "d6cc311c-c5ab-4f23-9a20-10514f9eb9c4",
+        2
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        1
+      ],
+      [
+        "ce1b2519-0427-441e-9fc6-4fb83b53b5d9",
+        1
+      ],
+      [
+        "e0ae862b-d456-4cb2-900b-c4928b75a1f8",
+        1
+      ],
+      [
+        "e1a01804-881b-42ae-8f97-1e80f697fd56",
+        1
+      ]
+    ],
+    "native": [
+      "US"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T22:57:48.089Z"
+  }
+}

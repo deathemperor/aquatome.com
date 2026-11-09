@@ -1,0 +1,103 @@
+{
+  "id": "homalopteroides-nebulosus",
+  "native": {
+    "input": "11f103fe63e4fd41",
+    "at": "2026-11-08T22:57:48.089Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the Sok River, Kelantan state, northern Peninsular Malaysia, and since recorded from both Malaysian and Indonesian parts of Borneo as well as the Natuna Islands off Borneo's western tip.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the Sok River, Kelantan state, northern Peninsular Malaysia, and since recorded from both Malaysian and Indonesian parts of Borneo as well as the Natuna Islands off Borneo's western tip.",
+        "words": "Indonesian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sok River",
+        "source": "seriouslyfish",
+        "quote": "Described from the Sok River, Kelantan state, northern Peninsular Malaysia, and since recorded from both Malaysian and Indonesian parts of Borneo as well as the Natuna Islands off Borneo's western tip.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Described from the Sok River, Kelantan state, northern Peninsular Malaysia, and since recorded from both Malaysian and Indonesian parts of Borneo as well as the Natuna Islands off Borneo's western tip.",
+        "ok": true
+      },
+      {
+        "name": "Peninsular Malaysia",
+        "source": "seriouslyfish",
+        "quote": "Described from the Sok River, Kelantan state, northern Peninsular Malaysia, and since recorded from both Malaysian and Indonesian parts of Borneo as well as the Natuna Islands off Borneo's western tip.",
+        "country": "MY",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Natuna Islands",
+        "source": "seriouslyfish",
+        "quote": "Described from the Sok River, Kelantan state, northern Peninsular Malaysia, and since recorded from both Malaysian and Indonesian parts of Borneo as well as the Natuna Islands off Borneo's western tip.",
+        "ok": true
+      },
+      {
+        "name": "Endau",
+        "source": "seriouslyfish",
+        "quote": "In the Kahang River, part of the Endau drainage, it's been recorded alongside Homaloptera zollingeri, H. parclitella, H. ogilviei and Homalopteroides tweediei as well as Malayochela maassi, Crossocheilus langei, Cyclocheilichthys apogon, Mystacoleucus marginatus, Rasbora dusonensis, R. elegans, R. paucisqualis, Trigonopoma gracile, 'Puntius' partipentazona, Nemacheilus masyae, N. selangoricus, Neohomaloptera johorensis, Acanthopsoides molobrion, Pangio cuneovirgata, P. doriae, P. kuhlii, P. malayana, P. piperata, P. shelfordii, Pseudomystus fuscus, Akysis microps, A. hendricksoni, and an unidentified species of Glyptothorax.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Homalopteroides nebulosus",
+    "status": "ACCEPTED",
+    "taxonKey": 9267509,
+    "datasets": [
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        5
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        4
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "MY",
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T22:57:48.089Z"
+  }
+}

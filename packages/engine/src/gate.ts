@@ -1,4 +1,5 @@
 import { execFileSync } from 'node:child_process'
+import { existsSync } from 'node:fs'
 import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -7,6 +8,8 @@ import { LlmError, type Llm } from './claude'
 import { doseGroups, FIT_KINDS, FIT_LABEL_VI, fitFindings, productOf, fitKey, fitOrder, fitSource, fitText, readFit, type FitCheck, type FitEntry, type FitState } from './fit'
 import { PRODUCTS } from './market'
 import { loadCards, loadPages, pageUrl, type Page } from './pages'
+import { norm } from './reader'
+import { REVIEW_KINDS, reviewFile, unkeep, type Store } from './review-log'
 
 /**
  * Every page passes the checklist (fit.ts) before readers get it. Run last in each cycle, after everything that writes
@@ -19,8 +22,10 @@ import { loadCards, loadPages, pageUrl, type Page } from './pages'
  * - a held page whose text changed and passes is let out;
  * - a page it can't read (the accounts out, over its limit) stays as readers have it: a live page keeps its committed text,
  *   a new one waits, held. The run still publishes; only a crash in the gate stops it.
- * "Passed before" counts the old text's saved read and, when the new text looks worse, a fresh one: a model reading the
- * same text twice doesn't always find the same things, and a page isn't put back for that.
+ * "Passed before" counts the old text's saved read, a check whose every fault is quoted from a sentence the old text has
+ * word for word, and, when the new text still looks worse, a fresh read of the old one: a model reading the same text twice
+ * doesn't always find the same things, and a page isn't put back for that. So taking a sentence out isn't put back for a
+ * fault in the sentences left, though it is for a dose's caution or purpose it took out.
  */
 export const GATE_KINDS = ['guides', 'species', 'plants', 'breeds'] as const
 /** What the gate reads: those, and the app's short cards (content/cards), which the owner's number and the report don't count. */
@@ -48,7 +53,25 @@ const marketKnown = (lang: Lang) => PRODUCTS.some(x => x.market[lang])
  * Indonesia, Thailand and Malaysia have no market table yet, so there every product is "market unknown": counted, never
  * held for.
  */
-export const gateChecks = (p: Page, e?: FitEntry) => new Set(fitFindings(p, e).filter(f => f.check !== 'words' && !((f.check === 'product' || f.check === 'dose') && (!marketKnown(p.lang) || productOf(f.product ?? f.quote, p.lang)?.status === 'no data'))).map(f => f.check))
+const gateFindings = (p: Page, e?: FitEntry) => fitFindings(p, e).filter(f => f.check !== 'words' && !((f.check === 'product' || f.check === 'dose') && (!marketKnown(p.lang) || productOf(f.product ?? f.quote, p.lang)?.status === 'no data')))
+export const gateChecks = (p: Page, e?: FitEntry) => new Set(gateFindings(p, e).map(f => f.check))
+/** A text's sentences, a table row or a heading each one too: what a fault's quote is matched to in the old text. */
+const sentences = (text: string) => text.split(/(?<=[.!?])\s+|\n+/).map(norm).filter(Boolean)
+/** Faults of something left out: their quote is the words that stay (the dose), not what went. */
+const LEFT_OUT: readonly FitCheck[] = ['dose-caution', 'dose-purpose']
+/**
+ * The checks whose every fault in the new text the old text has too, each quoted in a sentence the old text has word for
+ * word: the change didn't bring them, whether a read of the old text found them or not.
+ */
+const carried = (p: Page, e: FitEntry | undefined, old: Page) => {
+  const was = new Set(sentences(fitText(old).text)), now = sentences(fitText(p).text)
+  const all = new Map<FitCheck, boolean>()
+  for (const f of gateFindings(p, e)) {
+    const q = norm(f.quote), at = now.filter(x => x.includes(q))
+    all.set(f.check, (all.get(f.check) ?? true) && !LEFT_OUT.includes(f.check) && at.length > 0 && at.every(x => was.has(x)))
+  }
+  return [...all].filter(([, had]) => had).map(([c]) => c)
+}
 
 /** What the gate does with one changed page, from its checks now and, for a live page, its old text's. */
 export function gateCall(now: Set<FitCheck>, o: { isNew: boolean; wasHeld: boolean; before?: Set<FitCheck> }): GateCall {
@@ -201,7 +224,7 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
         }
         if (entry) state[fitKey(p)] = entry
         const nowChecks = gateChecks(p, entry)
-        let call = gateCall(nowChecks, { isNew, wasHeld, ...(old ? { before: gateChecks(old, oldSaved) } : {}) })
+        let call = gateCall(nowChecks, { isNew, wasHeld, ...(old ? { before: new Set([...gateChecks(old, oldSaved), ...carried(p, entry, old)]) } : {}) })
         if (call.action === 'revert' && old) {
           // Worse than its old text's saved read, or the old text was never read: read the old text now, and compare with both.
           const fresh = await read(old)
@@ -212,7 +235,7 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
             unread(f, p, false)
             continue
           }
-          const before = new Set([...(oldSaved ? gateChecks(old, oldSaved) : []), ...gateChecks(old, fresh)])
+          const before = new Set([...(oldSaved ? gateChecks(old, oldSaved) : []), ...gateChecks(old, fresh), ...carried(p, entry, old)])
           call = gateCall(nowChecks, { isNew, wasHeld, before })
           if (call.action === 'revert') {
             state[fitKey(p)] = fresh
@@ -232,7 +255,17 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
     }
   }))
   // One checkout for all of them, after the reads.
-  if (reverts.length) git(root, ['checkout', 'HEAD', '--', ...reverts])
+  if (reverts.length) {
+    git(root, ['checkout', 'HEAD', '--', ...reverts])
+    // The reviews of the texts they replaced are no longer the pages'.
+    const back = reverts.map(f => FILE.exec(f)!).map(m => ({ lang: m[3]!, id: `${m[1]}/${m[2]}` }))
+    const committed = new Set(git(root, ['ls-tree', '--name-only', 'HEAD', '--', 'engine-state/reviews/']).split('\n'))
+    for (const kind of REVIEW_KINDS) {
+      const f = `engine-state/reviews/${kind}.json`
+      if (!existsSync(reviewFile(root, kind))) continue
+      await unkeep(root, kind, back, committed.has(f) ? JSON.parse(git(root, ['show', `HEAD:${f}`])) as Store : {})
+    }
+  }
   for (const f of pending) if (!held.has(f)) { const h = { checks: [], at: day }; await setHeld(root, f, h); held.set(f, h) }
   for (const [f, checks] of holdAfter) { const h = { checks, at: day }; await setHeld(root, f, h); held.set(f, h); report.hold.push(`${byFile.get(f)!.path} (${checks.join(', ')})`) }
   // Harm in any language, from the texts the run ends with, holds the page in each: one that passed, or that would have

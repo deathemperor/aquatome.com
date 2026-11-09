@@ -1,0 +1,112 @@
+{
+  "id": "homaloptera-parclitella",
+  "native": {
+    "input": "f84a0d55759efe73",
+    "at": "2026-11-08T22:57:48.089Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It inhabits Malaysia and Southern Thailand.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It inhabits Malaysia and Southern Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Distributed throughout Peninsular Malaysia where it's been recorded from the Terengganu, Perak, Tahan, Muar, Jelai, Endau, Mersing and Sedili river basins.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It also occurs in the Sai Buri, Bang Nara and Kolok river systems, southern Thailand.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Terengganu",
+        "source": "seriouslyfish",
+        "quote": "Distributed throughout Peninsular Malaysia where it's been recorded from the Terengganu, Perak, Tahan, Muar, Jelai, Endau, Mersing and Sedili river basins.",
+        "ok": true
+      },
+      {
+        "name": "Perak",
+        "source": "seriouslyfish",
+        "quote": "Distributed throughout Peninsular Malaysia where it's been recorded from the Terengganu, Perak, Tahan, Muar, Jelai, Endau, Mersing and Sedili river basins.",
+        "ok": true
+      },
+      {
+        "name": "Endau",
+        "source": "seriouslyfish",
+        "quote": "Distributed throughout Peninsular Malaysia where it's been recorded from the Terengganu, Perak, Tahan, Muar, Jelai, Endau, Mersing and Sedili river basins.",
+        "ok": true
+      },
+      {
+        "name": "Muar",
+        "source": "seriouslyfish",
+        "quote": "Distributed throughout Peninsular Malaysia where it's been recorded from the Terengganu, Perak, Tahan, Muar, Jelai, Endau, Mersing and Sedili river basins.",
+        "ok": true
+      },
+      {
+        "name": "Sai Buri",
+        "source": "seriouslyfish",
+        "quote": "It also occurs in the Sai Buri, Bang Nara and Kolok river systems, southern Thailand.",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Kolok",
+        "source": "seriouslyfish",
+        "quote": "It also occurs in the Sai Buri, Bang Nara and Kolok river systems, southern Thailand.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Homaloptera parclitella",
+    "status": "ACCEPTED",
+    "taxonKey": 2358607,
+    "datasets": [
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ],
+      [
+        "b9afe2d0-b264-4422-bf8c-096b2a53c18f",
+        1
+      ]
+    ],
+    "native": [
+      "MY",
+      "TH"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T22:57:48.089Z"
+  }
+}

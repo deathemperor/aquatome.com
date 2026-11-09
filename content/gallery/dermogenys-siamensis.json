@@ -2,6 +2,18 @@
   "id": "dermogenys-siamensis",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/618953753.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/618953753-480.webp",
+      "width": 1024,
+      "height": 625,
+      "licence": "CC BY",
+      "author": "sucker69420",
+      "sourceUrl": "https://www.inaturalist.org/photos/618953753",
+      "caption": "Cá kìm Thái Lan bơi dưới mặt nước trong môi trường tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/543890116.webp",
       "thumb": "https://media.aquatome.com/inaturalist/543890116-480.webp",
       "width": 1200,
@@ -12,6 +24,18 @@
       "caption": "Cá kìm Thái Lan nhìn ngang sát mặt nước trong bể kính",
       "best": true,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/257735329.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/257735329-480.webp",
+      "width": 576,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Павлик Лисицын",
+      "sourceUrl": "https://www.inaturalist.org/photos/257735329",
+      "caption": "Cá kìm Thái Lan bơi gần mặt nước giữa cỏ ven bờ",
+      "best": true,
+      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/543890407.webp",
@@ -34,6 +58,18 @@
       "author": "Zac Peterson",
       "sourceUrl": "https://www.inaturalist.org/photos/634058952",
       "caption": "Cá kìm Thái Lan nhìn từ trên, thân thon mõm dài",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/246842965.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/246842965-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Павлик Лисицын",
+      "sourceUrl": "https://www.inaturalist.org/photos/246842965",
+      "caption": "Cá kìm Thái Lan trong bể, thân bạc ánh xanh",
       "best": true,
       "kind": "other"
     },
@@ -84,9 +120,33 @@
       "caption": "Cá kìm bơi nghiêng giữa cỏ lau trong nước tự nhiên",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/249066286.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/249066286-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Павлик Лисицын",
+      "sourceUrl": "https://www.inaturalist.org/photos/249066286",
+      "caption": "Cá kìm Thái Lan và hình phản chiếu trên mặt nước bể",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/618952978.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/618952978-480.webp",
+      "width": 1024,
+      "height": 674,
+      "licence": "CC BY",
+      "author": "sucker69420",
+      "sourceUrl": "https://www.inaturalist.org/photos/618952978",
+      "caption": "Cá kìm Thái Lan thân tím nhạt bơi dưới mặt nước",
+      "best": false,
+      "kind": "habitat"
     }
   ],
-  "seen": 15,
+  "seen": 31,
   "updatedAt": "2026-11-08",
   "builtAt": "2026-11-08"
 }
