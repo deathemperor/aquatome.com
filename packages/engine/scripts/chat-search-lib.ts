@@ -47,6 +47,8 @@ export function changesOf(written: Record<string, string>, wanted: Record<string
 /** Every section a read_page call can open: a page's opening (heading null) and each heading with an id. */
 export async function docsOf(source: Source, lang: Lang, chars: number): Promise<{ docs: Doc[]; hb: Handbook }> {
   const hb = (await handbookOf(source, lang))!
+  // With no topics to read, the handbook holds back every video guide: their sections would look removed.
+  if (!await hb.topics()) throw new Error(`No topics file for ${lang}`)
   const out: Doc[] = []
   for (const i of hb.items) {
     const doc = await hb.page(i.path)

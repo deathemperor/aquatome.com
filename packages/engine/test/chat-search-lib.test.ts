@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
-import { changesOf, liveSource } from '../scripts/chat-search-lib'
+import type { Source } from '../../../apps/site/worker/chat/handbook'
+import { changesOf, docsOf, liveSource } from '../scripts/chat-search-lib'
 
 describe('changesOf', () => {
   it('writes what is new or changed and removes what the handbook no longer has', () => {
@@ -8,6 +9,20 @@ describe('changesOf', () => {
 
   it('writes everything and removes nothing with no record', () => {
     expect(changesOf({}, { a: '1', b: '2' })).toEqual({ write: ['a', 'b'], gone: [] })
+  })
+})
+
+describe('docsOf', () => {
+  const handbook = (topics: unknown): Source => ({ index: async () => ({ items: [], shards: {} }) as never, shard: async () => null, topics: async () => topics as never })
+
+  it('stops when the topics file is missing or unreadable, or every video guide would look removed', async () => {
+    await expect(docsOf(handbook(null), 'vi', 2000)).rejects.toThrow('topics')
+    await expect(docsOf(handbook({ v: 2, pages: {} }), 'vi', 2000)).rejects.toThrow('topics')
+    await expect(docsOf({ ...handbook(null), topics: async () => { throw new Error('503') } }, 'vi', 2000)).rejects.toThrow('topics')
+  })
+
+  it('reads a handbook with its topics', async () => {
+    await expect(docsOf(handbook({ v: 1, pages: {} }), 'vi', 2000)).resolves.toMatchObject({ docs: [] })
   })
 })
 

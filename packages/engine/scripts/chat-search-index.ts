@@ -45,10 +45,7 @@ async function main() {
   if (args.create) await call(api, JSON.stringify({ name: args.index, description: 'The chat\'s handbook sections, one namespace a language', config: { dimensions: DIMENSIONS, metric: 'cosine' } }), 'application/json')
   const batches = <T>(all: T[]) => Array.from({ length: Math.ceil(all.length / BATCH) }, (_, i) => all.slice(i * BATCH, (i + 1) * BATCH))
   for (const lang of SEARCHED) {
-    const source = liveSource(args.site!)
-    // Read here, where a failure stops the run: handbookOf takes a topics file it can't read for one holding every video guide.
-    await source.topics(lang)
-    const { docs } = await docsOf(source, lang, Number(args.chars))
+    const { docs } = await docsOf(liveSource(args.site!), lang, Number(args.chars))
     const byId = new Map(docs.map(d => [createHash('sha256').update(`${lang}:${d.path}#${d.heading ?? ''}`).digest('hex').slice(0, 32), d]))
     const wanted = Object.fromEntries([...byId].map(([id, d]) => [id, hash(`${e.model}\n${d.text}`)]))
     const record = join(args.cache!, `written-${args.index}-${lang}.json`)
