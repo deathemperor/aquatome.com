@@ -18,9 +18,16 @@ scores, to be read again by all four:
 
 ## The chat's first lines (2026-11-10)
 
-One round on 75 lines, with the Anthropic and xAI seats only; OpenAI and Google were out on the Cursor limit. These aren't
-in the tallies below, which count pages. Scores, lowest of four (Anthropic, xAI): Vietnamese 7, 6; Indonesian 7, 5; Malay
-4, 4; Thai 6, 4.
+Three rounds, on 75, 80 and 67 lines, with the Anthropic and xAI seats only; OpenAI and Google were out on the Cursor
+limit. These aren't in the tallies below, which count pages. Scores, lowest of four (Anthropic, xAI):
+
+| Round | Vietnamese | Indonesian | Malay | Thai |
+|---|---|---|---|---|
+| 1 | 7, 6 | 7, 5 | 4, 4 | 6, 4 |
+| 2 | 6, 7 | 7, 8 | 8, 8 | 8, 8 |
+| 3 | 6, 7 | 8, 7 | 9, 9 | 8, 8 |
+
+Round 1:
 - **Vietnamese, held by the references:** "cẩm nang mục" (0 in the site and the references), "kinh phí" for "ngân sách"
   (forum 24.4 against 4.6), "bỏ không" for "bỏ trống" (videos 14.8 against 0), and "tần suất" for a heater or a filter (forum
   0.7, site 7 to 11). "Cường độ ánh sáng" is 2.0 in the forum against 26 in the guides. Both seats raised each of these.
@@ -30,6 +37,18 @@ in the tallies below, which count pages. Scores, lowest of four (Anthropic, xAI)
   chat's "ครับ" and "ค่ะ".
 - **The packet's fault:** xAI marked a fish as added on five lines where the reader asked from that fish's page or a
   photo. The packet didn't show that. A packet for these lines carries where the question was asked from.
+
+Rounds 2 and 3:
+- **Vietnamese, held by the references:** "tháng tuổi" for a tank (forum 53 a million words for fish, once with "bể" or
+  "hồ"); "xuất hiện" for "bị rêu chùm đen" (both rare, both seats, both rounds); "hồ hiện tại" for "hồ này" (forum 0
+  against 30.3, videos 3.7 against 494).
+- **Vietnamese, not a fault of wording:** hobbyists write both "xử lý thế nào" and "xử lý sao" (forum 3.3 and 2.0), and both
+  "nên làm gì" and "nên làm sao" (3.3 and 2.0). They count only because the prompt keeps the reader's own words.
+- **Vietnamese, open:** "nguyên nhân là gì", "đang bị gì" and "bắt bệnh" (forum 1.3, 0.7 and 2.0).
+- **Indonesian, Thai and Malay:** a finding held when both seats raised it. Round 2: 4 Indonesian lines, 5 Malay and 6
+  Thai. Round 3: 6 Indonesian, 2 Malay and 3 Thai, and the reader's Thai space lost on 10 of 13 questions.
+- **Length (round 3):** asked directly about long Vietnamese lines, both seats said length alone costs no points, that a
+  cut to 140 characters lowers faithful, and that a line of about 180 is better than none on a long post.
 
 ## The app's card copy (2026-11-08)
 
