@@ -35,6 +35,31 @@
       "kept": true
     }
   ],
+  "vi/guides/youtube-DkuoQLxF7u8": [
+    {
+      "at": "2026-11-09T06:18:28Z",
+      "model": "opus",
+      "score": 0,
+      "notes": [
+        "still promises a count the text lacks: title promises 10; 7 headings, none numbered, lists of 5"
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-Ejng2T-a2Gk": [
+    {
+      "at": "2026-11-09T09:58:34Z",
+      "model": "opus",
+      "score": 0.85,
+      "notes": [
+        "The 8 matches the eight H2 sections, but several of them (new tank, cleanup crew, weekly maintenance) are fixes or FAQs rather than actual 'reasons', so 'lý do' fits only loosely",
+        "Two of the eight sections are both about CO2, which could be read as one reason"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/youtube-LRTzeSTeN-8": [
     {
       "at": "2026-11-09T00:09:54Z",
@@ -43,6 +68,16 @@
       "notes": [
         "still promises a count the text lacks: title promises 10; 8 headings, none numbered, lists of 5"
       ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-O5kuU_-xMzo": [
+    {
+      "at": "2026-11-09T06:58:51Z",
+      "model": "opus",
+      "score": 0.95,
+      "notes": [],
       "attempt": "first",
       "kept": false
     }
@@ -66,28 +101,6 @@
       "notes": [],
       "attempt": "first",
       "kept": true
-    }
-  ],
-  "vi/guides/youtube-DkuoQLxF7u8": [
-    {
-      "at": "2026-11-09T06:18:28Z",
-      "model": "opus",
-      "score": 0,
-      "notes": [
-        "still promises a count the text lacks: title promises 10; 7 headings, none numbered, lists of 5"
-      ],
-      "attempt": "first",
-      "kept": false
-    }
-  ],
-  "vi/guides/youtube-O5kuU_-xMzo": [
-    {
-      "at": "2026-11-09T06:58:51Z",
-      "model": "opus",
-      "score": 0.95,
-      "notes": [],
-      "attempt": "first",
-      "kept": false
     }
   ]
 }

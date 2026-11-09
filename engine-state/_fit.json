@@ -49071,7 +49071,7 @@
   "products": []
  },
  "vi/guides/youtube-1JzvfHO31Ug": {
-  "at": "2026-11-08",
+  "at": "2026-11-09",
   "hash": "944e700fa64e9253",
   "model": "opus",
   "checklist": 3,
@@ -49080,28 +49080,21 @@
     "check": "price",
     "part": "P1",
     "quote": "Không tính hóa chất, cả hệ thống tốn khoảng 25 USD.",
-    "why": "Cost is given in US dollars, not a price a reader in Vietnam pays.",
+    "why": "Cost given in US dollars.",
     "by": "model"
    },
    {
     "check": "price",
     "part": "P1",
     "quote": "Mỗi lần pha mới tốn khoảng 1,5 USD tiền axit citric và baking soda, tính ra khoảng 3 USD mỗi tháng.",
-    "why": "Running costs are in US dollars from the source's market.",
+    "why": "Running cost given in US dollars.",
     "by": "model"
    },
    {
     "check": "source",
     "part": "P1",
     "quote": "Con số này rút ra từ việc chạy thử hai bộ trong hơn hai tháng và thay hỗn hợp tổng cộng sáu lần.",
-    "why": "Refers to the original writer's own trial as if the reader knew it.",
-    "by": "model"
-   },
-   {
-    "check": "elsewhere",
-    "part": "P1",
-    "quote": "Phản ứng này giống thí nghiệm núi lửa bằng giấm và baking soda hồi đi học",
-    "why": "Assumes a school-volcano experiment typical of Western schooling as the reader's shared memory.",
+    "why": "Refers to the original writer's own trial the reader doesn't know.",
     "by": "model"
    }
   ],
@@ -49115,9 +49108,9 @@
     "unit": "g",
     "per": 600,
     "perUnit": "ml",
-    "use": "plants",
+    "use": "other",
     "method": "other",
-    "quote": "200 g axit citric với 600 ml nước vào chai gắn đồng hồ"
+    "quote": "200 g axit citric với 600 ml nước"
    },
    {
     "treatment": "baking soda",
@@ -49127,9 +49120,9 @@
     "unit": "g",
     "per": 200,
     "perUnit": "ml",
-    "use": "plants",
+    "use": "other",
     "method": "other",
-    "quote": "200 g baking soda với 200 ml nước vào chai dẫn khí ra bể"
+    "quote": "200 g baking soda với 200 ml nước"
    }
   ],
   "sourceRead": false
@@ -49494,7 +49487,7 @@
   "products": []
  },
  "vi/guides/youtube-2cJXsJUdOfk": {
-  "at": "2026-11-08",
+  "at": "2026-11-09",
   "hash": "8fed8e0a17104d39",
   "model": "opus",
   "checklist": 3,
@@ -49503,7 +49496,7 @@
     "check": "price",
     "part": "P1",
     "quote": "khoảng 9 USD (riêng bơm khoảng 8 USD)",
-    "why": "Equipment cost is given in US dollars, not Vietnamese đồng.",
+    "why": "Equipment cost is given in US dollars, not Vietnamese currency.",
     "by": "model"
    },
    {
@@ -49524,7 +49517,7 @@
     "check": "price",
     "part": "L2",
     "quote": "tổng khoảng 15 USD gồm cả hạt",
-    "why": "The summary gives the cost in US dollars.",
+    "why": "Summary repeats a total in US dollars.",
     "by": "model"
    }
   ],
@@ -51522,35 +51515,17 @@
   ]
  },
  "vi/guides/youtube-85iF2nhleGM": {
-  "at": "2026-11-08",
-  "hash": "b2ddae177bfb2a5b",
+  "at": "2026-11-09",
+  "hash": "3df10a2f57e134a6",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "source",
-    "part": "P1",
-    "quote": "Đây là bể đầu tay nên vẫn có chỗ chưa tối ưu.",
-    "why": "The original writer talks about their own first tank, which the reader doesn't know.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P1",
-    "quote": "Bể mẫu dựng hai cụm đá như hai ngọn núi, lũa đặt xung quanh như những cây cổ thụ",
-    "why": "It describes the source's own example tank as if the reader had seen it.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P1",
-    "quote": "Bể mẫu lúc đầu dùng van cơ vì mua vội, sau đó mới thay sang van điện.",
-    "why": "This is the original writer's personal story about their own tank.",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": [
-   "Seachem Stability"
+   "Mufan",
+   "Sonoff",
+   "Seachem Stability",
+   "Odyssea Clean 100",
+   "Sebo"
   ]
  },
  "vi/guides/youtube-8afh_cil1IM": {
@@ -51994,7 +51969,7 @@
   "products": []
  },
  "vi/guides/youtube-9NhMq1H-aoo": {
-  "at": "2026-11-08",
+  "at": "2026-11-09",
   "hash": "26358f1650c8d9c4",
   "model": "opus",
   "checklist": 3,
@@ -52862,34 +52837,14 @@
   "products": []
  },
  "vi/guides/youtube-apPiQrY9GIM": {
-  "at": "2026-11-08",
-  "hash": "dcf3026d665f18ea",
+  "at": "2026-11-09",
+  "hash": "d8e22528c764afd1",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "source",
-    "part": "P5",
-    "quote": "Bể này không làm lối đi mà làm tiền cảnh hình cung ở trung tâm.",
-    "why": "Talks about the source's own build tank as if the reader knew it.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P6",
-    "quote": "Loại sỏi trong bể này vẫn hơi to, sau sẽ còn một lớp hạt nhỏ như cát",
-    "why": "Talks about the source's tank and the later steps of its build.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P1",
-    "quote": "Bước làm liền khối và hoàn thiện sẽ làm ở giai đoạn sau.",
-    "why": "Points to a later part of the source series that this page does not have.",
-    "by": "model"
-   }
-  ],
-  "products": []
+  "findings": [],
+  "products": [
+   "keo 502"
+  ]
  },
  "vi/guides/youtube-AqBogTwt6c4": {
   "at": "2026-11-08",
@@ -55220,19 +55175,19 @@
   "products": []
  },
  "vi/guides/youtube-EIjUVVFcNmo": {
-  "at": "2026-11-08",
-  "hash": "fcf32ebf9e5a82ae",
+  "at": "2026-11-09",
+  "hash": "83061a1f25240253",
   "model": "opus",
   "checklist": 3,
   "findings": [],
   "products": [
    "Sobo WP-606H",
-   "keo 502"
+   "Magic"
   ]
  },
  "vi/guides/youtube-Ejng2T-a2Gk": {
-  "at": "2026-11-08",
-  "hash": "f87527fe261fbc1e",
+  "at": "2026-11-09",
+  "hash": "3e2af01f1732782b",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -57294,14 +57249,14 @@
   ]
  },
  "vi/guides/youtube-hL920TrlANg": {
-  "at": "2026-11-08",
-  "hash": "c8cf51cd1e280e1e",
+  "at": "2026-11-09",
+  "hash": "3fc6f13cb5558109",
   "model": "opus",
   "checklist": 3,
   "findings": [],
   "products": [
-   "Seachem Excel",
-   "Easy-Life EasyCarbo"
+   "Easy Carbo",
+   "Easy Life"
   ]
  },
  "vi/guides/youtube-HLrQzpFLI5U": {
