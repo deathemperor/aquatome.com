@@ -10891,6 +10891,28 @@
         }
       }
     },
+    "Sao chép": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salin"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salin"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "คัดลอก"
+          }
+        }
+      }
+    },
     "Sau giờ tắt của lịch, đèn chỉ bật thêm 1 hoặc 2 giờ: để đèn sáng qua đêm dễ sinh rêu.": {
       "localizations": {
         "id": {
@@ -11261,6 +11283,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "แก้ไข"
+          }
+        }
+      }
+    },
+    "Sửa và hỏi lại": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Edit dan tanya lagi"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Edit dan tanya semula"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แก้ไขแล้วถามอีกครั้ง"
           }
         }
       }
@@ -14253,6 +14297,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "เสร็จแล้ว โคมไฟกลับมาทำงานตามตารางเวลา"
+          }
+        }
+      }
+    },
+    "Xuống cuối cuộc trò chuyện": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ke akhir percakapan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ke penghujung perbualan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไปที่ท้ายบทสนทนา"
           }
         }
       }
