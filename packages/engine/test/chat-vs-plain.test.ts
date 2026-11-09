@@ -1,6 +1,7 @@
+import { readFileSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
 import type { ChatBlock } from '../../../apps/site/worker/chat/answer'
-import { agreed, blockText, FOLDED, judgePrompt, outcome, panelPrompt, panelSide, readPanel, savedTank, seenOurs, single, unbrand, type PostTank, type Verdict } from '../scripts/chat-vs-plain-lib'
+import { agreed, blockText, CARD_LABELS, FOLDED, judgePrompt, outcome, panelPrompt, panelSide, readPanel, savedTank, seenOurs, single, unbrand, type PostTank, type Verdict } from '../scripts/chat-vs-plain-lib'
 
 const verdict = (v: Partial<Verdict>): Verdict => ({
   criteria: { correct: 'tie', fits: 'tie', actionable: 'tie', grounded: 'tie', local: 'tie' },
@@ -95,6 +96,23 @@ describe("our answer as the reader sees it", () => {
   it("a card's figures", () => {
     const card = { t: 'species', page: { id: 'paracheirodon-innesi', kind: 'species', name: 'Cá neon', sci: 'Paracheirodon innesi' }, facts: { tempC: { min: 20, max: 26 }, sizeCm: 4, schoolMin: 6 } } as ChatBlock
     expect(blockText(card)).toBe('[Thẻ loài] Cá neon (Paracheirodon innesi): nhiệt độ 20–26 °C; dài 4 cm; đàn từ 6 con')
+  })
+  it("a card in the reader's language: a judge of a Thai answer reads no Vietnamese around it", () => {
+    const fish = { t: 'species', page: { id: 'paracheirodon-innesi', kind: 'species', name: 'ปลานีออน', sci: 'Paracheirodon innesi' }, facts: { tempC: { min: 20, max: 26 }, gh: { min: 1, max: 10 }, sizeCm: 4, tankCm: 60, schoolMin: 6, temperament: 'peaceful', difficulty: 3 } } as ChatBlock
+    expect(blockText(fish, 'th')).toBe('[Species card] ปลานีออน (Paracheirodon innesi): อุณหภูมิ 20–26 °C; ความกระด้าง (dGH) 1–10; ขนาด 4 cm; ตู้ขั้นต่ำ 60 cm; จำนวนฝูงขั้นต่ำ 6 ตัว; นิสัย peaceful; ความยาก 3/8')
+    const plant = { t: 'species', page: { id: 'anubias', kind: 'plant', name: 'อนูเบียส' }, plant: { difficulty: 1, light: 'low', co2: 'none', growth: 'slow', placement: ['midground'] } } as ChatBlock
+    expect(blockText(plant, 'id')).toBe('[Species card] อนูเบียส: Tingkat kesulitan 1/3; Cahaya low; CO₂ none; Kecepatan tumbuh slow; Posisi midground')
+    const compare = { t: 'compare', items: [fish, fish] } as ChatBlock
+    const section = { t: 'section', page: { kind: 'guide', title: 'ตะไคร่', url: '/th/guides/x/' }, blocks: [{ t: 'p', c: [`${'ตะไคร่ '.repeat(60)}ท้าย`] }] } as ChatBlock
+    const tool = { t: 'tool', tool: 'tank-mates', name: 'เลี้ยงร่วม', url: '/th/tools/tank-mates/', tank: { name: 'ตู้ A', dims: { l: 60, w: 30, h: 36 } }, check: { warnings: [], stocking: { percent: 80, text: 'พอดี', notes: [] } } } as unknown as ChatBlock
+    const empty = { t: 'tool', tool: 'tank-volume', name: 'ปริมาตร', url: '/th/tools/tank-volume/' } as ChatBlock
+    const all = seenOurs('คำตอบ', [fish, compare, section, tool, empty], ['ถามต่อ'], 'th')
+    expect(all).not.toMatch(/[ăâđêôơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i)
+    expect(all).toContain('[Suggested next questions] ถามต่อ')
+  })
+  it("a card's labels are the app's own in each language, word for word", () => {
+    const { strings } = JSON.parse(readFileSync(new URL('../../../apps/ios/AquaTome/Localizable.xcstrings', import.meta.url), 'utf8')) as { strings: Record<string, { localizations?: Record<string, { stringUnit?: { value?: string } }> }> }
+    for (const lang of ['id', 'th', 'ms'] as const) for (const [key, word] of Object.entries(CARD_LABELS[lang])) expect(strings[key]?.localizations?.[lang]?.stringUnit?.value, `${lang}: ${key}`).toBe(word)
   })
   it("a tank-mates tool's verdict and warnings, a volume tool with what it's filled with", () => {
     const mates = { t: 'tool', tool: 'tank-mates', name: 'Nuôi chung', check: { verdict: { level: 'no', text: 'Không nên nuôi chung: betta rỉa vây.' }, warnings: ['Cá betta có thể đuổi cá neon.'] } } as ChatBlock

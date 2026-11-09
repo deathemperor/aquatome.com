@@ -49,18 +49,13 @@
         "heading": "Vì sao phải làm bể tại chỗ",
         "moments": [
           {
-            "t": 0,
-            "url": "https://media.aquatome.com/video/5IuztIYxONk/at0-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Căn phòng với bể xây lớn để hở miệng, bên cạnh là dãy bể kính."
-          },
-          {
             "t": 25,
             "url": "https://media.aquatome.com/video/5IuztIYxONk/at25-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Khung bể lớn trắng, miệng để trống, đặt ngay trên nền phòng."
+            "caption": "Khung bể lớn trắng, miệng để trống, đặt ngay trên nền phòng.",
+            "sharpness": 72.6,
+            "person": false
           }
         ],
         "photo": {
@@ -82,7 +77,9 @@
             "url": "https://media.aquatome.com/video/5IuztIYxONk/at165-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Nền phòng trống với khung gỗ, chỗ định xây bể bê tông."
+            "caption": "Nền phòng trống với khung gỗ, chỗ định xây bể bê tông.",
+            "sharpness": 190.7,
+            "person": false
           }
         ]
       },
@@ -90,18 +87,13 @@
         "heading": "Ba bước đổ vỏ bể",
         "moments": [
           {
-            "t": 195,
-            "url": "https://media.aquatome.com/video/5IuztIYxONk/at195-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cốp pha ván ép đã dựng xong, sắt cây cắm lên từ móng."
-          },
-          {
             "t": 230,
             "url": "https://media.aquatome.com/video/5IuztIYxONk/at230-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Khung cốp pha gỗ 2x4 và ván ép nhìn từ trên xuống, sắt thò ra."
+            "caption": "Khung cốp pha gỗ 2x4 và ván ép nhìn từ trên xuống, sắt thò ra.",
+            "sharpness": 426.5,
+            "person": false
           }
         ],
         "photo": {
@@ -123,14 +115,18 @@
             "url": "https://media.aquatome.com/video/5IuztIYxONk/at260-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cốp pha có nhiều thanh chống, sẵn sàng để đổ bê tông."
+            "caption": "Cốp pha có nhiều thanh chống, sẵn sàng để đổ bê tông.",
+            "sharpness": 168.3,
+            "person": false
           },
           {
             "t": 280,
             "url": "https://media.aquatome.com/video/5IuztIYxONk/at280-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bê tông đã đổ vào cốp pha, còn ướt và lổn nhổn."
+            "caption": "Bê tông đã đổ vào cốp pha, còn ướt và lổn nhổn.",
+            "sharpness": 1699.5,
+            "person": false
           }
         ],
         "photo": {
@@ -152,14 +148,18 @@
             "url": "https://media.aquatome.com/video/5IuztIYxONk/at305-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Các vòng ống sưởi sàn trải trên lớp lưới thép dưới đáy bể."
+            "caption": "Các vòng ống sưởi sàn trải trên lớp lưới thép dưới đáy bể.",
+            "sharpness": 135.7,
+            "person": false
           },
           {
             "t": 315,
             "url": "https://media.aquatome.com/video/5IuztIYxONk/at315-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đường ống sưởi sàn uốn vòng dưới đáy bể bê tông, nối ra cụm ống."
+            "caption": "Đường ống sưởi sàn uốn vòng dưới đáy bể bê tông, nối ra cụm ống.",
+            "sharpness": 370.2,
+            "person": false
           }
         ],
         "photo": {
@@ -175,15 +175,7 @@
       },
       {
         "heading": "Lọc của bể và cách xả ngược",
-        "moments": [
-          {
-            "t": 455,
-            "url": "https://media.aquatome.com/video/5IuztIYxONk/at455-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh tay vặn van trên đường ống của lọc ngoài."
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/5IuztIYxONk/p5-sXzA2MDIyNy5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/5IuztIYxONk/p5-sXzA2MDIyNy5qcGc-480.webp",

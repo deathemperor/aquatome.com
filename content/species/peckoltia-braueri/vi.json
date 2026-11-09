@@ -4,19 +4,32 @@
   "altNames": [
     "L135",
     "L121",
-    "L305"
+    "L305",
+    "Cá lau kiếng L121",
+    "Cá lau kiếng L135",
+    "Cá lau kiếng L305",
+    "Worm Line Peckoltia"
   ],
   "sections": {
     "quickFacts:glaser": "<p>L135 là một trong những mã L đẹp nhất của dòng cá lau kính mang mã L. Phần lớn giới chuyên môn hiện nay cho rằng L135 là một biến thể của loài Peckoltia braueri. Loài này còn mang thêm hai mã L khác là L121 và L305. Trong ba dạng, L135 có màu sắc rực rỡ nhất. Cá dài tối đa 12-15 cm. Người chơi cũng đã cho L135 sinh sản được trong bể.</p>",
     "distribution:glaser": "<p>L135 sống ở vùng trung lưu lưu vực sông Rio Negro.</p>",
-    "beforeYouBuy:glaser": "<p>Cá bắt ngoài tự nhiên rất hiếm khi về hàng.</p>"
+    "beforeYouBuy:glaser": "<p>Cá bắt ngoài tự nhiên rất hiếm khi về hàng.</p>",
+    "quickFacts:scotcat": "<ul><li>Danh sách đỏ IUCN: Ít quan tâm (2023). Loài này còn ít tài liệu, nhưng khá phổ biến và chưa thấy mối đe dọa nào rõ ràng.</li></ul>",
+    "distribution:scotcat": "<p>Nam Mỹ: Brazil, Guyana, sông Takutu ở đoạn hạ lưu Lethem.</p>",
+    "habitat:scotcat": "<p>Loài này sống ở những đoạn nước chảy xiết, len giữa các tảng đá rất lớn.</p>",
+    "waterConditions:scotcat": "<p>Nên nuôi loài này ở nhiệt độ hơi cao hơn bình thường. Nó cũng cần nhiều oxy hơn.</p>",
+    "behaviour:scotcat": "<p>Trong bể, đây là loài hiền.</p>",
+    "diet:scotcat": "<p>Loài này ăn tạp và dễ cho ăn. Đồ đông lạnh, đồ tươi sống, thức ăn viên hay thức ăn mảnh nó đều ăn.</p>",
+    "dimorphism:scotcat": "<p>Cá đực có lông cứng mọc sau nắp mang, trên gai vây ngực, ở phần sau thân và cả trên các tia phía trên của vây đuôi.</p>",
+    "notes:scotcat": "<p>Mô tả: Vây lưng có tổng cộng 2 gai và 1–8 tia mềm. Vây hậu môn có 1 gai và 4 tia mềm. Loài này khác mọi loài Peckoltia khác, trừ P. cavatica, ở dải màu cam trên vây lưng và những đường đen mảnh, lượn sóng thường viền quanh các tấm xương và xương đầu. So với P. cavatica, các vệt yên trên lưng của nó rõ hơn. Các tấm xương và xương đầu được viền đen kín bằng nét đậm, và vùng pterotic-supracleithrum có vân đen. Vây đuôi có ít nhất một dải đứt đoạn. Dải cam ở rìa vây lưng và vây đuôi thì không dày và không đậm bằng ở P. cavatica. Giống Peckoltia có miệng cỡ trung bình, số răng hàm trên và hàm dưới bằng nhau. Mép dưới vây đuôi thường xiên và chỉ hơi lõm.</p><p>Nguồn gốc tên: Tên loài đặt để vinh danh nhà động vật học người Đức August Brauer (1863–1917) ở Bảo tàng Động vật học Berlin, người đã cho mượn mẫu chuẩn.</p><p>Ghi chú: L121, L135 và L305 là cùng một loài.</p>",
+    "references:scotcat": "<p>Armbruster, J.W. and D.C. Werneke, 2005. Peckoltia cavatica, a new loricariid catfish from Guyana and a redescription of P. braueri (Eigenmann 1912) (Siluriformes). Zootaxa 882:1-14.</p><p>Froese, R. and D. Pauly. Editors. 2008. FishBase. www.fishbase.org, version (11/2008).</p><p>Salvador, G.N. 2023. Peckoltia braueri. The IUCN Red List of Threatened Species 2023.</p><p>Seidel, I. 2008. Back to Nature guide to L-catfishes, Ettlingen, Germany 208 p.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
   },
   "quality": {
-    "score": 0.85,
-    "indexable": false,
+    "score": 0.8,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.85
-    },
-    "reason": "thin"
+      "glaser": 0.85,
+      "scotcat": 0.8
+    }
   }
 }

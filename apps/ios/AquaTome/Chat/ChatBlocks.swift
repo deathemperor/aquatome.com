@@ -537,13 +537,16 @@ private struct ToolBlock: View {
   private var check: TankCheck? { tool.check.flatMap { try? JSONDecoder().decode(TankCheck.self, from: $0) } }
 
   var body: some View {
-    if canGo {
-      Button(action: go) { box(contained: false) }
-        .buttonStyle(.plain)
-        .accessibilityIdentifier("chat-tool")
-    } else {
-      box(contained: true).accessibilityIdentifier("chat-tool")
+    Group {
+      if canGo {
+        Button(action: go) { box(contained: false) }
+          .buttonStyle(.plain)
+          .accessibilityIdentifier("chat-tool")
+      } else {
+        box(contained: true).accessibilityIdentifier("chat-tool")
+      }
     }
+    .modifier(CardMenu(path: tool.path, open: open))
   }
 
   private func box(contained: Bool) -> some View {

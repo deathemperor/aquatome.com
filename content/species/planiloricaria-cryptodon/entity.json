@@ -7,12 +7,17 @@
   "group": "catfish",
   "places": [
     "south-america",
-    "peru"
+    "peru",
+    "ucayali"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
+        "value": 35
+      },
+      {
+        "source": "scotcat",
         "value": 35
       }
     ],
@@ -20,6 +25,28 @@
       {
         "source": "glaser",
         "value": 5
+      },
+      {
+        "source": "scotcat",
+        "value": 6
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.2
+        }
       }
     ]
   },
@@ -31,10 +58,40 @@
       "html": "<p>Currently available are flounder whiptail catfish from Peru, 10-13 cm long. These sizes give only the body length, as in Planiloricaria there is a filament on the upper lobe of the caudal fin that is as long as the body. The maximum length given in literature is 35 cm.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/planiloricaria_cryptodon.htm",
+      "html": "<p>Common name: Spoon Face Whiptail. Family: Loricariidae. Synonym: Pseudohemiodon cryptodon. This genus has only one species (monotypic). Size: 35 cm. Temperature: 22–28°C. pH: 6.0–7.2.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/planiloricaria_cryptodon.htm",
+      "html": "<p>Not a species for the novice fishkeeper as they are notoriously slow to acclimatize to aquarium conditions.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/planiloricaria_cryptodon.htm",
+      "html": "<p>South America: Ucayali, Purus, and Mamoré River basins, Upper Amazon drainage. Type locality: Peru: Río Ucayali near Pucallpa.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/planiloricaria_cryptodon.htm",
+      "html": "<p>A large spacious tank is recommended with a good filtration system in place.</p>"
+    },
+    {
       "key": "equipment",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/planiloricaria-cryptodon-2/",
       "html": "<p>Offer them fine sand as substrate in the aquarium, so that the fish are able to bury themselves completely.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/planiloricaria_cryptodon.htm",
+      "html": "<p>Sand is recommended for the bottom as they do like to dig themselves into the substrate.</p>"
     },
     {
       "key": "diet",
@@ -43,10 +100,22 @@
       "html": "<p>These fish feed basically on meat. They love mosquito larvae, bloodworm, daphnia etc., but also accept dry food (flakes, granules).</p>"
     },
     {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/planiloricaria_cryptodon.htm",
+      "html": "<p>Mosquito larvae, tablet and frozen foods.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/planiloricaria-cryptodon-2/",
       "html": "<p>These whiptail catfish normally do not swim, but \"walk\" with their ventral fins. They are somewhat stiff and need large tanks that leave a lot of free space at the bottom. Towards conspecifics of similar size Planiloricaria are usually peaceful, but smaller specimens are often mobbed. Fish of other species are simply ignored. These catfish should never be kept together with fin-nibbling species, as the long fin filaments of Planiloricaria would certainly be damaged.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/planiloricaria_cryptodon.htm",
+      "html": "<p>Once they are settled they will appear in the open in the twilight hours.</p>"
     },
     {
       "key": "dimorphism",
@@ -59,6 +128,18 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/planiloricaria-cryptodon-2/",
       "html": "<p>Planiloricaria: Latin, means \"flat Loricaria\"; Loricaria is another genus of catfish. cryptodon: from ancient Greek, means \"with a hidden tooth\".</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/planiloricaria_cryptodon.htm",
+      "html": "<p>Description: The eyes are small, situated on the top of the head, and the head is disk-shaped. The dorsal and caudal fins have a long filament on the first ray.</p><p>Etymology: The specific name cryptodon: crypto, Latinised from kryptós, secret or hidden; odon, from odoús, tooth, referring to \"well-hidden\" teeth, concealed in the \"gums\".</p><p>IUCN Red List: Despite the little information available on this species, it has a wide distribution and no apparent threats. Therefore, it is assessed as Least Concern (LC) (IUCN 2023).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/planiloricaria_cryptodon.htm",
+      "html": "<ul><li>Evers, H.-G. &amp; I. Seidel: Mergus, Baensch Catfish Atlas Volume 1, 1st English edn., 2005. Pp.944.</li><li>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</li><li>Salvador, G.N. 2023. Planiloricaria cryptodon. The IUCN Red List of Threatened Species 2023.</li><li>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</li></ul>"
     }
   ],
   "photos": [
@@ -96,7 +177,32 @@
       "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "Kl7ZJG0gn8k",
+      "title": "Planiloricaria cryptodon fish",
+      "durationSec": 74,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "2JnjV5wlUDA",
+      "title": "Planiloricaria cryptodon (spoonfaced whiptail catfish)",
+      "durationSec": 76,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "qR7CfejivUE",
+      "title": "Exhibit 29 Planiloricaria cryptodon",
+      "durationSec": 46,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "t0cX1jXpnTk",
+      "title": "Planiloricaria cryptodon - active after waterchange",
+      "durationSec": 201,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "phan-nen",
@@ -119,5 +225,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-09"
 }

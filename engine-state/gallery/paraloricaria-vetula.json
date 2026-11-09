@@ -1,77 +1,31 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Paraloricaria_vetula_cv.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Paraloricaria_vetula_cv.jpg/500px-Paraloricaria_vetula_cv.jpg",
-   "width": 3264,
-   "height": 2448,
-   "licence": "CC BY-SA 3.0",
-   "author": "Joachim Langeneck",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paraloricaria_vetula_cv.jpg",
-   "caption": "Paraloricaria vetula, Colonia Valdense, Uruguay",
-   "key": "File:Paraloricaria vetula cv.jpg"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/565480162/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/565480162/medium.jpg",
-   "width": 1536,
-   "height": 2048,
-   "licence": "CC0",
-   "author": "demianlescano",
-   "sourceUrl": "https://www.inaturalist.org/photos/565480162",
-   "key": "inat:565480162"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/565480226/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/565480226/medium.jpg",
-   "width": 1536,
-   "height": 2048,
-   "licence": "CC0",
-   "author": "demianlescano",
-   "sourceUrl": "https://www.inaturalist.org/photos/565480226",
-   "key": "inat:565480226"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/565480264/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/565480264/medium.jpg",
-   "width": 1536,
-   "height": 2048,
-   "licence": "CC0",
-   "author": "demianlescano",
-   "sourceUrl": "https://www.inaturalist.org/photos/565480264",
-   "key": "inat:565480264"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/106754269/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/106754269/medium.jpeg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "Eduardo Luis Beltrocco",
-   "sourceUrl": "https://www.inaturalist.org/photos/106754269",
-   "key": "inat:106754269"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/95761101/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/95761101/medium.jpeg",
-   "width": 2048,
-   "height": 1365,
-   "licence": "CC0",
-   "author": "demianlescano",
-   "sourceUrl": "https://www.inaturalist.org/photos/95761101",
-   "key": "inat:95761101"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/95762605/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/95762605/medium.jpeg",
-   "width": 2048,
-   "height": 1365,
-   "licence": "CC0",
-   "author": "demianlescano",
-   "sourceUrl": "https://www.inaturalist.org/photos/95762605",
-   "key": "inat:95762605"
-  }
+ "queue": [],
+ "judged": [
+  "File:Paraloricaria vetula cv.jpg",
+  "inat:565480162",
+  "inat:565480226",
+  "inat:565480264",
+  "inat:106754269",
+  "inat:95761101",
+  "inat:95762605"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/scotcat/169a79b4889e010a.webp": "1211a1cfe2c1c300",
+  "https://media.aquatome.com/scotcat/c558b0d596383f64.webp": "30293969ebb9cf0f",
+  "https://media.aquatome.com/scotcat/134017e4e8e4e94c.webp": "1a03c1c983e88cd0",
+  "https://media.aquatome.com/inaturalist/106754269.webp": "033f696b7133268c"
+ },
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 127856,
+  "pass": "done",
+  "after": {
+   "research": 313152843,
+   "agree": 203926424
+  }
+ },
+ "gbif": {
+  "key": 2339036,
+  "next": null
+ }
 }

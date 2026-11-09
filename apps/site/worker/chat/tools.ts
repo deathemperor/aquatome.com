@@ -3,6 +3,7 @@ import type { Block, Inline, PageDoc } from '@aq/schema/app-page'
 import type { Tool } from '../agent/tools'
 import { notFish } from './answer'
 import { figuresOf, sectionsOf, type Handbook, type Item } from './handbook'
+import { withoutContacts } from './contacts'
 import { checkMates, type MatesCheck } from './mates'
 import { search, searchTopics } from './search'
 
@@ -74,6 +75,16 @@ const told = (t: Tank, hb: Handbook) => {
     ...(t.notes ? { readerNotes: cut(t.notes, NOTES_CHARS) } : {}),
   }
 }
+/**
+ * The reader's tanks as they go with every question (the CoS, 2026-11-09): all read_tanks gives but each tank's name,
+ * its notes cut as there and with any link, phone number, email or address taken out. read_tanks still gives them whole.
+ */
+export const handedTanks = (tanks: Tank[], hb: Handbook) =>
+  JSON.stringify(tanks.map(t => {
+    // Taken out before `told` cuts them: a number across the cut would keep its first digits.
+    const { name: _, ...rest } = told(t.notes ? { ...t, notes: withoutContacts(t.notes) } : t, hb)
+    return rest
+  }))
 export type ToolDeps = {
   handbook: Handbook
   /** The reader's synced tanks; null when they can't be read now. */

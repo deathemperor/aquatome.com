@@ -52,52 +52,8 @@
     ],
     "figures": [
       {
-        "heading": "Cần chuẩn bị những gì",
-        "moments": [
-          {
-            "t": 30,
-            "url": "https://media.aquatome.com/video/zikyuEMALJE/at30-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Một chậu nhựa xanh đen dùng để trồng cây đặt trên mặt bàn."
-          },
-          {
-            "t": 36,
-            "url": "https://media.aquatome.com/video/zikyuEMALJE/at36-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đĩa lót chậu bằng nhựa màu xanh đen được đặt sát bên chậu."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/zikyuEMALJE/p0-1fb2ZfQXJ0LmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/zikyuEMALJE/p0-1fb2ZfQXJ0LmpwZw-480.webp",
-          "width": 960,
-          "height": 772,
-          "licence": "CC BY-SA 4.0",
-          "author": "Yair-haklai",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Goldfish_Bowl_by_Henri_Matisse_in_the_Metropolitan_Museum_of_Art.jpg",
-          "caption": "Bể cá tròn nuôi cá vàng đặt trên bàn, không có người."
-        }
-      },
-      {
         "heading": "Các bước làm lọc",
-        "moments": [
-          {
-            "t": 40,
-            "url": "https://media.aquatome.com/video/zikyuEMALJE/at40-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đĩa lót nhựa đã được cắt lỗ tròn, vụn nhựa còn rải quanh."
-          },
-          {
-            "t": 46,
-            "url": "https://media.aquatome.com/video/zikyuEMALJE/at46-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Úp đĩa lót lên miệng bể, chậu nhỏ để bên cạnh để thử."
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/zikyuEMALJE/p1-wb3RfMjAyMi5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/zikyuEMALJE/p1-wb3RfMjAyMi5qcGc-480.webp",
@@ -117,14 +73,18 @@
             "url": "https://media.aquatome.com/video/zikyuEMALJE/at82-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh cây trầu bà trong chậu lọc với lớp vật liệu bên trong."
+            "caption": "Cận cảnh cây trầu bà trong chậu lọc với lớp vật liệu bên trong.",
+            "sharpness": 547.1,
+            "person": false
           },
           {
             "t": 84,
             "url": "https://media.aquatome.com/video/zikyuEMALJE/at84-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Chậu trồng trầu bà đặt trên miệng bể cầu, rễ thòng xuống nước."
+            "caption": "Chậu trồng trầu bà đặt trên miệng bể cầu, rễ thòng xuống nước.",
+            "sharpness": 625.4,
+            "person": false
           }
         ],
         "photo": {
@@ -146,14 +106,18 @@
             "url": "https://media.aquatome.com/video/zikyuEMALJE/at70-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể cầu có chậu trầu bà đặt trên miệng, để ở chỗ sáng."
+            "caption": "Bể cầu có chậu trầu bà đặt trên miệng, để ở chỗ sáng.",
+            "sharpness": 742.6,
+            "person": false
           },
           {
             "t": 80,
             "url": "https://media.aquatome.com/video/zikyuEMALJE/at80-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh chậu cây trầu bà gác trên miệng bể, ánh sáng tự nhiên."
+            "caption": "Cận cảnh chậu cây trầu bà gác trên miệng bể, ánh sáng tự nhiên.",
+            "sharpness": 681.1,
+            "person": false
           }
         ],
         "photo": {
@@ -175,7 +139,9 @@
             "url": "https://media.aquatome.com/video/zikyuEMALJE/at88-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể tròn nhỏ có chậu cây thủy sinh đặt phía trên."
+            "caption": "Bể tròn nhỏ có chậu cây thủy sinh đặt phía trên.",
+            "sharpness": 527.6,
+            "person": false
           }
         ]
       }

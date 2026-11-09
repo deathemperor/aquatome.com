@@ -1,0 +1,25 @@
+{
+  "slug": "ca-loc-channa-panaw",
+  "name": "Cá lóc Channa panaw",
+  "altNames": [],
+  "sections": {
+    "distribution:glaser": "<p>Channa panaw phân bố khá rộng ở Myanmar. Loài này sống quanh hai con sông lớn là Sittang và Irrawaddy.</p>",
+    "quickFacts:glaser": "<p>Phải đến năm 1998, loài cá lóc tương đối nhỏ này mới được mô tả thành một loài riêng. Trước đó, người ta nghĩ nó chỉ là một dạng địa lý của Channa punctata, loài cá lóc phân bố rất rộng.</p><p>Channa panaw dài tối đa chưa tới 20 cm, thuộc nhóm cá lóc nhỏ con.</p>",
+    "behaviour:glaser": "<p>Màu của loài này không sặc sỡ lắm, dù ánh vàng trên thân nhìn khá đẹp. Nhưng nó là một trong số ít loài cá lóc đáng nuôi bể vì tương đối hiền. Cặp cá trong ảnh đã sống chung bốn ngày trong bể chụp ảnh nhỏ mà không hề cắn nhau. Với hầu hết các loài cá lóc khác thì chuyện này không thể có. Nhốt chung như vậy, chúng sẽ cắn nhau bị thương nặng, thậm chí cắn chết nhau.</p>",
+    "dimorphism:glaser": "<p>Cá cái có vẻ to hơn một chút, màu nhạt hơn và không có viền trắng ở vây hậu môn. Tuy nhiên, loài này còn quá ít người nuôi trong bể nên chưa có thông tin chắc chắn về cách phân biệt trống mái bằng mắt.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.85
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-09"
+  }
+}

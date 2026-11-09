@@ -87,14 +87,18 @@
             "url": "https://media.aquatome.com/video/z3PJqCTO8uQ/at200-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cá rồng châu Á bơi trong bể dài, đáy trơn không trải nền."
+            "caption": "Cá rồng châu Á bơi trong bể dài, đáy trơn không trải nền.",
+            "sharpness": 830.7,
+            "person": false
           },
           {
             "t": 210,
             "url": "https://media.aquatome.com/video/z3PJqCTO8uQ/at210-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Toàn cảnh bể acrylic dài đặt trên tủ gỗ, đáy để trống."
+            "caption": "Toàn cảnh bể acrylic dài đặt trên tủ gỗ, đáy để trống.",
+            "sharpness": 365.6,
+            "person": false
           }
         ],
         "photo": {
@@ -116,14 +120,17 @@
             "url": "https://media.aquatome.com/video/z3PJqCTO8uQ/at370-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Nhìn từ trên xuống hộp tràn với các ống đứng bên trong."
+            "caption": "Nhìn từ trên xuống hộp tràn với các ống đứng bên trong.",
+            "sharpness": 123,
+            "person": false
           },
           {
             "t": 520,
             "url": "https://media.aquatome.com/video/z3PJqCTO8uQ/at520-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Các ống trắng đứng thẳng phía sau hộp tràn, nhìn cận."
+            "caption": "Các ống trắng đứng thẳng phía sau hộp tràn, nhìn cận.",
+            "sharpness": 7
           }
         ]
       },
@@ -135,14 +142,17 @@
             "url": "https://media.aquatome.com/video/z3PJqCTO8uQ/at690-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Khoang sump chứa đầy vật liệu lọc sinh học đang được sục sôi."
+            "caption": "Khoang sump chứa đầy vật liệu lọc sinh học đang được sục sôi.",
+            "sharpness": 187.8,
+            "person": false
           },
           {
             "t": 710,
             "url": "https://media.aquatome.com/video/z3PJqCTO8uQ/at710-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh hạt vật liệu lọc vi sinh trong khoang tầng sôi."
+            "caption": "Cận cảnh hạt vật liệu lọc vi sinh trong khoang tầng sôi.",
+            "sharpness": 5.8
           }
         ]
       },
@@ -154,7 +164,9 @@
             "url": "https://media.aquatome.com/video/z3PJqCTO8uQ/at1010-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Máy sục khí Pondmaster nối với cục sủi dạng thanh dài."
+            "caption": "Máy sục khí Pondmaster nối với cục sủi dạng thanh dài.",
+            "sharpness": 733.6,
+            "person": false
           }
         ],
         "photo": {
@@ -176,7 +188,8 @@
             "url": "https://media.aquatome.com/video/z3PJqCTO8uQ/at720-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh vật liệu lọc tầng sôi dạng hạt trắng."
+            "caption": "Cận cảnh vật liệu lọc tầng sôi dạng hạt trắng.",
+            "sharpness": 5.9
           }
         ]
       }

@@ -1,0 +1,81 @@
+{
+  "id": "kronichthys-subteres",
+  "native": {
+    "input": "58616d4627e130a0",
+    "at": "2026-11-09T09:57:55.009Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Rio Betari [Betharí], Rio Pardo, Rio Iporanga, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Type locality: Rio Betari [Betharí], Rio Pardo, Rio Iporanga, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ribeira de Iguape",
+        "source": "planetcatfish",
+        "quote": "South America: Ribeira de Iguape River basin, São Paulo State rivers, Iguape.",
+        "ok": true
+      },
+      {
+        "name": "Ribeira de Iguape",
+        "source": "scotcat",
+        "quote": "Kronichthys subteres has a wide distribution in the drainage basins of the Ribeira de Iguape River, in the states of Paraná and São Paulo.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Kronichthys subteres",
+    "status": "ACCEPTED",
+    "taxonKey": 2339577,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        25
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        18
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        14
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        13
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        2
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        2
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T09:57:55.009Z"
+  }
+}

@@ -36,9 +36,45 @@
       "caption": "Cá bống neon bơi trên san hô trong tự nhiên",
       "best": true,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/592159129.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/592159129-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-SA",
+      "author": "Robert Webster",
+      "sourceUrl": "https://www.inaturalist.org/photos/592159129",
+      "caption": "Hai cá bống neon trên rạn san hô",
+      "best": false,
+      "kind": "pair"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/554454680.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/554454680-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Susan Aide",
+      "sourceUrl": "https://www.inaturalist.org/photos/554454680",
+      "caption": "Cá bống neon trên san hô ngoài tự nhiên",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/349031371.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/349031371-480.webp",
+      "width": 720,
+      "height": 960,
+      "licence": "CC BY",
+      "author": "Pauline Walsh Jacobson",
+      "sourceUrl": "https://www.inaturalist.org/photos/349031371",
+      "caption": "Cá bống neon trên san hô, nhìn cận cảnh",
+      "best": false,
+      "kind": "habitat"
     }
   ],
-  "seen": 6,
-  "updatedAt": "2026-11-08",
-  "builtAt": "2026-11-08"
+  "seen": 26,
+  "updatedAt": "2026-11-09",
+  "builtAt": "2026-11-09"
 }

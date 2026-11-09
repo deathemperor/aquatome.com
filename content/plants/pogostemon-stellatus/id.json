@@ -4,19 +4,20 @@
   "altNames": [
     "Eusteralis stellata",
     "Pogostemon stellata",
-    "Stellatus",
-    "Eusteralis"
+    "Stellata"
   ],
   "sections": {
-    "quickFacts:tropica": "<ul><li>Jenis: Tanaman batang</li><li>Asal: Asia</li><li>Kecepatan tumbuh: Sedang</li><li>Tinggi: 15–30+ cm</li><li>Kebutuhan cahaya: Tinggi</li><li>CO2: Tinggi</li></ul>",
-    "maintenance:tropica": "<p>Tanaman ini sulit ditanam di akuarium. Agar tumbuh dengan baik, tanaman ini butuh cahaya yang kuat dan tambahan CO2. Kekurangan unsur hara mikro membuat daunnya pucat. Ini bisa menjadi tanda bahwa akuarium perlu diberi pupuk. Bahkan dalam kondisi yang baik pun, pertumbuhannya kadang berhenti secara tiba-tiba.</p>",
-    "notes:tropica": "<p>Pogostemon stellata dari Asia dan Australia dikenal karena bentuk dan warnanya yang indah. Batangnya 20–60 cm dengan lebar hingga 10 cm. Tanaman yang dijual di toko akuarium umumnya pendek dan kompak karena ditanam dalam kondisi emersed (di lahan basah), dan baru menunjukkan keindahan penuhnya setelah ditanam di akuarium.</p>"
+    "quickFacts:tropica": "<ul><li>Jenis: Tanaman batang (stem)</li><li>Asal: Asia</li><li>Kecepatan tumbuh: Sedang</li><li>Tinggi: 15–30+ cm</li><li>Kebutuhan cahaya: Tinggi</li><li>CO2: Tinggi</li></ul>",
+    "maintenance:aquatome": "<p>Pogostemon stellatus adalah tanaman batang yang diperbanyak dengan stek. Panjang batangnya 20–60 cm dan lebarnya bisa sampai 10 cm, jadi cocok ditanam di bagian tengah atau belakang akuarium. Tanaman yang dijual di toko biasanya berupa rumpun yang pendek dan kompak karena ditanam secara emersed di kondisi rawa. Bentuk dan warna penuhnya baru keluar setelah ditanam di dalam akuarium. Daun yang pucat bisa jadi tanda kekurangan unsur mikro, dan dalam kondisi itu perlu tambahan pupuk. Kadang tanaman ini tiba-tiba berhenti tumbuh walaupun kondisi akuariumnya sudah bagus.</p>",
+    "maintenance:tropica": "<p>Tanaman ini sulit dipelihara di akuarium. Supaya tumbuh dengan baik, ia butuh cahaya yang kuat dan injeksi CO2. Kekurangan unsur mikro membuat daunnya pucat, dan ini bisa menjadi tanda bahwa akuarium perlu tambahan pupuk. Bahkan dalam kondisi yang bagus pun, pertumbuhannya kadang tiba-tiba berhenti.</p>",
+    "notes:tropica": "<p>Pogostemon stellata berasal dari Asia dan Australia, dan menonjol karena bentuk serta warnanya yang indah. Batangnya 20–60 cm dengan lebar hingga 10 cm. Tanaman yang dijual di toko akuarium umumnya pendek dan kompak karena ditanam di kondisi rawa. Keindahan penuhnya baru terlihat setelah ditanam di dalam akuarium.</p>"
   },
   "quality": {
-    "score": 0.75,
+    "score": 0.85,
     "indexable": true,
     "bySource": {
-      "tropica": 0.75
+      "tropica": 0.85,
+      "aquatome": 0.85
     }
   }
 }

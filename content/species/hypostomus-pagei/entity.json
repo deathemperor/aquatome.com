@@ -10,6 +10,54 @@
     "venezuela",
     "yaracuy"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE"
+      ],
+      "regions": [
+        "Rio Aroa",
+        "Rio Tocuyo",
+        "Rio Yaracuy"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Venezuela in the Rio Aroa, Rio Tocuyo and Rio Yaracuy basins.",
+          "countries": [
+            "VE"
+          ],
+          "regions": [
+            "Rio Aroa",
+            "Rio Tocuyo",
+            "Rio Yaracuy"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202135,
+      "total": 10,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "VE",
+          10
+        ]
+      ],
+      "cells": [
+        [
+          -68.90625,
+          9.84375,
+          10,
+          10
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

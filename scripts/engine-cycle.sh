@@ -160,8 +160,8 @@ if part photos; then
   pnpm engine recheck-photos --limit "${PHOTO_RECHECK_LIMIT:-40}" || log "recheck-photos: failed"
   pnpm engine check-photos --limit "${PHOTO_CHECK_LIMIT:-40}" || log "check-photos: failed"
   # No people or logos in guides' and equipment guides' photos, which the check above doesn't see, and no people or marks
-  # on video guides' stills (guide-photos.ts): GUIDE_PHOTOS_LIMIT model calls of 6 photos a cycle, leads first, stills
-  # last, each judged once. On 2026-11-07: 2,560 photos, about 430 calls, a day and a half with the video job's 20; then
+  # on video guides' stills (guide-photos.ts): GUIDE_PHOTOS_LIMIT model calls of 6 photos a cycle, leads first, then
+  # stills, which show only once judged, each judged once. On 2026-11-07: 2,560 photos, about 430 calls, a day and a half with the video job's 20; then
   # 3,868 stills, about 645 calls, each judged once video-stills has made it the video's own frame (about 140 calls a day
   # as it goes, so all judged in about 5 days).
   pnpm engine guide-photos --limit "${GUIDE_PHOTOS_LIMIT:-20}" || log "guide-photos: failed"

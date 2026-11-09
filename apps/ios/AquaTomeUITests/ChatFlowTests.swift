@@ -121,6 +121,30 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertEqual(toEnd.frame.height, 60, accuracy: 1, "the ↓ isn't the mock's size")
   }
 
+  /// A short newest turn: the round ↓ puts its question back under the bar, where it sat when answered.
+  func testTheRoundArrowPutsAShortLastTurnBackUnderTheBar() {
+    let app = launch("-chat-uncovered")
+    openChat(app)
+    signIn(app)
+    ask(app, String(repeating: "Bể neon của mình bị rêu tóc mọc kín, ", count: 10))
+    let answers = app.descendants(matching: .any).matching(identifier: "chat-answer")
+    XCTAssertTrue(answers.element(boundBy: 0).waitForExistence(timeout: 20), "no first answer")
+    let more = app.buttons["chat-more"]
+    reveal(app, more)
+    more.tap()
+    ask(app, "Neon ăn gì?")
+    XCTAssertTrue(answers.element(boundBy: 1).waitForExistence(timeout: 20), "no second answer")
+    ask(app, "Neon sống bao lâu?")
+    XCTAssertTrue(answers.element(boundBy: 2).waitForExistence(timeout: 20), "no third answer")
+    let toEnd = app.buttons["chat-to-end"]
+    repeatUntil(toEnd.exists, times: 4) { element(app, "chat").swipeDown() }
+    XCTAssertTrue(toEnd.exists, "no ↓ up in the earlier turns")
+    toEnd.tap()
+    let bar = app.navigationBars.firstMatch, newest = app.staticTexts.matching(identifier: "chat-question").element(boundBy: 2)
+    XCTAssertTrue(soon(abs(newest.frame.minY - bar.frame.maxY) < 44),
+                  "the question isn't under the bar: its top at \(newest.frame.minY), the bar's end at \(bar.frame.maxY)")
+  }
+
   /// A long question shows its first six lines in the bubble, and "Xem thêm" under it opens it whole.
   func testALongQuestionShowsSixLinesAndXemThemOpensItWhole() {
     let app = launch()
@@ -221,7 +245,8 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertEqual(toEnd.frame.height, 40, accuracy: 1, "the ↓ isn't the mock's size")
     toEnd.tap()
     XCTAssertTrue(toEnd.waitForNonExistence(timeout: 5), "the ↓ stayed at the end")
-    XCTAssertTrue(soon(second.isHittable), "not back at the end")
+    // The next questions end the thread: the answer's own words can be a screen above them, under its cards.
+    XCTAssertTrue(soon(app.buttons.matching(identifier: "chat-chip").firstMatch.isHittable), "not back at the end")
   }
 
   /// Off on the server: no way into the chat from a fish's page.
@@ -370,7 +395,8 @@ final class ChatFlowTests: XCTestCase {
     ask(app, "Neon sống bao lâu?")
     let pill = element(app, "chat-offline")
     XCTAssertTrue(pill.waitForExistence(timeout: 20), "no pill when the connection went")
-    XCTAssertTrue(element(app, "chat-answer").exists, "what was read went with the connection")
+    // The answer's text isn't read out until it's whole; the fold row shows the text has started.
+    XCTAssertTrue(app.buttons["chat-fold"].exists, "what was read went with the connection")
     XCTAssertFalse(element(app, "chat-cut-off").exists, "the reader was asked to act")
     let next = app.buttons.matching(identifier: "chat-chip").firstMatch
     XCTAssertTrue(next.waitForExistence(timeout: 10), "the answer didn't come once back online")
@@ -396,10 +422,24 @@ final class ChatFlowTests: XCTestCase {
     openChat(app)
     signIn(app)
     ask(app, "Neon sống bao lâu?")
-    XCTAssertTrue(element(app, "chat-cut-off").waitForExistence(timeout: 20), "no card after the second blip")
-    XCTAssertTrue(element(app, "chat-answer").exists, "what was read went")
+    XCTAssertTrue(element(app, "chat-failed").waitForExistence(timeout: 20), "no card after the second blip")
     app.buttons["chat-again"].tap()
     XCTAssertTrue(app.buttons.matching(identifier: "chat-chip").firstMatch.waitForExistence(timeout: 20), "the answer didn't come when asked again")
+  }
+
+  /// Cut twice over, then asked again, its run having ended in a failure after the text began: what was read stays, and
+  /// the question isn't said to count.
+  func testACutAnswerAskedAgainKeepsWhatWasReadAndIsntSaidToCount() {
+    let app = launch("-chat-blips", "2", "-chat-cut-off")
+    openChat(app)
+    signIn(app)
+    ask(app, "Neon sống bao lâu?")
+    XCTAssertTrue(element(app, "chat-failed").waitForExistence(timeout: 20), "no card after the second blip")
+    app.buttons["chat-again"].tap()
+    let card = element(app, "chat-cut-off")
+    XCTAssertTrue(card.waitForExistence(timeout: 20), "said as a counted failure")
+    XCTAssertTrue(card.staticTexts["Câu hỏi này không bị tính."].exists, "said to count")
+    XCTAssertTrue(element(app, "chat-answer").exists, "what was read went")
   }
 
   /// Back past the conversation's 24 hours: the answer can't be had; "Hỏi lại" asks it in a new conversation.
@@ -676,7 +716,8 @@ final class ChatFlowTests: XCTestCase {
     let again = openList(app)
     row(again, "Cá betta nhà mình").swipeLeft()
     XCTAssertFalse(app.buttons["Ẩn"].waitForExistence(timeout: 2), "the conversation on screen can be hidden")
-    app.buttons["chat-history-close"].tap()
+    // With no swipe to catch it, the row can take that as a tap, which just shows the conversation already open.
+    if app.buttons["chat-history-close"].exists { app.buttons["chat-history-close"].tap() }
     XCTAssertTrue(app.navigationBars["Cuộc trò chuyện"].waitForNonExistence(timeout: 5), "the sheet stayed")
   }
 
@@ -954,6 +995,13 @@ final class ChatFlowTests: XCTestCase {
     section.press(forDuration: 1)
     XCTAssertTrue(app.buttons["Mở"].waitForExistence(timeout: 5), "no Mở on a section")
     XCTAssertTrue(app.buttons["Chia sẻ"].exists, "no Chia sẻ on a section")
+    app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.05)).tap()
+    XCTAssertTrue(app.buttons["Chia sẻ"].waitForNonExistence(timeout: 5), "the menu stayed")
+    let tool = app.descendants(matching: .any).matching(identifier: "chat-tool").firstMatch
+    reveal(app, tool)
+    tool.press(forDuration: 1)
+    XCTAssertTrue(app.buttons["Mở"].waitForExistence(timeout: 5), "no Mở on a tool")
+    XCTAssertTrue(app.buttons["Chia sẻ"].exists, "no Chia sẻ on a tool")
   }
 
   /// A comparison: a row whose figures differ says so, the one that alone differs named over "the others", a missing figure
@@ -1014,7 +1062,7 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertTrue(open.waitForExistence(timeout: 5), "no second section")
     reveal(app, open)
     XCTAssertTrue(app.staticTexts["Tóm tắt nhanh"].exists, "a summary lost")
-    XCTAssertTrue(app.staticTexts["còn tiếp: 1 phần"].exists, "what it can't draw isn't counted")
+    XCTAssertTrue(app.staticTexts["còn tiếp: 1 phần"].waitForExistence(timeout: 5), "what it can't draw isn't counted")
     let linked = app.links["Cá neon sống theo đàn"]
     XCTAssertTrue(linked.exists, "no link in its text")
     app.descendants(matching: .any).matching(identifier: "chat-section").element(boundBy: 1).coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.05)).tap()
@@ -1131,8 +1179,12 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertTrue(bar.waitForExistence(timeout: 5), "no list")
     let rows = app.buttons.matching(identifier: "chat-row")
     XCTAssertTrue(rows.firstMatch.waitForExistence(timeout: 10), "no rows")
-    bar.swipeUp()
-    sleep(1)
+    // Grown to full height, so every row is drawn: dragged by its bar, as a quick swipe on it doesn't always take.
+    repeatUntil(bar.frame.minY < 150, times: 4) {
+      bar.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.2))
+        .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.1)), withVelocity: .default, thenHoldForDuration: 0.1)
+      sleep(1)
+    }
     return rows
   }
 
@@ -1184,6 +1236,8 @@ final class ChatFlowTests: XCTestCase {
     let field = app.searchFields.firstMatch
     XCTAssertTrue(field.waitForExistence(timeout: 5), "no search field")
     field.tap()
+    // Back on the search after an earlier fish: its words are still in the field.
+    if let was = field.value as? String, was != field.placeholderValue { field.typeText(String(repeating: XCUIKeyboardKey.delete.rawValue, count: was.count)) }
     field.typeText(query)
     let row = app.descendants(matching: .any).matching(identifier: "item").firstMatch
     XCTAssertTrue(row.waitForExistence(timeout: 5), "nothing found for \(query)")

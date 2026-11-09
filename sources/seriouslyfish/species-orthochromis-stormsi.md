@@ -1,0 +1,123 @@
+---
+url: https://www.seriouslyfish.com/species/orthochromis-stormsi
+title: Orthochromis stormsi · Seriously Fish
+fetchedAt: 2026-11-09T09:46:32.284Z
+hash: ee58eba60e0c2b96e7442177711ccea474fe4378ad1002efefa0798393b56b96
+---
+
+On this page
+11 sections
+- Distribution
+- Habitat
+- Aquarium size
+- Maintenance
+- Water conditions
+- Diet
+- Behaviour and compatibility
+- Sexual dimorphism
+- Reproduction
+- Notes
+- Images · 1
+Orthochromis stormsiJJPhoto
+## Quick factsEdit
+Max size
+120mm SL5in SL
+Aquarium size
+120 × 30cm48 × 12in
+Temp
+22–27°C72–81°F
+pH
+6.5–7.5
+Hardness
+5–15dGH
+## Difficulty5 of 8 measures
+Moderate
+How the rating is worked out
+Space
+large tank
+Water
+needs a steady pH
+Temp
+flexible
+Diet
+unknown
+Temperament
+territorial
+Social
+one male with several females
+Compatibility
+unknown
+Other demands
+Each of these can raise the rating on its own, whatever the measures above say.
+Hardiness
+unknown
+- Needs strong current, with the filter turning the tank over 8–12 times an hour
+Orthochromis stormsi is a cichlid from fast-moving, well-oxygenated stretches of the Congo River in the Democratic Republic of Congo. Its swimbladder is much reduced, so it is less likely to be swept away by the current, and in the aquarium it spends most of its time on the substrate, moving in a characteristic 'hopping' fashion. It was previously classified as Schwetzochromis stormsi and is still named as such by many sources.
+## Distribution
+Edit
+Democratic Republic of Congo.
+## Habitat
+Write a note
+Edit
+It inhabits fast-moving areas of the river. The water in these habitats has a high oxygen content.
+## Aquarium size
+Write a note
+Edit
+Standard length
+120mm SL5in SL
+Aquarium base
+120 × 30cm48 × 12in
+Volume
+~162litres~43US gal
+120 ∗ 30 ∗ 45 cm48 ∗ 12 ∗ 18 in - ~162 litres~43 US gal. The width of the tank is far more important than the height.
+## Maintenance
+Write a note
+Edit
+As mentioned above, the aquarium should have as large a 'footprint' as possible. A sandy substrate is preferable and hiding places should be provided in the form of smooth rocks arranged to form caves. Driftwood branches can also be used. Relatively strong water flow is also preferred by this species and we suggest the use of a small powerhead or internal pump. The water should be well oxygenated.
+## Water conditions
+Edit
+Temperature
+22–27°C72–81°F
+pH
+6.5–7.5
+Hardness
+5–15dGH
+Temperature: 22 – 27 °C72 – 81 °F
+pH: 6.5-7.5
+Hardness: 5-15°H
+These recommendations come from this profile’s own figures. They contain affiliate links, so we may earn a commission.
+## Diet
+Write a note
+Edit
+O. stormsi will accept most foods offered but live and frozen varieties should form the bulk of the diet.
+## Behaviour and compatibility
+Write a note
+Edit
+A territorial species that is generally peaceful towards heterospecifics. Good tankmates include Alestiid tetras and other non-aggressive species that can tolerate flowing water. It should be kept with other cichlids only in a large aquarium. Amongst themselves O. stormsi are very territorial and an individual will not permit another to enter it's territory except for when spawning. It can be kept in groups in large enough aquaria, however, as the territories formed tend to be quite small but only one male should be kept (with several females).
+## Sexual dimorphism
+Write a note
+Edit
+Difficult to sex when young. Dominant male fish become far more colourful than females as adults and tend to grow slightly larger.
+## Reproduction
+Write a note
+Edit
+Possible but not easy. Maternal mouthbrooder. This species is rarely bred in captivity and little information is available. It is best bred in a harem situation with one male and several females. If a sexable group is not available, purchase a group of young fish and grow them on. It is likely that subdominant males will be eliminated by the alpha male so keep a close eye on proceedings and remove fish if necessary. The tank should be set up as above with a temperature around 25.5 °C78 °F and a pH of 7.0-7.5. Dither fish in the form of African tetras are recommended. When the male is in spawning condition, his colours will intensify and he will begin displaying to the females. When a female is willing, she will lie next to the male on the substrate in such a fashion that her head is next to the caudal fin of the male, and vice versa. She then releases a few eggs at a time and the male produces a small amount of sperm, which the female takes into her mouth. The fish then quickly spin 180° and the female picks up the eggs before releasing the next batch. This continues until the female is carrying around 20-25 eggs. The male then plays no further part in broodcare and can go on to mate with other females immediately. The female may carry the eggs for up to 4 weeks before releasing the free swimming fry. She will not eat during this period and can be easily spotted by her distended mouth. If a female is overly stressed, she may spit out the brood prematurely or eat them, so care must be taken if you decide to move the fish in order to avoid fry predation. Some breeders artificially strip the fry from the mother's mouth at the 3 week stage and raise them from that point as this usually results in a larger number of fry. The fry are quite large and can be fed newly hatched brine shrimp, microworm, and even powdered dry foods from the day they are released by the mother.
+## Notes
+Edit
+O. stormsi was previously classified as Schwetzochromis stormsi and is still named as such by many sources. Its swimbladder is modified, being much reduced in size. This makes the fish less buoyant and therefore less likely to be swept away by the strong currents in its natural habitat. In the aquarium it spends most of its time on the substrate, where it swims in a characteristic 'hopping' fashion. Unfortunately, it is rather rare in the hobby.
+## Species images · 1
+Orthochromis stormsiJJPhoto
+These photographs are used with each photographer's permission.
+Send a photograph
+## Distribution
+- DR Congo
+## Profile completeness19 of 24
+79% complete
+- Add a reference
+- Add community suitability
+Also missing: taxonomic authority, a common name, etymology.
+Report a mistake
+## Community
+Questions about Orthochromis stormsi?
+Ask on Discord
+→

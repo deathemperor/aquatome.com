@@ -7,13 +7,39 @@
   "group": "catfish",
   "places": [
     "africa",
-    "nigeria"
+    "nigeria",
+    "sudan",
+    "nile",
+    "chad",
+    "chad-basin"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 15
+      },
+      {
+        "source": "scotcat",
+        "value": 12
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 25,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
       }
     ]
   },
@@ -25,10 +51,34 @@
       "html": "<p>The African Glass Catfish, Parailia pellucida, is always available and fits perfectly in any community tank. The maximum length is given as 15 cm in the literature; however, specimens larger than 8 cm are only very rarely seen. Available size: 6-8 cm.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/schilbidae/parailia_pellucida.htm",
+      "html": "<p>Family: Schilbeidae. Size: 12 cm. Temperature: 25-28°C. pH: 6.5-7.2. IUCN: Least Concern (2020).</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/parailia-pellucida-en/",
       "html": "<p>Origin: Nigeria.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/schilbidae/parailia_pellucida.htm",
+      "html": "<p>Africa: Nile River, Chad Basin, several west African river basins. Type locality: Omdurman, Nile River.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/schilbidae/parailia_pellucida.htm",
+      "html": "<p>Gregarious schooling species confined to larger lakes and rivers. Benthic species, occurs in deep water.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/schilbidae/parailia_pellucida.htm",
+      "html": "<p>As with other members of this genus it will fare better in a school of at least four to six specimens and good filtration with good water quality.</p>"
     },
     {
       "key": "waterConditions",
@@ -43,19 +93,88 @@
       "html": "<p>They are peaceful plankton feeders. The fish feed readily on any type of usual fish food.</p>"
     },
     {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/schilbidae/parailia_pellucida.htm",
+      "html": "<p>In its natural habitat, feeds mainly on small planktonic and benthic insects and crustaceans. In the aquarium, small live foods such as artemia, mosquito larvae (frozen) and a good quality flake food.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/parailia-pellucida-en/",
       "html": "<p>They are peaceful and should always be kept in company of their own kind. The fish love well planted tanks with a good number of places to hide and not too strong lighting.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/schilbidae/parailia_pellucida.htm",
+      "html": "<p>Oviparous, eggs are unguarded.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/parailia-pellucida-en/",
       "html": "<p>The African Glass Catfish is not a close relative of the Asian Glass Catfish. The latter belongs to the family Siluridae, which also contains the European Wels (Silurus glanis), whereas the African species belongs to the family Schilbeidae. The best known Asian Glass Catfish is Kryptopterus vitreolus. The similar look and behaviour are due to a similar lifestyle and environment, not a genetic relationship, comparable to birds and bats, which both have wings but are not close relatives.</p><p>P. pellucida can be easily recognised by the presence of an adipose fin (absent in Kryptopterus) and eight long barbels around the mouth (only two in Kryptopterus).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/schilbidae/parailia_pellucida.htm",
+      "html": "<p>Diagnosis: dorsal fin absent; adipose fin always present; inner side of pectoral-fin spine variably denticulate, with small to rather well developed serrations; 60-78 soft rays in anal fin. Vomerine teeth present. In general no small dark blotch at the base of the caudal fin. This genus differs from the Asian glass catfish of the Siluridae, Kryptopterus, by having no dorsal fin, whereas the Asian glass cats do.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/schilbidae/parailia_pellucida.htm",
+      "html": "<p>Baensch, H.A. and R. Riehl 1985 Aquarien atlas. Band 2. Mergus, Verlag für Natur- und Heimtierkunde GmbH, Melle, Germany. 1216 p. De Vos, L., 1995. Results of a systematic revision of African schilbeids at the species level. p.113-364. In L. De Vos. A systematic revision of the African Schilbeidae (Teleostei, Siluriformes) with an annotated bibliography, Chapter 3. Ann. Mus. R. Afr. Centr. Zool. vol. 271. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2019. FishBase. www.fishbase.org, (12/2019). Lalèyè, P., Azeroual, A., Entsua-Mensah, M. &amp; Moelants, T. 2020. Parailia pellucida. The IUCN Red List of Threatened Species 2020.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/4092a01f37ff1c55.webp",
+      "thumb": "https://media.aquatome.com/scotcat/4092a01f37ff1c55-480.webp",
+      "width": 500,
+      "height": 294,
+      "licence": "dùng với sự cho phép",
+      "author": "&nbs / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/schilbidae/parailia_pellucida.htm",
+      "caption": "Parailia pellucida",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/4e8800438f9d15e0.webp",
+      "thumb": "https://media.aquatome.com/scotcat/4e8800438f9d15e0-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Birger Kamprath / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/schilbidae/parailia_pellucida.htm",
+      "caption": "Parailia pellucida",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/cbaef6677511f0bc.webp",
+      "thumb": "https://media.aquatome.com/scotcat/cbaef6677511f0bc-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Birger Kamprath / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/schilbidae/parailia_pellucida.htm",
+      "caption": "Parailia pellucida",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/0d3cca056da50cfa.webp",
+      "thumb": "https://media.aquatome.com/scotcat/0d3cca056da50cfa-480.webp",
+      "width": 500,
+      "height": 336,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/schilbidae/parailia_pellucida.htm",
+      "caption": "Parailia pellucida",
+      "source": "scotcat"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -79,5 +198,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-09"
 }

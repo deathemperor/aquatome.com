@@ -1,0 +1,110 @@
+{
+  "id": "labiobarbus-fasciatus",
+  "native": {
+    "input": "6cca1159f898ebe6",
+    "at": "2026-11-09T09:57:55.009Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the Pahang River system in southern Peninsular Malaysia, and the Greater Sunda Islands of Sumatra and Borneo.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Pangabuang, Lampong Province, Sumatra, Indonesia'.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Pahang",
+        "source": "seriouslyfish",
+        "quote": "Known from the Pahang River system in southern Peninsular Malaysia, and the Greater Sunda Islands of Sumatra and Borneo.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Known from the Pahang River system in southern Peninsular Malaysia, and the Greater Sunda Islands of Sumatra and Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Known from the Pahang River system in southern Peninsular Malaysia, and the Greater Sunda Islands of Sumatra and Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Kapuas",
+        "source": "seriouslyfish",
+        "quote": "On the latter records exist from the Kapuas, Barito, and Mahakam watersheds in Kalimantan, the Indonesian portion of the island.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Barito",
+        "source": "seriouslyfish",
+        "quote": "On the latter records exist from the Kapuas, Barito, and Mahakam watersheds in Kalimantan, the Indonesian portion of the island.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Mahakam",
+        "source": "seriouslyfish",
+        "quote": "On the latter records exist from the Kapuas, Barito, and Mahakam watersheds in Kalimantan, the Indonesian portion of the island.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Labiobarbus fasciatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2366243,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ]
+    ],
+    "native": [
+      "MY",
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T09:57:55.009Z"
+  }
+}

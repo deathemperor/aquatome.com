@@ -12,6 +12,106 @@
     "democratic-republic-of-the-congo",
     "zambia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BI",
+        "CD",
+        "ZM"
+      ],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Tanganyika (Burundi, DR Congo and Zambia).",
+          "countries": [
+            "BI",
+            "CD",
+            "ZM"
+          ],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2372484,
+      "total": 44,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "CD",
+          16
+        ],
+        [
+          "BI",
+          12
+        ],
+        [
+          "TZ",
+          12
+        ],
+        [
+          "ZM",
+          3
+        ],
+        [
+          "ZA",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          25.3125,
+          -29.53125,
+          1,
+          0
+        ],
+        [
+          28.125,
+          -4.21875,
+          28,
+          28
+        ],
+        [
+          29.53125,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          29.53125,
+          -7.03125,
+          1,
+          0
+        ],
+        [
+          29.53125,
+          -5.625,
+          7,
+          0
+        ],
+        [
+          30.9375,
+          -9.84375,
+          5,
+          2
+        ],
+        [
+          30.9375,
+          -8.4375,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

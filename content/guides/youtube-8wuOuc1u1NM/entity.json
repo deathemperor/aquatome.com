@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "8wuOuc1u1NM",
     "title": "Hồ thuỷ sinh nature 1.2m hướng dẫn setup và chăm sóc toàn tập - Tập 1 - thuỷ sinh Quoidecor",
@@ -33,6 +33,11 @@
         "t": 30
       },
       {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 63
+      },
+      {
         "category": "loc",
         "type": "thung",
         "brand": "Atman",
@@ -40,15 +45,9 @@
         "t": 63
       },
       {
-        "category": "loc",
-        "brand": "Purigen",
-        "model": "Purigen",
-        "t": 93
-      },
-      {
         "category": "khac",
         "brand": "Seachem",
-        "model": "Prime",
+        "model": "Purigen",
         "t": 93
       },
       {
@@ -57,28 +56,15 @@
         "t": 125
       },
       {
+        "category": "khac",
+        "brand": "Seachem",
+        "model": "Prime",
+        "t": 125
+      },
+      {
         "category": "co2",
         "type": "binh",
         "t": 193
-      },
-      {
-        "category": "khac",
-        "brand": "Mufan",
-        "model": "van điện CO2",
-        "t": 193
-      },
-      {
-        "category": "phan-nen",
-        "type": "phan",
-        "brand": "Master Soil",
-        "t": 287
-      },
-      {
-        "category": "phan-nen",
-        "type": "phan",
-        "brand": "JBL",
-        "model": "Aquabasic Plus",
-        "t": 287
       },
       {
         "category": "den",
@@ -89,145 +75,50 @@
       },
       {
         "category": "phan-nen",
-        "type": "soi",
-        "t": 63
+        "type": "phan",
+        "brand": "JBL",
+        "model": "Aquabasic plus",
+        "t": 265
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "brand": "Master Soil",
+        "t": 265
+      },
+      {
+        "category": "phan-nen",
+        "type": "cat",
+        "t": 720
       }
     ],
     "figures": [
       {
-        "heading": "Bể 1m2 cần chuẩn bị những gì",
-        "moments": [
-          {
-            "t": 1069,
-            "url": "https://media.aquatome.com/video/8wuOuc1u1NM/t1069.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bộ van CO2 bằng inox với đồng hồ áp, gắn trên bình khí."
-          }
-        ]
-      },
-      {
-        "heading": "Dựng bố cục đá và lũa thế nào",
-        "moments": [
-          {
-            "t": 455,
-            "url": "https://media.aquatome.com/video/8wuOuc1u1NM/t455.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Viên đá chính đặt trên tấm nhựa trắng ở đáy bể."
-          },
-          {
-            "t": 515,
-            "url": "https://media.aquatome.com/video/8wuOuc1u1NM/t515.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Các viên đá đã được dựng đứng vững trong bể."
-          }
-        ]
-      },
-      {
-        "heading": "Đổ nền theo thứ tự nào",
-        "moments": [
-          {
-            "t": 653,
-            "url": "https://media.aquatome.com/video/8wuOuc1u1NM/t653.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đổ phân nền đen vào hồ quanh chân đá."
-          },
-          {
-            "t": 762,
-            "url": "https://media.aquatome.com/video/8wuOuc1u1NM/t762.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh lớp nền đen phủ quanh chân đá và lũa."
-          }
-        ]
-      },
-      {
-        "heading": "Chọn và treo đèn",
-        "moments": [
-          {
-            "t": 881,
-            "url": "https://media.aquatome.com/video/8wuOuc1u1NM/t881.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đèn 90 cm cùng nguồn đặt trên bàn trước khi lắp."
-          },
-          {
-            "t": 911,
-            "url": "https://media.aquatome.com/video/8wuOuc1u1NM/t911.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Luồn cáp treo vào lỗ trên đèn, cáp tự giữ không cần buộc."
-          }
-        ]
-      },
-      {
-        "heading": "Lắp lọc và CO2 trong tủ",
-        "moments": [
-          {
-            "t": 1050,
-            "url": "https://media.aquatome.com/video/8wuOuc1u1NM/t1050.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bình CO2 gắn van điện và đồng hồ trong tủ bể."
-          },
-          {
-            "t": 1089,
-            "url": "https://media.aquatome.com/video/8wuOuc1u1NM/t1089.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Lọc thùng và dây CO2 đặt gọn trong tủ dưới bể."
-          }
-        ]
-      },
-      {
-        "heading": "Bơm nước và chạy bể khi chưa có cây",
-        "moments": [
-          {
-            "t": 1277,
-            "url": "https://media.aquatome.com/video/8wuOuc1u1NM/t1277.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Mặt nước trong bể đang được xử lý cho hết váng."
-          },
-          {
-            "t": 1307,
-            "url": "https://media.aquatome.com/video/8wuOuc1u1NM/t1307.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể đã bơm đầy nước, đá và lũa bày sẵn, chưa trồng cây."
-          }
-        ]
-      },
-      {
-        "heading": "Bắt đầu từ đâu",
-        "moments": [
-          {
-            "t": 1337,
-            "url": "https://media.aquatome.com/video/8wuOuc1u1NM/t1337.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể 120 đã dựng đá và lũa, cát trắng rải ở viền trước."
-          },
-          {
-            "t": 1356,
-            "url": "https://media.aquatome.com/video/8wuOuc1u1NM/t1356.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Góc rộng bể thủy sinh với bố cục đá, lũa trên nền cát."
-          }
-        ],
+        "heading": "Chuẩn bị những gì cho bể 1m2",
+        "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/8wuOuc1u1NM/p6-cXVhc2NhcGUucG5n.webp",
-          "thumb": "https://media.aquatome.com/video/8wuOuc1u1NM/p6-cXVhc2NhcGUucG5n-480.webp",
+          "url": "https://media.aquatome.com/video/8wuOuc1u1NM/p0-JfRmlsdGVyLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/8wuOuc1u1NM/p0-JfRmlsdGVyLmpwZw-480.webp",
           "width": 960,
-          "height": 447,
+          "height": 720,
           "licence": "CC BY-SA 4.0",
-          "author": "Duc Viet Bui",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nature_style_aquascape.png",
-          "caption": "Bể thủy sinh dựng lũa và đá khéo, cây phủ xanh mát."
+          "author": "Fish Tank Society",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
+          "caption": "Lọc thùng đặt trong tủ bể, có ống nối ra xô khi vệ sinh."
+        }
+      },
+      {
+        "heading": "Chọn đèn 90 cm cho bể 1m2 được không",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/8wuOuc1u1NM/p1-1bV9MaWdodC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/8wuOuc1u1NM/p1-1bV9MaWdodC5qcGc-480.webp",
+          "width": 960,
+          "height": 666,
+          "licence": "CC BY-SA 3.0",
+          "author": "Lime Huang",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_Aquarium_Light.jpg",
+          "caption": "Bể thủy sinh có đèn treo phía trên, nhìn gọn và đẹp."
         }
       }
     ]

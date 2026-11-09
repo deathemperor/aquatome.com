@@ -1,17 +1,14 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Pethia_nigripinnis_sp.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Pethia_nigripinnis_sp.jpg/500px-Pethia_nigripinnis_sp.jpg",
-   "width": 5472,
-   "height": 3648,
-   "licence": "CC BY-SA 4.0",
-   "author": "Beta Mahatvaraj",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pethia_nigripinnis_sp.jpg",
-   "caption": "Pethia nigripinnis",
-   "key": "File:Pethia nigripinnis sp.jpg"
-  }
+ "queue": [],
+ "judged": [
+  "File:Pethia nigripinnis sp.jpg"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/seriouslyfish/522ba8466cb16edc.webp": "92200004b13cb8c0",
+  "https://media.aquatome.com/seriouslyfish/67cc02061cc6447f.webp": "cfc7d3d3f0f2872c",
+  "https://media.aquatome.com/seriouslyfish/ca1dedf9a6c4d501.webp": "fffa77fffefe7dd4",
+  "https://media.aquatome.com/seriouslyfish/2da3acc60b05d0c8.webp": "3012d07070fafdf5",
+  "https://upload.wikimedia.org/wikipedia/commons/b/b2/Pethia_nigripinnis_sp.jpg": "d2ad0d1f3d1c0011"
+ },
+ "commons": "2026-11-09"
 }

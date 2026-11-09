@@ -7,9 +7,11 @@
   "photos": [],
   "mentions": [
     "micranthemum-tweediei-monte-carlo",
-    "anubias-barteri"
+    "anubias-barteri",
+    "micranthemum-umbrosum",
+    "micranthemum-tweediei"
   ],
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "6iE1bp5Zi_g",
     "title": "INTERMEDIATE PLANT: Micranthemum Micranthemoides 'Pearl Weed'",
@@ -28,11 +30,16 @@
       "height": 720
     },
     "taxa": [
-      "Micranthemum micranthemoides",
+      "Micranthemum umbrosum",
       "Micranthemum tweediei",
       "Anubias barteri"
     ],
     "gear": [
+      {
+        "category": "cay-thuy-sinh",
+        "type": "trong-nen",
+        "t": 42
+      },
       {
         "category": "phan-nen",
         "type": "phan",
@@ -48,6 +55,7 @@
       {
         "category": "phan-nen",
         "type": "phan",
+        "brand": "Eco-Complete",
         "t": 532
       },
       {
@@ -57,49 +65,35 @@
         "t": 532
       },
       {
-        "category": "co2",
-        "type": "mini",
-        "t": 532
-      },
-      {
         "category": "den",
         "type": "thuy-sinh",
-        "brand": "Finnex",
-        "model": "Planted Plus SE",
-        "t": 564
+        "brand": "Finex",
+        "model": "Planted Plus",
+        "t": 565
+      },
+      {
+        "category": "co2",
+        "type": "mini",
+        "t": 520
       }
     ],
     "figures": [
       {
-        "heading": "Pearl weed là cây gì, sống ở đâu",
+        "heading": "Pearlweed là cây gì, sống ở đâu",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/6iE1bp5Zi_g/p0-BfbGl0cmVzLnBuZw.webp",
-          "thumb": "https://media.aquatome.com/video/6iE1bp5Zi_g/p0-BfbGl0cmVzLnBuZw-480.webp",
+          "url": "https://media.aquatome.com/video/6iE1bp5Zi_g/p0-fQkItMTkxMy5wbmc.webp",
+          "thumb": "https://media.aquatome.com/video/6iE1bp5Zi_g/p0-fQkItMTkxMy5wbmc-480.webp",
           "width": 960,
-          "height": 383,
-          "licence": "CC BY-SA 2.5",
-          "author": "Matthias Kloszczyk",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Home_aqua_240_litres.png",
-          "caption": "Bể thủy sinh trồng nhiều cây lá nhỏ, có lũa và cá cảnh."
+          "height": 1161,
+          "licence": "Public domain",
+          "author": "Britton, N.L., and A. Brown. 1913. An illustrated flora of the northern United States, Canada and the British Possessions. 3 vols. Charles Scribner's Sons, New York. Vol. 3: 197. Courtesy of Kentucky Native Plant Society. Scanned by Omnitek Inc.",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Micranthemum_micranthemoides_BB-1913.png",
+          "caption": "Tranh vẽ cây pearlweed với thân bò, lá nhỏ mọc đối và rễ bám nền."
         }
       },
       {
-        "heading": "Tránh nhầm với cây khác khi mua",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/6iE1bp5Zi_g/p1-X1NoYXJqYWguanBn.webp",
-          "thumb": "https://media.aquatome.com/video/6iE1bp5Zi_g/p1-X1NoYXJqYWguanBn-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Ranjith-chemmad",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Freshwater_aquariums_Sharjah.jpg",
-          "caption": "Thảm baby tears lá cực nhỏ trải kín nền hồ thủy sinh."
-        }
-      },
-      {
-        "heading": "Trải thảm hay để thành bụi",
+        "heading": "Trải nền hay để thành bụi",
         "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/6iE1bp5Zi_g/p3-ydS1JbmRpYS5qcGc.webp",
@@ -108,77 +102,80 @@
           "height": 720,
           "licence": "CC BY 4.0",
           "author": "Yercaud-elango",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Staurgyne_repens-3-veda_aquarium-bengaluru-India.jpg",
-          "caption": "Thảm cỏ xanh phủ kín nền bể thủy sinh, xen vài bụi cây lá rộng."
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Staurgyne_repens-1-veda_aquarium-bengaluru-India.jpg",
+          "caption": "Thảm cây xanh mướt phủ kín nền hồ bên cạnh đá lũa."
         }
       },
       {
-        "heading": "Đèn, nền, phân và CO2",
+        "heading": "Đèn, phân nền, phân nước và CO2",
         "moments": [
           {
-            "t": 296,
-            "url": "https://media.aquatome.com/video/6iE1bp5Zi_g/t296.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Toàn cảnh bể cây với đá và thảm cây xanh ở đáy."
+            "t": 515,
+            "url": "https://media.aquatome.com/video/6iE1bp5Zi_g/at515-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cụm pearlweed xanh mướt mọc trên lớp phân nền tối màu cạnh hòn đá.",
+            "sharpness": 433.8
           },
           {
-            "t": 539,
-            "url": "https://media.aquatome.com/video/6iE1bp5Zi_g/t539.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh lớp nền đen giàu dinh dưỡng với đá và cây con."
+            "t": 530,
+            "url": "https://media.aquatome.com/video/6iE1bp5Zi_g/at530-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Pearlweed mới trồng thành từng cụm nhỏ trên phân nền giữa các hòn đá.",
+            "sharpness": 259.2
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/6iE1bp5Zi_g/p4-FzY2FwaW5nLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/6iE1bp5Zi_g/p4-FzY2FwaW5nLmpwZw-480.webp",
-          "width": 960,
-          "height": 338,
-          "licence": "CC BY 3.0",
-          "author": "Ghostsword",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Embalo_Aquascaping.jpg",
-          "caption": "Bể thủy sinh cây rậm rạp, lên màu đẹp nhờ đèn và nền tốt."
-        }
+        ]
       },
       {
-        "heading": "Thiếu sáng và đủ điều kiện khác nhau ra sao",
+        "heading": "Đèn yếu và đủ điều kiện khác nhau ra sao",
         "moments": [
           {
-            "t": 425,
-            "url": "https://media.aquatome.com/video/6iE1bp5Zi_g/t425.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Khóm cây nhạt màu, thưa thớt trong bể đèn yếu, không phân."
+            "t": 420,
+            "url": "https://media.aquatome.com/video/6iE1bp5Zi_g/at420-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cây mới trồng bụi nhỏ trên nền cát sáng, cạnh đá đen.",
+            "sharpness": 562.2
           },
           {
-            "t": 509,
-            "url": "https://media.aquatome.com/video/6iE1bp5Zi_g/t509.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Khóm cây xanh tươi, dày trên nền dinh dưỡng với đèn tốt."
+            "t": 540,
+            "url": "https://media.aquatome.com/video/6iE1bp5Zi_g/at540-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể nền phân đen với đá sáng màu và các bụi cây nhỏ mới trồng.",
+            "sharpness": 149.1
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/6iE1bp5Zi_g/p5-NfUGxhbnRzLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/6iE1bp5Zi_g/p5-NfUGxhbnRzLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/6iE1bp5Zi_g/p5-hX3NocmltcC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/6iE1bp5Zi_g/p5-hX3NocmltcC5qcGc-480.webp",
           "width": 960,
-          "height": 638,
+          "height": 718,
           "licence": "CC BY 4.0",
-          "author": "Abhik.Mazumdar.73",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_with_Mermaid_Statue_Driftwood_and_Anubias_Aquatic_Plants.jpg",
-          "caption": "Khóm Anubias lá xanh bám trên lũa trong bể nền cát trắng."
+          "author": "Snehayan",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Live_planted_aquarium_with_neocaridina_shrimp.jpg",
+          "caption": "Bể thủy sinh cây xanh tươi mọc dày, có lũa và đá."
         }
       },
       {
-        "heading": "Nhân giống pearl weed",
+        "heading": "Nhân giống pearlweed",
         "moments": [
           {
-            "t": 390,
-            "url": "https://media.aquatome.com/video/6iE1bp5Zi_g/t390.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể có đá và thảm cây pearl weed xanh mọc ở nền phía trước."
+            "t": 345,
+            "url": "https://media.aquatome.com/video/6iE1bp5Zi_g/at345-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Toàn cảnh bể có thảm pearlweed mọc ở phía trước.",
+            "sharpness": 959.4
+          },
+          {
+            "t": 395,
+            "url": "https://media.aquatome.com/video/6iE1bp5Zi_g/at395-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cây pearlweed xanh mọc thành thảm trên nền bể, cạnh đá trang trí.",
+            "sharpness": 245.1
           }
         ]
       }

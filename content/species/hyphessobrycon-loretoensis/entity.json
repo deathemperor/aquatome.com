@@ -14,6 +14,208 @@
     "ecuador",
     "aguarico"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO",
+        "PE",
+        "EC"
+      ],
+      "regions": [
+        "Amazon",
+        "Rio Napo",
+        "Rio Ucayali",
+        "Rio Madeira",
+        "Rio Aguarico"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Loreto tetra, Hyphessobrycon loretoensis, is a small characid from the upper Amazon basin in Colombia, Peru and Ecuador.",
+          "countries": [
+            "CO",
+            "PE",
+            "EC"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the upper Amazon River basin, with its range extending westward from Leticia in southern Colombia, at least as far as the upper rio Napo basin in Peru and Ecuador and lower rio Ucayali in Peru.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Rio Napo",
+            "Rio Ucayali"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "García-Alzate et al. (2013) report it from the Madre de Dios watershed, a tributary in the upper rio Madeira basin, which would appear to represent a significant range expansion and may indicate it to be present throughout the Peruvian Amazon; there is also an isolated record from the rio Palcazu drainage in the upper rio Ucayali basin.",
+          "countries": [],
+          "regions": [
+            "Rio Madeira"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "There exist numerous records from the rios Loreto-Yacu and Pichuna in Colombia, and the rio Aguarico, which forms a section of the border between Peru and Ecuador, but presumably it also occurs in other tributary systems in the region.",
+          "countries": [],
+          "regions": [
+            "Rio Aguarico"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354639,
+      "total": 73,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "PE",
+          55
+        ],
+        [
+          "BR",
+          9
+        ],
+        [
+          "CO",
+          8
+        ],
+        [
+          "EC",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -75.9375,
+          -1.40625,
+          5,
+          5
+        ],
+        [
+          -75.9375,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -7.03125,
+          4,
+          4
+        ],
+        [
+          -74.53125,
+          -5.625,
+          9,
+          9
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          -74.53125,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -73.125,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -73.125,
+          -4.21875,
+          18,
+          18
+        ],
+        [
+          -73.125,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -71.71875,
+          -4.21875,
+          6,
+          6
+        ],
+        [
+          -71.71875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          -5.625,
+          6,
+          0
+        ],
+        [
+          -70.3125,
+          -4.21875,
+          4,
+          2
+        ],
+        [
+          -70.3125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -47.8125,
+          -1.40625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

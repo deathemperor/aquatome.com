@@ -207,6 +207,134 @@
       "Item 1: 'Kekerasan air (GH)' adds 'GH' label not in source (source says Hardness); drop '(GH)' or use 'dGH' only."
     ]
   },
+  "acarichthys-heckelii": {
+    "at": "2026-11-09",
+    "from": "2026-10-28",
+    "name": "Threadfin acara",
+    "confidence": "medium",
+    "score": 0.72,
+    "notes": [
+      "Item 5: 'Tidak boleh sekali-kali dimasukkan' is acceptable, but 'Kelemahan utamanya ialah spesies ini tidak henti-henti menggali, jadi jika kerikil digunakan' is fine; the real issue: 'Arus yang kuat' for 'High flow rates' is OK, but 'ikan ini mungkin menghidap ... hakisan kepala dan garisan sisi' should use the common hobby term 'HLLE' or 'hakisan kepala dan garis lateral'.",
+      "Item 10: 'Induk akan meninggalkan anak-anak apabila anak ikan berukuran...' is fine, but 'Sesetengah anak ikan terus menggunakan liang itu' is fine; the 0.4 in figure was dropped correctly. However 'ikan betina bertanggungjawab bagi sebahagian besar penjagaan anak' is fine; 'Pengganti gua bertelur yang paling terbukti berkesan' is awkward, so rephrase to 'pengganti gua bertelur yang paling terbukti'.",
+      "Item 11: 'Teleocichla sudah lama diterima sebagai kumpulan beradik' adds 'sudah lama' where the source says 'well-established'; use 'mantap/kukuh diterima'. 'subfamili yang dicadangkan' for 'putative' is OK, but 'dihuraikan semula' for 'redescribed' is better as 'dihuraikan semula' (fine); 'kertas kajian' could be 'makalah'.",
+      "Item 12: the reference list is left untranslated as instructed, so no fix is needed.",
+      "Item 1: 'Ia satu-satunya spesies dalam genusnya' is fine; 'tangki' could be 'akuarium' for consistency with the rest of the text, which mixes 'tangki' and 'akuarium'.",
+      "Item 8: 'sirip yang panjang meleret' is fine; 'komuniti gaya biotop' is slightly awkward, so use 'akuarium komuniti bergaya biotop'."
+    ]
+  },
+  "acentronichthys-leptos": {
+    "at": "2026-11-09",
+    "from": "2026-11-02",
+    "name": "Acentronichthys",
+    "confidence": "low",
+    "score": 0.75,
+    "notes": [
+      "Item 7: \"memberikan ancaman yang tersebar kepada subpopulasi\" is awkward; use \"mengenakan ancaman meresap/tersebar terhadap pelbagai subpopulasi\".",
+      "Item 7: \"di hulu muara Sungai Doce\" is imprecise for \"above the mouth of the Doce River\"; \"di sebelah atas/utara muara\" may suit better.",
+      "Item 7: \"centron, duri atau tulang keras\" - \"tulang keras\" is an odd rendering of \"spine\"; use \"duri\" only.",
+      "Item 3/4/5: \"sungai-sungai kecil\" for \"streams\" and \"sungai\" in item 5 are inconsistent; use \"anak sungai\" consistently.",
+      "Item 4: \"Negeri Santa Catarina\" and \"Negeri Espírito Santo\" - \"Negeri\" for Brazilian states is acceptable but \"Negeri\" may be replaced with \"Negeri/Wilayah\" consistently; item 3 omits it."
+    ]
+  },
+  "acestridium-dichromum": {
+    "at": "2026-11-09",
+    "from": "2026-11-04",
+    "name": "Green Whiptail",
+    "confidence": "low",
+    "score": 0.8,
+    "notes": [
+      "Item 5: “chameleon dwarf sucker cat” is left in English with no Malay rendering. Give a Malay equivalent, e.g. “ikan keli penyedut kerdil londeh”, with the English in brackets.",
+      "Item 5: “akar kayu” (driftwood roots) is narrower than the English “roots”. Use “akar” or “akar dan batu”.",
+      "Item 3: the type locality is left wholly in English (“tributary of Río Orinoco, 7 kilometers south of…”). Translate the descriptive words, e.g. “anak sungai Río Orinoco, 7 kilometer ke selatan San Fernando de Atabapo”, and keep the place names and coordinates unchanged."
+    ]
+  },
+  "acestrorhynchus-altus": {
+    "at": "2026-11-09",
+    "from": "2026-11-03",
+    "name": "Red Barracuda Tetra",
+    "confidence": "low",
+    "score": 0.9,
+    "notes": [
+      "Item 14: \"sirip ventral\" is better as \"sirip pelvis\" (more standard term).",
+      "Item 15: \"dihuraikan secara saintifik\" is better as \"diperihalkan secara saintifik\" for a species description.",
+      "Item 6: \"kawasan yang dinaiki air banjir\" is awkward; use \"kawasan yang dilimpahi banjir\" or \"kawasan banjir\"."
+    ]
+  },
+  "acestrorhynchus-falcatus": {
+    "at": "2026-11-09",
+    "from": "2026-11-03",
+    "name": "Red Tail Barracuda",
+    "confidence": "medium",
+    "score": 0.6,
+    "notes": [
+      "Item 8: \"Isi padu: ~2025 liter\" is a wrong conversion. The English gives ~2025 litres (~535 US gal), so the litre figure is already metric. Keep it, but \"liter\" should be the Malaysian \"liter\"/\"L\" spelling, which is fine. The bigger issue is that the bracketed inch figures were dropped as intended, so this is not an error.",
+      "Item 11: \"tidak tinggi nilai pemakanannya melainkan diberi makan dengan betul terlebih dahulu\" mistranslates \"unless properly conditioned beforehand\". It should say the feeder fish must first be given nutritious food (gut-loaded/conditioned), not that they are \"diberi makan dengan betul\" in a vague sense. Reword to \"melainkan diberi makanan berkhasiat terlebih dahulu\".",
+      "Item 15: \"Baki genus ini ... Kumpulan A. microlepis\" is fine, but \"sirip dubur\" and \"jejari ventral\" are stiff. Prefer \"sirip dubur (anal)\" and \"sirip perut\" for \"ventral-fin\".",
+      "Item 15: \"Empat spesies terakhir ... dianggap\" and \"klad\" are acceptable, but \"kumpulan saudara (sister)\" is awkward. Use \"kumpulan adik-beradik (sister group)\".",
+      "Item 9: \"mereka stres\" — \"membuatnya stres\" is colloquial. Use \"tertekan\". Also \"tangki yang kitaran nitrogennya belum matang\" is fine but \"biologically immature\" could be \"belum matang secara biologi\".",
+      "Item 12: \"Agak aman terhadap ikan yang terlalu besar untuk ditelan\" is acceptable, but \"rakan setangki\" is better written \"ikan sekolam/rakan tangki\" in hobby usage.",
+      "Item 2: \"Suatu hari nanti ikan ini akan membesar sehingga lebih kurang 30 cm\" is fine; no change needed."
+    ]
+  },
+  "acestrorhynchus-falcirostris": {
+    "at": "2026-11-09",
+    "from": "2026-10-28",
+    "name": "Big-eyed Cachorro",
+    "confidence": "low",
+    "score": 0.7,
+    "notes": [
+      "Item 5: the volume was left as '~2025 liter'. It should be rounded sensibly, e.g. ~2000 liter. Also write 'liter' as 'liter/L' consistently.",
+      "Item 12: 'tiga spesies lain... tidak membesar lebih daripada 100 mm SL' is fine, but 'Menezes (1969) mendiagnosis' is awkward. Use 'Menezes (1969) membuat diagnosis'.",
+      "Item 2: 'dengan saiz 320 hingga 350 mm SL, ia membesar jauh lebih besar daripada ahli kumpulan yang lain' is redundant ('membesar... lebih besar'). Use 'mencapai saiz'. 'Big-eyed cachorro (nama dagangan)' adds 'trade name', which the source does not state.",
+      "Item 6: 'stres' is informal. Use 'tertekan'. 'Kitaran nitrogennya belum matang' is a loose rendering of 'biologically immature'. 'Penutup yang rapat' loses 'tight-fitting' slightly. 'Tumbuhan akuatik' adds 'akuatik'.",
+      "Item 11: 'Dilaporkan bahawa' is a stronger rendering of 'Apparently'. Use 'Nampaknya'.",
+      "Item 8: 'dikondisikan' is awkward. Use 'dikondisikan/diberi makanan khas terlebih dahulu' or 'disediakan dengan betul'. 'Pemakan ikan mutlak' is acceptable."
+    ]
+  },
+  "acestrorhynchus-isalineae": {
+    "at": "2026-11-09",
+    "from": "2026-10-28",
+    "name": "Striped Barracuda Tetra",
+    "confidence": "low",
+    "score": 0.55,
+    "notes": [
+      "Item 4: 'Volume: ~243 litres (~64 US gal)' became 'Isi padu: ~243 liter' – 243 L is not rounded sensibly; use ~240 L (nearest 5 L) and keep 'litre' consistent.",
+      "Item 5: 'fill it to 50-70% of capacity' became 'hingga 50–70% sahaja' – 'sahaja' (only) is added and 'capacity' is dropped; write 'separuh hingga 70% kapasiti'.",
+      "Item 5: 'Weekly water changes... mandatory' – 'perubahan mendadak kimia air' is OK, but 'tangki yang belum matang secara biologi' is clumsy; use 'akuarium yang belum matang (cycled)'.",
+      "Item 3: the original locality string is repeated in English in brackets ('lokaliti asal: ...'). This is unneeded duplication and adds clutter; keep the Malay only or the Latin/Portuguese place names.",
+      "Item 11: 'A. nasutus, A. maculipinna and A. falcirostris' – the English 'other three species ... 100 mm (3.9 in) SL' became '100 mm SL'; fine, but 'kerana tiga spesies lain' needs 'ketiga-tiga' wording for clarity.",
+      "Item 7: 'diberi makanan berkhasiat terlebih dahulu' – 'properly conditioned' means gut-loaded/conditioned feeders; say 'dikondisikan dengan betul'.",
+      "Item 4: 'Anak ikan pun' for 'juveniles' – use 'ikan juvana'. 'mudah terkejut' is OK.",
+      "Item 8: 'Agak aman dengan ikan yang terlalu besar untuk ditelan' – 'anything too large to swallow' is fine; 'induk langsung tidak menjaga telur' in item 10 is OK."
+    ]
+  },
+  "acestrorhynchus-microlepis": {
+    "at": "2026-11-09",
+    "from": "2026-10-28",
+    "name": "Pike Characin",
+    "confidence": "low",
+    "score": 0.88,
+    "notes": [
+      "Item 8: \"kebanyakan besar ikan pemangsa\" is ungrammatical. Use \"sebahagian besar ikan pemangsa\" or \"kebanyakan ikan pemangsa\".",
+      "Item 8: \"dikondisikan\" is awkward. Use \"disediakan/dikondisikan terlebih dahulu\" or \"diberi makanan berkhasiat dahulu\".",
+      "Item 9: \"naluri berkawan (schooling)\" is imprecise. \"Naluri berkelompok\" is the usual hobby term for schooling.",
+      "Item 12: \"jalur nipis kegelapan\" is awkward. Use \"jalur nipis berwarna gelap\".",
+      "Item 5: \"~2,025 liter\" is overly precise. \"Liter\" is also less standard in Malaysia than \"liter/L\" with a space. It is acceptable but could be rounded to ~2,000 L."
+    ]
+  },
+  "acestrorhynchus-minimus": {
+    "at": "2026-11-09",
+    "from": "2026-11-03",
+    "name": "Dwarf barracuda tetra",
+    "confidence": "low",
+    "score": 0.75,
+    "notes": [
+      "#1 \"penghobi akuarium khusus yang memiliki tangki besar\": awkward; better \"penghobi akuarium pakar/berpengalaman yang mempunyai tangki besar\". \"Saiz yang didapati\" is stiff; use \"Saiz tersedia\".",
+      "#2 \"200 liter\": Malaysian standard spelling is \"200 liter\" or \"200 L\"; fine, but \"memerlukan sedikit ruang\" understates; use \"memerlukan ruang yang agak luas\".",
+      "#3 \"diberi makan ikan umpan\": use \"diberi makan ikan umpan (feeder fish) bersaiz kecil\"; the hobby term \"feeder\" is commonly used in Malaysia.",
+      "#4 \"agak aman berbanding pemangsa lain\": adds \"lain\" comparison wording; \"pemangsa yang agak aman\" is more natural. \"aman\" is better as \"tidak agresif/damai\"; \"secara berkumpulan\" could be \"dalam kumpulan\"."
+    ]
+  },
   "ancistrus-dolichopterus": {
     "at": "2026-11-06",
     "from": "2026-11-04",
@@ -712,22 +840,13 @@
     ]
   },
   "paracheirodon-axelrodi": {
-    "at": "2026-11-06",
-    "from": "2026-11-01",
+    "at": "2026-11-09",
+    "from": "2026-11-09",
     "name": "Cardinal tetra",
     "confidence": "high",
-    "score": 0.5,
+    "score": 0.9,
     "notes": [
-      "Item 5: \"sejauh barat Colombia di sebelah barat\" is redundant and garbled; use \"hingga ke barat Colombia\".",
-      "Item 20: English gives 26.5–29 °C (80–84 °F), but the Malay says \"27–29 °C\". The lower limit is wrong; 80 °F is about 26.5–27 °C, so write \"26.5–29 °C\".",
-      "Item 22: \"Hypessobrycon simulans\" and \"P. inessi\" repeat the source spellings. Latin names stay unchanged, so this is acceptable, but note the typo \"Hypessobrycon\".",
-      "Item 11: pH range \"3.5–7.5\" is kept as in the source, so no change is needed. The (GH) label was added to \"Kekerasan air\", which is fine.",
-      "Item 7: \"hidup berkawan\" is awkward for \"live in shoals\"; use \"hidup berkawan/berkumpulan\". The sentence also repeats \"kawanan\" from the previous one.",
-      "Item 21: \"Ikan ini bertelur pada waktu petang\" is fine. \"wajib\" for \"essential\" is slightly strong; \"penting\" is better.",
-      "Item 6: \"menjulur ke atas air\" for \"overhanging\" is acceptable. \"hampir sebagai ikan tahunan\" is awkward; use \"hampir sepenuhnya ikan semusim\".",
-      "Item 3: \"jalur merahnya... memanjang di sepanjang badan\" is slightly redundant, and \"mid-body to tail\" is rendered correctly.",
-      "Item 15: \"flake\" is left in English. Use \"makanan serpihan (flake)\".",
-      "Item 16: \"ikan berkawan lain untuk memberi rasa selamat\" is fine. \"gasteropelecid\" and similar family names are retained as in the source, which is acceptable."
+      "Item 7: \"sejauh barat Colombia di sebelah barat\" is redundant and awkward. Write \"sejauh Colombia barat\" or \"hingga ke barat Colombia\"."
     ]
   },
   "paracheirodon-innesi": {

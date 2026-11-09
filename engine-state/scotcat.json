@@ -877,6 +877,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/doradidae/physopyxis_lyra.htm": {
+    "entityIds": [
+      "species/physopyxis-lyra"
+    ],
+    "updatedAt": "2026-11-09T08:49:14.328Z",
+    "hash": "b103494a48d60d7e693009ce6d364c947e6ad288394541ab2c5e0fdeaf928db8",
+    "processedHash": "b103494a48d60d7e693009ce6d364c947e6ad288394541ab2c5e0fdeaf928db8",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/heptapteridae/acentronichthys_leptos.htm": {
     "entityIds": [
       "species/acentronichthys-leptos"
@@ -1097,6 +1107,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/loricariidae/hemiancistrus_landoni.htm": {
+    "entityIds": [
+      "species/hemiancistrus-landoni"
+    ],
+    "updatedAt": "2026-11-08T23:55:27.234Z",
+    "hash": "e768147bccaa4e5a3824b884b5dc8c6d0e429aa9964fcecc3275a670a9dac85b",
+    "processedHash": "e768147bccaa4e5a3824b884b5dc8c6d0e429aa9964fcecc3275a670a9dac85b",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/loricariidae/hemiancistrus_medians.htm": {
     "entityIds": [
       "species/hemiancistrus-medians"
@@ -1184,6 +1204,26 @@
     "updatedAt": "2026-11-08T11:51:24.216Z",
     "hash": "94d0f7ba0d47a8a726a929c166b5ddd17221cff89a178c9c128536001fbe7cb2",
     "processedHash": "94d0f7ba0d47a8a726a929c166b5ddd17221cff89a178c9c128536001fbe7cb2",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/hypostomus_hemicochliodon.htm": {
+    "entityIds": [
+      "species/hypostomus-hemicochliodon"
+    ],
+    "updatedAt": "2026-11-08T23:58:30.018Z",
+    "hash": "5a4ca45f14732d27e2c298da752f6df27132f96ffbf9433cb228f8cc8b5a3b3c",
+    "processedHash": "5a4ca45f14732d27e2c298da752f6df27132f96ffbf9433cb228f8cc8b5a3b3c",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/hypostomus_hondae.htm": {
+    "entityIds": [
+      "species/hypostomus-hondae"
+    ],
+    "updatedAt": "2026-11-09T00:00:05.381Z",
+    "hash": "49f034984910dc46c9cf7f6012c9b15461cff0d668c27a70e98b0880b558f718",
+    "processedHash": "49f034984910dc46c9cf7f6012c9b15461cff0d668c27a70e98b0880b558f718",
     "status": "processed",
     "attempts": 0
   },
@@ -1277,6 +1317,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/loricariidae/metaloricaria_nijsseni.htm": {
+    "entityIds": [
+      "species/metaloricaria-nijsseni"
+    ],
+    "updatedAt": "2026-11-09T00:02:08.689Z",
+    "hash": "17cfaf8d13656bb180455256f99aa818b7741f1a1cc6f99e85bce75db758bdd1",
+    "processedHash": "17cfaf8d13656bb180455256f99aa818b7741f1a1cc6f99e85bce75db758bdd1",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/loricariidae/neblinichthys_pilosus.htm": {
     "entityIds": [
       "species/neblinichthys-pilosus"
@@ -1307,12 +1357,92 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/loricariidae/panaque_cochliodon.htm": {
+    "entityIds": [
+      "species/panaque-cochliodon"
+    ],
+    "updatedAt": "2026-11-09T00:04:29.587Z",
+    "hash": "92eb3673f99dd030b80ea340e106bc1824bb69db43deb28a4643f60fd9f36054",
+    "processedHash": "92eb3673f99dd030b80ea340e106bc1824bb69db43deb28a4643f60fd9f36054",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/loricariidae/panaque_nigrolineatus_laurafabianae.htm": {
     "entityIds": [],
     "updatedAt": "2026-10-29T20:40:34.297Z",
     "hash": "535902c54f9e53a15acc796344b15d81655a4ad944018b97bef92a61e2844283",
     "processedHash": "535902c54f9e53a15acc796344b15d81655a4ad944018b97bef92a61e2844283",
     "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/panaque_suttonorum.htm": {
+    "entityIds": [
+      "species/panaque-suttonorum"
+    ],
+    "updatedAt": "2026-11-09T05:44:48.193Z",
+    "hash": "2fd6a9772d9f6d97655d7400d8d835833392fe113065b54b072353799485d331",
+    "processedHash": "2fd6a9772d9f6d97655d7400d8d835833392fe113065b54b072353799485d331",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/paraloricaria_vetula.htm": {
+    "entityIds": [
+      "species/paraloricaria-vetula"
+    ],
+    "updatedAt": "2026-11-09T05:50:29.816Z",
+    "hash": "3fa8d8e306d6c753357e28d9460da4c352307ba095517885aa98cd0f4d35992e",
+    "processedHash": "3fa8d8e306d6c753357e28d9460da4c352307ba095517885aa98cd0f4d35992e",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/parancistrus_aurantiacus.htm": {
+    "entityIds": [
+      "species/parancistrus-aurantiacus"
+    ],
+    "updatedAt": "2026-11-09T05:51:51.851Z",
+    "hash": "3bb0c849990f2816cd530ef74c4695e161f250f03e939d341fabe70f699e3caa",
+    "processedHash": "3bb0c849990f2816cd530ef74c4695e161f250f03e939d341fabe70f699e3caa",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/parancistrus_nudiventris.htm": {
+    "entityIds": [
+      "species/parancistrus-nudiventris"
+    ],
+    "updatedAt": "2026-11-09T05:53:45.026Z",
+    "hash": "648a210893de326e9b1aad5e6f7d7dd768b34053b4fb740341efa914428680a0",
+    "processedHash": "648a210893de326e9b1aad5e6f7d7dd768b34053b4fb740341efa914428680a0",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/pareiorhaphis_steindachneri.htm": {
+    "entityIds": [
+      "species/pareiorhaphis-steindachneri"
+    ],
+    "updatedAt": "2026-11-09T08:44:36.874Z",
+    "hash": "15b685c1e309a9f2ad67689789570ee3b0926816bf27d3542bc68e3da4927c23",
+    "processedHash": "15b685c1e309a9f2ad67689789570ee3b0926816bf27d3542bc68e3da4927c23",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/pareiorhina_rudolphi.htm": {
+    "entityIds": [
+      "species/pareiorhina-rudolphi"
+    ],
+    "updatedAt": "2026-11-09T08:45:34.841Z",
+    "hash": "2c2de5cd3ab53f8580f8d7741467357f5949c7c5f43e295150b66b78636cd0bc",
+    "processedHash": "2c2de5cd3ab53f8580f8d7741467357f5949c7c5f43e295150b66b78636cd0bc",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/peckoltia_braueri.htm": {
+    "entityIds": [
+      "species/peckoltia-braueri"
+    ],
+    "updatedAt": "2026-11-09T08:47:22.645Z",
+    "hash": "735a949a94ba505b89caa90698e7b29d075e7618c2ec89c752f1d9b9afb0c18b",
+    "processedHash": "735a949a94ba505b89caa90698e7b29d075e7618c2ec89c752f1d9b9afb0c18b",
+    "status": "processed",
     "attempts": 0
   },
   "https://www.scotcat.com/loricariidae/peckoltia_compta.htm": {
@@ -1322,6 +1452,16 @@
     "updatedAt": "2026-11-01T00:23:55.428Z",
     "hash": "7f3e384ad1d9aadab7721ddbb79e105b5388d496669b72e08bdbd1dd293f1f6e",
     "processedHash": "7f3e384ad1d9aadab7721ddbb79e105b5388d496669b72e08bdbd1dd293f1f6e",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/planiloricaria_cryptodon.htm": {
+    "entityIds": [
+      "species/planiloricaria-cryptodon"
+    ],
+    "updatedAt": "2026-11-09T08:52:14.826Z",
+    "hash": "80643e323f3ccb0f50efcca3599c1f0a6253232c45e09e531c175700a101468a",
+    "processedHash": "80643e323f3ccb0f50efcca3599c1f0a6253232c45e09e531c175700a101468a",
     "status": "processed",
     "attempts": 0
   },
@@ -1465,6 +1605,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/pimelodidae/platystomatichthys_sturio.htm": {
+    "entityIds": [
+      "species/platystomatichthys-sturio"
+    ],
+    "updatedAt": "2026-11-09T08:54:35.187Z",
+    "hash": "a9e6f05745b7352ee578246b265b5a828bf147ebb9c13cfbe39a12cd3561cd91",
+    "processedHash": "a9e6f05745b7352ee578246b265b5a828bf147ebb9c13cfbe39a12cd3561cd91",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/pseudopimelodidae/batrochoglanis_raninus.htm": {
     "entityIds": [
       "species/batrochoglanis-raninus"
@@ -1482,6 +1632,26 @@
     "updatedAt": "2026-11-02T12:19:34.312Z",
     "hash": "ecc51aed72006ca7c265a118bbe60cdb6fade79a92692637bf2b26156cff5973",
     "processedHash": "ecc51aed72006ca7c265a118bbe60cdb6fade79a92692637bf2b26156cff5973",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/schilbidae/parailia_occidentalis.htm": {
+    "entityIds": [
+      "species/parailia-occidentalis"
+    ],
+    "updatedAt": "2026-11-09T05:46:05.356Z",
+    "hash": "87a9a713dc25f100c2570b85788d50b10b9cde9d25d17bf7949cacc4df57962b",
+    "processedHash": "87a9a713dc25f100c2570b85788d50b10b9cde9d25d17bf7949cacc4df57962b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/schilbidae/parailia_pellucida.htm": {
+    "entityIds": [
+      "species/parailia-pellucida"
+    ],
+    "updatedAt": "2026-11-09T05:48:05.201Z",
+    "hash": "8518ca0b5ec388df1b79ea79b9b6a9d4f6b786ec77b0570247f73471eb078db6",
+    "processedHash": "8518ca0b5ec388df1b79ea79b9b6a9d4f6b786ec77b0570247f73471eb078db6",
     "status": "processed",
     "attempts": 0
   },
@@ -1542,6 +1712,26 @@
     "updatedAt": "2026-11-04T13:35:14.474Z",
     "hash": "feb7660a83a1b18f46c7fe3dd268596474f2a5e686fcc076697b3a3322808b4a",
     "processedHash": "feb7660a83a1b18f46c7fe3dd268596474f2a5e686fcc076697b3a3322808b4a",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/trichomycteridae/paravandellia_oxyptera.htm": {
+    "entityIds": [
+      "species/paravandellia-oxyptera"
+    ],
+    "updatedAt": "2026-11-09T05:55:55.658Z",
+    "hash": "bfad2b48ed3622d1b78b4cece0f04ca5e08015b4abe878510b7b7832e66f5c20",
+    "processedHash": "bfad2b48ed3622d1b78b4cece0f04ca5e08015b4abe878510b7b7832e66f5c20",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/trichomycteridae/pareiodon_microps.htm": {
+    "entityIds": [
+      "species/pareiodon-microps"
+    ],
+    "updatedAt": "2026-11-09T08:43:32.287Z",
+    "hash": "92e2424727b0b89f273c9230877adecdf2baf4f7d2eeab8f66df3210ac028b72",
+    "processedHash": "92e2424727b0b89f273c9230877adecdf2baf4f7d2eeab8f66df3210ac028b72",
     "status": "processed",
     "attempts": 0
   }

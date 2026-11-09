@@ -198,6 +198,19 @@
       "kept": true
     }
   ],
+  "vi/guides/youtube-AAjZ3Ldk4go#body": [
+    {
+      "at": "2026-11-09T06:27:20Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "\"Cây trong bể còn giúp đỡ phải thay nước nhiều\" became \"Có cây thì bể còn đỡ phải thay nước nhiều\": slightly more conditional, but the meaning is essentially the same.",
+        "\"không gây bực mình\" became \"không làm mình bực mình\": adds a first-person \"mình\", a minor nuance change."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/youtube-C3jPFBWzK68#body": [
     {
       "at": "2026-11-08T11:28:30Z",
@@ -267,6 +280,19 @@
       "kept": false
     }
   ],
+  "vi/guides/youtube-WKr4WfuEQWU#body": [
+    {
+      "at": "2026-11-09T06:24:26Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "\"cộng cá hiền\" -> \"toàn cá hiền\": slight wording shift, same meaning",
+        "\"Bài này giới thiệu\" -> \"Dưới đây là\": minor framing change, no content lost"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/youtube-aXWDAuISGKs#body": [
     {
       "at": "2026-11-08T07:36:47Z",
@@ -295,6 +321,22 @@
       "kept": false
     }
   ],
+  "vi/guides/youtube-iVpF5Ya3lIw#body": [
+    {
+      "at": "2026-11-09T06:26:42Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "Added: 'nghe giống chữ \"annual\" (killi sống một năm)' is new explanation not in BEFORE.",
+        "'Nhiều cây nổi giúp cá đẻ' became 'Thả nhiều cây nổi thì cá dễ đẻ' - slight shift, from helps to easier spawning.",
+        "'bể nuôi chung' -> 'thả chung với cá khác' fine; 'trứng ... bị cá khác ăn mất' adds slight emphasis.",
+        "'tìm bọ rơi xuống' -> 'đớp côn trùng rơi xuống' small change in meaning (bọ vs côn trùng, tìm vs đớp).",
+        "'bịt kín mọi khe hở trên nắp' adds 'trên nắp' not in BEFORE."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/youtube-iY8NEK9GGzo#body": [
     {
       "at": "2026-11-07T10:03:50Z",
@@ -303,6 +345,31 @@
       "notes": [
         "Item 3: \"Ở chỗ rêu còn có thể rửa\" reworded as \"để sau này rêu vẫn còn rửa được\". This adds a purpose and a later time (\"sau này\"), but the meaning is close to the original.",
         "Item 4: \"bạn\" is added, which is a minor stylistic addition."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/youtube-nXDe9QF-Gu8#body": [
+    {
+      "at": "2026-11-09T10:47:51Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "BEFORE's \"Bể 80 lít là khoảng 75 lít\" is gone. AFTER keeps only \"khoảng 75 lít\" and drops the 80 L figure.",
+        "\"bơi ở những tầng nước khác nhau\" became \"mỗi loài bơi một tầng nước riêng\". This is stronger: it says each species has its own level, where BEFORE only says the levels differ."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-rh8iBySuUpE#body": [
+    {
+      "at": "2026-11-09T10:45:56Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "Common name changed: \"Cá ngân long Colombia\" -> \"Cá tetra Colombia\"; this is a plain hobby-term swap, and the scientific/English name in parentheses and the colour description are kept."
       ],
       "attempt": "first",
       "kept": true

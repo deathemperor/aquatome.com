@@ -67,18 +67,6 @@
         }
       },
       {
-        "heading": "Chọn nguyên liệu",
-        "moments": [
-          {
-            "t": 1420,
-            "url": "https://media.aquatome.com/video/7EUCwvZpKvg/at1420-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Miếng thức ăn tim bò cô đặc, chắc thịt, đưa lại gần."
-          }
-        ]
-      },
-      {
         "heading": "Sơ chế nguyên liệu",
         "moments": [],
         "photo": {
@@ -94,22 +82,7 @@
       },
       {
         "heading": "Xay hỗn hợp thế nào",
-        "moments": [
-          {
-            "t": 1200,
-            "url": "https://media.aquatome.com/video/7EUCwvZpKvg/at1200-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hỗn hợp đậu Hà Lan xay nhuyễn màu xanh trong tô gỗ."
-          },
-          {
-            "t": 1210,
-            "url": "https://media.aquatome.com/video/7EUCwvZpKvg/at1210-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng thìa trộn hỗn hợp thức ăn xay trong tô."
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/7EUCwvZpKvg/p3-gxNzgwNDApLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/7EUCwvZpKvg/p3-gxNzgwNDApLmpwZw-480.webp",
@@ -157,14 +130,18 @@
             "url": "https://media.aquatome.com/video/7EUCwvZpKvg/at380-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cá cichlid nhỏ bơi quanh các hốc đá trong bể."
+            "caption": "Cá cichlid nhỏ bơi quanh các hốc đá trong bể.",
+            "sharpness": 189.7,
+            "person": false
           },
           {
             "t": 400,
             "url": "https://media.aquatome.com/video/7EUCwvZpKvg/at400-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đàn cichlid nhiều màu bơi quanh khúc lũa trong bể."
+            "caption": "Đàn cichlid nhiều màu bơi quanh khúc lũa trong bể.",
+            "sharpness": 201,
+            "person": false
           }
         ],
         "photo": {

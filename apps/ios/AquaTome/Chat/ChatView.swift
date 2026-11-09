@@ -92,6 +92,8 @@ private struct ChatThread: View {
   @State private var lastTop: CGFloat?
   /// The box's height, with what's over it: the screen above it is what the reader sees.
   @State private var boxHeight: CGFloat = 0
+  /// The newest turn's own height, without the room kept below it.
+  @State private var lastContent: CGFloat = 0
 
   private var signedOut: Bool { account.user == nil }
   /// The question whose answer has begun, while it's coming.
@@ -112,6 +114,7 @@ private struct ChatThread: View {
             ForEach(model.thread) { a in
               let last = a.id == model.thread.last?.id
               turn(a, last: last)
+                .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { if last { lastContent = $0 } }
                 // The newest question keeps a screen's height below it: the scroll on sending can put it under the bar,
                 // and nothing that shrinks under it (the steps folding) moves it.
                 .frame(minHeight: last ? geo.size.height : nil, alignment: .top)
@@ -123,6 +126,8 @@ private struct ChatThread: View {
                 .transition(.asymmetric(insertion: .identity, removal: reduceMotion ? .opacity : .opacity.combined(with: .move(edge: .bottom))))
                 .onGeometryChange(for: CGFloat.self) { $0.frame(in: .scrollView).minY } action: { if last { lastTop = $0 } }
             }
+            // The thread's very end, for the round ↓: an answer can be taller than the screen.
+            Color.clear.frame(height: 0).id(Self.end)
           }
           .padding(.horizontal)
           .padding(.bottom, 16)
@@ -153,7 +158,14 @@ private struct ChatThread: View {
             newBelow = false
             if let id = model.thread.last?.id { withAnimation { proxy.scrollTo(id, anchor: .top) } }
           } toEnd: {
-            if let id = model.thread.last?.id { withAnimation(reduceMotion ? nil : .smooth(duration: 0.35)) { proxy.scrollTo(id, anchor: .bottom) } }
+            // A last turn that fits above the box goes under the bar, where it sat when answered; a taller one to its end.
+            withAnimation(reduceMotion ? nil : .smooth(duration: 0.35)) {
+              if lastContent <= geo.size.height - boxHeight, let id = model.thread.last?.id {
+                proxy.scrollTo(id, anchor: .top)
+              } else {
+                proxy.scrollTo(Self.end, anchor: .bottom)
+              }
+            }
           }
           .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { boxHeight = $0 }
         }
@@ -179,6 +191,8 @@ private struct ChatThread: View {
     model.editAgain(question)
     if model.stop == nil { typing = true }
   }
+
+  private static let end = "chat-end"
 
   private var warned: Bool {
     if model.stop != nil { return true }

@@ -13,6 +13,7 @@ scores, to be read again by all four:
 - the first two Hôm nay cards, medaka and climbing perch (`content/cards`);
 - the chat screen's new Vietnamese strings, read in the Design Lead's rounds (`docs/design/chat.md`, "Editors");
 - the guide writer's voice A (prompts from rounds 9 to 11), on the three sample guides: blue-green algae, quarantine, shopping list.
+- the privacy page's Hỏi AquaTome section in all five languages, with its lines in the retention and account-deletion lists (`apps/site/src/pages/chinh-sach-bao-mat/index.astro`).
 
 ## The app's card copy (2026-11-08)
 
@@ -84,6 +85,12 @@ Findings about a sentence's shape, which no count can settle, aren't tallied.
 Of the findings the check settled, every seat's held three times in four or better over six rounds (nine for
 Anthropic and xAI). Where Anthropic, Google and xAI went wrong, it was mostly a name: a fish or a term they offered that
 no hobbyist writes. A name a seat offers is checked in the references before it goes anywhere.
+
+The app's switch back to the old look (2026-11-08, six rounds, the Anthropic and xAI seats; OpenAI and Google out on the
+Cursor plan's limit) isn't tallied: its findings were about clarity beside the light/dark row, which no count settles,
+and the references have none of an app's settings words ("giao diện cũ" 0). One held for a reason neither seat gave:
+both called "bố cục cũ" bookish, but the guides from hobbyists' videos use it, 27 times a million words, for a tank's
+old layout, so in this app it would read as the tank's.
 
 Round 3 (2026-11-07), what was dropped:
 - Google: "cho thuốc" → "đánh thuốc" (the forum writes "cho thuốc" 33 times a million words, more than the site);

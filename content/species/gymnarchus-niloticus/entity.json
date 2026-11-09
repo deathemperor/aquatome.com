@@ -452,21 +452,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/8771eea3195c3784.webp",
-      "width": 960,
-      "height": 623,
-      "licence": "CC BY-SA 3.0",
-      "author": "Wiki-Harfus; modified by Wildfeuer",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gymnarchus007.JPG",
-      "caption": "Gymnarchus niloticus (Großnilhecht)",
-      "thumb": "https://media.aquatome.com/commons/8771eea3195c3784-480.webp",
-      "large": {
-        "url": "https://media.aquatome.com/commons/8771eea3195c3784-large.webp",
-        "width": 1189,
-        "height": 772
-      }
-    },
-    {
       "url": "https://media.aquatome.com/commons/2e8af575aadb4910.webp",
       "width": 960,
       "height": 450,
@@ -485,6 +470,21 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gymnarque_du_Nil.JPG",
       "caption": "Gymnarque du Nil à l'aquarium tropical de la porte dorée à Paris.",
       "thumb": "https://media.aquatome.com/commons/2373dd4bece9b0c6-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/8771eea3195c3784.webp",
+      "width": 960,
+      "height": 623,
+      "licence": "CC BY-SA 3.0",
+      "author": "Wiki-Harfus; modified by Wildfeuer",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gymnarchus007.JPG",
+      "caption": "Gymnarchus niloticus (Großnilhecht)",
+      "thumb": "https://media.aquatome.com/commons/8771eea3195c3784-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/8771eea3195c3784-large.webp",
+        "width": 1189,
+        "height": 772
+      }
     }
   ],
   "videos": [],

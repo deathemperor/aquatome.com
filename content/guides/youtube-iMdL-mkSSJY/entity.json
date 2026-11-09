@@ -1,0 +1,210 @@
+{
+  "id": "youtube-iMdL-mkSSJY",
+  "kind": "discovery",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=iMdL-mkSSJY",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "pantodon-buchholzi",
+    "synbranchus-marmoratus",
+    "semaprochilodus-taeniurus",
+    "sewellia-lineolata",
+    "colomesus-asellus"
+  ],
+  "updatedAt": "2026-11-09",
+  "video": {
+    "youtubeId": "iMdL-mkSSJY",
+    "title": "MY TOP 5 ODDBALL FISH FOR YOUR AQUARIUM",
+    "channel": "Aquarium Co-Op",
+    "channelUrl": "https://www.youtube.com/channel/UCNJuJfXCKNWu4-VifYixs8A",
+    "durationSec": 175,
+    "publishedAt": "2017-11-12",
+    "chapters": [
+      {
+        "start": 0,
+        "title": "Butterfly fish"
+      },
+      {
+        "start": 46,
+        "title": "Peacock eel"
+      },
+      {
+        "start": 78,
+        "title": "Flagtail prochilodus"
+      },
+      {
+        "start": 99,
+        "title": "Reticulated hillstream loach"
+      },
+      {
+        "start": 135,
+        "title": "Amazon puffer"
+      }
+    ],
+    "series": {
+      "id": "PLNM4mDAXGxWx2xBHIYoP8FhhOZJeSmmMh",
+      "position": 26
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/iMdL-mkSSJY/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Pantodon buchholzi",
+      "Synbranchus marmoratus",
+      "Semaprochilodus taeniurus",
+      "Sewellia lineolata",
+      "Colomesus asellus"
+    ],
+    "gear": [
+      {
+        "category": "thuc-an",
+        "type": "kho",
+        "t": 20
+      },
+      {
+        "category": "thuc-an",
+        "type": "dong-lanh",
+        "t": 150
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Cá bướm châu Phi: không biết tự vệ",
+        "moments": [
+          {
+            "t": 20,
+            "url": "https://media.aquatome.com/video/iMdL-mkSSJY/at20-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá bướm châu Phi lơ lửng yên ngay dưới mặt nước trong bể.",
+            "sharpness": 99.7,
+            "person": false
+          },
+          {
+            "t": 30,
+            "url": "https://media.aquatome.com/video/iMdL-mkSSJY/at30-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá bướm châu Phi nằm im sát mặt nước, nhìn rõ thân và vây.",
+            "sharpness": 218,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Cá chạch peacock eel: hiền, thích trốn, hay nhảy",
+        "moments": [
+          {
+            "t": 54,
+            "url": "https://media.aquatome.com/video/iMdL-mkSSJY/at54-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá chạch nấp trong hang gốm, bên ngoài có cá khác bơi ngang.",
+            "sharpness": 501.2,
+            "person": false
+          },
+          {
+            "t": 60,
+            "url": "https://media.aquatome.com/video/iMdL-mkSSJY/at60-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá chạch thu mình trong hang tối, chỉ thấy lấp ló ở cửa.",
+            "sharpness": 46.6,
+            "person": false
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/iMdL-mkSSJY/p1-lfRWVsXzA1LmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/iMdL-mkSSJY/p1-lfRWVsXzA1LmpwZw-480.webp",
+          "width": 960,
+          "height": 540,
+          "licence": "CC BY-SA 4.0",
+          "author": "Bonhilda",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Peacock_Spiny_Eel_05.jpg",
+          "caption": "Hai con cá chạch peacock eel nằm nghỉ giữa cây thủy sinh trên nền sỏi."
+        }
+      },
+      {
+        "heading": "Cá Semaprochilodus đuôi cờ: to, hiền, ăn rêu",
+        "moments": [
+          {
+            "t": 86,
+            "url": "https://media.aquatome.com/video/iMdL-mkSSJY/at86-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá Semaprochilodus bơi giữa bể trồng cây, thấy rõ đuôi vằn đặc trưng.",
+            "sharpness": 66,
+            "person": false
+          },
+          {
+            "t": 90,
+            "url": "https://media.aquatome.com/video/iMdL-mkSSJY/at90-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh cá Semaprochilodus đuôi cờ với thân ánh tím và đuôi sọc.",
+            "sharpness": 109.9,
+            "person": false
+          }
+        ]
+      },
+      {
+        "heading": "Cá tỳ bà bướm vân lưới: ăn rêu giỏi, nuôi ở nước ấm vẫn ổn",
+        "moments": [
+          {
+            "t": 106,
+            "url": "https://media.aquatome.com/video/iMdL-mkSSJY/at106-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá tỳ bà bướm vân lưới bơi trên nền cát gần khúc lũa.",
+            "sharpness": 98.1,
+            "person": false
+          },
+          {
+            "t": 120,
+            "url": "https://media.aquatome.com/video/iMdL-mkSSJY/at120-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá vân lưới bám sát đáy cát, thấy rõ hoa văn trên lưng.",
+            "sharpness": 70.8,
+            "person": false
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/iMdL-mkSSJY/p3-YW1fTG9hY2guSlBH.webp",
+          "thumb": "https://media.aquatome.com/video/iMdL-mkSSJY/p3-YW1fTG9hY2guSlBH-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY-SA 3.0",
+          "author": "Spiketooth",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hillstream_Loach.JPG",
+          "caption": "Cá tỳ bà bướm vân lưới bám trên đá phủ rêu trong bể."
+        }
+      },
+      {
+        "heading": "Cá nóc Amazon: nhỏ, quấn người, cần đồ ăn cứng",
+        "moments": [
+          {
+            "t": 150,
+            "url": "https://media.aquatome.com/video/iMdL-mkSSJY/at150-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá nóc Amazon bơi trong bể ánh xanh.",
+            "sharpness": 11.6
+          },
+          {
+            "t": 156,
+            "url": "https://media.aquatome.com/video/iMdL-mkSSJY/at156-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá nóc Amazon nhỏ bơi cận cảnh, thân vàng đốm rõ nét.",
+            "sharpness": 16.7,
+            "person": false
+          }
+        ]
+      }
+    ]
+  }
+}

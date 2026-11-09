@@ -11,6 +11,116 @@
     "rio-de-janeiro",
     "paraiba-do-sul"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Paraíba do Sul",
+        "Guanabara Bay",
+        "Guandu",
+        "Tietê"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The species originates from the area around Rio de Janeiro in Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In Rio de Janeiro it is known only from coastal systems including rivers draining into Guanabara Bay, the middle rio Paraíba do Sul, and the rio Guandu.",
+          "countries": [],
+          "regions": [
+            "Paraíba do Sul",
+            "Guanabara Bay",
+            "Guandu"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In São Paulo there exist records from the upper rio Tietê, a tributary within the upper rio Paraná system, with populations concentrated in metropolitan areas east and west of São Paulo city, between the municipalities of Suzano and Salesópolis, and around Itapecerica da Serra, respectively.",
+          "countries": [],
+          "regions": [
+            "Tietê"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354538,
+      "total": 68,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "BR",
+          67
+        ],
+        [
+          "US",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -85.78125,
+          32.34375,
+          1,
+          0
+        ],
+        [
+          -49.21875,
+          -26.71875,
+          4,
+          4
+        ],
+        [
+          -47.8125,
+          -25.3125,
+          2,
+          2
+        ],
+        [
+          -47.8125,
+          -23.90625,
+          34,
+          34
+        ],
+        [
+          -46.40625,
+          -23.90625,
+          19,
+          19
+        ],
+        [
+          -45,
+          -23.90625,
+          2,
+          2
+        ],
+        [
+          -43.59375,
+          -23.90625,
+          4,
+          4
+        ],
+        [
+          -43.59375,
+          -22.5,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

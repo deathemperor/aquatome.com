@@ -1,0 +1,204 @@
+{
+  "id": "paretroplus-damii",
+  "scientificName": "Paretroplus damii",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Paretroplus",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "madagascar",
+    "lake-pambilao"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 26,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 30
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 180
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paretroplus-damii",
+      "html": "<p>Paretroplus damii is a cichlid endemic to northwestern Madagascar, around Lake Pambilao. Moderately aggressive and growing to around 30 cm, it is best kept in groups with similarly sized cichlids of similar temperament. It digs, so plants need to be used with care.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paretroplus-damii",
+      "html": "<p>Endemic to northwestern Madagascar, around Lake Pambilao.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paretroplus-damii",
+      "html": "<p>Endemic to northwestern Madagascar, around Lake Pambilao.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paretroplus-damii",
+      "html": "<p>Standard length: 30 cm SL. Aquarium base: 180 × 60 cm. Volume: ~648 litres.</p><p>180 × 60 × 60 cm, ~648 litres for a group of adult fish.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paretroplus-damii",
+      "html": "<p>The tank should be furnished with rocks and bogwood, used to form caves and territories for each fish. Plants should be used with care as this fish is a digger!</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paretroplus-damii",
+      "html": "<ul><li>Temperature: 26–30°C</li><li>pH: 7.0</li><li>Hardness: up to 15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paretroplus-damii",
+      "html": "<p>Not fussy in captivity. A range of foods should be offered including a good quality cichlid pellet with meaty foods such as chopped prawn and mussel being offered on a regular basis.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paretroplus-damii",
+      "html": "<p>Moderately aggressive cichlid. Best kept in groups and can also be kept with other similarly sized cichlids with similar temperaments, such as Paratilapia polleni.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paretroplus-damii",
+      "html": "<p>Difficult to sex reliably.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paretroplus-damii",
+      "html": "<p>If keeping this species as a group, a pair (or more than one) will inevitably form. Feeding an abundance of live foods will help bring the pair into condition. When the pair are ready to spawn they will begin excavating a series of pits in different areas of the tank. It is almost as if the fish are experimenting with different locations to see which is more secure. The pits are usually excavated between rocks or among plants to give maximum security and therefore the best chance of raising the fry. Once the pair finally decide on a site, they enter into courtship behaviour, which can look like fighting. This happens so that the fish can \"test\" their potential mate to ensure that they are likely to have quality genes to pass on to the next generation. As many as 200 eggs or more may be laid and then fertilised by the male. The pair then take it in turns to guard the eggs with one parent remaining in the pit and the other patrolling the immediate vicinity. Eggs hatch in around three days and the fry are free-swimming around 4–6 days later.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/paretroplus-damii",
+      "html": "<p>An attractive, if aggressive Madagascan cichlid. Not commonly available in the UK, it can occasionally be obtained through cichlid enthusiasts or specialist dealers.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/45ebae06afc1a768.webp",
+      "width": 960,
+      "height": 719,
+      "licence": "CC BY-SA 3.0",
+      "author": "Hectonichus",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cichlidae_-_Paretroplus_damii.JPG",
+      "caption": "Paretroplus damii, on display at the Museo di Storia Naturale e del Territorio, Calci (Province Pisa), Italy",
+      "thumb": "https://media.aquatome.com/commons/45ebae06afc1a768-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/0b35a29d2ce779ec.webp",
+      "width": 960,
+      "height": 1366,
+      "licence": "Public domain",
+      "author": "text: Alfred Grandidier (1836-1921) artists: various (Jobin)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:GrandidierMadagascarFishes_0117.jpg",
+      "caption": "Paretroplus damii Pomocentrus littoralis Pomocentrus madagascariensis Pomocentrus pristiger Pseudoscarus cyanescens",
+      "thumb": "https://media.aquatome.com/commons/0b35a29d2ce779ec-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "qedJI-YdISc",
+      "title": "Paretroplus damii in Poland",
+      "durationSec": 12,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "docsOg2pcV8",
+      "title": "WET-AQUA Paretroplus damii",
+      "durationSec": 23,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "K4OCKxdu36g",
+      "title": "WET-AQUA Paretroplus damii",
+      "durationSec": 12,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "XZakujsbulo",
+      "title": "WET-AQUA Paretroplus damii",
+      "durationSec": 22,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 180cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy lọc cho bể 600 lít"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300W"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cichlid viên lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

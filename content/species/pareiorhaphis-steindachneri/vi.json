@@ -7,13 +7,20 @@
     "distribution:planetcatfish": "<p>Loài này sống ở Nam Mỹ, cụ thể là Brazil. Cá có mặt ở các sông thuộc bang Santa Catarina, gồm Cubatão, Tubarão và Araranguá.</p>",
     "dimorphism:planetcatfish": "<p>Có hai đặc điểm chính để phân biệt các loài Pareiorhaphis với những loài neoplecostomine còn lại. Thứ nhất, tấm ống (canal plate) khớp chặt vào xương nắp mang trước (preopercle). Thứ hai, cá đực trưởng thành có một loạt đặc điểm dị hình giới tính, đó là các răng da (odontode) phì đại. Chính những răng da này làm cá đực trông nhám và lởm chởm gai.</p><p>Ở loài này, vây ngực phủ lên một nửa chiều dài vây bụng. Mép trên của gai vây ngực không có nếp da. Vào mùa sinh sản, cá đực có gai vây ngực dày và thẳng, trên đó phủ dày đặc những răng da phì đại ngắn.</p>",
     "reproduction:planetcatfish": "<p>Hiện chưa có ghi nhận nào về việc loài này sinh sản.</p>",
-    "references:planetcatfish": "<p>Revista da Sociedade Brasileira de Sciências (Rio de Janeiro) v. 2, pp 107.</p>"
+    "references:planetcatfish": "<p>Revista da Sociedade Brasileira de Sciências (Rio de Janeiro) v. 2, pp 107.</p>",
+    "quickFacts:scotcat": "<p>Họ: Loricariidae. Kích thước: 14,5 cm. Nhiệt độ: 22–26 °C. pH: 6,0–7,5. Tên thường gọi: chưa có. Tên loài steindachneri đặt theo tên Franz Steindachner, nhà ngư học người Áo (1834–1919).</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: lưu vực các sông Cubatão, Itapocu và Itajaí-Açu ở Brazil, thuộc hai bang Paraná và Santa Catarina. Nơi thu mẫu chuẩn: Flum. Rio Itapucú (Santa Catharina) [Brazil].</p>",
+    "habitat:scotcat": "<p>Đây là loài hay gặp và có số lượng đông. Chúng sống ở những đoạn sông suối nước lạnh, chảy xiết, nhiều oxy, đáy đá và cây cối hai bên còn nguyên vẹn. Cá thường nấp dưới đá ở chỗ nước chảy mạnh. Một vài nơi trong vùng phân bố đang bị phá rừng, khai khoáng và ô nhiễm thuốc trừ sâu, nhưng những mối đe dọa này không đẩy loài tới nguy cơ tuyệt chủng. Loài này có mặt ở nhiều khu bảo tồn, chẳng hạn Vườn quốc gia Serra de Itajaí, và nằm ở mức Ít quan tâm (LC) trong danh sách của IUCN (IUCN 2022).</p>",
+    "waterConditions:scotcat": "<p>Nhiệt độ 22–26 °C, pH 6,0–7,5. Bể nuôi loài này cần có dòng chảy khỏe.</p>",
+    "notes:scotcat": "<p>Mô tả: vây lưng có tổng cộng 1 gai và 7 tia mềm, vây hậu môn có 6 tia mềm. Trước vây mỡ có 1–2 tấm xương đơn. Ở con đực đã trưởng thành hẳn, các odontode phì đại ở rìa đầu dài hơn nhánh hàm dưới nhưng ngắn hơn chiều dài mõm. Chiều rộng xương cleithrum bằng 27,9–33,7% SL. Cá có vây mỡ. Gai vây ngực cong và ngắn, khi ép sát thân thì không vượt quá nửa vây bụng. Chiều dài đầu bằng 30,2–36,4% SL.</p>",
+    "references:scotcat": "<p>Chico Mendes Institute for Biodiversity Conservation (ICMBio). 2022. Pareiorhaphis steindachneri. The IUCN Red List of Threatened Species 2022.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2016. FishBase. World Wide Web electronic publication. www.fishbase.org, (10/2016).</p><p>Pereira, E.H. and R.E. Reis, 2002. Revision of the loricariid genera Hemipsilichthys and Isbrueckerichthys (Teleostei: Siluriformes), with descriptions of five new species of Hemipsilichthys. Ichthyol. Explor. Freshwat. 13(2):97-146.</p>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.8
+      "planetcatfish": 0.8,
+      "scotcat": 0.95
     }
   }
 }

@@ -12,6 +12,110 @@
     "brazil",
     "rio-negro"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE",
+        "BR"
+      ],
+      "regions": [
+        "Rio Negro",
+        "Orinoco",
+        "Casiquiare",
+        "Rio Baria"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The specimens on which the first description was based came from the upper reaches of the Rio Baria in the Cerro de Neblina area in the extreme south of Venezuela (Territorio Federal Amazonas) on the border with Brazil; no ornamental fish are exported from there.",
+          "countries": [
+            "VE"
+          ],
+          "regions": [
+            "Rio Baria"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "It later turned out that the species is much more widespread in Venezuela and Brazil (upper Rio Negro, Casiquiare and upper Orinoco), but always away from the usual fishing routes.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Negro",
+            "Orinoco",
+            "Casiquiare"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354662,
+      "total": 31,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "VE",
+          22
+        ],
+        [
+          "BR",
+          8
+        ],
+        [
+          "CO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -73.125,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          0,
+          16,
+          16
+        ],
+        [
+          -67.5,
+          1.40625,
+          8,
+          8
+        ],
+        [
+          -67.5,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          1.40625,
+          3,
+          3
+        ],
+        [
+          -66.09375,
+          2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {

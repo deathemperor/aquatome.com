@@ -435,10 +435,15 @@
     "reason": "many species"
   },
   "4mcmcGUXioo": {
-    "at": "2026-11-07",
+    "at": "2026-11-09",
     "title": "Meet the Nano Dwarf Pencilfish - Nannostomus marginatus - Aquarium Fish",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Nannostomus marginatus",
+    "page": "species/nannostomus-marginatus",
+    "done": "low",
+    "score": 0.6,
+    "reason": "[behaviour] \"Thỉnh thoảng con đực vẫn gây nhau, chuyện này bình thường\" repeats page's male-competition point, and the page says males rarely fight, so the video's difference (occasional disputes are normal) isn't stated plainly.; [behaviour] \"Đàn càng đông thì mấy con đực yếu càng ít bị bắt nạt\" is close to the page's group-size claim (đàn đông chia đều hung hăng), so it is partly already on the page."
   },
   "4NSQFdzDSJM": {
     "at": "2026-11-07",
@@ -449,10 +454,15 @@
     "reason": "general guppy crossbreeding, not one species profile"
   },
   "4QNZbyXjZuI": {
-    "at": "2026-11-07",
+    "at": "2026-11-09",
     "title": "The Flag Tetra Looks Incredible in a School | Species Profile",
     "channel": "Steenfott Aquatics",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Hyphessobrycon eschwartzae",
+    "page": "species/hyphessobrycon-eschwartzae",
+    "done": "low",
+    "score": 0.62,
+    "reason": "notes: 'Loài này đã có trong bể của người chơi từ trước khi được mô tả chính thức' is fine, but the sculptor/philanthropist origin overlaps the PAGE's name-origin text (Schwartz financial support), so it repeats what the page already has.; dimorphism: 'Cá cái tròn bụng rõ nhất khi đang mang trứng' repeats the page's point that females are fuller, and the 'hooks on anal fin' in NEW partly duplicates the page."
   },
   "4UYguCrVuRs": {
     "at": "2026-11-07",
@@ -487,10 +497,15 @@
     "reason": "problem topic, not species"
   },
   "541vhQjR9fI": {
-    "at": "2026-11-07",
+    "at": "2026-11-09",
     "title": "Discover the Popular Long Fin Cherry Barb - Puntius titteya",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Puntius titteya",
+    "page": "species/puntius-titteya",
+    "done": "low",
+    "score": 0.6,
+    "reason": "[dimorphism] \"Một người nuôi loài này thấy con cái thường có màu cam nhạt\" makes the video's general statement (females have a muted orange hue) look like one keeper's own observation. The video doesn't present it that way.; [dimorphism] The page already says females are \"đỏ ngả nâu, nhạt hơn\". The sentence doesn't say plainly that the video differs (muted orange, not brownish red)."
   },
   "56jgp6nyll4": {
     "at": "2026-11-07",
@@ -517,10 +532,14 @@
     "reason": "aquarium tour"
   },
   "5K1_KCFudYM": {
-    "at": "2026-11-07",
+    "at": "2026-11-09",
     "title": "Hornwort (Ceratophyllum demersum) Hardy Plant for Beginners/Breeding Livebearers",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Ceratophyllum demersum",
+    "page": "plants/ceratophyllum-demersum",
+    "done": "added",
+    "score": 0.85
   },
   "5nS3R41bZIA": {
     "at": "2026-11-07",
@@ -563,16 +582,23 @@
     "reason": "general rainbowfish, not one species"
   },
   "5w78A-3CMaY": {
-    "at": "2026-11-07",
+    "at": "2026-11-09",
     "title": "Micranthemum \"MONTE CARLO\" (Species Spotlight)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Micranthemum monte carlo",
+    "done": "skipped",
+    "reason": "no page, and GBIF has no species of that name"
   },
   "5wrNO-hLGy0": {
-    "at": "2026-11-07",
+    "at": "2026-11-09",
     "title": "Longmouth Pipefish: One of the Strangest Freshwater Fish",
     "channel": "Steenfott Aquatics",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Doryichthys heterosoma",
+    "page": "species/doryichthys-heterosoma",
+    "done": "new page",
+    "score": 0.85
   },
   "60nzF3BVTZk": {
     "at": "2026-11-07",

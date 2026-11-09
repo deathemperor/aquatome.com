@@ -2,19 +2,29 @@
   "slug": "ca-tre-thuy-tinh-parailia-occidentalis",
   "name": "Cá trê thủy tinh Parailia occidentalis",
   "altNames": [
-    "Dusky Glass Catfish"
+    "Dusky Glass Catfish",
+    "Cá da trơn thủy tinh châu Phi sẫm màu",
+    "Dusky African glass catfish"
   ],
   "sections": {
     "quickFacts:planetcatfish": "<ul><li><strong>Tên khoa học:</strong> Parailia occidentalis (Pellegrin, 1901)</li><li><strong>Tên thường gọi:</strong> Dusky Glass Catfish</li><li><strong>Nơi thu mẫu chuẩn:</strong> Cape Lopez, Gabon.</li><li><strong>Tên đồng nghĩa:</strong> Ailia occidentalis, Physailia ansorgii, Physailia occidentalis, Physailia villiersi</li><li><strong>Từ nguyên:</strong> Tên chi ghép từ tiền tố Latin par- (nghĩa là ngang bằng) với Ailia, tên một chi cá da trơn thuộc họ Schilbeidae. Người đặt tên muốn chỉ ra rằng chi này rất giống chi Ailia.</li><li><strong>Kích thước:</strong> 85 mm chiều dài chuẩn (SL, đo từ mõm đến gốc đuôi).</li><li><strong>Nhận dạng:</strong> Mọi loài trong chi này đều không có vây lưng. Chúng đều nhỏ, không con nào dài quá 150 mm SL.</li><li><strong>Danh sách Đỏ IUCN:</strong> Ít lo ngại (đánh giá lần gần nhất năm 2009).</li></ul>",
     "distribution:planetcatfish": "<p>Châu Phi: Ogowe, Congo, Quanza, Luculla, Chiloango.</p>",
     "reproduction:planetcatfish": "<p>Sinh sản: Chưa có thông tin. Đến nay chưa có ghi nhận nào về việc loài này sinh sản.</p>",
-    "references:planetcatfish": "<p>Bulletin du Muséum National d'Histoire Naturelle (Série 1) v. 7 (no. 7), pp 331.</p>"
+    "references:planetcatfish": "<p>Bulletin du Muséum National d'Histoire Naturelle (Série 1) v. 7 (no. 7), pp 331.</p>",
+    "quickFacts:scotcat": "<p>Họ: Schilbeidae. Kích thước: 7 cm. Nhiệt độ: 23–26°C. pH: 6,5–7,2. Cá đẻ trứng và bố mẹ không giữ trứng.</p>",
+    "distribution:scotcat": "<p>Loài này có ở châu Phi, trong các sông Ogowe, Congo, Quanza, Luculla và Chiloango. Nơi thu mẫu chuẩn là Cap Lopez, Congo thuộc Pháp. Tên loài occidentalis là chữ Latin, nghĩa là \"phía tây\". Tên này chỉ Cap Lopez, Gabon, nằm ở bờ tây châu Phi.</p>",
+    "habitat:scotcat": "<p>Loài này chỉ sống ở sông lớn và sông vừa, đôi khi vào tới cửa sông. Chúng sống thành đàn, và những đàn cá này có lẽ là nguồn mồi quan trọng của một số loài cá săn mồi lớn hơn. Ngoài sông, chúng có thể bơi vào cả vùng nước lợ ở cửa sông.</p>",
+    "behaviour:scotcat": "<p>Giống mọi loài Parailia khác, cá có bốn cặp râu. Trong bể, chúng thích được nuôi thành nhóm.</p>",
+    "reproduction:scotcat": "<p>Cá đẻ trứng và bố mẹ không giữ trứng.</p>",
+    "notes:scotcat": "<p>Mô tả: vây lưng có 0 gai và 0 tia mềm. Vây hậu môn có 0 gai và 51–68 tia mềm. Cá có vây mỡ. Mặt trong gai vây ngực có răng cưa yếu, răng nhỏ đến rất nhỏ. Răng xương lá mía thường không có. Màu sắc: đặc điểm để nhận ra loài này là một đốm sẫm ở cuống đuôi và một dải sẫm chạy từ đầu tới cuống đuôi.</p><p>Danh sách đỏ IUCN: Ít quan tâm, vì loài phân bố rộng và chưa thấy mối đe dọa lớn nào trên diện rộng. Ở cấp khu vực, loài này cũng được xếp mức Ít quan tâm tại Trung Phi. Ở miền nam châu Phi, dữ liệu về loài còn ít và cần khảo sát kỹ hơn. Tại khu vực này, loài được xếp mức Thiếu dữ liệu.</p>",
+    "references:scotcat": "<p>da Costa, L. &amp; Moelants, T. 2010. Parailia occidentalis. The IUCN Red List of Threatened Species 2010.</p><p>De Vos, L., 1995. Results of a systematic revision of African schilbeids at the species level. p.113-364. In L. De Vos. A systematic revision of the African Schilbeidae (Teleostei, Siluriformes) with an annotated bibliography, Chapter 3. Ann. Mus. R. Afr. Centr. Zool. vol. 271.</p><p>Froese, R. and D. Pauly. Editors. 2019. FishBase. World Wide Web electronic publication. www.fishbase.org, (12/2019).</p><p>Seegers, L. 2008 The catfishes of Africa. A handbook for identification and maintenance. Aqualog Verlag A.C.S. GmbH, Germany. 604 p.</p>"
   },
   "quality": {
     "score": 0.85,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.85
+      "planetcatfish": 0.85,
+      "scotcat": 0.85
     }
   }
 }

@@ -12,32 +12,50 @@ final class V2FlowTests: XCTestCase {
     return app
   }
 
-  func testOffByDefaultShowsV1sTabs() {
+  /// The app's look on a new phone, and on a phone from before that never touched the switch: v2's tabs.
+  func testV2IsTheLookByDefault() {
     let app = launch()
-    app.launchForFlow()
-    XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 10), "no Tìm tab")
+    app.launchForFlow(nil)
+    XCTAssertTrue(app.tabBars.buttons["Hôm nay"].waitForExistence(timeout: 10), "v2 isn't the look by default")
+    XCTAssertTrue(app.tabBars.buttons["Khám phá"].exists)
     XCTAssertTrue(app.tabBars.buttons["Bể của tôi"].exists)
     XCTAssertTrue(app.tabBars.buttons["Đèn"].exists)
-    XCTAssertFalse(app.tabBars.buttons["Hôm nay"].exists, "v2 on by default")
+    XCTAssertFalse(app.tabBars.buttons["Tìm"].exists, "the old look's Tìm tab by default")
   }
 
-  func testTheSwitchTurnsV2OnAndBackKeepingTheTanks() {
+  func testTheSwitchGoesToTheOldLookAndBackKeepingTheTanks() {
     let app = launch("-seed-tanks", "clash")
     app.launch()
-    XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 10), "v1 didn't open")
+    XCTAssertTrue(app.tabBars.buttons["Hôm nay"].waitForExistence(timeout: 10), "v2 didn't open")
 
     flip(app)
-    XCTAssertTrue(app.tabBars.buttons["Hôm nay"].waitForExistence(timeout: 5), "v2 didn't open")
-    XCTAssertTrue(app.tabBars.buttons["Khám phá"].exists)
+    XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 5), "the old look didn't open")
+    XCTAssertFalse(app.tabBars.buttons["Hôm nay"].exists, "v2's tabs still there")
     app.openTab("Bể của tôi")
-    XCTAssertTrue(app.buttons["tank"].firstMatch.waitForExistence(timeout: 5), "v2 lost the tank")
+    XCTAssertTrue(app.buttons["tank"].firstMatch.waitForExistence(timeout: 5), "the old look lost the tank")
     XCTAssertTrue(app.buttons["tank"].firstMatch.label.contains("Bể 60"), app.buttons["tank"].firstMatch.label)
 
     flip(app)
-    XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 5), "v1 didn't come back")
-    XCTAssertFalse(app.tabBars.buttons["Hôm nay"].exists, "v2's tabs still there")
+    XCTAssertTrue(app.tabBars.buttons["Hôm nay"].waitForExistence(timeout: 5), "v2 didn't come back")
+    XCTAssertTrue(app.tabBars.buttons["Khám phá"].exists)
     app.openTab("Bể của tôi")
-    XCTAssertTrue(app.buttons["tank"].firstMatch.waitForExistence(timeout: 5), "v1 lost the tank")
+    XCTAssertTrue(app.buttons["tank"].firstMatch.waitForExistence(timeout: 5), "v2 lost the tank")
+  }
+
+  /// The old look switched on by hand stays, across a relaunch: a default doesn't take it back.
+  func testTheOldLookSwitchedOnStaysAfterARelaunch() {
+    var app = launch()
+    app.launch()
+    XCTAssertTrue(app.tabBars.buttons["Hôm nay"].waitForExistence(timeout: 10), "v2 didn't open")
+    flip(app)
+    XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 5), "the old look didn't open")
+    app.terminate()
+
+    app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook"]
+    app.launch()
+    XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 10), "the old look, switched on by hand, didn't stay")
+    XCTAssertFalse(app.tabBars.buttons["Hôm nay"].exists, "v2 came back over the reader's choice")
   }
 
   func testATankCardOpensTheTankInV2() {
@@ -76,9 +94,8 @@ final class V2FlowTests: XCTestCase {
 
   func testSwitchingBackWithAWholePageOpenLeavesTimTheFishsPage() {
     let app = launch()
-    app.launchForFlow()
-    XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 10), "v1 didn't open")
-    flip(app)
+    app.launchForFlow(nil)
+    XCTAssertTrue(app.tabBars.buttons["Hôm nay"].waitForExistence(timeout: 10), "v2 didn't open")
     app.openTab("Khám phá")
     let fish = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá neon")).firstMatch
     XCTAssertTrue(fish.waitForExistence(timeout: 5), "no Cá neon on Khám phá")
@@ -89,7 +106,7 @@ final class V2FlowTests: XCTestCase {
     full.tap()
     app.openTab("Hôm nay")
     flip(app)
-    XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 5), "v1 didn't come back")
+    XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 5), "the old look didn't open")
     // The fish's page, one step from Tìm's top.
     let back = app.navigationBars.buttons.element(boundBy: 0)
     XCTAssertTrue(back.waitForExistence(timeout: 5), "Tìm shows no page")
@@ -99,9 +116,7 @@ final class V2FlowTests: XCTestCase {
 
   func testSwitchingBackWithAPageOpenOnHomNayLeavesItOnTim() {
     let app = launch()
-    app.launchForFlow()
-    XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 10), "v1 didn't open")
-    flip(app)
+    app.launchForFlow(nil)
     let fish = app.buttons["v2-fish-of-the-day"]
     XCTAssertTrue(fish.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
     fish.tap()
@@ -109,7 +124,7 @@ final class V2FlowTests: XCTestCase {
     // The sheet's button is on a tab's first screen, not on a page.
     app.openTab("Khám phá")
     flip(app)
-    XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 5), "v1 didn't come back")
+    XCTAssertTrue(app.tabBars.buttons["Tìm"].waitForExistence(timeout: 5), "the old look didn't open")
     let back = app.navigationBars.buttons.element(boundBy: 0)
     XCTAssertTrue(back.waitForExistence(timeout: 5), "Tìm shows no page")
     back.tap()
@@ -244,14 +259,17 @@ final class V2FlowTests: XCTestCase {
   }
 
   /// The row replaces Khám phá's path with one of the same length, from another tab that shares v1's: still it shows.
+  /// The guide is kept on the old look's Tìm, then v2 is switched back on.
   func testTheSheetsKeptRowOpensItsShelfOnKhamPhaFromHomNay() {
     let app = launch()
-    app.launchForFlow()
-    XCTAssertTrue(app.descendants(matching: .any)["all-fish"].waitForExistence(timeout: 10), "no handbook")
-    let all = app.descendants(matching: .any)["all-guides"]
-    repeatUntil(all.exists && all.isHittable, times: 6) { app.swipeUp() }
-    all.tap()
-    XCTAssertTrue(app.navigationBars["Tất cả hướng dẫn"].waitForExistence(timeout: 5))
+    app.launchForFlow(nil)
+    XCTAssertTrue(app.tabBars.buttons["Hôm nay"].waitForExistence(timeout: 10), "v2 didn't open")
+    flip(app)
+    XCTAssertTrue(app.handbookShown(timeout: 10), "no handbook")
+    // A topic's guides: the fixed index's one written guide is the shelf's pick, so the shelf has no whole list.
+    let topic = app.buttons.matching(NSPredicate(format: "identifier == 'shelf' AND label BEGINSWITH %@", "Chăm sóc")).firstMatch
+    app.scrolledDown(to: topic).tap()
+    XCTAssertTrue(app.navigationBars["Chăm sóc"].waitForExistence(timeout: 5), "not the topic's guides")
     app.buttons["keep-offline"].tap()
     XCTAssertTrue(app.buttons["Đã tải về đọc offline"].waitForExistence(timeout: 10), "not kept")
     app.navigationBars.buttons.element(boundBy: 0).tap()
@@ -300,6 +318,30 @@ final class V2FlowTests: XCTestCase {
     mate.tap()
     XCTAssertTrue(app.staticTexts["Cá ngựa vằn"].waitForExistence(timeout: 5), "the tank-mate's page didn't open")
     XCTAssertTrue(app.tabBars.buttons["Khám phá"].isSelected, "the tank-mate opened on another tab")
+  }
+
+  /// "Thêm vào bể" on v2's page: the fish put on the tank, and "Xem trong Bể của tôi →" opening that tank on its tab.
+  func testAFishPutOnATankFromItsPageOpensTheTank() {
+    let app = launch("-seed-tanks", "litres") // one tank, "Bể cũ", no fish
+    app.launchForFlow()
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the fish's page didn't open")
+    let add = app.buttons["v2-add"]
+    XCTAssertTrue(add.waitForExistence(timeout: 5), "no Thêm vào bể on the page")
+    add.tap()
+    let count = app.textFields["put-count"]
+    XCTAssertTrue(count.waitForExistence(timeout: 5))
+    XCTAssertEqual(count.value as? String, "6", "not the school size")
+    count.clearAndType("12")
+    app.buttons["put-save"].tap()
+    XCTAssertTrue(app.staticTexts["put-saved"].waitForExistence(timeout: 5), "no word of the save")
+    XCTAssertEqual(app.staticTexts["put-saved"].label, "Đã lưu vào “Bể cũ”.")
+    app.buttons["put-open"].tap()
+    XCTAssertTrue(app.navigationBars["Bể cũ"].waitForExistence(timeout: 5), "Xem trong Bể của tôi didn't open the tank")
+    XCTAssertTrue(app.tabBars.buttons["Bể của tôi"].isSelected, "the tank opened off its tab")
+    let neons = app.descendants(matching: .any).matching(identifier: "life").matching(NSPredicate(format: "label CONTAINS %@", "Cá neon")).firstMatch
+    XCTAssertTrue(neons.label.contains("× 12"), neons.label)
   }
 
   func testAFishsPageReportsHowFarItIsRead() {
@@ -663,12 +705,12 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(app.wait(for: .runningForeground, timeout: 5), "the app isn't in front")
   }
 
-  /// The sheet's switch, tapped, and the sheet closed.
+  /// The sheet's switch to the old look, tapped, and the sheet closed.
   private func flip(_ app: XCUIApplication) {
     app.openAccount()
-    let toggle = app.switches["v2-switch"]
+    let toggle = app.switches["old-look-switch"]
     repeatUntil(toggle.exists && toggle.isHittable, times: 6) { app.swipeUp() }
-    XCTAssertTrue(toggle.exists, "no v2 switch in the Tài khoản sheet")
+    XCTAssertTrue(toggle.exists, "no switch to the old look in the Tài khoản sheet")
     // A switch's own control, at its trailing end: a tap on the row's middle doesn't flip it.
     toggle.coordinate(withNormalizedOffset: CGVector(dx: 0.93, dy: 0.5)).tap()
     app.closeAccount()
@@ -753,5 +795,15 @@ private struct Pixels {
       CGRect(x: CGFloat(b.minX + x0) / s, y: CGFloat(b.minY + y0) / s, width: CGFloat(b.maxX - b.minX + 1) / s, height: CGFloat(b.maxY - b.minY + 1) / s)
     }
     return (points(c), points(symbol))
+  }
+}
+
+private extension XCUIElement {
+  /// Taps at the end of the text, deletes it all (a few more times than it has letters: the first key can be lost while
+  /// the field takes focus), then types.
+  func clearAndType(_ text: String) {
+    let old = value as? String ?? ""
+    coordinate(withNormalizedOffset: CGVector(dx: 0.98, dy: 0.5)).tap()
+    typeText(String(repeating: XCUIKeyboardKey.delete.rawValue, count: old.count + 3) + text)
   }
 }

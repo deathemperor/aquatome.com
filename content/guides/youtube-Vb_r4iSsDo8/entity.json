@@ -1,0 +1,85 @@
+{
+  "id": "youtube-Vb_r4iSsDo8",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=Vb_r4iSsDo8",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-09",
+  "video": {
+    "youtubeId": "Vb_r4iSsDo8",
+    "title": "Building an INCREDIBLE POND with the PROS",
+    "channel": "SerpaDesign",
+    "channelUrl": "https://www.youtube.com/channel/UCGzXtNdhjPxvCNWFme1bG0g",
+    "durationSec": 1177,
+    "publishedAt": "2019-07-27",
+    "chapters": [],
+    "series": {
+      "id": "PLGPT1t4CqpfgR3-g8uqhCFdobxpfonu5U",
+      "position": 21
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/Vb_r4iSsDo8/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [],
+    "gear": [
+      {
+        "category": "loc",
+        "type": "treo",
+        "brand": "Aquascape",
+        "model": "Small Pond Kit 8x11",
+        "t": 1
+      },
+      {
+        "category": "khac",
+        "brand": "Aquascape",
+        "model": "Bio Falls filter",
+        "t": 600
+      },
+      {
+        "category": "loc",
+        "brand": "Aquascape",
+        "model": "Skimmer",
+        "t": 170
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 480
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Rải đá, sỏi và rửa lòng hồ",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/Vb_r4iSsDo8/p4-ZXJhbGFfMDEuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/Vb_r4iSsDo8/p4-ZXJhbGFfMDEuanBn-480.webp",
+          "width": 960,
+          "height": 540,
+          "licence": "CC BY-SA 4.0",
+          "author": "Vijayanrajapuram",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Quarry_as_a_pond_at_Kallar_in_Kasaragod_district_in_Kerala_01.jpg",
+          "caption": "Hồ nước có bờ đá tự nhiên và một ống nước đang đặt trong hồ."
+        }
+      },
+      {
+        "heading": "Dựng thác nước",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/Vb_r4iSsDo8/p5-lbl9wYXJ0eS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/Vb_r4iSsDo8/p5-lbl9wYXJ0eS5qcGc-480.webp",
+          "width": 960,
+          "height": 1344,
+          "licence": "CC0",
+          "author": "Tomwsulcer",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Waterfall_and_pond_at_a_garden_party.jpg",
+          "caption": "Thác nước nhỏ xếp bằng đá chảy xuống hồ có sen, súng."
+        }
+      }
+    ]
+  }
+}

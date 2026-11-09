@@ -16,6 +16,84 @@
     "vietnam",
     "dong-nai"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LA",
+        "TH",
+        "KH",
+        "VN"
+      ],
+      "regions": [
+        "Mekong",
+        "Dong Nai"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known from the middle and lower Mekong basins in Laos, Thailand, Cambodia, and Vietnam, plus the Dong Nai drainage in southern Vietnam.",
+          "countries": [
+            "LA",
+            "TH",
+            "KH",
+            "VN"
+          ],
+          "regions": [
+            "Mekong",
+            "Dong Nai"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2365507,
+      "total": 255,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "TW",
+          250
+        ],
+        [
+          "KH",
+          3
+        ],
+        [
+          "MY",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          101.25,
+          4.21875,
+          2,
+          0
+        ],
+        [
+          105.46875,
+          12.65625,
+          3,
+          3
+        ],
+        [
+          119.53125,
+          22.5,
+          249,
+          0
+        ],
+        [
+          119.53125,
+          23.90625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

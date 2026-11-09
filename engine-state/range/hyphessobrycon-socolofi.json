@@ -1,0 +1,100 @@
+{
+  "id": "hyphessobrycon-socolofi",
+  "native": {
+    "input": "1719bace2ca821ba",
+    "at": "2026-11-09T05:57:45.266Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The lesser bleeding heart tetra, Megalamphodus socolofi, is a characid known only from the rio Negro basin and the rio Nhamundá in Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the rio Negro basin in Amazonas state, Brazil, plus the rio Nhamundá, a smaller tributary drainage which enters the Amazon downstream of its confluence with the Negro.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Negro",
+        "source": "seriouslyfish",
+        "quote": "The lesser bleeding heart tetra, Megalamphodus socolofi, is a characid known only from the rio Negro basin and the rio Nhamundá in Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Nhamundá",
+        "source": "seriouslyfish",
+        "quote": "The lesser bleeding heart tetra, Megalamphodus socolofi, is a characid known only from the rio Negro basin and the rio Nhamundá in Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Branco",
+        "source": "seriouslyfish",
+        "quote": "In the Negro system it occurs in various affluents including the rios Branco, Padauari, and Marauiá.",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Rio Padauari",
+        "source": "seriouslyfish",
+        "quote": "In the Negro system it occurs in various affluents including the rios Branco, Padauari, and Marauiá.",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Rio Marauiá",
+        "source": "seriouslyfish",
+        "quote": "In the Negro system it occurs in various affluents including the rios Branco, Padauari, and Marauiá.",
+        "ok": false,
+        "why": "its name is not in the quote"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hyphessobrycon socolofi",
+    "status": "ACCEPTED",
+    "taxonKey": 2354559,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        8
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        5
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        4
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T05:57:45.266Z"
+  }
+}

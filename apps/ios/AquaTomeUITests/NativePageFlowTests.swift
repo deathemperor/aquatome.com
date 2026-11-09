@@ -274,7 +274,7 @@ final class NativePageFlowTests: XCTestCase {
     XCTAssertGreaterThan(all.frame.minY, breeding.frame.maxY, "the photos above the care text's end")
     XCTAssertEqual(all.label, "Ảnh Cá neon, Xem tất cả 3 ảnh", "not read with whose photos they are")
     XCTAssertTrue(app.links["Ảnh: Tác giả 1 · CC BY 2.0"].exists, "a photo in the row without its credit")
-    all.tap()
+    app.buttons["Đàn cá neon trong bể"].firstMatch.tap()
     XCTAssertTrue(app.descendants(matching: .any)["gallery"].waitForExistence(timeout: 5), "no gallery")
     // Its words once: under the photo, not as the photo's label too (the row's button for it, under the sheet, aside).
     let words = app.descendants(matching: .any).matching(NSPredicate(format: "label == %@ AND elementType != %lu", "Đàn cá neon trong bể",
@@ -597,7 +597,7 @@ final class NativePageFlowTests: XCTestCase {
   private func launch(_ more: String...) -> XCUIApplication {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook"] + more
-    app.launchForFlow()
+    app.launchForFlow(.old)
     return app
   }
 
