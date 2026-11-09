@@ -290,7 +290,7 @@ export function plantDoc(lang: Lang, c: Content, p: Localized<PlantEntity>, list
   const t = translator(lang)
   const parts = plantParts(lang, c, p)
   const lead = image(lang, p.photos[0], `${p.t.name}, ${p.scientificName}`)
-  const { blocks: text } = sectionBlocks(lang, c, { sections: p.sections, t: p.t, self: `plant:${p.id}`, selfNames: [p.scientificName, p.t.name, ...p.t.altNames], figures: parts.figures.map(photo => ({ photo })), refs: p.refs })
+  const { blocks: text } = sectionBlocks(lang, c, { sections: p.sections, t: p.t, self: `plant:${p.id}`, selfNames: [p.scientificName, p.t.name, ...p.t.altNames], figures: parts.figures.map(photo => ({ photo })), co2: p.co2, refs: p.refs })
   return {
     v: PAGE_VERSION,
     kind: 'plant',

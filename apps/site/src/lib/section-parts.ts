@@ -1,4 +1,4 @@
-import { dropCardRepeats, dropOffItems, figuresOffCard, linkTerms, litresOffCard, tankLengthFor, type Content, type DataCardField, type Range, type Section, type SourceId, type SpeciesEntity, type SpeciesRange, type Translation } from '@aq/schema'
+import { dropCardRepeats, dropLowCo2, dropOffItems, figuresOffCard, linkTerms, litresOffCard, tankLengthFor, type Content, type DataCardField, type PlantEntity, type Range, type Section, type SourceId, type SpeciesEntity, type SpeciesRange, type Translation } from '@aq/schema'
 import { gapMatters } from './card-rows'
 import { citeMark, withCite } from './cite'
 import type { Figure } from './figures'
@@ -31,7 +31,7 @@ export function farFromCard(off: { field: DataCardField | 'tankL'; own: Range | 
  * `range`: a species' range, for its "Phân bố tự nhiên" (lib/range.ts), shown before the wild's sections. `refs`: the pages
  * AquaTome's own text on the species was researched from (SpeciesEntity refs), which its blocks cite by number.
  */
-export type SectionProps = { sections: Section[]; t: Translation; self?: string; selfNames?: string[]; figures?: Figure[]; card?: SpeciesEntity['dataCard']; range?: { id: string; name: string; range?: SpeciesRange }; refs?: SpeciesEntity['refs'] }
+export type SectionProps = { sections: Section[]; t: Translation; self?: string; selfNames?: string[]; figures?: Figure[]; card?: SpeciesEntity['dataCard']; co2?: PlantEntity['co2']; range?: { id: string; name: string; range?: SpeciesRange }; refs?: SpeciesEntity['refs'] }
 
 /** "Phân bố tự nhiên" goes before the first of the sections about the wild the page has (or the sources' references). */
 const RANGE_BEFORE = DISPLAY_ORDER.indexOf('distribution')
@@ -40,10 +40,10 @@ const RANGE_BEFORE = DISPLAY_ORDER.indexOf('distribution')
  * A species' or plant's text as its page shows it, put together once for the page (components/Sections.astro) and for
  * the app's copy (lib/app-page.ts): the sections in reader order, each block with its links and its source's numbered
  * mark, a note after a block whose figure is far from the data card's, the photos between sections, and the
- * numbered sources. `card`: a species' data card, whose figures are the page's own (@aq/schema card-facts). `wild`: its
+ * numbered sources. `card`: a species' data card, whose figures are the page's own (@aq/schema card-facts). `co2`: a plant's, for its quick facts (`dropLowCo2`). `wild`: its
  * "Phân bố tự nhiên", when it has a range, shown before group `wildAt`, its sources numbered there in the page's order.
  */
-export function sectionParts(lang: Lang, c: Content, { sections, t, self, selfNames = [], figures = [], card, range, refs: researched = [] }: SectionProps) {
+export function sectionParts(lang: Lang, c: Content, { sections, t, self, selfNames = [], figures = [], card, co2, range, refs: researched = [] }: SectionProps) {
   const targets = mentionIndex(c).targets
   // Other species, plants, taxa, groups, places, glossary terms and equipment: first mention on the page, never the page's own names.
   const linked = new Set<string>(self ? [self] : [])
@@ -73,7 +73,7 @@ export function sectionParts(lang: Lang, c: Content, { sections, t, self, selfNa
     return { key, blocks: sections.filter(x => x.key === key).flatMap(x => {
       const text = t.sections[`${key}:${x.source}`]
       // A quick-facts line the card already gives goes, and so does one that says otherwise: the card is the page's figure.
-      const html = text && card && key === 'quickFacts' ? dropOffItems(card, x.source, dropCardRepeats(x.html, text, x.source, card)) : text
+      const html = !text || key !== 'quickFacts' ? text : card ? dropOffItems(card, x.source, dropCardRepeats(x.html, text, x.source, card)) : co2 ? dropLowCo2(x.html, text, co2) : text
       if (!html) return []
       const name = c.sources[x.source]?.name ?? x.source
       const off = card && key !== 'references' ? farFromCard([...figuresOffCard(card, x.source, html), ...(TANK_KEYS.has(key) ? litresOffCard(card, html) : [])]) : []
