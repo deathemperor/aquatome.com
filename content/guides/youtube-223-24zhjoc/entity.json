@@ -48,41 +48,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hai bể thử cạnh nhau: nước mặn sủi ra cột bọt mịn dày hơn nước ngọt.",
-            "sharpness": 818.2
-          }
-        ]
-      },
-      {
-        "heading": "Thiết kế và vật liệu cần chuẩn bị",
-        "moments": [
-          {
-            "t": 96,
-            "url": "https://media.aquatome.com/video/223-24zhjoc/at96-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ống PVC trắng, chai nhựa và kéo đặt trên bàn để chuẩn bị làm skimmer.",
-            "sharpness": 481.7
-          }
-        ]
-      },
-      {
-        "heading": "Các bước lắp ráp",
-        "moments": [
-          {
-            "t": 162,
-            "url": "https://media.aquatome.com/video/223-24zhjoc/at162-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đoạn thân chai nhựa hình ống sau khi cắt, đặt trên mặt bàn.",
-            "sharpness": 517.2
-          },
-          {
-            "t": 188,
-            "url": "https://media.aquatome.com/video/223-24zhjoc/at188-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hai phần chai được lồng vào nhau để làm cốc hứng.",
-            "sharpness": 503.4
+            "sharpness": 818.2,
+            "person": false
           }
         ]
       },
@@ -95,7 +62,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Miếng mút được nhét vào miệng ống để chặn cá bơi vào.",
-            "sharpness": 538.3
+            "sharpness": 538.3,
+            "person": false
           }
         ],
         "photo": {
@@ -113,20 +81,13 @@
         "heading": "Lắp đặt, chỉnh và vệ sinh",
         "moments": [
           {
-            "t": 222,
-            "url": "https://media.aquatome.com/video/223-24zhjoc/at222-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay nhấc skimmer chai nhựa để chỉnh độ ngập trong nước.",
-            "sharpness": 530.3
-          },
-          {
             "t": 232,
             "url": "https://media.aquatome.com/video/223-24zhjoc/at232-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Skimmer tự chế từ chai nhựa đặt cạnh thành bể kính.",
-            "sharpness": 543.1
+            "sharpness": 543.1,
+            "person": false
           }
         ]
       },
@@ -139,7 +100,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Skimmer tự chế làm từ chai nhựa gắn bên thành bể.",
-            "sharpness": 542.9
+            "sharpness": 542.9,
+            "person": false
           }
         ],
         "photo": {

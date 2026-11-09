@@ -1,0 +1,63 @@
+{
+  "id": "leptobotia-pellegrini",
+  "native": {
+    "input": "5a6e9253c03fa285",
+    "at": "2026-11-09T16:24:16.651Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from Sichuan province, southwestern China (presumably the upper Yangtze River, aka Chang Jiang, drainage) and also known from parts of the Pearl River (Zhu Jiang) basin in Guangxi Autonomous Region.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "A similar-looking but unidentified fish was also recorded from the Lo River drainage, northern Vietnam by Kottelat (2001).",
+        "words": "Vietnam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Pearl River",
+        "source": "seriouslyfish",
+        "quote": "Described from Sichuan province, southwestern China (presumably the upper Yangtze River, aka Chang Jiang, drainage) and also known from parts of the Pearl River (Zhu Jiang) basin in Guangxi Autonomous Region.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Yangtze",
+        "source": "seriouslyfish",
+        "quote": "Described from Sichuan province, southwestern China (presumably the upper Yangtze River, aka Chang Jiang, drainage) and also known from parts of the Pearl River (Zhu Jiang) basin in Guangxi Autonomous Region.",
+        "country": "CN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Leptobotia pellegrini",
+    "status": "ACCEPTED",
+    "taxonKey": 2368305,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ]
+    ],
+    "native": [
+      "CN"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T16:24:16.651Z"
+  }
+}

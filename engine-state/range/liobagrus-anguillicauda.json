@@ -1,0 +1,48 @@
+{
+  "id": "liobagrus-anguillicauda",
+  "native": {
+    "input": "dabf666ac0833e92",
+    "at": "2026-11-09T16:24:16.651Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "IUCN Red List: Least Concern (IUCN 2024). This species has a wide distribution in Anhui, Jiangxi and Fujian Provinces, China. It is common and has a stable population trend.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Liobagrus anguillicauda",
+    "status": "ACCEPTED",
+    "taxonKey": 2342846,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        3
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "e1a01804-881b-42ae-8f97-1e80f697fd56",
+        1
+      ]
+    ],
+    "native": [
+      "CN"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T16:24:16.651Z"
+  }
+}

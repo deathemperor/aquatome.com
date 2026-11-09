@@ -1,0 +1,89 @@
+{
+  "id": "doryichthys-boaja",
+  "native": {
+    "input": "95031b3187aa83e5",
+    "at": "2026-11-09T12:58:06.259Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Doryichthys boaja",
+    "status": "ACCEPTED",
+    "taxonKey": 2332724,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        34
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        33
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        20
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        13
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        3
+      ],
+      [
+        "b7dd8170-98a0-11de-b4d9-b8a03c50a862",
+        3
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        3
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "80f63c1e-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "ca58433a-3ff8-492f-9d7b-6f6d289eb6d6",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-09T12:58:06.259Z"
+  }
+}

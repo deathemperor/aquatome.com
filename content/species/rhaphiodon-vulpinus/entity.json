@@ -1,0 +1,211 @@
+{
+  "id": "rhaphiodon-vulpinus",
+  "scientificName": "Rhaphiodon vulpinus",
+  "order": "Characiformes",
+  "family": "Cynodontidae",
+  "genus": "Rhaphiodon",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "argentina",
+    "rio-de-la-plata",
+    "brazil",
+    "amazon",
+    "ecuador",
+    "guyana",
+    "rupununi",
+    "paraguay",
+    "parana",
+    "peru",
+    "ucayali",
+    "uruguay",
+    "venezuela",
+    "orinoco"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 80
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 200
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhaphiodon-vulpinus",
+      "html": "<ul><li>Difficulty: Difficult, rated so because it needs a tank at least 2 m long.</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhaphiodon-vulpinus",
+      "html": "<ul><li>Needs a tight-fitting lid as this species is known to jump.</li></ul><p>The biara, Rhaphiodon vulpinus, is a dogtooth characin found from the Orinoco and Amazon basins south to the Río de la Plata in Argentina. The only member of its genus, it grows to 600 to 800 mm and is an obligate piscivore, and it is suitable only for public installations or the very largest private aquaria. Juveniles are seen for sale quite regularly, most often without adequate information on their long-term care.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhaphiodon-vulpinus",
+      "html": "<p>R. vulpinus is the most widely-distributed member of the family Cynodontidae.</p><p>Type locality is given simply as 'Brazilian rivers', but this species is currently understood to be distributed in the Amazon basin from the Río Ucayali system in Peru, eastward as far as the rio Xingu in Brazil, plus the rio Tocantins and Rio Capim basins.</p><p>It's also known from the Río Orinoco basin in Venezuela, Rupununi drainage in the upper Essequibo River system in Guyana, and the Rio Paraná/Paraguay and Río Uruguay basins in Paraguay and Uruguay with the Río de la Plata in Argentina representing its southern limit.</p><p>It exhibits a degree of morphological and phenotypic variation with specimens from the upper Xingu possessing a greater number of lateral line scales and branched anal-fin rays than those from elsewhere while those from the rio Negro tend to be more brownish in colour, for example.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhaphiodon-vulpinus",
+      "html": "<p>Occurs in both main river channels and some reservoirs, with fluvial populations undergoing annual reproductive migrations.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhaphiodon-vulpinus",
+      "html": "<p>Standard length: 800 mm SL (80 cm).</p><p>Suitable only for public installations or the very largest private aquaria.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhaphiodon-vulpinus",
+      "html": "<p>The aquarium should ideally be designed to resemble a flowing stream or river with a substrate of variably-sized rocks, sand, fine gravel, and some larger water-worn boulders.</p><p>This can be further furnished with driftwood roots and branches if you wish but be sure to leave plenty of open swimming space.</p><p>Like many fishes that naturally inhabit running waters it's intolerant to the accumulation of organic wastes and requires spotless water at all times in order to thrive.</p><p>It also does best if there is a high proportion of dissolved oxygen and moderate degree of water movement so external filters, powerheads, airstones, etc., should be employed as necessary.</p><p>As stable water conditions are obligatory for its well-being this fish should never be added to biologically-immature aquaria and weekly water changes of 30-50% aquarium volume should be considered mandatory.</p><p>A tightly-fitting cover is essential as this species is a prodigious jumper, and it may also prove beneficial to cover the back and sides of the aquarium in order to reduce the chances of it swimming into the glass since it can be skittish, especially in confined surroundings.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhaphiodon-vulpinus",
+      "html": "<ul><li>Temperature: 24–28°C</li><li>pH: 6.0–8.0</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhaphiodon-vulpinus",
+      "html": "<p>An obligate but generalised piscivore capable of consuming surprisingly large prey.</p><p>Newly-imported specimens often refuse to accept anything but live fishes but most can be weaned onto dead alternatives once recognised as edible.</p><p>Like the vast majority of predatory fishes this species should not be fed mammalian or avian meat like beef heart or chicken, and similarly there is no benefit in the long-term use of 'feeder' fish such as livebearers or small goldfish which carry with them the risk of parasite or disease introduction and at any rate tend not have a high nutritional value unless properly conditioned beforehand.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhaphiodon-vulpinus",
+      "html": "<p>Best kept alone, or with similarly-sized, non-aggressive fishes it cannot fit into its mouth since it's otherwise quite peaceful and easily-dominated.</p><p>It can also be maintained in a group in a suitably-sized aquarium but the purchase of at least three specimens is advisable.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhaphiodon-vulpinus",
+      "html": "<p>This species is reproductively active between the months of September/October to January/April, this period coinciding with high water levels across much of its range.</p><p>It's thus referred to as possessing a seasonal reproductive strategy with the beginning of the cycle associated with the flood regime of its native rivers, and the fish migrating into inundated areas to spawn.</p><p>It has never been bred in aquaria as far as is known.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhaphiodon-vulpinus",
+      "html": "<p>Etymology: Rhaphiodon comes from the Greek rhaphis, meaning 'needle', and odous, meaning 'tooth'; vulpinus comes from the Latin vulpinus, meaning 'fox'.</p><p>R. vulpinus is currently the only member of its genus and probably should not be considered a home aquarium subject at all given its eventual size and natural behaviour.</p><p>Only a handful of private aquarists are known to have the facilities required to house it long-term.</p><p>Unfortunately, juveniles are seen for sale quite regularly, most often without adequate information regarding their long-term care, and it's common to see them being maintained in medium-sized aquaria with no possibility of achieving their potential.</p><p>Other vernacular names include 'vampire barracuda', 'Chambira-challua' (Peru), 'Payara-machete' or 'Payarin' (Venezuela) and 'Pirayagua' (Paraguay).</p><p>In Brazil it's known by various names including 'Chafalote', 'Dentudo', 'Peixe-cachorro', 'Peixe-cadela', 'Ripa' and 'Saranha' as well as the most common 'Biara'.</p><p>Rhaphiodon can be told apart from other genera in the family Cynodontidae by the following characters: dorsal-fin located on the posterior third of the body (predorsal distance 69.3–74.4 % SL, vs. 52.2–61.1 % of SL in all other species); body very elongate (body depth at dorsal-fin origin 12.7–19.6 % SL, vs. 19.1–33.7 %); 62-68 vertebrae (vs. 44–54).</p><p>It's further distinguished from Hydrolycus spp. by the dorsal-fin insertion being located slightly posterior to a vertical through the anal-fin origin (vs. distinctly anterior) and from Cynodon by possession of 38–50 anal-fin rays (vs. 61-80).</p><p>It's sometimes included in the putative subfamily Cynodontinae alongside Cynodon and Hydrolycus, these being separated from other Characiformes by a series of derived features plus their oblique mouth shape and highly-developed dentary canine teeth.</p><p>The latter fit into a pair of corresponding openings in the upper jaw which allows the mouth to be closed completely.</p><p>Cynodontinae contains two primary monophyletic lineages, one comprising the genus Hydrolycus and the other a clade with Cynodon and Rhaphiodon spp., with members sometimes referred to collectively as 'dogtooth characins'.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhaphiodon-vulpinus",
+      "html": "<ul><li>Reuberger, A. L., E. E. Marques, C. S. Agostinho and R. J. de Oliveira (2007). Reproductive biology of Rhaphiodon vulpinus (Ostariophysi: Cynodontidae) in the Tocantins River Basin, Brazil. Neotropical Ichthyology 5(4), 479-484</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Toledo-Piza, M. (2000). The Neotropical Fish Subfamily Cynodontinae (Teleostei: Ostariophysi: Characiformes): A Phylogenetic Study and a Revision of Cynodon and Rhaphiodon. American Museum Novitates 3286, 1-88</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/348ba71d063f701e.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/348ba71d063f701e-480.webp",
+      "width": 800,
+      "height": 548,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhaphiodon-vulpinus",
+      "caption": "Subadult individual in the aquarium.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/bfcf2a24e3ddf6b2.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/bfcf2a24e3ddf6b2-480.webp",
+      "width": 717,
+      "height": 545,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhaphiodon-vulpinus",
+      "caption": "Head detail of specimen collected from the Paraná River, Argentina.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/9b4c1fdd56ac1551.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/9b4c1fdd56ac1551-480.webp",
+      "width": 800,
+      "height": 345,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhaphiodon-vulpinus",
+      "caption": "Adult specimen from the rio Negro, Brazil.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 200cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng ngoài cho bể lớn",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá công suất lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá săn mồi",
+        "thức ăn đông lạnh cho cá ăn thịt"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

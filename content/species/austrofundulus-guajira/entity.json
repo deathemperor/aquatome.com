@@ -6,6 +6,35 @@
   "genus": "Austrofundulus",
   "group": "killifish",
   "places": [],
+  "range": {
+    "records": {
+      "taxonKey": 2349143,
+      "total": 10,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "VE",
+          6
+        ],
+        [
+          "CO",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -73.125,
+          9.84375,
+          4
+        ],
+        [
+          -73.125,
+          11.25,
+          6
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

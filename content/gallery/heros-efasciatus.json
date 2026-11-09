@@ -14,6 +14,30 @@
       "kind": "male"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/642205172.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/642205172-480.webp",
+      "width": 1024,
+      "height": 680,
+      "licence": "CC BY",
+      "author": "Matthew Inabinett",
+      "sourceUrl": "https://www.inaturalist.org/photos/642205172",
+      "caption": "Cá severum màu vàng trong bể nuôi có cây thủy sinh",
+      "best": true,
+      "kind": "form"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/5587632.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/5587632-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Julien Renoult",
+      "sourceUrl": "https://www.inaturalist.org/photos/5587632",
+      "caption": "Cá severum Heros efasciatus ngoài tự nhiên, dưới nước đục",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/3d10d5d6abc5a3b4.webp",
       "thumb": "https://media.aquatome.com/commons/3d10d5d6abc5a3b4-480.webp",
       "width": 921,
@@ -74,18 +98,6 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/commons/6ea7a54ec58b2fe5.webp",
-      "thumb": "https://media.aquatome.com/commons/6ea7a54ec58b2fe5-480.webp",
-      "width": 1080,
-      "height": 728,
-      "licence": "CC BY-SA 3.0",
-      "author": "Ltshears",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_004.jpg",
-      "caption": "Cá severum vai đỏ trong bể nuôi",
-      "best": false,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/commons/6197df837609b992.webp",
       "thumb": "https://media.aquatome.com/commons/6197df837609b992-480.webp",
       "width": 1200,
@@ -132,9 +144,21 @@
       "caption": "Cá severum trưởng thành vai đỏ nâu trong bể",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/6ea7a54ec58b2fe5.webp",
+      "thumb": "https://media.aquatome.com/commons/6ea7a54ec58b2fe5-480.webp",
+      "width": 1080,
+      "height": 728,
+      "licence": "CC BY-SA 3.0",
+      "author": "Ltshears",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_004.jpg",
+      "caption": "Cá severum vai đỏ trong bể nuôi",
+      "best": false,
+      "kind": "other"
     }
   ],
-  "seen": 20,
-  "updatedAt": "2026-11-08",
-  "builtAt": "2026-11-08"
+  "seen": 23,
+  "updatedAt": "2026-11-09",
+  "builtAt": "2026-11-09"
 }

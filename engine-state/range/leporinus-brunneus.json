@@ -1,0 +1,163 @@
+{
+  "id": "leporinus-brunneus",
+  "native": {
+    "input": "4382948e0ebce8ac",
+    "at": "2026-11-09T16:24:16.651Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the rios Madeira and Negro in Brazil and Orinoco system in Venezuela and Colombia plus the Casiquiare canal which connects the two.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the rios Madeira and Negro in Brazil and Orinoco system in Venezuela and Colombia plus the Casiquiare canal which connects the two.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the rios Madeira and Negro in Brazil and Orinoco system in Venezuela and Colombia plus the Casiquiare canal which connects the two.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Madeira",
+        "source": "seriouslyfish",
+        "quote": "Known from the rios Madeira and Negro in Brazil and Orinoco system in Venezuela and Colombia plus the Casiquiare canal which connects the two.",
+        "country": "BR",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Rio Negro",
+        "source": "seriouslyfish",
+        "quote": "Known from the rios Madeira and Negro in Brazil and Orinoco system in Venezuela and Colombia plus the Casiquiare canal which connects the two.",
+        "country": "BR",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "Known from the rios Madeira and Negro in Brazil and Orinoco system in Venezuela and Colombia plus the Casiquiare canal which connects the two.",
+        "ok": true
+      },
+      {
+        "name": "Casiquiare",
+        "source": "seriouslyfish",
+        "quote": "Known from the rios Madeira and Negro in Brazil and Orinoco system in Venezuela and Colombia plus the Casiquiare canal which connects the two.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Leporinus brunneus",
+    "status": "ACCEPTED",
+    "taxonKey": 2355402,
+    "datasets": [
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        49
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        40
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        35
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        20
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        11
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        9
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        7
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        6
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        5
+      ],
+      [
+        "6424b95e-eee2-41fc-9450-bac5d6767525",
+        4
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        4
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        3
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        1
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        1
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        1
+      ],
+      [
+        "b9afe2d0-b264-4422-bf8c-096b2a53c18f",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "VE",
+      "CO"
+    ],
+    "requests": 13,
+    "at": "2026-11-09T16:24:16.651Z"
+  }
+}

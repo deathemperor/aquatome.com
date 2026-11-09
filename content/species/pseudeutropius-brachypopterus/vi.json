@@ -6,13 +6,25 @@
     "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Pseudeutropius brachypopterus (Bleeker, 1858)</li><li>Họ: Horabagridae</li><li>Tên đồng nghĩa: Eutropius brachypopterus</li><li>Nơi thu mẫu chuẩn: Palembang, miền nam Sumatra, Indonesia.</li><li>Nguồn gốc tên: ghép từ tiếng Hy Lạp pseudes (giả), tiếng Hy Lạp eu (tốt) và keel (sống thuyền), ám chỉ thân cá dẹp hai bên.</li><li>Kích thước: 115 mm (11,5 cm) SL.</li><li>Sách Đỏ IUCN: Ít quan ngại (đánh giá lần gần nhất năm 2018).</li></ul>",
     "distribution:planetcatfish": "<p>Loài này sống ở châu Á, tại Sumatra và Borneo. Theo vùng phân bố, cá thuộc khu vực Thái Bình Dương, ở các sông trên quần đảo Đại Sunda, gồm vùng nước Sumatra và vùng nước Borneo.</p>",
     "reproduction:planetcatfish": "<p>Sinh sản: Chưa được ghi nhận. Đến nay chưa có báo cáo nào về chuyện loài cá này sinh sản.</p>",
-    "references:planetcatfish": "<p>Acta Societatis Regiae Scientiarum Indo-Neêrlandicae v. 4 (art. 2), pp 169.</p>"
+    "references:planetcatfish": "<p>Acta Societatis Regiae Scientiarum Indo-Neêrlandicae v. 4 (art. 2), pp 169.</p>",
+    "quickFacts:scotcat": "<ul><li>Tên đồng nghĩa: Eutropius brachypopterus</li></ul>",
+    "distribution:scotcat": "<p>Châu Á: sông Kapuas, Sumatra. Nơi thu mẫu chuẩn: Palembang, Sumatra.</p><p>Ở Sumatra, loài này có từ lưu vực sông Siak xuống phía nam tới lưu vực sông Musi. Ở Borneo, nó có ở sông Kapuas, và từ lưu vực sông Sampit (Mentaya) sang phía đông tới lưu vực sông Sebangau. Vùng phân bố (EOO) ước khoảng 540.000 km2, tính theo các điểm có tọa độ địa lý (GBIF 2019) và ý kiến chuyên gia (H.H. Ng, trao đổi riêng, 2019). Hiện chưa rõ loài này có ở bao nhiêu điểm. Nhưng vì vùng phân bố rộng nên con số đó chắc là hơn 10.</p>",
+    "habitat:scotcat": "<p>Loài này sống được cả ở nước chảy lẫn nước tĩnh. Có vẻ nó gắn với đầm lầy rừng than bùn nước đen nhiều hơn.</p>",
+    "maintenance:scotcat": "<p>Đây là loài cá khá nhát, cần bể thủy sinh có nhiều cây thì chúng mới thấy yên tâm. Nuôi ít nhất 6 con cho thành đàn.</p>",
+    "waterConditions:scotcat": "<p>Nhiệt độ: 22–26 °C. pH: 6,0–7,0.</p>",
+    "diet:scotcat": "<p>Chúng ăn ấu trùng côn trùng và những con vật nhỏ khác.</p>",
+    "behaviour:scotcat": "<p>Loài này sống cùng chỗ với P. moolenburghae, và hai loài bơi chung đàn với nhau.</p>",
+    "reproduction:scotcat": "<p>Loài này đẻ trứng, cá bố mẹ không canh trứng.</p>",
+    "notes:scotcat": "<p>Nguồn gốc tên gọi: Tên loài brachypopterus ghép từ brachýs là ngắn, –po là dạng rút gọn của hypó, nghĩa là dưới hoặc ít hơn, và pterus, từ pterón hoặc ptéryx, nghĩa là cánh hoặc vây. Tên này ám chỉ vây hậu môn của loài ngắn hơn so với các loài cùng giống ở châu Á và châu Phi hồi đó còn xếp trong Eutropius (=Schilbe, nay thuộc họ Schilbeidae).</p><p>Danh sách đỏ IUCN: Chưa có thông tin chi tiết về tình trạng quần thể của loài này, nhưng số liệu khảo sát cho thấy nó vẫn còn nhiều ở nhiều nơi trong vùng phân bố đã biết. Vì thế loài được xếp vào mức Ít quan tâm (Least Concern). Tuy nhiên, nơi sống chủ yếu của loài là rừng đầm lầy than bùn nước đen, và những khu rừng này đã bị phá và suy thoái trên diện rộng. Mất nơi sống ở quy mô lớn như vậy ảnh hưởng tới loài ra sao thì cần nghiên cứu thêm. Khi có thêm thông tin về chuyện này, loài sẽ cần được đánh giá lại (IUCN 2019).</p>",
+    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (11/2009).</p><p>Kottelat, M., A.J. Whitten, S.N. Kartikasari and S. Wirjoatmodjo, 1993. Freshwater fishes of Western Indonesia and Sulawesi. Periplus Editions, Hong Kong. 221 p.</p><p>Ng, H.H. 2019. Pseudeutropius brachypopterus. The IUCN Red List of Threatened Species 2019.</p>"
   },
   "quality": {
-    "score": 0.8,
-    "indexable": true,
+    "score": 0.7,
+    "indexable": false,
     "bySource": {
-      "planetcatfish": 0.8
-    }
+      "planetcatfish": 0.8,
+      "scotcat": 0.7
+    },
+    "reason": "score"
   }
 }

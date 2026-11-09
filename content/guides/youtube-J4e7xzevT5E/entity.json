@@ -170,20 +170,13 @@
         "heading": "Vì sao không nên pha muối thẳng vào nước máy",
         "moments": [
           {
-            "t": 250,
-            "url": "https://media.aquatome.com/video/J4e7xzevT5E/at250-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh nước ngọt cây rậm rạp, cần cân bằng dinh dưỡng.",
-            "sharpness": 1222.2
-          },
-          {
             "t": 270,
             "url": "https://media.aquatome.com/video/J4e7xzevT5E/at270-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Các cột lọc của máy RO/DI dùng để làm nước tinh khiết cho bể mặn.",
-            "sharpness": 1060.8
+            "sharpness": 1060.8,
+            "person": false
           }
         ],
         "photo": {
@@ -201,83 +194,13 @@
         "heading": "Bể và thiết bị gồm những gì",
         "moments": [
           {
-            "t": 440,
-            "url": "https://media.aquatome.com/video/J4e7xzevT5E/at440-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Sump acrylic mới mở thùng, có các ngăn bên trong.",
-            "sharpness": 539.2
-          },
-          {
             "t": 920,
             "url": "https://media.aquatome.com/video/J4e7xzevT5E/at920-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Đèn Kessil A360X đang sáng, treo phía trên bể.",
-            "sharpness": 107.8
-          }
-        ]
-      },
-      {
-        "heading": "Lắp sump và đường ống thế nào",
-        "moments": [
-          {
-            "t": 470,
-            "url": "https://media.aquatome.com/video/J4e7xzevT5E/at470-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bulkhead đen với đầu nối ống trắng, sẵn sàng lắp vào hộp tràn.",
-            "sharpness": 517.5
-          },
-          {
-            "t": 560,
-            "url": "https://media.aquatome.com/video/J4e7xzevT5E/at560-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng kìm siết bulkhead cố định các đường ống vào kính bể.",
-            "sharpness": 1648.4
-          }
-        ]
-      },
-      {
-        "heading": "Xếp đá thế nào để san hô có chỗ lớn",
-        "moments": [
-          {
-            "t": 720,
-            "url": "https://media.aquatome.com/video/J4e7xzevT5E/at720-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đá vòm đặt trên lớp cát dày trong bể, tạo khe và hang.",
-            "sharpness": 1531.2
-          },
-          {
-            "t": 730,
-            "url": "https://media.aquatome.com/video/J4e7xzevT5E/at730-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Xếp đá thành cụm cao có nhiều khe trên nền cát.",
-            "sharpness": 1408
-          }
-        ]
-      },
-      {
-        "heading": "Pha nước mặn và bơm vào bể ra sao",
-        "moments": [
-          {
-            "t": 940,
-            "url": "https://media.aquatome.com/video/J4e7xzevT5E/at940-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bơm đặt trong nắp thùng phuy để nước chạy vòng cho muối tan.",
-            "sharpness": 518.5
-          },
-          {
-            "t": 970,
-            "url": "https://media.aquatome.com/video/J4e7xzevT5E/at970-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Thả bao cát rỗng xuống bể để nước đổ vào không xới cát.",
-            "sharpness": 638.5
+            "sharpness": 107.8,
+            "person": false
           }
         ]
       },
@@ -290,7 +213,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Các loại san hô dễ nuôi trên nền đá, có chalice xanh lá.",
-            "sharpness": 802.7
+            "sharpness": 802.7,
+            "person": false
           },
           {
             "t": 1360,
@@ -298,7 +222,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cặp cá hề bơi quanh cụm san hô frogspawn trong bể.",
-            "sharpness": 3969.4
+            "sharpness": 3969.4,
+            "person": false
           }
         ],
         "photo": {
@@ -321,7 +246,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Túi ốc và cua thả nổi trong bể để thuần nhiệt độ.",
-            "sharpness": 660.2
+            "sharpness": 660.2,
+            "person": false
           },
           {
             "t": 1230,
@@ -329,7 +255,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ốc đã được thả xuống nền cát trong bể.",
-            "sharpness": 60.7
+            "sharpness": 60.7,
+            "person": false
           }
         ]
       },
@@ -342,7 +269,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cụm san hô nhỏ gắn trên đá sống trong bể san hô còn non.",
-            "sharpness": 324.4
+            "sharpness": 324.4,
+            "person": false
           },
           {
             "t": 1430,
@@ -350,7 +278,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể nước mặn mới setup, còn nhiều khoảng trống giữa các khối đá.",
-            "sharpness": 1638.1
+            "sharpness": 1638.1,
+            "person": false
           }
         ],
         "photo": {

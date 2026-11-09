@@ -12,6 +12,77 @@
     "malaysia",
     "segama"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID",
+        "MY"
+      ],
+      "regions": [
+        "Borneo",
+        "Kapuas",
+        "Mahakam",
+        "Segama"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Borneo, with its range extending northeastwards from the Kapuas River watershed in West Kalimantan (Kalimantan Barat) province, Indonesia, through East Kalimantan (Kalimantan Timur) to the Malaysian state of Sabah.",
+          "countries": [
+            "ID",
+            "MY"
+          ],
+          "regions": [
+            "Borneo",
+            "Kapuas"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The majority of records are from the Mahakam and Segama river systems.",
+          "countries": [],
+          "regions": [
+            "Mahakam",
+            "Segama"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2360865,
+      "total": 10,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "MY",
+          10
+        ]
+      ],
+      "cells": [
+        [
+          116.71875,
+          4.21875,
+          6,
+          6
+        ],
+        [
+          118.125,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          118.125,
+          5.625,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

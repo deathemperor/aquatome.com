@@ -1,8 +1,8 @@
 {
   "id": "anabas-testudineus",
   "native": {
-    "input": "4ea97c1ddc0df289",
-    "at": "2026-11-06T06:16:32.822Z",
+    "input": "cdd182e57e3c5da8",
+    "at": "2026-11-09T12:58:06.259Z",
     "claims": [
       {
         "code": "JP",
@@ -46,7 +46,7 @@
       },
       {
         "code": "BT",
-        "status": "doubtful",
+        "status": "native",
         "source": "seriouslyfish",
         "quote": "It is however widely distributed in Pakistan, India, Bangladesh, Nepal, Bhutan (probable), Sri Lanka, Myanmar, Thailand, Cambodia, Laos, Vietnam, southern China, Malaysia, Indonesia, Brunei Darussalam and Singapore.",
         "words": "Bhutan",
@@ -155,15 +155,21 @@
         "quote": "It is farmed commercially for food in several countries with non-native populations now established in the Philippines, Papua New Guinea, some Pacific islands close to Australia and possibly elsewhere.",
         "words": "Papua New Guinea",
         "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Thailand",
+        "words": "Thailand",
+        "ok": true
       }
     ],
     "regions": [],
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [
-        "BT"
-      ],
+      "pagesOnly": [],
       "sourcesOnly": []
     }
   },
@@ -354,6 +360,7 @@
       "IN",
       "BD",
       "NP",
+      "BT",
       "LK",
       "MM",
       "TH",
@@ -367,6 +374,6 @@
       "SG"
     ],
     "requests": 13,
-    "at": "2026-11-06T06:16:32.822Z"
+    "at": "2026-11-09T12:58:06.259Z"
   }
 }

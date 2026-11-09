@@ -10,9 +10,11 @@
     "trichogaster-chuna",
     "hygrophila-pinnatifida",
     "microsorum-pteropus",
-    "neocaridina-davidi"
+    "neocaridina-davidi",
+    "sawbwa-resplendens",
+    "boraras-brigittae"
   ],
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "KDbGcwFCT7M",
     "title": "CHEAP & EASY Aquarium LID that Anyone can make!",
@@ -31,11 +33,11 @@
       "height": 720
     },
     "taxa": [
-      "Oryzias latipes",
-      "Petitella rhodostoma",
+      "Oryzias sp.",
+      "Sawbwa resplendens",
+      "Boraras brigittae",
       "Trichogaster chuna",
       "Hygrophila pinnatifida",
-      "Microsorum pteropus",
       "Neocaridina davidi"
     ],
     "gear": [
@@ -47,22 +49,15 @@
         "t": 0
       },
       {
-        "category": "phan-nen",
-        "type": "phan",
-        "brand": "ADA",
-        "model": "Amazonia Soil Powder Type",
+        "category": "khac",
+        "brand": "Tropica",
+        "model": "Premium",
         "t": 0
       },
       {
         "category": "khac",
         "brand": "Tropica",
-        "model": "Premium Ferts",
-        "t": 0
-      },
-      {
-        "category": "khac",
-        "brand": "Tropica",
-        "model": "Specialised Ferts",
+        "model": "Specialised",
         "t": 0
       },
       {
@@ -79,66 +74,60 @@
       {
         "category": "thuc-an",
         "type": "kho",
-        "t": 230
+        "t": 220
       }
     ],
     "figures": [
       {
-        "heading": "Vì sao nắp tạm bằng đồ có sẵn không ổn",
+        "heading": "Vì sao nắp chắp vá không ổn",
         "moments": [
           {
             "t": 35,
-            "url": "https://media.aquatome.com/video/KDbGcwFCT7M/t35.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể phủ nắp tạm ghép từ miếng xốp và đồ có sẵn."
+            "url": "https://media.aquatome.com/video/KDbGcwFCT7M/at35-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Nắp tạm bằng tấm xốp đặt lên miệng bể, hở khe các phía.",
+            "sharpness": 260.4,
+            "person": false
           },
           {
-            "t": 79,
-            "url": "https://media.aquatome.com/video/KDbGcwFCT7M/t79.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Miếng xốp gác trên miệng bể, bên cạnh còn hở khe."
+            "t": 40,
+            "url": "https://media.aquatome.com/video/KDbGcwFCT7M/at40-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể được đậy bằng tấm xốp và miếng đen, còn nhiều khe hở.",
+            "sharpness": 335.7,
+            "person": false
           }
         ]
       },
       {
-        "heading": "Vì sao không dùng nắp kính",
+        "heading": "Khi nào không dùng được nắp kính",
         "moments": [
           {
-            "t": 322,
-            "url": "https://media.aquatome.com/video/KDbGcwFCT7M/t322.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể nhỏ đậy tấm kính gọn vì mặt nước không có gì nhô lên."
-          },
-          {
-            "t": 332,
-            "url": "https://media.aquatome.com/video/KDbGcwFCT7M/t332.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Lũa nhô lên khỏi mặt nước, khó đậy nắp kính nguyên tấm."
-          }
-        ]
-      },
-      {
-        "heading": "Chọn vật liệu nào",
-        "moments": [
-          {
-            "t": 426,
-            "url": "https://media.aquatome.com/video/KDbGcwFCT7M/t426.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Tấm nhựa rỗng ruột xếp trên kệ trong cửa hàng vật liệu."
-          },
-          {
-            "t": 436,
-            "url": "https://media.aquatome.com/video/KDbGcwFCT7M/t436.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cầm tấm nhựa trong để xem làm nắp đậy bể."
+            "t": 325,
+            "url": "https://media.aquatome.com/video/KDbGcwFCT7M/at325-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tấm kính đặt làm nắp trên mặt bể.",
+            "sharpness": 230.7,
+            "person": false
           }
         ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/KDbGcwFCT7M/p1-YXJkc2NhcGUuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/KDbGcwFCT7M/p1-YXJkc2NhcGUuanBn-480.webp",
+          "width": 960,
+          "height": 638,
+          "licence": "CC BY 4.0",
+          "author": "Abhik.Mazumdar.73",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Tank_Mermaid_and_Poseidon_Statue_Driftwood_Hardscape.jpg",
+          "caption": "Bể có lũa lớn vươn cao khỏi mặt nước nên khó đậy nắp kính."
+        }
+      },
+      {
+        "heading": "Chọn vật liệu làm nắp",
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/KDbGcwFCT7M/p2-JkX0FMVF8yLnBuZw.webp",
           "thumb": "https://media.aquatome.com/video/KDbGcwFCT7M/p2-JkX0FMVF8yLnBuZw-480.webp",
@@ -147,85 +136,55 @@
           "licence": "CC BY 4.0",
           "author": "Anggun Tifani",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:PP_Board_ALT_2.png",
-          "caption": "Các tấm nhựa rỗng ruột nhiều màu, loại dễ cắt để làm nắp bể."
+          "caption": "Các tấm nhựa sóng nhiều màu, loại dễ cắt để làm nắp bể."
         }
       },
       {
         "heading": "Cắt và khoét nắp thế nào",
         "moments": [
           {
-            "t": 500,
-            "url": "https://media.aquatome.com/video/KDbGcwFCT7M/t500.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Tấm nhựa đã khoét lỗ cho ống lọc, đặt trên miệng bể."
-          },
-          {
             "t": 505,
-            "url": "https://media.aquatome.com/video/KDbGcwFCT7M/t505.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đặt thử nắp lên bể để kiểm tra độ vừa và các chỗ khoét."
+            "url": "https://media.aquatome.com/video/KDbGcwFCT7M/at505-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Nắp nhựa nằm phẳng trên miệng bể, có chỗ khoét cho lũa nhô lên.",
+            "sharpness": 136,
+            "person": false
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/KDbGcwFCT7M/p3-JkX0FMVF8yLnBuZw.webp",
-          "thumb": "https://media.aquatome.com/video/KDbGcwFCT7M/p3-JkX0FMVF8yLnBuZw-480.webp",
-          "width": 960,
-          "height": 560,
-          "licence": "CC BY 4.0",
-          "author": "Anggun Tifani",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:PP_Board_ALT_2.png",
-          "caption": "Tấm nhựa rỗng nhiều màu, loại dùng làm nắp bể cắt bằng dao."
-        }
+        ]
       },
       {
-        "heading": "Làm cánh trượt quanh lũa",
+        "heading": "Vì sao chỉ đậy nắp vào ban đêm",
         "moments": [
           {
-            "t": 549,
-            "url": "https://media.aquatome.com/video/KDbGcwFCT7M/t549.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Tấm nhựa nắp và miếng lưới nhỏ định gắn để tiện mở đóng."
+            "t": 575,
+            "url": "https://media.aquatome.com/video/KDbGcwFCT7M/at575-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Nắp kính trong đặt phía trên bể, nhìn rõ đèn và mặt nước.",
+            "sharpness": 736.8,
+            "person": false
           },
           {
-            "t": 564,
-            "url": "https://media.aquatome.com/video/KDbGcwFCT7M/t564.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Tay kéo cánh trượt của nắp hồ, lũa nhô lên bên dưới."
+            "t": 625,
+            "url": "https://media.aquatome.com/video/KDbGcwFCT7M/at625-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh bật đèn sáng, không đậy nắp, cây phát triển tốt.",
+            "sharpness": 1154,
+            "person": false
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/KDbGcwFCT7M/p4-YXJkc2NhcGUuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/KDbGcwFCT7M/p4-YXJkc2NhcGUuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/KDbGcwFCT7M/p4-NfUGxhbnRzLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/KDbGcwFCT7M/p4-NfUGxhbnRzLmpwZw-480.webp",
           "width": 960,
           "height": 638,
           "licence": "CC BY 4.0",
           "author": "Abhik.Mazumdar.73",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Tank_Mermaid_and_Poseidon_Statue_Driftwood_Hardscape.jpg",
-          "caption": "Bể thủy sinh có lũa lớn vươn cao, nhô lên phía trên nắp bể."
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_with_Mermaid_Statue_Driftwood_and_Anubias_Aquatic_Plants.jpg",
+          "caption": "Bể thủy sinh để hở không nắp, ánh sáng chiếu thẳng xuống cây."
         }
-      },
-      {
-        "heading": "Dùng nắp hằng ngày ra sao",
-        "moments": [
-          {
-            "t": 624,
-            "url": "https://media.aquatome.com/video/KDbGcwFCT7M/t624.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể có nắp đậy phía trên, đèn chiếu sáng, lũa và cây bên trong."
-          },
-          {
-            "t": 653,
-            "url": "https://media.aquatome.com/video/KDbGcwFCT7M/t653.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Nắp trong đậy kín trên mặt bể, có cánh trượt và đèn phía trên."
-          }
-        ]
       }
     ]
   }

@@ -8,7 +8,7 @@
   "mentions": [
     "astronotus-ocellatus"
   ],
-  "updatedAt": "2026-11-03",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "SVD46Uvw66A",
     "title": "How to feed aquarium fish",
@@ -33,42 +33,59 @@
       {
         "category": "thuc-an",
         "type": "kho",
-        "t": 228
+        "t": 288
       }
     ],
     "figures": [
       {
-        "heading": "Một ngày nên cho cá ăn mấy lần",
+        "heading": "Mấy lần một ngày là đủ",
         "moments": [
           {
-            "t": 133,
-            "url": "https://media.aquatome.com/video/SVD46Uvw66A/t133.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bồn cá lớn với lũa và cây thủy sinh, cá bơi gần mặt nước."
-          },
-          {
-            "t": 138,
-            "url": "https://media.aquatome.com/video/SVD46Uvw66A/t138.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Nhìn từ trên xuống bể cá cỡ lớn có nhiều lũa và cá."
+            "t": 135,
+            "url": "https://media.aquatome.com/video/SVD46Uvw66A/at135-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể cá lớn có lũa và cây thủy sinh, cá bơi phía sau.",
+            "sharpness": 68.3
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/SVD46Uvw66A/p0-YXF1YXJpdW0uanBn.webp",
-          "thumb": "https://media.aquatome.com/video/SVD46Uvw66A/p0-YXF1YXJpdW0uanBn-480.webp",
+          "url": "https://media.aquatome.com/video/SVD46Uvw66A/p0-NlbGxhdHVzLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/SVD46Uvw66A/p0-NlbGxhdHVzLmpwZw-480.webp",
           "width": 960,
-          "height": 637,
-          "licence": "CC BY 4.0",
-          "author": "Retro Lenses",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_photo_of_an_oscar_fish_(Astronotus_ocellatus)_in_a_aquarium.jpg",
-          "caption": "Cặp cá hồng két (oscar) bơi trong bể trồng cây, màu sắc rõ nét."
+          "height": 640,
+          "licence": "CC BY-SA 3.0",
+          "author": "Jón Helgi Jónsson (Amything)",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Astronotus_ocellatus.jpg",
+          "caption": "Cá dĩa lớn (oscar) nhìn cận, to khỏe, là loại cá lớn cần cho ăn mỗi ngày."
         }
       },
       {
-        "heading": "Cá lớn: tính lượng ăn theo trọng lượng cơ thể",
+        "heading": "Vì sao cá lớn không cần ăn nhiều",
         "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/SVD46Uvw66A/p1-lX1pvb18wMS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/SVD46Uvw66A/p1-lX1pvb18wMS5qcGc-480.webp",
+          "width": 960,
+          "height": 643,
+          "licence": "CC BY-SA 3.0",
+          "author": "H. Zell",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Astronotus_ocellatus_-_Karlsruhe_Zoo_01.jpg",
+          "caption": "Cá Oscar trưởng thành, thân đầy đặn, bơi trong bể trồng cây."
+        }
+      },
+      {
+        "heading": "Cá lớn ăn bao nhiêu: tính theo trọng lượng cơ thể",
+        "moments": [
+          {
+            "t": 275,
+            "url": "https://media.aquatome.com/video/SVD46Uvw66A/at275-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Chén thức ăn được cân sẵn để cho cá lớn ăn.",
+            "sharpness": 1356.3
+          }
+        ],
         "photo": {
           "url": "https://media.aquatome.com/video/SVD46Uvw66A/p2-lX1pvb18wMS5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/SVD46Uvw66A/p2-lX1pvb18wMS5qcGc-480.webp",
@@ -77,25 +94,27 @@
           "licence": "CC BY-SA 3.0",
           "author": "H. Zell",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Astronotus_ocellatus_-_Karlsruhe_Zoo_01.jpg",
-          "caption": "Cá Oscar nhìn nghiêng toàn thân, dễ hình dung kích thước để ước lượng cân nặng."
+          "caption": "Một con cá Oscar to khỏe mạnh bơi trong bể trồng cây."
         }
       },
       {
-        "heading": "Cá nhỏ: cho ăn trong 2–3 phút",
+        "heading": "Cá nhỏ ăn bao nhiêu: quy tắc 2–3 phút",
         "moments": [
           {
-            "t": 351,
-            "url": "https://media.aquatome.com/video/SVD46Uvw66A/t351.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Thức ăn rải xuống, đàn cá cichlid trong bể đang kiếm ăn."
+            "t": 355,
+            "url": "https://media.aquatome.com/video/SVD46Uvw66A/at355-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Thức ăn rắc xuống bể, đàn cá bơi lên đớp ở tầng giữa.",
+            "sharpness": 1145.6
           },
           {
-            "t": 380,
-            "url": "https://media.aquatome.com/video/SVD46Uvw66A/t380.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đàn cá cichlid xúm lại ăn thức ăn vừa rải."
+            "t": 360,
+            "url": "https://media.aquatome.com/video/SVD46Uvw66A/at360-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá trong bể chung đang ăn những hạt thức ăn lơ lửng trong nước.",
+            "sharpness": 398.3
           }
         ],
         "photo": {
@@ -106,54 +125,50 @@
           "licence": "CC BY-SA 4.0",
           "author": "Pelagic",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sydney_Zoo_aquarium_exhibit_A,_front_view_crop_2023-02-05.jpg",
-          "caption": "Đàn cá nhỏ bơi giữa rễ cây và đá trong bể nước ngọt."
+          "caption": "Đàn cá nhỏ bơi giữa tầng nước trong bể nước ngọt có lũa và đá."
         }
       },
       {
-        "heading": "Có nên bắt chước chế độ ăn ngoài tự nhiên",
+        "heading": "Bắt chước thức ăn ngoài tự nhiên được không",
         "moments": [
           {
-            "t": 440,
-            "url": "https://media.aquatome.com/video/SVD46Uvw66A/t440.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cá cichlid gặm rêu bám trên đá trong bể Tanganyika."
+            "t": 450,
+            "url": "https://media.aquatome.com/video/SVD46Uvw66A/at450-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể cá cảnh hồ Tanganyika với đá xếp và rêu bám trên đá.",
+            "sharpness": 605
           },
           {
-            "t": 445,
-            "url": "https://media.aquatome.com/video/SVD46Uvw66A/t445.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Toàn cảnh bể đá Tanganyika với lớp rêu bám trên đá."
+            "t": 455,
+            "url": "https://media.aquatome.com/video/SVD46Uvw66A/at455-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh đá phủ rêu trong bể, cá bơi và gặm rêu.",
+            "sharpness": 443.4
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/SVD46Uvw66A/p4-Ryb3BoZXVzLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/SVD46Uvw66A/p4-Ryb3BoZXVzLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/SVD46Uvw66A/p5-Ryb3BoZXVzLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/SVD46Uvw66A/p5-Ryb3BoZXVzLmpwZw-480.webp",
           "width": 924,
           "height": 715,
           "licence": "Public domain",
           "author": "Thomas Ernst",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tropheus.jpg",
-          "caption": "Cá Tropheus đang gặm rêu bám trên đá trong bể."
+          "caption": "Cá Tropheus đang gặm rêu và vi sinh vật bám trên đá trong bể."
         }
       },
       {
-        "heading": "Cám viên hay cám vảy",
+        "heading": "Cám vảy hay cám viên",
         "moments": [
           {
-            "t": 598,
-            "url": "https://media.aquatome.com/video/SVD46Uvw66A/t598.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cùng khối lượng, cám vảy chiếm cả hộp lớn còn cám viên chỉ một nhúm."
-          },
-          {
-            "t": 632,
-            "url": "https://media.aquatome.com/video/SVD46Uvw66A/t632.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cân 2 g cám viên chỉ được một nhúm nhỏ trên cân điện tử."
+            "t": 640,
+            "url": "https://media.aquatome.com/video/SVD46Uvw66A/at640-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cân 2 g cám trên cân tiểu ly, bên cạnh là cám viên.",
+            "sharpness": 918.2
           }
         ]
       },
@@ -161,14 +176,14 @@
         "heading": "Nên cho cá ăn gì: hai loại thức ăn chính",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/SVD46Uvw66A/p6-9wZWxsZXRzLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/SVD46Uvw66A/p6-9wZWxsZXRzLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/SVD46Uvw66A/p7-pc2hfRm9vZC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/SVD46Uvw66A/p7-pc2hfRm9vZC5qcGc-480.webp",
           "width": 960,
-          "height": 720,
-          "licence": "CC BY 2.0",
-          "author": "USFWS Mountain-Prairie",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_Food_pellets.jpg",
-          "caption": "Cận cảnh cám viên khô dùng làm thức ăn chính cho cá."
+          "height": 708,
+          "licence": "CC BY-SA 4.0",
+          "author": "EL345er",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:3-Colour_Fish_Food.jpg",
+          "caption": "Hộp thức ăn viên cho cá đặt cạnh hồ cá koi đang bơi."
         }
       }
     ]

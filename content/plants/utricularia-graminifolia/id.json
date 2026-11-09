@@ -7,14 +7,16 @@
     "Bladderwort"
   ],
   "sections": {
-    "quickFacts:tropica": "<ul><li><strong>Jenis:</strong> Tanaman karpet</li><li><strong>Asal:</strong> Asia</li><li><strong>Laju pertumbuhan:</strong> Sedang</li><li><strong>Tinggi:</strong> 3–10+ cm</li><li><strong>Kebutuhan cahaya:</strong> Sedang</li><li><strong>CO2:</strong> Sedang (6–14 mg/L)</li></ul>",
-    "notes:tropica": "<p>Utricularia graminifolia berasal dari Asia dan termasuk famili bladderwort. Semua tanaman dalam famili ini adalah tanaman air dan rawa pemakan serangga yang hidup menahun (perenial). Di alam, tanaman ini tumbuh di tempat yang miskin nutrisi, karena itulah ia perlu menangkap serangga kecil lalu mencernanya. Perangkap berbentuk kantung kecil (bladder) merupakan ciri khas famili ini, dan Utricularia graminifolia akan membentuknya tidak lama setelah ditanam di akuarium. Nama spesiesnya berarti 'berdaun seperti rumput', dan daunnya yang hijau segar lama-kelamaan akan membentuk hamparan cantik mirip rumput lapangan (tinggi 2–8 cm). Karena itu Utricularia graminifolia sangat cocok sebagai tanaman latar depan, meskipun perawatannya cukup menuntut.</p>"
+    "quickFacts:tropica": "<ul><li><strong>Jenis:</strong> Tanaman karpet</li><li><strong>Asal:</strong> Asia</li><li><strong>Kecepatan tumbuh:</strong> Sedang</li><li><strong>Tinggi:</strong> 3–10+ cm</li><li><strong>Kebutuhan cahaya:</strong> Sedang</li><li><strong>CO2:</strong> Sedang (6–14 mg/L)</li></ul>",
+    "maintenance:aquatome": "<p>UG adalah tanaman karpet untuk <strong>latar depan</strong>. Tanaman ini bisa dihamparkan dari tepi depan, melewati bagian tengah, lalu makin ke belakang. Bisa juga ditanam satu petak di antara dua batu besar dalam aquascape iwagumi.</p><p>Spesies ini tidak punya akar, jadi sangat rapuh dan gampang tercabut dari substrat walau cuma tersenggol sedikit. Saat menanam, <strong>benamkan sedalam mungkin</strong> karena tanaman ini sering mengapung lepas. UG terkenal sulit ditanam, jadi simpan satu pot cadangan. Kalau ada bagian yang rusak, cabut saja lalu sulam dengan tanaman baru. Kalau satu petak sama sekali tidak tumbuh, ganti dengan glossostigma.</p>",
+    "notes:tropica": "<p>Utricularia graminifolia berasal dari Asia dan termasuk famili bladderwort. Semua tanaman dalam famili ini adalah tanaman air dan tanaman rawa pemakan serangga yang hidup menahun. Di alam, tanaman ini hidup di tempat yang miskin nutrisi, karena itu ia perlu menangkap serangga kecil lalu mencernanya. Perangkap berbentuk kantong adalah ciri khas famili ini, dan Utricularia graminifolia akan membentuknya setelah beberapa waktu di akuarium. Nama spesiesnya berarti 'dengan daun seperti rumput'. Setelah beberapa waktu, daunnya yang hijau segar akan membentuk hamparan cantik yang mirip halaman rumput (tinggi 2–8 cm). Karena itu Utricularia graminifolia jadi tanaman latar depan yang ideal, walaupun cukup rewel.</p>"
   },
   "quality": {
-    "score": 0.9,
+    "score": 0.95,
     "indexable": true,
     "bySource": {
-      "tropica": 0.9
+      "tropica": 0.95,
+      "aquatome": 0.95
     }
   }
 }

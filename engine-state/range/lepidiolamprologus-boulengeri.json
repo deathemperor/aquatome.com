@@ -1,0 +1,47 @@
+{
+  "id": "lepidiolamprologus-boulengeri",
+  "native": {
+    "input": "2b87f81fb4d5d0e5",
+    "at": "2026-11-09T12:58:06.259Z",
+    "claims": [
+      {
+        "code": "TZ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It is found along the Tanzanian shoreline in the north of the lake.",
+        "words": "Tanzanian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Tanganyika",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Tanganyika.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Lepidiolamprologus boulengeri",
+    "status": "ACCEPTED",
+    "taxonKey": 9441127,
+    "datasets": [
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        2
+      ]
+    ],
+    "native": [
+      "TZ"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T12:58:06.259Z"
+  }
+}

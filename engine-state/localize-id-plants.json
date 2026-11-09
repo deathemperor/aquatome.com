@@ -281,6 +281,21 @@
     "score": 0.95,
     "notes": []
   },
+  "azolla": {
+    "at": "2026-11-09",
+    "from": "2026-11-09",
+    "name": "Azolla",
+    "confidence": "high",
+    "score": 0.72,
+    "notes": [
+      "Section 6: \"salinitas rendah (>8,4 g/l)\" keeps the source's \">\" sign, which is likely an error in the source too. It is an odd, contradictory claim for 'low salinity'. Check it or use \"hingga sekitar 8,4 g/L\" if that is what was meant. The sentence \"menyerap tembaga berkonsentrasi rendah\" in section 7 is fine.",
+      "Section 7 tankmates: \"white cloud\" drops \"mountain minnows\". Use \"white cloud mountain minnow\". \"corydoras pygmy\" has the wrong word order. Use \"corydoras kerdil (pygmy corydoras)\".",
+      "Section 7: \"toko online\" for \"online\" is fine. \"mas koki\" for goldfish is acceptable. \"Pilih spesies yang tahan teduh\" is awkward. Say \"toleran terhadap tempat teduh\".",
+      "Section 6: \"Suhu dingin (−4 °C ke bawah)\" and \"musim semi\" are literal. Indonesian hobbyists have no winter, so consider \"musim dingin/musim semi di daerah beriklim empat musim\". \"mati kembali\" for \"die back\" is unnatural. Use \"daunnya mati/layu\".",
+      "Section 5: \"disinfeksi\" and \"kekurangan oksigen\" are fine, but \"Pilih tanaman yang tunas dan akarnya berkembang baik\" is OK. \"Daun busuk\" and \"gejolak permukaan\" are stiff. Use \"riak/pergolakan permukaan air\".",
+      "Section 3: \"frond\" is left untranslated throughout. Use \"daun\" or \"daun (frond)\" at first mention. \"lobus dorsal daunnya\" is also fine."
+    ]
+  },
   "bacopa-australis": {
     "at": "2026-10-30",
     "from": "2026-10-30",
@@ -586,20 +601,13 @@
     ]
   },
   "ceratophyllum-demersum": {
-    "at": "2026-10-31",
-    "from": "2026-10-31",
+    "at": "2026-11-09",
+    "from": "2026-11-09",
     "name": "Hornwort",
     "confidence": "high",
-    "score": 0.7,
+    "score": 0.9,
     "notes": [
-      "Item 4: \"10–30 °C\" dropped the Fahrenheit bracket; fine, but \"3–10 cm per minggu\" also fine. No issue there.",
-      "Item 2: \"fluffy-looking stems\" rendered as \"batangnya yang tampak lebat dan halus\"; \"fluffy\" is better as \"berbulu/mengembang\", \"halus\" adds a meaning.",
-      "Item 2: \"daun cemara\" for \"pine needles\" is loose; use \"daun jarum pinus\" or \"jarum pinus\".",
-      "Item 2/4: \"kolam luar ruangan\" is stiff; use \"kolam outdoor\" or \"kolam taman\".",
-      "Item 6: \"jatuh ke dasar saat musim dingin\" for \"during the cold season\" is acceptable, but \"planted in the ground\" became \"ditanam di substrat\"; fine. \"little buds\" as \"tunas kecil\" is OK.",
-      "Item 7: \"varietas Ceratophyllum lainnya\" for \"Ceratophyllum-varieties\" is imprecise; use \"jenis/spesies Ceratophyllum lainnya\" since they are different species, not varieties.",
-      "Item 7: \"lebar 5 cm\" for \"5 cm wide\" is fine, but \"tidak semudah itu patah\" is awkward; use \"tidak mudah patah\".",
-      "Item 1: \"Tinggi: 5–30+ cm\" is fine. Item 8: \"Sedot daun-daun yang rontok dengan penyedot kotoran\" is awkward; use \"sifon daun yang rontok dengan gravel vacuum/penyedot kotoran dasar\"."
+      "\"mirip daun pinus\": \"pine needles\" lebih tepat \"jarum pinus\"."
     ]
   },
   "ceratopteris-thalictroides": {
@@ -1201,15 +1209,12 @@
     ]
   },
   "hygrophila-polysperma-rosanervig": {
-    "at": "2026-11-03",
-    "from": "2026-10-30",
+    "at": "2026-11-09",
+    "from": "2026-11-09",
     "name": "Hygrophila Rosanervig",
     "confidence": "high",
-    "score": 0.9,
-    "notes": [
-      "Item 3: \"tidak menular ke tanaman lain\" is fine, but \"Kalau ingin\" in item 2 is a bit colloquial for a handbook; consider \"Jika ingin\".",
-      "Item 2: \"Stems become ... 5-8 cm wide\" – \"lebar 5–8 cm\" for batang is slightly odd; better \"rumpunnya selebar 5–8 cm\" (minor)."
-    ]
+    "score": 0.95,
+    "notes": []
   },
   "hygrophila-serpyllum": {
     "at": "2026-11-03",
@@ -1275,14 +1280,14 @@
     ]
   },
   "limnobium-laevigatum": {
-    "at": "2026-11-04",
-    "from": "2026-10-30",
+    "at": "2026-11-09",
+    "from": "2026-11-09",
     "name": "Amazon Frogbit",
     "confidence": "high",
     "score": 0.9,
     "notes": [
-      "In 3: 'Tanaman air hasil kultur jaringan dalam cup tertutup' is fine, but 'akuarium biasa' for 'traditional aquariums' could be 'akuarium tertutup/konvensional' for clarity (minor).",
-      "In 2: 'Mungkin perlu membuang sebagian' leaves the object vague; 'membuang sebagian daun' would be clearer (minor)."
+      "Item 4: \"cup tertutup\" leaves English \"cup\" in place; \"cangkir/wadah tertutup\" or \"cup (wadah) tertutup\" would be more natural. This is minor.",
+      "Item 2: the source text is Vietnamese, not English. The translation is faithful and I found no meaning errors."
     ]
   },
   "limnophila-aquatica": {
@@ -2151,15 +2156,15 @@
     ]
   },
   "utricularia-graminifolia": {
-    "at": "2026-11-06",
-    "from": "2026-10-31",
+    "at": "2026-11-09",
+    "from": "2026-11-09",
     "name": "Utricularia graminifolia",
     "confidence": "high",
-    "score": 0.9,
+    "score": 0.95,
     "notes": [
-      "\"rumput lapangan\" is slightly awkward; \"hamparan seperti padang rumput/halaman rumput\" would read more naturally.",
-      "\"famili bladderwort\" leaves the English name; a local name such as \"famili Lentibulariaceae\" or \"tanaman kantung semar air\" may be clearer.",
-      "\"Asal: Asia\" is fine, but \"Asal daerah\" or \"Asal-usul\" is more common."
+      "Item 1: \"Asal\" is slightly terse; \"Asal daerah\" or \"Asal usul\" would be more natural. Minor only.",
+      "Item 3: \"halaman rumput\" for \"lawn\" is acceptable. \"hamparan rumput\" would be a bit more natural. Minor only.",
+      "Item 3: \"cukup rewel\" for \"rather demanding\" is informal. \"cukup menuntut\" or \"cukup sulit dirawat\" would be more neutral. Minor only."
     ]
   },
   "vallisneria": {

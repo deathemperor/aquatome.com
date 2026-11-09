@@ -14,6 +14,70 @@
     "cambodia",
     "vietnam"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LA",
+        "TH",
+        "KH",
+        "VN"
+      ],
+      "regions": [
+        "Mekong",
+        "Chao Phraya",
+        "Mae Klong"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Widely-distributed in the middle and lower Mekong River system in Laos, Thailand, Cambodia, and Vietnam, plus the Chao Phraya and Mae Klong watersheds in central and western Thailand.",
+          "countries": [
+            "LA",
+            "TH",
+            "KH",
+            "VN"
+          ],
+          "regions": [
+            "Mekong",
+            "Chao Phraya",
+            "Mae Klong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2365651,
+      "total": 2,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "KH",
+          1
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          11.25,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

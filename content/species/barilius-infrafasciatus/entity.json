@@ -14,6 +14,48 @@
     "china",
     "mekong"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "MM",
+        "CN"
+      ],
+      "regions": [
+        "Ping",
+        "Salween",
+        "Ataran",
+        "Mekong"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Currently understood to occur within the Ping river in Thailand, Ataran and Salween drainages in Myanmar and China and tributaries of the Mekong in China.",
+          "countries": [
+            "TH",
+            "MM",
+            "CN"
+          ],
+          "regions": [
+            "Ping",
+            "Salween",
+            "Ataran",
+            "Mekong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2363334,
+      "total": 0,
+      "fetched": "2026-11-09",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

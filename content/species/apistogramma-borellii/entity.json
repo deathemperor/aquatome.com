@@ -358,6 +358,12 @@
       "html": "<p>Captive-raised fish are the recommended choice for the general community aquarium. Wild examples are best maintained alone or with small 'dither' fishes such as Nannostomus spp., and ideally should not be mixed with other Apistogramma.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma-borellii-wild/",
+      "html": "<p>The peaceful and pretty species can be kept during the summer months in garden ponds or other tanks placed in the garden or on the balcony.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-borellii",
@@ -379,25 +385,25 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/seriouslyfish/442bab3e2bff66ce.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/442bab3e2bff66ce-480.webp",
       "width": 1200,
       "height": 800,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-borellii",
       "caption": "Adult male; origin not supplied.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/442bab3e2bff66ce-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/3e5d22b71a151590.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/3e5d22b71a151590-480.webp",
       "width": 1024,
       "height": 727,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-borellii",
       "caption": "Another adult male; origin not supplied.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/3e5d22b71a151590-480.webp"
+      "source": "seriouslyfish"
     }
   ],
   "videos": [],
@@ -431,5 +437,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-09"
 }

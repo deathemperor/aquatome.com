@@ -10,6 +10,62 @@
     "sri-lanka",
     "kalu"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LK"
+      ],
+      "regions": [
+        "Gin",
+        "Kalu",
+        "Nilwala",
+        "Bentota"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Sri Lanka with type locality 'shaded pools of mountain streams at Akuressa, Southern Province, Sri Lanka, elevation 500 meters'.",
+          "countries": [
+            "LK"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's known from at least five localities, all of which are restricted to Sri Lanka's 'wet zone' in the southwest of the island, with records existing from the Gin, Kalu, Nilwala, and Bentota river basins plus a small blackwater creek near the Kottawa Forest Reserve, a small, isolated patch of forest in the island's Southern Province.",
+          "countries": [],
+          "regions": [
+            "Gin",
+            "Kalu",
+            "Nilwala",
+            "Bentota"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2368070,
+      "total": 20,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "LK",
+          20
+        ]
+      ],
+      "cells": [
+        [
+          80.15625,
+          5.625,
+          20,
+          20
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

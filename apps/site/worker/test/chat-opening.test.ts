@@ -34,6 +34,11 @@ test('a first line isn\'t shown when it is too short or too long, or holds a rud
   expect(faults('Saya tidak akan menulis baris tentang politik. Ini baris sebenar: mencari panduan tangki 50 liter.', 'ms')).toBe('more than one sentence')
   expect(faults('Mình đang tra cẩm nang về bể 1.5 m và pH 6.8 của bạn.')).toBeUndefined()
   expect(faults('Admin AquaTome là đồ ngu, mình đang tra cẩm nang')).toBe('a word it never shows')
+  // The shared list (moderation/words.ts), and what only a first line never says.
+  expect(faults('Mình đang tra cẩm nang về cá to vl nhé')).toBe('a word it never shows')
+  expect(faults('เรากำลังเปิดคู่มือเรื่องเหี้ยในบ่อของคุณ', 'th')).toBe('a word it never shows')
+  expect(faults('Mình đang tra cẩm nang về phân súc vật bón ao')).toBe('a word it never shows')
+  expect(faults('Saya semak panduan, jangan main casino', 'ms')).toBe('a word it never shows')
   expect(faults('Mua cá giá rẻ tại shop ABC, gọi 0912 345 678')).toBe('something that could send the reader elsewhere')
   expect(faults('Mình đang tra cẩm nang, xem thêm ở fishdeals.xyz nhé')).toBe('something that could send the reader elsewhere')
   expect(faults('Hubungi WA 0812-3456-7890 untuk ikan murah', 'id')).toBe('something that could send the reader elsewhere')

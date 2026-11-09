@@ -9,7 +9,8 @@
   "places": [
     "south-america",
     "colombia",
-    "meta"
+    "meta",
+    "rio-arauca"
   ],
   "range": {
     "native": {
@@ -174,6 +175,12 @@
       "html": "<p>Known only from the Río Guaytiquía and Río Metica basins, upper Río Meta system, Colombia.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma-macmasteri-tame/",
+      "html": "<p>It was back in 1996 when Uwe Werner presented in the Aqualog South American Cichlids II a dwarf cichlid under this name. The city and municipality of Tame are located in Colombia in the Arauca Department at the Rio Arauca. Here the unusual Apistogramma macmasteri have been collected. Sadly it became soon after lost for the hobby….</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-macmasteri",
@@ -225,47 +232,47 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/seriouslyfish/361c1f1820cf7370.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/361c1f1820cf7370-480.webp",
       "width": 1024,
       "height": 631,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-macmasteri",
       "caption": "Adult male specimen; origin unspecified.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/361c1f1820cf7370-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/4bc87545d933cb50.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/4bc87545d933cb50-480.webp",
       "width": 1024,
       "height": 685,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-macmasteri",
       "caption": "Another adult male; origin unspecified.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/4bc87545d933cb50-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/a845eb980bbda5e1.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/a845eb980bbda5e1-480.webp",
       "width": 640,
       "height": 480,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-macmasteri",
       "caption": "Wild-collected male exported from Bogotá, Colombia.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/a845eb980bbda5e1-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/160c8eb5998bbd5e.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/160c8eb5998bbd5e-480.webp",
       "width": 640,
       "height": 480,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-macmasteri",
       "caption": "Wild-collected female exported from Bogotá, Colombia, displaying broodcare colour pattern with fry beneath.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/160c8eb5998bbd5e-480.webp"
+      "source": "seriouslyfish"
     }
   ],
   "videos": [],
@@ -298,5 +305,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-09"
 }

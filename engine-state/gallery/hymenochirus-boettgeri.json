@@ -16,7 +16,10 @@
   "File:Young male DAF.jpg",
   "File:Karlik-szponiasty02.jpg",
   "File:African dwarf frog cutted.png",
-  "File:Amplexus of ADF.jpg"
+  "File:Amplexus of ADF.jpg",
+  "inat:1046201",
+  "inat:1046202",
+  "inat:1046203"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/1306a73e1f5eb0e1.webp": "7d3533557a372534",
@@ -25,5 +28,13 @@
   "https://media.aquatome.com/commons/1c4f01f631a7d163.webp": "ba9ae4c4948a4e3a",
   "https://media.aquatome.com/commons/a2769188d12caeb4.webp": "31660bd112d80e02"
  },
- "commons": "2026-11-08"
+ "commons": "2026-11-08",
+ "inat": {
+  "taxon": 25439,
+  "pass": "done",
+  "after": {
+   "research": 321711236,
+   "agree": 828884
+  }
+ }
 }

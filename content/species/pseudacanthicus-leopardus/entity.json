@@ -1,0 +1,209 @@
+{
+  "id": "pseudacanthicus-leopardus",
+  "scientificName": "Pseudacanthicus leopardus",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Pseudacanthicus",
+  "group": "catfish",
+  "lNumber": "L114",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-negro"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 25
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 180
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudacanthicus-cf-leopardus",
+      "html": "<p>L114, Pseudacanthicus cf. leopardus, is a loricariid collected mostly in the rio Negro basin in Brazil, particularly the rio Demini. P. leopardus was described from the Rupununi River in Guyana, so the identity of this fish remains unconfirmed. Traded as the Demini leopard cactus pleco or simply 'leopard cactus pleco', it grows to 25 cm and needs an aquarium of at least 180 x 60 cm set up to simulate a flowing river.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudacanthicus-cf-leopardus",
+      "html": "<p>Mostly collected in the rio Negro basin, Amazonas state, Brazil, and in particular the rio Demini, a northern tributary flowing into the central Negro in the municipality of Barcelos.</p><p>P. leopardus was described from the Rupununi River in Guyana and the identity of this fish thus remains unconfirmed.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudacanthicus-cf-leopardus",
+      "html": "<p>Standard length: 25 cm SL.</p><p>An aquarium with base dimensions of 180 × 60 cm or larger is required for long-term care (volume ~648 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudacanthicus-cf-leopardus",
+      "html": "<p>Not difficult to maintain under the correct conditions; it is strongly recommended to keep it in a tank designed to simulate a flowing river with a substrate of variably-sized rocks, sand, fine gravel, and some water-worn boulders.</p><p>This can be further furnished with driftwood branches, terracotta pipes, plant pots, etc., arranged to form a network of nooks, crannies, and shaded spots, thus providing broken lines of sight.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudacanthicus-cf-leopardus",
+      "html": "<ul><li>Temperature: 24–30°C</li><li>pH: 5.5–7.5</li><li>Hardness: 1–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudacanthicus-cf-leopardus",
+      "html": "<p>Wild specimens are likely omnivorous but with a preference for aquatic invertebrates and suchlike.</p><p>In the aquarium it does best when offered a varied diet comprising sinking dried foods, frozen Daphnia, mosquito larvae, chironomid larvae (bloodworm), and prawn/shrimp, for example, plus some fresh fruit, parboiled potato, etc.</p><p>Home-made foods using a mixture of natural ingredients bound with gelatin are very useful since they can be tailored to contain fresh vegetables, Spirulina and meatier ingredients.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudacanthicus-cf-leopardus",
+      "html": "<p>Adult males possess a broader head plus more extensive odontode development than females, particularly on the leading pectoral-fin rays and interopercular region.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudacanthicus-cf-leopardus",
+      "html": "<p>Cave-spawner with the male responsible for brood care. Has been bred in aquaria.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudacanthicus-cf-leopardus",
+      "html": "<p>This 'species' is also traded simply as 'leopard cactus pleco'.</p><p>Etymology: Pseudacanthicus comes from the Greek ψευδής (pseudes) meaning 'false', and the generic name Acanthicus.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudacanthicus-cf-leopardus",
+      "html": "<ul><li>Stawikowski, R., A. Werner and I. Seidel (2004). DATZ Special: L-Numbers. DATZ, 1-132</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/1f9da20a0da07c40.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/1f9da20a0da07c40-480.webp",
+      "width": 800,
+      "height": 580,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/pseudacanthicus-cf-leopardus",
+      "caption": "Adult individual.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/99a458c542ea4a27.webp",
+      "thumb": "https://media.aquatome.com/scotcat/99a458c542ea4a27-480.webp",
+      "width": 500,
+      "height": 332,
+      "licence": "dùng với sự cho phép",
+      "author": "Jörn Regul / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pseudacanthicus_leopardus.htm",
+      "caption": "Pseudacanthicus leopardus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/aaa0257de163df2a.webp",
+      "thumb": "https://media.aquatome.com/scotcat/aaa0257de163df2a-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan Sim / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pseudacanthicus_leopardus.htm",
+      "caption": "Pseudacanthicus leopardus: Showing Dorsum view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/1e957492cd7cb32c.webp",
+      "thumb": "https://media.aquatome.com/scotcat/1e957492cd7cb32c-480.webp",
+      "width": 500,
+      "height": 319,
+      "licence": "dùng với sự cho phép",
+      "author": "Allan Sim / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pseudacanthicus_leopardus.htm",
+      "caption": "Pseudacanthicus leopardus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/b1aa3ac55c377e05.webp",
+      "thumb": "https://media.aquatome.com/scotcat/b1aa3ac55c377e05-480.webp",
+      "width": 500,
+      "height": 416,
+      "licence": "dùng với sự cho phép",
+      "author": "Vedran Cuncic / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/pseudacanthicus_leopardus.htm",
+      "caption": "Pseudacanthicus leopardus",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 180cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300W"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn chìm cho cá lau kiếng"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

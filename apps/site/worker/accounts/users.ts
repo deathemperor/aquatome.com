@@ -70,10 +70,15 @@ export async function deleteUser(db: D1Database, userId: string, buckets: { UPLO
     ...['comments', 'photos'].map(t => db.prepare(`DELETE FROM ${t} WHERE account_id = ?`).bind(userId)),
     db.prepare(`DELETE FROM auth_challenges WHERE user_id = ? OR (kind = 'email' AND value IN (SELECT email_hash FROM credentials WHERE user_id = ? AND email_hash IS NOT NULL))`).bind(userId, userId),
     ...['tank_records', 'credentials', 'sessions'].map(t => db.prepare(`DELETE FROM ${t} WHERE user_id = ?`).bind(userId)),
+    // Its row in the chat's list, by the same HMAC: the hidden flag goes with it.
+    ...(chat ? [db.prepare(`DELETE FROM chat_conversations WHERE account = ?`).bind(chat)] : []),
     db.prepare(`DELETE FROM users WHERE id = ?`).bind(userId),
   ])
   // A question answered while this ran, its run past its check that the account is there: its writes, once more.
-  if (UPLOADS && chat) await deleteChatOf(UPLOADS, chat).catch(e => console.error('chat, deleted account:', e))
+  if (UPLOADS && chat) {
+    await deleteChatOf(UPLOADS, chat).catch(e => console.error('chat, deleted account:', e))
+    await db.prepare(`DELETE FROM chat_conversations WHERE account = ?`).bind(chat).run().catch(e => console.error('chat, deleted account:', e))
+  }
 }
 
 /**

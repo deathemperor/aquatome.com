@@ -1,0 +1,100 @@
+{
+  "id": "lonchogenys-ilisha",
+  "native": {
+    "input": "9a0e7a80385ab259",
+    "at": "2026-11-09T16:24:16.651Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It occurs in the upper and middle Rio Negro region in Brazil and Colombia.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It occurs in the upper and middle Rio Negro region in Brazil and Colombia.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Negro",
+        "source": "glaser",
+        "quote": "It occurs in the upper and middle Rio Negro region in Brazil and Colombia.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Lonchogenys ilisha",
+    "status": "ACCEPTED",
+    "taxonKey": 2353768,
+    "datasets": [
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        57
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        25
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        24
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        21
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        17
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        12
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        11
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        10
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "CO"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T16:24:16.651Z"
+  }
+}

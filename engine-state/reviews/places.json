@@ -267,6 +267,18 @@
       "kept": true
     }
   ],
+  "id/places/annamalai-river": [
+    {
+      "at": "2026-11-09T15:40:53Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [
+        "sông Annamalai → Annamalai (the source name is Vietnamese; the Indonesian name would be Sungai Annamalai)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/annamite-mountains": [
     {
       "at": "2026-11-08T05:19:45Z",
@@ -820,6 +832,16 @@
       "kept": true
     }
   ],
+  "id/places/bentara": [
+    {
+      "at": "2026-11-09T18:15:13Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/bentota": [
     {
       "at": "2026-11-08T05:19:45Z",
@@ -857,6 +879,16 @@
       "at": "2026-11-09T07:33:46Z",
       "model": "sonnet",
       "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/betsiboka": [
+    {
+      "at": "2026-11-09T15:40:53Z",
+      "model": "sonnet",
+      "score": 0.5,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -1046,6 +1078,28 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/bori-pat": [
+    {
+      "at": "2026-11-09T15:40:53Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/brahamaputra": [
+    {
+      "at": "2026-11-09T15:40:53Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [
+        "sông Brahmaputra → Brahmaputra (the source name is Vietnamese; the Indonesian name would be Sungai Brahmaputra)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -1490,6 +1544,20 @@
       "kept": true
     }
   ],
+  "id/places/changjiang-river": [
+    {
+      "at": "2026-11-09T18:15:13Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The source names are Vietnamese, not Indonesian: \"sông Trường Giang\", \"hồ Động Đình\", \"sông Gia Lăng\", \"sông Kim Sa\", \"hồ Điền Trì\", \"sông Mân\" (twice), \"dãy Wulin\", \"sông Dương Tử\", \"sông Nueces\", \"sông São Bartolomeu\", \"sông Nakdong\".",
+        "Indonesian atlases write these as Sungai Yangtze (or Chang Jiang), Danau Dongting, Sungai Jialing, Sungai Jinsha, Danau Dianchi, Sungai Min, Pegunungan Wulin, Sungai Nueces, Sungai São Bartolomeu and Sungai Nakdong.",
+        "\"Yangtze\" and \"Yangtse\" are two entries for the same river with inconsistent output."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/changuinola": [
     {
       "at": "2026-11-08T05:19:46Z",
@@ -1619,6 +1687,16 @@
       "at": "2026-11-08T05:19:46Z",
       "model": "sonnet",
       "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/choluteca": [
+    {
+      "at": "2026-11-09T15:40:53Z",
+      "model": "sonnet",
+      "score": 0.5,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -2144,6 +2222,16 @@
       "kept": true
     }
   ],
+  "id/places/doce": [
+    {
+      "at": "2026-11-09T18:15:13Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/doce-river": [
     {
       "at": "2026-11-08T05:20:19Z",
@@ -2181,6 +2269,19 @@
       "score": 0.1,
       "notes": [
         "sông Đồng Nai (should be Sungai Dong Nai)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/dongting-lake": [
+    {
+      "at": "2026-11-09T18:15:13Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The source names are Vietnamese, not Indonesian: \"sông Trường Giang\", \"hồ Động Đình\", \"sông Gia Lăng\", \"sông Kim Sa\", \"hồ Điền Trì\", \"sông Mân\" (twice), \"dãy Wulin\", \"sông Dương Tử\", \"sông Nueces\", \"sông São Bartolomeu\", \"sông Nakdong\".",
+        "Indonesian atlases write these as Sungai Yangtze (or Chang Jiang), Danau Dongting, Sungai Jialing, Sungai Jinsha, Danau Dianchi, Sungai Min, Pegunungan Wulin, Sungai Nueces, Sungai São Bartolomeu and Sungai Nakdong."
       ],
       "attempt": "first",
       "kept": true
@@ -2236,6 +2337,18 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/east-timor": [
+    {
+      "at": "2026-11-09T15:40:53Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [
+        "East Timor → Timor Leste (the source name is English; the Indonesian name Timor Leste is acceptable)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -2447,6 +2560,26 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/gin": [
+    {
+      "at": "2026-11-09T18:15:13Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/goa": [
+    {
+      "at": "2026-11-09T18:15:13Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -2966,6 +3099,16 @@
       "kept": true
     }
   ],
+  "id/places/itajai-acu": [
+    {
+      "at": "2026-11-09T15:40:53Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/itapecuru": [
     {
       "at": "2026-11-06T12:35:53Z",
@@ -3096,6 +3239,29 @@
       "kept": true
     }
   ],
+  "id/places/jequitinhonha": [
+    {
+      "at": "2026-11-09T18:15:13Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/jialing-river": [
+    {
+      "at": "2026-11-09T18:15:13Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The source names are Vietnamese, not Indonesian: \"sông Trường Giang\", \"hồ Động Đình\", \"sông Gia Lăng\", \"sông Kim Sa\", \"hồ Điền Trì\", \"sông Mân\" (twice), \"dãy Wulin\", \"sông Dương Tử\", \"sông Nueces\", \"sông São Bartolomeu\", \"sông Nakdong\".",
+        "Indonesian atlases write these as Sungai Yangtze (or Chang Jiang), Danau Dongting, Sungai Jialing, Sungai Jinsha, Danau Dianchi, Sungai Min, Pegunungan Wulin, Sungai Nueces, Sungai São Bartolomeu and Sungai Nakdong."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/jinsha": [
     {
       "at": "2026-11-09T00:08:04Z",
@@ -3103,6 +3269,19 @@
       "score": 0.3,
       "notes": [
         "sông Kim Sa (Vietnamese)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/jinsha-jiang": [
+    {
+      "at": "2026-11-09T18:15:13Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The source names are Vietnamese, not Indonesian: \"sông Trường Giang\", \"hồ Động Đình\", \"sông Gia Lăng\", \"sông Kim Sa\", \"hồ Điền Trì\", \"sông Mân\" (twice), \"dãy Wulin\", \"sông Dương Tử\", \"sông Nueces\", \"sông São Bartolomeu\", \"sông Nakdong\".",
+        "Indonesian atlases write these as Sungai Yangtze (or Chang Jiang), Danau Dongting, Sungai Jialing, Sungai Jinsha, Danau Dianchi, Sungai Min, Pegunungan Wulin, Sungai Nueces, Sungai São Bartolomeu and Sungai Nakdong."
       ],
       "attempt": "first",
       "kept": true
@@ -3677,6 +3856,16 @@
       "kept": true
     }
   ],
+  "id/places/kokson": [
+    {
+      "at": "2026-11-09T18:15:13Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/koladyne-river": [
     {
       "at": "2026-11-08T15:22:22Z",
@@ -3716,6 +3905,18 @@
       "score": 0.3,
       "notes": [
         "Yordan (Indonesian: Sungai Yordan is ok, but Jordan river usually 'Yordan' - acceptable); Semenanjung Korea ok"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/kosi-river": [
+    {
+      "at": "2026-11-09T15:40:53Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [
+        "sông Kosi → Kosi (the source name is Vietnamese; the Indonesian name would be Sungai Kosi)"
       ],
       "attempt": "first",
       "kept": true
@@ -3806,6 +4007,16 @@
       "at": "2026-11-08T20:40:33Z",
       "model": "sonnet",
       "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/kyushu": [
+    {
+      "at": "2026-11-09T18:15:13Z",
+      "model": "sonnet",
+      "score": 0.3,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -3923,6 +4134,19 @@
       "kept": true
     }
   ],
+  "id/places/lake-dianchi": [
+    {
+      "at": "2026-11-09T18:15:13Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The source names are Vietnamese, not Indonesian: \"sông Trường Giang\", \"hồ Động Đình\", \"sông Gia Lăng\", \"sông Kim Sa\", \"hồ Điền Trì\", \"sông Mân\" (twice), \"dãy Wulin\", \"sông Dương Tử\", \"sông Nueces\", \"sông São Bartolomeu\", \"sông Nakdong\".",
+        "Indonesian atlases write these as Sungai Yangtze (or Chang Jiang), Danau Dongting, Sungai Jialing, Sungai Jinsha, Danau Dianchi, Sungai Min, Pegunungan Wulin, Sungai Nueces, Sungai São Bartolomeu and Sungai Nakdong."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/lake-ejagham": [
     {
       "at": "2026-11-08T08:48:28Z",
@@ -4025,6 +4249,16 @@
       "kept": true
     }
   ],
+  "id/places/lake-magadi": [
+    {
+      "at": "2026-11-09T15:40:54Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/lake-mai-ndombe": [
     {
       "at": "2026-11-06T12:35:46Z",
@@ -4097,6 +4331,16 @@
       "kept": true
     }
   ],
+  "id/places/lake-natron": [
+    {
+      "at": "2026-11-09T15:40:54Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/lake-nawampasa": [
     {
       "at": "2026-11-08T15:22:22Z",
@@ -4114,6 +4358,16 @@
       "at": "2026-11-09T00:08:05Z",
       "model": "sonnet",
       "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/lake-pambilao": [
+    {
+      "at": "2026-11-09T15:40:54Z",
+      "model": "sonnet",
+      "score": 0.5,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -4184,6 +4438,16 @@
       "at": "2026-11-08T05:20:20Z",
       "model": "sonnet",
       "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/lakshadweep": [
+    {
+      "at": "2026-11-09T15:40:54Z",
+      "model": "sonnet",
+      "score": 0.5,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -4271,6 +4535,20 @@
       "kept": true
     }
   ],
+  "id/places/li": [
+    {
+      "at": "2026-11-09T15:40:54Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [
+        "East Timor → Timor Leste (the source name is English; the Indonesian name Timor Leste is acceptable)",
+        "sông Ly Giang → Li (the source name is Vietnamese; the Indonesian name would be Sungai Li)",
+        "Pru Toe-Daeng → Pru Toh Daeng (the spelling is inconsistent with the source)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/li-jiang": [
     {
       "at": "2026-11-08T08:48:28Z",
@@ -4344,6 +4622,16 @@
   "id/places/llanos-orientales": [
     {
       "at": "2026-11-08T05:20:20Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/lobi": [
+    {
+      "at": "2026-11-09T18:15:13Z",
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
@@ -4689,6 +4977,16 @@
       "kept": true
     }
   ],
+  "id/places/makran": [
+    {
+      "at": "2026-11-09T15:40:54Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/malebo-pool": [
     {
       "at": "2026-11-07T03:57:48Z",
@@ -4965,6 +5263,16 @@
       "kept": true
     }
   ],
+  "id/places/matina": [
+    {
+      "at": "2026-11-09T15:40:54Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/mauritania": [
     {
       "at": "2026-11-06T12:35:46Z",
@@ -5185,12 +5493,40 @@
       "kept": true
     }
   ],
+  "id/places/min-river": [
+    {
+      "at": "2026-11-09T18:15:13Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The source names are Vietnamese, not Indonesian: \"sông Trường Giang\", \"hồ Động Đình\", \"sông Gia Lăng\", \"sông Kim Sa\", \"hồ Điền Trì\", \"sông Mân\" (twice), \"dãy Wulin\", \"sông Dương Tử\", \"sông Nueces\", \"sông São Bartolomeu\", \"sông Nakdong\".",
+        "Indonesian atlases write these as Sungai Yangtze (or Chang Jiang), Danau Dongting, Sungai Jialing, Sungai Jinsha, Danau Dianchi, Sungai Min, Pegunungan Wulin, Sungai Nueces, Sungai São Bartolomeu and Sungai Nakdong.",
+        "\"Min\" is given for both \"min-river\" and \"minjiang-river\" (duplicate)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/mindanao": [
     {
       "at": "2026-11-09T11:45:44Z",
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/minjiang-river": [
+    {
+      "at": "2026-11-09T18:15:13Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The source names are Vietnamese, not Indonesian: \"sông Trường Giang\", \"hồ Động Đình\", \"sông Gia Lăng\", \"sông Kim Sa\", \"hồ Điền Trì\", \"sông Mân\" (twice), \"dãy Wulin\", \"sông Dương Tử\", \"sông Nueces\", \"sông São Bartolomeu\", \"sông Nakdong\".",
+        "Indonesian atlases write these as Sungai Yangtze (or Chang Jiang), Danau Dongting, Sungai Jialing, Sungai Jinsha, Danau Dianchi, Sungai Min, Pegunungan Wulin, Sungai Nueces, Sungai São Bartolomeu and Sungai Nakdong.",
+        "\"Min\" is given for both \"min-river\" and \"minjiang-river\" (duplicate)."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -5287,6 +5623,18 @@
       "kept": true
     }
   ],
+  "id/places/mota-talau": [
+    {
+      "at": "2026-11-09T15:40:54Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [
+        "sông Talau → Talau (the source name is Vietnamese; the Indonesian name would be Sungai Talau)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/mount-kinabalu": [
     {
       "at": "2026-11-08T12:08:48Z",
@@ -5312,6 +5660,16 @@
       "at": "2026-11-08T05:20:55Z",
       "model": "sonnet",
       "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/muhuri": [
+    {
+      "at": "2026-11-09T15:40:54Z",
+      "model": "sonnet",
+      "score": 0.5,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -5349,12 +5707,34 @@
       "kept": true
     }
   ],
+  "id/places/muvattupuzha": [
+    {
+      "at": "2026-11-09T15:40:54Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/myntdu-river": [
     {
       "at": "2026-11-08T05:20:55Z",
       "model": "sonnet",
       "score": 0.1,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/naga-hills": [
+    {
+      "at": "2026-11-09T15:40:54Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [
+        "đồi Naga → Perbukitan Naga (the source name is Vietnamese; Perbukitan Naga is an acceptable Indonesian name)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -5488,6 +5868,16 @@
       "at": "2026-11-08T12:08:48Z",
       "model": "sonnet",
       "score": 0.7,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/natong": [
+    {
+      "at": "2026-11-09T18:15:13Z",
+      "model": "sonnet",
+      "score": 0.3,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -5669,6 +6059,19 @@
       "model": "sonnet",
       "score": 0.1,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/nueces-river": [
+    {
+      "at": "2026-11-09T18:15:13Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The source names are Vietnamese, not Indonesian: \"sông Trường Giang\", \"hồ Động Đình\", \"sông Gia Lăng\", \"sông Kim Sa\", \"hồ Điền Trì\", \"sông Mân\" (twice), \"dãy Wulin\", \"sông Dương Tử\", \"sông Nueces\", \"sông São Bartolomeu\", \"sông Nakdong\".",
+        "Indonesian atlases write these as Sungai Yangtze (or Chang Jiang), Danau Dongting, Sungai Jialing, Sungai Jinsha, Danau Dianchi, Sungai Min, Pegunungan Wulin, Sungai Nueces, Sungai São Bartolomeu and Sungai Nakdong."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -5895,6 +6298,16 @@
       "kept": true
     }
   ],
+  "id/places/palar": [
+    {
+      "at": "2026-11-09T18:15:13Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/palawan": [
     {
       "at": "2026-11-06T12:35:53Z",
@@ -6065,6 +6478,16 @@
       "kept": true
     }
   ],
+  "id/places/payaswini": [
+    {
+      "at": "2026-11-09T15:40:54Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/pearl": [
     {
       "at": "2026-11-08T05:20:56Z",
@@ -6217,6 +6640,16 @@
       "kept": true
     }
   ],
+  "id/places/ping": [
+    {
+      "at": "2026-11-09T15:40:54Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/pinyuh": [
     {
       "at": "2026-11-08T05:21:29Z",
@@ -6263,6 +6696,28 @@
       "model": "sonnet",
       "score": 0.4,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/prah": [
+    {
+      "at": "2026-11-09T15:40:54Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/pru-toe-daeng": [
+    {
+      "at": "2026-11-09T15:40:54Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [
+        "Pru Toe-Daeng → Pru Toh Daeng (the spelling is inconsistent with the source)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -6411,6 +6866,20 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/rakuto-river": [
+    {
+      "at": "2026-11-09T18:15:13Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The source names are Vietnamese, not Indonesian: \"sông Trường Giang\", \"hồ Động Đình\", \"sông Gia Lăng\", \"sông Kim Sa\", \"hồ Điền Trì\", \"sông Mân\" (twice), \"dãy Wulin\", \"sông Dương Tử\", \"sông Nueces\", \"sông São Bartolomeu\", \"sông Nakdong\".",
+        "Indonesian atlases write these as Sungai Yangtze (or Chang Jiang), Danau Dongting, Sungai Jialing, Sungai Jinsha, Danau Dianchi, Sungai Min, Pegunungan Wulin, Sungai Nueces, Sungai São Bartolomeu and Sungai Nakdong.",
+        "\"rakuto-river\" → \"sông Nakdong\" is probably a mismatch: the ID and the output don't match, and the Vietnamese prefix is wrong for Indonesian."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -7594,6 +8063,19 @@
       "kept": true
     }
   ],
+  "id/places/rio-sao-bartolomeu": [
+    {
+      "at": "2026-11-09T18:15:13Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The source names are Vietnamese, not Indonesian: \"sông Trường Giang\", \"hồ Động Đình\", \"sông Gia Lăng\", \"sông Kim Sa\", \"hồ Điền Trì\", \"sông Mân\" (twice), \"dãy Wulin\", \"sông Dương Tử\", \"sông Nueces\", \"sông São Bartolomeu\", \"sông Nakdong\".",
+        "Indonesian atlases write these as Sungai Yangtze (or Chang Jiang), Danau Dongting, Sungai Jialing, Sungai Jinsha, Danau Dianchi, Sungai Min, Pegunungan Wulin, Sungai Nueces, Sungai São Bartolomeu and Sungai Nakdong."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/rio-sao-vicente": [
     {
       "at": "2026-11-08T05:21:30Z",
@@ -7920,6 +8402,16 @@
       "kept": true
     }
   ],
+  "id/places/rwanda": [
+    {
+      "at": "2026-11-09T18:15:13Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/ryuku-islands": [
     {
       "at": "2026-11-08T05:21:30Z",
@@ -8020,6 +8512,16 @@
       "kept": true
     }
   ],
+  "id/places/sakaramy": [
+    {
+      "at": "2026-11-09T15:40:54Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/sakarya-river": [
     {
       "at": "2026-11-08T05:21:30Z",
@@ -8042,6 +8544,18 @@
       "kept": true
     }
   ],
+  "id/places/salo-sadang": [
+    {
+      "at": "2026-11-09T15:40:54Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [
+        "sông Sadang → Saddang (the source name is Vietnamese; the Indonesian name would be Sungai Saddang)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/salween-river": [
     {
       "at": "2026-11-08T05:21:30Z",
@@ -8059,6 +8573,16 @@
       "at": "2026-11-08T12:08:48Z",
       "model": "sonnet",
       "score": 0.7,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/sambirano": [
+    {
+      "at": "2026-11-09T15:40:54Z",
+      "model": "sonnet",
+      "score": 0.5,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -8186,11 +8710,31 @@
       "kept": true
     }
   ],
+  "id/places/santiago": [
+    {
+      "at": "2026-11-09T15:40:54Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/santik": [
     {
       "at": "2026-11-08T05:21:31Z",
       "model": "sonnet",
       "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/sao-mateus": [
+    {
+      "at": "2026-11-09T18:15:13Z",
+      "model": "sonnet",
+      "score": 0.3,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -8325,6 +8869,16 @@
       "at": "2026-11-08T05:21:31Z",
       "model": "sonnet",
       "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/shikoku": [
+    {
+      "at": "2026-11-09T18:15:13Z",
+      "model": "sonnet",
+      "score": 0.3,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -8652,6 +9206,18 @@
       "kept": true
     }
   ],
+  "id/places/sulawesi-tenggara": [
+    {
+      "at": "2026-11-09T15:40:54Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [
+        "Đông Nam Sulawesi → Sulawesi Tenggara (the source name is Vietnamese; Sulawesi Tenggara is correct in Indonesian)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/sungai-bernam": [
     {
       "at": "2026-11-09T07:33:47Z",
@@ -8682,11 +9248,31 @@
       "kept": true
     }
   ],
+  "id/places/swarna": [
+    {
+      "at": "2026-11-09T15:40:54Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/sylhet": [
     {
       "at": "2026-11-09T07:33:47Z",
       "model": "sonnet",
       "score": 0.2,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/tahiti": [
+    {
+      "at": "2026-11-09T15:40:54Z",
+      "model": "sonnet",
+      "score": 0.5,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -8699,6 +9285,16 @@
       "score": 0.7,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/takutu": [
+    {
+      "at": "2026-11-09T15:40:54Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -8752,6 +9348,16 @@
       "notes": [
         "Sungai names given without \"Sungai\" (Singen, Sita, Sittang, Sittaung, St. Johns, Tanintharyi, Thamirabarani, Tocantins, Tonle Sap, Tshuapa, Vaal, Yamuna, Yom, Yangtze, Huang He): inconsistent with Indonesian atlas style, which uses \"Sungai X\""
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/tano": [
+    {
+      "at": "2026-11-09T15:40:54Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -8864,6 +9470,16 @@
       "at": "2026-11-08T05:22:00Z",
       "model": "sonnet",
       "score": 0.4,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/tchongchin": [
+    {
+      "at": "2026-11-09T18:15:13Z",
+      "model": "sonnet",
+      "score": 0.3,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -9349,6 +9965,16 @@
       "kept": true
     }
   ],
+  "id/places/vallapattanam": [
+    {
+      "at": "2026-11-09T15:40:54Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/vamanapuram": [
     {
       "at": "2026-11-08T12:08:49Z",
@@ -9489,6 +10115,19 @@
       "kept": true
     }
   ],
+  "id/places/wulin-mountain-range": [
+    {
+      "at": "2026-11-09T18:15:14Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The source names are Vietnamese, not Indonesian: \"sông Trường Giang\", \"hồ Động Đình\", \"sông Gia Lăng\", \"sông Kim Sa\", \"hồ Điền Trì\", \"sông Mân\" (twice), \"dãy Wulin\", \"sông Dương Tử\", \"sông Nueces\", \"sông São Bartolomeu\", \"sông Nakdong\".",
+        "Indonesian atlases write these as Sungai Yangtze (or Chang Jiang), Danau Dongting, Sungai Jialing, Sungai Jinsha, Danau Dianchi, Sungai Min, Pegunungan Wulin, Sungai Nueces, Sungai São Bartolomeu and Sungai Nakdong."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/xe-bang-fai": [
     {
       "at": "2026-11-08T05:22:00Z",
@@ -9558,6 +10197,20 @@
       "score": 0.4,
       "notes": [
         "Sungai names given without \"Sungai\" (Singen, Sita, Sittang, Sittaung, St. Johns, Tanintharyi, Thamirabarani, Tocantins, Tonle Sap, Tshuapa, Vaal, Yamuna, Yom, Yangtze, Huang He): inconsistent with Indonesian atlas style, which uses \"Sungai X\""
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/yangtse": [
+    {
+      "at": "2026-11-09T18:15:14Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The source names are Vietnamese, not Indonesian: \"sông Trường Giang\", \"hồ Động Đình\", \"sông Gia Lăng\", \"sông Kim Sa\", \"hồ Điền Trì\", \"sông Mân\" (twice), \"dãy Wulin\", \"sông Dương Tử\", \"sông Nueces\", \"sông São Bartolomeu\", \"sông Nakdong\".",
+        "Indonesian atlases write these as Sungai Yangtze (or Chang Jiang), Danau Dongting, Sungai Jialing, Sungai Jinsha, Danau Dianchi, Sungai Min, Pegunungan Wulin, Sungai Nueces, Sungai São Bartolomeu and Sungai Nakdong.",
+        "\"Yangtze\" and \"Yangtse\" are two entries for the same river with inconsistent output."
       ],
       "attempt": "first",
       "kept": true
@@ -9657,6 +10310,16 @@
   "id/places/yongdokoship": [
     {
       "at": "2026-11-09T11:45:44Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/yongsan": [
+    {
+      "at": "2026-11-09T18:15:14Z",
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
@@ -20836,6 +21499,16 @@
       "kept": true
     }
   ],
+  "th/places/annamalai-river": [
+    {
+      "at": "2026-11-09T15:46:42Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/annamite-mountains": [
     {
       "at": "2026-11-08T05:27:07Z",
@@ -21463,6 +22136,18 @@
       "kept": true
     }
   ],
+  "th/places/bentara": [
+    {
+      "at": "2026-11-09T18:18:37Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Bentara → เบนทารา"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/bentota": [
     {
       "at": "2026-11-08T05:27:07Z",
@@ -21503,6 +22188,16 @@
       "notes": [
         "Many entries are Thai-script transliterations, but several are questionable or incomplete."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/betsiboka": [
+    {
+      "at": "2026-11-09T15:46:42Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -21680,6 +22375,28 @@
   "th/places/bondele-river": [
     {
       "at": "2026-11-08T05:27:08Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/bori-pat": [
+    {
+      "at": "2026-11-09T15:46:42Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Bori Pat → บริพัตร (Boripat; questionable/unclear)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/brahamaputra": [
+    {
+      "at": "2026-11-09T15:46:42Z",
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
@@ -22159,6 +22876,16 @@
       "kept": true
     }
   ],
+  "th/places/changjiang-river": [
+    {
+      "at": "2026-11-09T18:18:37Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/changuinola": [
     {
       "at": "2026-11-08T05:27:08Z",
@@ -22296,6 +23023,16 @@
   "th/places/chizumulu": [
     {
       "at": "2026-11-08T05:27:08Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/choluteca": [
+    {
+      "at": "2026-11-09T15:46:42Z",
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
@@ -22862,6 +23599,18 @@
       "kept": true
     }
   ],
+  "th/places/doce": [
+    {
+      "at": "2026-11-09T18:18:37Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Doce → โดซี"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/doce-river": [
     {
       "at": "2026-11-08T05:27:55Z",
@@ -22897,6 +23646,16 @@
       "at": "2026-11-08T05:27:55Z",
       "model": "sonnet",
       "score": 0.72,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/dongting-lake": [
+    {
+      "at": "2026-11-09T18:18:37Z",
+      "model": "sonnet",
+      "score": 0.6,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -22950,6 +23709,18 @@
       "model": "sonnet",
       "score": 0.72,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/east-timor": [
+    {
+      "at": "2026-11-09T15:46:42Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "East Timor → ติมอร์-เลสเต (official name; acceptable)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -23191,6 +23962,26 @@
       "score": 0.55,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/gin": [
+    {
+      "at": "2026-11-09T18:18:37Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/goa": [
+    {
+      "at": "2026-11-09T18:18:37Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -23758,6 +24549,18 @@
       "kept": true
     }
   ],
+  "th/places/itajai-acu": [
+    {
+      "at": "2026-11-09T15:46:42Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Itajaí-Açu → อีตาจาอี-อาซู (usually อิตาจาอี-อาซู)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/itapecuru": [
     {
       "at": "2026-11-06T12:36:00Z",
@@ -23924,6 +24727,26 @@
       "kept": true
     }
   ],
+  "th/places/jequitinhonha": [
+    {
+      "at": "2026-11-09T18:18:37Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/jialing-river": [
+    {
+      "at": "2026-11-09T18:18:37Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/jinsha": [
     {
       "at": "2026-11-09T00:10:26Z",
@@ -23932,6 +24755,16 @@
       "notes": [
         "jinsha: sông Kim Sa → จินชา (the Thai name is usually แม่น้ำจินซา, so จินชา is a questionable rendering)"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/jinsha-jiang": [
+    {
+      "at": "2026-11-09T18:18:37Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -24500,6 +25333,16 @@
       "kept": true
     }
   ],
+  "th/places/kokson": [
+    {
+      "at": "2026-11-09T18:18:37Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/koladyne-river": [
     {
       "at": "2026-11-08T15:23:58Z",
@@ -24559,6 +25402,16 @@
       "score": 0.55,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/kosi-river": [
+    {
+      "at": "2026-11-09T15:46:42Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -24693,6 +25546,18 @@
       "score": 0.72,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/kyushu": [
+    {
+      "at": "2026-11-09T18:18:37Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Kyushu → คีวชู"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -24840,6 +25705,16 @@
       "kept": true
     }
   ],
+  "th/places/lake-dianchi": [
+    {
+      "at": "2026-11-09T18:18:37Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/lake-ejagham": [
     {
       "at": "2026-11-08T08:57:32Z",
@@ -24920,6 +25795,16 @@
       "kept": true
     }
   ],
+  "th/places/lake-magadi": [
+    {
+      "at": "2026-11-09T15:46:42Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/lake-mai-ndombe": [
     {
       "at": "2026-11-06T12:36:00Z",
@@ -24990,6 +25875,16 @@
       "kept": true
     }
   ],
+  "th/places/lake-natron": [
+    {
+      "at": "2026-11-09T15:46:42Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/lake-nawampasa": [
     {
       "at": "2026-11-08T15:23:58Z",
@@ -25005,6 +25900,16 @@
       "at": "2026-11-09T00:10:26Z",
       "model": "sonnet",
       "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/lake-pambilao": [
+    {
+      "at": "2026-11-09T15:46:42Z",
+      "model": "sonnet",
+      "score": 0.6,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -25085,6 +25990,16 @@
       "at": "2026-11-08T05:27:56Z",
       "model": "sonnet",
       "score": 0.72,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/lakshadweep": [
+    {
+      "at": "2026-11-09T15:46:42Z",
+      "model": "sonnet",
+      "score": 0.6,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -25174,6 +26089,18 @@
       "kept": true
     }
   ],
+  "th/places/li": [
+    {
+      "at": "2026-11-09T15:46:42Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "sông Ly Giang → หลีเจียง (Li River in Thai is แม่น้ำหลีเจียง/lijiang; acceptable but source is Vietnamese-labelled)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/li-jiang": [
     {
       "at": "2026-11-08T08:57:32Z",
@@ -25251,6 +26178,16 @@
       "at": "2026-11-08T05:27:56Z",
       "model": "sonnet",
       "score": 0.72,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/lobi": [
+    {
+      "at": "2026-11-09T18:18:37Z",
+      "model": "sonnet",
+      "score": 0.6,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -25600,6 +26537,16 @@
       "kept": true
     }
   ],
+  "th/places/makran": [
+    {
+      "at": "2026-11-09T15:46:42Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/malebo-pool": [
     {
       "at": "2026-11-07T04:00:41Z",
@@ -25872,6 +26819,16 @@
       "kept": true
     }
   ],
+  "th/places/matina": [
+    {
+      "at": "2026-11-09T15:46:42Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/mauritania": [
     {
       "at": "2026-11-06T12:36:07Z",
@@ -26124,9 +27081,29 @@
       "kept": true
     }
   ],
+  "th/places/min-river": [
+    {
+      "at": "2026-11-09T18:18:37Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/mindanao": [
     {
       "at": "2026-11-09T11:49:05Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/minjiang-river": [
+    {
+      "at": "2026-11-09T18:18:37Z",
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
@@ -26239,6 +27216,16 @@
       "kept": true
     }
   ],
+  "th/places/mota-talau": [
+    {
+      "at": "2026-11-09T15:46:42Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/mount-kinabalu": [
     {
       "at": "2026-11-08T12:10:05Z",
@@ -26262,6 +27249,16 @@
   "th/places/muar-river": [
     {
       "at": "2026-11-08T05:28:40Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/muhuri": [
+    {
+      "at": "2026-11-09T15:46:42Z",
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
@@ -26309,9 +27306,31 @@
       "kept": true
     }
   ],
+  "th/places/muvattupuzha": [
+    {
+      "at": "2026-11-09T15:46:42Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Muvattupuzha → มูวาตตุปุซา (usual มูวัตตุปุฬา)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/myntdu-river": [
     {
       "at": "2026-11-08T05:28:40Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/naga-hills": [
+    {
+      "at": "2026-11-09T15:46:42Z",
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
@@ -26470,6 +27489,16 @@
       "at": "2026-11-08T12:10:05Z",
       "model": "sonnet",
       "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/natong": [
+    {
+      "at": "2026-11-09T18:18:37Z",
+      "model": "sonnet",
+      "score": 0.6,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -26725,6 +27754,18 @@
       "kept": true
     }
   ],
+  "th/places/nueces-river": [
+    {
+      "at": "2026-11-09T18:18:37Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Nueces → นิวเอเซส"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/nuevo-leon": [
     {
       "at": "2026-11-06T12:36:17Z",
@@ -26949,6 +27990,16 @@
       "kept": true
     }
   ],
+  "th/places/palar": [
+    {
+      "at": "2026-11-09T18:18:37Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/palestine": [
     {
       "at": "2026-11-06T12:36:07Z",
@@ -27121,6 +28172,16 @@
       "kept": true
     }
   ],
+  "th/places/payaswini": [
+    {
+      "at": "2026-11-09T15:46:42Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/pearl": [
     {
       "at": "2026-11-08T05:28:40Z",
@@ -27285,6 +28346,16 @@
       "kept": true
     }
   ],
+  "th/places/ping": [
+    {
+      "at": "2026-11-09T15:46:42Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/pinyuh": [
     {
       "at": "2026-11-08T05:29:23Z",
@@ -27325,6 +28396,16 @@
       "kept": true
     }
   ],
+  "th/places/prah": [
+    {
+      "at": "2026-11-09T15:46:42Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/prek-tuk-sap": [
     {
       "at": "2026-11-06T12:36:07Z",
@@ -27344,6 +28425,16 @@
         "Prince Regent River → พรินซ์รีเจนต์ (omits 'River'/แม่น้ำ)"
       ],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/pru-toe-daeng": [
+    {
+      "at": "2026-11-09T15:46:42Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -27490,6 +28581,16 @@
       "notes": [
         "rakuto: sông Nakdong → นักดง (the id is rakuto, which is the Japanese name of the Nakdong River, but นักดง is a plausible Thai rendering, so it is not clearly wrong)"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/rakuto-river": [
+    {
+      "at": "2026-11-09T18:18:37Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -28741,6 +29842,16 @@
       "kept": true
     }
   ],
+  "th/places/rio-sao-bartolomeu": [
+    {
+      "at": "2026-11-09T18:18:37Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/rio-sao-vicente": [
     {
       "at": "2026-11-08T05:29:24Z",
@@ -29133,6 +30244,16 @@
       "kept": true
     }
   ],
+  "th/places/rwanda": [
+    {
+      "at": "2026-11-09T18:18:37Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/ryuku-islands": [
     {
       "at": "2026-11-08T05:29:25Z",
@@ -29223,6 +30344,16 @@
       "kept": true
     }
   ],
+  "th/places/sakaramy": [
+    {
+      "at": "2026-11-09T15:46:42Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/sakarya-river": [
     {
       "at": "2026-11-08T05:29:25Z",
@@ -29253,6 +30384,16 @@
       "kept": true
     }
   ],
+  "th/places/salo-sadang": [
+    {
+      "at": "2026-11-09T15:46:43Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/salween-river": [
     {
       "at": "2026-11-08T05:29:25Z",
@@ -29268,6 +30409,16 @@
       "at": "2026-11-08T12:10:05Z",
       "model": "sonnet",
       "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/sambirano": [
+    {
+      "at": "2026-11-09T15:46:43Z",
+      "model": "sonnet",
+      "score": 0.6,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -29395,6 +30546,18 @@
       "kept": true
     }
   ],
+  "th/places/santiago": [
+    {
+      "at": "2026-11-09T15:46:43Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Santiago → ซานเตียโก (Ecuador/Peru river; usual ซานเตียโก okay but uncertain)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/santik": [
     {
       "at": "2026-11-08T05:29:25Z",
@@ -29424,6 +30587,16 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/sao-mateus": [
+    {
+      "at": "2026-11-09T18:18:37Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -29579,6 +30752,16 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/shikoku": [
+    {
+      "at": "2026-11-09T18:18:37Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -29900,6 +31083,18 @@
       "kept": true
     }
   ],
+  "th/places/sulawesi-tenggara": [
+    {
+      "at": "2026-11-09T15:46:43Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Đông Nam Sulawesi → สุลาเวสีตะวันออกเฉียงใต้ (official: สุลาเวสีตะวันออกเฉียงใต้ ok)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/sungai-bernam": [
     {
       "at": "2026-11-09T07:46:38Z",
@@ -29954,6 +31149,18 @@
       "kept": true
     }
   ],
+  "th/places/swarna": [
+    {
+      "at": "2026-11-09T15:46:43Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Swarna → สวรรณา (Thai rendering would be สวรรณะ/สวรณา; doubtful)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/sylhet": [
     {
       "at": "2026-11-09T07:46:38Z",
@@ -29966,6 +31173,16 @@
       "kept": true
     }
   ],
+  "th/places/tahiti": [
+    {
+      "at": "2026-11-09T15:46:43Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/taitung": [
     {
       "at": "2026-11-06T12:36:07Z",
@@ -29973,6 +31190,16 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/takutu": [
+    {
+      "at": "2026-11-09T15:46:43Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -30033,6 +31260,16 @@
   "th/places/tanintharyi-river": [
     {
       "at": "2026-11-08T05:30:02Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/tano": [
+    {
+      "at": "2026-11-09T15:46:43Z",
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
@@ -30137,6 +31374,16 @@
   "th/places/taurus-mountains": [
     {
       "at": "2026-11-08T05:30:02Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/tchongchin": [
+    {
+      "at": "2026-11-09T18:18:37Z",
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
@@ -30657,6 +31904,18 @@
       "kept": true
     }
   ],
+  "th/places/vallapattanam": [
+    {
+      "at": "2026-11-09T15:46:43Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Vallapattanam → วัลลปัตตนัม (uncertain; usual วัลลาปัตตนัม)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/vamanapuram": [
     {
       "at": "2026-11-08T12:10:05Z",
@@ -30823,6 +32082,16 @@
       "kept": true
     }
   ],
+  "th/places/wulin-mountain-range": [
+    {
+      "at": "2026-11-09T18:18:37Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/xe-bang-fai": [
     {
       "at": "2026-11-08T05:30:03Z",
@@ -30878,6 +32147,16 @@
   "th/places/yamuna-river": [
     {
       "at": "2026-11-08T05:30:03Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/yangtse": [
+    {
+      "at": "2026-11-09T18:18:37Z",
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
@@ -30979,6 +32258,16 @@
       "notes": [
         "yongdokoship: \"ยองด็อกโอซิบ\" doubtful rendering"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/yongsan": [
+    {
+      "at": "2026-11-09T18:18:37Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -31569,6 +32858,16 @@
         "No entry points to the wrong place. Every name is either a form Vietnamese readers use or the source spelling with its generic word in Vietnamese.",
         "'Bago Yoma' still contains the Burmese generic word 'yoma' (mountain range). It is the usual name, but 'dãy Bago Yoma' or 'dãy Pegu Yoma' would read better. 'Ann Chaung' ('chaung' means stream) and 'Batang Hari' ('batang' means river) are similar cases, but these are normally kept as proper names."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/annamalai-river": [
+    {
+      "at": "2026-11-09T15:37:27Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -32532,6 +33831,20 @@
       "kept": true
     }
   ],
+  "vi/places/bentara": [
+    {
+      "at": "2026-11-09T18:14:05Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "All 26 names point to the right place.",
+        "The Chinese rivers and lakes use the usual Sino-Vietnamese names: Trường Giang, Động Đình, Gia Lăng, Kim Sa, Điền Trì, Mân and Dương Tử.",
+        "The other names keep the source spelling, which is allowed."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/bentota": [
     {
       "at": "2026-11-07T20:33:12Z",
@@ -32580,6 +33893,16 @@
       "notes": [
         "No wrong places found. Generic words are put into Vietnamese correctly: sông (river), vịnh (bay), hồ (lake), đảo (island). Proper names keep the source spelling."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/betsiboka": [
+    {
+      "at": "2026-11-09T15:37:27Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -32817,6 +34140,16 @@
       "kept": true
     }
   ],
+  "vi/places/bori-pat": [
+    {
+      "at": "2026-11-09T15:37:27Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/borneo": [
     {
       "at": "2026-11-07T20:33:13Z",
@@ -32833,6 +34166,18 @@
       "model": "sonnet",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/brahamaputra": [
+    {
+      "at": "2026-11-09T15:37:27Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "\"sông Brahmaputra\" fixes the misspelling in the source name and is the usual Vietnamese name."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -33426,6 +34771,20 @@
       "kept": true
     }
   ],
+  "vi/places/changjiang-river": [
+    {
+      "at": "2026-11-09T18:14:05Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "All 26 names point to the right place.",
+        "The Chinese rivers and lakes use the usual Sino-Vietnamese names: Trường Giang, Động Đình, Gia Lăng, Kim Sa, Điền Trì, Mân and Dương Tử.",
+        "The other names keep the source spelling, which is allowed."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/changuinola": [
     {
       "at": "2026-11-07T20:33:13Z",
@@ -33587,6 +34946,16 @@
   "vi/places/chizumulu": [
     {
       "at": "2026-11-07T20:33:13Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/choluteca": [
+    {
+      "at": "2026-11-09T15:37:27Z",
       "model": "sonnet",
       "score": 0.95,
       "notes": [],
@@ -34281,6 +35650,20 @@
       "kept": true
     }
   ],
+  "vi/places/doce": [
+    {
+      "at": "2026-11-09T18:14:05Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "All 26 names point to the right place.",
+        "The Chinese rivers and lakes use the usual Sino-Vietnamese names: Trường Giang, Động Đình, Gia Lăng, Kim Sa, Điền Trì, Mân and Dương Tử.",
+        "The other names keep the source spelling, which is allowed."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/doce-river": [
     {
       "at": "2026-11-07T20:34:11Z",
@@ -34330,6 +35713,20 @@
       "score": 0.93,
       "notes": [
         "No other line names the wrong place. The Chinese-derived names (Điền Trì, Đông Giang, Hàn Giang, Phúc Kiến, Quảng Đông, Hải Nam) are correct, and so are established forms like biển Chết, Ngũ Đại Hồ, sông Hằng, sông Hán and Gyeongsang Bắc."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/dongting-lake": [
+    {
+      "at": "2026-11-09T18:14:05Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "All 26 names point to the right place.",
+        "The Chinese rivers and lakes use the usual Sino-Vietnamese names: Trường Giang, Động Đình, Gia Lăng, Kim Sa, Điền Trì, Mân and Dương Tử.",
+        "The other names keep the source spelling, which is allowed."
       ],
       "attempt": "first",
       "kept": true
@@ -34717,6 +36114,34 @@
       "model": "sonnet",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/gin": [
+    {
+      "at": "2026-11-09T18:14:05Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "All 26 names point to the right place.",
+        "The Chinese rivers and lakes use the usual Sino-Vietnamese names: Trường Giang, Động Đình, Gia Lăng, Kim Sa, Điền Trì, Mân and Dương Tử.",
+        "The other names keep the source spelling, which is allowed."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/goa": [
+    {
+      "at": "2026-11-09T18:14:05Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "All 26 names point to the right place.",
+        "The Chinese rivers and lakes use the usual Sino-Vietnamese names: Trường Giang, Động Đình, Gia Lăng, Kim Sa, Điền Trì, Mân and Dương Tử.",
+        "The other names keep the source spelling, which is allowed."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -35536,6 +36961,16 @@
       "kept": true
     }
   ],
+  "vi/places/itajai-acu": [
+    {
+      "at": "2026-11-09T15:37:27Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/itapecuru": [
     {
       "at": "2026-11-07T20:35:05Z",
@@ -35730,6 +37165,34 @@
       "kept": true
     }
   ],
+  "vi/places/jequitinhonha": [
+    {
+      "at": "2026-11-09T18:14:05Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "All 26 names point to the right place.",
+        "The Chinese rivers and lakes use the usual Sino-Vietnamese names: Trường Giang, Động Đình, Gia Lăng, Kim Sa, Điền Trì, Mân and Dương Tử.",
+        "The other names keep the source spelling, which is allowed."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/jialing-river": [
+    {
+      "at": "2026-11-09T18:14:05Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "All 26 names point to the right place.",
+        "The Chinese rivers and lakes use the usual Sino-Vietnamese names: Trường Giang, Động Đình, Gia Lăng, Kim Sa, Điền Trì, Mân and Dương Tử.",
+        "The other names keep the source spelling, which is allowed."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/jinsha": [
     {
       "at": "2026-11-09T00:06:30Z",
@@ -35738,6 +37201,20 @@
       "notes": [
         "All 50 names point to the right place. None is a literal word-by-word translation, and none leaves a generic word in another language.",
         "'Jinsha → sông Kim Sa' and 'Srepok → sông Srêpốk' are the usual Vietnamese names."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/jinsha-jiang": [
+    {
+      "at": "2026-11-09T18:14:05Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "All 26 names point to the right place.",
+        "The Chinese rivers and lakes use the usual Sino-Vietnamese names: Trường Giang, Động Đình, Gia Lăng, Kim Sa, Điền Trì, Mân and Dương Tử.",
+        "The other names keep the source spelling, which is allowed."
       ],
       "attempt": "first",
       "kept": true
@@ -36574,6 +38051,20 @@
       "kept": true
     }
   ],
+  "vi/places/kokson": [
+    {
+      "at": "2026-11-09T18:14:05Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "All 26 names point to the right place.",
+        "The Chinese rivers and lakes use the usual Sino-Vietnamese names: Trường Giang, Động Đình, Gia Lăng, Kim Sa, Điền Trì, Mân and Dương Tử.",
+        "The other names keep the source spelling, which is allowed."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/koladyne-river": [
     {
       "at": "2026-11-08T15:21:54Z",
@@ -36660,6 +38151,16 @@
       "notes": [
         "No wrong places found. All 99 names are either names Vietnamese readers already use, or the source's own name with the generic word put into Vietnamese."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/kosi-river": [
+    {
+      "at": "2026-11-09T15:37:27Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -36834,6 +38335,20 @@
       "model": "sonnet",
       "score": 0.96,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/kyushu": [
+    {
+      "at": "2026-11-09T18:14:05Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "All 26 names point to the right place.",
+        "The Chinese rivers and lakes use the usual Sino-Vietnamese names: Trường Giang, Động Đình, Gia Lăng, Kim Sa, Điền Trì, Mân and Dương Tử.",
+        "The other names keep the source spelling, which is allowed."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -37083,6 +38598,20 @@
       "kept": true
     }
   ],
+  "vi/places/lake-dianchi": [
+    {
+      "at": "2026-11-09T18:14:05Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "All 26 names point to the right place.",
+        "The Chinese rivers and lakes use the usual Sino-Vietnamese names: Trường Giang, Động Đình, Gia Lăng, Kim Sa, Điền Trì, Mân and Dương Tử.",
+        "The other names keep the source spelling, which is allowed."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/lake-ejagham": [
     {
       "at": "2026-11-08T08:45:15Z",
@@ -37225,6 +38754,16 @@
       "kept": true
     }
   ],
+  "vi/places/lake-magadi": [
+    {
+      "at": "2026-11-09T15:37:27Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/lake-maharlu": [
     {
       "at": "2026-11-07T20:35:59Z",
@@ -37335,6 +38874,16 @@
       "kept": true
     }
   ],
+  "vi/places/lake-natron": [
+    {
+      "at": "2026-11-09T15:37:27Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/lake-nawampasa": [
     {
       "at": "2026-11-08T15:21:54Z",
@@ -37367,6 +38916,16 @@
       "notes": [
         "All 50 names point to the right place. None is a literal word-by-word translation, and none leaves a generic word in another language."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/lake-pambilao": [
+    {
+      "at": "2026-11-09T15:37:27Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -37539,6 +39098,16 @@
       "kept": true
     }
   ],
+  "vi/places/lakshadweep": [
+    {
+      "at": "2026-11-09T15:37:27Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/lam": [
     {
       "at": "2026-11-07T20:35:59Z",
@@ -37651,6 +39220,20 @@
       "kept": true
     }
   ],
+  "vi/places/li": [
+    {
+      "at": "2026-11-09T15:37:27Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "I found no wrong places in this list.",
+        "\"sông Ly Giang\" is a little redundant, because 'Giang' already means river. Vietnamese readers do use it alongside 'Ly Giang', so I accept it.",
+        "\"sông Brahmaputra\" fixes the misspelling in the source name and is the usual Vietnamese name."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/li-jiang": [
     {
       "at": "2026-11-08T08:45:15Z",
@@ -37738,6 +39321,20 @@
       "score": 0.96,
       "notes": [
         "No wrong places found. All 99 names are either names Vietnamese readers already use, or the source's own name with the generic word put into Vietnamese."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/lobi": [
+    {
+      "at": "2026-11-09T18:14:05Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "All 26 names point to the right place.",
+        "The Chinese rivers and lakes use the usual Sino-Vietnamese names: Trường Giang, Động Đình, Gia Lăng, Kim Sa, Điền Trì, Mân and Dương Tử.",
+        "The other names keep the source spelling, which is allowed."
       ],
       "attempt": "first",
       "kept": true
@@ -38220,6 +39817,16 @@
       "kept": true
     }
   ],
+  "vi/places/makran": [
+    {
+      "at": "2026-11-09T15:37:27Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/malay-peninsula": [
     {
       "at": "2026-11-07T20:36:52Z",
@@ -38618,6 +40225,16 @@
       "kept": true
     }
   ],
+  "vi/places/matina": [
+    {
+      "at": "2026-11-09T15:37:27Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/mato-grosso": [
     {
       "at": "2026-11-07T20:36:53Z",
@@ -38937,6 +40554,20 @@
       "kept": true
     }
   ],
+  "vi/places/min-river": [
+    {
+      "at": "2026-11-09T18:14:05Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "All 26 names point to the right place.",
+        "The Chinese rivers and lakes use the usual Sino-Vietnamese names: Trường Giang, Động Đình, Gia Lăng, Kim Sa, Điền Trì, Mân and Dương Tử.",
+        "The other names keep the source spelling, which is allowed."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/mindanao": [
     {
       "at": "2026-11-09T11:43:20Z",
@@ -38957,6 +40588,20 @@
       "score": 0.72,
       "notes": [
         "These conventional Vietnamese names are correct: Mê Kông, Mân Giang (Minjiang), sông Mã (Nam Ma), bán đảo Mã Lai and hồ Malebo."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/minjiang-river": [
+    {
+      "at": "2026-11-09T18:14:05Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "All 26 names point to the right place.",
+        "The Chinese rivers and lakes use the usual Sino-Vietnamese names: Trường Giang, Động Đình, Gia Lăng, Kim Sa, Điền Trì, Mân and Dương Tử.",
+        "The other names keep the source spelling, which is allowed."
       ],
       "attempt": "first",
       "kept": true
@@ -39100,6 +40745,18 @@
       "kept": true
     }
   ],
+  "vi/places/mota-talau": [
+    {
+      "at": "2026-11-09T15:37:27Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "\"sông Talau\" (from Mota Talau) and \"sông Sadang\" (from Salo Sadang) are fine. 'Mota' and 'Salo' are the local words for river, and they were correctly replaced with 'sông'."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/motagua": [
     {
       "at": "2026-11-07T20:36:54Z",
@@ -39159,6 +40816,16 @@
       "at": "2026-11-07T20:36:54Z",
       "model": "sonnet",
       "score": 0.72,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/muhuri": [
+    {
+      "at": "2026-11-09T15:37:27Z",
+      "model": "sonnet",
+      "score": 0.95,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -39237,6 +40904,16 @@
       "kept": true
     }
   ],
+  "vi/places/muvattupuzha": [
+    {
+      "at": "2026-11-09T15:37:27Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/mve": [
     {
       "at": "2026-11-07T20:36:54Z",
@@ -39252,6 +40929,16 @@
       "at": "2026-11-07T20:36:54Z",
       "model": "sonnet",
       "score": 0.72,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/naga-hills": [
+    {
+      "at": "2026-11-09T15:37:27Z",
+      "model": "sonnet",
+      "score": 0.95,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -39476,6 +41163,20 @@
       "model": "sonnet",
       "score": 0.86,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/natong": [
+    {
+      "at": "2026-11-09T18:14:05Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "All 26 names point to the right place.",
+        "The Chinese rivers and lakes use the usual Sino-Vietnamese names: Trường Giang, Động Đình, Gia Lăng, Kim Sa, Điền Trì, Mân and Dương Tử.",
+        "The other names keep the source spelling, which is allowed."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -39828,6 +41529,20 @@
       "kept": true
     }
   ],
+  "vi/places/nueces-river": [
+    {
+      "at": "2026-11-09T18:14:05Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "All 26 names point to the right place.",
+        "The Chinese rivers and lakes use the usual Sino-Vietnamese names: Trường Giang, Động Đình, Gia Lăng, Kim Sa, Điền Trì, Mân and Dương Tử.",
+        "The other names keep the source spelling, which is allowed."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/nuevo-leon": [
     {
       "at": "2026-11-07T20:37:55Z",
@@ -40164,6 +41879,20 @@
       "kept": true
     }
   ],
+  "vi/places/palar": [
+    {
+      "at": "2026-11-09T18:14:05Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "All 26 names point to the right place.",
+        "The Chinese rivers and lakes use the usual Sino-Vietnamese names: Trường Giang, Động Đình, Gia Lăng, Kim Sa, Điền Trì, Mân and Dương Tử.",
+        "The other names keep the source spelling, which is allowed."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/palawan": [
     {
       "at": "2026-11-07T20:37:55Z",
@@ -40440,6 +42169,16 @@
       "kept": true
     }
   ],
+  "vi/places/payaswini": [
+    {
+      "at": "2026-11-09T15:37:27Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/pearl": [
     {
       "at": "2026-11-07T20:37:55Z",
@@ -40658,6 +42397,16 @@
       "kept": true
     }
   ],
+  "vi/places/ping": [
+    {
+      "at": "2026-11-09T15:37:28Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/pinyuh": [
     {
       "at": "2026-11-07T20:37:55Z",
@@ -40728,6 +42477,16 @@
       "kept": true
     }
   ],
+  "vi/places/prah": [
+    {
+      "at": "2026-11-09T15:37:28Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/prek-tuk-sap": [
     {
       "at": "2026-11-07T20:38:46Z",
@@ -40744,6 +42503,18 @@
       "model": "sonnet",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/pru-toe-daeng": [
+    {
+      "at": "2026-11-09T15:37:28Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "\"Pru Toe-Daeng\" keeps the source name exactly as written, which is acceptable."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -40963,6 +42734,21 @@
       "notes": [
         "All 50 names point to the right place. None is a literal word-by-word translation, and none leaves a generic word in another language.",
         "'Rakuto → sông Nakdong': Rakuto is the Japanese reading of Nakdong, so this is the correct river. 'sông Lạc Đông' would also be acceptable."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/rakuto-river": [
+    {
+      "at": "2026-11-09T18:14:05Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "All 26 names point to the right place.",
+        "The Chinese rivers and lakes use the usual Sino-Vietnamese names: Trường Giang, Động Đình, Gia Lăng, Kim Sa, Điền Trì, Mân and Dương Tử.",
+        "'Rakuto River' is the Japanese name for the Nakdong River in Korea. 'sông Nakdong' is a name Vietnamese readers use for it.",
+        "The other names keep the source spelling, which is allowed."
       ],
       "attempt": "first",
       "kept": true
@@ -42495,6 +44281,20 @@
       "kept": true
     }
   ],
+  "vi/places/rio-sao-bartolomeu": [
+    {
+      "at": "2026-11-09T18:14:05Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "All 26 names point to the right place.",
+        "The Chinese rivers and lakes use the usual Sino-Vietnamese names: Trường Giang, Động Đình, Gia Lăng, Kim Sa, Điền Trì, Mân and Dương Tử.",
+        "The other names keep the source spelling, which is allowed."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/rio-sao-francisco": [
     {
       "at": "2026-11-07T20:39:30Z",
@@ -43166,6 +44966,16 @@
       "kept": true
     }
   ],
+  "vi/places/sakaramy": [
+    {
+      "at": "2026-11-09T15:37:28Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/sakarya": [
     {
       "at": "2026-11-07T20:39:31Z",
@@ -43209,6 +45019,18 @@
       "score": 0.96,
       "notes": [
         "Every name refers to the right place. Generic words (river, Río/Rio, Islands, mountain range) are put into Vietnamese as sông, quần đảo and dãy, and the proper names keep the source spelling."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/salo-sadang": [
+    {
+      "at": "2026-11-09T15:37:28Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "\"sông Talau\" (from Mota Talau) and \"sông Sadang\" (from Salo Sadang) are fine. 'Mota' and 'Salo' are the local words for river, and they were correctly replaced with 'sông'."
       ],
       "attempt": "first",
       "kept": true
@@ -43267,6 +45089,16 @@
       "at": "2026-11-08T12:08:21Z",
       "model": "sonnet",
       "score": 0.86,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/sambirano": [
+    {
+      "at": "2026-11-09T15:37:28Z",
+      "model": "sonnet",
+      "score": 0.95,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -43470,6 +45302,16 @@
       "kept": true
     }
   ],
+  "vi/places/santiago": [
+    {
+      "at": "2026-11-09T15:37:28Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/santik": [
     {
       "at": "2026-11-07T20:39:31Z",
@@ -43501,6 +45343,20 @@
       "score": 0.96,
       "notes": [
         "Every name refers to the right place. Generic words (river, Río/Rio, Islands, mountain range) are put into Vietnamese as sông, quần đảo and dãy, and the proper names keep the source spelling."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/sao-mateus": [
+    {
+      "at": "2026-11-09T18:14:06Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "All 26 names point to the right place.",
+        "The Chinese rivers and lakes use the usual Sino-Vietnamese names: Trường Giang, Động Đình, Gia Lăng, Kim Sa, Điền Trì, Mân and Dương Tử.",
+        "The other names keep the source spelling, which is allowed."
       ],
       "attempt": "first",
       "kept": true
@@ -43745,6 +45601,20 @@
       "model": "sonnet",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/shikoku": [
+    {
+      "at": "2026-11-09T18:14:06Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "All 26 names point to the right place.",
+        "The Chinese rivers and lakes use the usual Sino-Vietnamese names: Trường Giang, Động Đình, Gia Lăng, Kim Sa, Điền Trì, Mân and Dương Tử.",
+        "The other names keep the source spelling, which is allowed."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -44169,6 +46039,18 @@
       "kept": true
     }
   ],
+  "vi/places/sulawesi-tenggara": [
+    {
+      "at": "2026-11-09T15:37:28Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "\"Đông Nam Sulawesi\" is the standard Vietnamese name for the province Sulawesi Tenggara."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/sumatra": [
     {
       "at": "2026-11-07T20:40:25Z",
@@ -44263,6 +46145,16 @@
       "kept": true
     }
   ],
+  "vi/places/swarna": [
+    {
+      "at": "2026-11-09T15:37:28Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/sylhet": [
     {
       "at": "2026-11-09T07:28:43Z",
@@ -44280,6 +46172,16 @@
       "at": "2026-11-07T20:40:25Z",
       "model": "sonnet",
       "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/tahiti": [
+    {
+      "at": "2026-11-09T15:37:28Z",
+      "model": "sonnet",
+      "score": 0.95,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -44310,6 +46212,16 @@
       "at": "2026-11-07T20:40:25Z",
       "model": "sonnet",
       "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/takutu": [
+    {
+      "at": "2026-11-09T15:37:28Z",
+      "model": "sonnet",
+      "score": 0.95,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -44395,6 +46307,16 @@
       "at": "2026-11-07T20:40:25Z",
       "model": "sonnet",
       "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/tano": [
+    {
+      "at": "2026-11-09T15:37:28Z",
+      "model": "sonnet",
+      "score": 0.95,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -44542,6 +46464,20 @@
       "model": "sonnet",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/tchongchin": [
+    {
+      "at": "2026-11-09T18:14:06Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "All 26 names point to the right place.",
+        "The Chinese rivers and lakes use the usual Sino-Vietnamese names: Trường Giang, Động Đình, Gia Lăng, Kim Sa, Điền Trì, Mân and Dương Tử.",
+        "The other names keep the source spelling, which is allowed."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -45308,6 +47244,16 @@
       "kept": true
     }
   ],
+  "vi/places/vallapattanam": [
+    {
+      "at": "2026-11-09T15:37:28Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/vamanapuram": [
     {
       "at": "2026-11-08T12:08:21Z",
@@ -45511,6 +47457,21 @@
       "kept": true
     }
   ],
+  "vi/places/wulin-mountain-range": [
+    {
+      "at": "2026-11-09T18:14:06Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "All 26 names point to the right place.",
+        "The Chinese rivers and lakes use the usual Sino-Vietnamese names: Trường Giang, Động Đình, Gia Lăng, Kim Sa, Điền Trì, Mân and Dương Tử.",
+        "'dãy Wulin' keeps the source spelling and puts the generic word in Vietnamese, which is allowed. 'dãy Vũ Lăng' (for the Wuling Mountains) would be more idiomatic.",
+        "The other names keep the source spelling, which is allowed."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/xe-bang-fai": [
     {
       "at": "2026-11-07T20:41:17Z",
@@ -45620,6 +47581,20 @@
       "model": "sonnet",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/yangtse": [
+    {
+      "at": "2026-11-09T18:14:06Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "All 26 names point to the right place.",
+        "The Chinese rivers and lakes use the usual Sino-Vietnamese names: Trường Giang, Động Đình, Gia Lăng, Kim Sa, Điền Trì, Mân and Dương Tử.",
+        "The other names keep the source spelling, which is allowed."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -45748,6 +47723,20 @@
       "notes": [
         "None of the names is wrong.",
         "All the other names keep the source's spelling, which is how Vietnamese writes foreign place names."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/yongsan": [
+    {
+      "at": "2026-11-09T18:14:06Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "All 26 names point to the right place.",
+        "The Chinese rivers and lakes use the usual Sino-Vietnamese names: Trường Giang, Động Đình, Gia Lăng, Kim Sa, Điền Trì, Mân and Dương Tử.",
+        "The other names keep the source spelling, which is allowed."
       ],
       "attempt": "first",
       "kept": true

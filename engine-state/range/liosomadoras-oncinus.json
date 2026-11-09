@@ -1,0 +1,106 @@
+{
+  "id": "liosomadoras-oncinus",
+  "native": {
+    "input": "4383f17ec54b6703",
+    "at": "2026-11-09T16:24:16.651Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Ucayali, Amazonas and Negro river basins, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ucayali",
+        "source": "seriouslyfish",
+        "quote": "Ucayali, Amazonas and Negro river basins, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Amazonas",
+        "source": "seriouslyfish",
+        "quote": "Ucayali, Amazonas and Negro river basins, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Negro",
+        "source": "seriouslyfish",
+        "quote": "Ucayali, Amazonas and Negro river basins, Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Liosomadoras oncinus",
+    "status": "ACCEPTED",
+    "taxonKey": 2344737,
+    "datasets": [
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        14
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        4
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        3
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        3
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        3
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T16:24:16.651Z"
+  }
+}

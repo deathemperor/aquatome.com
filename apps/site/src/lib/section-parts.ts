@@ -1,18 +1,31 @@
-import { dropCardRepeats, dropOffItems, figuresOffCard, linkTerms, litresOffCard, type Content, type DataCardField, type Section, type SourceId, type SpeciesEntity, type SpeciesRange, type Translation } from '@aq/schema'
+import { dropCardRepeats, dropOffItems, figuresOffCard, linkTerms, litresOffCard, tankLengthFor, type Content, type DataCardField, type Range, type Section, type SourceId, type SpeciesEntity, type SpeciesRange, type Translation } from '@aq/schema'
+import { gapMatters } from './card-rows'
 import { citeMark, withCite } from './cite'
 import type { Figure } from './figures'
+import { isRange } from './format'
 import { translator, type Lang } from './i18n'
 import { mentionIndex } from './mentions'
 import { rangeParts, type RangeParts } from './range'
 import { DISPLAY_ORDER } from './sections'
 
-/**
- * The words before each figure in a "ghi khác bảng dữ liệu" note (Vietnamese: the page shows them through t()). `tankL`:
- * a tank given as a volume, in litres, against the card's minimum tank in cm.
- */
-export const OFF_LABELS: Partial<Record<DataCardField | 'tankL', string>> = { tempC: 'nhiệt độ', ph: 'pH', gh: 'độ cứng', sizeCm: 'kích thước', tankCm: 'bể tối thiểu', tankL: 'bể tối thiểu' }
+/** The words before each figure in the note after a block whose figure is far from the card's (Vietnamese: the page shows them through t()). */
+export const OFF_LABELS: Partial<Record<DataCardField, string>> = { tempC: 'nhiệt độ', ph: 'pH', gh: 'độ cứng', sizeCm: 'kích thước', tankCm: 'bể tối thiểu' }
 /** The blocks whose volumes are tanks: a volume elsewhere is water to change or a filter's flow. */
 const TANK_KEYS = new Set(['quickFacts', 'aquariumSize'])
+
+/**
+ * What a block's note gives: the card's figure for each field where the block's own is as far from it as the card's dot
+ * asks (gapMatters). Nearer than that the sources only round differently, and each one's figure is a tap away under the
+ * card. A tank in litres is read as the ready-made tank that holds it, so it's measured against the card's length.
+ */
+export function farFromCard(off: { field: DataCardField | 'tankL'; own: Range | number; card: Range | number }[]): { field: DataCardField; card: Range | number }[] {
+  const far = off.flatMap(o => {
+    const field = o.field === 'tankL' ? 'tankCm' : o.field
+    const own = o.field === 'tankL' ? tankLengthFor(isRange(o.own) ? o.own.min : o.own)! : o.own
+    return gapMatters(field, [{ value: own }, { value: o.card }]) ? [{ field, card: o.card }] : []
+  })
+  return far.filter((o, i) => far.findIndex(x => x.field === o.field) === i)
+}
 
 /**
  * `range`: a species' range, for its "Phân bố tự nhiên" (lib/range.ts), shown before the wild's sections. `refs`: the pages
@@ -26,7 +39,7 @@ const RANGE_BEFORE = DISPLAY_ORDER.indexOf('distribution')
 /**
  * A species' or plant's text as its page shows it, put together once for the page (components/Sections.astro) and for
  * the app's copy (lib/app-page.ts): the sections in reader order, each block with its links and its source's numbered
- * mark, a note above a block that follows a source the data card didn't, the photos between sections, and the
+ * mark, a note after a block whose figure is far from the data card's, the photos between sections, and the
  * numbered sources. `card`: a species' data card, whose figures are the page's own (@aq/schema card-facts). `wild`: its
  * "Phân bố tự nhiên", when it has a range, shown before group `wildAt`, its sources numbered there in the page's order.
  */
@@ -63,10 +76,10 @@ export function sectionParts(lang: Lang, c: Content, { sections, t, self, selfNa
       const html = text && card && key === 'quickFacts' ? dropOffItems(card, x.source, dropCardRepeats(x.html, text, x.source, card)) : text
       if (!html) return []
       const name = c.sources[x.source]?.name ?? x.source
-      const off = card && key !== 'references' ? [...figuresOffCard(card, x.source, html), ...(TANK_KEYS.has(key) ? litresOffCard(card, html) : [])] : []
+      const off = card && key !== 'references' ? farFromCard([...figuresOffCard(card, x.source, html), ...(TANK_KEYS.has(key) ? litresOffCard(card, html) : [])]) : []
       const marks = x.source === 'aquatome' ? researchMarks(x) : []
       if (marks.length) fromResearch = true
-      return [{ ...x, name, off, vi: withCite(linkTerms(html, targets, 'ml', linked, own).html, marks.length ? marks.join(' ') : citeMark(lang, refNo(name, x.sourceUrl), name, x.sourceUrl)) }]
+      return [{ ...x, off, vi: withCite(linkTerms(html, targets, 'ml', linked, own).html, marks.length ? marks.join(' ') : citeMark(lang, refNo(name, x.sourceUrl), name, x.sourceUrl)) }]
     }) }
   }).filter(x => x.blocks.length > 0)
   // Every page researched is listed, a figure's on the card too, after those the text cites.

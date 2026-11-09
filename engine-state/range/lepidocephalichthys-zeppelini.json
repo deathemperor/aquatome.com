@@ -1,0 +1,83 @@
+{
+  "id": "lepidocephalichthys-zeppelini",
+  "native": {
+    "input": "002297ab3603d6cc",
+    "at": "2026-11-09T16:24:16.651Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Lepidocephalichthys zeppelini is a tiny cobitid loach from the Mekong system in Thailand and Vietnam.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Lepidocephalichthys zeppelini is a tiny cobitid loach from the Mekong system in Thailand and Vietnam.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the middle and lower Mekong river system in Thailand and Vietnam.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the middle and lower Mekong river system in Thailand and Vietnam.",
+        "words": "Vietnam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Known from the middle and lower Mekong river system in Thailand and Vietnam.",
+        "ok": true
+      },
+      {
+        "name": "Mun River",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Mun River, tributary of Mekong River, Ubon Rajathanee University campus, 15°08'03.18\"N, 104°55'27.78\"E, Ubon Ratchathani, Thailand'.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Lepidocephalichthys zeppelini",
+    "status": "ACCEPTED",
+    "taxonKey": 5851064,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "VN"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T16:24:16.651Z"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "slug": "ca-tylochromis-lateralis",
+  "name": "Cá Tylochromis lateralis",
+  "altNames": [],
+  "sections": {
+    "quickFacts:glaser": "<p>Lần đầu tiên có cá Tylochromis cf. lateralis do trại ở Đức cho đẻ được bán ra. Đây là một loài cichlid lớn và khá lạ. Cá bố mẹ nhập từ Congo. Chúng được nuôi và cho đẻ thành công ở độ cứng tổng 14° và pH 7.</p>",
+    "dimorphism:glaser": "<p>Khoảng 1,5–2 tuổi thì đã nhìn rõ con nào đực, con nào cái. Con đực đầu đàn phải sau 3 năm mới phát triển đầy đủ, lúc đó dài khoảng 30 cm. Con cái cùng tuổi chỉ dài 20 cm.</p>",
+    "diet:glaser": "<p>Loài này kiếm ăn giống cá Geophagus. Chúng sàng cát mịn để lọc lấy thức ăn, và mồi chúng ăn khá nhỏ. Có thể cho ăn cám hạt, cám lá và ấu trùng muỗi trắng, ấu trùng muỗi đen đông lạnh.</p>",
+    "behaviour:glaser": "<p>Loài này trông hơi giống cá Geophagus Nam Mỹ, tính nết cũng na ná. Con đực đầu đàn hay giành chỗ và đuổi cá khác khỏi khu của nó.</p>",
+    "reproduction:glaser": "<p>Cách sinh sản cũng có nét giống cá Geophagus. Tylochromis cf. lateralis là loài ngậm trứng, cá cái ngậm trứng trong miệng ngay từ lúc đẻ. Cá bắt ngoài tự nhiên chỉ đẻ theo mùa. Với cá trại thì còn quá sớm để biết chúng có như vậy không. Hiện mới chỉ cho đẻ được thế hệ F1.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.85
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-10"
+  }
+}

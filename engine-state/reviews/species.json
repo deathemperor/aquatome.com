@@ -371,6 +371,39 @@
       "kept": true
     }
   ],
+  "vi/species/otocinclus-vittatus#6C3cORsXseY": [
+    {
+      "at": "2026-11-09T17:54:19Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "[diet] \"tảo nâu\": the video says diatoms, which is usually \"tảo silic\"; \"tảo nâu\" is a loose rendering but acceptable.",
+        "[diet] \"thế là cây yếu dần rồi chết\" is stated as a general fact; the video says it about algae film in general, and this is fine, but it's phrased as a rule.",
+        "[maintenance] \"Đó là chuyện của một bể, chưa chắc bể nào cũng nhanh như vậy\" is a hedge the video doesn't make, but it's reasonable caution. The video also says algae cleared 'in just a few days' elsewhere.",
+        "[maintenance] \"Một người nuôi có bể...\" and \"lá crypt\" are fine, but the video says 'golden anubias nana' and 'cryptocorynes', so this is faithful.",
+        "[behaviour] \"Ban ngày, thỉnh thoảng có con tách ra ở một mình\" matches the video. \"hay tụ lại\" is fine.",
+        "[notes] \"đỡ được phần nào trước những con cá săn mồi lớn hơn\" is a slight extension of 'larger inhabitants constantly lurking' but acceptable."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-09T17:54:19Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "\"tảo nâu\" for diatoms is acceptable, but \"rêu đốm xanh\"/\"rêu bụi xanh\" fine; mixing \"tảo\" and \"rêu\" is inconsistent and reads slightly off.",
+        "\"cá otto\" is an unnatural/misspelled name (page uses \"oto\"/\"otocinclus\"); reads as a transcription error.",
+        "\"Loài này dễ chăm, và người trồng cây thủy sinh rất quý nó\" is a generic claim stated as fact; it echoes the video's \"easy to care for\" but is a vague, translation-like statement.",
+        "\"Một người nuôi thả 15 con...\" is fine as one keeper's experience, but \"lá đã sạch rêu\" drops the video's detail that the algae was 'completely destroyed' and the result is presented without noting it's one tank; OK but borderline.",
+        "\"Ban ngày, thỉnh thoảng có con tách ra ở một mình\" is supported, but \"bơi đồng loạt khắp bể\" and group behavior are stated as a rule for the species though it's the video makers' observation.",
+        "\"che chắn được phần nào trước cá săn mồi\" and \"gai rất nhỏ\" are supported, but the video says these are on the body as an evolutionary adaptation; the note is okay.",
+        "The text doesn't note where the video differs from the page; e.g. the page says to feed the fish pellets and vegetables beyond algae, while the video says nothing about this. The ' Chỉ sau 48 giờ ' result also could mislead as a rule."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/panaque-cochliodon#_F_qdXPeQSM": [
     {
       "at": "2026-11-08T03:03:38Z",
@@ -639,6 +672,39 @@
         "[notes] 'lớn tới 6–7 cm' differs from the page's sizeCm of 5.5. NEW doesn't say it differs or how.",
         "[notes] 'bể nano cỡ lớn là vừa với chúng' conflicts with the page's minimum of 75 L (about 54 L for a 60×30 base). The difference isn't flagged. The sentence is also placed under [notes], where it doesn't fit.",
         "[diet] 'Cá hơi kén' repeats the page's existing statement that the fish are somewhat picky."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/steatocranus-casuarius": [
+    {
+      "at": "2026-11-09T18:00:07Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "\"Điểm đáng chú ý nhất nằm bên trong\" is an editorial emphasis. The facts don't rank the swim bladder as the most notable feature.",
+        "\"cỡ tối thiểu cho một cặp có thể chênh tới gấp đôi\" is the page's own inference from the 20-gallon and 40-gallon figures. The facts don't state it.",
+        "The gallon figures are converted to litres (about 75, 150, 190 and 285 L). The conversions are approximate but acceptable."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-09T18:00:07Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "\"một hồ sơ khác cho đực khoảng 15 cm và cái khoảng 10 cm\" – facts say 6 inches (~15 cm) and 4 inches (~10 cm); this is a conversion, so supported (not an error).",
+        "\"có nguồn nói bể khoảng 75 lít là vừa\" – facts say a 20-gallon tank suits a pair; 20 gallons is about 75 litres, so this is a conversion and supported.",
+        "\"150 lít\" and \"190 lít\" and \"285 lít\" – these are conversions of 40, 50 and 75 gallons, so they are supported.",
+        "\"cichlid nhỏ 8–10 cm\" – this is 3–4 inches converted, so it is supported.",
+        "\"Nhà của nó là những ghềnh đá ... nơi đáy đầy đá tảng\" – supported by the facts, so it is fine.",
+        "\"nhiều nguồn trong giới nuôi cá gọi nó là cá cực dữ\" – the facts only say 'hobby sources often call it', so this is roughly supported.",
+        "\"Một nguồn khác cho rằng nước ổn định quan trọng hơn con số chính xác\" – supported.",
+        "\"Đực đạt khoảng 12 cm\" and \"độ khó\" – no difficulty claim is made in the page, so there is no issue.",
+        "\"Con đực ... dài hơn, màu sẫm hơn\" – supported.",
+        "Overall the page is mostly faithful; the main risk is the unit conversions, which are allowed. No clear invented claims were found, but some details are slightly embellished, such as \"đàn cá bơi ngoài để cặp cá bớt nhát\" (the explanation of dither fish is not in the facts) and \"set bể\"."
       ],
       "attempt": "first",
       "kept": false

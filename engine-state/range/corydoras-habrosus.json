@@ -1,8 +1,8 @@
 {
   "id": "corydoras-habrosus",
   "native": {
-    "input": "a767df94645e63ae",
-    "at": "2026-11-07T09:20:22.982Z",
+    "input": "94af982effe61fbd",
+    "at": "2026-11-09T12:58:06.259Z",
     "claims": [
       {
         "code": "CO",
@@ -33,6 +33,22 @@
         "status": "native",
         "source": "seriouslyfish",
         "quote": "Native to the upper Río Orinoco basin in eastern Colombia and western Venezuela, where it appears to be restricted to left bank tributaries.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "aquariumcoop",
+        "quote": "The habrosus cory is found in the flooded forests and slow-moving streams of Colombia and Venezuela, which are full of underwater foliage and tree roots.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "aquariumcoop",
+        "quote": "The habrosus cory is found in the flooded forests and slow-moving streams of Colombia and Venezuela, which are full of underwater foliage and tree roots.",
         "words": "Venezuela",
         "ok": true
       }

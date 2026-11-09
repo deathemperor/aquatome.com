@@ -1,0 +1,87 @@
+{
+  "id": "teleocichla-centrarchus",
+  "scientificName": "Teleocichla centrarchus",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Teleocichla",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-xingu"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 28,
+          "max": 30
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 12
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/teleocichla_centrarchus_en/",
+      "html": "<p>Teleocichla are small cichlids from Brazil. They love comparatively strong current. The genus is a close relative of the pike cichlids (Crenicichla). The genus Teleocichla was discovered only late, in 1988; currently 18 different species are known, 10 of them are still undescribed scientifically. The genus type is T. centrarchus.</p><p>Teleocichla centrarchus is one of the largest members of the genus. It attains a maximum length of about 12 cm (males) and 8 cm (females) respectively.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/teleocichla_centrarchus_en/",
+      "html": "<p>T. centrarchus originates from the Rio Xingu. There are 6 additional species of Teleocichla known from the Xingu.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/teleocichla_centrarchus_en/",
+      "html": "<p>Because it originates from the Rio Xingu, it should be kept comparatively warm (28-30°C).</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/teleocichla_centrarchus_en/",
+      "html": "<p>Like in all Teleocichla the air bladder is reduced, so the fish hardly ever swim in the water column. Very small tankmates will be eaten, but in general this species can be considered a peaceful one.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/teleocichla_centrarchus_en/",
+      "html": "<p>All species of Teleocichla look very similar when frightened, so it can never be excluded that specimens of other Teleocichla are among the T. centrarchus offered.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá",
+        "máy sưởi cá cảnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "lọc bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cichlid"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

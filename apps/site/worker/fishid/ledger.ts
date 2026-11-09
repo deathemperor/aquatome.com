@@ -34,7 +34,17 @@ export type Counts = {
   offTopic: number
 }
 /** An open run: its reader key, what it reserved and spent (USD), when it was admitted (ms). */
-export type Run = { reader: string; reserved: number; spent: number; at: number }
+export type Run = {
+  reader: string; reserved: number; spent: number; at: number
+  /** A chat question's key (the account's, then its Idempotency-Key), which a stop names it by. */
+  key?: string
+  /** Its text began, or it ended: a stop comes too late. */
+  begun?: boolean
+  /** The stop that came first, and what it was told. */
+  stopped?: Stopped
+}
+/** A stop's reply (protocols/chat.openapi.json, `Stopped`). */
+export type Stopped = { result: 'cancelled'; counted: boolean; freeLeft?: number } | { result: 'too late' }
 export type LedgerDay = {
   /** Identifications admitted: the site's day. */
   calls: number
@@ -51,13 +61,20 @@ export type LedgerDay = {
   refunds: Record<string, number>
   /** Questions that weren't about fishkeeping per reader key. Missing before any. */
   offTopic?: Record<string, number>
+  /** A day's stops per reader key, against its free ones. Missing before any. */
+  stops?: Record<string, number>
+  /** Each stop's first reply, by the question's key: a second stop gets it again, and a question stopped before it came finds it. */
+  stopped?: Record<string, Stopped>
   runs: Record<string, Run>
   counts: Counts
 }
 
 /** `kind`: a chat question, counted against chat's day (`perDay`), not the identifications'; the dollar cap is the same. */
-export type AdmitInput = { day: string; reader: string; perReader: number; perDay: number; usdCap: number; reserve: number; healthy: boolean; kind?: 'chat' }
-export type Admitted = { ok: true; run: string } | { ok: false; error: 'rate'; limit: number } | { ok: false; error: 'busy' | 'resting' }
+/** Stops of questions that haven't come, kept a day. */
+export const MAX_EARLY_STOPS = 200
+
+export type AdmitInput = { day: string; reader: string; perReader: number; perDay: number; usdCap: number; reserve: number; healthy: boolean; kind?: 'chat'; key?: string }
+export type Admitted = { ok: true; run: string } | { ok: false; error: 'rate'; limit: number } | { ok: false; error: 'busy' | 'resting' } | { ok: false; error: 'cancelled'; counted: boolean; freeLeft?: number }
 /** `offTopic`: a chat question that wasn't about fishkeeping, and how many of those a reader's day gives the count back for. */
 export type SettleInput = { day: string; run: string; refund: boolean; offTopic?: number; keys: Record<string, number>; ok?: string; counts?: Partial<Counts> }
 
@@ -105,6 +122,8 @@ export class Ledger {
     // From here to the change, no wait: no other request can see the day between the checks and the counts.
     const now = this.clock()
     for (const [id, r] of Object.entries(day.runs)) if (now - r.at > STALE_MS) { day.usd = Math.max(0, day.usd - (r.reserved - r.spent)); delete day.runs[id] }
+    const stop = a.key ? day.stopped?.[a.key] : undefined
+    if (stop?.result === 'cancelled') return { ok: false, error: 'cancelled', counted: stop.counted, ...(stop.freeLeft !== undefined ? { freeLeft: stop.freeLeft } : {}) }
     const used = day.readers[a.reader] ?? 0
     if (used >= a.perReader) return { ok: false, error: 'rate', limit: a.perReader }
     const counted = a.kind === 'chat' ? (day.chat ?? 0) : day.calls
@@ -115,7 +134,7 @@ export class Ledger {
     if (a.kind === 'chat') day.chat = counted + 1
     else day.calls++
     day.usd += a.reserve
-    day.runs[run] = { reader: a.reader, reserved: a.reserve, spent: 0, at: now }
+    day.runs[run] = { reader: a.reader, reserved: a.reserve, spent: 0, at: now, ...(a.key ? { key: a.key } : {}) }
     await this.save(a.day, day)
     return { ok: true, run }
   }
@@ -158,6 +177,60 @@ export class Ledger {
     await this.save(s.day, day)
   }
 
+  /**
+   * The reader stops the question with this key, which came first being settled here, in one place: the stop may come
+   * from another request than the one running it. Before the text's first piece (`begin`) it is cancelled: the reader's
+   * count goes back, unless they've used their `free` stops today. After, it's too late. A stop for a question that hasn't
+   * come yet is kept for it (`admit`). Looks at yesterday too: a question asked just before midnight UTC.
+   */
+  async cancel(c: { day: string; key: string; free: number }): Promise<Stopped> {
+    for (const d of [c.day, shift(c.day, -1)]) {
+      const day = await this.day(d)
+      const first = day.stopped?.[c.key]
+      if (first) return first
+      const r = Object.values(day.runs).find(x => x.key === c.key)
+      if (!r) continue
+      let out: Stopped = { result: 'too late' }
+      if (!r.begun) {
+        const used = day.stops?.[r.reader] ?? 0
+        const counted = used >= c.free
+        day.stops = { ...day.stops, [r.reader]: used + 1 }
+        if (!counted) day.readers[r.reader] = Math.max(0, (day.readers[r.reader] ?? 0) - 1)
+        r.stopped = out = { result: 'cancelled', counted, freeLeft: Math.max(0, c.free - used - 1) }
+      }
+      day.stopped = { ...day.stopped, [c.key]: out }
+      await this.save(d, day)
+      return out
+    }
+    // Before its question. Nothing pays for these, so a day holds a bounded number of them; past that the question simply runs.
+    const today = await this.day(c.day)
+    if (Object.values(today.stopped ?? {}).filter(s => s.result === 'cancelled' && s.freeLeft === undefined).length >= MAX_EARLY_STOPS) return { result: 'too late' }
+    const out: Stopped = { result: 'cancelled', counted: false }
+    // Its question may be dated either side of midnight from this stop.
+    for (const d of [c.day, shift(c.day, -1), shift(c.day, 1)]) {
+      const day = await this.day(d)
+      day.stopped = { ...day.stopped, [c.key]: out }
+      await this.save(d, day)
+    }
+    return out
+  }
+
+  /** The text's first piece, or the run's end: from here a stop is too late. Stopped first: what its reply said. */
+  async begin(d: string, run: string): Promise<Stopped | null> {
+    const day = await this.day(d)
+    const r = day.runs[run]
+    if (!r) return null
+    if (r.stopped) return r.stopped
+    r.begun = true
+    await this.save(d, day)
+    return null
+  }
+
+  /** What a run asks while it works: has the reader stopped it? */
+  async stopped(d: string, run: string): Promise<Stopped | null> {
+    return (await this.day(d)).runs[run]?.stopped ?? null
+  }
+
   /** The day as the dashboard reads it: no reader keys, no runs; the biggest number of refunds one reader had. */
   async read(d: string): Promise<DayView> {
     const day = await this.day(d)
@@ -185,6 +258,9 @@ export class FishIdLedger {
     if (op === 'spend') return Response.json(await this.ledger.spend(String(body.day), String(body.run), Number(body.usd)) ?? null)
     if (op === 'settle') return Response.json(await this.ledger.settle(body as SettleInput) ?? null)
     if (op === 'read') return Response.json(await this.ledger.read(String(body.day)))
+    if (op === 'cancel') return Response.json(await this.ledger.cancel(body as { day: string; key: string; free: number }))
+    if (op === 'begin') return Response.json(await this.ledger.begin(String(body.day), String(body.run)))
+    if (op === 'stopped') return Response.json(await this.ledger.stopped(String(body.day), String(body.run)))
     return new Response(null, { status: 404 })
   }
 }
@@ -208,6 +284,9 @@ export function ledgerClient(ns: DurableObjectNamespace) {
     spend: (day: string, run: string, usd: number) => call<null>('spend', { day, run, usd }),
     settle: (s: SettleInput) => call<null>('settle', s),
     read: (day: string) => call<DayView>('read', { day }),
+    cancel: (c: { day: string; key: string; free: number }) => call<Stopped>('cancel', c),
+    begin: (day: string, run: string) => call<Stopped | null>('begin', { day, run }),
+    stopped: (day: string, run: string) => call<Stopped | null>('stopped', { day, run }),
   }
 }
 export type LedgerClient = ReturnType<typeof ledgerClient>

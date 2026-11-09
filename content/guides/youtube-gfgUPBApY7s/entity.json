@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-11-05",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "gfgUPBApY7s",
     "title": "HOW TO: $5 aquarium alarm DIY",
@@ -29,49 +29,36 @@
     "figures": [
       {
         "heading": "Vì sao dùng báo khói",
-        "moments": [
-          {
-            "t": 84,
-            "url": "https://media.aquatome.com/video/gfgUPBApY7s/t84.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cận cảnh báo khói cũ, nhìn rõ thân còi tròn."
-          },
-          {
-            "t": 89,
-            "url": "https://media.aquatome.com/video/gfgUPBApY7s/t89.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Ngón tay bấm nút test trên báo khói để còi kêu."
-          }
-        ],
+        "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/gfgUPBApY7s/p0-ZXR0Xy1fMDMuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/gfgUPBApY7s/p0-ZXR0Xy1fMDMuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/gfgUPBApY7s/p0-jdG9yXygxKS5KUEc.webp",
+          "thumb": "https://media.aquatome.com/video/gfgUPBApY7s/p0-jdG9yXygxKS5KUEc-480.webp",
           "width": 960,
-          "height": 1283,
-          "licence": "CC BY-SA 4.0",
-          "author": "Andy Mabbett",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:FireAngel_smoke_detector_system_-_2021-07-07_-_Andy_Mabbett_-_03.jpg",
-          "caption": "Báo khói có nút test ở mặt trước, loại dễ kiếm để tận dụng cái còi."
+          "height": 758,
+          "licence": "Public domain",
+          "author": "Georg Pik",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Smoke_detector_(1).JPG",
+          "caption": "Một chiếc báo khói gắn trên trần nhà, loại phổ biến và rẻ."
         }
       },
       {
-        "heading": "Nút test hoạt động thế nào",
+        "heading": "Bên trong chiếc còi có gì",
         "moments": [
           {
-            "t": 108,
-            "url": "https://media.aquatome.com/video/gfgUPBApY7s/t108.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bên trong báo khói: pin 9V, bộ cảm biến và còi."
+            "t": 110,
+            "url": "https://media.aquatome.com/video/gfgUPBApY7s/at110-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bên trong vỏ còi báo khói có pin 9V, cảm biến và còi.",
+            "sharpness": 476.2
           },
           {
-            "t": 138,
-            "url": "https://media.aquatome.com/video/gfgUPBApY7s/t138.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Mặt sau bo mạch với các đường mạch cần lần theo."
+            "t": 140,
+            "url": "https://media.aquatome.com/video/gfgUPBApY7s/at140-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Mặt sau bo mạch với các đường nối giữa các điểm hàn.",
+            "sharpness": 506.4
           }
         ],
         "photo": {
@@ -82,65 +69,104 @@
           "licence": "CC BY-SA 4.0",
           "author": "Raimond Spekking",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Eyston_SD-191H_-_board-9761.jpg",
-          "caption": "Bên trong báo khói: mạch điện, còi và dây pin nhìn khá đơn giản."
+          "caption": "Bên trong chiếc còi báo khói: bo mạch, còi tròn đen và dây nối."
         }
       },
       {
-        "heading": "Các bước làm",
+        "heading": "Nối dây vào còi",
         "moments": [
           {
-            "t": 197,
-            "url": "https://media.aquatome.com/video/gfgUPBApY7s/t197.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Mạch còi báo đã tháo khỏi vỏ, có dây điện mảnh gắn vào."
+            "t": 200,
+            "url": "https://media.aquatome.com/video/gfgUPBApY7s/at200-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Còi báo nối pin 9V, có sợi dây mảnh gắn vào mạch.",
+            "sharpness": 579.7
           },
           {
-            "t": 207,
-            "url": "https://media.aquatome.com/video/gfgUPBApY7s/t207.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Vỏ còi được mở ra, để lộ các bộ phận bên trong."
+            "t": 205,
+            "url": "https://media.aquatome.com/video/gfgUPBApY7s/at205-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Mạch còi với hai sợi dây đã gắn vào điểm cần nối.",
+            "sharpness": 471.8
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/gfgUPBApY7s/p2-1fcXVhcGFuLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/gfgUPBApY7s/p2-1fcXVhcGFuLmpwZw-480.webp",
+          "width": 960,
+          "height": 699,
+          "licence": "CC BY 2.0",
+          "author": "quapan",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Labyrinthine_circuit_board_lines_-_Flickr_-_quapan.jpg",
+          "caption": "Mặt sau bo mạch với các đường mạch đồng, giúp lần theo để hàn dây."
+        }
+      },
+      {
+        "heading": "Gắn còi lên bể để báo lúc châm nước",
+        "moments": [
+          {
+            "t": 260,
+            "url": "https://media.aquatome.com/video/gfgUPBApY7s/at260-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Còi đã dán lên thành bể, hai sợi dây vắt qua mép bể.",
+            "sharpness": 953
+          },
+          {
+            "t": 265,
+            "url": "https://media.aquatome.com/video/gfgUPBApY7s/at265-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Giác hút gắn ở lưng còi, dán sát vào thành kính của bể.",
+            "sharpness": 467.3
           }
         ]
       },
       {
-        "heading": "Dùng để báo đầy khi thay nước",
+        "heading": "Đặt còi để bắt chỗ rò",
         "moments": [
           {
-            "t": 256,
-            "url": "https://media.aquatome.com/video/gfgUPBApY7s/t256.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Còi báo gắn lên thành bể, hai sợi dây vắt qua mép bể."
+            "t": 270,
+            "url": "https://media.aquatome.com/video/gfgUPBApY7s/at270-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Còi báo đặt cạnh tấm chắn, hai sợi dây đi xuống từ còi.",
+            "sharpness": 927
           },
           {
-            "t": 261,
-            "url": "https://media.aquatome.com/video/gfgUPBApY7s/t261.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Mặt sau còi báo hút vào kính bể bằng núm hút."
+            "t": 290,
+            "url": "https://media.aquatome.com/video/gfgUPBApY7s/at290-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Còi báo với hai sợi dây dán băng keo cố định trên sàn.",
+            "sharpness": 589
           }
         ]
       },
       {
-        "heading": "Dùng để báo rò rỉ",
+        "heading": "Còi có hại cho cá không",
         "moments": [
           {
-            "t": 281,
-            "url": "https://media.aquatome.com/video/gfgUPBApY7s/t281.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Còi báo đặt cạnh miếng đệm nhỏ, chuẩn bị làm cảm biến rò rỉ."
-          },
-          {
-            "t": 296,
-            "url": "https://media.aquatome.com/video/gfgUPBApY7s/t296.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Còi báo mở nắp, thấy mạch bên trong và hai sợi dây kéo ra."
+            "t": 300,
+            "url": "https://media.aquatome.com/video/gfgUPBApY7s/at300-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Còi báo mở nắp, thấy mạch điện bên trong chạy bằng pin 9V.",
+            "sharpness": 610.2
           }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/gfgUPBApY7s/p5-IydHh2cmdvLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/gfgUPBApY7s/p5-IydHh2cmdvLmpwZw-480.webp",
+          "width": 960,
+          "height": 960,
+          "licence": "CC BY-SA 4.0",
+          "author": "Grzegorz W. Tężycki",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Batt-6F22-Eastpower_~22txvrgo.jpg",
+          "caption": "Pin 9V loại thường, nguồn điện yếu dùng cho còi, vô hại với cá."
+        }
       }
     ]
   }
