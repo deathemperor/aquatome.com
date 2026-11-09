@@ -35,9 +35,10 @@ final class PerformanceTests: XCTestCase {
   }
 
   /// A gallery of 300 photos in its grid (`-hundreds-gallery`, stand-in pictures): the same, flinging down through them.
+  /// On the old look, whose page opens the grid.
   func testFlingingThroughThePhotoGrid() {
     let app = XCUIApplication()
-    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fixed-pictures", "-hundreds-gallery"]
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fixed-pictures", "-hundreds-gallery", "-v2", Look.old.rawValue]
     app.launch()
     let field = app.searchFields.firstMatch
     XCTAssertTrue(field.waitForExistence(timeout: 10))
