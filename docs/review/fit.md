@@ -5,12 +5,12 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 3348 | 3056 | 1415 | 70 | 44 | 181 | 32 | 924 | 406 | 2779 | 446 | 5 | 12 | 0 | 3 | 0 | 2 |
+| Vietnamese | 3348 | 3058 | 1415 | 70 | 44 | 182 | 32 | 926 | 403 | 2786 | 447 | 5 | 12 | 0 | 3 | 0 | 2 |
 | Indonesian | 1064 | 999 | 315 | 18 | 4 | 3 | 5 | 157 | 64 | 42 | 139 | 0 | 0 | 0 | 4 | 0 | 0 |
 | Thai | 1057 | 992 | 302 | 16 | 4 | 4 | 3 | 136 | 80 | 78 | 129 | 0 | 0 | 0 | 2 | 0 | 0 |
 | Malay | 171 | 142 | 52 | 4 | 1 | 0 | 0 | 22 | 18 | 9 | 19 | 0 | 0 | 0 | 0 | 0 | 0 |
 
-Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 10 of 122, Indonesian 2 of 57, Thai 2 of 57, Malay 1 of 17.
+Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 10 of 123, Indonesian 2 of 57, Thai 2 of 57, Malay 1 of 17.
 
 ## Doses on more than one page
 
@@ -83,9 +83,10 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - hikari vibra bites: 9
 - weld-on 4: 9
 - apt fix: 8
+- aquaclear: 8
 - carib sea eco-complete: 8
-- jbl: 8
 - fluval: 7
+- jbl: 7
 - tetramin: 7
 - twinstar: 7
 - chihiros a2: 6

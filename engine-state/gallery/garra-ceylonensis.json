@@ -1,6 +1,47 @@
 {
  "queue": [],
- "judged": [],
- "hashes": {},
- "commons": "2026-11-08"
+ "judged": [
+  "inat:58068563",
+  "inat:58068743",
+  "inat:178194678",
+  "inat:178194705",
+  "inat:198239493",
+  "inat:244237138",
+  "inat:374374711",
+  "inat:374375587",
+  "inat:374375899",
+  "inat:457467160",
+  "inat:457467164",
+  "inat:457467170",
+  "inat:469009071",
+  "inat:469009077",
+  "inat:469009088",
+  "inat:576302524",
+  "inat:576303167",
+  "inat:612365633",
+  "inat:612365650",
+  "inat:612365651",
+  "inat:613055893",
+  "inat:613055900",
+  "inat:614307660",
+  "inat:616382707",
+  "inat:616382825",
+  "inat:616383606"
+ ],
+ "hashes": {
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/198239493/large.jpg": "b2840c9903474706",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/374374711/large.jpeg": "3d2de7f33b092727",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/374375587/large.jpeg": "1373fff7d07b5b1b",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/374375899/large.jpeg": "0b0963f3d15b591b",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/614307660/large.jpg": "da3d63e7323124a4"
+ },
+ "commons": "2026-11-08",
+ "inat": {
+  "taxon": 612941,
+  "pass": "done",
+  "after": {
+   "research": 338893525,
+   "agree": 336922629
+  }
+ }
 }
