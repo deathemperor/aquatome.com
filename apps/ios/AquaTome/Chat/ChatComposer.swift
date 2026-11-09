@@ -116,7 +116,10 @@ struct ChatComposer: View {
       Button(action: toNew) { Pill(text: Text("Câu trả lời mới ↓"), icon: nil) }.buttonStyle(.plain).accessibilityIdentifier("chat-new-below")
     } else if farUp {
       Button(action: toEnd) {
-        Image(systemName: "arrow.down").font(.footnote.weight(.semibold)).frame(width: 32, height: 32).background(.regularMaterial, in: .circle)
+        Image(systemName: "arrow.down")
+          .font(.system(size: size.isAccessibilitySize ? 24 : 15, weight: .semibold))
+          .frame(width: size.isAccessibilitySize ? 60 : 40, height: size.isAccessibilitySize ? 60 : 40)
+          .background { RoundGlass() }
       }
       .buttonStyle(.plain)
       .accessibilityLabel(Text("Xuống cuối cuộc trò chuyện"))
@@ -155,6 +158,23 @@ enum ChatNames {
   static func inSentence(_ name: String) -> String {
     guard let first = name.first, name.dropFirst().first?.isUppercase != true else { return name }
     return first.lowercased() + name.dropFirst()
+  }
+}
+
+/// The round ↓'s glass: the page blurred under 78% of the bar's colour, a hairline ring and a soft shadow.
+private struct RoundGlass: View {
+  private static let tint = Color(uiColor: UIColor {
+    $0.userInterfaceStyle == .dark ? UIColor(red: 44 / 255, green: 44 / 255, blue: 46 / 255, alpha: 0.78) : UIColor(white: 1, alpha: 0.78)
+  })
+
+  var body: some View {
+    ZStack {
+      // The shadow drawn from a smaller circle: SwiftUI's has no spread.
+      Circle().inset(by: 4).fill(.black.opacity(0.2)).blur(radius: 6).offset(y: 4)
+      Circle().fill(.ultraThinMaterial)
+      Circle().fill(Self.tint)
+      Circle().strokeBorder(Color.chatHairline, lineWidth: 0.5)
+    }
   }
 }
 
