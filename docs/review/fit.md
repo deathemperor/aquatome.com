@@ -5,12 +5,12 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution | lethal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 3588 | 3292 | 1500 | 71 | 47 | 193 | 33 | 964 | 431 | 2802 | 477 | 8 | 12 | 0 | 3 | 0 | 3 | 0 |
+| Vietnamese | 3582 | 3275 | 1504 | 71 | 47 | 193 | 33 | 977 | 431 | 2800 | 472 | 8 | 12 | 0 | 3 | 0 | 3 | 0 |
 | Indonesian | 1104 | 1037 | 321 | 19 | 4 | 3 | 5 | 161 | 64 | 45 | 143 | 0 | 0 | 0 | 4 | 0 | 0 | 0 |
 | Thai | 1097 | 1030 | 311 | 17 | 4 | 4 | 3 | 141 | 81 | 79 | 133 | 0 | 0 | 0 | 2 | 0 | 0 | 0 |
 | Malay | 180 | 150 | 54 | 4 | 1 | 0 | 0 | 24 | 18 | 8 | 18 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 
-Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 10 of 127, Indonesian 2 of 56, Thai 2 of 56, Malay 1 of 17.
+Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 10 of 128, Indonesian 2 of 56, Thai 2 of 56, Malay 1 of 17.
 
 ## Doses on more than one page
 
@@ -69,7 +69,7 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 
 ## Products the market table has no row for, Vietnamese pages
 
-- repashy: 43
+- repashy: 45
 - panacur: 31
 - ada: 16
 - ada amazonia aqua soil: 14
@@ -80,27 +80,27 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - aquario neo soil: 11
 - hikari vibra bites: 11
 - eheim: 10
+- keo 502: 10
 - seachem fluorite: 10
 - aquaclear: 9
 - jbl: 9
-- keo 502: 9
 - weld-on 4: 9
 - apt fix: 8
 - carib sea eco-complete: 8
 - fluval stratum: 8
+- easy shrimp and snail shells: 7
 - fluval: 7
 - krylon fusion: 7
+- repashy soilent green: 7
 - tetramin: 7
 - twinstar: 7
 - caribsea eco-complete: 6
 - chihiros a2: 6
 - chihiros wrgb ii slim: 6
-- easy shrimp and snail shells: 6
 - eco-complete: 6
 - fluval bug bites: 6
 - liquifry: 6
 - my chihiros: 6
-- repashy soilent green: 6
 - vibra bites: 6
 - aquario neo flow: 5
 - easy planter: 5

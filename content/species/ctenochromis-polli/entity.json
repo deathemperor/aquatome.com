@@ -8,7 +8,8 @@
   "places": [
     "africa",
     "democratic-republic-of-the-congo",
-    "pool-malebo"
+    "pool-malebo",
+    "congo"
   ],
   "range": {
     "native": {
@@ -88,6 +89,13 @@
           "min": 24,
           "max": 28.3
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 25,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -112,12 +120,22 @@
       {
         "source": "seriouslyfish",
         "value": 90
+      },
+      {
+        "source": "glaser",
+        "value": 100
       }
     ],
     "difficulty": [
       {
         "source": "seriouslyfish",
         "value": 4
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 11
       }
     ]
   },
@@ -129,16 +147,34 @@
       "html": "<p>Haplochromis polli is a cichlid described from Pool Malebo (Stanley Pool), the lake-like widening of the Congo River between Kinshasa and Brazzaville. It has been recorded south to Pioka and Maninga in the Lower Congo and north to Kwamouth. Mostly benthic and not very gregarious, it is best kept as a single male with several females, since the dominant individual will not normally tolerate others in its territory.</p><p>Rated moderate because it needs a well-established tank and stable water.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/ctenochromis_polli_en/",
+      "html": "<p>Ctenochromis polli, occurring in the Congo River, belongs to the rather rarely kept cichlids. They are delayed mouthbrooders in the female sex.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/haplochromis-polli",
       "html": "<p>Described from \"Stanley Pool\", now known as Pool Malebo, a lake-like widening of the Congo River in western-central Africa on the border of the Democratic Republic of the Congo (formerly Zaire) and the Republic of the Congo between their respective capital cities of Kinshasa and Brazzaville. South of the pool it's been recorded as far as Pioka and Maninga in the Lower Congo basin while to the north the town of Kwamouth in the Central Congo appears to represent the limit of its distribution.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/ctenochromis_polli_en/",
+      "html": "<p>Congo, lower Congo River.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/haplochromis-polli",
       "html": "<p>Minimum base dimensions of at least 90 cm x 30 cm for a single pair are recommended.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/ctenochromis_polli_en/",
+      "html": "<p>Despite their maximum body length of 11 cm they should not be kept in too small aquariums (100 cm).</p>"
     },
     {
       "key": "maintenance",
@@ -153,16 +189,46 @@
       "html": "<ul><li>Temperature: 24–28.3°C</li><li>pH: 6.0–7.5</li><li>Hardness: 5–15°dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/ctenochromis_polli_en/",
+      "html": "<p>These fish prefer temperatures between 25 and 28 °C.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/ctenochromis_polli_en/",
+      "html": "<p>They need sufficient hiding places, therefore the interior of the aquarium should be strongly arranged with roots, stones and large plants.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/ctenochromis_polli_en/",
+      "html": "<p>The animals prefer live food and frozen food; after successful acclimatisation they will take flake and/or granulated food too.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/haplochromis-polli",
       "html": "<p>Can be maintained in a community provided tankmates are properly researched and chosen with care. Peaceful, pelagic characids and cyprinids represent ideal choices while other cichlids are best avoided unless the tank is very large and even then only very robust species should be risked.</p><p>This species is not very gregarious and only a single male should be maintained in all but the largest aquaria since the dominant individual will not normally tolerate others in its territory. It's also best to keep several females per male in order to reduce excessive harassment, and these will form a dominance hierarchy of their own.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/ctenochromis_polli_en/",
+      "html": "<p>The males are quite aggressive and pursue the females and subordinate males.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/haplochromis-polli",
       "html": "<p>Besides growing larger than females adult males possess a reddish-orange marking on the ventral surface of the head which intensifies when the fish are displaying territorial or courtship behaviour.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/ctenochromis_polli_en/",
+      "html": "<p>The females are delayed mouthbrooders. Raising the brood with Artemia nauplii and small flake food does not represent large problems.</p>"
     }
   ],
   "photos": [],
@@ -195,5 +261,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-09"
 }

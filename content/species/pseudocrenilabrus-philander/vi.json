@@ -1,0 +1,26 @@
+{
+  "slug": "ca-ro-phi-lun-mieng-ap-phuong-nam",
+  "name": "Cá rô phi lùn miệng ấp phương Nam",
+  "altNames": [
+    "Southern mouthbrooder"
+  ],
+  "sections": {
+    "distribution:glaser": "<p>Loài cá này gốc ở thượng nguồn sông Congo (đoạn Lualaba). Chúng phân bố gần như khắp miền nam châu Phi và có mặt ở hầu như mọi kiểu nguồn nước ở đó.</p>",
+    "reproduction:glaser": "<p>Cá cái ấp trứng trong miệng. Cách cá ve vãn nhau và chăm con giống kiểu thường thấy ở nhóm haplochromine.</p>",
+    "notes:glaser": "<p>Tháng 5/2007: cá Pseudocrenilabrus philander về từ Congo.</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.8
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-10"
+  }
+}

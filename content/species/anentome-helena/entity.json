@@ -6,7 +6,11 @@
   "genus": "Anentome",
   "group": "snails",
   "places": [
-    "asia"
+    "asia",
+    "thailand",
+    "malaysia",
+    "indonesia",
+    "sumatra"
   ],
   "range": {
     "records": {
@@ -114,6 +118,28 @@
       {
         "source": "glaser",
         "value": 1.5
+      },
+      {
+        "source": "aquariumcoop",
+        "value": 2.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 21,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 7.2,
+          "max": 8
+        }
       }
     ]
   },
@@ -125,6 +151,48 @@
       "html": "<p>Origin: Asia. Available size: 1–1.5 cm.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/assassin-snail",
+      "html": "<p>Anentome helena (also Clea helena) is a freshwater snail with a pointy, spiral shell that reaches up to 2.5 cm long. The shell has a ribbed texture and alternating dark brown and yellow stripes that look like a bumblebee pattern. It is a natural way to get rid of pest snails such as bladder snails, ramshorn snails and Malaysian trumpet snails (MTS).</p><p>It often crawls around with its siphon prominently extended; the siphon is used to draw in water to pass across the gills and to detect food. Like the Malaysian trumpet snail, it likes to bury itself in sand or gravel substrate and extends its siphon out of the ground to breathe and smell the surrounding area. As soon as it smells food nearby, it pops out of the ground to hunt.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/assassin-snail",
+      "html": "<p>This Southeast Asian snail is found in Thailand, Malaysia, and the island of Sumatra in Indonesia.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/assassin-snail",
+      "html": "<p>Because of its small size, one snail can easily live in 8 litres of water or more.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/assassin-snail",
+      "html": "<p>Temperature: 21–27°C. Like most snails, it prefers an alkaline pH of 7.2–8.0 and moderate to hard GH.</p><p>If the snail develops holes and pits in its shell, the water may be soft; add crushed coral and mineral supplements to ensure healthy shell growth.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/assassin-snail",
+      "html": "<p>These carnivores love to eat snails of all kinds, and given the opportunity, they will also eat deceased animals, fish eggs, and newborn fry (wrigglers) that are not yet freely swimming.</p><p>When pest snails run out, they can be fed any kind of high-protein fish food, such as frozen bloodworms, fish flakes, pellets, sinking wafers, and Repashy gel food. To help them grow strong shells free of cracks and other imperfections, offer mineral-enriched foods, like Easy Shrimp and Snail Shells and Hikari Fancy Guppy pellets.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/assassin-snail",
+      "html": "<p>Remove all snails that you do not want to be eaten. When kept in groups, assassin snails can take down larger snails, such as mystery, nerite, and Sulawesi rabbit snails. However, they do not tend to attack their own kind and are safe to keep with peaceful fish, aquarium plants, dwarf shrimp, and other non-snail invertebrates.</p><p>Avoid keeping them with snail-eating animals, such as pufferfish and certain types of loaches.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/assassin-snail",
+      "html": "<p>Unlike many pest snail species, assassin snails are not hermaphrodites and cannot reproduce by themselves. They are difficult to sex, so the easiest way is to get a group of six or more to increase the chances of having at least one male and one female.</p><p>If fed plenty of food, they will naturally begin to reproduce, although at a much slower rate than most pest snails. The female lays a translucent, square-shaped egg capsule with pointy corners containing a single yellow egg. The capsules are laid one by one and stick to surfaces like rocks, driftwood, or the substrate.</p><p>They can be bred in the same tank as other species, like guppies and cherry shrimp.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/anentome-helena/",
@@ -133,14 +201,46 @@
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/aquariumcoop/3614bf4a3453c1f4.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/3614bf4a3453c1f4-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/assassin-snail",
+      "caption": "Care Guide for Assassin Snails — Natural Way to Get Rid of Pest Snails - Aquarium Co-Op",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/4bd5d8e61d51cf6f.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/4bd5d8e61d51cf6f-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/assassin-snail",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/fa6d199b86ec2cd3.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/fa6d199b86ec2cd3-480.webp",
+      "width": 1000,
+      "height": 717,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/assassin-snail",
+      "caption": "assassin snail eggs",
+      "source": "aquariumcoop"
+    },
+    {
       "url": "https://media.aquatome.com/commons/56adb8ce0fdcecaf.webp",
+      "thumb": "https://media.aquatome.com/commons/56adb8ce0fdcecaf-480.webp",
       "width": 800,
       "height": 354,
       "licence": "CC BY-SA 3.0",
       "author": "RSX",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anentome_Helena_2010.jpg",
-      "caption": "Clea helena, syn. Anentome helena.",
-      "thumb": "https://media.aquatome.com/commons/56adb8ce0fdcecaf-480.webp"
+      "caption": "Clea helena, syn. Anentome helena."
     }
   ],
   "videos": [],
@@ -160,5 +260,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-09"
 }

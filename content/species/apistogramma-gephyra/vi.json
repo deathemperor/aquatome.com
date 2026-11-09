@@ -1,0 +1,24 @@
+{
+  "slug": "ca-apisto-gephyra",
+  "name": "Cá Apisto gephyra",
+  "altNames": [],
+  "sections": {
+    "beforeYouBuy:glaser": "<p>Apistogramma gephyra và A. agassizii rất khó phân biệt. Ở ít nhất vài nơi ngoài tự nhiên, hai loài này sống chung một chỗ, nên biết cá bắt ở đâu cũng không giúp được gì. Ngoài tự nhiên, chúng không bao giờ lai với nhau. Đó là bằng chứng rõ nhất cho thấy đây là hai loài khác nhau.</p><p>Muốn phân biệt thì xem vây lưng của con đực đã lớn. Vây lưng của A. gephyra có một đường viền đỏ, còn con đực A. agassizii thì hầu như không bao giờ có.</p><p>Có những con A. gephyra cho đẻ ở Đức, do một người chơi rất mê Apistogramma ép đẻ. Lúc lớn hẳn, chúng dài 4–8 cm. Người ta hay nói \"Apistogramma gephyra trông như một con A. agassizii bạc màu\", nhưng nhìn những con cá này thì thấy câu đó sai. Chúng là loài cá rất đẹp.</p>",
+    "maintenance:glaser": "<p>Apistogramma gephyra dễ nuôi. Giống mọi loài Apistogramma khác, nó cần nền có cát mịn, ít nhất là ở vài chỗ trong bể.</p>",
+    "waterConditions:glaser": "<p>Thường chỉ khi cho cá đẻ mới phải dùng nước rất mềm và chua.</p>"
+  },
+  "quality": {
+    "score": 0.88,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.88
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-10"
+  }
+}

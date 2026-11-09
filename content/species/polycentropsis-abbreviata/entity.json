@@ -4,7 +4,7 @@
   "order": "Perciformes",
   "family": "Nandidae",
   "genus": "Polycentropsis",
-  "group": "other",
+  "group": "labyrinth",
   "places": [
     "africa",
     "nigeria",
@@ -43,6 +43,10 @@
     "sizeCm": [
       {
         "source": "seriouslyfish",
+        "value": 8
+      },
+      {
+        "source": "glaser",
         "value": 8
       }
     ],
@@ -125,6 +129,48 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/polycentropsis-abbreviata",
       "html": "<p>Like the closely related Polycentrus species from South America, with which it is sometimes confused, this fish is camouflaged to mimic a dead leaf, both in body shape and pattern. It can also change colour to match its surroundings. When hunting, it stalks its prey in a head-down stance, appearing to drift towards it like a dead leaf drifting in a current. In reality the fish is propelled by tiny movements of its transparent hind fins. When it strikes at an item of prey, the entire mouth protrudes outwards, forming a tube into which the prey is sucked, usually head first. This happens so quickly it is often difficult to see. It can swallow prey almost as big as itself in this way. It is quite rare in the hobby, and is not the easiest fish to maintain in captivity. It is therefore not recommended for the beginner. In addition to being a voracious predator, P. abbreviata is also a somewhat flighty species that is very sensitive to deteriorations in water quality.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/polycentropsis-abbreviata-2/",
+      "html": "<p>Polycentropsis abbreviata means roughly translated “short and similar to Polycentrus”. In fact the African Leaffish looks very similar to Polycentrus schomburgkii from South America. Both species witness the existence of the ancient super continent Gondwana. Gondwana was formed from what is now South America, Africa, India, Australia, and Antarctica. South America drifted away from Gondwana about 100 million years ago. The ancestor of the small leaffishes – both species, the African as well as the South American become only about 8 cm long – must have existed already at that time and most probably it looked very much alike the recent species.</p><p>The African Leaffish is only very rarely offered.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/polycentropsis-abbreviata-2/",
+      "html": "<p>Anyone who is able and willing to fulfill this demand will find the African Leaffish a fascinating study subject.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/polycentropsis-abbreviata-2/",
+      "html": "<p>The P. abbreviata that still exists today comes from West Africa, from Benin to Gabon. It is imported from Nigeria.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/polycentropsis-abbreviata-2/",
+      "html": "<p>The species needs to be fed with live food items like White Moskito larvae, large Daphnia, small earthworms, Tubifex and small feeder fish.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/polycentropsis-abbreviata-2/",
+      "html": "<p>Polycentropsis abbreviata is known as the “African Leaffish”. The camouflage as a dead leaf is really astonishing. The fish drifts around and preys on small fish and shrimps, which are caught with the very large evertable mouth. The ability to change coloration is amazing. The very same specimen can change within seconds from marbled to light beige or even almost black. Even very small leaffishes can do that. Specimens measuring 1-2 cm in length have a different, very contrasting black and white pattern. This coloration is also found in various labyrinth fish in very young stages, such as Ctenopoma weeksii, Sphaerichthys osphromenoides, and Ctenops nobilis. The purpose of this coloration has not yet been researched.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/polycentropsis-abbreviata-2/",
+      "html": "<p>Sadly the sexes can be only hardly told apart. Females tend to stay a bit smaller and have a smaller head.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/polycentropsis-abbreviata-2/",
+      "html": "<p>The broodcare of the African Leaffish is also remarkable. The male builds a kind of bubble nest under a broad leaf of a plant. This is similar to the bubblenest of the anabantoid fish, but the peculiar bubbles are larger. Here the fish spawn. The male alone takes care for eggs and newly hatched larvae. The broodcare ends when the youngsters swim free.</p>"
     }
   ],
   "photos": [],
@@ -158,7 +204,8 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm"
+        "bể cá 60cm",
+        "bể cá thủy sinh nhỏ"
       ]
     },
     {
@@ -172,7 +219,10 @@
       "category": "thuc-an",
       "keywords": [
         "trùng huyết đông lạnh",
-        "giun đất nhỏ làm thức ăn cá"
+        "giun đất nhỏ làm thức ăn cá",
+        "thức ăn sống cho cá",
+        "trùng chỉ",
+        "bo bo"
       ]
     },
     {

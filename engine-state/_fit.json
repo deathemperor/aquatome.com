@@ -76072,11 +76072,16 @@
     "products": []
   },
   "vi/species/anentome-helena": {
-    "at": "2026-11-07",
-    "hash": "b2ecfe8957a7a744",
+    "at": "2026-11-09",
+    "hash": "b5fef7e1a0f53f80",
     "model": "opus",
+    "checklist": 3,
     "findings": [],
-    "products": []
+    "products": [
+      "Repashy",
+      "Easy Shrimp and Snail Shells",
+      "Hikari Fancy Guppy"
+    ]
   },
   "vi/species/annamia-normani": {
     "at": "2026-11-07",
@@ -76865,18 +76870,26 @@
     "sourceRead": true
   },
   "vi/species/apistogramma-agassizii": {
-    "at": "2026-11-07",
+    "at": "2026-11-09",
     "hash": "81844551cbb77d9e",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
         "check": "words",
         "part": "P1",
         "quote": "là một loài cá rô phi lùn (dwarf cichlid)",
-        "why": "Literal dictionary rendering of 'dwarf cichlid'; Vietnamese keepers don't call Apistos rô phi.",
+        "why": "\"Rô phi\" means tilapia; this is a literal calque of \"dwarf cichlid\".",
         "by": "model",
         "fix": "cichlid lùn"
+      },
+      {
+        "check": "words",
+        "part": "P5",
+        "quote": "lá bàng biển Ketapang",
+        "why": "Keepers in Vietnam just say lá bàng; \"Ketapang\" is the Malay/Indonesian name.",
+        "by": "model",
+        "fix": "lá bàng"
       }
     ],
     "products": []
@@ -76906,18 +76919,26 @@
     "products": []
   },
   "vi/species/apistogramma-baenschi": {
-    "at": "2026-11-08",
+    "at": "2026-11-09",
     "hash": "d94140535a4bc946",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
         "check": "words",
         "part": "P7",
         "quote": "ấu trùng muỗi chironomid (trùn chỉ/bloodworm)",
-        "why": "Chironomid larvae (bloodworm) are not 'trùn chỉ' (tubifex) to Vietnamese keepers; this is a mistranslation.",
+        "why": "Bloodworm is called trùn huyết in Vietnam; trùn chỉ means tubifex, a different food.",
         "by": "model",
-        "fix": "trùn huyết / lăng quăng đỏ"
+        "fix": "trùn huyết"
+      },
+      {
+        "check": "words",
+        "part": "P5",
+        "quote": "lọc mút chạy bằng khí (sponge filter)",
+        "why": "Literal rendering; keepers in Vietnam call this an air-driven sponge filter lọc vi sinh or lọc bio.",
+        "by": "model",
+        "fix": "lọc vi sinh (lọc bio)"
       }
     ],
     "products": []
@@ -76980,15 +77001,16 @@
     "products": []
   },
   "vi/species/apistogramma-borellii": {
-    "at": "2026-11-07",
+    "at": "2026-11-09",
     "hash": "276884813be45b12",
     "model": "opus",
+    "checklist": 3,
     "findings": [
       {
         "check": "words",
         "part": "P7",
         "quote": "ấu trùng muỗi chironomid (trùn chỉ)",
-        "why": "Chironomid larvae are bloodworms, which keepers in Vietnam call trùn huyết; trùn chỉ is tubifex, a different food.",
+        "why": "Chironomid larvae are bloodworms; 'trùn chỉ' is the local name for tubifex, a different food.",
         "by": "model",
         "fix": "trùn huyết"
       }
@@ -77004,10 +77026,10 @@
     "products": []
   },
   "vi/species/apistogramma-cacatuoides": {
-    "at": "2026-11-08",
+    "at": "2026-11-09",
     "hash": "72f693a953168b4e",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -77029,25 +77051,18 @@
     "products": []
   },
   "vi/species/apistogramma-commbrae": {
-    "at": "2026-11-07",
+    "at": "2026-11-09",
     "hash": "27b0812f4874b0ac",
     "model": "opus",
+    "checklist": 3,
     "findings": [
       {
         "check": "words",
         "part": "P5",
         "quote": "tuyệt đối không nên thả vào bể chưa hoàn tất chu trình nitrat hóa",
-        "why": "Translated term; keepers talk about the nitrogen cycle or a tank not yet cycled.",
+        "why": "Literal rendering of 'nitrification cycle'; Vietnamese keepers speak of the nitrogen cycle or a tank not yet cycled.",
         "by": "model",
-        "fix": "bể chưa chạy vi sinh / chu trình nitơ"
-      },
-      {
-        "check": "words",
-        "part": "P11",
-        "quote": "Người chơi thường gắn nhãn các dạng này bằng dữ liệu thu thập nếu có",
-        "why": "Literal calque of 'collection data'; keepers say locality or collection site.",
-        "by": "model",
-        "fix": "địa điểm thu (locality)"
+        "fix": "chu trình nitơ / bể chưa chạy vi sinh"
       }
     ],
     "products": []
@@ -77210,39 +77225,32 @@
     "products": []
   },
   "vi/species/apistogramma-macmasteri": {
-    "at": "2026-11-07",
-    "hash": "233d6ca957985515",
+    "at": "2026-11-09",
+    "hash": "24b14a4899864ad5",
     "model": "opus",
+    "checklist": 3,
     "findings": [
       {
         "check": "words",
-        "part": "P1",
-        "quote": "một loài cá rô phi cảnh/cichlid (họ Cichlidae) lùn",
-        "why": "\"Cá rô phi cảnh\" is a dictionary rendering of cichlid; keepers say cichlid.",
-        "by": "model",
-        "fix": "cá cichlid lùn"
-      },
-      {
-        "check": "words",
-        "part": "P4",
-        "quote": "lá bàng biển Ketapang",
-        "why": "Keepers in Vietnam simply call these leaves lá bàng.",
-        "by": "model",
-        "fix": "lá bàng"
-      },
-      {
-        "check": "words",
-        "part": "P6",
+        "part": "P7",
         "quote": "ấu trùng muỗi chironomid (trùn chỉ/bloodworm)",
-        "why": "Bloodworm is mistranslated as trùn chỉ (tubifex); keepers say trùn huyết.",
+        "why": "Bloodworm is mistranslated as 'trùn chỉ', which is tubifex; keepers call bloodworm 'trùn huyết'.",
         "by": "model",
         "fix": "trùn huyết"
       },
       {
         "check": "words",
-        "part": "P7",
+        "part": "P1",
+        "quote": "một loài cá rô phi cảnh/cichlid (họ Cichlidae) lùn",
+        "why": "'Cá rô phi cảnh' is not a term keepers in Vietnam use; they say cichlid.",
+        "by": "model",
+        "fix": "cichlid lùn"
+      },
+      {
+        "check": "words",
+        "part": "P8",
         "quote": "'dither' (cá làm mồi/cá trấn an)",
-        "why": "Dither fish mistranslated as feeder fish; keepers just say cá dither.",
+        "why": "'Cá làm mồi' reads as feeder fish; keepers in Vietnam just write cá dither.",
         "by": "model",
         "fix": "cá dither"
       }
@@ -77250,42 +77258,26 @@
     "products": []
   },
   "vi/species/apistogramma-mendezi": {
-    "at": "2026-11-08",
+    "at": "2026-11-09",
     "hash": "6678a16a9ad948c9",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
         "check": "words",
-        "part": "P5",
-        "quote": "Không cần nói cũng biết",
-        "why": "Calque of the English 'Needless to say'; a Vietnamese writer would not phrase it this way.",
+        "part": "P7",
+        "quote": "ấu trùng chironomid (trùn chỉ)",
+        "why": "Chironomid larvae are bloodworms; 'trùn chỉ' is tubifex, so the local term is wrong.",
         "by": "model",
-        "fix": "Dĩ nhiên"
+        "fix": "trùn huyết"
       },
       {
         "check": "words",
         "part": "P5",
         "quote": "bể chưa trưởng thành về mặt sinh học",
-        "why": "Calque of 'biologically immature aquarium'; keepers in Vietnam talk about a tank whose bacteria haven't been run in.",
+        "why": "Calque of 'biologically mature tank'; keepers say the tank has not cycled.",
         "by": "model",
         "fix": "bể chưa chạy vi sinh"
-      },
-      {
-        "check": "words",
-        "part": "P8",
-        "quote": "các loài cá 'dither' nhỏ",
-        "why": "Untranslated English hobby term; keepers in Vietnam call these lead fish.",
-        "by": "model",
-        "fix": "cá dẫn"
-      },
-      {
-        "check": "words",
-        "part": "P7",
-        "quote": "ấu trùng chironomid (trùn chỉ)",
-        "why": "Chironomid larvae (bloodworms) are called trùn huyết in Vietnam; trùn chỉ is tubifex, so the gloss is a mistranslation.",
-        "by": "model",
-        "fix": "trùn huyết"
       }
     ],
     "products": []
@@ -80732,20 +80724,11 @@
     "products": []
   },
   "vi/species/betta-uberis": {
-    "at": "2026-11-08",
-    "hash": "0294b10416c1ba8b",
+    "at": "2026-11-09",
+    "hash": "1fe870ae4551f55a",
     "model": "opus",
-    "checklist": 2,
-    "findings": [
-      {
-        "check": "words",
-        "part": "P12",
-        "quote": "giun vi mô",
-        "why": "Literal rendering of 'microworm'; Vietnamese keepers call it giun vi sinh, as the page itself does in P19.",
-        "by": "model",
-        "fix": "giun vi sinh"
-      }
-    ],
+    "checklist": 3,
+    "findings": [],
     "products": []
   },
   "vi/species/betta-unimaculata": {
@@ -80817,20 +80800,11 @@
     "products": []
   },
   "vi/species/biotoecus-opercularis": {
-    "at": "2026-11-07",
+    "at": "2026-11-09",
     "hash": "9b3ae59b462c59d6",
     "model": "opus",
-    "checklist": 2,
-    "findings": [
-      {
-        "check": "words",
-        "part": "P5",
-        "quote": "Chỉ cần có đủ chỗ trú và vật dựng trong bể",
-        "why": "\"vật dựng\" is a literal rendering of English \"furnishings\" that keepers don't use.",
-        "by": "model",
-        "fix": "vật trang trí / hang hốc"
-      }
-    ],
+    "checklist": 3,
+    "findings": [],
     "products": []
   },
   "vi/species/boraras-brigittae": {
@@ -81907,8 +81881,8 @@
     "products": []
   },
   "vi/species/callochromis-macrops": {
-    "at": "2026-11-08",
-    "hash": "0970b20f451a3f31",
+    "at": "2026-11-09",
+    "hash": "94e2de386a22856c",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -85409,8 +85383,8 @@
     "products": []
   },
   "vi/species/ctenochromis-polli": {
-    "at": "2026-11-08",
-    "hash": "dcede51abcca7711",
+    "at": "2026-11-09",
+    "hash": "ad1918ea66bec5a6",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -86820,8 +86794,8 @@
     "products": []
   },
   "vi/species/dicrossus-maculatus": {
-    "at": "2026-11-08",
-    "hash": "1f04e0d4fbc04c85",
+    "at": "2026-11-09",
+    "hash": "383b988f2d096723",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -90508,33 +90482,25 @@
     "products": []
   },
   "vi/species/hyphessobrycon-amandae": {
-    "at": "2026-11-08",
-    "hash": "afe84fe8879077ab",
+    "at": "2026-11-09",
+    "hash": "0b1ee7911ea81e13",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P12",
+        "part": "P14",
         "quote": "như đã nêu ở trên, đàn này có thể gồm nhiều loài cá có kích thước tương tự",
-        "why": "This points back to something said earlier in the original article, and nothing earlier on this page says it.",
+        "why": "Refers to something said earlier in the original article that this page does not contain.",
         "by": "model"
       },
       {
         "check": "words",
-        "part": "P18",
-        "quote": "Hãy cố gắng tránh thức ăn dạng mảnh, kể cả với cá nhỏ",
-        "why": "'Thức ăn dạng mảnh' is a word-for-word rendering of 'flake food'; keepers in Vietnam call it cám vảy.",
-        "by": "model",
-        "fix": "cám vảy"
-      },
-      {
-        "check": "words",
         "part": "P25",
-        "quote": "Bạn phủ kín đáy bể bằng lưới nhựa thủ công",
-        "why": "'Lưới nhựa thủ công' is a literal translation of 'craft mesh'; keepers here just say lưới nhựa.",
+        "quote": "những loài sống ở tầng mặt điềm tĩnh như cá hatchetfish",
+        "why": "English name left untranslated; keepers in Vietnam call hatchetfish cá rìu.",
         "by": "model",
-        "fix": "lưới nhựa"
+        "fix": "cá rìu"
       }
     ],
     "products": [
@@ -93904,33 +93870,40 @@
     "products": []
   },
   "vi/species/mikrogeophagus-altispinosus": {
-    "at": "2026-11-08",
-    "hash": "67099382c8717951",
+    "at": "2026-11-09",
+    "hash": "3e1b62e7183c0755",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
         "check": "words",
-        "part": "P9",
+        "part": "P11",
         "quote": "Bạn bể đáng chọn nhất là một đàn characid hiền lành",
-        "why": "Calque of English 'tankmate'; Vietnamese keepers say 'cá nuôi chung'.",
+        "why": "\"Bạn bể\" is a calque of English \"tankmates\"; keepers in Vietnam don't say it.",
         "by": "model",
-        "fix": "Cá nuôi chung"
+        "fix": "cá nuôi chung"
       }
     ],
     "products": []
   },
   "vi/species/mikrogeophagus-ramirezi": {
-    "at": "2026-11-08",
-    "hash": "13b0af57def947b2",
+    "at": "2026-11-09",
+    "hash": "e62abbfef6b5da36",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P2",
-        "quote": "một trong các mẫu cá trong ảnh được cho là bắt ở sông Purus, Brazil",
-        "why": "It refers to a photo from the source article, and this page has no photos.",
+        "part": "P4",
+        "quote": "Hiện ngoài tiệm có bán cá phượng hoàng bắt ngoài tự nhiên ở Venezuela",
+        "why": "Announces the source shop's current stock as news to the reader.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P5",
+        "quote": "một trong các mẫu cá trong ảnh",
+        "why": "Refers to a photo the page does not have.",
         "by": "model"
       }
     ],
@@ -95947,10 +95920,19 @@
   },
   "vi/species/orthochromis-stormsi": {
     "at": "2026-11-09",
-    "hash": "d9f32d1b7dff0df1",
+    "hash": "c4fe0859e439ef87",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "words",
+        "part": "P6",
+        "quote": "nên gắn thêm một thổi luồng nhỏ hoặc một bơm nhỏ đặt trong bể",
+        "why": "\"Thổi luồng\" is not a term keepers in Vietnam use for a wavemaker or powerhead.",
+        "by": "model",
+        "fix": "máy tạo sóng"
+      }
+    ],
     "products": []
   },
   "vi/species/orthosternarchus-tamandua": {
@@ -96024,16 +96006,16 @@
     "sourceRead": true
   },
   "vi/species/oryzias-latipes": {
-    "at": "2026-11-08",
+    "at": "2026-11-09",
     "hash": "171c38910eda9734",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
         "check": "elsewhere",
         "part": "P6",
         "quote": "Ở nhiều nước, hoặc trong những ngôi nhà cách nhiệt tốt, tốt nhất là nuôi cá không cần sưởi suốt cả năm.",
-        "why": "Assumes a cool-climate home where unheated room temperature suits the fish, not Vietnam's warm climate.",
+        "why": "Assumes a temperate home where an unheated room stays near 16–22 °C, which isn't true in most of Vietnam.",
         "by": "model"
       }
     ],
@@ -97645,7 +97627,7 @@
     "products": []
   },
   "vi/species/pelvicachromis-taeniatus": {
-    "at": "2026-11-08",
+    "at": "2026-11-09",
     "hash": "d7d21b042404fe7a",
     "model": "opus",
     "checklist": 3,
@@ -99041,9 +99023,10 @@
     "products": []
   },
   "vi/species/pseudancistrus-barbatus": {
-    "at": "2026-11-07",
-    "hash": "c1c3889aa5b86dda",
+    "at": "2026-11-09",
+    "hash": "30481f0f5704bb2d",
     "model": "opus",
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -99071,10 +99054,10 @@
     "products": []
   },
   "vi/species/pseudeutropius-brachypopterus": {
-    "at": "2026-11-08",
-    "hash": "8dcf978459aa0bcf",
+    "at": "2026-11-09",
+    "hash": "3992a97055bb2198",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -99255,12 +99238,14 @@
     "products": []
   },
   "vi/species/pseudolithoxus-tigris": {
-    "at": "2026-11-08",
-    "hash": "563eabef489b78d9",
+    "at": "2026-11-09",
+    "hash": "a4ee83a73b8afb65",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
-    "products": []
+    "products": [
+      "BD Aquarium Sand"
+    ]
   },
   "vi/species/pseudomugil-furcatus": {
     "at": "2026-11-07",
@@ -99344,23 +99329,23 @@
     "products": []
   },
   "vi/species/pseudomystus-heokhuii": {
-    "at": "2026-11-08",
-    "hash": "dd2d9c78cc33751b",
+    "at": "2026-11-09",
+    "hash": "b9cd8fa6ac55e028",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
         "quote": "Giờ đây nó mới được nhập về lần đầu tiên.",
-        "why": "This is the source shop's stock news, written as if it were the reader's own.",
+        "why": "This is the source shop's stock news about its own import, which the reader doesn't know about.",
         "by": "model"
       },
       {
         "check": "source",
-        "part": "P4",
+        "part": "P9",
         "quote": "Ngay trong bể chụp ảnh, cá đực cũng đã có biểu hiện tán tỉnh.",
-        "why": "It mentions the source's own photo tank as if the reader knew about it.",
+        "why": "It mentions the source's own photo tank as if the reader already knew it.",
         "by": "model"
       }
     ],
@@ -99391,10 +99376,10 @@
     "products": []
   },
   "vi/species/pseudoplatystoma-corruscans": {
-    "at": "2026-11-07",
-    "hash": "fc48cd9ed06dd3d1",
+    "at": "2026-11-09",
+    "hash": "9802872b87b75220",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -103312,6 +103297,561 @@
     "hash": "1e82f25d1428c37d",
     "model": "opus",
     "checklist": 2,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/aquariumbreeder-brackish-water-plants": {
+    "at": "2026-11-09",
+    "hash": "5c82e40f1731cfe0",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Bèo cái lùn (Pistia stratiotes)",
+        "why": "Calque of English 'dwarf water lettuce'; Vietnamese keepers just call Pistia 'bèo cái'.",
+        "by": "model",
+        "fix": "bèo cái"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/aquariumbreeder-crabs-as-pets-pros-and-cons": {
+    "at": "2026-11-09",
+    "hash": "a2ed29326e9e2e90",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "Một con cá hiếm, đòi chỗ ở và thức ăn riêng, có thể tốn hàng trăm đô la.",
+        "why": "Price given in US dollars, written for a reader abroad.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Phần dưới nói kỹ về một số loài trong đó, kèm cách bố trí chỗ ở và cách chăm cho đúng.",
+        "why": "Promises detailed per-species setup and care sections that this page does not contain.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/aquariumbreeder-dwarf-shrimp-and-breeding-facts": {
+    "at": "2026-11-09",
+    "hash": "319a13d54168643c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/aquariumbreeder-why-do-crabs-bubble-at-the-mouth": {
+    "at": "2026-11-09",
+    "hash": "d22f06edb6fb718c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-can-you-fly-with-aquarium-fish-here-is-how-we-do-it": {
+    "at": "2026-11-09",
+    "hash": "c930231c3b89a3e1",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Hướng dẫn chỉ áp dụng cho chuyến bay nội địa trong lục địa nước Mỹ.",
+        "why": "The whole guide is written for someone flying inside the US, not a reader in Vietnam.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P2",
+        "quote": "Bạn có TSA PreCheck (diện được qua kiểm tra an ninh nhanh) không?",
+        "why": "TSA PreCheck is a US airport security programme, presented as if it were the reader's own.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P4",
+        "quote": "Đến đó thì tìm nhân viên TSA, báo rằng trong túi có cá cảnh còn sống, không cho qua máy soi được.",
+        "why": "Tells the reader to deal with US TSA staff at their own airport security check.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P7",
+        "quote": "nếu sắp bay xuyên nước Mỹ 6 tiếng từ Seattle đến Tampa",
+        "why": "Uses a US cross-country flight as if it were the reader's own trip.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-easy-flow": {
+    "at": "2026-11-09",
+    "hash": "5494678d5aba5ed2",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Easy Flow"
+    ]
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-fish-room-central-air-system": {
+    "at": "2026-11-09",
+    "hash": "56019126a681c377",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Dĩ nhiên nếu bể nào cũng 1.135 lít thì số bể sẽ ít hơn",
+        "why": "1,135 litres is a converted 300-gallon tank size nobody in Vietnam would use.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Ống PVC 25 mm, đủ chạy hết một vòng quanh phòng",
+        "why": "25 mm and 19 mm are converted 1-inch and 3/4-inch US pipe sizes; pipe in Vietnam is sold as 21, 27, 34 mm.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "(không phải Schedule 40 hay 80)",
+        "why": "Schedule 40/80 are American pipe grades, not how PVC pipe is sold in Vietnam.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "bắt vít ở chỗ nào có khung tường. (Dùng máy dò khung tường nếu cần.)",
+        "why": "Assumes a North American house with wooden frames inside the walls; walls in Vietnam are mostly brick or concrete.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "hoặc ở phòng khác như nhà để xe",
+        "why": "A garage as a spare room assumes a North American house.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Ống vinyl 19 mm (để nối máy bơm khí với vòng ống PVC)",
+        "why": "Literal rendering of 'vinyl tubing'; keepers in Vietnam say flexible plastic hose.",
+        "by": "model",
+        "fix": "ống nhựa mềm"
+      }
+    ],
+    "products": [
+      "LPH45"
+    ]
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-par-for-planted-tanks": {
+    "at": "2026-11-09",
+    "hash": "3df26e63458aee22",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Trong một lần đo thử với một đèn LED thủy sinh trên bể 245 lít",
+        "why": "245 litres is a converted 65-gallon tank, a size nobody in Vietnam would give.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Dĩ nhiên các số PAR này đo lúc đèn bật 100% độ sáng.",
+        "why": "Refers to measured PAR figures (a chart from the source) that the page does not show.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-potassium-fertilizer": {
+    "at": "2026-11-09",
+    "hash": "2bcce03a8dd90184",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [],
+    "doses": [
+      {
+        "treatment": "potassium",
+        "strength": "9%",
+        "amount": 1,
+        "amountMax": 0,
+        "unit": "ml",
+        "per": 40,
+        "perUnit": "litre",
+        "use": "plants",
+        "method": "wholeTank",
+        "quote": "Với phân kali nồng độ này, châm 1 ml cho mỗi 40 lít nước sẽ tăng thêm 2 ppm kali."
+      }
+    ],
+    "sourceRead": true
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-small-aquarium-ideas": {
+    "at": "2026-11-09",
+    "hash": "ad1e73dfe9a3fdc5",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "đều đủ nhỏ để nuôi riêng trong một bể dài 75 lít",
+        "why": "A converted US '20 gallon long' tank size not sold as such in Vietnam.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P5",
+        "quote": "bể cho đẻ cần lớp nền dày ít nhất 2,5 cm",
+        "why": "2.5 cm is a converted one-inch substrate depth.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Cá ngọc trai thiên hà (celestial pearl danio) hay được thả trong bể thủy sinh.",
+        "why": "Literal translation of the English name; Vietnamese keepers call this fish cá thiên hà.",
+        "by": "model",
+        "fix": "cá thiên hà"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-the-best-small-fish-for-your-aquarium-a-guide-to-stunning-nano-fish": {
+    "at": "2026-11-09",
+    "hash": "f3613309d63e6341",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P5",
+        "quote": "Nếu bạn cho chúng đẻ thành công, chia sẻ cách làm cho mọi người cùng biết nhé!",
+        "why": "The source site's own call to its readers' community to share results.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-top-5-popular-catfish": {
+    "at": "2026-11-09",
+    "hash": "93795db4064314b0",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P5",
+        "quote": "sống khỏe trong bể từ 115 lít trở lên",
+        "why": "115 litres is a converted 30-gallon tank size.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P7",
+        "quote": "Bể cho chúng từ 75–110 lít trở lên là được.",
+        "why": "75–110 litres is a converted 20–29 gallon range.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P3",
+        "quote": "cá danio ngọc trai thiên hà",
+        "why": "Calque of 'celestial pearl danio'; Vietnamese keepers use a different name.",
+        "by": "model",
+        "fix": "cá thiên hà (cá galaxy)"
+      }
+    ],
+    "products": [
+      "Repashy Soilent Green",
+      "Repashy"
+    ]
+  },
+  "vi/guides/glaser-en-25-perchlike-fishes-25d-perchlike-fishes-4-south-american-dwarf-cichlids-a-brandnew-dwarf-cichlid-apistogramma-sp-cristal-en": {
+    "at": "2026-11-09",
+    "hash": "df3d2552047e992e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Gần đây có một loài Apistogramma hoàn toàn mới về từ Peru.",
+        "why": "This is the source shop's news about new fish arriving, written as if the reader shops there.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Đợt cá này về rất ít.",
+        "why": "This tells the reader about the source shop's stock, which means nothing to a reader in Vietnam.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "TITLE",
+        "quote": "Một loài cá rô phi lùn hoàn toàn mới",
+        "why": "'Cá rô phi lùn' is a dictionary translation of 'dwarf cichlid', and Vietnamese keepers don't use it.",
+        "by": "model",
+        "fix": "cá Apisto / cichlid lùn"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/glaser-en-25-perchlike-fishes-25d-perchlike-fishes-4-south-american-dwarf-cichlids-apistogramma-agassizii-tefe-ii-and-a-geisleri-en": {
+    "at": "2026-11-09",
+    "hash": "6790e7053f5d18f3",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "còn có khá nhiều A. geisleri bị bắt lẫn trong lô",
+        "why": "Refers to the source shop's own shipment of imported fish, as if the reader knew about it.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/apistogramma-diplotaenia": {
+    "at": "2026-11-09",
+    "hash": "93e7fb7d103de6ce",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/apistogramma-gephyra": {
+    "at": "2026-11-09",
+    "hash": "6896584c5beff572",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "nhưng nhìn những con cá này thì thấy câu đó sai",
+        "why": "Refers to the source's own fish, probably shown in pictures, as if the reader could see them.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/apistogramma-megaptera": {
+    "at": "2026-11-09",
+    "hash": "2a37c0368aa2a741",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/apistogramma-rupununi": {
+    "at": "2026-11-09",
+    "hash": "1bd2c0801d618e82",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Sau một thời gian khá dài, loài cichlid lùn này cuối cùng cũng được nhập về lại.",
+        "why": "This is the source importer's stock news. It reads as if the reader knows that shop's arrivals.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/apistogramma-urteagai": {
+    "at": "2026-11-09",
+    "hash": "d8d1c9e5f3668a94",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/apistogramma-velifera": {
+    "at": "2026-11-09",
+    "hash": "bcceb7193ed9b0f7",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P2",
+        "quote": "Nó chưa bao giờ được nhập về đều đặn, và hiện giờ thì không còn lô nhập nào.",
+        "why": "This is the source importer's news about its own stock, not something true for a reader in Vietnam.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/benitochromis-finleyi": {
+    "at": "2026-11-09",
+    "hash": "2823666f0fa7460a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/benitochromis-riomuniensis": {
+    "at": "2026-11-09",
+    "hash": "94270106a829c50d",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/betta-apollon": {
+    "at": "2026-11-09",
+    "hash": "fa08adc43b7c0a72",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/chalinochromis-brichardi": {
+    "at": "2026-11-09",
+    "hash": "fe823ce7f495c49a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/hemichromis-cerasogaster": {
+    "at": "2026-11-09",
+    "hash": "2212d675a9e803aa",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/hemichromis-letourneuxi": {
+    "at": "2026-11-09",
+    "hash": "20c8ce75c30e4cf0",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Điểm rất lạ ở các lô nhập mới là có những con mang hai đốm trên hông.",
+        "why": "Refers to the source shop's own recent imports as if the reader knew about them.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/lamprologus-werneri": {
+    "at": "2026-11-09",
+    "hash": "a93c9bc3d0a0125f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/maylandia-elegans": {
+    "at": "2026-11-09",
+    "hash": "a87e4ebd290c834c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/pelvicachromis-silviae": {
+    "at": "2026-11-09",
+    "hash": "71636cfb244c903d",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/pseudocrenilabrus-philander": {
+    "at": "2026-11-09",
+    "hash": "673eb2e2c27957f4",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P3",
+        "quote": "Tháng 5/2007: cá Pseudocrenilabrus philander về từ Congo.",
+        "why": "This is the source exporter's own stock or arrival news, not information for the reader.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/ptychochromis-oligacanthus": {
+    "at": "2026-11-09",
+    "hash": "fa1bc2dfe17382d5",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/stenomelania-torulosa": {
+    "at": "2026-11-09",
+    "hash": "10f92e467b23fc74",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/teleocichla-centrarchus": {
+    "at": "2026-11-09",
+    "hash": "563b0d2b1b0fcb16",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/teleocichla-proselytus": {
+    "at": "2026-11-09",
+    "hash": "8faa380f0f960383",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/tylochromis-lateralis": {
+    "at": "2026-11-09",
+    "hash": "3b6bf0d46f2d0835",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Lần đầu tiên có cá Tylochromis cf. lateralis do trại ở Đức cho đẻ được bán ra",
+        "why": "Reads as the source shop's stock news announcing a new arrival for sale.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/xenia-elongata": {
+    "at": "2026-11-09",
+    "hash": "0a4fce07494be507",
+    "model": "opus",
+    "checklist": 3,
     "findings": [],
     "products": []
   }

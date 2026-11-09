@@ -269,6 +269,38 @@
       "kept": true
     }
   ],
+  "vi/products/dennerle-scapers-soil": [
+    {
+      "at": "2026-11-09T16:47:11Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Bể nuôi chung cá hiền hay bể tép Neocaridina cũng dùng được\" - facts only mention community/Neocaridina tanks in the lifespan context, not as a stated suitability claim (minor generalisation).",
+        "\"Lúc mới đổ nước, nước đục một chút là chuyện bình thường\" is presented as a usage step, but it is the retailer's reply to a complaint, not an instruction (minor).",
+        "\"Nếu trồng ráy (Cryptocoryne) và Echinodorus\" - facts say 'crypts and swords'; mapping swords to Echinodorus is an inference, though reasonable.",
+        "\"Một lớp nền đã giữ nguyên hạt suốt 14 tháng\" and the FAQ's \"Các nguồn nói khác nhau\" framing 14 vs 18 months as conflicting: the facts do not present these as contradictory (14 months is structure held, 18 months is replacement lifespan), a slight distortion.",
+        "\"Theo nhà phân phối... Đây là lời nhà phân phối nói, chưa có số đo nào kèm theo\" - the 'no measurement attached' remark is not in the facts (minor addition).",
+        "\"Nên hỏi shop trước khi định set bể\" - advice not in the facts, harmless generality."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-09T16:47:11Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"Hãng khuyên trải lớp nền dày khoảng 4 cm\" - the facts list the 4 cm layer height as a spec (source 6) but don't say the manufacturer recommends it; attributing it to the brand is slightly unsupported.",
+        "\"Nhà phân phối nói lớp nền giữ được pH, nên châm CO2 nhiều hơn\" - the facts say the buffering is \"said to\" allow more CO2, which is reasonable, but the page presents it as a distributor claim without noting the shop/source uncertainty.",
+        "\"Người nuôi tép Caridina hay chọn loại này\" - the facts say breeders \"prefer it\" because of low ammonia; the page's \"Được\" (yes, it works) in the FAQ goes a little beyond the facts, which also say buffering fades and the soil may need partial replacement.",
+        "\"Trong bể thử, lớp nền vẫn giữ được hạt sau 14 tháng\" - the facts say the soil bed held its structure for 14 months, with no mention that this was in a test tank.",
+        "\"Nhưng ... tính theo lít thì đắt hơn\" - supported. \"hàng Việt Nam, rẻ hơn nhiều\" - supported. The page drops the 75,000 ₫ price but this is not a fault.",
+        "Page says \"Đổ thẳng ... Chạy vi sinh cho bể trước khi thả tép\" - supported; no major invented claims found."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/products/tuya-smart-life-power-strip": [
     {
       "at": "2026-11-09T06:23:13Z",

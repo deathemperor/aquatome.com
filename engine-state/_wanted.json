@@ -71,10 +71,10 @@
       "guides/aquariumcoop-blogs-aquarium-plants-for-african-cichlids",
       "guides/aquariumcoop-blogs-aquarium-pothos",
       "guides/youtube-0i9qSwTrXIc",
-      "guides/youtube-B1T0GU56ETo",
-      "guides/youtube-FQzWS0GwGvM"
+      "guides/youtube-6MVlcgTchtE",
+      "guides/youtube-B1T0GU56ETo"
     ],
-    "mentions": 16
+    "mentions": 17
   },
   "acanthocobitis-pictilis": {
     "name": "Acanthocobitis pictilis",
@@ -108,7 +108,8 @@
       "species/baryancistrus-demantoides",
       "species/biotodoma-wavrini"
     ],
-    "mentions": 13
+    "mentions": 13,
+    "onSource": "https://www.scotcat.com/loricariidae/panaque_nigrolineatus_laurafabianae.htm"
   },
   "gastromyzon-embalohensis": {
     "name": "Gastromyzon embalohensis",
@@ -383,7 +384,8 @@
       "guides/youtube-f7ePYAbDke4",
       "guides/youtube-ne5Z4ZvwxuU"
     ],
-    "mentions": 6
+    "mentions": 6,
+    "onSource": "https://www.2hraquarist.com/blogs/freshwater-aquarium-plants-guide/how-to-grow-pogostemon-erectus"
   },
   "akysis-microps": {
     "name": "Akysis microps",
@@ -785,19 +787,20 @@
       "guides/youtube-SvweeFIvybY",
       "guides/youtube-VJ_EZRwwFZg",
       "guides/youtube-_0xNpxtU9J0",
-      "guides/aquatome-oc-hai-trong-be-thuy-sinh-nhan-biet-va-cach-loai-bo"
+      "guides/youtube-wFN9yVkRCoc"
     ],
-    "mentions": 5
+    "mentions": 7
   },
   "amphiprion-ocellaris": {
     "name": "Amphiprion ocellaris",
     "mentionedIn": [
+      "guides/youtube-J4e7xzevT5E",
       "guides/youtube-XtekO7RRRcA",
       "guides/youtube-qaow2ai3eZM",
       "guides/youtube-z_pKaOlsKyg",
       "species/elacatinus-oceanops"
     ],
-    "mentions": 4
+    "mentions": 5
   },
   "cryptocoryne-affinis": {
     "name": "Cryptocoryne affinis",
@@ -1108,9 +1111,10 @@
     "mentionedIn": [
       "guides/youtube-4GFdgPkH4WI",
       "guides/youtube-DLJtTl_IJSk",
-      "guides/youtube-KsmBRW22jiQ"
+      "guides/youtube-KsmBRW22jiQ",
+      "guides/youtube-Po9TsUam0pM"
     ],
-    "mentions": 3
+    "mentions": 4
   },
   "vallisneria-nana": {
     "name": "Vallisneria nana",
@@ -1133,11 +1137,13 @@
   "melanoides-tuberculata": {
     "name": "Melanoides tuberculata",
     "mentionedIn": [
+      "guides/youtube--XN4FMqNwPQ",
+      "guides/youtube-6MVlcgTchtE",
       "guides/youtube-JmUTEUoY6Jg",
       "guides/youtube-P7GTfHdl5E8",
-      "guides/youtube-qImy1PXdkvU"
+      "guides/youtube-WGrLKaTbst4"
     ],
-    "mentions": 3
+    "mentions": 6
   },
   "strobilanthes-sinuata": {
     "name": "Strobilanthes sinuata",
@@ -1153,18 +1159,20 @@
     "mentionedIn": [
       "guides/youtube-KsmBRW22jiQ",
       "guides/youtube-PVRlXXhdD7U",
+      "guides/youtube-fXiFGMTtUyk",
       "guides/youtube-j794dsqnNJI"
     ],
-    "mentions": 3
+    "mentions": 4
   },
   "syngonium-podophyllum": {
     "name": "Syngonium podophyllum",
     "mentionedIn": [
       "guides/youtube-PVRlXXhdD7U",
       "guides/youtube-Pc-uoB80jyk",
+      "guides/youtube-QhPgAnEku_o",
       "guides/youtube-ld9WkDIP_o4"
     ],
-    "mentions": 3
+    "mentions": 4
   },
   "pseudomugil-paskai": {
     "name": "Pseudomugil paskai",
@@ -1734,9 +1742,10 @@
     "name": "Lemna minor",
     "mentionedIn": [
       "guides/youtube-JQiui3Wmurs",
-      "guides/youtube-cm6gzwF8EbI"
+      "guides/youtube-cm6gzwF8EbI",
+      "guides/youtube-wFN9yVkRCoc"
     ],
-    "mentions": 2
+    "mentions": 3
   },
   "aphyocypris-arcus": {
     "name": "Aphyocypris arcus",
@@ -3735,9 +3744,10 @@
   "hydrocotyle-leucocephala": {
     "name": "Hydrocotyle leucocephala",
     "mentionedIn": [
+      "guides/youtube-QhPgAnEku_o",
       "guides/youtube-mfn_msd06Fo"
     ],
-    "mentions": 1
+    "mentions": 2
   },
   "nymphaea-rubra": {
     "name": "Nymphaea rubra",
@@ -6660,5 +6670,62 @@
     "name": "Sturisomatichthys panamense",
     "mentionedIn": [],
     "mentions": 0
+  },
+  "amphiprion-percula": {
+    "name": "Amphiprion percula",
+    "mentionedIn": [
+      "guides/youtube-J4e7xzevT5E"
+    ],
+    "mentions": 1
+  },
+  "sternotherus-minor": {
+    "name": "Sternotherus minor",
+    "mentionedIn": [
+      "guides/youtube-PGgJNhjbXNg"
+    ],
+    "mentions": 1
+  },
+  "taxodium-distichum": {
+    "name": "Taxodium distichum",
+    "mentionedIn": [
+      "guides/youtube-PGgJNhjbXNg"
+    ],
+    "mentions": 1
+  },
+  "rumex-sanguineus": {
+    "name": "Rumex sanguineus",
+    "mentionedIn": [
+      "guides/youtube-QhPgAnEku_o"
+    ],
+    "mentions": 1
+  },
+  "spathiphyllum-wallisii": {
+    "name": "Spathiphyllum wallisii",
+    "mentionedIn": [
+      "guides/youtube-QhPgAnEku_o"
+    ],
+    "mentions": 1
+  },
+  "phoxinus-phoxinus": {
+    "name": "Phoxinus phoxinus",
+    "mentionedIn": [
+      "guides/youtube-Wvboi3dLLrM"
+    ],
+    "mentions": 1
+  },
+  "chlorophytum-comosum": {
+    "name": "Chlorophytum comosum",
+    "mentionedIn": [
+      "guides/youtube-cVKsHc6swsY"
+    ],
+    "mentions": 1
+  },
+  "betta-apollon": {
+    "name": "Betta apollon",
+    "mentionedIn": [
+      "guides/youtube-iS01ihUInXE"
+    ],
+    "mentions": 1,
+    "onSource": "https://www.aquariumglaser.de/en/25-perchlike-fishes/betta-apollon-2/"
   }
 }

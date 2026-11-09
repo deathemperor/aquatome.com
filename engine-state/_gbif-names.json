@@ -26302,5 +26302,98 @@
     "genus": "Zungaro",
     "matchType": "EXACT"
   },
-  "Zwei neue": null
+  "Zwei neue": null,
+  "Amano khi": null,
+  "Amano quanh": null,
+  "Amecaphila splendens": null,
+  "Amphiprion percula": {
+    "canonicalName": "Amphiprion percula",
+    "order": "Perciformes",
+    "family": "Pomacentridae",
+    "genus": "Amphiprion",
+    "matchType": "EXACT"
+  },
+  "Betta anduzii": null,
+  "Betta apollon": {
+    "canonicalName": "Betta apollon",
+    "order": "Perciformes",
+    "family": "Osphronemidae",
+    "genus": "Betta",
+    "matchType": "EXACT"
+  },
+  "Betta pti": null,
+  "Bolbitus heudelotii": {
+    "canonicalName": "Bolbitis heudelotii",
+    "order": "Polypodiales",
+    "family": "Dryopteridaceae",
+    "genus": "Bolbitis",
+    "matchType": "FUZZY"
+  },
+  "Brachydanio kyathit": null,
+  "Chlorophytum comosum": {
+    "canonicalName": "Chlorophytum comosum",
+    "order": "Asparagales",
+    "family": "Asparagaceae",
+    "genus": "Chlorophytum",
+    "matchType": "EXACT"
+  },
+  "Colisa chuno": {
+    "canonicalName": "Trichogaster chuna",
+    "order": "Perciformes",
+    "family": "Osphronemidae",
+    "genus": "Trichogaster",
+    "matchType": "FUZZY"
+  },
+  "Doryichthys heterosoma": {
+    "canonicalName": "Doryichthys heterosoma",
+    "order": "Syngnathiformes",
+    "family": "Syngnathidae",
+    "genus": "Doryichthys",
+    "matchType": "EXACT"
+  },
+  "Hang trang": null,
+  "Iwagumi thanh": null,
+  "Keo epoxy": null,
+  "Khoan chu": null,
+  "Microphis heterosoma": {
+    "canonicalName": "Doryichthys heterosoma",
+    "order": "Syngnathiformes",
+    "family": "Syngnathidae",
+    "genus": "Doryichthys",
+    "matchType": "EXACT"
+  },
+  "Phoxinus phoxinus": {
+    "canonicalName": "Phoxinus phoxinus",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Phoxinus",
+    "matchType": "EXACT"
+  },
+  "Rumex sanguineus": {
+    "canonicalName": "Rumex sanguineus",
+    "order": "Caryophyllales",
+    "family": "Polygonaceae",
+    "genus": "Rumex",
+    "matchType": "EXACT"
+  },
+  "Spathiphyllum wallisii": {
+    "canonicalName": "Spathiphyllum wallisii",
+    "order": "Alismatales",
+    "family": "Araceae",
+    "genus": "Spathiphyllum",
+    "matchType": "EXACT"
+  },
+  "Sternotherus minor": {
+    "canonicalName": "Sternotherus minor",
+    "family": "Kinosternidae",
+    "genus": "Sternotherus",
+    "matchType": "EXACT"
+  },
+  "Taxodium distichum": {
+    "canonicalName": "Taxodium distichum",
+    "order": "Pinales",
+    "family": "Cupressaceae",
+    "genus": "Taxodium",
+    "matchType": "EXACT"
+  }
 }

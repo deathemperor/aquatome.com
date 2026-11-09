@@ -8,7 +8,8 @@
   "places": [
     "south-america",
     "brazil",
-    "amazon"
+    "amazon",
+    "nam-my"
   ],
   "range": {
     "native": {
@@ -219,6 +220,10 @@
       {
         "source": "seriouslyfish",
         "value": 4
+      },
+      {
+        "source": "glaser",
+        "value": 4
       }
     ],
     "tankCm": [
@@ -240,6 +245,18 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/biotoecus-opercularis",
       "html": "<p>Biotoecus opercularis is a small geophagine cichlid from the middle Amazon basin in Brazil, including the lower Madeira, Tapajós and Negro. It favours shallow, slow-flowing water over sand with leaf litter and submerged wood, often stained with tannins. Several populations are traded, among them B. sp. 'rio Negro' from the rio Jauaperi and B. sp. 'Santarém' or 'Tapajós', though no scientific evidence shows them to be more than one species. It should not be mixed with other Biotoecus species or populations.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/biotoecus-opercularis-3/",
+      "html": "<p>Biotoecus opercularis is probably the most interesting species of dwarf cichlid from Amazonia. Available size: 3–4 cm. Origin: Brazil.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/biotoecus-opercularis-3/",
+      "html": "<p>The species is probably not in high demand because of its coloration. As typical sand cichlids they do not have pop-art colours, but shining pastel shades. The same phenomenon can be found in the sand-dwelling cichlids of Lake Tanganyika. Nevertheless, well-adapted animals are really beautiful. Recently imported specimens (they came via Manaus) have brilliant orange ventral fins.</p>"
     },
     {
       "key": "distribution",
@@ -296,10 +313,22 @@
       "html": "<p>Biparental substrate spawner which normally lays its eggs in crevices or cavities among the décor, with the underside of submerged leaves or small caves normally preferred. Ripe females are noticeable by the development of pinkish colouration around the abdominal region while the ventral fins become bluish although courtship is initiated by territorial males.</p><p>The eggs normally hatch within 3-5 days with the larvae either remaining attached to the roof of the spawning site or moved into a shallow depression in the substrate until the yolk sacs have been absorbed. Once free swimming parental care continues for a further 3-4 weeks though the male may exhibit only loose interest. If more than one pair is permitted to spawn in the same tank, adults in adjacent territories may apparently begin to guard the fry of others if the broods become mixed.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/biotoecus-opercularis-3/",
+      "html": "<p>The aquarist's interest in these fish is due mainly to their unique breeding behaviour. Every enthusiast should once in a lifetime have observed the male Biotoecus building a hill from fine sand. Once this hill is erected, the male digs a pit, and the fish spawn in this pit.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/biotoecus-opercularis",
       "html": "<p>At time of writing there exists no scientific evidence that the different populations of this species seen in the aquarium trade (see 'Distribution') represent anything other than a single, widely-distributed species although some exhibit minor morphological differences including relative body depth, longer fin rays in the unpaired fins and yellow or orange colouration in the paired fins. There is apparently a form from the upper rio Negro which may turn out to be distinct but it's uncommon in the hobby.</p><p>B. dicentrarchus is currently the only other officially-described member of the genus and is native to the upper rio Negro and Río Orinoco basins in Colombia and Venezuela. It can be told apart from B. opercularis by the following characters: possession of 2 anal fin spines (vs. 3 in B. opercularis); 6 (vs. 5) dark lateral spots on the body; anterior few dorsal fin spines slightly elongated compared with the rest of the fin (vs. equal in length); absence of lateralis canal through the anguloarticular bone (vs. presence); dentary lateralis comprising 3-4 (vs. 5) skin openings and 2-3 (vs. 4) canal fragments; modal dorsal fin ray count VII.15 (vs. VIII.14).</p><p>Kullander (1998) conducted a morphology-based phylogenetic study in which the neotropical family Cichlidae was divided into six subfamilies of which the putative subfamily Geophaginae contained 16 genera divided among three 'tribes': Acarichthyini - Acarichthys and Guianacara. Crenicaratini - Biotoecus, Crenicara, Dicrossus and Mazarunia. Geophagini - Geophagus, Mikrogeophagus, 'Geophagus' brasiliensis group, 'Geophagus' steindachneri group, Gymnogeophagus, Satanoperca, Biotodoma, Apistogramma, Apistogrammoides and Taeniacara.</p><p>Later molecular studies by Farias et al. (1999, 2000, 2001) resulted in the additions of Crenicichla and Teleocichla to the Geophaginae, a result supported by López-Fernández et al. (2005) who conducted the most detailed molecular analysis of the grouping to date including 16 of the 18 genera and 30 species. However their conclusions regarding interrelationships between genera did vary somewhat from previous hypotheses and can be summarised by the following loosely-defined groups:</p><ul><li>a weakly-supported sister group relationship between Acarichthys and Guianacara.</li><li>a well-supported \"Satanoperca clade\" comprising Satanoperca, Apistogramma, Apistogrammoides and Taeniacara.</li><li>a \"big clade\" with Geophagus, Mikrogeophagus, 'Geophagus' brasiliensis group, 'Geophagus' steindachneri group, Gymnogeophagus, Biotodoma, Crenicara and Dicrossus.</li><li>a \"crenicarine clade\" with Biotoecus and Crenicichla.</li></ul><p>No representatives of Teleocichla or Mazarunia were included in the study but the former is well-established as sister to Crenicichla while the latter has grouped closely with Dicrossus and Crenicara in earlier works. The other main conclusions of the paper are confirmation that Geophaginae is a monophyletic group exhibiting strong signs of having undergone rapid adaptive radiation (diversification of a species or single ancestral type into several forms that are each adaptively specialised to a specific environmental niche).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/biotoecus-opercularis-3/",
+      "html": "<p>Lexicon: Biotoecus: ancient Greek, means \"house of life\". The authors of the genus believed Biotoecus to carry their young in their gills. opercularis: refers to the distinct black mark on the gill cover (Latin: operculum).</p>"
     },
     {
       "key": "references",
@@ -407,5 +436,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-09"
 }

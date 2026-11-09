@@ -354,6 +354,10 @@
       {
         "source": "seriouslyfish",
         "value": 5
+      },
+      {
+        "source": "glaser",
+        "value": 4
       }
     ],
     "tankCm": [
@@ -377,10 +381,22 @@
       "html": "<p>The Corumbá dwarf cichlid, Apistogramma commbrae, is widespread in the Paraguay River watershed of Argentina, Bolivia, Brazil and Paraguay. One of the smallest members of the genus, it is told apart from the rest of the A. commbrae complex by a conspicuous double caudal peduncle spot. Its habitats cool seasonally to as low as 16 °C, and it should be kept cooler over winter.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_commbrae_en/",
+      "html": "<p>Apistogramma commbrae is only very occasionally available. The species was described back in 1906 and has a very wide distribution. But from this region mainly its close relatives A. borellii and A. trifasciata are exported. This is not easy to understand, because A. commbrae is a really attractive fish.</p><p>Available size: 3-4 cm.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-commbrae",
       "html": "<p>This species is widespread in the Paraguay River watershed (Paraná River system) in Argentina, Bolivia, Brazil and Paraguay, above its confluence with the Salado River. There is also a population from the upper Guaporé River in western Brazil, a tributary of the upper Madeira River and thus part of the Amazon River system.</p><p>The type specimens were collected at \"Carandasiñho, Mato Grosso\" and \"Colonia Risso\", in the upper Paraguay River watershed.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_commbrae_en/",
+      "html": "<p>Argentina, Brazil and Paraguay. The offered fish originate from Paraguay.</p>"
     },
     {
       "key": "habitat",
@@ -425,6 +441,12 @@
       "html": "<p>Males are larger, more colourful and develop more extended fins than females. In spawning conditions and during broodcare the female will adopt a bright yellow livery with black markings through the body and face and more typically on the anterior edge of the ventral fins.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_commbrae_en/",
+      "html": "<p>The males can be recognized by the nice face pattern, which resembles the \"Masken-Apistogramma\" (now: A. paulmuelleri) from Peru.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-commbrae",
@@ -446,25 +468,25 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/seriouslyfish/1ad62c9c8ab47ffc.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/1ad62c9c8ab47ffc-480.webp",
       "width": 1200,
       "height": 800,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-commbrae",
       "caption": "Apistogramma commbrae male, from Paraguay",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/1ad62c9c8ab47ffc-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/146018dfcb3951af.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/146018dfcb3951af-480.webp",
       "width": 1200,
       "height": 800,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-commbrae",
       "caption": "Apistogramma commbrae female",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/146018dfcb3951af-480.webp"
+      "source": "seriouslyfish"
     }
   ],
   "videos": [],
@@ -499,5 +521,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-09"
 }

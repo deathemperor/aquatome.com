@@ -1,0 +1,94 @@
+{
+  "id": "apistogramma-megaptera",
+  "scientificName": "Apistogramma megaptera",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Apistogramma",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "colombia",
+    "orinoco",
+    "venezuela"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 26,
+          "max": 28
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_megaptera_en/",
+      "html": "<p>This dwarf cichlid has finally been scientifically described under the name A. megaptera. It has been known in the aquarium hobby for decades as Apistogramma sp. “Breitbinden”. The German word “Breitbinden” means “broad band”, referring to the broad dark band under the eye.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_megaptera_en/",
+      "html": "<p>The species occurs in the upper Orinoco area (rios Inirida, Atabapo and Mavaca) in Colombia and Venezuela.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_megaptera_en/",
+      "html": "<p>Apistogramma megaptera is a hardy species. However, all fish from this area prefer higher water temperatures than usual, e.g. 26-28°C. The water must be, at least for breeding, soft and acidic.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_megaptera_en/",
+      "html": "<p>As with all dwarf cichlids, the bottom of the tank should be covered with fine sand.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_megaptera_en/",
+      "html": "<p>Males of A. megaptera grow to around 7 cm long, while females stay much smaller and reach only 4 cm.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_megaptera_en/",
+      "html": "<p>Lexicon: Apistogramma: ancient Greek, means “with unreliable line”. It is not known whether the lateral line organ or the pattern is meant. megaptera: ancient Greek, means “with very large fins”.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn cho cá cichlid lùn",
+        "cát nền bể thủy sinh"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 26-28 độ",
+        "máy sưởi bể cá cảnh"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá cho cá Apisto"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}
