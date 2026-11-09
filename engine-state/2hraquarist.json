@@ -477,6 +477,13 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.2hraquarist.com/blogs/aquascaping-ideas/george-farmer-1": {
+    "entityIds": [],
+    "updatedAt": "2026-11-09T05:11:59.888Z",
+    "status": "error",
+    "attempts": 0,
+    "error": "no archived copy (HTTP 429)"
+  },
   "https://www.2hraquarist.com/blogs/freshwater-aquarium-plants-guide/how-to-grow-limnophila-aromatica": {
     "entityIds": [
       "plants/limnophila-aromatica"

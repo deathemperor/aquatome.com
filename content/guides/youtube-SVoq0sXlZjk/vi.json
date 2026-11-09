@@ -46,6 +46,7 @@
   },
   "held": {
     "checks": [
+      "elsewhere",
       "price",
       "source",
       "units"

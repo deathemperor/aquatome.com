@@ -83597,26 +83597,25 @@
     "products": []
   },
   "vi/species/epiplatys-annulatus": {
-    "at": "2026-11-08",
-    "hash": "5f28730a7b0606f6",
+    "at": "2026-11-09",
+    "hash": "a4cd675164307958",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "words",
-        "part": "P29",
-        "quote": "lươn giấm",
-        "why": "Literal calque of 'vinegar eel'; Vietnamese keepers call this live food giun giấm.",
-        "by": "model",
-        "fix": "giun giấm"
+        "check": "source",
+        "part": "P7",
+        "quote": "Đây là cá bắt ngoài tự nhiên, thuộc dạng người chơi gọi là 'biến thể Conakry'.",
+        "why": "Describes the source shop's own stock as if the reader were buying it.",
+        "by": "model"
       },
       {
         "check": "words",
-        "part": "P13",
+        "part": "P18",
         "quote": "Nón cây alder cũng có tác dụng tương tự.",
-        "why": "Literal translation of 'alder cone'; keepers in Vietnam say trái alder.",
+        "why": "Calque of 'alder cone'; keepers in Vietnam call them alder fruits.",
         "by": "model",
-        "fix": "trái alder"
+        "fix": "quả alder"
       }
     ],
     "products": [
@@ -91914,10 +91913,10 @@
     "products": []
   },
   "vi/species/panaque-suttonorum": {
-    "at": "2026-11-08",
-    "hash": "17e2e657e9a507ed",
+    "at": "2026-11-09",
+    "hash": "db32b817fd5a58ed",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -92265,30 +92264,31 @@
     "products": []
   },
   "vi/species/parailia-occidentalis": {
-    "at": "2026-11-08",
-    "hash": "e852277119c69cd7",
+    "at": "2026-11-09",
+    "hash": "861f98f73d0b91fe",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
   "vi/species/parailia-pellucida": {
-    "at": "2026-11-07",
-    "hash": "02984871838b0616",
+    "at": "2026-11-09",
+    "hash": "a981cead3de168e4",
     "model": "opus",
+    "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
         "quote": "lúc nào cũng có hàng",
-        "why": "This is the source shop talking about its own stock, not a general fact the reader can use.",
+        "why": "Refers to the source shop's own stock availability.",
         "by": "model"
       },
       {
         "check": "words",
-        "part": "P6",
+        "part": "P12",
         "quote": "cá Wels châu Âu",
-        "why": "'Wels' is the German/English name left untranslated; keepers in Vietnam call Silurus glanis the European catfish.",
+        "why": "Foreign common name kept untranslated; Vietnamese keepers call it cá nheo châu Âu.",
         "by": "model",
         "fix": "cá nheo châu Âu"
       }
@@ -92330,15 +92330,16 @@
     "products": []
   },
   "vi/species/paraloricaria-vetula": {
-    "at": "2026-11-07",
-    "hash": "99fb35bba5480a8c",
+    "at": "2026-11-09",
+    "hash": "566cf448c5032493",
     "model": "opus",
+    "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P2",
+        "part": "P6",
         "quote": "Paraloricaria vetula vừa được nhập từ Paraguay về lần đầu tiên.",
-        "why": "An importer's stock news ('just arrived for the first time') from the source, not for a reader in Vietnam.",
+        "why": "This is the source exporter's stock news, written as if it were news for the reader.",
         "by": "model"
       }
     ],
@@ -92401,33 +92402,33 @@
     "products": []
   },
   "vi/species/parancistrus-aurantiacus": {
-    "at": "2026-11-08",
-    "hash": "c3da3b02c655d601",
+    "at": "2026-11-09",
+    "hash": "8e944a17f79e4db6",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P2",
+        "part": "P7",
         "quote": "Các con trong ảnh đều là cá đực đã trưởng thành hoàn toàn.",
-        "why": "Refers to a photo the page does not have.",
+        "why": "Refers to photos from the source shop that this page does not have.",
         "by": "model"
       },
       {
         "check": "source",
-        "part": "P2",
-        "quote": "Lúc đó cá dài 8-12 cm.",
-        "why": "Refers to the source's own batch of fish as if the reader knew it.",
+        "part": "P7",
+        "quote": "Những cá thể nói đến ở đây cũng đổi màu như vậy. Lúc đó cá dài 8-12 cm.",
+        "why": "Speaks of the source shop's own imported fish as if the reader knew them.",
         "by": "model"
       }
     ],
     "products": []
   },
   "vi/species/parancistrus-nudiventris": {
-    "at": "2026-11-08",
-    "hash": "50dee90acde517cd",
+    "at": "2026-11-09",
+    "hash": "c6780e226440e08b",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -92523,10 +92524,10 @@
     "products": []
   },
   "vi/species/paravandellia-oxyptera": {
-    "at": "2026-11-08",
-    "hash": "df670000f529329d",
+    "at": "2026-11-09",
+    "hash": "327c1270448ed2b5",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -99978,6 +99979,89 @@
   "vi/species/schistura-deansmarti": {
     "at": "2026-11-09",
     "hash": "d93e302dbc08530c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/aquariumbreeder-how-acclimate-corals": {
+    "at": "2026-11-09",
+    "hash": "72a4b4f8e1f9033e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Coral RX Coral dip",
+      "Seachem Reef Dip",
+      "Polyp Lab Reef Primer Shot Coral Dip",
+      "Brightwell – Professional Strength Coral and Frag Dip to Clean"
+    ]
+  },
+  "vi/guides/aquariumbreeder-how-to-anchor-aquarium-plants-pros-and-cons-of-different-methods": {
+    "at": "2026-11-09",
+    "hash": "a072bfc27be5b659",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "## 6. Dùng dải neo cây",
+        "why": "Calque of English 'plant weights'; Vietnamese keepers call these lead strips chì quấn cây.",
+        "by": "model",
+        "fix": "chì quấn cây / chì neo cây"
+      }
+    ],
+    "products": [
+      "Keo 502"
+    ]
+  },
+  "vi/guides/aquariumbreeder-how-to-handle-your-pet-crustaceans": {
+    "at": "2026-11-09",
+    "hash": "7efe6290fa9798d1",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/aquariumbreeder-tank-decoration-simple-ideas": {
+    "at": "2026-11-09",
+    "hash": "3bff8fb86968c4e8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "shop",
+        "part": "P1",
+        "quote": "Có người lên Etsy (chỗ rất hay để tìm cảm hứng) mua cả một loạt đồ Spongebob Squarepants",
+        "why": "Names a foreign online shop as the place to buy decorations.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Beeramid",
+      "Lego"
+    ]
+  },
+  "vi/guides/aquariumbreeder-top-coldwater-aquarium-plants": {
+    "at": "2026-11-09",
+    "hash": "1b2c475e0a776d10",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Nhiệt độ nước thường nằm trong khoảng 16 – 21 °C",
+        "why": "It treats an unheated tank at room temperature as 16–21 °C, which is true of a cooler climate abroad, not of a room in Vietnam.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/mespilia-globulus": {
+    "at": "2026-11-09",
+    "hash": "da2cac51016a8f89",
     "model": "opus",
     "checklist": 3,
     "findings": [],

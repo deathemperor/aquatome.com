@@ -5,7 +5,7 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 3399 | 3104 | 1420 | 70 | 42 | 180 | 32 | 926 | 403 | 2781 | 450 | 5 | 12 | 0 | 3 | 0 | 2 |
+| Vietnamese | 3355 | 3065 | 1418 | 70 | 45 | 181 | 32 | 924 | 402 | 2784 | 448 | 5 | 12 | 0 | 3 | 0 | 2 |
 | Indonesian | 1064 | 999 | 315 | 18 | 4 | 3 | 5 | 157 | 64 | 42 | 139 | 0 | 0 | 0 | 4 | 0 | 0 |
 | Thai | 1057 | 992 | 302 | 16 | 4 | 4 | 3 | 136 | 80 | 78 | 129 | 0 | 0 | 0 | 2 | 0 | 0 |
 | Malay | 171 | 142 | 52 | 4 | 1 | 0 | 0 | 22 | 18 | 9 | 19 | 0 | 0 | 0 | 0 | 0 | 0 |
@@ -75,6 +75,7 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - easy fry and small fish food: 12
 - hikari shrimp cuisine: 12
 - aquario neo soil: 11
+- keo 502: 11
 - eheim: 10
 - seachem fluorite: 10
 - aquaclear: 9

@@ -12,13 +12,36 @@
     "democratic-republic-of-the-congo",
     "congo",
     "angola",
-    "cuanza"
+    "cuanza",
+    "quanza"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 8.5
+      },
+      {
+        "source": "scotcat",
+        "value": 7
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 23,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
       }
     ]
   },
@@ -30,10 +53,34 @@
       "html": "<ul><li><strong>Scientific name:</strong> Parailia occidentalis (Pellegrin, 1901)</li><li><strong>Common name:</strong> Dusky Glass Catfish</li><li><strong>Type locality:</strong> Cape Lopez, Gabon.</li><li><strong>Synonyms:</strong> Ailia occidentalis, Physailia ansorgii, Physailia occidentalis, Physailia villiersi</li><li><strong>Etymology:</strong> The generic name comes from the Latin prefix par-, meaning equal, and Ailia, a genus of schilbeid catfishes, in reference to the similarity between this genus and Ailia.</li><li><strong>Size:</strong> 85 mm (3.3 in) SL.</li><li><strong>Identification:</strong> All species of this genus have no dorsal fin and are small, being no larger than 150 mm SL.</li><li><strong>IUCN Red List:</strong> Least Concern (last assessed 2009).</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/schilbidae/parailia_occidentalis.htm",
+      "html": "<p>Family: Schilbeidae. Size: 7 cm. Temperature: 23–26°C. pH: 6.5–7.2. Oviparous; eggs are unguarded.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=100",
       "html": "<p>Africa: Ogowe, Congo, Quanza, Luculla, Chiloango.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/schilbidae/parailia_occidentalis.htm",
+      "html": "<p>Africa: Ogowe, Congo, Quanza, Luculla and Chiloango Rivers. Type locality: Cap Lopez, French Congo. The specific name occidentalis is Latin for western, referring to Cap Lopez, Gabon, on the west coast of Africa.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/schilbidae/parailia_occidentalis.htm",
+      "html": "<p>Confined to large and moderate rivers; sometimes penetrates into estuaries. A gregarious schooling species; such schools are probably an important prey for several larger carnivorous species. As well as living in the rivers, this species may venture into the brackish waters of estuaries.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/schilbidae/parailia_occidentalis.htm",
+      "html": "<p>As with all Parailia, it has four pairs of barbels and likes to be kept in a group in the aquarium.</p>"
     },
     {
       "key": "reproduction",
@@ -42,13 +89,54 @@
       "html": "<p>Breeding: Unreported. There is no breeding report.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/schilbidae/parailia_occidentalis.htm",
+      "html": "<p>Oviparous, eggs are unguarded.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/schilbidae/parailia_occidentalis.htm",
+      "html": "<p>Description: dorsal spines 0; dorsal soft rays 0; anal spines 0; anal soft rays 51–68. Adipose fin present; inner side of the pectoral spine feebly serrated, with small to very small serrations; vomerine teeth usually absent. Colouration: the defining character of this species is a dark spot at the caudal peduncle and a dark band running from the head to the caudal peduncle.</p><p>IUCN Red List: Least Concern, as the species has a wide distribution with no known major widespread threats. Also assessed regionally as Least Concern for central Africa. Data within southern Africa are scarce and more comprehensive surveys are required; it is assessed as Data Deficient within this region.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=100",
       "html": "<p>Bulletin du Muséum National d'Histoire Naturelle (Série 1) v. 7 (no. 7), pp 331.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/schilbidae/parailia_occidentalis.htm",
+      "html": "<p>da Costa, L. &amp; Moelants, T. 2010. Parailia occidentalis. The IUCN Red List of Threatened Species 2010.</p><p>De Vos, L., 1995. Results of a systematic revision of African schilbeids at the species level. p.113-364. In L. De Vos. A systematic revision of the African Schilbeidae (Teleostei, Siluriformes) with an annotated bibliography, Chapter 3. Ann. Mus. R. Afr. Centr. Zool. vol. 271.</p><p>Froese, R. and D. Pauly. Editors. 2019. FishBase. World Wide Web electronic publication. www.fishbase.org, (12/2019).</p><p>Seegers, L. 2008 The catfishes of Africa. A handbook for identification and maintenance. Aqualog Verlag A.C.S. GmbH, Germany. 604 p.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/fbc41d89dfdddc41.webp",
+      "thumb": "https://media.aquatome.com/scotcat/fbc41d89dfdddc41-480.webp",
+      "width": 500,
+      "height": 294,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/schilbidae/parailia_occidentalis.htm",
+      "caption": "Parailia occidentalis",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/352075c857c0d758.webp",
+      "thumb": "https://media.aquatome.com/scotcat/352075c857c0d758-480.webp",
+      "width": 500,
+      "height": 375,
+      "licence": "dùng với sự cho phép",
+      "author": "Joe Cutler / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/schilbidae/parailia_occidentalis.htm",
+      "caption": "Parailia occidentalis: Ngounié, Moyen-Ogooué, Gabon",
+      "source": "scotcat"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -73,5 +161,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-09"
 }
