@@ -98498,5 +98498,1455 @@
     "checklist": 3,
     "findings": [],
     "products": []
+  },
+  "vi/guides/youtube--e-b2H4-mu8": {
+    "at": "2026-11-09",
+    "hash": "42e9e82669202ab5",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Góc sân này dốc, đất trôi xuống lối xe chạy và cây cối mọc lộn xộn.",
+        "why": "Presents the source writer's own yard as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P5",
+        "quote": "chạy thử thì nước trông không ổn. Cuối cùng chính cái xô là vấn đề.",
+        "why": "First-person story of the source's own build.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P2",
+        "quote": "Khu này nằm dưới tán cây độc cần Đông (Eastern Hemlock",
+        "why": "Describes a North American site under Eastern Hemlock as the reader's own garden.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P3",
+        "quote": "Cóc American Toad hay nằm dưới các phiến đá dẹt ở đây.",
+        "why": "American Toad is a North American species, not the reader's local wildlife.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P4",
+        "quote": "Giữ lại cây bản địa đáng dùng, chẳng hạn hoa tím Common Blue Violet.",
+        "why": "Treats North American native plants as native to the reader's area.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P10",
+        "quote": "Cây bản địa phủ nền: Self-Heal hay mọc ở chỗ râm.",
+        "why": "Recommends North American native plants and butterflies as the reader's local ones.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P5",
+        "quote": "đầu vòi loe cũ cỡ 1,9 cm",
+        "why": "1.9 cm is a converted 3/4 inch fitting size.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P9",
+        "quote": "Rải sỏi hạt đậu vào chỗ nước tràn",
+        "why": "Calque of 'pea gravel'.",
+        "by": "model",
+        "fix": "sỏi nhỏ"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-2EvDsbrS9Dg": {
+    "at": "2026-11-09",
+    "hash": "ae9bda775a678115",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "Tổng chi phí chưa tới 2.000 USD.",
+        "why": "Build cost given in US dollars.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "rẻ hơn 100 USD so với bơm cũ",
+        "why": "Pump saving given in US dollars.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Hồ này làm bằng tay trong 5 ngày để thay cho hồ cũ, do đàn cá vàng đã lớn",
+        "why": "The source writer's own pond story presented as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Về sau có trồng thêm cây sống một mùa như cói lùn (dwarf papyrus) và lục bình.",
+        "why": "Calling papyrus and water hyacinth annuals reflects a cold-winter climate; in Vietnam they grow all year.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "một chậu nhỏ loại chứa nước cho gia súc",
+        "why": "Literal calque of 'stock tank'; Vietnamese keepers say plastic tub.",
+        "by": "model",
+        "fix": "bồn nhựa nhỏ / thùng nhựa"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-3XYr9e7ZTlc": {
+    "at": "2026-11-09",
+    "hash": "d57698c33e65a634",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Bể mới là bể đóng riêng khoảng 83 lít, kích thước 91 × 30 × 30 cm",
+        "why": "91 cm is a converted 3-foot tank length.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể cũ đã chạy ba năm, ít phải chăm và cây vẫn tốt.",
+        "why": "Describes the source writer's own old tank as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Có sẵn nhiều xô đá nham thạch đen từ các bể đã dỡ.",
+        "why": "The writer's own story about their stock of rock.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "trừ dương xỉ Java không chịu mọc trong nguồn nước ở đây",
+        "why": "Refers to the writer's own local water supply.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Lên hình thì không thấy khác mấy, nhưng cảm giác là bước này tạo khác biệt khá lớn.",
+        "why": "The video creator's voice, pointing at footage the page lacks.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể từng dùng mấy cái đèn tròn nhỏ (puck light)",
+        "why": "The writer's own tank history.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Đàn cũ chỉ còn bảy con",
+        "why": "The writer's own fish count, told as shared story.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Pond Foam"
+    ]
+  },
+  "vi/guides/youtube-4lG_4wSx_bQ": {
+    "at": "2026-11-09",
+    "hash": "3fca5891e01bad35",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "giá khoảng 12 USD",
+        "why": "Price in US dollars, meaningless for a buyer in Vietnam.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "giá chưa tới 3 USD",
+        "why": "Price of bagged topsoil in US dollars.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "thùng nhựa đựng đồ 57 lít",
+        "why": "57 litres is a converted 15-gallon size nobody in Vietnam would quote.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "năm thanh 2x4 dài 2,44 m",
+        "why": "2.44 m is a converted 8-foot board length.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Gỗ xẻ bán sẵn bây giờ nhỏ hơn số đo trên tên gọi",
+        "why": "Refers to US nominal-inch lumber sizing (2x10, 2x4), not how timber is sold in Vietnam.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "lần này thì chuyện đó lại tiện",
+        "why": "The original writer's own build story shows through.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Nếu không ngại lộ vít thì bắt thẳng cả bốn góc, như ở mặt sau.",
+        "why": "Points to the source's own box the reader has never seen.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-7gf1xIZTJRg": {
+    "at": "2026-11-09",
+    "hash": "1be289995e116f1a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Hồ ở đây chạy hơn ba năm.",
+        "why": "Treats the source author's own pond as if the reader already knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "nhưng về sau thấy thừa nên bỏ bông sau năm đầu",
+        "why": "A first-person story from the original author about their own pond.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Có lần một con diều hâu đậu trên mép hồ nhìn cá.",
+        "why": "An anecdote from the original author's own pond.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Thác nước chảy liên tục giữ cho mặt hồ không đóng băng kín, và hồ đủ sâu để đáy nằm dưới mức đất đóng băng.",
+        "why": "Ponds freezing over and frost-line depth belong to a cold-winter country, not Vietnam.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Dù sân có rào, gấu mèo (raccoon) và các con vật khác vẫn dễ dàng mò tới hồ.",
+        "why": "Raccoons are North American pond predators that a Vietnamese keeper does not meet.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "L4",
+        "quote": "thác nước giữ mặt hồ không đóng băng và hồ đủ sâu dưới mức đóng băng của đất",
+        "why": "Overwintering under ice assumes a freezing climate that Vietnam does not have.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "L11",
+        "quote": "thác nước chạy liên tục giữ mặt hồ không đóng băng và hồ đủ sâu, đáy nằm dưới mức đất đóng băng",
+        "why": "Overwintering advice for frozen ponds is written for a reader in a cold-winter country.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Matala mat"
+    ]
+  },
+  "vi/guides/youtube-DkuoQLxF7u8": {
+    "at": "2026-11-09",
+    "hash": "0bc3cdf6165d8a56",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "Giá hơi cao, khoảng 5–10 USD một con, bù lại chúng sống lâu.",
+        "why": "Price given in US dollars, meaningful only to a buyer abroad.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "thả một đàn vào bể khoảng 210 lít thì rất đẹp",
+        "why": "210 litres is a converted 55-gallon tank size, not one a Vietnamese keeper would name.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-DLJtTl_IJSk": {
+    "at": "2026-11-09",
+    "hash": "0928d42df6e534c2",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "Giá: dưới 10 USD một con.",
+        "why": "Price given in US dollars.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "Giá: một cặp thường khoảng 20 USD trở xuống.",
+        "why": "Price given in US dollars.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "Giá: rẻ, khoảng 5 USD trở xuống.",
+        "why": "Price given in US dollars.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Có thể nuôi cả đàn trong bể khoảng 208 lít",
+        "why": "208 litres is a converted 55-gallon tank.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Bể: nuôi trong bể 19 lít cũng được",
+        "why": "19 litres is a converted 5-gallon tank.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "nhưng bể 38–76 lít thì thoải mái hơn",
+        "why": "38–76 litres are converted 10–20 gallon tanks.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Bể phải đủ rộng, khoảng 110 lít là hợp.",
+        "why": "110 litres is a converted 29-gallon tank.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Nuôi cho đẻ trong bể 76 lít cũng được",
+        "why": "76 litres is a converted 20-gallon tank.",
+        "by": "model"
+      },
+      {
+        "check": "shop",
+        "part": "P1",
+        "quote": "Có thể phải tìm trên AquaBid",
+        "why": "AquaBid is a foreign auction site named as where to buy.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "hay có ở các chuỗi cửa hàng thú cưng lớn",
+        "why": "Big pet-store chains selling fish are a feature of the source country, not Vietnam.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "nên giữ khoảng 21–24 °C. Chúng thường không cần sưởi",
+        "why": "Assumes rooms in a cool climate; in Vietnam the water is usually warmer and would need cooling.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "trùn chỉ đông lạnh (bloodworm)",
+        "why": "Bloodworm is mistranslated as trùn chỉ (tubifex).",
+        "by": "model",
+        "fix": "trùn huyết đông lạnh"
+      }
+    ],
+    "products": [
+      "Hikari Vibra Bites"
+    ]
+  },
+  "vi/guides/youtube-EtPpRSVUsTE": {
+    "at": "2026-11-09",
+    "hash": "635ecf16837e0566",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Đào sâu quá đường băng giá thì động vật có chỗ qua đông.",
+        "why": "Frost line and overwintering apply to a cold-climate garden, not to Vietnam.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Ở con suối này, rắc rối lớn nhất không nằm ở khâu đào mà ở khâu đặt đá lên bạt.",
+        "why": "Refers to the source writer's own stream as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Nếu làm lại thì có lẽ sẽ không trải một tấm như vậy nữa.",
+        "why": "The original builder's first-person reflection on their own project.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Lúc đầu dự định dùng ống nhựa thoát nước có đục lỗ cho chỗ nước vào bog",
+        "why": "The source writer's own build story.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Chẳng hạn một hồ hạ 2,5 cm, hồ kia hạ 7,5 cm",
+        "why": "Figures converted from 1 and 3 inches.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Kỳ giông lưng đỏ hay sống dưới vật mới bị xê dịch",
+        "why": "Red-backed salamander is North American garden wildlife, presented as the reader's own.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-f_nQFJ95B6g": {
+    "at": "2026-11-09",
+    "hash": "6f7f593471786511",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Sau đó hồ còn phải qua mùa đông đóng băng",
+        "why": "Assumes a climate where ponds freeze in winter, which hobbyists in Vietnam generally do not face.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Độ sâu: lòng hồ này sâu khoảng 1,7 m",
+        "why": "Refers to the source's own pond as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Sườn đồi cạnh hồ lại chưa gieo cỏ lại, nên mỗi lần mưa là bùn trôi thẳng xuống hồ.",
+        "why": "Tells the source writer's own pond story as if the reader knew the site.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "L8",
+        "quote": "Hồ sâu hơn mức đất đóng băng thì mặt hồ có đóng băng nhưng đáy vẫn không đóng băng.",
+        "why": "Frost-line depth advice is written for a reader in a cold climate abroad.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "L7",
+        "quote": "Hồ cá vàng ngoài trời cần sâu bao nhiêu để cá qua được mùa đông?",
+        "why": "Overwintering under ice is not a concern for the reader in Vietnam.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-G4qC-5UEEWo": {
+    "at": "2026-11-09",
+    "hash": "28af8be1ac1756bd",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Ở hồ này, thấy vậy nên phải sửa lại thiết kế giữa chừng.",
+        "why": "Refers to the source's own pond build as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Chuyện này làm hỏng cả khoang thu nước lẫn hang cá, phải tháo ra làm lại.",
+        "why": "Recounts the original builder's own mishap with their pond.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "một cách là nuôi cá vàng chung với cá nhỏ như cá darter",
+        "why": "Darters are North American native fish, a suggestion for a US pond keeper, not one in Vietnam.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Aqua Blocks"
+    ]
+  },
+  "vi/guides/youtube-gJuWCudImSc": {
+    "at": "2026-11-09",
+    "hash": "8dca9a9df18e3cc5",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Mặt hồ đóng băng kín hoàn toàn.",
+        "why": "Ponds freezing over is a cold-climate concern, not one for outdoor ponds in Vietnam.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "bị gấu mèo (raccoon) thò tay bắt mất",
+        "why": "Raccoons are a North American pond predator and don't live in Vietnam.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "rêu mọc nhiều nhất lúc có tuyết và sương giá phủ. Tuyết tan là đá đã phủ rêu xanh",
+        "why": "Snow and frost on the pond assume a climate the reader doesn't live in.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "đầy cả một xô khoảng 19 lít",
+        "why": "19 litres is a converted 5-gallon bucket.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "hồ có thể đầy lá chỉ sau vài chuyến đi xa",
+        "why": "The writer's own trips away, told as the reader's story.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "còn cá lớn từng nuôi trong nhà, chuyển ra hồ thì trở nên nhát như cá hoang",
+        "why": "Refers to the writer's own fish history as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Súng thì sắp phải bón phân. Cây nhiệt đới cho mùa hè nên đợi thời tiết ổn định, khoảng một tháng nữa",
+        "why": "Follows the writer's own pond and season timeline.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Rêu trồng xen giữa các khe đá thác có lan ra trong mùa",
+        "why": "Describes the writer's own waterfall moss as if the reader had seen it.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-HeOOfGW7eAk": {
+    "at": "2026-11-09",
+    "hash": "38987dba303ce502",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "kèm giá tham khảo (tính bằng đô la Mỹ)",
+        "why": "Prices are given in US dollars, which only make sense for a reader in the US.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "Khoảng 10 USD mua 4 con (1 đực, 3 cái)",
+        "why": "Price in a foreign currency.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "Cá neon đen giá khoảng 2–4 USD",
+        "why": "Price in a foreign currency.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "Một đàn 6 con tốn khoảng 20–24 USD",
+        "why": "Price in a foreign currency.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "có khi mua được 5 hay 10 con chỉ với 1 USD",
+        "why": "Price in a foreign currency.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "Có cả dòng vây dài, đắt thêm khoảng 0,5 USD",
+        "why": "Price in a foreign currency.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "tính giá cao nhất cũng chỉ 15 USD cho cả chục năm",
+        "why": "Price in a foreign currency.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "rẻ hơn cá chuột đồng (bronze) khoảng 1 USD, rẻ nhất khoảng 3 USD",
+        "why": "Price in a foreign currency.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Tiệm chuỗi và đa số tiệm nhỏ đều có bán",
+        "why": "Assumes the pet-store chains of the US market, which hobbyists in Vietnam don't shop at.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-iMdL-mkSSJY": {
+    "at": "2026-11-09",
+    "hash": "5dbca5fca72d86df",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "một con riêng lẻ cần bể khoảng 110 lít trở lên, còn nuôi đàn thì khoảng 285 lít trở lên",
+        "why": "110 and 285 litres are converted from 30 and 75 US gallon tanks, sizes nobody in Vietnam would use.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-jLaoKifwo1Y": {
+    "at": "2026-11-09",
+    "hash": "8414ea6b7f4b4ec5",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Bước tiếp theo là thả một đội ăn rêu.",
+        "why": "Calque of English 'cleanup crew'; not how Vietnamese keepers phrase it.",
+        "by": "model",
+        "fix": "thả cá, tép, ốc dọn bể"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-KsmBRW22jiQ": {
+    "at": "2026-11-09",
+    "hash": "3296fd2da288c215",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "kit",
+        "part": "P1",
+        "quote": "Bộ AquaGarden Mini Pond là một hồ nhỏ đặt trong nhà, có máng tràn tạo thác, máy bơm và đèn đi kèm.",
+        "why": "The whole page is a build of one specific kit sold abroad, so the steps follow that product.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Lắp xong thì hồ chỉ chứa khoảng 26,5 lít nước.",
+        "why": "26.5 litres is a converted 7 US gallons, not a volume anyone in Vietnam would give.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "sung bò lá sồi (Ficus pumila quercifolia, oak leaf creeping fig)",
+        "why": "Calque of 'creeping fig'; the plant is known locally as trâu cổ.",
+        "by": "model",
+        "fix": "cây trâu cổ lá sồi"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Phủ lên lớp Leca một tấm lưới chắn cửa sổ cắt sẵn",
+        "why": "Calque of 'window screen'; Vietnamese say lưới chống muỗi.",
+        "by": "model",
+        "fix": "lưới chống muỗi"
+      }
+    ],
+    "products": [
+      "AquaGarden Mini Pond",
+      "Great Stuff Gaps and Cracks",
+      "Seachem Flourite Red",
+      "Seachem Flourite Dark",
+      "Fluval Stratum"
+    ]
+  },
+  "vi/guides/youtube-ld9WkDIP_o4": {
+    "at": "2026-11-09",
+    "hash": "fbb6f0afdc787937",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "mua hàng xả kho khoảng 10 USD",
+        "why": "Price given in US dollars from a foreign clearance sale.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "chứa được chừng 57 lít nước",
+        "why": "57 litres is a converted 15-gallon figure nobody in Vietnam would use.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "L1",
+        "quote": "Một chậu giả thùng gỗ khoảng 57 lít",
+        "why": "57 litres is a converted 15-gallon figure.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Dùng ống PVC cỡ khoảng 1,3 cm và các cút góc ba ngả",
+        "why": "1.3 cm is a converted half-inch pipe size; local pipes go by phi sizes such as 21 mm.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Hồ ở đây được dựng để sau này nuôi cá medaka.",
+        "why": "Refers to the source video's own pond build as if the reader knew it.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Great Stuff Pond & Stone",
+      "Seachem Flourite"
+    ]
+  },
+  "vi/guides/youtube-LEFJcwQdUvU": {
+    "at": "2026-11-09",
+    "hash": "e0eafa6ebe5b2e5f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Thả một đàn nhiều màu trong bể khoảng 285 lít trồng ít cây",
+        "why": "285 litres is a converted 75-gallon tank size that nobody in Vietnam would use.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-mfn_msd06Fo": {
+    "at": "2026-11-09",
+    "hash": "489e19fcff0194ad",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "Thùng này rẻ, chỉ khoảng 12,5 USD",
+        "why": "Price given in US dollars.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "thùng nhựa đựng đồ loại 53 lít",
+        "why": "53 litres is a converted 14-gallon tote size.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Thùng to cỡ 208 lít đổ đầy nước sẽ bị phình cong",
+        "why": "208 litres is a converted 55-gallon size.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "bắt một tấm ván ép dày 1,9 cm vào đáy",
+        "why": "1.9 cm is converted from 3/4-inch plywood.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "các thanh gỗ 5×7,5 cm",
+        "why": "Converted from American 2×3-inch lumber.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Ván hàng rào bằng gỗ tuyết tùng (cedar) khá rẻ",
+        "why": "Cheap cedar fence pickets are a North American hardware-store item, not a Vietnamese one.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-MhBjnxcrRMg": {
+    "at": "2026-11-09",
+    "hash": "b8d705e2a11ecf84",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Đá có vân đẹp và dễ mua ở Florida.",
+        "why": "Says where the stone is easy to buy as if the reader lived in Florida.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Mấy thân cây bách được gom lại một chỗ để trông giống vùng đầm lầy Everglades.",
+        "why": "Uses a US local landscape as the design reference, as though the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Hồ ở đây làm từ hai bồn nhựa nuôi gia súc (stock pond).",
+        "why": "Describes the source's own pond as if the reader already knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Nhìn lại thì có lẽ chỉ cần lót bằng vải địa kỹ thuật là đủ, đỡ tốn vật liệu hơn.",
+        "why": "The original builder looking back on their own build, in their own voice.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Ở đây đó là một cây sồi chết, vốn đã cần chặt.",
+        "why": "Tells the source's own story about trees on its own land.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-Ogb1LmuLN8c": {
+    "at": "2026-11-09",
+    "hash": "e3992405b18fbb51",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Vải thừa từ các lần làm trước cắt vừa hố là dùng được, không cần mua mới.",
+        "why": "Refers to the original creator's earlier builds as if the reader shared them.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Ở đây két vừa gần khít hố, phía sau cao hơn phía trước.",
+        "why": "Describes the source's own build ('here') rather than general guidance.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Lần chạy thử này đã khá gần với hình dung ban đầu, chỉ còn thiếu chi tiết.",
+        "why": "First-person narrative of the source's own test run and vision.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Nước xối mạnh như thác chính của hồ thì chúng không đậu được.",
+        "why": "Points to the source's own pond's main waterfall as if the reader knew it.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-P3d7DeNmiko": {
+    "at": "2026-11-09",
+    "hash": "2769635c84da3b22",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Hồ cũ ở đây thả năm con cá vàng comet lúc chúng chỉ dài khoảng 7,5 cm.",
+        "why": "Tells the original writer's own pond story as if the reader knew that pond.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Hôm đó chỉ bơm nước vào được nửa hồ, vừa bơm vừa xịt rửa đất cát.",
+        "why": "First-person build diary from the original writer.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Lần chạy thử đầu tiên có một lỗi lớn.",
+        "why": "Recounts the source writer's own build mistake as a story.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Tấm màng này lúc mua chưa có đánh giá, sau đó bị chê là không đủ dẻo.",
+        "why": "Refers to the source writer's purchase and its online reviews abroad.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Chuyện cá bị kẹt trong hộp hớt váng (skimmer box) là có thật, hồ cũ từng gặp rồi.",
+        "why": "Refers to the writer's old pond as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "Hồ khoảng 3,4 x 2,7 m này tốn 1.972,76 USD (giá mùa xuân 2023, chưa tính dụng cụ).",
+        "why": "Cost given in US dollars at US prices.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "bớt được khoảng 25 USD",
+        "why": "Saving given in US dollars.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "L6",
+        "quote": "Tổng chi phí gần 2.000 USD.",
+        "why": "Total cost in US dollars.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Hồ này sâu tối đa khoảng 76 cm.",
+        "why": "76 cm is a converted 30 inches.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "một thùng nhựa chăn nuôi (stock tub) khoảng 75 lít làm bể chứa",
+        "why": "75 litres is a converted 20-gallon stock tank.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Luồn ống 3,8 cm qua lỗ",
+        "why": "3.8 cm is a converted 1.5-inch pipe; Vietnamese pipe is sized differently (e.g. phi 42).",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "màng EPDM dày 45 mil (khoảng 1,1 mm) cỡ khoảng 4,6 x 4,6 m",
+        "why": "Mil is an imperial unit and 4.6 x 4.6 m is a converted 15 x 15 ft liner.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "thùng nhựa chăn nuôi (stock tub)",
+        "why": "Calque of the American 'stock tub'.",
+        "by": "model",
+        "fix": "bồn nhựa"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Không nên vội thả chúng ra hồ khi trời còn lạnh vì cá có thể bị bệnh.",
+        "why": "Assumes a cold-winter climate where fish overwinter indoors.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Mua cây xả hàng ở các siêu thị lớn khi đã hết mùa hoa.",
+        "why": "Refers to big-box garden centre end-of-season sales abroad.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Cây sẽ trồng sau vì đang trái mùa",
+        "why": "Assumes a temperate planting season.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Chỉ dùng gỗ cứng như sồi hay tuyết tùng (cedar).",
+        "why": "Oak and cedar are woods from the writer's region, not ones a Vietnamese keeper has at hand.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Ecowave 2000"
+    ]
+  },
+  "vi/guides/youtube-Pc-uoB80jyk": {
+    "at": "2026-11-09",
+    "hash": "8dc5a07538178771",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "một chậu trồng cây dung tích khoảng 95 lít",
+        "why": "95 litres is a converted 25-gallon planter size, not a size a Vietnamese keeper would name.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Lưới đan len (knitting mesh)",
+        "why": "Literal calque of 'knitting mesh'; Vietnamese keepers call this plastic canvas mesh.",
+        "by": "model",
+        "fix": "lưới nhựa (lưới canvas)"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "bóng LED cánh xếp (deformable LED)",
+        "why": "Calque of 'deformable LED'; the bulb is sold in Vietnam under another name.",
+        "by": "model",
+        "fix": "bóng đèn LED cánh quạt"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-qL-OMw9pvJs": {
+    "at": "2026-11-09",
+    "hash": "9c6e2111ee02b671",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "kit",
+        "part": "P1",
+        "quote": "Bộ kit làm hồ dùng ở đây có gần đủ mọi thứ",
+        "why": "The whole build follows one foreign pond kit (skimmer box, waterfall filter box, liner) rather than equipment a keeper in Vietnam would gather.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "trong bài này làm mất khoảng năm ngày",
+        "why": "Refers to the source writer's own pond project as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Hồ cỡ khoảng 1,8 x 2,4 m",
+        "why": "Converted from 6 × 8 feet; not a size a builder in Vietnam would choose.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "có thể chọn cỡ khoảng 2,4 x 3,4 m trở lên",
+        "why": "Converted from roughly 8 × 11 feet.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-rh8iBySuUpE": {
+    "at": "2026-11-09",
+    "hash": "005dcbb75b12dca8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Trong bể khoảng 208 lít, cá Congo chắc chắn sẽ rất nổi bật.",
+        "why": "208 litres is a converted 55-gallon US tank size, not a size a Vietnamese keeper would name.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "L5",
+        "quote": "rất nổi bật trong bể khoảng 208 lít",
+        "why": "208 litres is a converted 55-gallon US tank size, not a size a Vietnamese keeper would name.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-T7rX6KXAZK0": {
+    "at": "2026-11-09",
+    "hash": "dcd6b2c4e99d4341",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể ở đây khoảng 83 lít, các mặt kính cắt xiên cho hợp dáng cá.",
+        "why": "Describes the source's own tank as if the reader knew it; the 83-litre size is also a gallon conversion.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Ở bể cũ, cá đã chiếm hết bụi rêu Süßwassertang, nên bắt chúng ra hơi mất công.",
+        "why": "The source writer's own story about their previous tank.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Có thể dùng gỗ sồi làm khung chính và cành sycamore làm điểm nhấn",
+        "why": "Oak and sycamore picked up in your own garden are temperate trees that don't grow in Vietnamese gardens.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Cây lấy từ hồ ngoài trời (như Frog Fruit) có thể mang theo sâu bọ.",
+        "why": "Assumes a foreign garden pond with plants like Frog Fruit.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-TeHybQPz7RE": {
+    "at": "2026-11-09",
+    "hash": "252a2fbc50a93654",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Cắt gỗ hộp 4x4 (khoảng 10x10 cm)",
+        "why": "US lumber size in inches used as the reader's unit.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Khoan xuyên gỗ xuống đất bằng mũi khoan dài 1,27 cm, rồi dùng búa tạ đóng sắt phi dày 1,27 cm",
+        "why": "1,27 cm is a converted half inch.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Ban đầu hồ dự tính dài 2,4 m, rộng 1,5 m, sâu 0,6 m.",
+        "why": "Dimensions converted from 8 x 5 x 2 feet.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "một thùng nhựa xếp chồng rộng khoảng 81 cm",
+        "why": "81 cm is a converted 32 inches.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "cắt lỗ cho ống ABS 7,6 cm bằng dao rọc giấy",
+        "why": "7,6 cm is a converted 3-inch pipe; Vietnam uses phi 90 etc.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Thùng lọc vi sinh là một thùng nhựa khoảng 208 lít",
+        "why": "208 litres is a converted 55-gallon drum.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Phần lọc thô làm từ hai xô khoảng 19 lít",
+        "why": "19 litres is a converted 5-gallon bucket.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Lần đầu làm gấp, hồ làm khá sơ sài: lót bạt, xếp gạch quanh mép rồi bơm nước.",
+        "why": "The source writer's own first-pond story told as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Ở chỗ này, khoảng 20 cm đất mặt đầu tiên còn dễ đào",
+        "why": "Refers to the source writer's own site.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "nhưng sau khi làm xong lại thấy không nên dùng nó",
+        "why": "First-person experience of the original writer.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "cây ven bờ (marginal plant)",
+        "why": "Calque of English 'marginal plant'.",
+        "by": "model",
+        "fix": "cây bán thủy sinh"
+      }
+    ],
+    "products": [
+      "Matala",
+      "uniseal",
+      "Krylon Fusion"
+    ]
+  },
+  "vi/guides/youtube-Vb_r4iSsDo8": {
+    "at": "2026-11-09",
+    "hash": "f303484265fffa21",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "kit",
+        "part": "P1",
+        "quote": "Hồ ở đây dùng bộ kit 2,4 × 3,4 m",
+        "why": "The page is a build of one maker's ecosystem pond kit (skimmer, BioFalls), with the kit size converted from 8 × 11 ft.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "cả đội làm xong trong hơn bảy tiếng",
+        "why": "Refers to the original source's crew, whom the reader doesn't know.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Hồ này được đặt ở sân trước thay vì sân sau.",
+        "why": "Tells the source's own project as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Hy vọng là vài ngày tới nước sẽ trong hẳn.",
+        "why": "The original writer's first-person hope about their own pond.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Ống vào cỡ 3,8 hoặc 5 cm tùy bơm",
+        "why": "Converted from 1.5 or 2 inch pipe sizes.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "bơm 11.350 lít/giờ",
+        "why": "Converted from a 3000 gallons per hour pump rating.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "BioFalls"
+    ]
+  },
+  "vi/guides/youtube-Wh4n7nbLbi8": {
+    "at": "2026-11-09",
+    "hash": "939562d6ed9d0d1d",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Hồ ở đây được làm riêng cho một đàn cá vàng",
+        "why": "Refers to the source's own pond as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P4",
+        "quote": "Hồ chạy hai bơm Oase",
+        "why": "Describes the original writer's own pond setup as a given.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P5",
+        "quote": "Cách này dùng đến khi đi được đường điện riêng ra sân",
+        "why": "The writer's own plan for their yard, told as if the reader shared it.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "đẩy nước qua ống 3,8 cm lên thùng lọc vi sinh",
+        "why": "3.8 cm is a converted 1.5-inch pipe size nobody in Vietnam uses.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P2",
+        "quote": "dùng loại cút PVC có nhánh ra cạnh (side outlet)",
+        "why": "Calque of 'side outlet'; not the local fitting name.",
+        "by": "model",
+        "fix": "tê 3 ngả góc (co 3 chiều)"
+      },
+      {
+        "check": "words",
+        "part": "P5",
+        "quote": "bằng vít bắt sàn gỗ",
+        "why": "Calque of 'deck screws'.",
+        "by": "model",
+        "fix": "vít gỗ (vít bắn gỗ)"
+      }
+    ],
+    "products": [
+      "Krylon Fusion",
+      "Oase",
+      "AquaMax Eco Premium 3000"
+    ]
+  },
+  "vi/guides/youtube-XsVcT7kkHrs": {
+    "at": "2026-11-09",
+    "hash": "b18ae7b862a727ba",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Đây là một hồ cá vàng ngoài trời tự đóng bằng gỗ, có hộp lọc lớn phía sau",
+        "why": "It presents the source writer's own pond as if the reader already knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Có con hồi nuôi trong nhà to hơn hẳn cả đàn, giờ nhiều con khác đã vượt nó.",
+        "why": "This is the original writer's personal story about their own fish.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "ván đặt giao tận nhà nên không tự chọn được, có tấm bị cong",
+        "why": "This is the original writer's personal story about their own build.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Hồ đủ sâu thì nước không đóng băng hết, cá vàng xuống đáy nằm im qua mùa lạnh",
+        "why": "Ponds freezing over in winter is a cold-climate condition that doesn't happen in Vietnam.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Lục bình: là cây nhiệt đới nên không sống qua mùa đông ở vùng lạnh.",
+        "why": "It treats water hyacinth dying off in winter as normal, but it grows all year in Vietnam.",
+        "by": "model"
+      }
+    ],
+    "products": []
   }
 }
