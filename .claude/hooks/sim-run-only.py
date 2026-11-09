@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Heavy work takes its turn (AGENTS.md, "This Mac"): an `xcodebuild test` a session starts that isn't through
 apps/ios/scripts/sim-run.py stops here and says so, and so does an Astro build, a full test suite, e2e or another xcodebuild
-build that isn't in the checks queue (lockf on ~/.cache/aquatome/checks.lock): on 2026-11-08 they ran side by side, the
+build that isn't in the checks queue (scripts/checks.sh, or lockf on ~/.cache/aquatome/checks.lock): on 2026-11-08 they ran side by side, the
 Mac went to heavy thermal pressure and a 0.4 s job took up to 54 s. It reads the command as a shell would: only what runs
 counts, not a heredoc's text, a commit message or a search for those words. What it can't read passes. Simulator.app
 isn't opened: simulators run headless."""
@@ -29,8 +29,9 @@ HEAVY_SCRIPTS = {"build", "test", "e2e"}
 SIM = "One simulator test run at a time on this Mac: start it as apps/ios/scripts/sim-run.py xcodebuild test ..."
 HEADLESS = ("Simulators run headless on this Mac (AGENTS.md, This Mac): xcrun simctl boot, or let xcodebuild boot one; "
             "watch one in the Device panel only while you need to, and close it.")
-QUEUE = ("Heavy work takes turns on this Mac (AGENTS.md, This Mac): start it as lockf -k ~/.cache/aquatome/checks.lock nice -n 10 "
-         "<command>. One test file needs no turn: pnpm exec vitest run <file>.")
+QUEUE = ("Heavy work takes turns on this Mac (AGENTS.md, This Mac): start it as scripts/checks.sh nice -n 10 <command> (from the "
+         "repository's root), or lockf -k ~/.cache/aquatome/checks.lock nice -n 10 <command>. One test file needs no turn: "
+         "pnpm exec vitest run <file>.")
 
 
 def segments(command):
@@ -57,6 +58,9 @@ def unwrapped(words):
     while i < len(words):
         word = words[i]
         name = os.path.basename(word)
+        if name == "checks.sh":  # the checks queue's own way in (scripts/checks.sh)
+            i, queued = i + 1, True
+            continue
         if re.fullmatch(r"\w+=.*", word) or name in WRAPPERS or word.startswith("-") or re.fullmatch(r"\d+[smhd]?", word):
             i += 1
             if name == "lockf":  # its file comes next, after its flags (-t takes a number)

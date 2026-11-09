@@ -6,6 +6,9 @@ doesn't wait behind an hour of flows. A job's stop reaches the command, as `exec
 it on, which left xcodebuild running with no parent on 2026-11-04. Copies of the simulator are capped at MAX_COPIES. The
 runner's jobs on this Mac wait while macOS has taken cores away from work, before they take their turn (cool). While a run has its turn, its
 simulator's photo and media analysis runs in the background (quiet).
+
+The queue is first come, first served (macOS's flock wakes its waiters in turn). While the chief of staff keeps the next
+turn for another run (scripts/next-turn.py), a run that reaches the front steps back behind it (kept_for).
 """
 import fcntl
 import os
@@ -25,6 +28,10 @@ COOL_PAUSE = float(os.environ.get("SIM_RUN_COOL_PAUSE", 30))
 # A simulator's own analysis daemons, never the Mac's: their path is inside a simulator runtime's RuntimeRoot.
 ANALYSIS = re.compile(r"/CoreSimulator/.*/RuntimeRoot/System/Library/PrivateFrameworks/(MediaAnalysis|PhotoAnalysis)\.framework/")
 QUIET_PAUSE = float(os.environ.get("SIM_RUN_QUIET_PAUSE", 20))
+# The run the next turn is kept for: "<until, epoch seconds> <pid, or a word from its folder or command>", which only the
+# chief of staff writes (scripts/next-turn.py).
+NEXT = os.path.expanduser("~/.cache/aquatome/sim.next")
+NEXT_PAUSE = float(os.environ.get("SIM_RUN_NEXT_PAUSE", 5))
 
 
 def capped(argv):
@@ -86,6 +93,37 @@ def quiet():
         time.sleep(QUIET_PAUSE)
 
 
+def kept_for(argv):
+    """Whom the next turn is kept for, when it isn't this run (its pid, folder and command); None when it's this one, which
+    takes it, or the turn lapsed, or the pid it named is gone. A copy of scripts/next-turn.py's: this runs from copies of
+    the app's folder. On 2026-11-09 the chief of staff gave the photo grid's flows the next turn, ahead of main's job and a
+    lead's run, and the queue had no way to."""
+    try:
+        with open(NEXT) as f:
+            until, who = f.read().split(maxsplit=1)
+        until = float(until)
+    except (OSError, ValueError):
+        return None
+    if who.isdigit():
+        try:
+            os.kill(int(who), 0)
+            gone = False
+        except ProcessLookupError:
+            gone = True
+        except PermissionError:  # another user's, alive
+            gone = False
+        mine = int(who) == os.getpid()
+    else:
+        gone, mine = False, who in " ".join([os.getcwd()] + argv)
+    if mine or gone or time.time() > until:
+        try:
+            os.unlink(NEXT)
+        except OSError:
+            pass
+        return None
+    return who
+
+
 def main():
     argv = capped(sys.argv[1:])
     if not argv:
@@ -100,6 +138,15 @@ def main():
         started = time.time()
         fcntl.flock(lock, fcntl.LOCK_EX)
         print(f"sim-run: its turn after {(time.time() - started) / 60:.0f} min", flush=True)
+    stepped = False
+    while who := kept_for(argv):
+        # It goes to the back of the queue, so the run the turn is kept for comes to the front.
+        if not stepped:
+            print(f"sim-run: the chief of staff kept the next turn for {who}: this run steps back until that one has had it", flush=True)
+            stepped = True
+        fcntl.flock(lock, fcntl.LOCK_UN)
+        time.sleep(NEXT_PAUSE)
+        fcntl.flock(lock, fcntl.LOCK_EX)
     os.ftruncate(lock, 0)
     os.pwrite(lock, f"pid {os.getpid()}, from {os.getcwd()}, since {time.strftime('%H:%M')}".encode(), 0)
 

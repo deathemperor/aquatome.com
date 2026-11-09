@@ -8,6 +8,9 @@ import { expect, test } from 'vitest'
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
 const SIM_RUN = join(ROOT, 'apps/ios/scripts/sim-run.py')
 const HOOK = join(ROOT, '.claude/hooks/sim-run-only.sh')
+const NEXT_TURN = join(ROOT, 'scripts/next-turn.py')
+const CHECKS = join(ROOT, 'scripts/checks.sh')
+const hasLockf = spawnSync('sh', ['-c', 'command -v lockf']).status === 0
 
 const until = async (ok: () => boolean) => { while (!ok()) await new Promise(r => setTimeout(r, 25)) }
 const wait = (ms: number) => new Promise(r => setTimeout(r, ms))
@@ -271,4 +274,124 @@ test('a session boots simulators headless, never in Simulator.app', () => {
   for (const c of ['xcrun simctl boot "iPhone 17"', 'open https://aquatome.com', 'open -a Preview shot.png', 'rg "open -a Simulator" docs']) {
     expect(hook(c).status, c).toBe(0)
   }
+})
+
+// A queue of its own (HOME) whose project thread is "cos", with a first run on the simulator until `release`; runs that
+// write their word to `order` when their turn comes; and the chief of staff's scripts/next-turn.py.
+function keptQueue(via: string[] = [SIM_RUN]) {
+  const dir = home()
+  mkdirSync(join(dir, '.config/aquatome'), { recursive: true })
+  writeFileSync(join(dir, '.config/aquatome/owner-report-thread'), 'cos\n')
+  const env = { ...process.env, HOME: dir, SIM_RUN_NEXT_PAUSE: '0.1', CHECKS_NEXT_PAUSE: '0.1', T3CODE_THREAD_ID: 'cos' }
+  const [queue, ...queueArgs] = via as [string, ...string[]]
+  const first = spawn(queue, [...queueArgs, 'sh', '-c', `touch ${dir}/up; until [ -f ${dir}/release ]; do sleep 0.05; done`], { env, stdio: 'ignore' })
+  const firstEnd = new Promise(r => first.on('close', r))
+  const run = (word: string, cwd = dir) => { const p = spawn(queue, [...queueArgs, 'sh', '-c', `echo ${word} >> ${dir}/order`], { env, cwd, stdio: 'ignore' }); return new Promise(r => p.on('close', r)) }
+  const next = (thread: string, ...args: string[]) => spawnSync(NEXT_TURN, args, { env: { ...env, T3CODE_THREAD_ID: thread }, encoding: 'utf8' })
+  const order = () => (existsSync(`${dir}/order`) ? readFileSync(`${dir}/order`, 'utf8').trim().split('\n') : [])
+  return { dir, env, run, next, order, up: () => until(() => existsSync(`${dir}/up`)), release: () => writeFileSync(`${dir}/release`, ''), firstEnd }
+}
+
+// 2026-11-09: the chief of staff gave the photo grid's flows the next turn, ahead of main's job and a lead's run, and the
+// queue, first come first served, had no way to.
+test("the chief of staff keeps the next turn for a run, which goes ahead of the runs that queued before it", async () => {
+  const q = keptQueue()
+  await q.up()
+  const other = q.run('other')
+  await wait(300)
+  const grid = q.run('photo-grid')
+  await wait(300)
+  expect(q.next('cos', 'photo-grid').status).toBe(0)
+  q.release()
+  expect(await grid).toBe(0)
+  expect(await other).toBe(0)
+  expect(q.order()).toEqual(['photo-grid', 'other'])
+  expect(existsSync(`${q.dir}/.cache/aquatome/sim.next`)).toBe(false) // taken, so the turn after is anyone's
+  expect(await q.firstEnd).toBe(0)
+}, 30_000)
+
+test('a turn kept for a run that has not queued yet waits for it, and a pid names one too', async () => {
+  const q = keptQueue()
+  await q.up()
+  const other = q.run('other')
+  await wait(300)
+  q.next('cos', 'late-run')
+  q.release()
+  await wait(1000)
+  expect(q.order()).toEqual([])
+  expect(await q.run('late-run')).toBe(0)
+  expect(await other).toBe(0)
+  expect(q.order()).toEqual(['late-run', 'other'])
+
+  const r = keptQueue()
+  await r.up()
+  const a = r.run('a')
+  await wait(300)
+  const b = spawn(SIM_RUN, ['sh', '-c', `echo b >> ${r.dir}/order`], { env: { ...process.env, HOME: r.dir, SIM_RUN_NEXT_PAUSE: '0.1' }, stdio: 'ignore' })
+  await wait(300)
+  r.next('cos', String(b.pid))
+  r.release()
+  await new Promise(res => b.on('close', res))
+  await a
+  expect(r.order()).toEqual(['b', 'a'])
+}, 30_000)
+
+test("only the chief of staff's thread keeps a turn, and a kept turn lapses with its minutes or its run", async () => {
+  const q = keptQueue()
+  for (const thread of ['a-lead', '']) {
+    const r = q.next(thread, 'grid')
+    expect(r.status).toBe(1)
+    expect(r.stderr).toContain('only the chief of staff')
+  }
+  expect(existsSync(`${q.dir}/.cache/aquatome/sim.next`)).toBe(false)
+  await q.up()
+  const other = q.run('other')
+  await wait(300)
+  q.next('cos', 'nobody', '0.01')
+  q.release()
+  expect(await other).toBe(0) // after the 0.6 s
+  expect(q.order()).toEqual(['other'])
+  // A pid that's gone keeps nothing.
+  q.next('cos', '999999')
+  expect(await q.run('after')).toBe(0)
+  expect(q.order()).toEqual(['other', 'after'])
+}, 30_000)
+
+// The checks queue: the grid's build waited behind two engine cycles, and its command says nothing of the grid: its folder does.
+test.skipIf(!hasLockf)("in the checks queue too, the run the turn is kept for goes first, named by its folder, and a plain lockf job by its pid", async () => {
+  const q = keptQueue([CHECKS])
+  await q.up()
+  const other = q.run('other')
+  await wait(300)
+  mkdirSync(join(q.dir, 'wt-grid'))
+  const grid = q.run('grid', join(q.dir, 'wt-grid'))
+  await wait(300)
+  expect(q.next('cos', 'wt-grid').status).toBe(0)
+  q.release()
+  expect(await grid).toBe(0)
+  expect(await other).toBe(0)
+  expect(q.order()).toEqual(['grid', 'other'])
+  expect(await q.firstEnd).toBe(0)
+
+  const r = keptQueue([CHECKS])
+  await r.up()
+  const a = r.run('a')
+  await wait(300)
+  const plain = spawn('lockf', ['-k', `${r.dir}/.cache/aquatome/checks.lock`, 'sh', '-c', `echo plain >> ${r.dir}/order`], { stdio: 'ignore' })
+  await wait(300)
+  r.next('cos', String(plain.pid))
+  r.release()
+  await new Promise(res => plain.on('close', res))
+  await a
+  expect(r.order()).toEqual(['plain', 'a'])
+  // The command's own status comes back, and a step back isn't one.
+  expect(spawnSync(CHECKS, ['sh', '-c', 'exit 7'], { env: r.env }).status).toBe(7)
+}, 30_000)
+
+test('the checks queue through scripts/checks.sh is the queue, for the hook and the engine', () => {
+  const hook = (command: string) => spawnSync(HOOK, { input: JSON.stringify({ tool_input: { command } }), encoding: 'utf8' }).status
+  for (const c of ['scripts/checks.sh nice -n 10 pnpm test', 'cd apps/ios && ../../scripts/checks.sh nice -n 10 xcodebuild build-for-testing -project a',
+    '"$(git rev-parse --show-toplevel)/scripts/checks.sh" pnpm --filter site build']) expect(hook(c), c).toBe(0)
+  expect(hook('scripts/checks.sh nice -n 10 xcodebuild test -project a')).toBe(2) // a simulator run is still sim-run's
+  expect(readFileSync(join(ROOT, 'scripts/cycle-checks.sh'), 'utf8')).toMatch(/\nchecks\(\) \{[^\n]*"\$CHECKS_SH" bash -c "\$1"/)
 })
