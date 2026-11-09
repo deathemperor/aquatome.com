@@ -73,6 +73,8 @@ private struct ChatThread: View {
   @State private var lastTop: CGFloat?
   /// The box's height, with what's over it: the screen above it is what the reader sees.
   @State private var boxHeight: CGFloat = 0
+  /// The newest turn's own height, without the room kept below it.
+  @State private var lastContent: CGFloat = 0
 
   private var signedOut: Bool { account.user == nil }
 
@@ -91,6 +93,7 @@ private struct ChatThread: View {
             ForEach(model.thread) { a in
               let last = a.id == model.thread.last?.id
               turn(a, last: last)
+                .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { if last { lastContent = $0 } }
                 // The newest question keeps a screen's height below it: the scroll on sending can put it under the bar,
                 // and nothing that shrinks under it (the steps folding) moves it.
                 .frame(minHeight: last ? geo.size.height : nil, alignment: .top)
@@ -131,7 +134,14 @@ private struct ChatThread: View {
             newBelow = false
             if let id = model.thread.last?.id { withAnimation { proxy.scrollTo(id, anchor: .top) } }
           } toEnd: {
-            withAnimation(reduceMotion ? nil : .smooth(duration: 0.35)) { proxy.scrollTo(Self.end, anchor: .bottom) }
+            // A last turn that fits above the box goes under the bar, where it sat when answered; a taller one to its end.
+            withAnimation(reduceMotion ? nil : .smooth(duration: 0.35)) {
+              if lastContent <= geo.size.height - boxHeight, let id = model.thread.last?.id {
+                proxy.scrollTo(id, anchor: .top)
+              } else {
+                proxy.scrollTo(Self.end, anchor: .bottom)
+              }
+            }
           }
           .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { boxHeight = $0 }
         }
