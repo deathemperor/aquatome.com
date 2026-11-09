@@ -14,6 +14,20 @@ struct PhotoGrid: View {
     let title: String
     let note: String
     let photos: [PageDoc.Image]
+
+    /// The gallery of a page drawn from `pieces` (NativePage's, or v2's whole page, its parts joined), named by the
+    /// page's title; nil for a page with none.
+    init?(pieces: some Sequence<NativePage.Piece>) {
+      var name = ""
+      for p in pieces {
+        if case let .text(s, _, .title) = p { name = String(s.characters) }
+        if case let .gallery(title, note, photos, _) = p {
+          (self.name, self.title, self.note, self.photos) = (name, title, note, photos)
+          return
+        }
+      }
+      return nil
+    }
   }
 
   /// A row's place for a scroll to it, in either list.
