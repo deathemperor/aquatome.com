@@ -2,6 +2,7 @@ import type Anthropic from '@anthropic-ai/sdk'
 import { runAgent, type AgentRun, type Limits } from '../agent/loop'
 import { ANSWER_SCHEMA, filler, OFF_TOPIC, picksReader, readAnswer, textReader, type Answer, type ChatBlock, type Choice } from './answer'
 import type { Handbook, Lang } from './handbook'
+import type { Found, Handover } from './handover'
 import type { MatesCheck } from './mates'
 import { openingOf } from './opening'
 import { chatTools, type Step, type Tank } from './tools'
@@ -119,7 +120,7 @@ const OPENING_MS = 5_000
 export const OPENING_TOKENS = 150
 
 /** `opening`: the first line the reader was shown, if one was (the turn leaves it out when the answer is off topic: api.ts). */
-export type ChatRun = AgentRun<Step> & { answer?: Answer; blocks: ChatBlock[]; dropped: string[]; opening?: string }
+export type ChatRun = AgentRun<Step> & { answer?: Answer; blocks: ChatBlock[]; dropped: string[]; opening?: string; handed?: Found[] }
 export type ChatOptions = {
   /**
    * One call to Claude. With `onText`, the call streams, and each raw delta of its text content (never its thinking)
@@ -133,6 +134,8 @@ export type ChatOptions = {
   start: Start
   handbook: Handbook
   tanks: () => Promise<Tank[] | null>
+  /** What goes in the run's first message after the question (handover.ts). Never in the first line's call, which doesn't wait for it. */
+  handover?: () => Promise<Handover | undefined>
   effort?: 'low' | 'medium' | 'high'
   /** The forced answer's effort when time is short (loop.ts `lastEffort`): low unless the eval asks otherwise. */
   lastEffort?: 'low' | 'medium' | 'high'
@@ -178,6 +181,14 @@ function streaming(send: ChatOptions['send'], onText: (piece: string) => void, o
   }
 }
 
+/** How long a handover may take, the tanks, the search and the sections together: past it, the run goes on without one. */
+export const HANDOVER_MS = 3000
+function inTime(handover: NonNullable<ChatOptions['handover']>) {
+  let timer: ReturnType<typeof setTimeout> | undefined
+  const late = new Promise<undefined>(done => { timer = setTimeout(() => done(undefined), HANDOVER_MS) })
+  return Promise.race([handover().catch(e => { console.error('chat handover:', e); return undefined }), late]).finally(() => clearTimeout(timer))
+}
+
 /** One turn: Claude reads and answers, then the blocks it picked are filled from the handbook. */
 export async function answerQuestion(o: ChatOptions): Promise<ChatRun> {
   // What check_tank_mates answered: a tank-mates block goes out with the check Claude read (answer.ts `fill`).
@@ -209,19 +220,25 @@ export async function answerQuestion(o: ChatOptions): Promise<ChatRun> {
         return m.usage
       }, () => undefined)
     : undefined
+  // Asked for once the first line's call has left, so a search never holds the line back.
+  const clock = o.clock ?? Date.now
+  const asked = clock()
+  const handed = o.handover ? await inTime(o.handover) : undefined
+  const content = first.content as Anthropic.ContentBlockParam[]
   // No `recheck` here: an answer that may be sent back must not stream, as the reader would have read the one it replaces.
   const run = await runAgent<Step>({
     send,
     model: o.model,
     system: SYSTEM,
     tools: chatTools({ handbook: o.handbook, tanks: o.tanks, checks }),
-    first,
+    first: handed ? { role: 'user', content: [...content, { type: 'text', text: handed.text }] } : first,
     schema: ANSWER_SCHEMA as unknown as Record<string, unknown>,
     effort: o.effort ?? 'medium',
     lastEffort: o.lastEffort ?? 'low',
     pace: CHAT_PACE,
     maxTokens: MAX_TOKENS,
-    limits: { ...CHAT_LIMITS, ...o.limits },
+    // What the handover took comes out of the run's time: a Worker's request has only so long.
+    limits: { ...CHAT_LIMITS, ...o.limits, ms: (o.limits?.ms ?? CHAT_LIMITS.ms) - (clock() - asked) },
     lastWord: LAST_WORD,
     onStep,
     clock: o.clock,
@@ -243,5 +260,5 @@ export async function answerQuestion(o: ChatOptions): Promise<ChatRun> {
   // The picks the stream didn't fill (all of them, when the text didn't stream): the same picks, as both read the same JSON.
   if (answer) for (const p of answer.blocks.slice(picked)) await blocks.add(p)
   const filled = answer ? blocks.done() : { blocks: [], dropped: [] }
-  return { ...run, ...(answer ? { answer } : {}), ...filled, ...(opening ? { opening } : {}) }
+  return { ...run, ...(answer ? { answer } : {}), ...filled, ...(opening ? { opening } : {}), ...(handed?.sections.length ? { handed: handed.sections } : {}) }
 }

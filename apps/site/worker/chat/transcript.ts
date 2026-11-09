@@ -1,4 +1,5 @@
 import type { Turn } from '../fishid/transcript'
+import type { Found } from './handover'
 
 /**
  * What each question in the chat said and did, for the owner's evals and checks: kept as its conversation is, with no
@@ -36,5 +37,7 @@ export type ChatRunRecord = {
   answer?: { text: string; covered: boolean; blocks: number; dropped: string[] }
   /** The first line the reader was shown while the run read (agent.ts `opening`), when one was. */
   opening?: string
+  /** The sections a search handed Claude before its first call (handover.ts), when it did. */
+  handed?: Found[]
   turns: Turn[]
 }

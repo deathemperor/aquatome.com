@@ -81,8 +81,9 @@ const told = (t: Tank, hb: Handbook) => {
  */
 export const handedTanks = (tanks: Tank[], hb: Handbook) =>
   JSON.stringify(tanks.map(t => {
-    const { name: _, ...rest } = told(t, hb)
-    return rest.readerNotes ? { ...rest, readerNotes: withoutContacts(rest.readerNotes) } : rest
+    // Taken out before `told` cuts them: a number across the cut would keep its first digits.
+    const { name: _, ...rest } = told(t.notes ? { ...t, notes: withoutContacts(t.notes) } : t, hb)
+    return rest
   }))
 export type ToolDeps = {
   handbook: Handbook
