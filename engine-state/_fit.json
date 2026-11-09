@@ -46310,20 +46310,11 @@
     "products": []
   },
   "vi/guides/youtube--FV1-yf3fNc": {
-    "at": "2026-11-08",
+    "at": "2026-11-09",
     "hash": "786f79cbfcd5bd89",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "words",
-        "part": "P1",
-        "quote": "Một núm hít (giác hút) có chốt nhỏ",
-        "why": "\"Núm hít\" is not what Vietnamese keepers call a suction cup; they say \"giác hút\" or \"núm hút\".",
-        "by": "model",
-        "fix": "giác hút"
-      }
-    ],
+    "findings": [],
     "products": [
       "Fluval ClearMax"
     ]
@@ -46953,20 +46944,11 @@
     "products": []
   },
   "vi/guides/youtube-18soyZFZ70A": {
-    "at": "2026-11-08",
+    "at": "2026-11-09",
     "hash": "a8fb5171f880bc7e",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "words",
-        "part": "P9",
-        "quote": "Hai loài đáng có nhất là cá ốc tai (Otocinclus) và tép Amano.",
-        "why": "Vietnamese keepers don't call Otocinclus \"cá ốc tai\".",
-        "by": "model",
-        "fix": "cá otto"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/guides/youtube-1F7-mRplxeo": {
@@ -47301,51 +47283,51 @@
     "products": []
   },
   "vi/guides/youtube-1yMOosECTRo": {
-    "at": "2026-11-08",
+    "at": "2026-11-09",
     "hash": "71f0dc8fde26a174",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "price",
-        "part": "P5",
+        "part": "P1",
         "quote": "ở Mỹ chưa tới 1 đô cho mỗi pound (khoảng 0,45 kg)",
-        "why": "The price is in US dollars per pound, as paid in the US.",
+        "why": "Price in US dollars per pound, given for the US market.",
         "by": "model"
       },
       {
         "check": "price",
-        "part": "P5",
+        "part": "P1",
         "quote": "Một hộc sump từng tốn hơn 400 đô tiền vật liệu lọc thì chỉ cần khoảng 20 đô đá nham thạch",
-        "why": "The costs are in US dollars and come from the source writer's own sump.",
-        "by": "model"
-      },
-      {
-        "check": "elsewhere",
-        "part": "P5",
-        "quote": "Mua đá nham thạch ở chỗ bán đồ nướng BBQ (loại đá lót lò nướng)",
-        "why": "Buying lava rock as gas-grill stones is an American habit; in Vietnam people buy it at aquarium or stone shops.",
+        "why": "Costs given in US dollars.",
         "by": "model"
       },
       {
         "check": "units",
-        "part": "P13",
+        "part": "P1",
         "quote": "Khoảng 0,45 kg cát lọc được bể chừng 400 lít",
-        "why": "0.45 kg is one pound converted, and 400 litres is about 100 gallons.",
+        "why": "0.45 kg is a converted pound and 400 litres a converted ~100 gallons.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "L4",
         "quote": "khoảng 0,45 kg cát lọc được bể chừng 400 lít",
-        "why": "The figures are converted from pounds and gallons.",
+        "why": "0.45 kg is a converted pound and 400 litres a converted ~100 gallons.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "L15",
         "quote": "Khoảng 0,45 kg cát lọc được bể chừng 400 lít",
-        "why": "The figures are converted from pounds and gallons.",
+        "why": "0.45 kg is a converted pound and 400 litres a converted ~100 gallons.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Mua đá nham thạch ở chỗ bán đồ nướng BBQ (loại đá lót lò nướng)",
+        "why": "Buying lava rock as gas-grill liner is an American shopping habit, not a Vietnamese one.",
         "by": "model"
       }
     ],
@@ -47581,15 +47563,17 @@
     "products": []
   },
   "vi/guides/youtube-2NdWisNvjL4": {
-    "at": "2026-11-08",
-    "hash": "6e06d65706b9314d",
+    "at": "2026-11-09",
+    "hash": "94c8cf96b803ac86",
     "model": "opus",
     "checklist": 3,
     "findings": [],
-    "products": []
+    "products": [
+      "Stratum"
+    ]
   },
   "vi/guides/youtube-2SNoSUs_m-I": {
-    "at": "2026-11-08",
+    "at": "2026-11-09",
     "hash": "4dda888bf6bf97c4",
     "model": "opus",
     "checklist": 3,
@@ -47597,37 +47581,45 @@
       {
         "check": "price",
         "part": "P1",
-        "quote": "Tổng chi phí khoảng 1 USD",
-        "why": "Cost given in US dollars, not Vietnamese dong.",
+        "quote": "Tổng chi phí khoảng 1 USD, làm mất vài phút, không cần hàn.",
+        "why": "The cost is given in US dollars, not Vietnamese dong.",
         "by": "model"
       },
       {
         "check": "price",
         "part": "P1",
         "quote": "Một phao điện loại nhỏ, giá khoảng 1 USD.",
-        "why": "Float switch price given in US dollars.",
+        "why": "The float switch price is in US dollars.",
         "by": "model"
       },
       {
         "check": "price",
         "part": "L2",
         "quote": "Phao điện có giá khoảng 1 USD",
-        "why": "Price given in US dollars.",
+        "why": "The price is in a foreign currency.",
         "by": "model"
       },
       {
         "check": "price",
         "part": "L12",
-        "quote": "giá khoảng 1 USD",
-        "why": "Price given in US dollars.",
+        "quote": "Loại phao nhỏ bán trên các sàn thương mại điện tử, giá khoảng 1 USD.",
+        "why": "The price is in US dollars.",
         "by": "model"
       },
       {
         "check": "elsewhere",
         "part": "P1",
         "quote": "Báo khói tháo ra từ nhà thường là cái đã đến hạn thay.",
-        "why": "Assumes the reader's home has smoke detectors that get replaced regularly, which is a habit abroad but uncommon in Vietnamese homes.",
+        "why": "It assumes every home has smoke alarms that get replaced on a schedule, which is a Western household habit and uncommon in Vietnamese homes.",
         "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Một giác hút dây khí (loại giữ ống sủi khí trên kính)",
+        "why": "This is a literal rendering of 'airline suction cup'. Vietnamese keepers call the airline 'dây oxy'.",
+        "by": "model",
+        "fix": "giác hút dây oxy"
       }
     ],
     "products": []
@@ -47965,46 +47957,45 @@
     ]
   },
   "vi/guides/youtube-5ajPkl9rhKQ": {
-    "at": "2026-11-08",
+    "at": "2026-11-09",
     "hash": "a1c917f17df7d54d",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P1",
-        "quote": "Phần đá lũa được làm mất vài ngày.",
-        "why": "Narrates the source writer's own build as if the reader knew it.",
+        "part": "P3",
+        "quote": "Bể này trồng nhiều cây nên phía sau được lót khoảng 3 cm.",
+        "why": "Refers to the source writer's own tank as if the reader knew it.",
         "by": "model"
       },
       {
         "check": "source",
-        "part": "P1",
+        "part": "P9",
         "quote": "Hygrophila pinnatifida là cây còn đang phân vân có nên thêm vào hay không.",
-        "why": "The source writer's own indecision about their tank.",
+        "why": "The original writer's personal indecision about their own tank.",
         "by": "model"
       },
       {
         "check": "source",
-        "part": "P1",
+        "part": "P10",
         "quote": "Cách này mới đang thử, chạy ổn tới đâu thì còn phải chờ xem.",
-        "why": "The source writer's ongoing experiment, not advice for the reader.",
+        "why": "The writer's own ongoing experiment, told in their voice.",
         "by": "model"
       },
       {
         "check": "source",
-        "part": "P1",
+        "part": "P12",
         "quote": "Một đèn LED nano mới gửi tới trong lúc set bể, sẽ lắp sau khi bể đầy nước.",
-        "why": "Refers to a light sent to the source writer, part of their story.",
+        "why": "The writer's own story of a light sent to them during the build.",
         "by": "model"
       },
       {
-        "check": "words",
-        "part": "P1",
-        "quote": "Liều khuyên dùng là rải dày 1,5–3 cm trên đáy bể.",
-        "why": "\"Liều\" (dose) for substrate depth is a calque of \"recommended dose\".",
-        "by": "model",
-        "fix": "Độ dày khuyên dùng là 1,5–3 cm"
+        "check": "source",
+        "part": "P12",
+        "quote": "Thông số của đèn này chưa được xem.",
+        "why": "The writer's personal status, which means nothing to the reader.",
+        "by": "model"
       }
     ],
     "products": []
@@ -49510,27 +49501,23 @@
     "products": []
   },
   "vi/guides/youtube-8wuOuc1u1NM": {
-    "at": "2026-11-08",
-    "hash": "aaf4b007693eeb9a",
+    "at": "2026-11-09",
+    "hash": "f5c1d2e00e61c3fa",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "Lần lượt đặt các viên còn lại. Bể mẫu dùng bốn viên đá lớn.",
-        "why": "Talks about the source's own example tank as if the reader already knew it.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "L8",
-        "quote": "Bể mẫu dùng kính siêu trong 12 ly.",
-        "why": "Talks about the source's own example tank as if the reader already knew it.",
+        "quote": "Phần trồng cây và chăm sóc nằm ở các tập sau.",
+        "why": "Points to later episodes of the source series that this page does not have.",
         "by": "model"
       }
     ],
-    "products": []
+    "products": [
+      "Atman",
+      "JBL"
+    ]
   },
   "vi/guides/youtube-8ZjRvJ_5pTE": {
     "at": "2026-11-08",
@@ -61232,16 +61219,16 @@
     "products": []
   },
   "vi/guides/youtube-SKB7ImWt9Fc": {
-    "at": "2026-11-08",
-    "hash": "34a8dff63f6be0aa",
+    "at": "2026-11-09",
+    "hash": "19c5059cfb9f82cc",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "Với vòi trong ví dụ, hai lần bấm bằng một nắp đầy.",
-        "why": "Refers to the source's own example pump, which the page never shows or describes.",
+        "quote": "Trong các cách đã thử thì đây là cách nhanh và dễ nhất",
+        "why": "Refers to the original writer's own trials, which the reader never saw.",
         "by": "model"
       }
     ],
