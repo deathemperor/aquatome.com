@@ -96406,10 +96406,10 @@
     "products": []
   },
   "vi/species/otocinclus-vittatus": {
-    "at": "2026-11-08",
-    "hash": "96de7b87b249d7d3",
+    "at": "2026-11-09",
+    "hash": "1e9f7824bba38628",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -104469,6 +104469,1067 @@
     "model": "opus",
     "checklist": 3,
     "findings": [],
+    "products": []
+  },
+  "vi/guides/youtube-0rH4zXXLOfs": {
+    "at": "2026-11-09",
+    "hash": "67ada1f5543c131a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "Đủ các cỡ dưới đây có thể chỉ hết chưa tới 20 USD",
+        "why": "The cost of the stone is given in US dollars.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Bể khoảng 150 lít (91 × 46 × 41 cm)",
+        "why": "These tank sides are converted from a 36 × 18 × 16 inch tank, not a size sold in Vietnam.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Cửa hàng vật liệu sân vườn là một trong những chỗ tốt để tìm đá vôi.",
+        "why": "A landscape supply yard selling graded limestone is an American kind of shop, given as the reader's own.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Đá vôi 1B",
+        "why": "1B, 2B and number 3 are American crushed stone grades that a stone seller in Vietnam would not use.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "tấm lưới nhựa che đèn (egg crate)",
+        "why": "This is a literal rendering of the American lighting diffuser term.",
+        "by": "model",
+        "fix": "tấm lưới nhựa lót đáy"
+      }
+    ],
+    "products": [
+      "AquaClear 70"
+    ]
+  },
+  "vi/guides/youtube-1weSZQGGs2k": {
+    "at": "2026-11-09",
+    "hash": "a0a798d289d798af",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Chiếc bát sau khi vá chứa được tới 13 lít.",
+        "why": "It describes the source's own bowl as if the reader knew that particular bowl.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-2M_UeDUR6ME": {
+    "at": "2026-11-09",
+    "hash": "90eb3c14df79e365",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "một bể khoảng 284 lít",
+        "why": "284 litres is a converted 75-gallon tank size that nobody in Vietnam would use.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bộ lũa đá ở đây gồm lũa dragon root nhiều vân",
+        "why": "It refers to the source's own tank build as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "L14",
+        "quote": "nên bể ở đây có lắp sưởi",
+        "why": "It points to the source's own tank as if the reader had seen it.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Oase BioMaster 350",
+      "Loc-Line"
+    ]
+  },
+  "vi/guides/youtube-4a87l1r7_Yg": {
+    "at": "2026-11-09",
+    "hash": "c6e162078ada1523",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Một bể khối khoảng 5,7 lít, mỗi cạnh chừng 18 cm",
+        "why": "5.7 litres is a converted 1.5-gallon tank size that nobody in Vietnam would say.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Xốp vụn tận dụng từ các lần làm trước.",
+        "why": "Refers to the original author's earlier builds, which the reader knows nothing about.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Ở bể này một lớp chưa phủ kín nên phải lặp lại bước quét epoxy và ấn cát.",
+        "why": "Tells the story of the source's own tank as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Cách phủ này còn mới và vẫn đang trong giai đoạn thử.",
+        "why": "The original writer's voice about their own ongoing experiment.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Pond Shield"
+    ]
+  },
+  "vi/guides/youtube-B8fj1mf64yE": {
+    "at": "2026-11-09",
+    "hash": "930fa430f7a684fe",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "dùng một bể không viền 38 lít",
+        "why": "38 litres is a converted 10-gallon tank size that keepers in Vietnam would not use.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Điều còn tiếc ở bể này có lẽ là phía sau các cụm đá quý chưa có thêm đèn.",
+        "why": "The source maker's verdict on their own build, a tank the reader has never seen.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-biVHt3SckvI": {
+    "at": "2026-11-09",
+    "hash": "ca0621e835b714e8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Ý định ban đầu là ba đảo nhưng bộ đá không xếp ra được hình đẹp",
+        "why": "Tells the original builder's own tank story as if the reader knew that tank.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "để bể vào chu trình nitơ nhanh hơn",
+        "why": "Calque of the English 'cycle faster'; keepers in Vietnam talk about the tank building up its bacteria.",
+        "by": "model",
+        "fix": "để bể lên vi sinh nhanh hơn"
+      }
+    ],
+    "products": [
+      "Rust-Oleum Ultra Cover",
+      "Fluval Stratum",
+      "Seachem Flourite",
+      "CaribSea",
+      "AquaClear 20",
+      "Nicrew Classic"
+    ]
+  },
+  "vi/guides/youtube-C-PWOYSvjlc": {
+    "at": "2026-11-09",
+    "hash": "f500cf54fd267c81",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "một bể khoảng 570 lít đặt âm tường",
+        "why": "570 litres is a converted 150-gallon tank, a size nobody in Vietnam would name.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể này do một người chưa từng nuôi cá chăm sóc.",
+        "why": "Refers to the source's own tank and its owner as if the reader knew them.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Lần ghé lại vào tháng 12 cũng chỉ cần dọn dẹp, tỉa cây một chút.",
+        "why": "Carries over the source video's return visit to its own tank.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Seachem Flourite Dark",
+      "Fluval Stratum",
+      "Current USA"
+    ]
+  },
+  "vi/guides/youtube-C1nL0JhS3oo": {
+    "at": "2026-11-09",
+    "hash": "cbb0784b2274e94c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Bể hoàn thiện có chiều ngang 91 cm, sâu 28 cm, cao 28 cm",
+        "why": "These tank dimensions are converted from 36 × 11 × 11 inches; nobody in Vietnam would size a tank this way.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "tấm neoprene dày khoảng 1,3 cm",
+        "why": "The thickness is a converted half inch, not a figure a keeper in Vietnam would use.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Cách này chạy được vì nước máy nơi đó nhiều khoáng",
+        "why": "The method relies on the mineral-rich tap water of the source's location, not the reader's.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "còn bể này làm xong mới thấy là không cần",
+        "why": "This is the original builder's own experience with a tank the reader does not know.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "phân nền còn dư từ các bể trước",
+        "why": "It refers to the original builder's earlier tanks as if the reader knew them.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Rạch kính bằng dao bánh xe",
+        "why": "This is a literal description of the tool; keepers and glass workers call it a glass cutter.",
+        "by": "model",
+        "fix": "dao cắt kính"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "một tấm tự cân bằng",
+        "why": "This is a calque of the English 'self-leveling mat', which keepers in Vietnam do not say.",
+        "by": "model",
+        "fix": "tấm xốp lót đáy bể"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-C4oUkABhXDA": {
+    "at": "2026-11-09",
+    "hash": "6fe996a0fe64a9a7",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "một bể nano khoảng 9,5 lít",
+        "why": "9.5 litres is a converted 2.5-gallon tank size that nobody in Vietnam would use.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "chi phí chỉ khoảng 10 đô",
+        "why": "The cost is given in US dollars, not a price for a reader in Vietnam.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "thường bày ở khu đồ đèn trong các cửa hàng vật liệu xây dựng",
+        "why": "Egg crate light diffuser sold in the lighting aisle of a hardware store reflects shops abroad.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Hy vọng là hầu hết các loại còn lại cũng sống được, riêng hypnum thì chưa chắc.",
+        "why": "The original writer's voice about their own experimental tank, which the reader does not know.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "GE Silicone 1",
+      "Seachem Flourite Dark",
+      "Exo Terra"
+    ]
+  },
+  "vi/guides/youtube-CGBA4x51scg": {
+    "at": "2026-11-09",
+    "hash": "bc341f10479ee1ac",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Một bể 284 lít khoan trúng kính cường lực",
+        "why": "284 litres is a converted 75-gallon tank size nobody in Vietnam would say.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể này không cần, vì kính rất dày so với cỡ bể và không có món nào quá nặng.",
+        "why": "Speaks of the source's own tank as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "L10",
+        "quote": "Bể này không cần vì kính rất dày so với cỡ bể và không có món nào quá nặng.",
+        "why": "Answers about the source's own tank, which the reader has never seen.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "GE Silicone 1",
+      "keo 502",
+      "Matala mat",
+      "Fluval Stratum",
+      "Seachem Flourite Dark",
+      "Seachem Onyx Sand"
+    ]
+  },
+  "vi/guides/youtube-e7czDMttN4Q": {
+    "at": "2026-11-09",
+    "hash": "a033960e1def14e3",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "nghe hơi lạ là nó có nguồn gốc ngay ở Mỹ",
+        "why": "Surprise that the fish is native 'right here' in the US is addressed to an American reader.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Đàn cá của bể này đã ở cách ly ít nhất năm tháng rồi mới sang bể chính.",
+        "why": "Tells the source's own fish history as if the reader knew that tank.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Sau vài tháng để cây lên, nó không ra như hình dung nên đã bị dỡ đi và làm lại",
+        "why": "The original creator's personal story of tearing down and redoing their tank.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Bể dài khoảng 97 cm, rộng 30 cm, cao 30 cm, chứa được khoảng 91 lít",
+        "why": "97 cm and 91 litres are conversions from inches and 24 gallons, not a size anyone in Vietnam would state.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "dán phim mờ",
+        "why": "Keepers in Vietnam call this backing decal, not film.",
+        "by": "model",
+        "fix": "dán decal mờ"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "để thêm chất lá",
+        "why": "Calque of English 'leaf texture'.",
+        "by": "model",
+        "fix": "để thêm kiểu lá khác"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-esteJB9Ji0Y": {
+    "at": "2026-11-09",
+    "hash": "02e692fcf453c9ff",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Trong bể cách ly, nó liên tục tấn công và đuổi đám tép sống chung.",
+        "why": "Tells the original keeper's story of their own fish and quarantine tank as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "L14",
+        "quote": "Con cá ở đây liên tục tấn công và đuổi tép trong bể cách ly.",
+        "why": "Answers a general question with the source's own individual fish, unknown to the reader.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-gPDRCDoDGBU": {
+    "at": "2026-11-09",
+    "hash": "9af7f3e0f263948c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Ở bể này, lần thử đầu không chạy như ý vì mép vách ngăn chưa kín với thành hộp.",
+        "why": "It tells the source maker's own build story as if the reader knew that tank.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Dremel",
+      "Command"
+    ]
+  },
+  "vi/guides/youtube-hn_Zl7I_9E0": {
+    "at": "2026-11-09",
+    "hash": "76dd89ee092e7f58",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "một bể không viền khoảng 57 lít",
+        "why": "57 litres is a converted 15-gallon tank, a size nobody in Vietnam would name.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "một tấm neoprene dày khoảng 1,3 cm",
+        "why": "1,3 cm is a converted half inch, not a thickness a keeper in Vietnam would give.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "thảm tự cân bằng",
+        "why": "Literal calque of the English 'self-leveling mat'; keepers do not call it this.",
+        "by": "model",
+        "fix": "tấm lót đáy bể"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-hX-kRoS7d8A": {
+    "at": "2026-11-09",
+    "hash": "c5526250e63ffd7c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Con cá xiêm trong bể này không chịu nổi cá nuôi chung",
+        "why": "Tells the source's own fish story as if the reader knew that tank.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "L14",
+        "quote": "Con cá xiêm trong bể này không chịu nổi cá nuôi chung",
+        "why": "Repeats the source's own fish story in the FAQ answer as if the reader knew that tank.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Matala"
+    ]
+  },
+  "vi/guides/youtube-iFtbrCxfsi8": {
+    "at": "2026-11-09",
+    "hash": "8a25af45586c4628",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "một bể khoảng 1.325 lít",
+        "why": "A tank volume converted from 350 gallons, a figure nobody in Vietnam would use.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Phần cây trồng dưới nước chưa làm ở giai đoạn này, vì bể còn việc phải xong trước.",
+        "why": "Refers to the source creator's own tank build as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Khi bể đã ổn định, hy vọng là đường ranh này không còn nhìn thấy nữa.",
+        "why": "The original creator's hopes for their own tank, in their voice.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "hy vọng là các con vật trong bể sẽ thích",
+        "why": "The original creator's voice about the animals in their own tank.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "gom dần trong vài tháng từ vườn cây, siêu thị vật liệu và tiệm cá gần nhà",
+        "why": "Buying plants at a home-improvement store is a habit from abroad, not how keepers in Vietnam source them.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "swiss cheese plant",
+        "why": "English common name that keepers in Vietnam do not use for this plant.",
+        "by": "model",
+        "fix": "monstera lá lỗ"
+      }
+    ],
+    "products": [
+      "Seachem Flourite",
+      "Fluval Stratum"
+    ]
+  },
+  "vi/guides/youtube-IvUQMwrsjyc": {
+    "at": "2026-11-09",
+    "hash": "699efa7306f29b92",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Bar Keepers Friend",
+      "Dowsil 795"
+    ]
+  },
+  "vi/guides/youtube-KSLgl3QmGUw": {
+    "at": "2026-11-09",
+    "hash": "9b7d95253b12a410",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể ở đây có dung tích khoảng 1.300 lít",
+        "why": "Presents the source's own tank as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể này có ba lỗ để gắn đầu nối xuyên kính (bulkhead).",
+        "why": "Describes the source's specific tank rather than advising the reader.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Đáy bể này hết hai bao rưỡi loại khoảng 23 kg.",
+        "why": "Reports the source tank's material use; the 23 kg bag is a converted 50 lb bag.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Vài cây trong bể này đã chết vì trồng quá sớm",
+        "why": "Tells the story of the source's own tank.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Lục bình ở đây phát triển tốt nhưng bị loại vì làm bể rối mắt.",
+        "why": "Recounts a decision the source's builder made on their tank.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "ở đây là ba đèn đặt trong khu thác nước",
+        "why": "Refers to the source tank's own setup.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Phút chót, bể này có gắn thêm một máy tạo sương.",
+        "why": "Narrates the source's build as if the reader had followed it.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "1,9 cm",
+        "why": "Converted from a 3/4 inch bulkhead; nobody in Vietnam sizes fittings this way.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "3,8 cm",
+        "why": "Converted from a 1.5 inch bulkhead; not a size a keeper in Vietnam would say.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "ống mềm 2,5 cm",
+        "why": "Converted from 1 inch hose rather than a local pipe size.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "CJ Syncra SDC"
+    ]
+  },
+  "vi/guides/youtube-lM3-zxjaako": {
+    "at": "2026-11-09",
+    "hash": "0571068ada9557bf",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Bể 284 lít vẫn đủ rộng cho cóc sống.",
+        "why": "284 litres is a converted 75-gallon tank that nobody in Vietnam would name.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Một lựa chọn là bể 416 lít dáng cao, gần như bể 284 lít được kéo lên 76 cm.",
+        "why": "416 litres and 76 cm are converted from a 110-gallon tank and 30 inches.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "L1",
+        "quote": "bể 416 lít cao 76 cm",
+        "why": "The summary repeats the tank volume and height converted from gallons and inches.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Có thể làm sump từ một bể dài 76 lít",
+        "why": "76 litres is a converted 20-gallon long tank size.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "cút chuyển 1,9 cm sang 2,5 cm",
+        "why": "These pipe sizes are converted from 3/4 inch and 1 inch.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Chân bể đóng xong trước khi có bể, đến lúc bể về mới biết chỉ khoan được hai mặt đó.",
+        "why": "This is the source writer's own build story, told as if the reader knew that tank.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Chỉ một thời gian ngắn sau khi sang bể mới, cặp cóc đã trốn trong lũa",
+        "why": "It recounts what the source writer's own toads did, as if the reader knew them.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Krylon Fusion"
+    ]
+  },
+  "vi/guides/youtube-LorZ64vB4ss": {
+    "at": "2026-11-09",
+    "hash": "c833a4d599d9408f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "cho một bể khoảng 38 lít",
+        "why": "38 litres is a converted 10-gallon tank size that nobody in Vietnam would use.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Để hợp với tên gọi tàu ma",
+        "why": "Refers to the name of the source's own tank, which this page never introduced.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Dremel"
+    ]
+  },
+  "vi/guides/youtube-N3uNPHmKkjc": {
+    "at": "2026-11-09",
+    "hash": "a1ecbc568fd37a2f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Kính dày khoảng 9,5 mm",
+        "why": "9.5 mm is a converted 3/8 inch; glass in Vietnam is sold as 8 or 10 mm.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Bể nhỏ chứa khoảng 19 lít",
+        "why": "19 litres is a converted 5-gallon tank that nobody in Vietnam would name.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Phải chạy thử đến lần thứ ba thì nước mới tràn như mong muốn",
+        "why": "Tells the original builder's own trial history as if the reader knew that tank.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "một tấm bên cắt thành công còn tấm kia hỏng, thế là phải tháo cả phần trên ra làm lại",
+        "why": "The source maker's personal build story, not advice to the reader.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "một bơm phun nhỏ",
+        "why": "Literal rendering of a small fountain pump; keepers do not call it this.",
+        "by": "model",
+        "fix": "bơm chìm mini"
+      },
+      {
+        "check": "harm",
+        "part": "P1",
+        "quote": "Châm thêm vi sinh đóng chai vào hệ thống thì thả tép được ngay.",
+        "why": "Stocking sensitive shrimp at once in a brand-new uncycled tank is likely to kill them.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Seachem Flourite Black",
+      "Fluval Stratum"
+    ]
+  },
+  "vi/guides/youtube-nhYS0j1dtbM": {
+    "at": "2026-11-09",
+    "hash": "5cb7df21785e0bb4",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Bể gốc là loại 76 lít dài",
+        "why": "76 litres is a converted 20-gallon long tank, a size nobody in Vietnam would name.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "như Syngonium ở đây vốn định trồng bình lớn nhưng hóa ra quá cao",
+        "why": "Tells the original builder's own story about a tank the reader does not know.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Riêng phần bố cục và đặt bình ở đây đã mất vài ngày mới ra dáng.",
+        "why": "Recounts how long the source's own build took, as if the reader had followed it.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "đá vôi 2B cỡ cục",
+        "why": "2B is a US crushed-stone grade that means nothing to a buyer in Vietnam.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Matala"
+    ]
+  },
+  "vi/guides/youtube-PfpdJUIG9TQ": {
+    "at": "2026-11-09",
+    "hash": "af10c5fcd050ba27",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "loại này từng chạy tốt ở bể trước",
+        "why": "Refers to the source author's previous tank as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Riêng lần này hai bể đều để nhiệt độ phòng, cá chuyển thẳng sang mà không qua bước thuần nước.",
+        "why": "The source author's own one-off story about their two tanks.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Còn đàn mười con green kubotai rasbora đang cách ly thì dự định xong đợt này mới thả vào bể.",
+        "why": "The source author's own fish and plans, unknown to the reader.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Châm vi sinh sống để bể bắt đầu chu trình lọc",
+        "why": "Calque of the English 'start the cycle'; keepers here do not say 'chu trình lọc'.",
+        "by": "model",
+        "fix": "để bể bắt đầu gây vi sinh"
+      }
+    ],
+    "products": [
+      "Waterbox Clear 16",
+      "Fluval Stratum",
+      "Seachem Flourite Dark",
+      "AquaClear 30",
+      "Nicrew"
+    ]
+  },
+  "vi/guides/youtube-uzhJRcM1tx4": {
+    "at": "2026-11-09",
+    "hash": "85a5596d42edd0ec",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Với kính dày khoảng 1,9 cm",
+        "why": "1,9 cm is a converted 3/4 inch glass thickness that nobody in Vietnam would quote.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Nối dây vào bơm bảo trì chính",
+        "why": "\"Bơm bảo trì\" is a calque of \"maintenance pump\".",
+        "by": "model",
+        "fix": "bơm thay nước"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Đàn serpae này đã qua cách ly vài tháng rồi mới thả sang bể chính.",
+        "why": "Refers to the source keeper's own fish as if the reader knew them.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Flipper Max"
+    ]
+  },
+  "vi/guides/youtube-wtRniN_Ef9k": {
+    "at": "2026-11-09",
+    "hash": "9297f5d535169518",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "một bể khoảng 150 lít (91 × 46 × 41 cm)",
+        "why": "Tank dimensions are converted from 36 × 18 × 16 inches, a size nobody in Vietnam would state.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Lần làm lại, đá được đặt hết trước theo cách sau",
+        "why": "Refers to the original creator's redo of their layout as if the reader knew that story.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể này đang chạy với:",
+        "why": "Presents the source creator's own tank and its current running setup.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Đèn chính dự định cho bể là LED Current USA Satellite Plus, hiện vẫn đang chờ giao hàng.",
+        "why": "The creator's personal status update about a light awaiting delivery.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Phần cứng ở đây gồm đá Gray Elephant Skin",
+        "why": "Calque of the English 'hardscape'; keepers do not call stones and wood 'phần cứng'.",
+        "by": "model",
+        "fix": "Phần đá lũa"
+      }
+    ],
+    "products": [
+      "Flourite Red",
+      "AquaClear 50",
+      "Tetra HT55",
+      "Current USA Satellite Plus"
+    ]
+  },
+  "vi/guides/youtube-Xb3Trilltik": {
+    "at": "2026-11-09",
+    "hash": "a4b80c8c480aabc8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "một bể riparium không viền khoảng 284 lít",
+        "why": "284 litres is a converted 75-gallon tank size that nobody in Vietnam would say.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Fritz Turbo Start"
+    ]
+  },
+  "vi/guides/youtube-yKTTUec1o7A": {
+    "at": "2026-11-09",
+    "hash": "d51909923ee46426",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "gần như không thể làm đúng ý tưởng ban đầu của bể này",
+        "why": "Refers to the source build's original concept as if the reader knew that tank.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Các khúc lũa ở đây đa số dài từ 90 cm trở lên",
+        "why": "Describes the source's own driftwood as if the reader could see that build.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "L11",
+        "quote": "Khi dán bể này, phần lớn mặt sau được để khô 24 giờ",
+        "why": "Reports what was done on the source's own tank rather than advising the reader.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Đặt các dây cách nhau khoảng 2,5 cm",
+        "why": "The spacing is a converted one inch that a keeper in Vietnam would not specify.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "dụng cụ cạo lưỡi lam",
+        "why": "Literal translation of razor scraper, not the term used in Vietnam.",
+        "by": "model",
+        "fix": "dao cạo kính"
+      }
+    ],
+    "products": [
+      "GE Silicone 1",
+      "Great Stuff Pond and Stone"
+    ]
+  },
+  "vi/species/steatocranus-casuarius": {
+    "at": "2026-11-09",
+    "hash": "a727614d1649e6b9",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Một nhà nhập sỉ ở Đức từng có cả cá bắt tự nhiên lẫn cá trại",
+        "why": "Reports the stock of an unnamed German wholesaler, which means nothing to a hobbyist in Vietnam.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "Một hướng dẫn khác đòi ít nhất khoảng 190 lít.",
+        "why": "190 litres is a converted 50 US gallons, not a tank size used in Vietnam.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "Nuôi đàn từ sáu con trở lên thì cần ít nhất khoảng 285 lít.",
+        "why": "285 litres is a converted 75 US gallons, not a tank size used in Vietnam.",
+        "by": "model"
+      }
+    ],
     "products": []
   }
 }

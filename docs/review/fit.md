@@ -5,9 +5,9 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution | lethal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 3588 | 3293 | 1502 | 71 | 47 | 193 | 33 | 963 | 432 | 2796 | 475 | 8 | 13 | 0 | 3 | 0 | 3 | 0 |
-| Indonesian | 1111 | 1044 | 323 | 19 | 4 | 3 | 5 | 161 | 64 | 45 | 144 | 0 | 0 | 0 | 4 | 0 | 0 | 0 |
-| Thai | 1104 | 1037 | 310 | 17 | 4 | 4 | 3 | 141 | 80 | 79 | 131 | 0 | 1 | 0 | 2 | 0 | 0 | 0 |
+| Vietnamese | 3572 | 3276 | 1517 | 71 | 47 | 194 | 33 | 990 | 448 | 2819 | 477 | 8 | 13 | 0 | 3 | 0 | 3 | 0 |
+| Indonesian | 1104 | 1037 | 321 | 19 | 4 | 3 | 5 | 161 | 64 | 45 | 143 | 0 | 0 | 0 | 4 | 0 | 0 | 0 |
+| Thai | 1097 | 1030 | 311 | 17 | 4 | 4 | 3 | 141 | 81 | 79 | 133 | 0 | 0 | 0 | 2 | 0 | 0 | 0 |
 | Malay | 180 | 150 | 54 | 4 | 1 | 0 | 0 | 24 | 18 | 8 | 18 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 
 Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 10 of 128, Indonesian 2 of 56, Thai 2 of 56, Malay 1 of 17.
@@ -73,6 +73,7 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - panacur: 31
 - ada: 16
 - ada amazonia aqua soil: 14
+- fluval stratum: 14
 - hikari first bites: 14
 - ada amazonia: 13
 - easy fry and small fish food: 12
@@ -87,11 +88,8 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - weld-on 4: 9
 - apt fix: 8
 - carib sea eco-complete: 8
-- fluval stratum: 8
-- easy shrimp and snail shells: 7
+- krylon fusion: 8
 - fluval: 7
-- krylon fusion: 7
-- repashy soilent green: 7
 - tetramin: 7
 - twinstar: 7
 - caribsea eco-complete: 6
@@ -99,13 +97,14 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - chihiros wrgb ii slim: 6
 - eco-complete: 6
 - fluval bug bites: 6
+- ge silicone 1: 6
 - liquifry: 6
 - my chihiros: 6
+- repashy soilent green: 6
+- seachem flourite: 6
 - vibra bites: 6
+- aquaclear 70: 5
 - aquario neo flow: 5
 - easy planter: 5
 - fluval plant and shrimp stratum: 5
 - hikari: 5
-- instant ocean: 5
-- matrix: 5
-- pond armor: 5
