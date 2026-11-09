@@ -90,8 +90,6 @@ private struct ChatThread: View {
   @State private var restPlace: CGFloat = 0
   /// How far the empty screen has scrolled.
   @State private var scrolled: CGFloat = 0
-  /// Room under the empty screen to scroll to its place, with the keyboard up.
-  @State private var emptyRoom: CGFloat = 0
   /// The box's height with nothing in it.
   @State private var emptyBox: CGFloat = 0
 
@@ -118,7 +116,7 @@ private struct ChatThread: View {
   /// The empty screen over the box: the least move, with the keyboard, that puts the box's edge in a gap (`Chat.place`),
   /// found line by line from one line up. The keyboard going takes it back to where the reader had it; a draft of more
   /// than one line settles where the taller box cuts nothing.
-  private func placeEmpty(_ proxy: ScrollViewProxy, height: CGFloat) {
+  private func placeEmpty(height: CGFloat) {
     guard model.thread.isEmpty, !blocks.all.isEmpty, boxHeight > 0 else { return }
     let one = emptyBox > 0 ? emptyBox : boxHeight
     var target = restPlace
@@ -128,8 +126,7 @@ private struct ChatThread: View {
       target = CGFloat(Chat.place(blocks.all.values.sorted { $0.top < $1.top }, boxTops: heights.map { Double(height - $0) }, from: Double(restPlace)))
     }
     guard abs(target - placed) > 0.5 else { return }
-    placed = target
-    Task { @MainActor in withAnimation(reduceMotion ? nil : .smooth(duration: 0.3)) { proxy.scrollTo(Self.place, anchor: .top) } }
+    withAnimation(reduceMotion ? nil : .smooth(duration: 0.3)) { placed = target }
   }
 
   /// What the wait has shown so far, to notice the next line of it.
@@ -139,14 +136,6 @@ private struct ChatThread: View {
     ScrollViewReader { proxy in
       GeometryReader { geo in
         ScrollView {
-          ZStack(alignment: .top) {
-          // Where the empty screen's place is in the content, to scroll to it by the point.
-          VStack(spacing: 0) {
-            Color.clear.frame(height: placed)
-            Color.clear.frame(height: 1).id(Self.place)
-          }
-          .allowsHitTesting(false)
-          .accessibilityHidden(true)
           VStack(alignment: .leading, spacing: 0) {
             if !startsAtTitle { ChatHeader(subject: model.route.subject).emptyBlock(.card, 0, into: blocks) }
             if model.thread.isEmpty { empty }
@@ -165,13 +154,13 @@ private struct ChatThread: View {
             }
             // The thread's very end, for the round ↓: an answer can be taller than the screen.
             Color.clear.frame(height: 0).id(Self.end)
-            if model.thread.isEmpty { Color.clear.frame(height: emptyRoom) }
           }
           .padding(.horizontal)
           .padding(.bottom, 16)
           .coordinateSpace(name: Self.content)
           .onGeometryChange(for: CGFloat.self) { -$0.frame(in: .scrollView).minY } action: { scrolled = $0 }
-          }
+          // The empty screen over the box, by what `placeEmpty` moved it.
+          .offset(y: model.thread.isEmpty ? restPlace - placed : 0)
         }
         .scrollDismissesKeyboard(.interactively)
         .modifier(WhenReaderScrolls { readerMoved = true })
@@ -198,28 +187,22 @@ private struct ChatThread: View {
         .onChange(of: waited) { keepWaitAboveBox(proxy, bottom: geo.size.height - boxHeight) }
         .onChange(of: geo.size.height, initial: true) { _, h in
           if !typing { restHeight = h }
-          placeEmpty(proxy, height: h)
+          placeEmpty(height: h)
         }
         .onChange(of: typing) { _, up in
           if up {
             restPlace = max(0, scrolled)
-            emptyRoom = restHeight
+            placed = restPlace
           } else {
             pinIfOnIt(proxy, height: geo.size.height)
           }
-          placeEmpty(proxy, height: geo.size.height)
-          if !up {
-            Task { @MainActor in
-              try? await Task.sleep(for: .seconds(0.45))
-              if !typing, placed <= restPlace + 0.5 { emptyRoom = 0 }
-            }
-          }
+          placeEmpty(height: geo.size.height)
         }
         .onChange(of: boxHeight) {
           if model.draft.isEmpty { emptyBox = boxHeight }
-          placeEmpty(proxy, height: geo.size.height)
+          placeEmpty(height: geo.size.height)
         }
-        .onChange(of: model.thread.isEmpty) { placed = 0; emptyRoom = 0 }
+        .onChange(of: model.thread.isEmpty) { placed = 0; restPlace = 0 }
         .onChange(of: signedOut) { blocks.all = [:] }
         .safeAreaInset(edge: .bottom, spacing: 0) {
           // The newest question below the box: the reader is in earlier turns, its turn (a screen at least) all below.
@@ -256,7 +239,6 @@ private struct ChatThread: View {
 
   private static let end = "chat-end"
   private static let waiting = "chat-waiting"
-  private static let place = "chat-place"
   fileprivate static let content = "chat-content"
 
   private var warned: Bool {
