@@ -348,9 +348,9 @@ final class ChatModel {
           let user = account.user?.id else { return }
     switch thread[i].outcome {
     case .failed("cut"):
-      // Asked again with its key: past its 24 hours, its answer is lost, not asked anew.
+      // Asked again with its key: past its 24 hours, its answer is lost, not asked anew. What was read stays, as the
+      // Worker answers a key it has seen with the `done` or the `error` alone, and the card under it is chosen by it.
       thread[i].resumed = true
-      thread[i].reply = Chat.Reply()
       thread[i].outcome = .asking
       ask(i)
       return

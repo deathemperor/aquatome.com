@@ -427,6 +427,21 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertTrue(app.buttons.matching(identifier: "chat-chip").firstMatch.waitForExistence(timeout: 20), "the answer didn't come when asked again")
   }
 
+  /// Cut twice over, then asked again, its run having ended in a failure after the text began: what was read stays, and
+  /// the question isn't said to count.
+  func testACutAnswerAskedAgainKeepsWhatWasReadAndIsntSaidToCount() {
+    let app = launch("-chat-blips", "2", "-chat-cut-off")
+    openChat(app)
+    signIn(app)
+    ask(app, "Neon sống bao lâu?")
+    XCTAssertTrue(element(app, "chat-failed").waitForExistence(timeout: 20), "no card after the second blip")
+    app.buttons["chat-again"].tap()
+    let card = element(app, "chat-cut-off")
+    XCTAssertTrue(card.waitForExistence(timeout: 20), "said as a counted failure")
+    XCTAssertTrue(card.staticTexts["Câu hỏi này không bị tính."].exists, "said to count")
+    XCTAssertTrue(element(app, "chat-answer").exists, "what was read went")
+  }
+
   /// Back past the conversation's 24 hours: the answer can't be had; "Hỏi lại" asks it in a new conversation.
   func testAnAnswerLostPast24HoursIsAskedAgain() {
     let app = launch("-chat-slow", "-chat-lost")
