@@ -74,6 +74,52 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertEqual(box.value as? String, "Còn tép", "the draft left the box")
   }
 
+  /// The mock's largest text, empty: the title names the fish, so the screen starts at it, and the line about who answers
+  /// and the starters clear the box.
+  func testAtTheLargestTextTheEmptyScreenStartsAtItsTitle() {
+    let app = launch("-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXL")
+    openChat(app)
+    // Signed out, the button can rest half under the box at this size: a tap there would be the box's.
+    element(app, "chat").swipeUp()
+    signIn(app)
+    element(app, "chat").swipeDown()
+    let starter = app.buttons.matching(identifier: "chat-chip").firstMatch
+    XCTAssertTrue(starter.waitForExistence(timeout: 5), "no starters")
+    XCTAssertFalse(element(app, "chat-about").exists, "the card on the empty screen")
+    let top = element(app, "chat-box").frame.minY
+    let who = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH %@", "Claude")).firstMatch
+    XCTAssertLessThan(who.frame.maxY, top, "the line about who answers runs under the box")
+    XCTAssertLessThan(starter.frame.minY, top, "no starter on screen")
+  }
+
+  /// A photo's title names no fish: at the largest text its card stays.
+  func testAtTheLargestTextAPhotosCardStays() {
+    let app = launch("-picked-photo", "-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXL")
+    openFishIdChat(app)
+    XCTAssertTrue(element(app, "chat-about").waitForExistence(timeout: 5), "no card on a photo's chat")
+  }
+
+  /// The very largest text: the card keeps the mock's sizes rather than growing with the text, so its Latin name doesn't
+  /// break mid-word, and the round ↓ is 60 points.
+  func testAtTheVeryLargestTextTheCardAndTheArrowKeepTheMocksSizes() {
+    let app = launch("-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL")
+    openChat(app)
+    signIn(app)
+    ask(app, "Neon ăn gì?")
+    XCTAssertTrue(app.buttons.matching(identifier: "chat-chip").firstMatch.waitForExistence(timeout: 30), "no first answer")
+    let card = element(app, "chat-about")
+    XCTAssertTrue(card.exists, "the card didn't come back once asked")
+    XCTAssertLessThan(card.frame.height, 125, "the card grew with the text")
+    ask(app, "Neon sống bao lâu?")
+    XCTAssertTrue(soon(app.staticTexts.matching(identifier: "chat-question").count == 2), "the next question not asked")
+    XCTAssertTrue(app.buttons.matching(identifier: "chat-chip").firstMatch.waitForExistence(timeout: 30), "no second answer")
+    let toEnd = app.buttons["chat-to-end"]
+    repeatUntil(toEnd.exists, times: 6) { element(app, "chat").swipeDown() }
+    XCTAssertTrue(toEnd.exists, "no ↓ up in the earlier turn")
+    XCTAssertEqual(toEnd.frame.width, 60, accuracy: 1, "the ↓ isn't the mock's size")
+    XCTAssertEqual(toEnd.frame.height, 60, accuracy: 1, "the ↓ isn't the mock's size")
+  }
+
   /// A long question shows its first six lines in the bubble, and "Xem thêm" under it opens it whole.
   func testALongQuestionShowsSixLinesAndXemThemOpensItWhole() {
     let app = launch()
@@ -170,6 +216,8 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertTrue(toEnd.exists, "no ↓ up in the earlier turns: the newest question at \(questions.element(boundBy: 2).frame), the box at "
                   + "\(element(app, "chat-box").frame), the first question \(questions.element(boundBy: 0).frame.height) high")
     XCTAssertEqual(toEnd.label, "Xuống cuối cuộc trò chuyện")
+    XCTAssertEqual(toEnd.frame.width, 40, accuracy: 1, "the ↓ isn't the mock's size")
+    XCTAssertEqual(toEnd.frame.height, 40, accuracy: 1, "the ↓ isn't the mock's size")
     toEnd.tap()
     XCTAssertTrue(toEnd.waitForNonExistence(timeout: 5), "the ↓ stayed at the end")
     XCTAssertTrue(soon(second.isHittable), "not back at the end")
@@ -210,17 +258,7 @@ final class ChatFlowTests: XCTestCase {
   /// Fish ID's result hands its guesses over (never the photo), worded as fish ID words them.
   func testFishIdsResultAsksWithItsGuesses() {
     let app = launch("-picked-photo")
-    openFishId(app)
-    let apple = element(app, "apple-sign-in")
-    XCTAssertTrue(apple.waitForExistence(timeout: 5), "no sign-in")
-    apple.tap()
-    let send = element(app, "fish-id-send")
-    reveal(app, send)
-    send.tap()
-    let entry = element(app, "chat-entry")
-    reveal(app, entry)
-    XCTAssertTrue(entry.label.contains("Hỏi về con cá này"), entry.label)
-    entry.tap()
+    openFishIdChat(app)
     let about = element(app, "chat-about")
     XCTAssertTrue(about.waitForExistence(timeout: 5), "no chat")
     XCTAssertTrue(about.label.contains("Về: ảnh của bạn"), about.label)
@@ -701,6 +739,20 @@ final class ChatFlowTests: XCTestCase {
   }
 
   /// The neon's page, its chat's entry under its facts.
+  private func openFishIdChat(_ app: XCUIApplication) {
+    openFishId(app)
+    let apple = element(app, "apple-sign-in")
+    reveal(app, apple)
+    apple.tap()
+    let send = element(app, "fish-id-send")
+    reveal(app, send)
+    send.tap()
+    let entry = element(app, "chat-entry")
+    reveal(app, entry)
+    XCTAssertTrue(entry.label.contains("Hỏi về con cá này"), entry.label)
+    entry.tap()
+  }
+
   private func openChat(_ app: XCUIApplication) {
     open(app, "Ca neon")
     let entry = element(app, "chat-entry")

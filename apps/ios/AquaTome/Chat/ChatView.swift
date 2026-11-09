@@ -86,7 +86,7 @@ private struct ChatThread: View {
       GeometryReader { geo in
         ScrollView {
           VStack(alignment: .leading, spacing: 0) {
-            ChatHeader(subject: model.route.subject)
+            if !startsAtTitle { ChatHeader(subject: model.route.subject) }
             if model.thread.isEmpty { empty }
             ForEach(model.thread) { a in
               let last = a.id == model.thread.last?.id
@@ -156,6 +156,9 @@ private struct ChatThread: View {
   // MARK: Empty
 
   private var subjectName: String { ChatNames.inSentence(model.route.subject.name) }
+  /// The largest text, empty: the title names the fish, so its card goes and the first starters clear the box. A
+  /// photo's card stays, since "Hỏi gì về con cá này?" names none.
+  private var startsAtTitle: Bool { size.isAccessibilitySize && model.thread.isEmpty && !model.route.subject.fromPhoto }
 
   @ViewBuilder private var empty: some View {
     let s = model.route.subject
@@ -172,11 +175,11 @@ private struct ChatThread: View {
       if signedOut {
         ChatSignIn().padding(.top, 12)
       } else if model.draft.isEmpty {
-        Chips(items: starters, stacked: true, dim: model.offline || model.stop != nil) { model.send($0) }.padding(.top, 12).transition(.opacity)
+        Chips(items: starters, stacked: true, dim: model.offline || model.stop != nil) { model.send($0) }.padding(.top, size.isAccessibilitySize ? 2 : 12).transition(.opacity)
       }
     }
     .animation(reduceMotion ? nil : .easeOut(duration: 0.2), value: model.draft.isEmpty)
-    .padding(.top, 24)
+    .padding(.top, startsAtTitle ? 0 : 24)
     .transition(.opacity)
   }
 
@@ -355,6 +358,10 @@ private struct ChatHeader: View {
   @ScaledMetric private var width: CGFloat = 52
   @ScaledMetric private var height: CGFloat = 40
   @ScaledMetric(relativeTo: .subheadline) private var small: CGFloat = 14
+  @Environment(\.dynamicTypeSize) private var size
+  private var ax: Bool { size.isAccessibilitySize }
+  private var nameFont: Font { ax ? .system(size: 30, weight: .semibold) : .callout.weight(.semibold) }
+  private var subFont: Font { .system(size: ax ? 26 : small) }
 
   var body: some View {
     HStack(alignment: subject.fromPhoto ? .top : .center, spacing: 12) {
@@ -366,16 +373,16 @@ private struct ChatHeader: View {
             .background(.fill.tertiary)
         }
       }
-      .frame(width: width, height: subject.fromPhoto ? width : height)
+      .frame(width: ax ? 80 : width, height: ax ? 62 : subject.fromPhoto ? width : height)
       .clipShape(.rect(cornerRadius: 10))
       .accessibilityHidden(true)
       VStack(alignment: .leading, spacing: 0) {
         if let guesses = subject.guesses {
-          Text("Về: ảnh của bạn").font(.callout.weight(.semibold))
-          Text(guesses).font(.system(size: small)).foregroundStyle(.secondary)
+          Text("Về: ảnh của bạn").font(nameFont)
+          Text(guesses).font(subFont).foregroundStyle(.secondary)
         } else {
-          Text("Về: \(subject.name)").font(.callout.weight(.semibold))
-          if let sci = subject.sci { Text(verbatim: sci).font(.system(size: small)).italic().foregroundStyle(.secondary) }
+          Text("Về: \(subject.name)").font(nameFont)
+          if let sci = subject.sci { Text(verbatim: sci).font(subFont).italic().foregroundStyle(.secondary) }
         }
       }
     }
