@@ -99,24 +99,7 @@
     "figures": [
       {
         "heading": "Cần chuẩn bị những gì",
-        "moments": [
-          {
-            "t": 70,
-            "url": "https://media.aquatome.com/video/85iF2nhleGM/at70-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể kính trống được đo bằng thước dây để lấy kích thước.",
-            "sharpness": 88.4
-          },
-          {
-            "t": 140,
-            "url": "https://media.aquatome.com/video/85iF2nhleGM/at140-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đèn bể thủy sinh và nguồn đèn đặt cạnh các phụ kiện.",
-            "sharpness": 1000.7
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/85iF2nhleGM/p0-xdWFyaXVtLi5KUEc.webp",
           "thumb": "https://media.aquatome.com/video/85iF2nhleGM/p0-xdWFyaXVtLi5KUEc-480.webp",
@@ -129,90 +112,6 @@
         }
       },
       {
-        "heading": "Lót nền và bố cục",
-        "moments": [
-          {
-            "t": 420,
-            "url": "https://media.aquatome.com/video/85iF2nhleGM/at420-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể kính đặt chắc trên khung sắt hàn sẵn.",
-            "sharpness": 922.8
-          },
-          {
-            "t": 460,
-            "url": "https://media.aquatome.com/video/85iF2nhleGM/at460-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bố cục hai ngọn núi đá cùng lũa xếp trên lớp nền đen.",
-            "sharpness": 1266.2
-          }
-        ]
-      },
-      {
-        "heading": "Trồng cây trước khi đổ nước",
-        "moments": [
-          {
-            "t": 570,
-            "url": "https://media.aquatome.com/video/85iF2nhleGM/at570-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay cắm từng khóm cây vào nền khô giữa các khối đá.",
-            "sharpness": 2621
-          },
-          {
-            "t": 580,
-            "url": "https://media.aquatome.com/video/85iF2nhleGM/at580-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hồ đã trồng xong cây, nền vẫn khô, chưa đổ nước.",
-            "sharpness": 1659.1
-          }
-        ]
-      },
-      {
-        "heading": "Lắp CO2 và chỉnh số giọt",
-        "moments": [
-          {
-            "t": 710,
-            "url": "https://media.aquatome.com/video/85iF2nhleGM/at710-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cốc trộn CO2 gắn bên hông bể, cạnh đồng hồ chỉnh áp.",
-            "sharpness": 821.5
-          },
-          {
-            "t": 720,
-            "url": "https://media.aquatome.com/video/85iF2nhleGM/at720-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cốc trộn CO2 và dây dẫn khí gắn ở thành bể.",
-            "sharpness": 688.6
-          }
-        ]
-      },
-      {
-        "heading": "Hẹn giờ đèn",
-        "moments": [
-          {
-            "t": 770,
-            "url": "https://media.aquatome.com/video/85iF2nhleGM/at770-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh với đèn gắn trên nắp đang sáng.",
-            "sharpness": 1396.7
-          },
-          {
-            "t": 780,
-            "url": "https://media.aquatome.com/video/85iF2nhleGM/at780-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Công tắc wifi Sonoff cắm vào ổ điện để hẹn giờ đèn.",
-            "sharpness": 581
-          }
-        ]
-      },
-      {
         "heading": "Những ngày đầu sau khi đổ nước",
         "moments": [
           {
@@ -221,15 +120,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh với đá và cây mọc xanh tốt sau vài ngày.",
-            "sharpness": 1779.9
-          },
-          {
-            "t": 1000,
-            "url": "https://media.aquatome.com/video/85iF2nhleGM/at1000-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hai lọ thuốc kích thích quang hợp và kích rễ, đẻ nhánh cho cây.",
-            "sharpness": 697.7
+            "sharpness": 1779.9,
+            "person": false
           }
         ],
         "photo": {
@@ -244,27 +136,6 @@
         }
       },
       {
-        "heading": "Lọc váng, tạo luồng và vài món thêm",
-        "moments": [
-          {
-            "t": 1270,
-            "url": "https://media.aquatome.com/video/85iF2nhleGM/at1270-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lọc váng được gắn vào thành bể, sát mặt nước.",
-            "sharpness": 689.7
-          },
-          {
-            "t": 1340,
-            "url": "https://media.aquatome.com/video/85iF2nhleGM/at1340-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Quạt thổi luồng đặt trong bể cạnh lọc váng để tạo dòng chảy.",
-            "sharpness": 395.9
-          }
-        ]
-      },
-      {
         "heading": "Khi nào thả cá và thả thế nào",
         "moments": [
           {
@@ -273,15 +144,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ngâm nguyên túi cá trong bể thủy sinh để cá quen dần.",
-            "sharpness": 1951.7
-          },
-          {
-            "t": 1450,
-            "url": "https://media.aquatome.com/video/85iF2nhleGM/at1450-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các túi cá đặt trên bể, sẵn vợt để thả cá từ từ.",
-            "sharpness": 2100.6
+            "sharpness": 1951.7,
+            "person": false
           }
         ]
       }

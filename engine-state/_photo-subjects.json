@@ -359,6 +359,13 @@
       "note": "fertiliser bottle and box product packshot",
       "logo": false,
       "person": false
+    },
+    "pogostemon-deccanensis": {
+      "ok": "none",
+      "typical": false,
+      "note": "fertilizer product packshot, amber bottle and box",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/2hraquarist/370f9f563d36df11.webp": {
@@ -373,6 +380,13 @@
       "ok": "none",
       "typical": false,
       "note": "fertiliser bottle packshot with red plant cutouts",
+      "logo": false,
+      "person": false
+    },
+    "pogostemon-deccanensis": {
+      "ok": "none",
+      "typical": false,
+      "note": "fertilizer bottle packshot with red stem plants",
       "logo": false,
       "person": false
     }
@@ -391,6 +405,15 @@
       "ok": "unsure",
       "typical": false,
       "note": "planted tank with red Alternanthera and a small-leaved foreground carpet, possibly Monte Carlo but not the main subject",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/2hraquarist/881912be3f678bf6.webp": {
+    "pogostemon-deccanensis": {
+      "ok": "none",
+      "typical": false,
+      "note": "fertilizer product packshot, green bottle and box",
       "logo": false,
       "person": false
     }
@@ -683,7 +706,9 @@
     "rotala-macrandra": {
       "ok": "yes",
       "typical": true,
-      "note": "Dense red stand of broad, wavy-leaved submerged stems in a planted tank; matches the red form"
+      "note": "bright red submersed stems of giant red rotala in an aquarium",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/aquariumbreeder/faf3666d70af5566.webp": {
@@ -885,7 +910,9 @@
     "pristella-maxillaris": {
       "ok": "yes",
       "typical": true,
-      "note": "Adult X-ray tetra, side view: black-and-yellow dorsal and anal fins, shoulder spot, reddish tail",
+      "note": "x-ray tetra side view in front of plants",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -1006,6 +1033,16 @@
       "ok": "yes",
       "typical": false,
       "note": "two Endler males of an orange line-bred form (red chest type) with black lateral bar and green-orange tail, on black bac",
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/aquariumcoop/1a49b47447ef8326.webp": {
+    "pristella-maxillaris": {
+      "ok": "yes",
+      "typical": true,
+      "note": "x-ray tetra side view on dark background",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -1249,7 +1286,9 @@
     "sewellia-lineolata": {
       "ok": "yes",
       "typical": true,
-      "note": "two on sand; the black-and-yellow spotted and striped pattern is clear"
+      "note": "two loaches on sand",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/aquariumcoop/2c80bd85f3f92b0d.webp": {
@@ -1298,6 +1337,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/aquariumcoop/2f87f4da53ea9e87.webp": {
+    "carinotetraodon-travancoricus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "pea puffer above leaf with bloodworms",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/aquariumcoop/30c92e38cdab247e.webp": {
     "melanotaenia-praecox": {
       "ok": "yes",
@@ -1315,6 +1363,16 @@
       "note": "several pale small rasboras near plants, colour faded; may be another Boraras species",
       "logo": false,
       "person": false
+    }
+  },
+  "https://media.aquatome.com/aquariumcoop/3316443e85bba910.webp": {
+    "tanichthys-albonubes": {
+      "ok": "yes",
+      "typical": true,
+      "note": "wild-type white cloud side view",
+      "logo": false,
+      "person": false,
+      "guide": true
     }
   },
   "https://media.aquatome.com/aquariumcoop/34fe892d4255d066.webp": {
@@ -1357,7 +1415,9 @@
     "pseudomugil-gertrudae": {
       "ok": "yes",
       "typical": true,
-      "note": "Adult male with spotted yellowish fins, swimming over a yarn spawning mop",
+      "note": "male with spotted yellow fins in a yarn spawning mop",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -1543,7 +1603,9 @@
     "carinotetraodon-travancoricus": {
       "ok": "yes",
       "typical": true,
-      "note": "Adult pea puffer, yellow with dark blotches and green eye, near bloodworms on a leaf",
+      "note": "pea puffer above bloodworms on a leaf",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -1571,7 +1633,9 @@
     "tanichthys-albonubes": {
       "ok": "yes",
       "typical": false,
-      "note": "long-finned white cloud, side view",
+      "note": "long-finned white cloud male",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -1719,6 +1783,15 @@
       "ok": "yes",
       "typical": true,
       "note": "small group of forktail blue-eyes in a tank",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/aquariumcoop/55e2e3c3b8be7e8e.webp": {
+    "carinotetraodon-travancoricus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "group of pea puffers among plants near surface",
       "logo": false,
       "person": false
     }
@@ -1888,7 +1961,9 @@
     "tanichthys-albonubes": {
       "ok": "yes",
       "typical": false,
-      "note": "planted aquascape with small white clouds, fish small in frame",
+      "note": "planted aquascape with small white clouds, distant",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -1905,7 +1980,9 @@
     "tanichthys-albonubes": {
       "ok": "yes",
       "typical": true,
-      "note": "wild-type adult white cloud, side view with red-edged tail and dark spot",
+      "note": "wild-type white cloud side view",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -2014,7 +2091,9 @@
     "tanichthys-albonubes": {
       "ok": "yes",
       "typical": false,
-      "note": "group of golden white clouds",
+      "note": "golden form white clouds, blurry",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -2032,7 +2111,9 @@
     "tanichthys-albonubes": {
       "ok": "yes",
       "typical": true,
-      "note": "adult white cloud minnow, side view: pale lateral stripe, red tail with black spot, red-edged dorsal fin",
+      "note": "single adult white cloud, side view",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -2315,6 +2396,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/aquariumcoop/8b825fbbc22d8bef.webp": {
+    "carinotetraodon-travancoricus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "two pea puffers, one eating bloodworm",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/aquariumcoop/8be45c5b9cfa63e6.webp": {
     "acarichthys-heckelii": {
       "ok": "yes",
@@ -2462,7 +2552,9 @@
     "sewellia-lineolata": {
       "ok": "yes",
       "typical": true,
-      "note": "adult on a rock, clear view of the typical black-and-yellow reticulated pattern"
+      "note": "adult on rock, clear side view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/aquariumcoop/9827d5da8618d19a.webp": {
@@ -2473,6 +2565,15 @@
       "logo": false,
       "person": false,
       "guide": true
+    }
+  },
+  "https://media.aquatome.com/aquariumcoop/98781a0d3fbbbbab.webp": {
+    "carinotetraodon-travancoricus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "pea puffer front view feeding on sand",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/aquariumcoop/99702bedd51ccd9f.webp": {
@@ -2497,9 +2598,11 @@
   },
   "https://media.aquatome.com/aquariumcoop/9a5ec1b467c2e38d.webp": {
     "sewellia-lineolata": {
-      "ok": "yes",
-      "typical": true,
-      "note": "adult on a rock, side view; reticulated head and lined body, colour looks warm/reddish, probably from the lighting"
+      "ok": "unsure",
+      "typical": false,
+      "note": "reddish-toned hillstream loach, unusual colour, may be another Sewellia",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/aquariumcoop/9aa09f390ce54b81.webp": {
@@ -2580,6 +2683,15 @@
       "guide": true
     }
   },
+  "https://media.aquatome.com/aquariumcoop/9e08cc6eadef557d.webp": {
+    "paracheirodon-simulans": {
+      "ok": "yes",
+      "typical": true,
+      "note": "two green neon tetras by driftwood",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/aquariumcoop/9e84c0ede8b080b0.webp": {
     "puntigrus-tetrazona": {
       "ok": "yes",
@@ -2641,6 +2753,15 @@
       "logo": false,
       "person": false,
       "guide": true
+    }
+  },
+  "https://media.aquatome.com/aquariumcoop/a596c19905dfb430.webp": {
+    "paracheirodon-simulans": {
+      "ok": "yes",
+      "typical": true,
+      "note": "single green neon, full-length blue stripe, no red",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/aquariumcoop/a5a1fa4ac452db1e.webp": {
@@ -2712,8 +2833,9 @@
     "marosatherina-ladigesi": {
       "ok": "yes",
       "typical": true,
-      "note": "group of Celebes rainbowfish in aquarium, yellow fins with black edges, blue midline stripe",
+      "note": "group of adults with yellow fins",
       "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -2730,6 +2852,16 @@
       "ok": "yes",
       "typical": true,
       "note": "close-up of java fern leaves underwater, small snail on leaf",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/aquariumcoop/aac4b3fd9f08f07b.webp": {
+    "tanichthys-albonubes": {
+      "ok": "yes",
+      "typical": true,
+      "note": "school of white clouds in planted tank",
       "logo": false,
       "person": false,
       "guide": true
@@ -2804,7 +2936,9 @@
     "tanichthys-albonubes": {
       "ok": "yes",
       "typical": false,
-      "note": "gold white cloud minnows in planted tank, matches caption",
+      "note": "gold white cloud minnows in planted tank",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -2816,6 +2950,15 @@
       "logo": false,
       "person": false,
       "guide": true
+    }
+  },
+  "https://media.aquatome.com/aquariumcoop/b1114c3a1297c0d4.webp": {
+    "paracheirodon-simulans": {
+      "ok": "yes",
+      "typical": true,
+      "note": "green neons close-up among roots, no red band",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/aquariumcoop/b24aaf398189ddb5.webp": {
@@ -3126,6 +3269,16 @@
       "guide": true
     }
   },
+  "https://media.aquatome.com/aquariumcoop/c7c7f0e1bc6f3e28.webp": {
+    "carinotetraodon-travancoricus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "three pea puffers among plants, one eating a worm",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
   "https://media.aquatome.com/aquariumcoop/c823770a2ec804ae.webp": {
     "pseudomugil-furcatus": {
       "ok": "yes",
@@ -3168,7 +3321,9 @@
     "carinotetraodon-travancoricus": {
       "ok": "yes",
       "typical": true,
-      "note": "pea puffer above bloodworms on leaf",
+      "note": "pea puffer above bloodworms on a leaf",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -3272,7 +3427,9 @@
     "carinotetraodon-travancoricus": {
       "ok": "yes",
       "typical": true,
-      "note": "group of pea puffers among plants, one eating bloodworm",
+      "note": "three pea puffers among plants, one eating a worm",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -3291,6 +3448,16 @@
       "ok": "yes",
       "typical": true,
       "note": "male and female cherry barbs",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/aquariumcoop/d518fb4d5cc7d690.webp": {
+    "carinotetraodon-travancoricus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "pea puffer near bloodworms on a leaf (same image as 5)",
       "logo": false,
       "person": false,
       "guide": true
@@ -3447,6 +3614,16 @@
       "ok": "yes",
       "typical": true,
       "note": "adult paradise fish, wild-type colouring: orange-red body with blue-green bars, side view in a planted tank",
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/aquariumcoop/e9cd8e7ded60f02b.webp": {
+    "marosatherina-ladigesi": {
+      "ok": "yes",
+      "typical": false,
+      "note": "fry eating baby brine shrimp, as in caption",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -3626,7 +3803,9 @@
     "sewellia-lineolata": {
       "ok": "yes",
       "typical": true,
-      "note": "hillstream loach on plant, dark body with pale reticulated spots, side view",
+      "note": "top view of loach among hornwort",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -3644,7 +3823,9 @@
     "pseudomugil-gertrudae": {
       "ok": "yes",
       "typical": true,
-      "note": "Adult male with spotted yellow fins and a blue eye, in a yarn spawning mop; matches the caption",
+      "note": "Aru male in a spawning mop, as the caption says",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -3669,7 +3850,9 @@
     "sewellia-lineolata": {
       "ok": "yes",
       "typical": false,
-      "note": "underside view of the fish clinging to the glass, showing its sucker-like fins"
+      "note": "underside view on glass, black background",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/aquariumcoop/ff3e661bffb0df92.webp": {
@@ -3723,7 +3906,9 @@
     "paracheirodon-simulans": {
       "ok": "unsure",
       "typical": false,
-      "note": "school over plants; red belly marks could be neon or cardinal tetra"
+      "note": "small group of blue-striped tetras, could be neon tetras",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/bwaquatics/48ca613a6ab505fa.webp": {
@@ -3732,6 +3917,15 @@
       "typical": false,
       "note": "same image as photo 1: blue-eyed fish in a dark tank, species unclear",
       "logo": false
+    }
+  },
+  "https://media.aquatome.com/bwaquatics/72e065dab2201632.webp": {
+    "paracheirodon-simulans": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "distant school of tetras with red rear half, possibly neon tetras",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/bwaquatics/7614f098f5bc17b3.webp": {
@@ -3879,8 +4073,10 @@
   "https://media.aquatome.com/commons/00e8a799d99ea19b.webp": {
     "marosatherina-ladigesi": {
       "ok": "yes",
-      "typical": false,
-      "note": "small group, likely females or young, shorter fins, smaller in the frame"
+      "typical": true,
+      "note": "three fish over blue background",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/0100ace42ee6de22.webp": {
@@ -4023,9 +4219,11 @@
   },
   "https://media.aquatome.com/commons/028e21e999201c76.webp": {
     "nymphoides-hydrophylla": {
-      "ok": "yes",
+      "ok": "unsure",
       "typical": false,
-      "note": "single floating plant with one white flower in murky water, distant view"
+      "note": "single small white flower and floating leaf in murky water; poor view to tell from other white Nymphoides",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/0292910e674aae08.webp": {
@@ -4117,6 +4315,14 @@
       "note": "female or young fish, short fins",
       "logo": false,
       "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/041fa1d9016d9b26.webp": {
+    "mogurnda-mogurnda": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Mogurnda adspersa",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/04444b1a55dc39ed.webp": {
@@ -4594,6 +4800,15 @@
       "logo": false
     }
   },
+  "https://media.aquatome.com/commons/0a6f43a8f28e5bd9.webp": {
+    "proserpinaca-palustris": {
+      "ok": "yes",
+      "typical": true,
+      "note": "plants in shallow water with pectinate submerged and lanceolate emergent leaves",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/0aae87b0e641671f.webp": {
     "moenkhausia-sanctaefilomenae": {
       "ok": "yes",
@@ -4711,6 +4926,14 @@
       "note": "its Commons file names Maylandia lombardoi",
       "logo": false,
       "person": false,
+      "file": true
+    }
+  },
+  "https://media.aquatome.com/commons/0c8aeaa0cafc60a6.webp": {
+    "neolamprologus-pulcher": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Neolamprologus brichardi",
       "file": true
     }
   },
@@ -4858,7 +5081,9 @@
     "ranunculus-inundatus": {
       "ok": "yes",
       "typical": true,
-      "note": "dense flowering emersed stand with yellow buttercup flowers"
+      "note": "flowering stand with yellow flowers and dissected leaves on a damp bank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/0f4a074a80eae220.webp": {
@@ -4942,7 +5167,9 @@
     "sewellia-lineolata": {
       "ok": "yes",
       "typical": true,
-      "note": "adult on sand among tankmates, reticulated pattern visible"
+      "note": "loach on sand with a striped botia behind",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/11563ae715b66eab.webp": {
@@ -5719,7 +5946,9 @@
     "pseudomugil-gertrudae": {
       "ok": "yes",
       "typical": true,
-      "note": "group with displaying male showing spotted fins"
+      "note": "group of males displaying spotted fins",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/1ac659a7619769ec.webp": {
@@ -5858,7 +6087,9 @@
     "inpaichthys-kerri": {
       "ok": "yes",
       "typical": true,
-      "note": "Adult swimming among plants, smaller in frame but clear side view"
+      "note": "purple emperor tetra among plant leaves",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/1c0aaabd140c2a36.webp": {
@@ -6245,9 +6476,11 @@
   },
   "https://media.aquatome.com/commons/21b8fc8fd884dc91.webp": {
     "hyphessobrycon-rosaceus": {
-      "ok": "yes",
-      "typical": true,
-      "note": "adult rosy tetra side view, red-tipped fins, dark dorsal with pale edge"
+      "ok": "unsure",
+      "typical": false,
+      "note": "silvery tetra with red fins and dark-tipped long dorsal; rosy tetra's black dorsal patch not clear",
+      "logo": false,
+      "person": false
     },
     "hyphessobrycon-bentosi": {
       "ok": "other",
@@ -7577,7 +7810,9 @@
     "nymphoides-hydrophylla": {
       "ok": "yes",
       "typical": true,
-      "note": "several white flowers among heart-shaped floating leaves"
+      "note": "floating leaves with several white flowers",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/34acc2c9bb12c82f.webp": {
@@ -7743,9 +7978,11 @@
   },
   "https://media.aquatome.com/commons/370f8bd580b63fc0.webp": {
     "pogostemon-deccanensis": {
-      "ok": "unsure",
-      "typical": false,
-      "note": "Pogostemon-like spikes but broader leaves; may be another species"
+      "ok": "yes",
+      "typical": true,
+      "note": "flowering spikes with whorled leaves in the wild",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/375217b4a006bb97.webp": {
@@ -7951,7 +8188,9 @@
     "phyllanthus-fluitans": {
       "ok": "yes",
       "typical": false,
-      "note": "close-up of one round leaf with water droplets"
+      "note": "close-up of one leaf with water droplets",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/39763a757b3e093b.webp": {
@@ -8062,9 +8301,11 @@
   },
   "https://media.aquatome.com/commons/3b6a265c300f0f60.webp": {
     "pogostemon-deccanensis": {
-      "ok": "unsure",
+      "ok": "yes",
       "typical": true,
-      "note": "bushy flowering stand in dry grassland; could be another Pogostemon"
+      "note": "flowering emersed clump in the wild, purple flower spikes",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/3b7f6ac23491a713.webp": {
@@ -8160,7 +8401,9 @@
     "marosatherina-ladigesi": {
       "ok": "yes",
       "typical": true,
-      "note": "very yellow adult Celebes rainbow, side view in planted tank"
+      "note": "yellow-finned Celebes rainbowfish with blue stripe in planted tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/3c90564e0669a175.webp": {
@@ -8362,7 +8605,9 @@
     "carinotetraodon-travancoricus": {
       "ok": "yes",
       "typical": true,
-      "note": "close-up of pea puffer showing blotches and yellow belly"
+      "note": "close-up of pea puffer, dark blotches, yellow belly",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/401f80ff45d105d5.webp": {
@@ -8579,7 +8824,9 @@
     "marosatherina-ladigesi": {
       "ok": "yes",
       "typical": true,
-      "note": "adult male Celebes rainbow, blue lateral stripe, yellow fins with black edges, long rays"
+      "note": "male with long yellow-edged fins among plants; signature bottom left",
+      "logo": true,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/431472853029c2b8.webp": {
@@ -8733,7 +8980,9 @@
     "tanichthys-albonubes": {
       "ok": "yes",
       "typical": false,
-      "note": "pale golden/pinkish colour form with red-edged fins"
+      "note": "pale gold/pink colour form of white cloud",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/45345229e0e4d935.webp": {
@@ -9260,14 +9509,18 @@
     "inpaichthys-kerri": {
       "ok": "yes",
       "typical": true,
-      "note": "Adult with purple-blue stripe and red-tipped dorsal fin"
+      "note": "purple emperor tetra, clear side view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/4dd6ea17fd0cbb03.webp": {
     "ranunculus-inundatus": {
       "ok": "yes",
       "typical": true,
-      "note": "close-up of a palmately divided leaf rosette, emersed"
+      "note": "close-up of a palmately dissected leaf",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/4ddcddbbc275deec.webp": {
@@ -9790,7 +10043,9 @@
     "nymphoides-hydrophylla": {
       "ok": "yes",
       "typical": true,
-      "note": "two white flowers among dark round floating leaves"
+      "note": "two white flowers among mottled floating leaves",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/556d7c9159783fd7.webp": {
@@ -9854,9 +10109,11 @@
   },
   "https://media.aquatome.com/commons/56179958967c5f69.webp": {
     "pterygoplichthys-joselimaianus": {
-      "ok": "unsure",
-      "typical": false,
-      "note": "fine dense gold dots; could be another spotted pleco"
+      "ok": "yes",
+      "typical": true,
+      "note": "densely yellow-spotted sailfin pleco",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/561b4018211c8bee.webp": {
@@ -10140,7 +10397,9 @@
     "pogostemon-deccanensis": {
       "ok": "yes",
       "typical": true,
-      "note": "emersed flowering stand, purple spikes, whorled needle leaves, bee"
+      "note": "flowering emersed stands with whorled needle leaves and purple spikes, bee on flower",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/5c695b18592945a0.webp": {
@@ -10327,6 +10586,14 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/commons/5ecc81372753f183.webp": {
+    "nannostomus-unifasciatus": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Nannostomus eques",
+      "file": true
+    }
+  },
   "https://media.aquatome.com/commons/5ee55ab7f26d5964.webp": {
     "crystal-red-shrimp": {
       "ok": "yes",
@@ -10439,7 +10706,9 @@
     "hyphessobrycon-rosaceus": {
       "ok": "yes",
       "typical": true,
-      "note": "rosy tetra close-up, black dorsal patch with white tip, red fins"
+      "note": "rosy tetra with black dorsal patch and red fin tips",
+      "logo": false,
+      "person": false
     },
     "hyphessobrycon-bentosi": {
       "ok": "other",
@@ -11293,7 +11562,9 @@
     "ranunculus-inundatus": {
       "ok": "yes",
       "typical": true,
-      "note": "yellow flower above finely divided leaves in damp grass"
+      "note": "close-up of a yellow buttercup flower",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/6e545e71fc00d306.webp": {
@@ -11487,9 +11758,11 @@
   },
   "https://media.aquatome.com/commons/71be289cdae71b35.webp": {
     "botia-almorhae": {
-      "ok": "unsure",
-      "typical": false,
-      "note": "dull brownish loach with faded blotches among plants; pattern unclear, may be an older yo-yo loach"
+      "ok": "yes",
+      "typical": true,
+      "note": "banded yo-yo loach on gravel among plants",
+      "logo": false,
+      "person": false
     },
     "botia-lohachata": {
       "ok": "yes",
@@ -11709,7 +11982,9 @@
     "nymphoides-hydrophylla": {
       "ok": "yes",
       "typical": true,
-      "note": "glossy floating leaves with white yellow-centred flowers"
+      "note": "white flowers with yellow centre over glossy floating leaves",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/766b8eae4043ec7b.webp": {
@@ -12230,8 +12505,10 @@
   "https://media.aquatome.com/commons/7d9fae1ead0c1889.webp": {
     "pseudomugil-gertrudae": {
       "ok": "yes",
-      "typical": false,
-      "note": "single male, small and distant in a planted tank"
+      "typical": true,
+      "note": "male over carpet plants",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/7dbd4d2c0f9ce923.webp": {
@@ -12442,7 +12719,9 @@
     "nymphoides-hydrophylla": {
       "ok": "yes",
       "typical": true,
-      "note": "flowering stand with white yellow-centred flowers and floating leaves"
+      "note": "green floating leaves with white flowers",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/8078ffe1d00cbf54.webp": {
@@ -13138,7 +13417,9 @@
     "pristella-maxillaris": {
       "ok": "yes",
       "typical": true,
-      "note": "X-ray tetra, front-angled view, black-yellow-white dorsal and anal fins"
+      "note": "x-ray tetra, front three-quarter view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/8bef81e73813c3bb.webp": {
@@ -13179,7 +13460,9 @@
     "inpaichthys-kerri": {
       "ok": "yes",
       "typical": true,
-      "note": "Adult over gravel, clear side view with violet sheen and dark stripe"
+      "note": "purple emperor tetra, likely female, bronze back with dark blue stripe, over gravel",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/8c5e5ea7cb73afa6.webp": {
@@ -13384,6 +13667,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/commons/9101db169a490610.webp": {
+    "carinotetraodon-travancoricus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "pea puffer close-up, side view",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/9110107fd7147121.webp": {
     "rita-kuturnee": {
       "ok": "none",
@@ -13448,9 +13740,11 @@
   },
   "https://media.aquatome.com/commons/919ef27ae71477f1.webp": {
     "hyphessobrycon-rosaceus": {
-      "ok": "unsure",
+      "ok": "yes",
       "typical": false,
-      "note": "same red-dorsal tetra without black dorsal blotch; possible look-alike"
+      "note": "albino/pale rosy tetra form, red-tipped fins, red eye",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/91b357ffbffb4870.webp": {
@@ -13505,7 +13799,9 @@
     "pogostemon-deccanensis": {
       "ok": "yes",
       "typical": true,
-      "note": "flowering emersed clump in seasonal wet meadow"
+      "note": "flowering bush in open field",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/92afe684ef25f407.webp": {
@@ -13574,7 +13870,9 @@
     "pristella-maxillaris": {
       "ok": "yes",
       "typical": false,
-      "note": "albino X-ray tetra, others blurred behind"
+      "note": "pale albino-type pristella, other fish blurred",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/9326243fab83e7df.webp": {
@@ -14490,7 +14788,9 @@
     "phyllanthus-fluitans": {
       "ok": "yes",
       "typical": true,
-      "note": "Close-up of green rounded floating leaves in groups"
+      "note": "close-up of green round floating leaves",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/a28239808b8f60ab.webp": {
@@ -14524,7 +14824,9 @@
     "rotala-macrandra": {
       "ok": "unsure",
       "typical": false,
-      "note": "Dried reddish flower spikes on soil; species can't be confirmed"
+      "note": "small reddish flowering plant on soil, blurry; species unclear",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/a2ee97a27fb4b938.webp": {
@@ -14571,8 +14873,10 @@
   "https://media.aquatome.com/commons/a3a22147055a223c.webp": {
     "phyllanthus-fluitans": {
       "ok": "yes",
-      "typical": false,
-      "note": "Red floating spurge chains in an outdoor tub, distant view, other floaters present"
+      "typical": true,
+      "note": "reddish floating spurge chains in a round tub, with a few other floating plants",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/a3c15d33e8f8413b.webp": {
@@ -14892,7 +15196,9 @@
     "carinotetraodon-travancoricus": {
       "ok": "yes",
       "typical": true,
-      "note": "pea puffer, yellow belly, view from above in container"
+      "note": "pea puffer in a white bowl",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/a96f10a210cb97aa.webp": {
@@ -15479,14 +15785,18 @@
     "inpaichthys-kerri": {
       "ok": "yes",
       "typical": true,
-      "note": "Kerri tetra, probably a female, with a dark lateral band and blue sheen; a harlequin rasbora sits at the bottom"
+      "note": "purple emperor tetra with a harlequin rasbora at bottom",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/b213aea253c50366.webp": {
     "botia-almorhae": {
       "ok": "yes",
       "typical": true,
-      "note": "yo-yo loach on pebbles, dark Y/O-shaped bands"
+      "note": "yo-yo loach with dark bars among pebbles, yellowish lighting",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/b22331b66554a220.webp": {
@@ -15520,7 +15830,9 @@
     "sewellia-lineolata": {
       "ok": "yes",
       "typical": true,
-      "note": "adult on rock, side view, dark body with yellow reticulated markings"
+      "note": "side view on rock, reticulated pattern",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/b2bb8c1e1670eb0b.webp": {
@@ -15665,7 +15977,9 @@
     "sewellia-lineolata": {
       "ok": "yes",
       "typical": false,
-      "note": "underside on glass; yellow reticulated pattern visible at the edges"
+      "note": "underside view on aquarium glass",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/b5601a44e500ccf7.webp": {
@@ -15808,7 +16122,9 @@
     "carinotetraodon-travancoricus": {
       "ok": "yes",
       "typical": true,
-      "note": "pea puffer with dark blotches on greenish body"
+      "note": "male pea puffer with dark belly stripe",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/b80ecf99c5e5037b.webp": {
@@ -15896,7 +16212,9 @@
     "phyllanthus-fluitans": {
       "ok": "yes",
       "typical": true,
-      "note": "Floating spurge mats with red-tinged leaves, mixed with Salvinia minima"
+      "note": "floating spurge leaves with water droplets among small floating ferns",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/b9bd8d97b7762097.webp": {
@@ -16287,7 +16605,9 @@
     "phyllanthus-fluitans": {
       "ok": "yes",
       "typical": true,
-      "note": "Floating spurge leaves seen from above, green to pinkish"
+      "note": "green and reddish floating leaves seen from above",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/bd5f672e76319a4c.webp": {
@@ -16372,8 +16692,10 @@
   "https://media.aquatome.com/commons/be77a3a0857e49a8.webp": {
     "phyllanthus-fluitans": {
       "ok": "yes",
-      "typical": false,
-      "note": "Outdoor tub covered in strongly reddened floating spurge, distant view"
+      "typical": true,
+      "note": "tub covered with red floating spurge",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/bec160bc2dfd784e.webp": {
@@ -16700,7 +17022,9 @@
     "pterygoplichthys-joselimaianus": {
       "ok": "yes",
       "typical": true,
-      "note": "side view with spotted sail dorsal and wormy head marks"
+      "note": "spotted sailfin pleco on gravel, vermiculated head",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/c2e13c1750562c3a.webp": {
@@ -16747,6 +17071,14 @@
       "ok": "other",
       "typical": false,
       "note": "likely H. umbellata or bonariensis: flowers in rounded umbel heads, not whorls on a spike"
+    }
+  },
+  "https://media.aquatome.com/commons/c3adefdcaa27f12b.webp": {
+    "neolamprologus-pulcher": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Neolamprologus brichardi",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/c40455a7a0c89c2a.webp": {
@@ -17656,9 +17988,11 @@
   },
   "https://media.aquatome.com/commons/d11030dc5c5018d5.webp": {
     "pogostemon-deccanensis": {
-      "ok": "unsure",
+      "ok": "yes",
       "typical": false,
-      "note": "close-up of a single purple flower spike, leaves not visible"
+      "note": "close-up of a purple flower spike, leaves mostly out of focus",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/d115b2f77faabc33.webp": {
@@ -17704,8 +18038,10 @@
   "https://media.aquatome.com/commons/d1675765463bd41e.webp": {
     "nymphoides-hydrophylla": {
       "ok": "yes",
-      "typical": false,
-      "note": "dense flowering mat on water, distant view"
+      "typical": true,
+      "note": "dense stand flowering on the water surface, seen from a distance",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/d16f427a12ae4997.webp": {
@@ -17800,9 +18136,11 @@
   },
   "https://media.aquatome.com/commons/d24e3f9d4a2545b9.webp": {
     "paracheirodon-simulans": {
-      "ok": "unsure",
-      "typical": false,
-      "note": "distant blurry school in dark; can't rule out neon tetra"
+      "ok": "yes",
+      "typical": true,
+      "note": "group of green neons over dark background",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/d2566b399ce7c811.webp": {
@@ -18013,7 +18351,9 @@
     "carinotetraodon-travancoricus": {
       "ok": "yes",
       "typical": true,
-      "note": "side view of a pea puffer: dark blotches on a yellow body, yellow fins"
+      "note": "pea puffer side view on white background",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/d5e4b3ab525c9741.webp": {
@@ -18094,14 +18434,18 @@
     "pristella-maxillaris": {
       "ok": "yes",
       "typical": true,
-      "note": "adult X-ray tetra side view, red tail, banded fins"
+      "note": "x-ray tetra side view, red tail, banded fins",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/d679db7082c53ec9.webp": {
     "hyphessobrycon-rosaceus": {
-      "ok": "unsure",
+      "ok": "yes",
       "typical": false,
-      "note": "pinkish tetra with red dorsal, no black dorsal patch; could be bentosi or a colour form"
+      "note": "albino/pale rosy tetra form with red fins and red eye over gravel",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/d6a5de1952617a8c.webp": {
@@ -18462,14 +18806,18 @@
     "nymphoides-hydrophylla": {
       "ok": "yes",
       "typical": true,
-      "note": "single white flower with crinkled petals above a heart-shaped floating leaf"
+      "note": "single white crinkled flower above a floating heart-shaped leaf",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/dbe7930778cdfda5.webp": {
     "nymphoides-hydrophylla": {
       "ok": "yes",
       "typical": true,
-      "note": "flowering mat of floating leaves with many white flowers"
+      "note": "many white flowers held above mottled floating leaves",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/dc2ab805da825cac.webp": {
@@ -18486,6 +18834,15 @@
       "ok": "unsure",
       "typical": false,
       "note": "dark red long-finned male, fins not flared, oblique view"
+    }
+  },
+  "https://media.aquatome.com/commons/dc589b44d271daeb.webp": {
+    "proserpinaca-palustris": {
+      "ok": "yes",
+      "typical": true,
+      "note": "emersed stem with serrate leaves and axillary fruits",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/dc6c6735092b9878.webp": {
@@ -18868,7 +19225,9 @@
     "nymphoides-hydrophylla": {
       "ok": "yes",
       "typical": true,
-      "note": "close-up of a white flower with yellow centre among dark floating leaves"
+      "note": "close-up of a white yellow-centred flower among floating leaves",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/e2aacd9755454d8b.webp": {
@@ -18920,9 +19279,11 @@
   },
   "https://media.aquatome.com/commons/e410ffdfb8b05df8.webp": {
     "pterygoplichthys-joselimaianus": {
-      "ok": "unsure",
+      "ok": "yes",
       "typical": false,
-      "note": "head close-up with small yellow dots; can't confirm species"
+      "note": "close-up of head with yellow spots",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/e41f202a4cfeb6cf.webp": {
@@ -19022,14 +19383,18 @@
     "prionobrama-filigera": {
       "ok": "yes",
       "typical": true,
-      "note": "Adult glass bloodfin tetra side view: see-through body, red tail, white leading edge on anal fin"
+      "note": "glass bloodfin tetra side view, red tail, white-edged anal fin",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/e6c68eaa315549bb.webp": {
     "inpaichthys-kerri": {
       "ok": "yes",
       "typical": true,
-      "note": "Adult male purple emperor tetra, side view: violet body with dark blue lateral stripe"
+      "note": "purple emperor tetra male, side view in planted tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/e74b8cc7388e3356.webp": {
@@ -19241,7 +19606,9 @@
     "phyllanthus-fluitans": {
       "ok": "yes",
       "typical": true,
-      "note": "group floating in a white tub, with young unfolding leaves"
+      "note": "floating spurge in a white tub, folded new leaves",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/eb5c73f71040436a.webp": {
@@ -20150,7 +20517,9 @@
     "pogostemon-deccanensis": {
       "ok": "yes",
       "typical": true,
-      "note": "dense wild stand in flower, whorled linear leaves"
+      "note": "field of flowering plants with whorled narrow leaves and purple spikes",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/f84b7232545d87ac.webp": {
@@ -20247,9 +20616,11 @@
   },
   "https://media.aquatome.com/commons/fa03ec707ba1a28e.webp": {
     "botia-almorhae": {
-      "ok": "unsure",
-      "typical": false,
-      "note": "small banded loach on white gravel; could be a yo-yo loach, but a striped Botia can't be ruled out"
+      "ok": "yes",
+      "typical": true,
+      "note": "yo-yo loach on gravel among plants",
+      "logo": false,
+      "person": false
     },
     "botia-lohachata": {
       "ok": "other",
@@ -20262,7 +20633,9 @@
     "pogostemon-deccanensis": {
       "ok": "yes",
       "typical": false,
-      "note": "close-up of purple flower spike, emersed"
+      "note": "close-up of purple flower spike, leaves barely visible",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/fa4b14abacda5ecc.webp": {
@@ -21008,6 +21381,24 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/flickr/16163465973.webp": {
+    "carinotetraodon-travancoricus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "male pea puffer with eye wrinkles among plants",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/flickr/16782280862.webp": {
+    "carinotetraodon-travancoricus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "male pea puffer facing camera among plants",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/flickr/18815134980.webp": {
     "melanotaenia-boesemani": {
       "ok": "yes",
@@ -21139,6 +21530,15 @@
       "ok": "yes",
       "typical": true,
       "note": "ramirezi among plants, dark tank",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/flickr/26621991737.webp": {
+    "paracheirodon-simulans": {
+      "ok": "yes",
+      "typical": true,
+      "note": "single green neon in dark tank, small view",
       "logo": false,
       "person": false
     }
@@ -21310,6 +21710,15 @@
       "ok": "yes",
       "typical": true,
       "note": "Black moor side-front view, telescope eyes, dark body, long fins",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/flickr/49901175552.webp": {
+    "ranunculus-inundatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "mat of dissected leaves among grass",
       "logo": false,
       "person": false
     }
@@ -21656,6 +22065,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/flickr/7202551806.webp": {
+    "nymphoides-hydrophylla": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "distant patch of small white-flowered floating leaves on lake shore",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/flickr/7363087118.webp": {
     "ryukin-goldfish": {
       "ok": "unsure",
@@ -21777,37 +22195,47 @@
   },
   "https://media.aquatome.com/gbif/2842166591-ced7b993d7101623.webp": {
     "myriophyllum-mattogrossense": {
-      "ok": "unsure",
+      "ok": "other",
       "typical": false,
-      "note": "emersed Myriophyllum creeping on mud; can't rule out M. aquaticum or another milfoil"
+      "note": "emersed stiff whorled shoots on mud, likely parrot feather M. aquaticum",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/gbif/3905434571-a683ae41f60ac9a6.webp": {
     "myriophyllum-mattogrossense": {
       "ok": "unsure",
       "typical": false,
-      "note": "Myriophyllum shoot tip at pond surface among duckweed; could be parrot feather (M. aquaticum), can't confirm species"
+      "note": "floating Myriophyllum rosette in pond with duckweed; could be M. aquaticum",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/gbif/4410788833-25cda6f0b7057c24.webp": {
     "myriophyllum-mattogrossense": {
       "ok": "unsure",
       "typical": false,
-      "note": "emersed feathery rosette at surface, typical of parrot's feather look-alike"
+      "note": "top view of feathery Myriophyllum rosette at surface",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/gbif/4410788833-7b64e4789efee984.webp": {
     "myriophyllum-mattogrossense": {
       "ok": "unsure",
       "typical": false,
-      "note": "emersed shoot tip in pond; parrot's feather-like"
+      "note": "emersed stem above water, looks like parrot's feather (M. aquaticum)",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/gbif/4410788833-861fc878a5bddc45.webp": {
     "myriophyllum-mattogrossense": {
-      "ok": "unsure",
+      "ok": "other",
       "typical": false,
-      "note": "pond full of emersed Myriophyllum; looks like parrot's feather (M. aquaticum), can't rule out"
+      "note": "emersed stand in a lake, likely parrot feather M. aquaticum",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/gbif/4462501227-83a68ddedb1b4684.webp": {
@@ -21828,14 +22256,18 @@
     "myriophyllum-mattogrossense": {
       "ok": "unsure",
       "typical": false,
-      "note": "close-up of emersed Myriophyllum shoots; species unclear"
+      "note": "emersed Myriophyllum tips, possibly parrot's feather (M. aquaticum)",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/gbif/5283401603-ce7522f583b0b1aa.webp": {
     "myriophyllum-mattogrossense": {
-      "ok": "unsure",
+      "ok": "other",
       "typical": false,
-      "note": "dense emersed Myriophyllum with pennywort; resembles parrot's feather"
+      "note": "emersed parrot feather-like shoots with pennywort, likely M. aquaticum",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/gbif/5893916402-3f814dfb168fa188.webp": {
@@ -22763,7 +23195,9 @@
     "proserpinaca-palustris": {
       "ok": "yes",
       "typical": true,
-      "note": "dense stand of emersed shoots over dark water"
+      "note": "emersed lance-shaped serrated leaves growing in shallow water, comb-like submerged leaves below",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/157297879.webp": {
@@ -23104,7 +23538,9 @@
     "proserpinaca-palustris": {
       "ok": "unsure",
       "typical": false,
-      "note": "distant view of feathery submerged shoots in clear shallow water; could be this plant but too small to confirm"
+      "note": "small finely divided submerged shoots in pond, distant view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/184142946.webp": {
@@ -23179,7 +23615,9 @@
     "proserpinaca-palustris": {
       "ok": "yes",
       "typical": true,
-      "note": "emersed stem with three-angled fruits in the leaf axils and toothed lance-shaped leaves"
+      "note": "close-up of stem with three-angled fruits in leaf axils",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/1875661.webp": {
@@ -23306,7 +23744,9 @@
     "proserpinaca-palustris": {
       "ok": "yes",
       "typical": false,
-      "note": "submerged rosettes of comb-like divided leaves seen through the water"
+      "note": "submerged pectinate (comb-like) leaved shoots in pond water",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/201481781.webp": {
@@ -23397,8 +23837,10 @@
   "https://media.aquatome.com/inaturalist/210181926.webp": {
     "proserpinaca-palustris": {
       "ok": "yes",
-      "typical": true,
-      "note": "dense stand with finely pectinate leaves and reddish stems in shallow water"
+      "typical": false,
+      "note": "intermediate deeply lobed leaves, stand on wet ground",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/210477484.webp": {
@@ -23700,9 +24142,11 @@
   },
   "https://media.aquatome.com/inaturalist/230324388.webp": {
     "pogostemon-deccanensis": {
-      "ok": "unsure",
-      "typical": false,
-      "note": "flower spike among fine leaves near water; hard to confirm species"
+      "ok": "yes",
+      "typical": true,
+      "note": "close-up of single flower spike with needle-like whorled leaves",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/232992959.webp": {
@@ -24132,7 +24576,9 @@
     "rotala-macrandra": {
       "ok": "unsure",
       "typical": false,
-      "note": "Flowering emersed plant with pink spikes on wet mud; could be a Rotala but can't rule out R. rotundifolia"
+      "note": "emersed creeping plant with pink flower spikes on mud; can't be sure it's R. macrandra",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/255805936.webp": {
@@ -25000,7 +25446,9 @@
     "phyllanthus-fluitans": {
       "ok": "yes",
       "typical": true,
-      "note": "Macro of a single three-leaf rosette with red centre and water-repellent surface"
+      "note": "close-up of a single pinkish rosette",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/315860532.webp": {
@@ -25218,7 +25666,9 @@
     "myriophyllum-mattogrossense": {
       "ok": "unsure",
       "typical": true,
-      "note": "submerged fine-leaved whorled stems in planted aquarium; could be M. mattogrossense, not certain"
+      "note": "fine green Myriophyllum stems in aquarium; species not certain",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/323653292.webp": {
@@ -25250,14 +25700,18 @@
     "botia-almorhae": {
       "ok": "yes",
       "typical": true,
-      "note": "yo-yo loach side view next to a shell"
+      "note": "yo-yo loach lying on gravel, side view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/325090365.webp": {
     "botia-almorhae": {
       "ok": "yes",
       "typical": true,
-      "note": "yo-yo loach on gravel, clear yo-yo network pattern"
+      "note": "yo-yo loach on gravel by shells",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/325090568.webp": {
@@ -25325,7 +25779,9 @@
     "nymphoides-hydrophylla": {
       "ok": "unsure",
       "typical": false,
-      "note": "floating leaves and stems only, no flowers; species can't be confirmed"
+      "note": "floating leaves and stems only, no flowers, species unclear",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/330417115.webp": {
@@ -25589,9 +26045,11 @@
   },
   "https://media.aquatome.com/inaturalist/341567660.webp": {
     "nymphoides-hydrophylla": {
-      "ok": "yes",
-      "typical": true,
-      "note": "floating heart-shaped leaves with small white flowers, top view"
+      "ok": "unsure",
+      "typical": false,
+      "note": "small white flowers on green heart-shaped leaves; look-alike Nymphoides not ruled out",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/341710206.webp": {
@@ -25616,7 +26074,9 @@
     "ranunculus-inundatus": {
       "ok": "yes",
       "typical": true,
-      "note": "leaves at the edge of shallow water in a wet habitat"
+      "note": "leaves in shallow water",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/342484957.webp": {
@@ -25715,7 +26175,9 @@
     "ranunculus-inundatus": {
       "ok": "yes",
       "typical": true,
-      "note": "submerged plant with finely divided leaves in water"
+      "note": "finely divided leaves held above the water",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/347574010.webp": {
@@ -26126,7 +26588,9 @@
     "carinotetraodon-travancoricus": {
       "ok": "yes",
       "typical": true,
-      "note": "pea puffer resting on a leaf in a planted tank"
+      "note": "pale pea puffer resting on a leaf in planted tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/386790975.webp": {
@@ -26253,7 +26717,9 @@
     "proserpinaca-palustris": {
       "ok": "yes",
       "typical": true,
-      "note": "stem tips at the water surface with deeply toothed transitional leaves, in the wild"
+      "note": "shoots at water surface with comb-like transitional leaves",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/404816254.webp": {
@@ -26337,9 +26803,11 @@
   },
   "https://media.aquatome.com/inaturalist/411470254.webp": {
     "botia-almorhae": {
-      "ok": "unsure",
+      "ok": "yes",
       "typical": false,
-      "note": "blurry view of a loach hiding in a cave ornament; lohachata-type netted pattern"
+      "note": "banded loach in an ornament cave, blurry view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/416727235.webp": {
@@ -26425,8 +26893,10 @@
   "https://media.aquatome.com/inaturalist/41837943.webp": {
     "phyllanthus-fluitans": {
       "ok": "yes",
-      "typical": false,
-      "note": "red-tinged leaves under strong light, with some debris"
+      "typical": true,
+      "note": "floating spurge with red-tinged leaves, red roots",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/418719915.webp": {
@@ -26661,7 +27131,9 @@
     "phyllanthus-fluitans": {
       "ok": "yes",
       "typical": true,
-      "note": "a few small plants floating over a dark substrate"
+      "note": "a few floating spurge plants on dark water",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/445274634.webp": {
@@ -27408,8 +27880,10 @@
   "https://media.aquatome.com/inaturalist/50692204.webp": {
     "pogostemon-deccanensis": {
       "ok": "yes",
-      "typical": true,
-      "note": "single flower spike with whorled linear leaves"
+      "typical": false,
+      "note": "close-up of a single flower spike",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/509852390.webp": {
@@ -27716,7 +28190,9 @@
     "proserpinaca-palustris": {
       "ok": "yes",
       "typical": true,
-      "note": "emersed shoot with narrow saw-toothed leaves and tiny flowers in the leaf axils"
+      "note": "emersed shoot with lanceolate serrate leaves and small fruits",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/53817383.webp": {
@@ -28032,7 +28508,9 @@
     "ranunculus-inundatus": {
       "ok": "yes",
       "typical": true,
-      "note": "single finely divided leaf, top view"
+      "note": "single palmately divided leaf with narrow segments, growing emersed on damp ground",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/565122018.webp": {
@@ -28114,14 +28592,18 @@
     "phyllanthus-fluitans": {
       "ok": "yes",
       "typical": true,
-      "note": "low-angle view of a dense floating mat in sunlight"
+      "note": "low-angle view of floating spurge mat in sunlight",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/567586207.webp": {
     "phyllanthus-fluitans": {
       "ok": "yes",
       "typical": true,
-      "note": "floating rosettes with folded leaves and a tiny white flower, seen from above"
+      "note": "floating spurge rosettes from above, tiny white flower",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/5695464.webp": {
@@ -28261,7 +28743,9 @@
     "pogostemon-deccanensis": {
       "ok": "yes",
       "typical": true,
-      "note": "emersed plants with pink-purple spikes, whorled narrow leaves"
+      "note": "dense stand with flower spikes and whorled narrow leaves",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/576315424.webp": {
@@ -28503,7 +28987,9 @@
     "pogostemon-deccanensis": {
       "ok": "yes",
       "typical": true,
-      "note": "emersed plant with whorled needle leaves and young flower spike"
+      "note": "single plant with spike among grasses",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/603056247.webp": {
@@ -28732,9 +29218,11 @@
   },
   "https://media.aquatome.com/inaturalist/617422035.webp": {
     "botia-almorhae": {
-      "ok": "yes",
-      "typical": true,
-      "note": "Yo-yo loach in front with clear Y/O banding; spotted loaches behind look like a different Botia species"
+      "ok": "unsure",
+      "typical": false,
+      "note": "mixed loaches: a pale reticulated one plus orange loaches with white spots",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/617422245.webp": {
@@ -29179,9 +29667,11 @@
   },
   "https://media.aquatome.com/inaturalist/655883282.webp": {
     "pseudomugil-gertrudae": {
-      "ok": "yes",
-      "typical": true,
-      "note": "female, side view, with spotted rows and a dark midline stripe"
+      "ok": "unsure",
+      "typical": false,
+      "note": "pale fish with spotted rows and spotted fins, dull view through glass; species unclear",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/657989897.webp": {
@@ -29330,21 +29820,27 @@
     "carinotetraodon-travancoricus": {
       "ok": "yes",
       "typical": false,
-      "note": "single pea puffer fry, distant"
+      "note": "single pea puffer fry, small and distant",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/68022680.webp": {
     "carinotetraodon-travancoricus": {
       "ok": "yes",
       "typical": false,
-      "note": "group of pea puffer fry"
+      "note": "group of pea puffer fry",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/682650379.webp": {
     "pseudomugil-gertrudae": {
-      "ok": "yes",
+      "ok": "unsure",
       "typical": false,
-      "note": "pale juvenile or female, small and dull"
+      "note": "yellowish small fish with a dotted line, possibly a female or juvenile; look-alikes not ruled out",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/68322296.webp": {
@@ -29402,21 +29898,27 @@
     "pseudomugil-gertrudae": {
       "ok": "yes",
       "typical": true,
-      "note": "male with black-spotted fins, golden body, in a bare tank"
+      "note": "male in bare tank, side view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/691924598.webp": {
     "pseudomugil-gertrudae": {
       "ok": "yes",
       "typical": false,
-      "note": "two females or young near the surface, partly blurred"
+      "note": "two fish in a small tank, faint spotting, less clear view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/695711336.webp": {
     "pseudomugil-gertrudae": {
-      "ok": "yes",
-      "typical": true,
-      "note": "two females with dotted flanks and blue eyes"
+      "ok": "unsure",
+      "typical": false,
+      "note": "two small golden fish with rows of dark spots; could be Danio tinwini rather than P. gertrudae females",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/695915082.webp": {
@@ -29770,7 +30272,9 @@
     "pseudomugil-gertrudae": {
       "ok": "yes",
       "typical": true,
-      "note": "male, side view; printed scan on a textured background"
+      "note": "male with spotted fins, side view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/7571092.webp": {
@@ -30187,16 +30691,20 @@
   },
   "https://media.aquatome.com/inaturalist/97762589.webp": {
     "proserpinaca-palustris": {
-      "ok": "yes",
-      "typical": true,
-      "note": "wild plants with comb-like pectinate leaves growing on wet mud among leaf litter"
+      "ok": "unsure",
+      "typical": false,
+      "note": "comb-leaved plants on wet ground; could be P. pectinata or land form",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/98294780.webp": {
     "ranunculus-inundatus": {
-      "ok": "yes",
+      "ok": "unsure",
       "typical": false,
-      "note": "close-up of a dew-covered yellow flower only"
+      "note": "close-up of a yellow buttercup flower with dew; species cannot be confirmed from the flower alone",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/98492041.webp": {
@@ -30239,7 +30747,9 @@
     "botia-almorhae": {
       "ok": "yes",
       "typical": true,
-      "note": "Two adult yo-yo loaches with the dark reticulated pattern adults get, on gravel; matches caption",
+      "note": "two adult yo-yo loaches, matches caption",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -30257,7 +30767,9 @@
     "sewellia-lineolata": {
       "ok": "yes",
       "typical": true,
-      "note": "dorsal view of male, gold with black reticulated pattern, matches caption",
+      "note": "live Sewellia lineolata seen from above on gravel, reticulated yellow-black pattern",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -31714,7 +32226,9 @@
     "pterygoplichthys-joselimaianus": {
       "ok": "yes",
       "typical": true,
-      "note": "adult with pale spots and vermiculated head, sail dorsal; another fish behind"
+      "note": "spotted sailfin pleco on sand, another fish behind",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/scotcat/87dfdf71e7bb797e.webp": {
@@ -32210,7 +32724,9 @@
     "pterygoplichthys-joselimaianus": {
       "ok": "yes",
       "typical": true,
-      "note": "side view: dark body with white spots, tall spotted dorsal"
+      "note": "white-spotted sailfin pleco on wood",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/scotcat/b8d6e6ce4b9d2606.webp": {
@@ -32813,9 +33329,11 @@
   },
   "https://media.aquatome.com/scotcat/f9e074275336b83d.webp": {
     "pterygoplichthys-joselimaianus": {
-      "ok": "yes",
+      "ok": "unsure",
       "typical": false,
-      "note": "young sailfin pleco with pale spots and banded tail"
+      "note": "pleco with banded tail and lined body, pattern unlike white spots",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/scotcat/fb6ab6fc7691fa7a.webp": {
@@ -33746,7 +34264,9 @@
     "prionobrama-filigera": {
       "ok": "yes",
       "typical": true,
-      "note": "Adult glass bloodfin tetra: see-through body, red tail, white-edged anal fin"
+      "note": "transparent glass bloodfin tetra with red tail in planted tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/2a6c6ba0df2ab10a.webp": {
@@ -33809,9 +34329,11 @@
   },
   "https://media.aquatome.com/seriouslyfish/2cc06d5e5082a31e.webp": {
     "sewellia-lineolata": {
-      "ok": "unsure",
+      "ok": "yes",
       "typical": false,
-      "note": "underside on glass; no back pattern visible to confirm the species"
+      "note": "underside view of loach clinging to glass",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/2ce386c388c94273.webp": {
@@ -34040,6 +34562,15 @@
       "typical": true,
       "note": "adult croaking gourami, blue-spotted with red-edged fins, side view",
       "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/36eb3c025e5a553c.webp": {
+    "botia-almorhae": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult yo-yo loach with vermiculated pattern among rocks",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/37dce95b637e2eaf.webp": {
@@ -34408,7 +34939,9 @@
     "pseudomugil-gertrudae": {
       "ok": "yes",
       "typical": true,
-      "note": "adult male, side view, spotted fins"
+      "note": "adult male, spotted fins, planted tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/481641ff8c106345.webp": {
@@ -34525,7 +35058,9 @@
     "sewellia-lineolata": {
       "ok": "yes",
       "typical": true,
-      "note": "adult on rock, side view; yellow reticulated lines on dark body"
+      "note": "adult with gold reticulated pattern on rock",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/4de17218d5747ac1.webp": {
@@ -35089,6 +35624,15 @@
       "logo": false
     }
   },
+  "https://media.aquatome.com/seriouslyfish/695860bbb3d5c817.webp": {
+    "botia-almorhae": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult yo-yo loaches on gravel, reticulated pattern",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/seriouslyfish/69d0ffeed686f372.webp": {
     "betta-ideii": {
       "ok": "unsure",
@@ -35577,6 +36121,15 @@
       "note": "Amazon puffer among plants, yellow with dark bands"
     }
   },
+  "https://media.aquatome.com/seriouslyfish/8a2302ab1a4767c0.webp": {
+    "botia-almorhae": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "pale loach with bold reticulated bars, may be Botia lohachata",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/seriouslyfish/8a3380fd5a4fcf21.webp": {
     "enteromius-hulstaerti": {
       "ok": "yes",
@@ -35744,7 +36297,9 @@
     "pristella-maxillaris": {
       "ok": "yes",
       "typical": false,
-      "note": "albino/golden X-ray tetra, red eye, pale body"
+      "note": "albino/golden pristella with red eye among plants",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/9503cf5dcba9df77.webp": {
@@ -36039,7 +36594,9 @@
     "paracheirodon-simulans": {
       "ok": "yes",
       "typical": true,
-      "note": "adult green neon, broad blue stripe to tail, faint red belly"
+      "note": "green neon tetra, broad blue-green stripe, faint red belly",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/a35e0a75156ada02.webp": {
@@ -36169,6 +36726,15 @@
       "ok": "habitat",
       "typical": false,
       "note": "Nipa palm brackish swamp area near Mahachai, Thailand"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/a86f464e7aaa1d7c.webp": {
+    "marosatherina-ladigesi": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult Celebes rainbowfish, side view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/a883e71a36921c69.webp": {
@@ -36357,6 +36923,15 @@
       "note": "Pair on rocks: plain brown male behind a female with dark stripes along her side"
     }
   },
+  "https://media.aquatome.com/seriouslyfish/b1a29d17d5ac0e17.webp": {
+    "botia-almorhae": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult yo-yo loach on gravel, side view",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/seriouslyfish/b1c82b587bc1cedd.webp": {
     "nemacheilus-corica": {
       "ok": "unsure",
@@ -36386,14 +36961,18 @@
     "paracheirodon-simulans": {
       "ok": "yes",
       "typical": true,
-      "note": "adult green neon side view, blue stripe reaches tail base"
+      "note": "green neon tetra side view among plants",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/b508a90bce4be27e.webp": {
     "paracheirodon-simulans": {
       "ok": "yes",
       "typical": false,
-      "note": "head close-up"
+      "note": "close-up of head and stripe",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/b593b96934136b9f.webp": {
@@ -36839,7 +37418,9 @@
     "sewellia-lineolata": {
       "ok": "yes",
       "typical": false,
-      "note": "head close-up with yellow spots and lines"
+      "note": "close-up of head",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/cc65cdef95557aee.webp": {
@@ -37190,9 +37771,11 @@
   },
   "https://media.aquatome.com/seriouslyfish/dfbd7e7ff94dfb48.webp": {
     "sewellia-lineolata": {
-      "ok": "unsure",
+      "ok": "yes",
       "typical": false,
-      "note": "underside on glass; the barred fins fit, but a belly view can't rule out other hillstream loaches"
+      "note": "underside view of fish clinging to glass",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/e012301f1178b790.webp": {
@@ -37976,7 +38559,9 @@
     "tanichthys-albonubes": {
       "ok": "yes",
       "typical": false,
-      "note": "two gold-variety white clouds displaying, fins spread",
+      "note": "gold variety males displaying",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -38102,7 +38687,9 @@
     "carinotetraodon-travancoricus": {
       "ok": "yes",
       "typical": true,
-      "note": "pea puffer, clear side view: yellow with dark blotches",
+      "note": "single pea puffer, side view, pale background",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -38194,7 +38781,9 @@
     "tanichthys-albonubes": {
       "ok": "yes",
       "typical": true,
-      "note": "adult wild-type white cloud, side view",
+      "note": "adult white cloud close-up",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -38240,7 +38829,9 @@
     "tanichthys-albonubes": {
       "ok": "yes",
       "typical": true,
-      "note": "adult white cloud with red tail, side view",
+      "note": "adult white cloud side view",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -38397,7 +38988,9 @@
     "marosatherina-ladigesi": {
       "ok": "yes",
       "typical": true,
-      "note": "Male Celebes rainbowfish: blue lateral stripe, yellow fin edges with extended rays, side view",
+      "note": "male Celebes rainbowfish with blue midline stripe and yellow-edged fins among plants",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -38446,6 +39039,15 @@
       "logo": false,
       "person": false,
       "guide": true
+    }
+  },
+  "https://media.aquatome.com/sprucepets/b1f8530301131505.webp": {
+    "carinotetraodon-travancoricus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "pea puffer on white background, duller colours",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/sprucepets/b3f5400a77c0f709.webp": {
@@ -38764,6 +39366,16 @@
       "ok": "yes",
       "typical": true,
       "note": "full side view of tiger oscar, matches caption",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/0FT3LNIYFh0/p10-zX2J5X0Fyay5qcGc.webp": {
+    "tanichthys-albonubes": {
+      "ok": "yes",
+      "typical": true,
+      "note": "three wild-type white clouds among plants",
       "logo": false,
       "person": false,
       "guide": true
@@ -39111,6 +39723,16 @@
       "note": "several aquarium plants laid on paper, including a small clump labelled java moss; red name labels and a date stamp adde",
       "logo": true,
       "person": true,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/9NhMq1H-aoo/p6-NTU3MTYwOCkuanBn.webp": {
+    "carassius-auratus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "telescope-eye goldfish nosing down at blue gravel, matches caption",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -39473,11 +40095,31 @@
       "guide": true
     }
   },
+  "https://media.aquatome.com/video/G7GKeDki7a0/p3-YmVzX2dvbGQuanBn.webp": {
+    "tanichthys-albonubes": {
+      "ok": "yes",
+      "typical": false,
+      "note": "golden/pale colour form with red fins",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
   "https://media.aquatome.com/video/HeOOfGW7eAk/p2-b25fdGV0cmEuanBn.webp": {
     "hyphessobrycon-herbertaxelrodi": {
       "ok": "yes",
       "typical": true,
       "note": "black neon tetra close-up, dark body with bright white stripe, red upper eye",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/HeOOfGW7eAk/p3-FfY2luc2thLmpwZw.webp": {
+    "tanichthys-albonubes": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult wild-type side view on black background",
       "logo": false,
       "person": false,
       "guide": true
@@ -39726,6 +40368,16 @@
       "guide": true
     }
   },
+  "https://media.aquatome.com/video/Ojpc5djfQ9U/p4-AyOTI1MDkpLmpwZw.webp": {
+    "pogostemon-deccanensis": {
+      "ok": "yes",
+      "typical": true,
+      "note": "flowering stems with purple spikes and narrow leaves, bee on flower",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
   "https://media.aquatome.com/video/Omxb5ByqLMs/p1-pcnJob3N1bS5KUEc.webp": {
     "osteoglossum-bicirrhosum": {
       "ok": "yes",
@@ -39858,6 +40510,16 @@
       "ok": "yes",
       "typical": false,
       "note": "same tank image: calico goldfish over gravel with driftwood",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/RJE1PUdhy6I/p7-bV9maXNoZXMuanBn.webp": {
+    "carassius-auratus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "gold goldfish swimming in planted tank, matches caption",
       "logo": false,
       "person": false,
       "guide": true
@@ -40073,6 +40735,16 @@
       "guide": true
     }
   },
+  "https://media.aquatome.com/video/WKr4WfuEQWU/p6-FfY2luc2thLmpwZw.webp": {
+    "tanichthys-albonubes": {
+      "ok": "yes",
+      "typical": true,
+      "note": "clear side view, red tail; same image as 3",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
   "https://media.aquatome.com/video/WVCXRvyshIA/p3-XzIwMTBfRzEuanBn.webp": {
     "astronotus-ocellatus": {
       "ok": "yes",
@@ -40143,6 +40815,16 @@
       "guide": true
     }
   },
+  "https://media.aquatome.com/video/YA4xCkUITpQ/p0-hcG9uaWNhKS5qcGc.webp": {
+    "taxiphyllum-barbieri": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Amano shrimp on a bed of moss, matching the caption",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
   "https://media.aquatome.com/video/YA4xCkUITpQ/p0-phdmFtb29zLmpwZw.webp": {
     "taxiphyllum-barbieri": {
       "ok": "yes",
@@ -40158,6 +40840,16 @@
       "ok": "yes",
       "typical": false,
       "note": "Amano-type shrimp and a snail on Java moss; the shrimp is the focus",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/YA4xCkUITpQ/p1-phdmFtb29zLmpwZw.webp": {
+    "taxiphyllum-barbieri": {
+      "ok": "yes",
+      "typical": true,
+      "note": "close-up of thin, branching moss strands",
       "logo": false,
       "person": false,
       "guide": true
@@ -40535,6 +41227,16 @@
       "guide": true
     }
   },
+  "https://media.aquatome.com/video/i_juW-Tmwcs/p1-YV90ZXRyYTEuanBn.webp": {
+    "pristella-maxillaris": {
+      "ok": "yes",
+      "typical": true,
+      "note": "X-ray tetra side view, dorsal fin with black and yellow patches, reddish tail",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
   "https://media.aquatome.com/video/i_juW-Tmwcs/p3-lfc2Nob29sLmpwZw.webp": {
     "paracheirodon-axelrodi": {
       "ok": "yes",
@@ -40590,6 +41292,16 @@
       "ok": "yes",
       "typical": false,
       "note": "mixed common goldfish, fantails and black moors in a shop tank",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/ldbE9N7RUTQ/p3-zX2J5X0Fyay5qcGc.webp": {
+    "tanichthys-albonubes": {
+      "ok": "yes",
+      "typical": true,
+      "note": "group among plants; same image as 1",
       "logo": false,
       "person": false,
       "guide": true
@@ -40664,6 +41376,16 @@
       "ok": "yes",
       "typical": true,
       "note": "male ram with extended dorsal rays and black body spot, matches caption",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/nXDe9QF-Gu8/p7-YWVubmNoZW4uanBn.webp": {
+    "pseudomugil-gertrudae": {
+      "ok": "yes",
+      "typical": true,
+      "note": "males showing off spotted fins against a dark background",
       "logo": false,
       "person": false,
       "guide": true

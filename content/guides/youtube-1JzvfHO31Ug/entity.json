@@ -40,27 +40,6 @@
     ],
     "figures": [
       {
-        "heading": "Cần chuẩn bị những gì",
-        "moments": [
-          {
-            "t": 45,
-            "url": "https://media.aquatome.com/video/1JzvfHO31Ug/at45-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hai nắp CO2 làm sẵn có đầu gắn dây khí, nối với nhau bằng dây.",
-            "sharpness": 67.8
-          },
-          {
-            "t": 50,
-            "url": "https://media.aquatome.com/video/1JzvfHO31Ug/at50-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hai nắp CO2 đặt cạnh hai chai nước và đồng hồ áp.",
-            "sharpness": 115.5
-          }
-        ]
-      },
-      {
         "heading": "Axit citric là gì, mua ở đâu",
         "moments": [
           {
@@ -69,7 +48,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Túi bột axit citric màu trắng đặt cạnh các vật dụng khác.",
-            "sharpness": 12
+            "sharpness": 12,
+            "person": false
           },
           {
             "t": 115,
@@ -77,7 +57,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Kẹo chua phủ đường, một món có chứa axit citric.",
-            "sharpness": 1520.5
+            "sharpness": 1520.5,
+            "person": false
           }
         ],
         "photo": {
@@ -100,15 +81,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hai chai nhựa xanh đặt cạnh nhau để pha hỗn hợp CO2.",
-            "sharpness": 202.3
-          },
-          {
-            "t": 155,
-            "url": "https://media.aquatome.com/video/1JzvfHO31Ug/at155-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hai chai đã sẵn sàng để đổ baking soda và axit citric.",
-            "sharpness": 114.5
+            "sharpness": 202.3,
+            "person": false
           }
         ],
         "photo": {
@@ -123,44 +97,16 @@
         }
       },
       {
-        "heading": "Lắp chai và nối dây ra bể",
-        "moments": [
-          {
-            "t": 185,
-            "url": "https://media.aquatome.com/video/1JzvfHO31Ug/at185-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nối dây CO2 từ chai qua van và các đầu nối.",
-            "sharpness": 40.6
-          },
-          {
-            "t": 210,
-            "url": "https://media.aquatome.com/video/1JzvfHO31Ug/at210-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hai chai CO2 nối với nhau, một chai gắn đồng hồ áp.",
-            "sharpness": 330
-          }
-        ]
-      },
-      {
         "heading": "Mồi bình cho chạy",
         "moments": [
-          {
-            "t": 225,
-            "url": "https://media.aquatome.com/video/1JzvfHO31Ug/at225-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bóp chai axit citric để đẩy dung dịch sang chai baking soda.",
-            "sharpness": 155.2
-          },
           {
             "t": 250,
             "url": "https://media.aquatome.com/video/1JzvfHO31Ug/at250-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Hai chai CO2 tự chế nối dây, có van kim và đồng hồ áp.",
-            "sharpness": 298
+            "sharpness": 298,
+            "person": false
           }
         ]
       },
@@ -173,15 +119,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hai chai CO2 tự chế nối với van kim bên cạnh bể.",
-            "sharpness": 90.4
-          },
-          {
-            "t": 295,
-            "url": "https://media.aquatome.com/video/1JzvfHO31Ug/at295-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tháo chai hỗn hợp ra để thay mẻ pha mới.",
-            "sharpness": 465.6
+            "sharpness": 90.4,
+            "person": false
           }
         ]
       },
@@ -194,7 +133,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh van kim trên đường dẫn khí từ bình CO2.",
-            "sharpness": 65.9
+            "sharpness": 65.9,
+            "person": false
           },
           {
             "t": 345,
@@ -202,7 +142,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bình CO2 tự chế nối van kim vào bể cá.",
-            "sharpness": 131.7
+            "sharpness": 131.7,
+            "person": false
           }
         ],
         "photo": {
@@ -225,7 +166,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hai chai CO2 tự chế nối dây dẫn khí vào bể.",
-            "sharpness": 184.9
+            "sharpness": 184.9,
+            "person": false
           },
           {
             "t": 360,
@@ -233,7 +175,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh bộ sủi CO2 trong bể bên cạnh chai CO2.",
-            "sharpness": 104.7
+            "sharpness": 104.7,
+            "person": false
           }
         ]
       }

@@ -1,7 +1,7 @@
 # Photos that don't show their page's subject
 
 Written by `pnpm engine check-photos` (2026-11-09), most-read pages first. Rules: docs/governance.md, "Photos".
-4964 verdicts. Shows it: 3383; its habitat (asked again): 4; something else: 231; not a photo of it: 180; dead or as food: 241; a person in it: 84; a logo on it: 28; can't tell: 800.
+5011 verdicts. Shows it: 3422; its habitat (asked again): 4; something else: 238; not a photo of it: 183; dead or as food: 241; a person in it: 84; a logo on it: 29; can't tell: 797.
 
 ## Left with no photo (55)
 
@@ -61,7 +61,7 @@ Written by `pnpm engine check-photos` (2026-11-09), most-read pages first. Rules
 - species/opsarius-pulchellus
 - species/parambassis-wolffii
 
-## Can't tell: still shown (800)
+## Can't tell: still shown (797)
 
 | Page | Photo | What the model saw |
 | --- | --- | --- |
@@ -202,13 +202,13 @@ Written by `pnpm engine check-photos` (2026-11-09), most-read pages first. Rules
 | species/labidochromis-caeruleus | [photo](https://media.aquatome.com/commons/fa4b14abacda5ecc.webp) | albino-type yellow cichlid with red eye, no black fin markings; can't confirm species |
 | plants/ammannia-gracilis | [photo](https://media.aquatome.com/commons/3aa850397ea64daa.webp) | green stem with narrow wavy leaves; possibly green low-light Ammannia or Hygrophila angustifolia |
 | plants/ammannia-gracilis | [photo](https://media.aquatome.com/commons/801f329539edd738.webp) | green stem plant with pinkish tips among grassy plants; could be Hygrophila or another stem plant |
+| plants/pogostemon-stellatus | [photo](https://media.aquatome.com/commons/69b90479574f6db2.webp) | submersed whorled stem plant, pale, blurry underwater view |
+| plants/pogostemon-stellatus | [photo](https://media.aquatome.com/inaturalist/288941429.webp) | broad light-green leaved stem plant in a tank, ID unclear |
 | species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/190994960.webp) | brownish shiner with orange fins in white tray; may be a different Notropis |
 | species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/198085365.webp) | brown shiner with orange fins and purple cheek in a photo tank |
 | species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/345078269.webp) | plain brownish minnow in a viewing tank; no rainbow colours, could be another shiner |
 | species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/487219627.webp) | small red fish in a clear container, far away |
 | species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/594690233.webp) | close-up of a shiner with a red stripe; may be a different species |
-| plants/pogostemon-stellatus | [photo](https://media.aquatome.com/commons/69b90479574f6db2.webp) | submersed whorled stem plant, pale, blurry underwater view |
-| plants/pogostemon-stellatus | [photo](https://media.aquatome.com/inaturalist/288941429.webp) | broad light-green leaved stem plant in a tank, ID unclear |
 | plants/egeria-densa | [photo](https://media.aquatome.com/inaturalist/111784032.webp) | blurry underwater view of leafy stems; could be Egeria or a look-alike such as Elodea or Hydrilla |
 | species/poecilia-latipinna | [photo](https://media.aquatome.com/inaturalist/252129078.webp) | group of small fish seen from above in wild, can't confirm species |
 | species/poecilia-latipinna | [photo](https://media.aquatome.com/inaturalist/313886713.webp) | single small pale livebearer over the bottom; too distant to confirm |
@@ -378,35 +378,32 @@ Written by `pnpm engine check-photos` (2026-11-09), most-read pages first. Rules
 | species/danio-choprae | [photo](https://media.aquatome.com/commons/3beec92879a0b656.webp) | purple-bodied fish with red rear stripe and bars; odd colouring, possibly choprae under unusual lighting |
 | species/danio-choprae | [photo](https://media.aquatome.com/commons/f316e07b5ca825b2.webp) | close-up of the same purple-red fish; colouring unusual for glowlight danio |
 | plants/murdannia-keisak | [photo](https://media.aquatome.com/inaturalist/25146997.webp) | blue flower close-up, could be another dayflower |
-| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/2842166591-ced7b993d7101623.webp) | emersed Myriophyllum creeping on mud; can't rule out M. aquaticum or another milfoil |
-| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/3905434571-a683ae41f60ac9a6.webp) | Myriophyllum shoot tip at pond surface among duckweed; could be parrot feather (M. aquaticum), can't confirm species |
-| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/4410788833-25cda6f0b7057c24.webp) | emersed feathery rosette at surface, typical of parrot's feather look-alike |
-| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/4410788833-7b64e4789efee984.webp) | emersed shoot tip in pond; parrot's feather-like |
-| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/4410788833-861fc878a5bddc45.webp) | pond full of emersed Myriophyllum; looks like parrot's feather (M. aquaticum), can't rule out |
+| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/3905434571-a683ae41f60ac9a6.webp) | floating Myriophyllum rosette in pond with duckweed; could be M. aquaticum |
+| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/4410788833-25cda6f0b7057c24.webp) | top view of feathery Myriophyllum rosette at surface |
+| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/4410788833-7b64e4789efee984.webp) | emersed stem above water, looks like parrot's feather (M. aquaticum) |
 | plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/4462501227-83a68ddedb1b4684.webp) | Emersed Myriophyllum mat on the water surface; probably parrot feather (M. aquaticum), not clearly M. mattogrossense |
 | plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/5283401603-39c538f07966c055.webp) | Emersed Myriophyllum stand at a ditch edge with pennywort; looks like parrot feather (M. aquaticum), can't confirm M. ma |
-| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/5283401603-b98792816f7df2ee.webp) | close-up of emersed Myriophyllum shoots; species unclear |
-| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/5283401603-ce7522f583b0b1aa.webp) | dense emersed Myriophyllum with pennywort; resembles parrot's feather |
-| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/inaturalist/323641718.webp) | submerged fine-leaved whorled stems in planted aquarium; could be M. mattogrossense, not certain |
-| plants/nymphoides-hydrophylla | [photo](https://media.aquatome.com/inaturalist/327658694.webp) | floating leaves and stems only, no flowers; species can't be confirmed |
-| species/paracheirodon-simulans | [photo](https://media.aquatome.com/bwaquatics/0b413da48f8882f9.webp) | school over plants; red belly marks could be neon or cardinal tetra |
-| species/paracheirodon-simulans | [photo](https://media.aquatome.com/commons/d24e3f9d4a2545b9.webp) | distant blurry school in dark; can't rule out neon tetra |
-| plants/pogostemon-deccanensis | [photo](https://media.aquatome.com/commons/370f8bd580b63fc0.webp) | Pogostemon-like spikes but broader leaves; may be another species |
-| plants/pogostemon-deccanensis | [photo](https://media.aquatome.com/commons/3b6a265c300f0f60.webp) | bushy flowering stand in dry grassland; could be another Pogostemon |
-| plants/pogostemon-deccanensis | [photo](https://media.aquatome.com/commons/d11030dc5c5018d5.webp) | close-up of a single purple flower spike, leaves not visible |
-| plants/pogostemon-deccanensis | [photo](https://media.aquatome.com/inaturalist/230324388.webp) | flower spike among fine leaves near water; hard to confirm species |
-| species/hyphessobrycon-rosaceus | [photo](https://media.aquatome.com/commons/919ef27ae71477f1.webp) | same red-dorsal tetra without black dorsal blotch; possible look-alike |
-| species/hyphessobrycon-rosaceus | [photo](https://media.aquatome.com/commons/d679db7082c53ec9.webp) | pinkish tetra with red dorsal, no black dorsal patch; could be bentosi or a colour form |
-| plants/proserpinaca-palustris | [photo](https://media.aquatome.com/inaturalist/183488460.webp) | distant view of feathery submerged shoots in clear shallow water; could be this plant but too small to confirm |
-| species/pterygoplichthys-joselimaianus | [photo](https://media.aquatome.com/commons/56179958967c5f69.webp) | fine dense gold dots; could be another spotted pleco |
-| species/pterygoplichthys-joselimaianus | [photo](https://media.aquatome.com/commons/e410ffdfb8b05df8.webp) | head close-up with small yellow dots; can't confirm species |
-| species/sewellia-lineolata | [photo](https://media.aquatome.com/seriouslyfish/2cc06d5e5082a31e.webp) | underside on glass; no back pattern visible to confirm the species |
-| species/sewellia-lineolata | [photo](https://media.aquatome.com/seriouslyfish/dfbd7e7ff94dfb48.webp) | underside on glass; the barred fins fit, but a belly view can't rule out other hillstream loaches |
-| plants/rotala-macrandra | [photo](https://media.aquatome.com/commons/a2c38b71059b7fc3.webp) | Dried reddish flower spikes on soil; species can't be confirmed |
-| plants/rotala-macrandra | [photo](https://media.aquatome.com/inaturalist/255471269.webp) | Flowering emersed plant with pink spikes on wet mud; could be a Rotala but can't rule out R. rotundifolia |
-| species/botia-almorhae | [photo](https://media.aquatome.com/commons/71be289cdae71b35.webp) | dull brownish loach with faded blotches among plants; pattern unclear, may be an older yo-yo loach |
-| species/botia-almorhae | [photo](https://media.aquatome.com/commons/fa03ec707ba1a28e.webp) | small banded loach on white gravel; could be a yo-yo loach, but a striped Botia can't be ruled out |
-| species/botia-almorhae | [photo](https://media.aquatome.com/inaturalist/411470254.webp) | blurry view of a loach hiding in a cave ornament; lohachata-type netted pattern |
+| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/5283401603-b98792816f7df2ee.webp) | emersed Myriophyllum tips, possibly parrot's feather (M. aquaticum) |
+| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/inaturalist/323641718.webp) | fine green Myriophyllum stems in aquarium; species not certain |
+| plants/nymphoides-hydrophylla | [photo](https://media.aquatome.com/commons/028e21e999201c76.webp) | single small white flower and floating leaf in murky water; poor view to tell from other white Nymphoides |
+| plants/nymphoides-hydrophylla | [photo](https://media.aquatome.com/flickr/7202551806.webp) | distant patch of small white-flowered floating leaves on lake shore |
+| plants/nymphoides-hydrophylla | [photo](https://media.aquatome.com/inaturalist/327658694.webp) | floating leaves and stems only, no flowers, species unclear |
+| plants/nymphoides-hydrophylla | [photo](https://media.aquatome.com/inaturalist/341567660.webp) | small white flowers on green heart-shaped leaves; look-alike Nymphoides not ruled out |
+| species/paracheirodon-simulans | [photo](https://media.aquatome.com/bwaquatics/0b413da48f8882f9.webp) | small group of blue-striped tetras, could be neon tetras |
+| species/paracheirodon-simulans | [photo](https://media.aquatome.com/bwaquatics/72e065dab2201632.webp) | distant school of tetras with red rear half, possibly neon tetras |
+| species/hyphessobrycon-rosaceus | [photo](https://media.aquatome.com/commons/21b8fc8fd884dc91.webp) | silvery tetra with red fins and dark-tipped long dorsal; rosy tetra's black dorsal patch not clear |
+| plants/proserpinaca-palustris | [photo](https://media.aquatome.com/inaturalist/183488460.webp) | small finely divided submerged shoots in pond, distant view |
+| plants/proserpinaca-palustris | [photo](https://media.aquatome.com/inaturalist/97762589.webp) | comb-leaved plants on wet ground; could be P. pectinata or land form |
+| species/pterygoplichthys-joselimaianus | [photo](https://media.aquatome.com/scotcat/f9e074275336b83d.webp) | pleco with banded tail and lined body, pattern unlike white spots |
+| plants/ranunculus-inundatus | [photo](https://media.aquatome.com/inaturalist/98294780.webp) | close-up of a yellow buttercup flower with dew; species cannot be confirmed from the flower alone |
+| species/sewellia-lineolata | [photo](https://media.aquatome.com/aquariumcoop/9a5ec1b467c2e38d.webp) | reddish-toned hillstream loach, unusual colour, may be another Sewellia |
+| plants/rotala-macrandra | [photo](https://media.aquatome.com/commons/a2c38b71059b7fc3.webp) | small reddish flowering plant on soil, blurry; species unclear |
+| plants/rotala-macrandra | [photo](https://media.aquatome.com/inaturalist/255471269.webp) | emersed creeping plant with pink flower spikes on mud; can't be sure it's R. macrandra |
+| species/botia-almorhae | [photo](https://media.aquatome.com/inaturalist/617422035.webp) | mixed loaches: a pale reticulated one plus orange loaches with white spots |
+| species/botia-almorhae | [photo](https://media.aquatome.com/seriouslyfish/8a2302ab1a4767c0.webp) | pale loach with bold reticulated bars, may be Botia lohachata |
+| species/pseudomugil-gertrudae | [photo](https://media.aquatome.com/inaturalist/655883282.webp) | pale fish with spotted rows and spotted fins, dull view through glass; species unclear |
+| species/pseudomugil-gertrudae | [photo](https://media.aquatome.com/inaturalist/682650379.webp) | yellowish small fish with a dotted line, possibly a female or juvenile; look-alikes not ruled out |
+| species/pseudomugil-gertrudae | [photo](https://media.aquatome.com/inaturalist/695711336.webp) | two small golden fish with rows of dark spots; could be Danio tinwini rather than P. gertrudae females |
 | species/vittina-waigiensis (a guide photo) | [photo](https://media.aquatome.com/aquariumcoop/8e362893e1346949.webp) | caption is about horned nerite (Clithon sp.) on algae-covered rock, not V. waigiensis |
 | species/vittina-waigiensis (a guide photo) | [photo](https://media.aquatome.com/aquariumcoop/fb433cb2c3a7d8ad.webp) | caption is about horned nerite (Clithon sp.), a different snail with spined shell |
 | species/clarias-batrachus | [photo](https://media.aquatome.com/commons/e000e9ffdecbc952.webp) | crowd of Clarias-type catfish mixed with common carp at feeding spot; species unclear (could be African catfish/hybrids) |
@@ -866,7 +863,7 @@ Written by `pnpm engine check-photos` (2026-11-09), most-read pages first. Rules
 | species/nemacheilus-binotatus | [photo](https://media.aquatome.com/seriouslyfish/2a6c6ba0df2ab10a.webp) | wild stream bottom, two small striped fish seen from above, too distant to confirm |
 | species/nemacheilus-binotatus | [photo](https://media.aquatome.com/seriouslyfish/5cb4fe636c844fc7.webp) | wild stream bed, small distant slender fish among rocks, species unclear |
 
-## Removed (752)
+## Removed (763)
 
 "Something else" names what the photo shows instead; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
 
@@ -1000,10 +997,10 @@ Written by `pnpm engine check-photos` (2026-11-09), most-read pages first. Rules
 | species/hyphessobrycon-elachys | [photo](https://media.aquatome.com/commons/936f63ab8128658c.webp) | dead: preserved museum specimen with scale ruler, faded |
 | species/hyphessobrycon-eques | [photo](https://media.aquatome.com/commons/11f47fe29e06233f.webp) | rosy tetra (H. rosaceus/bentosi): no comma shoulder spot, white-tipped black dorsal and anal fins |
 | species/labidochromis-caeruleus | [photo](https://media.aquatome.com/commons/0c5670f2f7a40286.webp) | its Commons file names Maylandia lombardoi |
-| species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/289154653.webp) | people: iridescent blue-pink shiner in a photo tank held outdoors; hand partly visible at right edge |
-| species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/487219656.webp) | people: breeding male in red-and-violet colour in a photo tank; fingers at the left edge holding the tank |
 | plants/pogostemon-stellatus (a guide photo) | [photo](https://media.aquatome.com/aquariumcoop/f51b9d3d8e6c077a.webp) | people: potted plant held in a hand |
 | plants/pogostemon-stellatus | [photo](https://media.aquatome.com/commons/ef003b0bbd18a6d2.webp) | likely Pogostemon erectus: very fine needle-like leaves, not broad serrated whorls |
+| species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/289154653.webp) | people: iridescent blue-pink shiner in a photo tank held outdoors; hand partly visible at right edge |
+| species/notropis-chrosomus | [photo](https://media.aquatome.com/inaturalist/487219656.webp) | people: breeding male in red-and-violet colour in a photo tank; fingers at the left edge holding the tank |
 | species/poecilia-latipinna | [photo](https://media.aquatome.com/commons/81f08b1ad835e8ec.webp) | people: wild sailfin molly with orange-spotted flanks held in fingers, ring visible |
 | species/poecilia-latipinna | [photo](https://media.aquatome.com/commons/bf71c7e751807fff.webp) | people: young wild sailfin molly lying on an open palm, fins folded |
 | species/poecilia-latipinna | [photo](https://media.aquatome.com/commons/dca7170c20b3170e.webp) | people: wild female sailfin molly with rows of dark spots, on a palm |
@@ -1121,10 +1118,16 @@ Written by `pnpm engine check-photos` (2026-11-09), most-read pages first. Rules
 | species/microdevario-kubotai | [photo](https://media.aquatome.com/seriouslyfish/06c590db66183438.webp) | hand holding a magnifier up to the tank, tiny fry barely visible |
 | species/microdevario-kubotai | [photo](https://media.aquatome.com/seriouslyfish/3ce22d73a82e9f8a.webp) | hand holding a magnifier up to the tank with heater and filter |
 | plants/murdannia-keisak | [photo](https://media.aquatome.com/commons/f31b3d9dbf2e1170.webp) | line drawing of stem with leaves and flower |
+| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/2842166591-ced7b993d7101623.webp) | emersed stiff whorled shoots on mud, likely parrot feather M. aquaticum |
+| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/4410788833-861fc878a5bddc45.webp) | emersed stand in a lake, likely parrot feather M. aquaticum |
+| plants/myriophyllum-mattogrossense | [photo](https://media.aquatome.com/gbif/5283401603-ce7522f583b0b1aa.webp) | emersed parrot feather-like shoots with pennywort, likely M. aquaticum |
 | species/inpaichthys-kerri | [photo](https://media.aquatome.com/commons/87925fc5b9a4ac1f.webp) | Likely emperor tetra (Nematobrycon palmeri): yellowish body, black stripe, bright blue eye, dark-edged fins |
 | species/inpaichthys-kerri | [photo](https://media.aquatome.com/commons/f4dcb8c6c76eb211.webp) | Plate of many preserved fish species labelled a–m, not the subject |
 | plants/nymphoides-hydrophylla | [photo](https://media.aquatome.com/commons/1a3e6c2d93ba96b0.webp) | people: white Nymphoides-type flower with yellow centre held in fingers; species can't be confirmed from the flower alone |
 | species/paracheirodon-simulans | [photo](https://media.aquatome.com/commons/23b754fe984f074e.webp) | cardinal tetra: red band fills the whole lower body from gill to tail base; green neon has red only on the rear belly |
+| plants/pogostemon-deccanensis | [photo](https://media.aquatome.com/2hraquarist/23c32762f38f1076.webp) | fertilizer product packshot, amber bottle and box |
+| plants/pogostemon-deccanensis | [photo](https://media.aquatome.com/2hraquarist/370f9f563d36df11.webp) | fertilizer bottle packshot with red stem plants |
+| plants/pogostemon-deccanensis | [photo](https://media.aquatome.com/2hraquarist/881912be3f678bf6.webp) | fertilizer product packshot, green bottle and box |
 | species/hyphessobrycon-rosaceus | [photo](https://media.aquatome.com/commons/2cc98205851f778c.webp) | dead: preserved museum specimen with scale ruler |
 | species/hyphessobrycon-rosaceus | [photo](https://media.aquatome.com/commons/4e7bac394b8ca01d.webp) | dead: preserved museum specimen with scale ruler |
 | plants/ranunculus-inundatus | [photo](https://media.aquatome.com/commons/6e82640ab984f274.webp) | people: pulled plant with dissected leaves held in hand against sky |
@@ -1132,6 +1135,7 @@ Written by `pnpm engine check-photos` (2026-11-09), most-read pages first. Rules
 | plants/ranunculus-inundatus | [photo](https://media.aquatome.com/commons/c0df0147758d39eb.webp) | people: yellow multi-petalled flower held between fingers |
 | plants/rotala-macrandra | [photo](https://media.aquatome.com/commons/00bf8bec5be8fe32.webp) | Same green Bacopa-like stem plant in a pot; not Rotala macrandra |
 | plants/rotala-macrandra | [photo](https://media.aquatome.com/commons/bc9c858e7a31e596.webp) | Green stem plant with small roundish leaves in a pot; looks like Bacopa (e.g. B. monnieri), not giant red rotala |
+| species/marosatherina-ladigesi | [photo](https://media.aquatome.com/commons/43027cbb342dcc46.webp) | logo: male with long yellow-edged fins among plants; signature bottom left |
 | species/atyopsis-moluccensis | [photo](https://media.aquatome.com/commons/cb558bb39d51d86f.webp) | small mottled berried dwarf shrimp (Caridina/Neocaridina type), no fan-bearing claws |
 | species/vittina-waigiensis (a guide photo) | [photo](https://media.aquatome.com/aquariumcoop/39f8f230c254d8dc.webp) | horned nerite (Clithon sp.): dark dotted shell with long spines, which V. waigiensis lacks |
 | species/vittina-waigiensis (a guide photo) | [photo](https://media.aquatome.com/aquariumcoop/71c51b1f32273749.webp) | zebra nerite (Neritina natalensis): bold yellow and black radial stripes, not the variable Waigiou pattern |
@@ -1189,8 +1193,8 @@ Written by `pnpm engine check-photos` (2026-11-09), most-read pages first. Rules
 | species/datnioides-pulcher | [photo](https://images.unsplash.com/photo-1775145885932-1e2bff3643ad?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8MjF8fFNpYW1lc2UlMjB0aWdlcmZpc2h8ZW58MXx8fHwxNzkzNjgyNTYwfDA&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | old wife (Enoplosus armatus), marine; tall split dorsal fin, black-and-white bands; pineapplefish below |
 | species/datnioides-pulcher | [photo](https://media.aquatome.com/commons/3648721bcece0c66.webp) | its Commons file names Datnioides campbelli |
 | species/dichotomyctere-nigroviridis | [photo](https://media.aquatome.com/commons/1554e58fefb68ef0.webp) | people: small green spotted puffers, inflated, caught in a hand net; thumb visible |
-| species/akysis-vespa | [photo](https://media.aquatome.com/seriouslyfish/c3f5a84df3511b1b.webp) | forest stream habitat with small rapids, no fish visible |
 | species/epiplatys-annulatus | [photo](https://media.aquatome.com/aquariumcoop/3ee6003cede44915.webp) | decal sticker drawing, product packshot |
+| species/akysis-vespa | [photo](https://media.aquatome.com/seriouslyfish/c3f5a84df3511b1b.webp) | forest stream habitat with small rapids, no fish visible |
 | species/aphanotorulus-unicolor | [photo](https://media.aquatome.com/commons/a6e1a857982ec1a4.webp) | dead: caught pleco held up in a hand over river water |
 | species/aphanotorulus-unicolor | [photo](https://media.aquatome.com/scotcat/227dd83b837b7404.webp) | dead: caught spotted pleco held up on an open palm |
 | species/aphanotorulus-unicolor | [photo](https://media.aquatome.com/scotcat/fb6ab6fc7691fa7a.webp) | dead: caught spotted pleco held up in two hands |
@@ -1600,15 +1604,19 @@ Written by `pnpm engine check-photos` (2026-11-09), most-read pages first. Rules
 | species/lobocheilos-melanotaenia | [photo](https://media.aquatome.com/commons/424d8986f21b2086.webp) | its Commons file names Lobocheilos rhabdoura |
 | species/malapterurus-microstoma | [photo](https://media.aquatome.com/commons/24c1648410e5de5d.webp) | its Commons file names Malapterurus electricus |
 | species/melanochromis-chipokae | [photo](https://media.aquatome.com/commons/fc699f251b89aed0.webp) | its Commons file names Melanochromis auratus |
+| species/mogurnda-mogurnda | [photo](https://media.aquatome.com/commons/041fa1d9016d9b26.webp) | its Commons file names Mogurnda adspersa |
 | species/mystus-bleekeri | [photo](https://media.aquatome.com/scotcat/70a17d47febc0d43.webp) | dead: striped Mystus with shoulder spot, catch held in an open hand |
 | species/mystus-bleekeri | [photo](https://media.aquatome.com/scotcat/90d37c7654ef9381.webp) | dead: striped Mystus catch held in a palm; can't tell if alive |
 | species/mystus-singaringan | [photo](https://media.aquatome.com/commons/383250458234936c.webp) | dead: Mystus singaringan, likely a fresh specimen photographed on a plain grey backdrop with fins spread; can't tell if alive |
 | species/mystus-singaringan | [photo](https://media.aquatome.com/commons/afb3835213d45661.webp) | dead: close-up of the head of a caught fish held in a hand |
 | species/mystus-singaringan | [photo](https://media.aquatome.com/commons/c2977a4956da24f7.webp) | dead: caught Mystus singaringan held up in an open palm, may not be alive |
+| species/nannostomus-unifasciatus | [photo](https://media.aquatome.com/commons/5ecc81372753f183.webp) | its Commons file names Nannostomus eques |
 | species/nemacheilus-ornatus | [photo](https://media.aquatome.com/seriouslyfish/9f4774f536188ec7.webp) | shallow stream habitat with grassy banks, no fish visible |
 | species/nemacheilus-pallidus | [photo](https://media.aquatome.com/seriouslyfish/3b8f3c555376f3a7.webp) | rocky forest stream habitat, no fish visible |
 | species/neolamprologus-brichardi | [photo](https://media.aquatome.com/commons/82b4328bc658958b.webp) | its Commons file names Neolamprologus pulcher |
 | species/neolamprologus-olivaceous | [photo](https://media.aquatome.com/commons/31d7515acc11b8f6.webp) | its Commons file names Neolamprologus brichardi |
+| species/neolamprologus-pulcher | [photo](https://media.aquatome.com/commons/0c8aeaa0cafc60a6.webp) | its Commons file names Neolamprologus brichardi |
+| species/neolamprologus-pulcher | [photo](https://media.aquatome.com/commons/c3adefdcaa27f12b.webp) | its Commons file names Neolamprologus brichardi |
 | species/noturus-gilberti | [photo](https://media.aquatome.com/scotcat/a9487d62d781626a.webp) | dead: orangefin madtom caught and held in an open palm; can't tell if alive |
 | species/noturus-miurus | [photo](https://media.aquatome.com/scotcat/3f0aa360ee207f7e.webp) | people: likely tadpole madtom: plain brown with dark side line, no saddles; held in a hand |
 | species/noturus-miurus | [photo](https://media.aquatome.com/scotcat/455f54620d3a3894.webp) | dead: madtom catch held in a hand over a net |

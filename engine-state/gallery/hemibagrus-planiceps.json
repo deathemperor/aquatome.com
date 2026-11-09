@@ -8,7 +8,15 @@
   "File:Mystu plani 080519 9436 ckoep.jpg",
   "File:Hemibagrusplaniceps 3.jpg",
   "File:Hemibagrusplaniceps 1.jpg",
-  "File:Hemibagrusplaniceps 2.jpg"
+  "File:Hemibagrusplaniceps 2.jpg",
+  "inat:216351732",
+  "inat:216351715",
+  "inat:216351747",
+  "inat:348009397",
+  "inat:453422475",
+  "inat:453422751",
+  "inat:453423067",
+  "inat:453988028"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/fa6922492ad59059.webp": "329282468491d1e4",
@@ -16,7 +24,17 @@
   "https://media.aquatome.com/seriouslyfish/1e1b2d95d08113ae.webp": "030638f2c0888000",
   "https://media.aquatome.com/seriouslyfish/ad3b91095030db02.webp": "1de2981c0e0e0603",
   "https://media.aquatome.com/commons/569df72a7264f4e7.webp": "0c1f3f70e0c37f3f",
-  "https://media.aquatome.com/commons/1545bc2f5874110e.webp": "970761e09e0b0123"
+  "https://media.aquatome.com/commons/1545bc2f5874110e.webp": "970761e09e0b0123",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/216351715/large.jpeg": "978a27e09a271101",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/453423067/large.jpeg": "00128c05072e8706"
  },
- "commons": "2026-11-08"
+ "commons": "2026-11-08",
+ "inat": {
+  "taxon": 608950,
+  "pass": "done",
+  "after": {
+   "research": 253536912,
+   "agree": 0
+  }
+ }
 }

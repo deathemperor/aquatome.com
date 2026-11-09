@@ -8,7 +8,19 @@
  ],
  "hashes": {
   "https://media.aquatome.com/scotcat/076008c9deb2d414.webp": "874331a8b094c779",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/638414207/original.jpg": "efe7633339393c36"
+  "https://media.aquatome.com/inaturalist/638414207.webp": "efe7e37339393c34"
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 621714,
+  "pass": "done",
+  "after": {
+   "research": 400854190,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 2343320,
+  "next": null
+ }
 }

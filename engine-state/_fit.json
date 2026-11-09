@@ -64208,36 +64208,43 @@
  },
  "vi/guides/youtube-RMPl2_1u8bU": {
   "at": "2026-11-09",
-  "hash": "ed806614620e14bd",
+  "hash": "209c0e024afb84b4",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
-    "check": "units",
+    "check": "price",
     "part": "P1",
-    "quote": "khoảng 2 W cho mỗi 3,8 lít nước (3,8 lít xấp xỉ 3,8 lít)",
-    "why": "This is the US watts-per-gallon rule turned straight into litres, and the conversion note makes no sense.",
+    "quote": "giá khoảng 300–400 USD một chiếc",
+    "why": "Price given in US dollars, meaningful only abroad.",
     "by": "model"
    },
    {
     "check": "units",
     "part": "P1",
     "quote": "Công suất đèn theo cách tính 2 W/gallon",
-    "why": "The gallon is used as if it were the reader's own unit.",
+    "why": "Gallon used as the reader's unit.",
     "by": "model"
    },
    {
     "check": "units",
     "part": "P1",
-    "quote": "Dùng Kessil cho bể 76 lít thì được",
-    "why": "76 litres is a 20-gallon tank converted to litres, not a size anyone in Vietnam would name.",
+    "quote": "khoảng 2 W cho mỗi 3,8 lít nước",
+    "why": "3.8 litres is a converted US gallon nobody in Vietnam would use.",
     "by": "model"
    },
    {
-    "check": "price",
-    "part": "P1",
-    "quote": "giá khoảng 300–400 USD một chiếc",
-    "why": "The price is in US dollars.",
+    "check": "units",
+    "part": "L2",
+    "quote": "tính sơ bộ khoảng 2 W cho mỗi 3,8 lít",
+    "why": "3.8 litres is a converted US gallon.",
+    "by": "model"
+   },
+   {
+    "check": "units",
+    "part": "L9",
+    "quote": "Có thể tính sơ bộ khoảng 2 W cho mỗi 3,8 lít",
+    "why": "3.8 litres is a converted US gallon.",
     "by": "model"
    }
   ],
@@ -65450,7 +65457,7 @@
  },
  "vi/guides/youtube-T5_vo8kH-JA": {
   "at": "2026-11-09",
-  "hash": "965cd7778f84029b",
+  "hash": "9bd41c8d9ac8b942",
   "model": "opus",
   "checklist": 3,
   "findings": [
@@ -65458,63 +65465,56 @@
     "check": "price",
     "part": "P1",
     "quote": "Khoảng 20 đô",
-    "why": "The cost is given in US dollars, which means nothing to a reader shopping in Vietnam.",
+    "why": "The cost is given in US dollars, not Vietnamese dong.",
     "by": "model"
    },
    {
     "check": "price",
     "part": "L4",
     "quote": "Cái sump này tốn khoảng 20 đô",
-    "why": "The summary repeats the cost in US dollars.",
+    "why": "The cost is given in US dollars, not Vietnamese dong.",
     "by": "model"
    },
    {
     "check": "units",
     "part": "P1",
     "quote": "Thân sump: một bể khoảng 75 lít.",
-    "why": "75 litres is a converted 20-gallon tank, not a size sold in Vietnam.",
+    "why": "75 litres is a 20-gallon tank converted to litres, not a size anyone sells in Vietnam.",
     "by": "model"
    },
    {
     "check": "units",
     "part": "P1",
     "quote": "đổ khoảng 115–150 lít nước vào một thùng nhựa lớn",
-    "why": "115–150 litres is a converted 30–40 gallon container.",
+    "why": "115–150 litres is 30–40 gallons converted to litres.",
     "by": "model"
    },
    {
     "check": "units",
     "part": "P1",
-    "quote": "Mất khoảng 38–75 lít",
-    "why": "38–75 litres is a converted 10–20 gallon figure.",
+    "quote": "Sau này cá sẽ chuyển sang hệ khoảng 680 lít với lọc lớn hơn nhiều.",
+    "why": "680 litres is a 180-gallon system converted to litres.",
     "by": "model"
    },
    {
     "check": "units",
-    "part": "P1",
-    "quote": "chuyển sang hệ khoảng 680 lít",
-    "why": "680 litres is a converted 180-gallon system.",
+    "part": "L4",
+    "quote": "đổi lại hệ mất khoảng 40–75 lít nước",
+    "why": "40–75 litres is 10–20 gallons converted to litres.",
     "by": "model"
    },
    {
     "check": "source",
     "part": "P1",
     "quote": "Bể biển này nằm trên kệ chung với các bể khác, chạy kiểu lọc khác",
-    "why": "Talks about the original writer's own tank rack as if the reader knew it.",
+    "why": "It talks about the original writer's own tank rack as if the reader already knew it.",
     "by": "model"
    },
    {
     "check": "source",
     "part": "P1",
     "quote": "cũng là loại bơm dùng cho mọi đường hồi của các hệ trên kệ",
-    "why": "Refers to the writer's own systems, which the reader has never seen.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P1",
-    "quote": "Đây là sump tạm cho đến khi chuyển cá sang hệ lớn hơn.",
-    "why": "Describes the writer's own plans as if they were part of the guide.",
+    "why": "It refers to the writer's own set of systems, which the reader doesn't know.",
     "by": "model"
    }
   ],
@@ -65523,7 +65523,22 @@
    "Chemi-Pure",
    "Purigen",
    "Ecotech Vector M1"
-  ]
+  ],
+  "doses": [
+   {
+    "treatment": "salt",
+    "strength": "",
+    "amount": 12,
+    "amountMax": 0,
+    "unit": "hộp",
+    "per": 115,
+    "perUnit": "litre",
+    "use": "water",
+    "method": "other",
+    "quote": "đổ khoảng 115–150 lít nước vào một thùng nhựa lớn rồi hòa muối vào. Muối có thể đong bằng một hộp nhỏ. Với thùng này, khoảng 12 hộp muối"
+   }
+  ],
+  "sourceRead": true
  },
  "vi/guides/youtube-T5Vf6PGipG4": {
   "at": "2026-11-09",

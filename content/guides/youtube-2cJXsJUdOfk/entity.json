@@ -51,7 +51,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể nước mặn có đá sống dưới ánh đèn tím.",
-            "sharpness": 916.7
+            "sharpness": 916.7,
+            "person": false
           }
         ]
       },
@@ -64,36 +65,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn bộ đồ cần chuẩn bị: chai nước, keo, bơm nhỏ và hạt bio pellet.",
-            "sharpness": 772.8
-          },
-          {
-            "t": 60,
-            "url": "https://media.aquatome.com/video/2cJXsJUdOfk/at60-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Con bơm nhỏ cho bể cá được cầm trên tay.",
-            "sharpness": 123
-          }
-        ]
-      },
-      {
-        "heading": "Các bước làm bình",
-        "moments": [
-          {
-            "t": 110,
-            "url": "https://media.aquatome.com/video/2cJXsJUdOfk/at110-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Gắn nắp chai vào đầu ra của bơm mini.",
-            "sharpness": 121
-          },
-          {
-            "t": 125,
-            "url": "https://media.aquatome.com/video/2cJXsJUdOfk/at125-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khoan lỗ trên thân chai nhựa để làm bình lọc.",
-            "sharpness": 495.6
+            "sharpness": 772.8,
+            "person": false
           }
         ]
       },
@@ -106,7 +79,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Chai hạt lọc có bơm nhỏ bên dưới, cá cảnh bơi gần đó.",
-            "sharpness": 595.6
+            "sharpness": 595.6,
+            "person": false
           },
           {
             "t": 190,
@@ -114,7 +88,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Chai lọc đầy hạt gắn bơm, đặt trong bể để chỉnh dòng chảy.",
-            "sharpness": 267.1
+            "sharpness": 267.1,
+            "person": false
           }
         ],
         "photo": {
@@ -137,7 +112,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bình chứa hạt vi khuẩn đặt trong nước, nước chảy xuyên qua hạt.",
-            "sharpness": 194
+            "sharpness": 194,
+            "person": false
           },
           {
             "t": 205,
@@ -145,7 +121,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bình lọc chứa hạt đặt úp ngược, nối với bơm nhỏ bên dưới.",
-            "sharpness": 51.8
+            "sharpness": 51.8,
+            "person": false
           }
         ],
         "photo": {
@@ -168,15 +145,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hạt vi khuẩn xử lý nitrate trong bình phản ứng.",
-            "sharpness": 144.7
-          },
-          {
-            "t": 225,
-            "url": "https://media.aquatome.com/video/2cJXsJUdOfk/at225-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hộp vi khuẩn đóng chai dạng ống nhỏ để châm vào bể.",
-            "sharpness": 343.6
+            "sharpness": 144.7,
+            "person": false
           }
         ]
       },
@@ -189,7 +159,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bình làm từ chai nhựa chứa đầy hạt bio pellet trắng đặt trong bể.",
-            "sharpness": 278.3
+            "sharpness": 278.3,
+            "person": false
           },
           {
             "t": 325,
@@ -197,7 +168,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh hạt bio pellet trong chai, phần đáy chai nối với bơm.",
-            "sharpness": 100.9
+            "sharpness": 100.9,
+            "person": false
           }
         ]
       }

@@ -1,89 +1,19 @@
 {
- "queue": [
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/616626643/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/616626643/medium.jpg",
-   "width": 2039,
-   "height": 1529,
-   "licence": "CC BY-SA",
-   "author": "Chris Oldnall",
-   "sourceUrl": "https://www.inaturalist.org/photos/616626643",
-   "key": "inat:616626643"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/8/84/Pethia_nigrofasciata_131889330.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Pethia_nigrofasciata_131889330.jpg/500px-Pethia_nigrofasciata_131889330.jpg",
-   "width": 2048,
-   "height": 1365,
-   "licence": "CC BY 4.0",
-   "author": "Nathan Ruser",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pethia_nigrofasciata_131889330.jpg",
-   "caption": "Black Ruby Barb (Pethia nigrofasciata) in Sri Lanka",
-   "key": "File:Pethia nigrofasciata 131889330.jpg"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/131889330/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/131889330/medium.jpeg",
-   "width": 2048,
-   "height": 1365,
-   "licence": "CC BY",
-   "author": "Nathan Ruser",
-   "sourceUrl": "https://www.inaturalist.org/photos/131889330",
-   "key": "inat:131889330"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/612365716/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/612365716/medium.jpg",
-   "width": 2048,
-   "height": 1365,
-   "licence": "CC BY",
-   "author": "Mickey Wu",
-   "sourceUrl": "https://www.inaturalist.org/photos/612365716",
-   "key": "inat:612365716"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/612365720/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/612365720/medium.jpg",
-   "width": 2048,
-   "height": 1365,
-   "licence": "CC BY",
-   "author": "Mickey Wu",
-   "sourceUrl": "https://www.inaturalist.org/photos/612365720",
-   "key": "inat:612365720"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/612365723/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/612365723/medium.jpg",
-   "width": 2048,
-   "height": 1365,
-   "licence": "CC BY",
-   "author": "Mickey Wu",
-   "sourceUrl": "https://www.inaturalist.org/photos/612365723",
-   "key": "inat:612365723"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Cyprinidae_Pethia_nigrofasciata_1.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Cyprinidae_Pethia_nigrofasciata_1.jpg/500px-Cyprinidae_Pethia_nigrofasciata_1.jpg",
-   "width": 1572,
-   "height": 1179,
-   "licence": "CC BY-SA 4.0",
-   "author": "NasserHalaweh",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cyprinidae_Pethia_nigrofasciata_1.jpg",
-   "caption": "Pethia nigrofasciata BLACK RUBY BARB. Palmengarten Frankfurt.",
-   "key": "File:Cyprinidae Pethia nigrofasciata 1.jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/1/19/Black_Ruby_Barb_700.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Black_Ruby_Barb_700.jpg/500px-Black_Ruby_Barb_700.jpg",
-   "width": 800,
-   "height": 457,
-   "licence": "CC BY-SA 2.5",
-   "author": "Photo by and (c)2004 Derek Ramsey (Ram-Man)",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Black_Ruby_Barb_700.jpg",
-   "caption": "A photograph of a Black ruby barb, Pethia nigrofasciatus",
-   "key": "File:Black Ruby Barb 700.jpg"
-  }
+ "queue": [],
+ "judged": [
+  "inat:616626643",
+  "File:Pethia nigrofasciata 131889330.jpg",
+  "inat:131889330",
+  "inat:612365716",
+  "inat:612365720",
+  "inat:612365723",
+  "File:Cyprinidae Pethia nigrofasciata 1.jpg",
+  "File:Black Ruby Barb 700.jpg"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/seriouslyfish/ef4e492a1b67a13b.webp": "f4e18b398a8ac6c6",
+  "https://upload.wikimedia.org/wikipedia/commons/a/a5/Cyprinidae_Pethia_nigrofasciata_1.jpg": "264f43d755b1baae",
+  "https://upload.wikimedia.org/wikipedia/commons/1/19/Black_Ruby_Barb_700.jpg": "e4e8de04359c98e2"
+ },
+ "commons": "2026-11-09"
 }

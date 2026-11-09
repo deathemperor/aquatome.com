@@ -7,8 +7,8 @@ Written by `pnpm engine gallery` (2026-11-09). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 131 | 79 | 24 | 30 | 204 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 447 | 20 | 9 | 13 | 463 |
-| rest | 20 | 1447 | 81 | 0 | 23 | 1505 |
+| covered | 30 | 454 | 22 | 9 | 14 | 471 |
+| rest | 20 | 1441 | 79 | 0 | 25 | 1495 |
 
 ## Short of target: every source read (193)
 
@@ -109,8 +109,8 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/thayeria-boehlkei | shop | 5 | 60 |
 | species/labidochromis-caeruleus | shop | 15 | 60 |
 | plants/ammannia-gracilis | shop | 2 | 60 |
-| species/notropis-chrosomus | shop | 15 | 60 |
 | plants/pogostemon-stellatus | shop | 11 | 60 |
+| species/notropis-chrosomus | shop | 15 | 60 |
 | species/brachygobius-doriae | shop | 4 | 60 |
 | species/monodactylus-sebae | shop | 8 | 60 |
 | species/melanotaenia-praecox | shop | 5 | 60 |
@@ -189,7 +189,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/danio-kyathit | shop | 0 | 60 |
 | species/danio-choprae | shop | 3 | 60 |
 | species/tanichthys-albonubes | shop | 5 | 60 |
-| plants/myriophyllum-mattogrossense | shop | 11 | 60 |
+| plants/myriophyllum-mattogrossense | shop | 8 | 60 |
 | species/inpaichthys-kerri | shop | 5 | 60 |
 | plants/nymphoides-hydrophylla | shop | 39 | 60 |
 | species/paracheirodon-simulans | shop | 2 | 60 |
@@ -205,7 +205,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | plants/rotala-macrandra | shop | 2 | 60 |
 | species/sewellia-breviventralis | shop | 0 | 60 |
 | species/botia-almorhae | shop | 7 | 60 |
-| species/marosatherina-ladigesi | shop | 4 | 60 |
-| species/pseudomugil-gertrudae | shop | 11 | 60 |
+| species/marosatherina-ladigesi | shop | 2 | 60 |
+| species/pseudomugil-gertrudae | shop | 10 | 60 |
 | species/atyopsis-moluccensis | shop | 6 | 60 |
 | species/betta-macrostoma | covered | 0 | 30 |

@@ -41,24 +41,7 @@
     "figures": [
       {
         "heading": "Cắt lũa theo chiều cao bể",
-        "moments": [
-          {
-            "t": 40,
-            "url": "https://media.aquatome.com/video/apPiQrY9GIM/at40-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng bút đánh dấu vị trí cắt trên thân lũa.",
-            "sharpness": 654
-          },
-          {
-            "t": 65,
-            "url": "https://media.aquatome.com/video/apPiQrY9GIM/at65-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các khúc lũa đã đánh dấu bày trên bàn, kèm bút.",
-            "sharpness": 310.4
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/apPiQrY9GIM/p1-YXJkc2NhcGUuanBn.webp",
           "thumb": "https://media.aquatome.com/video/apPiQrY9GIM/p1-YXJkc2NhcGUuanBn-480.webp",
@@ -74,20 +57,13 @@
         "heading": "Xếp thân lũa từ trước ra sau",
         "moments": [
           {
-            "t": 200,
-            "url": "https://media.aquatome.com/video/apPiQrY9GIM/at200-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các khúc lũa xếp hàng trên bàn, chuẩn bị chọn thân to nhỏ.",
-            "sharpness": 1107.3
-          },
-          {
             "t": 265,
             "url": "https://media.aquatome.com/video/apPiQrY9GIM/at265-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Thân lũa dựng thẳng đứng trên đế đá, nhìn rất gọn.",
-            "sharpness": 719.5
+            "sharpness": 719.5,
+            "person": false
           }
         ]
       },
@@ -95,20 +71,13 @@
         "heading": "Gắn tạm lũa",
         "moments": [
           {
-            "t": 260,
-            "url": "https://media.aquatome.com/video/apPiQrY9GIM/at260-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khối lũa đang được gắn tạm trên bàn, chuẩn bị nhỏ keo 502.",
-            "sharpness": 660.5
-          },
-          {
             "t": 275,
             "url": "https://media.aquatome.com/video/apPiQrY9GIM/at275-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Các thân lũa dựng tạm để chỉnh cho thẳng trước khi cố định.",
-            "sharpness": 789.1
+            "sharpness": 789.1,
+            "person": false
           }
         ]
       },
@@ -121,15 +90,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hai khối khung xương với đá dẹt xếp dưới chân thân gỗ để nâng cao.",
-            "sharpness": 916.8
-          },
-          {
-            "t": 355,
-            "url": "https://media.aquatome.com/video/apPiQrY9GIM/at355-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay xếp thêm đá dẹt dưới thân gỗ phía sau để nâng hậu cảnh.",
-            "sharpness": 1066.4
+            "sharpness": 916.8,
+            "person": false
           }
         ],
         "photo": {
@@ -145,16 +107,7 @@
       },
       {
         "heading": "Lấp khe bằng vụn đá",
-        "moments": [
-          {
-            "t": 490,
-            "url": "https://media.aquatome.com/video/apPiQrY9GIM/at490-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay nhét vụn đá vào các khe giữa đá và lũa.",
-            "sharpness": 1716.9
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/apPiQrY9GIM/p5-N0b25lc18xLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/apPiQrY9GIM/p5-N0b25lc18xLmpwZw-480.webp",
