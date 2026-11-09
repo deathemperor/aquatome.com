@@ -546,11 +546,12 @@ private let guidePage = Chat.PageRef(kind: "guide", title: "Nuôi cá neon", pat
   let steps = PageDoc.Block.list(ordered: true, items: [[p], [p], [p]])
   let points = PageDoc.Block.list(ordered: false, items: [[p], [p]])
   let parts = Chat.parts([p, steps, points, .heading("x", id: "x"), .web])
-  #expect(parts.count == 6)
+  // A block the app can't read isn't lost in silence: it's counted among what's left.
+  #expect(parts.count == 7)
   guard case .item(let n, _) = parts[3] else { Issue.record("no third step"); return }
   #expect(n == 3)
   var rest = Chat.Rest(parts.dropFirst(2))
-  #expect(rest.steps == 2 && rest.items == 2 && rest.paragraphs == 0 && rest.photos == 0)
+  #expect(rest.steps == 2 && rest.items == 2 && rest.paragraphs == 0 && rest.photos == 0 && rest.others == 1)
   rest = Chat.Rest([])
   #expect(rest.isEmpty)
 }
