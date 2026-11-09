@@ -13,6 +13,86 @@
     "brazil",
     "guapore"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BO",
+        "BR"
+      ],
+      "regions": [
+        "Río Iténez",
+        "Río Paraguá",
+        "Río Madeira"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Hoplisoma albolineatum (C056), long known as Corydoras albolineatus, is an armoured catfish from the Río Iténez, or Guaporé, system in Bolivia and Brazil.",
+          "countries": [
+            "BO",
+            "BR"
+          ],
+          "regions": [
+            "Río Iténez"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is on the north bank of the lower Río Paraguá, Río Iténez system, Santa Cruz Department, southeastern Bolivia.",
+          "countries": [],
+          "regions": [
+            "Río Paraguá"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The Iténez is known as the Guaporé in Brazil and drains into the Río Mamoré, thus forming part of the upper Río Madeira system, itself a major tributary of the Amazon.",
+          "countries": [],
+          "regions": [
+            "Río Madeira"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342770,
+      "total": 6,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "BR",
+          4
+        ],
+        [
+          "BO",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -61.875,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -16.875,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          -15.46875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

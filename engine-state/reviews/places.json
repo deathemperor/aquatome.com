@@ -389,6 +389,16 @@
       "kept": true
     }
   ],
+  "id/places/ban-pakong": [
+    {
+      "at": "2026-11-08T20:40:33Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/bandama": [
     {
       "at": "2026-11-06T12:35:46Z",
@@ -525,6 +535,30 @@
       "kept": true
     }
   ],
+  "id/places/bassac": [
+    {
+      "at": "2026-11-08T20:40:33Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Bassac\" (bassac-river): an Indonesian atlas would write \"Sungai Bassac\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/bassac-river": [
+    {
+      "at": "2026-11-08T20:40:33Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Bassac\" (bassac-river): an Indonesian atlas would write \"Sungai Bassac\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/batang-si-joontour": [
     {
       "at": "2026-11-06T12:35:46Z",
@@ -540,6 +574,16 @@
       "at": "2026-11-08T05:19:45Z",
       "model": "sonnet",
       "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/batovi": [
+    {
+      "at": "2026-11-08T20:40:33Z",
+      "model": "sonnet",
+      "score": 0.8,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -1097,6 +1141,16 @@
       "kept": true
     }
   ],
+  "id/places/central-mountain-range": [
+    {
+      "at": "2026-11-08T20:40:33Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/chachoengsao": [
     {
       "at": "2026-11-06T12:35:46Z",
@@ -1126,6 +1180,16 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/chalakudy-river": [
+    {
+      "at": "2026-11-08T20:40:33Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -1497,6 +1561,16 @@
       "notes": [
         "Cross → Cross (Cross River; Indonesian would be Sungai Cross)"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/culuene": [
+    {
+      "at": "2026-11-08T20:40:33Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -2443,6 +2517,16 @@
       "kept": true
     }
   ],
+  "id/places/ivai": [
+    {
+      "at": "2026-11-08T20:40:33Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/ivoloina-river": [
     {
       "at": "2026-11-08T05:20:19Z",
@@ -2745,6 +2829,16 @@
       "kept": true
     }
   ],
+  "id/places/kanchanaburi-province": [
+    {
+      "at": "2026-11-08T20:40:33Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/kande-island": [
     {
       "at": "2026-11-08T05:20:20Z",
@@ -2802,6 +2896,16 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/kayin-state": [
+    {
+      "at": "2026-11-08T20:40:33Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -3118,6 +3222,16 @@
       "at": "2026-11-08T05:20:20Z",
       "model": "sonnet",
       "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/kye": [
+    {
+      "at": "2026-11-08T20:40:33Z",
+      "model": "sonnet",
+      "score": 0.8,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -3806,6 +3920,16 @@
       "kept": true
     }
   ],
+  "id/places/mae-nam-nan": [
+    {
+      "at": "2026-11-08T20:40:33Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/mae-nam-ping": [
     {
       "at": "2026-11-08T08:48:28Z",
@@ -4364,6 +4488,16 @@
       "at": "2026-11-08T12:08:48Z",
       "model": "sonnet",
       "score": 0.7,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/mishmee-hills": [
+    {
+      "at": "2026-11-08T20:40:33Z",
+      "model": "sonnet",
+      "score": 0.8,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -5589,6 +5723,18 @@
       "kept": true
     }
   ],
+  "id/places/rio-amazon": [
+    {
+      "at": "2026-11-08T20:40:33Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Amazon\" (rio-amazon): normally \"Sungai Amazon\", or \"Amazon\" as the established name."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/rio-amazonus": [
     {
       "at": "2026-11-08T05:21:29Z",
@@ -5731,6 +5877,18 @@
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/rio-calchaqui": [
+    {
+      "at": "2026-11-08T20:40:33Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "The other river names on the list (Calchaquí, Iguazu, Iténez and so on) leave out \"Sungai\". This is the same issue, though only a minor one."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -5919,6 +6077,18 @@
       "kept": true
     }
   ],
+  "id/places/rio-iguazu": [
+    {
+      "at": "2026-11-08T20:40:33Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "The other river names on the list (Calchaquí, Iguazu, Iténez and so on) leave out \"Sungai\". This is the same issue, though only a minor one."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/rio-inirida": [
     {
       "at": "2026-11-08T05:21:30Z",
@@ -5944,6 +6114,28 @@
       "at": "2026-11-08T05:21:30Z",
       "model": "sonnet",
       "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/rio-itenez": [
+    {
+      "at": "2026-11-08T20:40:33Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "The other river names on the list (Calchaquí, Iguazu, Iténez and so on) leave out \"Sungai\". This is the same issue, though only a minor one."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/rio-ivai": [
+    {
+      "at": "2026-11-08T20:40:33Z",
+      "model": "sonnet",
+      "score": 0.8,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -5976,6 +6168,16 @@
       "at": "2026-11-08T05:21:30Z",
       "model": "sonnet",
       "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/rio-juramento": [
+    {
+      "at": "2026-11-08T20:40:33Z",
+      "model": "sonnet",
+      "score": 0.8,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -6213,6 +6415,16 @@
       "kept": true
     }
   ],
+  "id/places/rio-paragua": [
+    {
+      "at": "2026-11-08T20:40:33Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/rio-paraguai": [
     {
       "at": "2026-11-08T05:21:30Z",
@@ -6248,6 +6460,26 @@
       "at": "2026-11-08T05:21:30Z",
       "model": "sonnet",
       "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/rio-paranapanema": [
+    {
+      "at": "2026-11-08T20:40:33Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/rio-parguaza": [
+    {
+      "at": "2026-11-08T20:40:33Z",
+      "model": "sonnet",
+      "score": 0.8,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -6353,11 +6585,31 @@
       "kept": true
     }
   ],
+  "id/places/rio-samiria": [
+    {
+      "at": "2026-11-08T20:40:33Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/rio-san-juan": [
     {
       "at": "2026-11-08T05:21:30Z",
       "model": "sonnet",
       "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/rio-san-lorenzo": [
+    {
+      "at": "2026-11-08T20:40:33Z",
+      "model": "sonnet",
+      "score": 0.8,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -6398,6 +6650,16 @@
       "at": "2026-11-08T05:21:30Z",
       "model": "sonnet",
       "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/rio-siapa": [
+    {
+      "at": "2026-11-08T20:40:33Z",
+      "model": "sonnet",
+      "score": 0.8,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -6793,11 +7055,31 @@
       "kept": true
     }
   ],
+  "id/places/san-jorge": [
+    {
+      "at": "2026-11-08T20:40:33Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/san-juan-river": [
     {
       "at": "2026-11-08T05:21:31Z",
       "model": "sonnet",
       "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/san-lorenzo": [
+    {
+      "at": "2026-11-08T20:40:33Z",
+      "model": "sonnet",
+      "score": 0.8,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -7071,6 +7353,16 @@
       "notes": [
         "Singkep, Tioman, Trangan, Solo: islands or cities written without \"Pulau\" (Pulau Singkep, Pulau Tioman, Pulau Trangan); Tioman is also in Malaysia, not ID, but the name itself is fine"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/sinu": [
+    {
+      "at": "2026-11-08T20:40:33Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -8155,6 +8447,16 @@
       "at": "2026-11-08T05:22:00Z",
       "model": "sonnet",
       "score": 0.4,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/yuruari": [
+    {
+      "at": "2026-11-08T20:40:34Z",
+      "model": "sonnet",
+      "score": 0.8,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -18664,6 +18966,18 @@
       "kept": true
     }
   ],
+  "th/places/ban-pakong": [
+    {
+      "at": "2026-11-08T20:47:47Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Ban Pakong → บางปะกง (Ban Pakong is a different name from Bang Pakong; rendering is mismatched)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/bandama": [
     {
       "at": "2026-11-06T12:36:00Z",
@@ -18806,9 +19120,43 @@
       "kept": true
     }
   ],
+  "th/places/bassac": [
+    {
+      "at": "2026-11-08T20:47:47Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "sông Hậu → บาสัก (Hậu River is the Bassac; Thai usually แม่น้ำบาสัก, acceptable but the name is Vietnamese-labelled)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/bassac-river": [
+    {
+      "at": "2026-11-08T20:47:47Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "sông Hậu → บาสัก (Hậu River is the Bassac; Thai usually แม่น้ำบาสัก, acceptable but the name is Vietnamese-labelled)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/bateke-plateau": [
     {
       "at": "2026-11-08T05:27:07Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/batovi": [
+    {
+      "at": "2026-11-08T20:47:47Z",
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
@@ -19404,6 +19752,18 @@
       "kept": true
     }
   ],
+  "th/places/central-mountain-range": [
+    {
+      "at": "2026-11-08T20:47:47Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "dãy núi Trung Ương → เทือกเขาจงยาง (Taiwan's Central Range is usually เทือกเขาจงยางซานม่าย; questionable)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/chachoengsao": [
     {
       "at": "2026-11-06T12:36:00Z",
@@ -19441,6 +19801,16 @@
       "score": 0.55,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/chalakudy-river": [
+    {
+      "at": "2026-11-08T20:47:47Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -19851,6 +20221,16 @@
       "at": "2026-11-06T20:00:19Z",
       "model": "sonnet",
       "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/culuene": [
+    {
+      "at": "2026-11-08T20:47:47Z",
+      "model": "sonnet",
+      "score": 0.6,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -20884,6 +21264,16 @@
       "kept": true
     }
   ],
+  "th/places/ivai": [
+    {
+      "at": "2026-11-08T20:47:47Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/ivoloina-river": [
     {
       "at": "2026-11-08T05:27:55Z",
@@ -21212,6 +21602,16 @@
       "kept": true
     }
   ],
+  "th/places/kanchanaburi-province": [
+    {
+      "at": "2026-11-08T20:47:47Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/kande-island": [
     {
       "at": "2026-11-08T05:27:56Z",
@@ -21263,6 +21663,18 @@
       "score": 0.72,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/kayin-state": [
+    {
+      "at": "2026-11-08T20:47:47Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "kayin-state: รัฐกะเหรี่ยง (official รัฐกะยิน/กะเหรี่ยง; acceptable)"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -21635,6 +22047,18 @@
         "Kwagira River → ควากีรา (omits 'River'/แม่น้ำ)"
       ],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/kye": [
+    {
+      "at": "2026-11-08T20:47:48Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Kyé → คเย (unnatural Thai; likely เกีย/คีเย)"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -22346,6 +22770,18 @@
       "kept": true
     }
   ],
+  "th/places/mae-nam-nan": [
+    {
+      "at": "2026-11-08T20:47:48Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "sông Nan → น่าน (river name should be แม่น้ำน่าน)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/mae-nam-ping": [
     {
       "at": "2026-11-08T08:57:32Z",
@@ -22939,6 +23375,16 @@
       "at": "2026-11-08T12:10:05Z",
       "model": "sonnet",
       "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/mishmee-hills": [
+    {
+      "at": "2026-11-08T20:47:48Z",
+      "model": "sonnet",
+      "score": 0.6,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -24301,6 +24747,18 @@
       "kept": true
     }
   ],
+  "th/places/rio-amazon": [
+    {
+      "at": "2026-11-08T20:47:48Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "sông Amazon → แอมะซอน (river should be แม่น้ำอเมซอน)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/rio-amazonus": [
     {
       "at": "2026-11-08T05:29:23Z",
@@ -24434,6 +24892,16 @@
   "th/places/rio-bethary": [
     {
       "at": "2026-11-08T15:23:59Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/rio-calchaqui": [
+    {
+      "at": "2026-11-08T20:47:48Z",
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
@@ -24647,6 +25115,18 @@
       "kept": true
     }
   ],
+  "th/places/rio-iguazu": [
+    {
+      "at": "2026-11-08T20:47:48Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "sông Iguazu → อีกวาซู (should be อีกวาซู/อีกัวซู; river lacks แม่น้ำ)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/rio-inirida": [
     {
       "at": "2026-11-08T05:29:24Z",
@@ -24687,6 +25167,26 @@
       "kept": true
     }
   ],
+  "th/places/rio-itenez": [
+    {
+      "at": "2026-11-08T20:47:48Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/rio-ivai": [
+    {
+      "at": "2026-11-08T20:47:48Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/rio-ivinheima": [
     {
       "at": "2026-11-06T12:36:17Z",
@@ -24715,6 +25215,18 @@
       "model": "sonnet",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/rio-juramento": [
+    {
+      "at": "2026-11-08T20:47:48Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "sông Juramento → ฮูราเมนโต (Thai would be ฆูราเมนโต/ซูราเมนโต; questionable)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -24965,6 +25477,16 @@
       "kept": true
     }
   ],
+  "th/places/rio-paragua": [
+    {
+      "at": "2026-11-08T20:47:48Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/rio-paraguai": [
     {
       "at": "2026-11-08T05:29:24Z",
@@ -25000,6 +25522,26 @@
       "at": "2026-11-08T05:29:24Z",
       "model": "sonnet",
       "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/rio-paranapanema": [
+    {
+      "at": "2026-11-08T20:47:48Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/rio-parguaza": [
+    {
+      "at": "2026-11-08T20:47:48Z",
+      "model": "sonnet",
+      "score": 0.6,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -25109,11 +25651,31 @@
       "kept": true
     }
   ],
+  "th/places/rio-samiria": [
+    {
+      "at": "2026-11-08T20:47:48Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/rio-san-juan": [
     {
       "at": "2026-11-08T05:29:24Z",
       "model": "sonnet",
       "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/rio-san-lorenzo": [
+    {
+      "at": "2026-11-08T20:47:48Z",
+      "model": "sonnet",
+      "score": 0.6,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -25154,6 +25716,16 @@
       "at": "2026-11-08T05:29:24Z",
       "model": "sonnet",
       "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/rio-siapa": [
+    {
+      "at": "2026-11-08T20:47:48Z",
+      "model": "sonnet",
+      "score": 0.6,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -25607,11 +26179,31 @@
       "kept": true
     }
   ],
+  "th/places/san-jorge": [
+    {
+      "at": "2026-11-08T20:47:48Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/san-juan-river": [
     {
       "at": "2026-11-08T05:29:25Z",
       "model": "sonnet",
       "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/san-lorenzo": [
+    {
+      "at": "2026-11-08T20:47:48Z",
+      "model": "sonnet",
+      "score": 0.6,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -25916,6 +26508,16 @@
   "th/places/singkep": [
     {
       "at": "2026-11-08T05:30:02Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/sinu": [
+    {
+      "at": "2026-11-08T20:47:48Z",
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
@@ -27066,6 +27668,16 @@
       "kept": true
     }
   ],
+  "th/places/yuruari": [
+    {
+      "at": "2026-11-08T20:47:48Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/zagros": [
     {
       "at": "2026-11-08T08:57:32Z",
@@ -27949,6 +28561,16 @@
       "kept": true
     }
   ],
+  "vi/places/ban-pakong": [
+    {
+      "at": "2026-11-08T20:36:09Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/bandama": [
     {
       "at": "2026-11-07T20:32:23Z",
@@ -28166,6 +28788,30 @@
       "kept": true
     }
   ],
+  "vi/places/bassac": [
+    {
+      "at": "2026-11-08T20:36:09Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [
+        "No wrong places found. 'sông Hậu' is the usual Vietnamese name for the Bassac River, and 'dãy núi Trung Ương' is the name Vietnamese readers use for Taiwan's Central Mountain Range."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/bassac-river": [
+    {
+      "at": "2026-11-08T20:36:09Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [
+        "No wrong places found. 'sông Hậu' is the usual Vietnamese name for the Bassac River, and 'dãy núi Trung Ương' is the name Vietnamese readers use for Taiwan's Central Mountain Range."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/batang-hari": [
     {
       "at": "2026-11-07T20:32:23Z",
@@ -28199,6 +28845,16 @@
       "notes": [
         "No entry points to the wrong place. Every name is either a form Vietnamese readers use or the source spelling with its generic word in Vietnamese."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/batovi": [
+    {
+      "at": "2026-11-08T20:36:09Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -29002,6 +29658,18 @@
       "kept": true
     }
   ],
+  "vi/places/central-mountain-range": [
+    {
+      "at": "2026-11-08T20:36:09Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [
+        "No wrong places found. 'sông Hậu' is the usual Vietnamese name for the Bassac River, and 'dãy núi Trung Ương' is the name Vietnamese readers use for Taiwan's Central Mountain Range."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/ceyhan": [
     {
       "at": "2026-11-07T20:33:13Z",
@@ -29059,6 +29727,16 @@
       "at": "2026-11-07T20:33:13Z",
       "model": "sonnet",
       "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/chalakudy-river": [
+    {
+      "at": "2026-11-08T20:36:09Z",
+      "model": "sonnet",
+      "score": 0.96,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -29590,6 +30268,16 @@
       "at": "2026-11-07T20:33:14Z",
       "model": "sonnet",
       "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/culuene": [
+    {
+      "at": "2026-11-08T20:36:09Z",
+      "model": "sonnet",
+      "score": 0.96,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -31005,6 +31693,16 @@
       "kept": true
     }
   ],
+  "vi/places/ivai": [
+    {
+      "at": "2026-11-08T20:36:09Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/ivindo": [
     {
       "at": "2026-11-07T20:35:05Z",
@@ -31465,6 +32163,16 @@
       "kept": true
     }
   ],
+  "vi/places/kanchanaburi-province": [
+    {
+      "at": "2026-11-08T20:36:09Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/kande-island": [
     {
       "at": "2026-11-07T20:35:05Z",
@@ -31580,6 +32288,16 @@
       "at": "2026-11-07T20:35:06Z",
       "model": "sonnet",
       "score": 0.92,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/kayin-state": [
+    {
+      "at": "2026-11-08T20:36:09Z",
+      "model": "sonnet",
+      "score": 0.96,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -32111,6 +32829,16 @@
       "notes": [
         "No wrong places found. All 99 names are either names Vietnamese readers already use, or the source's own name with the generic word put into Vietnamese."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/kye": [
+    {
+      "at": "2026-11-08T20:36:09Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -33243,6 +33971,18 @@
       "kept": true
     }
   ],
+  "vi/places/mae-nam-nan": [
+    {
+      "at": "2026-11-08T20:36:09Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [
+        "Every river name puts the Vietnamese word 'sông' in front of the source's proper name, which is correct. 'sông Nan' for Mae Nam Nan is right because 'Mae Nam' is the Thai word for river."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/mae-nam-ping": [
     {
       "at": "2026-11-08T08:45:15Z",
@@ -34075,6 +34815,18 @@
       "score": 0.72,
       "notes": [
         "These conventional Vietnamese names are correct: Mê Kông, Mân Giang (Minjiang), sông Mã (Nam Ma), bán đảo Mã Lai and hồ Malebo."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/mishmee-hills": [
+    {
+      "at": "2026-11-08T20:36:09Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [
+        "'dãy đồi Mishmee' keeps the source's spelling. The more common spelling is Mishmi, but keeping the source's spelling is allowed."
       ],
       "attempt": "first",
       "kept": true
@@ -36120,6 +36872,16 @@
       "kept": true
     }
   ],
+  "vi/places/rio-amazon": [
+    {
+      "at": "2026-11-08T20:36:09Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/rio-amazonus": [
     {
       "at": "2026-11-07T20:38:46Z",
@@ -36309,6 +37071,16 @@
       "at": "2026-11-07T20:38:46Z",
       "model": "sonnet",
       "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/rio-calchaqui": [
+    {
+      "at": "2026-11-08T20:36:09Z",
+      "model": "sonnet",
+      "score": 0.96,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -36568,6 +37340,16 @@
       "kept": true
     }
   ],
+  "vi/places/rio-iguazu": [
+    {
+      "at": "2026-11-08T20:36:09Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/rio-inirida": [
     {
       "at": "2026-11-07T20:38:47Z",
@@ -36608,6 +37390,26 @@
       "kept": true
     }
   ],
+  "vi/places/rio-itenez": [
+    {
+      "at": "2026-11-08T20:36:09Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/rio-ivai": [
+    {
+      "at": "2026-11-08T20:36:09Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/rio-ivinheima": [
     {
       "at": "2026-11-07T20:38:47Z",
@@ -36633,6 +37435,16 @@
       "at": "2026-11-07T20:38:47Z",
       "model": "sonnet",
       "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/rio-juramento": [
+    {
+      "at": "2026-11-08T20:36:09Z",
+      "model": "sonnet",
+      "score": 0.96,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -36967,6 +37779,16 @@
       "kept": true
     }
   ],
+  "vi/places/rio-paragua": [
+    {
+      "at": "2026-11-08T20:36:09Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/rio-paraguai": [
     {
       "at": "2026-11-07T20:39:30Z",
@@ -37011,6 +37833,26 @@
       "notes": [
         "Every name refers to the right place. Generic words (river, Río/Rio, Islands, mountain range) are put into Vietnamese as sông, quần đảo and dãy, and the proper names keep the source spelling."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/rio-paranapanema": [
+    {
+      "at": "2026-11-08T20:36:09Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/rio-parguaza": [
+    {
+      "at": "2026-11-08T20:36:09Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -37143,6 +37985,16 @@
       "kept": true
     }
   ],
+  "vi/places/rio-samiria": [
+    {
+      "at": "2026-11-08T20:36:09Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/rio-san-juan": [
     {
       "at": "2026-11-07T20:39:30Z",
@@ -37151,6 +38003,16 @@
       "notes": [
         "Every name refers to the right place. Generic words (river, Río/Rio, Islands, mountain range) are put into Vietnamese as sông, quần đảo and dãy, and the proper names keep the source spelling."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/rio-san-lorenzo": [
+    {
+      "at": "2026-11-08T20:36:09Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -37211,6 +38073,16 @@
       "notes": [
         "Every name refers to the right place. Generic words (river, Río/Rio, Islands, mountain range) are put into Vietnamese as sông, quần đảo and dãy, and the proper names keep the source spelling."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/rio-siapa": [
+    {
+      "at": "2026-11-08T20:36:09Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -37895,6 +38767,16 @@
       "kept": true
     }
   ],
+  "vi/places/san-jorge": [
+    {
+      "at": "2026-11-08T20:36:09Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/san-juan": [
     {
       "at": "2026-11-07T20:39:31Z",
@@ -37915,6 +38797,16 @@
       "notes": [
         "Every name refers to the right place. Generic words (river, Río/Rio, Islands, mountain range) are put into Vietnamese as sông, quần đảo and dãy, and the proper names keep the source spelling."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/san-lorenzo": [
+    {
+      "at": "2026-11-08T20:36:09Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -38370,6 +39262,16 @@
       "at": "2026-11-07T20:40:25Z",
       "model": "sonnet",
       "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/sinu": [
+    {
+      "at": "2026-11-08T20:36:09Z",
+      "model": "sonnet",
+      "score": 0.96,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -40094,6 +40996,16 @@
       "notes": [
         "The known Vietnamese names are right: 'Hoàng Hà' (Yellow River), 'Châu Giang' (Pearl River), 'Tây Giang' (Xi River), 'Dương Tử' (Yangtze), 'Vân Nam' (Yunnan), 'Sê Kông' (Xe Kong), 'sông Nin Trắng' (White Nile), 'núi Bạch Vân' (Baiyun Shan), 'dãy Ghat Tây' (Western Ghats), and 'Trà Khúc' and 'Vệ', which are Vietnamese rivers."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/yuruari": [
+    {
+      "at": "2026-11-08T20:36:09Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }

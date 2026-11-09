@@ -274,16 +274,12 @@
     ]
   },
   "aponogeton-ulvaceus": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
+    "at": "2026-11-08",
+    "from": "2026-11-08",
     "name": "Aponogeton ulvaceus",
-    "confidence": "medium",
-    "score": 0.85,
-    "notes": [
-      "\"air sadah\" for \"hard water\" is fine, but \"thrives in both soft and hard water\" could be \"air lunak maupun air sadah\" - ok; consider \"tumbuh subur\" -> \"tumbuh baik\" (minor)",
-      "\"Satu umbi\" for \"A single root\": source says root, acceptable but \"fluted margin\" rendered as \"tepi bergelombang\" is fine; consider \"tepi berkerut/bergelombang\" only if the intent is ruffled",
-      "\"Daunnya halus\" for \"delicate\": \"halus\" suggests smooth texture; \"tipis/lembut\" would be more accurate"
-    ]
+    "confidence": "high",
+    "score": 0.95,
+    "notes": []
   },
   "bacopa-australis": {
     "at": "2026-10-30",
@@ -1066,16 +1062,19 @@
     ]
   },
   "hydrocotyle-verticillata": {
-    "at": "2026-11-02",
-    "from": "2026-10-30",
+    "at": "2026-11-08",
+    "from": "2026-11-08",
     "name": "Hydrocotyle verticillata",
     "confidence": "medium",
-    "score": 0.75,
+    "score": 0.7,
     "notes": [
-      "Item 3: \"tanaman hias dalam ruangan\" is a bit off for \"indoor plant\"; prefer \"tanaman dalam ruangan\" (minor).",
-      "Item 3: \"Kalau tanahnya...\" is colloquial for a handbook; prefer \"Jika media tanamnya dijaga tetap lembap\" (minor).",
-      "Item 3: \"tanaman latar depan (foreground)\" is acceptable, but \"tanaman latar depan\" alone suffices; \"jelas merupakan\" is slightly stiff for \"definitely\" (minor).",
-      "Item 2: \"tidak perlu ditanam di substrat\" is fine, but \"Pertumbuhan optimal hanya bisa dicapai dengan cahaya kuat\" could read more naturally as \"di bawah cahaya kuat\" (minor)."
+      "Item 10: \"swordtails\" is rendered \"platy pedang (swordtail)\" — a swordtail is not a platy (different species, Xiphophorus hellerii vs. X. maculatus); use \"swordtail\" or \"ekor pedang\".",
+      "Item 10: \"Japanese trapdoor snail\", \"Malaysian trumpet snail\", \"black devil snail\" and \"rabbit snail\" are left in English; give local names (e.g. keong/siput trumpet Malaysia, siput kelinci) or keep them in brackets after the Indonesian term. \"ghost shrimp\", \"bamboo shrimp\" and \"vampire shrimp\" are also left untranslated.",
+      "Item 10: \"ikan mas koki\" is redundant/mixed; goldfish is \"ikan mas\" or \"koki\" (\"ikan koki\"). Also \"koi\" is fine, but \"Jack Dempsey\" may need \"ikan Jack Dempsey\".",
+      "Item 10: \"sepat mutiara\" for pearl gourami is fine, but \"platy\" and \"cichlid\" appear untranslated, while \"lobster air tawar\" is used for crayfish; consider making terms consistent.",
+      "Item 7: \"CO2 berlimpah secara gratis\" is an awkward rendering of \"free excess CO2\"; use \"kelebihan CO2 alami\" or \"CO2 berlimpah tanpa injeksi\".",
+      "Item 7: \"tanaman rambat seperti tanaman rambat\" style repetition: \"Pertumbuhannya yang merambat seperti tanaman rambat\" is redundant; use \"pertumbuhannya yang menjalar seperti sulur\".",
+      "Item 11: \"tanaman hias dalam ruangan\" for \"indoor plant\" is acceptable, but \"trailing growth form\" and \"3-7 cm\" conflict with other sections of the source, which is not a translation fault. Item 12: \"Menyediakan biofilm sebagai pakan pertama\" is fine."
     ]
   },
   "hygrophila-angustifolia": {
@@ -1342,16 +1341,20 @@
     ]
   },
   "lobelia-cardinalis": {
-    "at": "2026-11-04",
-    "from": "2026-10-30",
+    "at": "2026-11-08",
+    "from": "2026-11-08",
     "name": "Lobelia cardinalis",
-    "confidence": "medium",
-    "score": 0.85,
+    "confidence": "high",
+    "score": 0.8,
     "notes": [
-      "Item 2: \"Pertumbuhannya pendek dan rapat\" is fine, but \"tanpa CO2 pun tetap tumbuh dengan baik\" is slightly loose; consider \"tetap tumbuh baik tanpa CO2\".",
-      "Item 3: \"makanya namanya diberi tambahan 'Mini'\" is too colloquial for a handbook; use \"sehingga diberi tambahan nama 'Mini'\".",
-      "Item 3: \"produksi umum Lobelia cardinalis\" is a literal rendering and unclear; consider \"produksi massal/budidaya umum Lobelia cardinalis\".",
-      "Item 3: \"Kadang tanaman bisa mengejutkan\" is slightly abrupt; consider \"Terkadang tanaman memberi kejutan\"."
+      "\"Tanaman ini tahan air yang sangat sadah tetapi tidak menyukainya\" is awkward; use \"mentoleransi air sangat sadah, tetapi kurang menyukainya\".",
+      "\"busuk pucuk (crown rot)\": crown rot is more accurately \"busuk mahkota/pangkal batang\". \"Pucuk\" means shoot tip, which is a different part of the plant.",
+      "\"Bentuk emers\" and \"stek batang yang sudah dewasa\": \"emers\" is a rare term. Use \"emersed\" or \"tumbuh di atas air\" consistently, not only in the first mention.",
+      "\"Kecepatan tumbuh\" is less common than \"laju pertumbuhan\" or \"kecepatan pertumbuhan\".",
+      "\"si cardinal flower\": \"si\" is odd for a plant. Use \"yang dikenal sebagai cardinal flower\".",
+      "\"latar depan / latar tengah\": hobbyists usually say \"foreground/midground\" or \"bagian depan/tengah akuarium\".",
+      "\"pupuk tablet akar\": \"tablet akar (root tab)\" is the usual term. Drop \"pupuk\" before it.",
+      "\"Teman satu akuarium\": \"tank mate\" is better rendered \"Ikan penghuni bersama\" or \"Kompatibilitas\". \"Membeli\" is also abrupt; use \"Tips membeli\"."
     ]
   },
   "ludwigia-arcuata": {

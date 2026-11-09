@@ -1,0 +1,97 @@
+{
+  "id": "hypsibarbus-pierrei",
+  "scientificName": "Hypsibarbus pierrei",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Hypsibarbus",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "laos",
+    "mekong",
+    "thailand",
+    "mun",
+    "cambodia",
+    "srepok",
+    "vietnam",
+    "dong-nai"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 30
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypsibarbus-pierrei",
+      "html": "<p>The yellow eyed silver barb, Hypsibarbus pierrei, is a large cyprinid from the middle and lower Mekong basin in Laos, Thailand, Cambodia and Vietnam. It also occurs in the Dong Nai drainage, and migrates seasonally from larger river channels in the dry season to spawning grounds that remain unknown. Reaching at least 300 mm, it is a valued food fish, and most Hypsibarbus species are thought to be in decline because of the damming of rivers and agriculture.</p><ul><li>Needs a very large tank</li><li>Needs to be kept in a group</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypsibarbus-pierrei",
+      "html": "<p>Known from the middle and lower Mekong basins in Laos, Thailand, Cambodia, and Vietnam, plus the Dong Nai drainage in southern Vietnam.</p><p>Type locality is 'Rapids of Dang-nai, Bien Hoa Province, Thailand', which corresponds to what is now the city of Biên Hòa in Đồng Nai province, southern Vietnam.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypsibarbus-pierrei",
+      "html": "<p>This species is migratory on a seasonal basis; during the dry season it can be found in larger river channels, whereas during wetter months it moves to unknown spawning grounds. Apparently displays a preference for rocky habitats with flowing water, and is not known to adapt to reservoirs or other artificial impoundments.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypsibarbus-pierrei",
+      "html": "<p>H. pierrei is distinguished from congeners by the following combination of characters: 4 scale rows between lateral line and dorsal-fin origin; 6 upper transverse scales; 12-13 rakers on first gill arch; 15-19 serrations on spinous dorsal-fin ray; 14 circumpeduncular scale rows; 26-28 lateral line scales.</p><p>Hypsibarbus species are valued food fishes throughout their range although most species are thought to be in decline due to human activity, particularly damming of rivers and agriculture.</p><p>The genus is diagnosed as follows: two pairs of barbels; strongly serrated dorsal-fin spine; 8 branched pelvic-fin rays; skin of lower lip discontinuous with lower jaw, separated by a shallow groove; anal-fin base approximately 60% HL; scales with black margins resulting in reticulated appearance; fins often with extended falcate tips; anal and pelvic fins often brightly-coloured.</p><p><strong>Etymology</strong></p><p>Hypsibarbus: from the Ancient Greek ὕψι (húpsi), meaning high or deep, and the generic name Barbus, presumably in allusion to the deep body shape in members of this genus.</p><p>pierrei: in honour of “Pierre”, with no other information given, who collected the type. This is possibly botanist Jean Baptiste Louis Pierre (1833-1905), first director of Saigon Botanic Garden, who made many collections in tropical Asia.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypsibarbus-pierrei",
+      "html": "<ul><li>Rainboth, W. J. (1996). The taxonomy, systematics, and zoogeography of Hypsibarbus, a new genus of large barbs (Pisces, Cyprinidae) from the rivers of southeastern Asia. University of California Publications in Zoology v. 129, i-xiii + 1-199</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibliography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Kottelat, M. (2001). Fishes of Laos. WHT Publications, Colombo, 1-198</li><li>Sauvage, H.-E. (1880). Notice sur quelques poissons de l'île Campbell et de l'Indo-Chine. Bulletin de la Société philomathique de Paris (7th Série) v. 4:, 228-233</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/5d61a9a06d690d5b.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/5d61a9a06d690d5b-480.webp",
+      "width": 800,
+      "height": 531,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypsibarbus-pierrei",
+      "caption": "Adult individual photographed at Leipzig Zoological Garden, Leipzig, Germany.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá lớn",
+        "bể cá 300 lít",
+        "bể cá 500 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy bơm tạo dòng chảy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

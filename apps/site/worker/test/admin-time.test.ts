@@ -9,15 +9,15 @@ const VN = 'Asia/Ho_Chi_Minh'
 const NOW = new Date('2026-11-04T09:00:00Z')
 
 test('a moment reads in the viewer\'s zone: 08:34 UTC is 15:34 in Vietnam, 03:34 in New York', () => {
-  expect(timeTag('2026-11-04T08:34:00Z', VN, NOW)).toBe('<time datetime="2026-11-04T08:34:00.000Z">04/11 15:34</time>')
-  expect(timeTag('2026-11-04T08:34:00Z', 'America/New_York', NOW)).toBe('<time datetime="2026-11-04T08:34:00.000Z">04/11 03:34</time>')
+  expect(timeTag('2026-11-04T08:34:00Z', VN, NOW)).toBe('<time datetime="2026-11-04T08:34:00.000Z">Wed 4 Nov, 15:34</time>')
+  expect(timeTag('2026-11-04T08:34:00Z', 'America/New_York', NOW)).toBe('<time datetime="2026-11-04T08:34:00.000Z">Wed 4 Nov, 3:34</time>')
   // Analytics Engine's own form is UTC too.
-  expect(clock('2026-11-04 08:34:01', VN, NOW)).toBe('04/11 15:34')
+  expect(clock('2026-11-04 08:34:01', VN, NOW)).toBe('Wed 4 Nov, 15:34')
   // Another year says its year; a moment that can't be read says so.
-  expect(clock('2025-12-31T20:00:00Z', VN, NOW)).toBe('01/01 03:00')
-  expect(clock('2025-12-31T16:00:00Z', VN, NOW)).toBe('31/12/2025 23:00')
+  expect(clock('2025-12-31T20:00:00Z', VN, NOW)).toBe('Thu 1 Jan, 3:00')
+  expect(clock('2025-12-31T16:00:00Z', VN, NOW)).toBe('Wed 31 Dec 2025, 23:00')
   expect(timeTag('not a time', VN, NOW)).toBe('—')
-  expect(stamp(NOW, VN)).toBe('<time datetime="2026-11-04T09:00:00.000Z" data-f="stamp"><span>Thứ Tư, </span>04/11 · 16:00</time>')
+  expect(stamp(NOW, VN)).toBe('<time datetime="2026-11-04T09:00:00.000Z" data-f="stamp"><span>Wed </span>4 Nov · 16:00</time>')
   expect([zoneName(VN, NOW), zoneName('America/New_York', NOW), zoneName('Asia/Kolkata', NOW)]).toEqual(['GMT+7', 'GMT−5', 'GMT+5:30'])
 })
 
@@ -57,12 +57,12 @@ test('the zone: the device\'s from the cookie, else Cloudflare\'s, else Vietnam\
 
 test('pages print times in the viewer\'s zone, never "(UTC)", with the script that keeps the device\'s zone', () => {
   const photos = photosPage([{ id: 'p', entity_ref: 'species:x', name: 'A', thumb: '/t.webp', created_at: '2026-11-04T08:34:00.000Z' }], [], NOW, VN)
-  expect(photos).toContain('<time datetime="2026-11-04T08:34:00.000Z">04/11 15:34</time>')
+  expect(photos).toContain('<time datetime="2026-11-04T08:34:00.000Z">Wed 4 Nov, 15:34</time>')
   expect(photos).not.toContain('UTC')
-  expect(photos).toContain('<html lang="vi" data-tz="Asia/Ho_Chi_Minh">')
+  expect(photos).toContain('<html lang="en" data-tz="Asia/Ho_Chi_Minh">')
   expect(photos).toContain("document.cookie=c+'; Path=/; Max-Age=31536000; SameSite=Lax; Secure'")
   const hidden = hiddenPage({ '/ca/x/': { at: '2026-11-04T08:34:00.000Z' } }, NOW, 'Europe/Berlin')
-  expect(hidden).toContain('>04/11 09:34</time>')
+  expect(hidden).toContain('>Wed 4 Nov, 9:34</time>')
   expect(hidden).toContain('data-tz="Europe/Berlin"')
 })
 

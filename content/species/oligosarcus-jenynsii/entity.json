@@ -1,0 +1,69 @@
+{
+  "id": "oligosarcus-jenynsii",
+  "scientificName": "Oligosarcus jenynsii",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Oligosarcus",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "argentina",
+    "brazil",
+    "paraguay",
+    "uruguay"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 30
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/oligosarcus_jenynsii_en/",
+      "html": "<p>This pretty predatory tetra is only imported very occasionally to Europe, although the species, which grows up to 30 cm long, is quite common in the southern parts of South America (Argentina, Brazil, Paraguay, Uruguay). The photographed specimen originates from Paraguay.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/oligosarcus_jenynsii_en/",
+      "html": "<p>Oligosarcus jenynsii is – like most predatory fish – absolutely peaceful towards other fish that cannot be eaten; so it is a nice task for aquarists to answer this question on the basis of aquarium observations. Oligosarcus prefers to prey on small fish that are not longer than the head of the respective Oligosarcus.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/oligosarcus_jenynsii_en/",
+      "html": "<p>Basically speaking, Oligosarcus is nothing else but a Banded Astyanax (Astyanax fasciatus) that has been developed into a specialized predator. Oligosarcus jenynsii looks very much like a Banded Astyanax: the orange fins, the broad, platinum-shining vertical band, the humeral spot and the rhombic spot on the caudal fin base all look like those of the Banded Astyanax. It is, however, not known whether this identical coloration is due to phylogenetic relationship or only a type of camouflage for the Oligosarcus that might be used to come near to its prey in company of the harmless Astyanax.</p><p>Lexicon: Oligosarcus: from ancient Greek, means roughly \"with few flesh\". jenynsii: dedication name.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150cm",
+        "bể cá lớn nuôi cá săn mồi"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể lớn",
+        "máy lọc nước bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá săn mồi",
+        "cá mồi nuôi cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

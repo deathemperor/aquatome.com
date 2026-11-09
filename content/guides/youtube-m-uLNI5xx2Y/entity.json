@@ -6,9 +6,10 @@
   "html": "",
   "photos": [],
   "mentions": [
-    "danio-margaritatus"
+    "danio-margaritatus",
+    "neocaridina-davidi"
   ],
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "m-uLNI5xx2Y",
     "title": "BEGINNER FISH: Celestial Pearl Danio | Danio Margaritatus |",
@@ -27,23 +28,13 @@
       "height": 720
     },
     "taxa": [
-      "Danio margaritatus"
+      "Danio margaritatus",
+      "Neocaridina davidi"
     ],
-    "gear": [
-      {
-        "category": "thuc-an",
-        "type": "kho",
-        "t": 400
-      },
-      {
-        "category": "thuc-an",
-        "type": "dong-lanh",
-        "t": 400
-      }
-    ],
+    "gear": [],
     "figures": [
       {
-        "heading": "CPD là cá gì",
+        "heading": "CPD trông như thế nào và lớn cỡ nào",
         "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/m-uLNI5xx2Y/p0-c18oem9vbSkuanBn.webp",
@@ -53,55 +44,55 @@
           "licence": "CC BY-SA 3.0",
           "author": "Cisamarc",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Danio_margaritatus_(zoom).jpg",
-          "caption": "Cá CPD với các vây viền cam và thân lấm tấm chấm sáng giữa bể thủy sinh."
+          "caption": "Cá CPD lên màu đẹp, thân đầy đốm và vây có vạch cam nổi bật."
         }
       },
       {
-        "heading": "Nên nuôi bao nhiêu con",
+        "heading": "Bể cần bao nhiêu lít",
         "moments": [
           {
             "t": 10,
-            "url": "https://media.aquatome.com/video/m-uLNI5xx2Y/t10.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Toàn cảnh bể cá đặt trong phòng, cá bơi lẫn giữa đá và cây."
+            "url": "https://media.aquatome.com/video/m-uLNI5xx2Y/at10-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể cá cong có đá và cây thủy sinh đặt cạnh tường."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/m-uLNI5xx2Y/p1-FxdWFyaXVtLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/m-uLNI5xx2Y/p1-FxdWFyaXVtLmpwZw-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY 2.0",
+          "author": "Tim Sheerman-Chase",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_Tank,_Blue_Reef_Aquarium.jpg",
+          "caption": "Bể kính cỡ nhỏ trồng nhiều cây thủy sinh, phù hợp nuôi cá nhỏ."
+        }
+      },
+      {
+        "heading": "Bố trí bể: có cần trồng cây không",
+        "moments": [
+          {
+            "t": 15,
+            "url": "https://media.aquatome.com/video/m-uLNI5xx2Y/at15-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể cá có đá và đồ trang trí làm chỗ cho cá trú ẩn."
           }
         ]
       },
       {
-        "heading": "Bể bao nhiêu lít là đủ",
-        "moments": [
-          {
-            "t": 15,
-            "url": "https://media.aquatome.com/video/m-uLNI5xx2Y/t15.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Một bể nhỏ có đá và san hô đặt trên kệ trong phòng."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/m-uLNI5xx2Y/p2-BcXVhcml1bS5KUEc.webp",
-          "thumb": "https://media.aquatome.com/video/m-uLNI5xx2Y/p2-BcXVhcml1bS5KUEc-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC0",
-          "author": "Tdwittt",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Planted_Nano_Aquarium.JPG",
-          "caption": "Bể nhỏ trồng cây, lũa và nền cát đen, chỉ có vài con cá bé."
-        }
-      },
-      {
-        "heading": "Tính cách và chuyện nuôi chung",
+        "heading": "Nuôi bao nhiêu con và có hiền không",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/m-uLNI5xx2Y/p5-YXF1YXJpdW0ucG5n.webp",
-          "thumb": "https://media.aquatome.com/video/m-uLNI5xx2Y/p5-YXF1YXJpdW0ucG5n-480.webp",
+          "url": "https://media.aquatome.com/video/m-uLNI5xx2Y/p3-c18oem9vbSkuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/m-uLNI5xx2Y/p3-c18oem9vbSkuanBn-480.webp",
           "width": 960,
-          "height": 628,
-          "licence": "CC BY-SA 4.0",
-          "author": "Hamid.Moghadam",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cherry_shrimps_in_freshwater_aquarium.png",
-          "caption": "Đàn tép đỏ và vàng bò trên nền sỏi đen, hợp để nuôi chung với CPD."
+          "height": 720,
+          "licence": "CC BY-SA 3.0",
+          "author": "Cisamarc",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Danio_margaritatus_(zoom).jpg",
+          "caption": "Cá CPD đực màu sắc rực rỡ bơi trong bể thủy sinh có rêu và gỗ."
         }
       }
     ]

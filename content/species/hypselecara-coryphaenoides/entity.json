@@ -1,0 +1,161 @@
+{
+  "id": "hypselecara-coryphaenoides",
+  "scientificName": "Hypselecara coryphaenoides",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Hypselecara",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-negro",
+    "venezuela",
+    "orinoco"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 6.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 15
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypselecara-coryphaenoides",
+      "html": "<p>The Rio Negro chocolate cichlid, Hypselecara coryphaenoides, comes from rivers in Brazil and Venezuela including the Negro, Trombetas and Tapajós. It is much rarer in the trade than H. temporalis, from which it differs in a more elongate body, darker colour and a flank blotch on and above the lateral line. It lives in sluggish forest tributaries with dark, acidic water.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypselecara-coryphaenoides",
+      "html": "<p>Has been collected from various rivers of the Amazon basin in Venezuela and Brazil, including the Negro, Trombetas, Tapajós, Maués and Uatumã. In Venezuela it is also known from the Aguaro and from tributaries of the upper Orinoco.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypselecara-coryphaenoides",
+      "html": "<p>Inhabits forested areas, in sluggish tributaries off the main river channel. The water here is typically stained a dark brown with tannins from decaying organic material and is often highly acidic as a result.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypselecara-coryphaenoides",
+      "html": "<p>An adult male or pair needs a space measuring at least 120 × 45 × 45 cm (about 245 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypselecara-coryphaenoides",
+      "html": "<p>If you really want to see it at its best, a biotope setup would be very simple to arrange. Use a substrate of river sand and add a few driftwood branches (if you can't find driftwood of the desired shape, common beech is safe to use if thoroughly dried and stripped of bark) and twisted roots. A few handfuls of dried leaves (again beech can be used, or oak leaves are also suitable) would complete the natural feel. Aquatic plants are not a feature of this species' natural waters. Allow the wood and leaves to stain the water the colour of weak tea, removing old leaves and replacing them every few weeks so they don't rot and foul the water. A small net bag filled with aquarium-safe peat can be added to the filter to aid in the simulation of black water conditions. Use fairly dim lighting. Alternatively, it also does well in a well planted tank, although does have a tendency to dig once sexually mature. As any specimens seen for sale will almost certainly be wild caught, water quality is of the utmost importance, and a strict maintenance regime is essential.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypselecara-coryphaenoides",
+      "html": "<ul><li>Temperature: 24–30°C</li><li>pH: 5.0–6.5. It will not do well in alkaline conditions.</li><li>Hardness: 1–10 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypselecara-coryphaenoides",
+      "html": "<p>Omnivorous and easy to feed. Use a good quality cichlid pellet as the staple diet. This can then be supplemented with live and frozen foods such as small earthworms, chopped prawn, brine shrimp, bloodworm and the like. Vegetable matter such as shelled frozen peas, spinach or Spirulina-based dry foods should also be included in the diet. Don't feed anything containing very high amounts of protein such as beefheart or other red meats. The fats contained in these meats can't be properly metabolised by fish and can cause excess deposits of body fat and even organ degeneration.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypselecara-coryphaenoides",
+      "html": "<p>Fairly peaceful for a cichlid of this size, tending to ignore other species unless spawning. Provided sufficient space is available, it can be combined with other peaceful cichlids requiring similar water conditions, such as Satanoperca, Geophagus, Uaru and Heros species. Other tankmates could include larger tetras and medium-sized Loricariids. While conspecifics are tolerated while the fish are young, they can be quite aggressive towards one another once sexual maturity is reached. If a pair develops, expect to see the remaining fish huddled together in a corner. They are best removed at this point, most tanks only being big enough to support a single pair. Even mated pairs tend to remain indifferent towards other species, though.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypselecara-coryphaenoides",
+      "html": "<p>Can be difficult to sex. Males are slightly larger and may develop nuchal humps. Both sexes darken intensely when in breeding condition and develop a vivid yellow stripe along the back, from nose to tail.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypselecara-coryphaenoides",
+      "html": "<p>It's a substrate spawning species that forms monogamous pair bonds. The best way to obtain a pair is to buy a group of half a dozen juveniles and allow them to pair off naturally. The fish are best kept in a species setup for spawning purposes, and conditioned on a varied, high quality diet. The water should be soft and acidic in the range pH 5.5–6.5, GH 1–5, with a temperature of around 26.5–29°C. Filtering the water through peat is useful, as is the use of RO water.</p><p>Pair development should be fairly obvious, when it happens, as the fish involved become much more aggressive towards the rest of the group, and normally spend the majority of their time together. Some breeders remove the other fish at this point, while others prefer to leave at least one or two to act as 'target' fish for the pair. Success has been had using both methods.</p><p>When the pair come into spawning condition they intensify in colour to stunning effect, taking on an overall dark colouration with a striking orangey stripe on the dorsal surface. They also begin to excavate a large area of the substrate. This process may take several days and the resultant pit can easily measure a couple of feet across. At this point, the male may also develop a small nuchal hump. The spawning site is located within the boundaries of the cleared area, and can be a flat rock (often an area which is angled slightly), piece of wood, the side of a large flowerpot or even the aquarium glass. If there are any other fish in the tank they will likely be attacked from this point, if they venture too close to the pair. Conspecifics will certainly not be tolerated anywhere in the vicinity. During such displays of aggression, the colour of the pair intensifies even further.</p><p>Spawning occurs in a similar fashion to many other cichlids, with the female laying a line of eggs before moving away, allowing the male to take her place and fertilise them. The eggs hatch in around 48 hours, and during this period the male will defend the spawning site while the female tends to the eggs. Some role swapping may occur here. Also, during this period the pair often dig a number of shallow depressions in the substrate around the spawning site. Once the eggs have hatched, the entire brood is moved into one of these pits or other sheltered area by both parents. They will sometimes be moved several times before they become free swimming, which generally occurs after another 5–6 days. At this point, they can be fed with microworm and/or Artemia nauplii. Brood care by the parents usually continues for a further 3–4 weeks. The fry should then be removed because the adults may start to prey on them, if they decide to spawn again. Alternatively, they can be rehoused once they are free swimming, if you wish to exercise more control over their development.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hypselecara-coryphaenoides",
+      "html": "<p>This species is much rarer in the trade than the only other member of the genus, H. temporalis. If the collection locality of the fish is known, identification of the species is easy, as the distribution of the two appears not to overlap in nature. Failing this, distinguishing physical characteristics include body shape, as H. coryphaenoides is a more elongate fish than the quite squat-looking H. temporalis. There are also differences in colour and patterning, although these are less reliable means of identification as they can vary depending on the locality of the fish and also its mood. As a general rule, the dark blotch present on the flanks of the fish occurs on and above the lateral line (usually extending into the dorsal fin) in H. coryphaenoides, whereas in H. temporalis it is usually on and below the lateral line. H. coryphaenoides also tends to have a much darker overall colouration than its relative.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 240 lít",
+        "lọc ngoài cho bể cá lớn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 200w"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cichlid",
+        "cám cá cichlid dạng viên"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

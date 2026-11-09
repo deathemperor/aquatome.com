@@ -1,0 +1,170 @@
+{
+  "id": "nothobranchius-guentheri",
+  "scientificName": "Nothobranchius guentheri",
+  "order": "Cyprinodontiformes",
+  "family": "Nothobranchiidae",
+  "genus": "Nothobranchius",
+  "group": "killifish",
+  "places": [
+    "africa",
+    "tanzania",
+    "unguja"
+  ],
+  "dataCard": {
+    "lifeYears": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 2,
+          "max": 2
+        }
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 8
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 4.1
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nothobranchius_guentheri_en/",
+      "html": "<p>Nothobranchius guentheri is a nothobranch that reaches an age of about two years under aquarium conditions.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-guentheri",
+      "html": "<ul><li>Max size: male 41 mm SL, female 32 mm SL</li><li>Hardness: not recorded</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-guentheri",
+      "html": "<ul><li>Needs a tight-fitting lid as this species is known to jump</li></ul><p>Gunther's nothobranch, Nothobranchius guentheri, is an annual killifish endemic to Unguja, the main island of Zanzibar, Tanzania. It lives in seasonal coastal pools that dry out completely, surviving the dry season as eggs in the mud. One of the easier Nothobranchius to keep and breed, it is often recommended for a first attempt at an annual killifish. The IUCN lists it as Endangered because its pools are being lost to farming.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-guentheri",
+      "html": "<p>Endemic to Unguja, the main island of the Zanzibar archipelago, Tanzania.</p><p>Type locality is Zanzibar. Pfeffer described it in 1893 as Fundulus guentheri.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-guentheri",
+      "html": "<p>Lives in seasonal pools and marshes in the coastal lowlands of Unguja, at 30–63 m above sea level. The pools fill in the rainy season and dry out completely, and the species survives the dry season only as eggs buried in the mud.</p><p>Water measured in these pools was 25–29°C, pH 7.2–7.7 and 140–980 μS/cm, and usually turbid. Several known sites are in farmland, where pools are drained or turned into rice fields.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-guentheri",
+      "html": "<p>Standard length: male 41 mm SL, female 32 mm SL.</p><p>Aquarium base: 45 × 30 cm. Volume: about 41 litres.</p><p>A male with two or three females needs a tank with base dimensions of at least 45 × 30 cm.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-guentheri",
+      "html": "<p>Use a dark, soft substrate and give it dense planting, floating plants and some wood for cover, with subdued lighting. Needs a tight-fitting lid as it jumps well. Filtration should be gentle, and an air-driven sponge filter is enough.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-guentheri",
+      "html": "<ul><li>Temperature: 22–25°C</li><li>pH: 6.5–8.0</li><li>Hardness: not recorded</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-guentheri",
+      "html": "<p>A micropredator. Base the diet on small live and frozen foods such as Daphnia, Artemia and bloodworm. Most take dried food only occasionally.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-guentheri",
+      "html": "<p>Best kept in a species tank. Males fight each other, so keep one male unless the tank is large enough for each to hold a territory. Keep two or three females with each male, as a male harasses a single female hard.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-guentheri",
+      "html": "<p>Males are larger and blue-green, with two or three red oblique bars on the gill cover and a red caudal fin with a black rear edge. Females are smaller, yellowish brown and unmarked.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-guentheri",
+      "html": "<p>An annual killifish. In the wild the adults die when the pools dry out, and the eggs wait in the mud until the rains return.</p><p>In the aquarium it spawns into a layer of peat moss. Condition the sexes apart on live and frozen food, then put one male with two females in a small tank with a peat layer, an air-driven sponge filter and water of about pH 7.0–7.5 at 23–25°C. They spawn daily for up to three weeks, but return them to the conditioning tanks after about a week, as daily spawning wears the females down.</p><p>Take out the peat, let it dry until it is damp but not wet, and store it in a sealed bag at 21–24°C. Label each bag with the species and the date. Hobby accounts give 8 to 14 weeks of storage before the eggs are ready. Hatch them by putting the peat in shallow water in the rearing tank. Wetting the eggs too early gives weak fry. If few hatch, dry the peat again and rewet it a few weeks later, as some eggs develop more slowly.</p><p>The fry are tiny. Start them on infusoria, then brine shrimp nauplii or microworm after about two days, and larger and frozen foods after about two weeks. Keep the water shallow at first and raise it as they grow. Change a little water every two or three days, as the fry are prone to velvet disease.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/nothobranchius_guentheri_en/",
+      "html": "<p>German-bred fish are currently available.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-guentheri",
+      "html": "<p>It is one of the easier Nothobranchius to keep and breed, and often recommended for a first attempt at an annual killifish. Adults live for a short time, so a line is kept going by storing eggs.</p><p>Costa (2017) redescribed N. guentheri and N. melanospilus, the two Nothobranchius found on Zanzibar. The two had been confused in the past, and museum collections still held misidentified specimens. Costa separates N. guentheri by a combination of characters, including the red caudal fin with a black rear edge in males, the unspotted flanks and fins of females, and scale and fin-ray counts.</p><p>The IUCN lists it as Endangered (assessed 2018 by Nagy and Watters) because it is known from a small area of Unguja and its pools are being lost to farming.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nothobranchius-guentheri",
+      "html": "<ul><li>Riehl, R. and H.A. Baensch (1991). Aquarium Atlas. Volume 1. Melle: Mergus, Verlag für Natur-und Heimtierkunde, Germany, 1-992</li><li>Pfeffer, G. J. (1893). Ostafrikanische Fische gesammelt von Herrn Dr. F. Stuhlmann im Jahre 1888 und 1889 Jahrbuch der Hamburgischen Wissenschaftlichen Anstalten 10, 131-177</li><li>Costa, Wilson J. E. M. (2017). Taxonomic revision of the seasonal killifish genus Nothobranchius from Zanzibar, East Africa (Cyprinodontoidei: Aplocheilidae) Journal of Natural History 51(27-28), 1609-1624</li><li>Wildekamp, R. H. (2004). A World of Killies: Atlas of the Oviparous Cyprinodontiform Fishes of the World. Volume 4 American Killifish Association, Mishawaka, Indiana, 1-398</li><li>The ETYFish Project: Cyprinodontiformes, part 1</li><li>Nagy, B.; Watters, B. (2019). Nothobranchius guentheri. The IUCN Red List of Threatened Species 2019: e.T61284A47243542</li></ul>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 50cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá killi",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

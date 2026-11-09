@@ -9,13 +9,36 @@
   "places": [
     "south-america",
     "peru",
-    "tingo-maria"
+    "tingo-maria",
+    "solimoes"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 60
+      },
+      {
+        "source": "scotcat",
+        "value": 40
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 24,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
       }
     ]
   },
@@ -27,10 +50,28 @@
       "html": "<p>The large-growing, magnificent Panaque bathyphilus is very variable in coloration. Specimens 16-20 cm long are about half grown, as the maximum length given for P. bathyphilus is about 60 cm.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_bathyphilus.htm",
+      "html": "<ul><li>Common names: Papa Panaque, L090</li><li>Synonyms: none</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/l90a-panaque-bathyphilus-2/",
       "html": "<p>P. bathyphilus occurs in Peru (surroundings of Tingo Maria).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_bathyphilus.htm",
+      "html": "<p>Peru: Solimões River (in the Amazon River drainage).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_bathyphilus.htm",
+      "html": "<p>A deep river channel species, which accounts for the lack of an iris operculum. The deeper they reside, the less pigmentation on the body.</p>"
     },
     {
       "key": "aquariumSize",
@@ -39,16 +80,40 @@
       "html": "<p>These large fish should only be kept in large aquariums with strong filtration.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_bathyphilus.htm",
+      "html": "<p>This species is a bit robust in an aquarium set-up, so it needs plenty of hiding places, plenty of water changes due to its wood-eating habits, and powerful filtration. It needs a spacious aquarium.</p>"
+    },
+    {
       "key": "diet",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/l90a-panaque-bathyphilus-2/",
       "html": "<p>Like all Panaque, P. bathyphilus is predominantly a wood eater. The amount of feces produced by this nutrient-poor diet is enormous, which is another reason why large tanks with strong filtration are necessary.</p>"
     },
     {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_bathyphilus.htm",
+      "html": "<p>All Panaques and also the Panaqolus genera are wood eaters, so wood is needed in an aquarium set-up. Also feed vegetable foods such as cucumber, courgette (zucchini) and sinking tablets.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/l90a-panaque-bathyphilus-2/",
       "html": "<p>Among themselves Panaque are not quite without aggression and can become quite rough. However, L90 is considered one of the more tolerant species in this regard.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_bathyphilus.htm",
+      "html": "<p>This species was first published in the German magazine DATZ in January 1992 as the L-number 90.</p><p>Description: The differences between the Panaqolus and the Panaque genera is that the latter has an oval shaped mouth and the jaws have very large spatulate teeth with a single cusp, arranged in a V form, while Panaqolus have a small number of spatulate teeth and are also a smaller genus.</p><p>Colouration: Juveniles of P. bathyphilus have a white caudal fin, but it becomes a little darker on the posterior as it matures.</p><p>Etymology: The specific name bathyphilus means deep-loving, from bathýs, deep, and phílos, friend or fond of, referring to its deep-river-channel habitat.</p><p>IUCN Red List: Despite the little information available on this species, it has no apparent threats and a large range. Therefore, it is assessed as Least Concern (LC) (IUCN 2023).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/panaque_bathyphilus.htm",
+      "html": "<p>Lujan, NK and CC Chamon (2008) Two new species of Loricariidae (Teleostei: Siluriformes) from main channels of the upper and middle Amazon Basin, with discussion of deep water specialization in loricariids. Ichthyological Exploration of Freshwaters 19: 271–282.</p><p>Salvador, G.N. 2023. Panaque bathyphilus. The IUCN Red List of Threatened Species 2023.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
@@ -121,5 +186,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-08"
 }

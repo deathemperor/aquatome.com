@@ -1,0 +1,102 @@
+{
+  "id": "youtube-NCmL_IIoTnY",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=NCmL_IIoTnY",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-08",
+  "video": {
+    "youtubeId": "NCmL_IIoTnY",
+    "title": "How to install an Intake Sponge Filter on your Hang on Back Filter. Upgrade.",
+    "channel": "Aquarium Co-Op",
+    "channelUrl": "https://www.youtube.com/channel/UCNJuJfXCKNWu4-VifYixs8A",
+    "durationSec": 660,
+    "publishedAt": "2017-05-20",
+    "chapters": [
+      {
+        "start": 0,
+        "title": "Intro"
+      },
+      {
+        "start": 28,
+        "title": "How to install an Intake Sponge filter on your HOB filter"
+      },
+      {
+        "start": 622,
+        "title": "Outro"
+      }
+    ],
+    "series": {
+      "id": "PLNM4mDAXGxWy8d8VTumRyVq69fML2Uwxg",
+      "position": 6
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/NCmL_IIoTnY/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [],
+    "gear": [
+      {
+        "category": "loc",
+        "type": "bot-bien",
+        "brand": "Aquarium Co-Op",
+        "model": "Intake Sponge",
+        "t": 0
+      },
+      {
+        "category": "loc",
+        "type": "treo",
+        "brand": "Aqua Clear",
+        "model": "70",
+        "t": 0
+      },
+      {
+        "category": "loc",
+        "type": "treo",
+        "brand": "Penguin",
+        "model": "Emperor 400",
+        "t": 31
+      },
+      {
+        "category": "loc",
+        "type": "thung",
+        "brand": "Fluval",
+        "model": "FX6",
+        "t": 605
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Mút lắp chặt cỡ nào là vừa",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/NCmL_IIoTnY/p3-JfZm9hbV8yLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/NCmL_IIoTnY/p3-JfZm9hbV8yLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Ofkun",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Sponge_Filter_foam_2.jpg",
+          "caption": "Miếng mút lọc hình trụ côn màu xám, dùng lắp vào đầu hút của lọc."
+        }
+      },
+      {
+        "heading": "Mút có bị nghẹt không, cắt nhỏ được không",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/NCmL_IIoTnY/p5-JfZm9hbV8xLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/NCmL_IIoTnY/p5-JfZm9hbV8xLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Ofkun",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Sponge_Filter_foam_1.jpg",
+          "caption": "Cận cảnh miếng mút lọc thô, lỗ lớn nên khó bị nghẹt."
+        }
+      }
+    ]
+  }
+}

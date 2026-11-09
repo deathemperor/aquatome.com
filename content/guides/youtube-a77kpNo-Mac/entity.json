@@ -8,7 +8,7 @@
   "mentions": [
     "microsorum-pteropus"
   ],
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "a77kpNo-Mac",
     "title": "BEGINNER PLANT: Anubis Nana",
@@ -27,241 +27,153 @@
       "height": 720
     },
     "taxa": [
-      "Microsorum pteropus",
-      "Cryptocoryne sp."
+      "Microsorum pteropus"
     ],
     "gear": [
       {
         "category": "cay-thuy-sinh",
         "type": "gan-lua",
-        "t": 63
+        "t": 60
       },
       {
         "category": "phan-nen",
-        "type": "cat",
-        "t": 95
-      },
-      {
-        "category": "co2",
-        "t": 125
+        "type": "soi",
+        "t": 60
       },
       {
         "category": "den",
         "type": "thuy-sinh",
-        "t": 189
+        "t": 180
       }
     ],
     "figures": [
       {
-        "heading": "Nana dễ trồng tới mức nào",
+        "heading": "Nên buộc lên lũa hay trồng xuống nền",
         "moments": [
           {
-            "t": 30,
-            "url": "https://media.aquatome.com/video/a77kpNo-Mac/t30.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Ảnh một cây lá xanh tươi, khỏe mạnh."
+            "t": 45,
+            "url": "https://media.aquatome.com/video/a77kpNo-Mac/at45-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cây ráy nana mọc xanh tốt bên cạnh các hòn đá trong hồ."
           },
           {
-            "t": 39,
-            "url": "https://media.aquatome.com/video/a77kpNo-Mac/t39.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bụi cây xanh mọc cạnh đá trên nền cát trong bể."
+            "t": 60,
+            "url": "https://media.aquatome.com/video/a77kpNo-Mac/at60-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hồ thủy sinh với đá xếp và ráy nana nhỏ bám dưới chân đá."
+          }
+        ]
+      },
+      {
+        "heading": "Có cần CO2 và phân không",
+        "moments": [
+          {
+            "t": 125,
+            "url": "https://media.aquatome.com/video/a77kpNo-Mac/at125-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Góc bể có đá và cây xanh nhỏ mọc dưới nền cát."
+          },
+          {
+            "t": 150,
+            "url": "https://media.aquatome.com/video/a77kpNo-Mac/at150-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh với đá tạo vòm và cây xanh nhỏ mọc trên nền cát."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/a77kpNo-Mac/p0-JpYV9uYW5hLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/a77kpNo-Mac/p0-JpYV9uYW5hLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/a77kpNo-Mac/p1-OkFudWJpYXMuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/a77kpNo-Mac/p1-OkFudWJpYXMuanBn-480.webp",
+          "width": 960,
+          "height": 686,
+          "licence": "CC BY-SA 4.0",
+          "author": "Colamc",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anubias.jpg",
+          "caption": "Bụi ráy nana xanh tốt trong bể, bám đá cuội trắng."
+        }
+      },
+      {
+        "heading": "Đèn cho ráy nana",
+        "moments": [
+          {
+            "t": 190,
+            "url": "https://media.aquatome.com/video/a77kpNo-Mac/at190-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể có bộ đèn phía trên, nhìn được độ sâu của bể."
+          },
+          {
+            "t": 220,
+            "url": "https://media.aquatome.com/video/a77kpNo-Mac/at220-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cây trồng dưới đáy bể sâu, cách xa nguồn sáng phía trên."
+          }
+        ]
+      },
+      {
+        "heading": "Cây lớn cỡ nào và màu lá ra sao",
+        "moments": [
+          {
+            "t": 30,
+            "url": "https://media.aquatome.com/video/a77kpNo-Mac/at30.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Cây ráy nana lá xanh tươi trong ảnh in."
+          },
+          {
+            "t": 160,
+            "url": "https://media.aquatome.com/video/a77kpNo-Mac/at160.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Các bụi cây xanh nhỏ trồng trên nền cát trong bể."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/a77kpNo-Mac/p3-JpYV9uYW5hLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/a77kpNo-Mac/p3-JpYV9uYW5hLmpwZw-480.webp",
           "width": 960,
           "height": 618,
           "licence": "CC BY-SA 3.0",
           "author": "Carlosar",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anubia_nana.jpg",
-          "caption": "Cây anubias xanh khỏe trong bể, lá non mọc xen giữa các lá già."
+          "caption": "Cây ráy nana trong bể với lá xanh khỏe và vài lá mới mọc."
         }
       },
       {
-        "heading": "Nên buộc lên lũa hay cắm xuống nền",
+        "heading": "Đặt ráy nana ở đâu trong bố cục",
         "moments": [
           {
-            "t": 59,
-            "url": "https://media.aquatome.com/video/a77kpNo-Mac/t59.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể thủy sinh với đá xếp thành cổng vòm, cây xanh nhỏ mọc dưới chân đá."
+            "t": 225,
+            "url": "https://media.aquatome.com/video/a77kpNo-Mac/at225-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh khóm cây xanh thấp đặt cạnh đá trên nền cát."
           },
           {
-            "t": 123,
-            "url": "https://media.aquatome.com/video/a77kpNo-Mac/t123.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh cụm đá có cây nhỏ xanh mọc ở khe và nền cát."
+            "t": 245,
+            "url": "https://media.aquatome.com/video/a77kpNo-Mac/at245-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể có đá xếp vòm, cây xanh nhỏ mọc dưới chân đá ở tiền cảnh."
           }
-        ],
+        ]
+      },
+      {
+        "heading": "Mua ở đâu, giá bao nhiêu",
+        "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/a77kpNo-Mac/p1-NfUGxhbnRzLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/a77kpNo-Mac/p1-NfUGxhbnRzLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/a77kpNo-Mac/p5-YXIuX25hbmEuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/a77kpNo-Mac/p5-YXIuX25hbmEuanBn-480.webp",
           "width": 960,
-          "height": 638,
+          "height": 616,
           "licence": "CC BY 4.0",
           "author": "Abhik.Mazumdar.73",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_with_Mermaid_Statue_Driftwood_and_Anubias_Aquatic_Plants.jpg",
-          "caption": "Cây nana gắn trên lũa nhiều nhánh, lên xanh tốt trong bể nền cát."
-        }
-      },
-      {
-        "heading": "Có cần CO2 và châm phân không",
-        "moments": [
-          {
-            "t": 148,
-            "url": "https://media.aquatome.com/video/a77kpNo-Mac/t148.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể mới setup với đá và những cụm nana nhỏ mọc sát nền."
-          },
-          {
-            "t": 162,
-            "url": "https://media.aquatome.com/video/a77kpNo-Mac/t162.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cây nana nhỏ trồng dưới chân đá trong bể chưa thấy CO2."
-          }
-        ]
-      },
-      {
-        "heading": "Cần bao nhiêu ánh sáng",
-        "moments": [
-          {
-            "t": 211,
-            "url": "https://media.aquatome.com/video/a77kpNo-Mac/t211.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Toàn cảnh bể thủy sinh mới setup, cây nana trồng dưới chân đá."
-          },
-          {
-            "t": 216,
-            "url": "https://media.aquatome.com/video/a77kpNo-Mac/t216.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể cong với đá tạo vòm và cây nana nhỏ xanh ở nền cát."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/a77kpNo-Mac/p3-1bV9MaWdodC5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/a77kpNo-Mac/p3-1bV9MaWdodC5qcGc-480.webp",
-          "width": 960,
-          "height": 666,
-          "licence": "CC BY-SA 3.0",
-          "author": "Lime Huang",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_Aquarium_Light.jpg",
-          "caption": "Bể thủy sinh có đèn LED phía trên, cây xanh mọc dày."
-        }
-      },
-      {
-        "heading": "Đặt nana ở đâu trong bố cục",
-        "moments": [
-          {
-            "t": 261,
-            "url": "https://media.aquatome.com/video/a77kpNo-Mac/t261.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể bố cục đá với những cụm cây xanh nhỏ đặt phía trước."
-          },
-          {
-            "t": 275,
-            "url": "https://media.aquatome.com/video/a77kpNo-Mac/t275.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh các cụm cây nhỏ mọc rời rạc, không trải thảm ở tiền cảnh."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/a77kpNo-Mac/p4-dWxhY2VhXzIuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/a77kpNo-Mac/p4-dWxhY2VhXzIuanBn-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Coughdrop12",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pangea_America_Halophila_stipulacea_2.jpg",
-          "caption": "Cây lá xanh mọc trên nền sỏi cuội ở tiền cảnh bể thủy sinh."
-        }
-      },
-      {
-        "heading": "Nhìn lá để biết cây khỏe hay yếu",
-        "moments": [
-          {
-            "t": 157,
-            "url": "https://media.aquatome.com/video/a77kpNo-Mac/t157.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Những cụm cây nana xanh tươi mọc dưới chân đá trong hồ."
-          },
-          {
-            "t": 334,
-            "url": "https://media.aquatome.com/video/a77kpNo-Mac/t334.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cây nana lá xanh khỏe trải trên nền cát gần đá."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/a77kpNo-Mac/p5-cnUtSW5kaWEuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/a77kpNo-Mac/p5-cnUtSW5kaWEuanBn-480.webp",
-          "width": 960,
-          "height": 1117,
-          "licence": "CC BY 4.0",
-          "author": "Yercaud-elango",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anubias_bateri_var_nana-2-veda_aquarium-bengaluru-India.jpg",
-          "caption": "Cây Anubias nana khỏe với những tán lá xanh đậm, bám trên đá."
-        }
-      },
-      {
-        "heading": "Mua nana ở đâu, giá bao nhiêu",
-        "moments": [
-          {
-            "t": 285,
-            "url": "https://media.aquatome.com/video/a77kpNo-Mac/t285.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể thủy sinh với đá và cây xanh nhỏ mọc dưới nền cát."
-          },
-          {
-            "t": 320,
-            "url": "https://media.aquatome.com/video/a77kpNo-Mac/t320.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Những đám cây xanh nhỏ trải dọc nền cát quanh các khối đá."
-          }
-        ]
-      },
-      {
-        "heading": "Bắt đầu từ đâu",
-        "moments": [
-          {
-            "t": 64,
-            "url": "https://media.aquatome.com/video/a77kpNo-Mac/t64.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể có cụm đá lớn và cây nhỏ xanh ở nền gần chân đá."
-          },
-          {
-            "t": 330,
-            "url": "https://media.aquatome.com/video/a77kpNo-Mac/t330.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bố cục đá hai bên, cây xanh mọc thấp ở nền phía trước."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/a77kpNo-Mac/p7-cnUtSW5kaWEuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/a77kpNo-Mac/p7-cnUtSW5kaWEuanBn-480.webp",
-          "width": 960,
-          "height": 917,
-          "licence": "CC BY 4.0",
-          "author": "Yercaud-elango",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anubias_bateri_var_nana-3-veda_aquarium-bengaluru-India.jpg",
-          "caption": "Cây nana mọc trong khe đá, lá xanh khỏe, bám chắc vào đá."
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anubias_barteri_var._nana.jpg",
+          "caption": "Cây ráy nana nguyên bụi, rễ trần, đúng kiểu hay bán ở cửa hàng thủy sinh."
         }
       }
     ]

@@ -10,6 +10,65 @@
     "brazil",
     "rio-unini"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Unini",
+        "Rio Negro"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Sand's cory, Hoplisoma davidsandsi, long known as Corydoras davidsandsi, is an armoured catfish apparently endemic to the rio Unini system in the lower rio Negro basin, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Unini"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Rio Unini, whitewater area of the Rio Negro, Brazil', and this species appears endemic to that tributary system located within the lower rio Negro.",
+          "countries": [],
+          "regions": [
+            "Rio Negro"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342691,
+      "total": 2,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "BR",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -66.09375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -12.65625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

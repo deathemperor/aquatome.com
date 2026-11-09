@@ -27,9 +27,9 @@ Leads, the engine and main's iOS runs share one Mac. A booted simulator is the h
   2026-11-08. Simulators run headless (`xcrun simctl boot`, or xcodebuild's own); opening Simulator.app is refused. Watch
   one in the Device panel only while you need to. Close the preview tabs and browser windows you open, run browsers
   headless for automated work, and stop a log stream (`log stream`, `simctl spawn … log stream`) when you've read it.
-- Engine and video runs, and the runner's simulator runs, wait for cooler hours: while macOS has taken cores away from
-  work (it does under heat), a run waits before it starts, up to 2 h (`cool`, `scripts/cycle-checks.sh`) or 30 min
-  (`apps/ios/scripts/sim-run.py`).
+- Engine and video runs, the runner's simulator runs and TestFlight's uploads wait for cooler hours: while macOS has
+  taken cores away from work (it does under heat), a run waits before it starts, up to 2 h (`cool`,
+  `scripts/cycle-checks.sh`) or 30 min (`apps/ios/scripts/sim-run.py`, and an upload's build).
 - Remove your worktree when its PR merges (`git worktree remove <path>`).
 - Keep what's worth keeping (working folders, prototypes, eval caches, briefs, run progress) in `~/.cache/aquatome/<area>/`,
   never `/tmp` or `/private/tmp`: a restart empties those, and the one on 2026-11-08 took a lead's whole working folder and
@@ -45,7 +45,7 @@ Leads, the engine and main's iOS runs share one Mac. A booted simulator is the h
 
 `watch.yml` runs every browser check against the live site, with real content (about 800 species), after each deploy and
 nightly. A journey holds on both the fixture build and the live site when it reads names, slugs and counts from the page
-(`#species-index`, the result line) or uses species both have. Try one against the live site from `apps/site`:
+(`#tm-form`'s species file, the result line) or uses species both have. Try one against the live site from `apps/site`:
 
 ```sh
 node ../../scripts/site-watch.mjs prepare https://aquatome.com .
@@ -124,6 +124,10 @@ the next run keeps the fix. A hand edit to one item needs a guard the engine res
 Open a draft PR. `main` takes squash merges after the `test` check (ci.yml) passes. A PR that touches `apps/ios/**`
 or `protocols/**` runs its iOS jobs (ios.yml) only once it's marked ready, so mark it ready when it's done and
 checked locally, then merge after those jobs pass (or the scoping skips them), never straight after marking it ready.
+Merge main into a ready PR's branch only to resolve a conflict: its checks already run on it merged with main, and each
+push runs its iOS jobs again (28% of PRs' Mac time on 2026-11-08). `.claude/hooks/main-merge.py` refuses a clean one, and
+`ios.yml` runs nothing for a push that only merged main in after a passing run, unless it resolved a conflict in the
+app's or the protocols' files.
 Commit subjects read
 `type(scope): what changes`, as in `fix(tank volume): the ready-made tank table fits a phone`; the body says why.
 

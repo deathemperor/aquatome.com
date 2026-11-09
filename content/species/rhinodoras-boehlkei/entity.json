@@ -1,0 +1,273 @@
+{
+  "id": "rhinodoras-boehlkei",
+  "scientificName": "Rhinodoras boehlkei",
+  "order": "Siluriformes",
+  "family": "Doradidae",
+  "genus": "Rhinodoras",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "ecuador",
+    "bobonaza",
+    "peru",
+    "amazon",
+    "brazil"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 24,
+          "max": 26
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 5.8,
+          "max": 7
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.8,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 13.3
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 13
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=132",
+      "html": "<ul><li>Common name: Fog Talking Catfish</li><li>Temperament: peaceful</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinodoras-boehlkei",
+      "html": "<p>The fog talking catfish, Rhinodoras boehlkei, is a doradid catfish from the upper Amazon basin in eastern Ecuador and Peru. It is usually found sheltering among roots or sunken logs in flowing rivers and tributaries. Shy and nocturnal, it is totally unaggressive but will eat smaller fish, so tankmates need to be too big to be considered food.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=132",
+      "html": "<p>Eastern Ecuador and Peru. Amazon, Upper Amazon. Type locality: Río Bobonaza between Montalvo and Chicherato, Ecuador.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinodoras-boehlkei",
+      "html": "<p>Native to the Upper Amazon basin in parts of Eastern Ecuador and Peru.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinodoras-boehlkei",
+      "html": "<p>It's usually found sheltering among roots or sunken logs in flowing rivers and tributaries.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinodoras-boehlkei",
+      "html": "<p>Not especially active but due to its potential size will still need a tank measuring at least 120 × 30 × 30 cm (~108 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinodoras-boehlkei",
+      "html": "<p>It's a shy, nocturnal species so it's best to keep the tank dimly lit. Provide plenty of hiding places in the form of clay flowerpots, lengths of plastic piping, tangles of driftwood etc. Plants aren't essential but are useful in cutting out the amount of light hitting the bottom of the tank and providing extra cover. If you buy one of these for your community tank you'll probably find it will head straight for an area of cover and remain there during the hours of daylight. If you want to see it more often, consider installing a red light above the tank. It can't see red lightwaves, so if you switch this on at night you should be able to observe it foraging for food. It usually becomes much bolder as it grows, and adult specimens will often cruise the tank whether the lights are on or not.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinodoras-boehlkei",
+      "html": "<ul><li>Temperature: 24–26°C</li><li>pH: 5.8–7.0</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "equipment",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=132",
+      "html": "<p>A PVC pipe around about a third longer and wider the fish is ideal. Several fish will happily share a slightly larger pipe. Bogwood or stones can also be used. Care must be taken that the fish does not decide to hide too close to an unguarded heater.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=132",
+      "html": "<p>A typical doradid in that it will eat pretty much any food offered.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinodoras-boehlkei",
+      "html": "<p>Omnivorous and easy to feed. Use a good quality sinking pellet or tablet as the staple diet. Supplement this with live and frozen foods such as bloodworm, small earthworms and similar. When first introduced it may only feed after lights out, and food should be added accordingly. Once settled most will learn to come out and forage around at feeding time.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=132",
+      "html": "<p>Peaceful.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinodoras-boehlkei",
+      "html": "<p>Totally unaggressive but it will eat smaller fish so isn't really suitable for the general community. It can be kept with most peaceable species that are too big to be considered food, including medium-sized characins, cyprinids, anabantoids, livebearers, cichlids and other non-territorial catfish. It's tolerant of conspecifics and a group can usually be kept without any problems. If several are present they'll often share the same refuge during the day. While some jostling for position might occur, no physical damage is usually done.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=132",
+      "html": "<p>Unknown.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinodoras-boehlkei",
+      "html": "<p>Unknown.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=132",
+      "html": "<p>Unknown. There is no breeding report.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinodoras-boehlkei",
+      "html": "<p>There are no reports of breeding in the hobby.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=132",
+      "html": "<p>Etymology: Rhinodoras comes from the Greek rhinos, meaning nose, and doras, meaning skin (also a word commonly used in forming generic names for doradids); in reference to the unusual snout morphology. Named for the American ichthyologist James Böhlke (1930–1982). Described by Glodek, Whitmire &amp; Orcés V., 1976.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinodoras-boehlkei",
+      "html": "<p>At present there's not a great deal of information available regarding this species. It seems to be fairly easy to keep, and makes a good addition to larger community tanks.</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=132",
+      "html": "<p>Fieldiana Zoology v. 70 (no. 1), pp 3, Figs. 1-2, 3A.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/4b1532ec9d65b7e8.webp",
+      "thumb": "https://media.aquatome.com/scotcat/4b1532ec9d65b7e8-480.webp",
+      "width": 500,
+      "height": 296,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/rhinodoras_boehlkei.htm",
+      "caption": "Rhinodoras boehlkei",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/f0c8777fd1aaf131.webp",
+      "thumb": "https://media.aquatome.com/scotcat/f0c8777fd1aaf131-480.webp",
+      "width": 500,
+      "height": 364,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/rhinodoras_boehlkei.htm",
+      "caption": "Rhinodoras boehlkei: head view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/4ebb3cdaf536e1bb.webp",
+      "thumb": "https://media.aquatome.com/scotcat/4ebb3cdaf536e1bb-480.webp",
+      "width": 500,
+      "height": 344,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/rhinodoras_boehlkei.htm",
+      "caption": "Rhinodoras boehlkei: head view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/1e838537ca79a5da.webp",
+      "thumb": "https://media.aquatome.com/scotcat/1e838537ca79a5da-480.webp",
+      "width": 500,
+      "height": 224,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/rhinodoras_boehlkei.htm",
+      "caption": "Rhinodoras boehlkei",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá",
+        "máy lọc nước hồ cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá da trơn đáy",
+        "thức ăn viên chìm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}
