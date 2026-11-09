@@ -152,6 +152,22 @@ test("video-stills: a tile stored since its t is its second (`at<t>.webp`) is th
   expect((await s.read('content/guides/youtube-c1/entity.json')).video.figures[0].moments).toEqual([{ t: 980, url: 'https://m/video/c1/at980-hd.webp', width: 1200, height: 675, caption: 'Một' }])
 })
 
+test("video-stills: a tile whose frame isn't at the second it names becomes the frame at the second it really shows, and its t moves there", async () => {
+  // The owner's report of blurry stills (2026-11-09): a misread tile interval had left every still up to 1.3% early.
+  const s = await site()
+  await s.put('content/guides/youtube-c1/entity.json', {
+    id: 'youtube-c1', kind: 'care', source: 'youtube', sourceUrl: 'https://www.youtube.com/watch?v=c1', html: '', photos: [], mentions: [], updatedAt: '2026-11-07',
+    video: { youtubeId: 'c1', title: 'Lọc', channel: 'S', channelUrl: 'https://x', durationSec: 100, chapters: [], figures: [
+      { heading: 'Lọc', moments: [{ t: 18, url: 'https://m/video/c1/at18.webp', width: 320, height: 180, caption: 'Một' }] },
+    ] },
+  })
+  s.d.get = async () => grey(90, 320, 180).webp().toBuffer()
+  s.d.grab = async (_st, sec) => { s.calls.grabs.push(sec); return grey(sec === 20 ? 90 : 200, 1280, 720).png().toBuffer() }
+  expect((await videoStills(s.root, s.d, { only: ['youtube-c1'] })).done).toEqual(['youtube-c1: 1 retimed, 1 sharp, 0 dropped, 0 kept as tiles'])
+  expect(s.calls.grabs).toEqual([18, 20])
+  expect((await s.read('content/guides/youtube-c1/entity.json')).video.figures[0].moments).toEqual([{ t: 20, url: 'https://m/video/c1/at20-hd.webp', width: 1200, height: 675, caption: 'Một' }])
+})
+
 test('video-stills: YouTube throttling or a model failure stops the run and leaves the guide as it was, nothing marked failed', async () => {
   for (const over of [
     { grab: async (_s: unknown, sec: number) => { if (sec === 30) throw new Error('ffmpeg: Server returned 429 Too Many Requests'); return grey(56, 1280, 720).png().toBuffer() } },
