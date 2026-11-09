@@ -6,6 +6,8 @@ import Telemetry
 /// này ở trang đầy đủ"): the whole page as v1 draws it, or the site's.
 struct FullPage: Hashable {
   let item: HandbookIndex.Item
+  /// The part it's opened for (its heading's id), where it opens.
+  var at: String?
 }
 
 /// A fish's or plant's page, as an app's page in the App Store: its photo across the top and the photo's colour washing down
@@ -44,6 +46,8 @@ struct SpeciesPage: View {
   @State private var tip: Tip?
   /// A page of the site's the app can't show itself, in the app.
   @State private var onSite: URL?
+  /// Its parts opened past their fold ("thêm", or a chip to them).
+  @State private var opened: Set<Int> = []
   /// The page has been asked for: nil after this, it didn't come (offline, and not kept).
   @State private var asked = false
   /// "Thử lại" pressed, so many times.
@@ -59,6 +63,8 @@ struct SpeciesPage: View {
   @State private var nameGone = false
   /// The page's width and place, the bar's middle, its buttons' inner edges and the name's own width, for the name in the bar.
   @State private var width: CGFloat = 0
+  /// The screen's height the page scrolls in, from its top under the status bar.
+  @State private var viewport: CGFloat = 0
   @State private var origin = CGPoint.zero
   @State private var barMid: CGFloat = 0
   @State private var backEnd: CGFloat = 0
@@ -122,7 +128,7 @@ struct SpeciesPage: View {
           Color.clear.frame(height: 116)
         }
         header
-        FactsStrip(facts: facts, onDark: true, temperament: asked && !hasMates).padding(.vertical, 14)
+        FactsStrip(facts: facts, plant: item.plant, onDark: true, temperament: asked && !hasMates).padding(.vertical, 14)
         if !photos.isEmpty { gallery.padding(.bottom, 24) }
         // Until it's asked for, the colour runs on past the screen's foot, the spinner on it: no white strip, no tab bar
         // changing, when the page comes. Not a fish with no photo: it'll have no gallery to fill the place.
@@ -162,6 +168,7 @@ struct SpeciesPage: View {
     .onChange(of: phase) { reading?.inFront(phase == .active) }
     .onGeometryChange(for: CGFloat.self) { $0.safeAreaInsets.top } action: { barFoot = $0 }
     .onGeometryChange(for: CGFloat.self) { $0.size.width } action: { width = $0 }
+    .onScrollGeometryChange(for: CGFloat.self) { $0.containerSize.height } action: { _, h in viewport = h }
     .onGeometryChange(for: CGPoint.self) { $0.frame(in: .global).origin } action: { origin = $0 }
     .onChange(of: colourAt.foot) { if front { standOnColour() } }
     .onChange(of: colour) { if front { standOnColour() } }
@@ -534,14 +541,13 @@ struct SpeciesPage: View {
     }
   }
 
-  /// The tank-mates' photos' credits, the page's last thing and one tap away: a run of licence lines and photo numbers would
-  /// be louder than the page's end. The lead photo's and the gallery's stay under their photos.
-  @ViewBuilder private var matesCredits: some View {
-    if let doc, let m = doc.blocks.lazy.compactMap({ b -> PageDoc.Mates? in
-      if case let .mates(m) = b { return m }
-      return nil
-    }).first {
-      let photos = ((m.good?.items ?? []) + (m.avoid?.items ?? [])).compactMap(\.img)
+  /// The tank-mates' and its breeds' photos' credits, the page's last thing and one tap away: a run of licence lines and
+  /// photo numbers would be louder than the page's end, or read as a pager between two lists. The lead photo's and the
+  /// gallery's stay under their photos.
+  @ViewBuilder private var credits: some View {
+    if let doc {
+      let mates = doc.blocks.lazy.compactMap { b -> PageDoc.Mates? in if case let .mates(m) = b { m } else { nil } }.first
+      let photos = ((mates?.good?.items ?? []) + (mates?.avoid?.items ?? [])).compactMap(\.img) + (whole?.cardPhotos ?? [])
       if photos.contains(where: { $0.credit != nil }) {
         DisclosureGroup {
           // Capped: at the largest text, licence lines would take the screen.
@@ -597,7 +603,7 @@ struct SpeciesPage: View {
     switch url.scheme {
     case "page-anchor":
       let id = String(url.absoluteString.dropFirst("page-anchor:".count)).removingPercentEncoding ?? ""
-      withAnimation { proxy.scrollTo(id, anchor: .top) }
+      jump(to: id, proxy)
     case "page-tip":
       tip = Tip(url)
     case "page-video":
@@ -611,6 +617,8 @@ struct SpeciesPage: View {
 
   /// Under the photos: the page that didn't come, or its parts; then the tank-mates' photos' credits.
   private func rest(_ proxy: ScrollViewProxy) -> some View {
+    // All at once, as v1's page: in a lazy stack the page's layout could spin for seconds on end as parts came and went,
+    // and a chip's jump landed past its part. What a part folds away isn't drawn (V2Section).
     VStack(alignment: .leading, spacing: 28) {
       if asked && doc == nil {
         VStack(alignment: .leading, spacing: 4) {
@@ -626,15 +634,21 @@ struct SpeciesPage: View {
         .padding(.horizontal, 20)
       }
       if let doc, let whole {
-        // Its readers before the sources behind its figures and its sources, its last parts.
-        let readersAt = whole.parts.firstIndex { if case .trust = $0 { true } else if case .refs = $0 { true } else { false } } ?? whole.parts.count
-        ForEach(whole.parts.indices, id: \.self) { i in
-          if i == readersAt { readers(doc) }
-          part(i, whole, doc)
+        if !whole.jumps.isEmpty { jumps(whole, proxy) }
+        ForEach(whole.parts.indices.filter { drawn($0, whole, doc) }, id: \.self) { i in
+          // Its readers before the literature it cites and its sources, one with the part after them: none, no gap.
+          if i == whole.readersAt {
+            VStack(alignment: .leading, spacing: 0) {
+              readers(doc)
+              part(i, whole, doc).background(alignment: .top) { place(whole.ids[i]) }
+            }
+          } else {
+            part(i, whole, doc).background(alignment: .top) { place(whole.ids[i]) }
+          }
         }
-        if readersAt == whole.parts.count { readers(doc) }
+        if whole.readersAt == whole.parts.count { readers(doc) }
       }
-      matesCredits
+      credits
     }
     // Links in the text: a page the index lists opens in the app, `#id` scrolls to it, a word's tip shows, a video's
     // moment plays it here.
@@ -649,8 +663,57 @@ struct SpeciesPage: View {
     }
   }
 
-  /// One of the page's parts, after its photos: its answer, a winter, its tank-mates, as v2 has drawn them; the rest, each
-  /// under its heading, folded when long.
+  /// A part's place for a chip or a `#id` link, at its top: no height, so `jump` sets its top where it says.
+  private func place(_ id: String) -> some View {
+    Color.clear.frame(height: 0).id(id)
+  }
+
+  /// To a part (`place`) or a `#id` in the text, its top just under the bar: at the screen's top, as `.top` puts it, it
+  /// was behind the bar, the page running up under it.
+  private func jump(to id: String, _ proxy: ScrollViewProxy) {
+    withAnimation { proxy.scrollTo(id, anchor: UnitPoint(x: 0, y: viewport > 0 ? min((barFoot + 8) / viewport, 0.5) : 0)) }
+  }
+
+  /// The parts a reader comes back for, a chip each, over a long page: tapped, the page scrolls there, its part open.
+  private func jumps(_ whole: WholeParts, _ proxy: ScrollViewProxy) -> some View {
+    ScrollView(.horizontal, showsIndicators: false) {
+      HStack(spacing: 8) {
+        ForEach(whole.jumps.indices, id: \.self) { j in
+          let to = whole.jumps[j].part
+          Button {
+            opened.insert(to)
+            jump(to: whole.ids[to], proxy)
+          } label: {
+            Text(verbatim: whole.jumps[j].label).font(.subheadline.weight(.semibold))
+              .padding(.horizontal, 14)
+              .frame(minHeight: 44)
+              .background(.fill.tertiary, in: Capsule())
+          }
+          .buttonStyle(.plain)
+        }
+      }
+    }
+    .contentMargins(.horizontal, 20, for: .scrollContent)
+    .v2ShelfEdge()
+    .accessibilityIdentifier("v2-jumps")
+  }
+
+  /// Whether a part has anything to draw: its photos are the row under the name, the tool's link is the tank-mates', a
+  /// list of guides the index lists none of is nothing, nor is a heading over only what's drawn in its own place.
+  private func drawn(_ i: Int, _ whole: WholeParts, _ doc: PageDoc) -> Bool {
+    switch whole.parts[i] {
+    case .photos: false
+    case .summary: hasSummary
+    case .climate, .mates: true
+    case .toolLink: !hasMates && toolLink != nil
+    case let .pages(b):
+      if case let .pages(_, paths) = doc.blocks[b] { paths.contains { handbook.item(at: $0) != nil } } else { false }
+    default: !whole.pieces[i].isEmpty
+    }
+  }
+
+  /// One of the page's parts, after its photos: its answer, a winter, its tank-mates, as v2 has drawn them; its videos, a
+  /// row; the rest, each under its heading, folded when long.
   @ViewBuilder private func part(_ i: Int, _ whole: WholeParts, _ doc: PageDoc) -> some View {
     switch whole.parts[i] {
     case .photos: EmptyView()
@@ -658,31 +721,48 @@ struct SpeciesPage: View {
     case .climate: climate
     // The tool's link where the page lists no tank-mates: drawn where they would be.
     case .mates: mates
-    case .toolLink: if !hasMates { mates }
-    case let .pages(b):
-      // Only those the index lists: none, no heading over nothing.
-      if case let .pages(_, paths) = doc.blocks[b], paths.contains(where: { handbook.item(at: $0) != nil }) { section(i, whole) }
-    default:
-      // A heading over only what's drawn in its own place (its tank-mates): nothing under it here.
-      if !whole.pieces[i].isEmpty { section(i, whole) }
+    case .toolLink: mates
+    case .videos: videos(i, whole)
+    default: section(i, whole)
     }
   }
 
   private func section(_ i: Int, _ whole: WholeParts) -> some View {
-    V2Section(title: whole.titles[i], anchor: whole.anchors[i], folds: {
-      switch whole.parts[i] { case .section, .trust, .refs: true; default: false }
-    }()) {
-      VStack(alignment: .leading, spacing: 14) {
-        ForEach(whole.pieces[i].indices, id: \.self) { j in
-          V2Piece(piece: whole.pieces[i][j], open: { open($0) }, full: { openFull(item) })
-        }
+    // Its sources' figures, compared, show whole: folded, the figure they disagree on is the one cut.
+    let folds = if case .section = whole.parts[i] { true } else { false }
+    let anchor = whole.ids[i].hasPrefix("part-") ? nil : whole.ids[i]
+    return V2Section(title: whole.titles[i], pieces: whole.pieces[i], folds: folds,
+                     open: Binding(get: { opened.contains(i) }, set: { if $0 { opened.insert(i) } }), width: width,
+                     link: { open($0) }, full: { openFull(item, anchor) })
+  }
+
+  /// Its videos, a row of them, each with its title under its picture and played in its place: down the page, five of
+  /// them were three screens of YouTube.
+  private func videos(_ i: Int, _ whole: WholeParts) -> some View {
+    VStack(alignment: .leading, spacing: 10) {
+      if let title = whole.titles[i] {
+        Text(verbatim: title).font(.title2.weight(.bold)).accessibilityAddTraits(.isHeader).padding(.horizontal, 20)
       }
+      ScrollView(.horizontal, showsIndicators: false) {
+        HStack(alignment: .top, spacing: 14) {
+          ForEach(whole.pieces[i].indices, id: \.self) { j in
+            if case let .video(id, title, caption) = whole.pieces[i][j] {
+              VideoSlot(id: id, title: title, caption: caption, captionUnder: true)
+                .containerRelativeFrame(.horizontal) { w, _ in min(w - 56, 320) }
+            }
+          }
+        }
+        .scrollTargetLayout()
+      }
+      .contentMargins(.horizontal, 20, for: .scrollContent)
+      .scrollTargetBehavior(.viewAligned)
+      .v2ShelfEdge()
     }
   }
 
-  /// Its readers' photos and comments, as v1's page has them.
+  /// Its readers' photos and comments, as v1's page has them, under v2's headings; the gap after them only when they show.
   @ViewBuilder private func readers(_ doc: PageDoc) -> some View {
-    if let talk = doc.talk { ReadersPart(talk: talk, name: doc.title).padding(.horizontal, 20) }
+    if let talk = doc.talk { ReadersPart(talk: talk, name: doc.title, heading: .title2.bold(), space: (.bottom, 28)).padding(.horizontal, 20) }
   }
 }
 

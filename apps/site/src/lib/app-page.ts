@@ -98,7 +98,7 @@ export function sectionBlocks(lang: Lang, c: Content, props: SectionProps): { bl
     for (const b of sec.blocks) {
       if (b.off.length) {
         const figures = b.off.map(o => `${t(OFF_LABELS[o.field]!)} ${o.field === 'tankL' ? `${range(o.own)} ${t('lít')}` : fig(o.field, o.own)} (${t('bảng:')} ${fig(o.field, o.card)})`).join(', ')
-        blocks.push({ t: 'p', c: [`${t('{source} ghi khác bảng dữ liệu:', { source: b.name })} ${figures}.`] })
+        blocks.push({ t: 'p', c: [{ text: `${t('{source} ghi khác bảng dữ liệu:', { source: b.name })} ${figures}.`, note: true }] })
       }
       prose(b.vi)
     }

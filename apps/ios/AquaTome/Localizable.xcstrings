@@ -2223,6 +2223,28 @@
         }
       }
     },
+    "Cho ăn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pakan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Makanan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "การให้อาหาร"
+          }
+        }
+      }
+    },
     "CO2": {
       "localizations": {
         "id": {
@@ -8625,6 +8647,28 @@
         }
       }
     },
+    "Nguồn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sumber"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sumber"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แหล่งที่มา"
+          }
+        }
+      }
+    },
     "Nguồn gốc": {
       "localizations": {
         "id": {
@@ -9479,6 +9523,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "หลังเวลาปิดตามตารางเวลา เปิดไฟเพิ่มได้แค่ 1 หรือ 2 ชั่วโมง เพราะเปิดไฟข้ามคืนทำให้ตะไคร่ขึ้นง่าย"
+          }
+        }
+      }
+    },
+    "Sinh sản": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pemijahan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pembiakan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "การผสมพันธุ์"
           }
         }
       }

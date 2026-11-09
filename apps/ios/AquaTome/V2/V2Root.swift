@@ -28,17 +28,17 @@ struct V2Root: View {
     TabView(selection: $selection) {
       Tab("Hôm nay", systemImage: "sparkles", value: Pick.today) {
         TodayView(path: $todayPath)
-          .environment(\.v2OpenFull) { item in
+          .environment(\.v2OpenFull) { item, at in
             if todayOwnFrom == nil { todayOwnFrom = todayPath.count }
-            todayPath.append(FullPage(item: item))
+            todayPath.append(FullPage(item: item, at: at))
           }
           .v2ClearUnderTabBar()
       }
       Tab("Khám phá", systemImage: "square.grid.2x2", value: Pick.browse) {
         BrowseHome(path: $handbookPath, front: selection == .browse)
-          .environment(\.v2OpenFull) { item in
+          .environment(\.v2OpenFull) { item, at in
             if ownFrom == nil { ownFrom = handbookPath.count }
-            handbookPath.append(FullPage(item: item))
+            handbookPath.append(FullPage(item: item, at: at))
           }
           .v2ClearUnderTabBar()
       }
@@ -219,7 +219,7 @@ private struct ClearUnderTabBar: ViewModifier {
 extension EnvironmentValues {
   /// A fish's or plant's page as v1 draws it (FullPage), pushed on the stack in front where v2's holds a part it can't draw
   /// ("Xem phần này ở trang đầy đủ"), counted for switching back to v1 (V2Root).
-  @Entry var v2OpenFull: (HandbookIndex.Item) -> Void = { _ in }
+  @Entry var v2OpenFull: (HandbookIndex.Item, _ at: String?) -> Void = { _, _ in }
   /// What the tab stands on under its bar and fade, for a page whose colour reaches them (ClearUnderTabBar).
   @Entry var v2FootGround: Binding<FootGround?>?
   /// How many times the screen has been asked again ("Thử lại", a pull to refresh): a photo that didn't come tries again.
@@ -247,7 +247,7 @@ private struct Destinations: ViewModifier {
         }
         .navigationTransition(.zoom(sourceID: item.path, in: zoom))
       }
-      .navigationDestination(for: FullPage.self) { PageView(item: $0.item, url: handbook.url($0.item)).v2ClearOfTheFade() }
+      .navigationDestination(for: FullPage.self) { PageView(item: $0.item, url: handbook.url($0.item), at: $0.at).v2ClearOfTheFade() }
       .navigationDestination(for: Browse.self) { BrowseView(browse: $0).v2ClearOfTheFade() }
       .navigationDestination(for: VolumeTool.self) { TankVolumeView(query: $0.query).v2ClearOfTheFade() }
       .navigationDestination(for: FishIdRoute.self) { _ in FishIdView().v2ClearOfTheFade() }

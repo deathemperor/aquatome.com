@@ -315,6 +315,8 @@ private extension Text {
 /// by scrolling, none cut by the screen's edge.
 struct FactsStrip: View {
   let facts: HandbookIndex.Facts
+  /// A plant's care, first: how hard, its light, its CO₂, how fast it grows, as its page lists them.
+  var plant: HandbookIndex.Plant?
   var onDark = false
   /// Left out where the page's "Nuôi chung" says it.
   var temperament = true
@@ -413,6 +415,14 @@ struct FactsStrip: View {
     func scale(_ r: HandbookIndex.Facts.Range, _ lo: Double, _ hi: Double) -> ClosedRange<Double> {
       let a = min(max((r.min - lo) / (hi - lo), 0), 1), b = min(max((r.max - lo) / (hi - lo), 0), 1)
       return min(a, b)...max(a, b)
+    }
+    if let plant {
+      // In the index's words for this language (PLANT_LABELS), as FactsCard has them.
+      let word = { (key: String, value: String) in handbook.labels[key, value] ?? value }
+      if let d = plant.difficulty { add("Độ khó", word("difficulty", "\(d)")) }
+      if let l = plant.light { add("Ánh sáng", word("light", l)) }
+      if let c = plant.co2 { add("CO₂", word("co2", c), upper: false) }
+      if let g = plant.growth { add("Tốc độ mọc", word("growth", g)) }
     }
     // What a beginner asks first in view: how warm, how big a tank, how big it grows, how hard; then the rest.
     if let r = facts.tempC { add("Nhiệt độ", "\(HandbookIndex.Facts.range(r, locale)) °C", bar: scale(r, 10, 35)) }

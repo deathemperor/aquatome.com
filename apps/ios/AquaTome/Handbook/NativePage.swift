@@ -20,6 +20,8 @@ struct NativePage: View {
   var nameInView: (Bool) -> Void = { _ in }
   /// The page's path on the site, for the app's anonymous telemetry (PageReading).
   var path: String?
+  /// A part to open the page at (its heading's id): v2's page offers this one where it holds a part it can't draw.
+  var at: String?
   @Environment(HandbookModel.self) private var handbook
   @Environment(TelemetryModel.self) private var telemetry
   @Environment(\.scenePhase) private var phase
@@ -104,6 +106,12 @@ struct NativePage: View {
       }
       // Links in the text: a page the index lists opens in the app, `#id` scrolls to it, a word's tip shows.
       .environment(\.openURL, OpenURLAction { open($0, proxy) })
+      // Laid out first, then at its part.
+      .task {
+        guard let at else { return }
+        await Task.yield()
+        proxy.scrollTo(at, anchor: .top)
+      }
       // A chapter or a still tapped: its video in view.
       .onChange(of: player.asked) { withAnimation { proxy.scrollTo(PagePlayer.anchor(player.id), anchor: .center) } }
       .modifier(SeenDown { reading?.scrolled(to: $0) })
@@ -621,6 +629,8 @@ struct CardsPart: View {
   /// Tank-mates' "Hợp với" (true) or "Tránh" (false), marked so for the eye.
   let good: Bool?
   let open: (URL) -> Void
+  /// Its photos' credits under it; v2's page has them at its foot.
+  var credits = true
   @ScaledMetric(relativeTo: .body) private var thumb: CGFloat = 56
   /// The width each of a credit's numbers takes: 44 points to tap, as the app's other small controls have.
   @ScaledMetric(relativeTo: .caption2) private var number: CGFloat = 44
@@ -649,7 +659,7 @@ struct CardsPart: View {
         }
       }
       .background(.fill.quaternary, in: .rect(cornerRadius: 12))
-      if !credits.isEmpty {
+      if self.credits, !credits.isEmpty {
         VStack(alignment: .leading, spacing: 0) {
           ForEach(credits.indices, id: \.self) { creditRow(credits[$0]) }
         }
@@ -831,6 +841,10 @@ private struct GalleryRow: View {
 struct ReadersPart: View {
   let talk: PageDoc.Talk
   let name: String
+  /// Its headings' font: v1's page's own, v2's its.
+  var heading: Font = .pageHeading
+  /// The room it keeps from the next part (v1: above it), only when it shows something.
+  var space: (edge: Edge.Set, length: CGFloat) = (.top, 40)
   @Environment(HandbookModel.self) private var handbook
   @Environment(AccountModel.self) private var account
   /// What the site answered: nil until it has (still reading, or offline), so "none yet" is said only of a page that has none.
@@ -859,7 +873,7 @@ struct ReadersPart: View {
     VStack(alignment: .leading, spacing: 14) {
       if showsPhotos {
         if shownPhotos.isEmpty {
-          Text("Ảnh bạn đọc").font(.pageHeading).accessibilityAddTraits(.isHeader)
+          Text("Ảnh bạn đọc").font(heading).accessibilityAddTraits(.isHeader)
           // None at all: hidden ones the note below says.
           if photos?.isEmpty == true { Text("Chưa có ảnh nào. Bạn nuôi \(name)? Gửi một tấm ảnh cho mọi người cùng xem.").foregroundStyle(.secondary) }
         } else {
@@ -870,7 +884,7 @@ struct ReadersPart: View {
         if open { Button("Gửi ảnh \(name) của bạn") { posting = .photo }.buttonStyle(.bordered).accessibilityIdentifier("post-photo") }
       }
       if showsComments {
-        Text("Thảo luận").font(.pageHeading).accessibilityAddTraits(.isHeader).padding(.top, showsPhotos ? 26 : 0)
+        Text("Thảo luận").font(heading).accessibilityAddTraits(.isHeader).padding(.top, showsPhotos ? 26 : 0)
         if comments?.isEmpty == true { Text("Chưa có bình luận. Hãy là người đầu tiên chia sẻ kinh nghiệm.").foregroundStyle(.secondary) }
         ForEach(shownComments, id: \.id) { c in
           Divider()
@@ -901,7 +915,7 @@ struct ReadersPart: View {
       }
     }
     // Its own space above, when it shows anything (or says what it hides): none for a page with no readers' part.
-    .padding(.top, showsPhotos || showsComments || hidden > 0 ? 40 : 0)
+    .padding(space.edge, showsPhotos || showsComments || hidden > 0 ? space.length : 0)
     #if DEBUG
     .background {
       if answered { Text(verbatim: "read").font(.system(size: 1)).fixedSize().opacity(0.01).accessibilityIdentifier("readers-read") }

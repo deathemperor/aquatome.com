@@ -483,8 +483,9 @@ private func pieces(_ c: PageDoc.Image.Credit, photo: Bool = true) -> [String] {
                     "cards", "videos"])
 }
 
-// A fish's page in v2's order: its photos, its answer, a winter, its tank-mates, its sections as written (a section
-// keeps its own figures and the part no app reads), then its breeds, guides, videos and sources.
+// A fish's page in v2's order: its photos, its answer, a winter, its tank-mates and the section on them, its sections as
+// written (a section keeps its own figures and the part no app reads, a source's note on a figure last), then its breeds,
+// guides, videos, the literature it cites and its sources.
 @Test func v2sPageGoesInTheOrderAReaderAsks() throws {
   let d = try doc(["v": 1, "kind": "fish", "path": "/vi/ca/x/", "title": "Cá", "blocks": [
     ["t": "trust", "title": "Nguồn", "rows": []] as [String: Any],
@@ -496,12 +497,18 @@ private func pieces(_ c: PageDoc.Image.Credit, photo: Bool = true) -> [String] {
     ["t": "p", "c": ["Nước mềm."]],
     ["t": "carousel"],
     ["t": "h", "text": "Thức ăn", "id": "muc-diet"],
+    ["t": "p", "c": [["text": "Nguồn A ghi khác bảng dữ liệu: nhiệt độ 24–30°C (bảng: 22–30°C).", "note": true]]],
     ["t": "p", "c": ["Viên nhỏ."]],
     ["t": "refs", "title": "Nguồn", "items": []],
     ["t": "cards", "title": "Các dòng", "items": []],
     ["t": "pages", "title": "Bài viết", "paths": []],
     ["t": "videos", "title": "Video", "items": []],
+    ["t": "h", "text": "Tài liệu tham khảo", "id": "muc-references"],
+    ["t": "list", "items": [[["t": "p", "c": ["Tan (2005)."]]]]],
+    ["t": "h", "text": "Nuôi chung", "id": "muc-behaviour"],
+    ["t": "p", "c": ["Hiền."]],
   ]])
-  #expect(PagePart.of(d) == [.photos([1]), .summary(3), .climate(4), .toolLink(2), .section(heading: 5, blocks: [6, 7]), .section(heading: 8, blocks: [9]),
-                             .cards(11), .pages(12), .videos(13), .trust(0), .refs(10)])
+  #expect(PagePart.of(d) == [.photos([1]), .summary(3), .climate(4), .toolLink(2), .section(heading: 17, blocks: [18]),
+                             .section(heading: 5, blocks: [6, 7]), .section(heading: 8, blocks: [10, 9]),
+                             .cards(12), .pages(13), .videos(14), .section(heading: 15, blocks: [16]), .trust(0), .refs(11)])
 }

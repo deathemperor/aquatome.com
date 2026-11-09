@@ -11,6 +11,8 @@ import WebKit
 struct PageView: View {
   let item: HandbookIndex.Item
   let url: URL
+  /// A part to open the page at (NativePage.at).
+  var at: String?
   @Environment(TanksModel.self) private var tanks
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.openScreen) private var openScreen
@@ -45,7 +47,7 @@ struct PageView: View {
     Group {
       if native, let pieces {
         NativePage(pieces: pieces, facts: facts(inPage: true), put: inPagePut ? { putting = true } : nil, web: { onWeb = true },
-                   nameInView: { nameInView = $0 }, path: item.path)
+                   nameInView: { nameInView = $0 }, path: item.path, at: at)
       } else if native && !tried {
         ProgressView().frame(maxWidth: .infinity, maxHeight: .infinity)
       } else {

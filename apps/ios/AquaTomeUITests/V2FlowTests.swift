@@ -189,18 +189,53 @@ final class V2FlowTests: XCTestCase {
     XCTAssertFalse(app.buttons["v2-part-elsewhere"].exists, "a part left to v1's page")
   }
 
-  /// A long part shows its first lines over "thêm", which opens the rest in place, as an app's description in the App Store.
-  func testALongPartFoldsAndOpensInPlace() {
-    let app = openNeon()
-    let trust = app.staticTexts["Nguồn và độ tin cậy"], next = app.staticTexts["Nguồn"]
-    reveal(app, trust)
+  /// A long part folds between its pieces, never through a line: its first paragraphs whole and the rest not there to
+  /// read or touch until "thêm" opens it in place. A part of one long paragraph shows its first lines, "thêm" at the end
+  /// of the last, and a link in them works.
+  func testALongPartFoldsBetweenItsPiecesAndWhatShowsWorks() {
+    let app = openNeon("-long-part")
+    func text(_ s: String) -> XCUIElement { app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", s)).firstMatch }
+    reveal(app, app.staticTexts["Cho ăn gì?"])
+    XCTAssertTrue(text("Thức ăn viên nhỏ").exists, "the part's opening isn't there")
+    XCTAssertFalse(text("Đoạn cuối về cho ăn").exists, "a paragraph folded away is still there to read")
     let more = app.buttons["v2-more"].firstMatch
-    XCTAssertTrue(more.exists, "the long part isn't folded")
-    let folded = next.frame.minY - trust.frame.minY
+    reveal(app, more)
     more.tap()
-    let opened = expectation(for: NSPredicate(format: "exists == false"), evaluatedWith: app.buttons["v2-more"])
-    XCTAssertEqual(XCTWaiter.wait(for: [opened], timeout: 3), .completed, "thêm stayed")
-    XCTAssertGreaterThan(next.frame.minY - trust.frame.minY, folded + 40, "the part didn't open")
+    XCTAssertTrue(text("Đoạn cuối về cho ăn").waitForExistence(timeout: 3), "thêm didn't open the part")
+    // The long paragraph: its first lines, and the link in them.
+    let mate = app.links["cá ngựa vằn"]
+    reveal(app, mate)
+    XCTAssertTrue(app.buttons["v2-more"].exists, "the long paragraph isn't folded")
+    mate.tap()
+    XCTAssertTrue(app.staticTexts["Cá ngựa vằn"].waitForExistence(timeout: 5), "a link in a folded part's first lines doesn't work")
+  }
+
+  /// The sources' figures, compared, show whole: folded, the figure they disagree on was the one cut. A chip to a part a
+  /// reader comes back for scrolls there, its heading just under the bar.
+  func testTheSourcesShowWholeAndAChipGoesToItsPart() {
+    let app = openNeon()
+    let chips = app.descendants(matching: .any)["v2-jumps"]
+    reveal(app, chips)
+    chips.buttons["Sinh sản"].tap()
+    let breeding = app.staticTexts["Sinh sản ra sao?"]
+    XCTAssertTrue(breeding.waitForExistence(timeout: 5) && breeding.isHittable, "the chip didn't go to its part")
+    // Under the bar, not behind it: at the screen's top, as a jump put it, the bar hid the heading.
+    XCTAssertGreaterThan(breeding.frame.minY, app.buttons["v2-back"].frame.maxY, "the part's heading behind the bar")
+    reveal(app, app.staticTexts["Nguồn và độ tin cậy"])
+    XCTAssertFalse(app.buttons["v2-more"].exists, "the sources' figures are folded")
+  }
+
+  /// A plant's page has its care across it as a fish's has its figures: how hard, its light, its CO₂, how fast it grows.
+  func testAPlantsPageHasItsCareInItsStrip() {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-reset-defaults", "-v2", "YES"]
+    app.launchForFlow()
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/cay/rotala-do/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the plant's page isn't v2's")
+    for label in ["Ánh sáng", "Tốc độ mọc"] {
+      XCTAssertTrue(app.staticTexts.matching(NSPredicate(format: "label CONTAINS[c] %@", label)).firstMatch.exists, "no \(label) in the plant's strip")
+    }
   }
 
   /// A part this build can't draw (a newer site's) offers v1's page there, never missing; v1's page opens from it.
@@ -213,6 +248,11 @@ final class V2FlowTests: XCTestCase {
     XCTAssertLessThan(elsewhere.frame.minY, app.staticTexts["Sinh sản ra sao?"].frame.minY, "the offer isn't in its part")
     elsewhere.tap()
     XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 5), "v1's page didn't open")
+    // At that part, not at its top, sixteen screens from it on a long page.
+    let web = app.buttons["page-web"]
+    XCTAssertTrue(web.waitForExistence(timeout: 5), "v1's page offers the part nowhere")
+    let at = expectation(for: NSPredicate(format: "hittable == true"), evaluatedWith: web)
+    XCTAssertEqual(XCTWaiter.wait(for: [at], timeout: 3), .completed, "v1's page didn't open at the part")
   }
 
   func testAFishsPageReportsHowFarItIsRead() {

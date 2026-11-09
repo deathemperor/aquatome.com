@@ -3,9 +3,11 @@ import Foundation
 /// v2's page for a fish, plant or breed (SpeciesPage) as parts, in the order it shows them, each holding the blocks it
 /// draws by their place in the page: every block in one part, so nothing is left only on v1's page. Its photos lead, as
 /// the row under the name; then the answer, a line before it (a breed's parents), whether it gets through a northern
-/// winter and its tank-mates; then the page's own sections, in its order; then its breeds, the guides that mention it,
-/// its videos, the sources behind its figures and its sources. A part this app can't read (`.web`) stays where it is in
-/// its section, which offers v1's page there.
+/// winter, its tank-mates and the section on them (`muc-behaviour`) under them; then the page's own sections, in its
+/// order; then its breeds, the guides that mention it, its videos, the literature it cites (`muc-references`), the
+/// sources behind its figures and its sources. In a section, a source's note on a figure the data table has otherwise
+/// (`Run.note`) comes last, beside the rest, not as its opening line. A part this app can't read (`.web`) stays where it
+/// is in its section, which offers v1's page there.
 public enum PagePart: Equatable, Sendable {
   /// The page's galleries: their photos, the row under the name.
   case photos([Int])
@@ -55,8 +57,9 @@ public enum PagePart: Equatable, Sendable {
     let before = (0..<firstHeading).filter { !own($0) }
     if !before.isEmpty { out.append(.section(heading: nil, blocks: before)) }
     out += all { if case .climate = $0 { true } else { false } }.map(PagePart.climate)
-    out += all { if case .mates = $0 { true } else { false } }.map(PagePart.mates)
-    out += tool.map(PagePart.toolLink)
+    let mates = all { if case .mates = $0 { true } else { false } }.map(PagePart.mates) + tool.map(PagePart.toolLink)
+    out += mates
+    var sections: [PagePart] = [], behaviour: [PagePart] = [], references: [PagePart] = []
     var at = firstHeading
     while at < b.count {
       let heading = at
@@ -67,11 +70,20 @@ public enum PagePart: Equatable, Sendable {
         if !own(at) { under.append(at) }
         at += 1
       }
-      out.append(.section(heading: heading, blocks: under))
+      // Its source notes last.
+      let note = { (i: Int) -> Bool in if case let .paragraph(runs) = b[i] { !runs.isEmpty && runs.allSatisfy(\.note) } else { false } }
+      let part = PagePart.section(heading: heading, blocks: under.filter { !note($0) } + under.filter(note))
+      switch b[heading] {
+      case .heading(_, "muc-behaviour") where !mates.isEmpty: behaviour.append(part)
+      case .heading(_, "muc-references"): references.append(part)
+      default: sections.append(part)
+      }
     }
+    out += behaviour + sections
     out += all { if case .cards = $0 { true } else { false } }.map(PagePart.cards)
     out += all { if case .pages = $0 { true } else { false } }.map(PagePart.pages)
     out += all { if case .videos = $0 { true } else { false } }.map(PagePart.videos)
+    out += references
     out += all { if case .trust = $0 { true } else { false } }.map(PagePart.trust)
     out += all { if case .refs = $0 { true } else { false } }.map(PagePart.refs)
     return out
