@@ -12,7 +12,8 @@
     "guyana",
     "essequibo",
     "brazil",
-    "rio-negro"
+    "rio-negro",
+    "rio-jutai"
   ],
   "range": {
     "native": {
@@ -580,6 +581,10 @@
       {
         "source": "seriouslyfish",
         "value": 40
+      },
+      {
+        "source": "glaser",
+        "value": 25
       }
     ],
     "tankCm": [
@@ -603,10 +608,22 @@
       "html": "<p>The Atabo red pike cichlid, Lugubria lugubris, is a large pike cichlid from rivers in Suriname, Guyana and Brazil. Colourful when small, it quickly grows into an aggressive adult of up to 40 cm and will eat any fish small enough to be considered food. Pairs are difficult to form because males become increasingly aggressive as they mature, and prospective mates are often killed.</p><ul><li>Needs 27 °C or warmer</li><li>Needs a very large tank</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/crenicichla_lugubris_jutai_en/",
+      "html": "<p>Currently the specimens are 20-25 cm long.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-lugubris",
       "html": "<p>Has been recorded from the Rio Corantijn in Suriname, Rio Essequibo in Guyana, Rio Negro and Rio Uatumã in Brazil and Rio Branco in both Brazil and Guyana.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/crenicichla_lugubris_jutai_en/",
+      "html": "<p>Jutai is a municipality in western Brazil, named after the Rio Jutai, which is an affluent to the Amazon river. From this region originates the impressive, beautiful Crenicichla lugubris, which could be imported in very small numbers.</p>"
     },
     {
       "key": "habitat",
@@ -651,6 +668,12 @@
       "html": "<p>Male has white stripe on the dorsal fin. Females are more colourful.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/crenicichla_lugubris_jutai_en/",
+      "html": "<p>The females can be recognized by the broad white seam in the dorsal fin.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-lugubris",
@@ -666,33 +689,33 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/7e9f2a7f21742e9d.webp",
+      "thumb": "https://media.aquatome.com/commons/7e9f2a7f21742e9d-480.webp",
       "width": 960,
       "height": 643,
       "licence": "CC BY 4.0",
       "author": "Whaldener Endo",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Crenicichla_lugubris_204987076.jpg",
-      "caption": "Spottail Pike Cichlid (Crenicichla lugubris)",
-      "thumb": "https://media.aquatome.com/commons/7e9f2a7f21742e9d-480.webp"
+      "caption": "Spottail Pike Cichlid (Crenicichla lugubris)"
     },
     {
       "url": "https://media.aquatome.com/commons/b745cf5f5aef5694.webp",
+      "thumb": "https://media.aquatome.com/commons/b745cf5f5aef5694-480.webp",
       "width": 960,
       "height": 680,
       "licence": "CC BY-SA 4.0",
       "author": "Herbisius",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Crenicichla_Xingu_1_female_and_male.tif",
-      "caption": "Paar Crenicichla Xingu 1 (W oben, M unten)",
-      "thumb": "https://media.aquatome.com/commons/b745cf5f5aef5694-480.webp"
+      "caption": "Paar Crenicichla Xingu 1 (W oben, M unten)"
     },
     {
       "url": "https://media.aquatome.com/commons/7a50b50eaa7d6011.webp",
+      "thumb": "https://media.aquatome.com/commons/7a50b50eaa7d6011-480.webp",
       "width": 960,
       "height": 540,
       "licence": "CC BY-SA 4.0",
       "author": "Herbisius",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Crenicichla_Xingu_1_female_(front)_and_male.tif",
-      "caption": "Paar Crenicichla Xingu 1 (W vorne, M hinten)",
-      "thumb": "https://media.aquatome.com/commons/7a50b50eaa7d6011-480.webp"
+      "caption": "Paar Crenicichla Xingu 1 (W vorne, M hinten)"
     }
   ],
   "videos": [],
@@ -723,5 +746,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-09"
 }

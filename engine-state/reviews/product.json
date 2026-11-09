@@ -301,6 +301,38 @@
       "kept": true
     }
   ],
+  "vi/products/fluval-stratum": [
+    {
+      "at": "2026-11-09T22:46:04Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "\"JBL Manado: ... rẻ hơn\" - the facts give the Manado price (about 265,000₫) but no Stratum price, so \"cheaper\" has nothing to compare against. This is a minor point.",
+        "\"Hạt nhỏ có thể làm tắc ống xi phông\" - the facts say \"small balls can clog siphons\". The page's wording is close but a little loose."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-09T22:46:04Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "\"Cả hai đều khuyên lót thêm bông lọc mịn\" - facts say fine filter wool helps for both, roughly supported, but the claim of 'lót thêm' is minor.",
+        "\"Hãng khuyên dùng nó làm nền chính cho bể nhỏ, hoặc làm lớp phủ trên cho bể lớn\" - facts do not say the manufacturer recommends this; source is unattributed.",
+        "\"Muốn nước bớt đục thì đặt một cái hộp lên mặt nền rồi rót nước vào hộp\" - fine, but the page puts it as a step before filling slowly; ok.",
+        "\"Cây ăn rễ mạnh thì sau 2–3 tuần nhét thêm phân nhét\" - supported; but 'Sau khoảng 2 tuần thì bắt đầu châm phân nước' ok.",
+        "\"JBL Manado: Nền đất sét trơ, rẻ hơn\" - supported (cheaper than Stratum is implied but no Stratum price in facts).",
+        "\"Kotobuki ... giá tương đương\" - facts say 'similar price' but no Stratum price is given, so the comparison is unsupported.",
+        "\"Đợi 3–5 ngày rồi mới thả vài con cá khỏe\" - facts say 'hardy animals', not specifically fish; minor generalisation.",
+        "\"Nền giữ pH trung tính đến hơi axit\" in the intro and \"không làm đổi màu nước\" are supported; \"nền rất khó hút vệ sinh\" is slightly strengthened from 'harder'.",
+        "\"Hai nguồn khuyên xử lý khác nhau ... Cả hai đều khuyên lót thêm bông lọc mịn\" - plausible but the 'both' attribution is inferred.",
+        "Question 'Set bể xong bao lâu thì thả cá được' and the cichlid/catfish line 'Hạt nền nhẹ, mà nền bị xới lên là nước nổi mây đen' add a causal link not stated in the facts."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/products/tuya-smart-life-power-strip": [
     {
       "at": "2026-11-09T06:23:13Z",

@@ -18,6 +18,13 @@
           "min": 20,
           "max": 26
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -27,12 +34,29 @@
           "min": 6.6,
           "max": 7.6
         }
+      },
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 15
+      },
+      {
+        "source": "scotcat",
+        "value": 20
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "scotcat",
+        "value": 4
       }
     ]
   },
@@ -44,10 +68,28 @@
       "html": "<p>Sturisomatichthys aureus (Steindachner, 1900). Common name: Giant Whiptail. Type locality: Sororia Creek at Jagua de Ibiricó, lower Magdalena basin, Cesar Department, Colombia. Size: 150 mm (5.9\") SL. IUCN Red List: Data Deficient (last assessed 2014).</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/sturisomatichthys_aureus.htm",
+      "html": "<ul><li>Common name: Giant Whiptail</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1167",
       "html": "<p>South America: Colombia, Caribbean rivers, Magdalena.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/sturisomatichthys_aureus.htm",
+      "html": "<p>Colombia: Magdalena, San Jorge and Cesar River basins. Type locality: Bodega central, Rio Magdalena, Colombia.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/sturisomatichthys_aureus.htm",
+      "html": "<p>Large planted aquarium with non aggressive tank mates. Regular water changes must be adhered to, to keep this animal in good health.</p>"
     },
     {
       "key": "waterConditions",
@@ -56,28 +98,69 @@
       "html": "<p>pH 6.6–7.6. Temperature 20–26°C (68–78.8°F). Soft to medium water hardness. This fish prefers slightly cooler water and may not thrive in an aquarium warmer than 26°C (78°F).</p>"
     },
     {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/sturisomatichthys_aureus.htm",
+      "html": "<p>Mostly vegetarian with cucumber, spinach, and algae wafers. Meaty foods such as frozen blood worms and live foods such as white worms and brine shrimp can be fed sporadically.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/sturisomatichthys_aureus.htm",
+      "html": "<p>Mature males will grow odontodes along the sides of the head and rostrum (snout). The males tend to have longer extensions to the fins.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/sturisomatichthys_aureus.htm",
+      "html": "<p>As per this genus will lay eggs usually on the tank walls and the male will guard and fan the eggs. The eggs will hatch between 7 to 9 days and the youngsters will eat Artemia, minced lettuce and mashed peas.</p>"
+    },
+    {
       "key": "notes",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1167",
       "html": "<p>Sturisoma and Sturisomatichthys can be difficult to tell apart. Older descriptions emphasized snout length (elongated in Sturisoma), but this trait is not reliable. Recent analyses distinguish them by abdominal plates, fin colours and lateral plates: Sturisoma has central abdominal plates in three clearly defined longitudinal series, no dark spots on the fins (except sometimes the pectorals), and 20–21 lateral plates in the median series. Sturisomatichthys has less organised central abdominal plates, usually dark spots on one or more of the dorsal, pectoral, pelvic or anal fins, and 15–18 lateral plates in the median series. All Sturisoma are cis-Andean; most (not all) Sturisomatichthys are trans-Andean.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/sturisomatichthys_aureus.htm",
+      "html": "<p>This species and Sturisomatichthys festivus are very much alike and the care is the same for both species. The work carried out by Covain et al. 2016 confines the genus Sturisoma to east of the Andes (cis-Andean), and the genus Sturisomatichthys is restricted to the west of the Andes (trans-Andean).</p><p>Etymology: The specific name aureus is Latin for golden, referring to shimmers of gold over the entire body.</p><p>Remarks: Still listed on some online sources as Sturisomatichthys aureum.</p><p>IUCN Red List: listed as Data Deficient because there are no data on its population size and trend or the threats affecting it.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1167",
       "html": "<p>Anzeiger der Kaiserlichen Akademie der Wissenschaften, Wien, Mathematisch-Naturwissenschaftliche Classe v. 37 (no. 18), pp 206.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/sturisomatichthys_aureus.htm",
+      "html": "<p>Covain, R., S. Fisch-Muller, C. Oliveira, J.H. Mol, J.I. Montoya-Burgos and S. Dray, 2015. Molecular phylogeny of the highly diversified catfish subfamily Loricariinae (Siluriformes, Loricariidae) reveals incongruences with morphological classification. Mol. Phylogenet. Evol. 94:492-517. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2017. FishBase. www.fishbase.org. Grant, S. Whiptail Catfish on the Move. Practical Fishkeeping (UK) May 2016. Usma, S., Mesa-Salazar, L., Sanchez-Duarte, P. &amp; Lasso, C. 2016. Sturisomatichthys aureus. The IUCN Red List of Threatened Species 2016.</p>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/scotcat/25caaf4b272b06bd.webp",
+      "thumb": "https://media.aquatome.com/scotcat/25caaf4b272b06bd-480.webp",
+      "width": 500,
+      "height": 255,
+      "licence": "dùng với sự cho phép",
+      "author": "Melaine Riddell / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/sturisomatichthys_aureus.htm",
+      "caption": "Sturisomatichthys aureus",
+      "source": "scotcat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/d930f01353077358.webp",
+      "thumb": "https://media.aquatome.com/commons/d930f01353077358-480.webp",
       "width": 800,
       "height": 1200,
       "licence": "CC BY-SA 2.5",
       "author": "Richard Bartz, Munich aka Makro Freak",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sturisoma_aureum_Richard_Bartz.jpg",
-      "caption": "Whiptail catfish (Sturisomatichthys aureus, Synonym: Sturisoma aureum). Sturisomatichthys is a genus of catfishes (order Siluriformes) of the suckermouth armoured catfish family (Loricariidae).",
-      "thumb": "https://media.aquatome.com/commons/d930f01353077358-480.webp"
+      "caption": "Whiptail catfish (Sturisomatichthys aureus, Synonym: Sturisoma aureum). Sturisomatichthys is a genus of catfishes (order Siluriformes) of the suckermouth armoured catfish family (Loricariidae)."
     }
   ],
   "videos": [],
@@ -104,5 +187,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-09"
 }

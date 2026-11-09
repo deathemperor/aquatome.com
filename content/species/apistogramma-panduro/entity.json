@@ -175,52 +175,80 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-panduro",
       "html": "<ul><li>Kullander, S. O. (1986). Cichlid fishes of the Amazon River drainage of Peru. Swedish Museum of Natural History, 1-431</li><li>Kullander, S. O. (2003). Cichlidae (Cichlids). In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre, EDIPUCRS, Brasil</li><li>Römer, U. (2006). Cichlid Atlas Volume 2. Mergus Verlag GmBH, Melle, Germany. 1320 p.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_panduro_var_marsel__en/",
+      "html": "<p>This dwarf cichlid was imported from Peru.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_panduro_var_marsel__en/",
+      "html": "<p>Like all dwarf cichlids of this group, the males have bright blue shining scales. In contrast to related species, the seam around the caudal fin in males is yellow instead of red-orange.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_panduro_var_marsel__en/",
+      "html": "<p>The fish is without any doubt a close relative of the species Apistogramma nijsseni, A. panduro and the still undescribed A. sp. \"Inka II\". The tailspot looks most like that of A. nijsseni.</p><p>Lexicon: Apistogramma: ancient Greek, means \"with unreliable line\". It is not known whether the lateral line organ or the pattern is meant. panduro: dedication name. nijsseni: dedication name.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/seriouslyfish/9b3b988d4c4713b0.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/9b3b988d4c4713b0-480.webp",
       "width": 800,
       "height": 523,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-panduro",
       "caption": "Adult male specimen.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/9b3b988d4c4713b0-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/f8c249dcf0cabb62.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/f8c249dcf0cabb62-480.webp",
       "width": 800,
       "height": 655,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-panduro",
       "caption": "Adult female - aggressive mood.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/f8c249dcf0cabb62-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/61d5d5f357f2cf82.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/61d5d5f357f2cf82-480.webp",
       "width": 800,
       "height": 529,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-panduro",
       "caption": "Adult male - aggressive mood.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/61d5d5f357f2cf82-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/7b581f5bf26b8dcf.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/7b581f5bf26b8dcf-480.webp",
       "width": 1024,
       "height": 527,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-panduro",
       "caption": "Adult female specimen.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/7b581f5bf26b8dcf-480.webp"
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/glaser/fcbf1a2f2787a692.webp",
+      "thumb": "https://media.aquatome.com/glaser/fcbf1a2f2787a692-480.webp",
+      "width": 618,
+      "height": 293,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_panduro_var_marsel__en/",
+      "source": "glaser"
     }
   ],
   "videos": [],
@@ -254,5 +282,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-09"
 }

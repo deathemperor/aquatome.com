@@ -1,0 +1,20 @@
+{
+  "slug": "mua-ca-dia-da-bat-dau",
+  "name": "Mùa cá đĩa đã bắt đầu!",
+  "altNames": [],
+  "sections": {},
+  "body": "<p>Mùa này nước lên rất cao, cao hơn mức bình thường tới bốn mét. Thế nhưng lứa cá đĩa bắt ngoài tự nhiên đầu tiên của mùa mới vẫn về được. Cá lứa này rất đẹp, chẳng hạn như con cá đĩa xanh lá ít đốm đỏ (Green Discus, Few Red Spot).</p>",
+  "quality": {
+    "score": 0.85,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.85
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-10"
+  }
+}

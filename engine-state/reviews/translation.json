@@ -22760,6 +22760,34 @@
   ],
   "vi/species/apistogramma-borellii#glaser": [
     {
+      "at": "2026-11-09T22:02:03Z",
+      "model": "sonnet",
+      "score": 0.86,
+      "notes": [
+        "Item 4: \"hình mẫu gia đình theo quan niệm của con người\" adds \"gia đình\"; the source only says \"human ideals\". Use \"hình mẫu lý tưởng của con người\".",
+        "Item 4: \"đa thê\" is a stiff, human-centred term. Prefer \"loài đa thê (một đực ghép với nhiều cái)\" or \"chế độ một đực nhiều cái\".",
+        "Item 1: \"Umbrella cichlid, Yellow dwarf cichlid\" is left in English. Add a Vietnamese gloss such as \"cá rồng lùn vàng\" if an established name exists, or note that they are English trade names.",
+        "Item 5: \"trên thân\" in \"hoa văn trên thân\" is not in the source. Use \"hoa văn\" or \"kiểu vằn\" alone.",
+        "Item 2: \"bắt ngoài tự nhiên ở Paraguay\" reads slightly clumsily. Use \"cá A. borellii khai thác từ tự nhiên ở Paraguay\" for more natural hobby wording."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-09T22:02:03Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "Item 1: \"Umbrella cichlid, Yellow dwarf cichlid\" are left in English. Give established Vietnamese names (e.g. \"cá rồng lùn/cichlid lùn vàng\"), or at least add a Vietnamese rendering.",
+        "Item 3: \"hợp với mong muốn của người nuôi nhất\" is vague for \"fits best to human ideals\". Make the link to pair-keeping clear, e.g. \"phù hợp nhất với quan niệm lý tưởng của con người về cặp đôi, thậm chí có thể nuôi theo cặp\".",
+        "Item 3: \"Nuôi theo cặp với loài này cũng được\" drops the \"even\" emphasis. Use \"thậm chí còn có thể nuôi theo cặp\".",
+        "Item 5: \"Cá bắt ngoài tự nhiên ở Paraguay cũng đã có về\" is colloquial. Use \"Cá đánh bắt từ tự nhiên ở Paraguay đã được nhập về\".",
+        "Item 2: \"không kén nước chút nào\" is colloquial. Use \"hoàn toàn không kén thông số nước\"."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
+    {
       "at": "2026-11-09T16:19:57Z",
       "model": "sonnet",
       "score": 0.8,
@@ -22844,6 +22872,18 @@
     }
   ],
   "vi/species/apistogramma-gephyra#glaser": [
+    {
+      "at": "2026-11-09T21:54:59Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "Item 1: \"Cá bán ra thường dài 3-5 cm\" adds \"thường\" (usually). The source gives a plain available size, so use \"Kích cỡ cá bán: 3-5 cm\".",
+        "Item 2: \"sông Rio Negro\" and \"sông Rio Branco\" are redundant because \"Rio\" already means river. This is minor. Consider \"Rio Negro\" alone, or keep it as is.",
+        "Item 4: \"có đường không đáng tin\" is stiff. Consider \"có vạch/đường vân không đáng tin cậy\" and \"chữ\" → \"từ\" in \"chữ 'đường'\" and \"chữ Hy Lạp cổ\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    },
     {
       "at": "2026-11-09T16:26:33Z",
       "model": "sonnet",
@@ -25655,6 +25695,1168 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "vi/guides/aquariumbreeder-fiddler-crab-tank-setup#aquariumbreeder": [
+    {
+      "at": "2026-11-09T21:26:11Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Omitted: 'Tip: Use any unnecessary credit card' is OK, but 'To improve visual perception... a little more depth' is shortened; minor.",
+        "Omitted care fact: 'Adding water aeration... increase their lifespan' kept, but 'Option: Use egg crates' loses 'mesh screen' detail: 'lưới mịn' is OK, yet 'egg crate' left as English; use 'tấm lưới ô vuông (egg crate)' explanation.",
+        "Added/changed meaning: 'cua phải ra được chỗ nước lợ dễ dàng' ok, but 'cua bám leo ra khỏi nước' is garbled; use 'để cua bò ra khỏi nước'.",
+        "Wrong: 'Để chắc bể không bị nứt hỏng' – the source says 'not damaged'; acceptable but 'rỉ nước' should be 'rò rỉ nước'.",
+        "Mistranslation: 'Pha 5 muỗng canh muối biển cho 4–6 lít nước' – 1–1.5 gal is ~4–6 L, OK; but 'Tuyệt đối không dùng muối hột hay muối ăn' – source says 'simple aquarium salt or table salt'; 'muối hột' is wrong, use 'muối bể cá thông thường'.",
+        "Mistranslation: 'Fiddler crabs have lungs' → 'thở bằng phổi' is biologically questionable but faithful; keep. However 'phải lên khỏi mặt nước mới thở được' fine.",
+        "Mistranslation: 'hơi bốc lên khi luộc... độc với người' ok; but 'luộc đá sẽ diệt được những thứ không mong muốn' fine.",
+        "Untranslated/jargon: 'set bể', 'set chỗ ở', 'stress', 'cycle' used as slang/English; prefer 'bố trí/lắp đặt bể', 'căng thẳng', 'chu trình vi sinh'.",
+        "Omitted: 'Related article' references and 'For more information... How to Clean and Disinfect Used Aquariums' dropped; and 'Note: in small tanks... complex behavior' fine. Also 'tip' about sponge filters 'lọc mút' ok.",
+        "Mistranslation: 'Note: Even if you keep only 1 or 2 crabs' ok. 'Step 3 ratio' ok. 'Bể cho 3–5 con thì nên bắt đầu từ 40 lít' drops 'I would recommend' – fine. Headings numbering 4.5 retained from source."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-09T21:26:11Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "Mistranslation of care advice: \"Do not ever use simple aquarium salt or table salt\" became \"muối hột hay muối ăn\". Aquarium salt (muối bể cá / muối hồ cá) is missing, and \"muối hột\" means coarse or rock salt, which is a different thing. Fix: \"Tuyệt đối không dùng muối bể cá thông thường hay muối ăn\".",
+        "Omitted: the pointer \"For more information, you can also read 'How to Clean and Disinfect Used Aquariums and Accessories'\" in Step 2. Restore it or give a neutral equivalent.",
+        "Omitted: the \"Related article: Do We Need Tank Decoration? Simple Ideas\" reference in Step 6.",
+        "Omitted: the closing \"feel free to ask me\" and the \"If you want to make sure you do things right...\" sentence was changed. This is minor, but the conclusion drifts from the source.",
+        "Unnecessary slang or English: \"set bể\", \"set cổ điển\", \"stress\". Prefer \"bố trí/thiết lập bể\", \"cách thiết lập cổ điển\", \"căng thẳng\".",
+        "\"Lọc trong\" for \"internal filter\" is unclear. Use \"lọc trong bể\" or \"lọc thả chìm\".",
+        "\"Fiddler crab tank ... borrow\" (burrow) is translated correctly. Added filler such as \"Rõ ràng chúng thích phần cạn hơn\" slightly strengthens the source's \"clear preference\" wording. Keep it closer to the source."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/aquariumbreeder-how-long-do-crayfish-live#aquariumbreeder": [
+    {
+      "at": "2026-11-09T21:05:02Z",
+      "model": "sonnet",
+      "score": 0.75,
+      "notes": [
+        "\"Vì quá nhỏ để đe dọa cá và tép khác\" adds \"tép\" (the source says only \"too small to be a threat to most\"). It also contradicts the next sentence, where they hunt shrimp. Use \"quá nhỏ nên không đe dọa được phần lớn bạn cùng bể\".",
+        "The table and the \"Xem thêm\" list leave common names in English: \"Dwarf Mexican crayfish\", \"Cajun Dwarf Crayfish\", \"Brazos dwarf crayfish\", \"Smallest crayfish\", \"Swamp Dwarf Crayfish\", \"Thunderbolt Crayfish\", \"Cuban crayfish\", \"Rusty crayfish\", \"Orange crayfish\", \"Marron crayfish\", \"Signal Crayfish\". Give Vietnamese names (for example \"tôm hùm đất lùn Mexico\", \"tôm hùm đất tín hiệu\"), keeping the…",
+        "\"Yabbies\" is left untranslated in the heading and body. Add a Vietnamese gloss, for example \"tôm hùm đất Yabby (Cherax destructor)\".",
+        "Related-article titles such as \"7 Signs Your Crayfish is Suffering from Stress\" and \"What Do Crayfish Eat?\" are left in English. Translate the titles, or make them clearly link text.",
+        "\"bên Mỹ còn gọi là\" adds a geographic claim that is not in the source. Use \"còn được gọi là\".",
+        "\"Chúng thường có màu khá đẹp, và xem chúng lúc nào cũng vui\" is slightly awkward. Rephrase, for example \"màu sắc thường khá bắt mắt và luôn thú vị khi quan sát\".",
+        "\"Vừa lột xong, tôm rất dễ bị tấn công\" narrows \"vulnerable\", which also covers stress and general weakness. Use \"rất yếu và dễ tổn thương\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/aquariumbreeder-new-tank-syndrome#aquariumbreeder": [
+    {
+      "at": "2026-11-09T21:18:00Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "\"cá mồi\" for \"starter fish\" is slightly off (it suggests bait fish); use \"cá khởi động\" or \"cá thả ban đầu\".",
+        "\"bể mới set\" and \"set bể\" are hobby slang; \"bể mới lập/mới setup\" reads more neutrally in an encyclopedia.",
+        "\"Hội chứng bể mới là một trong những rắc rối hay gặp nhất khi nuôi cá\" drops the shrimp/invertebrate context; \"khi nuôi cá tép\" would be more faithful.",
+        "\"khóa được chất độc\" for \"pollutant binder\" is awkward; consider \"chất khử độc/trung hòa chất độc\".",
+        "The cross-reference \"You can read more about it in my article 'How to Clean an Aquarium Filter'\" and the water-change article reference are omitted; this is acceptable if they are links, but note it."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/aquariumbreeder-tannins-in-aquarium#aquariumbreeder": [
+    {
+      "at": "2026-11-09T21:14:29Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "\"cái bể đã set kỹ lưỡng\": \"set\" is untranslated English slang. Use \"bể được chuẩn bị kỹ lưỡng\" or \"bể đã được thiết lập cẩn thận\".",
+        "The \"Related articles\" lines (pH and KH in a shrimp tank) are dropped without a trace. Keep them as reference titles, or confirm that dropping them is intended.",
+        "\"nhưng cứ cân nhắc dùng lũa thật\": this is stiff and softens \"you should consider just using the real thing\". Try \"nhưng nên cân nhắc dùng lũa thật thì hơn\".",
+        "\"chống gốc tự do\" for \"antiradical activities\": this is acceptable, but \"hoạt tính chống gốc tự do\" is more standard.",
+        "\"Có người thì chẳng thấy phiền gì.\": this is a loose rendering of \"Personally, I don't mind it at all.\" It is fine as neutral phrasing, but the sentence is slightly clipped.",
+        "\"ngâm lũa ... ít nhất một đến hai tuần\": \"at least a week or two\" reads more naturally as \"ít nhất một hai tuần\" or \"từ một đến hai tuần trở lên\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/aquariumcoop-blogs-aquarium-how-to-choose-aquarium-plants#aquariumcoop": [
+    {
+      "at": "2026-11-09T21:33:00Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"nhét phân nhét vào gốc\": duplicated word and unclear. \"root tabs\" should be \"viên phân gốc/phân nhét gốc\", e.g. \"bón viên phân gốc đều đặn\".",
+        "\"Cũng có nhiều loại đèn yếu hơn vẫn lên khỏe\": wrong subject. The English says plants that thrive in lower light, so write \"nhiều loại cây cần đèn yếu hơn vẫn lên khỏe\".",
+        "\"cây cắt cắm\" for stem plants is non-standard and awkward. Use \"cây thân mềm\" or \"cây thân đứng/cây thân dài\", consistently.",
+        "\"tạo chỗ trốn cho cá\": the English hiding spaces serve fish and invertebrates. Say \"cho cá và tép\" for completeness.",
+        "\"Bể sẽ nhanh kín, nhưng chỉ cần bỏ chăm một thời gian là cây mọc um tùm\": the English says trimming makes it easy to fill space quickly, but the tank can overgrow if maintenance pauses. Smooth the logic.",
+        "\"Cây ... thì hợp nhất là cây cần đèn yếu\": the original says \"might be the perfect candidate\", which is softer. Consider \"có lẽ hợp nhất\".",
+        "\"nhìn thích mắt và chăm cũng vui\" is colloquial. Consider a more encyclopedic register."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/aquariumcoop-blogs-aquarium-in-the-aquarium-hobby-it-s-a-small-world-after-all#aquariumcoop": [
+    {
+      "at": "2026-11-09T21:30:54Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"lúc bể mới set\": untranslated English slang; use \"lúc bể mới lên\" or \"mới thiết lập\".",
+        "\"đồ thủy sinh\" for aquarium gear: it usually means plants or aquascaping items; use \"đồ nuôi cá cảnh\" or \"thiết bị hồ cá\".",
+        "\"nhiều người biết điều đó mới thấy mình như được mở mắt\": awkward and hard to read; rephrase, e.g. \"nhiều người nhận ra mình có thể dựng một hệ sinh thái khỏe đẹp ngay trên bàn làm việc, và đó như một cú mở mắt\".",
+        "\"cá chuột đồng\" for bronze corydoras: use the standard \"cá chuột đồng\" only if it is well established; otherwise \"cá chuột đồng/cá corydoras đồng\" with the Latin name given on first mention.",
+        "\"Trong tiếng Anh, chữ 'shrimp'...\": reads as added explanation but is acceptable; keep it brief or make it clear it is a source-language remark.",
+        "\"Đồ công nghệ càng ngày càng nhỏ... và may là đồ thủy sinh cũng vậy\": clumsy; say \"và may mắn là lĩnh vực cá cảnh cũng không ngoại lệ\".",
+        "\"Chăm chút đều tay\" and \"đớp viên cám\" are colloquial; consider a more encyclopedic register, e.g. \"chăm sóc cẩn thận\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/aquariumcoop-blogs-aquarium-pre-filters-how-one-small-hack-transformed-the-aquarium-hobby#aquariumcoop": [
+    {
+      "at": "2026-11-09T21:28:57Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "\"tép, ốc và cá nano\": the English says \"invertebrates and nano fish\". Use \"động vật không xương sống (tép, ốc…) và cá nano\" so the term isn't narrowed.",
+        "\"có thể làm amoniac tăng vọt, hại cho cá\": \"hại cho cá\" is added. The English only says the spike undermines the purpose of filtration. Drop it or reword it.",
+        "\"bọ scud\": a non-standard hybrid term. Prefer \"scud (giáp xác chân đôi/amphipod)\" or similar, and give a gloss on first use.",
+        "\"Mút lọc đầu vào là miếng mút bọc ngoài cửa hút của lọc.\": this definition sentence is not in the source. It is harmless but added content.",
+        "\"tép con yếu ớt\": \"precious fry\" loses \"precious\". Minor, but it could be \"cá bột quý giá\".",
+        "\"Thế là lọc cũng không phải vệ sinh thường xuyên như trước\" followed by \"Vì vậy giờ mút lỗ thô đã thành loại tiêu chuẩn\": the logic is a bit choppy. Make clear that the coarse sponge became standard because it clogs less."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-09T21:28:57Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "Omitted: 'We make them in three sizes—like gym socks, there's one that will fit no matter what!' (sizes/fit info missing).",
+        "Omitted: pre filter sponges fit most common filter types; intake adapters for hang-on-back and canister filters (Tidal, Marineland, Fluval) – factual info dropped, only shop talk should go.",
+        "Omitted the opening historical claim that pre filters were championed early and the idea isn't new; acceptable but 'invented the idea' context lost.",
+        "Added: 'Lúc đó cái lọc lại làm hỏng nước, ngược hẳn với việc nó được lắp vào để làm' – paraphrase of 'undermining the very purpose of filtration'; 'làm hỏng nước' is stronger than the source.",
+        "Changed: 'xác những con chết' – English says 'those that did [perish] could cause an ammonia spike'; fine, but 'amoniac' should be 'amoniac (NH3/NH4+)' optional; keep consistent term 'amoniac'.",
+        "Untranslated English left: 'scud', 'ostracod' – use Vietnamese: 'bọ scud (giáp xác chân đôi)' and 'trùng hạt đậu / giáp xác hạt (seed shrimp)'; 'ostracod' is also not the source's term 'seed shrimp'.",
+        "'Mút lỗ to chạy tốt hơn mút mịn' – 'porous sponges outperform finer grades' ok, but 'Early on, we discovered' dropped; fine. 'Thế là cũng không phải vệ sinh lọc thường xuyên như trước' – source says 'nearly as often', ok.",
+        "'invertebrates and nano fish' → 'tép, ốc và cá nhỏ': 'tép, ốc' narrows 'invertebrates' and 'cá nhỏ' loosens 'nano fish'; use 'động vật không xương sống và cá nano'.",
+        "Omitted the closing sentence about wanting everyone to enjoy nature daily ('humble pre filter' credo); it is partly shop-brand talk but 'humble pre filter' idea lost.",
+        "'Nước chảy qua mút lâu ngày làm mút \"chín\"' – 'lâu ngày' added; source says simply as water passes through it becomes 'seasoned'."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/aquariumcoop-blogs-aquarium-refresh-your-aquarium-and-passion-for-the-hobby#aquariumcoop": [
+    {
+      "at": "2026-11-09T21:35:59Z",
+      "model": "sonnet",
+      "score": 0.78,
+      "notes": [
+        "\"cá kim tơ\" for White Cloud Mountain Minnow is not an established name. Use \"cá tép bạc\" or \"cá White Cloud\" (cá bạch vân sơn).",
+        "Several plant names are left in English: \"Pygmy Chain Sword\", \"Frogbit\" and \"Red Root Floaters\". Give Vietnamese names or glosses, such as \"cây kiếm lùn\", \"bèo Amazon/Frogbit\" and \"bèo rễ đỏ\", with the English in brackets only if needed.",
+        "\"Monte Carlo\" is left bare. Add a descriptor such as \"cỏ Monte Carlo\" so it reads as a plant.",
+        "\"algae scrubber\" is left in English. Use \"bộ lọc rêu (algae scrubber)\" or a similar gloss.",
+        "\"full-spectrum\" and \"decal mờ\" are mixed, so wording is inconsistent. Prefer \"đèn LED toàn phổ\" and \"màng dán mờ\", the standard hobby terms.",
+        "\"cây emersed\" is used with no Vietnamese equivalent after its first mention. Consider \"cây thủy sinh mọc nhô/cạn\" consistently.",
+        "\"Chán lâu thì dễ đuối\" is colloquial and loses \"burnout\". Use something clearer like \"chán lâu dễ kiệt sức/mất hứng\".",
+        "\"Làm nó vui chẳng kém lúc ngồi ngắm\" is vague. Make it \"làm bể cũng thú vị chẳng kém ngắm bể\".",
+        "The reworded \"Muốn ngày nào cũng được tận hưởng thiên nhiên thì không gì hơn cây sống...\" is acceptable but loosely renders the \"enjoy nature daily\" mantra. Tighten it.",
+        "The first paragraph has \"vậy mà lâu dần người ta vẫn có thể sinh ra lơ là\". Make it more natural, such as \"vẫn có lúc trở nên chủ quan/nhàm chán\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/aquariumcoop-blogs-aquarium-selecting-the-right-algae-eater-for-your-aquarium#aquariumcoop": [
+    {
+      "at": "2026-11-09T21:40:09Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"cá bút chì (Siamese algae eater, SAE)\": \"cá bút chì\" normally means pencilfish (Nannostomus), not the Siamese algae eater. Use a correct established name, or keep the English name with a clear gloss, and use it the same way throughout.",
+        "\"cá bút chì\" is also used for the later Siamese algae eater mentions (large tanks, cichlids, \"grabby\" mouths), so the mistake repeats. Fix all of them.",
+        "\"80–150 lít\" for 20–40 gallons: 20 gal is about 76 L, so the nearest-5 rounding is 75, not 80. Use \"75–150 lít\".",
+        "\"cá flagfish Florida\": half English left in place. Give a Vietnamese common name or a Latin name (Jordanella floridae) so the reader can identify the species.",
+        "\"cá rosy barb\", \"ốc ramshorn\", \"ốc bladder\": English names left untranslated. Add the Vietnamese common name or the Latin name where the species is introduced.",
+        "\"Chúng giữ một việc quan trọng trong hệ sinh thái\": awkward. Better: \"đóng vai trò quan trọng trong hệ sinh thái của bể\".",
+        "\"Cá ... có mặt để bớt phần rêu phải tự tay dọn\": stiff. Rephrase, e.g. \"giúp giảm lượng rêu bạn phải tự tay dọn\".",
+        "\"cá platy và cá molly là cá nhỏ, nhiều màu\": also keep \"constantly pick at filamentous algae\" natural. \"Ngược lại\" before otto is added contrast not in the source; use a neutral connector."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-09T21:40:09Z",
+      "model": "sonnet",
+      "score": 0.4,
+      "notes": [
+        "\"cá bút chì\" is a wrong rendering of \"Siamese algae eater\". Bút chì is pencilfish (Nannostomus), a different fish. It appears 4 times: \"mua cá bút chì lúc còn nhỏ\", \"thì cá bút chì là lựa chọn quen thuộc\", \"cá platy, cá molly, cá flagfish và cá bút chì\", \"nuôi cichlid lớn thì cá bút chì\". Use the established name, e.g. \"cá ăn rêu Thái (Siamese algae eater, SAE)\".",
+        "The misnaming turns the care advice wrong: it recommends a tiny pencilfish for large tanks, for large cichlids and as a filamentous-algae eater. The species fits none of those.",
+        "\"Cá lớn nhanh, chẳng bao lâu đã chật bể\" is about the wrong fish. A real Siamese algae eater grows to about 15 cm, so mention that it outgrows small tanks.",
+        "\"Con ăn rêu\" used as a generic noun is stilted. Prefer \"loài ăn rêu\" or \"sinh vật ăn rêu\" in general statements.",
+        "\"Mấy con này gặm rêu suốt ngày\" is too colloquial for an encyclopedia. Use a more neutral register.",
+        "Keep the cichlid term consistent, e.g. \"cá cichlid\". Add \"cá\" before \"betta\" and \"cá\" before \"otto\" where it is missing.",
+        "Minor: \"dung hòa hợp lý\" is OK, but \"Muốn chúng ăn rêu hết sức\" is vague for \"get the most out of their natural algae-eating behavior\". Say \"phát huy tối đa khả năng ăn rêu\"."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/aquariumcoop-blogs-aquarium-undergravel-filters-classic-simple-filtration#aquariumcoop": [
+    {
+      "at": "2026-11-09T21:42:53Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "Conversions check out (10/20/29 gal → 40/75/110 L; 5.5×2.75 in → 14×7 cm; 8 in → 20 cm; 1–2 in → 2.5–5 cm).",
+        "The video/timestamp reference is dropped. The note that the uplift-tube parts are interchangeable with the sponge filter is also lost. Consider keeping that compatibility fact in neutral wording.",
+        "\"Lọc đáy gồm nhiều tấm nhựa ghép thành một tấm lưới\": \"nhựa\" is not in the source. Also \"a couple of inches\" became \"vài cm\", which is vague. Use \"khoảng 5 cm\" or \"vài cm\" consistently.",
+        "\"rễ có thể tránh bị thối\" is slightly awkward. Prefer \"giúp ngừa thối rễ\".",
+        "\"lắp ráp tùy ý\" for \"customizability\" is loose. Prefer \"dễ tùy chỉnh bố cục\".",
+        "\"Dùng một đoạn dây oxy thường dài 2,5 cm\" is slightly clumsy. Prefer \"đoạn dây oxy thường dài khoảng 2,5 cm\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/glaser-en-25-perchlike-fishes-25d-perchlike-fishes-4-south-american-dwarf-cichlids-biotoecus-special-en#glaser": [
+    {
+      "at": "2026-11-09T21:52:40Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"Đến nay khoa học mới mô tả hai loài Biotoecus là Biotoecus opercularis và Biotoecus dicentrarchus\": the English doesn't name the species in this sentence. The names are correct but added. Consider \"hai loài Biotoecus đã được mô tả khoa học\" and keep the names for later.",
+        "\"Nhưng con nào đã quen bể\": \"well adapted animals\" is better as \"cá đã thích nghi tốt (với bể nuôi)\". \"Quen bể\" is colloquial.",
+        "\"Người ta tìm Biotoecus\": \"demanded\" means buyers want the fish. \"Người chơi không chọn mua Biotoecus vì màu sắc\" is closer and more natural.",
+        "\"cichlid\" is left in English. It is acceptable hobby usage, but \"cá rô phi cảnh/cichlid\" or \"cá慈\" is not needed. Just use it consistently.",
+        "\"Những con vừa về\": \"our specimens\" is rendered loosely. \"Những con hiện có\" is more faithful and neutral."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/glaser-en-25-perchlike-fishes-25d-perchlike-fishes-4-south-american-dwarf-cichlids-many-fantastic-apistogramma-arrived-en#glaser": [
+    {
+      "at": "2026-11-09T21:50:09Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "\"A. agassizii\": the source writes \"A. agassizi\". Keep the Latin name as given, or make sure the correction is intended.",
+        "\"nhìn là mê\" is colloquial for \"real eyeburner\". Something like \"cực kỳ bắt mắt\" would sound more encyclopedic.",
+        "\"về tới\" / \"về với số lượng ít\" are a bit repetitive. The last sentence could read \"số lượng mỗi loài đều có hạn\".",
+        "\"một nhân viên\" and \"anh\" are acceptable neutral wording. Consider \"một nhân viên nam\" or just \"người này\" to avoid implying who the person is."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-bred-cichla-from-southeast-asia-en#glaser": [
+    {
+      "at": "2026-11-09T22:04:10Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "\"Cá hoàng đế\" for Cichla is questionable as the established name. Peacock bass is more commonly \"cá khổng tước\" or \"cá chim công\". Check it against the encyclopedia's glossary, or give the common name with the Latin name.",
+        "\"nuôi loài này trong bể\" - the source talks about the whole genus, not one species. Use \"nuôi nhóm cá này\" or \"nuôi chúng\".",
+        "\"Con lớn nhất từng thấy\" - the source says \"maximum size recorded\". \"Kích thước lớn nhất được ghi nhận\" is more precise.",
+        "\"cá cho đẻ trong trại để bán\" is a bit clumsy. \"cá nhân giống/sinh sản nhân tạo\" is more natural.",
+        "\"Cichla sp. temensis\" is a Latin name and is kept correctly, but the straight double quotes could be typographic quotes. This is optional."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-brown-red-discus-madeira-nova-olinda-do-norte-en#glaser": [
+    {
+      "at": "2026-11-09T22:16:53Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"con nào cũng nhiều màu đỏ\" overstates the source (\"every fish\" is not in the English). Use something like \"nổi tiếng với màu đỏ đậm/rực\".",
+        "\"khá sáng màu\" drops \"pretty\" (đẹp) from \"pretty light coloured\". Use \"màu sáng đẹp mắt, gần như trắng\".",
+        "\"Lô cá mới này có màu nền đẹp\" is a bit flat and choppy. Merge it with the next sentence, e.g. \"Ngoài màu nền đẹp, vây lưng sáng màu gần như trắng cũng đáng chú ý ở lô cá mới này\".",
+        "\"Madeira\" appears twice and reads repetitively. Consider \"cá đĩa Madeira\" and then \"từ vùng Madeira\" smoothed, or note that it is a river (sông Madeira) if the source implies that.",
+        "The dropped stocklist code and wholesale note are acceptable shop talk. No other omissions."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-chanchitos#glaser": [
+    {
+      "at": "2026-11-09T22:11:08Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "The heading \"Australoheros facetus\" names the second species. The descriptive paragraph doesn't name it, so this is inferred from the dropped stock-list sentence. Use a neutral heading, or say \"loài thứ hai (có lẽ là A. facetus)\".",
+        "\"cá có từ một trại ở Đức\" is awkward and unclear. Use something like \"được lấy từ một người nhân giống ở Đức\" or \"nhập từ một trại cá ở Đức\".",
+        "\"Loài này gốc ở Uruguay\" is colloquial. Use \"có nguồn gốc từ Uruguay\" or \"phân bố ở Uruguay\".",
+        "\"chịu nước lạnh rất tốt\" slightly shifts the meaning of \"very insensitive against low water temperatures\". Use \"rất chịu được nhiệt độ nước thấp\".",
+        "\"nuôi trong bể ở nhà\" for \"private aquaria\" is a bit loose. \"nuôi trong bể cá tư nhân/bể cá gia đình\" is more natural.",
+        "The straight quotes around \"kinh điển\" should be typographic Vietnamese quotes (“kinh điển”) for consistency."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-new-clown-angels-en#glaser": [
+    {
+      "at": "2026-11-09T22:05:14Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Lần đầu tiên có cá ông tiên gọi là...\": subject missing and \"for the first time ever we obtained\" is awkward; use e.g. \"Lần đầu tiên nhập được từ một trại giống loại cá ông tiên được gọi là...\"",
+        "\"Dòng cá đẹp này\": \"dòng\" implies a strain/line; the source says only \"attractive fish\", so use \"Loài/Những con cá bắt mắt này\".",
+        "\"cá ông tiên leopard\": leave \"leopard\" untranslated is inconsistent; use \"cá ông tiên báo/leopard\" with a consistent trade name, e.g. \"cá ông tiên Leopard\".",
+        "\"Clown-Angel\": keep the quoted trade name, but add the Vietnamese form \"Ông tiên Hề\" or similar for clarity if an established name exists.",
+        "\"hai phần ba thân phía sau\": fine, but \"hinder two thirds\" is better as \"hai phần ba phía sau thân\".",
+        "\"nên phần trơn và phần có đốm tương phản rất rõ\": reads clumsy; use \"nên tạo độ tương phản rất mạnh với phần có đốm\".",
+        "Omitted the stocklist/code 694802 and wholesale sentence: acceptable as shop talk. Byline dropped: acceptable."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-new-names-for-goldseam-cichlid-and-green-terror-en#glaser": [
+    {
+      "at": "2026-11-09T22:37:07Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "\"Cá Goldseam ở Peru và cá Green Terror ở Ecuador\": \"ở\" could read as where they are kept; use \"đến từ Peru\" / \"có nguồn gốc từ Ecuador\".",
+        "\"được nuôi nhiều nhất\": the source says \"among the most popular\"; use \"thuộc nhóm được ưa chuộng nhất\" to avoid a superlative.",
+        "\"Người chơi cho rằng\": use the more standard hobby term \"người chơi cá cảnh\" or \"giới nuôi cá\".",
+        "\"đặt để tôn vinh Alf Stalsberg\": \"đặt tên để vinh danh Alf Stalsberg\" is more natural.",
+        "\"sinh ra từ suối\": \"có nguồn gốc từ suối\" or \"thuộc về suối\" is closer to \"originating from a brook\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-the-discus-season-has-started-2-en#glaser": [
+    {
+      "at": "2026-11-09T22:24:17Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "Minor: \"Mực nước năm nay\" adds \"năm nay\" (this year), which the source does not say. Use \"Mực nước cực kỳ cao\".",
+        "Minor: \"bắt ngoài tự nhiên\" is a bit colloquial. \"đánh bắt ngoài tự nhiên\" or \"khai thác từ tự nhiên\" reads better in an encyclopedia.",
+        "Minor: \"Nước lên cao vậy nhưng\" and \"con này khác con kia khá nhiều\" are casual in tone. Consider a more neutral register."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-the-discus-season-has-started-en#glaser": [
+    {
+      "at": "2026-11-09T22:23:41Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "Dropping the product code 737105 and the wholesale-only line is acceptable as shop talk, so no fix needed there.",
+        "\"cao hơn mức bình thường tới bốn mét\": the source says 'four meter over the normal level of the season'. Add the seasonal reference, e.g. 'cao hơn mực nước bình thường của mùa này tới bốn mét'.",
+        "\"Thế nhưng\" starts a sentence after 'Mùa này nước lên rất cao'. It reads a bit choppy. Merge the two sentences, e.g. 'Dù nước lên rất cao... lứa cá đĩa... vẫn về được'.",
+        "\"con cá đĩa xanh lá ít đốm đỏ (Green Discus, Few Red Spot)\": the English trade name in brackets is left untranslated. It is acceptable as a trade name, but 'con' is unnatural for a variety name. Use 'cá đĩa xanh lá ít đốm đỏ'.",
+        "\"Cá lứa này rất đẹp, chẳng hạn như...\": the source says 'They are very beautiful, for example:' and lists a variety. Saying 'chẳng hạn như' before a single variety is fine, but 'lứa cá này' is more natural than 'Cá lứa này'.",
+        "\"bắt ngoài tự nhiên\": 'đánh bắt ngoài tự nhiên' or 'khai thác từ tự nhiên' is more standard for wild-caught fish."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-thorichthys-week-at-aquarium-glaser-en#glaser": [
+    {
+      "at": "2026-11-09T22:32:10Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"vừa đủ lớn để đẻ\" adds a spawning claim; the English only says \"have just reached their maturity\". Use \"vừa mới trưởng thành\".",
+        "\"Cá trại ở Đức cỡ 5–7 cm\" is awkward and unclear for \"German bred\". Use \"cá nhân giống tại Đức, dài 5–7 cm\".",
+        "The first paragraph drops \"Compared with other cichlids\" nuance only partly; \"khá hiền\" is fine, but \"hiền hòa\" is more standard for peaceful fish.",
+        "\"Loài Thorichthys nào cũng rất đẹp\" is slightly stiff. Consider \"Tất cả các loài Thorichthys đều rất đẹp\".",
+        "\"cichlid\" is left in English throughout. It is common in the hobby, but give the Vietnamese gloss \"cá rô phi cảnh / cichlid\" once at first mention."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-wild-collected-oscars-from-brazil-en#glaser": [
+    {
+      "at": "2026-11-09T22:12:07Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "Minor: \"dòng lai tạo\" for \"artificial sport\" slightly shifts meaning; \"dạng đột biến/biến dị được chọn tạo\" is closer to the hobby term.",
+        "Minor: \"Chúng chắc là thuộc hai loài khác nhau\" and \"có lẽ thuộc ba loài\" are fine, but keep the hedge level consistent with \"most likely\" (nhiều khả năng) vs \"we think\" (theo nhận định).",
+        "Minor: \"Con nào cũng lớn, dài 18–25 cm\" is fine; the \"wonderful\" nuance is reduced to \"rất đẹp\" (repeated twice), so vary wording."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/plants/rotala-indica#aquariumbreeder": [
+    {
+      "at": "2026-11-09T21:12:03Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"pH/GH/Nhiệt độ hợp nhất\": non-standard for \"optimal\"; use \"tối ưu\" or \"thích hợp nhất\" (also \"cây hợp nhất cho bể kiểu rừng rậm\").",
+        "\"Dạng cây: cây cắt cắm\" / \"loài cây cắt cắm\": \"stem plant\" is normally \"cây thân\" (cây thân mọc đứng); \"cắt cắm\" is awkward and misleading.",
+        "Snail names left as English-Vietnamese hybrids: \"ốc Japanese trapdoor, ốc ramshorn, ốc Malaysian trumpet, ốc black devil, ốc rabbit\". Use established names (ốc nắp Nhật, ốc sừng/ramshorn, ốc tháp Malaysia, ốc thỏ) or give the translation.",
+        "\"water wisteria\" is left untranslated; give a Vietnamese common name, or the Latin name Hygrophila difformis, with the English name in brackets.",
+        "\"Bố cục: đây là một trong những cây hợp nhất…\": \"Aquascape\" is better as \"Thủy sinh/tạo cảnh\"; \"bố cục\" is vague.",
+        "\"cá otto\" and \"cá chuột pygmy\": mix of transliteration and English; use \"cá otto\" consistently and \"cá chuột lùn (pygmy)\".",
+        "\"Chỗ kiếm ăn\" for \"Foraging place\" and \"Nuôi chung với con gì\" are colloquial for an encyclopedia; prefer \"Nơi kiếm ăn\" and \"Các loài nuôi chung phù hợp\".",
+        "\"Cây sống được cả trên cạn lẫn dưới nước\" and \"Thêm oxy\": slightly loose; use \"cây lưỡng cư\" / \"tăng oxy hòa tan\" for fidelity."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/aequidens-patricki#glaser": [
+    {
+      "at": "2026-11-09T22:25:26Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "Item 2: \"Mấy loài cá nhỏ bơi tầng mặt\" is too colloquial for an encyclopedia; use \"Các loài cá nhỏ sống ở tầng mặt\".",
+        "Item 2: \"bị nó ăn\" is casual; use \"bị cichlid này ăn\" or \"bị chúng bắt làm mồi\".",
+        "Item 2: \"mới vừa đủ lớn để đẻ\" adds a spawning nuance; \"vừa trưởng thành\" is closer to \"just reached maturity\".",
+        "Items 1 and 6: \"rất khỏe\" for \"hardy\" is slightly loose; \"rất dễ nuôi, sức chịu đựng tốt\" or \"rất bền bỉ\" is more standard hobby wording.",
+        "Item 5: \"chỉ cần\" is not in the source; \"từ 200 lít trở lên\" is enough."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/apistogramma-iniridae#glaser": [
+    {
+      "at": "2026-11-09T21:56:14Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "#5 \"đồ đông lạnh hay đồ tươi sống\" is colloquial; use \"thức ăn đông lạnh và thức ăn sống\".",
+        "#4 \"Lúc giữ con\" is non-standard for broodcare; use \"khi chăm sóc con\" or \"trong thời gian chăm con\".",
+        "#2 \"Cá rất khỏe\" is loose for \"very stable\"; \"rất khỏe mạnh, dễ nuôi\" or \"rất bền\" reads better.",
+        "#6 \"hay xòe vây lưng\" adds a frequency (\"often\") that the English doesn't have; use \"xòe vây lưng\".",
+        "#8 \"sông Rio Inirida\" is redundant (\"Rio\" already means river); use \"sông Inirida\" or \"Rio Inirida\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/apistogramma-panduro#glaser": [
+    {
+      "at": "2026-11-09T21:57:09Z",
+      "model": "sonnet",
+      "score": 0.92,
+      "notes": [
+        "\"vảy xanh lam óng ánh\": \"bright\" is dropped; consider \"vảy xanh lam sáng óng ánh\".",
+        "\"các loài họ hàng gần\": the English says only \"related species\", so \"gần\" (close) is slightly added; use \"các loài có quan hệ họ hàng\" or \"các loài liên quan\".",
+        "\"Không ai biết\" is a bit stronger than \"It is not known\"; consider \"Chưa rõ\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/apistogramma-paulmuelleri#glaser": [
+    {
+      "at": "2026-11-09T21:53:59Z",
+      "model": "sonnet",
+      "score": 0.92,
+      "notes": [
+        "#2: \"tỉnh (Departamento)\" – Peru's Loreto is a region/department; consider \"vùng Loreto\" or \"vùng (departamento) Loreto\" for accuracy.",
+        "#1: \"loài nữa người ta đã biết nhưng chưa ai mô tả khoa học\" is a bit colloquial; consider \"đã được biết đến nhưng chưa được mô tả khoa học\".",
+        "#4: \"Nuôi và cho đẻ trong nhiều kiểu nước khác nhau đều được\" is overly casual for an encyclopedia; consider \"có thể nuôi và cho sinh sản trong nhiều điều kiện nước khác nhau\".",
+        "#3: \"Ngoài tự nhiên\" is not in the source (though implied by the contrast with #4); acceptable, but \"Trong tự nhiên\" is more standard."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-09T21:53:59Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "Item 4: \"Nước thông số khác nhau nó vẫn sống được và vẫn đẻ được\" is ungrammatical and hard to read. Use something like \"có thể nuôi và cho sinh sản trong nhiều điều kiện nước khác nhau\".",
+        "Item 4: \"vẫn sống được\" is a loose rendering of \"kept\". \"Nuôi được\" is more natural for an aquarium text, and \"đẻ\" could be \"sinh sản\" for an encyclopedia register.",
+        "Item 3: \"Ngoài tự nhiên\" is not in the English. If the source means the wild habitat, keep it only if the context is clear. Otherwise drop it to avoid adding a fact.",
+        "Item 5: \"lateral line organ\" became just \"đường bên\". Use \"cơ quan đường bên\" to keep \"organ\".",
+        "Item 5: \"đường nét không đáng tin\" should be \"đường kẻ không đáng tin cậy\" or \"có đường (vạch) không rõ ràng/không ổn định\". It is also better to say how \"unreliable\" is meant.",
+        "Item 5: \"Giờ loài này đã được mô tả\" is colloquial for an encyclopedia. Use \"Hiện loài này đã được mô tả\".",
+        "Item 5: \"Ngoài ra còn khoảng 60 loài khác người ta đã biết nhưng chưa mô tả\" is clumsy. Use \"khoảng 60 loài khác đã được biết đến nhưng chưa được mô tả\".",
+        "Item 1: \"total length\" was reduced to \"dài\". Consider \"tổng chiều dài\" for fidelity."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/apistogramma-trifasciata#glaser": [
+    {
+      "at": "2026-11-09T21:58:40Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "#4: \"Cá bán ở tiệm là cá nhập\" adds \"ở tiệm\" (in shops), which the source doesn't say. Use \"Cá được nhập từ Paraguay, có kích cỡ 3–4 cm\".",
+        "#4: \"hoàn hảo\" for \"ideal\" is a little off. \"lý tưởng\" is more natural. \"một loài cá cảnh hoàn hảo\" could be \"loài cá lý tưởng cho bể thủy sinh\".",
+        "#4: \"đỡ tốn điện\" is colloquial for \"energy-saving\". Consider \"tiết kiệm điện\".",
+        "#1: \"có đường không đáng tin\" is slightly stiff. \"có đường vạch không đáng tin cậy\" reads more naturally.",
+        "#1: \"Tên tiếng Anh thường gọi là Three-Striped Dwarf Cichlid\" is acceptable. You could add a Vietnamese hobby name if one is established, otherwise keep it as is.",
+        "#3: \"Nước cứng vừa, hơi kiềm\" is fine. Consider \"nước có độ cứng trung bình, hơi kiềm\" for standard hobby phrasing."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/astronotus-crassipinnis#glaser": [
+    {
+      "at": "2026-11-09T22:06:11Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "Minor: \"loài cá rất đẹp này\" generalises to the whole species, but the English refers to these (imported) animals; \"những con cá rất đẹp này\" would be more faithful.",
+        "Minor: the added \"(ocellus)\" after \"đốm mắt\" is not in the source and is unnecessary.",
+        "Optional: \"Nhưng thật ra\" is a bit colloquial for an encyclopedia; \"Tuy nhiên, trên thực tế\" would be more formal."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/astronotus-ocellatus#glaser": [
+    {
+      "at": "2026-11-09T22:35:51Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "#1: \"currently available\" is rendered as \"Hiện trên thị trường\" – fine, but \"bắt từ Colombia về\" is slightly colloquial; prefer \"khai thác tự nhiên từ Colombia\" or \"đánh bắt ngoài tự nhiên ở Colombia\".",
+        "#1: \"cá oscar hoang dã\" – hobby term is more usual as \"oscar khai thác tự nhiên / oscar wild\"; \"hoang dã\" is acceptable but slightly non-standard.",
+        "#2: \"cá oscar trại\" is OK, but \"cá oscar nhân giống\" / \"oscar sinh sản nhân tạo\" is more standard for \"bred ones\".",
+        "#2: \"hiếm thật sự\" is colloquial; prefer \"thực sự rất hiếm trên thị trường\" – also \"on the market\" is omitted."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/biotodoma-wavrini#glaser": [
+    {
+      "at": "2026-11-09T22:09:52Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"đốm đen trên thân\": the source says only \"lateral blotch\" and gives no colour, so use \"đốm bên thân\" or \"vệt bên thân\".",
+        "\"sông Rio Preto da Eva\": \"Rio\" already means river, so write \"Rio Preto da Eva\" or \"sông Preto da Eva\".",
+        "\"Cá về tiệm thường là cá Colombia\": \"tiệm\" (shop) is not in the source, so use \"Cá nhập khẩu thường có nguồn gốc từ Colombia\".",
+        "\"Có thể ít nhất vài quần thể trong số đó là loài riêng\" is slightly stiff. Try \"Có thể ít nhất một vài quần thể trong số đó thực chất là những loài khác nhau\".",
+        "\"Cách phân biệt chính\" is fine, but \"hai loài đều khác nhau chủ yếu ở…\" would follow the source more closely."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/biotoecus-dicentrarchus#glaser": [
+    {
+      "at": "2026-11-09T21:51:11Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "1: \"Ngoài tự nhiên, chúng sống ở những vùng đáy cát\" adds \"Ngoài tự nhiên\" (in the wild), which the source does not say; use \"Chúng là loài sống ở tầng đáy cát\".",
+        "1: \"chỉ khoảng 4-5 cm\" adds \"chỉ\" (only), a mild nuance not in the source; use \"khoảng 4-5 cm\".",
+        "1: \"cichlid lùn\" is acceptable, but the more standard hobby term is \"cá rỗng đực/cichlid lùn\"; consider adding \"cá\" (\"cá cichlid lùn\").",
+        "2: \"Tới mùa đẻ\" renders \"For breeding\" loosely and implies a season; use \"Khi sinh sản\" or \"Để sinh sản\".",
+        "2: \"đắp một gò cát lớn\" is fine; \"cả cặp đẻ trứng trên đó\" is acceptable."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/cichla-kelberi#glaser": [
+    {
+      "at": "2026-11-09T22:34:00Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"mãi tới năm 2006 mới được tách thành loài riêng\": the English says only \"recognized in 2006\"; \"tách thành loài riêng\" (split off as its own species) adds a claim. Use \"đến năm 2006 mới được công nhận\".",
+        "\"Trên thị trường, loài này rất hiếm\": the English says \"available only in very limited numbers\", so use \"chỉ có với số lượng rất hạn chế\". \"Rất hiếm\" (very rare) is slightly stronger.",
+        "\"Cá lớn có đốm sáng\": \"adults\" is rendered as \"cá lớn\"; \"cá trưởng thành\" is the standard term. Also state that the spots are the distinguishing trait, as in the source (\"present in adults\").",
+        "\"vây bụng\": for pelvic fins, \"vây bụng\" is acceptable and common among hobbyists. Keep it consistent across the encyclopedia.",
+        "\"thuộc hàng nhỏ nhất trong giống Cichla\": the English says \"one of the smallest members of the genus\"; this is correct but could read more naturally as \"là một trong những loài nhỏ nhất trong giống\".",
+        "\"dài tối đa khoảng 30 cm\": the English says \"attains a total length of about 30 cm\", so the \"tối đa\" (maximum) is implied. Consider \"đạt chiều dài tổng thể khoảng 30 cm\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-09T22:34:00Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Item 2: \"Loài gần nhất với nó là C. monoculus\" – source says C. kelberi is distinguished FROM its closest relative; the Vietnamese restructures it and loses the 'distinguished from' framing; rewrite e.g. \"Loài này được phân biệt với họ hàng gần nhất là C. monoculus bởi...\".",
+        "Item 2: \"Muốn phân biệt thì xem cá lớn\" – too colloquial for an encyclopedia; use \"ở cá trưởng thành\" instead.",
+        "Item 2: \"đốm sáng màu\" – 'light spots' means pale/light-colored spots; \"màu\" is added and misleading (suggests colored); use \"đốm sáng\" or \"đốm nhạt màu\".",
+        "Item 2: \"vây bụng\" is acceptable for pelvic fins, but the adult condition is placed before the list, so it's ambiguous; make clear the spots are present in adults.",
+        "Item 1: \"Cá dài tổng cộng khoảng 30 cm\" – awkward; use \"Cá đạt chiều dài tổng khoảng 30 cm\".",
+        "Item 1: \"thuộc hàng nhỏ nhất\" – 'one of the smallest members' is fine, but the 'which makes it' causal link is lost; consider \"nên là một trong những loài nhỏ nhất trong giống Cichla\"."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/crenicichla-compressiceps#glaser": [
+    {
+      "at": "2026-11-09T22:28:24Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "Item 2: \"bên cầm quyền\" is a stiff, unnatural rendering of \"wear the trousers\". Use something like \"con cái mới là bên làm chủ\" or \"con cái chiếm thế thống trị\".",
+        "Item 2: \"vây lưng, vây hậu môn và vây đuôi\" spells out \"vertical fins\", which the source doesn't do. It's probably correct, but it is an addition. Consider \"các vây dọc (vây lưng, vây hậu môn, vây đuôi)\" or keep the wording closer to the source.",
+        "Item 2: \"Nhìn cách cư xử cũng nhận ra con cái khá dễ\" is slightly clumsy. Consider \"Con cái cũng khá dễ nhận ra qua tập tính\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/crenicichla-lepidota#glaser": [
+    {
+      "at": "2026-11-09T22:13:55Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "Item 1: \"The fish received\" is rendered as \"Những con cá này\"; the idea of the fish that were received/imported is lost. Use something like \"Những con cá nhận được\".",
+        "Item 1: \"cichlid pike\" is a literal calque of English word order. Use \"cichlid pike\" with a gloss, or a form like \"cá cichlid săn mồi kiểu pike (Crenicichla)\", and keep it consistent across the encyclopedia.",
+        "Item 1: \"minh họa với tên Crenicichla cf. edithae\" is slightly stiff. \"được thể hiện/mô tả dưới tên ...\" would read more naturally.",
+        "Item 3: \"đặt tên loài theo vợ ông\" is implied by \"for his wife\" and acceptable. \"mô tả khoa học\" is fine, but \"công bố mô tả\" would be more natural."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/crenicichla-lugubris#glaser": [
+    {
+      "at": "2026-11-09T22:29:51Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "#1 \"Crenicichla lugubris ở vùng này là loài cá đẹp\": the source says the fish originates from this region. Use \"có nguồn gốc từ vùng này\" or \"xuất xứ từ vùng này\", not just \"ở vùng này\".",
+        "#1 \"Loài này mới nhập về được\": \"mới\" (just recently) is not in the source. Use \"Loài này chỉ có thể nhập về với số lượng rất ít\".",
+        "#1 \"impressive\" is rendered only as \"rất bắt mắt\". Consider \"ấn tượng\" to keep the nuance.",
+        "#3 \"Những con nhập về hiện dài\": \"nhập về\" (imported) is not in the source. Use \"Hiện các cá thể dài 20–25 cm\".",
+        "#2 \"nhìn vào đó là nhận ra\" is slightly padded. Use \"Cá cái có thể nhận biết nhờ viền trắng rộng ở vây lưng\"."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/crenicichla-marmorata#glaser": [
+    {
+      "at": "2026-11-09T22:33:12Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"Người chơi cá biết tiếng hồ Lago Maracana\" is slightly awkward; better \"Hồ Lago Maracana nổi tiếng trong giới chơi cá nhờ cá đĩa rất đẹp\".",
+        "\"có Crenicichla marmorata từ hồ này nhập về\" is awkward word order; better \"lần đầu tiên cá Crenicichla marmorata từ hồ này được nhập về\".",
+        "\"Lô nhập về có hai con\" is fine; \"Đã nhập về hai cá thể\" would match \"specimens\" more closely."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/crenicichla-regani#glaser": [
+    {
+      "at": "2026-11-09T22:15:11Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "Item 1: \"loài thật\" for \"valid\" species is non-standard; use \"loài hợp lệ\" (valid taxa).",
+        "Item 1: \"Có loài lớn khá to\" is redundant and awkward; use \"Một số loài khá lớn, hơn 30 cm\".",
+        "Item 1: \"Cá cichlid pike\" is a clumsy calque; consider \"cichlid pike (Crenicichla)\" with a consistent hobby term, or \"cá cichlid họ nhà pike\" style wording.",
+        "Item 4: \"đẻ trong hang\" loses the brooding sense; consider \"loài đẻ trứng trong hang\" (cave spawner/brooder)."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-09T22:15:11Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "#2 \"sống rải rác khắp vùng Amazon\" means scattered/sparse, not \"widely distributed\"; use \"phân bố rộng khắp vùng Amazon\".",
+        "#2 \"mỗi nơi có một dạng màu riêng\" overstates \"many local colour varieties exist\"; use \"nên có nhiều dạng màu địa phương\".",
+        "#2 \"giờ mới được nhập về lần đầu\" adds \"only now\" nuance; use \"lần đầu tiên được nhập về\".",
+        "#1 \"giống cichlid\": the standard taxonomic term for genus is \"chi\" (\"chi cichlid đông loài nhất\").",
+        "#1 \"Có loài lớn khá to\" is redundant and awkward; use \"Một số loài khá lớn, trên 30 cm\".",
+        "#1 \"Cá pike cichlid\" leaves the English common name unadapted; consider \"cá cichlid pike (Crenicichla)\" or add a Vietnamese gloss such as \"cichlid mõm nhọn\".",
+        "#4 \"đẹp và dáng rất thanh\" is slightly colloquial; use \"đẹp và thanh nhã\"."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/crenicichla-zebrina#glaser": [
+    {
+      "at": "2026-11-09T22:20:48Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "Item 3: \"Loài này hiếm, mới chỉ nhập về được hai con\" – 'mới chỉ' adds a nuance ('only so far') not in the source; simpler: 'Đã nhập về hai cá thể của loài hiếm này, dài 15–20 cm.'",
+        "Item 2: 'con đực/con cái' and 'cá nhập về' are fine, but 'đoán' is slightly informal; consider 'cho rằng' for an encyclopedia register.",
+        "Item 2: 'Đốm trên vai' – hobby term is usually 'đốm vai' (humeral spot)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/cryptoheros-cutteri#glaser": [
+    {
+      "at": "2026-11-09T22:16:05Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"kiểu đẻ chỗ trống\": non-standard for \"open spawners\"; use \"kiểu đẻ trên bề mặt/nơi thoáng (đẻ lộ thiên)\".",
+        "\"giữ con\": \"care for the offspring\" is more natural as \"chăm sóc con/bảo vệ con\".",
+        "\"nhỏ con\": colloquial for a encyclopedia; prefer \"kích thước khá nhỏ\".",
+        "\"Chúng rất nóng tính\": \"vivid temper\" is rendered acceptably; optionally add \"hung dữ/hiếu chiến\" nuance, minor.",
+        "\"Cả cá bố lẫn cá mẹ đều giữ trứng và cá con rất kỹ\": \"intensive care\" is better as \"chăm sóc rất tích cực\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/geophagus-altifrons#glaser": [
+    {
+      "at": "2026-11-09T22:17:33Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"đốm đen bên thân\": the English says only \"lateral spot\", with no colour. \"đen\" is an added fact. Use \"đốm bên thân\" or \"đốm ngang thân\".",
+        "\"Loài Geophagus nào cũng đẹp\": \"gorgeous\" is weakened. Consider \"Mọi loài Geophagus đều rất đẹp\".",
+        "\"cá trại nuôi\": non-standard phrasing. Use \"cá nhân giống/sinh sản trong nuôi nhốt\" or \"cá bố mẹ nuôi trại\". \"Captive-bred\" means bred in captivity.",
+        "\"Trên thị trường có\": \"available\" is rendered as \"on the market\", a slight shift. It is acceptable but could be \"hiện có\".",
+        "\"nhìn đốm...\" misses \"the shape of the lateral spot\". The English says the species is recognised by the spot's shape, but the VI only mentions its size relative to the eye. Add \"hình dạng đốm\"."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/geophagus-pellegrini#glaser": [
+    {
+      "at": "2026-11-09T22:08:03Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "Item 1: \"quê ở vùng Chocó\" is slightly colloquial; prefer \"có nguồn gốc từ vùng Chocó\" or \"phân bố ở vùng Chocó\".",
+        "Item 1: \"cichlid\" left untranslated; acceptable hobby term, but consider \"cá rô phi cảnh/cichlid\" consistently across the encyclopedia.",
+        "Item 2: \"Loài này là cichlid ấp trứng bằng miệng\" is stiff; prefer \"Một loài cichlid ấp trứng bằng miệng.\" to mirror the fragment.",
+        "Item 3: \"đã gần lớn hết cỡ\" is a bit colloquial; prefer \"gần trưởng thành\".",
+        "Item 3: \"có người bán\" is slightly vague; consider \"được chào bán\"."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/herichthys-cyanoguttatus#glaser": [
+    {
+      "at": "2026-11-09T22:21:42Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "#2: \"sống xa về phía bắc nhất\" is awkward; use \"phân bố xa nhất về phía bắc\".",
+        "#2: \"có lẽ thuộc\" and \"có lẽ mới là\" are weaker than \"believed to\" and \"thought to\"; use \"được cho là\".",
+        "#2: \"Herichthys cyanoguttatum \\\"thật\\\"\" is fine, but \"cũng là loài cichlid ... nhất\" drops the emphasis of \"at all\"; use \"thậm chí là\" or \"nói chung\".",
+        "#1: \"Con lớn\" is colloquial; use \"Cá thể lớn\".",
+        "#1/#3: \"cichlid\" is left untranslated; the first time it appears, add the Vietnamese gloss \"cá rô phi cảnh (cichlid)\" or use one consistent term.",
+        "#3: \"tên khoa học\" adds \"khoa học\", which the source does not say; \"tên\" is enough, or say \"tên gọi\".",
+        "#3: \"cá pearl cichlid\" is redundant, since \"cá\" and \"cichlid\" overlap; use \"cichlid ngọc trai (pearl cichlid)\" or keep it consistent."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/heros-efasciatus#glaser": [
+    {
+      "at": "2026-11-09T22:19:26Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Wonderful wild-collected specimens... were received\" -> \"Lô cá bắt ngoài tự nhiên rất đẹp\" is fine, but \"extraordinary\" became \"đặc biệt\"; consider \"đáng chú ý/phi thường\" for fidelity.",
+        "\"the most attractive Heros of all\" -> \"con Heros đẹp nhất\" is slightly off: use \"loài Heros đẹp nhất trong tất cả\" (not \"con\", refers to species/group, and keep \"of all\").",
+        "\"ai cũng đồng ý\" is too colloquial for an encyclopedia; use \"mọi người đều thống nhất/đều đồng ý\".",
+        "\"Muốn phân biệt đực cái thì xem hoa văn trên đầu\" is colloquial; use \"Có thể phân biệt cá đực và cá cái qua hoa văn trên đầu\".",
+        "\"hoa văn trên đầu\": prefer \"kiểu hoa văn/màu sắc trên đầu\"; \"mảng đỏ ở vai\" is acceptable.",
+        "\"Heros efasciatus... hay là một loài Heros chưa được mô tả khoa học\": \"vẫn còn tranh cãi chúng là\" lacks \"liệu ... thuộc\"; use \"tranh cãi liệu chúng thuộc loài Heros efasciatus hay một loài Heros chưa được mô tả khoa học\"."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/laetacara-araguaiae#glaser": [
+    {
+      "at": "2026-11-09T22:26:47Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"Cuối cùng loài cichlid lùn dễ thương này cũng có hàng nhập về trở lại\": 'we were able to import' is rendered as 'có hàng nhập về', which is acceptable and neutral. Add a comma after 'Cuối cùng' for readability.",
+        "\"cichlid lùn\": acceptable, but 'cá cichlid lùn' or 'cá rồng lùn' is more natural. The hobby term is usually 'cá cichlid lùn' (dwarf cichlid), so add 'cá'.",
+        "\"dễ thương\": 'charming' is better as 'quyến rũ' or 'đáng yêu'. 'Dễ thương' is slightly too casual for an encyclopedia.",
+        "\"nó được người chơi gọi là\": 'the fish was known in the hobby under the name' would be more natural as 'giới chơi cá cảnh biết đến với tên'. Avoid 'nó' for the fish.",
+        "\"Buckelkopf\" (nghĩa là \"đầu gù\"): OK. 'Humphead' could also be kept as 'đầu bướu' (hump), since 'gù' suggests a hunchback; 'đầu bướu' is more natural for fish."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/mesonauta-acora#glaser": [
+    {
+      "at": "2026-11-09T22:13:14Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"Cá Mesonauta ở sông Tocantins\": the English says \"Flag cichlids (Mesonauta)\". Keep the common-name idea, e.g. \"Cá cichlid cờ (Mesonauta)\" or \"nhóm cichlid Mesonauta\".",
+        "\"Nghe nói đây là loài Mesonauta hiếm gặp nhất\": the English says \"rarest flag cichlid species\". Make it match, e.g. \"loài cichlid cờ hiếm nhất\".",
+        "\"bị stress hoặc bị kích động\": \"stress\" is acceptable in the hobby. Consider \"bị căng thẳng/stress\" for a more natural register.",
+        "\"trong bể của người chơi\" is a bit loose for \"in the hobby\". Consider \"trong giới nuôi cá cảnh\".",
+        "The reference in item 3 is left in English, which is fine for a citation. Optionally keep it exactly as is."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/pterobunocephalus-depressus#scotcat": [
+    {
+      "at": "2026-11-09T20:46:13Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "Item 6: \"phần 'pterus' nghĩa là vây hay cánh\" is added; the English only says pterus refers to the large anal fin. Remove the gloss \"nghĩa là vây hay cánh\".",
+        "Item 6: \"khác mọi loài Aspredinidae khác\" is redundant, since the genus is already introduced as being in Aspredinidae. Use \"khác mọi loài khác trong họ\" or similar.",
+        "Item 2: \"Nơi thu mẫu chuẩn\" is non-standard for type locality. Use \"Nơi thu mẫu định danh\" or \"Địa điểm mẫu chuẩn (type locality)\".",
+        "Item 5: the split into two sentences with \"nên đây cũng là một đặc điểm để phân biệt\" shifts the emphasis. Keep it closer to the original: \"…đây cũng là đặc điểm phân biệt chúng với mọi loài Aspredinidae khác\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-09T20:46:13Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "Item 4: 'thức ăn viên chìm' adds 'sinking' (English says only 'tablet foods'); use 'thức ăn dạng viên'.",
+        "Item 4: 'đồ tươi cỡ nhỏ' is a mistranslation/awkward for 'small live foods'; use 'thức ăn sống cỡ nhỏ' (live, not just fresh).",
+        "Item 5: 'mang trứng đã thành phôi' is clumsy for 'carry embryos'; use 'mang phôi dính trực tiếp vào mặt bụng'.",
+        "Item 6: 'các gờ và u trang trí trên đầu' adds 'gờ và u' (ridges and tubercles) not in the English 'head ornamentation'; use 'phần trang trí trên đầu' or 'các cấu trúc trang trí trên đầu'.",
+        "Item 6: 'ở mấy điểm' is colloquial; use 'ở các đặc điểm sau'.",
+        "Item 6: Etymology is garbled: 'pterus' should be glossed (e.g. 'pterus' nghĩa là vây/cánh) and 'Nguồn gốc tên gọi' is okay, but 'trong tên giống ... phần pterus chỉ' should be smoother.",
+        "Item 7: References left entirely in English, including 'Facebook page report' and '(PDF)'; keep titles in the original language but translate 'Facebook page report' to 'báo cáo trên trang Facebook' and '(PDF)' as appropriate.",
+        "Item 3: 'Có lẽ nuôi được giống các loài khác cùng họ' misses 'as per other members' nuance; use 'Có thể nuôi tương tự các loài khác trong họ này'.",
+        "Item 1: 'dù thông tin về nó còn ít' - 'nó' is awkward; use 'dù thông tin về loài còn hạn chế'."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/pterodoras-granulosus#scotcat": [
+    {
+      "at": "2026-11-09T20:48:21Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "\"Cá trê hạt\": \"cá trê\" usually means Clariidae, but this fish is a Doradidae (thorny catfish). Use a name like \"cá da trơn hạt\" or \"cá da trơn gai\", or keep \"Granulated catfish\" in brackets.",
+        "\"thịt trai\" for \"mussels\": \"trai/vẹm\" is more standard, and the source gives no hint it is the flesh only. Consider \"trai (vẹm)\".",
+        "\"các loại thức ăn dạng trùn\": slightly clumsy. \"trùn/giun\" is clearer, as in \"các loại giun, trùn làm thức ăn\".",
+        "\"vảy cứng\" for \"scutes\": acceptable. Consider \"tấm xương (scute)\" on first use to be clear."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-09T20:48:21Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Item 1: \"Tên thường gọi: Granulated catfish\" leaves the English common name untranslated; use an established Vietnamese name (e.g. \"Cá trê hạt\"/\"cá da trơn hạt\") or add one.",
+        "Item 1: Size \"90 cm\" is kept, but check it against the source. Pterodoras granulosus is usually cited at ~90-100 cm, so this is probably fine.",
+        "Item 3: \"ốc, trai\" adds \"trai\" (mussels/clams). The English says only \"molluscs\", so use \"động vật thân mềm\" or \"ốc\".",
+        "Item 3: \"cây cọ Astrocaryum javary\" adds \"cây cọ\" (palm), which is not in the English. Use \"quả của Astrocaryum javary\" or confirm it is a palm.",
+        "Item 4: \"mấy ống to\" is colloquial and slightly vague; use \"các ống lớn\".",
+        "Item 4: \"Loài này cần bể lớn\" is OK, but \"Would need\" is tentative. \"Cá chui vào nghỉ\" is acceptable.",
+        "Item 6: \"viên chìm\" for \"tablets\" is an interpretation; use \"viên nén\" or \"thức ăn dạng viên nén\".",
+        "Item 6: \"các loại trùn\" for \"worm food\" is ambiguous; use \"thức ăn dạng giun/trùn\". \"Thịt trai\" for \"mussels\" is acceptable.",
+        "Item 7: \"Ít quan tâm\" is the standard Vietnamese rendering of Least Concern, so keep it. \"lấm tấm như rắc hạt\" is a slightly embellished rendering of \"granulated appearance\"; simplify to \"trông như có hạt\".",
+        "Item 8: The citation is left entirely in English. Titles like \"The IUCN Red List of Threatened Species\" can stay as they are, but \"Factsheet\" and \"April 2016\" should be handled consistently, e.g. \"tháng 4 năm 2016\"."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/rhadinoloricaria-macromystax#scotcat": [
+    {
+      "at": "2026-11-09T20:49:41Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "Item 5: \"lăng quăng đông lạnh\" is a regional term; the more standard hobby term is \"bọ gậy đông lạnh\".",
+        "Item 4: \"muốn nuôi bể thì chọn Rhadinoloricaria sẽ hợp hơn\" is a little awkward; try \"nếu nuôi trong bể thì Rhadinoloricaria là lựa chọn phù hợp hơn\".",
+        "Item 3: \"lúc nào cũng ở trên các bãi cát\" is colloquial; \"luôn gặp trên các bãi cát\" is more encyclopedic."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/rhadinoloricaria-rhami#scotcat": [
+    {
+      "at": "2026-11-09T20:51:32Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "Item 4: \"lăng quăng đông lạnh\" is a regional (Southern) term; the more standard \"ấu trùng muỗi đông lạnh\" would read better in an encyclopedia.",
+        "Item 5: \"các tác giả mô tả loài\" adds \"mô tả loài\", which the English (\"the authors' expedition\") does not say; \"các tác giả\" alone would be closer."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/rhinogobius-maculafasciatus#glaser": [
+    {
+      "at": "2026-11-09T22:40:30Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "Item 1: \"Loài này có ở Đài Loan\" is added; English says only that it was described from Taiwan, not that it occurs there. Use \"được mô tả từ Đài Loan vào năm 1996\".",
+        "Item 1: \"đến năm 1996 mới được mô tả\" is acceptable but \"chỉ được mô tả khoa học vào năm 1996\" is closer to \"only in 1996\".",
+        "Item 4: \"định danh lần này\" adds \"lần này\" (this time), which is not in the source. Use \"việc định danh là đúng\".",
+        "Item 4: \"Khi cá ở trạng thái bình thường hoặc bị quấy\" is slightly off. \"Neutral mood\" is better as \"khi cá không có biểu hiện đặc biệt\" or \"trạng thái trung tính\". \"Bị quấy\" is also a bit colloquial; use \"bị làm phiền/hoảng sợ\".",
+        "Item 4: \"là tùy rất nhiều vào\" is awkward. Use \"phụ thuộc rất nhiều vào\".",
+        "Item 3: \"sọc vàng\" for \"yellow bands\" is fine, but check consistency with \"sọc sẫm\" in item 4, where \"dark bands\" refers to body bands. This is minor."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/rineloricaria-melini#scotcat": [
+    {
+      "at": "2026-11-09T20:53:16Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "Item 1: \"Apache whiptail catfish\" left in English; give a Vietnamese common name (e.g. \"Cá chuột whiptail Apache\") or an established name, with the English name in brackets if needed.",
+        "Item 2: \"Rio Solimoes\" is spelled differently from \"Solimões\" later in the same text; make the spelling consistent, and \"sông Rio Solimoes\" is redundant (\"sông\" + \"Rio\"), so write \"sông Solimões\".",
+        "Item 2: \"Nơi mô tả loài\" is awkward for \"type locality\"; use the standard \"nơi thu mẫu chuẩn\" or \"địa điểm mẫu chuẩn\".",
+        "Item 2: \"Người ta mới chỉ bắt gặp loài này đúng một lần\" turns \"single record\" into a single sighting; prefer \"chỉ có một ghi nhận duy nhất\".",
+        "Item 2: \"nhóm Ít quan tâm\" is non-standard; use \"Ít lo ngại (LC)\" for Least Concern.",
+        "Item 4: \"thức ăn viên chìm\" adds \"sinking\", which is not in the source \"tablet\"; use \"thức ăn dạng viên\".",
+        "Item 4: \"đồ đông lạnh\" is colloquial; use \"thức ăn đông lạnh\".",
+        "Item 5: The Vietnamese splits one sentence into two and reorders the clause, which is fine; keep \"Rineloricaria\" in italics.",
+        "Item 7: The references are left untranslated; this is acceptable for citations, but make sure the title is kept as is and check the \"I.Seidel\" spacing.",
+        "Item 3: \"vùng nước đen\" is acceptable; \"blackwater\" is more commonly written \"nước đen (blackwater)\" in the hobby."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/rocio-octofasciata#glaser": [
+    {
+      "at": "2026-11-09T22:27:31Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Tiệm cá thường chỉ có những dòng...\" – 'Tiệm cá' (fish shop) is added; the source says only that such strains are usually traded. Use e.g. 'Thường chỉ có các dòng nuôi lâu đời không rõ nguồn gốc được bán trên thị trường'.",
+        "\"Hiện đã có cá Jack Dempsey thế hệ F1 cho đẻ ở Đức\" – 'received' (đã nhận được) is rendered as 'available'; it also loses 'specimens'. Consider 'Đã nhận được cá Jack Dempsey thế hệ F1 do Đức nhân giống'.",
+        "\"Bố mẹ của chúng là cá bắt ngoài tự nhiên\" – the source says the F1 fish come from wild-collected fish. This is acceptable, but 'cá khai thác ngoài tự nhiên' / 'cá thu thập từ tự nhiên' is more standard in the hobby.",
+        "\"Đây là lần đầu cá có nguồn gốc rõ như vậy được bán ra\" – 'They are available for the first time' is expanded with interpretation. It is acceptable but a bit loose; 'lần đầu tiên có bán' is closer.",
+        "\"nuôi trong bể đã lâu đời\" – awkward. Use 'dòng nuôi cảnh lâu đời' or 'dòng thuần nuôi bể lâu đời'."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/satanoperca-rhynchitis#glaser": [
+    {
+      "at": "2026-11-09T22:31:06Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"có những con rất đẹp do trại ở Đức cho đẻ\": reads as if the shop only has some nice fish; the source says the specimens received are beautiful German-bred. Use e.g. \"Chúng tôi\" neutral: \"Đã nhập về những cá thể đẹp do trại ở Đức nhân giống\". \"cho đẻ\" is colloquial; use \"nhân giống\".",
+        "\"Đây là một loài cá ăn đất hiếm\": the source says \"this rare eartheater\"; fine, but \"cá ăn đất\" is ok. Consider \"cá ăn đất (eartheater)\" only if the term is not standard.",
+        "\"Cá phải lớn hẳn thì ... mới hiện ra\": slightly stronger than \"only when adult\"; use \"Chỉ khi trưởng thành, cá mới lên đôi môi đỏ đẹp mắt\".",
+        "\"Trước đó, người chơi gọi nó là\": use \"giới chơi cá biết đến với tên\" for more natural hobby phrasing; \"nó\" is awkward for a fish."
+      ],
+      "attempt": "first",
+      "kept": true
+    },
+    {
+      "at": "2026-11-09T22:07:20Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Omitted fact: the sentence about the added pictures is missing (\"a picture of an adult specimen is added to this news\" and \"a picture showing the species in its natural habitat... is also included\"). Add equivalent content, or neutrally mention the accompanying photos.",
+        "Changed meaning: \"Ngoài tự nhiên, có thể gặp loài này ở Guiana thuộc Pháp\" turns the habitat photo into a general distribution statement. Say the photo shows the species in its natural habitat in French Guiana.",
+        "\"We received\" is rendered as \"Lứa cá về lần này\". This is acceptable, but \"beautiful\" is moved onto individual fish (\"con nào cũng đẹp\"), which slightly overstates the source (\"beautiful ... specimens\"). Use something like \"những cá thể đẹp\".",
+        "\"cá trại ở Đức cho đẻ\" is awkward. Prefer \"cá được nhân giống tại Đức\" or \"cá sinh sản tại Đức\".",
+        "\"cá ăn đất\" is a non-standard hobby term for eartheater. Use \"cá ăn đất (eartheater)\" or the established \"cá đất\" if applicable, and keep it consistent.",
+        "Optional: \"Đôi môi đỏ rất đẹp\" is fine, but \"pretty red lips\" could be \"đôi môi đỏ xinh\". Also \"mới được mô tả\" adds \"only then\" nuance, which is acceptable."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-09T22:07:20Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "Item 1: \"eartheater\" is left in English. Use the Vietnamese hobby term \"cá ăn đất\", optionally with the English in brackets.",
+        "Item 1: the opening names \"Satanoperca rhynchitis\" as the subject, but the English only says \"this rare eartheater\". Then \"được mô tả ... với tên Satanoperca rhynchitis\" repeats the name. Rephrase as \"loài cá ăn đất hiếm này\" so no facts are added.",
+        "Item 1: \"có những con rất đẹp do trại ở Đức cho đẻ\" is a bit clumsy. A more natural version is \"những cá thể đẹp do trại ở Đức nhân giống\".",
+        "Item 1: \"đôi môi đỏ đẹp mới hiện ra\" is acceptable. \"đôi môi đỏ xinh\" or \"màu đỏ ở môi\" would be more natural for \"pretty red lips\"."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/scobinancistrus-aureatus#scotcat": [
+    {
+      "at": "2026-11-09T20:55:08Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "Item 1: \"Nguồn gốc tên\" for etymology is loose; \"Từ nguyên\" or \"Ý nghĩa tên khoa học\" is more standard.",
+        "Item 2: \"đập thủy điện Belo Monte đang xây\" adds \"đang\" (under construction), which the source doesn't say; use \"việc xây dựng đập thủy điện Belo Monte\".",
+        "Item 3: \"rất riêng, dễ nhận ra\" adds \"dễ nhận ra\" (easy to recognise), which isn't in the source; use \"có ống mũi đặc trưng\".",
+        "Item 3: \"nasal flutes\" as \"ống mũi\" is acceptable but could be clearer as \"ống mũi dạng sáo/ống\".",
+        "Item 4: \"hay giành chỗ\" is colloquial for \"territorial\"; use \"có tính lãnh thổ\" or \"bảo vệ lãnh thổ\".",
+        "Item 4: \"nước ấm hơn bình thường\" is fine, but \"nhiệt độ nước cao hơn\" is closer to the source."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/scoloplax-empousa#scotcat": [
+    {
+      "at": "2026-11-09T20:56:39Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "Item 2: \"dòng chảy mạnh tới 30 cm/giây\" – the source says only \"water flow up to 30 cm/sec\"; \"mạnh\" is added. Use \"dòng chảy tới 30 cm/giây\" or \"vận tốc dòng chảy tới...\".",
+        "Item 2: \"Khi bị động\" is unnatural. Use \"Khi bị quấy nhiễu/hoảng sợ\".",
+        "Item 2: the first sentence is clumsy and repeats itself (\"thở được không khí khi cần, và loài này cũng thở được không khí\"). Reword it, e.g. \"Cả chi có khả năng thở không khí tùy nghi; loài này cũng thở không khí\".",
+        "Item 2: \"Nó lao nhanh\" switches from \"cá\" and \"chúng\" to \"Nó\". Keep the subject consistent, and join the burying sentences more smoothly.",
+        "Item 3: \"cá tetra nhỏ\" for \"small characins\" is too narrow. Use \"cá characin nhỏ\" or \"nhóm cá characin nhỏ\".",
+        "Item 3: \"Cách nuôi giống các loài cá da trơn banjo\" splits the sentence awkwardly. Make it one sentence, e.g. \"Cách nuôi tương tự cá da trơn banjo, nhưng do cỡ nhỏ nên chỉ nên nuôi chung với...\".",
+        "Item 5: \"có lẽ đã đủ lớn để đẻ\" is a loose rendering of \"presumably adult\". Use \"được cho là đã trưởng thành\".",
+        "Item 5: \"đã lộ rõ đặc điểm giống đực\" is vague for \"sexually dimorphic males\". Use \"con đực có lưỡng hình giới tính rõ\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/spectracanthicus-zuanoni#scotcat": [
+    {
+      "at": "2026-11-09T20:59:18Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "Item 4: \"mà nước càng ấm thì càng ít oxy\" is an added fact not in the English; delete it.",
+        "Item 4: \"chắc là không khó\" is a hedge, which changes \"should be no problem\"; use a plainer \"không gây vấn đề gì\" or \"thường không khó nuôi\".",
+        "Item 3: \"Spectracanthicus zuanoni ưa nước chảy ở mức vừa\" is wrong for \"moderately reophilic\"; it should read \"khá ưa dòng chảy\" or similar, and \"nước quẩn\" is a weak rendering of \"backwater\".",
+        "Item 3: \"Ancistrus ranunculus\" is expanded as \"A. ranunculus\" in both versions; fine. But \"cá tỳ bà\" for loricariids is a poor name for hobby use; \"cá chuột/cá lau kính (họ Loricariidae)\" is the usual term, so use that in items 1 and 3.",
+        "Item 1: \"cá tỳ bà vây buồm đốm xám (Grey-spotted sail-fin pleco)\" leaves English in place and \"cá tỳ bà\" is wrong for a pleco; use an established Vietnamese name such as \"cá lau kính vây buồm\" or keep the English only if there is no Vietnamese name.",
+        "Item 7: \"Ancistrini\" is placed under \"chi\" (\"mọi chi khác trong nhóm Ancistrini\"); that is fine, but \"cleithrum\" should be given a Vietnamese term, e.g. \"xương đòn (cleithrum)\".",
+        "Item 7: \"Nó khác Parancistrus ở khe mang nhỏ\" is too colloquial for an encyclopedia entry; use \"Chi này\" instead of \"Nó\".",
+        "Item 8: The reference list is left entirely in English. Keep the citation titles if you like, but translate the connectors (\"and\" → \"và\", \"Pers. comm.\" → \"trao đổi cá nhân\", \"p.\" → \"tr.\").",
+        "Item 5: \"đồ ăn rau tảo\" is awkward for \"vegetable foods\"; use \"thức ăn thực vật\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-09T20:59:18Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "Item 1: the common name \"Grey-spotted sail-fin pleco\" is left in English. Give a Vietnamese name such as \"cá tỳ bà vây buồm đốm xám\", with the English name in brackets if you want to keep it.",
+        "Item 5: \"đồ rau tảo\" is colloquial and awkward. Use \"thức ăn thực vật\" or \"thức ăn có nguồn gốc thực vật\".",
+        "Item 3: \"nước quẩn\" is a non-standard rendering of \"backwater\". Use something clearer such as \"vùng nước chảy ngược/nước đọng\".",
+        "Item 6: \"Gai thịt (odontode)\" is a non-standard term. Use \"gai bì (odontode)\" or \"răng bì (odontode)\".",
+        "Item 7: \"hốc mắt to hơn\" for \"larger orbital diameter\" is imprecise. Use \"đường kính ổ mắt lớn hơn\"."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/sturisomatichthys-aureum#scotcat": [
+    {
+      "at": "2026-11-09T21:01:09Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "Item 1: \"Tên thường gọi: Giant Whiptail\" leaves the English common name untranslated. Give an established Vietnamese name (e.g. \"cá lau kính đuôi roi khổng lồ\") and keep the English name in brackets if needed.",
+        "Item 4: \"đồ mặn\" and \"đồ tươi\" are colloquial and unclear for hobby terms. Use \"thức ăn giàu đạm/thịt như trùng huyết đông lạnh\" and \"thức ăn sống như giun trắng và artemia\".",
+        "Item 4: \"Loài này chủ yếu ăn rau\" is fine, but \"viên tảo\" should be the standard \"viên rong tảo\" or \"viên thức ăn tảo\" (algae wafers).",
+        "Item 3: \"thả chung với cá hiền\" is acceptable. Consider \"cá không hung dữ\" to stay close to \"non aggressive tank mates\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/symphysodon-aequifasciatus#glaser": [
+    {
+      "at": "2026-11-09T22:39:54Z",
+      "model": "sonnet",
+      "score": 0.75,
+      "notes": [
+        "\"Những người ép đẻ\" is non-standard and sounds negative for \"ambitious breeders\". Use \"người nhân giống/lai tạo đầy tham vọng\" or \"dân chơi nhân giống chuyên nghiệp\".",
+        "\"màu phối lại đẹp\" is awkward. Use \"sự phối màu đẹp\" or \"tổ hợp màu đẹp\".",
+        "\"nên người mê cá đĩa hoang dã thích đã đành\" is colloquial and clumsy. Use \"không chỉ khiến người mê cá đĩa hoang dã thích thú\".",
+        "\"rất cuốn\" is too slang for an encyclopedia. Use \"rất hấp dẫn/thú vị\".",
+        "\"để ý rất kỹ từng cử động\" is colloquial. Use \"quan sát rất tinh tường mọi chuyển động\".",
+        "\"đàn cá đẹp thế này\" drops the weight of \"magnificent\". Use \"đàn cá tuyệt đẹp này\".",
+        "\"hiện về với chất lượng đặc biệt tốt\" is slightly stiff. Use \"hiện đang được nhập về với chất lượng đặc biệt tốt\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    },
+    {
+      "at": "2026-11-09T22:37:41Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "#1 \"khác nhau cả về màu lẫn dáng\": the English says sexual dichromatism and dimorphism. Make it explicit that the difference is between the sexes and in colour and body shape, e.g. \"lưỡng sắc và lưỡng hình giới tính\" or \"đực và cái khác nhau về màu sắc và hình dạng\". The current wording is acceptable but loose.",
+        "#1 \"Con mang màu Royal Blue\": \"Con mang màu\" is awkward. Use \"Cá màu Royal Blue\" or \"Những con có màu Royal Blue\".",
+        "#1 \"hầu như toàn là cá đực\": \"hầu như toàn là\" is slightly redundant. Use \"hầu như đều là cá đực\".",
+        "#1 \"đúng hình cái đĩa\": \"disc-shaped\" is rendered colloquially. Use \"hình đĩa\" instead.",
+        "#1 \"thân hơi thuôn kiểu bầu dục\": \"rather oval-shaped\" is fine, but \"thuôn\" (elongated) adds nuance. Use \"thân hình bầu dục hơn\".",
+        "#2 \"một dòng cá đĩa bắt ngoài tự nhiên\": \"wild-collected\" is better as \"cá đĩa khai thác từ tự nhiên\" or \"cá đĩa hoang dã (wild)\", which is the usual hobby term. \"Dòng\" (strain) also slightly changes the meaning.",
+        "#2 \"màu nền pha khá nhiều sắc đỏ\": \"high content of red colours in their basic coloration\" is acceptable. \"Màu nền\" is fine, but you could say \"tỷ lệ màu đỏ cao trong màu cơ bản\" to stay closer to the source."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/species/triops-cancriformis#aquariumbreeder": [
+    {
+      "at": "2026-11-09T21:09:01Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Bể hợp nhất: 20 lít\" (item 1): \"hợp nhất\" means \"merged\" or \"unified\", not \"optimal\". Use \"Dung tích bể tối ưu\" or \"Bể phù hợp nhất\".",
+        "\"đúng mật độ hợp nhất\" (item 5): same misuse of \"hợp nhất\". Use \"đạt mật độ nuôi tối ưu\".",
+        "\"nhưng hợp nhất là 7,0–9,0\" (item 7): rewrite as \"nhưng tối ưu là 7,0–9,0\" or \"phù hợp nhất là\".",
+        "\"Cát là hợp nhất\" (item 8): rewrite as \"Cát là phù hợp nhất\".",
+        "Item 1, \"Tên gọi khác\": the English names are left untranslated and only glossed in brackets, so \"Longtail tadpole shrimp\", \"Rice tadpole shrimp\" and \"Triassic Triops\" get no Vietnamese. Give Vietnamese equivalents, or keep only the established ones.",
+        "\"ngắm Triops rất vui\" (item 10) and \"cá otto\" for otocinclus: use more natural wording, such as \"xem Triops rất thú vị\", and \"cá otocinclus\" or the common name \"cá ăn rêu otto\".",
+        "\"nước bốc hơi dần\" for \"evapotranspiration\" (item 4) loses the plant-transpiration element. This is minor, but \"bốc hơi và thoát hơi nước\" is closer."
+      ],
+      "attempt": "first",
+      "kept": true
     }
   ]
 }

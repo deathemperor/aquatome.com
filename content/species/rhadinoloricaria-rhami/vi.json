@@ -8,14 +8,20 @@
     "waterConditions:planetcatfish": "<p>Nhiệt độ: 25-28°C.</p>",
     "reproduction:planetcatfish": "<p>Sinh sản: chưa có ghi nhận. Đến nay chưa có báo cáo nào về chuyện loài này sinh sản.</p>",
     "notes:planetcatfish": "<p>Nguồn gốc tên: tiếng Hy Lạp rhadinos, -e, -on nghĩa là mềm, dẻo, ghép với tiếng Latinh lorica, loricare nghĩa là giáp ngực hay áo giáp bằng da. Tên giống: tiếng Hy Lạp krossoi nghĩa là tua, ghép với tiếng Latinh lorica, loricare nghĩa là giáp ngực hay áo giáp bằng da.</p>",
-    "references:planetcatfish": "<p>Revue française d'Aquariologie Herpétologie v. 10 (no. 1), pp 9, Fig.</p>"
+    "references:planetcatfish": "<p>Revue française d'Aquariologie Herpétologie v. 10 (no. 1), pp 9, Fig.</p>",
+    "quickFacts:scotcat": "<ul><li>Tên thường gọi: không có</li><li>Tên đồng nghĩa: Crossoloricaria rhami</li></ul>",
+    "distribution:scotcat": "<p>Peru: sông Chio, sông Yuruá, sông Ucayali.</p>",
+    "maintenance:scotcat": "<p>Loài này thích vùi mình trong lớp cát dày, chỉ chừa đôi mắt ra ngoài. Nuôi trong bể thì cần trải cho nó một lớp nền cát dày như vậy.</p>",
+    "diet:scotcat": "<p>Cho ăn thức ăn viên, lăng quăng đông lạnh, bo bo và các loại tương tự.</p>",
+    "notes:scotcat": "<p>Danh sách đỏ IUCN: loài này nằm trong nhóm Ít quan tâm. Nó phân bố rộng, khá phổ biến, có mặt trong các khu bảo tồn, và hiện chưa có mối đe dọa lớn nào trên diện rộng ảnh hưởng tới quần thể. Nhưng đánh giá này đã đến lúc cần cập nhật lại (IUCN 2016).</p><p>Nguồn gốc tên gọi: tên giống Rhadinoloricaria ghép từ rhadinós (mảnh mai, thanh hoặc thon dần) và Loricaria. Chữ rhadinós chỉ cái mõm nhọn của R. macromystax (Isaäc J. H. Isbrücker, trao đổi cá nhân). Loricaria là giống chuẩn của họ. Tên loài rhami đặt để vinh danh Patrick de Rham (1936–2022), nhà ngư học kiêm người chơi cá cảnh người Thụy Sĩ. Ông là người dẫn chuyến khảo sát Peru của các tác giả mô tả loài và đã giúp thu thập loạt mẫu chuẩn.</p>",
+    "references:scotcat": "<p>Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). 784 p.</p><p>Chuctaya, J., Arguello, P. &amp; Sanchez-Duarte, P. 2016. Crossoloricaria rhami. The IUCN Red List of Threatened Species 2016.</p><p>Evers, H.-G. &amp; I.Seidel: Mergus, Baensch Catfish Atlas Volume 1, 1st English edn., 2005. Pp.944.</p><p>Froese, R. and D. Pauly. Editors. 2026. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 02/2026 ).</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
   },
   "quality": {
     "score": 0.9,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.9
-    },
-    "reason": "thin"
+      "planetcatfish": 0.9,
+      "scotcat": 0.95
+    }
   }
 }

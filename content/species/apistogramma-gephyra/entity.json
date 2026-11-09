@@ -5,7 +5,11 @@
   "family": "Cichlidae",
   "genus": "Apistogramma",
   "group": "cichlids",
-  "places": [],
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-negro"
+  ],
   "range": {
     "records": {
       "taxonKey": 2371247,
@@ -127,31 +131,37 @@
     }
   },
   "dataCard": {
-    "difficulty": [
+    "sizeCm": [
       {
         "source": "glaser",
-        "value": 2
+        "value": 5
       }
     ]
   },
   "sections": [
     {
-      "key": "beforeYouBuy",
+      "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_gephyra_bred_en/",
-      "html": "<p>Apistogramma gephyra and A. agassizii are really difficult to tell apart. They also appear at least in some places together in the natural habitat, so the origin is of no help. Both species never hybridize in the wild, which is the best evidence that they represent two different species.</p><p>The best way to tell the two species apart is to look at the dorsal fin of adult males. In A. gephyra there is a red seam in that fin, which hardly ever appears in A. agassizii males.</p><p>Fully grown German-bred specimens of A. gephyra, bred by an enthusiast who is deeply involved with Apistogramma, are available at 4-8 cm. These fish give the lie to the often heard sentence \"Apistogramma gephyra looks like a colourless A. agassizii\": they are really beautiful fishes.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_gephyra_en/",
+      "html": "<p>A pretty blackwater Apistogramma that is imported only very occasionally. It looks quite similar to A. agassizii and its aquarium maintenance is comparable to that well-known species. Available size: 3-5 cm.</p>"
     },
     {
-      "key": "maintenance",
+      "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_gephyra_bred_en/",
-      "html": "<p>Keeping Apistogramma gephyra is problem-free. Like all Apistogramma species, A. gephyra needs a gravel in the tank that is composed at least in some places of fine sand.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_gephyra_en/",
+      "html": "<p>The fish originates from Brazil, where it is found in the central Rio Negro and lower Rio Branco basins.</p>"
     },
     {
-      "key": "waterConditions",
+      "key": "dimorphism",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_gephyra_bred_en/",
-      "html": "<p>Only for breeding purposes it is often necessary to use very soft, acidic water.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_gephyra_en/",
+      "html": "<p>The yellow face mask of the male is very obvious in the population currently available. Females stay much smaller than the males, as usual in Apistogramma.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_gephyra_en/",
+      "html": "<p>Apistogramma: ancient Greek, meaning \"with unreliable line\". It is not known whether the lateral line organ or the pattern is meant. gephyra: after the ancient Greek word for \"bridge\", which refers to the intermediate position of the species between Apistogramma agassizii and A. pertensis.</p>"
     }
   ],
   "photos": [],

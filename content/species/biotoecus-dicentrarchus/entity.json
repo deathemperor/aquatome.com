@@ -1,0 +1,52 @@
+{
+  "id": "biotoecus-dicentrarchus",
+  "scientificName": "Biotoecus dicentrarchus",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Biotoecus",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "venezuela"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/biotoecus_dicentrarchus_en/",
+      "html": "<p>A rare dwarf cichlid from Venezuela. The male attains a maximum length of about 6 cm, the female about 4-5 cm. The fish are sandbottom dwellers.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/biotoecus_dicentrarchus_en/",
+      "html": "<p>For breeding the male builds a large sandhill where the pair is spawning.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "cát mịn cho cá cichlid lùn"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

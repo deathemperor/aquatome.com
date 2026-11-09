@@ -13,7 +13,9 @@
     "colombia",
     "putumayo",
     "peru",
-    "solimoes"
+    "solimoes",
+    "nhamunda",
+    "rio-moju"
   ],
   "range": {
     "native": {
@@ -168,10 +170,6 @@
   "dataCard": {
     "sizeCm": [
       {
-        "source": "glaser",
-        "value": 15
-      },
-      {
         "source": "seriouslyfish",
         "value": 14
       }
@@ -230,6 +228,12 @@
       "html": "<p>The natural range of this species extends down the Rio Solimões and along the main Amazon river, between the Rio Putumayo in Colombia and Peru as far as the Rio Tocantins drainage in Brazil. Introduced populations also exist in the neighbouring countries of Guyana and Suriname.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/discus_red_inferno_rio_moju__en/",
+      "html": "<p>Origin: Brazil, Rio Moju.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/symphysodon-aequifasciatus",
@@ -262,50 +266,50 @@
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/symphysodon-aequifasciatus-royal-green-tefe-2/",
-      "html": "<p>The kings of the discus fishes are the \"Royal\" varieties. A discus is called Royal if green or blue pattern elements are spread over the entire body surface. Among the green discus the Royal from Tefé in Brazil (which is also one of the type localities of S. aequifasciatus, i.e. the locality from which the specimens on which the scientific description is based were collected) is the legendarily most beautiful. Here one finds particularly many Royal fishes, which additionally have orange-red spots on the flanks.</p><p>Currently the animals have a length of 12-15 cm.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/discus_red_inferno_rio_moju__en/",
+      "html": "<p>The \"Red Inferno\" variant from the Rio Moju is currently arriving in extraordinarily good quality. On their fins and flanks the animals show a strongly red-orange basic colour, which stands in beautiful contrast to the bluish green wave pattern. Their cherry-red eyes register every movement inside and outside the aquarium very attentively.</p><p>Standing before an aquarium with these magnificent animals and observing the dynamics within a group is fascinating. Watching them, one immediately understands how applicable the old title \"king of the aquarium fish\" is to them. Their perfect form and beautiful colour combination make them interesting not only for the lover of wild discus. Ambitious breeders can also get fresh and healthy genetic material for these qualities.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/e6935fc1e0ed7998.webp",
+      "thumb": "https://media.aquatome.com/commons/e6935fc1e0ed7998-480.webp",
       "width": 960,
       "height": 802,
       "licence": "Public domain",
       "author": "Patrick Farrelly",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Blue_Discus.jpg",
-      "caption": "Symphysodon aequifasciata",
-      "thumb": "https://media.aquatome.com/commons/e6935fc1e0ed7998-480.webp"
+      "caption": "Symphysodon aequifasciata"
     },
     {
       "url": "https://media.aquatome.com/commons/7e01b29c05234c5c.webp",
+      "thumb": "https://media.aquatome.com/commons/7e01b29c05234c5c-480.webp",
       "width": 960,
       "height": 874,
       "licence": "CC BY-SA 4.0",
       "author": "Alter welt",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paletka_(Symphysodon_aequifasciatus).jpg",
-      "caption": "Symphysodon aequifasciatus",
-      "thumb": "https://media.aquatome.com/commons/7e01b29c05234c5c-480.webp"
+      "caption": "Symphysodon aequifasciatus"
     },
     {
       "url": "https://media.aquatome.com/commons/6942d0add13a965d.webp",
+      "thumb": "https://media.aquatome.com/commons/6942d0add13a965d-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY-SA 4.0",
       "author": "Emőke Dénes",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Labroidei_-_Symphysodon_aequifasciatus_-_3.jpg",
-      "caption": "Blue discus or brown discus (Symphysodon aequifasciatus) at the Sea Life Centre in Hannover, Germany.",
-      "thumb": "https://media.aquatome.com/commons/6942d0add13a965d-480.webp"
+      "caption": "Blue discus or brown discus (Symphysodon aequifasciatus) at the Sea Life Centre in Hannover, Germany."
     },
     {
       "url": "https://media.aquatome.com/commons/e14c4dff68d20bd1.webp",
+      "thumb": "https://media.aquatome.com/commons/e14c4dff68d20bd1-480.webp",
       "width": 960,
       "height": 727,
       "licence": "CC BY-SA 3.0",
       "author": "H. Zell",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Symphysodon_aequifasciatus_-_Karlsruhe_Zoo_03.jpg",
-      "caption": "Symphysodon aequifasciatus Pellegrin, 1904, Blue Discus; Karlsruhe Zoo, Karlsruhe, Germany.",
-      "thumb": "https://media.aquatome.com/commons/e14c4dff68d20bd1-480.webp"
+      "caption": "Symphysodon aequifasciatus Pellegrin, 1904, Blue Discus; Karlsruhe Zoo, Karlsruhe, Germany."
     }
   ],
   "videos": [
@@ -360,5 +364,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-09"
 }

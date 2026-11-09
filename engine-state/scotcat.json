@@ -587,6 +587,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/aspredinidae/pterobunocephalus_depressus.htm": {
+    "entityIds": [
+      "species/pterobunocephalus-depressus"
+    ],
+    "updatedAt": "2026-11-09T20:44:02.876Z",
+    "hash": "7a7e99ae8b9b2b62ea96c81e4f8ebf74a238a85587a6abac6777d61d3639bea0",
+    "processedHash": "7a7e99ae8b9b2b62ea96c81e4f8ebf74a238a85587a6abac6777d61d3639bea0",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/auchenipteridae/ageneiosus_magoi.htm": {
     "entityIds": [
       "species/ageneiosus-magoi"
@@ -894,6 +904,16 @@
     "updatedAt": "2026-11-09T08:49:14.328Z",
     "hash": "b103494a48d60d7e693009ce6d364c947e6ad288394541ab2c5e0fdeaf928db8",
     "processedHash": "b103494a48d60d7e693009ce6d364c947e6ad288394541ab2c5e0fdeaf928db8",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/doradidae/pterodoras_granulosus.htm": {
+    "entityIds": [
+      "species/pterodoras-granulosus"
+    ],
+    "updatedAt": "2026-11-09T20:46:13.967Z",
+    "hash": "bed31dc92ebb4f1f071cecd8eace69d350faa53574925a2ec3ed5936990deb15",
+    "processedHash": "bed31dc92ebb4f1f071cecd8eace69d350faa53574925a2ec3ed5936990deb15",
     "status": "processed",
     "attempts": 0
   },
@@ -1535,6 +1555,66 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/loricariidae/rhadinoloricaria_macromystax.htm": {
+    "entityIds": [
+      "species/rhadinoloricaria-macromystax"
+    ],
+    "updatedAt": "2026-11-09T20:48:21.069Z",
+    "hash": "e5c704e37df2db59824c65ef0dae9b9fe225121b1700895fc1a5bfed026f7794",
+    "processedHash": "e5c704e37df2db59824c65ef0dae9b9fe225121b1700895fc1a5bfed026f7794",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/rhadinoloricaria_rhami.htm": {
+    "entityIds": [
+      "species/rhadinoloricaria-rhami"
+    ],
+    "updatedAt": "2026-11-09T20:49:41.185Z",
+    "hash": "1f134da10d61d1d08fb66a7fe7b220e838ae3ce6b84d1d3e19b9300f13061686",
+    "processedHash": "1f134da10d61d1d08fb66a7fe7b220e838ae3ce6b84d1d3e19b9300f13061686",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/rineloricaria_melini.htm": {
+    "entityIds": [
+      "species/rineloricaria-melini"
+    ],
+    "updatedAt": "2026-11-09T20:51:32.718Z",
+    "hash": "c9da45d23afa9ec8ea9725c39442bf50100e2daa8f4776c0c9094fdf2a050019",
+    "processedHash": "c9da45d23afa9ec8ea9725c39442bf50100e2daa8f4776c0c9094fdf2a050019",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/scobinancistrus_aureatus.htm": {
+    "entityIds": [
+      "species/scobinancistrus-aureatus"
+    ],
+    "updatedAt": "2026-11-09T20:53:16.149Z",
+    "hash": "094910aa3c4ea64c2b185267e6bb884be0ec35a1f94170f0fb008ff740d926f5",
+    "processedHash": "094910aa3c4ea64c2b185267e6bb884be0ec35a1f94170f0fb008ff740d926f5",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/spectracanthicus_zuanoni.htm": {
+    "entityIds": [
+      "species/spectracanthicus-zuanoni"
+    ],
+    "updatedAt": "2026-11-09T20:56:39.185Z",
+    "hash": "308c340cfc8d39583c8120d04c19c733c5a481ed75edf11e59b7041d13b9261d",
+    "processedHash": "308c340cfc8d39583c8120d04c19c733c5a481ed75edf11e59b7041d13b9261d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/sturisomatichthys_aureus.htm": {
+    "entityIds": [
+      "species/sturisomatichthys-aureum"
+    ],
+    "updatedAt": "2026-11-09T20:59:18.606Z",
+    "hash": "f32687debe6d2e91a2f2b2b46c213ba7e12dfaa0b32c84012575ce16937c8eb5",
+    "processedHash": "f32687debe6d2e91a2f2b2b46c213ba7e12dfaa0b32c84012575ce16937c8eb5",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/malapteruridae/malapterurus_beninensis.htm": {
     "entityIds": [
       "species/malapterurus-beninensis"
@@ -1702,6 +1782,16 @@
     "updatedAt": "2026-11-09T05:48:05.201Z",
     "hash": "8518ca0b5ec388df1b79ea79b9b6a9d4f6b786ec77b0570247f73471eb078db6",
     "processedHash": "8518ca0b5ec388df1b79ea79b9b6a9d4f6b786ec77b0570247f73471eb078db6",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/scoloplacidae/scoloplax_empousa.htm": {
+    "entityIds": [
+      "species/scoloplax-empousa"
+    ],
+    "updatedAt": "2026-11-09T20:55:08.340Z",
+    "hash": "f99e6da451be89a549c50e8fbe7759b560304b988a3b9af9073f5c9d61923a90",
+    "processedHash": "f99e6da451be89a549c50e8fbe7759b560304b988a3b9af9073f5c9d61923a90",
     "status": "processed",
     "attempts": 0
   },

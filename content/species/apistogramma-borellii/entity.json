@@ -293,6 +293,10 @@
       {
         "source": "seriouslyfish",
         "value": 6.5
+      },
+      {
+        "source": "glaser",
+        "value": 4
       }
     ],
     "tankCm": [
@@ -316,10 +320,22 @@
       "html": "<p>Borelli's dwarf cichlid, Apistogramma borellii, is from southern Brazil, Paraguay, Argentina and Uruguay. Also known as the umbrella or yellow dwarf cichlid, it occurs in creeks and tributaries of the rio Paraguay, lower rio Paraná and Uruguay systems. Captive-raised fish are the recommended choice for the community aquarium, while wild examples are best kept alone or with small dither fishes.</p><ul><li>Max size: male 65 mm SL, female 50 mm SL</li><li>Aquarium size: 45 × 30 cm</li><li>Temperature: 20–26°C</li><li>pH: 5.0–8.0</li><li>Hardness: 1–15 dGH</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_borellii_en/",
+      "html": "<p>Common names: Umbrella cichlid, Yellow dwarf cichlid. Available size: 3-4 cm. Origin: Paraguay.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-borellii",
       "html": "<p>Native to southern Brazil, Paraguay and northern Argentina. It occurs in creeks and tributaries of both the Rio Paraguay and lower Rio Paraná basins.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_borellii_en/",
+      "html": "<p>Wild collected specimens of A. borellii from Paraguay have recently been received.</p>"
     },
     {
       "key": "habitat",
@@ -346,6 +362,12 @@
       "html": "<ul><li>Temperature: 20–26°C (68–79°F)</li><li>pH: Commercially-produced fish are relatively unfussy but wild populations have been collected from habitats with recorded values over the range 5.0–8.0 depending on locality and may have more specific requirements.</li><li>Hardness: 1–15 dGH, again somewhat dependent on origin.</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_borellii_en/",
+      "html": "<p>This species is an ideal aquarium fish. In contrast to many other species of the genus, A. borellii is completely undemanding regarding water chemistry. Even in medium hard, slightly alkaline water the species thrives well and even breeds.</p><p>It is recommended to keep the fish in unheated aquaria during some weeks of the year. This will lead to a longer life in A. borellii and healthier fish.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-borellii",
@@ -360,8 +382,8 @@
     {
       "key": "behaviour",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma-borellii-wild/",
-      "html": "<p>The peaceful and pretty species can be kept during the summer months in garden ponds or other tanks placed in the garden or on the balcony.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_borellii_en/",
+      "html": "<p>The behaviour of A. borellii is similar to most other Apistogramma: it is a polygamous species (each male breeds with several females), a cavebrooder, and the female does most of the work in caring for the fry. However, A. borellii is among all the different types of Apistogramma the one that fits best to human ideals: it is even possible to keep it in pairs and every now and then even males take care of the brood.</p>"
     },
     {
       "key": "dimorphism",
@@ -380,6 +402,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-borellii",
       "html": "<p>Numerous ornamental forms of this species have been selectively-bred for the aquarium trade. It has also been assigned the 'A' number A234 under the DATZ system with possibly conspecific, related forms similarly numbered A103, A104, and A105 depending on locality.</p><p>The genus Apistogramma is among the most speciose of South American cichlid genera with around 70 species valid at present but many more awaiting description. In addition many species exist in two or more geographical colour forms which may or may not turn out to be distinct in the future. Hobbyists tend to label these with collection data if available in order to avoid mixing them and the potential of hybridisation.</p><p>Member species have also been organised into a series of species lineages, complexes and groups by authors in order to better separate them. Such lists have been augmented by fish that have appeared in the aquarium trade and are in a state of near-constant flux. The A. borelli group, for example, is ordered within the larger A. regani lineage.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_borellii_en/",
+      "html": "<p>Lexicon: Apistogramma: ancient Greek, means \"with unreliable line\". It is not known whether the lateral line organ or the pattern is meant. borellii: dedication name.</p>"
     }
   ],
   "photos": [

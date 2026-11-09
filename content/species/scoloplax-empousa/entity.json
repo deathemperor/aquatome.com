@@ -8,13 +8,38 @@
   "places": [
     "south-america",
     "brazil",
-    "rio-ivinheima"
+    "rio-ivinheima",
+    "bolivia",
+    "amazon",
+    "paraguay"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 2
+      },
+      {
+        "source": "scotcat",
+        "value": 2
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
       }
     ]
   },
@@ -32,6 +57,30 @@
       "html": "<p>South America: Amazon and Paraguay/Paraná River basins.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/scoloplacidae/scoloplax_empousa.htm",
+      "html": "<p>South America: Amazon and Paraguay/Paraná River basins: Bolivia and Brazil. Type locality: Rio Ivinheima 70 km upstream from its confluence with Rio Paraná and Rio dos Bandeirantes, Mato Grosso, Brazil, approx. 22º35'S, 53º30'W.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/scoloplacidae/scoloplax_empousa.htm",
+      "html": "<p>Facultative air-breathing in the genus; an air-breather, inhabiting clear water streams with sandy to muddy bottom, up to 2.5 m deep with water flow up to 30 cm/sec. When disturbed it may bury itself in the sand, diving quickly headfirst and making lateral movements with the body. Hides during the day amidst the exposed root tangle and basal portions of submersed aquatic vegetation, and among plant debris on the bottom.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/scoloplacidae/scoloplax_empousa.htm",
+      "html": "<p>Similar maintenance as to the banjo catfishes but due to their small size would need to be kept with small characins etc.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/scoloplacidae/scoloplax_empousa.htm",
+      "html": "<p>Forages at twilight and night, moving little and preying mostly on chironomid larvae and tiny oligochaetes.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1207",
@@ -44,16 +93,34 @@
       "html": "<p>Unreported in the aquarium. There is no breeding report.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/scoloplacidae/scoloplax_empousa.htm",
+      "html": "<p>A sample of 874 individuals (7.7-16.4 mm SL) taken at the end of the rainy season contains six sexually dimorphic males (14.0-14.6 mm SL) and several presumably adult females (12.8-16.4 mm SL) with up to 300 immature oocytes in each ovary. Sexual ratio of 28 adults (11.9-14.1 mm SL) taken at random is 0.86 males to 1.14 females.</p>"
+    },
+    {
       "key": "notes",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1207",
       "html": "<p>Species of the neotropical family Scoloplacidae are distinguished from other Siluriformes by a conspicuous shield-shaped rostral plate bearing numerous large, recurved odontodes. Scoloplacidae is a monogeneric family endemic to South America, known from the Amazon, Paraguay and Paraná basins. The world's smallest known catfish are from this genus; the smallest is most likely S. dolicholophia.</p><p>Scoloplax empousa is distinguished from all other Scoloplax by the combination of paired bilateral mental barbels, four dorsal-fin rays, five pectoral-fin rays, five pelvic-fin rays and six anal-fin rays.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/scoloplacidae/scoloplax_empousa.htm",
+      "html": "<p>Description: Dorsal soft rays (total): 4; anal soft rays: 6. Paired bilateral barbels.</p><p>Etymology: The specific name empousa: Émpousa, in Greek mythology a one-legged specter assuming various forms, referring to this catfish's \"rather bizarre external appearance\".</p><p>Remarks: Despite the few information available on this species, it is assessed as Least Concern due to its wide range (IUCN 2020).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1207",
       "html": "<p>Proceedings of the Academy of Natural Sciences of Philadelphia v. 141, pp 194, Figs. 7, 8, 11.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/scoloplacidae/scoloplax_empousa.htm",
+      "html": "<p>Brejão, G.L. 2021. Scoloplax empousa. The IUCN Red List of Threatened Species 2021. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2024. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 07/2024 ). Sazima, I., F.A. Machado and J. Zuanon, 2000. Natural history of Scoloplax empousa (Scoloplacidae), a minute spiny catfish from the Pantanal wetlands in western Brazil. Ichthyol. Explor. Freshwat. 11(1):89-95. Schaefer, S.A., 2003. Scoloplacidae (Spiny dwarf catfishes). p. 310-311. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</p>"
     }
   ],
   "photos": [
@@ -80,7 +147,14 @@
       "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "dIZO4451kII",
+      "title": "Chronicles of Catfishes 21 Spiny Dwarf Catfishes",
+      "durationSec": 378,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -95,5 +169,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-09"
 }

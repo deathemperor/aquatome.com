@@ -1,0 +1,26 @@
+{
+  "slug": "ca-mesonauta-acora",
+  "name": "Cá Mesonauta acora",
+  "altNames": [
+    "Flag cichlid"
+  ],
+  "sections": {
+    "distribution:glaser": "<p>M. acora được mô tả dựa trên cá ở sông Araguaia, một nhánh lớn của sông Tocantins ở Brazil. Cá nhập về đều là cá từ sông Tocantins.</p>",
+    "notes:glaser": "<p>Cá Mesonauta ở sông Tocantins (Brazil) có hoa văn nền rất hay thay đổi. Mảng hoa văn sẫm này chủ yếu hiện ra khi cá bị stress hoặc bị kích động, và mỗi loài thường có một kiểu riêng. Nhưng nếu dựa vào hoa văn ở lô cá này thì hầu như con nào cũng thuộc một loài khác nhau, mà chuyện đó rất khó xảy ra.</p><p>Đối chiếu với các loài Mesonauta đã được mô tả thì rất có thể lô cá nhập này là Mesonauta acora, loài vốn có màu nền hay thay đổi. Vùng phân bố ghi kèm lô cá cũng khớp với loài này.</p><p>Theo bản chỉnh lý chi Mesonauta của Kullander và Silfvergrip, M. acora có một đặc điểm chỉ loài này có, đó là 2-4 vảy (thường là 3) trên xương nắp mang trước. Nhìn cá sống bằng mắt thường thì không thấy được, nhưng xem trên ảnh chụp thì thấy.</p><p>Trước đây M. acora chưa từng được nhập về, hoặc ít nhất là chưa ai định danh chắc chắn. Nghe nói đây là loài Mesonauta hiếm gặp nhất trong bể của người chơi.</p>",
+    "references:glaser": "<p>Kullander, S. O. &amp; A. M. C. Silfvergrip (1991): Review of the South American cichlid genus Mesonauta Günther (Teleostei, Cichlidae) with descriptions of two new species. Revue Suisse de Zoologie v. 98 (no. 2): 407-448.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.9
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-10"
+  }
+}
