@@ -11,6 +11,84 @@
     "lake-tanganyika",
     "zambia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CD",
+        "ZM"
+      ],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "It is known from Moba in DR Congo south to Cape Kapembwa in Zambia.",
+          "countries": [
+            "CD",
+            "ZM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Tanganyika.",
+          "countries": [],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371685,
+      "total": 17,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "ZM",
+          13
+        ],
+        [
+          "CD",
+          2
+        ],
+        [
+          "TZ",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          29.53125,
+          -9.84375,
+          6,
+          6
+        ],
+        [
+          29.53125,
+          -8.4375,
+          8,
+          8
+        ],
+        [
+          29.53125,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          30.9375,
+          -8.4375,
+          2,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

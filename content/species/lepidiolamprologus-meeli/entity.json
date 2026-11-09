@@ -10,6 +10,59 @@
     "democratic-republic-of-the-congo",
     "lake-tanganyika"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Neolamprologus meeli was described in 1948 by Max Poll from a place near Katibili, which belongs to the Congolese part of Lake Tanganyika.",
+          "countries": [],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9621840,
+      "total": 8,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "CD",
+          5
+        ],
+        [
+          "ZM",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          28.125,
+          -7.03125,
+          4
+        ],
+        [
+          29.53125,
+          -7.03125,
+          1
+        ],
+        [
+          30.9375,
+          -9.84375,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

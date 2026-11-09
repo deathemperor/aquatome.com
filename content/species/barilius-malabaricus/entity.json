@@ -10,6 +10,58 @@
     "india",
     "valapattanam"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Payaswini",
+        "Vallapattanam"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Probably restricted to southern parts of Karnataka state and northern Kerala state in southwestern India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Following its revalidation in 2015 (see 'Notes') it is known with certainty only from the Payaswini and Vallapattanam river systems in Kerala although it is thought to occur elsewhere.",
+          "countries": [],
+          "regions": [
+            "Payaswini",
+            "Vallapattanam"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8449869,
+      "total": 2,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "IN",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          74.53125,
+          11.25,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

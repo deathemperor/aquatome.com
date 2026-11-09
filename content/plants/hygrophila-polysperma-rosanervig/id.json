@@ -5,18 +5,20 @@
     "Hygrophila polysperma Rosanervig",
     "Hygro Rosanervig",
     "Rosanervig",
-    "Hygrophila polysperma 'Rosanervig'"
+    "Sunset Hygro"
   ],
   "sections": {
-    "quickFacts:tropica": "<ul><li>Jenis: Tanaman batang</li><li>Asal: Kultivar</li><li>Kecepatan tumbuh: Sedang</li><li>Tinggi: 20–30+ cm</li><li>Kebutuhan cahaya: Rendah</li><li>CO2: Sedang</li></ul>",
-    "maintenance:tropica": "<p>Hygrophila polysperma 'Rosanervig' biasanya termasuk tanaman yang tidak rewel. Kalau ingin daunnya berwarna pink pekat, cahayanya harus kuat. Batangnya bisa mencapai tinggi 20–40 cm dan lebar 5–8 cm.</p>",
-    "notes:tropica": "<p>Tanaman ini bisa tiba-tiba mengeluarkan tunas yang seluruhnya hijau. Buang tunas-tunas ini supaya daunnya tetap pink dengan corak marmer yang khas. Warna khas pada tulang daun yang pucat kemungkinan besar disebabkan oleh virus yang menghambat pembentukan klorofil di sel-sel sekitar tulang daun, sehingga bagian itu tampak putih. Meski begitu, virus ini tidak menular ke tanaman lain di akuarium.</p>"
+    "quickFacts:tropica": "<ul><li>Jenis: Tanaman batang (stem plant)</li><li>Asal: Kultivar</li><li>Laju pertumbuhan: Sedang</li><li>Tinggi: 20–30+ cm</li><li>Kebutuhan cahaya: Rendah</li><li>CO2: Sedang</li></ul>",
+    "maintenance:aquatome": "<p>Rosanervig cocok ditanam di midground maupun background. Tanaman yang dibeli biasanya hasil budidaya emersed (di atas air), daunnya jauh lebih besar daripada daun yang tumbuh di bawah air, dan daun-daun itu akan meleleh (melting) setelah masuk air. Sebelum ditanam, potong bagian pucuknya, sisakan hanya bagian bawah yang berakar, lalu tancapkan ke substrat seperti biasa. Cara ini memang agak drastis dan beberapa minggu pertama akuarium akan terlihat kosong. Sebagai gantinya, tanaman langsung menumbuhkan daun air, masa transisinya lebih cepat, dan di akuarium tidak ada daun busuk yang menghasilkan limbah pemicu alga. Selanjutnya, kalau ada tunas yang tumbuh hijau polos tanpa urat merah muda sama sekali, potong saja supaya corak daun bergurat khas varietas ini tetap terjaga.</p>",
+    "maintenance:tropica": "<p>Hygrophila polysperma 'Rosanervig' umumnya termasuk tanaman yang tidak rewel. Kalau ingin daunnya berwarna merah muda pekat, cahayanya harus kuat. Batangnya bisa mencapai tinggi 20–40 cm dan lebar 5–8 cm.</p>",
+    "notes:tropica": "<p>Tanaman ini bisa tiba-tiba menumbuhkan tunas yang seluruhnya hijau. Buang tunas seperti itu supaya daunnya tetap berwarna merah muda dengan corak marmer yang khas. Warna khas pada urat daun yang pucat kemungkinan besar disebabkan oleh virus yang menghambat pembentukan klorofil di sel-sel sekitar urat daun, sehingga urat tersebut tampak putih. Meski begitu, virus ini tidak memengaruhi tanaman lain di akuarium.</p>"
   },
   "quality": {
-    "score": 0.9,
+    "score": 0.95,
     "indexable": true,
     "bySource": {
-      "tropica": 0.9
+      "tropica": 0.95,
+      "aquatome": 0.95
     }
   }
 }

@@ -17,6 +17,80 @@
     "peru",
     "bolivia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO",
+        "VE",
+        "GY",
+        "BR",
+        "PE",
+        "BO"
+      ],
+      "regions": [
+        "Rio Orinoco",
+        "Rio Essequibo",
+        "Amazon"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known from the Rio Orinoco in Colombia and Venezuela, Rio Essequibo in Guyana, and the Amazon basin in Brazil, Peru and Bolivia.",
+          "countries": [
+            "CO",
+            "VE",
+            "GY",
+            "BR",
+            "PE",
+            "BO"
+          ],
+          "regions": [
+            "Rio Orinoco",
+            "Rio Essequibo",
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2338860,
+      "total": 5,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "VE",
+          3
+        ],
+        [
+          "BR",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -67.5,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -12.65625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

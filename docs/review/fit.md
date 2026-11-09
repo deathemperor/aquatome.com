@@ -5,9 +5,9 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution | lethal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 3588 | 3288 | 1497 | 71 | 47 | 193 | 33 | 962 | 429 | 2798 | 476 | 8 | 12 | 0 | 3 | 0 | 3 | 0 |
-| Indonesian | 1104 | 1037 | 321 | 19 | 4 | 3 | 5 | 161 | 64 | 45 | 143 | 0 | 0 | 0 | 4 | 0 | 0 | 0 |
-| Thai | 1097 | 1030 | 311 | 17 | 4 | 4 | 3 | 141 | 81 | 79 | 133 | 0 | 0 | 0 | 2 | 0 | 0 | 0 |
+| Vietnamese | 3544 | 3248 | 1493 | 71 | 47 | 192 | 33 | 968 | 429 | 2805 | 471 | 8 | 12 | 0 | 3 | 0 | 3 | 0 |
+| Indonesian | 1111 | 1041 | 321 | 19 | 4 | 3 | 5 | 160 | 63 | 45 | 143 | 0 | 0 | 0 | 4 | 0 | 0 | 0 |
+| Thai | 1104 | 1033 | 308 | 17 | 4 | 4 | 3 | 141 | 80 | 79 | 129 | 0 | 1 | 0 | 2 | 0 | 0 | 0 |
 | Malay | 180 | 150 | 54 | 4 | 1 | 0 | 0 | 24 | 18 | 8 | 18 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 
 Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 10 of 127, Indonesian 2 of 56, Thai 2 of 56, Malay 1 of 17.
@@ -47,7 +47,7 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - methylene blue: other, wholeTank: 0.421 drop/l (1 pages); parasites, dip: 2.241 ml/l (1 pages)
 - metronidazole and praziquantel: quarantine, wholeTank: 0.027 packet/l (1 pages); parasites, wholeTank: 0.03 packet/l (1 pages)
 - seachem flourish: plants, wholeTank: 0.022 ml/l, 0.017 ml/l (1 pages)
-- seachem prime: water, unsaid: 0.026 ml/l, 0.025 ml/l (2 pages)
+- seachem prime: water, other: 0.026 ml/l (1 pages); water, unsaid: 0.025 ml/l (1 pages)
 
 ## What each check is
 

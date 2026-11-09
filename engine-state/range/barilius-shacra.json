@@ -1,0 +1,98 @@
+{
+  "id": "barilius-shacra",
+  "native": {
+    "input": "fd1eabd9d6e2f176",
+    "at": "2026-11-09T12:58:06.259Z",
+    "claims": [
+      {
+        "code": "NP",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Recorded from many rivers draining the Himalayan foothills in Nepal and northern India within the Ganges and Brahmaputra river systems, and is also known from the lower Ganges in Bangladesh, where the river is known as the Padma.",
+        "words": "Nepal",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Recorded from many rivers draining the Himalayan foothills in Nepal and northern India within the Ganges and Brahmaputra river systems, and is also known from the lower Ganges in Bangladesh, where the river is known as the Padma.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Recorded from many rivers draining the Himalayan foothills in Nepal and northern India within the Ganges and Brahmaputra river systems, and is also known from the lower Ganges in Bangladesh, where the river is known as the Padma.",
+        "words": "Bangladesh",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ganges",
+        "source": "seriouslyfish",
+        "quote": "Recorded from many rivers draining the Himalayan foothills in Nepal and northern India within the Ganges and Brahmaputra river systems, and is also known from the lower Ganges in Bangladesh, where the river is known as the Padma.",
+        "ok": true
+      },
+      {
+        "name": "Brahmaputra",
+        "source": "seriouslyfish",
+        "quote": "Recorded from many rivers draining the Himalayan foothills in Nepal and northern India within the Ganges and Brahmaputra river systems, and is also known from the lower Ganges in Bangladesh, where the river is known as the Padma.",
+        "ok": true
+      },
+      {
+        "name": "Kosi",
+        "source": "seriouslyfish",
+        "quote": "In the Tamor River, a tributary of the Kosi in Nepal, it has been collected alongside the congeners Barilius barila and B. bendelisis plus Schizothoraichthys labiatus, S. progastus, Schizothorax richardsonii, Neolissochilus hexagonolepis, Psilorhynchoides pseudecheneis and Garra annandalei.",
+        "country": "NP",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Barilius shacra",
+    "status": "ACCEPTED",
+    "taxonKey": 2363335,
+    "datasets": [
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        18
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        7
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "NP",
+      "IN",
+      "BD"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T12:58:06.259Z"
+  }
+}

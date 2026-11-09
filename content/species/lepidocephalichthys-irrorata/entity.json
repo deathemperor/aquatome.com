@@ -12,6 +12,85 @@
     "bangladesh",
     "sylhet"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BD",
+        "IN"
+      ],
+      "regions": [
+        "Brahamaputra",
+        "Muhuri",
+        "Loktak Lake"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Currently considered to have a relatively wide distribution in the Brahamaputra River basin and has been recorded in the Muhuri and Sylhet river systems in Bangladesh plus the states of Meghalaya, Manipur and Assam in northeastern India.",
+          "countries": [
+            "BD",
+            "IN"
+          ],
+          "regions": [
+            "Brahamaputra",
+            "Muhuri"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Hora mentions that the species is 'widely-distributed in lakes and streams of the Manipur Valley, India' and that some of his specimens were obtained from Loktak Lake without providing a specific type locality.",
+          "countries": [],
+          "regions": [
+            "Loktak Lake"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2368068,
+      "total": 9,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "IN",
+          6
+        ],
+        [
+          "BD",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          90,
+          22.5,
+          2,
+          2
+        ],
+        [
+          91.40625,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          92.8125,
+          23.90625,
+          4,
+          4
+        ],
+        [
+          94.21875,
+          26.71875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

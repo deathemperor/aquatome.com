@@ -1,14 +1,14 @@
 {
   "id": "macropodus-opercularis",
   "native": {
-    "input": "849b318448811360",
-    "at": "2026-11-05T22:45:18.315Z",
+    "input": "f234109a5f45113e",
+    "at": "2026-11-09T12:58:06.259Z",
     "claims": [
       {
         "code": "CN",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The paradise fish, Macropodus opercularis, is a labyrinth fish from China south of the Yangtze, including Taiwan and Hainan, plus Vietnam and Laos.",
+        "quote": "Occurs naturally in China, south of the Yangtze (Chang Jiang) River system, including Taiwan and Hainan Island, northern and central Vietnam, and northeastern Laos.",
         "words": "China",
         "ok": true
       },
@@ -16,7 +16,7 @@
         "code": "VN",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The paradise fish, Macropodus opercularis, is a labyrinth fish from China south of the Yangtze, including Taiwan and Hainan, plus Vietnam and Laos.",
+        "quote": "Occurs naturally in China, south of the Yangtze (Chang Jiang) River system, including Taiwan and Hainan Island, northern and central Vietnam, and northeastern Laos.",
         "words": "Vietnam",
         "ok": true
       },
@@ -24,7 +24,7 @@
         "code": "LA",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The paradise fish, Macropodus opercularis, is a labyrinth fish from China south of the Yangtze, including Taiwan and Hainan, plus Vietnam and Laos.",
+        "quote": "Occurs naturally in China, south of the Yangtze (Chang Jiang) River system, including Taiwan and Hainan Island, northern and central Vietnam, and northeastern Laos.",
         "words": "Laos",
         "ok": true
       },
@@ -86,17 +86,18 @@
         "ok": true
       },
       {
+        "name": "Hainan Island",
+        "source": "seriouslyfish",
+        "quote": "Occurs naturally in China, south of the Yangtze (Chang Jiang) River system, including Taiwan and Hainan Island, northern and central Vietnam, and northeastern Laos.",
+        "country": "CN",
+        "ok": true
+      },
+      {
         "name": "Taiwan",
         "source": "seriouslyfish",
         "quote": "Occurs naturally in China, south of the Yangtze (Chang Jiang) River system, including Taiwan and Hainan Island, northern and central Vietnam, and northeastern Laos.",
         "ok": false,
         "why": "a country"
-      },
-      {
-        "name": "Hainan Island",
-        "source": "seriouslyfish",
-        "quote": "Occurs naturally in China, south of the Yangtze (Chang Jiang) River system, including Taiwan and Hainan Island, northern and central Vietnam, and northeastern Laos.",
-        "ok": true
       }
     ],
     "disputed": [],
