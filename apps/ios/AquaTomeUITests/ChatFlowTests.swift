@@ -754,7 +754,8 @@ final class ChatFlowTests: XCTestCase {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fake-accounts", "on",
                            "-reset-fake-server"] + more
-    app.launchForFlow()
+    // The old look's: every flow here opens the chat through Tìm's search. V2FlowTests opens it in v2.
+    app.launchForFlow(.old)
     return app
   }
 
