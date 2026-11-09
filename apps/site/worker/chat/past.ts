@@ -5,7 +5,7 @@ import type { Start } from './agent'
 import { linkedOf } from './answer'
 import { askable, assetSource, charsOf, CONVERSATION_MS, json, limit, live, MAX_TURNS, UUID, type ChatDeps, type ChatEnv, type Conversation, type Kept, type KeptTurn, type Turn } from './api'
 import { handbookOf, type Handbook, type Lang } from './handbook'
-import { chatAccount, conversationKey, reportKey, retryKey, secs, stopKey } from './store'
+import { chatAccount, conversationKey, importedKey, listAll, reportKey, retryKey, secs, stopKey } from './store'
 
 /**
  * The chat's Stop and its past conversations (protocols/chat.openapi.json), behind the chat's own gate.
@@ -72,7 +72,7 @@ export async function chatPast(req: Request, url: URL, env: ChatEnv, now: Date, 
     const cursor = before === null ? undefined : cursorOf(before)
     if (cursor === null) return json({ error: 'bad request' }, 400)
     let all = await rows()
-    if (!all.length) { await importOld(env as Required<Pick<ChatEnv, 'DB' | 'UPLOADS'>>, account); all = await rows() }
+    if (!(await bucket.get(importedKey(account)))) { await importOld(env as Required<Pick<ChatEnv, 'DB' | 'UPLOADS'>>, account, new Set(all.map(r => r.id))); all = await rows() }
     const about = url.searchParams.get('about')
     const chains = chainsOf(all.filter(r => !r.hidden)).filter(c => about === null || (startOf(c[0]!).from === 'species' && startOf(c[0]!).about === about))
     const sorted = chains.map(c => ({ c, t: Math.max(...c.map(r => Date.parse(r.last_at))) })).sort((a, b) => b.t - a.t || (a.c[0]!.id < b.c[0]!.id ? 1 : -1))
@@ -175,13 +175,22 @@ function cursorOf(s: string): { t: number; id: string } | null {
 }
 
 /** An account's conversations from before the list has rows for them: where they started wasn't kept, so their rows have no picture. */
-async function importOld(env: Required<Pick<ChatEnv, 'DB' | 'UPLOADS'>>, account: string): Promise<void> {
+async function importOld(env: Required<Pick<ChatEnv, 'DB' | 'UPLOADS'>>, account: string, have: Set<string>): Promise<void> {
   const prefix = conversationKey(account, '').replace(/\.json$/, '')
-  const { objects } = await env.UPLOADS.list({ prefix, limit: IMPORT })
-  for (const o of objects) {
-    const c = await (await env.UPLOADS.get(o.key))?.json<Conversation>()
-    if (!c?.turns.length) continue
-    await env.DB.prepare('INSERT OR IGNORE INTO chat_conversations (account, id, title, first_at, last_at, questions) VALUES (?, ?, ?, ?, ?, ?)')
-      .bind(account, o.key.slice(prefix.length, -'.json'.length), c.turns[0]!.question, secs(c.created), secs(c.turns.at(-1)!.at), c.turns.length).run()
+  const idOf = (key: string) => key.slice(prefix.length, -'.json'.length)
+  const missing = (await listAll(env.UPLOADS, prefix)).map(o => o.key).filter(k => !have.has(idOf(k)))
+  const rows: D1PreparedStatement[] = []
+  let unread = 0
+  for (const key of missing.slice(0, IMPORT)) {
+    try {
+      const c = await (await env.UPLOADS.get(key))?.json<Conversation>()
+      if (!c?.turns.length) continue
+      rows.push(env.DB.prepare('INSERT OR IGNORE INTO chat_conversations (account, id, title, first_at, last_at, questions) VALUES (?, ?, ?, ?, ?, ?)')
+        .bind(account, idOf(key), c.turns[0]!.question, secs(c.created), secs(c.turns.at(-1)!.at), c.turns.length))
+    } catch { unread++ }
   }
+  if (rows.length) await env.DB.batch(rows)
+  if (unread) console.error('chat import: conversations unread', unread)
+  // Past what one look may read, or with one unread, the next look carries on.
+  else if (missing.length <= IMPORT) await env.UPLOADS.put(importedKey(account), '1')
 }

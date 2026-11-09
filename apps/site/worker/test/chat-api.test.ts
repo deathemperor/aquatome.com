@@ -1289,3 +1289,12 @@ test('a question in a conversation hidden on another device is ended, so the app
   const r = await run(ask(bearer(me.token), { question: 'Nữa' }), e, deps(claude(NEON).fetch))
   expect([r.res.status, r.body]).toEqual([410, { error: 'ended' }])
 })
+
+test('a ledger that hangs as the text is about to go out doesn\'t hold the answer', async () => {
+  const { e, db } = env()
+  const me = await signIn(db)
+  const real = e.FISHID_LEDGER!
+  e.FISHID_LEDGER = { idFromName: (n: string) => n, get: (id: never) => ({ fetch: (r: Request) => (new URL(r.url).pathname === '/begin' ? new Promise<Response>(() => {}) : real.get(id).fetch(r)) }) } as unknown as DurableObjectNamespace
+  const r = await run(ask(bearer(me.token), {}, { 'idempotency-key': crypto.randomUUID() }), e, deps(claude(NEON).fetch, { beginMs: 5 }))
+  expect([r.res.status, r.body.n]).toEqual([200, 1])
+})

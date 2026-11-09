@@ -68,7 +68,7 @@ export type ChatEnv = {
   FISHID_LEDGER?: DurableObjectNamespace
   FISHID_RELAY?: DurableObjectNamespace
 }
-export type ChatDeps = { fetch?: typeof fetch; random?: () => number; clock?: () => number; source?: Source; waitMs?: number; pollMs?: number; stopMs?: number }
+export type ChatDeps = { fetch?: typeof fetch; random?: () => number; clock?: () => number; source?: Source; waitMs?: number; pollMs?: number; beginMs?: number; stopMs?: number }
 
 /** Placeholders until the eval of real questions sets them (protocols/chat.openapi.json). */
 const PER_ACCOUNT = 30
@@ -94,6 +94,8 @@ const WAIT_MS = 75_000
 const POLL_MS = 1000
 /** How often a run asks whether the reader stopped it, until its text begins. */
 const STOP_POLL_MS = 500
+/** How long the text waits on the ledger's word. It goes out after that: a ledger that hangs mustn't hold an answer. */
+const BEGIN_MS = 1000
 const MAX_BODY = 16 * 1024
 /** A fish ID guess's scientific name and page id, at most. */
 const MAX_NAME = 100
@@ -349,7 +351,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   const halt = (s: Stopped | null) => { if (s?.result === 'cancelled') { stopped = s; stop.abort() } return !stopped }
   let gate: Promise<boolean> | undefined
   /** May the text go out? Asked of the ledger once, at its first piece or the run's end. A question with no key can't be stopped. */
-  const goAhead = () => (gate ??= idem ? ledger.begin(day, run).then(halt, e => { console.error('chat begin:', e); return true }) : Promise.resolve(true))
+  const goAhead = () => (gate ??= idem ? Promise.race([ledger.begin(day, run), new Promise<null>(r => setTimeout(() => r(null), deps.beginMs ?? BEGIN_MS))]).then(halt, e => { console.error('chat begin:', e); return true }) : Promise.resolve(true))
   if (idem) void (async () => {
     while (!gate && !stop.signal.aborted) {
       await new Promise(r => setTimeout(r, deps.stopMs ?? STOP_POLL_MS))

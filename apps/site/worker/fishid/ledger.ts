@@ -70,6 +70,9 @@ export type LedgerDay = {
 }
 
 /** `kind`: a chat question, counted against chat's day (`perDay`), not the identifications'; the dollar cap is the same. */
+/** Stops of questions that haven't come, kept a day. */
+export const MAX_EARLY_STOPS = 200
+
 export type AdmitInput = { day: string; reader: string; perReader: number; perDay: number; usdCap: number; reserve: number; healthy: boolean; kind?: 'chat'; key?: string }
 export type Admitted = { ok: true; run: string } | { ok: false; error: 'rate'; limit: number } | { ok: false; error: 'busy' | 'resting' } | { ok: false; error: 'cancelled'; counted: boolean; freeLeft?: number }
 /** `offTopic`: a chat question that wasn't about fishkeeping, and how many of those a reader's day gives the count back for. */
@@ -199,10 +202,16 @@ export class Ledger {
       await this.save(d, day)
       return out
     }
-    const day = await this.day(c.day)
+    // Before its question. Nothing pays for these, so a day holds a bounded number of them; past that the question simply runs.
+    const today = await this.day(c.day)
+    if (Object.values(today.stopped ?? {}).filter(s => s.result === 'cancelled' && s.freeLeft === undefined).length >= MAX_EARLY_STOPS) return { result: 'too late' }
     const out: Stopped = { result: 'cancelled', counted: false }
-    day.stopped = { ...day.stopped, [c.key]: out }
-    await this.save(c.day, day)
+    // Its question may be dated either side of midnight from this stop.
+    for (const d of [c.day, shift(c.day, -1), shift(c.day, 1)]) {
+      const day = await this.day(d)
+      day.stopped = { ...day.stopped, [c.key]: out }
+      await this.save(d, day)
+    }
     return out
   }
 

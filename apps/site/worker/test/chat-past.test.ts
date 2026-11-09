@@ -6,7 +6,7 @@ import { deleteUser } from '../accounts/users'
 import type { ChatEnv } from '../chat/api'
 import type { Source } from '../chat/handbook'
 import { chatPast } from '../chat/past'
-import { chatAccount, conversationKey, reportKey } from '../chat/store'
+import { chatAccount, conversationKey, importedKey, reportKey } from '../chat/store'
 import { contract } from './contract'
 import { testD1 } from './d1'
 import { memoryLedger } from './ledger'
@@ -179,6 +179,8 @@ test('deleting the account takes its rows and reports with it, the hidden flag t
   await row(db, me.account, { id, question: 'Hỏi', started: '2026-11-07T10:00:00Z', last: '2026-11-07T10:00:00Z', n: 1 }, 1)
   store.m.set(reportKey(me.account, id, 1), '{}')
   store.m.set(conversationKey(me.account, id), '{}')
+  await list(e, me.token)
+  expect(store.m.has(importedKey(me.account))).toBe(true)
   await deleteUser(db, me.id, { UPLOADS: store.bucket, ACCOUNT_HMAC_KEY: 'k' })
   expect((await db.prepare('SELECT COUNT(*) AS n FROM chat_conversations').first<{ n: number }>())?.n).toBe(0)
   expect([...store.m.keys()]).toEqual([])
@@ -194,4 +196,35 @@ test('conversations from before the list are copied in on the account\'s first l
   const r = await list(e, me.token)
   expect(r.body.rows).toEqual([{ conversations: [{ id, question: 'Cũ lắm', started: '2026-11-07T09:00:00Z', last: '2026-11-07T09:01:00Z', n: 2, open: true }] }])
   expect((await list(e, me.token)).body.rows).toHaveLength(1)
+})
+
+test('older conversations come in though a question came first; one that can\'t be read leaves the rest in and is tried again', async () => {
+  const { e, db, store } = env()
+  const me = await signIn(db)
+  const at = Date.parse('2026-11-07T09:00:00Z')
+  const kept = JSON.stringify({ created: at, turns: [{ n: 1, question: 'Cũ', text: 't', blocks: [], at }] })
+  // Asked with today's app: the account has a row before it ever looks.
+  const asked = crypto.randomUUID()
+  await row(db, me.account, { id: asked, question: 'Mới', started: '2026-11-07T20:00:00Z', last: '2026-11-07T20:00:00Z', n: 1 })
+  const [old, bad] = [crypto.randomUUID(), crypto.randomUUID()]
+  store.m.set(conversationKey(me.account, old), kept)
+  store.m.set(conversationKey(me.account, bad), 'not json')
+  const ids = async () => (await list(e, me.token)).body.rows.map((r: any) => r.conversations[0].id).sort()
+  expect(await ids()).toEqual([asked, old].sort())
+  expect(store.m.has(importedKey(me.account))).toBe(false)
+  store.m.set(conversationKey(me.account, bad), kept)
+  expect(await ids()).toEqual([asked, old, bad].sort())
+  expect(store.m.has(importedKey(me.account))).toBe(true)
+})
+
+test('more older conversations than one look may read: the next look carries on', async () => {
+  const { e, db, store } = env()
+  const me = await signIn(db)
+  const at = Date.parse('2026-11-07T09:00:00Z')
+  for (let i = 0; i < 201; i++) store.m.set(conversationKey(me.account, crypto.randomUUID()), JSON.stringify({ created: at, turns: [{ n: 1, question: 'Cũ', text: 't', blocks: [], at }] }))
+  const count = async () => (await db.prepare('SELECT COUNT(*) AS n FROM chat_conversations').first<{ n: number }>())?.n
+  await list(e, me.token)
+  expect([await count(), store.m.has(importedKey(me.account))]).toEqual([200, false])
+  await list(e, me.token)
+  expect([await count(), store.m.has(importedKey(me.account))]).toEqual([201, true])
 })
