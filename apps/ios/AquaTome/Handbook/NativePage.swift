@@ -144,7 +144,10 @@ struct NativePage: View {
   }
 
   /// The page's gallery, for its grid: a page has one at most, after its name.
-  private var gallery: PhotoGrid.Gallery? { PhotoGrid.Gallery(pieces: pieces) }
+  private var gallery: PhotoGrid.Gallery? {
+    let title = pieces.lazy.compactMap { if case let .text(s, _, .title) = $0 { String(s.characters) } else { nil } }.first
+    return PhotoGrid.Gallery(pieces: pieces, name: title ?? "")
+  }
 
   private var talk: PageDoc.Talk? {
     for p in pieces { if case let .readers(t, _) = p { return t } }

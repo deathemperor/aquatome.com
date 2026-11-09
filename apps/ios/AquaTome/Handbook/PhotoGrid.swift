@@ -15,12 +15,10 @@ struct PhotoGrid: View {
     let note: String
     let photos: [PageDoc.Image]
 
-    /// The gallery of a page drawn from `pieces` (NativePage's, or v2's whole page, its parts joined), named by the
-    /// page's title; nil for a page with none.
-    init?(pieces: some Sequence<NativePage.Piece>) {
-      var name = ""
+    /// The gallery among a page's `pieces` (NativePage's, or v2's whole page, its parts joined), with the page's `name`
+    /// (v2 draws it in its own header, not as a piece); nil for a page with none.
+    init?(pieces: some Sequence<NativePage.Piece>, name: String) {
       for p in pieces {
-        if case let .text(s, _, .title) = p { name = String(s.characters) }
         if case let .gallery(title, note, photos, _) = p {
           (self.name, self.title, self.note, self.photos) = (name, title, note, photos)
           return
