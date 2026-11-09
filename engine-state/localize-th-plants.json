@@ -1250,15 +1250,15 @@
     ]
   },
   "limnobium-laevigatum": {
-    "at": "2026-11-04",
-    "from": "2026-10-30",
-    "name": "อเมซอนฟร็อกบิท",
+    "at": "2026-11-09",
+    "from": "2026-11-09",
+    "name": "Amazon Frogbit",
     "confidence": "medium",
     "score": 0.85,
     "notes": [
-      "Item 3: \"ตู้ปลาแบบเปิดฝา\" for \"open aquariums\" is acceptable, but \"ตู้เปิด\" (open-top tank) is more usual for hobbyists.",
-      "Item 2: \"it will grow much slower\" is rendered as \"ต้นจะโตช้าลงมาก\". This is fine, but \"เก็บออก\" could be \"ตัดแต่งใบออก\" to make clear that leaves are being removed.",
-      "Item 3: \"รากที่เส้นเล็ก ยาว\" is slightly awkward. Use \"รากเส้นเล็กและยาว\"."
+      "Item 2: the source text is Vietnamese, not English. The Thai matches its meaning, but check that the right source was supplied.",
+      "Item 2: \"Amazon Frogbit\" is left in Latin letters with no Thai name. Consider adding a Thai transliteration such as \"แอมะซอน ฟร็อกบิต\" the first time it appears.",
+      "Item 4: \"ปลากระดี่\" is fine for gouramies. \"ที่ชอบรากของไม้ลอย\" ends abruptly; it would read better as \"ที่ชอบอาศัยใกล้รากไม้ลอย\"."
     ]
   },
   "limnophila-aquatica": {
@@ -2121,12 +2121,21 @@
     ]
   },
   "utricularia-graminifolia": {
-    "at": "2026-11-06",
-    "from": "2026-10-31",
-    "name": "ยูทริคูลาเรีย",
+    "at": "2026-11-09",
+    "from": "2026-11-09",
+    "name": "ยูจี (Utricularia graminifolia)",
     "confidence": "medium",
-    "score": 0.95,
-    "notes": []
+    "score": 0.6,
+    "notes": [
+      "Item 2: the source is Vietnamese, not English, but the Thai translates it faithfully. Not a translation error.",
+      "Item 2: Thai adds '(Utricularia graminifolia)' after 'UG'. The source doesn't have it. It's a minor addition, though helpful.",
+      "Item 1: height '3 - 10+ cm' vs item 3 '2-8 cm' is a source inconsistency, not a translation error. The Thai preserves both.",
+      "Item 3: 'สาหร่ายข้าวเหนียว' is the Thai name for bladderwort (Utricularia). It's fine, but 'พืชในที่ชื้นแฉะ' for 'marsh plants' is slightly awkward. Use 'พืชชายน้ำ/พืชหนองน้ำ'.",
+      "Item 3: 'อายุหลายปี' is stiff. Use 'เป็นไม้ยืนต้นอายุหลายปี' or 'พืชหลายปี'.",
+      "Item 3: 'ไม้ฉากหน้า' is OK, but 'ไม้ปูพื้น' would be more consistent with the other items.",
+      "Item 2: 'กลอสโซ' is fine as the hobby term, but the Latin name is added in brackets only here. Keep the usage consistent.",
+      "Item 2: 'เก็บไว้หนึ่งกระถางสำรอง' is slightly awkward. Use 'เก็บไว้สำรองหนึ่งกระถาง'."
+    ]
   },
   "vallisneria": {
     "at": "2026-10-30",

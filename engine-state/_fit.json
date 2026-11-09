@@ -3819,16 +3819,16 @@
     "products": []
   },
   "id/plants/limnobium-laevigatum": {
-    "at": "2026-11-08",
-    "hash": "c16221ae9d006e6f",
+    "at": "2026-11-09",
+    "hash": "839ef00d112b2de7",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P3",
+        "part": "P4",
         "quote": "Tanaman air hasil kultur jaringan dalam cup tertutup.",
-        "why": "Describes the source shop's product as it is packed and sold, as if the reader had bought that item.",
+        "why": "Describes the source shop's packaged product (tissue-culture cup) rather than the plant, as if the reader were buying that item.",
         "by": "model"
       }
     ],
@@ -4537,10 +4537,10 @@
     "products": []
   },
   "id/plants/utricularia-graminifolia": {
-    "at": "2026-11-07",
-    "hash": "5cdaaa3ab803d9de",
+    "at": "2026-11-09",
+    "hash": "72bf59d49fc08fcd",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -20975,10 +20975,10 @@
     "products": []
   },
   "th/plants/limnobium-laevigatum": {
-    "at": "2026-11-07",
+    "at": "2026-11-09",
     "hash": "22cae0116bc50885",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -21734,10 +21734,10 @@
     "products": []
   },
   "th/plants/utricularia-graminifolia": {
-    "at": "2026-11-07",
-    "hash": "b2e60e382dcf1ed6",
+    "at": "2026-11-09",
+    "hash": "229192c22d4fc24d",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -38136,7 +38136,7 @@
   },
   "vi/guides/aquariumcoop-blogs-aquarium-hole-in-the-head": {
     "at": "2026-11-09",
-    "hash": "599890ad8e5f313d",
+    "hash": "b9ec8c5ca456ed26",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -38144,7 +38144,7 @@
         "check": "elsewhere",
         "part": "P1",
         "quote": "Các loại thuốc trên đều không cần kê đơn, người chơi cá ở Mỹ tự mua được.",
-        "why": "Tells the reader what US keepers can buy without a prescription, as if that were the reader's own situation.",
+        "why": "Tells the reader what US hobbyists can buy, as if that applied to them.",
         "by": "model"
       }
     ],
@@ -38161,7 +38161,7 @@
         "per": 4,
         "perUnit": "litre",
         "use": "parasites",
-        "method": "",
+        "method": "wholeTank",
         "quote": "Bắt đầu ở nồng độ thấp, 1 giọt cho mỗi 4 lít nước"
       }
     ],
@@ -40242,7 +40242,7 @@
   },
   "vi/guides/aquariumcoop-blogs-aquarium-red-and-black-phantom-tetras": {
     "at": "2026-11-09",
-    "hash": "5a81c47563e5ba93",
+    "hash": "ce08e495d355914b",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -40395,10 +40395,19 @@
   },
   "vi/guides/aquariumcoop-blogs-aquarium-soft-water-fish": {
     "at": "2026-11-09",
-    "hash": "b5d380ee2487beda",
+    "hash": "ab619ff0fe6ea8f3",
     "model": "opus",
     "checklist": 3,
-    "findings": [],
+    "findings": [
+      {
+        "check": "words",
+        "part": "P5",
+        "quote": "bán đầy ở tiệm thú cưng",
+        "why": "Calque of 'pet store'; in Vietnam bettas are sold at fish shops.",
+        "by": "model",
+        "fix": "tiệm cá cảnh"
+      }
+    ],
     "products": [
       "Hikari Vibra Bites",
       "Repashy"
@@ -40516,7 +40525,7 @@
   },
   "vi/guides/aquariumcoop-blogs-aquarium-tissue-culture-plants": {
     "at": "2026-11-09",
-    "hash": "fd27321d5eb887b4",
+    "hash": "c2b4baefbccf247b",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -40757,29 +40766,43 @@
   },
   "vi/guides/aquariumcoop-blogs-aquarium-top-10-rasboras": {
     "at": "2026-11-09",
-    "hash": "a9727932dd9afb5b",
+    "hash": "4643200b3bbf14ca",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "units",
-        "part": "P1",
-        "quote": "Nên nuôi trong bể dài từ 76 cm trở lên (chẳng hạn bể 75 lít dáng dài hoặc bể 110 lít)",
-        "why": "76 cm, 75 L long and 110 L are converted from 30-inch, 20-gallon long and 29-gallon US tanks.",
-        "by": "model"
-      },
-      {
         "check": "source",
         "part": "P1",
         "quote": "Từ trái sang phải: cá tam giác (Trigonostigma heteromorpha), rasbora lambchop (T. espei) và rasbora glowlight (T. hengeli).",
-        "why": "Caption describes a photo the page does not have.",
+        "why": "Caption for a picture the page does not have.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
         "quote": "Theo chiều kim đồng hồ từ góc trên bên trái: rasbora ớt (Boraras brigittae)",
-        "why": "Caption describes a photo the page does not have.",
+        "why": "Caption for a picture the page does not have.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Từ trái sang phải: rasbora rực rỡ, rasbora vạch đen hay rasbora đuôi đỏ (Rasbora borapetensis)",
+        "why": "Caption for a picture the page does not have.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Đã có người nuôi chúng trong bể chỉ 11–20 lít.",
+        "why": "Converted from 3–5 gallons.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "bể dài từ 76 cm trở lên (chẳng hạn bể 75 lít dáng dài hoặc bể 110 lít)",
+        "why": "Converted from 30 inches, 20-gallon long and 29-gallon tanks.",
         "by": "model"
       }
     ],
@@ -64634,20 +64657,11 @@
     ]
   },
   "vi/guides/youtube-P7GTfHdl5E8": {
-    "at": "2026-11-08",
-    "hash": "63f374b2fb8324a4",
+    "at": "2026-11-09",
+    "hash": "6620c37b89c03d92",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "words",
-        "part": "P1",
-        "quote": "Mọi bố cục đều bắt đầu từ phần cứng (hardscape): đá, lũa hoặc kết hợp cả hai.",
-        "why": "\"Phần cứng\" is a literal calque of \"hardscape\"; keepers in Vietnam say \"hardscape\" or \"lũa đá\".",
-        "by": "model",
-        "fix": "hardscape / bộ lũa đá"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/guides/youtube-P8xilUdFS08": {
@@ -73225,17 +73239,18 @@
     "products": []
   },
   "vi/plants/limnobium-laevigatum": {
-    "at": "2026-11-08",
-    "hash": "a29cf27dee5e74d8",
+    "at": "2026-11-09",
+    "hash": "4aadb1b8c2ab8268",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
-        "check": "source",
-        "part": "P3",
-        "quote": "Đây là cây thủy sinh nuôi cấy mô, đóng trong cốc kín.",
-        "why": "Describes the source shop's own packaged product (its tissue-culture cup) as if the reader were buying it from them.",
-        "by": "model"
+        "check": "words",
+        "part": "P4",
+        "quote": "Trong bể truyền thống, cây cũng rất hợp.",
+        "why": "Calque of 'traditional aquarium'; Vietnamese keepers say 'bể thường' or 'bể có nắp'.",
+        "by": "model",
+        "fix": "bể thường"
       }
     ],
     "products": []
@@ -74086,11 +74101,20 @@
     "products": []
   },
   "vi/plants/utricularia-graminifolia": {
-    "at": "2026-11-08",
-    "hash": "1e56a2c2f89a4a22",
+    "at": "2026-11-09",
+    "hash": "97bb3df13095609d",
     "model": "opus",
-    "checklist": 2,
-    "findings": [],
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P3",
+        "quote": "thuộc họ rong ăn côn trùng (bladderwort)",
+        "why": "A made-up descriptive name with the English word left in brackets, where Vietnamese has its own name for this family.",
+        "by": "model",
+        "fix": "thuộc họ rong ly (họ Nhĩ cán, Lentibulariaceae)"
+      }
+    ],
     "products": []
   },
   "vi/plants/vallisneria": {
@@ -105531,5 +105555,559 @@
       }
     ],
     "products": []
+  },
+  "id/species/alcolapia-alcalica": {
+    "at": "2026-11-09",
+    "hash": "85176b856d079db7",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/alcolapia-grahami": {
+    "at": "2026-11-09",
+    "hash": "74ac33f6520a569a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/austrofundulus-guajira": {
+    "at": "2026-11-09",
+    "hash": "6573561b634a5da3",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/barilius-dogarsinghi": {
+    "at": "2026-11-09",
+    "hash": "37d80f6509e922fd",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/barilius-infrafasciatus": {
+    "at": "2026-11-09",
+    "hash": "b6a700f01c06c3f9",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/barilius-malabaricus": {
+    "at": "2026-11-09",
+    "hash": "1da7d2e5973e0b46",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/barilius-shacra": {
+    "at": "2026-11-09",
+    "hash": "174091c365a0051c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/betta-ferox": {
+    "at": "2026-11-09",
+    "hash": "dc81709a2739c34b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P5",
+        "quote": "Pernah masuk sejumlah sangat kecil spesimen dewasa hasil penangkaran Jerman",
+        "why": "This is the source shop's own stock news, which a reader in Indonesia has no connection to.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "id/species/channa-panaw": {
+    "at": "2026-11-09",
+    "hash": "415e947cf642ef45",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P3",
+        "quote": "Sepasang ikan yang difoto hidup bersama selama empat hari di akuarium foto yang kecil",
+        "why": "Refers to the source author's own photographed pair and photo tank, which the reader doesn't know and the page doesn't show.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "id/species/chlamydogobius-eremius": {
+    "at": "2026-11-09",
+    "hash": "840f875a14aa0cc9",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [],
+    "doses": [
+      {
+        "treatment": "sea salt",
+        "strength": "",
+        "amount": 1,
+        "amountMax": 0,
+        "unit": "teaspoon",
+        "per": 1,
+        "perUnit": "litre",
+        "use": "water",
+        "method": "wholeTank",
+        "quote": "garam laut juga bisa ditambahkan dengan takaran sekitar 1 sendok teh per liter"
+      }
+    ],
+    "sourceRead": true
+  },
+  "id/species/chromidotilapia-guntheri": {
+    "at": "2026-11-09",
+    "hash": "7b9559f520707d61",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/chrosomus-erythrogaster": {
+    "at": "2026-11-09",
+    "hash": "6af60b08a275db38",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "ikan yang saat ini ditawarkan berukuran 5–7 cm",
+        "why": "Refers to the source shop's current stock, which the reader doesn't know.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "id/species/cichla-monoculus": {
+    "at": "2026-11-09",
+    "hash": "8d5f1ccda38393c4",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P5",
+        "quote": "Disarankan memakai kayu bogwood berukuran besar",
+        "why": "\"Bogwood\" is a British hobby term; keepers in Indonesia call it driftwood or akar.",
+        "by": "model",
+        "fix": "kayu driftwood"
+      }
+    ],
+    "products": []
+  },
+  "id/species/cichla-ocellaris": {
+    "at": "2026-11-09",
+    "hash": "fab915661b6e6fb0",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P7",
+        "quote": "ikan lancefish (sand eel)",
+        "why": "Lancefish is a frozen food sold in UK aquarium shops and isn't something keepers in Indonesia can buy.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "id/species/cichla-orinocensis": {
+    "at": "2026-11-09",
+    "hash": "cddce8528df01fb5",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/oryzias-eversi": {
+    "at": "2026-11-09",
+    "hash": "e5a4d458055ea394",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/pangio-piperata": {
+    "at": "2026-11-09",
+    "hash": "6cf8e45f85ea6bd8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/parosphromenus-deissneri": {
+    "at": "2026-11-09",
+    "hash": "4240a99c6c6da381",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P5",
+        "quote": "Kerucut alder (buah alder) juga bisa dipakai untuk tujuan yang sama.",
+        "why": "A literal translation of 'alder cones'. Keepers in Indonesia use the English term.",
+        "by": "model",
+        "fix": "alder cone"
+      }
+    ],
+    "products": []
+  },
+  "id/species/parosphromenus-quindecim": {
+    "at": "2026-11-09",
+    "hash": "23803c32a4436bd5",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/sphaerichthys-acrostoma": {
+    "at": "2026-11-09",
+    "hash": "c2c2bb28827cf59c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/alcolapia-alcalica": {
+    "at": "2026-11-09",
+    "hash": "9bad9391522eb163",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P9",
+        "quote": "หนอนจิ๋ว (microworm)",
+        "why": "Literal translation of 'microworm'; Thai keepers use the transliterated name.",
+        "by": "model",
+        "fix": "ไมโครเวิร์ม"
+      }
+    ],
+    "products": []
+  },
+  "th/species/alcolapia-grahami": {
+    "at": "2026-11-09",
+    "hash": "fd13b43c5042286a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/austrofundulus-guajira": {
+    "at": "2026-11-09",
+    "hash": "d91c7c72e5bb7ee7",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "มีเข้ามาเป็นครั้งแรกในปริมาณจำกัด",
+        "why": "This is the source shop's stock news about fish it just received, written as if the reader knew that shop.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/barilius-dogarsinghi": {
+    "at": "2026-11-09",
+    "hash": "94788f361b5cc615",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/barilius-infrafasciatus": {
+    "at": "2026-11-09",
+    "hash": "2cee0204f086635f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/barilius-malabaricus": {
+    "at": "2026-11-09",
+    "hash": "b7f7971afa946467",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/barilius-shacra": {
+    "at": "2026-11-09",
+    "hash": "8e8c89b63e9d50ce",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/betta-ferox": {
+    "at": "2026-11-09",
+    "hash": "579603b99422c3a8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P5",
+        "quote": "มีการนำเข้าปลากัดชนิดที่หายากมากนี้ซึ่งเพาะพันธุ์ในเยอรมนีและโตเต็มวัยแล้ว จำนวนน้อยมาก",
+        "why": "This is the source importer's own stock news, which the reader doesn't know about.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/channa-panaw": {
+    "at": "2026-11-09",
+    "hash": "34584b41dd7cb784",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P3",
+        "quote": "ปลาคู่ที่ถ่ายภาพนี้อยู่ด้วยกันในตู้ถ่ายภาพขนาดเล็กนานสี่วัน",
+        "why": "Refers to the source writer's own photographed pair and photo tank, which the reader doesn't know and the page doesn't show.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/chlamydogobius-eremius": {
+    "at": "2026-11-09",
+    "hash": "aff178a183e457a9",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [],
+    "doses": [
+      {
+        "treatment": "sea salt",
+        "strength": "",
+        "amount": 1,
+        "amountMax": 0,
+        "unit": "teaspoon",
+        "per": 1,
+        "perUnit": "litre",
+        "use": "water",
+        "method": "wholeTank",
+        "quote": "สามารถเติมเกลือทะเลได้ในอัตราประมาณ 1 ช้อนชาต่อลิตร"
+      }
+    ],
+    "sourceRead": true
+  },
+  "th/species/chromidotilapia-guntheri": {
+    "at": "2026-11-09",
+    "hash": "de38bb25cb22658e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/chrosomus-erythrogaster": {
+    "at": "2026-11-09",
+    "hash": "ccdacd9056b2bc21",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "ส่วนปลาที่มีจำหน่ายอยู่ในขณะนี้มีขนาด 5-7 ซม.",
+        "why": "Talks about the source shop's current stock as if the reader knew it.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/cichla-monoculus": {
+    "at": "2026-11-09",
+    "hash": "9f08708a90f1a8cf",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P7",
+        "quote": "ปลาแลนซ์ฟิช ปลาไวท์เบท",
+        "why": "Lancefish and whitebait are frozen foods common in UK shops, which a keeper in Thailand would not normally find.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/cichla-ocellaris": {
+    "at": "2026-11-09",
+    "hash": "8d785edbaada5585",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P7",
+        "quote": "ปลาแลนซ์ (lancefish)",
+        "why": "Lancefish is a frozen food sold in UK shops. Keepers in Thailand don't know it and can't easily buy it.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/cichla-orinocensis": {
+    "at": "2026-11-09",
+    "hash": "b00f1554cf4773af",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P9",
+        "quote": "ปลาแลนซ์ฟิช ปลาไวต์เบต",
+        "why": "Lancefish and whitebait are frozen fish foods from UK shops, not foods a Thai keeper buys under these names.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/oryzias-eversi": {
+    "at": "2026-11-09",
+    "hash": "e1eebea004c2d4cf",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/pangio-piperata": {
+    "at": "2026-11-09",
+    "hash": "db11cf5b7a0466df",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/parosphromenus-deissneri": {
+    "at": "2026-11-09",
+    "hash": "cb40df939f5fce8d",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/parosphromenus-quindecim": {
+    "at": "2026-11-09",
+    "hash": "88505f207b4b48e0",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/sphaerichthys-acrostoma": {
+    "at": "2026-11-09",
+    "hash": "cf5ddc64143f19fb",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-seasoned-fish-tank": {
+    "at": "2026-11-09",
+    "hash": "37e22371cfd02154",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-top-10-livebearers": {
+    "at": "2026-11-09",
+    "hash": "771fed6797011193",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P3",
+        "quote": "vào mùa hè ấm có thể nuôi trong bể không sưởi hoặc hồ mini ngoài trời",
+        "why": "Treats unheated tanks as a warm-summer-only option, written for a temperate-climate reader.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Wonder Shell",
+      "Seachem Equilibrium",
+      "Repashy"
+    ]
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-top-10-pufferfish": {
+    "at": "2026-11-09",
+    "hash": "c4c2482a66ff3d80",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P2",
+        "quote": "bộ thuốc này đã dùng trên hàng nghìn con cá nóc và cho kết quả rất tốt",
+        "why": "Refers to the source shop's own 'quarantine trio' as if the reader knew it, in the shop's voice.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P5",
+        "quote": "Một con sống được trong bể 115 lít",
+        "why": "115 litres is a converted 30-gallon tank.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P7",
+        "quote": "chỉ cần bể 115–150 lít",
+        "why": "115 litres is a converted 30-gallon tank.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P8",
+        "quote": "nuôi một mình trong bể 115 lít là hợp nhất",
+        "why": "115 litres is a converted 30-gallon tank.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P11",
+        "quote": "Có thể nuôi chúng trong bể 115–150 lít",
+        "why": "115 litres is a converted 30-gallon tank.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P12",
+        "quote": "cần ít nhất 455–680 lít nước",
+        "why": "455–680 litres is converted from 120–180 gallons.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "P13",
+        "quote": "tiền thức ăn mỗi tháng cũng tốn hàng trăm đô la",
+        "why": "Cost given in dollars, written for a reader abroad.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Hikari Vibra Bites",
+      "Repashy"
+    ]
   }
 }

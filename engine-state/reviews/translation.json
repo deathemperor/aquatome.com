@@ -24765,5 +24765,81 @@
       "attempt": "first",
       "kept": false
     }
+  ],
+  "vi/species/sphaerichthys-vaillanti#bwaquatics": [
+    {
+      "at": "2026-11-09T16:40:37Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "Item 2: '75 lít' is wrong for 20 gallons. The English already says 75 litres, so this is fine as is. Keep it.",
+        "Item 1: 'Khác với nhiều loài cá khác' is added and not in the source. Delete it.",
+        "Item 1: 'hợp với người đã có kinh nghiệm' is added. 'Intermediate to expert' should be 'trung bình đến khó' or 'từ trung bình đến cao cấp'. Drop the extra gloss.",
+        "Item 1: 'Intermediate to expert' is rendered as 'trung bình đến khó', which shifts the meaning from experience level to difficulty. Use 'Trung bình đến cao' or 'Dành cho người có kinh nghiệm'.",
+        "Item 1: 'hay trốn' for 'introverted' is acceptable, but 'mới mua về' narrows 'when you first receive them'. Use 'mới nhận/mới đưa về bể'.",
+        "Item 1: 'hiền' for 'Peaceful' is acceptable. Prefer 'hiền hòa'.",
+        "Item 3: 'test nước' leaves English in place. Use 'kiểm tra nước' or 'đo các chỉ số nước'.",
+        "Item 3: 'Cứ hai tuần bạn thay...' adds 'bạn' and 'làm đều đặn' is clumsy. Use 'Thay 20-30% nước định kỳ hai tuần một lần'.",
+        "Item 4: 'Nước chảy mạnh dễ làm cá bị stress' and 'vì loài này thích chỗ tối' are fine but 'stress' is left in English. Use 'căng thẳng' or 'bị sốc/stress' consistently.",
+        "Item 5: 'Những loài này sẽ ăn tranh gần hết thức ăn' is OK. However, the English lists tetras and rasboras as big, which is odd, and the translation keeps it faithfully. No change needed."
+      ],
+      "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "vi/species/sundadanio-axelrodi#bwaquatics": [
+    {
+      "at": "2026-11-09T16:40:46Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Item 3: \"nước thiếu sáng/nước tối màu\" is a clumsy slash and mistranslates \"dim, acidic water\"; use \"nước tối màu, có tính axit\" or describe the dim light properly.",
+        "Item 4: \"29,5 lít\" came from 8 gallons. By the rounding rule it should be about 30 lít. \"12,5 lít\" from 3 gallons is also an unusual figure, so use about 10-12 lít. The English figures were already metric, so check whether they should stay unchanged.",
+        "Item 7: \"cá cầu vồng/Harlequin Rasbora\" is wrong. Harlequin Rasbora is \"cá cầu vồng\" only in loose usage, and the slash leaves English in place. Use the established Vietnamese name or \"cá hồng nhung\" and keep the Latin name.",
+        "Item 7: Celestial Danio is left as \"cá celestial danio\". Use \"cá ngân hà\" or \"cá danio ngân hà\".",
+        "Item 6: \"lọc thác/lọc ngoài\" is not a faithful rendering of \"power filters\". Use \"lọc ngoài/lọc thùng công suất lớn\" and drop the slash alternatives.",
+        "Item 1: The English common names are kept and then glossed, which is acceptable. \"cá neon xanh Axelrod\" is invented, so use an established name or leave it out.",
+        "Item 8: \"bùi nhùi đẻ trứng (spawning mop)\" is a non-standard term. Use \"búi sợi/tổ giả đẻ trứng\" or similar, and \"bể sinh sản\" is fine.",
+        "Item 5: \"không chịu được sự thay đổi\" is slightly stronger than \"do not appreciate changes\", but the meaning is intact."
+      ],
+      "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "vi/species/xenentodon-cancila#seriouslyfish": [
+    {
+      "at": "2026-11-09T16:40:59Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "Item 2 and item 12: 'freshwater garfish' is left in English. Give a Vietnamese gloss, for example: gọi là 'freshwater garfish' (cá sấu hỏa tiễn nước ngọt), or use a Vietnamese name.",
+        "Item 2: 'Với những con cá quá lớn để nuốt' is slightly clumsy. Use something like 'hiền đến bất ngờ với những loài cá quá lớn để nuốt'.",
+        "Item 12: the jaw-ratio sentence 'chiều dài này gấp 2,6–3,2 lần chiều dài hàm trên' is correct but hard to read. Rephrase it more simply, for example 'chiều dài hàm trên chiếm 1/2,6–1/3,2 chiều dài thân đo từ…'.",
+        "Item 8: 'có cơ hội là chúng sẽ ăn đến căng bụng' is awkward. Use 'nếu có dịp là chúng ăn đến căng bụng'.",
+        "Item 5: 'kích thước mặt bể' is a little redundant. Use 'diện tích mặt bể 180 × 60 cm trở lên'."
+      ],
+      "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "vi/species/yasuhikotakia-modesta#glaser": [
+    {
+      "at": "2026-11-09T16:41:08Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "Item 5: \"giao lưu\" in quotes is a mistranslation of \"let out their social vein\"; the English means they get pushy or aggressive with tank mates. Use a clearer phrase such as \"bộc lộ bản tính hiếu động/hay gây hấn với cá khác\".",
+        "Item 5: \"càng đông càng tốt\" is fine, but \"nuôi ít con\" softens \"as many specimens as possible\". Make the point that a group that is too small causes the problem.",
+        "Item 3: \"during the acclimation\" means the period after the fish arrive. \"cá mới về và đang làm quen với bể\" is OK, but \"ở mức cao\" should be \"ở khoảng trên của dải nhiệt độ (gần 28°C)\".",
+        "Item 3: \"Ichthyophtirius\" is the source's misspelling. Use the correct Latin name Ichthyophthirius, or keep it unchanged as the source has it. Check this.",
+        "Item 3: \"Mầm bệnh Ichthyophtirius\" adds \"mầm bệnh\" (pathogen), which the source does not say. Acceptable, but \"không ưa nước ấm\" should be \"không chịu được nhiệt độ cao\".",
+        "Item 1: \"Cá rất đẹp\" is a flat, abrupt rendering of \"gorgeous fish\". \"xanh xám kiểu lông bồ câu\" is acceptable for dove blue. Smooth the wording.",
+        "Item 6: \"Ngoài tự nhiên, cá thường chỉ lớn tới cỡ đó là tối đa\" is awkward. Use \"Ngoài tự nhiên, cá thường chỉ đạt kích thước tối đa khoảng đó\".",
+        "Item 6: \"Nuôi trong bể thì khác\" is an added sentence. Remove it or merge it into the next one.",
+        "Item 6: \"loaches\" is rendered as \"cá\", so the loach/botia reference is lost. Use \"cá chạch\" or \"botia\" consistently."
+      ],
+      "attempt": "recheck",
+      "kept": true
+    }
   ]
 }

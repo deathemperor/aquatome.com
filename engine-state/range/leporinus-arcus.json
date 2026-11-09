@@ -1,0 +1,137 @@
+{
+  "id": "leporinus-arcus",
+  "native": {
+    "input": "9403aa55fcd5f4e3",
+    "at": "2026-11-09T16:24:16.651Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Tukeit, Guyana', and this species is known from various river drainages of Venezuela, Guyana, Suriname and French Guiana including the Orinoco, Essequibo, and upper Courantyne (aka Corantijn) basins.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Tukeit, Guyana', and this species is known from various river drainages of Venezuela, Guyana, Suriname and French Guiana including the Orinoco, Essequibo, and upper Courantyne (aka Corantijn) basins.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Tukeit, Guyana', and this species is known from various river drainages of Venezuela, Guyana, Suriname and French Guiana including the Orinoco, Essequibo, and upper Courantyne (aka Corantijn) basins.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Tukeit, Guyana', and this species is known from various river drainages of Venezuela, Guyana, Suriname and French Guiana including the Orinoco, Essequibo, and upper Courantyne (aka Corantijn) basins.",
+        "words": "French Guiana",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Tukeit, Guyana', and this species is known from various river drainages of Venezuela, Guyana, Suriname and French Guiana including the Orinoco, Essequibo, and upper Courantyne (aka Corantijn) basins.",
+        "ok": true
+      },
+      {
+        "name": "Essequibo",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Tukeit, Guyana', and this species is known from various river drainages of Venezuela, Guyana, Suriname and French Guiana including the Orinoco, Essequibo, and upper Courantyne (aka Corantijn) basins.",
+        "ok": true
+      },
+      {
+        "name": "Courantyne",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Tukeit, Guyana', and this species is known from various river drainages of Venezuela, Guyana, Suriname and French Guiana including the Orinoco, Essequibo, and upper Courantyne (aka Corantijn) basins.",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Additional records exist from the upper Amazon basin in Guyana, these presumably corresponding to the Takutu river basin, itself part of the upper rio Branco.",
+        "country": "GY",
+        "ok": true
+      },
+      {
+        "name": "Takutu",
+        "source": "seriouslyfish",
+        "quote": "Additional records exist from the upper Amazon basin in Guyana, these presumably corresponding to the Takutu river basin, itself part of the upper rio Branco.",
+        "ok": true
+      },
+      {
+        "name": "rio Branco",
+        "source": "seriouslyfish",
+        "quote": "Additional records exist from the upper Amazon basin in Guyana, these presumably corresponding to the Takutu river basin, itself part of the upper rio Branco.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Leporinus arcus",
+    "status": "ACCEPTED",
+    "taxonKey": 2355347,
+    "datasets": [
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        19
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        7
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        6
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        4
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        3
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        3
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        3
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        2
+      ]
+    ],
+    "native": [
+      "VE",
+      "GY",
+      "SR",
+      "GF"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T16:24:16.651Z"
+  }
+}

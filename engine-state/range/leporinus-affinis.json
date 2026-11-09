@@ -1,0 +1,61 @@
+{
+  "id": "leporinus-affinis",
+  "native": {
+    "input": "281ce92c48337cbb",
+    "at": "2026-11-09T16:24:16.651Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Leporinus affinis",
+    "status": "ACCEPTED",
+    "taxonKey": 2355332,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        54
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        12
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        11
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        9
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        6
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        4
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        4
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-09T16:24:16.651Z"
+  }
+}

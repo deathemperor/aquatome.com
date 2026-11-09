@@ -1280,14 +1280,14 @@
     ]
   },
   "limnobium-laevigatum": {
-    "at": "2026-11-04",
-    "from": "2026-10-30",
+    "at": "2026-11-09",
+    "from": "2026-11-09",
     "name": "Amazon Frogbit",
     "confidence": "high",
     "score": 0.9,
     "notes": [
-      "In 3: 'Tanaman air hasil kultur jaringan dalam cup tertutup' is fine, but 'akuarium biasa' for 'traditional aquariums' could be 'akuarium tertutup/konvensional' for clarity (minor).",
-      "In 2: 'Mungkin perlu membuang sebagian' leaves the object vague; 'membuang sebagian daun' would be clearer (minor)."
+      "Item 4: \"cup tertutup\" leaves English \"cup\" in place; \"cangkir/wadah tertutup\" or \"cup (wadah) tertutup\" would be more natural. This is minor.",
+      "Item 2: the source text is Vietnamese, not English. The translation is faithful and I found no meaning errors."
     ]
   },
   "limnophila-aquatica": {
@@ -2156,15 +2156,15 @@
     ]
   },
   "utricularia-graminifolia": {
-    "at": "2026-11-06",
-    "from": "2026-10-31",
+    "at": "2026-11-09",
+    "from": "2026-11-09",
     "name": "Utricularia graminifolia",
     "confidence": "high",
-    "score": 0.9,
+    "score": 0.95,
     "notes": [
-      "\"rumput lapangan\" is slightly awkward; \"hamparan seperti padang rumput/halaman rumput\" would read more naturally.",
-      "\"famili bladderwort\" leaves the English name; a local name such as \"famili Lentibulariaceae\" or \"tanaman kantung semar air\" may be clearer.",
-      "\"Asal: Asia\" is fine, but \"Asal daerah\" or \"Asal-usul\" is more common."
+      "Item 1: \"Asal\" is slightly terse; \"Asal daerah\" or \"Asal usul\" would be more natural. Minor only.",
+      "Item 3: \"halaman rumput\" for \"lawn\" is acceptable. \"hamparan rumput\" would be a bit more natural. Minor only.",
+      "Item 3: \"cukup rewel\" for \"rather demanding\" is informal. \"cukup menuntut\" or \"cukup sulit dirawat\" would be more neutral. Minor only."
     ]
   },
   "vallisneria": {

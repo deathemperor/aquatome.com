@@ -3,19 +3,21 @@
   "name": "Amazon Frogbit",
   "altNames": [
     "Frogbit",
-    "South American Frogbit",
-    "Limnobium laevigatum"
+    "Limnobium laevigatum",
+    "South American Frogbit"
   ],
   "sections": {
     "quickFacts:tropica": "<ul><li>Asal: Amerika Selatan</li><li>Kecepatan tumbuh: sedang</li><li>Tinggi: 3–5+ cm (rata-rata setelah dua bulan di akuarium)</li><li>Kebutuhan cahaya: rendah</li><li>Kebutuhan CO2: rendah</li></ul>",
-    "maintenance:tropica": "<p>Kalau nutrisi di dalam air cukup dan intensitas cahayanya bagus, daun-daun baru akan muncul di atas permukaan air. Mungkin perlu membuang sebagian supaya tanaman di bawahnya tetap kebagian cahaya. Saat kadar nutrisi di dalam air berkurang, pertumbuhannya akan jauh melambat, sehingga tanaman ini bisa jadi indikator yang bagus untuk melihat ketersediaan nutrisi.</p>",
-    "notes:tropica": "<p>Tanaman air hasil kultur jaringan dalam cup tertutup. Limnobium laevigatum dari Amerika Selatan adalah tanaman apung dekoratif yang sangat cocok untuk akuarium terbuka. Tingginya 1–5 cm dengan lebar daun 5–15 cm. Tanaman ini juga bagus untuk akuarium biasa, karena akarnya yang halus, panjang, dan dekoratif memberi tempat berlindung bagi gurami dan ikan permukaan lain yang menyukai akar tanaman apung.</p>"
+    "maintenance:aquatome": "<p>Amazon frogbit adalah tanaman apung, jadi cukup diletakkan di permukaan air dan tidak ditanam di substrat. Tanaman ini paling cocok untuk akuarium terbuka, tetapi di akuarium biasa juga bisa tumbuh bagus. Akarnya yang panjang dan halus menjuntai di dalam air dan menjadi tempat bersembunyi bagi gurami serta ikan permukaan lain yang suka akar tanaman apung. Kalau nutrisi di air cukup dan cahayanya cukup kuat, daun baru akan muncul di atas permukaan air. Saat itu mungkin sebagian perlu dibuang supaya tanaman di bawahnya masih kebagian cahaya. Kalau pertumbuhannya tiba-tiba jauh melambat, itu tanda nutrisi di air sudah habis.</p>",
+    "maintenance:tropica": "<p>Kalau nutrisi di air cukup dan intensitas cahayanya baik, daun baru akan muncul di atas permukaan air. Mungkin sebagian perlu dibuang supaya tanaman di bawahnya masih mendapat cahaya. Saat kadar nutrisi di air menurun, pertumbuhannya akan jauh lebih lambat, sehingga tanaman ini menjadi indikator yang bagus untuk melihat ketersediaan nutrisi.</p>",
+    "notes:tropica": "<p>Tanaman air hasil kultur jaringan dalam cup tertutup. Limnobium laevigatum dari Amerika Selatan adalah tanaman apung dekoratif yang sangat cocok untuk akuarium terbuka. Tingginya 1–5 cm dengan lebar daun 5–15 cm. Tanaman ini juga bagus untuk akuarium biasa, karena akarnya yang halus, panjang, dan dekoratif memberi perlindungan bagi gurami dan ikan permukaan lain yang suka akar tanaman apung.</p>"
   },
   "quality": {
     "score": 0.9,
     "indexable": true,
     "bySource": {
-      "tropica": 0.9
+      "tropica": 0.9,
+      "aquatome": 0.9
     }
   }
 }

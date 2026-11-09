@@ -1,0 +1,73 @@
+{
+  "id": "lepidocephalichthys-jonklaasi",
+  "native": {
+    "input": "b704f30e9024e82e",
+    "at": "2026-11-09T16:24:16.651Z",
+    "claims": [
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Sri Lanka with type locality 'shaded pools of mountain streams at Akuressa, Southern Province, Sri Lanka, elevation 500 meters'.",
+        "words": "Sri Lanka",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Gin",
+        "source": "seriouslyfish",
+        "quote": "It's known from at least five localities, all of which are restricted to Sri Lanka's 'wet zone' in the southwest of the island, with records existing from the Gin, Kalu, Nilwala, and Bentota river basins plus a small blackwater creek near the Kottawa Forest Reserve, a small, isolated patch of forest in the island's Southern Province.",
+        "ok": true
+      },
+      {
+        "name": "Kalu",
+        "source": "seriouslyfish",
+        "quote": "It's known from at least five localities, all of which are restricted to Sri Lanka's 'wet zone' in the southwest of the island, with records existing from the Gin, Kalu, Nilwala, and Bentota river basins plus a small blackwater creek near the Kottawa Forest Reserve, a small, isolated patch of forest in the island's Southern Province.",
+        "ok": true
+      },
+      {
+        "name": "Nilwala",
+        "source": "seriouslyfish",
+        "quote": "It's known from at least five localities, all of which are restricted to Sri Lanka's 'wet zone' in the southwest of the island, with records existing from the Gin, Kalu, Nilwala, and Bentota river basins plus a small blackwater creek near the Kottawa Forest Reserve, a small, isolated patch of forest in the island's Southern Province.",
+        "ok": true
+      },
+      {
+        "name": "Bentota",
+        "source": "seriouslyfish",
+        "quote": "It's known from at least five localities, all of which are restricted to Sri Lanka's 'wet zone' in the southwest of the island, with records existing from the Gin, Kalu, Nilwala, and Bentota river basins plus a small blackwater creek near the Kottawa Forest Reserve, a small, isolated patch of forest in the island's Southern Province.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Lepidocephalichthys jonklaasi",
+    "status": "ACCEPTED",
+    "taxonKey": 2368070,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        13
+      ],
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        6
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ]
+    ],
+    "native": [
+      "LK"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T16:24:16.651Z"
+  }
+}

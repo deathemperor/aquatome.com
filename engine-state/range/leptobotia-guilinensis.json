@@ -1,0 +1,63 @@
+{
+  "id": "leptobotia-guilinensis",
+  "native": {
+    "input": "510e0a5ed829793a",
+    "at": "2026-11-09T16:24:16.651Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Leptobotia guilinensis is a botiid loach from southern China, described from Guangxi Province and also recorded from neighbouring Hunan.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from a tributary of the Yangtze River (aka Chiang Jiang), Guangxi Province, southern China and also recorded from neighbouring Hunan Province including the Wulin mountain range to the northwest.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Yangtze River",
+        "source": "seriouslyfish",
+        "quote": "Described from a tributary of the Yangtze River (aka Chiang Jiang), Guangxi Province, southern China and also recorded from neighbouring Hunan Province including the Wulin mountain range to the northwest.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Wulin mountain range",
+        "source": "seriouslyfish",
+        "quote": "Described from a tributary of the Yangtze River (aka Chiang Jiang), Guangxi Province, southern China and also recorded from neighbouring Hunan Province including the Wulin mountain range to the northwest.",
+        "country": "CN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Leptobotia guilinensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2368288,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ]
+    ],
+    "native": [
+      "CN"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T16:24:16.651Z"
+  }
+}

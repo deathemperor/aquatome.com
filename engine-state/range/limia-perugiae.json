@@ -1,0 +1,57 @@
+{
+  "id": "limia-perugiae",
+  "native": {
+    "input": "de08d41b26700bbc",
+    "at": "2026-11-09T16:24:16.651Z",
+    "claims": [
+      {
+        "code": "DO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "But it is only known by few people that also beautiful freshwater fish exist there.",
+        "words": "Dominican Republic",
+        "ok": false,
+        "why": "its name is not in the quote"
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "DO"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Limia perugiae",
+    "status": "ACCEPTED",
+    "taxonKey": 5203839,
+    "datasets": [
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        36
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        20
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        7
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        5
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-09T16:24:16.651Z"
+  }
+}

@@ -335,6 +335,20 @@
       "kept": true
     }
   ],
+  "vi/plants/limnobium-laevigatum": [
+    {
+      "at": "2026-11-09T16:40:09Z",
+      "model": "opus",
+      "score": 0.8,
+      "notes": [
+        "\"Nếu bèo bỗng lớn chậm hẳn lại thì đó là dấu hiệu nước đã cạn phân\": the INPUT says growth slows as nutrients run low (\"cạn dần\"). \"bỗng\" (suddenly) and \"đã cạn\" (already run out) are stronger than that.",
+        "\"chỉ cần thả lên mặt nước chứ không trồng xuống nền\": this is a fair reading of the \"thả nổi\" figure, but the INPUT gives no planting instruction.",
+        "\"buông xuống trong nước\" is a small descriptive addition. The INPUT only calls the roots \"mảnh, dài và đẹp\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/plants/littorella-uniflora": [
     {
       "at": "2026-11-09T10:15:37Z",
@@ -416,6 +430,33 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "vi/plants/utricularia-graminifolia": [
+    {
+      "at": "2026-11-09T16:39:48Z",
+      "model": "opus",
+      "score": 0.85,
+      "notes": [
+        "\"trồng một mảng giữa hai tảng đá lớn trong bể iwagumi\" turns one specific layout from a guide into general placement advice, so it reads like it was lifted from a single tank's build",
+        "\"UG\" is used from the first sentence without the full name (Utricularia graminifolia) or the Vietnamese name, so a handbook reader may not know which plant is meant",
+        "\"Có thể trải nó từ mép trước lùi dần qua giữa bể về phía sau\" comes from one guide's specific tank but is written as a standard option"
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-09T16:39:48Z",
+      "model": "opus",
+      "score": 0.65,
+      "notes": [
+        "\"Tách chậu thành từng nhúm nhỏ\" is a planting step the INPUT doesn't give for UG. The advice to divide plants into small portions comes from the in vitro gel prep in another guide, and the UG there came as a pot.",
+        "\"Nghe nói UG không ưa ammonia\" copies the video maker's hearsay hedge. It reads as relaying one guide's rumour, not handbook advice.",
+        "\"Trồng vào bể có lọc và nền đã chạy lâu thì hy vọng là ammonia không tăng vọt\" turns one tank's hope into general guidance and keeps the vlog-style \"hy vọng\".",
+        "\"có bể sau hai tháng mà thảm vẫn chỗ dày chỗ thưa\" is a thinly veiled reference to one specific video tank's result."
+      ],
+      "attempt": "first",
+      "kept": false
     }
   ]
 }

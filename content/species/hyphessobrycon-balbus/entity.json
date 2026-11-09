@@ -10,6 +10,71 @@
     "brazil",
     "parana"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Paraná",
+        "Rio São Bartolomeu"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Psalidodon balbus is a small characid known only from upper Paraná basin headwaters in the Federal District and Goiás, central Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from headwaters of the upper Paraná river basin in the Federal District plus the neighbouring state of Goiás, central Brazil.",
+          "countries": [],
+          "regions": [
+            "Paraná"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Most records come from the rio São Bartolomeu, including the Bananal, Santa Maria-Torto and Gama tributary systems.",
+          "countries": [],
+          "regions": [
+            "Rio São Bartolomeu"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354637,
+      "total": 7,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "BR",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          -49.21875,
+          -16.875,
+          5,
+          5
+        ],
+        [
+          -47.8125,
+          -16.875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

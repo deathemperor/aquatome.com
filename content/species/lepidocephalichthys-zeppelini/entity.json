@@ -11,6 +11,67 @@
     "mekong",
     "vietnam"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "VN"
+      ],
+      "regions": [
+        "Mekong",
+        "Mun River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Lepidocephalichthys zeppelini is a tiny cobitid loach from the Mekong system in Thailand and Vietnam.",
+          "countries": [
+            "TH",
+            "VN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known from the middle and lower Mekong river system in Thailand and Vietnam.",
+          "countries": [],
+          "regions": [
+            "Mekong"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Mun River, tributary of Mekong River, Ubon Rajathanee University campus, 15°08'03.18\"N, 104°55'27.78\"E, Ubon Ratchathani, Thailand'.",
+          "countries": [],
+          "regions": [
+            "Mun River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5851064,
+      "total": 3,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "TH",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          104.0625,
+          14.0625,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

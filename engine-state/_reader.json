@@ -602,6 +602,92 @@
     ],
     "ruled": "2dcbd9aceca7fdd4"
   },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-dennis-wong": {
+    "at": "2026-11-09",
+    "hash": "54417605d20cd41e",
+    "findings": [],
+    "ruled": "54417605d20cd41e"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-dennis-wong-1": {
+    "at": "2026-11-09",
+    "hash": "9550544153bc77ee",
+    "findings": [],
+    "ruled": "9550544153bc77ee"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-dou-mok": {
+    "at": "2026-11-09",
+    "hash": "6eaa7b41e35e2ae7",
+    "findings": [],
+    "ruled": "6eaa7b41e35e2ae7"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-dou-mok-1": {
+    "at": "2026-11-09",
+    "hash": "11d7b34c6a65190d",
+    "findings": [],
+    "ruled": "11d7b34c6a65190d"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-dou-mok-2": {
+    "at": "2026-11-09",
+    "hash": "04bdda040535bfc3",
+    "findings": [
+      {
+        "kind": "unsupported",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Lũa ở giữa dẫn mắt người xem về phía lối đi bằng đá ở trung tâm.",
+        "problem": "The source puts only the rock path in the middle, not the driftwood, and the page also says 'middle' twice in one sentence.",
+        "fix": "Lũa dẫn mắt người xem về phía lối đi bằng đá ở giữa bể.",
+        "field": "body"
+      }
+    ],
+    "ruled": "04bdda040535bfc3"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-dou-mok-4": {
+    "at": "2026-11-09",
+    "hash": "17768bf6bd9aaae9",
+    "findings": [],
+    "ruled": "17768bf6bd9aaae9"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-dutch-style-2": {
+    "at": "2026-11-09",
+    "hash": "9f83402c5fbb88ca",
+    "findings": [],
+    "ruled": "9f83402c5fbb88ca"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-fernando-ferreira": {
+    "at": "2026-11-09",
+    "hash": "1e7d79ef8f11362a",
+    "findings": [],
+    "ruled": "1e7d79ef8f11362a"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-fernando-ferreira-2": {
+    "at": "2026-11-09",
+    "hash": "b8ed6499eae05925",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Các bụi cây đã già và tỉa gọn",
+        "problem": "\"Già\" for plants suggests old or declining plants, but the source's \"matured\" means bushes that have grown in and filled out.",
+        "fix": "Các bụi cây đã mọc dày và được tỉa gọn",
+        "field": "body"
+      }
+    ],
+    "ruled": "b8ed6499eae05925"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-fernando-ferreira-3": {
+    "at": "2026-11-09",
+    "hash": "838eb5bdbab05796",
+    "findings": [],
+    "ruled": "838eb5bdbab05796"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-george-farmer": {
+    "at": "2026-11-09",
+    "hash": "e9a0b5c99a8ab1d3",
+    "findings": [],
+    "ruled": "e9a0b5c99a8ab1d3"
+  },
   "vi/guides/aquariumbreeder-10-slow-growing-plants-in-the-tank": {
     "at": "2026-11-01",
     "hash": "7d8ace662d61562a",
@@ -1087,6 +1173,50 @@
         "field": "body"
       }
     ]
+  },
+  "vi/guides/aquariumbreeder-do-we-need-water-conditioners-which-one-to-choose": {
+    "at": "2026-11-09",
+    "hash": "4468ab7ceaa2bc3d",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "high",
+        "part": "P1",
+        "quote": "| An toàn cho bể nước mặn\n| Có\n| Không",
+        "problem": "The comparison table marks Aqueon as not safe for saltwater tanks, but the Aqueon section lists 'An toàn cho bể nước mặn' among its pros, as the source does.",
+        "fix": "Change the Aqueon cell to 'Có (chỉ khử được clo)'.",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "| Còn tác dụng trong bể\n| 48 giờ\n| Không có dữ liệu\n| Có",
+        "problem": "The 'how long it keeps working' row gives Tetra AquaSafe Plus 'Có' instead of a duration or 'no data', so the cell doesn't answer what the row asks.",
+        "fix": "Không có dữ liệu",
+        "rule": "A table row whose other cells are durations has a yes/no value in one cell.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Đây là loại nước khử clo duy nhất có lô hội",
+        "problem": "Calling Stress Coat the only conditioner with aloe clashes with the earlier line that aloe is a common additive ('hay gặp các chất phụ gia như lô hội').",
+        "fix": "Đây là loại duy nhất trong năm loại trên có lô hội",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Dù đang làm bể mới hay thay một phần nước, nước máy đều phải xử lý bằng nước khử clo rồi mới dùng được.",
+        "problem": "The intro says a new tank always needs conditioner, but a later section says a new tank is one of the few cases where it isn't needed.",
+        "fix": "Thay một phần nước thì nước máy đều phải xử lý bằng nước khử clo rồi mới dùng được.",
+        "field": "body"
+      }
+    ],
+    "ruled": "4468ab7ceaa2bc3d"
   },
   "vi/guides/aquariumbreeder-filter-and-or-protein-skimmer-do-i-need-both": {
     "at": "2026-11-08",
@@ -2072,6 +2202,23 @@
       }
     ],
     "ruled": "80cf7ff07a8f2fb6"
+  },
+  "vi/guides/aquariumbreeder-tank-decoration-simple-ideas": {
+    "at": "2026-11-09",
+    "hash": "37d7a71c28a4db64",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "## 1. Cây thủy sinh",
+        "problem": "The numbered ideas (1–10) are headings at the same level as their parent section 'Những ý tưởng trang trí bể đơn giản', so they read as separate sections instead of items under it (the source has them one level lower).",
+        "fix": "### 1. Cây thủy sinh",
+        "rule": "Numbered headings at the same level as the heading that introduces them.",
+        "field": "body"
+      }
+    ],
+    "ruled": "37d7a71c28a4db64"
   },
   "vi/guides/aquariumbreeder-tank-lids-necessary-or-optional-pros-and-cons": {
     "at": "2026-11-06",
@@ -6247,6 +6394,31 @@
       }
     ],
     "ruled": "7d1b7f23277359c7"
+  },
+  "vi/guides/aquatome-chon-da-soi-cat-va-nen-trang-tri-cho-be-thuy-sinh": {
+    "at": "2026-11-09",
+    "hash": "735c63ed050a7a35",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Sỏi bán cho bể cá thường là thạch anh hoặc khoáng không có vôi, nên không đổi nước.",
+        "problem": "\"không đổi nước\" can be read as \"no water changes needed\" instead of \"does not alter water chemistry\".",
+        "fix": "Sỏi bán cho bể cá thường là thạch anh hoặc khoáng không có vôi, nên không làm thay đổi nước.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "L3",
+        "quote": "Nền cho bể nhiều cây nên dày ít nhất 5 cm.",
+        "problem": "The summary gives 5 cm for heavily planted tanks, but the body gives 5 cm for planted tanks in general and 6–8 cm for heavily planted ones.",
+        "fix": "Nền cho bể thủy sinh nên dày ít nhất 5 cm, bể nhiều cây thì 6–8 cm.",
+        "field": "summary.2"
+      }
+    ],
+    "ruled": "735c63ed050a7a35"
   },
   "vi/guides/aquatome-di-vang-nhieu-ngay-cho-ca-an-va-cham-be-the-nao": {
     "at": "2026-11-05",
@@ -11216,6 +11388,22 @@
     ],
     "ruled": "99f5a1f25fc3d332"
   },
+  "vi/guides/youtube-2EvDsbrS9Dg": {
+    "at": "2026-11-09",
+    "hash": "0775c65521b6fcee",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L5",
+        "quote": "thay nước ít",
+        "problem": "'thay nước ít' sounds unnatural. Hobbyists would say 'thay một ít nước'.",
+        "fix": "thay một ít nước",
+        "field": "summary.4"
+      }
+    ],
+    "ruled": "0775c65521b6fcee"
+  },
   "vi/guides/youtube-2NdWisNvjL4": {
     "at": "2026-11-04",
     "hash": "85cfd57c8bbc2cf7",
@@ -13234,6 +13422,12 @@
     "findings": [],
     "ruled": "aa95a8e00fd86f24"
   },
+  "vi/guides/youtube-f_nQFJ95B6g": {
+    "at": "2026-11-09",
+    "hash": "5c26942cb25a0e92",
+    "findings": [],
+    "ruled": "5c26942cb25a0e92"
+  },
   "vi/guides/youtube-f7ePYAbDke4": {
     "at": "2026-11-06",
     "hash": "fce10a181c922c9f",
@@ -13453,6 +13647,12 @@
       }
     ],
     "ruled": "0a8c46bba8e7a41f"
+  },
+  "vi/guides/youtube-gJuWCudImSc": {
+    "at": "2026-11-09",
+    "hash": "4804a7259ce85734",
+    "findings": [],
+    "ruled": "4804a7259ce85734"
   },
   "vi/guides/youtube-glJgch3u4g8": {
     "at": "2026-11-04",
@@ -15665,6 +15865,12 @@
     "findings": [],
     "ruled": "a4c4898dce7d7e20"
   },
+  "vi/guides/youtube-P8xilUdFS08": {
+    "at": "2026-11-09",
+    "hash": "89d65767fa6d607c",
+    "findings": [],
+    "ruled": "89d65767fa6d607c"
+  },
   "vi/guides/youtube-PF2i10T5JGM": {
     "at": "2026-11-04",
     "hash": "cf78a1173d159173",
@@ -16374,6 +16580,22 @@
       }
     ],
     "ruled": "e24eead0f785b3b0"
+  },
+  "vi/guides/youtube-SIMNLeXB8Pc": {
+    "at": "2026-11-09",
+    "hash": "ab06800b7f45ab01",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Hiểu điều này rồi thì dễ nhìn qua lời quảng cáo trên hộp lọc.",
+        "problem": "This copies the English 'see through/past the marketing' word for word. In Vietnamese, 'nhìn qua' means 'glance at', so the sentence says the opposite of what was meant.",
+        "fix": "Hiểu điều này rồi thì khó bị lời quảng cáo trên hộp lọc dắt mũi.",
+        "field": "body"
+      }
+    ],
+    "ruled": "ab06800b7f45ab01"
   },
   "vi/guides/youtube-SjnaZ9ciCJk": {
     "at": "2026-11-06",
@@ -17471,6 +17693,22 @@
     "hash": "f8fe40b8e35282fd",
     "findings": [],
     "ruled": "f8fe40b8e35282fd"
+  },
+  "vi/guides/youtube-XsVcT7kkHrs": {
+    "at": "2026-11-09",
+    "hash": "7fa6400e5b84a496",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L6",
+        "quote": "Khung hồ không cân là lỗi nên làm kỹ ngay từ đầu.",
+        "problem": "The sentence says the mistake itself should be done carefully; what should be done carefully is levelling the frame.",
+        "fix": "Khung hồ không cân là lỗi dễ tránh nếu cân kỹ ngay từ lúc đóng.",
+        "field": "summary.5"
+      }
+    ],
+    "ruled": "7fa6400e5b84a496"
   },
   "vi/guides/youtube-xuc03DuJ9o4": {
     "at": "2026-11-02",

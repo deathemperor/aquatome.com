@@ -1,0 +1,72 @@
+{
+  "id": "lepidocephalichthys-tomaculum",
+  "native": {
+    "input": "aaaf272718ddd8ae",
+    "at": "2026-11-09T16:24:16.651Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Lepidocephalichthys tomaculum is a small cobitid loach from Peninsular Malaysia, with a single tentative record from Lampung Province, Sumatra.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the states of Selangor, Pahang, Johor and Terengganu in Peninsular Malaysia, with type locality 'Stream at 34-kilometer mark on road from Sungai Besar to Tonjong Malim, Sungai Bernam basin, Selangor, Malaysia'.",
+        "words": "Malaysia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Peninsular Malaysia",
+        "source": "seriouslyfish",
+        "quote": "Lepidocephalichthys tomaculum is a small cobitid loach from Peninsular Malaysia, with a single tentative record from Lampung Province, Sumatra.",
+        "country": "MY",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Lepidocephalichthys tomaculum is a small cobitid loach from Peninsular Malaysia, with a single tentative record from Lampung Province, Sumatra.",
+        "ok": true
+      },
+      {
+        "name": "Sungai Bernam",
+        "source": "seriouslyfish",
+        "quote": "Recorded from the states of Selangor, Pahang, Johor and Terengganu in Peninsular Malaysia, with type locality 'Stream at 34-kilometer mark on road from Sungai Besar to Tonjong Malim, Sungai Bernam basin, Selangor, Malaysia'.",
+        "country": "MY",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "ID"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Lepidocephalichthys tomaculum",
+    "status": "ACCEPTED",
+    "taxonKey": 2368054,
+    "datasets": [
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ]
+    ],
+    "native": [
+      "MY"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T16:24:16.651Z"
+  }
+}

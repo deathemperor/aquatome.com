@@ -14,6 +14,77 @@
     "thailand",
     "chao-phraya"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "MY",
+        "ID"
+      ],
+      "regions": [
+        "Chao Phraya",
+        "Pahang",
+        "Sumatra",
+        "Java",
+        "Borneo",
+        "Solo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "It was described from the Lamatang and Enim rivers, Palambang Province, Sumatra and has since been recorded from Thailand (Chao Phraya River), Peninsular Malaysia (Pahang River) plus the islands of Java (Solo River) and Borneo (Kapuas and Barito rivers).",
+          "countries": [
+            "TH",
+            "MY"
+          ],
+          "regions": [
+            "Chao Phraya",
+            "Pahang",
+            "Sumatra",
+            "Java",
+            "Borneo",
+            "Solo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The full type locality is 'Confluence of Lamatang and Enim rivers, Palembang, eastern Sumatra; Pepeh River, Surakarta, central Java, Indonesia'.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5207874,
+      "total": 2,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "ID",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          106.875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          -1.40625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
