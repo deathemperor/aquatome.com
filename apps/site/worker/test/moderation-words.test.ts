@@ -241,6 +241,7 @@ test('ordinary fishkeeping words that look like one are left alone', () => {
     // Read off real forum posts and every fish and plant name in the handbook.
     'bọt khí và shit trong hồ, nó ăn shit của nhau, vừa ra shit, shit của cá, không có shit cá, 3 cục shit rùa, 1 miếng "shit" nào, hút hết shit',
     'tương đương như CC, support như CC, buồi chiều vui vẻ, buồi off rất vui, éo èo, KML, SML và Indomalau, cá SML, 1 dòng cmm thôi',
+    'ปั๊มรุ่น VL-400 ดีไหม, đồ VL ngu, thằng Cl ngu',
     'Ảnh: Dick Evans from Bristol, photo by Dick Brown, บัวเสือกลัวแสง บัวเสือกระโดด',
     'tahi kucing masuk kolam, taik kucing masuk akuarium, takut banget anjing, kenapa sih anjing saya, sakit parah anjing saya',
     'ปลาถูกเหี้ยมากินหมด อาหารของเหี้ย รอยเท้าของเหี้ย เสาสูง เสาสแตนเลส ตัวเสือกระโดด ลายเสือกลัวแสง พ่อค้าเหี้ยมโหด',

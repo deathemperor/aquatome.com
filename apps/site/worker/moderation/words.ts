@@ -73,7 +73,8 @@ export function rudeWord(text: string): string | undefined {
   // เเ, two เ typed for แ, reads as แ.
   const n = text.normalize('NFC').replace(/เเ/g, 'แ')
   // In a comment that isn't all capitals, "VL" is Vĩnh Long ("VL có shop nào bán cá dĩa không"), "Cl" chlorine, "CC" a credit card, and "Dick" before a capital a man's name.
-  const t = (/\p{Ll}/u.test(n) ? n.replace(/(?<![\p{L}\p{M}\p{N}])(?:VL|Cl|CC|Dick(?=\s\p{Lu}))(?![\p{L}\p{M}\p{N}])/gu, ' ') : n).toLowerCase().replace(/\s+/g, ' ')
+  // Thai has no capitals, so its letters count as lower case here. What's taken out leaves a mark, so its neighbours stay apart.
+  const t = (/[\p{Ll}\p{Lo}]/u.test(n) ? n.replace(/(?<![\p{L}\p{M}\p{N}])(?:VL|Cl|CC|Dick(?=\s\p{Lu}))(?![\p{L}\p{M}\p{N}])/gu, '|') : n).toLowerCase().replace(/\s+/g, ' ')
   // Letters typed again and again, in the Latin script only: Thai stretches a word with ๆ or a long vowel, and its doubled
   // consonants are words ("งง", confused). "vll" is filter media, never "vl".
   const runs = (to: string) => t.replace(/(\p{Script=Latin})\1{2,}/gu, to)
