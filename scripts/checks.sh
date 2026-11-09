@@ -10,9 +10,11 @@ back=$(mktemp "$HOME/.cache/aquatome/checks-back.XXXXXX") || exit 70
 trap 'rm -f "$back"' EXIT
 said=
 while :; do
-  # Under the lock: a run that steps back writes whom for into $back and gives up the turn; one that goes clears it.
+  : >"$back"
+  # Under the lock: a run that steps back writes whom for into $back and gives up the turn. Named by its pid or its
+  # lockf's ($PPID there, the one ps shows waiting), it goes.
   lockf -k "$HOME/.cache/aquatome/checks.lock" sh -c \
-    'python3 "$1/next-turn.py" --kept checks "$2" "$PWD $3" >"$4" 2>/dev/null && exit 0; : >"$4"; shift 4; exec "$@"' \
+    'python3 "$1/next-turn.py" --kept checks "$2,$PPID" "$PWD $3" >"$4" 2>/dev/null && exit 0; : >"$4"; shift 4; exec "$@"' \
     sh "$here" "$$" "$*" "$back" "$@"
   status=$?
   [ -s "$back" ] || exit "$status"

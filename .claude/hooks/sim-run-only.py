@@ -29,6 +29,8 @@ HEAVY_SCRIPTS = {"build", "test", "e2e"}
 SIM = "One simulator test run at a time on this Mac: start it as apps/ios/scripts/sim-run.py xcodebuild test ..."
 HEADLESS = ("Simulators run headless on this Mac (AGENTS.md, This Mac): xcrun simctl boot, or let xcodebuild boot one; "
             "watch one in the Device panel only while you need to, and close it.")
+GRANT = ("Only the chief of staff keeps the next turn for a run (AGENTS.md, This Mac): scripts/next-turn.py runs from their "
+         "own thread.")
 QUEUE = ("Heavy work takes turns on this Mac (AGENTS.md, This Mac): start it as scripts/checks.sh nice -n 10 <command> (from the "
          "repository's root), or lockf -k ~/.cache/aquatome/checks.lock nice -n 10 <command>. One test file needs no turn: "
          "pnpm exec vitest run <file>.")
@@ -123,6 +125,17 @@ def heavy(name, args):
     return False
 
 
+def granter():
+    """Whether this session is the chief of staff's: the thread it runs in (its environment, which a command's own
+    assignment doesn't change) is the one that runs the project."""
+    try:
+        with open(os.path.expanduser("~/.config/aquatome/owner-report-thread")) as f:
+            thread = f.read().strip()
+    except OSError:
+        return False
+    return bool(thread) and os.environ.get("T3CODE_THREAD_ID") == thread
+
+
 def bare_run(command, queued=False):
     """What stops the command: a simulator run not through sim-run.py, or heavy work outside the checks queue."""
     for words in segments(command):
@@ -130,6 +143,10 @@ def bare_run(command, queued=False):
         locked = locked or queued
         if name == "xcodebuild" and runs_tests(args):
             return SIM
+        if re.fullmatch(r"python[\d.]*", name or "") and args:  # python3 scripts/next-turn.py ...
+            name, args = os.path.basename(args[0]), args[1:]
+        if name == "next-turn.py" and args[:1] != ["--kept"] and not granter():
+            return GRANT
         # Simulator.app's window is WindowServer's to draw, every frame, on top of the simulator's own rendering.
         if name == "open" and any(re.fullmatch(r"(.*/)?Simulator(\.app)?/?", a) for a in args):
             return HEADLESS

@@ -351,10 +351,19 @@ test("only the chief of staff's thread keeps a turn, and a kept turn lapses with
   q.release()
   expect(await other).toBe(0) // after the 0.6 s
   expect(q.order()).toEqual(['other'])
-  // A pid that's gone keeps nothing.
-  q.next('cos', '999999')
+  // A pid that isn't a process keeps nothing, and a number too large to be one, left in the file, lets every run go.
+  expect(q.next('cos', '999999').stderr).toContain('no process 999999')
   expect(await q.run('after')).toBe(0)
-  expect(q.order()).toEqual(['other', 'after'])
+  writeFileSync(`${q.dir}/.cache/aquatome/sim.next`, `${Date.now() / 1000 + 600} 42551258011`)
+  expect(await q.run('large')).toBe(0)
+  expect(q.order()).toEqual(['other', 'after', 'large'])
+  // Minutes have a cap, and a pid keeps the turn in its own queue alone.
+  expect(q.next('cos', 'x', '100000').stdout).toContain('for up to 120 min')
+  const sleeper = spawn('sleep', ['30'])
+  expect(q.next('cos', String(sleeper.pid)).stdout).toContain('the next checks turn kept')
+  expect(existsSync(`${q.dir}/.cache/aquatome/sim.next`)).toBe(true) // the word's, from before
+  expect(readFileSync(`${q.dir}/.cache/aquatome/checks.next`, 'utf8')).toContain(String(sleeper.pid))
+  sleeper.kill()
 }, 30_000)
 
 // The checks queue: the grid's build waited behind two engine cycles, and its command says nothing of the grid: its folder does.
@@ -386,12 +395,41 @@ test.skipIf(!hasLockf)("in the checks queue too, the run the turn is kept for go
   expect(r.order()).toEqual(['plain', 'a'])
   // The command's own status comes back, and a step back isn't one.
   expect(spawnSync(CHECKS, ['sh', '-c', 'exit 7'], { env: r.env }).status).toBe(7)
+
+  // A checks.sh run named by the pid ps shows waiting, its lockf's, is that run.
+  const t = keptQueue([CHECKS])
+  await t.up()
+  const b = t.run('b')
+  await wait(300)
+  const named = spawn(CHECKS, ['sh', '-c', `echo named >> ${t.dir}/order`], { env: t.env, stdio: 'ignore' })
+  await wait(300)
+  const waiting = spawnSync('pgrep', ['-P', String(named.pid), 'lockf'], { encoding: 'utf8' }).stdout.trim()
+  expect(t.next('cos', waiting).status).toBe(0)
+  t.release()
+  await new Promise(res => named.on('close', res))
+  await b
+  expect(t.order()).toEqual(['named', 'b'])
 }, 30_000)
+
+test("a session other than the chief of staff's can't keep a turn, whatever its command says its thread is", () => {
+  const dir = home()
+  mkdirSync(join(dir, '.config/aquatome'), { recursive: true })
+  writeFileSync(join(dir, '.config/aquatome/owner-report-thread'), 'cos\n')
+  const hook = (command: string, thread: string) => spawnSync(HOOK, { input: JSON.stringify({ tool_input: { command } }), encoding: 'utf8', env: { ...process.env, HOME: dir, T3CODE_THREAD_ID: thread } })
+  for (const c of ['scripts/next-turn.py wt-grid', 'T3CODE_THREAD_ID=cos scripts/next-turn.py wt-grid', 'python3 scripts/next-turn.py --sim 123']) {
+    const r = hook(c, 'a-lead')
+    expect(r.status, c).toBe(2)
+    expect(r.stderr, c).toContain('Only the chief of staff')
+  }
+  expect(hook('scripts/next-turn.py wt-grid', 'cos').status).toBe(0)
+  expect(hook('scripts/next-turn.py --kept checks 1 x', 'a-lead').status).toBe(0)
+})
 
 test('the checks queue through scripts/checks.sh is the queue, for the hook and the engine', () => {
   const hook = (command: string) => spawnSync(HOOK, { input: JSON.stringify({ tool_input: { command } }), encoding: 'utf8' }).status
   for (const c of ['scripts/checks.sh nice -n 10 pnpm test', 'cd apps/ios && ../../scripts/checks.sh nice -n 10 xcodebuild build-for-testing -project a',
     '"$(git rev-parse --show-toplevel)/scripts/checks.sh" pnpm --filter site build']) expect(hook(c), c).toBe(0)
   expect(hook('scripts/checks.sh nice -n 10 xcodebuild test -project a')).toBe(2) // a simulator run is still sim-run's
-  expect(readFileSync(join(ROOT, 'scripts/cycle-checks.sh'), 'utf8')).toMatch(/\nchecks\(\) \{[^\n]*"\$CHECKS_SH" bash -c "\$1"/)
+  const cycle = readFileSync(join(ROOT, 'scripts/cycle-checks.sh'), 'utf8')
+  expect(cycle).toMatch(/\nturn\(\) \{ "\$CHECKS_SH" "\$@"; \}\nchecks\(\) \{[^\n]*else turn bash -c "\$1"/)
 })

@@ -108,10 +108,10 @@ def kept_for(argv):
         try:
             os.kill(int(who), 0)
             gone = False
-        except ProcessLookupError:
-            gone = True
         except PermissionError:  # another user's, alive
             gone = False
+        except (ProcessLookupError, OverflowError, ValueError):  # gone, or too large to be a process
+            gone = True
         mine = int(who) == os.getpid()
     else:
         gone, mine = False, who in " ".join([os.getcwd()] + argv)
