@@ -1,12 +1,12 @@
 {
   "id": "youtube-h_UXlf0XPTM",
-  "kind": "setup",
+  "kind": "care",
   "source": "youtube",
   "sourceUrl": "https://www.youtube.com/watch?v=h_UXlf0XPTM",
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "h_UXlf0XPTM",
     "title": "Thí nghiệm: Đá làm thay đổi PH và TDS trong bể thủy sinh như thế nào?",
@@ -36,7 +36,7 @@
         "category": "test-nuoc",
         "type": "test",
         "brand": "Sera",
-        "t": 240
+        "t": 250
       },
       {
         "category": "test-nuoc",
@@ -44,140 +44,144 @@
         "t": 398
       },
       {
-        "category": "be-ca",
-        "type": "nano",
-        "t": 230
-      },
-      {
         "category": "phan-nen",
         "type": "soi",
-        "t": 165
-      },
-      {
-        "category": "phan-nen",
-        "type": "la",
-        "t": 491
+        "t": 168
       },
       {
         "category": "phan-nen",
         "type": "phan",
         "brand": "ADA",
-        "t": 498
+        "t": 512
+      },
+      {
+        "category": "phan-nen",
+        "type": "la",
+        "t": 492
       },
       {
         "category": "co2",
         "t": 585
+      },
+      {
+        "category": "be-ca",
+        "type": "nano",
+        "t": 230
       }
     ],
     "figures": [
       {
-        "heading": "Thí nghiệm ngâm đá được làm thế nào",
+        "heading": "Sáu loại đá đem thử",
         "moments": [
           {
-            "t": 237,
-            "url": "https://media.aquatome.com/video/h_UXlf0XPTM/t237.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Các viên đá được xếp vào từng bể cubic đã chứa nước RO."
+            "t": 230,
+            "url": "https://media.aquatome.com/video/h_UXlf0XPTM/at230-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cầm một cục đá trên tay để xem kỹ bề mặt và độ nặng."
           },
           {
-            "t": 267,
-            "url": "https://media.aquatome.com/video/h_UXlf0XPTM/t267.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "So màu mẫu nước với bảng màu để đọc pH."
+            "t": 240,
+            "url": "https://media.aquatome.com/video/h_UXlf0XPTM/at240-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Thả các loại đá vào bể thử để xem đá trong nước."
+          }
+        ]
+      },
+      {
+        "heading": "Cách làm thí nghiệm",
+        "moments": [
+          {
+            "t": 270,
+            "url": "https://media.aquatome.com/video/h_UXlf0XPTM/at270-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "So màu mẫu nước đã nhỏ dung dịch với bảng màu test pH."
+          },
+          {
+            "t": 275,
+            "url": "https://media.aquatome.com/video/h_UXlf0XPTM/at275-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Thả đá vào từng bể cubic, mỗi bể một loại đá."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/h_UXlf0XPTM/p1-EU19tZXRlci5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/h_UXlf0XPTM/p1-EU19tZXRlci5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/h_UXlf0XPTM/p2-kcy1tZXRlci5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/h_UXlf0XPTM/p2-kcy1tZXRlci5qcGc-480.webp",
           "width": 960,
-          "height": 615,
+          "height": 1707,
           "licence": "CC BY-SA 3.0",
-          "author": "Morn",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:TDS_meter.jpg",
-          "caption": "Bút test TDS phổ biến dùng để đo nước RO trước và sau khi ngâm đá."
+          "author": "Spotless property",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tds-meter.jpg",
+          "caption": "Bút test TDS đang nhúng trong cốc nước để đo độ cứng."
         }
       },
       {
         "heading": "Kết quả sau một tuần ngâm",
         "moments": [
           {
-            "t": 227,
-            "url": "https://media.aquatome.com/video/h_UXlf0XPTM/t227.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cầm viên đá kẹp kem lên xem kỹ bề mặt."
+            "t": 330,
+            "url": "https://media.aquatome.com/video/h_UXlf0XPTM/at330-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh một khối đá ngâm trong bể kính để thử nước."
           },
           {
-            "t": 232,
-            "url": "https://media.aquatome.com/video/h_UXlf0XPTM/t232.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Thả viên đá vào bể kính để ngâm thử."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/h_UXlf0XPTM/p2-fUGFjaWZpYy5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/h_UXlf0XPTM/p2-fUGFjaWZpYy5qcGc-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Coughdrop12",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Live_rock_Aquarium_of_the_Pacific.jpg",
-          "caption": "Vài viên đá ngâm trong bể, nằm trên lớp sỏi nền."
-        }
-      },
-      {
-        "heading": "Tự kiểm tra đá và cát trước khi cho vào bể",
-        "moments": [
-          {
-            "t": 326,
-            "url": "https://media.aquatome.com/video/h_UXlf0XPTM/t326.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đá ngâm trong bể kính để thử TDS và pH."
-          },
-          {
-            "t": 331,
-            "url": "https://media.aquatome.com/video/h_UXlf0XPTM/t331.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Dùng bút đo TDS nước ngâm đá để so với mốc."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/h_UXlf0XPTM/p3-2YXJpdGllcy5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/h_UXlf0XPTM/p3-2YXJpdGllcy5qcGc-480.webp",
-          "width": 960,
-          "height": 454,
-          "licence": "CC BY-SA 4.0",
-          "author": "ANBARASU THIRAVIYAM",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Limestone_varities.jpg",
-          "caption": "Các mẫu đá vôi có dán nhãn, loại đá cần thử trước khi cho vào bể."
-        }
-      },
-      {
-        "heading": "Hạ pH mà không dùng dung dịch",
-        "moments": [
-          {
-            "t": 420,
-            "url": "https://media.aquatome.com/video/h_UXlf0XPTM/t420.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Nhúng que thử pH vào bể để kiểm tra độ pH của nước."
+            "t": 350,
+            "url": "https://media.aquatome.com/video/h_UXlf0XPTM/at350-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bốn bể ngâm đá xếp cạnh nhau, mỗi bể một loại đá."
           }
         ]
       },
       {
-        "heading": "Vì sao bể lâu năm tự ổn định pH và TDS",
+        "heading": "Thử cát thế nào",
         "moments": [
           {
-            "t": 490,
-            "url": "https://media.aquatome.com/video/h_UXlf0XPTM/t490.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đống lũa khô đang được lựa chọn, loại vật liệu làm pH giảm."
+            "t": 415,
+            "url": "https://media.aquatome.com/video/h_UXlf0XPTM/at415-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tay đang thao tác với dụng cụ thử nước trước dãy đá."
+          },
+          {
+            "t": 425,
+            "url": "https://media.aquatome.com/video/h_UXlf0XPTM/at425-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tay nhúng ống thử để đo nước đã ngâm mẫu thử."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/h_UXlf0XPTM/p4-bV93aW5kb3cuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/h_UXlf0XPTM/p4-bV93aW5kb3cuanBn-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Rhinopias",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xyrichtys_splendens_in_the_sand_against_aquarium_window.jpg",
+          "caption": "Lớp cát trắng mịn trong bể cá, có đá và cỏ nước phía trên."
+        }
+      },
+      {
+        "heading": "Hạ pH bằng vật liệu trong bể",
+        "moments": [
+          {
+            "t": 495,
+            "url": "https://media.aquatome.com/video/h_UXlf0XPTM/at495-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đống lũa khô được lựa chọn để bày trong bể thủy sinh."
+          },
+          {
+            "t": 500,
+            "url": "https://media.aquatome.com/video/h_UXlf0XPTM/at500-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh những cành lũa to nhỏ dùng để hạ pH."
           }
         ],
         "photo": {
@@ -187,8 +191,36 @@
           "height": 638,
           "licence": "CC BY 4.0",
           "author": "Abhik.Mazumdar.73",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_with_Mermaid_Statue_Driftwood_and_Anubias_Aquatic_Plants.jpg",
-          "caption": "Bể thủy sinh có lũa, cây thủy sinh và nền cát sáng màu."
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Decoration_Poseidon_Sculture_and_Mermaid_Statue_and_Driftwood_with_Anubias_Aquatic_Plants.jpg",
+          "caption": "Bể thủy sinh dùng nhiều lũa, cây xanh và nền cát trắng."
+        }
+      },
+      {
+        "heading": "Vì sao bể chạy lâu thì pH và TDS ổn định",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/h_UXlf0XPTM/p6-hX3NocmltcC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/h_UXlf0XPTM/p6-hX3NocmltcC5qcGc-480.webp",
+          "width": 960,
+          "height": 718,
+          "licence": "CC BY 4.0",
+          "author": "Snehayan",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Live_planted_aquarium_with_neocaridina_shrimp.jpg",
+          "caption": "Bể thủy sinh chạy lâu, cây lên xanh tốt cùng lũa và đá."
+        }
+      },
+      {
+        "heading": "Hạ pH bằng CO2",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/h_UXlf0XPTM/p7-FzY2FwaW5nLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/h_UXlf0XPTM/p7-FzY2FwaW5nLmpwZw-480.webp",
+          "width": 960,
+          "height": 338,
+          "licence": "CC BY 3.0",
+          "author": "Ghostsword",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Embalo_Aquascaping.jpg",
+          "caption": "Bể thủy sinh cây xanh um với đàn cá neon, kiểu bể hay dùng CO2."
         }
       }
     ]
