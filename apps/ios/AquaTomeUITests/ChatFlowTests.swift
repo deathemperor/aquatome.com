@@ -1,3 +1,4 @@
+import UIKit
 import XCTest
 
 /// The chat screen on the stand-in server (FakeChat: the contract's recorded answers, an event every half second): from a
@@ -78,6 +79,13 @@ final class ChatFlowTests: XCTestCase {
     more.tap()
     XCTAssertTrue(more.waitForNonExistence(timeout: 5), "Xem thêm stayed")
     XCTAssertGreaterThan(bubble.frame.height, cut * 1.5, "not opened whole")
+    // Opened, it stays open as the thread goes on: the next question doesn't make its turn a new view.
+    XCTAssertTrue(app.buttons.matching(identifier: "chat-chip").firstMatch.waitForExistence(timeout: 15), "no answer")
+    ask(app, "Neon ăn gì?")
+    XCTAssertTrue(soon(app.staticTexts.matching(identifier: "chat-question").count == 2), "the next question not asked")
+    XCTAssertGreaterThan(app.staticTexts.matching(identifier: "chat-question").element(boundBy: 0).frame.height, cut * 1.5,
+                         "closed again by the next question")
+    XCTAssertFalse(more.exists, "Xem thêm back under the question opened whole")
   }
 
   /// Long-pressed, the reader's question offers "Sao chép", which copies it as asked, and "Sửa và hỏi lại", which puts it
@@ -99,7 +107,9 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertTrue(paste.waitForExistence(timeout: 5), "no Dán in the box's menu")
     paste.tap()
     XCTAssertTrue(soon(box.value as? String == q), "not copied as asked: \(box.value ?? "")")
-    if app.keyboards.firstMatch.exists { element(app, "chat").swipeDown() }
+    // A drag down on the conversation, into the keyboard, lowers it (a flick doesn't reach it).
+    app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.3))
+      .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.97)), withVelocity: .slow, thenHoldForDuration: 0.1)
     XCTAssertTrue(app.keyboards.firstMatch.waitForNonExistence(timeout: 5), "the keyboard stayed")
     bubble.press(forDuration: 1)
     let edit = app.buttons["Sửa và hỏi lại"]
@@ -132,15 +142,21 @@ final class ChatFlowTests: XCTestCase {
     let app = launch()
     openChat(app)
     signIn(app)
-    ask(app, "Neon sống bao lâu?")
+    // A long first question, opened whole: the turns above the newest are taller than the screen.
+    ask(app, String(repeating: "Bể neon của mình bị rêu tóc mọc kín, ", count: 10))
     XCTAssertTrue(app.buttons.matching(identifier: "chat-chip").firstMatch.waitForExistence(timeout: 15), "no first answer")
+    let more = app.buttons["chat-more"]
+    reveal(app, more)
+    more.tap()
     ask(app, "Neon ăn gì?")
     let second = app.descendants(matching: .any).matching(identifier: "chat-answer").element(boundBy: 1)
     XCTAssertTrue(second.waitForExistence(timeout: 15), "no second answer")
     let toEnd = app.buttons["chat-to-end"]
     XCTAssertFalse(toEnd.exists, "a ↓ with the newest question on screen")
     repeatUntil(toEnd.exists, times: 4) { element(app, "chat").swipeDown() }
-    XCTAssertTrue(toEnd.exists, "no ↓ up in the earlier turn")
+    let questions = app.staticTexts.matching(identifier: "chat-question")
+    XCTAssertTrue(toEnd.exists, "no ↓ up in the earlier turn: the newest question at \(questions.element(boundBy: 1).frame), the box at "
+                  + "\(element(app, "chat-box").frame), the first question \(questions.element(boundBy: 0).frame.height) high")
     XCTAssertEqual(toEnd.label, "Xuống cuối cuộc trò chuyện")
     toEnd.tap()
     XCTAssertTrue(toEnd.waitForNonExistence(timeout: 5), "the ↓ stayed at the end")
@@ -165,15 +181,15 @@ final class ChatFlowTests: XCTestCase {
     reveal(app, app.buttons["put-on-tank"])
     XCTAssertFalse(element(app, "chat-entry").exists, "the chat's entry signed out")
     app.navigationBars.buttons.element(boundBy: 0).tap()
+    // Out of the search, where the bar shows the profile button again.
+    for word in ["Đóng", "Hủy"] where app.buttons[word].firstMatch.waitForExistence(timeout: 2) { app.buttons[word].firstMatch.tap() }
     app.openAccount()
     let apple = element(app, "apple-sign-in")
     reveal(app, apple)
     apple.tap()
     XCTAssertTrue(apple.waitForNonExistence(timeout: 10), "still signed out")
     app.closeAccount()
-    let row = app.descendants(matching: .any).matching(identifier: "item").firstMatch
-    XCTAssertTrue(row.waitForExistence(timeout: 5), "not back on Tìm's list")
-    row.tap()
+    open(app, "Ca neon")
     let entry = element(app, "chat-entry")
     reveal(app, entry)
     XCTAssertTrue(entry.exists, "no entry once signed in")
@@ -197,7 +213,9 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertTrue(about.waitForExistence(timeout: 5), "no chat")
     XCTAssertTrue(about.label.contains("Về: ảnh của bạn"), about.label)
     XCTAssertTrue(about.label.contains("Gần như chắc chắn Cá neon, có thể Green neon tetra"), about.label)
-    XCTAssertTrue(app.staticTexts["Claude (AI của Anthropic) trả lời theo cẩm nang AquaTome, chỗ nào cẩm nang chưa nói đến thì dùng kiến thức chung về nuôi cá. AquaTome không gửi ảnh của bạn kèm câu hỏi."].exists)
+    // By its label: XCUITest refuses an identifier query this long.
+    let line = "Claude (AI của Anthropic) trả lời theo cẩm nang AquaTome, chỗ nào cẩm nang chưa nói đến thì dùng kiến thức chung về nuôi cá. AquaTome không gửi ảnh của bạn kèm câu hỏi."
+    XCTAssertTrue(app.staticTexts.matching(NSPredicate(format: "label == %@", line)).firstMatch.exists, "not the line about who answers, with the photo")
     XCTAssertTrue(app.buttons["Làm sao phân biệt với green neon tetra?"].exists, "no starter telling the guesses apart")
   }
 
@@ -249,6 +267,14 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertTrue(card.staticTexts["Câu trả lời bị ngắt giữa chừng"].exists)
     XCTAssertTrue(card.staticTexts["Câu hỏi này không bị tính."].exists)
     XCTAssertTrue(element(app, "chat-answer").exists, "what was read went")
+    // The app closed and opened again, still signed in: the text and its card as they were, not a counted failure.
+    app.terminate()
+    app.launchArguments.removeAll { $0 == "-reset-defaults" || $0 == "-reset-fake-server" }
+    app.launchForFlow()
+    openChat(app)
+    XCTAssertTrue(card.waitForExistence(timeout: 10), "back as a counted failure")
+    XCTAssertTrue(card.staticTexts["Câu hỏi này không bị tính."].exists, "back as counted")
+    XCTAssertTrue(element(app, "chat-answer").exists, "what was read went with the app")
     let again = app.buttons["chat-again"]
     XCTAssertEqual(again.label, "Hỏi lại")
     again.tap()
@@ -349,6 +375,24 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertEqual(element(app, "chat-length").label, "501/500")
     XCTAssertTrue(app.staticTexts["Câu hỏi đã quá 500 ký tự. Rút gọn rồi gửi nhé."].exists)
     XCTAssertFalse(app.buttons["chat-send"].isEnabled)
+  }
+
+  /// Counted in characters as the reader sees them, as the box and the Worker count: 300 fish (600 UTF-16 units) under
+  /// a limit of 500 go when sent.
+  func testAQuestionUnderTheLimitAsTheReaderCountsItGoes() {
+    let app = launch()
+    openChat(app)
+    signIn(app)
+    UIPasteboard.general.string = String(repeating: "🐟", count: 300)
+    let box = element(app, "chat-box")
+    box.press(forDuration: 1.2)
+    let paste = app.menuItems["Dán"]
+    XCTAssertTrue(paste.waitForExistence(timeout: 5), "no Dán in the box's menu")
+    paste.tap()
+    let send = app.buttons["chat-send"]
+    XCTAssertTrue(soon(send.isEnabled), "send off under the limit")
+    send.tap()
+    XCTAssertTrue(app.staticTexts["chat-question"].waitForExistence(timeout: 5), "sent, and nothing went")
   }
 
   /// A Worker that takes less than its status said: the question it refused as too long back in the box, which says its
