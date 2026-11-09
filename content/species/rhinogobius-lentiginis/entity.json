@@ -1,0 +1,149 @@
+{
+  "id": "rhinogobius-lentiginis",
+  "scientificName": "Rhinogobius lentiginis",
+  "order": "Perciformes",
+  "family": "Gobiidae",
+  "genus": "Rhinogobius",
+  "group": "gobies",
+  "places": [
+    "asia",
+    "china",
+    "zhejiang"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 16,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 3.2
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-lentiginis",
+      "html": "<p>Rhinogobius lentiginis is a small goby that appears endemic to Zhejiang province, eastern China, growing to around 32 mm SL. Given its natural range and the lack of commercial collecting there, it is unlikely to have been in the aquarium hobby. Irregular dark blotches and spots on the cheek and opercle separate it from its most similar congener, R. davidi, which has a single dark vertical stripe there.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-lentiginis",
+      "html": "<p>Appears endemic to Zhejiang province, eastern China with records existing from the Cheng-Tang, Ling, and O river systems.</p><p>Type locality is 'Taintai County at Lingjiang River, 29°N, 121°20'E, China'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-lentiginis",
+      "html": "<p>Inhabits smaller rivers, tributaries and streams with substrates of gravel, rocks, boulders, and exposed bedrock which undergo seasonal variations in water flow rate, depth and turbidity.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-lentiginis",
+      "html": "<p>An aquarium with base dimensions of 60 × 30 cm (about 54 litres) should prove large enough to house a small group.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-lentiginis",
+      "html": "<ul><li>Temperature: 16–24°C</li><li>pH: 6.0–8.0</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-lentiginis",
+      "html": "<p>Rhinogobius spp. tend to be opportunistic carnivores feeding on a range of small invertebrates, crustaceans and similar in nature.</p><p>In the aquarium they should be offered small live or frozen foods such as chironomid (bloodworm) or mosquito larvae, Artemia, Daphnia, Mysis, etc.</p><p>Dried foods may be accepted following a period of acclimatisation but should not be used regularly.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-lentiginis",
+      "html": "<p>Images would suggest that males develop extended rays in the first dorsal-fin.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-lentiginis",
+      "html": "<p>It's unlikely that this species has been in the aquarium hobby given its natural range and the lack of commercial fishing for the ornamental trade in that area.</p><p>Among congeners it's most similar to R. davidi but can be told apart by presence of 8 (vs. always 9 in R. davidi) soft dorsal-fin rays, 10 (vs. 11-12) transverse scale rows, and 6-7 (vs. 8-10) scales between the first dorsal-fin origin and upper pectoral-fin base.</p><p>In addition R. lentiginis possesses a number of irregular dark blotches and spots on the cheek and opercle, vs. a single, dark vertical stripe in R. davidi and lacks, vs. possesses, cephalic lateralis canals.</p><p>The Gobiidae is the most speciose vertebrate family and notoriously problematic in terms of identifying fishes down to species level.</p><p>The genus is widely-distributed throughout much of continental Asia in Russia, Korea, China, Vietnam, Laos, Cambodia, and Thailand, plus numerous islands of the Western Pacific including Japan, Taiwan, Hainan, and the Philippines.</p><p>There currently exist over 60 recognised species with many more awaiting formal description, and a number of the described ones are only considered nominal taxa pending additional study.</p><p>The fused pelvic fins form a structure normally referred to as the 'pelvic disc', a common feature among gobiids which is used to adhere to rocks and other submerged surfaces.</p><p>Rhinogobius spp. also exhibit different reproductive strategies depending on environment, with those inhabiting rivers connected directly to the sea typically amphidromous, and those landlocked in upper reaches of rivers or lakes non-diadromous.</p><p>Many of those appearing in the aquarium trade have proven difficult to identify for a number of reasons including:</p><ul><li>taxonomic confusion.</li><li>lack of aquarium literature.</li><li>incorrect labelling by exporters and subsequently shops.</li><li>historical over-use of some names, e.g., 'Rhinogobius wui', long treated as a synonym of R. duospilus and now recognised as a valid species.</li><li>likely trade of undescribed species without locality data.</li><li>mixing of species at export facilities.</li></ul>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-lentiginis",
+      "html": "<ul><li>Chen, I-S. and P. J. Miller (1998). Redescription of a Chinese freshwater goby, Gobius davidi (Gobiidae), and comparison with Rhinogobius lentiginis. Cybium 22(3), 211-221</li><li>Yang, J.-Q., H.-L. Wu and I-S. Chen (2008). A new species of Rhinogobius (Teleostei: Gobiidae) from the Feiyunjiang Basin in Zhejiang Province, China. Ichthyological Research 55(4), 379-385</li><li>Chen, I-S., Y.-H. Cheng, and K.-T. Shao (2008). A new species of Rhinogobius (Teleostei: Gobiidae) from the Julongjiang basin in Fujian Province, China. Ichthyological Research 55(4), 335-343</li><li>Li, F. and J.-S. Zhong (2007). A new Rhinogobius species from Zhejiang Province, China (Teleostei: Gobiidae). Zoological Research 28(5), 539-544</li><li>Chen, I-S., H.-L. Wu, and K.-T. Shao (1999). A new species of Rhinogobius (Teleostei: Gobiidae) from Fujian Province, China. Ichthyological Research 46(2), 171-178</li></ul>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "artemia đông lạnh",
+        "bo bo"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "máy bơm sục khí"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi nền bể cá",
+        "đá cuội trang trí bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

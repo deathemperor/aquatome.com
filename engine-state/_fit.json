@@ -103854,5 +103854,470 @@
     "checklist": 3,
     "findings": [],
     "products": []
+  },
+  "vi/species/crenicichla-albopunctata": {
+    "at": "2026-11-09",
+    "hash": "2dfdf67e980d2bc9",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/crenicichla-proteus": {
+    "at": "2026-11-09",
+    "hash": "c0f0bf18d5bcdc00",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/dawkinsia-exclamatio": {
+    "at": "2026-11-09",
+    "hash": "512ec7f12d53b654",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/haplochromis-nyererei": {
+    "at": "2026-11-09",
+    "hash": "a67d732284446e4d",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/hemichromis-bimaculatus": {
+    "at": "2026-11-09",
+    "hash": "1a38a9e32aef0899",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/pseudohemiodon-laticeps": {
+    "at": "2026-11-09",
+    "hash": "680b2b2f2aeabbd4",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/pseudomugil-cyanodorsalis": {
+    "at": "2026-11-09",
+    "hash": "704bf0edb0d5191e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [],
+    "doses": [
+      {
+        "treatment": "sea salt",
+        "strength": "",
+        "amount": 1,
+        "amountMax": 0,
+        "unit": "teaspoon",
+        "per": 10,
+        "perUnit": "litre",
+        "use": "water",
+        "method": "wholeTank",
+        "quote": "cho 1 muỗng cà phê muối biển vào mỗi 10 lít nước bể"
+      }
+    ],
+    "sourceRead": true
+  },
+  "vi/species/pseudomugil-tenellus": {
+    "at": "2026-11-09",
+    "hash": "94e5388ebaa442a2",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/pseudomystus-stenomus": {
+    "at": "2026-11-09",
+    "hash": "847f2287749b02ce",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/pseudopimelodus-bufonius": {
+    "at": "2026-11-09",
+    "hash": "51372eb124e58694",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/pseudotropheus-johannii": {
+    "at": "2026-11-09",
+    "hash": "d82e474eec75c766",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/pterophyllum-leopoldi": {
+    "at": "2026-11-09",
+    "hash": "7bb24258121877ce",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/pungu-maclareni": {
+    "at": "2026-11-09",
+    "hash": "71ea1c23784f9ca1",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/puntius-chola": {
+    "at": "2026-11-09",
+    "hash": "a32a911c7c2f09e7",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/puntius-terio": {
+    "at": "2026-11-09",
+    "hash": "13a82fd2926a7111",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/puntius-vittatus": {
+    "at": "2026-11-09",
+    "hash": "c62ea43b29cca1b5",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/pygocentrus-cariba": {
+    "at": "2026-11-09",
+    "hash": "6f8e725864095fb9",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P7",
+        "quote": "cá con có thể cho ăn trùng chỉ đỏ (ấu trùng muỗi chironomid)",
+        "why": "Literal rendering of 'bloodworm'; Vietnamese keepers call these trùng huyết, while trùng chỉ means tubifex.",
+        "by": "model",
+        "fix": "trùng huyết"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/rasbora-dandia": {
+    "at": "2026-11-09",
+    "hash": "98354c7b9f9a4e7c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P11",
+        "quote": "Lần này trứng được hút sang một thùng nhỏ hơn, vì những lần đẻ trước cá bố mẹ có vẻ đã ăn hết trứng.",
+        "why": "Tells the original breeders' own spawning story ('this time') as if the reader knew it.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/rasbora-dorsinotata": {
+    "at": "2026-11-09",
+    "hash": "34898c34eab3fc56",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/rasbora-lacrimula": {
+    "at": "2026-11-09",
+    "hash": "0392b7ef2f0897fc",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/reganochromis-calliurus": {
+    "at": "2026-11-09",
+    "hash": "e1f4035952fb86d9",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/rhaphiodon-vulpinus": {
+    "at": "2026-11-09",
+    "hash": "a84bce1cc594dbbf",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/rhinodoras-dorbignyi": {
+    "at": "2026-11-09",
+    "hash": "7aeb3d0db7e016d7",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/rhinogobius-candidianus": {
+    "at": "2026-11-09",
+    "hash": "31aefb8245d3f50c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/rhinogobius-filamentosus": {
+    "at": "2026-11-09",
+    "hash": "8783699a98905bbc",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P2",
+        "quote": "Những con trong ảnh được bắt ở Quảng Tây.",
+        "why": "Refers to photos from the original source that this page does not have.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/rhinogobius-formosanus": {
+    "at": "2026-11-09",
+    "hash": "c37c797d91f96a3c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/rhinogobius-gigas": {
+    "at": "2026-11-09",
+    "hash": "c5d25866bb9c4fce",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/rhinogobius-lanyuensis": {
+    "at": "2026-11-09",
+    "hash": "dac317404ea13232",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/rhinogobius-leavelli": {
+    "at": "2026-11-09",
+    "hash": "b3f3f9ae18f818c9",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P10",
+        "quote": "Trong các loài có bán vào lúc viết bài",
+        "why": "Refers to when the source article was written, a time the reader cannot know.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/rhinogobius-lentiginis": {
+    "at": "2026-11-09",
+    "hash": "94f3e2b1011dea01",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P7",
+        "quote": "Nhìn hình thì có vẻ cá đực có các tia kéo dài ở vây lưng thứ nhất.",
+        "why": "Refers to pictures from the original source that this page doesn't have.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/rhinogobius-maculafasciatus": {
+    "at": "2026-11-09",
+    "hash": "2db551d7c6d18fc7",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/rhinogobius-nantaiensis": {
+    "at": "2026-11-09",
+    "hash": "fae3ad80cd341858",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/rhinogobius-rubromaculatus": {
+    "at": "2026-11-09",
+    "hash": "24e308c928b62869",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/rhinogobius-similis": {
+    "at": "2026-11-09",
+    "hash": "3212168eda46f63e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/rhinogobius-yaoshanensis": {
+    "at": "2026-11-09",
+    "hash": "3c36cb2b32d99422",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P8",
+        "quote": "Cá trong ảnh thì bắt ở gần nơi thu mẫu chuẩn.",
+        "why": "Refers to a photo from the source article that this page does not have.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/rhynchodoras-woodsi": {
+    "at": "2026-11-09",
+    "hash": "e69590aa69d742b8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/rineloricaria-parva": {
+    "at": "2026-11-09",
+    "hash": "b720c591590894f5",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P5",
+        "quote": "Lá sồi và lá dẻ gai (beech) không độc và rất hợp. Thêm vài cành cây cong queo (cành dẻ gai cũng tốt)",
+        "why": "Oak and beech leaves and branches are collected in cool-climate countries and are not readily available to a keeper in Vietnam.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/sandelia-bainsii": {
+    "at": "2026-11-09",
+    "hash": "8485dbba4663a98a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/sandelia-capensis": {
+    "at": "2026-11-09",
+    "hash": "9feeee61bc833307",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/sarotherodon-melanotheron": {
+    "at": "2026-11-09",
+    "hash": "d8ae85bb345b8809",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/satanoperca-daemon": {
+    "at": "2026-11-09",
+    "hash": "cede73bf3a029b41",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/satanoperca-leucosticta": {
+    "at": "2026-11-09",
+    "hash": "59c481734f50212b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/satanoperca-lilith": {
+    "at": "2026-11-09",
+    "hash": "1ad83b381f4b2e6e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/satanoperca-mapiritensis": {
+    "at": "2026-11-09",
+    "hash": "1da57839518850d5",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/satanoperca-rhynchitis": {
+    "at": "2026-11-09",
+    "hash": "44232d66e2f62e2a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/schistura-aizawlensis": {
+    "at": "2026-11-09",
+    "hash": "95c045f946332642",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/schistura-alticrista": {
+    "at": "2026-11-09",
+    "hash": "43c0874a135a8945",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P8",
+        "quote": "nhất là cá bơi ngoài vùng nước trống như Danio, Devario",
+        "why": "Calque of English 'open-water swimmers'; local keepers describe these fish by the water layer they swim in.",
+        "by": "model",
+        "fix": "cá bơi tầng giữa, tầng mặt"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/schistura-callichromus": {
+    "at": "2026-11-09",
+    "hash": "02a93e0736cc0e62",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
   }
 }

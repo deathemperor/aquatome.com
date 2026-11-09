@@ -1,0 +1,164 @@
+{
+  "id": "crenicichla-proteus",
+  "scientificName": "Crenicichla proteus",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Crenicichla",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "ecuador",
+    "rio-napo",
+    "peru",
+    "rio-ucayali",
+    "brazil",
+    "rio-purus"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 15
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/saxatilia-proteus",
+      "html": "<p>The Proteus pike cichlid, Saxatilia proteus, is one of the smaller pike cichlids, known from Ecuador, Peru and Brazil. It is occasionally offered for sale and more than makes up for its size in aggression, especially towards conspecifics. It will eat any fish small enough to be considered food, so suits a tank of larger cichlids or a species-only set-up.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/saxatilia-proteus",
+      "html": "<p>Ecuador, Peru and Brazil. In Ecuador it's known from the Rio Napo and Rio Putumayo. In Peru its range extends from the Rio Ucayali to the Rio Pebas. Populations have also been recorded from the Rio Purus in Brazil.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/saxatilia-proteus",
+      "html": "<p>Well planted shallows.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/saxatilia-proteus",
+      "html": "<p>Standard length: 150 mm SL (15 cm). Aquarium base: 120 × 38 cm. Volume: ~137 litres (120 × 38 × 30 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/saxatilia-proteus",
+      "html": "<p>Sand substrate is recommended. This species is likely to dig and arrange the decor to suit itself. Some rockwork should be provided to form caves as pikes like to have an area to which they can retreat. Plants should be robust, ideally potted or rooted to bogwood.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/saxatilia-proteus",
+      "html": "<ul><li>Temperature: 24–27°C</li><li>pH: 6.0–7.0</li><li>Hardness: up to 15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/saxatilia-proteus",
+      "html": "<p>Feed a varied diet including a good quality cichlid pellet or flake, live or frozen foods, such as bloodworm or brineshrimp and vegetable matter in the form of spirulina or algae wafers.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/saxatilia-proteus",
+      "html": "<p>Can be aggressive, especially towards conspecifics. May be kept with other larger cichlids or as a species-only setup. Likely to eat any fish small enough to be considered food - and they have big mouths!</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/saxatilia-proteus",
+      "html": "<p>Male is larger and likely to be more prominently marked.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/saxatilia-proteus",
+      "html": "<p>Has not been bred in the hobby.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/saxatilia-proteus",
+      "html": "<p>Saxatilia proteus is occasionally offered for sale. It is one of the smaller pike cichlids, although more than makes up for that in terms of aggression! It was moved from Crenicichla proteus to Saxatilia proteus in 2023.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "cát sông thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cichlid",
+        "viên cho cá săn mồi"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 200W",
+        "máy sưởi thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

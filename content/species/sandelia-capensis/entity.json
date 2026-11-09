@@ -1,0 +1,181 @@
+{
+  "id": "sandelia-capensis",
+  "scientificName": "Sandelia capensis",
+  "order": "Perciformes",
+  "family": "Anabantidae",
+  "genus": "Sandelia",
+  "group": "labyrinth",
+  "places": [
+    "africa",
+    "south-africa",
+    "cape-province"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 18,
+          "max": 22
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 7.2
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 21.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sandelia-capensis",
+      "html": "<p>The Cape kurper, Sandelia capensis, is an anabantoid endemic to the Cape Province, South Africa, found in the middle to lower reaches of many rivers. Its habitats are being destroyed and its numbers declining through introduced predators, damming, pollution and climatic changes. Genetic studies have revealed at least two, possibly several, deep lineages, and these would appear to indicate multiple species.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sandelia-capensis",
+      "html": "<p>Endemic to the Cape Province, South Africa. It's quite widely distributed and can be found in the middle to lower reaches of many rivers.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sandelia-capensis",
+      "html": "<p>Inhabits various biotopes from rocky, flowing streams to more sluggish, heavily-vegetated waters. Apparently it prefers quieter marginal areas, where it shelters among rocks, submerged roots and branches or aquatic plants.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sandelia-capensis",
+      "html": "<p>A 120 × 45 × 45 cm (~243 litres) tank should be the minimum size considered.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sandelia-capensis",
+      "html": "<p>A heavily-furnished setup is recommended. A well planted tank with some twisted roots, branches and a layer of floating vegetation would work very well. Alternatively, using a sandy substrate with scattered water-worn rocks would also replicate some of its biotopes accurately.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sandelia-capensis",
+      "html": "<ul><li>Temperature: 18–22°C</li><li>pH: 6.5–7.2</li><li>Hardness: 5–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sandelia-capensis",
+      "html": "<p>In nature it feeds on smaller fish, aquatic invertebrates and even crabs. Thankfully it seems to adapt well to dead alternatives in captivity. Offer a varied diet containing meaty foods such as bloodworm, prawn, mussel, earthworms etc.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sandelia-capensis",
+      "html": "<p>Keep alone to avoid any possibility of disease transfer or death of these fish due to aggression from tankmates.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sandelia-capensis",
+      "html": "<p>The male is the more colourful sex.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sandelia-capensis",
+      "html": "<p>Certainly possible if the species ever becomes available. It's been bred in captivity at the Albany Museum in South Africa. During spawning the male chooses a site on the substrate, which is defended aggressively from other males. He also takes on a patterning of dark vertical bars with black fins, and a darkening of the lower mouthparts. Passing females are courted with displays of bubble blowing. The advanced stages of courtship involve some fairly vigorous chasing and biting, at the climax of which the pair spawn. There are conflicting reports regarding the spawning act itself, but the most detailed record that the pair does not come together in any kind of \"embrace\" typical of other anabantids. Instead the female simply lays her eggs over the spawning site, while the male takes up position behind her. These are adhesive and drop directly onto the substrate, where they take hold. When all the eggs have been laid, the male moves over them and releases his milt. Post spawning the male chases the female away, assuming sole responsibility for guarding and tending the brood.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sandelia-capensis",
+      "html": "<p>There are only two described species in the genus Sandelia. Both have limited natural ranges in parts of South Africa, which in itself is odd as they're completely isolated from other genera of anabantoids. This is probably due to some ancient radiation of species, but as yet remains unresolved. Sandelia spp. are also considered the most primitive of anabantids, as they possess a less well-developed labyrinth organ than their relatives. S. capensis is of considerable conservation importance as some of its habitats are being destroyed and its numbers declining. Various factors are to blame, including introduced predators, damming, pollution and climatic changes. While it's currently considered a single species, genetic studies have revealed that there are at least two, possibly several deep lineages. This would appear to indicate the presence of multiple species, and would likely cause its conservation status to be reviewed.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/816542a16e11f76d.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC0",
+      "author": "Andrew Deacon",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sandelia_capensis_55681549.jpg",
+      "caption": "Cape Kurper (Sandelia capensis)",
+      "thumb": "https://media.aquatome.com/commons/816542a16e11f76d-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/1132737dd84c74f1.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC BY 2.0",
+      "author": "Brian Gratwicke",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sandelia_capensis.jpg",
+      "caption": "Sandelia capensis in Cape Town, South Africa",
+      "thumb": "https://media.aquatome.com/commons/1132737dd84c74f1-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "quạt làm mát bể cá",
+        "máy làm lạnh nước bể cá"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 240 lít",
+        "máy bơm sục khí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "thức ăn cho cá ăn thịt"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

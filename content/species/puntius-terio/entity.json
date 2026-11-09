@@ -1,0 +1,171 @@
+{
+  "id": "puntius-terio",
+  "scientificName": "Puntius terio",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Puntius",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "pakistan",
+    "indus",
+    "india",
+    "ganges",
+    "nepal",
+    "bangladesh",
+    "brahmaputra"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 18,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 9
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 80
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-terio",
+      "html": "<p>Max size: 90 mm SL (9 cm). Aquarium size: 80 × 30 cm. Temperature: 18–26°C. pH: 6.5–7.5. Hardness: 2–12 dGH.</p><p>The onespot barb, Puntius terio, is a cyprinid widely distributed from Pakistan through northern India, Nepal and Bangladesh. Its range covers parts of the Indus, Ganges and Brahmaputra drainages, where it apparently prefers stiller waters over mud or silt. Populations vary in colour pattern to an extent, but all share a diffuse yellow-golden marking on the operculum and a dark spot on the caudal peduncle.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-terio",
+      "html": "<p>Widely distributed from Pakistan, throughout northern India (records exist from the states of Uttar Pradesh, Bihar, Assam, Manipur, Meghalaya, West Bengal, and Orissa), Nepal, and Bangladesh, a range encompassing parts of the Indus, Ganges, and Brahmaputra river drainages plus many of their affluents.</p><p>A single record from Hyderabad, Andhra Pradesh state, India, is apparently in need of confirmation.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-terio",
+      "html": "<p>Probably varies with locality and time of year but likely to be found in small streams and rivers rather than main river channels, entering temporarily inundated zones during the wet season.</p><p>It apparently shows a preference for stiller waters and substrates of mud or silt.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-terio",
+      "html": "<p>Base dimensions of at least 80 × 30 cm or equivalent are required (approximately 72 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-terio",
+      "html": "<p>Fairly easy to maintain provided a dedicated maintenance routine is adhered to, with choice of décor more-or-less down to personal taste.</p><p>A natural-style arrangement could include a substrate of sand or gravel with plenty of larger, water-worn rocks and pebbles plus some driftwood or twisted roots and branches.</p><p>Lighting can be relatively subdued and plants able to grow in such conditions from genera such as Microsorum, Taxiphyllum, or Anubias spp. added if you wish.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-terio",
+      "html": "<ul><li>Temperature: 18–26°C</li><li>pH: 6.5–7.5</li><li>Hardness: 2–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-terio",
+      "html": "<p>Likely to be a foraging omnivore feeding on worms, insects and other small invertebrates, as well as plant material and organic detritus.</p><p>In the aquarium it's easily fed, but for the best condition and colours offer regular meals of small live and frozen foods such as bloodworm, Daphnia, and Artemia, alongside good quality dried flakes and granules, at least some of which should include additional plant or algal content.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-terio",
+      "html": "<p>This species is generally peaceful and an ideal resident of the well-researched community aquarium.</p><p>As it places no special demands in terms of water chemistry it can be combined with many of the most popular fish in the hobby including other small cyprinids as well as tetras, livebearers, rainbowfishes, anabantoids, catfishes, and loaches.</p><p>It's a schooling species by nature and ideally should be kept in a group of at least 8-10 specimens.</p><p>Maintaining it in decent numbers will not only make the fish less nervous but result in a more effective, natural-looking display, plus males will also display their best colours as they compete with one other for female attention.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-terio",
+      "html": "<p>Adult males are slightly smaller, slimmer, and display more intense colour pattern than females, especially in the extent of yellow-golden pigmentation on the caudal peduncle.</p><p>In well-conditioned individuals of certain populations this can extend along the flank to the operculum and tends to intensify in nuptial specimens.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-terio",
+      "html": "<p>Unrecorded.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-terio",
+      "html": "<p>This species is uncommon in the aquarium trade which is a little surprising given its huge natural range.</p><p>Different populations can vary in colour pattern to an extent though all share the defining aspects given by Hamilton, comprising a diffuse yellow-golden marking on the operculum plus a dark spot on the caudal peduncle.</p><p>The latter is usually surrounded by a variably-sized golden-yellow margin, and the dorsal fin often contains irregular dark spots and streaks, these sometimes forming a longitudinal band.</p><p>The genus Puntius was viewed as a polyphyletic catch-all containing over 100 species of small to mid-sized cyprinid for a number of years until Pethiyagoda et al. (2012) published a partial review covering South Asian members.</p><p>The majority of sub-Himalayan Puntius species were reclassified and new genera Dawkinsia, Dravidia, and Pethia erected to accommodate some of them, with the remainder either retained in Puntius or moved to the existing Systomus assemblage, though the definition of the latter was altered meaning some Southeast Asian species formerly placed there are no longer members.</p><p>It subsequently became clear that the name Dravidia was preoccupied by a genus of flesh fly, therefore the replacement name Haludaria was made available by Pethiyagoda (2013).</p><p>P. terio was retained in Puntius sensu stricto, of which members are defined by the following combination of characters: adult size usually less than 120 mm SL; maxillary barbels absent or present; rostral barbels absent; 3-4 unbranched and 8 branched dorsal-fin rays; 3 unbranched and 5 branched anal-fin rays; last unbranched dorsal-fin ray weak or strong and unserrated; lateral line complete with 22-28 pored body scales; free uroneural present; gill rakers simple and acuminate (not branched or laminate); no antrorse predorsal spinous ray; post-epiphysial fontanelle usually present (except in P. bimaculatus and P. titteya); 4 supraneurals; infraorbital 3 slender; 5th ceratobranchial narrow; pharyngeal teeth 5 + 3 + 2; 12-14 abdominal and 14-16 caudal vertebrae; colour pattern including a (sometimes faint) blackish spot on the caudal peduncle.</p><p>No species from Indochina, China, or Indonesia were included in the study meaning a significant number of former Puntius are currently classed as incertae sedis, i.e., of uncertain taxonomic placement, and this also applies to a number of South Asian species of unresolved status.</p><p>They're perhaps best referred to as 'Puntius' for the time being whereby the genus name is surrounded by quotation marks to denote its questionable usage, and that is the convention used here at the moment.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/puntius-terio",
+      "html": "<ul><li>Hamilton, F. (1822). An account of the fishes found in the river Ganges and its branches. An account of the fishes found in the river Ganges and its branches., i-vii + 1-405</li><li>Pethiyagoda, R., M. Meegaskumbura, and K. Maduwage (2012). A synopsis of the South Asian fishes referred to Puntius (Pisces: Cyprinidae). Ichthyological Exploration of Freshwaters 23(1), 69-95</li><li>Kullander, S. O. (2008). Five new species of Puntius from Myanmar (Teleostei: Cyprinidae). Ichthyological Exploration of Freshwaters 19(1), 59-84</li><li>Kullander, S. O. and F. Fang (2005). Two new species of Puntius from northern Myanmar (Teleostei: Cyprinidae). Copeia 2005(2), 290-302</li><li>Pethiyagoda, R. (2013). Haludaria, a replacement generic name for Dravidia (Teleostei: Cyprinidae). Zootaxa 3646(2), 199</li></ul>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 80cm",
+        "máy lọc nước hồ cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá barb",
+        "thức ăn cá cảnh dạng mảnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền hồ cá",
+        "sỏi nền bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}
