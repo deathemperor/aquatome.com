@@ -87,7 +87,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nắp tạm bằng tấm xốp đặt lên miệng bể, hở khe các phía.",
-            "sharpness": 260.4
+            "sharpness": 260.4,
+            "person": false
           },
           {
             "t": 40,
@@ -95,7 +96,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể được đậy bằng tấm xốp và miếng đen, còn nhiều khe hở.",
-            "sharpness": 335.7
+            "sharpness": 335.7,
+            "person": false
           }
         ]
       },
@@ -108,15 +110,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Tấm kính đặt làm nắp trên mặt bể.",
-            "sharpness": 230.7
-          },
-          {
-            "t": 330,
-            "url": "https://media.aquatome.com/video/KDbGcwFCT7M/at330-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể có lũa, tay cầm các mảnh kính nhỏ để ghép làm nắp.",
-            "sharpness": 527.4
+            "sharpness": 230.7,
+            "person": false
           }
         ],
         "photo": {
@@ -132,24 +127,7 @@
       },
       {
         "heading": "Chọn vật liệu làm nắp",
-        "moments": [
-          {
-            "t": 440,
-            "url": "https://media.aquatome.com/video/KDbGcwFCT7M/at440-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cầm tấm nhựa trong xem thử ở khu tấm nhựa.",
-            "sharpness": 427.6
-          },
-          {
-            "t": 445,
-            "url": "https://media.aquatome.com/video/KDbGcwFCT7M/at445-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tấm nhựa sóng được lấy ra từ kệ ở trung tâm vật liệu.",
-            "sharpness": 97.5
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/KDbGcwFCT7M/p2-JkX0FMVF8yLnBuZw.webp",
           "thumb": "https://media.aquatome.com/video/KDbGcwFCT7M/p2-JkX0FMVF8yLnBuZw-480.webp",
@@ -170,15 +148,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nắp nhựa nằm phẳng trên miệng bể, có chỗ khoét cho lũa nhô lên.",
-            "sharpness": 136
-          },
-          {
-            "t": 540,
-            "url": "https://media.aquatome.com/video/KDbGcwFCT7M/at540-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tấm nhựa có chỗ khoét cho đường ống lọc luồn lên.",
-            "sharpness": 118.3
+            "sharpness": 136,
+            "person": false
           }
         ]
       },
@@ -191,7 +162,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nắp kính trong đặt phía trên bể, nhìn rõ đèn và mặt nước.",
-            "sharpness": 736.8
+            "sharpness": 736.8,
+            "person": false
           },
           {
             "t": 625,
@@ -199,7 +171,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh bật đèn sáng, không đậy nắp, cây phát triển tốt.",
-            "sharpness": 1154
+            "sharpness": 1154,
+            "person": false
           }
         ],
         "photo": {

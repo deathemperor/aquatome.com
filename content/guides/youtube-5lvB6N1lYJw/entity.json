@@ -52,7 +52,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá lớn bơi trong bể sâu, đáy có đá, không có lũa cao.",
-            "sharpness": 46
+            "sharpness": 46,
+            "person": false
           }
         ],
         "photo": {
@@ -75,7 +76,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá oscar bơi trong bể có các khối đá và lũa trên nền cát.",
-            "sharpness": 80.1
+            "sharpness": 80.1,
+            "person": false
           }
         ],
         "photo": {
@@ -98,15 +100,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Khúc lũa lớn nằm trong bể, có cá bơi gần bên.",
-            "sharpness": 85.1
-          },
-          {
-            "t": 450,
-            "url": "https://media.aquatome.com/video/5lvB6N1lYJw/at450-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các khúc lũa lớn được xếp thành cụm ở góc bể.",
-            "sharpness": 186.6
+            "sharpness": 85.1,
+            "person": false
           }
         ],
         "photo": {
@@ -129,7 +124,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây giả bằng lụa rủ xuống cạnh cụm lũa, cá đang bơi quanh.",
-            "sharpness": 182.1
+            "sharpness": 182.1,
+            "person": false
           }
         ]
       },
@@ -142,7 +138,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đá xếp thành cụm phía sau, có cột sủi khí bên cạnh.",
-            "sharpness": 178.3
+            "sharpness": 178.3,
+            "person": false
           },
           {
             "t": 950,
@@ -150,7 +147,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cụm đá xếp ở phía sau trong hồ, nền cát sáng.",
-            "sharpness": 473.3
+            "sharpness": 473.3,
+            "person": false
           }
         ]
       }

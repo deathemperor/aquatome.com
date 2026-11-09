@@ -127,65 +127,16 @@
     ],
     "figures": [
       {
-        "heading": "Kiểm tra gì trước khi sửa bể cũ",
-        "moments": [
-          {
-            "t": 70,
-            "url": "https://media.aquatome.com/video/IvUQMwrsjyc/at70-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể kính khung kim loại cũ đã dọn sạch, sẵn sàng kiểm tra mối nối.",
-            "sharpness": 501.5
-          },
-          {
-            "t": 130,
-            "url": "https://media.aquatome.com/video/IvUQMwrsjyc/at130-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh mối nối ở góc bể với đường silicone đen và nhựa đường.",
-            "sharpness": 441.8
-          }
-        ]
-      },
-      {
-        "heading": "Tháo đá phiến và kính khỏi khung thế nào",
-        "moments": [
-          {
-            "t": 220,
-            "url": "https://media.aquatome.com/video/IvUQMwrsjyc/at220-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể kính nhỏ trong khung kim loại, mối silicone ở các cạnh cần xử lý.",
-            "sharpness": 486.9
-          },
-          {
-            "t": 230,
-            "url": "https://media.aquatome.com/video/IvUQMwrsjyc/at230-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh mối nối góc bể kính, nơi silicone cũ cần cạo sạch.",
-            "sharpness": 248.5
-          }
-        ]
-      },
-      {
         "heading": "Làm sạch khung và thay kính mới",
         "moments": [
-          {
-            "t": 270,
-            "url": "https://media.aquatome.com/video/IvUQMwrsjyc/at270-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khung hồ kim loại đã được làm sạch, đặt trong thùng.",
-            "sharpness": 324.7
-          },
           {
             "t": 300,
             "url": "https://media.aquatome.com/video/IvUQMwrsjyc/at300-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Tra dầu vào bánh cắt kính trên khăn trước khi rạch kính.",
-            "sharpness": 134.6
+            "sharpness": 134.6,
+            "person": false
           }
         ],
         "photo": {
@@ -208,7 +159,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Tấm đá phiến đặt trên bàn, chuẩn bị làm đáy bể.",
-            "sharpness": 52.9
+            "sharpness": 52.9,
+            "person": false
           },
           {
             "t": 390,
@@ -216,49 +168,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bơm silicone dọc mép khung bể đã dán băng keo xanh.",
-            "sharpness": 405
-          }
-        ]
-      },
-      {
-        "heading": "Lắp lại bể và thử nước thế nào",
-        "moments": [
-          {
-            "t": 400,
-            "url": "https://media.aquatome.com/video/IvUQMwrsjyc/at400-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bơm silicone vào góc rãnh khung bể, xung quanh đã dán băng keo xanh.",
-            "sharpness": 479.8
-          },
-          {
-            "t": 410,
-            "url": "https://media.aquatome.com/video/IvUQMwrsjyc/at410-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lắp tấm kính vào khung bể đã dán băng keo che.",
-            "sharpness": 2337.7
-          }
-        ]
-      },
-      {
-        "heading": "Vì sao nên dán bố cục ở ngoài bể",
-        "moments": [
-          {
-            "t": 580,
-            "url": "https://media.aquatome.com/video/IvUQMwrsjyc/at580-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bơm keo dán lũa vào khối đá dragon ở ngoài bể.",
-            "sharpness": 235.5
-          },
-          {
-            "t": 600,
-            "url": "https://media.aquatome.com/video/IvUQMwrsjyc/at600-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ráp khối lũa và đá trên tấm nhựa ngoài bể.",
-            "sharpness": 644.7
+            "sharpness": 405,
+            "person": false
           }
         ]
       },
@@ -271,7 +182,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cụm đá dragon và lũa nhiều nhánh, đặt cùng một hướng.",
-            "sharpness": 710.6
+            "sharpness": 710.6,
+            "person": false
           },
           {
             "t": 700,
@@ -279,7 +191,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đá và lũa được xếp trong bể, bố cục che phần phía sau.",
-            "sharpness": 209.1
+            "sharpness": 209.1,
+            "person": false
           }
         ]
       },
@@ -292,7 +205,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Khối đá lũa đã đặt lại trên lớp nền, cây bắt đầu lên xanh.",
-            "sharpness": 154.9
+            "sharpness": 154.9,
+            "person": false
           }
         ],
         "photo": {

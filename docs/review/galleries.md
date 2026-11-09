@@ -7,10 +7,10 @@ Written by `pnpm engine gallery` (2026-11-09). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 131 | 79 | 24 | 30 | 204 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 472 | 22 | 9 | 14 | 489 |
-| rest | 20 | 1531 | 80 | 0 | 28 | 1583 |
+| covered | 30 | 495 | 23 | 9 | 14 | 513 |
+| rest | 20 | 1579 | 79 | 0 | 28 | 1630 |
 
-## Short of target: every source read (200)
+## Short of target: every source read (211)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -215,4 +215,15 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/herichthys-carpintis | shop | 18 | 60 |
 | species/monopterus-albus | shop | 30 | 60 |
 | species/mastacembelus-erythrotaenia | shop | 6 | 60 |
+| species/macrognathus-siamensis | shop | 5 | 60 |
+| species/mastacembelus-armatus | shop | 1 | 60 |
+| species/trichopodus-trichopterus | shop | 52 | 60 |
+| species/trichopodus-leerii | shop | 19 | 60 |
+| species/botia-kubotai | shop | 2 | 60 |
+| species/yasuhikotakia-modesta | shop | 2 | 60 |
+| species/parambassis-ranga | shop | 2 | 60 |
+| species/scatophagus-argus | shop | 42 | 60 |
+| species/aphyocharax-anisitsi | shop | 1 | 60 |
+| species/nematobrycon-lacortei | shop | 0 | 60 |
+| species/moenkhausia-sanctaefilomenae | shop | 8 | 60 |
 | species/betta-macrostoma | covered | 0 | 30 |

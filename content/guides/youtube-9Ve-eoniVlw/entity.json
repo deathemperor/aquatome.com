@@ -70,16 +70,7 @@
       },
       {
         "heading": "Các nguyên liệu khác và công dụng",
-        "moments": [
-          {
-            "t": 530,
-            "url": "https://media.aquatome.com/video/9Ve-eoniVlw/at530-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hũ bột xanh (spirulina) dùng làm nguyên liệu trộn thức ăn cho cá.",
-            "sharpness": 14.3
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/9Ve-eoniVlw/p2-Rfc2hyaW1wLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/9Ve-eoniVlw/p2-Rfc2hyaW1wLmpwZw-480.webp",
@@ -93,16 +84,7 @@
       },
       {
         "heading": "Làm và cấp đông thế nào",
-        "moments": [
-          {
-            "t": 710,
-            "url": "https://media.aquatome.com/video/9Ve-eoniVlw/at710-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Túi zip đựng hỗn hợp thức ăn xay, ép dẹt để cấp đông.",
-            "sharpness": 343.3
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/9Ve-eoniVlw/p3-VyX2Nsb3NlLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/9Ve-eoniVlw/p3-VyX2Nsb3NlLmpwZw-480.webp",
@@ -123,7 +105,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá đĩa và cá nhỏ trong bể, gần rễ cây thủy sinh.",
-            "sharpness": 108.6
+            "sharpness": 108.6,
+            "person": false
           },
           {
             "t": 900,
@@ -131,7 +114,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể có cá đĩa và đàn cá nhỏ bơi cùng nhau.",
-            "sharpness": 165
+            "sharpness": 165,
+            "person": false
           }
         ]
       },
@@ -144,7 +128,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá đĩa bơi gần gốc lũa trong bể trồng cây.",
-            "sharpness": 26.1
+            "sharpness": 26.1,
+            "person": false
           },
           {
             "t": 140,
@@ -152,7 +137,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá đĩa bơi sát nền cát trong bể.",
-            "sharpness": 32.2
+            "sharpness": 32.2,
+            "person": false
           }
         ]
       },
@@ -165,7 +151,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể cá đĩa đang ăn, cho thấy đàn cá được nuôi bằng món tự làm.",
-            "sharpness": 120.8
+            "sharpness": 120.8,
+            "person": false
           }
         ],
         "photo": {

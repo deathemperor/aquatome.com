@@ -115,44 +115,16 @@
     ],
     "figures": [
       {
-        "heading": "Cần khoan những lỗ nào trên bể",
-        "moments": [
-          {
-            "t": 65,
-            "url": "https://media.aquatome.com/video/KSLgl3QmGUw/at65-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đầu nối xuyên kính (bulkhead) cầm trên tay, sẵn sàng gắn vào bể.",
-            "sharpness": 293.6
-          },
-          {
-            "t": 70,
-            "url": "https://media.aquatome.com/video/KSLgl3QmGUw/at70-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Siết đầu nối xuyên kính vào lỗ khoan trên mặt kính bể.",
-            "sharpness": 388.3
-          }
-        ]
-      },
-      {
         "heading": "Làm ống tường nhỏ giọt thế nào",
         "moments": [
-          {
-            "t": 155,
-            "url": "https://media.aquatome.com/video/KSLgl3QmGUw/at155-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đoạn ống PVC trắng và co 90 độ chuẩn bị gắn vào nhau.",
-            "sharpness": 1094.5
-          },
           {
             "t": 225,
             "url": "https://media.aquatome.com/video/KSLgl3QmGUw/at225-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Co 90 độ đã gắn sát kính, ôm vào tấm background.",
-            "sharpness": 416.7
+            "sharpness": 416.7,
+            "person": false
           }
         ]
       },
@@ -160,20 +132,13 @@
         "heading": "Đi ống từ bể xuống sump ra sao",
         "moments": [
           {
-            "t": 255,
-            "url": "https://media.aquatome.com/video/KSLgl3QmGUw/at255-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khoan lắp đầu nối ống ở thành bể phía sau.",
-            "sharpness": 402.9
-          },
-          {
             "t": 315,
             "url": "https://media.aquatome.com/video/KSLgl3QmGUw/at315-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Ống nhựa dẻo siết đai kẹp, đi gọn cùng dây điện trong tủ.",
-            "sharpness": 264.4
+            "sharpness": 264.4,
+            "person": false
           }
         ]
       },
@@ -186,7 +151,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đầu nối gắn vào lỗ khoan trên thành ngăn hồi của sump.",
-            "sharpness": 90.5
+            "sharpness": 90.5,
+            "person": false
           },
           {
             "t": 345,
@@ -194,7 +160,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Chỉnh lịch và lưu lượng bơm CJ Syncra SDC trên điện thoại.",
-            "sharpness": 650.3
+            "sharpness": 650.3,
+            "person": false
           }
         ]
       },
@@ -202,41 +169,13 @@
         "heading": "Dán phim kính và trải nền",
         "moments": [
           {
-            "t": 400,
-            "url": "https://media.aquatome.com/video/KSLgl3QmGUw/at400-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Xịt dung dịch lên kính hông trước khi dán phim.",
-            "sharpness": 1477.8
-          },
-          {
             "t": 420,
             "url": "https://media.aquatome.com/video/KSLgl3QmGUw/at420-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Kính hông đã dán phim đen, che kín silicone và background.",
-            "sharpness": 1214.1
-          }
-        ]
-      },
-      {
-        "heading": "Trồng cây và giữ rêu trên vách thế nào",
-        "moments": [
-          {
-            "t": 440,
-            "url": "https://media.aquatome.com/video/KSLgl3QmGUw/at440-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nước chảy xuống vách tường nhỏ giọt, cây xanh mọc ở góc bể.",
-            "sharpness": 1069.2
-          },
-          {
-            "t": 450,
-            "url": "https://media.aquatome.com/video/KSLgl3QmGUw/at450-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh cây lá xanh được gắn vào vách đá, có tay đang chỉnh.",
-            "sharpness": 1510
+            "sharpness": 1214.1,
+            "person": false
           }
         ]
       },
@@ -249,7 +188,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây cối xanh tốt trong bể hoàn thiện, nhìn gần từ phía trên.",
-            "sharpness": 2516.3
+            "sharpness": 2516.3,
+            "person": false
           },
           {
             "t": 575,
@@ -257,7 +197,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể đã thả lá khô trên nền, cây xanh rậm phía trên.",
-            "sharpness": 2518.9
+            "sharpness": 2518.9,
+            "person": false
           }
         ]
       }

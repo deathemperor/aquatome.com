@@ -51,7 +51,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá bảy màu bơi giữa bể thủy sinh nhiều cây.",
-            "sharpness": 388.4
+            "sharpness": 388.4,
+            "person": false
           }
         ]
       },
@@ -87,32 +88,15 @@
         "heading": "Cái giá của việc tách cá: làm thêm bể",
         "moments": [
           {
-            "t": 98,
-            "url": "https://media.aquatome.com/video/A7UY_Sa4t7s/at98-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cho tôm ăn trong bể thủy sinh đầy cây.",
-            "sharpness": 93.3
-          },
-          {
             "t": 102,
             "url": "https://media.aquatome.com/video/A7UY_Sa4t7s/at102-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh chạy ổn định, tôm và cây lên xanh tốt.",
-            "sharpness": 257.1
+            "sharpness": 257.1,
+            "person": false
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/A7UY_Sa4t7s/p3-hX3NocmltcC5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/A7UY_Sa4t7s/p3-hX3NocmltcC5qcGc-480.webp",
-          "width": 960,
-          "height": 718,
-          "licence": "CC BY 4.0",
-          "author": "Snehayan",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Live_planted_aquarium_with_neocaridina_shrimp.jpg",
-          "caption": "Bể thủy sinh chạy ổn định, cây rậm rạp, cá nhỏ bơi lội bên lũa."
-        }
+        ]
       },
       {
         "heading": "Cá con đông lên thì sao",
@@ -123,7 +107,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể trồng nhiều cây, có lũa và chỗ trốn cho đàn cá.",
-            "sharpness": 1112.5
+            "sharpness": 1112.5,
+            "person": false
           }
         ],
         "photo": {
