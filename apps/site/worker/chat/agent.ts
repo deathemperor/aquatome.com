@@ -1,6 +1,6 @@
 import type Anthropic from '@anthropic-ai/sdk'
 import { runAgent, type AgentRun, type Limits } from '../agent/loop'
-import { ANSWER_SCHEMA, fill, OFF_TOPIC, readAnswer, textReader, type Answer, type ChatBlock } from './answer'
+import { ANSWER_SCHEMA, filler, OFF_TOPIC, picksReader, readAnswer, textReader, type Answer, type ChatBlock, type Choice } from './answer'
 import type { Handbook, Lang } from './handbook'
 import type { MatesCheck } from './mates'
 import { chatTools, type Step, type Tank } from './tools'
@@ -126,19 +126,36 @@ export type ChatOptions = {
   onStep?: (step: Step) => void
   /** The answer's text as Claude writes it: pieces of it, decoded, in order; joined, the answer's text. */
   onText?: (piece: string) => void
+  /**
+   * With `onText`: each block once it is filled, while the answer's call still writes (the picks after its text), in
+   * order. The run's `blocks` start with them; the rest are filled once the run ends, as every block is without a stream.
+   */
+  onBlock?: (block: ChatBlock) => void
   clock?: () => number
 }
 
 /**
- * `send`, with each call's text read as it comes (`textReader`) and given to `onText`. A call that has given the reader
- * any text is the answer: its tool calls are dropped and the run ends on it, since what the reader has read can't be
- * taken back.
+ * `send`, with each call's text read as it comes (`textReader`) and given to `onText`, then, once the text has shown, its
+ * picks as each is written (`picksReader`) to `onPick`. A call that has given the reader any text is the answer: its tool
+ * calls are dropped and the run ends on it, since what the reader has read can't be taken back.
  */
-function streaming(send: ChatOptions['send'], onText: (piece: string) => void): ChatOptions['send'] {
+function streaming(send: ChatOptions['send'], onText: (piece: string) => void, onPick?: (pick: Choice) => void): ChatOptions['send'] {
   return async (body, opts) => {
     const read = textReader()
+    const picks = picksReader()
     let shown = false
-    const m = await send(body, { ...opts, onText: delta => { const piece = read(delta); if (piece) { shown = true; onText(piece) } } })
+    let stuck = false
+    const m = await send(body, {
+      ...opts,
+      onText: delta => {
+        const piece = read(delta)
+        if (piece) { shown = true; onText(piece) }
+        // A reader that can't read on stops reading: it never fails the call (its cards then come once the run ends).
+        let picked: Choice[] = []
+        try { picked = onPick && !stuck ? picks(delta) : [] } catch (e) { stuck = true; console.error('chat picks:', e) }
+        if (shown) picked.forEach(p => onPick!(p))
+      },
+    })
     if (!shown) return m
     return { ...m, content: m.content.filter(b => b.type !== 'tool_use'), stop_reason: m.stop_reason === 'tool_use' ? 'end_turn' : m.stop_reason }
   }
@@ -148,9 +165,20 @@ function streaming(send: ChatOptions['send'], onText: (piece: string) => void): 
 export async function answerQuestion(o: ChatOptions): Promise<ChatRun> {
   // What check_tank_mates answered: a tank-mates block goes out with the check Claude read (answer.ts `fill`).
   const checks: MatesCheck[] = []
+  // The blocks, filled one pick at a time: while the answer's call writes when it streams, once the run ends otherwise.
+  const startedOn = o.start.from === 'species' ? o.start.about : undefined
+  const blocks = filler(o.handbook, checks, o.earlier.flatMap(t => t.blocks), startedOn)
+  let picked = 0
+  let filling = Promise.resolve()
+  const onPick = o.onBlock && ((p: Choice) => {
+    picked++
+    filling = filling.then(async () => { const b = await blocks.add(p); if (b) o.onBlock!(b) })
+    // Awaited once the run ends; until then, a failed fill isn't a stray rejection.
+    filling.catch(() => undefined)
+  })
   // No `recheck` here: an answer that may be sent back must not stream, as the reader would have read the one it replaces.
   const run = await runAgent<Step>({
-    send: o.onText ? streaming(o.send, o.onText) : o.send,
+    send: o.onText ? streaming(o.send, o.onText, onPick) : o.send,
     model: o.model,
     system: SYSTEM,
     tools: chatTools({ handbook: o.handbook, tanks: o.tanks, checks }),
@@ -168,7 +196,9 @@ export async function answerQuestion(o: ChatOptions): Promise<ChatRun> {
   // An off-topic question gets the Worker's own line in the reader's language, and nothing else Claude wrote.
   const read = run.message ? readAnswer(run.message) : undefined
   const answer = read?.offTopic ? { ...read, text: OFF_TOPIC[o.lang] } : read
-  const startedOn = o.start.from === 'species' ? o.start.about : undefined
-  const filled = answer ? await fill(answer, o.handbook, checks, o.earlier.flatMap(t => t.blocks), startedOn) : { blocks: [], dropped: [] }
+  await filling
+  // The picks the stream didn't fill (all of them, when the text didn't stream): the same picks, as both read the same JSON.
+  if (answer) for (const p of answer.blocks.slice(picked)) await blocks.add(p)
+  const filled = answer ? blocks.done() : { blocks: [], dropped: [] }
   return { ...run, ...(answer ? { answer } : {}), ...filled }
 }

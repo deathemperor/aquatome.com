@@ -313,13 +313,16 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   const tally: Record<string, number> = {}
   const attempts: Attempt[] = []
   const began = clock()
-  /** When the stream sent the text's first piece. */
+  /** On a stream: when it sent the text's first piece and its last; when the run ended; when it sent `done` (or its error). */
   let wordsAt: number | undefined
+  let lastAt: number | undefined
+  let answeredAt: number | undefined
+  let doneAt: number | undefined
   /** The run as the agent ran it, for its transcript: none when it never started (the handbook unread). */
   let trail: ChatRun | undefined
 
   /** The run, after admission: its turn, or the error it ends on (as the JSON answer's status). */
-  const work = async (onStep?: (s: Step) => void, onText?: (piece: string) => void): Promise<{ status: number; body: Record<string, unknown> }> => {
+  const work = async (onStep?: (s: Step) => void, onText?: (piece: string) => void, onBlock?: (b: ChatBlock) => void): Promise<{ status: number; body: Record<string, unknown> }> => {
     // Read inside the run, which outlives a dropped connection: read before it, a drop would leave the mark and the ledger open.
     const hb = await handbookOf(deps.source ?? assetSource(env, url.origin), q.lang).catch(e => { console.error('chat handbook:', e); return null })
     if (!hb) return { status: 503, body: { error: 'unavailable' } }
@@ -368,7 +371,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
         model, lang: q.lang, question: q.question, earlier: conv?.turns ?? [], start: (conv?.turns.length ? {} : q.start), handbook: hb,
         tanks: () => tanksOf(env.DB, session.userId, now).catch(e => { console.error('chat tanks:', e); return null }),
         onStep, clock,
-        ...(onText ? { onText: (piece: string) => { shown = true; onText(piece) } } : {}),
+        ...(onText ? { onText: (piece: string) => { shown = true; onText(piece) }, ...(onBlock ? { onBlock } : {}) } : {}),
       })
       trail = out
       if (out.dropped.length) console.log(JSON.stringify({ chat: 'dropped', dropped: out.dropped }))
@@ -396,25 +399,17 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   }
 
   /**
-   * After the run: the outcome is kept for retries, then the conversation gets the turn (or just loses its mark), then
-   * the ledger settles. In that order: a retry that finds no mark finds the kept answer, and never runs the question again.
+   * After the run: the outcome is kept for retries, then the conversation gets the turn (or just loses its mark). In that
+   * order: a retry that finds no mark finds the kept answer, and never runs the question again. Then the ledger settles.
+   * The reader's answer waits for these alone, so a question asked right after it finds the conversation free and the
+   * count already given back.
    */
-  const finish = async (done: { status: number; body: Record<string, unknown> }) => {
+  const save = async (done: { status: number; body: Record<string, unknown> }) => {
     const turn = done.status === 200 ? done.body as unknown as Turn : undefined
     const next: Conversation = { created: mark.created, turns: turn ? [...mark.turns, { n: turn.n, question: q.question, text: turn.text, blocks: turn.blocks, at: clock() }] : mark.turns }
     const k: Kept = turn ? { at: clock(), turn } : { at: clock(), status: done.status, error: String(done.body.error) }
     if (keptKey) await env.UPLOADS.put(keptKey, JSON.stringify(k)).catch(e => console.error('chat kept:', e))
-    // The transcript beside the conversation: never in the reader's way, so one that can't be made or saved is only logged.
-    const record = (() => { try { return trail && JSON.stringify(transcript(done, trail)) } catch (e) { console.error('chat transcript:', e) } })()
-    const runKey = record ? transcriptKey(account, q.conversation, (conv?.turns.length ?? 0) + 1, run) : ''
-    await Promise.all([
-      env.UPLOADS.put(convKey, JSON.stringify(next)).catch(e => console.error('chat conversation:', e)),
-      record && env.UPLOADS.put(runKey, record).catch(e => console.error('chat transcript:', e)),
-    ])
-    // The account deleted while this ran (deleteUser): what it just wrote goes too. Its account still there, deleteUser's
-    // second pass, after the account's rows, comes after these writes and deletes them.
-    const still = await env.DB.prepare('SELECT 1 FROM users WHERE id = ?').bind(session.userId).first().catch(() => true)
-    if (!still) await env.UPLOADS.delete([convKey, ...(keptKey ? [keptKey] : []), ...(runKey ? [runKey] : [])]).catch(e => console.error('chat deleted account:', e))
+    await env.UPLOADS.put(convKey, JSON.stringify(next)).catch(e => console.error('chat conversation:', e))
     await Promise.all(spends)
     // Our side failed (503: no key, Claude unreachable): the reader's count goes back. So does a question that wasn't about
     // fishkeeping (the owner's rule), up to a day's worth of them, so looping off-topic questions can't use up chat's own
@@ -425,15 +420,28 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
     const cutOff = !turn && wordsAt !== undefined
     await ledger.settle({ day, run, refund: done.status === 503 || cutOff, ...(offTopic ? { offTopic: perAccount } : {}), keys: tally, ...(ok ? { ok } : {}) }).catch(e => console.error('chat settle:', e))
   }
+  /** Then, once the reader has the answer: the transcript, and the check for an account deleted meanwhile. */
+  const after = async (done: { status: number; body: Record<string, unknown> }) => {
+    // The transcript beside the conversation: never in the reader's way, so one that can't be made or saved is only logged.
+    const record = (() => { try { return trail && JSON.stringify(transcript(done, trail)) } catch (e) { console.error('chat transcript:', e) } })()
+    const runKey = record ? transcriptKey(account, q.conversation, (conv?.turns.length ?? 0) + 1, run) : ''
+    if (record) await env.UPLOADS.put(runKey, record).catch(e => console.error('chat transcript:', e))
+    // The account deleted while this ran (deleteUser): what it just wrote goes too. Its account still there, deleteUser's
+    // second pass, after the account's rows, comes after these writes and deletes them.
+    const still = await env.DB.prepare('SELECT 1 FROM users WHERE id = ?').bind(session.userId).first().catch(() => true)
+    if (!still) await env.UPLOADS.delete([convKey, ...(keptKey ? [keptKey] : []), ...(runKey ? [runKey] : [])]).catch(e => console.error('chat deleted account:', e))
+  }
 
+  const since = (t: number | undefined) => (t === undefined ? undefined : t - now.getTime())
   /** What the question said and did (transcript.ts): what the reader asked and got, never who they are. */
   const transcript = (done: { status: number; body: Record<string, unknown> }, t: ChatRun): ChatRunRecord => {
     const s = t.spent
     return {
       v: 1, conversation: q.conversation, n: (conv?.turns.length ?? 0) + 1, at: now.toISOString(), lang: q.lang, model,
       question: q.question, outcome: done.status === 200 ? 'ok' : String(done.body.error), ms: clock() - began,
-      // From the question's arrival: to the run's start (the session, the conversation, the ledger), to the first words.
-      timing: { before: began - now.getTime(), ...(wordsAt !== undefined ? { words: wordsAt - now.getTime() } : {}) },
+      // From the question's arrival: to the run's start (the session, the conversation, the ledger); on a stream, to the
+      // text's first piece and its last, the run's end, and `done` (the turn saved).
+      timing: { before: began - now.getTime(), words: since(wordsAt), last: since(lastAt), answered: since(answeredAt), done: since(doneAt) },
       cost: costOf(model, s), tokens: { input: s.input + s.cacheRead + s.cacheWrite, output: s.output },
       agent: { calls: t.calls, tools: t.tools, stopped: t.stopped },
       ...(t.answer ? { answer: { text: t.answer.text, covered: t.answer.covered, ...(t.answer.offTopic ? { offTopic: true } : {}), blocks: t.blocks.length, dropped: t.dropped } } : {}),
@@ -443,14 +451,15 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
 
   if (!stream) {
     // The run goes on if the reader's connection drops (waitUntil), so its retry gets its answer and the mark clears.
-    const p = work().then(async done => { await finish(done); return done })
-    wait(p.catch(() => undefined))
+    const p = work().then(async done => { await save(done); return done })
+    wait(p.then(after).catch(() => undefined))
     const done = await p
     return json(done.body, done.status)
   }
-  // The stream: steps as they happen, then the text as Claude writes it, the blocks, and done (the whole turn); or error.
-  // Pings while it works. Every step comes before the text: the run ends on the call that writes it (agent.ts
-  // `streaming`). Done comes once the turn is saved: a question asked right after it finds the conversation free.
+  // The stream: steps as they happen, then the text as Claude writes it, the blocks as Claude picks them, and done (the
+  // whole turn); or error. Pings while it works. Every step comes before the text: the run ends on the call that writes
+  // it (agent.ts `streaming`), and its picks come after its text. Done comes once the turn is saved and settled (`save`): a
+  // question asked right after it finds the conversation free.
   const enc = new TextEncoder()
   const { readable, writable } = new TransformStream<Uint8Array, Uint8Array>()
   const w = writable.getWriter()
@@ -459,18 +468,27 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   const ping = setInterval(() => send(': ping\n\n'), PING_MS)
   wait((async () => {
     let shown = false
-    const done = await work(step => send(sse('step', step)), piece => { if (!shown) wordsAt = clock(); shown = true; send(sse('text', { text: piece })) })
+    let sent = 0
+    const done = await work(
+      step => send(sse('step', step)),
+      piece => { if (!shown) wordsAt = clock(); shown = true; lastAt = clock(); send(sse('text', { text: piece })) },
+      block => { sent++; send(sse('block', block)) },
+    )
+    answeredAt = clock()
     const t = done.status === 200 ? done.body as unknown as Turn : undefined
     if (t) {
-      // An off-topic answer's line, the Worker's own, comes whole, as does a text that didn't stream.
-      if (!shown) { wordsAt = clock(); send(sse('text', { text: t.text })) }
-      for (const b of t.blocks) send(sse('block', b))
+      // An off-topic answer's line, the Worker's own, comes whole, as does a text that didn't stream; then the blocks the
+      // stream didn't send as Claude picked them (all of them, then).
+      if (!shown) { wordsAt = lastAt = clock(); send(sse('text', { text: t.text })) }
+      for (const b of t.blocks.slice(sent)) send(sse('block', b))
     }
-    await finish(done)
+    await save(done)
     clearInterval(ping)
     if (t) send(sse('done', t))
     else send(sse('error', { error: done.status === 502 ? 'failed' : done.body.error === 'resting' ? 'resting' : 'unavailable' }))
+    doneAt = clock()
     await w.close().catch(() => {})
+    await after(done)
   })())
   return new Response(readable, { headers: streamHeaders })
 }

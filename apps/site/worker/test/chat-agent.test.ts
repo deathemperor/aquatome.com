@@ -5,7 +5,7 @@ import type { PageDoc } from '@aq/schema/app-page'
 import { LANGS } from '@aq/schema/langs'
 import { expect, test } from 'vitest'
 import { answerQuestion, CHAT_LIMITS, firstMessage, HANDBOOK, LAST_WORD, SYSTEM, unaccented, type Start } from '../chat/agent'
-import { ANSWER_SCHEMA, fill, MAX_BLOCKS, MIN_TEXT, OFF_TOPIC, readAnswer, textReader, type Answer, type Choice } from '../chat/answer'
+import { ANSWER_SCHEMA, fill, MAX_BLOCKS, MIN_TEXT, OFF_TOPIC, picksReader, readAnswer, textReader, type Answer, type Choice } from '../chat/answer'
 import { handbookOf, type Handbook, type Item, type Source } from '../chat/handbook'
 import { fold, search, searchTopics } from '../chat/search'
 import { heldOf, topicsOf, type Topics } from '../chat/topics'
@@ -785,6 +785,51 @@ test('the pieces joined are the answer\'s text, however its JSON is cut and what
   }
 })
 
+test('each pick comes out as Claude closes it, once, however the JSON is cut and whatever its strings hold; nothing after the blocks', () => {
+  const picks = [
+    pick({ ids: ['paracheirodon-innesi'] }),
+    pick({ t: 'section', path: '/vi/huong-dan/a/', heading: 'b' }),
+    pick({ t: 'tool', tool: 'tank-mates', fish: [{ id: 'paracheirodon-innesi', count: 8 }, { id: 'betta-splendens', count: 1 }], tank: { l: 60, w: 30, h: 36 } }),
+  ]
+  // Braces, brackets, commas, quotes and backslashes in strings: in the text, and in the suggestions after the blocks.
+  const raw = JSON.stringify({ offTopic: false, text: 'Bể {60} cm ["blocks"], 1, 2 \\ "x" }]', covered: true, blocks: picks, suggestions: ['{"t":"species"} [x]?'] })
+  for (const n of [1, 2, 3, 7, 13, raw.length]) {
+    const read = picksReader()
+    const got: { to: number; p: Choice }[] = []
+    for (let i = 0; i < raw.length; i += n) for (const p of read(raw.slice(i, i + n))) got.push({ to: Math.min(i + n, raw.length), p })
+    expect(got.map(g => g.p), `${n}`).toEqual(picks)
+    // Each from the part that closes it.
+    got.forEach((g, k) => { const end = raw.indexOf(JSON.stringify(picks[k])) + JSON.stringify(picks[k]).length; expect(g.to - n < end && end <= g.to, `${n}: pick ${k}`).toBe(true) })
+  }
+  // JSON's space around its marks; no blocks.
+  expect(picksReader()(' { "offTopic" : false , "text" : "x" , "blocks" : [ { "t" : "species" , "ids" : [ "a" ] } ] }')).toEqual([{ t: 'species', ids: ['a'] }])
+  expect(picksReader()('{"offTopic":false,"text":"x","blocks":[],"suggestions":[{"t":"species"}]}')).toEqual([])
+})
+
+test('with onBlock, each block goes out as Claude picks it, after its text, in order, and they are the run\'s blocks; none from a call whose text didn\'t stream', async () => {
+  const blocks = [pick({ ids: ['paracheirodon-innesi'] }), pick({ ids: ['no-such-fish'] }), pick({ t: 'tool', tool: 'tank-volume', tank: { l: 60, w: 30, h: 36 } })]
+  const final = { offTopic: false, text: 'Cá neon xanh sống theo đàn, từ 6 con.', covered: true, blocks, suggestions: [] }
+  const order: string[] = []
+  const out = await answerQuestion({
+    send: streamed([{ type: 'text', text: JSON.stringify(final) }]),
+    model: 'claude-opus-5-5', lang: 'vi', question: 'Nuôi cá neon thế nào?', earlier: [], start: {}, handbook: await hb(), tanks: async () => [],
+    onText: () => order.push('text'), onBlock: b => order.push(b.t),
+  })
+  expect(out.blocks.map(b => b.t)).toEqual(['species', 'tool'])
+  expect(out.dropped).toHaveLength(1)
+  expect(order.filter(x => x !== 'text')).toEqual(['species', 'tool'])
+  expect(order.lastIndexOf('text')).toBeLessThan(order.indexOf('species'))
+  // The same answer with its keys in another order: its text doesn't stream, and its blocks come with the run's end only.
+  const late: string[] = []
+  const plain = await answerQuestion({
+    send: streamed([{ type: 'text', text: JSON.stringify({ text: final.text, offTopic: false, covered: true, blocks, suggestions: [] }) }]),
+    model: 'claude-opus-5-5', lang: 'vi', question: 'Nuôi cá neon thế nào?', earlier: [], start: {}, handbook: await hb(), tanks: async () => [],
+    onText: () => late.push('text'), onBlock: b => late.push(b.t),
+  })
+  expect(plain.blocks.map(b => b.t)).toEqual(['species', 'tool'])
+  expect(late).toEqual([])
+})
+
 test('a call that has given the reader text is the answer: a tool call after it doesn\'t run, and the run ends on it', async () => {
   const final = { offTopic: false, text: 'Cá neon xanh sống theo đàn, từ 6 con.', covered: true, blocks: [], suggestions: [] }
   const said: string[] = []
@@ -816,6 +861,24 @@ test('the reader gets the answer\'s text in pieces that join to it; each call is
   expect(said.length).toBeGreaterThan(1)
   expect(said.every(p => p.length > 0)).toBe(true)
   expect(said.join('')).toBe(out.answer!.text)
+})
+
+test('words before a tool call that look like broken JSON never fail the call: brackets, and quotes around a line break or a bad escape', async () => {
+  const final: Answer = answer([pick({ t: 'species', ids: ['paracheirodon-innesi'] })], { text: 'Cá neon xanh sống theo đàn, từ 6 con.' })
+  for (const words of ['Để tôi đọc [trang "cá\nneon"] trước.', 'Xem {"a\\\'b"} và ["x\ty"', '{"blocks":[{"t":"species"']) {
+    const cards: string[] = []
+    let calls = 0
+    const out = await answerQuestion({
+      send: (body, opts) => (++calls === 1
+        ? streamed([{ type: 'text', text: words }, readPage], 'tool_use', 2)
+        : streamed([{ type: 'text', text: JSON.stringify(final) }]))(body, opts),
+      model: 'claude-opus-5-5', lang: 'vi', question: 'Nuôi cá neon thế nào?', earlier: [], start: {}, handbook: await hb(), tanks: async () => [],
+      onText: () => {}, onBlock: b => cards.push(b.t),
+    })
+    expect(out, words).toMatchObject({ calls: 2, tools: 1, stopped: 'answer' })
+    expect(out.error, words).toBeUndefined()
+    expect(cards, words).toEqual(['species'])
+  }
 })
 
 test('without onText a run is as before: no call is asked to stream, and a tool call after an answer\'s text still runs', async () => {
