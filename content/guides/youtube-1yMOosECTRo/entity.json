@@ -52,7 +52,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh đá nham thạch nhiều lỗ rỗng, diện tích bề mặt lớn.",
-            "sharpness": 566.6
+            "sharpness": 566.6,
+            "person": false
           },
           {
             "t": 70,
@@ -60,7 +61,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Những viên đá nham thạch đỏ nâu dùng làm vật liệu lọc.",
-            "sharpness": 385.2
+            "sharpness": 385.2,
+            "person": false
           }
         ]
       },
@@ -73,7 +75,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Dùng búa đập viên đá nham thạch vỡ thành nhiều mảnh nhỏ.",
-            "sharpness": 925.6
+            "sharpness": 925.6,
+            "person": false
           },
           {
             "t": 110,
@@ -81,7 +84,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bao đá nham thạch bán cho bếp nướng BBQ.",
-            "sharpness": 28.4
+            "sharpness": 28.4,
+            "person": false
           }
         ]
       },
@@ -94,7 +98,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Thùng lọc đầy các hạt vật liệu lọc gai màu xanh.",
-            "sharpness": 348.2
+            "sharpness": 348.2,
+            "person": false
           },
           {
             "t": 210,
@@ -102,7 +107,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Miếng cọ nồi nhựa nhiều màu dùng làm vật liệu lọc.",
-            "sharpness": 659.8
+            "sharpness": 659.8,
+            "person": false
           }
         ]
       },
@@ -110,20 +116,13 @@
         "heading": "Lọc tầng sôi dùng vật liệu gì",
         "moments": [
           {
-            "t": 250,
-            "url": "https://media.aquatome.com/video/1yMOosECTRo/at250-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nắm cát lọc hồ bơi mịn, trắng trên tay.",
-            "sharpness": 71.8
-          },
-          {
             "t": 265,
             "url": "https://media.aquatome.com/video/1yMOosECTRo/at265-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Lớp cát được dòng nước nâng lên trong cột lọc tầng sôi.",
-            "sharpness": 13.5
+            "sharpness": 13.5,
+            "person": false
           }
         ]
       },
@@ -136,15 +135,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Túi bông chần chăn ghi rõ 100% polyester.",
-            "sharpness": 2042.6
-          },
-          {
-            "t": 315,
-            "url": "https://media.aquatome.com/video/1yMOosECTRo/at315-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay kéo tấm bông polyester trắng, xốp để làm vật liệu lọc.",
-            "sharpness": 14.9
+            "sharpness": 2042.6,
+            "person": false
           }
         ]
       }

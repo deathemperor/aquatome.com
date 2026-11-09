@@ -80,36 +80,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Xô nước giữ tạm cá, tép cùng máy lọc nhỏ đặt bên trong.",
-            "sharpness": 100.5
-          },
-          {
-            "t": 95,
-            "url": "https://media.aquatome.com/video/RVCeflqmIuA/at95-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hút nước ra khỏi bể bằng ống, nước đã cạn dần.",
-            "sharpness": 1635.8
-          }
-        ]
-      },
-      {
-        "heading": "Lót nền ra sao",
-        "moments": [
-          {
-            "t": 150,
-            "url": "https://media.aquatome.com/video/RVCeflqmIuA/at150-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đổ phân nền lên túi phân nền cũ đặt phía sau để kê cao nền.",
-            "sharpness": 962.6
-          },
-          {
-            "t": 160,
-            "url": "https://media.aquatome.com/video/RVCeflqmIuA/at160-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Rải đều lớp phân lót dinh dưỡng trên nền bể.",
-            "sharpness": 3010.6
+            "sharpness": 100.5,
+            "person": false
           }
         ]
       },
@@ -122,15 +94,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Khúc lũa sáng màu đặt trên nền đất cạnh viên đá xám.",
-            "sharpness": 1464.2
-          },
-          {
-            "t": 270,
-            "url": "https://media.aquatome.com/video/RVCeflqmIuA/at270-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nhỏ keo dán vào chỗ lũa tiếp xúc với đá.",
-            "sharpness": 258.2
+            "sharpness": 1464.2,
+            "person": false
           }
         ]
       },
@@ -143,7 +108,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cryptocoryne xanh sáng trồng cạnh lũa, bên cạnh sỏi xám đen.",
-            "sharpness": 721.6
+            "sharpness": 721.6,
+            "person": false
           },
           {
             "t": 330,
@@ -151,7 +117,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cụm cây hậu cảnh xanh tốt mọc giữa lũa và sỏi.",
-            "sharpness": 845.7
+            "sharpness": 845.7,
+            "person": false
           }
         ]
       },
@@ -164,7 +131,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh cây thủy sinh mọc rậm, có cây lá đỏ nổi bật.",
-            "sharpness": 427.1
+            "sharpness": 427.1,
+            "person": false
           },
           {
             "t": 470,
@@ -172,7 +140,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể sau một tháng, cây mọc um tùm quanh lũa.",
-            "sharpness": 826.4
+            "sharpness": 826.4,
+            "person": false
           }
         ],
         "photo": {
@@ -195,7 +164,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể có lũa lớn nhả tannin, nước ngả vàng nâu.",
-            "sharpness": 1501.6
+            "sharpness": 1501.6,
+            "person": false
           },
           {
             "t": 520,
@@ -203,7 +173,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh khúc lũa với cành khô và botanical rải trên nền.",
-            "sharpness": 807.9
+            "sharpness": 807.9,
+            "person": false
           }
         ]
       },
@@ -216,7 +187,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Con betta đen bơi trong bể trồng nhiều cây thủy sinh và lũa.",
-            "sharpness": 659.7
+            "sharpness": 659.7,
+            "person": false
           },
           {
             "t": 635,
@@ -224,7 +196,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Con betta xanh bơi bên khúc lũa, có neon xanh ở gần đó.",
-            "sharpness": 120.9
+            "sharpness": 120.9,
+            "person": false
           }
         ],
         "photo": {

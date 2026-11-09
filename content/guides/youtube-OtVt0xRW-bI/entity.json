@@ -87,7 +87,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh tấm lợp nhà kính có rãnh đặt trên bể.",
-            "sharpness": 113.3
+            "sharpness": 113.3,
+            "person": false
           },
           {
             "t": 240,
@@ -95,7 +96,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Mép tấm lợp nhà kính đặt lên miệng bể, nhìn rõ các rãnh.",
-            "sharpness": 84.9
+            "sharpness": 84.9,
+            "person": false
           }
         ]
       },
@@ -108,20 +110,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh các ống tràn PVC gắn ở thành bể.",
-            "sharpness": 25.1
-          }
-        ]
-      },
-      {
-        "heading": "Hệ thống nhỏ giọt thay cho thay nước",
-        "moments": [
-          {
-            "t": 425,
-            "url": "https://media.aquatome.com/video/OtVt0xRW-bI/at425-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dòng nước chảy đều vào bể, cá đuối bơi dưới đáy.",
-            "sharpness": 373.6
+            "sharpness": 25.1,
+            "person": false
           }
         ]
       }

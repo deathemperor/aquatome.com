@@ -100,24 +100,7 @@
     "figures": [
       {
         "heading": "Vì sao lót đá lava nghiền dưới phân nền",
-        "moments": [
-          {
-            "t": 70,
-            "url": "https://media.aquatome.com/video/hpTFD_30N8M/at70-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bốc một nắm đá lava nghiền màu đen Dark Mountain trong thùng.",
-            "sharpness": 2403.4
-          },
-          {
-            "t": 80,
-            "url": "https://media.aquatome.com/video/hpTFD_30N8M/at80-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Thùng đầy đá lava nghiền hạt nhỏ, xốp, màu đen xám.",
-            "sharpness": 3167.9
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/hpTFD_30N8M/p0-uaWNfUm9jay5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/hpTFD_30N8M/p0-uaWNfUm9jay5qcGc-480.webp",
@@ -138,7 +121,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Những khối đá xếp trên nền sỏi đỏ trong bể thủy sinh.",
-            "sharpness": 2736
+            "sharpness": 2736,
+            "person": false
           },
           {
             "t": 490,
@@ -146,7 +130,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể nông với cụm đá đã xếp xong, đèn phía trên.",
-            "sharpness": 1696
+            "sharpness": 1696,
+            "person": false
           }
         ]
       },
@@ -159,7 +144,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nhìn từ cạnh bể, nền dốc dày dần về phía sau với đá lava.",
-            "sharpness": 2037.1
+            "sharpness": 2037.1,
+            "person": false
           },
           {
             "t": 660,
@@ -167,22 +153,14 @@
             "width": 1200,
             "height": 675,
             "caption": "Lớp phân nền phủ lên đá lava, dốc cao dần về phía sau.",
-            "sharpness": 2845
+            "sharpness": 2845,
+            "person": false
           }
         ]
       },
       {
         "heading": "Cho bể chạy dark start trước khi trồng cây",
-        "moments": [
-          {
-            "t": 580,
-            "url": "https://media.aquatome.com/video/hpTFD_30N8M/at580-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Rải thêm phân nền vào bể có đá, chuẩn bị cho chạy dark start.",
-            "sharpness": 965.8
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/hpTFD_30N8M/p3-BcXVhcml1bS5KUEc.webp",
           "thumb": "https://media.aquatome.com/video/hpTFD_30N8M/p3-BcXVhcml1bS5KUEc-480.webp",
@@ -195,44 +173,16 @@
         }
       },
       {
-        "heading": "Sắp vật liệu cho lọc OASE Biomaster",
-        "moments": [
-          {
-            "t": 780,
-            "url": "https://media.aquatome.com/video/hpTFD_30N8M/at780-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lấy tấm mút lọc ra khỏi các ngăn của lọc Biomaster.",
-            "sharpness": 574.3
-          },
-          {
-            "t": 830,
-            "url": "https://media.aquatome.com/video/hpTFD_30N8M/at830-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tấm mút xanh được đặt xuống khay dưới cùng của lọc.",
-            "sharpness": 683.4
-          }
-        ]
-      },
-      {
         "heading": "Châm nước mà không làm hỏng nền và đá",
         "moments": [
-          {
-            "t": 1030,
-            "url": "https://media.aquatome.com/video/hpTFD_30N8M/at1030-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Chèn đá nhỏ vào kẽ dưới viên đá dựng để giữ cho khỏi sập.",
-            "sharpness": 3025.6
-          },
           {
             "t": 1040,
             "url": "https://media.aquatome.com/video/hpTFD_30N8M/at1040-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Viên đá dựng đã được chèn chắc bằng các viên đá nhỏ bên dưới.",
-            "sharpness": 1254.2
+            "sharpness": 1254.2,
+            "person": false
           }
         ]
       }

@@ -60,20 +60,13 @@
         "heading": "Các loại đèn đã thử và giá tham khảo",
         "moments": [
           {
-            "t": 65,
-            "url": "https://media.aquatome.com/video/e0oyJw7PaL4/at65-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hai cây đèn LED treo phía trên hồ san hô, ánh sáng xanh tím.",
-            "sharpness": 428
-          },
-          {
             "t": 240,
             "url": "https://media.aquatome.com/video/e0oyJw7PaL4/at240-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Một cây đèn gắn trên trần nhà, chiếu sáng xuống phía dưới.",
-            "sharpness": 561.9
+            "sharpness": 561.9,
+            "person": false
           }
         ]
       },
@@ -86,7 +79,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể chiếu bằng đèn tuýp, thấy rõ lũa và nền cát.",
-            "sharpness": 1293.8
+            "sharpness": 1293.8,
+            "person": false
           },
           {
             "t": 165,
@@ -94,22 +88,14 @@
             "width": 1200,
             "height": 675,
             "caption": "Đèn tuýp huỳnh quang sáng trắng gắn phía trên bể, dây điện có phích cắm.",
-            "sharpness": 979.4
+            "sharpness": 979.4,
+            "person": false
           }
         ]
       },
       {
         "heading": "Đèn treo xưởng LED: vì sao chọn loại này",
-        "moments": [
-          {
-            "t": 275,
-            "url": "https://media.aquatome.com/video/e0oyJw7PaL4/at275-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể cá nhìn ngang với đèn treo LED dài lắp phía trên.",
-            "sharpness": 291.9
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/e0oyJw7PaL4/p2-lnaHQoNlcpLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/e0oyJw7PaL4/p2-lnaHQoNlcpLmpwZw-480.webp",
@@ -130,15 +116,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Chân kệ đen, chỗ luồn dây đèn sang bể bên cạnh.",
-            "sharpness": 64.9
-          },
-          {
-            "t": 370,
-            "url": "https://media.aquatome.com/video/e0oyJw7PaL4/at370-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay cầm ổ cắm điều khiển không dây trước khung kệ bể.",
-            "sharpness": 132.9
+            "sharpness": 64.9,
+            "person": false
           }
         ]
       },
@@ -165,7 +144,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đèn LED thanh treo phía trên bể cá lớn, ánh sáng soi cả phòng.",
-            "sharpness": 122.7
+            "sharpness": 122.7,
+            "person": false
           },
           {
             "t": 610,
@@ -173,7 +153,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đèn LED đặt sát phía trên bể, nhìn rõ hồ thủy sinh bên dưới.",
-            "sharpness": 222.7
+            "sharpness": 222.7,
+            "person": false
           }
         ],
         "photo": {

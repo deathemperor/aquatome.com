@@ -48,46 +48,13 @@
         "heading": "Phá hồ cũ và đào rộng thế nào",
         "moments": [
           {
-            "t": 30,
-            "url": "https://media.aquatome.com/video/P3d7DeNmiko/at30-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hố hồ đã đào rộng ra, đất sét lộ rõ.",
-            "sharpness": 5448.7
-          },
-          {
             "t": 150,
             "url": "https://media.aquatome.com/video/P3d7DeNmiko/at150-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Đá tảng gỡ từ hồ cũ được chất thành đống bên cạnh.",
-            "sharpness": 2927.9
-          }
-        ]
-      },
-      {
-        "heading": "Lót vải địa kỹ thuật và màng EPDM",
-        "moments": [
-          {
-            "t": 240,
-            "url": "https://media.aquatome.com/video/P3d7DeNmiko/at240-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Màng EPDM đã trải trong hố, người đứng ấn màng ôm sát đá.",
-            "sharpness": 286.2
-          }
-        ]
-      },
-      {
-        "heading": "Xếp đá đáy và đắp bờ",
-        "moments": [
-          {
-            "t": 250,
-            "url": "https://media.aquatome.com/video/P3d7DeNmiko/at250-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đá tảng đủ cỡ được xếp sát nhau dưới đáy hồ trên lớp bạt.",
-            "sharpness": 2708
+            "sharpness": 2927.9,
+            "person": false
           }
         ]
       },
@@ -95,20 +62,13 @@
         "heading": "Làm khoang hút bằng thùng rác",
         "moments": [
           {
-            "t": 400,
-            "url": "https://media.aquatome.com/video/P3d7DeNmiko/at400-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Thùng rác với đoạn ống đục lỗ gắn vào bên hông.",
-            "sharpness": 2406.2
-          },
-          {
             "t": 440,
             "url": "https://media.aquatome.com/video/P3d7DeNmiko/at440-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Keo bọt nở được xịt kín các khe giữa những tảng đá.",
-            "sharpness": 809.7
+            "sharpness": 809.7,
+            "person": false
           }
         ],
         "photo": {
@@ -131,15 +91,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Tấm màng hồ màu đen trải phủ khu thác, sát các tảng đá.",
-            "sharpness": 470.5
-          },
-          {
-            "t": 580,
-            "url": "https://media.aquatome.com/video/P3d7DeNmiko/at580-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Thùng nhựa chăn nuôi đặt trong hố, màng hồ phủ quanh mép thùng.",
-            "sharpness": 2434.3
+            "sharpness": 470.5,
+            "person": false
           }
         ]
       },
@@ -152,7 +105,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Thùng tràn đặt trong hồ, sỏi lấp quanh và ống dẫn nước bên trong.",
-            "sharpness": 1093.2
+            "sharpness": 1093.2,
+            "person": false
           },
           {
             "t": 750,
@@ -160,28 +114,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Màng lót bị sụt xuống ở mép hồ, chỗ nước dễ rỉ ra ngoài.",
-            "sharpness": 1304.4
-          }
-        ]
-      },
-      {
-        "heading": "Hoàn thiện viền và cảnh quan",
-        "moments": [
-          {
-            "t": 770,
-            "url": "https://media.aquatome.com/video/P3d7DeNmiko/at770-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Xếp đá tảng và khúc gỗ che ống bơm, cây trồng sát mép hồ.",
-            "sharpness": 2799.7
-          },
-          {
-            "t": 840,
-            "url": "https://media.aquatome.com/video/P3d7DeNmiko/at840-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Viền hồ hoàn thiện với đá, sỏi và cây trồng quanh mép.",
-            "sharpness": 3780.9
+            "sharpness": 1304.4,
+            "person": false
           }
         ]
       },
@@ -194,7 +128,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nước chảy qua mặt đá xếp phía trước, cạnh khúc gỗ và cây.",
-            "sharpness": 3518.1
+            "sharpness": 3518.1,
+            "person": false
           },
           {
             "t": 880,
@@ -202,7 +137,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Khoang hút của hệ lọc cạnh tảng đá, nước chảy vào khá nông.",
-            "sharpness": 1169
+            "sharpness": 1169,
+            "person": false
           }
         ]
       }

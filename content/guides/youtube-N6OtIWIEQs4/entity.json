@@ -52,7 +52,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh cây xanh mượt, đá và đàn cá nhỏ, gần như không có rêu hại.",
-            "sharpness": 2626.1
+            "sharpness": 2626.1,
+            "person": false
           }
         ],
         "photo": {
@@ -75,7 +76,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh với lũa và các cụm cây xanh tốt, cần nước lưu thông đều.",
-            "sharpness": 3103.9
+            "sharpness": 3103.9,
+            "person": false
           }
         ],
         "photo": {
@@ -93,20 +95,13 @@
         "heading": "Bước 2: Cắt tỉa thật mạnh",
         "moments": [
           {
-            "t": 190,
-            "url": "https://media.aquatome.com/video/N6OtIWIEQs4/at190-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng kéo cắt tỉa cây thảm sát nền trong bể.",
-            "sharpness": 3106.6
-          },
-          {
             "t": 200,
             "url": "https://media.aquatome.com/video/N6OtIWIEQs4/at200-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể sau khi cắt tỉa, cây còn thấp và nước được hạ xuống.",
-            "sharpness": 1708.5
+            "sharpness": 1708.5,
+            "person": false
           }
         ]
       },
@@ -119,7 +114,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nhìn từ trên xuống bể thủy sinh đang được dọn dẹp, thay nước.",
-            "sharpness": 1618.6
+            "sharpness": 1618.6,
+            "person": false
           }
         ],
         "photo": {
@@ -142,7 +138,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh nhìn từ trên xuống, thấy rõ ống dẫn CO2 và cây.",
-            "sharpness": 1460.4
+            "sharpness": 1460.4,
+            "person": false
           }
         ]
       },

@@ -56,7 +56,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá đĩa nhìn từ trên xuống trong sump trắng, khó phân biệt từng con.",
-            "sharpness": 86.8
+            "sharpness": 86.8,
+            "person": false
           },
           {
             "t": 200,
@@ -64,7 +65,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá đĩa nhìn cận cảnh từ bên hông, thấy rõ vân và thể trạng.",
-            "sharpness": 222.5
+            "sharpness": 222.5,
+            "person": false
           }
         ],
         "photo": {
@@ -87,7 +89,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hai con cá đĩa trong bể mới trống, đèn sáng xanh.",
-            "sharpness": 164.2
+            "sharpness": 164.2,
+            "person": false
           },
           {
             "t": 240,
@@ -95,7 +98,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cặp cá đĩa bơi sát nhau trong bể mới vừa thả.",
-            "sharpness": 166.9
+            "sharpness": 166.9,
+            "person": false
           }
         ]
       },
@@ -108,7 +112,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá con mới nở bám thành bể, trông rõ từng con.",
-            "sharpness": 25.8
+            "sharpness": 25.8,
+            "person": false
           },
           {
             "t": 305,
@@ -116,7 +121,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá đĩa bố mẹ bơi cạnh đàn cá con bám trên thành bể.",
-            "sharpness": 31.8
+            "sharpness": 31.8,
+            "person": false
           }
         ]
       },
@@ -129,7 +135,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cặp cá đĩa đứng sát nhau trong bể, đang trong mùa đẻ.",
-            "sharpness": 170.5
+            "sharpness": 170.5,
+            "person": false
           },
           {
             "t": 395,
@@ -137,7 +144,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cặp cá đĩa bơi cạnh nhau trong bể nền xanh.",
-            "sharpness": 161.7
+            "sharpness": 161.7,
+            "person": false
           }
         ],
         "photo": {
@@ -150,27 +158,6 @@
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Symphysodon_aequifasciatus_-_Karlsruhe_Zoo_03.jpg",
           "caption": "Cá đĩa xanh trắng bơi trong bể trồng cây, nền xanh tối."
         }
-      },
-      {
-        "heading": "Thay nước bằng xô cho bể khoảng 125 lít",
-        "moments": [
-          {
-            "t": 505,
-            "url": "https://media.aquatome.com/video/bYlprFFLsEE/at505-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng ống siphon xả nước từ bể vào xô trắng.",
-            "sharpness": 178.1
-          },
-          {
-            "t": 510,
-            "url": "https://media.aquatome.com/video/bYlprFFLsEE/at510-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nước từ bể chảy qua ống vào xô khi thay nước.",
-            "sharpness": 220.2
-          }
-        ]
       }
     ]
   }

@@ -94,15 +94,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh cạnh kính mài vát của bể kính siêu trong.",
-            "sharpness": 17.2
-          },
-          {
-            "t": 140,
-            "url": "https://media.aquatome.com/video/AaUxNrrQxo8/at140-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể kính siêu trong có đèn LED gắn trên miệng bể và remote.",
-            "sharpness": 649.5
+            "sharpness": 17.2,
+            "person": false
           }
         ]
       },
@@ -110,20 +103,13 @@
         "heading": "Lót xốp và làm nền phía sau bể",
         "moments": [
           {
-            "t": 180,
-            "url": "https://media.aquatome.com/video/AaUxNrrQxo8/at180-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tấm xốp lót đen có miếng băng keo hai mặt trước khi dán vào đáy bể.",
-            "sharpness": 111.7
-          },
-          {
             "t": 230,
             "url": "https://media.aquatome.com/video/AaUxNrrQxo8/at230-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể đã gắn phông LED phía sau, sáng trắng khi còn trống.",
-            "sharpness": 887.6
+            "sharpness": 887.6,
+            "person": false
           }
         ]
       },
@@ -136,15 +122,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nền cũ được rải xuống đáy bể mới, bề mặt còn gồ ghề.",
-            "sharpness": 4053.8
-          },
-          {
-            "t": 300,
-            "url": "https://media.aquatome.com/video/AaUxNrrQxo8/at300-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lọ phân nhét dạng viên nang cầm trên tay.",
-            "sharpness": 271
+            "sharpness": 4053.8,
+            "person": false
           }
         ]
       },
@@ -157,28 +136,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bố cục lũa spiderwood dựng hình tam giác, cao bên trái thấp dần sang phải.",
-            "sharpness": 948.4
-          },
-          {
-            "t": 470,
-            "url": "https://media.aquatome.com/video/AaUxNrrQxo8/at470-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lũa spiderwood kết hợp đá Titan xám xanh trên nền đất đen.",
-            "sharpness": 664.8
-          }
-        ]
-      },
-      {
-        "heading": "Dark start là gì và vì sao nên làm",
-        "moments": [
-          {
-            "t": 620,
-            "url": "https://media.aquatome.com/video/AaUxNrrQxo8/at620-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh bể có lũa spiderwood và đá, chưa trồng cây.",
-            "sharpness": 622.1
+            "sharpness": 948.4,
+            "person": false
           }
         ]
       },
@@ -191,7 +150,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Các khay cây in vitro và cốc cây cấy mô đã tách sẵn trên bàn.",
-            "sharpness": 506.7
+            "sharpness": 506.7,
+            "person": false
           }
         ]
       },
@@ -204,7 +164,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể có gắn drop checker treo thành, rêu hại lác đác trên thảm.",
-            "sharpness": 1940.7
+            "sharpness": 1940.7,
+            "person": false
           },
           {
             "t": 900,
@@ -212,7 +173,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể thủy sinh với lũa, cây đỏ và thảm cỏ phía trước.",
-            "sharpness": 2008.1
+            "sharpness": 2008.1,
+            "person": false
           }
         ],
         "photo": {
@@ -235,7 +197,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Betta và đàn cá nhỏ bơi gần mặt nước, cạnh cây thân đỏ.",
-            "sharpness": 589.1
+            "sharpness": 589.1,
+            "person": false
           },
           {
             "t": 940,
@@ -243,7 +206,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Con betta bơi giữa lũa và thảm cây xanh trong bể.",
-            "sharpness": 232.2
+            "sharpness": 232.2,
+            "person": false
           }
         ],
         "photo": {

@@ -118,7 +118,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ổ cắm điện nằm bên trong tủ kê bể, dây đi gọn phía sau.",
-            "sharpness": 96.9
+            "sharpness": 96.9,
+            "person": false
           }
         ]
       },
@@ -131,7 +132,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Dãy bể nano và bể rời xếp trên kệ trong tiệm.",
-            "sharpness": 394.2
+            "sharpness": 394.2,
+            "person": false
           },
           {
             "t": 610,
@@ -139,7 +141,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hai bể nano Dennerle 55 lít đặt trên kệ ở tiệm.",
-            "sharpness": 471.3
+            "sharpness": 471.3,
+            "person": false
           }
         ]
       },
@@ -166,7 +169,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Các hộp lọc thùng Oase BioPlus xếp trên kệ ở tiệm.",
-            "sharpness": 1299.9
+            "sharpness": 1299.9,
+            "person": false
           },
           {
             "t": 680,
@@ -174,7 +178,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Kệ bày nhiều mẫu lọc trong và lọc thùng giá rẻ ở tiệm.",
-            "sharpness": 1603.6
+            "sharpness": 1603.6,
+            "person": false
           }
         ],
         "photo": {
@@ -211,7 +216,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Các bộ CO2 Dennerle đủ bình và phụ kiện bày trên kệ ở tiệm.",
-            "sharpness": 363.1
+            "sharpness": 363.1,
+            "person": false
           },
           {
             "t": 760,
@@ -219,7 +225,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bộ CO2 có bình và van giảm áp trưng bày trong tiệm.",
-            "sharpness": 1129.3
+            "sharpness": 1129.3,
+            "person": false
           }
         ]
       },
@@ -227,20 +234,13 @@
         "heading": "Mấy món lặt vặt ở tiệm kim khí",
         "moments": [
           {
-            "t": 950,
-            "url": "https://media.aquatome.com/video/ddIenwrxWgU/at950-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các cuộn decal mờ dán kính xếp trên kệ ở tiệm kim khí.",
-            "sharpness": 1396.9
-          },
-          {
             "t": 970,
             "url": "https://media.aquatome.com/video/ddIenwrxWgU/at970-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Keo dán 502 dạng gel treo trên kệ, dùng dán cây lên đá, lũa.",
-            "sharpness": 2570.7
+            "sharpness": 2570.7,
+            "person": false
           }
         ],
         "photo": {

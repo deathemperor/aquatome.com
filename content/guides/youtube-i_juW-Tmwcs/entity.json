@@ -69,7 +69,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn black neon tetra bơi quanh cành lũa trong bể nền xanh lá.",
-            "sharpness": 416.3
+            "sharpness": 416.3,
+            "person": false
           },
           {
             "t": 30,
@@ -77,7 +78,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh hai con black neon tetra bơi gần cành cây.",
-            "sharpness": 67.8
+            "sharpness": 67.8,
+            "person": false
           }
         ],
         "photo": {
@@ -100,7 +102,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn pristella tetra bơi gần đáy bể, thân hình chắc khỏe.",
-            "sharpness": 17.1
+            "sharpness": 17.1,
+            "person": false
           },
           {
             "t": 56,
@@ -108,7 +111,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Pristella tetra bơi trong bể, thấy rõ vây lưng và thân cá.",
-            "sharpness": 17.5
+            "sharpness": 17.5,
+            "person": false
           }
         ],
         "photo": {
@@ -131,7 +135,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Một con cá chì đỏ bơi gần nền bể, thân ánh đỏ rõ nét.",
-            "sharpness": 60.2
+            "sharpness": 60.2,
+            "person": false
           },
           {
             "t": 76,
@@ -139,7 +144,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá chì bơi nghiêng, thấy rõ sọc sáng dọc thân.",
-            "sharpness": 19.2
+            "sharpness": 19.2,
+            "person": false
           }
         ]
       },
@@ -152,7 +158,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cardinal tetra bơi trong bể có nền sỏi.",
-            "sharpness": 322.2
+            "sharpness": 322.2,
+            "person": false
           },
           {
             "t": 106,
@@ -160,7 +167,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hai con cardinal tetra đỏ rực bơi nổi bật trên nền tối.",
-            "sharpness": 13.3
+            "sharpness": 13.3,
+            "person": false
           }
         ],
         "photo": {
@@ -178,20 +186,13 @@
         "heading": "Số 1: silver tip tetra, một loài đáng được chú ý hơn",
         "moments": [
           {
-            "t": 136,
-            "url": "https://media.aquatome.com/video/i_juW-Tmwcs/at136-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cả đàn silver tip bơi náo loạn đuổi theo ngón tay người.",
-            "sharpness": 563.7
-          },
-          {
             "t": 150,
             "url": "https://media.aquatome.com/video/i_juW-Tmwcs/at150-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Một con silver tip tetra đực lên màu cam, vây có chóp sáng.",
-            "sharpness": 23.7
+            "sharpness": 23.7,
+            "person": false
           }
         ]
       }

@@ -81,40 +81,6 @@
     ],
     "figures": [
       {
-        "heading": "Chuẩn bị bể trước khi làm nền",
-        "moments": [
-          {
-            "t": 100,
-            "url": "https://media.aquatome.com/video/9UC5-o1zLXg/at100-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cắt tấm xốp lót đáy cho vừa kích thước bể.",
-            "sharpness": 127.4
-          }
-        ]
-      },
-      {
-        "heading": "Làm nền thế nào",
-        "moments": [
-          {
-            "t": 160,
-            "url": "https://media.aquatome.com/video/9UC5-o1zLXg/at160-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đổ lớp nền dinh dưỡng xuống đáy bể trống.",
-            "sharpness": 153.8
-          },
-          {
-            "t": 180,
-            "url": "https://media.aquatome.com/video/9UC5-o1zLXg/at180-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng tay san phẳng lớp phân nền phủ kín đáy bể.",
-            "sharpness": 230.3
-          }
-        ]
-      },
-      {
         "heading": "Dựng bố cục lũa và đá",
         "moments": [
           {
@@ -123,15 +89,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Các khúc lũa đen nhiều hình dạng khác nhau đặt trên bàn.",
-            "sharpness": 190.5
-          },
-          {
-            "t": 310,
-            "url": "https://media.aquatome.com/video/9UC5-o1zLXg/at310-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lũa chồng lên nhau, có đá tròn dằn bên cạnh trong bể.",
-            "sharpness": 299
+            "sharpness": 190.5,
+            "person": false
           }
         ]
       },
@@ -144,7 +103,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể đã đặt lũa và đá, sẵn sàng để trồng cây.",
-            "sharpness": 701.7
+            "sharpness": 701.7,
+            "person": false
           },
           {
             "t": 450,
@@ -152,28 +112,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ráy mới trồng ở tiền cảnh dưới gốc lũa và quanh đá.",
-            "sharpness": 593.4
-          }
-        ]
-      },
-      {
-        "heading": "Nước và lọc cho cá ưa nước mềm",
-        "moments": [
-          {
-            "t": 610,
-            "url": "https://media.aquatome.com/video/9UC5-o1zLXg/at610-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Muỗng hạt than bùn (peat) dùng để cho vào túi vật liệu lọc.",
-            "sharpness": 22.4
-          },
-          {
-            "t": 640,
-            "url": "https://media.aquatome.com/video/9UC5-o1zLXg/at640-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể nhỏ có lọc treo đặt sau bể trên kệ, ống hút gắn bông lọc.",
-            "sharpness": 785.8
+            "sharpness": 593.4,
+            "person": false
           }
         ]
       },
@@ -186,7 +126,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh rêu, cây thủy sinh và lũa trong bể nước đen màu hổ phách.",
-            "sharpness": 131.8
+            "sharpness": 131.8,
+            "person": false
           }
         ],
         "photo": {
@@ -209,7 +150,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đáy bể phủ lá khô, nơi cá sặc licorice lục lọi kiếm ăn.",
-            "sharpness": 17.5
+            "sharpness": 17.5,
+            "person": false
           },
           {
             "t": 830,
@@ -217,7 +159,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Túi cá đang được thả nổi trong bể để cá làm quen nước.",
-            "sharpness": 608.8
+            "sharpness": 608.8,
+            "person": false
           }
         ],
         "photo": {

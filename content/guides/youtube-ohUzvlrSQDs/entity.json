@@ -107,7 +107,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể kính trống đã đổ nền, đặt trên tủ dưới đèn chiếu sáng.",
-            "sharpness": 2145.7
+            "sharpness": 2145.7,
+            "person": false
           },
           {
             "t": 60,
@@ -115,7 +116,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Xô riêng chứa cây thủy sinh và vật liệu lấy ra từ bể cũ.",
-            "sharpness": 951
+            "sharpness": 951,
+            "person": false
           }
         ]
       },
@@ -128,7 +130,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lớp phân nền dày được san đều trong hồ trống.",
-            "sharpness": 5584.2
+            "sharpness": 5584.2,
+            "person": false
           },
           {
             "t": 150,
@@ -136,7 +139,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Phân nền gạt dồn về phía sau, phía trước để trống.",
-            "sharpness": 4849.8
+            "sharpness": 4849.8,
+            "person": false
           }
         ]
       },
@@ -149,7 +153,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hàng đá Jade đặt thẳng làm bờ ngăn phân nền với phần cát phía trước.",
-            "sharpness": 1755.8
+            "sharpness": 1755.8,
+            "person": false
           },
           {
             "t": 200,
@@ -157,7 +162,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bờ đá sau khi thả thêm đá nhỏ trông tự nhiên hơn.",
-            "sharpness": 2098.3
+            "sharpness": 2098.3,
+            "person": false
           }
         ],
         "photo": {
@@ -180,15 +186,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hai khúc lũa đặt kê trên những viên đá lớn trong bể.",
-            "sharpness": 425.9
-          },
-          {
-            "t": 360,
-            "url": "https://media.aquatome.com/video/ohUzvlrSQDs/at360-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nhét bông vào khe chỗ lũa chạm đá để cố định.",
-            "sharpness": 330.5
+            "sharpness": 425.9,
+            "person": false
           }
         ],
         "photo": {
@@ -204,24 +203,7 @@
       },
       {
         "heading": "Chọn cây cho bể chủ đề châu Phi",
-        "moments": [
-          {
-            "t": 420,
-            "url": "https://media.aquatome.com/video/ohUzvlrSQDs/at420-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể chủ đề châu Phi với lũa và đá, chưa trồng cây.",
-            "sharpness": 1958.3
-          },
-          {
-            "t": 460,
-            "url": "https://media.aquatome.com/video/ohUzvlrSQDs/at460-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Chậu cây cắt cắm nhỏ cầm trên tay, có vẻ là Myriophyllum.",
-            "sharpness": 693
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/ohUzvlrSQDs/p4-NfUGxhbnRzLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/ohUzvlrSQDs/p4-NfUGxhbnRzLmpwZw-480.webp",
@@ -235,24 +217,7 @@
       },
       {
         "heading": "Trồng cây theo thứ tự nào",
-        "moments": [
-          {
-            "t": 560,
-            "url": "https://media.aquatome.com/video/ohUzvlrSQDs/at560-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đặt thử cây bám lên lũa, để rễ buông xuống từ trên lũa.",
-            "sharpness": 1355.3
-          },
-          {
-            "t": 580,
-            "url": "https://media.aquatome.com/video/ohUzvlrSQDs/at580-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đặt thử Bolbitis lên lũa, chừa chỗ rộng cho cây lớn.",
-            "sharpness": 1459.3
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/ohUzvlrSQDs/p5-YXIuX25hbmEuanBn.webp",
           "thumb": "https://media.aquatome.com/video/ohUzvlrSQDs/p5-YXIuX25hbmEuanBn-480.webp",
@@ -268,20 +233,13 @@
         "heading": "Châm nước, rải cát và xếp vật liệu lọc",
         "moments": [
           {
-            "t": 840,
-            "url": "https://media.aquatome.com/video/ohUzvlrSQDs/at840-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Thùng lọc ngoài trong tủ bể, nơi xếp các giỏ vật liệu lọc.",
-            "sharpness": 305.2
-          },
-          {
             "t": 870,
             "url": "https://media.aquatome.com/video/ohUzvlrSQDs/at870-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh đã châm nước, có cát trắng ở tiền cảnh, lũa và đá.",
-            "sharpness": 937.2
+            "sharpness": 937.2,
+            "person": false
           }
         ],
         "photo": {
@@ -299,20 +257,13 @@
         "heading": "Thả cá ngay hôm sau được không",
         "moments": [
           {
-            "t": 1080,
-            "url": "https://media.aquatome.com/video/ohUzvlrSQDs/at1080-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Thả cá vào bể bằng cách cho túi cá làm quen nước.",
-            "sharpness": 549.9
-          },
-          {
             "t": 1120,
             "url": "https://media.aquatome.com/video/ohUzvlrSQDs/at1120-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh đã lên cây xanh tốt, sẵn sàng nuôi cá.",
-            "sharpness": 931.9
+            "sharpness": 931.9,
+            "person": false
           }
         ]
       },
@@ -325,7 +276,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh với cây mọc rậm, lũa và cây trồng trong chậu.",
-            "sharpness": 1111.3
+            "sharpness": 1111.3,
+            "person": false
           },
           {
             "t": 1060,
@@ -333,7 +285,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh đàn cá nhỏ bơi giữa đám cây xanh rậm.",
-            "sharpness": 79.6
+            "sharpness": 79.6,
+            "person": false
           }
         ],
         "photo": {

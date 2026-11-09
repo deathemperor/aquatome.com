@@ -111,15 +111,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ống hút cặn thả vào bể thủy sinh có nhiều cây đỏ.",
-            "sharpness": 988.5
-          },
-          {
-            "t": 100,
-            "url": "https://media.aquatome.com/video/4GFdgPkH4WI/at100-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay cầm ống hút cặn nối lọc thùng bên cạnh bể thủy sinh.",
-            "sharpness": 904.3
+            "sharpness": 988.5,
+            "person": false
           }
         ],
         "photo": {
@@ -148,19 +141,6 @@
         }
       },
       {
-        "heading": "Vì sao rêu trong bể bị bụi và vàng gốc",
-        "moments": [
-          {
-            "t": 260,
-            "url": "https://media.aquatome.com/video/4GFdgPkH4WI/at260-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Một mảng rêu được nhấc lên trong bể, nhìn rõ độ dày và bụi bám.",
-            "sharpness": 134
-          }
-        ]
-      },
-      {
         "heading": "Vì sao rêu hại và tảo nâu mọc, chỉnh đèn thế nào",
         "moments": [
           {
@@ -169,7 +149,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Dàn đèn treo phía trên bể thủy sinh, nơi chỉnh thời gian chiếu sáng.",
-            "sharpness": 210.6
+            "sharpness": 210.6,
+            "person": false
           },
           {
             "t": 430,
@@ -177,7 +158,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây thủy sinh xanh trong bể, bên cạnh ống dẫn nước và lũa.",
-            "sharpness": 412.1
+            "sharpness": 412.1,
+            "person": false
           }
         ],
         "photo": {
@@ -195,20 +177,13 @@
         "heading": "Làm sạch rêu hại trên kính, ống và lũa đá",
         "moments": [
           {
-            "t": 450,
-            "url": "https://media.aquatome.com/video/4GFdgPkH4WI/at450-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cọ nam châm bên kính bể, cạnh bụi cây lá đỏ.",
-            "sharpness": 120.2
-          },
-          {
             "t": 460,
             "url": "https://media.aquatome.com/video/4GFdgPkH4WI/at460-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Cọ nam châm lau kính trong bể thủy sinh, gần lớp cát đáy.",
-            "sharpness": 185.6
+            "sharpness": 185.6,
+            "person": false
           }
         ]
       },
@@ -221,7 +196,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây ráy lá chậm lớn và đá, lũa trong bể thủy sinh.",
-            "sharpness": 140.5
+            "sharpness": 140.5,
+            "person": false
           }
         ],
         "photo": {
@@ -244,7 +220,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Liễu đỏ lên màu hồng đỏ đẹp, mọc dày bên cạnh rêu xanh.",
-            "sharpness": 470.6
+            "sharpness": 470.6,
+            "person": false
           }
         ],
         "photo": {
@@ -267,7 +244,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh cây đỏ xanh rậm rạp dưới đèn thanh dài phía trên.",
-            "sharpness": 1067.1
+            "sharpness": 1067.1,
+            "person": false
           }
         ],
         "photo": {

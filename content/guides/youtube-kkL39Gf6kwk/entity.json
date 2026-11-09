@@ -83,20 +83,13 @@
         "heading": "Drop checker dùng để làm gì trong lần thử này",
         "moments": [
           {
-            "t": 330,
-            "url": "https://media.aquatome.com/video/kkL39Gf6kwk/at330-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay gắn drop checker loại treo vào thành bể thủy sinh.",
-            "sharpness": 2065.8
-          },
-          {
             "t": 420,
             "url": "https://media.aquatome.com/video/kkL39Gf6kwk/at420-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Ly nước có ga đặt cạnh bể để thử drop checker.",
-            "sharpness": 1231.2
+            "sharpness": 1231.2,
+            "person": false
           }
         ]
       },
@@ -109,7 +102,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh cây Rotala Orange Juice cạnh khúc lũa phủ rêu trong bể.",
-            "sharpness": 1252.4
+            "sharpness": 1252.4,
+            "person": false
           },
           {
             "t": 520,
@@ -117,7 +111,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể thủy sinh nhỏ có lũa phủ rêu và drop checker.",
-            "sharpness": 2819.5
+            "sharpness": 2819.5,
+            "person": false
           }
         ],
         "photo": {
@@ -140,7 +135,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn bể thủy sinh cây lên xanh tốt sau 8 ngày dùng nước có ga.",
-            "sharpness": 2236.8
+            "sharpness": 2236.8,
+            "person": false
           },
           {
             "t": 690,
@@ -148,7 +144,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh cây và rêu phủ lũa, cây lên tốt hơn.",
-            "sharpness": 1650.1
+            "sharpness": 1650.1,
+            "person": false
           }
         ],
         "photo": {

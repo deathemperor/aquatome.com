@@ -110,14 +110,6 @@
             "width": 320,
             "height": 180,
             "caption": "Bể đang được dỡ, bên cạnh là bình đựng nước bể để giữ cá."
-          },
-          {
-            "t": 120,
-            "url": "https://media.aquatome.com/video/nljikQSpjL4/at120-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các bể nhỏ trên kệ, nơi có thể để lọc chạy tiếp trong lúc dỡ bể.",
-            "sharpness": 1420.7
           }
         ],
         "photo": {
@@ -140,7 +132,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá nhỏ được bắt ra và để tạm trong chậu inox đựng nước.",
-            "sharpness": 803.5
+            "sharpness": 803.5,
+            "person": false
           }
         ]
       },
@@ -153,22 +146,14 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể Dennerle 35 lít còn trống, có đèn phía trên và lớp nền.",
-            "sharpness": 861.3
+            "sharpness": 861.3,
+            "person": false
           }
         ]
       },
       {
         "heading": "Ý tưởng bố cục: đá đen, cây đỏ, cá xanh",
-        "moments": [
-          {
-            "t": 300,
-            "url": "https://media.aquatome.com/video/nljikQSpjL4/at300-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể trống với lớp nền đen, chuẩn bị bố trí đá nham thạch.",
-            "sharpness": 3685.6
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/nljikQSpjL4/p3-RU5QRUlfMDEuanBn.webp",
           "thumb": "https://media.aquatome.com/video/nljikQSpjL4/p3-RU5QRUlfMDEuanBn-480.webp",
@@ -189,7 +174,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bố cục toàn đá trong hồ, các viên đá nghiêng cùng một hướng.",
-            "sharpness": 2035.5
+            "sharpness": 2035.5,
+            "person": false
           },
           {
             "t": 370,
@@ -197,34 +183,14 @@
             "width": 1200,
             "height": 675,
             "caption": "Đã đổ nền và đắp cao dần về phía sau, bố cục có chiều sâu hơn.",
-            "sharpness": 2254.1
-          }
-        ]
-      },
-      {
-        "heading": "Vì sao phủ thêm phân nền mới",
-        "moments": [
-          {
-            "t": 440,
-            "url": "https://media.aquatome.com/video/nljikQSpjL4/at440-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể đã xếp đá xong, mặt nền sẵn sàng để phủ phân nền mới.",
-            "sharpness": 3202.3
+            "sharpness": 2254.1,
+            "person": false
           }
         ]
       },
       {
         "heading": "Chọn và trồng cây tông đỏ, nâu",
         "moments": [
-          {
-            "t": 480,
-            "url": "https://media.aquatome.com/video/nljikQSpjL4/at480-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các cây tông đỏ, nâu đã chọn được xếp sẵn trên bàn, có nhãn tên.",
-            "sharpness": 1965.4
-          },
           {
             "t": 640,
             "url": "https://media.aquatome.com/video/nljikQSpjL4/at640.webp",
@@ -253,7 +219,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể với thảm UG xanh nhạt và rêu Fissidens trên đá.",
-            "sharpness": 2547.8
+            "sharpness": 2547.8,
+            "person": false
           },
           {
             "t": 870,
@@ -261,7 +228,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh thảm UG mỏng, chỗ dày chỗ thưa phía trước bể.",
-            "sharpness": 1295
+            "sharpness": 1295,
+            "person": false
           }
         ],
         "photo": {
@@ -284,15 +252,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn tép Neocaridina Green Jade màu đen ngả xanh trong cốc.",
-            "sharpness": 148.7
-          },
-          {
-            "t": 970,
-            "url": "https://media.aquatome.com/video/nljikQSpjL4/at970-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Thả đàn tép vào bể thủy sinh nhiều cây.",
-            "sharpness": 935.4
+            "sharpness": 148.7,
+            "person": false
           }
         ],
         "photo": {

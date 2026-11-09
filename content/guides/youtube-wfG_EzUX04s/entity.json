@@ -58,7 +58,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá rồng bơi giữa bể, nền phông phía sau còn chưa được lắp.",
-            "sharpness": 1017.6
+            "sharpness": 1017.6,
+            "person": false
           },
           {
             "t": 495,
@@ -66,7 +67,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá rồng bơi sát vách bể, nhìn gần từ bên trong.",
-            "sharpness": 329.4
+            "sharpness": 329.4,
+            "person": false
           }
         ],
         "photo": {
@@ -81,27 +83,6 @@
         }
       },
       {
-        "heading": "Phông xốp trát xi măng có hợp không",
-        "moments": [
-          {
-            "t": 130,
-            "url": "https://media.aquatome.com/video/wfG_EzUX04s/at130-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bơm silicon lên tấm phông xốp trát xi măng để dán vào kính.",
-            "sharpness": 134.3
-          },
-          {
-            "t": 145,
-            "url": "https://media.aquatome.com/video/wfG_EzUX04s/at145-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Phông xốp trát xi măng đã được dán vào trong bể kính.",
-            "sharpness": 119.5
-          }
-        ]
-      },
-      {
         "heading": "Phông fiberglass thì sao",
         "moments": [
           {
@@ -110,54 +91,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Phông đá làm xong đặt trong hồ, cá rồng bơi phía trước.",
-            "sharpness": 771.6
-          }
-        ]
-      },
-      {
-        "heading": "Mua phông làm sẵn",
-        "moments": [
-          {
-            "t": 340,
-            "url": "https://media.aquatome.com/video/wfG_EzUX04s/at340-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tấm phông 3D làm sẵn đặt trên bàn, thấy rõ vân đá.",
-            "sharpness": 400.6
-          }
-        ]
-      },
-      {
-        "heading": "Chọn màu và kiểu phông",
-        "moments": [
-          {
-            "t": 420,
-            "url": "https://media.aquatome.com/video/wfG_EzUX04s/at420-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể lớn với phông nền màu nâu xám ở mặt sau, có cá bơi.",
-            "sharpness": 660.1
-          }
-        ]
-      },
-      {
-        "heading": "Các bước lắp phông tự chìm vào bể đang nuôi cá",
-        "moments": [
-          {
-            "t": 355,
-            "url": "https://media.aquatome.com/video/wfG_EzUX04s/at355-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tấm phông trải phẳng trên sàn cho hết nếp gấp.",
-            "sharpness": 476.3
-          },
-          {
-            "t": 375,
-            "url": "https://media.aquatome.com/video/wfG_EzUX04s/at375-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng kéo cắt tấm phông cho vừa kích thước lòng bể.",
-            "sharpness": 119.1
+            "sharpness": 771.6,
+            "person": false
           }
         ]
       },
@@ -170,7 +105,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Phông nằm khít nhưng còn hở đáy, nước vẫn lưu thông phía sau.",
-            "sharpness": 68.9
+            "sharpness": 68.9,
+            "person": false
           },
           {
             "t": 530,
@@ -178,7 +114,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá rồng bơi trước nền phông đá, trông rất hợp và đẹp.",
-            "sharpness": 50.4
+            "sharpness": 50.4,
+            "person": false
           }
         ],
         "photo": {

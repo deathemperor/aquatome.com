@@ -87,15 +87,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bình thủy tinh trụ trống đặt trên bàn, thành kính trong suốt.",
-            "sharpness": 768.7
-          },
-          {
-            "t": 30,
-            "url": "https://media.aquatome.com/video/lF8pam4eLMc/at30-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng thước dây đo độ dày thành bình thủy tinh.",
-            "sharpness": 1030.6
+            "sharpness": 768.7,
+            "person": false
           }
         ]
       },
@@ -108,15 +101,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đèn LED kẹp trên miệng bình thủy tinh.",
-            "sharpness": 300
-          },
-          {
-            "t": 250,
-            "url": "https://media.aquatome.com/video/lF8pam4eLMc/at250-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Gắn bơm USB nhỏ vào bình giữa cây và lũa.",
-            "sharpness": 589.2
+            "sharpness": 300,
+            "person": false
           }
         ]
       },
@@ -124,20 +110,13 @@
         "heading": "Trải nền và dựng đá lũa",
         "moments": [
           {
-            "t": 125,
-            "url": "https://media.aquatome.com/video/lF8pam4eLMc/at125-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Phân nền đã đổ vào bình, đang được san phẳng bằng cọ.",
-            "sharpness": 1874.6
-          },
-          {
             "t": 150,
             "url": "https://media.aquatome.com/video/lF8pam4eLMc/at150-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bố cục hoàn chỉnh với đá Dragon Stone và các cành lũa trên nền.",
-            "sharpness": 1230.2
+            "sharpness": 1230.2,
+            "person": false
           }
         ]
       },
@@ -145,41 +124,13 @@
         "heading": "Dán lũa vào đá bằng keo 502",
         "moments": [
           {
-            "t": 165,
-            "url": "https://media.aquatome.com/video/lF8pam4eLMc/at165-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cầm lọ keo 502 để dán lũa vào đá trong bể.",
-            "sharpness": 149.8
-          },
-          {
             "t": 175,
             "url": "https://media.aquatome.com/video/lF8pam4eLMc/at175-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Nhỏ keo 502 vào chỗ nối giữa lũa và đá.",
-            "sharpness": 876.6
-          }
-        ]
-      },
-      {
-        "heading": "Trồng cây và giúp bể mới ổn định",
-        "moments": [
-          {
-            "t": 185,
-            "url": "https://media.aquatome.com/video/lF8pam4eLMc/at185-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh với rêu moss xanh dày và cây thân đỏ.",
-            "sharpness": 1539.4
-          },
-          {
-            "t": 190,
-            "url": "https://media.aquatome.com/video/lF8pam4eLMc/at190-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay đang trồng cây trong bể đã phủ kín cây xanh.",
-            "sharpness": 580.9
+            "sharpness": 876.6,
+            "person": false
           }
         ]
       },
@@ -192,7 +143,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể tròn nhỏ với lũa, đá và cây thủy sinh.",
-            "sharpness": 2310.3
+            "sharpness": 2310.3,
+            "person": false
           },
           {
             "t": 275,
@@ -200,7 +152,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Mấy con ốc nhỏ bò trên nền đất giữa đám cỏ xanh.",
-            "sharpness": 803.5
+            "sharpness": 803.5,
+            "person": false
           }
         ],
         "photo": {
@@ -223,7 +176,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể tròn trồng cây trên lũa và đá, cây mọc kín đẹp.",
-            "sharpness": 2245.1
+            "sharpness": 2245.1,
+            "person": false
           },
           {
             "t": 300,
@@ -231,7 +185,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh cây mọc kín quanh khối đá tạo vòm.",
-            "sharpness": 2644.5
+            "sharpness": 2644.5,
+            "person": false
           }
         ],
         "photo": {
@@ -254,7 +209,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bình tròn nhiều cây thủy sinh kẹp giữa hai bể khác.",
-            "sharpness": 1566.1
+            "sharpness": 1566.1,
+            "person": false
           }
         ]
       }

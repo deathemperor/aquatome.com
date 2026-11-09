@@ -61,7 +61,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Các thanh ống PVC cắt sẵn và cút nối để làm khung kệ.",
-            "sharpness": 1708.9
+            "sharpness": 1708.9,
+            "person": false
           },
           {
             "t": 70,
@@ -69,7 +70,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Khung ống PVC sơn đen có dây dù buộc chéo qua các góc.",
-            "sharpness": 617.9
+            "sharpness": 617.9,
+            "person": false
           }
         ],
         "photo": {
@@ -85,24 +87,7 @@
       },
       {
         "heading": "Trồng cây trên kệ",
-        "moments": [
-          {
-            "t": 130,
-            "url": "https://media.aquatome.com/video/Wh4n7nbLbi8/at130-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây trồng trên tấm kệ, rễ bám vào lớp đất mặt.",
-            "sharpness": 3644
-          },
-          {
-            "t": 150,
-            "url": "https://media.aquatome.com/video/Wh4n7nbLbi8/at150-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây đã trồng trên kệ, phủ lớp sỏi lên trên đất.",
-            "sharpness": 1924.4
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/Wh4n7nbLbi8/p1-aGFiaXR1cykuanBn.webp",
           "thumb": "https://media.aquatome.com/video/Wh4n7nbLbi8/p1-aGFiaXR1cykuanBn-480.webp",
@@ -115,27 +100,6 @@
         }
       },
       {
-        "heading": "Xếp lũa cho hồ",
-        "moments": [
-          {
-            "t": 170,
-            "url": "https://media.aquatome.com/video/Wh4n7nbLbi8/at170-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Xịt nước rửa sạch đống lũa trên bãi cỏ trước khi bỏ xuống hồ.",
-            "sharpness": 1812.4
-          },
-          {
-            "t": 200,
-            "url": "https://media.aquatome.com/video/Wh4n7nbLbi8/at200-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lũa xếp trong hồ nối các kệ cây với nhau cho liền mạch.",
-            "sharpness": 2737.5
-          }
-        ]
-      },
-      {
         "heading": "Hoàn thiện hệ thống lọc",
         "moments": [
           {
@@ -144,7 +108,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ống dẫn nước đen nối vào thùng lọc vi sinh có lớp mút lọc.",
-            "sharpness": 1417.6
+            "sharpness": 1417.6,
+            "person": false
           },
           {
             "t": 275,
@@ -152,28 +117,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nước tràn ra máng thác rồi chảy về hồ.",
-            "sharpness": 543.1
-          }
-        ]
-      },
-      {
-        "heading": "Làm nắp che thùng lọc",
-        "moments": [
-          {
-            "t": 335,
-            "url": "https://media.aquatome.com/video/Wh4n7nbLbi8/at335-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các tấm ván đặt kín mặt thùng lọc làm nắp che.",
-            "sharpness": 615.5
-          },
-          {
-            "t": 355,
-            "url": "https://media.aquatome.com/video/Wh4n7nbLbi8/at355-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nhấc vài tấm ván ra để mở nắp thùng lọc.",
-            "sharpness": 584.8
+            "sharpness": 543.1,
+            "person": false
           }
         ]
       },
@@ -186,7 +131,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Các túi cá vàng thả nổi trên mặt hồ để cân bằng nhiệt.",
-            "sharpness": 463.4
+            "sharpness": 463.4,
+            "person": false
           }
         ],
         "photo": {
@@ -199,27 +145,6 @@
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_shoal_of_goldfish_in_the_pond_of_Petah_Tikva_park_-_02.jpg",
           "caption": "Đàn cá vàng màu cam đỏ bơi lượn thoải mái trong hồ rộng."
         }
-      },
-      {
-        "heading": "Làm hang trốn cho cá",
-        "moments": [
-          {
-            "t": 440,
-            "url": "https://media.aquatome.com/video/Wh4n7nbLbi8/at440-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bệ ống PVC ghép sẵn đặt trên tấm đá sa thạch lớn.",
-            "sharpness": 1343.3
-          },
-          {
-            "t": 445,
-            "url": "https://media.aquatome.com/video/Wh4n7nbLbi8/at445-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khoan lỗ trên khung bệ ống PVC để nước vào và bệ chìm.",
-            "sharpness": 2869.3
-          }
-        ]
       }
     ]
   }

@@ -47,40 +47,6 @@
     ],
     "figures": [
       {
-        "heading": "Tính kích thước và đào hố thế nào",
-        "moments": [
-          {
-            "t": 110,
-            "url": "https://media.aquatome.com/video/EtPpRSVUsTE/at110-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hố đang đào sâu dần trên sườn dốc, có các bậc kệ.",
-            "sharpness": 5541.7
-          }
-        ]
-      },
-      {
-        "heading": "Lót vải địa kỹ thuật và bạt cho đúng",
-        "moments": [
-          {
-            "t": 130,
-            "url": "https://media.aquatome.com/video/EtPpRSVUsTE/at130-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Trải vải địa kỹ thuật màu đen xuống hố ao đã đào.",
-            "sharpness": 3929
-          },
-          {
-            "t": 140,
-            "url": "https://media.aquatome.com/video/EtPpRSVUsTE/at140-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Trải bạt lên trên lớp vải, kéo cho phẳng và đều.",
-            "sharpness": 2397
-          }
-        ]
-      },
-      {
         "heading": "Đặt đá, gỗ và chèn khe sao cho chắc",
         "moments": [
           {
@@ -89,15 +55,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Gốc cây và cành gỗ đặt xen giữa các hòn đá trên lớp vải.",
-            "sharpness": 1634.6
-          },
-          {
-            "t": 380,
-            "url": "https://media.aquatome.com/video/EtPpRSVUsTE/at380-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nhét vải địa kỹ thuật vào khe giữa các hòn đá cho chắc.",
-            "sharpness": 872
+            "sharpness": 1634.6,
+            "person": false
           }
         ],
         "photo": {
@@ -115,41 +74,13 @@
         "heading": "Làm lọc bog",
         "moments": [
           {
-            "t": 430,
-            "url": "https://media.aquatome.com/video/EtPpRSVUsTE/at430-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Máng thoát nước (trench drain) đang được khoan lỗ dọc thân.",
-            "sharpness": 761.9
-          },
-          {
             "t": 460,
             "url": "https://media.aquatome.com/video/EtPpRSVUsTE/at460-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Máng thoát nước đặt trong rãnh, phủ vải địa kỹ thuật, cạnh ống lọc.",
-            "sharpness": 575.6
-          }
-        ]
-      },
-      {
-        "heading": "Làm cửa hút và nối bơm",
-        "moments": [
-          {
-            "t": 560,
-            "url": "https://media.aquatome.com/video/EtPpRSVUsTE/at560-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ống cống có khoan lỗ dựng đứng, lót bạt đen và xếp đá quanh cửa hút.",
-            "sharpness": 2218.4
-          },
-          {
-            "t": 650,
-            "url": "https://media.aquatome.com/video/EtPpRSVUsTE/at650-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Chặn bằng cành cây, lấp sỏi quanh ống để nước chảy vào lớp đá.",
-            "sharpness": 2264.9
+            "sharpness": 575.6,
+            "person": false
           }
         ]
       },
@@ -162,15 +93,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Mực nước ở mép hồ đá, chỗ cần kiểm tra rò rỉ.",
-            "sharpness": 564.4
-          },
-          {
-            "t": 840,
-            "url": "https://media.aquatome.com/video/EtPpRSVUsTE/at840-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Miếng vá bạt đã dán keo, dùng để vá chỗ rò.",
-            "sharpness": 310.3
+            "sharpness": 564.4,
+            "person": false
           }
         ]
       },
@@ -183,7 +107,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nòng nọc bám trên đá cạnh gốc cây trong nước.",
-            "sharpness": 2159.3
+            "sharpness": 2159.3,
+            "person": false
           },
           {
             "t": 940,
@@ -191,7 +116,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Con ếch ngồi trên tảng đá ở khu bờ.",
-            "sharpness": 151
+            "sharpness": 151,
+            "person": false
           }
         ],
         "photo": {

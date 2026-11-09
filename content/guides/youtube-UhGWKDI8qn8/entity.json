@@ -78,7 +78,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá rồng châu Á nhỏ bơi cùng đàn cá dĩa trong bể.",
-            "sharpness": 48.3
+            "sharpness": 48.3,
+            "person": false
           },
           {
             "t": 120,
@@ -86,7 +87,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể lớn đã hạ thấp mực nước, cá bơi gần đáy.",
-            "sharpness": 272.2
+            "sharpness": 272.2,
+            "person": false
           }
         ],
         "photo": {
@@ -109,7 +111,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hai con cá đuối nước ngọt nằm trên nền cát trong bể rộng.",
-            "sharpness": 133.6
+            "sharpness": 133.6,
+            "person": false
           },
           {
             "t": 270,
@@ -117,7 +120,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá đuối chấm trắng bơi sát đáy bể cùng một con cá dĩa.",
-            "sharpness": 136.1
+            "sharpness": 136.1,
+            "person": false
           }
         ],
         "photo": {
@@ -140,7 +144,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể đáy trống với cá đuối và cá dĩa bơi phía trên.",
-            "sharpness": 264.9
+            "sharpness": 264.9,
+            "person": false
           },
           {
             "t": 290,
@@ -148,7 +153,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hai con cá đuối chấm trắng nằm trên đáy bể trống, không có nền.",
-            "sharpness": 52
+            "sharpness": 52,
+            "person": false
           }
         ]
       },
@@ -170,20 +176,13 @@
         "heading": "Vì sao không đặt đồ trang trí",
         "moments": [
           {
-            "t": 700,
-            "url": "https://media.aquatome.com/video/UhGWKDI8qn8/at700-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đuối và cá đĩa nằm gần đáy bể, bể còn rất thoáng.",
-            "sharpness": 289.4
-          },
-          {
             "t": 720,
             "url": "https://media.aquatome.com/video/UhGWKDI8qn8/at720-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Cá rồng bơi phía trên, đuối và cá đĩa ở góc bể trống.",
-            "sharpness": 281.6
+            "sharpness": 281.6,
+            "person": false
           }
         ],
         "photo": {
@@ -206,7 +205,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đuối và cá rồng bơi gần đáy bể lúc đến giờ ăn.",
-            "sharpness": 146.3
+            "sharpness": 146.3,
+            "person": false
           },
           {
             "t": 920,
@@ -214,7 +214,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá đuối chấm trắng đang ăn thức ăn trên nền bể.",
-            "sharpness": 38.1
+            "sharpness": 38.1,
+            "person": false
           }
         ]
       },
@@ -241,7 +242,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ba ống tràn PVC đứng với đầu nối loe ở miệng ống.",
-            "sharpness": 53.2
+            "sharpness": 53.2,
+            "person": false
           },
           {
             "t": 1160,
@@ -249,7 +251,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bên trong thùng phuy lọc xanh, có ống PVC nối giữa hai thùng.",
-            "sharpness": 25.1
+            "sharpness": 25.1,
+            "person": false
           }
         ]
       },
@@ -262,15 +265,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hệ thống ống và bơm dẫn nước ở sàn cạnh bể.",
-            "sharpness": 32.3
-          },
-          {
-            "t": 1340,
-            "url": "https://media.aquatome.com/video/UhGWKDI8qn8/at1340-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Thùng lọc màu xanh có ống tràn để nước dư chảy ra.",
-            "sharpness": 27.7
+            "sharpness": 32.3,
+            "person": false
           }
         ]
       }

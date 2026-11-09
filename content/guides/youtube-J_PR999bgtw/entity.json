@@ -54,20 +54,13 @@
         "heading": "Ba nguyên nhân hay gặp",
         "moments": [
           {
-            "t": 55,
-            "url": "https://media.aquatome.com/video/J_PR999bgtw/at55-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Vệ sinh nền bể thủy sinh bằng dụng cụ hút cặn để giảm chất thải hữu cơ.",
-            "sharpness": 1813.2
-          },
-          {
             "t": 165,
             "url": "https://media.aquatome.com/video/J_PR999bgtw/at165-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh trồng nhiều cây, lũa và đá, đèn chiếu sáng phía trên.",
-            "sharpness": 1391.6
+            "sharpness": 1391.6,
+            "person": false
           }
         ],
         "photo": {
@@ -107,19 +100,6 @@
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scartella_cristata_Quarantine.jpg",
           "caption": "Một chú cá nhỏ bơi giữa cành cây nhựa đỏ trong bể cảnh."
         }
-      },
-      {
-        "heading": "Carbon lỏng không thay được CO2",
-        "moments": [
-          {
-            "t": 285,
-            "url": "https://media.aquatome.com/video/J_PR999bgtw/at285-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Chai carbon lỏng đặt trước thảm cây thủy sinh xanh tốt.",
-            "sharpness": 445.2
-          }
-        ]
       }
     ]
   }

@@ -63,7 +63,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Thảm cây mọc dày trong bể thủy sinh, cần theo dõi rêu hại.",
-            "sharpness": 813.6
+            "sharpness": 813.6,
+            "person": false
           },
           {
             "t": 60,
@@ -71,7 +72,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh rậm cây với drop checker để kiểm tra nồng độ CO2.",
-            "sharpness": 1195.9
+            "sharpness": 1195.9,
+            "person": false
           }
         ]
       },
@@ -79,41 +81,13 @@
         "heading": "Diệt rêu gạc hươu khi bể đã dính nặng",
         "moments": [
           {
-            "t": 255,
-            "url": "https://media.aquatome.com/video/2cQKwuP8G8I/at255-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay đang dùng ống siphon hút cặn và thay nước trong bể thủy sinh.",
-            "sharpness": 2566.9
-          },
-          {
             "t": 285,
             "url": "https://media.aquatome.com/video/2cQKwuP8G8I/at285-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Lũa phủ rêu và cây trong bể, cần cọ sạch rêu hại bám.",
-            "sharpness": 1301.8
-          }
-        ]
-      },
-      {
-        "heading": "Rêu chỉ có chút ít thì xử lý thế nào",
-        "moments": [
-          {
-            "t": 325,
-            "url": "https://media.aquatome.com/video/2cQKwuP8G8I/at325-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay cầm xilanh đưa vào bể để xử lý đúng chỗ có rêu.",
-            "sharpness": 2386.4
-          },
-          {
-            "t": 330,
-            "url": "https://media.aquatome.com/video/2cQKwuP8G8I/at330-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng xilanh bơm trực tiếp dung dịch vào chỗ rêu hại trên lũa.",
-            "sharpness": 2277.7
+            "sharpness": 1301.8,
+            "person": false
           }
         ]
       },
@@ -126,7 +100,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hộp lọc ngoài Eheim Professional 902 dùng cho bể thủy sinh.",
-            "sharpness": 1228.8
+            "sharpness": 1228.8,
+            "person": false
           }
         ],
         "photo": {

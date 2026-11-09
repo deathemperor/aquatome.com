@@ -100,7 +100,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể kính thấp, dài, đặt cạnh cửa sổ, đáy trải cát trắng.",
-            "sharpness": 259.2
+            "sharpness": 259.2,
+            "person": false
           },
           {
             "t": 20,
@@ -108,7 +109,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh có lũa, cây và cát trắng, đang được vệ sinh.",
-            "sharpness": 509.1
+            "sharpness": 509.1,
+            "person": false
           }
         ]
       },
@@ -149,7 +151,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá trong bể mới trồng, nước còn hơi đục.",
-            "sharpness": 113.3
+            "sharpness": 113.3,
+            "person": false
           }
         ],
         "photo": {

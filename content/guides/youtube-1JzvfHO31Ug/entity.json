@@ -40,27 +40,6 @@
     ],
     "figures": [
       {
-        "heading": "Cần chuẩn bị những gì",
-        "moments": [
-          {
-            "t": 35,
-            "url": "https://media.aquatome.com/video/1JzvfHO31Ug/at35-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hai nắp CO2 có đầu cắm dây khí, van kim và đồng hồ đo áp.",
-            "sharpness": 77.6
-          },
-          {
-            "t": 60,
-            "url": "https://media.aquatome.com/video/1JzvfHO31Ug/at60-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hai nắp CO2 tự chế trắng với đầu cắm dây khí để vặn vào chai.",
-            "sharpness": 41.9
-          }
-        ]
-      },
-      {
         "heading": "Pha hỗn hợp theo tỉ lệ nào",
         "moments": [
           {
@@ -69,36 +48,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hai chai CO2 tự chế đặt cạnh nhau, thấy rõ ống dẫn bên trong.",
-            "sharpness": 202.3
-          },
-          {
-            "t": 155,
-            "url": "https://media.aquatome.com/video/1JzvfHO31Ug/at155-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hai chai nhựa xanh đã lắp xong, sẵn sàng cho axit citric và baking soda.",
-            "sharpness": 114.5
-          }
-        ]
-      },
-      {
-        "heading": "Nối dây từ bình ra bể",
-        "moments": [
-          {
-            "t": 180,
-            "url": "https://media.aquatome.com/video/1JzvfHO31Ug/at180-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nối dây khí và van một chiều vào chai CO2 tự chế.",
-            "sharpness": 69.1
-          },
-          {
-            "t": 210,
-            "url": "https://media.aquatome.com/video/1JzvfHO31Ug/at210-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hai chai nối dây khí, một chai gắn đồng hồ áp.",
-            "sharpness": 330
+            "sharpness": 202.3,
+            "person": false
           }
         ]
       },
@@ -106,20 +57,13 @@
         "heading": "Mồi bình và hệ chạy ra sao",
         "moments": [
           {
-            "t": 225,
-            "url": "https://media.aquatome.com/video/1JzvfHO31Ug/at225-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bóp chai để dung dịch chảy sang chai bên cạnh.",
-            "sharpness": 155.2
-          },
-          {
             "t": 250,
             "url": "https://media.aquatome.com/video/1JzvfHO31Ug/at250-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Hai chai nối bằng dây, có van kim và đồng hồ áp.",
-            "sharpness": 298
+            "sharpness": 298,
+            "person": false
           }
         ]
       },
@@ -132,7 +76,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Chai CO2 tự chế nối dây dẫn khí, van kim đen gắn cạnh bể.",
-            "sharpness": 90.4
+            "sharpness": 90.4,
+            "person": false
           },
           {
             "t": 315,
@@ -140,7 +85,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh chai CO2 và van kim đen để chỉnh lượng khí vào bể.",
-            "sharpness": 65.9
+            "sharpness": 65.9,
+            "person": false
           }
         ]
       },
@@ -153,7 +99,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Chai ủ CO2 tự chế nối với van kim bên cạnh bể.",
-            "sharpness": 16.8
+            "sharpness": 16.8,
+            "person": false
           },
           {
             "t": 360,
@@ -161,7 +108,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Van kim màu đen gắn trên ống dẫn khí CO2 cạnh bồn cá.",
-            "sharpness": 104.7
+            "sharpness": 104.7,
+            "person": false
           }
         ],
         "photo": {
@@ -184,15 +132,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh chai hỗn hợp CO2 và van kim gắn bên hông bể.",
-            "sharpness": 193.9
-          },
-          {
-            "t": 290,
-            "url": "https://media.aquatome.com/video/1JzvfHO31Ug/at290-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hai chai CO2 tự chế đặt cạnh bể, nối dây qua van kim.",
-            "sharpness": 270.6
+            "sharpness": 193.9,
+            "person": false
           }
         ],
         "photo": {
@@ -210,20 +151,13 @@
         "heading": "Bắt đầu từ đâu",
         "moments": [
           {
-            "t": 30,
-            "url": "https://media.aquatome.com/video/1JzvfHO31Ug/at30-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bộ sủi và bộ đếm bọt nối với nhau bằng ống dẫn khí.",
-            "sharpness": 22
-          },
-          {
             "t": 380,
             "url": "https://media.aquatome.com/video/1JzvfHO31Ug/at380-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bộ đếm bọt gắn bên thành bể, bên trong có nước.",
-            "sharpness": 26.5
+            "sharpness": 26.5,
+            "person": false
           }
         ],
         "photo": {

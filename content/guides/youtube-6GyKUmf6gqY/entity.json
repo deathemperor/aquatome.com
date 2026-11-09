@@ -93,20 +93,13 @@
         "heading": "Chuẩn bị chỗ đặt bể và thiết bị",
         "moments": [
           {
-            "t": 140,
-            "url": "https://media.aquatome.com/video/6GyKUmf6gqY/at140-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể trống trên tủ, thấy ống lọc và dây bên trong bể.",
-            "sharpness": 199.3
-          },
-          {
             "t": 145,
             "url": "https://media.aquatome.com/video/6GyKUmf6gqY/at145-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể kính trống đặt trên tủ đen, gắn đèn Chihiros phía trên.",
-            "sharpness": 764.4
+            "sharpness": 764.4,
+            "person": false
           }
         ]
       },
@@ -119,7 +112,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bàn tập bố cục có vách gỗ và các lỗ bu lông để chỉnh kích thước.",
-            "sharpness": 182.5
+            "sharpness": 182.5,
+            "person": false
           },
           {
             "t": 245,
@@ -127,7 +121,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Vách sau bàn tập kẻ ô lưới đánh dấu tỉ lệ để canh điểm nhấn.",
-            "sharpness": 107.1
+            "sharpness": 107.1,
+            "person": false
           }
         ],
         "photo": {
@@ -145,20 +140,13 @@
         "heading": "Sửa lũa và dán lũa vào đá",
         "moments": [
           {
-            "t": 385,
-            "url": "https://media.aquatome.com/video/6GyKUmf6gqY/at385-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đặt viên đá áp sát khúc lũa để có thêm điểm tiếp xúc.",
-            "sharpness": 942.8
-          },
-          {
             "t": 395,
             "url": "https://media.aquatome.com/video/6GyKUmf6gqY/at395-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Lũa và đá được đặt sát nhau trong hồ trên nền đất đen.",
-            "sharpness": 178.5
+            "sharpness": 178.5,
+            "person": false
           }
         ],
         "photo": {
@@ -181,7 +169,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ống có van và móc giữ dẫn nước RO chảy vào bể thủy sinh.",
-            "sharpness": 202.7
+            "sharpness": 202.7,
+            "person": false
           },
           {
             "t": 465,
@@ -189,7 +178,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đang châm nước vào bể, cây trồng dày phủ kín nền.",
-            "sharpness": 503
+            "sharpness": 503,
+            "person": false
           }
         ]
       },
@@ -202,7 +192,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lọc thùng đặt trong tủ bể, sẵn vật liệu lọc có vi sinh.",
-            "sharpness": 238.7
+            "sharpness": 238.7,
+            "person": false
           },
           {
             "t": 495,
@@ -210,7 +201,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bình CO2 được lắp thêm cạnh lọc thùng trong tủ bể.",
-            "sharpness": 490.1
+            "sharpness": 490.1,
+            "person": false
           }
         ],
         "photo": {
@@ -233,7 +225,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể cây rậm rạp có một con cá xiêm bơi bên trong.",
-            "sharpness": 2526.9
+            "sharpness": 2526.9,
+            "person": false
           },
           {
             "t": 580,
@@ -241,7 +234,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá xiêm đen xòe vây bơi trước đám cây dày.",
-            "sharpness": 311.7
+            "sharpness": 311.7,
+            "person": false
           }
         ]
       },
@@ -254,7 +248,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Tiền cảnh um tùm cỏ mọc thẳng quanh lũa, che gần hết nền.",
-            "sharpness": 2150.4
+            "sharpness": 2150.4,
+            "person": false
           },
           {
             "t": 625,
@@ -262,7 +257,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cỏ chân vịt và cây tiền cảnh mọc đứng, lấn ra nền trước.",
-            "sharpness": 1050.2
+            "sharpness": 1050.2,
+            "person": false
           }
         ],
         "photo": {

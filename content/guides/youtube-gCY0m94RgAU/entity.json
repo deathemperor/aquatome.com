@@ -146,20 +146,13 @@
         "heading": "Làm lớp nền nuôi từ sỏi, đất ao và phân nền",
         "moments": [
           {
-            "t": 390,
-            "url": "https://media.aquatome.com/video/gCY0m94RgAU/at390-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đổ phân nền Dennerle vào xô để trộn với sỏi và đất ao.",
-            "sharpness": 922.2
-          },
-          {
             "t": 430,
             "url": "https://media.aquatome.com/video/gCY0m94RgAU/at430-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Lớp nền sỏi trộn đất ao và phân nền đã rải đều trong bể.",
-            "sharpness": 804.5
+            "sharpness": 804.5,
+            "person": false
           }
         ]
       },
@@ -172,15 +165,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Những tảng đá cuội xám đã được xếp trong bể trên lớp cát phủ.",
-            "sharpness": 302.3
-          },
-          {
-            "t": 630,
-            "url": "https://media.aquatome.com/video/gCY0m94RgAU/at630-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đổ thêm cát quanh chân tảng đá lớn để phủ dày lớp nền.",
-            "sharpness": 202.3
+            "sharpness": 302.3,
+            "person": false
           }
         ]
       },
@@ -188,20 +174,13 @@
         "heading": "Chọn cây và trồng theo từng tầng",
         "moments": [
           {
-            "t": 720,
-            "url": "https://media.aquatome.com/video/gCY0m94RgAU/at720-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các chậu cây Cryptocoryne chuẩn bị sẵn trên khay trước khi trồng.",
-            "sharpness": 922.5
-          },
-          {
             "t": 920,
             "url": "https://media.aquatome.com/video/gCY0m94RgAU/at920-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Dùng nhíp trồng Cryptocoryne sát đá, lá xanh mọc dày.",
-            "sharpness": 266.9
+            "sharpness": 266.9,
+            "person": false
           }
         ],
         "photo": {
@@ -216,48 +195,6 @@
         }
       },
       {
-        "heading": "Gắn rêu mà không làm xấu đá lớn",
-        "moments": [
-          {
-            "t": 950,
-            "url": "https://media.aquatome.com/video/gCY0m94RgAU/at950-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hộp rêu Taiwan, nhíp và những viên sỏi nhỏ để dán rêu.",
-            "sharpness": 233.8
-          },
-          {
-            "t": 970,
-            "url": "https://media.aquatome.com/video/gCY0m94RgAU/at970-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Rêu trên sỏi nhỏ được đặt lên tảng đá lớn trong bố cục.",
-            "sharpness": 734.6
-          }
-        ]
-      },
-      {
-        "heading": "Lọc, CO2 và đèn",
-        "moments": [
-          {
-            "t": 1010,
-            "url": "https://media.aquatome.com/video/gCY0m94RgAU/at1010-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ống lọc, bộ khuếch tán CO2 và các chi tiết lily pipe trên bàn.",
-            "sharpness": 135.9
-          },
-          {
-            "t": 1030,
-            "url": "https://media.aquatome.com/video/gCY0m94RgAU/at1030-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bộ lọc Oase Biomaster với ống lọc đang được nối vào.",
-            "sharpness": 43.8
-          }
-        ]
-      },
-      {
         "heading": "Khởi động bể mới cho êm",
         "moments": [
           {
@@ -266,15 +203,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể mới setup với đá và cây mới trồng, nước còn trong và êm.",
-            "sharpness": 210.8
-          },
-          {
-            "t": 1230,
-            "url": "https://media.aquatome.com/video/gCY0m94RgAU/at1230-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Châm nước vào bể mới có đá và cây thủy sinh đã lên khá đều.",
-            "sharpness": 835.2
+            "sharpness": 210.8,
+            "person": false
           }
         ],
         "photo": {
@@ -297,7 +227,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể thủy sinh với đá, cây và đàn cá nhỏ bơi lượn.",
-            "sharpness": 1676.2
+            "sharpness": 1676.2,
+            "person": false
           },
           {
             "t": 1270,
@@ -305,7 +236,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá galaxy bơi gần tảng đá và rêu, trông khá bạo dạn.",
-            "sharpness": 186
+            "sharpness": 186,
+            "person": false
           }
         ],
         "photo": {

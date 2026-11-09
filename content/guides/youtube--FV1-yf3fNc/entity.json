@@ -36,7 +36,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đống than hoạt tính màu đen dùng làm vật liệu lọc hóa học.",
-            "sharpness": 528.1
+            "sharpness": 528.1,
+            "person": false
           },
           {
             "t": 95,
@@ -44,48 +45,6 @@
             "width": 159,
             "height": 90,
             "caption": "Đống zeolite màu be dùng để hút amoniac trong nước."
-          }
-        ]
-      },
-      {
-        "heading": "Chuẩn bị gì",
-        "moments": [
-          {
-            "t": 140,
-            "url": "https://media.aquatome.com/video/-FV1-yf3fNc/at140-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hai đoạn ống PVC trắng dùng làm thân ống nhồi vật liệu lọc.",
-            "sharpness": 19.6
-          },
-          {
-            "t": 165,
-            "url": "https://media.aquatome.com/video/-FV1-yf3fNc/at165-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Giác hút nhỏ màu đen có núm nhỏ ở giữa.",
-            "sharpness": 38
-          }
-        ]
-      },
-      {
-        "heading": "Làm ống lọc thế nào",
-        "moments": [
-          {
-            "t": 150,
-            "url": "https://media.aquatome.com/video/-FV1-yf3fNc/at150-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nắp bịt đã khoan nhiều lỗ nhỏ để lắp vào đầu ống lọc.",
-            "sharpness": 22.3
-          },
-          {
-            "t": 160,
-            "url": "https://media.aquatome.com/video/-FV1-yf3fNc/at160-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Giác hút có núm nhỏ để nhét vào lỗ khoan trên thành ống.",
-            "sharpness": 19.5
           }
         ]
       },
@@ -98,7 +57,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ống lọc PVC có lỗ thoát, nước chảy qua miệng ống.",
-            "sharpness": 113.2
+            "sharpness": 113.2,
+            "person": false
           }
         ]
       },
@@ -111,7 +71,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh ống cứng cắm trong bể, chỗ gắn vòi thay nước.",
-            "sharpness": 23.3
+            "sharpness": 23.3,
+            "person": false
           }
         ]
       }

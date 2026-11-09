@@ -91,15 +91,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Thùng nhựa đen được ốp khung gỗ xung quanh để làm hồ.",
-            "sharpness": 176.6
-          },
-          {
-            "t": 130,
-            "url": "https://media.aquatome.com/video/4lG_4wSx_bQ/at130-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đo và đánh dấu trên thanh gỗ 2x10 bằng thước cuộn.",
-            "sharpness": 764.5
+            "sharpness": 176.6,
+            "person": false
           }
         ]
       },
@@ -107,20 +100,13 @@
         "heading": "Đóng hộp và chân đỡ",
         "moments": [
           {
-            "t": 190,
-            "url": "https://media.aquatome.com/video/4lG_4wSx_bQ/at190-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hộp gỗ 2x10 đã ráp xong, bao quanh thùng đen bên trong.",
-            "sharpness": 297.6
-          },
-          {
             "t": 195,
             "url": "https://media.aquatome.com/video/4lG_4wSx_bQ/at195-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Hộp gỗ đóng xong nhìn từ góc cao, thùng nằm gọn bên trong.",
-            "sharpness": 238.8
+            "sharpness": 238.8,
+            "person": false
           }
         ]
       },
@@ -133,15 +119,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Dùng đèn khò đốt cháy bề mặt gỗ kiểu shou sugi ban.",
-            "sharpness": 137.7
-          },
-          {
-            "t": 325,
-            "url": "https://media.aquatome.com/video/4lG_4wSx_bQ/at325-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng miếng cước chà bỏ lớp than trên mặt gỗ đã đốt.",
-            "sharpness": 391
+            "sharpness": 137.7,
+            "person": false
           }
         ],
         "photo": {
@@ -159,62 +138,13 @@
         "heading": "Gắn đèn và sủi khí",
         "moments": [
           {
-            "t": 370,
-            "url": "https://media.aquatome.com/video/4lG_4wSx_bQ/at370-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đèn vòng màu trắng cùng bộ nguồn dùng để chiếu sáng cho hồ.",
-            "sharpness": 268.4
-          },
-          {
             "t": 385,
             "url": "https://media.aquatome.com/video/4lG_4wSx_bQ/at385-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Kẹp ống CPVC bắt vào khung gỗ để cắm cần đèn.",
-            "sharpness": 105.5
-          }
-        ]
-      },
-      {
-        "heading": "Làm chậu thủy canh trồng sả",
-        "moments": [
-          {
-            "t": 420,
-            "url": "https://media.aquatome.com/video/4lG_4wSx_bQ/at420-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Gỡ đất bám ở rễ sả bằng tay trên chậu.",
-            "sharpness": 4405.9
-          },
-          {
-            "t": 575,
-            "url": "https://media.aquatome.com/video/4lG_4wSx_bQ/at575-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây sả với bộ rễ đã rửa sạch đặt trong chậu lưới.",
-            "sharpness": 641.1
-          }
-        ]
-      },
-      {
-        "heading": "Trải nền và trồng cây thủy sinh",
-        "moments": [
-          {
-            "t": 460,
-            "url": "https://media.aquatome.com/video/4lG_4wSx_bQ/at460-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Sàng đất mặt qua rây để bỏ cành que và rác to.",
-            "sharpness": 2496.9
-          },
-          {
-            "t": 495,
-            "url": "https://media.aquatome.com/video/4lG_4wSx_bQ/at495-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đất nền trộn cát được cho vào túi vải trong xô.",
-            "sharpness": 296.5
+            "sharpness": 105.5,
+            "person": false
           }
         ]
       },
@@ -227,7 +157,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá ăn muỗi màu xám bơi gần mặt kính, nhìn giống cá bảy màu.",
-            "sharpness": 76.4
+            "sharpness": 76.4,
+            "person": false
           },
           {
             "t": 690,
@@ -235,7 +166,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá ăn muỗi đột biến đen đốm giống cá molly đốm bơi trong hồ.",
-            "sharpness": 82.4
+            "sharpness": 82.4,
+            "person": false
           }
         ],
         "photo": {

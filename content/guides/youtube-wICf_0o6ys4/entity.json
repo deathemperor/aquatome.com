@@ -104,7 +104,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá vàng bơi trong bể, vây và đuôi dài dễ bị thối.",
-            "sharpness": 360.1
+            "sharpness": 360.1,
+            "person": false
           }
         ],
         "photo": {
@@ -127,7 +128,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá neon xanh bơi trong bể trồng cây có lũa.",
-            "sharpness": 128.9
+            "sharpness": 128.9,
+            "person": false
           },
           {
             "t": 135,
@@ -135,7 +137,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh sạch, cây phát triển xanh tốt.",
-            "sharpness": 3068.1
+            "sharpness": 3068.1,
+            "person": false
           }
         ]
       },
@@ -148,7 +151,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh trồng nhiều cây, bố cục gọn gàng, không có đồ sắc cạnh.",
-            "sharpness": 3953.7
+            "sharpness": 3953.7,
+            "person": false
           }
         ],
         "photo": {
@@ -171,7 +175,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Con betta xanh căng vây giữa bể có nhiều cây và đá.",
-            "sharpness": 501.8
+            "sharpness": 501.8,
+            "person": false
           },
           {
             "t": 215,
@@ -179,7 +184,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Betta đối mặt với bóng phản chiếu của chính nó trên kính.",
-            "sharpness": 532.7
+            "sharpness": 532.7,
+            "person": false
           }
         ],
         "photo": {
@@ -211,20 +217,13 @@
         "heading": "Chuẩn bị bể trước khi chữa",
         "moments": [
           {
-            "t": 305,
-            "url": "https://media.aquatome.com/video/wICf_0o6ys4/at305-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng ống xi phông hút chất thải dưới nền cát trong bể cây.",
-            "sharpness": 897.6
-          },
-          {
             "t": 315,
             "url": "https://media.aquatome.com/video/wICf_0o6ys4/at315-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể nhỏ đựng cá được chuyển riêng ra để chữa bệnh.",
-            "sharpness": 868.2
+            "sharpness": 868.2,
+            "person": false
           }
         ]
       },
@@ -237,7 +236,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Sủi khí và lọc trong bể có cây thủy sinh để giữ đủ oxy.",
-            "sharpness": 635.4
+            "sharpness": 635.4,
+            "person": false
           }
         ],
         "photo": {
@@ -260,7 +260,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá betta xanh dương bơi giữa cây thủy sinh, đang hồi phục.",
-            "sharpness": 518.8
+            "sharpness": 518.8,
+            "person": false
           },
           {
             "t": 505,
@@ -268,7 +269,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá betta xanh dương bơi khỏe, vây xòe đầy đặn trong bể.",
-            "sharpness": 1034.5
+            "sharpness": 1034.5,
+            "person": false
           }
         ],
         "photo": {

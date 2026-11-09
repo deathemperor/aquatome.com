@@ -73,7 +73,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Khoang sump nằm dưới bể chính với nước và vật liệu lọc.",
-            "sharpness": 240.4
+            "sharpness": 240.4,
+            "person": false
           },
           {
             "t": 30,
@@ -81,7 +82,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Các ống PVC tràn phía sau tấm chắn trong bể, dẫn nước xuống sump.",
-            "sharpness": 470.5
+            "sharpness": 470.5,
+            "person": false
           }
         ],
         "photo": {
@@ -104,7 +106,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể sump kính trống với các vách ngăn acrylic dán bên trong.",
-            "sharpness": 32.3
+            "sharpness": 32.3,
+            "person": false
           }
         ]
       },
@@ -117,15 +120,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ngăn lọc có chổi lọc và một viên mút lọc để sẵn.",
-            "sharpness": 142.2
-          },
-          {
-            "t": 250,
-            "url": "https://media.aquatome.com/video/AqBogTwt6c4/at250-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh chổi lọc màu đen có vòng nhựa để cầm.",
-            "sharpness": 1547.7
+            "sharpness": 142.2,
+            "person": false
           }
         ],
         "photo": {
@@ -143,20 +139,13 @@
         "heading": "Hạt chạy hoạt động thế nào",
         "moments": [
           {
-            "t": 340,
-            "url": "https://media.aquatome.com/video/AqBogTwt6c4/at340-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh các hạt K3 màu trắng nằm trong nước.",
-            "sharpness": 185.2
-          },
-          {
             "t": 370,
             "url": "https://media.aquatome.com/video/AqBogTwt6c4/at370-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Hạt K3 đã đổ vào ngăn lọc, nằm lơ lửng trong bể.",
-            "sharpness": 420.4
+            "sharpness": 420.4,
+            "person": false
           }
         ]
       },

@@ -152,7 +152,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Keo 502 dạng lỏng đặt cạnh các hũ đá nham thạch.",
-            "sharpness": 108.1
+            "sharpness": 108.1,
+            "person": false
           },
           {
             "t": 50,
@@ -160,7 +161,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Thùng đá nham thạch đen với nhiều viên đủ cỡ.",
-            "sharpness": 301.1
+            "sharpness": 301.1,
+            "person": false
           }
         ],
         "photo": {
@@ -183,49 +185,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Vòm đá dày hơn, có rễ lũa dán xen vào cho tự nhiên.",
-            "sharpness": 387.6
-          },
-          {
-            "t": 130,
-            "url": "https://media.aquatome.com/video/SVgc_g2T47Y/at130-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Quét keo lên mẩu bông gòn lộ ra rồi rắc cát tối màu che đi.",
-            "sharpness": 778.2
-          }
-        ]
-      },
-      {
-        "heading": "Lót nền trước khi đặt vòm",
-        "moments": [
-          {
-            "t": 150,
-            "url": "https://media.aquatome.com/video/SVgc_g2T47Y/at150-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng cọ trải đều lớp nền dinh dưỡng dưới đáy hồ.",
-            "sharpness": 408.1
-          },
-          {
-            "t": 200,
-            "url": "https://media.aquatome.com/video/SVgc_g2T47Y/at200-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Phủ phân nền lên trên rồi san phẳng bằng tay.",
-            "sharpness": 439.6
-          }
-        ]
-      },
-      {
-        "heading": "Đặt vòm và hoàn thiện hardscape",
-        "moments": [
-          {
-            "t": 220,
-            "url": "https://media.aquatome.com/video/SVgc_g2T47Y/at220-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Vòm đá rễ đặt đứng một mình trong bể, chưa thêm đá quanh chân.",
-            "sharpness": 867.6
+            "sharpness": 387.6,
+            "person": false
           }
         ]
       },
@@ -238,15 +199,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lọc ngoài đặt trong tủ bể, sẵn sàng lắp CO2 và chạy dark start.",
-            "sharpness": 457.9
-          },
-          {
-            "t": 450,
-            "url": "https://media.aquatome.com/video/SVgc_g2T47Y/at450-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cầm bộ khuếch tán CO2 inline để lắp vào đường ống lọc.",
-            "sharpness": 36.3
+            "sharpness": 457.9,
+            "person": false
           }
         ]
       },
@@ -259,7 +213,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây trải thảm tiền cảnh trồng xen quanh đá và rễ lũa.",
-            "sharpness": 2066.4
+            "sharpness": 2066.4,
+            "person": false
           },
           {
             "t": 700,
@@ -267,7 +222,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Vòm đá núi lửa với cây trồng hai bên và tiền cảnh.",
-            "sharpness": 1358.7
+            "sharpness": 1358.7,
+            "person": false
           }
         ],
         "photo": {
@@ -290,7 +246,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh với vòm cây rêu phủ xanh ở giữa, cây lên đều.",
-            "sharpness": 2931.5
+            "sharpness": 2931.5,
+            "person": false
           },
           {
             "t": 870,
@@ -298,7 +255,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nhìn ngang mặt bể, thảm cây mọc dày sát mặt nước dưới đèn.",
-            "sharpness": 1230.6
+            "sharpness": 1230.6,
+            "person": false
           }
         ],
         "photo": {

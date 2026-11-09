@@ -71,24 +71,7 @@
     "figures": [
       {
         "heading": "Cần chuẩn bị những gì",
-        "moments": [
-          {
-            "t": 110,
-            "url": "https://media.aquatome.com/video/H-0_W0Kagf8/at110-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đồ chuẩn bị: hai chai 2 lít, dây dẫn CO2, keo, đường và men.",
-            "sharpness": 1564.7
-          },
-          {
-            "t": 125,
-            "url": "https://media.aquatome.com/video/H-0_W0Kagf8/at125-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cầm trên tay một đầu nối nhỏ, bên cạnh là dây CO2 và chai.",
-            "sharpness": 252.6
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/H-0_W0Kagf8/p0-sZWFjaGluZy5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/H-0_W0Kagf8/p0-sZWFjaGluZy5qcGc-480.webp",
@@ -115,44 +98,16 @@
         }
       },
       {
-        "heading": "Làm nắp chai sao cho kín",
-        "moments": [
-          {
-            "t": 295,
-            "url": "https://media.aquatome.com/video/H-0_W0Kagf8/at295-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nắp chai đỏ đã có lỗ nhỏ, dây CO2 chuẩn bị luồn qua.",
-            "sharpness": 173.6
-          },
-          {
-            "t": 330,
-            "url": "https://media.aquatome.com/video/H-0_W0Kagf8/at330-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dây CO2 đã luồn qua nắp, đang bịt kín chỗ hở bằng keo.",
-            "sharpness": 1503.1
-          }
-        ]
-      },
-      {
         "heading": "Chia khí và đặt béc ở đâu",
         "moments": [
-          {
-            "t": 430,
-            "url": "https://media.aquatome.com/video/H-0_W0Kagf8/at430-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dây CO2 chia nhánh nối với các béc thủy tinh trên bàn.",
-            "sharpness": 1130.6
-          },
           {
             "t": 475,
             "url": "https://media.aquatome.com/video/H-0_W0Kagf8/at475-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Chai CO2 đặt bên dưới kệ, phía trên là ba bể nhỏ.",
-            "sharpness": 339
+            "sharpness": 339,
+            "person": false
           }
         ],
         "photo": {
@@ -175,7 +130,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ba bể liền nhau, mỗi bể có ống CO2 và lượng khí khác nhau.",
-            "sharpness": 1242.4
+            "sharpness": 1242.4,
+            "person": false
           },
           {
             "t": 510,
@@ -183,7 +139,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh ba bể thủy sinh với ống CO2 đặt trong từng bể.",
-            "sharpness": 1033.5
+            "sharpness": 1033.5,
+            "person": false
           }
         ]
       },
@@ -196,7 +153,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cụm nắp nhựa gắn bằng giác hút trên kính, nằm phía trên cây thủy sinh.",
-            "sharpness": 893.3
+            "sharpness": 893.3,
+            "person": false
           },
           {
             "t": 605,
@@ -204,7 +162,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Drop checker gắn trong ngăn hồ, có cây thủy sinh phía dưới.",
-            "sharpness": 440.4
+            "sharpness": 440.4,
+            "person": false
           }
         ]
       },
@@ -212,20 +171,13 @@
         "heading": "Cách này hợp với trường hợp nào",
         "moments": [
           {
-            "t": 590,
-            "url": "https://media.aquatome.com/video/H-0_W0Kagf8/at590-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể ba ngăn riêng để so sánh nền, mỗi ngăn trồng cây giống nhau.",
-            "sharpness": 1207.2
-          },
-          {
             "t": 630,
             "url": "https://media.aquatome.com/video/H-0_W0Kagf8/at630-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể chia nhiều ngăn với ống dẫn khí, cây thủy sinh mọc trong từng ngăn.",
-            "sharpness": 1201.4
+            "sharpness": 1201.4,
+            "person": false
           }
         ]
       }

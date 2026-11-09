@@ -112,7 +112,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh các bụi cây thân và thảm cỏ xanh trong bể.",
-            "sharpness": 604.1
+            "sharpness": 604.1,
+            "person": false
           },
           {
             "t": 160,
@@ -120,7 +121,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể thủy sinh với lũa và nhiều loại cây trồng dày.",
-            "sharpness": 944.1
+            "sharpness": 944.1,
+            "person": false
           }
         ]
       },
@@ -133,7 +135,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể sau 5 ngày, cây hậu cảnh bên trái lên xanh tốt.",
-            "sharpness": 2017.6
+            "sharpness": 2017.6,
+            "person": false
           },
           {
             "t": 140,
@@ -141,7 +144,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh cụm cây tiền cảnh và trung cảnh đã lên lá mới.",
-            "sharpness": 642.6
+            "sharpness": 642.6,
+            "person": false
           }
         ],
         "photo": {
@@ -164,7 +168,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể không CO2 với lũa, đá và cây thủy sinh lên khá tốt.",
-            "sharpness": 2208.5
+            "sharpness": 2208.5,
+            "person": false
           },
           {
             "t": 185,
@@ -172,7 +177,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận hơn thấy cây có lá mới và lớp rêu bụi mờ trên kính hông.",
-            "sharpness": 627.9
+            "sharpness": 627.9,
+            "person": false
           }
         ]
       },
@@ -185,7 +191,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể ngày 9, cây trải thảm xanh quanh lũa và đá.",
-            "sharpness": 1528.3
+            "sharpness": 1528.3,
+            "person": false
           },
           {
             "t": 480,
@@ -193,7 +200,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh thảm Monte Carlo xanh khỏe dưới chân lũa và đá.",
-            "sharpness": 788.2
+            "sharpness": 788.2,
+            "person": false
           }
         ]
       },
@@ -206,7 +214,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể không CO2 với lũa và cây thủy sinh, nước hơi đục xanh vì rêu hại.",
-            "sharpness": 515
+            "sharpness": 515,
+            "person": false
           },
           {
             "t": 500,
@@ -214,7 +223,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Góc bể không CO2 với lũa, cây mọc đều và lớp rêu bụi xanh.",
-            "sharpness": 715.3
+            "sharpness": 715.3,
+            "person": false
           }
         ],
         "photo": {
@@ -232,33 +242,13 @@
         "heading": "Vệ sinh và theo dõi tiếp",
         "moments": [
           {
-            "t": 555,
-            "url": "https://media.aquatome.com/video/eaGHpCVz-zI/at555-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng ống siphon hút cặn và thay nước trong bể thủy sinh.",
-            "sharpness": 1707.4
-          },
-          {
             "t": 565,
             "url": "https://media.aquatome.com/video/eaGHpCVz-zI/at565-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh sau khi vệ sinh, nước trong và cây xanh tốt.",
-            "sharpness": 392.8
-          }
-        ]
-      },
-      {
-        "heading": "Kết quả test nước nói gì",
-        "moments": [
-          {
-            "t": 600,
-            "url": "https://media.aquatome.com/video/eaGHpCVz-zI/at600-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh bể thủy sinh cây xanh rậm, tay đang thao tác trong bể.",
-            "sharpness": 280.4
+            "sharpness": 392.8,
+            "person": false
           }
         ]
       }

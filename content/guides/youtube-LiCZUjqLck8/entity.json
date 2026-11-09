@@ -87,7 +87,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hai bể kính trắng không viền giống hệt nhau đặt cạnh nhau.",
-            "sharpness": 418.5
+            "sharpness": 418.5,
+            "person": false
           },
           {
             "t": 10,
@@ -95,7 +96,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bố cục lũa và đá trên nền đất giống nhau, trồng cùng loại cây.",
-            "sharpness": 2320
+            "sharpness": 2320,
+            "person": false
           }
         ]
       },
@@ -108,7 +110,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bát phân nền đen đang được cân trên cân điện tử.",
-            "sharpness": 362.4
+            "sharpness": 362.4,
+            "person": false
           },
           {
             "t": 290,
@@ -116,7 +119,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Phân nền đã đổ vào bể, bát cân đặt bên cạnh.",
-            "sharpness": 586.7
+            "sharpness": 586.7,
+            "person": false
           }
         ]
       },
@@ -129,7 +133,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể có đá và lũa spider wood đã dựng xong, nền đất đen.",
-            "sharpness": 1674.6
+            "sharpness": 1674.6,
+            "person": false
           },
           {
             "t": 440,
@@ -137,30 +142,14 @@
             "width": 1200,
             "height": 675,
             "caption": "Hai bể đặt cạnh nhau với bố cục đá và lũa na ná nhau.",
-            "sharpness": 775.1
+            "sharpness": 775.1,
+            "person": false
           }
         ]
       },
       {
         "heading": "Chọn cây gì cho cả hai bể",
-        "moments": [
-          {
-            "t": 630,
-            "url": "https://media.aquatome.com/video/LiCZUjqLck8/at630-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây thân bụi xanh trong chậu bán, đặt cạnh mấy cốc cây khác.",
-            "sharpness": 1029
-          },
-          {
-            "t": 640,
-            "url": "https://media.aquatome.com/video/LiCZUjqLck8/at640-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cầm chậu cây có nhãn, lá xanh tươi, chuẩn bị trồng vào bể.",
-            "sharpness": 1319
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/LiCZUjqLck8/p3-NfUGxhbnRzLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/LiCZUjqLck8/p3-NfUGxhbnRzLmpwZw-480.webp",
@@ -176,20 +165,13 @@
         "heading": "Trồng cây sao cho hai bể đều nhau",
         "moments": [
           {
-            "t": 710,
-            "url": "https://media.aquatome.com/video/LiCZUjqLck8/at710-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các nhúm cây thủy sinh đã tách khỏi chậu, sẵn sàng để trồng.",
-            "sharpness": 1349.5
-          },
-          {
             "t": 810,
             "url": "https://media.aquatome.com/video/LiCZUjqLck8/at810-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể thứ nhất đã trồng thảm thưa tay quanh lũa và đá.",
-            "sharpness": 2532.1
+            "sharpness": 2532.1,
+            "person": false
           }
         ],
         "photo": {
@@ -205,16 +187,7 @@
       },
       {
         "heading": "Đèn, CO2 và thay nước trong những tuần đầu",
-        "moments": [
-          {
-            "t": 870,
-            "url": "https://media.aquatome.com/video/LiCZUjqLck8/at870-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Kệ để bể thủy sinh với cây xanh tốt, đèn bật phía trên.",
-            "sharpness": 675.5
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/LiCZUjqLck8/p5-FzY2FwaW5nLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/LiCZUjqLck8/p5-FzY2FwaW5nLmpwZw-480.webp",
@@ -235,7 +208,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Các cốc cây thủy sinh để trên bàn, sẵn sàng trồng vào hai bể.",
-            "sharpness": 1306.9
+            "sharpness": 1306.9,
+            "person": false
           }
         ],
         "photo": {

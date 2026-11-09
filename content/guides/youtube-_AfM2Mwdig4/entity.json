@@ -58,44 +58,16 @@
     ],
     "figures": [
       {
-        "heading": "Nấm trắng: dấu hiệu và nguyên nhân",
-        "moments": [
-          {
-            "t": 130,
-            "url": "https://media.aquatome.com/video/_AfM2Mwdig4/at130-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đàn cá dĩa nhiều màu bơi trong bể, quan sát thân cá.",
-            "sharpness": 1759.3
-          },
-          {
-            "t": 140,
-            "url": "https://media.aquatome.com/video/_AfM2Mwdig4/at140-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh đàn cá dĩa trong bể có lũa và đá.",
-            "sharpness": 1652.6
-          }
-        ]
-      },
-      {
         "heading": "Ngâm thuốc tím chữa nấm trắng thế nào",
         "moments": [
-          {
-            "t": 210,
-            "url": "https://media.aquatome.com/video/_AfM2Mwdig4/at210-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay khuấy cho thuốc tím tan trong bát nước màu tím.",
-            "sharpness": 494.3
-          },
           {
             "t": 230,
             "url": "https://media.aquatome.com/video/_AfM2Mwdig4/at230-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bát nước thuốc tím đã chuyển màu tím đậm, sẵn sàng ngâm cá.",
-            "sharpness": 157.7
+            "sharpness": 157.7,
+            "person": false
           }
         ]
       },
@@ -108,7 +80,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá dĩa khỏe mạnh bơi trong bể, vây nhìn rõ.",
-            "sharpness": 250.3
+            "sharpness": 250.3,
+            "person": false
           },
           {
             "t": 310,
@@ -116,7 +89,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá dĩa hồng bơi gần, thân và các vây hiện rõ.",
-            "sharpness": 298.4
+            "sharpness": 298.4,
+            "person": false
           }
         ],
         "photo": {
@@ -131,57 +105,16 @@
         }
       },
       {
-        "heading": "Lở loét trên thân: vì sao bị và cách bôi metronidazole",
-        "moments": [
-          {
-            "t": 440,
-            "url": "https://media.aquatome.com/video/_AfM2Mwdig4/at440-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cầm cá trong lưới để bôi thuốc lên chỗ lở loét.",
-            "sharpness": 4571.1
-          },
-          {
-            "t": 450,
-            "url": "https://media.aquatome.com/video/_AfM2Mwdig4/at450-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Giữ cá đĩa trong khay nước để xử lý vết loét.",
-            "sharpness": 1877.2
-          }
-        ]
-      },
-      {
-        "heading": "Bệnh đường tiêu hóa: phòng bằng thức ăn sạch, chữa bằng ngâm thuốc",
-        "moments": [
-          {
-            "t": 650,
-            "url": "https://media.aquatome.com/video/_AfM2Mwdig4/at650-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tô giun tươi đã rửa sạch để cho cá đĩa ăn.",
-            "sharpness": 124.2
-          }
-        ]
-      },
-      {
         "heading": "Tiêu đen: thay đổi sắc tố, không phải bệnh",
         "moments": [
-          {
-            "t": 780,
-            "url": "https://media.aquatome.com/video/_AfM2Mwdig4/at780-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đàn cá đĩa nhiều dòng màu bơi trong hồ, thấy rõ thân và vây.",
-            "sharpness": 419.5
-          },
           {
             "t": 800,
             "url": "https://media.aquatome.com/video/_AfM2Mwdig4/at800-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Cá đĩa đỏ và cá đĩa xanh lam bơi gần nhau trong hồ.",
-            "sharpness": 160
+            "sharpness": 160,
+            "person": false
           }
         ],
         "photo": {
@@ -197,16 +130,7 @@
       },
       {
         "heading": "Gốc của nhiều bệnh là nước chưa tốt",
-        "moments": [
-          {
-            "t": 370,
-            "url": "https://media.aquatome.com/video/_AfM2Mwdig4/at370-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hệ thống lọc đặt trong tủ bể, nơi cần nâng cấp.",
-            "sharpness": 303.3
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/_AfM2Mwdig4/p7-JfRmlsdGVyLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/_AfM2Mwdig4/p7-JfRmlsdGVyLmpwZw-480.webp",

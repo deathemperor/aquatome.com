@@ -78,7 +78,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bụi dương xỉ Java xanh tươi cao bên cạnh hòn đá trong bể.",
-            "sharpness": 488.8
+            "sharpness": 488.8,
+            "person": false
           },
           {
             "t": 140,
@@ -86,7 +87,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bụi dương xỉ Java lá mảnh mọc cao cạnh đá và lớp cây phủ nền.",
-            "sharpness": 412.8
+            "sharpness": 412.8,
+            "person": false
           }
         ]
       },
@@ -99,7 +101,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây thủy sinh gắn quanh đá trên nền đất nâu, không cần trồng xuống nền.",
-            "sharpness": 375.5
+            "sharpness": 375.5,
+            "person": false
           },
           {
             "t": 190,
@@ -107,7 +110,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Góc bể có đá và cây mọc quanh gốc đá trên lớp nền.",
-            "sharpness": 435.5
+            "sharpness": 435.5,
+            "person": false
           }
         ]
       },
@@ -120,7 +124,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây trồng sát chân đá, thân rễ nằm trên mặt nền.",
-            "sharpness": 32.4
+            "sharpness": 32.4,
+            "person": false
           },
           {
             "t": 250,
@@ -128,7 +133,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bụi cây xanh đặt giữa các khe đá, rễ chỉ lấp nhẹ.",
-            "sharpness": 269.5
+            "sharpness": 269.5,
+            "person": false
           }
         ]
       },
@@ -141,7 +147,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cụm dương xỉ và cây lá dài trồng cạnh đá, rễ không bị vùi.",
-            "sharpness": 382.4
+            "sharpness": 382.4,
+            "person": false
           },
           {
             "t": 345,
@@ -149,7 +156,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây trồng trên nền, quanh hòn đá, phần thân rễ nằm trên mặt nền.",
-            "sharpness": 255.7
+            "sharpness": 255.7,
+            "person": false
           }
         ]
       },
@@ -162,14 +170,6 @@
             "width": 160,
             "height": 90,
             "caption": "Ngăn tủ chứa nhiều chai phân nước và carbon cho bể."
-          },
-          {
-            "t": 275,
-            "url": "https://media.aquatome.com/video/DWXA9p0yH-8/at275-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Chai phân nước Easy Green cầm trên tay.",
-            "sharpness": 332.7
           }
         ]
       },
@@ -182,15 +182,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây lá xanh tươi mọc cạnh hòn đá trong bể thủy sinh.",
-            "sharpness": 76.1
-          },
-          {
-            "t": 380,
-            "url": "https://media.aquatome.com/video/DWXA9p0yH-8/at380-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Toàn bể có đèn phía trên, cây xanh bên cạnh đá.",
-            "sharpness": 164.2
+            "sharpness": 76.1,
+            "person": false
           }
         ],
         "photo": {
@@ -213,7 +206,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bụi dương xỉ Java lá hẹp xanh tốt bên cạnh hòn đá trong bể.",
-            "sharpness": 355.7
+            "sharpness": 355.7,
+            "person": false
           },
           {
             "t": 410,
@@ -221,7 +215,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Dương xỉ Java lá hẹp mọc thành bụi cạnh đá, có cây con phía trước.",
-            "sharpness": 201.1
+            "sharpness": 201.1,
+            "person": false
           }
         ]
       }

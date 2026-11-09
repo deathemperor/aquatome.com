@@ -69,14 +69,6 @@
             "width": 320,
             "height": 180,
             "caption": "Đổ phân nền aqua soil từ bao xuống đáy bể."
-          },
-          {
-            "t": 45,
-            "url": "https://media.aquatome.com/video/jhSeTo1Tdp0/at45-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng bình xịt làm ướt lớp phân nền đã trải đều.",
-            "sharpness": 553.5
           }
         ]
       },
@@ -96,21 +88,14 @@
             "width": 1200,
             "height": 675,
             "caption": "Dùng nhíp cắm nhúm ngưu mao chiên xuống nền, khoảng nửa cây ngập trong nền.",
-            "sharpness": 405.8
+            "sharpness": 405.8,
+            "person": false
           }
         ]
       },
       {
         "heading": "Dán mờ kính sau, đổ nước và chạy thiết bị",
         "moments": [
-          {
-            "t": 130,
-            "url": "https://media.aquatome.com/video/jhSeTo1Tdp0/at130-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dán lớp phim mờ lên mặt kính sau của bể.",
-            "sharpness": 796.3
-          },
           {
             "t": 156,
             "url": "https://media.aquatome.com/video/jhSeTo1Tdp0/at156.webp",
@@ -158,7 +143,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể mới trồng: ngưu mao chiên trải thảm thấp, bụi rotala nhỏ bên trái.",
-            "sharpness": 2440.3
+            "sharpness": 2440.3,
+            "person": false
           },
           {
             "t": 205,

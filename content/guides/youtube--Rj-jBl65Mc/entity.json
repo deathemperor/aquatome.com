@@ -65,15 +65,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Chiếc gai cá đuối dài, mảnh, đặt trên mặt bàn.",
-            "sharpness": 66.9
-          },
-          {
-            "t": 180,
-            "url": "https://media.aquatome.com/video/-Rj-jBl65Mc/at180-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh đầu nhọn của gai cá đuối khi cầm trên tay.",
-            "sharpness": 59
+            "sharpness": 66.9,
+            "person": false
           }
         ],
         "photo": {
@@ -91,20 +84,13 @@
         "heading": "Nọc độc nằm ở đâu",
         "moments": [
           {
-            "t": 190,
-            "url": "https://media.aquatome.com/video/-Rj-jBl65Mc/at190-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lớp da phủ ngoài gai bị lột ra, lộ rãnh chứa nọc.",
-            "sharpness": 85.8
-          },
-          {
             "t": 205,
             "url": "https://media.aquatome.com/video/-Rj-jBl65Mc/at205-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh gai cá đuối với hàng răng cưa dọc hai bên.",
-            "sharpness": 23.2
+            "sharpness": 23.2,
+            "person": false
           }
         ]
       },
@@ -117,7 +103,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hai con đuối đốm nằm trên nền cát trong bể, thấy rõ phần lưng và đuôi.",
-            "sharpness": 517.1
+            "sharpness": 517.1,
+            "person": false
           },
           {
             "t": 280,
@@ -190,7 +177,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá đuối đốm trắng nằm trên nền cát trong bể.",
-            "sharpness": 261.3
+            "sharpness": 261.3,
+            "person": false
           },
           {
             "t": 670,
@@ -198,7 +186,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá đuối nằm gần lũa trong bể cùng các loài cá khác.",
-            "sharpness": 133.4
+            "sharpness": 133.4,
+            "person": false
           }
         ],
         "photo": {
@@ -221,7 +210,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hai con cá đuối chấm trắng bơi trên nền cát, cạnh lũa trong bể.",
-            "sharpness": 415.8
+            "sharpness": 415.8,
+            "person": false
           },
           {
             "t": 725,
@@ -229,7 +219,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể nuôi đuối có lũa lớn, cây thủy sinh và cá tầng trên.",
-            "sharpness": 243.1
+            "sharpness": 243.1,
+            "person": false
           }
         ],
         "photo": {

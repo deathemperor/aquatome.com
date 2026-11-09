@@ -114,7 +114,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh với thảm cây xanh kín đáy và rêu phủ lũa.",
-            "sharpness": 1850.9
+            "sharpness": 1850.9,
+            "person": false
           },
           {
             "t": 80,
@@ -122,22 +123,14 @@
             "width": 1200,
             "height": 675,
             "caption": "Thảm cỏ mọc dày phủ kín nền bể, góc nhìn khác.",
-            "sharpness": 1754.1
+            "sharpness": 1754.1,
+            "person": false
           }
         ]
       },
       {
         "heading": "Máy RO lọc nước thế nào",
-        "moments": [
-          {
-            "t": 320,
-            "url": "https://media.aquatome.com/video/gMyhZZKGrNQ/at320-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Máy RO lắp trên tường, có dây nước nối vào máy.",
-            "sharpness": 742.9
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/gMyhZZKGrNQ/p2-FuZV9jb2lsLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/gMyhZZKGrNQ/p2-FuZV9jb2lsLmpwZw-480.webp",
@@ -151,24 +144,7 @@
       },
       {
         "heading": "Phải bù khoáng cho nước RO",
-        "moments": [
-          {
-            "t": 930,
-            "url": "https://media.aquatome.com/video/gMyhZZKGrNQ/at930-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bút đo TDS đặt trong cốc nước RO vừa hứng.",
-            "sharpness": 711.2
-          },
-          {
-            "t": 940,
-            "url": "https://media.aquatome.com/video/gMyhZZKGrNQ/at940-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng bút đo TDS kiểm tra nước trong bể thủy sinh.",
-            "sharpness": 855.9
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/gMyhZZKGrNQ/p3-kcy1tZXRlci5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/gMyhZZKGrNQ/p3-kcy1tZXRlci5qcGc-480.webp",
@@ -184,20 +160,13 @@
         "heading": "Set hai bể so sánh nước máy và nước RO cho công bằng",
         "moments": [
           {
-            "t": 390,
-            "url": "https://media.aquatome.com/video/gMyhZZKGrNQ/at390-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hai bể thủy tinh trống giống hệt nhau đặt cạnh nhau để so sánh.",
-            "sharpness": 956.5
-          },
-          {
             "t": 520,
             "url": "https://media.aquatome.com/video/gMyhZZKGrNQ/at520-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Cân đất nền aquasoil màu đen trên cân điện tử cho mỗi bể.",
-            "sharpness": 853.1
+            "sharpness": 853.1,
+            "person": false
           }
         ]
       },
@@ -205,20 +174,13 @@
         "heading": "Chọn và trồng cây để thấy khác biệt",
         "moments": [
           {
-            "t": 660,
-            "url": "https://media.aquatome.com/video/gMyhZZKGrNQ/at660-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các hộp cây nuôi cấy mô mới về xếp trên bàn để kiểm tra.",
-            "sharpness": 1823.6
-          },
-          {
             "t": 790,
             "url": "https://media.aquatome.com/video/gMyhZZKGrNQ/at790-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Cây đã được trồng trên nền đất cạnh khúc lũa trong hồ chưa đổ nước.",
-            "sharpness": 5603.9
+            "sharpness": 5603.9,
+            "person": false
           }
         ],
         "photo": {

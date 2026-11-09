@@ -49,27 +49,6 @@
     ],
     "figures": [
       {
-        "heading": "Các kiểu đầu tràn đã thử trên vách hông",
-        "moments": [
-          {
-            "t": 45,
-            "url": "https://media.aquatome.com/video/LsQQ1yVFsBQ/at45-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đầu tràn dạng lọc chắn rác màu đen cầm trước bể.",
-            "sharpness": 453.8
-          },
-          {
-            "t": 115,
-            "url": "https://media.aquatome.com/video/LsQQ1yVFsBQ/at115-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ống tràn có khe dài đặt trước bể, cá phía sau.",
-            "sharpness": 521
-          }
-        ]
-      },
-      {
         "heading": "Vì sao khoan vách hông thay vì khoan đáy",
         "moments": [
           {
@@ -78,7 +57,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cắt tấm acrylic trên bàn cưa để làm hộp tràn.",
-            "sharpness": 520.3
+            "sharpness": 520.3,
+            "person": false
           },
           {
             "t": 195,
@@ -86,7 +66,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Tấm kính acrylic được cắt rời, chuẩn bị làm hộp tràn bên ngoài bể.",
-            "sharpness": 74.5
+            "sharpness": 74.5,
+            "person": false
           }
         ]
       },
@@ -105,36 +86,16 @@
         }
       },
       {
-        "heading": "Vệ sinh thành bể đáy trần",
-        "moments": [
-          {
-            "t": 355,
-            "url": "https://media.aquatome.com/video/LsQQ1yVFsBQ/at355-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cán bàn chải thò vào bể lớn khi chà thành, cá vẫn bơi bình thường.",
-            "sharpness": 363.8
-          }
-        ]
-      },
-      {
         "heading": "Thay nước cho bể lớn",
         "moments": [
-          {
-            "t": 395,
-            "url": "https://media.aquatome.com/video/LsQQ1yVFsBQ/at395-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ống xả nối vào van bi ở sát đáy bể.",
-            "sharpness": 187.2
-          },
           {
             "t": 405,
             "url": "https://media.aquatome.com/video/LsQQ1yVFsBQ/at405-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Ống xả thả vào lỗ thoát sàn, đầu van nối bên cạnh.",
-            "sharpness": 787.8
+            "sharpness": 787.8,
+            "person": false
           }
         ]
       },
@@ -147,7 +108,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá rồng bơi gần đáy bể trong ánh đèn công suất thấp.",
-            "sharpness": 258.9
+            "sharpness": 258.9,
+            "person": false
           },
           {
             "t": 530,
@@ -155,7 +117,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá rồng bơi trong bể ván ép, ánh đèn xanh lam.",
-            "sharpness": 227.9
+            "sharpness": 227.9,
+            "person": false
           }
         ]
       }

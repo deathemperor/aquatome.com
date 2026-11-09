@@ -41,27 +41,6 @@
     ],
     "figures": [
       {
-        "heading": "Chuẩn bị hai bể trước khi bắt cá",
-        "moments": [
-          {
-            "t": 115,
-            "url": "https://media.aquatome.com/video/km7iEo-NsD0/at115-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Gỡ vật nặng và đèn trên nắp bể trước khi chuyển cá.",
-            "sharpness": 236.3
-          },
-          {
-            "t": 125,
-            "url": "https://media.aquatome.com/video/km7iEo-NsD0/at125-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Miệng bể đã mở thoáng sau khi tháo nắp và đèn.",
-            "sharpness": 183.4
-          }
-        ]
-      },
-      {
         "heading": "Rút nước và chuyển cá bằng vợt",
         "moments": [
           {
@@ -70,15 +49,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Dùng vợt xúc cá rồng trong bể mới, nước đã được rút thấp.",
-            "sharpness": 360.7
-          },
-          {
-            "t": 200,
-            "url": "https://media.aquatome.com/video/km7iEo-NsD0/at200-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nhấc vợt lớn có cá lên khỏi bể để mang sang bể mới.",
-            "sharpness": 752.7
+            "sharpness": 360.7,
+            "person": false
           }
         ]
       },
@@ -91,7 +63,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá rồng lớn bơi sát mặt nước, thấy rõ vảy và thân cá.",
-            "sharpness": 168.8
+            "sharpness": 168.8,
+            "person": false
           }
         ],
         "photo": {
@@ -104,19 +77,6 @@
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scleropages_formosus_Prague_2012_3.jpg",
           "caption": "Cá rồng bơi trong bể, thấy rõ toàn thân và các vây."
         }
-      },
-      {
-        "heading": "Theo dõi khi thả chung với bầy cá mới",
-        "moments": [
-          {
-            "t": 310,
-            "url": "https://media.aquatome.com/video/km7iEo-NsD0/at310-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cá rồng bơi trong bể dài, bầy cá nhỏ tản ra phía đầu bể.",
-            "sharpness": 283.6
-          }
-        ]
       }
     ]
   }

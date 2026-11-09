@@ -98,14 +98,6 @@
             "width": 320,
             "height": 180,
             "caption": "Bể 30 cm khối đã dán phông nền mờ ở mặt sau."
-          },
-          {
-            "t": 80,
-            "url": "https://media.aquatome.com/video/x7AVyEs1J48/at80-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bộ điều khiển đèn RGB để chỉnh độ sáng và hẹn giờ.",
-            "sharpness": 119
           }
         ]
       },
@@ -118,15 +110,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đổ lớp phân nền đen lên đáy bể.",
-            "sharpness": 542.7
-          },
-          {
-            "t": 130,
-            "url": "https://media.aquatome.com/video/x7AVyEs1J48/at130-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Phân nền được vun lên, đặt đá lớn phía trước.",
-            "sharpness": 1393.5
+            "sharpness": 542.7,
+            "person": false
           }
         ]
       },
@@ -139,7 +124,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nhỏ keo 502 dính các viên đá tảng lớn, khe có nhét bông lọc.",
-            "sharpness": 2404.9
+            "sharpness": 2404.9,
+            "person": false
           },
           {
             "t": 180,
@@ -147,7 +133,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đá tảng và đá nhỏ đã xếp xong, cát trắng phía trước, phân nền phía sau.",
-            "sharpness": 1670.2
+            "sharpness": 1670.2,
+            "person": false
           }
         ]
       },
@@ -160,15 +147,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ba quả cầu rêu treo lơ lửng trên dây cước.",
-            "sharpness": 271
-          },
-          {
-            "t": 285,
-            "url": "https://media.aquatome.com/video/x7AVyEs1J48/at285-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cầu rêu lơ lửng trong bể, tay đang neo dây xuống đá.",
-            "sharpness": 984.7
+            "sharpness": 271,
+            "person": false
           }
         ]
       },
@@ -195,7 +175,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cỏ chân vịt lùn đã phủ kín nền, xen lẫn đá và cầu rêu.",
-            "sharpness": 5166.2
+            "sharpness": 5166.2,
+            "person": false
           },
           {
             "t": 395,
@@ -203,7 +184,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Thảm cỏ mọc dày sau hai tuần, tép con có nhiều chỗ trốn.",
-            "sharpness": 1754.4
+            "sharpness": 1754.4,
+            "person": false
           }
         ]
       },
@@ -216,7 +198,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Những chú tép nhỏ bò quanh các tảng đá trong bể thủy sinh.",
-            "sharpness": 1929.1
+            "sharpness": 1929.1,
+            "person": false
           },
           {
             "t": 410,
@@ -224,7 +207,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Tép Neocaridina nhiều màu cam, xanh, trắng bò trên nền cát cạnh hòn đá.",
-            "sharpness": 956.8
+            "sharpness": 956.8,
+            "person": false
           }
         ],
         "photo": {
@@ -242,20 +226,13 @@
         "heading": "Thêm cá cho tầng nước phía trên",
         "moments": [
           {
-            "t": 470,
-            "url": "https://media.aquatome.com/video/x7AVyEs1J48/at470-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đàn cá nhỏ đang bơi giữa các cầu rêu ở tầng trên bể.",
-            "sharpness": 1742.2
-          },
-          {
             "t": 485,
             "url": "https://media.aquatome.com/video/x7AVyEs1J48/at485-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể với cầu rêu, phần nước phía trên còn khá trống.",
-            "sharpness": 1402.9
+            "sharpness": 1402.9,
+            "person": false
           }
         ]
       },
@@ -268,7 +245,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh với những cầu rêu lơ lửng và tép trên nền cát.",
-            "sharpness": 1695.4
+            "sharpness": 1695.4,
+            "person": false
           },
           {
             "t": 660,
@@ -276,7 +254,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn tép Neocaridina đỏ cam bò trên đá phủ rêu giữa nền cát trắng.",
-            "sharpness": 1044.8
+            "sharpness": 1044.8,
+            "person": false
           }
         ]
       }

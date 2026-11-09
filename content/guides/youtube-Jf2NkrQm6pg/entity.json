@@ -78,7 +78,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể kính trong suốt dùng để cách ly, dễ quan sát cá.",
-            "sharpness": 932.7
+            "sharpness": 932.7,
+            "person": false
           },
           {
             "t": 80,
@@ -86,7 +87,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Thùng nhựa có nắp đậy, thành thùng kẻ vạch mức nước.",
-            "sharpness": 1632.7
+            "sharpness": 1632.7,
+            "person": false
           }
         ]
       },
@@ -99,7 +101,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lọc bọt biển đặt trong bể trồng cây, dòng sủi khí nhẹ.",
-            "sharpness": 1934.2
+            "sharpness": 1934.2,
+            "person": false
           },
           {
             "t": 150,
@@ -107,7 +110,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Miếng lọc bọt biển chạy sủi khí trong bể có cây thủy sinh.",
-            "sharpness": 1693
+            "sharpness": 1693,
+            "person": false
           }
         ],
         "photo": {
@@ -130,7 +134,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Thùng cách ly có vài món trang trí giả và một cục lọc xốp.",
-            "sharpness": 470.6
+            "sharpness": 470.6,
+            "person": false
           }
         ],
         "photo": {
@@ -153,7 +158,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Thùng nhựa cách ly có cây thủy sinh và dây sục khí.",
-            "sharpness": 1552.7
+            "sharpness": 1552.7,
+            "person": false
           }
         ]
       },
@@ -166,7 +172,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Con cá nhỏ đang bơi trong bể cách ly.",
-            "sharpness": 456.5
+            "sharpness": 456.5,
+            "person": false
           }
         ],
         "photo": {
@@ -181,46 +188,8 @@
         }
       },
       {
-        "heading": "Tránh lây chéo sang bể chính",
-        "moments": [
-          {
-            "t": 275,
-            "url": "https://media.aquatome.com/video/Jf2NkrQm6pg/at275-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Rửa tay thật kỹ ở bồn rửa trong nhà tắm.",
-            "sharpness": 1739.1
-          },
-          {
-            "t": 300,
-            "url": "https://media.aquatome.com/video/Jf2NkrQm6pg/at300-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Thùng cách ly đặt riêng, người nuôi đeo găng tay khi thao tác.",
-            "sharpness": 494
-          }
-        ]
-      },
-      {
         "heading": "Vệ sinh và cất thùng sau khi cách ly",
-        "moments": [
-          {
-            "t": 295,
-            "url": "https://media.aquatome.com/video/Jf2NkrQm6pg/at295-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Thùng kính trống đang được ngâm và khử trùng trong bồn.",
-            "sharpness": 1070.3
-          },
-          {
-            "t": 305,
-            "url": "https://media.aquatome.com/video/Jf2NkrQm6pg/at305-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đeo găng tay khử trùng thùng kính và đồ bên trong.",
-            "sharpness": 452.8
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/Jf2NkrQm6pg/p6-5fYmxlYWNoLkpQRw.webp",
           "thumb": "https://media.aquatome.com/video/Jf2NkrQm6pg/p6-5fYmxlYWNoLkpQRw-480.webp",
@@ -241,7 +210,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Con molly đốm trắng đen bơi trong bể nước xanh đục.",
-            "sharpness": 340
+            "sharpness": 340,
+            "person": false
           },
           {
             "t": 365,
@@ -249,7 +219,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Con molly bơi cạnh cây giả trong thùng nuôi riêng.",
-            "sharpness": 354.6
+            "sharpness": 354.6,
+            "person": false
           }
         ],
         "photo": {

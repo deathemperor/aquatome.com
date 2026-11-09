@@ -193,20 +193,13 @@
         "heading": "Bể, tủ và thiết bị cần chuẩn bị",
         "moments": [
           {
-            "t": 1490,
-            "url": "https://media.aquatome.com/video/TfHU7I5OGbY/at1490-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bình CO2 và lọc ngoài đặt gọn trong tủ dưới bể.",
-            "sharpness": 645.9
-          },
-          {
             "t": 1500,
             "url": "https://media.aquatome.com/video/TfHU7I5OGbY/at1500-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể đặt trên tủ, bên trong tủ có bình CO2 và đường ống.",
-            "sharpness": 621.9
+            "sharpness": 621.9,
+            "person": false
           }
         ]
       },
@@ -219,15 +212,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể lớn còn trống, chưa có đá và nền, sẵn sàng đổ nước thử.",
-            "sharpness": 1313.8
-          },
-          {
-            "t": 260,
-            "url": "https://media.aquatome.com/video/TfHU7I5OGbY/at260-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể trống đang được đổ nước bằng ống để thử rò rỉ.",
-            "sharpness": 760.1
+            "sharpness": 1313.8,
+            "person": false
           }
         ]
       },
@@ -240,15 +226,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đá cuội Seiryu lớn và lũa rễ xếp ở góc trái bể.",
-            "sharpness": 349.8
-          },
-          {
-            "t": 730,
-            "url": "https://media.aquatome.com/video/TfHU7I5OGbY/at730-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Toàn cảnh bố cục đá và lũa, bên phải để thoáng, đang xịt ẩm.",
-            "sharpness": 1449
+            "sharpness": 349.8,
+            "person": false
           }
         ]
       },
@@ -261,7 +240,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bố cục đá và lũa nhìn từ phía trước, chuẩn bị đổ nền.",
-            "sharpness": 1875.3
+            "sharpness": 1875.3,
+            "person": false
           },
           {
             "t": 700,
@@ -269,7 +249,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bờ chắn chèn sỏi nhỏ giữa kẽ đá và lũa, phía sau là phân nền.",
-            "sharpness": 584.5
+            "sharpness": 584.5,
+            "person": false
           }
         ],
         "photo": {
@@ -287,20 +268,13 @@
         "heading": "Dán lũa vào đá",
         "moments": [
           {
-            "t": 850,
-            "url": "https://media.aquatome.com/video/TfHU7I5OGbY/at850-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh khe giữa lũa và đá cần dán chặt.",
-            "sharpness": 289
-          },
-          {
             "t": 860,
             "url": "https://media.aquatome.com/video/TfHU7I5OGbY/at860-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Nhỏ keo 502 vào khe giữa khúc lũa và đá.",
-            "sharpness": 429.2
+            "sharpness": 429.2,
+            "person": false
           }
         ],
         "photo": {
@@ -316,24 +290,7 @@
       },
       {
         "heading": "Trồng cây dưới nước và buộc rêu lên lũa",
-        "moments": [
-          {
-            "t": 1010,
-            "url": "https://media.aquatome.com/video/TfHU7I5OGbY/at1010-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Rêu Java được trải lên mặt trên khúc lũa đặt giữa các hòn đá.",
-            "sharpness": 1794.1
-          },
-          {
-            "t": 1040,
-            "url": "https://media.aquatome.com/video/TfHU7I5OGbY/at1040-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Những cụm rêu nhỏ đã được gắn lên lũa cạnh đá.",
-            "sharpness": 1546.2
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/TfHU7I5OGbY/p5-phdmFtb29zLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/TfHU7I5OGbY/p5-phdmFtb29zLmpwZw-480.webp",
@@ -347,24 +304,7 @@
       },
       {
         "heading": "Cây hồ ngoài vườn cho phần trên cạn",
-        "moments": [
-          {
-            "t": 1420,
-            "url": "https://media.aquatome.com/video/TfHU7I5OGbY/at1420-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây cảnh ngoài vườn lá nhỏ, cỏ cao trong chậu để chọn cho góc sau.",
-            "sharpness": 854.6
-          },
-          {
-            "t": 1570,
-            "url": "https://media.aquatome.com/video/TfHU7I5OGbY/at1570-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Rễ cây rất dày, phải gỡ bỏ hết đất trước khi trồng vào bể.",
-            "sharpness": 800.6
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/TfHU7I5OGbY/p6-Rlbl9Qb25kLkpQRw.webp",
           "thumb": "https://media.aquatome.com/video/TfHU7I5OGbY/p6-Rlbl9Qb25kLkpQRw-480.webp",
@@ -380,20 +320,13 @@
         "heading": "Đổ nước, chạy lọc và CO2",
         "moments": [
           {
-            "t": 1460,
-            "url": "https://media.aquatome.com/video/TfHU7I5OGbY/at1460-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Chai Seachem Equilibrium dùng châm khoáng vào nước RO cho cây.",
-            "sharpness": 195.3
-          },
-          {
             "t": 1480,
             "url": "https://media.aquatome.com/video/TfHU7I5OGbY/at1480-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bình CO2, bộ lọc và dây ống đặt gọn trong tủ dưới bể.",
-            "sharpness": 812.9
+            "sharpness": 812.9,
+            "person": false
           }
         ],
         "photo": {
@@ -416,28 +349,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể có rêu hại phủ trên cát và đá.",
-            "sharpness": 1812.3
-          }
-        ]
-      },
-      {
-        "heading": "Chọn cá cho bể cạn hở nắp và cách thả",
-        "moments": [
-          {
-            "t": 2750,
-            "url": "https://media.aquatome.com/video/TfHU7I5OGbY/at2750-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Túi cá thả nổi trong bể cạn hở nắp để cân bằng nhiệt độ.",
-            "sharpness": 743.6
-          },
-          {
-            "t": 2780,
-            "url": "https://media.aquatome.com/video/TfHU7I5OGbY/at2780-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Túi cá được kẹp vào thành kính, cá bắt đầu ra bể.",
-            "sharpness": 407.1
+            "sharpness": 1812.3,
+            "person": false
           }
         ]
       },
@@ -450,7 +363,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá nhỏ bơi gần đá trong bể thủy sinh.",
-            "sharpness": 40.7
+            "sharpness": 40.7,
+            "person": false
           },
           {
             "t": 3040,
@@ -458,7 +372,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá chạch panda bò trên nền cát và đá phủ rêu.",
-            "sharpness": 328.4
+            "sharpness": 328.4,
+            "person": false
           }
         ]
       }

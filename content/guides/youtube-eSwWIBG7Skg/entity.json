@@ -90,7 +90,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá chạch sọc vằn kiếm ăn gần đáy bể cạnh lọc xốp.",
-            "sharpness": 246.7
+            "sharpness": 246.7,
+            "person": false
           },
           {
             "t": 160,
@@ -98,7 +99,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá chạch hổ bơi quanh lọc bọt khí sát nền cát.",
-            "sharpness": 171.3
+            "sharpness": 171.3,
+            "person": false
           }
         ],
         "photo": {
@@ -121,7 +123,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá Geophagus bơi sát nền cát, đang đảo cát tìm thức ăn.",
-            "sharpness": 43.8
+            "sharpness": 43.8,
+            "person": false
           },
           {
             "t": 70,
@@ -129,7 +132,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Geophagus nhỏ kiếm ăn trên lớp nền cát mịn.",
-            "sharpness": 86.4
+            "sharpness": 86.4,
+            "person": false
           }
         ],
         "photo": {
@@ -152,7 +156,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hang đá úp trên nền sỏi, chỗ cá da trơn ăn đêm hay trốn ban ngày.",
-            "sharpness": 81.5
+            "sharpness": 81.5,
+            "person": false
           }
         ]
       },
@@ -165,7 +170,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ba con cá heo hề vằn vàng đen đang bơi trên nền cát.",
-            "sharpness": 29.8
+            "sharpness": 29.8,
+            "person": false
           },
           {
             "t": 210,
@@ -173,7 +179,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá heo nhỏ lục lọi nền cát và bơi lên tầng giữa.",
-            "sharpness": 445.6
+            "sharpness": 445.6,
+            "person": false
           }
         ],
         "photo": {
@@ -205,20 +212,13 @@
         "heading": "Cá chuột (Corydoras)",
         "moments": [
           {
-            "t": 345,
-            "url": "https://media.aquatome.com/video/eSwWIBG7Skg/at345-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nhiều cá chuột bơi chung dọn đáy bể sỏi.",
-            "sharpness": 306.7
-          },
-          {
             "t": 350,
             "url": "https://media.aquatome.com/video/eSwWIBG7Skg/at350-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá chuột lục lọi tìm thức ăn trên nền sỏi.",
-            "sharpness": 997.2
+            "sharpness": 997.2,
+            "person": false
           }
         ],
         "photo": {

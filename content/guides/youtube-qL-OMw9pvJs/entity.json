@@ -63,7 +63,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hồ hoàn chỉnh với đá xếp bậc, sỏi và cây trồng quanh hồ.",
-            "sharpness": 2033.8
+            "sharpness": 2033.8,
+            "person": false
           },
           {
             "t": 30,
@@ -71,112 +72,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây trồng xen giữa đá và sỏi ở thác nước bên hồ.",
-            "sharpness": 3242.5
-          }
-        ]
-      },
-      {
-        "heading": "Vạch hình và chọn vị trí hồ",
-        "moments": [
-          {
-            "t": 70,
-            "url": "https://media.aquatome.com/video/qL-OMw9pvJs/at70-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ống tưới đặt trên mặt đất để vạch hình lòng hồ và đo kích thước.",
-            "sharpness": 8483.1
-          },
-          {
-            "t": 80,
-            "url": "https://media.aquatome.com/video/qL-OMw9pvJs/at80-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đường vạch sơn đánh dấu hình dáng hồ và vị trí thác trên nền cỏ.",
-            "sharpness": 6275
-          }
-        ]
-      },
-      {
-        "heading": "Đào lòng hồ theo ba bậc",
-        "moments": [
-          {
-            "t": 130,
-            "url": "https://media.aquatome.com/video/qL-OMw9pvJs/at130-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lòng hồ đã đào lõm xuống, mép đất được sửa gọn.",
-            "sharpness": 4929
-          },
-          {
-            "t": 170,
-            "url": "https://media.aquatome.com/video/qL-OMw9pvJs/at170-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đào theo đường sơn đỏ để ra hình cơ bản của hồ.",
-            "sharpness": 2896.3
-          }
-        ]
-      },
-      {
-        "heading": "Đào chỗ thác và lắp hộp lọc thác",
-        "moments": [
-          {
-            "t": 240,
-            "url": "https://media.aquatome.com/video/qL-OMw9pvJs/at240-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hộp lọc thác đặt trong hố đào, ống đen nối bên cạnh.",
-            "sharpness": 6776.7
-          },
-          {
-            "t": 260,
-            "url": "https://media.aquatome.com/video/qL-OMw9pvJs/at260-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng thước thủy kiểm tra hộp lọc thác đã đặt cân bằng trong hố.",
-            "sharpness": 1930.9
-          }
-        ]
-      },
-      {
-        "heading": "Trải vải lót và bạt",
-        "moments": [
-          {
-            "t": 290,
-            "url": "https://media.aquatome.com/video/qL-OMw9pvJs/at290-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Vải lót đã trải vào lòng hồ, ôm theo các bậc.",
-            "sharpness": 2610.2
-          },
-          {
-            "t": 310,
-            "url": "https://media.aquatome.com/video/qL-OMw9pvJs/at310-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Kéo bạt EPDM ra và căng đều, chừa dư ở các mép.",
-            "sharpness": 2730.4
-          }
-        ]
-      },
-      {
-        "heading": "Xếp đá và nối bạt vào hộp hút",
-        "moments": [
-          {
-            "t": 340,
-            "url": "https://media.aquatome.com/video/qL-OMw9pvJs/at340-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ép bạt vào miệng hộp hút để in vết quanh mép.",
-            "sharpness": 2511
-          },
-          {
-            "t": 380,
-            "url": "https://media.aquatome.com/video/qL-OMw9pvJs/at380-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng máy bắt vít siết bu lông tấm ép ở miệng hộp hút.",
-            "sharpness": 1099.7
+            "sharpness": 3242.5,
+            "person": false
           }
         ]
       },
@@ -184,43 +81,19 @@
         "heading": "Dựng thác nước",
         "moments": [
           {
-            "t": 440,
-            "url": "https://media.aquatome.com/video/qL-OMw9pvJs/at440-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đá đặt cạnh hộp lọc thác trên tấm bạt để làm khung miệng thác.",
-            "sharpness": 3566.4
-          },
-          {
             "t": 450,
             "url": "https://media.aquatome.com/video/qL-OMw9pvJs/at450-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Tấm bạt trải rộng với vài viên đá xếp ở mép.",
-            "sharpness": 3012.1
+            "sharpness": 3012.1,
+            "person": false
           }
         ]
       },
       {
         "heading": "Hoàn thiện lòng hồ và gờ đất",
-        "moments": [
-          {
-            "t": 520,
-            "url": "https://media.aquatome.com/video/qL-OMw9pvJs/at520-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đá lớn xếp sát nhau trên lớp bạt đen trong lòng hồ.",
-            "sharpness": 2489.5
-          },
-          {
-            "t": 570,
-            "url": "https://media.aquatome.com/video/qL-OMw9pvJs/at570-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bạt được gấp cong lên sát hàng đá để giữ nước.",
-            "sharpness": 4390.5
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/qL-OMw9pvJs/p7-NjQ4MzA2NSkuanBn.webp",
           "thumb": "https://media.aquatome.com/video/qL-OMw9pvJs/p7-NjQ4MzA2NSkuanBn-480.webp",
@@ -241,7 +114,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hộp hút đặt cạnh hồ, xung quanh xếp đá và cây.",
-            "sharpness": 3258.9
+            "sharpness": 3258.9,
+            "person": false
           },
           {
             "t": 620,
@@ -249,30 +123,14 @@
             "width": 1200,
             "height": 675,
             "caption": "Hộp lọc thác màu đen đặt giữa đá, có ống nước nối vào.",
-            "sharpness": 2532.5
+            "sharpness": 2532.5,
+            "person": false
           }
         ]
       },
       {
         "heading": "Trồng cây và trang trí",
-        "moments": [
-          {
-            "t": 680,
-            "url": "https://media.aquatome.com/video/qL-OMw9pvJs/at680-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nhét cây sedum nhỏ vào kẽ đá để che bạt và đỡ trơ đá.",
-            "sharpness": 2404.4
-          },
-          {
-            "t": 690,
-            "url": "https://media.aquatome.com/video/qL-OMw9pvJs/at690-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hồ đá đã trồng cây xung quanh, cây lớn làm nền phía sau.",
-            "sharpness": 4319.9
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/qL-OMw9pvJs/p9-MTAwNzU0MSkuanBn.webp",
           "thumb": "https://media.aquatome.com/video/qL-OMw9pvJs/p9-MTAwNzU0MSkuanBn-480.webp",
@@ -288,20 +146,13 @@
         "heading": "Nên làm hồ cỡ nào",
         "moments": [
           {
-            "t": 860,
-            "url": "https://media.aquatome.com/video/qL-OMw9pvJs/at860-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Toàn cảnh hồ nhỏ ngoài sân với thác đá và cây xung quanh.",
-            "sharpness": 7895.6
-          },
-          {
             "t": 880,
             "url": "https://media.aquatome.com/video/qL-OMw9pvJs/at880-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Thác nước chảy qua các tảng đá và cỏ bên bờ hồ.",
-            "sharpness": 1080
+            "sharpness": 1080,
+            "person": false
           }
         ]
       }

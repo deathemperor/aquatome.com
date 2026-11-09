@@ -51,7 +51,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đáy bể đầy mùn bã và chất thải đang được hút ra bằng ống.",
-            "sharpness": 115.3
+            "sharpness": 115.3,
+            "person": false
           },
           {
             "t": 46,
@@ -59,7 +60,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá thiên thần bơi giữa lũa và cát đáy bể.",
-            "sharpness": 44.7
+            "sharpness": 44.7,
+            "person": false
           }
         ],
         "photo": {
@@ -82,15 +84,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Xô hứng nước và ống xi phông đặt trên thang cạnh bể.",
-            "sharpness": 313.8
-          },
-          {
-            "t": 18,
-            "url": "https://media.aquatome.com/video/qWK5E1c6qak/at18-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ống xi phông rút nước xuống xô, bể đặt trên cao.",
-            "sharpness": 240.6
+            "sharpness": 313.8,
+            "person": false
           }
         ]
       },
@@ -103,7 +98,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Dùng nam châm lau kính để chà sạch rêu hại bám trên kính.",
-            "sharpness": 69.9
+            "sharpness": 69.9,
+            "person": false
           },
           {
             "t": 38,
@@ -111,7 +107,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ống xi phông hút cặn bẩn và phân cá dưới lớp sỏi đáy bể.",
-            "sharpness": 224.6
+            "sharpness": 224.6,
+            "person": false
           }
         ]
       },
@@ -124,7 +121,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nền cát mịn trong bể với cá và lũa, cần hút cặn nhẹ tay.",
-            "sharpness": 54.2
+            "sharpness": 54.2,
+            "person": false
           }
         ],
         "photo": {
@@ -147,7 +145,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Máy lọc RO/DI với các cốc lọc và ống dẫn nước.",
-            "sharpness": 246.2
+            "sharpness": 246.2,
+            "person": false
           },
           {
             "t": 86,
@@ -155,7 +154,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Thùng phuy xanh dùng để trữ sẵn nước RO/DI.",
-            "sharpness": 64.6
+            "sharpness": 64.6,
+            "person": false
           }
         ]
       }
