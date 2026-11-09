@@ -173,6 +173,14 @@ export const VideoRef = z.object({
  */
 const sectionIn = Object.fromEntries(WRITTEN_OTHER_LANGS.map(l => [l, z.string().optional()])) as Record<WrittenOtherLang, z.ZodOptional<z.ZodString>>
 const GuidePhoto = Photo.extend({ section: z.object({ vi: z.string(), ...sectionIn }).optional() })
+/**
+ * A video still is shown only when its shorter side is 480 px or more. A storyboard tile (90 or 180 px), or a frame from
+ * a video under 480p, is an unreadable smudge on a phone (the owner's report, 2026-11-09). Stills are never stored
+ * larger than the frame they came from, so this is the source's resolution too.
+ */
+export const STILL_MIN_SIDE = 480
+export const stillShown = (m: { width: number; height: number }) => Math.min(m.width, m.height) >= STILL_MIN_SIDE
+
 export const GuideSchema = z.object({
   id: z.string(), kind: z.enum(['setup', 'care', 'breeding', 'disease', 'aquascaping', 'plantCare', 'discovery']),
   source: SourceId, sourceUrl: z.string(), html: z.string(), photos: z.array(GuidePhoto), mentions: z.array(z.string()), updatedAt: z.string(),
