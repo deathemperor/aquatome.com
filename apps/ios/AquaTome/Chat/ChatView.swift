@@ -80,6 +80,8 @@ private struct ChatThread: View {
   @State private var restHeight: CGFloat = 0
   /// Where the row that waits ends in the view, while it shows.
   @State private var waitEnd: CGFloat?
+  /// The reader has scrolled since the newest question went (iOS 18 on).
+  @State private var readerMoved = false
   /// The empty screen's blocks in the scroll's content, for where it rests over the box.
   @State private var blocks: [Int: Chat.EmptyBlock] = [:]
   /// How far the empty screen is placed.
@@ -102,12 +104,13 @@ private struct ChatThread: View {
     withAnimation(reduceMotion ? nil : .smooth(duration: 0.3)) { proxy.scrollTo(id, anchor: .top) }
   }
 
-  /// The first line or a step arrived and pushed the row that waits under the box: the view goes up with it, if the row was
-  /// above the box a moment before (the reader hasn't scrolled it away).
+  /// The first line or a step arrived and pushed the row that waits under the box: the view goes up with it, unless the
+  /// reader has scrolled during this wait. Read a moment later: the row's place reaches us after the layout.
   private func keepWaitAboveBox(_ proxy: ScrollViewProxy, bottom: CGFloat) {
-    guard let before = waitEnd, before <= bottom + 4 else { return }
+    guard !readerMoved else { return }
     Task { @MainActor in
-      guard let end = waitEnd, end > bottom else { return }
+      try? await Task.sleep(for: .milliseconds(80))
+      guard !readerMoved, let end = waitEnd, end > bottom else { return }
       withAnimation(reduceMotion ? nil : .easeOut(duration: 0.25)) { proxy.scrollTo(Self.waiting, anchor: .bottom) }
     }
   }
@@ -136,6 +139,14 @@ private struct ChatThread: View {
     ScrollViewReader { proxy in
       GeometryReader { geo in
         ScrollView {
+          ZStack(alignment: .top) {
+          // Where the empty screen's place is in the content, to scroll to it by the point.
+          VStack(spacing: 0) {
+            Color.clear.frame(height: placed)
+            Color.clear.frame(height: 1).id(Self.place)
+          }
+          .allowsHitTesting(false)
+          .accessibilityHidden(true)
           VStack(alignment: .leading, spacing: 0) {
             if !startsAtTitle { ChatHeader(subject: model.route.subject).emptyBlock(.card, 0, into: $blocks) }
             if model.thread.isEmpty { empty }
@@ -160,22 +171,16 @@ private struct ChatThread: View {
           .padding(.bottom, 16)
           .coordinateSpace(name: Self.content)
           .onGeometryChange(for: CGFloat.self) { -$0.frame(in: .scrollView).minY } action: { scrolled = $0 }
-          // Where the empty screen's place is in the content, to scroll to it by the point.
-          .overlay(alignment: .top) {
-            VStack(spacing: 0) {
-              Color.clear.frame(height: placed)
-              Color.clear.frame(height: 1).id(Self.place)
-            }
-            .allowsHitTesting(false)
-            .accessibilityHidden(true)
           }
         }
         .scrollDismissesKeyboard(.interactively)
+        .modifier(WhenReaderScrolls { readerMoved = true })
         .defaultScrollAnchor(.top)
         // On the scroll view alone: around the composer too, it stood over the box's, send's and the line's own.
         .accessibilityIdentifier("chat")
         .onChange(of: model.thread.last?.id) {
           waitEnd = nil
+          readerMoved = false
           guard let id = model.thread.last?.id else { return }
           Task { @MainActor in withAnimation(reduceMotion ? nil : .smooth(duration: 0.35)) { proxy.scrollTo(id, anchor: .top) } }
         }
@@ -867,6 +872,19 @@ private struct Chips: View {
       .buttonStyle(.plain)
       .accessibilityIdentifier("chat-chip")
       .onGeometryChange(for: CGRect.self) { $0.frame(in: .named(ChatThread.content)) } action: { placed?(i, $0) }
+    }
+  }
+}
+
+/// Calls `action` as the reader starts dragging a scroll view, where iOS can say (18 on).
+private struct WhenReaderScrolls: ViewModifier {
+  let action: () -> Void
+
+  func body(content: Content) -> some View {
+    if #available(iOS 18, *) {
+      content.onScrollPhaseChange { _, new in if new == .interacting { action() } }
+    } else {
+      content
     }
   }
 }
