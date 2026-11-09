@@ -49,6 +49,22 @@ extension Chat {
     }
   }
 
+  /// How tall a closed section stands: its first `lines` whole lines and the gaps between the parts they fall in, so the
+  /// cut lands under a line. Nil when all of it fits. `heights` are the parts as drawn; `spacing` is the room between a
+  /// part's lines, which its last line doesn't have. A tenth of a line either way, as drawn heights land on whole pixels.
+  public static func closedHeight(_ heights: [CGFloat], line: CGFloat, spacing: CGFloat, gap: CGFloat, lines: CGFloat = 5) -> CGFloat? {
+    var left = lines, height: CGFloat = 0
+    for (i, h) in heights.enumerated() {
+      let count = (h + spacing) / line
+      if count > left + 0.1 { return height + left * line - spacing }
+      left -= count
+      height += h
+      if left < 0.1 && i < heights.count - 1 { return height }
+      height += gap
+    }
+    return nil
+  }
+
   /// What's left of a section past what shows ("còn tiếp: 3 bước, 1 ảnh"): its steps, list items, paragraphs, photos
   /// and other parts, each counted.
   public struct Rest: Sendable, Equatable {

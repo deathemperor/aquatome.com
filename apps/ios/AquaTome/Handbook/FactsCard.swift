@@ -5,19 +5,34 @@ import SwiftUI
 /// shortest tank and difficulty, the last as the site's badge (Difficulty.astro); a plant's care (difficulty, light, CO₂, growth, where
 /// it goes). They come from the handbook's index kept on the phone, so they show offline too, page or no page: the page's
 /// own copy doesn't repeat them. On a page the app draws (`inPage`), all of them at once under its name, the sources
-/// behind them and the page's credit under the card (NativePage); over a web page, a row across its top.
+/// behind them and the page's credit under the card (NativePage); on a chat's card (`onCard`), straight on it; over a web
+/// page, a row across its top.
 struct FactsCard: View {
   let facts: HandbookIndex.Facts
   var plant: HandbookIndex.Plant?
   var inPage = false
+  var onCard = false
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.dynamicTypeSize) private var size
 
   var body: some View {
     let all = items
-    if inPage {
-      // As many to a row as fit the reader's text size: three, two, or one at the largest.
-      let n = size.isAccessibilitySize ? 1 : size >= .xxLarge ? 2 : 3
+    // As many to a row as fit the reader's text size: three, two, or one at the largest.
+    let n = size.isAccessibilitySize ? 1 : size >= .xxLarge ? 2 : 3
+    if onCard {
+      // A row of two shares the width: three, two, two.
+      VStack(alignment: .leading, spacing: 10) {
+        ForEach(Self.rows(all.count, n), id: \.self) { row in
+          HStack(alignment: .top, spacing: 10) {
+            ForEach(row, id: \.self) { i in
+              Fact(item: all[i], onCard: true).frame(maxWidth: .infinity, alignment: .leading)
+            }
+          }
+        }
+      }
+      .accessibilityElement(children: .contain)
+      .accessibilityIdentifier("facts-card")
+    } else if inPage {
       Grid(alignment: .topLeading, horizontalSpacing: 12, verticalSpacing: 16) {
         ForEach(Self.rows(all.count, n), id: \.self) { row in
           GridRow {
@@ -84,21 +99,21 @@ struct FactsCard: View {
 
   /// A fish's temperament and smallest school, as the site shows them under "Nuôi chung" (Companions.astro), not in its
   /// facts: the line under that heading on the page the app draws. Nil when the index has neither.
-  static func traits(_ facts: HandbookIndex.Facts) -> AttributedString? {
+  static func traits(_ facts: HandbookIndex.Facts, font: Font = .subheadline) -> AttributedString? {
     var parts: [AttributedString] = []
     func pair(_ label: String, _ value: String) -> AttributedString {
       var l = AttributedString(label + ": ")
-      l.font = .subheadline
+      l.font = font
       l.foregroundColor = .secondary
       var v = AttributedString(value)
-      v.font = .subheadline.weight(.semibold)
+      v.font = font.weight(.semibold)
       return l + v
     }
     if let t = facts.temperament.flatMap(temperament) { parts.append(pair(String(localized: "Tính cách"), t)) }
     if let n = facts.schoolMin { parts.append(pair(String(localized: "Đàn tối thiểu"), String(localized: "\(n) con"))) }
     guard var line = parts.first else { return nil }
     var dot = AttributedString(" · ")
-    dot.font = .subheadline
+    dot.font = font
     for p in parts.dropFirst() { line += dot + p }
     return line
   }
@@ -138,11 +153,21 @@ private struct Fact: View {
   let item: FactsCard.Item
   /// In the page's grid: the value at a size to read at a glance.
   var large = false
+  /// On a chat's card: the label 13, the value 16 semibold, difficulty as plain tint text.
+  var onCard = false
 
   var body: some View {
-    let fact = VStack(alignment: .leading, spacing: large ? 4 : 2) {
-      Text(item.label).font(.caption).foregroundStyle(.secondary)
-      if let level = item.level {
+    let fact = VStack(alignment: .leading, spacing: onCard ? 3 : large ? 4 : 2) {
+      Text(item.label).font(onCard ? .footnote : .caption).foregroundStyle(.secondary)
+      if onCard {
+        HStack(alignment: .firstTextBaseline, spacing: 4) {
+          Text(verbatim: item.value)
+            .font(.callout.weight(.semibold))
+            .foregroundStyle(item.level == nil ? AnyShapeStyle(.primary) : AnyShapeStyle(.tint))
+            .monospacedDigit()
+          if let outOf = item.outOf { Text(verbatim: outOf).font(.callout).foregroundStyle(.secondary).monospacedDigit() }
+        }
+      } else if let level = item.level {
         HStack(alignment: .firstTextBaseline, spacing: 6) {
           Text(verbatim: item.value)
             .font(large ? .subheadline.weight(.semibold) : .caption.weight(.semibold))
