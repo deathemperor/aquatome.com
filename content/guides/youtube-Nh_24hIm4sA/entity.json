@@ -48,7 +48,8 @@
             "url": "https://media.aquatome.com/video/Nh_24hIm4sA/at60-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Mảng rêu xanh lam (BGA) phủ dày trong bể tối."
+            "caption": "Mảng rêu xanh lam (BGA) phủ dày trong bể tối.",
+            "sharpness": 49.9
           }
         ]
       },
@@ -60,14 +61,16 @@
             "url": "https://media.aquatome.com/video/Nh_24hIm4sA/at145-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Lớp nền chặt phủ cây thảm xanh, chỗ rêu hại dễ bám."
+            "caption": "Lớp nền chặt phủ cây thảm xanh, chỗ rêu hại dễ bám.",
+            "sharpness": 848.6
           },
           {
             "t": 165,
             "url": "https://media.aquatome.com/video/Nh_24hIm4sA/at165-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Mảng rêu hại BGA xanh đậm bám giữa đám cây."
+            "caption": "Mảng rêu hại BGA xanh đậm bám giữa đám cây.",
+            "sharpness": 85.3
           }
         ],
         "photo": {

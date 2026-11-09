@@ -163,7 +163,7 @@ export const VideoRef = z.object({
    */
   figures: z.array(z.object({
     heading: z.string(),
-    moments: z.array(z.object({ t: z.number(), url: z.string(), width: z.number(), height: z.number(), caption: z.string() })),
+    moments: z.array(z.object({ t: z.number(), url: z.string(), width: z.number(), height: z.number(), caption: z.string(), sharpness: z.number().optional() })),
     photo: Photo.optional(),
   })).optional(),
 })
@@ -174,12 +174,17 @@ export const VideoRef = z.object({
 const sectionIn = Object.fromEntries(WRITTEN_OTHER_LANGS.map(l => [l, z.string().optional()])) as Record<WrittenOtherLang, z.ZodOptional<z.ZodString>>
 const GuidePhoto = Photo.extend({ section: z.object({ vi: z.string(), ...sectionIn }).optional() })
 /**
- * A video still is shown only when its shorter side is 480 px or more. A storyboard tile (90 or 180 px), or a frame from
- * a video under 480p, is an unreadable smudge on a phone (the owner's report, 2026-11-09). Stills are never stored
- * larger than the frame they came from, so this is the source's resolution too.
+ * A video still is shown only when it passes both bars (the owner's report, 2026-11-09: unreadable smudges on a phone).
+ * - Its shorter side is 480 px or more: a storyboard tile (90 or 180 px), or a frame from a video under 480p, doesn't.
+ *   Stills are never stored larger than the frame they came from, so this is the source's resolution too.
+ * - Its `sharpness` (the engine's still-sharpness.ts) is at the bar; a still not yet measured isn't shown. Tuned by eye
+ *   on 30 sharp and 30 blurry stills at full size: at 110 it keeps 24 of the sharp and stops 26 of the blurry, the same
+ *   up to 150 (packages/engine/test/still-sharpness-labels.json).
  */
 export const STILL_MIN_SIDE = 480
-export const stillShown = (m: { width: number; height: number }) => Math.min(m.width, m.height) >= STILL_MIN_SIDE
+export const STILL_MIN_SHARPNESS = 110
+export const stillShown = (m: { width: number; height: number; sharpness?: number }) =>
+  Math.min(m.width, m.height) >= STILL_MIN_SIDE && (m.sharpness ?? 0) >= STILL_MIN_SHARPNESS
 
 export const GuideSchema = z.object({
   id: z.string(), kind: z.enum(['setup', 'care', 'breeding', 'disease', 'aquascaping', 'plantCare', 'discovery']),

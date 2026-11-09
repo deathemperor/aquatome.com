@@ -49,9 +49,10 @@ pnpm engine species-videos --limit "${SPECIES_VIDEOS_LIMIT:-3}" || log "species-
 pnpm engine discover-videos || log "discover-videos: failed"
 # Older guides' stills (storyboard tiles, 320 or 160 px) become the video's own frames, screened before they publish,
 # and their times the seconds they show (a guide that needs only that goes first: one yt-dlp call, no frames).
-# About 80 s a guide (2026-11-06: 6 to 17 stills, 8–9 s each): 12 a run is about 15 minutes, and 8 runs a day finish
-# the 472 guides in about 5 days. Then it finds none and calls nothing.
-pnpm engine video-stills --limit "${VIDEO_STILLS_LIMIT:-12}" || log "video-stills: failed"
+# About 80 s a guide (2026-11-06: 6 to 17 stills, 8–9 s each), mostly waiting on the network. 60 a run is about 80 minutes:
+# at 12 a run, and the one or two runs a day the Mac's heat allows, the 312 guides left on 2026-11-09 were weeks away, with
+# their tiles hidden meanwhile. Then it finds none and calls nothing.
+pnpm engine video-stills --limit "${VIDEO_STILLS_LIMIT:-60}" || log "video-stills: failed"
 # Photos that show their page's fish, plant or breed, with no person or logo (the GitHub engine's account runs out of
 # model calls mid-week): 20 calls a run, most-read pages first, verdicts cached.
 pnpm engine check-photos --limit 20 || log "check-photos: failed"

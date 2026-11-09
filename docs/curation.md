@@ -185,6 +185,21 @@ footage shows the still photo.
   The koi (8/10, a bubble shows twice in the dissolve) is replaced when a better open-licensed or CC BY koi clip turns
   up, and goes back to the photo if the owner dislikes the dissolve.
 
+### Video stills
+
+A guide's "Trong video" stills, on the site and in the app, show only when they pass two bars, in one function
+(`stillShown`, `packages/schema`). A still that fails leaves its section its words, and the page keeps its video.
+- **At least 480p**: its shorter side is 480 px or more. A storyboard tile (90 or 180 px) or a frame from a lower-resolution
+  video is a smudge on a phone. Stills are never stored larger than their source frame, so this is the source's resolution.
+- **Sharp**: `sharpness`, the variance of the Laplacian over the sharpest 5% of the frame, is 110 or more
+  (`still-sharpness.ts`). It's the sharpest part, not the whole frame, so a sharp fish on a plain background passes. A still
+  not yet measured isn't shown. The bar was tuned by eye on 30 sharp and 30 blurry stills at full size
+  (`packages/engine/test/still-sharpness-labels.json`): it keeps 24 of the sharp and stops 26 of the blurry, the same up to
+  150. It's a pixel measure: high-contrast motion blur can pass it, and a small sharp subject can fail it.
+
+The engine measures each frame it makes, and each run measures any full-size still that has no score. Older guides' tiles
+stay in the content, hidden, until `video-stills` swaps them for the video's own frames: it needs them to find the frame.
+
 ### Generated video
 
 Not used for a species until an eval says it can be.
