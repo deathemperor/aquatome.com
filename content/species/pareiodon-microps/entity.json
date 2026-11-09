@@ -7,15 +7,39 @@
   "group": "catfish",
   "places": [
     "south-america",
-    "brazil"
+    "brazil",
+    "peru",
+    "amazon"
   ],
-  "dataCard": {},
+  "dataCard": {
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 13
+      }
+    ]
+  },
   "sections": [
     {
       "key": "quickFacts",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/pareiodon_cf_microps_en/",
       "html": "<p>This pencil catfish is a relative of the parasitic catfishes and is very rarely traded. Its affiliation to the genus Pareiodon is fairly clear, but the species identification has not yet been clarified.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/pareiodon_microps.htm",
+      "html": "<ul><li>Common name: none</li><li>Size: 13 cm total length</li></ul>"
     },
     {
       "key": "beforeYouBuy",
@@ -28,6 +52,42 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/pareiodon_cf_microps_en/",
       "html": "<p>Origin: Brazil.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/pareiodon_microps.htm",
+      "html": "<p>This species is monotypic (the only member of its genus) and is endemic to the Amazon river basin in Peru and Brazil. South America: Amazon river basin. Type locality: Borba, Rio Madeira, Brazil.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/pareiodon_microps.htm",
+      "html": "<p>A well planted tank with a fine grained substrate and a few hiding places.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/pareiodon_microps.htm",
+      "html": "<p>Live, frozen, flake and tablet foods. Not a fussy eater.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/pareiodon_microps.htm",
+      "html": "<p>Known to bite the fins and scales of other fish in the aquarium.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/pareiodon_microps.htm",
+      "html": "<p>Etymology: the specific name microps means a small appearance.</p><p>IUCN Red List: despite the little information available on this species, it is assessed as Least Concern due to its wide range (IUCN 2023).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/pareiodon_microps.htm",
+      "html": "<p>Brejão, G.L. 2023. Pareiodon microps. The IUCN Red List of Threatened Species 2023. Burgess, W.E., 1989. An atlas of freshwater and marine catfishes. A preliminary survey of the Siluriformes. T.F.H. Publications, Inc., Neptune City, New Jersey (USA). Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2014. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 11/2014 ). iNaturalist. 2021.</p>"
     }
   ],
   "photos": [
@@ -44,23 +104,23 @@
     },
     {
       "url": "https://media.aquatome.com/commons/a865a3f271fcc081.webp",
+      "thumb": "https://media.aquatome.com/commons/a865a3f271fcc081-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC0",
       "author": "Whaldener Endo",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pareiodon_microps_204795342.jpg",
-      "caption": "Pareiodon microps in Brazil",
-      "thumb": "https://media.aquatome.com/commons/a865a3f271fcc081-480.webp"
+      "caption": "Pareiodon microps in Brazil"
     },
     {
       "url": "https://media.aquatome.com/commons/75b48b8d31d73faf.webp",
+      "thumb": "https://media.aquatome.com/commons/75b48b8d31d73faf-480.webp",
       "width": 960,
       "height": 1340,
       "licence": "Public domain",
       "author": "François-Louis Laporte, comte de Castelnau",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:F_de_Castelnau-poissonsPl24.jpg",
-      "caption": "From top to bottom: Trichomycterus pussillus = Pareiodon microps Trichomycterus punctatissimus Trichomycterus pentlandi = Trichomycterus rivulatus Trichomycterus pictus = Trichomycterus rivulatus",
-      "thumb": "https://media.aquatome.com/commons/75b48b8d31d73faf-480.webp"
+      "caption": "From top to bottom: Trichomycterus pussillus = Pareiodon microps Trichomycterus punctatissimus Trichomycterus pentlandi = Trichomycterus rivulatus Trichomycterus pictus = Trichomycterus rivulatus"
     }
   ],
   "videos": [
@@ -103,5 +163,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-09"
 }

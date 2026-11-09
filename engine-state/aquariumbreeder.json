@@ -211,6 +211,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://aquariumbreeder.com/bio-balls-in-aquariums/": {
+    "lastmod": "2026-06-06T17:37:58+00:00",
+    "entityIds": [
+      "guides/aquariumbreeder-bio-balls-in-aquariums"
+    ],
+    "updatedAt": "2026-11-09T09:00:59.881Z",
+    "hash": "206d4c04b1bfa931b224c167d06c8cb199ec862b9d037a2f7aaef568f99840c5",
+    "processedHash": "206d4c04b1bfa931b224c167d06c8cb199ec862b9d037a2f7aaef568f99840c5",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://aquariumbreeder.com/black-panther-snails-detailed-guide-care-diet-and-breeding/": {
     "lastmod": "2026-06-06T17:34:05+00:00",
     "entityIds": [
@@ -640,6 +651,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://aquariumbreeder.com/do-we-need-water-conditioners-which-one-to-choose/": {
+    "lastmod": "2026-06-06T17:37:58+00:00",
+    "entityIds": [
+      "guides/aquariumbreeder-do-we-need-water-conditioners-which-one-to-choose"
+    ],
+    "updatedAt": "2026-11-09T09:04:07.567Z",
+    "hash": "9db11f1fbaad47495da40a84dc94704205aa08fc879e58d73d0851e95821b5af",
+    "processedHash": "9db11f1fbaad47495da40a84dc94704205aa08fc879e58d73d0851e95821b5af",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://aquariumbreeder.com/dwarf-gourami-detailed-guide-care-diet-and-breeding/": {
     "lastmod": "2026-06-06T17:34:57+00:00",
     "entityIds": [
@@ -670,6 +692,17 @@
     "updatedAt": "2026-10-31T04:13:23.072Z",
     "hash": "675b171cc2ba5a84c05ed8704081c1275d432e20840f1a71b5f039ea55c1aaaf",
     "processedHash": "675b171cc2ba5a84c05ed8704081c1275d432e20840f1a71b5f039ea55c1aaaf",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://aquariumbreeder.com/fairy-moss-care-guide-planting-growing-and-propagation/": {
+    "lastmod": "2026-06-06T17:37:58+00:00",
+    "entityIds": [
+      "plants/azolla"
+    ],
+    "updatedAt": "2026-11-09T09:09:00.971Z",
+    "hash": "96dda068313d8b742602b2819267b9a189a09f983f6a8f5efb44394d4bb81ff6",
+    "processedHash": "96dda068313d8b742602b2819267b9a189a09f983f6a8f5efb44394d4bb81ff6",
     "status": "processed",
     "attempts": 0
   },
@@ -828,13 +861,27 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://aquariumbreeder.com/how-to-care-for-ricordea-coral/": {
+    "lastmod": "2026-06-06T17:37:58+00:00",
+    "entityIds": [
+      "guides/aquariumbreeder-how-to-care-for-ricordea-coral"
+    ],
+    "updatedAt": "2026-11-09T09:14:57.437Z",
+    "hash": "bb2674666cdfe4ee5ba804f4f53baaba555f6062afcb28c4644dc1d185c6d7ba",
+    "processedHash": "bb2674666cdfe4ee5ba804f4f53baaba555f6062afcb28c4644dc1d185c6d7ba",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://aquariumbreeder.com/how-to-choose-aquarium-plants-for-beginners/": {
     "lastmod": "2026-06-06T17:37:43+00:00",
-    "entityIds": [],
-    "updatedAt": "2026-11-09T06:19:34.474Z",
-    "status": "error",
-    "attempts": 1,
-    "error": "page.goto: Target page, context or browser has been closed"
+    "entityIds": [
+      "guides/aquariumbreeder-how-to-choose-aquarium-plants-for-beginners"
+    ],
+    "updatedAt": "2026-11-09T08:57:07.289Z",
+    "hash": "492d311bf17ecde10a127c2df9375314a45c500fdd6dbc88b93bc7b4c1dfcaf9",
+    "processedHash": "492d311bf17ecde10a127c2df9375314a45c500fdd6dbc88b93bc7b4c1dfcaf9",
+    "status": "processed",
+    "attempts": 0
   },
   "https://aquariumbreeder.com/how-to-cycle-a-tank-the-dark-start-method/": {
     "lastmod": "2026-06-06T17:36:51+00:00",
@@ -844,6 +891,17 @@
     "updatedAt": "2026-11-04T22:33:03.877Z",
     "hash": "4a5efd8cc1f166f254cb8cb432196929ce0b5c5b96089c18599905e98e8e892a",
     "processedHash": "4a5efd8cc1f166f254cb8cb432196929ce0b5c5b96089c18599905e98e8e892a",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://aquariumbreeder.com/how-to-cycle-aquarium-with-plants/": {
+    "lastmod": "2026-06-06T17:37:58+00:00",
+    "entityIds": [
+      "guides/aquariumbreeder-how-to-cycle-aquarium-with-plants"
+    ],
+    "updatedAt": "2026-11-09T09:21:52.906Z",
+    "hash": "557e0f24cb131505ede0abe0da6c2495e9ddd8359ae06e14442922844d7b5786",
+    "processedHash": "557e0f24cb131505ede0abe0da6c2495e9ddd8359ae06e14442922844d7b5786",
     "status": "processed",
     "attempts": 0
   },
@@ -1661,6 +1719,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://aquariumbreeder.com/saron-shrimp-detailed-guide-care-diet-and-breeding/": {
+    "lastmod": "2026-06-06T17:37:58+00:00",
+    "entityIds": [
+      "species/saron-marmoratus"
+    ],
+    "updatedAt": "2026-11-09T09:11:48.963Z",
+    "hash": "a3838c19c9e0a8a4bbce5b046ee79999aab68d5806b08152b59c0eb3c11ef7a8",
+    "processedHash": "a3838c19c9e0a8a4bbce5b046ee79999aab68d5806b08152b59c0eb3c11ef7a8",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://aquariumbreeder.com/science-of-substrate-siphoning-in-aquaria-siphon-or-not/": {
     "lastmod": "2026-06-06T17:34:57+00:00",
     "entityIds": [
@@ -1931,6 +2000,15 @@
     "hash": "3712ada5a40b8e8430e0ddf3a88aae7fc2894794a742f1509e4d2c0e46ac2266",
     "processedHash": "3712ada5a40b8e8430e0ddf3a88aae7fc2894794a742f1509e4d2c0e46ac2266",
     "status": "processed",
+    "attempts": 0
+  },
+  "https://aquariumbreeder.com/trochus-snails-detailed-guide-care-diet-and-breeding/": {
+    "lastmod": "2026-06-06T17:37:58+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T09:18:38.775Z",
+    "hash": "d7f8a4bc93c7d3363721576e1a6e9cb5dbae7c871ea3ed28df1e0c56e7fb7738",
+    "processedHash": "d7f8a4bc93c7d3363721576e1a6e9cb5dbae7c871ea3ed28df1e0c56e7fb7738",
+    "status": "skipped",
     "attempts": 0
   },
   "https://aquariumbreeder.com/tubifex-worms-profile-and-culture-guide/": {

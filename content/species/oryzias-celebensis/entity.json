@@ -1,0 +1,128 @@
+{
+  "id": "oryzias-celebensis",
+  "scientificName": "Oryzias celebensis",
+  "order": "Beloniformes",
+  "family": "Adrianichthyidae",
+  "genus": "Oryzias",
+  "group": "killifish",
+  "places": [
+    "asia",
+    "indonesia",
+    "sulawesi"
+  ],
+  "dataCard": {
+    "ph": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 8,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 10,
+          "max": 10
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/oryzias_celebensis_en/",
+      "html": "<p>Oryzias celebensis, the Celebes rice fish, originates from Indonesia, where it inhabits the island of Celebes.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/oryzias_celebensis_en/",
+      "html": "<p>It lives in standing to slowly flowing waters which are heavily planted.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/oryzias_celebensis_en/",
+      "html": "<p>It grows to approximately 5 cm and needs a free swimming area and retreat possibilities.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/oryzias_celebensis_en/",
+      "html": "<p>Oryzias celebensis prefers rather high pH values. Optimal water should exhibit a pH of 8 and also a not too small water hardness (10 dGH).</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/oryzias_celebensis_en/",
+      "html": "<p>This is a schooling fish that needs a free swimming area and retreat possibilities, since rice fish occasionally tend to become somewhat quarrelsome among themselves.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/oryzias_celebensis_en/",
+      "html": "<p>In such water, breeding of rice fish is possible. Interestingly, the female carries the eggs for several hours before attaching them to a substrate. Raising the fry should not be difficult.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "36sgha3uamc",
+      "title": "Oryzias Celebensis - sulawesi endemic fish",
+      "durationSec": 23,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "HVbqCd-y5j4",
+      "title": "Oryzias celebensis | Cuidados y Alimentación del pez Medaka de la Célebes | AcuariosLP",
+      "durationSec": 227,
+      "lang": "es"
+    },
+    {
+      "youtubeId": "Uy7auUDFjl4",
+      "title": "Induk ikan endemik selawesi, Oryzias celebensis... berminat hubungi 085691546955",
+      "durationSec": 22,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "HlHtKMiJMhs",
+      "title": "oryzias celebensis /medaka sulawesi",
+      "durationSec": 41,
+      "lang": "id"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể thủy sinh mini"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ cho bể cá",
+        "máy sục khí mini"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nhỏ",
+        "artemia đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

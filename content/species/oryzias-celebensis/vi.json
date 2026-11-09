@@ -1,0 +1,24 @@
+{
+  "slug": "ca-lua-celebes",
+  "name": "Cá lúa Celebes",
+  "altNames": [
+    "Cá lúa Sulawesi",
+    "Celebes rice fish"
+  ],
+  "sections": {
+    "distribution:glaser": "<p>Oryzias celebensis, hay cá lúa Celebes, có nguồn gốc từ Indonesia và sống trên đảo Celebes.</p>",
+    "habitat:glaser": "<p>Loài này sống ở vùng nước đứng hoặc chảy chậm, nơi cây thủy sinh mọc dày.</p>",
+    "behaviour:glaser": "<p>Đây là loài cá bơi đàn. Bể cần có khoảng trống để chúng bơi và chỗ trốn, vì cá lúa đôi khi hơi hay gây gổ với nhau.</p>",
+    "aquariumSize:glaser": "<p>Loài này lớn tới khoảng 5 cm. Bể cần có khoảng trống để bơi và chỗ trốn.</p>",
+    "waterConditions:glaser": "<p>Oryzias celebensis thích nước có pH khá cao. Hợp nhất là pH 8, độ cứng không quá thấp (10 dGH).</p>",
+    "reproduction:glaser": "<p>Giữ được nước như vậy thì cá lúa có thể đẻ trong bể. Điểm thú vị là con cái mang trứng theo mình vài giờ rồi mới gắn trứng vào giá thể. Cá bột chắc cũng không khó nuôi.</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.8
+    },
+    "reason": "thin"
+  }
+}

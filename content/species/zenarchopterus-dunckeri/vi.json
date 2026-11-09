@@ -1,0 +1,28 @@
+{
+  "slug": "ca-lim-kim-zenarchopterus-dunckeri",
+  "name": "Cá lìm kìm Zenarchopterus dunckeri",
+  "altNames": [
+    "Halfbeak"
+  ],
+  "sections": {
+    "beforeYouBuy:glaser": "<p>Cá lìm kìm cỡ lớn thuộc giống Zenarchopterus rất hiếm khi có bán, vì lúc mới về, chưa quen bể, chúng rất nhát. Hễ hoảng là chúng hay tự làm mình bị thương nặng. Từng có một nhóm nhỏ Zenarchopterus dunckeri đã lớn hết cỡ nhập về thành công từ Đài Loan. Hiện mỗi con dài khoảng 15 cm, cả nhóm có hai đực và ba cái.</p>",
+    "waterConditions:glaser": "<p>Loài này cần nước cứng, thật sạch và ít vi khuẩn. pH phải trên 8. Chúng chịu được mọi độ mặn, nuôi trong nước lợ hay cả nước biển đều được, nhưng không nhất thiết phải cho muối vào nước.</p>",
+    "aquariumSize:glaser": "<p>Loài này cần bể rộng.</p>",
+    "diet:glaser": "<p>Cá lìm kìm thích ăn cám dạng lá, nhưng thức ăn khác chúng cũng ăn, miễn là còn nổi trên mặt nước. Thức ăn đã chìm xuống đáy thì chúng bỏ luôn.</p>",
+    "behaviour:glaser": "<p>Muốn có cá dọn thức ăn chìm thì chỉ chọn loài thật hiền để nuôi chung, chẳng hạn cá chuột. Ngay cả những con vô hại nhưng tò mò cũng có thể làm cá lìm kìm sợ mất vía. Khi đã quen bể, Zenarchopterus có thể sống khỏe trong bể nhiều năm.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.9
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-09"
+  }
+}

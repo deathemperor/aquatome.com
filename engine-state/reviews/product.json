@@ -1,4 +1,37 @@
 {
+  "vi/products/aquario-neo-soil": [
+    {
+      "at": "2026-11-09T10:46:42Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"an toàn cho cá, tép và ốc\": facts say safe for fish and invertebrates; \"ốc\" (snails) is specific and not stated.",
+        "\"Aquario Neo Soil No CO2: bản này rẻ hơn trong cùng dòng\": the facts call it a cheaper sibling, but the page does not give a price. This is a minor point and is supported.",
+        "\"Bản Plants và bản No CO2 đều có bao 3 L và 8 L. Hãng và shop không ghi mỗi bao đủ cho bể cỡ nào\": the claim that no coverage is listed is not in the facts. It is a mild generality.",
+        "\"hãng làm bản No CO2 dành cho cả bể tép\": the facts attribute this aim to a seller, not the manufacturer, so the attribution is a bit off.",
+        "\"dùng Neo CO2 hay bình CO2 đều được\": the facts say Neo CO2 or a pressurised system. This is roughly fine.",
+        "\"Bản Plants ... bể còn cần đèn tốt với phân đầy đủ\": the facts say adequate light and fertiliser. \"Đầy đủ\" fertiliser is a slight overstatement."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-09T10:46:42Z",
+      "model": "sonnet",
+      "score": 0.78,
+      "notes": [
+        "\"Cả hai bản đều có bao 3 L và 8 L\" is supported, but \"rồi dựa vào diện tích đáy bể để tính ra cần bao nhiêu lít\" is an unsupported instruction not in the facts.",
+        "\"Thấy thì nhặt ra\" (pick out impurities) is an unsupported recommendation.",
+        "\"Muốn biết chắc thì làm theo hướng dẫn ở trên: sau 5–6 tháng bổ sung phân nhét hoặc phân nước\" turns the 5–6 month life-extension tip into a resolution of the fertiliser contradiction. The facts do not support this.",
+        "\"Bản No CO2 ... hãng làm bản đó cho bể không CO2\" is fine, but \"loại nền cao cấp mà nhiều người lấy làm chuẩn để so\" generalises \"benchmark premium soil\" to many people.",
+        "\"Aquario Neo Soil No CO2: bản rẻ hơn trong cùng dòng\" is supported only as a cheaper sibling. The page leaves out the 280,000₫ price, which is fine.",
+        "\"Bao lâu thì phải thêm phân? Khoảng 5–6 tháng sau khi set bể\" presents the 5–6 months as a requirement. The facts only say to add fertiliser to extend the soil's life, and they don't say \"after setup\" explicitly.",
+        "\"Một shop chấm nền tốt cho bể tép\" in the FAQ, and \"hãng làm bản No CO2 cho cả bể tép\", are supported."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/products/chihiros-c-ii": [
     {
       "at": "2026-11-07T03:38:14Z",
