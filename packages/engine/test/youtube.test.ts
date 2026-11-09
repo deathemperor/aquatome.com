@@ -158,7 +158,7 @@ test('a low score gets one edit of that draft, from the transcript and the notes
   const root = await mkdtemp(join(tmpdir(), 'yt-'))
   const first = { ...draft('Bản đầu'), faq: [{ q: 'Bao lâu thay nước?', a: 'Mỗi tuần.' }, { q: 'Câu video không trả lời?', a: 'Bịa.' }] }
   const fixed = { ...draft('Bản đã sửa'), kind: 'care', faq: [{ q: 'Bao lâu thay nước?', a: 'Mỗi tuần.' }] }
-  const { d, calls } = deps(root, { scores: [0.6, 0.8], drafts: [first, fixed] })
+  const { d, calls } = deps(root, { scores: [0.6, 0.8, 0.8, 0.8], drafts: [first, fixed] })
   await videoGuides(d, { playlists: ['PL1'] })
   const writer = calls.prompts.filter(p => p.includes('Bản ghi:'))
   expect(writer).toHaveLength(2)
@@ -177,7 +177,7 @@ test('an edit that is broken, not a guide or loses chapters keeps the first draf
   await videoGuides(deps(root, { scores: [0.6], drafts: [draft('Bản đầu'), { ...draft('Bản sửa'), relevant: false }] }).d, { playlists: ['PL1'] })
   expect(await read(root, 'content/guides/youtube-a1/vi.json')).toMatchObject({ name: 'Bản đầu', quality: { score: 0.6, indexable: false } })
   const root2 = await mkdtemp(join(tmpdir(), 'yt-'))
-  await videoGuides(deps(root2, { scores: [0.6, 0.7], drafts: [draft('Bản đầu'), { ...draft('Bản sửa'), chapters: ['Mở đầu'] }] }).d, { playlists: ['PL1'] })
+  await videoGuides(deps(root2, { scores: [0.6, 0.7, 0.7, 0.7], drafts: [draft('Bản đầu'), { ...draft('Bản sửa'), chapters: ['Mở đầu'] }] }).d, { playlists: ['PL1'] })
   expect(await read(root2, 'content/guides/youtube-a1/vi.json')).toMatchObject({ name: 'Bản sửa', chapters: ['Mở đầu', 'Thay nước'], quality: { score: 0.7 } })
 })
 
@@ -214,12 +214,40 @@ test('the reviewer gets each sentence that speaks for many people or ranks somet
 
 test('every review of a guide is kept: the first draft\'s and the rewrite\'s, with the one on the page marked', async () => {
   const root = await mkdtemp(join(tmpdir(), 'yt-'))
-  await videoGuides(deps(root, { scores: [0.6, 0.8], drafts: [draft('Bản đầu'), draft('Bản sửa')] }).d, { playlists: ['PL1'] })
-  expect((await read(root, 'content/guides/youtube-a1/vi.json'))).toMatchObject({ name: 'Bản sửa', quality: { score: 0.8 } })
+  await videoGuides(deps(root, { scores: [0.6, 0.9], drafts: [draft('Bản đầu'), draft('Bản sửa')] }).d, { playlists: ['PL1'] })
+  expect((await read(root, 'content/guides/youtube-a1/vi.json'))).toMatchObject({ name: 'Bản sửa', quality: { score: 0.9 } })
   expect((await readReviews(root, 'video-guide'))['vi/guides/youtube-a1']).toEqual([
-    { at: '2026-10-29T10:00:00Z', model: 'sonnet', score: 0.8, notes: ['"Ánh sáng" is vague'], attempt: 'rewrite', kept: true },
+    { at: '2026-10-29T10:00:00Z', model: 'sonnet', score: 0.9, notes: ['"Ánh sáng" is vague'], attempt: 'rewrite', kept: true },
     { at: '2026-10-29T10:00:00Z', model: 'sonnet', score: 0.6, notes: ['"Ánh sáng" is vague'], attempt: 'first', kept: false },
   ])
+})
+
+test('a first read within 0.1 of the bar is read twice more and the median counts: a low read that is only noise sends nothing to the editor', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'yt-'))
+  const { d, calls } = deps(root, { scores: [0.7, 0.9, 0.8] })
+  await videoGuides(d, { playlists: ['PL1'] })
+  expect(calls.prompts.filter(p => p.includes('"Ánh sáng" is vague'))).toHaveLength(0)
+  expect((await read(root, 'content/guides/youtube-a1/vi.json')).quality).toEqual({ score: 0.8, indexable: true, bySource: { youtube: 0.8 } })
+  expect((await readReviews(root, 'video-guide'))['vi/guides/youtube-a1']![0]).toMatchObject({ score: 0.8, reads: [0.7, 0.9, 0.8], attempt: 'first', kept: true })
+})
+
+test('a median under the bar goes to the editor; a read more than 0.1 from the bar takes one read, either side', async () => {
+  const under = await mkdtemp(join(tmpdir(), 'yt-'))
+  const first = deps(under, { scores: [0.8, 0.5, 0.7] })
+  await videoGuides(first.d, { playlists: ['PL1'] })
+  expect(first.calls.prompts.filter(p => p.includes('"Ánh sáng" is vague'))).toHaveLength(1)
+  expect((await readReviews(under, 'video-guide'))['vi/guides/youtube-a1']![1]).toMatchObject({ score: 0.7, reads: [0.8, 0.5, 0.7], attempt: 'first', kept: false })
+
+  const clear = await mkdtemp(join(tmpdir(), 'yt-'))
+  await videoGuides(deps(clear, { scores: [0.86] }).d, { playlists: ['PL1'] })
+  expect((await read(clear, 'content/guides/youtube-a1/vi.json')).quality.score).toBe(0.86)
+  expect((await readReviews(clear, 'video-guide'))['vi/guides/youtube-a1']![0]).not.toHaveProperty('reads')
+
+  const low = await mkdtemp(join(tmpdir(), 'yt-'))
+  const edited = deps(low, { scores: [0.64] })
+  await videoGuides(edited.d, { playlists: ['PL1'] })
+  expect(edited.calls.prompts.filter(p => p.includes('"Ánh sáng" is vague'))).toHaveLength(1)
+  expect((await readReviews(low, 'video-guide'))['vi/guides/youtube-a1']![1]).not.toHaveProperty('reads')
 })
 
 test('--redo tells the writer what the last review of the guide on the site found, when it was under the bar', async () => {
@@ -300,7 +328,7 @@ test('a redo that scores under the recheck of the guide on the site keeps the gu
   await videoGuides(deps(root, { videos }).d, { playlists: ['PL1'] })
   const was = await readFile(join(root, 'content/guides/youtube-a1/vi.json'), 'utf8')
   await recheck(root, 'a1', 0.7, ['Says many people do it; the speaker says only he does'])
-  const worse = later(root, { videos, scores: [0.6, 0.65], drafts: [draft('Bản mới'), draft('Bản sửa')] })
+  const worse = later(root, { videos, scores: [0.6, 0.65, 0.65, 0.65], drafts: [draft('Bản mới'), draft('Bản sửa')] })
   expect(await videoGuides(worse.d, { redo: true, rechecked: SINCE, limit: 1 })).toMatchObject({ written: [], skipped: ['a1: the new version scored 0.65, under the guide\'s 0.70: kept the guide'] })
   expect(await readFile(join(root, 'content/guides/youtube-a1/vi.json'), 'utf8')).toBe(was)
   const traces = (await readReviews(root, 'video-guide'))['vi/guides/youtube-a1']!

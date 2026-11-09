@@ -9,7 +9,7 @@ import { GuideSchema, metricPage, QUALITY_THRESHOLD, SeriesSchema, TranslationSc
 import { appendChangelog } from './changelog'
 import { LlmError, type Llm } from './claude'
 import { pickSlug } from './merge'
-import { gate } from './quality'
+import { gate, steadyRead } from './quality'
 import { lastKept, logReviews, readReviews } from './review-log'
 import { plainParts, sanitizeHtml, unescapePlain } from './sanitize'
 import { loadState, saveState, type UrlState } from './state'
@@ -375,6 +375,13 @@ export function crowdLines(d: Pick<Draft, 'summary' | 'body' | 'faq'>): string[]
   return [...new Set(text.split(/(?<=[.?!:])\s+|\n+/).map(s => s.trim()).filter(s => CROWD.test(s)))]
 }
 
+/**
+ * Within this of the bar, a new video guide's check is read twice more and the median counts (steadyRead): under the bar
+ * a guide goes to the editor (fixDraft), so a low read that's only noise would rewrite good text. Narrower than the other
+ * checks' NEAR_BAR, at the chief's call (9 Nov), for the cost. A recheck (review-backfill.ts) stays at one read.
+ */
+const VIDEO_NEAR_BAR = 0.1
+
 export async function reviewDraft(llm: Llm, transcript: string, d: Pick<Draft, 'viTitle' | 'summary' | 'body' | 'faq'>, m?: Pick<VideoMeta, 'title' | 'channel' | 'lang'>) {
   const guide = `<h2>${d.viTitle}</h2>\n<ul>${d.summary.map(s => `<li>${s}</li>`).join('')}</ul>\n${d.body}\n${d.faq.map(f => `<p><strong>${f.q}</strong> ${f.a}</p>`).join('\n')}`
   const crowd = crowdLines(d)
@@ -516,12 +523,13 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
       let d = await write(before && gate(before.score, false) === 'retry' ? before.notes : undefined)
       if (!d.relevant) { await set(vid, { status: 'skipped', entityIds: [], error: 'not a guide' }); report.skipped.push(`${vid}: not a guide`); failedInARow = 0; return false }
       if (!usable(d)) throw new Error('draft without a title or body')
-      const tries = [await reviewDraft(llm, transcript!, d, m)]
+      const check = (x: Draft) => steadyRead(() => reviewDraft(llm, transcript!, x, m), VIDEO_NEAR_BAR)
+      const tries = [await check(d)]
       let kept = tries[0]!
       if (gate(kept.score, false) === 'retry') {
         const fixed = await fixDraft(llm, transcript!, d, kept.notes, { ...opts.write, lang })
         // A broken edit keeps the first draft and its score.
-        if (fixed) { d = fixed; kept = await reviewDraft(llm, transcript!, d, m); tries.push(kept) }
+        if (fixed) { d = fixed; kept = await check(d); tries.push(kept) }
       }
       const score = kept.score
       // A redo never leaves a guide worse (Writing Lead, 2026-11-07): a new version that scores under the review of the one
