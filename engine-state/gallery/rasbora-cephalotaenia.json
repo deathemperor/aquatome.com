@@ -1,78 +1,20 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Rasbora_cephalotaenia_154143217.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Rasbora_cephalotaenia_154143217.jpg/500px-Rasbora_cephalotaenia_154143217.jpg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY 4.0",
-   "author": "CheongWeei Gan",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rasbora_cephalotaenia_154143217.jpg",
-   "caption": "Rasbora cephalotaenia",
-   "key": "File:Rasbora cephalotaenia 154143217.jpg"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/154143217/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/154143217/medium.jpg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "Cheongweei Gan",
-   "sourceUrl": "https://www.inaturalist.org/photos/154143217",
-   "key": "inat:154143217"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/457829945/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/457829945/medium.jpg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC0",
-   "author": "Justin Philbois",
-   "sourceUrl": "https://www.inaturalist.org/photos/457829945",
-   "key": "inat:457829945"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/457829956/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/457829956/medium.jpg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC0",
-   "author": "Justin Philbois",
-   "sourceUrl": "https://www.inaturalist.org/photos/457829956",
-   "key": "inat:457829956"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/457829926/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/457829926/medium.jpg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC0",
-   "author": "Justin Philbois",
-   "sourceUrl": "https://www.inaturalist.org/photos/457829926",
-   "key": "inat:457829926"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/250548446/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/250548446/medium.jpg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "Zakqary Roy",
-   "sourceUrl": "https://www.inaturalist.org/photos/250548446",
-   "key": "inat:250548446"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/a/a8/R.cephalotaenia.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/R.cephalotaenia.jpg/500px-R.cephalotaenia.jpg",
-   "width": 3301,
-   "height": 1765,
-   "licence": "CC BY-SA 4.0",
-   "author": "AMIRA.W",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:R.cephalotaenia.jpg",
-   "caption": "Fish was caught at Tanjung Malim, Perak, Malaysia",
-   "key": "File:R.cephalotaenia.jpg"
-  }
+ "queue": [],
+ "judged": [
+  "File:Rasbora cephalotaenia 154143217.jpg",
+  "inat:154143217",
+  "inat:457829945",
+  "inat:457829956",
+  "inat:457829926",
+  "inat:250548446",
+  "File:R.cephalotaenia.jpg"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/seriouslyfish/c5a8332f2da45576.webp": "b37decf94fc7e2f0",
+  "https://upload.wikimedia.org/wikipedia/commons/7/7e/Rasbora_cephalotaenia_154143217.jpg": "3d7f651e78e08123",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/457829945/original.jpg": "3e3c3c96ecccbfbb",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/250548446/original.jpg": "048ccc5dcd45e9f1",
+  "https://upload.wikimedia.org/wikipedia/commons/a/a8/R.cephalotaenia.jpg": "2e6204b226bce016"
+ },
+ "commons": "2026-11-09"
 }

@@ -69,7 +69,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh rêu xanh mọc dày, mượt trên mặt đá.",
-            "sharpness": 905.7
+            "sharpness": 905.7,
+            "person": false
           },
           {
             "t": 120,
@@ -77,7 +78,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Thùng lớn để ngoài nắng, đá phủ rêu xanh ngập trong nước.",
-            "sharpness": 2753.8
+            "sharpness": 2753.8,
+            "person": false
           }
         ],
         "photo": {
@@ -100,7 +102,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá con bơi gần mặt đá phủ rêu xanh trong bể.",
-            "sharpness": 169.7
+            "sharpness": 169.7,
+            "person": false
           },
           {
             "t": 410,
@@ -108,7 +111,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đá phủ rêu xanh cạnh những vỏ ốc trong bể kiểu Tanganyika.",
-            "sharpness": 662.1
+            "sharpness": 662.1,
+            "person": false
           }
         ]
       },
@@ -121,36 +125,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Viên đá lớn đặt chênh vênh trên tấm lưới egg crate lót đáy bể.",
-            "sharpness": 347.7
-          },
-          {
-            "t": 165,
-            "url": "https://media.aquatome.com/video/Gco4K1OuLaE/at165-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nhiều viên đá xếp chồng lên nhau trên lớp lưới nhựa ở đáy bể.",
-            "sharpness": 539.8
-          }
-        ]
-      },
-      {
-        "heading": "Làm bãi cát chạy vào khối đá",
-        "moments": [
-          {
-            "t": 220,
-            "url": "https://media.aquatome.com/video/Gco4K1OuLaE/at220-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bãi cát trắng nối liền với khối đá trong bể.",
-            "sharpness": 531.6
-          },
-          {
-            "t": 225,
-            "url": "https://media.aquatome.com/video/Gco4K1OuLaE/at225-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cát aragonite rải giữa các viên đá phủ rêu.",
-            "sharpness": 1743.2
+            "sharpness": 347.7,
+            "person": false
           }
         ]
       },
@@ -163,7 +139,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Vỏ ốc táo đang được ngâm phơi nắng trong khay nước ngoài trời.",
-            "sharpness": 2838.8
+            "sharpness": 2838.8,
+            "person": false
           }
         ],
         "photo": {
@@ -181,20 +158,13 @@
         "heading": "Châm nước và chuẩn bị nước cho cichlid",
         "moments": [
           {
-            "t": 240,
-            "url": "https://media.aquatome.com/video/Gco4K1OuLaE/at240-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đang châm nước vào bể, nước hơi đục quanh đám đá.",
-            "sharpness": 1235.7
-          },
-          {
             "t": 270,
             "url": "https://media.aquatome.com/video/Gco4K1OuLaE/at270-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể cichlid đã châm nước, có đá và vỏ ốc trên nền cát trắng.",
-            "sharpness": 739
+            "sharpness": 739,
+            "person": false
           }
         ]
       },
@@ -207,15 +177,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Dây nhỏ giọt dẫn nước từ bể xuống ca để thuần cá.",
-            "sharpness": 558.9
-          },
-          {
-            "t": 310,
-            "url": "https://media.aquatome.com/video/Gco4K1OuLaE/at310-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đổ cá qua vợt để bỏ hết nước tiệm.",
-            "sharpness": 138.6
+            "sharpness": 558.9,
+            "person": false
           }
         ]
       },
@@ -228,7 +191,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Một con cá nhỏ thăm dò bên cạnh vỏ ốc lớn.",
-            "sharpness": 280.1
+            "sharpness": 280.1,
+            "person": false
           },
           {
             "t": 385,
@@ -236,7 +200,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nhiều con cá bơi quanh các vỏ ốc, giành chỗ trong bể.",
-            "sharpness": 55.4
+            "sharpness": 55.4,
+            "person": false
           }
         ],
         "photo": {

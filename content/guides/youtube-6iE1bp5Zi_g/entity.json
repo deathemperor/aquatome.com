@@ -115,7 +115,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cụm pearlweed xanh mướt mọc trên lớp phân nền tối màu cạnh hòn đá.",
-            "sharpness": 433.8
+            "sharpness": 433.8,
+            "person": false
           },
           {
             "t": 530,
@@ -123,7 +124,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Pearlweed mới trồng thành từng cụm nhỏ trên phân nền giữa các hòn đá.",
-            "sharpness": 259.2
+            "sharpness": 259.2,
+            "person": false
           }
         ]
       },
@@ -136,7 +138,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây mới trồng bụi nhỏ trên nền cát sáng, cạnh đá đen.",
-            "sharpness": 562.2
+            "sharpness": 562.2,
+            "person": false
           },
           {
             "t": 540,
@@ -144,28 +147,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể nền phân đen với đá sáng màu và các bụi cây nhỏ mới trồng.",
-            "sharpness": 149.1
-          }
-        ]
-      },
-      {
-        "heading": "Nhân giống pearlweed",
-        "moments": [
-          {
-            "t": 345,
-            "url": "https://media.aquatome.com/video/6iE1bp5Zi_g/at345-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Toàn cảnh bể có thảm pearlweed mọc ở phía trước.",
-            "sharpness": 959.4
-          },
-          {
-            "t": 395,
-            "url": "https://media.aquatome.com/video/6iE1bp5Zi_g/at395-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây pearlweed xanh mọc thành thảm trên nền bể, cạnh đá trang trí.",
-            "sharpness": 245.1
+            "sharpness": 149.1,
+            "person": false
           }
         ]
       }

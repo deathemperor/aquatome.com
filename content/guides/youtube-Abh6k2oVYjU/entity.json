@@ -42,16 +42,7 @@
     "figures": [
       {
         "heading": "Crinum calamistratum trông thế nào",
-        "moments": [
-          {
-            "t": 100,
-            "url": "https://media.aquatome.com/video/Abh6k2oVYjU/at100-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hình minh họa cây mọc từ củ với bộ rễ và lá dài rủ xuống.",
-            "sharpness": 38.7
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/Abh6k2oVYjU/p0-dHVtX2t6MDMuanBn.webp",
           "thumb": "https://media.aquatome.com/video/Abh6k2oVYjU/p0-dHVtX2t6MDMuanBn-480.webp",
@@ -72,15 +63,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh với lớp nền và đá, nơi có thể vùi củ cây.",
-            "sharpness": 695.7
-          },
-          {
-            "t": 95,
-            "url": "https://media.aquatome.com/video/Abh6k2oVYjU/at95-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hình minh họa cây có củ và bộ rễ, phần củ cần vùi xuống nền.",
-            "sharpness": 24.3
+            "sharpness": 695.7,
+            "person": false
           }
         ]
       },
@@ -107,7 +91,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể có đèn chiếu sáng, đá và ít cây xanh ở phía trước.",
-            "sharpness": 567.5
+            "sharpness": 567.5,
+            "person": false
           }
         ],
         "photo": {

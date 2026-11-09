@@ -96,24 +96,7 @@
     "figures": [
       {
         "heading": "Vì sao lót nham thạch vụn dưới phân nền",
-        "moments": [
-          {
-            "t": 70,
-            "url": "https://media.aquatome.com/video/hpTFD_30N8M/at70-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bàn tay cầm nham thạch vụn đen hạt nhỏ, nhìn rõ độ xốp.",
-            "sharpness": 2403.4
-          },
-          {
-            "t": 80,
-            "url": "https://media.aquatome.com/video/hpTFD_30N8M/at80-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Thùng đầy nham thạch vụn đen Dark Mountain, hạt nhỏ đều.",
-            "sharpness": 3167.9
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/hpTFD_30N8M/p0-uaWNfUm9jay5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/hpTFD_30N8M/p0-uaWNfUm9jay5qcGc-480.webp",
@@ -134,7 +117,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh các hòn đá đặt trên nền trong bể.",
-            "sharpness": 2736
+            "sharpness": 2736,
+            "person": false
           },
           {
             "t": 490,
@@ -142,7 +126,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thấp đã có nền, đá xếp thành cụm nhìn rõ bố cục.",
-            "sharpness": 1696
+            "sharpness": 1696,
+            "person": false
           }
         ],
         "photo": {
@@ -173,7 +158,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nhìn từ hông bể, nền dốc từ mặt trước mỏng lên phía sau dày.",
-            "sharpness": 2037.1
+            "sharpness": 2037.1,
+            "person": false
           }
         ]
       },
@@ -187,14 +173,6 @@
             "height": 675,
             "caption": "Tay lấy các khay vật liệu lọc có mút xanh ra khỏi thùng lọc.",
             "sharpness": 771.7
-          },
-          {
-            "t": 830,
-            "url": "https://media.aquatome.com/video/hpTFD_30N8M/at830-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tấm mút xanh được lấy ra khỏi khay bên cạnh thùng lọc OASE.",
-            "sharpness": 683.4
           }
         ]
       },
@@ -208,14 +186,6 @@
             "height": 675,
             "caption": "Nước châm xối thẳng xuống nền, làm lệch đường nền đã vuốt.",
             "sharpness": 2798
-          },
-          {
-            "t": 1030,
-            "url": "https://media.aquatome.com/video/hpTFD_30N8M/at1030-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Chèn đá nhỏ vào khe dưới tảng đá dựng để giữ cho khỏi xê dịch.",
-            "sharpness": 3025.6
           }
         ]
       },

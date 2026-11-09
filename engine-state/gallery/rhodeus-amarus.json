@@ -1,162 +1,42 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Leger%C3%B6hre.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Leger%C3%B6hre.jpg/500px-Leger%C3%B6hre.jpg",
-   "width": 3664,
-   "height": 2768,
-   "licence": "CC BY-SA 4.0",
-   "author": "Lorenz Seebauer",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Leger%C3%B6hre.jpg",
-   "caption": "Legeröhre des Bitterling",
-   "key": "File:Legeröhre.jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/2/2c/LayingtubeBitterling.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/LayingtubeBitterling.jpg/500px-LayingtubeBitterling.jpg",
-   "width": 3592,
-   "height": 2736,
-   "licence": "CC BY-SA 4.0",
-   "author": "Lorenz Seebauer",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:LayingtubeBitterling.jpg",
-   "caption": "Laying tube of the Bitterling",
-   "key": "File:LayingtubeBitterling.jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/1/10/Bitterlingsm%C3%A4nnchen.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Bitterlingsm%C3%A4nnchen.jpg/500px-Bitterlingsm%C3%A4nnchen.jpg",
-   "width": 3719,
-   "height": 2357,
-   "licence": "CC BY-SA 4.0",
-   "author": "Michael Wurm",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bitterlingsm%C3%A4nnchen.jpg",
-   "caption": "Männlicher Europäischer Bitterling zur Laichzeit bei der von ihm beanspruchten Muschel",
-   "key": "File:Bitterlingsmännchen.jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/6/63/Fishes_in_upper_Kura_and_Aras_river_drainages_%2810.3897-zse.96.52241%29_Figure_3.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Fishes_in_upper_Kura_and_Aras_river_drainages_%2810.3897-zse.96.52241%29_Figure_3.jpg/500px-Fishes_in_upper_Kura_and_Aras_river_drainages_%2810.3897-zse.96.52241%29_Figure_3.jpg",
-   "width": 1961,
-   "height": 2663,
-   "licence": "CC BY 4.0",
-   "author": "Kaya C, Bayçelebi E, Turan D (2020) Taxonomic assessment and distribution of fis",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fishes_in_upper_Kura_and_Aras_river_drainages_(10.3897-zse.96.52241)_Figure_3.jpg",
-   "caption": "Figure 3; Acheilognathidae, Siluridae and two Cyprinid species collected in the area, a, Carassius gibelio from Kura River at Yalnızçam; b, Cyprinus carpio from",
-   "key": "File:Fishes in upper Kura and Aras river drainages (10.3897-zse.96.52241) Figure 3.jpg"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/314277191/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/314277191/medium.jpeg",
-   "width": 1857,
-   "height": 2048,
-   "licence": "CC BY",
-   "author": "Елена Смирнова",
-   "sourceUrl": "https://www.inaturalist.org/photos/314277191",
-   "key": "inat:314277191"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/6/66/RhodeusSericeusTailfin.JPG",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/RhodeusSericeusTailfin.JPG/500px-RhodeusSericeusTailfin.JPG",
-   "width": 2272,
-   "height": 1704,
-   "licence": "CC BY-SA 2.5",
-   "author": "Piet Spaans",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:RhodeusSericeusTailfin.JPG",
-   "caption": "Tailfin of European Bitterling (Rhodeus amarus). The soft fin rays of the tail have a few branches.",
-   "key": "File:RhodeusSericeusTailfin.JPG"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/1/17/RhodeusSericeusScales.JPG",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/RhodeusSericeusScales.JPG/500px-RhodeusSericeusScales.JPG",
-   "width": 2272,
-   "height": 1704,
-   "licence": "CC BY-SA 2.5",
-   "author": "Piet Spaans",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:RhodeusSericeusScales.JPG",
-   "caption": "Scales of European Bitterling (Rhodeus amarus)from the hindflank. The bluegreen colour of the tailstripe comes from the epidermis, background colour from the de",
-   "key": "File:RhodeusSericeusScales.JPG"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/411003360/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/411003360/medium.jpeg",
-   "width": 2048,
-   "height": 1542,
-   "licence": "CC BY",
-   "author": "Stefan T.",
-   "sourceUrl": "https://www.inaturalist.org/photos/411003360",
-   "key": "inat:411003360"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/314277246/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/314277246/medium.jpeg",
-   "width": 1537,
-   "height": 2048,
-   "licence": "CC BY",
-   "author": "Елена Смирнова",
-   "sourceUrl": "https://www.inaturalist.org/photos/314277246",
-   "key": "inat:314277246"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/106740512/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/106740512/medium.jpeg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "Valentin Moser",
-   "sourceUrl": "https://www.inaturalist.org/photos/106740512",
-   "key": "inat:106740512"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/128466981/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/128466981/medium.jpeg",
-   "width": 1536,
-   "height": 2048,
-   "licence": "CC0",
-   "author": "Branislav Tej",
-   "sourceUrl": "https://www.inaturalist.org/photos/128466981",
-   "key": "inat:128466981"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/550549897/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/550549897/medium.jpg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "Vitaly Radionov",
-   "sourceUrl": "https://www.inaturalist.org/photos/550549897",
-   "key": "inat:550549897"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/550550007/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/550550007/medium.jpg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "Vitaly Radionov",
-   "sourceUrl": "https://www.inaturalist.org/photos/550550007",
-   "key": "inat:550550007"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/550550070/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/550550070/medium.jpg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "Vitaly Radionov",
-   "sourceUrl": "https://www.inaturalist.org/photos/550550070",
-   "key": "inat:550550070"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/269577601/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/269577601/medium.jpeg",
-   "width": 1536,
-   "height": 2048,
-   "licence": "CC BY",
-   "author": "Michel Frisch",
-   "sourceUrl": "https://www.inaturalist.org/photos/269577601",
-   "key": "inat:269577601"
-  }
+ "queue": [],
+ "judged": [
+  "File:Legeröhre.jpg",
+  "File:LayingtubeBitterling.jpg",
+  "File:Bitterlingsmännchen.jpg",
+  "File:Fishes in upper Kura and Aras river drainages (10.3897-zse.96.52241) Figure 3.jpg",
+  "inat:314277191",
+  "File:RhodeusSericeusTailfin.JPG",
+  "File:RhodeusSericeusScales.JPG",
+  "inat:411003360",
+  "inat:314277246",
+  "inat:106740512",
+  "inat:128466981",
+  "inat:550549897",
+  "inat:550550007",
+  "inat:550550070",
+  "inat:269577601",
+  "File:Bittervoorn.JPG",
+  "File:RhodeusSericeusAmarus.JPG",
+  "File:MannetjeBittervoorn.JPG",
+  "File:Bittervoorn (1 of 1).jpg",
+  "File:Rhodeus amarus 2008 G1.jpg",
+  "File:Rhodeus amarus 2008 G2.jpg",
+  "File:BittervoornRhodeusAmarusVrouwtje.JPG",
+  "File:RhodeusAmarusBitterlingMale1.JPG",
+  "File:RhodeusSericeusBitterlingMaleSpawningColors.jpg",
+  "File:Rhodeus amarus (Cyprinidae) - (juvenile), Elst (Gld), the Netherlands.jpg",
+  "File:Rhodeus amarus (Cyprinidae) - (juvenile), Elst (Gld), the Netherlands - 2.jpg",
+  "File:Rhodeus amarus (Cyprinidae) - (juvenile), Elst (Gld), the Netherlands - 3.jpg",
+  "File:Rhodeus amarus.jpg",
+  "File:BittervoornRhodeusAmarusVrouwtje (cropped).JPG"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://upload.wikimedia.org/wikipedia/commons/1/10/Bitterlingsm%C3%A4nnchen.jpg": "0f2f3b5b0bc3c1c9",
+  "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/Bittervoorn_%281_of_1%29.jpg/1280px-Bittervoorn_%281_of_1%29.jpg": "e1e9d04c0f98d2e4",
+  "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/BittervoornRhodeusAmarusVrouwtje.JPG/1280px-BittervoornRhodeusAmarusVrouwtje.JPG": "719100030346e070",
+  "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/RhodeusAmarusBitterlingMale1.JPG/1280px-RhodeusAmarusBitterlingMale1.JPG": "7e1c4c1e1e9ce25a",
+  "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/RhodeusSericeusBitterlingMaleSpawningColors.jpg/1280px-RhodeusSericeusBitterlingMaleSpawningColors.jpg": "ed99090f4f0f8ef0"
+ },
+ "commons": "2026-11-09"
 }

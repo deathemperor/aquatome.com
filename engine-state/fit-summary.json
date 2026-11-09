@@ -1,5 +1,5 @@
 {
- "day": "2026-11-09",
+ "day": "2026-11-10",
  "baseline": {
   "day": "2026-11-08",
   "pct": {
@@ -12,8 +12,8 @@
  "langs": {
   "vi": {
    "pages": 3567,
-   "read": 3274,
-   "wrong": 1496,
+   "read": 3275,
+   "wrong": 1494,
    "pct": 46,
    "held": 172
   },
@@ -59,63 +59,50 @@
  "sample": [
   {
    "lang": "vi",
-   "path": "/vi/ca/ca-rang-chep-zagros/",
-   "url": "https://aquatome.com/ca/ca-rang-chep-zagros/",
-   "title": "Cá răng chép Zagros",
-   "wrong": [
-    {
-     "check": "source",
-     "quote": "chúng tôi"
-    },
-    {
-     "check": "source",
-     "quote": "chúng tôi đặc biệt khuyên nên nuôi riêng"
-    },
-    {
-     "check": "source",
-     "quote": "(xem “thiết lập bể”)"
-    }
-   ]
-  },
-  {
-   "lang": "vi",
-   "path": "/vi/ca/ca-chach-suoi-schistura-aurantiaca/",
-   "url": "https://aquatome.com/ca/ca-chach-suoi-schistura-aurantiaca/",
-   "title": "Cá chạch suối Schistura aurantiaca",
-   "wrong": [
-    {
-     "check": "source",
-     "quote": "Con suối trong ảnh chảy qua một khu rừng có tán cây cao chừng 50 m."
-    },
-    {
-     "check": "units",
-     "quote": "bề rộng suối thay đổi theo mùa nhưng chưa bao giờ quá 9,1 mét"
-    },
-    {
-     "check": "words",
-     "quote": "ghi nhận"
-    }
-   ]
-  },
-  {
-   "lang": "vi",
-   "path": "/vi/ca/ca-betta-foerschi/",
-   "url": "https://aquatome.com/ca/ca-betta-foerschi/",
-   "title": "Cá betta foerschi",
+   "path": "/vi/ca/ca-tetra-lung-do/",
+   "url": "https://aquatome.com/ca/ca-tetra-lung-do/",
+   "title": "Cá tetra tim chảy máu lưng lửa",
    "wrong": [
     {
      "check": "words",
      "quote": "ghi nhận"
+    },
+    {
+     "check": "words",
+     "quote": "Tuy vậy"
     },
     {
      "check": "words",
      "quote": "gần như không"
-    },
-    {
-     "check": "words",
-     "quote": "Dù vậy"
     }
    ]
+  },
+  {
+   "lang": "vi",
+   "path": "/vi/huong-dan/5-loai-tep-nuoc-ngot-dang-nuoi-cho-be-thuy-sinh/",
+   "url": "https://aquatome.com/huong-dan/5-loai-tep-nuoc-ngot-dang-nuoi-cho-be-thuy-sinh/",
+   "title": "5 loại tép nước ngọt đáng nuôi cho bể thủy sinh",
+   "wrong": [
+    {
+     "check": "product",
+     "quote": "Wonder Shell"
+    },
+    {
+     "check": "elsewhere",
+     "quote": "Loại này dễ mua ở các chuỗi cửa hàng thú cưng lớn"
+    },
+    {
+     "check": "source",
+     "quote": "bạn xem bài chi tiết về nhân giống tép cherry"
+    }
+   ]
+  },
+  {
+   "lang": "id",
+   "path": "/id/ikan/dichotomyctere-fluviatilis/",
+   "url": "https://aquatome.com/id/ikan/dichotomyctere-fluviatilis/",
+   "title": "Dichotomyctere fluviatilis",
+   "wrong": []
   }
  ]
 }

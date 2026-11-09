@@ -129,7 +129,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây dưới nước bám trên lũa, nền cát sáng, ánh sáng dịu.",
-            "sharpness": 306
+            "sharpness": 306,
+            "person": false
           }
         ],
         "photo": {
@@ -144,27 +145,6 @@
         }
       },
       {
-        "heading": "Thả cá, ốc thế nào để bể nhẹ tải",
-        "moments": [
-          {
-            "t": 515,
-            "url": "https://media.aquatome.com/video/6MVlcgTchtE/at515-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Những con ốc nhỏ nằm trên lòng bàn tay trước khi thả vào bể.",
-            "sharpness": 247.5
-          },
-          {
-            "t": 535,
-            "url": "https://media.aquatome.com/video/6MVlcgTchtE/at535-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hộp trong chứa cá nhỏ, chuẩn bị thả vào bể.",
-            "sharpness": 1119.4
-          }
-        ]
-      },
-      {
         "heading": "Bể không lọc vận hành ra sao",
         "moments": [
           {
@@ -173,7 +153,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể chữ L với khu cây cạn phía trên, không có lọc.",
-            "sharpness": 1415.4
+            "sharpness": 1415.4,
+            "person": false
           },
           {
             "t": 630,
@@ -181,7 +162,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Khu cây cạn trồng phía trên bể làm bộ lọc bog.",
-            "sharpness": 2311.6
+            "sharpness": 2311.6,
+            "person": false
           }
         ]
       }

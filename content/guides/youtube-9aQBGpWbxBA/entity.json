@@ -84,7 +84,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nước được tưới xuống qua lũa và cây trong bể, giống dòng chảy của sump.",
-            "sharpness": 4286
+            "sharpness": 4286,
+            "person": false
           },
           {
             "t": 15,
@@ -92,7 +93,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh với lũa và cây mọc ven bờ, phía trên có đèn.",
-            "sharpness": 1054.3
+            "sharpness": 1054.3,
+            "person": false
           }
         ]
       },
@@ -105,7 +107,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây trồng trên nền cát cạn, xen đá và gỗ, giống bể phụ lọc.",
-            "sharpness": 977.1
+            "sharpness": 977.1,
+            "person": false
           }
         ],
         "photo": {
@@ -142,7 +145,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây thủy sinh xanh mọc trên nền, bên cạnh lũa trong bể.",
-            "sharpness": 656.5
+            "sharpness": 656.5,
+            "person": false
           }
         ]
       },

@@ -7,10 +7,10 @@ Written by `pnpm engine gallery` (2026-11-09). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 131 | 79 | 24 | 30 | 204 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 471 | 22 | 9 | 14 | 488 |
-| rest | 20 | 1488 | 80 | 0 | 27 | 1541 |
+| covered | 30 | 472 | 22 | 9 | 14 | 489 |
+| rest | 20 | 1531 | 80 | 0 | 28 | 1583 |
 
-## Short of target: every source read (199)
+## Short of target: every source read (200)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -122,7 +122,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/hasemania-nana | shop | 1 | 60 |
 | plants/marsilea-hirsuta | shop | 12 | 60 |
 | species/gyrinocheilus-aymonieri | shop | 14 | 60 |
-| species/erpetoichthys-calabaricus | shop | 3 | 60 |
+| species/erpetoichthys-calabaricus | shop | 2 | 60 |
 | plants/sagittaria-subulata | shop | 9 | 60 |
 | species/trichopsis-vittata | shop | 11 | 60 |
 | plants/lilaeopsis-brasiliensis | shop | 5 | 60 |
@@ -135,7 +135,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/corydoras-sterbai | shop | 14 | 60 |
 | species/scleropages-jardinii | shop | 3 | 60 |
 | species/scleropages-formosus | shop | 38 | 60 |
-| species/polypterus-senegalus | shop | 16 | 60 |
+| species/polypterus-senegalus | shop | 15 | 60 |
 | species/channa-pulchra | shop | 0 | 60 |
 | species/channa-stewartii | shop | 0 | 60 |
 | species/channa-andrao | shop | 1 | 60 |
@@ -214,4 +214,5 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/andinoacara-rivulatus | shop | 19 | 60 |
 | species/herichthys-carpintis | shop | 18 | 60 |
 | species/monopterus-albus | shop | 30 | 60 |
+| species/mastacembelus-erythrotaenia | shop | 6 | 60 |
 | species/betta-macrostoma | covered | 0 | 30 |

@@ -8,8 +8,8 @@ under `<lang>/<path>`.
 
 | Kind | Pages reviewed | Under the bar | With notes |
 | --- | --- | --- | --- |
-| video-guide | 686 | 544 (vi 544) | 544 |
-| translation | 998 | 182 (vi 182) | 182 |
+| video-guide | 686 | 532 (vi 532) | 532 |
+| translation | 1042 | 189 (vi 189) | 189 |
 | vi-rewrite | 189 | 0 | 0 |
 | reader-rewrite | 17 | 0 | 0 |
 | title | 3 | 0 | 0 |
@@ -26,20 +26,20 @@ under `<lang>/<path>`.
 
 ## video-guide: Vietnamese guides written from YouTube videos, against the transcript
 
-544 of 686 pages under the bar.
+532 of 686 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 499 | 1492 |
-| States as certain what the source hedges, or what garbled captions only hint at | 488 | 1439 |
-| Says what the source doesn't (invented, added) | 449 | 1315 |
-| A number, unit, dose or price | 210 | 305 |
-| Wording: unnatural, literal, stiff or chatty | 189 | 240 |
-| Meaning changed or wrong | 94 | 106 |
-| Repeats itself (intro, summary, steps and FAQ) | 89 | 106 |
+| Other | 487 | 1446 |
+| States as certain what the source hedges, or what garbled captions only hint at | 477 | 1413 |
+| Says what the source doesn't (invented, added) | 436 | 1278 |
+| A number, unit, dose or price | 203 | 296 |
+| Wording: unnatural, literal, stiff or chatty | 185 | 237 |
+| Meaning changed or wrong | 91 | 103 |
+| Repeats itself (intro, summary, steps and FAQ) | 88 | 105 |
 | Leaves out what the source says | 37 | 39 |
 | Hobby terms and names | 27 | 27 |
-| Names or points to the video, channel, creator or source | 23 | 23 |
+| Names or points to the video, channel, creator or source | 22 | 22 |
 | Copied from the transcript or source | 13 | 15 |
 | Off the title's topic | 11 | 11 |
 | Text left in another language | 5 | 5 |
@@ -124,20 +124,20 @@ under `<lang>/<path>`.
 
 ## translation: source pages translated into Vietnamese, against the English
 
-182 of 998 pages under the bar.
+189 of 1042 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 178 | 553 |
-| Says what the source doesn't (invented, added) | 144 | 303 |
-| Wording: unnatural, literal, stiff or chatty | 144 | 280 |
-| Meaning changed or wrong | 123 | 192 |
-| Hobby terms and names | 86 | 112 |
-| Text left in another language | 64 | 79 |
-| States as certain what the source hedges, or what garbled captions only hint at | 59 | 70 |
-| Leaves out what the source says | 56 | 75 |
+| Other | 184 | 571 |
+| Says what the source doesn't (invented, added) | 150 | 317 |
+| Wording: unnatural, literal, stiff or chatty | 149 | 289 |
+| Meaning changed or wrong | 125 | 194 |
+| Hobby terms and names | 92 | 122 |
+| Text left in another language | 66 | 81 |
+| States as certain what the source hedges, or what garbled captions only hint at | 60 | 71 |
+| Leaves out what the source says | 59 | 79 |
 | A number, unit, dose or price | 55 | 71 |
-| Repeats itself (intro, summary, steps and FAQ) | 47 | 57 |
+| Repeats itself (intro, summary, steps and FAQ) | 48 | 58 |
 | Names or points to the video, channel, creator or source | 9 | 10 |
 | Copied from the transcript or source | 2 | 2 |
 
