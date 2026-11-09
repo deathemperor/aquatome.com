@@ -8,6 +8,7 @@ import { reviewTranslation } from './quality'
 import { itemReviews, logReviews, readReviews, reviewKey, type PageRef, type ReviewKind } from './review-log'
 import { setHold } from './video-hold'
 import { byRank } from './video-order'
+import { recheckTopic } from './topics'
 import { reviewDraft, throttled, VIDEO_GAP_MS, type YouTube } from './youtube'
 
 /**
@@ -24,8 +25,10 @@ import { reviewDraft, throttled, VIDEO_GAP_MS, type YouTube } from './youtube'
  *   translated from a source keeps no English to check against, so it waits for its next translation.
  * - localize: an Indonesian or Thai species or plant page, against the English.
  * - places: Indonesian and Thai place names, a batch a call.
+ * - topic: a guide AquaTome wrote, in any language, against the facts its writer had (topics.ts recheckTopic). A guide's
+ *   score is its check's, so this one also gives the page its new score.
  */
-export const BACKFILL_KINDS = ['video-guide', 'translation', 'localize', 'places'] as const satisfies readonly ReviewKind[]
+export const BACKFILL_KINDS = ['video-guide', 'translation', 'localize', 'places', 'topic'] as const satisfies readonly ReviewKind[]
 export type BackfillKind = (typeof BACKFILL_KINDS)[number]
 
 export type BackfillDeps = { root: string; llm: Llm; now: () => Date; yt?: YouTube; sleep?: (ms: number) => Promise<void> }
@@ -45,6 +48,11 @@ async function jobs(root: string, kind: BackfillKind, all = false): Promise<Job[
     for (const id of (await list(join(content, 'guides'))).filter(d => d.startsWith('youtube-'))) {
       const q = (await json<Translation>(join(content, 'guides', id, 'vi.json')))?.quality
       if (under(q)) out.push({ page: { id: `guides/${id}`, lang: 'vi' }, score: q!.score, first: owners.has(id) })
+    }
+  } else if (kind === 'topic') {
+    for (const id of (await list(join(content, 'guides'))).filter(d => d.startsWith('aquatome-'))) for (const lang of ['vi', ...OTHER_LANGS]) {
+      const q = (await json<Translation>(join(content, 'guides', id, `${lang}.json`)))?.quality
+      if (under(q)) out.push({ page: { id: `guides/${id}`, lang }, score: q!.score })
     }
   } else if (kind === 'translation') {
     for (const dir of ['species', 'plants']) for (const id of await list(join(content, dir))) {
@@ -113,7 +121,8 @@ export async function reviewBackfill(d: BackfillDeps, o: { kinds?: readonly Back
       const at = join(content, dir, id)
       try {
         let r
-        if (kind === 'video-guide') {
+        if (kind === 'topic') r = await recheckTopic(d.root, d.llm, id, j.page.lang as 'vi' | TargetLang)
+        else if (kind === 'video-guide') {
           const e = await json<GuideEntity>(join(at, 'entity.json'))
           const vi = await json<Translation>(join(at, 'vi.json'))
           if (!e?.video || !vi || !d.yt) { report.failed.push(`${j.page.id}: ${!d.yt ? 'no YouTube access' : 'no video'}`); return }

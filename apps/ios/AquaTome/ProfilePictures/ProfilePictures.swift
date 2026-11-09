@@ -46,9 +46,15 @@ struct ProfilePicture: Identifiable, Hashable {
 
 /// The account's picture as this phone keeps it, with the account it's for: "<account id> <picture id>" in
 /// `account.picture`, so another account signed in on the phone starts with none, and signing out drops it
-/// (`AccountPictureMark`). The account on the server takes it once the server keeps it (protocols/accounts.openapi.json).
+/// (`AccountPictureMark`). The account keeps it too (POST /api/v1/account/picture, protocols/accounts.openapi.json):
+/// chosen, it's sent (AccountModel.sendPicture); signed in, the account's is taken, unless this phone's is still unsent.
 enum AccountPicture {
   static let key = "account.picture"
+  /// The account whose picture this phone chose and hasn't sent yet.
+  static let unsent = "account.picture.unsent"
+  /// Set once a phone has sent what it chose before the account kept pictures (the build before), so that one isn't
+  /// taken for "none" from the account.
+  static let carried = "account.picture.carried"
 
   static func chosen(_ stored: String, by user: AccountUser?) -> ProfilePicture? {
     let parts = stored.split(separator: " ", maxSplits: 1)
@@ -113,7 +119,9 @@ struct ProfilePicturePicker: View {
         ForEach(ProfilePicture.all) { picture in
           let on = chosen == picture
           Button {
-            if let user = account.user { stored = AccountPicture.stored(picture, by: user) }
+            guard let user = account.user else { return }
+            stored = AccountPicture.stored(picture, by: user)
+            Task { await account.sendPicture(picture.id) }
           } label: {
             let layout = list ? AnyLayout(HStackLayout(spacing: 16)) : AnyLayout(VStackLayout(spacing: 8))
             layout {
@@ -138,7 +146,11 @@ struct ProfilePicturePicker: View {
     .toolbar {
       if chosen != nil {
         ToolbarItem(placement: .topBarTrailing) {
-          Button("Bỏ ảnh") { stored = "" }.accessibilityIdentifier("profile-picture-none")
+          Button("Bỏ ảnh") {
+            stored = ""
+            Task { await account.sendPicture(nil) }
+          }
+          .accessibilityIdentifier("profile-picture-none")
         }
       }
     }

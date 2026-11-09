@@ -1,17 +1,13 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/7/72/M.Herrei.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/M.Herrei.jpg/500px-M.Herrei.jpg",
-   "width": 5306,
-   "height": 3788,
-   "licence": "CC BY-SA 4.0",
-   "author": "AravindManoj",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:M.Herrei.jpg",
-   "caption": "Mesonoemacheilus herrei by AravindManoj",
-   "key": "File:M.Herrei.jpg"
-  }
+ "queue": [],
+ "judged": [
+  "File:M.Herrei.jpg"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/seriouslyfish/ac505b3dce9b98c9.webp": "241e9ef8da3c1a0c",
+  "https://media.aquatome.com/seriouslyfish/8aed7bd67de492eb.webp": "f49dc7e1f8fec7e0",
+  "https://media.aquatome.com/seriouslyfish/1c3f5f0906fcc10e.webp": "00400c3cf06f1f18",
+  "https://upload.wikimedia.org/wikipedia/commons/7/72/M.Herrei.jpg": "404018c40537c84c"
+ },
+ "commons": "2026-11-08"
 }

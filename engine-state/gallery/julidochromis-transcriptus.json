@@ -1,39 +1,14 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/1/14/Naskalnik_wezoglowy.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Naskalnik_wezoglowy.jpg/500px-Naskalnik_wezoglowy.jpg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY-SA 3.0",
-   "author": "Acubens",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Naskalnik_wezoglowy.jpg",
-   "caption": "Naskalnik wężogłowy",
-   "key": "File:Naskalnik wezoglowy.jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Julidochromis_transcriptus_in_Minsk_Zoo_1.JPG",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Julidochromis_transcriptus_in_Minsk_Zoo_1.JPG/500px-Julidochromis_transcriptus_in_Minsk_Zoo_1.JPG",
-   "width": 3872,
-   "height": 2592,
-   "licence": "CC BY-SA 3.0",
-   "author": "Хомелка",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Julidochromis_transcriptus_in_Minsk_Zoo_1.JPG",
-   "caption": "Julidochromis transcriptus in Minsk Zoo",
-   "key": "File:Julidochromis transcriptus in Minsk Zoo 1.JPG"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/1/13/Julidochromis_transcriptus.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Julidochromis_transcriptus.jpg/500px-Julidochromis_transcriptus.jpg",
-   "width": 1024,
-   "height": 599,
-   "licence": "CC BY-SA 4.0",
-   "author": "Przemysław Malkowski",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Julidochromis_transcriptus.jpg",
-   "caption": "Julidochromis transcriptus",
-   "key": "File:Julidochromis transcriptus.jpg"
-  }
+ "queue": [],
+ "judged": [
+  "File:Naskalnik wezoglowy.jpg",
+  "File:Julidochromis transcriptus in Minsk Zoo 1.JPG",
+  "File:Julidochromis transcriptus.jpg"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/commons/af090342eddc5bde.webp": "1f1f271f1f0d4f07",
+  "https://media.aquatome.com/commons/1307e62fb581a9ab.webp": "3f2ef2e0ccdefacd",
+  "https://media.aquatome.com/commons/1100bd3160751a0c.webp": "7b6b637e8fe4bcdb"
+ },
+ "commons": "2026-11-08"
 }

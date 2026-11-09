@@ -1,0 +1,116 @@
+{
+  "id": "laetacara-araguaiae",
+  "scientificName": "Laetacara araguaiae",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Laetacara",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "brazil",
+    "araguaia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 3.5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laetacara-araguaiae",
+      "html": "<p>Laetacara araguaiae is a small cichlid from the rio Araguaia basin in central Brazil. Known in the hobby as L. sp. 'Buckelkopf' before it was described, it grows to around 35 mm SL and is a biparental substrate-spawner. Some populations differ from one another in colour pattern, and 7-8 dorsal-fin rays separate it from all congeners.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laetacara-araguaiae",
+      "html": "<p>Known from the rio Araguaia basin in central Brazil. Aquarium literature also gives the rios Tapajós and Xingu, but FishBase and Ota et al. (2018) list only the Araguaia basin. It has also been found in the upper rio Paraná basin, where Ota et al. (2018) treat it as introduced and link it to the aquarium trade. Some populations differ from one another in colour pattern.</p><p>Type locality is 'Buriti palm near rio Verde, 32 kilometers north of São Miguel do Araguaia, rio Araguaia basin, Estado de Goiás, Brazil'.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laetacara-araguaiae",
+      "html": "<ul><li>Temperature: 24–26°C</li><li>pH: 6.0–7.0</li></ul>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laetacara-araguaiae",
+      "html": "<p>Biparental substrate-spawner.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laetacara-araguaiae",
+      "html": "<p>This species was known as L. sp. 'Buckelkopf' in the aquarium hobby prior to publication of its official description.</p><p>The genus Laetacara currently contains seven valid species and L. araguaiae can be distinguished from all congeners by possessing 7-8 dorsal-fin rays (vs. 9–10 in L. dorsigera, L. fulvipinnis and L. thayeri, 8–9 in L. curviceps and L. flamannellus, and 9–11 in L. flavilabris).</p><p>It further differs from L. dorsigera by possessing a narrow ectopterygoid (vs. wide), lesser head depth (80.0–88.7 % mm HL vs. 90.2–96.3 % mm HL), a shorter snout (snout length 26.7–32.2 % mm HL vs 33.0–37.9 % mm HL) and more scales in the longitudinal series (23–25 vs. 21–22).</p><p>It can be told apart from L. curviceps, L. dorsigera and L. flamannellus by lacking a dark spot on the dorsal-fin base (vs. possessing), from L. thayeri by possessing cycloid scales on the sides of the head (vs. ctenoid scales) and presence of a dark spot at the caudal-fin base (vs. absence), from L. flavilabris by having fewer total vertebrae (24 vs. 26) and fewer scales in the upper lateral line (12–14 vs. 15–18), and from L. fulvipinnis by possessing fewer scales in the upper lateral line (12–14 vs. 15–17), fewer scales in the lower lateral line (6–8 vs. 8–9) and lack of a dark dot at the edge of each scale on the midlateral portion of the flank (vs. presence).</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/laetacara-araguaiae",
+      "html": "<ul><li>Ottoni, F. P. and W. J. E. M. Costa (2009). Description of a new species of Laetacara Kullander, 1986 from central Brazil and re-description of Laetacara dorsigera (Heckel, 1840) (Labroidei: Cichlidae: Cichlasomatinae). Vertebrate Zoology 59(1), 41-48</li><li>Ottoni, F. P., P. H. N Bragança, P. F. Amorim and C. S. Gama (2012). A new species of Laetacara from the northern Brazil coastal floodplains (Teleostei: Cichlidae). Vertebrate Zoology 62(2), 181-188</li><li>Staeck, W. and I. Schindler (2007). Description of Laetacara fulvipinnis sp. n. (Teleostei: Perciformes: Cichlidae) from the upper drainages of the rio Orinoco and rio Negro in Venezuela. Vertebrate Zoology 51(1), 63-71</li><li>Ottoni, F. P., J. L. O. Mattos and I. Schindler (2009). Re-description of Laetacara curviceps (Teleostei: Cichlidae: Cichlinae). Vertebrate Zoology 59(2), 123-129</li><li>Ota, Renata Rúbia; Deprá, Gabriel de Carvalho; Graça, Weferson Júnio da; Pavanelli, Carla Simone (2018). Peixes da planície de inundação do alto rio Paraná e áreas adjacentes: revised, annotated and updated Neotropical Ichthyology 16(2) doi.org/10.1590/1982-0224-20170094</li></ul>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 40cm",
+        "bể cá mini 30 lít"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá mini",
+        "máy sưởi 50w"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc bể cá nhỏ",
+        "lọc thác mini"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cichlid nhỏ",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

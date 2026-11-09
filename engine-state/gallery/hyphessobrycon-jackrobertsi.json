@@ -1,39 +1,13 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Hyphessobrycon_jackrobertsi_%E2%99%80.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Hyphessobrycon_jackrobertsi_%E2%99%80.jpg/500px-Hyphessobrycon_jackrobertsi_%E2%99%80.jpg",
-   "width": 2592,
-   "height": 1728,
-   "licence": "CC BY-SA 4.0",
-   "author": "Amobatron",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hyphessobrycon_jackrobertsi_%E2%99%80.jpg",
-   "caption": "Sichelsalmler",
-   "key": "File:Hyphessobrycon jackrobertsi ♀.jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Hyphessobrycon_jackrobertsi_%E2%99%82.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Hyphessobrycon_jackrobertsi_%E2%99%82.jpg/500px-Hyphessobrycon_jackrobertsi_%E2%99%82.jpg",
-   "width": 2592,
-   "height": 1728,
-   "licence": "CC BY-SA 4.0",
-   "author": "Amobatron",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hyphessobrycon_jackrobertsi_%E2%99%82.jpg",
-   "caption": "Sichelsalmler",
-   "key": "File:Hyphessobrycon jackrobertsi ♂.jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Hyphessobrycon_jackrobertsi_%2831473%29.png",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Hyphessobrycon_jackrobertsi_%2831473%29.png/500px-Hyphessobrycon_jackrobertsi_%2831473%29.png",
-   "width": 1306,
-   "height": 924,
-   "licence": "CC BY 4.0",
-   "author": "D. Bork, A. Zarske, and H.J. Richter",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hyphessobrycon_jackrobertsi_(31473).png",
-   "caption": "The sickle tetra, Hyphessobrycon jackrobertsi n. sp., live color, lateral view, male, uncataloged.",
-   "key": "File:Hyphessobrycon jackrobertsi (31473).png"
-  }
+ "queue": [],
+ "judged": [
+  "File:Hyphessobrycon jackrobertsi ♀.jpg",
+  "File:Hyphessobrycon jackrobertsi ♂.jpg",
+  "File:Hyphessobrycon jackrobertsi (31473).png"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/commons/6745afcbf1094610.webp": "244f9b1b3dbc3760",
+  "https://media.aquatome.com/commons/fde14af19bcc9d61.webp": "0f0e96d9cccd97b7"
+ },
+ "commons": "2026-11-08"
 }

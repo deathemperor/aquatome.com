@@ -1,4 +1,31 @@
 {
+  "vi/guides/2hraquarist-blogs-algae-control-algae-and-tank-maturity#body": [
+    {
+      "at": "2026-11-08T14:27:07Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"tảo sợi\" changed to \"rêu tóc\" (different term, hobby-equivalent but nuance shift)",
+        "\"tảo sẽ tự hết\" became \"tảo silic và rêu thường tự hết\": repeats algae types, hedge 'Thường thì' kept but moved",
+        "\"Nó rất phổ biến\" became \"gặp rất nhiều\": fine"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/2hraquarist-blogs-algae-control-algae-control-101#body": [
+    {
+      "at": "2026-11-08T14:26:17Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"Tảo\" → \"Rêu hại\"/\"rêu\": established hobby term, acceptable, though \"hại\" slightly adds a judgement.",
+        "\"tảo sợi xanh\" → \"rêu tóc\": 'rêu tóc' is hair algae, close but slightly different (green filamentous algae), minor nuance shift."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/aquatome-nuoc-be-ca-bi-xanh-do-tao-xanh-va-cach-xu-ly#body": [
     {
       "at": "2026-11-07T06:53:20Z",
@@ -194,6 +221,33 @@
         "Said more surely than before: \"Cá golden dwarf barb nhìn thì nhỏ, nhưng có tiệm lại bán những con khá to, không hợp với bể nano.\" (was: \"Cá golden dwarf barb trông thì nhỏ, nhưng ở một tiệm có thể gặp những con khá to, không hợp bể nano.\")",
         "Added \"(Trichopsis pumila)\": species name not in BEFORE",
         "\"ở một tiệm có thể gặp những con khá to\" (may encounter) became \"có tiệm lại bán những con khá to\": hedge turned into a flat statement, and \"gặp\" became \"bán\""
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-SVgc_g2T47Y#body": [
+    {
+      "at": "2026-11-08T19:31:49Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"dưới đáy\" → \"dưới đáy bể\": 'bể' added, trivial",
+        "\"lỡ bỏ vài lần thay nước cũng không sao lắm\" → \"bể cũng không sao\": drops hedge 'lắm' (slightly stronger certainty)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/youtube-U8S5XWnXsi4#body": [
+    {
+      "at": "2026-11-08T14:25:48Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "\"phân nền (root caps)\" became \"phân nhét\", and the English term \"root caps\" was dropped; this loses the product term and changes the meaning slightly",
+        "\"đất hồ\" became \"đất ao\"; \"pond soil\" is kept, but \"hồ\" (lake or tank) versus \"ao\" (pond) shifts the meaning slightly",
+        "\"sỏi trơ\" is repeated in ngăn 5 where BEFORE said \"cùng loại sỏi đó\"; this is harmless"
       ],
       "attempt": "first",
       "kept": false

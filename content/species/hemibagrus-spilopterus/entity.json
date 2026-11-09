@@ -137,7 +137,30 @@
       "html": "<ul><li>Ng, H. H. and W. J. Rainboth (1999). The bagrid catfish genus Hemibagrus (Teleostei: Siluriformes) in central Indochina with a new species from the Mekong River. The Raffles Bulletin of Zoology 47(2), 555-576</li><li>Ng, H. H. and M. Kottelat (2013). Revision of the Asian catfish genus Hemibagrus Bleeker, 1862 (Teleostei: Siluriformes: Bagridae). The Raffles Bulletin of Zoology 61(1), 205-291</li><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/88f6a116c119a170.webp",
+      "thumb": "https://media.aquatome.com/scotcat/88f6a116c119a170-480.webp",
+      "width": 500,
+      "height": 248,
+      "licence": "dùng với sự cho phép",
+      "author": "Dinh D. Tran / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/hemibagrus_spilopterus.htm",
+      "caption": "Hemibagrus spilopterus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/f7be80717d0bd741.webp",
+      "thumb": "https://media.aquatome.com/scotcat/f7be80717d0bd741-480.webp",
+      "width": 500,
+      "height": 221,
+      "licence": "dùng với sự cho phép",
+      "author": "Phanara Thach / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/hemibagrus_spilopterus.htm",
+      "caption": "Hemibagrus spilopterus",
+      "source": "scotcat"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "4WrMo42I_7Y",
@@ -174,5 +197,154 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-08",
+  "range": {
+    "native": {
+      "countries": [
+        "LA",
+        "VN",
+        "KH",
+        "TH"
+      ],
+      "regions": [
+        "Mekong",
+        "Chao Phraya",
+        "Dong Nai",
+        "Mae Khlong",
+        "Ban Pakong",
+        "Bassac River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "This species has been recorded from the middle-to-lower Mekong system in Laos, Vietnam, Cambodia and Thailand plus the Dong Nai (Vietnam), Ban Pakong, Chao Phraya and Mae Khlong (Thailand).",
+          "countries": [
+            "LA",
+            "VN",
+            "KH",
+            "TH"
+          ],
+          "regions": [
+            "Mekong",
+            "Chao Phraya",
+            "Dong Nai",
+            "Mae Khlong",
+            "Ban Pakong"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Bassac River at village of Prek Chey on Vietnamese border, 10°57'N, 105°06'E, Kandal, Cambodia'.",
+          "countries": [],
+          "regions": [
+            "Bassac River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2338236,
+      "total": 47,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "KH",
+          39
+        ],
+        [
+          "VN",
+          3
+        ],
+        [
+          "MM",
+          2
+        ],
+        [
+          "TH",
+          2
+        ],
+        [
+          "LA",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          16.875,
+          1,
+          0
+        ],
+        [
+          98.4375,
+          18.28125,
+          2,
+          2
+        ],
+        [
+          99.84375,
+          19.6875,
+          1,
+          0
+        ],
+        [
+          101.25,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          11.25,
+          3,
+          3
+        ],
+        [
+          102.65625,
+          12.65625,
+          8,
+          8
+        ],
+        [
+          104.0625,
+          9.84375,
+          4,
+          4
+        ],
+        [
+          104.0625,
+          11.25,
+          14,
+          14
+        ],
+        [
+          104.0625,
+          12.65625,
+          5,
+          5
+        ],
+        [
+          105.46875,
+          9.84375,
+          2,
+          2
+        ],
+        [
+          105.46875,
+          12.65625,
+          5,
+          5
+        ],
+        [
+          106.875,
+          12.65625,
+          1,
+          1
+        ]
+      ]
+    }
+  }
 }

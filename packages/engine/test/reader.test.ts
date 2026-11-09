@@ -143,6 +143,28 @@ test('two parts rewritten in one cycle: the page counts as read with both', asyn
   expect(duePages([after], state)).toEqual([])
 })
 
+test('the reader step rewrites no part a person fixed', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'rf-'))
+  await mkdir(join(root, 'content', 'species', 's'), { recursive: true })
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  const sections = { 'diet:sf': '<p>Ăn trùn chỉ đỏ.</p>', 'behaviour:sf': '<p>Nuôi với cá rô phi châu Phi.</p>' }
+  const file = join(root, 'content', 'species', 's', 'vi.json')
+  await writeFile(file, JSON.stringify({ slug: 's', name: 'Cá', sections }))
+  await writeFile(join(root, 'content', 'species', 's', 'entity.json'), JSON.stringify({ id: 's', sections: [{ key: 'diet', source: 'sf', html: '<p>Eats bloodworms.</p>', fixed: true }, { key: 'behaviour', source: 'sf', html: '<p>Kept with African cichlids.</p>' }] }))
+  const p = page({
+    kind: 'species', id: 's', path: '/vi/ca/s/', fields: Object.entries(sections).map(([k, html]) => ({ field: `sections.${k}`, html })),
+    en: { 'sections.diet:sf': '<p>Eats bloodworms.</p>', 'sections.behaviour:sf': '<p>Kept with African cichlids.</p>' },
+  })
+  const findings = [
+    { kind: 'language', severity: 'medium', part: 'P1', quote: 'trùn chỉ đỏ', problem: 'Bloodworms are trùn huyết.' },
+    { kind: 'language', severity: 'medium', part: 'P2', quote: 'cá rô phi châu Phi', problem: 'Rô phi is tilapia.' },
+  ]
+  const { llm } = fakeLlm({ findings, rewrite: v => v.replace('trùn chỉ đỏ', 'trùn huyết').replace('cá rô phi', 'cá cichlid'), score: 0.9 })
+  const { report } = await readPages(root, [p], { llm, now: () => new Date('2026-11-01T00:00:00Z') }, { limit: 20, rewrites: 3 })
+  expect(report.rewritten).toEqual(['vi/species/s sections.behaviour:sf (0.90)'])
+  expect(JSON.parse(await readFile(file, 'utf8')).sections['diet:sf']).toBe('<p>Ăn trùn chỉ đỏ.</p>')
+})
+
 test('a usage limit stops the sweep with what it has saved', async () => {
   const root = await mkdtemp(join(tmpdir(), 'rl-'))
   await mkdir(join(root, 'engine-state'), { recursive: true })

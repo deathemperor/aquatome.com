@@ -48,6 +48,16 @@
       "url": "https://bettavietnam.blogspot.com/2014/10/benh-nam-velvet-o-ca-betta.html",
       "title": "Bệnh nấm velvet ở cá betta – Halfmoon Việt Nam",
       "kind": "forum"
+    },
+    {
+      "url": "https://www.fishtanksdirect.com/fritz-mardel-coppersafe-4oz/",
+      "title": "Fritz Mardel Coppersafe 4oz",
+      "kind": "other"
+    },
+    {
+      "url": "https://www.merckvetmanual.com/multimedia/table/dips-to-remove-ectoparasites",
+      "title": "Table: Dips to Remove Ectoparasites-Merck Veterinary Manual",
+      "kind": "vet"
     }
   ],
   "facts": [
@@ -278,7 +288,7 @@
     },
     {
       "section": "treatment",
-      "fact": "BW Aquatics treats wild bettas with Mardel CopperSafe at about 5 ml per 5 gallons, which it calls roughly 1.5–2.0 ppm copper, at 84°F or above for 30 days.",
+      "fact": "A breeder of wild bettas treats velvet with a chelated copper product (Mardel CopperSafe), dosed by its label, with the water at about 29 °C or above, for 30 days.",
       "source": 4
     },
     {
@@ -308,8 +318,8 @@
     },
     {
       "section": "treatment",
-      "fact": "Salt bath: 30 g/L sodium chloride for 5–15 minutes, only for species that tolerate it.",
-      "source": 2
+      "fact": "A salt dip for freshwater fish, as the Merck Veterinary Manual gives it to remove external parasites: usually 30 g/L for 0.5–10 minutes, depending on species. A fish in distress, commonly rolling onto its side, is taken out of the bath at once.",
+      "source": 9
     },
     {
       "section": "treatment",
@@ -323,7 +333,7 @@
     },
     {
       "section": "treatment",
-      "fact": "Aquarium Co-op's anecdotal method uses plain sodium chloride (not marine salt) at 1 cup per 20 gallons, with the tank kept completely dark for 7 days.",
+      "fact": "One fishkeeping guide's anecdotal method uses plain sodium chloride (not marine salt) at about 1 cup (240 ml) per 75 litres, with the tank kept completely dark for 7 days.",
       "source": 0
     },
     {
@@ -458,6 +468,11 @@
     },
     {
       "section": "vietnam",
+      "fact": "Not for fish that cannot take salt: anchor catfish are extremely sensitive to it.",
+      "source": 0
+    },
+    {
+      "section": "vietnam",
       "fact": "A Vietnamese betta blog names Coppersafe and Aquarisol as copper drugs, and Aquatronics Clear Ich for fish sensitive to malachite green.",
       "source": 7
     },
@@ -488,13 +503,23 @@
     },
     {
       "section": "myths",
-      "fact": "Aquarium Co-op and Wikipedia instead say the parasite needs light, and recommend 7 days of darkness as a helpful supplement.",
+      "fact": "A fishkeeping guide and Wikipedia instead say the parasite needs light, and recommend 7 days of darkness as a helpful supplement.",
       "source": 0
     },
     {
       "section": "other",
       "fact": "Wild bettas tolerate the mid-80s °F for a while, and Betta splendens prefer it.",
       "source": 4
+    },
+    {
+      "section": "treatment",
+      "fact": "Mardel CopperSafe is a chelated copper treatment, dosed as its label directs. Its copper level is its own: never use it as the dose for copper sulphate.",
+      "source": 8
+    },
+    {
+      "section": "mistakes",
+      "fact": "Copper products are not dosed alike: copper sulphate is used at about 0.15 ppm copper ion, a chelated product at its own label's level. One product's figure used for another can kill fish, so dose by the label of the product bought and check the level with a copper test kit.",
+      "source": 2
     }
   ]
 }

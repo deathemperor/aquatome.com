@@ -3,7 +3,7 @@ import { querySessions, type Session } from '../readers'
 import type { Wanted } from '../wanted'
 import { COUNTED, EVENTS, eventsSql, num } from './ae'
 import { cellOf, figures, heading, note, table, textOf, type Block } from './blocks'
-import { esc, fmtEn, tiles, type Tile } from './chart'
+import { esc, fmt, tiles, type Tile } from './chart'
 import { pageIndex, pagePathOf, type PageInfo } from './content'
 import type { ContentStats } from './content-shape'
 
@@ -43,13 +43,14 @@ export const expectedCtr = (pos: number) => (pos <= 10 ? EXPECTED_CTR[Math.max(0
 
 export const HELP = `Score, 0 to 100. Reading, from our readers (our own visits and automated bursts left out): the average of three shares of a page’s tabs, those that scrolled half the page, stayed 30 s, and went on to another page. Search, from Google Search Console: the page’s click rate against what its position usually gets (position 1 about 28%, 3 about 10%, 10 about 2%), at most 1. Until there is enough data, reading is pulled towards its section’s average as if it had ${SCORE.kReading} more tabs, and search towards one half as if it had ${SCORE.kSearch} more impressions. Score = 100 × (2 × reading + search) ÷ 3, or the one there is. A page is ranked once it has ${SCORE.minTabs} tabs or ${SCORE.minImpressions} impressions in ${SCORE.days} days.`
 
-/** Per tab and page, over `days`: its first view, views, how far it scrolled, how long it stayed, shop clicks. */
-export type TabPage = { sid: string; p: string; first: string; views: number | string; scroll: number | string; t: number | string; shop: number | string }
+/** Per tab and page, over `days`: its first view, views, how far it scrolled, how long it stayed, shop, "add to tank" and source clicks. */
+export type TabPage = { sid: string; p: string; first: string; views: number | string; scroll: number | string; t: number | string; shop: number | string; tank?: number | string; src?: number | string }
 export const TAB_PAGES_SQL = (days: number, table = EVENTS) => `SELECT blob4 AS sid, blob3 AS p, min(timestamp) AS first, SUM(IF(blob2 = 'view', _sample_interval, 0)) AS views,
-  MAX(IF(blob2 = 'scroll', double1, 0.0)) AS scroll, MAX(IF(blob2 = 'time', double1, 0.0)) AS t, SUM(IF(blob2 = 'aff', _sample_interval, 0)) AS shop
-FROM ${table} WHERE blob2 IN ('view', 'scroll', 'time', 'aff') AND timestamp > NOW() - INTERVAL '${Math.floor(days)}' DAY AND ${COUNTED} GROUP BY sid, p LIMIT 100000 FORMAT JSON`
+  MAX(IF(blob2 = 'scroll', double1, 0.0)) AS scroll, MAX(IF(blob2 = 'time', double1, 0.0)) AS t, SUM(IF(blob2 = 'aff', _sample_interval, 0)) AS shop,
+  SUM(IF(blob2 = 'tank', _sample_interval, 0)) AS tank, SUM(IF(blob2 = 'src', _sample_interval, 0)) AS src
+FROM ${table} WHERE blob2 IN ('view', 'scroll', 'time', 'aff', 'tank', 'src') AND timestamp > NOW() - INTERVAL '${Math.floor(days)}' DAY AND ${COUNTED} GROUP BY sid, p LIMIT 100000 FORMAT JSON`
 
-export type Figures = { tabs: number; half: number; end: number; s30: number; next: number; shop: number; impressions: number; clicks: number; position: number; impressionsBefore: number; clicksBefore: number }
+export type Figures = { tabs: number; half: number; end: number; s30: number; next: number; shop: number; tank: number; src: number; impressions: number; clicks: number; position: number; impressionsBefore: number; clicksBefore: number }
 export type QualityRow = {
   path: string; title: string; section: string; key?: string
   /** null for a page with figures from before the window only: on the decaying list, with nothing to score. */
@@ -72,7 +73,7 @@ export type Quality = {
 export const QUALITY_PATH = '/_ab/noi-dung/#chat-luong'
 
 const LIST = 10
-const pct = (x: number) => `${fmtEn(100 * x)}%`
+const pct = (x: number) => `${fmt(100 * x)}%`
 /** A position as Google gives it, to a tenth: 2, 2.5. */
 const posText = (x: number) => (Math.round(10 * x) / 10).toLocaleString('en-US', { maximumFractionDigits: 1 })
 const sectionOf = (p: PageInfo) => `${p.kind}·${prefixedLang(p.path) ?? 'vi'}`
@@ -80,7 +81,7 @@ const sectionOf = (p: PageInfo) => `${p.kind}·${prefixedLang(p.path) ?? 'vi'}`
 /** Each page's figures from the beacon's tabs the count keeps (`counted`: none of ours, none automated) and Search Console's rows. */
 function figuresByPage(index: Map<string, PageInfo>, tabs: TabPage[], counted: Set<string>, gsc: Gsc | undefined): Map<string, Figures> {
   const out = new Map<string, Figures>()
-  const fig = (path: string) => out.get(path) ?? out.set(path, { tabs: 0, half: 0, end: 0, s30: 0, next: 0, shop: 0, impressions: 0, clicks: 0, position: 0, impressionsBefore: 0, clicksBefore: 0 }).get(path)!
+  const fig = (path: string) => out.get(path) ?? out.set(path, { tabs: 0, half: 0, end: 0, s30: 0, next: 0, shop: 0, tank: 0, src: 0, impressions: 0, clicks: 0, position: 0, impressionsBefore: 0, clicksBefore: 0 }).get(path)!
   const bySid = new Map<string, TabPage[]>()
   for (const r of tabs) {
     if (!counted.has(r.sid) || num(r.views) <= 0) continue
@@ -100,6 +101,8 @@ function figuresByPage(index: Map<string, PageInfo>, tabs: TabPage[], counted: S
       if (num(r.t) >= 30) f.s30++
       if (r.first < last) f.next++
       f.shop += num(r.shop)
+      f.tank += num(r.tank ?? 0)
+      f.src += num(r.src ?? 0)
     }
   }
   for (const [p, [impressions, clicks, position, impressionsBefore, clicksBefore]] of Object.entries(gsc?.pages ?? {})) {
@@ -149,8 +152,9 @@ export function summariseQuality(stats: ContentStats, tabs: TabPage[], sessions:
     })
   }
 
-  const read = (r: QualityRow) => r.figures.tabs ? `${fmtEn(r.figures.tabs)} tabs: ${pct(r.figures.half / r.figures.tabs)} read half, ${pct(r.figures.s30 / r.figures.tabs)} stayed 30 s, ${pct(r.figures.next / r.figures.tabs)} went on` : ''
-  const seen = (r: QualityRow) => r.figures.impressions ? `Google: ${fmtEn(r.figures.impressions)} impressions at position ${posText(r.figures.position)}, ${pct(r.figures.clicks / r.figures.impressions)} clicked (usual ${pct(expectedCtr(r.figures.position))})` : ''
+  const acted = (f: Figures) => [f.shop ? `${fmt(f.shop)} shop` : '', f.tank ? `${fmt(f.tank)} add to tank` : '', f.src ? `${fmt(f.src)} source` : ''].filter(Boolean).join(', ')
+  const read = (r: QualityRow) => r.figures.tabs ? `${fmt(r.figures.tabs)} tabs: ${pct(r.figures.half / r.figures.tabs)} read half, ${pct(r.figures.s30 / r.figures.tabs)} stayed 30 s, ${pct(r.figures.next / r.figures.tabs)} went on${acted(r.figures) ? `; clicks: ${acted(r.figures)}` : ''}` : ''
+  const seen = (r: QualityRow) => r.figures.impressions ? `Google: ${fmt(r.figures.impressions)} impressions at position ${posText(r.figures.position)}, ${pct(r.figures.clicks / r.figures.impressions)} clicked (usual ${pct(expectedCtr(r.figures.position))})` : ''
   const both = (r: QualityRow) => [read(r), seen(r)].filter(Boolean).join('; ')
   const titleFix = (r: QualityRow) => r.figures.impressions >= SCORE.minImpressions && r.figures.position <= 10 && r.figures.clicks / r.figures.impressions < expectedCtr(r.figures.position) / 2
   // A ranked page has tabs or impressions, so a score.
@@ -169,7 +173,7 @@ export function summariseQuality(stats: ContentStats, tabs: TabPage[], sessions:
     r.figures.clicksBefore >= 5 ? 1 - r.figures.clicks / r.figures.clicksBefore : 0)
   const decayed = rows.filter(r => !r.hold && drop(r) >= 0.3)
   const decaying = decayed.sort((a, b) => drop(b) - drop(a)).slice(0, LIST)
-    .map(r => ({ ...r, why: `Google, the last ${SCORE.days} days against the ${SCORE.days} before: impressions ${fmtEn(r.figures.impressionsBefore)} → ${fmtEn(r.figures.impressions)}, clicks ${fmtEn(r.figures.clicksBefore)} → ${fmtEn(r.figures.clicks)}` }))
+    .map(r => ({ ...r, why: `Google, the last ${SCORE.days} days against the ${SCORE.days} before: impressions ${fmt(r.figures.impressionsBefore)} → ${fmt(r.figures.impressions)}, clicks ${fmt(r.figures.clicksBefore)} → ${fmt(r.figures.clicks)}` }))
 
   // Gaps: what Google shows us for without a page that answers it (best position past 15), and names readers looked for.
   const queries = new Map<string, { impressions: number; position: number; path: string }>()
@@ -180,8 +184,8 @@ export function summariseQuality(stats: ContentStats, tabs: TabPage[], sessions:
   }
   const allGaps: QualityGap[] = [
     ...[...queries].filter(([, x]) => x.impressions >= 10 && x.position > 15)
-      .map(([name, x]) => ({ source: 'search' as const, name, demand: x.impressions, path: pagePathOf(x.path), why: `Google showed us ${fmtEn(x.impressions)} times for it, at best at position ${posText(x.position)}: no page answers it` })),
-    ...wanted.map(w => ({ source: 'wanted' as const, name: w.name, demand: 10 * w.readers, why: `${fmtEn(w.readers)} ${w.readers === 1 ? 'reader' : 'readers'} looked for it (${Object.keys(w.sources).join(', ')}); no page yet` })),
+      .map(([name, x]) => ({ source: 'search' as const, name, demand: x.impressions, path: pagePathOf(x.path), why: `Google showed us ${fmt(x.impressions)} times for it, at best at position ${posText(x.position)}: no page answers it` })),
+    ...wanted.map(w => ({ source: 'wanted' as const, name: w.name, demand: 10 * w.readers, why: `${fmt(w.readers)} ${w.readers === 1 ? 'reader' : 'readers'} looked for it (${Object.keys(w.sources).join(', ')}); no page yet` })),
   ].sort((a, b) => b.demand - a.demand || a.name.localeCompare(b.name))
   const gaps = allGaps.slice(0, 2 * LIST)
 
@@ -243,13 +247,13 @@ const link = (path: string, title: string) => `<a href="${esc(path)}">${esc(titl
 
 function parts(q: Quality) {
   const tilesOf: Tile[] = [
-    { label: 'Pages with data', value: fmtEn(q.scored) },
-    { label: 'Ranked', value: fmtEn(q.ranked), sub: `${SCORE.minTabs}+ tabs or ${SCORE.minImpressions}+ impressions in ${q.days} days` },
+    { label: 'Pages with data', value: fmt(q.scored) },
+    { label: 'Ranked', value: fmt(q.ranked), sub: `${SCORE.minTabs}+ tabs or ${SCORE.minImpressions}+ impressions in ${q.days} days` },
     { label: 'Search Console', value: q.search ? `${q.search.from} to ${q.search.to}` : 'not yet', ...(q.search ? {} : { sub: 'the daily job hasn’t run' }) },
   ]
   return { tilesOf }
 }
-const rowsOf = (xs: QualityRow[]) => xs.map(r => [link(r.path, r.title), r.score === null ? '—' : fmtEn(r.score), esc(r.why)])
+const rowsOf = (xs: QualityRow[]) => xs.map(r => [link(r.path, r.title), r.score === null ? '—' : fmt(r.score), esc(r.why)])
 const gapRows = (xs: QualityGap[]) => xs.map(g => [esc(g.name), g.source === 'search' ? 'Google' : 'readers', esc(g.why)])
 const empty = (id: string) => (id === 'gaps' ? 'No gap with enough demand yet.' : 'No page has enough data yet.')
 
@@ -270,7 +274,7 @@ export function qualityBlocks(q: Quality | { failed: string } | undefined): Bloc
   const out: Block[] = [heading(QUALITY_TITLE, 2, 'chat-luong'), note(HELP)]
   if (!q) return [...out, note('Not loaded: no Analytics Engine or content.json.', 'muted')]
   if ('failed' in q) return [...out, note(`Couldn’t load: ${q.failed}`, 'bad')]
-  out.push(figures(parts(q).tilesOf, 'en'))
+  out.push(figures(parts(q).tilesOf))
   for (const [id, title, sub] of LISTS) {
     const xs = id === 'gaps' ? gapRows(q.gaps) : rowsOf(q[id])
     out.push(heading(title, 3), note(sub, 'muted'), table(id === 'gaps' ? GAP_HEAD : HEAD, xs.map(r => r.map(c => cellOf(c))), { empty: empty(id) }))

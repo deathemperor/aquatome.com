@@ -59,6 +59,13 @@ export function shown(b: ChatBlock): string {
   }
 }
 
+/**
+ * Vietnamese typed without its accents ("ca neon bi nam trang tren lung, chua sao a"): words, and not one accented
+ * letter. Read as written, "nam trang" became "nằm ngửa" (lying on its back) in 2 answers of 3, where the reader meant
+ * "nấm trắng" (white fungus).
+ */
+export const unaccented = (q: string) => /[a-z]{2,}\s+[a-z]{2,}/i.test(q) && !/[\u00c0-\u024f\u0300-\u036f\u1e00-\u1eff]/.test(q.normalize('NFC'))
+
 /** The first message: the start, the earlier turns, then the question, in the reader's language. */
 export function firstMessage(lang: Lang, question: string, earlier: Earlier[], start: Start, hb: Handbook): Anthropic.MessageParam {
   const parts: string[] = [`The reader writes in ${LANGS[lang]}; answer in ${LANGS[lang]}, with the ${lang} pages the tools give. The site calls the handbook "${HANDBOOK[lang]}".`]
@@ -72,6 +79,7 @@ export function firstMessage(lang: Lang, question: string, earlier: Earlier[], s
     parts.push('Earlier in this conversation:')
     earlier.forEach((t, i) => parts.push(`${i + 1}. Reader: ${t.question}\nYou: ${t.text}${t.blocks.length ? `\nShown: ${t.blocks.map(shown).join('; ')}` : ''}`))
   }
+  if (lang === 'vi' && unaccented(question)) parts.push('They type without Vietnamese accents: read their words as a keeper would mean them, the hobby\'s sense first ("nam trang" is "nấm trắng", white fungus, not "nằm trắng").')
   parts.push(`The reader asks:\n${question}`)
   return { role: 'user', content: [{ type: 'text', text: parts.join('\n\n') }] }
 }

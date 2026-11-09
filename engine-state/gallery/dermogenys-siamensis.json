@@ -15,16 +15,45 @@
   "inat:634058952",
   "inat:618953691",
   "inat:3216924",
-  "inat:291601586"
+  "inat:291601586",
+  "inat:3216925",
+  "inat:3216926",
+  "inat:180100484",
+  "inat:246842965",
+  "inat:249066273",
+  "inat:249066279",
+  "inat:249066286",
+  "inat:257735313",
+  "inat:257735329",
+  "inat:291601560",
+  "inat:476417923",
+  "inat:476417940",
+  "inat:618952976",
+  "inat:618952978",
+  "inat:618953753",
+  "inat:633110948"
  ],
  "hashes": {
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/262745731/original.jpeg": "2161706161030303",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/262745722/original.jpeg": "03014cf2e2e143c3",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/543890116/original.jpg": "97d53c3cc5753f1f",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/543890407/original.jpg": "0c9a968893b4dc9f",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/634058952/original.jpg": "f1e0e5f752b83030",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/618953691/original.jpg": "0f0f0f07070f0f0f",
-  "https://inaturalist-open-data.s3.amazonaws.com/photos/3216924/original.jpg": "08a8200c3a220e0f"
+  "https://media.aquatome.com/inaturalist/543890116.webp": "95d53c3ce5791f1f",
+  "https://media.aquatome.com/inaturalist/543890407.webp": "0c9a9488d1d4de1f",
+  "https://media.aquatome.com/inaturalist/634058952.webp": "f1e0e1f352b83030",
+  "https://media.aquatome.com/inaturalist/3216924.webp": "18182c0c2a082707",
+  "https://media.aquatome.com/inaturalist/262745731.webp": "2171716161030307",
+  "https://media.aquatome.com/inaturalist/618953691.webp": "0f0f0f070f0f0f0f",
+  "https://media.aquatome.com/inaturalist/262745722.webp": "074519e2e0e153c3",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/246842965/large.jpg": "11111d1d0f03997f",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/249066286/large.jpg": "3e0f0f2ec307070d",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/257735329/large.jpg": "0f6767176973458b",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/618952978/large.jpg": "0000000030000000",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/618953753/large.jpg": "3f0f3f1f471f0f1f"
  },
- "commons": "2026-11-08"
+ "commons": "2026-11-08",
+ "inat": {
+  "taxon": 187328,
+  "pass": "done",
+  "after": {
+   "research": 359438503,
+   "agree": 362930109
+  }
+ }
 }

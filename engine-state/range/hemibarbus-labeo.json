@@ -1,0 +1,272 @@
+{
+  "id": "hemibarbus-labeo",
+  "native": {
+    "input": "e353a54e5a63fc4f",
+    "at": "2026-11-08T13:58:00.601Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in eastern Asia between the Yangtze and Amur river basins, including China, Taiwan, Korea, Mongolia, Russia, and Japan.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "KR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in eastern Asia between the Yangtze and Amur river basins, including China, Taiwan, Korea, Mongolia, Russia, and Japan.",
+        "words": "Korea",
+        "ok": true
+      },
+      {
+        "code": "MN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in eastern Asia between the Yangtze and Amur river basins, including China, Taiwan, Korea, Mongolia, Russia, and Japan.",
+        "words": "Mongolia",
+        "ok": true
+      },
+      {
+        "code": "RU",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in eastern Asia between the Yangtze and Amur river basins, including China, Taiwan, Korea, Mongolia, Russia, and Japan.",
+        "words": "Russia",
+        "ok": true
+      },
+      {
+        "code": "JP",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread in eastern Asia between the Yangtze and Amur river basins, including China, Taiwan, Korea, Mongolia, Russia, and Japan.",
+        "words": "Japan",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "May have been introduced to the Mekong basin in Laos.",
+        "words": "Laos",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Yangtze",
+        "source": "seriouslyfish",
+        "quote": "Widespread in eastern Asia between the Yangtze and Amur river basins, including China, Taiwan, Korea, Mongolia, Russia, and Japan.",
+        "ok": true
+      },
+      {
+        "name": "Amur",
+        "source": "seriouslyfish",
+        "quote": "Widespread in eastern Asia between the Yangtze and Amur river basins, including China, Taiwan, Korea, Mongolia, Russia, and Japan.",
+        "ok": true
+      },
+      {
+        "name": "Onon River",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Transbaikalia, Dauria; Onon River, Russia [Upper Amur River]'.",
+        "country": "RU",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "TW",
+        "KP",
+        "LA"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hemibarbus labeo",
+    "status": "ACCEPTED",
+    "taxonKey": 2366001,
+    "datasets": [
+      [
+        "c6859214-65a4-4563-8d17-d464541af191",
+        2143
+      ],
+      [
+        "1e09d985-8f58-4a34-ab86-17e55f203c8a",
+        1288
+      ],
+      [
+        "83cbdde7-998f-4354-95de-72d885cc5863",
+        153
+      ],
+      [
+        "721ec3cb-78b5-42b9-9ad1-57fe90b75e6f",
+        105
+      ],
+      [
+        "d74d1313-04f6-4e91-8732-b6d5282416dc",
+        73
+      ],
+      [
+        "6c827cf4-5d22-454e-98b1-4acbf0cb5aca",
+        70
+      ],
+      [
+        "e3fa679e-4b19-441f-bdbb-f292416e5d34",
+        70
+      ],
+      [
+        "869e4288-f762-11e1-a439-00145eb45e9a",
+        68
+      ],
+      [
+        "f1fc52ac-895e-47f2-9361-d033c6479f7c",
+        58
+      ],
+      [
+        "a332915e-9950-4747-ab3b-b7eeafaf46d8",
+        44
+      ],
+      [
+        "58a115ae-a7f9-4657-b54d-5611437083c0",
+        32
+      ],
+      [
+        "419e0d91-3510-485d-96f2-40499fa58495",
+        29
+      ],
+      [
+        "8c3b1fa0-5120-4e8f-8fc2-93af3ecab69f",
+        23
+      ],
+      [
+        "fd799ab3-7c13-4fc6-aa85-08df09364385",
+        23
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        17
+      ],
+      [
+        "80f63c1e-f762-11e1-a439-00145eb45e9a",
+        16
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        15
+      ],
+      [
+        "07527ec0-e9e5-4994-8f8c-09c55323ce8d",
+        10
+      ],
+      [
+        "bee4a65e-e1cb-4b60-89e8-0c1c9d9f36ee",
+        10
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        9
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        7
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        7
+      ],
+      [
+        "dbbdb1f4-d5c7-4b72-b31f-ef6fdf33a9b3",
+        6
+      ],
+      [
+        "58c0f622-f643-48f5-af09-4dd2f8d2900f",
+        5
+      ],
+      [
+        "8a10929f-9729-408b-ad1a-2a86d56fa9e0",
+        5
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        4
+      ],
+      [
+        "116e8fa0-9c0f-43e3-9765-d0a2b040d9c5",
+        4
+      ],
+      [
+        "80f9cd7a-f762-11e1-a439-00145eb45e9a",
+        4
+      ],
+      [
+        "85bc2470-98a1-11de-b4da-b8a03c50a862",
+        4
+      ],
+      [
+        "96ae8a00-c4f6-48e6-a99a-09e9bad57ae0",
+        4
+      ],
+      [
+        "9b5577ee-34f9-4d09-9ce2-c70fd03ee6cd",
+        3
+      ],
+      [
+        "b7dd8170-98a0-11de-b4d9-b8a03c50a862",
+        3
+      ],
+      [
+        "11ddb63e-cdd8-4ba4-b0f8-953166ddc075",
+        2
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        2
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "8498cbf2-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "ca22abc0-98a1-11de-b4da-b8a03c50a862",
+        1
+      ]
+    ],
+    "native": [
+      "CN",
+      "KR",
+      "MN",
+      "RU",
+      "JP"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T13:58:00.601Z"
+  }
+}

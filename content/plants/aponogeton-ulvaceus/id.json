@@ -2,20 +2,22 @@
   "slug": "aponogeton-ulvaceus",
   "name": "Aponogeton ulvaceus",
   "altNames": [
+    "Apo ulvaceus",
     "Aponogeton",
-    "Ulvaceus",
-    "Ulvaceus Aponogeton"
+    "Umbi Aponogeton"
   ],
   "sections": {
-    "quickFacts:tropica": "<ul><li>Tipe: umbi</li><li>Asal: Afrika (Madagaskar)</li><li>Tinggi: 20–30+ cm</li><li>Kebutuhan cahaya: sedang</li><li>Kebutuhan CO2: rendah</li></ul>",
-    "maintenance:tropica": "<p>Tanaman ini relatif toleran dan tumbuh subur di air lunak maupun air sadah, terutama jika diberi tambahan CO2. Satu umbi bisa menghasilkan lebih dari 40 daun dengan panjang 30–60 cm, jadi tanaman ini paling cocok ditanam sebagai tanaman tunggal di akuarium besar (lebarnya bisa mencapai 50 cm).</p>",
-    "notes:tropica": "<p>Aponogeton ulvaceus adalah salah satu spesies umbi paling indah dalam famili Aponogeton dan berasal dari Madagaskar. Daunnya halus, berwarna hijau muda, dan transparan, dengan tepi bergelombang. Ada banyak varietas Aponogeton ulvaceus, sebagian di antaranya membutuhkan masa dorman, yaitu saat umbinya tidak menumbuhkan daun.</p>"
+    "quickFacts:tropica": "<ul><li>Jenis: umbi</li><li>Asal: Afrika (Madagaskar)</li><li>Tinggi: 20–30+ cm</li><li>Kebutuhan cahaya: sedang</li><li>Kebutuhan CO2: rendah</li></ul>",
+    "maintenance:aquatome": "<ul><li><strong>Penempatan:</strong> tanam di bagian belakang (background). Satu umbi bisa menghasilkan lebih dari 40 helai daun, dan rumpunnya bisa melebar sampai 50 cm. Karena itu, di akuarium besar tanaman ini paling bagus diberi tempat sendiri sebagai titik fokus.</li><li><strong>Cara menanam:</strong> benamkan setengah bagian umbi ke dalam substrat supaya umbinya tidak mengapung. Kalau pupuk dasar sudah dipakai lebih dari setengah tahun, tambahkan pupuk tancap ke dalam substrat sebelum menanam, karena saat itu nutrisi di substrat sudah hampir habis.</li><li><strong>Minggu-minggu pertama:</strong> umbi yang dibeli biasanya hanya berupa umbi hitam tanpa daun, jadi saat akuarium baru di-setup bagian belakangnya masih kosong. Ini tidak masalah. Beberapa bentuk dari spesies ini juga punya masa dorman, yaitu saat umbinya tidak menumbuhkan daun.</li></ul>",
+    "maintenance:tropica": "<p>Tanaman ini cukup toleran dan tumbuh baik di air lunak maupun air sadah, terutama kalau diberi CO2. Satu umbi bisa menghasilkan lebih dari 40 helai daun dengan panjang 30–60 cm, jadi tanaman ini paling cocok ditanam sendirian di akuarium besar (lebarnya bisa mencapai 50 cm).</p>",
+    "notes:tropica": "<p>Aponogeton ulvaceus termasuk salah satu spesies umbi paling cantik dari keluarga Aponogeton dan berasal dari Madagaskar. Daunnya halus, berwarna hijau muda dan tembus cahaya, dengan tepi bergelombang. Ada banyak varietas Aponogeton ulvaceus, dan sebagian di antaranya membutuhkan masa dorman, yaitu saat umbinya tidak menumbuhkan daun.</p>"
   },
   "quality": {
-    "score": 0.85,
+    "score": 0.95,
     "indexable": true,
     "bySource": {
-      "tropica": 0.85
+      "tropica": 0.95,
+      "aquatome": 0.95
     }
   }
 }

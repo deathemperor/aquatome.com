@@ -12,12 +12,17 @@
 import { localDay } from './time'
 
 export const esc = (s: string) => s.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!)
-export const fmt = (n: number, d = 0) => n.toLocaleString('vi-VN', { maximumFractionDigits: d, minimumFractionDigits: d })
+/** The dashboard's numbers, in English: 1,234 and 12.5. */
+export const fmt = (n: number, d = 0) => n.toLocaleString('en-US', { maximumFractionDigits: d, minimumFractionDigits: d })
 /** USD: cents from a dollar up, four places below a cent (one identification costs about $0.01). */
 export const usd = (n: number) => `$${fmt(n, n !== 0 && Math.abs(n) < 0.01 ? 4 : 2)}`
-/** 2026-11-02 → 02/11 */
-export const dayLabel = (day: string) => `${day.slice(8, 10)}/${day.slice(5, 7)}`
-const WEEKDAY = ['Chủ nhật', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy']
+const MONTH = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+/** 2026-11-02 → 2 Nov */
+export const dayLabel = (day: string) => `${+day.slice(8, 10)} ${MONTH[+day.slice(5, 7) - 1]}`
+export const SHORT_DAY = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+export const weekdayOf = (day: string) => new Date(`${day}T00:00:00Z`).getUTCDay()
+/** 2026-11-04 → Wed 4 Nov */
+export const dayName = (day: string) => `${SHORT_DAY[weekdayOf(day)]} ${dayLabel(day)}`
 
 /** The `n` days ending with the day it is at `now` in `tz` (the viewer's, admin/time.ts), oldest first. */
 export function lastDays(now: Date, n: number, tz = 'UTC'): string[] {
@@ -31,7 +36,7 @@ export function niceTop(max: number): number {
   const p = 10 ** Math.floor(Math.log10(max))
   return [1, 2, 2.5, 5, 10].map(m => m * p).find(v => v >= max - 1e-12)!
 }
-/** The decimals that write `n` exactly, up to 4: an axis at $0,025 says so, not $0,03. */
+/** The decimals that write `n` exactly, up to 4: an axis at $0.025 says so, not $0.03. */
 const places = (n: number) => [0, 1, 2, 3, 4].find(d => Math.abs(Math.round(n * 10 ** d) - n * 10 ** d) < 1e-6) ?? 4
 /** Axis numbers: in full under 10,000, then 12k. */
 const tick = (n: number) => (n >= 10_000 ? `${fmt(n / 1000, places(n / 1000))}k` : fmt(n, places(n)))
@@ -61,14 +66,22 @@ export type DayChart = {
   partialLast?: boolean
   /** With partialLast, when the last day closes at a set time and isn't today by the viewer's clock: said of it in place of "today" and "not over yet". */
   lastSays?: string
-  /** Today's bar when the chart runs past it (a week, Monday to Sunday): the days after it are still to come (null). */
+  /** Today's bar when the chart runs past it (a week, Monday to Sunday): drawn lighter, and the days after it are still to come (null). */
   today?: number
   /** 'week': each of `days` is a week's Monday, and the chart says so. */
   period?: 'week'
   /** What to say when every value is 0 or missing, or there are no days. */
   empty?: string
-  /** Why a day has no value, said in its readout ("chưa lưu số liệu ngày này"). */
+  /** Why a day has no value, said in its readout ("not saved that day"). */
   missing?: string
+  /** Figures said with each day (on a tap, and in the table) but not drawn: readers beside the answers. */
+  also?: Series[]
+  /**
+   * A section's main chart, drawn as docs/design/img/dash-web.png: no axis and no totals line, a day's name under each
+   * bar (a week's seven: Mon … Sun, "Today"), and a tap, the pointer or the arrow keys show that day over the bars. A
+   * stack keeps its key, without totals (the figures above the chart give them).
+   */
+  bare?: boolean
 }
 
 /**
@@ -79,7 +92,7 @@ export type DayChart = {
 export function dayChart(c: DayChart): string {
   const money = c.unit === 'usd'
   const weekly = c.period === 'week'
-  const per = weekly ? 'tuần' : 'ngày'
+  const per = weekly ? 'week' : 'day'
   const format = c.format ?? (money ? usd : (n: number) => fmt(n))
   const prefix = c.tickPrefix ?? (money ? '$' : '')
   const n = c.days.length
@@ -87,7 +100,7 @@ export function dayChart(c: DayChart): string {
   const all = c.whole ? [...series, c.whole] : series
   const at = (s: Series, i: number) => (known(s.values[i]) ? s.values[i]! : null)
   const head = `<h3 id="${c.id}-t">${esc(c.title)}</h3>`
-  if (!n || !all.some(s => c.days.some((_, i) => at(s, i)))) return `<figure class="chart" aria-labelledby="${c.id}-t"><figcaption>${head}</figcaption><p class="empty">${esc(c.empty ?? 'Chưa có số liệu trong khoảng này.')}</p></figure>`
+  if (!n || !all.some(s => c.days.some((_, i) => at(s, i)))) return `<figure class="chart" aria-labelledby="${c.id}-t"><figcaption>${head}</figcaption><p class="empty">${esc(c.empty ?? 'No figures in this period yet.')}</p></figure>`
 
   // The scale: zero, the round top above the tallest stack (or whole), and as far below as a negative day reaches.
   const sum = (i: number, sign: 1 | -1) => series.reduce((t, s) => t + Math.max(0, sign * (at(s, i) ?? 0)), 0)
@@ -99,24 +112,30 @@ export function dayChart(c: DayChart): string {
   const bottom = nice(Math.max(...down, ...whole.map(w => -w)))
   const pct = (v: number) => (100 * v) / (top + bottom)
   const zero = pct(bottom)
-  // Counts (no format given) never get a half-way tick of 2,5; a chart with a negative side keeps to its ends.
+  // Counts (no format given) never get a half-way tick of 2.5; a chart with a negative side keeps to its ends.
   const half = top && !bottom && (c.format || money || (top / 2) % 1 === 0) ? [top / 2] : []
   const ticks = [...(bottom ? [-bottom] : []), 0, ...half, ...(top ? [top] : [])]
   const tickText = (t: number) => `${t < 0 ? '−' : ''}${prefix}${tick(Math.abs(t))}`
-  const gutter = Math.max(...ticks.map(t => tickText(t).length))
-  const yAxis = ticks.map(t => `<span style="--y:${f2(pct(t + bottom))}">${esc(tickText(t))}</span>`).join('')
-  const grid = ticks.map(t => `<b${t === 0 ? ' class="zero"' : ''} style="--y:${f2(pct(t + bottom))}"></b>`).join('')
+  const bare = Boolean(c.bare)
+  const gutter = bare ? 0 : Math.max(...ticks.map(t => tickText(t).length))
+  const yAxis = bare ? '' : ticks.map(t => `<span style="--y:${f2(pct(t + bottom))}">${esc(tickText(t))}</span>`).join('')
+  const grid = (bare ? [0] : ticks).map(t => `<b${t === 0 ? ' class="zero"' : ''} style="--y:${f2(pct(t + bottom))}"></b>`).join('')
 
   const last = n - 1
   const dm = (i: number) => dayLabel(c.days[i]!)
-  const lastIsToday = c.partialLast && !c.lastSays
-  const dayName = (i: number) =>
-    weekly ? `Tuần ${dm(i)}`
-      : lastIsToday && i === last ? `Hôm nay ${dm(i)}` : lastIsToday && i === last - 1 ? `Hôm qua ${dm(i)}` : `${WEEKDAY[new Date(`${c.days[i]}T00:00:00Z`).getUTCDay()]} ${dm(i)}`
+  // Today's bar: the last when it isn't over, or `today` on a chart that runs past it (a week, Monday to Sunday), whose
+  // later days are still to come. A chart kept by a nightly save says its own words for its last day (`lastSays`).
+  const now = todayOf(c)
+  const isToday = (i: number) => i === now && !c.lastSays
+  const toCome = (i: number) => now >= 0 && i > now
+  const named = (i: number) =>
+    weekly ? `Week of ${dm(i)}` : isToday(i) ? `Today ${dm(i)}` : i === now - 1 && !c.lastSays ? `Yesterday ${dm(i)}` : dayName(c.days[i]!)
   const unrecorded = (i: number) => all.every(s => at(s, i) === null)
-  const when = (i: number) => `${dayName(i)}${c.partialLast && i === last ? ` · ${c.lastSays ?? `chưa hết ${per}`}` : ''}${unrecorded(i) ? ` · ${c.missing ?? 'không có số liệu'}` : ''}`
+  const when = (i: number) => `${named(i)}${i === now ? ` · ${c.lastSays ?? 'so far'}` : ''}${toCome(i) ? ' · still to come' : unrecorded(i) ? ` · ${c.missing ?? 'not recorded'}` : ''}`
   const shown = (v: number | null) => (v === null ? '—' : format(v))
 
+  const words = bare ? barWords(c) : undefined
+  const tip = (i: number) => (words ? ` data-t="${esc(words.readouts[i]!.title)}" data-x="${esc(words.readouts[i]!.detail)}"` : '')
   const seg = (cls: string[], b: number, h: number) => `<i class="${cls.join(' ')}" style="--b:${f2(b)};--h:${f2(h)}"></i>`
   const cols = c.days.map((_, i) => {
     const vals = series.map(s => at(s, i))
@@ -142,15 +161,16 @@ export function dayChart(c: DayChart): string {
         below -= v
       }
     })
-    const cls = [c.partialLast && i === last ? 'today' : '', unrecorded(i) ? 'miss' : ''].filter(Boolean).join(' ')
-    return `<li${cls ? ` class="${cls}"` : ''} data-d="${esc(when(i))}" data-v="${esc(all.map(s => shown(at(s, i))).join('|'))}">${marks}</li>`
+    const cls = [i === now ? 'today' : '', unrecorded(i) && !toCome(i) ? 'miss' : ''].filter(Boolean).join(' ')
+    return `<li${cls ? ` class="${cls}"` : ''} data-d="${esc(when(i))}" data-v="${esc(all.map(s => shown(at(s, i))).join('|'))}"${tip(i)}>${marks}</li>`
   }).join('')
 
   // Every seventh day back from the last (the overview's weeks), or every fourth week, and the first when it stands clear of them.
   const labelled = new Set<number>()
   for (let i = last; i >= 0; i -= weekly ? 4 : 7) labelled.add(i)
   if (Math.min(...labelled) >= 3) labelled.add(0)
-  const xAxis = [...labelled].sort((a, b) => a - b).map(i => {
+  const named7 = bare && n <= 7
+  const xAxis = named7 ? words!.labels.map((l, i) => `<span${i === now ? ' class="now"' : ''} style="--x:${f2((100 * (i + 0.5)) / n)}">${esc(l)}</span>`).join('') : [...labelled].sort((a, b) => a - b).map(i => {
     const mid = (100 * (i + 0.5)) / n
     const [x, cls] = n > 1 && mid < 7 ? [(100 * i) / n, ' class="s"'] : n > 1 && mid > 93 ? [(100 * (i + 1)) / n, ' class="e"'] : [mid, '']
     return `<span${cls} style="--x:${f2(x)}">${esc(dm(i))}</span>`
@@ -158,56 +178,49 @@ export function dayChart(c: DayChart): string {
 
   const totals = all.map(s => c.days.reduce((t, _, i) => t + (at(s, i) ?? 0), 0))
   const key = (s: Series, k: number) => (all.length > 1 ? `<i class="key ${s === c.whole ? 'whole' : s.tone ?? `s${k + 1}`}"></i>` : '')
-  const readout = `<p class="readout${all.length > 1 ? ' multi' : ''}${weekly ? ' wk' : ''}" aria-live="polite"><span class="when">${n} ${per}</span>${all.map((s, k) => `<span class="v">${key(s, k)}<b>${esc(format(totals[k]!))}</b>${all.length > 1 ? ` ${esc(s.label)}` : ''}</span>`).join('')}<span class="hint" aria-hidden="true"></span></p>`
+  const readout = `<p class="readout${all.length > 1 ? ' multi' : ''}${weekly ? ' wk' : ''}" aria-live="polite"><span class="when">${n} ${per}${n === 1 ? '' : 's'}</span>${all.map((s, k) => `<span class="v">${key(s, k)}<b>${esc(format(totals[k]!))}</b>${all.length > 1 ? ` ${esc(s.label)}` : ''}</span>`).join('')}<span class="hint" aria-hidden="true"></span></p>`
 
   const heights = c.whole ? whole : up
   const peak = heights.indexOf(Math.max(...heights))
   const gaps = c.days.filter((_, i) => unrecorded(i)).length
-  const desc = `${n} ${per}, từ ${dm(0)} đến ${dm(last)}. ${all.map((s, k) => `${s.label}: tổng ${format(totals[k]!)}`).join('; ')}. Cao nhất ${per} ${dm(peak)}.${gaps ? ` ${fmt(gaps)} ${per} không có số liệu.` : ''} Phím mũi tên đọc từng ${per}.`
-  const plot = `<div class="plot" data-plot role="group" tabindex="0" style="--n:${n};--gut:${gutter}" aria-labelledby="${c.id}-t" aria-describedby="${c.id}-d"><div class="yax" aria-hidden="true">${yAxis}</div><div class="area" aria-hidden="true"><div class="grid">${grid}</div><ol class="cols">${cols}</ol></div><div class="xax" aria-hidden="true">${xAxis}</div></div><p class="vh" id="${c.id}-d">${esc(desc)}</p>`
+  const desc = `${n} ${per}${n === 1 ? '' : 's'}, from ${dm(0)} to ${dm(last)}. ${all.map((s, k) => `${s.label}: ${format(totals[k]!)} in all`).join('; ')}. Highest: ${weekly ? `the week of ${dm(peak)}` : dm(peak)}.${gaps ? ` ${fmt(gaps)} ${per}${gaps === 1 ? '' : 's'} not recorded.` : ''} The arrow keys read each ${per}.`
+  const tipLine = bare ? '<p class="tip" aria-live="polite"><b></b><span></span></p>' : ''
+  const plot = `<div class="plot${named7 ? ' named' : ''}" data-plot role="group" tabindex="0" style="--n:${n};--gut:${gutter}" aria-labelledby="${c.id}-t" aria-describedby="${c.id}-d">${tipLine}<div class="yax" aria-hidden="true">${yAxis}</div><div class="area" aria-hidden="true"><div class="grid">${grid}</div><ol class="cols">${cols}</ol></div><div class="xax" aria-hidden="true">${xAxis}</div></div><p class="vh" id="${c.id}-d">${esc(desc)}</p>`
 
-  const rows = c.days.map((d, i) => [d, i] as const).reverse().map(([d, i]) => `<tr><th>${esc(dayLabel(d))}${c.partialLast && i === last ? (c.lastSays ? ` (${esc(c.lastSays)})` : weekly ? ' (tuần này)' : ' (hôm nay)') : ''}</th>${all.map(s => `<td>${esc(shown(at(s, i)))}</td>`).join('')}</tr>`).join('')
-  const table = `<details><summary>Bảng số liệu</summary><div class="scroll"><table><thead><tr><th>${weekly ? 'Tuần' : 'Ngày'}</th>${all.map(s => `<th>${esc(s.label)}</th>`).join('')}</tr></thead><tbody>${rows}</tbody></table></div></details>`
-  return `<figure class="chart" aria-labelledby="${c.id}-t"><figcaption>${head}${readout}</figcaption>${plot}${table}</figure>`
+  const listed = [...all, ...(c.also ?? [])]
+  const rows = c.days.map((d, i) => [d, i] as const).reverse().filter(([, i]) => !toCome(i)).map(([d, i]) => `<tr><th>${esc(dayLabel(d))}${i === now ? (c.lastSays ? ` (${esc(c.lastSays)})` : weekly ? ' (this week)' : ' (today)') : ''}</th>${listed.map(s => `<td>${esc(shown(at(s, i)))}</td>`).join('')}</tr>`).join('')
+  const table = `<details><summary>The figures</summary><div class="scroll"><table><thead><tr><th>${weekly ? 'Week' : 'Day'}</th>${listed.map(s => `<th>${esc(s.label)}</th>`).join('')}</tr></thead><tbody>${rows}</tbody></table></div></details>`
+  // Bare: a stack's key under the bars, without totals; one series needs none (the title, or the figure above, names it).
+  const legend = bare && all.length > 1 ? `<p class="legend" aria-hidden="true">${all.map((s, k) => `<span>${key(s, k)}${esc(s.label)}</span>`).join('')}</p>` : ''
+  return `<figure class="chart${bare ? ' bare' : ''}" aria-labelledby="${c.id}-t"><figcaption>${head}${bare ? '' : readout}</figcaption>${plot}${legend}${table}</figure>`
 }
 
-/** The dashboard's languages: the sections not yet moved to English stay Vietnamese. */
-export type DashLang = 'vi' | 'en'
 export type Readout = { title: string; detail: string }
-const SHORT_DAY: Record<DashLang, string[]> = { vi: ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'], en: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] }
-const MONTH_EN = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-/** 2026-11-05 → 5 Nov */
-export const dayMonthEn = (day: string) => `${+day.slice(8, 10)} ${MONTH_EN[+day.slice(5, 7) - 1]}`
-export const weekdayOf = (day: string) => new Date(`${day}T00:00:00Z`).getUTCDay()
-export const fmtEn = (n: number, d = 0) => n.toLocaleString('en-US', { maximumFractionDigits: d, minimumFractionDigits: d })
-export const usdEn = (n: number) => `$${fmtEn(n, n !== 0 && Math.abs(n) < 0.01 ? 4 : 2)}`
 const lowerFirst = (s: string) => s.charAt(0).toLocaleLowerCase() + s.slice(1)
 /** Today's bar: `today`, or the last one when it isn't over (-1: today isn't on the chart). */
 export const todayOf = (c: Pick<DayChart, 'days' | 'today' | 'partialLast'>) => c.today ?? (c.partialLast ? c.days.length - 1 : -1)
 
 /**
- * Each bar's words, as the app shows them: its axis label ("T5", "Hôm nay"; a week, its Monday), and what a tap on it
- * shows: the first series' figure ("21 có kết quả"), then its day and the other series ("Thứ Năm 05/11 · 3 không có
- * kết quả"). Days after today are still to come. `also`: figures said with each bar but not drawn.
+ * Each bar's words, as the app shows them: its axis label ("Thu", "Today"; a week, its Monday), and what a tap on it
+ * shows: the first series' figure ("21 named"), then its day and the other series ("Thu 5 Nov · 3 no answer"). Days
+ * after today are still to come. `also`: figures said with each bar but not drawn.
  */
-export function barWords(c: DayChart, lang: DashLang = 'vi', also: Series[] = []): { labels: string[]; readouts: Readout[] } {
-  const en = lang === 'en'
-  const format = c.format ?? (c.unit === 'usd' ? (en ? usdEn : usd) : (n: number) => (en ? fmtEn(n) : fmt(n)))
+export function barWords(c: DayChart, also: Series[] = c.also ?? []): { labels: string[]; readouts: Readout[] } {
+  const format = c.format ?? (c.unit === 'usd' ? usd : (n: number) => fmt(n))
   const weekly = c.period === 'week'
   const today = todayOf(c)
   const all = [...c.series.slice(0, 3), ...(c.whole ? [c.whole] : []), ...also]
-  const date = (d: string) => (en ? dayMonthEn(d) : dayLabel(d))
-  const label = (d: string, i: number) => (i === today && !weekly && !c.lastSays ? (en ? 'Today' : 'Hôm nay') : weekly || c.days.length > 7 ? date(d) : SHORT_DAY[lang][weekdayOf(d)]!)
-  const so = (i: number) => (i === today ? (c.lastSays ? ` · ${c.lastSays}` : en ? ', so far' : weekly ? ' · chưa hết tuần' : ' · chưa hết ngày') : '')
-  const day = (d: string, i: number) => (weekly ? `${en ? 'Week of' : 'Tuần'} ${date(d)}` : en ? `${SHORT_DAY.en[weekdayOf(d)]} ${date(d)}` : `${WEEKDAY[weekdayOf(d)]} ${date(d)}`) + so(i)
-  const missing = c.missing ?? (en ? 'not recorded' : 'không có số liệu')
-  // English counts one of a thing as one: "1 shop click".
-  const noun = (s: Series, v: number) => lowerFirst(en && v === 1 && /[^s]s$/.test(s.label) ? s.label.slice(0, -1) : s.label)
+  const label = (d: string, i: number) => (i === today && !weekly && !c.lastSays ? 'Today' : weekly || c.days.length > 7 ? dayLabel(d) : SHORT_DAY[weekdayOf(d)]!)
+  const so = (i: number) => (i === today ? (c.lastSays ? ` · ${c.lastSays}` : ', so far') : '')
+  const day = (d: string, i: number) => (weekly ? `Week of ${dayLabel(d)}` : dayName(d)) + so(i)
+  const missing = c.missing ?? 'not recorded'
+  // One of a thing is one: "1 shop click".
+  const noun = (s: Series, v: number) => lowerFirst(v === 1 && /[^s]s$/.test(s.label) ? s.label.slice(0, -1) : s.label)
   const said = (s: Series, i: number) => (known(s.values[i]) ? `${format(s.values[i]!)} ${noun(s, s.values[i]!)}` : `${lowerFirst(s.label)}: ${missing}`)
   return {
     labels: c.days.map(label),
     readouts: c.days.map((d, i) => (today >= 0 && i > today
-      ? { title: en ? 'Still to come' : 'Chưa tới', detail: day(d, i) }
+      ? { title: 'Still to come', detail: day(d, i) }
       : { title: said(all[0]!, i), detail: [day(d, i), ...all.slice(1).map(s => said(s, i))].join(' · ') })),
   }
 }
@@ -239,20 +252,28 @@ export function rankTable(rows: Ranked[], head: string[], format: (n: number) =>
   const track = (r: Ranked) => `<span class="track${lo < 0 ? ' signed' : ''}"${lo < 0 ? ` style="--z:${f2(zero)}"` : ''} aria-hidden="true">${bar(r)}</span>`
   const body = rows.map(r => `<tr><th><span class="lb">${r.label}</span>${track(r)}</th><td>${esc(format(r.value))}</td>${(r.cells ?? []).map(c => `<td>${c}</td>`).join('')}</tr>`).join('')
   const key = opts.part && rows.some(r => known(r.part)) ? `<caption><span><i class="key s1"></i>${esc(opts.part)}</span><span><i class="key whole"></i>${esc(head[1] ?? '')}</span></caption>` : ''
-  return `<div class="scroll"><table class="rank">${key}<thead><tr>${head.map(h => `<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${body || `<tr><td colspan="${head.length}" class="none">Chưa có.</td></tr>`}</tbody></table></div>`
+  return `<div class="scroll"><table class="rank">${key}<thead><tr>${head.map(h => `<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${body || `<tr><td colspan="${head.length}" class="none">None yet.</td></tr>`}</tbody></table></div>`
 }
 
-export type Delta = { now: number; before: number; vs: string; /** 'up': more is better (readers, clicks): coloured. */ good?: 'up' }
-/** A change in words: "+12% so với 7 ngày trước", signed with a real minus; its tone (none when there was nothing before). */
-export function deltaOf(d: Delta, lang: DashLang = 'vi'): { text: string; tone?: 'good' | 'bad' | 'flat' } {
-  const en = lang === 'en'
-  if (!d.before) return { text: d.now ? `${d.vs}: 0` : `${en ? 'same as' : 'như'} ${d.vs}` }
+/**
+ * A change against an earlier figure. 'up': more is better (readers, clicks): coloured. `points`: `now` and `before` are
+ * shares (0–1), and the change is in percentage points ("+5 pts").
+ */
+export type Delta = { now: number; before: number; vs: string; good?: 'up'; points?: boolean }
+/** A change in words: "+12% vs the 7 days before", signed with a real minus; its tone (none when there was nothing before). */
+export function deltaOf(d: Delta): { text: string; tone?: 'good' | 'bad' | 'flat' } {
+  const sign = (p: number) => (p > 0 ? '+' : p < 0 ? '−' : '±')
+  // Coloured only past 5 (per cent, or points), and only where more is plainly better.
+  const toneOf = (p: number) => (Math.abs(p) <= 5 ? 'flat' : d.good === 'up' ? (p > 0 ? 'good' : 'bad') : 'flat')
+  if (d.points) {
+    const p = Math.round(100 * (d.now - d.before))
+    return { text: `${sign(p)}${fmt(Math.abs(p))} pts vs ${d.vs}`, tone: toneOf(p) }
+  }
+  if (!d.before) return { text: d.now ? `${d.vs}: 0` : `same as ${d.vs}` }
   const p = Math.round(((d.now - d.before) / d.before) * 100)
-  // Coloured only past 5%, and only where more is plainly better.
-  const tone = Math.abs(p) <= 5 ? 'flat' : d.good === 'up' ? (p > 0 ? 'good' : 'bad') : 'flat'
-  return { text: `${p > 0 ? '+' : p < 0 ? '−' : '±'}${(en ? fmtEn : fmt)(Math.abs(p))}% ${en ? 'vs' : 'so với'} ${d.vs}`, tone }
+  return { text: `${sign(p)}${fmt(Math.abs(p))}% vs ${d.vs}`, tone: toneOf(p) }
 }
-/** "+12% so với 7 ngày trước", coloured only where more is plainly better. */
+/** "+12% vs the 7 days before", coloured only where more is plainly better. */
 export function deltaHtml(d: Delta): string {
   const { text, tone } = deltaOf(d)
   return `<span class="delta${tone ? ` ${tone}` : ''}">${esc(text)}</span>`
@@ -271,7 +292,7 @@ export function tiles(xs: Tile[]): string {
  * the chart (`format`, the page's script), and a tap there doesn't follow the row's link: the owner (2026-11-07)
  * couldn't read a column's number by touch.
  */
-export function spark(values: (number | null)[], recent = 7, o: { labels?: string[]; format?: (v: number) => string } = {}): string {
+export function spark(values: (number | null)[], recent = 7, o: { labels?: string[]; format?: (v: number) => string; today?: number } = {}): string {
   const n = values.length
   const max = Math.max(0, ...values.map(v => (known(v) ? v : 0)))
   if (n < 2 || !(max > 0)) return ''
@@ -281,7 +302,8 @@ export function spark(values: (number | null)[], recent = 7, o: { labels?: strin
   const bars = values.map((v, i) => {
     if (!known(v) || v <= 0) return ''
     const bh = Math.max(1.5, (v / max) * (h - 2))
-    const cls = i >= n - recent ? 'now' : i >= n - 2 * recent ? 'was' : 'old'
+    // Today's column, not over yet, lighter (`today`, on a week whose later days are still to come).
+    const cls = i === o.today ? 'now today' : i >= n - recent ? 'now' : i >= n - 2 * recent ? 'was' : 'old'
     return `<rect class="${cls}" data-i="${i}" x="${f2(i * band + 0.5)}" y="${f2(h - 1 - bh)}" width="${f2(Math.max(1, band - 1))}" height="${f2(bh)}" rx=".8"/>`
   }).join('')
   const svg = `<svg class="spark" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" aria-hidden="true"><line x1="0" x2="${w}" y1="${h - 0.5}" y2="${h - 0.5}"/>${bars}</svg>`
@@ -306,4 +328,4 @@ export function chipOf(now: number, before: number, vs: string, good?: 'up'): Ch
   return { text: `${d > 0 ? '+' : d < 0 ? '−' : '±'}${fmt(v)}${small ? '' : '%'}`, tone, vs }
 }
 export const chipHtml = (c: Chip | undefined) =>
-  c ? `<span class="chip${c.tone === 'plain' ? '' : ` ${c.tone}`}">${esc(c.text)}<span class="vh"> so với ${esc(c.vs)}</span></span>` : ''
+  c ? `<span class="chip${c.tone === 'plain' ? '' : ` ${c.tone}`}">${esc(c.text)}<span class="vh"> vs ${esc(c.vs)}</span></span>` : ''

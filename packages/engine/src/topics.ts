@@ -8,27 +8,32 @@ import { TARGETS, type TargetLang } from './localize'
 import { pickSlug } from './merge'
 import { plainParts, sanitizeHtml, unescapePlain } from './sanitize'
 import { readForumState, topicLeads } from './forum'
+import { NAMES_TREATMENT } from './fit'
+import { steadyRead } from './quality'
 import { VI_STYLE as STYLE } from './phrases'
 
 const WRITE = readFileSync(new URL('./prompts/topic.md', import.meta.url), 'utf8')
 const INTL = readFileSync(new URL('./prompts/topic-intl.md', import.meta.url), 'utf8')
 
 const SECTIONS = ['what', 'signs', 'causes', 'firstAid', 'treatment', 'steps', 'prevention', 'mistakes', 'vietnam', 'myths', 'other'] as const
+const KINDS = ['vet', 'university', 'maker', 'article', 'forum', 'paper', 'farm', 'other'] as const
 /** What research found about one fishkeeping topic: facts in the researcher's own words, each with its source's index. */
 export type TopicFacts = {
   found: boolean
-  facts: { section: (typeof SECTIONS)[number]; fact: string; source: number }[]
+  /** `also`: other sources that give the same, which a dose from a farm's page or a forum post needs (usableFact). */
+  facts: { section: (typeof SECTIONS)[number]; fact: string; source: number; also?: number[] }[]
   /** Scientific names of the fish and plants the facts are about (links to their pages). */
   species: string[]
-  sources: { url: string; title: string; kind: 'vet' | 'university' | 'maker' | 'article' | 'forum' | 'paper' | 'other' }[]
+  /** `farm`: written for fish farmed for food (ponds, cages, hatcheries, a farming office's advice). */
+  sources: { url: string; title: string; kind: (typeof KINDS)[number] }[]
 }
 const FACTS_SCHEMA = {
   type: 'object', required: ['found', 'facts', 'species', 'sources'],
   properties: {
     found: { type: 'boolean' },
-    facts: { type: 'array', items: { type: 'object', required: ['section', 'fact', 'source'], properties: { section: { type: 'string', enum: SECTIONS }, fact: { type: 'string' }, source: { type: 'number' } } } },
+    facts: { type: 'array', items: { type: 'object', required: ['section', 'fact', 'source'], properties: { section: { type: 'string', enum: SECTIONS }, fact: { type: 'string' }, source: { type: 'number' }, also: { type: 'array', items: { type: 'number' } } } } },
     species: { type: 'array', items: { type: 'string' } },
-    sources: { type: 'array', items: { type: 'object', required: ['url', 'title', 'kind'], properties: { url: { type: 'string' }, title: { type: 'string' }, kind: { type: 'string', enum: ['vet', 'university', 'maker', 'article', 'forum', 'paper', 'other'] } } } },
+    sources: { type: 'array', items: { type: 'object', required: ['url', 'title', 'kind'], properties: { url: { type: 'string' }, title: { type: 'string' }, kind: { type: 'string', enum: KINDS } } } },
   },
 }
 
@@ -39,10 +44,71 @@ const researchPrompt = (a: TopicAsk) => `Research this freshwater fishkeeping to
 Prefer aquatic vets, universities and extension services (for example UF/IFAS, Merck Veterinary Manual), makers' own documentation, and long-time hobbyist articles; forums only for what keepers report. Collect facts, each with the index of its source in sources[] and one section:
 - what (what it is, why it matters), signs (how it looks, how to tell it from look-alikes), causes, firstAid (what to do at once), treatment (methods with exact doses, temperatures and durations as sources give them, and what fish, shrimp, snails or plants cannot take them), steps (for a how-to: the steps in order), prevention, mistakes (common errors), vietnam (anything specific to Vietnam: tropical climate and hot season, tap water, power cuts, products or names used there), myths (claims sources say are wrong, with who says so), other.
 - species: scientific names of the fish or plants the topic is mostly about or that sources single out (sensitive species, typical victims). Empty if none.
-- sources: every page used, once each: its URL, its title as the page itself gives it (never a description of what you found there), and its kind.
+- sources: every page used, once each: its URL, its title as the page itself gives it (never a description of what you found there), and its kind. farm: a page written for fish farmed for food (ponds, cages, hatcheries, an agriculture or fisheries office's advice to farmers), whatever its publisher.
 - found: false if this is not a real fishkeeping topic or nothing reliable was found.
 
-Rules: facts in your own words, short, one claim each. Keep numbers and units as sources give them. If sources disagree, keep each fact with its own source. Never fetch Shopee, Lazada or Tiki pages.`
+Rules: facts in your own words, short, one claim each. Keep numbers and units as sources give them. If sources disagree, keep each fact with its own source. A dose a source gives for one product: name the product in the fact. A dose from a farm page or a forum post is used only when another page, not a farm's, gives the same dose: search for one, and put its index in the fact's also. Never fetch Shopee, Lazada or Tiki pages.`
+
+/**
+ * A dose a reader would measure out, in a fact's words: an amount, or a salt's percentage. The owner's chief, 8 Nov 2026,
+ * after guides gave a fish farm's salt dips and a forum post's quinine to aquarium keepers: "a dose taken from a source
+ * written for farmed food fish, or from a single forum post, needs a second source before it's used."
+ */
+const AMOUNT = /\d\s*(?:(?:mg|mcg|µg|μg|g|gm|grams?|gam|kg|ml|drops?|giọt|tsp|teaspoons?|tbsp|tablespoons?|thìa|muỗng|viên|gói|tablets?|capsules?|measures?|scoops?|capfuls?|caps?|nắp|cc|ppm|ppt|percent|phần trăm|persen|packets?|bungkus|sachets?|tetes|sendok)(?![\p{L}])|‰|%|ซอง|หยด|เม็ด|ช้อน|กรัม|มล)/iu
+/** Something measured out, never a fish's weight: a spoon, a cap, a drop, a packet, a ratio (1:2000). */
+const MEASURE = /(?<![\d.,])1\s*:\s*\d{2,}(?![\d.,])|(?<![\p{L}])(?:half(?:\s+a)?|a|one|nửa|một|setengah|satu|se)\s+(?:teaspoons?|tablespoons?|thìa|muỗng|sendok|sudu|capfuls?|caps?|tablets?|capsules?|kapsul|scoops?|measures?|packets?|sachets?|cups?|viên|gói|nắp|bungkus)(?![\p{L}])|\d\s*(?:(?:sudu|kapsul|cups?|chén|ml|drops?|giọt|tsp|teaspoons?|tbsp|tablespoons?|thìa|muỗng|viên|gói|tablets?|capsules?|measures?|scoops?|capfuls?|caps?|nắp|cc|sachets?|packets?|bungkus|tetes|sendok|sdt|sdm)(?![\p{L}])|ซอง|หยด|เม็ด|ช้อน|มล)/iu
+/** A pinch: of food it's no dose, of a treatment it is. */
+const PINCH = /(?<![\p{L}])(?:\d+|a|one|một|satu|se)\s*(?:pinch(?:es)?|nhúm|jumput)(?![\p{L}])/iu
+/** A level in the water. */
+const LEVEL = /\d[\d.,]*(?:\s*[–-]\s*\d[\d.,]*)?\s*(?:(?:ppm|ppt|mg\s*\/\s*l(?:ít|iters?|itres?)?)(?![\p{L}])|‰)/giu
+/** So much in so much water, food or fish: "per 40 litres", "/L", "mỗi m³", "per kg of food". */
+const PER = /(?:\/|\b(?:per|cho|trong|in|setiap|bagi|untuk)\s|mỗi\s|ต่อ(?:น้ำ)?)\s*(?:about\s+|khoảng\s+|sekitar\s+)?(\d[\d.,–-]*\s*)?(l|lít|lit|liters?|litres?|gallons?|gal|m³|m3|kg|kilograms?|ลิตร)(?![\p{L}])/giu
+/** The water's own levels, named just before a level's figure: that figure is the water's, not a dose. (Oxy già is hydrogen peroxide.) */
+const WATER = /(?:nitrat\p{L}*|nitrit\p{L}*|ammonia|amoni\p{L}*|oxygen|\boxy\b(?!\s*già)|oksigen|TDS|CO2|CO₂|\bKH\b|\bGH\b|(?:calcium|canxi|kalsium|magnesium|magie|iron|sắt|besi|phosphat\p{L}*|phốt phát|fosfat|silicat\p{L}*|potassium|kali)(?!\s*(?:\(?\s*(?:II|III)\s*\)?\s*)?(?:sul|sun|hypo|chlor|clor|perman|oxid|carbon|citr|glucon|EDTA|iodid)))(?:\s+\p{L}+){0,3}?\s*(?:[<>≤≥~]|khoảng|about|above|below|under|over|at|to|dưới|trên|di bawah|di atas)?\s*$/iu
+/** A treatment the rules have no name for: a dose, a bath, a medicine by its kind. */
+const TREATING = /(?<![\p{L}\p{N}])(?:dos(?:e|es|ing|is)|liều|thuốc|obat|ubat|treat\p{L}*|chữa|điều trị|pengobatan|rawat\p{L}*|dips?|baths?|tắm|ngâm|rendam|celup|mandi|peroxide|oxy già|H2O2|ivermectin|emamectin|chloramine\p{L}*|toltrazuril|paraguard|cupramine|coppersafe)(?![\p{L}\p{N}])|ยา(?!ว)|รักษา|แช่/iu
+/** A fish's weight: "fish weigh 20 g per litre of tank". */
+const WEIGHT = /(?<![\p{L}])(?:weigh\p{L}*|nặng|berat|bobot)(?![\p{L}])|หนัก/iu
+/**
+ * An amount right before so much water, food or fish ("250 mg per 40 litres", "10 mg/kg"), not a fish's weight. Milligrams
+ * per litre with no litres counted ("5 mg/L") are a level in the water, which treatmentLevel reads.
+ */
+const amountPer = (fact: string) => [...fact.matchAll(PER)].some(m => {
+  const before = fact.slice(Math.max(0, m.index - 30), m.index)
+  return AMOUNT.test(before) && !WEIGHT.test(before) && (!!m[1] || !/^l|^lít|^lit|ลิตร/iu.test(m[2]!) || !/mg\s*$/iu.test(before))
+})
+/** A level whose figure isn't the water's own. */
+const treatmentLevel = (fact: string) => [...fact.matchAll(LEVEL)].some(m => !WATER.test(fact.slice(Math.max(0, m.index - 40), m.index)))
+/**
+ * An amount that names a treatment; a level not the water's own; something measured out; a weight per volume, food or
+ * fish; a percentage of a bath or a solution. A fish's weight or a water change is not one.
+ */
+const isDose = (fact: string) => (AMOUNT.test(fact) && (NAMES_TREATMENT.test(fact) || TREATING.test(fact)))
+  || treatmentLevel(fact) || MEASURE.test(fact) || amountPer(fact) || (PINCH.test(fact) && (NAMES_TREATMENT.test(fact) || TREATING.test(fact)))
+/**
+ * A site, as one source: another page of the same thread is the same one, and so is another thread of the same forum,
+ * whose members repeat each other's advice. Addresses can't tell a thread's pages from its posts (phpBB's "?p=", SMF's
+ * "topic=12.15", Reddit's comment links), so a second source must be another site: another registered domain, with a
+ * site's short links (redd.it, fb.com) as the site.
+ */
+const SHORT: Record<string, string> = { 'redd.it': 'reddit.com', 'fb.com': 'facebook.com', 'fb.me': 'facebook.com', 'youtu.be': 'youtube.com' }
+const siteOf = (url: string) => {
+  let host: string
+  try { host = new URL(url).hostname } catch { host = url.replace(/^\w+:\/\//, '').replace(/[/?#:].*$/, '') }
+  const labels = host.toLowerCase().replace(/\.$/, '').split('.')
+  // A country's second level (example.com.vn, example.co.th) keeps one more label.
+  const keep = labels.length > 2 && /^[a-z]{2}$/.test(labels.at(-1)!) && /^(?:com|co|net|org|gov|edu|ac|or|in|go|my|biz|info)$/.test(labels.at(-2)!) ? 3 : 2
+  // A blog host's blogs are each a site (a.blogspot.com, b.wordpress.com).
+  const blog = labels.length > keep && /^(?:blogspot|wordpress|github|tumblr|weebly|wixsite|substack)$/.test(labels.at(-keep)!) ? 1 : 0
+  const site = labels.slice(-keep - blog).join('.')
+  return SHORT[site] ?? site
+}
+/** Whether a fact may be written: a dose from a farm's page or a forum post only with another page, not a farm's, that gives it too. */
+export function usableFact(r: TopicFacts, f: TopicFacts['facts'][number]): boolean {
+  const s = r.sources[f.source]
+  if (!s || (s.kind !== 'farm' && s.kind !== 'forum') || !isDose(f.fact)) return true
+  return (f.also ?? []).some(i => { const o = r.sources[i]; return !!o && /^https?:\/\//i.test(o.url) && siteOf(o.url) !== siteOf(s.url) && o.kind !== 'farm' })
+}
 
 const WRITE_SCHEMA = {
   type: 'object', required: ['name', 'summary', 'body', 'faq'],
@@ -54,8 +120,67 @@ const WRITE_SCHEMA = {
 type Written = { name: string; summary: string[]; body: string; faq: { q: string; a: string }[] }
 const INTL_SCHEMA = { ...WRITE_SCHEMA, required: [...WRITE_SCHEMA.required, 'slug'], properties: { ...WRITE_SCHEMA.properties, slug: { type: 'string' } } }
 
-const GROUNDED = `Below are FACTS gathered about a fishkeeping topic and a Vietnamese GUIDE written from them. Score 0–1 how well the GUIDE sticks to the FACTS: 1.0 = every claim, dose, number, product and recommendation is supported by the facts; 0.75 = small unsupported generalities; below 0.75 = an invented dose, number, medicine, cause or claim, or a fact turned around.
+const GROUNDED = `Below are FACTS gathered about a fishkeeping topic and a Vietnamese GUIDE written from them. Score 0–1 how well the GUIDE sticks to the FACTS: 1.0 = every claim, dose, number, product and recommendation is supported by the facts; 0.75 = small unsupported generalities; below 0.75 = an invented dose, number, medicine, cause or claim, or a fact turned around. A fact's figure converted to metric (°F → °C, inches → cm, gallons → litres, sensibly rounded) is that fact's figure.
+By the label: the writer's rules make it dose every medicine, product or salt the facts give no dose for by its label or its maker's directions ("theo nhãn", "sesuai label", "ikut label", "ตามฉลาก"). That counts as supported, whether or not the facts mention a label: score it as a supported line, and it is never one of the notes.
 notes: up to 10 unsupported or wrong claims (in English), quoting the phrase. Empty if none.`
+
+type Grounded = { score: number; notes: string[]; reads?: number[] }
+/**
+ * A read this close to the bar is read twice more. One read of the same text varies by about ±0.06, and 4 guides in 20
+ * landed on both sides of the bar on two reads; the median of three varies by about ±0.04 (9 Nov 2026).
+ */
+/**
+ * A guide in `lang` (the language's English name) checked against the facts its writer had. A first read near the bar is
+ * read twice more, and the guide gets the median read (steadyRead).
+ */
+async function checkGuide(llm: Llm, lang: string, forWriter: object, x: Written): Promise<Grounded> {
+  return steadyRead(async (): Promise<Grounded> => {
+    const r = await llm<Grounded>({ system: 'You check a guide against its facts. Reply only with JSON.', prompt: `${GROUNDED.replace('Vietnamese GUIDE', `${lang} GUIDE`)}\n\nFACTS:\n${JSON.stringify(forWriter)}\n\nGUIDE:\n${x.name}\n${x.summary.join('\n')}\n${sanitizeHtml(x.body)}\n${x.faq.map(f => `${f.q} ${f.a}`).join('\n')}`, schema: { type: 'object', required: ['score', 'notes'], properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } } } })
+    return { score: Math.min(1, Math.max(0, Number(r.score) || 0)), notes: r.notes ?? [] }
+  })
+}
+
+/**
+ * The facts the Vietnamese guide is written from, and its references. Only web links are kept as sources, each page once
+ * (a fact citing a page listed twice cites its first listing); a fact whose source was dropped goes with it, and the rest
+ * are renumbered.
+ */
+function viFacts(researched: TopicFacts) {
+  const urls = [...new Set(researched.sources.map(s => s.url).filter(u => /^https?:\/\/\S+$/i.test(u)))]
+  const at = (i: number) => urls.indexOf(researched.sources[i]?.url ?? '')
+  const facts = researched.facts.filter(f => at(f.source) >= 0 && usableFact(researched, f)).map(f => ({ section: f.section, fact: f.fact, source: at(f.source) }))
+  const refs = urls.map(url => ({ url, title: researched.sources.find(s => s.url === url)!.title }))
+  return { facts, refs }
+}
+
+/**
+ * The facts a guide in another language is written from, and its references. Facts about Vietnam itself stay on the
+ * Vietnamese page; the page cites only the sources its facts come from (in the Vietnamese page's order), numbered afresh.
+ */
+function localFacts(researched: TopicFacts, entity: GuideEntity) {
+  const kept = researched.facts.filter(f => f.section !== 'vietnam' && usableFact(researched, f) && (entity.refs ?? []).some(r => r.url === researched.sources[f.source]?.url))
+  const refs = (entity.refs ?? []).filter(r => kept.some(f => researched.sources[f.source]?.url === r.url))
+  const facts = kept.map(f => ({ section: f.section, fact: f.fact, source: refs.findIndex(r => r.url === researched.sources[f.source]!.url) }))
+  return { facts, refs }
+}
+
+/**
+ * A guide on the site checked against its facts again as it is, nothing rewritten (review-backfill.ts), after the
+ * checker's prompt changed. It reads the facts its writer had, and the check's score is the guide's, so a guide the old
+ * prompt marked down is indexed once it passes.
+ */
+export async function recheckTopic(root: string, llm: Llm, id: string, lang: 'vi' | TargetLang): Promise<Grounded> {
+  const dir = join(root, 'content/guides', id)
+  const read = async <T>(f: string) => JSON.parse(await readFile(f, 'utf8')) as T
+  const researched = await read<TopicFacts>(join(root, 'engine-state/topics', `${id}.json`))
+  const entity = await read<GuideEntity>(join(dir, 'entity.json'))
+  const t = await read<Translation>(join(dir, `${lang}.json`))
+  const vi = lang === 'vi' ? t : await read<Translation>(join(dir, 'vi.json'))
+  const { facts } = lang === 'vi' ? viFacts(researched) : localFacts(researched, entity)
+  const r = await checkGuide(llm, lang === 'vi' ? 'Vietnamese' : TARGETS[lang].lang, { topic: vi.name, kind: entity.kind, facts }, { name: t.name, summary: t.summary ?? [], body: t.body ?? '', faq: t.faq ?? [] })
+  await writeFile(join(dir, `${lang}.json`), `${JSON.stringify({ ...t, quality: { ...t.quality, score: r.score, indexable: r.score >= QUALITY_THRESHOLD } }, null, 2)}\n`)
+  return r
+}
 
 /** Scientific name → page id, for the species and plants we have. */
 async function idsByName(content: string): Promise<Map<string, string>> {
@@ -107,12 +232,7 @@ export async function makeTopic(root: string, d: { research: Llm; llm: Llm }, a:
   if (!kept) { await mkdir(join(root, 'engine-state/topics'), { recursive: true }); await writeFile(factsFile, `${JSON.stringify(researched, null, 2)}\n`) }
   if (!researched.found) return { id, skipped: `${a.topic}: nothing reliable found` }
 
-  // Only web links are kept as sources, each page once (a fact citing a page listed twice cites its first listing); a
-  // fact whose source was dropped goes with it, and the rest are renumbered.
-  const urls = [...new Set(researched.sources.map(s => s.url).filter(u => /^https?:\/\/\S+$/i.test(u)))]
-  const at = (i: number) => urls.indexOf(researched.sources[i]?.url ?? '')
-  const facts = researched.facts.filter(f => at(f.source) >= 0).map(f => ({ ...f, source: at(f.source) }))
-  const refs = urls.map(url => ({ url, title: researched.sources.find(s => s.url === url)!.title }))
+  const { facts, refs } = viFacts(researched)
   if (!facts.length) return { id, skipped: `${a.topic}: no cited facts` }
 
   const forWriter = { topic: a.topic, kind: a.kind, facts }
@@ -120,10 +240,7 @@ export async function makeTopic(root: string, d: { research: Llm; llm: Llm }, a:
     system: 'You write Vietnamese aquarium guides from facts. Reply only with JSON.', model: o.writeModel ?? 'opus', schema: WRITE_SCHEMA,
     prompt: `${WRITE}\n\n${STYLE}${notes?.length ? `\n\nBản trước có chỗ vượt quá dữ kiện. Sửa theo các ghi chú sau, chỉ viết điều dữ kiện có:\n${notes.map(n => `- ${n}`).join('\n')}` : ''}\n\n--- DỮ KIỆN ---\n${JSON.stringify(forWriter, null, 1)}`,
   })
-  const check = async (x: Written) => {
-    const r = await d.llm<{ score: number; notes: string[] }>({ system: 'You check a guide against its facts. Reply only with JSON.', prompt: `${GROUNDED}\n\nFACTS:\n${JSON.stringify(forWriter)}\n\nGUIDE:\n${x.name}\n${x.summary.join('\n')}\n${sanitizeHtml(x.body)}\n${x.faq.map(f => `${f.q} ${f.a}`).join('\n')}`, schema: { type: 'object', required: ['score', 'notes'], properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } } } })
-    return { score: Math.min(1, Math.max(0, Number(r.score) || 0)), notes: r.notes ?? [] }
-  }
+  const check = (x: Written) => checkGuide(d.llm, 'Vietnamese', forWriter, x)
   // A redo starts from what the last review of the guide on the site found, as the rewrite below does.
   const before = kept ? await lastKept(root, { id: `guides/${id}`, lang: 'vi' }, ['topic']) : undefined
   let w = await write(before?.notes)
@@ -182,20 +299,13 @@ export async function localizeTopic(root: string, llm: Llm, id: string, lang: Ta
   const researched = JSON.parse(await readFile(join(root, 'engine-state/topics', `${id}.json`), 'utf8')) as TopicFacts
   const vi = JSON.parse(await readFile(join(root, 'content/guides', id, 'vi.json'), 'utf8')) as { name: string }
   const entity = JSON.parse(await readFile(join(root, 'content/guides', id, 'entity.json'), 'utf8')) as GuideEntity
-  // Facts about Vietnam itself stay on the Vietnamese page; this page cites only the sources its facts come from
-  // (in the Vietnamese page's order), numbered afresh.
-  const kept = researched.facts.filter(f => f.section !== 'vietnam' && (entity.refs ?? []).some(r => r.url === researched.sources[f.source]?.url))
-  const refs = (entity.refs ?? []).filter(r => kept.some(f => researched.sources[f.source]?.url === r.url))
-  const facts = kept.map(f => ({ ...f, source: refs.findIndex(r => r.url === researched.sources[f.source]!.url) }))
+  const { facts, refs } = localFacts(researched, entity)
   if (!facts.length) return { id, skipped: 'no facts' }
   const forWriter = { topic: vi.name, kind: entity.kind, facts }
   const T = TARGETS[lang]
   const prompt = (notes?: string[]) => `${INTL.replaceAll('{{LANG}}', T.lang).replaceAll('{{COUNTRY}}', T.country).replace('{{STYLE}}', T.style)}${notes?.length ? `\n\nThe previous version went beyond the facts. Fix these, writing only what the facts say:\n${notes.map(n => `- ${n}`).join('\n')}` : ''}\n\n--- FACTS (topic given in Vietnamese) ---\n${JSON.stringify(forWriter, null, 1)}`
   const write = (notes?: string[]) => llm<Written & { slug: string }>({ system: `You write ${T.lang} aquarium guides from facts. Reply only with JSON.`, model: o.model ?? 'opus', schema: INTL_SCHEMA, prompt: prompt(notes) })
-  const check = async (x: Written) => {
-    const r = await llm<{ score: number; notes: string[] }>({ system: 'You check a guide against its facts. Reply only with JSON.', prompt: `${GROUNDED.replace('Vietnamese GUIDE', `${T.lang} GUIDE`)}\n\nFACTS:\n${JSON.stringify(forWriter)}\n\nGUIDE:\n${x.name}\n${x.summary.join('\n')}\n${sanitizeHtml(x.body)}\n${x.faq.map(f => `${f.q} ${f.a}`).join('\n')}`, schema: { type: 'object', required: ['score', 'notes'], properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } } } })
-    return { score: Math.min(1, Math.max(0, Number(r.score) || 0)), notes: r.notes ?? [] }
-  }
+  const check = (x: Written) => checkGuide(llm, T.lang, forWriter, x)
   // A redo starts from what the last review of the guide on the site found.
   const before = o.redo ? await lastKept(root, { id: `guides/${id}`, lang }, ['topic']) : undefined
   let w = await write(before?.notes)

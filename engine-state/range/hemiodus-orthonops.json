@@ -1,0 +1,146 @@
+{
+  "id": "hemiodus-orthonops",
+  "native": {
+    "input": "13bc930790e6718b",
+    "at": "2026-11-08T18:57:48.756Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Hemiodus orthonops is a large, shoaling hemiodontid characin from Brazil, Paraguay and Argentina, where it inhabits floodplain rivers and lakes.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Hemiodus orthonops is a large, shoaling hemiodontid characin from Brazil, Paraguay and Argentina, where it inhabits floodplain rivers and lakes.",
+        "words": "Paraguay",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Hemiodus orthonops is a large, shoaling hemiodontid characin from Brazil, Paraguay and Argentina, where it inhabits floodplain rivers and lakes.",
+        "words": "Argentina",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Brazil, Paraguay and Argentina.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Brazil, Paraguay and Argentina.",
+        "words": "Paraguay",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Brazil, Paraguay and Argentina.",
+        "words": "Argentina",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hemiodus orthonops",
+    "status": "ACCEPTED",
+    "taxonKey": 2354889,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        53
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        40
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        24
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        24
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        19
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        8
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        4
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        3
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        3
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "527885fc-bae8-48fd-8e13-349bb6dae9b8",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "f8ba5386-8b91-4976-95bd-692e5d105eae",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "PY",
+      "AR"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T18:57:48.756Z"
+  }
+}

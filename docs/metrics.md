@@ -49,6 +49,10 @@ clients with no `Accept-Language`, our own checks and the owner. It needs the pa
 blocker stops `/_e` isn't counted. On 4-5 November every Google visit Cloudflare Web Analytics saw was in the beacon too, 10
 of 10, so that loss looks small. Analytics Engine keeps about 3 months, enough for the 12 weeks.
 
+Two runs of our own checks from before our network was marked are left out by time, as the 5 November reset was
+(`OUR_RUNS`, `worker/admin/ae.ts`): tabs from Vietnam on 7 November, 20:40 to 21:24 UTC (56), and on 8 November, 00:28 to
+00:44 UTC (23). They were a third of the tabs counted until then, so the week's sessions dip; the readers page lists them.
+
 ## Act
 
 | Key | What it counts | Baseline |
@@ -79,7 +83,17 @@ Baseline 0. The only account so far is the owner's.
 It's the closest thing we have to "tool users come back". Two caveats. A record keeps only its latest change, so a past
 week reads lower than it was. A keeper who only looks at a tank and changes nothing doesn't count.
 
-**Anonymous return visits are not measured, by design.** The beacon has no visitor id, and each tab is a new session.
+**Return visits**, since the visitor switch went on (`apps/site/worker/stats-switch.ts`, approved and on 2026-11-08), on
+the readers page. Each browser keeps a random visitor code (`aq_vid`, `src/lib/beacon.ts`), and the app keeps an install code
+(`install`, from the app build that sends it). Neither is ever joined with an account, an email or an IP address. Each
+is replaced after 13 months, and events are kept for 3. A browser with Global Privacy Control or Do Not Track on gets no
+code, and neither does one with storage blocked; those still count as tabs. «Không đếm tôi» on the privacy page deletes
+the code and stops every statistic from that browser, Cloudflare Web Analytics included. A visitor is a browser, not a
+person: a reader on a phone and a computer is two, and clearing storage starts again.
+
+**No consent notice, for now (decided 2026-11-08).** A one-line notice for Vietnam and Thailand that doesn't block the
+page, with the code set only after «Đồng ý», is to be built behind its own switch. It turns on without asking if there's
+a complaint, a regulator's letter, or more than about 1,000 readers a day. The Chief of Staff is told when it does.
 
 ## Community
 

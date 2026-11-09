@@ -32,6 +32,18 @@ test('two sources merge; re-processing one source replaces only its parts', () =
   expect(c.vi.altNames).toEqual(expect.arrayContaining(['Neon đỏ', 'Cardinal Tetra']))
 })
 
+test('a part a person fixed keeps its text, English and Vietnamese, when its source is read again', () => {
+  const a = mergeSpecies({}, page(), ctx('seriouslyfish'))
+  const entity = { ...a.entity, sections: a.entity.sections.map(s => (s.key === 'diet' ? { ...s, html: '<p>Fixed.</p>', fixed: true as const } : s)) }
+  const vi = { ...a.vi, sections: { ...a.vi.sections, 'diet:seriouslyfish': '<p>Đã sửa.</p>' } }
+  const b = mergeSpecies({ entity, vi }, page({ sections: [{ key: 'habitat', en: '<p>New streams.</p>', vi: '<p>Suối mới.</p>' }, { key: 'diet', en: '<p>Starve them.</p>', vi: '<p>Bỏ đói.</p>' }] }), ctx('seriouslyfish'))
+  expect(b.entity.sections.filter(s => s.key === 'diet')).toEqual([{ key: 'diet', source: 'seriouslyfish', sourceUrl: 'https://seriouslyfish/p', html: '<p>Fixed.</p>', fixed: true }])
+  expect(b.vi.sections['diet:seriouslyfish']).toBe('<p>Đã sửa.</p>')
+  expect(b.vi.sections['habitat:seriouslyfish']).toBe('<p>Suối mới.</p>')
+  const c = mergeSpecies(b, page({ sections: [{ key: 'habitat', en: '<p>Streams.</p>', vi: '<p>Suối.</p>' }] }), ctx('seriouslyfish'))
+  expect(c.entity.sections.map(s => `${s.key}:${s.fixed ?? ''}`)).toEqual(['habitat:', 'diet:true'])
+})
+
 test('a shop\'s own talk stays off the page; another source\'s "we" is its own', () => {
   const sections = [
     { key: 'beforeYouBuy' as const, en: '<p>We always try to pick the healthiest fish for our customers.</p><p>Wild-caught in Kalimantan.</p>', vi: '<p>Chúng tôi luôn cố gắng chọn những con khỏe nhất cho khách hàng.</p><p>Bắt tự nhiên ở Kalimantan.</p>' },

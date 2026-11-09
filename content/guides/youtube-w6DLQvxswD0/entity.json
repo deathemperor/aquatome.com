@@ -6,9 +6,10 @@
   "html": "",
   "photos": [],
   "mentions": [
-    "eleocharis-parvula"
+    "eleocharis-parvula",
+    "pterophyllum-scalare"
   ],
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "w6DLQvxswD0",
     "title": "DIY CO2 for your PLANTED AQUARIUM!! 1 BOTTLE METHOD!",
@@ -27,170 +28,184 @@
       "height": 720
     },
     "taxa": [
-      "Eleocharis parvula",
-      "Artemia sp.",
-      "Oncorhynchus mykiss"
+      "Carex sp.",
+      "Hyphessobrycon sp.",
+      "Pterygoplichthys sp.",
+      "Oncorhynchus mykiss",
+      "Pterophyllum scalare",
+      "Artemia sp."
     ],
     "gear": [
       {
         "category": "co2",
         "type": "mini",
-        "t": 3
-      },
-      {
-        "category": "co2",
-        "type": "binh",
-        "t": 39
+        "t": 0
       },
       {
         "category": "co2",
         "type": "binh",
         "brand": "Fzone",
-        "t": 132
+        "t": 39
       },
       {
         "category": "loc",
         "type": "bot-bien",
         "t": 552
-      },
-      {
-        "category": "phan-nen",
-        "type": "phan",
-        "brand": "Tropica",
-        "model": "Aquasoil"
       }
     ],
     "figures": [
       {
-        "heading": "Bộ CO2 thông thường gồm những gì",
+        "heading": "Bộ CO2 bình gồm những gì",
         "moments": [
           {
-            "t": 49,
-            "url": "https://media.aquatome.com/video/w6DLQvxswD0/t49.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Ống silicone dẫn khí CO2 vào bể, đầu sủi đặt trong bể thủy sinh."
+            "t": 70,
+            "url": "https://media.aquatome.com/video/w6DLQvxswD0/at70-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bình CO2 màu xanh gắn van giảm áp và bộ đếm giọt."
           },
           {
-            "t": 79,
-            "url": "https://media.aquatome.com/video/w6DLQvxswD0/t79.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Tay chỉ chỗ nối ống silicone với chai CO2 đặt dưới tủ bể."
+            "t": 80,
+            "url": "https://media.aquatome.com/video/w6DLQvxswD0/at80-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bình CO2 nhỏ với van và ống dẫn khí đi lên bể."
           }
         ]
       },
       {
-        "heading": "Cần chuẩn bị những gì",
+        "heading": "Cần chuẩn bị gì",
         "moments": [
           {
-            "t": 197,
-            "url": "https://media.aquatome.com/video/w6DLQvxswD0/t197.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Chai nước ngọt 1 lít và túi đường cát trắng chuẩn bị sẵn."
+            "t": 210,
+            "url": "https://media.aquatome.com/video/w6DLQvxswD0/at210-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bao đường và chai Coca nhựa dùng để pha men CO2."
           },
           {
-            "t": 246,
-            "url": "https://media.aquatome.com/video/w6DLQvxswD0/t246.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Gói men khô, nắp chai và các vật liệu đặt trên bàn."
+            "t": 220,
+            "url": "https://media.aquatome.com/video/w6DLQvxswD0/at220-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Gói men khô và đường đặt trên bàn để chuẩn bị pha."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/w6DLQvxswD0/p1-RsZV9Db3JrLkpQRw.webp",
+          "thumb": "https://media.aquatome.com/video/w6DLQvxswD0/p1-RsZV9Db3JrLkpQRw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "Public domain",
+          "author": "Christian Gidlöf",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Coca-Cola_Plastic_Bottle_Cork.JPG",
+          "caption": "Nắp chai Coca-Cola màu đỏ, loại có thể khoan lỗ gắn ống dẫn khí."
+        }
+      },
+      {
+        "heading": "Tự chế nắp chai",
+        "moments": [
+          {
+            "t": 270,
+            "url": "https://media.aquatome.com/video/w6DLQvxswD0/at270-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Nắp chai đỏ đã cắm đầu nối ống oxy vào lỗ."
+          },
+          {
+            "t": 280,
+            "url": "https://media.aquatome.com/video/w6DLQvxswD0/at280-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh đầu nối ống oxy cắm trên nắp chai tự chế."
           }
         ]
       },
       {
-        "heading": "Tự làm nắp chai có đầu cắm ống",
+        "heading": "Pha đường và men",
         "moments": [
           {
-            "t": 266,
-            "url": "https://media.aquatome.com/video/w6DLQvxswD0/t266.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Nắp chai đỏ có đầu nối cắm vào lỗ, đặt trên bàn."
+            "t": 360,
+            "url": "https://media.aquatome.com/video/w6DLQvxswD0/at360-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Dùng phễu đổ đường vào chai nhựa."
           },
           {
-            "t": 276,
-            "url": "https://media.aquatome.com/video/w6DLQvxswD0/t276.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Nắp chai đỏ đã cắm sẵn đầu nối ống hơi ở giữa."
+            "t": 370,
+            "url": "https://media.aquatome.com/video/w6DLQvxswD0/at370-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Chai đã pha đường và men, nước hơi đục."
           }
         ]
       },
       {
-        "heading": "Pha hỗn hợp men đường theo tỉ lệ nào",
+        "heading": "Nối chai vào bể",
         "moments": [
           {
-            "t": 325,
-            "url": "https://media.aquatome.com/video/w6DLQvxswD0/t325.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Gói men khô cầm trên tay, chuẩn bị cho vào chai."
+            "t": 450,
+            "url": "https://media.aquatome.com/video/w6DLQvxswD0/at450-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Chai CO2 đặt cạnh bể, ống silicone dẫn vào bể."
           },
           {
-            "t": 335,
-            "url": "https://media.aquatome.com/video/w6DLQvxswD0/t335.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Chai nhựa đặt trên cân, đang đổ đường vào để pha men."
+            "t": 460,
+            "url": "https://media.aquatome.com/video/w6DLQvxswD0/at460-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đầu sủi đã thả xuống bể, ống silicone nối lên trên."
           }
         ]
       },
       {
-        "heading": "Lắp ống và sủi vào bể",
+        "heading": "Một chai chạy được bao lâu",
         "moments": [
           {
-            "t": 444,
-            "url": "https://media.aquatome.com/video/w6DLQvxswD0/t444.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Chai CO2 tự chế đặt cạnh bể, ống silicone dẫn vào bể thủy sinh."
+            "t": 550,
+            "url": "https://media.aquatome.com/video/w6DLQvxswD0/at550-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ống dẫn khí thả vào bể, bọt khí li ti nổi lên."
           },
           {
-            "t": 454,
-            "url": "https://media.aquatome.com/video/w6DLQvxswD0/t454.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Sủi CO2 gắn trong bể, ống dẫn thả xuống gần hòn đá."
+            "t": 560,
+            "url": "https://media.aquatome.com/video/w6DLQvxswD0/at560-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Chai CO2 tự chế đặt cạnh bể thủy sinh có đá và rêu."
           }
         ]
       },
       {
-        "heading": "Một mẻ dùng được bao lâu",
+        "heading": "Gắn van chỉnh khí và rủi ro nổ chai",
         "moments": [
           {
-            "t": 552,
-            "url": "https://media.aquatome.com/video/w6DLQvxswD0/t552.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Chai men đường CO2 tự chế đặt cạnh bể thủy sinh."
-          },
-          {
-            "t": 582,
-            "url": "https://media.aquatome.com/video/w6DLQvxswD0/t582.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Chai CO2 đã pha mẻ nối ống dẫn vào bể."
+            "t": 590,
+            "url": "https://media.aquatome.com/video/w6DLQvxswD0/at590-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Chai CO2 tự chế đặt cạnh bể, có ống dẫn khí vào bể."
           }
         ]
       },
       {
-        "heading": "Những lỗi hay gặp",
+        "heading": "Bọt trào vào ống và sủi",
         "moments": [
           {
-            "t": 651,
-            "url": "https://media.aquatome.com/video/w6DLQvxswD0/t651.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể thủy sinh nối ống khí với chai CO2 men đặt bên cạnh."
+            "t": 660,
+            "url": "https://media.aquatome.com/video/w6DLQvxswD0/at660-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Chai CO2 tự chế đặt cạnh bể, ống dẫn vào bể."
           },
           {
-            "t": 670,
-            "url": "https://media.aquatome.com/video/w6DLQvxswD0/t670.webp",
+            "t": 690,
+            "url": "https://media.aquatome.com/video/w6DLQvxswD0/at690.webp",
             "width": 160,
             "height": 90,
-            "caption": "Sủi CO2 gắn trong bể, có bọt khí chạy qua ống."
+            "caption": "Chai đầy bọt trắng, bọt trào lên ống dẫn khí."
           }
         ]
       }

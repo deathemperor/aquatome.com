@@ -1,50 +1,14 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/6/69/Laubuka_dadiburjori_%28Orange_Chela%29.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Laubuka_dadiburjori_%28Orange_Chela%29.jpg/500px-Laubuka_dadiburjori_%28Orange_Chela%29.jpg",
-   "width": 5472,
-   "height": 3648,
-   "licence": "CC BY-SA 4.0",
-   "author": "Beta Mahatvaraj",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Laubuka_dadiburjori_(Orange_Chela).jpg",
-   "caption": "Laubuka dadiburjori (Orange Chela)",
-   "key": "File:Laubuka dadiburjori (Orange Chela).jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Laubuka_dadiburjori.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Laubuka_dadiburjori.jpg/500px-Laubuka_dadiburjori.jpg",
-   "width": 3840,
-   "height": 2160,
-   "licence": "CC BY-SA 4.0",
-   "author": "Cassius Chaerea",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Laubuka_dadiburjori.jpg",
-   "caption": "Kýlnatka tamilská při krmení",
-   "key": "File:Laubuka dadiburjori.jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/6/66/K%C3%BDlnatka_tamilsk%C3%A1.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/K%C3%BDlnatka_tamilsk%C3%A1.jpg/500px-K%C3%BDlnatka_tamilsk%C3%A1.jpg",
-   "width": 3840,
-   "height": 2160,
-   "licence": "CC BY-SA 4.0",
-   "author": "Cassius Chaerea",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:K%C3%BDlnatka_tamilsk%C3%A1.jpg",
-   "caption": "Kýlnatka tamilská v akváriu",
-   "key": "File:Kýlnatka tamilská.jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Laubuka_dadiburjori_%28Orange_Chela%29_%28cropped%29.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Laubuka_dadiburjori_%28Orange_Chela%29_%28cropped%29.jpg/500px-Laubuka_dadiburjori_%28Orange_Chela%29_%28cropped%29.jpg",
-   "width": 3261,
-   "height": 1194,
-   "licence": "CC BY-SA 4.0",
-   "author": "Beta Mahatvaraj",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Laubuka_dadiburjori_(Orange_Chela)_(cropped).jpg",
-   "caption": "Laubuka dadiburjori (Orange Chela)",
-   "key": "File:Laubuka dadiburjori (Orange Chela) (cropped).jpg"
-  }
+ "queue": [],
+ "judged": [
+  "File:Laubuka dadiburjori (Orange Chela).jpg",
+  "File:Laubuka dadiburjori.jpg",
+  "File:Kýlnatka tamilská.jpg",
+  "File:Laubuka dadiburjori (Orange Chela) (cropped).jpg"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/commons/51b000740ceba4f4.webp": "10cc0e2341c78308",
+  "https://media.aquatome.com/commons/b625b43950cd9276.webp": "3939333367726464"
+ },
+ "commons": "2026-11-08"
 }

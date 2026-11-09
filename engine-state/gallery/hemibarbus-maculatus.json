@@ -1,28 +1,14 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Hemibarbus_maculatus_Shanghai_Aquarium.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Hemibarbus_maculatus_Shanghai_Aquarium.jpg/500px-Hemibarbus_maculatus_Shanghai_Aquarium.jpg",
-   "width": 4032,
-   "height": 3024,
-   "licence": "CC BY-SA 4.0",
-   "author": "Fredlyfish4",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hemibarbus_maculatus_Shanghai_Aquarium.jpg",
-   "caption": "Hemibarbus maculatus at the Shanghai Aquarium",
-   "key": "File:Hemibarbus maculatus Shanghai Aquarium.jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Hemibarbus_maculatus.JPG",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Hemibarbus_maculatus.JPG/500px-Hemibarbus_maculatus.JPG",
-   "width": 1835,
-   "height": 1224,
-   "licence": "CC0",
-   "author": "A. C. Tatarinov",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hemibarbus_maculatus.JPG",
-   "caption": "Hemibarbus maculatus",
-   "key": "File:Hemibarbus maculatus.JPG"
-  }
+ "queue": [],
+ "judged": [
+  "File:Hemibarbus maculatus Shanghai Aquarium.jpg",
+  "File:Hemibarbus maculatus.JPG"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/seriouslyfish/700f7cdd628c90f3.webp": "1626b6cc25fa0dc4",
+  "https://media.aquatome.com/seriouslyfish/e48e267d3969dbdb.webp": "d3f372bac490e492",
+  "https://media.aquatome.com/commons/2d711d0c3a474e6f.webp": "835c03241d5ee7e3",
+  "https://media.aquatome.com/commons/bd473851549f48d4.webp": "07400d4b0cc0a687"
+ },
+ "commons": "2026-11-08"
 }

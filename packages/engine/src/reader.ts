@@ -8,7 +8,7 @@ import { LlmError, type Llm } from './claude'
 import { logReviews } from './review-log'
 import { blocks, countMismatch, sourcePagePhrases } from './content-rules'
 import { METRIC_KINDS } from './metric'
-import { LANG_NAME, pageUrl, type Page } from './pages'
+import { fixedParts, LANG_NAME, pageUrl, type Page } from './pages'
 import type { HedgePair } from './hedges'
 import { reviewRewrite, reviewTranslation, type Review } from './quality'
 import { snapshotName } from './snapshot'
@@ -250,6 +250,7 @@ export async function readPages(root: string, pages: Page[], d: ReaderDeps, o: {
     for (const f of entry.findings.filter(f => canRewrite(p, f))) byField.set(f.field!, [...(byField.get(f.field!) ?? []), f])
     let now = p // the page as it is after this cycle's rewrites
     let tried = true // every part with findings sent to the writer (else a rule's findings wait for the next read)
+    const fixed = await fixedParts(join(root, 'content', p.kind, p.id))
     for (const [field, fs] of byField) {
       if (rewrites <= 0) { tried = false; break }
       rewrites--
@@ -257,7 +258,7 @@ export async function readPages(root: string, pages: Page[], d: ReaderDeps, o: {
       try {
         const t = JSON.parse(await readFile(file, 'utf8')) as { sections?: Record<string, string>; body?: string; definition?: string; bodyFixed?: boolean }
         const html = fieldOf(t, field)
-        if (!html || (field === 'body' && t.bodyFixed)) continue // a body a person fixed is theirs (schemas.ts bodyFixed)
+        if (!html || (field === 'body' && t.bodyFixed) || fixed.has(field)) continue // a part a person fixed is theirs (schemas.ts bodyFixed, Section.fixed)
         const source = field.startsWith('sections.') ? field.split(':')[1] : p.origin?.source
         const r = await rewritePart(d.llm, html, fs, { en: p.en?.[field], source: source && names[source]?.name })
         if (!r) continue
