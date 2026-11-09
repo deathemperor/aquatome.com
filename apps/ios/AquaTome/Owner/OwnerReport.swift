@@ -12,6 +12,13 @@ import UIKit
 /// the picture, and ask nothing of the screens under them. The button's window is its own size: the rest of the screen,
 /// the status bar's looks included, stays the app's.
 extension View {
+  /// A scroll view's end clear of the report button, which floats over every screen of the owner's (the Design Lead,
+  /// 8 Nov): its last row ends above the button, and with `.trailing`, a wide table's last column scrolls out from under it.
+  func clearOfOwnerReport(_ edges: Edge.Set = .bottom) -> some View {
+    contentMargins(.bottom, edges.contains(.bottom) ? OwnerReportOverlay.aboveBottom + OwnerReportOverlay.size.height + 8 : 0, for: .scrollContent)
+      .contentMargins(.trailing, edges.contains(.trailing) ? OwnerReportOverlay.size.width + 16 : 0, for: .scrollContent)
+  }
+
   /// `place`: what's showing now, as the app's start knows it.
   func ownerReports(place: @escaping @MainActor () -> OwnerReportPlace) -> some View {
     modifier(OwnerReports(place: place))
@@ -75,10 +82,10 @@ private final class OwnerReportOverlay {
   private var offerEnds: Task<Void, Never>?
   private var watching: NSObjectProtocol?
 
-  private static let size = CGSize(width: 48, height: 48)
+  fileprivate static let size = CGSize(width: 48, height: 48)
   private static let offerSize = CGSize(width: 190, height: 48)
   /// Above the tab bar and a pinned bar over it (the Lights' write bar), against the screen's edge.
-  private static let aboveBottom: CGFloat = 180
+  fileprivate static let aboveBottom: CGFloat = 180
 
   func show(_ owner: OwnerAccess?, place: @escaping @MainActor () -> OwnerReportPlace) {
     self.owner = owner
