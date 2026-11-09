@@ -146,6 +146,15 @@ Commit subjects read
 The council (`.claude/skills/council/SKILL.md`) has one model from each of four providers review a PR, a design or
 screenshots and score it out of 10, round after round. Run it when the owner asks for it.
 
+A screen built from a mock or a spec (`docs/design/`) merges with its **parity** under `## Parity` in the PR's body (the
+chief of staff, 2026-11-09, after a badge shipped without the mock's icon):
+- a side-by-side: the build's screenshot beside the mock, the same screen in the same state and look;
+- a checklist of every element on the screen: icon, text, order, size, colour, and tap target (what a tap opens). Each line
+  reads "matches", or "differs on purpose: <why>, approved by <who>".
+
+The design lead checks it before merge. A difference no one approved blocks the merge, and the build changes to match. A
+recording for the owner comes with the same checklist.
+
 A PR's body has a `## Changelog` section, which the owner's daily report and change log (`/_ab/thay-doi/`) show: a
 line for each product change, `- Site:`, `- App:` or `- Engine:` (the content engine) and one plain sentence for the
 owner, not a developer (no file names, codes or PR numbers), or `- none` (CI, tests, refactors, docs). The `test` check
