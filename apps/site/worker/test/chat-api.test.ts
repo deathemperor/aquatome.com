@@ -759,16 +759,108 @@ test('an R2 error marking the question is unavailable (503), not answering, and 
   expect(Object.values(ledger.day()!.readers)).toEqual([0])
 })
 
-test('a key that runs out of credit during a question is ours: unavailable, and the count goes back; a request the API refuses is failed, and counts', async () => {
-  const { e, db, ledger } = env()
-  const me = await signIn(db)
+test('a key that runs dry during a question hands the rest of the run to the next key: the reader is answered, and the dry key isn\'t asked again; with every key dry, chat rests and the count goes back; a request the API refuses is failed, and counts', async () => {
   const refused = (message: string) => () => Response.json({ type: 'error', error: { type: 'invalid_request_error', message } }, { status: 400 })
-  const out = await run(ask(bearer(me.token)), e, deps(claude([() => reads('/vi/ca/ca-neon-xanh/'), refused('Your credit balance is too low to access the Anthropic API.')]).fetch))
-  expect([out.res.status, out.body]).toEqual([503, { error: 'unavailable' }])
-  expect(Object.values(ledger.day()!.readers)).toEqual([0])
-  const bad = await run(ask(bearer(me.token), { conversation: '7f1c2a52-8d3e-4b7a-9c41-2e5d7f80b913' }), e, deps(claude([() => reads('/vi/ca/ca-neon-xanh/'), refused('messages: bad request')]).fetch))
-  expect([bad.res.status, bad.body]).toEqual([502, { error: 'failed' }])
-  expect(Object.values(ledger.day()!.readers)).toEqual([1])
+  const credit = refused('Your credit balance is too low to access the Anthropic API.')
+  {
+    const { e, db, ledger } = env()
+    const me = await signIn(db)
+    // The key that answers the first call then runs dry; the other has credit.
+    const keys: string[] = []
+    let dry: string | undefined
+    let served = 0
+    const fetch = (async (input: RequestInfo | URL, init?: RequestInit) => {
+      const h = new Request(input, init).headers
+      const k = h.get('x-api-key') ?? h.get('authorization')!.replace(/^Bearer\s+/i, '')
+      keys.push(k)
+      dry ??= k
+      return k === dry && served >= 1 ? credit() : NEON[served++]!()
+    }) as typeof globalThis.fetch
+    const r = await run(ask(bearer(me.token)), e, deps(fetch))
+    expect([r.res.status, r.body]).toMatchObject([200, { n: 1, text: 'Cá neon xanh sống theo đàn.' }])
+    const other = dry === A ? B : A
+    expect(keys).toEqual([dry, dry, other])
+    expect(Object.values(ledger.day()!.readers)).toEqual([1])
+    // The next question doesn't ask the dry key: it is set aside for the day.
+    keys.length = 0
+    served = 0
+    expect((await run(ask(bearer(me.token), { conversation: '7f1c2a52-8d3e-4b7a-9c41-2e5d7f80b913' }), e, deps(fetch))).body).toMatchObject({ n: 1 })
+    expect(keys).toEqual([other, other])
+  }
+  {
+    // Every key dry mid-question: chat rests, and the reader's count goes back.
+    const { e, db, ledger } = env()
+    const me = await signIn(db)
+    const out = await run(ask(bearer(me.token)), e, deps(claude([() => reads('/vi/ca/ca-neon-xanh/'), credit]).fetch))
+    expect([out.res.status, out.body]).toEqual([503, { error: 'resting' }])
+    expect(Object.values(ledger.day()!.readers)).toEqual([0])
+  }
+  {
+    // Our request refused: failed, and it counts; the next key isn't asked.
+    const { e, db, ledger } = env()
+    const me = await signIn(db)
+    const c = claude([() => reads('/vi/ca/ca-neon-xanh/'), refused('messages: bad request')])
+    const bad = await run(ask(bearer(me.token)), e, deps(c.fetch))
+    expect([bad.res.status, bad.body]).toEqual([502, { error: 'failed' }])
+    expect(c.bodies).toHaveLength(2)
+    expect(Object.values(ledger.day()!.readers)).toEqual([1])
+  }
+})
+
+test('each call asks the run\'s key first, a key set aside stays out for the rest of the run, and the answer is credited to the key that wrote it', async () => {
+  const overloaded = () => Response.json({ type: 'error', error: { type: 'overloaded_error', message: 'Overloaded' } }, { status: 529 })
+  const credit = () => Response.json({ type: 'error', error: { type: 'invalid_request_error', message: 'Your credit balance is too low to access the Anthropic API.' } }, { status: 400 })
+  const scripted = (replies: (() => Response | Promise<Response>)[]) => {
+    const keys: string[] = []
+    const fetch = (async (input: RequestInfo | URL, init?: RequestInit) => {
+      const h = new Request(input, init).headers
+      keys.push(h.get('x-api-key') ?? h.get('authorization')!.replace(/^Bearer\s+/i, ''))
+      return replies[keys.length - 1]!()
+    }) as typeof globalThis.fetch
+    return { keys, fetch }
+  }
+  {
+    // A answers the first call; overloaded on the second, B answers it; on the third B is overloaded first, as the run's
+    // key now, and A writes the answer.
+    const { e, db, ledger } = env()
+    const me = await signIn(db)
+    const read = () => reads('/vi/ca/ca-neon-xanh/')
+    const c = scripted([read, overloaded, read, overloaded, NEON[1]!])
+    const r = await run(ask(bearer(me.token)), e, deps(c.fetch))
+    expect(r.res.status).toBe(200)
+    expect(c.keys).toEqual([A, A, B, B, A])
+    const day = ledger.day()!
+    const [first] = Object.entries(day.keys).find(([, n]) => n === 2)!
+    expect(day.ok).toEqual({ [first]: 1 })
+  }
+  {
+    // A runs dry on the second call and B answers it; B is overloaded on the third, and A isn't asked again.
+    const { e, db } = env()
+    const me = await signIn(db)
+    const read = () => reads('/vi/ca/ca-neon-xanh/')
+    const c = scripted([read, credit, read, overloaded, NEON[1]!])
+    const r = await run(ask(bearer(me.token)), e, deps(c.fetch))
+    expect([r.res.status, r.body]).toEqual([503, { error: 'unavailable' }])
+    expect(c.keys).toEqual([A, A, B, B])
+  }
+})
+
+test('a later call whose text has begun isn\'t asked again of the next key when it fails: the reader gets the error, never a second answer after the first words', async () => {
+  const { e, db } = env()
+  const me = await signIn(db)
+  const opening = sseEv('content_block_start', { index: 0, content_block: { type: 'text', text: '' } }) + sseEv('content_block_delta', { index: 0, delta: { type: 'text_delta', text: '{"offTopic":false,"text":"Cá neon' } })
+  let asked = 0
+  const fetch = (async (input: RequestInfo | URL, init?: RequestInit) => {
+    asked++
+    const body = await new Request(input, init).json() as { stream?: boolean }
+    return asked === 1 ? streamOf(await reads('/vi/ca/ca-neon-xanh/')) : body.stream ? cutStream(started + opening, 'error') : answers({})
+  }) as typeof globalThis.fetch
+  const { res } = await run(ask(bearer(me.token), {}, { accept: 'text/event-stream' }), e, deps(fetch))
+  const text = await res.text()
+  expect(streamMisfits(text, sseMedia)).toEqual([])
+  expect(asked).toBe(2)
+  expect(text).toContain('event: text\ndata: {"text":"Cá neon"}')
+  expect(text.endsWith('event: error\ndata: {"error":"unavailable"}\n\n')).toBe(true)
 })
 
 test('an off-topic question is answered with the fixed line and gives the reader\'s count back; the site\'s day still counts it', async () => {
