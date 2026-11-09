@@ -736,7 +736,10 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertGreaterThanOrEqual(discus.frame.minY, neon.frame.maxY, "the names aren't a species to a line")
     let heading = app.descendants(matching: .any).matching(identifier: "chat-section").firstMatch.descendants(matching: .any).matching(NSPredicate(format: "label CONTAINS 'Cho ăn'")).firstMatch
     reveal(app, heading, times: 40)
-    element(app, "chat-section").coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.4)).tap()
+    // Its text, which is what opens it: a point partway down a card this tall can be behind the box.
+    let line = element(app, "chat-section").descendants(matching: .staticText).matching(NSPredicate(format: "label BEGINSWITH 'Ngày hai lần'")).firstMatch
+    reveal(app, line, times: 6)
+    line.tap()
     let close = app.buttons["Thu gọn"]
     XCTAssertTrue(close.waitForExistence(timeout: 5), "didn't open")
     reveal(app, close, times: 20)
