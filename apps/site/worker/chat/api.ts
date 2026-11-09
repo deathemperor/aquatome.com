@@ -9,6 +9,8 @@ import { healthyKeys, isApiError, loadKeys, rotate, type Attempt, type KeyEntry 
 import { ledgerClient, usdCap } from '../fishid/ledger'
 import { relayFetch } from '../fishid/relay'
 import { turnsOf } from '../fishid/transcript'
+import { handoverFor } from './handover'
+import { sectionSearch } from './section-search'
 import { answerQuestion, CHAT_LIMITS, MAX_TOKENS, OPENING_TOKENS, type ChatRun, type Earlier, type Start } from './agent'
 import type { ChatBlock } from './answer'
 import { handbookOf, type Handbook, type Lang, type Source } from './handbook'
@@ -46,6 +48,9 @@ export type ChatEnv = {
   /** The owner's account ids, comma-separated (a Worker secret, as the dashboard reads it). */
   OWNER_ACCOUNTS?: string
   CHAT_MODEL?: string
+  /** The search that hands Claude sections before its first call (handover.ts): Workers AI embeds the reader's words, Vectorize finds the sections. */
+  AI?: Ai
+  CHAT_SEARCH?: Vectorize
   /** Questions per account a day, for the whole site a day, and in one conversation (defaults below). */
   CHAT_PER_ACCOUNT?: string
   CHAT_PER_DAY?: string
@@ -326,6 +331,12 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   let doneAt: number | undefined
   /** The run as the agent ran it, for its transcript: none when it never started (the handbook unread). */
   let trail: ChatRun | undefined
+  // The first question of a conversation, on the owner's account alone: opening chat to all turns this off. To widen it, first
+  // a judged pass three times the size of the last, whose middle estimate of mistakes doesn't lean worse than today's chat (2026-11-09).
+  const search = env.CHAT === 'owner' && env.AI && env.CHAT_SEARCH && !conv?.turns.length ? sectionSearch(env.AI, env.CHAT_SEARCH) : undefined
+  let saved: Promise<Tank[]> | undefined
+  /** The reader's tanks, read once for the handover and for read_tanks; a read that failed is tried again by the next. */
+  const tanks = () => (saved ??= tanksOf(env.DB, session.userId, now)).catch(e => { saved = undefined; console.error('chat tanks:', e); return null })
 
   /** The run, after admission: its turn, or the error it ends on (as the JSON answer's status). */
   const work = async (onStep?: (s: Step) => void, onText?: (piece: string) => void, onBlock?: (b: ChatBlock) => void, onOpening?: (line: string) => void): Promise<{ status: number; body: Record<string, unknown> }> => {
@@ -370,7 +381,8 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
           return r.value
         },
         model, lang: q.lang, question: q.question, earlier: conv?.turns ?? [], start: (conv?.turns.length ? {} : q.start), handbook: hb,
-        tanks: () => tanksOf(env.DB, session.userId, now).catch(e => { console.error('chat tanks:', e); return null }),
+        tanks,
+        ...(search ? { handover: async () => handoverFor({ question: q.question, start: q.start, tanks: (await tanks()) ?? [], hb, lang: q.lang, search }) } : {}),
         onStep, clock,
         ...(onText ? { onText: (piece: string) => { shown = true; onText(piece) }, ...(onBlock ? { onBlock } : {}) } : {}),
         ...(onOpening ? { opening: true, onOpening } : {}),
@@ -449,6 +461,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
       agent: { calls: t.calls, tools: t.tools, stopped: t.stopped },
       ...(t.answer ? { answer: { text: t.answer.text, covered: t.answer.covered, ...(t.answer.offTopic ? { offTopic: true } : {}), blocks: t.blocks.length, dropped: t.dropped } } : {}),
       ...(t.opening ? { opening: t.opening } : {}),
+      ...(t.handed ? { handed: t.handed } : {}),
       turns: turnsOf(t.history, t.message),
     }
   }
