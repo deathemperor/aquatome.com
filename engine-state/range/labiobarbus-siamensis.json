@@ -1,0 +1,147 @@
+{
+  "id": "labiobarbus-siamensis",
+  "native": {
+    "input": "ce8f645d4484b385",
+    "at": "2026-11-09T09:57:55.009Z",
+    "claims": [
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Labiobarbus siamensis is a cyprinid from the Mekong in Laos, Thailand and Cambodia, and the Chao Phraya and Bang Pakong in central Thailand.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Labiobarbus siamensis is a cyprinid from the Mekong in Laos, Thailand and Cambodia, and the Chao Phraya and Bang Pakong in central Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Labiobarbus siamensis is a cyprinid from the Mekong in Laos, Thailand and Cambodia, and the Chao Phraya and Bang Pakong in central Thailand.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the Mekong River system in Laos, Thailand, and Cambodia, plus the Chao Phraya and Bang Pakong watersheds in central Thailand.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the Mekong River system in Laos, Thailand, and Cambodia, plus the Chao Phraya and Bang Pakong watersheds in central Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the Mekong River system in Laos, Thailand, and Cambodia, plus the Chao Phraya and Bang Pakong watersheds in central Thailand.",
+        "words": "Cambodia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Known from the Mekong River system in Laos, Thailand, and Cambodia, plus the Chao Phraya and Bang Pakong watersheds in central Thailand.",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "Known from the Mekong River system in Laos, Thailand, and Cambodia, plus the Chao Phraya and Bang Pakong watersheds in central Thailand.",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Bang Pakong",
+        "source": "seriouslyfish",
+        "quote": "Known from the Mekong River system in Laos, Thailand, and Cambodia, plus the Chao Phraya and Bang Pakong watersheds in central Thailand.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Labiobarbus siamensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2366280,
+    "datasets": [
+      [
+        "80f63c1e-f762-11e1-a439-00145eb45e9a",
+        50
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        20
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        14
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        13
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        10
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        2
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "LA",
+      "TH",
+      "KH"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T09:57:55.009Z"
+  }
+}

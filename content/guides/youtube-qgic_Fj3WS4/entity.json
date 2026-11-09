@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "qgic_Fj3WS4",
     "title": "Chia Sẻ Kinh Nghiệm - Hướng Dẫn Thay  Nước Bể Thuỷ Sinh Trong Vòng 5 Phút Cực Kỳ Đơn Giản",
@@ -26,62 +26,93 @@
     },
     "lang": "vi",
     "taxa": [],
-    "gear": [],
+    "gear": [
+      {
+        "category": "khac",
+        "brand": "King Aqua",
+        "model": "Bơm tay 160cm",
+        "t": 0
+      },
+      {
+        "category": "khac",
+        "brand": "King Aqua",
+        "model": "Dây thay nước chống gập phi 16",
+        "t": 93
+      },
+      {
+        "category": "khac",
+        "brand": "King Aqua",
+        "model": "Giác mút giữ dây 16-22mm",
+        "t": 222
+      },
+      {
+        "category": "khac",
+        "brand": "King Aqua",
+        "model": "Kẹp giữ ống nước",
+        "t": 222
+      }
+    ],
     "figures": [
       {
-        "heading": "Dùng bơm tay hút cặn nền thế nào",
+        "heading": "Hút cặn nền bằng bơm tay",
         "moments": [
           {
-            "t": 74,
-            "url": "https://media.aquatome.com/video/qgic_Fj3WS4/t74.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đầu ống hút có rọ đưa xuống sát nền cát để hút cặn."
+            "t": 75,
+            "url": "https://media.aquatome.com/video/qgic_Fj3WS4/at75-hd.webp",
+            "width": 1200,
+            "height": 673,
+            "caption": "Đầu ống hút sát lớp cát nền để hút cặn bẩn.",
+            "sharpness": 673.7
           },
           {
-            "t": 84,
-            "url": "https://media.aquatome.com/video/qgic_Fj3WS4/t84.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Hút cặn trên mặt nền, nước trong ống cuốn cặn ra ngoài."
+            "t": 85,
+            "url": "https://media.aquatome.com/video/qgic_Fj3WS4/at85-hd.webp",
+            "width": 1200,
+            "height": 673,
+            "caption": "Rọ đầu ống di chuyển nhẹ trên nền cát, cặn bốc lên.",
+            "sharpness": 811.5
           }
         ]
       },
       {
-        "heading": "Bể lớn thì dùng dây thay nước chống gập",
+        "heading": "Khi nào dùng dây thay nước",
         "moments": [
           {
-            "t": 123,
-            "url": "https://media.aquatome.com/video/qgic_Fj3WS4/t123.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Dây thay nước màu xanh được nhúng vào bể để nước chảy đầy ống."
+            "t": 125,
+            "url": "https://media.aquatome.com/video/qgic_Fj3WS4/at125-hd.webp",
+            "width": 1200,
+            "height": 673,
+            "caption": "Dây thay nước màu xanh được đưa vào bể thủy sinh.",
+            "sharpness": 703.3
           },
           {
-            "t": 162,
-            "url": "https://media.aquatome.com/video/qgic_Fj3WS4/t162.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đầu dây đưa sát mặt nền trong bể để hút cặn khi thay nước."
+            "t": 155,
+            "url": "https://media.aquatome.com/video/qgic_Fj3WS4/at155-hd.webp",
+            "width": 1200,
+            "height": 673,
+            "caption": "Đầu dây đưa xuống nền bể để hút cặn bẩn.",
+            "sharpness": 751
           }
         ]
       },
       {
-        "heading": "Đừng quên cặn kẹt trong bụi cây",
+        "heading": "Đừng bỏ sót cặn trong bụi cây",
         "moments": [
           {
-            "t": 182,
-            "url": "https://media.aquatome.com/video/qgic_Fj3WS4/t182.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Một tay lắc nhẹ bụi cây, tay kia cầm ống hút cặn."
+            "t": 180,
+            "url": "https://media.aquatome.com/video/qgic_Fj3WS4/at180-hd.webp",
+            "width": 1200,
+            "height": 673,
+            "caption": "Đưa ống hút vào bụi cây trong bể thủy sinh để lấy cặn.",
+            "sharpness": 562
           },
           {
-            "t": 197,
-            "url": "https://media.aquatome.com/video/qgic_Fj3WS4/t197.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đưa đầu ống hút sát bụi cây để hút cặn vừa bay ra."
+            "t": 200,
+            "url": "https://media.aquatome.com/video/qgic_Fj3WS4/at200-hd.webp",
+            "width": 1200,
+            "height": 673,
+            "caption": "Tay lắc nhẹ bụi cây, ống hút kề bên để hút cặn bay ra.",
+            "sharpness": 580.7
           }
         ],
         "photo": {
@@ -92,68 +123,70 @@
           "licence": "CC0",
           "author": "Netha Hussain",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_freshwater_aquarium_containing_plants_and_small_fish.jpg",
-          "caption": "Bể thủy sinh với các bụi cây mọc trên nền sỏi và lũa."
+          "caption": "Bể thủy sinh có nhiều bụi cây rậm, cặn dễ mắc kẹt bên trong."
         }
       },
       {
-        "heading": "Mỗi lần thay bao nhiêu nước",
+        "heading": "Châm nước lại mà không làm bung nền",
         "moments": [
           {
-            "t": 192,
-            "url": "https://media.aquatome.com/video/qgic_Fj3WS4/t192.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Dùng ống siphon xanh hút nước và cặn trong bể thủy sinh."
+            "t": 215,
+            "url": "https://media.aquatome.com/video/qgic_Fj3WS4/at215-hd.webp",
+            "width": 1200,
+            "height": 673,
+            "caption": "Gắn cục bông vào đầu dây nước để nước chảy ra nhẹ hơn.",
+            "sharpness": 705.8
           },
           {
-            "t": 206,
-            "url": "https://media.aquatome.com/video/qgic_Fj3WS4/t206.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Ống siphon đặt trong bể cây, đang rút nước ra ngoài."
+            "t": 235,
+            "url": "https://media.aquatome.com/video/qgic_Fj3WS4/at235-hd.webp",
+            "width": 1200,
+            "height": 673,
+            "caption": "Dùng kẹp giữ ống gắn lên thành bể để cố định đầu dây.",
+            "sharpness": 652.7
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/qgic_Fj3WS4/p3-bV9maXNoZXMuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/qgic_Fj3WS4/p3-bV9maXNoZXMuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/qgic_Fj3WS4/p4-bV9GaXNoZXMuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/qgic_Fj3WS4/p4-bV9GaXNoZXMuanBn-480.webp",
           "width": 960,
           "height": 640,
           "licence": "CC BY-SA 4.0",
           "author": "KannanVM",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pookode_Lake_Fresh_Water_Aquarium_fishes.jpg",
-          "caption": "Cá vàng bơi trên lớp sỏi đáy bể, nơi cặn bẩn dễ tích tụ."
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pookode_Lake_Fresh_Water_Aquarium_Fishes.jpg",
+          "caption": "Bể cá có lớp sỏi nền sáng màu, cần châm nước nhẹ để không bung nền."
         }
       },
       {
-        "heading": "Cấp nước lại mà không bung nền",
+        "heading": "Châm nước cho bể mini",
         "moments": [
           {
-            "t": 221,
-            "url": "https://media.aquatome.com/video/qgic_Fj3WS4/t221.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đầu dây cấp nước được bọc bông, treo vào thành bể."
+            "t": 310,
+            "url": "https://media.aquatome.com/video/qgic_Fj3WS4/at310-hd.webp",
+            "width": 1200,
+            "height": 673,
+            "caption": "Ống dẫn nước đặt trong bể thủy sinh để châm nước từ từ.",
+            "sharpness": 974.4
           },
           {
-            "t": 231,
-            "url": "https://media.aquatome.com/video/qgic_Fj3WS4/t231.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Dây cấp nước được kẹp cố định lên thành bể."
+            "t": 335,
+            "url": "https://media.aquatome.com/video/qgic_Fj3WS4/at335-hd.webp",
+            "width": 1200,
+            "height": 673,
+            "caption": "Đưa tay đỡ đầu ống để nước chảy nhẹ, không xói vào nền.",
+            "sharpness": 610.9
           }
-        ]
-      },
-      {
-        "heading": "Với bể mini",
-        "moments": [
-          {
-            "t": 329,
-            "url": "https://media.aquatome.com/video/qgic_Fj3WS4/t329.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đưa lòng bàn tay vào bể để đỡ dòng nước, tránh xói nền."
-          }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/qgic_Fj3WS4/p5-ha3Zhcml1bS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/qgic_Fj3WS4/p5-ha3Zhcml1bS5qcGc-480.webp",
+          "width": 960,
+          "height": 737,
+          "licence": "Public domain",
+          "author": "User Aleš Tošovský",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amaterske_akvarium.jpg",
+          "caption": "Bể thủy sinh có nền sỏi và cây xanh, nước trong và yên."
+        }
       }
     ]
   }

@@ -36,6 +36,7 @@ struct SpeciesPage: View {
   @Environment(\.colorScheme) private var scheme
   @Environment(\.v2FootGround) private var footGround
   @Environment(AccountModel.self) private var account
+  @Environment(ChatStore.self) private var chat
   /// The way round a long page (PageNavigator), its title in the bar: the owner's alone for now.
   @State private var navigator = PageNavigator()
   /// This page being read, how far down and how long, as v1's page reports it (made when it first shows).
@@ -166,7 +167,7 @@ struct SpeciesPage: View {
       }
       .v2Glass(!colourAt.top)
     }
-    .sheet(isPresented: $putting) { if let life = Life(item) { NavigationStack { PutOnTank(life: life) } } }
+    .v2PutOnTank(item, isPresented: $putting)
     .fullScreenCover(isPresented: Binding(get: { viewing != nil }, set: { if !$0 { viewing = nil } })) {
       GalleryViewer(title: galleryTitle, note: galleryNote, photos: photos, readers: nil, index: viewing ?? 0)
     }
@@ -451,6 +452,10 @@ struct SpeciesPage: View {
         .opacity(tanks.canEdit ? 1 : 0.5)
         .accessibilityIdentifier("v2-add")
         .padding(.top, 10)
+      }
+      if chat.on, let ask = ChatRoute(about: item) {
+        // The tint in the scheme that reads on the photo's colour, whichever the phone's.
+        AskEntry(route: ask, onColour: true).environment(\.colorScheme, .dark).padding(.top, 10)
       }
     }
     .frame(maxWidth: .infinity, alignment: .leading)

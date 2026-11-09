@@ -877,6 +877,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/doradidae/physopyxis_lyra.htm": {
+    "entityIds": [
+      "species/physopyxis-lyra"
+    ],
+    "updatedAt": "2026-11-09T08:49:14.328Z",
+    "hash": "b103494a48d60d7e693009ce6d364c947e6ad288394541ab2c5e0fdeaf928db8",
+    "processedHash": "b103494a48d60d7e693009ce6d364c947e6ad288394541ab2c5e0fdeaf928db8",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/heptapteridae/acentronichthys_leptos.htm": {
     "entityIds": [
       "species/acentronichthys-leptos"
@@ -1405,6 +1415,36 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/loricariidae/pareiorhaphis_steindachneri.htm": {
+    "entityIds": [
+      "species/pareiorhaphis-steindachneri"
+    ],
+    "updatedAt": "2026-11-09T08:44:36.874Z",
+    "hash": "15b685c1e309a9f2ad67689789570ee3b0926816bf27d3542bc68e3da4927c23",
+    "processedHash": "15b685c1e309a9f2ad67689789570ee3b0926816bf27d3542bc68e3da4927c23",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/pareiorhina_rudolphi.htm": {
+    "entityIds": [
+      "species/pareiorhina-rudolphi"
+    ],
+    "updatedAt": "2026-11-09T08:45:34.841Z",
+    "hash": "2c2de5cd3ab53f8580f8d7741467357f5949c7c5f43e295150b66b78636cd0bc",
+    "processedHash": "2c2de5cd3ab53f8580f8d7741467357f5949c7c5f43e295150b66b78636cd0bc",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/peckoltia_braueri.htm": {
+    "entityIds": [
+      "species/peckoltia-braueri"
+    ],
+    "updatedAt": "2026-11-09T08:47:22.645Z",
+    "hash": "735a949a94ba505b89caa90698e7b29d075e7618c2ec89c752f1d9b9afb0c18b",
+    "processedHash": "735a949a94ba505b89caa90698e7b29d075e7618c2ec89c752f1d9b9afb0c18b",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/loricariidae/peckoltia_compta.htm": {
     "entityIds": [
       "species/peckoltia-compta"
@@ -1412,6 +1452,16 @@
     "updatedAt": "2026-11-01T00:23:55.428Z",
     "hash": "7f3e384ad1d9aadab7721ddbb79e105b5388d496669b72e08bdbd1dd293f1f6e",
     "processedHash": "7f3e384ad1d9aadab7721ddbb79e105b5388d496669b72e08bdbd1dd293f1f6e",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/planiloricaria_cryptodon.htm": {
+    "entityIds": [
+      "species/planiloricaria-cryptodon"
+    ],
+    "updatedAt": "2026-11-09T08:52:14.826Z",
+    "hash": "80643e323f3ccb0f50efcca3599c1f0a6253232c45e09e531c175700a101468a",
+    "processedHash": "80643e323f3ccb0f50efcca3599c1f0a6253232c45e09e531c175700a101468a",
     "status": "processed",
     "attempts": 0
   },
@@ -1555,6 +1605,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/pimelodidae/platystomatichthys_sturio.htm": {
+    "entityIds": [
+      "species/platystomatichthys-sturio"
+    ],
+    "updatedAt": "2026-11-09T08:54:35.187Z",
+    "hash": "a9e6f05745b7352ee578246b265b5a828bf147ebb9c13cfbe39a12cd3561cd91",
+    "processedHash": "a9e6f05745b7352ee578246b265b5a828bf147ebb9c13cfbe39a12cd3561cd91",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/pseudopimelodidae/batrochoglanis_raninus.htm": {
     "entityIds": [
       "species/batrochoglanis-raninus"
@@ -1662,6 +1722,16 @@
     "updatedAt": "2026-11-09T05:55:55.658Z",
     "hash": "bfad2b48ed3622d1b78b4cece0f04ca5e08015b4abe878510b7b7832e66f5c20",
     "processedHash": "bfad2b48ed3622d1b78b4cece0f04ca5e08015b4abe878510b7b7832e66f5c20",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/trichomycteridae/pareiodon_microps.htm": {
+    "entityIds": [
+      "species/pareiodon-microps"
+    ],
+    "updatedAt": "2026-11-09T08:43:32.287Z",
+    "hash": "92e2424727b0b89f273c9230877adecdf2baf4f7d2eeab8f66df3210ac028b72",
+    "processedHash": "92e2424727b0b89f273c9230877adecdf2baf4f7d2eeab8f66df3210ac028b72",
     "status": "processed",
     "attempts": 0
   }

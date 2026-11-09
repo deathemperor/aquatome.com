@@ -1,0 +1,72 @@
+{
+  "id": "laetacara-araguaiae",
+  "native": {
+    "input": "02146ed533511150",
+    "at": "2026-11-09T09:57:55.009Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the rio Araguaia basin in central Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Araguaia",
+        "source": "seriouslyfish",
+        "quote": "Known from the rio Araguaia basin in central Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Laetacara araguaiae",
+    "status": "ACCEPTED",
+    "taxonKey": 2370416,
+    "datasets": [
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        28
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        28
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        20
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        8
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        5
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        4
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        3
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T09:57:55.009Z"
+  }
+}

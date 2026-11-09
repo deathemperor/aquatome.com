@@ -76,6 +76,11 @@
     "at": "2026-11-07",
     "kept": false
   },
+  "ceratopteris-thalictroides": {
+    "at": "2026-11-09",
+    "score": 0.85,
+    "kept": true
+  },
   "crinum-calamistratum": {
     "at": "2026-11-07",
     "score": 0.85,
@@ -113,6 +118,10 @@
     "at": "2026-11-08",
     "kept": false
   },
+  "echinodorus-aquartica": {
+    "at": "2026-11-09",
+    "kept": false
+  },
   "echinodorus-cordifolius": {
     "at": "2026-11-07",
     "kept": false
@@ -129,6 +138,10 @@
     "at": "2026-11-07",
     "score": 0.95,
     "kept": true
+  },
+  "echinodorus-red-diamond": {
+    "at": "2026-11-09",
+    "kept": false
   },
   "echinodorus-reni": {
     "at": "2026-11-06",
@@ -210,6 +223,11 @@
   "lindernia-rotundifolia": {
     "at": "2026-11-08",
     "kept": false
+  },
+  "littorella-uniflora": {
+    "at": "2026-11-09",
+    "score": 0.8,
+    "kept": true
   },
   "ludwigia-glandulosa": {
     "at": "2026-11-07",

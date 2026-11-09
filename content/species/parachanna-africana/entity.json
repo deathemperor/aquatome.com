@@ -1,0 +1,237 @@
+{
+  "id": "parachanna-africana",
+  "scientificName": "Parachanna africana",
+  "order": "Perciformes",
+  "family": "Channidae",
+  "genus": "Parachanna",
+  "group": "other",
+  "places": [
+    "africa",
+    "benin",
+    "oueme",
+    "nigeria",
+    "niger"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 30
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachanna-africana",
+      "html": "<p>Needs a tight-fitting lid as this species is known to jump. It is essential to use a tightly-fitting hood since Parachanna spp. are notorious for escaping.</p><p>Parachanna africana is an African snakehead found from Benin to Nigeria, in lowland coastal rivers draining into the Gulf of Guinea. Sometimes called the 'Niger snakehead', it is uncommon in the trade, and its name is sometimes misapplied to P. obscura. A series of 8-11 dark chevrons along the body identifies it, though these may not show depending on mood. It is best kept in a species-specific aquarium with a tight-fitting hood.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachanna-africana",
+      "html": "<p>This species' known range extends from Benin to Nigeria, with records from several rivers draining into the Gulf of Guinea, including the Ouémé watershed in southern Benin, and the lower Niger and Cross basins in Nigeria.</p><p>Type locality is 'Lagos, 6°27'N, 3°23'E, Nigeria'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachanna-africana",
+      "html": "<p>Primarily inhabits lowland, coastal river basins, swamps, lakes and man-made reservoirs, and has been recorded in the Niger Delta region.</p><p>Sympatric species include Erpetoichthys calabaricus, Pantodon buchholzi, Xenomystus nigri, Bryconalestes longipinnis, Polycentropsis abbreviata, Hemichromis spp., and Epiplatys spp.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachanna-africana",
+      "html": "<p>An aquarium with base dimensions of 120 × 60 cm or equivalent is recommended (volume approx. 430 litres).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachanna-africana",
+      "html": "<p>Prefers a dimly-lit aquarium with a layer of surface vegetation such as Ceratopteris spp., plus some submerged cover.</p><p>It is essential to use a tightly-fitting hood since Parachanna spp. are notorious for their ability to escape, and a gap should be left between this and the water surface as they require access to a layer of humid air.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachanna-africana",
+      "html": "<ul><li>Temperature: 22–28°C</li><li>pH: 5.0–7.5</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachanna-africana",
+      "html": "<p>An obligate ambush predator which probably feeds on smaller fishes and invertebrates in nature, but in most cases adapts well to dead alternatives in captivity. Some specimens even accept dried foods though these should never form the staple diet.</p><p>Young fish can be offered chironomid larvae (bloodworm), small earthworms, chopped prawn and suchlike while adults will accept strips of fish flesh, whole prawns, mussels, live river shrimp, larger earthworms, etc. Older individuals do not require feeding on a daily basis, with 2-3 times per week sufficient.</p><p>This species should not be fed mammalian or avian meat such as beef heart or chicken since some of the lipids contained in these cannot be properly metabolised by the fish and may cause excess fat deposits and even organ degeneration. Similarly there is no benefit in the use of 'feeder' fish such as livebearers or small goldfish which carry with them the risk of parasite or disease introduction, and tend not have a high nutritional value unless properly conditioned beforehand.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachanna-africana",
+      "html": "<p>Best-maintained in a species-specific aquarium, but can apparently be maintained alongside similarly-sized fishes if sufficient space is available.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachanna-africana",
+      "html": "<p>Adult males are slightly smaller and slimmer than females, possess a longer, narrower head shape, and slightly extended unpaired fins.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachanna-africana",
+      "html": "<p>Unrecorded in captivity. In the wild the eggs are apparently laid among floating vegetation where they float at the surface and are guarded by the male. Nuptial individuals darken considerably and appear blackish, with the peak of reproductive activity during the wet season.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachanna-africana",
+      "html": "<p>This species is sometimes referred to as 'African snakehead' or 'Niger snakehead'. It is uncommon in the aquarium trade, most often appearing as bycatch among shipments of other species, although its name is sometimes misapplied to the congener P. obscura. In Nigeria it is cultured for human consumption and used in medicine.</p><p>Following Bonou and Teugels (1985), P. africana can be distinguished from congeners by the following combination of characters: colour pattern unique, comprising a series of 8-11 dark, chevron-shaped markings extending along the body posterior to the operculum; 19-24 scales in the transverse series; lateral line complete with 73-83 pored scales; 45-48 dorsal-fin rays; 32-35 anal-fin rays. In live specimens the chevron markings may not be visible depending on the mood of the fish.</p><p>Members of the family Channidae are commonly referred to as 'snakeheads' due to possession of large scales on the head of most species which are reminiscent of the epidermal scales (cephalic plates) on the heads of snakes. There currently exist over 30 valid species but diversity within the group is likely to prove significantly greater.</p><p>All channids possess supplementary breathing apparatus in the form of paired suprabranchial chambers located behind and above the gills, although these are not labyrinthic but lined with respiratory epithelium. These chambers allow the fish to breathe atmospheric air and survive in hypoxic conditions or even out of the water for a considerable period of time, and in aquaria they are often seen rising to the surface to take gulps of air. In Parachanna the chambers lack processes extending from the first epibranchial and hyomandibular which are present in Channa species.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachanna-africana",
+      "html": "<ul><li>Victor, R. and J. Meye (1994). Further Studies on the Fish Communities of a Perturbed Stream in Southern Nigeria. Journal of Tropical Ecology 10(4), 627-632</li><li>Steindachner, F. (1879). Über einige neue und seltene Fischarten aus den zoologischen Museen zu Wien, Stuttgart und Warschau. Anzeiger der Akademie der Wissenschaften in Wien 16(4), 29-34</li><li>Daget, J., J.-P. Gosse, and D. F. E. Thys van den Audenaerde (eds) (1986). Check-list of the freshwater fishes of Africa. CLOFFA. ISNB Bruxelles, MRAC Tervuren, ORSTOM Paris. v. 2, i-xiv + 1-520</li><li>Teugels, G. G. (2007). Channidae. In: The fresh and brackish water fishes of Lower Guinea, West-Central Africa. (Stiassny et al.) Publications Scientifiques du Museum, MRAC. Vol. 2, 603 pp.</li><li>Bonou, C. A. and G. G. Teugels (1985). Révision systématique du genre Parachanna Teugels et Daget 1984 (Pisces: Channidae). Revue d'Hydrobiologie Tropicale 18(4), 249-265</li><li>Courtenay, W. R., Jr. and J. D. Williams (2004). Snakeheads (Pisces, Channidae) - a biological synopsis and risk assessment. Circular, U. S. Department of the Interior, Geological Survey No. 1251, i-v + 1-143</li><li>Brede, N. and P. Antler (2009). Schlangenkopffische—Die Gattungen Channa und Parachanna. Natur und Tier Verlag, Münster, 62 pp.</li><li>Serrao, N. R., D. Steinke, and R. H. Hanner (2014). Calibrating Snakehead Diversity with DNA Barcodes: Expanding Taxonomic Coverage to Enable Identification of Potential and Established Invasive Species. PLoS ONE 9(6), e99546</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/835ba3ae1d46d1e9.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/835ba3ae1d46d1e9-480.webp",
+      "width": 800,
+      "height": 449,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachanna-africana",
+      "caption": "Adult pair, male upper.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/bf62f82862bc449b.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/bf62f82862bc449b-480.webp",
+      "width": 800,
+      "height": 449,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachanna-africana",
+      "caption": "Adult male from the U.K. aquarium trade.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/fbb51f6777c63d07.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/fbb51f6777c63d07-480.webp",
+      "width": 800,
+      "height": 473,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachanna-africana",
+      "caption": "Adult female from the U.K. aquarium trade.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/6b514ca88e9f69bd.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/6b514ca88e9f69bd-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/parachanna-africana",
+      "caption": "Detail of flank; adult male.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "jRai6M1tseY",
+      "title": "Parachanna africana",
+      "durationSec": 117,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "haHMChpuwaw",
+      "title": "Parachanna Africana/ Nigersnakehead Pair ❤️ (Fist look)  #channidae #snakehead #africansnakehead",
+      "durationSec": 77,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "UC_Y16-_UEI",
+      "title": "Parachanna africana relaxing",
+      "durationSec": 50,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "jMnW2rHNz9I",
+      "title": "African Snakeheads - Parachanna africana pair",
+      "durationSec": 57,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy lọc nước hồ cá lớn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300W"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá lóc",
+        "tôm tươi cho cá săn mồi"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

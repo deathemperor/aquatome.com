@@ -16,6 +16,7 @@ struct PageView: View {
   @Environment(TanksModel.self) private var tanks
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.openScreen) private var openScreen
+  @Environment(ChatStore.self) private var chat
   @State private var offline = false
   @State private var failed = false
   @State private var putting = false
@@ -46,8 +47,8 @@ struct PageView: View {
     let native = handbook.drawsItself(item) && !onWeb
     Group {
       if native, let pieces {
-        NativePage(pieces: pieces, facts: facts(inPage: true), put: inPagePut ? { putting = true } : nil, web: { onWeb = true },
-                   nameInView: { nameInView = $0 }, path: item.path, at: at)
+        NativePage(pieces: pieces, facts: facts(inPage: true), put: inPagePut ? { putting = true } : nil, ask: chat.on ? ChatRoute(about: item) : nil,
+                   web: { onWeb = true }, nameInView: { nameInView = $0 }, path: item.path, at: at)
       } else if native && !tried {
         ProgressView().frame(maxWidth: .infinity, maxHeight: .infinity)
       } else {

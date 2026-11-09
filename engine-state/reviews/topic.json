@@ -1948,6 +1948,72 @@
   ],
   "th/guides/aquatome-ca-bi-san-mang-gill-flukes-dau-hieu-cach-chua-va-phong": [
     {
+      "at": "2026-11-09T01:44:39Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"หอยเจดีย์\" is a Thai common name for Melanoides tuberculata. The facts give only the Latin name.",
+        "\"ในปลาคาร์ป\" and \"ปลาคาร์ป\" are used where the facts say koi (for the Centrocestus look-alike) and list koi among the dactylogyrid hosts. The generalisation is small."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "reads": [
+        0.6,
+        0.9,
+        0.92
+      ]
+    },
+    {
+      "at": "2026-11-09T01:44:39Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "\"ให้เลือกใช้ทั้งชุดจากแถวเดียว ไม่ควรเอาขนาดยาจากแถวหนึ่งไปใช้กับรอบของอีกแถว\" is the guide's own advice. The facts don't say this.",
+        "\"หายใจถี่ขึ้นเรื่อย ๆ\" in the urgent-action section adds a progression. The facts only say severe cases breathe faster."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.93,
+        0.93,
+        0.96
+      ]
+    },
+    {
+      "at": "2026-11-09T00:51:39Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"จุ่มเกลือ (เกลือไม่เสริมไอโอดีน)\": the facts give a salt dip of 30–35 g/L but never say the salt must be iodine-free, so this specification is invented.",
+        "\"การกักโรคปลาใหม่อย่างน้อยสี่สัปดาห์จึงช่วยได้มาก\": the facts recommend at least four weeks of quarantine but don't say it helps \"a lot\", so this strength of claim is unsupported."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "reads": [
+        0.8,
+        0.88,
+        0.82
+      ]
+    },
+    {
+      "at": "2026-11-09T00:51:39Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"ยาเหล่านี้หลายตัวอันตรายกว่าพราซิควอนเทล ควรใช้ในตู้พยาบาลที่เติมอากาศแรง\": the facts give the hospital-tank and strong-aeration advice only for formalin. They do not say the other alternatives are more dangerous than praziquantel or need a hospital tank.",
+        "\"ให้เลือกใช้แบบใดแบบหนึ่งทั้งชุด ห้ามนำขนาดยาของแบบหนึ่งไปใช้กับรอบของอีกแบบ\": this rule about not mixing the dose schedules is the guide's own addition. The facts don't say it.",
+        "\"ปลิงใส\" in the title: this alternative Thai name for gill flukes isn't in the facts.",
+        "\"ส่วนใหญ่มากับปลาใหม่\": the facts say flukes are \"often\" brought in on new fish, not \"mostly\"."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.8,
+        0.85,
+        0.72
+      ]
+    },
+    {
       "at": "2026-11-08T20:29:45Z",
       "model": "sonnet",
       "score": 0.72,
@@ -1987,74 +2053,6 @@
         "\"เอกสารด้านโรคปลา\" and \"คู่มือการเลี้ยงปลา\" as source labels are invented attributions not found in the facts."
       ],
       "attempt": "recheck",
-      "kept": true
-    },
-    {
-      "at": "2026-11-08T18:12:26Z",
-      "model": "sonnet",
-      "score": 0.72,
-      "notes": [
-        "\"ผสมอาหาร 35–125 mg/kg\" – the facts give 35–125 mg/kg in food for up to 3 days, so this is supported. But the guide's intro says \"ปลาคาร์ฟ\" among Dactylogyridae hosts and \"มักพบในปลาน้ำจืดวงศ์ปลาตะเพียน\", which is consistent. No problem there.",
-        "\"มีรายงานว่าพยาธิบางกลุ่มดื้อต่อฟอร์มาลดีไฮด์\" – the facts say \"some flukes\", which is supported. Fine.",
-        "\"ถ้าจะใช้ให้ใช้ตามฉลากของผลิตภัณฑ์ที่ซื้อ\" for levamisole – the facts give 2 mg/L, and the guide dropped it and added a label rule. This is the writer's rule, not a claim.",
-        "\"ในปลาคาร์ฟ: ... Centrocestus\" – the facts say koi. This is a reasonable generalisation.",
-        "\"พยาธิวงศ์ที่วางไข่ต้องรักษานานกว่าวงศ์อื่น\" – the facts say egg-layers need longer treatment. Supported.",
-        "\"ไม่ให้พราซิควอนเทลซ้ำตามรอบ ไข่จึงฟักและพยาธิกลับมาใหม่\" – supported.",
-        "\"เอกสารของมหาวิทยาลัยระบุว่า\" and \"คู่มือเลี้ยงปลาแหล่งหนึ่ง\" – the facts only give source numbers, with no source types. The guide invents 'university document', 'aquarium guide' and 'ornamental fish reference' as source descriptions. The 'university' label is only loosely hinted at by 'UF/IFAS' in a single fact.",
-        "\"หลายแหล่งตรงกันว่าเกลือเชื่อถือไม่ได้\" – roughly supported by Gensou plus UF/IFAS.",
-        "\"ก่อนอื่นให้ตรวจ... จากนั้นเพิ่มการให้อากาศ\" – ordering is the writer's, minor.",
-        "\"ปลาจูบ ... ผลิตภัณฑ์พราซิควอนเทลยี่ห้อหนึ่ง\" – supported (Prazifish)."
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-08T18:12:26Z",
-      "model": "sonnet",
-      "score": 0.93,
-      "notes": [
-        "Minor: 'ควรดูด้วยว่าเป็นวงศ์ไหน (ดูจากจุดตา)' ties family identification to eye spots. The facts give both points but never link them to each other.",
-        "Minor: 'ยาถ่ายพยาธิเหงือกบางผลิตภัณฑ์ (Dactycid)' calls Dactycid a gill-fluke product. The facts only say that Dactycid can harm snails.",
-        "Minor: the answer 'พยาธิเหงือกมองเห็นด้วยตาเปล่าได้ไหม' implies the dark spots may be the flukes. The facts only say that tiny dark spots may be visible on the gill filaments and do not say what they are.",
-        "Minor: the guide gives a quarantine tank setup as 'จัดแบบเรียบง่าย' and presents the facts' 'ยาที่นิยมใช้' phrasing as a general claim. Both stay close to the facts."
-      ],
-      "attempt": "first",
-      "kept": true
-    },
-    {
-      "at": "2026-11-08T17:35:57Z",
-      "model": "sonnet",
-      "score": 0.8,
-      "notes": [
-        "\"ปลาหมอตาล\" for kissing gouramis: the facts say kissing gouramis, not the Thai name given. This is a translation choice and may be a different fish.",
-        "\"ปลาสายรุ้ง Melanotaenia pygmaea\": the facts give only the species name. \"Rainbowfish\" is added.",
-        "\"ลูกปลาไน\": the facts say juvenile common carp. This is fine.",
-        "\"มีรายงานว่าผลิตภัณฑ์รักษาพยาธิเหงือกบางตัวเป็นอันตรายต่อหอย\": the facts say only \"Dactycid can harm snails\". The Thai text generalizes it to some gill-fluke products.",
-        "\"มีรายงานว่าพยาธิบางชนิดแสดงการดื้อต่อฟอร์มาลดีไฮด์แล้ว\": this matches the facts, though it adds a \"reported\" framing.",
-        "\"หลายแหล่งตรงกันว่าเกลือไม่ใช่วิธีฆ่าพยาธิตัวเต็มวัยที่เชื่อถือได้\": the facts name the Gensou source for this, and the UF/IFAS studies show unreliable results. \"Many sources agree\" is slightly stronger than the facts.",
-        "\"ถ้าทำวิธีอื่นไม่ได้ ให้ล้างตู้ให้ว่าง ตากให้แห้ง\": the facts say flukes are hard to eradicate otherwise, so empty and disinfect tanks. The conditional wording is a slight reframing.",
-        "\"การใช้สารเคลือบยึดช่วย\": the facts say a binder helps. This is fine.",
-        "\"รักษาทั้งตู้ไม่ใช่แค่ตัวปลา\": this matches the facts."
-      ],
-      "attempt": "rewrite",
-      "kept": false
-    },
-    {
-      "at": "2026-11-08T17:35:57Z",
-      "model": "sonnet",
-      "score": 0.8,
-      "notes": [
-        "\"ปลิงใส\" is used as the common name for gill flukes, but the facts never give this name.",
-        "\"ถ้าจะใช้ให้ทำตามฉลากผลิตภัณฑ์\" (levamisole 'by the label') is the writer's rule. The facts give levamisole 2 mg/L as a second-line option, and the guide omits that dose.",
-        "\"ลดอาหารลง\" (cut back feeding) as an immediate step is not stated in the facts. They only say overfeeding during treatment raises ammonia.",
-        "\"ในปลาคาร์ป\" / \"ปลาคาร์ปที่เป็นซีสต์ Centrocestus\": the facts say koi, and they describe the Centrocestus larvae as a look-alike. The guide's wording is loose, though the carp/koi mapping is roughly fine.",
-        "\"หอยเจดีย์\" for Melanoides tuberculata is an added common name that the facts do not give.",
-        "\"พยาธิบางกลุ่มเริ่มดื้อฟอร์มาลดีไฮด์แล้ว\" is slightly changed from 'some flukes have shown resistance to formaldehyde'. This is minor.",
-        "\"ถ้าปลาเหงือกบวมซีด ... ควรเร่งรักษาและเพิ่มการให้อากาศ\" and \"ถ้าลองยาแล้วไม่ได้ผล ควรนึกถึงโรคที่อาการคล้ายกัน\" are the writer's own advice, not in the facts.",
-        "\"จุ่มยาปลาใหม่ก่อนปล่อยลงตู้หลัก\" in the prevention answer turns 'dip new fish' into 'dip in medicine'. It also leaves out that a dip alone may not clear eggs.",
-        "\"ปลาที่เหงือกติดพยาธิทนออกซิเจนต่ำได้ไม่ดี\" is supported. However, \"เพราะน้ำอุ่นมีออกซิเจนน้อย\" attaches the warm-water reason to a general step with no temperature context. This is a minor point."
-      ],
-      "attempt": "first",
       "kept": true
     }
   ],

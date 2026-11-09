@@ -260,6 +260,81 @@
       "Item 6: \"kawasan yang dinaiki air banjir\" is awkward; use \"kawasan yang dilimpahi banjir\" or \"kawasan banjir\"."
     ]
   },
+  "acestrorhynchus-falcatus": {
+    "at": "2026-11-09",
+    "from": "2026-11-03",
+    "name": "Red Tail Barracuda",
+    "confidence": "medium",
+    "score": 0.6,
+    "notes": [
+      "Item 8: \"Isi padu: ~2025 liter\" is a wrong conversion. The English gives ~2025 litres (~535 US gal), so the litre figure is already metric. Keep it, but \"liter\" should be the Malaysian \"liter\"/\"L\" spelling, which is fine. The bigger issue is that the bracketed inch figures were dropped as intended, so this is not an error.",
+      "Item 11: \"tidak tinggi nilai pemakanannya melainkan diberi makan dengan betul terlebih dahulu\" mistranslates \"unless properly conditioned beforehand\". It should say the feeder fish must first be given nutritious food (gut-loaded/conditioned), not that they are \"diberi makan dengan betul\" in a vague sense. Reword to \"melainkan diberi makanan berkhasiat terlebih dahulu\".",
+      "Item 15: \"Baki genus ini ... Kumpulan A. microlepis\" is fine, but \"sirip dubur\" and \"jejari ventral\" are stiff. Prefer \"sirip dubur (anal)\" and \"sirip perut\" for \"ventral-fin\".",
+      "Item 15: \"Empat spesies terakhir ... dianggap\" and \"klad\" are acceptable, but \"kumpulan saudara (sister)\" is awkward. Use \"kumpulan adik-beradik (sister group)\".",
+      "Item 9: \"mereka stres\" — \"membuatnya stres\" is colloquial. Use \"tertekan\". Also \"tangki yang kitaran nitrogennya belum matang\" is fine but \"biologically immature\" could be \"belum matang secara biologi\".",
+      "Item 12: \"Agak aman terhadap ikan yang terlalu besar untuk ditelan\" is acceptable, but \"rakan setangki\" is better written \"ikan sekolam/rakan tangki\" in hobby usage.",
+      "Item 2: \"Suatu hari nanti ikan ini akan membesar sehingga lebih kurang 30 cm\" is fine; no change needed."
+    ]
+  },
+  "acestrorhynchus-falcirostris": {
+    "at": "2026-11-09",
+    "from": "2026-10-28",
+    "name": "Big-eyed Cachorro",
+    "confidence": "low",
+    "score": 0.7,
+    "notes": [
+      "Item 5: the volume was left as '~2025 liter'. It should be rounded sensibly, e.g. ~2000 liter. Also write 'liter' as 'liter/L' consistently.",
+      "Item 12: 'tiga spesies lain... tidak membesar lebih daripada 100 mm SL' is fine, but 'Menezes (1969) mendiagnosis' is awkward. Use 'Menezes (1969) membuat diagnosis'.",
+      "Item 2: 'dengan saiz 320 hingga 350 mm SL, ia membesar jauh lebih besar daripada ahli kumpulan yang lain' is redundant ('membesar... lebih besar'). Use 'mencapai saiz'. 'Big-eyed cachorro (nama dagangan)' adds 'trade name', which the source does not state.",
+      "Item 6: 'stres' is informal. Use 'tertekan'. 'Kitaran nitrogennya belum matang' is a loose rendering of 'biologically immature'. 'Penutup yang rapat' loses 'tight-fitting' slightly. 'Tumbuhan akuatik' adds 'akuatik'.",
+      "Item 11: 'Dilaporkan bahawa' is a stronger rendering of 'Apparently'. Use 'Nampaknya'.",
+      "Item 8: 'dikondisikan' is awkward. Use 'dikondisikan/diberi makanan khas terlebih dahulu' or 'disediakan dengan betul'. 'Pemakan ikan mutlak' is acceptable."
+    ]
+  },
+  "acestrorhynchus-isalineae": {
+    "at": "2026-11-09",
+    "from": "2026-10-28",
+    "name": "Striped Barracuda Tetra",
+    "confidence": "low",
+    "score": 0.55,
+    "notes": [
+      "Item 4: 'Volume: ~243 litres (~64 US gal)' became 'Isi padu: ~243 liter' – 243 L is not rounded sensibly; use ~240 L (nearest 5 L) and keep 'litre' consistent.",
+      "Item 5: 'fill it to 50-70% of capacity' became 'hingga 50–70% sahaja' – 'sahaja' (only) is added and 'capacity' is dropped; write 'separuh hingga 70% kapasiti'.",
+      "Item 5: 'Weekly water changes... mandatory' – 'perubahan mendadak kimia air' is OK, but 'tangki yang belum matang secara biologi' is clumsy; use 'akuarium yang belum matang (cycled)'.",
+      "Item 3: the original locality string is repeated in English in brackets ('lokaliti asal: ...'). This is unneeded duplication and adds clutter; keep the Malay only or the Latin/Portuguese place names.",
+      "Item 11: 'A. nasutus, A. maculipinna and A. falcirostris' – the English 'other three species ... 100 mm (3.9 in) SL' became '100 mm SL'; fine, but 'kerana tiga spesies lain' needs 'ketiga-tiga' wording for clarity.",
+      "Item 7: 'diberi makanan berkhasiat terlebih dahulu' – 'properly conditioned' means gut-loaded/conditioned feeders; say 'dikondisikan dengan betul'.",
+      "Item 4: 'Anak ikan pun' for 'juveniles' – use 'ikan juvana'. 'mudah terkejut' is OK.",
+      "Item 8: 'Agak aman dengan ikan yang terlalu besar untuk ditelan' – 'anything too large to swallow' is fine; 'induk langsung tidak menjaga telur' in item 10 is OK."
+    ]
+  },
+  "acestrorhynchus-microlepis": {
+    "at": "2026-11-09",
+    "from": "2026-10-28",
+    "name": "Pike Characin",
+    "confidence": "low",
+    "score": 0.88,
+    "notes": [
+      "Item 8: \"kebanyakan besar ikan pemangsa\" is ungrammatical. Use \"sebahagian besar ikan pemangsa\" or \"kebanyakan ikan pemangsa\".",
+      "Item 8: \"dikondisikan\" is awkward. Use \"disediakan/dikondisikan terlebih dahulu\" or \"diberi makanan berkhasiat dahulu\".",
+      "Item 9: \"naluri berkawan (schooling)\" is imprecise. \"Naluri berkelompok\" is the usual hobby term for schooling.",
+      "Item 12: \"jalur nipis kegelapan\" is awkward. Use \"jalur nipis berwarna gelap\".",
+      "Item 5: \"~2,025 liter\" is overly precise. \"Liter\" is also less standard in Malaysia than \"liter/L\" with a space. It is acceptable but could be rounded to ~2,000 L."
+    ]
+  },
+  "acestrorhynchus-minimus": {
+    "at": "2026-11-09",
+    "from": "2026-11-03",
+    "name": "Dwarf barracuda tetra",
+    "confidence": "low",
+    "score": 0.75,
+    "notes": [
+      "#1 \"penghobi akuarium khusus yang memiliki tangki besar\": awkward; better \"penghobi akuarium pakar/berpengalaman yang mempunyai tangki besar\". \"Saiz yang didapati\" is stiff; use \"Saiz tersedia\".",
+      "#2 \"200 liter\": Malaysian standard spelling is \"200 liter\" or \"200 L\"; fine, but \"memerlukan sedikit ruang\" understates; use \"memerlukan ruang yang agak luas\".",
+      "#3 \"diberi makan ikan umpan\": use \"diberi makan ikan umpan (feeder fish) bersaiz kecil\"; the hobby term \"feeder\" is commonly used in Malaysia.",
+      "#4 \"agak aman berbanding pemangsa lain\": adds \"lain\" comparison wording; \"pemangsa yang agak aman\" is more natural. \"aman\" is better as \"tidak agresif/damai\"; \"secara berkumpulan\" could be \"dalam kumpulan\"."
+    ]
+  },
   "ancistrus-dolichopterus": {
     "at": "2026-11-06",
     "from": "2026-11-04",

@@ -349,5 +349,30 @@
       "attempt": "first",
       "kept": true
     }
+  ],
+  "vi/guides/youtube-nXDe9QF-Gu8#body": [
+    {
+      "at": "2026-11-09T10:47:51Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "BEFORE's \"Bể 80 lít là khoảng 75 lít\" is gone. AFTER keeps only \"khoảng 75 lít\" and drops the 80 L figure.",
+        "\"bơi ở những tầng nước khác nhau\" became \"mỗi loài bơi một tầng nước riêng\". This is stronger: it says each species has its own level, where BEFORE only says the levels differ."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-rh8iBySuUpE#body": [
+    {
+      "at": "2026-11-09T10:45:56Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "Common name changed: \"Cá ngân long Colombia\" -> \"Cá tetra Colombia\"; this is a plain hobby-term swap, and the scientific/English name in parentheses and the colour description are kept."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
   ]
 }

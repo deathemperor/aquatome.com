@@ -170,7 +170,7 @@ final class TankVolumeFlowTests: XCTestCase {
   private func launch(_ more: String...) -> XCUIApplication {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook"] + more
-    app.launchForFlow()
+    app.launchForFlow(.old)
     return app
   }
 

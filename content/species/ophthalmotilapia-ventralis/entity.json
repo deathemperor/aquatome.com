@@ -1,0 +1,234 @@
+{
+  "id": "ophthalmotilapia-ventralis",
+  "scientificName": "Ophthalmotilapia ventralis",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Ophthalmotilapia",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "democratic-republic-of-the-congo",
+    "lake-tanganyika",
+    "tanzania",
+    "zambia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7.5,
+          "max": 9
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 8,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 15
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 135
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ophthalmotilapia-ventralis",
+      "html": "<ul><li>Space: large tank</li><li>Temperament: territorial</li><li>Social: one male with several females</li><li>Diet: no meaty foods</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ophthalmotilapia-ventralis",
+      "html": "<p>Needs a soft, sandy substrate. A sandy substrate and good biological filtration are essential.</p><p>Ophthalmotilapia ventralis is a mouthbrooding cichlid endemic to Lake Tanganyika, found around most of the lake's coastline. It exists in well over 20 colour morphs, which hybridise freely and should not be mixed. In nature only the largest dominant males build nests, holding territories that may measure several metres across, while subdominant males and females shoal together.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ophthalmotilapia-ventralis",
+      "html": "<p>Endemic to Lake Tanganyika. It has a wide distribution around the majority of the lake's coastlines, being absent only between Cape Tembwe on the western side to the River Malagarazi on the east. It should be noted that some of these areas are, as yet, relatively unexplored.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ophthalmotilapia-ventralis",
+      "html": "<p>This species inhabits the rocky shorelines in shallow water, usually at depths of less than 5 metres. It can be seen just off the rock slopes feeding on plankton in open water.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ophthalmotilapia-ventralis",
+      "html": "<p>Standard length: 15 cm SL.</p><p>Aquarium base: 135 × 45 cm.</p><p>Volume: ~231 litres (135 × 45 × 38 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ophthalmotilapia-ventralis",
+      "html": "<p>The aquarium should contain scattered piles of rocks, arranged to form caves, with large areas of open water as O. ventralis requires a lot of space for its size. A sandy substrate and good biological filtration are essential. This species does not damage vegetation, so plants can be used but are not essential, likewise driftwood pieces. If plants are to be used, select hard water-tolerant species such as Anubias or Vallisneria.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ophthalmotilapia-ventralis",
+      "html": "<ul><li>Temperature: 23–27°C</li><li>pH: 7.5–9.0</li><li>Hardness: 8–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ophthalmotilapia-ventralis",
+      "html": "<p>Will accept most foods but high protein varieties should be avoided. Ensure the fish receive some vegetable matter as part of the diet, such as blanched spinach or spirulina.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ophthalmotilapia-ventralis",
+      "html": "<p>Relatively peaceful but territorial when spawning. It should be the dominant species in the tank or it will become withdrawn and male fish will lose colour. It should therefore be housed only with peaceful species. Do not keep it with mbuna or the like. Cyprichromis species and rockdwellers such as Altolamprologus and Julidochromis make good tankmates. It can even be maintained successfully with shelldwellers. Male fish are aggressive towards other males and unless the tank is very large only a single male should be kept. The males should always be provided with a harem of several females.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ophthalmotilapia-ventralis",
+      "html": "<p>Male fish are larger and more colourful with longer fins than females, particularly the ventral fins.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ophthalmotilapia-ventralis",
+      "html": "<p>Possible. Maternal mouthbrooder. A large tank, furnished as suggested above is ideal. Large areas of sandy substrate are particularly essential. The fish should be kept in groups with several females and a single male. Condition them with lots of high quality foods. When ready, the male will excavate a crater-like spawning site in the substrate. They may also carry sand to higher sites on flat rock surfaces and build their nests there if these are made available.</p><p>The male fish will display around his chosen spawning site, showing intense colour and attempting to entice females to mate with him. He can be quite aggressive in his pursuits and it is in order to dissipate this aggression that this species should be spawned in a harem. When a female is willing, she will approach the spawning site and lay her eggs there, after which she immediately picks them up in her mouth. The male fish has egg-shaped structures at the end of his long ventral fins and the female is attracted to these. When she tries to add them to the brood in her mouth, she actually receives sperm from the male, thus fertilising the eggs.</p><p>The female may carry the eggs for 3-4 weeks before releasing the free swimming fry. She will not eat during this period and can be easily spotted by her distended mouth. If a female is overly stressed, she may spit out the brood prematurely or eat them. Care must be taken if you decide to move the fish, in order to avoid fry predation. It is also worth noting that if a female is away from the colony for too long, she may lose her position in the pecking order of the group. It is recommended to wait at least 2 weeks before moving a female unless she is being harassed. The fry are large enough to take brine shrimp nauplii and crushed spirulina flake from the day they are released.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/ophthalmotilapia-ventralis",
+      "html": "<p>This is a truly stunning species that does well in a Tanganyikan community with well-chosen tankmates. It exists in well over 20 colour morphs, too many to list here. Obviously these should not be mixed in aquaria as they will hybridise freely. In nature, it is only the largest dominant males that build nests whilst the subdominant males and females shoal together. The territories of these dominant fish may measure several metres across.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/1be63b08a20e8e28.webp",
+      "width": 960,
+      "height": 553,
+      "licence": "CC BY-SA 3.0",
+      "author": "Amada44",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ophthalmotilapia_sp._-_5287.jpg",
+      "caption": "Ophthalmotilapia in the Zoo Basel. The sign said Ophthalmotilapia ventralis but I am unsure of that (mainly because the ventralis is supposed to be blue)",
+      "thumb": "https://media.aquatome.com/commons/1be63b08a20e8e28-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/01afa81c5a17686e.webp",
+      "width": 960,
+      "height": 563,
+      "licence": "CC BY-SA 3.0",
+      "author": "Amada44",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ophthalmotilapia_sp._-_5286.jpg",
+      "caption": "Ophthalmotilapia in the Zoo Basel. The sign said Ophthalmotilapia ventralis but I am unsure of that (mainly because the ventralis is supposed to be blue)",
+      "thumb": "https://media.aquatome.com/commons/01afa81c5a17686e-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/48ca0d4c2183a8ca.webp",
+      "width": 960,
+      "height": 530,
+      "licence": "CC BY-SA 3.0",
+      "author": "Amada44",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ophthalmotilapia_sp._-_5288.jpg",
+      "caption": "Ophthalmotilapia in the Zoo Basel. The sign said Ophthalmotilapia ventralis but I am unsure of that (mainly because the ventralis is supposed to be blue)",
+      "thumb": "https://media.aquatome.com/commons/48ca0d4c2183a8ca-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/246d39e974de2b11.webp",
+      "width": 960,
+      "height": 562,
+      "licence": "CC BY-SA 3.0",
+      "author": "Amada44",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ophthalmotilapia_sp._-_5285.jpg",
+      "caption": "Ophthalmotilapia in the Zoo Basel. The sign said Ophthalmotilapia ventralis but I am unsure of that (mainly because the ventralis is supposed to be blue)",
+      "thumb": "https://media.aquatome.com/commons/246d39e974de2b11-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "otUBf7tQAwU",
+      "title": "ophthalmotilapia ventralis orange cap kambwimba",
+      "durationSec": 50,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "i7-hBDeqLq8",
+      "title": "Opthalmotilapia Ventralis spawning action on flat rock",
+      "durationSec": 16,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "NlNTfizsORU",
+      "title": "Ophthalmotilapia ventralis Mpimbwe \"silver streak\" dominant male - PISCES",
+      "durationSec": 72,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "9g8Y4vRtthc",
+      "title": "Ophthalmotilapia ventralis Kigoma WC - PISCES",
+      "durationSec": 79,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể 230 lít",
+        "máy bơm sục khí"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn cho cá Tanganyika",
+        "cát nền bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn spirulina cho cá cichlid",
+        "thức ăn cá cichlid Tanganyika"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

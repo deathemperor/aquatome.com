@@ -1,12 +1,15 @@
 {
   "id": "betta-falx",
-  "summary": "Cá betta falx (Betta falx) hợp với người muốn nuôi riêng một bể yên tĩnh, ánh sáng dịu, độ khó 4/8. Bể dài tối thiểu 60 cm (đáy 60 × 30 cm, khoảng 54 lít) đủ cho một cặp hoặc nhóm nhỏ, nước hơi axit: 22–27 °C, pH 4,7–6,8, độ cứng 0–5 dGH. Điểm khó nhất là chuyện bạn cùng bể: cá không hợp bể cộng đồng thông thường nên phải nuôi riêng hoặc chọn loài thật hiền, và bể phải đậy kín vì cá nhảy rất giỏi.",
+  "summary": "Cá betta falx hợp với người muốn nuôi một cặp hoặc nhóm nhỏ cá cỡ 5 cm trong bể trồng cây, ánh sáng dịu. Bể tối thiểu dài 60 cm, nước 22–27 °C, pH 4,7–6,8, độ cứng 0–5 dGH, độ khó 4/8. Khó nhất là chọn bạn cùng bể, vì loài này không hợp bể cộng đồng thông thường, và cá nhảy rất giỏi nên bể phải đậy kín.",
   "mistakes": [
-    "Thả vào bể cộng đồng thông thường thì cá dễ bị bắt nạt và mất phần ăn; nên nuôi riêng hoặc chung với loài thật hiền.",
-    "Để bể quá sáng, vì cá có vẻ sống khỏe nhất dưới ánh sáng khá tối; nên rải lá khô, thêm rễ, lũa, cây nổi để có góc râm.",
-    "Mở hờ nắp hoặc đổ nước đầy tới miệng bể trong khi cá nhảy rất giỏi; nên đậy kín và chừa khoảng không khí ẩm trên mặt nước."
+    "Thả vào bể cộng đồng thông thường: cá lớn hoặc năng nổ hơn sẽ bắt nạt và tranh hết phần ăn, nên nuôi riêng hoặc chung với loài thật hiền.",
+    "Để bể hở hoặc đổ nước đầy tới miệng: cá nhảy giỏi và cần lớp không khí ẩm trên mặt nước, nên đậy kín và chừa khoảng trống phía trên.",
+    "Bật đèn mạnh: ngoài tự nhiên cá sống chỗ rất ít sáng, nên trồng cây chịu bóng, thêm cây nổi, lũa và lá khô để có góc râm."
   ],
-  "speciesUpdatedAt": "2026-11-01",
-  "generatedAt": "2026-11-09T02:16:53.568Z",
-  "review": "approved"
+  "speciesUpdatedAt": "2026-11-09",
+  "generatedAt": "2026-11-09T11:06:28.481Z",
+  "review": "pending",
+  "problems": [
+    "Mistake 1: \"cá lớn hoặc năng nổ hơn sẽ bắt nạt và tranh hết phần ăn\" turns the page's hedge (\"nhiều khả năng sẽ bắt nạt\", meaning \"likely\") into a certainty. It also drops \"hơn nhiều\" (much larger or more active)."
+  ]
 }

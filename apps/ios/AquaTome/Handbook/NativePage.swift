@@ -15,6 +15,8 @@ struct NativePage: View {
   var facts: FactsCard?
   /// A fish's or plant's: onto one of the reader's tanks, from under its name (`.facts`), not a button in the bar.
   var put: (() -> Void)?
+  /// A fish's or plant's, while the chat is on: asking about it, under its facts.
+  var ask: ChatRoute?
   let web: () -> Void
   /// Told whether the page's name is on the screen (iOS 18 on): the bar shows it only once it has scrolled away.
   var nameInView: (Bool) -> Void = { _ in }
@@ -254,6 +256,7 @@ struct NativePage: View {
       VStack(alignment: .leading, spacing: 16) {
         if let put { PutButton(put: put) }
         if let facts { facts }
+        if let ask { AskEntry(route: ask) }
       }
     case .web:
       Button(action: web) { Label("Xem phần này trên web", systemImage: "safari") }

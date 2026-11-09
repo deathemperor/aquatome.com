@@ -8,7 +8,8 @@
   "places": [
     "asia",
     "indonesia",
-    "kapuas"
+    "kapuas",
+    "kalimantan"
   ],
   "dataCard": {
     "tempC": [
@@ -67,6 +68,10 @@
       {
         "source": "seriouslyfish",
         "value": 4
+      },
+      {
+        "source": "glaser",
+        "value": 8
       }
     ],
     "sizeCm": [
@@ -96,16 +101,34 @@
       "html": "<p>Vaillant's chocolate gourami, Sphaerichthys vaillanti, is a labyrinth fish that appears to be endemic to the Kapuas drainage in Indonesian Borneo. It is also traded as the 'samurai gourami', a misleading name since the fish is neither especially combative nor from Japan. Unlike S. osphromenoides and S. selatanensis it is a paternal mouthbrooder, and females carry alternating red and green vertical bars.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/sphaerichthys_vaillanti_en/",
+      "html": "<p>Sphaerichthys vaillanti is probably the rarest and most desired species of the Chocolate Gouramies. A demanding species, recommended only for expert aquarists. The Chocolate Gourami is the most difficult labyrinth fish to care for.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sphaerichthys-vaillanti",
       "html": "<p>Type locality is the village of Nangah Sebroeang which lies south of the Danau Sentarum National Park within the upper Kapuas river basin, West Kalimantan (Kalimantan Barat) province in the Indonesian part of Borneo. It appears to be endemic to the Kapuas drainage where it's also been recorded from the Danau Sentarum lake system itself as well as further downstream near the city of Sintang.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/sphaerichthys_vaillanti_en/",
+      "html": "<p>Their origin is Kalimantan, the Indonesian part of Borneo.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sphaerichthys-vaillanti",
       "html": "<p>Thought to mostly inhabit peat swamps and associated black water streams though may also found in some clear water habitats. The former are located in forested areas and contain water that is typically stained dark brown by humic acids and other chemicals released from decaying organic material.</p><p>This results in a negligible dissolved mineral content and the pH can drop as low as 3.0 or 4.0. The dense rainforest canopy above means that very little light penetrates the water surface and the substrate is normally littered with fallen tree branches and rotting leaves. Aquatic plant species may include representatives of genera such as Cryptocoryne, Blyxa, Barclaya, Eleocharis, Utricularia, and Lymnophila.</p><p>Due to human activity vast tracts of primary forest have been altered or lost entirely throughout Borneo, and in the Kapuas region water pollution and other environmental degradation due to illegal gold mining, deforestation, conversion of land to agriculture, overfishing, the introduction of exotic species and the aquaculture industry have increased dramatically since the late 1990s. According to the IUCN attempted conservation efforts have thus far failed and a significant percentage of S. vaillanti populations may have already been lost.</p><p>At the type locality there were no aquatic plants and the fish were collected among submerged tree roots in clear, slightly tannin-stained water. The pH was 5.3, conductivity 20 µS/cm and water temperature 29.5°C.</p><p>Kottelat &amp; Widjanarti (2005) noted that it is not an abundant fish in the Danau Sentarum system and that it's normally collected in small creeks among leaf litter and other debris where its colour pattern and swimming behaviour apparently assist in mimicry of a dead leaf.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/sphaerichthys_vaillanti_en/",
+      "html": "<p>They are blackwater inhabitants.</p>"
     },
     {
       "key": "aquariumSize",
@@ -138,16 +161,34 @@
       "html": "<ul><li>Temperature: 21–25°C</li><li>pH: 3.5–6.5</li><li>Hardness: 0–3 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/sphaerichthys_vaillanti_en/",
+      "html": "<p>Since they are blackwater inhabitants, the water values in the aquarium should be adapted accordingly. This species does best in peat-filtered water. Water must be changed often, and a good water conditioner must be used.</p>"
+    },
+    {
       "key": "equipment",
       "source": "bwaquatics",
       "sourceUrl": "https://bwaquatics.com/products/sphaerichthys-vaillanti-samurai-gourami",
       "html": "<p>Substrate: Use a dark substrate to mimic the fish's natural habitat and add plants and driftwood to provide hiding places.</p><p>Filtration: Use a gentle filter with low flow to avoid stressing the fish.</p><p>Lighting: Low to moderate lighting is recommended, as the fish prefer dimly lit environments.</p>"
     },
     {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/sphaerichthys_vaillanti_en/",
+      "html": "<p>The tank should be heavily planted with a cover of floating plants. Use a filtration system that creates only slight circulation.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sphaerichthys-vaillanti",
       "html": "<p>Primarily a micropredator feeding on small aquatic crustaceans, worms, insect larvae and other zooplankton. It can be a little picky in the aquarium and initially may not accept dried or otherwise prepared foods, though in many cases will learn to take them over time.</p><p>At any rate it should be offered daily meals of small live or frozen fare such as Artemia nauplii, Daphnia, grindal worm, micro worm, etc., in order to develop ideal colour and conditioning.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/sphaerichthys_vaillanti_en/",
+      "html": "<p>They have increased requirements regarding nutrition; live food such as brine shrimp, mosquito larvae and fruit flies works best. Red mosquito larvae and Tubifex should be avoided because of their often unclear origin (possibly waste water).</p>"
     },
     {
       "key": "behaviour",
@@ -160,6 +201,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/sphaerichthys-vaillanti",
       "html": "<p>Tankmates must be chosen with care since this species is slow-moving and will easily be intimidated or outcompeted for food by larger/more boisterous tankmates. Peaceful, pelagic cyprinids such as Trigonostigma or smaller Rasbora species make good choices as do some loaches such as Pangio or Kottelatlimia spp.</p><p>Though not gregarious in the sense of schooling/shoaling fishes it does seem to require interaction with conspecifics and displays more interesting behaviour when maintained in numbers, meaning a minimum of 6 individuals is recommended.</p><p>Groups develop noticeable hierarchies and dominant individuals are often seen chasing away their rivals at feeding time or when occupying their favourite spot. According to observations maintaining it in numbers also appears to favour the formation of breeding pairs.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/sphaerichthys_vaillanti_en/",
+      "html": "<p>S. vaillanti are peaceful, timid fish that are best kept in a pair in a species tank. If combined with other fish, keep them with other small, calm, non-aggressive species.</p>"
     },
     {
       "key": "dimorphism",
@@ -225,46 +272,6 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/sphaerichthys-vaillanti",
       "caption": "Adult pair during courtship - male at front.",
       "source": "seriouslyfish"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/8fc2e77a90ff53a9.webp",
-      "thumb": "https://media.aquatome.com/commons/8fc2e77a90ff53a9-480.webp",
-      "width": 960,
-      "height": 720,
-      "licence": "CC BY 4.0",
-      "author": "Gouramii",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sphaerichthys_vaillanti_above_Java_moss.jpg",
-      "caption": "Samurai gourami above Java moss"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/4e6a31967276fa12.webp",
-      "thumb": "https://media.aquatome.com/commons/4e6a31967276fa12-480.webp",
-      "width": 821,
-      "height": 469,
-      "licence": "CC0",
-      "author": "Gouramii",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Samurai_Gourami_in_Biotope.png",
-      "caption": "Samurai gourami in biotope aquarium"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/6e545e71fc00d306.webp",
-      "thumb": "https://media.aquatome.com/commons/6e545e71fc00d306-480.webp",
-      "width": 960,
-      "height": 1280,
-      "licence": "CC BY 4.0",
-      "author": "Gouramii",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Samurai_gourami_pair_near_crypt._Spp.jpg",
-      "caption": "Samurai gourami near crypt plant"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/28eb6826a57a902e.webp",
-      "thumb": "https://media.aquatome.com/commons/28eb6826a57a902e-480.webp",
-      "width": 960,
-      "height": 1280,
-      "licence": "CC BY 4.0",
-      "author": "Gouramii",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Samurai_gourami_in_corner.jpg",
-      "caption": "Samurai gourami near corner"
     }
   ],
   "videos": [
@@ -322,5 +329,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-09"
 }

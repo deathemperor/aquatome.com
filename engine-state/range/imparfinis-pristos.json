@@ -1,0 +1,91 @@
+{
+  "id": "imparfinis-pristos",
+  "native": {
+    "input": "7c4170128efbb7f1",
+    "at": "2026-11-09T09:57:55.009Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Second tributary, left side, from mouth of Río Tomo, Vichada, Colombia.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Negro",
+        "source": "planetcatfish",
+        "quote": "South America: Negro and Orinoco River basins.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "planetcatfish",
+        "quote": "South America: Negro and Orinoco River basins.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BR"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Imparfinis pristos",
+    "status": "ACCEPTED",
+    "taxonKey": 2343540,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        11
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        7
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        2
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        2
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        1
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        1
+      ]
+    ],
+    "native": [
+      "CO"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T09:57:55.009Z"
+  }
+}

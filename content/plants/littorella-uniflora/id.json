@@ -3,19 +3,20 @@
   "name": "Littorella uniflora",
   "altNames": [
     "Littorella",
-    "Shoreweed",
-    "American shoreweed"
+    "Shoreweed"
   ],
   "sections": {
     "quickFacts:tropica": "<ul><li>Tipe: stolon</li><li>Asal: kosmopolitan</li><li>Laju pertumbuhan: lambat</li><li>Tinggi: 3–5+ cm</li><li>Kebutuhan cahaya: rendah</li><li>Kebutuhan CO2: rendah</li></ul>",
-    "maintenance:tropica": "<p>Tanaman ini tahan terhadap intensitas cahaya yang cukup rendah, tetapi kondisi ini akan membuat daunnya lebih panjang. Tanam setiap roset secara terpisah dengan jarak beberapa cm. Tanaman ini mudah mengeluarkan runner (sulur). Lama-kelamaan akan terbentuk karpet yang sangat khas dari daun-daun yang tebal dan berdaging, masing-masing sepanjang 2–5 cm dan selebar 0,1–0,3 cm. Berhati-hatilah saat merawat akuarium, karena daunnya mudah rusak.</p>",
-    "notes:tropica": "<p>Penampilan Littorella uniflora membuatnya menjadi tanaman yang mudah dikenali di akuarium. Di alam, tanaman ini tumbuh liar di tepi danau di Eropa, Amerika Utara, dan Amerika Selatan. Tanaman ini juga cocok untuk terrarium dan kolam taman.</p>"
+    "maintenance:aquatome": "<p>Littorella cocok ditanam di bagian depan (foreground). Saat menanam, pisahkan tanaman menjadi rumpun-rumpun roset, lalu tanam setiap rumpun satu per satu di substrat dengan jarak beberapa cm. Tanaman ini sangat mudah mengeluarkan stolon. Lama-kelamaan rumpun-rumpunnya akan menyebar dan menutup substrat menjadi karpet daun yang rapat dan tebal berdaging. Makin redup cahayanya, makin panjang daunnya. Daunnya juga sangat mudah rusak, jadi lakukan perawatan akuarium dengan hati-hati.</p>",
+    "maintenance:tropica": "<p>Tahan dengan intensitas cahaya yang cukup rendah, tetapi kondisi ini akan membuat daunnya lebih panjang. Setiap roset ditanam terpisah dengan jarak beberapa cm. Tanaman ini mudah mengeluarkan stolon. Lama-kelamaan akan terbentuk karpet yang sangat khas dari daun-daun yang tebal berdaging, masing-masing sepanjang 2–5 cm dan selebar 0,1–0,3 cm. Berhati-hatilah saat merawat akuarium, karena daunnya mudah rusak.</p>",
+    "notes:tropica": "<p>Penampilan Littorella uniflora membuatnya mudah dikenali di akuarium. Di alam, tanaman ini tumbuh liar di tepi danau di Eropa, Amerika Utara, dan Amerika Selatan. Tanaman ini juga cocok untuk terrarium dan kolam taman.</p>"
   },
   "quality": {
-    "score": 0.9,
-    "indexable": true,
+    "score": 0.3,
+    "indexable": false,
     "bySource": {
-      "tropica": 0.9
+      "tropica": 0.3,
+      "aquatome": 0.3
     }
   }
 }

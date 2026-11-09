@@ -396,3 +396,33 @@ test("a card's checklist: its dated sources are expected, and its own check is r
   expect((await readFit(llm, card, 'm', new Date('2026-11-08'))).findings.map(f => f.check)).toEqual(['card'])
   expect((await readFit(llm, page('<p>Các nhà khoa học vừa phát hiện một loài rasbora.</p>'), 'm', new Date('2026-11-08'))).findings).toEqual([])
 })
+
+test("a test's lethal level with its figure is found on any page, in each language; a plain threshold or a disease's toll is not", () => {
+  for (const [lang, s] of [
+    ['vi', 'Nồng độ gây chết 50% sau 96 giờ ở cá hồi vân là 0,24–11,0 mg/L NO2-N, trong khi ở cá chép là 88,0 mg/L.'],
+    ['vi', 'Ở cá chẽm, LC50 (nồng độ làm chết một nửa số cá thử nghiệm) giảm từ 274 mg/L ở 17 °C xuống còn 154 mg/L ở 27 °C.'],
+    ['vi', 'Mức nhiệt làm chết một nửa số cá là 39°C.'],
+    ['vi', 'Thí nghiệm cho thấy con trưởng thành chịu được pH 2,43 trong 96 giờ (ngưỡng LC50).'],
+    ['vi', 'Lymnaea stagnalis (ốc ao) (LC50 > 7,9 mg N/L hay 7,9 ppm)'],
+    ['id', 'Ikan air dingin seperti rainbow trout (LC50 96 jam: 0,24–11,0 mg/L NO2-N) jauh lebih peka daripada ikan mas (88,0 mg/L).'],
+    ['id', 'Konsentrasi mematikan (kematian 50%) berada pada pH 5,71 dan 8,22.'],
+    ['id', 'Suhu yang mematikan 50% populasi adalah 39 °C.'],
+    ['ms', 'Kepekatan maut (50% kematian) adalah pada pH 5.71 dan 8.22.'],
+    ['ms', 'Suhu yang membunuh 50% populasi ialah 39 °C.'],
+    ['th', 'ค่าที่ทำให้ตาย 50% คือ pH 5.71 และ 8.22'],
+    ['th', 'อุณหภูมิที่ทำให้ประชากรตาย 50% คือ 39 °C'],
+    ['th', 'กุ้งน้ำจืดมีค่า LC50 ที่ 96 ชั่วโมงเท่ากับ 8.6 มก./ลิตร'],
+    ['vi', 'The temperature lethal to 50% of the population was 39°C.'],
+    ['vi', 'The lethal concentration (50% mortality) was at pH 5.71 and 8.22.'],
+    ['vi', 'Its oral LD50 in rats is 300 mg/kg.'],
+  ] as const) expect(found('lethal', `<p>${s}</p>`, { lang }), s).toHaveLength(1)
+  for (const [lang, s] of [
+    ['vi', 'Một mức đồng tương đối an toàn ở pH cao vẫn có thể thành liều gây chết khi pH thấp hơn.'],
+    ['vi', 'Bệnh nhung có thể làm chết một nửa số cá trong 3 ngày nếu không chữa.'],
+    ['vi', 'Trong khoa học, LC50 là nồng độ làm chết một nửa số con vật thử nghiệm.'],
+    ['vi', 'About 2 mg/L of un-ionized ammonia is lethal to many fish.'],
+    ['vi', 'Velvet can kill half the fish in 3 days.'],
+    ['id', 'Nitrit di atas 0,1 mg/L bersifat racun.'],
+    ['th', 'ปลาตายครึ่งหนึ่งภายใน 3 วัน'],
+  ] as const) expect(found('lethal', `<p>${s}</p>`, { lang }), s).toEqual([])
+})

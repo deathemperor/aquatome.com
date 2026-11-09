@@ -336,7 +336,8 @@ final class ReaderPostFlowTests: XCTestCase {
     // Not reset: the same phone, still signed in to the stand-in server's account.
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN"] + (reset ? ["-reset-defaults", "-reset-fake-server"] : [])
       + ["-fixed-handbook", "-fake-accounts", accounts] + more
-    app.launchForFlow()
+    // The old look's: every flow here reaches its page through Tìm's search.
+    app.launchForFlow(.old)
     return app
   }
 

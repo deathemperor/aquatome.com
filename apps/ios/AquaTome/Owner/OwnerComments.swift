@@ -3,7 +3,7 @@ import SwiftUI
 
 /// Readers' comments in one state, under a filter by state (Held, Shown, Hidden, each with its count): each comment's
 /// name, when, its text, the page it's on, why it's in this state and the readers' reports, with its buttons. Choosing a
-/// filter reads the section from the filter's address; "Show 50 more" reads the next comments.
+/// filter reads the section from the filter's address; "Show 2 more of 5" reads the next comments, 50 at most.
 struct OwnerComments: View {
   let comments: Owner.Comments
   let draw: OwnerDraw
@@ -41,7 +41,9 @@ struct OwnerComments: View {
 
       if let problem { Text(verbatim: problem).font(.footnote).foregroundStyle(.red) }
       if let cursor {
-        Button { Task { await read(cursor) } } label: { Text(verbatim: "Show 50 more") }
+        // How many are left, as a table says it: the filter's count is all of this state's.
+        let count = comments.filters.first { $0.state == comments.state }?.count
+        Button { Task { await read(cursor) } } label: { Text(verbatim: count.map { "Show \(min(50, $0 - items.count)) more of \($0)" } ?? "Show 50 more") }
           .disabled(reading)
           .accessibilityIdentifier("owner-more")
       }

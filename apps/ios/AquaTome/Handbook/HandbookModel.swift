@@ -20,6 +20,9 @@ final class HandbookModel {
   /// The query, the kind picked and what they find (SearchState): searched once a change, not on every redraw.
   private(set) var searching = SearchState(HandbookSearch([]), page: HandbookModel.searchPage())
   var query: String { get { searching.query } set { searching.query = newValue } }
+  /// Counts the times a screen asked for Tìm with its words (AppScreen.search): typing changes `query` too, and v2 opens
+  /// its search tab for this alone.
+  var searchAsked = 0
   var kind: HandbookIndex.Kind? { get { searching.kind } set { searching.kind = newValue } }
   var results: [HandbookIndex.Item] { searching.results }
   /// How many pages the query finds of each kind, and in all under nil: what the chips above the results say.

@@ -12,13 +12,15 @@ struct AquaTomeApp: App {
   @State private var account: AccountModel
   @State private var plugs: PlugsModel
   @State private var telemetry: TelemetryModel
+  /// Whether the chat is on (its entries), and the conversation kept.
+  @State private var chat = ChatStore()
   @State private var tab = Tab.handbook
   @State private var tanksPath = NavigationPath()
   @State private var handbookPath = NavigationPath()
   /// The profile button's sheet (AccountView), open.
   @State private var showingAccount = false
-  /// The app's v2 shown in place of v1 (V2Root), switched in the Tài khoản sheet.
-  @AppStorage("v2") private var v2 = false
+  /// v2 (V2Root), or the old look where the reader turned it on in the Tài khoản sheet (V2Switch).
+  @AppStorage(V2Switch.key) private var v2 = V2Switch.byDefault
   /// "Giao diện", set in the sheet (AppearanceRow): the phone's, or light or dark.
   @AppStorage(Appearance.key) private var appearance = Appearance.system
   /// A link from outside the app waiting for the handbook's index, to know the pages the app has (AppLink).
@@ -46,6 +48,7 @@ struct AquaTomeApp: App {
       UserDefaults.standard.removePersistentDomain(forName: id)
       WKWebsiteDataStore.default().removeData(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes(), modifiedSince: .distantPast) {}
       try? FileManager.default.removeItem(at: TelemetryModel.file)
+      try? FileManager.default.removeItem(at: ChatModel.file)
     }
     TanksModel.prepareForTests(ProcessInfo.processInfo.arguments)
     // `-drop-kept-account`: the account kept on the phone is gone (unreadable after an update) while its token stays.
@@ -85,10 +88,9 @@ struct AquaTomeApp: App {
   var body: some Scene {
     WindowGroup {
       Group {
-        // v2 (the Tài khoản sheet's "Giao diện mới (thử nghiệm)", off by default): the same models and links (V2Root).
-        // Only where the switch is offered: "v2" left on in TestFlight survives the update to the App Store's build,
-        // which has no switch to turn it off.
-        if v2, V2Switch.offered, #available(iOS 18, *) {
+        // v2, unless the reader went back to the old look (V2Switch): the same models and links (V2Root). iOS 17 has
+        // the old look alone.
+        if v2, #available(iOS 18, *) {
           V2Root(tab: $tab, handbookPath: $handbookPath, tanksPath: $tanksPath)
         } else {
           TabView(selection: $tab) {
@@ -124,6 +126,7 @@ struct AquaTomeApp: App {
       .environment(account)
       .environment(plugs)
       .environment(telemetry)
+      .environment(chat)
       // Dates and numbers in the app's language, as its words are (Locale.app).
       .environment(\.locale, .app)
       // The site's pages the app has as its own tabs (the handbook's Chihiros tool, a page's "Xem trong Bể của tôi →").
@@ -141,7 +144,15 @@ struct AquaTomeApp: App {
       .onChange(of: handbook.status) { if handbook.status != .loading { openLink() } }
       // Signed in: a change to the tanks goes to the account a moment later; coming to the front, the account's come back.
       .onChange(of: tanks.store) { account.changed() }
-      .onChange(of: phase, initial: true) { if phase == .active { Task { await account.refresh() } } }
+      .onChange(of: phase, initial: true) {
+        // The latest chat's answer stops in the background, and is asked for again on return (ChatStore).
+        if phase == .background { chat.inFront(false) }
+        guard phase == .active else { return }
+        chat.inFront(true)
+        Task { await account.refresh() }
+        // Whether the chat is on: its entries show only then.
+        Task { await chat.refresh(account: account, site: handbook.site) }
+      }
       // After the first screen: iOS's reports, and sending every 30 s once the site (its index read fresh this launch)
       // and the reader allow it.
       .task { await telemetry.start() }
@@ -229,6 +240,12 @@ struct AquaTomeApp: App {
       push(VolumeTool(query: query))
     case .tankMates(let query):
       push(TankMatesTool(query: query))
+    case .search(let words):
+      // Tìm's home, its search field holding the words.
+      tab = .handbook
+      handbookPath = NavigationPath()
+      handbook.query = words
+      handbook.searchAsked += 1
     }
   }
 
@@ -275,7 +292,8 @@ struct AquaTomeApp: App {
     if !args.contains("-real-accounts") {
       let fake = FakeServer(args)
       let send: Send = { try await fake.send($0) }
-      return (AccountModel(tanks: tanks, api: AccountsClient(send: send), apple: FakeAppleSignIn(), google: FakeGoogleSignIn(args), passkey: FakePasskeySignIn(), keychain: TokenStore(inDefaults: true), fakeChecks: true),
+      return (AccountModel(tanks: tanks, api: AccountsClient(send: send), apple: FakeAppleSignIn(), google: FakeGoogleSignIn(args), passkey: FakePasskeySignIn(), keychain: TokenStore(inDefaults: true), fakeChecks: true,
+                           streams: { r in try await fake.stream(r) }),
               Wanted(send: send, ours: { OwnCopy.isOurs }))
     }
     #endif

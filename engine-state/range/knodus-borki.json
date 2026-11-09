@@ -1,0 +1,46 @@
+{
+  "id": "knodus-borki",
+  "native": {
+    "input": "0d6cdd4a6790cac5",
+    "at": "2026-11-09T09:57:55.009Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The blue tetra, Knodus borki, is a small characid from Colombia and Brazil, found in rivers, streams and tributaries.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The blue tetra, Knodus borki, is a small characid from Colombia and Brazil, found in rivers, streams and tributaries.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "PE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Knodus borki",
+    "status": "ACCEPTED",
+    "taxonKey": 2353826,
+    "datasets": [],
+    "native": [
+      "CO",
+      "BR"
+    ],
+    "requests": 2,
+    "at": "2026-11-09T09:57:55.009Z"
+  }
+}

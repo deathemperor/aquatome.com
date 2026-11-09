@@ -1,0 +1,89 @@
+{
+  "id": "iksookimia-yongdokensis",
+  "native": {
+    "input": "60041a09230d610b",
+    "at": "2026-11-09T09:57:55.009Z",
+    "claims": [
+      {
+        "code": "KR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "All Iksookimia species are endemic to Korea, with I. yongdokensis native to the eastern province of Gyeongsangbuk-do (North Gyeongsang), South Korea, where it is known from the Hyongsan, Yongdokoship, Chuksan and Songcheon river drainages.",
+        "words": "South Korea",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Yongdokoship",
+        "source": "seriouslyfish",
+        "quote": "All Iksookimia species are endemic to Korea, with I. yongdokensis native to the eastern province of Gyeongsangbuk-do (North Gyeongsang), South Korea, where it is known from the Hyongsan, Yongdokoship, Chuksan and Songcheon river drainages.",
+        "country": "KR",
+        "ok": true
+      },
+      {
+        "name": "Hyongsan",
+        "source": "seriouslyfish",
+        "quote": "All Iksookimia species are endemic to Korea, with I. yongdokensis native to the eastern province of Gyeongsangbuk-do (North Gyeongsang), South Korea, where it is known from the Hyongsan, Yongdokoship, Chuksan and Songcheon river drainages.",
+        "country": "KR",
+        "ok": true
+      },
+      {
+        "name": "Chuksan",
+        "source": "seriouslyfish",
+        "quote": "All Iksookimia species are endemic to Korea, with I. yongdokensis native to the eastern province of Gyeongsangbuk-do (North Gyeongsang), South Korea, where it is known from the Hyongsan, Yongdokoship, Chuksan and Songcheon river drainages.",
+        "country": "KR",
+        "ok": true
+      },
+      {
+        "name": "Songcheon",
+        "source": "seriouslyfish",
+        "quote": "All Iksookimia species are endemic to Korea, with I. yongdokensis native to the eastern province of Gyeongsangbuk-do (North Gyeongsang), South Korea, where it is known from the Hyongsan, Yongdokoship, Chuksan and Songcheon river drainages.",
+        "country": "KR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Iksookimia yongdokensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2368316,
+    "datasets": [
+      [
+        "1e09d985-8f58-4a34-ab86-17e55f203c8a",
+        164
+      ],
+      [
+        "a332915e-9950-4747-ab3b-b7eeafaf46d8",
+        33
+      ],
+      [
+        "f1fc52ac-895e-47f2-9361-d033c6479f7c",
+        17
+      ],
+      [
+        "d673256e-38ea-4aee-bfc5-866e653655a4",
+        10
+      ],
+      [
+        "11ddb63e-cdd8-4ba4-b0f8-953166ddc075",
+        6
+      ],
+      [
+        "a2edb92c-7aea-47fe-bbeb-615809c2c0e7",
+        6
+      ]
+    ],
+    "native": [
+      "KR"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T09:57:55.009Z"
+  }
+}

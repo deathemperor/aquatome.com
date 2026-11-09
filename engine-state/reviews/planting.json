@@ -186,6 +186,31 @@
       "kept": true
     }
   ],
+  "vi/plants/ceratopteris-thalictroides": [
+    {
+      "at": "2026-11-09T10:15:03Z",
+      "model": "opus",
+      "score": 0.85,
+      "notes": [
+        "\"nó trồng ở phía sau\" is awkward Vietnamese; something like \"nên trồng\" or \"trồng nó ở\" reads better.",
+        "\"nó trồng ở phía sau, đúng chỗ chuyển...\" is firmer than the guide, which only says the plant \"có thể trồng\" there."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-09T10:15:03Z",
+      "model": "opus",
+      "score": 0.6,
+      "notes": [
+        "\"nhất là trong bể nhỏ\" is added: the guide only says the plant grows fast and needs regular trimming. It never says small tanks make this more necessary.",
+        "\"hợp nhất với hậu cảnh hoặc trung cảnh, nhưng nó cũng sống được khi thả nổi\" ranks the positions. The \"vị trí\" figure lists hậu cảnh, trung cảnh and thả nổi equally, so floating gets downgraded.",
+        "\"Cây không vươn lên thì cũng không sao\" sits right after the small open-top tank sentence, which ties it to that case. In the guide it is about the 120 cm shallow-tank setup, so the context gets muddled."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/plants/crinum-calamistratum": [
     {
       "at": "2026-11-07T16:39:37Z",
@@ -294,6 +319,19 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "vi/plants/littorella-uniflora": [
+    {
+      "at": "2026-11-09T10:15:37Z",
+      "model": "opus",
+      "score": 0.8,
+      "notes": [
+        "\"tách thành từng cụm lá hoa thị rồi cắm riêng từng cụm xuống nền\" adds a splitting step and the act of pushing them into the substrate. The INPUT only says \"trồng từng cụm lá hoa thị riêng\".",
+        "\"hợp trồng ở tiền cảnh\" is fine Vietnamese, but \"hợp để trồng ở tiền cảnh\" or \"thích hợp trồng tiền cảnh\" would read more naturally."
+      ],
+      "attempt": "first",
+      "kept": true
     }
   ],
   "vi/plants/marsilea-minuta": [

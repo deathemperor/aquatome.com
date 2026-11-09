@@ -10,6 +10,150 @@
     "brazil",
     "madeira"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Amazon",
+        "Madeira",
+        "Guaporé",
+        "Branco",
+        "Trombetas",
+        "Urubu"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Iguanodectes variatus is a characin from Brazil, recorded from the Guaporé, Madeira, Branco, Trombetas and Urubu river systems in the Amazon basin.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "This species has been recorded from the Guaporé, Madeira, Branco, Trombetas, and Urubu river systems within the Amazon river basin, Brazil.",
+          "countries": [],
+          "regions": [
+            "Amazon",
+            "Madeira",
+            "Guaporé",
+            "Branco",
+            "Trombetas",
+            "Urubu"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354230,
+      "total": 69,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "BR",
+          69
+        ]
+      ],
+      "cells": [
+        [
+          -64.6875,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -64.6875,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          4,
+          4
+        ],
+        [
+          -63.28125,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          -61.875,
+          -8.4375,
+          9,
+          9
+        ],
+        [
+          -61.875,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -59.0625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -4.21875,
+          11,
+          11
+        ],
+        [
+          -56.25,
+          -2.8125,
+          27,
+          27
+        ],
+        [
+          -54.84375,
+          -2.8125,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

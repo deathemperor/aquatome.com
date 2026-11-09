@@ -1,6 +1,7 @@
 import AccountSync
 import Handbook
 import Foundation
+import Handbook
 import Observation
 import Tanks
 
@@ -68,6 +69,8 @@ final class AccountModel {
   @ObservationIgnored private let google: GoogleSignIn
   @ObservationIgnored private let passkey: PasskeySignIn
   @ObservationIgnored private let keychain: TokenStore
+  /// Requests whose answers stream (the chat's), on their own session.
+  @ObservationIgnored private let streams: ServerEvents.Send
   /// The UI tests' stand-in for the Turnstile check (no web page, a new token each time).
   @ObservationIgnored let fakeChecks: Bool
   @ObservationIgnored private var token: String?
@@ -94,8 +97,9 @@ final class AccountModel {
   static let apns = "production"
   #endif
 
-  init(tanks: TanksModel, api: AccountsClient = AccountsClient(), apple: AppleSignIn = SystemAppleSignIn(), google: GoogleSignIn = SystemGoogleSignIn(), passkey: PasskeySignIn = SystemPasskeySignIn(), keychain: TokenStore = TokenStore(), fakeChecks: Bool = false) {
+  init(tanks: TanksModel, api: AccountsClient = AccountsClient(), apple: AppleSignIn = SystemAppleSignIn(), google: GoogleSignIn = SystemGoogleSignIn(), passkey: PasskeySignIn = SystemPasskeySignIn(), keychain: TokenStore = TokenStore(), fakeChecks: Bool = false, streams: @escaping ServerEvents.Send = AccountModel.streamSession()) {
     self.tanks = tanks
+    self.streams = streams
     self.api = api
     self.apple = apple
     self.google = google
@@ -176,6 +180,25 @@ final class AccountModel {
     guard let (data, res) = try? await api.send(make(signedIn)) else { return nil }
     if res.statusCode == 401 { await refresh() }
     return (data, res.statusCode)
+  }
+
+  /// Asks as this account for an answer that streams (the chat's), `make` given the session's token: the answer and its
+  /// bytes as they come, or nil signed out. Throws what stopped it (no network).
+  func stream(_ make: (String) -> URLRequest) async throws -> (response: HTTPURLResponse, bytes: AsyncThrowingStream<UInt8, any Error>)? {
+    guard let token else { return nil }
+    return try await streams(make(token))
+  }
+
+  /// A session for answers that stream: no cookies and no cache, as AccountsClient's, and a request's own time limit
+  /// (the chat's 65 s between bytes), not that session's 20.
+  nonisolated static func streamSession() -> ServerEvents.Send {
+    let c = URLSessionConfiguration.ephemeral
+    c.httpShouldSetCookies = false
+    c.httpCookieAcceptPolicy = .never
+    c.httpCookieStorage = nil
+    c.urlCache = nil
+    c.timeoutIntervalForRequest = 65
+    return ServerEvents.urlSession(URLSession(configuration: c))
   }
 
   /// A request that needs no account (the fish-ID tool's state), through the same server: its status and body, or nil

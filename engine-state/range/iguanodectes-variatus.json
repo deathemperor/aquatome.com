@@ -1,0 +1,115 @@
+{
+  "id": "iguanodectes-variatus",
+  "native": {
+    "input": "a6eda8f86783302f",
+    "at": "2026-11-09T09:57:55.009Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Iguanodectes variatus is a characin from Brazil, recorded from the Guaporé, Madeira, Branco, Trombetas and Urubu river systems in the Amazon basin.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species has been recorded from the Guaporé, Madeira, Branco, Trombetas, and Urubu river systems within the Amazon river basin, Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "This species has been recorded from the Guaporé, Madeira, Branco, Trombetas, and Urubu river systems within the Amazon river basin, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Madeira",
+        "source": "seriouslyfish",
+        "quote": "This species has been recorded from the Guaporé, Madeira, Branco, Trombetas, and Urubu river systems within the Amazon river basin, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Guaporé",
+        "source": "seriouslyfish",
+        "quote": "This species has been recorded from the Guaporé, Madeira, Branco, Trombetas, and Urubu river systems within the Amazon river basin, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Branco",
+        "source": "seriouslyfish",
+        "quote": "This species has been recorded from the Guaporé, Madeira, Branco, Trombetas, and Urubu river systems within the Amazon river basin, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Trombetas",
+        "source": "seriouslyfish",
+        "quote": "This species has been recorded from the Guaporé, Madeira, Branco, Trombetas, and Urubu river systems within the Amazon river basin, Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Urubu",
+        "source": "seriouslyfish",
+        "quote": "This species has been recorded from the Guaporé, Madeira, Branco, Trombetas, and Urubu river systems within the Amazon river basin, Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Iguanodectes variatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2354230,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        41
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        9
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        7
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        5
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        4
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T09:57:55.009Z"
+  }
+}

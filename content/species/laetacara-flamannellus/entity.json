@@ -10,6 +10,52 @@
     "brazil",
     "amapa"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Laetacara flamannellus is a small cichlid from the eastern coastal rivers of Amapá state, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7945840,
+      "total": 2,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "BR",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -52.03125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -52.03125,
+          0,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {
