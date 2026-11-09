@@ -26,15 +26,18 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertTrue(app.staticTexts["chat-question"].waitForExistence(timeout: 5), "no question's bubble")
     XCTAssertEqual(app.staticTexts["chat-question"].label, "Bạn hỏi: \(asked)")
     XCTAssertTrue(element(app, "chat-wait").waitForExistence(timeout: 5), "no wait")
-    XCTAssertTrue(app.staticTexts["Thường dưới nửa phút."].exists, "no wait's line under the box")
+    XCTAssertTrue(app.staticTexts["Thường mất chưa tới nửa phút."].exists, "no wait's line under the box")
     XCTAssertTrue(element(app, "chat-step").waitForExistence(timeout: 5), "no step while waiting")
     // The text starts: the steps fold into the pages read; the wait goes.
     let fold = app.buttons["chat-fold"]
     XCTAssertTrue(fold.waitForExistence(timeout: 20), "the steps didn't fold")
     XCTAssertTrue(fold.label.contains("Đã đọc 2 trang trong cẩm nang"), fold.label)
     XCTAssertFalse(element(app, "chat-wait").exists, "still waiting with the text in")
+    // No piece for 0.3 s before done: the spinner, with no words, under the last line; gone once the answer is whole.
+    XCTAssertTrue(element(app, "chat-pause").waitForExistence(timeout: 5), "no spinner while nothing comes")
     let answer = element(app, "chat-answer")
     XCTAssertTrue(answer.waitForExistence(timeout: 20), "no whole answer")
+    XCTAssertFalse(element(app, "chat-pause").exists, "the spinner stayed under the whole answer")
     XCTAssertTrue(answer.staticTexts.firstMatch.label.hasPrefix("Cá neon xanh dễ nuôi"), answer.staticTexts.firstMatch.label)
     XCTAssertTrue(app.buttons.matching(identifier: "chat-chip").firstMatch.waitForExistence(timeout: 5), "no next questions")
     // The fold opened lists the steps again, a page read opening that page.
@@ -42,6 +45,25 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertTrue(app.buttons.matching(NSPredicate(format: "label == 'Đã đọc Cá neon xanh'")).firstMatch.waitForExistence(timeout: 5),
                   "the fold doesn't list the pages read")
     XCTAssertEqual(app.staticTexts.matching(identifier: "chat-question").count, 1)
+  }
+
+  /// The largest text, the keyboard up for a draft while waiting: as the first words come, the question goes back under
+  /// the bar, as with the keyboard down, and the draft stays in the box.
+  func testAtTheLargestTextTheFirstWordsPinTheQuestionWithTheKeyboardUp() {
+    let app = launch("-chat-slow", "-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL")
+    openChat(app)
+    signIn(app)
+    ask(app, "Neon sống bao lâu?")
+    XCTAssertTrue(element(app, "chat-wait").waitForExistence(timeout: 10), "no wait")
+    let box = element(app, "chat-box")
+    box.tap()
+    box.typeText("Còn tép")
+    XCTAssertTrue(app.buttons["chat-fold"].waitForExistence(timeout: 30), "the text didn't start")
+    let bar = app.navigationBars.firstMatch, bubble = app.staticTexts["chat-question"]
+    let pinned = XCTNSPredicateExpectation(predicate: NSPredicate { _, _ in abs(bubble.frame.minY - bar.frame.maxY) < 44 }, object: nil)
+    XCTAssertEqual(XCTWaiter().wait(for: [pinned], timeout: 3), .completed,
+                   "the question isn't under the bar: its top at \(bubble.frame.minY), the bar's end at \(bar.frame.maxY)")
+    XCTAssertEqual(box.value as? String, "Còn tép", "the draft left the box")
   }
 
   /// Off on the server: no way into the chat from a fish's page.
@@ -124,13 +146,34 @@ final class ChatFlowTests: XCTestCase {
     ask(app, "Neon sống bao lâu?")
     let failed = element(app, "chat-failed")
     XCTAssertTrue(failed.waitForExistence(timeout: 20), "no failed card")
-    XCTAssertTrue(failed.staticTexts["Không có câu trả lời"].exists)
-    XCTAssertTrue(failed.staticTexts["Câu này vẫn được tính vào 30 câu hôm nay."].exists)
+    XCTAssertTrue(failed.staticTexts["Không nhận được câu trả lời"].exists)
+    XCTAssertTrue(failed.staticTexts["Câu này vẫn bị tính vào 30 câu hôm nay."].exists)
     let again = app.buttons["chat-again"]
     XCTAssertEqual(again.label, "Hỏi lại · tính thêm 1 câu")
     again.tap()
     XCTAssertTrue(element(app, "chat-wait").waitForExistence(timeout: 5), "not asked again")
     XCTAssertTrue(failed.waitForExistence(timeout: 20), "no failed card the second time")
+    XCTAssertEqual(app.staticTexts.matching(identifier: "chat-question").count, 1, "the question posted twice")
+  }
+
+  /// An answer cut off after its text began: what was read stays, a card under it says it isn't counted, and "Hỏi lại"
+  /// asks again under the same bubble, the text gone and the wait back.
+  func testAnAnswerCutOffAfterItsTextBeganKeepsItAndIsntCounted() {
+    let app = launch("-chat-cut-off")
+    openChat(app)
+    signIn(app)
+    ask(app, "Neon sống bao lâu?")
+    let card = element(app, "chat-cut-off")
+    XCTAssertTrue(card.waitForExistence(timeout: 20), "no cut-off card")
+    XCTAssertTrue(card.staticTexts["Câu trả lời bị ngắt giữa chừng"].exists)
+    XCTAssertTrue(card.staticTexts["Câu hỏi này không bị tính."].exists)
+    XCTAssertTrue(element(app, "chat-answer").exists, "what was read went")
+    let again = app.buttons["chat-again"]
+    XCTAssertEqual(again.label, "Hỏi lại")
+    again.tap()
+    XCTAssertTrue(element(app, "chat-wait").waitForExistence(timeout: 5), "not asked again")
+    XCTAssertFalse(element(app, "chat-answer").exists, "the cut-off text stayed while asking again")
+    XCTAssertTrue(card.waitForExistence(timeout: 20), "no card the second time")
     XCTAssertEqual(app.staticTexts.matching(identifier: "chat-question").count, 1, "the question posted twice")
   }
 
@@ -142,7 +185,7 @@ final class ChatFlowTests: XCTestCase {
     ask(app, "Neon sống bao lâu?")
     let failed = element(app, "chat-failed")
     XCTAssertTrue(failed.waitForExistence(timeout: 10), "no card")
-    XCTAssertTrue(failed.staticTexts["Chưa liên lạc được Claude. Câu này không bị tính."].exists)
+    XCTAssertTrue(failed.staticTexts["Chưa kết nối được với Claude. Câu này không bị tính."].exists)
     XCTAssertEqual(app.buttons["chat-again"].label, "Thử lại")
   }
 

@@ -56,8 +56,17 @@ private struct ChatThread: View {
   /// The reader is up the thread while an answer lands: "Câu trả lời mới ↓" over the box.
   @State private var newBelow = false
   @State private var lastInView = true
+  /// Where the newest question's top is in the view (nil off it): near the top, the reader is still on its turn, so the
+  /// first words and the keyboard going down put it back under the bar; scrolled into earlier turns or down the answer,
+  /// nothing moves.
+  @State private var lastTop: CGFloat?
 
   private var signedOut: Bool { account.user == nil }
+
+  private func pinIfOnIt(_ proxy: ScrollViewProxy, height: CGFloat) {
+    guard let id = model.thread.last?.id, let top = lastTop, top > -8, top < height * 0.4 else { return }
+    withAnimation(reduceMotion ? nil : .smooth(duration: 0.3)) { proxy.scrollTo(id, anchor: .top) }
+  }
 
   var body: some View {
     ScrollViewReader { proxy in
@@ -73,6 +82,7 @@ private struct ChatThread: View {
                 // and nothing that shrinks under it (the steps folding) moves it.
                 .frame(minHeight: last ? geo.size.height : nil, alignment: .top)
                 .onScrollVisible(last) { lastInView = $0; if $0 { newBelow = false } }
+                .onGeometryChange(for: CGFloat.self) { $0.frame(in: .scrollView).minY } action: { if last { lastTop = $0 } }
             }
           }
           .padding(.horizontal)
@@ -87,6 +97,10 @@ private struct ChatThread: View {
           Task { @MainActor in withAnimation(reduceMotion ? nil : .smooth(duration: 0.35)) { proxy.scrollTo(id, anchor: .top) } }
         }
         .onChange(of: model.thread.last?.outcome) { _, o in if o == .answered, !lastInView { newBelow = true } }
+        // The first words, and the keyboard going down (an answer that came with it up, at the largest text): the question
+        // back under the bar, with the keyboard's own glide, unless the reader has scrolled off its turn.
+        .onChange(of: model.thread.last?.reply.writing) { _, w in if w == true { pinIfOnIt(proxy, height: geo.size.height) } }
+        .onChange(of: typing) { _, up in if !up { pinIfOnIt(proxy, height: geo.size.height) } }
         .safeAreaInset(edge: .bottom, spacing: 0) {
           ChatComposer(model: model, typing: $typing, signedOut: signedOut, newBelow: newBelow) {
             newBelow = false
@@ -149,6 +163,11 @@ private struct ChatThread: View {
       Bubble(text: a.question).id(a.id)
       switch a.outcome {
       // Asked again only under the latest question.
+      case .failed(let code) where code != "cut" && !a.reply.text.isEmpty:
+        // Cut off after its text began: what was read stays, the card under it.
+        if let fold = Chat.fold(a.reply.steps) { foldRow(fold, a) }
+        AnswerText(text: a.reply.text, whole: true, animate: false)
+        CutOffCard(again: last ? { model.retry(a.id) } : nil).transition(.opacity)
       case .failed(let code):
         FailedCard(code: code, perAccount: model.perAccount, again: last ? { model.retry(a.id) } : nil).transition(.opacity)
       case .lost:
@@ -159,6 +178,7 @@ private struct ChatThread: View {
     }
     .padding(.top, 20)
     .animation(reduceMotion ? .easeInOut(duration: 0.2) : .smooth(duration: 0.3), value: a.outcome)
+    .animation(reduceMotion ? .easeInOut(duration: 0.2) : .smooth(duration: 0.3), value: a.reply.writing)
   }
 
   @ViewBuilder private func answer(_ a: ChatModel.Asked, last: Bool) -> some View {
@@ -170,6 +190,8 @@ private struct ChatThread: View {
         if a.outcome == .asking { Waiting() }
       }
       .animation(reduceMotion ? nil : .easeOut(duration: 0.25), value: r.steps.count)
+      // As the text starts, the row closes clipped, so its fading steps never paint over the first line.
+      .transition(.closing)
     } else {
       if let fold = Chat.fold(r.steps) { foldRow(fold, a) }
       if unfolded.contains(a.id) {
@@ -177,6 +199,7 @@ private struct ChatThread: View {
           .padding(.leading, 4)
       }
       AnswerText(text: r.text, whole: r.turn != nil, animate: !a.resumed && !r.whole && !reduceMotion)
+      if r.turn == nil, a.outcome == .asking { Pause(text: r.text) }
       if let t = r.turn {
         if !t.covered {
           Text("Đã ghi lại câu hỏi để cẩm nang viết thêm.").font(.footnote).foregroundStyle(.secondary)
@@ -395,7 +418,7 @@ private struct AnswerText: View {
 
   /// The text's parts as drawn at `now`, each piece still fading in at its own opacity.
   private func drawn(at now: Date) -> [Drawn] {
-    let parts = Chat.paragraphs(text)
+    let parts = Chat.paragraphs(text, streaming: !whole)
     let words = parts.flatMap { p -> [String] in
       switch p {
       case .text(let s): [s]
@@ -418,6 +441,38 @@ private struct AnswerText: View {
   }
 }
 
+/// No piece for 0.3 s before `done` (Claude writing the cards and suggestions, the Worker saving): the wait's spinner,
+/// with no words, under the last line, so the answer doesn't look finished while nothing moves. `done` takes it away (the
+/// first card takes its place).
+private struct Pause: View {
+  let text: String
+  @State private var still = false
+
+  var body: some View {
+    Group {
+      if still { ProgressView().controlSize(.small).transition(.opacity).accessibilityIdentifier("chat-pause") }
+    }
+    .frame(maxWidth: .infinity, alignment: .leading)
+    .task(id: text) {
+      still = false
+      try? await Task.sleep(for: .seconds(0.3))
+      if !Task.isCancelled { withAnimation(.easeOut(duration: 0.15)) { still = true } }
+    }
+  }
+}
+
+/// A row closing: its height goes to nothing with it clipped, as it fades.
+private struct Closing: ViewModifier {
+  let closed: Bool
+  func body(content: Content) -> some View {
+    content.frame(height: closed ? 0 : nil, alignment: .top).clipped().opacity(closed ? 0 : 1)
+  }
+}
+
+extension AnyTransition {
+  fileprivate static var closing: AnyTransition { .modifier(active: Closing(closed: true), identity: Closing(closed: false)) }
+}
+
 /// A new conversation starts here: Claude no longer has the questions above.
 private struct NewConversation: View {
   var body: some View {
@@ -427,7 +482,7 @@ private struct NewConversation: View {
         Text("Cuộc trò chuyện mới").font(.footnote.weight(.semibold))
         line
       }
-      Text("Claude không nhớ các câu ở trên.").font(.footnote)
+      Text("Claude không nhớ những gì ở trên").font(.footnote)
     }
     .foregroundStyle(.secondary)
     .frame(maxWidth: .infinity)
@@ -450,16 +505,32 @@ private struct FailedCard: View {
     // `failed`: our side couldn't use Claude's answer, and it counts; else Claude couldn't be reached, or the answer was
     // cut short (asked again with its key, it isn't counted twice).
     let counted = code == "failed"
-    ChatCard(icon: "exclamationmark.triangle", title: counted ? Text("Không có câu trả lời") : Text("Chưa trả lời được câu này")) {
+    ChatCard(icon: "exclamationmark.triangle", title: counted ? Text("Không nhận được câu trả lời") : Text("Chưa trả lời được câu này")) {
       if counted {
-        if let perAccount { Text("Câu này vẫn được tính vào \(perAccount) câu hôm nay.") } else { Text("Câu này vẫn được tính vào số câu hôm nay.") }
+        if let perAccount { Text("Câu này vẫn bị tính vào \(perAccount) câu hôm nay.") } else { Text("Câu này vẫn được tính vào số câu hôm nay.") }
       } else {
-        Text("Chưa liên lạc được Claude. Câu này không bị tính.")
+        Text("Chưa kết nối được với Claude. Câu này không bị tính.")
       }
     } action: {
       if let again { Button(action: again) { counted ? Text("Hỏi lại · tính thêm 1 câu") : Text("Thử lại") }.accessibilityIdentifier("chat-again") }
     }
     .accessibilityIdentifier("chat-failed")
+  }
+}
+
+/// An answer cut off after its text began (the text stays above it). The Worker gives the question back for any error
+/// once text has gone out, so it isn't counted: only a finished answer counts. Asked again, the text and its row go and
+/// the wait starts under the same bubble.
+private struct CutOffCard: View {
+  let again: (() -> Void)?
+
+  var body: some View {
+    ChatCard(icon: "exclamationmark.triangle", title: Text("Câu trả lời bị ngắt giữa chừng")) {
+      Text("Câu hỏi này không bị tính.")
+    } action: {
+      if let again { Button(action: again) { Text("Hỏi lại") }.accessibilityIdentifier("chat-again") }
+    }
+    .accessibilityIdentifier("chat-cut-off")
   }
 }
 
