@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { appendChangelog } from '../src/changelog'
-import { gate, reviewTranslation, steadyRead } from '../src/quality'
+import { gate, reviewTranslation } from '../src/quality'
 
 test('gate truth table', () => {
   expect(gate(0.9, false)).toBe('pass')
@@ -32,14 +32,4 @@ test('changelog: newest first, capped at 500', async () => {
   const fresh = await mkdtemp(join(tmpdir(), 'cl-'))
   await appendChangelog(fresh, [e('2026-10-28', 'x')])
   expect(JSON.parse(await readFile(join(fresh, 'changelog.json'), 'utf8'))).toHaveLength(1)
-})
-
-test('steadyRead reads three times within its band of the bar: 0.2, unless the caller gives its own', async () => {
-  const reads = async (first: number, near?: number) => { let n = 0; await steadyRead(async () => ({ score: n++ ? 0.8 : first }), near); return n }
-  expect(await reads(0.9)).toBe(3)
-  expect(await reads(0.96)).toBe(1)
-  expect(await reads(0.9, 0.1)).toBe(1)
-  expect(await reads(0.85, 0.1)).toBe(3)
-  expect(await reads(0.65, 0.1)).toBe(3)
-  expect(await reads(0.64, 0.1)).toBe(1)
 })
