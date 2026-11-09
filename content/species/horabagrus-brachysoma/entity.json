@@ -10,6 +10,80 @@
     "india",
     "kerala"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The sun catfish, Horabagrus brachysoma, is a large bagrid catfish endemic to the state of Kerala in south-western India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2338327,
+      "total": 24,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "IN",
+          23
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          73.125,
+          15.46875,
+          5,
+          5
+        ],
+        [
+          74.53125,
+          11.25,
+          2,
+          2
+        ],
+        [
+          75.9375,
+          8.4375,
+          6,
+          6
+        ],
+        [
+          75.9375,
+          9.84375,
+          4,
+          4
+        ],
+        [
+          80.15625,
+          22.5,
+          6,
+          6
+        ],
+        [
+          101.25,
+          14.0625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

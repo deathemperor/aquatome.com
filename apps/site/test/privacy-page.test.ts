@@ -36,11 +36,12 @@ test('the privacy page says an account keeps the id of the profile picture its r
   expect(page('/th/privacy/').dom.textContent).toContain('รูปโปรไฟล์ที่คุณเลือกจากชุดรูปปลาในแอป (เก็บเฉพาะรหัสของรูป);')
 })
 
-// The page promises its date moves with its text (section 8): the profile-picture clause moved it to 8 November 2026.
+// The page promises its date moves with its text (section 8): the visitor code's text, live in Vietnam on 9 November 2026,
+// moved it there.
 test('the privacy page\'s date is the last approved edit\'s, in every language and the English block', () => {
   const updated = (path: string) => page(path).dom.querySelector('.updated')?.textContent
-  expect(updated('/chinh-sach-bao-mat/')).toBe('Cập nhật: 08/11/2026')
-  expect(updated('/id/kebijakan-privasi/')).toBe('Diperbarui: 08/11/2026')
-  expect(updated('/th/privacy/')).toBe('อัปเดต: 08/11/2026')
-  expect(page('/chinh-sach-bao-mat/').dom.textContent).toContain('Last updated: 8 November 2026.')
+  expect(updated('/chinh-sach-bao-mat/')).toBe('Cập nhật: 09/11/2026')
+  expect(updated('/id/kebijakan-privasi/')).toBe('Diperbarui: 09/11/2026')
+  expect(updated('/th/privacy/')).toBe('อัปเดต: 09/11/2026')
+  expect(page('/chinh-sach-bao-mat/').dom.textContent).toContain('Last updated: 9 November 2026.')
 })

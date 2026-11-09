@@ -1,0 +1,129 @@
+{
+  "id": "hyphessobrycon-bifasciatus",
+  "native": {
+    "input": "a0a5243bd7e20eff",
+    "at": "2026-11-08T22:57:48.089Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The Yellow Tetra is a peaceful schooling characin from coastal rivers in southeast Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to coastal river systems of southeastern Brazil between the states of Espírito Santo and Rio Grande do Sul, plus parts of the upper Paraná basin.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Paraná",
+        "source": "seriouslyfish",
+        "quote": "Native to coastal river systems of southeastern Brazil between the states of Espírito Santo and Rio Grande do Sul, plus parts of the upper Paraná basin.",
+        "ok": true
+      },
+      {
+        "name": "Rio Parahyba",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Rio Parahyba at Campos, Brazil'.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "AR",
+        "UY"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hyphessobrycon bifasciatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2354661,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        244
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        178
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        130
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        54
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        34
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        15
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        14
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        9
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        7
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        6
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        6
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        5
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        3
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T22:57:48.089Z"
+  }
+}

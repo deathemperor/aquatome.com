@@ -12,6 +12,92 @@
     "terengganu",
     "sai-buri"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "TH"
+      ],
+      "regions": [
+        "Terengganu",
+        "Perak",
+        "Endau",
+        "Muar",
+        "Sai Buri",
+        "Kolok"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "It inhabits Malaysia and Southern Thailand.",
+          "countries": [
+            "MY",
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Distributed throughout Peninsular Malaysia where it's been recorded from the Terengganu, Perak, Tahan, Muar, Jelai, Endau, Mersing and Sedili river basins.",
+          "countries": [],
+          "regions": [
+            "Terengganu",
+            "Perak",
+            "Endau",
+            "Muar"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It also occurs in the Sai Buri, Bang Nara and Kolok river systems, southern Thailand.",
+          "countries": [],
+          "regions": [
+            "Sai Buri",
+            "Kolok"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2358607,
+      "total": 3,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "MY",
+          2
+        ],
+        [
+          "SE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          9.84375,
+          57.65625,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

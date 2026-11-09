@@ -397,20 +397,43 @@ private struct WhoAnswers: View {
   }
 }
 
-/// The reader's question, at the trailing side.
+/// The reader's question, at the trailing side: a long one shows its first six lines, and "Xem thêm" under it opens it
+/// whole.
 private struct Bubble: View {
   let text: String
   @Environment(\.colorScheme) private var scheme
+  @State private var whole = false
+  /// The question's height in full, and as shown: taller in full, six lines cut it.
+  @State private var full: CGFloat = 0
+  @State private var shown: CGFloat = 0
 
   var body: some View {
+    VStack(alignment: .trailing, spacing: 4) {
+      bubble
+      if !whole, full > shown + 1 {
+        Button { withAnimation(.smooth(duration: 0.3)) { whole = true } } label: { Text("Xem thêm").font(.subheadline) }
+          .buttonStyle(.plain)
+          .foregroundStyle(.tint)
+          .accessibilityIdentifier("chat-more")
+      }
+    }
+    .frame(maxWidth: .infinity, alignment: .trailing)
+    .padding(.leading, 48)
+  }
+
+  private var bubble: some View {
     Text(text)
+      .lineLimit(whole ? nil : 6)
+      .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { shown = $0 }
+      .background {
+        Text(text).fixedSize(horizontal: false, vertical: true).hidden()
+          .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { full = $0 }
+      }
       .padding(.horizontal, 14)
       .padding(.vertical, 9)
       // Dark: a deep green with white text, not the bright tint: the answer is what the eye should go to.
       .foregroundStyle(scheme == .dark ? Color.white : Color.primary)
       .background(scheme == .dark ? Color(red: 0.11, green: 0.33, blue: 0.24) : Color.accentColor.opacity(0.16), in: .rect(cornerRadius: 18))
-      .frame(maxWidth: .infinity, alignment: .trailing)
-      .padding(.leading, 48)
       .textSelection(.enabled)
       .accessibilityLabel(Text("Bạn hỏi: \(text)"))
       .accessibilityIdentifier("chat-question")

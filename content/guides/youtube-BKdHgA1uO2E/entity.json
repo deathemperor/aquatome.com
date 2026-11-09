@@ -1,0 +1,68 @@
+{
+  "id": "youtube-BKdHgA1uO2E",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=BKdHgA1uO2E",
+  "html": "",
+  "photos": [],
+  "mentions": [],
+  "updatedAt": "2026-11-08",
+  "video": {
+    "youtubeId": "BKdHgA1uO2E",
+    "title": "Why you need a Pre Filter for your Aquarium",
+    "channel": "Aquarium Co-Op",
+    "channelUrl": "https://www.youtube.com/channel/UCNJuJfXCKNWu4-VifYixs8A",
+    "durationSec": 510,
+    "publishedAt": "2019-03-29",
+    "chapters": [
+      {
+        "start": 0,
+        "title": "What is a pre filter sponge"
+      },
+      {
+        "start": 49,
+        "title": "What pre filter sponge to install"
+      },
+      {
+        "start": 153,
+        "title": "How to clean a pre filter sponge"
+      },
+      {
+        "start": 226,
+        "title": "My sponges vs. competitors’ sponges"
+      }
+    ],
+    "series": {
+      "id": "PLNM4mDAXGxWy8d8VTumRyVq69fML2Uwxg",
+      "position": 5
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/BKdHgA1uO2E/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [],
+    "gear": [
+      {
+        "category": "loc",
+        "type": "bot-bien",
+        "brand": "Aquarium Co-Op",
+        "model": "Pre-filter sponge",
+        "t": 0
+      },
+      {
+        "category": "loc",
+        "type": "thung",
+        "t": 30
+      },
+      {
+        "category": "loc",
+        "type": "treo",
+        "brand": "Aqua Clear",
+        "model": "100",
+        "t": 92
+      }
+    ],
+    "figures": []
+  }
+}

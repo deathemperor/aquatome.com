@@ -1,0 +1,27 @@
+{
+  "slug": "buntal-silus",
+  "name": "Buntal Silus",
+  "altNames": [
+    "Silus Puffer",
+    "Buntal air tawar"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Asal: Thailand. Ukuran yang tersedia: 4–5 cm.</p>",
+    "waterConditions:glaser": "<p>Ikan ini mudah dipelihara dan tidak memerlukan parameter air khusus.</p>",
+    "behaviour:glaser": "<p>Saat ukurannya sudah lebih besar, ikan ini bisa cenderung berkelahi dengan sesamanya.</p>",
+    "notes:glaser": "<p>Ikan buntal yang lincah ini didatangkan dari Thailand pada Desember 2007. Secara keseluruhan, ini ikan buntal yang menarik, dan kebanyakan akan dipelihara oleh ahli atau penghobi yang sudah berpengalaman.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.9
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-09"
+  }
+}

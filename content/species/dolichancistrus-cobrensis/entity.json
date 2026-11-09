@@ -10,6 +10,56 @@
     "venezuela",
     "catatumbo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE"
+      ],
+      "regions": [
+        "Catatumbo",
+        "Lake Maracaibo"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Catatumbo River basin in the Lake Maracaibo drainage, Venezuela.",
+          "countries": [
+            "VE"
+          ],
+          "regions": [
+            "Catatumbo",
+            "Lake Maracaibo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339334,
+      "total": 6,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "VE",
+          5
+        ],
+        [
+          "CO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -73.125,
+          7.03125,
+          6,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

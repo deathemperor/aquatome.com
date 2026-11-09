@@ -9,6 +9,60 @@
     "south-america",
     "venezuela"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE"
+      ],
+      "regions": [
+        "Lake Maracaibo"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "H. teres was described by Valenciennes in 1847 from Lake Maracaibo in Venezuela.",
+          "countries": [
+            "VE"
+          ],
+          "regions": [
+            "Lake Maracaibo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2352225,
+      "total": 2,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "CO",
+          1
+        ],
+        [
+          "VE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -73.125,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          -71.71875,
+          9.84375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {

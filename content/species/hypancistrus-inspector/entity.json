@@ -14,6 +14,110 @@
     "rio-casiquiare",
     "casiquiare"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "VE"
+      ],
+      "regions": [
+        "Rio Negro",
+        "Casiquiare",
+        "Rio Casiquiare"
+      ],
+      "sources": [
+        "glaser",
+        "scotcat",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The snowball pleco (L102), Hypancistrus inspector, is a suckermouth catfish from the upper rio Negro in Brazil and the Casiquiare in Venezuela.",
+          "countries": [
+            "BR",
+            "VE"
+          ],
+          "regions": [
+            "Casiquiare"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "The species comes from the Rio Negro in Brazil.",
+          "countries": [],
+          "regions": [
+            "Rio Negro"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Amazonas, Rio Casiquiare, upper Rio Negro drainage, Venezuela.",
+          "countries": [],
+          "regions": [
+            "Rio Casiquiare"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339300,
+      "total": 8,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "VE",
+          5
+        ],
+        [
+          "BR",
+          2
+        ],
+        [
+          "CO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -70.3125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -68.90625,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -66.09375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -64.6875,
+          -1.40625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

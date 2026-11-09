@@ -1,0 +1,48 @@
+{
+  "id": "hyphessobrycon-auca",
+  "native": {
+    "input": "389fe8f2d8e1e3b0",
+    "at": "2026-11-08T22:57:48.089Z",
+    "claims": [
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from two ponds within the Esteros del Iberá wetlands in Corrientes province, northern Argentina.",
+        "words": "Argentina",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Esteros del Iberá",
+        "source": "seriouslyfish",
+        "quote": "Known only from two ponds within the Esteros del Iberá wetlands in Corrientes province, northern Argentina.",
+        "country": "AR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hyphessobrycon auca",
+    "status": "ACCEPTED",
+    "taxonKey": 2354678,
+    "datasets": [
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ]
+    ],
+    "native": [
+      "AR"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T22:57:48.089Z"
+  }
+}

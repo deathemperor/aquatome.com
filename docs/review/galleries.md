@@ -7,10 +7,10 @@ Written by `pnpm engine gallery` (2026-11-08). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 131 | 79 | 24 | 30 | 204 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 428 | 17 | 9 | 13 | 441 |
-| rest | 20 | 1272 | 83 | 0 | 18 | 1337 |
+| covered | 30 | 438 | 18 | 9 | 13 | 452 |
+| rest | 20 | 1331 | 82 | 0 | 17 | 1396 |
 
-## Short of target: every source read (154)
+## Short of target: every source read (164)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -125,21 +125,21 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/erpetoichthys-calabaricus | shop | 3 | 60 |
 | plants/sagittaria-subulata | shop | 9 | 60 |
 | species/trichopsis-vittata | shop | 11 | 60 |
-| plants/lilaeopsis-brasiliensis | shop | 6 | 60 |
-| species/boraras-urophthalmoides | shop | 4 | 60 |
+| plants/lilaeopsis-brasiliensis | shop | 5 | 60 |
+| species/boraras-urophthalmoides | shop | 1 | 60 |
 | plants/taxiphyllum-alternans | shop | 3 | 60 |
 | plants/fissidens-fontanus | shop | 18 | 60 |
-| species/poecilia-sphenops | shop | 18 | 60 |
+| species/poecilia-sphenops | shop | 17 | 60 |
 | plants/cryptocoryne-beckettii | shop | 0 | 60 |
 | species/corydoras-panda | shop | 14 | 60 |
 | species/corydoras-sterbai | shop | 14 | 60 |
-| species/scleropages-jardinii | shop | 6 | 60 |
+| species/scleropages-jardinii | shop | 3 | 60 |
 | species/scleropages-formosus | shop | 38 | 60 |
 | species/polypterus-senegalus | shop | 16 | 60 |
 | species/channa-pulchra | shop | 0 | 60 |
 | species/channa-stewartii | shop | 0 | 60 |
-| species/channa-andrao | shop | 2 | 60 |
-| plants/bolbitis-heteroclita | shop | 15 | 60 |
+| species/channa-andrao | shop | 1 | 60 |
+| plants/bolbitis-heteroclita | shop | 14 | 60 |
 | species/channa-asiatica | shop | 5 | 60 |
 | species/channa-aurantimaculata | shop | 0 | 60 |
 | species/danio-margaritatus | shop | 10 | 60 |
@@ -160,8 +160,10 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/gnathonemus-petersii | shop | 11 | 60 |
 | species/cyphotilapia-frontosa | shop | 28 | 60 |
 | plants/cryptocoryne-nurii | shop | 0 | 60 |
+| species/garra-rufa | shop | 13 | 60 |
 | plants/cryptocoryne-undulata | shop | 2 | 60 |
 | species/ctenolucius-hujeta | shop | 7 | 60 |
+| plants/cryptocoryne-usteriana | shop | 1 | 60 |
 | species/astyanax-mexicanus | shop | 20 | 60 |
 | species/iriatherina-werneri | shop | 2 | 60 |
 | species/helostoma-temminckii | shop | 15 | 60 |
@@ -169,4 +171,12 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/epalzeorhynchos-kalopterus | shop | 2 | 60 |
 | plants/cardamine-lyrata | shop | 2 | 60 |
 | species/pseudomugil-furcatus | shop | 5 | 60 |
+| species/amphilophus-labiatus | shop | 5 | 60 |
+| species/epalzeorhynchos-bicolor | shop | 10 | 60 |
+| species/pethia-conchonius | shop | 6 | 60 |
+| plants/gratiola-viscidula | shop | 6 | 60 |
+| species/synodontis-eupterus | shop | 11 | 60 |
+| species/tropheus-duboisi | shop | 1 | 60 |
+| species/balantiocheilos-melanopterus | shop | 19 | 60 |
+| plants/hygrophila-pinnatifida | shop | 11 | 60 |
 | species/betta-macrostoma | covered | 0 | 30 |

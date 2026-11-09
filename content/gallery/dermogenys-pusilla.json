@@ -26,6 +26,18 @@
       "kind": "group"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/37544097.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/37544097-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Franz Anthony",
+      "sourceUrl": "https://www.inaturalist.org/photos/37544097",
+      "caption": "Cá lìm kìm bơi trên nền cát ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/569819598.webp",
       "thumb": "https://media.aquatome.com/inaturalist/569819598-480.webp",
       "width": 1200,
@@ -48,6 +60,18 @@
       "caption": "Cặp cá lìm kìm đấu mỏ đỏ bơi trong bể",
       "best": true,
       "kind": "pair"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/54995766.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/54995766-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Franz Anthony",
+      "sourceUrl": "https://www.inaturalist.org/photos/54995766",
+      "caption": "Cá lìm kìm bơi gần đáy cát trong môi trường tự nhiên",
+      "best": true,
+      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/52479061.webp",
@@ -74,6 +98,18 @@
       "kind": "other"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/33361014.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/33361014-480.webp",
+      "width": 1024,
+      "height": 682,
+      "licence": "CC BY",
+      "author": "Franz Anthony",
+      "sourceUrl": "https://www.inaturalist.org/photos/33361014",
+      "caption": "Cá lìm kìm trưởng thành bơi gần mặt nước trong bể",
+      "best": true,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/61942264.webp",
       "thumb": "https://media.aquatome.com/inaturalist/61942264-480.webp",
       "width": 1200,
@@ -86,18 +122,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/33360997.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/33360997-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "CC BY",
-      "author": "Franz Anthony",
-      "sourceUrl": "https://www.inaturalist.org/photos/33360997",
-      "caption": "Cá lìm kìm đấu bơi gần mặt nước trong bể",
-      "best": false,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/commons/a22c214484bfd6dc.webp",
       "thumb": "https://media.aquatome.com/commons/a22c214484bfd6dc-480.webp",
       "width": 1200,
@@ -108,9 +132,21 @@
       "caption": "Cá lìm kìm đấu màu bạc bơi gần đá trong bể",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/33360997.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/33360997-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "CC BY",
+      "author": "Franz Anthony",
+      "sourceUrl": "https://www.inaturalist.org/photos/33360997",
+      "caption": "Cá lìm kìm đấu bơi gần mặt nước trong bể",
+      "best": false,
+      "kind": "other"
     }
   ],
-  "seen": 21,
+  "seen": 25,
   "updatedAt": "2026-11-08",
   "builtAt": "2026-11-08"
 }

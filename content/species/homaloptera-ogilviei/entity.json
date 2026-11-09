@@ -11,6 +11,105 @@
     "endau",
     "thailand"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "TH"
+      ],
+      "regions": [
+        "Malay Peninsula",
+        "Endau"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Jelai River, at 14th mile along the Tampin to Kuala Pilah Road, Negri Sembilan, Malaysia', and this species has been recorded throughout much of the Malay Peninsula in both Malaysia and southern Thailand.",
+          "countries": [
+            "MY",
+            "TH"
+          ],
+          "regions": [
+            "Malay Peninsula"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In the Kahang River, part of the Endau drainage, it occurs sympatrically with Homaloptera zollingeri, H. nebulosa, H. parclitella and H. tweediei as well as Malayochela maassi, Crossocheilus langei, Cyclocheilichthys apogon, Mystacoleucus marginatus, Rasbora dusonensis, R. elegans, R. paucisqualis, Trigonopoma gracile, 'Puntius' partipentazona, Nemacheilus masyae, N. selangoricus, Neohomaloptera johorensis, Acanthopsoides molobrion, Pangio cuneovirgata, P. doriae, P. kuhlii, P. malayana, P. piperata, P. shelfordii, Pseudomystus fuscus, Akysis microps, A. hendricksoni, and an unidentified species of Glyptothorax.",
+          "countries": [],
+          "regions": [
+            "Endau"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2358575,
+      "total": 10,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "MY",
+          5
+        ],
+        [
+          "TH",
+          3
+        ],
+        [
+          "ID",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          9.84375,
+          2,
+          2
+        ],
+        [
+          101.25,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          101.25,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          -1.40625,
+          2,
+          0
+        ],
+        [
+          115.3125,
+          4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

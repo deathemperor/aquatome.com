@@ -1,8 +1,8 @@
 {
   "id": "devario-auropurpureus",
   "native": {
-    "input": "452e228f4624ad31",
-    "at": "2026-11-07T16:21:07.852Z",
+    "input": "8950e321c33c62e7",
+    "at": "2026-11-08T22:57:48.089Z",
     "claims": [
       {
         "code": "MM",
@@ -11,6 +11,14 @@
         "quote": "Lake Inle in Burma has a high proportion of endemic fish species, i.e. those that are found exclusively there.",
         "words": "Burma",
         "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the isolated lake of Inlé and surrounding watershed in Shan state, eastern Myanmar.",
+        "words": "Myanmar",
+        "ok": true
       }
     ],
     "regions": [
@@ -18,6 +26,13 @@
         "name": "Lake Inle",
         "source": "glaser",
         "quote": "Lake Inle in Burma has a high proportion of endemic fish species, i.e. those that are found exclusively there.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Inlé",
+        "source": "seriouslyfish",
+        "quote": "Known only from the isolated lake of Inlé and surrounding watershed in Shan state, eastern Myanmar.",
         "country": "MM",
         "ok": true
       }

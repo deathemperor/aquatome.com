@@ -452,6 +452,156 @@
     ],
     "ruled": "75f5fed38ac5f859"
   },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-ada-15": {
+    "at": "2026-11-08",
+    "hash": "157a54e2201be18e",
+    "findings": [],
+    "ruled": "157a54e2201be18e"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-ada-hardscape-focused-tank": {
+    "at": "2026-11-08",
+    "hash": "eed5071edcc38384",
+    "findings": [],
+    "ruled": "eed5071edcc38384"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-ada-hardscape-only-tank": {
+    "at": "2026-11-08",
+    "hash": "faa8f9148b86c4f2",
+    "findings": [],
+    "ruled": "faa8f9148b86c4f2"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-andre-longarco": {
+    "at": "2026-11-08",
+    "hash": "bdf7829750056470",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Các gờ đá chạy thẳng hàng với những hàng cây thân",
+        "problem": "\"Cây thân\" is a word-for-word rendering of \"stem plants\". Vietnamese hobbyists say \"cây cắt cắm\", and the same slip appears again in \"Cây thân mọc dày\".",
+        "fix": "Các gờ đá chạy thẳng hàng với những hàng cây cắt cắm",
+        "field": "body"
+      }
+    ],
+    "ruled": "bdf7829750056470"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-art-commissio": {
+    "at": "2026-11-08",
+    "hash": "eaf0612d40aa3b95",
+    "findings": [],
+    "ruled": "eaf0612d40aa3b95"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-chonlatee-jaturonrusmee-2018": {
+    "at": "2026-11-08",
+    "hash": "d9e2657b1861a554",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bố cục này dùng lũa rất điêu luyện, phần lũa được tạo hình rất tinh xảo.",
+        "problem": "The sentence says the same thing twice about the wood, repeats \"rất\", and uses a passive \"được\". It reads like machine translation of \"masterful usage of fine wood work\".",
+        "fix": "Bố cục này xử lý lũa rất khéo, từng nhánh lũa nhỏ được sắp đặt tinh tế.",
+        "field": "body"
+      }
+    ],
+    "ruled": "d9e2657b1861a554"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-cory-hopkins": {
+    "at": "2026-11-08",
+    "hash": "5257fdc38f41720b",
+    "findings": [],
+    "ruled": "5257fdc38f41720b"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-cory-hopkins-1": {
+    "at": "2026-11-08",
+    "hash": "7d3e2d88bf6a99ab",
+    "findings": [
+      {
+        "kind": "unsupported",
+        "severity": "low",
+        "part": "P1",
+        "quote": "một số loài cây dễ trồng được chọn kỹ",
+        "problem": "The source says only 'a selection of' easy plants; 'chọn kỹ' (carefully chosen) adds a detail the source does not give.",
+        "fix": "một số loài cây dễ trồng",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bố cục này minh họa tiềm năng của bể thủy sinh không châm CO2.",
+        "problem": "This is a word-for-word calque of 'exemplifies the potential of' and reads like a translation.",
+        "fix": "Bể này cho thấy không châm CO2 vẫn làm được bể thủy sinh đẹp.",
+        "field": "body"
+      }
+    ],
+    "ruled": "7d3e2d88bf6a99ab"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-cory-hopkins-2": {
+    "at": "2026-11-08",
+    "hash": "678917f56b460e1e",
+    "findings": [],
+    "ruled": "678917f56b460e1e"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-cory-hopkins-natural-biotope-1": {
+    "at": "2026-11-08",
+    "hash": "9810ac87badeb97e",
+    "findings": [],
+    "ruled": "9810ac87badeb97e"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-craftspeak": {
+    "at": "2026-11-08",
+    "hash": "2dcbd9aceca7fdd4",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "## Bể cây bám",
+        "problem": "In the source, the epiphyte-only planting describes the arch/bridge tank, but the separate heading makes it read as a third tank.",
+        "fix": "Gộp đoạn này vào mục \"Bể hình vòm / cầu\" và mở đầu bằng: \"Bể vòm này chỉ trồng cây bám (epiphyte)…\"",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Chịu khó chăm chút và quan sát nhiều có thể là cách làm rất hiệu quả.",
+        "problem": "The paragraphs on troubleshooting, choosing plants and learning from friends sit under the design-approach heading, which doesn't cover them.",
+        "field": "body"
+      },
+      {
+        "kind": "caption",
+        "severity": "medium",
+        "part": "C2",
+        "quote": "Dou Mok 4",
+        "problem": "This photo shows another aquarist's aquascape from the source's related-posts list, not Jordan Stirrat's tanks.",
+        "rule": "a caption that matches a title from the source's 'Also in…' related-posts list",
+        "field": "caption"
+      },
+      {
+        "kind": "caption",
+        "severity": "medium",
+        "part": "C3",
+        "quote": "Marcelo Tonon Chiovatto",
+        "problem": "This photo shows another aquarist's aquascape from the source's related-posts list, not Jordan Stirrat's tanks.",
+        "rule": "a caption that matches a title from the source's 'Also in…' related-posts list",
+        "field": "caption"
+      },
+      {
+        "kind": "caption",
+        "severity": "medium",
+        "part": "C4",
+        "quote": "Mark Crow",
+        "problem": "This photo shows another aquarist's aquascape from the source's related-posts list, not Jordan Stirrat's tanks.",
+        "rule": "a caption that matches a title from the source's 'Also in…' related-posts list",
+        "field": "caption"
+      }
+    ],
+    "ruled": "2dcbd9aceca7fdd4"
+  },
   "vi/guides/aquariumbreeder-10-slow-growing-plants-in-the-tank": {
     "at": "2026-11-01",
     "hash": "7d8ace662d61562a",
@@ -555,6 +705,48 @@
       }
     ],
     "ruled": "307604ca83d14f35"
+  },
+  "vi/guides/aquariumbreeder-acrylic-vs-glass-tanks-pros-and-cons": {
+    "at": "2026-11-08",
+    "hash": "56e5a9bdc4eb8d2e",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Kính nặng 2,45 g trên mỗi cm vuông, còn acrylic nặng 1,19 g trên mỗi cm vuông.",
+        "problem": "These are densities, so the unit should be g per cubic centimetre (g/cm³), not per square centimetre. Weight per area depends on how thick the sheet is.",
+        "fix": "Kính nặng khoảng 2,45 g/cm³, còn acrylic chỉ 1,19 g/cm³.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "| Dễ mua\n| +\n| +",
+        "problem": "The table gives acrylic the same '+' for availability as glass, but the cons list says acrylic tanks are hard to find (Khó mua).",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "keo silicone chuyên dùng cho bể cá loại 100%",
+        "problem": "'100%' is placed awkwardly, so the phrase reads like a word-for-word translation.",
+        "fix": "keo silicone 100% chuyên dùng cho bể cá",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "nhớ châm đầy nước thử xem có rò không",
+        "problem": "In the hobby, 'châm' means dosing fertiliser or CO2. Filling a tank with water is 'đổ đầy' or 'bơm đầy'.",
+        "fix": "nhớ đổ đầy nước thử xem có rò không",
+        "field": "body"
+      }
+    ],
+    "ruled": "56e5a9bdc4eb8d2e"
   },
   "vi/guides/aquariumbreeder-amano-shrimp-and-dwarf-shrimp-species-compatibility": {
     "at": "2026-11-07",
@@ -824,6 +1016,39 @@
     ],
     "ruled": "9e8cf3d0c4a2bf2e"
   },
+  "vi/guides/aquariumbreeder-diy-root-tabs-pros-and-cons": {
+    "at": "2026-11-08",
+    "hash": "138fe45c4ebaa5ee",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "## Có nên nướng phân nhét đất sét không?",
+        "problem": "A side heading about baking sits inside the clay method, between Cách 1 and Cách 2. As a result, \"Cách 2\" of the clay method ends up under the baking heading.",
+        "fix": "Turn the baking question into a short note under Cách 1 instead of a top-level heading, or move it after Cách 2.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Nên nhớ Osmocote có chứa đồng (khoảng 0,024%) so với phân nhét thông thường.",
+        "problem": "The FAQ gives Osmocote's copper as about 0.024%, but the comparison table on the same page gives 0.05%.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Đừng nhét nhiều loại phân này trong bể tép",
+        "problem": "\"nhiều loại\" reads as \"many kinds\". The source means not using many of these tabs.",
+        "fix": "Đừng nhét nhiều viên phân này trong bể tép",
+        "field": "body"
+      }
+    ],
+    "ruled": "138fe45c4ebaa5ee"
+  },
   "vi/guides/aquariumbreeder-do-crayfish-need-to-come-out-of-water": {
     "at": "2026-11-08",
     "hash": "2942de31143dd6a0",
@@ -856,6 +1081,31 @@
         "field": "body"
       }
     ]
+  },
+  "vi/guides/aquariumbreeder-filter-and-or-protein-skimmer-do-i-need-both": {
+    "at": "2026-11-08",
+    "hash": "9ddf984b1a0927b0",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "dù có người thích thay nước thường hơn, thay nhiều hơn",
+        "problem": "'thường hơn' reads as 'more ordinary' rather than 'more often'; the intended meaning is more frequent water changes.",
+        "fix": "dù có người thích thay nước thường xuyên hơn, mỗi lần thay nhiều hơn",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "lọc như vậy là chưa trọn, chưa hết sức",
+        "problem": "'chưa hết sức' is a word-for-word rendering of 'not maximal' and sounds unnatural to a Vietnamese reader.",
+        "fix": "lọc như vậy là chưa trọn vẹn",
+        "field": "body"
+      }
+    ],
+    "ruled": "9ddf984b1a0927b0"
   },
   "vi/guides/aquariumbreeder-freshwater-limpets-in-freshwater-tank-stay-or-go": {
     "at": "2026-11-06",
@@ -2163,6 +2413,22 @@
     "findings": [],
     "ruled": "c228b813564f6ef6"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-5-wild-betta-species": {
+    "at": "2026-11-08",
+    "hash": "bb9365888916d663",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "5 Amazing Wild Betta Species that You Should Try Breeding - Aquarium Co-Op",
+        "problem": "The caption is the source article's title and site name, so it says nothing about what the photo shows.",
+        "rule": "A caption identical to the source article title or ending with a site name such as ' - Aquarium Co-Op'.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "bb9365888916d663"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-55-gallon-fish": {
     "at": "2026-11-05",
     "hash": "1e2606fb4c5bab65",
@@ -2754,6 +3020,22 @@
       }
     ],
     "ruled": "37a47dce87f311d4"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-bubbles-in-fish-tank-water": {
+    "at": "2026-11-08",
+    "hash": "9bf1c08be7a55d19",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "7 Reasons Why Your Aquarium Water Has Bubbles or Foaming - Aquarium Co-Op",
+        "problem": "The caption is the source article's title and site name, so it says nothing about what the photo shows.",
+        "rule": "A caption that matches the source article title or ends with a site name after a dash.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "9bf1c08be7a55d19"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-camallanus-worms": {
     "at": "2026-11-07",
@@ -4286,6 +4568,12 @@
     ],
     "ruled": "f9699d09d0f0f766"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-seasoned-fish-tank": {
+    "at": "2026-11-08",
+    "hash": "11b5937ecdb5f045",
+    "findings": [],
+    "ruled": "11b5937ecdb5f045"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-shell-dwellers": {
     "at": "2026-11-05",
     "hash": "d1d98537bd812317",
@@ -4307,6 +4595,31 @@
       }
     ],
     "ruled": "4451c27f1aff0996"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-siamese-algae-eater": {
+    "at": "2026-11-08",
+    "hash": "7f86d251272acae0",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Từ trái sang phải: cá bút chì (Crossocheilus oblongus), cá ăn rêu Trung Quốc (Gyrinocheilus aymonieri) và cá cáo bay",
+        "problem": "This is a caption copied from the source that points to a three-fish comparison photo the page doesn't have, so it reads as a stray line in the body text.",
+        "rule": "A body line starting with 'Từ trái sang phải' (left to right) when no matching caption exists.",
+        "field": "body"
+      },
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "Care Guide for Siamese Algae Eaters (SAE) — Housing, Food, and More - Aquarium Co-Op",
+        "problem": "This caption is the source article's title, not a description of what is in the photo.",
+        "rule": "A caption that matches the source page's title, or ends in the site name.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "7f86d251272acae0"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-slow-aquarium-flow": {
     "at": "2026-11-02",
@@ -4473,6 +4786,22 @@
       }
     ],
     "ruled": "be06dad1fd870d71"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-time-saving-tips-for-aquariums": {
+    "at": "2026-11-08",
+    "hash": "e9e843bbdb80297e",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "5 Easy Tips to Save Time in the Fishkeeping Hobby - Aquarium Co-Op",
+        "problem": "The caption is the source article's title, not a description of what the photo shows.",
+        "rule": "A caption that is identical to the source page title, or ends with ' - <site name>'.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "e9e843bbdb80297e"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-top-10-barbs": {
     "at": "2026-11-08",
@@ -6760,6 +7089,12 @@
     "hash": "317ec3d3496848eb",
     "findings": [],
     "ruled": "317ec3d3496848eb"
+  },
+  "vi/guides/glaser-en-18-toothcarps-killis-and-livebearers-rare-livebearers-en": {
+    "at": "2026-11-08",
+    "hash": "a5fbf51c5e65c7da",
+    "findings": [],
+    "ruled": "a5fbf51c5e65c7da"
   },
   "vi/guides/glaser-en-25-perchlike-fishes-25c-perchlike-fishes-3-remaining-cichlids-from-africa-pelvicachromis-humilis-and-close-relatives-from-guinea-3-pelvicachromis-humilis-sierra-leone-p-signatus-en": {
     "at": "2026-11-07",

@@ -1,0 +1,103 @@
+{
+  "id": "homaloptera-orthogoniata",
+  "native": {
+    "input": "3287c3844e2da759",
+    "at": "2026-11-08T22:57:48.089Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "In Sarawak (Malaysian Borneo) it's known from the Sungai (river) Baram, Sungai Tatau and Sungai Rajang basins while in Kalimantan (Indonesian Borneo) it's been recorded from the Sungai Sambas and Sungai Kapuas in Kalimantan Barat (West Kalimantan) as well as the Sungai Mahakam in Kalimantan Timur (East Kalimantan).",
+        "words": "Malaysian",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "In Sarawak (Malaysian Borneo) it's known from the Sungai (river) Baram, Sungai Tatau and Sungai Rajang basins while in Kalimantan (Indonesian Borneo) it's been recorded from the Sungai Sambas and Sungai Kapuas in Kalimantan Barat (West Kalimantan) as well as the Sungai Mahakam in Kalimantan Timur (East Kalimantan).",
+        "words": "Indonesian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Historically said to occur throughout much of Indochina but more recent research has shown it to be endemic to the island of Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Rajang",
+        "source": "seriouslyfish",
+        "quote": "In Sarawak (Malaysian Borneo) it's known from the Sungai (river) Baram, Sungai Tatau and Sungai Rajang basins while in Kalimantan (Indonesian Borneo) it's been recorded from the Sungai Sambas and Sungai Kapuas in Kalimantan Barat (West Kalimantan) as well as the Sungai Mahakam in Kalimantan Timur (East Kalimantan).",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Baram",
+        "source": "seriouslyfish",
+        "quote": "In Sarawak (Malaysian Borneo) it's known from the Sungai (river) Baram, Sungai Tatau and Sungai Rajang basins while in Kalimantan (Indonesian Borneo) it's been recorded from the Sungai Sambas and Sungai Kapuas in Kalimantan Barat (West Kalimantan) as well as the Sungai Mahakam in Kalimantan Timur (East Kalimantan).",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Mahakam",
+        "source": "seriouslyfish",
+        "quote": "In Sarawak (Malaysian Borneo) it's known from the Sungai (river) Baram, Sungai Tatau and Sungai Rajang basins while in Kalimantan (Indonesian Borneo) it's been recorded from the Sungai Sambas and Sungai Kapuas in Kalimantan Barat (West Kalimantan) as well as the Sungai Mahakam in Kalimantan Timur (East Kalimantan).",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Kapuas",
+        "source": "seriouslyfish",
+        "quote": "In Sarawak (Malaysian Borneo) it's known from the Sungai (river) Baram, Sungai Tatau and Sungai Rajang basins while in Kalimantan (Indonesian Borneo) it's been recorded from the Sungai Sambas and Sungai Kapuas in Kalimantan Barat (West Kalimantan) as well as the Sungai Mahakam in Kalimantan Timur (East Kalimantan).",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Sambas",
+        "source": "seriouslyfish",
+        "quote": "In Sarawak (Malaysian Borneo) it's known from the Sungai (river) Baram, Sungai Tatau and Sungai Rajang basins while in Kalimantan (Indonesian Borneo) it's been recorded from the Sungai Sambas and Sungai Kapuas in Kalimantan Barat (West Kalimantan) as well as the Sungai Mahakam in Kalimantan Timur (East Kalimantan).",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Homaloptera orthogoniata",
+    "status": "ACCEPTED",
+    "taxonKey": 2358578,
+    "datasets": [
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        9
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        4
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        4
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ]
+    ],
+    "native": [
+      "MY",
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T22:57:48.089Z"
+  }
+}

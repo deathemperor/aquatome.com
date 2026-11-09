@@ -17,7 +17,8 @@ calm() { [ -z "${GITHUB_ACTIONS:-}" ] || return 0; local cores; cores=$(sysctl -
 # Engine work waits for cooler hours: under heat macOS takes cores away from work, and on 2026-11-08 it ran work on 6-8 of
 # its 16 while every lead's work slowed, a 0.4 s job taking up to 54 s. A run waits while any core is taken away, up to 2 h,
 # then goes ahead at its low priority. Its heat level alone says less: it read heavy with all 16 cores at work and that job
-# at 0.3 s. GitHub's runners, and anywhere without these readings, count none taken.
+# at 0.3 s. Anywhere without these readings counts none taken. In GitHub Actions it waits only on this Mac's own runner
+# (TestFlight's upload, testflight.yml): GitHub's runners aren't this Mac.
 cores_taken() {
   local all mask n=0
   all=$(sysctl -n hw.ncpu 2>/dev/null) && mask=$(sysctl -n kern.sched_recommended_cores 2>/dev/null) || { echo 0; return; }
@@ -25,7 +26,7 @@ cores_taken() {
   [ "$all" -gt "$n" ] 2>/dev/null && echo $((all - n)) || echo 0
 }
 cool() {
-  [ -z "${GITHUB_ACTIONS:-}" ] || return 0
+  [ -z "${GITHUB_ACTIONS:-}" ] || [ "${RUNNER_ENVIRONMENT:-}" = self-hosted ] || return 0
   for _ in $(seq "${COOL_TRIES:-240}"); do
     [ "$(cores_taken)" -eq 0 ] && return 0
     sleep "${COOL_PAUSE:-30}"

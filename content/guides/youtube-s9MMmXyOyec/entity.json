@@ -14,7 +14,7 @@
     "rotala-rotundifolia",
     "pogostemon-helferi"
   ],
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "s9MMmXyOyec",
     "title": "Hướng dẫn setup hồ thuỷ sinh 1m2 toàn tập - Tập 5 Bung lụa - Quới decor",
@@ -34,16 +34,16 @@
     },
     "lang": "vi",
     "taxa": [
-      "Hydrocotyle tripartita",
       "Hemianthus callitrichoides",
-      "Eleocharis parvula",
-      "Staurogyne repens",
-      "Bucephalandra sp.",
+      "Eleocharis sp.",
+      "Hydrocotyle sp.",
       "Lagenandra meeboldii",
-      "Rotala rotundifolia",
       "Rotala sp.",
-      "Fissidens sp.",
-      "Pogostemon helferi"
+      "Rotala rotundifolia",
+      "Ludwigia sp.",
+      "Bucephalandra sp.",
+      "Taxiphyllum sp.",
+      "Staurogyne repens"
     ],
     "gear": [
       {
@@ -61,12 +61,6 @@
       {
         "category": "phan-nen",
         "type": "phan",
-        "brand": "Master Soil",
-        "t": 0
-      },
-      {
-        "category": "phan-nen",
-        "type": "cat",
         "t": 0
       },
       {
@@ -75,10 +69,15 @@
         "t": 0
       },
       {
+        "category": "phan-nen",
+        "type": "cat",
+        "t": 0
+      },
+      {
         "category": "loc",
         "type": "thung",
         "brand": "Atman",
-        "model": "RF 1301",
+        "model": "RF-1301",
         "t": 0
       },
       {
@@ -88,33 +87,19 @@
       },
       {
         "category": "khac",
-        "brand": "Matrix",
+        "brand": "Seachem",
+        "model": "Purigen",
+        "t": 0
+      },
+      {
+        "category": "co2",
+        "type": "binh",
         "t": 0
       },
       {
         "category": "khac",
-        "brand": "Purigen",
-        "t": 0
-      },
-      {
-        "category": "co2",
-        "type": "binh",
-        "brand": "Ista",
-        "model": "bình nhôm 3 lít",
-        "t": 0
-      },
-      {
-        "category": "co2",
-        "type": "binh",
         "brand": "Mufan",
-        "model": "van điện CO2",
-        "t": 0
-      },
-      {
-        "category": "co2",
-        "type": "binh",
-        "brand": "Qanvee",
-        "model": "F16",
+        "model": "Van điện CO2",
         "t": 0
       },
       {
@@ -122,20 +107,14 @@
         "type": "thuy-sinh",
         "brand": "Chihiros",
         "model": "WRGB2 90cm",
-        "t": 425
+        "t": 447
       },
       {
         "category": "den",
         "type": "thuy-sinh",
         "brand": "Week",
         "model": "A430 Pro",
-        "t": 425
-      },
-      {
-        "category": "den",
-        "brand": "Xima",
-        "model": "đèn rọi 3 chế độ",
-        "t": 0
+        "t": 447
       },
       {
         "category": "khac",
@@ -150,11 +129,6 @@
         "t": 0
       },
       {
-        "category": "khac",
-        "brand": "Multibio",
-        "t": 0
-      },
-      {
         "category": "test-nuoc",
         "type": "test",
         "t": 0
@@ -162,21 +136,21 @@
     ],
     "figures": [
       {
-        "heading": "Bể cần bao lâu để lên đầy",
+        "heading": "Chăm bể thủy sinh gồm những việc gì",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/s9MMmXyOyec/p0-cXVhc2NhcGUucG5n.webp",
-          "thumb": "https://media.aquatome.com/video/s9MMmXyOyec/p0-cXVhc2NhcGUucG5n-480.webp",
+          "url": "https://media.aquatome.com/video/s9MMmXyOyec/p0-hX3NocmltcC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/s9MMmXyOyec/p0-hX3NocmltcC5qcGc-480.webp",
           "width": 960,
-          "height": 447,
-          "licence": "CC BY-SA 4.0",
-          "author": "Duc Viet Bui",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nature_style_aquascape.png",
-          "caption": "Bể thủy sinh nature cây lên dày, rêu phủ lũa, trông đã đầy đặn."
+          "height": 718,
+          "licence": "CC BY 4.0",
+          "author": "Snehayan",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Live_planted_aquarium_with_neocaridina_shrimp.jpg",
+          "caption": "Bể thủy sinh cây xanh um tùm trên lũa và đá, khỏe mạnh."
         }
       },
       {
-        "heading": "Chăm bể tốn bao nhiêu thời gian",
+        "heading": "Mỗi ngày, mỗi tuần mất bao nhiêu thời gian",
         "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/s9MMmXyOyec/p1-bV9maXNoZXMuanBn.webp",
@@ -186,62 +160,96 @@
           "licence": "CC BY-SA 4.0",
           "author": "KannanVM",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pookode_Lake_Fresh_Water_Aquarium_fishes.jpg",
-          "caption": "Cá vàng bơi trong bể có nền sỏi, cây thủy sinh và gỗ lũa."
+          "caption": "Bể cá vàng có sỏi, gỗ lũa và cây xanh cần chăm đều đặn."
         }
       },
       {
-        "heading": "Phần cốt lõi của việc chăm",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/s9MMmXyOyec/p2-JfRmlsdGVyLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/s9MMmXyOyec/p2-JfRmlsdGVyLmpwZw-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Fish Tank Society",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
-          "caption": "Thay nước bể bằng xô và ống siphon, bên cạnh là lọc thùng."
-        }
-      },
-      {
-        "heading": "Khi nào tăng đèn, CO2 và phân",
+        "heading": "Chăm bể có mệt không",
         "moments": [
           {
-            "t": 199,
-            "url": "https://media.aquatome.com/video/s9MMmXyOyec/t199.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể thủy sinh cây phát triển dày, đá và cây đỏ xanh rực rỡ."
+            "t": 175,
+            "url": "https://media.aquatome.com/video/s9MMmXyOyec/at175-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh cây lên xanh tốt, xếp đá và hậu cảnh đỏ nổi bật."
           },
           {
-            "t": 447,
-            "url": "https://media.aquatome.com/video/s9MMmXyOyec/t447.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Toàn cảnh bể dưới đèn mạnh, cây xanh đỏ lên màu đẹp."
+            "t": 180,
+            "url": "https://media.aquatome.com/video/s9MMmXyOyec/at180-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Thảm cây xanh mướt và cụm rêu phủ lũa trong bể thủy sinh."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/s9MMmXyOyec/p2-hX3NocmltcC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/s9MMmXyOyec/p2-hX3NocmltcC5qcGc-480.webp",
+          "width": 960,
+          "height": 718,
+          "licence": "CC BY 4.0",
+          "author": "Snehayan",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Live_planted_aquarium_with_neocaridina_shrimp.jpg",
+          "caption": "Bể thủy sinh cây xanh tốt um tùm bên lũa và đá."
+        }
+      },
+      {
+        "heading": "Giai đoạn cây phát triển mạnh",
+        "moments": [
+          {
+            "t": 205,
+            "url": "https://media.aquatome.com/video/s9MMmXyOyec/at205-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cây trong bể lên dày, xanh tốt bên cạnh hòn đá lớn."
+          },
+          {
+            "t": 450,
+            "url": "https://media.aquatome.com/video/s9MMmXyOyec/at450-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Toàn cảnh bể khi cây đã phát triển mạnh, phủ kín."
           }
         ]
       },
       {
-        "heading": "Khi đèn không còn đủ sáng",
+        "heading": "Chỉnh đèn, CO2 và phân ở giai đoạn này",
         "moments": [
           {
-            "t": 437,
-            "url": "https://media.aquatome.com/video/s9MMmXyOyec/t437.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cụm cây xanh mọc dày, tròn đầy bên cạnh đá đỏ."
+            "t": 210,
+            "url": "https://media.aquatome.com/video/s9MMmXyOyec/at210-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh cây lên mạnh, xanh và đỏ rực bên cạnh hòn đá."
+          }
+        ]
+      },
+      {
+        "heading": "Khi nào cần đổi đèn mạnh hơn",
+        "moments": [
+          {
+            "t": 445,
+            "url": "https://media.aquatome.com/video/s9MMmXyOyec/at445-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bụi rau má hương ở giữa bể lên to, tròn và xanh mướt."
+          },
+          {
+            "t": 470,
+            "url": "https://media.aquatome.com/video/s9MMmXyOyec/at470-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Toàn cảnh bể 1,2 m ngày thứ 122, cây dày và lên màu đẹp."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/s9MMmXyOyec/p4-1bV9MaWdodC5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/s9MMmXyOyec/p4-1bV9MaWdodC5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/s9MMmXyOyec/p5-1bV9MaWdodC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/s9MMmXyOyec/p5-1bV9MaWdodC5qcGc-480.webp",
           "width": 960,
           "height": 666,
           "licence": "CC BY-SA 3.0",
           "author": "Lime Huang",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_Aquarium_Light.jpg",
-          "caption": "Bể thủy sinh có đèn LED đặt phía trên, cây mọc dày xanh tốt."
+          "caption": "Bể thủy sinh cây xanh um tươi dưới đèn LED treo phía trên."
         }
       }
     ]
