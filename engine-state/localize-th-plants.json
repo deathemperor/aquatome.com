@@ -895,17 +895,16 @@
     "notes": []
   },
   "eleocharis-pusilla": {
-    "at": "2026-10-31",
-    "from": "2026-10-30",
-    "name": "Eleocharis Mini",
+    "at": "2026-11-09",
+    "from": "2026-11-08",
+    "name": "หญ้าหัวไม้ขีดมินิ",
     "confidence": "medium",
-    "score": 0.75,
+    "score": 0.85,
     "notes": [
-      "#3: \"even lower growth\" means slower/lower growing; \"เตี้ยกว่า...เสียอีก\" is acceptable but reads as height only. Consider \"โตช้า/เตี้ยกว่า\" for fidelity.",
-      "#2: \"ปลูกทำพรมได้อย่างเชื่อถือได้ที่สุด\" is awkward; use \"ปลูกเป็นพรมได้แน่นอน/ได้ผลดีที่สุด\".",
-      "#2: \"เวอร์ชันมินิ\" is a stiff term; use \"แบบมินิ\" or \"สายพันธุ์มินิ\".",
-      "#1: \"สายพันธุ์ปลูกคัดเลือก (cultivar)\" is clumsy; use \"สายพันธุ์ปลูกเลี้ยง (cultivar)\" or \"พันธุ์ผสม/พันธุ์คัดเลือก\".",
-      "#3: \"มอบให้ Tropica\" is fine, but \"Aquarium plant from tissue culture in closed cup\" would be more natural as \"ไม้น้ำเนื้อเยื่อแบบถ้วยปิด\"."
+      "Item 2: the source text is Vietnamese, not English. The Thai follows it faithfully, but the source should be checked.",
+      "Item 2: \"หญ้าหัวไม้ขีด\" is not the name Thai hobbyists usually use for Eleocharis. Use \"หญ้าเข็ม\" or \"หญ้าผมนางเงือก\" (hairgrass), and keep it the same in all items.",
+      "Item 2: \"แผ่ขยายค่อนข้างเร็ว\" is weaker than the source \"lan khá hung\" (spreads aggressively). Use something like \"แผ่ขยายรุนแรง/เร็วมาก\".",
+      "Item 3: \"ปูพรมได้ผลแน่นอนที่สุด\" is slightly stiff. Consider \"เป็นหนึ่งในไม้ปูพรมที่เชื่อถือได้ที่สุด\"."
     ]
   },
   "eriocaulon-cinereum": {
@@ -1763,16 +1762,17 @@
     "notes": []
   },
   "pogostemon-deccanensis": {
-    "at": "2026-11-05",
-    "from": "2026-10-31",
+    "at": "2026-11-09",
+    "from": "2026-11-08",
     "name": "โพโกสเตมอน อีเรคตัส",
     "confidence": "medium",
-    "score": 0.85,
+    "score": 0.75,
     "notes": [
-      "\"ใบคล้ายต้นสน\": the English says the stems are conifer-like (\"conifer-like stems\"). Rephrase as \"ต้นคล้ายต้นสน\" or \"ลำต้นคล้ายต้นสน\" so it doesn't read as only the leaves.",
-      "\"เติบโตปานกลาง\" is a bit stiff. \"อัตราการเติบโตปานกลาง\" is more natural.",
-      "\"รากแข็งแรง\": \"vigorous roots\" would be better as \"รากเจริญเร็ว/แข็งแรง\". This is minor.",
-      "\"ยอดที่ตัดออกมานำไปปักปลูกก็เริ่มเติบโตได้ง่าย\" is slightly awkward. Use \"ยอดที่ตัดแล้วนำไปปักชำจะแตกรากและโตได้ง่าย\"."
+      "Item 4: \"ยอดที่ตัดออกเมื่อนำไปปลูกจะเริ่มเติบโตได้ง่าย\" is awkward; rephrase as \"ยอดที่ตัดแล้วนำไปปลูกต่อจะแตกรากและโตได้ง่าย\".",
+      "Item 4: \"มีรากแข็งแรง\" for \"vigorous roots\" and \"เติบโตปานกลาง\" read abruptly; smooth them, e.g. \"อัตราการเติบโตปานกลาง รากแข็งแรง\".",
+      "Item 2: \"ต้นจะตั้งตรงขึ้นในแนวดิ่ง\" is redundant. Use \"ต้นตั้งตรงในแนวดิ่งอย่างเป็นระเบียบ\".",
+      "Item 5: \"ยอดต้นไม้\" should be \"ยอดไม้น้ำ\". \"ปลูกในช่วงกลางตู้\" would read more naturally as \"ปลูกบริเวณกลางตู้\".",
+      "Item 1: \"CO2\" and \"mg/L\" are acceptable. \"ไม้ต้น (ไม้ข้อ)\" is fine, but \"ไม้ข้อ\" alone is the more common hobby term."
     ]
   },
   "pogostemon-helferi": {

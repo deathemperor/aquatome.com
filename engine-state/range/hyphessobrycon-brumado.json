@@ -1,0 +1,63 @@
+{
+  "id": "hyphessobrycon-brumado",
+  "native": {
+    "input": "413516afc78cd0e5",
+    "at": "2026-11-08T22:57:48.089Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the rio Brumado, a tributary within the coastal rio de Contas drainage in Bahia state, eastern Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Brumado",
+        "source": "seriouslyfish",
+        "quote": "Known only from the rio Brumado, a tributary within the coastal rio de Contas drainage in Bahia state, eastern Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio de Contas",
+        "source": "seriouslyfish",
+        "quote": "Known only from the rio Brumado, a tributary within the coastal rio de Contas drainage in Bahia state, eastern Brazil.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hyphessobrycon brumado",
+    "status": "ACCEPTED",
+    "taxonKey": 5962469,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        11
+      ],
+      [
+        "31f0c5cb-5258-4947-8dbc-4871decfd721",
+        4
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        2
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T22:57:48.089Z"
+  }
+}

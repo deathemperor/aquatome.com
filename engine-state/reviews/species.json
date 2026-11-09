@@ -35,6 +35,42 @@
       "kept": false
     }
   ],
+  "vi/species/apistogramma-borellii#1rJLXLHEGE4": [
+    {
+      "at": "2026-11-08T23:56:07Z",
+      "model": "sonnet",
+      "score": 0.45,
+      "notes": [
+        "aquariumSize: 'Bể khoảng 75 lít' — video says 20 gallons (~75 L) but never in litres; conversion OK, yet 'có lẽ là vừa nhất' is fine. Page already has tank size 45x30 (~41 L); the difference from the page is not stated plainly.",
+        "waterConditions: '22–28 °C' differs from page's 20–26°C but the difference isn't pointed out as video vs page.",
+        "waterConditions: 'Chúng thích nước hơi cứng' — video says they tend to prefer harder water; fine, but the page's 1–15 dGH is not contrasted.",
+        "waterConditions: 'Lọc phải đủ mạnh' — video says 'adequate filtration', not strong; also says to keep ammonia/nitrite at zero, which is OK.",
+        "maintenance: 'Lá bàng có tính kháng khuẩn' — the video says Indian almond leaves have antimicrobial and antibacterial properties; fine, but the page already covers Ketapang leaves and microorganisms as food, so this overlaps the page.",
+        "maintenance: 'bẻ đôi lá rồi thả vào bể. Lá ngấm nước rồi tự chìm' — the video says he covers one half and puts the other in water; the 'bẻ đôi lá rồi thả vào bể' detail is garbled; also unattributed generalization in 'khi lá mục chỉ còn trơ gân'.",
+        "behaviour: 'twig catfish', 'Cooley loach', 'Dulanker' left in English/garbled; mixed-language, reads as translation. 'cá chuột' for Cory is also unnatural for a hobbyist.",
+        "reproduction: 'dù có thể phải vài lần mới thành công' — in the video this is about mothers raising fry ('after a few tries'), not spawning; misplaced. 'Trong bể đã set lâu' is slang; fry-feeding and parents paragraph overlap with page's reproduction themes (female cares for eggs/fry)."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T23:56:07Z",
+      "model": "sonnet",
+      "score": 0.4,
+      "notes": [
+        "aquariumSize: '75 lít' — the video says 20 gallons (about 75 L), so the conversion is fine, but it's presented as one keeper's view while the video states it as a general recommendation; also overlaps the page's tank size",
+        "behaviour: 'cá tỳ bà que (Farlowella)' — video says 'Dulanker catfish, Twig catfish'; the Farlowella identification is a guess, and 'Dulanker' is dropped",
+        "behaviour: 'cá chạch rắn (kuhli)' — video says 'Cooley loach'; kuhli is a different identification not in the video",
+        "behaviour: 'cá tam giác (harlequin rasbora)' — video says Harley Quinn rasbora; the Vietnamese name is a questionable rendering",
+        "behaviour: 'Cả đực lẫn cái đều có thể tự làm nhạt màu' — fine, but 'Chuyện này cũng hay xảy ra khi người nuôi cầm điện thoại' overstates the offhand remark as a common occurrence",
+        "waterConditions: 'Loài này chịu được khá nhiều kiểu nước' is stated as a rule; the video also says they prefer harder water, which is omitted. 'Một người nuôi... 22–28 °C' presents the video's species range as one keeper's setting",
+        "reproduction: 'Nếu cần cho ăn thì lúc đầu dùng trùng cỏ (infusoria)' — the video says 'ciliates', which is not necessarily infusoria/trùng cỏ; 'mấy lứa đầu thường hỏng' is stated as a rule",
+        "reproduction: the video says the mother 'may take them in her mouth' as a fry-retrieval behaviour, but the text says 'ngậm một con bơi lạc', which adds an unsupported detail; also 'bố mẹ' keeper preference is attributed fine but the 'bể đã chạy lâu' reasoning is partly inferred"
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/axelrodia-riesei#G7YKeIn7c1w": [
     {
       "at": "2026-11-07T20:43:36Z",
@@ -400,6 +436,41 @@
         "[diet] \"Ngoài Daphnia và Artemia\" – cyclops and mosquito larvae are in video, but 'lăng quăng (bọ gậy)' is a loose rendering of 'small mosquito larvae'",
         "[dimorphism] \"xanh lam pha bạc\" ok; but \"Đực và cái khác nhau rõ đến mức... hai loài\" repeats page's already stated strong dimorphism (page says male and female look very different)",
         "[dimorphism] \"Mút vây đuôi ... đỏ tươi hoặc đỏ cam\" largely duplicates page's red caudal spots on males, little new"
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/sphaerichthys-vaillanti#2RrQVvB-jG0": [
+    {
+      "at": "2026-11-08T23:57:04Z",
+      "model": "sonnet",
+      "score": 0.55,
+      "notes": [
+        "[notes] '6–7 cm, tức là to hơn cỡ ghi trong bảng dữ liệu' is fine as a difference (page says 5.5), but framed as 'một người nuôi thấy cá trong bể của mình lớn tới' - video states 6-7 cm as the species' size, not one keeper's tank observation.",
+        "[diet] 'như vài loài sặc khác' - video says 'some other gourami species'; wording okay but 'sặc' is looser than gourami.",
+        "[diet] 'Loài này ăn chậm... ' stated as a rule; video presents it as 'we've noticed', one keeper's experience, not attributed as such.",
+        "[behaviour] 'Những con yếu thế bị đuổi có thể nhạt màu hẳn đi vì stress, như để tránh bị chú ý' - video says harassed individuals may turn pale from stress to avoid attention; the 'như để' phrasing is slightly interpretive.",
+        "[behaviour] 'Chúng giành chỗ với nhau khá gắt nhưng không gây sự với các loài khác' stated as a species rule; video gives it as 'we've observed' from one keeper.",
+        "[behaviour] 'Con cái đầu đàn cũng hay lấn át cả con đực đầu đàn' stated as a general rule, but video says 'often' from the keeper's observation; not framed as one keeper's.",
+        "[behaviour] 'cá chì' is an odd rendering of Pencilfish; the claim that tetras were kept 'mà không gặp chuyện gì' and the contrast with the page's tetra warning is added by the writer; video only says calm tankmates like Pencilfish and Tetras are easy to house.",
+        "[behaviour] The 'pair vs 6+ group' contrast is stated plainly, which is OK, but the video's reason is harmony from territorial harassment, not simply 'bể yên ổn hơn' by one person's experience."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-08T23:57:04Z",
+      "model": "sonnet",
+      "score": 0.55,
+      "notes": [
+        "[behaviour] 'chỉ nuôi một cặp chứ không nuôi theo nhóm' contradicts the page, which says to keep at least 6 in a group. NEW never says plainly that the video differs from the page.",
+        "[behaviour] 'nuôi chung dễ với ... cá chì và tetra' contradicts the page, which says to avoid fast tetras and rasbora. The conflict isn't flagged. 'cá chì' is also an odd name for pencilfish.",
+        "[behaviour] 'Một cặp đực cái đầu đàn sẽ đuổi những con yếu thế hơn' repeats the page's existing point that dominant fish chase rivals and form a hierarchy.",
+        "[behaviour] The advice to keep a pair is written as a firm recommendation ('khuyên chỉ nuôi một cặp') after a general claim, and could read as a rule instead of one keeper's experience.",
+        "[notes] 'lớn tới 6–7 cm' differs from the page's sizeCm of 5.5. NEW doesn't say it differs or how.",
+        "[notes] 'bể nano cỡ lớn là vừa với chúng' conflicts with the page's minimum of 75 L (about 54 L for a 60×30 base). The difference isn't flagged. The sentence is also placed under [notes], where it doesn't fit.",
+        "[diet] 'Cá hơi kén' repeats the page's existing statement that the fish are somewhat picky."
       ],
       "attempt": "first",
       "kept": false

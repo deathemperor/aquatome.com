@@ -1,0 +1,180 @@
+{
+  "id": "crenicichla-johanna",
+  "scientificName": "Crenicichla johanna",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Crenicichla",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "colombia",
+    "orinoco",
+    "venezuela",
+    "guyana",
+    "essequibo",
+    "french-guiana",
+    "oyapock",
+    "brazil",
+    "amapa",
+    "peru",
+    "suriname",
+    "bolivia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 30
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 180
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-johanna",
+      "html": "<p>The red-finned pike cichlid, Lugubria johanna, is a large pike cichlid that ranges over much of northern South America. It is known from the Orinoco, Essequibo, Oyapock and Approuague basins among others, mostly in faster moving rivers and streams, and a number of colour forms have developed across its range. Growing to 30 cm, it can be aggressive, especially towards its own kind, and will eat any fish small enough to be considered food.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-johanna",
+      "html": "<p>Wide-ranging over much of northern South America. It's known from various river basins, including the Rio Orinoco in Colombia and Venezuela, Rio Essequibo in Guyana, Rio Oyapock and Rio Approuague in French Guiana and Rio Amapá in Brazil. Populations also exist in parts of Peru, Suriname and Bolivia.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-johanna",
+      "html": "<p>Mostly from faster moving rivers and streams.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-johanna",
+      "html": "<p>Standard length: 30 cm SL. Aquarium base: 180 × 60 cm. Volume: ~648 litres (180 × 60 × 60 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-johanna",
+      "html": "<p>Sand substrate is recommended. This species is likely to dig and arrange the decor to suit itself. Some rockwork should be provided to form caves as pikes like to have an area to which they can retreat. Plants should be robust, ideally potted or rooted to bogwood. Water flow should be moderate to strong.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-johanna",
+      "html": "<ul><li>Temperature: 23–26 °C</li><li>pH: 6.0–7.0</li><li>Hardness: 0–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-johanna",
+      "html": "<p>Predominantly piscivorous by nature, although gut analyses of wild specimens also showed it to also consume various aquatic invertebrates. The presence of terrestrial plant matter in some fish was probably via the stomach contents of their prey.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-johanna",
+      "html": "<p>Can be aggressive, especially towards conspecifics. May be kept with other large cichlids or as a species-only setup. Likely to eat any fish small enough to be considered food - and they have big mouths!</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-johanna",
+      "html": "<p>Male is larger and likely to be more prominently marked. Females are more colourful.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-johanna",
+      "html": "<p>Has not been bred in the hobby.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-johanna",
+      "html": "<p>As stated, this fish is found across most of the Amazon basin. As a result, a number of different colour forms have developed. This pike is fairly common in the hobby due to its broad geographic range.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/ab4ad5a507e593a4.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/ab4ad5a507e593a4-480.webp",
+      "width": 629,
+      "height": 300,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/lugubria-johanna",
+      "caption": "Red-finned Pike Cichlid (Crenicichla johanna)",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 180cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300W"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

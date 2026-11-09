@@ -1,0 +1,166 @@
+{
+  "id": "herotilapia-multispinosa",
+  "native": {
+    "input": "5b499c6dd9029471",
+    "at": "2026-11-08T22:57:48.089Z",
+    "claims": [
+      {
+        "code": "NI",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This medium-sized cichlid originally comes from Central America (Nicaragua, Costa Rica, Honduras).",
+        "words": "Nicaragua",
+        "ok": true
+      },
+      {
+        "code": "CR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This medium-sized cichlid originally comes from Central America (Nicaragua, Costa Rica, Honduras).",
+        "words": "Costa Rica",
+        "ok": true
+      },
+      {
+        "code": "HN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This medium-sized cichlid originally comes from Central America (Nicaragua, Costa Rica, Honduras).",
+        "words": "Honduras",
+        "ok": true
+      },
+      {
+        "code": "HN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs in eastern Honduras and throughout Nicaragua and Costa Rica.",
+        "words": "Honduras",
+        "ok": true
+      },
+      {
+        "code": "NI",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs in eastern Honduras and throughout Nicaragua and Costa Rica.",
+        "words": "Nicaragua",
+        "ok": true
+      },
+      {
+        "code": "CR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Occurs in eastern Honduras and throughout Nicaragua and Costa Rica.",
+        "words": "Costa Rica",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "River Patuca",
+        "source": "seriouslyfish",
+        "quote": "Its Atlantic (eastern) range extends south from the River Patuca in Honduras to the River Matina in Costa Rica.",
+        "country": "HN",
+        "ok": true
+      },
+      {
+        "name": "River Matina",
+        "source": "seriouslyfish",
+        "quote": "Its Atlantic (eastern) range extends south from the River Patuca in Honduras to the River Matina in Costa Rica.",
+        "country": "CR",
+        "ok": true
+      },
+      {
+        "name": "River Guasaule",
+        "source": "seriouslyfish",
+        "quote": "In the west it can be found from the River Guasaule in Nicaragua to the Costa Rican Rivers of Tempisque and Bebedero.",
+        "country": "NI",
+        "ok": true
+      },
+      {
+        "name": "Tempisque",
+        "source": "seriouslyfish",
+        "quote": "In the west it can be found from the River Guasaule in Nicaragua to the Costa Rican Rivers of Tempisque and Bebedero.",
+        "country": "CR",
+        "ok": true
+      },
+      {
+        "name": "Bebedero",
+        "source": "seriouslyfish",
+        "quote": "In the west it can be found from the River Guasaule in Nicaragua to the Costa Rican Rivers of Tempisque and Bebedero.",
+        "country": "CR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Herotilapia multispinosa",
+    "status": "ACCEPTED",
+    "taxonKey": 2370521,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        15
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        15
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        11
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        8
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        8
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        7
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        6
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        4
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        4
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        4
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "NI",
+      "CR",
+      "HN"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T22:57:48.089Z"
+  }
+}

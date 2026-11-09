@@ -1,0 +1,342 @@
+{
+  "found": true,
+  "species": [
+    "Artemia",
+    "Tubifex tubifex",
+    "Limnodrilus hoffmeisteri",
+    "Branchiura sowerbyi",
+    "Chironomidae",
+    "Moina",
+    "Daphnia",
+    "Betta splendens",
+    "Symphysodon",
+    "Melanotaeniidae"
+  ],
+  "sources": [
+    {
+      "url": "https://www.fao.org/4/w3732e/w3732e0n.htm",
+      "title": "4.2. Use of cysts",
+      "kind": "farm"
+    },
+    {
+      "url": "https://library.seahorse.org/artemiaguide.html",
+      "title": "The Complete Guide to Artemia (Brine Shrimp)",
+      "kind": "article"
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Tubifex",
+      "title": "Tubifex",
+      "kind": "other"
+    },
+    {
+      "url": "https://vjol.info.vn/tckhcnthuysan/article/view/134414",
+      "title": "Nuôi trùn chỉ (Tubificidae) làm thức ăn sống trong nuôi trồng thủy sản",
+      "kind": "paper"
+    },
+    {
+      "url": "https://www.amazonasmagazine.com/2018/05/17/bloodworms-allergic-reactions-very-real-for-some-fishkeepers/",
+      "title": "Bloodworm Experiences: Reactions are a real thing for some fishkeepers",
+      "kind": "article"
+    },
+    {
+      "url": "https://rainbowfish.angfa.org.au/foods_and_feeding/bloodworms.html",
+      "title": "Foods & Feeding — Bloodworms",
+      "kind": "article"
+    },
+    {
+      "url": "https://ask.ifas.ufl.edu/publication/FA024",
+      "title": "Culture Techniques of Moina: The Ideal Daphnia for Feeding Freshwater Fish Fry",
+      "kind": "university"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/cho-dan-ca-con-betta-an-trun-chi-cach-nao-tot-nhat.831/",
+      "title": "Cho đàn cá con betta ăn trùn chỉ: cách nào tốt nhất?",
+      "kind": "forum"
+    },
+    {
+      "url": "https://www.diendancacanh.com/threads/artemia-thuc-an-thich-hop-cho-ca-bot.129/",
+      "title": "Artemia - thức ăn thích hợp cho cá bột",
+      "kind": "forum"
+    },
+    {
+      "url": "https://aquahouse.vn/cho-ca-an-bobo/",
+      "title": "Cho cá ăn bobo có tốt không? Cách cho cá ăn bobo đúng cách",
+      "kind": "other"
+    },
+    {
+      "url": "https://aquahouse.vn/cho-ca-an-trung-huyet/",
+      "title": "Cách cho cá ăn trùng huyết đúng cách giúp cá khỏe mạnh lớn nhanh",
+      "kind": "other"
+    }
+  ],
+  "facts": [
+    {
+      "section": "what",
+      "fact": "Newly hatched Artemia (instar I nauplii) do not feed and live on their yolk reserves; they start feeding after molting to instar II.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Nauplii from decapsulated cysts have roughly 30-55% more energy and individual weight than regular instar I nauplii, depending on strain.",
+      "source": 0
+    },
+    {
+      "section": "what",
+      "fact": "Newly hatched nauplii from decapsulated cysts are more nutritious because they spend no energy breaking out of the shell.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Newly hatched nauplii lack a complete digestive system and cannot be enriched until about 24 hours old.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Enrichment: move nauplii aged 24 hours to a separate container and enrich for 12 to 24 hours with a HUFA booster such as Selco.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Adding HUFA boosters to a tub of adult brine shrimp spoils the water and may kill the shrimp; enrich in a separate container.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Artemia hatching water is best kept at 25-28°C; below 25°C cysts hatch more slowly and above 33°C their metabolism stops irreversibly.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Keep hatching water pH above 8 and oxygen above 2 mg/l, preferably 5 mg/l.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Give about 2000 lux of light at the water surface, at least in the first hours after the cysts are fully hydrated.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Use up to 5 g of cysts per litre in volumes under 20 l, and at most 2 g/l in larger volumes.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "At 33 g/l salinity and 25°C, the first nauplii appear after about 12-16 h and most should have hatched within 24 h.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Hatched Artemia take about 24 hours to hatch and roughly 24 more hours to reach instar II, when they can take in food.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Keep strong, continuous aeration from an airline reaching the bottom of the hatcher; decapsulated cysts need a lot of bubbles to avoid clumping.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "Seahorse.org decapsulation: hydrate 2 tsp cysts in 2 cups lukewarm water with aeration for one hour, then add 2/3 cup of regular bleach.",
+      "source": 1
+    },
+    {
+      "section": "steps",
+      "fact": "During bleaching the cysts turn from brown to light gray to orange; stop when mostly orange, pour into a net, rinse with cold water and add dechlorinator (sodium thiosulfate).",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Over-bleaching cysts during decapsulation stops them from hatching.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "The decapsulation reaction gives off heat; the solution must never go above 40°C, and embryos must not stay in it longer than necessary.",
+      "source": 0
+    },
+    {
+      "section": "steps",
+      "fact": "Rinse decapsulated cysts until no bleach smell remains and store them sealed in the fridge; they still work well for about a week.",
+      "source": 1
+    },
+    {
+      "section": "mistakes",
+      "fact": "Unhatched cysts and empty shells cannot be digested and may block the gut of the larvae that eat them.",
+      "source": 0
+    },
+    {
+      "section": "other",
+      "fact": "With normal (not decapsulated) cysts, nauplii cannot always be completely separated from their shells; decapsulated cysts avoid this.",
+      "source": 0
+    },
+    {
+      "section": "myths",
+      "fact": "Unenriched Artemia generally does not work well for seahorse fry, so newly hatched brine shrimp is not a complete food for every fry.",
+      "source": 1
+    },
+    {
+      "section": "what",
+      "fact": "Tubifex worms live in sediments of lakes and rivers and sometimes in sewer lines.",
+      "source": 2
+    },
+    {
+      "section": "causes",
+      "fact": "Tubifex harvested from sewers, open water or hatcheries may carry diseases, and can be vectors of whirling disease of salmonids.",
+      "source": 2
+    },
+    {
+      "section": "prevention",
+      "fact": "Keeping tubifex under brisk running water until they empty their guts only partly reduces disease risk; a strong stream also washes off mud.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Tubifex are very fattening and low in some essential amino acids; fish fed mostly on them may grow fast but be less healthy and less colourful.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "Some fish, such as Rift Valley cichlids, may overeat tubifex until they become sick.",
+      "source": 2
+    },
+    {
+      "section": "mistakes",
+      "fact": "In poorly kept aquaria, uneaten tubifex can become a pest that carpets the bottom.",
+      "source": 2
+    },
+    {
+      "section": "what",
+      "fact": "Trùn chỉ (tubificid worms) include Tubifex tubifex, Limnodrilus hoffmeisteri and Branchiura sowerbyi, about 20-25 mm long with 55-95 segments.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "Tubifex tubifex contains about 57% protein, 13.3% fat, 2.04% fiber and 3.6% ash.",
+      "source": 3
+    },
+    {
+      "section": "vietnam",
+      "fact": "In Vietnam, tubificid worms live at high density in wastewater channels, ponds and freshwater lakes, and are cultured as live food for larval eels, catfish and ornamental fish.",
+      "source": 3
+    },
+    {
+      "section": "what",
+      "fact": "Bloodworms (trùng huyết) are larvae of midges in the family Chironomidae; red ones carry a pigment that helps them survive in low-oxygen water.",
+      "source": 5
+    },
+    {
+      "section": "signs",
+      "fact": "Transparent chironomid larvae are sold as glassworms; red ones are bloodworms.",
+      "source": 5
+    },
+    {
+      "section": "what",
+      "fact": "Bloodworms on a dry-weight basis contain 47.7–62.5% protein and 4.9–28.6% fat, and are a good iron source.",
+      "source": 5
+    },
+    {
+      "section": "mistakes",
+      "fact": "Large imported frozen bloodworms have hard, bristled exoskeletons that can clog the gut of fish with small intestinal openings, such as discus, rainbowfish and some tetras.",
+      "source": 5
+    },
+    {
+      "section": "mistakes",
+      "fact": "Bloodworm chitin is hard for young fry to digest because they develop the enzyme chitinase later; this has caused deaths in some post-larvae.",
+      "source": 5
+    },
+    {
+      "section": "other",
+      "fact": "Some rainbowfish with swollen bellies or gut obstructions have been linked to bloodworm feeding.",
+      "source": 5
+    },
+    {
+      "section": "other",
+      "fact": "Handling bloodworm foods has caused allergies in some hobbyists, such as conjunctivitis, rhinitis, asthma or hives; mostly in people who handle them often.",
+      "source": 5
+    },
+    {
+      "section": "other",
+      "fact": "In an informal 2018 survey of 445 readers, 34% reported a known or suspected bloodworm allergy, and the median time to a first reaction was four years.",
+      "source": 4
+    },
+    {
+      "section": "prevention",
+      "fact": "To limit bloodworm allergy, use gloves or feeding tongs, or buy portioned frozen cubes that need no handling; face masks may help with dust.",
+      "source": 4
+    },
+    {
+      "section": "mistakes",
+      "fact": "Bloodworm dust is described as the worst trigger; some keepers say freeze-dried worms caused more reactions than frozen ones (anecdotal).",
+      "source": 4
+    },
+    {
+      "section": "firstAid",
+      "fact": "Anyone with symptoms after handling bloodworms should seek medical advice; severe reactions can need emergency care.",
+      "source": 4
+    },
+    {
+      "section": "what",
+      "fact": "Moina suit freshwater fry: newly hatched fry of most freshwater species can eat young Moina as their first food.",
+      "source": 6
+    },
+    {
+      "section": "other",
+      "fact": "Moina reach much higher densities than Daphnia; average daily yield is 106–110 g/m3, three to four times Daphnia's.",
+      "source": 6
+    },
+    {
+      "section": "other",
+      "fact": "Moina tolerate high temperatures and a wide range of oxygen levels.",
+      "source": 6
+    },
+    {
+      "section": "mistakes",
+      "fact": "Moina can quickly grow too large for fry to eat, and dense hopping adults can harass and damage fry.",
+      "source": 6
+    },
+    {
+      "section": "mistakes",
+      "fact": "Passing Moina through 500-micron mesh to sort them tends to break the animals apart.",
+      "source": 6
+    },
+    {
+      "section": "steps",
+      "fact": "Batch culture of Moina starts a new culture in a separate container every day, which keeps cultures free of contaminants.",
+      "source": 6
+    },
+    {
+      "section": "steps",
+      "fact": "A keeper reports feeding tubifex to betta fry from about two weeks old, after soaking the clump and separating the worms with tweezers.",
+      "source": 7
+    },
+    {
+      "section": "mistakes",
+      "fact": "A keeper reports that leaving tubifex in a basket (rọ) or clump let bigger betta fry dominate, giving uneven growth and fry with long beaks and oversized spoon heads.",
+      "source": 7
+    },
+    {
+      "section": "steps",
+      "fact": "A keeper reports better results spreading worms evenly over the whole fry tank and feeding often, day and night.",
+      "source": 7
+    },
+    {
+      "section": "vietnam",
+      "fact": "Vietnamese keepers call brine shrimp \"artemia\", cysts \"bào nang\", the larvae \"ấu trùng artemia\", and decapsulation \"tách vỏ (trứng)\".",
+      "source": 8
+    },
+    {
+      "section": "vietnam",
+      "fact": "\"Bobo\" is a Vietnamese shop name for small freshwater plankton fed live, also called \"trứng nước\" or \"bo bo nước ngọt\" (water fleas such as Moina/Daphnia).",
+      "source": 9
+    },
+    {
+      "section": "vietnam",
+      "fact": "Trùng huyết (also written trùn huyết) is sold in Vietnam fresh and frozen; shops describe it as a mud-dwelling mosquito larva, though it is a chironomid midge larva.",
+      "source": 10,
+      "also": [
+        5
+      ]
+    }
+  ]
+}

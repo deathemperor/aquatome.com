@@ -1,27 +1,13 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/1/13/Megalechis_picta.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Megalechis_picta.jpg/500px-Megalechis_picta.jpg",
-   "width": 814,
-   "height": 281,
-   "licence": "CC BY 4.0",
-   "author": "Silva-Oliveira C, Canto ALC, Ribeiro FRV",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Megalechis_picta.jpg",
-   "caption": "Megalechis picta, barra escala: 1 cm. Bosque Nacional de Tapajós, Brasil. Silva-Oliveira C, Canto ALC, Ribeiro FRV (2016) Stream ichthyofauna of the Tapajós Nat",
-   "key": "File:Megalechis picta.jpg"
-  },
-  {
-   "url": "https://live.staticflickr.com/5126/5358717584_0969a19484_b.jpg",
-   "thumb": "https://live.staticflickr.com/5126/5358717584_0969a19484_b.jpg",
-   "width": 1024,
-   "height": 768,
-   "licence": "CC BY 2.0",
-   "author": "sdbeazley",
-   "sourceUrl": "https://www.flickr.com/photos/98289027@N00/5358717584",
-   "key": "flickr:5358717584"
-  }
+ "queue": [],
+ "judged": [
+  "File:Megalechis picta.jpg",
+  "flickr:5358717584"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/scotcat/3205071309d901e9.webp": "2c3c2ee4850d1808",
+  "https://media.aquatome.com/scotcat/4079070807b83760.webp": "ed0d3e36ebf6de45",
+  "https://media.aquatome.com/scotcat/c179fbe57dc015fe.webp": "fcfcf8f8f0c080a1"
+ },
+ "commons": "2026-11-08"
 }

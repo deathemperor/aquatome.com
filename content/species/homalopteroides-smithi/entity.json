@@ -16,6 +16,230 @@
     "cambodia",
     "vietnam"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "LA",
+        "KH",
+        "VN",
+        "MY"
+      ],
+      "regions": [
+        "Mekong",
+        "Chao Phraya"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Homalopteroides smithi is a hillstream loach from Thailand, Peninsular Malaysia and parts of the Mekong basin in Laos, Cambodia and Vietnam.",
+          "countries": [
+            "TH",
+            "LA",
+            "KH",
+            "VN",
+            "MY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from close to the village of Ban Khiri Wong, Nakhon Si Thammarat Province, southern (peninsular) Thailand but since recorded throughout much of the country, including the Chao Phraya and Mekong river systems.",
+          "countries": [],
+          "regions": [
+            "Mekong",
+            "Chao Phraya"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9455883,
+      "total": 173,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "VN",
+          128
+        ],
+        [
+          "TH",
+          18
+        ],
+        [
+          "KH",
+          15
+        ],
+        [
+          "LA",
+          9
+        ],
+        [
+          "MM",
+          2
+        ],
+        [
+          "MY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          95.625,
+          16.875,
+          1,
+          0
+        ],
+        [
+          98.4375,
+          8.4375,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          9.84375,
+          3,
+          3
+        ],
+        [
+          98.4375,
+          11.25,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          16.875,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          18.28125,
+          2,
+          2
+        ],
+        [
+          99.84375,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          99.84375,
+          8.4375,
+          3,
+          3
+        ],
+        [
+          99.84375,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          19.6875,
+          4,
+          3
+        ],
+        [
+          101.25,
+          11.25,
+          1,
+          1
+        ],
+        [
+          101.25,
+          12.65625,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          11.25,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          12.65625,
+          3,
+          3
+        ],
+        [
+          102.65625,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          11.25,
+          4,
+          4
+        ],
+        [
+          104.0625,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          12.65625,
+          6,
+          6
+        ],
+        [
+          105.46875,
+          14.0625,
+          2,
+          2
+        ],
+        [
+          106.875,
+          11.25,
+          55,
+          55
+        ],
+        [
+          106.875,
+          14.0625,
+          2,
+          2
+        ],
+        [
+          108.28125,
+          11.25,
+          10,
+          10
+        ],
+        [
+          108.28125,
+          12.65625,
+          63,
+          63
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

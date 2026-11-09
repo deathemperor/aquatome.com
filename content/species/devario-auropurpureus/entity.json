@@ -16,10 +16,12 @@
         "MM"
       ],
       "regions": [
-        "Lake Inle"
+        "Lake Inle",
+        "Inlé"
       ],
       "sources": [
-        "glaser"
+        "glaser",
+        "seriouslyfish"
       ],
       "quotes": [
         {
@@ -30,6 +32,14 @@
           ],
           "regions": [
             "Lake Inle"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the isolated lake of Inlé and surrounding watershed in Shan state, eastern Myanmar.",
+          "countries": [],
+          "regions": [
+            "Inlé"
           ]
         }
       ]

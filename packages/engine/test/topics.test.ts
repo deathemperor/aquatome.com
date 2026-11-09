@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
-import { localizeTopic, makeTopic, usableFact, type TopicFacts } from '../src/topics'
+import { localizeTopic, makeTopic, SOURCE_KINDS, usableFact, type TopicFacts } from '../src/topics'
 
 const facts: TopicFacts = {
   found: true,
@@ -14,7 +14,7 @@ const facts: TopicFacts = {
     { section: 'what', fact: 'Popeye is a symptom, not a disease', source: 3 }, // a page listed twice: cites its first listing
   ],
   species: ['Carassius auratus', 'Betta splendens (Siamese fighting fish)', 'Nothing here'],
-  sources: [{ url: 'https://edis.ifas.ufl.edu/x', title: 'UF/IFAS', kind: 'university' }, { url: 'https://example.org/epsom', title: 'Epsom', kind: 'article' }, { url: 'a book', title: 'Book', kind: 'other' }, { url: 'https://edis.ifas.ufl.edu/x', title: 'UF/IFAS (search summary)', kind: 'university' }],
+  sources: [{ url: 'https://edis.ifas.ufl.edu/x', title: 'UF/IFAS', kind: 'university' }, { url: 'https://example.org/epsom', title: 'Epsom', kind: 'keeper' }, { url: 'a book', title: 'Book', kind: 'other' }, { url: 'https://edis.ifas.ufl.edu/x', title: 'UF/IFAS (search summary)', kind: 'university' }],
 }
 
 async function site() {
@@ -39,16 +39,21 @@ test('makeTopic: cited facts → Vietnamese guide checked against them, rewritte
   const research: Llm = async () => facts as never
   const llm: Llm = async ({ prompt }) => {
     prompts.push(prompt)
-    if (prompt.startsWith('Below are FACTS')) return (++checks === 1 ? { score: 0.7, notes: ['"3 ngày" is not in the facts'] } : { score: 0.92, notes: [] }) as never
+    // The first write's read is near the bar, so it is read three times; the rewrite's is well clear of it.
+    if (prompt.startsWith('Below are FACTS')) return (++checks <= 3 ? { score: 0.7, notes: ['"3 ngày" is not in the facts'] } : { score: 0.97, notes: [] }) as never
     return { name: 'Cá bị lồi mắt: nguyên nhân và cách chữa', summary: ['Mắt cá lồi ra.'], body: '<h3>Dấu hiệu</h3><p>Mắt lồi, cả ở Blue Diamond.</p><p>Muối Epsom 1 thìa cho mỗi 5 gallon.</p><script>x</script>', faq: [{ q: 'Có lây không?', a: 'Không rõ.' }, { q: ' ', a: 'x' }] } as never
   }
   const r = await makeTopic(root, { research, llm }, { topic: 'Cá bị lồi mắt (popeye)', kind: 'disease' }, { now: () => new Date('2026-10-31T00:00:00Z') })
-  expect(r).toMatchObject({ id: 'aquatome-ca-bi-loi-mat-popeye', score: 0.92, refs: 2 })
+  expect(r).toMatchObject({ id: 'aquatome-ca-bi-loi-mat-popeye', score: 0.97, refs: 2 })
   // The writer saw only cited facts, renumbered; the rewrite carried the checker's note.
   expect(prompts[0]).toContain('Epsom salt 1 tablespoon per 5 gallons')
   expect(prompts[0]).not.toContain('Poor water quality')
   expect(prompts[0]).toMatch(/"Popeye is a symptom, not a disease",\s*"source": 0/)
-  expect(prompts[2]).toContain('"3 ngày" is not in the facts')
+  // Each source's kind, numbered as the facts cite them, and how the page names each kind.
+  expect(prompts[0]).toMatch(/"sources": \[\s*\{\s*"source": 0,\s*"kind": "university"\s*\},\s*\{\s*"source": 1,\s*"kind": "keeper"\s*\}\s*\]/)
+  expect(prompts[0]).toContain('- society: "một hội người nuôi cá"')
+  expect(checks).toBe(4)
+  expect(prompts[4]).toContain('"3 ngày" is not in the facts')
   const e = JSON.parse(await readFile(join(root, 'content/guides/aquatome-ca-bi-loi-mat-popeye/entity.json'), 'utf8'))
   expect(e).toMatchObject({ kind: 'disease', source: 'aquatome', html: '', photos: [], mentions: ['carassius-auratus', 'betta-splendens', 'blue-diamond-discus'], updatedAt: '2026-10-31' })
   expect(e.refs).toEqual([{ url: 'https://edis.ifas.ufl.edu/x', title: 'UF/IFAS' }, { url: 'https://example.org/epsom', title: 'Epsom' }])
@@ -57,7 +62,7 @@ test('makeTopic: cited facts → Vietnamese guide checked against them, rewritte
   expect(vi.body).not.toContain('<script')
   expect(vi.body).toContain('<p>Muối Epsom 1 thìa cho mỗi 19 lít.</p>') // the facts' gallons, written in litres
   expect(vi.faq).toHaveLength(1)
-  expect(vi.quality).toEqual({ score: 0.92, indexable: true })
+  expect(vi.quality).toEqual({ score: 0.97, indexable: true })
   expect(e.sourceUrl).toBe('https://aquatome.com/vi/huong-dan/ca-bi-loi-mat-huong-dan/')
 
   // A rewrite from the kept research keeps the photos a later step put on the guide.
@@ -103,6 +108,8 @@ test('localizeTopic: from the same facts, minus Vietnam-only ones; cites only th
   const r = await localizeTopic(root, llm, r0.id, 'th')
   expect(r).toMatchObject({ slug: 'fish-popeye-causes-treatment', score: 0.88 })
   expect(prompts[0]).toContain('Thai')
+  expect(prompts[0]).toContain('shop: a fishkeeping guide, never the shop by name')
+  expect(prompts[0]).not.toContain('{{')
   expect(prompts[0]).not.toContain('thuốc lồi mắt')
   const th = JSON.parse(await readFile(join(root, 'content/guides', r0.id, 'th.json'), 'utf8'))
   expect(th.refs).toEqual([{ url: 'https://edis.ifas.ufl.edu/x', title: 'UF/IFAS' }])
@@ -177,8 +184,39 @@ test('a farm\'s or forum\'s figure is a dose when it names a treatment, or is a 
     ['Half a capful per 40 litres.', 1],
     ['One tablet per 20 litres.', 1],
     ['Oxygen above 5 ppm with treatment at 25 ppm.', 1],
+    // Milligrams per so many litres, or per kg of food or fish, are a dose; per litre alone, the water's level.
+    ['Florfenicol 10 mg/kg thức ăn, cho ăn 5 ngày.', 0],
+    ['Neomycin 250 mg cho 40 lít nước.', 1],
+    ['Pha 500 mg mỗi 20 lít, lặp lại sau 3 ngày.', 1],
+    ['Neomycin 250 mg per 40 litres.', 1],
+    ['Berikan 10 mg per kg berat badan ikan selama 5 hari.', 0],
+    // A fish's weight elsewhere in the fact leaves the dose a dose.
+    ['Cho 2 g/kg thức ăn, cá nặng 1 kg ăn 30 g mỗi ngày.', 0],
+    ['Add a pinch of salt to the bath.', 1],
+    // A level raised with salt is a dose; a treatment or a new sentence ends a list of the water's levels.
+    ['Channel catfish farmers keep chloride at 50–100 mg/L with sodium chloride.', 0],
+    ['Keep oxygen above 5 mg/L and treat with formalin at 25 mg/L.', 0],
+    ['Keep oxygen above 5 mg/L, then copper at 0.2 mg/L.', 0],
+    ['Ammonia under 0.02 mg/L. Then add Product X at 5 mg/L.', 0],
   ] as const) expect(usable(fact, source), fact).toBe(false)
-  for (const fact of ['Keep dissolved oxygen above 5 mg/L', 'Ammonia above 0.5 mg/L burns gills', 'Fingerlings under 10 g die first', 'Grass carp of 2 kg are most affected', 'Change 30% of the water each week', 'Cá rô đồng nặng 200 g sau 4 tháng', 'Cộng đồng người nuôi giữ nitrat dưới 20 ppm', 'ปลายาว 15 cm หนัก 200 g', 'Feed 3% of body weight per day', 'Calcium 20 ppm for shrimp', 'Iron 0.1 ppm for plants', 'Phosphate 1 ppm', 'Magnesium 10 ppm', 'Silicate 2 mg/L causes diatoms', 'Nitrate stays at 20–40 ppm in planted tanks.', 'TDS of 150–250 ppm suits discus.', 'Fish weigh 20 g per litre of tank at most.']) expect(usable(fact), fact).toBe(true)
+  // The water's levels as farms write them: a second figure of a list, nitrogen forms, toxicity, the word after the figure.
+  for (const fact of [
+    'To limit nitrite toxicity, keep dissolved oxygen above 3 mg/L for warmwater fish or 5 mg/L for coldwater fish.',
+    'Keep dissolved oxygen above 2 mg/l, preferably 5 mg/l.',
+    'Safe long-term nitrite-nitrogen is about 0.5–2.5 mg/L for warmwater fish, and 0.0125–0.5 mg/L for coldwater fish.',
+    'Rainbow trout (96-h LC50 0.24–11.0 mg/L NO2-N) are far more sensitive than common carp (88.0 mg/L).',
+    'Rainbow trout LC50s (0.24–11.0 mg/L) are lower than those of channel catfish (7.1–44.0 mg/L).',
+    'The sea bass LC50 fell from 274 mg/L at 17°C to 154 mg/L at 27°C.',
+    'Freshwater prawns are highly sensitive to nitrite, with a 96-h LC50 of 8.6 mg/L nitrite-nitrogen.',
+    'Fish die at 0.5 mg/L NO2-N in soft water.',
+    'NH3 above 0.05 mg/L harms gills.',
+    'H2S above 0.002 mg/L kills fish.',
+    'Giữ oxy hòa tan trên 5 mg/L cho cá nước ấm và trên 6 mg/L cho cá nước lạnh.',
+    'Oksigen terlarut di atas 5 mg/L untuk ikan air hangat dan 6 mg/L untuk ikan air dingin.',
+    'ออกซิเจนละลายน้ำควรสูงกว่า 5 mg/L',
+    'แอมโมเนียไม่ควรเกิน 0.02 ppm',
+  ]) expect(usable(fact), fact).toBe(true)
+  for (const fact of ['Keep dissolved oxygen above 5 mg/L', 'Ammonia above 0.5 mg/L burns gills', 'Fingerlings under 10 g die first', 'Grass carp of 2 kg are most affected', 'Change 30% of the water each week', 'Cá rô đồng nặng 200 g sau 4 tháng', 'Cộng đồng người nuôi giữ nitrat dưới 20 ppm', 'ปลายาว 15 cm หนัก 200 g', 'Feed 3% of body weight per day', 'Calcium 20 ppm for shrimp', 'Iron 0.1 ppm for plants', 'Phosphate 1 ppm', 'Magnesium 10 ppm', 'Silicate 2 mg/L causes diatoms', 'Nitrate stays at 20–40 ppm in planted tanks.', 'TDS of 150–250 ppm suits discus.', 'Fish weigh 20 g per litre of tank at most.', 'Feed a pinch of flakes twice a day.']) expect(usable(fact), fact).toBe(true)
   expect(usable('1 capful per 40 litres', 1, [2])).toBe(false)
   // Another page of the same forum is no second source: its addresses can't tell a thread's pages from its posts.
   const second = (a: string, b: string) => usableFact({ found: true, species: [], sources: [{ url: a, title: 'A', kind: 'forum' }, { url: b, title: 'B', kind: 'forum' }], facts: [] }, { section: 'treatment', fact: 'Formalin at 25 ppm', source: 0, also: [1] })
@@ -198,6 +236,11 @@ test('a farm\'s or forum\'s figure is a dose when it names a treatment, or is a 
     ['https://www.fishforum.com./t/1', 'https://fishforum.com/t/2'],
   ]) expect(second(a!, b!), b).toBe(false)
   expect(second('https://forum.a.com.vn/t/1', 'https://b.com.vn/x')).toBe(true)
+  // A blog host's blogs are each their own site.
+  expect(second('https://a.blogspot.com/x', 'https://b.blogspot.com/y')).toBe(true)
+  expect(second('https://a.wordpress.com/x', 'https://b.wordpress.com/y')).toBe(true)
+  expect(second('https://a.github.io/x', 'https://b.github.io/y')).toBe(true)
+  expect(second('https://a.blogspot.com/x', 'https://a.blogspot.com/y')).toBe(false)
   expect(second('https://forum.example/viewtopic.php?t=1', 'https://other.example/threads/ich.5/')).toBe(true)
 })
 
@@ -238,4 +281,39 @@ test('a dose from a fish farm\'s page or a forum post is written only when anoth
   prompts.length = 0
   await localizeTopic(root, llm, r.id, 'id')
   expect(written(prompts[0]!)).toEqual(kept)
+})
+
+test('the Vietnamese writer has a name for every kind of source', async () => {
+  const prompt = await readFile(join(import.meta.dirname, '../src/prompts/topic.md'), 'utf8')
+  for (const kind of Object.keys(SOURCE_KINDS)) expect(prompt).toMatch(new RegExp(`^\\s*- ${kind}: "`, 'm'))
+})
+
+test("a farm's figures for raising live food need no second page; a fish treated, a pond page and a forum post still do", () => {
+  const sources: TopicFacts['sources'] = [
+    { url: 'https://fao.example/artemia', title: 'Hatching of Artemia (brine shrimp) eggs', kind: 'farm' },
+    { url: 'https://fao.example/ponds', title: 'Pond fish health', kind: 'farm' },
+    { url: 'https://forum.example/t/1', title: 'Hatching brine shrimp', kind: 'forum' },
+  ]
+  const usable = (fact: string, source: number) => usableFact({ found: true, species: [], sources, facts: [] }, { section: 'steps', fact, source })
+  for (const [fact, source] of [
+    // The page is about live food, or the fact names it.
+    ['Salt water: about 30 g NaCl per litre, roughly 1 tablespoon of kitchen salt per litre of tap water.', 0],
+    ['Disinfection without decapsulation: about 200 ppm hypochlorite for 30 min.', 0],
+    ['Decapsulation dose: 0.5 g active hypochlorite per g of cysts, plus 0.15 g NaOH per g.', 1],
+    ['Neutralize decapsulated cysts with a dip of under 1 min in 0.1% sodium thiosulfate.', 1],
+    ['Culture daphnia with 1 g of yeast per 10 litres every 3 days.', 1],
+    ['Feed microworms 1 teaspoon of oats per culture.', 1],
+    ['Ấp trứng artemia: hòa 30 g muối hột cho 1 lít nước.', 1],
+    ['Penetasan artemia: larutkan 30 g garam dalam 1 liter air.', 1],
+    ['ฟักไรทะเลด้วยเกลือ 30 กรัมต่อน้ำ 1 ลิตร', 1],
+  ] as const) expect(usable(fact, source), fact).toBe(true)
+  for (const [fact, source] of [
+    // A fish treated, on a live food page or beside live food.
+    ['Treat larvae with formalin at 20 ppm before feeding artemia.', 0],
+    ['Formalin 25 ppm for fish fed live daphnia.', 1],
+    ['Tắm cá bằng muối 3% trước khi cho ăn artemia.', 1],
+    // A pond page's figure with no live food named; a forum post, whose rule this isn't.
+    ['Salt water: about 30 g NaCl per litre.', 1],
+    ['Use 30 g of salt per litre to hatch brine shrimp.', 2],
+  ] as const) expect(usable(fact, source), fact).toBe(false)
 })

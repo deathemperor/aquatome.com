@@ -15,6 +15,7 @@ import { inLang, items as itemCount, KIND as PAGE_KIND, LANG_NAME, MAIN, perDay,
 import { FISH_PERIOD_KEYS, fishSpan, periodTotals, RECENT_MAX, type Call, type FishIdStats, type FishPeriodKey, type FishSpan, type Totals } from './fishid'
 import { failedBox, ICON, isFailed, page, REPORT_NAME, REPORT_PATH, SCOREBOARD_PATH, type Soft } from './shell'
 import { clock, HOME_TZ, hourMinute, localDay, sameClock, timeTag, timeText, zoneName } from './time'
+import { OUR_RUNS } from './ae'
 
 /** Each admin page's HTML from what its loaders returned; a part that failed says so in its place. */
 
@@ -479,6 +480,8 @@ function leftOutParts(r: Readers, tz: string, now: Date) {
   const rows: Ranked[] = [
     ...(r.excluded ?? []).map(x => ({ label: WHO_LABEL[x.who], value: x.sessions, cells: [fmt(x.readers)] })),
     ...(auto ? [{ label: 'Likely automated: bursts of fresh tabs, one new page each', value: auto.sessions, cells: [fmt(auto.readers)] }] : []),
+    // Left out by time (ae.ts OUR_RUNS), so not in `excluded`: listed while they're in the page's days.
+    ...OUR_RUNS.filter(x => Date.parse(x.to) > now.getTime() - r.days * 86_400_000).map(x => ({ label: `Ours before our network was marked: ${x.cc}, ${timeText(x.from, tz, now)} to ${timeText(x.to, tz, now)}`, value: x.tabs, cells: ['—'] })),
   ]
   const bursts = (auto?.bursts ?? []).map(b => `${esc(b.cc || '??')}: ${fmt(b.sessions)} tabs, ${timeTag(`${b.from.replace(' ', 'T')}Z`, tz, now)} to ${timeTag(`${b.to.replace(' ', 'T')}Z`, tz, now)}`)
   const app = r.app
@@ -487,7 +490,7 @@ function leftOutParts(r: Readers, tz: string, now: Date) {
     ...(app ? [{ label: app.onStore ? 'iOS app' : 'iOS app (not on the App Store yet: every copy is ours)', value: app.sessions, cells: [fmt(app.readers)] }] : []),
   ]
   return {
-    lede: 'Not in the figures above. Our visits carry a mark (a cookie, our network, a test copy’s link), and a burst is at least 20 fresh tabs from one country, with no outside referrer, opening mostly different pages within 30 minutes.',
+    lede: 'Not in the figures above. Our visits carry a mark (a cookie, our network, a test copy’s link); two runs of ours from before our network was marked are left out by time; and a burst is at least 20 fresh tabs from one country, with no outside referrer, opening mostly different pages within 30 minutes.',
     rows, bursts,
     side,
     sideNote: `A reader is a tab that scrolled half a page or stayed 30 s, in the browser or the app alike. ${app ? `Our own app sessions (TestFlight, simulators): ${fmt(app.ours.sessions)}, ${fmt(app.ours.readers)} of them would-be readers.` : 'The app’s figures didn’t load.'}`,

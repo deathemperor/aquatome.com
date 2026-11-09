@@ -408,5 +408,78 @@
       "attempt": "first",
       "kept": false
     }
+  ],
+  "ms/breeds/koi": [
+    {
+      "at": "2026-11-09T00:58:55Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"hasil pemilihan baka selama dua abad\" – facts say breeding began in the 1820s, but \"two centuries\" is not stated.",
+        "\"satu sumber menilainya mudah, satu lagi menilainya sukar\" – facts give difficulty 5 and 2 with no wording of easy or hard. This is an interpretation.",
+        "\"boleh membesar hingga 50–91 cm\" – this merges size ranges from two sources (61–91 and 50–81). It is acceptable but is a combined figure.",
+        "\"dua sumber lain menyebut 7–7.5\" – supported (sources 1 and 4).",
+        "\"Butterfly koi juga berenang lebih perlahan\" – the facts say 'slower swimmers', so this is supported.",
+        "\"Cuba minta penjual beri makan sebelum anda membeli\" – the facts say test-feed before buying. It is slightly reworded.",
+        "\"Sebelum membeli, pastikan anda ada ... penapis yang baik\" – the filter advice comes from the Japanese-style pond fact, so this is a mild generalisation."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-09T00:58:55Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "\"Koi tidak sukar dijaga\" – the facts conflict (difficulty 5 vs 2); the page flatly says not hard in the intro, which is an unsupported general claim.",
+        "\"Ikan yang sudah ditinggalkan dalam penjagaan juga tetap memerlukan kuarantin yang ketat\" – this garbled claim about abandoned fish is not in the facts.",
+        "\"boleh hidup berpuluh tahun\" and \"badannya membesar hingga 50–91 cm\" – the sizes are combined from different sources; this is acceptable but loose.",
+        "\"Ginrin Red Chagoi dan Tancho pula antara koi yang paling dihargai oleh sesetengah peminat\" – the facts say they are most prized in Vietnam; the page generalises this.",
+        "\"Ramai peminat membahagikan koi kepada koi biasa...\" – the facts attribute this split to Vietnamese hobbyists; \"ramai peminat\" is a generalisation.",
+        "\"Pertandingan di Amerika Syarikat pula selalunya menyenaraikannya dalam kelas berasingan\" – this is supported (US shows often list them separately).",
+        "\"Pastikan sirip dan sisiknya sempurna\" – this is supported only by the quarantine source and is placed under buying; minor.",
+        "\"dua sumber lain menyebut 7–7.5\" – this is supported (sources 1 and 4).",
+        "\"Butterfly koi berenang lebih perlahan\" – this is supported by \"slower swimmers\".",
+        "\"bersama ikan lain yang sesuai dengan suhu sejuk yang sama\" – this is supported."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "ms/breeds/koi-angelfish": [
+    {
+      "at": "2026-11-09T01:01:02Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "\"Selain nama dalam tajuk itu, penternaknya tidak diterangkan lebih lanjut\" – facts say the breeder is not named beyond that; implying the name in the title is the breeder is a slight stretch.",
+        "\"Satu panduan kedai memberinya tahap kesukaran 2, dan keperluannya sama seperti angelfish lain\" – 'same needs as other angelfish' is not in the facts.",
+        "\"Koi makan semua jenis makanan ikan\" – the facts say it eats everything or dry, live and frozen foods; 'all kinds of fish food' is a mild generalisation.",
+        "\"Koi subur dan pernah digunakan dalam kacukan luar\" followed by 'biasa sahaja' – the facts' 'plain' silver gold marble ghost is rendered loosely.",
+        "\"mutasi warna angelfish telah dikekalkan melalui pembiakan dalam sejak tahun 1950-an\" – the facts say 'colour mutations' generally; this is acceptable but not tied to koi.",
+        "\"Barisan merah atau berliputan tinggi yang paling terang pun\" – 'paling terang' is an embellishment of 'bright red/high-coverage line'.",
+        "FAQ: \"Barisan berliputan tinggi pun masih menghasilkan sebahagian anak yang kurang merah\" as an answer to whether two koi give all koi – a stretch, since the facts treat this as red fry, not non-koi offspring.",
+        "\"Saiz dewasa 12–15 cm; satu sumber menyebut 15 cm\" – this is a reasonable merge, but the sources are mislabelled."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-09T01:01:02Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "\"Jadi koi bukan ikan hibrid.\" / \"Adakah angelfish koi ikan hibrid? Tidak.\" – the facts never address hybrid status; it's an added claim (though implied by colour form).",
+        "\"Ikan ini tidak susah dijaga\" / \"tergolong dalam kategori mudah hingga sederhana\" – the facts only give difficulty 2 from one source; the 'easy to moderate' category is invented.",
+        "\"walaupun ada penjual yang menjanjikannya\" – sellers promising coverage is not in the facts.",
+        "\"Nama 'Red Devil' kadangkala digunakan seolah-olah barisan istimewa\" – a rephrasing of the marketing-name dispute that is not supported as stated.",
+        "\"Ramai mencadangkan tangki yang tinggi, panjangnya sekitar 100–120 cm\" – 'many' recommend a tall tank is a generalisation; only some sources do.",
+        "\"Koi Red: Dijual di Jerman sebagai ikan baka Jerman (DNZ)\" – reworded slightly, but roughly supported.",
+        "\"Pasangan bertelur ... setiap 10–14 hari\" is placed as a general fact about koi, but it comes from a shop guide; \"Angelfish koi subur dan sering digunakan dalam kacukan luar\" – 'often used' is a slight stretch.",
+        "\"Tinggi ikan dewasa ... 26 cm\" was used to argue that a taller, larger tank is more comfortable – an added recommendation not in the facts."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
   ]
 }

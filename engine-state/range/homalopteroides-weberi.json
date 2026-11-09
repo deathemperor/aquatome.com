@@ -1,0 +1,67 @@
+{
+  "id": "homalopteroides-weberi",
+  "native": {
+    "input": "794e79604f135967",
+    "at": "2026-11-08T22:57:48.089Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Homalopteroides weberi is a hillstream loach from Sarawak in Malaysian Borneo, described from the Akar River and possibly endemic to the state.",
+        "words": "Malaysian",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Akar River, Sarawak state, Borneo, East Malaysia', and this species may be endemic to the Malaysian state of Sarawak in western Borneo.",
+        "words": "Malaysia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Akar River, Sarawak state, Borneo, East Malaysia', and this species may be endemic to the Malaysian state of Sarawak in western Borneo.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Akar River",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Akar River, Sarawak state, Borneo, East Malaysia', and this species may be endemic to the Malaysian state of Sarawak in western Borneo.",
+        "country": "MY",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Homalopteroides weberi",
+    "status": "ACCEPTED",
+    "taxonKey": 9594214,
+    "datasets": [
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        25
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        5
+      ]
+    ],
+    "native": [
+      "MY"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T22:57:48.089Z"
+  }
+}

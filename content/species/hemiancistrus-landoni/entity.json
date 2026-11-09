@@ -59,7 +59,19 @@
       "html": "<p>Annals of the Carnegie Museum v. 10 (nos 1-2) (art. 6), pp 84.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/d11bf0016bc1df90.webp",
+      "thumb": "https://media.aquatome.com/scotcat/d11bf0016bc1df90-480.webp",
+      "width": 500,
+      "height": 262,
+      "licence": "dùng với sự cho phép",
+      "author": "Windsor Aquirre / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/hemiancistrus_landoni.htm",
+      "caption": "Hemiancistrus landoni",
+      "source": "scotcat"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -81,5 +93,73 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-08",
+  "range": {
+    "native": {
+      "countries": [
+        "EC"
+      ],
+      "regions": [
+        "Guayas River"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Hemiancistrus landoni Eigenmann, 1916. Type locality: Naranjito, Ecuador. Maximum size 210 mm SL. Temperature 24–28°C.",
+          "countries": [
+            "EC"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Guayas River basin. Ecuador Pacific Coast Rivers, Guayas (Ecuador).",
+          "countries": [],
+          "regions": [
+            "Guayas River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340143,
+      "total": 19,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "EC",
+          19
+        ]
+      ],
+      "cells": [
+        [
+          -81.5625,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -80.15625,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -80.15625,
+          -2.8125,
+          4,
+          4
+        ],
+        [
+          -80.15625,
+          -1.40625,
+          11,
+          11
+        ]
+      ]
+    }
+  }
 }
