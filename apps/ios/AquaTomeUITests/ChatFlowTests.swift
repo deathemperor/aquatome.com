@@ -1096,9 +1096,14 @@ final class ChatFlowTests: XCTestCase {
     reveal(app, link)
     XCTAssertTrue(link.label.contains("Đọc tiếp trong “Nuôi cá neon trong bể nhỏ”"), link.label)
     XCTAssertFalse(app.buttons["Thu gọn"].exists, "open already")
-    element(app, "chat-section").coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
+    let section = element(app, "chat-section")
+    let top = section.frame.minY
+    let firstLine = section.descendants(matching: .staticText).matching(NSPredicate(format: "label BEGINSWITH 'Ngày hai lần'")).firstMatch
+    section.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
     let close = app.buttons["Thu gọn"]
     XCTAssertTrue(close.waitForExistence(timeout: 5), "didn't open")
+    XCTAssertEqual(section.frame.minY, top, accuracy: 2, "the view moved as the section opened")
+    XCTAssertTrue(drawn(firstLine), "opened, and its text never reached the screen")
     let left = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH 'còn tiếp:'")).firstMatch
     XCTAssertTrue(left.waitForExistence(timeout: 5), "doesn't say what's left")
     XCTAssertTrue(left.label.contains("bước") && left.label.contains("1 đoạn"), left.label)
@@ -1106,6 +1111,7 @@ final class ChatFlowTests: XCTestCase {
     close.tap()
     XCTAssertTrue(close.waitForNonExistence(timeout: 5), "didn't close")
     reveal(app, link)
+    XCTAssertTrue(drawn(firstLine), "closed, and its text never reached the screen")
     link.tap()
     let page = element(app, "native-page")
     XCTAssertTrue(page.waitForExistence(timeout: 10), "no page")
@@ -1199,13 +1205,17 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertGreaterThanOrEqual(discus.frame.minY, neon.frame.maxY, "the names aren't a species to a line")
     let heading = app.descendants(matching: .any).matching(identifier: "chat-section").firstMatch.descendants(matching: .any).matching(NSPredicate(format: "label CONTAINS 'Cho ăn'")).firstMatch
     reveal(app, heading, times: 40)
-    element(app, "chat-section").coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.4)).tap()
+    // Its text, which is what opens it: a point partway down a card this tall can be behind the box.
+    let line = element(app, "chat-section").descendants(matching: .staticText).matching(NSPredicate(format: "label BEGINSWITH 'Ngày hai lần'")).firstMatch
+    reveal(app, line, times: 6)
+    line.tap()
     let close = app.buttons["Thu gọn"]
     XCTAssertTrue(close.waitForExistence(timeout: 5), "didn't open")
     reveal(app, close, times: 20)
     close.tap()
     let back = XCTNSPredicateExpectation(predicate: NSPredicate(format: "isHittable == true"), object: heading)
     XCTAssertEqual(XCTWaiter().wait(for: [back], timeout: 5), .completed, "closed, and its heading stayed off the screen")
+    XCTAssertTrue(drawn(heading), "closed, and its heading never reached the screen")
     let tools = app.buttons.matching(identifier: "chat-tool")
     reveal(app, tools.element(boundBy: 0), times: 40)
     XCTAssertTrue(app.descendants(matching: .any).matching(NSPredicate(format: "label CONTAINS 'Mở công cụ nuôi chung'")).firstMatch.exists, "the tool doesn't say where it goes")
@@ -1259,6 +1269,19 @@ final class ChatFlowTests: XCTestCase {
   private func hasFocus(_ e: XCUIElement) -> Bool {
     let typing = XCTNSPredicateExpectation(predicate: NSPredicate(format: "hasKeyboardFocus == true"), object: e)
     return XCTWaiter().wait(for: [typing], timeout: 5) == .completed
+  }
+
+  /// `e` reached the screen: its pixels aren't one flat colour. XCUITest's tree keeps a view that was never drawn.
+  private func drawn(_ e: XCUIElement) -> Bool {
+    RunLoop.current.run(until: Date().addingTimeInterval(0.6))
+    guard let image = e.screenshot().image.cgImage else { return false }
+    let w = image.width, h = image.height
+    var pixels = [UInt8](repeating: 0, count: w * h * 4)
+    let drew: Void? = CGContext(data: &pixels, width: w, height: h, bitsPerComponent: 8, bytesPerRow: w * 4, space: CGColorSpaceCreateDeviceRGB(),
+                                bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue)?.draw(image, in: CGRect(x: 0, y: 0, width: w, height: h))
+    guard drew != nil else { return false }
+    let tones = stride(from: 0, to: pixels.count, by: 4).map { Int(pixels[$0]) + Int(pixels[$0 + 1]) + Int(pixels[$0 + 2]) }
+    return (tones.max() ?? 0) - (tones.min() ?? 0) > 200
   }
 
   /// True once `done` holds, within `timeout` seconds.

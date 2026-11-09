@@ -334,7 +334,6 @@ private struct SectionBlock: View {
   @State private var tip: Tip?
   @ScaledMetric private var line: CGFloat = 22
   private let gap: CGFloat = 8
-  @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
   private var drawn: [Chat.Part] { parts.filter(SectionPart.draws) }
   private var undrawn: [Chat.Part] { parts.filter { !SectionPart.draws($0) } }
@@ -428,8 +427,10 @@ private struct SectionBlock: View {
     }
   }
 
+  /// At once. On the design's spring, inside the long-press menu's container, the card stopped being drawn and the view
+  /// jumped, at every text size (only its accessibility stayed).
   private func change(to open: Bool) {
-    withAnimation(reduceMotion ? nil : .smooth(duration: 0.35)) { opened = open }
+    opened = open
   }
 
   /// Closed; with its heading gone from the screen, back to it.
