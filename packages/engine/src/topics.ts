@@ -145,10 +145,25 @@ const siteOf = (url: string) => {
   const site = labels.slice(-keep - blog).join('.')
   return SHORT[site] ?? site
 }
-/** Whether a fact may be written: a dose from a farm's page or a forum post only with another page, not a farm's, that gives it too. */
+/** Live food by name: raising it doses its own water, not a fish's. */
+const LIVE_FOOD = /(?<![\p{L}])(?:artemia|brine shrimp|live foods?|decapsulat\p{L}*|microworms?|vinegar eels?|banana worms?|walter worms?|grindal(?: worms?)?|white worms?|daphnia|moina|infusoria|rotifers?|bo bo|trùn chỉ|thức ăn tươi sống|pakan hidup|makanan hidup|kutu air|cacing sutra)(?![\p{L}])|อาร์ทีเมีย|ไรทะเล|ไรแดง|อาหารมีชีวิต/iu
+/** A fish or its young, as a fact being given something names them. */
+const FISH = /(?<![\p{L}])(?:fish|fry|fingerlings?|larvae|juveniles?|broodstock|cá|ikan|benih)(?![\p{L}])|ปลา/iu
+/**
+ * Raising live food (hatching and decapsulating artemia, microworms, daphnia): the farm rule is for what fish are given,
+ * so a hatchery's figures for it need no second page (the chief, 9 Nov). Named in the fact or the page's title, and not a
+ * fish being treated.
+ */
+const raisingLiveFood = (s: TopicFacts['sources'][number], fact: string) =>
+  (LIVE_FOOD.test(fact) || LIVE_FOOD.test(s.title)) && !(FISH.test(fact) && (TREATING.test(fact) || NAMES_TREATMENT.test(fact)))
+/**
+ * Whether a fact may be written: a dose from a farm's page or a forum post only with another page, not a farm's, that
+ * gives it too. A farm's figures for raising live food are not a fish's dose.
+ */
 export function usableFact(r: TopicFacts, f: TopicFacts['facts'][number]): boolean {
   const s = r.sources[f.source]
   if (!s || (s.kind !== 'farm' && s.kind !== 'forum') || !isDose(f.fact)) return true
+  if (s.kind === 'farm' && raisingLiveFood(s, f.fact)) return true
   return (f.also ?? []).some(i => { const o = r.sources[i]; return !!o && /^https?:\/\//i.test(o.url) && siteOf(o.url) !== siteOf(s.url) && o.kind !== 'farm' })
 }
 

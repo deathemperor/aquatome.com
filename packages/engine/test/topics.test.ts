@@ -287,3 +287,33 @@ test('the Vietnamese writer has a name for every kind of source', async () => {
   const prompt = await readFile(join(import.meta.dirname, '../src/prompts/topic.md'), 'utf8')
   for (const kind of Object.keys(SOURCE_KINDS)) expect(prompt).toMatch(new RegExp(`^\\s*- ${kind}: "`, 'm'))
 })
+
+test("a farm's figures for raising live food need no second page; a fish treated, a pond page and a forum post still do", () => {
+  const sources: TopicFacts['sources'] = [
+    { url: 'https://fao.example/artemia', title: 'Hatching of Artemia (brine shrimp) eggs', kind: 'farm' },
+    { url: 'https://fao.example/ponds', title: 'Pond fish health', kind: 'farm' },
+    { url: 'https://forum.example/t/1', title: 'Hatching brine shrimp', kind: 'forum' },
+  ]
+  const usable = (fact: string, source: number) => usableFact({ found: true, species: [], sources, facts: [] }, { section: 'steps', fact, source })
+  for (const [fact, source] of [
+    // The page is about live food, or the fact names it.
+    ['Salt water: about 30 g NaCl per litre, roughly 1 tablespoon of kitchen salt per litre of tap water.', 0],
+    ['Disinfection without decapsulation: about 200 ppm hypochlorite for 30 min.', 0],
+    ['Decapsulation dose: 0.5 g active hypochlorite per g of cysts, plus 0.15 g NaOH per g.', 1],
+    ['Neutralize decapsulated cysts with a dip of under 1 min in 0.1% sodium thiosulfate.', 1],
+    ['Culture daphnia with 1 g of yeast per 10 litres every 3 days.', 1],
+    ['Feed microworms 1 teaspoon of oats per culture.', 1],
+    ['Ấp trứng artemia: hòa 30 g muối hột cho 1 lít nước.', 1],
+    ['Penetasan artemia: larutkan 30 g garam dalam 1 liter air.', 1],
+    ['ฟักไรทะเลด้วยเกลือ 30 กรัมต่อน้ำ 1 ลิตร', 1],
+  ] as const) expect(usable(fact, source), fact).toBe(true)
+  for (const [fact, source] of [
+    // A fish treated, on a live food page or beside live food.
+    ['Treat larvae with formalin at 20 ppm before feeding artemia.', 0],
+    ['Formalin 25 ppm for fish fed live daphnia.', 1],
+    ['Tắm cá bằng muối 3% trước khi cho ăn artemia.', 1],
+    // A pond page's figure with no live food named; a forum post, whose rule this isn't.
+    ['Salt water: about 30 g NaCl per litre.', 1],
+    ['Use 30 g of salt per litre to hatch brine shrimp.', 2],
+  ] as const) expect(usable(fact, source), fact).toBe(false)
+})
