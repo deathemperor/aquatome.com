@@ -1,4 +1,5 @@
 import { OTHER_LANGS } from '@aq/schema/langs'
+import { rudeWord } from '../moderation/words'
 export type CommentInput = { entityRef: string; name: string; body: string }
 export type RuleContext = { duplicate: boolean; postsToday: number }
 export type Verdict = { ok: true } | { held: string } | { reject: string }
@@ -31,6 +32,8 @@ export function staticRules(c: CommentInput): Verdict {
   const lower = text.toLowerCase()
   const hit = BLOCKED.find(t => lower.includes(t)) ?? lower.match(BLOCKED_WORDS)?.[0]
   if (hit) return { held: `blocked term: ${hit}` }
+  const rude = rudeWord(text)
+  if (rude) return { held: `rude word: ${rude}` }
   return { ok: true }
 }
 
