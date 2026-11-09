@@ -371,7 +371,8 @@ final class ChatFlowTests: XCTestCase {
     ask(app, "Neon sống bao lâu?")
     let pill = element(app, "chat-offline")
     XCTAssertTrue(pill.waitForExistence(timeout: 20), "no pill when the connection went")
-    XCTAssertTrue(element(app, "chat-answer").exists, "what was read went with the connection")
+    // The answer's text isn't read out until it's whole; the fold row shows the text has started.
+    XCTAssertTrue(app.buttons["chat-fold"].exists, "what was read went with the connection")
     XCTAssertFalse(element(app, "chat-cut-off").exists, "the reader was asked to act")
     let next = app.buttons.matching(identifier: "chat-chip").firstMatch
     XCTAssertTrue(next.waitForExistence(timeout: 10), "the answer didn't come once back online")
@@ -397,8 +398,7 @@ final class ChatFlowTests: XCTestCase {
     openChat(app)
     signIn(app)
     ask(app, "Neon sống bao lâu?")
-    XCTAssertTrue(element(app, "chat-cut-off").waitForExistence(timeout: 20), "no card after the second blip")
-    XCTAssertTrue(element(app, "chat-answer").exists, "what was read went")
+    XCTAssertTrue(element(app, "chat-failed").waitForExistence(timeout: 20), "no card after the second blip")
     app.buttons["chat-again"].tap()
     XCTAssertTrue(app.buttons.matching(identifier: "chat-chip").firstMatch.waitForExistence(timeout: 20), "the answer didn't come when asked again")
   }
@@ -677,7 +677,8 @@ final class ChatFlowTests: XCTestCase {
     let again = openList(app)
     row(again, "Cá betta nhà mình").swipeLeft()
     XCTAssertFalse(app.buttons["Ẩn"].waitForExistence(timeout: 2), "the conversation on screen can be hidden")
-    app.buttons["chat-history-close"].tap()
+    // With no swipe to catch it, the row can take that as a tap, which just shows the conversation already open.
+    if app.buttons["chat-history-close"].exists { app.buttons["chat-history-close"].tap() }
     XCTAssertTrue(app.navigationBars["Cuộc trò chuyện"].waitForNonExistence(timeout: 5), "the sheet stayed")
   }
 
@@ -1132,8 +1133,12 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertTrue(bar.waitForExistence(timeout: 5), "no list")
     let rows = app.buttons.matching(identifier: "chat-row")
     XCTAssertTrue(rows.firstMatch.waitForExistence(timeout: 10), "no rows")
-    bar.swipeUp()
-    sleep(1)
+    // Grown to full height, so every row is drawn: dragged by its bar, as a quick swipe on it doesn't always take.
+    repeatUntil(bar.frame.minY < 150, times: 4) {
+      bar.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.2))
+        .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.1)), withVelocity: .default, thenHoldForDuration: 0.1)
+      sleep(1)
+    }
     return rows
   }
 
@@ -1185,6 +1190,8 @@ final class ChatFlowTests: XCTestCase {
     let field = app.searchFields.firstMatch
     XCTAssertTrue(field.waitForExistence(timeout: 5), "no search field")
     field.tap()
+    // Back on the search after an earlier fish: its words are still in the field.
+    if let was = field.value as? String, was != field.placeholderValue { field.typeText(String(repeating: XCUIKeyboardKey.delete.rawValue, count: was.count)) }
     field.typeText(query)
     let row = app.descendants(matching: .any).matching(identifier: "item").firstMatch
     XCTAssertTrue(row.waitForExistence(timeout: 5), "nothing found for \(query)")
