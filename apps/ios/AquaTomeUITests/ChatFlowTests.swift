@@ -81,6 +81,73 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertGreaterThan(bubble.frame.height, cut * 1.5, "not opened whole")
   }
 
+  /// Long-pressed, the reader's question offers "Sao chép", which copies it as asked, and "Sửa và hỏi lại", which puts it
+  /// back in the box above the words there, keyboard up; nothing is edited in place.
+  func testALongPressedQuestionIsCopiedOrPutBackInTheBox() {
+    let app = launch()
+    openChat(app)
+    signIn(app)
+    let q = "Neon sống bao lâu?"
+    ask(app, q)
+    XCTAssertTrue(app.buttons.matching(identifier: "chat-chip").firstMatch.waitForExistence(timeout: 15), "no whole answer")
+    let bubble = app.staticTexts["chat-question"], box = element(app, "chat-box")
+    bubble.press(forDuration: 1)
+    XCTAssertTrue(app.buttons["Sửa và hỏi lại"].waitForExistence(timeout: 5), "no Sửa và hỏi lại")
+    app.buttons["Sao chép"].tap()
+    // Pasted into the empty box from its own menu: what was copied.
+    box.press(forDuration: 1.2)
+    let paste = app.menuItems["Dán"]
+    XCTAssertTrue(paste.waitForExistence(timeout: 5), "no Dán in the box's menu")
+    paste.tap()
+    XCTAssertTrue(soon(box.value as? String == q), "not copied as asked: \(box.value ?? "")")
+    if app.keyboards.firstMatch.exists { element(app, "chat").swipeDown() }
+    XCTAssertTrue(app.keyboards.firstMatch.waitForNonExistence(timeout: 5), "the keyboard stayed")
+    bubble.press(forDuration: 1)
+    let edit = app.buttons["Sửa và hỏi lại"]
+    XCTAssertTrue(edit.waitForExistence(timeout: 5), "no Sửa và hỏi lại")
+    edit.tap()
+    XCTAssertTrue(soon(box.value as? String == q + "\n" + q), "not above the words in the box: \(box.value ?? "")")
+    XCTAssertTrue(app.keyboards.firstMatch.waitForExistence(timeout: 5), "the keyboard didn't rise")
+    XCTAssertEqual(app.staticTexts.matching(identifier: "chat-question").count, 1, "edited in place, or asked again")
+    XCTAssertTrue(element(app, "chat-answer").exists, "the answer above went")
+  }
+
+  /// Typing on the empty screen: at the first letter the starters fade, and they come back when the box is empty; the
+  /// line about who answers stays.
+  func testTypingOnTheEmptyScreenTheStartersFade() {
+    let app = launch()
+    openChat(app)
+    signIn(app)
+    let box = element(app, "chat-box"), starter = app.buttons.matching(identifier: "chat-chip").firstMatch
+    box.tap()
+    box.typeText("N")
+    XCTAssertTrue(starter.waitForNonExistence(timeout: 5), "the starters stayed with a letter typed")
+    XCTAssertTrue(app.staticTexts["Claude (AI của Anthropic) trả lời theo cẩm nang AquaTome, chỗ nào cẩm nang chưa nói đến thì dùng kiến thức chung về nuôi cá."].exists, "the line about who answers went")
+    box.typeText(XCUIKeyboardKey.delete.rawValue)
+    XCTAssertTrue(starter.waitForExistence(timeout: 5), "the starters didn't come back with the box empty")
+  }
+
+  /// Up in earlier turns, the newest question below the box: a small round ↓ brings the end back. Never while the newest
+  /// question or its answer is on screen.
+  func testUpInEarlierTurnsARoundArrowBringsTheEndBack() {
+    let app = launch()
+    openChat(app)
+    signIn(app)
+    ask(app, "Neon sống bao lâu?")
+    XCTAssertTrue(app.buttons.matching(identifier: "chat-chip").firstMatch.waitForExistence(timeout: 15), "no first answer")
+    ask(app, "Neon ăn gì?")
+    let second = app.descendants(matching: .any).matching(identifier: "chat-answer").element(boundBy: 1)
+    XCTAssertTrue(second.waitForExistence(timeout: 15), "no second answer")
+    let toEnd = app.buttons["chat-to-end"]
+    XCTAssertFalse(toEnd.exists, "a ↓ with the newest question on screen")
+    repeatUntil(toEnd.exists, times: 4) { element(app, "chat").swipeDown() }
+    XCTAssertTrue(toEnd.exists, "no ↓ up in the earlier turn")
+    XCTAssertEqual(toEnd.label, "Xuống cuối cuộc trò chuyện")
+    toEnd.tap()
+    XCTAssertTrue(toEnd.waitForNonExistence(timeout: 5), "the ↓ stayed at the end")
+    XCTAssertTrue(soon(second.isHittable), "not back at the end")
+  }
+
   /// Off on the server: no way into the chat from a fish's page.
   func testWhileChatIsOffNoEntryShows() {
     let app = launch("-chat-off")
@@ -290,6 +357,25 @@ final class ChatFlowTests: XCTestCase {
     app.buttons["chat-send"].tap()
     XCTAssertTrue(app.staticTexts["chat-question"].waitForExistence(timeout: 5), "not asked again")
     XCTAssertTrue(app.buttons["chat-fold"].waitForExistence(timeout: 40), "asked again, no answer")
+  }
+
+  /// Long-pressed while it waits, the question's "Sửa và hỏi lại" is the stop itself: back in the box to edit, keyboard up,
+  /// nothing asked twice.
+  func testSuaVaHoiLaiOnAWaitingQuestionStopsIt() {
+    let app = launch("-chat-slower")
+    openChat(app)
+    signIn(app)
+    ask(app, "Neon sống bao lâu?")
+    XCTAssertTrue(app.buttons["chat-stop"].waitForExistence(timeout: 5), "no stop while waiting")
+    app.staticTexts["chat-question"].press(forDuration: 1)
+    let edit = app.buttons["Sửa và hỏi lại"]
+    XCTAssertTrue(edit.waitForExistence(timeout: 5), "no Sửa và hỏi lại while it waits")
+    edit.tap()
+    XCTAssertTrue(element(app, "chat-stopped-note").waitForExistence(timeout: 5), "not stopped")
+    let box = element(app, "chat-box")
+    XCTAssertEqual(box.value as? String, "Neon sống bao lâu?")
+    XCTAssertTrue(hasFocus(box), "the box isn't ready for editing")
+    XCTAssertFalse(app.staticTexts["chat-question"].exists, "asked twice: the question still on the screen")
   }
 
   /// Words typed while it waits stay: the stopped question goes, not back over them.
@@ -847,6 +933,16 @@ final class ChatFlowTests: XCTestCase {
   private func hasFocus(_ e: XCUIElement) -> Bool {
     let typing = XCTNSPredicateExpectation(predicate: NSPredicate(format: "hasKeyboardFocus == true"), object: e)
     return XCTWaiter().wait(for: [typing], timeout: 5) == .completed
+  }
+
+  /// True once `done` holds, within `timeout` seconds.
+  private func soon(_ done: @autoclosure () -> Bool, timeout: TimeInterval = 5) -> Bool {
+    let end = Date().addingTimeInterval(timeout)
+    while Date() < end {
+      if done() { return true }
+      RunLoop.current.run(until: Date().addingTimeInterval(0.2))
+    }
+    return done()
   }
 
   /// The neon's page, its chat's entry under its facts.

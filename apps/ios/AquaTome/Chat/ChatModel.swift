@@ -635,6 +635,12 @@ final class ChatModel {
     }
   }
 
+  /// "Sửa và hỏi lại": a question asked put back in the box, above any words already there; sending it is a new question
+  /// (in an ended conversation, a new conversation), and the one above stays as it was.
+  func editAgain(_ question: String) {
+    draft = draft.isEmpty ? question : question + "\n" + draft
+  }
+
   /// A question that didn't go: its bubble gone, its words back in the box.
   private func unsend(_ id: UUID, _ why: Stop?) {
     guard let i = index(id) else { return }

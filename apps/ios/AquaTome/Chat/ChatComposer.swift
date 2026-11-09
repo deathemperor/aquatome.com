@@ -11,7 +11,10 @@ struct ChatComposer: View {
   let signedOut: Bool
   /// An answer landed below while the reader was up the thread.
   let newBelow: Bool
+  /// The reader is in earlier turns, the newest question below the box: a small round ↓ brings the end back.
+  let farUp: Bool
   let toNew: () -> Void
+  let toEnd: () -> Void
   @Environment(\.openScreen) private var openScreen
   @Environment(\.dynamicTypeSize) private var size
   @Environment(\.accessibilityReduceMotion) private var reduceMotion
@@ -103,6 +106,14 @@ struct ChatComposer: View {
       Pill(text: Text("Chưa có mạng"), icon: "wifi.slash").accessibilityIdentifier("chat-offline")
     } else if newBelow {
       Button(action: toNew) { Pill(text: Text("Câu trả lời mới ↓"), icon: nil) }.buttonStyle(.plain).accessibilityIdentifier("chat-new-below")
+    } else if farUp {
+      Button(action: toEnd) {
+        Image(systemName: "arrow.down").font(.footnote.weight(.semibold)).frame(width: 32, height: 32).background(.regularMaterial, in: .circle)
+      }
+      .buttonStyle(.plain)
+      .accessibilityLabel(Text("Xuống cuối cuộc trò chuyện"))
+      .accessibilityIdentifier("chat-to-end")
+      .transition(.opacity)
     }
   }
 

@@ -81,6 +81,8 @@ private struct ChatThread: View {
   /// first words and the keyboard going down put it back under the bar; scrolled into earlier turns or down the answer,
   /// nothing moves.
   @State private var lastTop: CGFloat?
+  /// The box's height, with what's over it: the screen above it is what the reader sees.
+  @State private var boxHeight: CGFloat = 0
 
   private var signedOut: Bool { account.user == nil }
   /// The question whose answer has begun, while it's coming.
@@ -133,10 +135,15 @@ private struct ChatThread: View {
         .onChange(of: model.thread.last?.reply.writing) { _, w in if w == true { pinIfOnIt(proxy, height: geo.size.height) } }
         .onChange(of: typing) { _, up in if !up { pinIfOnIt(proxy, height: geo.size.height) } }
         .safeAreaInset(edge: .bottom, spacing: 0) {
-          ChatComposer(model: model, typing: $typing, signedOut: signedOut, newBelow: newBelow) {
+          // The newest question below the box: the reader is in earlier turns, its turn (a screen at least) all below.
+          let farUp = !model.thread.isEmpty && (lastTop ?? 0) > geo.size.height - boxHeight
+          ChatComposer(model: model, typing: $typing, signedOut: signedOut, newBelow: newBelow, farUp: farUp) {
             newBelow = false
             if let id = model.thread.last?.id { withAnimation { proxy.scrollTo(id, anchor: .top) } }
+          } toEnd: {
+            if let id = model.thread.last?.id { withAnimation(reduceMotion ? nil : .smooth(duration: 0.35)) { proxy.scrollTo(id, anchor: .bottom) } }
           }
+          .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { boxHeight = $0 }
         }
       }
     }
@@ -153,6 +160,12 @@ private struct ChatThread: View {
       AccessibilityNotification.Announcement(String(localized: "Đã dừng. Câu này không bị tính.")).post()
     }
     .animation(reduceMotion ? .easeInOut(duration: 0.2) : .smooth(duration: 0.35), value: model.stopped)
+  }
+
+  /// "Sửa và hỏi lại": the question back in the box, keyboard up, unless the day is refused (nothing can be sent).
+  private func editAgain(_ question: String) {
+    model.editAgain(question)
+    if model.stop == nil { typing = true }
   }
 
   private var warned: Bool {
@@ -173,11 +186,13 @@ private struct ChatThread: View {
       .font(.title2.weight(.bold))
       .accessibilityAddTraits(.isHeader)
       WhoAnswers(fromPhoto: s.fromPhoto)
-      // Signed out, none of them could be sent: the sign-in card instead.
+      // Signed out, none of them could be sent: the sign-in card instead. At the first letter typed the starters and the
+      // earlier conversation's row fade, and come back when the box is empty: the title and the line about who answers
+      // are left, so the box has nothing to cut as it grows.
       if signedOut {
         ChatSignIn().padding(.top, 12)
-      } else {
-        Chips(items: starters, dim: model.offline || model.stop != nil) { model.send($0) }.padding(.top, 12)
+      } else if model.draft.isEmpty {
+        Chips(items: starters, dim: model.offline || model.stop != nil) { model.send($0) }.padding(.top, 12).transition(.opacity)
         if let row = model.earlier {
           EarlierRow(row: row, justNow: model.earlierJustNow, name: subjectName, opening: openingEarlier) {
             openingEarlier = true
@@ -196,6 +211,7 @@ private struct ChatThread: View {
         }
       }
     }
+    .animation(reduceMotion ? nil : .easeOut(duration: 0.2), value: model.draft.isEmpty)
     .padding(.top, 24)
     .transition(.opacity)
   }
@@ -218,7 +234,9 @@ private struct ChatThread: View {
         Text(ChatTimes.heading(at)).font(.footnote).foregroundStyle(.secondary).frame(maxWidth: .infinity).accessibilityIdentifier("chat-asked-at")
       }
       if a.anew { NewConversation() }
-      Bubble(text: a.question).id(a.id)
+      // Still waiting, "Sửa và hỏi lại" is the stop itself: the question back in the box, keyboard up, so nothing is
+      // asked twice. Once its text has begun the answer finishes, and until it's in the question is only copied.
+      Bubble(text: a.question, editAgain: !last || !model.answering ? { editAgain(a.question) } : model.stoppable ? { model.stopAsking() } : nil).id(a.id)
       switch a.outcome {
       // Asked again only under the latest question.
       case .failed(let code) where code != "cut" && !a.reply.text.isEmpty:
@@ -401,6 +419,8 @@ private struct WhoAnswers: View {
 /// whole.
 private struct Bubble: View {
   let text: String
+  /// "Sửa và hỏi lại" in its long-press menu; nil, only "Sao chép".
+  let editAgain: (() -> Void)?
   @Environment(\.colorScheme) private var scheme
   @State private var whole = false
   /// The question's height in full, and as shown: taller in full, six lines cut it.
@@ -434,9 +454,17 @@ private struct Bubble: View {
       // Dark: a deep green with white text, not the bright tint: the answer is what the eye should go to.
       .foregroundStyle(scheme == .dark ? Color.white : Color.primary)
       .background(scheme == .dark ? Color(red: 0.11, green: 0.33, blue: 0.24) : Color.accentColor.opacity(0.16), in: .rect(cornerRadius: 18))
-      .textSelection(.enabled)
+      // Long-pressed, the bubble lifts with a short menu by it, as Messages does; VoiceOver offers the same as its actions.
+      .contentShape(.contextMenuPreview, .rect(cornerRadius: 18))
+      .contextMenu { menu }
       .accessibilityLabel(Text("Bạn hỏi: \(text)"))
+      .accessibilityActions { menu }
       .accessibilityIdentifier("chat-question")
+  }
+
+  @ViewBuilder private var menu: some View {
+    Button("Sao chép", systemImage: "doc.on.doc") { UIPasteboard.general.string = text }
+    if let editAgain { Button("Sửa và hỏi lại", systemImage: "pencil", action: editAgain) }
   }
 }
 
