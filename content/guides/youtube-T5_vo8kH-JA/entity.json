@@ -67,15 +67,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hai ngăn sump mới màu trắng đặt cạnh nhau, có sẵn mút lọc.",
-            "sharpness": 566.7
-          },
-          {
-            "t": 185,
-            "url": "https://media.aquatome.com/video/T5_vo8kH-JA/at185-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Sump cũ trong bể với các vách ngăn và ngăn chứa vật liệu lọc.",
-            "sharpness": 1125.7
+            "sharpness": 566.7,
+            "person": false
           }
         ],
         "photo": {
@@ -98,7 +91,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Các vách ngăn bằng tấm nhựa trong gắn sát nhau trong bể sump.",
-            "sharpness": 75.2
+            "sharpness": 75.2,
+            "person": false
           },
           {
             "t": 125,
@@ -106,7 +100,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Dãy vách ngăn nhựa trong dựng ở một đầu bể sump trống.",
-            "sharpness": 234.2
+            "sharpness": 234.2,
+            "person": false
           }
         ]
       },
@@ -114,20 +109,13 @@
         "heading": "Nước chảy trong sump theo thứ tự nào",
         "moments": [
           {
-            "t": 320,
-            "url": "https://media.aquatome.com/video/T5_vo8kH-JA/at320-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Toàn cảnh bể sump với khối lọc, skimmer và ống nước.",
-            "sharpness": 583.6
-          },
-          {
             "t": 350,
             "url": "https://media.aquatome.com/video/T5_vo8kH-JA/at350-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Khối vật liệu lọc sinh học cạnh skimmer trong ngăn sump.",
-            "sharpness": 389.1
+            "sharpness": 389.1,
+            "person": false
           }
         ]
       },
@@ -135,20 +123,13 @@
         "heading": "Tường chặn bọt hoạt động thế nào",
         "moments": [
           {
-            "t": 450,
-            "url": "https://media.aquatome.com/video/T5_vo8kH-JA/at450-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nhìn vào ngăn sump qua khe, thấy thiết bị và dây bên trong.",
-            "sharpness": 450.6
-          },
-          {
             "t": 475,
             "url": "https://media.aquatome.com/video/T5_vo8kH-JA/at475-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh thiết bị trong sump với ống vàng và đường nước.",
-            "sharpness": 1006.7
+            "sharpness": 1006.7,
+            "person": false
           }
         ],
         "photo": {
@@ -163,44 +144,16 @@
         }
       },
       {
-        "heading": "Đổi từ sump cũ sang sump mới",
-        "moments": [
-          {
-            "t": 255,
-            "url": "https://media.aquatome.com/video/T5_vo8kH-JA/at255-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể sump mới trống, có sẵn các ngăn lọc, sẵn sàng để lắp.",
-            "sharpness": 309.4
-          },
-          {
-            "t": 260,
-            "url": "https://media.aquatome.com/video/T5_vo8kH-JA/at260-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay thao tác với máy bơm và sump bên dưới tủ bể.",
-            "sharpness": 868.5
-          }
-        ]
-      },
-      {
         "heading": "Thay nước cho bể biển",
         "moments": [
-          {
-            "t": 285,
-            "url": "https://media.aquatome.com/video/T5_vo8kH-JA/at285-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng hộp nhỏ đong muối biển từ bao để pha nước mới.",
-            "sharpness": 132
-          },
           {
             "t": 290,
             "url": "https://media.aquatome.com/video/T5_vo8kH-JA/at290-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Thùng nhựa lớn đựng nước để hòa muối pha nước thay.",
-            "sharpness": 240.2
+            "sharpness": 240.2,
+            "person": false
           }
         ]
       },
@@ -213,7 +166,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá sư tử vằn trắng đen bơi gần đá san hô trong bể.",
-            "sharpness": 640.4
+            "sharpness": 640.4,
+            "person": false
           },
           {
             "t": 530,
@@ -221,7 +175,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể trưng bày đá sống xếp thành vòm, cá sư tử bơi phía trên.",
-            "sharpness": 1195.8
+            "sharpness": 1195.8,
+            "person": false
           }
         ]
       }

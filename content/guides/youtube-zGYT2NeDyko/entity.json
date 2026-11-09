@@ -93,20 +93,13 @@
         "heading": "Bộ thiết bị cho bể low tech",
         "moments": [
           {
-            "t": 10,
-            "url": "https://media.aquatome.com/video/zGYT2NeDyko/at10-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể trống có đèn mỏng phía trên, đang đặt đá vào bể.",
-            "sharpness": 924.6
-          },
-          {
             "t": 30,
             "url": "https://media.aquatome.com/video/zGYT2NeDyko/at30-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh low tech trồng nhiều cây, không thấy thiết bị rườm rà.",
-            "sharpness": 1499.6
+            "sharpness": 1499.6,
+            "person": false
           }
         ],
         "photo": {
@@ -136,16 +129,7 @@
       },
       {
         "heading": "Bố cục tam giác cho bể đặt trong góc",
-        "moments": [
-          {
-            "t": 60,
-            "url": "https://media.aquatome.com/video/zGYT2NeDyko/at60-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh bề mặt đá Seiryu với vân đá đặc trưng.",
-            "sharpness": 2099.2
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/zGYT2NeDyko/p3-LWxlbm5hcnQuanBn.webp",
           "thumb": "https://media.aquatome.com/video/zGYT2NeDyko/p3-LWxlbm5hcnQuanBn-480.webp",

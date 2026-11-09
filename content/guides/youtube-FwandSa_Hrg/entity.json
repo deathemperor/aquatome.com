@@ -53,7 +53,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh một hạt K1 hình trụ nhựa có các vách bên trong.",
-            "sharpness": 34.6
+            "sharpness": 34.6,
+            "person": false
           }
         ]
       },
@@ -72,57 +73,16 @@
         }
       },
       {
-        "heading": "Thùng chứa và lượng khí cho K1",
-        "moments": [
-          {
-            "t": 630,
-            "url": "https://media.aquatome.com/video/FwandSa_Hrg/at630-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Thùng tròn xanh đặt cạnh thùng khác, có dây khí nối vào.",
-            "sharpness": 417.5
-          }
-        ]
-      },
-      {
         "heading": "Lọc cơ học đặt phía trên",
         "moments": [
-          {
-            "t": 1000,
-            "url": "https://media.aquatome.com/video/FwandSa_Hrg/at1000-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tấm lưới nhựa trắng dùng để ráp thành khay lọc nhỏ.",
-            "sharpness": 527.7
-          },
           {
             "t": 1060,
             "url": "https://media.aquatome.com/video/FwandSa_Hrg/at1060-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Khay lọc cơ học bằng lưới nhựa treo trên miệng thùng bằng móc nhựa.",
-            "sharpness": 1134.4
-          }
-        ]
-      },
-      {
-        "heading": "Lưu lượng bơm và cách đặt ống tràn",
-        "moments": [
-          {
-            "t": 1250,
-            "url": "https://media.aquatome.com/video/FwandSa_Hrg/at1250-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay đang vạch vị trí bulkhead trên đáy bể để khoét lỗ tràn.",
-            "sharpness": 44.6
-          },
-          {
-            "t": 1280,
-            "url": "https://media.aquatome.com/video/FwandSa_Hrg/at1280-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lỗ khoan tràn trên đáy bể, tay đang đặt bulkhead vào lỗ.",
-            "sharpness": 85.3
+            "sharpness": 1134.4,
+            "person": false
           }
         ]
       },
@@ -135,15 +95,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Máy bơm và đường ống nối với khớp ren bên cạnh hai thùng xanh.",
-            "sharpness": 88.1
-          },
-          {
-            "t": 1620,
-            "url": "https://media.aquatome.com/video/FwandSa_Hrg/at1620-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đường ống hồi đi lên dọc thùng, có khớp nối ren và máy bơm.",
-            "sharpness": 492.3
+            "sharpness": 88.1,
+            "person": false
           }
         ]
       }

@@ -81,7 +81,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá lớn bơi trong bể nuôi chung một khối nước.",
-            "sharpness": 456.7
+            "sharpness": 456.7,
+            "person": false
           },
           {
             "t": 120,
@@ -89,7 +90,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh bể thủy sinh có lũa và cây, đang thay nước.",
-            "sharpness": 451.1
+            "sharpness": 451.1,
+            "person": false
           }
         ],
         "photo": {
@@ -112,15 +114,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cát trắng đổ xuống quanh lũa và đá trong bể.",
-            "sharpness": 1394
-          },
-          {
-            "t": 215,
-            "url": "https://media.aquatome.com/video/KjUE_aid3BI/at215-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đổ nền công nghiệp dạng hạt xốp vào bể thủy sinh.",
-            "sharpness": 1624.6
+            "sharpness": 1394,
+            "person": false
           }
         ]
       },
@@ -153,27 +148,6 @@
         }
       },
       {
-        "heading": "Chọn chai vi sinh thế nào cho yên tâm",
-        "moments": [
-          {
-            "t": 575,
-            "url": "https://media.aquatome.com/video/KjUE_aid3BI/at575-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cầm chai vi sinh lên xem nhãn ghi dung tích và thông tin sản phẩm.",
-            "sharpness": 626.4
-          },
-          {
-            "t": 580,
-            "url": "https://media.aquatome.com/video/KjUE_aid3BI/at580-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hộp vi sinh kèm tờ hướng dẫn sử dụng để đọc cách dùng.",
-            "sharpness": 213.8
-          }
-        ]
-      },
-      {
         "heading": "PSB, vi khuẩn quang hợp, dùng khi nào",
         "moments": [
           {
@@ -182,7 +156,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá betta bơi trong bể thủy sinh có cây thân dài.",
-            "sharpness": 331.3
+            "sharpness": 331.3,
+            "person": false
           }
         ]
       }

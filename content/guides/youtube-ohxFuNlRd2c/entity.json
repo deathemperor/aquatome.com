@@ -126,20 +126,13 @@
         "heading": "Cân bằng giữa đèn, CO2 và dinh dưỡng nghĩa là gì",
         "moments": [
           {
-            "t": 230,
-            "url": "https://media.aquatome.com/video/ohxFuNlRd2c/at230-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh cây thủy sinh xanh khỏe, có cả cây lá đỏ.",
-            "sharpness": 1749.6
-          },
-          {
             "t": 240,
             "url": "https://media.aquatome.com/video/ohxFuNlRd2c/at240-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh nhỏ có đèn, cây xanh tốt và thảm cỏ phủ kín.",
-            "sharpness": 2598.8
+            "sharpness": 2598.8,
+            "person": false
           }
         ]
       },
@@ -152,7 +145,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh cây xanh tốt, sạch rêu hại, nền phủ cỏ dày.",
-            "sharpness": 2207.3
+            "sharpness": 2207.3,
+            "person": false
           }
         ]
       },
@@ -165,7 +159,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể nhỏ không CO2, cây xanh khỏe, nền phủ cỏ dày và gần như không có rêu hại.",
-            "sharpness": 2306.1
+            "sharpness": 2306.1,
+            "person": false
           }
         ]
       },
@@ -173,20 +168,13 @@
         "heading": "\"Dinh dưỡng thấp\" đo ra là bao nhiêu",
         "moments": [
           {
-            "t": 390,
-            "url": "https://media.aquatome.com/video/ohxFuNlRd2c/at390-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ống test phosphat đậm màu được đặt cạnh bảng màu để so sánh.",
-            "sharpness": 1971.4
-          },
-          {
             "t": 420,
             "url": "https://media.aquatome.com/video/ohxFuNlRd2c/at420-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh ít thiết bị nhưng cây xanh tốt, sạch rêu hại.",
-            "sharpness": 2714.6
+            "sharpness": 2714.6,
+            "person": false
           }
         ]
       },
@@ -199,7 +187,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh với Rotala lên màu cam bên đá và thảm cỏ xanh.",
-            "sharpness": 3190.3
+            "sharpness": 3190.3,
+            "person": false
           },
           {
             "t": 490,
@@ -207,7 +196,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh bố cục đá, Rotala cam đỏ và cây nền xanh khỏe.",
-            "sharpness": 3297.3
+            "sharpness": 3297.3,
+            "person": false
           }
         ],
         "photo": {
@@ -230,7 +220,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể thủy sinh cây phủ kín xanh mướt, có lũa ở giữa.",
-            "sharpness": 3712.2
+            "sharpness": 3712.2,
+            "person": false
           },
           {
             "t": 650,
@@ -238,7 +229,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh thảm cây và lũa trong bể, nơi rêu hại bắt đầu xuất hiện.",
-            "sharpness": 1125.7
+            "sharpness": 1125.7,
+            "person": false
           }
         ],
         "photo": {
@@ -261,7 +253,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh đặt cạnh cửa sổ, cây xanh dày dưới đèn sáng.",
-            "sharpness": 2726.5
+            "sharpness": 2726.5,
+            "person": false
           },
           {
             "t": 880,
@@ -269,7 +262,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể cây rậm rạp, rèm bên cạnh để ánh sáng lọt vào nhiều.",
-            "sharpness": 3202.4
+            "sharpness": 3202.4,
+            "person": false
           }
         ]
       }

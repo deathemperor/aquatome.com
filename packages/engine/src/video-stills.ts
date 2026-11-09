@@ -5,7 +5,8 @@ import { GuideSchema, type GuideEntity } from '@aq/schema'
 import { LlmError } from './claude'
 import { dhash } from './gallery'
 import type { Media } from './source-photos'
-import { sharpFrame, tileTime, type ImageDeps, type VideoFrames } from './video-images'
+import { guidePhotoOff, judgeGuidePhotos, PER_SHEET, type GuidePhotoDeps, type GuidePhotoVerdict } from './guide-photos'
+import { sharpFrame, stillDone, tileTime, type ImageDeps, type VideoFrames } from './video-images'
 import { frameSharpness } from './still-sharpness'
 import { judgeSheet, ocrHit, ocrOf, type WatermarkDeps, type WatermarkEntry } from './watermarks'
 import { throttled } from './youtube'
@@ -17,6 +18,8 @@ export type StillDeps = Pick<ImageDeps, 'frames' | 'grab' | 'faces'> & {
   read: WatermarkDeps['read']
   /** The watermark step's model. */
   look: WatermarkDeps['look']
+  /** guide-photos.ts's model: is anyone in the frame, or a mark added on it. */
+  judge: GuidePhotoDeps['look']
   now: () => Date
 }
 /**
@@ -26,9 +29,6 @@ export type StillDeps = Pick<ImageDeps, 'frames' | 'grab' | 'faces'> & {
 export type StillsState = Record<string, { at: string; timed?: true; kept?: Record<string, string>; failed?: string }>
 type Moment = NonNullable<NonNullable<GuideEntity['video']>['figures']>[number]['moments'][number]
 
-const SHARP = /-hd\.webp$/
-/** A still this step won't change again: the video's own frame, or a tile it keeps for good (`kept`, by `t`). */
-export const stillDone = (m: { t: number; url: string }, kept: Record<string, string> = {}) => SHARP.test(m.url) || String(m.t) in kept
 /** A still's address before 2026-11-07, `t<t>.webp` or `t<t>-hd.webp`: the `t` it was given, its tile k ÷ fps. */
 const BY_FPS = /\/t(\d+)(?:-hd)?\.webp$/
 /** A tile stored since 2026-11-07, `at<t>.webp`: step 0 leaves its `t` alone, since it reads as the second it shows. */
@@ -45,7 +45,10 @@ const sortedJson = (o: Record<string, unknown>) => `${JSON.stringify(Object.from
  * - a face in it (macOS Vision): the still leaves the page, since the tile only hid the person;
  * - text on it: the old still's watermark verdict holds when the model gave one, else the model judges the frame now; a
  *   watermark takes the still off the page and onto `_photo-rejected.json`. Its text and verdict go into
- *   `_photo-watermarks.json` under the new address, so the watermark step doesn't read it again.
+ *   `_photo-watermarks.json` under the new address, so the watermark step doesn't read it again;
+ * - a person, hands included, or a mark added on it (guide-photos.ts's question, which a tile's smudge hid): the still
+ *   leaves the page and goes onto `_photo-rejected.json`. A frame that passes carries its verdict (`person: false`, which
+ *   a still needs to show) and is in `_photo-guides.json`, so guide-photos doesn't judge it again.
  * A frame that doesn't show the tile's moment leaves the tile for good (`_video-stills.json`); a grab or a read that
  * fails leaves it for the next run. YouTube throttling, a model failure or three grabs failing in a row stop the run, and
  * the guide in hand is left as it was. `limit`: guides this run.
@@ -58,6 +61,7 @@ export async function videoStills(root: string, d: StillDeps, o: { limit?: numbe
   const marks = await json<Record<string, WatermarkEntry>>(file('engine-state', '_photo-watermarks.json'))
   const rejected = await json<Record<string, string>>(file('engine-state', '_photo-rejected.json'))
   const hashes = await json<Record<string, string>>(file('content', 'picture-hashes.json'))
+  const verdicts = await json<Record<string, GuidePhotoVerdict>>(file('engine-state', '_photo-guides.json'))
   const today = d.now().toISOString().slice(0, 10)
 
   // Guides with a still that is still a tile and not kept as one, or stills not yet timed; timing alone first, and one
@@ -174,6 +178,28 @@ export async function videoStills(root: string, d: StillDeps, o: { limit?: numbe
         report.dropped.push(`${id} t${m.t}: watermark (${entry.what || entry.kind})`)
       }
 
+      // No person and no added mark on what's left.
+      const judged = new Map<Moment, GuidePhotoVerdict>()
+      const toJudge = grabbed.filter(g => entries.has(g.m))
+      try {
+        for (let i = 0; i < toJudge.length; i += PER_SHEET) {
+          const batch = toJudge.slice(i, i + PER_SHEET)
+          const answers = await judgeGuidePhotos(batch.map(g => Buffer.from(g.hd)), join(dir, `${id}-people-${i}.jpg`), d.judge)
+          batch.forEach((g, j) => { const v = answers[j]; if (v) judged.set(g.m, v); else { entries.delete(g.m); left++ } })
+        }
+      } catch (err) {
+        if (err instanceof LlmError) { report.stopped = err.message; break }
+        throw err
+      }
+      for (const [m, v] of judged) {
+        const why = guidePhotoOff(v, true)
+        if (!why) continue
+        drop.add(m)
+        entries.delete(m)
+        rejected[m.url] ??= why
+        report.dropped.push(`${id} t${m.t}: ${why}`)
+      }
+
       // 3. Upload what passed, then the guide with its stills swapped and any dropped.
       const swap = new Map<Moment, Moment>()
       for (const { m, t, hd } of grabbed) {
@@ -182,7 +208,8 @@ export async function videoStills(root: string, d: StillDeps, o: { limit?: numbe
         const s = await d.media.put(`video/${v.youtubeId}/at${t}-hd.webp`, hd)
         marks[s.url] = entry
         hashes[s.url] = await dhash(hd)
-        swap.set(m, { ...m, t, url: s.url, width: s.width, height: s.height, sharpness: await frameSharpness(hd) })
+        verdicts[s.url] = judged.get(m)!
+        swap.set(m, { ...m, t, url: s.url, width: s.width, height: s.height, sharpness: await frameSharpness(hd), person: false })
       }
       if (swap.size || drop.size || retimed) await save(figures.map(f => ({ ...f, moments: f.moments.filter(m => !drop.has(m)).map(m => swap.get(m) ?? m) })).filter(f => f.moments.length || f.photo))
       if (swap.size || drop.size) changed = true
@@ -197,6 +224,7 @@ export async function videoStills(root: string, d: StillDeps, o: { limit?: numbe
       await writeFile(file('engine-state', '_photo-watermarks.json'), `${JSON.stringify(Object.fromEntries(Object.entries(marks).sort()), null, 2)}\n`)
       await writeFile(file('engine-state', '_photo-rejected.json'), `${JSON.stringify(rejected, null, 2)}\n`)
       await writeFile(file('content', 'picture-hashes.json'), sortedJson(hashes))
+      await writeFile(file('engine-state', '_photo-guides.json'), sortedJson(verdicts))
     }
   }
   return report

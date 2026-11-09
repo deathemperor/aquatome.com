@@ -34,27 +34,6 @@
     ],
     "figures": [
       {
-        "heading": "Tháo bình CO2 rỗng ra thế nào",
-        "moments": [
-          {
-            "t": 20,
-            "url": "https://media.aquatome.com/video/zSKCf5T45IM/at20-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bộ điều áp gắn trên đầu bình CO2 với van điện.",
-            "sharpness": 495
-          },
-          {
-            "t": 38,
-            "url": "https://media.aquatome.com/video/zSKCf5T45IM/at38-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay vặn bộ điều áp ra khỏi đầu bình CO2.",
-            "sharpness": 56.4
-          }
-        ]
-      },
-      {
         "heading": "Đổi bình ở đâu, tốn bao nhiêu",
         "moments": [
           {
@@ -63,7 +42,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bình CO2 màu xanh có van đặt trước các bể cá trong tiệm.",
-            "sharpness": 51.4
+            "sharpness": 51.4,
+            "person": false
           },
           {
             "t": 72,
@@ -71,7 +51,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hai bình CO2 đặt cạnh nhau trên quầy, sẵn sàng để đổi.",
-            "sharpness": 353.4
+            "sharpness": 353.4,
+            "person": false
           }
         ],
         "photo": {
@@ -94,7 +75,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bình CO2 màu xanh đặt trên bàn, chưa gắn van.",
-            "sharpness": 458.7
+            "sharpness": 458.7,
+            "person": false
           },
           {
             "t": 130,
@@ -102,28 +84,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh bộ van và đồng hồ gắn trên bình CO2.",
-            "sharpness": 1003.8
-          }
-        ]
-      },
-      {
-        "heading": "Lắp bình mới vào bộ CO2",
-        "moments": [
-          {
-            "t": 160,
-            "url": "https://media.aquatome.com/video/zSKCf5T45IM/at160-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bộ điều áp CO2 đã gắn vào đầu bình, thấy rõ hai đồng hồ và bộ đếm giọt.",
-            "sharpness": 1252.8
-          },
-          {
-            "t": 180,
-            "url": "https://media.aquatome.com/video/zSKCf5T45IM/at180-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh tay chỉnh bộ điều áp và bộ đếm giọt CO2.",
-            "sharpness": 1067.5
+            "sharpness": 1003.8,
+            "person": false
           }
         ]
       }

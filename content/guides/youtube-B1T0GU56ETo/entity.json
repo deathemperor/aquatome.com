@@ -90,7 +90,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể cây phát triển tươi tốt, nhiều cây thân đỏ nổi bật.",
-            "sharpness": 866.6
+            "sharpness": 866.6,
+            "person": false
           },
           {
             "t": 160,
@@ -98,7 +99,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh rực rỡ với đá và cây đỏ xanh um tùm.",
-            "sharpness": 1626.2
+            "sharpness": 1626.2,
+            "person": false
           }
         ]
       },
@@ -111,7 +113,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây buộc vào lũa và đá, không cần cắm xuống nền.",
-            "sharpness": 643.5
+            "sharpness": 643.5,
+            "person": false
           },
           {
             "t": 225,
@@ -119,7 +122,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cụm ráy lá xanh bám trên lũa trong hồ thủy sinh.",
-            "sharpness": 154.5
+            "sharpness": 154.5,
+            "person": false
           }
         ],
         "photo": {
@@ -142,7 +146,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể cá dĩa thả thưa, có lũa và cây, mật độ vừa phải.",
-            "sharpness": 1621.5
+            "sharpness": 1621.5,
+            "person": false
           },
           {
             "t": 325,
@@ -150,7 +155,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá cầu vồng và cá nhỏ bơi trong bể thủy sinh nuôi vừa mật độ.",
-            "sharpness": 94.2
+            "sharpness": 94.2,
+            "person": false
           }
         ],
         "photo": {
@@ -166,24 +172,7 @@
       },
       {
         "heading": "Nguyên tắc 4: Lọc thừa, đèn thiếu",
-        "moments": [
-          {
-            "t": 415,
-            "url": "https://media.aquatome.com/video/B1T0GU56ETo/at415-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hai lọc thùng đặt cạnh nhau, đang lắp thêm lọc mới cho bể.",
-            "sharpness": 787.8
-          },
-          {
-            "t": 420,
-            "url": "https://media.aquatome.com/video/B1T0GU56ETo/at420-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh đầu lọc thùng với van khóa và các đầu nối ống.",
-            "sharpness": 383.6
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/B1T0GU56ETo/p3-JfRmlsdGVyLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/B1T0GU56ETo/p3-JfRmlsdGVyLmpwZw-480.webp",
@@ -199,20 +188,13 @@
         "heading": "Dùng cây vươn lá lên mặt nước và bèo để che sáng",
         "moments": [
           {
-            "t": 505,
-            "url": "https://media.aquatome.com/video/B1T0GU56ETo/at505-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây trầu bà gân trắng vươn lá lên khỏi mặt nước bể.",
-            "sharpness": 364
-          },
-          {
             "t": 540,
             "url": "https://media.aquatome.com/video/B1T0GU56ETo/at540-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bèo thả kín một góc mặt nước để che bớt sáng.",
-            "sharpness": 366.9
+            "sharpness": 366.9,
+            "person": false
           }
         ],
         "photo": {
@@ -235,7 +217,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh hồ thủy sinh có lũa, cây thủy sinh và đá.",
-            "sharpness": 743.1
+            "sharpness": 743.1,
+            "person": false
           },
           {
             "t": 570,
@@ -243,7 +226,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá neon và tép bơi quanh lũa trong hồ thủy sinh.",
-            "sharpness": 179.7
+            "sharpness": 179.7,
+            "person": false
           }
         ],
         "photo": {

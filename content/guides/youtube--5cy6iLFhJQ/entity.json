@@ -58,20 +58,13 @@
         "heading": "Đèn cho bể 1m2 chơi cơ bản",
         "moments": [
           {
-            "t": 80,
-            "url": "https://media.aquatome.com/video/-5cy6iLFhJQ/at80-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đèn thanh được đặt lên cao phía trên mặt bể.",
-            "sharpness": 2201.5
-          },
-          {
             "t": 110,
             "url": "https://media.aquatome.com/video/-5cy6iLFhJQ/at110-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể sáng đèn nhìn toàn cảnh, ánh sáng phủ khá đều.",
-            "sharpness": 196.1
+            "sharpness": 196.1,
+            "person": false
           }
         ]
       },
@@ -84,7 +77,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể 1m2 ngâm lũa, nước đã ngả màu vàng.",
-            "sharpness": 286.8
+            "sharpness": 286.8,
+            "person": false
           },
           {
             "t": 105,
@@ -92,7 +86,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh các khúc lũa và đá trong bể đang ngâm.",
-            "sharpness": 391.4
+            "sharpness": 391.4,
+            "person": false
           }
         ],
         "photo": {
@@ -110,20 +105,13 @@
         "heading": "Gom Bucep từ nhiều nguồn",
         "moments": [
           {
-            "t": 195,
-            "url": "https://media.aquatome.com/video/-5cy6iLFhJQ/at195-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Gỡ từng cụm Bucep từ các gói hàng gửi về, xếp lên khay xốp.",
-            "sharpness": 766.6
-          },
-          {
             "t": 230,
             "url": "https://media.aquatome.com/video/-5cy6iLFhJQ/at230-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Cây Bucep được gỡ ra, xếp trên khay và để riêng trong hộp nước.",
-            "sharpness": 1949.7
+            "sharpness": 1949.7,
+            "person": false
           }
         ],
         "photo": {
@@ -146,7 +134,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể lớn với cụm lũa lớn, chỗ để dán rêu lên lũa.",
-            "sharpness": 3212.7
+            "sharpness": 3212.7,
+            "person": false
           },
           {
             "t": 305,
@@ -154,7 +143,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Rêu tỉa ra được để trong chậu và thùng xốp bên cạnh bể.",
-            "sharpness": 1044.3
+            "sharpness": 1044.3,
+            "person": false
           }
         ],
         "photo": {
@@ -177,7 +167,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh với bộ lũa ghép nhiều cành còn nằm trong bể.",
-            "sharpness": 2419.5
+            "sharpness": 2419.5,
+            "person": false
           }
         ],
         "photo": {
@@ -190,27 +181,6 @@
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Driftwood_in_fishbowl.jpeg",
           "caption": "Cây lũa nhiều cành đặt trong bể thủy tinh tròn, có vài con cá bơi quanh."
         }
-      },
-      {
-        "heading": "Dán rêu lên lũa bằng keo",
-        "moments": [
-          {
-            "t": 520,
-            "url": "https://media.aquatome.com/video/-5cy6iLFhJQ/at520-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay cầm một nhánh rêu nhỏ, chuẩn bị dán lên lũa.",
-            "sharpness": 65.8
-          },
-          {
-            "t": 530,
-            "url": "https://media.aquatome.com/video/-5cy6iLFhJQ/at530-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các nhánh rêu được để sẵn trên khay trắng trước khi dán.",
-            "sharpness": 596.1
-          }
-        ]
       }
     ]
   }

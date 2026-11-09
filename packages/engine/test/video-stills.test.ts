@@ -49,6 +49,7 @@ async function site(over: Partial<StillDeps> = {}) {
     faces: async files => files.map(f => (f.endsWith('-60.png') ? 1 : 0)), // t54's frame
     read: async files => files.map(f => (f.endsWith('-30.png') ? [line('SERA flore')] : f.endsWith('-40.png') ? [line('© Tank Channel')] : [])), // t27's and t36's
     look: async () => { calls.looks++; return { photos: [{ n: 1, watermark: true, kind: 'credit', what: '© Tank Channel, bottom' }] } },
+    judge: async () => ({ photos: [1, 2, 3, 4, 5, 6].map(n => ({ n, person: false, mark: false, brand: false, note: 'a tank' })) }),
     media: { urlFor: k => `https://m/${k}`, put: async k => { calls.puts.push(k); return { url: `https://m/${k}`, width: 1200, height: 675 } } },
     now: () => new Date('2026-11-06T12:00:00Z'),
     ...over,
@@ -68,7 +69,7 @@ test("video-stills: each still's t becomes the second its tile shows, and each t
   expect(r.failed).toEqual(['youtube-b1 t70: ffmpeg: Server returned 403 Forbidden (access denied)'])
   const figs = (await s.read('content/guides/youtube-b1/entity.json')).video.figures
   expect(figs).toEqual([
-    { heading: 'Đá', moments: [{ t: 20, url: 'https://m/video/b1/at20-hd.webp', width: 1200, height: 675, caption: 'Một', sharpness: 0 }, { t: 30, url: 'https://m/video/b1/at30-hd.webp', width: 1200, height: 675, caption: 'Hai', sharpness: 0 }] },
+    { heading: 'Đá', moments: [{ t: 20, url: 'https://m/video/b1/at20-hd.webp', width: 1200, height: 675, caption: 'Một', sharpness: 0, person: false }, { t: 30, url: 'https://m/video/b1/at30-hd.webp', width: 1200, height: 675, caption: 'Hai', sharpness: 0, person: false }] },
     { heading: 'Nền', moments: [timed(45, 'Bốn'), timed(63, 'Sáu'), timed(72, 'Bảy')] },
   ])
   // Uploaded only after the screens: not the face, not the watermark.
@@ -149,7 +150,7 @@ test("video-stills: a tile stored since its t is its second (`at<t>.webp`) is th
   s.d.grab = async (_st, sec) => { s.calls.grabs.push(sec); return grey(90, 1280, 720).png().toBuffer() }
   expect((await videoStills(s.root, s.d, { only: ['youtube-c1'] })).done).toEqual(['youtube-c1: 1 sharp, 0 dropped, 0 kept as tiles'])
   expect(s.calls.grabs).toEqual([980])
-  expect((await s.read('content/guides/youtube-c1/entity.json')).video.figures[0].moments).toEqual([{ t: 980, url: 'https://m/video/c1/at980-hd.webp', width: 1200, height: 675, caption: 'Một', sharpness: 0 }])
+  expect((await s.read('content/guides/youtube-c1/entity.json')).video.figures[0].moments).toEqual([{ t: 980, url: 'https://m/video/c1/at980-hd.webp', width: 1200, height: 675, caption: 'Một', sharpness: 0, person: false }])
 })
 
 test("video-stills: a tile whose frame isn't at the second it names becomes the frame at the second it really shows, and its t moves there", async () => {
@@ -165,7 +166,7 @@ test("video-stills: a tile whose frame isn't at the second it names becomes the 
   s.d.grab = async (_st, sec) => { s.calls.grabs.push(sec); return grey(sec === 20 ? 90 : 200, 1280, 720).png().toBuffer() }
   expect((await videoStills(s.root, s.d, { only: ['youtube-c1'] })).done).toEqual(['youtube-c1: 1 retimed, 1 sharp, 0 dropped, 0 kept as tiles'])
   expect(s.calls.grabs).toEqual([18, 20])
-  expect((await s.read('content/guides/youtube-c1/entity.json')).video.figures[0].moments).toEqual([{ t: 20, url: 'https://m/video/c1/at20-hd.webp', width: 1200, height: 675, caption: 'Một', sharpness: 0 }])
+  expect((await s.read('content/guides/youtube-c1/entity.json')).video.figures[0].moments).toEqual([{ t: 20, url: 'https://m/video/c1/at20-hd.webp', width: 1200, height: 675, caption: 'Một', sharpness: 0, person: false }])
 })
 
 test('video-stills: YouTube throttling or a model failure stops the run and leaves the guide as it was, nothing marked failed', async () => {
@@ -173,6 +174,7 @@ test('video-stills: YouTube throttling or a model failure stops the run and leav
     { grab: async (_s: unknown, sec: number) => { if (sec === 30) throw new Error('ffmpeg: Server returned 429 Too Many Requests'); return grey(56, 1280, 720).png().toBuffer() } },
     { frames: async () => { throw new Error('yt-dlp: ERROR: [youtube] b1: Sign in to confirm you’re not a bot.') } },
     { look: async () => { throw new LlmError('usage limit') }, grab: async (_s: unknown, sec: number) => grey(20 + 2 * Math.round(sec / 10 / 0.11), 1280, 720).png().toBuffer() },
+    { judge: async () => { throw new LlmError('usage limit') }, grab: async (_s: unknown, sec: number) => grey(20 + 2 * Math.round(sec / 10 / 0.11), 1280, 720).png().toBuffer() },
   ] as Partial<StillDeps>[]) {
     const s = await site(over)
     const before = await s.raw()
@@ -182,6 +184,28 @@ test('video-stills: YouTube throttling or a model failure stops the run and leav
     expect(s.calls.puts).toEqual([])
     expect(await s.raw()).toEqual(before)
   }
+})
+
+test('video-stills: a frame with hands or an added mark is dropped before upload and blocklisted; one with no answer waits for the next run; one that passes carries its verdict', async () => {
+  // A tile's smudge hid the hands; the Site Lead's sample of 30 frames (2026-11-09) found them in 14.
+  const passes = { person: false, mark: false, brand: false, note: 'a tank' }
+  const hands = await site({ judge: async () => ({ photos: [{ n: 1, ...passes, person: true, note: 'hands planting' }, { n: 2, ...passes }] }) })
+  const r = await videoStills(hands.root, hands.d)
+  expect(r.dropped).toContain('youtube-b1 t20: people: hands planting')
+  expect(hands.calls.puts).toEqual(['video/b1/at30-hd.webp'])
+  expect((await hands.read('engine-state/_photo-rejected.json'))[old(18)]).toBe('people: hands planting')
+  expect(await hands.read('engine-state/_photo-guides.json')).toEqual({ 'https://m/video/b1/at30-hd.webp': passes })
+  expect((await hands.read('content/guides/youtube-b1/entity.json')).video.figures[0].moments.map((m: { url: string; person?: boolean }) => [m.url, m.person])).toEqual([['https://m/video/b1/at30-hd.webp', false]])
+
+  const marked = await site({ judge: async () => ({ photos: [{ n: 1, ...passes }, { n: 2, ...passes, mark: true, note: 'channel mark, corner' }] }) })
+  expect((await videoStills(marked.root, marked.d)).dropped).toContain('youtube-b1 t30: watermark: channel mark, corner')
+  expect(marked.calls.puts).toEqual(['video/b1/at20-hd.webp'])
+
+  const silent = await site({ judge: async () => ({ photos: [{ n: 2, ...passes }] }) })
+  const q = await videoStills(silent.root, silent.d)
+  expect(silent.calls.puts).toEqual(['video/b1/at30-hd.webp'])
+  expect(q.done[0]).toContain('2 for next run')
+  expect((await silent.read('content/guides/youtube-b1/entity.json')).video.figures[0].moments.map((m: { url: string }) => m.url)).toContain(old(18))
 })
 
 test('video-stills: three grabs failing in a row stop the run', async () => {

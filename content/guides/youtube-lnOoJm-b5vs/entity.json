@@ -62,20 +62,13 @@
         "heading": "Mang lọc sang để bể mới chạy ngay",
         "moments": [
           {
-            "t": 390,
-            "url": "https://media.aquatome.com/video/lnOoJm-b5vs/at390-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay đang lấy mút lọc và vật liệu lọc ra khỏi ngăn lọc bể cũ.",
-            "sharpness": 54.1
-          },
-          {
             "t": 1080,
             "url": "https://media.aquatome.com/video/lnOoJm-b5vs/at1080-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể mới có đá bố cục, ngăn lọc bên cạnh đã được lắp sẵn.",
-            "sharpness": 493.1
+            "sharpness": 493.1,
+            "person": false
           }
         ]
       },
@@ -88,15 +81,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể cũ có đàn cá ở ốc, nền cát và vỏ ốc rải đáy.",
-            "sharpness": 856
-          },
-          {
-            "t": 1950,
-            "url": "https://media.aquatome.com/video/lnOoJm-b5vs/at1950-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Thả cá cùng nước từ xô sang bể mới.",
-            "sharpness": 990.9
+            "sharpness": 856,
+            "person": false
           }
         ],
         "photo": {
@@ -111,38 +97,8 @@
         }
       },
       {
-        "heading": "Gỡ đá nặng và lót đáy bể kính",
-        "moments": [
-          {
-            "t": 1640,
-            "url": "https://media.aquatome.com/video/lnOoJm-b5vs/at1640-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Toàn cảnh bể kính với đá xếp chồng ở góc trái và cát nền.",
-            "sharpness": 805.3
-          },
-          {
-            "t": 1780,
-            "url": "https://media.aquatome.com/video/lnOoJm-b5vs/at1780-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tảng đá lớn nằm trên nền đáy bể sau khi dọn bớt đá.",
-            "sharpness": 320.8
-          }
-        ]
-      },
-      {
         "heading": "Thả frontosa và cây sang bể mới",
-        "moments": [
-          {
-            "t": 1850,
-            "url": "https://media.aquatome.com/video/lnOoJm-b5vs/at1850-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng vợt bắt frontosa khi nước trong bể đã cạn.",
-            "sharpness": 639.7
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/lnOoJm-b5vs/p5-ZV9ab29fMDEuanBn.webp",
           "thumb": "https://media.aquatome.com/video/lnOoJm-b5vs/p5-ZV9ab29fMDEuanBn-480.webp",

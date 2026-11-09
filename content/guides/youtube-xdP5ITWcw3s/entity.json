@@ -43,7 +43,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cặn trắng bám trên mép kính của bể trống.",
-            "sharpness": 101.7
+            "sharpness": 101.7,
+            "person": false
           },
           {
             "t": 60,
@@ -51,7 +52,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh lớp cặn canxi trắng đóng ở thành và mép bể kính.",
-            "sharpness": 35.1
+            "sharpness": 35.1,
+            "person": false
           }
         ]
       },
@@ -82,27 +84,6 @@
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lemon_zest.jpg",
           "caption": "Vỏ chanh vàng được bào nhỏ trong chiếc bát trắng."
         }
-      },
-      {
-        "heading": "Cách 3: Dùng dung dịch tẩy cặn canxi cho kính",
-        "moments": [
-          {
-            "t": 325,
-            "url": "https://media.aquatome.com/video/xdP5ITWcw3s/at325-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng miếng mút chà lên thành kính bể để tẩy cặn.",
-            "sharpness": 72.3
-          },
-          {
-            "t": 330,
-            "url": "https://media.aquatome.com/video/xdP5ITWcw3s/at330-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đổ dung dịch tẩy cặn canxi lên miếng mút để lau kính bể.",
-            "sharpness": 321.1
-          }
-        ]
       }
     ]
   }

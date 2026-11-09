@@ -47,15 +47,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hai khóa gạt xám nằm trên đường ống của lọc.",
-            "sharpness": 201.6
-          },
-          {
-            "t": 50,
-            "url": "https://media.aquatome.com/video/ERomxf3YVHs/at50-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ống đã tháo rời ở khớp nối, không cần đụng tới thùng lọc.",
-            "sharpness": 80.8
+            "sharpness": 201.6,
+            "person": false
           }
         ],
         "photo": {
@@ -70,27 +63,6 @@
         }
       },
       {
-        "heading": "Cọ ống lily và lắp lại không rỉ nước",
-        "moments": [
-          {
-            "t": 70,
-            "url": "https://media.aquatome.com/video/ERomxf3YVHs/at70-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cọ ống lily dưới vòi nước trong bồn rửa.",
-            "sharpness": 115.6
-          },
-          {
-            "t": 95,
-            "url": "https://media.aquatome.com/video/ERomxf3YVHs/at95-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ống lily đã cọ sạch, nhìn sáng hơn hẳn.",
-            "sharpness": 181.1
-          }
-        ]
-      },
-      {
         "heading": "Rửa vật liệu lọc thế nào để không chết vi sinh",
         "moments": [
           {
@@ -99,15 +71,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Các viên vật liệu lọc dạng đá nằm trong ngăn lọc.",
-            "sharpness": 62.4
-          },
-          {
-            "t": 200,
-            "url": "https://media.aquatome.com/video/ERomxf3YVHs/at200-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đổ vật liệu lọc vào thau nước để rửa.",
-            "sharpness": 720.7
+            "sharpness": 62.4,
+            "person": false
           }
         ],
         "photo": {
@@ -122,27 +87,6 @@
         }
       },
       {
-        "heading": "Rửa lọc lớn có giỏ xếp chồng",
-        "moments": [
-          {
-            "t": 235,
-            "url": "https://media.aquatome.com/video/ERomxf3YVHs/at235-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các giỏ xếp chồng chứa vật liệu lọc bên trong lọc thùng.",
-            "sharpness": 716.2
-          },
-          {
-            "t": 270,
-            "url": "https://media.aquatome.com/video/ERomxf3YVHs/at270-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nhúng giỏ vật liệu lọc vào nước để rửa sạch.",
-            "sharpness": 728
-          }
-        ]
-      },
-      {
         "heading": "Châm nước lại cho lọc",
         "moments": [
           {
@@ -151,7 +95,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nước đổ vào khoang của bộ lọc để châm lại nước.",
-            "sharpness": 916.4
+            "sharpness": 916.4,
+            "person": false
           }
         ],
         "photo": {
@@ -174,7 +119,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Có con tép bị lọt vào trong ống mềm gần đầu nối của lọc.",
-            "sharpness": 336.4
+            "sharpness": 336.4,
+            "person": false
           },
           {
             "t": 395,
@@ -182,7 +128,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ống lily nối với van và đầu nối ở bên hông bể.",
-            "sharpness": 837.9
+            "sharpness": 837.9,
+            "person": false
           }
         ],
         "photo": {

@@ -56,7 +56,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hồ thủy sinh nền cỏ xanh với đá, cây đỏ, sạch rêu hại.",
-            "sharpness": 3072.4
+            "sharpness": 3072.4,
+            "person": false
           },
           {
             "t": 34,
@@ -100,14 +101,6 @@
         "heading": "Xử lý toàn bộ bể bằng bình xịt",
         "moments": [
           {
-            "t": 216,
-            "url": "https://media.aquatome.com/video/tau-i3HxVFQ/at216-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Xịt thuốc bằng bình xịt lên cây thủy sinh khi đã rút nước bể.",
-            "sharpness": 1893.7
-          },
-          {
             "t": 226,
             "url": "https://media.aquatome.com/video/tau-i3HxVFQ/at226.webp",
             "width": 160,
@@ -137,16 +130,7 @@
       },
       {
         "heading": "Dùng oxy già 3% cho rêu trên đá và lũa",
-        "moments": [
-          {
-            "t": 305,
-            "url": "https://media.aquatome.com/video/tau-i3HxVFQ/at305-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khúc lũa phủ rêu sau khi chấm oxy già.",
-            "sharpness": 2071
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/tau-i3HxVFQ/p4-Blcm94aWRlLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/tau-i3HxVFQ/p4-Blcm94aWRlLmpwZw-480.webp",

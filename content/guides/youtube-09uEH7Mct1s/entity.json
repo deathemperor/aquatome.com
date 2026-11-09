@@ -82,7 +82,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Thảm cỏ xanh mọc dày, phủ kín nền giữa các thân lũa.",
-            "sharpness": 118.2
+            "sharpness": 118.2,
+            "person": false
           },
           {
             "t": 60,
@@ -90,7 +91,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cỏ non lan rộng, rễ bám khắp nền bể.",
-            "sharpness": 51.1
+            "sharpness": 51.1,
+            "person": false
           }
         ]
       },
@@ -103,15 +105,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bình CO2 kèm van giảm áp và đồng hồ đặt trong tủ bể.",
-            "sharpness": 247.2
-          },
-          {
-            "t": 195,
-            "url": "https://media.aquatome.com/video/09uEH7Mct1s/at195-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh bộ van giảm áp, đồng hồ và bộ đếm bọt CO2.",
-            "sharpness": 559.2
+            "sharpness": 247.2,
+            "person": false
           }
         ],
         "photo": {
@@ -134,28 +129,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bộ CO2 với van giảm áp, đồng hồ và bộ đếm bọt.",
-            "sharpness": 104.8
-          },
-          {
-            "t": 215,
-            "url": "https://media.aquatome.com/video/09uEH7Mct1s/at215-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cầm van một chiều nhỏ bằng kim loại cạnh bộ van CO2.",
-            "sharpness": 92.7
-          }
-        ]
-      },
-      {
-        "heading": "Chỉnh lượng CO2 bằng drop checker",
-        "moments": [
-          {
-            "t": 270,
-            "url": "https://media.aquatome.com/video/09uEH7Mct1s/at270-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh drop checker treo trong bể, dung dịch màu vàng cam.",
-            "sharpness": 134.6
+            "sharpness": 104.8,
+            "person": false
           }
         ]
       },
@@ -168,7 +143,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Máy tạo sóng với sủi thủy tinh hình vòng đặt ngay phía trên.",
-            "sharpness": 1988.1
+            "sharpness": 1988.1,
+            "person": false
           },
           {
             "t": 355,
@@ -176,7 +152,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh máy tạo sóng và sủi CO2 treo trong bể.",
-            "sharpness": 1912.4
+            "sharpness": 1912.4,
+            "person": false
           }
         ]
       },
@@ -189,38 +166,14 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh với lũa dựng đứng và thảm cỏ xanh phía dưới.",
-            "sharpness": 917.4
-          },
-          {
-            "t": 420,
-            "url": "https://media.aquatome.com/video/09uEH7Mct1s/at420-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Những khúc lũa tối màu trong bể, thảm cỏ xanh mọc phía trước.",
-            "sharpness": 2912.4
+            "sharpness": 917.4,
+            "person": false
           }
         ]
       },
       {
         "heading": "Xử lý nước xanh bằng thuốc diệt rêu",
-        "moments": [
-          {
-            "t": 445,
-            "url": "https://media.aquatome.com/video/09uEH7Mct1s/at445-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh nước đục xanh trước khi xử lý bằng thuốc diệt rêu.",
-            "sharpness": 391.4
-          },
-          {
-            "t": 455,
-            "url": "https://media.aquatome.com/video/09uEH7Mct1s/at455-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nước trong vắt trở lại, thảm cỏ xanh mướt sau một đêm.",
-            "sharpness": 529.9
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/09uEH7Mct1s/p6-VyX2FsZ2FlLnBuZw.webp",
           "thumb": "https://media.aquatome.com/video/09uEH7Mct1s/p6-VyX2FsZ2FlLnBuZw-480.webp",
@@ -241,7 +194,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Thảm cỏ dày xanh mướt, mọc thành từng búi như lông.",
-            "sharpness": 2046.4
+            "sharpness": 2046.4,
+            "person": false
           },
           {
             "t": 595,
@@ -249,7 +203,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cỏ mọc kín gần khúc lũa ở rìa bể.",
-            "sharpness": 279
+            "sharpness": 279,
+            "person": false
           }
         ]
       }

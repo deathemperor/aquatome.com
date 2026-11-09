@@ -603,9 +603,11 @@ The layers above still check the result.
     Aquarium Co-op test-strip bottle in the betta setup guide, where only the face detector (no face in either) and the
     watermark step (which calls a product's own label part of the scene) had looked; 5,960 of 6,428 guide pictures had
     never had a model look for a mark.
-    - It asks the same of a video guide's stills, after every photo, guides in order: teaching videos show hands
-      planting and siphoning, and `video-stills` looks only for faces and text. A person or a mark takes the still off
-      its guide and onto `_photo-rejected.json`; a figure left with no still and no photo goes. A brand in a still's
+    - It asks the same of a video guide's stills, ahead of the guides' other photos, since a still shows only with a verdict
+      (`stillShown`, `person`): teaching videos show hands planting and siphoning. `video-stills` asks it of each frame
+      before upload; `guide-photos` asks it of the rest. A person or a mark takes the still off
+      its guide and onto `_photo-rejected.json`; a figure left with no still and no photo goes. Any other still gets
+      `person: false` in its guide. A brand in a still's
       scene is recorded, not acted on. The picker chose a guide's stills once, when it was written, so nothing takes a
       removed one's place. A still is judged once `video-stills` won't change it again (the video's own frame, or a
       tile it keeps for good): a tile waits for its frame, so it isn't judged twice, and `video-stills` never touches

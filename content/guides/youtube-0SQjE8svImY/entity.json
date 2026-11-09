@@ -43,7 +43,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Miệng bể mica trống hoàn toàn, không có thanh giằng hay viền trên.",
-            "sharpness": 450.4
+            "sharpness": 450.4,
+            "person": false
           },
           {
             "t": 550,
@@ -51,43 +52,14 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể mica dạng cube với thành dày, tự đứng vững không cần giằng.",
-            "sharpness": 93
-          }
-        ]
-      },
-      {
-        "heading": "Cắt tấm theo kích thước nào",
-        "moments": [
-          {
-            "t": 200,
-            "url": "https://media.aquatome.com/video/0SQjE8svImY/at200-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tấm đáy hình vuông đặt trên bàn, sẵn sàng đo và đánh dấu.",
-            "sharpness": 258.5
+            "sharpness": 93,
+            "person": false
           }
         ]
       },
       {
         "heading": "Chuẩn bị mép và lớp giấy bảo vệ",
-        "moments": [
-          {
-            "t": 215,
-            "url": "https://media.aquatome.com/video/0SQjE8svImY/at215-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lớp giấy bảo vệ được bóc lùi ở mép tấm mica.",
-            "sharpness": 360.1
-          },
-          {
-            "t": 245,
-            "url": "https://media.aquatome.com/video/0SQjE8svImY/at245-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dán băng keo giấy xanh che phần mica lộ ra sát mép.",
-            "sharpness": 144.7
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/0SQjE8svImY/p2-0ZXJzVGFwZS5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/0SQjE8svImY/p2-0ZXJzVGFwZS5qcGc-480.webp",
@@ -108,7 +80,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Tấm mica được kẹp chặt bằng kẹp đỏ, sẵn sàng chèn keo vào mối nối.",
-            "sharpness": 242.4
+            "sharpness": 242.4,
+            "person": false
           },
           {
             "t": 370,
@@ -116,19 +89,6 @@
             "width": 159,
             "height": 90,
             "caption": "Các tấm mica dán băng keo xanh được ghép và giữ bằng khối gỗ."
-          }
-        ]
-      },
-      {
-        "heading": "Xén mép, bo cạnh và đánh bóng",
-        "moments": [
-          {
-            "t": 505,
-            "url": "https://media.aquatome.com/video/0SQjE8svImY/at505-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Mũi phay bo cạnh màu xanh dùng để bo tròn các cạnh đứng của bể.",
-            "sharpness": 166.6
           }
         ]
       }

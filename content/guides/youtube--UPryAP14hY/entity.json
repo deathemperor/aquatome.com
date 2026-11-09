@@ -68,15 +68,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bên trong bể kính Foresta 35E với các tấm xốp lót trong hộp.",
-            "sharpness": 28.4
-          },
-          {
-            "t": 55,
-            "url": "https://media.aquatome.com/video/-UPryAP14hY/at55-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hộp máy phun sương đi kèm trong bộ Foresta 35E.",
-            "sharpness": 174
+            "sharpness": 28.4,
+            "person": false
           }
         ],
         "photo": {
@@ -91,44 +84,16 @@
         }
       },
       {
-        "heading": "Lắp bể và chạy thử",
-        "moments": [
-          {
-            "t": 70,
-            "url": "https://media.aquatome.com/video/-UPryAP14hY/at70-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đặt máy phun sương trong ngăn lọc phía trên bể.",
-            "sharpness": 297
-          },
-          {
-            "t": 80,
-            "url": "https://media.aquatome.com/video/-UPryAP14hY/at80-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các miếng mút trồng cây được đặt vào mặt sau của bể.",
-            "sharpness": 1609
-          }
-        ]
-      },
-      {
         "heading": "Chọn đèn thế nào",
         "moments": [
-          {
-            "t": 95,
-            "url": "https://media.aquatome.com/video/-UPryAP14hY/at95-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đặt cây đèn mỏng lên trên bể cao, trông gọn và cân đối.",
-            "sharpness": 1232.9
-          },
           {
             "t": 120,
             "url": "https://media.aquatome.com/video/-UPryAP14hY/at120-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể cao với đèn mỏng phía trên, không lấn mất dáng bể.",
-            "sharpness": 1608.5
+            "sharpness": 1608.5,
+            "person": false
           }
         ]
       },
@@ -141,15 +106,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ba khúc lũa spiderwood ghép thành bố cục tam giác trong bể.",
-            "sharpness": 1110.5
-          },
-          {
-            "t": 205,
-            "url": "https://media.aquatome.com/video/-UPryAP14hY/at205-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nhỏ keo 502 dạng lỏng vào điểm tiếp xúc giữa các khúc lũa.",
-            "sharpness": 238.5
+            "sharpness": 1110.5,
+            "person": false
           }
         ]
       },
@@ -162,7 +120,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lũa và đá trên lớp sỏi cát sáng ở đáy bể.",
-            "sharpness": 315.1
+            "sharpness": 315.1,
+            "person": false
           },
           {
             "t": 355,
@@ -170,7 +129,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể đã dựng xong lũa, có sương phun nhẹ phía dưới.",
-            "sharpness": 687.1
+            "sharpness": 687.1,
+            "person": false
           }
         ],
         "photo": {
@@ -193,7 +153,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Rêu weeping trải thành lớp mỏng đều trên các miếng mút.",
-            "sharpness": 509.4
+            "sharpness": 509.4,
+            "person": false
           },
           {
             "t": 490,
@@ -201,7 +162,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Vách rêu hoàn chỉnh gồm các miếng mút phủ rêu xanh dày.",
-            "sharpness": 4673.4
+            "sharpness": 4673.4,
+            "person": false
           }
         ],
         "photo": {
@@ -224,15 +186,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Các chậu cây trên cạn mới mua ở tiệm cây cảnh, còn gắn nhãn.",
-            "sharpness": 608.5
-          },
-          {
-            "t": 675,
-            "url": "https://media.aquatome.com/video/-UPryAP14hY/at675-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh phần lũa phủ rêu, đang đặt thêm cây vào bể.",
-            "sharpness": 2009.6
+            "sharpness": 608.5,
+            "person": false
           }
         ],
         "photo": {
@@ -255,7 +210,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh vách rêu xanh mướt và lũa trong bể kín.",
-            "sharpness": 2723
+            "sharpness": 2723,
+            "person": false
           },
           {
             "t": 615,
@@ -263,7 +219,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Vách rêu phủ kín xanh dày sau hai tuần bọc màng giữ ẩm.",
-            "sharpness": 2668.8
+            "sharpness": 2668.8,
+            "person": false
           }
         ],
         "photo": {
@@ -281,20 +238,13 @@
         "heading": "Nuôi gì trong phần nước",
         "moments": [
           {
-            "t": 725,
-            "url": "https://media.aquatome.com/video/-UPryAP14hY/at725-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đổ nước từ cốc để thả tép vào phần nước của bể.",
-            "sharpness": 555.4
-          },
-          {
             "t": 730,
             "url": "https://media.aquatome.com/video/-UPryAP14hY/at730-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Phần nước trong bể rất nông, nền cát và đá.",
-            "sharpness": 245.9
+            "sharpness": 245.9,
+            "person": false
           }
         ],
         "photo": {

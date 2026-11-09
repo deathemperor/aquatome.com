@@ -120,46 +120,8 @@
     ],
     "figures": [
       {
-        "heading": "Giữ vi sinh để bể mới chạy nhanh hơn",
-        "moments": [
-          {
-            "t": 560,
-            "url": "https://media.aquatome.com/video/awWblosRzrQ/at560-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể mới đã có lũa và phân nền, đang đổ nước vào.",
-            "sharpness": 1979.5
-          },
-          {
-            "t": 600,
-            "url": "https://media.aquatome.com/video/awWblosRzrQ/at600-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể nhỏ đã bày lũa và phân nền, đang chuẩn bị chạy.",
-            "sharpness": 2537.6
-          }
-        ]
-      },
-      {
         "heading": "Làm bố cục đá và lũa",
-        "moments": [
-          {
-            "t": 320,
-            "url": "https://media.aquatome.com/video/awWblosRzrQ/at320-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hai viên đá nham thạch đen đặt trong bể, viên lớn lệch sang một bên.",
-            "sharpness": 2623.1
-          },
-          {
-            "t": 400,
-            "url": "https://media.aquatome.com/video/awWblosRzrQ/at400-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bố cục đá nham thạch kết hợp lũa trong bể nhỏ.",
-            "sharpness": 2769.2
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/awWblosRzrQ/p1-LF9OZXZhZGEuSlBH.webp",
           "thumb": "https://media.aquatome.com/video/awWblosRzrQ/p1-LF9OZXZhZGEuSlBH-480.webp",
@@ -173,24 +135,7 @@
       },
       {
         "heading": "Nền cát và phân nền",
-        "moments": [
-          {
-            "t": 510,
-            "url": "https://media.aquatome.com/video/awWblosRzrQ/at510-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cát WIO Biotope Bed Mere trộn sẵn cành vụn, sỏi và đá cuội.",
-            "sharpness": 867.5
-          },
-          {
-            "t": 550,
-            "url": "https://media.aquatome.com/video/awWblosRzrQ/at550-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Rải cát nền vào bể đã bày sẵn lũa.",
-            "sharpness": 1122.8
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/awWblosRzrQ/p2-g4MzU5NDIpLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/awWblosRzrQ/p2-g4MzU5NDIpLmpwZw-480.webp",
@@ -211,7 +156,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể chỉ có đá nham thạch và vài cành lũa nhỏ, bố cục đơn giản.",
-            "sharpness": 1621.4
+            "sharpness": 1621.4,
+            "person": false
           },
           {
             "t": 680,
@@ -219,30 +165,14 @@
             "width": 1200,
             "height": 675,
             "caption": "Góc nhìn khác của hardscape gọn gàng với đá và cành nhỏ.",
-            "sharpness": 1823.7
+            "sharpness": 1823.7,
+            "person": false
           }
         ]
       },
       {
         "heading": "Chọn và trồng cây",
-        "moments": [
-          {
-            "t": 780,
-            "url": "https://media.aquatome.com/video/awWblosRzrQ/at780-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh dương xỉ java và cỏ trồng bên khúc lũa trong bể.",
-            "sharpness": 1865
-          },
-          {
-            "t": 790,
-            "url": "https://media.aquatome.com/video/awWblosRzrQ/at790-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể đã trồng dương xỉ java bên trái và cây nổi trên mặt nước.",
-            "sharpness": 2305.6
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/awWblosRzrQ/p4-cnUtSW5kaWEuanBn.webp",
           "thumb": "https://media.aquatome.com/video/awWblosRzrQ/p4-cnUtSW5kaWEuanBn-480.webp",
@@ -263,7 +193,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể trưng bày ở cửa hàng với lũa, rêu phủ và đàn cá nhỏ.",
-            "sharpness": 676.4
+            "sharpness": 676.4,
+            "person": false
           },
           {
             "t": 1070,
@@ -271,7 +202,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh trong cửa hàng với lũa và cây phủ trên mặt.",
-            "sharpness": 233.9
+            "sharpness": 233.9,
+            "person": false
           }
         ]
       },
@@ -279,20 +211,13 @@
         "heading": "Thuần cá bằng cách nhỏ giọt",
         "moments": [
           {
-            "t": 1320,
-            "url": "https://media.aquatome.com/video/awWblosRzrQ/at1320-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Túi cá trong cốc, nước bể nhỏ giọt từ từ qua ống dây.",
-            "sharpness": 801.8
-          },
-          {
             "t": 1330,
             "url": "https://media.aquatome.com/video/awWblosRzrQ/at1330-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Ống dây sủi dẫn nước từ bể nhỏ giọt vào túi cá.",
-            "sharpness": 1539
+            "sharpness": 1539,
+            "person": false
           }
         ]
       }

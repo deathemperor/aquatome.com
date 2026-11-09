@@ -90,7 +90,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Kệ chìa ra từ ngăn máng tràn, bên dưới vẫn trống để chứa nước.",
-            "sharpness": 339.4
+            "sharpness": 339.4,
+            "person": false
           },
           {
             "t": 45,
@@ -98,20 +99,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ngăn máng tràn có đèn ngay phía trên, cần che mặt trước.",
-            "sharpness": 601.5
-          }
-        ]
-      },
-      {
-        "heading": "Làm kệ treo từ lưới egg crate và dây thép",
-        "moments": [
-          {
-            "t": 160,
-            "url": "https://media.aquatome.com/video/KsmBRW22jiQ/at160-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tấm egg crate đã lắp vào dưới ngăn máng tràn trong hồ.",
-            "sharpness": 967.4
+            "sharpness": 601.5,
+            "person": false
           }
         ]
       },
@@ -124,15 +113,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Khối đá xếp xong bên trái với khúc lũa lớn kẹp giữa các cụm đá.",
-            "sharpness": 1088.9
-          },
-          {
-            "t": 210,
-            "url": "https://media.aquatome.com/video/KsmBRW22jiQ/at210-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bố cục hoàn chỉnh với đá và nhiều khúc lũa che kín máng tràn.",
-            "sharpness": 972.4
+            "sharpness": 1088.9,
+            "person": false
           }
         ]
       },
@@ -145,15 +127,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Xịt keo bọt nở vào phía sau khối đá và lũa.",
-            "sharpness": 245.7
-          },
-          {
-            "t": 235,
-            "url": "https://media.aquatome.com/video/KsmBRW22jiQ/at235-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng tay ấn phần keo bọt nở thừa vào các khe đá.",
-            "sharpness": 500.5
+            "sharpness": 245.7,
+            "person": false
           }
         ]
       },
@@ -166,15 +141,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Rửa sạch Leca trong rổ dưới vòi nước trước khi dùng.",
-            "sharpness": 830.8
-          },
-          {
-            "t": 310,
-            "url": "https://media.aquatome.com/video/KsmBRW22jiQ/at310-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lớp Flourite Red phủ đều phía sau máng tràn, nhìn rất đẹp.",
-            "sharpness": 3860
+            "sharpness": 830.8,
+            "person": false
           }
         ],
         "photo": {
@@ -190,16 +158,7 @@
       },
       {
         "heading": "Phủ rêu để giấu keo",
-        "moments": [
-          {
-            "t": 350,
-            "url": "https://media.aquatome.com/video/KsmBRW22jiQ/at350-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nhét từng nhúm rêu vào khe giữa các tảng đá và lũa.",
-            "sharpness": 1035.3
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/KsmBRW22jiQ/p5-Zvcm1lX1JGLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/KsmBRW22jiQ/p5-Zvcm1lX1JGLmpwZw-480.webp",
@@ -220,7 +179,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hồ đã đổ nước, cụm đá và lũa dựng thác.",
-            "sharpness": 1304.9
+            "sharpness": 1304.9,
+            "person": false
           },
           {
             "t": 395,
@@ -228,7 +188,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Thác chạy thử, nước chảy xuống qua đá và lũa trong hồ.",
-            "sharpness": 1372.8
+            "sharpness": 1372.8,
+            "person": false
           }
         ]
       },
@@ -236,20 +197,13 @@
         "heading": "Hoàn thiện lòng hồ và trồng cây",
         "moments": [
           {
-            "t": 465,
-            "url": "https://media.aquatome.com/video/KsmBRW22jiQ/at465-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đang trồng cây lá đốm và dương xỉ giữa các viên đá.",
-            "sharpness": 1744.8
-          },
-          {
             "t": 550,
             "url": "https://media.aquatome.com/video/KsmBRW22jiQ/at550-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể sau khi trồng xong, cây xanh mọc trên đá và gỗ.",
-            "sharpness": 3067.2
+            "sharpness": 3067.2,
+            "person": false
           }
         ],
         "photo": {

@@ -76,19 +76,6 @@
     ],
     "figures": [
       {
-        "heading": "Bể, nền dán và đèn",
-        "moments": [
-          {
-            "t": 0,
-            "url": "https://media.aquatome.com/video/vGvzzEQQxDA/at0-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đang dán tấm nền đen lên mặt sau của bể.",
-            "sharpness": 1161.9
-          }
-        ]
-      },
-      {
         "heading": "Nền: phân nền hay sỏi kèm phân nhét gốc",
         "moments": [
           {
@@ -97,7 +84,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Phân nền đổ thành đống trong bể kính trống, chuẩn bị tạo địa hình.",
-            "sharpness": 6474.6
+            "sharpness": 6474.6,
+            "person": false
           },
           {
             "t": 330,
@@ -105,7 +93,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lớp phân nền được san phẳng, đổ dày khắp đáy bể.",
-            "sharpness": 7019.4
+            "sharpness": 7019.4,
+            "person": false
           }
         ]
       },
@@ -118,7 +107,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nhãn cây cắm trên nền đất, tạo sơ đồ trồng trong bể.",
-            "sharpness": 4110.4
+            "sharpness": 4110.4,
+            "person": false
           },
           {
             "t": 400,
@@ -126,7 +116,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh nhãn cây và cốc cây cắm đúng chỗ định trồng.",
-            "sharpness": 1642.1
+            "sharpness": 1642.1,
+            "person": false
           }
         ],
         "photo": {
@@ -149,15 +140,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Các chậu cây thủy sinh xếp sẵn trên nền bể trước khi trồng.",
-            "sharpness": 4485.7
-          },
-          {
-            "t": 460,
-            "url": "https://media.aquatome.com/video/vGvzzEQQxDA/at460-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây đỏ Alternanthera đã trồng ở tiền cảnh, các chậu cây còn lại phía sau.",
-            "sharpness": 3391.5
+            "sharpness": 4485.7,
+            "person": false
           }
         ],
         "photo": {
@@ -180,15 +164,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây đã trồng thành cụm ở tiền cảnh, xen kẽ các khoảng trống.",
-            "sharpness": 3927.6
-          },
-          {
-            "t": 600,
-            "url": "https://media.aquatome.com/video/vGvzzEQQxDA/at600-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng nhíp trồng thêm cây đỏ lấp dần nền bể.",
-            "sharpness": 3455.7
+            "sharpness": 3927.6,
+            "person": false
           }
         ]
       },
@@ -201,7 +178,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể cây mới lên tốt, một số cây còn hơi xanh.",
-            "sharpness": 1343.5
+            "sharpness": 1343.5,
+            "person": false
           },
           {
             "t": 820,
@@ -209,7 +187,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây thân đỏ và xanh mọc dày, màu chưa lên đỏ hoàn toàn.",
-            "sharpness": 4513
+            "sharpness": 4513,
+            "person": false
           }
         ],
         "photo": {
@@ -232,7 +211,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh cây đỏ và xanh lên màu đẹp dưới đèn mạnh.",
-            "sharpness": 5189.1
+            "sharpness": 5189.1,
+            "person": false
           }
         ],
         "photo": {

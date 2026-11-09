@@ -103,7 +103,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể nano UNS 30C trống, đặt trên bàn, có đèn gác phía trên.",
-            "sharpness": 133.1
+            "sharpness": 133.1,
+            "person": false
           }
         ],
         "photo": {
@@ -121,20 +122,13 @@
         "heading": "Chuẩn bị đá dragonstone",
         "moments": [
           {
-            "t": 35,
-            "url": "https://media.aquatome.com/video/aGrKKWNFl2k/at35-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Rửa viên dragonstone dưới vòi nước, nước đục ngầu vì đất sét.",
-            "sharpness": 84
-          },
-          {
             "t": 115,
             "url": "https://media.aquatome.com/video/aGrKKWNFl2k/at115-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Đá dragonstone vụn và búa sau khi đập nhỏ ngoài sân.",
-            "sharpness": 833
+            "sharpness": 833,
+            "person": false
           }
         ]
       },
@@ -159,24 +153,7 @@
       },
       {
         "heading": "Dán đá bằng keo siêu dính và bông tẩy trang",
-        "moments": [
-          {
-            "t": 130,
-            "url": "https://media.aquatome.com/video/aGrKKWNFl2k/at130-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng nhíp kẹp mẩu bông tẩy trang vào khe giữa hai viên đá.",
-            "sharpness": 86.4
-          },
-          {
-            "t": 135,
-            "url": "https://media.aquatome.com/video/aGrKKWNFl2k/at135-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nhỏ keo siêu dính cho ngấm đẫm mẩu bông ở chỗ nối đá.",
-            "sharpness": 92.6
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/aGrKKWNFl2k/p3-kzMDMyOTYpLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/aGrKKWNFl2k/p3-kzMDMyOTYpLmpwZw-480.webp",
@@ -190,24 +167,7 @@
       },
       {
         "heading": "Lót nền với APT Start",
-        "moments": [
-          {
-            "t": 195,
-            "url": "https://media.aquatome.com/video/aGrKKWNFl2k/at195-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Gói APT Start được cầm trước bể thủy sinh.",
-            "sharpness": 125.3
-          },
-          {
-            "t": 215,
-            "url": "https://media.aquatome.com/video/aGrKKWNFl2k/at215-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Rắc APT Start từ túi xuống đáy bể trống.",
-            "sharpness": 51.1
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/aGrKKWNFl2k/p4-RvbV9zYW5kLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/aGrKKWNFl2k/p4-RvbV9zYW5kLmpwZw-480.webp",
@@ -228,15 +188,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Các cây chậu và cốc cây in vitro xếp sẵn trên bàn.",
-            "sharpness": 341
-          },
-          {
-            "t": 370,
-            "url": "https://media.aquatome.com/video/aGrKKWNFl2k/at370-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cốc cây in vitro Rotala indica với lớp gel xanh bên trong.",
-            "sharpness": 142.3
+            "sharpness": 341,
+            "person": false
           }
         ],
         "photo": {
@@ -259,7 +212,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Dùng nhíp trồng cỏ thìa nhỏ ở tiền cảnh dọc lối vào hang.",
-            "sharpness": 589.7
+            "sharpness": 589.7,
+            "person": false
           },
           {
             "t": 495,
@@ -267,7 +221,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cỏ xanh đã bám dọc đá, bố cục hang bắt đầu có chiều sâu.",
-            "sharpness": 1590.4
+            "sharpness": 1590.4,
+            "person": false
           }
         ],
         "photo": {
@@ -290,7 +245,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể sau hai tuần, cây phía sau lên xanh và rậm.",
-            "sharpness": 483.1
+            "sharpness": 483.1,
+            "person": false
           },
           {
             "t": 720,
@@ -298,7 +254,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bụi Rotala phía sau mọc nhanh, phủ kín nền cây xanh tốt.",
-            "sharpness": 1097.9
+            "sharpness": 1097.9,
+            "person": false
           }
         ],
         "photo": {
@@ -321,7 +278,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá medaka và tép đỏ trong bể thủy sinh với đá và rêu.",
-            "sharpness": 1165.5
+            "sharpness": 1165.5,
+            "person": false
           },
           {
             "t": 810,
@@ -329,7 +287,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh cá medaka trắng và tép cherry đỏ bơi trong bể.",
-            "sharpness": 179.4
+            "sharpness": 179.4,
+            "person": false
           }
         ],
         "photo": {

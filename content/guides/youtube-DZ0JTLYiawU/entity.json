@@ -87,7 +87,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hai con cá vàng bơi trong bể, thân còn sạch, chưa thấy dấu hiệu bệnh.",
-            "sharpness": 65.1
+            "sharpness": 65.1,
+            "person": false
           }
         ],
         "photo": {
@@ -110,7 +111,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá nhỏ bơi khỏe, màu đẹp trong hồ thủy sinh.",
-            "sharpness": 104.5
+            "sharpness": 104.5,
+            "person": false
           },
           {
             "t": 148,
@@ -118,7 +120,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá thiên thần bơi trong hồ lúc cho ăn.",
-            "sharpness": 175.1
+            "sharpness": 175.1,
+            "person": false
           }
         ],
         "photo": {
@@ -133,27 +136,6 @@
         }
       },
       {
-        "heading": "Đánh thuốc cả bể hay tách cá ra",
-        "moments": [
-          {
-            "t": 165,
-            "url": "https://media.aquatome.com/video/DZ0JTLYiawU/at165-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể nhỏ nền đất đen, cá bệnh được tách riêng để theo dõi.",
-            "sharpness": 230.7
-          },
-          {
-            "t": 168,
-            "url": "https://media.aquatome.com/video/DZ0JTLYiawU/at168-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cá bệnh bơi sát mặt nước trong bể kính.",
-            "sharpness": 96.4
-          }
-        ]
-      },
-      {
         "heading": "Dùng Bio Knock 2 và Antibio thế nào",
         "moments": [
           {
@@ -162,7 +144,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá nhỏ bơi trong bể dưới đèn xanh tím.",
-            "sharpness": 62.8
+            "sharpness": 62.8,
+            "person": false
           },
           {
             "t": 260,
@@ -170,7 +153,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể cá nhiều con bơi quanh hai lọc sủi bọt xanh.",
-            "sharpness": 120.6
+            "sharpness": 120.6,
+            "person": false
           }
         ]
       },
@@ -197,7 +181,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể kính trống với cục sủi vi sinh đặt bên trong.",
-            "sharpness": 428.2
+            "sharpness": 428.2,
+            "person": false
           },
           {
             "t": 695,
@@ -205,7 +190,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh cục sủi vi sinh hai bên dùng cho bể dưỡng.",
-            "sharpness": 733.9
+            "sharpness": 733.9,
+            "person": false
           }
         ],
         "photo": {
@@ -228,7 +214,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá sọc vằn bơi trong bể nền xanh.",
-            "sharpness": 17.4
+            "sharpness": 17.4,
+            "person": false
           },
           {
             "t": 510,
@@ -236,7 +223,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể nuôi cá nhỏ với lọc sủi, cá bơi khá rõ.",
-            "sharpness": 60.2
+            "sharpness": 60.2,
+            "person": false
           }
         ]
       },

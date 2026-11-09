@@ -83,15 +83,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Những viên gạch block dùng làm chân đỡ cho bể.",
-            "sharpness": 129.4
-          },
-          {
-            "t": 120,
-            "url": "https://media.aquatome.com/video/0PC86KyBZmQ/at120-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tấm đáy gỗ dán dài đặt trên chân bể, đang được bắt vít.",
-            "sharpness": 688.8
+            "sharpness": 129.4,
+            "person": false
           }
         ]
       },
@@ -104,22 +97,14 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh khung gỗ với thanh kim loại bắt chắc vào sườn bể.",
-            "sharpness": 78.7
+            "sharpness": 78.7,
+            "person": false
           }
         ]
       },
       {
         "heading": "Gỗ, vít và vật tư",
-        "moments": [
-          {
-            "t": 530,
-            "url": "https://media.aquatome.com/video/0PC86KyBZmQ/at530-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khung gỗ thanh và tấm đáy gỗ dán của bể đang đóng dở.",
-            "sharpness": 523
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/0PC86KyBZmQ/p3-yYmluZHVuZy5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/0PC86KyBZmQ/p3-yYmluZHVuZy5qcGc-480.webp",
@@ -130,19 +115,6 @@
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Distanzschrauben-Verbindung.jpg",
           "caption": "Vít bắt xuyên qua tấm gỗ xuống thanh gỗ bên dưới."
         }
-      },
-      {
-        "heading": "Những việc còn lại trước khi cho nước vào",
-        "moments": [
-          {
-            "t": 420,
-            "url": "https://media.aquatome.com/video/0PC86KyBZmQ/at420-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khung bể gỗ dài với phần giằng trên và lớp ốp gỗ dán.",
-            "sharpness": 431.3
-          }
-        ]
       },
       {
         "heading": "Mấy điều nên biết trước khi bắt tay",

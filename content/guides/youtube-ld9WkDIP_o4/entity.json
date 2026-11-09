@@ -88,27 +88,6 @@
     ],
     "figures": [
       {
-        "heading": "Làm kệ đỡ bên trong chậu",
-        "moments": [
-          {
-            "t": 70,
-            "url": "https://media.aquatome.com/video/ld9WkDIP_o4/at70-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đo khoảng cách từ tấm egg crate xuống đáy chậu bằng thước cuộn.",
-            "sharpness": 3882.1
-          },
-          {
-            "t": 115,
-            "url": "https://media.aquatome.com/video/ld9WkDIP_o4/at115-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cái bàn nhỏ làm bằng ống PVC và cút góc đã lắp xong.",
-            "sharpness": 103.3
-          }
-        ]
-      },
-      {
         "heading": "Dựng đá, lũa và thác nước",
         "moments": [
           {
@@ -117,15 +96,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Máy bơm chìm nhỏ gắn ống nhựa mềm dùng chạy thác nước.",
-            "sharpness": 416.5
-          },
-          {
-            "t": 230,
-            "url": "https://media.aquatome.com/video/ld9WkDIP_o4/at230-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đá pagoda xếp trên khay, có ống nước luồn sẵn cho thác.",
-            "sharpness": 1513.3
+            "sharpness": 416.5,
+            "person": false
           }
         ]
       },
@@ -138,15 +110,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Dòng nước chảy thành thác qua cụm đá và lũa khi chạy thử.",
-            "sharpness": 2059.1
-          },
-          {
-            "t": 340,
-            "url": "https://media.aquatome.com/video/ld9WkDIP_o4/at340-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cụm đá lũa nhìn từ phía trước, thấy ống dẫn và van phía sau.",
-            "sharpness": 1736.1
+            "sharpness": 2059.1,
+            "person": false
           }
         ],
         "photo": {
@@ -169,15 +134,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Các loại cây trên cạn chuẩn bị trồng cho khu bờ.",
-            "sharpness": 4454.5
-          },
-          {
-            "t": 415,
-            "url": "https://media.aquatome.com/video/ld9WkDIP_o4/at415-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đặt cây lá vằn vào nền Flourite trên khu bờ, cạnh lũa.",
-            "sharpness": 1769.8
+            "sharpness": 4454.5,
+            "person": false
           }
         ]
       },
@@ -185,20 +143,13 @@
         "heading": "Đổ nước và trồng cây thủy sinh",
         "moments": [
           {
-            "t": 485,
-            "url": "https://media.aquatome.com/video/ld9WkDIP_o4/at485-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Rong đuôi chồn xanh rậm được đặt vào chậu cạnh khu bờ.",
-            "sharpness": 1976.1
-          },
-          {
             "t": 535,
             "url": "https://media.aquatome.com/video/ld9WkDIP_o4/at535-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Chậu đã đổ nước, cây nổi xanh rải trên mặt nước.",
-            "sharpness": 2066.5
+            "sharpness": 2066.5,
+            "person": false
           }
         ],
         "photo": {
@@ -221,7 +172,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cành lũa nhỏ cắm xen trên cụm đá, rêu bám quanh chân.",
-            "sharpness": 2528.4
+            "sharpness": 2528.4,
+            "person": false
           },
           {
             "t": 570,
@@ -229,7 +181,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bố cục hoàn thiện với lũa, đá, rêu và cây.",
-            "sharpness": 2874.6
+            "sharpness": 2874.6,
+            "person": false
           }
         ],
         "photo": {
@@ -252,7 +205,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hồ riparian trong chậu với lũa, đá và cây trồng phía trên mặt nước.",
-            "sharpness": 3638.1
+            "sharpness": 3638.1,
+            "person": false
           },
           {
             "t": 650,
@@ -260,7 +214,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh bèo và cây phủ mặt nước quanh lũa trong hồ.",
-            "sharpness": 4364.1
+            "sharpness": 4364.1,
+            "person": false
           }
         ],
         "photo": {

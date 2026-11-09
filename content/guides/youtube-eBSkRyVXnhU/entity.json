@@ -40,7 +40,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Những cành lũa khô để trên bàn, chuẩn bị xử lý trước khi cho vào bể.",
-            "sharpness": 296.7
+            "sharpness": 296.7,
+            "person": false
           },
           {
             "t": 55,
@@ -48,7 +49,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nồi nước đặt cạnh các khúc lũa, sẵn sàng để luộc lũa.",
-            "sharpness": 278
+            "sharpness": 278,
+            "person": false
           }
         ],
         "photo": {
@@ -71,7 +73,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Những cành lũa nhỏ được bày trên bàn, sẵn sàng để xử lý.",
-            "sharpness": 262.5
+            "sharpness": 262.5,
+            "person": false
           },
           {
             "t": 45,
@@ -79,7 +82,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Các khúc lũa nhỏ vừa nồi, chuẩn bị cho vào luộc.",
-            "sharpness": 273.3
+            "sharpness": 273.3,
+            "person": false
           }
         ],
         "photo": {
@@ -95,24 +99,7 @@
       },
       {
         "heading": "Lũa lớn: xịt rửa rồi dội nước sôi",
-        "moments": [
-          {
-            "t": 115,
-            "url": "https://media.aquatome.com/video/eBSkRyVXnhU/at115-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây lũa lớn đặt trong phòng tắm, sẵn sàng để xử lý.",
-            "sharpness": 106.3
-          },
-          {
-            "t": 230,
-            "url": "https://media.aquatome.com/video/eBSkRyVXnhU/at230-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ấm đun nước siêu tốc cạnh cây lũa, chuẩn bị dội nước sôi.",
-            "sharpness": 121.5
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/eBSkRyVXnhU/p2-aXNoYm93bC5qcGVn.webp",
           "thumb": "https://media.aquatome.com/video/eBSkRyVXnhU/p2-aXNoYm93bC5qcGVn-480.webp",

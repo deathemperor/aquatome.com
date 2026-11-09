@@ -107,43 +107,19 @@
         "heading": "Thay nước cho bể oscar thế nào",
         "moments": [
           {
-            "t": 45,
-            "url": "https://media.aquatome.com/video/0KkgA9W52kQ/at45-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Gắn ống xả vào bể để xả bớt nước.",
-            "sharpness": 941.5
-          },
-          {
             "t": 65,
             "url": "https://media.aquatome.com/video/0KkgA9W52kQ/at65-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Ống xả gắn vào bể oscar, nước đang được xả ra.",
-            "sharpness": 758.6
+            "sharpness": 758.6,
+            "person": false
           }
         ]
       },
       {
         "heading": "Tận dụng xô nước bẩn sau khi rửa mút",
-        "moments": [
-          {
-            "t": 105,
-            "url": "https://media.aquatome.com/video/0KkgA9W52kQ/at105-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Xô nước bẩn đục sau khi rửa mút lọc.",
-            "sharpness": 27.9
-          },
-          {
-            "t": 120,
-            "url": "https://media.aquatome.com/video/0KkgA9W52kQ/at120-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đổ xô nước rửa mút vào bể, nước đục màu nâu tan ra.",
-            "sharpness": 300.4
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/0KkgA9W52kQ/p1-JfZm9hbV8xLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/0KkgA9W52kQ/p1-JfZm9hbV8xLmpwZw-480.webp",
@@ -164,7 +140,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lớp sỏi nền sạch, không đọng cặn dưới đáy bể.",
-            "sharpness": 292.9
+            "sharpness": 292.9,
+            "person": false
           },
           {
             "t": 145,
@@ -172,7 +149,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ngăn lọc có vật liệu lọc ở góc bể hút cặn vào.",
-            "sharpness": 692.1
+            "sharpness": 692.1,
+            "person": false
           }
         ]
       },
@@ -185,7 +163,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể dài với đá cuội và đàn oscar bơi bên trong.",
-            "sharpness": 744.9
+            "sharpness": 744.9,
+            "person": false
           },
           {
             "t": 240,
@@ -193,7 +172,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đèn tự chế từ chậu nhựa sơn lại, gắn bóng LED.",
-            "sharpness": 617.4
+            "sharpness": 617.4,
+            "person": false
           }
         ],
         "photo": {
@@ -216,7 +196,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Mấy con oscar bơi gần nhau trong bể, cả đàn sống hòa thuận.",
-            "sharpness": 493.8
+            "sharpness": 493.8,
+            "person": false
           },
           {
             "t": 335,
@@ -224,7 +205,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cả đàn oscar bơi phía trên đá và sỏi trong bể dài.",
-            "sharpness": 599.7
+            "sharpness": 599.7,
+            "person": false
           }
         ]
       },
@@ -237,7 +219,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá nóc Fahaka vằn sọc bơi gần đáy cát giữa các hòn đá.",
-            "sharpness": 420.7
+            "sharpness": 420.7,
+            "person": false
           },
           {
             "t": 310,
@@ -245,7 +228,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn oscar bơi phía trên trong khi bể có đá và cát bên dưới.",
-            "sharpness": 60.7
+            "sharpness": 60.7,
+            "person": false
           }
         ],
         "photo": {
@@ -268,7 +252,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá Fahaka nằm dưới nền cát, cạnh hòn đá, sẵn sàng ăn.",
-            "sharpness": 375.4
+            "sharpness": 375.4,
+            "person": false
           },
           {
             "t": 625,
@@ -299,7 +284,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn oscar bơi trong bể tối có nhiều đá lớn.",
-            "sharpness": 568.8
+            "sharpness": 568.8,
+            "person": false
           },
           {
             "t": 730,
@@ -307,7 +293,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể nuôi đàn oscar với đá và cát.",
-            "sharpness": 1079.7
+            "sharpness": 1079.7,
+            "person": false
           }
         ]
       }

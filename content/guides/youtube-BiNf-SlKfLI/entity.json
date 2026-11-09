@@ -45,7 +45,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ống xi phông xanh đặt trong bể đang chuẩn bị thay nước.",
-            "sharpness": 1540.6
+            "sharpness": 1540.6,
+            "person": false
           },
           {
             "t": 100,
@@ -53,7 +54,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nước được hút ra khỏi bể qua ống khi thay nước.",
-            "sharpness": 1149.5
+            "sharpness": 1149.5,
+            "person": false
           }
         ],
         "photo": {
@@ -69,24 +71,7 @@
       },
       {
         "heading": "Vì sao bể mới cần thay nước nhiều",
-        "moments": [
-          {
-            "t": 160,
-            "url": "https://media.aquatome.com/video/BiNf-SlKfLI/at160-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh mới set với đá, lũa, cây và ống hút nước thay nước.",
-            "sharpness": 2605.7
-          },
-          {
-            "t": 190,
-            "url": "https://media.aquatome.com/video/BiNf-SlKfLI/at190-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh lớp phân nền và đá trong bể mới set.",
-            "sharpness": 1232
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/BiNf-SlKfLI/p1-FzY2FwaW5nLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/BiNf-SlKfLI/p1-FzY2FwaW5nLmpwZw-480.webp",
@@ -107,7 +92,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Mực nước trong bể hạ xuống sát mép kính, quanh lũa và đá.",
-            "sharpness": 494.8
+            "sharpness": 494.8,
+            "person": false
           },
           {
             "t": 95,
@@ -115,28 +101,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ống nước xanh hút nước ra khỏi bể thủy sinh có đá và rêu.",
-            "sharpness": 1017.6
-          }
-        ]
-      },
-      {
-        "heading": "Hút cặn cho bể đã ổn định",
-        "moments": [
-          {
-            "t": 205,
-            "url": "https://media.aquatome.com/video/BiNf-SlKfLI/at205-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay búng vào lá cây cho bụi bẩn bay lên trong bể thủy sinh.",
-            "sharpness": 1448
-          },
-          {
-            "t": 220,
-            "url": "https://media.aquatome.com/video/BiNf-SlKfLI/at220-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng ống nhỏ hút cặn và phân cá dưới nền cát.",
-            "sharpness": 2388.5
+            "sharpness": 1017.6,
+            "person": false
           }
         ]
       },
@@ -149,7 +115,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Dải cát sáng màu ở phía trước bể, giữa các tảng đá.",
-            "sharpness": 2033.1
+            "sharpness": 2033.1,
+            "person": false
           },
           {
             "t": 260,
@@ -157,7 +124,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Dải cát phía trước nhìn rõ, dễ thấy phân và cặn để hút.",
-            "sharpness": 2357.8
+            "sharpness": 2357.8,
+            "person": false
           }
         ]
       },
@@ -170,7 +138,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh với đá lũa, cây đỏ và nền cát sạch sẽ.",
-            "sharpness": 2275.2
+            "sharpness": 2275.2,
+            "person": false
           },
           {
             "t": 295,
@@ -178,7 +147,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Thảm cây xanh mướt mọc dày bên đá, bể phát triển tốt.",
-            "sharpness": 1093.5
+            "sharpness": 1093.5,
+            "person": false
           }
         ],
         "photo": {

@@ -41,19 +41,6 @@
     ],
     "figures": [
       {
-        "heading": "Làm sao biết đó là rêu xanh lam",
-        "moments": [
-          {
-            "t": 60,
-            "url": "https://media.aquatome.com/video/Nh_24hIm4sA/at60-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Mảng rêu xanh lam (BGA) phủ dày trong bể tối.",
-            "sharpness": 49.9
-          }
-        ]
-      },
-      {
         "heading": "Vì sao BGA mọc trong bể",
         "moments": [
           {
@@ -62,7 +49,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lớp nền chặt phủ cây thảm xanh, chỗ rêu hại dễ bám.",
-            "sharpness": 848.6
+            "sharpness": 848.6,
+            "person": false
           },
           {
             "t": 165,
@@ -70,7 +58,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Mảng rêu hại BGA xanh đậm bám giữa đám cây.",
-            "sharpness": 85.3
+            "sharpness": 85.3,
+            "person": false
           }
         ],
         "photo": {

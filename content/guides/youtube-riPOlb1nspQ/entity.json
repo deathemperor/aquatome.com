@@ -92,7 +92,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Dải đá xếp giữa bể, nham thạch vụn đắp phía sau.",
-            "sharpness": 490.2
+            "sharpness": 490.2,
+            "person": false
           },
           {
             "t": 95,
@@ -100,28 +101,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cụm đá đã xếp xong, các khe hở được lấp kín.",
-            "sharpness": 358.2
-          }
-        ]
-      },
-      {
-        "heading": "Làm nền hai lớp",
-        "moments": [
-          {
-            "t": 105,
-            "url": "https://media.aquatome.com/video/riPOlb1nspQ/at105-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đổ cát sông mịn xuống phía trước, quanh các khối đá.",
-            "sharpness": 601.4
-          },
-          {
-            "t": 110,
-            "url": "https://media.aquatome.com/video/riPOlb1nspQ/at110-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cát trải phía trước đá, tay san phẳng lớp nền.",
-            "sharpness": 240.3
+            "sharpness": 358.2,
+            "person": false
           }
         ]
       },
@@ -129,20 +110,13 @@
         "heading": "Cố định lũa cho khỏi nổi",
         "moments": [
           {
-            "t": 145,
-            "url": "https://media.aquatome.com/video/riPOlb1nspQ/at145-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lũa đặt trên cụm đá để hoàn thiện bố cục hồ.",
-            "sharpness": 1426.6
-          },
-          {
             "t": 150,
             "url": "https://media.aquatome.com/video/riPOlb1nspQ/at150-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Khúc lũa được buộc cố định vào đá trên nền cát.",
-            "sharpness": 1275.5
+            "sharpness": 1275.5,
+            "person": false
           }
         ]
       },
@@ -155,15 +129,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh chỉ có lũa và đá, chưa trồng cây, chưa thả cá.",
-            "sharpness": 266
-          },
-          {
-            "t": 180,
-            "url": "https://media.aquatome.com/video/riPOlb1nspQ/at180-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể đã chạy xong, nước trong, lũa và đá vẫn để nguyên.",
-            "sharpness": 1226.8
+            "sharpness": 266,
+            "person": false
           }
         ]
       },
@@ -176,15 +143,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây lá xanh mọc khỏe trong bể, dễ trồng và ít chăm.",
-            "sharpness": 364.4
-          },
-          {
-            "t": 205,
-            "url": "https://media.aquatome.com/video/riPOlb1nspQ/at205-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Gắn cây Bucephalandra nhỏ lên đá trong bể thủy sinh.",
-            "sharpness": 324
+            "sharpness": 364.4,
+            "person": false
           }
         ],
         "photo": {
@@ -207,7 +167,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá nhỏ màu tím hồng bơi quanh đá trong bể trưng.",
-            "sharpness": 150.4
+            "sharpness": 150.4,
+            "person": false
           },
           {
             "t": 310,
@@ -215,7 +176,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể trưng lớn với đá, lũa và cây thủy sinh.",
-            "sharpness": 1364.4
+            "sharpness": 1364.4,
+            "person": false
           }
         ],
         "photo": {
@@ -238,7 +200,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể thủy sinh với đá, lũa và cây xanh gọn gàng.",
-            "sharpness": 907.3
+            "sharpness": 907.3,
+            "person": false
           },
           {
             "t": 315,
@@ -246,7 +209,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bố cục đá, lũa và cây phủ xanh, ổn định sau nhiều tháng.",
-            "sharpness": 1000.6
+            "sharpness": 1000.6,
+            "person": false
           }
         ],
         "photo": {

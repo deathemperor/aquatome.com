@@ -92,15 +92,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể cũ cây thủy sinh lên xanh tốt trước khi tháo.",
-            "sharpness": 1423.5
-          },
-          {
-            "t": 40,
-            "url": "https://media.aquatome.com/video/Ci1I8TbZrK8/at40-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nhổ cụm rêu và cây ra khỏi bể cũ để giữ lại.",
-            "sharpness": 585.3
+            "sharpness": 1423.5,
+            "person": false
           }
         ],
         "photo": {
@@ -115,27 +108,6 @@
         }
       },
       {
-        "heading": "Chọn hai loại nền: aquasoil và đất trồng súng",
-        "moments": [
-          {
-            "t": 230,
-            "url": "https://media.aquatome.com/video/Ci1I8TbZrK8/at230-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hai loại nền: bao đất trồng súng và bao aquasoil đặt cạnh bể.",
-            "sharpness": 797.7
-          },
-          {
-            "t": 240,
-            "url": "https://media.aquatome.com/video/Ci1I8TbZrK8/at240-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bao aquasoil đặt cạnh bao đất trồng súng trên bàn.",
-            "sharpness": 1482.7
-          }
-        ]
-      },
-      {
         "heading": "Trải nền đất thế nào",
         "moments": [
           {
@@ -144,15 +116,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bao đất trồng súng đã mở, đất mịn và tơi.",
-            "sharpness": 4175.5
-          },
-          {
-            "t": 340,
-            "url": "https://media.aquatome.com/video/Ci1I8TbZrK8/at340-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lớp đất trải vừa phải dưới đáy bể.",
-            "sharpness": 766.4
+            "sharpness": 4175.5,
+            "person": false
           }
         ]
       },
@@ -160,20 +125,13 @@
         "heading": "Dựng bố cục và dán lũa",
         "moments": [
           {
-            "t": 490,
-            "url": "https://media.aquatome.com/video/Ci1I8TbZrK8/at490-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lũa spider wood đen đặt trên đá seiryu, dựng bố cục kiểu đảo.",
-            "sharpness": 1890.6
-          },
-          {
             "t": 570,
             "url": "https://media.aquatome.com/video/Ci1I8TbZrK8/at570-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Hai bể với bố cục lũa và đá khác nhau, không cần y hệt.",
-            "sharpness": 952
+            "sharpness": 952,
+            "person": false
           }
         ]
       },
@@ -186,7 +144,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Các nhúm cây đã tách sẵn trong khay, chuẩn bị đem trồng lại.",
-            "sharpness": 3164.2
+            "sharpness": 3164.2,
+            "person": false
           },
           {
             "t": 820,
@@ -194,7 +153,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể sau khi trồng, cây phủ tiền cảnh và Rotala đỏ ở hậu cảnh.",
-            "sharpness": 2161.8
+            "sharpness": 2161.8,
+            "person": false
           }
         ],
         "photo": {
@@ -217,15 +177,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh mới với lũa, đá và cây nổi trên mặt nước.",
-            "sharpness": 1738.7
-          },
-          {
-            "t": 1070,
-            "url": "https://media.aquatome.com/video/Ci1I8TbZrK8/at1070-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh nền và đá trong bể, thảm cây mới lên xanh.",
-            "sharpness": 1515.4
+            "sharpness": 1738.7,
+            "person": false
           }
         ]
       },
@@ -238,7 +191,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hai bể đặt cạnh nhau trên kệ để so sánh sau ba ngày.",
-            "sharpness": 1272.8
+            "sharpness": 1272.8,
+            "person": false
           },
           {
             "t": 1090,
@@ -246,7 +200,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh cận cảnh với lũa, cây và nước hơi ngả xanh.",
-            "sharpness": 1383.1
+            "sharpness": 1383.1,
+            "person": false
           }
         ]
       }

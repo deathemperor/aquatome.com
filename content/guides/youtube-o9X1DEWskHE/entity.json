@@ -66,7 +66,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hộp lọc ngoài mini đặt cạnh bể, có ống nối vào hộp.",
-            "sharpness": 83.7
+            "sharpness": 83.7,
+            "person": false
           }
         ],
         "photo": {
@@ -103,15 +104,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Rêu xanh và sữa chua trong cốc, chuẩn bị xay thành hỗn hợp.",
-            "sharpness": 328.2
-          },
-          {
-            "t": 270,
-            "url": "https://media.aquatome.com/video/o9X1DEWskHE/at270-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng cọ quét hỗn hợp rêu xay sữa chua lên khúc lũa.",
-            "sharpness": 664.2
+            "sharpness": 328.2,
+            "person": false
           }
         ],
         "photo": {
@@ -129,20 +123,13 @@
         "heading": "Vì sao trộn sữa chua",
         "moments": [
           {
-            "t": 305,
-            "url": "https://media.aquatome.com/video/o9X1DEWskHE/at305-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng cọ quét sữa chua lên khúc lũa trước khi dry start.",
-            "sharpness": 626.2
-          },
-          {
             "t": 330,
             "url": "https://media.aquatome.com/video/o9X1DEWskHE/at330-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Lũa đã được phủ sữa chua trắng bằng cọ.",
-            "sharpness": 726
+            "sharpness": 726,
+            "person": false
           }
         ],
         "photo": {
@@ -165,7 +152,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể được bọc màng bọc thực phẩm, lũa bên trong để dry start.",
-            "sharpness": 994
+            "sharpness": 994,
+            "person": false
           },
           {
             "t": 370,
@@ -173,7 +161,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lũa đặt trong bể khô, chờ rêu bám chắc.",
-            "sharpness": 904.7
+            "sharpness": 904.7,
+            "person": false
           }
         ]
       }

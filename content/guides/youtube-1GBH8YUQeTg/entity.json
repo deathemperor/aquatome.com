@@ -46,7 +46,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây thân đốt đỏ mọc dày phía trên, thảm nền bên dưới còn thưa.",
-            "sharpness": 2244.7
+            "sharpness": 2244.7,
+            "person": false
           },
           {
             "t": 40,
@@ -54,7 +55,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nhìn từ trên xuống, thân đốt mọc kín mặt bể che hết ánh sáng.",
-            "sharpness": 3901.8
+            "sharpness": 3901.8,
+            "person": false
           }
         ]
       },
@@ -67,15 +69,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lớp nền đã được bù, trải phẳng trong bể.",
-            "sharpness": 11747.4
-          },
-          {
-            "t": 115,
-            "url": "https://media.aquatome.com/video/1GBH8YUQeTg/at115-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng muỗng xúc nền bù vào bể, nền cũ không làm đục nước.",
-            "sharpness": 6837.3
+            "sharpness": 11747.4,
+            "person": false
           }
         ]
       },
@@ -88,15 +83,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đống ngọn cây đỏ vừa cắt xếp trên khay giấy.",
-            "sharpness": 2882.2
-          },
-          {
-            "t": 225,
-            "url": "https://media.aquatome.com/video/1GBH8YUQeTg/at225-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các cành ngọn đã được cắt gọn, xếp ngay ngắn trên khay.",
-            "sharpness": 2419
+            "sharpness": 2882.2,
+            "person": false
           }
         ]
       },
@@ -109,7 +97,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Dùng nhíp cắm thêm ngọn vào giữa các thân cũ trong bể.",
-            "sharpness": 2053.1
+            "sharpness": 2053.1,
+            "person": false
           },
           {
             "t": 330,
@@ -117,7 +106,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cụm ngọn đỏ đã được cắm dày lấp kín chỗ trống trong bể.",
-            "sharpness": 2600
+            "sharpness": 2600,
+            "person": false
           }
         ]
       },
@@ -125,20 +115,13 @@
         "heading": "Vệ sinh ống và thay nước",
         "moments": [
           {
-            "t": 355,
-            "url": "https://media.aquatome.com/video/1GBH8YUQeTg/at355-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Rửa ống lily dưới vòi nước trong bồn rửa.",
-            "sharpness": 249.4
-          },
-          {
             "t": 395,
             "url": "https://media.aquatome.com/video/1GBH8YUQeTg/at395-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Ống lily trong suốt đã sạch, đặt lại trong bể thủy sinh.",
-            "sharpness": 380.6
+            "sharpness": 380.6,
+            "person": false
           }
         ]
       },
@@ -151,7 +134,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh với cụm cây đỏ mọc um tùm che kín nền.",
-            "sharpness": 3769.4
+            "sharpness": 3769.4,
+            "person": false
           },
           {
             "t": 465,
@@ -159,7 +143,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cụm cây thân đỏ mọc dày, cần tỉa bớt và bù nền.",
-            "sharpness": 2488.7
+            "sharpness": 2488.7,
+            "person": false
           }
         ]
       }

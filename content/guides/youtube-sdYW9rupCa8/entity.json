@@ -131,7 +131,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đổ đất nền vào bể, đất chỉ dồn ở giữa, chưa sát kính trước.",
-            "sharpness": 1776.2
+            "sharpness": 1776.2,
+            "person": false
           },
           {
             "t": 20,
@@ -146,20 +147,13 @@
         "heading": "Đo nước cho thấy gì",
         "moments": [
           {
-            "t": 15,
-            "url": "https://media.aquatome.com/video/sdYW9rupCa8/at15-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đổ nền aquasoil vào bể kính trong lúc setup.",
-            "sharpness": 532
-          },
-          {
             "t": 25,
             "url": "https://media.aquatome.com/video/sdYW9rupCa8/at25-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh có lũa, đá và thảm cây xanh phủ nền.",
-            "sharpness": 2568.3
+            "sharpness": 2568.3,
+            "person": false
           }
         ]
       }

@@ -79,20 +79,13 @@
         "heading": "Bacopa caroliniana trông thế nào và lớn đến đâu",
         "moments": [
           {
-            "t": 165,
-            "url": "https://media.aquatome.com/video/_jeiH3OWyiA/at165-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bụi Bacopa caroliniana xanh vàng, đầu lá sáng màu trên màn hình điện thoại.",
-            "sharpness": 516.8
-          },
-          {
             "t": 175,
             "url": "https://media.aquatome.com/video/_jeiH3OWyiA/at175-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Cây Bacopa xanh mọc cạnh đá trong bể nhỏ.",
-            "sharpness": 37.2
+            "sharpness": 37.2,
+            "person": false
           }
         ],
         "photo": {
@@ -115,7 +108,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể nhỏ trồng cây xanh bên cạnh đá, lớp nền phía dưới.",
-            "sharpness": 529.1
+            "sharpness": 529.1,
+            "person": false
           },
           {
             "t": 295,
@@ -123,7 +117,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể có đá và cây, thấy lớp nền dưới đáy.",
-            "sharpness": 773.2
+            "sharpness": 773.2,
+            "person": false
           }
         ]
       },
@@ -136,7 +131,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh mới setup với đá và vài cây nhỏ.",
-            "sharpness": 779.9
+            "sharpness": 779.9,
+            "person": false
           },
           {
             "t": 425,
@@ -144,7 +140,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh nền và cây nhỏ trồng dưới chân đá trong bể.",
-            "sharpness": 60
+            "sharpness": 60,
+            "person": false
           }
         ],
         "photo": {
@@ -167,7 +164,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể trồng cây với đèn kẹp gắn phía trên miệng bể.",
-            "sharpness": 805.4
+            "sharpness": 805.4,
+            "person": false
           },
           {
             "t": 485,
@@ -175,7 +173,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đèn LED nhỏ chiếu sáng bể có đá và cây bacopa.",
-            "sharpness": 732
+            "sharpness": 732,
+            "person": false
           }
         ],
         "photo": {
@@ -198,7 +197,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể ít cây, có bụi cây xanh cạnh đá, chưa trồng kín.",
-            "sharpness": 652
+            "sharpness": 652,
+            "person": false
           },
           {
             "t": 610,
@@ -206,7 +206,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể mới set với đá trắng và vài cụm cây xanh bên trái.",
-            "sharpness": 481.7
+            "sharpness": 481.7,
+            "person": false
           }
         ],
         "photo": {
@@ -229,7 +230,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể có cây mới trồng bên cạnh hòn đá, lá còn xấu.",
-            "sharpness": 80.5
+            "sharpness": 80.5,
+            "person": false
           },
           {
             "t": 645,
@@ -237,7 +239,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây thủy sinh trong bể mới, cạnh đá, đang chờ ổn định lại.",
-            "sharpness": 841.7
+            "sharpness": 841.7,
+            "person": false
           }
         ],
         "photo": {

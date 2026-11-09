@@ -57,20 +57,13 @@
         "heading": "Vì sao nên phòng rêu hơn là chữa",
         "moments": [
           {
-            "t": 125,
-            "url": "https://media.aquatome.com/video/8ZjRvJ_5pTE/at125-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Rêu tóc phủ dày trong bể, tay đang gỡ từng mảng rêu hại.",
-            "sharpness": 395.6
-          },
-          {
             "t": 130,
             "url": "https://media.aquatome.com/video/8ZjRvJ_5pTE/at130-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Rêu hại bám dày kín thảm cây dưới đáy bể.",
-            "sharpness": 126.1
+            "sharpness": 126.1,
+            "person": false
           }
         ],
         "photo": {
@@ -93,7 +86,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá neon bơi giữa bể thủy sinh cây xanh um tùm.",
-            "sharpness": 1226.9
+            "sharpness": 1226.9,
+            "person": false
           },
           {
             "t": 425,
@@ -101,7 +95,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá bút chì bơi trong bể thủy sinh có đá và rêu xanh.",
-            "sharpness": 825
+            "sharpness": 825,
+            "person": false
           }
         ],
         "photo": {
@@ -119,20 +114,13 @@
         "heading": "Dụng cụ hỗ trợ",
         "moments": [
           {
-            "t": 520,
-            "url": "https://media.aquatome.com/video/8ZjRvJ_5pTE/at520-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Thiết bị ức chế rêu dạng Doctor gắn trong hồ thủy sinh.",
-            "sharpness": 719.6
-          },
-          {
             "t": 555,
             "url": "https://media.aquatome.com/video/8ZjRvJ_5pTE/at555-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Lưỡi dao thép cạo kính đặt trong hồ cây xanh mướt.",
-            "sharpness": 360.5
+            "sharpness": 360.5,
+            "person": false
           }
         ]
       }

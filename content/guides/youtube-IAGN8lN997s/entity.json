@@ -71,7 +71,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể rêu mini nhỏ gọn với những cụm rêu xanh trên nền cát trắng.",
-            "sharpness": 1950.8
+            "sharpness": 1950.8,
+            "person": false
           },
           {
             "t": 465,
@@ -79,7 +80,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể rêu nhỏ đặt trên bàn, rêu xanh mướt tạo thành tán.",
-            "sharpness": 3075.6
+            "sharpness": 3075.6,
+            "person": false
           }
         ]
       },
@@ -92,7 +94,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lũa nhiều nhánh nhỏ bán ở cửa hàng, dùng tạo dáng cây.",
-            "sharpness": 1608.6
+            "sharpness": 1608.6,
+            "person": false
           },
           {
             "t": 190,
@@ -100,30 +103,14 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh kính trong với lũa và rêu phủ xanh.",
-            "sharpness": 834
+            "sharpness": 834,
+            "person": false
           }
         ]
       },
       {
         "heading": "Tạo dáng lũa và dựng bố cục",
-        "moments": [
-          {
-            "t": 210,
-            "url": "https://media.aquatome.com/video/IAGN8lN997s/at210-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng kéo bonsai cắt tỉa bớt cành thừa trên khúc lũa.",
-            "sharpness": 116.7
-          },
-          {
-            "t": 240,
-            "url": "https://media.aquatome.com/video/IAGN8lN997s/at240-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khúc lũa đã tỉa gọn thành dáng cây cổ thụ.",
-            "sharpness": 282.2
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/IAGN8lN997s/p2-NjaXNzb3JzLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/IAGN8lN997s/p2-NjaXNzb3JzLmpwZw-480.webp",
@@ -137,24 +124,7 @@
       },
       {
         "heading": "Dán rêu lên lũa và đá",
-        "moments": [
-          {
-            "t": 305,
-            "url": "https://media.aquatome.com/video/IAGN8lN997s/at305-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Mảng rêu xanh dày tách khỏi vỉ, đặt cạnh cây lũa.",
-            "sharpness": 1453.6
-          },
-          {
-            "t": 365,
-            "url": "https://media.aquatome.com/video/IAGN8lN997s/at365-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các mảnh rêu nhỏ cỡ móng tay để sẵn cạnh lũa, chuẩn bị chấm keo.",
-            "sharpness": 996.2
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/IAGN8lN997s/p3-ydS1JbmRpYS5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/IAGN8lN997s/p3-ydS1JbmRpYS5qcGc-480.webp",
@@ -175,7 +145,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể rêu với mô rêu xanh phủ kín đá và gỗ, nước trong.",
-            "sharpness": 877.3
+            "sharpness": 877.3,
+            "person": false
           },
           {
             "t": 445,
@@ -183,7 +154,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể rêu với đèn nâng cao và lọc thác nhỏ.",
-            "sharpness": 1767.3
+            "sharpness": 1767.3,
+            "person": false
           }
         ]
       },
@@ -196,7 +168,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hồ thủy sinh với rêu và cây xanh phủ kín đá lũa.",
-            "sharpness": 1427.9
+            "sharpness": 1427.9,
+            "person": false
           },
           {
             "t": 530,
@@ -204,7 +177,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Rêu xanh mọc dày trên đá, nền cát trắng trong hồ thủy sinh.",
-            "sharpness": 1204.5
+            "sharpness": 1204.5,
+            "person": false
           }
         ]
       },
@@ -231,7 +205,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể thủy sinh rêu xanh mượt, sạch rêu hại.",
-            "sharpness": 2233.1
+            "sharpness": 2233.1,
+            "person": false
           },
           {
             "t": 520,
@@ -239,7 +214,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Tép đỏ nhỏ bò giữa đám rêu và cây thủy sinh xanh tốt.",
-            "sharpness": 363
+            "sharpness": 363,
+            "person": false
           }
         ],
         "photo": {

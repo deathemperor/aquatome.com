@@ -40,24 +40,7 @@
     "figures": [
       {
         "heading": "Cần chuẩn bị những gì",
-        "moments": [
-          {
-            "t": 30,
-            "url": "https://media.aquatome.com/video/1F7-mRplxeo/at30-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ống PVC, nắp bịt và khớp nối ren bày sẵn trên bàn.",
-            "sharpness": 241.3
-          },
-          {
-            "t": 36,
-            "url": "https://media.aquatome.com/video/1F7-mRplxeo/at36-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các phụ kiện ống PVC, nắp ren và co nối chuẩn bị làm bộ lọc.",
-            "sharpness": 216.3
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/1F7-mRplxeo/p0-c19HLU1JTkUuanBn.webp",
           "thumb": "https://media.aquatome.com/video/1F7-mRplxeo/p0-c19HLU1JTkUuanBn-480.webp",
@@ -70,44 +53,16 @@
         }
       },
       {
-        "heading": "Lắp thân lọc thế nào",
-        "moments": [
-          {
-            "t": 60,
-            "url": "https://media.aquatome.com/video/1F7-mRplxeo/at60-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nắp đen đã lắp đầu xuyên vách, bên cạnh là khớp ren và ống.",
-            "sharpness": 375.4
-          },
-          {
-            "t": 64,
-            "url": "https://media.aquatome.com/video/1F7-mRplxeo/at64-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Thân lọc làm từ ống PVC đã ráp xong hai đầu nắp.",
-            "sharpness": 66.3
-          }
-        ]
-      },
-      {
         "heading": "Làm đường nước vào và ra",
         "moments": [
-          {
-            "t": 102,
-            "url": "https://media.aquatome.com/video/1F7-mRplxeo/at102-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lắp thử khô cả đường vào và đường ra trên thân lọc.",
-            "sharpness": 162.9
-          },
           {
             "t": 112,
             "url": "https://media.aquatome.com/video/1F7-mRplxeo/at112-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Đường vào đã lắp: co trắng và đầu nối đuôi chuột gắn vào thân lọc.",
-            "sharpness": 79.4
+            "sharpness": 79.4,
+            "person": false
           }
         ],
         "photo": {
@@ -130,15 +85,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đá nham thạch nhiều lỗ xốp, đổ rời dùng làm vật liệu lọc sinh học.",
-            "sharpness": 456
-          },
-          {
-            "t": 152,
-            "url": "https://media.aquatome.com/video/1F7-mRplxeo/at152-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đặt miếng mút lọc vào đầu thùng lọc để chặn cặn bẩn.",
-            "sharpness": 360.9
+            "sharpness": 456,
+            "person": false
           }
         ]
       },
@@ -151,7 +99,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nước chảy ra từ ống lọc đặt dọc theo thành thùng.",
-            "sharpness": 266
+            "sharpness": 266,
+            "person": false
           },
           {
             "t": 182,
@@ -159,7 +108,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Thân lọc dạng ống đen gác ngang trên miệng thùng cá.",
-            "sharpness": 207.5
+            "sharpness": 207.5,
+            "person": false
           }
         ]
       },
@@ -172,7 +122,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Thùng ống lọc treo trên thành bể kính, có ống nước chảy xuống.",
-            "sharpness": 408.4
+            "sharpness": 408.4,
+            "person": false
           }
         ],
         "photo": {

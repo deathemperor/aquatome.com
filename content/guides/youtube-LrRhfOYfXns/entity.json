@@ -97,7 +97,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Một con cá có sọc vàng bơi trong nước tối.",
-            "sharpness": 125.5
+            "sharpness": 125.5,
+            "person": false
           },
           {
             "t": 60,
@@ -105,7 +106,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể cá có lọc sủi và sợi khí, set đơn giản.",
-            "sharpness": 1139
+            "sharpness": 1139,
+            "person": false
           }
         ],
         "photo": {

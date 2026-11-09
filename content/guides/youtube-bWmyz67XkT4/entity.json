@@ -113,67 +113,22 @@
     ],
     "figures": [
       {
-        "heading": "Lót nền nhiều lớp thế nào",
-        "moments": [
-          {
-            "t": 200,
-            "url": "https://media.aquatome.com/video/bWmyz67XkT4/at200-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đổ vật liệu lót nền lên lớp bột phụ gia dưới đáy hồ.",
-            "sharpness": 1446.1
-          },
-          {
-            "t": 230,
-            "url": "https://media.aquatome.com/video/bWmyz67XkT4/at230-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh lớp nền sạn sẫm màu trải đều trong hồ.",
-            "sharpness": 173.7
-          }
-        ]
-      },
-      {
         "heading": "Chọn lũa và cố định bố cục",
         "moments": [
-          {
-            "t": 285,
-            "url": "https://media.aquatome.com/video/bWmyz67XkT4/at285-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay đặt đá nhỏ vào gốc lũa để cố định bố cục.",
-            "sharpness": 2920.9
-          },
           {
             "t": 305,
             "url": "https://media.aquatome.com/video/bWmyz67XkT4/at305-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Lũa dragon wood đã xếp xong trong bể, kèm vài cục đá đè gốc.",
-            "sharpness": 1159.2
+            "sharpness": 1159.2,
+            "person": false
           }
         ]
       },
       {
         "heading": "Chuẩn bị lọc cho bể thấp",
-        "moments": [
-          {
-            "t": 365,
-            "url": "https://media.aquatome.com/video/bWmyz67XkT4/at365-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lọc thùng JBL cùng các khay vật liệu lọc đặt cạnh bể thấp.",
-            "sharpness": 1244.8
-          },
-          {
-            "t": 380,
-            "url": "https://media.aquatome.com/video/bWmyz67XkT4/at380-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khay lọc đựng vật liệu lọc vi sinh dạng ống gốm nâu.",
-            "sharpness": 205.5
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/bWmyz67XkT4/p3-JfRmlsdGVyLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/bWmyz67XkT4/p3-JfRmlsdGVyLmpwZw-480.webp",
@@ -194,7 +149,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Dùng nhíp đặt tấm chắn trong suốt cắt từ cốc nuôi cấy vào nền dốc.",
-            "sharpness": 594.5
+            "sharpness": 594.5,
+            "person": false
           },
           {
             "t": 410,
@@ -202,7 +158,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Tấm chắn cắm sát đá giữ lớp nền đắp dốc không bị trôi.",
-            "sharpness": 331.2
+            "sharpness": 331.2,
+            "person": false
           }
         ]
       },
@@ -215,7 +172,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ngưu mao chiên xen rotala và AR mini đỏ ở phía sau.",
-            "sharpness": 393.7
+            "sharpness": 393.7,
+            "person": false
           },
           {
             "t": 480,
@@ -223,7 +181,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Thảm ngưu mao chiên lùn xanh dày phủ kín tiền cảnh.",
-            "sharpness": 516.8
+            "sharpness": 516.8,
+            "person": false
           }
         ],
         "photo": {
@@ -246,7 +205,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bộ CO2 với bình, đồng hồ và van lắp cạnh bể.",
-            "sharpness": 461.5
+            "sharpness": 461.5,
+            "person": false
           },
           {
             "t": 600,
@@ -254,7 +214,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây thủy sinh lên xanh tốt, thảm cỏ và HC Cuba phát triển khỏe.",
-            "sharpness": 2958.6
+            "sharpness": 2958.6,
+            "person": false
           }
         ],
         "photo": {
@@ -277,7 +238,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Tép đỏ và cá nhỏ trên lũa phủ rêu và cây thủy sinh.",
-            "sharpness": 2546
+            "sharpness": 2546,
+            "person": false
           },
           {
             "t": 655,
@@ -285,7 +247,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá nhỏ màu cam bơi giữa cỏ và lũa trong bể.",
-            "sharpness": 701.2
+            "sharpness": 701.2,
+            "person": false
           }
         ],
         "photo": {
