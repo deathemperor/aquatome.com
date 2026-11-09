@@ -1,0 +1,35 @@
+{
+  "id": "lepidothelphusa-padawan",
+  "native": {
+    "input": "4764a017a1ebf4f3",
+    "at": "2026-11-09T16:24:16.651Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "This crab has only been described from one location: Kampung Sentah in the Padawan District of Sarawak, Malaysia.",
+        "words": "Malaysia",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Lepidothelphusa padawan",
+    "status": "ACCEPTED",
+    "taxonKey": 8900368,
+    "datasets": [],
+    "native": [
+      "MY"
+    ],
+    "requests": 2,
+    "at": "2026-11-09T16:24:16.651Z"
+  }
+}

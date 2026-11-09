@@ -76,6 +76,11 @@
     "at": "2026-11-07",
     "kept": false
   },
+  "ceratopteris-thalictroides": {
+    "at": "2026-11-09",
+    "score": 0.85,
+    "kept": true
+  },
   "crinum-calamistratum": {
     "at": "2026-11-07",
     "score": 0.85,
@@ -87,6 +92,10 @@
   },
   "cryptocoryne-beckettii": {
     "at": "2026-11-07",
+    "kept": false
+  },
+  "cryptocoryne-crispatula": {
+    "at": "2026-11-09",
     "kept": false
   },
   "cryptocoryne-nurii": {
@@ -113,6 +122,10 @@
     "at": "2026-11-08",
     "kept": false
   },
+  "echinodorus-aquartica": {
+    "at": "2026-11-09",
+    "kept": false
+  },
   "echinodorus-cordifolius": {
     "at": "2026-11-07",
     "kept": false
@@ -129,6 +142,10 @@
     "at": "2026-11-07",
     "score": 0.95,
     "kept": true
+  },
+  "echinodorus-red-diamond": {
+    "at": "2026-11-09",
+    "kept": false
   },
   "echinodorus-reni": {
     "at": "2026-11-06",
@@ -187,6 +204,10 @@
     "at": "2026-11-07",
     "kept": false
   },
+  "hottonia-palustris": {
+    "at": "2026-11-09",
+    "kept": false
+  },
   "hydrocotyle-tripartita": {
     "at": "2026-11-07",
     "kept": false
@@ -199,9 +220,23 @@
     "at": "2026-11-08",
     "kept": false
   },
+  "hygrophila-odora": {
+    "at": "2026-11-09",
+    "kept": false
+  },
+  "hygrophila-polysperma-rosanervig": {
+    "at": "2026-11-09",
+    "score": 0.9,
+    "kept": true
+  },
   "lagenandra-meeboldii": {
     "at": "2026-11-08",
     "kept": false
+  },
+  "limnobium-laevigatum": {
+    "at": "2026-11-09",
+    "score": 0.8,
+    "kept": true
   },
   "limnophila-aquatica": {
     "at": "2026-11-08",
@@ -210,6 +245,11 @@
   "lindernia-rotundifolia": {
     "at": "2026-11-08",
     "kept": false
+  },
+  "littorella-uniflora": {
+    "at": "2026-11-09",
+    "score": 0.8,
+    "kept": true
   },
   "ludwigia-glandulosa": {
     "at": "2026-11-07",
@@ -222,6 +262,11 @@
   "marsilea-minuta": {
     "at": "2026-11-07",
     "score": 0.8,
+    "kept": true
+  },
+  "micranthemum-callitrichoides": {
+    "at": "2026-11-09",
+    "score": 0.9,
     "kept": true
   },
   "micranthemum-glomeratum": {
@@ -251,6 +296,22 @@
     "score": 0.85,
     "kept": true
   },
+  "nymphoides-hydrophylla": {
+    "at": "2026-11-09",
+    "kept": false
+  },
+  "peperomia-emarginella": {
+    "at": "2026-11-09",
+    "kept": false
+  },
+  "peperomia-prostrata": {
+    "at": "2026-11-09",
+    "kept": false
+  },
+  "plagiomnium-sp-thyme-moss": {
+    "at": "2026-11-09",
+    "kept": false
+  },
   "pogostemon-stellatus": {
     "at": "2026-11-09",
     "score": 0.85,
@@ -271,6 +332,15 @@
   "sagittaria-subulata": {
     "at": "2026-11-08",
     "kept": false
+  },
+  "selaginella-uncinata": {
+    "at": "2026-11-09",
+    "kept": false
+  },
+  "utricularia-graminifolia": {
+    "at": "2026-11-09",
+    "score": 0.85,
+    "kept": true
   },
   "vallisneria-sp-gigantea": {
     "at": "2026-11-08",

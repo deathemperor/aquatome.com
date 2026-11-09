@@ -1,0 +1,156 @@
+{
+  "id": "lysmata-amboinensis",
+  "native": {
+    "input": "2c9498012598eef8",
+    "at": "2026-11-09T20:43:02.940Z",
+    "claims": [
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "In Australia, its range extends from the Coral Sea (east coast of North Queensland) to Seal Rocks in northern New South Wales.",
+        "words": "Australia",
+        "ok": true
+      },
+      {
+        "code": "KR",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "There are reports of this species in Jeju-do Island in southern Korea.",
+        "words": "Korea",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Coral Sea",
+        "source": "aquariumbreeder",
+        "quote": "In Australia, its range extends from the Coral Sea (east coast of North Queensland) to Seal Rocks in northern New South Wales.",
+        "country": "AU",
+        "ok": true
+      },
+      {
+        "name": "Jeju-do Island",
+        "source": "aquariumbreeder",
+        "quote": "There are reports of this species in Jeju-do Island in southern Korea.",
+        "country": "KR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Lysmata amboinensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2226409,
+    "datasets": [
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        47
+      ],
+      [
+        "0b1150c9-dfa8-4904-8bc5-b79b4e1930e6",
+        9
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        7
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        5
+      ],
+      [
+        "25e3e8f1-86ee-440c-adfc-8e63759a6505",
+        4
+      ],
+      [
+        "8e9974a4-12e2-475f-9aec-5abdf24a1f50",
+        3
+      ],
+      [
+        "cb01f1fc-42c4-4267-a5db-475b40ef199b",
+        3
+      ],
+      [
+        "0f6d26c0-c645-4f15-b1c9-fbcb77515545",
+        2
+      ],
+      [
+        "6ac3f774-d9fb-4796-b3e9-92bf6c81c084",
+        2
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        2
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        2
+      ],
+      [
+        "ec12f461-df32-4c8a-b621-0abd1f6cdab3",
+        2
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        2
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        1
+      ],
+      [
+        "3e0e4ec9-1905-4cae-9691-c0fa79361ac3",
+        1
+      ],
+      [
+        "51a196cf-2f2b-4fa7-acb2-7692c1011ca8",
+        1
+      ],
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        1
+      ],
+      [
+        "8b8c78fb-53d7-434c-b800-61f38b30d0c9",
+        1
+      ],
+      [
+        "a0a4d131-f53f-43b2-a1ba-254473b8a006",
+        1
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        1
+      ],
+      [
+        "b2f2cfc7-bd72-403b-9a58-8d0bcdc6e1d7",
+        1
+      ],
+      [
+        "b640eadc-a42a-4ada-a639-7c605d3906d6",
+        1
+      ],
+      [
+        "c6ca96bc-7cf5-4fe7-ac44-d01e06394ef3",
+        1
+      ],
+      [
+        "fa375330-6c8a-11de-8226-b8a03c50a862",
+        1
+      ]
+    ],
+    "native": [
+      "AU",
+      "KR"
+    ],
+    "requests": 18,
+    "at": "2026-11-09T20:43:02.940Z"
+  }
+}

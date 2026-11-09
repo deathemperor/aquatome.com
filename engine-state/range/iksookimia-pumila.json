@@ -1,0 +1,60 @@
+{
+  "id": "iksookimia-pumila",
+  "native": {
+    "input": "3d0c215f90aff456",
+    "at": "2026-11-09T09:57:55.009Z",
+    "claims": [
+      {
+        "code": "KR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Cobitis pumila (formerly Iksookimia pumila) is a small cobitid loach endemic to Korea, known only from the Baek River drainage in the south-west of the country.",
+        "words": "Korea",
+        "ok": true
+      },
+      {
+        "code": "KR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "All Iksookimia species are endemic to Korea, and I. pumila is known only from the Baek River drainage in south-western Korea where its presence has been undermined at some localities due to construction of a dam in the middle reaches of the river during the late 1990s.",
+        "words": "Korea",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Baek River",
+        "source": "seriouslyfish",
+        "quote": "All Iksookimia species are endemic to Korea, and I. pumila is known only from the Baek River drainage in south-western Korea where its presence has been undermined at some localities due to construction of a dam in the middle reaches of the river during the late 1990s.",
+        "country": "KR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Iksookimia pumila",
+    "status": "ACCEPTED",
+    "taxonKey": 2368314,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "b9afe2d0-b264-4422-bf8c-096b2a53c18f",
+        1
+      ]
+    ],
+    "native": [
+      "KR"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T09:57:55.009Z"
+  }
+}

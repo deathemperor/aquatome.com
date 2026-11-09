@@ -5,7 +5,10 @@
   "File:Julidochromis regani (Wroclaw zoo)-2.JPG",
   "File:Julidochromis-regani-kel-b.2.jpg",
   "File:Oniria - Poisson 36.jpg",
-  "File:Oniria - Poisson 37.jpg"
+  "File:Oniria - Poisson 37.jpg",
+  "inat:689255661",
+  "inat:689255391",
+  "inat:689255526"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/dbfaa6ddfa7efd83.webp": "33676f3e9fcf70cb",
@@ -14,7 +17,17 @@
   "https://media.aquatome.com/commons/660785bd3b07c336.webp": "73e3e6c893209bbe",
   "https://media.aquatome.com/commons/e325e66e72d7ba5e.webp": "13270f8e666038f1",
   "https://media.aquatome.com/commons/e21d878bee64002f.webp": "8e0f07e1601b3900",
-  "https://media.aquatome.com/commons/75b2252346aa704b.webp": "071555739d557715"
+  "https://media.aquatome.com/commons/75b2252346aa704b.webp": "071555739d557715",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/689255391/large.jpg": "fdfdfcfafafeffff",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/689255526/large.jpg": "1e1d3d1c9e7f3e1e"
  },
- "commons": "2026-11-08"
+ "commons": "2026-11-08",
+ "inat": {
+  "taxon": 103639,
+  "pass": "done",
+  "after": {
+   "research": 376957346,
+   "agree": 304500792
+  }
+ }
 }

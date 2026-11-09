@@ -14,7 +14,7 @@
     "juncus-repens",
     "cryptocoryne-parva"
   ],
-  "updatedAt": "2026-11-08",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "HTK7T82MAWE",
     "title": "Building a Special 6ft Aquascape In a Dental Clinic! With @JurijsJutjajevs",
@@ -51,33 +51,66 @@
         "t": 180
       },
       {
-        "category": "phan-nen",
-        "type": "cat",
-        "t": 160
-      },
-      {
         "category": "loc",
         "type": "thung",
         "brand": "ADA",
         "model": "Super Jet 1200",
-        "t": 585
+        "t": 595
       },
       {
         "category": "loc",
         "type": "thung",
         "brand": "ADA",
         "model": "Super Jet 2400",
-        "t": 585
+        "t": 595
       },
       {
         "category": "co2",
         "type": "binh",
         "t": 651
+      },
+      {
+        "category": "phan-nen",
+        "type": "cat",
+        "t": 397
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 335
       }
     ],
     "figures": [
       {
-        "heading": "Trồng cây bám theo thứ tự nào",
+        "heading": "Dựng khung lũa và đặt rổ trồng cây",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/HTK7T82MAWE/p2-YXJkc2NhcGUuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/HTK7T82MAWE/p2-YXJkc2NhcGUuanBn-480.webp",
+          "width": 960,
+          "height": 638,
+          "licence": "CC BY 4.0",
+          "author": "Abhik.Mazumdar.73",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Tank_Mermaid_and_Poseidon_Statue_Driftwood_Hardscape.jpg",
+          "caption": "Khung lũa nhiều nhánh được dựng trong bể, dày ở giữa và thưa ra hai bên."
+        }
+      },
+      {
+        "heading": "Chọn đá và đổ nền",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/HTK7T82MAWE/p3-luZV9UYW5rLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/HTK7T82MAWE/p3-luZV9UYW5rLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Coughdrop12",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Live_Rock_Planted_Marine_Tank.jpg",
+          "caption": "Cụm đá xếp trên nền cát mịn trong bể, tạo bố cục có màu sắc."
+        }
+      },
+      {
+        "heading": "Thứ tự xếp cây",
         "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/HTK7T82MAWE/p4-NfUGxhbnRzLmpwZw.webp",
@@ -87,11 +120,11 @@
           "licence": "CC BY 4.0",
           "author": "Abhik.Mazumdar.73",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_with_Mermaid_Statue_Driftwood_and_Anubias_Aquatic_Plants.jpg",
-          "caption": "Lũa có Anubias bám sẵn đặt trên nền cát trắng trong bể."
+          "caption": "Ráy bám trên lũa đặt ở tiền cảnh, nền cát trắng trong hồ thủy sinh."
         }
       },
       {
-        "heading": "Thiết bị và tự động hóa dưới tủ",
+        "heading": "Bố trí thiết bị cho bể lớn đỡ tốn công",
         "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/HTK7T82MAWE/p5-JfRmlsdGVyLmpwZw.webp",
@@ -101,7 +134,7 @@
           "licence": "CC BY-SA 4.0",
           "author": "Fish Tank Society",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
-          "caption": "Khoang tủ dưới bể với lọc thùng và xô nước nối ống."
+          "caption": "Lọc thùng và xô nước đặt gọn trong tủ bên dưới bể cá."
         }
       }
     ]

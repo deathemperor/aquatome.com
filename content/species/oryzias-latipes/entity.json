@@ -20,36 +20,41 @@
     "native": {
       "countries": [
         "JP",
-        "LA",
-        "VN",
-        "CN",
         "TW",
-        "KR"
+        "CN",
+        "LA",
+        "VN"
       ],
       "regions": [
-        "Ryuku Islands",
+        "Hainan",
         "Honshu",
-        "Hainan"
+        "Ryuku Islands"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "aquariumcoop"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "It's been recorded from Laos, Vietnam, much of eastern China (including the islands of Hainan and Hong Kong), Taiwan, eastern Korea and Japan from the Ryuku Islands in the south to Honshu in the centre of the archipelago.",
+          "quote": "The medaka, Oryzias latipes, is a ricefish from Japan, Korea, Taiwan, eastern China, Laos and Vietnam.",
           "countries": [
             "JP",
-            "LA",
-            "VN",
-            "CN",
             "TW",
-            "KR"
+            "CN",
+            "LA",
+            "VN"
           ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's been recorded from Laos, Vietnam, much of eastern China (including the islands of Hainan and Hong Kong), Taiwan, eastern Korea and Japan from the Ryuku Islands in the south to Honshu in the centre of the archipelago.",
+          "countries": [],
           "regions": [
-            "Ryuku Islands",
+            "Hainan",
             "Honshu",
-            "Hainan"
+            "Ryuku Islands"
           ]
         }
       ]
@@ -57,7 +62,7 @@
     "records": {
       "taxonKey": 2368377,
       "total": 722,
-      "fetched": "2026-11-05",
+      "fetched": "2026-11-09",
       "countries": [
         [
           "KR",
@@ -273,19 +278,19 @@
           125.15625,
           33.75,
           11,
-          11
+          0
         ],
         [
           125.15625,
           35.15625,
           6,
-          6
+          0
         ],
         [
           125.15625,
           36.5625,
           7,
-          7
+          0
         ],
         [
           126.5625,
@@ -297,37 +302,37 @@
           126.5625,
           33.75,
           277,
-          277
+          0
         ],
         [
           126.5625,
           35.15625,
           8,
-          8
+          0
         ],
         [
           126.5625,
           36.5625,
           1,
-          1
+          0
         ],
         [
           127.96875,
           33.75,
           76,
-          76
+          0
         ],
         [
           127.96875,
           35.15625,
           25,
-          25
+          0
         ],
         [
           127.96875,
           37.96875,
           1,
-          1
+          0
         ],
         [
           129.375,
@@ -351,7 +356,7 @@
           129.375,
           36.5625,
           1,
-          1
+          0
         ],
         [
           130.78125,
@@ -490,11 +495,25 @@
           "min": 16,
           "max": 22
         }
+      },
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 16,
+          "max": 24
+        }
       }
     ],
     "ph": [
       {
         "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 8.5
+        }
+      },
+      {
+        "source": "aquariumcoop",
         "value": {
           "min": 6.5,
           "max": 8.5
@@ -514,6 +533,10 @@
       {
         "source": "seriouslyfish",
         "value": 3.6
+      },
+      {
+        "source": "aquariumcoop",
+        "value": 4
       }
     ],
     "tankCm": [
@@ -526,6 +549,19 @@
       {
         "source": "seriouslyfish",
         "value": 2
+      },
+      {
+        "source": "aquariumcoop",
+        "value": 2
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 5,
+          "max": 5
+        }
       }
     ]
   },
@@ -537,10 +573,28 @@
       "html": "<p>The medaka, Oryzias latipes, is a ricefish from Japan, Korea, Taiwan, eastern China, Laos and Vietnam. Long used as a model organism in genomic and experimental biology, it was the first vertebrate animal to mate in space, in the mid-1990s. The ornamental 'golden' variant is more often seen than the natural form, and a transgenic 'glowing' form is illegal to buy, sell or own within the European Union.</p><ul><li>Max size: 36 mm SL (1.4 in)</li><li>Aquarium size: 45 × 30 cm</li><li>Temperature: 16–22°C</li><li>pH: 6.5–8.5</li><li>Hardness: 5–25 dGH</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/medaka-rice-fish",
+      "html": "<p>Oryzias latipes is commonly known as the Medaka or Japanese ricefish. The genus name comes from the Greek word for \"rice\" because these fish are frequently found in rice paddies. This torpedo-shaped fish grows up to 4 cm and often has a blue or silvery eye. Hundreds of colours and varieties have been line bred, such as gold, pearl galaxy, Yokihi orange, Orochi black, blue, Tancho red cap, Miyuki blue and platinum white.</p><p>They are incredibly hardy, peaceful and energetic, which makes them one of the most beginner-friendly fish. In the wild they live only 1–2 years, but in captivity their lifespan can reach up to 5 years.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/medaka-rice-fish",
+      "html": "<p>Medaka usually sell for a few dollars per fish, but for very rare and desirable strains a clutch of eggs may cost much more. Hobbyists report that ricefish are quite friendly and will come to the front of the tank to beg for food. They have been raised as pet fish in Japan for hundreds of years. In 1994 they became the first vertebrate to mate and lay eggs that hatched in space.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-latipes",
       "html": "<p>Described from 'Japan' and current understanding considers it restricted to an area corresponding, more or less, to the boundaries of the East and South China seas and southern Sea of Japan.</p><p>It's been recorded from Laos, Vietnam, much of eastern China (including the islands of Hainan and Hong Kong), Taiwan, eastern Korea and Japan from the Ryuku Islands in the south to Honshu in the centre of the archipelago.</p><p>Parenti (2008) notes that some populations previously identified as O. latipes from mainland China, Laos and Vietnam may actually represent O. sinensis based on adult size and/or positioning of the first pleural rib.</p><p>It's been introduced to several countries including the United States, Cuba, Kazakhstan, Turkmenistan, Iran and Russia (from where it has invaded the Black Sea basin).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/medaka-rice-fish",
+      "html": "<p>Japanese rice fish can be found all over Asia, in areas such as Japan, Korea, China and Vietnam.</p>"
     },
     {
       "key": "habitat",
@@ -549,10 +603,22 @@
       "html": "<p>Tends to occur in coastal waters but is adaptable and has been collected in a range of habitat-types, from strongly brackish, tidally-influenced mangrove swamps to acidic, freshwater forest streams, rice paddies, agricultural canals, major river basins, pools and oxbows.</p>"
     },
     {
+      "key": "habitat",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/medaka-rice-fish",
+      "html": "<p>They prefer rice paddy fields, marshes and other slow-moving waterways. They can live in both freshwater and strongly brackish water, and will often travel between streams and the ocean for non-breeding purposes.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-latipes",
       "html": "<p>An aquarium with base dimensions of 45 × 30 cm or more (about 41 litres) is recommended for a group.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/medaka-rice-fish",
+      "html": "<p>Medaka can live in a 40-litre tank (or mini pond) with a sponge filter for a slower current. Keep them in a school of six or more.</p>"
     },
     {
       "key": "maintenance",
@@ -567,10 +633,28 @@
       "html": "<ul><li>Temperature: 16–22°C</li><li>pH: 6.5–8.5</li><li>Hardness: 5–25 dGH</li></ul><p>Temperature: This temperate to subtropical species is subject to seasonal temperature fluctuations in nature and is most comfortable between 16–22 °C.</p><p>Permanent exposure to warm conditions is likely to result in a shortened lifespan and in many countries/well-insulated homes it is best-maintained without artificial heating year-round.</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/medaka-rice-fish",
+      "html": "<p>They tolerate temperatures of 16–24°C, pH 6.5–8.5, and moderately soft to very hard GH. They can live in hotter (and colder) temperatures, but unheated tanks and outdoor ponds are preferred since warmer water can increase their metabolism and shorten their lifespan.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/medaka-rice-fish",
+      "html": "<p>Use a sponge filter for slower current. They may jump out of the water, so consider an aquarium lid or plenty of floating plants to cover the surface and help keep the water clean.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-latipes",
       "html": "<p>A micropredator feeding on small insects, worms, crustaceans and other zooplankton in nature.</p><p>In the aquarium it will accept dried foods of a suitable size but should be offered daily meals of small live and frozen fare such as Daphnia, Artemia, chopped bloodworm, etc., along with good quality, suitably-sized flakes and granules.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/medaka-rice-fish",
+      "html": "<p>Rice fish prefer tiny foods that float on the surface. They are not picky eaters, but should be fed a varied diet of many different foods to avoid nutrient deficiencies. Medaka love crushed flakes, freeze-dried tubifex worms, fry and small-fish foods, and live mosquito larvae that hatch naturally in the pond.</p>"
     },
     {
       "key": "behaviour",
@@ -579,16 +663,34 @@
       "html": "<p>Generally peaceful but doesn't make an ideal addition to many communities due to its environmental requirements.</p><p>Should you wish to maintain it alongside other fishes diminutive species enjoying similar conditions such as some Dermogenys, Pseudomugi and Brachygobius spp. constitute the best options, while many neritid snails are also suitable.</p><p>If the intention is breeding then obviously it should ideally be maintained alone, and we don't recommend keeping it with other Oryzias spp. due to the potential of hybridisation, already proven in laboratory experiments.</p><p>It's mostly non-aggressive towards congeners, and tends to look most effective and behave more confidently in a group of 8 or more.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/medaka-rice-fish",
+      "html": "<p>Keep them in a school of six or more in a species-only breeding tank or a community tank. They get along with similar-sized, peaceful tank mates that also enjoy cooler temperatures, such as white cloud mountain minnows, hillstream loaches, shiners, amano shrimp and snails. They can also live with adult Neocaridina cherry shrimp, but Medaka may eat baby shrimp and adult shrimp may eat rice fish eggs.</p><p>If the males chase each other excessively, add more plants to block line of sight, increase the number of females, or remove some males.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-latipes",
       "html": "<p>Adult males possess elongated, filamentous rays in the convex-shaped dorsal and anal fins and bony contact organs on the medial pectoral-fin rays and posterior anal-fin rays of which both the latter are convex in shape, and have a slightly slimmer body shape than females.</p><p>Some females possess extended pelvic-fin rays reaching almost to the anal-fin origin, and the dorsal and anal fins are not convex.</p><p>The genital papilla in males forms a short tube whereas in females it is bilobed, and males also possess two or three enlarged posterior teeth on the premaxilla.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/medaka-rice-fish",
+      "html": "<p>Females are generally bigger and plumper, with a shorter, triangular anal fin (wider near the abdomen and narrower near the tail). Males have a slender body with a wider, parallelogram-shaped anal fin.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-latipes",
       "html": "<p>Quite easy to breed and fairly prolific, with females capable of producing batches of eggs every few days or even on a daily basis when in good condition.</p><p>Spawning normally occurs in the early morning, with males darkening in colouration and defending small, temporary territories against one another while attempting to entice females.</p><p>The adhesive eggs are typically expelled as a single mass and fertilised simultaneously, after which they continue to hang from the genital pore of the female for a period before eventually being deposited singly or in small clumps among vegetation or other suitable media.</p><p>Fine-leaved plants such as Cabomba, Ceratophyllum or Taxiphyllum spp. are ideal, but synthetic spawning mops or other artificial alternatives also work.</p><p>The incubation period is temperature dependent to an extent but typically 1-3 weeks, and while the adults tend to ignore the eggs they do predate free-swimming fry, though if the tank is densely-planted some will usually survive.</p><p>Alternatively the eggs or fry can be removed to a separate rearing container filled with water from the adults' tank. Once free-swimming the fry are able to accept microworm, Artemia nauplii, etc.</p><p>Caution is recommended when housing juveniles of different ages together as the older will predate on the younger if there is a large enough discrepancy in size.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/medaka-rice-fish",
+      "html": "<p>To breed them you need at least one male and one female. If the fish are too young to sex, get a group of six or more to improve your chances of getting both genders. They are very easy to breed as long as they are fed plenty and the temperature isn't too cold.</p><p>For colony breeding, where the fry grow up with the adults, set up a species-only 40-litre tank or pond with slow flow and lots of floating plants with long roots (e.g. dwarf water lettuce and water hyacinth). A DIY spawning mop that can be easily removed can increase the yield.</p><p>Fish in breeding mode have males chasing each other and females carrying a cluster of sticky eggs in front of the anal fin. They can lay eggs daily, depositing them on plants, spawning mops and even sponge filters. To avoid predation, move the eggs to a separate container, either by removing the whole spawning mop or picking them up by hand.</p><p>The eggs are fairly large (1.5 mm), clear, and gradually darken as the fry develop. Solid white eggs are no longer viable and should be removed to prevent fungus spreading. At 25°C the eggs can start hatching in a little under a week, and take longer if cooler.</p><p>Once the fry are free swimming, feed them newly hatched baby brine shrimp, powdered fry food, vinegar eels and paramecium. To make sure they can reach their food, keep them in a small container for a while with frequent water changes. Eventually they should move to a bigger rearing tank with lots of plants, mulm and microfauna to snack on. Within 3–4 months they should be large enough to sell.</p>"
     },
     {
       "key": "notes",
@@ -636,6 +738,50 @@
       "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-latipes",
       "caption": "This image shows a selectively-bred 'golden' fish (top), transgenically modifed 'glowing' form (middle) and albino (bottom).",
       "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/00d28733df31540d.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/00d28733df31540d-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/medaka-rice-fish",
+      "caption": "Care Guide for Medaka Rice Fish — Best Cool Water Fish for Beginners - Aquarium Co-Op",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/a568484d43a43b1c.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/a568484d43a43b1c-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/medaka-rice-fish",
+      "caption": "Platinum white Medaka",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/e431abda7fb9b3b8.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/e431abda7fb9b3b8-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/medaka-rice-fish",
+      "caption": "Medaka living in outdoor mini pond",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/54d4fe95b31aeb35.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/54d4fe95b31aeb35-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/medaka-rice-fish",
+      "caption": "Medaka rice fish living in planted community tank",
+      "source": "aquariumcoop"
     }
   ],
   "videos": [],
@@ -669,5 +815,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-09"
 }

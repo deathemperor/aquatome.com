@@ -1,26 +1,29 @@
 {
   "slug": "spike-tailed-licorice-gourami",
-  "name": "Spike-tailed Licorice Gourami",
+  "name": "Spike-tailed licorice gourami",
   "altNames": [
-    "Licorice Gourami",
-    "Paros filamentosus",
-    "Spiketail Paradise Fish",
-    "Gurami Licorice"
+    "Licorice gourami",
+    "Spiketail licorice gourami"
   ],
   "sections": {
-    "quickFacts:bwaquatics": "<p>Parosphromenus filamentosus adalah salah satu spesies Parosphromenus yang berukuran lebih besar dan dikenal karena perpanjangan ekornya yang menyerupai filamen. Ikan ini relatif tangguh, tetapi seperti semua Parosphromenus, ikan ini membutuhkan pakan hidup. Ikan jantan bisa mencapai 3 cm.</p><p>Warna tubuhnya bernuansa perunggu, dengan pita merah gelap pada sirip tunggal, lalu pita hitam dengan tepian berkilau putih terang atau biru.</p>",
+    "quickFacts:bwaquatics": "<p>Parosphromenus filamentosus termasuk salah satu spesies Parosphromenus yang berukuran lebih besar dan dikenal karena ekornya yang memanjang seperti filamen. Ikan ini relatif tangguh, tetapi seperti semua Parosphromenus, ia membutuhkan pakan hidup. Jantannya bisa mencapai 3 cm.</p><p>Tubuhnya berwarna perunggu, dengan pita merah gelap pada sirip-sirip tunggal, disusul pita hitam yang berlis warna putih cerah atau biru berkilau.</p>",
+    "quickFacts:glaser": "<p>Spesies licorice gourami baru yang cantik. Ikan ini sangat dekat dengan P. filamentosus dan tumbuh hingga sekitar 3 cm.</p>",
     "distribution:bwaquatics": "<p>Ditemukan di Kalimantan Tengah (Borneo, Indonesia), di sistem sungai hutan dekat Banjarmasin.</p>",
-    "habitat:bwaquatics": "<p>Terutama menghuni hutan rawa gambut dan aliran air hitam (blackwater) di sekitarnya.</p>",
+    "distribution:glaser": "<p>Spesies ini berasal dari Borneo (Kalimantan bagian tenggara), dan bisa ditemukan di antara Ampah dan Muarateweh.</p>",
+    "habitat:bwaquatics": "<p>Terutama menghuni hutan rawa gambut dan sungai-sungai kecil berair hitam (blackwater) di sekitarnya.</p>",
+    "maintenance:glaser": "<p>Seperti semua licorice gourami, spesies ini lebih cocok dipelihara di akuarium kecil khusus satu spesies, dengan air lunak dan asam serta pakan hidup yang halus.</p>",
     "waterConditions:bwaquatics": "<ul><li>Suhu: 22–28 °C</li><li>pH: 3,0–6,5</li><li>Kesadahan: 18–72 ppm</li></ul>",
     "diet:bwaquatics": "<p>Ikan ini karnivora dan hanya mau makan pakan hidup.</p>",
-    "behaviour:bwaquatics": "<p>Ikan ini umumnya damai dan pemalu, lebih suka bersembunyi di antara tanaman atau struktur lain di lingkungannya.</p>",
-    "notes:bwaquatics": "<p>Status konservasi: tercatat sebagai Terancam (Endangered) oleh IUCN akibat hilangnya dan rusaknya habitat karena penggundulan hutan, alih fungsi lahan, dan pencemaran.</p>"
+    "behaviour:bwaquatics": "<p>Ikan ini umumnya damai dan pemalu, dan lebih suka bersembunyi di antara tanaman atau struktur lain di lingkungannya.</p>",
+    "dimorphism:glaser": "<p>Betina mudah dikenali dari sirip ekornya yang sepenuhnya transparan.</p>",
+    "notes:bwaquatics": "<p>Status konservasi: tercatat sebagai Terancam (Endangered) oleh IUCN karena hilang dan rusaknya habitat akibat penggundulan hutan, alih fungsi lahan, dan pencemaran.</p>"
   },
   "quality": {
     "score": 0.7,
     "indexable": false,
     "bySource": {
-      "bwaquatics": 0.7
+      "bwaquatics": 0.7,
+      "glaser": 0.7
     }
   }
 }

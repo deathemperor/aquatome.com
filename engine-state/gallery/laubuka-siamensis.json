@@ -5,5 +5,13 @@
   "https://media.aquatome.com/seriouslyfish/985c23951cf1e1b6.webp": "ec9c6f3f9cde3b03",
   "https://media.aquatome.com/seriouslyfish/e3a342e0b98c129f.webp": "060e271f0f3c1c16"
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 613162,
+  "pass": "research",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ }
 }

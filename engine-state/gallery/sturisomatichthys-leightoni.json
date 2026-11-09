@@ -1,36 +1,14 @@
 {
- "queue": [
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/331117444/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/331117444/medium.jpg",
-   "width": 2048,
-   "height": 1365,
-   "licence": "CC BY",
-   "author": "Diego Gómez Hoyos",
-   "sourceUrl": "https://www.inaturalist.org/photos/331117444",
-   "key": "inat:331117444"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/330431919/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/330431919/medium.jpeg",
-   "width": 2048,
-   "height": 1364,
-   "licence": "CC BY",
-   "author": "Diego Gómez Hoyos",
-   "sourceUrl": "https://www.inaturalist.org/photos/330431919",
-   "key": "inat:330431919"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/330431951/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/330431951/medium.jpeg",
-   "width": 2048,
-   "height": 1364,
-   "licence": "CC BY",
-   "author": "Diego Gómez Hoyos",
-   "sourceUrl": "https://www.inaturalist.org/photos/330431951",
-   "key": "inat:330431951"
-  }
+ "queue": [],
+ "judged": [
+  "inat:331117444",
+  "inat:330431919",
+  "inat:330431951"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/scotcat/2117b93ab7266624.webp": "210b6fbc1c461f32",
+  "https://media.aquatome.com/scotcat/9542cb2664d19386.webp": "6060787c1f0f66b3",
+  "https://media.aquatome.com/commons/600cf22ff8752850.webp": "8129e87166220309"
+ },
+ "commons": "2026-11-09"
 }

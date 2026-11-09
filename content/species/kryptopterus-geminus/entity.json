@@ -14,6 +14,215 @@
     "cambodia",
     "vietnam"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "LA",
+        "KH",
+        "VN"
+      ],
+      "regions": [
+        "Mekong",
+        "Chao Phraya",
+        "Mae Khlong",
+        "Bang Pakong"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Thailand",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Kryptopterus geminus is a silurid catfish from the lower and middle Mekong in Thailand, Laos, Cambodia and Vietnam, and the lower Chao Phraya.",
+          "countries": [
+            "LA",
+            "KH",
+            "VN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "Kryptopterus geminus inhabits the large river basins of the mainland of Southeast Asia: Mekong, Mae Khlong, Bang Pakong and Chao Phraya.",
+          "countries": [],
+          "regions": [
+            "Mekong",
+            "Chao Phraya",
+            "Mae Khlong",
+            "Bang Pakong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2337912,
+      "total": 112,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "TH",
+          52
+        ],
+        [
+          "KH",
+          41
+        ],
+        [
+          "VN",
+          13
+        ],
+        [
+          "LA",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          12.65625,
+          3,
+          3
+        ],
+        [
+          98.4375,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          18.28125,
+          4,
+          4
+        ],
+        [
+          99.84375,
+          12.65625,
+          2,
+          2
+        ],
+        [
+          99.84375,
+          14.0625,
+          4,
+          4
+        ],
+        [
+          99.84375,
+          15.46875,
+          5,
+          5
+        ],
+        [
+          101.25,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          101.25,
+          14.0625,
+          2,
+          2
+        ],
+        [
+          101.25,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          101.25,
+          16.875,
+          4,
+          4
+        ],
+        [
+          102.65625,
+          11.25,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          16.875,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          9.84375,
+          2,
+          2
+        ],
+        [
+          104.0625,
+          11.25,
+          23,
+          23
+        ],
+        [
+          104.0625,
+          12.65625,
+          9,
+          9
+        ],
+        [
+          104.0625,
+          14.0625,
+          8,
+          8
+        ],
+        [
+          104.0625,
+          15.46875,
+          4,
+          4
+        ],
+        [
+          104.0625,
+          16.875,
+          3,
+          3
+        ],
+        [
+          105.46875,
+          9.84375,
+          11,
+          11
+        ],
+        [
+          105.46875,
+          12.65625,
+          10,
+          10
+        ],
+        [
+          105.46875,
+          14.0625,
+          12,
+          12
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

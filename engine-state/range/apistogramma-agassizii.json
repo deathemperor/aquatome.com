@@ -1,8 +1,8 @@
 {
   "id": "apistogramma-agassizii",
   "native": {
-    "input": "8ff16f60407974cb",
-    "at": "2026-11-06T09:17:06.855Z",
+    "input": "f0577cf722ef0f5f",
+    "at": "2026-11-09T20:43:02.940Z",
     "claims": [
       {
         "code": "PE",
@@ -19,35 +19,11 @@
         "quote": "Apistogramma agassizii is a dwarf cichlid found through much of the Amazon/Solimões basin, from the Río Ucayali in Peru to the Capim River in Brazil.",
         "words": "Brazil",
         "ok": true
-      },
-      {
-        "code": "BR",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "The lectotype originates from Lake Manacapurú in Amazonas state, northwestern Brazil, just upstream from the city of Manaus and fed by the main Amazon river channel.",
-        "words": "Brazil",
-        "ok": true
-      },
-      {
-        "code": "PE",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "It's currently-accepted to range throughout much of the Amazon/Solimões basin from its upper section in the Río Ucayali, Peru and into Brazil with the Capim River, a tributary of the rio Guamá which flows into the rio Pará at the city of Belém in the Amazon delta region, representing its eastern limit.",
-        "words": "Peru",
-        "ok": true
-      },
-      {
-        "code": "BR",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "It's currently-accepted to range throughout much of the Amazon/Solimões basin from its upper section in the Río Ucayali, Peru and into Brazil with the Capim River, a tributary of the rio Guamá which flows into the rio Pará at the city of Belém in the Amazon delta region, representing its eastern limit.",
-        "words": "Brazil",
-        "ok": true
       }
     ],
     "regions": [
       {
-        "name": "Amazon/Solimões basin",
+        "name": "Amazon",
         "source": "seriouslyfish",
         "quote": "Apistogramma agassizii is a dwarf cichlid found through much of the Amazon/Solimões basin, from the Río Ucayali in Peru to the Capim River in Brazil.",
         "ok": true

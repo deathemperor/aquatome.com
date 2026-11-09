@@ -77,14 +77,26 @@ const told = (t: Tank, hb: Handbook) => {
 }
 /**
  * The reader's tanks as they go with every question (the CoS, 2026-11-09): all read_tanks gives but each tank's name,
- * its notes cut as there and with any link, phone number, email or address taken out. read_tanks still gives them whole.
+ * its notes cut as there, and any link, phone number, email or address taken out of everything the reader typed. read_tanks
+ * still gives them whole.
  */
 export const handedTanks = (tanks: Tank[], hb: Handbook) =>
   JSON.stringify(tanks.map(t => {
     // Taken out before `told` cuts them: a number across the cut would keep its first digits.
-    const { name: _, ...rest } = told(t.notes ? { ...t, notes: withoutContacts(t.notes) } : t, hb)
+    const { name: _, ...rest } = told(typedClean(t, hb), hb)
     return rest
   }))
+/** A tank with what the reader typed cleaned: its notes, names and labels, and any id the handbook doesn't know, which `told` shows as it is. */
+const typedClean = (t: Tank, hb: Handbook): Tank => ({
+  ...t,
+  species: t.species.map(s => (hb.byId(s.id) ? s : { ...s, id: withoutContacts(s.id) })),
+  unlisted: t.unlisted.map(u => ({ ...u, name: withoutContacts(u.name) })),
+  ...(t.plants ? { plants: t.plants.map(p => (hb.byId(p) ? p : withoutContacts(p))) } : {}),
+  ...(t.substrate ? { substrate: withoutContacts(t.substrate) } : {}),
+  ...(t.notes ? { notes: withoutContacts(t.notes) } : {}),
+  ...(t.lights ? { lights: t.lights.map(l => ({ ...l, name: withoutContacts(l.name) })) } : {}),
+  ...(t.power ? { power: t.power.map(p => withoutContacts(p)) } : {}),
+})
 export type ToolDeps = {
   handbook: Handbook
   /** The reader's synced tanks; null when they can't be read now. */

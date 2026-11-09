@@ -1,0 +1,25 @@
+{
+  "slug": "chrosomus-erythrogaster",
+  "name": "เรดเบลลี่เดซ",
+  "altNames": [
+    "Southern redbelly dace",
+    "เซาเทิร์นเรดเบลลี่เดซ"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>ปลาที่จับจากธรรมชาติในสหรัฐอเมริกามีวางจำหน่ายน้อยมาก Chrosomus erythrogaster เป็นปลาตระกูลมินนาวที่สวยมาก ขนาดโตเต็มที่ของชนิดนี้อยู่ที่ 10-12 ซม. ส่วนปลาที่มีจำหน่ายอยู่ในขณะนี้มีขนาด 5-7 ซม.</p>",
+    "maintenance:glaser": "<p>ปลาชนิดนี้ไม่จำเป็นต้องใช้ฮีตเตอร์ แต่ก็อยู่ได้อย่างสบายที่อุณหภูมิสูงกว่า 24 °C</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.9
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-10"
+  }
+}

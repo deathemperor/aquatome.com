@@ -1,0 +1,61 @@
+{
+  "id": "doryichthys-heterosoma",
+  "native": {
+    "input": "0af60048b7b902e3",
+    "at": "2026-11-09T12:58:06.259Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "aquatome",
+        "quote": "Mẫu chuẩn của loài này đến từ Sambas, phía tây đảo Borneo, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "aquatome",
+        "quote": "Mẫu chuẩn của loài này đến từ Sambas, phía tây đảo Borneo, Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Sambas",
+        "source": "aquatome",
+        "quote": "Tài liệu phân loại chỉ có tên nó ở Kalimantan và quần đảo Natuna, cụ thể là sông Sambas thuộc Tây Kalimantan và Natuna.",
+        "ok": true
+      },
+      {
+        "name": "Kalimantan",
+        "source": "aquatome",
+        "quote": "Tài liệu phân loại chỉ có tên nó ở Kalimantan và quần đảo Natuna, cụ thể là sông Sambas thuộc Tây Kalimantan và Natuna.",
+        "ok": true
+      },
+      {
+        "name": "Natuna",
+        "source": "aquatome",
+        "quote": "Tài liệu phân loại chỉ có tên nó ở Kalimantan và quần đảo Natuna, cụ thể là sông Sambas thuộc Tây Kalimantan và Natuna.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Doryichthys heterosoma",
+    "status": "ACCEPTED",
+    "taxonKey": 2332734,
+    "datasets": [],
+    "native": [
+      "ID"
+    ],
+    "requests": 2,
+    "at": "2026-11-09T12:58:06.259Z"
+  }
+}

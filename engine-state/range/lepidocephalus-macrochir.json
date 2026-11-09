@@ -1,0 +1,101 @@
+{
+  "id": "lepidocephalus-macrochir",
+  "native": {
+    "input": "c9e16f0691fa6a74",
+    "at": "2026-11-09T16:24:16.651Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It was described from the Lamatang and Enim rivers, Palambang Province, Sumatra and has since been recorded from Thailand (Chao Phraya River), Peninsular Malaysia (Pahang River) plus the islands of Java (Solo River) and Borneo (Kapuas and Barito rivers).",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It was described from the Lamatang and Enim rivers, Palambang Province, Sumatra and has since been recorded from Thailand (Chao Phraya River), Peninsular Malaysia (Pahang River) plus the islands of Java (Solo River) and Borneo (Kapuas and Barito rivers).",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The full type locality is 'Confluence of Lamatang and Enim rivers, Palembang, eastern Sumatra; Pepeh River, Surakarta, central Java, Indonesia'.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "It was described from the Lamatang and Enim rivers, Palambang Province, Sumatra and has since been recorded from Thailand (Chao Phraya River), Peninsular Malaysia (Pahang River) plus the islands of Java (Solo River) and Borneo (Kapuas and Barito rivers).",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Pahang",
+        "source": "seriouslyfish",
+        "quote": "It was described from the Lamatang and Enim rivers, Palambang Province, Sumatra and has since been recorded from Thailand (Chao Phraya River), Peninsular Malaysia (Pahang River) plus the islands of Java (Solo River) and Borneo (Kapuas and Barito rivers).",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "It was described from the Lamatang and Enim rivers, Palambang Province, Sumatra and has since been recorded from Thailand (Chao Phraya River), Peninsular Malaysia (Pahang River) plus the islands of Java (Solo River) and Borneo (Kapuas and Barito rivers).",
+        "ok": true
+      },
+      {
+        "name": "Java",
+        "source": "seriouslyfish",
+        "quote": "It was described from the Lamatang and Enim rivers, Palambang Province, Sumatra and has since been recorded from Thailand (Chao Phraya River), Peninsular Malaysia (Pahang River) plus the islands of Java (Solo River) and Borneo (Kapuas and Barito rivers).",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "It was described from the Lamatang and Enim rivers, Palambang Province, Sumatra and has since been recorded from Thailand (Chao Phraya River), Peninsular Malaysia (Pahang River) plus the islands of Java (Solo River) and Borneo (Kapuas and Barito rivers).",
+        "ok": true
+      },
+      {
+        "name": "Solo",
+        "source": "seriouslyfish",
+        "quote": "It was described from the Lamatang and Enim rivers, Palambang Province, Sumatra and has since been recorded from Thailand (Chao Phraya River), Peninsular Malaysia (Pahang River) plus the islands of Java (Solo River) and Borneo (Kapuas and Barito rivers).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Lepidocephalus macrochir",
+    "status": "ACCEPTED",
+    "taxonKey": 5207874,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "MY",
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T16:24:16.651Z"
+  }
+}

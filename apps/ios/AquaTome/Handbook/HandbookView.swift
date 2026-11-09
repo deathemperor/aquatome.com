@@ -9,6 +9,8 @@ struct HandbookView: View {
   /// The pages open in the tab: a link in a page the app draws pushes onto it (AppScreen.page).
   @Binding var path: NavigationPath
   @Environment(HandbookModel.self) private var handbook
+  /// On v2's search tab: a fish's or plant's page as v2 draws it (SpeciesPage), with v1's for a part it can't (FullPage).
+  @Environment(\.v2Pages) private var v2Pages
 
   var body: some View {
     @Bindable var handbook = handbook
@@ -41,7 +43,12 @@ struct HandbookView: View {
       .searchable(text: $handbook.query, prompt: Text("Tìm loài cá, cây, hướng dẫn"))
       .navigationTitle("Tìm")
       .profileButton()
-      .navigationDestination(for: HandbookIndex.Item.self) { item in PageView(item: item, url: handbook.url(item)) }
+      .navigationDestination(for: HandbookIndex.Item.self) { item in
+        if #available(iOS 18, *), v2Pages, item.kind == .fish || item.kind == .plant { SpeciesPage(item: item) } else {
+          PageView(item: item, url: handbook.url(item))
+        }
+      }
+      .navigationDestination(for: FullPage.self) { PageView(item: $0.item, url: handbook.url($0.item), at: $0.at) }
       .navigationDestination(for: Browse.self) { BrowseView(browse: $0) }
       .navigationDestination(for: VolumeTool.self) { TankVolumeView(query: $0.query) }
       .navigationDestination(for: FishIdRoute.self) { _ in FishIdView() }

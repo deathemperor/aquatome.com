@@ -10,6 +10,114 @@
     "south-korea",
     "han"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "KR"
+      ],
+      "regions": [
+        "Han River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "It was described from 'Jojong River, tributary of the Han River, at Sang-myon, Gapyong-gun, Gyong gi-do, South Korea', but is relatively common in river drainages of northern and western South Korea.",
+          "countries": [
+            "KR"
+          ],
+          "regions": [
+            "Han River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2368309,
+      "total": 4291,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "KR",
+          4290
+        ],
+        [
+          "MN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          106.875,
+          47.8125,
+          1,
+          0
+        ],
+        [
+          125.15625,
+          33.75,
+          4,
+          4
+        ],
+        [
+          125.15625,
+          36.5625,
+          8,
+          8
+        ],
+        [
+          126.5625,
+          33.75,
+          11,
+          11
+        ],
+        [
+          126.5625,
+          35.15625,
+          1411,
+          1411
+        ],
+        [
+          126.5625,
+          36.5625,
+          1279,
+          1279
+        ],
+        [
+          126.5625,
+          37.96875,
+          324,
+          324
+        ],
+        [
+          127.96875,
+          33.75,
+          4,
+          4
+        ],
+        [
+          127.96875,
+          35.15625,
+          21,
+          21
+        ],
+        [
+          127.96875,
+          36.5625,
+          1062,
+          1062
+        ],
+        [
+          127.96875,
+          37.96875,
+          166,
+          166
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

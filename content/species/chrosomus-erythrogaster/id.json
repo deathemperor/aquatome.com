@@ -1,0 +1,25 @@
+{
+  "slug": "southern-redbelly-dace",
+  "name": "Southern redbelly dace",
+  "altNames": [
+    "Redbelly dace",
+    "Red belly dace"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Ikan tangkapan alam dari Amerika Serikat jarang sekali ditawarkan. Chrosomus erythrogaster adalah ikan minnow yang sangat cantik. Ukuran maksimal spesies ini 10–12 cm; ikan yang saat ini ditawarkan berukuran 5–7 cm.</p>",
+    "maintenance:glaser": "<p>Ikan ini tidak memerlukan heater, tetapi juga merasa sangat nyaman pada suhu di atas 24 °C.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.9
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-10"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "lamprologus-stappersi",
+  "native": {
+    "input": "c85e51cb1ac7780b",
+    "at": "2026-11-09T12:58:06.259Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Lake Tanganyika",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Tanganyika.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CD"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Lamprologus stappersi",
+    "status": "ACCEPTED",
+    "taxonKey": 2371700,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-09T12:58:06.259Z"
+  }
+}

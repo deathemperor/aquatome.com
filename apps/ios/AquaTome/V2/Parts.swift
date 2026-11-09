@@ -202,6 +202,29 @@ struct LatinName: View {
 /// A page as one line of a shelf or a card: its photo as a rounded square (the page's "icon"), its name, a line, and its
 /// button, the same wherever the page shows: "Thêm" onto a tank for a fish or plant, "Đọc" for a guide, else "Xem". The
 /// name and photo open the page; the button is its own.
+/// "Thêm vào bể"'s sheet, whose "Xem trong Bể của tôi →" opens the tank once the sheet has closed, as v1's page does
+/// (PageView): changing the tab under a closing sheet is a race.
+private struct PutOnTankSheet: ViewModifier {
+  let item: HandbookIndex.Item
+  @Binding var putting: Bool
+  @Environment(\.openScreen) private var openScreen
+  @State private var openAfter: String?
+
+  func body(content: Content) -> some View {
+    content.sheet(isPresented: $putting, onDismiss: {
+      if let id = openAfter { openAfter = nil; openScreen(.tanks(id)) }
+    }) {
+      if let life = Life(item) { NavigationStack { PutOnTank(life: life, open: { openAfter = $0; putting = false }) } }
+    }
+  }
+}
+
+extension View {
+  func v2PutOnTank(_ item: HandbookIndex.Item, isPresented: Binding<Bool>) -> some View {
+    modifier(PutOnTankSheet(item: item, putting: isPresented))
+  }
+}
+
 struct Lockup: View {
   let item: HandbookIndex.Item
   /// Its first line, the page's name unless the card already says it; that card is the stop VoiceOver reads and opens,
@@ -266,7 +289,7 @@ struct Lockup: View {
       .accessibilityHidden(title != nil)
       button
     }
-    .sheet(isPresented: $putting) { if let life = Life(item) { NavigationStack { PutOnTank(life: life) } } }
+    .v2PutOnTank(item, isPresented: $putting)
   }
 
   @ViewBuilder private var button: some View {
@@ -310,124 +333,6 @@ private extension Text {
   }
 }
 
-/// A fish's figures across the page, a column each (its name, the figure, a word under it), as an app's page has its
-/// ratings, age and size: the temperature and pH drawn on their scales. All of them in view, in rows: no figure to find
-/// by scrolling, none cut by the screen's edge.
-struct FactsStrip: View {
-  let facts: HandbookIndex.Facts
-  var onDark = false
-  /// Left out where the page's "Nuôi chung" says it.
-  var temperament = true
-  @Environment(HandbookModel.self) private var handbook
-  /// A column's narrowest, growing with the text: "BỂ TỐI THIỂU" whole at the larger sizes.
-  @ScaledMetric(relativeTo: .caption2) private var column: CGFloat = 84
-  @ScaledMetric(relativeTo: .title3) private var rule: CGFloat = 40
-  @Environment(\.dynamicTypeSize) private var size
-  @State private var width: CGFloat = 393
-
-  struct Column: Identifiable {
-    let id: Int
-    let label: LocalizedStringKey
-    let value: String
-    var caption: String?
-    /// Where the range sits on its scale, 0…1.
-    var bar: ClosedRange<Double>?
-    /// In capitals, as the strip's names are; pH keeps its own.
-    var upper = true
-  }
-
-  var body: some View {
-    if size.isAccessibilitySize { list } else { rows }
-  }
-
-  /// At the accessibility sizes, one figure a line down the page: across, a column takes the screen and cuts the next
-  /// figure short, "150 cm" reading "15".
-  private var list: some View {
-    VStack(alignment: .leading, spacing: 12) {
-      ForEach(columns) { c in
-        VStack(alignment: .leading, spacing: 2) {
-          Text(c.label).font(.caption2.weight(.semibold)).textCase(c.upper ? .uppercase : nil)
-            .foregroundStyle(onDark ? .white.opacity(0.75) : .v2Faint)
-          Text(verbatim: c.caption.map { "\(c.value) (\($0))" } ?? c.value).font(.title3.weight(.bold))
-            .foregroundStyle(onDark ? .white : .primary)
-        }
-        .accessibilityElement(children: .combine)
-      }
-    }
-    .frame(maxWidth: .infinity, alignment: .leading)
-    .padding(.horizontal, 20)
-  }
-
-  private var rows: some View {
-    let all = columns, lone = all.count == 1
-    // As many across as fit, up to all of them, and rows as even as they go: a few share the width, six are three and three,
-    // not four and half a row empty.
-    let fit = max(1, min(all.count, Int((width - 24) / column))), lines = (all.count + fit - 1) / fit
-    let across = max(1, (all.count + lines - 1) / max(lines, 1))
-    return LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 0, alignment: .top), count: across), spacing: 14) {
-      ForEach(all) { c in
-        // One alone starts where the words above it do.
-        figure(c, alignment: lone ? .leading : .center)
-          .frame(maxWidth: .infinity, alignment: lone ? .leading : .center)
-          .padding(.vertical, 4)
-          .overlay(alignment: .topLeading) {
-            // One height along a row, with a rule under a figure or not.
-            if c.id % across > 0 { Rectangle().fill(onDark ? .white.opacity(0.2) : Color.primary.opacity(0.12)).frame(width: 0.5, height: rule).padding(.top, 8) }
-          }
-          .accessibilityElement(children: .combine)
-      }
-    }
-    .padding(.horizontal, lone ? 20 : 12)
-    .frame(maxWidth: .infinity)
-    .onGeometryChange(for: CGFloat.self) { $0.size.width } action: { width = $0 }
-  }
-
-  private func figure(_ c: Column, alignment: HorizontalAlignment) -> some View {
-    VStack(alignment: alignment, spacing: 5) {
-      Text(c.label).font(.caption2.weight(.semibold)).textCase(c.upper ? .uppercase : nil).lineLimit(2)
-        .multilineTextAlignment(alignment == .leading ? .leading : .center)
-        .foregroundStyle(onDark ? .white.opacity(0.75) : .v2Faint)
-      Text(verbatim: c.value).font(.title3.weight(.bold)).lineLimit(1).minimumScaleFactor(0.8)
-        .foregroundStyle(onDark ? .white : .primary)
-      if let bar = c.bar {
-        Capsule().fill(onDark ? .white.opacity(0.22) : Color.primary.opacity(0.1))
-          .frame(width: 64, height: 4)
-          .overlay(alignment: .leading) {
-            Capsule().fill(onDark ? .white : Color.accentColor)
-              .frame(width: max(6, 64 * (bar.upperBound - bar.lowerBound)), height: 4)
-              .offset(x: 64 * bar.lowerBound)
-          }
-          .padding(.top, 2)
-      } else if let caption = c.caption {
-        Text(verbatim: caption).font(.caption).lineLimit(1).foregroundStyle(onDark ? .white.opacity(0.75) : .v2Faint)
-      }
-    }
-  }
-
-  private var columns: [Column] {
-    let locale = Locale(identifier: handbook.lang)
-    var out: [Column] = []
-    func add(_ label: LocalizedStringKey, _ value: String, caption: String? = nil, bar: ClosedRange<Double>? = nil, upper: Bool = true) {
-      out.append(Column(id: out.count, label: label, value: value, caption: caption, bar: bar, upper: upper))
-    }
-    func scale(_ r: HandbookIndex.Facts.Range, _ lo: Double, _ hi: Double) -> ClosedRange<Double> {
-      let a = min(max((r.min - lo) / (hi - lo), 0), 1), b = min(max((r.max - lo) / (hi - lo), 0), 1)
-      return min(a, b)...max(a, b)
-    }
-    // What a beginner asks first in view: how warm, how big a tank, how big it grows, how hard; then the rest.
-    if let r = facts.tempC { add("Nhiệt độ", "\(HandbookIndex.Facts.range(r, locale)) °C", bar: scale(r, 10, 35)) }
-    if let v = facts.tankCm { add("Bể tối thiểu", "\(HandbookIndex.Facts.number(v, locale)) cm") }
-    if let v = facts.sizeCm { add("Kích thước", "\(HandbookIndex.Facts.number(v, locale)) cm") }
-    // Its rule how far up the eight levels, as the others' say where they sit; the number, in the list at the largest text.
-    if let d = facts.difficulty { add("Độ khó", FactsCard.level(d), caption: "\(HandbookIndex.Facts.number(d, locale))/8", bar: 0...min(max(d / 8, 0), 1)) }
-    if let r = facts.ph { add("pH", HandbookIndex.Facts.range(r, locale), bar: scale(r, 4, 9), upper: false) }
-    if let r = facts.gh { add("Độ cứng", "\(HandbookIndex.Facts.range(r, locale)) dGH") }
-    if let r = facts.lifeYears { add("Tuổi thọ", "\(HandbookIndex.Facts.range(r, locale)) \(String(localized: "năm"))") }
-    if temperament, let t = facts.temperament.flatMap(FactsCard.temperament) { add("Tính cách", t) }
-    return out
-  }
-}
-
 /// A shelf's header: its name and, when there's more than the shelf shows, "Xem tất cả" to the whole list.
 struct ShelfHeader<More: Hashable>: View {
   let title: LocalizedStringKey
@@ -451,7 +356,8 @@ struct WordsOnPhoto<Words: View>: ViewModifier {
   let colour: Color
   let edge: VerticalEdge
   let height: CGFloat
-  var fade: CGFloat = 56
+  /// Long enough to dissolve into the photo: on one with a black ground, 56 ended in a hard stripe.
+  var fade: CGFloat = 120
   @ViewBuilder let words: Words
   @State private var wordsHeight: CGFloat = 0
 
@@ -556,9 +462,19 @@ struct CardPress: ButtonStyle {
 }
 
 extension View {
-  /// A card's shape: rounded, with a soft shadow.
-  func v2Card(_ radius: CGFloat = 22) -> some View {
-    clipShape(.rect(cornerRadius: radius, style: .continuous))
+  /// A card's shape: rounded, with a soft shadow, and in the dark a hairline.
+  func v2Card(_ radius: CGFloat = 22) -> some View { modifier(CardShape(radius: radius)) }
+}
+
+private struct CardShape: ViewModifier {
+  let radius: CGFloat
+  @Environment(\.colorScheme) private var scheme
+
+  func body(content: Content) -> some View {
+    content
+      .clipShape(.rect(cornerRadius: radius, style: .continuous))
+      // A black photo on the black page would lose the card's edge, and no shadow shows there.
+      .overlay { if scheme == .dark { RoundedRectangle(cornerRadius: radius, style: .continuous).strokeBorder(.white.opacity(0.08), lineWidth: 0.5) } }
       .shadow(color: .black.opacity(0.14), radius: 16, y: 8)
   }
 }

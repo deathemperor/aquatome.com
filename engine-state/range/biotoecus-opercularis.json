@@ -1,8 +1,8 @@
 {
   "id": "biotoecus-opercularis",
   "native": {
-    "input": "08ffdac5b6f25c39",
-    "at": "2026-11-06T21:19:39.004Z",
+    "input": "53361d655c683873",
+    "at": "2026-11-09T20:43:02.940Z",
     "claims": [
       {
         "code": "BR",
@@ -11,41 +11,46 @@
         "quote": "Biotoecus opercularis is a small geophagine cichlid from the middle Amazon basin in Brazil, including the lower Madeira, Tapajós and Negro.",
         "words": "Brazil",
         "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Available size: 3–4 cm. Origin: Brazil.",
+        "words": "Brazil",
+        "ok": true
       }
     ],
     "regions": [
       {
-        "name": "Amazon",
-        "source": "seriouslyfish",
-        "quote": "Biotoecus opercularis is a small geophagine cichlid from the middle Amazon basin in Brazil, including the lower Madeira, Tapajós and Negro.",
-        "country": "BR",
-        "ok": true
-      },
-      {
         "name": "Madeira",
         "source": "seriouslyfish",
-        "quote": "Biotoecus opercularis is a small geophagine cichlid from the middle Amazon basin in Brazil, including the lower Madeira, Tapajós and Negro.",
-        "country": "BR",
+        "quote": "It's since recorded throughout much of the region including the lower rios Madeira, Tapajós, Trombetas and middle-to-lower Negro.",
         "ok": true
       },
       {
         "name": "Tapajós",
         "source": "seriouslyfish",
-        "quote": "Biotoecus opercularis is a small geophagine cichlid from the middle Amazon basin in Brazil, including the lower Madeira, Tapajós and Negro.",
-        "country": "BR",
-        "ok": true
-      },
-      {
-        "name": "Negro",
-        "source": "seriouslyfish",
-        "quote": "Biotoecus opercularis is a small geophagine cichlid from the middle Amazon basin in Brazil, including the lower Madeira, Tapajós and Negro.",
-        "country": "BR",
+        "quote": "It's since recorded throughout much of the region including the lower rios Madeira, Tapajós, Trombetas and middle-to-lower Negro.",
         "ok": true
       },
       {
         "name": "Trombetas",
         "source": "seriouslyfish",
         "quote": "It's since recorded throughout much of the region including the lower rios Madeira, Tapajós, Trombetas and middle-to-lower Negro.",
+        "ok": true
+      },
+      {
+        "name": "Negro",
+        "source": "seriouslyfish",
+        "quote": "It's since recorded throughout much of the region including the lower rios Madeira, Tapajós, Trombetas and middle-to-lower Negro.",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Biotoecus opercularis is a small geophagine cichlid from the middle Amazon basin in Brazil, including the lower Madeira, Tapajós and Negro.",
+        "country": "BR",
         "ok": true
       }
     ],

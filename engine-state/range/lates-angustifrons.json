@@ -1,0 +1,102 @@
+{
+  "id": "lates-angustifrons",
+  "native": {
+    "input": "cfb767026e5958f1",
+    "at": "2026-11-09T12:58:06.259Z",
+    "claims": [
+      {
+        "code": "BI",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Tanganyika (Burundi, DR Congo, Tanzania and Zambia).",
+        "words": "Burundi",
+        "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Tanganyika (Burundi, DR Congo, Tanzania and Zambia).",
+        "words": "DR Congo",
+        "ok": true
+      },
+      {
+        "code": "TZ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Tanganyika (Burundi, DR Congo, Tanzania and Zambia).",
+        "words": "Tanzania",
+        "ok": true
+      },
+      {
+        "code": "ZM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Tanganyika (Burundi, DR Congo, Tanzania and Zambia).",
+        "words": "Zambia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Tanganyika",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Tanganyika (Burundi, DR Congo, Tanzania and Zambia).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Lates angustifrons",
+    "status": "ACCEPTED",
+    "taxonKey": 2393183,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        28
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        7
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        7
+      ],
+      [
+        "ba5b0f3a-73dd-459f-a7f1-9abc327aed00",
+        3
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "d6cc311c-c5ab-4f23-9a20-10514f9eb9c4",
+        2
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        1
+      ]
+    ],
+    "native": [
+      "BI",
+      "CD",
+      "TZ",
+      "ZM"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T12:58:06.259Z"
+  }
+}

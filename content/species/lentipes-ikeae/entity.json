@@ -10,6 +10,86 @@
     "indonesia",
     "java"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Java"
+      ],
+      "sources": [
+        "bwaquatics"
+      ],
+      "quotes": [
+        {
+          "source": "bwaquatics",
+          "quote": "Native to clear, fast-flowing mountain streams of Java, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Java"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7861524,
+      "total": 20,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "ID",
+          20
+        ]
+      ],
+      "cells": [
+        [
+          105.46875,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          -7.03125,
+          9,
+          9
+        ],
+        [
+          111.09375,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          113.90625,
+          -8.4375,
+          5,
+          5
+        ],
+        [
+          119.53125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          120.9375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          127.96875,
+          -4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

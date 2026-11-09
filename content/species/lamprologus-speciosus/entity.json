@@ -10,6 +10,50 @@
     "democratic-republic-of-the-congo",
     "lake-tanganyika"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the south-western end of Lake Tanganyika.",
+          "countries": [],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371681,
+      "total": 10,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "CD",
+          10
+        ]
+      ],
+      "cells": [
+        [
+          29.53125,
+          -8.4375,
+          8
+        ],
+        [
+          29.53125,
+          -7.03125,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -1,0 +1,56 @@
+{
+  "id": "hemichromis-cerasogaster",
+  "native": {
+    "input": "6bb3cacc2a4ab2f9",
+    "at": "2026-11-09T20:43:02.940Z",
+    "claims": [
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species lives exclusively in the Lac Mai Ndombe in the D. R. Congo.",
+        "words": "D. R. Congo",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lac Mai Ndombe",
+        "source": "glaser",
+        "quote": "The species lives exclusively in the Lac Mai Ndombe in the D. R. Congo.",
+        "country": "CD",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hemichromis cerasogaster",
+    "status": "ACCEPTED",
+    "taxonKey": 2371373,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        7
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        4
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "CD"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T20:43:02.940Z"
+  }
+}

@@ -36,3 +36,21 @@ test('a tank goes with every question as read_tanks gives it, but for its name a
   const across = `${'x'.repeat(NOTES_CHARS - 9)} gọi 0912345678`
   expect(JSON.parse(handedTanks([{ ...tank, notes: across }], hb))[0].readerNotes).not.toMatch(/\d/)
 })
+
+test('every field the reader typed goes with the question cleaned, not only the notes; read_tanks still gives them as typed', async () => {
+  const known = { name: 'Cá neon xanh' }
+  const hb = { byId: (id: string) => (id === 'paracheirodon-innesi' ? known : undefined) } as unknown as Handbook
+  const tank: Tank = {
+    id: 't1', name: 'Bể', species: [{ id: 'paracheirodon-innesi', count: 10 }, { id: 'zalo: 0912345678', count: 1 }],
+    unlisted: [{ name: 'Cá lạ gọi 0912345678', kind: 'fish' }, { name: 'Rêu xem shop.example.com', kind: 'plant' }],
+    plants: ['mua tại www.example.com'], substrate: 'Jalan Merdeka 5', days: 3,
+    lights: [{ name: 'Đèn của a@example.com' }], power: ['Lọc 0987654321'],
+  }
+  const handed = JSON.stringify(JSON.parse(handedTanks([tank], hb)))
+  for (const gone of ['0912345678', 'example.com', 'a@', 'Merdeka', '0987654321']) expect(handed, gone).not.toContain(gone)
+  expect(JSON.parse(handed)[0]).toMatchObject({ fish: [{ name: 'Cá neon xanh', id: 'paracheirodon-innesi', count: 10 }, { name: expect.stringContaining('…') }, { name: 'Cá lạ gọi …' }], savedDaysAgo: 3 })
+  // Ordinary names stay as typed.
+  const plain: Tank = { ...tank, species: [], plants: undefined, unlisted: [{ name: 'Cá sặc gấm', kind: 'fish' }], substrate: 'phân nền ADA', lights: [{ name: 'WRGB II 60' }], power: ['Lọc thùng'] }
+  expect(JSON.parse(handedTanks([plain], hb))[0]).toMatchObject({ fish: [{ name: 'Cá sặc gấm' }], substrate: 'phân nền ADA', plugsPower: ['Lọc thùng'] })
+  expect(JSON.parse(handedTanks([plain], hb))[0].lights[0]).toContain('WRGB II 60')
+})

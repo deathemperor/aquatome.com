@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-11-08",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "hpTFD_30N8M",
     "title": "THE BIG SHALLOW: Building The Hardscape & Testing The OASE Biomaster 850!",
@@ -38,21 +38,19 @@
         "type": "thung",
         "brand": "OASE",
         "model": "Biomaster 850 Thermo",
-        "t": 684
+        "t": 90
       },
       {
         "category": "den",
         "type": "thuy-sinh",
         "brand": "Skylight",
-        "model": "Hyperspot L",
-        "t": 0
+        "model": "Hyperspot L"
       },
       {
         "category": "co2",
         "type": "binh",
         "brand": "FZONE",
-        "model": "Mini Dual Stage CO2 Regulator",
-        "t": 0
+        "model": "Mini Dual Stage CO2 Regulator"
       },
       {
         "category": "phan-nen",
@@ -68,6 +66,11 @@
       },
       {
         "category": "khac",
+        "brand": "Chihiros",
+        "t": 104
+      },
+      {
+        "category": "khac",
         "brand": "Seachem",
         "model": "Purigen",
         "t": 104
@@ -76,13 +79,7 @@
         "category": "khac",
         "brand": "ADA",
         "model": "Clear Water",
-        "t": 136
-      },
-      {
-        "category": "khac",
-        "brand": "Chihiros",
-        "model": "clear hoses",
-        "t": 104
+        "t": 156
       },
       {
         "category": "khac",
@@ -93,13 +90,12 @@
       {
         "category": "khac",
         "brand": "Aquario",
-        "model": "plastic flow pipes",
         "t": 664
       }
     ],
     "figures": [
       {
-        "heading": "Vì sao lót đá lava nghiền dưới phân nền",
+        "heading": "Vì sao lót nham thạch vụn dưới phân nền",
         "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/hpTFD_30N8M/p0-uaWNfUm9jay5qcGc.webp",
@@ -109,18 +105,18 @@
           "licence": "CC BY-SA 4.0",
           "author": "Anushka10patel",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Basalt_%E2%80%93_The_Dark_Volcanic_Rock.jpg",
-          "caption": "Mặt đá núi lửa xốp nhiều lỗ, rất hợp cho vi sinh bám."
+          "caption": "Cận cảnh đá nham thạch xốp nhiều lỗ nhỏ, nơi vi sinh có lợi bám."
         }
       },
       {
-        "heading": "Xếp đá thế nào cho ra bố cục ưng ý",
+        "heading": "Xếp đá thế nào cho bể thấp",
         "moments": [
           {
             "t": 470,
             "url": "https://media.aquatome.com/video/hpTFD_30N8M/at470-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Những khối đá xếp trên nền sỏi đỏ trong bể thủy sinh.",
+            "caption": "Cận cảnh các hòn đá đặt trên nền trong bể.",
             "sharpness": 2736,
             "person": false
           },
@@ -129,62 +125,100 @@
             "url": "https://media.aquatome.com/video/hpTFD_30N8M/at490-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Toàn cảnh bể nông với cụm đá đã xếp xong, đèn phía trên.",
+            "caption": "Bể thấp đã có nền, đá xếp thành cụm nhìn rõ bố cục.",
             "sharpness": 1696,
             "person": false
           }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/hpTFD_30N8M/p1-cXVhc2NhcGUuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/hpTFD_30N8M/p1-cXVhc2NhcGUuanBn-480.webp",
+          "width": 960,
+          "height": 549,
+          "licence": "CC0",
+          "author": "Dileepkumardr",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nature_Aquarium_Aquascape.jpg",
+          "caption": "Bể thấp bố trí đá, lũa và dương xỉ, có thác nước nhỏ phía trên."
+        }
       },
       {
-        "heading": "Đắp nền dốc cho bể nông",
+        "heading": "Đắp nền bao nhiêu và đắp ra sao",
         "moments": [
+          {
+            "t": 640,
+            "url": "https://media.aquatome.com/video/hpTFD_30N8M/at640-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đá xếp trên lớp phân nền tối màu trong bể.",
+            "sharpness": 2774.7
+          },
           {
             "t": 650,
             "url": "https://media.aquatome.com/video/hpTFD_30N8M/at650-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Nhìn từ cạnh bể, nền dốc dày dần về phía sau với đá lava.",
+            "caption": "Nhìn từ hông bể, nền dốc từ mặt trước mỏng lên phía sau dày.",
             "sharpness": 2037.1,
-            "person": false
-          },
-          {
-            "t": 660,
-            "url": "https://media.aquatome.com/video/hpTFD_30N8M/at660-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lớp phân nền phủ lên đá lava, dốc cao dần về phía sau.",
-            "sharpness": 2845,
             "person": false
           }
         ]
       },
       {
-        "heading": "Cho bể chạy dark start trước khi trồng cây",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/hpTFD_30N8M/p3-BcXVhcml1bS5KUEc.webp",
-          "thumb": "https://media.aquatome.com/video/hpTFD_30N8M/p3-BcXVhcml1bS5KUEc-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC0",
-          "author": "Tdwittt",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Planted_Nano_Aquarium.JPG",
-          "caption": "Bể mới set với nền tối, lũa và vài cây, còn khá trống."
-        }
+        "heading": "Xếp vật liệu trong lọc OASE Biomaster 850",
+        "moments": [
+          {
+            "t": 790,
+            "url": "https://media.aquatome.com/video/hpTFD_30N8M/at790-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tay lấy các khay vật liệu lọc có mút xanh ra khỏi thùng lọc.",
+            "sharpness": 771.7
+          }
+        ]
       },
       {
         "heading": "Châm nước mà không làm hỏng nền và đá",
         "moments": [
           {
-            "t": 1040,
-            "url": "https://media.aquatome.com/video/hpTFD_30N8M/at1040-hd.webp",
+            "t": 990,
+            "url": "https://media.aquatome.com/video/hpTFD_30N8M/at990-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Viên đá dựng đã được chèn chắc bằng các viên đá nhỏ bên dưới.",
-            "sharpness": 1254.2,
-            "person": false
+            "caption": "Nước châm xối thẳng xuống nền, làm lệch đường nền đã vuốt.",
+            "sharpness": 2798
           }
         ]
+      },
+      {
+        "heading": "Cho bể chạy trước khi trồng cây (dark start)",
+        "moments": [
+          {
+            "t": 1070,
+            "url": "https://media.aquatome.com/video/hpTFD_30N8M/at1070-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể đã châm nước, nền và đá đã đắp xong, đang chạy chờ cây.",
+            "sharpness": 548.8
+          },
+          {
+            "t": 1110,
+            "url": "https://media.aquatome.com/video/hpTFD_30N8M/at1110-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ống lọc đã lắp vào bể thủy sinh đầy nước, chạy trước khi trồng cây.",
+            "sharpness": 543.6
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/hpTFD_30N8M/p5-NfUGxhbnRzLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/hpTFD_30N8M/p5-NfUGxhbnRzLmpwZw-480.webp",
+          "width": 960,
+          "height": 638,
+          "licence": "CC BY 4.0",
+          "author": "Abhik.Mazumdar.73",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_with_Mermaid_Statue_Driftwood_and_Anubias_Aquatic_Plants.jpg",
+          "caption": "Bể đã đắp nền cát, bố trí lũa và đổ nước, mới có vài cây."
+        }
       }
     ]
   }

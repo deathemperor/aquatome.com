@@ -2,7 +2,7 @@ import Handbook
 import SwiftUI
 
 /// The app's v2 (the App Store's approach: editorial cards that open into their pages, artwork-led shelves, colour drawn
-/// from the photos), behind "Giao diện mới (thử nghiệm)" in the Tài khoản sheet: `v2` in UserDefaults, off by default.
+/// from the photos): the app's look, unless the reader turns the old one on in the Tài khoản sheet (V2Switch).
 /// It runs on the app's own models (AquaTomeApp's environment), so switching back and forth keeps the tanks, the
 /// account and the pages kept and saved. Its tabs: Hôm nay; Khám phá, the handbook's shelves, where links from pages and
 /// from outside the app open (v1's Tìm tab, `handbookPath`); Bể của tôi and Đèn, v1's own; and Tìm, the search tab
@@ -28,17 +28,17 @@ struct V2Root: View {
     TabView(selection: $selection) {
       Tab("Hôm nay", systemImage: "sparkles", value: Pick.today) {
         TodayView(path: $todayPath)
-          .environment(\.v2OpenFull) { item in
+          .environment(\.v2OpenFull) { item, at in
             if todayOwnFrom == nil { todayOwnFrom = todayPath.count }
-            todayPath.append(FullPage(item: item))
+            todayPath.append(FullPage(item: item, at: at))
           }
           .v2ClearUnderTabBar()
       }
       Tab("Khám phá", systemImage: "square.grid.2x2", value: Pick.browse) {
         BrowseHome(path: $handbookPath, front: selection == .browse)
-          .environment(\.v2OpenFull) { item in
+          .environment(\.v2OpenFull) { item, at in
             if ownFrom == nil { ownFrom = handbookPath.count }
-            handbookPath.append(FullPage(item: item))
+            handbookPath.append(FullPage(item: item, at: at))
           }
           .v2ClearUnderTabBar()
       }
@@ -48,7 +48,10 @@ struct V2Root: View {
       }
       Tab("Đèn", systemImage: "lightbulb", value: Pick.lights) { LightsView().v2ClearUnderTabBar(on: Color(.systemGroupedBackground), fade: 10) }
       Tab(value: Pick.search, role: .search) {
-        HandbookView(path: $searchPath).v2StackLinks($searchPath).v2ClearUnderTabBar(on: Color(.systemGroupedBackground), fade: V2Fade.height)
+        HandbookView(path: $searchPath).v2StackLinks($searchPath)
+          .environment(\.v2Pages, true)
+          .environment(\.v2OpenFull) { item, at in searchPath.append(FullPage(item: item, at: at)) }
+          .v2ClearUnderTabBar(on: Color(.systemGroupedBackground), fade: V2Fade.height)
       }
     }
     // The owner's: no band behind the tab bar, and nothing through its glass (ClearUnderTabBar on each tab).
@@ -71,6 +74,12 @@ struct V2Root: View {
       }
     }
     .onAppear { follow(tab) }
+    // "Tìm trong cẩm nang" in a chat open on any of the stacks: the search tab at its top, holding the words.
+    .onChange(of: handbook.searchAsked) {
+      todayPath = NavigationPath()
+      searchPath = NavigationPath()
+      selection = .search
+    }
     .ownerShowsTab("\(selection)")
     // Switched back to v1: its Tìm tab shows `handbookPath`, up to the first screen only v2 draws; with nothing open on
     // Khám phá, what Hôm nay had open, or else the search tab (which pushes only v1's own screens).
@@ -98,15 +107,13 @@ struct V2Root: View {
   }
 }
 
-/// Whether this build offers v2's switch: debug and TestFlight builds, not the App Store's, until the owner says so.
+/// v2 or the old look. v2 is the app's look for everyone (the owner, 2026-11-08), installs from before too: on unless
+/// the reader turned it off by hand (a stored false), where it stays off. The Tài khoản sheet's switch offers the old
+/// look back; iOS 17 has the old look alone, as v2 needs iOS 18. `-v2 NO` gives a launch the old look, `-v2 YES` v2.
 enum V2Switch {
-  static var offered: Bool {
-    #if DEBUG
-    true
-    #else
-    Bundle.main.appStoreReceiptURL?.lastPathComponent == "sandboxReceipt"
-    #endif
-  }
+  /// The UserDefaults key, and its value where the reader never set it.
+  static let key = "v2"
+  static let byDefault = true
 }
 
 @available(iOS 18, *)
@@ -217,9 +224,11 @@ private struct ClearUnderTabBar: ViewModifier {
 }
 
 extension EnvironmentValues {
-  /// A fish's whole page (v1's, FullPage) pushed on the stack in front ("Xem trang đầy đủ"), counted for switching back
-  /// to v1 (V2Root).
-  @Entry var v2OpenFull: (HandbookIndex.Item) -> Void = { _ in }
+  /// A fish's or plant's page as v1 draws it (FullPage), pushed on the stack in front where v2's holds a part it can't draw
+  /// ("Xem phần này ở trang đầy đủ"), counted for switching back to v1 (V2Root).
+  @Entry var v2OpenFull: (HandbookIndex.Item, _ at: String?) -> Void = { _, _ in }
+  /// On v2's search tab, whose screen is v1's (HandbookView): a fish's or plant's page opens as v2 draws it there too.
+  @Entry var v2Pages = false
   /// What the tab stands on under its bar and fade, for a page whose colour reaches them (ClearUnderTabBar).
   @Entry var v2FootGround: Binding<FootGround?>?
   /// How many times the screen has been asked again ("Thử lại", a pull to refresh): a photo that didn't come tries again.
@@ -242,11 +251,12 @@ private struct Destinations: ViewModifier {
     content
       .navigationDestination(for: HandbookIndex.Item.self) { item in
         Group {
-          if item.kind == .fish { SpeciesPage(item: item) } else { PageView(item: item, url: handbook.url(item)).v2ClearOfTheFade() }
+          // A fish's or a plant's: v2's own, the whole page.
+          if item.kind == .fish || item.kind == .plant { SpeciesPage(item: item) } else { PageView(item: item, url: handbook.url(item)).v2ClearOfTheFade() }
         }
         .navigationTransition(.zoom(sourceID: item.path, in: zoom))
       }
-      .navigationDestination(for: FullPage.self) { PageView(item: $0.item, url: handbook.url($0.item)).v2ClearOfTheFade() }
+      .navigationDestination(for: FullPage.self) { PageView(item: $0.item, url: handbook.url($0.item), at: $0.at).v2ClearOfTheFade() }
       .navigationDestination(for: Browse.self) { BrowseView(browse: $0).v2ClearOfTheFade() }
       .navigationDestination(for: VolumeTool.self) { TankVolumeView(query: $0.query).v2ClearOfTheFade() }
       .navigationDestination(for: FishIdRoute.self) { _ in FishIdView().v2ClearOfTheFade() }

@@ -1,0 +1,33 @@
+{
+  "id": "macrognathus-meklongensis",
+  "native": {
+    "input": "247590d3a804e418",
+    "at": "2026-11-09T20:43:02.940Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Meklong",
+        "source": "glaser",
+        "quote": "meklongensis: originating from the Meklong river.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "TH"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Macrognathus meklongensis",
+    "status": "ACCEPTED",
+    "taxonKey": 5204057,
+    "datasets": [],
+    "native": [],
+    "requests": 2,
+    "at": "2026-11-09T20:43:02.940Z"
+  }
+}

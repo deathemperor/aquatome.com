@@ -13,6 +13,197 @@
     "north-korea",
     "south-korea"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN",
+        "KR",
+        "JP"
+      ],
+      "regions": [
+        "Amur River",
+        "Pearl River",
+        "Chusan Island"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known from an enormous range in China, Korea, Japan, and possibly northeastern Vietnam, which on the mainland stretches between the Zhu Jiang (Pearl River) in southern China and Heilong Jiang (Amur River) at the border between northeastern China and Russia.",
+          "countries": [
+            "CN",
+            "KR",
+            "JP"
+          ],
+          "regions": [
+            "Amur River",
+            "Pearl River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Chusan Island, China', now usually referred to as Zhoushan.",
+          "countries": [],
+          "regions": [
+            "Chusan Island"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5211151,
+      "total": 69,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "KR",
+          43
+        ],
+        [
+          "CN",
+          21
+        ],
+        [
+          "GB",
+          4
+        ],
+        [
+          "JP",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -4.21875,
+          49.21875,
+          4,
+          0
+        ],
+        [
+          99.84375,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          106.875,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          108.28125,
+          40.78125,
+          4,
+          4
+        ],
+        [
+          109.6875,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          28.125,
+          2,
+          2
+        ],
+        [
+          112.5,
+          28.125,
+          1,
+          1
+        ],
+        [
+          115.3125,
+          39.375,
+          1,
+          1
+        ],
+        [
+          116.71875,
+          37.96875,
+          1,
+          1
+        ],
+        [
+          118.125,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          118.125,
+          29.53125,
+          1,
+          1
+        ],
+        [
+          119.53125,
+          30.9375,
+          5,
+          5
+        ],
+        [
+          120.9375,
+          29.53125,
+          1,
+          1
+        ],
+        [
+          120.9375,
+          36.5625,
+          1,
+          1
+        ],
+        [
+          125.15625,
+          35.15625,
+          2,
+          2
+        ],
+        [
+          125.15625,
+          36.5625,
+          13,
+          13
+        ],
+        [
+          126.5625,
+          35.15625,
+          14,
+          14
+        ],
+        [
+          126.5625,
+          36.5625,
+          10,
+          10
+        ],
+        [
+          127.96875,
+          35.15625,
+          3,
+          3
+        ],
+        [
+          127.96875,
+          36.5625,
+          1,
+          1
+        ],
+        [
+          136.40625,
+          35.15625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

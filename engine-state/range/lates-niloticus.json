@@ -1,0 +1,273 @@
+{
+  "id": "lates-niloticus",
+  "native": {
+    "input": "252243f74705bffc",
+    "at": "2026-11-09T12:58:06.259Z",
+    "claims": [
+      {
+        "code": "EG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It can also withstand brackish conditions, with a population thriving in the saline Egyptian lake of Mariout.",
+        "words": "Egyptian",
+        "ok": false,
+        "why": "\"Egyptian\" is not EG"
+      }
+    ],
+    "regions": [
+      {
+        "name": "Nile",
+        "source": "seriouslyfish",
+        "quote": "Widespread throughout much of Central and Western Africa, where it inhabits all the major rivers, including the Nile, Chad, Senegal, Volta and Congo.",
+        "ok": true
+      },
+      {
+        "name": "Congo",
+        "source": "seriouslyfish",
+        "quote": "Widespread throughout much of Central and Western Africa, where it inhabits all the major rivers, including the Nile, Chad, Senegal, Volta and Congo.",
+        "ok": true
+      },
+      {
+        "name": "Chad",
+        "source": "seriouslyfish",
+        "quote": "Widespread throughout much of Central and Western Africa, where it inhabits all the major rivers, including the Nile, Chad, Senegal, Volta and Congo.",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Senegal",
+        "source": "seriouslyfish",
+        "quote": "Widespread throughout much of Central and Western Africa, where it inhabits all the major rivers, including the Nile, Chad, Senegal, Volta and Congo.",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Volta",
+        "source": "seriouslyfish",
+        "quote": "Widespread throughout much of Central and Western Africa, where it inhabits all the major rivers, including the Nile, Chad, Senegal, Volta and Congo.",
+        "ok": true
+      },
+      {
+        "name": "Lake Albert",
+        "source": "seriouslyfish",
+        "quote": "It's native to Lake Albert and Lake Turkana, and was introduced into Lake Victoria and Lake Kyoga.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BJ",
+        "BF",
+        "CM",
+        "CF",
+        "TD",
+        "CI",
+        "CD",
+        "EG",
+        "ET",
+        "GH",
+        "GN",
+        "GW",
+        "KE",
+        "ML",
+        "NE",
+        "NG",
+        "SN",
+        "SL",
+        "SD",
+        "TG",
+        "UG",
+        "SS"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Lates niloticus",
+    "status": "ACCEPTED",
+    "taxonKey": 2393184,
+    "datasets": [
+      [
+        "90b6055a-c12b-4c91-951a-7efbe184bca1",
+        1410
+      ],
+      [
+        "48a18d17-96f2-4a0d-89ad-bbe1ac6ce72c",
+        416
+      ],
+      [
+        "3d514dad-76ed-43d3-893c-915910ce638c",
+        288
+      ],
+      [
+        "7d0726ee-f3f7-4c08-bd46-a1360abb3803",
+        194
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        157
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        143
+      ],
+      [
+        "5764708e-2a95-4d95-9447-2ed8a3bc46bd",
+        69
+      ],
+      [
+        "ed820bdb-4345-4143-a280-4fbffaacd31d",
+        21
+      ],
+      [
+        "d2724ca9-8ccd-416e-9837-7aee75f67422",
+        19
+      ],
+      [
+        "ba5b0f3a-73dd-459f-a7f1-9abc327aed00",
+        15
+      ],
+      [
+        "5e1d2d54-f5db-43ac-87c5-55a9f79ac718",
+        13
+      ],
+      [
+        "8e912d78-6259-44e3-8f58-debb3081a15f",
+        13
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        11
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        10
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        9
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        9
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        8
+      ],
+      [
+        "1c6b8a9f-5bd9-4358-9915-b7643779b03e",
+        7
+      ],
+      [
+        "c2914e4b-381d-4814-8a34-66a7d949fd44",
+        7
+      ],
+      [
+        "c43cabdf-1a3c-488c-9923-2466abd7df9b",
+        6
+      ],
+      [
+        "96419bea-f762-11e1-a439-00145eb45e9a",
+        5
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        5
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        5
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        4
+      ],
+      [
+        "698535ed-f0fd-4740-b6ad-cafdf51d9802",
+        4
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        3
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "988007b1-1179-42e0-863c-bb9f1bdfa6f7",
+        3
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        3
+      ],
+      [
+        "026af01f-d227-476f-9e81-d5273eca6a2b",
+        2
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        2
+      ],
+      [
+        "47f75ea9-ad74-47ab-919a-b8c8d4f1fce3",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "ba228394-028a-449a-9d5b-51027fabb598",
+        2
+      ],
+      [
+        "d6cc311c-c5ab-4f23-9a20-10514f9eb9c4",
+        2
+      ],
+      [
+        "34585f24-1ffe-4744-8734-7d563c918d18",
+        1
+      ],
+      [
+        "3fb7ddd8-07c0-490d-a0f1-32b5dec8d583",
+        1
+      ],
+      [
+        "40a262b4-6627-4011-afbe-159c00ec97e7",
+        1
+      ],
+      [
+        "ec6c5a00-8016-44cf-8550-62b8197c67fb",
+        1
+      ],
+      [
+        "f83035bf-bcc7-45b1-87e6-ccd7d9922eed",
+        1
+      ],
+      [
+        "fba36b75-451a-40e3-af18-297f151bcc91",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-09T12:58:06.259Z"
+  }
+}

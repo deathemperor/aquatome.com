@@ -1,0 +1,633 @@
+{
+  "found": true,
+  "group": "cichlids",
+  "enNames": [
+    {
+      "name": "Buffalo head cichlid",
+      "source": 0
+    },
+    {
+      "name": "Lion head",
+      "source": 0
+    },
+    {
+      "name": "Blockhead",
+      "source": 0
+    },
+    {
+      "name": "Blockhead Cichlid",
+      "source": 1
+    },
+    {
+      "name": "Humphead cichlid",
+      "source": 1
+    },
+    {
+      "name": "Lionhead cichlid",
+      "source": 2
+    },
+    {
+      "name": "Buffalohead cichlid",
+      "source": 5
+    },
+    {
+      "name": "African blockhead",
+      "source": 3
+    },
+    {
+      "name": "Lumphead",
+      "source": 3
+    }
+  ],
+  "viNames": [],
+  "facts": [
+    {
+      "section": "notes",
+      "fact": "Max Poll described the species in 1939.",
+      "source": 3
+    },
+    {
+      "section": "notes",
+      "fact": "ITIS lists Steatocranus casuarius Poll, 1939 as a valid name.",
+      "source": 9
+    },
+    {
+      "section": "notes",
+      "fact": "The genus name combines Greek steatos (hard fat) and kranion (skull).",
+      "source": 2
+    },
+    {
+      "section": "notes",
+      "fact": "Steatocranus elongatus is given as a synonym.",
+      "source": 6
+    },
+    {
+      "section": "notes",
+      "fact": "The Glaser page counts eight species in the genus, some of them quite similar.",
+      "source": 4
+    },
+    {
+      "section": "notes",
+      "fact": "It is often confused with S. gibbiceps, which comes from the same Congo region and is exported with it.",
+      "source": 4
+    },
+    {
+      "section": "notes",
+      "fact": "Scale centres separate the two: dark in S. casuarius, light in S. gibbiceps.",
+      "source": 4
+    },
+    {
+      "section": "notes",
+      "fact": "The slender buffalo head (S. tinanti) is more streamlined than this species and has a very large mouth.",
+      "source": 0
+    },
+    {
+      "section": "notes",
+      "fact": "The swim bladder is reduced, so the fish is less buoyant and can hold position in strong flow.",
+      "source": 0
+    },
+    {
+      "section": "notes",
+      "fact": "The modified swim bladder keeps it from being swept away.",
+      "source": 1
+    },
+    {
+      "section": "notes",
+      "fact": "It moves over the bottom in short hops.",
+      "source": 1
+    },
+    {
+      "section": "notes",
+      "fact": "The nuchal hump can change size quite quickly.",
+      "source": 1
+    },
+    {
+      "section": "notes",
+      "fact": "Body shape is elongated.",
+      "source": 2
+    },
+    {
+      "section": "notes",
+      "fact": "The IUCN Red List rates it Least Concern, assessed 16 February 2009.",
+      "source": 2
+    },
+    {
+      "section": "distribution",
+      "fact": "It lives in Pool Malebo (Stanley Pool) and the lower Congo River.",
+      "source": 2
+    },
+    {
+      "section": "distribution",
+      "fact": "Its range covers both the Republic of the Congo and the Democratic Republic of the Congo.",
+      "source": 2
+    },
+    {
+      "section": "distribution",
+      "fact": "It comes from the lower Congo basin.",
+      "source": 0
+    },
+    {
+      "section": "distribution",
+      "fact": "It occurs in the Lower Congo River and its tributaries.",
+      "source": 1
+    },
+    {
+      "section": "habitat",
+      "fact": "It lives in very fast rapids.",
+      "source": 0
+    },
+    {
+      "section": "habitat",
+      "fact": "It inhabits fast, turbulent stretches of river, usually in pockets of still water.",
+      "source": 1
+    },
+    {
+      "section": "habitat",
+      "fact": "In the wild it colonises boulder bottoms in rapids.",
+      "source": 4
+    },
+    {
+      "section": "habitat",
+      "fact": "It is a rheophilic, bottom-dwelling freshwater fish.",
+      "source": 2
+    },
+    {
+      "section": "habitat",
+      "fact": "It is found in rocky rapids of the lower Zaire (Congo) River.",
+      "source": 6
+    },
+    {
+      "section": "beforeYouBuy",
+      "fact": "It is commercially traded for aquaria.",
+      "source": 2
+    },
+    {
+      "section": "beforeYouBuy",
+      "fact": "Wild-caught and captive-bred fish have both been stocked by the German wholesaler Aquarium Glaser, at 4-6 cm and 3-4 cm.",
+      "source": 4
+    },
+    {
+      "section": "beforeYouBuy",
+      "fact": "Buying an established pair or juveniles is advised, because unpaired fish often do poorly.",
+      "source": 7
+    },
+    {
+      "section": "beforeYouBuy",
+      "fact": "Hobby sources often call it hyper-aggressive; the video's keepers disagree after years of keeping it.",
+      "source": 0
+    },
+    {
+      "section": "aquariumSize",
+      "fact": "A 40-gallon tank is the smallest suggested for a pair.",
+      "source": 0
+    },
+    {
+      "section": "aquariumSize",
+      "fact": "Two pairs may fit in 40 gallons with plenty of rock and broken sight lines.",
+      "source": 0
+    },
+    {
+      "section": "aquariumSize",
+      "fact": "A group of six or more needs at least 75 gallons.",
+      "source": 0
+    },
+    {
+      "section": "aquariumSize",
+      "fact": "A tank of 75 × 30 × 30 cm is given as the base size.",
+      "source": 1
+    },
+    {
+      "section": "aquariumSize",
+      "fact": "A minimum aquarium of 80 cm, with fish kept in pairs, is recommended.",
+      "source": 2
+    },
+    {
+      "section": "aquariumSize",
+      "fact": "A 20-gallon tank is said to suit one pair.",
+      "source": 5
+    },
+    {
+      "section": "aquariumSize",
+      "fact": "Another guide asks for at least 50 gallons.",
+      "source": 8
+    },
+    {
+      "section": "aquariumSize",
+      "fact": "Rock piles, stacked hardscape and soft sand suit it, since it digs and burrows.",
+      "source": 0
+    },
+    {
+      "section": "aquariumSize",
+      "fact": "Rock caves should be fixed to the tank base or siliconed so digging cannot bring them down.",
+      "source": 1
+    },
+    {
+      "section": "aquariumSize",
+      "fact": "Use robust, potted or weighted plants, because the fish burrows.",
+      "source": 6
+    },
+    {
+      "section": "waterConditions",
+      "fact": "Temperature of 75-82°F and pH 6-8 are suggested, with stable water more important than exact values.",
+      "source": 0
+    },
+    {
+      "section": "waterConditions",
+      "fact": "It enjoys fast flow and needs well-oxygenated water.",
+      "source": 0
+    },
+    {
+      "section": "waterConditions",
+      "fact": "Seriously Fish gives 24-28°C, pH 6.0-7.5 and 2-15 dGH.",
+      "source": 1
+    },
+    {
+      "section": "waterConditions",
+      "fact": "A powerhead for strong flow is advised, along with a low-flow area.",
+      "source": 1
+    },
+    {
+      "section": "waterConditions",
+      "fact": "FishBase gives 24-28°C, pH 6.0-8.0 and dH 5-19.",
+      "source": 2
+    },
+    {
+      "section": "waterConditions",
+      "fact": "It needs soft water that is not excessively acidic.",
+      "source": 4
+    },
+    {
+      "section": "waterConditions",
+      "fact": "One guide gives an alkaline pH of 7.5-8.5, unlike the other sources.",
+      "source": 8
+    },
+    {
+      "section": "waterConditions",
+      "fact": "One profile allows a temperature of 24-30°C.",
+      "source": 5
+    },
+    {
+      "section": "diet",
+      "fact": "In aquaria it takes flake, pellet, frozen and live food.",
+      "source": 0
+    },
+    {
+      "section": "diet",
+      "fact": "Food must sink to the bottom or the rock pile, because it will not rise to feed.",
+      "source": 0
+    },
+    {
+      "section": "diet",
+      "fact": "In the wild it is reported to feed primarily on algae.",
+      "source": 2
+    },
+    {
+      "section": "diet",
+      "fact": "It accepts dried food, but live and frozen foods such as bloodworm and brine shrimp should be added.",
+      "source": 1
+    },
+    {
+      "section": "diet",
+      "fact": "Food should not be too fatty; Tubifex and similar foods can cause fatal intestinal disease.",
+      "source": 4
+    },
+    {
+      "section": "diet",
+      "fact": "It is an omnivore needing both meaty food and plant matter.",
+      "source": 5
+    },
+    {
+      "section": "diet",
+      "fact": "Chopped freshwater mussel is often relished and can help tempt difficult feeders.",
+      "source": 7
+    },
+    {
+      "section": "behaviour",
+      "fact": "The video's keepers call it territorial rather than aggressive.",
+      "source": 0
+    },
+    {
+      "section": "behaviour",
+      "fact": "It stays low and does not swim above mid-level, but climbs and sits on stacked rocks.",
+      "source": 0
+    },
+    {
+      "section": "behaviour",
+      "fact": "It ignores tetras, barbs and other fish using the mid to upper water.",
+      "source": 0
+    },
+    {
+      "section": "behaviour",
+      "fact": "It chases and bumps other cichlids that enter its territory, especially when spawning.",
+      "source": 0
+    },
+    {
+      "section": "behaviour",
+      "fact": "The video's keepers keep the genus with small cichlids of 3-4 inches without torn fins or hiding.",
+      "source": 0
+    },
+    {
+      "section": "behaviour",
+      "fact": "It pushes with its head; biting or fin nipping was not seen by the video's keepers.",
+      "source": 0
+    },
+    {
+      "section": "behaviour",
+      "fact": "Pairs are best, and other cichlids should be avoided unless the tank is very large.",
+      "source": 1
+    },
+    {
+      "section": "behaviour",
+      "fact": "Suggested tankmates include alestiid tetras, larger characins, barbs and rheophilic Synodontis.",
+      "source": 1
+    },
+    {
+      "section": "behaviour",
+      "fact": "It is relatively peaceful, but strongly defends the area around its breeding cave.",
+      "source": 4
+    },
+    {
+      "section": "behaviour",
+      "fact": "Plants are occasionally dug up or bitten when the fish are breeding.",
+      "source": 4
+    },
+    {
+      "section": "behaviour",
+      "fact": "It is described as territorial and pugnacious, more so during spawning, though it can live with many larger fish.",
+      "source": 6
+    },
+    {
+      "section": "behaviour",
+      "fact": "A fish that loses its mate usually lives alone afterwards.",
+      "source": 6
+    },
+    {
+      "section": "behaviour",
+      "fact": "Mature males can be aggressive towards females, and new mates often fail to bond.",
+      "source": 7
+    },
+    {
+      "section": "dimorphism",
+      "fact": "Males are larger and develop a bigger nuchal hump than females.",
+      "source": 1
+    },
+    {
+      "section": "dimorphism",
+      "fact": "Males reach about 12 cm and females about 8 cm.",
+      "source": 6
+    },
+    {
+      "section": "dimorphism",
+      "fact": "Males reach about 6 inches and females about 4 inches, by this profile.",
+      "source": 5
+    },
+    {
+      "section": "dimorphism",
+      "fact": "Males have longer fins than females.",
+      "source": 5
+    },
+    {
+      "section": "dimorphism",
+      "fact": "Males grow longer and are darker than females.",
+      "source": 7
+    },
+    {
+      "section": "reproduction",
+      "fact": "In aquaria it is pretty easy to breed and will likely spawn if its needs are met.",
+      "source": 0
+    },
+    {
+      "section": "reproduction",
+      "fact": "It is a pair-bonding cave spawner producing 20-150 eggs.",
+      "source": 2
+    },
+    {
+      "section": "reproduction",
+      "fact": "In aquaria, a species tank with Congo tetras as dither fish, at 24-26.5°C and pH 6.0-7.0, is suggested.",
+      "source": 1
+    },
+    {
+      "section": "reproduction",
+      "fact": "Eggs hatch in about 5-7 days and fry swim freely after 11-14 days, in aquaria.",
+      "source": 1
+    },
+    {
+      "section": "reproduction",
+      "fact": "Both parents guard the brood for up to 3 months in aquaria.",
+      "source": 1
+    },
+    {
+      "section": "reproduction",
+      "fact": "A pair digs a cave under a rock and the female lays eggs on its roof and sides, in aquaria.",
+      "source": 5
+    },
+    {
+      "section": "reproduction",
+      "fact": "One profile reports hatching in about 3-4 days and free-swimming fry around day 5, in aquaria.",
+      "source": 5
+    },
+    {
+      "section": "reproduction",
+      "fact": "Clutches in aquaria are typically 30-60 eggs, with up to 150 possible.",
+      "source": 6
+    },
+    {
+      "section": "reproduction",
+      "fact": "For aquarium breeding this source gives pH 6.5-6.9, 4-12 dH and 27-29°C, with caves or overturned flowerpots.",
+      "source": 6
+    },
+    {
+      "section": "reproduction",
+      "fact": "In aquaria the female guards the eggs while the male guards the territory.",
+      "source": 6
+    },
+    {
+      "section": "reproduction",
+      "fact": "Fry can be fed Artemia nauplii and dry foods.",
+      "source": 6
+    },
+    {
+      "section": "reproduction",
+      "fact": "Pairs bond for life and may spawn on a cave roof or inside a shell, in aquaria.",
+      "source": 7
+    }
+  ],
+  "care": [
+    {
+      "field": "sizeCm",
+      "min": 12,
+      "max": 12,
+      "source": 1,
+      "quote": "120mm SL"
+    },
+    {
+      "field": "sizeCm",
+      "min": 10,
+      "max": 10,
+      "source": 2,
+      "quote": "Max length : 10.0 cm TL male/unsexed"
+    },
+    {
+      "field": "tempC",
+      "min": 24,
+      "max": 28,
+      "source": 1,
+      "quote": "24–28°C"
+    },
+    {
+      "field": "tempC",
+      "min": 24,
+      "max": 28,
+      "source": 2,
+      "quote": "24°C - 28°C"
+    },
+    {
+      "field": "tempC",
+      "min": 24,
+      "max": 28,
+      "source": 0,
+      "quote": "It's like 75 to 82"
+    },
+    {
+      "field": "ph",
+      "min": 6,
+      "max": 7.5,
+      "source": 1,
+      "quote": "6.0–7.5"
+    },
+    {
+      "field": "ph",
+      "min": 6,
+      "max": 8,
+      "source": 2,
+      "quote": "pH range: 6.0 - 8.0"
+    },
+    {
+      "field": "ph",
+      "min": 6,
+      "max": 8,
+      "source": 0,
+      "quote": "6 to 8, um, as far as pH goes"
+    },
+    {
+      "field": "gh",
+      "min": 2,
+      "max": 15,
+      "source": 1,
+      "quote": "2–15dGH"
+    },
+    {
+      "field": "gh",
+      "min": 5,
+      "max": 19,
+      "source": 2,
+      "quote": "dH range: 5 - 19"
+    },
+    {
+      "field": "tankCm",
+      "min": 75,
+      "max": 75,
+      "source": 1,
+      "quote": "75 × 30cm"
+    },
+    {
+      "field": "tankCm",
+      "min": 80,
+      "max": 80,
+      "source": 2,
+      "quote": "minimum aquarium size 80 cm"
+    },
+    {
+      "field": "difficulty",
+      "min": 2,
+      "max": 2,
+      "source": 8,
+      "quote": "easy to care for"
+    },
+    {
+      "field": "lifeYears",
+      "min": 10,
+      "max": 10,
+      "source": 8,
+      "quote": "can live over 10 years with excellent care"
+    }
+  ],
+  "places": [
+    {
+      "continent": "Africa",
+      "country": "Democratic Republic of the Congo",
+      "region": "Pool Malebo",
+      "source": 2
+    },
+    {
+      "continent": "Africa",
+      "country": "Democratic Republic of the Congo",
+      "region": "Lower Congo River",
+      "source": 2
+    },
+    {
+      "continent": "Africa",
+      "country": "Republic of the Congo",
+      "region": "Pool Malebo",
+      "source": 2
+    },
+    {
+      "continent": "Africa",
+      "country": "Republic of the Congo",
+      "region": "Lower Congo River",
+      "source": 2
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.youtube.com/watch?v=6hvjOB7X4Iw",
+      "title": "Buffalo Head Cichlids: The Oddballs You’ll Fall in Love With",
+      "kind": "video"
+    },
+    {
+      "url": "https://www.seriouslyfish.com/species/steatocranus-casuarius/",
+      "title": "Steatocranus casuarius (Blockhead Cichlid) · Seriously Fish",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.fishbase.se/summary/8864",
+      "title": "Steatocranus casuarius, Lionhead cichlid : aquarium",
+      "kind": "other"
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Steatocranus_casuarius",
+      "title": "Lionhead cichlid",
+      "kind": "other"
+    },
+    {
+      "url": "https://aquariumglaser.de/en/fisharchive/steatocranus-casuarius-2",
+      "title": "Steatocranus casuarius",
+      "kind": "shop"
+    },
+    {
+      "url": "https://arcichlidp.blogspot.com/2008/07/steatocranus-casuarius-buffalohead.html",
+      "title": "Aquatic Revolution - Cichlid Profiles: Steatocranus casuarius - Buffalohead Cichlid",
+      "kind": "article"
+    },
+    {
+      "url": "https://tropicalfreshwaterfish.com/species/Steatocranus_casuarius.html",
+      "title": "Buffalohead | Steatocranus casuarius",
+      "kind": "article"
+    },
+    {
+      "url": "https://fishprofiles.com/profiles/freshwater/Cichlids/Steatocranus_casuarius",
+      "title": "FishProfiles.com - Steatocranus casuarius",
+      "kind": "article"
+    },
+    {
+      "url": "https://www.fishlaboratory.com/?p=4310",
+      "title": "Buffalo Head Cichlid (Steatocranus casuarius): Ultimate Care Guide - Fish Laboratory",
+      "kind": "article"
+    },
+    {
+      "url": "https://itis.gov/servlet/SingleRpt/SingleRpt?categories=All&search_credRating=All&search_kingdom=every&search_span=containing&search_topic=Scientific_Name&search_value=Steatocranus+casuarius",
+      "title": "ITIS - Report: Steatocranus casuarius",
+      "kind": "other"
+    }
+  ]
+}

@@ -532,10 +532,14 @@
     "reason": "aquarium tour"
   },
   "5K1_KCFudYM": {
-    "at": "2026-11-07",
+    "at": "2026-11-09",
     "title": "Hornwort (Ceratophyllum demersum) Hardy Plant for Beginners/Breeding Livebearers",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Ceratophyllum demersum",
+    "page": "plants/ceratophyllum-demersum",
+    "done": "added",
+    "score": 0.85
   },
   "5nS3R41bZIA": {
     "at": "2026-11-07",
@@ -578,16 +582,23 @@
     "reason": "general rainbowfish, not one species"
   },
   "5w78A-3CMaY": {
-    "at": "2026-11-07",
+    "at": "2026-11-09",
     "title": "Micranthemum \"MONTE CARLO\" (Species Spotlight)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Micranthemum monte carlo",
+    "done": "skipped",
+    "reason": "no page, and GBIF has no species of that name"
   },
   "5wrNO-hLGy0": {
-    "at": "2026-11-07",
+    "at": "2026-11-09",
     "title": "Longmouth Pipefish: One of the Strangest Freshwater Fish",
     "channel": "Steenfott Aquatics",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Doryichthys heterosoma",
+    "page": "species/doryichthys-heterosoma",
+    "done": "new page",
+    "score": 0.85
   },
   "60nzF3BVTZk": {
     "at": "2026-11-07",
@@ -614,22 +625,32 @@
     "reason": "shop visit"
   },
   "6C3cORsXseY": {
-    "at": "2026-11-07",
+    "at": "2026-11-09",
     "title": "Meet the Adorable Otocinclus Catfish - Otocinclus vittatus - Best Algae Eating Fish",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Otocinclus vittatus",
+    "page": "species/otocinclus-vittatus",
+    "done": "added",
+    "score": 0.8
   },
   "6da7WVHCzxk": {
-    "at": "2026-11-07",
+    "at": "2026-11-09",
     "title": "New Exciting Nano Fish - Nannostomus sp. Amaya",
     "channel": "CHRIS LUKHAUP",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "6hvjOB7X4Iw": {
-    "at": "2026-11-07",
+    "at": "2026-11-09",
     "title": "Buffalo Head Cichlids: The Oddballs You’ll Fall in Love With",
     "channel": "Steenfott Aquatics",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Steatocranus casuarius",
+    "page": "species/steatocranus-casuarius",
+    "done": "new page",
+    "score": 0.93
   },
   "6pcqIM3VdwA": {
     "at": "2026-11-07",

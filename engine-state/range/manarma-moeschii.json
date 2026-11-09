@@ -1,0 +1,58 @@
+{
+  "id": "manarma-moeschii",
+  "native": {
+    "input": "cb22c1f53b566ccf",
+    "at": "2026-11-09T20:43:02.940Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "They are widely distributed in Sumatra (type locality Deli), the Mergui Archipelago in the Andaman Sea, Sulawesi, Peninsular Malaysia, and the Gulf of Thailand.",
+        "words": "Malaysia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sumatra",
+        "source": "aquariumbreeder",
+        "quote": "They are widely distributed in Sumatra (type locality Deli), the Mergui Archipelago in the Andaman Sea, Sulawesi, Peninsular Malaysia, and the Gulf of Thailand.",
+        "ok": true
+      },
+      {
+        "name": "Mergui Archipelago",
+        "source": "aquariumbreeder",
+        "quote": "They are widely distributed in Sumatra (type locality Deli), the Mergui Archipelago in the Andaman Sea, Sulawesi, Peninsular Malaysia, and the Gulf of Thailand.",
+        "ok": true
+      },
+      {
+        "name": "Sulawesi",
+        "source": "aquariumbreeder",
+        "quote": "They are widely distributed in Sumatra (type locality Deli), the Mergui Archipelago in the Andaman Sea, Sulawesi, Peninsular Malaysia, and the Gulf of Thailand.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "ID",
+        "MM",
+        "TH"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Manarma moeschii",
+    "status": "ACCEPTED",
+    "taxonKey": 11116458,
+    "datasets": [],
+    "native": [
+      "MY"
+    ],
+    "requests": 2,
+    "at": "2026-11-09T20:43:02.940Z"
+  }
+}

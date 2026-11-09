@@ -10,6 +10,58 @@
     "haiti",
     "dominican-republic"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "HT",
+        "DO"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Hump-backed limia, Limia nigrofasciata, is a livebearer from Haiti and the Dominican Republic, found in shallow, heavily vegetated water.",
+          "countries": [
+            "HT",
+            "DO"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5203853,
+      "total": 12,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "HT",
+          9
+        ],
+        [
+          "DO",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -73.125,
+          18.28125,
+          10,
+          10
+        ],
+        [
+          -71.71875,
+          18.28125,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

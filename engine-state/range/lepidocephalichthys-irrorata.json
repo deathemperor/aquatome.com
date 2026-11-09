@@ -1,0 +1,77 @@
+{
+  "id": "lepidocephalichthys-irrorata",
+  "native": {
+    "input": "703c3c44453a160f",
+    "at": "2026-11-09T12:58:06.259Z",
+    "claims": [
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Currently considered to have a relatively wide distribution in the Brahamaputra River basin and has been recorded in the Muhuri and Sylhet river systems in Bangladesh plus the states of Meghalaya, Manipur and Assam in northeastern India.",
+        "words": "Bangladesh",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Currently considered to have a relatively wide distribution in the Brahamaputra River basin and has been recorded in the Muhuri and Sylhet river systems in Bangladesh plus the states of Meghalaya, Manipur and Assam in northeastern India.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Brahamaputra",
+        "source": "seriouslyfish",
+        "quote": "Currently considered to have a relatively wide distribution in the Brahamaputra River basin and has been recorded in the Muhuri and Sylhet river systems in Bangladesh plus the states of Meghalaya, Manipur and Assam in northeastern India.",
+        "ok": true
+      },
+      {
+        "name": "Muhuri",
+        "source": "seriouslyfish",
+        "quote": "Currently considered to have a relatively wide distribution in the Brahamaputra River basin and has been recorded in the Muhuri and Sylhet river systems in Bangladesh plus the states of Meghalaya, Manipur and Assam in northeastern India.",
+        "country": "BD",
+        "ok": true
+      },
+      {
+        "name": "Loktak Lake",
+        "source": "seriouslyfish",
+        "quote": "Hora mentions that the species is 'widely-distributed in lakes and streams of the Manipur Valley, India' and that some of his specimens were obtained from Loktak Lake without providing a specific type locality.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Lepidocephalichthys irrorata",
+    "status": "ACCEPTED",
+    "taxonKey": 2368068,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        6
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ]
+    ],
+    "native": [
+      "BD",
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T12:58:06.259Z"
+  }
+}

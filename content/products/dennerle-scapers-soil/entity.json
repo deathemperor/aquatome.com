@@ -1,0 +1,131 @@
+{
+  "id": "dennerle-scapers-soil",
+  "brand": "Dennerle",
+  "model": "Scapers Soil",
+  "category": "phan-nen",
+  "type": "phan",
+  "specs": [
+    {
+      "key": "Grain size",
+      "value": "1–4 mm, irregular granules",
+      "source": 0
+    },
+    {
+      "key": "Colour",
+      "value": "Black",
+      "source": 6
+    },
+    {
+      "key": "Recommended layer height",
+      "value": "about 4 cm",
+      "source": 6
+    },
+    {
+      "key": "Material",
+      "value": "Natural volcanic soil (made in Japan for the German brand Dennerle, per the shop)",
+      "source": 0
+    },
+    {
+      "key": "Water parameters (shop claim)",
+      "value": "pH 6–6.5, KH 0–2",
+      "source": 0
+    },
+    {
+      "key": "pH buffering (distributor claim)",
+      "value": "Holds pH at around 6–6.5 and lowers hardness",
+      "source": 1
+    },
+    {
+      "key": "Composition (distributor)",
+      "value": "100% natural raw materials with trace elements and nutrients",
+      "source": 1
+    },
+    {
+      "key": "Warranty",
+      "value": "None listed",
+      "source": 1
+    },
+    {
+      "key": "Item numbers",
+      "value": "4580 (4 L), 4581 (8 L)",
+      "source": 6
+    }
+  ],
+  "variants": [
+    {
+      "name": "Scaper's Soil 4 L",
+      "specs": [
+        {
+          "key": "Volume",
+          "value": "4 L",
+          "source": 1
+        },
+        {
+          "key": "Suggested tank",
+          "value": "about 30 L",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "Scaper's Soil 8 L",
+      "specs": [
+        {
+          "key": "Volume",
+          "value": "8 L",
+          "source": 1
+        },
+        {
+          "key": "Suggested tank",
+          "value": "about 50 L",
+          "source": 0
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://aquathanhxuan.com/san-pham/phan-nen-dennerle-scapers-soil-8lit/",
+      "title": "Phân nền thủy sinh Dennerle Scaper's Soil 8L – Aqua Thanh Xuân",
+      "kind": "shop",
+      "at": "2026-11-09"
+    },
+    {
+      "url": "https://greendeal.vn/dennerle-scaper-s-soil",
+      "title": "DENNERLE - Scaper's Soil – Greendeal.vn",
+      "kind": "shop",
+      "at": "2026-11-09"
+    },
+    {
+      "url": "https://gensou.sg/ada-vs-tropica-vs-dennerle-aquasoil-comparison-guide/",
+      "title": "ADA vs Tropica vs Dennerle Aquasoil Comparison Guide – Gensou",
+      "kind": "review",
+      "at": "2026-11-09"
+    },
+    {
+      "url": "https://gensou.sg/?p=41220",
+      "title": "Dennerle Scapers Soil Review Singapore: Buffering and Lifespan – Gensou",
+      "kind": "review",
+      "at": "2026-11-09"
+    },
+    {
+      "url": "https://www.olibetta.ch/en-CH/reviews/dennerle/scapers-soil-1-4mm",
+      "title": "Reviews for Dennerle Scaper's Soil 1-4mm – Olibetta",
+      "kind": "review",
+      "at": "2026-11-09"
+    },
+    {
+      "url": "https://aquathanhxuan.com/san-pham/aqua-for-top-soil/",
+      "title": "Phân nền Thủy Mộc Aquafor Topsoil 3L – Aqua Thanh Xuân",
+      "kind": "shop",
+      "at": "2026-11-09"
+    },
+    {
+      "url": "https://dennerle.com/cdn/shop/files/IB_EN_Scaper_s_Soil-Scaper_s_Soil_Natural_Mix.pdf",
+      "title": "Dennerle Scaper's Soil / Natural Mix instruction leaflet (EN)",
+      "kind": "manufacturer",
+      "at": "2026-11-09"
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

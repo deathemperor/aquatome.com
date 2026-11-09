@@ -1,0 +1,169 @@
+{
+  "id": "rhinogobius-gigas",
+  "scientificName": "Rhinogobius gigas",
+  "order": "Perciformes",
+  "family": "Gobiidae",
+  "genus": "Rhinogobius",
+  "group": "gobies",
+  "places": [
+    "asia",
+    "taiwan",
+    "taitung"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 18,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 8.5
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 80
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-gigas",
+      "html": "<p>Rhinogobius gigas is a goby native to eastern Taiwan, found in the middle and lower sections of rivers in Yilan, Hualien and Taitung counties. The species is uncommon in the aquarium hobby, and its name is sometimes applied to similar-looking congeners. Well-defined dark cross bands on the body, a spotted cheek and rows of spots in the second dorsal and anal fins help tell it apart from other Taiwanese Rhinogobius.</p><ul><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-gigas",
+      "html": "<p>Native to eastern Taiwan where it inhabits middle and lower sections of river systems in Yilan, Hualien and Taitung counties.</p><p>Type locality is 'Shinwulwu River of Peinandar River, Taitung County, Taiwan'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-gigas",
+      "html": "<p>Inhabits smaller rivers, tributaries and streams with substrates of gravel, rocks, boulders, and exposed bedrock which undergo seasonal variations in water flow rate, depth and turbidity.</p><p>Sympatric fish species include Sicyopterus japonicus, Spinibarbus hollandi, Acrossocheilus paradoxus, Varicorhinus barbatulus, Varicorhinus alticorpus, Zacco pachycephalus, Zacco platypus, Aphyocypris kikuchii and Hemimyzon taitungensis.</p><p>Eastern Taiwan has a tropical monsoon climate characterised by high temperatures and humidity with intense rainfall and tropical cyclones from May to October, a foggy dry season from November to April, and average air temperatures of 22–26 °C, though in winter it typically drops below 20 °C.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-gigas",
+      "html": "<p>Standard length: 85 mm SL.</p><p>Aquarium base: 80 × 30 cm. Volume: ~72 litres.</p><p>An aquarium with base dimensions of 80 × 30 cm is large enough to house a small group.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-gigas",
+      "html": "<p>Not difficult to maintain under the correct conditions; it is strongly recommended to keep it in a tank designed to simulate a flowing stream with a substrate of variably-sized rocks, sand, fine gravel, and some water-worn boulders.</p><p>This can be further furnished with driftwood branches, terracotta pipes, plant pots, etc., arranged to form a network of nooks, crannies, and shaded spots, thus providing broken lines of sight.</p><p>While the majority of aquatic plants will fail to thrive in such surroundings hardy types such as Microsorum, Bolbitis, or Anubias spp. can be grown attached to the décor.</p><p>Like many fishes that naturally inhabit running water it's intolerant to accumulation of organic pollutants and requires spotless water in order to thrive, thus weekly water changes of 30-50% tank volume should also be considered routine.</p><p>Though torrent-like conditions are unnecessary it does best if there is a high proportion of dissolved oxygen and some water movement in the tank meaning power filter(s), additional powerhead(s), or airstone(s) should be employed as necessary.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-gigas",
+      "html": "<ul><li>Temperature: 18–28°C</li><li>pH: 6.0–8.0</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-gigas",
+      "html": "<p>Rhinogobius spp. tend to be opportunistic carnivores feeding on a range of small invertebrates, crustaceans and similar in nature.</p><p>In the aquarium they should be offered small live or frozen foods such as chironomid (bloodworm) or mosquito larvae, Artemia, Daphnia, Mysis, etc.</p><p>Dried foods may be accepted following a period of acclimatisation but should not be used regularly.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-gigas",
+      "html": "<p>This is a robust species and can be aggressive at times but it can be kept in a community provided tankmates are chosen with care.</p><p>Peaceful, pelagic species which inhabit similar environments in nature such as Tanichthys or Danio species are perhaps the best choices for the upper levels, but Rhinogobius spp. have also been seen maintained alongside barbs, small characins, poeciliid livebearers, etc.</p><p>Less suitable are freshwater shrimp from genera such as Caridina and Neocaridina as these are likely to be predated upon.</p><p>Balitorid and nemacheilid loaches may prove suitable in larger tanks but in smaller set-ups R. gigas should ideally be the only benthic species included.</p><p>It should not be mixed with congeners, especially closely-related ones, since it's not yet clear if they're capable of hybridisation.</p><p>Larger fishes are best omitted although in very large set-ups it may be possible to add a few non-predatory, surface-dwelling ones, while the majority of cichlids and other territorial fishes inhabiting the lower reaches should be avoided entirely.</p><p>While males are territorial with one another to an extent serious damage is unlikely provided the tank contains sufficient cover, and in fact they appear to actively require the presence of conspecifics.</p><p>Aim to purchase at least two males and as many or more females or the fish may become listless and inactive.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-gigas",
+      "html": "<p>Adult males possess more extended dorsal and anal fins, a more intensive colour pattern, and grow larger than females.</p><p>In gravid females the eggs are visible as a bluish mass through the abdomen.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-gigas",
+      "html": "<p>As is typical for the genus eggs are deposited on the ceiling of a cave or crevice and guarded by the male until hatching.</p><p>Several potential sites should be offered in the form of rocks (flat slate tends to be easiest to handle), terracotta pipes, plant pots, etc.</p><p>A nuptial male will select a site and defend it against other males, but if one is not available may excavate a cave beneath a rock or other piece of décor.</p><p>Spawning occurs secretively within the cave, and is usually signified by the pair disappearing from sight for an extended period of time.</p><p>The pair may remain inside for 2-3 days with the female ejected once spawning is complete, and they should not be disturbed during this period.</p><p>Once the female is seen outside the cave, you can check for eggs by carefully lifting and tilting it without removing from the water.</p><p>Inexperienced pairs or males may eat the eggs, attach them poorly, or only partially fertilise them, but after a few attempts normally get things right.</p><p>At this point it's advisable to remove all other fish except the male, or remove male and eggs elsewhere (a small plastic container can be used to do so without harming either).</p><p>Brood size is huge and the eggs themselves are also relatively large as with other fluvial members of the genus.</p><p>Incubation is normally 9-12 days, and fry undergo an initial pelagic stage during which they live and feed up in the water column before dropping to the substrate.</p><p>They can be offered Artemia nauplii, microworm, and similarly-sized live foods immediately.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-gigas",
+      "html": "<p>This species is uncommon in the aquarium hobby although its name is sometimes applied to similar-looking congeners.</p><p>It can be told apart from other Taiwanese Rhinogobius species by the following combination of characters: second dorsal and anal-fin with rows of spots; cheek with numerous spots; 21-23 pectoral-fin rays; body with well-defined dark cross bands; caudal-fin base with a vertical dark arc-shaped bar in females.</p><p>It's included in the R. brunneus group of closely-related species within the genus.</p><p>The Gobiidae is the most speciose vertebrate family and notoriously problematic in terms of identifying fishes down to species level. Within this assemblage Rhinogobius is often included in the subfamily Gobionellinae alongside genera such as Brachygobius, Chlamydogobius, Mugilogobius, Pseudogobiopsis, Schismatogobius, and Stigmatogobius.</p><p>The genus is widely distributed throughout much of continental Asia in Russia, Korea, China, Vietnam, Laos, Cambodia, and Thailand, plus numerous islands of the Western Pacific including Japan, Taiwan, Hainan, and the Philippines.</p><p>There currently exist over 60 recognised species with many more awaiting formal description. Those exhibiting similarities are often aggregated in nominal species groups, e.g., the R. brunneus group, R. duospilus group, etc.</p><p>The fused pelvic fins form a structure normally referred to as the 'pelvic disc', a common feature among gobiids which is used to adhere to rocks and other submerged surfaces.</p><p>Rhinogobius spp. also exhibit different reproductive strategies depending on environment, with those inhabiting rivers connected directly to the sea typically amphidromous, and those landlocked in upper reaches of rivers or lakes non-diadromous.</p><p>Many of those appearing in the aquarium trade have proven difficult to identify for a number of reasons including:</p><ul><li>taxonomic confusion.</li><li>lack of aquarium literature.</li><li>incorrect labelling by exporters and subsequently shops.</li><li>historical over-use of some names, e.g., 'Rhinogobius wui', long treated as a synonym of R. duospilus and now recognised as a valid species.</li><li>likely trade of undescribed species without locality data.</li><li>mixing of species at export facilities.</li></ul>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-gigas",
+      "html": "<ul><li>Chen, I-S. and K.-T. Shao (1996). A taxonomic review of the gobiid fish genus Rhinogobius Gill, 1859, from Taiwan, with description of three new species. Zoological Studies 35(3), 200-214</li><li>Ho, H.-C. and K.-T. Shao (2011). Annotated checklist and type catalog of fish genera and species described from Taiwan. Zootaxa 2957, 1-74</li></ul>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "máy lọc thác tràn",
+        "bơm tạo dòng chảy",
+        "máy sục khí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "artemia đông lạnh",
+        "bo bo đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "sỏi sông",
+        "cát sông",
+        "đá cuội trang trí"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

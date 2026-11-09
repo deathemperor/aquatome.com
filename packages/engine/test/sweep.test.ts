@@ -302,6 +302,26 @@ test('a card\'s Seriously Fish difficulty read before the engine read its word i
   expect((await json(root, 'content/species/corydoras-sterbai/entity.json')).dataCard.difficulty).toEqual([{ source: 'glaser', value: 5 }])
 })
 
+test('a Seriously Fish quick-facts line that gives its count of measures takes the card\'s difficulty, in English and every language, and leaves the approved summary alone', async () => {
+  const root = await store()
+  await sweep(root)
+  const at = 'content/species/corydoras-sterbai'
+  const quick = { key: 'quickFacts', source: 'seriouslyfish', sourceUrl: 'https://www.seriouslyfish.com/x', html: '<ul><li>Max size: 5 cm</li><li>Difficulty: 7 of 8 (difficult), because it needs a long tank.</li></ul>' }
+  const e = await json(root, `${at}/entity.json`)
+  await writeFile(join(root, `${at}/entity.json`), `${JSON.stringify({ ...e, dataCard: { difficulty: [{ source: 'seriouslyfish', value: 6 }] }, sections: [...e.sections, quick] }, null, 2)}\n`)
+  const t = await json(root, `${at}/vi.json`)
+  await writeFile(join(root, `${at}/vi.json`), `${JSON.stringify({ ...t, sections: { ...t.sections, 'quickFacts:seriouslyfish': '<ul><li>Kích thước: 5 cm</li><li>Độ khó: 7/8 (khó), vì cần bể dài.</li></ul>' } }, null, 2)}\n`)
+  await writeFile(join(root, `${at}/id.json`), `${JSON.stringify(vi('Corydoras sterbai', { 'quickFacts:seriouslyfish': '<ul><li>Ukuran: 5 cm</li><li>Tingkat kesulitan: 7 dari 8 (sulit)</li></ul>' }), null, 2)}\n`)
+  await writeFile(join(root, 'content/summaries/corydoras-sterbai.json'), JSON.stringify({ id: 'corydoras-sterbai', summary: 'Độ khó 6/8 (khó).', mistakes: [], speciesUpdatedAt: '2026-10-01', generatedAt: '2026-10-02', review: 'approved' }))
+  const r = await sweep(root)
+  expect((await json(root, `${at}/entity.json`)).sections.at(-1).html).toContain('Difficulty: 6 of 8 (difficult), because it needs a long tank.')
+  expect((await json(root, `${at}/vi.json`)).sections['quickFacts:seriouslyfish']).toContain('Độ khó: 6/8 (khó), vì cần bể dài.')
+  expect((await json(root, `${at}/id.json`)).sections['quickFacts:seriouslyfish']).toContain('Tingkat kesulitan: 6 dari 8 (sulit)')
+  expect(await json(root, 'content/summaries/corydoras-sterbai.json')).toMatchObject({ review: 'approved' })
+  expect(r.text['sf-count']).toEqual(['species/corydoras-sterbai/en', 'species/corydoras-sterbai/vi', 'species/corydoras-sterbai/id'])
+  expect((await sweep(root)).files).toEqual([])
+})
+
 // 2026-11-07, a design lab: Cá neon vua's summary said 23–27 °C beside a card of 23–29 °C. It was checked against the card
 // when it was written, and the card's rule for sources that disagree changed after; its page didn't.
 test('an approved summary stating a figure its card no longer shows waits to be written again; one that agrees stays', async () => {

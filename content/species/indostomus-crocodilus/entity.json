@@ -12,6 +12,74 @@
     "malaysia",
     "kelantan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "MY"
+      ],
+      "regions": [
+        "Tapi River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Indostomus crocodilus is a tiny indostomid, 25 to 30 mm long, from southern Thailand and Kelantan state in northeastern Peninsular Malaysia.",
+          "countries": [
+            "TH",
+            "MY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Nae Nam Tod Deng, about 6 kilometers north of Sungai Kolok, Narathiwat Province, Thailand', and it is also known from the Tapi River watershed in Surat Thani province, so it is presumably found throughout southern Thailand.",
+          "countries": [],
+          "regions": [
+            "Tapi River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2356565,
+      "total": 10,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "TH",
+          8
+        ],
+        [
+          "FR",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          1.40625,
+          46.40625,
+          2,
+          0
+        ],
+        [
+          98.4375,
+          14.0625,
+          6,
+          6
+        ],
+        [
+          101.25,
+          5.625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

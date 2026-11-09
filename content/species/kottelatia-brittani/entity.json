@@ -12,6 +12,73 @@
     "malaysia",
     "johor"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY"
+      ],
+      "regions": [
+        "Johor River",
+        "Batang Hari",
+        "Sumatra"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Johore River, Segamat, Malaysia'.",
+          "countries": [
+            "MY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It was described from Segamat District within the Johor River watershed, Johor state, southern Peninsular Malaysia, but the type specimens were obtained via a Singapore wholesaler so it's possible that a mistake was made as there exist no other records of the species in Peninsular Malaysia.",
+          "countries": [],
+          "regions": [
+            "Johor River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "There appears to be a possibility that it is endemic to Sumatra, since a record from the Batang Hari river, in Jambi province (Tan & Kottelat, 2009) appears to represent the first official record since the description was published.",
+          "countries": [],
+          "regions": [
+            "Batang Hari",
+            "Sumatra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5962766,
+      "total": 5,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "ID",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          -2.8125,
+          4,
+          0
+        ],
+        [
+          111.09375,
+          0,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
@@ -64,7 +131,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/kottelatia-brittani",
-      "html": "<ul><li>Max size: 60 mm SL (2.4 in)</li><li>Aquarium size: 75 × 30 cm (30 × 12 in)</li><li>Temperature: 20–26°C (68–79°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 1–8 dGH</li><li>Difficulty: moderate (6 of 8), because it needs a well-established tank and stable water.</li></ul>"
+      "html": "<ul><li>Max size: 60 mm SL (2.4 in)</li><li>Aquarium size: 75 × 30 cm (30 × 12 in)</li><li>Temperature: 20–26°C (68–79°F)</li><li>pH: 6.0–7.5</li><li>Hardness: 1–8 dGH</li><li>Difficulty: moderate (4 of 8), because it needs a well-established tank and stable water.</li></ul>"
     },
     {
       "key": "beforeYouBuy",

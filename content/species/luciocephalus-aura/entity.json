@@ -10,6 +10,40 @@
     "indonesia",
     "jambi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Malay Peninsula",
+        "Sumatra"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The two known species are the “common” pikehead, which occurs on the Malay Peninsula and in Indonesia, and the Peppermint Pikehead, which is known so far only from the Province Jambi on Sumatra.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Malay Peninsula",
+            "Sumatra"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394149,
+      "total": 0,
+      "fetched": "2026-11-09",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

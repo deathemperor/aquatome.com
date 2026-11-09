@@ -249,7 +249,8 @@ final class FishIdFlowTests: XCTestCase {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fake-accounts", accounts,
                            "-reset-fake-server"] + more
-    app.launchForFlow()
+    // The old look's: every flow here finds the tool through Tìm's search.
+    app.launchForFlow(.old)
     return app
   }
 

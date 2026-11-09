@@ -1,0 +1,74 @@
+{
+  "id": "lysmata-debelius",
+  "native": {
+    "input": "58c065cdb69b481b",
+    "at": "2026-11-09T20:43:02.940Z",
+    "claims": [
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Red Fire shrimp are native to Sri Lanka, Bali (Indonesia) and Philippine waters, where they live in deep water (10–28 m).",
+        "words": "Sri Lanka",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Red Fire shrimp are native to Sri Lanka, Bali (Indonesia) and Philippine waters, where they live in deep water (10–28 m).",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "PH",
+        "status": "native",
+        "source": "aquariumbreeder",
+        "quote": "Red Fire shrimp are native to Sri Lanka, Bali (Indonesia) and Philippine waters, where they live in deep water (10–28 m).",
+        "words": "Philippine",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Bali",
+        "source": "aquariumbreeder",
+        "quote": "Red Fire shrimp are native to Sri Lanka, Bali (Indonesia) and Philippine waters, where they live in deep water (10–28 m).",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Lysmata debelius",
+    "status": "ACCEPTED",
+    "taxonKey": 5863085,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        3
+      ],
+      [
+        "0f6d26c0-c645-4f15-b1c9-fbcb77515545",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ]
+    ],
+    "native": [
+      "LK",
+      "ID",
+      "PH"
+    ],
+    "requests": 13,
+    "at": "2026-11-09T20:43:02.940Z"
+  }
+}

@@ -9,13 +9,36 @@
     "asia",
     "indonesia",
     "sumatra",
-    "borneo"
+    "borneo",
+    "kapuas"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "planetcatfish",
         "value": 11.5
+      },
+      {
+        "source": "scotcat",
+        "value": 10
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
       }
     ]
   },
@@ -27,10 +50,52 @@
       "html": "<ul><li>Scientific name: Pseudeutropius brachypopterus (Bleeker, 1858)</li><li>Family: Horabagridae</li><li>Synonym: Eutropius brachypopterus</li><li>Type locality: Palembang, southern Sumatra, Indonesia.</li><li>Etymology: Greek, pseudes = false + Greek, eu = well + keel, in reference to the compressed body of the fish.</li><li>Size: 115 mm (4.5\") SL.</li><li>IUCN Red List: Least Concern (last assessed 2018).</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/horabagridae/pseudeutropius_brachypopterus.htm",
+      "html": "<ul><li>Synonym: Eutropius brachypopterus</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1012",
       "html": "<p>Asia: Sumatra and Borneo. Pacific, Greater Sunda Island Rivers, Sumatra Waters; Pacific, Greater Sunda Island Rivers, Borneo Waters.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/horabagridae/pseudeutropius_brachypopterus.htm",
+      "html": "<p>Asia: Kapuas River, Sumatra. Type locality: Palembang, Sumatra.</p><p>This species is known from the Siak River drainage southwards to the Musi River drainage in Sumatra, and from the Kapuas, and the Sampit (Mentaya) River drainage eastwards to the Sebangau River drainage in Borneo. Extent of occurrence (EOO) is estimated to be 540,000 km2, based on georeferenced points (GBIF 2019) and expert opinion (H.H. Ng pers. comm. 2019). The number of locations where this species occurs is unknown. However, given its broad distribution it is likely greater than 10.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/horabagridae/pseudeutropius_brachypopterus.htm",
+      "html": "<p>This species inhabits both lotic and lentic habitats; it appears to be more closely associated with blackwater peat swamp habitats.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/horabagridae/pseudeutropius_brachypopterus.htm",
+      "html": "<p>Quite a shy fish so would need a planted tank to make them feel safe in their surroundings. Have at least 6 to form a group.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/horabagridae/pseudeutropius_brachypopterus.htm",
+      "html": "<p>Temperature: 22–26°C. pH: 6.0–7.0.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/horabagridae/pseudeutropius_brachypopterus.htm",
+      "html": "<p>Feeds on insect larvae and small invertebrates.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/horabagridae/pseudeutropius_brachypopterus.htm",
+      "html": "<p>Found alongside P. moolenburghae where they school together.</p>"
     },
     {
       "key": "reproduction",
@@ -39,13 +104,65 @@
       "html": "<p>Breeding: Unreported. There is no breeding report.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/horabagridae/pseudeutropius_brachypopterus.htm",
+      "html": "<p>Oviparous, eggs are unguarded.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/horabagridae/pseudeutropius_brachypopterus.htm",
+      "html": "<p>Etymology: The specific name brachypopterus: brachýs, short; –po, abridgement of hypó, under or less than; pterus, from pterón or ptéryx, wing or fin, referring to the shorter anal fin compared with Asian and African congeners then placed in Eutropius (=Schilbe, now in Schilbeidae).</p><p>IUCN Red List: Although there is no detailed information on the population status of this species, survey data indicates that it is still abundant in many parts of its known distribution. It is therefore assessed as Least Concern. However, it should be noted that the primary habitat of this species (blackwater peat swamp forests) has undergone large scale destruction and degradation, and the effects of such massive habitat loss on the species should be further studied. It will be necessary to reassess this species once more information on the effect of habitat loss on the population is available (IUCN 2019).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1012",
       "html": "<p>Acta Societatis Regiae Scientiarum Indo-Neêrlandicae v. 4 (art. 2), pp 169.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/horabagridae/pseudeutropius_brachypopterus.htm",
+      "html": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (11/2009).</p><p>Kottelat, M., A.J. Whitten, S.N. Kartikasari and S. Wirjoatmodjo, 1993. Freshwater fishes of Western Indonesia and Sulawesi. Periplus Editions, Hong Kong. 221 p.</p><p>Ng, H.H. 2019. Pseudeutropius brachypopterus. The IUCN Red List of Threatened Species 2019.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/23c05983c661906a.webp",
+      "thumb": "https://media.aquatome.com/scotcat/23c05983c661906a-480.webp",
+      "width": 500,
+      "height": 308,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/horabagridae/pseudeutropius_brachypopterus.htm",
+      "caption": "Pseudeutropius brachypopterus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/62551732ae5a6004.webp",
+      "thumb": "https://media.aquatome.com/scotcat/62551732ae5a6004-480.webp",
+      "width": 500,
+      "height": 331,
+      "licence": "dùng với sự cho phép",
+      "author": "ScotCat",
+      "sourceUrl": "https://www.scotcat.com/horabagridae/pseudeutropius_brachypopterus.htm",
+      "caption": "Pseudeutropius brachypopterus",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/d6cf102d2064949a.webp",
+      "thumb": "https://media.aquatome.com/scotcat/d6cf102d2064949a-480.webp",
+      "width": 500,
+      "height": 318,
+      "licence": "dùng với sự cho phép",
+      "author": "Guy Palm / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/horabagridae/pseudeutropius_brachypopterus.htm",
+      "caption": "Pseudeutropius brachypopterus",
+      "source": "scotcat"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -69,5 +186,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-09"
 }

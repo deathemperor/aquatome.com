@@ -1,0 +1,160 @@
+{
+  "id": "peckoltia-wernekei",
+  "scientificName": "Peckoltia wernekei",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Peckoltia",
+  "group": "catfish",
+  "lNumber": "L243",
+  "places": [
+    "south-america",
+    "venezuela",
+    "orinoco"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 25,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 12
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 120
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/peckoltia-wernekei",
+      "html": "<p><em>Peckoltia wernekei</em>, also known as L243 and LDA086, is a suckermouth catfish known only from parts of the upper Río Orinoco drainage in Amazonas state, southern Venezuela. Armbruster and Lujan described it in 2016 from the Ventuari drainage. It is sometimes confused with <em>Peckoltia lineola</em>, alongside which it is often exported for the aquarium trade.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/peckoltia-wernekei",
+      "html": "<p>Known only from parts of the Río Orinoco drainage in Amazonas state, southern Venezuela.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/peckoltia-wernekei",
+      "html": "<p>An aquarium with base dimensions of 120 × 30 cm (about 108 litres) should be the smallest considered.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/peckoltia-wernekei",
+      "html": "<ul><li>Temperature: 25–29°C</li><li>pH: 5.5–7.5</li><li>Hardness: 2–12 dGH</li></ul>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/peckoltia-wernekei",
+      "html": "<p>Sometimes confused with <em>Peckoltia lineola</em> (Armbruster, 2008), alongside which it's often exported for the aquarium trade.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/peckoltia-wernekei",
+      "html": "<ul><li>Stawikowski, R., A. Werner and I. Seidel (2004). DATZ Special: L-Numbers. DATZ, 1-132</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/c6d2ba0109e9e2a5.webp",
+      "thumb": "https://media.aquatome.com/scotcat/c6d2ba0109e9e2a5-480.webp",
+      "width": 500,
+      "height": 340,
+      "licence": "dùng với sự cho phép",
+      "author": "Ivor Hilton / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/peckoltia_wernekei.htm",
+      "caption": "Peckoltia wernekei",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/7fbf38441ff48781.webp",
+      "thumb": "https://media.aquatome.com/scotcat/7fbf38441ff48781-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Elko Kinlechner / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/peckoltia_wernekei.htm",
+      "caption": "Peckoltia wernekei: head view",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "YSVHrgxtDog",
+      "title": "L243 PECKOLTIA “WERNEKEI “ Pleco’s  from (Preditory Fins)",
+      "durationSec": 166,
+      "lang": "en-GB"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá",
+        "máy sưởi 100W"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá 120cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "viên rau củ cho cá da trơn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

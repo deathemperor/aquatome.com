@@ -8,9 +8,10 @@
   "mentions": [
     "oryzias-latipes",
     "carassius-auratus",
-    "nematobrycon-palmeri"
+    "nematobrycon-palmeri",
+    "pethia-conchonius"
   ],
-  "updatedAt": "2026-11-05",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "7l1Ja0NL_UQ",
     "title": "I assumed, and once again I was wrong.",
@@ -29,12 +30,12 @@
       "height": 720
     },
     "taxa": [
-      "Barbus titteya",
-      "Oryzias latipes",
+      "Pethia conchonius",
+      "Oryzias sp.",
       "Carassius auratus",
       "Echinodorus sp.",
-      "Lythrurus fasciolaris",
-      "Nematobrycon palmeri"
+      "Hyphessobrycon sp.",
+      "Lythrurus umbratilis"
     ],
     "gear": [
       {
@@ -45,127 +46,97 @@
       },
       {
         "category": "khac",
-        "brand": "Aquarium Co-Op",
+        "brand": "Easy Green",
         "model": "Easy Green",
-        "t": 1000
+        "t": 1260
       },
       {
         "category": "khac",
-        "brand": "JBL",
-        "model": "Aqua Sixway",
+        "brand": "JBL Aqua",
+        "model": "Sixway",
         "t": 1355
       }
     ],
     "figures": [
       {
-        "heading": "Những cách giữ ấm đang được thử",
+        "heading": "Không thấy cá ngoi lên chưa chắc là cá đã chết",
         "moments": [
           {
-            "t": 99,
-            "url": "https://media.aquatome.com/video/7l1Ja0NL_UQ/t99.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Hai chậu ngoài trời có thành bọc gỗ cách nhiệt và khung nắp trắng."
-          }
-        ]
-      },
-      {
-        "heading": "Làm đến đâu thì mới đáng công",
-        "moments": [
-          {
-            "t": 337,
-            "url": "https://media.aquatome.com/video/7l1Ja0NL_UQ/t337.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Chậu ngoài trời có khung cách nhiệt, hai nhiệt kế đặt trên thành để đo."
-          }
-        ]
-      },
-      {
-        "heading": "Bố trí đo nhiệt để tự kiểm chứng",
-        "moments": [
-          {
-            "t": 60,
-            "url": "https://media.aquatome.com/video/7l1Ja0NL_UQ/t60.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cảm biến nhiệt gắn thành chậu, dây đo thả xuống nước."
+            "t": 10,
+            "url": "https://media.aquatome.com/video/7l1Ja0NL_UQ/at10-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Các chậu nuôi cá ngoài trời có nắp đậy, đặt dọc bờ tường.",
+            "sharpness": 745.5,
+            "person": false
           },
           {
-            "t": 298,
-            "url": "https://media.aquatome.com/video/7l1Ja0NL_UQ/t298.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Chậu nước ngoài trời có viền nắp, đặt cạnh tường để so nhiệt độ."
-          }
-        ]
-      },
-      {
-        "heading": "Cắt nắp từ tấm polycarbonate hai lớp",
-        "moments": [
-          {
-            "t": 536,
-            "url": "https://media.aquatome.com/video/7l1Ja0NL_UQ/t536.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Tấm polycarbonate trên cưa bàn cùng thước cuộn, ê ke và bút lông dầu."
-          },
-          {
-            "t": 565,
-            "url": "https://media.aquatome.com/video/7l1Ja0NL_UQ/t565.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Dùng thước ê ke vuông để đo và kẻ đường cắt trên tấm."
-          }
-        ]
-      },
-      {
-        "heading": "Lắp nắp lên chậu",
-        "moments": [
-          {
-            "t": 704,
-            "url": "https://media.aquatome.com/video/7l1Ja0NL_UQ/t704.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Tấm nắp trượt trong rãnh ke góc trắng quanh miệng chậu."
-          },
-          {
-            "t": 764,
-            "url": "https://media.aquatome.com/video/7l1Ja0NL_UQ/t764.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Nhiều tấm nắp đậy sát nhau trên miệng chậu gỗ."
-          }
-        ]
-      },
-      {
-        "heading": "Bắt đầu từ đâu",
-        "moments": [
-          {
-            "t": 188,
-            "url": "https://media.aquatome.com/video/7l1Ja0NL_UQ/t188.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Tấm nhựa lượn sóng và máy khoan dùng để làm nắp đậy chậu."
-          },
-          {
-            "t": 456,
-            "url": "https://media.aquatome.com/video/7l1Ja0NL_UQ/t456.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Chậu ngoài trời có cảm biến nhiệt độ thả trong nước, sát thành chậu."
+            "t": 30,
+            "url": "https://media.aquatome.com/video/7l1Ja0NL_UQ/at30-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Nhìn vào trong chậu: nước xanh sẫm, cá nằm sát dưới đáy khó thấy.",
+            "sharpness": 198.3,
+            "person": false
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/7l1Ja0NL_UQ/p6-X3RpdHRleWEuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/7l1Ja0NL_UQ/p6-X3RpdHRleWEuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/7l1Ja0NL_UQ/p0-X3RpdHRleWEuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/7l1Ja0NL_UQ/p0-X3RpdHRleWEuanBn-480.webp",
           "width": 960,
           "height": 574,
           "licence": "CC BY 2.0",
           "author": "Brian Gratwicke",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cherry_barb,_Puntius_titteya.jpg",
-          "caption": "Cá cherry barb đực lên màu đỏ rực, bơi giữa bụi cây thủy sinh."
+          "caption": "Cá cherry barb đực đỏ rực bơi giữa đám cây thủy sinh."
         }
+      },
+      {
+        "heading": "Cá trong chậu lạnh ăn thế nào",
+        "moments": [
+          {
+            "t": 1510,
+            "url": "https://media.aquatome.com/video/7l1Ja0NL_UQ/at1510-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn cá vàng bơi gần đám rong rậm trong chậu kính.",
+            "sharpness": 285.3,
+            "person": false
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/7l1Ja0NL_UQ/p1-RmaXNoKV8yLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/7l1Ja0NL_UQ/p1-RmaXNoKV8yLmpwZw-480.webp",
+          "width": 960,
+          "height": 639,
+          "licence": "CC BY 2.0",
+          "author": "James St. John",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Carassius_auratus_auratus_(goldfish)_2.jpg",
+          "caption": "Cá vàng thân cam óng ánh bơi trong bể nền tối."
+        }
+      },
+      {
+        "heading": "Lắp nắp sao cho khít và vẫn cho ăn được",
+        "moments": [
+          {
+            "t": 710,
+            "url": "https://media.aquatome.com/video/7l1Ja0NL_UQ/at710-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Một tấm nắp đã trượt vào rãnh, bên cạnh còn chừa khe hở chưa đậy.",
+            "sharpness": 377.9,
+            "person": false
+          },
+          {
+            "t": 730,
+            "url": "https://media.aquatome.com/video/7l1Ja0NL_UQ/at730-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tấm nắp trong suốt phủ kín miệng chậu, nhìn rõ các gân của tấm.",
+            "sharpness": 187,
+            "person": false
+          }
+        ]
       }
     ]
   }

@@ -1,0 +1,104 @@
+{
+  "id": "malapterurus-oguensis",
+  "native": {
+    "input": "6d6c6243083bd93a",
+    "at": "2026-11-09T20:43:02.940Z",
+    "claims": [
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Africa: known from the Ogôoué basin, Nyanga River and Kouilou-Niari system (Cameroon to Gabon).",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "GA",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Africa: known from the Ogôoué basin, Nyanga River and Kouilou-Niari system (Cameroon to Gabon).",
+        "words": "Gabon",
+        "ok": true
+      },
+      {
+        "code": "CG",
+        "status": "doubtful",
+        "source": "planetcatfish",
+        "quote": "Malapterurus oguensis Sauvage, 1879. Type locality: Ogôoué River at Duomé, Congo [should be Gabon]. Size: 215 mm SL. IUCN Red List: Least Concern (last assessed 2009).",
+        "words": "Congo",
+        "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Africa: known from the Ogôoué basin, Nyanga River and Kouilou-Niari system (Cameroon to Gabon).",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "GA",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Africa: known from the Ogôoué basin, Nyanga River and Kouilou-Niari system (Cameroon to Gabon).",
+        "words": "Gabon",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ogôoué",
+        "source": "planetcatfish",
+        "quote": "Africa: known from the Ogôoué basin, Nyanga River and Kouilou-Niari system (Cameroon to Gabon).",
+        "ok": true
+      },
+      {
+        "name": "Nyanga",
+        "source": "planetcatfish",
+        "quote": "Africa: known from the Ogôoué basin, Nyanga River and Kouilou-Niari system (Cameroon to Gabon).",
+        "ok": true
+      },
+      {
+        "name": "Kouilou-Niari",
+        "source": "planetcatfish",
+        "quote": "Africa: known from the Ogôoué basin, Nyanga River and Kouilou-Niari system (Cameroon to Gabon).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Malapterurus oguensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2342040,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        21
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        5
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "b8ed9b7c-5b73-4e6d-a6e1-b0911a09f947",
+        1
+      ]
+    ],
+    "native": [
+      "CM",
+      "GA"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T20:43:02.940Z"
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "id": "apistogramma-megaptera",
+  "native": {
+    "input": "6e3ab0f0e58ab150",
+    "at": "2026-11-09T20:43:02.940Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species occurs in the upper Orinoco area (rios Inirida, Atabapo and Mavaca) in Colombia and Venezuela.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The species occurs in the upper Orinoco area (rios Inirida, Atabapo and Mavaca) in Colombia and Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Orinoco",
+        "source": "glaser",
+        "quote": "The species occurs in the upper Orinoco area (rios Inirida, Atabapo and Mavaca) in Colombia and Venezuela.",
+        "ok": true
+      },
+      {
+        "name": "Rio Inirida",
+        "source": "glaser",
+        "quote": "The species occurs in the upper Orinoco area (rios Inirida, Atabapo and Mavaca) in Colombia and Venezuela.",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Rio Atabapo",
+        "source": "glaser",
+        "quote": "The species occurs in the upper Orinoco area (rios Inirida, Atabapo and Mavaca) in Colombia and Venezuela.",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Rio Mavaca",
+        "source": "glaser",
+        "quote": "The species occurs in the upper Orinoco area (rios Inirida, Atabapo and Mavaca) in Colombia and Venezuela.",
+        "ok": false,
+        "why": "its name is not in the quote"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Apistogramma megaptera",
+    "status": "ACCEPTED",
+    "taxonKey": 7193178,
+    "datasets": [],
+    "native": [
+      "CO",
+      "VE"
+    ],
+    "requests": 2,
+    "at": "2026-11-09T20:43:02.940Z"
+  }
+}

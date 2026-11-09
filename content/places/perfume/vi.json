@@ -1,10 +1,13 @@
 {
   "slug": "perfume",
-  "name": "Perfume",
-  "altNames": [],
+  "name": "sông Hương",
+  "altNames": [
+    "Perfume"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

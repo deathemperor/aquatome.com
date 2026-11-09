@@ -2,6 +2,18 @@
   "id": "hyphessobrycon-simulatus",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/5587578.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/5587578-480.webp",
+      "width": 1024,
+      "height": 767,
+      "licence": "CC BY",
+      "author": "Julien Renoult",
+      "sourceUrl": "https://www.inaturalist.org/photos/5587578",
+      "caption": "Cá tetra X-ray giả bơi trong môi trường tự nhiên dưới nước",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/fff9491174fa2775.webp",
       "thumb": "https://media.aquatome.com/commons/fff9491174fa2775-480.webp",
       "width": 1200,
@@ -14,7 +26,7 @@
       "kind": "other"
     }
   ],
-  "seen": 1,
-  "updatedAt": "2026-11-08",
-  "builtAt": "2026-11-08"
+  "seen": 2,
+  "updatedAt": "2026-11-09",
+  "builtAt": "2026-11-09"
 }

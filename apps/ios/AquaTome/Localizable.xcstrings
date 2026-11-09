@@ -1145,28 +1145,6 @@
         }
       }
     },
-    "AquaTome tóm tắt từ các nguồn được liệt kê trên trang đầy đủ.": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "AquaTome merangkum dari sumber yang tercantum di halaman lengkap."
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "AquaTome meringkaskan daripada sumber yang disenaraikan di halaman penuh."
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "AquaTome สรุปจากแหล่งข้อมูลที่ระบุไว้ในหน้าเต็ม"
-          }
-        }
-      }
-    },
     "AquaTome đã hết lượt hỏi Claude hôm nay": {
       "localizations": {
         "id": {
@@ -1937,6 +1915,28 @@
         }
       }
     },
+    "Bật để các tab và trang trở lại như trước khi ứng dụng đổi giao diện.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nyalakan agar tab dan halaman kembali seperti sebelum tampilan diperbarui."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hidupkan supaya tab dan halaman kembali seperti sebelum reka bentuk ditukar."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปิดเพื่อให้แท็บและหน้าในแอปกลับไปเหมือนตอนที่ยังไม่เปลี่ยนหน้าตา"
+          }
+        }
+      }
+    },
     "Bật “%@”?": {
       "localizations": {
         "id": {
@@ -2527,6 +2527,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "เอารูปออก"
+          }
+        }
+      }
+    },
+    "Cho ăn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pakan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Makanan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "การให้อาหาร"
           }
         }
       }
@@ -5941,6 +5963,28 @@
         }
       }
     },
+    "Dùng giao diện cũ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gunakan tampilan lama"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reka bentuk lama"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "หน้าตาแบบเดิม"
+          }
+        }
+      }
+    },
     "Dùng lại": {
       "localizations": {
         "id": {
@@ -6377,28 +6421,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "รูปลักษณ์"
-          }
-        }
-      }
-    },
-    "Giao diện mới (thử nghiệm)": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tampilan baru (uji coba)"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Antara muka baharu (percubaan)"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "หน้าตาใหม่ (ทดลอง)"
           }
         }
       }
@@ -8207,28 +8229,6 @@
         }
       }
     },
-    "Không tải được trang. Kiểm tra kết nối mạng rồi thử lại, hoặc xem trang đầy đủ.": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Halaman tidak dapat dimuat. Periksa koneksi lalu coba lagi, atau lihat halaman lengkap."
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Halaman tidak dapat dimuatkan. Semak sambungan internet dan cuba lagi, atau lihat halaman penuh."
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "โหลดหน้านี้ไม่ได้ ตรวจสอบการเชื่อมต่อแล้วลองอีกครั้ง หรือดูหน้าเต็ม"
-          }
-        }
-      }
-    },
     "Không tải được trang. Kiểm tra kết nối mạng.": {
       "localizations": {
         "id": {
@@ -9901,6 +9901,28 @@
         }
       }
     },
+    "Nguồn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sumber"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sumber"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แหล่งที่มา"
+          }
+        }
+      }
+    },
     "Nguồn gốc": {
       "localizations": {
         "id": {
@@ -10847,6 +10869,28 @@
         }
       }
     },
+    "Sinh sản": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pemijahan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pembiakan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "การผสมพันธุ์"
+          }
+        }
+      }
+    },
     "Spam hoặc quảng cáo": {
       "localizations": {
         "id": {
@@ -11437,6 +11481,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "เพิ่ม"
+          }
+        }
+      }
+    },
+    "thêm": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "lainnya"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "lagi"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เพิ่มเติม"
           }
         }
       }
@@ -13905,6 +13971,28 @@
         }
       }
     },
+    "Xem phần này ở trang đầy đủ": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lihat bagian ini di halaman lengkap"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lihat bahagian ini di halaman penuh"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ดูส่วนนี้ในหน้าเต็ม"
+          }
+        }
+      }
+    },
     "Xem thêm": {
       "localizations": {
         "id": {
@@ -13989,28 +14077,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "ดูตัวอย่างทั้งวันบนโคมไฟ"
-          }
-        }
-      }
-    },
-    "Xem trang đầy đủ": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lihat halaman lengkap"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lihat halaman penuh"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ดูหน้าเต็ม"
           }
         }
       }
@@ -17949,28 +18015,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "เปลี่ยนช่อง"
-          }
-        }
-      }
-    },
-    "Độ cứng": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kesadahan"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kekerasan air"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ความกระด้าง"
           }
         }
       }

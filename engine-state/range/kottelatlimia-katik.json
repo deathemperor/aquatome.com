@@ -1,0 +1,59 @@
+{
+  "id": "kottelatlimia-katik",
+  "native": {
+    "input": "bf2d3436ee03e81f",
+    "at": "2026-11-09T09:57:55.009Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species was described from preserved specimens discovered in a jar with the paratypes of Nagaichthys filipes and thought to originate from Mawai, Johor state, Peninsular Malaysia, and it's also known from the Batang Hari river drainage, Sumatra, Indonesia.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species was described from preserved specimens discovered in a jar with the paratypes of Nagaichthys filipes and thought to originate from Mawai, Johor state, Peninsular Malaysia, and it's also known from the Batang Hari river drainage, Sumatra, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Batang Hari",
+        "source": "seriouslyfish",
+        "quote": "This species was described from preserved specimens discovered in a jar with the paratypes of Nagaichthys filipes and thought to originate from Mawai, Johor state, Peninsular Malaysia, and it's also known from the Batang Hari river drainage, Sumatra, Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "This species was described from preserved specimens discovered in a jar with the paratypes of Nagaichthys filipes and thought to originate from Mawai, Johor state, Peninsular Malaysia, and it's also known from the Batang Hari river drainage, Sumatra, Indonesia.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Kottelatlimia katik",
+    "status": "ACCEPTED",
+    "taxonKey": 2367836,
+    "datasets": [],
+    "native": [
+      "MY",
+      "ID"
+    ],
+    "requests": 2,
+    "at": "2026-11-09T09:57:55.009Z"
+  }
+}

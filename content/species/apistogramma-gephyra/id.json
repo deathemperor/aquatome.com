@@ -1,0 +1,26 @@
+{
+  "slug": "apistogramma-gephyra",
+  "name": "Apistogramma gephyra",
+  "altNames": [
+    "Apisto gephyra",
+    "Gephyra"
+  ],
+  "sections": {
+    "beforeYouBuy:glaser": "<p>Apistogramma gephyra dan A. agassizii sangat sulit dibedakan. Di beberapa tempat di habitat aslinya, keduanya juga ditemukan bersama-sama, jadi asal-usul ikan tidak bisa dijadikan patokan. Kedua spesies ini tidak pernah kawin silang di alam, dan itulah bukti terkuat bahwa keduanya merupakan spesies yang berbeda.</p><p>Cara paling tepat untuk membedakan kedua spesies ini adalah dengan melihat sirip punggung ikan jantan dewasa. Pada A. gephyra, sirip tersebut memiliki garis tepi berwarna merah, yang hampir tidak pernah muncul pada jantan A. agassizii.</p><p>Spesimen A. gephyra dewasa hasil penangkaran Jerman, yang dibiakkan oleh seorang penghobi yang sangat menekuni Apistogramma, tersedia dengan ukuran 4–8 cm. Ikan-ikan ini membantah anggapan yang sering terdengar bahwa \"Apistogramma gephyra itu seperti A. agassizii yang tidak berwarna\": ikan ini sungguh indah.</p>",
+    "maintenance:glaser": "<p>Memelihara Apistogramma gephyra tidak menimbulkan masalah. Seperti semua spesies Apistogramma, A. gephyra membutuhkan dasar kerikil di akuarium yang setidaknya di beberapa bagian terdiri dari pasir halus.</p>",
+    "waterConditions:glaser": "<p>Hanya untuk keperluan pemijahan, air yang sangat lunak dan asam sering kali diperlukan.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.9
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-10"
+  }
+}

@@ -9,7 +9,8 @@
     "africa",
     "nigeria",
     "cameroon",
-    "benin"
+    "benin",
+    "lokundje"
   ],
   "dataCard": {
     "tempC": [
@@ -72,6 +73,12 @@
       "html": "<p>Nigeria, Cameroon, Benin.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/pelvicachromis_taeniatus_lokundje__en/",
+      "html": "<p>Numerous variants and local forms of Pelvicachromis taeniatus exist in the western parts of Africa. One of the most beautiful variants is Pelvicachromis taeniatus \"Lokundje\" (a river in the south of Cameroon).</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pelvicachromis-taeniatus",
@@ -124,6 +131,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pelvicachromis-taeniatus",
       "html": "<p>This stunning species is now much more readily available than it once was. There are over a dozen morphs available, including \"Dehane\", \"Moliwe\", \"Kienke\", \"Lobe\", \"Wouri\", \"Nigeria Red\" and \"Calabar\". Males and females of these should not be cross bred in order to keep the lines pure. It can be distinguished from others in the genus by the more pronounced upper lip, which is often bright yellow in colour. Males of this species also exhibit prominent outlining of the scales and a rounded, as opposed to spade-shaped, caudal fin.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/pelvicachromis_taeniatus_lokundje__en/",
+      "html": "<p>The photo shows an impressive male; a picture of the equally beautiful female is stored in the picture database.</p>"
     }
   ],
   "photos": [],
@@ -182,5 +195,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-09"
 }

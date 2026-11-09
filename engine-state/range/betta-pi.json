@@ -1,8 +1,8 @@
 {
   "id": "betta-pi",
   "native": {
-    "input": "54826cd72c9e2012",
-    "at": "2026-11-06T18:08:44.169Z",
+    "input": "6a328e4cc165e283",
+    "at": "2026-11-09T12:58:06.259Z",
     "claims": [
       {
         "code": "TH",
@@ -23,36 +23,19 @@
       {
         "code": "TH",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "This species is known from the Pru Toe-Daeng peat swamps in southern Thailand near the border town of Sungai Golok, and its range also extends into northern Peninsular Malaysia where it has been collected in the states of Kelantan and Terengganu.",
-        "words": "Thailand",
-        "ok": true
-      },
-      {
-        "code": "MY",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "This species is known from the Pru Toe-Daeng peat swamps in southern Thailand near the border town of Sungai Golok, and its range also extends into northern Peninsular Malaysia where it has been collected in the states of Kelantan and Terengganu.",
-        "words": "Malaysia",
-        "ok": true
-      },
-      {
-        "code": "TH",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Type locality is 'Thailand: Narathiwat Province, Mae Nam Tod Deng, about 6 kilometers north of Sungai Kolok, open area in swamps ca. 100-200 m south before bridge'.",
+        "source": "glaser",
+        "quote": "A very rare, mouthbrooding fighting fish (Betta) from Thailand.",
         "words": "Thailand",
         "ok": true
       }
     ],
     "regions": [
       {
-        "name": "Peninsular Malaysia",
+        "name": "Pru Toe-Daeng",
         "source": "seriouslyfish",
         "quote": "This species is known from the Pru Toe-Daeng peat swamps in southern Thailand near the border town of Sungai Golok, and its range also extends into northern Peninsular Malaysia where it has been collected in the states of Kelantan and Terengganu.",
-        "country": "MY",
-        "ok": false,
-        "why": "a country"
+        "country": "TH",
+        "ok": true
       }
     ],
     "disputed": [],

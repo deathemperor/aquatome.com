@@ -1,0 +1,128 @@
+{
+  "id": "youtube-0rH4zXXLOfs",
+  "kind": "aquascaping",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=0rH4zXXLOfs",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "ameca-splendens",
+    "ceratophyllum-demersum"
+  ],
+  "updatedAt": "2026-11-09",
+  "video": {
+    "youtubeId": "0rH4zXXLOfs",
+    "title": "River Basin Biotype Aquascape for Endangered Fish",
+    "channel": "SerpaDesign",
+    "channelUrl": "https://www.youtube.com/channel/UCGzXtNdhjPxvCNWFme1bG0g",
+    "durationSec": 507,
+    "publishedAt": "2021-07-31",
+    "chapters": [],
+    "series": {
+      "id": "PLGPT1t4Cqpfiscdwy1PtTqUql2wOmTxxe",
+      "position": 39
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/0rH4zXXLOfs/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Ameca splendens",
+      "Ceratophyllum demersum"
+    ],
+    "gear": [
+      {
+        "category": "phan-nen",
+        "type": "cat",
+        "t": 90
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 100
+      },
+      {
+        "category": "be-ca",
+        "type": "lon",
+        "t": 161
+      },
+      {
+        "category": "loc",
+        "type": "treo",
+        "brand": "AquaClear",
+        "model": "70",
+        "t": 225
+      },
+      {
+        "category": "khac",
+        "brand": "Fritz",
+        "model": "Turbo Start",
+        "t": 335
+      }
+    ],
+    "figures": [
+      {
+        "heading": "Bể kiểu biotope cho loài cá này là thế nào",
+        "moments": [
+          {
+            "t": 40,
+            "url": "https://media.aquatome.com/video/0rH4zXXLOfs/at40-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn cá Ameca splendens bơi sát nhau trong bể kính.",
+            "sharpness": 310.8,
+            "person": false
+          },
+          {
+            "t": 45,
+            "url": "https://media.aquatome.com/video/0rH4zXXLOfs/at45-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cảnh quay từ trên cao vùng sông có rừng cây xanh um.",
+            "sharpness": 1978.6,
+            "person": false
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/0rH4zXXLOfs/p0-EZXpfMjAxNi5KUEc.webp",
+          "thumb": "https://media.aquatome.com/video/0rH4zXXLOfs/p0-EZXpfMjAxNi5KUEc-480.webp",
+          "width": 960,
+          "height": 676,
+          "licence": "CC0",
+          "author": "Usien",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ameca_splendens_Jungtier_Dez_2016.JPG",
+          "caption": "Cá Ameca splendens bơi trên nền sỏi đá sáng màu, bên cạnh cây thủy sinh."
+        }
+      },
+      {
+        "heading": "Mua đá vôi ở đâu và chọn cỡ nào",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/0rH4zXXLOfs/p1-4X05QXzI5Mi5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/0rH4zXXLOfs/p1-4X05QXzI5Mi5qcGc-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY-SA 4.0",
+          "author": "Gypsy Denise",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Archway_in_Limestone_Rocks_near_Windy_Harbour_D%27Entrecateaux_NP_292.jpg",
+          "caption": "Đá vôi tự nhiên với bề mặt rỗ, xốp, thường dùng làm đá nền cho bể."
+        }
+      },
+      {
+        "heading": "Trồng cây, châm vi sinh và thả cá",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/0rH4zXXLOfs/p5-lbWVyc3VtLi5KUEc.webp",
+          "thumb": "https://media.aquatome.com/video/0rH4zXXLOfs/p5-lbWVyc3VtLi5KUEc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "Public domain",
+          "author": "S.Tanaka",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ceratophyllum_demersum_var.demersum..JPG",
+          "caption": "Một nhánh rong đuôi chó xanh tươi, sẵn sàng để trồng vào bể."
+        }
+      }
+    ]
+  }
+}

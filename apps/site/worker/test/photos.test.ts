@@ -103,6 +103,7 @@ test('refused: cross-origin, wrong entity, no consent, not an image, too big, ba
   expect(await status({ ...ok, e: 'guide:x' })).toBe(400)
   expect(await status({ ...ok, consent: '' })).toBe(400)
   expect(await status({ ...ok, name: 'xem casino.com' })).toBe(400)
+  expect(await status({ ...ok, name: 'Lan bangang' })).toBe(400)
   expect(await status({ ...ok, file: new File([new TextEncoder().encode('<html>')], 'a.jpg') })).toBe(415)
   const big = new Request(upload(ok), { headers: { origin: 'https://x.test', 'content-length': String(9 * 1024 * 1024) } })
   expect((await handle(big, e)).status).toBe(413)

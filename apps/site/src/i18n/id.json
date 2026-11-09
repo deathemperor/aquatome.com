@@ -1151,8 +1151,7 @@
   "Ánh sáng bể": "Cahaya akuarium",
   "Không cần châm": "Tidak perlu injeksi",
   "Những cây này còn thiếu thông tin bạn đang lọc (ánh sáng, CO₂, vị trí hoặc độ khó). Thông tin đã có thì hợp, nhưng chưa đủ để nói chắc.": "Tanaman ini belum punya sebagian informasi yang sedang Anda filter (cahaya, CO₂, posisi, atau tingkat kesulitan). Informasi yang ada sudah cocok, tetapi belum cukup untuk memastikan.",
-  "{source} ghi khác bảng dữ liệu:": "{source} mencatat angka yang berbeda dari tabel data:",
-  "bảng:": "tabel:",
+  "Thông số ở đầu trang ghi khác đoạn này:": "Data di bagian atas halaman berbeda dari bagian ini:",
   "bể tối thiểu": "akuarium minimum",
   "Cá săn mồi, ăn con nào vừa miệng": "Ikan predator, memangsa ikan apa pun yang muat di mulutnya",
   "Lớn tới {size}, có thể ăn {name}": "Hingga {size}, bisa memakan {name}",
@@ -1319,5 +1318,6 @@
   "Thống kê (không gắn với danh tính)": "Statistik (tidak terkait dengan identitas Anda)",
   "Để biết trang nào hữu ích và người đọc có quay lại không, trang gửi các sự kiện: đường dẫn trang, trang dẫn bạn tới (nếu có), quốc gia, mức cuộn, thời gian đọc, lượt bấm liên kết mua hàng, lượt bấm “thêm vào bể” và liên kết nguồn, một mã phiên và một mã khách ngẫu nhiên. Mã khách do trình duyệt tự tạo ở lần ghé đầu, nằm trong bộ nhớ của trình duyệt (không phải cookie) và tự đổi mới sau 13 tháng. Nó chỉ cho biết cùng một trình duyệt đã quay lại. Chúng tôi không bao giờ ghép nó với tên, email, tài khoản hay địa chỉ IP của bạn. Sự kiện lưu tối đa 3 tháng. Trình duyệt bật Global Privacy Control hoặc Do Not Track thì không có mã khách. Muốn không bị đếm nữa, bấm “Không đếm tôi” ở mục 3.": "Untuk mengetahui halaman mana yang bermanfaat dan apakah pembaca kembali lagi, situs ini mengirim peristiwa: alamat halaman, situs yang mengarahkan Anda ke sini (jika ada), negara, seberapa jauh halaman digulir, waktu membaca, klik tautan pembelian, klik “Tambahkan ke akuarium” dan tautan sumber, sebuah kode sesi, dan sebuah kode pengunjung acak. Kode pengunjung dibuat oleh browser Anda pada kunjungan pertama dan disimpan di penyimpanan browser itu sendiri (bukan cookie); kode ini diganti dengan yang baru setelah 13 bulan. Kode ini hanya memberi tahu kami bahwa browser yang sama datang kembali. Kami tidak pernah menggabungkannya dengan nama, email, akun, atau alamat IP Anda. Peristiwa disimpan paling lama 3 bulan. Browser yang menyalakan Global Privacy Control atau Do Not Track tidak mendapat kode pengunjung. Agar tidak dihitung lagi, tekan “Jangan hitung saya” di bagian 3.",
   "Thống kê (trang web và ứng dụng): tối đa 3 tháng.": "Statistik (situs web dan aplikasi): maksimal 3 bulan.",
-  "Thống kê từ ứng dụng": "Statistik dari aplikasi"
+  "Thống kê từ ứng dụng": "Statistik dari aplikasi",
+  "characins": "characin"
 }

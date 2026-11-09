@@ -14,7 +14,7 @@ UI = 'AquaTomeUITests'
 HANDBOOK = ['HandbookFlowTests', 'FactsCardFlowTests', 'ReadingFlowTests', 'NativePageFlowTests', 'OfflineFlowTests',
             'TankCheckFlowTests', 'TankLifeFlowTests', 'PageShotsFlowTests', 'FishIdFlowTests', 'TankVolumeFlowTests',
             'TankMatesFlowTests', 'VideoFlowTests',
-            'TelemetryFlowTests', 'PageNavigatorFlowTests']
+            'TelemetryFlowTests']
 
 # What a class of flows takes on GitHub's Macs, in seconds, for packing a pull request's few flows into one job
 # (flows-to-run.py): the sum of each test's median in the logs of 2026-11-06's runs, the flows' animations off. A class
@@ -63,10 +63,10 @@ SHOTS = {
     'account': ['testSigningIn', 'testSigningInInTheDark', 'testSigningInInTheLargestText', 'testTheAccountSignedIn',
                 'testTheAccountSignedInInTheDark', 'testTheAccountSignedInInTheLargestText'],
     'owner': ['testTheOwnersDashboard', 'testTheOwnersDashboardInTheDark', 'testTheOwnersDashboardInTheLargestText',
-              'testTheOwnersDashboardWithNothingToDo', 'testTheDailyReportsDelivery', 'testAnOwnersSection',
+              'testTheOwnersNeedsInTheLargestText', 'testTheOwnersDashboardWithNothingToDo', 'testTheDailyReportsDelivery', 'testAnOwnersSection',
               'testAnOwnersSectionInTheDark', 'testAnOwnersSectionInTheLargestText', 'testTheOwnersComments',
               'testTheOwnersCommentsInTheDark', 'testTheOwnersCommentsInTheLargestText', 'testTheDailyReportsSettings'],
-    'v2': ['testV2', 'testV2InTheDark', 'testV2InTheLargestText'],
+    'v2': ['testV2', 'testV2InTheDark', 'testV2InTheLargestText', 'testV2InMalayInTheDarkAtTheLargestText'],
 }
 
 
@@ -77,7 +77,7 @@ def shots(*screens):
 # The handbook's screens' shots: those a change to its model, or to one of its files with no rule of its own, reaches.
 HANDBOOK_SHOTS = shots('pages', 'video', 'viewer', 'search', 'tools', 'home', 'tab-bar', 'fish-id')
 # Every screen of the handbook: its flows, and those that start from a page (a comment posted, a fish put on a tank).
-HANDBOOK_FLOWS = ['HandbookFlowTests', 'FactsCardFlowTests', 'NativePageFlowTests', 'PageNavigatorFlowTests',
+HANDBOOK_FLOWS = ['HandbookFlowTests', 'FactsCardFlowTests', 'NativePageFlowTests',
                   'OfflineFlowTests', 'ReadingFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests', 'FishIdFlowTests',
                   'VideoFlowTests', 'ChatFlowTests']
 HANDBOOK_SCREENS = HANDBOOK_FLOWS + HANDBOOK_SHOTS
@@ -88,7 +88,7 @@ HANDBOOK_SCREENS = HANDBOOK_FLOWS + HANDBOOK_SHOTS
 HANDBOOK_MODEL = HANDBOOK_SCREENS + ['TankCheckFlowTests', 'TanksFlowTests/testListsATanksFishAndPlantsAndOpensTheirPages',
                                      'TankVolumeFlowTests', 'TankMatesFlowTests', 'TelemetryFlowTests']
 # A page open (PageView), or drawn by the app (NativePage): the flows that open one.
-PAGES = ['NativePageFlowTests', 'PageNavigatorFlowTests', 'FactsCardFlowTests', 'ReaderPostFlowTests', 'ReadingFlowTests',
+PAGES = ['NativePageFlowTests', 'FactsCardFlowTests', 'ReaderPostFlowTests', 'ReadingFlowTests',
          'PhotoGridFlowTests', 'TankLifeFlowTests', 'HandbookFlowTests/testAPageOpensInTheApp',
          'TanksFlowTests/testListsATanksFishAndPlantsAndOpensTheirPages', 'VideoFlowTests',
          'TelemetryFlowTests', 'ChatFlowTests'] + shots('pages', 'video', 'viewer', 'home', 'tab-bar')
@@ -145,6 +145,8 @@ REACH = {
     APP + 'InfoPlist.xcstrings': NONE, APP + 'PrivacyInfo.xcprivacy': NONE,
     APP + 'Handbook/': HANDBOOK_SCREENS,
     APP + 'Handbook/HandbookModel.swift': HANDBOOK_MODEL,
+    # Tìm, which is v2's search tab too: a fish found there opens v2's page.
+    APP + 'Handbook/HandbookView.swift': HANDBOOK_SCREENS + ['V2FlowTests'],
     # Tìm's home: the handbook's screens start there, the volume tool opens from its tile, and the root form's reading
     # list is read there.
     APP + 'Handbook/HomeList.swift': HANDBOOK_FLOWS + ['TankVolumeFlowTests', 'ViAtRootFlowTests']
@@ -155,7 +157,8 @@ REACH = {
     APP + 'Handbook/PagePlayer.swift': HANDBOOK_FLOWS + shots('video'),
     APP + 'Handbook/FishIdView.swift': HANDBOOK_FLOWS + shots('fish-id'),
     APP + 'Handbook/PageView.swift': PAGES,
-    APP + 'Handbook/PageNavigator.swift': ['PageNavigatorFlowTests'],
+    # The way round v2's fish page, the owner's alone for now.
+    APP + 'Handbook/PageNavigator.swift': ['V2FlowTests'],
     # Its pictures are kept for offline too (PageImages).
     APP + 'Handbook/NativePage.swift': PAGES + ['OfflineFlowTests'],
     APP + 'Handbook/FactsCard.swift': ['FactsCardFlowTests', 'NativePageFlowTests'] + shots('pages'),
@@ -184,7 +187,8 @@ REACH = {
                                         'TankLifeFlowTests/testAddsAFishWithoutAPageByNameSendsItOnceAndKeepsItAfterARelaunch'],
     APP + 'Tanks/TankGuides.swift': ['TankLifeFlowTests', 'NativePageFlowTests/testALinkFromTheTanksTabOpensOnTheTanksTab',
                                      'NativePageFlowTests/testAGroupFromTheTanksTabOpensOnTheTanksTab'],
-    APP + 'Tanks/TankLife.swift': ['TankLifeFlowTests', 'TankCheckFlowTests', 'TanksFlowTests', 'NativePageFlowTests'],
+    APP + 'Tanks/TankLife.swift': ['TankLifeFlowTests', 'TankCheckFlowTests', 'TanksFlowTests', 'NativePageFlowTests',
+                                   'V2FlowTests/testAFishPutOnATankFromItsPageOpensTheTank'],
     APP + 'Tanks/TankForm.swift': ['TanksFlowTests', 'TankLifeFlowTests', 'PlugFlowTests', 'AccountFlowTests'],
     APP + 'Tanks/CappedField.swift': ['TanksFlowTests', 'TankLifeFlowTests', 'PlugFlowTests', 'AccountFlowTests'],
     # The anonymous statistics: their own flows; and a light connected is one of the events sent.
@@ -210,8 +214,10 @@ REACH = {
     APP + 'ProfilePictures/': ACCOUNT_SHEET, APP + 'Assets.xcassets/ProfilePictures/': ['ProfilePictureFlowTests'],
     'protocols/profile-pictures.json': ['ProfilePictureFlowTests'],
     APP + 'Account/GoogleSignIn.swift': ACCOUNT_SHEET, APP + 'Account/Appearance.swift': ACCOUNT_SHEET,
-    # v2, behind the Tài khoản sheet's switch: its own flows (the switch, its tabs, a link into it), and its page shots.
+    # v2, the app's look since 2026-11-08: its own flows (the switch, its tabs, a link into it, a fish put on a tank from
+    # its page), and its page shots. Its root, which every flow on v2 runs through, reaches them all, as AquaTomeApp does.
     APP + 'V2/': ['V2FlowTests'] + shots('v2'),
+    APP + 'V2/V2Root.swift': ALL,
     # The stand-in server also takes the names readers want pages for (a fish put on a tank by name), and serves the
     # owner's dashboard.
     APP + 'Account/FakeServer.swift': ['AccountFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests', 'FishIdFlowTests',

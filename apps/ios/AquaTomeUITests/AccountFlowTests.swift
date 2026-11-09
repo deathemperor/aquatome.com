@@ -36,7 +36,7 @@ final class AccountFlowTests: XCTestCase {
     add(app, "Bể tép", first: true)
     signIn(app)
     tap(app, "sign-out")
-    XCTAssertTrue(element(app, "apple-sign-in").waitForExistence(timeout: 5), "still signed in")
+    XCTAssertTrue(reached(app, "apple-sign-in").exists, "still signed in")
     XCTAssertTrue(element(app, "account-header").exists, "no account section on the Tài khoản sheet")
     XCTAssertEqual(message(app), "Đã đăng xuất. Các bể vẫn còn trên máy này.")
     XCTAssertEqual(tankCount(app), 1)
@@ -46,7 +46,7 @@ final class AccountFlowTests: XCTestCase {
     let confirm = app.buttons["Xóa tài khoản vĩnh viễn"]
     XCTAssertTrue(confirm.waitForExistence(timeout: 5), "no confirmation")
     confirm.tap()
-    XCTAssertTrue(element(app, "apple-sign-in").waitForExistence(timeout: 5), "still signed in")
+    XCTAssertTrue(reached(app, "apple-sign-in").exists, "still signed in")
     XCTAssertEqual(message(app), "Đã xóa tài khoản. Các bể vẫn còn trên máy này.")
     XCTAssertEqual(tankCount(app), 1)
     app.terminate()
@@ -425,7 +425,8 @@ final class AccountFlowTests: XCTestCase {
   /// The account is in the profile button's sheet, from every tab: an empty "Bể của tôi" offers a hint that opens it,
   /// and a tank list signed in shows none of the account but where the tanks are kept.
   func testTheAccountIsInTheProfileSheetFromEveryTab() {
-    let app = launch(resetServer: true)
+    // The old look's tabs: v2's are Hôm nay's and Khám phá's (V2FlowTests).
+    let app = launch(resetServer: true, "-v2", "NO")
     XCTAssertTrue(element(app, "apple-sign-in").waitForExistence(timeout: 5), "no sign-in in the Tài khoản sheet")
     XCTAssertTrue(element(app, "account-header").exists, "no account section in the Tài khoản sheet")
     // Each tab's first screen has the button, and it opens the same sheet.
@@ -595,6 +596,9 @@ final class AccountFlowTests: XCTestCase {
   private func reached(_ app: XCUIApplication, _ id: String) -> XCUIElement {
     let e = element(app, id)
     if !e.waitForExistence(timeout: 3) { repeatUntil(e.exists, times: 8) { app.swipeUp() } }
+    // Else back up it: signed out at the sheet's foot, its ways to sign in are at its top, which a sheet this long no
+    // longer draws from there.
+    repeatUntil(e.exists, times: 8) { drag(app, from: 0.35, to: 0.75) }
     return e
   }
 

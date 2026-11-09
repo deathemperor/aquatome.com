@@ -10,7 +10,7 @@ import { OFF_LABELS, sectionParts, type SectionProps } from '../lib/section-part
 import { fmt, isRange } from '../lib/format'
 import { i18n } from '../lib/i18n'
 /** `card`: a species' data card. Its figures are the page's own: a quick-facts list drops what the card already gives, and a
- * block that states a figure the card shows otherwise says which source it follows (@aq/schema card-facts). The text is
+ * block whose figure is far from the card's gives the card's after itself (@aq/schema card-facts, lib/section-parts.ts). The text is
  * put together in lib/section-parts.ts, which the app's copy of the page reads too.
  * A slot named after a section (a species' tank mates under "behaviour", Vietnam's climate under "waterConditions") goes
  * at the end of that section, or where it would be when the page has none. The sources' own reference lists ("Tài liệu
@@ -38,19 +38,19 @@ const before = (i: number) => SLOTS.filter(k => at(k) === i && groups[i]?.key !=
         <PhoneFold on={fold.includes(sec.key)}>
         <h2 slot="head">{tr(QUESTION_LABELS[sec.key])}</h2>
         {sec.blocks.map(b => (<>
+          <div class="prose" data-source={b.source} set:html={b.vi} />
           {b.off.length > 0 && (
             <p class="off" data-source={b.source} data-pagefind-ignore>
               <span class="mark" aria-hidden="true" />
-              {tr('{source} ghi khác bảng dữ liệu:', { source: b.name })}{' '}
+              {tr('Thông số ở đầu trang ghi khác đoạn này:')}{' '}
               {b.off.map((o, i) => {
                 const fig = (v: Range | number) => (o.field === 'tempC' ? <span data-c={pair(v)}>{range(v)}°C</span>
-                  : o.field === 'sizeCm' || o.field === 'tankCm' || o.field === 'tankL' ? <span data-cm={pair(v)}>{range(v)} cm</span>
+                  : o.field === 'sizeCm' || o.field === 'tankCm' ? <span data-cm={pair(v)}>{range(v)} cm</span>
                   : o.field === 'gh' ? `${range(v)} dGH` : range(v))
-                return <span data-off={o.field}>{i > 0 && ', '}{tr(OFF_LABELS[o.field]!)} <span class="theirs">{o.field === 'tankL' ? `${range(o.own)} ${tr('lít')}` : fig(o.own)}</span> ({tr('bảng:')} <span class="ours">{fig(o.card)}</span>)</span>
+                return <span data-off={o.field}>{i > 0 && ', '}{tr(OFF_LABELS[o.field]!)} <span class="ours">{fig(o.card)}</span></span>
               })}.
             </p>
           )}
-          <div class="prose" data-source={b.source} set:html={b.vi} />
         </>))}
         </PhoneFold>
         {SLOTS.includes(sec.key) && <div class="slotted"><slot name={sec.key} /></div>}

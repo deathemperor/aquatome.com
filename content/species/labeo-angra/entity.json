@@ -14,6 +14,101 @@
     "bangladesh",
     "myanmar"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PK",
+        "NP",
+        "IN",
+        "BD",
+        "MM"
+      ],
+      "regions": [
+        "Brahmaputra",
+        "Kosi",
+        "Karnali"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Labeo angra is a benthic cyprinid from Pakistan, Nepal, northern India, Bangladesh and Myanmar, described from the Brahmaputra.",
+          "countries": [
+            "PK",
+            "NP",
+            "IN",
+            "BD",
+            "MM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Brahmaputra River, India'.",
+          "countries": [],
+          "regions": [
+            "Brahmaputra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "This species is widely distributed with records from Pakistan (North West Frontier Province and Punjab), Nepal (Kosi and Karnali rivers), northern India (states of Assam, West Bengal, Bihar, Uttar Pradesh, Punjab and Orissa), Bangladesh, and Myanmar.",
+          "countries": [],
+          "regions": [
+            "Kosi",
+            "Karnali"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5206200,
+      "total": 11,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "NP",
+          7
+        ],
+        [
+          "BD",
+          3
+        ],
+        [
+          "IN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          80.15625,
+          28.125,
+          3,
+          3
+        ],
+        [
+          85.78125,
+          25.3125,
+          4,
+          4
+        ],
+        [
+          87.1875,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          88.59375,
+          25.3125,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

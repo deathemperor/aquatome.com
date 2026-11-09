@@ -29,6 +29,15 @@ struct ChatRoute: Hashable {
   let subject: ChatSubject
 }
 
+extension ChatRoute {
+  /// The chat about this fish (a species or breed) or plant.
+  init?(about item: HandbookIndex.Item) {
+    guard [.fish, .plant].contains(item.kind), let id = item.contentId else { return nil }
+    self.init(start: Chat.Start(from: .species, about: id),
+              subject: ChatSubject(plant: item.kind == .plant, name: item.name, sci: item.sub, img: item.img.flatMap(URL.init(string:)), guesses: nil, second: nil))
+  }
+}
+
 /// The chat as GET /api/chat last said, for the entries (a species page's "Hỏi về …", fish ID's row): asked when the app
 /// comes to the front, not by each page. And the one conversation the app keeps: the latest, reopened from the same page
 /// or fish ID result within its 24 hours, by the same account.

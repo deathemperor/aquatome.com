@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { cardRepeats, dropCardRepeats, dropItems, dropOffItems, figuresOffCard, litresOffCard, shownCard, states, tankIsVolume } from '../src/index'
+import { cardRepeats, dropCardRepeats, dropItems, dropLowCo2, dropOffItems, figuresOffCard, litresOffCard, shownCard, states, tankIsVolume } from '../src/index'
 
 // Cá neon vua and Cá chạch bùn as aquatome.com had them (design critique 2026-10-31): the card said 3,5 cm, pH 4,6–6,2,
 // 23–27 °C; The Spruce Pets' quick facts and Seriously Fish's water text said 5 cm, pH 3,5–7,5, 23–29 °C.
@@ -142,4 +142,22 @@ test('a quick-facts line off the card goes; the rest of the block stays', () => 
   // A line stating this source's own figure where the card shows another: off too.
   expect(dropOffItems(card, 'sprucepets', '<ul><li>Nhiệt độ: 20 đến 28 °C</li></ul>')).toBe('')
   expect(dropOffItems(card, 'sprucepets', '<ul><li>Hiền.</li></ul>')).toBe('<ul><li>Hiền.</li></ul>')
+})
+
+// Anubias as aquatome.com had it (the council, 2026-11-10): the card said "Không cần", Tropica's row "CO2: Thấp".
+const tropicaEn = (co2: string) => `<ul><li><strong>Growth rate:</strong> Slow</li><li><strong>Light demand:</strong> Low</li><li>${co2}</li></ul>`
+const tropicaVi = '<ul><li><strong>Tốc độ phát triển:</strong> Chậm</li><li><strong>Nhu cầu ánh sáng:</strong> Thấp</li><li><strong>CO2:</strong> Thấp</li></ul>'
+const withoutRow = '<ul><li><strong>Tốc độ phát triển:</strong> Chậm</li><li><strong>Nhu cầu ánh sáng:</strong> Thấp</li></ul>'
+
+test('a plant\'s "Low" CO₂ row goes beside a card that answers otherwise, in either of Tropica\'s wordings', () => {
+  expect(dropLowCo2(tropicaEn('<strong>CO2:</strong> Low'), tropicaVi, 'none')).toBe(withoutRow)
+  expect(dropLowCo2(tropicaEn('CO2 demand: low'), tropicaVi, 'none')).toBe(withoutRow)
+  expect(dropLowCo2(tropicaEn('<strong>CO2:</strong> Low'), tropicaVi, 'required')).toBe(withoutRow)
+})
+
+test('a plant\'s CO₂ row stays where it says more than the card', () => {
+  expect(dropLowCo2(tropicaEn('<strong>CO2:</strong> Low'), tropicaVi, 'optional')).toBe(tropicaVi)
+  expect(dropLowCo2(tropicaEn('<strong>CO2:</strong> Medium (6-14 mg/L)'), tropicaVi, 'none')).toBe(tropicaVi)
+  // A translation whose list doesn't match the English one item for item is left alone.
+  expect(dropLowCo2('<ul><li>CO2: Low</li></ul>', tropicaVi, 'none')).toBe(tropicaVi)
 })

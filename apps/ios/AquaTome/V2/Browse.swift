@@ -166,7 +166,7 @@ struct BrowseHome: View {
                 .overlay { if g.img == nil { Image(systemName: HandbookIndex.Kind.fish.symbol).font(.title3).foregroundStyle(.secondary).accessibilityHidden(true) } }
               VStack(alignment: .leading, spacing: 2) {
                 Text(verbatim: g.label).font(.body.weight(.semibold))
-                Text(g.count, format: .number).font(.subheadline).foregroundStyle(.v2Faint)
+                Text("\(g.count) loài").font(.subheadline).foregroundStyle(.v2Faint)
               }
               Spacer(minLength: 0)
             }
@@ -265,7 +265,6 @@ struct BrowseHome: View {
       }
     }
     .contentMargins(.horizontal, 20, for: .scrollContent)
-    .v2ShelfEdge()
   }
 
   private func guides(_ items: [HandbookIndex.Item]) -> some View {
@@ -419,7 +418,7 @@ private struct GroupTile: View {
         HStack(alignment: .firstTextBaseline) {
           Text(verbatim: group.label).font(.subheadline.weight(.semibold)).lineLimit(2).multilineTextAlignment(.leading)
           Spacer(minLength: 4)
-          Text(group.count, format: .number).font(.caption)
+          Text("\(group.count) loài").font(.caption)
         }
         .foregroundStyle(.white)
         .padding(.horizontal, 10)

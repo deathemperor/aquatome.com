@@ -1,0 +1,118 @@
+{
+  "id": "corydoras-zygatus",
+  "native": {
+    "input": "9a2dd1f8332081bc",
+    "at": "2026-11-09T12:58:06.259Z",
+    "claims": [
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The black band cory, Osteogaster zygata, long known as Corydoras zygatus, is an armoured catfish from the middle Río Marañón watershed in eastern Ecuador and northern Peru.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The black band cory, Osteogaster zygata, long known as Corydoras zygatus, is an armoured catfish from the middle Río Marañón watershed in eastern Ecuador and northern Peru.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the Ucayali (río Samiria), Huallaga, Santiago, and Pastaza (ríos Bobonaza and Pindo) river systems in eastern Ecuador and northern Peru.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the Ucayali (río Samiria), Huallaga, Santiago, and Pastaza (ríos Bobonaza and Pindo) river systems in eastern Ecuador and northern Peru.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Marañón",
+        "source": "seriouslyfish",
+        "quote": "The black band cory, Osteogaster zygata, long known as Corydoras zygatus, is an armoured catfish from the middle Río Marañón watershed in eastern Ecuador and northern Peru.",
+        "ok": true
+      },
+      {
+        "name": "Ucayali",
+        "source": "seriouslyfish",
+        "quote": "Known from the Ucayali (río Samiria), Huallaga, Santiago, and Pastaza (ríos Bobonaza and Pindo) river systems in eastern Ecuador and northern Peru.",
+        "ok": true
+      },
+      {
+        "name": "Huallaga",
+        "source": "seriouslyfish",
+        "quote": "Known from the Ucayali (río Samiria), Huallaga, Santiago, and Pastaza (ríos Bobonaza and Pindo) river systems in eastern Ecuador and northern Peru.",
+        "ok": true
+      },
+      {
+        "name": "Santiago",
+        "source": "seriouslyfish",
+        "quote": "Known from the Ucayali (río Samiria), Huallaga, Santiago, and Pastaza (ríos Bobonaza and Pindo) river systems in eastern Ecuador and northern Peru.",
+        "ok": true
+      },
+      {
+        "name": "Pastaza",
+        "source": "seriouslyfish",
+        "quote": "Known from the Ucayali (río Samiria), Huallaga, Santiago, and Pastaza (ríos Bobonaza and Pindo) river systems in eastern Ecuador and northern Peru.",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "These are all tributary drainages within the middle Río Marañón watershed, a major affluent of the upper Amazon river basin.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras zygatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2342687,
+    "datasets": [
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        4
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "EC",
+      "PE"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T12:58:06.259Z"
+  }
+}

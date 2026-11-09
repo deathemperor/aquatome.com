@@ -10,6 +10,60 @@
     "vietnam",
     "quang-tri"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VN"
+      ],
+      "regions": [
+        "Quảng Trị",
+        "Cam Lo",
+        "Giang"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known from the coastal Quảng Trị, Cam Lo, and Giang river systems, between the cities of Đồng Hới and Đông Hà in Quảng Bình and Quảng Trị provinces, central Vietnam (Freyhof & Herder, 2002).",
+          "countries": [
+            "VN"
+          ],
+          "regions": [
+            "Quảng Trị",
+            "Cam Lo",
+            "Giang"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5211159,
+      "total": 27,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "VN",
+          27
+        ]
+      ],
+      "cells": [
+        [
+          105.46875,
+          16.875,
+          20,
+          20
+        ],
+        [
+          106.875,
+          15.46875,
+          7,
+          7
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

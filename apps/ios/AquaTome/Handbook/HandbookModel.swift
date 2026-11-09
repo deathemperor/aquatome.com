@@ -20,6 +20,9 @@ final class HandbookModel {
   /// The query, the kind picked and what they find (SearchState): searched once a change, not on every redraw.
   private(set) var searching = SearchState(HandbookSearch([]), page: HandbookModel.searchPage())
   var query: String { get { searching.query } set { searching.query = newValue } }
+  /// Counts the times a screen asked for Tìm with its words (AppScreen.search): typing changes `query` too, and v2 opens
+  /// its search tab for this alone.
+  var searchAsked = 0
   var kind: HandbookIndex.Kind? { get { searching.kind } set { searching.kind = newValue } }
   var results: [HandbookIndex.Item] { searching.results }
   /// How many pages the query finds of each kind, and in all under nil: what the chips above the results say.
@@ -391,8 +394,12 @@ final class HandbookModel {
     if case .fixed = source {
       let dir = FileManager.default.temporaryDirectory.appending(path: "pages-\(UUID().uuidString)")
       let launch = ProcessInfo.processInfo.arguments
+      // `-newer-part`: the neon's page holds a part from a newer site, which this build can't draw.
       let pages = launch.contains("-equipment") ? HandbookIndex.fixtureKitPages
-        : launch.contains("-vi-at-root") ? HandbookIndex.fixturePagesAtRoot : HandbookIndex.fixturePages
+        : launch.contains("-vi-at-root") ? HandbookIndex.fixturePagesAtRoot
+        : launch.contains("-newer-part") ? HandbookIndex.fixturePagesWithANewerPart
+        : launch.contains("-long-page") ? HandbookIndex.fixturePagesLong
+        : launch.contains("-long-part") ? HandbookIndex.fixturePagesWithLongParts : HandbookIndex.fixturePages
       return PageCache(dir: dir, site: site, fetch: { _ in pages })
     }
     #endif
@@ -564,6 +571,31 @@ extension HandbookIndex {
   }()
   static let fixturePagesAtRoot = Data(String(decoding: atRoot(fixturePages), as: UTF8.self)
     .replacingOccurrences(of: #"{"path":"/huong-dan/cach-han-che-reu-hai/""#, with: #"{"path":"/vi/huong-dan/cach-han-che-reu-hai/""#).utf8)
+  /// UI tests (`-newer-part`): the fixture's pages, the neon's with a part from a newer site after its feeding.
+  static let fixturePagesWithANewerPart = Data(String(decoding: fixturePages, as: UTF8.self)
+    .replacingOccurrences(of: #"{"t":"p","c":["Thức ăn viên nhỏ, thêm trùn chỉ vài lần một tuần."]}"#,
+                          with: #"{"t":"p","c":["Thức ăn viên nhỏ, thêm trùn chỉ vài lần một tuần."]},{"t":"quiz","q":"Cá neon ăn gì?"}"#).utf8)
+  /// UI tests (`-long-part`): the fixture's pages, the neon's feeding six paragraphs long and its breeding one long
+  /// paragraph with a link: parts that fold.
+  static let fixturePagesWithLongParts = Data(String(decoding: fixturePages, as: UTF8.self)
+    .replacingOccurrences(of: #"{"t":"h","text":"Sinh sản ra sao?","id":"muc-reproduction"}"#,
+                          with: #"{"t":"h","text":"Cần thiết bị gì?","id":"muc-equipment"},{"t":"p","c":["Bể nhỏ cho cá neon không cần nhiều thứ đắt tiền, nhưng mấy món cơ bản thì nên có ngay từ đầu để nước ổn định. Nước trong bể mới chưa có vi sinh, nên cần chạy lọc vài tuần rồi mới thả cá. Cá neon nhỏ và nhạy, nên dòng chảy phải êm, đèn đừng quá gắt, và nhiệt độ cần giữ đều suốt ngày đêm thì cá mới lên màu đẹp."]},{"t":"p","c":["Một bể neon nhỏ chỉ cần vài thứ, gồm:"]},{"t":"list","items":[[{"t":"p","c":["Lọc thác hoặc lọc bông, chảy êm, đủ cho thể tích bể."]}],[{"t":"p","c":["Sưởi có điều nhiệt nếu phòng xuống dưới 22°C vào mùa lạnh."]}],[{"t":"p","c":["Đèn vừa phải, bật chừng tám tiếng mỗi ngày là đủ."]}],[{"t":"p","c":["Nền cát mịn hoặc nền trồng cây, rửa sạch trước khi đổ vào."]}],[{"t":"p","c":["Vài bụi cây và một khúc lũa cho cá có chỗ núp."]}],[{"t":"p","c":["Bộ test pH và nitrit để biết bể đã chạy xong chưa."]}]]},{"t":"h","text":"Nuôi chung với con gì?","id":"muc-behaviour"},{"t":"p","c":["Hợp với các loài cá nhỏ hiền."]},{"t":"h","text":"Sinh sản ra sao?","id":"muc-reproduction"}"#)
+    .replacingOccurrences(of: #"{"t":"p","c":["Thức ăn viên nhỏ, thêm trùn chỉ vài lần một tuần."]}"#,
+                          with: #"{"t":"p","c":["Thức ăn viên nhỏ, thêm trùn chỉ vài lần một tuần."]}"# + #",{"t":"p","c":["Cá con mới mua về thường nhát ăn vài ngày đầu: cho ít, quan sát xem cá có lên ăn không rồi mới tăng dần lượng thức ăn."]},{"t":"p","c":["Thức ăn đông lạnh như trùn chỉ hay artemia nên rã đông trong một ít nước bể trước khi thả, để cá không ăn phải miếng còn cứng lạnh."]},{"t":"p","c":["Mỗi tuần nên có một ngày không cho ăn: hệ tiêu hóa của cá được nghỉ, nước bể cũng sạch hơn vì ít thức ăn thừa."]},{"t":"p","c":["Thức ăn thừa chìm xuống đáy sau vài phút cần hút bỏ, vì nó làm nước đục và tăng amoniac rất nhanh trong bể nhỏ."]},{"t":"p","c":["Đoạn cuối về cho ăn: khi đi vắng vài ngày, cá khỏe chịu nhịn được, không cần thả viên thức ăn tan chậm."]}"#)
+    .replacingOccurrences(of: #"{"t":"p","c":["Khó cho đẻ trong bể nuôi chung: cần bể đẻ riêng, nước rất mềm."]}"#,
+                          with: #"{"t":"p","c":["Muốn cho đẻ, nuôi riêng một cặp như ",{"text":"cá ngựa vằn","href":"/vi/ca/ca-ngua-van/"}," vẫn làm: bể đẻ nhỏ, nước rất mềm và hơi chua, ánh sáng yếu, đáy có lưới hoặc rêu để trứng rơi xuống mà cá bố mẹ không ăn được; sau khi đẻ thì vớt cá bố mẹ ra ngay, che tối bể vì trứng sợ sáng, giữ nhiệt độ ổn định, đến khi cá bột bơi được thì cho ăn infusoria rồi chuyển dần sang artemia mới nở, thay một ít nước mỗi ngày bằng nước cùng nhiệt độ và độ cứng, và kiên nhẫn vì tỉ lệ sống của cá bột neon trong bể nuôi ở nhà thường thấp."]}"#).utf8)
+  /// Performance tests (`-long-page`): the fixture's pages, the neon's with its text twelve times over, a long page.
+  static let fixturePagesLong: Data = {
+    var all = try! JSONSerialization.jsonObject(with: fixturePages) as! [String: Any]
+    var pages = all["pages"] as! [String: Any]
+    var neon = pages["/vi/ca/ca-neon/"] as! [String: Any]
+    let blocks = neon["blocks"] as! [[String: Any]]
+    let text = blocks.filter { ["h", "p", "list"].contains($0["t"] as? String) }
+    neon["blocks"] = blocks + Array(Array(repeating: text, count: 12).joined())
+    pages["/vi/ca/ca-neon/"] = neon
+    all["pages"] = pages
+    return try! JSONSerialization.data(withJSONObject: all)
+  }()
   /// Only a string that starts with the path: not the "/vi/" in a YouTube picture's address.
   private static func atRoot(_ json: Data) -> Data {
     Data(String(decoding: json, as: UTF8.self).replacingOccurrences(of: #""/vi/"#, with: #""/"#).utf8)

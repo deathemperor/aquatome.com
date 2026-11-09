@@ -96,25 +96,22 @@ describe('species page', () => {
     expect(dom.querySelector('#muc-waterConditions > h2')).not.toBeNull()
     expect(page('/cay/ray-nana/').dom.querySelector('details.fold')).toBeNull()
   })
-  test('a block stating a figure the card shows otherwise says which source it follows, with both figures', () => {
-    const note = dom.querySelector('section[data-section="waterConditions"] p.off')!
-    // The card is Seriously Fish's 24–30 °C; Glaser's block says 23–27 °C.
-    expect(note.text.replace(/\s+/g, ' ').trim()).toBe('Aquarium Glaser ghi khác bảng dữ liệu: nhiệt độ 23–27°C (bảng: 24–30°C).')
-    expect(note.getAttribute('data-source')).toBe('glaser')
-    expect(note.getAttribute('data-pagefind-ignore')).not.toBeNull()
-    expect(note.querySelectorAll('[data-c]').map(x => x.getAttribute('data-c'))).toEqual(['23,27', '24,30']) // °F toggle too
-    expect(note.nextElementSibling?.getAttribute('data-source')).toBe('glaser') // above its own block
-    expect(dom.querySelectorAll('p.off').length).toBe(1) // Seriously Fish's block states the card's own figures: nothing to say
+  test('a block whose figure is near the card\'s says nothing: the sources only round differently', () => {
+    // The card is Seriously Fish's 24–30 °C; Glaser's block says 23–27 °C, which overlaps it.
+    expect(dom.querySelector('section[data-section="waterConditions"] .prose[data-source="glaser"]')).not.toBeNull()
+    expect(dom.querySelectorAll('p.off').length).toBe(0)
   })
   // The betta's page said "Dung tích bể tối thiểu: 8 lít" twice under a 45 cm card (design critique 2026-11-06): a volume
-  // that makes a shorter tank than the card's is noted, and a quick-facts line that says it goes.
-  test('a tank volume that makes a shorter tank than the card: off its quick facts, noted over its other text', () => {
+  // that makes a much shorter tank than the card's is noted after its block, and a quick-facts line that says it goes.
+  test('a tank volume that makes a much shorter tank than the card: off its quick facts, the card\'s figure after its other text', () => {
     const galaxy = page('/ca/ca-galaxy/').dom
     const facts = galaxy.querySelector('section[data-section="quickFacts"] .prose[data-source="sprucepets"]')!
     expect(facts.querySelectorAll('li').map(li => li.text.replace(/\d+$/, ''))).toEqual(['Thức ăn: ăn tạp'])
     const note = galaxy.querySelector('section[data-section="aquariumSize"] p.off')!
-    expect(note.text.replace(/\s+/g, ' ').trim()).toBe('The Spruce Pets ghi khác bảng dữ liệu: bể tối thiểu 19 lít (bảng: 45 cm).')
-    expect(note.querySelectorAll('[data-cm]').map(x => x.getAttribute('data-cm'))).toEqual(['45,45'])
+    expect(note.text.replace(/\s+/g, ' ').trim()).toBe('Thông số ở đầu trang ghi khác đoạn này: bể tối thiểu 45 cm.')
+    expect(note.getAttribute('data-pagefind-ignore')).not.toBeNull()
+    expect(note.querySelectorAll('[data-cm]').map(x => x.getAttribute('data-cm'))).toEqual(['45,45']) // the units toggle too
+    expect(note.previousElementSibling?.getAttribute('data-source')).toBe('sprucepets') // after its own block
     expect(galaxy.querySelectorAll('p.off').length).toBe(1)
   })
   test('the phone\'s key facts mark a value the sources disagree on only as the card does: here, by too little to', () => {

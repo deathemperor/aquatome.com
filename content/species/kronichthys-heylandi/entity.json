@@ -11,6 +11,71 @@
     "sao-paulo",
     "santos"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Mountain stream near Santos, São Paulo State, Brazil, elevation 122 m.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339575,
+      "total": 134,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "BR",
+          134
+        ]
+      ],
+      "cells": [
+        [
+          -49.21875,
+          -25.3125,
+          42,
+          42
+        ],
+        [
+          -47.8125,
+          -25.3125,
+          18,
+          18
+        ],
+        [
+          -46.40625,
+          -23.90625,
+          15,
+          15
+        ],
+        [
+          -45,
+          -23.90625,
+          35,
+          35
+        ],
+        [
+          -43.59375,
+          -23.90625,
+          24,
+          24
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

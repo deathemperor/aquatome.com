@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "8wpB5jlgKEg",
     "title": "Cách Chọn ĐÈN Thủy Sinh • Thủy Sinh Cơ Bản • Phần 3",
@@ -30,26 +30,40 @@
       {
         "category": "den",
         "type": "thuy-sinh",
-        "t": 120
+        "t": 404
       }
     ],
     "figures": [
       {
-        "heading": "Nhiệt độ màu bao nhiêu là phù hợp",
+        "heading": "Vì sao đèn quan trọng nhất trong bể thủy sinh",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/8wpB5jlgKEg/p1-fc3RhcnNfNC5wbmc.webp",
-          "thumb": "https://media.aquatome.com/video/8wpB5jlgKEg/p1-fc3RhcnNfNC5wbmc-480.webp",
+          "url": "https://media.aquatome.com/video/8wpB5jlgKEg/p0-cXVhc2NhcGUuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/8wpB5jlgKEg/p0-cXVhc2NhcGUuanBn-480.webp",
           "width": 960,
-          "height": 483,
-          "licence": "Public domain",
-          "author": "chatGPT 3 and ChatGPT 4o AI",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Color_of_skies_only_of_earthlike_planets_with_different_temperatures_of_central_stars_4.png",
-          "caption": "Bảng màu minh họa nhiệt độ màu theo Kelvin, từ ấm vàng đến lạnh xanh."
+          "height": 549,
+          "licence": "CC0",
+          "author": "Dileepkumardr",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nature_Aquarium_Aquascape.jpg",
+          "caption": "Bể thủy sinh được chiếu sáng tốt, cây xanh tốt um tùm."
         }
       },
       {
-        "heading": "Tính công suất đèn cho bể",
+        "heading": "Nhiệt độ màu bao nhiêu là hợp",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/8wpB5jlgKEg/p1-fc3BpZ2dldC5wbmc.webp",
+          "thumb": "https://media.aquatome.com/video/8wpB5jlgKEg/p1-fc3BpZ2dldC5wbmc-480.webp",
+          "width": 870,
+          "height": 972,
+          "licence": "CC BY-SA 3.0",
+          "author": "Spigget",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cie_Chart_with_sRGB_gamut_by_spigget.png",
+          "caption": "Biểu đồ màu CIE với đường nhiệt độ màu từ ánh sáng vàng ấm đến trắng xanh."
+        }
+      },
+      {
+        "heading": "Tính công suất đèn theo thể tích bể",
         "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/8wpB5jlgKEg/p2-1bV9MaWdodC5qcGc.webp",
@@ -59,21 +73,49 @@
           "licence": "CC BY-SA 3.0",
           "author": "Lime Huang",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_Aquarium_Light.jpg",
-          "caption": "Bể thủy sinh hình chữ nhật có đèn LED đặt phía trên."
+          "caption": "Bể thủy sinh có đèn LED gắn phía trên, cây xanh phát triển tốt."
         }
       },
       {
-        "heading": "Đèn trôi nổi, đèn tự chế và ánh nắng",
+        "heading": "Các loại đèn thủy sinh",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/8wpB5jlgKEg/p7-1bV9MaWdodC5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/8wpB5jlgKEg/p7-1bV9MaWdodC5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/8wpB5jlgKEg/p4-NV9UOF9UMTIuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/8wpB5jlgKEg/p4-NV9UOF9UMTIuanBn-480.webp",
+          "width": 960,
+          "height": 813,
+          "licence": "CC BY-SA 4.0",
+          "author": "Temdor",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Linear_fluorescent_lamps_T5_T8_T12.jpg",
+          "caption": "Ba loại bóng huỳnh quang có đường kính khác nhau, so sánh T5, T8 và T12."
+        }
+      },
+      {
+        "heading": "Chọn đèn LED thế nào",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/8wpB5jlgKEg/p5-1bV9MaWdodC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/8wpB5jlgKEg/p5-1bV9MaWdodC5qcGc-480.webp",
           "width": 960,
           "height": 666,
           "licence": "CC BY-SA 3.0",
           "author": "Lime Huang",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_Aquarium_Light.jpg",
-          "caption": "Bể thủy sinh trồng cây có đèn LED gắn phía trên."
+          "caption": "Bể thủy sinh nhiều rêu và cây, lắp đèn LED thanh trắng phía trên."
+        }
+      },
+      {
+        "heading": "Có nên tiết kiệm tiền đèn",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/8wpB5jlgKEg/p6-NfUGxhbnRzLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/8wpB5jlgKEg/p6-NfUGxhbnRzLmpwZw-480.webp",
+          "width": 960,
+          "height": 638,
+          "licence": "CC BY 4.0",
+          "author": "Abhik.Mazumdar.73",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_with_Mermaid_Statue_Driftwood_and_Anubias_Aquatic_Plants.jpg",
+          "caption": "Hồ thủy sinh sáng đẹp với lũa, cây lá xanh và cát trắng."
         }
       }
     ]

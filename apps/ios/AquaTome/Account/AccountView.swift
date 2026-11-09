@@ -16,6 +16,7 @@ struct AccountView: View {
         AccountSection()
         OwnerEntry()
         AppSection()
+        if #available(iOS 18, *) { OldLookSection() }
         PrivacySection()
         AboutSection()
         LeaveSection()
@@ -84,8 +85,6 @@ struct Tile: View {
 private struct AppSection: View {
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.openScreen) private var openScreen
-  /// The app's v2 in place of v1 (V2Root): debug and TestFlight builds only (V2Switch).
-  @AppStorage("v2") private var v2 = false
 
   /// "Ngôn ngữ" as kept, which the section's footer reads too.
   @State private var language = AppLanguage.stored
@@ -124,6 +123,33 @@ private struct AppSection: View {
       Text("Ứng dụng").font(.subheadline.weight(.semibold))
     } footer: {
       LanguageNote(choice: language)
+    }
+  }
+}
+
+/// The old look (V2Switch), for a reader who'd rather have it: a group of its own under "Ứng dụng", apart from its
+/// "Giao diện" (light or dark), which shares its word, with what it brings back said under it. None on iOS 17, which has
+/// the old look alone.
+@available(iOS 18, *)
+private struct OldLookSection: View {
+  @AppStorage(V2Switch.key) private var v2 = V2Switch.byDefault
+  @Environment(\.dynamicTypeSize) private var size
+
+  var body: some View {
+    Section {
+      Toggle(isOn: Binding { !v2 } set: { v2 = !$0 }) {
+        let icon = Tile(symbol: "clock.arrow.circlepath", color: .gray)
+        // At the accessibility sizes the icon over the words, as the account's card has it: beside them, a longer
+        // language's first word ("Gunakan") broke in two.
+        if size.isAccessibilitySize {
+          VStack(alignment: .leading, spacing: 8) { icon; Text("Dùng giao diện cũ") }
+        } else {
+          Label { Text("Dùng giao diện cũ") } icon: { icon }
+        }
+      }
+      .accessibilityIdentifier("old-look-switch")
+    } footer: {
+      Text("Bật để các tab và trang trở lại như trước khi ứng dụng đổi giao diện.")
     }
   }
 }

@@ -1,0 +1,88 @@
+{
+  "id": "barilius-infrafasciatus",
+  "native": {
+    "input": "f46cc284de520d0f",
+    "at": "2026-11-09T12:58:06.259Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Currently understood to occur within the Ping river in Thailand, Ataran and Salween drainages in Myanmar and China and tributaries of the Mekong in China.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Currently understood to occur within the Ping river in Thailand, Ataran and Salween drainages in Myanmar and China and tributaries of the Mekong in China.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Currently understood to occur within the Ping river in Thailand, Ataran and Salween drainages in Myanmar and China and tributaries of the Mekong in China.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'Metang River, 35 miles north of Chieng Mai, northern Thailand', this corresponding to the Mae Tang river in Chiang Mai province, northern Thailand.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ping",
+        "source": "seriouslyfish",
+        "quote": "Currently understood to occur within the Ping river in Thailand, Ataran and Salween drainages in Myanmar and China and tributaries of the Mekong in China.",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Salween",
+        "source": "seriouslyfish",
+        "quote": "Currently understood to occur within the Ping river in Thailand, Ataran and Salween drainages in Myanmar and China and tributaries of the Mekong in China.",
+        "ok": true
+      },
+      {
+        "name": "Ataran",
+        "source": "seriouslyfish",
+        "quote": "Currently understood to occur within the Ping river in Thailand, Ataran and Salween drainages in Myanmar and China and tributaries of the Mekong in China.",
+        "ok": true
+      },
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Currently understood to occur within the Ping river in Thailand, Ataran and Salween drainages in Myanmar and China and tributaries of the Mekong in China.",
+        "country": "CN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Barilius infrafasciatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2363334,
+    "datasets": [],
+    "native": [
+      "TH",
+      "MM",
+      "CN"
+    ],
+    "requests": 2,
+    "at": "2026-11-09T12:58:06.259Z"
+  }
+}

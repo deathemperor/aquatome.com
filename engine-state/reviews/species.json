@@ -1,4 +1,37 @@
 {
+  "vi/plants/ceratophyllum-demersum#5K1_KCFudYM": [
+    {
+      "at": "2026-11-09T11:43:35Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "[distribution] \"có mặt ở mọi châu lục\" is already on the page; \"lan ra tự nhiên ở các châu lục khác\" repeats the page's worldwide distribution claim (the North America origin is new, but the spread part overlaps).",
+        "[distribution] \"một phần vì nó rất khỏe\" - the video links the spread to hardiness, but this is stated as a fact, not a keeper's view; acceptable but borderline.",
+        "[notes] \"Nhiều người chơi coi loài này là cây hại\" - the video says many aquarists consider it a pest; fine, but the following \"trông không đẹp mắt\" is the video's own opinion, presented as a general rule for \"ai muốn bể thật đẹp\".",
+        "[notes] \"Một người nuôi nó trong nhiều bể thấy cây hay giữ lại nhiều cặn bẩn\" - the video states the dirt-holding as a general fact, not as personal experience; attribution mismatch.",
+        "[notes] \"Ở ao thì đám cặn đó lại thành điểm lợi\" - the video says a pond may benefit, written as certain; slight overstatement.",
+        "[beforeYouBuy] \"ốc nhỏ và trứng ốc\" - the video says pest snails and their eggs, but \"thường sẽ có\" (in majority of cases) is a generalization; also \"không như bèo tấm\" is fine.",
+        "[maintenance] \"Đèn mạnh thì cây hay bị rêu bám\" - the page says the plant lives in weak to strong light, and the video says with high light it grows algae; this conflict is not flagged as a difference from the page.",
+        "[waterConditions] \"loại nước nào nó cũng sống được\" - the page already gives a temperature range of 10-30°C, so the new text overlaps and does not mention that it differs; also the video said any temperature, which is more absolute."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-09T11:43:35Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"ốc hại\": the video says hitchhiker pest snails, but the speaker likes snails; minor framing.",
+        "\"đa phần sẽ có ốc\": the video says \"in majority of cases\", so this is acceptable but slightly firm.",
+        "\"Loài này không kén thông số nước\": close to the page's wide temperature range, but the video says it too, so low overlap.",
+        "The first paragraph of [maintenance] states the algae point as a keeper's experience, which is fine.",
+        "Overall the statements are supported by the video, and the phrasing is natural Vietnamese."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/plants/pogostemon-stellatus#-b8xzLDI9zE": [
     {
       "at": "2026-11-08T03:05:11Z",
@@ -105,6 +138,39 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "vi/species/doryichthys-heterosoma": [
+    {
+      "at": "2026-11-09T11:49:28Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"thuộc kiểu benthopelagic, tức là sống quanh khu vực gần đáy\" - the explanation of benthopelagic as living near the bottom is not in the facts (it is only listed as a classification).",
+        "\"Bảng dữ liệu ghi cỡ trưởng thành là 34 cm\" - this is in the figures, so it is supported. However, it sits oddly beside the 8 cm retail size, and no sources are cited for it.",
+        "\"Khi cá đã quen bể thì có thể nó sẽ chịu ăn đồ đông lạnh\" - this is consistent with the facts (frozen food may be accepted), so it is fine.",
+        "\"Theo tài liệu khoa học\" and \"Những thông tin này không khớp với vùng phân bố trong tài liệu khoa học\" - the facts do not say the sources are scientific or that the hobbyist claims conflict with them; this is the page's own framing.",
+        "\"Set thật nhiều cây\" - this is supported by the plants-and-structure fact, so it is fine.",
+        "\"nó khỏe và chịu được nhiều mức thông số nước\" - this is supported by the hardiness fact, so it is fine."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-09T11:49:28Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"Bảng dữ liệu ghi cỡ trưởng thành là 34 cm\" is supported by the data card (34), so it is fine.",
+        "\"Nghe nói nhiều pipefish nước ngọt đang nuôi là cá sinh ra trong bể ở nhà, nhưng thông tin đó nói chung cho cả nhóm chứ không riêng loài này\" adds a qualification that the facts do not state. It is a minor embellishment.",
+        "\"Tài liệu phân loại chỉ có tên nó ở Kalimantan và quần đảo Natuna, cụ thể là sông Sambas\" is a slight reframing. The facts give the Sambas River and the Natuna Islands as the known range.",
+        "\"Con đực giữ trứng ở đó cho đến khi cá con ra đời\" is supported. \"dưới đuôi con đực\" is supported by the brood pouch under the tail.",
+        "\"Nó không cần một cái bể gì ghê gớm\" is supported by f25, so it is fine.",
+        "\"nó khỏe và chịu được nhiều mức thông số nước\" is supported.",
+        "\"Có thể dành hẳn bể cho riêng loài này\" softens the presenter's preference for a species-only tank. It is minor."
+      ],
+      "attempt": "first",
+      "kept": true
     }
   ],
   "vi/species/garra-panitvongi": [
@@ -303,6 +369,39 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "vi/species/otocinclus-vittatus#6C3cORsXseY": [
+    {
+      "at": "2026-11-09T17:54:19Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "[diet] \"tảo nâu\": the video says diatoms, which is usually \"tảo silic\"; \"tảo nâu\" is a loose rendering but acceptable.",
+        "[diet] \"thế là cây yếu dần rồi chết\" is stated as a general fact; the video says it about algae film in general, and this is fine, but it's phrased as a rule.",
+        "[maintenance] \"Đó là chuyện của một bể, chưa chắc bể nào cũng nhanh như vậy\" is a hedge the video doesn't make, but it's reasonable caution. The video also says algae cleared 'in just a few days' elsewhere.",
+        "[maintenance] \"Một người nuôi có bể...\" and \"lá crypt\" are fine, but the video says 'golden anubias nana' and 'cryptocorynes', so this is faithful.",
+        "[behaviour] \"Ban ngày, thỉnh thoảng có con tách ra ở một mình\" matches the video. \"hay tụ lại\" is fine.",
+        "[notes] \"đỡ được phần nào trước những con cá săn mồi lớn hơn\" is a slight extension of 'larger inhabitants constantly lurking' but acceptable."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-09T17:54:19Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "\"tảo nâu\" for diatoms is acceptable, but \"rêu đốm xanh\"/\"rêu bụi xanh\" fine; mixing \"tảo\" and \"rêu\" is inconsistent and reads slightly off.",
+        "\"cá otto\" is an unnatural/misspelled name (page uses \"oto\"/\"otocinclus\"); reads as a transcription error.",
+        "\"Loài này dễ chăm, và người trồng cây thủy sinh rất quý nó\" is a generic claim stated as fact; it echoes the video's \"easy to care for\" but is a vague, translation-like statement.",
+        "\"Một người nuôi thả 15 con...\" is fine as one keeper's experience, but \"lá đã sạch rêu\" drops the video's detail that the algae was 'completely destroyed' and the result is presented without noting it's one tank; OK but borderline.",
+        "\"Ban ngày, thỉnh thoảng có con tách ra ở một mình\" is supported, but \"bơi đồng loạt khắp bể\" and group behavior are stated as a rule for the species though it's the video makers' observation.",
+        "\"che chắn được phần nào trước cá săn mồi\" and \"gai rất nhỏ\" are supported, but the video says these are on the body as an evolutionary adaptation; the note is okay.",
+        "The text doesn't note where the video differs from the page; e.g. the page says to feed the fish pellets and vegetables beyond algae, while the video says nothing about this. The ' Chỉ sau 48 giờ ' result also could mislead as a rule."
+      ],
+      "attempt": "first",
+      "kept": false
     }
   ],
   "vi/species/panaque-cochliodon#_F_qdXPeQSM": [
@@ -573,6 +672,39 @@
         "[notes] 'lớn tới 6–7 cm' differs from the page's sizeCm of 5.5. NEW doesn't say it differs or how.",
         "[notes] 'bể nano cỡ lớn là vừa với chúng' conflicts with the page's minimum of 75 L (about 54 L for a 60×30 base). The difference isn't flagged. The sentence is also placed under [notes], where it doesn't fit.",
         "[diet] 'Cá hơi kén' repeats the page's existing statement that the fish are somewhat picky."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/steatocranus-casuarius": [
+    {
+      "at": "2026-11-09T18:00:07Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "\"Điểm đáng chú ý nhất nằm bên trong\" is an editorial emphasis. The facts don't rank the swim bladder as the most notable feature.",
+        "\"cỡ tối thiểu cho một cặp có thể chênh tới gấp đôi\" is the page's own inference from the 20-gallon and 40-gallon figures. The facts don't state it.",
+        "The gallon figures are converted to litres (about 75, 150, 190 and 285 L). The conversions are approximate but acceptable."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-09T18:00:07Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "\"một hồ sơ khác cho đực khoảng 15 cm và cái khoảng 10 cm\" – facts say 6 inches (~15 cm) and 4 inches (~10 cm); this is a conversion, so supported (not an error).",
+        "\"có nguồn nói bể khoảng 75 lít là vừa\" – facts say a 20-gallon tank suits a pair; 20 gallons is about 75 litres, so this is a conversion and supported.",
+        "\"150 lít\" and \"190 lít\" and \"285 lít\" – these are conversions of 40, 50 and 75 gallons, so they are supported.",
+        "\"cichlid nhỏ 8–10 cm\" – this is 3–4 inches converted, so it is supported.",
+        "\"Nhà của nó là những ghềnh đá ... nơi đáy đầy đá tảng\" – supported by the facts, so it is fine.",
+        "\"nhiều nguồn trong giới nuôi cá gọi nó là cá cực dữ\" – the facts only say 'hobby sources often call it', so this is roughly supported.",
+        "\"Một nguồn khác cho rằng nước ổn định quan trọng hơn con số chính xác\" – supported.",
+        "\"Đực đạt khoảng 12 cm\" and \"độ khó\" – no difficulty claim is made in the page, so there is no issue.",
+        "\"Con đực ... dài hơn, màu sẫm hơn\" – supported.",
+        "Overall the page is mostly faithful; the main risk is the unit conversions, which are allowed. No clear invented claims were found, but some details are slightly embellished, such as \"đàn cá bơi ngoài để cặp cá bớt nhát\" (the explanation of dither fish is not in the facts) and \"set bể\"."
       ],
       "attempt": "first",
       "kept": false

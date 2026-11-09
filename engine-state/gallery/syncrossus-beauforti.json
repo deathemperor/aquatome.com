@@ -1,17 +1,11 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/4/40/Syncrossus_beauforti.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Syncrossus_beauforti.jpg/500px-Syncrossus_beauforti.jpg",
-   "width": 1500,
-   "height": 900,
-   "licence": "CC BY-SA 3.0",
-   "author": "Lerdsuwa",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Syncrossus_beauforti.jpg",
-   "caption": "Syncrossus beauforti. Size about 12cm SL.",
-   "key": "File:Syncrossus beauforti.jpg"
-  }
+ "queue": [],
+ "judged": [
+  "File:Syncrossus beauforti.jpg"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/seriouslyfish/c3f5a84df3511b1b.webp": "2f1f5b0f879f070f",
+  "https://upload.wikimedia.org/wikipedia/commons/4/40/Syncrossus_beauforti.jpg": "4971f0d212b0a46c"
+ },
+ "commons": "2026-11-09"
 }
