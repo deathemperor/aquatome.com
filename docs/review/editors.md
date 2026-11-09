@@ -14,18 +14,20 @@ scores, to be read again by all four:
 - the chat screen's new Vietnamese strings, read in the Design Lead's rounds (`docs/design/chat.md`, "Editors");
 - the guide writer's voice A (prompts from rounds 9 to 11), on the three sample guides: blue-green algae, quarantine, shopping list.
 - the privacy page's Hỏi AquaTome section in all five languages, with its lines in the retention and account-deletion lists (`apps/site/src/pages/chinh-sach-bao-mat/index.astro`).
-- the chat's first lines, in all four languages, once their prompt is fixed (`OPENING_SYSTEM`, `apps/site/worker/chat/agent.ts`).
+- the chat's first lines, in all four languages (`OPENING_SYSTEM`, `apps/site/worker/chat/agent.ts`): merged at round five's prompt, plus three changes no editor has read: when a line may open "về chuyện", no "về việc" or "việc + động từ", and a long post's earlier questions passed along with its end.
 
 ## The chat's first lines (2026-11-10)
 
-Three rounds, on 75, 80 and 67 lines, with the Anthropic and xAI seats only; OpenAI and Google were out on the Cursor
-limit. These aren't in the tallies below, which count pages. Scores, lowest of four (Anthropic, xAI):
+Five rounds, on 75, 80, 67, 66 and 68 lines, with the Anthropic and xAI seats only; OpenAI and Google were out on the
+Cursor limit. These aren't in the tallies below, which count pages. Scores, lowest of four (Anthropic, xAI):
 
 | Round | Vietnamese | Indonesian | Malay | Thai |
 |---|---|---|---|---|
 | 1 | 7, 6 | 7, 5 | 4, 4 | 6, 4 |
 | 2 | 6, 7 | 7, 8 | 8, 8 | 8, 8 |
 | 3 | 6, 7 | 8, 7 | 9, 9 | 8, 8 |
+| 4 | long posts 4, 5; short questions 7, 8 | 7, 7 | 8, 8 | 8, 8 |
+| 5 | long posts 6, 6; short questions 7.5, 7 | 8, 7 | 8, 8 | 8.5, 8 |
 
 Round 1:
 - **Vietnamese, held by the references:** "cẩm nang mục" (0 in the site and the references), "kinh phí" for "ngân sách"
@@ -49,6 +51,22 @@ Rounds 2 and 3:
   Thai. Round 3: 6 Indonesian, 2 Malay and 3 Thai, and the reader's Thai space lost on 10 of 13 questions.
 - **Length (round 3):** asked directly about long Vietnamese lines, both seats said length alone costs no points, that a
   cut to 140 characters lowers faithful, and that a line of about 180 is better than none on a long post.
+
+Rounds 4 and 5, with Vietnamese read in two parts: 12 long posts, and every short question in the run (33, then 43):
+- **Long posts:** writing the line from the post's last 240 or so characters took them from 4, 5 to 6, 6. Both seats named
+  what it costs: a question, or what the question needs, that comes earlier in the post. 5 of the 22 posts cut (of 33) had
+  an earlier question, so those now go along with the end.
+- **Vietnamese, held by the references:** "việc bổ sung" (forum 1.3).
+- **Vietnamese, not a fault of wording:** "về chuyện" (forum 16.5, videos 3.7), "về việc" (forum 48.1, videos 125; both
+  seats called it office register, which the corpus doesn't bear out), "do đâu" (forum 5.3, videos 22.1) and "hàng loạt"
+  (forum 16.5). What stood was a "về" frame on a line that asks, and facts changed from what the reader wrote.
+- **Indonesian, Thai and Malay:** a finding held when both seats raised it. Round 4: 4 Indonesian lines, 2 Malay and 8
+  Thai. Round 5: 4 Indonesian, 3 Malay and 9 Thai. The reader's Thai space was lost on 8 of 12 questions, then 8 of 11.
+- **One run doesn't show a language holds (round 4):** Malay fell from 9, 9 to 8, 8 with 12 of its 16 lines word for word
+  and no rule changed. From round 5 each question ran three times, and each line came from one run in turn.
+- **Questions the team wrote (round 5):** 40 new ones, 10 a language. Neither seat named a Vietnamese or Indonesian one.
+  xAI doubted three Malay ones and Anthropic one Thai. The 10 Vietnamese ones were easier than the older short questions
+  (1 finding against 18), so a sample needs real ones too.
 
 ## The app's card copy (2026-11-08)
 
