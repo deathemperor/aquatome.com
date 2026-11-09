@@ -1,3 +1,4 @@
+import UIKit
 import XCTest
 
 /// The chat screen on the stand-in server (FakeChat: the contract's recorded answers, an event every half second): from a
@@ -78,6 +79,13 @@ final class ChatFlowTests: XCTestCase {
     more.tap()
     XCTAssertTrue(more.waitForNonExistence(timeout: 5), "Xem thêm stayed")
     XCTAssertGreaterThan(bubble.frame.height, cut * 1.5, "not opened whole")
+    // Opened, it stays open as the thread goes on: the next question doesn't make its turn a new view.
+    XCTAssertTrue(app.buttons.matching(identifier: "chat-chip").firstMatch.waitForExistence(timeout: 15), "no answer")
+    ask(app, "Neon ăn gì?")
+    XCTAssertTrue(soon(app.staticTexts.matching(identifier: "chat-question").count == 2), "the next question not asked")
+    XCTAssertGreaterThan(app.staticTexts.matching(identifier: "chat-question").element(boundBy: 0).frame.height, cut * 1.5,
+                         "closed again by the next question")
+    XCTAssertFalse(more.exists, "Xem thêm back under the question opened whole")
   }
 
   /// Long-pressed, the reader's question offers "Sao chép", which copies it as asked, and "Sửa và hỏi lại", which puts it
@@ -257,6 +265,14 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertTrue(card.staticTexts["Câu trả lời bị ngắt giữa chừng"].exists)
     XCTAssertTrue(card.staticTexts["Câu hỏi này không bị tính."].exists)
     XCTAssertTrue(element(app, "chat-answer").exists, "what was read went")
+    // The app closed and opened again, still signed in: the text and its card as they were, not a counted failure.
+    app.terminate()
+    app.launchArguments.removeAll { $0 == "-reset-defaults" || $0 == "-reset-fake-server" }
+    app.launchForFlow()
+    openChat(app)
+    XCTAssertTrue(card.waitForExistence(timeout: 10), "back as a counted failure")
+    XCTAssertTrue(card.staticTexts["Câu hỏi này không bị tính."].exists, "back as counted")
+    XCTAssertTrue(element(app, "chat-answer").exists, "what was read went with the app")
     let again = app.buttons["chat-again"]
     XCTAssertEqual(again.label, "Hỏi lại")
     again.tap()
@@ -357,6 +373,24 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertEqual(element(app, "chat-length").label, "501/500")
     XCTAssertTrue(app.staticTexts["Câu hỏi đã quá 500 ký tự. Rút gọn rồi gửi nhé."].exists)
     XCTAssertFalse(app.buttons["chat-send"].isEnabled)
+  }
+
+  /// Counted in characters as the reader sees them, as the box and the Worker count: 300 fish (600 UTF-16 units) under
+  /// a limit of 500 go when sent.
+  func testAQuestionUnderTheLimitAsTheReaderCountsItGoes() {
+    let app = launch()
+    openChat(app)
+    signIn(app)
+    UIPasteboard.general.string = String(repeating: "🐟", count: 300)
+    let box = element(app, "chat-box")
+    box.press(forDuration: 1.2)
+    let paste = app.menuItems["Dán"]
+    XCTAssertTrue(paste.waitForExistence(timeout: 5), "no Dán in the box's menu")
+    paste.tap()
+    let send = app.buttons["chat-send"]
+    XCTAssertTrue(soon(send.isEnabled), "send off under the limit")
+    send.tap()
+    XCTAssertTrue(app.staticTexts["chat-question"].waitForExistence(timeout: 5), "sent, and nothing went")
   }
 
   /// A Worker that takes less than its status said: the question it refused as too long back in the box, which says its

@@ -55,7 +55,11 @@ private struct ChatThread: View {
   @State private var onSite: URL?
   /// The reader is up the thread while an answer lands: "Câu trả lời mới ↓" over the box.
   @State private var newBelow = false
-  @State private var lastInView = true
+  /// Each turn on the screen or not, by its question (iOS 18 on). Watched on every turn, not just the newest: a watch
+  /// added and taken away as a turn stops being the newest made it a new view, losing what it held (a question opened
+  /// with "Xem thêm" closed again).
+  @State private var visible: [UUID: Bool] = [:]
+  private var lastInView: Bool { model.thread.last.map { visible[$0.id] ?? true } ?? true }
   /// Where the newest question's top is in the view (nil off it): near the top, the reader is still on its turn, so the
   /// first words and the keyboard going down put it back under the bar; scrolled into earlier turns or down the answer,
   /// nothing moves.
@@ -83,7 +87,10 @@ private struct ChatThread: View {
                 // The newest question keeps a screen's height below it: the scroll on sending can put it under the bar,
                 // and nothing that shrinks under it (the steps folding) moves it.
                 .frame(minHeight: last ? geo.size.height : nil, alignment: .top)
-                .onScrollVisible(last) { lastInView = $0; if $0 { newBelow = false } }
+                .onScrollVisible { v in
+                  visible[a.id] = v
+                  if v, a.id == model.thread.last?.id { newBelow = false }
+                }
                 .onGeometryChange(for: CGFloat.self) { $0.frame(in: .scrollView).minY } action: { if last { lastTop = $0 } }
             }
           }
@@ -689,8 +696,8 @@ private struct Wrap: Layout {
 }
 
 private extension View {
-  /// Told whether this view is on screen as the thread scrolls (iOS 18 on; before, always).
-  @ViewBuilder func onScrollVisible(_ watch: Bool, _ seen: @escaping (Bool) -> Void) -> some View {
-    if watch, #available(iOS 18.0, *) { onScrollVisibilityChange(threshold: 0.05, seen) } else { self }
+  /// Told whether this view is on screen as the thread scrolls (iOS 18 on; before, never told).
+  @ViewBuilder func onScrollVisible(_ seen: @escaping (Bool) -> Void) -> some View {
+    if #available(iOS 18.0, *) { onScrollVisibilityChange(threshold: 0.05, seen) } else { self }
   }
 }
