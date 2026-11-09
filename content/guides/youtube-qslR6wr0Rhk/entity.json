@@ -1,6 +1,6 @@
 {
   "id": "youtube-qslR6wr0Rhk",
-  "kind": "setup",
+  "kind": "care",
   "source": "youtube",
   "sourceUrl": "https://www.youtube.com/watch?v=qslR6wr0Rhk",
   "html": "",
@@ -9,7 +9,7 @@
     "astronotus-ocellatus",
     "tetraodon-lineatus"
   ],
-  "updatedAt": "2026-11-05",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "qslR6wr0Rhk",
     "title": "FISH MOVED! AQUARIUM and DIY FILTERS installed",
@@ -30,156 +30,191 @@
     "taxa": [
       "Astronotus ocellatus",
       "Epipremnum aureum",
+      "Tetraodon sp.",
       "Toxotes sp.",
-      "Tetraodontidae sp.",
       "Tetraodon lineatus"
     ],
     "gear": [
       {
         "category": "loc",
         "type": "treo",
-        "brand": "AquaClear",
+        "brand": "Aqua Clear",
         "model": "110",
-        "t": 212
-      },
-      {
-        "category": "loc",
-        "type": "thung",
-        "t": 38
-      },
-      {
-        "category": "loc",
-        "type": "bot-bien",
-        "t": 38
+        "t": 182
       },
       {
         "category": "den",
-        "type": "thuy-sinh",
-        "t": 260
+        "brand": "EcoTech Marine",
+        "t": 0
+      },
+      {
+        "category": "be-ca",
+        "type": "lon",
+        "t": 0
       }
     ],
     "figures": [
       {
-        "heading": "Vì sao mang vật liệu lọc cũ sang là đủ",
+        "heading": "Lọc tràn sau bể hoạt động thế nào",
         "moments": [
           {
-            "t": 248,
-            "url": "https://media.aquatome.com/video/qslR6wr0Rhk/t248.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Các viên bóng lọc nằm trong ngăn lọc dưới ánh đèn xanh."
+            "t": 35,
+            "url": "https://media.aquatome.com/video/qslR6wr0Rhk/at35-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hộp lọc tràn gắn phía sau bể, nước chảy vào các ngăn lọc.",
+            "sharpness": 275.3
+          },
+          {
+            "t": 70,
+            "url": "https://media.aquatome.com/video/qslR6wr0Rhk/at70-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tay chỉ vào ngăn lọc phía sau bể, nơi đặt vật liệu lọc.",
+            "sharpness": 40.1
+          }
+        ]
+      },
+      {
+        "heading": "Chuyển vật liệu lọc đã chạy vi sinh sang bể mới",
+        "moments": [
+          {
+            "t": 225,
+            "url": "https://media.aquatome.com/video/qslR6wr0Rhk/at225-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tay chỉ vào các viên sứ lọc vi sinh trong ngăn lọc.",
+            "sharpness": 316.1
+          },
+          {
+            "t": 260,
+            "url": "https://media.aquatome.com/video/qslR6wr0Rhk/at260-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Các viên bóng lọc vi sinh nằm trong ngăn lọc, cận cảnh.",
+            "sharpness": 481.5
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/qslR6wr0Rhk/p0-sXzA2MDIyNy5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/qslR6wr0Rhk/p0-sXzA2MDIyNy5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/qslR6wr0Rhk/p1-sXzA2MDIyNy5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/qslR6wr0Rhk/p1-sXzA2MDIyNy5qcGc-480.webp",
           "width": 960,
           "height": 614,
           "licence": "CC BY-SA 3.0",
           "author": "Wikimedia Commons",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Filtermaterial_060227.jpg",
-          "caption": "Các loại vật liệu lọc gồm sứ lọc, nham thạch, bóng lọc và mút lọc."
+          "caption": "Mút lọc, sứ lọc, bóng vi sinh và đá nham thạch dùng làm vật liệu lọc."
         }
       },
       {
-        "heading": "Chuẩn bị lọc cho bể mới",
+        "heading": "Công suất ghi trên hộp lọc và thể tích bể thật",
         "moments": [
           {
-            "t": 45,
-            "url": "https://media.aquatome.com/video/qslR6wr0Rhk/t45.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Hộp lọc ngăn tràn đặt trên nóc bể, nhìn rõ các ngăn."
+            "t": 230,
+            "url": "https://media.aquatome.com/video/qslR6wr0Rhk/at230-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Vật liệu lọc dạng viên trải mỏng trong ngăn lọc, chưa phủ kín đáy.",
+            "sharpness": 361.2
           },
           {
-            "t": 69,
-            "url": "https://media.aquatome.com/video/qslR6wr0Rhk/t69.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Các ngăn lọc trên nóc bể, nước chảy qua từng ngăn."
+            "t": 255,
+            "url": "https://media.aquatome.com/video/qslR6wr0Rhk/at255-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh các viên vật liệu lọc nằm trong ngăn lọc của bể.",
+            "sharpness": 138.7
           }
         ]
       },
       {
-        "heading": "Chọn lọc đủ công suất",
-        "moments": [
-          {
-            "t": 213,
-            "url": "https://media.aquatome.com/video/qslR6wr0Rhk/t213.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Tay chỉ vào lượng vật liệu lọc trong ngăn lọc dưới ánh đèn xanh."
-          },
-          {
-            "t": 223,
-            "url": "https://media.aquatome.com/video/qslR6wr0Rhk/t223.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Lớp vật liệu lọc dạng viên xếp đầy ngăn lọc của bể."
-          }
-        ]
+        "heading": "Trồng trầu bà trên mặt bể",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/qslR6wr0Rhk/p3-aW5fV2F0ZXIuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/qslR6wr0Rhk/p3-aW5fV2F0ZXIuanBn-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY 4.0",
+          "author": "Dr. Chinchu C.",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pothos-Money_Plant_Leaves_in_Water.jpg",
+          "caption": "Lá trầu bà vươn trong bể cá, có một con cá bơi phía sau."
+        }
       },
       {
-        "heading": "Các bước chuyển vật liệu lọc và cá",
+        "heading": "Bắt và chuyển cá oscar, cá nóc",
         "moments": [
           {
-            "t": 159,
-            "url": "https://media.aquatome.com/video/qslR6wr0Rhk/t159.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Vật liệu lọc được lấy ra từ hệ thống lọc để chuyển sang."
+            "t": 300,
+            "url": "https://media.aquatome.com/video/qslR6wr0Rhk/at300-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá oscar bơi trong bể khi người đưa vợt vào bắt.",
+            "sharpness": 228.4
           },
           {
-            "t": 253,
-            "url": "https://media.aquatome.com/video/qslR6wr0Rhk/t253.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Các viên vật liệu lọc sinh học trắng xếp trong ngăn lọc."
+            "t": 330,
+            "url": "https://media.aquatome.com/video/qslR6wr0Rhk/at330-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá bơi trong bể gần đá, có cây vợt đưa vào nước.",
+            "sharpness": 100.9
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/qslR6wr0Rhk/p3-JfZm9hbV8xLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/qslR6wr0Rhk/p3-JfZm9hbV8xLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/qslR6wr0Rhk/p4-lX1pvb18wMS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/qslR6wr0Rhk/p4-lX1pvb18wMS5qcGc-480.webp",
           "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Ofkun",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Sponge_Filter_foam_1.jpg",
-          "caption": "Khối mút lọc đen nhiều lỗ xốp, nơi vi sinh có lợi bám vào."
+          "height": 643,
+          "licence": "CC BY-SA 3.0",
+          "author": "H. Zell",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Astronotus_ocellatus_-_Karlsruhe_Zoo_01.jpg",
+          "caption": "Cá oscar màu cam đen bơi trong bể có lũa và cây thủy sinh."
         }
       },
       {
-        "heading": "Bắt cá sao cho cá ít bị sốc",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/qslR6wr0Rhk/p4-YXF1YXJpdW0uanBn.webp",
-          "thumb": "https://media.aquatome.com/video/qslR6wr0Rhk/p4-YXF1YXJpdW0uanBn-480.webp",
-          "width": 960,
-          "height": 637,
-          "licence": "CC BY 4.0",
-          "author": "Retro Lenses",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_photo_of_an_oscar_fish_(Astronotus_ocellatus)_in_a_aquarium.jpg",
-          "caption": "Cá oscar màu cam bơi gần cây thủy sinh trong bể nuôi."
-        }
-      },
-      {
-        "heading": "Khiêng bể an toàn",
+        "heading": "Nhấc bể rỗng lên kệ cao",
         "moments": [
           {
-            "t": 377,
-            "url": "https://media.aquatome.com/video/qslR6wr0Rhk/t377.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Giác hút chuyên dụng gắn chắc vào mặt kính bể."
-          },
-          {
-            "t": 501,
-            "url": "https://media.aquatome.com/video/qslR6wr0Rhk/t501.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Hai người cùng khiêng bể đã rút nước bằng giác hút."
+            "t": 380,
+            "url": "https://media.aquatome.com/video/qslR6wr0Rhk/at380-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tay hít kính gắn chắc vào mặt kính của bể rỗng.",
+            "sharpness": 70.9
           }
         ]
+      },
+      {
+        "heading": "Màu cá thay đổi theo nền và đèn",
+        "moments": [
+          {
+            "t": 575,
+            "url": "https://media.aquatome.com/video/qslR6wr0Rhk/at575-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn cá mang rổ trong bể mới, màu sẫm và sọc rõ hơn.",
+            "sharpness": 28.2
+          },
+          {
+            "t": 610,
+            "url": "https://media.aquatome.com/video/qslR6wr0Rhk/at610-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá oscar dưới đèn bể biển, màu đỏ và xanh nổi bật.",
+            "sharpness": 62.8
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/qslR6wr0Rhk/p6-jdWxhdHJpeC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/qslR6wr0Rhk/p6-jdWxhdHJpeC5qcGc-480.webp",
+          "width": 960,
+          "height": 686,
+          "licence": "CC BY-SA 3.0",
+          "author": "Chrumps",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Toxotes_jaculatrix.jpg",
+          "caption": "Cá mang rổ trên nền tối, các sọc đen nổi rõ."
+        }
       }
     ]
   }
