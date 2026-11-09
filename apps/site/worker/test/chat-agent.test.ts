@@ -921,6 +921,24 @@ test('Vietnamese typed without accents is read as a keeper means it: the first m
   expect(said('id', 'ikan neon ada jamur putih')).not.toContain('without Vietnamese accents')
 })
 
+test('a long post\'s first line is written from its end; the run still reads the whole post', async () => {
+  const h = await hb()
+  const final = answer([], { text: 'Chia đèn hai đợt được.' })
+  const bodies: { call: number; body: Anthropic.MessageCreateParamsNonStreaming }[] = []
+  const question = `Dòng đầu của bài viết. ${'Bể em set 3 tháng, đèn 8 tiếng, thay nước mỗi tuần. '.repeat(12)}Lá ráy có đốm rêu xanh. Có nên chia đèn không?`
+  await answerQuestion({
+    send: async (body, opts) => {
+      bodies.push({ call: opts.call, body })
+      return message([{ type: 'text', text: opts.call === 0 ? '-' : JSON.stringify(final) }])
+    },
+    model: 'claude-haiku-5-5', lang: 'vi', question, earlier: [], start: {}, handbook: h, tanks: async () => [], opening: true,
+  })
+  const said = (n: number) => JSON.stringify(bodies.find(b => b.call === n)!.body.messages)
+  expect(said(0)).toContain('Có nên chia đèn không?')
+  expect(said(0)).not.toContain('Dòng đầu của bài viết')
+  expect(said(1)).toContain('Dòng đầu của bài viết')
+})
+
 test('the first line comes from a call of its own beside the run\'s first, before the first step; it counts in the turn\'s tokens, and the run\'s calls are as without it', async () => {
   const h = await hb()
   const final = answer([], { text: 'Cá neon xanh sống theo đàn.' })
