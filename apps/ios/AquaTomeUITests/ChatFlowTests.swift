@@ -118,6 +118,55 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertTrue(soon(abs(bubble.frame.minY - bar.frame.maxY) < 44, timeout: 3), "the question isn't back under the bar: its top at \(bubble.frame.minY)")
   }
 
+  /// The keyboard on the empty screen: the box's edge falls in a gap, the line about who answers whole above it, the fish's
+  /// card whole or gone under the bar; the keyboard going takes the screen back.
+  func testTheKeyboardOnTheEmptyScreenLeavesTheBoxsEdgeInAGap() {
+    let app = launch()
+    openChat(app)
+    signIn(app)
+    let title = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH %@", "Hỏi gì về")).firstMatch
+    XCTAssertTrue(title.waitForExistence(timeout: 5), "no title")
+    let before = title.frame.minY
+    element(app, "chat-box").tap()
+    XCTAssertTrue(app.keyboards.firstMatch.waitForExistence(timeout: 5), "no keyboard")
+    assertTheBoxsEdgeInAGap(app)
+    element(app, "chat").swipeDown()
+    XCTAssertTrue(soon(!app.keyboards.firstMatch.exists, timeout: 5), "the keyboard stayed")
+    XCTAssertTrue(soon(abs(title.frame.minY - before) < 2, timeout: 3), "not back where the keyboard found it: \(title.frame.minY), was \(before)")
+  }
+
+  /// At the largest text too, where the line about who answers is tall: whole, or wholly gone, never a slice.
+  func testAtTheLargestTextTheKeyboardOnTheEmptyScreenCutsNothing() {
+    let app = launch("-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL")
+    openChat(app)
+    element(app, "chat").swipeUp()
+    signIn(app)
+    element(app, "chat-box").tap()
+    XCTAssertTrue(app.keyboards.firstMatch.waitForExistence(timeout: 5), "no keyboard")
+    assertTheBoxsEdgeInAGap(app)
+  }
+
+  /// The screen settled: the line about who answers whole above the box or wholly out of the way, no starter a sliver, the
+  /// card not half under the bar.
+  private func assertTheBoxsEdgeInAGap(_ app: XCUIApplication) {
+    RunLoop.current.run(until: Date().addingTimeInterval(1.5))
+    // The composer's top: 23 points over the field, the glass's padding and the fade's.
+    let edge = element(app, "chat-box").frame.minY - 23, bar = app.navigationBars.firstMatch.frame.maxY
+    let who = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH %@", "Claude")).firstMatch.frame
+    XCTAssertTrue(who.maxY <= edge || who.minY >= edge, "the line about who answers is cut by the box: \(who), the edge at \(edge)")
+    XCTAssertTrue(who.minY >= bar || who.maxY <= bar, "the line about who answers is cut by the bar: \(who), the bar at \(bar)")
+    let chips = app.buttons.matching(identifier: "chat-chip")
+    for i in 0..<chips.count {
+      let f = chips.element(boundBy: i).frame
+      XCTAssertTrue(f.maxY <= edge || f.minY >= edge || edge - f.minY >= 24, "starter \(i) a sliver over the box: \(f), the edge at \(edge)")
+      XCTAssertTrue(f.minY >= bar || f.maxY <= bar, "starter \(i) cut by the bar: \(f), the bar at \(bar)")
+    }
+    let about = element(app, "chat-about")
+    if about.exists {
+      XCTAssertTrue(about.frame.minY >= bar || about.frame.maxY <= bar, "the card half under the bar: \(about.frame), the bar at \(bar)")
+    }
+  }
+
   /// The mock's largest text, empty: the title names the fish, so the screen starts at it, and the line about who answers
   /// and the starters clear the box.
   func testAtTheLargestTextTheEmptyScreenStartsAtItsTitle() {
