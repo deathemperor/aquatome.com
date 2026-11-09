@@ -5,7 +5,7 @@ import { loadStore } from '../accounts/tanks'
 import { accountDayKey } from '../comments/api'
 import { kvHealth } from '../fishid/api'
 import { clientFor, costOf, DEFAULT_MODEL, priceOf } from '../fishid/claude'
-import { classify, failed, healthyKeys, isApiError, loadKeys, rotate, type Attempt, type KeyEntry } from '../fishid/keys'
+import { healthyKeys, isApiError, loadKeys, rotate, type Attempt, type KeyEntry } from '../fishid/keys'
 import { ledgerClient, usdCap } from '../fishid/ledger'
 import { relayFetch } from '../fishid/relay'
 import { turnsOf } from '../fishid/transcript'
@@ -327,46 +327,39 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
     const hb = await handbookOf(deps.source ?? assetSource(env, url.origin), q.lang).catch(e => { console.error('chat handbook:', e); return null })
     if (!hb) return { status: 503, body: { error: 'unavailable' } }
     let key: KeyEntry | undefined
-    let client: Anthropic | undefined
     const onUsage = (u: Anthropic.Usage) => {
       const usd = costOf(model, { input: u.input_tokens, output: u.output_tokens, cacheRead: u.cache_read_input_tokens ?? 0, cacheWrite: u.cache_creation_input_tokens ?? 0 })
       spends.push(ledger.spend(day, run, usd).catch(e => console.error('chat spend:', e)))
     }
-    class FirstCall extends Error { constructor(readonly reason: 'resting' | 'unavailable' | 'request') { super(reason) } }
+    /** A call no key answered: resting or unavailable (ours), or our request refused. */
+    class NoAnswer extends Error { constructor(readonly reason: 'resting' | 'unavailable' | 'request') { super(reason) } }
     /** The reader has some of the text: it streamed. */
     let shown = false
+    /** The keys a call of this run set aside (out of credit, refused, rate-limited): no later call asks them again. */
+    const aside = new Set<string>()
     try {
       const out = await answerQuestion({
-        // The first call rotates over the healthy keys; the run keeps the key that answered (its thinking is that key's).
-        send: async (b, { timeoutMs, call, onText: onDelta }) => {
-          if (call === 1) {
-            // Once the reader has some of its text, a call that fails isn't asked again of the next key: what they read
-            // would be followed by a second answer from its start. It is our side's failure, as no key answering is.
-            // Before that, the next key is asked, without streaming once any of the first's text was read (its reader
-            // can't start again), so that answer's text comes whole.
-            let fed = false
-            const r = await rotate(healthy, store, async (k, left) => {
-              const feed = onDelta && !fed ? (d: string) => { fed = true; onDelta(d) } : undefined
-              try { return await callClaude(await clientFor(k, fetchImpl), b, Math.min(left, timeoutMs), feed) } catch (e) { throw shown ? new FirstCall('unavailable') : e }
-            }, { random: deps.random, clock, budgetMs: timeoutMs })
-            attempts.push(...r.attempts)
-            if (!r.ok) throw new FirstCall(r.reason)
-            key = healthy.find(k => k.hash === r.hash)!
-            client = await clientFor(key, fetchImpl)
-            tally[key.hash] = (tally[key.hash] ?? 0) + 1
-            onUsage(r.value.usage)
-            return r.value
-          }
-          const t = clock()
-          try {
-            const m = await callClaude(client!, b, timeoutMs, onDelta)
-            tally[key!.hash] = (tally[key!.hash] ?? 0) + 1
-            onUsage(m.usage)
-            return m
-          } catch (e) {
-            attempts.push((await failed(key!, e, store, clock() - t, clock)).attempt)
-            throw e
-          }
+        // Every call rotates over the healthy keys, the run's key first once it has one: a key that runs dry or is
+        // refused mid-answer hands the rest of the run to the next (the run's thinking reads back on any of our keys).
+        // Once the reader has some of the text, a call that fails isn't asked again of the next key: what they read
+        // would be followed by a second answer from its start. It is our side's failure, as no key answering is.
+        // Before that, the next key is asked, without streaming once any of the first's text was read (its reader can't
+        // start again), so that answer's text comes whole.
+        send: async (b, { timeoutMs, onText: onDelta }) => {
+          const ready = healthy.filter(k => !aside.has(k.hash))
+          const mine = key && !aside.has(key.hash) ? key : undefined
+          let fed = false
+          const r = await rotate(mine ? [mine, ...ready.filter(k => k !== mine)] : ready, store, async (k, left) => {
+            const feed = onDelta && !fed ? (d: string) => { fed = true; onDelta(d) } : undefined
+            try { return await callClaude(await clientFor(k, fetchImpl), b, Math.min(left, timeoutMs), feed) } catch (e) { throw shown ? new NoAnswer('unavailable') : e }
+          }, { random: mine ? () => 0 : deps.random, clock, budgetMs: timeoutMs })
+          attempts.push(...r.attempts)
+          for (const a of r.attempts) if (a.marked) aside.add(a.hash)
+          if (!r.ok) throw new NoAnswer(r.reason)
+          key = healthy.find(k => k.hash === r.hash)!
+          tally[key.hash] = (tally[key.hash] ?? 0) + 1
+          onUsage(r.value.usage)
+          return r.value
         },
         model, lang: q.lang, question: q.question, earlier: conv?.turns ?? [], start: (conv?.turns.length ? {} : q.start), handbook: hb,
         tanks: () => tanksOf(env.DB, session.userId, now).catch(e => { console.error('chat tanks:', e); return null }),
@@ -375,14 +368,12 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
       })
       trail = out
       if (out.dropped.length) console.log(JSON.stringify({ chat: 'dropped', dropped: out.dropped }))
-      // No key answered the first call: resting or unavailable (ours), or our request refused (failed). A later call
-      // that failed or ran out of time: unavailable, unless the API refused our request (a 400 that isn't the key's: out
-      // of credit also comes as a 400, and the key's fault gives the reader's count back). An answer we can't read (a
-      // refusal, one cut short): failed.
-      if (out.error instanceof FirstCall) return out.error.reason === 'request' ? { status: 502, body: { error: 'failed' } } : { status: 503, body: { error: out.error.reason } }
+      // No key answered a call: resting or unavailable (ours), or our request refused (failed: a 400 that isn't the
+      // key's; out of credit also comes as a 400, and the key's fault goes to the next key). The run out of time:
+      // unavailable. An answer we can't read (a refusal, one cut short): failed.
+      if (out.error instanceof NoAnswer) return out.error.reason === 'request' ? { status: 502, body: { error: 'failed' } } : { status: 503, body: { error: out.error.reason } }
       if (out.error && !out.message) {
-        if (isApiError(out.error) && out.error.status === 400 && !classify(out.error).mark) return { status: 502, body: { error: 'failed' } }
-        if (isApiError(out.error) || (out.error as Error)?.message === 'out of time') return { status: 503, body: { error: 'unavailable' } }
+        if ((out.error as Error)?.message === 'out of time') return { status: 503, body: { error: 'unavailable' } }
         throw out.error
       }
       if (!out.answer) return { status: 502, body: { error: 'failed' } }
