@@ -75,13 +75,33 @@ private struct ChatThread: View {
   @State private var boxHeight: CGFloat = 0
   /// The newest turn's own height, without the room kept below it.
   @State private var lastContent: CGFloat = 0
+  /// The view's height with the keyboard down, which the newest turn's room keeps with the keyboard up: shrinking with the
+  /// keyboard, it brought the thread's end up under the question, which dropped with the "Về:" card back over it.
+  @State private var restHeight: CGFloat = 0
+  /// Where the row that waits ends in the view, while it shows.
+  @State private var waitEnd: CGFloat?
 
   private var signedOut: Bool { account.user == nil }
 
   private func pinIfOnIt(_ proxy: ScrollViewProxy, height: CGFloat) {
-    guard let id = model.thread.last?.id, let top = lastTop, top > -8, top < height * 0.4 else { return }
+    // Up with the row that waits (`keepWaitAboveBox`), the question is off the top with the reader still on its turn.
+    let followed = waitEnd.map { abs($0 - (height - boxHeight)) < 12 } == true
+    guard let id = model.thread.last?.id, let top = lastTop, followed || (top > -8 && top < height * 0.4) else { return }
     withAnimation(reduceMotion ? nil : .smooth(duration: 0.3)) { proxy.scrollTo(id, anchor: .top) }
   }
+
+  /// The first line or a step arrived and pushed the row that waits under the box: the view goes up with it, if the row was
+  /// above the box a moment before (the reader hasn't scrolled it away).
+  private func keepWaitAboveBox(_ proxy: ScrollViewProxy, bottom: CGFloat) {
+    guard let before = waitEnd, before <= bottom + 4 else { return }
+    Task { @MainActor in
+      guard let end = waitEnd, end > bottom else { return }
+      withAnimation(reduceMotion ? nil : .easeOut(duration: 0.25)) { proxy.scrollTo(Self.waiting, anchor: .bottom) }
+    }
+  }
+
+  /// What the wait has shown so far, to notice the next line of it.
+  private var waited: Int { model.thread.last.map { $0.reply.steps.count + ($0.reply.opening == nil ? 0 : 1) } ?? 0 }
 
   var body: some View {
     ScrollViewReader { proxy in
@@ -96,7 +116,7 @@ private struct ChatThread: View {
                 .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { if last { lastContent = $0 } }
                 // The newest question keeps a screen's height below it: the scroll on sending can put it under the bar,
                 // and nothing that shrinks under it (the steps folding) moves it.
-                .frame(minHeight: last ? geo.size.height : nil, alignment: .top)
+                .frame(minHeight: last ? max(restHeight, geo.size.height) : nil, alignment: .top)
                 .onScrollVisible { v in
                   visible[a.id] = v
                   if v, a.id == model.thread.last?.id { newBelow = false }
@@ -114,6 +134,7 @@ private struct ChatThread: View {
         // On the scroll view alone: around the composer too, it stood over the box's, send's and the line's own.
         .accessibilityIdentifier("chat")
         .onChange(of: model.thread.last?.id) {
+          waitEnd = nil
           guard let id = model.thread.last?.id else { return }
           Task { @MainActor in withAnimation(reduceMotion ? nil : .smooth(duration: 0.35)) { proxy.scrollTo(id, anchor: .top) } }
         }
@@ -125,7 +146,11 @@ private struct ChatThread: View {
         }
         // The first words, and the keyboard going down (an answer that came with it up, at the largest text): the question
         // back under the bar, with the keyboard's own glide, unless the reader has scrolled off its turn.
-        .onChange(of: model.thread.last?.reply.writing) { _, w in if w == true { pinIfOnIt(proxy, height: geo.size.height) } }
+        .onChange(of: model.thread.last?.reply.writing) { _, w in
+          if w == true { pinIfOnIt(proxy, height: geo.size.height); waitEnd = nil }
+        }
+        .onChange(of: waited) { keepWaitAboveBox(proxy, bottom: geo.size.height - boxHeight) }
+        .onChange(of: geo.size.height, initial: true) { _, h in if !typing { restHeight = h } }
         .onChange(of: typing) { _, up in if !up { pinIfOnIt(proxy, height: geo.size.height) } }
         .safeAreaInset(edge: .bottom, spacing: 0) {
           // The newest question below the box: the reader is in earlier turns, its turn (a screen at least) all below.
@@ -161,6 +186,7 @@ private struct ChatThread: View {
   }
 
   private static let end = "chat-end"
+  private static let waiting = "chat-waiting"
 
   private var warned: Bool {
     if model.stop != nil { return true }
@@ -244,7 +270,11 @@ private struct ChatThread: View {
         // Always first, even after a step that came before it; it fades in and the rows under it move down on one curve.
         if let line = r.opening { openingLine(line).transition(.opacity) }
         ForEach(Array(r.steps.enumerated()), id: \.offset) { _, s in step(s, opens: false).transition(.opacity.combined(with: .offset(y: 4))) }
-        if a.outcome == .asking { Waiting() }
+        if a.outcome == .asking {
+          Waiting()
+            .id(Self.waiting)
+            .onGeometryChange(for: CGFloat.self) { $0.frame(in: .scrollView).maxY } action: { waitEnd = $0 }
+        }
       }
       .animation(reduceMotion ? nil : .easeOut(duration: 0.25), value: r.steps.count)
       .animation(reduceMotion ? nil : .easeOut(duration: 0.2), value: r.opening)

@@ -74,6 +74,50 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertEqual(box.value as? String, "Còn tép", "the draft left the box")
   }
 
+  /// The box tapped during the wait: the keyboard comes up under a question that stays where it is, and the "Về:" card
+  /// stays gone. Its room shrinking with the keyboard pulled the question 72 points down, the card back over it.
+  func testTappingTheBoxDuringTheWaitLeavesTheQuestionWhereItIs() {
+    let app = launch("-chat-slow")
+    openChat(app)
+    signIn(app)
+    ask(app, "Neon sống bao lâu?")
+    XCTAssertTrue(element(app, "chat-wait").waitForExistence(timeout: 10), "no wait")
+    RunLoop.current.run(until: Date().addingTimeInterval(1.5))
+    let bubble = app.staticTexts["chat-question"], bar = app.navigationBars.firstMatch
+    let y = bubble.frame.minY
+    element(app, "chat-box").tap()
+    XCTAssertTrue(app.keyboards.firstMatch.waitForExistence(timeout: 5), "no keyboard")
+    RunLoop.current.run(until: Date().addingTimeInterval(1))
+    XCTAssertEqual(bubble.frame.minY, y, accuracy: 2, "the question moved as the keyboard came up")
+    let about = element(app, "chat-about")
+    XCTAssertFalse(about.exists && about.frame.maxY > bar.frame.maxY + 1, "the card came back")
+  }
+
+  /// At the largest text the first line and the steps push the row that waits down: the view goes up with it, so it never
+  /// sits under the box; the text starting puts the question back under the bar.
+  func testAtTheLargestTextTheWaitStaysAboveTheBox() {
+    let app = launch("-chat-slow", "-chat-opening", "-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL")
+    openChat(app)
+    signIn(app)
+    ask(app, "Neon sống bao lâu?")
+    let wait = element(app, "chat-wait"), box = element(app, "chat-box"), started = app.buttons["chat-fold"]
+    XCTAssertTrue(wait.waitForExistence(timeout: 10), "no wait")
+    let end = Date().addingTimeInterval(40)
+    var looked = 0
+    while !started.exists, Date() < end {
+      if wait.exists {
+        XCTAssertTrue(soon(!wait.exists || wait.frame.maxY <= box.frame.minY, timeout: 2),
+                      "under the box: the row ends at \(wait.frame.maxY), the box starts at \(box.frame.minY)")
+        looked += 1
+      }
+      RunLoop.current.run(until: Date().addingTimeInterval(0.5))
+    }
+    XCTAssertGreaterThan(looked, 2, "the wait wasn't looked at")
+    XCTAssertTrue(started.exists, "the text didn't start")
+    let bar = app.navigationBars.firstMatch, bubble = app.staticTexts["chat-question"]
+    XCTAssertTrue(soon(abs(bubble.frame.minY - bar.frame.maxY) < 44, timeout: 3), "the question isn't back under the bar: its top at \(bubble.frame.minY)")
+  }
+
   /// The mock's largest text, empty: the title names the fish, so the screen starts at it, and the line about who answers
   /// and the starters clear the box.
   func testAtTheLargestTextTheEmptyScreenStartsAtItsTitle() {
