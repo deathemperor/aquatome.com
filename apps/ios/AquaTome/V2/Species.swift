@@ -137,8 +137,10 @@ struct SpeciesPage: View {
       // The owner's navigator on a long page: its title beside the back button, plain, in the bar so it takes a tap.
       if trying?.long == true, let trying {
         ToolbarItem(placement: .topBarLeading) {
-          PageNavigatorTitle(name: item.name, nameInView: !nameGone, onColour: colourAt.top, navigator: trying)
-            // A width of its own: offered "up to", the bar gave it next to none, "…" alone.
+          PageNavigatorTitle(name: item.name, nameInView: !nameGone, onColour: colourAt.top, onPhoto: !scrolled, navigator: trying)
+            // A width of its own: offered "up to", the bar gave it next to none, "…" alone. Drawn a little wider than the bar
+            // is told, into the room it keeps before the bookmark, for a section's name whole.
+            .frame(width: titleWidth + 20, alignment: .leading)
             .frame(width: titleWidth, alignment: .leading)
             // The reader's text size, which the bar keeps from its items: at the accessibility sizes, the part alone, larger.
             .environment(\.dynamicTypeSize, size)
@@ -202,8 +204,12 @@ struct SpeciesPage: View {
     // A shade behind the status bar until the band comes: it reads on a light photo at any scroll.
     .overlay(alignment: .top) {
       if hero != nil {
-        LinearGradient(colors: [.black.opacity(0.45), .clear], startPoint: .top, endPoint: .bottom)
-          .frame(height: 130)
+        // The navigator's title stands on the photo with no circle of its own: the shade holds through the bar for it.
+        let held = trying?.long == true
+        LinearGradient(stops: held ? [.init(color: .black.opacity(0.5), location: 0), .init(color: .black.opacity(0.46), location: 0.62), .init(color: .clear, location: 1)]
+                                   : [.init(color: .black.opacity(0.45), location: 0), .init(color: .clear, location: 1)],
+                       startPoint: .top, endPoint: .bottom)
+          .frame(height: held ? 180 : 130)
           .ignoresSafeArea(edges: .top)
           .opacity(scrolled ? 0 : 1)
           .animation(.easeInOut(duration: 0.2), value: scrolled)
@@ -763,7 +769,8 @@ struct SpeciesPage: View {
         .padding(.horizontal, 20)
       }
       if let doc, let whole {
-        if !whole.jumps.isEmpty { jumps(whole, proxy) }
+        // For whoever hasn't the navigator: it does their job.
+        if !whole.jumps.isEmpty, trying == nil { jumps(whole, proxy) }
         ForEach(shown(whole, doc), id: \.self) { i in
           // Its readers before the literature it cites and its sources, one with the part after them: none, no gap.
           if i == whole.readersAt {

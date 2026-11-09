@@ -401,6 +401,91 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(app.staticTexts["Cá ngựa vằn"].waitForExistence(timeout: 5), "a link in a folded part's first lines doesn't work")
   }
 
+  /// The navigator's title on the brightest photo: its word and chevron stand on the shade at 3:1 at least, the chevron in
+  /// white, not the tint. And it has the room a section's name needs: cut with room to spare, it read "Nuôi chung với co…".
+  func testTheNavigatorsTitleReadsOnAWhitePhotoAndHasRoomForASectionsName() {
+    let app = ownersNeon("-long-part", "-fixed-pictures", "-white-pictures")
+    let title = app.descendants(matching: .any)["page-navigator-title"].firstMatch
+    XCTAssertTrue(title.waitForExistence(timeout: 5), "no title")
+    XCTAssertTrue(app.buttons["save-for-later"].exists, "the title crowds the bookmark into iOS's own ⋯")
+    XCTAssertTrue(app.buttons["Chia sẻ"].exists, "the title crowds the share button into iOS's own ⋯")
+    Thread.sleep(forTimeInterval: 1)
+    func linear(_ c: Int) -> Double { let v = Double(c) / 255; return v <= 0.03928 ? v / 12.92 : pow((v + 0.055) / 1.055, 2.4) }
+    func tinted(_ c: (Int, Int, Int)) -> Bool { max(c.0, c.1, c.2) - min(c.0, c.1, c.2) > 40 }
+    let box = title.frame
+    guard let top = pixels(app) else { return XCTFail("no pixels") }
+    // Past the word and the chevron, the bare ground under them; the lightest of it is the worst case.
+    var lightest = 0.0
+    for y in stride(from: box.minY, to: box.maxY, by: 1) {
+      let c = top(box.maxX - 16, y)
+      lightest = max(lightest, 0.2126 * linear(c.0) + 0.7152 * linear(c.1) + 0.0722 * linear(c.2))
+    }
+    let contrast = 1.05 / (lightest + 0.05)
+    XCTAssertGreaterThanOrEqual(contrast, 3, "the title's white on the brightest photo is \(contrast):1")
+    // The chevron's in white on the photo: nothing tinted in the title.
+    let onPhoto = stride(from: box.minY, to: box.maxY, by: 1).contains { y in
+      stride(from: box.minX, to: box.minX + 90, by: 0.5).contains { tinted(top($0, y)) }
+    }
+    XCTAssertFalse(onPhoto, "the chevron is tinted on the photo")
+    // A section's name, whole: the chevron after all its words, in the room before the bookmark.
+    title.tap()
+    let row = app.buttons.matching(NSPredicate(format: "label == %@", "Nuôi chung với con gì?")).firstMatch
+    XCTAssertTrue(row.waitForExistence(timeout: 5), "no row for the section")
+    row.tap()
+    let there = expectation(for: NSPredicate(format: "label CONTAINS %@", "Nuôi chung với con gì?"), evaluatedWith: title)
+    XCTAssertEqual(XCTWaiter.wait(for: [there], timeout: 5), .completed, "the title doesn't name the section")
+    Thread.sleep(forTimeInterval: 1)
+    guard let read = pixels(app) else { return XCTFail("no pixels") }
+    let needed = ("Nuôi chung với con gì?" as NSString).size(withAttributes: [.font: UIFont.systemFont(ofSize: 15, weight: .semibold)]).width
+    let end = title.frame
+    let chevron = stride(from: end.minX + 200, to: end.minX, by: -0.5).first { x in
+      stride(from: end.minY, to: end.maxY, by: 1).contains { tinted(read(x, $0)) }
+    }
+    XCTAssertGreaterThanOrEqual((chevron ?? 0) - end.minX, ceil(needed) + 4 + 6, "the section's name is cut with room to spare")
+    XCTAssertTrue(app.buttons["Chia sẻ"].exists, "a section's name crowds the share button into iOS's own ⋯")
+  }
+
+  /// The screen's colour at a point of the app's, each read from one screenshot.
+  private func pixels(_ app: XCUIApplication) -> ((CGFloat, CGFloat) -> (Int, Int, Int))? {
+    guard let cg = XCUIScreen.main.screenshot().image.cgImage,
+          let ctx = CGContext(data: nil, width: cg.width, height: cg.height, bitsPerComponent: 8, bytesPerRow: cg.width * 4,
+                              space: CGColorSpace(name: CGColorSpace.sRGB)!, bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue),
+          let bytes = ctx.data?.assumingMemoryBound(to: UInt8.self) else { return nil }
+    ctx.draw(cg, in: CGRect(x: 0, y: 0, width: cg.width, height: cg.height))
+    let scale = CGFloat(cg.width) / app.frame.width
+    return { x, y in
+      withExtendedLifetime(ctx) {
+        let p = (Int(y * scale) * cg.width + Int(x * scale)) * 4
+        return (Int(bytes[p]), Int(bytes[p + 1]), Int(bytes[p + 2]))
+      }
+    }
+  }
+
+  /// A fold never stops on a line leading into what it hides ("…, gồm:"): the text before it ends in "thêm", and the line
+  /// and its list come when it opens.
+  func testAFoldDoesntStopOnALineLeadingIntoWhatItHides() {
+    let app = openNeon("-long-part")
+    func text(_ s: String) -> XCUIElement { app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", s)).firstMatch }
+    reveal(app, app.staticTexts["Cần thiết bị gì?"])
+    XCTAssertTrue(text("Bể nhỏ cho cá neon").label.hasSuffix("thêm"), "the text before the lead-in doesn't end in thêm")
+    XCTAssertFalse(text("gồm:").exists, "the fold stopped on a line leading into what it hides")
+    openFold(app, of: text("Bể nhỏ cho cá neon"))
+    XCTAssertTrue(text("gồm:").waitForExistence(timeout: 3), "thêm didn't open the part")
+  }
+
+  /// A list's lines stand apart, a long one wrapping under its own words: as one text, it ran on under its bullet.
+  func testAListsLinesWrapUnderTheirOwnWords() {
+    let app = openNeon("-long-part")
+    func text(_ s: String) -> XCUIElement { app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", s)).firstMatch }
+    reveal(app, app.staticTexts["Cần thiết bị gì?"])
+    openFold(app, of: text("Bể nhỏ cho cá neon"))
+    let line = text("Sưởi có điều nhiệt")
+    XCTAssertTrue(line.waitForExistence(timeout: 3), "the list didn't open")
+    reveal(app, line)
+    XCTAssertEqual(line.label, "Sưởi có điều nhiệt nếu phòng xuống dưới 22°C vào mùa lạnh.", "the list's lines are one text")
+    XCTAssertGreaterThan(line.frame.minX, text("gồm:").frame.minX + 8, "a list's line isn't set in from its mark")
+  }
+
   /// The sources' figures, compared, show whole: folded, the figure they disagree on was the one cut. A chip to a part a
   /// reader comes back for scrolls there, its heading just under the bar.
   func testTheSourcesShowWholeAndAChipGoesToItsPart() {
@@ -434,6 +519,7 @@ final class V2FlowTests: XCTestCase {
     XCTAssertLessThan(title.frame.minX - app.buttons["v2-back"].frame.maxX, 24, "the title isn't beside the back button")
     XCTAssertFalse(app.buttons["page-actions"].exists, "a ⋯ to choose it")
     XCTAssertTrue(app.buttons["save-for-later"].exists, "the title crowds the bookmark into iOS's own ⋯")
+    XCTAssertFalse(app.descendants(matching: .any)["v2-jumps"].exists, "the chips for whoever has the navigator")
     let parts = app.buttons.matching(identifier: "page-navigator-part")
     title.tap()
     XCTAssertTrue(parts.firstMatch.waitForExistence(timeout: 5), "no list of parts")
@@ -475,6 +561,7 @@ final class V2FlowTests: XCTestCase {
     parts.matching(NSPredicate(format: "label BEGINSWITH 'Các dòng và cá lai'")).firstMatch.tap()
     wait(for: [expectation(for: NSPredicate(format: "label CONTAINS 'Các dòng và cá lai'"), evaluatedWith: title)], timeout: 5)
     XCTAssertTrue(app.buttons["save-for-later"].exists, "a long part's name crowds the bookmark into iOS's own ⋯")
+    XCTAssertTrue(app.buttons["Chia sẻ"].exists, "a long part's name crowds the share button into iOS's own ⋯")
   }
 
   /// A page's photos all open as their grid (PhotoGrid) three ways: the banner, "N ảnh" in its corner, tapped anywhere;
@@ -948,6 +1035,18 @@ final class V2FlowTests: XCTestCase {
   }
 
   /// Back a page: v2's own button on its page, iOS's on another.
+  /// "thêm" at the end of this text: the page has one in each folded part.
+  private func openFold(_ app: XCUIApplication, of paragraph: XCUIElement) {
+    reveal(app, paragraph)
+    let box = paragraph.frame
+    let more = app.links.matching(NSPredicate(format: "label == %@", "thêm")).allElementsBoundByIndex.first {
+      box.contains(CGPoint(x: $0.frame.midX, y: $0.frame.midY))
+    }
+    guard let more else { return XCTFail("no thêm in \(paragraph.label)") }
+    reveal(app, more)
+    more.tap()
+  }
+
   private func goBack(_ app: XCUIApplication) {
     let own = app.buttons["v2-back"]
     if own.exists { own.tap() } else { app.navigationBars.buttons.element(boundBy: 0).tap() }

@@ -186,6 +186,8 @@ struct PageNavigatorTitle: View {
   let nameInView: Bool
   /// Over the page's photo and its colour.
   let onColour: Bool
+  /// Over the photo itself: its chevron in the word's white, the tint going faint on a pale leaf.
+  var onPhoto = false
   let navigator: PageNavigator
   @Environment(\.dynamicTypeSize) private var type
   @Environment(\.colorScheme) private var scheme
@@ -202,7 +204,7 @@ struct PageNavigatorTitle: View {
             .lineLimit(1)
           // The asset by name: `.accentColor` drew black in the light bar. On the photo's colour the bar is dark whatever the
           // phone's setting, so the tint's dark form, which reads there.
-          Image(systemName: "chevron.down").font(.system(size: big ? 14 : 10, weight: .semibold)).foregroundStyle(Color("AccentColor"))
+          Image(systemName: "chevron.down").font(.system(size: big ? 14 : 10, weight: .semibold)).foregroundStyle(onPhoto ? Color.white : Color("AccentColor"))
             .environment(\.colorScheme, onColour ? .dark : scheme)
         }
       }

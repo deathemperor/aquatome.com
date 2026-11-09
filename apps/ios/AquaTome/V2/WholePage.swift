@@ -225,6 +225,60 @@ private struct PieceHeight {
   }
 }
 
+/// A line of a list as NativePage writes one ("• …" or "1. …", four spaces a level in, two spaces for an item's next
+/// paragraph), its words apart from its mark.
+private struct ListLine: Identifiable {
+  let id: Int
+  let depth: Int
+  let mark: String
+  let words: AttributedString
+
+  /// nil for a text that isn't a list.
+  static func lines(of s: AttributedString) -> [ListLine]? {
+    var out: [ListLine] = [], start = s.startIndex
+    while start < s.endIndex {
+      let rest = s.characters[start...]
+      let end = rest.firstIndex(of: "\n") ?? s.endIndex
+      let line = String(s.characters[start..<end])
+      let body = line.drop { $0 == " " }
+      let spaces = line.count - body.count
+      var mark = ""
+      if body.hasPrefix("• ") {
+        mark = "•"
+      } else if let dot = body.firstIndex(of: "."), dot != body.startIndex, body[..<dot].allSatisfy(\.isNumber),
+                body[body.index(after: dot)...].hasPrefix(" ") {
+        mark = String(body[...dot])
+      } else if out.isEmpty || spaces == 0 {
+        return nil
+      }
+      let from = s.characters.index(start, offsetBy: spaces + (mark.isEmpty ? 0 : mark.count + 1))
+      out.append(ListLine(id: out.count, depth: spaces / 4, mark: mark, words: AttributedString(s[from..<end])))
+      start = end < s.endIndex ? s.characters.index(after: end) : end
+    }
+    return out.isEmpty ? nil : out
+  }
+}
+
+/// A list on v2's page: a line that wraps runs on under its own words, not under its mark.
+private struct ListLines: View {
+  let lines: [ListLine]
+  /// A digit's width at the reader's size: the marks' column, as wide as the widest mark.
+  @ScaledMetric(relativeTo: .body) private var digit: CGFloat = 10
+
+  var body: some View {
+    let column = digit * CGFloat(lines.map(\.mark.count).max() ?? 1)
+    VStack(alignment: .leading, spacing: 6) {
+      ForEach(lines) { line in
+        HStack(alignment: .firstTextBaseline, spacing: 6) {
+          Text(verbatim: line.mark).frame(width: column, alignment: .leading).accessibilityHidden(line.mark == "•")
+          Text(line.words).frame(maxWidth: .infinity, alignment: .leading)
+        }
+        .padding(.leading, CGFloat(line.depth) * 16)
+      }
+    }
+  }
+}
+
 /// A piece of the page (NativePage.Piece, as v1's page has it) on v2's species page: its text at the reader's size, its
 /// photos and tables in the page's width, its videos played in place, and a part this app can't draw as a link to v1's
 /// page at that point, never missing.
@@ -239,9 +293,15 @@ struct V2Piece: View {
   var body: some View {
     switch piece {
     case let .text(s, anchor, look):
-      // A heading inside a part (a questions' title) at v2's own size, not v1's serif.
-      Text(look == .heading ? plain(s) : s)
-        .font(look == .heading ? .title3.weight(.bold) : nil)
+      Group {
+        if let lines = ListLine.lines(of: s) {
+          ListLines(lines: lines)
+        } else {
+          // A heading inside a part (a questions' title) at v2's own size, not v1's serif.
+          Text(look == .heading ? plain(s) : s)
+            .font(look == .heading ? .title3.weight(.bold) : nil)
+        }
+      }
         .lineSpacing([.body, .boxed, .lead].contains(look) ? 3 : 0)
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(look == .boxed ? 14 : 0)
