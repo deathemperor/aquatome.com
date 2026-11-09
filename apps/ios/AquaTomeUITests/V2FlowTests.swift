@@ -51,6 +51,29 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(app.tabBars.buttons["Bể của tôi"].isSelected, "the tank opened on another tab")
   }
 
+  /// The chat opens from v2: its entry on a fish's full page goes to a screen v2's own stack knows. (Without the destination
+  /// there, the tap does nothing.)
+  func testTheChatOpensFromAFishsFullPageInV2() {
+    let app = launch("-v2", "YES", "-fake-accounts", "on", "-reset-fake-server")
+    app.launchForFlow()
+    app.openTab("Khám phá")
+    let fish = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá neon")).firstMatch
+    XCTAssertTrue(fish.waitForExistence(timeout: 5), "no Cá neon on Khám phá")
+    fish.tap()
+    let full = app.buttons["v2-full-page"]
+    repeatUntil(full.exists && full.isHittable, times: 6) { app.swipeUp() }
+    XCTAssertTrue(full.isHittable, "no Xem trang đầy đủ on the fish's page")
+    full.tap()
+    let entry = app.descendants(matching: .any)["chat-entry"].firstMatch
+    repeatUntil(entry.exists && entry.isHittable, times: 14) {
+      app.coordinate(withNormalizedOffset: CGVector(dx: 0.02, dy: 0.7))
+        .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.02, dy: 0.4)), withVelocity: .fast, thenHoldForDuration: 0.1)
+    }
+    XCTAssertTrue(entry.exists && entry.isHittable, "no chat entry on the full page")
+    entry.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["chat"].firstMatch.waitForExistence(timeout: 5), "the entry opened nothing")
+  }
+
   func testSwitchingBackWithAWholePageOpenLeavesTimTheFishsPage() {
     let app = launch()
     app.launchForFlow()

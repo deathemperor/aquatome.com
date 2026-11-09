@@ -248,7 +248,7 @@ struct FishIdView: View {
   static func chat(_ f: FishId.Identification) -> ChatRoute? {
     guard let identified = Chat.Identified(f), let first = f.results.first else { return nil }
     return ChatRoute(start: Chat.Start(from: .fishId, identified: identified),
-                     subject: ChatSubject(plant: f.verdict == "plant", name: first.page?.name ?? name(first), img: nil,
+                     subject: ChatSubject(plant: f.verdict == "plant", name: first.page?.name ?? name(first), sci: nil, img: nil,
                                           guesses: worded(f.results.prefix(3).map { ($0.page?.name ?? name($0), $0.confidence) }),
                                           second: f.results.dropFirst().first.map { $0.page?.name ?? name($0) }))
   }
