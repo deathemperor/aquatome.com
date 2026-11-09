@@ -16074,7 +16074,7 @@
  },
  "ms/species/acanthopsoides-robertsi": {
   "at": "2026-11-09",
-  "hash": "25dfe4399d2c5f64",
+  "hash": "ace63b133a93a3c1",
   "model": "opus",
   "checklist": 3,
   "findings": [
@@ -16082,14 +16082,14 @@
     "check": "source",
     "part": "P4",
     "quote": "Di lokasi dalam gambar ini, A. robertsi dikutip bersama Betta lehi",
-    "why": "Refers to a photo from the original article that the page does not have.",
+    "why": "Refers to a photo from the source article that the page does not have.",
     "by": "model"
    },
    {
     "check": "source",
     "part": "P12",
     "quote": "termasuk ikan dalam gambar ini",
-    "why": "Refers to a photo of the fish that the page does not include.",
+    "why": "Points at a picture the page does not include.",
     "by": "model"
    }
   ],
@@ -16146,7 +16146,7 @@
  },
  "ms/species/acestrorhynchus-altus": {
   "at": "2026-11-09",
-  "hash": "69c39ca69de1e67d",
+  "hash": "c7302e3802a24ad0",
   "model": "opus",
   "checklist": 3,
   "findings": [
@@ -16154,7 +16154,7 @@
     "check": "source",
     "part": "P15",
     "quote": "Spesimen dalam gambar di atas dikumpul berhampiran lokaliti jenis",
-    "why": "Refers to a picture from the source that this page does not have.",
+    "why": "Points to a photo from the source page that this page does not have.",
     "by": "model"
    }
   ],
@@ -16162,15 +16162,15 @@
  },
  "ms/species/acestrorhynchus-falcatus": {
   "at": "2026-11-09",
-  "hash": "efcff0da828ed941",
+  "hash": "bc72524dccd335a4",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "source",
     "part": "P1",
-    "quote": "dari Peru pada masa ini berukuran kira-kira 6–8 cm",
-    "why": "This describes a shop's current stock as if the reader knew about it.",
+    "quote": "Juvenil Redtail barracuda tetra, Acestrorhynchus falcatus, dari Peru pada masa ini berukuran kira-kira 6–8 cm.",
+    "why": "Describes the source shop's current stock of juveniles as if the reader knew them.",
     "by": "model"
    }
   ],
@@ -55466,18 +55466,17 @@
   ]
  },
  "vi/guides/youtube-BeaiD0fbdlA": {
-  "at": "2026-11-08",
+  "at": "2026-11-09",
   "hash": "fff23d98eeb87442",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
-    "check": "words",
+    "check": "elsewhere",
     "part": "P1",
-    "quote": "Núm nắm",
-    "why": "Literal phrasing; Vietnamese keepers call a cabinet knob 'tay nắm tủ' or 'núm tủ'.",
-    "by": "model",
-    "fix": "tay nắm tủ"
+    "quote": "Chở một tấm to mà xe chật thì không an toàn, nên nếu có thể hãy chở bằng xe lớn hơn.",
+    "why": "Assumes the reader carries the sheet home in their own car, as people do abroad; most keepers in Vietnam ride motorbikes and get the shop to deliver or cut the sheet.",
+    "by": "model"
    }
   ],
   "products": []
@@ -56625,51 +56624,58 @@
   ]
  },
  "vi/guides/youtube-cYmUrguvkrk": {
-  "at": "2026-11-08",
-  "hash": "f71613fb3019bac3",
+  "at": "2026-11-09",
+  "hash": "5c6644361c190d27",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "price",
     "part": "P1",
-    "quote": "Một tấm 12 mm khổ 240 x 120 cm ở chỗ quen bán khoảng 450 USD.",
-    "why": "Sheet price given in US dollars from the source's own supplier.",
+    "quote": "tấm 12 mm khổ 244 × 122 cm ở chỗ quen giá 450 USD, chỗ mới chỉ 250 USD",
+    "why": "Sheet and tank costs are given in US dollars from a foreign supplier.",
     "by": "model"
    },
    {
-    "check": "price",
+    "check": "units",
     "part": "P1",
-    "quote": "Nhà cung cấp mới chỉ lấy khoảng 250 USD",
-    "why": "Price in US dollars that only makes sense abroad.",
+    "quote": "một cặp bể acrylic khoảng 757 lít mỗi bể",
+    "why": "757 litres is a converted 200-gallon tank, not a size anyone in Vietnam would use.",
     "by": "model"
    },
    {
-    "check": "price",
+    "check": "units",
     "part": "P1",
-    "quote": "tổng tiền acrylic cho mỗi bể chỉ khoảng 500 USD",
-    "why": "Budget given in US dollars.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P1",
-    "quote": "Bể ở đây là một cặp bể khoảng 750 lít, xếp chồng lên nhau.",
-    "why": "Presents the original author's own tank project as if the reader knew it.",
+    "quote": "Mỗi bể dài khoảng 244 cm, rộng khoảng 91 cm, nhưng chỉ cao khoảng 36 cm",
+    "why": "Dimensions are converted from 8 ft × 3 ft × 14 in.",
     "by": "model"
    },
    {
     "check": "source",
     "part": "P1",
-    "quote": "Bể ở đây được thêm hai thanh nữa, thành năm thanh.",
-    "why": "Refers to the source's own build rather than advice to the reader.",
+    "quote": "Đây là tóm tắt quy trình của một lần đóng bể cụ thể",
+    "why": "The page retells one particular build by its original writer, which the reader doesn't know.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Lần này nhà cung cấp mới báo giá rẻ hơn hẳn chỗ quen",
+    "why": "This is the original writer's own story about their suppliers.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Muốn biết thì dùng công cụ tính độ dày acrylic theo kích thước bể.",
+    "why": "It points to a calculator tool that the page doesn't have.",
     "by": "model"
    },
    {
     "check": "elsewhere",
     "part": "P1",
-    "quote": "chỗ phẳng duy nhất tìm được là một góc sàn tầng hầm",
-    "why": "A house basement is a foreign home feature, uncommon in Vietnam.",
+    "quote": "Bàn tạm dài 244 cm đặt trên nền tầng hầm không bằng",
+    "why": "It assumes a house with a basement, which is rare in Vietnam.",
     "by": "model"
    }
   ],
@@ -58934,7 +58940,7 @@
   "products": []
  },
  "vi/guides/youtube-g6Rqis9uO1Y": {
-  "at": "2026-11-08",
+  "at": "2026-11-09",
   "hash": "bc5c9dec67df8f13",
   "model": "opus",
   "checklist": 3,
@@ -58943,7 +58949,7 @@
     "check": "source",
     "part": "P1",
     "quote": "Năm loài dưới đây là lựa chọn yêu thích của một người chơi bể nhỏ đã lâu",
-    "why": "Presents the list as the personal picks of the unnamed original writer, someone the reader doesn't know.",
+    "why": "The page presents the picks as those of an unnamed keeper the reader doesn't know, who is the original article's author.",
     "by": "model"
    }
   ],
@@ -61314,16 +61320,37 @@
   "sourceRead": true
  },
  "vi/guides/youtube-jFFbDTBUgIk": {
-  "at": "2026-11-08",
-  "hash": "42e0187c0361e904",
+  "at": "2026-11-09",
+  "hash": "0b908f829f5c01e9",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "source",
     "part": "P1",
-    "quote": "Thí nghiệm diễn ra theo trình tự sau: nuôi cá ốc một mình ba tháng",
-    "why": "Retells the original author's own tank experiment as if the reader knew it.",
+    "quote": "Bể này đã chạy hơn một năm mà gần như không đụng tay vào.",
+    "why": "Describes the original author's own tank as if the reader knew it.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Tính toán lúc đó là cứ cho frontosa ăn no thì chắc chúng sẽ không săn cá ốc",
+    "why": "The original keeper's own story and reasoning, told in their voice.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "Đó là dự định cho một bể riêng, cá vẫn nuôi chung rồi theo dõi tiếp.",
+    "why": "The original author's plans for their next tank, which mean nothing to this reader.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "L11",
+    "quote": "Ở bể này, từ lúc thả frontosa tới giờ chưa thấy con cá ốc nào bị mất",
+    "why": "The answer rests on the source's own tank as if the reader knew it.",
     "by": "model"
    }
   ],
@@ -62609,8 +62636,8 @@
   "sourceRead": false
  },
  "vi/guides/youtube-L1Xd9owK1fs": {
-  "at": "2026-11-08",
-  "hash": "b14432283e40f530",
+  "at": "2026-11-09",
+  "hash": "c129ea7bbb7973b3",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -70984,11 +71011,20 @@
   "products": []
  },
  "vi/guides/youtube-wOFTF6CYtFc": {
-  "at": "2026-11-08",
-  "hash": "4538ee35b0e75956",
+  "at": "2026-11-09",
+  "hash": "f753a5b3809bc7e1",
   "model": "opus",
   "checklist": 3,
-  "findings": [],
+  "findings": [
+   {
+    "check": "words",
+    "part": "P8",
+    "quote": "Một dụng cụ hợp là ống bóp hút (turkey baster) hoặc xi lanh để hút trứng lên.",
+    "why": "\"Turkey baster\" is a calque of the English kitchen tool name, not what keepers in Vietnam call it.",
+    "by": "model",
+    "fix": "ống bóp / pipet nhựa"
+   }
+  ],
   "products": []
  },
  "vi/guides/youtube-wPMn0xXjZF4": {
@@ -71592,7 +71628,7 @@
   ]
  },
  "vi/guides/youtube-XR1LMoVU7CI": {
-  "at": "2026-11-08",
+  "at": "2026-11-09",
   "hash": "c23e5aa93ad0eb30",
   "model": "opus",
   "checklist": 3,
@@ -71600,43 +71636,36 @@
    {
     "check": "units",
     "part": "P1",
-    "quote": "mỗi bể dài 240 cm, rộng 90 cm, cao 38 cm, khoảng 850 lít một bể",
-    "why": "This is a converted 8 ft × 3 ft × 15 in, 225-gallon tank, not a size anyone in Vietnam would quote.",
+    "quote": "dài 240 cm, rộng 90 cm, cao 38 cm, khoảng 850 lít một bể",
+    "why": "An 8 x 3 ft x 15 in, 225-gallon tank converted to metric; the 850 L doesn't match the stated sides.",
     "by": "model"
    },
    {
     "check": "units",
     "part": "P1",
     "quote": "Bộ lọc đang chạy cho bể cũ khoảng 2.040 lít",
-    "why": "2,040 litres is a converted 540-gallon figure.",
+    "why": "2,040 litres is a converted 540-gallon tank.",
     "by": "model"
    },
    {
     "check": "units",
     "part": "P1",
-    "quote": "lắp hai đầu xuyên vách (bulkhead) cỡ 3,8 cm",
-    "why": "3.8 cm is a converted 1.5-inch bulkhead; locally these fittings are sold by pipe size (phi 49 / phi 42).",
+    "quote": "Răng ở đây rộng khoảng 1,9 cm, sâu khoảng 5 cm",
+    "why": "Converted from 3/4 inch by 2 inches.",
     "by": "model"
    },
    {
     "check": "units",
     "part": "P1",
-    "quote": "Răng ở đây rộng khoảng 1,9 cm, sâu khoảng 5 cm.",
-    "why": "These are converted 3/4-inch and 2-inch measurements.",
+    "quote": "hai đầu xuyên vách (bulkhead) cỡ 3,8 cm",
+    "why": "The US 1.5-inch bulkhead size converted to cm.",
     "by": "model"
    },
    {
     "check": "source",
     "part": "P1",
-    "quote": "Mấy đoạn ống này dùng ống ABS vì lúc đó hết ống PVC, chỗ bán cũng không còn hàng.",
-    "why": "This is the original builder's own story, told as if the reader knew it.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P1",
-    "quote": "Nhiều khả năng sẽ bắt rồng trước",
-    "why": "This is the source writer's own plan for their own fish move, as if the reader knew it.",
+    "quote": "vì lúc đó hết ống PVC, chỗ bán cũng không còn hàng",
+    "why": "The original writer's own story about their build and supplier.",
     "by": "model"
    }
   ],
@@ -72976,107 +73005,107 @@
   "products": []
  },
  "vi/guides/youtube-Z09QE4PpB9Q": {
-  "at": "2026-11-08",
+  "at": "2026-11-09",
   "hash": "247578724a4b5909",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "price",
-    "part": "P1",
-    "quote": "Đèn là dải LED tự làm, giá khoảng 25 USD",
-    "why": "Price given in US dollars.",
+    "part": "P5",
+    "quote": "Đèn là dải LED tự làm, giá khoảng 25 USD, ăn chưa tới 10 W.",
+    "why": "The price is in US dollars, not Vietnamese dong.",
     "by": "model"
    },
    {
     "check": "price",
-    "part": "P1",
+    "part": "P6",
     "quote": "Cả bể lợp hết chừng 10 USD.",
-    "why": "Price given in US dollars.",
+    "why": "The price is in US dollars.",
     "by": "model"
    },
    {
     "check": "price",
-    "part": "P1",
+    "part": "P28",
     "quote": "bể tốn khoảng 15 USD tiền điện mỗi tháng",
-    "why": "Electricity cost in US dollars reflects a foreign tariff.",
+    "why": "The electricity cost is in US dollars, at foreign power prices.",
     "by": "model"
    },
    {
     "check": "price",
-    "part": "P1",
-    "quote": "| Chi phí (USD)",
-    "why": "Cost table priced in US dollars.",
-    "by": "model"
-   },
-   {
-    "check": "price",
-    "part": "P1",
-    "quote": "| khoảng 985",
-    "why": "Total build cost in US dollars.",
+    "part": "P38",
+    "quote": "Chi phí (USD)",
+    "why": "The whole cost table is in US dollars.",
     "by": "model"
    },
    {
     "check": "price",
     "part": "L5",
     "quote": "cả hệ thống 1.400 lít tốn chưa tới 1.000 USD",
-    "why": "Price given in US dollars.",
+    "why": "The total cost is given in US dollars.",
     "by": "model"
    },
    {
     "check": "price",
     "part": "L6",
-    "quote": "khoảng 15 USD mỗi tháng",
-    "why": "Electricity cost in US dollars.",
+    "quote": "giữ tiền điện của bể to ở mức thấp, khoảng 15 USD mỗi tháng",
+    "why": "The monthly power cost is in US dollars.",
     "by": "model"
    },
    {
     "check": "units",
-    "part": "P1",
+    "part": "P10",
     "quote": "Hầu hết các bể đều để mặt nước thấp hơn miệng bể 2,5–5 cm.",
-    "why": "Converted from 1–2 inches.",
+    "why": "This is 1–2 inches converted to centimetres.",
     "by": "model"
    },
    {
     "check": "units",
-    "part": "P1",
-    "quote": "Bể có kích thước ngoài khoảng 198 × 97 × 74 cm",
-    "why": "Tank dimensions converted from inches.",
-    "by": "model"
-   },
-   {
-    "check": "units",
-    "part": "P1",
+    "part": "P9",
     "quote": "Thực tế bể chỉ chứa khoảng 1.135 lít.",
-    "why": "Converted from 300 gallons.",
+    "why": "1,135 L is 300 gallons converted, not a figure a Vietnamese keeper would give.",
     "by": "model"
    },
    {
     "check": "units",
-    "part": "P1",
+    "part": "P9",
+    "quote": "Bể có kích thước ngoài khoảng 198 × 97 × 74 cm",
+    "why": "Odd dimensions that look converted from inches.",
+    "by": "model"
+   },
+   {
+    "check": "units",
+    "part": "P21",
     "quote": "Thân sump là một bể kính cũ khoảng 265 lít.",
-    "why": "Converted from a 70-gallon tank.",
+    "why": "265 L is a converted 70-gallon tank size.",
     "by": "model"
    },
    {
     "check": "units",
-    "part": "P1",
-    "quote": "Tủ (gỗ 2×4, gỗ ép, ốc vít",
-    "why": "2×4 is an American imperial lumber size.",
+    "part": "P38",
+    "quote": "Tủ (gỗ 2×4, gỗ ép, ốc vít, keo, bản lề, sơn cho cả bể và tủ)",
+    "why": "2×4 is an American lumber size in inches.",
     "by": "model"
    },
    {
     "check": "source",
-    "part": "P1",
-    "quote": "Con cá rồng này trước đây sống trong một bể thấp đặt sát góc phòng kho.",
-    "why": "Tells the original writer's own fish and tank story as if the reader knew it.",
+    "part": "P4",
+    "quote": "Con cá rồng này trước đây sống trong một bể thấp đặt sát góc phòng kho. Chủ chỉ gặp nó lúc cho ăn.",
+    "why": "Tells the source writer's own fish story as if the reader knew this fish.",
     "by": "model"
    },
    {
     "check": "source",
-    "part": "P1",
+    "part": "P25",
     "quote": "Bơm mới dùng được hai tháng, chạy tốt và êm, nhưng chưa đủ lâu để khuyên mọi người mua.",
-    "why": "The original writer's first-hand experience voice.",
+    "why": "The original writer's personal experience and voice.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P41",
+    "quote": "Hệ thống vẫn còn vài chỗ muốn cải tiến. Ống tràn còn hơi ồn.",
+    "why": "The writer's own plans for their own tank.",
     "by": "model"
    }
   ],
@@ -94315,8 +94344,8 @@
   "products": []
  },
  "vi/species/leporellus-vittatus": {
-  "at": "2026-11-08",
-  "hash": "1f3d1d73549fb8c0",
+  "at": "2026-11-09",
+  "hash": "8274f190b985a9e5",
   "model": "opus",
   "checklist": 3,
   "findings": [
@@ -94324,14 +94353,7 @@
     "check": "source",
     "part": "P3",
     "quote": "Các con trong ảnh được bắt ở Río Casanare, Colombia",
-    "why": "Points to the source's photos, which this page doesn't have.",
-    "by": "model"
-   },
-   {
-    "check": "units",
-    "part": "P4",
-    "quote": "(khoảng 756 lít)",
-    "why": "756 litres is 200 US gallons converted to litres, not a tank size anyone in Vietnam would give.",
+    "why": "Refers to the source article's photos, which this page does not have.",
     "by": "model"
    }
   ],
