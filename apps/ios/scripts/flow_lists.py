@@ -65,6 +65,8 @@ SHOTS = {
               'testAnOwnersSectionInTheDark', 'testAnOwnersSectionInTheLargestText', 'testTheOwnersComments',
               'testTheOwnersCommentsInTheDark', 'testTheOwnersCommentsInTheLargestText', 'testTheDailyReportsSettings'],
     'v2': ['testV2', 'testV2InTheDark', 'testV2InTheLargestText'],
+    # The chat screen: an answer with its cards, from the stand-in's recordings.
+    'chat': ['testTheChat', 'testTheChatInTheDark', 'testTheChatInTheLargestText'],
 }
 
 
@@ -209,9 +211,9 @@ REACH = {
     APP + 'Account/FakeServer.swift': ['AccountFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests', 'FishIdFlowTests',
                                        'OwnerFlowTests', 'ChatFlowTests'],
     # The stand-in chat: the chat's flows alone.
-    APP + 'Account/FakeChat.swift': ['ChatFlowTests'],
+    APP + 'Account/FakeChat.swift': ['ChatFlowTests'] + shots('chat'),
     # The chat screen, opened from a fish's page and fish ID's result.
-    APP + 'Chat/': ['ChatFlowTests'],
+    APP + 'Chat/': ['ChatFlowTests'] + shots('chat'),
     # Its page shots too: the overview and a section.
     APP + 'Owner/': ['OwnerFlowTests'] + shots('owner'),
     # Its row, in the Tài khoản sheet (and none signed out).
@@ -220,7 +222,8 @@ REACH = {
     KIT + 'Sources/Handbook/': HANDBOOK_MODEL,
     # The chat's contract, the event stream it's read from and the answer as the screen draws it: the chat's flows
     # (job `kit` tests them too).
-    KIT + 'Sources/Handbook/Chat.swift': ['ChatFlowTests'], KIT + 'Sources/Handbook/ChatReply.swift': ['ChatFlowTests'],
+    KIT + 'Sources/Handbook/Chat.swift': ['ChatFlowTests'] + shots('chat'),
+    KIT + 'Sources/Handbook/ChatReply.swift': ['ChatFlowTests'] + shots('chat'),
     KIT + 'Sources/Handbook/ChatHistory.swift': ['ChatFlowTests'],
     KIT + 'Sources/Handbook/ServerEvents.swift': ['ChatFlowTests'],
     KIT + 'Sources/TankCheck/': ['TankCheckFlowTests', 'TankLifeFlowTests', 'TankMatesFlowTests'],
@@ -244,7 +247,7 @@ REACH = {
     # The sample's waiting photos, which the stand-in server serves to the dashboard's flows.
     'apps/site/e2e/photos/': ['OwnerFlowTests'] + shots('owner'), 'apps/ios/README.md': NONE, 'apps/ios/.gitignore': NONE,
     # The stand-in chat streams the chat's recorded answers.
-    'protocols/chat-stream-': ['ChatFlowTests'],
+    'protocols/chat-stream-': ['ChatFlowTests'] + shots('chat'),
     'apps/ios/perf-budgets.json': NONE, 'apps/ios/scripts/check-perf.py': NONE,
     # Run by job `perf`, which runs on every ready pull request that changes what it builds or checks.
     'apps/ios/scripts/check-strings.py': NONE,
@@ -275,7 +278,7 @@ def check(runs, left, reached):
                            ([APP + 'AppIcon/AppIconPicker.swift'], ('icons',)), ([APP + 'Tanks/TanksView.swift'], ('tanks',)),
                            ([APP + 'Account/AccountSection.swift'], ('account',)),
                            ([APP + 'Owner/OwnerBlocks.swift'], ('owner',)), (['protocols/owner-dashboard-vectors.json'], ('owner',)),
-                           ([APP + 'Owner/OwnerEntry.swift'], ('owner', 'account')), ([APP + 'V2/Today.swift'], ('v2',)),
+                           ([APP + 'Owner/OwnerEntry.swift'], ('owner', 'account')), ([APP + 'Chat/ChatView.swift'], ('chat',)), ([APP + 'V2/Today.swift'], ('v2',)),
                            ([APP + 'Handbook/HomeList.swift', APP + 'V2/Today.swift'], ('search', 'tools', 'home', 'tab-bar', 'v2'))):
         assert runs(paths) == sorted(smoke + shots(*screens)), paths
     for paths in ([APP + 'Handbook/HandbookModel.swift'], [KIT + 'Sources/Handbook/Handbook.swift'],
@@ -359,10 +362,12 @@ def check(runs, left, reached):
         assert 'FishIdFlowTests' in reached([p]), p
     assert reached([APP + 'Handbook/ImagePicker.swift']) == {'FishIdFlowTests', 'ReaderPostFlowTests'}
     assert reached([APP + 'TestGate.swift']) == {'FishIdFlowTests'}
-    # The chat: its contract and its stand-in reach its flows alone; its entries, a fish's page and fish ID's result.
-    for p in (KIT + 'Sources/Handbook/Chat.swift', KIT + 'Sources/Handbook/ServerEvents.swift', APP + 'Chat/ChatView.swift',
-              APP + 'Account/FakeChat.swift', 'protocols/chat-stream-species.sse'):
-        assert reached([p]) == {'ChatFlowTests'}, p
+    # The chat: its contract and its stand-in reach its flows and its shots (drawn from the stand-in's recordings); the
+    # events' reader its flows alone; its entries, a fish's page and fish ID's result.
+    for p in (KIT + 'Sources/Handbook/Chat.swift', APP + 'Chat/ChatView.swift', APP + 'Account/FakeChat.swift',
+              'protocols/chat-stream-species.sse'):
+        assert reached([p]) == {'ChatFlowTests', *shots('chat')}, p
+    assert reached([KIT + 'Sources/Handbook/ServerEvents.swift']) == {'ChatFlowTests'}
     for p in (APP + 'Handbook/PageView.swift', APP + 'Handbook/FishIdView.swift', APP + 'Account/AccountModel.swift'):
         assert 'ChatFlowTests' in reached([p]), p
     # The catalog: the two flows that read its Indonesian.
