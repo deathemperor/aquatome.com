@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "Iu4XrX7m100",
     "title": "Hướng dẫn lắp đặt phụ kiện cho hồ thủy sinh",
@@ -25,9 +25,7 @@
       "height": 720
     },
     "lang": "vi",
-    "taxa": [
-      "Hemianthus callitrichoides"
-    ],
+    "taxa": [],
     "gear": [
       {
         "category": "den",
@@ -51,11 +49,16 @@
       {
         "category": "loc",
         "t": 722
+      },
+      {
+        "category": "suoi",
+        "type": "lam-lanh",
+        "t": 819
       }
     ],
     "figures": [
       {
-        "heading": "Lọc thùng: lọc hãng hay lọc chế",
+        "heading": "Chọn lọc cho bể thủy sinh",
         "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/Iu4XrX7m100/p5-JfRmlsdGVyLmpwZw.webp",
@@ -65,7 +68,35 @@
           "licence": "CC BY-SA 4.0",
           "author": "Fish Tank Society",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
-          "caption": "Lọc thùng ngoài đặt trong tủ bể, bên cạnh là xô và ống siphon."
+          "caption": "Lọc thùng ngoài đặt trong tủ bể, nối ống dẫn nước bên cạnh xô."
+        }
+      },
+      {
+        "heading": "Quạt tản nhiệt CPU cho mùa nóng",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/Iu4XrX7m100/p8-OkNQVV9GQU4uanBn.webp",
+          "thumb": "https://media.aquatome.com/video/Iu4XrX7m100/p8-OkNQVV9GQU4uanBn-480.webp",
+          "width": 960,
+          "height": 1280,
+          "licence": "CC0",
+          "author": "Whityya23",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:CPU_FAN.jpg",
+          "caption": "Quạt tản nhiệt CPU Intel đặt riêng, dùng để thổi mát mặt nước bể."
+        }
+      },
+      {
+        "heading": "Những phụ kiện một bể thủy sinh cần có",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/Iu4XrX7m100/p9-hX3NocmltcC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/Iu4XrX7m100/p9-hX3NocmltcC5qcGc-480.webp",
+          "width": 960,
+          "height": 718,
+          "licence": "CC BY 4.0",
+          "author": "Snehayan",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Live_planted_aquarium_with_neocaridina_shrimp.jpg",
+          "caption": "Bể thủy sinh với rêu, cây thân mảnh và lũa, cần đèn và CO2 đầy đủ."
         }
       }
     ]

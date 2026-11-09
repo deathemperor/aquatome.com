@@ -8,9 +8,11 @@
   "mentions": [
     "taxiphyllum-alternans",
     "bucephalandra-sp",
-    "rotala-rotundifolia"
+    "rotala-rotundifolia",
+    "glossostigma-elatinoides",
+    "monosolenium-tenerum"
   ],
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "Jth3Ks8lm6c",
     "title": "6 bước thực hiện hồ thủy sinh (Part 2 - bước 4, 5)",
@@ -31,15 +33,14 @@
     "transcribed": true,
     "lang": "vi",
     "taxa": [
-      "Eleocharis sp.",
-      "Taxiphyllum alternans",
-      "Taxiphyllum sp.",
-      "Bucephalandra sp.",
-      "Anubias sp.",
-      "Hemianthus callitrichoides",
       "Rotala rotundifolia",
       "Rotala sp.",
-      "Pterygoplichthys sp."
+      "Glossostigma elatinoides",
+      "Taxiphyllum sp.",
+      "Anubias sp.",
+      "Bucephalandra sp.",
+      "Monosolenium tenerum",
+      "Eleocharis sp."
     ],
     "gear": [
       {
@@ -48,79 +49,209 @@
         "t": 0
       },
       {
+        "category": "cay-thuy-sinh",
+        "type": "reu",
+        "t": 162
+      },
+      {
+        "category": "cay-thuy-sinh",
+        "type": "gan-lua",
+        "t": 182
+      },
+      {
+        "category": "cay-thuy-sinh",
+        "type": "trong-nen",
+        "t": 0
+      },
+      {
         "category": "co2",
-        "t": 740
+        "t": 735
+      },
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "t": 945
       }
     ],
     "figures": [
       {
-        "heading": "Chuẩn bị nền và dụng cụ trước khi trồng",
+        "heading": "Chuẩn bị nền trước khi trồng",
         "moments": [
           {
-            "t": 30,
-            "url": "https://media.aquatome.com/video/Jth3Ks8lm6c/t30.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể thủy sinh có nền đen và lũa đã xếp sẵn, chuẩn bị trồng cây."
+            "t": 0,
+            "url": "https://media.aquatome.com/video/Jth3Ks8lm6c/at0-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hồ thủy sinh đã bày lũa và phân nền, sẵn sàng trồng cây.",
+            "sharpness": 1488.4
+          },
+          {
+            "t": 100,
+            "url": "https://media.aquatome.com/video/Jth3Ks8lm6c/at100-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Dùng nhíp gắp cây để chuẩn bị trồng vào nền.",
+            "sharpness": 987.9
           }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/Jth3Ks8lm6c/p0-BcXVhcml1bS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/Jth3Ks8lm6c/p0-BcXVhcml1bS5qcGc-480.webp",
+          "width": 960,
+          "height": 638,
+          "licence": "CC BY 4.0",
+          "author": "Abhik.Mazumdar.73",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:An_Aquascapist_Planting_Aquatic_Plant_Anubias_Petite_with_Tweezers_in_an_Aquarium.jpg",
+          "caption": "Dùng nhíp trồng cây thủy sinh nhỏ vào nền trong bể."
+        }
       },
       {
         "heading": "Trồng ngưu mao chiên thế nào",
         "moments": [
           {
-            "t": 1031,
-            "url": "https://media.aquatome.com/video/Jth3Ks8lm6c/t1031.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Ngưu mao chiên đã trồng thành các bụi nhỏ trên nền, cạnh lũa."
+            "t": 110,
+            "url": "https://media.aquatome.com/video/Jth3Ks8lm6c/at110-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Dùng nhíp kẹp bụi ngưu mao chiên sát gốc rễ để cắm xuống nền.",
+            "sharpness": 980.8
           },
           {
-            "t": 1041,
-            "url": "https://media.aquatome.com/video/Jth3Ks8lm6c/t1041.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Thảm ngưu mao chiên xanh mọc rải rác giữa nền và lũa."
+            "t": 130,
+            "url": "https://media.aquatome.com/video/Jth3Ks8lm6c/at130-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Nhíp gắp bụi cây nhỏ, chuẩn bị cắm vào nền giữa lũa.",
+            "sharpness": 991
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/Jth3Ks8lm6c/p1-LWxlbm5hcnQuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/Jth3Ks8lm6c/p1-LWxlbm5hcnQuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/Jth3Ks8lm6c/p1-FNyU4RiVBMC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/Jth3Ks8lm6c/p1-FNyU4RiVBMC5qcGc-480.webp",
           "width": 960,
-          "height": 337,
-          "licence": "CC BY-SA 4.0",
-          "author": "Lennart Jöhnk",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquascaping-minilandschaft-lennart.jpg",
-          "caption": "Thảm ngưu mao chiên xanh mướt phủ kín nền trong hồ thủy sinh."
+          "height": 720,
+          "licence": "CC BY-SA 3.0",
+          "author": "Billtsai1518",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E7%9F%AE%E7%8F%8D%E7%8F%A0.jpg",
+          "caption": "Thảm ngưu mao chiên xanh mướt, mọc dày và đều trong hồ thủy sinh."
         }
       },
       {
-        "heading": "Cây bám giá thể dán khác rêu ở chỗ nào",
-        "moments": [],
+        "heading": "Gắn rêu lên lũa: kẹp hoặc dán keo",
+        "moments": [
+          {
+            "t": 190,
+            "url": "https://media.aquatome.com/video/Jth3Ks8lm6c/at190-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Vỉ rêu mini Taiwan xanh mướt được cầm trên tay trước khi gắn lên lũa.",
+            "sharpness": 2107.1
+          },
+          {
+            "t": 240,
+            "url": "https://media.aquatome.com/video/Jth3Ks8lm6c/at240-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Mảng rêu đã được nhét vào khe của cành lũa.",
+            "sharpness": 1105.1
+          }
+        ]
+      },
+      {
+        "heading": "Rêu lửa và cây bám giá thể",
+        "moments": [
+          {
+            "t": 470,
+            "url": "https://media.aquatome.com/video/Jth3Ks8lm6c/at470-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tay đặt mảng rêu lửa vào đúng vị trí trên lũa.",
+            "sharpness": 948.4
+          },
+          {
+            "t": 540,
+            "url": "https://media.aquatome.com/video/Jth3Ks8lm6c/at540-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tay gắn cây bucep vào lũa trong bể.",
+            "sharpness": 469.4
+          }
+        ]
+      },
+      {
+        "heading": "Trồng trân châu ngọc trai và giữ cho nền bò",
+        "moments": [
+          {
+            "t": 640,
+            "url": "https://media.aquatome.com/video/Jth3Ks8lm6c/at640-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tay cầm một cụm trân châu ngọc trai nhỏ vừa tách ra.",
+            "sharpness": 367.7
+          },
+          {
+            "t": 650,
+            "url": "https://media.aquatome.com/video/Jth3Ks8lm6c/at650-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Dùng nhíp cắm từng cụm trân châu vào nền, bên cạnh là tô cây đã tách.",
+            "sharpness": 380.6
+          }
+        ],
         "photo": {
-          "url": "https://media.aquatome.com/video/Jth3Ks8lm6c/p3-X2V4X3NpdHUuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/Jth3Ks8lm6c/p3-X2V4X3NpdHUuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/Jth3Ks8lm6c/p4-dW1fVS5BLkUuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/Jth3Ks8lm6c/p4-dW1fVS5BLkUuanBn-480.webp",
           "width": 960,
-          "height": 587,
+          "height": 720,
           "licence": "CC BY-SA 4.0",
-          "author": "Manuel Werner / CC-BY-SA-3.0 Werner, Deutschland",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bucephalandra_Shine_Blue_and_Bucephalandra_pygmaea_ex_situ.jpg",
-          "caption": "Các bụi cây bám giá thể gắn trên đá lũa trong hồ thủy sinh."
+          "author": "Ranjith-chemmad",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Freshwater_aquarium_U.A.E.jpg",
+          "caption": "Thảm trân châu ngọc trai đã bò kín nền, phía sau là đá và cây thân."
         }
       },
       {
-        "heading": "Cắt và cắm cây cắt cắm",
-        "moments": [],
+        "heading": "Trồng cây cắt cắm",
+        "moments": [
+          {
+            "t": 880,
+            "url": "https://media.aquatome.com/video/Jth3Ks8lm6c/at880-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Dùng nhíp cắm ngọn cây cắt cắm đã tỉa xuống nền.",
+            "sharpness": 457.3
+          },
+          {
+            "t": 910,
+            "url": "https://media.aquatome.com/video/Jth3Ks8lm6c/at910-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Một ngọn cây đã được cắm đứng trên nền bằng nhíp.",
+            "sharpness": 187.7
+          }
+        ],
         "photo": {
-          "url": "https://media.aquatome.com/video/Jth3Ks8lm6c/p5-saWFfa3owMS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/Jth3Ks8lm6c/p5-saWFfa3owMS5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/Jth3Ks8lm6c/p5-J1LUluZGlhLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/Jth3Ks8lm6c/p5-J1LUluZGlhLmpwZw-480.webp",
           "width": 960,
           "height": 1280,
-          "licence": "CC BY-SA 4.0",
-          "author": "Krzysztof Ziarnek, Kenraiz",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rotala_rotundifolia_kz01.jpg",
-          "caption": "Phần ngọn Rotala khỏe với lá xếp vòng tròn, thích hợp để cắt và cắm."
+          "licence": "CC BY 4.0",
+          "author": "Yercaud-elango",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rotala_rotundifolia_pink-2-veda_aquarium-bengaluru-India.jpg",
+          "caption": "Cụm cây cắt cắm thân đỏ mọc dày, khỏe trong hồ thủy sinh."
         }
+      },
+      {
+        "heading": "Vào nước thế nào để không phá nền",
+        "moments": [
+          {
+            "t": 1120,
+            "url": "https://media.aquatome.com/video/Jth3Ks8lm6c/at1120-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đặt bao nilông lên nền để đỡ dòng nước khi vào nước, tránh xói nền.",
+            "sharpness": 1430.4
+          }
+        ]
       }
     ]
   }
