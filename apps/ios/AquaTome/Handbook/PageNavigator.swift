@@ -105,7 +105,12 @@ final class PageNavigator {
   }
 
   func load(_ pieces: [NativePage.Piece]) {
-    parts = pieces.enumerated().compactMap { Self.part($1, at: $0) }
+    load(parts: pieces.enumerated().compactMap { Self.part($1, at: $0) })
+  }
+
+  /// A page that lists its own parts (v2's species page: its photos, then each titled part).
+  func load(parts: [Part]) {
+    self.parts = parts
     refresh()
   }
 
@@ -382,12 +387,14 @@ private final class RailHold: UILongPressGestureRecognizer {
 /// In the page's content: finds the scroll view it's in, for the navigator, and gives it the page's parts.
 struct PageNavigatorHook: View {
   let navigator: PageNavigator
-  let pieces: [NativePage.Piece]
+  var pieces: [NativePage.Piece] = []
+  /// A page's own parts, in place of those its pieces give (`load(parts:)`).
+  var parts: [PageNavigator.Part]?
 
   var body: some View {
     Probe(navigator: navigator)
       .frame(width: 0, height: 0)
-      .onAppear { navigator.load(pieces) }
+      .onAppear { if let parts { navigator.load(parts: parts) } else { navigator.load(pieces) } }
   }
 
   private struct Probe: UIViewRepresentable {

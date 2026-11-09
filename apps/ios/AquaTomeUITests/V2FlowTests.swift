@@ -226,6 +226,55 @@ final class V2FlowTests: XCTestCase {
   }
 
   /// A plant's page has its care across it as a fish's has its figures: how hard, its light, its CO₂, how fast it grows.
+  /// The owner's trial of a way round a long page (PageNavigator) on v2's page, which carries the whole page now: none
+  /// of it for a reader, whatever the setting says.
+  func testAReaderHasNoNavigatorTrialOnV2sPage() {
+    let app = openNeon("-page-navigator-trial", "rail", "-page-rail-stays")
+    app.swipeUp()
+    XCTAssertFalse(app.descendants(matching: .any)["page-navigator-title"].exists, "a title for a reader")
+    XCTAssertFalse(app.descendants(matching: .any)["page-rail"].exists, "a rail for a reader")
+    XCTAssertFalse(app.buttons["page-actions"].exists, "the owner's ⋯ for a reader")
+  }
+
+  /// The owner chooses the title in the bar's ⋯, and goes to a part from its list: there, its heading under the bar.
+  func testTheOwnerGoesToAPartFromTheNavigatorsTitleOnV2sPage() {
+    let app = ownersNeon()
+    let title = app.descendants(matching: .any)["page-navigator-title"].firstMatch
+    XCTAssertFalse(title.exists, "a title before the trial is chosen")
+    chooseTrial(app, "Chỉ tiêu đề")
+    XCTAssertTrue(title.waitForExistence(timeout: 5), "no title")
+    XCTAssertTrue(title.label.contains("Mục lục"), title.label)
+    title.tap()
+    let parts = app.buttons.matching(identifier: "page-navigator-part")
+    XCTAssertTrue(parts.firstMatch.waitForExistence(timeout: 5), "no list of parts")
+    XCTAssertTrue(parts.firstMatch.label.hasPrefix("Ảnh"), "not the photos first: \(parts.firstMatch.label)")
+    let part = parts.matching(NSPredicate(format: "label == 'Cho ăn gì?'")).firstMatch
+    XCTAssertTrue(part.exists, "no part for feeding among \(parts.count)")
+    part.tap()
+    wait(for: [expectation(for: NSPredicate(format: "label CONTAINS 'Cho ăn gì?'"), evaluatedWith: title)], timeout: 5)
+    let heading = app.staticTexts["Cho ăn gì?"].firstMatch
+    wait(for: [expectation(for: NSPredicate(format: "isHittable == true"), evaluatedWith: heading)], timeout: 5)
+    XCTAssertGreaterThan(heading.frame.minY, app.buttons["v2-back"].frame.maxY, "the part's heading behind the bar")
+    XCTAssertFalse(app.descendants(matching: .any)["page-rail"].exists, "a rail on the title alone")
+  }
+
+  /// With the rail, its tab catches an ordinary drag (80 points a second) and moves the page to another part.
+  func testTheNavigatorsRailCatchesADragOnV2sPage() {
+    let app = ownersNeon("-page-navigator-trial", "rail", "-page-rail-stays")
+    let title = app.descendants(matching: .any)["page-navigator-title"].firstMatch, rail = app.descendants(matching: .any)["page-rail"].firstMatch
+    XCTAssertTrue(title.waitForExistence(timeout: 5), "no title")
+    app.swipeUp()
+    XCTAssertTrue(rail.waitForExistence(timeout: 5), "no rail")
+    XCTAssertEqual(rail.value as? String, "0")
+    let before = title.label
+    let f = rail.frame, origin = app.coordinate(withNormalizedOffset: .zero)
+    origin.withOffset(CGVector(dx: f.midX, dy: f.midY))
+      .press(forDuration: 0.01, thenDragTo: origin.withOffset(CGVector(dx: f.midX, dy: f.midY + 120)), withVelocity: XCUIGestureVelocity(80),
+             thenHoldForDuration: 0.1)
+    wait(for: [expectation(for: NSPredicate(format: "value == '1'"), evaluatedWith: rail)], timeout: 5)
+    XCTAssertNotEqual(title.label, before, "the page didn't move to another part")
+  }
+
   func testAPlantsPageHasItsCareInItsStrip() {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-reset-defaults", "-v2", "YES"]
@@ -621,6 +670,32 @@ final class V2FlowTests: XCTestCase {
   }
 
   /// A link opened by the system to the running app (`XCUIApplication.open` launches it anew), past the system's question.
+  /// The neon's page, signed in as the owner (the stand-in Apple's, `-fake-owner`).
+  private func ownersNeon(_ args: String...) -> XCUIApplication {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-reset-defaults", "-v2", "YES",
+                           "-fake-accounts", "on", "-reset-fake-server", "-fake-owner", "ui-apple"] + args
+    app.launchForFlow()
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    app.openAccount()
+    app.scrollToAndTap("apple-sign-in")
+    XCTAssertTrue(app.descendants(matching: .any)["owner-dashboard"].waitForExistence(timeout: 20), "not the owner")
+    app.closeAccount()
+    follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
+    XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the fish's page didn't open")
+    return app
+  }
+
+  /// A state of the owner's trial, in the bar's ⋯.
+  private func chooseTrial(_ app: XCUIApplication, _ state: String) {
+    let more = app.buttons["page-actions"]
+    XCTAssertTrue(more.waitForExistence(timeout: 5), "no ⋯ for the owner")
+    more.tap()
+    let row = app.buttons[state]
+    XCTAssertTrue(row.waitForExistence(timeout: 5), "no \(state) in the menu")
+    row.tap()
+  }
+
   private func follow(_ app: XCUIApplication, _ url: URL) {
     XCUIDevice.shared.system.open(url)
     let ask = XCUIApplication(bundleIdentifier: "com.apple.springboard").alerts.firstMatch

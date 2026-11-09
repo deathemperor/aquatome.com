@@ -35,6 +35,9 @@ struct SpeciesPage: View {
   @Environment(\.scenePhase) private var phase
   @Environment(\.colorScheme) private var scheme
   @Environment(\.v2FootGround) private var footGround
+  @Environment(AccountModel.self) private var account
+  /// The way round a long page (PageNavigator), its title in the bar: the owner's alone for now.
+  @State private var navigator = PageNavigator()
   /// This page being read, how far down and how long, as v1's page reports it (made when it first shows).
   @State private var reading: PageReading?
   @State private var doc: PageDoc?
@@ -111,6 +114,8 @@ struct SpeciesPage: View {
   var body: some View {
     ScrollViewReader { proxy in
     ScrollView {
+      // One stack, the page's content: a part's place in it (PageNavigator.space) doesn't change as the page scrolls.
+      VStack {
       VStack(spacing: 0) {
         if let hero {
           V2Photo(src: hero, ground: colour) { colour = $0 }
@@ -129,7 +134,11 @@ struct SpeciesPage: View {
         }
         header
         FactsStrip(facts: facts, plant: item.plant, onDark: true, temperament: asked && !hasMates).padding(.vertical, 14)
-        if !photos.isEmpty { gallery.padding(.bottom, 24) }
+        if !photos.isEmpty {
+          gallery.padding(.bottom, 24)
+            .background(alignment: .top) { place(Self.photosID) }
+            .background { if let trying { PagePlace(navigator: trying, id: Self.photosID) } }
+        }
         // Until it's asked for, the colour runs on past the screen's foot, the spinner on it: no white strip, no tab bar
         // changing, when the page comes. Not a fish with no photo: it'll have no gallery to fill the place.
         if !asked {
@@ -145,8 +154,17 @@ struct SpeciesPage: View {
         return ColourAt(top: end > barFoot, foot: end > g.bounds(of: .scrollView)?.height ?? .infinity)
       } action: { colourAt = $0 }
       rest(proxy)
+      }
+      .coordinateSpace(.named(PageNavigator.space))
+      .background { if let trying, let whole, let doc { PageNavigatorHook(navigator: trying, parts: navigatorParts(whole, doc)) } }
     }
     .onChange(of: player.asked) { withAnimation { proxy.scrollTo(PagePlayer.anchor(player.id), anchor: .center) } }
+    // A part chosen from the title's list: there, open, as a chip goes.
+    .onChange(of: navigator.asked) { _, asked in
+      guard let asked, let whole else { return }
+      if let i = whole.ids.firstIndex(of: asked.id) { opened.insert(i) }
+      jump(to: asked.id, proxy)
+    }
     }
     .environment(player)
     .navigationDestination(item: $onSite) { WebScreen(url: $0).v2ClearOfTheFade() }
@@ -224,7 +242,14 @@ struct SpeciesPage: View {
     // the middle as the glass came. Placed as iOS's is (`barName`); a name wider than the room is cut short. At the bar's
     // own size, as iOS's title is. Not read: the page's name is, as its heading.
     .overlay(alignment: .top) {
-      if nameGone, barMid > 0 {
+      if let trying, trying.long, barMid > 0 {
+        // The navigator's title: "Mục lục", then the part being read, its list a tap away. White on the photo and its colour.
+        let place = barName ?? BarPlace(x: width / 2, room: max(60, width - 290))
+        PageNavigatorTitle(name: item.name, nameInView: !nameGone, navigator: trying)
+          .environment(\.colorScheme, colourAt.top ? .dark : scheme)
+          .frame(width: place.room)
+          .position(x: place.x, y: barMid - origin.y)
+      } else if nameGone, barMid > 0 {
         let place = barName ?? BarPlace(x: width / 2, room: max(60, width - 290))
         Text(verbatim: item.name).font(.headline).lineLimit(1).dynamicTypeSize(.large)
           .foregroundStyle(colourAt.top ? Color.white : Color.primary)
@@ -640,10 +665,10 @@ struct SpeciesPage: View {
           if i == whole.readersAt {
             VStack(alignment: .leading, spacing: 0) {
               readers(doc)
-              part(i, whole, doc).background(alignment: .top) { place(whole.ids[i]) }
+              placed(part(i, whole, doc), whole.ids[i])
             }
           } else {
-            part(i, whole, doc).background(alignment: .top) { place(whole.ids[i]) }
+            placed(part(i, whole, doc), whole.ids[i])
           }
         }
         if whole.readersAt == whole.parts.count { readers(doc) }
@@ -666,6 +691,43 @@ struct SpeciesPage: View {
   /// A part's place for a chip or a `#id` link, at its top: no height, so `jump` sets its top where it says.
   private func place(_ id: String) -> some View {
     Color.clear.frame(height: 0).id(id)
+  }
+
+  /// A part with its place, for a jump and, for the owner, the navigator.
+  private func placed(_ part: some View, _ id: String) -> some View {
+    part.background(alignment: .top) { place(id) }
+      .background { if let trying { PagePlace(navigator: trying, id: id) } }
+  }
+
+  /// The photos' place under the name.
+  private static let photosID = "v2-photos"
+
+  /// The navigator, the owner's alone for now, once the page has come: the title only, no choice of it and no rail.
+  private var trying: PageNavigator? { account.owner.isOwner == true && whole != nil ? navigator : nil }
+
+  /// The parts the navigator's title lists: the photos, with how many, then each part with a name, in the page's order.
+  private func navigatorParts(_ whole: WholeParts, _ doc: PageDoc) -> [PageNavigator.Part] {
+    var out: [PageNavigator.Part] = photos.isEmpty ? [] : [.init(id: Self.photosID, name: "Ảnh", count: photos.count, photos: true)]
+    for i in whole.parts.indices where drawn(i, whole, doc) {
+      if let name = partName(i, whole, doc) { out.append(.init(id: whole.ids[i], name: name)) }
+    }
+    return out
+  }
+
+  /// A part's name: its heading, or the title of the block that draws it.
+  private func partName(_ i: Int, _ whole: WholeParts, _ doc: PageDoc) -> String? {
+    if let title = whole.titles[i] { return title }
+    switch whole.parts[i] {
+    case let .summary(b): if case let .summary(title, _, _, _, _) = doc.blocks[b] { return title }
+    case let .climate(b): if case let .climate(title, _, _) = doc.blocks[b] { return title }
+    case let .mates(b): if case let .mates(m) = doc.blocks[b] { return m.title }
+    case let .cards(b): if case let .cards(title, _) = doc.blocks[b] { return title }
+    case let .videos(b): if case let .videos(title, _) = doc.blocks[b] { return title }
+    case let .trust(b): if case let .trust(title, _, _) = doc.blocks[b] { return title }
+    case let .refs(b): if case let .refs(title, _, _, _) = doc.blocks[b] { return title }
+    default: break
+    }
+    return nil
   }
 
   /// To a part (`place`) or a `#id` in the text, its top just under the bar: at the screen's top, as `.top` puts it, it
