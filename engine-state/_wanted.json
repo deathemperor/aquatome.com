@@ -85,8 +85,7 @@
       "species/akysis-vespa",
       "species/batasio-feruminatus"
     ],
-    "mentions": 14,
-    "onSource": "https://www.seriouslyfish.com/species/acanthocobitis-pictilis"
+    "mentions": 14
   },
   "pangio-kuhlii": {
     "name": "Pangio kuhlii",
@@ -1407,8 +1406,7 @@
       "guides/seriouslyfish-articles-european-killifishes-part-1-the-genus-aphanius-in-spain",
       "species/apricaphanius-iberus"
     ],
-    "mentions": 2,
-    "onSource": "https://www.seriouslyfish.com/species/aphanius-iberus"
+    "mentions": 2
   },
   "aphanius-baeticus": {
     "name": "Aphanius baeticus",
@@ -1416,8 +1414,7 @@
       "guides/seriouslyfish-articles-european-killifishes-part-1-the-genus-aphanius-in-spain",
       "species/apricaphanius-baeticus"
     ],
-    "mentions": 2,
-    "onSource": "https://www.seriouslyfish.com/species/aphanius-baeticus"
+    "mentions": 2
   },
   "badis-laspiophilus": {
     "name": "Badis laspiophilus",
@@ -1433,8 +1430,7 @@
       "guides/seriouslyfish-articles-whaddaya-mean-too-hot",
       "species/paraphanius-mento"
     ],
-    "mentions": 2,
-    "onSource": "https://www.seriouslyfish.com/species/aphanius-mento"
+    "mentions": 2
   },
   "micralestes-acutidens": {
     "name": "Micralestes acutidens",
@@ -1690,8 +1686,7 @@
       "species/anatolichthys-sureyanus",
       "species/anatolichthys-transgrediens"
     ],
-    "mentions": 2,
-    "onSource": "https://www.seriouslyfish.com/species/aphanius-anatoliae"
+    "mentions": 2
   },
   "incertae-sedis": {
     "name": "incertae sedis",
@@ -3698,8 +3693,7 @@
     "mentionedIn": [
       "species/anatolichthys-villwocki"
     ],
-    "mentions": 1,
-    "onSource": "https://www.seriouslyfish.com/species/aphanius-villwocki"
+    "mentions": 1
   },
   "ancharius-griseus": {
     "name": "Ancharius griseus",
@@ -3916,8 +3910,7 @@
     "mentionedIn": [
       "species/barbodes-semifasciolatus"
     ],
-    "mentions": 1,
-    "onSource": "https://www.seriouslyfish.com/species/puntius-snyderi"
+    "mentions": 1
   },
   "barboides-britzi": {
     "name": "Barboides britzi",
@@ -4681,8 +4674,7 @@
     "mentionedIn": [
       "species/garra-bicornuta"
     ],
-    "mentions": 1,
-    "onSource": "https://www.seriouslyfish.com/species/nemachilichthys-shimogensis"
+    "mentions": 1
   },
   "garra-micropulvinus": {
     "name": "Garra micropulvinus",
@@ -6165,5 +6157,40 @@
     "name": "Sturisomatichthys panamense",
     "mentionedIn": [],
     "mentions": 0
+  },
+  "limia-nigrofasciata": {
+    "name": "Limia nigrofasciata",
+    "mentionedIn": [
+      "guides/aquariumcoop-blogs-aquarium-top-10-livebearers"
+    ],
+    "mentions": 1
+  },
+  "pao-suvattii": {
+    "name": "Pao suvattii",
+    "mentionedIn": [
+      "guides/aquariumcoop-blogs-aquarium-top-10-pufferfish"
+    ],
+    "mentions": 1
+  },
+  "pao-baileyi": {
+    "name": "Pao baileyi",
+    "mentionedIn": [
+      "guides/aquariumcoop-blogs-aquarium-top-10-pufferfish"
+    ],
+    "mentions": 1
+  },
+  "phalloceros-caudimaculatus": {
+    "name": "Phalloceros caudimaculatus",
+    "mentionedIn": [
+      "species/hyphessobrycon-auca"
+    ],
+    "mentions": 1
+  },
+  "niwaella-delicata": {
+    "name": "Niwaella delicata",
+    "mentionedIn": [
+      "species/niwaella-multifasciata"
+    ],
+    "mentions": 1
   }
 }

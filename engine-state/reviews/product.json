@@ -69,6 +69,38 @@
       "kept": false
     }
   ],
+  "vi/products/chihiros-commander-4": [
+    {
+      "at": "2026-11-09T01:45:24Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Bộ điều khiển chỉ có một cỡ\" – the facts do not state that there is only one size/version.",
+        "\"Hãng làm bộ này cho đèn Chihiros WRGB đời đầu\" – facts say made for original WRGB; fine, but \"Các shop thủy sinh ở Việt Nam chủ yếu bán Commander 4 làm đồ thay thế\" overstates \"mainly\" (facts: Vietnamese shops sell it as a replacement).",
+        "\"App cũng có sẵn các chế độ bình minh, nghỉ trưa, hoàng hôn\" – the facts list these as programming presets, but do not specify that the app has them (minor attribution).",
+        "\"Bảo hành bao lâu? Shrimp Home bảo hành 6 tháng\" – the facts say this is the policy for Chihiros spare parts, and the page extends it to the controller as \"phụ kiện\" (slight generalisation).",
+        "\"Chihiros Commander 1: rẻ hơn, dành cho các đèn A, C, Wabi-kusa\" – this is supported. \"Đèn WRGB II… hơn cặp WRGB đời cũ cộng Commander 4\" – supported.",
+        "\"Commander 4 chỉnh riêng từng kênh màu, dành cho dòng WRGB, Vivid và A Plus RGB\" – supported. \"chỉnh màu\" in the FAQ is fine."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-09T01:45:24Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"xem bảng phía trên\" refers to a table that isn't in the page/facts (minor).",
+        "\"nên hỏi kỹ shop trước khi mua\" is a mild recommendation not in the facts, but it is reasonable.",
+        "\"Commander 4 chỉ có một bản\" is not stated in the facts (only one variant listed).",
+        "\"nên hàng ở các đợt khác nhau có thể không giống nhau\" is an inference beyond the facts; the facts only say electronics were reportedly changed without announcement.",
+        "\"Commander 1 ... dành cho đèn một kênh như A, C, Wabi-kusa\" drops E, S, RGB, X100, X200 from the compatible list, and calling them single-channel is an interpretation (the facts say they dim together).",
+        "\"Home Assistant, một phần mềm mã nguồn mở\" is slightly paraphrased; the facts say open-source Home Assistant control."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/products/chihiros-universal-wrgb": [
     {
       "at": "2026-11-08T13:53:10Z",

@@ -67407,10 +67407,10 @@
     ]
   },
   "vi/plants/pogostemon-quadrifolius": {
-    "at": "2026-11-08",
+    "at": "2026-11-09",
     "hash": "0fe93302bf628ed6",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": [
       "Nano Cube"
@@ -75872,20 +75872,11 @@
     "products": []
   },
   "vi/species/caridina-multidentata": {
-    "at": "2026-11-08",
+    "at": "2026-11-09",
     "hash": "32503aadfa1a97ed",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "words",
-        "part": "P7",
-        "quote": "Lúc này bạn có thể thấy tép trong bể đổi tính, đi lùng con cái đã trưởng thành.",
-        "why": "\"Đổi tính\" reads as a sex change; keepers in Vietnam call this mating frenzy \"tép chạy dâm\" or \"tép bơi loạn\".",
-        "by": "model",
-        "fix": "tép chạy dâm (bơi loạn)"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/species/caridina-pareparensis-parvidentata": {
@@ -88613,9 +88604,10 @@
     "products": []
   },
   "vi/species/panaque-cochliodon": {
-    "at": "2026-11-07",
-    "hash": "128241c710f87cd9",
+    "at": "2026-11-09",
+    "hash": "551050f8e26eebb2",
     "model": "opus",
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -88887,29 +88879,23 @@
     "products": []
   },
   "vi/species/paracheirodon-axelrodi": {
-    "at": "2026-11-08",
-    "hash": "b8c032a862e1369f",
+    "at": "2026-11-09",
+    "hash": "1b6a9fc2d8e0a170",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [
       {
         "check": "words",
-        "part": "P17",
+        "part": "P25",
         "quote": "Bạn nên nuôi chúng thành đàn ít nhất nửa tá con.",
-        "why": "\"Nửa tá\" is a calque of English \"half a dozen\"; keepers just say six.",
+        "why": "\"Nửa tá\" is a calque of English \"half a dozen\"; keepers in Vietnam just give the number.",
         "by": "model",
-        "fix": "ít nhất sáu con"
-      },
-      {
-        "check": "words",
-        "part": "P10",
-        "quote": "quả tống quán sủi (alder cone)",
-        "why": "Dictionary plant name; Vietnamese keepers call these by the English name.",
-        "by": "model",
-        "fix": "quả alder"
+        "fix": "ít nhất 6 con"
       }
     ],
-    "products": []
+    "products": [
+      "golden pearls"
+    ]
   },
   "vi/species/paracheirodon-innesi": {
     "at": "2026-11-08",
@@ -97736,5 +97722,506 @@
     "products": [
       "Panacur"
     ]
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-dennis-wong": {
+    "at": "2026-11-09",
+    "hash": "2fc258f5f3cc21e2",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-dennis-wong-1": {
+    "at": "2026-11-09",
+    "hash": "d6520d3971a28255",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "gặp nhau ở giữa khung hình",
+        "why": "Refers to the frame of a photo of the source's tank, which the page does not show.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-dou-mok": {
+    "at": "2026-11-09",
+    "hash": "54c6bacb887d14f1",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-dou-mok-1": {
+    "at": "2026-11-09",
+    "hash": "445a8cda050e8e8f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể này dày cây và xanh mướt, theo phong cách thiên nhiên.",
+        "why": "Describes a specific showcase tank (\"Dou Mok\") as if the reader knew it, with no pictures on the page.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-dou-mok-2": {
+    "at": "2026-11-09",
+    "hash": "50bc5d80f5e756eb",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể này dựng lại cảnh dưới nước của một con suối nhiều đá.",
+        "why": "Describes the source's own showcase tank as if the reader could see it, though the page has no picture.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-dou-mok-4": {
+    "at": "2026-11-09",
+    "hash": "c1e6359be18cc6b6",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể này của Dou Mok đẹp một cách mộc mạc.",
+        "why": "Describes a specific showcased tank as if the reader can see it, though the page has no picture; carried over from the source's photo feature.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-dutch-style": {
+    "at": "2026-11-09",
+    "hash": "a5c92c079f93be41",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể Dutch này được chăm tỉa rất kỹ",
+        "why": "Describes the source author's own tank, shown in a photo the page doesn't have, as if the reader could see it.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-dutch-style-1": {
+    "at": "2026-11-09",
+    "hash": "8deb12dd22434b87",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể Hà Lan này được cắt tỉa rất kỹ",
+        "why": "Talks about the source's own featured tank (Scott Miller's) as if the reader could see it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Để ý cách cây xếp thành từng tầng bậc thang, và mặt kính hầu như không lộ ra chỗ nào.",
+        "why": "Tells the reader to look at a photo of the tank, and the page has no photo.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-dutch-style-2": {
+    "at": "2026-11-09",
+    "hash": "740ba7e18745b00c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể này trồng cây dày và rất đẹp.",
+        "why": "The page talks about a particular tank, Gabor Vereb's, as if the reader could see it, but the page has no picture of it.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-dutch-style-mc": {
+    "at": "2026-11-09",
+    "hash": "c820ff307a0147b2",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể này rất lớn, lấy cảm hứng từ phong cách Hà Lan và được chăm rất kỹ.",
+        "why": "The page talks about one particular tank, apparently Mark Crow's, as if the reader could see it, but the page has no picture of it and never introduces it.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-dutch-style-rf": {
+    "at": "2026-11-09",
+    "hash": "3a07bd62d5143915",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể kiểu Hà Lan rực rỡ này trông tự nhiên hơn một bể Hà Lan đúng chuẩn",
+        "why": "Refers to a specific showcased tank (from a photo caption) as if the reader could see it.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-dutch-style-sp": {
+    "at": "2026-11-09",
+    "hash": "ca2ca5515cd670f5",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể này đi theo phong cách Hà Lan và đạt đúng định nghĩa khá khắt khe",
+        "why": "Describes one particular tank from the source (named only by its owner in the title) as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Đưa mắt sang phải sẽ thấy ngay khối Ludwigia sp. red đỏ sẫm",
+        "why": "Asks the reader to look at a picture of the tank, but the page has no picture.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-fernando-ferreira": {
+    "at": "2026-11-09",
+    "hash": "b739022a1fa1f4bf",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Ở bể này, những bụi cây đó còn tạo cảm giác chuyển động ở đường chân trời.",
+        "why": "Refers to the source's showcase tank as if the reader could see it; the page has no picture of it.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-fernando-ferreira-2": {
+    "at": "2026-11-09",
+    "hash": "93c28fd6cc9216b8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể này dùng những loại đá có vân bề mặt lạ để tạo ấn tượng mạnh.",
+        "why": "The page describes a specific aquascaper's tank as if the reader could see it, but the page has no picture of it.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-fernando-ferreira-3": {
+    "at": "2026-11-09",
+    "hash": "06b5eb637a7583bb",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể này có cụm cây cắt cắm màu rực mọc phía trên một vách đá.",
+        "why": "It describes a particular tank, the work of the aquascaper named in the title, as though the reader could see it, but the page has no picture of it.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-george-farmer": {
+    "at": "2026-11-09",
+    "hash": "0908a3d5b9ac6059",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể này của George Farmer trông thanh thoát",
+        "why": "The page points to a particular aquascaper's tank as though the reader already knew it, so it reads as a showcase copied from the original source.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/aquariumbreeder-how-to-set-up-a-brackish-water-aquarium": {
+    "at": "2026-11-09",
+    "hash": "b3584ba3559cd858",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Trải một lớp nền mỏng dưới đáy bể, tốt nhất khoảng 2,5 – 5 cm",
+        "why": "2.5–5 cm is 1–2 inches converted, a figure no keeper in Vietnam would pick.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "máy sủi hoặc máy thổi luồng",
+        "why": "Literal rendering of 'powerhead'; keepers in Vietnam don't say this.",
+        "by": "model",
+        "fix": "máy tạo sóng"
+      }
+    ],
+    "products": [
+      "Instant Ocean",
+      "Reef Crystals Reef Salt",
+      "Seachem Marine Reef Salt",
+      "Kent Sea Salt",
+      "Coralife Marine Salt",
+      "Tropic Marin Bio-Actif Sea Salt",
+      "Tetra SafeStart",
+      "API QuickStart",
+      "Nutrafin Cycle"
+    ],
+    "doses": [
+      {
+        "treatment": "sea salt",
+        "strength": "",
+        "amount": 30,
+        "amountMax": 0,
+        "unit": "ml",
+        "per": 4,
+        "perUnit": "litre",
+        "use": "water",
+        "method": "other",
+        "quote": "thường cho khoảng 30 ml muối vào mỗi 4 lít nước ngọt đựng trong xô nhựa"
+      }
+    ],
+    "sourceRead": true
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-40-gallon-oddball-fish": {
+    "at": "2026-11-09",
+    "hash": "61a79dc534697e96",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Bể breeder 150 lít đặc biệt linh hoạt",
+        "why": "\"Breeder\" is the US tank style name (40-gallon breeder); Vietnamese keepers don't call tanks this.",
+        "by": "model",
+        "fix": "bể 150 lít (bể thấp, rộng)"
+      }
+    ],
+    "products": [
+      "Repashy Soilent Green"
+    ]
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-air-pump-with-multiple-tanks": {
+    "at": "2026-11-09",
+    "hash": "415750f67b7a2763",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Ống PVC cỡ khoảng 13–19 mm",
+        "why": "Converted from 1/2–3/4 inch pipe; Vietnamese PVC pipe comes in sizes like 21 mm or 27 mm.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "loại thành dày Schedule 40",
+        "why": "Schedule 40 is a US pipe standard that Vietnamese hardware shops don't use.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "sâu khoảng 1–2,5 cm",
+        "why": "Converted from 1/2–1 inch.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Ziss",
+      "Sharpie"
+    ]
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-how-to-breed-egg-scatterers": {
+    "at": "2026-11-09",
+    "hash": "14340f871c6dd952",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Ở bể này phải khâu nhiều mảnh lại mới phủ kín đáy.",
+        "why": "Refers to the source's own pictured tank, which the reader cannot see.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Lấy ống PVC đường kính 2,5–5 cm",
+        "why": "Converted from 1–2 inch pipe; Vietnamese PVC is sold by mm sizes like 21, 27, 34, 42 mm.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "tấm vỉ nhựa ô vuông dùng cho đèn trần, có bán ở tiệm vật liệu xây dựng",
+        "why": "Egg crate light diffuser from a hardware store is a US item and shop habit.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-top-10-rasboras": {
+    "at": "2026-11-09",
+    "hash": "a9727932dd9afb5b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Nên nuôi trong bể dài từ 76 cm trở lên (chẳng hạn bể 75 lít dáng dài hoặc bể 110 lít)",
+        "why": "76 cm, 75 L long and 110 L are converted from 30-inch, 20-gallon long and 29-gallon US tanks.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Từ trái sang phải: cá tam giác (Trigonostigma heteromorpha), rasbora lambchop (T. espei) và rasbora glowlight (T. hengeli).",
+        "why": "Caption describes a photo the page does not have.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Theo chiều kim đồng hồ từ góc trên bên trái: rasbora ớt (Boraras brigittae)",
+        "why": "Caption describes a photo the page does not have.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Repashy"
+    ]
+  },
+  "vi/plants/dracaena-sanderiana": {
+    "at": "2026-11-09",
+    "hash": "41514acd40d35dfe",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "harm",
+        "part": "P5",
+        "quote": "Mỗi tuần thay khoảng 25% nước bằng nước sạch. Chỉ dùng nước RO hoặc nước cất.",
+        "why": "Weekly water changes with only pure RO or distilled water and nothing added back would harm the fish, shrimp and snails living in the tank.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P5",
+        "quote": "đổ nước tới cách tầng lá thấp nhất khoảng 2,5 cm",
+        "why": "2.5 cm is a converted 1 inch, a figure a keeper here wouldn't use.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "ADA Amazonia aqua soil",
+      "Carib Sea Eco-Complete",
+      "Seachem Fluorite"
+    ]
+  },
+  "vi/species/clavularia-viridis": {
+    "at": "2026-11-09",
+    "hash": "60ce872ca6fee2d7",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "reef roids"
+    ],
+    "doses": [
+      {
+        "treatment": "iodine",
+        "strength": "15ppt",
+        "amount": 15,
+        "amountMax": 0,
+        "unit": "ppt",
+        "per": 0,
+        "perUnit": "",
+        "use": "bacteria",
+        "method": "dip",
+        "quote": "nhúng tắm san hô trong dung dịch iốt (15 ppt)"
+      }
+    ],
+    "sourceRead": true
+  },
+  "vi/species/hemiancistrus-landoni": {
+    "at": "2026-11-09",
+    "hash": "f921d100a0b19116",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/hypostomus-hemicochliodon": {
+    "at": "2026-11-09",
+    "hash": "892739aaa526a0bd",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/hypostomus-hondae": {
+    "at": "2026-11-09",
+    "hash": "a517e0199659ad3d",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/metaloricaria-nijsseni": {
+    "at": "2026-11-09",
+    "hash": "78b02ddfa4e289e7",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
   }
 }

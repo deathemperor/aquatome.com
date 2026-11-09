@@ -5,19 +5,19 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 3289 | 2986 | 1356 | 68 | 42 | 165 | 32 | 887 | 376 | 2762 | 437 | 5 | 11 | 0 | 3 | 0 | 2 |
+| Vietnamese | 3244 | 2941 | 1363 | 68 | 43 | 166 | 32 | 899 | 378 | 2761 | 434 | 5 | 12 | 0 | 3 | 0 | 2 |
 | Indonesian | 1045 | 982 | 310 | 18 | 4 | 3 | 5 | 151 | 64 | 43 | 140 | 0 | 0 | 0 | 4 | 0 | 0 |
 | Thai | 1038 | 975 | 297 | 16 | 4 | 4 | 3 | 131 | 80 | 78 | 129 | 0 | 0 | 0 | 2 | 0 | 0 |
 | Malay | 159 | 129 | 45 | 4 | 1 | 0 | 0 | 16 | 17 | 7 | 19 | 0 | 0 | 0 | 0 | 0 | 0 |
 
-Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 10 of 122, Indonesian 2 of 58, Thai 2 of 58, Malay 1 of 17.
+Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 10 of 124, Indonesian 2 of 58, Thai 2 of 58, Malay 1 of 17.
 
 ## Doses on more than one page
 
 Per litre, by what the pages say each is for. A conflict is the same treatment, strength, use and method at rates that can't both be right: flagged, never averaged. A person settles which holds.
 
 - salt — **4 conflicts**: water, unsaid: 10–15 g/l, 10–20 g/l (3 pages); water, wholeTank: 5–10 g/l, 1–3 g/l, 10–15 g/l (10 pages); fungus, unsaid: 1 g/l, 1.364 ml/l, 1–3 g/l (3 pages); other, wholeTank: 1.111–1.667 ml/l, 3.947 ml/l, 1–3 g/l (7 pages); water, other: 15–25 g/l (1 pages); bacteria, wholeTank: 1.316 ml/l (1 pages); ich, wholeTank: 1.974 ml/l (1 pages); other, other: 15 ml/l, 5 ml/l, 0.5 ml/l, 30 g/l (5 pages); bacteria, bath: 22.222 g/l (4 pages); parasites, wholeTank: 0.013 cup/l, 0.75 ml/l, 3.2 ml/l (5 pages); finRot, bath: 10 g/l (4 pages); other, unsaid: 1–3 g/l, 17 g/l, 12 g/l, 0.5 ml/l, 1.316 ml/l (5 pages); unsaid, unsaid: 0.5 ml/l (1 pages); fungus, wholeTank: 1–5 g/l, 1–3 g/l, 1.364 ml/l, 2 ml/l, 3.947 ml/l (3 pages); fungus, bath: 30 g/l, 1–5 g/l (4 pages); other, bath: 1–3 g/l (3 pages); snails, dip: 63.158 ml/l, 0.263 cup/l (3 pages); disinfecting, other: 5 ml/l (2 pages); bacteria, unsaid: 7.368 g/l (2 pages); finRot, wholeTank: 1–3 g/l (1 pages); disinfecting, bath: 5 ml/l (1 pages)
-- sea salt: water, wholeTank: 1–2 g/l, 1–3 g/l, 5 ml/l, 5–10 g/l, 0.5–1 ml/l, 3–10 g/l, 15 g/l, 7.5 ml/l (33 pages); water, unsaid: 1–3 g/l, 5–15 g/l, 10–20 g/l (6 pages); other, wholeTank: 0.1 thìa/l (1 pages); water, other: 30 ml/l, 7.5 ml/l (4 pages); other, other: 15 ml/l (1 pages); other, unsaid: 1–3 g/l (2 pages)
+- sea salt: water, wholeTank: 1–2 g/l, 1–3 g/l, 5 ml/l, 5–10 g/l, 0.5–1 ml/l, 3–10 g/l, 15 g/l, 7.5 ml/l (33 pages); water, unsaid: 1–3 g/l, 5–15 g/l, 10–20 g/l (6 pages); other, wholeTank: 0.1 thìa/l (1 pages); water, other: 30 ml/l, 7.5 ml/l (5 pages); other, other: 15 ml/l (1 pages); other, unsaid: 1–3 g/l (2 pages)
 - metronidazole: other, wholeTank: 13 mg/l, 13.158 mg/l, 13.21 mg/l (4 pages); bacteria, wholeTank: 12.5 mg/l (3 pages); parasites, wholeTank: 12.5 mg/l, 0.013 g/l (8 pages); parasites, bath: 6.25 mg/l, 0.05 tablet/l (4 pages); bacteria, unsaid: 12.5 mg/l (1 pages)
 - epsom salt: water, other: 2.5 ml/l (1 pages); other, bath: 0.264 thìa/l, 0.263 sendok/l, 0.263 ช้อน/l, 0.264 sudu/l (4 pages); unsaid, wholeTank: 0.263–0.789 ml/l (1 pages); bacteria, unsaid: 0.263 ml/l (1 pages); other, wholeTank: 0.263–0.789 ml/l, 0.25–0.75 ml/l (3 pages); other, unsaid: 0.263 ml/l, 0.25 ml/l (3 pages)
 - malachite green: ich, wholeTank: 0.132 ml/l (1 pages); fungus, bath: 0.1 mg/l (4 pages); fungus, spot: 100 mg/l (4 pages)
@@ -67,24 +67,24 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 
 ## Products the market table has no row for, Vietnamese pages
 
-- repashy: 37
-- panacur: 29
+- repashy: 38
+- panacur: 23
 - ada: 16
+- ada amazonia aqua soil: 14
 - hikari first bites: 14
-- ada amazonia aqua soil: 13
 - ada amazonia: 12
 - easy fry and small fish food: 12
 - hikari shrimp cuisine: 12
 - aquario neo soil: 11
 - eheim: 10
 - keo 502: 10
+- seachem fluorite: 10
 - hikari vibra bites: 9
-- seachem fluorite: 9
 - weld-on 4: 9
 - apt fix: 8
-- aquaclear: 8
-- carib sea eco-complete: 7
-- fluval: 7
+- carib sea eco-complete: 8
+- eheim: 7
+- jbl: 7
 - tetramin: 7
 - twinstar: 7
 - chihiros a2: 6
@@ -95,6 +95,7 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - liquifry: 6
 - matrix: 6
 - my chihiros: 6
+- repashy soilent green: 6
 - vibra bites: 6
 - aquario neo flow: 5
 - caribsea eco-complete: 5
@@ -102,7 +103,7 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - eco-complete: 5
 - fluval plant and shrimp stratum: 5
 - hikari: 5
+- instant ocean: 5
 - krylon fusion: 5
 - pond armor: 5
-- repashy soilent green: 5
-- sunsun: 5
+- weld-on 16: 5
