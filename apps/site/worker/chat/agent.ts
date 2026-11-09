@@ -82,7 +82,7 @@ export const TITLE_FORM: Record<Lang, { asks: string; open: string; case: string
   th: {
     asks: 'with ไหม, and never a "?"', open: '"กี่ตัว", "ยังไงดี", "อะไรดี", "ทำไม", and an either-or with "หรือ … ดี"',
     case: '',
-    words: 'Only words the reader wrote: no "ปลา", "ไม้น้ำ" or "น้ำตู้" they didn\'t ("น้ำเขียวทั้งตู้"). The 36 characters are the ones you see: a vowel or tone mark above or below a letter is part of it.',
+    words: 'Only words the reader wrote: no "ปลา", "ไม้น้ำ" or "น้ำตู้" they didn\'t ("น้ำเขียวทั้งตู้", and "หางนกยูง" stays "หางนกยูง"). The 36 characters are the ones you see: a vowel or tone mark above or below a letter is part of it.',
     examples: ['ปลาสอดไม่กินอาหาร 2 วัน เป็นอะไร', 'ตู้ 40 ลิตรเลี้ยงปลาหมอสี 3 ตัวได้ไหม'],
   },
   ms: {
@@ -98,8 +98,8 @@ export const TITLE_RULE = (lang: Lang) => {
   return [
     `This question starts the conversation: give it a title too (title), for the reader's list of past chats, in ${LANGS[lang]}: one line on a phone, at most about 36 characters.`,
     '- Their own words for the fish and the problem, and the detail the answer turns on: the tank\'s size, how many fish, no filter or no CO₂, how long since setup or since it began, the change they\'re weighing. The fish the problem is about now, not one they had before (goldfish lost last month and guppies dying now: the guppies).',
-    '- Nothing they didn\'t say, and what they said as they said it ("a little", "even though", "must"). Fish and plants as keepers name them, never a piece of a name and without the handbook\'s variety tags. Never clip a set phrase to fit: drop a whole idea instead.',
-    '- No label in place of their words: no "how to", "causes and fixes", "the number of" or "the ideal", and no "X and Y" pairing two topics. A post that asks several things: its main question, not a list of its topics.',
+    '- Nothing they didn\'t say, and what they said as they said it ("a little", "even though", "must"). Fish and plants as keepers name them, never a piece of a name and without the handbook\'s variety tags. Never clip a word or a set phrase to fit: drop a whole idea instead.',
+    '- No label in place of their words: no "how to", "causes and fixes", "the number of" or "the ideal", and no "X and Y" pairing two topics. A post that asks several things: its main question, not a list of its topics. When they ask, the title asks: never their problem named with the question gone. One question with two halves keeps both.',
     `- A yes-or-no question asks it, ${f.asks}. A why, how, what or how-many question keeps its question word: ${f.open}. One question at most.`,
     ...(f.case ? [`- ${f.case}`] : []),
     `- ${f.words}`,
@@ -133,7 +133,7 @@ export function firstMessage(lang: Lang, question: string, earlier: Earlier[], s
   // ("Ảnh của bạn" otherwise, so no guess shows as fact).
   const sure = (start.identified?.results[0]?.confidence ?? 0) >= FISH_ID_SURE
   if (title && about && (start.from !== 'fish-id' || sure)) parts.push(`The reader's list of chats shows this one under ${about.name} already: the title names the problem and leaves it out, by any of its names (${[about.name, ...(about.aka ?? [])].slice(0, 7).join(', ')}) and by its kind word alone, naming a fish or plant only when it is another one.`)
-  if (title && start.from === 'fish-id' && !sure) parts.push('Fish ID isn\'t sure of it: the title names no fish it guessed and keeps the reader\'s own words for it; when they ask what fish it is, that is the title.')
+  if (title && start.from === 'fish-id' && !sure) parts.push('Fish ID isn\'t sure of it: the title still comes, naming no fish it guessed, with the reader\'s own words for it or just "this one" in their language; when they ask what fish it is, that is the title.')
   if (earlier.length) {
     parts.push('Earlier in this conversation:')
     earlier.forEach((t, i) => parts.push(`${i + 1}. Reader: ${t.question}\nYou: ${t.text}${t.blocks.length ? `\nShown: ${t.blocks.map(shown).join('; ')}` : ''}`))

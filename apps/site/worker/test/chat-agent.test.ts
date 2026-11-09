@@ -942,7 +942,7 @@ test('a conversation\'s first answer brings its title, in the same call: the tit
   expect(told(photo(0.8))).toContain('shows this one under Cá neon xanh already')
   expect(told(photo(0.8))).not.toContain('Fish ID isn')
   expect(told(photo(0.79))).not.toContain('shows this one under')
-  expect(told(photo(0.79))).toContain('Fish ID isn\'t sure of it: the title names no fish it guessed')
+  expect(told(photo(0.79))).toContain('Fish ID isn\'t sure of it: the title still comes, naming no fish it guessed')
   expect(told({ from: 'species', about: 'paracheirodon-innesi' }, false)).not.toContain('shows this one under')
   expect(told(photo(0.5), false)).not.toContain('Fish ID isn')
   expect(told({})).not.toContain('shows this one under')
