@@ -34,7 +34,7 @@ struct ChatComposer: View {
         TextField(placeholder, text: $model.draft, axis: .vertical)
           .lineLimit(1...5)
           .focused(typing)
-          .padding(.vertical, 8)
+          .padding(.vertical, 7)
           .accessibilityIdentifier("chat-box")
         VStack(spacing: 2) {
           // Stacked: four digits don't fit over the button on one line ("1.432" over "/1.500").
@@ -69,18 +69,26 @@ struct ChatComposer: View {
           }
         }
       }
-      .padding(.leading, 14)
-      .padding(.trailing, 4)
-      .padding(.vertical, 2)
-      .background(.fill.tertiary, in: .rect(cornerRadius: 20))
+      .padding(.leading, 16)
+      .padding(.trailing, 6)
+      .padding(.vertical, 6)
+      .frame(minHeight: 48)
+      .background(.regularMaterial, in: .rect(cornerRadius: 24))
+      .overlay { RoundedRectangle(cornerRadius: 24).strokeBorder(Color.chatHairline, lineWidth: 0.5) }
       .animation(reduceMotion ? nil : .smooth(duration: 0.2), value: model.stoppable)
       under
     }
-    .padding(.horizontal)
-    .padding(.top, 8)
+    .padding(.horizontal, 12)
+    .padding(.top, 10)
     .padding(.bottom, 6)
-    .background(.bar)
+    // The thread fades into the page's colour behind the box, with no edge.
+    .background {
+      LinearGradient(stops: [.init(color: Self.ground.opacity(0), location: 0), .init(color: Self.ground, location: 0.28)], startPoint: .top, endPoint: .bottom)
+        .ignoresSafeArea(edges: .bottom)
+    }
   }
+
+  private static let ground = Color(uiColor: .systemGroupedBackground)
 
   private func send() {
     model.send()
@@ -118,7 +126,9 @@ struct ChatComposer: View {
   }
 
   private var under: some View {
-    HStack(alignment: .firstTextBaseline, spacing: 8) {
+    // A view of no height when there's nothing to say, so the box doesn't move as the line comes and goes.
+    ZStack {
+      Color.clear.frame(height: 0)
       if over {
         Text("Câu hỏi đã quá \(model.maxChars.formatted(.number.locale(.app))) ký tự. Rút gọn rồi gửi nhé.")
           .foregroundStyle(.red)
@@ -129,11 +139,13 @@ struct ChatComposer: View {
       } else if model.thread.isEmpty {
         Text("AquaTome gửi câu hỏi tới Claude và lưu đến khi bạn xóa tài khoản.")
       }
-      Spacer(minLength: 0)
     }
-    .font(.footnote)
+    .font(.caption)
     .foregroundStyle(.secondary)
-    .frame(maxWidth: .infinity, alignment: .leading)
+    .multilineTextAlignment(.center)
+    // Whole, at the largest text with the keyboard up too.
+    .fixedSize(horizontal: false, vertical: true)
+    .frame(maxWidth: .infinity)
   }
 }
 
@@ -208,25 +220,26 @@ private struct StopCard: View {
 /// The chat's entry under a fish's or plant's facts: "Hỏi về cá neon xanh", answered from the handbook.
 struct AskEntry: View {
   let route: ChatRoute
+  @Environment(\.colorScheme) private var scheme
 
   var body: some View {
-    NavigationLink(value: route) {
-      HStack(spacing: 12) {
-        Image(systemName: "bubble.left.and.text.bubble.right.fill").font(.title3).foregroundStyle(.tint).accessibilityHidden(true)
-        VStack(alignment: .leading, spacing: 2) {
-          Text("Hỏi về \(ChatNames.inSentence(route.subject.name))").font(.body.weight(.semibold)).foregroundStyle(.tint)
-          Text("Trả lời dựa trên cẩm nang AquaTome").font(.footnote).foregroundStyle(.secondary)
+    VStack(spacing: 8) {
+      NavigationLink(value: route) {
+        HStack(spacing: 8) {
+          Image(systemName: "bubble.left.and.text.bubble.right.fill").accessibilityHidden(true)
+          Text("Hỏi về \(ChatNames.inSentence(route.subject.name))").multilineTextAlignment(.center)
         }
-        Spacer(minLength: 0)
-        Image(systemName: "chevron.right").font(.footnote.weight(.semibold)).foregroundStyle(.tertiary).accessibilityHidden(true)
+        .font(.body.weight(.semibold))
+        .foregroundStyle(scheme == .dark ? Color(red: 0, green: 0x24 / 255, blue: 0x1B / 255) : Color.white)
+        .padding(.horizontal, 20)
+        .padding(.vertical, 10)
+        .frame(maxWidth: .infinity, minHeight: 50)
+        .background(.tint, in: .capsule)
+        .contentShape(.capsule)
       }
-      .padding(12)
-      .frame(maxWidth: .infinity, alignment: .leading)
-      .background(.fill.quaternary, in: .rect(cornerRadius: 12))
-      .contentShape(.rect)
+      .buttonStyle(.plain)
+      .accessibilityIdentifier("chat-entry")
+      Text("Trả lời dựa trên cẩm nang AquaTome").font(.footnote).foregroundStyle(.secondary).multilineTextAlignment(.center)
     }
-    .buttonStyle(.plain)
-    .accessibilityElement(children: .combine)
-    .accessibilityIdentifier("chat-entry")
   }
 }

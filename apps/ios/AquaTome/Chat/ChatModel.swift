@@ -11,6 +11,8 @@ struct ChatSubject: Hashable, Codable {
   let plant: Bool
   /// The page's name ("Cá neon xanh"); from fish ID, the first guess's.
   let name: String
+  /// Its scientific name; from fish ID, none (the guesses say what it may be).
+  let sci: String?
   /// Its photo; from fish ID, none (the reader's own isn't kept).
   let img: URL?
   /// From fish ID: its guesses as it words them ("Gần như chắc chắn Cá betta (cá xiêm), có thể Cá betta imbellis").
@@ -36,11 +38,11 @@ extension ChatRoute {
     // Fish ID's as it worded them when it asked.
     if row.first.from == .fishId {
       let guesses = (row.first.identified?.results ?? []).prefix(3).map { g in (name: g.id.flatMap(page)?.name ?? g.scientificName, confidence: g.confidence) }
-      self.init(start: row.start, subject: ChatSubject(plant: row.first.identified?.verdict == "plant", name: guesses.first?.name ?? name ?? "AquaTome", img: nil,
+      self.init(start: row.start, subject: ChatSubject(plant: row.first.identified?.verdict == "plant", name: guesses.first?.name ?? name ?? "AquaTome", sci: nil, img: nil,
                                                        guesses: guesses.isEmpty ? name ?? "AquaTome" : FishIdView.worded(guesses), second: guesses.dropFirst().first?.name))
       return
     }
-    self.init(start: row.start, subject: ChatSubject(plant: about?.kind == "plant", name: name ?? "AquaTome", img: item?.img.flatMap(URL.init(string:)) ?? about?.img,
+    self.init(start: row.start, subject: ChatSubject(plant: about?.kind == "plant", name: name ?? "AquaTome", sci: item?.sub, img: item?.img.flatMap(URL.init(string:)) ?? about?.img,
                                                      guesses: nil, second: nil))
   }
 }
