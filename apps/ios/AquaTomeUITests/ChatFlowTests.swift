@@ -327,7 +327,8 @@ final class ChatFlowTests: XCTestCase {
 
   /// A row says its title, the first in its chain, oldest first: a first conversation carried on a day later may have none
   /// while the one carrying it on has one. With none, a row says its first question, as before. The earlier conversation
-  /// offered under the starters says its title too.
+  /// offered under the starters says its title too. A row is the reader's first answer: the line about who answers
+  /// stays whole on the screen drawn before the list came, and the next empty screen says only the short one.
   func testARowSaysTheFirstTitleInItsChainElseItsFirstQuestion() {
     let app = launch("-chat-history", "-chat-titles")
     openChat(app)
@@ -335,6 +336,7 @@ final class ChatFlowTests: XCTestCase {
     let earlier = element(app, "chat-earlier")
     XCTAssertTrue(earlier.waitForExistence(timeout: 5), "not offered")
     XCTAssertTrue(earlier.label.contains("Rêu tóc mọc kín bể"), earlier.label)
+    XCTAssertTrue(app.staticTexts["Claude (AI của Anthropic) trả lời theo cẩm nang AquaTome, chỗ nào cẩm nang chưa nói đến thì dùng kiến thức chung về nuôi cá."].exists, "the line about who answers changed in front of the reader")
     let rows = openList(app)
     XCTAssertEqual(rows.count, 4)
     let chain = row(rows, "Thức ăn hằng ngày")
@@ -342,6 +344,13 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertFalse(row(rows, "Thả bao nhiêu con").exists, "a row with a title says its first question")
     XCTAssertTrue(row(rows, "Bỏ ăn hai ngày liền").exists, "a titled row without its title")
     XCTAssertTrue(row(rows, "Nuôi chung với cá neon").exists, "a row with no title doesn't say its first question")
+    app.buttons["chat-history-close"].tap()
+    XCTAssertTrue(app.staticTexts["Claude (AI của Anthropic) trả lời theo cẩm nang AquaTome, chỗ nào cẩm nang chưa nói đến thì dùng kiến thức chung về nuôi cá."].waitForExistence(timeout: 5), "the line changed with the list opened after it came")
+    app.navigationBars.buttons.element(boundBy: 0).tap()
+    let entry = element(app, "chat-entry")
+    reveal(app, entry)
+    entry.tap()
+    XCTAssertTrue(app.staticTexts["Claude\u{00A0}(AI) trả lời theo cẩm nang AquaTome."].waitForExistence(timeout: 5), "not the short line with a conversation in the list")
   }
 
   /// A fish's page whose latest conversation is still open reopens it, and the next question goes on in it: no divider, and

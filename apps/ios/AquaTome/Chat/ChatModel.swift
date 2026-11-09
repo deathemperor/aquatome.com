@@ -74,6 +74,8 @@ final class ChatStore {
     guard let (data, status) = try? await account.send({ Chat.conversations(limit: 1, site: site, token: $0, version: ChatModel.version, ownCopy: ChatModel.ownCopy) }),
           let page = Chat.history(data, status: status) else { return }
     hasPast = !page.rows.isEmpty
+    // A conversation in the list, from any phone, is the reader's first answer had.
+    if hasPast { ChatModel.hadAnswer = true }
   }
 
   /// A question answered: there's something to list now.
