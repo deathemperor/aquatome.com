@@ -3,15 +3,18 @@ import SwiftUI
 
 /// A part of the page under its heading on v2's species page, as an app's description in the App Store: a long one shows
 /// its opening, then "thêm", which opens the rest in place; a short one shows whole. It never folds through a line, a
-/// photo or a table: the pieces that fit in about eight lines of text show whole, then the next text's first lines up to
-/// the eighth, "thêm" at the end of the last over a fade. What's folded away
-/// isn't drawn, touched or read until it opens; what shows works as ever, its links too. With VoiceOver on, it doesn't
-/// fold: VoiceOver reads on past what the eye sees, and a fold would only stand in its way.
+/// photo or a table: the pieces that fit in about eight lines of text show whole, then the next text's opening to a
+/// word's end, "… thêm" ending its last line, never over its words. What's folded away isn't drawn, touched or read until
+/// it opens; what shows works as ever, its links too. With VoiceOver on, it doesn't fold: VoiceOver reads on past what
+/// the eye sees, and a fold would only stand in its way.
 ///
 /// Where it folds is worked out from its pieces' words and photos before it's drawn, not measured after: drawn whole and
-/// then shrunk, a part moved what was laid out under it, so a chip's jump landed past its part.
+/// then shrunk, a part moved what was laid out under it, so a chip's jump landed past its part. Worked out once for a part
+/// at a width and a text size: the page draws again as its bar changes on the way down.
 @available(iOS 18, *)
 struct V2Section: View {
+  /// The page's and the part's, for the fold worked out once.
+  let key: String
   let title: String?
   let pieces: [NativePage.Piece]
   /// Text folds; a part of figures to compare (its sources) shows whole.
@@ -25,17 +28,30 @@ struct V2Section: View {
   let full: () -> Void
   @Environment(\.accessibilityVoiceOverEnabled) private var voiceOver
   @Environment(\.dynamicTypeSize) private var size
+  /// The page's own way with a link in the text, for every link but "thêm".
+  @Environment(\.openURL) private var follow
 
   private static let gap: CGFloat = 14
-  /// What shows, folded: its first pieces whole, then the next one's first lines if it's text, "thêm" at the end of the
-  /// last ("cut"); or, if the next isn't text, the whole pieces alone, "thêm" under them.
-  private enum Fold: Equatable { case none, pieces(Int), cut(Int, lines: Int) }
+  /// What shows, folded: its first pieces whole, then a text's first `chars` and "… thêm" (all of it and " thêm" when that
+  /// fits); or, where what's next is a photo or a table and the last whole one isn't text, the whole pieces, "thêm" under
+  /// them.
+  private enum Fold: Equatable { case none, pieces(Int), cut(Int, chars: Int) }
+  @MainActor private static var worked: [String: Fold] = [:]
+  private static let moreScheme = "v2-more"
 
-  /// About eight lines of the reader's text, folded only when that hides more than a few, and never through a photo, a
-  /// table or a line: a text cut short ends on whole lines, and what shows never ends on a heading over nothing.
   private var fold: Fold {
     guard folds, !open, !voiceOver, !pieces.isEmpty else { return .none }
-    let tall = PieceHeight(width: (width > 0 ? width : 402) - 40, size: size)
+    let w = width > 0 ? width : 402, at = "\(key) \(w) \(size)"
+    if let f = Self.worked[at] { return f }
+    let f = fold(in: w - 40)
+    Self.worked[at] = f
+    return f
+  }
+
+  /// About eight lines of the reader's text, folded only when that hides more than a few, and never through a photo, a
+  /// table or a line; what shows never ends on a heading, a bold label or a lead-in over nothing.
+  private func fold(in column: CGFloat) -> Fold {
+    let tall = PieceHeight(width: column, size: size)
     let shown = tall.line * 8
     let heights = pieces.indices.map { tall.of(pieces[$0]) + ($0 > 0 ? Self.gap : 0) }
     guard heights.reduce(0, +) > shown * 1.4 else { return .none }
@@ -44,16 +60,35 @@ struct V2Section: View {
       used += heights[n]
       n += 1
     }
-    while n > 1, case let .text(_, _, look) = pieces[n - 1], [.heading, .subheading].contains(look) {
+    while n > 1, Self.leadsIn(pieces[n - 1]) {
       n -= 1
       used -= heights[n]
     }
-    if case let .text(_, _, look) = pieces[n], [.body, .boxed, .lead].contains(look) {
+    // The next text's opening, to the eighth line.
+    if n < pieces.count, let p = Self.prose(pieces[n]) {
       let left = Int((shown - used - (n > 0 ? Self.gap : 0)) / tall.line)
-      if left >= 2 { return .cut(n, lines: left) }
+      if left >= 2 { return .cut(n, chars: tall.cut(p.text, lines: left, inset: p.inset)) }
     }
+    // Too little room for its lines: the last whole text ends in "thêm" instead, not a row of its own under a gap.
+    if n > 0, let p = Self.prose(pieces[n - 1]) {
+      return .cut(n - 1, chars: tall.cut(p.text, lines: tall.lines(p.text, inset: p.inset), inset: p.inset))
+    }
+    // A label alone over a photo or a table: with it.
+    if n == 1, Self.leadsIn(pieces[0]) { return pieces.count > 2 ? .pieces(2) : .none }
     // A first piece taller than all of it (a table, a photo): whole, the rest under "thêm".
     return n == 0 ? (pieces.count > 1 ? .pieces(1) : .none) : .pieces(n)
+  }
+
+  /// A heading, a bold label, or a line leading into what follows it ("…, gồm:").
+  private static func leadsIn(_ piece: NativePage.Piece) -> Bool {
+    guard case let .text(s, _, look) = piece else { return false }
+    return [.heading, .subheading].contains(look) || String(s.characters).trimmingCharacters(in: .whitespacesAndNewlines).hasSuffix(":")
+  }
+
+  /// A text a fold can end in, and how far it's set in from the column's edges: a paragraph, a boxed one, a list's lines.
+  private static func prose(_ piece: NativePage.Piece) -> (text: AttributedString, inset: CGFloat)? {
+    guard case let .text(s, _, look) = piece, [.body, .boxed, .lead].contains(look), !leadsIn(piece) else { return nil }
+    return (s, look == .boxed ? 28 : 0)
   }
 
   var body: some View {
@@ -72,11 +107,16 @@ struct V2Section: View {
           V2Piece(piece: pieces[j], open: link, full: full)
         }
         switch fold {
-        case let .cut(n, lines):
-          V2Piece(piece: pieces[n], lines: lines, open: link, full: full)
-            .overlay(alignment: .bottomTrailing) { more(faded: true) }
+        case let .cut(n, chars):
+          if case let .text(s, anchor, look) = pieces[n] {
+            V2Piece(piece: .text(Self.ending(s, at: chars), anchor: anchor, look: look), open: link, full: full)
+              .environment(\.openURL, OpenURLAction { url in
+                if url.scheme == Self.moreScheme { withAnimation(.easeInOut(duration: 0.25)) { open = true } } else { follow(url) }
+                return .handled
+              })
+          }
         case .pieces:
-          more(faded: false).frame(maxWidth: .infinity, alignment: .trailing)
+          more.frame(maxWidth: .infinity, alignment: .trailing)
         case .none:
           EmptyView()
         }
@@ -86,21 +126,23 @@ struct V2Section: View {
     .padding(.horizontal, 20)
   }
 
-  /// "thêm": at the end of a cut text's last line, over a fade a third of the line wide; under whole pieces, on its own.
-  private func more(faded: Bool) -> some View {
+  /// A text's first `chars`, then "… thêm" (" thêm" after all of it), "thêm" a link that opens the part.
+  private static func ending(_ s: AttributedString, at chars: Int) -> AttributedString {
+    let end = s.characters.index(s.startIndex, offsetBy: min(chars, s.characters.count))
+    var more = AttributedString(String(localized: "thêm"))
+    more.link = URL(string: "\(moreScheme):open")
+    more.font = .body.weight(.semibold)
+    return AttributedString(s[s.startIndex..<end]) + AttributedString(end == s.endIndex ? " " : "… ") + more
+  }
+
+  /// "thêm" on its own under whole pieces, a photo or a table next.
+  private var more: some View {
     Button { withAnimation(.easeInOut(duration: 0.25)) { open = true } } label: {
       Text("thêm").font(.body.weight(.semibold))
-        .padding(.leading, faded ? 72 : 0)
-        .background {
-          if faded {
-            LinearGradient(stops: [.init(color: Color(.systemBackground).opacity(0), location: 0), .init(color: Color(.systemBackground), location: 0.6)],
-                           startPoint: .leading, endPoint: .trailing)
-          }
-        }
     }
     .buttonStyle(.plain)
     .foregroundStyle(Color.accentColor)
-    .frame(minHeight: 44, alignment: faded ? .bottom : .center)
+    .frame(minHeight: 44)
     .contentShape(.rect)
     .accessibilityIdentifier("v2-more")
   }
@@ -118,6 +160,37 @@ private struct PieceHeight {
 
   /// A line of the body's text, with the space v2 puts between lines.
   var line: CGFloat { font(.body).lineHeight + 3 }
+
+  /// The lines a text of the body takes.
+  func lines(_ s: AttributedString, inset: CGFloat = 0) -> Int { count(String(s.characters), inset) }
+
+  /// How much of a text shows in `lines` lines with "thêm" ending the last: all of it, where it fits with " thêm"; else the
+  /// most, to a word's end, that fits with "… thêm".
+  func cut(_ s: AttributedString, lines: Int, inset: CGFloat = 0) -> Int {
+    let chars = Array(s.characters), more = String(localized: "thêm")
+    if count(String(chars) + " " + more, inset) <= lines { return chars.count }
+    let ends = chars.indices.filter { $0 > 0 && chars[$0].isWhitespace && !chars[$0 - 1].isWhitespace }
+    var best = ends.first ?? chars.count, lo = 0, hi = ends.count - 1
+    while lo <= hi {
+      let mid = (lo + hi) / 2
+      if count(String(chars[..<ends[mid]]) + "… " + more, inset) <= lines {
+        best = ends[mid]
+        lo = mid + 1
+      } else {
+        hi = mid - 1
+      }
+    }
+    return best
+  }
+
+  /// Its lines at the body's size, a few points narrower than drawn: links and bold runs set a little wider than the
+  /// body's own font measures, and a line short of room would push "thêm" onto one more.
+  private func count(_ s: String, _ inset: CGFloat) -> Int {
+    let f = font(.body)
+    let r = (s as NSString).boundingRect(with: CGSize(width: max(width - inset - 8, 1), height: .greatestFiniteMagnitude),
+                                         options: [.usesLineFragmentOrigin, .usesFontLeading], attributes: [.font: f], context: nil)
+    return max(1, Int((r.height / f.lineHeight - 0.05).rounded(.up)))
+  }
 
   func text(_ s: AttributedString, _ style: UIFont.TextStyle = .body, inset: CGFloat = 0) -> CGFloat {
     let f = font(style)
@@ -158,8 +231,6 @@ private struct PieceHeight {
 @available(iOS 18, *)
 struct V2Piece: View {
   let piece: NativePage.Piece
-  /// A text's lines shown, folded (V2Section).
-  var lines: Int? = nil
   /// A link of a photo's or a card's.
   let open: (URL) -> Void
   /// v1's page, for a part this one can't draw.
@@ -172,7 +243,6 @@ struct V2Piece: View {
       Text(look == .heading ? plain(s) : s)
         .font(look == .heading ? .title3.weight(.bold) : nil)
         .lineSpacing([.body, .boxed, .lead].contains(look) ? 3 : 0)
-        .lineLimit(lines)
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(look == .boxed ? 14 : 0)
         .background(look == .boxed ? AnyShapeStyle(.fill.quaternary) : AnyShapeStyle(Color.clear), in: .rect(cornerRadius: 12))
@@ -198,7 +268,7 @@ struct V2Piece: View {
       PagesBlock(title: title, paths: paths, titled: false)
     case let .cards(title, cards, good):
       // Their photos' credits at the page's foot ("Ảnh và giấy phép"): here a row of bare numbers between two lists.
-      CardsPart(title: title, cards: cards, good: good, open: open, credits: false)
+      CardsPart(title: title, cards: cards, good: good, open: open, credits: false, v2: true)
     case let .more(title, text):
       DisclosureGroup {
         Text(text).frame(maxWidth: .infinity, alignment: .leading).padding(.top, 6)

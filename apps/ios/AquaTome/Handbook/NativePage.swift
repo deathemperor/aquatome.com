@@ -22,8 +22,6 @@ struct NativePage: View {
   var path: String?
   /// A part to open the page at (its heading's id): v2's page offers this one where it holds a part it can't draw.
   var at: String?
-  /// The owner's trial of a way round the page (PageNavigator); for everyone else, none, and nothing of it runs.
-  var navigator: PageNavigator?
   @Environment(HandbookModel.self) private var handbook
   @Environment(TelemetryModel.self) private var telemetry
   @Environment(\.scenePhase) private var phase
@@ -100,20 +98,12 @@ struct NativePage: View {
         VStack(alignment: .leading, spacing: 0) {
           ForEach(pieces.indices, id: \.self) { i in
             let hero = if case .photo(_, _, _, _, _, _, _, true) = pieces[i] { true } else { false }
-            piece(i)
-              .background { if let navigator, let part = PageNavigator.part(pieces[i], at: i) { PagePlace(navigator: navigator, id: part.id) } }
-              .padding(.horizontal, hero ? 0 : nil).padding(.top, gap(i))
+            piece(i).padding(.horizontal, hero ? 0 : nil).padding(.top, gap(i))
           }
         }
-        .coordinateSpace(.named(PageNavigator.space))
-        .background { if let navigator { PageNavigatorHook(navigator: navigator, pieces: pieces) } }
         .padding(.bottom, 32)
         .frame(maxWidth: .infinity, alignment: .leading)
       }
-      .scrollIndicators(navigator?.railOn == true ? .hidden : .automatic)
-      // Named before the rail goes over it: a name given to the whole would replace the rail's own.
-      .accessibilityIdentifier("native-page")
-      .overlay { if let navigator, navigator.railOn { PageRail(navigator: navigator) } }
       // Links in the text: a page the index lists opens in the app, `#id` scrolls to it, a word's tip shows.
       .environment(\.openURL, OpenURLAction { open($0, proxy) })
       // Laid out first, then at its part.
@@ -124,11 +114,10 @@ struct NativePage: View {
       }
       // A chapter or a still tapped: its video in view.
       .onChange(of: player.asked) { withAnimation { proxy.scrollTo(PagePlayer.anchor(player.id), anchor: .center) } }
-      // A part chosen from the title's list: as a `#id` link goes to it.
-      .onChange(of: navigator?.asked) { _, asked in if let asked, let u = URL(string: "page-anchor:\(asked.id)") { _ = open(u, proxy) } }
       .modifier(SeenDown { reading?.scrolled(to: $0) })
     }
     .environment(player)
+    .accessibilityIdentifier("native-page")
     .onAppear {
       if reading == nil, let path { reading = PageReading(path: path, telemetry: telemetry.telemetry) }
       reading?.shown(true)
@@ -192,11 +181,11 @@ struct NativePage: View {
     case let .video(id, title, caption):
       VideoSlot(id: id, title: title, caption: caption)
     case let .pages(title, paths):
-      PagesBlock(title: title, paths: paths).id("piece-\(i)")
+      PagesBlock(title: title, paths: paths)
     case let .cards(title, cards, good):
       CardsPart(title: title, cards: cards, good: good) { _ = open($0, nil) }
     case let .gallery(title, note, photos, strip):
-      GalleryRow(title: title, note: note, photos: photos, strip: strip).id("piece-\(i)")
+      GalleryRow(title: title, note: note, photos: photos, strip: strip)
     case let .more(title, text):
       DisclosureGroup {
         Text(text).frame(maxWidth: .infinity, alignment: .leading).padding(.top, 6)
@@ -642,6 +631,9 @@ struct CardsPart: View {
   let open: (URL) -> Void
   /// Its photos' credits under it; v2's page has them at its foot.
   var credits = true
+  /// v2's rows (docs/design/v2-fish-page.md): a small photo, none where a page has none, and plain titles.
+  var v2 = false
+  @Environment(\.dynamicTypeSize) private var size
   @ScaledMetric(relativeTo: .body) private var thumb: CGFloat = 56
   /// The width each of a credit's numbers takes: 44 points to tap, as the app's other small controls have.
   @ScaledMetric(relativeTo: .caption2) private var number: CGFloat = 44
@@ -653,7 +645,7 @@ struct CardsPart: View {
     VStack(alignment: .leading, spacing: 8) {
       if let title {
         HStack(spacing: 6) {
-          if let good {
+          if let good, !v2 {
             Image(systemName: good ? "checkmark.circle.fill" : "xmark.circle.fill")
               .foregroundStyle(good ? Color.green : Color.red)
               .accessibilityHidden(true)
@@ -665,8 +657,8 @@ struct CardsPart: View {
       }
       VStack(spacing: 0) {
         ForEach(cards.indices, id: \.self) { j in
-          if j > 0 { Divider().padding(.leading, thumbs ? thumb + 24 : 12) }
-          row(cards[j], thumbs: thumbs)
+          if j > 0 { Divider().padding(.leading, v2 ? (thumbs && !size.isAccessibilitySize ? 68 : 12) : thumbs ? thumb + 24 : 12) }
+          if v2 { v2Row(cards[j]) } else { row(cards[j], thumbs: thumbs) }
         }
       }
       .background(.fill.quaternary, in: .rect(cornerRadius: 12))
@@ -718,6 +710,36 @@ struct CardsPart: View {
         }
       }
     }
+  }
+
+  /// v2's row: its photo at 44 × 33, or none, its name and its line, a chevron. At the accessibility sizes the photo is over
+  /// the words: beside them it left a few letters a line.
+  private func v2Row(_ c: NativePage.Card) -> some View {
+    Button { if let u = URL(string: c.path) { open(u) } } label: {
+      HStack(spacing: 12) {
+        let words = VStack(alignment: .leading, spacing: 2) {
+          Text(c.name).font(.body.weight(.semibold))
+          if let sub = c.sub { Text(sub).font(.subheadline).foregroundStyle(.secondary) }
+        }
+        let photo = c.img.map { PageImage(src: $0.thumb ?? $0.src, ratio: 4.0 / 3, corner: 5).frame(width: 44, height: 33) }
+        if size.isAccessibilitySize {
+          VStack(alignment: .leading, spacing: 8) {
+            photo
+            words
+          }
+        } else {
+          photo
+          words
+        }
+        Spacer(minLength: 0)
+        Image(systemName: "chevron.right").font(.footnote.weight(.semibold)).foregroundStyle(.tertiary)
+      }
+      .padding(.horizontal, 12)
+      .padding(.vertical, 10)
+      .contentShape(.rect)
+    }
+    .buttonStyle(.plain)
+    .accessibilityIdentifier("card")
   }
 
   private func row(_ c: NativePage.Card, thumbs: Bool) -> some View {

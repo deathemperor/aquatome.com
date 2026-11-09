@@ -169,6 +169,8 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(app.links["Jane Doe"].waitForExistence(timeout: 3), "a tank-mate's photo without its credit")
     let mate = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá ngựa vằn")).firstMatch
     XCTAssertTrue(mate.exists, "no tank-mate")
+    // Back up to its row, above the credits.
+    repeatUntil(mate.isHittable, times: 8) { app.swipeDown() }
     mate.tap()
     XCTAssertTrue(app.staticTexts["Cá ngựa vằn"].waitForExistence(timeout: 5), "the tank-mate's page didn't open")
     XCTAssertTrue(app.tabBars.buttons["Khám phá"].isSelected, "the tank-mate opened on another tab")
@@ -189,23 +191,25 @@ final class V2FlowTests: XCTestCase {
     XCTAssertFalse(app.buttons["v2-part-elsewhere"].exists, "a part left to v1's page")
   }
 
-  /// A long part folds between its pieces, never through a line: its first paragraphs whole and the rest not there to
-  /// read or touch until "thêm" opens it in place. A part of one long paragraph shows its first lines, "thêm" at the end
-  /// of the last, and a link in them works.
+  /// A long part folds between its pieces, never through a line: its first paragraphs whole, the next one's opening to a
+  /// word's end with "… thêm" ending its last line, not laid over its words, and the rest not there to read or touch until
+  /// "thêm" opens it in place. A part of one long paragraph shows its opening the same way, and a link in it works.
   func testALongPartFoldsBetweenItsPiecesAndWhatShowsWorks() {
     let app = openNeon("-long-part")
     func text(_ s: String) -> XCUIElement { app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", s)).firstMatch }
     reveal(app, app.staticTexts["Cho ăn gì?"])
     XCTAssertTrue(text("Thức ăn viên nhỏ").exists, "the part's opening isn't there")
     XCTAssertFalse(text("Đoạn cuối về cho ăn").exists, "a paragraph folded away is still there to read")
-    let more = app.buttons["v2-more"].firstMatch
+    let cut = app.staticTexts.matching(NSPredicate(format: "label ENDSWITH %@", "… thêm")).firstMatch
+    XCTAssertTrue(cut.exists, "no text ends in '… thêm': it lies over the words, or stands on a row of its own")
+    let more = app.links["thêm"].firstMatch
     reveal(app, more)
     more.tap()
     XCTAssertTrue(text("Đoạn cuối về cho ăn").waitForExistence(timeout: 3), "thêm didn't open the part")
     // The long paragraph: its first lines, and the link in them.
     let mate = app.links["cá ngựa vằn"]
     reveal(app, mate)
-    XCTAssertTrue(app.buttons["v2-more"].exists, "the long paragraph isn't folded")
+    XCTAssertTrue(text("Muốn cho đẻ").label.hasSuffix("… thêm"), "the long paragraph isn't folded")
     mate.tap()
     XCTAssertTrue(app.staticTexts["Cá ngựa vằn"].waitForExistence(timeout: 5), "a link in a folded part's first lines doesn't work")
   }
@@ -222,60 +226,54 @@ final class V2FlowTests: XCTestCase {
     // Under the bar, not behind it: at the screen's top, as a jump put it, the bar hid the heading.
     XCTAssertGreaterThan(breeding.frame.minY, app.buttons["v2-back"].frame.maxY, "the part's heading behind the bar")
     reveal(app, app.staticTexts["Nguồn và độ tin cậy"])
-    XCTAssertFalse(app.buttons["v2-more"].exists, "the sources' figures are folded")
+    XCTAssertFalse(app.buttons["v2-more"].exists || app.links["thêm"].exists, "the sources' figures are folded")
   }
 
-  /// A plant's page has its care across it as a fish's has its figures: how hard, its light, its CO₂, how fast it grows.
-  /// The owner's trial of a way round a long page (PageNavigator) on v2's page, which carries the whole page now: none
-  /// of it for a reader, whatever the setting says.
-  func testAReaderHasNoNavigatorTrialOnV2sPage() {
-    let app = openNeon("-page-navigator-trial", "rail", "-page-rail-stays")
+  /// The way round a long page (PageNavigator), the owner's alone for now: a reader's bar is as it was, no title in it.
+  func testAReaderHasNoNavigatorOnV2sPage() {
+    let app = openNeon("-long-part")
     app.swipeUp()
     XCTAssertFalse(app.descendants(matching: .any)["page-navigator-title"].exists, "a title for a reader")
-    XCTAssertFalse(app.descendants(matching: .any)["page-rail"].exists, "a rail for a reader")
-    XCTAssertFalse(app.buttons["page-actions"].exists, "the owner's ⋯ for a reader")
   }
 
-  /// The owner chooses the title in the bar's ⋯, and goes to a part from its list: there, its heading under the bar.
-  func testTheOwnerGoesToAPartFromTheNavigatorsTitleOnV2sPage() {
-    let app = ownersNeon()
+  /// The owner's bar names the page's parts, with no choosing it first: "Mục lục" beside the back button, its list dropped
+  /// from under the bar and closed by a tap outside it, and a folded part chosen from it landed on, under the bar and open.
+  func testTheOwnerGoesToAPartFromTheNavigatorsListOnV2sPage() {
+    let app = ownersNeon("-long-part")
     let title = app.descendants(matching: .any)["page-navigator-title"].firstMatch
-    XCTAssertFalse(title.exists, "a title before the trial is chosen")
-    chooseTrial(app, "Chỉ tiêu đề")
-    XCTAssertTrue(title.waitForExistence(timeout: 5), "no title")
-    XCTAssertTrue(title.label.contains("Mục lục"), title.label)
-    title.tap()
+    XCTAssertTrue(title.waitForExistence(timeout: 5), "no title for the owner")
+    XCTAssertEqual(title.label, "Mục lục")
+    XCTAssertGreaterThan(title.frame.width, 100, "the title cut to nothing in the bar")
+    XCTAssertLessThan(title.frame.minX - app.buttons["v2-back"].frame.maxX, 24, "the title isn't beside the back button")
+    XCTAssertFalse(app.buttons["page-actions"].exists, "a ⋯ to choose it")
+    XCTAssertTrue(app.buttons["save-for-later"].exists, "the title crowds the bookmark into iOS's own ⋯")
     let parts = app.buttons.matching(identifier: "page-navigator-part")
+    title.tap()
     XCTAssertTrue(parts.firstMatch.waitForExistence(timeout: 5), "no list of parts")
-    XCTAssertTrue(parts.firstMatch.label.hasPrefix("Ảnh"), "not the photos first: \(parts.firstMatch.label)")
+    XCTAssertGreaterThan(parts.firstMatch.frame.minY, app.buttons["v2-back"].frame.maxY, "the list isn't under the bar")
+    // Outside it: the page dimmed at the screen's right, 40 points wide.
+    app.coordinate(withNormalizedOffset: CGVector(dx: 0.98, dy: 0.5)).tap()
+    wait(for: [expectation(for: NSPredicate(format: "exists == false"), evaluatedWith: parts.firstMatch)], timeout: 5)
+    title.tap()
     let part = parts.matching(NSPredicate(format: "label == 'Cho ăn gì?'")).firstMatch
-    XCTAssertTrue(part.exists, "no part for feeding among \(parts.count)")
+    XCTAssertTrue(part.waitForExistence(timeout: 5), "no part for feeding among \(parts.count)")
     part.tap()
-    wait(for: [expectation(for: NSPredicate(format: "label CONTAINS 'Cho ăn gì?'"), evaluatedWith: title)], timeout: 5)
-    let heading = app.staticTexts["Cho ăn gì?"].firstMatch
+    wait(for: [expectation(for: NSPredicate(format: "label == 'Mục lục, đang ở Cho ăn gì?'"), evaluatedWith: title)], timeout: 5)
+    // The page's heading, not the bar's title naming it.
+    let heading = app.scrollViews.staticTexts["Cho ăn gì?"].firstMatch
     wait(for: [expectation(for: NSPredicate(format: "isHittable == true"), evaluatedWith: heading)], timeout: 5)
     XCTAssertGreaterThan(heading.frame.minY, app.buttons["v2-back"].frame.maxY, "the part's heading behind the bar")
-    XCTAssertFalse(app.descendants(matching: .any)["page-rail"].exists, "a rail on the title alone")
+    XCTAssertTrue(app.staticTexts.matching(NSPredicate(format: "label CONTAINS 'Đoạn cuối về cho ăn'")).firstMatch.exists,
+                  "the part chosen is still folded")
+    // A long part's name in the title: cut short, the bar's buttons still its own.
+    title.tap()
+    parts.matching(NSPredicate(format: "label BEGINSWITH 'Các dòng và cá lai'")).firstMatch.tap()
+    wait(for: [expectation(for: NSPredicate(format: "label CONTAINS 'Các dòng và cá lai'"), evaluatedWith: title)], timeout: 5)
+    XCTAssertTrue(app.buttons["save-for-later"].exists, "a long part's name crowds the bookmark into iOS's own ⋯")
   }
 
-  /// With the rail, its tab catches an ordinary drag (80 points a second) and moves the page to another part.
-  func testTheNavigatorsRailCatchesADragOnV2sPage() {
-    let app = ownersNeon("-page-navigator-trial", "rail", "-page-rail-stays")
-    let title = app.descendants(matching: .any)["page-navigator-title"].firstMatch, rail = app.descendants(matching: .any)["page-rail"].firstMatch
-    XCTAssertTrue(title.waitForExistence(timeout: 5), "no title")
-    app.swipeUp()
-    XCTAssertTrue(rail.waitForExistence(timeout: 5), "no rail")
-    XCTAssertEqual(rail.value as? String, "0")
-    let before = title.label
-    let f = rail.frame, origin = app.coordinate(withNormalizedOffset: .zero)
-    origin.withOffset(CGVector(dx: f.midX, dy: f.midY))
-      .press(forDuration: 0.01, thenDragTo: origin.withOffset(CGVector(dx: f.midX, dy: f.midY + 120)), withVelocity: XCUIGestureVelocity(80),
-             thenHoldForDuration: 0.1)
-    wait(for: [expectation(for: NSPredicate(format: "value == '1'"), evaluatedWith: rail)], timeout: 5)
-    XCTAssertNotEqual(title.label, before, "the page didn't move to another part")
-  }
-
-  func testAPlantsPageHasItsCareInItsStrip() {
+  /// A plant's page has its care in its card as a fish's has its figures: how hard, its light, its CO₂, how fast it grows.
+  func testAPlantsPageHasItsCareInItsCard() {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-reset-defaults", "-v2", "YES"]
     app.launchForFlow()
@@ -283,7 +281,7 @@ final class V2FlowTests: XCTestCase {
     follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/cay/rotala-do/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
     XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the plant's page isn't v2's")
     for label in ["Ánh sáng", "Tốc độ mọc"] {
-      XCTAssertTrue(app.staticTexts.matching(NSPredicate(format: "label CONTAINS[c] %@", label)).firstMatch.exists, "no \(label) in the plant's strip")
+      XCTAssertTrue(app.staticTexts.matching(NSPredicate(format: "label CONTAINS[c] %@", label)).firstMatch.exists, "no \(label) in the plant's card")
     }
   }
 
@@ -669,7 +667,6 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(e.exists && e.isHittable, "\(e) not found")
   }
 
-  /// A link opened by the system to the running app (`XCUIApplication.open` launches it anew), past the system's question.
   /// The neon's page, signed in as the owner (the stand-in Apple's, `-fake-owner`).
   private func ownersNeon(_ args: String...) -> XCUIApplication {
     let app = XCUIApplication()
@@ -686,16 +683,7 @@ final class V2FlowTests: XCTestCase {
     return app
   }
 
-  /// A state of the owner's trial, in the bar's ⋯.
-  private func chooseTrial(_ app: XCUIApplication, _ state: String) {
-    let more = app.buttons["page-actions"]
-    XCTAssertTrue(more.waitForExistence(timeout: 5), "no ⋯ for the owner")
-    more.tap()
-    let row = app.buttons[state]
-    XCTAssertTrue(row.waitForExistence(timeout: 5), "no \(state) in the menu")
-    row.tap()
-  }
-
+  /// A link opened by the system to the running app (`XCUIApplication.open` launches it anew), past the system's question.
   private func follow(_ app: XCUIApplication, _ url: URL) {
     XCUIDevice.shared.system.open(url)
     let ask = XCUIApplication(bundleIdentifier: "com.apple.springboard").alerts.firstMatch

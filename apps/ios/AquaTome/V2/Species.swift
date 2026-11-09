@@ -112,95 +112,81 @@ struct SpeciesPage: View {
   private var facts: HandbookIndex.Facts { item.facts.any ? item.facts : item.card ?? item.facts }
 
   var body: some View {
-    ScrollViewReader { proxy in
-    ScrollView {
-      // One stack, the page's content: a part's place in it (PageNavigator.space) doesn't change as the page scrolls.
-      VStack {
-      VStack(spacing: 0) {
-        if let hero {
-          V2Photo(src: hero, ground: colour) { colour = $0 }
-            // Less on a small phone, so the name and figures still show under it; less again at the accessibility sizes, so
-            // "Thêm vào bể" opens above the fade over the tab bar, white, not in it.
-            .containerRelativeFrame(.vertical) { h, _ in min(420, h * (size.isAccessibilitySize ? 0.34 : 0.46)) }
-            .overlay(alignment: .bottom) {
-              LinearGradient(colors: [colour.opacity(0), colour], startPoint: .top, endPoint: .bottom).frame(height: 140)
-            }
-            .accessibilityElement()
-            .accessibilityLabel(Text(verbatim: doc?.lead?.alt ?? item.name))
-            .accessibilityAddTraits(.isImage)
-        } else {
-          // No photo (a third of the fish): the page starts at the name, under its buttons, not at an empty box.
-          Color.clear.frame(height: 116)
+    framed
+    // Over the photo and its colour, the bar and status bar in white. The page's own after them, never nil: iOS can keep the
+    // dark one after nil, white words on the white band.
+    .toolbarColorScheme(colourAt.top ? .dark : scheme, for: .navigationBar)
+    .toolbar {
+      ToolbarItem(placement: .topBarLeading) {
+        Button { goBack() } label: {
+          round("chevron.left")
+            // Where the bar's middle is, and the room's start, for the name in it.
+            .onGeometryChange(for: CGFloat.self) { $0.frame(in: .global).midY } action: { barMid = $0 }
+            .onGeometryChange(for: CGFloat.self) { $0.frame(in: .global).maxX } action: { backEnd = $0 }
         }
-        header
-        FactsStrip(facts: facts, plant: item.plant, onDark: true, temperament: asked && !hasMates).padding(.vertical, 14)
-        if !photos.isEmpty {
-          gallery.padding(.bottom, 24)
-            .background(alignment: .top) { place(Self.photosID) }
-            .background { if let trying { PagePlace(navigator: trying, id: Self.photosID) } }
-        }
-        // Until it's asked for, the colour runs on past the screen's foot, the spinner on it: no white strip, no tab bar
-        // changing, when the page comes. Not a fish with no photo: it'll have no gallery to fill the place.
-        if !asked {
-          ProgressView().tint(.white).padding(.vertical, 8)
-          if hero != nil { Color.clear.containerRelativeFrame(.vertical) { h, _ in h / 2 } }
-        }
+          .buttonStyle(.plain)
+          .accessibilityLabel(Text("Quay lại"))
+          .accessibilityIdentifier("v2-back")
       }
-      .background(colour)
-      .animation(.easeInOut(duration: 0.45), value: colour)
-      // The scroll view's height stops where the fade over the tab bar starts (`v2ClearOfTheFade`).
-      .onGeometryChange(for: ColourAt.self) { [barFoot] g in
-        let end = g.frame(in: .scrollView).maxY
-        return ColourAt(top: end > barFoot, foot: end > g.bounds(of: .scrollView)?.height ?? .infinity)
-      } action: { colourAt = $0 }
-      rest(proxy)
+      .v2Glass(!colourAt.top)
+      // The owner's navigator on a long page: its title beside the back button, plain, in the bar so it takes a tap.
+      if trying?.long == true, let trying {
+        ToolbarItem(placement: .topBarLeading) {
+          PageNavigatorTitle(name: item.name, nameInView: !nameGone, onColour: colourAt.top, navigator: trying)
+            // A width of its own: offered "up to", the bar gave it next to none, "…" alone.
+            .frame(width: titleWidth, alignment: .leading)
+            // The reader's text size, which the bar keeps from its items: at the accessibility sizes, the part alone, larger.
+            .environment(\.dynamicTypeSize, size)
+        }
+        .v2Glass(false)
       }
-      .coordinateSpace(.named(PageNavigator.space))
-      .background { if let trying, let whole, let doc { PageNavigatorHook(navigator: trying, parts: navigatorParts(whole, doc)) } }
+      ToolbarItem(placement: .topBarTrailing) {
+        // Saved to read later, as v1's page saves it (the Tìm tab lists them).
+        let saved = handbook.isSaved(item)
+        Button { handbook.toggleSaved(item) } label: {
+          round(saved ? "bookmark.fill" : "bookmark")
+            .onGeometryChange(for: CGFloat.self) { $0.frame(in: .global).minX } action: { saveStart = $0 }
+        }
+          .buttonStyle(.plain)
+          .accessibilityLabel(Text(saved ? "Bỏ lưu" : "Lưu để đọc sau"))
+          .accessibilityIdentifier("save-for-later")
+      }
+      .v2Glass(!colourAt.top)
+      ToolbarItem(placement: .topBarTrailing) {
+        ShareLink(item: handbook.url(item)) {
+          round("square.and.arrow.up")
+            .onGeometryChange(for: CGFloat.self) { $0.frame(in: .global).minX } action: { shareStart = $0 }
+        }
+          .buttonStyle(.plain)
+          .accessibilityLabel(Text("Chia sẻ"))
+      }
+      .v2Glass(!colourAt.top)
     }
-    .onChange(of: player.asked) { withAnimation { proxy.scrollTo(PagePlayer.anchor(player.id), anchor: .center) } }
-    // A part chosen from the title's list: there, open, as a chip goes.
-    .onChange(of: navigator.asked) { _, asked in
-      guard let asked, let whole else { return }
-      if let i = whole.ids.firstIndex(of: asked.id) { opened.insert(i) }
-      jump(to: asked.id, proxy)
+    .sheet(isPresented: $putting) { if let life = Life(item) { NavigationStack { PutOnTank(life: life) } } }
+    .fullScreenCover(isPresented: Binding(get: { viewing != nil }, set: { if !$0 { viewing = nil } })) {
+      GalleryViewer(title: galleryTitle, note: galleryNote, photos: photos, readers: nil, index: viewing ?? 0)
     }
-    }
-    .environment(player)
-    .navigationDestination(item: $onSite) { WebScreen(url: $0).v2ClearOfTheFade() }
-    .v2ClearOfTheFade()
-    .ignoresSafeArea(edges: .top)
-    // Once its text is in: the photo and name alone fit the screen, "read to the end" at once.
-    .onScrollGeometryChange(for: Int?.self) { [loaded = doc != nil] g in
-      guard loaded else { return nil }
-      let share = g.contentSize.height > 0 ? 100 * g.visibleRect.maxY / g.contentSize.height : 0
-      return Event.depths.last { share >= Double($0) } ?? 0
-    } action: { _, mark in
-      if let mark { reading?.scrolled(to: Double(mark) / 100) }
-    }
-    .onAppear {
-      if reading == nil { reading = PageReading(path: item.path, telemetry: telemetry.telemetry) }
-      reading?.shown(true)
-    }
-    .onDisappear { reading?.shown(false) }
-    .onChange(of: phase) { reading?.inFront(phase == .active) }
-    .onGeometryChange(for: CGFloat.self) { $0.safeAreaInsets.top } action: { barFoot = $0 }
-    .onGeometryChange(for: CGFloat.self) { $0.size.width } action: { width = $0 }
-    .onScrollGeometryChange(for: CGFloat.self) { $0.containerSize.height } action: { _, h in viewport = h }
-    .onGeometryChange(for: CGPoint.self) { $0.frame(in: .global).origin } action: { origin = $0 }
-    .onChange(of: colourAt.foot) { if front { standOnColour() } }
-    .onChange(of: colour) { if front { standOnColour() } }
-    .onAppear {
-      front = true
-      standOnColour()
-    }
-    // Not over the next page's, which may have appeared first, with the same colour, or be the same fish's.
-    .onDisappear {
-      front = false
-      if footGround?.wrappedValue?.page == me { footGround?.wrappedValue = nil }
-    }
-    .accessibilityIdentifier("v2-species")
-    .ownerShows(item.path, as: "species")
+    // Runs on each appearing too: nothing to do with the page here. A page that didn't come isn't one read.
+    // "Thử lại" asks its photos again too.
+    .environment(\.v2PhotoTries, retries)
+    .task(id: "\(item.path) \(retries)") { await come() }
+  }
+
+  /// The page asked for, and worked out into its parts once.
+  private func come() async {
+    guard doc == nil else { return }
+    // The whole index first only when it hasn't said this page's kind is drawn here: on a weak signal it holds up the page.
+    if retries > 0, !handbook.drawsItself(item) { await handbook.load() }
+    doc = await handbook.doc(item)
+    whole = doc.map(WholeParts.init)
+    asked = true
+    if doc != nil { handbook.read(item) }
+  }
+
+  /// The page under its bar: the shade behind the status bar, the edge swipe back, the band, the bar's title and the
+  /// navigator's list.
+  private var framed: some View {
+    page
     .navigationBarTitleDisplayMode(.inline)
     // The band behind the bar is the page's own (`ClearUnderTopBar`), on iOS 18 too.
     .toolbarBackground(.hidden, for: .navigationBar)
@@ -241,25 +227,9 @@ struct SpeciesPage: View {
     // title: with the bar's buttons on no glass, on the colour, iOS set its title beside the back button, and moved it to
     // the middle as the glass came. Placed as iOS's is (`barName`); a name wider than the room is cut short. At the bar's
     // own size, as iOS's title is. Not read: the page's name is, as its heading.
-    .overlay(alignment: .top) {
-      if let trying, trying.long, barMid > 0 {
-        // The navigator's title: "Mục lục", then the part being read, its list a tap away. White on the photo and its colour.
-        let place = barName ?? BarPlace(x: width / 2, room: max(60, width - 290))
-        PageNavigatorTitle(name: item.name, nameInView: !nameGone, navigator: trying)
-          .environment(\.colorScheme, colourAt.top ? .dark : scheme)
-          .frame(width: place.room)
-          .position(x: place.x, y: barMid - origin.y)
-      } else if nameGone, barMid > 0 {
-        let place = barName ?? BarPlace(x: width / 2, room: max(60, width - 290))
-        Text(verbatim: item.name).font(.headline).lineLimit(1).dynamicTypeSize(.large)
-          .foregroundStyle(colourAt.top ? Color.white : Color.primary)
-          .frame(maxWidth: place.room)
-          .position(x: place.x, y: barMid - origin.y)
-          .allowsHitTesting(false)
-          .accessibilityHidden(true)
-          .accessibilityIdentifier("v2-bar-name")
-      }
-    }
+    .overlay(alignment: .top) { barTitle }
+    // Its list, dropped from under the bar, over the page and the title.
+    .overlay { if let trying { PageNavigatorList(navigator: trying, top: barFoot + 6) } }
     .onChange(of: nameGone) { if nameGone, inRoom == nil { inRoom = barRoom.map { nameWidth > $0.even } } }
     .onChange(of: width) { inRoom = nil }
     // The name's width on one line, for `barName`.
@@ -267,59 +237,135 @@ struct SpeciesPage: View {
       Text(verbatim: item.name).font(.headline).dynamicTypeSize(.large).fixedSize().hidden()
         .onGeometryChange(for: CGFloat.self) { $0.size.width } action: { nameWidth = $0 }
     }
-    // Over the photo and its colour, the bar and status bar in white. The page's own after them, never nil: iOS can keep the
-    // dark one after nil, white words on the white band.
-    .toolbarColorScheme(colourAt.top ? .dark : scheme, for: .navigationBar)
-    .toolbar {
-      ToolbarItem(placement: .topBarLeading) {
-        Button { goBack() } label: {
-          round("chevron.left")
-            // Where the bar's middle is, and the room's start, for the name in it.
-            .onGeometryChange(for: CGFloat.self) { $0.frame(in: .global).midY } action: { barMid = $0 }
-            .onGeometryChange(for: CGFloat.self) { $0.frame(in: .global).maxX } action: { backEnd = $0 }
+  }
+
+  /// The page itself, scrolling, with what it reports and the colour it puts under the tab bar; its bar is `body`'s.
+  private var page: some View {
+    ScrollViewReader { proxy in
+      ScrollView {
+        // One stack, the page's content: a part's place in it (PageNavigator.space) doesn't change as the page scrolls.
+        VStack {
+          top
+          rest(proxy)
         }
-          .buttonStyle(.plain)
-          .accessibilityLabel(Text("Quay lại"))
-          .accessibilityIdentifier("v2-back")
+        .coordinateSpace(.named(PageNavigator.space))
+        .background { if let trying, let whole, let doc { PageNavigatorHook(navigator: trying, parts: navigatorParts(whole, doc)) } }
+        // Links in the text, and in the lines under the name: a page the index lists opens in the app, `#id` scrolls to
+        // it, a word's tip shows, a video's moment plays it here.
+        .environment(\.openURL, OpenURLAction { follow($0, proxy) })
       }
-      .v2Glass(!colourAt.top)
-      ToolbarItem(placement: .topBarTrailing) {
-        // Saved to read later, as v1's page saves it (the Tìm tab lists them).
-        let saved = handbook.isSaved(item)
-        Button { handbook.toggleSaved(item) } label: {
-          round(saved ? "bookmark.fill" : "bookmark")
-            .onGeometryChange(for: CGFloat.self) { $0.frame(in: .global).minX } action: { saveStart = $0 }
-        }
-          .buttonStyle(.plain)
-          .accessibilityLabel(Text(saved ? "Bỏ lưu" : "Lưu để đọc sau"))
-          .accessibilityIdentifier("save-for-later")
-      }
-      .v2Glass(!colourAt.top)
-      ToolbarItem(placement: .topBarTrailing) {
-        ShareLink(item: handbook.url(item)) {
-          round("square.and.arrow.up")
-            .onGeometryChange(for: CGFloat.self) { $0.frame(in: .global).minX } action: { shareStart = $0 }
-        }
-          .buttonStyle(.plain)
-          .accessibilityLabel(Text("Chia sẻ"))
-      }
-      .v2Glass(!colourAt.top)
+      .onChange(of: player.asked) { withAnimation { proxy.scrollTo(PagePlayer.anchor(player.id), anchor: .center) } }
+      .onChange(of: navigator.asked) { _, asked in go(to: asked, proxy) }
     }
-    .sheet(isPresented: $putting) { if let life = Life(item) { NavigationStack { PutOnTank(life: life) } } }
-    .fullScreenCover(isPresented: Binding(get: { viewing != nil }, set: { if !$0 { viewing = nil } })) {
-      GalleryViewer(title: galleryTitle, note: galleryNote, photos: photos, readers: nil, index: viewing ?? 0)
+    .environment(player)
+    .navigationDestination(item: $onSite) { WebScreen(url: $0).v2ClearOfTheFade() }
+    .v2ClearOfTheFade()
+    .ignoresSafeArea(edges: .top)
+    // Once its text is in: the photo and name alone fit the screen, "read to the end" at once.
+    .onScrollGeometryChange(for: Int?.self) { [loaded = doc != nil] g in
+      guard loaded else { return nil }
+      let share = g.contentSize.height > 0 ? 100 * g.visibleRect.maxY / g.contentSize.height : 0
+      return Event.depths.last { share >= Double($0) } ?? 0
+    } action: { _, mark in
+      if let mark { reading?.scrolled(to: Double(mark) / 100) }
     }
-    // Runs on each appearing too: nothing to do with the page here. A page that didn't come isn't one read.
-    // "Thử lại" asks its photos again too.
-    .environment(\.v2PhotoTries, retries)
-    .task(id: "\(item.path) \(retries)") {
-      guard doc == nil else { return }
-      // The whole index first only when it hasn't said this page's kind is drawn here: on a weak signal it holds up the page.
-      if retries > 0, !handbook.drawsItself(item) { await handbook.load() }
-      doc = await handbook.doc(item)
-      whole = doc.map(WholeParts.init)
-      asked = true
-      if doc != nil { handbook.read(item) }
+    .onAppear {
+      if reading == nil { reading = PageReading(path: item.path, telemetry: telemetry.telemetry) }
+      reading?.shown(true)
+    }
+    .onDisappear { reading?.shown(false) }
+    .onChange(of: phase) { reading?.inFront(phase == .active) }
+    .onGeometryChange(for: CGFloat.self) { $0.safeAreaInsets.top } action: {
+      barFoot = $0
+      navigator.barFoot = $0
+    }
+    .onGeometryChange(for: CGFloat.self) { $0.size.width } action: { width = $0 }
+    .onScrollGeometryChange(for: CGFloat.self) { $0.containerSize.height } action: { _, h in viewport = h }
+    .onGeometryChange(for: CGPoint.self) { $0.frame(in: .global).origin } action: { origin = $0 }
+    .onChange(of: colourAt.foot) { if front { standOnColour() } }
+    .onChange(of: colour) { if front { standOnColour() } }
+    .onAppear {
+      front = true
+      standOnColour()
+    }
+    // Not over the next page's, which may have appeared first, with the same colour, or be the same fish's.
+    .onDisappear {
+      front = false
+      if footGround?.wrappedValue?.page == me { footGround?.wrappedValue = nil }
+    }
+    .accessibilityIdentifier("v2-species")
+    .ownerShows(item.path, as: "species")
+  }
+
+  /// The photo, the name, "Thêm vào bể", the figures and the rest of its photos, on the photo's colour.
+  private var top: some View {
+    VStack(spacing: 0) {
+      if let hero {
+        let banner = V2Photo(src: hero, ground: colour) { colour = $0 }
+          // Less on a small phone, so the name and figures still show under it; less again at the accessibility sizes, so
+          // "Thêm vào bể" opens above the fade over the tab bar, white, not in it.
+          .containerRelativeFrame(.vertical) { h, _ in min(420, h * (size.isAccessibilitySize ? 0.34 : 0.46)) }
+          .overlay(alignment: .bottom) {
+            LinearGradient(colors: [colour.opacity(0), colour], startPoint: .top, endPoint: .bottom).frame(height: 140)
+          }
+        if let n = galleryCount {
+          // With a gallery, it carries how many photos the page has, and the whole of it opens them all.
+          Button { allPhotos() } label: { banner.overlay(alignment: .bottomTrailing) { badge(n) } }
+            .buttonStyle(.plain)
+            .accessibilityLabel(Text(verbatim: (doc?.lead?.alt ?? item.name) + ", ") + Text("Xem tất cả \(n) ảnh"))
+            .accessibilityIdentifier("v2-lead-photo-grid")
+        } else {
+          banner
+            .accessibilityElement()
+            .accessibilityLabel(Text(verbatim: doc?.lead?.alt ?? item.name))
+            .accessibilityAddTraits(.isImage)
+        }
+      } else {
+        // No photo (a third of the fish): the page starts at the name, under its buttons, not at an empty box.
+        Color.clear.frame(height: 116)
+      }
+      header
+      // Its figures as a card, white on the colour.
+      FactsCard(facts: facts, plant: item.plant, inPage: true, v2: true)
+        .environment(\.colorScheme, .dark)
+        .padding(.horizontal, 20)
+        .padding(.vertical, 14)
+      if !photos.isEmpty { gallery.padding(.bottom, 24) }
+      // Until it's asked for, the colour runs on past the screen's foot, the spinner on it: no white strip, no tab bar
+      // changing, when the page comes. Not a fish with no photo: it'll have no gallery to fill the place.
+      if !asked {
+        ProgressView().tint(.white).padding(.vertical, 8)
+        if hero != nil { Color.clear.containerRelativeFrame(.vertical) { h, _ in h / 2 } }
+      }
+    }
+    .background(colour)
+    .animation(.easeInOut(duration: 0.45), value: colour)
+    // The scroll view's height stops where the fade over the tab bar starts (`v2ClearOfTheFade`).
+    .onGeometryChange(for: ColourAt.self) { [barFoot] g in
+      let end = g.frame(in: .scrollView).maxY
+      return ColourAt(top: end > barFoot, foot: end > g.bounds(of: .scrollView)?.height ?? .infinity)
+    } action: { colourAt = $0 }
+  }
+
+  /// A part chosen from the title's list: there, open, as a chip goes; its photos, their grid.
+  private func go(to asked: PageNavigator.Asked?, _ proxy: ScrollViewProxy) {
+    guard let asked, let whole else { return }
+    if asked.id == Self.photosID { return allPhotos() }
+    if let i = whole.ids.firstIndex(of: asked.id) { opened.insert(i) }
+    jump(to: asked.id, proxy)
+  }
+
+  /// The name in the bar, once it has left the page; not with the owner's navigator, whose title says it (the bar's own).
+  @ViewBuilder private var barTitle: some View {
+    if trying?.long != true, nameGone, barMid > 0 {
+      let place = barName ?? BarPlace(x: width / 2, room: max(60, width - 290))
+      Text(verbatim: item.name).font(.headline).lineLimit(1).dynamicTypeSize(.large)
+        .foregroundStyle(colourAt.top ? Color.white : Color.primary)
+        .frame(maxWidth: place.room)
+        .position(x: place.x, y: barMid - origin.y)
+        .allowsHitTesting(false)
+        .accessibilityHidden(true)
+        .accessibilityIdentifier("v2-bar-name")
     }
   }
 
@@ -338,6 +384,11 @@ struct SpeciesPage: View {
     guard backEnd > 0, saveStart > 0, shareStart > 0, trail - lead > 92 else { return nil }
     return (lead, trail, 2 * (min(width / 2 - lead, trail - width / 2) - 16))
   }
+
+  /// How wide the navigator's title may be, beside the back button: the bar less its three round buttons, their margins
+  /// and the room iOS keeps between them; any wider and iOS folds the bookmark and share into a "⋯" of its own. From the
+  /// page's width alone: from the buttons' places, which move as the title comes, the bar never settled.
+  private var titleWidth: CGFloat { max(80, (width > 0 ? width : 402) - 240) }
 
   private func standOnColour() {
     footGround?.wrappedValue = colourAt.foot ? FootGround(page: me, colour: colour) : nil
@@ -371,6 +422,9 @@ struct SpeciesPage: View {
           withAnimation(.easeInOut(duration: 0.2)) { nameGone = gone }
         }
       if let sub = item.sub { LatinName(text: sub).font(.title3).italic().foregroundStyle(.white.opacity(0.75)) }
+      // Its family and where it comes from, then its other names, as the site's page has them under its name.
+      if let doc, !doc.where.isEmpty { Text(styled(doc.where)).foregroundStyle(.white.opacity(0.75)).tint(.white) }
+      if let aka = doc?.aka { Text(verbatim: aka).foregroundStyle(.white.opacity(0.75)) }
       if Life(item) != nil {
         Button { putting = true } label: {
           Label("Thêm vào bể", systemImage: "plus")
@@ -450,6 +504,25 @@ struct SpeciesPage: View {
                 .dynamicTypeSize(...DynamicTypeSize.xxLarge)
             }
           }
+          .containerRelativeFrame(.horizontal) { w, _ in shelfCard(w, across: 1, spacing: 10) }
+        }
+        // Last, all of them: the grid, as the banner opens it.
+        if let n = galleryCount {
+          Button { allPhotos() } label: {
+            Color.white.opacity(0.14)
+              .aspectRatio(1.6, contentMode: .fit)
+              .overlay {
+                VStack(spacing: 8) {
+                  Image(systemName: "photo.on.rectangle").font(.title2)
+                  Text("Xem tất cả \(n) ảnh").font(.subheadline.weight(.semibold)).multilineTextAlignment(.center)
+                }
+                .foregroundStyle(.white)
+                .padding(12)
+              }
+              .clipShape(.rect(cornerRadius: 16, style: .continuous))
+          }
+          .buttonStyle(CardPress())
+          .accessibilityIdentifier("v2-gallery-all")
           .containerRelativeFrame(.horizontal) { w, _ in shelfCard(w, across: 1, spacing: 10) }
         }
       }
@@ -552,8 +625,8 @@ struct SpeciesPage: View {
           if let traits = FactsCard.traits(facts) { Text(traits) }
         }
         .padding(.horizontal, 20)
-        if let good = m.good, !good.items.isEmpty { MatesRow(title: good.title, mates: good.items, good: true) }
-        if let avoid = m.avoid, !avoid.items.isEmpty { MatesRow(title: avoid.title, mates: avoid.items, good: false) }
+        if let good = m.good, !good.items.isEmpty { matesRows(good.title, good.items, good: true) }
+        if let avoid = m.avoid, !avoid.items.isEmpty { matesRows(avoid.title, avoid.items, good: false) }
         // What explains the shelves straight under them, the credits last.
         VStack(alignment: .leading, spacing: 6) {
           if let note = m.note { Text(verbatim: note).font(.footnote).foregroundStyle(.v2Faint) }
@@ -587,6 +660,14 @@ struct SpeciesPage: View {
         .padding(.horizontal, 20)
       }
     }
+  }
+
+  /// One side of "Nuôi chung": its fish as rows with their photos, why under each, opening their pages; their photos'
+  /// credits at the page's foot.
+  private func matesRows(_ title: String, _ mates: [PageDoc.Mates.Mate], good: Bool) -> some View {
+    CardsPart(title: title, cards: mates.map { NativePage.Card(path: $0.path, name: $0.name, sub: $0.why, img: $0.img) }, good: good,
+              open: { open($0) }, credits: false, v2: true)
+      .padding(.horizontal, 20)
   }
 
   private func toolButton(_ text: String, _ href: String) -> some View {
@@ -664,20 +745,17 @@ struct SpeciesPage: View {
           // Its readers before the literature it cites and its sources, one with the part after them: none, no gap.
           if i == whole.readersAt {
             VStack(alignment: .leading, spacing: 0) {
-              readers(doc)
+              placed(readers(doc), Self.readersID)
               placed(part(i, whole, doc), whole.ids[i])
             }
           } else {
             placed(part(i, whole, doc), whole.ids[i])
           }
         }
-        if whole.readersAt == whole.parts.count { readers(doc) }
+        if whole.readersAt == whole.parts.count { placed(readers(doc), Self.readersID) }
       }
       credits
     }
-    // Links in the text: a page the index lists opens in the app, `#id` scrolls to it, a word's tip shows, a video's
-    // moment plays it here.
-    .environment(\.openURL, OpenURLAction { follow($0, proxy) })
     .padding(.top, 24)
     .padding(.bottom, 40)
     .alert(tip?.term ?? "", isPresented: Binding(get: { tip != nil }, set: { if !$0 { tip = nil } }), presenting: tip) { t in
@@ -699,19 +777,73 @@ struct SpeciesPage: View {
       .background { if let trying { PagePlace(navigator: trying, id: id) } }
   }
 
-  /// The photos' place under the name.
-  private static let photosID = "v2-photos"
+  /// The photos' row in the navigator's list (their grid), and the readers' part's place.
+  private static let photosID = "v2-photos", readersID = "v2-readers"
 
   /// The navigator, the owner's alone for now, once the page has come: the title only, no choice of it and no rail.
   private var trying: PageNavigator? { account.owner.isOwner == true && whole != nil ? navigator : nil }
 
-  /// The parts the navigator's title lists: the photos, with how many, then each part with a name, in the page's order.
+  /// The parts the navigator's list has: the photos with a few of them and how many, where they have a grid; then each part
+  /// with a name, in the page's order, its readers' in theirs; those after its care with how many each has.
   private func navigatorParts(_ whole: WholeParts, _ doc: PageDoc) -> [PageNavigator.Part] {
-    var out: [PageNavigator.Part] = photos.isEmpty ? [] : [.init(id: Self.photosID, name: "Ảnh", count: photos.count, photos: true)]
-    for i in whole.parts.indices where drawn(i, whole, doc) {
-      if let name = partName(i, whole, doc) { out.append(.init(id: whole.ids[i], name: name)) }
+    var out: [PageNavigator.Part] = []
+    if let n = galleryCount {
+      out.append(.init(id: Self.photosID, name: "Ảnh", count: n, photos: true, thumbs: galleryPhotos.prefix(3).map { $0.thumb ?? $0.src }))
     }
+    let readers = PageNavigator.Part(id: Self.readersID, name: "Ảnh bạn đọc", tail: true)
+    for i in whole.parts.indices {
+      if i == whole.readersAt, doc.talk != nil { out.append(readers) }
+      guard drawn(i, whole, doc), let name = partName(i, whole, doc) else { continue }
+      out.append(.init(id: whole.ids[i], name: name, count: partCount(i, whole, doc), tail: tail(whole.parts[i])))
+    }
+    if whole.readersAt == whole.parts.count, doc.talk != nil { out.append(readers) }
     return out
+  }
+
+  /// Whether a part comes after the page's care: its breeds, guides, videos and sources.
+  private func tail(_ part: PagePart) -> Bool {
+    switch part {
+    case .cards, .pages, .videos, .trust, .refs: true
+    default: false
+    }
+  }
+
+  /// How many a part after the page's care has: its breeds, the guides the index lists, its videos.
+  private func partCount(_ i: Int, _ whole: WholeParts, _ doc: PageDoc) -> Int? {
+    switch whole.parts[i] {
+    case let .cards(b): if case let .cards(_, cards) = doc.blocks[b] { return cards.count }
+    case let .pages(b): if case let .pages(_, paths) = doc.blocks[b] { return paths.filter { handbook.item(at: $0) != nil }.count }
+    case .videos: return whole.pieces[i].filter { if case .video = $0 { true } else { false } }.count
+    default: break
+    }
+    return nil
+  }
+
+  /// The page's gallery's photos, the lead photo among them, as its grid has them: a gallery starts at 6.
+  private var galleryPhotos: [PageDoc.Image] {
+    for case let .gallery(_, _, list, _, _) in doc?.blocks ?? [] { return list }
+    return []
+  }
+
+  private var galleryCount: Int? { galleryPhotos.count >= 6 ? galleryPhotos.count : nil }
+
+  /// All the page's photos: from the banner, the carousel's last tile and the navigator's "Ảnh".
+  private func allPhotos() {
+    viewing = 0
+  }
+
+  /// "110 ảnh" on the banner's corner, over whatever the photo is.
+  private func badge(_ n: Int) -> some View {
+    Label { Text("\(n) ảnh") } icon: { Image(systemName: "photo.on.rectangle") }
+      .font(.system(size: 14, weight: .semibold))
+      .dynamicTypeSize(...DynamicTypeSize.xxLarge)
+      .foregroundStyle(.white)
+      .padding(.horizontal, 12)
+      .frame(minHeight: 32)
+      .background(.black.opacity(0.46), in: Capsule())
+      .background(.ultraThinMaterial, in: Capsule())
+      .environment(\.colorScheme, .dark)
+      .padding(12)
   }
 
   /// A part's name: its heading, or the title of the block that draws it.
@@ -793,7 +925,7 @@ struct SpeciesPage: View {
     // Its sources' figures, compared, show whole: folded, the figure they disagree on is the one cut.
     let folds = if case .section = whole.parts[i] { true } else { false }
     let anchor = whole.ids[i].hasPrefix("part-") ? nil : whole.ids[i]
-    return V2Section(title: whole.titles[i], pieces: whole.pieces[i], folds: folds,
+    return V2Section(key: "\(item.path) \(whole.ids[i])", title: whole.titles[i], pieces: whole.pieces[i], folds: folds,
                      open: Binding(get: { opened.contains(i) }, set: { if $0 { opened.insert(i) } }), width: width,
                      link: { open($0) }, full: { openFull(item, anchor) })
   }
@@ -901,67 +1033,5 @@ private struct MatesCredits: View {
       }
       .foregroundStyle(.v2Faint).tint(Color.v2Faint)
     }
-  }
-}
-
-/// One side of "Nuôi chung": its fish as tiles that open their pages, why under each.
-@available(iOS 18, *)
-private struct MatesRow: View {
-  let title: String
-  let mates: [PageDoc.Mates.Mate]
-  let good: Bool
-  @Environment(HandbookModel.self) private var handbook
-  @Environment(\.dynamicTypeSize) private var size
-  @ScaledMetric(relativeTo: .subheadline) private var photoHeight: CGFloat = 120
-
-  var body: some View {
-    VStack(alignment: .leading, spacing: 10) {
-      Label { Text(verbatim: title) } icon: {
-        Image(systemName: good ? "checkmark.circle.fill" : "xmark.circle.fill").foregroundStyle(good ? .green : .red)
-      }
-      .font(.headline)
-      .padding(.horizontal, 20)
-      // Why to keep a fish away is what decides: whole, down the screen at the accessibility sizes.
-      if size.isAccessibilitySize {
-        VStack(alignment: .leading, spacing: 16) {
-          ForEach(mates, id: \.path) { m in tile(m, photo: 88, why: nil) }
-        }
-        .padding(.horizontal, 20)
-      } else {
-        ScrollView(.horizontal, showsIndicators: false) {
-          HStack(alignment: .top, spacing: 12) {
-            ForEach(mates, id: \.path) { m in
-              tile(m, photo: photoHeight, why: 3).containerRelativeFrame(.horizontal, alignment: .leading) { w, _ in shelfCard(w, across: 2, spacing: 12) }
-            }
-          }
-          .scrollTargetLayout()
-        }
-        .contentMargins(.horizontal, 20, for: .scrollContent)
-        .scrollTargetBehavior(.viewAligned)
-        .v2ShelfEdge()
-      }
-    }
-  }
-
-  private func tile(_ m: PageDoc.Mates.Mate, photo: CGFloat, why lines: Int?) -> some View {
-    let item = handbook.item(at: m.path)
-    return NavigationLink(value: item) {
-      VStack(alignment: .leading, spacing: 6) {
-        let src = m.img?.src ?? item?.img
-        // Its colour known before its page opens, so that opens in it, not in green first.
-        V2Photo(src: src, colourKey: item?.img, colour: item?.kind == .fish ? { _ in } : nil)
-          .frame(width: lines == nil ? photo * 1.5 : nil, height: photo)
-          .clipShape(.rect(cornerRadius: 14, style: .continuous))
-          .overlay { RoundedRectangle(cornerRadius: 14, style: .continuous).strokeBorder(.primary.opacity(0.08), lineWidth: 0.5) }
-          // A third of the fish have no photo: the tile says what it is, not an empty box.
-          .overlay { if src == nil { Image(systemName: item?.kind.symbol ?? "fish").font(.title2).foregroundStyle(.secondary).accessibilityHidden(true) } }
-        Text(verbatim: m.name).font(.subheadline.weight(.semibold)).lineLimit(lines == nil ? nil : 2)
-        // Its lines whole: a row across a scroll view would give it its one line's height.
-        if let why = m.why { Text(verbatim: why).font(.caption).foregroundStyle(.v2Faint).lineLimit(lines).fixedSize(horizontal: false, vertical: true) }
-      }
-      .multilineTextAlignment(.leading)
-    }
-    .buttonStyle(.plain)
-    .disabled(item == nil)
   }
 }

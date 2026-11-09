@@ -10,6 +10,8 @@ struct FactsCard: View {
   let facts: HandbookIndex.Facts
   var plant: HandbookIndex.Plant?
   var inPage = false
+  /// v2's card (docs/design/v2-fish-page.md): its labels a size up, the difficulty's word plain, its "2/8" smaller.
+  var v2 = false
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.dynamicTypeSize) private var size
 
@@ -22,7 +24,7 @@ struct FactsCard: View {
         ForEach(Self.rows(all.count, n), id: \.self) { row in
           GridRow {
             ForEach(row, id: \.self) { i in
-              Fact(item: all[i], large: true).frame(maxWidth: .infinity, alignment: .leading)
+              Fact(item: all[i], large: true, v2: v2).frame(maxWidth: .infinity, alignment: .leading)
             }
           }
         }
@@ -138,11 +140,17 @@ private struct Fact: View {
   let item: FactsCard.Item
   /// In the page's grid: the value at a size to read at a glance.
   var large = false
+  var v2 = false
 
   var body: some View {
     let fact = VStack(alignment: .leading, spacing: large ? 4 : 2) {
-      Text(item.label).font(.caption).foregroundStyle(.secondary)
-      if let level = item.level {
+      Text(item.label).font(v2 ? .footnote : .caption).foregroundStyle(.secondary)
+      if v2, item.level != nil {
+        HStack(alignment: .firstTextBaseline, spacing: 4) {
+          Text(verbatim: item.value).font(.title3.weight(.semibold))
+          if let outOf = item.outOf { Text(verbatim: outOf).font(.subheadline).foregroundStyle(.secondary).monospacedDigit() }
+        }
+      } else if let level = item.level {
         HStack(alignment: .firstTextBaseline, spacing: 6) {
           Text(verbatim: item.value)
             .font(large ? .subheadline.weight(.semibold) : .caption.weight(.semibold))
