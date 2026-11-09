@@ -1,0 +1,97 @@
+{
+  "id": "kottelatlimia-pristes",
+  "native": {
+    "input": "2668eea656b57da4",
+    "at": "2026-11-09T09:57:55.009Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This is the most widely-distributed member of the genus and has been reported from Selangor State, Peninsular Malaysia, Riau province, Sumatra (Indonesia), Sarawak State, Borneo (Malaysia), and throughout Kalimantan with the exception of Kalimantan Selatan (South Kalimantan) province, Borneo (Indonesia).",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This is the most widely-distributed member of the genus and has been reported from Selangor State, Peninsular Malaysia, Riau province, Sumatra (Indonesia), Sarawak State, Borneo (Malaysia), and throughout Kalimantan with the exception of Kalimantan Selatan (South Kalimantan) province, Borneo (Indonesia).",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Kapuas River",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'swampy stream about 30 kilometers west of Sintang on road from Sanggau to Sintang, Kapuas River basin, Barat, Kalimantan, Borneo'.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'swampy stream about 30 kilometers west of Sintang on road from Sanggau to Sintang, Kapuas River basin, Barat, Kalimantan, Borneo'.",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "This is the most widely-distributed member of the genus and has been reported from Selangor State, Peninsular Malaysia, Riau province, Sumatra (Indonesia), Sarawak State, Borneo (Malaysia), and throughout Kalimantan with the exception of Kalimantan Selatan (South Kalimantan) province, Borneo (Indonesia).",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Peninsular Malaysia",
+        "source": "seriouslyfish",
+        "quote": "This is the most widely-distributed member of the genus and has been reported from Selangor State, Peninsular Malaysia, Riau province, Sumatra (Indonesia), Sarawak State, Borneo (Malaysia), and throughout Kalimantan with the exception of Kalimantan Selatan (South Kalimantan) province, Borneo (Indonesia).",
+        "country": "MY",
+        "ok": false,
+        "why": "a country"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Kottelatlimia pristes",
+    "status": "ACCEPTED",
+    "taxonKey": 2367839,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "b9afe2d0-b264-4422-bf8c-096b2a53c18f",
+        1
+      ]
+    ],
+    "native": [
+      "MY",
+      "ID"
+    ],
+    "requests": 13,
+    "at": "2026-11-09T09:57:55.009Z"
+  }
+}

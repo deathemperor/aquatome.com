@@ -1,0 +1,64 @@
+{
+  "id": "ituglanis-passensis",
+  "native": {
+    "input": "670297d247284ecb",
+    "at": "2026-11-09T09:57:55.009Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: known only from Passa Três cave, Brazil (Tocantins drainage).",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Tocantins",
+        "source": "planetcatfish",
+        "quote": "South America: known only from Passa Três cave, Brazil (Tocantins drainage).",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Ituglanis passensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2342925,
+    "datasets": [
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        4
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        3
+      ],
+      [
+        "9343010e-8261-4bd9-9314-bf2faf34f4e7",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T09:57:55.009Z"
+  }
+}

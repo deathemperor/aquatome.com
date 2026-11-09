@@ -63,10 +63,10 @@ SHOTS = {
     'account': ['testSigningIn', 'testSigningInInTheDark', 'testSigningInInTheLargestText', 'testTheAccountSignedIn',
                 'testTheAccountSignedInInTheDark', 'testTheAccountSignedInInTheLargestText'],
     'owner': ['testTheOwnersDashboard', 'testTheOwnersDashboardInTheDark', 'testTheOwnersDashboardInTheLargestText',
-              'testTheOwnersDashboardWithNothingToDo', 'testTheDailyReportsDelivery', 'testAnOwnersSection',
+              'testTheOwnersNeedsInTheLargestText', 'testTheOwnersDashboardWithNothingToDo', 'testTheDailyReportsDelivery', 'testAnOwnersSection',
               'testAnOwnersSectionInTheDark', 'testAnOwnersSectionInTheLargestText', 'testTheOwnersComments',
               'testTheOwnersCommentsInTheDark', 'testTheOwnersCommentsInTheLargestText', 'testTheDailyReportsSettings'],
-    'v2': ['testV2', 'testV2InTheDark', 'testV2InTheLargestText'],
+    'v2': ['testV2', 'testV2InTheDark', 'testV2InTheLargestText', 'testV2InMalayInTheDarkAtTheLargestText'],
     # The chat screen: an answer with its cards, from the stand-in's recordings.
     'chat': ['testTheChat', 'testTheChatInTheDark', 'testTheChatInTheLargestText'],
 }
@@ -186,7 +186,8 @@ REACH = {
                                         'TankLifeFlowTests/testAddsAFishWithoutAPageByNameSendsItOnceAndKeepsItAfterARelaunch'],
     APP + 'Tanks/TankGuides.swift': ['TankLifeFlowTests', 'NativePageFlowTests/testALinkFromTheTanksTabOpensOnTheTanksTab',
                                      'NativePageFlowTests/testAGroupFromTheTanksTabOpensOnTheTanksTab'],
-    APP + 'Tanks/TankLife.swift': ['TankLifeFlowTests', 'TankCheckFlowTests', 'TanksFlowTests', 'NativePageFlowTests'],
+    APP + 'Tanks/TankLife.swift': ['TankLifeFlowTests', 'TankCheckFlowTests', 'TanksFlowTests', 'NativePageFlowTests',
+                                   'V2FlowTests/testAFishPutOnATankFromItsPageOpensTheTank'],
     APP + 'Tanks/TankForm.swift': ['TanksFlowTests', 'TankLifeFlowTests', 'PlugFlowTests', 'AccountFlowTests'],
     APP + 'Tanks/CappedField.swift': ['TanksFlowTests', 'TankLifeFlowTests', 'PlugFlowTests', 'AccountFlowTests'],
     # The anonymous statistics: their own flows; and a light connected is one of the events sent.
@@ -212,8 +213,10 @@ REACH = {
     APP + 'ProfilePictures/': ACCOUNT_SHEET, APP + 'Assets.xcassets/ProfilePictures/': ['ProfilePictureFlowTests'],
     'protocols/profile-pictures.json': ['ProfilePictureFlowTests'],
     APP + 'Account/GoogleSignIn.swift': ACCOUNT_SHEET, APP + 'Account/Appearance.swift': ACCOUNT_SHEET,
-    # v2, behind the Tài khoản sheet's switch: its own flows (the switch, its tabs, a link into it), and its page shots.
+    # v2, the app's look since 2026-11-08: its own flows (the switch, its tabs, a link into it, a fish put on a tank from
+    # its page), and its page shots. Its root, which every flow on v2 runs through, reaches them all, as AquaTomeApp does.
     APP + 'V2/': ['V2FlowTests'] + shots('v2'),
+    APP + 'V2/V2Root.swift': ALL,
     # The stand-in server also takes the names readers want pages for (a fish put on a tank by name), and serves the
     # owner's dashboard.
     APP + 'Account/FakeServer.swift': ['AccountFlowTests', 'ReaderPostFlowTests', 'TankLifeFlowTests', 'FishIdFlowTests',

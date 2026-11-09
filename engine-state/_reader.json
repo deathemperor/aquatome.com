@@ -1133,6 +1133,12 @@
     ],
     "ruled": "efa8fff9b170427c"
   },
+  "vi/guides/aquariumbreeder-how-to-anchor-aquarium-plants-pros-and-cons-of-different-methods": {
+    "at": "2026-11-09",
+    "hash": "fc0df664ec88f0e8",
+    "findings": [],
+    "ruled": "fc0df664ec88f0e8"
+  },
   "vi/guides/aquariumbreeder-how-to-cycle-a-tank-the-dark-start-method": {
     "at": "2026-11-05",
     "hash": "f180350d54de5dbb",
@@ -1252,6 +1258,31 @@
       }
     ],
     "ruled": "e326231d0c8d6ff3"
+  },
+  "vi/guides/aquariumbreeder-how-to-handle-your-pet-crustaceans": {
+    "at": "2026-11-09",
+    "hash": "7d8f2e103ee8eadf",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Động vật ngoại lai không giống chó mèo.",
+        "problem": "'Ngoại lai' means alien or invasive species, which is the wrong word for 'exotic pets' and reads as a word-for-word translation.",
+        "fix": "Thú nuôi lạ không giống chó mèo.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "đặt tay vào chuồng nuôi của chúng rồi chờ chúng tự bò đi",
+        "problem": "'Chuồng nuôi' (a pen or cage for livestock) is an unnatural word for a crab or hermit crab tank.",
+        "fix": "đặt tay vào bể nuôi của chúng rồi chờ chúng tự bò đi",
+        "field": "body"
+      }
+    ],
+    "ruled": "7d8f2e103ee8eadf"
   },
   "vi/guides/aquariumbreeder-how-to-improve-breeding-efficiency-of-caridina-shrimp": {
     "at": "2026-11-07",
@@ -2002,6 +2033,12 @@
     ],
     "ruled": "af72146bd6889ece"
   },
+  "vi/guides/aquariumbreeder-top-coldwater-aquarium-plants": {
+    "at": "2026-11-09",
+    "hash": "768d20592df4dded",
+    "findings": [],
+    "ruled": "768d20592df4dded"
+  },
   "vi/guides/aquariumbreeder-tubifex-worms-profile-and-culture-guide": {
     "at": "2026-11-05",
     "hash": "052cc9fa133a992c",
@@ -2491,6 +2528,31 @@
       }
     ],
     "ruled": "54e68c2df571ed73"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-air-pump-with-multiple-tanks": {
+    "at": "2026-11-09",
+    "hash": "08fb9d25ad052f84",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "- Dán một dải băng keo giấy dọc suốt chiều dài ống PVC.",
+        "problem": "The how-to steps carry straight on from the materials list as bullets in the same list, with no break or lead-in, so a reader can't tell where the materials end and the steps begin.",
+        "fix": "Thêm dòng \"Các bước làm:\" trước bước dán băng keo, và đánh số các bước 1, 2, 3…",
+        "field": "body"
+      },
+      {
+        "kind": "unsupported",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Lọc mút là loại lọc đáng dùng cho mọi bể cá.",
+        "problem": "The source only says its writers like sponge filters in all their own tanks, but the page turns this into a general claim that every tank should use one.",
+        "fix": "Lọc mút dùng được cho hầu hết các bể, có người chạy lọc mút cho tất cả bể nhà mình.",
+        "field": "body"
+      }
+    ],
+    "ruled": "08fb9d25ad052f84"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-air-stones-the-secret-weapon-every-aquarium-needs": {
     "at": "2026-11-05",
@@ -10759,6 +10821,12 @@
     ],
     "ruled": "40a5086540662bfa"
   },
+  "vi/guides/youtube-0QMRhOJlmy0": {
+    "at": "2026-11-09",
+    "hash": "e99956f0c25d9821",
+    "findings": [],
+    "ruled": "e99956f0c25d9821"
+  },
   "vi/guides/youtube-0sRRk-LEl9E": {
     "at": "2026-11-07",
     "hash": "e2caca0e8d9a39d7",
@@ -11337,6 +11405,12 @@
       }
     ],
     "ruled": "f93cf494b9f9ed17"
+  },
+  "vi/guides/youtube-7gf1xIZTJRg": {
+    "at": "2026-11-09",
+    "hash": "a79b96c073c711a1",
+    "findings": [],
+    "ruled": "a79b96c073c711a1"
   },
   "vi/guides/youtube-7l1Ja0NL_UQ": {
     "at": "2026-11-06",
@@ -12540,6 +12614,18 @@
     ],
     "ruled": "4a78bba81ec8dddc"
   },
+  "vi/guides/youtube-DkuoQLxF7u8": {
+    "at": "2026-11-09",
+    "hash": "018449165a149cdb",
+    "findings": [],
+    "ruled": "018449165a149cdb"
+  },
+  "vi/guides/youtube-DLJtTl_IJSk": {
+    "at": "2026-11-09",
+    "hash": "211e794b6e31753c",
+    "findings": [],
+    "ruled": "211e794b6e31753c"
+  },
   "vi/guides/youtube-DNIpE51gLwY": {
     "at": "2026-11-08",
     "hash": "d556076b2f57ccb0",
@@ -12828,6 +12914,31 @@
     ],
     "ruled": "c8136e2f5a2695b6"
   },
+  "vi/guides/youtube-eSwWIBG7Skg": {
+    "at": "2026-11-09",
+    "hash": "953667124fd8287c",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Một loài lạ hiếm gặp là dwarf anchor catfish, chỉ dài khoảng 4,5 cm.",
+        "problem": "A catfish is mentioned at the end of the shrimp section, where it doesn't belong. It reads like it was cut loose from the catfish (Synodontis) section.",
+        "fix": "Chuyển câu này sang phần Synodontis lucipinnis: \"Một loài cá da trơn lạ, hiếm gặp là dwarf anchor catfish, chỉ dài khoảng 4,5 cm.\"",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Geophagus: cá sàng cát đảo nền giúp bạn",
+        "problem": "\"đảo nền giúp bạn\" is an awkward, translated-sounding heading.",
+        "fix": "Geophagus: cá sàng cát, tự đảo nền cho bể",
+        "field": "body"
+      }
+    ],
+    "ruled": "953667124fd8287c"
+  },
   "vi/guides/youtube-EV1ZR6CjOzc": {
     "at": "2026-11-02",
     "hash": "837515679073ebbf",
@@ -13076,6 +13187,12 @@
     "findings": [],
     "ruled": "f90f76c5d6f27d09"
   },
+  "vi/guides/youtube-gBhJ6AWEbXY": {
+    "at": "2026-11-09",
+    "hash": "698be79e23aa7248",
+    "findings": [],
+    "ruled": "698be79e23aa7248"
+  },
   "vi/guides/youtube-GDaWgKk-hDo": {
     "at": "2026-11-04",
     "hash": "0a8c46bba8e7a41f",
@@ -13233,6 +13350,30 @@
         "field": "body"
       }
     ]
+  },
+  "vi/guides/youtube-HeOOfGW7eAk": {
+    "at": "2026-11-09",
+    "hash": "d7b18a200ddb0798",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "| khá khỏe",
+        "problem": "The table's lifespan column gives a hardiness remark instead of a lifespan for some species (emerald eye rasbora, harlequin rasbora, cherry barb), so the column doesn't give what its heading promises.",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Một đàn 6 con tốn khoảng 20–24 USD",
+        "problem": "At the stated 3–4 USD per fish, 6 lemon tetras cost 18–24 USD, not 20–24 USD.",
+        "fix": "Một đàn 6 con tốn khoảng 18–24 USD",
+        "field": "body"
+      }
+    ],
+    "ruled": "d7b18a200ddb0798"
   },
   "vi/guides/youtube-hFE1mUn-MY8": {
     "at": "2026-11-08",
@@ -13393,6 +13534,12 @@
     "findings": [],
     "ruled": "7f72237640161b62"
   },
+  "vi/guides/youtube-i_juW-Tmwcs": {
+    "at": "2026-11-09",
+    "hash": "be0657bc99fa60fc",
+    "findings": [],
+    "ruled": "be0657bc99fa60fc"
+  },
   "vi/guides/youtube-I_KBOUM1RXM": {
     "at": "2026-11-06",
     "hash": "030f6f8a73dcaf0e",
@@ -13501,6 +13648,31 @@
     "hash": "e0055f72507bfffd",
     "findings": [],
     "ruled": "e0055f72507bfffd"
+  },
+  "vi/guides/youtube-iMdL-mkSSJY": {
+    "at": "2026-11-09",
+    "hash": "e6664bc875fc3e43",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Loài này cùng họ cá lưỡi xương với cá rồng.",
+        "problem": "The African butterfly fish (Pantodontidae) is not in the same family as the arowana (Osteoglossidae). They share only the order Osteoglossiformes.",
+        "fix": "Loài này cùng bộ cá lưỡi xương với cá rồng.",
+        "field": "body"
+      },
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Cá flagtail prochilodus lớn tới khoảng 60 cm.",
+        "problem": "The flagtail prochilodus (Semaprochilodus) usually reaches about 30–35 cm, so 60 cm is about double its real size. The same figure appears again in summary L3.",
+        "fix": "Cá flagtail prochilodus lớn tới khoảng 30–35 cm.",
+        "field": "body"
+      }
+    ],
+    "ruled": "e6664bc875fc3e43"
   },
   "vi/guides/youtube-iS8fJvjUa1Q": {
     "at": "2026-11-07",
@@ -13764,6 +13936,31 @@
       }
     ],
     "ruled": "d7d51a91e435d739"
+  },
+  "vi/guides/youtube-jLaoKifwo1Y": {
+    "at": "2026-11-09",
+    "hash": "b3de0ed54bc3e51d",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "L4",
+        "quote": "bể không cây chỉ cần khoảng 4 giờ, bể thủy sinh 8–12 giờ",
+        "problem": "The body uses 4 hours only as an example (light it as long as you watch it, up to about 12 hours), but the summary turns it into a fixed 4-hour rule.",
+        "fix": "Hẹn giờ đèn cho đều mỗi ngày: bể không cây bật càng ít càng tốt, ngắm bao lâu thì bật bấy lâu, bể thủy sinh 8–12 giờ.",
+        "field": "summary.3"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bước tiếp theo là thả một đội ăn rêu.",
+        "problem": "\"Một đội ăn rêu\" is a word-for-word translation of the English \"a crew of algae eaters\" and reads unnaturally in Vietnamese.",
+        "fix": "Bước tiếp theo là thả cá, tép, ốc ăn rêu.",
+        "field": "body"
+      }
+    ],
+    "ruled": "b3de0ed54bc3e51d"
   },
   "vi/guides/youtube-JlH-zeUbQB0": {
     "at": "2026-11-01",
@@ -14268,6 +14465,23 @@
     ],
     "ruled": "0b5099e3a6a6970d"
   },
+  "vi/guides/youtube-ldbE9N7RUTQ": {
+    "at": "2026-11-09",
+    "hash": "096311d4bdb30e65",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "L10",
+        "quote": "Cho nó ăn riêng viên tảo, trùn chỉ huyết hay artemia sau khi tắt đèn",
+        "problem": "Same mixed term: \"trùn chỉ huyết\" combines tubifex and bloodworm.",
+        "fix": "Cho nó ăn riêng viên tảo, trùn huyết hay artemia sau khi tắt đèn",
+        "rule": "Flag the string \"trùn chỉ huyết\".",
+        "field": "faq.1.a"
+      }
+    ],
+    "ruled": "096311d4bdb30e65"
+  },
   "vi/guides/youtube-lDqnNTTsymk": {
     "at": "2026-11-08",
     "hash": "bd6dfa5e3e8a55d7",
@@ -14292,6 +14506,22 @@
       }
     ],
     "ruled": "bd6dfa5e3e8a55d7"
+  },
+  "vi/guides/youtube-LEFJcwQdUvU": {
+    "at": "2026-11-09",
+    "hash": "68b77675e264a0b0",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Có một điều cần nhớ: dòng này không nuôi chung được với cá nào khác.",
+        "problem": "Says this fancy guppy line can't share a tank with any other fish, while the page later says fancy guppies live well with many species; it likely means not mixing with other guppy strains to keep the line pure.",
+        "fix": "Có một điều cần nhớ: muốn giữ dòng này thuần thì không thả chung với bảy màu dòng khác.",
+        "field": "body"
+      }
+    ],
+    "ruled": "68b77675e264a0b0"
   },
   "vi/guides/youtube-LFIB7o9BnFA": {
     "at": "2026-11-02",
@@ -14908,6 +15138,33 @@
         "field": "body"
       }
     ]
+  },
+  "vi/guides/youtube-nXDe9QF-Gu8": {
+    "at": "2026-11-09",
+    "hash": "a852b43b2dd139d6",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Bể 80 lít là khoảng 75 lít.",
+        "problem": "The opening sentence is garbled: it says an 80-litre tank is about 75 litres, apparently a mangled conversion of 'a 20-gallon tank is about 75 litres'.",
+        "fix": "Bể 20 gallon tương đương khoảng 75 lít.",
+        "field": "body"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-09",
+        "field": "body",
+        "score": 0.7,
+        "kept": false,
+        "problems": [
+          "The opening sentence is garbled: it says an 80-litre tank is about 75 litres, apparently a mangled conversion of 'a 20-gallon tank is about 75 litres'."
+        ]
+      }
+    ],
+    "ruled": "a852b43b2dd139d6"
   },
   "vi/guides/youtube-O3u6GuClWi0": {
     "at": "2026-11-08",
@@ -15545,6 +15802,23 @@
     "findings": [],
     "ruled": "9c0ae8d45c216181"
   },
+  "vi/guides/youtube-rh8iBySuUpE": {
+    "at": "2026-11-09",
+    "hash": "2ec496d940ee067f",
+    "findings": [],
+    "rewrites": [
+      {
+        "at": "2026-11-09",
+        "field": "body",
+        "score": 0.85,
+        "kept": true,
+        "problems": [
+          "\"Ngân long\" is the Vietnamese hobby name for the silver arowana, so calling the Colombian blue tetra \"cá ngân long\" may make readers think the page means an arowana; the same name is repeated in L1, L4 and the table."
+        ]
+      }
+    ],
+    "ruled": "2ec496d940ee067f"
+  },
   "vi/guides/youtube-rho_cQXD7yA": {
     "at": "2026-11-05",
     "hash": "a7e6bff670c55f1f",
@@ -15909,6 +16183,32 @@
       }
     ],
     "ruled": "15fccc83d931ccae"
+  },
+  "vi/guides/youtube-SvweeFIvybY": {
+    "at": "2026-11-09",
+    "hash": "de68f37713ccfa70",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "## Ốc hại bùng số lượng là do đâu và xử lý thế nào",
+        "problem": "This subsection about pest-snail outbreaks has a top-level heading like the five species, so the page seems to list six items instead of the five in the title.",
+        "fix": "### Ốc hại bùng số lượng là do đâu và xử lý thế nào",
+        "rule": "A heading that is not a species name sits between species headings on a page whose title gives a count.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Tép cherry từng được nuôi ngoài hồ có lúc mặt hồ đóng băng, trong bể rất nóng, pH cao hay thấp",
+        "problem": "The run-on list of conditions is awkward and hard to parse.",
+        "fix": "Tép cherry sống được ở đủ kiểu nước: nuôi ngoài hồ có lúc mặt nước đóng băng, nuôi trong bể rất nóng, pH cao hay thấp, nước cứng hay mềm đều được.",
+        "field": "body"
+      }
+    ],
+    "ruled": "de68f37713ccfa70"
   },
   "vi/guides/youtube-swFoi1J7YTk": {
     "at": "2026-11-04",
@@ -16352,6 +16652,22 @@
     "hash": "75cce644a8ce88c6",
     "findings": [],
     "ruled": "75cce644a8ce88c6"
+  },
+  "vi/guides/youtube-Vb_r4iSsDo8": {
+    "at": "2026-11-09",
+    "hash": "ed47f907d1a203b4",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "L10",
+        "quote": "luồn ống qua tường chắn đất và xả ra lối xe",
+        "problem": "The body text says the drain pipe runs through a trench under the concrete slab and the planter bed, but the FAQ says it goes through a retaining wall.",
+        "fix": "luồn ống qua rãnh dưới nền bê tông và bồn cây rồi xả ra lối xe",
+        "field": "faq.1.a"
+      }
+    ],
+    "ruled": "ed47f907d1a203b4"
   },
   "vi/guides/youtube-vg0xJoA0Vj4": {
     "at": "2026-11-06",

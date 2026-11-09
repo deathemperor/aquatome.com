@@ -10,6 +10,74 @@
     "south-korea",
     "gyeongsangbuk-do"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "KR"
+      ],
+      "regions": [
+        "Yongdokoship",
+        "Hyongsan",
+        "Chuksan",
+        "Songcheon"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "All Iksookimia species are endemic to Korea, with I. yongdokensis native to the eastern province of Gyeongsangbuk-do (North Gyeongsang), South Korea, where it is known from the Hyongsan, Yongdokoship, Chuksan and Songcheon river drainages.",
+          "countries": [
+            "KR"
+          ],
+          "regions": [
+            "Yongdokoship",
+            "Hyongsan",
+            "Chuksan",
+            "Songcheon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2368316,
+      "total": 236,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "KR",
+          236
+        ]
+      ],
+      "cells": [
+        [
+          125.15625,
+          36.5625,
+          2,
+          2
+        ],
+        [
+          126.5625,
+          36.5625,
+          6,
+          6
+        ],
+        [
+          127.96875,
+          35.15625,
+          207,
+          207
+        ],
+        [
+          129.375,
+          35.15625,
+          21,
+          21
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -1,0 +1,214 @@
+{
+  "id": "laemolyta-taeniata",
+  "native": {
+    "input": "9649e641298042b9",
+    "at": "2026-11-09T09:57:55.009Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Rio Guaporé, Manaus, Mato Grosso, Brazil' and this species is known from the rios Madeira (of which the Guaporé is a tributary) and Negro in Brazil including a number of tributary drainages and floodplain lakes.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's also been recorded in the Bolivian portion of the Guaporé, where the river is known as the Iténez, the Río Orinoco system in Venezuela and rios Ampiyacu and Nanay in Loreto Region, Peru.",
+        "words": "Bolivian",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's also been recorded in the Bolivian portion of the Guaporé, where the river is known as the Iténez, the Río Orinoco system in Venezuela and rios Ampiyacu and Nanay in Loreto Region, Peru.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's also been recorded in the Bolivian portion of the Guaporé, where the river is known as the Iténez, the Río Orinoco system in Venezuela and rios Ampiyacu and Nanay in Loreto Region, Peru.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Native to the central portion of the Amazon basin but the full extent of its range is somewhat unclear.",
+        "ok": true
+      },
+      {
+        "name": "Madeira",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Rio Guaporé, Manaus, Mato Grosso, Brazil' and this species is known from the rios Madeira (of which the Guaporé is a tributary) and Negro in Brazil including a number of tributary drainages and floodplain lakes.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Negro",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Rio Guaporé, Manaus, Mato Grosso, Brazil' and this species is known from the rios Madeira (of which the Guaporé is a tributary) and Negro in Brazil including a number of tributary drainages and floodplain lakes.",
+        "country": "BR",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "It's also been recorded in the Bolivian portion of the Guaporé, where the river is known as the Iténez, the Río Orinoco system in Venezuela and rios Ampiyacu and Nanay in Loreto Region, Peru.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Tocantins",
+        "source": "seriouslyfish",
+        "quote": "More recently Mautari and Menezes (2006) reported it to occur in the rio Tocantins system so it may be more widely-distributed than is typically accepted.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Laemolyta taeniata",
+    "status": "ACCEPTED",
+    "taxonKey": 2355440,
+    "datasets": [
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        78
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        49
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        32
+      ],
+      [
+        "58414378-4fb2-47e0-8dd5-8b55d5c77117",
+        14
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        14
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        13
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        11
+      ],
+      [
+        "ada824f0-5741-4f99-8452-9bcf46472a84",
+        8
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        8
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        8
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        8
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        6
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        5
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        4
+      ],
+      [
+        "6424b95e-eee2-41fc-9450-bac5d6767525",
+        4
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        4
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        3
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        2
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        2
+      ],
+      [
+        "278b1d5c-d7a9-4f7a-9651-69cddbb5b94e",
+        1
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "b8ed9b7c-5b73-4e6d-a6e1-b0911a09f947",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ],
+      [
+        "e760ba8b-f487-46ae-91a2-526fe72bbe1c",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "BO",
+      "VE",
+      "PE"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T09:57:55.009Z"
+  }
+}

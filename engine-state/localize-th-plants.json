@@ -555,11 +555,11 @@
     ]
   },
   "ceratopteris-thalictroides": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
+    "at": "2026-11-09",
+    "from": "2026-11-09",
     "name": "ผักกูดน้ำ",
     "confidence": "medium",
-    "score": 0.9,
+    "score": 0.95,
     "notes": []
   },
   "crinum-calamistratum": {
@@ -1306,15 +1306,15 @@
     "notes": []
   },
   "littorella-uniflora": {
-    "at": "2026-11-04",
-    "from": "2026-10-30",
+    "at": "2026-11-09",
+    "from": "2026-11-09",
     "name": "ลิตโตเรลลา",
-    "confidence": "medium",
-    "score": 0.85,
+    "confidence": "low",
+    "score": 0.8,
     "notes": [
-      "Item 1: \"cosmopolitan\" rendered as \"พบได้ทั่วโลก\" is acceptable, but \"ไม้น้ำที่แตกไหล\" for \"stolon\" is fine; no real issue beyond this.",
-      "Item 3: \"ด้วยรูปลักษณ์ของ Littorella uniflora ทำให้เป็นไม้น้ำ...\" is a slightly awkward sentence (no clear subject); rephrase e.g. \"Littorella uniflora มีรูปลักษณ์เฉพาะตัว จึงเป็นไม้น้ำที่จดจำได้ง่ายในตู้ปลา\".",
-      "Item 3: \"lakeshores\" -> \"ริมทะเลสาบ\" is fine, but \"garden ponds\" -> \"บ่อในสวน\" could be more natural as \"บ่อน้ำในสวน\"; \"เทอร์ราเรียม\" is OK, optionally add \"ตู้ปลูกไม้บก\"."
+      "Item 2: the source text is Vietnamese, not English. Check that the right source was supplied. The Thai itself matches the Vietnamese meaning.",
+      "Item 2: \"กอใบเรียงแบบกุหลาบซ้อน\" is an awkward rendering of rosette (lá hoa thị). \"กอใบเป็นดอกกุหลาบ\" or \"กอใบแบบโรเซ็ตต์\" is more natural. \"ซ้อน\" adds a meaning that isn't in the source.",
+      "Item 4: \"ด้วยรูปลักษณ์ของ Littorella uniflora ทำให้เป็นไม้น้ำ...\" is clumsy because it has no clear subject. Rephrase as \"Littorella uniflora มีรูปลักษณ์โดดเด่น จดจำได้ง่ายในตู้ไม้น้ำ\"."
     ]
   },
   "lobelia-cardinalis": {
@@ -1817,16 +1817,13 @@
     ]
   },
   "pogostemon-stellatus": {
-    "at": "2026-11-06",
-    "from": "2026-10-31",
-    "name": "Pogostemon stellatus",
+    "at": "2026-11-09",
+    "from": "2026-11-09",
+    "name": "โพโกสเตมอน สเตลลาตัส",
     "confidence": "medium",
     "score": 0.75,
     "notes": [
-      "Item 3: \"ปลูกแบบบก (ในสภาพชื้นแฉะ)\" – \"marshy conditions\" is better rendered as emersed growth (เลี้ยงแบบน้ำตื้น/ปลูกเหนือน้ำ/ใบเหนือน้ำ); \"ชื้นแฉะ\" sounds unnatural and slightly changes meaning.",
-      "Item 3: \"Stems from 20-60 cm and up to 10 cm wide\" – \"กว้างได้ถึง 10 ซม.\" is ambiguous; clarify that the plant/bush spreads up to 10 cm wide (ความกว้างของพุ่ม).",
-      "Item 2: \"แม้อยู่ในสภาพที่ดี\" is slightly awkward; use \"แม้จะดูแลในสภาพที่เหมาะสมแล้ว\".",
-      "Item 2: \"ตู้ปลา\" for aquarium in a plant context could be \"ตู้ไม้น้ำ\"; \"แสงจัด\" is okay but \"แสงสว่างมาก\" is more natural."
+      "Item 4: the English has \"Pogostemon stellata\", but the Thai has \"Pogostemon stellatus\". Keep the Latin name as the source gives it, or use the same form in every item."
     ]
   },
   "proserpinaca-palustris": {

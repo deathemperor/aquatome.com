@@ -11,6 +11,105 @@
     "jalisco",
     "colima"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MX"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The goldbreast goodeid, Ilyodon furcidens, is a livebearer from Jalisco and Colima in Mexico, found in fast-flowing streams and small rivers.",
+          "countries": [
+            "MX"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2347638,
+      "total": 228,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "MX",
+          226
+        ],
+        [
+          "US",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -111.09375,
+          22.5,
+          2,
+          2
+        ],
+        [
+          -105.46875,
+          18.28125,
+          35,
+          35
+        ],
+        [
+          -105.46875,
+          19.6875,
+          87,
+          87
+        ],
+        [
+          -104.0625,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          -104.0625,
+          18.28125,
+          66,
+          66
+        ],
+        [
+          -104.0625,
+          19.6875,
+          31,
+          31
+        ],
+        [
+          -102.65625,
+          18.28125,
+          2,
+          2
+        ],
+        [
+          -102.65625,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          -101.25,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          -99.84375,
+          28.125,
+          2,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -292,7 +292,7 @@ struct SpeciesPage: View {
       }
       .v2Glass(!colourAt.top)
     }
-    .sheet(isPresented: $putting) { if let life = Life(item) { NavigationStack { PutOnTank(life: life) } } }
+    .v2PutOnTank(item, isPresented: $putting)
     .fullScreenCover(isPresented: Binding(get: { viewing != nil }, set: { if !$0 { viewing = nil } })) {
       GalleryViewer(title: galleryTitle, note: "", photos: photos, readers: nil, index: viewing ?? 0)
     }

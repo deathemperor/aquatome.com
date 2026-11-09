@@ -194,6 +194,10 @@ func overviewRead(_ d: Owner.Dashboard, _ o: Object, _ name: Comment) throws {
   #expect(d.needs.map { target($0.to) } == needs.map { target($0) } && d.needs.allSatisfy { $0.to != nil }, name)
   #expect(d.needs.map(\.photos) == needs.map { ($0["photos"]?.array ?? []).map { "/_ab/anh/" + $0.string! } }, name)
   #expect(d.needsEmpty == o["needsEmpty"]!.string! && !d.needsEmpty.isEmpty, name)
+  // The owner's last action: what, when, and the section it was in.
+  let last = o["lastAction"]?.object
+  #expect(d.lastAction?.title == last?["text"]?.string && d.lastAction?.figure == last?["when"]?.string, name)
+  #expect(target(d.lastAction?.to) == last?["section"]?.string && (last == nil) == (d.lastAction == nil), name)
 
   let answers = o["answers"]!.object!, a = try #require(d.answers, name), chart = answers["chart"]?.object
   #expect(a.title == answers["title"]!.string! && a.note == answers["note"]?.object?["text"]?.string, name)

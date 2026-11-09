@@ -603,15 +603,14 @@
     ]
   },
   "ceratopteris-thalictroides": {
-    "at": "2026-10-30",
-    "from": "2026-10-30",
+    "at": "2026-11-09",
+    "from": "2026-11-09",
     "name": "Water Sprite",
     "confidence": "high",
-    "score": 0.85,
+    "score": 0.9,
     "notes": [
-      "\"tanaman awal\" is a literal rendering of \"starter plant\"; hobbyists say \"tanaman pemula\" or \"cocok untuk pemula\".",
-      "\"daun permukaan\" is awkward; use \"daun emersed/daun yang menyembul di permukaan\" or \"daun di atas permukaan air\".",
-      "\"menyerap nutrisi\" is fine, but \"memacu pertumbuhannya\" for \"promote growth\" could be \"merangsang pertumbuhan\" (stylistic only)."
+      "Item 3: \"daun emersed\" translates \"surface leaves\" with an untranslated English term. Consider \"daun di atas permukaan air (emersed)\" so it reads more clearly.",
+      "Item 4: \"Dengan cahaya yang cukup\" is weaker than \"In good light\". \"Dengan pencahayaan yang baik\" is closer."
     ]
   },
   "crinum-calamistratum": {
@@ -1349,14 +1348,16 @@
     ]
   },
   "littorella-uniflora": {
-    "at": "2026-11-04",
-    "from": "2026-10-30",
+    "at": "2026-11-09",
+    "from": "2026-11-09",
     "name": "Littorella uniflora",
     "confidence": "medium",
-    "score": 0.9,
+    "score": 0.3,
     "notes": [
-      "\"Asal: kosmopolitan\" is slightly terse; \"Asal\" could be \"Asal daerah\" or \"Persebaran\", which reads more naturally for origin.",
-      "\"Di alam, tanaman ini tumbuh liar\" is redundant; \"tumbuh liar\" or \"tumbuh di alam\" alone would be enough."
+      "Item 2: the English source is actually Vietnamese text (not English), so the source does not match the expected original; the ID is a translation of Vietnamese. Verify the source pairing.",
+      "Item 2: 'lakukan perawatan akuarium dengan hati-hati' is fine, but the item adds/omits content relative to the item 3 source (e.g. 'tách thành từng cụm' and 'phủ kín' are not in the English); confirm the correct source.",
+      "Item 3: 'Tahan dengan intensitas cahaya yang cukup rendah' is awkward; use 'Toleran terhadap intensitas cahaya yang cukup rendah'.",
+      "Item 3: 'runners' translated as 'stolon' is acceptable, but 'sulur' could be used; 'fat and fleshy' is rendered 'tebal berdaging' dropping 'fat' (minor)."
     ]
   },
   "lobelia-cardinalis": {
@@ -1865,16 +1866,14 @@
     ]
   },
   "pogostemon-stellatus": {
-    "at": "2026-11-06",
-    "from": "2026-10-31",
+    "at": "2026-11-09",
+    "from": "2026-11-09",
     "name": "Pogostemon stellatus",
     "confidence": "high",
-    "score": 0.75,
+    "score": 0.85,
     "notes": [
-      "#3 \"emersed (di lahan basah)\": \"emersed\" is untranslated English; use \"emers\" or \"tumbuh di atas permukaan air (emers)\". \"lahan basah\" for marshy conditions is also loose, so use \"kondisi rawa/lembap\".",
-      "#3 \"Batangnya 20–60 cm dengan lebar hingga 10 cm\": it is ambiguous. Say \"Batang setinggi 20–60 cm dan rumpun selebar hingga 10 cm\", or make clear that the width is the plant's, not the stem's.",
-      "#2 \"unsur hara mikro\": \"mikronutrien\" or \"unsur mikro\" is more common in the hobby.",
-      "#2 \"membuat daunnya pucat\": the source says \"leads to pale leaves\", so \"menyebabkan daun pucat\" is closer."
+      "Item 2: \"secara emersed\" leaves an English term unchanged. Use \"emers\" or \"tumbuh di atas permukaan air (emers)\".",
+      "Item 2: the source text is Vietnamese, not English. The meaning is carried over faithfully, but check that the source was the right one."
     ]
   },
   "proserpinaca-palustris": {

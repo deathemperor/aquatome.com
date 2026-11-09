@@ -10,7 +10,7 @@
     "eleocharis-acicularis",
     "glossostigma-elatinoides"
   ],
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "3rjwtQRT3pA",
     "title": "INTERMEDIATE PLANT:  Dwarf Hair Grass",
@@ -31,10 +31,15 @@
     "taxa": [
       "Eleocharis parvula",
       "Eleocharis acicularis",
-      "Hemianthus callitrichoides",
       "Glossostigma elatinoides"
     ],
     "gear": [
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "brand": "ADA",
+        "t": 317
+      },
       {
         "category": "phan-nen",
         "type": "phan",
@@ -42,13 +47,12 @@
       },
       {
         "category": "co2",
-        "type": "binh",
-        "t": 512
+        "t": 510
       }
     ],
     "figures": [
       {
-        "heading": "Hair grass lùn khác hair grass thường thế nào",
+        "heading": "Hair grass thường và dwarf hair grass khác nhau thế nào",
         "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/3rjwtQRT3pA/p0-J1LUluZGlhLmpwZw.webp",
@@ -57,74 +61,23 @@
           "height": 720,
           "licence": "CC BY 4.0",
           "author": "Yercaud-elango",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Eleocharis_parvula-2-veda_aquarium-bengaluru-India.jpg",
-          "caption": "Thảm hair grass lùn mọc dày ở tiền cảnh bể thủy sinh."
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Eleocharis_parvula-1-veda_aquarium-bengaluru-India.jpg",
+          "caption": "Thảm dwarf hair grass xanh mướt trải thấp ở tiền cảnh bể thủy sinh."
         }
       },
       {
-        "heading": "Chuẩn bị nền cho thảm",
-        "moments": [
-          {
-            "t": 347,
-            "url": "https://media.aquatome.com/video/3rjwtQRT3pA/t347.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể thủy sinh với lớp nền trắng, đá và thảm cỏ xanh phía trước."
-          }
-        ]
-      },
-      {
-        "heading": "Cắt tỉa thế nào",
-        "moments": [
-          {
-            "t": 511,
-            "url": "https://media.aquatome.com/video/3rjwtQRT3pA/t511.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể thủy sinh nhỏ với đá và thảm cỏ xanh thấp ở phía trước."
-          }
-        ]
-      },
-      {
-        "heading": "Có cần CO2 không",
-        "moments": [
-          {
-            "t": 545,
-            "url": "https://media.aquatome.com/video/3rjwtQRT3pA/t545.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể thủy sinh mới setup, lớp cỏ xanh nhỏ mới bắt đầu mọc dưới nền."
-          }
-        ],
+        "heading": "Cắm cây thế nào",
+        "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/3rjwtQRT3pA/p5-FzY2FwaW5nLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/3rjwtQRT3pA/p5-FzY2FwaW5nLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/3rjwtQRT3pA/p3-BcXVhcml1bS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/3rjwtQRT3pA/p3-BcXVhcml1bS5qcGc-480.webp",
           "width": 960,
-          "height": 338,
-          "licence": "CC BY 3.0",
-          "author": "Ghostsword",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Embalo_Aquascaping.jpg",
-          "caption": "Bể thủy sinh cây rậm rạp với thảm cỏ xanh phủ nền, cá neon bơi giữa."
+          "height": 638,
+          "licence": "CC BY 4.0",
+          "author": "Abhik.Mazumdar.73",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:An_Aquascapist_Planting_Aquatic_Plant_Anubias_Petite_with_Tweezers_in_an_Aquarium.jpg",
+          "caption": "Dùng nhíp cắm một cụm cây thủy sinh nhỏ xuống nền trong bể."
         }
-      },
-      {
-        "heading": "Bắt đầu từ đâu",
-        "moments": [
-          {
-            "t": 674,
-            "url": "https://media.aquatome.com/video/3rjwtQRT3pA/t674.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể thủy sinh nhỏ có đá và nền, sẵn sàng để trồng thảm."
-          },
-          {
-            "t": 689,
-            "url": "https://media.aquatome.com/video/3rjwtQRT3pA/t689.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể cong với hòn non bộ và lớp nền sáng, chuẩn bị trồng cỏ."
-          }
-        ]
       }
     ]
   }

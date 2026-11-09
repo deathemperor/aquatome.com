@@ -1,0 +1,227 @@
+{
+  "id": "iguanodectes-spilurus",
+  "native": {
+    "input": "c49387c967f3487f",
+    "at": "2026-11-09T09:57:55.009Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widely distributed throughout the Amazon, Orinoco, Essequibo and Tocantins river systems in Brazil, Peru, Bolivia, Ecuador, Colombia, Venezuela and Guyana.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widely distributed throughout the Amazon, Orinoco, Essequibo and Tocantins river systems in Brazil, Peru, Bolivia, Ecuador, Colombia, Venezuela and Guyana.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widely distributed throughout the Amazon, Orinoco, Essequibo and Tocantins river systems in Brazil, Peru, Bolivia, Ecuador, Colombia, Venezuela and Guyana.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widely distributed throughout the Amazon, Orinoco, Essequibo and Tocantins river systems in Brazil, Peru, Bolivia, Ecuador, Colombia, Venezuela and Guyana.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widely distributed throughout the Amazon, Orinoco, Essequibo and Tocantins river systems in Brazil, Peru, Bolivia, Ecuador, Colombia, Venezuela and Guyana.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widely distributed throughout the Amazon, Orinoco, Essequibo and Tocantins river systems in Brazil, Peru, Bolivia, Ecuador, Colombia, Venezuela and Guyana.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widely distributed throughout the Amazon, Orinoco, Essequibo and Tocantins river systems in Brazil, Peru, Bolivia, Ecuador, Colombia, Venezuela and Guyana.",
+        "words": "Guyana",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Widely distributed throughout the Amazon, Orinoco, Essequibo and Tocantins river systems in Brazil, Peru, Bolivia, Ecuador, Colombia, Venezuela and Guyana.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "Widely distributed throughout the Amazon, Orinoco, Essequibo and Tocantins river systems in Brazil, Peru, Bolivia, Ecuador, Colombia, Venezuela and Guyana.",
+        "ok": true
+      },
+      {
+        "name": "Essequibo",
+        "source": "seriouslyfish",
+        "quote": "Widely distributed throughout the Amazon, Orinoco, Essequibo and Tocantins river systems in Brazil, Peru, Bolivia, Ecuador, Colombia, Venezuela and Guyana.",
+        "ok": true
+      },
+      {
+        "name": "Tocantins",
+        "source": "seriouslyfish",
+        "quote": "Widely distributed throughout the Amazon, Orinoco, Essequibo and Tocantins river systems in Brazil, Peru, Bolivia, Ecuador, Colombia, Venezuela and Guyana.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Iguanodectes spilurus",
+    "status": "ACCEPTED",
+    "taxonKey": 2354237,
+    "datasets": [
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        93
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        68
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        63
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        46
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        46
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        38
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        29
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        24
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        21
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        17
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        16
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        15
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        14
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        13
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        12
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        10
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        8
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        6
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        5
+      ],
+      [
+        "ada824f0-5741-4f99-8452-9bcf46472a84",
+        4
+      ],
+      [
+        "2bee4a91-9d92-430e-a87e-ab32d3b1ce47",
+        2
+      ],
+      [
+        "b8ed9b7c-5b73-4e6d-a6e1-b0911a09f947",
+        2
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        1
+      ],
+      [
+        "278b1d5c-d7a9-4f7a-9651-69cddbb5b94e",
+        1
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        1
+      ],
+      [
+        "f7739f2a-9d89-40c2-a262-813832add25d",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "PE",
+      "BO",
+      "EC",
+      "CO",
+      "VE",
+      "GY"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T09:57:55.009Z"
+  }
+}
