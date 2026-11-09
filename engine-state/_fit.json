@@ -17214,8 +17214,8 @@
     "sourceRead": true
   },
   "th/guides/aquatome-ca-bi-san-mang-gill-flukes-dau-hieu-cach-chua-va-phong": {
-    "at": "2026-11-08",
-    "hash": "dbd30541be2404ee",
+    "at": "2026-11-09",
+    "hash": "9b32503bf11350d0",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -17248,18 +17248,6 @@
         "quote": "35–125 มก./กก. ในอาหาร"
       },
       {
-        "treatment": "praziquantel",
-        "strength": "",
-        "amount": 50,
-        "amountMax": 75,
-        "unit": "mg",
-        "per": 1,
-        "perUnit": "kg food",
-        "use": "parasites",
-        "method": "food",
-        "quote": "พราซิควอนเทลผสมอาหาร 50–75 มก. ต่ออาหาร 1 กก. นาน 3–5 วัน"
-      },
-      {
         "treatment": "formalin",
         "strength": "",
         "amount": 0.15,
@@ -17269,19 +17257,7 @@
         "perUnit": "litre",
         "use": "parasites",
         "method": "bath",
-        "quote": "0.15–0.25 มล./ลิตร นาน 30–60 นาที"
-      },
-      {
-        "treatment": "hydrogen peroxide",
-        "strength": "",
-        "amount": 300,
-        "amountMax": 560,
-        "unit": "mg",
-        "per": 1,
-        "perUnit": "litre",
-        "use": "parasites",
-        "method": "bath",
-        "quote": "300–560 มก./ลิตร นาน 10 นาที"
+        "quote": "0.15–0.25 มล./ลิตร"
       },
       {
         "treatment": "formaldehyde",
@@ -17296,18 +17272,6 @@
         "quote": "การแช่ฟอร์มาลดีไฮด์ 0.17 มล./ลิตร นาน 15 นาที"
       },
       {
-        "treatment": "fenbendazole",
-        "strength": "",
-        "amount": 25,
-        "amountMax": 0,
-        "unit": "mg",
-        "per": 1,
-        "perUnit": "litre",
-        "use": "parasites",
-        "method": "bath",
-        "quote": "เฟนเบนดาโซล 25 มก./ลิตร (แช่ 2 ครั้ง ครั้งละ 12 ชม. เว้น 24 ชม. ระหว่างครั้ง)"
-      },
-      {
         "treatment": "ivermectin",
         "strength": "",
         "amount": 0.031,
@@ -17317,7 +17281,7 @@
         "perUnit": "litre",
         "use": "parasites",
         "method": "bath",
-        "quote": "ไอเวอร์เมกติน 0.031 มก./ลิตร นาน 1 ชม."
+        "quote": "ไอเวอร์เมกติน 0.031 มก./ลิตร 1 ชั่วโมง"
       },
       {
         "treatment": "mebendazole",
@@ -17329,7 +17293,19 @@
         "perUnit": "litre",
         "use": "parasites",
         "method": "bath",
-        "quote": "มีเบนดาโซล 1 มก./ลิตร นาน 12 ชม."
+        "quote": "มีเบนดาโซล 1 มก./ลิตร 12 ชั่วโมง"
+      },
+      {
+        "treatment": "trichlorfon",
+        "strength": "",
+        "amount": 0.5,
+        "amountMax": 2,
+        "unit": "ppm",
+        "per": 0,
+        "perUnit": "",
+        "use": "parasites",
+        "method": "",
+        "quote": "ทริคลอร์ฟอน 0.5–2 ppm"
       }
     ],
     "sourceRead": true
