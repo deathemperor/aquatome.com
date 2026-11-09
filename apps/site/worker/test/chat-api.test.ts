@@ -80,10 +80,10 @@ const answers = (a: Record<string, unknown>) => msg([{ type: 'text', text: JSON.
 const pick = (p: Record<string, unknown>) => ({ t: 'species', ids: [], path: null, heading: null, tool: null, fish: [], tank: null, ...p })
 /**
  * A message as the API streams it, for a call that asks (`stream: true`): its events in order, each text block's text in
- * `pieces` deltas. An error comes as it is, before any stream.
+ * `pieces` deltas. An error comes as it is, before any stream, and so does a reply that is already a stream.
  */
 async function streamOf(res: Response, pieces = 3): Promise<Response> {
-  if (!res.ok) return res
+  if (!res.ok || res.headers.get('content-type') === 'text/event-stream') return res
   const m = await res.json() as { content: Record<string, unknown>[]; usage: { output_tokens: number }; stop_reason: string }
   const ev = (type: string, data: Record<string, unknown> = {}) => `event: ${type}\ndata: ${JSON.stringify({ type, ...data })}\n\n`
   const out = [ev('message_start', { message: { ...m, content: [], stop_reason: null, usage: { ...m.usage, output_tokens: 0 } } })]
@@ -414,6 +414,58 @@ test('a first call whose text has begun isn\'t asked again of the next key when 
   const events = text.split('\n\n').filter(Boolean).map(b => ({ event: b.split('\n')[0]!.slice('event: '.length), data: JSON.parse(b.split('\ndata: ')[1]!) }))
   expect(events.filter(x => x.event === 'text').map(x => x.data.text).join('')).toBe('Cá neon')
   expect(events.at(-1)).toEqual({ event: 'error', data: { error: 'unavailable' } })
+})
+
+/** A stream that sends `events`, then loses its connection (`error`) or ends there (`end`), before the message is whole. */
+const cutStream = (events: string, how: 'error' | 'end') => {
+  let sent = false
+  // The events are read first; the break comes on the next read (an error drops what is still queued).
+  return new Response(new ReadableStream({
+    pull: ctl => {
+      if (!sent) { sent = true; ctl.enqueue(new TextEncoder().encode(events)) } else if (how === 'error') ctl.error(new TypeError('network connection lost'))
+      else ctl.close()
+    },
+  }), { headers: { 'content-type': 'text/event-stream' } })
+}
+const sseEv = (type: string, data: Record<string, unknown>) => `event: ${type}\ndata: ${JSON.stringify({ type, ...data })}\n\n`
+const started = sseEv('message_start', { message: { id: 'm', type: 'message', role: 'assistant', model: 'claude-opus-5-5', content: [], stop_reason: null, stop_sequence: null, usage } })
+
+test('a stream cut once it has begun is the network\'s, as a call that doesn\'t stream: the next key is asked, and with none left the question is unavailable, its count given back', async () => {
+  for (const how of ['error', 'end'] as const) {
+    const { e, db } = env()
+    const me = await signIn(db)
+    // The first key's stream breaks after it began; the next key answers.
+    const c = claude([() => cutStream(started, how), ...NEON])
+    const { res } = await run(ask(bearer(me.token), {}, { accept: 'text/event-stream' }), e, deps(c.fetch))
+    expect(await res.text()).toContain('event: done')
+    expect(c.bodies).toHaveLength(3)
+    // Every call breaks: unavailable (503), not failed (502), on the first call and on a later one.
+    for (const replies of [[() => cutStream(started, how)], [() => reads('/vi/ca/ca-neon-xanh/'), () => cutStream(started, how)]]) {
+      const all = claude(replies)
+      const r = await run(ask(bearer(me.token), { conversation: crypto.randomUUID() }, { accept: 'text/event-stream' }), e, deps(all.fetch))
+      expect(await r.res.text()).toContain('event: error\ndata: {"error":"unavailable"}')
+    }
+  }
+})
+
+test('a first call cut after its text began but before the reader saw any is asked again of the next key, whose text then comes whole', async () => {
+  const { e, db } = env()
+  const me = await signIn(db)
+  const said = 'Cá neon xanh sống theo đàn, từ 8 con trở lên.'
+  const opening = sseEv('content_block_start', { index: 0, content_block: { type: 'text', text: '' } }) + sseEv('content_block_delta', { index: 0, delta: { type: 'text_delta', text: '{"offTopic":false,"text":"' } })
+  const bodies: Record<string, unknown>[] = []
+  const fetch = (async (input: RequestInfo | URL, init?: RequestInit) => {
+    bodies.push(await new Request(input, init).json() as Record<string, unknown>)
+    return bodies.length === 1 ? cutStream(started + opening, 'error') : msg([{ type: 'text', text: JSON.stringify({ offTopic: false, text: said, covered: true, blocks: [], suggestions: [] }) }])
+  }) as typeof globalThis.fetch
+  const { res } = await run(ask(bearer(me.token), {}, { accept: 'text/event-stream' }), e, deps(fetch))
+  const text = await res.text()
+  expect(streamMisfits(text, sseMedia)).toEqual([])
+  // The second key's call doesn't stream, so its text isn't read on from the first's opening.
+  expect(bodies.map(b => b.stream)).toEqual([true, undefined])
+  const events = text.split('\n\n').filter(Boolean).map(b => ({ event: b.split('\n')[0]!.slice('event: '.length), data: JSON.parse(b.split('\ndata: ')[1]!) }))
+  expect(events.filter(x => x.event === 'text').map(x => x.data.text)).toEqual([said])
+  expect(events.at(-1)).toMatchObject({ event: 'done', data: { text: said } })
 })
 
 test('a streamed call is bounded end to end: one that stalls after its first bytes ends as a timeout does, the network\'s fault, not the key\'s', async () => {

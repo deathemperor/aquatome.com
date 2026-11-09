@@ -36,7 +36,7 @@ import { textReader } from '../../../apps/site/worker/chat/answer'
 import { handbookOf, type Handbook, type Index, type Lang, type Source } from '../../../apps/site/worker/chat/handbook'
 import type { Topics } from '../../../apps/site/worker/chat/topics'
 import { clientFor, costOf } from '../../../apps/site/worker/fishid/claude'
-import { healthyKeys, loadKeys, memoryHealth, rotate, type HealthStore, type KeyEntry } from '../../../apps/site/worker/fishid/keys'
+import { healthyKeys, isApiError, loadKeys, memoryHealth, rotate, type HealthStore, type KeyEntry } from '../../../apps/site/worker/fishid/keys'
 import { CONDITIONS, savedTank, TOPICS, type HardQuestion } from './chat-vs-plain-lib'
 import { pool } from './eval-lib'
 
@@ -71,9 +71,9 @@ type Asked = { id: string; set: 'hard' | 'everyday'; kind: string; lang: Lang; q
 /**
  * One call, in ms: `at` from the turn's start to when it was sent; the rest from when it was sent. `first`: the stream
  * began (message_start); `text`: its first text; `piece`: the first piece of the answer's text a reader would see;
- * `tool`: its first tool call. `forced`: the last call, with no tools left (tool_choice none).
+ * `tool`: its first tool call. `forced`: the last call, with no tools left (tool_choice none). `asked`: its tool calls.
  */
-type Call = { n: number; at: number; ms: number; first?: number; text?: number; piece?: number; tool?: number; input: number; cacheRead: number; cacheWrite: number; output: number; stop?: string | null; forced: boolean; failed?: string }
+type Call = { n: number; at: number; ms: number; first?: number; text?: number; piece?: number; tool?: number; input: number; cacheRead: number; cacheWrite: number; output: number; stop?: string | null; forced: boolean; failed?: string; asked?: string[] }
 /** A turn: `ms`, the run (agent and blocks filled); `words`, when the reader's first words came in this mode. */
 type Turn = { id: string; set: Asked['set']; kind: string; lang: Lang; mode: Mode; ms: number; words?: number; calls: Call[]; steps: number[]; stopped?: string; failed?: string; offTopic?: boolean; dropped?: boolean; usd: number; text?: string }
 
@@ -97,11 +97,13 @@ const source: Source = {
 
 /**
  * The Worker's send (api.ts: the first call rotates over the healthy keys, later calls keep the key that answered), but
- * streamed, each call timed into `calls`. The whole call is bounded by its timeout, as a call that doesn't stream is.
+ * streamed, each call timed into `calls`. The whole call is bounded by its timeout, as a call that doesn't stream is,
+ * and a stream cut once it began is the network's, as there (`callClaude`). As there too, a first call isn't asked again
+ * once the reader has words (`shown`), and is asked again without its text read on once some of it was.
  */
-function sender(healthy: KeyEntry[], store: HealthStore, began: number, calls: Call[]): Send {
+function sender(healthy: KeyEntry[], store: HealthStore, began: number, calls: Call[], shown: () => boolean): Send {
   let client: Client | undefined
-  const once = async (c: Client, b: Parameters<Send>[0], timeoutMs: number, o: Parameters<Send>[1]) => {
+  const once = async (c: Client, b: Parameters<Send>[0], timeoutMs: number, o: Parameters<Send>[1], feed = o.onText) => {
     const sent = Date.now()
     const call: Call = { n: o.call, at: sent - began, ms: 0, input: 0, cacheRead: 0, cacheWrite: 0, output: 0, forced: b.tool_choice?.type === 'none' }
     const read = textReader()
@@ -114,26 +116,34 @@ function sender(healthy: KeyEntry[], store: HealthStore, began: number, calls: C
         else if (e.type === 'content_block_delta' && e.delta.type === 'text_delta') {
           call.text ??= t
           if (read(e.delta.text)) call.piece ??= t
-          o.onText?.(e.delta.text)
+          feed?.(e.delta.text)
         }
       }
       const m = await stream.finalMessage()
-      Object.assign(call, { ms: Date.now() - sent, input: m.usage.input_tokens, cacheRead: m.usage.cache_read_input_tokens ?? 0, cacheWrite: m.usage.cache_creation_input_tokens ?? 0, output: m.usage.output_tokens, stop: m.stop_reason })
+      Object.assign(call, { ms: Date.now() - sent, input: m.usage.input_tokens, cacheRead: m.usage.cache_read_input_tokens ?? 0, cacheWrite: m.usage.cache_creation_input_tokens ?? 0, output: m.usage.output_tokens, stop: m.stop_reason, asked: m.content.flatMap(b => (b.type === 'tool_use' ? [`${b.name} ${JSON.stringify(b.input)}`] : [])) })
       calls.push(call)
       return m
     } catch (e) {
       calls.push({ ...call, ms: Date.now() - sent, failed: String((e as Error).message ?? e).slice(0, 80) })
-      // An abort by the bound is the timeout a call that doesn't stream would have hit.
-      throw (e as Error)?.name === 'TimeoutError' || /aborted/i.test(String((e as Error)?.message)) ? new Error('Request timed out.') : e
+      // An abort by the bound is the timeout a call that doesn't stream would have hit; a cut stream, the network.
+      if ((e as Error)?.name === 'TimeoutError' || /aborted/i.test(String((e as Error)?.message))) throw Object.assign(new Error('Request timed out.'), { status: undefined })
+      throw isApiError(e) ? e : Object.assign(e instanceof Error ? e : new Error(String(e)), { status: undefined })
     }
   }
   return async (b, o) => {
     if (o.call > 1 && client) return once(client, b, o.timeoutMs, o)
+    let fed = false
     const r = await rotate(healthy, store, async (k, left) => {
       const c = await clientFor(k)
-      const m = await once(c, b, Math.min(left, o.timeoutMs), o)
-      client = c
-      return m
+      const feed = o.onText && !fed ? (d: string) => { fed = true; o.onText!(d) } : undefined
+      try {
+        const m = await once(c, b, Math.min(left, o.timeoutMs), o, feed)
+        client = c
+        return m
+      } catch (e) {
+        if (shown()) throw new Error('cut after the first words')
+        throw e
+      }
     }, { budgetMs: o.timeoutMs })
     if (!r.ok) throw new Error(`no key answered: ${r.reason}`)
     return r.value
@@ -150,7 +160,7 @@ async function ask(a: Asked, mode: Mode, hb: Handbook, keys: KeyEntry[], store: 
   const base = { id: a.id, set: a.set, kind: a.kind, lang: a.lang, mode }
   try {
     const run = await answerQuestion({
-      send: sender(healthy, store, began, calls),
+      send: sender(healthy, store, began, calls, () => words !== undefined),
       model: MODEL, lang: a.lang, question: a.q, earlier: [], start: a.start, handbook: hb, tanks: async () => a.tanks,
       onStep: () => steps.push(Date.now() - began),
       ...(mode === 'streamed' ? { onText: () => { words ??= Date.now() - began } } : {}),

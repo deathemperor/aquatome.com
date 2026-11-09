@@ -95,7 +95,9 @@ const streamHeaders = { 'content-type': 'text/event-stream; charset=utf-8', 'cac
  * comes; the whole message comes back either way. The SDK's timeout ends once a stream begins, so a timer bounds the
  * whole streamed call, as the timeout bounds one that isn't: the stream is stopped, nothing more of it goes to `onDelta`,
  * and the call fails as a timeout does, with no status (keys.ts `classify`: the network, not the key). A timer, not an
- * abort signal: a stream stalled mid-body doesn't end on its signal in every runtime.
+ * abort signal: a stream stalled mid-body doesn't end on its signal in every runtime. A stream cut once it has begun
+ * (the connection lost, the body ended early) fails in the SDK's own error with no status at all, where a call that
+ * doesn't stream would have failed in its connection error: it is given one, so it too is the network's.
  */
 export function callClaude(c: Anthropic, b: Anthropic.MessageCreateParamsNonStreaming, timeoutMs: number, onDelta?: (delta: string) => void): Promise<Anthropic.Message> {
   if (!onDelta) return c.messages.create(b, { timeout: timeoutMs })
@@ -106,7 +108,9 @@ export function callClaude(c: Anthropic, b: Anthropic.MessageCreateParamsNonStre
   const bound = new Promise<never>((_, reject) => {
     timer = setTimeout(() => { over = true; s.abort(); reject(Object.assign(new Error('Request timed out.'), { status: undefined })) }, timeoutMs)
   })
-  return Promise.race([s.finalMessage(), bound]).finally(() => clearTimeout(timer))
+  const sdkError = (c.constructor as typeof Anthropic).AnthropicError
+  const done = s.finalMessage().catch((e: unknown) => { throw e instanceof sdkError && !isApiError(e) ? Object.assign(e, { status: undefined }) : e })
+  return Promise.race([done, bound]).finally(() => clearTimeout(timer))
 }
 const limit = (v: string | undefined, d: number) => (Number(v) > 0 ? Math.floor(Number(v)) : d)
 const live = (env: ChatEnv): env is ChatEnv & Required<Pick<ChatEnv, 'ANTHROPIC_KEYS' | 'COMMENT_HMAC_KEY' | 'ACCOUNT_HMAC_KEY' | 'DB' | 'UPLOADS' | 'FISHID_LEDGER'>> =>
@@ -313,17 +317,21 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
       spends.push(ledger.spend(day, run, usd).catch(e => console.error('chat spend:', e)))
     }
     class FirstCall extends Error { constructor(readonly reason: 'resting' | 'unavailable' | 'request') { super(reason) } }
+    /** The reader has some of the text: it streamed. */
+    let shown = false
     try {
       const out = await answerQuestion({
         // The first call rotates over the healthy keys; the run keeps the key that answered (its thinking is that key's).
         send: async (b, { timeoutMs, call, onText: onDelta }) => {
           if (call === 1) {
-            // Once a call's text has begun, its failure isn't asked again of the next key: what the reader read would
-            // be followed by a second answer from its start. It is our side's failure, as no key answering is.
-            let begun = false
-            const shown = onDelta && ((d: string) => { begun = true; onDelta(d) })
+            // Once the reader has some of its text, a call that fails isn't asked again of the next key: what they read
+            // would be followed by a second answer from its start. It is our side's failure, as no key answering is.
+            // Before that, the next key is asked, without streaming once any of the first's text was read (its reader
+            // can't start again), so that answer's text comes whole.
+            let fed = false
             const r = await rotate(healthy, store, async (k, left) => {
-              try { return await callClaude(await clientFor(k, fetchImpl), b, Math.min(left, timeoutMs), shown) } catch (e) { throw begun ? new FirstCall('unavailable') : e }
+              const feed = onDelta && !fed ? (d: string) => { fed = true; onDelta(d) } : undefined
+              try { return await callClaude(await clientFor(k, fetchImpl), b, Math.min(left, timeoutMs), feed) } catch (e) { throw shown ? new FirstCall('unavailable') : e }
             }, { random: deps.random, clock, budgetMs: timeoutMs })
             attempts.push(...r.attempts)
             if (!r.ok) throw new FirstCall(r.reason)
@@ -346,7 +354,8 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
         },
         model, lang: q.lang, question: q.question, earlier: conv?.turns ?? [], start: (conv?.turns.length ? {} : q.start), handbook: hb,
         tanks: () => tanksOf(env.DB, session.userId, now).catch(e => { console.error('chat tanks:', e); return null }),
-        onStep, onText, clock,
+        onStep, clock,
+        ...(onText ? { onText: (piece: string) => { shown = true; onText(piece) } } : {}),
       })
       trail = out
       if (out.dropped.length) console.log(JSON.stringify({ chat: 'dropped', dropped: out.dropped }))
