@@ -163,6 +163,503 @@
   {
     "date": "2026-11-09",
     "kind": "species",
+    "id": "doryichthys-heterosoma",
+    "source": "aquatome",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "plant",
+    "id": "ceratophyllum-demersum",
+    "source": "aquatome",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "guide",
+    "id": "youtube-QhPgAnEku_o",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "guide",
+    "id": "youtube-J4e7xzevT5E",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "guide",
+    "id": "youtube-UUEH_Ewta2U",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "guide",
+    "id": "youtube-OZv7556vO-E",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "guide",
+    "id": "youtube-eVTVg6NeTjM",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "guide",
+    "id": "youtube-WGrLKaTbst4",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "guide",
+    "id": "youtube-Po9TsUam0pM",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "guide",
+    "id": "youtube-SrFsRxoWTww",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "guide",
+    "id": "youtube-Gco4K1OuLaE",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "guide",
+    "id": "youtube-4y9vcjJmCi4",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "guide",
+    "id": "youtube-PGgJNhjbXNg",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "guide",
+    "id": "youtube-svFg7h3eIJM",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "guide",
+    "id": "youtube-hPicG4pgGmI",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "guide",
+    "id": "youtube-9aQBGpWbxBA",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "guide",
+    "id": "youtube-GBY4toeKYlA",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "guide",
+    "id": "youtube-wFN9yVkRCoc",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "guide",
+    "id": "youtube-iS01ihUInXE",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "guide",
+    "id": "youtube-cVKsHc6swsY",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "guide",
+    "id": "youtube-WVpke0jbuGM",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "guide",
+    "id": "youtube-OrW6PZgqKSM",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "guide",
+    "id": "youtube-6MVlcgTchtE",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "guide",
+    "id": "youtube-Wvboi3dLLrM",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "guide",
+    "id": "youtube--XN4FMqNwPQ",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "guide",
+    "id": "youtube-fXiFGMTtUyk",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "pseudocrenilabrus-nicholsi",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "pseudocrenilabrus-multicolor",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "pseudacanthicus-leopardus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "hyphessobrycon-balbus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "protopterus-dolloi",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "protopterus-annectens",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "protomelas-taeniolatus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "protomelas-pleurotaenia",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "protomelas-fenestratus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "procatopus-nototaenia",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "potamotrygon-yepezi",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "potamotrygon-orbignyi",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "potamotrygon-jabuti",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "potamotrygon-hystrix",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "potamotrygon-henlei",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "potamotrygon-falkneri",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "polypterus-weeksii",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "polypterus-teugelsi",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "polypterus-retropinnis",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "polypterus-palmas",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "polypterus-ornatipinnis",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "polypterus-endlicherii",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "polypterus-delhezi",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "polypterus-bichir",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "schistura-kohchangensis",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "placidochromis-milomo",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "placidochromis-electra",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "pimelodus-ornatus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "piabucus-dentatus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "phenacogaster-tegatus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "phalacronotus-bleekeri",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "petrochromis-famula",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "pethia-tiantian",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "pethia-sharmai",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "pethia-setnai",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "pethia-reval",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "pethia-punctata",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "pethia-guganio",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "pethia-cumingii",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "pethia-canius",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "periophthalmus-barbarus",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "peckoltia-bachi",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "peckoltia-wernekei",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "polycentropsis-abbreviata",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
+    "id": "sphaerichthys-acrostoma",
+    "source": "seriouslyfish",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-09",
+    "kind": "species",
     "id": "peckoltia-oligospila",
     "source": "seriouslyfish",
     "action": "new"
@@ -1055,188 +1552,6 @@
     "id": "youtube-XtekO7RRRcA",
     "source": "youtube",
     "action": "updated"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "species",
-    "id": "doryichthys-heterosoma",
-    "source": "aquatome",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "plant",
-    "id": "ceratophyllum-demersum",
-    "source": "aquatome",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "guide",
-    "id": "youtube-QhPgAnEku_o",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "guide",
-    "id": "youtube-J4e7xzevT5E",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "guide",
-    "id": "youtube-UUEH_Ewta2U",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "guide",
-    "id": "youtube-OZv7556vO-E",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "guide",
-    "id": "youtube-eVTVg6NeTjM",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "guide",
-    "id": "youtube-WGrLKaTbst4",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "guide",
-    "id": "youtube-Po9TsUam0pM",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "guide",
-    "id": "youtube-SrFsRxoWTww",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "guide",
-    "id": "youtube-Gco4K1OuLaE",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "guide",
-    "id": "youtube-4y9vcjJmCi4",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "guide",
-    "id": "youtube-PGgJNhjbXNg",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "guide",
-    "id": "youtube-svFg7h3eIJM",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "guide",
-    "id": "youtube-hPicG4pgGmI",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "guide",
-    "id": "youtube-9aQBGpWbxBA",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "guide",
-    "id": "youtube-GBY4toeKYlA",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "guide",
-    "id": "youtube-wFN9yVkRCoc",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "guide",
-    "id": "youtube-iS01ihUInXE",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "guide",
-    "id": "youtube-cVKsHc6swsY",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "guide",
-    "id": "youtube-WVpke0jbuGM",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "guide",
-    "id": "youtube-OrW6PZgqKSM",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "guide",
-    "id": "youtube-6MVlcgTchtE",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "guide",
-    "id": "youtube-Wvboi3dLLrM",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "guide",
-    "id": "youtube--XN4FMqNwPQ",
-    "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "guide",
-    "id": "youtube-fXiFGMTtUyk",
-    "source": "youtube",
-    "action": "new"
   },
   {
     "date": "2026-11-09",
@@ -3181,321 +3496,6 @@
     "date": "2026-11-08",
     "kind": "species",
     "id": "lates-calcarifer",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "species",
-    "id": "lates-angustifrons",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "species",
-    "id": "phalloceros-caudimaculatus",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "species",
-    "id": "pao-suvattii",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "species",
-    "id": "pao-baileyi",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "species",
-    "id": "niwaella-delicata",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "species",
-    "id": "limia-nigrofasciata",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "species",
-    "id": "rhinodoras-boehlkei",
-    "source": "seriouslyfish",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "species",
-    "id": "nothobranchius-guentheri",
-    "source": "seriouslyfish",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "guide",
-    "id": "youtube-XHKIWrQVicU",
-    "source": "youtube",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "guide",
-    "id": "youtube-YNmy5T_dwC8",
-    "source": "youtube",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "guide",
-    "id": "youtube-XaHIqAHi4MU",
-    "source": "youtube",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "guide",
-    "id": "youtube-w6DLQvxswD0",
-    "source": "youtube",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "guide",
-    "id": "youtube-TRpaZNjeRE4",
-    "source": "youtube",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "guide",
-    "id": "youtube-r9rJ8JljJC0",
-    "source": "youtube",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "guide",
-    "id": "youtube-Pfm2p0p8KFM",
-    "source": "youtube",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "guide",
-    "id": "youtube-qWK5E1c6qak",
-    "source": "youtube",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "guide",
-    "id": "youtube-hQgZb6U3iPw",
-    "source": "youtube",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "guide",
-    "id": "youtube-K2U29-mR8a0",
-    "source": "youtube",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "guide",
-    "id": "youtube-D_yIwhL7XdE",
-    "source": "youtube",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "guide",
-    "id": "youtube-G2BKVhFgpVU",
-    "source": "youtube",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "guide",
-    "id": "youtube-9w1aF7SgDsk",
-    "source": "youtube",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "guide",
-    "id": "youtube-_b7J9kKkkFU",
-    "source": "youtube",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "guide",
-    "id": "youtube-_ZxeBxNRdPU",
-    "source": "youtube",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "guide",
-    "id": "youtube-yTK42TWeN0M",
-    "source": "youtube",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "species",
-    "id": "lasiancistrus-tentaculatus",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "species",
-    "id": "lamprologus-congoensis",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "species",
-    "id": "lamontichthys-llanero",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "species",
-    "id": "laetacara-flamannellus",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "species",
-    "id": "laetacara-araguaiae",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "species",
-    "id": "labiobarbus-leptocheilus",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "species",
-    "id": "labeotropheus-trewavasae",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "species",
-    "id": "labeotropheus-fuelleborni",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "species",
-    "id": "labeo-calbasu",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "species",
-    "id": "labeo-angra",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "species",
-    "id": "kryptopterus-palembangensis",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "species",
-    "id": "kryptopterus-macrocephalus",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "species",
-    "id": "kryptopterus-limpok",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "species",
-    "id": "phalacronotus-apogon",
-    "source": "seriouslyfish",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "species",
-    "id": "kottelatlimia-katik",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "species",
-    "id": "niwaella-multifasciata",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "species",
-    "id": "julidochromis-dickfeldi",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "species",
-    "id": "jinshaia-sinensis",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "species",
-    "id": "isorineloricaria-acuarius",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "species",
-    "id": "devario-auropurpureus",
-    "source": "seriouslyfish",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-08",
-    "kind": "species",
-    "id": "indostomus-crocodilus",
     "source": "seriouslyfish",
     "action": "new"
   }
