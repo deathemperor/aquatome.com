@@ -60032,45 +60032,67 @@
     "products": []
   },
   "vi/guides/youtube-n5s8Cu59-NM": {
-    "at": "2026-11-08",
-    "hash": "09b5ed9ed4c03c85",
+    "at": "2026-11-09",
+    "hash": "caceaff0e9ca0639",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "price",
         "part": "P1",
-        "quote": "có giá từ chừng 500 USD trở lên",
-        "why": "Price of a ready-made chiller given in US dollars.",
+        "quote": "Chiller bán sẵn loại nhỏ, dùng cho bể khoảng 190 lít, có giá từ khoảng 500 USD.",
+        "why": "The price is in US dollars, not Vietnamese currency.",
         "by": "model"
       },
       {
         "check": "price",
         "part": "P1",
-        "quote": "tổng chi phí khoảng 100 USD và tốn ít điện hơn",
-        "why": "Project cost given in US dollars.",
+        "quote": "giá khoảng 100 USD và tốn ít điện hơn",
+        "why": "The build cost is in US dollars.",
         "by": "model"
       },
       {
         "check": "price",
         "part": "P1",
-        "quote": "Tủ cũ mua lại trên các trang rao vặt có khi chỉ khoảng 30 USD. Mua mới cũng chỉ tầm 100 USD.",
-        "why": "Fridge prices in US dollars reflect a foreign market.",
+        "quote": "Tủ cũ mua lại chỉ khoảng 30 USD, tủ mới cũng chỉ khoảng 100 USD.",
+        "why": "The fridge prices are in US dollars.",
         "by": "model"
       },
       {
         "check": "price",
-        "part": "L8",
-        "quote": "hai cuộn ống tưới vườn khoảng 15 USD",
-        "why": "Hose price in US dollars.",
+        "part": "P1",
+        "quote": "có giá tổng cộng 15 USD",
+        "why": "The hose price is in US dollars.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "L1",
+        "quote": "với giá chừng 100 USD",
+        "why": "The summary price is in US dollars.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "L7",
+        "quote": "Khoảng 100 USD cho bể khoảng 190 lít, trong khi chiller bán sẵn cỡ này từ khoảng 500 USD.",
+        "why": "The FAQ prices are in US dollars.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P1",
-        "quote": "Máy làm lạnh (chiller) bán sẵn cho bể khoảng 190 lít",
-        "why": "190 litres is a converted 50-gallon tank size nobody in Vietnam would use.",
+        "quote": "Kiểu chiller này hợp với bể tới khoảng 190 lít.",
+        "why": "190 litres is a converted 50-gallon tank size.",
         "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Một bơm nhỏ hoặc đầu bơm (power head)",
+        "why": "'Đầu bơm' is a literal rendering of 'power head'.",
+        "by": "model",
+        "fix": "bơm chìm"
       }
     ],
     "products": []
@@ -60338,12 +60360,13 @@
     ]
   },
   "vi/guides/youtube-niYfzSsPvZ8": {
-    "at": "2026-11-08",
-    "hash": "e108c767848f9217",
+    "at": "2026-11-09",
+    "hash": "2bc5f7def8d5064c",
     "model": "opus",
     "checklist": 3,
     "findings": [],
     "products": [
+      "Dennerle",
       "ADA Amazonia"
     ]
   },
@@ -60729,7 +60752,7 @@
     "products": []
   },
   "vi/guides/youtube-O5kuU_-xMzo": {
-    "at": "2026-11-08",
+    "at": "2026-11-09",
     "hash": "a86d6e2d06bf4741",
     "model": "opus",
     "checklist": 3,
@@ -60862,103 +60885,81 @@
     "products": []
   },
   "vi/guides/youtube-OCqPnXpxHTU": {
-    "at": "2026-11-08",
+    "at": "2026-11-09",
     "hash": "d70ef8148b3c7e22",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "price",
-        "part": "P1",
-        "quote": "tự làm một bộ như vậy với chi phí khoảng 25 USD",
-        "why": "The total cost is given in US dollars, not Vietnamese đồng.",
-        "by": "model"
-      },
-      {
         "check": "shop",
         "part": "P1",
         "quote": "Giá khoảng 10 USD trên eBay hoặc Amazon",
-        "why": "It names foreign online shops as the place to buy.",
+        "why": "Names foreign marketplaces as the place to buy.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "với chi phí khoảng 25 USD",
+        "why": "Cost given in US dollars.",
         "by": "model"
       },
       {
         "check": "price",
         "part": "P1",
         "quote": "Một dây nối dài có tiếp địa (khoảng 4 USD)",
-        "why": "Part prices are in US dollars, which only make sense abroad.",
+        "why": "Price in US dollars.",
         "by": "model"
       },
       {
         "check": "price",
         "part": "P1",
         "quote": "Hai ổ cắm có chân tiếp địa (khoảng 5 USD)",
-        "why": "A price in US dollars.",
+        "why": "Price in US dollars.",
         "by": "model"
       },
       {
         "check": "price",
         "part": "P1",
         "quote": "tấm mica (khoảng 6 USD)",
-        "why": "A price in US dollars.",
+        "why": "Price in US dollars.",
         "by": "model"
       },
       {
         "check": "price",
         "part": "P1",
         "quote": "loại cắm vào có đèn báo (khoảng 10 USD)",
-        "why": "A price in US dollars.",
+        "why": "Price in US dollars.",
         "by": "model"
       },
       {
         "check": "price",
         "part": "L2",
         "quote": "tổng chi phí khoảng 25 USD",
-        "why": "The summary repeats the total cost in US dollars.",
+        "why": "Cost given in US dollars.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
         "quote": "Hộp mẫu có kích thước khoảng 15 cm rộng, 10 cm sâu, 23 cm cao",
-        "why": "It talks about the original author's own box as if the reader had seen it.",
-        "by": "model"
-      },
-      {
-        "check": "units",
-        "part": "P1",
-        "quote": "15 cm rộng, 10 cm sâu, 23 cm cao",
-        "why": "These sizes are converted from 6 × 4 × 9 inches.",
+        "why": "Refers to the original writer's own build as if the reader knew it.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
-        "quote": "Ở dây nối dài mẫu, sợi xám là dây tiếp địa",
-        "why": "It refers to the source author's own extension cord.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Bộ mẫu được phủ epoxy rồi quấn thêm băng keo điện",
-        "why": "It describes the source author's own build.",
+        "quote": "Bộ mẫu được phủ epoxy rồi quấn thêm băng keo điện.",
+        "why": "Refers to the source's own build.",
         "by": "model"
       },
       {
         "check": "words",
         "part": "P1",
-        "quote": "hộp điện dự án loại người ta hay dùng cho việc này",
-        "why": "A literal translation of the English \"project box\".",
+        "quote": "hộp điện dự án",
+        "why": "Calque of English 'project box'.",
         "by": "model",
         "fix": "hộp nhựa đựng mạch điện"
-      },
-      {
-        "check": "words",
-        "part": "P1",
-        "quote": "sợi đen là dây nóng",
-        "why": "A literal translation of the English \"hot wire\"; electricians in Vietnam say dây pha or dây lửa.",
-        "by": "model",
-        "fix": "dây pha (dây lửa)"
       }
     ],
     "products": [
@@ -61067,21 +61068,23 @@
     "products": []
   },
   "vi/guides/youtube-OJ0X5fuRvAA": {
-    "at": "2026-11-08",
-    "hash": "45ba53105ee58b4f",
+    "at": "2026-11-09",
+    "hash": "32cf73383ed91782",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "Chiếc bể làm ví dụ ở đây đã set được ba tuần.",
-        "why": "The page talks about the original creator's own tank and its history as if the reader already knew it.",
+        "quote": "Bể được set ngày 3 tháng 10. Sau 3 tuần, bố cục của nó gần như vẫn giữ nguyên.",
+        "why": "Refers to the source video's own tank and its setup date as if the reader knew it.",
         "by": "model"
       }
     ],
     "products": [
-      "Aqua Blue"
+      "Aqua Blue",
+      "Beam",
+      "HWK603"
     ]
   },
   "vi/guides/youtube-Ojpc5djfQ9U": {
@@ -61231,14 +61234,13 @@
     "products": []
   },
   "vi/guides/youtube-opp6ngBRkP4": {
-    "at": "2026-11-08",
+    "at": "2026-11-09",
     "hash": "9d19f47e25bcb2e1",
     "model": "opus",
     "checklist": 3,
     "findings": [],
     "products": [
-      "ADA",
-      "keo 502"
+      "ADA"
     ]
   },
   "vi/guides/youtube-oqjlfn3wxgA": {
@@ -61315,7 +61317,7 @@
     ]
   },
   "vi/guides/youtube-oXXJ8UgM2kM": {
-    "at": "2026-11-08",
+    "at": "2026-11-09",
     "hash": "0799defc4b5aa76b",
     "model": "opus",
     "checklist": 3,
@@ -61324,7 +61326,7 @@
         "check": "elsewhere",
         "part": "P1",
         "quote": "Một phần vì nhà nhiều bể thì dễ hết nước nóng giữa chừng",
-        "why": "Running out of hot tap water during water changes is a habit of homes abroad with water heaters on the tap; keepers in Vietnam usually use aged tap water at room temperature.",
+        "why": "Assumes water changes use household heated water from a home water heater, a habit of keepers abroad rather than in Vietnam.",
         "by": "model"
       }
     ],
@@ -62047,7 +62049,7 @@
     "products": []
   },
   "vi/guides/youtube-qImy1PXdkvU": {
-    "at": "2026-11-08",
+    "at": "2026-11-09",
     "hash": "8ff2f64e701295a6",
     "model": "opus",
     "checklist": 3,
@@ -62056,16 +62058,8 @@
         "check": "units",
         "part": "P1",
         "quote": "Một túi nilon có khóa zip loại lớn, khoảng 3,8 lít.",
-        "why": "3.8 litres is a converted 1-gallon bag size, not how anyone in Vietnam describes a bag.",
+        "why": "3.8 litres is a converted one-gallon bag size; nobody in Vietnam sizes a zip bag this way.",
         "by": "model"
-      },
-      {
-        "check": "words",
-        "part": "P1",
-        "quote": "Nếu bể có nhiều ốc Malaysian trumpet (Melanoides tuberculata) sống trong mút",
-        "why": "English trade name for the snail; Vietnamese keepers call it ốc kèn.",
-        "by": "model",
-        "fix": "ốc kèn"
       }
     ],
     "products": []
