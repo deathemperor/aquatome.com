@@ -122,13 +122,17 @@ the next run keeps the fix. A hand edit to one item needs a guard the engine res
 ## Pull requests
 
 Open a draft PR. `main` takes squash merges after the `test` check (ci.yml) passes. A PR that touches `apps/ios/**`
-or `protocols/**` runs its iOS jobs (ios.yml) only once it's marked ready, so mark it ready when it's done and
-checked locally, then merge after those jobs pass (or the scoping skips them), never straight after marking it ready.
+or `protocols/**` runs its iOS jobs (ios.yml) only once it's marked ready, so mark it ready only once its local checks
+pass, then merge after those jobs pass (or the scoping skips them), never straight after marking it ready. Each push to
+a ready iOS PR runs those jobs again, about 80 Mac-minutes of GitHub's five shared Macs (median 61, 5-8 Nov 2026), and
+cancels its run while that run is queued or running: a quarter of PRs' Mac time those days went to runs a later push
+cancelled. So batch a ready PR's fixes into one push. `.claude/hooks/ready-push.py` stops a push while its run is queued
+or running; `AQ_PUSH_ANYWAY=1 git push` goes through when you know that run will fail.
 A change the owner is to try on the phone says where to tap, every tap from the app's first screen in the look it opens
 in (v2), under `## What to Test` in the PR's body: TestFlight's note carries that section under the PR's title
 (`apps/ios/scripts/testflight-notes.py`; the chief of staff, 2026-11-09).
-Merge main into a ready PR's branch only to resolve a conflict: its checks already run on it merged with main, and each
-push runs its iOS jobs again (28% of PRs' Mac time on 2026-11-08). `.claude/hooks/main-merge.py` refuses a clean one, and
+Merge main into a ready PR's branch only to resolve a conflict: its checks already run on it merged with main (merges
+of main started 28% of PRs' Mac time on 2026-11-08). `.claude/hooks/main-merge.py` refuses a clean one, and
 `ios.yml` runs nothing for a push that only merged main in after a passing run, unless it resolved a conflict in the
 app's or the protocols' files.
 Commit subjects read
