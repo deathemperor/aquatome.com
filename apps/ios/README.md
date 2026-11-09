@@ -158,6 +158,12 @@ each build by itself:
   that build is 60 days old: TestFlight builds expire after 90)
 - by hand (Actions → "iOS app: TestFlight upload" → Run workflow)
 
+Main's uploads run on the own Mac's upload runner, as AquaTome CI ("CI's own Mac"), while the repository variable
+`TESTFLIGHT_OWN_MAC` is on, and on GitHub's Macs otherwise; one that fails on the own Mac runs again on GitHub's by
+itself. There its build waits while macOS has taken cores away, then takes the checks queue: beside one simulator run
+at most, never beside another build or test suite. Turn the variable off while that runner is down, or uploads wait
+for it.
+
 Signing is Xcode's automatic, cloud-managed signing with the App Store Connect API key (secret
 `APP_STORE_CONNECT_API_KEY`; variables `APP_STORE_CONNECT_KEY_ID`, `APP_STORE_CONNECT_ISSUER_ID`, `APPLE_TEAM_ID`):
 no certificate or profile is in the repository. Only the export signs: the archive is built unsigned and carries its
@@ -319,17 +325,18 @@ would have.
 
 Jobs `app`, `handbook` and `lights` of `ios.yml` run on the repository's own Mac (a self-hosted runner, label
 `aquatome`) for main: after merges, the nightly run and a run by hand; job `kit` too, nightly. GitHub's Macs keep every pull request, which then
-have their five to themselves, and job `perf` (its budgets are GitHub's Macs' readings). One runner runs,
-`aquatome-mac-1`, one job at a time: that Mac is also someone's working machine, and two runners with pull requests on
+have their five to themselves, and job `perf` (its budgets are GitHub's Macs' readings). One runner takes them,
+`aquatome-ci`, one job at a time: that Mac is also someone's working machine, and two runners with pull requests on
 them overloaded it on 2026-11-05. Its service has `Nice` 10, which reaches its builds but not the simulator's processes:
 launchd starts those, at normal priority. Its flow jobs test on one simulator, with no copies: with two, a 0.4 s job on
 the Mac took 5 to 12 s (2026-11-08). They take their turn with everyone else's simulator runs through
 `scripts/sim-run.py` (one at a time, at most two copies of a simulator), so a job can wait for a lead's run and a lead's
-run for a job, and the job's time limit there is longer to allow for it. `aquatome-mac-2` stays registered, stopped and disabled, so a reboot doesn't
-start it (`launchctl disable gui/$(id -u)/actions.runner.deathemperor-aquatome.com.aquatome-mac-2`). A full run on main
-takes hours on one runner; of the runs waiting, only the newest is kept.
+run for a job, and the job's time limit there is longer to allow for it. A full run on main takes hours on one runner;
+of the runs waiting, only the newest is kept.
 
-The runner runs as that Mac's user, with its keys. `ios.yml` only routes: a fork's pull request runs its own copy of
+The runners run as AquaTome CI (`aquatomeci`), a standard macOS user of CI's own, not as the owner: CI's code can't
+read the owner's home folder, which is closed to other users, or use the owner's keys, and a TestFlight upload's
+keychain changes are that user's alone. `ios.yml` only routes: a fork's pull request runs its own copy of
 the workflows, which can name the label. What keeps others' code off the Mac is the runner's job-started hook
 (`ACTIONS_RUNNER_HOOK_JOB_STARTED` in its `.env`, a script outside the repository): any job but one of main's (a push,
 the nightly run, a run by hand) fails before its first step, and so does any job with under 40 GB free on that Mac. Its
@@ -340,14 +347,24 @@ their workflows, on GitHub's Macs if the hook holds; read them first.
 - Off, when the Mac is away or asleep: `gh variable set IOS_LOCAL_RUNNER --body off`. New runs then go to GitHub's Macs;
   runs already queued for the Mac wait for it. "Re-run failed jobs" keeps where the jobs ran: re-run all jobs instead.
   `--body on` brings them back.
-- The runners: each in `~/actions-runner/<name>`, registered with `--labels aquatome` and run as a login service
-  (`./svc.sh install && ./svc.sh start`; `install` writes the plist anew, so add `Nice` again after it), their hooks in
-  `~/actions-runner/hooks/`. The Mac must not sleep. They build with that Mac's own Xcode, which can be newer than
-  GitHub's, the one TestFlight's builds use: main can fail what a pull request's run passed, or pass what the shipped
-  build gets wrong.
-- Their simulators: one each, `aquatome-ci-1` for `aquatome-mac-1` and `aquatome-ci-2` for `aquatome-mac-2`, made with
-  `xcrun simctl create aquatome-ci-<n> "iPhone 17" com.apple.CoreSimulator.SimRuntime.iOS-26-5`, with its id in that
-  runner's `.env` as `AQ_CI_UDID=<id>`. The simulator jobs' `scripts/wait-for-simulator.sh` erases it first, points
+- The runners: in AquaTome CI's home, `actions-runner/aquatome-upload` holds `aquatome-ci` (label `aquatome`, main's
+  flows) and `actions-runner/upload` holds `aquatome-upload` (label `aquatome-upload`, TestFlight's uploads, so an
+  upload never waits behind the flows). Their hooks are in `actions-runner/hooks/`; the upload runner's job-started hook
+  takes only `testflight.yml` on main. One LaunchDaemon, `run.aquatome.ci-runner` (`Nice` 10, its own security
+  session), starts both at boot with nobody signed in: its program, `runsvc.sh` in the first folder, runs each runner's
+  own service script (`bin/runsvc.sh`); never `svc.sh install`, which writes a login service. An admin made the user
+  and the daemon once (`sudo bash apps/ios/scripts/ci-user.sh`, `--undo` to take them away). The owner's account can
+  act as that user (`sudo -u aquatomeci`) and restart the daemon (`sudo launchctl kickstart -k
+  system/run.aquatome.ci-runner`) without a password, never the other way round. The owner's own runners,
+  `aquatome-mac-1` and `aquatome-mac-2`, stay registered, stopped and disabled, to fall back on. The Mac must not
+  sleep. They build with that Mac's own Xcode, which can be newer than GitHub's, the one TestFlight's builds use: main
+  can fail what a pull request's run passed, or pass what the shipped build gets wrong.
+- One queue for both users: each one's `~/.cache/aquatome/checks.lock` and `sim.lock` link to the same files in
+  `/Users/Shared/aquatome/`, so the runner's jobs take their turns with the leads' work.
+- The flows' simulator: `aquatome-ci-1` among AquaTome CI's own simulators (the owner's own `aquatome-ci-1` was
+  `aquatome-mac-1`'s), made in the daemon's context with
+  `xcrun simctl create aquatome-ci-1 "iPhone 17" com.apple.CoreSimulator.SimRuntime.iOS-26-5`, with its id in the
+  runner's `.env` as `AQ_CI_UDID=<id>`. The owner's `simctl` doesn't list it. The simulator jobs' `scripts/wait-for-simulator.sh` erases it first, points
   xcodebuild at it, and shuts it down after. The flow jobs run xcodebuild with `exec`, so a cancelled job's stop
   reaches it; as a net under that, the script also stops any xcodebuild still working in that runner's own checkout
   (after a job, and before the next) and clears `build/` before a job. Two runners never share one (each would erase
