@@ -1,0 +1,126 @@
+{
+  "id": "leptodoras-cataniai",
+  "native": {
+    "input": "d115b39d46e3fea3",
+    "at": "2026-11-09T16:24:16.651Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Rio Negro/Casiquiare Canal in Brazil and Venezuela.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Rio Negro/Casiquiare Canal in Brazil and Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Rio Negro/Casiquiare Canal in Brazil and Venezuela.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Rio Negro/Casiquiare Canal in Brazil and Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Negro",
+        "source": "planetcatfish",
+        "quote": "South America: Rio Negro/Casiquiare Canal in Brazil and Venezuela.",
+        "ok": true
+      },
+      {
+        "name": "Casiquiare Canal",
+        "source": "planetcatfish",
+        "quote": "South America: Rio Negro/Casiquiare Canal in Brazil and Venezuela.",
+        "ok": true
+      },
+      {
+        "name": "Rio Negro",
+        "source": "scotcat",
+        "quote": "South America: Rio Negro/Casiquiare Canal in Brazil and Venezuela.",
+        "ok": true
+      },
+      {
+        "name": "Casiquiare Canal",
+        "source": "scotcat",
+        "quote": "South America: Rio Negro/Casiquiare Canal in Brazil and Venezuela.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Leptodoras cataniai",
+    "status": "ACCEPTED",
+    "taxonKey": 2343944,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        19
+      ],
+      [
+        "86e45c6f-6d8e-432e-803b-9251202d4239",
+        12
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        6
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        3
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        3
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "VE"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T16:24:16.651Z"
+  }
+}

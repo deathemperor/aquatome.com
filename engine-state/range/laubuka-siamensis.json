@@ -1,0 +1,113 @@
+{
+  "id": "laubuka-siamensis",
+  "native": {
+    "input": "0a307db167122d93",
+    "at": "2026-11-09T12:58:06.259Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Mekong river system in Thailand, Laos, Cambodia, and Vietnam, the Chao Phraya and Mae Klong watersheds in central and western Thailand, and various smaller drainages in southern Thailand and Peninsular Malaysia, including the Tapi and Pahang basins in the latter.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Mekong river system in Thailand, Laos, Cambodia, and Vietnam, the Chao Phraya and Mae Klong watersheds in central and western Thailand, and various smaller drainages in southern Thailand and Peninsular Malaysia, including the Tapi and Pahang basins in the latter.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Mekong river system in Thailand, Laos, Cambodia, and Vietnam, the Chao Phraya and Mae Klong watersheds in central and western Thailand, and various smaller drainages in southern Thailand and Peninsular Malaysia, including the Tapi and Pahang basins in the latter.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Mekong river system in Thailand, Laos, Cambodia, and Vietnam, the Chao Phraya and Mae Klong watersheds in central and western Thailand, and various smaller drainages in southern Thailand and Peninsular Malaysia, including the Tapi and Pahang basins in the latter.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Mekong river system in Thailand, Laos, Cambodia, and Vietnam, the Chao Phraya and Mae Klong watersheds in central and western Thailand, and various smaller drainages in southern Thailand and Peninsular Malaysia, including the Tapi and Pahang basins in the latter.",
+        "words": "Malaysia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Native to the Mekong river system in Thailand, Laos, Cambodia, and Vietnam, the Chao Phraya and Mae Klong watersheds in central and western Thailand, and various smaller drainages in southern Thailand and Peninsular Malaysia, including the Tapi and Pahang basins in the latter.",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "Native to the Mekong river system in Thailand, Laos, Cambodia, and Vietnam, the Chao Phraya and Mae Klong watersheds in central and western Thailand, and various smaller drainages in southern Thailand and Peninsular Malaysia, including the Tapi and Pahang basins in the latter.",
+        "ok": true
+      },
+      {
+        "name": "Mae Klong",
+        "source": "seriouslyfish",
+        "quote": "Native to the Mekong river system in Thailand, Laos, Cambodia, and Vietnam, the Chao Phraya and Mae Klong watersheds in central and western Thailand, and various smaller drainages in southern Thailand and Peninsular Malaysia, including the Tapi and Pahang basins in the latter.",
+        "ok": true
+      },
+      {
+        "name": "Pahang",
+        "source": "seriouslyfish",
+        "quote": "Native to the Mekong river system in Thailand, Laos, Cambodia, and Vietnam, the Chao Phraya and Mae Klong watersheds in central and western Thailand, and various smaller drainages in southern Thailand and Peninsular Malaysia, including the Tapi and Pahang basins in the latter.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Tapi",
+        "source": "seriouslyfish",
+        "quote": "Native to the Mekong river system in Thailand, Laos, Cambodia, and Vietnam, the Chao Phraya and Mae Klong watersheds in central and western Thailand, and various smaller drainages in southern Thailand and Peninsular Malaysia, including the Tapi and Pahang basins in the latter.",
+        "country": "MY",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Laubuka siamensis",
+    "status": "ACCEPTED",
+    "taxonKey": 8246856,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "LA",
+      "KH",
+      "VN",
+      "MY"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T12:58:06.259Z"
+  }
+}

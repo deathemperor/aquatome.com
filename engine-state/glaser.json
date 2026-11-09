@@ -6386,9 +6386,9 @@
   "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/poecilia_reticulata_guppy_jamaica_en/": {
     "lastmod": "2016-11-22T08:55:45+00:00",
     "entityIds": [],
-    "updatedAt": "2026-11-09T10:01:20.798Z",
+    "updatedAt": "2026-11-09T21:46:52.342Z",
     "status": "error",
-    "attempts": 1,
+    "attempts": 2,
     "error": "[\n  {\n    \"code\": \"custom\",\n    \"message\": \"a beforeYouBuy section citing a page refs doesn't have\",\n    \"path\": []\n  },\n  {\n    \"code\": \"custom\",\n    \"message\": \"a maintenance section citing a page refs doesn't have\",\n    \"path\": []\n  },\n  {\n    \"code\": \"custom\",\n    \"message\": \"a dimorphism sectio"
   },
   "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/poecilia_wingei_blue_star_en/": {
@@ -7722,6 +7722,39 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/callochromis_macrops_en/": {
+    "lastmod": "2016-11-22T09:00:33+00:00",
+    "entityIds": [
+      "species/callochromis-macrops"
+    ],
+    "updatedAt": "2026-11-09T16:00:01.089Z",
+    "hash": "711debcb0a05853c3e43623ef4adc7546300fc2d26e280cf603c31bbbe109cdc",
+    "processedHash": "711debcb0a05853c3e43623ef4adc7546300fc2d26e280cf603c31bbbe109cdc",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/chalinochromis-brichardi-en/": {
+    "lastmod": "2016-11-22T09:00:33+00:00",
+    "entityIds": [
+      "species/chalinochromis-brichardi"
+    ],
+    "updatedAt": "2026-11-09T15:59:18.440Z",
+    "hash": "ed7a1d6bf440f4b0139bed0b55457053007433c7cdf3cc5bf18c9e03fb4d3e1d",
+    "processedHash": "ed7a1d6bf440f4b0139bed0b55457053007433c7cdf3cc5bf18c9e03fb4d3e1d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/ctenochromis_polli_en/": {
+    "lastmod": "2016-11-22T09:00:35+00:00",
+    "entityIds": [
+      "species/ctenochromis-polli"
+    ],
+    "updatedAt": "2026-11-09T16:02:32.725Z",
+    "hash": "0228a51783d65e1219ec6c03e3bbb982c9534d00b60cbbc5745e7670994c8f1f",
+    "processedHash": "0228a51783d65e1219ec6c03e3bbb982c9534d00b60cbbc5745e7670994c8f1f",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/cyphotilapia_frontosa_black_widow__en/": {
     "lastmod": "2016-11-22T09:00:34+00:00",
     "entityIds": [
@@ -7744,6 +7777,33 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/eretmodus_cyanostictus_moba_en/": {
+    "lastmod": "2016-11-22T09:00:34+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T16:02:24.408Z",
+    "hash": "176d65cf182e0649f72453077cb70fdb37f77ca273d5a57a032b9189d5b4c861",
+    "processedHash": "176d65cf182e0649f72453077cb70fdb37f77ca273d5a57a032b9189d5b4c861",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/labidochromis_caeruleus_white_en/": {
+    "lastmod": "2016-11-22T09:00:33+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T16:01:57.869Z",
+    "hash": "94410272f4ff5c81568aa26ece5bf2bb73e807679d06ed47f44501f0c7c7c35d",
+    "processedHash": "94410272f4ff5c81568aa26ece5bf2bb73e807679d06ed47f44501f0c7c7c35d",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/labidochromis_sp_hongi_sweden__en/": {
+    "lastmod": "2016-11-22T09:00:33+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T15:58:52.859Z",
+    "hash": "0542e8522a040b4ce213e5a060310edffb346bcc70762e95fa6dc7f7e369dd5a",
+    "processedHash": "0542e8522a040b4ce213e5a060310edffb346bcc70762e95fa6dc7f7e369dd5a",
+    "status": "skipped",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/neolamprologus_meeli_en/": {
     "lastmod": "2017-01-06T08:41:43+00:00",
     "entityIds": [
@@ -7755,6 +7815,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/shell-dwelling-cichlids-from-lake-malawi-maylandia-cf-elegans-likoma/": {
+    "lastmod": "2016-11-22T09:00:33+00:00",
+    "entityIds": [
+      "species/maylandia-elegans"
+    ],
+    "updatedAt": "2026-11-09T16:00:38.822Z",
+    "hash": "6ae391a58da00948fd8b53ac4081ff258ec8e4df6562d6f526b4e40282a1862c",
+    "processedHash": "6ae391a58da00948fd8b53ac4081ff258ec8e4df6562d6f526b4e40282a1862c",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/tanganicodus_irsacae_ikola__en/": {
     "lastmod": "2017-01-05T10:23:34+00:00",
     "entityIds": [],
@@ -7762,6 +7833,92 @@
     "hash": "b0b148b49c6c48d17a29a86bf23f801f751886febee056e65d31803e5ae73d7f",
     "processedHash": "b0b148b49c6c48d17a29a86bf23f801f751886febee056e65d31803e5ae73d7f",
     "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/benitochromis_finleyi_mungo_en/": {
+    "lastmod": "2016-11-22T10:08:01+00:00",
+    "entityIds": [
+      "species/benitochromis-finleyi"
+    ],
+    "updatedAt": "2026-11-09T16:09:41.618Z",
+    "hash": "7be77860d2c3458d8fc342c2fb113e65f1bb2384e2eb5c176534d6d18e4f1d49",
+    "processedHash": "7be77860d2c3458d8fc342c2fb113e65f1bb2384e2eb5c176534d6d18e4f1d49",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/benitochromis_riomuniensis_en/": {
+    "lastmod": "2016-11-22T10:08:01+00:00",
+    "entityIds": [
+      "species/benitochromis-riomuniensis"
+    ],
+    "updatedAt": "2026-11-09T16:11:28.768Z",
+    "hash": "ced7750cd6e9ed4f99779f555af8cef19e99fa93eab6f115ca1313aeef33a661",
+    "processedHash": "ced7750cd6e9ed4f99779f555af8cef19e99fa93eab6f115ca1313aeef33a661",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/ctenochromis_polli_haplochromis_polli__en/": {
+    "lastmod": "2016-11-22T10:08:00+00:00",
+    "entityIds": [
+      "species/ctenochromis-polli"
+    ],
+    "updatedAt": "2026-11-09T16:04:57.423Z",
+    "hash": "ab4c420313507176426a87dd97d04f0fb42561b5f34b68deb39a9f0308d5d9c0",
+    "processedHash": "ab4c420313507176426a87dd97d04f0fb42561b5f34b68deb39a9f0308d5d9c0",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/hemichromis_cerasogaster_en/": {
+    "lastmod": "2016-11-22T10:08:01+00:00",
+    "entityIds": [
+      "species/hemichromis-cerasogaster"
+    ],
+    "updatedAt": "2026-11-09T16:12:38.258Z",
+    "hash": "fd6904de3068edc54fa2874af497e5bff27cfeb179b158c833c11dee44f7506f",
+    "processedHash": "fd6904de3068edc54fa2874af497e5bff27cfeb179b158c833c11dee44f7506f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/hemichromis_letourneauxi_en/": {
+    "lastmod": "2016-11-22T10:08:00+00:00",
+    "entityIds": [
+      "species/hemichromis-letourneuxi"
+    ],
+    "updatedAt": "2026-11-09T16:03:12.203Z",
+    "hash": "86fc6339d54592438c073bd5ea0bec007da4c34b2ba14ca7ff59685c28fbf19f",
+    "processedHash": "86fc6339d54592438c073bd5ea0bec007da4c34b2ba14ca7ff59685c28fbf19f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/hemichromis_sp_firelips_en/": {
+    "lastmod": "2016-11-22T10:08:01+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T16:07:54.222Z",
+    "hash": "4d6a8ddbc1fbe0f17626a06a7fa7ec7d5cefff819b4bd63d5fb887a24b867b57",
+    "processedHash": "4d6a8ddbc1fbe0f17626a06a7fa7ec7d5cefff819b4bd63d5fb887a24b867b57",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/lamprologus_werneri_en/": {
+    "lastmod": "2016-11-22T10:08:01+00:00",
+    "entityIds": [
+      "species/lamprologus-werneri"
+    ],
+    "updatedAt": "2026-11-09T16:08:26.304Z",
+    "hash": "bea130a94f8cc35cc989cd16cf5c091d0ae8dcf26b76fb6e0bc3e3269cac624a",
+    "processedHash": "bea130a94f8cc35cc989cd16cf5c091d0ae8dcf26b76fb6e0bc3e3269cac624a",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/nanochromis_parilus_en/": {
+    "lastmod": "2016-11-22T10:08:00+00:00",
+    "entityIds": [
+      "species/nanochromis-parilus"
+    ],
+    "updatedAt": "2026-11-09T16:05:32.956Z",
+    "hash": "1bf51a1b14616398aefe0bf67bc51f6e529da4130ea9e249d0e07daca2df410c",
+    "processedHash": "1bf51a1b14616398aefe0bf67bc51f6e529da4130ea9e249d0e07daca2df410c",
+    "status": "processed",
     "attempts": 0
   },
   "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/oreochromis-niloticus/": {
@@ -7775,6 +7932,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/orthochromis_stormsi_en/": {
+    "lastmod": "2016-11-22T10:08:02+00:00",
+    "entityIds": [
+      "species/orthochromis-stormsi"
+    ],
+    "updatedAt": "2026-11-09T16:13:13.588Z",
+    "hash": "589a314977f117fc950692074d6c01618c4585d3ee3b53448fe7bea43b18bed0",
+    "processedHash": "589a314977f117fc950692074d6c01618c4585d3ee3b53448fe7bea43b18bed0",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/paratilapia_polleni_en/": {
     "lastmod": "2016-11-22T10:08:00+00:00",
     "entityIds": [
@@ -7784,6 +7952,15 @@
     "hash": "001ffde0a5bcba2419bc56b83e99adea047cabd1e45477cba1d4a160675e8198",
     "processedHash": "001ffde0a5bcba2419bc56b83e99adea047cabd1e45477cba1d4a160675e8198",
     "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/pelvicachromis-taeniatus-nigeria-red/": {
+    "lastmod": "2016-11-22T10:08:00+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T16:06:03.809Z",
+    "hash": "9a729c4f340b59bf12a8cb6118226d2065e32f3eb291e38a0c183377f8ecabc2",
+    "processedHash": "9a729c4f340b59bf12a8cb6118226d2065e32f3eb291e38a0c183377f8ecabc2",
+    "status": "skipped",
     "attempts": 0
   },
   "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/pelvicachromis_humilis_and_close_relatives_from_guinea_1_pelvicachromis_humilis_liberia_red_en/": {
@@ -7830,6 +8007,95 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/pelvicachromis_silviae_en/": {
+    "lastmod": "2016-11-22T10:08:01+00:00",
+    "entityIds": [
+      "species/pelvicachromis-silviae"
+    ],
+    "updatedAt": "2026-11-09T16:10:29.972Z",
+    "hash": "2fff05373699b812d82310186c0501c571b47f931a7d190c6a7ddc341de9036d",
+    "processedHash": "2fff05373699b812d82310186c0501c571b47f931a7d190c6a7ddc341de9036d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/pelvicachromis_spec_blue_fin__en/": {
+    "lastmod": "2016-11-22T10:08:02+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T16:13:51.225Z",
+    "hash": "84f3c8064576c3d3e74f161fd07040c8ff7ec9b64bf08da89d94b49fc8006efa",
+    "processedHash": "84f3c8064576c3d3e74f161fd07040c8ff7ec9b64bf08da89d94b49fc8006efa",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/pelvicachromis_taeniatus_lokundje__en/": {
+    "lastmod": "2016-11-22T10:08:02+00:00",
+    "entityIds": [
+      "species/pelvicachromis-taeniatus"
+    ],
+    "updatedAt": "2026-11-09T16:14:29.299Z",
+    "hash": "1063fb8cc545fc366f6ababd058713734172f4ee1d1967e5aa2bb74f9bad3a15",
+    "processedHash": "1063fb8cc545fc366f6ababd058713734172f4ee1d1967e5aa2bb74f9bad3a15",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/pelvicachromis_taeniatus_nigeria_red__en/": {
+    "lastmod": "2016-11-22T10:08:01+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T16:11:09.206Z",
+    "hash": "d56298d2215b6c031081a145437184917abc8b4f3f55bddbbb29a1b09c388734",
+    "processedHash": "d56298d2215b6c031081a145437184917abc8b4f3f55bddbbb29a1b09c388734",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/pelvicachromis_taeniatus_nigeria_red_en/": {
+    "lastmod": "2016-11-22T10:08:01+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T16:11:20.131Z",
+    "hash": "e4546adf4b55ab3ce32aa1b17edec3d6d19856e36bd059d04fbddeac3a791c02",
+    "processedHash": "e4546adf4b55ab3ce32aa1b17edec3d6d19856e36bd059d04fbddeac3a791c02",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/pseudocrenilabrus_philander_en/": {
+    "lastmod": "2016-11-22T10:08:02+00:00",
+    "entityIds": [
+      "species/pseudocrenilabrus-philander"
+    ],
+    "updatedAt": "2026-11-09T16:14:52.628Z",
+    "hash": "99e59b7aa35ced09c42f2172c15e8ac5b856eec6a851385da1efce9ba1929be3",
+    "processedHash": "99e59b7aa35ced09c42f2172c15e8ac5b856eec6a851385da1efce9ba1929be3",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/steatocranus_sp_ultra_slender_en/": {
+    "lastmod": "2016-11-22T10:08:01+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T16:12:09.116Z",
+    "hash": "44fee89db424ca45be97f2449caf29d4499e22c6e0dea091486afebb15e4c83a",
+    "processedHash": "44fee89db424ca45be97f2449caf29d4499e22c6e0dea091486afebb15e4c83a",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/teleogramma_brichardi_en/": {
+    "lastmod": "2016-11-22T10:08:01+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T16:09:32.002Z",
+    "hash": "dee73b48853d477fb657b5e8c05cf5ae4a8f61e05e77ccc3f1ce70157e9de799",
+    "processedHash": "dee73b48853d477fb657b5e8c05cf5ae4a8f61e05e77ccc3f1ce70157e9de799",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/tylochromis_cf_lateralis_german_bred_en/": {
+    "lastmod": "2016-11-22T10:08:00+00:00",
+    "entityIds": [
+      "species/tylochromis-lateralis"
+    ],
+    "updatedAt": "2026-11-09T16:06:46.214Z",
+    "hash": "f0023b47aa845dc99ad76afcda409aea52b3c826c8021e67e1200a250ff1a865",
+    "processedHash": "f0023b47aa845dc99ad76afcda409aea52b3c826c8021e67e1200a250ff1a865",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/wallaceochromis-signatus-2/": {
     "lastmod": "2017-06-06T17:55:21+00:00",
     "entityIds": [
@@ -7841,6 +8107,37 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/a-cryptic-species-of-dicrossus/": {
+    "lastmod": "2016-11-22T10:08:19+00:00",
+    "entityIds": [
+      "species/dicrossus-filamentosus"
+    ],
+    "updatedAt": "2026-11-09T16:22:29.575Z",
+    "hash": "4ce191d0f69e053d0b5fc5a7b30c0dd84285ac45dc55cbb85e25f062a7065299",
+    "processedHash": "4ce191d0f69e053d0b5fc5a7b30c0dd84285ac45dc55cbb85e25f062a7065299",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/a_brandnew_dwarf_cichlid_apistogramma_sp_cristal_en/": {
+    "lastmod": "2016-11-22T10:08:21+00:00",
+    "entityIds": [
+      "guides/glaser-en-25-perchlike-fishes-25d-perchlike-fishes-4-south-american-dwarf-cichlids-a-brandnew-dwarf-cichlid-apistogramma-sp-cristal-en"
+    ],
+    "updatedAt": "2026-11-09T16:39:27.588Z",
+    "hash": "d6c4f21a2d5f9eb44be5dbea7cc18c28b20417e4ceb8d886d4a34df761ddadb0",
+    "processedHash": "d6c4f21a2d5f9eb44be5dbea7cc18c28b20417e4ceb8d886d4a34df761ddadb0",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/another_brandnew_sport_of_the_ram_super_neon_blue_gold__en/": {
+    "lastmod": "2016-11-22T10:08:21+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T16:35:55.044Z",
+    "hash": "8ad5b1260bc17eda5ad11a03b560970bc42947cef8be6df6ea19eb27005b9336",
+    "processedHash": "8ad5b1260bc17eda5ad11a03b560970bc42947cef8be6df6ea19eb27005b9336",
+    "status": "skipped",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma-atahualpa-2/": {
     "lastmod": "2017-07-12T15:37:12+00:00",
     "entityIds": [
@@ -7849,6 +8146,312 @@
     "updatedAt": "2026-11-02T14:30:08.865Z",
     "hash": "fea753b6878cffd7a39198535ce751068656f0c410c85cb7cd42f1f7b67db9b0",
     "processedHash": "fea753b6878cffd7a39198535ce751068656f0c410c85cb7cd42f1f7b67db9b0",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma-borellii-wild/": {
+    "lastmod": "2016-11-22T10:08:19+00:00",
+    "entityIds": [
+      "species/apistogramma-borellii"
+    ],
+    "updatedAt": "2026-11-09T16:18:45.584Z",
+    "hash": "2f348b39bb6f57be2ff7fba5bb38f8d3f3186f1cf8662d29adc94073bfee6cab",
+    "processedHash": "2f348b39bb6f57be2ff7fba5bb38f8d3f3186f1cf8662d29adc94073bfee6cab",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma-macmasteri-tame/": {
+    "lastmod": "2016-11-22T10:08:19+00:00",
+    "entityIds": [
+      "species/apistogramma-macmasteri"
+    ],
+    "updatedAt": "2026-11-09T16:15:59.823Z",
+    "hash": "d956253182a37e68e9e68e217a670bc8d47c455e860106f1431ea108ec6f1068",
+    "processedHash": "d956253182a37e68e9e68e217a670bc8d47c455e860106f1431ea108ec6f1068",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma-sp-nanay/": {
+    "lastmod": "2016-11-22T10:08:19+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T16:15:23.086Z",
+    "hash": "80e95dc08f2d2aeab0b82543ea069b2e5edec0f6d20a2d48aeae55f6fca7474f",
+    "processedHash": "80e95dc08f2d2aeab0b82543ea069b2e5edec0f6d20a2d48aeae55f6fca7474f",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_agassizii_fire_red__en/": {
+    "lastmod": "2016-11-22T10:08:23+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T22:02:03.458Z",
+    "hash": "fe0a326a324cf519896d393bec8cc7d775f11deb6630718d14b1e2269e2ecb19",
+    "processedHash": "fe0a326a324cf519896d393bec8cc7d775f11deb6630718d14b1e2269e2ecb19",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_agassizii_fire_red_en/": {
+    "lastmod": "2016-11-22T10:08:22+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T21:59:24.018Z",
+    "hash": "274867990845dabd78bfe7ed1e44b7f79c4e55f379e512b8337789fad69fd53d",
+    "processedHash": "274867990845dabd78bfe7ed1e44b7f79c4e55f379e512b8337789fad69fd53d",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_agassizii_super_fire_red_en/": {
+    "lastmod": "2016-11-22T10:08:21+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T21:53:59.226Z",
+    "hash": "524d4bc4176a24d729c6f4985f2ba50b5682e32df296d1080b3e9d1e0c3ef16b",
+    "processedHash": "524d4bc4176a24d729c6f4985f2ba50b5682e32df296d1080b3e9d1e0c3ef16b",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_agassizii_tefe_en/": {
+    "lastmod": "2016-11-22T10:08:20+00:00",
+    "entityIds": [
+      "species/apistogramma-agassizii"
+    ],
+    "updatedAt": "2026-11-09T16:29:58.680Z",
+    "hash": "06ce64bfe1f2a9495e475ad5bd20a0a3acb1faba93f11d5b04952900083c4b66",
+    "processedHash": "06ce64bfe1f2a9495e475ad5bd20a0a3acb1faba93f11d5b04952900083c4b66",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_agassizii_tefe_ii_and_a_geisleri_en/": {
+    "lastmod": "2016-11-22T10:08:19+00:00",
+    "entityIds": [
+      "guides/glaser-en-25-perchlike-fishes-25d-perchlike-fishes-4-south-american-dwarf-cichlids-apistogramma-agassizii-tefe-ii-and-a-geisleri-en"
+    ],
+    "updatedAt": "2026-11-09T16:19:57.168Z",
+    "hash": "262447d061c70cd8aa9c8f30b65b4bbb1ee4b6a4522cec892adb7a66e308cd3f",
+    "processedHash": "262447d061c70cd8aa9c8f30b65b4bbb1ee4b6a4522cec892adb7a66e308cd3f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_baenschi_inka_i__en/": {
+    "lastmod": "2016-11-22T10:08:20+00:00",
+    "entityIds": [
+      "species/apistogramma-baenschi"
+    ],
+    "updatedAt": "2026-11-09T16:31:50.581Z",
+    "hash": "8898336f53956a470755c3ded00a118fdfdca326adcbceff31f8b165bc8c5c17",
+    "processedHash": "8898336f53956a470755c3ded00a118fdfdca326adcbceff31f8b165bc8c5c17",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_borellii_en/": {
+    "lastmod": "2016-11-22T10:08:22+00:00",
+    "entityIds": [
+      "species/apistogramma-borellii"
+    ],
+    "updatedAt": "2026-11-09T22:00:21.739Z",
+    "hash": "9dc3b2b3b7ffe42b088f13bf58c70d6c921522f8f5341b1ce6a23649134d9612",
+    "processedHash": "9dc3b2b3b7ffe42b088f13bf58c70d6c921522f8f5341b1ce6a23649134d9612",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_cacatuoides_mega_orange_en/": {
+    "lastmod": "2016-11-22T10:08:20+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T16:28:05.228Z",
+    "hash": "fd85d3d3e4e5219ee0a71fb6553977c6df20c4e7bbc9ab0f32186bf8edf09340",
+    "processedHash": "fd85d3d3e4e5219ee0a71fb6553977c6df20c4e7bbc9ab0f32186bf8edf09340",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_cacatuoides_wild_en/": {
+    "lastmod": "2016-11-22T10:08:20+00:00",
+    "entityIds": [
+      "species/apistogramma-cacatuoides"
+    ],
+    "updatedAt": "2026-11-09T16:34:24.923Z",
+    "hash": "ba73a8788f3b9cbf8a1153b8c77dac2e7e34f72100e8a30f57c946e79c359381",
+    "processedHash": "ba73a8788f3b9cbf8a1153b8c77dac2e7e34f72100e8a30f57c946e79c359381",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_commbrae_en/": {
+    "lastmod": "2016-11-22T10:08:20+00:00",
+    "entityIds": [
+      "species/apistogramma-commbrae"
+    ],
+    "updatedAt": "2026-11-09T16:24:35.898Z",
+    "hash": "efdb0c096cc27d73d4eaa2ec9436521b37610ecfb7c1a51f1209eeb16de24139",
+    "processedHash": "efdb0c096cc27d73d4eaa2ec9436521b37610ecfb7c1a51f1209eeb16de24139",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_diplotaenia_en/": {
+    "lastmod": "2016-11-22T10:08:19+00:00",
+    "entityIds": [
+      "species/apistogramma-diplotaenia"
+    ],
+    "updatedAt": "2026-11-09T16:17:54.614Z",
+    "hash": "d032bdfebae4d097e070f8f9ebe84bb8e3446964577cf008bff164407a1425b8",
+    "processedHash": "d032bdfebae4d097e070f8f9ebe84bb8e3446964577cf008bff164407a1425b8",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_gephyra_bred_en/": {
+    "lastmod": "2016-11-22T10:08:20+00:00",
+    "entityIds": [
+      "species/apistogramma-gephyra"
+    ],
+    "updatedAt": "2026-11-09T16:25:27.617Z",
+    "hash": "8d27de8c13f7547ac3316abfe060a2cfe6c8b5d5a43ef335ea196edd8ba05b02",
+    "processedHash": "8d27de8c13f7547ac3316abfe060a2cfe6c8b5d5a43ef335ea196edd8ba05b02",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_gephyra_en/": {
+    "lastmod": "2016-11-22T10:08:22+00:00",
+    "entityIds": [
+      "species/apistogramma-gephyra"
+    ],
+    "updatedAt": "2026-11-09T21:54:09.552Z",
+    "hash": "4fcd1552428322bbf3a51beb4c8712abc7d2f5790bad9b6e24a2651e635f8f7e",
+    "processedHash": "4fcd1552428322bbf3a51beb4c8712abc7d2f5790bad9b6e24a2651e635f8f7e",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_guttata_en/": {
+    "lastmod": "2016-11-22T10:08:22+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T21:54:59.518Z",
+    "hash": "0fc4e021c36518406a99eee8f95e9c4bae006fd57d45299b936eb019b36f5ddc",
+    "processedHash": "0fc4e021c36518406a99eee8f95e9c4bae006fd57d45299b936eb019b36f5ddc",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_iniridae_en/": {
+    "lastmod": "2016-11-22T10:08:22+00:00",
+    "entityIds": [
+      "species/apistogramma-iniridae"
+    ],
+    "updatedAt": "2026-11-09T21:55:08.958Z",
+    "hash": "9bc8cb74d70ae1db6164fe0351b15723093d4a3d2dcadd7c8c517fa654156d71",
+    "processedHash": "9bc8cb74d70ae1db6164fe0351b15723093d4a3d2dcadd7c8c517fa654156d71",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_megaptera_en/": {
+    "lastmod": "2016-11-22T10:08:21+00:00",
+    "entityIds": [
+      "species/apistogramma-megaptera"
+    ],
+    "updatedAt": "2026-11-09T16:38:37.480Z",
+    "hash": "eec3d64b0442869cc2036ea340e7552d8d36341509a590bf5312764d94290132",
+    "processedHash": "eec3d64b0442869cc2036ea340e7552d8d36341509a590bf5312764d94290132",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_mendezi_wild_en/": {
+    "lastmod": "2016-11-22T10:08:21+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T16:37:26.602Z",
+    "hash": "384c5b965b930f11f77d5b3ad7fffbed7d813b511af0ee2f523c88ecf2be96d0",
+    "processedHash": "384c5b965b930f11f77d5b3ad7fffbed7d813b511af0ee2f523c88ecf2be96d0",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_panduro_var_marsel__en/": {
+    "lastmod": "2016-11-22T10:08:22+00:00",
+    "entityIds": [
+      "species/apistogramma-panduro"
+    ],
+    "updatedAt": "2026-11-09T21:56:14.168Z",
+    "hash": "4b2b7ad9ee33af9a9c8a930d8017b6c507182efc24952e984774f6a094914b0f",
+    "processedHash": "4b2b7ad9ee33af9a9c8a930d8017b6c507182efc24952e984774f6a094914b0f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_paucisquamis_and_a_mendezi_en/": {
+    "lastmod": "2016-11-22T10:08:21+00:00",
+    "entityIds": [
+      "species/apistogramma-mendezi"
+    ],
+    "updatedAt": "2026-11-09T16:36:03.825Z",
+    "hash": "5bd2f8e23fd389939e35a1792c32bf1f61958832281b295f6919462cf68a64de",
+    "processedHash": "5bd2f8e23fd389939e35a1792c32bf1f61958832281b295f6919462cf68a64de",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_rupununi_en/": {
+    "lastmod": "2016-11-22T10:08:20+00:00",
+    "entityIds": [
+      "species/apistogramma-rupununi"
+    ],
+    "updatedAt": "2026-11-09T16:33:37.017Z",
+    "hash": "3efd44a91039951b65d42e4d860bcacebe7aacbd438e52e935470a3a665efa5a",
+    "processedHash": "3efd44a91039951b65d42e4d860bcacebe7aacbd438e52e935470a3a665efa5a",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_sp_assurini_en/": {
+    "lastmod": "2016-11-22T10:08:22+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T21:57:09.553Z",
+    "hash": "1186e900f82f02e3ff3af0cf8f499b5f61081b30755131afbe717f2f0b2ea07b",
+    "processedHash": "1186e900f82f02e3ff3af0cf8f499b5f61081b30755131afbe717f2f0b2ea07b",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_sp_bolivia_gold_en/": {
+    "lastmod": "2016-11-22T10:08:21+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T21:47:58.071Z",
+    "hash": "e4b39fc92d242da9a127c7e3f39925accf1f4773776786dec8ac9a2aac47b5c1",
+    "processedHash": "e4b39fc92d242da9a127c7e3f39925accf1f4773776786dec8ac9a2aac47b5c1",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_sp_diamond_face_en/": {
+    "lastmod": "2016-11-22T10:08:20+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T16:30:56.633Z",
+    "hash": "bc68b6cdd0a9f9279ca61e7d02eff4eae38d070832f08be99d40228b39f3a54e",
+    "processedHash": "bc68b6cdd0a9f9279ca61e7d02eff4eae38d070832f08be99d40228b39f3a54e",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_sp_masken_has_been_described_as_apistogramma_paulmuelleri_en/": {
+    "lastmod": "2016-11-22T10:08:21+00:00",
+    "entityIds": [
+      "species/apistogramma-paulmuelleri"
+    ],
+    "updatedAt": "2026-11-09T21:52:40.473Z",
+    "hash": "2102cb184bca75ee8652c0712fbdf3eea251d75f0e12e740d791e1da571bef68",
+    "processedHash": "2102cb184bca75ee8652c0712fbdf3eea251d75f0e12e740d791e1da571bef68",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_sp_xingu_vielfleck__en/": {
+    "lastmod": "2016-11-22T10:08:21+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T21:50:09.334Z",
+    "hash": "a285b652dd2c3ff27d8e1248030e579f58131bbcfb60fb2700d580694e00d5e9",
+    "processedHash": "a285b652dd2c3ff27d8e1248030e579f58131bbcfb60fb2700d580694e00d5e9",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_sp_xingu_vielfleck_en/": {
+    "lastmod": "2016-11-22T10:08:20+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T16:27:53.432Z",
+    "hash": "ac79bd11dd4d638fe67471e5c8e58f5b7e430c5db71834526a01e54102c9d665",
+    "processedHash": "ac79bd11dd4d638fe67471e5c8e58f5b7e430c5db71834526a01e54102c9d665",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_trifasciata_en/": {
+    "lastmod": "2016-11-22T10:08:22+00:00",
+    "entityIds": [
+      "species/apistogramma-trifasciata"
+    ],
+    "updatedAt": "2026-11-09T21:57:48.609Z",
+    "hash": "f8bed9c2b80a64c2c7e075e474ec4978b4186a5f1e430e8b07e986172423aef0",
+    "processedHash": "f8bed9c2b80a64c2c7e075e474ec4978b4186a5f1e430e8b07e986172423aef0",
     "status": "processed",
     "attempts": 0
   },
@@ -7863,6 +8466,37 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_urteagai_en/": {
+    "lastmod": "2016-11-22T10:08:20+00:00",
+    "entityIds": [
+      "species/apistogramma-urteagai"
+    ],
+    "updatedAt": "2026-11-09T16:26:44.211Z",
+    "hash": "39d549147a6e59e308da6130421dd070ea140b7e048d372148aada1f2e5b3ff1",
+    "processedHash": "39d549147a6e59e308da6130421dd070ea140b7e048d372148aada1f2e5b3ff1",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_velifera_en/": {
+    "lastmod": "2016-11-22T10:08:21+00:00",
+    "entityIds": [
+      "species/apistogramma-velifera"
+    ],
+    "updatedAt": "2026-11-09T16:37:35.642Z",
+    "hash": "fb779814d036b946a2218579e7a901f11dad6db4d680082160f4a6533a8b61d2",
+    "processedHash": "fb779814d036b946a2218579e7a901f11dad6db4d680082160f4a6533a8b61d2",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_viejita_variety_ii_en/": {
+    "lastmod": "2016-11-22T10:08:20+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T16:32:36.291Z",
+    "hash": "c64a8c2bb52e92a2c2d67ebaea27876d82cb76dbfe17065e6a0d665b42acaa6b",
+    "processedHash": "c64a8c2bb52e92a2c2d67ebaea27876d82cb76dbfe17065e6a0d665b42acaa6b",
+    "status": "skipped",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogrammoides_pucallpaensis_en/": {
     "lastmod": "2016-11-22T10:08:20+00:00",
     "entityIds": [
@@ -7871,6 +8505,101 @@
     "updatedAt": "2026-11-01T02:06:25.837Z",
     "hash": "f63dce9135d0f03c74239291f883ce53f4766cf31681a6ffc2ece433335aab6b",
     "processedHash": "f63dce9135d0f03c74239291f883ce53f4766cf31681a6ffc2ece433335aab6b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/biotoecus-opercularis-3/": {
+    "lastmod": "2016-11-22T10:08:19+00:00",
+    "entityIds": [
+      "species/biotoecus-opercularis"
+    ],
+    "updatedAt": "2026-11-09T16:21:01.341Z",
+    "hash": "2234076c5bde2c24eff8d23adeeb63b4cca5c3fe01174534af909057fd294410",
+    "processedHash": "2234076c5bde2c24eff8d23adeeb63b4cca5c3fe01174534af909057fd294410",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/biotoecus_dicentrarchus_en-2/": {
+    "lastmod": "2016-11-22T10:08:21+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T16:35:37.731Z",
+    "hash": "b5e8eb26b2d3e14b345654eecc48bab2fa17aa826748cbfec50ae3db6407f293",
+    "processedHash": "b5e8eb26b2d3e14b345654eecc48bab2fa17aa826748cbfec50ae3db6407f293",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/biotoecus_dicentrarchus_en/": {
+    "lastmod": "2016-11-22T10:08:21+00:00",
+    "entityIds": [
+      "species/biotoecus-dicentrarchus"
+    ],
+    "updatedAt": "2026-11-09T21:50:37.219Z",
+    "hash": "3dfea410af6188bdbe975ec870743342afd0170e8fff0fafb022e45b82f39752",
+    "processedHash": "3dfea410af6188bdbe975ec870743342afd0170e8fff0fafb022e45b82f39752",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/biotoecus_opercularis_en/": {
+    "lastmod": "2016-11-22T10:08:19+00:00",
+    "entityIds": [
+      "species/biotoecus-opercularis"
+    ],
+    "updatedAt": "2026-11-09T16:17:20.981Z",
+    "hash": "897cd7e3b31532531c76ea4631b50f036ff4b8d672496a3e6d7b69d2618a4c48",
+    "processedHash": "897cd7e3b31532531c76ea4631b50f036ff4b8d672496a3e6d7b69d2618a4c48",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/biotoecus_special_en/": {
+    "lastmod": "2016-11-22T10:08:21+00:00",
+    "entityIds": [
+      "guides/glaser-en-25-perchlike-fishes-25d-perchlike-fishes-4-south-american-dwarf-cichlids-biotoecus-special-en"
+    ],
+    "updatedAt": "2026-11-09T21:51:11.825Z",
+    "hash": "35dc9e0b236bb4ad060207bcc0c1b8e5e3dfedbf4e247673df55101206deb77f",
+    "processedHash": "35dc9e0b236bb4ad060207bcc0c1b8e5e3dfedbf4e247673df55101206deb77f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/crenicichla_compressiceps_en/": {
+    "lastmod": "2016-11-22T10:08:59+00:00",
+    "entityIds": [
+      "species/crenicichla-compressiceps"
+    ],
+    "updatedAt": "2026-11-09T22:27:50.943Z",
+    "hash": "c2062d392e5c3ae7990ef7b65c53685d1c8d477444aaf09321ebebf052f52428",
+    "processedHash": "c2062d392e5c3ae7990ef7b65c53685d1c8d477444aaf09321ebebf052f52428",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/dicrossus_maculatus_checkerboard_cichlids_part_3_en/": {
+    "lastmod": "2016-11-22T10:08:20+00:00",
+    "entityIds": [
+      "species/dicrossus-maculatus"
+    ],
+    "updatedAt": "2026-11-09T16:29:10.813Z",
+    "hash": "e9ee3808f4a35e1a4566d48fdbc338df5fc99f60915913bb0894c9558db11efc",
+    "processedHash": "e9ee3808f4a35e1a4566d48fdbc338df5fc99f60915913bb0894c9558db11efc",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/gorgeous_dicrossus_maculatus_arrived__en/": {
+    "lastmod": "2016-11-22T10:08:20+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T16:26:33.774Z",
+    "hash": "4932604212926a5cc819a5a8da7c6fb414e8768fd59060c3210f74d51467946b",
+    "processedHash": "4932604212926a5cc819a5a8da7c6fb414e8768fd59060c3210f74d51467946b",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/laetacara_araguaiae_en-2/": {
+    "lastmod": "2016-11-22T10:08:58+00:00",
+    "entityIds": [
+      "species/laetacara-araguaiae"
+    ],
+    "updatedAt": "2026-11-09T22:26:16.485Z",
+    "hash": "9c069091936218470ac5398491edee1664e162f3b76e16f0f9ff9a4294ab1116",
+    "processedHash": "9c069091936218470ac5398491edee1664e162f3b76e16f0f9ff9a4294ab1116",
     "status": "processed",
     "attempts": 0
   },
@@ -7885,6 +8614,257 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/many_fantastic_apistogramma_arrived__en/": {
+    "lastmod": "2016-11-22T10:08:21+00:00",
+    "entityIds": [
+      "guides/glaser-en-25-perchlike-fishes-25d-perchlike-fishes-4-south-american-dwarf-cichlids-many-fantastic-apistogramma-arrived-en"
+    ],
+    "updatedAt": "2026-11-09T21:48:53.075Z",
+    "hash": "c7639c67853467fa002f978939761889ac10162732061b77724b09d84bd3c7b2",
+    "processedHash": "c7639c67853467fa002f978939761889ac10162732061b77724b09d84bd3c7b2",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/mikrogeophagus_altispinosus_en/": {
+    "lastmod": "2016-11-22T10:08:19+00:00",
+    "entityIds": [
+      "species/mikrogeophagus-altispinosus"
+    ],
+    "updatedAt": "2026-11-09T16:21:58.085Z",
+    "hash": "6f45de5998e3da42d2f311dc298bafd65f686bf09b27b55c88eaede0adbc54c7",
+    "processedHash": "6f45de5998e3da42d2f311dc298bafd65f686bf09b27b55c88eaede0adbc54c7",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/nannacara_spec_sourourou__en/": {
+    "lastmod": "2016-11-22T10:08:22+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T21:58:40.919Z",
+    "hash": "0b0b10d3d6eb8410c9074bf526991b1b4a05037826ab9ec264cc16dc19adf190",
+    "processedHash": "0b0b10d3d6eb8410c9074bf526991b1b4a05037826ab9ec264cc16dc19adf190",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/new_in_stock_mikrogeophagus_ramirezi_perlmutt_pearl_en/": {
+    "lastmod": "2016-11-22T10:08:21+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T16:35:46.529Z",
+    "hash": "c7d25609921298ef8352c026c22fff2ea8a414fd76962bb8fb46d3ff16660c5b",
+    "processedHash": "c7d25609921298ef8352c026c22fff2ea8a414fd76962bb8fb46d3ff16660c5b",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/ram_electric_blue_orange_head_en/": {
+    "lastmod": "2016-11-22T10:08:20+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T16:25:19.238Z",
+    "hash": "ff7001478a912951f577919e99fb25300f79cdcc7c634f964a8f7c0d73df2c0a",
+    "processedHash": "ff7001478a912951f577919e99fb25300f79cdcc7c634f964a8f7c0d73df2c0a",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/rams_jumbo_gold_en/": {
+    "lastmod": "2016-11-22T10:08:21+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T16:40:04.662Z",
+    "hash": "9c545b289b13f86393c850a1c5edbb5859ebbd8253782c3a0807c78ca8c7e0b9",
+    "processedHash": "9c545b289b13f86393c850a1c5edbb5859ebbd8253782c3a0807c78ca8c7e0b9",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/teleocichla_centrarchus_en/": {
+    "lastmod": "2016-11-22T10:08:19+00:00",
+    "entityIds": [
+      "species/teleocichla-centrarchus"
+    ],
+    "updatedAt": "2026-11-09T16:23:52.192Z",
+    "hash": "667a38623e16b96259806cf212ba9a70cd2da5ea0d198a7d5196ca8c371a887e",
+    "processedHash": "667a38623e16b96259806cf212ba9a70cd2da5ea0d198a7d5196ca8c371a887e",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/teleocichla_proselytus_en/": {
+    "lastmod": "2016-11-22T10:08:20+00:00",
+    "entityIds": [
+      "species/teleocichla-proselytus"
+    ],
+    "updatedAt": "2026-11-09T16:28:34.253Z",
+    "hash": "dfb5cc538e4bfcd027b3675accbae5dbabfc60c2eeeb0ad5d89d9f1b8a872358",
+    "processedHash": "dfb5cc538e4bfcd027b3675accbae5dbabfc60c2eeeb0ad5d89d9f1b8a872358",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/wild_rams_en/": {
+    "lastmod": "2016-11-22T10:08:21+00:00",
+    "entityIds": [
+      "species/mikrogeophagus-ramirezi"
+    ],
+    "updatedAt": "2026-11-09T16:40:19.644Z",
+    "hash": "1b7e5caea9faecbebe1a1948fa1fbd89330f13632090521feed55c872a80a76b",
+    "processedHash": "1b7e5caea9faecbebe1a1948fa1fbd89330f13632090521feed55c872a80a76b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/aequidens_nannacara_neon_blue_en/": {
+    "lastmod": "2016-11-22T10:08:57+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T22:17:33.529Z",
+    "hash": "004c6338b3e1525f5afe1c64050a3f414010723e7c65d98b77f76e4fdf857d3e",
+    "processedHash": "004c6338b3e1525f5afe1c64050a3f414010723e7c65d98b77f76e4fdf857d3e",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/aequidens_patricki_en/": {
+    "lastmod": "2016-11-22T10:08:58+00:00",
+    "entityIds": [
+      "species/aequidens-patricki"
+    ],
+    "updatedAt": "2026-11-09T22:24:43.429Z",
+    "hash": "3d7e452f165f36670be09d389e3aac8be5f3d3654afb4f58c2c969f81891d3fc",
+    "processedHash": "3d7e452f165f36670be09d389e3aac8be5f3d3654afb4f58c2c969f81891d3fc",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/altum_angels_bred_ones_available__en/": {
+    "lastmod": "2016-11-22T10:08:57+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T22:18:41.277Z",
+    "hash": "6922698ec18abbc24b11f1650d3408a4cbc0d7c8b699bb07d762a018b3b94113",
+    "processedHash": "6922698ec18abbc24b11f1650d3408a4cbc0d7c8b699bb07d762a018b3b94113",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/amatitlania_sp_honduras_red_point_en-2/": {
+    "lastmod": "2016-11-22T10:08:57+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T22:20:05.705Z",
+    "hash": "0d298edb0c59193d9e280b802df7c5e494593116a26e0c5f71d87070d3b4e53e",
+    "processedHash": "0d298edb0c59193d9e280b802df7c5e494593116a26e0c5f71d87070d3b4e53e",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/astronotus-ocellatus-oscar-lemon/": {
+    "lastmod": "2016-11-22T10:08:55+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T22:08:03.140Z",
+    "hash": "b249fafd6b318673e0c7c503aab58845607166d6740f67c36405384bbeb8cca9",
+    "processedHash": "b249fafd6b318673e0c7c503aab58845607166d6740f67c36405384bbeb8cca9",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/astronotus_cf_crassipinnis_en/": {
+    "lastmod": "2016-11-22T10:08:55+00:00",
+    "entityIds": [
+      "species/astronotus-crassipinnis"
+    ],
+    "updatedAt": "2026-11-09T22:05:14.639Z",
+    "hash": "3edc4a85a844239269a5224d2e507491b2550544fb5a3ec5caf318c67fc2b1d3",
+    "processedHash": "3edc4a85a844239269a5224d2e507491b2550544fb5a3ec5caf318c67fc2b1d3",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/astronotus_ocellatus_wild_en/": {
+    "lastmod": "2016-11-22T10:09:00+00:00",
+    "entityIds": [
+      "species/astronotus-ocellatus"
+    ],
+    "updatedAt": "2026-11-09T22:35:23.972Z",
+    "hash": "275d2fadbf169ad0cf5d193f1c69229ad72485f17e6e40cfd8d0b444256420ca",
+    "processedHash": "275d2fadbf169ad0cf5d193f1c69229ad72485f17e6e40cfd8d0b444256420ca",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/astronotus_zebra_tapajos_en/": {
+    "lastmod": "2016-11-22T10:08:55+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T22:02:49.320Z",
+    "hash": "8391ccee3870045e1ddc0af2b4072807bf3857b18dbc25c66ef5a1295b32898c",
+    "processedHash": "8391ccee3870045e1ddc0af2b4072807bf3857b18dbc25c66ef5a1295b32898c",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/biotodoma-wavrini-brazil/": {
+    "lastmod": "2016-11-22T10:08:55+00:00",
+    "entityIds": [
+      "species/biotodoma-wavrini"
+    ],
+    "updatedAt": "2026-11-09T22:08:43.355Z",
+    "hash": "f69ef7dface7d4efc68ebbb1fd093f0542617f09db5ccfe8940491bb086a1b5e",
+    "processedHash": "f69ef7dface7d4efc68ebbb1fd093f0542617f09db5ccfe8940491bb086a1b5e",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/blue_dempsey_cichlids_german_bred_arrived_en/": {
+    "lastmod": "2016-11-22T10:08:59+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T22:27:43.690Z",
+    "hash": "8f8640809e8f6872adc92ddffa57396e2f85cb1e8d07274e31731d2504ebb47c",
+    "processedHash": "8f8640809e8f6872adc92ddffa57396e2f85cb1e8d07274e31731d2504ebb47c",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/blue_dempsey_original_strain_argentina__en/": {
+    "lastmod": "2016-11-22T10:08:59+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T22:26:47.620Z",
+    "hash": "a89f5a88eec137459b874a1b70693cf4f7d688cdaf23c1d29a2ede96b00e455f",
+    "processedHash": "a89f5a88eec137459b874a1b70693cf4f7d688cdaf23c1d29a2ede96b00e455f",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/bred_altum_angels_available__en/": {
+    "lastmod": "2016-11-22T10:08:58+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T22:24:36.380Z",
+    "hash": "2da01314cc48bc905a3b39ecacbf3f763985981885bb546bcb3b073780cd3fe2",
+    "processedHash": "2da01314cc48bc905a3b39ecacbf3f763985981885bb546bcb3b073780cd3fe2",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/bred_cichla_from_southeast_asia_en/": {
+    "lastmod": "2016-11-22T10:08:55+00:00",
+    "entityIds": [
+      "guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-bred-cichla-from-southeast-asia-en"
+    ],
+    "updatedAt": "2026-11-09T22:02:56.283Z",
+    "hash": "bf7d226fc2f6c677bf556236ed18d92bdfa7f0ad4411d7982dbcd18250861c3f",
+    "processedHash": "bf7d226fc2f6c677bf556236ed18d92bdfa7f0ad4411d7982dbcd18250861c3f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/brown_red_discus_madeira_nova_olinda_do_norte_en/": {
+    "lastmod": "2016-11-22T10:08:56+00:00",
+    "entityIds": [
+      "guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-brown-red-discus-madeira-nova-olinda-do-norte-en"
+    ],
+    "updatedAt": "2026-11-09T22:16:06.012Z",
+    "hash": "8b0c06bb21e7552269fa5d55ff3ca8c80b214c2d6e36ea5cd818510d8566fc29",
+    "processedHash": "8b0c06bb21e7552269fa5d55ff3ca8c80b214c2d6e36ea5cd818510d8566fc29",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/chanchitos/": {
+    "lastmod": "2016-11-22T10:08:55+00:00",
+    "entityIds": [
+      "guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-chanchitos"
+    ],
+    "updatedAt": "2026-11-09T22:09:52.332Z",
+    "hash": "0260914d634ae84e325530feff5ffcd230865db629252e5f801ea75b90d31541",
+    "processedHash": "0260914d634ae84e325530feff5ffcd230865db629252e5f801ea75b90d31541",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/cichla_kelberi_en/": {
+    "lastmod": "2016-11-22T10:09:00+00:00",
+    "entityIds": [
+      "species/cichla-kelberi"
+    ],
+    "updatedAt": "2026-11-09T22:33:12.384Z",
+    "hash": "b0715ab238b1076c49e9c8f8d59212b2e35030563cc965c75adbb895352db9d4",
+    "processedHash": "b0715ab238b1076c49e9c8f8d59212b2e35030563cc965c75adbb895352db9d4",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/cichla_orinocensis_en/": {
     "lastmod": "2017-01-05T08:41:34+00:00",
     "entityIds": [
@@ -7896,6 +8876,274 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/crenicichla_cf_lugubris_red_atabapo_en/": {
+    "lastmod": "2016-11-22T10:09:00+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T22:34:00.182Z",
+    "hash": "b34e2875488624117423acf639356f89e8f4c898ccc6b6c1f18ac9b87736c670",
+    "processedHash": "b34e2875488624117423acf639356f89e8f4c898ccc6b6c1f18ac9b87736c670",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/crenicichla_edithae_en/": {
+    "lastmod": "2016-11-22T10:08:56+00:00",
+    "entityIds": [
+      "species/crenicichla-lepidota"
+    ],
+    "updatedAt": "2026-11-09T22:13:14.050Z",
+    "hash": "b76dab6a446ef730d69fe340a88b015bc07fb9988087f5ebaacb9dc6a44d8e61",
+    "processedHash": "b76dab6a446ef730d69fe340a88b015bc07fb9988087f5ebaacb9dc6a44d8e61",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/crenicichla_lugubris_jutai_en-2/": {
+    "lastmod": "2016-11-22T10:08:57+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T22:19:26.947Z",
+    "hash": "0b03d91710e994245ba54ec1b489d5dabe1fcecb91a654e59ecfe26b723b0ed9",
+    "processedHash": "0b03d91710e994245ba54ec1b489d5dabe1fcecb91a654e59ecfe26b723b0ed9",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/crenicichla_lugubris_jutai_en/": {
+    "lastmod": "2016-11-22T10:08:59+00:00",
+    "entityIds": [
+      "species/crenicichla-lugubris"
+    ],
+    "updatedAt": "2026-11-09T22:29:24.007Z",
+    "hash": "dd31cfa12a7433170b4a54fa4d9b704bfb8f9f0d600e290a681e4e0f10e6ae03",
+    "processedHash": "dd31cfa12a7433170b4a54fa4d9b704bfb8f9f0d600e290a681e4e0f10e6ae03",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/crenicichla_marmorata_lago_maracana_en/": {
+    "lastmod": "2016-11-22T10:08:59+00:00",
+    "entityIds": [
+      "species/crenicichla-marmorata"
+    ],
+    "updatedAt": "2026-11-09T22:32:39.103Z",
+    "hash": "3fb4d41d76fa4b8bc124af314c2ce79d33512b9add5a467c643bf9a9faa218ad",
+    "processedHash": "3fb4d41d76fa4b8bc124af314c2ce79d33512b9add5a467c643bf9a9faa218ad",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/crenicichla_regani_alenquer_en/": {
+    "lastmod": "2016-11-22T10:08:56+00:00",
+    "entityIds": [
+      "species/crenicichla-regani"
+    ],
+    "updatedAt": "2026-11-09T22:13:55.444Z",
+    "hash": "69bc3b27a675353a924ab495e5746c886f4db3eac16b79393b5ae82cd50d1e6a",
+    "processedHash": "69bc3b27a675353a924ab495e5746c886f4db3eac16b79393b5ae82cd50d1e6a",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/crenicichla_sp_atabapo_fire_venezuela_en/": {
+    "lastmod": "2016-11-22T10:09:02+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T22:37:41.392Z",
+    "hash": "bf18f06ee688c7d2294c9c7fce8dc64ecbacba8a917641c188fe5d6f3a087c05",
+    "processedHash": "bf18f06ee688c7d2294c9c7fce8dc64ecbacba8a917641c188fe5d6f3a087c05",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/crenicichla_sp_bela_union_uruguay_en/": {
+    "lastmod": "2016-11-22T10:08:59+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T22:28:24.450Z",
+    "hash": "c0df73be0d4c1b01edba30f2507dbfca2de5c41053267ddcfa9b035d9982ca8a",
+    "processedHash": "c0df73be0d4c1b01edba30f2507dbfca2de5c41053267ddcfa9b035d9982ca8a",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/crenicichla_sp_inirida_i_and_iii_en/": {
+    "lastmod": "2016-11-22T10:08:58+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T22:25:38.007Z",
+    "hash": "3dc03d9c8d9c442ee72d4d489b7218c68646dde879a776a376a13f6525bc891b",
+    "processedHash": "3dc03d9c8d9c442ee72d4d489b7218c68646dde879a776a376a13f6525bc891b",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/crenicichla_sp_inirida_iv_en/": {
+    "lastmod": "2016-11-22T10:08:58+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T22:21:52.057Z",
+    "hash": "2d388d9a555bcdf811e773f0c2f8cf93b90ae8cf4fc8c8d8f5ce2ab38eca8243",
+    "processedHash": "2d388d9a555bcdf811e773f0c2f8cf93b90ae8cf4fc8c8d8f5ce2ab38eca8243",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/crenicichla_sp_jatapu_en/": {
+    "lastmod": "2016-11-22T10:08:58+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T22:25:46.831Z",
+    "hash": "cf2d4d685f24e24bd0df5a9704789e2d85cd2e392ef6bfe2cd2ba79e577bbec0",
+    "processedHash": "cf2d4d685f24e24bd0df5a9704789e2d85cd2e392ef6bfe2cd2ba79e577bbec0",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/crenicichla_sp_tapajos_en/": {
+    "lastmod": "2016-11-22T10:08:57+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T22:19:39.470Z",
+    "hash": "8c4be49e3555e58445bd7a5854bd20d1ddf97224e6e0d382abb64610591981af",
+    "processedHash": "8c4be49e3555e58445bd7a5854bd20d1ddf97224e6e0d382abb64610591981af",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/crenicichla_zebrina_en-2/": {
+    "lastmod": "2016-11-22T10:08:57+00:00",
+    "entityIds": [
+      "species/crenicichla-zebrina"
+    ],
+    "updatedAt": "2026-11-09T22:20:13.256Z",
+    "hash": "ef7f78d6c100685a51ba2da63ebbb81748c2b1b2205b404942b11a97a3842991",
+    "processedHash": "ef7f78d6c100685a51ba2da63ebbb81748c2b1b2205b404942b11a97a3842991",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/cryptoheros_cutteri_en/": {
+    "lastmod": "2016-11-22T10:08:56+00:00",
+    "entityIds": [
+      "species/cryptoheros-cutteri"
+    ],
+    "updatedAt": "2026-11-09T22:15:23.676Z",
+    "hash": "7cef8ff702c445634f696383dd0d119ada9308f57064bdcb098d3b75806f9e9d",
+    "processedHash": "7cef8ff702c445634f696383dd0d119ada9308f57064bdcb098d3b75806f9e9d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/discus_brown_wild_cameta_en/": {
+    "lastmod": "2016-11-22T10:08:57+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T22:20:48.179Z",
+    "hash": "3e9c0ac34df72c8dc7247b82b797aa161bcf323a9632a6ee24ff22d7d7f52f44",
+    "processedHash": "3e9c0ac34df72c8dc7247b82b797aa161bcf323a9632a6ee24ff22d7d7f52f44",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/discus_gold_xingu_en/": {
+    "lastmod": "2016-11-22T10:08:59+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T22:29:04.205Z",
+    "hash": "a3eac2ce82630e869b3b66e5f04abe9d534c5c82033856711a5342d699b43730",
+    "processedHash": "a3eac2ce82630e869b3b66e5f04abe9d534c5c82033856711a5342d699b43730",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/discus_red_inferno_rio_moju__en/": {
+    "lastmod": "2016-11-22T10:09:17+00:00",
+    "entityIds": [
+      "species/symphysodon-aequifasciatus"
+    ],
+    "updatedAt": "2026-11-09T22:39:10.034Z",
+    "hash": "eb4f84b41308128c7611a4971fc8f2370f4339a6ee3bf0b89fbde41f92e8c1d0",
+    "processedHash": "eb4f84b41308128c7611a4971fc8f2370f4339a6ee3bf0b89fbde41f92e8c1d0",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/discus_red_maues_lago_paraconi_en/": {
+    "lastmod": "2016-11-22T10:09:00+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T22:35:16.760Z",
+    "hash": "7780061f5e9f1e8c185e03b9d7c52dae19d89333a9d294bf772f59033170f3eb",
+    "processedHash": "7780061f5e9f1e8c185e03b9d7c52dae19d89333a9d294bf772f59033170f3eb",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/discus_royal_blue_nhamunda_maracanha_en-2/": {
+    "lastmod": "2016-11-22T10:08:58+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T22:24:17.308Z",
+    "hash": "975ed90f9f38e016fd9a2854c0109fdf860b26e9bae34d7bd7224977c3ac6a51",
+    "processedHash": "975ed90f9f38e016fd9a2854c0109fdf860b26e9bae34d7bd7224977c3ac6a51",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/discus_royal_blue_nhamunda_maracanha_en/": {
+    "lastmod": "2016-11-22T10:09:01+00:00",
+    "entityIds": [
+      "species/symphysodon-aequifasciatus"
+    ],
+    "updatedAt": "2026-11-09T22:37:07.695Z",
+    "hash": "b96ebc87070c099d76b26f25121d62eb1d17086c29d18f86c8a2b97582859282",
+    "processedHash": "b96ebc87070c099d76b26f25121d62eb1d17086c29d18f86c8a2b97582859282",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/discus_season__en/": {
+    "lastmod": "2016-11-22T10:09:01+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T22:35:51.872Z",
+    "hash": "d077c3c628ab3ea3a70cc004178e2e6b425d5f6b0ae37a9e2cdcd8a2afbab372",
+    "processedHash": "d077c3c628ab3ea3a70cc004178e2e6b425d5f6b0ae37a9e2cdcd8a2afbab372",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/discus_season_started__en/": {
+    "lastmod": "2016-11-22T10:08:56+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T22:16:53.708Z",
+    "hash": "88b90012589dfdfc9ce9bb3b81fffe0da558ce8d0ee4c5b6ee796f6c350dc082",
+    "processedHash": "88b90012589dfdfc9ce9bb3b81fffe0da558ce8d0ee4c5b6ee796f6c350dc082",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/discus_wild_royal_green_tefe_en/": {
+    "lastmod": "2016-11-22T10:08:59+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T22:29:17.061Z",
+    "hash": "d531c11ca7eb71b3fe0e843b5dfe1bfc1de05f7a4c6d53cc53bd14a4fe80af40",
+    "processedHash": "d531c11ca7eb71b3fe0e843b5dfe1bfc1de05f7a4c6d53cc53bd14a4fe80af40",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/diskus_red_inferno_rio_moju__en/": {
+    "lastmod": "2016-11-22T10:09:16+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T22:39:01.933Z",
+    "hash": "750c072bba245ec673cc9370265f7ba71f7c2626653fb2e7424456a90fc36bcc",
+    "processedHash": "750c072bba245ec673cc9370265f7ba71f7c2626653fb2e7424456a90fc36bcc",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/diskus_royal_blue_rio_moju_en/": {
+    "lastmod": "2016-11-22T10:09:16+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T22:37:59.489Z",
+    "hash": "ba58414e0990985474dcc7455c2659fab8bbbbef641cafa30d5e0dc854ed1600",
+    "processedHash": "ba58414e0990985474dcc7455c2659fab8bbbbef641cafa30d5e0dc854ed1600",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/diskus_semi_royal_rio_moju_en/": {
+    "lastmod": "2016-11-22T10:09:16+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T22:38:37.212Z",
+    "hash": "a0b090ba218e38cad58096d5e1da499f1a9ff2c0ef2dbbe0f7cb340eda3d207b",
+    "processedHash": "a0b090ba218e38cad58096d5e1da499f1a9ff2c0ef2dbbe0f7cb340eda3d207b",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/diskus_wild_heckel_blue_uatuma_en/": {
+    "lastmod": "2016-11-22T10:08:59+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T22:30:03.298Z",
+    "hash": "0b404b29b2637ab4eb42f73fad11b00aeb705e80ca50471303ecb17401e01c97",
+    "processedHash": "0b404b29b2637ab4eb42f73fad11b00aeb705e80ca50471303ecb17401e01c97",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/fantastic_pterophyllum_scalare_santa_isabel_arrived__en/": {
+    "lastmod": "2016-11-22T10:08:58+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T22:24:27.477Z",
+    "hash": "ec0b6751409c7ce8e5a57b48a0ee2e9578ebd1e4254dfbbaddc3b3042dd9ff16",
+    "processedHash": "ec0b6751409c7ce8e5a57b48a0ee2e9578ebd1e4254dfbbaddc3b3042dd9ff16",
+    "status": "skipped",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus-brasiliensis-moge-uruguay-en/": {
     "lastmod": "2017-01-05T08:29:09+00:00",
     "entityIds": [],
@@ -7903,6 +9151,39 @@
     "hash": "b7e00db4e5a812e471f74a5bfbb747310c757527d2b60f501c5e09a6e9fbdac3",
     "processedHash": "b7e00db4e5a812e471f74a5bfbb747310c757527d2b60f501c5e09a6e9fbdac3",
     "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_altifrons_curua_una_en/": {
+    "lastmod": "2016-11-22T10:08:57+00:00",
+    "entityIds": [
+      "species/geophagus-altifrons"
+    ],
+    "updatedAt": "2026-11-09T22:17:06.421Z",
+    "hash": "fe212c7471a228893d402f01c45cd4b191aef1be12b648caeb39246b002276d2",
+    "processedHash": "fe212c7471a228893d402f01c45cd4b191aef1be12b648caeb39246b002276d2",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_pellegrini_en/": {
+    "lastmod": "2016-11-22T10:08:55+00:00",
+    "entityIds": [
+      "species/geophagus-pellegrini"
+    ],
+    "updatedAt": "2026-11-09T22:07:20.787Z",
+    "hash": "d628d42cf79c8aaf6690a9703d470f3ea005eb7f8f9509d3914e2d0a575e314f",
+    "processedHash": "d628d42cf79c8aaf6690a9703d470f3ea005eb7f8f9509d3914e2d0a575e314f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/heros_cf_efasciatus_red_shoulder_en/": {
+    "lastmod": "2016-11-22T10:08:57+00:00",
+    "entityIds": [
+      "species/heros-efasciatus"
+    ],
+    "updatedAt": "2026-11-09T22:18:48.398Z",
+    "hash": "ba085304bb739f1a51d90719ac7d3ca4511e6813da48be2dbad1503693bb5bdb",
+    "processedHash": "ba085304bb739f1a51d90719ac7d3ca4511e6813da48be2dbad1503693bb5bdb",
+    "status": "processed",
     "attempts": 0
   },
   "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/heros_severus_en/": {
@@ -7936,6 +9217,15 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/high_season_for_wild_discus__en/": {
+    "lastmod": "2016-11-22T10:08:59+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T22:30:28.457Z",
+    "hash": "4bd35cfb230bbdd51290433e8720790e1966acf66c0a435553f3ec7fb5e0f1a9",
+    "processedHash": "4bd35cfb230bbdd51290433e8720790e1966acf66c0a435553f3ec7fb5e0f1a9",
+    "status": "skipped",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/hypselecara_temporalis_oyapoc_en/": {
     "lastmod": "2017-01-04T13:16:49+00:00",
     "entityIds": [
@@ -7947,6 +9237,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/mesonauta_acora_tocantins_en/": {
+    "lastmod": "2016-11-22T10:08:56+00:00",
+    "entityIds": [
+      "species/mesonauta-acora"
+    ],
+    "updatedAt": "2026-11-09T22:12:19.316Z",
+    "hash": "a5f3707523847c7870c0e1a2fd430f11b5747a0e3e9a00eddbc9bd8cfe18f5af",
+    "processedHash": "a5f3707523847c7870c0e1a2fd430f11b5747a0e3e9a00eddbc9bd8cfe18f5af",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/mesonauta_mirificus_en/": {
     "lastmod": "2016-11-22T10:09:00+00:00",
     "entityIds": [],
@@ -7954,6 +9255,57 @@
     "hash": "e39864f084424c856495bfbf4a28c383705d8781983732c167e766f870821f76",
     "processedHash": "e39864f084424c856495bfbf4a28c383705d8781983732c167e766f870821f76",
     "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/neetroplus_panamensis_variety_red_en/": {
+    "lastmod": "2016-11-22T10:09:00+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T22:34:53.854Z",
+    "hash": "766e90f78a69202e3956ee565c989d81af8a95fc5a51abdb7f31fd9e2c5b5148",
+    "processedHash": "766e90f78a69202e3956ee565c989d81af8a95fc5a51abdb7f31fd9e2c5b5148",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/new_clown_angels_en/": {
+    "lastmod": "2016-11-22T10:08:55+00:00",
+    "entityIds": [
+      "guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-new-clown-angels-en"
+    ],
+    "updatedAt": "2026-11-09T22:04:10.293Z",
+    "hash": "10306d3761e1d040e18c976ffbbe608fc3fe6c52703e43bb531eb1a145096a42",
+    "processedHash": "10306d3761e1d040e18c976ffbbe608fc3fe6c52703e43bb531eb1a145096a42",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/new_names_for_goldseam_cichlid_and_green_terror_en/": {
+    "lastmod": "2016-11-22T10:09:01+00:00",
+    "entityIds": [
+      "guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-new-names-for-goldseam-cichlid-and-green-terror-en"
+    ],
+    "updatedAt": "2026-11-09T22:36:07.200Z",
+    "hash": "17c6c918c967fb3160a0b3a0261a71bf3e01539c254aebc292b170f1d126a065",
+    "processedHash": "17c6c918c967fb3160a0b3a0261a71bf3e01539c254aebc292b170f1d126a065",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/nice_discus_wildcaught_available__en/": {
+    "lastmod": "2016-11-22T10:09:02+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T22:37:53.059Z",
+    "hash": "11cac7c40e793b0da200265eeb4ed8dc83c357557572d6db6b29d295dbb28861",
+    "processedHash": "11cac7c40e793b0da200265eeb4ed8dc83c357557572d6db6b29d295dbb28861",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/pearl_cichlids_german_bred_ones_available__en/": {
+    "lastmod": "2016-11-22T10:08:57+00:00",
+    "entityIds": [
+      "species/herichthys-cyanoguttatus"
+    ],
+    "updatedAt": "2026-11-09T22:21:00.889Z",
+    "hash": "e97fe8941df3090753c8fca1eb72d17ceba4ea504f7fafa2e43be8cf4aa31d61",
+    "processedHash": "e97fe8941df3090753c8fca1eb72d17ceba4ea504f7fafa2e43be8cf4aa31d61",
+    "status": "processed",
     "attempts": 0
   },
   "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/pterophyllum-scalare-blue-dwarf/": {
@@ -7989,6 +9341,15 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/pterophyllum_dumerili__en/": {
+    "lastmod": "2016-11-22T10:08:56+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T22:12:07.531Z",
+    "hash": "07ed8c6012f3b0639e08e9f8c00bb9dc0dacc1e382140af8d4cbeb190d67d4e6",
+    "processedHash": "07ed8c6012f3b0639e08e9f8c00bb9dc0dacc1e382140af8d4cbeb190d67d4e6",
+    "status": "skipped",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/pterophyllum_scalare_santa_isabel_en/": {
     "lastmod": "2017-01-04T15:02:42+00:00",
     "entityIds": [
@@ -8011,6 +9372,35 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/pterophyllum_sp_jatapu_en/": {
+    "lastmod": "2016-11-22T10:08:59+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T22:32:10.682Z",
+    "hash": "106b89d2132e9730f8d149d7e98fc723a22b8a647a6a1ca8d0d9470218667c95",
+    "processedHash": "106b89d2132e9730f8d149d7e98fc723a22b8a647a6a1ca8d0d9470218667c95",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/red_back_angels_en/": {
+    "lastmod": "2016-11-22T10:08:58+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T22:21:42.171Z",
+    "hash": "85c695499687dbc22a834310b52b38eb655d45eec0f1c0215686c9f01796d73a",
+    "processedHash": "85c695499687dbc22a834310b52b38eb655d45eec0f1c0215686c9f01796d73a",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/rocio_octofasciata_chiapas_en/": {
+    "lastmod": "2016-11-22T10:08:59+00:00",
+    "entityIds": [
+      "species/rocio-octofasciata"
+    ],
+    "updatedAt": "2026-11-09T22:26:59.424Z",
+    "hash": "0d429965ea2e23a38dc07b45e8bb44587044467e1f89d9e71c7ec3cb498401b8",
+    "processedHash": "0d429965ea2e23a38dc07b45e8bb44587044467e1f89d9e71c7ec3cb498401b8",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/satanopera_acuticeps_en/": {
     "lastmod": "2017-01-05T12:19:16+00:00",
     "entityIds": [
@@ -8030,6 +9420,88 @@
     "updatedAt": "2026-10-31T00:30:13.775Z",
     "hash": "756eb9330bd2d2b3c5bbcf9b80abb130cc9af45fbaf31526fb8f8d9457f0cfb0",
     "processedHash": "756eb9330bd2d2b3c5bbcf9b80abb130cc9af45fbaf31526fb8f8d9457f0cfb0",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/satanoperca_rhynchitis_en-2/": {
+    "lastmod": "2016-11-22T10:08:55+00:00",
+    "entityIds": [
+      "species/satanoperca-rhynchitis"
+    ],
+    "updatedAt": "2026-11-09T22:06:11.701Z",
+    "hash": "941ed5196ddf118ce1f5db12c815c80333da51b9ead63537389cab54920a354e",
+    "processedHash": "941ed5196ddf118ce1f5db12c815c80333da51b9ead63537389cab54920a354e",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/satanoperca_rhynchitis_en/": {
+    "lastmod": "2016-11-22T10:08:59+00:00",
+    "entityIds": [
+      "species/satanoperca-rhynchitis"
+    ],
+    "updatedAt": "2026-11-09T22:30:35.420Z",
+    "hash": "e5bde54e1268274510066cc46c193f36702e662995c13084cc034a5093531c47",
+    "processedHash": "e5bde54e1268274510066cc46c193f36702e662995c13084cc034a5093531c47",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/scalare_red_devil_en/": {
+    "lastmod": "2016-11-22T10:08:59+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T22:27:31.848Z",
+    "hash": "1b7062fb2466c562a56060c9e8b3130f8035ff7282fe0bd3e48fa4b5e48798da",
+    "processedHash": "1b7062fb2466c562a56060c9e8b3130f8035ff7282fe0bd3e48fa4b5e48798da",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/scalare_red_devil_show_size_en/": {
+    "lastmod": "2016-11-22T10:08:56+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T22:15:11.235Z",
+    "hash": "c2bd2bc718ad1e94bf22484ffb2f91dcb6843ed6fd26cd422c66466317071bc0",
+    "processedHash": "c2bd2bc718ad1e94bf22484ffb2f91dcb6843ed6fd26cd422c66466317071bc0",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/scalare_super_red_devil_en/": {
+    "lastmod": "2016-11-22T10:08:59+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T22:29:51.635Z",
+    "hash": "7baf2fb3df1616c069d7334642bc57e5efebf113c1684f84ca06caed4dee1123",
+    "processedHash": "7baf2fb3df1616c069d7334642bc57e5efebf113c1684f84ca06caed4dee1123",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/the_discus_season_has_started_2__en/": {
+    "lastmod": "2016-11-22T10:08:58+00:00",
+    "entityIds": [
+      "guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-the-discus-season-has-started-2-en"
+    ],
+    "updatedAt": "2026-11-09T22:23:41.081Z",
+    "hash": "92824994d72a33c8acd732427d1c1ea329309db1f50f5804f6ef007a1c7c16b3",
+    "processedHash": "92824994d72a33c8acd732427d1c1ea329309db1f50f5804f6ef007a1c7c16b3",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/the_discus_season_has_started__en/": {
+    "lastmod": "2016-11-22T10:08:58+00:00",
+    "entityIds": [
+      "guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-the-discus-season-has-started-en"
+    ],
+    "updatedAt": "2026-11-09T22:22:58.405Z",
+    "hash": "c674a38ee12aa8a9ccaec0e8e80ab38edd1dc514e4898c95c2a2f7b1a9826e79",
+    "processedHash": "c674a38ee12aa8a9ccaec0e8e80ab38edd1dc514e4898c95c2a2f7b1a9826e79",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/thorichthys_week_at_aquarium_glaser_en/": {
+    "lastmod": "2016-11-22T10:08:59+00:00",
+    "entityIds": [
+      "guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-thorichthys-week-at-aquarium-glaser-en"
+    ],
+    "updatedAt": "2026-11-09T22:31:06.950Z",
+    "hash": "7c4a2d612f95cb5078de3802d0187876fed8f93b3fd2717dc0703ef660a10044",
+    "processedHash": "7c4a2d612f95cb5078de3802d0187876fed8f93b3fd2717dc0703ef660a10044",
     "status": "processed",
     "attempts": 0
   },
@@ -8108,6 +9580,44 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/wild_collected_oscars_from_brazil_en/": {
+    "lastmod": "2016-11-22T10:08:56+00:00",
+    "entityIds": [
+      "guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-wild-collected-oscars-from-brazil-en"
+    ],
+    "updatedAt": "2026-11-09T22:11:09.007Z",
+    "hash": "d203e5b515f147a4602b758589229f1e4f6a4afdea4c95887cb824391d007caf",
+    "processedHash": "d203e5b515f147a4602b758589229f1e4f6a4afdea4c95887cb824391d007caf",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/wonderful_large_discus_from_oriximina_arrived__en/": {
+    "lastmod": "2016-11-22T10:08:59+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T22:30:19.854Z",
+    "hash": "1f63716815b0517cc4e962011594538daeabfd8f56e5ff86d15a3c8f77274f87",
+    "processedHash": "1f63716815b0517cc4e962011594538daeabfd8f56e5ff86d15a3c8f77274f87",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/wonderful_large_growing_cichlids_from_brazil_en/": {
+    "lastmod": "2016-11-22T10:08:58+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T22:25:26.781Z",
+    "hash": "279cf24c5a18c24b0c243f63f7b6ea6a1bedb1e060b2d54128c5c73fd229f6ca",
+    "processedHash": "279cf24c5a18c24b0c243f63f7b6ea6a1bedb1e060b2d54128c5c73fd229f6ca",
+    "status": "skipped",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/wonderful_wild_collected_discus__en/": {
+    "lastmod": "2016-11-22T10:08:59+00:00",
+    "entityIds": [],
+    "updatedAt": "2026-11-09T22:28:57.614Z",
+    "hash": "2fed61b08210507f670fbc718b6a84f515e6c8f85e44bd59c6571cab338b230a",
+    "processedHash": "2fed61b08210507f670fbc718b6a84f515e6c8f85e44bd59c6571cab338b230a",
+    "status": "skipped",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/gobiopterus_chuno_en/": {
     "lastmod": "2017-01-05T15:21:53+00:00",
     "entityIds": [
@@ -8138,6 +9648,17 @@
     "updatedAt": "2026-11-02T20:25:13.715Z",
     "hash": "5d428d25fe39ec5b6d89fcf2d1e0650d7931f5d117c87234d1cf3602bcc395ff",
     "processedHash": "5d428d25fe39ec5b6d89fcf2d1e0650d7931f5d117c87234d1cf3602bcc395ff",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/rhinogobius_maculafasciatus_en/": {
+    "lastmod": "2016-11-22T10:12:11+00:00",
+    "entityIds": [
+      "species/rhinogobius-maculafasciatus"
+    ],
+    "updatedAt": "2026-11-09T22:39:54.075Z",
+    "hash": "ccbc53f402579c7470fdb58097c59664d155b1efc16022c2646579c98d202e6f",
+    "processedHash": "ccbc53f402579c7470fdb58097c59664d155b1efc16022c2646579c98d202e6f",
     "status": "processed",
     "attempts": 0
   },
@@ -8226,6 +9747,28 @@
     "updatedAt": "2026-11-06T05:43:56.143Z",
     "hash": "1096c195ffa1cde9c257f806bbd18836f9ce977a2f2e9077edacc8e523441286",
     "processedHash": "1096c195ffa1cde9c257f806bbd18836f9ce977a2f2e9077edacc8e523441286",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/betta-apollon-2/": {
+    "lastmod": "2019-12-13T17:08:04+00:00",
+    "entityIds": [
+      "species/betta-apollon"
+    ],
+    "updatedAt": "2026-11-09T15:53:12.323Z",
+    "hash": "d239d97d8dc9047d65ecef52d99026369952e0643fc13114d71932ee88e11498",
+    "processedHash": "d239d97d8dc9047d65ecef52d99026369952e0643fc13114d71932ee88e11498",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/betta-apollon-4/": {
+    "lastmod": "2020-06-26T10:52:00+00:00",
+    "entityIds": [
+      "species/betta-apollon"
+    ],
+    "updatedAt": "2026-11-09T15:54:12.122Z",
+    "hash": "1e7971121c51791fc1db02f8de6674516084c07d221da1fea2645c3813f9709a",
+    "processedHash": "1e7971121c51791fc1db02f8de6674516084c07d221da1fea2645c3813f9709a",
     "status": "processed",
     "attempts": 0
   },
@@ -8541,6 +10084,17 @@
     "updatedAt": "2026-10-30T18:28:51.891Z",
     "hash": "fb91e1f779caa06788005a73f744f5290def99c19af57407c3863993fed30568",
     "processedHash": "fb91e1f779caa06788005a73f744f5290def99c19af57407c3863993fed30568",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/25-perchlike-fishes/ptychochromis-oligacanthus-2/": {
+    "lastmod": "2023-08-02T10:35:49+00:00",
+    "entityIds": [
+      "species/ptychochromis-oligacanthus"
+    ],
+    "updatedAt": "2026-11-09T15:54:35.013Z",
+    "hash": "a78af4c8894afb5f496f1f344e6e0e33825ace8143648e6cf6b67f14eeffab35",
+    "processedHash": "a78af4c8894afb5f496f1f344e6e0e33825ace8143648e6cf6b67f14eeffab35",
     "status": "processed",
     "attempts": 0
   },
@@ -9686,6 +11240,17 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.aquariumglaser.de/en/fisharchive/polycentropsis-abbreviata-2/": {
+    "lastmod": "2026-01-16T09:08:09+00:00",
+    "entityIds": [
+      "species/polycentropsis-abbreviata"
+    ],
+    "updatedAt": "2026-11-09T15:57:29.673Z",
+    "hash": "4f237417c314b224046671b41bf1f60e672d992a8925ff7453905818fa7abc03",
+    "processedHash": "4f237417c314b224046671b41bf1f60e672d992a8925ff7453905818fa7abc03",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.aquariumglaser.de/en/fisharchive/pseudanos-trimaculatus-2/": {
     "lastmod": "2024-08-23T09:16:57+00:00",
     "entityIds": [
@@ -9705,6 +11270,17 @@
     "updatedAt": "2026-10-31T00:41:51.241Z",
     "hash": "cbbece5d85b88d327173ada48f6992e6d92a59f8905cf215bbbefdf535380725",
     "processedHash": "cbbece5d85b88d327173ada48f6992e6d92a59f8905cf215bbbefdf535380725",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.aquariumglaser.de/en/fisharchive/ptychochromis-oligacanthus-4/": {
+    "lastmod": "2024-07-26T07:54:26+00:00",
+    "entityIds": [
+      "species/ptychochromis-oligacanthus"
+    ],
+    "updatedAt": "2026-11-09T15:55:49.033Z",
+    "hash": "9796514dfc766c5e0bd8e2701e4c5f32a8b2208059081b0f1a1259fec6f2322e",
+    "processedHash": "9796514dfc766c5e0bd8e2701e4c5f32a8b2208059081b0f1a1259fec6f2322e",
     "status": "processed",
     "attempts": 0
   },

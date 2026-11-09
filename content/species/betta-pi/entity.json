@@ -18,9 +18,12 @@
         "TH",
         "MY"
       ],
-      "regions": [],
+      "regions": [
+        "Pru Toe-Daeng"
+      ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -31,6 +34,14 @@
             "MY"
           ],
           "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "This species is known from the Pru Toe-Daeng peat swamps in southern Thailand near the border town of Sungai Golok, and its range also extends into northern Peninsular Malaysia where it has been collected in the states of Kelantan and Terengganu.",
+          "countries": [],
+          "regions": [
+            "Pru Toe-Daeng"
+          ]
         }
       ]
     },

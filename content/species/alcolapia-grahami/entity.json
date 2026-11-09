@@ -10,6 +10,56 @@
     "kenya",
     "lake-magadi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "KE"
+      ],
+      "regions": [
+        "Lake Magadi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Graham's soda cichlid, Alcolapia grahami, is endemic to Lake Magadi in Kenya, a shallow soda lake full of hot, alkaline springs.",
+          "countries": [
+            "KE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Magadi in the Republic of Kenya, East Africa.",
+          "countries": [],
+          "regions": [
+            "Lake Magadi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2369999,
+      "total": 16,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "KE",
+          16
+        ]
+      ],
+      "cells": [
+        [
+          35.15625,
+          -2.8125,
+          16,
+          16
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "ph": [
       {

@@ -10,6 +10,56 @@
     "tanzania",
     "lake-tanganyika"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TZ"
+      ],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "It is found along the Tanzanian shoreline in the north of the lake.",
+          "countries": [
+            "TZ"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Tanganyika.",
+          "countries": [],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9441127,
+      "total": 2,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "TZ",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          29.53125,
+          -5.625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

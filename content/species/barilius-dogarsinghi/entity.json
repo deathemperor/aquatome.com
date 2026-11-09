@@ -11,6 +11,87 @@
     "chindwin",
     "myanmar"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN",
+        "MM"
+      ],
+      "regions": [
+        "Chindwin",
+        "Barak",
+        "Ganges-Brahmaputra",
+        "Naga Hills"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The majority of records for 'B.' dogarsinghi are from the Chindwin river system in Manipur and Nagaland states, northeastern India, with a handful of occurrences in Myanmar, and it may be restricted to the Manipur and Yu affluent drainages including their respective major tributaries the Myittha and Lokchao rivers, plus the upper Barak river basin which forms part of the Ganges-Brahmaputra system.",
+          "countries": [
+            "IN",
+            "MM"
+          ],
+          "regions": [
+            "Chindwin",
+            "Barak",
+            "Ganges-Brahmaputra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Etok stream near Chanderkhong, southern watershed of the Naga Hills, Manipur, Assam'.",
+          "countries": [],
+          "regions": [
+            "Naga Hills"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2363326,
+      "total": 9,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "MM",
+          6
+        ],
+        [
+          "IN",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          92.8125,
+          22.5,
+          2,
+          2
+        ],
+        [
+          92.8125,
+          23.90625,
+          3,
+          3
+        ],
+        [
+          94.21875,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          94.21875,
+          21.09375,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

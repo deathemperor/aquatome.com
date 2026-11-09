@@ -22,15 +22,45 @@
   "File:Viagem dos Chefes de Missões Diplomáticas na Amazônia Oriental IMG 9917 (51469861104).jpg",
   "File:Siluriformes montage.jpg",
   "File:Pseudoplatystoma corruscans RIP.png",
-  "File:Pseudoplatystoma duo duo.png"
+  "File:Pseudoplatystoma duo duo.png",
+  "inat:64508068",
+  "inat:113205290",
+  "inat:340206606",
+  "inat:414671362",
+  "inat:414671528",
+  "inat:414671599",
+  "inat:441492532",
+  "inat:457782856",
+  "inat:507605514",
+  "inat:507605553",
+  "inat:532030803",
+  "inat:534972906",
+  "inat:534973005",
+  "inat:534973047",
+  "inat:565480559",
+  "inat:565482339",
+  "inat:570768207",
+  "inat:62141726",
+  "inat:62141833"
  ],
  "hashes": {
-  "https://media.aquatome.com/scotcat/56ebecff2e7e3ac4.webp": "ab849cbacc808c89",
   "https://media.aquatome.com/commons/c3e8ad221db509ea.webp": "2fc4114c4c42080c",
   "https://media.aquatome.com/commons/1a31a8f823f6a12f.webp": "b3b0b3b3b933f1f1",
-  "https://upload.wikimedia.org/wikipedia/commons/a/ae/Pseudoplatystoma_corruscans_484849557.jpg": "69e5dca6b94b564d",
-  "https://upload.wikimedia.org/wikipedia/commons/a/a2/Pseudoplatystoma_corruscans_484851514.jpg": "1c3ff0faf83068da",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Viagem_dos_Chefes_de_Miss%C3%B5es_Diplom%C3%A1ticas_na_Amaz%C3%B4nia_Oriental_IMG_9917_%2851469861104%29.jpg/1280px-Viagem_dos_Chefes_de_Miss%C3%B5es_Diplom%C3%A1ticas_na_Amaz%C3%B4nia_Oriental_IMG_9917_%2851469861104%29.jpg": "22c1c3502c10d1c8"
+  "https://media.aquatome.com/commons/948553382c5defc8.webp": "6945dceaba034645",
+  "https://media.aquatome.com/commons/16a16b3908d8d68d.webp": "22e3c3500480d0c8",
+  "https://media.aquatome.com/commons/e7ed1b678368935e.webp": "3c3ff6faf83038da"
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 494427,
+  "pass": "done",
+  "after": {
+   "research": 315930389,
+   "agree": 181785896
+  }
+ },
+ "gbif": {
+  "key": 2338660,
+  "next": null
+ }
 }

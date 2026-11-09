@@ -109,19 +109,6 @@
     ],
     "figures": [
       {
-        "heading": "Chuẩn bị bể, chỗ làm và nền dán sau",
-        "moments": [
-          {
-            "t": 210,
-            "url": "https://media.aquatome.com/video/1fhLlhENc0s/at210-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dán phim kính mờ lên mặt sau bể để che bức tường.",
-            "sharpness": 247.9
-          }
-        ]
-      },
-      {
         "heading": "Chọn đèn",
         "moments": [
           {
@@ -130,7 +117,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh nhỏ với đèn gắn trên chân điều chỉnh được.",
-            "sharpness": 671
+            "sharpness": 671,
+            "person": false
           }
         ],
         "photo": {
@@ -145,44 +133,16 @@
         }
       },
       {
-        "heading": "Làm nền nhiều dinh dưỡng",
-        "moments": [
-          {
-            "t": 470,
-            "url": "https://media.aquatome.com/video/1fhLlhENc0s/at470-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Viên phân nang dinh dưỡng nằm trên lòng bàn tay.",
-            "sharpness": 114.9
-          },
-          {
-            "t": 530,
-            "url": "https://media.aquatome.com/video/1fhLlhENc0s/at530-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh với lũa và đá, nền được phủ phía sau các viên đá.",
-            "sharpness": 934.7
-          }
-        ]
-      },
-      {
         "heading": "Trồng cây và chọn cây",
         "moments": [
-          {
-            "t": 590,
-            "url": "https://media.aquatome.com/video/1fhLlhENc0s/at590-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay đang cắm cây vào nền ẩm trong bể có lũa.",
-            "sharpness": 1923.9
-          },
           {
             "t": 600,
             "url": "https://media.aquatome.com/video/1fhLlhENc0s/at600-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh đã lên cây xanh tốt, tiền cảnh thoáng, hậu cảnh dày.",
-            "sharpness": 2553.3
+            "sharpness": 2553.3,
+            "person": false
           }
         ],
         "photo": {
@@ -197,27 +157,6 @@
         }
       },
       {
-        "heading": "Lọc, nước và bù khoáng",
-        "moments": [
-          {
-            "t": 800,
-            "url": "https://media.aquatome.com/video/1fhLlhENc0s/at800-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Gắn lọc treo nhỏ lên bể gần đầy nước, ống nước đang nối.",
-            "sharpness": 431.3
-          },
-          {
-            "t": 810,
-            "url": "https://media.aquatome.com/video/1fhLlhENc0s/at810-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh lọc treo ở thành bể, nước chảy qua cửa lọc.",
-            "sharpness": 204
-          }
-        ]
-      },
-      {
         "heading": "Thả tép và betta",
         "moments": [
           {
@@ -226,7 +165,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh với đá, cây xanh và nền cát sáng, nơi thả tép.",
-            "sharpness": 476.5
+            "sharpness": 476.5,
+            "person": false
           },
           {
             "t": 1100,
@@ -234,7 +174,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Con betta màu đỏ tím bơi giữa đám cây xanh trong bể.",
-            "sharpness": 562
+            "sharpness": 562,
+            "person": false
           }
         ],
         "photo": {

@@ -1,8 +1,8 @@
 {
   "id": "danio-rerio",
   "native": {
-    "input": "66b0fac949eed3d9",
-    "at": "2026-11-06T06:16:32.822Z",
+    "input": "eab02a4a1fb94df1",
+    "at": "2026-11-09T12:58:06.259Z",
     "claims": [
       {
         "code": "IN",
@@ -16,8 +16,16 @@
         "code": "BD",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The zebra danio, Danio rerio, is a small cyprinid from India and Bangladesh, found mostly in slow or still pools and mature rice paddies.",
+        "quote": "At any rate it may be restricted to India (with the Eastern/Western Ghats mountain ranges representing its southern limit), Bangladesh and possibly Bhutan.",
         "words": "Bangladesh",
+        "ok": true
+      },
+      {
+        "code": "BT",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "At any rate it may be restricted to India (with the Eastern/Western Ghats mountain ranges representing its southern limit), Bangladesh and possibly Bhutan.",
+        "words": "Bhutan",
         "ok": true
       },
       {
@@ -42,14 +50,6 @@
         "source": "seriouslyfish",
         "quote": "In Myanmar, for example, the last record of D. rerio was in 1926, but in the years since several new, similar-looking fishes have been discovered and described to science, with others still to follow.",
         "words": "Myanmar",
-        "ok": true
-      },
-      {
-        "code": "BT",
-        "status": "doubtful",
-        "source": "seriouslyfish",
-        "quote": "At any rate it may be restricted to India (with the Eastern/Western Ghats mountain ranges representing its southern limit), Bangladesh and possibly Bhutan.",
-        "words": "Bhutan",
         "ok": true
       },
       {
@@ -123,9 +123,24 @@
         "quote": "northern Myanmar and Sri Lanka.",
         "words": "Sri Lanka",
         "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "aquariumcoop",
+        "quote": "This freshwater danio comes from northern India and surrounding countries.",
+        "words": "India",
+        "ok": true
       }
     ],
     "regions": [
+      {
+        "name": "Kosi River",
+        "source": "seriouslyfish",
+        "quote": "Described from the Kosi River, a tributary of the Ganges system in Uttar Pradesh state, northern India.",
+        "country": "IN",
+        "ok": true
+      },
       {
         "name": "Ganges",
         "source": "seriouslyfish",

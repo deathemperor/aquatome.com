@@ -1,0 +1,219 @@
+{
+  "id": "rhinogobius-similis",
+  "scientificName": "Rhinogobius similis",
+  "order": "Perciformes",
+  "family": "Gobiidae",
+  "genus": "Rhinogobius",
+  "group": "gobies",
+  "places": [
+    "asia",
+    "china",
+    "yangtze",
+    "taiwan",
+    "south-korea",
+    "japan",
+    "vietnam",
+    "red-river",
+    "singapore"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 18,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 8.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 9
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-similis",
+      "html": "<p>Rhinogobius similis (formerly R. giurinus) is a goby found through much of China, plus Taiwan, the Korean Peninsula, Japan and the Red and Pha river basins in Vietnam. It appears to exist in a number of forms that differ in colour pattern, morphology or both, and it is unclear whether all of them are conspecific. Newly-imported wild fish tend to be aggressive towards conspecifics, so unlike most Rhinogobius it is best kept in sexed pairs.</p><ul><li>Difficulty: moderate; it needs a well-established tank and stable water.</li><li>Needs strong current, with the filter turning the tank over 8–12 times an hour.</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-similis",
+      "html": "<p>This species occurs naturally throughout much of China including the Yellow, Yangtze, Qiantang, Lingjiang, Pearl rivers plus some minor drainages in Fujian, Guangdong and Hainan regions.</p><p>It's also known from Taiwan, the Korean Peninsula, (from the Tone River to Iriomote in Ibaraki Prefecture), Kawahara Lake in Nagasaki Prefecture, the Bonin and Ryukyu Islands in Japan, and the Red and Pha river basins in Vietnam.</p><p>Type locality is given as 'Swatow, Shantou, coast of southeastern China' which would appear to correspond to the Rong Jiang river system.</p><p>Introduced populations exist in Singapore plus the Tibetan Plateau and Yunnan Province in China.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-similis",
+      "html": "<p>Some populations demonstrate an amphidromous reproductive strategy (see 'Reproduction'), meaning the larvae and fry develop under brackish to marine conditions, whereas in others the entire life cycle takes place in freshwater.</p><p>Subadults and adults are common in estuaries as well as shallow, flowing, freshwater tributaries in which substrates may be composed of sand, mud, gravel, bedrock, scattered jumbles of rocks and boulders or a combination of these.</p><p>While riparian vegetation and submerged leaf litter are common in such environments aquatic plants aren't usually present although the water is often very clear.</p><p>During periods of high rainfall some streams may be temporarily turbid due to suspended material dislodged by increased, sometimes torrential, flow rate and water depth.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-similis",
+      "html": "<p>An aquarium with base dimensions of 60 × 30 cm or equivalent (about 54 litres) should be the smallest considered for a single pair.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-similis",
+      "html": "<p>Not difficult to maintain under the correct conditions; it is strongly recommended to keep it in a tank designed to simulate a flowing stream with a substrate of variably-sized rocks, sand, fine gravel, and some water-worn boulders.</p><p>This can be further furnished with driftwood branches, ceramic pipes, plant pots, etc., arranged to form a network of nooks, crannies, and shaded spots, thus providing broken lines of sight.</p><p>While the majority of aquatic plants will fail to thrive in such surroundings hardy types such as Microsorum, Bolbitis, or Anubias spp. can be grown attached to the décor.</p><p>Like many fishes that naturally inhabit running water it's intolerant to accumulation of organic pollutants and requires spotless water in order to thrive, thus weekly water changes of 30-50% tank volume should also be considered routine.</p><p>Though torrent-like conditions are unnecessary it does best if there is a high proportion of dissolved oxygen and some water movement in the tank meaning power filter(s), additional powerhead(s), or airstone(s) should be employed as necessary.</p><p>The use of marine salt is not required and the fish can live their entire lives in freshwater.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-similis",
+      "html": "<ul><li>Temperature: 18–24°C</li><li>pH: 6.5–8.5</li><li>Hardness: 2–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-similis",
+      "html": "<p>Rhinogobius spp. tend to be opportunistic carnivores feeding on a range of small invertebrates, crustaceans and similar in nature.</p><p>In the aquarium they should be offered small live or frozen foods such as chironomid (bloodworm) or mosquito larvae, Artemia, Daphnia, Mysis, etc., although R. giurinus is also capable of consuming larger prey including small earthworms and gut-loaded crickets.</p><p>Dried foods may be accepted following a period of acclimatisation but should not be used regularly.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-similis",
+      "html": "<p>Newly-imported wild fish tend to be aggressive towards conspecifics so unlike the majority of Rhinogobius species this species is best kept in sexed pairs rather than larger groups.</p><p>Males in particular have been observed fighting to the death although there is at least one known case in which females have also been attacked.</p><p>It can be maintained in a community but medium-sized, pelagic cyprinids from genera such as Devario or Barilius may prove the best choices since slow-moving tankmates may be attacked and smaller ones eaten.</p><p>Other benthic species are best avoided while small invertebrates such as Caridinia and Neocaridina spp. shrimp are usually predated upon and should not be considered either.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-similis",
+      "html": "<p>Males are more colourful than females and in most cases develop more extended dorsal and anal fins rays as they mature.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-similis",
+      "html": "<p>Most populations of this species has evolved a complex amphidromous breeding strategy in which adults live and spawn in freshwater or brackish streams and the pelagic post-hatch larvae are washed downstream to the sea where the post-larval fry spend the first part of their life developing in estuarine nursery zones under brackish to full marine conditions.</p><p>Unlike some related species the fry do not appear to undergo a marine pelagic stage meaning they may be unable to disperse far from their original estuary during this stage (Chang et al., 2008)[1].</p><p>Once they reach a certain stage of development they begin to migrate upstream with some moving into freshwater tributaries and others remaining in lower, tidally-influenced habitats.</p><p>That said, R. giurinus appears far more adaptable than some congeners with some introduced populations existing in landlocked freshwater lakes, for example, while in aquaria fish traded under the name have been bred and raised in freshwater conditions.</p><p>It may be that these do not all represent the same species but this has not yet been studied in detail (see 'Notes').</p><p>In nature the fish are reproductively active from summer to early autumn and during this period males begin to defend territories which tend to be centred around a flattish rock or stone beneath which the eggs are deposited, so it's essential to provide such rocks in the breeding tank.</p><p>The eggs vary in diameter between populations with some considerably smaller than others, and several thousand may be deposited by a single female.</p><p>Post-spawning the female is ejected and the male assumes responsibility for brood care and guarding.</p><p>Incubation is normally 3-4 days and the larvae drift in the water column for 24 hours or so post-hatching, after which they begin to move with a greater sense of direction.</p><p>Initial food needs to be very small with even freshwater rotifers proving too large (J. Bauer, pers. comm.).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-similis",
+      "html": "<p>Etymology: Rhinogobius comes from the Greek rhinos, meaning 'nose', and the generic name Gobius. giurinus: named for its similarity to the widespread tank goby, Glossogobius giuris.</p><p>This species appears to exist in a number of different forms which exhibit differences in colour pattern, morphology, or both, and it's currently unclear whether all of them are truly conspecific or not although to avoid confusion they are all listed together here.</p><p>For example, fish sold in the aquarium trade as R. giurinus and breeding in freshwater often possess thick yellow marginal stripes in both dorsal and anal fins, and these features were not mentioned in Rutter's original description, although the second dorsal is said to contain a 'longitudinal yellow stripe extending to upper part of caudal' in the short redescription by Chen and Shao (1996)[3].</p><p>Kim et al. (1997) noted the fact that in Korea alone there exist at least two clear forms which differ in distribution, morphology, colour pattern and genetic structure.</p><p>It's therefore difficult to provide an accurate diagnosis of its identifying features, although one important way in which it differs from most congeners is in the presence of ctenoid predorsal scales extending almost to the posterior margin of the eyes whereas in other species this area tends to have only small cycloid scales or none at all.</p><p>The Gobiidae is the most speciose vertebrate family and notoriously problematic in terms of identifying fishes down to species level. Within this sizeable assemblage Rhinogobius is often included in the subfamily Gobionellinae alongside genera such as Brachygobius, Chlamydogobius, Mugilogobius, Pseudogobiopsis, Schismatogobius, and Stigmatogobius.</p><p>The genus is widely-distributed throughout much of continental Asia in Russia, Korea, China, Vietnam, Laos, Cambodia, and Thailand, plus numerous islands of the Western Pacific including Japan, Taiwan, Hainan, and the Philippines.</p><p>There currently exist over 60 recognised species with many more awaiting formal description, and a number of the described ones are only considered nominal taxa pending additional study. Those exhibiting similarities in appearance, morphology and behaviour are therefore often aggregated in nominal species groups, e.g., the R. brunneus group, R. duospilus group, etc., for ease of reference.</p><p>The fused pelvic fins form a structure normally referred to as the 'pelvic disc', a common feature among gobiids which is used to adhere to rocks and other submerged surfaces.</p><p>Rhinogobius spp. also exhibit different reproductive strategies depending on environment, with those inhabiting rivers connected directly to the sea typically amphidromous, and those landlocked in upper reaches of rivers or lakes non-diadromous.</p><p>Many of those appearing in the aquarium trade have proven difficult to identify for a number of reasons including:</p><ul><li>taxonomic confusion.</li><li>lack of aquarium literature.</li><li>incorrect labelling by exporters and subsequently shops.</li><li>historical over-use of some names, e.g., 'Rhinogobius wui', long treated as a synonym of R. duospilus and now recognised as a valid species.</li><li>likely trade of undescribed species without locality data.</li><li>mixing of species at export facilities.</li></ul><p>In 2015 the species was renamed from Rhinogobius giurinus to Rhinogobius similis (redescription of Rhinogobius similis Gill 1859, the type species of the genus Rhinogobius, with designation of the neotype).</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-similis",
+      "html": "<ul><li>Chang, M-Y., W-N. Tzeng, C-H. Wang, and C-F. Yo (2008). Differences in Otolith Elemental Composition of the Larval Rhinogobius giurinus (Perciformes, Gobiidae) among Estuaries of Taiwan: Implications for larval Dispersal and Connectance among Metapopulations. Zoological Studies 47(6), 676-684</li><li>Rutter, C. M. (1897). A collection of fishes obtained in Swatow, China, by Miss Adele M. Fielde. Proceedings of the Academy of Natural Sciences of Philadelphia v. 49, 56-90</li><li>Chen, I-S. and K.-T. Shao (1996). A taxonomic review of the gobiid fish genus Rhinogobius Gill, 1859, from Taiwan, with description of three new species. Zoological Studies 35(3), 200-214</li><li>Tamada, K. (2005). Egg and clutch sizes of a goby Rhinogobius giurinus in the Aizu River, Kii Peninsula, Japan. Ichthyological Research 52, 392-395</li><li>Bauer, J. (ed) (2011). Ferraqua World Wide Web electronic publication, www.ferraqua.de, Accessed on 12.11.21</li><li>Chen, I-S. and M. Kottelat (2005). Four new freshwater gobies of the genus Rhinogobius (Teleostei: Gobiidae) from northern Vietnam. Journal of Natural History 39(17), 1407-1429</li><li>Kottelat, M. (2001). Freshwater fishes of northern Vietnam. A preliminary check-list of the fishes known or expected to occur in northern Vietnam with comments on systematics and nomenclature. Environment and Social Development Unit, East Asia and Pacific Region. The World Bank, i-iii + 1-123 + 1-18</li><li>Kim, J-B., J-H. Yang and S-Y. Kim (1997). Systematic Studies on the Freshwater Goby, Rhinogobius Species (Perciformes, Geobiidae) III. Geographic Variation and Subspecific Differentiation in Rhinogobius giurinus, with a Comment on Genetic Relationships among Four Species of the Genus Rhinogobius in Korea. Korean Journal of Biological Sciences, 529-534</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/36f5714dad80e773.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/36f5714dad80e773-480.webp",
+      "width": 802,
+      "height": 279,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-similis",
+      "caption": "Male specimen collected close to the city of Hamamatsu, western Shizuoka Prefecture, Japan.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/a03d4d5eae478cec.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/a03d4d5eae478cec-480.webp",
+      "width": 806,
+      "height": 536,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-similis",
+      "caption": "Female from Hamamatsu.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/f1e9cd69775e8447.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/f1e9cd69775e8447-480.webp",
+      "width": 800,
+      "height": 571,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-similis",
+      "caption": "Like other members of the genus R. giurinus can alter its colour pattern to an extent in order to blend in with its surroundings.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/64dbdef417caf069.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/64dbdef417caf069-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-similis",
+      "caption": "Adult female from the German aquarium trade.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể 60cm",
+        "máy bơm tạo dòng chảy",
+        "sủi oxy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "artemia đông lạnh",
+        "bo bo đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát sông cho bể cá",
+        "sỏi nhỏ trang trí bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

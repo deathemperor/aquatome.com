@@ -3,7 +3,7 @@
   "name": "Cá Leporellus",
   "altNames": [],
   "sections": {
-    "quickFacts:seriouslyfish": "<ul><li>Độ khó: Khó (6/8 tiêu chí), vì phải có bể dài ít nhất 2 m.</li></ul>",
+    "quickFacts:seriouslyfish": "<ul><li>Độ khó: Khó (6/8), vì phải có bể dài ít nhất 2 m.</li></ul>",
     "beforeYouBuy:seriouslyfish": "<ul><li>Phải có nắp đậy thật khít vì loài này hay nhảy. Cá họ anostomid nói chung nhảy rất giỏi, thiếu nắp khít là không được.</li></ul><p>Leporellus vittatus là một loài anostomid sống tự nhiên trên một vùng rất rộng, gồm các hệ thống sông Amazon, Paraná-Paraguay, São Francisco và Orinoco. Khác với các anostomid khác, nó quen sống ở tầng đáy trong dòng nước chảy và hầu như lúc nào cũng quanh quẩn trên nền hoặc sát nền. Loài này thỉnh thoảng mới có hàng xuất khẩu. Nó cần điều kiện nuôi khá đặc biệt: bể ít nhất 210 × 60 cm, và tốt nhất là nuôi đàn từ sáu con trở lên.</p>",
     "distribution:seriouslyfish": "<p>Nơi lấy mẫu chuẩn chỉ ghi đơn giản là 'sông Amazon, Brazil'. Theo cách hiểu hiện nay, loài này sống trên một vùng rất rộng: hệ thống sông Amazon ở Brazil và Peru, lưu vực Paraná-Paraguay ở nam Brazil và Paraguay, và lưu vực rio São Francisco ở nam Brazil.</p><p>Các con trong ảnh được bắt ở Río Casanare, Colombia, một nhánh của Río Meta. Như vậy loài này cũng có trong hệ thống Orinoco, và người ta còn gặp nó ở Río Apure tại Venezuela và ở Río Samaná Sur, một nhánh của Río Magdalena, Colombia.</p><p>Hoa văn màu sắc của cá có khác nhau đôi chút giữa các quần thể, nhưng những khác biệt này chưa ai mô tả chi tiết.</p>",
     "aquariumSize:seriouslyfish": "<p>Loài này lớn con, ưa nước chảy và bơi nhiều, nên cần bể có đáy ít nhất 210 × 60 cm hoặc tương đương (khoảng 756 lít).</p>",
@@ -24,9 +24,8 @@
   },
   "held": {
     "checks": [
-      "source",
-      "units"
+      "source"
     ],
-    "at": "2026-11-09"
+    "at": "2026-11-10"
   }
 }

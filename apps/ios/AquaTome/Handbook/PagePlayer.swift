@@ -322,6 +322,8 @@ struct VideoSlot: View {
   let id: String
   let title: String
   let caption: AttributedString
+  /// Its caption (its title first) straight under its picture, before the way to YouTube, as v2's row of videos has it.
+  var captionUnder = false
   @Environment(PagePlayer.self) private var player
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.openURL) private var openURL
@@ -354,6 +356,7 @@ struct VideoSlot: View {
       }
       .aspectRatio(16 / 9, contentMode: .fit)
       .clipShape(.rect(cornerRadius: 10))
+      if captionUnder, !caption.characters.isEmpty { Text(caption).font(.subheadline).fixedSize(horizontal: false, vertical: true) }
       HStack(spacing: 16) {
         // A link out of the app, read as one.
         Link(destination: PagePlayer.watch(id, at: 0)) {
@@ -375,7 +378,7 @@ struct VideoSlot: View {
       .tint(.secondary)
       if player.failed == id { Text("Không mở được video. Kiểm tra mạng rồi thử lại.").font(.footnote).foregroundStyle(Color.warning) }
       if player.refused.contains(id) { Text("Video này chỉ xem được trên YouTube.").font(.footnote).foregroundStyle(.secondary) }
-      if !caption.characters.isEmpty { Text(caption).font(.footnote).foregroundStyle(.secondary) }
+      if !captionUnder, !caption.characters.isEmpty { Text(caption).font(.footnote).foregroundStyle(.secondary) }
     }
     .id(PagePlayer.anchor(id))
     .onDisappear { player.leave(id) }

@@ -8,7 +8,7 @@
   "mentions": [
     "astronotus-ocellatus"
   ],
-  "updatedAt": "2026-11-05",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "T2W_g09jCc4",
     "title": "I built an AQUARIUM out of WOOD! The king of DIY - Part 2",
@@ -40,27 +40,161 @@
         "category": "khac",
         "brand": "Pond Armor",
         "t": 160
+      },
+      {
+        "category": "khac",
+        "brand": "Aquadecor Backgrounds",
+        "t": 320
       }
     ],
     "figures": [
       {
-        "heading": "Hoàn thiện bên ngoài cho bể và chân liền một khối",
+        "heading": "Bọc ván ép cho đáy và thân bể",
         "moments": [
           {
-            "t": 0,
-            "url": "https://media.aquatome.com/video/T2W_g09jCc4/t0.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh phần tường sơn đen xám, mặt ngoài hoàn thiện liền khối."
+            "t": 60,
+            "url": "https://media.aquatome.com/video/T2W_g09jCc4/at60-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Khung gỗ của bể với các tấm ván ép chuẩn bị bọc.",
+            "sharpness": 648.8
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/T2W_g09jCc4/p0-dWxhcl9zYXcuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/T2W_g09jCc4/p0-dWxhcl9zYXcuanBn-480.webp",
+          "width": 960,
+          "height": 1280,
+          "licence": "CC BY-SA 3.0",
+          "author": "Gvsqz",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_circular_saw.jpg",
+          "caption": "Cưa đĩa cầm tay dùng để cắt mép ván ép khi làm bể."
+        }
+      },
+      {
+        "heading": "Pha epoxy chống thấm thế nào",
+        "moments": [
+          {
+            "t": 190,
+            "url": "https://media.aquatome.com/video/T2W_g09jCc4/at190-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Khuấy epoxy trong bát, nhớ vét kỹ thành bát cho đều.",
+            "sharpness": 213.8
           },
           {
-            "t": 10,
-            "url": "https://media.aquatome.com/video/T2W_g09jCc4/t10.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Mặt tủ sơn đen xám nổi bật so với màu tường."
+            "t": 225,
+            "url": "https://media.aquatome.com/video/T2W_g09jCc4/at225-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Lớp epoxy đen đã quét xong, bề mặt láng đều.",
+            "sharpness": 317.3
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/T2W_g09jCc4/p1-SGFyZGVuZXIuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/T2W_g09jCc4/p1-SGFyZGVuZXIuanBn-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 3.0",
+          "author": "Dzhang2680",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mix_of_Epoxy_Resin_and_Hardener.jpg",
+          "caption": "Khuấy epoxy trong cốc bằng dao nhựa, nhớ vét kỹ thành cốc."
+        }
+      },
+      {
+        "heading": "Quét epoxy mấy lớp và cách quét",
+        "moments": [
+          {
+            "t": 220,
+            "url": "https://media.aquatome.com/video/T2W_g09jCc4/at220-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Lòng bể sau khi quét đủ lớp epoxy lên màu đen bóng.",
+            "sharpness": 107
+          },
+          {
+            "t": 450,
+            "url": "https://media.aquatome.com/video/T2W_g09jCc4/at450-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể đã quét xong, mặt trong đen sẫm nằm trên tủ.",
+            "sharpness": 105.7
           }
         ]
+      },
+      {
+        "heading": "Hoàn thiện bên ngoài bể và chân đỡ",
+        "moments": [
+          {
+            "t": 425,
+            "url": "https://media.aquatome.com/video/T2W_g09jCc4/at425-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể và chân đỡ sơn đen xám liền một khối, nổi bật trên nền tường.",
+            "sharpness": 356.4
+          },
+          {
+            "t": 455,
+            "url": "https://media.aquatome.com/video/T2W_g09jCc4/at455-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cánh cửa chân đỡ được lắp bản lề, bên trong là hộc chứa đồ.",
+            "sharpness": 259
+          }
+        ]
+      },
+      {
+        "heading": "Dán tấm nền trang trí lên tường",
+        "moments": [
+          {
+            "t": 370,
+            "url": "https://media.aquatome.com/video/T2W_g09jCc4/at370-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đang ép tấm nền lên tường, mép trên đã bám vào.",
+            "sharpness": 354.8
+          },
+          {
+            "t": 405,
+            "url": "https://media.aquatome.com/video/T2W_g09jCc4/at405-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tấm nền đá trang trí đã được dán lên tường.",
+            "sharpness": 1530.2
+          }
+        ]
+      },
+      {
+        "heading": "Còn lại những bước nào",
+        "moments": [
+          {
+            "t": 475,
+            "url": "https://media.aquatome.com/video/T2W_g09jCc4/at475-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể cá lớn đặt trong tủ, miệng bể còn trống, chưa lắp mặt kính.",
+            "sharpness": 359.5
+          },
+          {
+            "t": 500,
+            "url": "https://media.aquatome.com/video/T2W_g09jCc4/at500-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Con mèo đứng sát bể, có thể nhảy lên miệng bể bất cứ lúc nào.",
+            "sharpness": 2278.7
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/T2W_g09jCc4/p5-rZV93YXRlci5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/T2W_g09jCc4/p5-rZV93YXRlci5qcGc-480.webp",
+          "width": 960,
+          "height": 2031,
+          "licence": "CC BY-SA 4.0",
+          "author": "Savannah Clark",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Savannah_cats_like_water.jpg",
+          "caption": "Con mèo đang đứng trên mép cao, cho thấy nó dễ nhảy lên thành bể."
+        }
       }
     ]
   }

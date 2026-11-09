@@ -12,6 +12,59 @@
     "indonesia",
     "lampung"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY"
+      ],
+      "regions": [
+        "Sumatra",
+        "Sungai Bernam"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Lepidocephalichthys tomaculum is a small cobitid loach from Peninsular Malaysia, with a single tentative record from Lampung Province, Sumatra.",
+          "countries": [
+            "MY"
+          ],
+          "regions": [
+            "Sumatra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Recorded from the states of Selangor, Pahang, Johor and Terengganu in Peninsular Malaysia, with type locality 'Stream at 34-kilometer mark on road from Sungai Besar to Tonjong Malim, Sungai Bernam basin, Selangor, Malaysia'.",
+          "countries": [],
+          "regions": [
+            "Sungai Bernam"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2368054,
+      "total": 1,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "MY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          101.25,
+          1.40625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

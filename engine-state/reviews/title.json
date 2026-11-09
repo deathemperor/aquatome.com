@@ -1,4 +1,14 @@
 {
+  "vi/guides/aquariumbreeder-brackish-water-plants": [
+    {
+      "at": "2026-11-09T17:18:26Z",
+      "model": "opus",
+      "score": 0.97,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/youtube-0MzfLrSqfXY": [
     {
       "at": "2026-11-09T00:09:28Z",
@@ -78,6 +88,18 @@
       "model": "opus",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-iFDXqeBOxQk": [
+    {
+      "at": "2026-11-09T13:54:17Z",
+      "model": "opus",
+      "score": 0.9,
+      "notes": [
+        "The 'xếp theo mức quan trọng' (ranked by importance) claim is kept from OLD, but nothing in the headings shows the tips are ranked."
+      ],
       "attempt": "first",
       "kept": false
     }

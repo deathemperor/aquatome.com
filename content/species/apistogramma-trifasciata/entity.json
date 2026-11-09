@@ -262,6 +262,10 @@
       {
         "source": "seriouslyfish",
         "value": 5.5
+      },
+      {
+        "source": "glaser",
+        "value": 5
       }
     ],
     "tankCm": [
@@ -282,7 +286,7 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-trifasciata",
-      "html": "<p>The three-striped apisto, Apistogramma trifasciata, is a dwarf cichlid from the Guaporé, Paraguay and middle Paraná basins. Found in Brazil, Paraguay and Argentina, it lives in sluggish creeks, tributaries and smaller rivers where leaf litter collects. A narrow third stripe from the pectoral-fin insertion to the anal fin helps separate it from congeners. The DATZ code is A204, with possibly conspecific forms from Argentina and the rio Guaporé coded A205 and A206.</p><ul><li>Max size: male 55 mm SL, female 40 mm SL</li><li>Aquarium size: 45 × 30 cm</li><li>Temperature: 20–25°C</li><li>pH: 5.0–7.0</li><li>Hardness: 1–10 dGH</li><li>Difficulty: 6 of 8 (moderate) because it needs a well-established tank and stable water.</li></ul>"
+      "html": "<p>The three-striped apisto, Apistogramma trifasciata, is a dwarf cichlid from the Guaporé, Paraguay and middle Paraná basins. Found in Brazil, Paraguay and Argentina, it lives in sluggish creeks, tributaries and smaller rivers where leaf litter collects. A narrow third stripe from the pectoral-fin insertion to the anal fin helps separate it from congeners. The DATZ code is A204, with possibly conspecific forms from Argentina and the rio Guaporé coded A205 and A206.</p><ul><li>Max size: male 55 mm SL, female 40 mm SL</li><li>Aquarium size: 45 × 30 cm</li><li>Temperature: 20–25°C</li><li>pH: 5.0–7.0</li><li>Hardness: 1–10 dGH</li><li>Difficulty: 4 of 8 (moderate) because it needs a well-established tank and stable water.</li></ul>"
     },
     {
       "key": "distribution",
@@ -349,19 +353,43 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-trifasciata",
       "html": "<ul><li>Eigenmann, C. H. and C. H. Kennedy (1903). On a collection of fishes from Paraguay, with a synopsis of the American genera of cichlids. Proceedings of the Academy of Natural Sciences of Philadelphia v. 55, 497-537</li><li>Farias, I. P., G. Ortí, I. Sampaio, H. Schneider and A. Meyer (1999). Mitochondrial DNA phylogeny of the family Cichlidae: monophyly and fast molecular evolution of the Neotropical assemblage. Journal of Molecular Evolution 48(6), 703-711</li><li>Farias, I. P., G. Ortí, I. Sampaio, H. Schneider and A. Meyer (2001). The cytochrome b gene as a phylogenetic marker: the limits of resolution for analyzing relationships among cichlid fishes. Journal of Molecular Evolution 53(2), 89-103</li><li>López-Fernández, H., R. L. Honeycutt, M. L. J. Stiassny and K. O. Winemiller (2005). Morphology, molecules, and character congruence in the phylogeny of South American geophagine cichlids (Perciformes, Labroidei). Zoologica Scripta 34(6), 627-651</li><li>Römer, U. (2006). Cichlid Atlas: v. 2 Mergus Verlag GmbH, 1-1320</li><li>Kullander, S. O. (1980). A taxonomical study of the genus Apistogramma Regan, with a revision of Brazilian and Peruvian species (Teleostei: Percoidei: Cichlidae). Bonner Zoologische Monographien No. 14, 1-152</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Wise, M. (2011). Apistogramma Species List By Species-Groups/Complexes. World Wide Web electronic publication, http://apisto.sites.no, Accessed on 13.02.17</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_trifasciata_en/",
+      "html": "<p>Apistogramma trifasciata stays small: males around 5 cm, females around 4 cm. Common name: Three-Striped Dwarf Cichlid.</p><p>Lexicon: Apistogramma: ancient Greek, means \"with unreliable line\". It is not known whether the lateral line organ or the pattern is meant. trifasciata: Latin, means \"with three stripes\".</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_trifasciata_en/",
+      "html": "<p>Paraguay.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_trifasciata_en/",
+      "html": "<p>This species is completely undemanding regarding water chemistry; keeping and breeding is possible even in medium hard and slightly alkaline water. As the fish inhabits subtropical regions in nature, it is often faced with water temperatures as low as 10°C, so an aquarium heater is needed only for breeding.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_trifasciata_en/",
+      "html": "<p>Apistogramma trifasciata is an ideal aquarium inhabitant: undemanding, energy-saving, beautiful and with interesting behaviour. The fish are imported from Paraguay and are available at 3-4 cm.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/seriouslyfish/56a9f4d321edecab.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/56a9f4d321edecab-480.webp",
       "width": 639,
       "height": 479,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-trifasciata",
       "caption": "Nuptial female with free-swimming fry below.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/56a9f4d321edecab-480.webp"
+      "source": "seriouslyfish"
     }
   ],
   "videos": [],
@@ -396,5 +424,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-09"
 }

@@ -288,7 +288,8 @@ private struct SeriesCard: View {
       Image(systemName: "play.rectangle.fill").font(.title3).foregroundStyle(.tint).accessibilityHidden(true)
       Text(item.name).font(.subheadline.weight(.semibold)).foregroundStyle(.primary).lineLimit(3, reservesSpace: true)
         .multilineTextAlignment(.leading)
-      if let n = item.parts { Text("\(n) video").font(.caption).foregroundStyle(.secondary) }
+      // Not `.secondary`: 3.9:1 on the card's tint.
+      if let n = item.parts { Text("\(n) video").font(.caption).foregroundStyle(.primary.opacity(0.7)) }
     }
     .padding(12)
     .frame(maxWidth: .infinity, alignment: .topLeading)

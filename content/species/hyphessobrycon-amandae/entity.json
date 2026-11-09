@@ -116,6 +116,13 @@
           "min": 22,
           "max": 28
         }
+      },
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -137,6 +144,13 @@
         "source": "aquariumcoop",
         "value": {
           "min": 5.5,
+          "max": 7.5
+        }
+      },
+      {
+        "source": "bwaquatics",
+        "value": {
+          "min": 6,
           "max": 7.5
         }
       }
@@ -169,6 +183,10 @@
       {
         "source": "aquariumcoop",
         "value": 2
+      },
+      {
+        "source": "bwaquatics",
+        "value": 2.5
       }
     ],
     "tankCm": [
@@ -225,6 +243,12 @@
       "html": "<ul><li>Scientific name: Hyphessobrycon amandae</li><li>Peaceful, omnivorous shoaling fish</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/hyphessobrycon-amanda-ember-tetra",
+      "html": "<p>Hyphessobrycon amanda, more commonly known as the Ember Tetra, is a small, vibrant tropical fish that is a popular choice among aquarium enthusiasts. Their striking orange and red coloration, combined with their peaceful nature, make them a great addition to any freshwater community tank.</p><ul><li>Size: Adults typically reach a length of about 2.5 cm.</li><li>Coloration: Bright orange or red body with a translucent appearance, often with a slight coppery sheen.</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/ember-tetra-fish-species-profile-6826226",
@@ -267,6 +291,12 @@
       "html": "<p>Because of their small size, they can be kept in a 19-litre nano tank with a smaller school, or in a larger tank with a big group.</p>"
     },
     {
+      "key": "aquariumSize",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/hyphessobrycon-amanda-ember-tetra",
+      "html": "<p>A minimum of a 20-litre tank is recommended, but a larger tank will allow for more natural schooling behaviour.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/ember-tetra-fish-species-profile-6826226",
@@ -289,6 +319,12 @@
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/ember-tetra",
       "html": "<p>They are adaptable enough to handle pH 5.5–7.5, 22–28°C, and very soft to moderately hard water. Slow flow with gentle filtration, using a sponge filter or pre-filter sponge, is preferred.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/hyphessobrycon-amanda-ember-tetra",
+      "html": "<ul><li>pH: 6.0–7.5</li><li>Temperature: 22–28°C</li><li>Hardness: Soft to moderately hard</li></ul>"
     },
     {
       "key": "equipment",
@@ -315,6 +351,12 @@
       "html": "<p>In nature, they are omnivores that eat zooplankton, small invertebrates and plant matter. They are not picky, but have little mouths that prefer tiny, slow-sinking foods. A varied diet provides essential nutrients and vitamins.</p><ul><li>Nano pellets</li><li>Crushed flakes</li><li>Baby brine shrimp</li><li>Easy Fry and Small Fish Food</li><li>Daphnia</li><li>Cyclops</li><li>Rotifers</li></ul>"
     },
     {
+      "key": "diet",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/hyphessobrycon-amanda-ember-tetra",
+      "html": "<p>Easy to feed; will take pellets.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/ember-tetra-fish-species-profile-6826226",
@@ -331,6 +373,12 @@
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/ember-tetra",
       "html": "<p>Unlike many other nano fish, ember tetras are relatively outgoing, especially in large groups. They are naturally social, do not school tightly but form a loose group or shoal. Keeping at least 6–10 is recommended. They are good community fish with similar-sized peaceful animals that won't eat them, such as rasboras, tetras, danios, corydoras, hatchetfish, pencilfish, otocinclus and dwarf shrimp. Adult shrimp are left alone, but baby shrimp may be eaten, so provide dense plants and caves. They also suit as dither fish for Apistogramma. A blue betta or powder blue dwarf gourami makes a striking centrepiece, but some can be territorial, so be prepared to move them.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "bwaquatics",
+      "sourceUrl": "https://bwaquatics.com/products/hyphessobrycon-amanda-ember-tetra",
+      "html": "<p>Best kept in a school of 6 or more with plenty of vegetation. Ember Tetras are peaceful fish that can be kept with other small, peaceful species. Because of their speed, they can be kept with some medium-sized mouthbrooders such as Taeniata, dimidiata and betta rubra, as well as other small rasboras and tetras.</p>"
     },
     {
       "key": "dimorphism",
@@ -444,17 +492,6 @@
       "source": "aquariumcoop"
     },
     {
-      "url": "https://media.aquatome.com/sprucepets/a5ed49932c844d54.webp",
-      "thumb": "https://media.aquatome.com/sprucepets/a5ed49932c844d54-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "dùng với sự cho phép",
-      "author": "The Spruce Pets",
-      "sourceUrl": "https://www.thesprucepets.com/ember-tetra-fish-species-profile-6826226",
-      "caption": "School of Ember Tetras Hyphessobrycon amandae",
-      "source": "sprucepets"
-    },
-    {
       "url": "https://media.aquatome.com/aquariumcoop/95a0063ecc6ff295.webp",
       "thumb": "https://media.aquatome.com/aquariumcoop/95a0063ecc6ff295-480.webp",
       "width": 1000,
@@ -532,5 +569,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-09"
 }

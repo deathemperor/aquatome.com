@@ -13,6 +13,66 @@
     "mekong",
     "vietnam"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "LA",
+        "VN"
+      ],
+      "regions": [
+        "Chao Phraya",
+        "Mekong"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Extensively distributed throughout the Chao Phraya river system, Thailand and the Mekong in Thailand, Laos and Vietnam.",
+          "countries": [
+            "TH",
+            "LA",
+            "VN"
+          ],
+          "regions": [
+            "Chao Phraya",
+            "Mekong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5851061,
+      "total": 8,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "KH",
+          5
+        ],
+        [
+          "TH",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          12.65625,
+          5,
+          0
+        ],
+        [
+          104.0625,
+          14.0625,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

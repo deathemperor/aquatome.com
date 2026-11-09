@@ -60,20 +60,13 @@
         "heading": "Vệ sinh lọc thùng lớn mà không phải bê nặng",
         "moments": [
           {
-            "t": 40,
-            "url": "https://media.aquatome.com/video/49xcIOK1F1s/at40-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Mở nắp lọc thùng, thấy rõ các khoang chứa vật liệu lọc bên trong.",
-            "sharpness": 421.6
-          },
-          {
             "t": 65,
             "url": "https://media.aquatome.com/video/49xcIOK1F1s/at65-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Lọc thùng đặt trên đế có bánh xe để dễ di chuyển.",
-            "sharpness": 167.2
+            "sharpness": 167.2,
+            "person": false
           }
         ],
         "photo": {
@@ -96,7 +89,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đèn bể thủy sinh đang sáng phía trên bể.",
-            "sharpness": 555.7
+            "sharpness": 555.7,
+            "person": false
           },
           {
             "t": 155,
@@ -104,7 +98,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ống khuếch tán CO2 trong bể thủy sinh, có bọt khí li ti.",
-            "sharpness": 1237.6
+            "sharpness": 1237.6,
+            "person": false
           }
         ]
       },
@@ -117,15 +112,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ổ hẹn giờ cơ gắn sau tủ bể, dùng để cắm sưởi và lọc.",
-            "sharpness": 3437
-          },
-          {
-            "t": 210,
-            "url": "https://media.aquatome.com/video/49xcIOK1F1s/at210-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay cầm ổ hẹn giờ cắm điện bên cạnh bể thủy sinh.",
-            "sharpness": 2269.2
+            "sharpness": 3437,
+            "person": false
           }
         ]
       },
@@ -138,7 +126,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây anubias lá xanh chậm lớn, bám trên lũa, ít phải tỉa.",
-            "sharpness": 3783.8
+            "sharpness": 3783.8,
+            "person": false
           },
           {
             "t": 255,
@@ -146,7 +135,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bụi cây cắt cắm lá đỏ mọc um tùm, lớn nhanh, phải tỉa thường xuyên.",
-            "sharpness": 1667.4
+            "sharpness": 1667.4,
+            "person": false
           }
         ],
         "photo": {
@@ -161,27 +151,6 @@
         }
       },
       {
-        "heading": "Chia việc lớn thành nhiều việc nhỏ",
-        "moments": [
-          {
-            "t": 370,
-            "url": "https://media.aquatome.com/video/49xcIOK1F1s/at370-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tháo ống dẫn nước của hồ ra để rửa riêng.",
-            "sharpness": 1612.1
-          },
-          {
-            "t": 380,
-            "url": "https://media.aquatome.com/video/49xcIOK1F1s/at380-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Diffuser CO2 được thả vào xô nước thuốc tẩy để tẩy rêu hại.",
-            "sharpness": 514.8
-          }
-        ]
-      },
-      {
         "heading": "Làm bố cục phải tính tới việc chăm sau này",
         "moments": [
           {
@@ -190,7 +159,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bố cục đá lũa cầu kỳ trong bể trống, còn chừa khoảng hở quanh kính.",
-            "sharpness": 4152.9
+            "sharpness": 4152.9,
+            "person": false
           },
           {
             "t": 505,
@@ -198,7 +168,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh có ống lily pipe và dây dẫn đặt gọn sát góc kính.",
-            "sharpness": 3233.8
+            "sharpness": 3233.8,
+            "person": false
           }
         ],
         "photo": {

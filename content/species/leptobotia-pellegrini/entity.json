@@ -10,6 +10,64 @@
     "china",
     "yangtze"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Pearl River",
+        "Yangtze"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from Sichuan province, southwestern China (presumably the upper Yangtze River, aka Chang Jiang, drainage) and also known from parts of the Pearl River (Zhu Jiang) basin in Guangxi Autonomous Region.",
+          "countries": [
+            "CN"
+          ],
+          "regions": [
+            "Pearl River",
+            "Yangtze"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2368305,
+      "total": 3,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "CN",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          106.875,
+          22.5,
+          1,
+          1
+        ],
+        [
+          108.28125,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          109.6875,
+          22.5,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

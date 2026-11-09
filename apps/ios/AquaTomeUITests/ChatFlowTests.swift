@@ -253,8 +253,8 @@ final class ChatFlowTests: XCTestCase {
   func testWhileChatIsOffNoEntryShows() {
     let app = launch("-chat-off")
     open(app, "Ca neon")
-    XCTAssertTrue(element(app, "native-page").waitForExistence(timeout: 10), "no page")
-    reveal(app, app.buttons["put-on-tank"])
+    XCTAssertTrue(element(app, "v2-species").waitForExistence(timeout: 10), "no page")
+    reveal(app, app.buttons["v2-add"])
     XCTAssertFalse(element(app, "chat-entry").exists, "the chat's entry on a page while it's off")
   }
 
@@ -263,12 +263,13 @@ final class ChatFlowTests: XCTestCase {
   func testOnForTheOwnerAloneTheEntryShowsOnceSignedIn() {
     let app = launch("-chat-owner-only")
     open(app, "Ca neon")
-    XCTAssertTrue(element(app, "native-page").waitForExistence(timeout: 10), "no page")
-    reveal(app, app.buttons["put-on-tank"])
+    XCTAssertTrue(element(app, "v2-species").waitForExistence(timeout: 10), "no page")
+    reveal(app, app.buttons["v2-add"])
     XCTAssertFalse(element(app, "chat-entry").exists, "the chat's entry signed out")
-    app.navigationBars.buttons.element(boundBy: 0).tap()
-    // Out of the search, where the bar shows the profile button again.
+    app.buttons["v2-back"].tap()
+    // Out of the search, its words gone, then Hôm nay's profile button.
     for word in ["Đóng", "Hủy"] where app.buttons[word].firstMatch.waitForExistence(timeout: 2) { app.buttons[word].firstMatch.tap() }
+    app.openTab("Hôm nay")
     app.openAccount()
     let apple = element(app, "apple-sign-in")
     reveal(app, apple)
@@ -833,7 +834,7 @@ final class ChatFlowTests: XCTestCase {
   }
 
   private func open(_ app: XCUIApplication, _ query: String) {
-    let field = app.searchFields.firstMatch
+    let field = searchField(app)
     XCTAssertTrue(field.waitForExistence(timeout: 5), "no search field")
     field.tap()
     field.typeText(query)
@@ -842,8 +843,16 @@ final class ChatFlowTests: XCTestCase {
     row.tap()
   }
 
+  /// v2's search, its last tab.
+  private func searchField(_ app: XCUIApplication) -> XCUIElement {
+    let tabs = app.tabBars.buttons
+    XCTAssertTrue(tabs.firstMatch.waitForExistence(timeout: 10), "no tabs")
+    tabs.element(boundBy: tabs.count - 1).tap()
+    return app.searchFields.firstMatch
+  }
+
   private func openFishId(_ app: XCUIApplication) {
-    let field = app.searchFields.firstMatch
+    let field = searchField(app)
     XCTAssertTrue(field.waitForExistence(timeout: 5), "no search field")
     field.tap()
     field.typeText("nhan dien")

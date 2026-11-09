@@ -1,0 +1,85 @@
+{
+  "id": "limia-nigrofasciata",
+  "native": {
+    "input": "3698c2c418010639",
+    "at": "2026-11-09T16:24:16.651Z",
+    "claims": [
+      {
+        "code": "HT",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Hump-backed limia, Limia nigrofasciata, is a livebearer from Haiti and the Dominican Republic, found in shallow, heavily vegetated water.",
+        "words": "Haiti",
+        "ok": true
+      },
+      {
+        "code": "DO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Hump-backed limia, Limia nigrofasciata, is a livebearer from Haiti and the Dominican Republic, found in shallow, heavily vegetated water.",
+        "words": "Dominican Republic",
+        "ok": true
+      },
+      {
+        "code": "HT",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Haiti and the Dominican Republic.",
+        "words": "Haiti",
+        "ok": true
+      },
+      {
+        "code": "DO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Haiti and the Dominican Republic.",
+        "words": "Dominican Republic",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Limia nigrofasciata",
+    "status": "ACCEPTED",
+    "taxonKey": 5203853,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        2
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "71e6db8e-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "HT",
+      "DO"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T16:24:16.651Z"
+  }
+}

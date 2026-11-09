@@ -1,0 +1,13 @@
+---
+url: https://www.aquariumglaser.de/en/fisharchive/polycentropsis-abbreviata-2/
+title: Polycentropsis abbreviata - Aquarium Glaser GmbH
+fetchedAt: 2026-11-09T15:57:33.212Z
+hash: 4f237417c314b224046671b41bf1f60e672d992a8925ff7453905818fa7abc03
+---
+
+Polycentropsis abbreviata means roughly translated “short and similar to Polycentrus”. In fact the African Leaffish looks very similar to Polycentrus schomburgkii from South America. Both species witness the existence of the ancient super continent Gondwana. Gondwana was formed from what is now South America, Africa, India, Australia, and Antarctica. South America drifted away from Gondwana about 100 million years ago. The ancestor of the small leaffishes – both species, the African as well as the South American become only about 8 cm long – must have existed already at that time and most probably it looked very much alike the recent species. The P. abbreviata that still exists today comes from West Africa, from Benin to Gabon. We import it from Nigeria.
+Polycentropsis abbreviata is known as the “African Leaffish”. The camouflage as a dead leaf is really astonishing. So the fish drifts around and preys on small fish and shrimps, which are caught with the very large evertable mouth. The ability to change coloration is amazing. The very same specimen can change within seconds from marbled to light beige or even almost black. Even very small leaffishes can do that. Specimens measuring 1-2 cm in length have a different, very contrasting black and white pattern. This coloration is also found in various labyrinth fish in very young stages, such as Ctenopoma weeksii, Sphaerichthys osphromenoides, and Ctenops nobilis. The purpose of this coloration has not yet been researched.
+The broodcare of the African Leaffish is also remarkable. The male builds a kind of bubble nest under a broad leaf of a plant. This is similar to the bubblenest of the anabantoid fish, but the peculiar bubbles are larger. Here the fish spawn. The male alone takes care for eggs and newly hatched larvae. The broodcare ends when the youngsters swim free. Sadly the sexes can be only hardly told apart. Females tend to stay a bit smaller and have a smaller head.
+The African Leaffish is only very rarely offered. The species needs to be fed with live food items like White Moskito larvae, large Daphnia, small earthworms, Tubifex and small feeder fish. Anyone who is able and willing to fulfill this demand will find the African Leaffish a fascinating study subject.
+For our customers: the fish have code 162004 on our stocklist. Please note that we exclusively supply the wholesale trade.
+Text & photos: Frank Schäfer

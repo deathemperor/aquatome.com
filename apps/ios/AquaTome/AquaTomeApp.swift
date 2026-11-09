@@ -245,6 +245,7 @@ struct AquaTomeApp: App {
       tab = .handbook
       handbookPath = NavigationPath()
       handbook.query = words
+      handbook.searchAsked += 1
     }
   }
 

@@ -14,6 +14,18 @@
       "kind": "male"
     },
     {
+      "url": "https://media.aquatome.com/flickr/42695826130.webp",
+      "thumb": "https://media.aquatome.com/flickr/42695826130-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY 2.0",
+      "author": "gkonst1975",
+      "sourceUrl": "https://www.flickr.com/photos/141321905@N06/42695826130",
+      "caption": "Cá convict cái có bụng cam trên nền sỏi trong bể",
+      "best": true,
+      "kind": "female"
+    },
+    {
       "url": "https://media.aquatome.com/commons/9336e5106379c7cb.webp",
       "thumb": "https://media.aquatome.com/commons/9336e5106379c7cb-480.webp",
       "width": 1200,
@@ -182,6 +194,18 @@
       "kind": "habitat"
     },
     {
+      "url": "https://media.aquatome.com/flickr/42695826320.webp",
+      "thumb": "https://media.aquatome.com/flickr/42695826320-480.webp",
+      "width": 1023,
+      "height": 768,
+      "licence": "CC BY 2.0",
+      "author": "gkonst1975",
+      "sourceUrl": "https://www.flickr.com/photos/141321905@N06/42695826320",
+      "caption": "Cá convict trưởng thành trong bể, thân sọc đen rõ nét",
+      "best": true,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/465325902.webp",
       "thumb": "https://media.aquatome.com/inaturalist/465325902-480.webp",
       "width": 1024,
@@ -326,14 +350,14 @@
       "caption": "Cá convict sọc vằn bơi trên nền sỏi ngoài tự nhiên"
     },
     {
-      "url": "https://media.aquatome.com/commons/cb88906e7e2b654a.webp",
-      "thumb": "https://media.aquatome.com/commons/cb88906e7e2b654a-480.webp",
-      "width": 1200,
-      "height": 802,
-      "licence": "CC BY 2.0",
-      "author": "Elma from Reykjavík",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Convict_Cichlid_(3371934808).jpg",
-      "caption": "Cá convict màu hồng trắng vây dài trong bể",
+      "url": "https://media.aquatome.com/inaturalist/332719964.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/332719964-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "wilderbombyx",
+      "sourceUrl": "https://www.inaturalist.org/photos/332719964",
+      "caption": "Cá convict albino màu trắng trong bể nền sỏi",
       "best": false,
       "kind": "form"
     },
@@ -374,14 +398,14 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/332719964.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/332719964-480.webp",
-      "width": 1024,
-      "height": 1024,
-      "licence": "CC0",
-      "author": "wilderbombyx",
-      "sourceUrl": "https://www.inaturalist.org/photos/332719964",
-      "caption": "Cá convict albino màu trắng trong bể nền sỏi",
+      "url": "https://media.aquatome.com/commons/cb88906e7e2b654a.webp",
+      "thumb": "https://media.aquatome.com/commons/cb88906e7e2b654a-480.webp",
+      "width": 1200,
+      "height": 802,
+      "licence": "CC BY 2.0",
+      "author": "Elma from Reykjavík",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Convict_Cichlid_(3371934808).jpg",
+      "caption": "Cá convict màu hồng trắng vây dài trong bể",
       "best": false,
       "kind": "form"
     },
@@ -578,7 +602,7 @@
       "kind": "habitat"
     }
   ],
-  "seen": 155,
-  "updatedAt": "2026-10-31",
-  "builtAt": "2026-10-31"
+  "seen": 157,
+  "updatedAt": "2026-11-09",
+  "builtAt": "2026-11-09"
 }

@@ -1,6 +1,17 @@
 {
  "queue": [],
- "judged": [],
+ "judged": [
+  "inat:18549951",
+  "inat:18549957"
+ ],
  "hashes": {},
- "commons": "2026-11-08"
+ "commons": "2026-11-08",
+ "inat": {
+  "taxon": 611540,
+  "pass": "done",
+  "after": {
+   "research": 12794635,
+   "agree": 0
+  }
+ }
 }

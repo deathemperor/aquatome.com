@@ -157,6 +157,10 @@
       {
         "source": "seriouslyfish",
         "value": 13.5
+      },
+      {
+        "source": "glaser",
+        "value": 14
       }
     ],
     "tankCm": [
@@ -180,6 +184,12 @@
       "html": "<p>The big-eyed mouthbrooder, Callochromis macrops, is a sand-sifting cichlid endemic to Lake Tanganyika, found in the southern part of the lake. It lives over shallow sandy bottoms near rocks, taking in mouthfuls of sand and sifting out invertebrates through the gills. Several geographical colour forms exist and should not be kept together, as they hybridise freely. Males are particularly belligerent towards one another in captivity, so a small tank suits one male with several females.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/callochromis_macrops_en/",
+      "html": "<p>Is this a species of Geophagus from Lake Tanganyika? One can get these thoughts when seeing Callochromis macrops the first time. However, this mouthbrooding sand cichlid belongs to the large Haplochromis-relationship. The ability to change the coloration is breathtaking in this species. The same individual that right now looked silvery or blotched will become in a glimpse bright copper-red!</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/callochromis-macrops",
@@ -196,6 +206,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/callochromis-macrops",
       "html": "<p>A tank of around 120 × 45 × 45 cm (~243 litres) could house a small group of these, consisting of a male and a harem of three or more females. A much bigger tank would be needed if you want to keep several males together.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/callochromis_macrops_en/",
+      "html": "<p>The maximum size reported for this species is about 12-14 cm.</p>"
     },
     {
       "key": "maintenance",
@@ -307,5 +323,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-09"
 }

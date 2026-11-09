@@ -29,6 +29,7 @@ import { APP_SITE_ASSOCIATION } from './accounts/passkey'
 import { purgeExpired } from './accounts/ratelimit'
 import { wantedRoute } from './wanted'
 import { chat, type ChatEnv } from './chat/api'
+import { chatPast } from './chat/past'
 import { fishId, type FishIdDeps, type FishIdEnv } from './fishid/api'
 import { appEventsRoute } from './telemetry/events'
 import { appDiagnosticsRoute } from './telemetry/diagnostics'
@@ -240,6 +241,8 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
   if (url.pathname === '/api/fish-id' || url.pathname === '/api/fish-id/') return finish(await fishId(req, url, env, new Date(), fishDeps, wait), env)
   // The chat (worker/chat/api.ts, protocols/chat.openapi.json): signed-in readers only, off unless CHAT is "1".
   if (url.pathname === '/api/chat' || url.pathname === '/api/chat/') return finish(await chat(req, url, env, new Date(), {}, wait), env)
+  // Its Stop and its past conversations (worker/chat/past.ts): behind the same gate.
+  if (url.pathname === '/api/chat/cancel' || url.pathname.startsWith('/api/chat/conversations')) return finish(await chatPast(req, url, env, new Date()), env)
   // A reader's own photos, sent from the app (worker/photos.ts): listed or taken back with its account's bearer.
   if (url.pathname.startsWith('/api/v1/talk/photos/mine')) return finish(await minePhotos(req, url, env, new Date()), env)
   // The iOS app's anonymous events and crash and performance reports (worker/telemetry): no account, no cookie.

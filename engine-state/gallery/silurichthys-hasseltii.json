@@ -1,36 +1,12 @@
 {
- "queue": [
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/172962103/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/172962103/medium.jpeg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "Utain Pummarin",
-   "sourceUrl": "https://www.inaturalist.org/photos/172962103",
-   "key": "inat:172962103"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/172962119/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/172962119/medium.jpeg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "Utain Pummarin",
-   "sourceUrl": "https://www.inaturalist.org/photos/172962119",
-   "key": "inat:172962119"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/172962126/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/172962126/medium.jpeg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "Utain Pummarin",
-   "sourceUrl": "https://www.inaturalist.org/photos/172962126",
-   "key": "inat:172962126"
-  }
+ "queue": [],
+ "judged": [
+  "inat:172962103",
+  "inat:172962119",
+  "inat:172962126"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/172962119/original.jpeg": "a723239d9fe17130"
+ },
+ "commons": "2026-11-09"
 }

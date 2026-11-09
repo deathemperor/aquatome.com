@@ -1,17 +1,9 @@
 {
   "id": "betta-uberis",
   "native": {
-    "input": "1c8c1b9a895ea8e7",
-    "at": "2026-11-06T21:19:39.004Z",
+    "input": "cd4a644a675ce3bd",
+    "at": "2026-11-09T20:43:02.940Z",
     "claims": [
-      {
-        "code": "ID",
-        "status": "native",
-        "source": "bwaquatics",
-        "quote": "Betta uberis is a small labyrinth fish native to the peat-swamp forests and blackwater streams of Borneo (Kalimantan, Indonesia), described in 2006.",
-        "words": "Indonesia",
-        "ok": true
-      },
       {
         "code": "ID",
         "status": "native",
@@ -47,13 +39,6 @@
         "name": "Sampit",
         "source": "seriouslyfish",
         "quote": "Additional collections have taken place in the Sampit river basin to the east, and several hundred kilometres further north in Sukadana district, Kalimantan Barat (West Kalimantan) province.",
-        "ok": true
-      },
-      {
-        "name": "Borneo",
-        "source": "bwaquatics",
-        "quote": "Betta uberis is a small labyrinth fish native to the peat-swamp forests and blackwater streams of Borneo (Kalimantan, Indonesia), described in 2006.",
-        "country": "ID",
         "ok": true
       }
     ],

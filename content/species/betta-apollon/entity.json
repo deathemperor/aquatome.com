@@ -1,0 +1,130 @@
+{
+  "id": "betta-apollon",
+  "scientificName": "Betta apollon",
+  "order": "Perciformes",
+  "family": "Osphronemidae",
+  "genus": "Betta",
+  "group": "labyrinth",
+  "places": [
+    "asia",
+    "thailand",
+    "narathiwat"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Betta apollon comes from forest streams in the hilly country west of Narathiwat in Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2394046,
+      "total": 19,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "TH",
+          17
+        ],
+        [
+          "MY",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          5.625,
+          3,
+          3
+        ],
+        [
+          101.25,
+          4.21875,
+          2,
+          0
+        ],
+        [
+          101.25,
+          5.625,
+          14,
+          14
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/betta-apollon-2/",
+      "html": "<p>Betta apollon is a peaceful mouthbrooding fighting fish only 4-5 cm long (standard length, without tail fin). It was described in 2006 and belongs to the immediate relationship of Betta pugnax. It is now available as a wild catch.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/betta-apollon-2/",
+      "html": "<p>Betta apollon comes from forest streams in the hilly country west of Narathiwat in Thailand.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/betta-apollon-2/",
+      "html": "<p>The number of known mouthbrooding fighting fish has virtually exploded in the last 30 years. From around 10 species known in the early 1980s, the number has risen to well over 70. It is hardly possible to keep track of all of them, especially as many variants are already known in the hobby, but not scientifically determined.</p><p>Betta apollon was named in 2006. The species was named after the Greek god Apollon, who stands for beauty and elegance among other things.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 40 lít",
+        "bể thủy sinh mini"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi mini",
+        "lọc bọt khí cho bể nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá betta",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "cây thủy sinh bể nhỏ",
+        "rêu java"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

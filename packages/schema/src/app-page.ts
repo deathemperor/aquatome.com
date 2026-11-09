@@ -15,7 +15,9 @@ export const PAGE_VERSION = 1
 export const Tip = z.object({ term: z.string(), text: z.string() })
 /**
  * Styled or linked text. `href` is a site path, an absolute URL, or `#id` (the block with that id on this page). A path
- * the app index lists opens that page in the app; any other path opens on the web.
+ * the app index lists opens that page in the app; any other path opens on the web. `note`: a source's note on a figure
+ * the page's data table has otherwise ("… ghi khác bảng dữ liệu: …"), which a reader may show small, after its section's
+ * text.
  */
 export const Run = z.object({
   text: z.string(),
@@ -23,6 +25,7 @@ export const Run = z.object({
   i: z.literal(true).optional(),
   href: z.string().optional(),
   tip: Tip.optional(),
+  note: z.literal(true).optional(),
 })
 /** Text, plain (a string) or styled. A line break inside a paragraph is `\n`. */
 export const Inline = z.union([z.string(), Run])

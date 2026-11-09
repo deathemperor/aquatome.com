@@ -1,0 +1,45 @@
+{
+  "id": "apistogramma-gephyra",
+  "native": {
+    "input": "95dab708c9102d6b",
+    "at": "2026-11-09T20:43:02.940Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Apistogramma gephyra",
+    "status": "ACCEPTED",
+    "taxonKey": 2371247,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        36
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        26
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        12
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        8
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        5
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-09T20:43:02.940Z"
+  }
+}

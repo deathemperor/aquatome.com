@@ -10,6 +10,68 @@
     "peru",
     "rio-ucayali"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Río Ucayali"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The false jaguar catfish, Liosomadoras morrowi, is an auchenipterid catfish from the Río Ucayali basin in Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": [
+            "Río Ucayali"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344736,
+      "total": 5,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "PE",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          -73.125,
+          -4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

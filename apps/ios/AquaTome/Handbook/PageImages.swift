@@ -193,6 +193,12 @@ enum PageImages {
     let format = UIGraphicsImageRendererFormat()
     format.scale = role == .full ? 2 : 1
     return UIGraphicsImageRenderer(size: CGSize(width: 600, height: 400), format: format).jpegData(withCompressionQuality: 0.9) { c in
+      // The brightest photo there is: what stands on one has to read on it.
+      if ProcessInfo.processInfo.arguments.contains("-white-pictures") {
+        UIColor.white.setFill()
+        c.fill(CGRect(x: 0, y: 0, width: 600, height: 400))
+        return
+      }
       let colors = [UIColor(hue: hue, saturation: 0.7, brightness: 0.6, alpha: 1), UIColor(hue: hue + 0.05, saturation: 0.8, brightness: 0.2, alpha: 1)]
       let gradient = CGGradient(colorsSpace: nil, colors: colors.map(\.cgColor) as CFArray, locations: nil)!
       c.cgContext.drawLinearGradient(gradient, start: .zero, end: CGPoint(x: 0, y: 400), options: [])

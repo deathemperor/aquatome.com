@@ -1,10 +1,13 @@
 {
   "slug": "salo-sadang",
-  "name": "Salo Sadang",
-  "altNames": [],
+  "name": "sông Sadang",
+  "altNames": [
+    "Salo Sadang"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

@@ -1,0 +1,59 @@
+{
+  "id": "macrognathus-zebrinus",
+  "native": {
+    "input": "cdde1c853f19fff0",
+    "at": "2026-11-09T20:43:02.940Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Myanmar, Indonesia.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Myanmar, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": [
+        "ID"
+      ]
+    }
+  },
+  "records": {
+    "matched": "Macrognathus zebrinus",
+    "status": "ACCEPTED",
+    "taxonKey": 5204054,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        33
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        8
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        4
+      ]
+    ],
+    "native": [
+      "MM",
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T20:43:02.940Z"
+  }
+}

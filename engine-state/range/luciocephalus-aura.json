@@ -1,0 +1,48 @@
+{
+  "id": "luciocephalus-aura",
+  "native": {
+    "input": "fe461574b6a49476",
+    "at": "2026-11-09T16:24:16.651Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The two known species are the “common” pikehead, which occurs on the Malay Peninsula and in Indonesia, and the Peppermint Pikehead, which is known so far only from the Province Jambi on Sumatra.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Malay Peninsula",
+        "source": "glaser",
+        "quote": "The two known species are the “common” pikehead, which occurs on the Malay Peninsula and in Indonesia, and the Peppermint Pikehead, which is known so far only from the Province Jambi on Sumatra.",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "glaser",
+        "quote": "The two known species are the “common” pikehead, which occurs on the Malay Peninsula and in Indonesia, and the Peppermint Pikehead, which is known so far only from the Province Jambi on Sumatra.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Luciocephalus aura",
+    "status": "ACCEPTED",
+    "taxonKey": 2394149,
+    "datasets": [],
+    "native": [
+      "ID"
+    ],
+    "requests": 2,
+    "at": "2026-11-09T16:24:16.651Z"
+  }
+}

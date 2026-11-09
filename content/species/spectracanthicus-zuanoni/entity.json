@@ -9,13 +9,36 @@
   "places": [
     "south-america",
     "brazil",
-    "rio-iriri"
+    "rio-iriri",
+    "rio-xingu"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 15
+      },
+      {
+        "source": "scotcat",
+        "value": 12
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 26,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 5.5,
+          "max": 7
+        }
       }
     ]
   },
@@ -27,16 +50,64 @@
       "html": "<p>Spectracanthicus zuanoni was scientifically described in early 2014. It attains a maximum length of about 15 cm.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/spectracanthicus_zuanoni.htm",
+      "html": "<p>Family: Loricariidae. L-numbers: L020, L354. Common name: Grey-spotted sail-fin pleco. Maximum size 12 cm. Temperature 26-30°C, pH 5.5-7.0. IUCN Red List: Not Evaluated.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/finally_available_again_after_many_years_l354_en/",
       "html": "<p>L354 comes from the Rio Iriri, an affluent of the Rio Xingu.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/spectracanthicus_zuanoni.htm",
+      "html": "<p>Brazil: lower courses of the Rio Xingu.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/spectracanthicus_zuanoni.htm",
+      "html": "<p>Lives in its natural habitat with Baryancistrus sp. (L019), which has a similar colour pattern. Spectracanthicus zuanoni is a moderately reophilic species found in rock-bottom areas subject to backwater and strong currents. Specimens were found singly or in groups of three, under sheltering boulders (adults) and in spaces beneath rocks (juveniles), down to 2 m deep. The juveniles share shelters with other loricariids such as Ancistrus sp., A. ranunculus, Baryancistrus xanthellus, Spectracanthicus punctatissimus, Hopliancistrus tricornis, Parancistrus nudiventris, Peckoltia vittata and Pseudancistrus aff. barbatus.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/spectracanthicus_zuanoni.htm",
+      "html": "<p>Should be no problem in the aquarium, but needs a strong current and oxygen-rich water because of the high temperatures this genus enjoys.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/spectracanthicus_zuanoni.htm",
+      "html": "<p>Spectracanthicus zuanoni is a nocturnal species that feeds on algae and other food items from periphyton by grazing over the rock bottom (according to Zuanon (1999) and Rapp Py-Daniel &amp; Zuanon (2005)). Omnivore. Offer a varied diet with both vegetable foods and other foods such as tablets and frozen food.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/spectracanthicus_zuanoni.htm",
+      "html": "<p>Males have a longer and broader head and a larger growth of odontodes behind the gill covers and on the pectoral fin spines.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/finally_available_again_after_many_years_l354_en/",
       "html": "<p>The scientists declare this species conspecific with L20 from the Rio Xingu. However, L20 has much smaller spots. In the same scientific paper the genus Oligancistrus was declared a synonym of Spectracanthicus.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/spectracanthicus_zuanoni.htm",
+      "html": "<p>Spectracanthicus is diagnosed from all other Ancistrini, except Baryancistrus niveatus and Baryancistrus beggini, and Parancistrus by an expansion of the dorsal-fin membrane connecting the last dorsal-fin ray to the adipose-fin spine (vs. dorsal fin not expanded and not connected to the adipose). It is distinguished from Baryancistrus by having up to 25 teeth on the premaxilla (vs. more than 25), and from Parancistrus by a small gill opening reaching up to 1/3 of the cleithrum length (vs. a large gill opening reaching nearly 1/2). S. zuanoni can be diagnosed from all other congeners by its colour pattern of large white spots (vs. small yellowish dots in S. murinus, S. punctatissimus and S. tocantinensis, and dark grey lacking dots in S. immaculatus). It also differs from congeners, except S. murinus, by the larger orbital diameter (up to 29.2% of HL).</p><p>Etymology: the specific name zuanoni honours Jansen Zuanon of the Instituto Nacional de Pesquisas da Amazônia for his contribution to the knowledge of Neotropical ichthyology; he was also the first ichthyologist to collect and identify this species as new.</p><p>As of 2019, L354 is believed to be this species, and the genus Oligancistrus is now a synonym of Spectracanthicus.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/spectracanthicus_zuanoni.htm",
+      "html": "<p>Chamon, C.C. and L.H. Rapp Py-Daniel, 2014. Taxonomic revision of Spectracanthicus Nijssen &amp; Isbrücker (Loricariidae: Hypostominae: Ancistrini), with description of three new species. Neotrop. Ichthyol. 12(1):1-25. Daniel Konn-Vetterlein Pers. comm. 2019. Seidel, I. 2008. Back to Nature guide to L-catfishes, Ettlingen, Germany 208 p. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
@@ -85,7 +156,32 @@
       "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "LW56kcXAqzA",
+      "title": "Second spawn of Spectracanthicus zuanoni (L354)!",
+      "durationSec": 11,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "NoLJyOwIBzk",
+      "title": "Spectracanthicus zuanoni (L354) spawned",
+      "durationSec": 27,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "vzgic3BKlZo",
+      "title": "Spectracanthicus zuanoni (L354) fry",
+      "durationSec": 16,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "cUF72MhX4ik",
+      "title": "Spectracanthicus sp. Zuanoni pairs",
+      "durationSec": 68,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -109,5 +205,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-04"
+  "updatedAt": "2026-11-09"
 }

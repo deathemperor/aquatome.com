@@ -1,8 +1,8 @@
 {
   "id": "channa-maculata",
   "native": {
-    "input": "1d3582ab0b2633a8",
-    "at": "2026-11-07T06:20:08.160Z",
+    "input": "1db5aec72d55016b",
+    "at": "2026-11-09T12:58:06.259Z",
     "claims": [
       {
         "code": "CN",
@@ -24,7 +24,7 @@
         "code": "JP",
         "status": "introduced",
         "source": "seriouslyfish",
-        "quote": "An important food fish, it has become established in Japan, Taiwan, the Philippines, Madagascar and Hawaii, and hybrids with C. argus appear to be quite common in aquaculture.",
+        "quote": "C. maculata has been introduced to, and become established in, a number of countries and territories including Japan, Taiwan, the Philippines, Madagascar, and Oahu island in Hawaii.",
         "words": "Japan",
         "ok": true
       },
@@ -32,7 +32,7 @@
         "code": "TW",
         "status": "introduced",
         "source": "seriouslyfish",
-        "quote": "An important food fish, it has become established in Japan, Taiwan, the Philippines, Madagascar and Hawaii, and hybrids with C. argus appear to be quite common in aquaculture.",
+        "quote": "C. maculata has been introduced to, and become established in, a number of countries and territories including Japan, Taiwan, the Philippines, Madagascar, and Oahu island in Hawaii.",
         "words": "Taiwan",
         "ok": true
       },
@@ -40,7 +40,7 @@
         "code": "PH",
         "status": "introduced",
         "source": "seriouslyfish",
-        "quote": "An important food fish, it has become established in Japan, Taiwan, the Philippines, Madagascar and Hawaii, and hybrids with C. argus appear to be quite common in aquaculture.",
+        "quote": "C. maculata has been introduced to, and become established in, a number of countries and territories including Japan, Taiwan, the Philippines, Madagascar, and Oahu island in Hawaii.",
         "words": "the Philippines",
         "ok": true
       },
@@ -48,8 +48,24 @@
         "code": "MG",
         "status": "introduced",
         "source": "seriouslyfish",
-        "quote": "An important food fish, it has become established in Japan, Taiwan, the Philippines, Madagascar and Hawaii, and hybrids with C. argus appear to be quite common in aquaculture.",
+        "quote": "C. maculata has been introduced to, and become established in, a number of countries and territories including Japan, Taiwan, the Philippines, Madagascar, and Oahu island in Hawaii.",
         "words": "Madagascar",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Channa maculata is a snakehead which originates from the border area of China and Viet Nam.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Channa maculata is a snakehead which originates from the border area of China and Viet Nam.",
+        "words": "Viet Nam",
         "ok": true
       }
     ],
@@ -70,13 +86,6 @@
       },
       {
         "name": "Minjiang",
-        "source": "seriouslyfish",
-        "quote": "This species is widely-distributed in Pacific coastal drainages of southeastern China (e.g. the Yangtze, Minjiang, Hangjiang River, and Pearl (Nanjiujiang) rivers), including Hainan island and Hong Kong, and is also native to Vietnam (northern provinces to Quang Binh province).",
-        "country": "CN",
-        "ok": true
-      },
-      {
-        "name": "Hangjiang River",
         "source": "seriouslyfish",
         "quote": "This species is widely-distributed in Pacific coastal drainages of southeastern China (e.g. the Yangtze, Minjiang, Hangjiang River, and Pearl (Nanjiujiang) rivers), including Hainan island and Hong Kong, and is also native to Vietnam (northern provinces to Quang Binh province).",
         "country": "CN",

@@ -89,15 +89,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể không viền đã ráp xong, có đèn LED gắn phía trên.",
-            "sharpness": 3833.7
-          },
-          {
-            "t": 95,
-            "url": "https://media.aquatome.com/video/4y9vcjJmCi4/at95-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bơm silicone dán các tấm kính khi tự ráp bể.",
-            "sharpness": 672.8
+            "sharpness": 3833.7,
+            "person": false
           }
         ]
       },
@@ -110,7 +103,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Những khúc lũa khô xếp trên bàn gỗ, vân xoắn rõ.",
-            "sharpness": 240.7
+            "sharpness": 240.7,
+            "person": false
           },
           {
             "t": 205,
@@ -118,7 +112,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Xịt đá bằng máy rửa áp lực để sạch đất cát.",
-            "sharpness": 737.4
+            "sharpness": 737.4,
+            "person": false
           }
         ]
       },
@@ -131,15 +126,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Các túi nền đặt trong bể trống, cát được đổ phủ xung quanh.",
-            "sharpness": 406
-          },
-          {
-            "t": 295,
-            "url": "https://media.aquatome.com/video/4y9vcjJmCi4/at295-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Túi lưới polyester đã đóng đầy aquasoil, sẵn sàng đặt vào bể.",
-            "sharpness": 57.7
+            "sharpness": 406,
+            "person": false
           }
         ]
       },
@@ -152,15 +140,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Các túi nền xếp đều trên tấm egg crate ở đáy bể.",
-            "sharpness": 1276.6
-          },
-          {
-            "t": 360,
-            "url": "https://media.aquatome.com/video/4y9vcjJmCi4/at360-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tấm đá lớn, phẳng dựng làm phông trên lớp cát dày.",
-            "sharpness": 1391.3
+            "sharpness": 1276.6,
+            "person": false
           }
         ]
       },
@@ -168,20 +149,13 @@
         "heading": "Chọn lọc nào cho bể có tép",
         "moments": [
           {
-            "t": 460,
-            "url": "https://media.aquatome.com/video/4y9vcjJmCi4/at460-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lọc treo gắn thành bể, dưới đèn, bên trên hồ thủy sinh.",
-            "sharpness": 1812.3
-          },
-          {
             "t": 470,
             "url": "https://media.aquatome.com/video/4y9vcjJmCi4/at470-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Ống lily pipe cài trên kính phía sau bể, cạnh lũa.",
-            "sharpness": 1764.9
+            "sharpness": 1764.9,
+            "person": false
           }
         ],
         "photo": {
@@ -204,7 +178,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây epiphyte mọc xen giữa đá và lũa, che bớt chỗ trống.",
-            "sharpness": 1820.4
+            "sharpness": 1820.4,
+            "person": false
           },
           {
             "t": 545,
@@ -212,7 +187,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây bám trên lũa và đá làm mềm vẻ thô của bố cục.",
-            "sharpness": 2684.9
+            "sharpness": 2684.9,
+            "person": false
           }
         ],
         "photo": {
@@ -230,20 +206,13 @@
         "heading": "Trồng cây cạn sau đá để bớt rêu hại",
         "moments": [
           {
-            "t": 635,
-            "url": "https://media.aquatome.com/video/4y9vcjJmCi4/at635-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bọc rễ cây vào mút lọc trước khi nhét vào sau đá.",
-            "sharpness": 129.1
-          },
-          {
             "t": 655,
             "url": "https://media.aquatome.com/video/4y9vcjJmCi4/at655-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Cây Syngonium và rêu mọc xanh tốt trên khúc lũa ven bờ.",
-            "sharpness": 1163.9
+            "sharpness": 1163.9,
+            "person": false
           }
         ],
         "photo": {
@@ -266,7 +235,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể sau khi châm nước, nước ngả màu vàng nâu do tannin từ lũa.",
-            "sharpness": 1034.6
+            "sharpness": 1034.6,
+            "person": false
           },
           {
             "t": 695,
@@ -274,7 +244,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cryptocoryne mới trồng trên nền cát, nhìn còn xấu và xơ xác.",
-            "sharpness": 413.3
+            "sharpness": 413.3,
+            "person": false
           }
         ]
       }

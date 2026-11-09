@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-11-05",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "kiDrZPqHKTs",
     "title": "3 Aquarium filters YOU CAN BUILD RIGHT NOW - Part 1",
@@ -34,22 +34,7 @@
       {
         "category": "loc",
         "type": "bot-bien",
-        "t": 4
-      },
-      {
-        "category": "loc",
-        "type": "tao-dong",
-        "t": 63
-      },
-      {
-        "category": "loc",
-        "type": "treo",
-        "t": 130
-      },
-      {
-        "category": "loc",
-        "type": "thung",
-        "t": 130
+        "t": 267
       },
       {
         "category": "phan-nen",
@@ -59,90 +44,137 @@
       {
         "category": "khac",
         "brand": "Evolution Aqua",
-        "model": "K1 Kaldnes",
-        "t": 468
+        "model": "K1 Micro",
+        "t": 793
       },
       {
         "category": "khac",
         "brand": "Evolution Aqua",
-        "model": "K1 Micro",
-        "t": 823
+        "model": "K1",
+        "t": 793
       }
     ],
     "figures": [
       {
-        "heading": "Lọc tinh làm trong nước (water polisher)",
+        "heading": "Lọc tinh từ nửa chai nước làm thế nào",
         "moments": [
           {
-            "t": 79,
-            "url": "https://media.aquatome.com/video/kiDrZPqHKTs/t79.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Nửa chai nhựa được lắp vào đầu hút của máy bơm chìm."
-          },
-          {
-            "t": 108,
-            "url": "https://media.aquatome.com/video/kiDrZPqHKTs/t108.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cụm chai nhồi bông lọc gắn vào máy bơm, đang chạy trong bể."
+            "t": 110,
+            "url": "https://media.aquatome.com/video/kiDrZPqHKTs/at110-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bộ lọc nửa chai nhồi bông gắn vào máy bơm, thả trong bể.",
+            "sharpness": 1439.8
           }
         ]
       },
       {
-        "heading": "Bộ hút váng mặt nước (surface skimmer)",
+        "heading": "Khi nào nên chạy lọc tinh và chạy bao lâu",
         "moments": [
           {
-            "t": 206,
-            "url": "https://media.aquatome.com/video/kiDrZPqHKTs/t206.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Miệng chai nhựa được cắt khía thành hình răng cưa."
-          },
-          {
-            "t": 226,
-            "url": "https://media.aquatome.com/video/kiDrZPqHKTs/t226.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Chai úp ngược nhồi bông lọc, gắn vào bơm đặt trong bể."
+            "t": 130,
+            "url": "https://media.aquatome.com/video/kiDrZPqHKTs/at130-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bộ lọc tinh gắn bông lọc đang chạy trong bể, nước còn vẩn cặn.",
+            "sharpness": 1470.8
           }
         ]
       },
       {
-        "heading": "Lọc vi sinh chạy sủi khí trong chai",
+        "heading": "Bộ hút váng mặt nước làm thế nào",
         "moments": [
           {
-            "t": 314,
-            "url": "https://media.aquatome.com/video/kiDrZPqHKTs/t314.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Đá nham thạch đập nhỏ dùng làm vật liệu lọc vi sinh."
+            "t": 200,
+            "url": "https://media.aquatome.com/video/kiDrZPqHKTs/at200-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cắt các khấc răng cưa ở miệng chai nhựa.",
+            "sharpness": 37.4
           },
           {
-            "t": 403,
-            "url": "https://media.aquatome.com/video/kiDrZPqHKTs/t403.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Lọc chai chứa sứ lọc đang chạy sủi khí trong bể nhỏ."
+            "t": 230,
+            "url": "https://media.aquatome.com/video/kiDrZPqHKTs/at230-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Chai nhồi bông lọc gắn vào máy bơm trong hồ làm bộ hút váng.",
+            "sharpness": 270.7
           }
         ]
       },
       {
-        "heading": "Vì sao không nên làm lọc chai chạy K1",
+        "heading": "Xử lý chuyện cá bị kẹt và chọn bơm cho bộ hút váng",
         "moments": [
           {
-            "t": 491,
-            "url": "https://media.aquatome.com/video/kiDrZPqHKTs/t491.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Những hạt vật liệu lọc nhựa trắng nhỏ xếp thành đống trên mặt phẳng."
+            "t": 260,
+            "url": "https://media.aquatome.com/video/kiDrZPqHKTs/at260-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh phần đầu chai có răng cưa, nước chảy vào bên trong.",
+            "sharpness": 66.7
           },
           {
-            "t": 501,
-            "url": "https://media.aquatome.com/video/kiDrZPqHKTs/t501.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Vật liệu lọc lơ lửng trong ngăn lọc gắn bên hông bể cá."
+            "t": 270,
+            "url": "https://media.aquatome.com/video/kiDrZPqHKTs/at270-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bộ hút váng làm từ chai nhựa, răng cưa nằm sát mặt nước.",
+            "sharpness": 285.8
+          }
+        ]
+      },
+      {
+        "heading": "Lọc sủi chai có vật liệu vi sinh cần những gì",
+        "moments": [
+          {
+            "t": 320,
+            "url": "https://media.aquatome.com/video/kiDrZPqHKTs/at320-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đá nham thạch đập nhỏ dùng làm vật liệu lọc vi sinh rẻ tiền.",
+            "sharpness": 156.9
+          }
+        ]
+      },
+      {
+        "heading": "Các bước khoan và lắp lọc sủi chai",
+        "moments": [
+          {
+            "t": 360,
+            "url": "https://media.aquatome.com/video/kiDrZPqHKTs/at360-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đầu chai khoan nhiều lỗ để nước đã lọc thoát ra.",
+            "sharpness": 365.6
+          },
+          {
+            "t": 370,
+            "url": "https://media.aquatome.com/video/kiDrZPqHKTs/at370-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Chai nhựa đã gắn giác hút đen vào lỗ ở thân chai.",
+            "sharpness": 104.8
+          }
+        ]
+      },
+      {
+        "heading": "Vì sao lọc chai K1 tầng sôi kém hơn lọc chai chứa sứ",
+        "moments": [
+          {
+            "t": 500,
+            "url": "https://media.aquatome.com/video/kiDrZPqHKTs/at500-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đống hạt vật liệu lọc K1 màu trắng đặt trên mặt bàn.",
+            "sharpness": 50.8
+          },
+          {
+            "t": 510,
+            "url": "https://media.aquatome.com/video/kiDrZPqHKTs/at510-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Vật liệu lọc K1 chuyển động trong ngăn lọc tầng sôi bên hông bể.",
+            "sharpness": 953
           }
         ]
       }

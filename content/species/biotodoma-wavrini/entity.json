@@ -11,7 +11,8 @@
     "orinoco",
     "colombia",
     "negro",
-    "brazil"
+    "brazil",
+    "rio-preto-da-eva"
   ],
   "range": {
     "native": {
@@ -255,6 +256,10 @@
       {
         "source": "seriouslyfish",
         "value": 10
+      },
+      {
+        "source": "glaser",
+        "value": 12
       }
     ],
     "tankCm": [
@@ -278,10 +283,22 @@
       "html": "<p>The Orinoco eartheater, Biotodoma wavrini, is a geophagine cichlid from the Orinoco and rio Negro basins of Venezuela, Colombia and Brazil. One natural habitat is the Río Cinaruco, a low-nutrient blackwater tributary of the Orinoco. It can be told from B. cupido by its noticeably elongate body and a dark flank blotch on or below the upper lateral line. Unless breeding it is surprisingly peaceful, and trade populations include 'Cuao', 'Orinoco', 'San Antonio' and 'Sipapo Ventuari'.</p><ul><li>Max size: 100 mm SL (3.9 in)</li><li>Aquarium size: 150 × 45 cm</li><li>Temperature: 20–30°C</li><li>pH: 4.0–6.5</li><li>Hardness: 1–5 dGH</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/biotodoma-wavrini-brazil/",
+      "html": "<p>There are two accepted species of Biotodoma: B. cupido and B. wavrini. Both differ basically by the position of the lateral blotch, which is positioned above the upper branch of the lateral line in B. cupido and below the upper branch of the lateral line in B. wavrini.</p><p>Biotodoma wavrini usually attains a maximum size of 8-12 cm and is thus almost a dwarf cichlid. The photographed specimens have a total length (including the caudal fin) of about 8 cm.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/biotodoma-wavrini",
       "html": "<p>Currently known from the middle and upper rio Negro basins in Brazil and Colombia, the Casiquiare system in Brazil and Venezuela, and the Orinoco watershed in Venezuela and Colombia.</p><p>Type locality is 'upper Río Orinoco in Venezuela between San Fernando de Atabapo and Río Casiquiare, Venezuela', which appears to correspond to the lower Río Ventuari, a tributary of the Orinoco.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/biotodoma-wavrini-brazil/",
+      "html": "<p>Biotodoma cupido is widely distributed in South America and many differently colored populations are known – maybe at least some of them even represent different species. In contrast to that B. wavrini looks very uniform. That species is distributed in the Orinoco and Rio Negro systems. Most often it is obtained from Colombia, but this time the fish originate from Brazil. It is known scientifically that B. wavrini occurs in Brazil; there is even a quite isolated population reported from the Rio Preto da Eva. However, there are no externally observable differences to their Colombian relatives.</p>"
     },
     {
       "key": "habitat",
@@ -387,5 +404,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-09"
 }

@@ -1,0 +1,70 @@
+{
+  "id": "macropodus-erythropterus",
+  "native": {
+    "input": "d092bb3346662421",
+    "at": "2026-11-09T20:43:02.940Z",
+    "claims": [
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the coastal Quảng Trị, Cam Lo, and Giang river systems, between the cities of Đồng Hới and Đông Hà in Quảng Bình and Quảng Trị provinces, central Vietnam (Freyhof & Herder, 2002).",
+        "words": "Vietnam",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Quảng Trị",
+        "source": "seriouslyfish",
+        "quote": "Known from the coastal Quảng Trị, Cam Lo, and Giang river systems, between the cities of Đồng Hới and Đông Hà in Quảng Bình and Quảng Trị provinces, central Vietnam (Freyhof & Herder, 2002).",
+        "country": "VN",
+        "ok": true
+      },
+      {
+        "name": "Cam Lo",
+        "source": "seriouslyfish",
+        "quote": "Known from the coastal Quảng Trị, Cam Lo, and Giang river systems, between the cities of Đồng Hới and Đông Hà in Quảng Bình and Quảng Trị provinces, central Vietnam (Freyhof & Herder, 2002).",
+        "country": "VN",
+        "ok": true
+      },
+      {
+        "name": "Giang",
+        "source": "seriouslyfish",
+        "quote": "Known from the coastal Quảng Trị, Cam Lo, and Giang river systems, between the cities of Đồng Hới and Đông Hà in Quảng Bình and Quảng Trị provinces, central Vietnam (Freyhof & Herder, 2002).",
+        "country": "VN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Macropodus erythropterus",
+    "status": "ACCEPTED",
+    "taxonKey": 5211159,
+    "datasets": [
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        19
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        7
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ]
+    ],
+    "native": [
+      "VN"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T20:43:02.940Z"
+  }
+}

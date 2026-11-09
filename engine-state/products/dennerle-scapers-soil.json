@@ -1,0 +1,232 @@
+{
+  "found": true,
+  "specs": [
+    {
+      "key": "Grain size",
+      "value": "1–4 mm, irregular granules",
+      "source": 0
+    },
+    {
+      "key": "Colour",
+      "value": "Black",
+      "source": 6
+    },
+    {
+      "key": "Recommended layer height",
+      "value": "about 4 cm",
+      "source": 6
+    },
+    {
+      "key": "Material",
+      "value": "Natural volcanic soil (made in Japan for the German brand Dennerle, per the shop)",
+      "source": 0
+    },
+    {
+      "key": "Water parameters (shop claim)",
+      "value": "pH 6–6.5, KH 0–2",
+      "source": 0
+    },
+    {
+      "key": "pH buffering (distributor claim)",
+      "value": "Holds pH at around 6–6.5 and lowers hardness",
+      "source": 1
+    },
+    {
+      "key": "Composition (distributor)",
+      "value": "100% natural raw materials with trace elements and nutrients",
+      "source": 1
+    },
+    {
+      "key": "Warranty",
+      "value": "None listed",
+      "source": 1
+    },
+    {
+      "key": "Item numbers",
+      "value": "4580 (4 L), 4581 (8 L)",
+      "source": 6
+    }
+  ],
+  "variants": [
+    {
+      "name": "Scaper's Soil 4 L",
+      "specs": [
+        {
+          "key": "Volume",
+          "value": "4 L",
+          "source": 1
+        },
+        {
+          "key": "Suggested tank",
+          "value": "about 30 L",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "Scaper's Soil 8 L",
+      "specs": [
+        {
+          "key": "Volume",
+          "value": "8 L",
+          "source": 1
+        },
+        {
+          "key": "Suggested tank",
+          "value": "about 50 L",
+          "source": 0
+        }
+      ]
+    }
+  ],
+  "prices": [
+    {
+      "shop": "Aqua Thanh Xuân",
+      "url": "https://aquathanhxuan.com/san-pham/phan-nen-dennerle-scapers-soil-8lit/",
+      "variant": "8 L, sale price (regular price 720,000 ₫), in stock",
+      "vnd": 500000,
+      "source": 0
+    },
+    {
+      "shop": "Greendeal.vn",
+      "url": "https://greendeal.vn/dennerle-scaper-s-soil",
+      "variant": "4 L (out of stock)",
+      "vnd": 375000,
+      "source": 1
+    },
+    {
+      "shop": "Greendeal.vn",
+      "url": "https://greendeal.vn/dennerle-scaper-s-soil",
+      "variant": "8 L (out of stock)",
+      "vnd": 720000,
+      "source": 1
+    }
+  ],
+  "fits": [
+    {
+      "fact": "Made for planted freshwater tanks. It makes the water slightly acidic and soft.",
+      "source": 1
+    },
+    {
+      "fact": "Its buffering is said to let you dose more CO2 without pH falling too far.",
+      "source": 1
+    },
+    {
+      "fact": "Breeders of Caridina shrimp prefer it because it releases little ammonia at start-up compared with ADA and Tropica soils.",
+      "source": 2
+    },
+    {
+      "fact": "Aragonite or other calcareous hardscape cancels out its pH buffering, so avoid it.",
+      "source": 3
+    },
+    {
+      "fact": "The angular grains held slopes up to about 35°. They grip hardscape slightly less well than ADA Amazonia.",
+      "source": 3
+    }
+  ],
+  "usage": [
+    {
+      "fact": "Use it straight from the bag. Do not rinse or pre-soak it.",
+      "source": 0
+    },
+    {
+      "fact": "Do not mix it with other substrates or use it with pH-lowering products.",
+      "source": 6
+    },
+    {
+      "fact": "Ammonia peaked at about 1.5–2 ppm in the first 72 hours and fell below 0.25 ppm by day 14. Cycle the tank before adding sensitive livestock.",
+      "source": 3
+    },
+    {
+      "fact": "Expect strong plant growth for about 9–12 months. After that, add liquid fertiliser to the water column. Add root tabs for crypts and swords from about month 4.",
+      "source": 3
+    },
+    {
+      "fact": "A soil bed held its structure for 14 months. In community or Neocaridina tanks it can last about 18 months before you need to replace it.",
+      "source": 3
+    },
+    {
+      "fact": "Plan on about 4 L for a 30 L tank and 8 L for a 50 L tank.",
+      "source": 0
+    }
+  ],
+  "issues": [
+    {
+      "fact": "A reviewer complained that it was dusty and made the water very cloudy. The retailer replied that some clouding at first is normal.",
+      "source": 4
+    },
+    {
+      "fact": "In a test tank, buffering faded around month 9: KH rose to 2–3 dKH and pH settled near 6.7. Caridina keepers may need to partly replace the soil.",
+      "source": 3
+    },
+    {
+      "fact": "The same retailer's comparison article claims buffering lasts 24–30 months, which contradicts its own review. Both figures come from a single retailer's tanks.",
+      "source": 2
+    },
+    {
+      "fact": "Counterfeit or out-of-spec bags from unknown resellers may not show bad buffering until about day 14. Buy from established shops.",
+      "source": 3
+    },
+    {
+      "fact": "Stock in Vietnam is patchy: the Greendeal listing showed both sizes sold out.",
+      "source": 1
+    }
+  ],
+  "alternatives": [
+    {
+      "brand": "ADA",
+      "model": "Amazonia II",
+      "why": "A premium Japanese soil that grips hardscape better, but it releases much more ammonia at start-up and costs more per litre.",
+      "source": 2
+    },
+    {
+      "brand": "Tropica",
+      "model": "Aquarium Soil",
+      "why": "Similar plant growth after 12 months. Start-up ammonia is moderate, but buffering is shorter and grains break down faster when plants are uprooted.",
+      "source": 2
+    },
+    {
+      "brand": "Aquafor",
+      "model": "Topsoil 3L",
+      "why": "A much cheaper Vietnamese option (75,000 ₫ for 3 L). pH stays at 6.5–7.2, which suits mosses, ferns and Bucephalandra but not demanding plants.",
+      "source": 5
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://aquathanhxuan.com/san-pham/phan-nen-dennerle-scapers-soil-8lit/",
+      "title": "Phân nền thủy sinh Dennerle Scaper's Soil 8L – Aqua Thanh Xuân",
+      "kind": "shop"
+    },
+    {
+      "url": "https://greendeal.vn/dennerle-scaper-s-soil",
+      "title": "DENNERLE - Scaper's Soil – Greendeal.vn",
+      "kind": "shop"
+    },
+    {
+      "url": "https://gensou.sg/ada-vs-tropica-vs-dennerle-aquasoil-comparison-guide/",
+      "title": "ADA vs Tropica vs Dennerle Aquasoil Comparison Guide – Gensou",
+      "kind": "review"
+    },
+    {
+      "url": "https://gensou.sg/?p=41220",
+      "title": "Dennerle Scapers Soil Review Singapore: Buffering and Lifespan – Gensou",
+      "kind": "review"
+    },
+    {
+      "url": "https://www.olibetta.ch/en-CH/reviews/dennerle/scapers-soil-1-4mm",
+      "title": "Reviews for Dennerle Scaper's Soil 1-4mm – Olibetta",
+      "kind": "review"
+    },
+    {
+      "url": "https://aquathanhxuan.com/san-pham/aqua-for-top-soil/",
+      "title": "Phân nền Thủy Mộc Aquafor Topsoil 3L – Aqua Thanh Xuân",
+      "kind": "shop"
+    },
+    {
+      "url": "https://dennerle.com/cdn/shop/files/IB_EN_Scaper_s_Soil-Scaper_s_Soil_Natural_Mix.pdf",
+      "title": "Dennerle Scaper's Soil / Natural Mix instruction leaflet (EN)",
+      "kind": "manufacturer"
+    }
+  ]
+}

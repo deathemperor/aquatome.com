@@ -12,7 +12,8 @@
     "brazil",
     "solimoes",
     "colombia",
-    "amazon"
+    "amazon",
+    "rio-ucayali"
   ],
   "range": {
     "native": {
@@ -23,10 +24,12 @@
       "regions": [
         "Amazon",
         "Ucayali",
-        "Solimões"
+        "Solimões",
+        "Rio Ucayali"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -36,16 +39,18 @@
             "PE",
             "BR"
           ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "The species is currently considered widespread throughout much of the upper Amazon basin from the ríos Ucayali and Amazonas in Peru to the Solimões in western Brazil.",
-          "countries": [],
           "regions": [
             "Amazon",
             "Ucayali",
             "Solimões"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Currently wild-collected Apistogramma cacatuoides are available, which most probably originate from the surroundings of Pucallpa, at least for sure from the Rio Ucayali basin, Peru.",
+          "countries": [],
+          "regions": [
+            "Rio Ucayali"
           ]
         }
       ]
@@ -244,6 +249,10 @@
       {
         "source": "seriouslyfish",
         "value": 7.5
+      },
+      {
+        "source": "glaser",
+        "value": 5
       }
     ],
     "tankCm": [
@@ -264,13 +273,31 @@
       "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-cacatuoides",
-      "html": "<p>The cockatoo cichlid, Apistogramma cacatuoides, is a small cichlid from the upper Amazon basin, from the Ucayali in Peru to the Solimões in Brazil. It lives in slow tributaries, backwaters and creeks where leaf litter collects. Numerous line-bred forms such as 'double red' and 'orange flash' are traded, and captive-raised fish suit a community aquarium, while wild fish are best kept alone or with small dither fishes.</p><ul><li>Max size: ♂ 75 mm SL (3.0 in), ♀ 50 mm SL (2.0 in)</li><li>Aquarium size: 60 × 30 cm (24 × 12 in)</li><li>Temperature: 22–29°C (72–84°F)</li><li>pH: 5.0–6.0</li><li>Hardness: 0–15 dGH</li><li>Difficulty: 3 of 8 (moderate)</li></ul>"
+      "html": "<p>The cockatoo cichlid, Apistogramma cacatuoides, is a small cichlid from the upper Amazon basin, from the Ucayali in Peru to the Solimões in Brazil. It lives in slow tributaries, backwaters and creeks where leaf litter collects. Numerous line-bred forms such as 'double red' and 'orange flash' are traded, and captive-raised fish suit a community aquarium, while wild fish are best kept alone or with small dither fishes.</p><ul><li>Max size: ♂ 75 mm SL (3.0 in), ♀ 50 mm SL (2.0 in)</li><li>Aquarium size: 60 × 30 cm (24 × 12 in)</li><li>Temperature: 22–29°C (72–84°F)</li><li>pH: 5.0–6.0</li><li>Hardness: 0–15 dGH</li><li>Difficulty: 4 of 8 (moderate)</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_cacatuoides_wild_en/",
+      "html": "<ul><li>Origin: Peru</li><li>Available size: 4–5 cm</li></ul>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_cacatuoides_wild_en/",
+      "html": "<p>The Cockatoo Dwarf Cichlid is one of the most popular members of the genus Apistogramma and is found in petshops all over the world. Almost exclusively bred specimens of very colourful sports are traded. These do not appear in the wild.</p><p>However, \"the\" wild form of A. cacatuoides does not exist at all. Like so many other Apistogramma, this one is polychromatic in males. This means that even within one population males can look very different. The biological sense of the phenomenon is not understood at all. But the polychromatism is without any doubt the reason why in so many cases Apistogramma sports can be developed after only a few generations of breeding the fish.</p><p>Maybe the phenomenon is comparable to the situation found in guppys. Here the females always select the most colourful male for mating. On the other hand, the most colourful males will always be the first victims of predators. This is the reason why males in guppy populations with a low predatory pressure are very colourful even in the wild. In the aquarium no predators exist. This, in combination with the selection by the breeder, quickly forms very colourful sports – it takes only a few generations.</p>"
     },
     {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-cacatuoides",
       "html": "<p>The type locality was originally given incorrectly as Paramaribo, Suriname but this was later amended by Kullander to the \"Amazon River basin, between 69°W and 71°W\". The species is currently considered widespread throughout much of the upper Amazon basin from the ríos Ucayali and Amazonas in Peru to the Solimões in western Brazil. Some populations exhibit notable differences in colour patterning.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_cacatuoides_wild_en/",
+      "html": "<p>Currently wild-collected Apistogramma cacatuoides are available, which most probably originate from the surroundings of Pucallpa, at least for sure from the Rio Ucayali basin, Peru.</p>"
     },
     {
       "key": "habitat",
@@ -336,36 +363,36 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/seriouslyfish/b732325ec72839d5.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/b732325ec72839d5-480.webp",
       "width": 1200,
       "height": 900,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-cacatuoides",
       "caption": "Apistogramma cacatuoides 'double red'",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/b732325ec72839d5-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/eee145b29849aa67.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/eee145b29849aa67-480.webp",
       "width": 1024,
       "height": 663,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-cacatuoides",
       "caption": "Adult male of the 'double red' strain.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/eee145b29849aa67-480.webp"
+      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/8710a6a3dbe9d75d.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/8710a6a3dbe9d75d-480.webp",
       "width": 650,
       "height": 388,
       "licence": "dùng với sự cho phép",
       "author": "Seriously Fish",
       "sourceUrl": "https://www.seriouslyfish.com/species/apistogramma-cacatuoides",
       "caption": "Wild adult male from Picuruyacu, Río Nanay drainage, Loreto Region, Peru; neutral mood.",
-      "source": "seriouslyfish",
-      "thumb": "https://media.aquatome.com/seriouslyfish/8710a6a3dbe9d75d-480.webp"
+      "source": "seriouslyfish"
     }
   ],
   "videos": [],
@@ -400,5 +427,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-09"
 }

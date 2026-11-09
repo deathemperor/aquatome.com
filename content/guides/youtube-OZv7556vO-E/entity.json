@@ -99,15 +99,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Vỏ bần (cork bark) xếp thành khối trên bể để lên bố cục.",
-            "sharpness": 704.8
-          },
-          {
-            "t": 80,
-            "url": "https://media.aquatome.com/video/OZv7556vO-E/at80-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay đặt miếng vỏ bần lớn vào bể trống có nền sẵn.",
-            "sharpness": 1400.2
+            "sharpness": 704.8,
+            "person": false
           }
         ],
         "photo": {
@@ -125,20 +118,13 @@
         "heading": "Làm nền sau bằng vỏ bần thế nào",
         "moments": [
           {
-            "t": 135,
-            "url": "https://media.aquatome.com/video/OZv7556vO-E/at135-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Xếp thử các miếng vỏ bần dựa vào mặt sau bể.",
-            "sharpness": 571.7
-          },
-          {
             "t": 180,
             "url": "https://media.aquatome.com/video/OZv7556vO-E/at180-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Các khối vỏ bần dựng đứng như gốc cây, che phần nền sau bể.",
-            "sharpness": 2681.6
+            "sharpness": 2681.6,
+            "person": false
           }
         ]
       },
@@ -151,15 +137,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Dây leo Jungle Wood đan khắp các khối đá bần trong bể.",
-            "sharpness": 2909.4
-          },
-          {
-            "t": 220,
-            "url": "https://media.aquatome.com/video/OZv7556vO-E/at220-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng epoxy dán chỗ hai dây leo chạm nhau để giữ cho khỏi nổi.",
-            "sharpness": 1502.9
+            "sharpness": 2909.4,
+            "person": false
           }
         ]
       },
@@ -172,7 +151,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Dùng keo dán cố định cành lũa lên nền trong bể.",
-            "sharpness": 281.9
+            "sharpness": 281.9,
+            "person": false
           },
           {
             "t": 265,
@@ -180,7 +160,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Khối bố cục lũa và vỏ bần dựng cao, được cố định chắc chắn.",
-            "sharpness": 1763.8
+            "sharpness": 1763.8,
+            "person": false
           }
         ]
       },
@@ -193,15 +174,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lớp nền tối màu đã trải đáy hồ, bên cạnh khối lũa trang trí.",
-            "sharpness": 2637.4
-          },
-          {
-            "t": 320,
-            "url": "https://media.aquatome.com/video/OZv7556vO-E/at320-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay đang trồng cây xuống lớp nền trong hồ.",
-            "sharpness": 927.2
+            "sharpness": 2637.4,
+            "person": false
           }
         ]
       },
@@ -214,7 +188,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây bán cạn lá xanh mọc trên thân gỗ và vỏ bần.",
-            "sharpness": 1300.8
+            "sharpness": 1300.8,
+            "person": false
           },
           {
             "t": 370,
@@ -222,7 +197,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Các cây bán cạn đã bám gọn trên lớp rễ gỗ và vỏ bần.",
-            "sharpness": 993.9
+            "sharpness": 993.9,
+            "person": false
           }
         ]
       },
@@ -230,20 +206,13 @@
         "heading": "Châm nước và thêm botanicals",
         "moments": [
           {
-            "t": 405,
-            "url": "https://media.aquatome.com/video/OZv7556vO-E/at405-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay đặt cây Anubias xanh vào giữa lá khô botanicals dưới đáy bể.",
-            "sharpness": 614.5
-          },
-          {
             "t": 425,
             "url": "https://media.aquatome.com/video/OZv7556vO-E/at425-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể đã châm nước với botanicals, lá khô và Anubias ở đáy.",
-            "sharpness": 1166.6
+            "sharpness": 1166.6,
+            "person": false
           }
         ],
         "photo": {
@@ -266,7 +235,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể nước trà với lá khô, rễ cây và cây thủy sinh phủ đáy.",
-            "sharpness": 882.7
+            "sharpness": 882.7,
+            "person": false
           },
           {
             "t": 530,
@@ -274,7 +244,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá nhỏ màu đỏ cam nổi bật trong nước sẫm màu tannin.",
-            "sharpness": 33
+            "sharpness": 33,
+            "person": false
           }
         ]
       }

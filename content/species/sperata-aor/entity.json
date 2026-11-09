@@ -1,0 +1,177 @@
+{
+  "id": "sperata-aor",
+  "scientificName": "Sperata aor",
+  "order": "Siluriformes",
+  "family": "Bagridae",
+  "genus": "Sperata",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "india",
+    "pakistan",
+    "nepal",
+    "bangladesh",
+    "myanmar"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 180
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 720
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 6
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sperata-aor",
+      "html": "<p>The Indian shovelnose catfish, Sperata aor, is a large bagrid catfish from India, Pakistan, Nepal, Bangladesh and Myanmar. Named for its flattened, extended head, it is sometimes seen in dealers' tanks, but its enormous adult size makes it totally unsuited to aquarium life. It will eat any fish it can fit in its mouth and is territorial with its own kind.</p><p>Rated difficult because it needs a tank at least 2 m long.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sperata-aor",
+      "html": "<p>India, Pakistan, Nepal, Bangladesh, Myanmar.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sperata-aor",
+      "html": "<p>It inhabits both still and flowing bodies of water, including lakes, ponds, reservoirs and rivers.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sperata-aor",
+      "html": "<p>Standard length: 180 cm SL. Aquarium base: 720 × 180 cm. Volume: ~46656 litres.</p><p>A fully grown specimen would require a truly enormous aquarium. Something in the region of 720 × 180 × 360 cm - ~46656 litres, would be considered the bare minimum. Juvenile specimens can be grown on in smaller aquaria, but do grow quickly if well-fed.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sperata-aor",
+      "html": "<p>Because the fish grows so huge, aquarium decor provides a challenge. Very large pieces of driftwood, or enormous rocks can be used, and should be arranged to provide areas of shelter. It also appreciates a soft, sandy substrate and dim lighting.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sperata-aor",
+      "html": "<ul><li>Temperature: 20–25°C</li><li>pH: 6.0–7.0</li><li>Hardness: 5–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sperata-aor",
+      "html": "<p>It is quite an unfussy feeder, and will accept dried pelleted, live, and meaty frozen foods. Larger specimens can be offered whole fresh or frozen fish, such as trout or sprats.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sperata-aor",
+      "html": "<p>Not only will it eat any fish it can fit in its capacious mouth, but it is territorial with its own kind, and is thus best kept alone in all but the very largest aquaria. In such a setting, possible tankmates include Pangasius spp., pacus and other tankbusting fish.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sperata-aor",
+      "html": "<p>Adult females tend to be rounder in the belly than males. Males also possess quite a long genital papilla located just in front of the anal fin.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sperata-aor",
+      "html": "<p>Not thought to have been achieved in captivity. Reports suggest that the fish exhibit a remarkable breeding behaviour in nature, in which the eggs are incubated, and the fry initially fed, within specially adapted skin on the belly of the male.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/sperata-aor",
+      "html": "<p>This \"shovelnose\" is unique amongst bagrids, but superficially resembles several unrelated South American catfish species. Its common name is derived from its flattened, extended head. This is a species totally unsuited to aquarium life, yet it can sometimes be spotted in dealers' tanks. When small, it makes an interesting and undeniably impressive addition to a large aquarium, but bearing in mind its enormous adult size, near unlimited resources would be required to keep the fish for life.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/80cd06b47ea00f41.webp",
+      "width": 953,
+      "height": 413,
+      "licence": "CC BY-SA 4.0",
+      "author": "Sufe",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sperata_aor.jpg",
+      "caption": "Sperata aor of bangladesh",
+      "thumb": "https://media.aquatome.com/commons/80cd06b47ea00f41-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/ca44256342b9547b.webp",
+      "width": 960,
+      "height": 291,
+      "licence": "CC BY-SA 4.0",
+      "author": "Salil Kumar Mukherjee",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sperata_aor_(Long-whiskered_catfish).jpg",
+      "caption": "Sperata aor (Long-whiskered catfish) of West Bengal, India.",
+      "thumb": "https://media.aquatome.com/commons/ca44256342b9547b-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy lọc hồ lớn",
+        "bơm hồ cá công suất lớn"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên cho cá lớn",
+        "thức ăn cho cá nheo"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền hồ cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

@@ -4,19 +4,26 @@
   "altNames": [
     "Siput Assassin",
     "Assassin Snail",
-    "Keong Helena",
     "Keong Pembunuh",
-    "Bumblebee Snail"
+    "Keong Helena"
   ],
   "sections": {
-    "quickFacts:glaser": "<p>Asal: Asia. Ukuran saat dijual: 1–1,5 cm.</p>",
-    "notes:glaser": "<p>Keong pemakan keong <em>Anentome helena</em> sangat cocok untuk membersihkan akuarium dari keong-keong lain. Keong ini mencari mangsanya dengan belalainya. Panjang totalnya sekitar 1,5 cm, jadi keong ini juga cocok untuk akuarium yang sangat kecil, yang sering dipakai banyak penghobi untuk memelihara udang hias kecil. Di akuarium sekecil itu, populasi keong lain hampir tidak mungkin dikurangi dengan loach atau buntal. Setelah semua keong habis dimakan, keong ini bisa diberi pakan yang mengandung protein.</p>"
+    "quickFacts:glaser": "<p>Asal: Asia. Ukuran yang tersedia di pasaran: 1–1,5 cm.</p>",
+    "quickFacts:aquariumcoop": "<p>Anentome helena (juga dikenal sebagai Clea helena) adalah keong air tawar dengan cangkang spiral yang runcing dan bisa mencapai panjang 2,5 cm. Cangkangnya bertekstur berusuk dengan garis-garis cokelat tua dan kuning yang berselang-seling, mirip corak lebah bumble. Keong ini merupakan cara alami untuk membasmi keong hama seperti keong bladder (siput kecil), keong ramshorn, dan Malaysian trumpet snail (MTS).</p><p>Keong ini sering merayap dengan sifonnya terjulur jelas. Sifon digunakan untuk menarik air agar mengalir melewati insang dan untuk mendeteksi makanan. Seperti Malaysian trumpet snail, keong ini suka membenamkan diri di substrat pasir atau kerikil dan menjulurkan sifonnya keluar dari dasar untuk bernapas dan mencium bau di sekitarnya. Begitu mencium ada makanan di dekatnya, keong ini langsung muncul dari dasar untuk berburu.</p>",
+    "distribution:aquariumcoop": "<p>Keong dari Asia Tenggara ini ditemukan di Thailand, Malaysia, dan Pulau Sumatra di Indonesia.</p>",
+    "aquariumSize:aquariumcoop": "<p>Karena ukurannya kecil, satu ekor keong bisa hidup dengan nyaman di air sebanyak 8 liter atau lebih.</p>",
+    "waterConditions:aquariumcoop": "<p>Suhu: 21–27 °C. Seperti kebanyakan keong, keong ini lebih menyukai pH basa 7,2–8,0 dan kesadahan (GH) sedang sampai sadah/keras.</p><p>Kalau cangkangnya mulai berlubang dan bopeng, kemungkinan airnya terlalu lunak; tambahkan pecahan koral (crushed coral) dan suplemen mineral agar pertumbuhan cangkangnya sehat.</p>",
+    "diet:aquariumcoop": "<p>Keong karnivora ini sangat suka memangsa segala jenis keong, dan bila ada kesempatan, juga akan memakan hewan yang sudah mati, telur ikan, serta burayak yang baru menetas (wrigglers) yang belum bisa berenang bebas.</p><p>Kalau keong hama sudah habis, keong ini bisa diberi pakan ikan apa saja yang tinggi protein, seperti cacing darah beku, pakan serpihan, pelet, wafer tenggelam, dan pakan gel Repashy. Supaya cangkangnya tumbuh kuat tanpa retak atau cacat lainnya, berikan pakan yang diperkaya mineral, seperti Easy Shrimp and Snail Shells dan pelet Hikari Fancy Guppy.</p>",
+    "behaviour:aquariumcoop": "<p>Pindahkan semua keong yang tidak ingin dimakan. Bila dipelihara berkelompok, keong assassin bisa mengalahkan dan memangsa keong yang lebih besar, seperti keong mystery, nerite, dan keong rabbit Sulawesi. Namun, keong ini biasanya tidak menyerang sesamanya dan aman dipelihara bersama ikan yang damai, tanaman air, udang hias kecil (dwarf shrimp), dan invertebrata lain yang bukan keong.</p><p>Hindari memeliharanya bersama hewan pemakan keong, seperti ikan buntal dan beberapa jenis loach.</p>",
+    "reproduction:aquariumcoop": "<p>Berbeda dengan banyak jenis keong hama, keong assassin bukan hermafrodit dan tidak bisa berkembang biak sendiri. Jantan dan betinanya sulit dibedakan, jadi cara termudah adalah memelihara sekelompok enam ekor atau lebih untuk memperbesar peluang mendapatkan setidaknya satu jantan dan satu betina.</p><p>Jika diberi cukup banyak pakan, keong ini akan mulai berkembang biak dengan sendirinya, walaupun jauh lebih lambat dibandingkan kebanyakan keong hama. Betina meletakkan kapsul telur bening berbentuk persegi dengan sudut-sudut runcing yang berisi satu butir telur berwarna kuning. Kapsul-kapsul ini diletakkan satu per satu dan menempel di permukaan seperti batu, kayu (driftwood), atau substrat.</p><p>Keong ini bisa dikembangbiakkan di akuarium yang sama dengan jenis lain, seperti guppy dan udang cherry.</p>",
+    "notes:glaser": "<p>Keong pemakan keong Anentome helena sangat cocok untuk membersihkan akuarium dari keong-keong lain. Keong ini menemukan mangsanya dengan belalainya. Dengan panjang total sekitar 1,5 cm, keong ini juga cocok untuk akuarium yang sangat kecil, yang banyak dipakai hobiis untuk memelihara udang hias kecil (dwarf shrimp). Di akuarium sekecil itu, hampir mustahil mengurangi populasi keong lain dengan loach atau ikan buntal. Setelah semua keong habis dimakan, keong ini bisa diberi pakan yang mengandung protein.</p>"
   },
   "quality": {
-    "score": 0.9,
+    "score": 0.88,
     "indexable": true,
     "bySource": {
-      "glaser": 0.9
+      "glaser": 0.88,
+      "aquariumcoop": 0.88
     }
   }
 }

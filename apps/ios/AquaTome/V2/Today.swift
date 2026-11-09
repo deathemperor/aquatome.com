@@ -254,7 +254,8 @@ private struct FishOfTheDay: View {
           V2Photo(src: img, ground: colour) { colour = $0 }
             .modifier(WordsOnPhoto(colour: colour, edge: .top, height: height) { name })
             .overlay(alignment: .bottom) {
-              LinearGradient(colors: [colour.opacity(0), colour], startPoint: .top, endPoint: .bottom).frame(height: 56)
+              // Long, as `WordsOnPhoto`'s: on a photo with a black ground a short one ends in a hard stripe.
+              LinearGradient(colors: [colour.opacity(0), colour], startPoint: .top, endPoint: .bottom).frame(height: 120)
             }
         }
       }

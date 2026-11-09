@@ -26,6 +26,20 @@
       "kept": true
     }
   ],
+  "vi/guides/aquariumbreeder-how-to-choose-aquarium-plants-for-beginners#body": [
+    {
+      "at": "2026-11-09T13:57:24Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"không phải một dạng rêu Java nào khác\" became \"không phải rêu\": the specific Java moss is dropped and the claim is broader.",
+        "\"ai cũng muốn có một cục trong bể\": \"một cục\" (a lump) is added, a small colloquial addition.",
+        "\"cũng không phải cây\": \"cũng\" is added, a minor nuance shift."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/aquatome-nuoc-be-ca-bi-xanh-do-tao-xanh-va-cach-xu-ly#body": [
     {
       "at": "2026-11-07T06:53:20Z",
@@ -234,6 +248,19 @@
         "Said more surely than before: \"Cá golden dwarf barb nhìn thì nhỏ, nhưng có tiệm lại bán những con khá to, không hợp với bể nano.\" (was: \"Cá golden dwarf barb trông thì nhỏ, nhưng ở một tiệm có thể gặp những con khá to, không hợp bể nano.\")",
         "Added \"(Trichopsis pumila)\": species name not in BEFORE",
         "\"ở một tiệm có thể gặp những con khá to\" (may encounter) became \"có tiệm lại bán những con khá to\": hedge turned into a flat statement, and \"gặp\" became \"bán\""
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/guides/youtube-QhPgAnEku_o#body": [
+    {
+      "at": "2026-11-09T13:59:44Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "Dropped \"và có thể không dùng luôn\": BEFORE says the substrate may be skipped entirely. AFTER only says it isn't needed, so the optional-omission caveat is lost.",
+        "Added \"đất hay\": AFTER says no soil or substrate, but BEFORE only mentions giá thể."
       ],
       "attempt": "first",
       "kept": false

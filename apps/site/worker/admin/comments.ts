@@ -88,7 +88,7 @@ export async function listComments(db: D1Database, state: CommentState, cursor?:
 }
 
 /** The posting rules' reasons as rules.ts writes them. */
-const RULE_REASONS = /^(contains <|more than one link|blocked term: .+|duplicate within 24 h|more than 5 posts today)$/
+const RULE_REASONS = /^(contains <|more than one link|blocked term: .+|rude word: .+|duplicate within 24 h|more than 5 posts today)$/
 /**
  * This week's comments, the scoreboard's week (Monday, Vietnam's time): posted; held when posted; reported (by anyone:
  * whether a report held one isn't kept); hidden (by the moderator or the owner). A decision writes over the rule's reason,
@@ -140,6 +140,7 @@ export async function decideComment(db: D1Database, id: string, action: 'show' |
 /** Each posting rule's reason (rules.ts) as a sentence. */
 const RULES: [RegExp, (m: RegExpExecArray) => string][] = [
   [/^blocked term: (.+)$/, m => `it has “${m[1]}”, a blocked term`],
+  [/^rude word: (.+)$/, m => `it has “${m[1]}”, a rude word`],
   [/^contains <$/, () => 'it has a “<”'],
   [/^more than one link$/, () => 'it has more than one link'],
   [/^duplicate within 24 h$/, () => 'the same text was posted on this page in the 24 hours before'],

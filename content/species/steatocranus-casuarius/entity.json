@@ -1,0 +1,446 @@
+{
+  "id": "steatocranus-casuarius",
+  "scientificName": "Steatocranus casuarius",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Steatocranus",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "democratic-republic-of-the-congo",
+    "pool-malebo",
+    "lower-congo-river",
+    "republic-of-the-congo",
+    "lower-congo"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "aquatome",
+        "value": {
+          "min": 24,
+          "max": 28
+        },
+        "ref": 6
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquatome",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        },
+        "ref": 6
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "aquatome",
+        "value": {
+          "min": 2,
+          "max": 15
+        },
+        "ref": 6
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "aquatome",
+        "value": 12,
+        "ref": 6
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 12
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "aquatome",
+        "value": 75,
+        "ref": 6
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 75
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "aquatome",
+        "value": 2,
+        "ref": 9
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquatome",
+        "value": {
+          "min": 10,
+          "max": 10
+        },
+        "ref": 9
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "beforeYouBuy",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Cá có bán trong ngành cá cảnh. Một nhà nhập sỉ ở Đức từng có cả cá bắt tự nhiên lẫn cá trại, với các cỡ 4–6 cm và 3–4 cm.</p><p>Nên mua một cặp đã thành đôi hoặc mua cá non, vì cá chưa bắt cặp hay yếu. Nhiều nguồn cho người nuôi cá gọi nó là cá cực dữ, nhưng có những người đã nuôi nó nhiều năm thì không đồng ý.</p>",
+      "refs": [
+        2,
+        4,
+        5,
+        7
+      ]
+    },
+    {
+      "key": "distribution",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này sống ở Pool Malebo (Stanley Pool), hạ lưu sông Congo và các nhánh sông đổ vào đoạn này. Vùng phân bố của nó nằm trên cả hai nước, Cộng hòa Congo và Cộng hòa Dân chủ Congo.</p>",
+      "refs": [
+        2,
+        5,
+        6
+      ]
+    },
+    {
+      "key": "habitat",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p><em>S. casuarius</em> là cá nước ngọt sống sát đáy, quen với nước chảy xiết. Nhà của nó là những ghềnh đá chảy rất mạnh ở hạ lưu sông Congo (còn gọi là sông Zaire), nơi đáy đầy đá tảng. Giữa những đoạn nước xiết và cuộn sóng ấy, cá thường ở trong các túi nước lặng.</p>",
+      "refs": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Các nguồn đưa ra cỡ bể khá lệch nhau, và cỡ tối thiểu cho một cặp có thể chênh tới gấp đôi:</p><ul><li>Bể khoảng 75 lít được nói là vừa cho một cặp.</li><li>Bể 75 × 30 × 30 cm là cỡ cơ bản ở một nguồn.</li><li>Một nguồn khác khuyên bể dài ít nhất 80 cm và nuôi theo cặp.</li><li>Bể khoảng 150 lít là mức nhỏ nhất cho một cặp theo một gợi ý khác. Bể cỡ này có thể chứa hai cặp nếu nhiều đá và có vật chắn tầm nhìn.</li><li>Một hướng dẫn khác đòi ít nhất khoảng 190 lít.</li><li>Nuôi đàn từ sáu con trở lên thì cần ít nhất khoảng 285 lít.</li></ul><p>Loài này hay đào bới, nên trải cát mềm và xếp nhiều đá thành đống hoặc thành chồng. Hang đá phải gắn chặt xuống đáy bể hoặc dán silicone để cá đào không làm sập. Cây thì chọn loại khỏe, trồng trong chậu hoặc buộc vật nặng cho khỏi bị bới lên.</p>",
+      "refs": [
+        2,
+        3,
+        5,
+        6,
+        8,
+        9
+      ]
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Về nhiệt độ, các nguồn khá khớp nhau ở 24–28 °C, riêng một hồ sơ cho phép tới 30 °C. Độ pH và độ cứng thì mỗi nơi một khác:</p><ul><li>pH 6,0–7,5 và độ cứng 2–15 dGH</li><li>pH 6,0–8,0 và độ cứng dH 5–19</li><li>pH 7,5–8,5, mức kiềm này chỉ có ở một hướng dẫn và khác với các nguồn còn lại</li></ul><p>Có nguồn muốn nước mềm nhưng không chua quá. Một nguồn khác cho rằng nước ổn định quan trọng hơn con số chính xác.</p><p>Loài này thích dòng mạnh và cần nước nhiều oxy. Nên gắn thổi luồng để có dòng khỏe, đồng thời chừa một khu nước chảy nhẹ trong bể.</p>",
+      "refs": [
+        2,
+        4,
+        5,
+        6,
+        8,
+        9
+      ]
+    },
+    {
+      "key": "diet",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Ngoài tự nhiên, có nguồn nói loài này chủ yếu ăn tảo. Trong bể nó ăn tạp, cần cả đồ thịt lẫn rau, và chịu ăn cám mảnh, cám viên, đồ đông lạnh, đồ tươi. Thức ăn khô thì nó nhận, nhưng nên cho thêm đồ tươi hoặc đông lạnh như bloodworm và artemia.</p><p>Thức ăn phải chìm xuống đáy hoặc xuống đống đá, vì cá không ngoi lên để ăn. Con nào kén ăn thì có thể dụ bằng thịt trai nước ngọt băm nhỏ, món này cá thường rất thích.</p><p>Đừng cho ăn đồ quá béo. Trùn chỉ và các loại tương tự có thể gây bệnh đường ruột chết cá.</p>",
+      "refs": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "key": "behaviour",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này sống ở tầng thấp, không bơi quá tầng giữa, nhưng hay leo lên ngồi trên các chồng đá. Cá tetra, cá barb và những loài bơi từ tầng giữa trở lên thì nó mặc kệ.</p><p>Tính nết của nó thì mỗi nguồn nói một kiểu. Có nguồn tả nó hay giành chỗ và thích gây sự, nhất là mùa đẻ, tuy vẫn sống chung được với nhiều loài cá lớn hơn. Nguồn khác thấy nó khá hiền, chỉ giữ rất gắt khu quanh hang đẻ. Những người nuôi nhiều năm thì nói nó hay giành chỗ chứ không dữ. Họ thấy nó húc đầu đẩy cá khác chứ chưa thấy cắn hay rỉa vây, và từng nuôi cá cùng giống với cichlid nhỏ 8–10 cm mà không có con nào rách vây hay phải trốn.</p><p>Với cichlid khác lọt vào khu của nó, cá sẽ đuổi và húc, nhất là lúc đang đẻ. Nên nuôi theo cặp và tránh thả chung cichlid khác, trừ khi bể rất lớn. Các loài gợi ý để nuôi chung gồm:</p><ul><li>cá tetra họ Alestidae</li><li>các loài characin cỡ lớn</li><li>cá barb</li><li>cá <em>Synodontis</em> quen sống nơi nước chảy xiết</li></ul><p>Chuyện đôi lứa của chúng cũng cần để ý. Con đực đã lớn có thể dữ với con cái, và ghép bạn mới thường không thành. Con nào mất bạn đời thì thường sống một mình luôn từ đó. Vào lúc sinh sản, cá thỉnh thoảng bới cây lên hoặc cắn cây.</p>",
+      "refs": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Con đực lớn hơn con cái, thân dài hơn, màu sẫm hơn, vây dài hơn và cục u trên đầu cũng to hơn. Về kích thước, một nguồn cho đực khoảng 12 cm và cái khoảng 8 cm. Một hồ sơ khác cho đực khoảng 15 cm và cái khoảng 10 cm.</p>",
+      "refs": [
+        3,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "key": "reproduction",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Trong bể, loài này khá dễ đẻ, và chắc là sẽ đẻ nếu được nuôi đúng nhu cầu. Chúng sống theo cặp, đẻ trong hang, và cặp đã thành đôi thì gắn bó suốt đời. Cặp cá đào một cái hang dưới tảng đá, rồi con cái đẻ trứng lên trần và vách hang. Có khi chúng đẻ trên trần hang hoặc trong vỏ sò ốc.</p><p>Mỗi lứa thường có 30–60 trứng và có thể lên tới 150 trứng. Một nguồn khác đưa khoảng 20–150 trứng.</p><p>Điều kiện cho đẻ có hai gợi ý khác nhau:</p><ul><li>Nuôi riêng loài này, chỉ thả thêm cá Congo tetra làm cá bơi ngoài, giữ 24–26,5 °C và pH 6,0–7,0.</li><li>Giữ 27–29 °C, pH 6,5–6,9 và 4–12 dH, có hang hoặc chậu hoa úp ngược cho cá đẻ.</li></ul><p>Thời gian nở trong bể cũng không thống nhất. Một nguồn nói trứng nở sau khoảng 5–7 ngày và cá con bơi được sau 11–14 ngày. Một hồ sơ khác nói trứng nở sau khoảng 3–4 ngày và cá con bơi được vào khoảng ngày thứ 5.</p><p>Con cái giữ trứng, con đực canh khu vực xung quanh. Cả bố lẫn mẹ giữ con đến tối đa 3 tháng. Cá con có thể ăn artemia mới nở và thức ăn khô.</p>",
+      "refs": [
+        2,
+        3,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "key": "notes",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p><em>Steatocranus casuarius</em> là một loài cichlid sông Congo, do Max Poll mô tả năm 1939. Tên này hiện vẫn hợp lệ, còn <em>Steatocranus elongatus</em> là tên đồng nghĩa. Tiếng Anh gọi nó bằng nhiều tên như Buffalo head cichlid, Blockhead cichlid hay Lionhead cichlid. Tên giống ghép từ hai chữ Hy Lạp, <em>steatos</em> là mỡ cứng và <em>kranion</em> là hộp sọ.</p><p>Loài này có thân dài và một cục u trên đầu. Cục u đó có thể to nhỏ thay đổi khá nhanh. Điểm đáng chú ý nhất nằm bên trong: bóng bơi của nó tiêu giảm nên thân nổi kém, nhờ đó cá trụ lại được giữa dòng mạnh mà không bị cuốn đi. Khi di chuyển, nó nhích trên đáy bằng những cú nhảy ngắn.</p><p>Có nguồn đếm được tám loài trong giống này, vài loài trông khá giống nhau. <em>S. casuarius</em> hay bị nhầm với <em>S. gibbiceps</em>, vì hai loài cùng vùng Congo và được xuất khẩu chung. Muốn tách chúng thì nhìn tâm vảy, <em>S. casuarius</em> có tâm vảy tối còn <em>S. gibbiceps</em> có tâm vảy sáng. <em>S. tinanti</em>, tên tiếng Anh là slender buffalo head, có thân thon hơn và miệng rất lớn.</p><p>Sách Đỏ IUCN xếp loài này ở mức Ít quan tâm (Least Concern), theo đánh giá ngày 16 tháng 2 năm 2009.</p>",
+      "refs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/steatocranus-casuarius",
+      "html": "<p>The blockhead cichlid, Steatocranus casuarius, is a rheophilic cichlid from the Lower Congo River and its tributaries, Democratic Republic of Congo. Its swimbladder is modified to reduce buoyancy, and in the aquarium it spends most of its time resting on the substrate or in caves, moving with short 'hopping' motions. A monogamous cave spawner, it should be kept in pairs, and both parents guard the fry for up to three months.</p><ul><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/steatocranus-casuarius",
+      "html": "<p>Democratic Republic of Congo, Republic of the Congo.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/steatocranus-casuarius",
+      "html": "<p>It inhabits fast-moving, turbulent parts of the Lower Congo River and its tributaries, usually being found in pockets of still water.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/steatocranus-casuarius",
+      "html": "<p>Standard length 12 cm SL. Aquarium base 75 × 30 cm; volume ~68 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/steatocranus-casuarius",
+      "html": "<p>A substrate of sand is best as the fish like to dig, often creating a network of caves and tunnels under the tank decor. Furnish the aquarium with piles of rocks arranged to form caves, but ensure these are secure (placing them on the aquarium base or using silicone to glue them together is advised), so they are not likely to fall on burrowing fish. Pieces of driftwood are also suitable. Plants can be used but these must be robust species such as Anubias as these can be rooted to rocks or wood and will not be disturbed by the digging activity of the fish.</p><p>The water should be well-oxygenated with strong flow in places to reflect the natural habitat of this species, and a small powerhead is suggested to achieve this. However the fish should also be provided with a quiet area where the current is low. Upturned flowerpots or lengths of pvc piping make good alternative shelters and spawning sites for the fish.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/steatocranus-casuarius",
+      "html": "<ul><li>Temperature: 24–28 °C</li><li>pH: 6.0–7.5</li><li>Hardness: 2–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/steatocranus-casuarius",
+      "html": "<p>It will accept dried pellets or flakes, but these should be supplemented with regular feedings of live and frozen foods such as bloodworm and brineshrimp.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/steatocranus-casuarius",
+      "html": "<p>A territorial species that can be combined with other species requiring similar conditions. Good tankmates include some Alestiid tetras, Chaetostoma sp., Chiloglanis sp., some of the larger characins and barbs and rheophilic Synodontis species such as S. brichardi. It should not be kept with any other cichlids unless the tank is very large. S. casuarius should be kept in pairs. A suitably large tank is required if you wish to house more than one pair together.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/steatocranus-casuarius",
+      "html": "<p>The male is larger and develops a bigger nuchal hump (the protrusion formed from fatty deposits on the forehead of the fish) than the female.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/steatocranus-casuarius",
+      "html": "<p>Not too difficult. Monogamous cave spawner. The pair bond formed by this species is so strong that if one partner in a pair dies, the other may not seek another partner. The fish may breed in a community tank, but is best spawned in a species tank, with only a shoal of Congo tetras or similar to act as dither fish, as if kept alone the fish are somewhat skittish.</p><p>The aquarium should be set up as described above, with a temperature of 24–26.5 °C and slightly soft water of pH 6.0–7.0. The most reliable way to obtain a pair is to purchase a group of young fish and allow things to develop naturally. There is no guarantee that selecting an adult pair will result in spawning as the fish prefer to choose their own partners. In any case, condition the fish on a varied diet containing plenty of live and frozen foods. Once a pair has formed it is advisable to remove the other fish as they will most likely not be tolerated any longer.</p><p>Spawning itself occurs secretively in a cave. The pair will either choose an existing cave in the tank or excavate their own under a rock. The 20–150 eggs are laid on the wall or roof of the cave and hatch in around 5–7 days, with the fry becoming free swimming in 11–14 days. At this point they leave the breeding cave to forage for food, shepherded by the adults. The fry are guarded diligently by both parents, and any other fish present are attacked should they venture too close. Fry straying from the main group are immediately herded back. Brood care continues for up to 3 months, at which point the young are left to fend for themselves and the parents may spawn again. If the young are left in the tank they are usually tolerated by the adults even when they are protecting another brood.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/steatocranus-casuarius",
+      "html": "<p>An easily kept cichlid whose character more than compensates for its somewhat drab colouration, S. casuarius is sometimes seen for sale as \"Humphead\", \"Lionhead\" or \"Buffalohead\" cichlid. It is a rheophilic fish meaning it inhabits fast waters. Its swimbladder is modified to reduce buoyancy and thus prevent it from being swept away by the strong currents in its natural habitat. In the aquarium it spends most of its time resting on the substrate or hiding in caves and tunnels. It is comical to observe as it swims with short \"hopping\" motions, appearing to bounce around the tank floor. Interestingly the characteristic \"hump\" on the head of the fish can change size quite rapidly.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/3646bf3dbca658a2.webp",
+      "width": 960,
+      "height": 625,
+      "licence": "CC0",
+      "author": "5snake5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Steatocranus_casuarius,_male_%26_female.jpg",
+      "caption": "Lionhead cichlids (Steatocranus casuarius), male (in front) & female",
+      "thumb": "https://media.aquatome.com/commons/3646bf3dbca658a2-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/91375ec39f2c4cf9.webp",
+      "width": 960,
+      "height": 512,
+      "licence": "CC0",
+      "author": "5snake5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Steatocranus_casuarius_close_up.jpg",
+      "caption": "A close up of a male lionhead cichlid (Steatocranus casuarius).",
+      "thumb": "https://media.aquatome.com/commons/91375ec39f2c4cf9-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/0e8967b378cfe89e.webp",
+      "width": 960,
+      "height": 604,
+      "licence": "CC0",
+      "author": "5snake5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Steatocranus_casuarius,_male_with_offspring.jpg",
+      "caption": "A male Lionhead cichlid (Steatocranus casuarius) with offspring.",
+      "thumb": "https://media.aquatome.com/commons/0e8967b378cfe89e-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/6e0768d9b8e6a4d5.webp",
+      "width": 960,
+      "height": 640,
+      "licence": "CC0",
+      "author": "5snake5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Steatocranus_casuarius,_male_frontal_view.jpg",
+      "caption": "A pair of the lionhead cichlid (Steatocranus casuarius), the male in frontal view.",
+      "thumb": "https://media.aquatome.com/commons/6e0768d9b8e6a4d5-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/d5315a9b35333c54.webp",
+      "width": 960,
+      "height": 631,
+      "licence": "CC0",
+      "author": "5snake5",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Steatocranus_casuarius_-_family.jpg",
+      "caption": "Buckelkopfbuntbarsch (Steatocranus casuarius), links männlich, rechts weiblich und ein paar Jungfische.",
+      "thumb": "https://media.aquatome.com/commons/d5315a9b35333c54-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "6hvjOB7X4Iw",
+      "title": "Buffalo Head Cichlids: The Oddballs You’ll Fall in Love With",
+      "durationSec": 546,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy tạo dòng nhỏ",
+        "bơm tạo sóng bể cá",
+        "lọc thùng bể cá"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "cát mịn cho cá cichlid"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn viên cho cá rô phi cảnh",
+        "trùng huyết đông lạnh",
+        "artemia đông lạnh"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09",
+  "refs": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Steatocranus_casuarius",
+      "title": "Lionhead cichlid"
+    },
+    {
+      "url": "https://itis.gov/servlet/SingleRpt/SingleRpt?categories=All&search_credRating=All&search_kingdom=every&search_span=containing&search_topic=Scientific_Name&search_value=Steatocranus+casuarius",
+      "title": "ITIS - Report: Steatocranus casuarius"
+    },
+    {
+      "url": "https://www.fishbase.se/summary/8864",
+      "title": "Steatocranus casuarius, Lionhead cichlid : aquarium"
+    },
+    {
+      "url": "https://tropicalfreshwaterfish.com/species/Steatocranus_casuarius.html",
+      "title": "Buffalohead | Steatocranus casuarius"
+    },
+    {
+      "url": "https://aquariumglaser.de/en/fisharchive/steatocranus-casuarius-2",
+      "title": "Steatocranus casuarius"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=6hvjOB7X4Iw",
+      "title": "Buffalo Head Cichlids: The Oddballs You’ll Fall in Love With"
+    },
+    {
+      "url": "https://www.seriouslyfish.com/species/steatocranus-casuarius/",
+      "title": "Steatocranus casuarius (Blockhead Cichlid) · Seriously Fish"
+    },
+    {
+      "url": "https://fishprofiles.com/profiles/freshwater/Cichlids/Steatocranus_casuarius",
+      "title": "FishProfiles.com - Steatocranus casuarius"
+    },
+    {
+      "url": "https://arcichlidp.blogspot.com/2008/07/steatocranus-casuarius-buffalohead.html",
+      "title": "Aquatic Revolution - Cichlid Profiles: Steatocranus casuarius - Buffalohead Cichlid"
+    },
+    {
+      "url": "https://www.fishlaboratory.com/?p=4310",
+      "title": "Buffalo Head Cichlid (Steatocranus casuarius): Ultimate Care Guide - Fish Laboratory"
+    }
+  ]
+}

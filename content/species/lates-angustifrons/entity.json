@@ -13,6 +13,126 @@
     "tanzania",
     "zambia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BI",
+        "CD",
+        "TZ",
+        "ZM"
+      ],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Tanganyika (Burundi, DR Congo, Tanzania and Zambia).",
+          "countries": [
+            "BI",
+            "CD",
+            "TZ",
+            "ZM"
+          ],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2393183,
+      "total": 52,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "ZM",
+          16
+        ],
+        [
+          "CD",
+          12
+        ],
+        [
+          "TZ",
+          11
+        ],
+        [
+          "BI",
+          8
+        ],
+        [
+          "US",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          -98.4375,
+          28.125,
+          2,
+          0
+        ],
+        [
+          -97.03125,
+          28.125,
+          3,
+          0
+        ],
+        [
+          28.125,
+          -7.03125,
+          7,
+          7
+        ],
+        [
+          28.125,
+          -4.21875,
+          9,
+          9
+        ],
+        [
+          29.53125,
+          -9.84375,
+          13,
+          13
+        ],
+        [
+          29.53125,
+          -8.4375,
+          4,
+          4
+        ],
+        [
+          29.53125,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          29.53125,
+          -5.625,
+          9,
+          9
+        ],
+        [
+          30.9375,
+          -9.84375,
+          3,
+          3
+        ],
+        [
+          30.9375,
+          -8.4375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

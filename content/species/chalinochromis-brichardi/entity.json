@@ -1,0 +1,151 @@
+{
+  "id": "chalinochromis-brichardi",
+  "scientificName": "Chalinochromis brichardi",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Chalinochromis",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "lake-tanganyika"
+  ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This pretty cichlid from Lake Tanganyika is only very, very occasionally found in the trade.",
+          "countries": [],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2370887,
+      "total": 56,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "ZM",
+          27
+        ],
+        [
+          "TZ",
+          17
+        ],
+        [
+          "BI",
+          7
+        ],
+        [
+          "CD",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          26.71875,
+          -14.0625,
+          2
+        ],
+        [
+          28.125,
+          -5.625,
+          4
+        ],
+        [
+          28.125,
+          -4.21875,
+          8
+        ],
+        [
+          29.53125,
+          -9.84375,
+          16
+        ],
+        [
+          29.53125,
+          -8.4375,
+          3
+        ],
+        [
+          29.53125,
+          -7.03125,
+          9
+        ],
+        [
+          29.53125,
+          -5.625,
+          5
+        ],
+        [
+          30.9375,
+          -9.84375,
+          8
+        ],
+        [
+          33.75,
+          -7.03125,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 12
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/chalinochromis-brichardi-en/",
+      "html": "<p>This pretty cichlid from Lake Tanganyika is only very, very occasionally found in the trade. This is hard to understand. Despite the fact that the coloration is rather simple, the fish are quite conspicuous. Maximum size of Chalinochromis brichardi is about 12 cm.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25b-perchlike-fishes-2-cichlids-from-the-great-african-lakes/chalinochromis-brichardi-en/",
+      "html": "<p>Keeping and breeding can be compared with the closely related genus Julidochromis.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 100cm",
+        "bể cá cichlid Tanganyika"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy sục khí"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền cho cá cichlid",
+        "đá làm hang cho cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

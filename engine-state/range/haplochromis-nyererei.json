@@ -1,0 +1,75 @@
+{
+  "id": "haplochromis-nyererei",
+  "native": {
+    "input": "d1107cf847cde5ae",
+    "at": "2026-11-09T20:43:02.940Z",
+    "claims": [
+      {
+        "code": "TZ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Pundamilia nyererei is a maternally mouthbrooding cichlid endemic to Lake Victoria, recorded only from the southern part of the lake in Tanzania.",
+        "words": "Tanzania",
+        "ok": true
+      },
+      {
+        "code": "TZ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Victoria which has a shoreline divided between Kenya, Uganda and Tanzania, although P. nyererei has been recorded only in the southern part of the lake belonging entirely to Tanzania.",
+        "words": "Tanzania",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Victoria",
+        "source": "seriouslyfish",
+        "quote": "Pundamilia nyererei is a maternally mouthbrooding cichlid endemic to Lake Victoria, recorded only from the southern part of the lake in Tanzania.",
+        "country": "TZ",
+        "ok": true
+      },
+      {
+        "name": "Mwanza Gulf",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Mwanza Gulf, Tanzania, Lake Victoria', and it's also known from Speke Gulf at the lake's southwestern extremity, with the southern shoreline of Ukerewe Island (often referred to as 'Nansio' Island in the aquarium hobby) appearing to represent its northern limit.",
+        "country": "TZ",
+        "ok": true
+      },
+      {
+        "name": "Speke Gulf",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Mwanza Gulf, Tanzania, Lake Victoria', and it's also known from Speke Gulf at the lake's southwestern extremity, with the southern shoreline of Ukerewe Island (often referred to as 'Nansio' Island in the aquarium hobby) appearing to represent its northern limit.",
+        "ok": true
+      },
+      {
+        "name": "Ukerewe Island",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Mwanza Gulf, Tanzania, Lake Victoria', and it's also known from Speke Gulf at the lake's southwestern extremity, with the southern shoreline of Ukerewe Island (often referred to as 'Nansio' Island in the aquarium hobby) appearing to represent its northern limit.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Haplochromis nyererei",
+    "status": "ACCEPTED",
+    "taxonKey": 2373693,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        1
+      ]
+    ],
+    "native": [
+      "TZ"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T20:43:02.940Z"
+  }
+}

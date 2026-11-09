@@ -1,0 +1,129 @@
+{
+  "id": "lepidocephalichthys-thermalis",
+  "native": {
+    "input": "9e8923c3c1018930",
+    "at": "2026-11-09T16:24:16.651Z",
+    "claims": [
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Lepidocephalichthys thermalis is a cobitid loach from Sri Lanka and Peninsular India, described from the hot waters of Cania, Sri Lanka.",
+        "words": "Sri Lanka",
+        "ok": true
+      },
+      {
+        "code": "LK",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from 'Hot waters of Cania, Sri Lanka' and also occurs in Peninsular India.",
+        "words": "Sri Lanka",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Godavari",
+        "source": "seriouslyfish",
+        "quote": "In the latter it's known from the Godavari, Krishna, Palar, Kaveri and Periyar river drainages.",
+        "ok": true
+      },
+      {
+        "name": "Krishna",
+        "source": "seriouslyfish",
+        "quote": "In the latter it's known from the Godavari, Krishna, Palar, Kaveri and Periyar river drainages.",
+        "ok": true
+      },
+      {
+        "name": "Palar",
+        "source": "seriouslyfish",
+        "quote": "In the latter it's known from the Godavari, Krishna, Palar, Kaveri and Periyar river drainages.",
+        "ok": true
+      },
+      {
+        "name": "Kaveri",
+        "source": "seriouslyfish",
+        "quote": "In the latter it's known from the Godavari, Krishna, Palar, Kaveri and Periyar river drainages.",
+        "ok": true
+      },
+      {
+        "name": "Periyar",
+        "source": "seriouslyfish",
+        "quote": "In the latter it's known from the Godavari, Krishna, Palar, Kaveri and Periyar river drainages.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "IN"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Lepidocephalichthys thermalis",
+    "status": "ACCEPTED",
+    "taxonKey": 2368138,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        75
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        15
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        13
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        7
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        6
+      ],
+      [
+        "988007b1-1179-42e0-863c-bb9f1bdfa6f7",
+        4
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        3
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "8598edb6-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        1
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [
+      "LK"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T16:24:16.651Z"
+  }
+}
