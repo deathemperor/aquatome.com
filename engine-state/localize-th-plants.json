@@ -705,6 +705,23 @@
       "\"ในตู้ที่มีกระแสน้ำดี\" is slightly awkward; \"ในตู้ที่มีการไหลเวียนของน้ำดี\" is clearer."
     ]
   },
+  "dracaena-sanderiana": {
+    "at": "2026-11-09",
+    "from": "2026-11-09",
+    "name": "ไผ่กวนอิม",
+    "confidence": "high",
+    "score": 0.6,
+    "notes": [
+      "Item 5 'ขยายพันธุ์แบบไม่อาศัยเพศ' is fine, but 'สารเคมีเหล่านี้' etc. are OK; the real error: 'The plant ... pest such as snails' translated 'ศัตรูพืชอย่างหอย' is acceptable. Main problem: 'Lucky bamboo ... Full submersion' paragraph and list are fine.",
+      "Item 8: 'กุ้งเครย์ฟิช' is wrong for crayfish; use 'เครย์ฟิช' or 'กุ้งแม่น้ำ/crayfish' (crayfish are not กุ้งทั่วไป).",
+      "Item 8: 'ไม่ผลัดใบ ... ใบมักบิดและมีสีเขียว' fine, but 'พืชในสกุล Dracaena spp.' is redundant/incorrect; use 'พืชสกุล Dracaena'.",
+      "Item 8: 'ไม่ปล่อยสารพิษลงในน้ำ ... จึงเลี้ยงร่วมกับสัตว์อื่นที่ไม่สามารถฉีกกินต้นได้' loses the 'can be kept with' logic slightly; rephrase as 'จึงเลี้ยงร่วมกับสัตว์อื่นที่ฉีกกินต้นไม่ได้ได้'.",
+      "Item 5: 'ไผ่กวนอิมขยายพันธุ์แบบไม่อาศัยเพศ' is correct, but 'ตัดกิ่งแขนง (ตรงข้อ) ให้เรียบร้อยเพื่อไม่ให้รอยตัดแตกเป็นขุย' is OK; 'ปลูกแบบจมน้ำทั้งต้น' repeated heading is fine.",
+      "Item 5: 'ต้นจะเหลืองเมื่อสัมผัสคลอรีน' fine; 'ซึ่งต้นจะรอด' ('It will survive') is fine; 'โรยกรวดผิวเรียบ' for 'soft pebbles' changes meaning (soft vs smooth); use 'กรวดเม็ดเล็กนุ่ม' or similar.",
+      "Item 3: 'เงินไหลมา (Syngonium)' is a mismatch: Syngonium is usually called 'ออมเงิน/เงินไหลมา' ambiguous; verify the common name.",
+      "Item 7: 'แบบไม่โดนโดยตรง' lacks the word 'แสง'; write 'แสงทางอ้อม'. 'ของเสียจากปลา หอย กบ กุ้ง' fine."
+    ]
+  },
   "echinodorus-angustifolia": {
     "at": "2026-10-30",
     "from": "2026-10-29",
@@ -832,16 +849,14 @@
     ]
   },
   "echinodorus-x-barthii": {
-    "at": "2026-10-31",
-    "from": "2026-10-30",
-    "name": "อเมซอนบาร์ทิไอ",
+    "at": "2026-11-09",
+    "from": "2026-11-09",
+    "name": "อเมซอน บาร์ธี",
     "confidence": "medium",
     "score": 0.75,
     "notes": [
-      "Item 1: Height '20–30+ ซม.' conflicts with item 3 (25–50 cm) but that is the source's inconsistency; keep as is. Minor: 'Light demand: low' vs. text saying high light gives colour is source issue, not translation.",
-      "Item 2: 'ธาตุอาหารรอง' for 'micronutrients' is acceptable but 'จุลธาตุ' or 'ธาตุอาหารเสริม' is more common among Thai hobbyists.",
-      "Item 2: 'วัสดุปลูกที่มีธาตุอาหารสูง' for 'nutritious bottom' is fine, but 'บดบังแสงของไม้น้ำด้านล่างมาก' reads slightly awkward; consider 'บังแสงไม้น้ำที่อยู่ข้างล่างมาก'.",
-      "Item 3: 'ทั้งกอใบแผ่กว้าง' is slightly awkward; consider 'ทั้งกอกว้าง 20–30 ซม.'. 'ใบที่อ่อนที่สุด/แก่ที่สุด' could be 'ใบอ่อน/ใบแก่'."
+      "Item 3: \"micronutrients\" is rendered as \"ธาตุอาหารรอง\", which means secondary nutrients (Ca, Mg, S). Use \"จุลธาตุ\" or \"ธาตุอาหารเสริม\" instead.",
+      "Item 3: \"วัสดุปลูกที่มีธาตุอาหาร\" is slightly awkward. \"วัสดุปลูกที่อุดมด้วยธาตุอาหาร\" reads more naturally."
     ]
   },
   "egeria-densa": {
@@ -1627,16 +1642,13 @@
     ]
   },
   "najas-guadalupensis": {
-    "at": "2026-11-05",
-    "from": "2026-10-31",
-    "name": "กัปปี้กราส",
+    "at": "2026-11-09",
+    "from": "2026-11-09",
+    "name": "นาจาส",
     "confidence": "medium",
-    "score": 0.75,
+    "score": 0.85,
     "notes": [
-      "\"ลำต้นและใบที่ละเอียดและโปร่ง\" adds 'stem and leaves'; the English only says 'fine, porous structure'. Minor, and the meaning is intact.",
-      "\"ขยายพันธุ์ได้เองโดยไม่ต้องทำอะไรมาก\" is a loose, wordy rendering of 'propagates effortlessly'. Consider \"ขยายพันธุ์ง่าย\".",
-      "\"วัสดุปลูก\" is acceptable, but hobbyists often say \"พื้นตู้\" or \"ทราย/ซับสเตรท\" for the substrate.",
-      "\"Najas guadalupensis\" in sentence 3 is a bare Latin name with no Thai common name. Fine, but \"สาหร่ายเขี้ยวกุ้ง\" is not the right plant, so keep the Latin name. It could be written more smoothly in the sentence."
+      "Item 2: the Latin genus name \"Najas\" is transliterated as \"นาจาส\". Keep \"Najas\" in Latin letters, as the other items do. You could also add a Thai common name such as \"สาหร่ายหางกระรอก\" if you want to use one, but check it first."
     ]
   },
   "nymphaea-lotus": {
@@ -1789,15 +1801,19 @@
     ]
   },
   "pogostemon-quadrifolius": {
-    "at": "2026-11-06",
-    "from": "2026-10-31",
-    "name": "Pogostemon Octopus",
+    "at": "2026-11-09",
+    "from": "2026-11-09",
+    "name": "โพโกสเตมอน ออคโตปัส",
     "confidence": "medium",
-    "score": 0.85,
+    "score": 0.7,
     "notes": [
-      "\"กิ่งแขนงด้านข้าง\" for side shoots is a bit botanical; hobbyists more often say \"ยอดข้าง\" or \"หน่อข้าง\".",
-      "\"ไว้ใจได้\" is slightly colloquial for \"reliable choice\"; \"น่าเลือก\" or \"แนะนำ\" would read more naturally.",
-      "\"Nano Cubes\" is a product/trade term. \"ตู้นาโน\" is fine, but you could add the brand-style \"Nano Cube\" in brackets."
+      "Item 11: 'Neocaridina, Caridina' kept in Latin is fine, but 'ปลาซิวสามเหลี่ยม (ฮาร์เลควิน ราสโบร่า)' is OK; main issue: 'ปลาออโตซิงคลัส' is a non-standard term, use 'ปลาอ๊อตโต้' (ออโต้/อ็อตโต)",
+      "Item 11: 'ปลาเท็กซัส' for Texas cichlid is unclear, use 'ปลาหมอเท็กซัส' (Texas cichlid); 'ปลาแจ็คเดมป์ซีย์' should be 'ปลาหมอแจ็คเดมป์ซีย์', 'ปลาเรดเดวิล' should be 'ปลาหมอเรดเดวิล'",
+      "Item 11: 'กุ้งฝอยใส' for ghost shrimp is acceptable, but 'ปลาเตตร้า' is better written 'ปลาเทตร้า'",
+      "Item 3/10: 'Southeast Asia (India...)' faithfully translated, but 'ปัจจุบันแพร่กระจาย' adds 'ปัจจุบัน' (now) not in the source",
+      "Item 2: 'chicken pox' etc. fine; item 9: 'ต้นดูดธาตุอาหาร' fine. Item 7: 'ต้นละลาย' is acceptable but 'ใบเน่า/ละลาย' is more common; 'กิ่งที่ตัด' vs stems minor",
+      "Item 4: 'พาลูดาเรียม' fine; item 11 'กบตัวเล็ก' ok; 'สัตว์ไม่มีกระดูกสันหลัง' for invertebrates is stiff, use 'สัตว์น้ำเล็ก ๆ เช่น กุ้ง หอย'",
+      "Item 11: 'bunched plants (stems held with foam and a lead weight)' translated as 'รัดด้วยฟองน้ำและตะกั่วถ่วง' fine; 'ใยหิน' ok"
     ]
   },
   "pogostemon-stellatus": {

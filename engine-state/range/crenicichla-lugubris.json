@@ -1,0 +1,206 @@
+{
+  "id": "crenicichla-lugubris",
+  "native": {
+    "input": "d0b409480bcff806",
+    "at": "2026-11-09T05:57:45.266Z",
+    "claims": [
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Atabo red pike cichlid, Lugubria lugubris, is a large pike cichlid from rivers in Suriname, Guyana and Brazil.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Atabo red pike cichlid, Lugubria lugubris, is a large pike cichlid from rivers in Suriname, Guyana and Brazil.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Atabo red pike cichlid, Lugubria lugubris, is a large pike cichlid from rivers in Suriname, Guyana and Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Has been recorded from the Rio Corantijn in Suriname, Rio Essequibo in Guyana, Rio Negro and Rio Uatumã in Brazil and Rio Branco in both Brazil and Guyana.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Has been recorded from the Rio Corantijn in Suriname, Rio Essequibo in Guyana, Rio Negro and Rio Uatumã in Brazil and Rio Branco in both Brazil and Guyana.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Has been recorded from the Rio Corantijn in Suriname, Rio Essequibo in Guyana, Rio Negro and Rio Uatumã in Brazil and Rio Branco in both Brazil and Guyana.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Corantijn",
+        "source": "seriouslyfish",
+        "quote": "Has been recorded from the Rio Corantijn in Suriname, Rio Essequibo in Guyana, Rio Negro and Rio Uatumã in Brazil and Rio Branco in both Brazil and Guyana.",
+        "country": "SR",
+        "ok": true
+      },
+      {
+        "name": "Rio Essequibo",
+        "source": "seriouslyfish",
+        "quote": "Has been recorded from the Rio Corantijn in Suriname, Rio Essequibo in Guyana, Rio Negro and Rio Uatumã in Brazil and Rio Branco in both Brazil and Guyana.",
+        "country": "GY",
+        "ok": true
+      },
+      {
+        "name": "Rio Negro",
+        "source": "seriouslyfish",
+        "quote": "Has been recorded from the Rio Corantijn in Suriname, Rio Essequibo in Guyana, Rio Negro and Rio Uatumã in Brazil and Rio Branco in both Brazil and Guyana.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Uatumã",
+        "source": "seriouslyfish",
+        "quote": "Has been recorded from the Rio Corantijn in Suriname, Rio Essequibo in Guyana, Rio Negro and Rio Uatumã in Brazil and Rio Branco in both Brazil and Guyana.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Branco",
+        "source": "seriouslyfish",
+        "quote": "Has been recorded from the Rio Corantijn in Suriname, Rio Essequibo in Guyana, Rio Negro and Rio Uatumã in Brazil and Rio Branco in both Brazil and Guyana.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Crenicichla lugubris",
+    "status": "ACCEPTED",
+    "taxonKey": 2370957,
+    "datasets": [
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        156
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        60
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        30
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        23
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        22
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        17
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        16
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        14
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        13
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        10
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        8
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        6
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        5
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        4
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        4
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        4
+      ],
+      [
+        "f7739f2a-9d89-40c2-a262-813832add25d",
+        3
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        3
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "2bee4a91-9d92-430e-a87e-ab32d3b1ce47",
+        1
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        1
+      ],
+      [
+        "6424b95e-eee2-41fc-9450-bac5d6767525",
+        1
+      ]
+    ],
+    "native": [
+      "SR",
+      "GY",
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T05:57:45.266Z"
+  }
+}

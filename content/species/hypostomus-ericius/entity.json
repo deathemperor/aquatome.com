@@ -10,6 +10,75 @@
     "peru",
     "maranon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Rio Amazonas",
+        "Marañon"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: 1 kilometre upstream from Caterpiza, River Marañon, Amazonas, Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": [
+            "Marañon"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Upper Rio Amazonas drainage in Peru.",
+          "countries": [],
+          "regions": [
+            "Rio Amazonas"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202154,
+      "total": 8,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "PE",
+          7
+        ],
+        [
+          "CO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -70.3125,
+          0,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

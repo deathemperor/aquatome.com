@@ -1,0 +1,180 @@
+{
+  "id": "hypostomus-gymnorhynchus",
+  "native": {
+    "input": "4d5251dae169767e",
+    "at": "2026-11-09T05:57:45.266Z",
+    "claims": [
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Iponcin Creek, into Approuague R., French Guiana.",
+        "words": "French Guiana",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "South America: Guianan coastal drainages, from Oyapock westward to the Maroni basin, French Guiana.",
+        "words": "French Guiana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Recorded from the coastal rivers of French Guiana (Oyapock, Mana and Approuague) and Suriname (Marowijne).",
+        "words": "Suriname",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Oyapock",
+        "source": "planetcatfish",
+        "quote": "Recorded from the coastal rivers of French Guiana (Oyapock, Mana and Approuague) and Suriname (Marowijne).",
+        "country": "GF",
+        "ok": true
+      },
+      {
+        "name": "Maroni",
+        "source": "planetcatfish",
+        "quote": "South America: Guianan coastal drainages, from the Oyapock westward to the Maroni basin.",
+        "ok": true
+      },
+      {
+        "name": "Approuague",
+        "source": "planetcatfish",
+        "quote": "Recorded from the coastal rivers of French Guiana (Oyapock, Mana and Approuague) and Suriname (Marowijne).",
+        "country": "GF",
+        "ok": true
+      },
+      {
+        "name": "Mana",
+        "source": "planetcatfish",
+        "quote": "Recorded from the coastal rivers of French Guiana (Oyapock, Mana and Approuague) and Suriname (Marowijne).",
+        "country": "GF",
+        "ok": true
+      },
+      {
+        "name": "Marowijne",
+        "source": "planetcatfish",
+        "quote": "Recorded from the coastal rivers of French Guiana (Oyapock, Mana and Approuague) and Suriname (Marowijne).",
+        "country": "SR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hypostomus gymnorhynchus",
+    "status": "ACCEPTED",
+    "taxonKey": 5202216,
+    "datasets": [
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        92
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        78
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        70
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        22
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        7
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        5
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        4
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        4
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        4
+      ],
+      [
+        "5d1e5f0d-811c-4ab0-bb38-f141cc0174de",
+        3
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        3
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        3
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        3
+      ],
+      [
+        "5818223b-9b8e-432c-9fca-cb4c43387e6a",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "cff7cefc-b0d5-4128-9fac-d26e8b5a7f81",
+        2
+      ],
+      [
+        "240e848b-47bc-40a3-a44c-6e745901d2d0",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "941aeef8-2aa1-490d-b6fc-0133095dccea",
+        1
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ]
+    ],
+    "native": [
+      "GF",
+      "SR"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T05:57:45.266Z"
+  }
+}

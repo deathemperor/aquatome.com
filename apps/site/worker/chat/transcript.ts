@@ -25,11 +25,16 @@ export type ChatRunRecord = {
   /** 'ok', or the error the reader got ('failed', 'unavailable'). */
   outcome: string
   ms: number
-  /** In ms from the question's arrival: to the run's start (`before`), and on a stream to the text's first piece (`words`). */
-  timing?: { before: number; words?: number }
+  /**
+   * In ms from the question's arrival: to the run's start (`before`); on a stream, to the text's first piece (`words`) and
+   * its last (`last`), to the run's end (`answered`), and to `done` or the error (`done`), sent once the turn is saved.
+   */
+  timing?: { before: number; words?: number; last?: number; answered?: number; done?: number }
   cost: number
   tokens: { input: number; output: number }
   agent: { calls: number; tools: number; stopped: string }
   answer?: { text: string; covered: boolean; blocks: number; dropped: string[] }
+  /** The first line the reader was shown while the run read (agent.ts `opening`), when one was. */
+  opening?: string
   turns: Turn[]
 }

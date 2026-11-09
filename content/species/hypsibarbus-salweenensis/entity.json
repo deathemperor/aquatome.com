@@ -13,6 +13,54 @@
     "salween",
     "thailand"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN",
+        "MM",
+        "TH"
+      ],
+      "regions": [
+        "Salween"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Hypsibarbus salweenensis is a large cyprinid endemic to the Salween river system in Yunnan province, China, eastern Myanmar and northwestern Thailand.",
+          "countries": [
+            "CN",
+            "MM",
+            "TH"
+          ],
+          "regions": [
+            "Salween"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2365513,
+      "total": 2,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "TH",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          16.875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -4,14 +4,20 @@
   "altNames": [],
   "sections": {
     "quickFacts:glaser": "<p>Chi Paraloricaria có ba loài, phân bố ở vùng phía nam Nam Mỹ. Trong giới chơi cá cảnh, gần như chẳng ai biết đến chúng. Chắc chắn một phần lý do nằm ở kích thước khổng lồ mà chúng có thể đạt tới. Ít nhất hai loài P. commersonoides và P. vetula có thể dài hơn 50 cm.</p>",
-    "notes:glaser": "<p>Paraloricaria vetula vừa được nhập từ Paraguay về lần đầu tiên. Tên loài nghe chẳng mấy dễ chịu, vì vetula nghĩa là \"mụ già\". Cái tên này ám chỉ bộ hoa văn sẫm màu trên mình cá. Rõ ràng hoa văn đó đã gợi cho người mô tả loài nhớ đến những nếp nhăn sâu trên gương mặt một bà lão. Dù vậy, ai nhìn cũng thấy loài cá này rất đẹp.</p>"
+    "notes:glaser": "<p>Paraloricaria vetula vừa được nhập từ Paraguay về lần đầu tiên. Tên loài nghe chẳng mấy dễ chịu, vì vetula nghĩa là \"mụ già\". Cái tên này ám chỉ bộ hoa văn sẫm màu trên mình cá. Rõ ràng hoa văn đó đã gợi cho người mô tả loài nhớ đến những nếp nhăn sâu trên gương mặt một bà lão. Dù vậy, ai nhìn cũng thấy loài cá này rất đẹp.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: lưu vực sông La Plata.</p>",
+    "aquariumSize:scotcat": "<p>Loài này lớn khá to. Muốn nuôi nó thì cần bể lớn, và nước trong bể phải có dòng chảy tốt.</p>",
+    "diet:scotcat": "<p>Ngoài tự nhiên, chúng ăn một phần là loài thân mềm Limnoperna fortunei. Đây là một loài xâm lấn.</p>",
+    "beforeYouBuy:scotcat": "<p>Cá to nên ít khi có hàng xuất khẩu.</p>",
+    "notes:scotcat": "<p>Từ nguyên: Theo Valenciennes (1840), tên loài là từ Latin cùng gốc với chữ vieille, nghĩa là bà lão. Tên này lấy từ tên dân địa phương gọi nó, vielle à longue queue (\"bà lão đuôi dài\"), để chỉ tia vây đuôi kéo dài thành sợi. Ở Buenos Aires (Argentina), cái tên vieille (tiếng Bồ Đào Nha là velha, tiếng Tây Ban Nha là vieja) còn dùng để gọi một số loài cá da trơn khác thuộc các họ Loricariidae, Doradidae và Callichthyidae, chẳng hạn Loricariichthys anus. Vì sao chúng bị gọi như vậy thì không ai giải thích và cũng không dễ đoán ra.</p><p>Danh sách Đỏ IUCN: Tuy có ít thông tin về loài này, nó phân bố rộng và chưa thấy mối đe dọa nào rõ ràng. Vì vậy loài được xếp ở mức Ít quan tâm (IUCN 2023).</p>",
+    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Ferraris, C.J. Jr., 2003. Loricariidae - Loricariinae (Armored catfishes). p. 330-350. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre EDIPUCRS, Brasil. Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (04/2010). García, M.L. and Protogino, L.C. (2005), Invasive freshwater molluscs are consumed by native fishes in South America. Journal of Applied Ichthyology, 21: 34-38. Salvador, G.N. 2023. Paraloricaria vetula. The IUCN Red List of Threatened Species 2023. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
   },
   "quality": {
-    "score": 0.85,
-    "indexable": false,
+    "score": 0.8,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.85
-    },
-    "reason": "thin"
+      "glaser": 0.85,
+      "scotcat": 0.8
+    }
   }
 }

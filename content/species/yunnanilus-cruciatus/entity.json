@@ -9,7 +9,8 @@
     "asia",
     "vietnam",
     "an-lao",
-    "an-lao-river"
+    "an-lao-river",
+    "perfume"
   ],
   "dataCard": {
     "tempC": [
@@ -19,6 +20,13 @@
           "min": 22,
           "max": 28
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 27
+        }
       }
     ],
     "ph": [
@@ -26,6 +34,13 @@
         "source": "aquariumbreeder",
         "value": {
           "min": 5.5,
+          "max": 7.5
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
           "max": 7.5
         }
       }
@@ -37,11 +52,22 @@
           "min": 1,
           "max": 10
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 12
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "aquariumbreeder",
+        "value": 4
+      },
+      {
+        "source": "seriouslyfish",
         "value": 4
       }
     ],
@@ -49,6 +75,10 @@
       {
         "source": "aquariumbreeder",
         "value": 3
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 4
       }
     ],
     "lifeYears": [
@@ -58,6 +88,12 @@
           "min": 5,
           "max": 5
         }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
       }
     ]
   },
@@ -69,10 +105,22 @@
       "html": "<ul><li>Name: Vietnamese Multi-Banded Zebra Loach</li><li>Other names: Hovering Zebra Loach, Pygmy multi-stripe loach, Banded dwarf loach, Vietnamese Striped loach</li><li>Scientific name: Yunnanilus cruciatus (Micronemacheilus cruciatus, Nemacheilus cruciatus)</li><li>Water type: freshwater</li><li>Tank size (optimal): 10 gallons (~40 litres)</li><li>Breeding: difficult</li><li>Dwellers: middle-bottom</li><li>Nitrate: less than 80</li><li>Diet: omnivore</li><li>Temperament: peaceful</li><li>Life span: up to 5 years</li><li>Colour form: silver or yellowish with dark bands</li></ul><p>Yunnanilus cruciatus is a fairly hardy species and can be recommended even for beginners. These little active fish require warm temperatures and slightly acidic water to thrive.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/micronemacheilus-cruciatus",
+      "html": "<p>Micronemacheilus cruciatus is a small nemacheilid loach that appears to be endemic to the coastal rivers of Vietnam. It is traded under names including 'Vietnamese multi-banded zebra loach' and 'hovering zebra loach', and its colour pattern is a dark lateral stripe with numerous vertical cross-bars. It can be susceptible to swings in water chemistry and should not go into a biologically immature aquarium.</p>"
+    },
+    {
       "key": "distribution",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/yunnanilus-cruciatus-detailed-guide-care-diet-and-breeding/",
       "html": "<p>Yunnanilus cruciatus is endemic to Vietnam. These fish can be found in the coastal rivers of central Vietnam from the An Lao River (Binh Dinh Province) to the Phong Nha River (Quang Binh Province).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/micronemacheilus-cruciatus",
+      "html": "<p>This species was described from 'Thua Luu, 50 kilometers south of Hué, Vietnam' but subsequently recorded from all rivers draining the Vietnamese coast between 14°30' and 18°00'N. It appears to be endemic to Vietnam.</p>"
     },
     {
       "key": "habitat",
@@ -81,10 +129,22 @@
       "html": "<p>This species prefers shallow and slow-moving waters with dense aquatic vegetation and the substrate is muddy and sandy.</p>"
     },
     {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/micronemacheilus-cruciatus",
+      "html": "<p>We've been unable to obtain any precise information, but related species inhabit slow-moving sections or backwaters of minor rivers and streams, or permanent water-bodies such as lakes, ponds, and swamps where they tend to be associated with patches of aquatic vegetation.</p>"
+    },
+    {
       "key": "aquariumSize",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/yunnanilus-cruciatus-detailed-guide-care-diet-and-breeding/",
       "html": "<p>The minimum recommended tank size for the group of 8-10 fish is 10 gallons (40 litres).</p><p>Despite their small size, Yunnanilus cruciatus should not be kept in small tanks due to their active behavior. Additionally, they need horizontal swimming space more than depth.</p><p><strong>Important:</strong> this species is a jumper, so it is imperative to take measures: use a tight-fitting lid, lower the water level, use floating plants, etc.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/micronemacheilus-cruciatus",
+      "html": "<p>Base dimensions of 60 × 30 cm or equivalent (about 54 litres) are required given that it's best maintained in numbers.</p>"
     },
     {
       "key": "maintenance",
@@ -93,10 +153,22 @@
       "html": "<p>Even though this species is pretty hardy and can be easily recommended even for beginners, it is highly recommended not to add them right after completing the aquarium cycling process. Wait for at least a couple of weeks until the balance is established.</p><p><strong>Lighting:</strong> Subdued lighting is the best choice. However, if you keep these fish in planted tanks, lighting should be adapted to the needs of the plants.</p><p><strong>Flow:</strong> They do not like strong currents. Still or very slow water currents are recommended.</p><p><strong>Substrate:</strong> Their natural environment is composed of mud and fine sand. Avoid coarse gravel. Its sharp edges can injure/scratch the body of the fish as they swim in the lower regions of the tank.</p><p><strong>Filtration:</strong> No special requirements. As long as the filter suits the size of the tank, it will be fine.</p><p><strong>Decorations:</strong> Provide plenty of dark hiding spots using plants, rocks, stones, driftwood, coconuts, cork bark pieces, leaves, PVC pipes, and other decorations. Decorations provide hiding places (shelter and protection) and minimize stress.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/micronemacheilus-cruciatus",
+      "html": "<p>Best kept in a densely-planted tank and an excellent choice for the carefully-aquascaped set-up. The addition of some floating plants and driftwood roots or branches, and leaf litter also seems to be appreciated and adds a more natural feel.</p><p>If you wish to raise fry alongside the adults the addition of fine-leaved aquatic moss such as a Taxiphyllum sp. is advisable (see 'Reproduction').</p><p>The water should be well-oxygenated but not turbulent though a degree of flow is acceptable. Do not add this fish to a biologically immature aquarium as it can be susceptible to swings in water chemistry, and be sure to perform regular partial water changes to maintain quality.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/yunnanilus-cruciatus-detailed-guide-care-diet-and-breeding/",
       "html": "<p><strong>Temperature:</strong> Ideally 22 to 28°C (72 to 82°F). They tolerate cooler temperatures (down to 18°C) in winter if acclimated slowly.</p><p><strong>pH:</strong> The ideal range is 5.5–7.5. In their natural environment, they thrive in slightly acidic waters.</p><p><strong>Hardness:</strong> Soft to medium water hardness is preferable. However, anything in the 1–10 GH range is acceptable. They do not like very hard water.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/micronemacheilus-cruciatus",
+      "html": "<ul><li>Temperature: 22–27°C</li><li>pH: 6.0–7.5</li><li>Hardness: 2–12 dGH</li></ul>"
     },
     {
       "key": "diet",
@@ -105,10 +177,28 @@
       "html": "<p>This species is a diurnal omnivore and not a very picky eater. Generally, they will happily consume dry and freeze-dried foods such as flakes, pellets, and crisps as long as they suit their mouth size.</p><p>In the aquarium, they can be fed a wide variety of live food such as:</p><ul><li>brine shrimp (Artemia salina)</li><li>Artemia nauplii</li><li>daphnia</li><li>fruit flies</li><li>moina</li><li>detritus worms</li><li>vinegar eels</li><li>mosquito larvae</li><li>cyclops, etc.</li></ul><p>Since this is a diurnal species, it is better to feed them in the morning. Use the five-minute rule. Ideally, feed small portions (at least 2 times a day) rather than a large amount once a day. This mimics their natural feeding behavior and helps prevent overfeeding and digestive issues.</p><ul><li>Diet type: Omnivore</li><li>Food preference: Meat</li><li>Feeding frequency: Daily</li></ul><p><strong>Are they plant-safe?</strong> Yes, this species can be kept in planted tanks. They do not eat living plant material.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/micronemacheilus-cruciatus",
+      "html": "<p>Probably a micropredator feeding chiefly on small insects, worms, crustaceans, and other zooplankton in nature.</p><p>In the aquarium it must be offered items of a suitable size and quality, particularly live Daphnia, Moina, Artemia nauplii, micro worm, etc. Small or crushed floating dried foods are also accepted and should ideally contain some plant or algal material.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/yunnanilus-cruciatus-detailed-guide-care-diet-and-breeding/",
       "html": "<p><strong>Temper:</strong> Very peaceful fish. Despite the existence of a hierarchy, the dominant individuals are not aggressive towards others. Conflicts are usually resolved without causing any harm. They do not nip.</p><p><strong>Sociality:</strong> Even though this is not a schooling fish, they are very social animals. They enjoy chasing each other and staying in groups. It is recommended to keep them in groups of at least 8-10 individuals to ensure their well-being and encourage natural behavior, which reduces stress.</p><p><strong>Activity:</strong> Very energetic and playful. They are not shy if there are no fish that can bully them. They enjoy nudging each other with their little noses and frolicking. They are also good jumpers, so cover the tank or lower the water level by at least a few inches.</p><p><strong>Placement in tank:</strong> They spend most of the time in the open, often checking the bottom of the tank and hovering in midwater. They enjoy exploring and are particularly fond of areas with dense vegetation or places to hide.</p><ul><li>Social: Yes</li><li>Activity: High</li><li>Placement: Middle and bottom dwellers</li><li>Peaceful: Yes</li><li>Nippers: No</li><li>Jumpers: Yes</li></ul><p><strong>Tankmates:</strong> This is a very friendly fish suitable for smaller tanks, provided they have sufficient swimming space. They cannot compete with other species and might be targeted for bullying.</p><p><strong>Fish:</strong> In community tanks, tank mates should be small fish that are not big enough to eat or harass them, ideally species that prefer warm and slightly acidic water such as:</p><ul><li>neon tetras</li><li>Endler's livebearers</li><li>pygmy corydoras</li><li>guppies</li><li>zebra danio (Danio rerio)</li><li>Tetraodon travancoricus</li><li>Poecilia sp.</li><li>harlequin rasboras</li><li>clown killifish</li><li>least killifish</li><li>Otocinclus, etc.</li></ul><p><strong>Shrimp:</strong> They will not harm adult or juvenile dwarf shrimp. However, newly hatched shrimp are tiny enough (2 mm) to fit in their mouth, so they will snack on them from time to time.</p><p><strong>Snails:</strong> Compatible with any freshwater snail. They do not eat them.</p><p><strong>Avoid:</strong></p><ul><li>Large and/or aggressive, and/or boisterous fish.</li><li>All types of crayfish and most types of freshwater crabs.</li><li>Even small African dwarf frogs can and will try to catch them whenever possible.</li></ul>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/micronemacheilus-cruciatus",
+      "html": "<p>Peaceful and likely to be intimidated or outcompeted for food by larger or more boisterous tankmates, although the presence of similarly-sized schooling fishes seems to help reduce shyness.</p><p>Small cyprinids from genera such as Boraras, Microdevario, Trigonostigma, Tanichthys, and Microrasbora plus smaller danios such as D. erythromicron or D. margaritatus are perhaps the best options, and we suspect many small characids would also be fine. Many peaceful loaches and catfishes should also prove suitable but as always research your choices thoroughly in order to avoid problems.</p><p>M. cruciatus is highly gregarious and should be kept in a group of at least 8-10 specimens, ideally more. Maintaining it in such numbers will not only make the fish less nervous but result in a more effective, natural-looking display.</p><p>Unlike most loaches they also spend a lot of time in the open, often hovering in midwater and exploring all levels of the aquarium. Reports suggest that individuals naturally become more reclusive as they age, however, with older fish tending to conceal themselves more routinely.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/micronemacheilus-cruciatus",
+      "html": "<p>Sexually mature females are usually rounder-bellied and a little larger than males.</p>"
     },
     {
       "key": "reproduction",
@@ -117,19 +207,70 @@
       "html": "<p>The reproductive process of this species is practically unexplored in scientific literature. Breeding them in aquariums has proven to be a challenge for almost everyone. There are only a few cases that describe this, one being documented by a Russian aquarist, Vir. However, even he pointed out that it is entirely unclear what triggered it.</p><p>According to the scarce information:</p><ul><li>Yunnanilus cruciatus is an egg-scattering spawner.</li><li>Parents do not care for their fry.</li><li>The male swam behind the female, nudging her abdomen with his head and exhibiting somewhat agitated behavior.</li><li>Females release 10-20 eggs.</li><li>After 1 week, the fry become very active swimmers.</li><li>After 2 weeks, the fry are about 11–15 mm long.</li><li>Around the age of three weeks, stripes become visible. Their behavior also changes slightly: they start swimming alongside each other, resembling the characteristic behavior of adult fish.</li><li>At 3-4 weeks, at about 15-19 mm, the fry become miniature replicas of adult fish, both in appearance and behavior. The longitudinal stripe, however, may not be strongly pronounced yet.</li></ul>"
     },
     {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/micronemacheilus-cruciatus",
+      "html": "<p>This species is an egg-scattering spawner that displays no parental care. If the fish are in good condition they will spawn often and in a densely-planted, mature aquarium it's possible that small numbers of fry may start to appear without intervention.</p><p>However if you want to increase the yield of fry a slightly more controlled approach is required. The adult group can still be conditioned together but one or more smaller, perhaps 10-15 litre, containers should also be set up and filled with aged water.</p><p>Fill much of the available space with fine wool mops, Taxiphyllum or other fine-leaved plant. Neither lighting nor filtration is necessary although you can install a small air-powered sponge filter if you prefer.</p><p>When the adult fish are well-conditioned a single pair or group comprising several of each gender can then be introduced to each container, though it's worth noting that the more individuals involved the greater the risk of egg predation.</p><p>Spawning is initiated by the male(s) with the female being driven into the mops or plants where eggs are released singly, often on a solid surface such as a plant leaf or directly on the aquarium glass.</p><p>If numbers are limited two or more males may attempt to spawn with a single female simultaneously, and once eggs are spotted the adults are best removed as they will eat any they find.</p><p>Incubation is temperature-dependant to an extent but once the fry are free-swimming initial food should be Paramecium or a proprietary dry food of sufficiently small (5-50 micron) grade, introducing Artemia nauplii and/or microworm once they are large enough to accept them.</p>"
+    },
+    {
       "key": "notes",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/yunnanilus-cruciatus-detailed-guide-care-diet-and-breeding/",
       "html": "<p><strong>Taxonomy:</strong> Loaches of the family Nemacheilidae are taxonomically challenging, with more than 47 genera and 756 species. In some cases, species can be so similar that morphological variation is often inconsistent with molecular evidence. In 1944, Swedish zoologist Carl Hialmar Rendahl (1891-1969) described this species as Nemacheilus cruciatus and established the genus Micronemacheilus for it. In 2001, Freyhof and Serov transferred all members of Micronemacheilus to the newly erected genus Traccatichthys, except Nemacheilus cruciatus, which was moved to Yunnanilus; Micronemacheilus was placed in its synonymy.</p><p><strong>Etymology:</strong> The genus name Yunnanilus is derived from the region of Yunnan in China, where some species of loaches are found. The species name cruciatus likely draws from the Latin word meaning cross-shaped, reflecting the cross markings on the fish.</p><p><strong>Description:</strong> A very small freshwater loach, typically 3.5 to 4 cm long as an adult.</p><ul><li>Body shape: long and compressed laterally.</li><li>Head: well-separated anterior and posterior nostrils. The cheeks are scaleless.</li><li>Papillae: two pairs of large papillae in the median portion of the lower lip.</li><li>Eyes: medium-sized; the eye diameter is greater than the interorbital distance.</li><li>Coloration and pattern: silver or yellowish body with 14–18 distinct black vertical bars from the operculum to the caudal peduncle. Spaces between bars are wider than the bars. The lateral line is incomplete.</li><li>Fins: the pectoral fin has 8–10 branched rays; the caudal fin has 16 branched rays. The anal fin is straight.</li></ul><p><strong>Lifespan:</strong> There is no data on the maximum lifespan in the wild. In aquariums, this species generally lives for 3–5 years if appropriately cared for.</p><p><strong>Conclusion:</strong> Yunnanilus cruciatus is relatively undemanding in care and compatible with many other fish species that thrive in similar conditions. It has an original pattern and small size, and makes a good candidate for a community aquarium. Unfortunately, it is almost impossible to breed in captivity.</p>"
     },
     {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/micronemacheilus-cruciatus",
+      "html": "<p>This species is traded under various names including 'Vietnamese multi-banded zebra loach', 'hovering zebra loach', 'Laos pygmy multi-stripe loach', and 'banded dwarf loach'.</p><p>It can be distinguished from related species by the following combination of characters: body relatively deep and with distinct vertical bars; 8½ branched dorsal-fin rays; 3-10 pored lateral line scales; one pair of large papillae in median portion of upper lip; two pairs of large papillae in median portion of lower lip; lower posterior edge of opercle with 3-4 prominent indentations.</p><p>Rendahl (1944) described Nemacheilus cruciatus and established the genus Micronemacheilus for it. There it remained until 2001 when Frehyof and Serov moved it into Yunnanilus based on the fact it shares most of the diagnostic characters for the genus given by Kottelat (1988).</p><p>The large papillae in the median portion of both lips and indentations along the posterior of the opercle are not characters associated with other Yunnanilus spp. but neither were they considered sufficient to justify retention of Micronemacheilus.</p><p>Kottelat (2012) considers Micronemacheilus to be valid, however, with M. cruciatus the sole representative. No additional information is provided.</p><p>The family Nemacheilidae is widely-distributed across most of Eurasia with the Indian subcontinent, Southeast Asia and China representing particular centres of species diversity.</p><p>It was first proposed as a genetically-distinct grouping in the 1980s but did not become widely-accepted until 2006. According to current knowledge it contains over 30 genera of which the most well-known in the aquarium hobby include Aborichthys, Acanthocobitis, Barbatula, Mesonoemacheilus, Nemacheilus, Physoschistura, Schistura, and Petruichthys.</p>"
+    },
+    {
       "key": "references",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/yunnanilus-cruciatus-detailed-guide-care-diet-and-breeding/",
       "html": "<ul><li>Du, Li-Na, Jian Yang, Rui Min, Xiao-Yong Chen, and Jun-Xing Yang. “A review of the Cypriniform tribe Yunnanilini Prokofiev, 2010 from China, with an emphasis on five genera based on morphologies and complete mitochondrial genomes of some species.” Zoological Research 42, no. 3 (2021): 310.</li><li>Luo, Fuguang, Jie Huang, Tong Luo, Jun Yang, Huanjia Zhou, and Yanhong Wen. “Complete mitochondrial genome and phylogenetic analysis of Yunnanilus pulcherrimus (Cypriniformes, Nemacheilidae).” Mitochondrial DNA Part B 4, no. 1 (2019): 1269-1270.</li><li>Зворыкин, Дмитрий Дмитриевич. “Список рыб, населяющих внутренние водоёмы Вьетнама.” Экология внутренних вод Вьетнама (2014): 256-278.</li><li>Freyhof J, Serov DV. 2001. Nemacheiline loaches from Central Vietnam with descriptions of a new genus and 14 new species (Cypriniformes: Balitoridae). Ichthyological Exploration of Freshwaters, 12(2): 133-191.</li></ul>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/micronemacheilus-cruciatus",
+      "html": "<ul><li>Freyhof, J. and D. V. Serov (2001). Nemacheiline loaches from Central Vietnam with descriptions of a new genus and 14 new species (Cypriniformes: Balitoridae). Ichthyological Exploration of Freshwaters 12(2), 133-191</li><li>Bănărescu, P. M. and T. T. Nalbant (1995). A generical classification of Nemacheilinae with description of two new genera (Teleostei: Cypriniformes: Cobitidae). Travaux du Museum d'Histoire Naturelle 'Grigore Antipa' 35, 429-495</li><li>Kottelat, M. and X.-L. Chu (1988). Revision of Yunnanilus with descriptions of a miniature species flock and six new species from China (Cypriniformes: Homalopteridae). Environmental Biology of Fishes 23(1-2), 65-93</li><li>Kottelat, M. (2012). Conspectus cobitidum: an inventory of the loaches of the world (Teleostei: Cypriniformes: Cobitoidei). Raffles Bulletin of Zoology Supplement 26, 1-199</li><li>Rendahl, H. (1944). Einige Cobitiden von Annam und Tonkin. Göteborgs Kungliga Vetenskaps-och Vitterhets-Samhälles Handlingar (Ser. 6 B) v. 3 (no. 3), 1-54</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li></ul>"
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/6410d3805039c778.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/6410d3805039c778-480.webp",
+      "width": 600,
+      "height": 450,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/micronemacheilus-cruciatus",
+      "caption": "Adult male.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/b0b8660a152302ca.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/b0b8660a152302ca-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/micronemacheilus-cruciatus",
+      "caption": "Adult female specimen.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/4923f13007ca5582.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/4923f13007ca5582-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/micronemacheilus-cruciatus",
+      "caption": "Another female.",
+      "source": "seriouslyfish"
+    },
     {
       "url": "https://media.aquatome.com/aquariumbreeder/ff6b0c907c927499.webp",
       "thumb": "https://media.aquatome.com/aquariumbreeder/ff6b0c907c927499-480.webp",
@@ -146,8 +287,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 40 lít",
-        "bể cá nano có nắp đậy"
+        "bể cá 60cm"
       ]
     },
     {
@@ -172,5 +312,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-09"
 }

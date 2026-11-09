@@ -96,14 +96,16 @@
             "url": "https://media.aquatome.com/video/LrRhfOYfXns/at40-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Một con cá có sọc vàng bơi trong nước tối."
+            "caption": "Một con cá có sọc vàng bơi trong nước tối.",
+            "sharpness": 125.5
           },
           {
             "t": 60,
             "url": "https://media.aquatome.com/video/LrRhfOYfXns/at60-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể cá có lọc sủi và sợi khí, set đơn giản."
+            "caption": "Bể cá có lọc sủi và sợi khí, set đơn giản.",
+            "sharpness": 1139
           }
         ],
         "photo": {

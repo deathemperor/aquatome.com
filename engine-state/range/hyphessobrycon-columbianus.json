@@ -1,0 +1,67 @@
+{
+  "id": "hyphessobrycon-columbianus",
+  "native": {
+    "input": "84894734c829c533",
+    "at": "2026-11-09T05:57:45.266Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Colombian tetra, Hyphessobrycon columbianus, is a characid that appears to be known only from the Río Acandí in Chocó, northern Colombia.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The first specimens arrived in Germany in 1995, caught in a tributary of the Rio Acanti, Colombia.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Acandí",
+        "source": "seriouslyfish",
+        "quote": "Appears to be known only from the Río Acandí in Chocó Department, northern Colombia, close to the border with Panama.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Rio Acanti",
+        "source": "glaser",
+        "quote": "The first specimens arrived in Germany in 1995, caught in a tributary of the Rio Acanti, Colombia.",
+        "country": "CO",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hyphessobrycon columbianus",
+    "status": "ACCEPTED",
+    "taxonKey": 2354590,
+    "datasets": [
+      [
+        "c81d43ba-3cf6-4016-9c74-321e07074f6c",
+        3
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ]
+    ],
+    "native": [
+      "CO"
+    ],
+    "requests": 13,
+    "at": "2026-11-09T05:57:45.266Z"
+  }
+}

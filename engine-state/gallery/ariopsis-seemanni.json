@@ -2,7 +2,20 @@
  "queue": [],
  "judged": [
   "File:FMIB 47937 Galeichthys gilberti.jpeg",
-  "File:The fishes of North and Middle America (Pl. XXIV) (7983305634).jpg"
+  "File:The fishes of North and Middle America (Pl. XXIV) (7983305634).jpg",
+  "gbif:1456053985:d5c5b29ac7f3af3d",
+  "gbif:1456053985:3aee648425d62658",
+  "gbif:1456060958:9cf286a3e96c8431",
+  "gbif:1456060958:2b7e3e5bb390722a",
+  "gbif:1456274782:eb4f4c914af91988",
+  "gbif:1456274782:06e05c0eaed03453",
+  "gbif:1456467117:c8bbbc4676f66262",
+  "gbif:1456467117:458e42e8996bcd4e",
+  "gbif:1456102319:19aa0e41f0b37842",
+  "gbif:1456126874:1924710a5a2edc51",
+  "gbif:1456126874:0e1eac795b5f5cc9",
+  "gbif:1456404044:c0f36926e4bba809",
+  "gbif:1456404044:49ddbfd8b5c6f687"
  ],
  "hashes": {
   "https://media.aquatome.com/scotcat/8db6cc28487c5497.webp": "3336783254b52b76",
@@ -19,5 +32,9 @@
    "research": 0,
    "agree": 410802350
   }
+ },
+ "gbif": {
+  "key": 5202960,
+  "next": null
  }
 }

@@ -64,6 +64,7 @@ import { topicCheck } from './topic-check'
 import { retagSources } from './source-kinds'
 import { COVER_SCHEMA, videoCovers } from './video-covers'
 import { videoImages } from './video-images'
+import { scoreStills } from './still-sharpness'
 import { videoStills } from './video-stills'
 import { searchCommons } from './photos'
 import { REWRITE_KINDS, rewriteExisting } from './vi-backfill'
@@ -676,10 +677,13 @@ if (cmd === 'run' || cmd === 'card-fill') {
   if (r.stopped) console.log(`stopped: ${r.stopped}`)
 } else if (cmd === 'video-stills') {
   // Older video guides' stills (storyboard tiles) become the video's own frames, screened as a new guide's, and their
-  // times the seconds they show (video-stills.ts).
+  // times the seconds they show (video-stills.ts). First, every full-size still gets its sharpness (still-sharpness.ts).
+  const fetchStill = async (u: string) => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) }
+  const sc = await scoreStills(ROOT, fetchStill)
+  console.log(`still sharpness: ${sc.scored} measured in ${sc.guides} guides, ${sc.failed} failed`)
   const r = await videoStills(ROOT, {
     frames: ytFrames, grab: ytGrab, faces: visionFaces, read: files => visionText(files), media: media(), now: () => new Date(),
-    get: async u => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
+    get: fetchStill,
     look: (file, prompt) => claudeVision({ system: 'You spot watermarks on photos. Reply only with JSON.', prompt, schema: WATERMARK_SCHEMA, file, model: process.env.WATERMARK_MODEL ?? 'opus' }),
   }, { limit: Number(values.limit ?? 15), ...(values.only ? { only: values.only.split(',').map(x => x.trim()).filter(Boolean) } : {}) })
   for (const x of [...r.done, ...r.dropped.map(x => `dropped: ${x}`), ...r.kept.map(x => `kept as a tile: ${x}`), ...r.failed.map(x => `failed: ${x}`)]) console.log(x)

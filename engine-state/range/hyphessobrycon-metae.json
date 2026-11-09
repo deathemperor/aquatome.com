@@ -1,0 +1,151 @@
+{
+  "id": "hyphessobrycon-metae",
+  "native": {
+    "input": "2ed6ec974c42ec4e",
+    "at": "2026-11-09T05:57:45.266Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The purple tetra, Hyphessobrycon metae, is a characid endemic to the middle Río Orinoco watershed in Colombia and Venezuela.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The purple tetra, Hyphessobrycon metae, is a characid endemic to the middle Río Orinoco watershed in Colombia and Venezuela.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Orinoco",
+        "source": "seriouslyfish",
+        "quote": "The purple tetra, Hyphessobrycon metae, is a characid endemic to the middle Río Orinoco watershed in Colombia and Venezuela.",
+        "ok": true
+      },
+      {
+        "name": "Río Meta",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Barrigona, Río Meta, Orinoco system, Colombia'.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Río Ventuari",
+        "source": "seriouslyfish",
+        "quote": "Upstream of the Meta's confluence with the Orinoco it has been collected in the ríos Ventuari, Guaviare (including the ríos Ariari and Inírida), Tomo, and Cataniapo, while downstream there exist records from the ríos Cinaruco, Capanaparo, Guárico, and Apure.",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Río Apure",
+        "source": "seriouslyfish",
+        "quote": "Upstream of the Meta's confluence with the Orinoco it has been collected in the ríos Ventuari, Guaviare (including the ríos Ariari and Inírida), Tomo, and Cataniapo, while downstream there exist records from the ríos Cinaruco, Capanaparo, Guárico, and Apure.",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Río Guaviare",
+        "source": "seriouslyfish",
+        "quote": "Upstream of the Meta's confluence with the Orinoco it has been collected in the ríos Ventuari, Guaviare (including the ríos Ariari and Inírida), Tomo, and Cataniapo, while downstream there exist records from the ríos Cinaruco, Capanaparo, Guárico, and Apure.",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Río Cinaruco",
+        "source": "seriouslyfish",
+        "quote": "One example of a natural habitat is the Río Cinaruco, a low nutrient, blackwater tributary of the Orinoco in southwestern Venezuela which comprises a meandering river channel with numerous interconnected lagoons and floodplain lakes.",
+        "country": "VE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hyphessobrycon metae",
+    "status": "ACCEPTED",
+    "taxonKey": 2354684,
+    "datasets": [
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        116
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        20
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        12
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        10
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        9
+      ],
+      [
+        "2bee4a91-9d92-430e-a87e-ab32d3b1ce47",
+        6
+      ],
+      [
+        "83c9289f-0d18-42ae-98b0-2ad3621f0dfa",
+        6
+      ],
+      [
+        "f7739f2a-9d89-40c2-a262-813832add25d",
+        6
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        3
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        3
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        2
+      ],
+      [
+        "7f9acd13-804d-4e26-af83-f92b869c841d",
+        1
+      ],
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "ba1e6e34-8196-422a-ae31-f71717dd1de8",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "CO",
+      "VE"
+    ],
+    "requests": 13,
+    "at": "2026-11-09T05:57:45.266Z"
+  }
+}

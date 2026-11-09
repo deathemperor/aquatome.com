@@ -5,5 +5,17 @@
   "https://media.aquatome.com/scotcat/198fce8f5d6b753f.webp": "139b9b3b7bc29383",
   "https://media.aquatome.com/scotcat/316ec6fe75611b9f.webp": "301a9c0c1f19ad34"
  },
- "commons": "2026-11-08"
+ "commons": "2026-11-08",
+ "inat": {
+  "taxon": 616457,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 5202222,
+  "next": null
+ }
 }

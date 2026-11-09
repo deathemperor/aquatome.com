@@ -9,14 +9,21 @@
     "distribution:planetcatfish": "<p>Nam Mỹ: lưu vực sông Guayas, thuộc nhóm sông ven biển Thái Bình Dương của Ecuador (Guayas, Ecuador).</p>",
     "reproduction:planetcatfish": "<p>Sinh sản: chưa có báo cáo. Đến nay chưa thấy ai báo cáo cho loài này đẻ.</p>",
     "notes:planetcatfish": "<p>Từ nguyên: hemi trong tiếng Hy Lạp nghĩa là một nửa. Chữ ancistrus có lẽ bắt nguồn từ agkistron, tiếng Hy Lạp nghĩa là lưỡi câu. Vậy hemiancistrus có thể hiểu là các loài này mang một phần đặc điểm của giống Ancistrus, chứ không có đủ hết. Phần đó không hẳn đúng một nửa.</p>",
-    "references:planetcatfish": "<p>Annals of the Carnegie Museum v. 10 (nos 1-2) (art. 6), pp 84.</p>"
+    "references:planetcatfish": "<p>Annals of the Carnegie Museum v. 10 (nos 1-2) (art. 6), pp 84.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: lưu vực sông Guayas, Ecuador. Nơi thu mẫu chuẩn: Naranjito, Ecuador.</p><p>Hemiancistrus landoni sống khắp các sông Guayas, Arenillas, Puyango và Zaracay, thuộc sườn Thái Bình Dương của Ecuador. Phạm vi xuất hiện (EOO) ước tính khoảng 19.532–32.211 km2. Hiện chưa ai biết quần thể của loài này lớn cỡ nào, cũng như nó đang tăng hay giảm. Ở miền tây Ecuador có một số mối đe dọa, và người ta suy ra rằng chúng có lẽ đang làm môi trường sống xấu đi liên tục. Nhưng chúng tác động trực tiếp lên H. landoni ra sao thì hầu như chưa rõ. Người ta chưa nắm hết phạm vi của các mối đe dọa này, và miền tây Ecuador cũng chưa được khảo sát cá nhiều. Vì vậy, chưa thể ước tính chính xác loài này có mặt ở bao nhiêu điểm chịu đe dọa. Do vùng phân bố khá rộng và không thấy dấu hiệu quần thể giảm mạnh trên toàn vùng, H. landoni được xếp vào mức Ít quan tâm (Least Concern) (IUCN 2021).</p>",
+    "habitat:scotcat": "<p>Loài này gặp nhiều trong lưu vực sông Guayas.</p>",
+    "aquariumSize:scotcat": "<p>Loài này hợp nuôi trong bể cỡ vừa đến lớn.</p>",
+    "maintenance:scotcat": "<p>Có thể nuôi chung nhiều loài với nhau. Chúng thích bể có dòng chảy.</p>",
+    "diet:scotcat": "<p>Loài này chủ yếu ăn thực vật. Ngoài ra vẫn cho ăn được thức ăn viên, đồ đông lạnh và đồ tươi sống như bọ gậy, artemia và tôm.</p>",
+    "notes:scotcat": "<p>Hemiancistrus landoni khác các loài cá lau kiếng khác ở mấy điểm sau. Xương gian nắp mang có tám gai lớn, cứng, kèm hai mươi đến ba mươi gai nhỏ hơn. Giữa vây lưng và vây mỡ có sáu tấm xương, còn dọc bên thân có mười lăm tấm. Miệng nằm ở mặt dưới, mỗi hàm có một hàng gồm nhiều răng mảnh, cụp xuống và cử động được (Glodek, 1978).</p><p>Nguồn gốc tên loài: tên landoni đặt để vinh danh Hugh McKennan Landon (1867–1947), doanh nhân và nhà từ thiện người Mỹ. Ông đã góp tiền cho chuyến thám hiểm thu được mẫu chuẩn của loài.</p><p>Ghi chú: một số tài liệu gọi chi Hemiancistrus là Ancistomus. Chi này cũng giống chi Peckoltia, nhưng thân dài hơn và vùng bụng trần.</p>",
+    "references:scotcat": "<p>Fisch-Muller, S., 2003. Loricariidae-Ancistrinae (Armored catfishes). p. 373-400. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</p><p>Froese, R. and D. Pauly. Editors. 2021. FishBase. World Wide Web electronic publication. www.fishbase.org, (02/2021).</p><p>Lyons, T.J. 2021. Hemiancistrus landoni. The IUCN Red List of Threatened Species 2021.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p><p>Windsor, Aquirre. Freshwater Fishes of Western Ecuador. 05/2021.</p>"
   },
   "quality": {
     "score": 0.85,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.85
-    },
-    "reason": "thin"
+      "planetcatfish": 0.85,
+      "scotcat": 0.85
+    }
   }
 }

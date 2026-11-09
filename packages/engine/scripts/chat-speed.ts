@@ -28,11 +28,12 @@ import { execFileSync } from 'node:child_process'
 import { createHash } from 'node:crypto'
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { homedir } from 'node:os'
-import { join } from 'node:path'
+import { basename, join } from 'node:path'
 import { parseArgs } from 'node:util'
 import type { PageShard } from '@aq/schema/app-page'
 import { answerQuestion, type ChatOptions, type Start } from '../../../apps/site/worker/chat/agent'
-import { textReader } from '../../../apps/site/worker/chat/answer'
+import { textReader, type ChatBlock } from '../../../apps/site/worker/chat/answer'
+import { chatTools, handedTanks } from '../../../apps/site/worker/chat/tools'
 import { handbookOf, type Handbook, type Index, type Lang, type Source } from '../../../apps/site/worker/chat/handbook'
 import type { Topics } from '../../../apps/site/worker/chat/topics'
 import { clientFor, costOf } from '../../../apps/site/worker/fishid/claude'
@@ -57,6 +58,17 @@ const { values: args } = parseArgs({
     label: { type: 'string', default: 'run' },
     // A run's folder: its report written again from its turns, nothing asked.
     report: { type: 'string' },
+    // A run's folder: each question comes with the pages that run read for it (read_page, as the tool gives them), as a
+    // search in code finding the same sections would: the bound on what handing them over can gain. `--given-as reads`:
+    // as the model's own reads before its first call, with the reader's tanks read too; `pages`: the same, without the
+    // tanks (Claude reads them when it will); `message`: after the question.
+    given: { type: 'string' },
+    'given-as': { type: 'string', default: 'reads' },
+    // `--tank handed`: the tank handed over as it goes with every question (tools.ts `handedTanks`): all but its name,
+    // the notes without a way to reach anyone. Otherwise read_tanks' whole.
+    tank: { type: 'string', default: 'all' },
+    // Claude writes a first line for the wait (agent.ts OPENING_SYSTEM): when it came, and what it said.
+    opening: { type: 'boolean', default: false },
   },
 })
 const MODEL = args.model!
@@ -70,12 +82,12 @@ type Client = Awaited<ReturnType<typeof clientFor>>
 type Asked = { id: string; set: 'hard' | 'everyday'; kind: string; lang: Lang; q: string; start: Start; tanks: ReturnType<typeof savedTank>[] }
 /**
  * One call, in ms: `at` from the turn's start to when it was sent; the rest from when it was sent. `first`: the stream
- * began (message_start); `text`: its first text; `piece`: the first piece of the answer's text a reader would see;
+ * began (message_start); `text`: its first text; `piece`: the first piece of the answer's text a reader would see; `last`: its last;
  * `tool`: its first tool call. `forced`: the last call, with no tools left (tool_choice none). `asked`: its tool calls.
  */
-type Call = { n: number; at: number; ms: number; first?: number; text?: number; piece?: number; tool?: number; input: number; cacheRead: number; cacheWrite: number; output: number; stop?: string | null; forced: boolean; failed?: string; asked?: string[] }
-/** A turn: `ms`, the run (agent and blocks filled); `words`, when the reader's first words came in this mode. */
-type Turn = { id: string; set: Asked['set']; kind: string; lang: Lang; mode: Mode; ms: number; words?: number; calls: Call[]; steps: number[]; stopped?: string; failed?: string; offTopic?: boolean; dropped?: boolean; usd: number; text?: string }
+type Call = { n: number; at: number; ms: number; first?: number; text?: number; piece?: number; last?: number; tool?: number; input: number; cacheRead: number; cacheWrite: number; output: number; stop?: string | null; forced: boolean; failed?: string; asked?: string[] }
+/** A turn: `ms`, the run (agent and blocks filled); `words`, when the reader's first words came in this mode; `cards`, when each block went out as Claude picked it (streamed); the answer as the reader gets it. */
+type Turn = { id: string; set: Asked['set']; kind: string; lang: Lang; mode: Mode; ms: number; words?: number; calls: Call[]; steps: number[]; stopped?: string; failed?: string; offTopic?: boolean; dropped?: boolean; usd: number; text?: string; blocks?: ChatBlock[]; suggestions?: string[]; cards?: number[]; opening?: { at: number; text: string }; side?: Call[] }
 
 const hash = (...parts: string[]) => createHash('sha256').update(parts.join('\n')).digest('hex').slice(0, 12)
 let siteDir = ''
@@ -101,10 +113,11 @@ const source: Source = {
  * and a stream cut once it began is the network's, as there (`callClaude`). As there too, a first call isn't asked again
  * once the reader has words (`shown`), and is asked again without its text read on once some of it was.
  */
-function sender(healthy: KeyEntry[], store: HealthStore, began: number, calls: Call[], shown: () => boolean): Send {
+function sender(healthy: KeyEntry[], store: HealthStore, began: number, calls: Call[], shown: () => boolean, side: Call[] = calls): Send {
   let client: Client | undefined
   const once = async (c: Client, b: Parameters<Send>[0], timeoutMs: number, o: Parameters<Send>[1], feed = o.onText) => {
     const sent = Date.now()
+    const into = o.call === 0 ? side : calls
     const call: Call = { n: o.call, at: sent - began, ms: 0, input: 0, cacheRead: 0, cacheWrite: 0, output: 0, forced: b.tool_choice?.type === 'none' }
     const read = textReader()
     try {
@@ -115,16 +128,18 @@ function sender(healthy: KeyEntry[], store: HealthStore, began: number, calls: C
         else if (e.type === 'content_block_start' && e.content_block.type === 'tool_use') call.tool ??= t
         else if (e.type === 'content_block_delta' && e.delta.type === 'text_delta') {
           call.text ??= t
-          if (read(e.delta.text)) call.piece ??= t
+          if (read(e.delta.text)) { call.piece ??= t; call.last = t }
           feed?.(e.delta.text)
         }
       }
       const m = await stream.finalMessage()
+      // A call that ran out of room: what it wrote, for a look (no answer comes of it).
+      if (m.stop_reason === 'max_tokens') await writeFile(join(args.cache!, `max-tokens-${Date.now()}.json`), JSON.stringify(m.content, null, 1)).catch(() => undefined)
       Object.assign(call, { ms: Date.now() - sent, input: m.usage.input_tokens, cacheRead: m.usage.cache_read_input_tokens ?? 0, cacheWrite: m.usage.cache_creation_input_tokens ?? 0, output: m.usage.output_tokens, stop: m.stop_reason, asked: m.content.flatMap(b => (b.type === 'tool_use' ? [`${b.name} ${JSON.stringify(b.input)}`] : [])) })
-      calls.push(call)
+      into.push(call)
       return m
     } catch (e) {
-      calls.push({ ...call, ms: Date.now() - sent, failed: String((e as Error).message ?? e).slice(0, 80) })
+      into.push({ ...call, ms: Date.now() - sent, failed: String((e as Error).message ?? e).slice(0, 80) })
       // An abort by the bound is the timeout a call that doesn't stream would have hit; a cut stream, the network.
       if ((e as Error)?.name === 'TimeoutError' || /aborted/i.test(String((e as Error)?.message))) throw Object.assign(new Error('Request timed out.'), { status: undefined })
       throw isApiError(e) ? e : Object.assign(e instanceof Error ? e : new Error(String(e)), { status: undefined })
@@ -138,7 +153,8 @@ function sender(healthy: KeyEntry[], store: HealthStore, began: number, calls: C
       const feed = o.onText && !fed ? (d: string) => { fed = true; o.onText!(d) } : undefined
       try {
         const m = await once(c, b, Math.min(left, o.timeoutMs), o, feed)
-        client = c
+        // The first line's call (0) is beside the run's: its key isn't the run's, as on the server.
+        if (o.call !== 0) client = c
         return m
       } catch (e) {
         if (shown()) throw new Error('cut after the first words')
@@ -150,36 +166,69 @@ function sender(healthy: KeyEntry[], store: HealthStore, began: number, calls: C
   }
 }
 
-async function ask(a: Asked, mode: Mode, hb: Handbook, keys: KeyEntry[], store: HealthStore): Promise<Turn> {
+type Message = Parameters<Send>[0]['messages'][number]
+/** The pages handed over (`--given`): the reads to put before the model's first call, or the text after the question. */
+type Given = { reads: Message[] } | { text: string }
+/** The pages handed over, as the tools give them: built before the clock starts. */
+async function givenOf(reads: Record<string, unknown>[], hb: Handbook, a: Asked): Promise<Given | undefined> {
+  const tools = chatTools({ handbook: hb, tanks: async () => a.tanks, checks: [] })
+  const run = async (name: string, input: Record<string, unknown>) => { try { const r = await tools.find(t => t.name === name)!.run(input, { photosLeft: 0 }); return typeof r === 'string' ? r : undefined } catch { return undefined } }
+  const got: { name: string; input: Record<string, unknown>; out: string }[] = []
+  for (const input of reads) { const out = await run('read_page', input); if (out) got.push({ name: 'read_page', input, out }) }
+  if (args['given-as'] === 'message') return got.length ? { text: `The handbook's pages for this question, read for you (as read_page gives them): read more only for what they leave out.\n\n${got.map(g => `read_page ${JSON.stringify(g.input)}:\n${g.out}`).join('\n\n')}` } : undefined
+  const tanks = !a.tanks.length || args['given-as'] !== 'reads' ? undefined : args.tank === 'handed' ? handedTanks(a.tanks, hb) : await run('read_tanks', {})
+  if (tanks) got.unshift({ name: 'read_tanks', input: {}, out: tanks })
+  if (!got.length) return undefined
+  const id = (i: number) => `given_${i + 1}`
+  return { reads: [
+    { role: 'assistant', content: got.map((g, i) => ({ type: 'tool_use' as const, id: id(i), name: g.name, input: g.input })) },
+    { role: 'user', content: got.map((g, i) => ({ type: 'tool_result' as const, tool_use_id: id(i), content: g.out })) },
+  ] }
+}
+/** Every call's messages with the pages handed over after the question, the same each time, so the cached prefix holds. */
+function withGiven(b: Parameters<Send>[0], g: Given): Parameters<Send>[0] {
+  const [first, ...rest] = b.messages
+  if ('reads' in g) return { ...b, messages: [first!, ...g.reads, ...rest] }
+  const content = typeof first!.content === 'string' ? [{ type: 'text' as const, text: first!.content }] : first!.content
+  return { ...b, messages: [{ ...first!, content: [...content, { type: 'text' as const, text: g.text }] } as Message, ...rest] }
+}
+
+async function ask(a: Asked, mode: Mode, hb: Handbook, keys: KeyEntry[], store: HealthStore, given?: Record<string, unknown>[]): Promise<Turn> {
+  const handed = given?.length ? await givenOf(given, hb, a) : undefined
   // The Worker picks its healthy keys before the run, so the clock starts after.
   const healthy = await healthyKeys(keys, store, Date.now())
   const began = Date.now()
   const calls: Call[] = []
+  /** The first line's own call (call 0), apart from the run's. */
+  const side: Call[] = []
   const steps: number[] = []
   let words: number | undefined
+  const cards: number[] = []
+  let opening: { at: number; text: string } | undefined
   const base = { id: a.id, set: a.set, kind: a.kind, lang: a.lang, mode }
   try {
     const run = await answerQuestion({
-      send: sender(healthy, store, began, calls, () => words !== undefined),
+      send: ((s: Send): Send => (handed ? (b, o) => s(o.call === 0 ? b : withGiven(b, handed), o) : s))(sender(healthy, store, began, calls, () => words !== undefined, side)),
       model: MODEL, lang: a.lang, question: a.q, earlier: [], start: a.start, handbook: hb, tanks: async () => a.tanks,
       onStep: () => steps.push(Date.now() - began),
-      ...(mode === 'streamed' ? { onText: () => { words ??= Date.now() - began } } : {}),
+      ...(args.opening ? { opening: true, onOpening: (text: string) => { opening ??= { at: Date.now() - began, text } } } : {}),
+      ...(mode === 'streamed' ? { onText: () => { words ??= Date.now() - began }, onBlock: () => { cards.push(Date.now() - began) } } : {}),
     })
     const ms = Date.now() - began
     const usd = costOf(MODEL, run.spent)
-    if (!run.answer) return { ...base, ms, calls, steps, usd, stopped: run.stopped, failed: run.error ? String((run.error as Error).message ?? run.error).slice(0, 160) : `no answer (stopped: ${run.stopped})` }
+    if (!run.answer) return { ...base, ...(opening ? { opening } : {}), ms, calls, steps, usd, stopped: run.stopped, failed: run.error ? String((run.error as Error).message ?? run.error).slice(0, 160) : `no answer (stopped: ${run.stopped})` }
     // The streamed answer's tool calls, dropped once its text showed (agent.ts `streaming`): the run ended on it.
     const last = calls.at(-1)
     const dropped = mode === 'streamed' && last?.piece !== undefined && last.tool !== undefined
     // Today the first words come with the whole answer; an off-topic answer's line comes whole in both.
-    return { ...base, ms, words: mode === 'today' || words === undefined ? ms : words, calls, steps, usd, stopped: run.stopped, ...(run.answer.offTopic ? { offTopic: true } : {}), ...(dropped ? { dropped } : {}), text: run.answer.text }
+    return { ...base, ms, words: mode === 'today' || words === undefined ? ms : words, calls, steps, usd, stopped: run.stopped, ...(run.answer.offTopic ? { offTopic: true } : {}), ...(dropped ? { dropped } : {}), text: run.answer.text, blocks: run.blocks, suggestions: run.answer.suggestions, ...(cards.length ? { cards } : {}), ...(run.opening ? { opening: opening! } : {}), ...(side.length ? { side } : {}) }
   } catch (e) {
     return { ...base, ms: Date.now() - began, calls, steps, usd: 0, failed: String((e as Error).message ?? e).slice(0, 160) }
   }
 }
 
 /** What a run was: when it started, the chat's code then, the model, how many at a time. */
-type Meta = { started: string; commit: string; model: string; concurrency: string; site: string; modes: Mode[] }
+type Meta = { started: string; commit: string; model: string; concurrency: string; site: string; modes: Mode[]; given?: string; givenAs?: string; tank?: string; opening?: boolean; build?: string }
 const git = (...a: string[]) => { try { return execFileSync('git', a, { cwd: ROOT, encoding: 'utf8' }).trim() } catch { return '' } }
 /** The code this script runs: the agent and its loop, not the Worker's side (api.ts). */
 const BRAIN = ['apps/site/worker/chat/agent.ts', 'apps/site/worker/chat/answer.ts', 'apps/site/worker/chat/tools.ts', 'apps/site/worker/chat/handbook.ts', 'apps/site/worker/chat/topics.ts', 'apps/site/worker/agent']
@@ -219,11 +268,13 @@ async function main() {
   const { keys } = await loadKeys(await readFile(args.keys!, 'utf8').catch(() => ''))
   if (!keys.length) throw new Error(`No key in ${args.keys}`)
   const store = memoryHealth()
+  const readsOf = (t: Turn) => [...new Set(t.calls.flatMap(c => c.asked ?? []).filter(s => s.startsWith('read_page ')))].map(s => JSON.parse(s.slice('read_page '.length)) as Record<string, unknown>)
+  const given = args.given ? new Map((JSON.parse(await readFile(join(args.given, 'turns.json'), 'utf8')) as Turn[]).map(t => [t.id, readsOf(t)])) : undefined
 
   // Each question in every mode, the modes' order turn about, so a slower hour falls on both.
-  const jobs = questions.flatMap((a, i) => (i % 2 ? [...modes].reverse() : modes).map(m => () => ask(a, m, handbooks.get(a.lang)!, keys, store)))
+  const jobs = questions.flatMap((a, i) => (i % 2 ? [...modes].reverse() : modes).map(m => () => ask(a, m, handbooks.get(a.lang)!, keys, store, given?.get(a.id))))
   const started = new Date()
-  const meta: Meta = { started: started.toISOString(), commit: `${git('log', '-1', '--format=%h', '--', ...BRAIN) || 'unknown'}${git('status', '--porcelain', '--', ...BRAIN) ? ', with changes not committed' : ''}`, model: MODEL, concurrency: args.concurrency!, site: args.site!, modes }
+  const meta: Meta = { started: started.toISOString(), commit: `${git('log', '-1', '--format=%h', '--', ...BRAIN) || 'unknown'}${git('status', '--porcelain', '--', ...BRAIN) ? ', with changes not committed' : ''}`, model: MODEL, concurrency: args.concurrency!, site: args.site!, modes, ...(args.given ? { given: args.given, givenAs: args['given-as'], tank: args.tank } : {}), ...(args.opening ? { opening: true } : {}), build: basename(siteDir) }
   console.log(`${questions.length} questions × ${modes.join(', ')}; ${MODEL}; concurrency ${args.concurrency}; ${started.toISOString()}`)
   const turns = await pool(jobs.map(j => async () => {
     const t = await j()
@@ -306,6 +357,13 @@ function report(turns: Turn[], meta: Meta): string {
     const byId = new Map(today.map(x => [x.t.id, x.t]))
     const ratios = streamed.flatMap(t => (byId.has(t.id) ? [t.words! / byId.get(t.id)!.words!] : []))
     if (ratios.length) out.push('', `Streamed against today, question by question: ×${at(ratios, 0.5).toFixed(2)} at the median (×${at(ratios, 0.1).toFixed(2)} to ×${at(ratios, 0.9).toFixed(2)}, the 10th to the 90th percentile).`)
+    const lines = streamed.filter(t => t.opening)
+    if (lines.length) {
+      out.push('', '| First line | Median | 90th percentile |', '| --- | --- | --- |', line(`Shown (${lines.length} of ${streamed.length} turns had one)`, lines.map(t => t.opening!.at)))
+    }
+    // After the text's last piece: the first card as Claude picks it (or with the run's end, when none streamed), and the run's end.
+    const tail = streamed.flatMap(t => { const c = [...t.calls].reverse().find(x => x.last !== undefined); return c ? [{ last: c.at + c.last!, card: t.cards?.[0] ?? t.ms, end: t.ms }] : [] })
+    if (tail.length) out.push('', '| After the text\'s last piece | Median | 90th percentile |', '| --- | --- | --- |', line('To the first card', tail.map(x => x.card - x.last)), line('To the run\'s end (the turn whole)', tail.map(x => x.end - x.last)))
     if (!today.length) { out.push(''); continue }
     const total = sum(today.map(x => sum(Object.values(x.s.steps))))
     out.push(

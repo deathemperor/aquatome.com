@@ -224,6 +224,20 @@
       "kept": false
     }
   ],
+  "vi/plants/echinodorus-x-barthii": [
+    {
+      "at": "2026-11-09T06:11:34Z",
+      "model": "opus",
+      "score": 0.8,
+      "notes": [
+        "\"vì cả bụi xòe rộng 20–30 cm\" adds a reason the INPUT doesn't give: it says the plant suits solitary planting in large tanks and gives the 20-30 cm spread separately, without linking the two.",
+        "\"những cây thấp mọc bên dưới\" adds \"thấp\"; the INPUT only says \"các cây mọc bên dưới\". This is minor.",
+        "\"tỉa bớt lá\" names leaves as what gets trimmed; the INPUT only says \"tỉa bớt\". This is a small wording change."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/plants/eleocharis-acicularis": [
     {
       "at": "2026-11-07T06:37:38Z",
@@ -320,6 +334,33 @@
         "\"nó lên đẹp nhất khi bạn buộc lên\" overstates the guide, which only says the plant \"lên đẹp hơn\" when tied on.",
         "\"Sau vài tuần rễ sẽ tự bám chặt vào lũa, đá, lúc đó bạn có thể gỡ dây ra\" comes right after the sentence on planting in the substrate, so it reads as if substrate-planted roots also grip the wood. The order is confusing.",
         "The planting method comes from the general Java fern guide, not from this cultivar's page. It is still in the INPUT, but the passage never uses the plant's own page note \"Cây dễ bám vào rễ cây và đá\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/plants/najas-guadalupensis": [
+    {
+      "at": "2026-11-09T06:12:03Z",
+      "model": "opus",
+      "score": 0.85,
+      "notes": [
+        "\"Cách hay làm nhất\" reads a little awkward; \"Cách phổ biến nhất\" or \"Người ta thường\" would sound more natural.",
+        "\"vì cây tự bám xuống nền\" turns the source's concession (\"Dù vậy, cây cũng có thể tự bám\") into the reason for the background placement, and the INPUT doesn't make that link. It also drops \"có thể\": the plant can root, it doesn't always."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/plants/pogostemon-stellatus": [
+    {
+      "at": "2026-11-09T06:12:29Z",
+      "model": "opus",
+      "score": 0.85,
+      "notes": [
+        "\"khi đó cần châm thêm phân\" makes the source's hedge firmer. The INPUT only says pale leaves \"có thể là dấu hiệu bể cần châm thêm phân\".",
+        "\"do trồng cạn kiểu đầm lầy\" adds \"trồng cạn\" and a causal \"do\". The INPUT only says the plants are \"trồng trong điều kiện đầm lầy\". This is minor.",
+        "\"thân dài 20–60 cm\" comes from the notes, but the quick facts give the height as \"15 - 30+ cm\". The passage doesn't mention this second figure."
       ],
       "attempt": "first",
       "kept": true

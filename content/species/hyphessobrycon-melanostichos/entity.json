@@ -10,6 +10,82 @@
     "brazil",
     "tapajos"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Tapajos",
+        "Rio Doze de Outubro"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The black stripe tetra, Hyphessobrycon melanostichos, is a characid endemic to the Rio Doze de Outubro in the upper Rio Tapajos basin, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the Rio Doze de Outubro of the upper Rio Tapajos basin of Brazil.",
+          "countries": [],
+          "regions": [
+            "Rio Tapajos",
+            "Rio Doze de Outubro"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354523,
+      "total": 32,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "BR",
+          32
+        ]
+      ],
+      "cells": [
+        [
+          -60.46875,
+          -14.0625,
+          16,
+          16
+        ],
+        [
+          -60.46875,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -14.0625,
+          13,
+          13
+        ],
+        [
+          -59.0625,
+          -12.65625,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -18.28125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

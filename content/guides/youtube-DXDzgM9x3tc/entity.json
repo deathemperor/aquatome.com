@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-11-05",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "DXDzgM9x3tc",
     "title": "HOW TO:  Build a very simple aquarium filter",
@@ -28,17 +28,18 @@
     "gear": [
       {
         "category": "loc",
-        "type": "suc-khi",
-        "t": 5
+        "type": "bot-bien",
+        "t": 34
       },
       {
         "category": "loc",
-        "type": "bot-bien",
-        "t": 225
+        "type": "suc-khi",
+        "t": 34
       },
       {
         "category": "khac",
         "brand": "Aquaclear",
+        "model": "ceramic media",
         "t": 34
       }
     ],
@@ -48,171 +49,165 @@
         "moments": [
           {
             "t": 45,
-            "url": "https://media.aquatome.com/video/DXDzgM9x3tc/t45.webp",
-            "width": 159,
-            "height": 90,
-            "caption": "Chai nước suối, sứ lọc hạt nhỏ và miếng mút lọc bày sẵn."
+            "url": "https://media.aquatome.com/video/DXDzgM9x3tc/at45-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Chai nhựa, sứ lọc, miếng mút, dây oxy và máy sủi khí.",
+            "sharpness": 271.5
           },
           {
-            "t": 69,
-            "url": "https://media.aquatome.com/video/DXDzgM9x3tc/t69.webp",
-            "width": 159,
-            "height": 90,
-            "caption": "Đủ đồ nghề: chai nhựa, sứ lọc, miếng mút, máy sủi và dây hơi."
+            "t": 70,
+            "url": "https://media.aquatome.com/video/DXDzgM9x3tc/at70-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đồ nghề lọc chai bày trên bàn: chai, sứ lọc, mút, máy sủi.",
+            "sharpness": 266.2
           }
         ]
       },
       {
-        "heading": "Khoan lỗ chai thế nào cho đúng",
+        "heading": "Khoan lỗ trên chai thế nào",
         "moments": [
           {
-            "t": 79,
-            "url": "https://media.aquatome.com/video/DXDzgM9x3tc/t79.webp",
-            "width": 159,
-            "height": 90,
-            "caption": "Nắp chai đã khoan nhiều lỗ nhỏ để làm đường nước vào."
+            "t": 65,
+            "url": "https://media.aquatome.com/video/DXDzgM9x3tc/at65-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Chai nhựa, mút lọc, vật liệu lọc và máy sục oxy đã chuẩn bị sẵn.",
+            "sharpness": 157
           },
           {
-            "t": 94,
-            "url": "https://media.aquatome.com/video/DXDzgM9x3tc/t94.webp",
-            "width": 159,
-            "height": 90,
-            "caption": "Chai nhựa có nắp khoan lỗ, thấy rõ các lỗ nhỏ trên thân chai."
+            "t": 80,
+            "url": "https://media.aquatome.com/video/DXDzgM9x3tc/at80-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Nắp chai đã khoan vài lỗ để nước đi vào chai.",
+            "sharpness": 92.1
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/DXDzgM9x3tc/p1-lOlBvb3Rlci5KUEc.webp",
-          "thumb": "https://media.aquatome.com/video/DXDzgM9x3tc/p1-lOlBvb3Rlci5KUEc-480.webp",
+          "url": "https://media.aquatome.com/video/DXDzgM9x3tc/p1-b3NhZ2FpYWsuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/DXDzgM9x3tc/p1-b3NhZ2FpYWsuanBn-480.webp",
           "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 3.0",
-          "author": "Notafly",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pooter.JPG",
-          "caption": "Chai nhựa có dây hơi luồn qua lỗ khoan ở phần cổ chai."
+          "height": 540,
+          "licence": "CC BY 4.0",
+          "author": "Gorkaazk",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Liztor_beltzak_harrapatzeko_tranpak_egiteko_behar_diren_osagaiak.jpg",
+          "caption": "Chai nhựa, mũi khoan và dụng cụ chuẩn bị để khoan lỗ làm lọc."
         }
       },
       {
-        "heading": "Lắp bộ lọc theo từng bước",
+        "heading": "Lắp ráp từng bước",
         "moments": [
           {
-            "t": 193,
-            "url": "https://media.aquatome.com/video/DXDzgM9x3tc/t193.webp",
-            "width": 159,
-            "height": 90,
-            "caption": "Chai nhựa có lỗ khoan ở đáy, bên cạnh là sứ lọc và máy sục khí."
+            "t": 200,
+            "url": "https://media.aquatome.com/video/DXDzgM9x3tc/at200-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Chai nhựa đã khoét lỗ, bên cạnh là sứ lọc và miếng mút.",
+            "sharpness": 192.4
           },
           {
-            "t": 228,
-            "url": "https://media.aquatome.com/video/DXDzgM9x3tc/t228.webp",
-            "width": 159,
-            "height": 90,
-            "caption": "Đổ sứ lọc từ bát vào chai qua miệng chai."
-          }
-        ]
-      },
-      {
-        "heading": "Bộ lọc này hoạt động ra sao",
-        "moments": [
-          {
-            "t": 327,
-            "url": "https://media.aquatome.com/video/DXDzgM9x3tc/t327.webp",
-            "width": 159,
-            "height": 90,
-            "caption": "Chai chứa sứ lọc với nắp có lỗ, bên cạnh là miếng mút và máy sủi."
-          },
-          {
-            "t": 391,
-            "url": "https://media.aquatome.com/video/DXDzgM9x3tc/t391.webp",
-            "width": 159,
-            "height": 90,
-            "caption": "Chai sứ lọc, miếng mút và máy sủi khí đặt cạnh nhau trên bàn."
+            "t": 275,
+            "url": "https://media.aquatome.com/video/DXDzgM9x3tc/at275-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Chai lọc hoàn chỉnh với sứ lọc bên trong, miếng mút và dây oxy.",
+            "sharpness": 105.3
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/DXDzgM9x3tc/p3-JfZm9hbV8xLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/DXDzgM9x3tc/p3-JfZm9hbV8xLmpwZw-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Ofkun",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Sponge_Filter_foam_1.jpg",
-          "caption": "Miếng mút lọc xốp màu đen, giữ lại cặn bẩn trong nước."
-        }
-      },
-      {
-        "heading": "Vì sao phải giữ nắp chai",
-        "moments": [
-          {
-            "t": 302,
-            "url": "https://media.aquatome.com/video/DXDzgM9x3tc/t302.webp",
-            "width": 159,
-            "height": 90,
-            "caption": "Chai lọc đầy sứ lọc, gắn mút ở đầu chai."
-          },
-          {
-            "t": 307,
-            "url": "https://media.aquatome.com/video/DXDzgM9x3tc/t307.webp",
-            "width": 159,
-            "height": 90,
-            "caption": "Nắp chai có lỗ khi đã tháo mút ra, sứ lọc vẫn nằm trong chai."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/DXDzgM9x3tc/p4-JfZm9hbV8xLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/DXDzgM9x3tc/p4-JfZm9hbV8xLmpwZw-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Ofkun",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Sponge_Filter_foam_1.jpg",
-          "caption": "Miếng mút lọc đen xốp, loại tháo ra giặt khi vệ sinh lọc."
-        }
-      },
-      {
-        "heading": "Đặt lọc trong bể thế nào",
-        "moments": [
-          {
-            "t": 505,
-            "url": "https://media.aquatome.com/video/DXDzgM9x3tc/t505.webp",
-            "width": 159,
-            "height": 90,
-            "caption": "Chai lọc sứ đứng trong bể, phần mút chạm xuống đáy."
-          },
-          {
-            "t": 550,
-            "url": "https://media.aquatome.com/video/DXDzgM9x3tc/t550.webp",
-            "width": 159,
-            "height": 90,
-            "caption": "Cận cảnh chai lọc đầy sứ lọc đứng thẳng trong bể."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/DXDzgM9x3tc/p5-JfZm9hbV8yLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/DXDzgM9x3tc/p5-JfZm9hbV8yLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/DXDzgM9x3tc/p2-JfZm9hbV8yLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/DXDzgM9x3tc/p2-JfZm9hbV8yLmpwZw-480.webp",
           "width": 960,
           "height": 720,
           "licence": "CC BY-SA 4.0",
           "author": "Ofkun",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Sponge_Filter_foam_2.jpg",
-          "caption": "Khối mút lọc hình trụ dùng cho bộ lọc bể cá."
+          "caption": "Miếng mút lọc hình trụ màu xám, dùng để rạch và lắp vào chai lọc."
         }
       },
       {
-        "heading": "Dùng vào những lúc nào",
+        "heading": "Vì sao nắp chai phải để lại",
         "moments": [
           {
-            "t": 466,
-            "url": "https://media.aquatome.com/video/DXDzgM9x3tc/t466.webp",
-            "width": 159,
-            "height": 90,
-            "caption": "Chai nhựa đã nhồi đầy sứ lọc, đặt cạnh miếng bọt biển và dây."
+            "t": 305,
+            "url": "https://media.aquatome.com/video/DXDzgM9x3tc/at305-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Chai đầy sứ lọc, mút lắp ở miệng chai phía đối diện nắp.",
+            "sharpness": 57.5
           },
           {
-            "t": 515,
-            "url": "https://media.aquatome.com/video/DXDzgM9x3tc/t515.webp",
-            "width": 159,
-            "height": 90,
-            "caption": "Chai chứa sứ lọc đặt trong bể, chạy bằng máy sủi."
+            "t": 310,
+            "url": "https://media.aquatome.com/video/DXDzgM9x3tc/at310-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Chai đã vặn nắp có lỗ, mút tháo ra mà sứ vẫn nằm trong chai.",
+            "sharpness": 58.7
+          }
+        ]
+      },
+      {
+        "heading": "Lọc chai hoạt động ra sao",
+        "moments": [
+          {
+            "t": 325,
+            "url": "https://media.aquatome.com/video/DXDzgM9x3tc/at325-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Chai chứa sứ lọc với nắp có lỗ, miếng mút và máy sủi bên cạnh.",
+            "sharpness": 67.9
+          },
+          {
+            "t": 340,
+            "url": "https://media.aquatome.com/video/DXDzgM9x3tc/at340-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Miếng mút được gắn vào đầu chai có nắp đục lỗ, che các lỗ hút nước.",
+            "sharpness": 99.8
+          }
+        ]
+      },
+      {
+        "heading": "Đặt lọc vào bể",
+        "moments": [
+          {
+            "t": 510,
+            "url": "https://media.aquatome.com/video/DXDzgM9x3tc/at510-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Chai lọc sứ đứng trong bể, miếng mút chạm hẳn xuống đáy.",
+            "sharpness": 130.2
+          },
+          {
+            "t": 560,
+            "url": "https://media.aquatome.com/video/DXDzgM9x3tc/at560-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bật máy sủi, bọt khí sủi đều trong chai lọc.",
+            "sharpness": 105.7
+          }
+        ]
+      },
+      {
+        "heading": "Dùng lọc chai vào những lúc nào",
+        "moments": [
+          {
+            "t": 455,
+            "url": "https://media.aquatome.com/video/DXDzgM9x3tc/at455-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Chai lọc đổ đầy sứ lọc, đặt cạnh miếng mút và dây khí.",
+            "sharpness": 90.6
+          },
+          {
+            "t": 580,
+            "url": "https://media.aquatome.com/video/DXDzgM9x3tc/at580-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Lọc chai chạy trong bể, sứ lọc ở trên và mút vàng ở đáy.",
+            "sharpness": 112.8
           }
         ],
         "photo": {
@@ -223,21 +218,7 @@
           "licence": "CC BY-SA 4.0",
           "author": "Ofkun",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Air_pump_and_stone.jpg",
-          "caption": "Máy sủi khí nhỏ kèm dây hơi và đá sủi, dùng khi mất điện."
-        }
-      },
-      {
-        "heading": "Bắt đầu từ đâu",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/DXDzgM9x3tc/p7-uZF9zdG9uZS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/DXDzgM9x3tc/p7-uZF9zdG9uZS5qcGc-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Ofkun",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Air_pump_and_stone.jpg",
-          "caption": "Máy sủi khí nhỏ kèm ống dẫn và đá sủi để dự phòng."
+          "caption": "Máy sủi khí nhỏ kèm dây hơi và đá sủi, dùng chạy lọc chai."
         }
       }
     ]

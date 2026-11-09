@@ -12,6 +12,113 @@
     "venezuela",
     "orinoco"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "VE"
+      ],
+      "regions": [
+        "Rio Negro",
+        "Orinoco",
+        "Amazon"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Traded as the 'red line lizard tetra', Iguanodectes adujai is a characin from the rio Negro in Brazil and the upper Río Orinoco in Venezuela.",
+          "countries": [
+            "BR",
+            "VE"
+          ],
+          "regions": [
+            "Rio Negro",
+            "Orinoco"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "This species is known from the rio Negro within the Brazilan Amazon basin and upper Río Orinoco system in Venezuela.",
+          "countries": [],
+          "regions": [
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354235,
+      "total": 16,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "CO",
+          6
+        ],
+        [
+          "VE",
+          6
+        ],
+        [
+          "BR",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -71.71875,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          1.40625,
+          2,
+          0
+        ],
+        [
+          -68.90625,
+          2.8125,
+          4,
+          3
+        ],
+        [
+          -67.5,
+          1.40625,
+          4,
+          2
+        ],
+        [
+          -67.5,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          -45,
+          -19.6875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

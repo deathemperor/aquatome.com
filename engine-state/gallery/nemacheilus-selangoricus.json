@@ -1,16 +1,11 @@
 {
- "queue": [
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/251556576/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/251556576/medium.jpg",
-   "width": 2048,
-   "height": 1127,
-   "licence": "CC BY",
-   "author": "Zakqary Roy",
-   "sourceUrl": "https://www.inaturalist.org/photos/251556576",
-   "key": "inat:251556576"
-  }
+ "queue": [],
+ "judged": [
+  "inat:251556576"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/seriouslyfish/bee8df0cfceeeaa6.webp": "bbf6c3ffe0c1818d",
+  "https://media.aquatome.com/inaturalist/251556576.webp": "abaffaaf44df0760"
+ },
+ "commons": "2026-11-09"
 }

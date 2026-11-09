@@ -6,9 +6,13 @@
   "html": "",
   "photos": [],
   "mentions": [
-    "bucephalandra-sp"
+    "bucephalandra-sp",
+    "marsilea-hirsuta",
+    "gratiola-viscidula",
+    "riccardia-chamedryfolia",
+    "myriophyllum-sp-guyana"
   ],
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "5ajPkl9rhKQ",
     "title": "MAKE AN AQUASCAPE - 5 GALLON SHRIMP TANK - HOW TO",
@@ -81,11 +85,11 @@
         "t": 31
       },
       {
-        "category": "loc",
-        "type": "thung",
+        "category": "phan-nen",
+        "type": "phan",
         "brand": "Dennerle",
-        "model": "Scapers Flow",
-        "t": 120
+        "model": "Scapers Soil",
+        "t": 62
       },
       {
         "category": "phan-nen",
@@ -95,11 +99,16 @@
         "t": 93
       },
       {
-        "category": "phan-nen",
-        "type": "phan",
+        "category": "loc",
+        "type": "treo",
         "brand": "Dennerle",
-        "model": "Scapers Soil",
-        "t": 62
+        "model": "Scapers Flow",
+        "t": 156
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 217
       },
       {
         "category": "khac",
@@ -110,16 +119,91 @@
       {
         "category": "co2",
         "type": "mini",
-        "t": 1480
+        "t": 1468
       }
     ],
     "figures": [
       {
-        "heading": "Trồng thảm phía trước",
+        "heading": "Thiết bị dùng cho bể",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/5ajPkl9rhKQ/p2-X1NoYXJqYWguanBn.webp",
-          "thumb": "https://media.aquatome.com/video/5ajPkl9rhKQ/p2-X1NoYXJqYWguanBn-480.webp",
+          "url": "https://media.aquatome.com/video/5ajPkl9rhKQ/p0-BcXVhcml1bS5KUEc.webp",
+          "thumb": "https://media.aquatome.com/video/5ajPkl9rhKQ/p0-BcXVhcml1bS5KUEc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC0",
+          "author": "Tdwittt",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Planted_Nano_Aquarium.JPG",
+          "caption": "Bể nano nền đất đen, lũa và cây lá xanh vừa trồng."
+        }
+      },
+      {
+        "heading": "Dán đá và lũa thành một khối thế nào",
+        "moments": [
+          {
+            "t": 280,
+            "url": "https://media.aquatome.com/video/5ajPkl9rhKQ/at280-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bố cục đá và lũa đen dán liền thành một khối trong bể.",
+            "sharpness": 612.8
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/5ajPkl9rhKQ/p1-LF9OZXZhZGEuSlBH.webp",
+          "thumb": "https://media.aquatome.com/video/5ajPkl9rhKQ/p1-LF9OZXZhZGEuSlBH-480.webp",
+          "width": 960,
+          "height": 1280,
+          "licence": "CC BY-SA 4.0",
+          "author": "Famartin",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:2014-07-18_17_09_19_Closeup_of_basalt_in_the_Black_Rock_Lava_Flow,_Nevada.JPG",
+          "caption": "Cận cảnh bề mặt đá nham thạch đen sần sùi, nhiều lỗ rỗng."
+        }
+      },
+      {
+        "heading": "Lót nền ra sao",
+        "moments": [
+          {
+            "t": 460,
+            "url": "https://media.aquatome.com/video/5ajPkl9rhKQ/at460-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh lớp nền đen được tạo dốc trong bể, bên cạnh lũa.",
+            "sharpness": 442.1
+          },
+          {
+            "t": 540,
+            "url": "https://media.aquatome.com/video/5ajPkl9rhKQ/at540-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể đã dựng lũa, đang đổ nền xuống, bên cạnh có bao soil.",
+            "sharpness": 1683.5
+          }
+        ]
+      },
+      {
+        "heading": "Trải thảm phía trước",
+        "moments": [
+          {
+            "t": 730,
+            "url": "https://media.aquatome.com/video/5ajPkl9rhKQ/at730-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Dùng nhíp trồng từng cụm cây thảm nhỏ xuống nền.",
+            "sharpness": 2614.2
+          },
+          {
+            "t": 750,
+            "url": "https://media.aquatome.com/video/5ajPkl9rhKQ/at750-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cây thảm đã được trồng rải rác phía trước nền bể.",
+            "sharpness": 2623.8
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/5ajPkl9rhKQ/p3-X1NoYXJqYWguanBn.webp",
+          "thumb": "https://media.aquatome.com/video/5ajPkl9rhKQ/p3-X1NoYXJqYWguanBn-480.webp",
           "width": 960,
           "height": 720,
           "licence": "CC BY-SA 4.0",
@@ -129,46 +213,79 @@
         }
       },
       {
-        "heading": "Cây điểm: crypt nhỏ, Bucephalandra và rêu gan",
-        "moments": [],
+        "heading": "Trồng cây điểm xuyết và cây bám đá lũa",
+        "moments": [
+          {
+            "t": 940,
+            "url": "https://media.aquatome.com/video/5ajPkl9rhKQ/at940-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Dùng nhíp đặt cây vào khe giữa lũa và đá nham thạch.",
+            "sharpness": 1708.5
+          },
+          {
+            "t": 970,
+            "url": "https://media.aquatome.com/video/5ajPkl9rhKQ/at970-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hai cụm rêu xanh trên tay, chuẩn bị gắn vào lũa.",
+            "sharpness": 1517.1
+          }
+        ],
         "photo": {
-          "url": "https://media.aquatome.com/video/5ajPkl9rhKQ/p3-X2V4X3NpdHUuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/5ajPkl9rhKQ/p3-X2V4X3NpdHUuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/5ajPkl9rhKQ/p4-X2V4X3NpdHUuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/5ajPkl9rhKQ/p4-X2V4X3NpdHUuanBn-480.webp",
           "width": 960,
           "height": 587,
           "licence": "CC BY-SA 4.0",
           "author": "Manuel Werner / CC-BY-SA-3.0 Werner, Deutschland",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bucephalandra_Shine_Blue_and_Bucephalandra_pygmaea_ex_situ.jpg",
-          "caption": "Các cây điểm nhỏ mọc quanh chân đá lũa trong hồ thủy sinh."
+          "caption": "Bể thủy sinh với cây Bucephalandra và Cryptocoryne cài giữa lũa và đá nham thạch."
         }
       },
       {
-        "heading": "Cây hậu cảnh và mẹo tiết kiệm cây",
-        "moments": [],
+        "heading": "Cây hậu cảnh: cách trồng từng loại",
+        "moments": [
+          {
+            "t": 1050,
+            "url": "https://media.aquatome.com/video/5ajPkl9rhKQ/at1050-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Khay cây hậu cảnh còn nguyên chùm, sẵn sàng đem đi trồng.",
+            "sharpness": 1960.3
+          },
+          {
+            "t": 1170,
+            "url": "https://media.aquatome.com/video/5ajPkl9rhKQ/at1170-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tay cầm một nhúm cây hậu cảnh trước hồ để chuẩn bị trồng.",
+            "sharpness": 362
+          }
+        ],
         "photo": {
-          "url": "https://media.aquatome.com/video/5ajPkl9rhKQ/p4-NTk0Mjg4OSkuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/5ajPkl9rhKQ/p4-NTk0Mjg4OSkuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/5ajPkl9rhKQ/p5-NTk0Mjg4OSkuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/5ajPkl9rhKQ/p5-NTk0Mjg4OSkuanBn-480.webp",
           "width": 960,
           "height": 720,
           "licence": "CC BY 2.0",
           "author": "Harry Rose from South West Rocks, Australia",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Myriophyllum_aquaticum_habit6_(15105942889).jpg",
-          "caption": "Myriophyllum mọc cạn (emersed) xanh tốt thành thảm dày, giống cây mua về."
+          "caption": "Myriophyllum mọc cạn (emersed) thành thảm xanh dày, thân đứng đều nhau."
         }
       },
       {
-        "heading": "Bắt đầu từ đâu",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/5ajPkl9rhKQ/p6-BcXVhcml1bS5KUEc.webp",
-          "thumb": "https://media.aquatome.com/video/5ajPkl9rhKQ/p6-BcXVhcml1bS5KUEc-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC0",
-          "author": "Tdwittt",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Planted_Nano_Aquarium.JPG",
-          "caption": "Bể nhỏ với khúc lũa đặt trên nền soil đen, bên cạnh vài cây Anubias."
-        }
+        "heading": "Lọc, đèn và CO2",
+        "moments": [
+          {
+            "t": 1400,
+            "url": "https://media.aquatome.com/video/5ajPkl9rhKQ/at1400-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Phụ kiện và thiết bị mới mở hộp, đặt trên bàn.",
+            "sharpness": 1045.9
+          }
+        ]
       }
     ]
   }

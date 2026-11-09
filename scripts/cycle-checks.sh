@@ -33,8 +33,11 @@ cool() {
   done
   log "still hot after the wait: going ahead"
 }
-# One step, under the lock on the Mac (GitHub: a runner of its own).
-checks() { if [ -n "${GITHUB_ACTIONS:-}" ]; then bash -c "$1"; else lockf -k "$HOME/.cache/aquatome/checks.lock" bash -c "$1"; fi; }
+# One step, under the lock on the Mac (GitHub: a runner of its own). Through checks.sh, which steps back while the chief of
+# staff keeps the next turn for another run: a content update can wait, the owner's builds can't (2026-11-09).
+CHECKS_SH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/checks.sh"
+turn() { "$CHECKS_SH" "$@"; }
+checks() { if [ -n "${GITHUB_ACTIONS:-}" ]; then bash -c "$1"; else turn bash -c "$1"; fi; }
 # The checks, a step an argument, their output in $TEST_LOG. Tests that ran out of time ran on a Mac too busy for them,
 # not on a broken build: the sf cycle of 2026-11-04 lost five hours of pages to 32 timeouts at a 5-minute load of 700 on
 # 16 cores (the next cycle starts by dropping a failed one's work). So once the load has fallen (calm), the step that

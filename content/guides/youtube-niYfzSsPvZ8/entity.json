@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "niYfzSsPvZ8",
     "title": "EP:3 Complete Aquascaping Beginners Guide - Substrate & Hardscape",
@@ -36,32 +36,55 @@
       {
         "category": "phan-nen",
         "type": "soi",
-        "t": 32
+        "t": 48
       },
       {
-        "category": "khac",
+        "category": "phan-nen",
+        "type": "phan",
+        "brand": "ADA",
+        "model": "Aqua Soil Amazonia",
+        "t": 270
+      },
+      {
+        "category": "be-ca",
+        "type": "chuan",
         "brand": "Dennerle",
         "model": "Scaper's Tank 55L",
-        "t": 0
+        "t": 171
       }
     ],
     "figures": [
       {
-        "heading": "Nên dùng nền gì cho bể cây",
+        "heading": "Vì sao chọn phân nền cho bể cây",
+        "moments": [
+          {
+            "t": 0,
+            "url": "https://media.aquatome.com/video/niYfzSsPvZ8/at0-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể kính có lớp phân nền đổ sẵn, sẵn sàng xếp bố cục.",
+            "sharpness": 560.2
+          },
+          {
+            "t": 235,
+            "url": "https://media.aquatome.com/video/niYfzSsPvZ8/at235-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh lớp phân nền aquasoil đã được đổ phẳng trong bể.",
+            "sharpness": 1088.3
+          }
+        ]
+      },
+      {
+        "heading": "Mẹo tiết kiệm phân nền bằng đá nham thạch",
         "moments": [
           {
             "t": 40,
-            "url": "https://media.aquatome.com/video/niYfzSsPvZ8/t40.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Các bao phân nền aquasoil ADA xếp trên kệ cửa hàng."
-          },
-          {
-            "t": 224,
-            "url": "https://media.aquatome.com/video/niYfzSsPvZ8/t224.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Phân nền dạng hạt được san thành lớp dày trong bể cây."
+            "url": "https://media.aquatome.com/video/niYfzSsPvZ8/at40-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Các bao phân nền xếp trên kệ cửa hàng thủy sinh.",
+            "sharpness": 164.4
           }
         ]
       },
@@ -69,18 +92,116 @@
         "heading": "Cần mua bao nhiêu phân nền",
         "moments": [
           {
-            "t": 234,
-            "url": "https://media.aquatome.com/video/niYfzSsPvZ8/t234.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Lớp phân nền đổ dốc nhẹ, phía trước mỏng, phía sau dày hơn."
+            "t": 220,
+            "url": "https://media.aquatome.com/video/niYfzSsPvZ8/at220-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đổ phân nền từ bao vào bể, lớp dày dần về phía sau.",
+            "sharpness": 493.8
           },
           {
-            "t": 248,
-            "url": "https://media.aquatome.com/video/niYfzSsPvZ8/t248.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể trống với lớp phân nền trải đều ở đáy."
+            "t": 225,
+            "url": "https://media.aquatome.com/video/niYfzSsPvZ8/at225-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Phân nền được rải thành con dốc nhỏ và dùng cọ vuốt cho gọn.",
+            "sharpness": 1776.6
+          }
+        ]
+      },
+      {
+        "heading": "Chọn đá và lũa thế nào",
+        "moments": [
+          {
+            "t": 370,
+            "url": "https://media.aquatome.com/video/niYfzSsPvZ8/at370-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Các khúc lũa và đá nham thạch đen bày trên sàn.",
+            "sharpness": 90.6
+          }
+        ]
+      },
+      {
+        "heading": "Xếp bố cục đá và lũa",
+        "moments": [
+          {
+            "t": 490,
+            "url": "https://media.aquatome.com/video/niYfzSsPvZ8/at490-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đặt lũa vắt ngang giữa hai cục đá đã xếp sẵn.",
+            "sharpness": 879
+          },
+          {
+            "t": 585,
+            "url": "https://media.aquatome.com/video/niYfzSsPvZ8/at585-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Khúc lũa vắt thành vòm giữa hai cụm đá nham thạch.",
+            "sharpness": 380.5
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/niYfzSsPvZ8/p4-LWxlbm5hcnQuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/niYfzSsPvZ8/p4-LWxlbm5hcnQuanBn-480.webp",
+          "width": 960,
+          "height": 337,
+          "licence": "CC BY-SA 4.0",
+          "author": "Lennart Jöhnk",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquascaping-minilandschaft-lennart.jpg",
+          "caption": "Bể thủy sinh xếp đá nham thạch tạo thế núi, phủ cây xanh mượt."
+        }
+      },
+      {
+        "heading": "Dán cố định đá và lũa",
+        "moments": [
+          {
+            "t": 655,
+            "url": "https://media.aquatome.com/video/niYfzSsPvZ8/at655-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Dùng nhíp nhét miếng bông nhỏ vào khe giữa đá và lũa.",
+            "sharpness": 4144
+          },
+          {
+            "t": 685,
+            "url": "https://media.aquatome.com/video/niYfzSsPvZ8/at685-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Nhỏ keo 502 vào khe giữa đá và lũa để dán lại.",
+            "sharpness": 717.1
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/niYfzSsPvZ8/p5-kzMDMyOTYpLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/niYfzSsPvZ8/p5-kzMDMyOTYpLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY 2.0",
+          "author": "Ben Sale from Stevenage, UK",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Super_super_Glue_(3329303296).jpg",
+          "caption": "Chai keo 502 dạng lỏng đặt trên khúc gỗ, dùng để dán đá và lũa."
+        }
+      },
+      {
+        "heading": "Trồng cây ngay hay làm dark start",
+        "moments": [
+          {
+            "t": 750,
+            "url": "https://media.aquatome.com/video/niYfzSsPvZ8/at750-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể mới đổ nước, nền và đá lũa đã xếp xong.",
+            "sharpness": 1196.7
+          },
+          {
+            "t": 755,
+            "url": "https://media.aquatome.com/video/niYfzSsPvZ8/at755-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể đã đổ đầy nước với lũa và đá, đang làm dark start.",
+            "sharpness": 1391
           }
         ]
       }

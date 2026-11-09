@@ -1,17 +1,13 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Pangio_oblonga_acquarium.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Pangio_oblonga_acquarium.jpg/500px-Pangio_oblonga_acquarium.jpg",
-   "width": 2756,
-   "height": 1991,
-   "licence": "CC BY-SA 4.0",
-   "author": "Marrabbio2",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pangio_oblonga_acquarium.jpg",
-   "caption": "Esemplare di P. oblonga in acquario",
-   "key": "File:Pangio oblonga acquarium.jpg"
-  }
+ "queue": [],
+ "judged": [
+  "File:Pangio oblonga acquarium.jpg"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/seriouslyfish/6390365660374d98.webp": "0f878b83874c7f0f",
+  "https://media.aquatome.com/seriouslyfish/34e88bfa8213b4cd.webp": "c6c78f1b0707240f",
+  "https://media.aquatome.com/seriouslyfish/0b03e6713b27fdb6.webp": "35a3820e9421071f",
+  "https://upload.wikimedia.org/wikipedia/commons/a/ab/Pangio_oblonga_acquarium.jpg": "97478ecf073bfbf8"
+ },
+ "commons": "2026-11-09"
 }

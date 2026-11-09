@@ -1,0 +1,152 @@
+{
+  "id": "hypselecara-coryphaenoides",
+  "native": {
+    "input": "ea9593a2ddedae04",
+    "at": "2026-11-09T05:57:45.266Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Has been collected from various rivers of the Amazon basin in Venezuela and Brazil, including the Negro, Trombetas, Tapajós, Maués and Uatumã.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Has been collected from various rivers of the Amazon basin in Venezuela and Brazil, including the Negro, Trombetas, Tapajós, Maués and Uatumã.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Has been collected from various rivers of the Amazon basin in Venezuela and Brazil, including the Negro, Trombetas, Tapajós, Maués and Uatumã.",
+        "ok": true
+      },
+      {
+        "name": "Negro",
+        "source": "seriouslyfish",
+        "quote": "Has been collected from various rivers of the Amazon basin in Venezuela and Brazil, including the Negro, Trombetas, Tapajós, Maués and Uatumã.",
+        "ok": true
+      },
+      {
+        "name": "Trombetas",
+        "source": "seriouslyfish",
+        "quote": "Has been collected from various rivers of the Amazon basin in Venezuela and Brazil, including the Negro, Trombetas, Tapajós, Maués and Uatumã.",
+        "ok": true
+      },
+      {
+        "name": "Tapajós",
+        "source": "seriouslyfish",
+        "quote": "Has been collected from various rivers of the Amazon basin in Venezuela and Brazil, including the Negro, Trombetas, Tapajós, Maués and Uatumã.",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "In Venezuela it is also known from the Aguaro and from tributaries of the upper Orinoco.",
+        "country": "VE",
+        "ok": true
+      },
+      {
+        "name": "Aguaro",
+        "source": "seriouslyfish",
+        "quote": "In Venezuela it is also known from the Aguaro and from tributaries of the upper Orinoco.",
+        "country": "VE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hypselecara coryphaenoides",
+    "status": "ACCEPTED",
+    "taxonKey": 2369944,
+    "datasets": [
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        82
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        25
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        9
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        8
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        8
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        4
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        4
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        4
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        3
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        3
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "968dfa3e-3614-4bab-a3b5-e9209bdd6078",
+        2
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ],
+      [
+        "2bee4a91-9d92-430e-a87e-ab32d3b1ce47",
+        1
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "VE"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T05:57:45.266Z"
+  }
+}

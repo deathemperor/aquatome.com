@@ -19,6 +19,16 @@
       "kept": true
     }
   ],
+  "vi/products/chihiros-commander-4": [
+    {
+      "at": "2026-11-09T01:47:30Z",
+      "model": "code",
+      "score": 1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/products/chihiros-universal-wrgb": [
     {
       "at": "2026-11-08T13:54:14Z",
@@ -68,6 +78,26 @@
       "notes": [],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "vi/products/tuya-smart-life-power-strip": [
+    {
+      "at": "2026-11-09T06:27:32Z",
+      "model": "code",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-09T06:27:32Z",
+      "model": "code",
+      "score": 0,
+      "notes": [
+        "\"Ổ chỉ chạy wifi 2.4 GHz. Sóng yếu thì khó cài, dùng cũng chập chờn.\" names GHz: its reviews' titles and descriptions and our catalog have no such name, so the captions may have misheard it. Say it without the name (\"một đèn khác\")"
+      ],
+      "attempt": "first",
+      "kept": false
     }
   ]
 }

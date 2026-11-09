@@ -1,16 +1,16 @@
 # Photo galleries
 
-Written by `pnpm engine gallery` (2026-11-08). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
+Written by `pnpm engine gallery` (2026-11-09). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
 
 | Tier | Target | Species | Plants | Breeds | At target | Below |
 | --- | --- | --- | --- | --- | --- | --- |
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 131 | 79 | 24 | 30 | 204 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 438 | 18 | 9 | 13 | 452 |
-| rest | 20 | 1331 | 82 | 0 | 17 | 1396 |
+| covered | 30 | 447 | 20 | 9 | 13 | 463 |
+| rest | 20 | 1447 | 81 | 0 | 23 | 1505 |
 
-## Short of target: every source read (164)
+## Short of target: every source read (193)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -90,8 +90,8 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/peckoltia-compta | shop | 0 | 60 |
 | plants/monosolenium-tenerum | shop | 3 | 60 |
 | plants/echinodorus-grisebachii | shop | 5 | 60 |
-| plants/hygrophila-difformis | shop | 14 | 60 |
 | species/caridina-multidentata | shop | 38 | 60 |
+| plants/hygrophila-difformis | shop | 14 | 60 |
 | species/leporacanthicus-joselimai | shop | 1 | 60 |
 | plants/hygrophila-corymbosa | shop | 7 | 60 |
 | species/melanotaenia-lacustris | shop | 1 | 60 |
@@ -107,7 +107,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/hyphessobrycon-pulchripinnis | shop | 5 | 60 |
 | species/kryptopterus-vitreolus | shop | 13 | 60 |
 | species/thayeria-boehlkei | shop | 5 | 60 |
-| species/labidochromis-caeruleus | shop | 16 | 60 |
+| species/labidochromis-caeruleus | shop | 15 | 60 |
 | plants/ammannia-gracilis | shop | 2 | 60 |
 | species/notropis-chrosomus | shop | 15 | 60 |
 | plants/pogostemon-stellatus | shop | 11 | 60 |
@@ -143,28 +143,28 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/channa-asiatica | shop | 5 | 60 |
 | species/channa-aurantimaculata | shop | 0 | 60 |
 | species/danio-margaritatus | shop | 10 | 60 |
-| species/atractosteus-spatula | shop | 42 | 60 |
+| species/atractosteus-spatula | shop | 41 | 60 |
 | species/hyphessobrycon-megalopterus | shop | 4 | 60 |
 | plants/vesicularia-montagnei | shop | 1 | 60 |
 | species/hyphessobrycon-sweglesi | shop | 4 | 60 |
-| plants/micranthemum-callitrichoides | shop | 6 | 60 |
+| plants/micranthemum-callitrichoides | shop | 5 | 60 |
 | species/trigonostigma-hengeli | shop | 2 | 60 |
 | species/boraras-brigittae | shop | 4 | 60 |
-| plants/eleocharis-parvula | shop | 20 | 60 |
+| plants/eleocharis-parvula | shop | 18 | 60 |
 | species/gymnarchus-niloticus | shop | 7 | 60 |
 | species/agamyxis-pectinifrons | shop | 0 | 60 |
 | species/chitala-ornata | shop | 10 | 60 |
 | species/apteronotus-albifrons | shop | 4 | 60 |
 | species/apteronotus-leptorhynchus | shop | 2 | 60 |
 | species/myxocyprinus-asiaticus | shop | 7 | 60 |
-| species/gnathonemus-petersii | shop | 11 | 60 |
+| species/gnathonemus-petersii | shop | 10 | 60 |
 | species/cyphotilapia-frontosa | shop | 28 | 60 |
 | plants/cryptocoryne-nurii | shop | 0 | 60 |
-| species/garra-rufa | shop | 13 | 60 |
+| species/garra-rufa | shop | 10 | 60 |
 | plants/cryptocoryne-undulata | shop | 2 | 60 |
 | species/ctenolucius-hujeta | shop | 7 | 60 |
 | plants/cryptocoryne-usteriana | shop | 1 | 60 |
-| species/astyanax-mexicanus | shop | 20 | 60 |
+| species/astyanax-mexicanus | shop | 19 | 60 |
 | species/iriatherina-werneri | shop | 2 | 60 |
 | species/helostoma-temminckii | shop | 15 | 60 |
 | plants/bacopa-salzmannii | shop | 3 | 60 |
@@ -179,4 +179,33 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/tropheus-duboisi | shop | 1 | 60 |
 | species/balantiocheilos-melanopterus | shop | 19 | 60 |
 | plants/hygrophila-pinnatifida | shop | 11 | 60 |
+| plants/juncus-repens | shop | 42 | 60 |
+| species/maylandia-estherae | shop | 21 | 60 |
+| species/hyphessobrycon-amandae | shop | 5 | 60 |
+| plants/lagenandra-meeboldii | shop | 9 | 60 |
+| species/trigonostigma-espei | shop | 3 | 60 |
+| species/microdevario-kubotai | shop | 2 | 60 |
+| plants/limnophila-hippuridoides | shop | 0 | 60 |
+| species/danio-kyathit | shop | 0 | 60 |
+| species/danio-choprae | shop | 3 | 60 |
+| species/tanichthys-albonubes | shop | 5 | 60 |
+| plants/myriophyllum-mattogrossense | shop | 11 | 60 |
+| species/inpaichthys-kerri | shop | 5 | 60 |
+| plants/nymphoides-hydrophylla | shop | 39 | 60 |
+| species/paracheirodon-simulans | shop | 2 | 60 |
+| plants/phyllanthus-fluitans | shop | 8 | 60 |
+| species/pristella-maxillaris | shop | 3 | 60 |
+| species/prionobrama-filigera | shop | 1 | 60 |
+| plants/pogostemon-deccanensis | shop | 41 | 60 |
+| species/hyphessobrycon-rosaceus | shop | 4 | 60 |
+| species/carinotetraodon-travancoricus | shop | 13 | 60 |
+| species/pterygoplichthys-joselimaianus | shop | 3 | 60 |
+| plants/ranunculus-inundatus | shop | 59 | 60 |
+| species/sewellia-lineolata | shop | 3 | 60 |
+| plants/rotala-macrandra | shop | 2 | 60 |
+| species/sewellia-breviventralis | shop | 0 | 60 |
+| species/botia-almorhae | shop | 7 | 60 |
+| species/marosatherina-ladigesi | shop | 4 | 60 |
+| species/pseudomugil-gertrudae | shop | 11 | 60 |
+| species/atyopsis-moluccensis | shop | 6 | 60 |
 | species/betta-macrostoma | covered | 0 | 30 |

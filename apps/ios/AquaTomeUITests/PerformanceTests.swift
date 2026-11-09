@@ -32,4 +32,29 @@ final class PerformanceTests: XCTestCase {
       for _ in 0..<3 { list.swipeDown(velocity: .fast) } // back to the top for the next run
     }
   }
+
+  /// A gallery of 300 photos in its grid (`-hundreds-gallery`, stand-in pictures): the same, flinging down through them.
+  func testFlingingThroughThePhotoGrid() {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fixed-pictures", "-hundreds-gallery"]
+    app.launch()
+    let field = app.searchFields.firstMatch
+    XCTAssertTrue(field.waitForExistence(timeout: 10))
+    field.tap()
+    field.typeText("ca neon")
+    let row = app.descendants(matching: .any).matching(identifier: "item").matching(NSPredicate(format: "label BEGINSWITH 'Cá neon'")).firstMatch
+    XCTAssertTrue(row.waitForExistence(timeout: 10))
+    row.tap()
+    let lead = app.buttons["lead-photo-grid"]
+    XCTAssertTrue(lead.waitForExistence(timeout: 10))
+    lead.tap()
+    XCTAssertTrue(app.buttons["grid-photo-1"].waitForExistence(timeout: 10))
+    let options = XCTMeasureOptions()
+    options.invocationOptions = [.manuallyStop]
+    measure(metrics: [XCTCPUMetric(application: app), XCTMemoryMetric(application: app)], options: options) {
+      for _ in 0..<3 { app.swipeUp(velocity: .fast) }
+      stopMeasuring()
+      for _ in 0..<3 { app.swipeDown(velocity: .fast) } // back to the top for the next run
+    }
+  }
 }
