@@ -218,7 +218,7 @@ export async function answerQuestion(o: ChatOptions): Promise<ChatRun> {
         const shown = text === '-' ? undefined : openingOf(text, o.lang)
         if (shown && !begun) { opening = shown; o.onOpening?.(shown) }
         return m.usage
-      }, () => undefined)
+      }).catch(() => undefined)
     : undefined
   // Asked for once the first line's call has left, so a search never holds the line back.
   const clock = o.clock ?? Date.now
