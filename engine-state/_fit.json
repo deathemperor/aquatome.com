@@ -77340,10 +77340,10 @@
     "products": []
   },
   "vi/species/barilius-ardens": {
-    "at": "2026-11-08",
-    "hash": "ab55f13324857f2e",
+    "at": "2026-11-09",
+    "hash": "4559106b3da9e35e",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -101039,6 +101039,497 @@
         "by": "model"
       }
     ],
+    "products": []
+  },
+  "vi/species/alcolapia-alcalica": {
+    "at": "2026-11-09",
+    "hash": "08f7095aa6b700c3",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/alcolapia-grahami": {
+    "at": "2026-11-09",
+    "hash": "49f186abff1c3963",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/barilius-dogarsinghi": {
+    "at": "2026-11-09",
+    "hash": "198098644c0a4483",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/barilius-infrafasciatus": {
+    "at": "2026-11-09",
+    "hash": "c085de5a9ff49937",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/barilius-malabaricus": {
+    "at": "2026-11-09",
+    "hash": "f4412bf84039e204",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/barilius-shacra": {
+    "at": "2026-11-09",
+    "hash": "c563ce00daf53a88",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/corydoras-melanotaenia": {
+    "at": "2026-11-09",
+    "hash": "d99efb31f00c0ba7",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P10",
+        "quote": "Mùa này trùng với mùa đông ở Anh. Nếu cho đẻ vào mùa hè mà không được thì có thể đợi sang mùa đông",
+        "why": "Uses the seasons of England as the reader's own; Vietnam's keepers don't plan around an English winter.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P5",
+        "quote": "Lá dẻ gai dùng được, lá sồi cũng hợp.",
+        "why": "Beech and oak leaves are European leaf litter a keeper in Vietnam would not collect; locally they use Indian almond (bàng) leaves.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P5",
+        "quote": "dùng gỗ dẻ gai cũng an toàn, miễn là phơi thật khô và lột sạch vỏ",
+        "why": "Collecting beech wood assumes a European reader's surroundings.",
+        "by": "model"
+      }
+    ],
+    "products": [],
+    "doses": [
+      {
+        "treatment": "methylene blue",
+        "strength": "",
+        "amount": 0,
+        "amountMax": 0,
+        "unit": "drop",
+        "per": 0,
+        "perUnit": "",
+        "use": "fungus",
+        "method": "wholeTank",
+        "quote": "nhỏ vài giọt xanh methylen vào nước để trứng không bị nấm"
+      }
+    ],
+    "sourceRead": true
+  },
+  "vi/species/corydoras-zygatus": {
+    "at": "2026-11-09",
+    "hash": "d0c7a0c28674e6ba",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/metynnis-maculatus": {
+    "at": "2026-11-09",
+    "hash": "5e02ccba8b93befc",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P4",
+        "quote": "Khi cần thì gắn thêm thổi luồng hoặc máy bơm.",
+        "why": "\"Thổi luồng\" is a literal rendering of \"powerhead\" that keepers in Vietnam don't use.",
+        "by": "model",
+        "fix": "máy tạo sóng"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/ompok-eugeneiatus": {
+    "at": "2026-11-09",
+    "hash": "57f92508ae4e07ec",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/ophthalmotilapia-boops": {
+    "at": "2026-11-09",
+    "hash": "d0461905cc81f715",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/ophthalmotilapia-nasuta": {
+    "at": "2026-11-09",
+    "hash": "69f2c80b8efae6e9",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/ophthalmotilapia-ventralis": {
+    "at": "2026-11-09",
+    "hash": "fbb6bb6eb12cff0f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/oreochromis-tanganicae": {
+    "at": "2026-11-09",
+    "hash": "63a2c38213c42dcc",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/orthochromis-stormsi": {
+    "at": "2026-11-09",
+    "hash": "d9f32d1b7dff0df1",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/oryzias-asinua": {
+    "at": "2026-11-09",
+    "hash": "917a675a7e6e012d",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/oryzias-eversi": {
+    "at": "2026-11-09",
+    "hash": "d80ee7249a4915c2",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/oryzias-minutillus": {
+    "at": "2026-11-09",
+    "hash": "f46e57f5a4a024a0",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/osphronemus-exodon": {
+    "at": "2026-11-09",
+    "hash": "180dcab180919a1c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P10",
+        "quote": "hoặc có lẽ là một cái ao ở xứ nóng",
+        "why": "Treats a hot climate as somewhere else, but the reader in Vietnam already lives in one.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/otocinclus-cocama": {
+    "at": "2026-11-09",
+    "hash": "dce8f651ecedf751",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P11",
+        "quote": "nâng tổng số loài hợp lệ của giống lên 18 vào thời điểm viết bài (Eschmeyer, 2015)",
+        "why": "Refers to when the source article was written, which the reader does not know.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P10",
+        "quote": "cần có thật nhiều rêu cùng các loại đồ xanh khác để ăn",
+        "why": "\"Đồ xanh\" is a calque of English \"greens\"; Vietnamese keepers say \"rau xanh\".",
+        "by": "model",
+        "fix": "rau xanh"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/pachypanchax-arnoulti": {
+    "at": "2026-11-09",
+    "hash": "581a463bac0f93ca",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/pachypanchax-omalonotus": {
+    "at": "2026-11-09",
+    "hash": "e513b8c402ee5f05",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P10",
+        "quote": "Đến thời điểm viết, cả hai vẫn thuộc Aplocheilidae.",
+        "why": "Refers to when the original article was written, a dated source the reader can't see.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/pachypanchax-sakaramyi": {
+    "at": "2026-11-09",
+    "hash": "fa1046b2cd5a99a1",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P10",
+        "quote": "Tính đến lúc viết, cả hai vẫn nằm trong họ Aplocheilidae.",
+        "why": "Points to when the original article was written, a date the reader is never given.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/pangasianodon-gigas": {
+    "at": "2026-11-09",
+    "hash": "ad3208b72a548cf7",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/pangasius-sanitwongsei": {
+    "at": "2026-11-09",
+    "hash": "aaa8f5175746edbb",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P8",
+        "quote": "các trại cá vùng Viễn Đông vẫn cho loài này đẻ trong những ao rất lớn",
+        "why": "'Far East' is a Western reader's view of the region; a reader in Vietnam lives there.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/pangio-filinaris": {
+    "at": "2026-11-09",
+    "hash": "3a3b1201da2c6631",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/pangio-piperata": {
+    "at": "2026-11-09",
+    "hash": "3ba883151d5d1ac1",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/papyrocranus-afer": {
+    "at": "2026-11-09",
+    "hash": "2f73eb4924e93c15",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P8",
+        "quote": "cá lance",
+        "why": "Untranslated English 'lancefish' (sand eel), a frozen food that keepers in Vietnam don't call by this name.",
+        "by": "model",
+        "fix": "cá mồi đông lạnh"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/parabotia-bimaculata": {
+    "at": "2026-11-09",
+    "hash": "4402b053696e6f68",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Panacur"
+    ]
+  },
+  "vi/species/parabotia-lijiangensis": {
+    "at": "2026-11-09",
+    "hash": "74e15903e97f07ee",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Panacur"
+    ]
+  },
+  "vi/species/parachanna-africana": {
+    "at": "2026-11-09",
+    "hash": "621a4f1517f9c803",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/parachromis-managuensis": {
+    "at": "2026-11-09",
+    "hash": "aace5ab410395e32",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "Dài 120 cm × cao 45 cm × rộng 37,5 cm - 212 lít",
+        "why": "An odd 37.5 cm side and a 212-litre volume that doesn't match the sides show a tank size converted from inches and gallons.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/parachromis-motaguensis": {
+    "at": "2026-11-09",
+    "hash": "e2177ef5607d0490",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "120 cm × 45 cm × 37,5 cm (dài × cao × rộng): 212 lít",
+        "why": "An imperial tank (48 × 18 × 15 in, about 56 gallons) converted to metric. Those sides give about 202 litres, not 212, and nobody in Vietnam would describe a tank as 37,5 cm deep.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/paracyprichromis-brieni": {
+    "at": "2026-11-09",
+    "hash": "1fa6367b5eac6988",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/paretroplus-damii": {
+    "at": "2026-11-09",
+    "hash": "a9948995b498217e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P11",
+        "quote": "Ở Anh loài này không phổ biến. Thỉnh thoảng mới kiếm được qua người chơi cichlid hoặc các tiệm chuyên.",
+        "why": "Describes how easy the fish is to buy in the UK, as though that were the reader's own market.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/pareutropius-buffei": {
+    "at": "2026-11-09",
+    "hash": "45352bf00805f589",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/parosphromenus-alfredi": {
+    "at": "2026-11-09",
+    "hash": "8031014107884761",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/parosphromenus-allani": {
+    "at": "2026-11-09",
+    "hash": "8403445f3916d10e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/parosphromenus-deissneri": {
+    "at": "2026-11-09",
+    "hash": "1d2411a5ba142258",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/parosphromenus-nagyi": {
+    "at": "2026-11-09",
+    "hash": "ee4e5f539ae9519f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P2",
+        "quote": "Một số con cá trong ảnh hình như được bắt quanh Ulu Tiram, bang Johor",
+        "why": "Refers to photos from the source article that the page does not have.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/parosphromenus-quindecim": {
+    "at": "2026-11-09",
+    "hash": "1c050dba4ddda384",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/parosphromenus-tweediei": {
+    "at": "2026-11-09",
+    "hash": "55b6e76f8174a37e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/peckoltia-oligospila": {
+    "at": "2026-11-09",
+    "hash": "c87a714e6b420dff",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/schistura-jarutanini": {
+    "at": "2026-11-09",
+    "hash": "d1d83b24e6c72bb3",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
     "products": []
   }
 }

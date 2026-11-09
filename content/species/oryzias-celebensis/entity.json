@@ -4,11 +4,13 @@
   "order": "Beloniformes",
   "family": "Adrianichthyidae",
   "genus": "Oryzias",
-  "group": "killifish",
+  "group": "other",
   "places": [
     "asia",
     "indonesia",
-    "sulawesi"
+    "sulawesi",
+    "east-timor",
+    "mota-talau"
   ],
   "dataCard": {
     "ph": [
@@ -17,6 +19,13 @@
         "value": {
           "min": 8,
           "max": 8
+        }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7,
+          "max": 9
         }
       }
     ],
@@ -27,12 +36,44 @@
           "min": 10,
           "max": 10
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 25
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "glaser",
         "value": 5
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 4.5
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
       }
     ]
   },
@@ -72,6 +113,78 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/oryzias_celebensis_en/",
       "html": "<p>In such water, breeding of rice fish is possible. Interestingly, the female carries the eggs for several hours before attaching them to a substrate. Raising the fry should not be difficult.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-celebensis",
+      "html": "<p>The Celebes ricefish, Oryzias celebensis, lives in rivers and streams of southwestern Sulawesi, Indonesia, with a further record from Timor. It is mostly found in slow-moving or standing waters, often where aquatic plants proliferate. Infrequently available in the hobby, it is exported on occasion and sometimes referred to as 'Celebes medaka'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-celebensis",
+      "html": "<p>Described from the Maros River (Salo Maros), southwestern Sulawesi, Indonesia and subsequently recorded from rivers and streams throughout the southwestern arm of the island including Lake Tempe (Danau Tempe), plus the Mota Talau River, East Timor state on the nearby island of Timor.</p><p>Type locality is given as 'Makassar, Maros River near Maros, Sulawesi, Indonesia'.</p><p>More recently Herder and Chapuis (2010) reported it to be more widespread on Sulawesi, with new records pertaining to an unnamed small stream within the upper Cerekang River system, close to Lake Matano in the central part of the island (though within the boundaries of South Sulawesi province).</p><p>The authors also note that the Cerekang shares its estuary with the Larona River which is the outflow of the Malili Lakes system, and speculate that O. celebensis may have a wider distribution in the area.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-celebensis",
+      "html": "<p>The Maros area is mostly karstic meaning the rivers and streams there tend to flow over limestone, though not all habitats feature such conditions.</p><p>O. celebensis is mostly found in slow-moving or standing waters, often in areas where aquatic plants proliferate.</p><p>In Lake Tempe, for example, resident plant species include Ceratophyllum demersum, Pistia stratiotes, lpomoea aquatica, Polygonum sp., Cyperus platystylis and Echinochloa crusgelii.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-celebensis",
+      "html": "<p>An aquarium with base dimensions of 45 × 30 cm or more is recommended for a group.</p><p>Volume: approximately 41 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-celebensis",
+      "html": "<p>Best maintained in a heavily planted set-up, ideally with a dark substrate, patches of dense vegetation, and some open areas.</p><p>Other décor can consist of twisted roots and pieces of bogwood, while surface vegetation is also appreciated by the fish.</p><p>When maintained under such conditions they're more likely to display their best colours, and planted aquaria also offer fry a more favourable chance of survival alongside the adults.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-celebensis",
+      "html": "<ul><li>Temperature: 23–27°C</li><li>pH: 7.0–9.0; will probably fail to thrive if maintained long term in acidic water.</li><li>Hardness: 5–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-celebensis",
+      "html": "<p>Probably a micropredator feeding on small insects, worms, crustaceans and other zooplankton in nature.</p><p>In the aquarium it will accept dried foods of a suitable size but should also be offered daily meals of small live and frozen fare such as Daphnia, Artemia, chopped bloodworm, etc., along with good quality, suitably-sized flakes and granules.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-celebensis",
+      "html": "<p>Generally peaceful but doesn't make an ideal addition to many communities due to its small size.</p><p>Should you wish to maintain it alongside other fishes diminutive species enjoying similar conditions such as Microdevario, Trigonostigma, Pseudomugil and some Danio spp. constitute the best options, while freshwater shrimp of the genera Caridina and Neocaridina are also suitable as are most snails.</p><p>If the intention is breeding then obviously it should ideally be maintained alone, and we don't recommend keeping it with other Oryzias spp. due to the potential of hybridisation, already proven in laboratory experiments.</p><p>It is mostly non-aggressive towards congeners although rival courting males can be aggressive towards one another, and tends to look most effective and behave more confidently in a group of 8 or more.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-celebensis",
+      "html": "<p>Adult males are considerably more colourful, possess longer dorsal and anal fins, and have a slimmer body shape than females.</p><p>In males the distal margin of the anal-fin is convex and the genital papilla forms a short tube, while in females the anal-fin margin is slightly concave and the genital papilla bilobed.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-celebensis",
+      "html": "<p>Quite easy to breed and fairly prolific, with females capable of producing batches of eggs every few days or even on a daily basis when in good condition.</p><p>Spawning normally occurs in the early morning, with males darkening in colouration and defending small, temporary territories against one another while attempting to entice females.</p><p>The adhesive eggs are typically expelled as a single mass and fertilised simultaneously, after which they continue to hang from the genital pore of the female for a period before eventually being deposited singly or in small clumps among vegetation or other suitable media.</p><p>Fine-leaved plants such as Cabomba, Ceratophyllum or Taxiphyllum spp. are ideal, but synthetic spawning mops or other artificial alternatives also work.</p><p>The incubation period is temperature dependent to an extent but typically 1-3 weeks, and while the adults tend to ignore the eggs they do predate free-swimming fry, though if the tank is densely-planted some will usually survive.</p><p>Alternatively the eggs or fry can be removed to a separate rearing container filled with water from the adults' tank. Once free-swimming the fry are able to accept microworm, Artemia nauplii, etc.</p><p>Caution is recommended when housing juveniles of different ages together as the older will predate on the younger if there is a large enough discrepancy in size.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-celebensis",
+      "html": "<p>It has a truncate, rather than lunate or emarginate, caudal-fin which distinguishes it from the congeners O. bonneorum, O. nebulosus, O. nigrimas, O. orthognathus, and O. sarasinorum, and in this respect appears to be a member of a large, unnamed clade or species group containing all other members of the genus.</p><p>It's further distinguishable from congeners by the following combination of characters: pelvic fins relatively small, usually with 6 rays and not extending past the anterior margin of the genital area; 8-10 dorsal-fin rays (usually 8); 20-23 anal-fin rays (usually 22) and in males without bony contact organs; possession of yellow to orange submarginal bands on the caudal-fin lobes; dark brown to black vertically-orientated markings on lower part of flanks.</p><p>Members of the family Adrianichthyidae are often referred to collectively as 'ricefishes' and were traditionally considered to be members of the family Cyprinodontiformes and thus closely-related to toothcarps. This misconception is sometimes still upheld despite the fact that Rosen and Parenti reclassified them within the cyprinodontiform sister group Beloniformes as long ago as 1981.</p><p>The best-known member of the family is the medaka or Japanese ricefish, Oryzias latipes, which has been widely used as a model organism in genomic and experimental biology for well over a century and was the first vertebrate animal to mate in space during the mid-1990s.</p><p>There are currently just two genera included in the family, Oryzias and Adrianichthys, with the historically-recognised groupings Xenopoecilus and Horaichthys having been synonymised with Oryzias by Parenti (2008). Of the three species previously included in the paraphyletic Xenopoecilus, X. oophorus and X. poptae were moved into Adrianichthys with the third, X. sarasinorum currently recognised as Oryzias sarasinorum. In addition the formerly monotypic Indian species Horaichthys setnai is currently classified as O. setnai.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/oryzias-celebensis",
+      "html": "<ul><li>Herder, F. and S. Chapuis (2010). Oryzias hadiatyae, a new species of ricefish (Atherinomorpha: Belonifornes: Adrianichthyidae) endemic to Lake Masapi, Central Sulawesi, Indonesia. The Raffles Bulletin of Zoology 58(2), 269-280</li><li>Magtoon, W. (2010). Oryzias songkhramensis, a new species of ricefish (Beloniformes; Adrianichthyidae) from northeast Thailand and central Laos. Tropical Natural History 10(1), 107-129</li><li>Magtoon, W. and A. Termvidchakorn (2009). A Revised Taxonomic Account of Ricefish Oryzias (Beloniformes; Adrianichthyidae), in Thailand, Indonesia and Japan. The Natural History Journal of Chulalongkorn University 9(1), 35-68</li><li>Parenti, L. R. (2008). A phylogenetic analysis and taxonomic revision of ricefishes, Oryzias and relatives (Beloniformes, Adrianichthyidae). Zoological Journal of the Linnean Society 154(3), 494-610</li><li>Parenti, L. R. and B. Soeroto (2004). Adrianichthys roseni and Oryzias nebulosus, two new ricefishes (Atherinomorpha: Beloniformes: Adrianichthyidae) from Lake Poso, Sulawesi, Indonesia. Ichthyological Research 51(1), 10-19</li><li>Parenti, L. R. and R. K. Hadiaty (2010). A new, remarkably colorful, small ricefish of the genus Oryzias (Beloniformes, Adrianichthyidae) from Sulawesi, Indonesia. Copeia 2010 (2), 268-273</li><li>Roberts, T. R. (1998). Systematic observations on tropical Asian medakas or ricefishes of the genus Oryzias, with descriptions of four new species. Ichthyological Research 45(3), 213-224</li><li>Rosen, D. E. and L. R. Parenti (1981). Relationships of Oryzias, and the groups of atherinomorph fishes. American Museum Novitates 2719, 1–25</li><li>Takehana, Y., K. Naruse K and M. Sakaizumi (2005). Molecular phylogeny of the medaka fishes genus Oryzias (Beloniformes: Adrianichthyidae) based on nuclear and mitochondrial DNA sequences. Molecular Phylogenetics and Evolution 36(2), 417–428</li><li>Uwa, H. and L. Parenti (1988). Morphometric and meristic variation in ricefishes, genus Oryzias: a comparison with cytogenetic data. Japanese Journal of Ichthyology 35(2), 159-166</li></ul>"
     }
   ],
   "photos": [],
@@ -99,6 +212,12 @@
       "title": "oryzias celebensis /medaka sulawesi",
       "durationSec": 41,
       "lang": "id"
+    },
+    {
+      "youtubeId": "3DHfb2k07Xk",
+      "title": "CELEBES NATIVE || ENDEMIK SULAWESI - NOMORHAMPHUS LIEMI - ORYZIAS CELEBENSIS - CELEBES HALFBEAK",
+      "durationSec": 113,
+      "lang": "en"
     }
   ],
   "productSlots": [
@@ -106,21 +225,34 @@
       "category": "be-ca",
       "keywords": [
         "bể cá 60cm",
-        "bể thủy sinh mini"
+        "bể thủy sinh mini",
+        "bể cá 50cm"
       ]
     },
     {
       "category": "loc",
       "keywords": [
         "lọc thùng nhỏ cho bể cá",
-        "máy sục khí mini"
+        "máy sục khí mini",
+        "lọc sủi mini",
+        "lọc bọt khí cho bể nhỏ"
       ]
     },
     {
       "category": "thuc-an",
       "keywords": [
         "thức ăn cá nhỏ",
-        "artemia đông lạnh"
+        "artemia đông lạnh",
+        "artemia",
+        "bo bo",
+        "thức ăn vi sinh cho cá nhỏ"
+      ]
+    },
+    {
+      "category": "cay-thuy-sinh",
+      "keywords": [
+        "rong đuôi chó",
+        "rêu java"
       ]
     }
   ],

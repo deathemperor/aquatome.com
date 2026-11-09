@@ -1,7 +1,7 @@
 ---
 url: https://www.seriouslyfish.com/species/metynnis-maculatus
 title: Metynnis maculatus (Spotted Metynnis) · Seriously Fish
-fetchedAt: 2026-11-09T00:56:26.916Z
+fetchedAt: 2026-11-09T09:15:32.630Z
 hash: 67cf9fd6e31acbd00a041b8c31aa64698023f119a1fa5f9f2e4210151602969e
 ---
 
