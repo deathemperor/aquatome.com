@@ -7,13 +7,10 @@ import { QUALITY_THRESHOLD } from '@aq/schema'
 export { QUALITY_THRESHOLD }
 /** Within this of the bar, a check's first read is read twice more: the same text read twice moves about ±0.06. */
 export const NEAR_BAR = 0.2
-/**
- * A check read once, or, within `near` of the bar, three times: then the median read counts, its notes with it, and
- * `reads` has all three.
- */
-export async function steadyRead<T extends { score: number }>(read: () => Promise<T>, near = NEAR_BAR): Promise<T & { reads?: number[] }> {
+/** A check read once, or, near the bar, three times: then the median read counts, its notes with it, and `reads` has all three. */
+export async function steadyRead<T extends { score: number }>(read: () => Promise<T>): Promise<T & { reads?: number[] }> {
   const first = await read()
-  if (Math.abs(first.score - QUALITY_THRESHOLD) >= near) return first
+  if (Math.abs(first.score - QUALITY_THRESHOLD) >= NEAR_BAR) return first
   const reads = [first, ...await Promise.all([read(), read()])]
   return { ...[...reads].sort((a, b) => a.score - b.score)[1]!, reads: reads.map(r => r.score) }
 }
