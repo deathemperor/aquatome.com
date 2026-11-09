@@ -73,6 +73,12 @@ final class OwnerFlowTests: XCTestCase {
     XCTAssertTrue(app.buttons["owner-tile-needs"].label.hasPrefix("Needs you, All clear"), app.buttons["owner-tile-needs"].label)
     XCTAssertTrue(app.descendants(matching: .any)["owner-needs-empty"].exists, "not said in one line")
     XCTAssertFalse(app.buttons["owner-need"].exists)
+    // Under it, the owner's last action, which opens the section it was in.
+    let last = app.buttons["owner-last-action"]
+    XCTAssertTrue(last.exists, "no last action")
+    XCTAssertEqual(last.label, "You hid a comment on Ikan neon (Indonesian), Wed 4 Nov, 8:00")
+    last.tap()
+    XCTAssertTrue(app.segmentedControls["owner-comment-filter"].waitForExistence(timeout: 10), "its section didn't open")
   }
 
   /// The owner asked for a bar's own figures on a phone: a tap on a column, or a finger dragged across, reads that day,
@@ -235,8 +241,11 @@ final class OwnerFlowTests: XCTestCase {
     XCTAssertTrue(held.descendants(matching: .any)["owner-comment-reason"].label.contains("Held when posted: it has “zalo:”, a blocked term"))
     XCTAssertEqual(app.descendants(matching: .any).matching(identifier: "owner-comment").count, 3)
     XCTAssertFalse(app.staticTexts["Held"].exists, "a Held badge under the Held filter")
-    // The other two held, 50 at a time.
-    app.scrollToAndTap("owner-more")
+    // The other two held, 50 at a time, said as how many are left.
+    let more = app.buttons["owner-more"]
+    repeatUntil(more.exists && more.isHittable, times: 6) { app.swipeUp() }
+    XCTAssertEqual(more.label, "Show 2 more of 5")
+    more.tap()
     XCTAssertTrue(comment(app, "Reader 00").waitForExistence(timeout: 10), "the rest weren't read")
     XCTAssertTrue(comment(app, "Reader 00").staticTexts["a page no longer on the site"].exists)
 
