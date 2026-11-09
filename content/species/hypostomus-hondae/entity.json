@@ -12,6 +12,225 @@
     "venezuela",
     "lake-maracaibo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO",
+        "VE"
+      ],
+      "regions": [
+        "Magdalena River",
+        "Lake Maracaibo",
+        "Lago Maracaibo",
+        "Río Magdalena",
+        "Río Sinú",
+        "Río Atrato"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Hypostomus hondae (Regan, 1912). Family Loricariidae. Type locality: Honda, Colombia. Maximum size 350 mm SL. IUCN Red List: Not Evaluated.",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Lago Maracaibo drainage of Colombia and Venezuela, and the Río Magdalena, Río Sinú, and Río Atrato drainages of Colombia. Type locality: Honda, Colombia.",
+          "countries": [
+            "VE"
+          ],
+          "regions": [
+            "Lago Maracaibo",
+            "Río Magdalena",
+            "Río Sinú",
+            "Río Atrato"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Magdalena River and Lake Maracaibo basins, and Colombian Caribbean rivers.",
+          "countries": [],
+          "regions": [
+            "Magdalena River",
+            "Lake Maracaibo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202142,
+      "total": 1536,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "CO",
+          1505
+        ],
+        [
+          "VE",
+          31
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -77.34375,
+          4.21875,
+          8,
+          8
+        ],
+        [
+          -77.34375,
+          5.625,
+          9,
+          9
+        ],
+        [
+          -77.34375,
+          7.03125,
+          5,
+          5
+        ],
+        [
+          -75.9375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -75.9375,
+          2.8125,
+          19,
+          19
+        ],
+        [
+          -75.9375,
+          4.21875,
+          130,
+          130
+        ],
+        [
+          -75.9375,
+          5.625,
+          891,
+          891
+        ],
+        [
+          -75.9375,
+          7.03125,
+          336,
+          336
+        ],
+        [
+          -75.9375,
+          8.4375,
+          24,
+          24
+        ],
+        [
+          -75.9375,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          -74.53125,
+          5.625,
+          7,
+          7
+        ],
+        [
+          -74.53125,
+          7.03125,
+          8,
+          8
+        ],
+        [
+          -74.53125,
+          8.4375,
+          44,
+          44
+        ],
+        [
+          -74.53125,
+          9.84375,
+          9,
+          9
+        ],
+        [
+          -73.125,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          8.4375,
+          13,
+          13
+        ],
+        [
+          -73.125,
+          9.84375,
+          10,
+          10
+        ],
+        [
+          -73.125,
+          11.25,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          8.4375,
+          8,
+          8
+        ],
+        [
+          -71.71875,
+          9.84375,
+          3,
+          3
+        ],
+        [
+          -70.3125,
+          9.84375,
+          2,
+          2
+        ],
+        [
+          -68.90625,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          5.625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

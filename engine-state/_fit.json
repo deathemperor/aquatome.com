@@ -3418,10 +3418,10 @@
     "products": []
   },
   "id/plants/echinodorus-x-barthii": {
-    "at": "2026-11-08",
-    "hash": "8b5aba806e7d5e35",
+    "at": "2026-11-09",
+    "hash": "7aaa44c292c301f1",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -4077,9 +4077,10 @@
     "products": []
   },
   "id/plants/najas-guadalupensis": {
-    "at": "2026-11-07",
-    "hash": "146fceb7ff8a38a0",
+    "at": "2026-11-09",
+    "hash": "7676c42200725492",
     "model": "opus",
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -4216,9 +4217,10 @@
     ]
   },
   "id/plants/pogostemon-quadrifolius": {
-    "at": "2026-11-07",
+    "at": "2026-11-09",
     "hash": "c49b6033e237137f",
     "model": "opus",
+    "checklist": 3,
     "findings": [],
     "products": [
       "Nano Cube"
@@ -9882,12 +9884,16 @@
     "products": []
   },
   "id/species/caridina-multidentata": {
-    "at": "2026-11-08",
-    "hash": "dd96393b0fd49f32",
+    "at": "2026-11-09",
+    "hash": "2ce2b26ab87126a8",
     "model": "opus",
     "checklist": 3,
     "findings": [],
-    "products": []
+    "products": [
+      "Wonder Shell",
+      "Seachem Equilibrium",
+      "Hikari Crab Cuisine"
+    ]
   },
   "id/species/caridina-pareparensis-parvidentata": {
     "at": "2026-11-08",
@@ -11558,10 +11564,10 @@
     "products": []
   },
   "id/species/lepidocephalichthys-hasselti": {
-    "at": "2026-11-07",
-    "hash": "74dd788fa9b9c40b",
+    "at": "2026-11-09",
+    "hash": "7d8559642ff7e503",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -12412,20 +12418,14 @@
     "products": []
   },
   "id/species/paracheirodon-axelrodi": {
-    "at": "2026-11-08",
-    "hash": "f55afb8678b84bd6",
+    "at": "2026-11-09",
+    "hash": "56e8efad027856fa",
     "model": "opus",
-    "checklist": 2,
-    "findings": [
-      {
-        "check": "units",
-        "part": "P9",
-        "quote": "Ukuran akuarium minimal: sekitar 75 liter.",
-        "why": "75 litres is a conversion of 20 US gallons, not a tank size used in Indonesia.",
-        "by": "model"
-      }
-    ],
-    "products": []
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "golden pearl"
+    ]
   },
   "id/species/paracheirodon-innesi": {
     "at": "2026-11-08",
@@ -14883,19 +14883,10 @@
   },
   "ms/guides/aquatome-cach-chon-va-su-dung-may-loc-nuoc-loc-thung-cho-be-ca": {
     "at": "2026-11-09",
-    "hash": "eb379381587822b0",
+    "hash": "ceeefe100be827af",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "words",
-        "part": "P1",
-        "quote": "Jika mahu, letakkan pad penggilap halus di hujung sekali (pilihan).",
-        "why": "Literal calque of 'fine polishing pad'; local keepers use the English term.",
-        "by": "model",
-        "fix": "polishing pad / kapas halus"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "ms/plants/acorus-gramineus": {
@@ -15957,11 +15948,14 @@
     "products": []
   },
   "ms/species/paracheirodon-axelrodi": {
-    "at": "2026-11-07",
-    "hash": "5fa45da1fad8b891",
+    "at": "2026-11-09",
+    "hash": "9475db549bbd035b",
     "model": "opus",
+    "checklist": 3,
     "findings": [],
-    "products": []
+    "products": [
+      "golden pearl"
+    ]
   },
   "ms/species/paracheirodon-innesi": {
     "at": "2026-11-08",
@@ -19948,10 +19942,10 @@
     "products": []
   },
   "th/plants/echinodorus-x-barthii": {
-    "at": "2026-11-08",
-    "hash": "1017a2cb5493e50f",
+    "at": "2026-11-09",
+    "hash": "60ca16f7e40a3512",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -20634,9 +20628,10 @@
     "products": []
   },
   "th/plants/najas-guadalupensis": {
-    "at": "2026-11-07",
-    "hash": "216d1b1499406811",
+    "at": "2026-11-09",
+    "hash": "ddfa1de856f9846d",
     "model": "opus",
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -20768,10 +20763,10 @@
     ]
   },
   "th/plants/pogostemon-quadrifolius": {
-    "at": "2026-11-08",
+    "at": "2026-11-09",
     "hash": "d8975037c5f78f94",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -26537,12 +26532,16 @@
     "products": []
   },
   "th/species/caridina-multidentata": {
-    "at": "2026-11-08",
-    "hash": "d8400a5c08d85391",
+    "at": "2026-11-09",
+    "hash": "164da162df7ab573",
     "model": "opus",
     "checklist": 3,
     "findings": [],
-    "products": []
+    "products": [
+      "Wonder Shell",
+      "Seachem Equilibrium",
+      "Hikari Crab Cuisine"
+    ]
   },
   "th/species/caridina-pareparensis-parvidentata": {
     "at": "2026-11-07",
@@ -28333,10 +28332,10 @@
     "products": []
   },
   "th/species/lepidocephalichthys-hasselti": {
-    "at": "2026-11-08",
-    "hash": "5c8a76fb4f17eaac",
+    "at": "2026-11-09",
+    "hash": "7c77d633e7a0c808",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -29148,11 +29147,14 @@
     "products": []
   },
   "th/species/paracheirodon-axelrodi": {
-    "at": "2026-11-07",
-    "hash": "e7f310ebd2d4667f",
+    "at": "2026-11-09",
+    "hash": "51e984e292fb7bdf",
     "model": "opus",
+    "checklist": 3,
     "findings": [],
-    "products": []
+    "products": [
+      "Golden Pearls"
+    ]
   },
   "th/species/paracheirodon-innesi": {
     "at": "2026-11-08",
@@ -31659,23 +31661,31 @@
   },
   "vi/guides/2hraquarist-blogs-aquascaping-ideas-dennis-wong": {
     "at": "2026-11-09",
-    "hash": "2fc258f5f3cc21e2",
-    "model": "opus",
-    "checklist": 3,
-    "findings": [],
-    "products": []
-  },
-  "vi/guides/2hraquarist-blogs-aquascaping-ideas-dennis-wong-1": {
-    "at": "2026-11-09",
-    "hash": "d6520d3971a28255",
+    "hash": "bb4de1965c1eb673",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "gặp nhau ở giữa khung hình",
-        "why": "Refers to the frame of a photo of the source's tank, which the page does not show.",
+        "quote": "Đây là một bể diorama nhỏ 45x26x30 cm.",
+        "why": "The page describes one particular aquascape (Dennis Wong's, from the title) as if the reader could see it, but the page has no picture of it.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-dennis-wong-1": {
+    "at": "2026-11-09",
+    "hash": "d8f21ad360ef8744",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Đây là một bể diorama rừng, kích thước 90x45x45 cm",
+        "why": "Describes the source author's own tank as if the reader could see it.",
         "by": "model"
       }
     ],
@@ -31691,63 +31701,39 @@
   },
   "vi/guides/2hraquarist-blogs-aquascaping-ideas-dou-mok-1": {
     "at": "2026-11-09",
-    "hash": "445a8cda050e8e8f",
+    "hash": "614d81b65b3dc80e",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Bể này dày cây và xanh mướt, theo phong cách thiên nhiên.",
-        "why": "Describes a specific showcase tank (\"Dou Mok\") as if the reader knew it, with no pictures on the page.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/guides/2hraquarist-blogs-aquascaping-ideas-dou-mok-2": {
     "at": "2026-11-09",
-    "hash": "50bc5d80f5e756eb",
+    "hash": "16575c8b5caee983",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Bể này dựng lại cảnh dưới nước của một con suối nhiều đá.",
-        "why": "Describes the source's own showcase tank as if the reader could see it, though the page has no picture.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/guides/2hraquarist-blogs-aquascaping-ideas-dou-mok-4": {
     "at": "2026-11-09",
-    "hash": "c1e6359be18cc6b6",
+    "hash": "f731211a63ef3a2c",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Bể này của Dou Mok đẹp một cách mộc mạc.",
-        "why": "Describes a specific showcased tank as if the reader can see it, though the page has no picture; carried over from the source's photo feature.",
-        "by": "model"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/guides/2hraquarist-blogs-aquascaping-ideas-dutch-style": {
     "at": "2026-11-09",
-    "hash": "a5c92c079f93be41",
+    "hash": "39587d4bc4377197",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "Bể Dutch này được chăm tỉa rất kỹ",
-        "why": "Describes the source author's own tank, shown in a photo the page doesn't have, as if the reader could see it.",
+        "quote": "Bể Dutch này tỉa tót rất kỹ",
+        "why": "Refers to a specific pictured tank (and its positions) that the page does not show, as if the reader can see it.",
         "by": "model"
       }
     ],
@@ -31755,22 +31741,15 @@
   },
   "vi/guides/2hraquarist-blogs-aquascaping-ideas-dutch-style-1": {
     "at": "2026-11-09",
-    "hash": "8deb12dd22434b87",
+    "hash": "cab887b3a17ff159",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "Bể Hà Lan này được cắt tỉa rất kỹ",
-        "why": "Talks about the source's own featured tank (Scott Miller's) as if the reader could see it.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Để ý cách cây xếp thành từng tầng bậc thang, và mặt kính hầu như không lộ ra chỗ nào.",
-        "why": "Tells the reader to look at a photo of the tank, and the page has no photo.",
+        "quote": "Bể Hà Lan này tỉa rất kỹ",
+        "why": "Refers to a specific tank from the original source (likely Scott Miller's) that the page does not show, as if the reader could see it.",
         "by": "model"
       }
     ],
@@ -31778,7 +31757,7 @@
   },
   "vi/guides/2hraquarist-blogs-aquascaping-ideas-dutch-style-2": {
     "at": "2026-11-09",
-    "hash": "740ba7e18745b00c",
+    "hash": "345928ef2693e4a1",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -31786,7 +31765,7 @@
         "check": "source",
         "part": "P1",
         "quote": "Bể này trồng cây dày và rất đẹp.",
-        "why": "The page talks about a particular tank, Gabor Vereb's, as if the reader could see it, but the page has no picture of it.",
+        "why": "It talks about a particular tank, as if from a photo or showcase the reader can't see, and the page has no pictures.",
         "by": "model"
       }
     ],
@@ -31794,15 +31773,15 @@
   },
   "vi/guides/2hraquarist-blogs-aquascaping-ideas-dutch-style-mc": {
     "at": "2026-11-09",
-    "hash": "c820ff307a0147b2",
+    "hash": "932fd4ed4f0d54b9",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "Bể này rất lớn, lấy cảm hứng từ phong cách Hà Lan và được chăm rất kỹ.",
-        "why": "The page talks about one particular tank, apparently Mark Crow's, as if the reader could see it, but the page has no picture of it and never introduces it.",
+        "quote": "Bể này rất lớn, bố trí theo phong cách Hà Lan",
+        "why": "Describes a specific tank (apparently Mark Crow's) as if the reader could see it, though the page has no picture or introduction.",
         "by": "model"
       }
     ],
@@ -31810,15 +31789,15 @@
   },
   "vi/guides/2hraquarist-blogs-aquascaping-ideas-dutch-style-rf": {
     "at": "2026-11-09",
-    "hash": "3a07bd62d5143915",
+    "hash": "864c9e30b9e4eb98",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "Bể kiểu Hà Lan rực rỡ này trông tự nhiên hơn một bể Hà Lan đúng chuẩn",
-        "why": "Refers to a specific showcased tank (from a photo caption) as if the reader could see it.",
+        "quote": "Bể kiểu Hà Lan rực rỡ này trông tự nhiên hơn bể Hà Lan đúng chuẩn",
+        "why": "The page talks about a specific tank (titled by its owner's name) as if the reader could see it, but the page has no picture of it.",
         "by": "model"
       }
     ],
@@ -31826,22 +31805,15 @@
   },
   "vi/guides/2hraquarist-blogs-aquascaping-ideas-dutch-style-sp": {
     "at": "2026-11-09",
-    "hash": "ca2ca5515cd670f5",
+    "hash": "40b0bc0e42534633",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "Bể này đi theo phong cách Hà Lan và đạt đúng định nghĩa khá khắt khe",
-        "why": "Describes one particular tank from the source (named only by its owner in the title) as if the reader knew it.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Đưa mắt sang phải sẽ thấy ngay khối Ludwigia sp. red đỏ sẫm",
-        "why": "Asks the reader to look at a picture of the tank, but the page has no picture.",
+        "quote": "Bể này set theo phong cách Hà Lan và đạt đúng chuẩn khá khắt khe",
+        "why": "The page describes someone else's tank (named only in the title) as if the reader could see it, and there is no picture to go with the description.",
         "by": "model"
       }
     ],
@@ -41144,7 +41116,7 @@
   },
   "vi/guides/aquatome-chon-da-soi-cat-va-nen-trang-tri-cho-be-thuy-sinh": {
     "at": "2026-11-09",
-    "hash": "93bf14761494b30f",
+    "hash": "d657d29d52520a07",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -41152,15 +41124,17 @@
         "check": "source",
         "part": "P1",
         "quote": "Một nhà sản xuất phân nền làm bể mẫu với lớp phân nền dày 8 cm.",
-        "why": "Refers to a manufacturer's display tank the reader has never seen.",
+        "why": "Refers to the source maker's own display tank as if the reader knew it.",
         "by": "model"
       }
     ],
     "products": [
       "Manado Dark",
+      "JBL",
       "Tropica Aquarium Soil Powder",
       "ADA Aqua Soil Amazonia",
-      "Sansibar"
+      "Sansibar",
+      "Manado"
     ]
   },
   "vi/guides/aquatome-di-vang-nhieu-ngay-cho-ca-an-va-cham-be-the-nao": {
@@ -51846,7 +51820,7 @@
   },
   "vi/guides/youtube-AAjZ3Ldk4go": {
     "at": "2026-11-09",
-    "hash": "bf1eaa2f42eaa6ae",
+    "hash": "32c14f3ae4ff173c",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -51854,8 +51828,16 @@
         "check": "elsewhere",
         "part": "P1",
         "quote": "Loại này hay bán kèm trong các bộ bể cá xiêm ở cửa hàng lớn",
-        "why": "Refers to big-box pet store betta kits sold with Aponogeton bulbs, a foreign retail habit given as the reader's own.",
+        "why": "Aponogeton bulbs sold in betta kits at big-box stores is a retail habit abroad, not in Vietnam.",
         "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Bóng rêu Marimo",
+        "why": "Calque of 'moss ball'; Vietnamese keepers call it tảo cầu Marimo.",
+        "by": "model",
+        "fix": "tảo cầu Marimo"
       }
     ],
     "products": []
@@ -66923,7 +66905,7 @@
   },
   "vi/guides/youtube-WKr4WfuEQWU": {
     "at": "2026-11-09",
-    "hash": "231ca376b874660e",
+    "hash": "5162a9cb2cd2cbc1",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -70471,10 +70453,10 @@
     "products": []
   },
   "vi/plants/echinodorus-x-barthii": {
-    "at": "2026-11-08",
-    "hash": "725d116d57138961",
+    "at": "2026-11-09",
+    "hash": "bdeda1857dd64fa8",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -71203,10 +71185,10 @@
     "products": []
   },
   "vi/plants/najas-guadalupensis": {
-    "at": "2026-11-07",
-    "hash": "12d7e91654e62dee",
+    "at": "2026-11-09",
+    "hash": "73eac9fe1a505165",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -71371,20 +71353,11 @@
     ]
   },
   "vi/plants/pogostemon-stellatus": {
-    "at": "2026-11-08",
-    "hash": "792fb4e1550ed3c5",
+    "at": "2026-11-09",
+    "hash": "47346f504f456284",
     "model": "opus",
-    "checklist": 2,
-    "findings": [
-      {
-        "check": "words",
-        "part": "P3",
-        "quote": "trồng trong điều kiện đầm lầy",
-        "why": "This is a literal translation of 'grown emersed'. Keepers in Vietnam call this growing the plant out of water ('trồng cạn').",
-        "by": "model",
-        "fix": "trồng cạn (dạng cạn)"
-      }
-    ],
+    "checklist": 3,
+    "findings": [],
     "products": []
   },
   "vi/plants/proserpinaca-palustris": {
@@ -99937,6 +99910,598 @@
     "model": "opus",
     "checklist": 2,
     "findings": [],
+    "products": []
+  },
+  "id/guides/aquatome-cac-loai-thuc-an-cho-ca-thuc-an-song-trun-chi-trung-huyet-artemia-bobo": {
+    "at": "2026-11-09",
+    "hash": "e7f0478694c1d9dd",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Dalam survei informal tahun 2018 terhadap 445 pembaca",
+        "why": "Refers to the original publication's own readership survey, unknown to this reader.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "id/guides/aquatome-chon-da-soi-cat-va-nen-trang-tri-cho-be-thuy-sinh": {
+    "at": "2026-11-09",
+    "hash": "ccbcbb44ee4ab4ad",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "JBL",
+      "Tropica Aquarium Soil Powder",
+      "ADA Aqua Soil Amazonia",
+      "be Soft",
+      "JBL Manado Dark",
+      "Tropica Aquarium Soil",
+      "Sansibar SNOW",
+      "Sansibar RIVER",
+      "Manado",
+      "ADA Aqua Soil",
+      "Multi Bottom"
+    ]
+  },
+  "id/plants/dracaena-sanderiana": {
+    "at": "2026-11-09",
+    "hash": "c72a88f43d2c2c25",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "ADA Amazonia aqua soil",
+      "Carib Sea Eco-Complete",
+      "Seachem Fluorite"
+    ]
+  },
+  "id/species/chagunius-baileyi": {
+    "at": "2026-11-09",
+    "hash": "1bc5e35d6ae0aeef",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/chagunius-chagunio": {
+    "at": "2026-11-09",
+    "hash": "27d1cf8bdd7ec95e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/chalceus-erythrurus": {
+    "at": "2026-11-09",
+    "hash": "abb004c22e82ffa7",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "sekarang sudah tersedia. Saat ini ukuran ikannya 7-9 cm.",
+        "why": "This is the source shop's stock news about fish it has for sale.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P10",
+        "quote": "paling pas dibandingkan dengan spesies ikan trout asli",
+        "why": "It compares the fish to native trout, which belong to the source's country, not Indonesia.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "id/species/chalceus-macrolepidotus": {
+    "at": "2026-11-09",
+    "hash": "6598a6ddabcdb5bc",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P5",
+        "quote": "beberapa cabang kayu beech",
+        "why": "Beech branches are a European (UK) hardscape habit; the tree doesn't grow in Indonesia, where keepers use local driftwood.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "id/species/champsochromis-caeruleus": {
+    "at": "2026-11-09",
+    "hash": "f8bc3e51577f112d",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/champsochromis-spilorhynchus": {
+    "at": "2026-11-09",
+    "hash": "3c48baadf2f72839",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/channa-argus": {
+    "at": "2026-11-09",
+    "hash": "35f7ce6d91141cc1",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/channa-baramensis": {
+    "at": "2026-11-09",
+    "hash": "04581c1defaabb2e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/channa-burmanica": {
+    "at": "2026-11-09",
+    "hash": "4ebcc875101ca81f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/lates-calcarifer": {
+    "at": "2026-11-09",
+    "hash": "9e96ad1f6e1c95bd",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "Ukuran sekitar 6 m x 1,8 m x 3 m sebaiknya dianggap sebagai batas minimum.",
+        "why": "Tank dimensions appear converted from feet (20 x 6 x 10 ft).",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P11",
+        "quote": "impor ikan ini sekarang sudah dilarang (setidaknya ke Inggris), dan diharapkan karena itu ikan ini akan benar-benar hilang dari dunia hobi",
+        "why": "Framed for a UK reader's hobby market; in Indonesia the fish is native and sold.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P11",
+        "quote": "Spesies ini dimasukkan semata-mata karena belakangan ini anakannya muncul",
+        "why": "Refers to the source database's reason for including the species.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P7",
+        "quote": "Ikan dewasa membutuhkan ikan utuh dalam jumlah besar, misalnya ikan trout.",
+        "why": "Trout as feeder food reflects a European reader's shops.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P7",
+        "quote": "ikan lancefish",
+        "why": "Lancefish is a UK frozen-food name not used by Indonesian keepers.",
+        "by": "model",
+        "fix": "ikan rucah"
+      },
+      {
+        "check": "source",
+        "part": "P11",
+        "quote": "muncul dalam jumlah yang mengkhawatirkan di beberapa toko ikan hias, dan akibatnya juga di akuarium para penghobi",
+        "why": "Describes the source's own (UK) market situation as the reader's.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "id/species/lepidocephalichthys-tomaculum": {
+    "at": "2026-11-09",
+    "hash": "af862f27999282de",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/lepidocephalus-macrochir": {
+    "at": "2026-11-09",
+    "hash": "1d2c8dd04ea72e7f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/luciosoma-pellegrinii": {
+    "at": "2026-11-09",
+    "hash": "4ac9834e0532833b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P5",
+        "quote": "Foto-fotonya tersedia di halaman profil L. setigerum.",
+        "why": "Points the reader to photos on the source site's other profile page, which this page doesn't have.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "id/species/luciosoma-setigerum": {
+    "at": "2026-11-09",
+    "hash": "b8f985a1377cd49b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/macrochirichthys-macrochirus": {
+    "at": "2026-11-09",
+    "hash": "8b4dc9075aff677e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/melanotaenia-affinis": {
+    "at": "2026-11-09",
+    "hash": "298b234dd1a905b8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P10",
+        "quote": "Filter kecil bertenaga aerator sudah cukup memberikan oksigen dan arus",
+        "why": "Literal rendering of 'small air-powered filter'; Indonesian keepers call this a sponge filter.",
+        "by": "model",
+        "fix": "filter spons"
+      }
+    ],
+    "products": []
+  },
+  "id/species/melanotaenia-irianjaya": {
+    "at": "2026-11-09",
+    "hash": "9308ad6da8073b0c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P5",
+        "quote": "ditambah beberapa potong kayu (driftwood) dan ranting pohon beech",
+        "why": "Beech twigs are something keepers in Europe collect; beech trees don't grow in Indonesia.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "ms/species/acarichthys-heckelii": {
+    "at": "2026-11-09",
+    "hash": "fab2addb83f3a77a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P8",
+        "quote": "senarai beberapa spesies yang hidup bersama secara semula jadi boleh didapati dalam bahagian 'habitat' di atas",
+        "why": "Points to a list of tankmates that the page's habitat section does not contain.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "ms/species/acentronichthys-leptos": {
+    "at": "2026-11-09",
+    "hash": "cfbaeaae7dde568c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/acestridium-dichromum": {
+    "at": "2026-11-09",
+    "hash": "4ff3989c3d1f5374",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/acestrorhynchus-altus": {
+    "at": "2026-11-09",
+    "hash": "69c39ca69de1e67d",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P15",
+        "quote": "Spesimen dalam gambar di atas dikumpul berhampiran lokaliti jenis",
+        "why": "Refers to a picture from the source that this page does not have.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/guides/aquatome-cac-loai-thuc-an-cho-ca-thuc-an-song-trun-chi-trung-huyet-artemia-bobo": {
+    "at": "2026-11-09",
+    "hash": "c7e0220bf54ad82b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/guides/aquatome-chon-da-soi-cat-va-nen-trang-tri-cho-be-thuy-sinh": {
+    "at": "2026-11-09",
+    "hash": "c6a504fa6d5c7871",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "JBL PlantSoil",
+      "ShrimpSoil",
+      "Tropica Aquarium Soil Powder",
+      "ADA Aqua Soil Amazonia",
+      "ADA \"be Soft\"",
+      "JBL Manado Dark",
+      "Aquarium Soil",
+      "Sansibar",
+      "Manado",
+      "JBL Sansibar",
+      "Sansibar RIVER",
+      "Multi Bottom"
+    ]
+  },
+  "th/plants/dracaena-sanderiana": {
+    "at": "2026-11-09",
+    "hash": "ff799671c58f7cd8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P5",
+        "quote": "จากนั้นเติมน้ำให้ต่ำกว่าใบชุดล่างสุดประมาณ 2.5 ซม.",
+        "why": "2.5 cm is a straight conversion of 1 inch, not a figure a keeper in Thailand would give.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "ADA Amazonia aqua soil",
+      "Carib Sea Eco-Complete",
+      "Seachem Fluorite"
+    ]
+  },
+  "th/species/chagunius-baileyi": {
+    "at": "2026-11-09",
+    "hash": "f640850ef2738df5",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P2",
+        "quote": "พบติดมากับปลาธรรมชาติที่ส่งมาจากไทยและเมียนมาเป็นครั้งคราว",
+        "why": "Written for a reader in an importing country; for a Thai keeper the fish is local, not shipped from Thailand.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/chagunius-chagunio": {
+    "at": "2026-11-09",
+    "hash": "61bf7e7a46fd5989",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/chalceus-erythrurus": {
+    "at": "2026-11-09",
+    "hash": "5bd00f20f5cc385f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "ตอนนี้มีปลาเตตร้าขนาดใหญ่ที่สวยงามชนิดนี้ซึ่งเป็นปลาเพาะพันธุ์ให้หาได้แล้ว",
+        "why": "Announces the source shop's new stock of captive-bred fish as news to the reader.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "ปลาที่มีอยู่ขณะนี้ยาวประมาณ 7–9 ซม.",
+        "why": "Describes the size of the source shop's current stock.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P7",
+        "quote": "กิ่งไม้บีชบางส่วน",
+        "why": "Beech branches are a European decoration habit, not something Thai keepers use or find.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P10",
+        "quote": "เทียบได้ใกล้เคียงที่สุดกับปลาเทราต์พื้นเมือง",
+        "why": "Compares the fish to the native trout of the German source's readers; trout are not native to Thailand.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/chalceus-macrolepidotus": {
+    "at": "2026-11-09",
+    "hash": "9c0beb0b7ceed673",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P5",
+        "quote": "กิ่งไม้ (เช่น กิ่งบีช)",
+        "why": "Beech branches are a European hobby habit and not something keepers in Thailand can easily get; they use driftwood.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/champsochromis-caeruleus": {
+    "at": "2026-11-09",
+    "hash": "41f0079e2bb3b77a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/champsochromis-spilorhynchus": {
+    "at": "2026-11-09",
+    "hash": "89c668dc99d90ee7",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/channa-argus": {
+    "at": "2026-11-09",
+    "hash": "257ce8fc50e58491",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/channa-baramensis": {
+    "at": "2026-11-09",
+    "hash": "9c626a95fc0168cf",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/channa-burmanica": {
+    "at": "2026-11-09",
+    "hash": "208dac4398b11a16",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/lates-calcarifer": {
+    "at": "2026-11-09",
+    "hash": "e40f1cf9d8170819",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P11",
+        "quote": "ที่รวมปลาชนิดนี้ไว้ก็เพียงเพราะช่วงหลังมีปลาวัยอ่อนวางขายในร้านปลาสวยงามบางร้านเป็นจำนวนมากจนน่าเป็นห่วง",
+        "why": "The source database explains its own choice to include this species, in its own voice.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P11",
+        "quote": "หวังว่าผลที่ตามมาจะทำให้ปลาชนิดนี้หายไปจากวงการเลี้ยงปลาโดยสิ้นเชิง",
+        "why": "It presents a UK import ban as good news for the reader's hobby, but the ban doesn't apply in Thailand.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P7",
+        "quote": "ส่วนปลาโตเต็มวัยต้องได้รับปลาทั้งตัวในปริมาณมาก เช่น ปลาเทราต์",
+        "why": "Trout as whole feeder fish comes from a foreign market; keepers in Thailand would use local fish.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/lepidocephalichthys-tomaculum": {
+    "at": "2026-11-09",
+    "hash": "a6b344ff39b915fc",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/lepidocephalus-macrochir": {
+    "at": "2026-11-09",
+    "hash": "11d438be85e56bd8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/luciosoma-pellegrinii": {
+    "at": "2026-11-09",
+    "hash": "b683fef5d8848224",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P5",
+        "quote": "ภาพของปลาชนิดนี้ดูได้ในหน้าข้อมูลของ L. setigerum",
+        "why": "Points the reader to a photo on the source site's other profile page, which this page doesn't have.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/luciosoma-setigerum": {
+    "at": "2026-11-09",
+    "hash": "eedfdd08e9297139",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/macrochirichthys-macrochirus": {
+    "at": "2026-11-09",
+    "hash": "8a443867ed856101",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/melanotaenia-affinis": {
+    "at": "2026-11-09",
+    "hash": "c1ad6c5e2332a90c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/melanotaenia-irianjaya": {
+    "at": "2026-11-09",
+    "hash": "806cd5c76fa0ce4c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P5",
+        "quote": "วางขอนไม้กับกิ่งไม้บีชไว้บ้าง",
+        "why": "Beech branches are a European hobby decoration not available to keepers in Thailand.",
+        "by": "model"
+      }
+    ],
     "products": []
   }
 }
