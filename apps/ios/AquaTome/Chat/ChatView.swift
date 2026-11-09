@@ -83,7 +83,7 @@ private struct ChatThread: View {
   /// The reader has scrolled since the newest question went (iOS 18 on).
   @State private var readerMoved = false
   /// The empty screen's blocks in the scroll's content, for where it rests over the box.
-  @State private var blocks: [Int: Chat.EmptyBlock] = [:]
+  @State private var blocks = EmptyBlocks()
   /// How far the empty screen is placed.
   @State private var placed: CGFloat = 0
   /// Where the reader had it as the keyboard came up: where the keyboard going takes it back.
@@ -119,13 +119,13 @@ private struct ChatThread: View {
   /// found line by line from one line up. The keyboard going takes it back to where the reader had it; a draft of more
   /// than one line settles where the taller box cuts nothing.
   private func placeEmpty(_ proxy: ScrollViewProxy, height: CGFloat) {
-    guard model.thread.isEmpty, !blocks.isEmpty, boxHeight > 0 else { return }
+    guard model.thread.isEmpty, !blocks.all.isEmpty, boxHeight > 0 else { return }
     let one = emptyBox > 0 ? emptyBox : boxHeight
     var target = restPlace
     if typing || boxHeight > one + 1 {
       let line = UIFont.preferredFont(forTextStyle: .body).lineHeight
       let heights = stride(from: one, to: boxHeight, by: line).map { $0 } + [boxHeight]
-      target = CGFloat(Chat.place(blocks.values.sorted { $0.top < $1.top }, boxTops: heights.map { Double(height - $0) }, from: Double(restPlace)))
+      target = CGFloat(Chat.place(blocks.all.values.sorted { $0.top < $1.top }, boxTops: heights.map { Double(height - $0) }, from: Double(restPlace)))
     }
     guard abs(target - placed) > 0.5 else { return }
     placed = target
@@ -148,7 +148,7 @@ private struct ChatThread: View {
           .allowsHitTesting(false)
           .accessibilityHidden(true)
           VStack(alignment: .leading, spacing: 0) {
-            if !startsAtTitle { ChatHeader(subject: model.route.subject).emptyBlock(.card, 0, into: $blocks) }
+            if !startsAtTitle { ChatHeader(subject: model.route.subject).emptyBlock(.card, 0, into: blocks) }
             if model.thread.isEmpty { empty }
             ForEach(model.thread) { a in
               let last = a.id == model.thread.last?.id
@@ -220,7 +220,7 @@ private struct ChatThread: View {
           placeEmpty(proxy, height: geo.size.height)
         }
         .onChange(of: model.thread.isEmpty) { placed = 0; emptyRoom = 0 }
-        .onChange(of: signedOut) { blocks = [:] }
+        .onChange(of: signedOut) { blocks.all = [:] }
         .safeAreaInset(edge: .bottom, spacing: 0) {
           // The newest question below the box: the reader is in earlier turns, its turn (a screen at least) all below.
           let farUp = !model.thread.isEmpty && (lastTop ?? 0) > geo.size.height - boxHeight
@@ -279,17 +279,17 @@ private struct ChatThread: View {
       }
       .font(.title2.weight(.bold))
       .accessibilityAddTraits(.isHeader)
-      .emptyBlock(.title, 1, into: $blocks)
-      WhoAnswers(fromPhoto: s.fromPhoto).emptyBlock(.line, 2, into: $blocks)
+      .emptyBlock(.title, 1, into: blocks)
+      WhoAnswers(fromPhoto: s.fromPhoto).emptyBlock(.line, 2, into: blocks)
       // Signed out, none of them could be sent: the sign-in card instead. At the first letter typed the starters fade,
       // and come back when the box is empty: the title and the line about who answers are left, so the box has nothing
       // to cut as it grows.
       if signedOut {
-        ChatSignIn().padding(.top, 12).emptyBlock(.starter, 3, into: $blocks)
+        ChatSignIn().padding(.top, 12).emptyBlock(.starter, 3, into: blocks)
       } else {
         // Faded, not gone: the screen's place counts them, so a box emptied again sits where a fresh tap does.
         Chips(items: starters, stacked: true, dim: model.offline || model.stop != nil, placed: { i, r in
-          blocks[3 + i] = Chat.EmptyBlock(.starter, top: Double(r.minY), height: Double(r.height))
+          blocks.all[3 + i] = Chat.EmptyBlock(.starter, top: Double(r.minY), height: Double(r.height))
         }) { model.send($0) }
         .padding(.top, size.isAccessibilitySize ? 2 : 12)
         .opacity(model.draft.isEmpty ? 1 : 0)
@@ -889,11 +889,17 @@ private struct WhenReaderScrolls: ViewModifier {
   }
 }
 
+/// The empty screen's blocks, each reporting its own place. A box, not a `State` dictionary: reports landing in one update
+/// each wrote over the last, leaving only the starters.
+@MainActor private final class EmptyBlocks {
+  var all: [Int: Chat.EmptyBlock] = [:]
+}
+
 private extension View {
   /// Reports this block's place in the chat's content, for where the empty screen rests over the box.
-  func emptyBlock(_ kind: Chat.EmptyBlock.Kind, _ i: Int, into blocks: Binding<[Int: Chat.EmptyBlock]>) -> some View {
+  func emptyBlock(_ kind: Chat.EmptyBlock.Kind, _ i: Int, into blocks: EmptyBlocks) -> some View {
     onGeometryChange(for: CGRect.self) { $0.frame(in: .named(ChatThread.content)) } action: {
-      blocks.wrappedValue[i] = Chat.EmptyBlock(kind, top: Double($0.minY), height: Double($0.height))
+      blocks.all[i] = Chat.EmptyBlock(kind, top: Double($0.minY), height: Double($0.height))
     }
   }
 }

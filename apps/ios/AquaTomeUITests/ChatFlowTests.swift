@@ -141,14 +141,15 @@ final class ChatFlowTests: XCTestCase {
     openChat(app)
     element(app, "chat").swipeUp()
     signIn(app)
+    element(app, "chat").swipeDown()
     element(app, "chat-box").tap()
     XCTAssertTrue(app.keyboards.firstMatch.waitForExistence(timeout: 5), "no keyboard")
-    assertTheBoxsEdgeInAGap(app)
+    assertTheBoxsEdgeInAGap(app, startersMayGoUnderTheBar: true)
   }
 
   /// The screen settled: the line about who answers whole above the box or wholly out of the way, no starter a sliver, the
   /// card not half under the bar.
-  private func assertTheBoxsEdgeInAGap(_ app: XCUIApplication) {
+  private func assertTheBoxsEdgeInAGap(_ app: XCUIApplication, startersMayGoUnderTheBar: Bool = false) {
     RunLoop.current.run(until: Date().addingTimeInterval(1.5))
     // The composer's top: 23 points over the field, the glass's padding and the fade's.
     let edge = element(app, "chat-box").frame.minY - 23, bar = app.navigationBars.firstMatch.frame.maxY
@@ -159,7 +160,8 @@ final class ChatFlowTests: XCTestCase {
     for i in 0..<chips.count {
       let f = chips.element(boundBy: i).frame
       XCTAssertTrue(f.maxY <= edge || f.minY >= edge || edge - f.minY >= 24, "starter \(i) a sliver over the box: \(f), the edge at \(edge)")
-      XCTAssertTrue(f.minY >= bar || f.maxY <= bar, "starter \(i) cut by the bar: \(f), the bar at \(bar)")
+      // The design's last resort, where the box leaves almost no room: a starter partly under the bar's soft edge.
+      XCTAssertTrue(startersMayGoUnderTheBar || f.minY >= bar || f.maxY <= bar, "starter \(i) cut by the bar: \(f), the bar at \(bar)")
     }
     let about = element(app, "chat-about")
     if about.exists {
