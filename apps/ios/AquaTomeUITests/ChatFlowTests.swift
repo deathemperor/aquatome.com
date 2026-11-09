@@ -148,14 +148,19 @@ final class ChatFlowTests: XCTestCase {
     let more = app.buttons["chat-more"]
     reveal(app, more)
     more.tap()
+    // Two turns above the newest: one, even opened, sat above the box with the view at the top.
     ask(app, "Neon ăn gì?")
-    let second = app.descendants(matching: .any).matching(identifier: "chat-answer").element(boundBy: 1)
-    XCTAssertTrue(second.waitForExistence(timeout: 15), "no second answer")
+    let answers = app.descendants(matching: .any).matching(identifier: "chat-answer")
+    XCTAssertTrue(answers.element(boundBy: 1).waitForExistence(timeout: 15), "no second answer")
+    XCTAssertTrue(soon(app.buttons.matching(identifier: "chat-chip").firstMatch.exists, timeout: 15), "the second answer not whole")
+    ask(app, "Neon sống bao lâu?")
+    let second = answers.element(boundBy: 2)
+    XCTAssertTrue(second.waitForExistence(timeout: 15), "no third answer")
     let toEnd = app.buttons["chat-to-end"]
     XCTAssertFalse(toEnd.exists, "a ↓ with the newest question on screen")
     repeatUntil(toEnd.exists, times: 4) { element(app, "chat").swipeDown() }
     let questions = app.staticTexts.matching(identifier: "chat-question")
-    XCTAssertTrue(toEnd.exists, "no ↓ up in the earlier turn: the newest question at \(questions.element(boundBy: 1).frame), the box at "
+    XCTAssertTrue(toEnd.exists, "no ↓ up in the earlier turns: the newest question at \(questions.element(boundBy: 2).frame), the box at "
                   + "\(element(app, "chat-box").frame), the first question \(questions.element(boundBy: 0).frame.height) high")
     XCTAssertEqual(toEnd.label, "Xuống cuối cuộc trò chuyện")
     toEnd.tap()
