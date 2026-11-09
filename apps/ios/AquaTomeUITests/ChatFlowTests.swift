@@ -745,6 +745,27 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertTrue(app.buttons["put-save"].exists, "can't save")
   }
 
+  /// A card long-pressed: "Mở" opens its page, "Chia sẻ" shares it; a section's too.
+  func testALongPressedCardOpensOrSharesItsPage() {
+    let app = launch("-chat-blocks")
+    answerWithEveryBlock(app)
+    let card = app.descendants(matching: .any).matching(identifier: "chat-card").firstMatch
+    XCTAssertTrue(card.waitForExistence(timeout: 5), "no card")
+    reveal(app, card)
+    card.press(forDuration: 1)
+    XCTAssertTrue(app.buttons["Chia sẻ"].waitForExistence(timeout: 5), "no Chia sẻ")
+    app.buttons["Mở"].tap()
+    let page = element(app, "native-page")
+    XCTAssertTrue(page.waitForExistence(timeout: 10), "no page")
+    XCTAssertTrue(page.descendants(matching: .any).matching(NSPredicate(format: "label BEGINSWITH 'Cá neon'")).firstMatch.exists, "not the card's page")
+    app.navigationBars.buttons.firstMatch.tap()
+    let section = app.descendants(matching: .any).matching(identifier: "chat-section").firstMatch
+    reveal(app, section)
+    section.press(forDuration: 1)
+    XCTAssertTrue(app.buttons["Mở"].waitForExistence(timeout: 5), "no Mở on a section")
+    XCTAssertTrue(app.buttons["Chia sẻ"].exists, "no Chia sẻ on a section")
+  }
+
   /// A comparison: a row whose figures differ says so, the one that alone differs named over "the others", a missing figure
   /// said to be missing and never a difference; a fish's name opens its page, one with no page is only its name.
   func testAComparisonMarksTheRowsThatDifferAndOpensAPage() {

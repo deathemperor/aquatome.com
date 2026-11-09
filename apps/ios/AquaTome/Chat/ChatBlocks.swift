@@ -75,6 +75,26 @@ private struct BlockBox<Content: View>: View {
   }
 }
 
+/// A card's long-press menu: "Mở", its page in the app, and "Chia sẻ", the page's address on the site.
+private struct CardMenu: ViewModifier {
+  let path: String?
+  let open: (String) -> Void
+  @Environment(HandbookModel.self) private var handbook
+
+  func body(content: Content) -> some View {
+    if let path, let url = URL(string: path, relativeTo: handbook.site)?.absoluteURL {
+      content
+        .contentShape(.contextMenuPreview, .rect(cornerRadius: 14))
+        .contextMenu {
+          Button("Mở", systemImage: "doc.text") { open(path) }
+          ShareLink(item: url) { Label("Chia sẻ", systemImage: "square.and.arrow.up") }
+        }
+    } else {
+      content
+    }
+  }
+}
+
 // MARK: A species
 
 /// A fish's, breed's or plant's card: its photo (a thumbnail for the chat's own), its name, the facts card's own items
@@ -130,6 +150,7 @@ private struct SpeciesBlock: View {
       }
       .font(.subheadline.weight(.semibold))
     }
+    .modifier(CardMenu(path: card.page.path, open: open))
     .accessibilityIdentifier("chat-card")
     .sheet(isPresented: $putting) { if let item, let life = Life(item) { NavigationStack { PutOnTank(life: life) } } }
   }
@@ -380,6 +401,7 @@ private struct SectionBlock: View {
       .font(.subheadline.weight(.semibold))
       .accessibilityIdentifier("chat-section-open")
     }
+    .modifier(CardMenu(path: page.path + (heading.map { "#\($0.id)" } ?? ""), open: open))
     .accessibilityIdentifier("chat-section")
     .id(id)
     // Links in its text, as the page's own: another page opens in the app, this page's `#id` opens it there, a word's tip shows.
