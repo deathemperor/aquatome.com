@@ -161,6 +161,8 @@ REACH = {
     APP + 'Handbook/KeepOffline.swift': ['OfflineFlowTests'],
     # The photo grid: its flows, and its shots (with the viewer's, which it opens).
     APP + 'Handbook/PhotoGrid.swift': ['PhotoGridFlowTests'] + shots('viewer'),
+    # Every page's pictures, the viewer's and the grid's, fetched and kept for offline: the grid's flows count its fetches.
+    APP + 'Handbook/PageImages.swift': HANDBOOK_SCREENS + ['PhotoViewerFlowTests', 'PhotoGridFlowTests', 'OfflineFlowTests'],
     # Worked out in the kit (job `kit`), drawn only by the grid.
     KIT + 'Sources/Handbook/PhotoRows.swift': ['PhotoGridFlowTests'],
     APP + 'Handbook/ReaderPost.swift': ['ReaderPostFlowTests'],
@@ -310,6 +312,7 @@ def check(runs, left, reached):
     assert {'OfflineFlowTests', 'TankLifeFlowTests', 'HandbookFlowTests/testAPageOpensInTheApp'} <= got, got
     assert reached([APP + 'Handbook/KeepOffline.swift']) == {'OfflineFlowTests'}
     assert reached([APP + 'Handbook/PhotoGrid.swift']) == {'PhotoGridFlowTests', *shots('viewer')}
+    assert {'PhotoGridFlowTests', 'PhotoViewerFlowTests', 'OfflineFlowTests'} | set(HANDBOOK_SCREENS) <= reached([APP + 'Handbook/PageImages.swift'])
     assert 'PhotoViewerFlowTests' in reached([APP + 'Handbook/PhotoViewer.swift'])
     assert reached([KIT + 'Sources/Handbook/PhotoRows.swift']) == {'PhotoGridFlowTests'}
     assert 'PhotoGridFlowTests' in reached([APP + 'Handbook/NativePage.swift'])
