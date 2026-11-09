@@ -50898,16 +50898,23 @@
     ]
   },
   "vi/guides/youtube-43bSNzlX9Fo": {
-    "at": "2026-11-08",
-    "hash": "4ea357c2b9f8ccf9",
+    "at": "2026-11-09",
+    "hash": "d4d75852cceac192",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "Ở đây mỗi bể 40×30×30 cm, khoảng 36 lít nước, thả 1.000 con tép. Sau một ngày, cả năm bể vẫn ổn",
-        "why": "Describes the source's own tanks and stocking as if the reader knew them.",
+        "quote": "Các bể ở đây có kích thước 40 x 30 x 30 cm, chứa khoảng 36 lít nước",
+        "why": "Describes the source's own tanks as if the reader knew them.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P6",
+        "quote": "Ở đây mỗi bể 36 lít được thả 1.000 con tép, tổng cộng 5.000 con cho năm bể.",
+        "why": "Recounts the source's own farm stocking as if the reader knew those five tanks.",
         "by": "model"
       }
     ],
@@ -52922,51 +52929,72 @@
     ]
   },
   "vi/guides/youtube-9_o6AAKAABU": {
-    "at": "2026-11-08",
-    "hash": "885bbd8ea64804ba",
+    "at": "2026-11-09",
+    "hash": "0768d29c511623e7",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
         "part": "P1",
-        "quote": "Bể lớn nhất họ có chỉ khoảng 680 lít",
-        "why": "680 litres is a converted 180-gallon tank size.",
+        "quote": "bể lớn nhất họ có chỉ khoảng 680 lít",
+        "why": "680 litres is a converted 180-gallon tank, not a size anyone in Vietnam would give.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P1",
-        "quote": "dài khoảng 240 cm, rộng khoảng 152 cm, cao khoảng 71 cm, chứa khoảng 2.650 lít",
-        "why": "Dimensions and volume converted from 8 ft × 60 in × 28 in, about 700 gallons.",
+        "quote": "bể dài khoảng 244 cm, rộng 152 cm, cao 71 cm, chứa khoảng 2.650 lít",
+        "why": "These are an 8 × 5 ft tank and a gallon volume converted to metric.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "nuôi cá con trong bể tạm khoảng 380 lít",
+        "why": "380 litres is a converted 100-gallon tank.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "thùng phuy khoảng 208 lít",
+        "why": "208 litres is a converted 55-gallon drum.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
-        "quote": "Ví dụ xuyên suốt là một bể nuôi ba con black diamond (hai cái, một đực) đã nuôi khoảng năm năm.",
-        "why": "Brings in the original writer's own tank as the running example.",
+        "quote": "Có một cửa hàng bán cá đuối nhưng bể lớn nhất họ có chỉ khoảng 680 lít",
+        "why": "This is the writer's own story about a local shop the reader doesn't know.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
-        "quote": "Bể ví dụ chạy một lọc thùng cỡ lớn suốt bốn năm.",
-        "why": "The writer's own story about their filter failing.",
+        "quote": "Ba con black diamond (hai cái, một đực) đang sống trong bể",
+        "why": "It shows the writer's own fish and tank as if the reader knew them.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
-        "quote": "Hướng tiếp theo là làm lọc riêng cỡ lớn cho từng bể",
-        "why": "The source writer's own plans for their tanks.",
+        "quote": "Bể này có một con cá khác nuôi chung.",
+        "why": "It talks about an unnamed fish in the source's own tank.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
-        "quote": "Lúc này đành chờ con đực lớn thêm.",
-        "why": "The writer's own situation with their fish, told as if the reader knew it.",
+        "quote": "Sau bốn năm, người nuôi không định mua lại loại này nữa.",
+        "why": "This is the original writer's own experience and plans.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Cá đuối ở bể này hiền, nhận ra người nuôi",
+        "why": "It describes the source's own stingrays as if the reader knew them.",
         "by": "model"
       }
     ],
@@ -53746,7 +53774,7 @@
     "products": []
   },
   "vi/guides/youtube-aj_iGo-D6GY": {
-    "at": "2026-11-08",
+    "at": "2026-11-09",
     "hash": "2c339cfc075f28aa",
     "model": "opus",
     "checklist": 3,
@@ -53754,43 +53782,22 @@
       {
         "check": "units",
         "part": "P5",
-        "quote": "Con bơm dùng ở đây chỉ 8 W nhưng đẩy được khoảng 1.135 lít/giờ",
-        "why": "1,135 L/h is a straight conversion of 300 gallons per hour, not a figure a Vietnamese keeper would quote.",
+        "quote": "đẩy được khoảng 1.135 lít/giờ",
+        "why": "1,135 L/h is a converted 300 gallons per hour, not a figure a Vietnamese keeper would quote.",
         "by": "model"
       },
       {
         "check": "source",
-        "part": "P5",
-        "quote": "Con bơm dùng ở đây chỉ 8 W",
-        "why": "It points to the source's own pump as if the reader already knew it.",
+        "part": "P9",
+        "quote": "người trồng cũng không chắc về tên",
+        "why": "Refers to the original grower/author whom the reader doesn't know.",
         "by": "model"
       },
       {
         "check": "source",
-        "part": "P15",
-        "quote": "nhưng người trồng cũng không chắc về tên",
-        "why": "It brings in the original grower, someone the reader doesn't know.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P15",
+        "part": "P9",
         "quote": "Trong bể cá ông tiên, ban đầu chỉ trồng bốn năm cây mà giờ đã lên khoảng 15 cây",
-        "why": "It talks about the source's own angelfish tank as if the reader knew it.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P17",
-        "quote": "nhất là khi lượng cây mượn được ít hơn dự tính",
-        "why": "It refers to the writer's own experience of getting fewer plants than planned.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P19",
-        "quote": "Đây chỉ là gợi ý, chưa có phương án chốt",
-        "why": "It refers to the source author's own fish plans that hadn't been decided yet.",
+        "why": "Mentions the source author's own angelfish tank as if the reader knew it.",
         "by": "model"
       }
     ],
@@ -54525,58 +54532,163 @@
     "products": []
   },
   "vi/guides/youtube-bUSTSn1DF5s": {
-    "at": "2026-11-08",
-    "hash": "c6c7b201977e5178",
+    "at": "2026-11-09",
+    "hash": "4821c8fd2f047145",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "price",
+        "check": "units",
         "part": "P1",
-        "quote": "Bộ vách ngăn có giá khoảng 60 đến 80 USD.",
-        "why": "The price is in US dollars, not Vietnamese dong.",
-        "by": "model"
-      },
-      {
-        "check": "price",
-        "part": "P1",
-        "quote": "tấm mica đen dày 6 mm, giá 150 đến 250 USD một tấm",
-        "why": "The acrylic sheet price is in US dollars.",
+        "quote": "Ví dụ gắn sump vào bể 380 lít thì khoảng 26 lít nước trong sump",
+        "why": "380 L and 26 L are converted from 100 and 7 gallons.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P1",
-        "quote": "giả định mỗi lần mất điện, bể chính sẽ tụt khoảng 2,5 cm nước xuống sump",
-        "why": "2.5 cm is a converted 1-inch rule of thumb.",
-        "by": "model"
-      },
-      {
-        "check": "units",
-        "part": "P1",
-        "quote": "Ví dụ bể khoảng 2.650 lít, cao 71 cm.",
-        "why": "2,650 L and 71 cm are a 700-gallon, 28-inch tank converted to metric.",
-        "by": "model"
-      },
-      {
-        "check": "units",
-        "part": "P1",
-        "quote": "Gắn sump khoảng 26 lít vào bể 400 lít",
-        "why": "These volumes are converted gallon sizes (about 7 and 105 gallons).",
-        "by": "model"
-      },
-      {
-        "check": "units",
-        "part": "P1",
-        "quote": "Bạn có thể dùng bể 190 lít và chỉ chạy nửa bể",
-        "why": "190 L is a converted 50-gallon tank size.",
+        "quote": "giả sử mặt nước bể chính hạ khoảng 2,5 cm khi mất điện",
+        "why": "2.5 cm is a converted 1 inch.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
-        "quote": "Chẳng hạn bể 2.650 lít ở trên chỉ chạy bốn lọc thùng",
-        "why": "It describes the source writer's own tank setup as if the reader knew it.",
+        "quote": "Lấy ví dụ một bể cá piranha 2.650 lít, cao 71 cm",
+        "why": "Uses the writer's own piranha tank, in converted gallons and inches, as the example.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Ở bể này, mỗi 2,5 cm nước tương đương khoảng 95 lít",
+        "why": "95 L is a converted 25 gallons per inch.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "có lẽ chỉ khoảng 38 lít",
+        "why": "38 L is a converted 10 gallons.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Một bể 190 lít chỉ đổ nửa bể cũng đáp ứng được",
+        "why": "190 L is a converted 50-gallon tank.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "sump nhỏ nhất để thoải mái xoay xở có thể là bể khoảng 265–285 lít",
+        "why": "265–285 L is a converted 70–75 gallons.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Vẫn ở bể 2.650 lít kia, nó đang chạy bằng bốn lọc thùng",
+        "why": "Describes the writer's own tank setup as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "tối đa khoảng 11 lít một thùng, cả bốn thùng khoảng 45 lít",
+        "why": "Volumes converted from gallons.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "mỗi tấm đã tốn khoảng 150–250 USD",
+        "why": "Price in US dollars.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "Khoảng 60–80 USD",
+        "why": "Price in US dollars.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Bể kính 38, 57 hoặc 76 lít",
+        "why": "10, 15 and 20-gallon US tank sizes converted.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "Khoảng 1 USD cho mỗi 3,8 lít",
+        "why": "The US shops' dollar-per-gallon tank sale, priced in USD.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "Khoảng 100 USD, không cần loại đắt",
+        "why": "Price in US dollars.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "Khoảng 150 USD",
+        "why": "Price in US dollars.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Khoang này chứa được khoảng 22 lít vật liệu lọc",
+        "why": "22 L looks like a converted gallon figure.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "với giá khoảng 50 USD",
+        "why": "Price in US dollars.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "L4",
+        "quote": "Bộ vách ngăn chuyển đổi giá khoảng 60–80 USD",
+        "why": "Price in US dollars.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "L4",
+        "quote": "ghép vào bể kính 38–76 lít",
+        "why": "Converted 10–20-gallon tank sizes.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "L10",
+        "quote": "giả sử mặt nước hạ 2,5 cm",
+        "why": "2.5 cm is a converted 1 inch.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Biết là có 95 lít có thể dồn xuống thì sump phải còn trống đủ chỗ cho 95 lít đó",
+        "why": "95 L is a converted 25 gallons.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Một sump 285 lít có thể chứa gấp bốn lần chỗ đó",
+        "why": "285 L is a converted 75 gallons.",
         "by": "model"
       }
     ],
@@ -60602,60 +60714,48 @@
     "products": []
   },
   "vi/guides/youtube-KDbGcwFCT7M": {
-    "at": "2026-11-08",
-    "hash": "ef733322b13d3ecf",
+    "at": "2026-11-09",
+    "hash": "af1d2fdcee69a837",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "Nắp tạm trong ví dụ gồm một miếng mút lót đáy bể, một miếng xốp, một khay inox",
-        "why": "Describes the source writer's own makeshift lid as if the reader had seen it.",
+        "quote": "Bể 60 cm ở đây có lũa nhô hẳn lên khỏi mặt nước",
+        "why": "Refers to the source writer's own tank as if the reader knew it.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
-        "quote": "Một bể khác trong nhà không có lũa nhô ra nên đậy tấm kính rất gọn.",
-        "why": "Refers to the original writer's other tank at home, which the reader doesn't know.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Ở chỗ này còn dự định gắn thêm một tấm lưới để tiện mở ra đóng vào.",
-        "why": "Reports the source writer's own plans for their lid.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Sau vài ngày dùng kiểu này, bể vẫn ổn, rêu và cây vẫn lên tốt.",
-        "why": "The source writer's first-hand account of their own tank.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Tấm mua về dài 600 mm, vừa khít chiều dài bể 60 cm.",
-        "why": "Describes the specific sheet the source writer bought, as if the reader knew it.",
+        "quote": "Sau vài ngày dùng nắp theo cách này, bể vẫn phát triển rất tốt.",
+        "why": "The source writer's own first-hand report about their tank.",
         "by": "model"
       },
       {
         "check": "words",
         "part": "P1",
-        "quote": "Tấm nhựa rỗng ruột là loại tấm nhựa có các rãnh rỗng chạy song song bên trong",
-        "why": "A literal description; Vietnamese buyers call this material by its trade name.",
+        "quote": "Tấm nhựa sóng (plastic corrugated board)",
+        "why": "Translated term with English gloss; Vietnamese keepers call this PP hollow sheet / danpla.",
         "by": "model",
-        "fix": "tấm nhựa Danpla / tấm nhựa PP rỗng"
+        "fix": "tấm nhựa PP rỗng (tấm danpla)"
       },
       {
-        "check": "elsewhere",
+        "check": "words",
         "part": "P1",
-        "quote": "Bạn tìm ở khu tấm nhựa của trung tâm vật liệu hoặc cửa hàng gia dụng.",
-        "why": "Assumes a Japanese-style home centre with a plastic-sheet aisle, which is not how people in Vietnam buy this.",
-        "by": "model"
+        "quote": "khu tấm nhựa của các trung tâm vật liệu (home center)",
+        "why": "Japanese 'home center' calque; in Vietnam people buy sheets at a building-materials or plastic-sheet shop.",
+        "by": "model",
+        "fix": "cửa hàng vật liệu xây dựng / tiệm tấm nhựa"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Người chơi bố cục chuyên nghiệp",
+        "why": "Literal calque of 'layout professionals'; Vietnamese hobbyists say layout.",
+        "by": "model",
+        "fix": "người làm layout thủy sinh chuyên nghiệp"
       }
     ],
     "products": []
@@ -60854,34 +60954,45 @@
     "products": []
   },
   "vi/guides/youtube-kq-MchItRfo": {
-    "at": "2026-11-08",
-    "hash": "ab6d15029d830397",
+    "at": "2026-11-09",
+    "hash": "eff669481bc93d35",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "source",
+        "check": "harm",
         "part": "P1",
-        "quote": "Lần làm lại này dùng lại phần lớn cây có sẵn, nên chi phí chỉ nằm ở nền và vật liệu bố cục.",
-        "why": "It tells the story of the original writer's own rebuild as if the reader knew that tank.",
+        "quote": "Rút cạn nước.",
+        "why": "Draining the tank fully before catching the fish and shrimp leaves them stranded out of water.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
-        "quote": "Lần này cá và tép được thả lại ngay sau đó.",
-        "why": "It reports what the source writer did with their own fish, not advice for the reader.",
+        "quote": "Bể cũ được set để đi thi, thi xong thì đến lúc đổi layout.",
+        "why": "Treats the source creator's own competition tank as if the reader knew it.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
-        "quote": "Bố cục ở đây rất gọn, chỉ có ba khúc lũa và năm viên đá.",
-        "why": "It describes the source's own tank as if the reader could see it.",
+        "quote": "đến lúc đó người làm đã mệt nhoài",
+        "why": "Refers to the source's own person doing the rescape, whom the reader doesn't know.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Hôm đó làm đến tối nên việc châm đầy nước để sang hôm sau.",
+        "why": "A first-hand story of the source creator's day.",
         "by": "model"
       }
     ],
-    "products": []
+    "products": [
+      "Aqua Art",
+      "Sera",
+      "JBL Greenline"
+    ]
   },
   "vi/guides/youtube-KQPY_PVu6UM": {
     "at": "2026-11-08",
@@ -63011,72 +63122,121 @@
     ]
   },
   "vi/guides/youtube-nF0uT_39Ots": {
-    "at": "2026-11-08",
-    "hash": "023b930109bc1a04",
+    "at": "2026-11-09",
+    "hash": "4ff9dce7e13fba49",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
+        "check": "units",
+        "part": "P1",
+        "quote": "bể gỗ ép hình ngũ giác góc (corner pentagon) cao 76 cm, đặt trên chân cao khoảng 86 cm",
+        "why": "The heights are 30 and 34 inches converted to centimetres.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể này nằm ngay cạnh cửa sổ tầng hầm.",
+        "why": "This is the original writer's own tank and house, described as if the reader knew them.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "cửa này có thể phải dùng làm lối thoát hiểm",
+        "why": "A basement window used as an emergency exit is a North American house rule, not a Vietnamese one.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Tổng chiều cao khoảng 163 cm, còn chừa khoảng 30 cm tới trần cao 2,1 m",
+        "why": "These are feet and inches converted to metric (a 7 ft ceiling, 1 ft of clearance).",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Nhà có mèo hay nhảy cao 1,5–1,8 m, nên bể này sẽ có thêm nắp đậy.",
+        "why": "This is the writer's personal story about their own cat.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "17 thanh gỗ 2x4 để đóng khung bể.",
+        "why": "2x4 and 2x6 are US lumber sizes in inches that are not sold under these names in Vietnam.",
+        "by": "model"
+      },
+      {
         "check": "price",
         "part": "P1",
-        "quote": "hết khoảng 300 đô la Canada",
-        "why": "Cost is given in Canadian dollars, a foreign currency.",
+        "quote": "Toàn bộ phần khung làm trong một ngày, tốn khoảng 300 đô.",
+        "why": "The cost is given in US dollars.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Mỗi con vít chịu được lực cắt khoảng 23 kg là gãy",
+        "why": "These are pound figures (50 lb, 1200 lb) converted to kilograms.",
         "by": "model"
       },
       {
         "check": "elsewhere",
         "part": "P1",
-        "quote": "Gỗ thanh 2x4 (theo quy cách gỗ Bắc Mỹ, khoảng 3,8 x 8,9 cm)",
-        "why": "Assumes North American lumber sizes are what the reader buys.",
+        "quote": "các thanh đứng cách nhau 15 cm thay vì khoảng 40 cm như vách nhà",
+        "why": "Wooden stud walls with 16-inch spacing are how North American houses are built, not Vietnamese ones.",
         "by": "model"
       },
       {
-        "check": "elsewhere",
+        "check": "units",
         "part": "P1",
-        "quote": "chứ không thưa khoảng 40 cm như vách nhà",
-        "why": "Assumes the reader's house has wooden stud walls at 16-inch spacing, as in North America.",
+        "quote": "chừa gờ tối thiểu khoảng 3,8 cm khi lắp tấm nhìn",
+        "why": "This is 1.5 inches converted to centimetres.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "tấm mặt trước cỡ 122 x 74 cm nên vùng nhìn còn khoảng 114 x 66 cm",
+        "why": "The panel sizes are inch measurements converted to centimetres.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Bể này tính theo kích thước ngoài là khoảng 1.380 lít, nhưng chứa thật chỉ khoảng 1.170 lít.",
+        "why": "These volumes are converted from gallons.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Một bể 450 lít cỡ 122 x 61 x 61 cm",
+        "why": "This is a US 4 x 2 x 2 ft tank (120 gallons) converted to metric.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
-        "quote": "bể khoảng 1.170 lít nước trong bài này hoàn thiện chỉ nặng chừng 90 kg",
-        "why": "Refers to the source article's own build as if the reader knew it.",
+        "quote": "Thời gian trung bình (ước tính của một người đã đóng nhiều bể)",
+        "why": "It cites an unnamed builder from the source article.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "tự đóng hay mua đều khoảng 500 đô một bể",
+        "why": "The price is given in US dollars.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
-        "quote": "Bể mẫu dùng 17 thanh.",
-        "why": "Refers to the original author's example tank.",
-        "by": "model"
-      },
-      {
-        "check": "units",
-        "part": "P1",
-        "quote": "cao khoảng 76 cm, nằm trên chân cao khoảng 86 cm",
-        "why": "Heights converted from 30 and 34 inches.",
-        "by": "model"
-      },
-      {
-        "check": "units",
-        "part": "P1",
-        "quote": "khoảng 1.100–1.900 lít trở lên",
-        "why": "Volumes converted from 300–500 gallons.",
-        "by": "model"
-      },
-      {
-        "check": "units",
-        "part": "P1",
-        "quote": "gờ gỗ đỡ tối thiểu khoảng 3,8 cm ở cả bốn cạnh",
-        "why": "Lip width converted from 1.5 inches.",
-        "by": "model"
-      },
-      {
-        "check": "units",
-        "part": "P1",
-        "quote": "vùng nhìn thấy còn khoảng 114 x 66 cm",
-        "why": "Dimensions converted from inches (45 × 26 in).",
+        "quote": "Bể gỗ ép này làm để nuôi 7 con cá oscar.",
+        "why": "This is the writer's own project, told as if the reader knew it.",
         "by": "model"
       }
     ],
@@ -64711,20 +64871,11 @@
     "products": []
   },
   "vi/guides/youtube-pmAONHBduCw": {
-    "at": "2026-11-08",
-    "hash": "960327581da50219",
+    "at": "2026-11-09",
+    "hash": "074b8328568dc10b",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "words",
-        "part": "P15",
-        "quote": "trừ sán mỏ neo (anchor worm)",
-        "why": "Anchor worm is a crustacean parasite that Vietnamese keepers call 'trùng mỏ neo', not 'sán'.",
-        "by": "model",
-        "fix": "trùng mỏ neo"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/guides/youtube-PnwEzP5x8eU": {
