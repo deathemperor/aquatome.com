@@ -8,9 +8,12 @@
   "mentions": [
     "lagenandra-meeboldii",
     "rotala-rotundifolia",
-    "rotala-macrandra"
+    "rotala-macrandra",
+    "eleocharis-parvula",
+    "bucephalandra-sp",
+    "pogostemon-helferi"
   ],
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "Z2Wv0RxD67g",
     "title": "Hồ thuỷ sinh nature 1.2m hướng dẫn setup và chăm sóc toàn tập - Tập 4 - thuỷ sinh Quoidecor",
@@ -31,19 +34,29 @@
     "lang": "vi",
     "taxa": [
       "Hemianthus callitrichoides",
-      "Lagenandra meeboldii",
+      "Eleocharis parvula",
       "Rotala rotundifolia",
-      "Rotala macrandra",
+      "Rotala sp.",
       "Ludwigia sp.",
+      "Lagenandra meeboldii",
+      "Bucephalandra sp.",
+      "Pogostemon helferi",
+      "Hydrocotyle sp.",
       "Taxiphyllum sp.",
-      "Cryptocoryne sp.",
-      "Corydoras sp.",
-      "Neritina sp."
+      "Nerita sp.",
+      "Botia sp."
     ],
     "gear": [
       {
         "category": "be-ca",
-        "type": "lon",
+        "type": "chuan",
+        "t": 0
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "brand": "JBL",
+        "model": "Aquabasic plus",
         "t": 0
       },
       {
@@ -54,9 +67,7 @@
       },
       {
         "category": "phan-nen",
-        "type": "phan",
-        "brand": "JBL",
-        "model": "AquaBasic Plus",
+        "type": "cat",
         "t": 0
       },
       {
@@ -72,34 +83,27 @@
         "t": 0
       },
       {
-        "category": "loc",
-        "type": "treo",
-        "t": 0
-      },
-      {
-        "category": "loc",
-        "brand": "Seachem",
-        "model": "Purigen",
-        "t": 0
-      },
-      {
-        "category": "co2",
-        "type": "binh",
-        "brand": "Ista",
-        "t": 0
-      },
-      {
         "category": "co2",
         "type": "binh",
         "brand": "Mufan",
-        "t": 0
+        "t": 1410
       },
       {
         "category": "den",
         "type": "thuy-sinh",
         "brand": "Chihiros",
-        "model": "WRGB2 90",
+        "model": "WRGB2 90CM",
         "t": 0
+      },
+      {
+        "category": "test-nuoc",
+        "type": "test",
+        "t": 1410
+      },
+      {
+        "category": "khac",
+        "brand": "Multibio",
+        "t": 269
       },
       {
         "category": "khac",
@@ -112,142 +116,63 @@
         "brand": "Seachem",
         "model": "Excel",
         "t": 0
-      },
-      {
-        "category": "khac",
-        "brand": "Multibio",
-        "t": 289
-      },
-      {
-        "category": "test-nuoc",
-        "type": "test",
-        "t": 1410
       }
     ],
     "figures": [
       {
-        "heading": "Bể đang chạy với thông số nào",
-        "moments": [
-          {
-            "t": 1428,
-            "url": "https://media.aquatome.com/video/Z2Wv0RxD67g/t1428.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Toàn cảnh bể thủy sinh với đá, lũa và cây mọc dày, đèn phía trên."
-          }
-        ]
+        "heading": "Đèn và thời gian chiếu sáng ở giai đoạn này",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/Z2Wv0RxD67g/p0-oeXB1cylfNC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/Z2Wv0RxD67g/p0-oeXB1cylfNC5qcGc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Coughdrop12",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mini_caulerpa_(Caulerpa_brachypus)_4.jpg",
+          "caption": "Cây thủy sinh xanh tốt dưới đèn mạnh, bên cạnh đã xuất hiện rêu hại đỏ."
+        }
       },
       {
-        "heading": "Nhận biết rêu hại sớm và xử lý",
+        "heading": "Nhận ra rêu hại sớm",
         "moments": [
           {
             "t": 30,
-            "url": "https://media.aquatome.com/video/Z2Wv0RxD67g/t30.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Lá trân châu bị phủ lớp nâu, rêu hại bắt đầu lên."
-          },
-          {
-            "t": 387,
-            "url": "https://media.aquatome.com/video/Z2Wv0RxD67g/t387.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Rêu hại bám trên đá trong bể thủy sinh còn non."
+            "url": "https://media.aquatome.com/video/Z2Wv0RxD67g/at30-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Thảm trân châu mới trồng trên nền cát, có ốc nhỏ bò ngang.",
+            "sharpness": 1112.1
           }
         ]
       },
       {
-        "heading": "Ốc ăn rêu nên thả bao nhiêu",
+        "heading": "Ốc dọn kính: thả bao nhiêu thì vừa",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/Z2Wv0RxD67g/p2-0ZV9TbmFpbC5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/Z2Wv0RxD67g/p2-0ZV9TbmFpbC5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/Z2Wv0RxD67g/p3-0ZV9TbmFpbC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/Z2Wv0RxD67g/p3-0ZV9TbmFpbC5qcGc-480.webp",
           "width": 960,
           "height": 960,
           "licence": "CC BY-SA 4.0",
           "author": "Atulbhats",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nerite_Snail.jpg",
-          "caption": "Ốc nerite vàng đang bò trên kính bể để dọn rêu."
+          "caption": "Một con ốc nerite vàng đang bò trên kính bể để ăn rêu."
         }
       },
       {
-        "heading": "Cây nhũn lúc đầu có lên lại không",
-        "moments": [
-          {
-            "t": 317,
-            "url": "https://media.aquatome.com/video/Z2Wv0RxD67g/t317.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Toàn cảnh hồ ngày 29, thảm cây tiền cảnh đã lên khá kín nền."
-          },
-          {
-            "t": 337,
-            "url": "https://media.aquatome.com/video/Z2Wv0RxD67g/t337.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Thảm trân châu ngọc trai xanh phủ dày trên nền, giữa các hòn đá đỏ."
-          }
-        ]
-      },
-      {
-        "heading": "Đọc bọt khí và màu lá",
-        "moments": [
-          {
-            "t": 426,
-            "url": "https://media.aquatome.com/video/Z2Wv0RxD67g/t426.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bụi cây lá trên ngả hồng đỏ, phần lá dưới màu nhạt hơn."
-          },
-          {
-            "t": 803,
-            "url": "https://media.aquatome.com/video/Z2Wv0RxD67g/t803.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cây thân đứng lá đỏ nâu xen xanh bên cạnh đá."
-          }
-        ]
-      },
-      {
-        "heading": "Khi nào phải cắt tỉa cây thân đứng",
-        "moments": [
-          {
-            "t": 1339,
-            "url": "https://media.aquatome.com/video/Z2Wv0RxD67g/t1339.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bụi cây đỏ đã lên sát mặt nước, tay cầm kéo chuẩn bị cắt tỉa."
-          }
-        ],
+        "heading": "Cây bị nhũn lúc đầu vẫn có thể hồi lại",
+        "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/Z2Wv0RxD67g/p5-J1LUluZGlhLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/Z2Wv0RxD67g/p5-J1LUluZGlhLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/Z2Wv0RxD67g/p4-dW1fVS5BLkUuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/Z2Wv0RxD67g/p4-dW1fVS5BLkUuanBn-480.webp",
           "width": 960,
           "height": 720,
-          "licence": "CC BY 4.0",
-          "author": "Yercaud-elango",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rotala_vendetta_Green-2-veda_aquarium-bengaluru-India.jpg",
-          "caption": "Cây thân đứng đã vươn sát mặt nước, đến lúc cần cắt tỉa."
+          "licence": "CC BY-SA 4.0",
+          "author": "Ranjith-chemmad",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Freshwater_aquarium_U.A.E.jpg",
+          "caption": "Bể thủy sinh có thảm trân châu ngọc trai phủ kín nền, cây thân mọc phía sau."
         }
-      },
-      {
-        "heading": "Tỉa dần để ra bố cục tam giác",
-        "moments": [
-          {
-            "t": 972,
-            "url": "https://media.aquatome.com/video/Z2Wv0RxD67g/t972.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Toàn cảnh bể thủy sinh với lũa và đá, cây đang lên bố cục tam giác."
-          },
-          {
-            "t": 982,
-            "url": "https://media.aquatome.com/video/Z2Wv0RxD67g/t982.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh dùng nhíp tỉa cây giữa các nhánh lũa trong bể."
-          }
-        ]
       }
     ]
   }

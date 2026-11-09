@@ -7,9 +7,11 @@
   "photos": [],
   "mentions": [
     "taxiphyllum-barbieri",
-    "microsorum-pteropus"
+    "microsorum-pteropus",
+    "poecilia-reticulata",
+    "ceratophyllum-demersum"
   ],
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "YA4xCkUITpQ",
     "title": "BEGINNER PLANT: Java Moss",
@@ -32,45 +34,34 @@
       "Microsorum pteropus",
       "Anubias sp.",
       "Taxiphyllum sp.",
-      "Najas sp."
+      "Poecilia reticulata",
+      "Ceratophyllum demersum"
     ],
     "gear": [],
     "figures": [
       {
-        "heading": "Rêu Java là cây gì",
+        "heading": "Rêu Java sống được ở điều kiện nước nào",
         "moments": [
           {
-            "t": 49,
-            "url": "https://media.aquatome.com/video/YA4xCkUITpQ/t49.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Rêu Java trên màn hình, cạnh hồ có đá và rêu mọc ở nền."
+            "t": 30,
+            "url": "https://media.aquatome.com/video/YA4xCkUITpQ/at30-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh với đá và rêu xanh phủ dưới nền, cá bơi quanh.",
+            "sharpness": 194.2
           },
           {
-            "t": 54,
-            "url": "https://media.aquatome.com/video/YA4xCkUITpQ/t54.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đám rêu Java xanh dày, mọc thành cụm toàn sợi nhỏ."
+            "t": 55,
+            "url": "https://media.aquatome.com/video/YA4xCkUITpQ/at55-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cụm rêu Java xanh tươi, rậm rạp hiển thị trên màn hình.",
+            "sharpness": 133.7
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/YA4xCkUITpQ/p0-phdmFtb29zLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/YA4xCkUITpQ/p0-phdmFtb29zLmpwZw-480.webp",
-          "width": 960,
-          "height": 1124,
-          "licence": "CC BY-SA 3.0",
-          "author": "Wikimedia Commons",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Javamoos.jpg",
-          "caption": "Rêu Java cận cảnh, các sợi mảnh mọc thành đám dày."
-        }
-      },
-      {
-        "heading": "Điều kiện nước rêu Java chịu được",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/YA4xCkUITpQ/p1-hcG9uaWNhKS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/YA4xCkUITpQ/p1-hcG9uaWNhKS5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/YA4xCkUITpQ/p0-hcG9uaWNhKS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/YA4xCkUITpQ/p0-hcG9uaWNhKS5qcGc-480.webp",
           "width": 960,
           "height": 720,
           "licence": "CC BY-SA 4.0",
@@ -80,36 +71,17 @@
         }
       },
       {
-        "heading": "Dùng rêu Java trong bể thế nào",
-        "moments": [
-          {
-            "t": 123,
-            "url": "https://media.aquatome.com/video/YA4xCkUITpQ/t123.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Toàn cảnh bể với đá tạo vòm và đàn cá nhỏ bơi phía trên."
-          },
-          {
-            "t": 177,
-            "url": "https://media.aquatome.com/video/YA4xCkUITpQ/t177.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể nhỏ có cụm đá xếp thành vòm, rêu xanh phủ dưới chân đá."
-          }
-        ]
-      },
-      {
-        "heading": "Bắt đầu từ đâu",
+        "heading": "Vì sao không trồng rêu Java xuống nền",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/YA4xCkUITpQ/p5-hdmFfbW9zcy5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/YA4xCkUITpQ/p5-hdmFfbW9zcy5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/YA4xCkUITpQ/p1-phdmFtb29zLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/YA4xCkUITpQ/p1-phdmFtb29zLmpwZw-480.webp",
           "width": 960,
-          "height": 720,
-          "licence": "CC BY 4.0",
-          "author": "Gouramii",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sphaerichthys_vaillanti_above_Java_moss.jpg",
-          "caption": "Rêu phủ thành thảm trên khúc lũa, có con cá nhỏ bơi trú bên trên."
+          "height": 1124,
+          "licence": "CC BY-SA 3.0",
+          "author": "Wikimedia Commons",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Javamoos.jpg",
+          "caption": "Rêu Java cận cảnh với các nhánh xanh mảnh, xếp thành từng cụm."
         }
       }
     ]

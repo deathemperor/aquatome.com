@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "vg0xJoA0Vj4",
     "title": "EP:2 Complete Aquascaping Beginners Guide - Preparing the setup",
@@ -31,7 +31,21 @@
         "type": "nano",
         "brand": "Dennerle",
         "model": "Scaper's Tank 55L",
-        "t": 32
+        "t": 47
+      },
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "brand": "Chihiros",
+        "model": "45B series",
+        "t": 240
+      },
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "brand": "Twinstar",
+        "model": "450 E series IV",
+        "t": 67
       },
       {
         "category": "loc",
@@ -55,133 +69,71 @@
         "t": 625
       },
       {
-        "category": "den",
-        "type": "thuy-sinh",
-        "brand": "Twinstar",
-        "model": "450 E series IV",
-        "t": 74
-      },
-      {
-        "category": "den",
-        "type": "thuy-sinh",
-        "brand": "Chihiros",
-        "model": "45B series",
-        "t": 74
-      },
-      {
         "category": "co2",
         "type": "binh",
-        "t": 74
+        "t": 67
+      },
+      {
+        "category": "khac",
+        "brand": "Chihiros",
+        "model": "Flexible filter tubing",
+        "t": 547
       }
     ],
     "figures": [
       {
-        "heading": "Hai bể khác nhau ở những món nào",
+        "heading": "Kính thường và kính siêu trong khác nhau thế nào",
         "moments": [
           {
             "t": 0,
-            "url": "https://media.aquatome.com/video/vg0xJoA0Vj4/t0.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Hai bể đặt cạnh nhau, một bể đã có nền và một bể kính trống."
-          },
-          {
-            "t": 99,
-            "url": "https://media.aquatome.com/video/vg0xJoA0Vj4/t99.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Thiết bị lọc ngoài Oase và bộ van CO2 được mở ra xem."
+            "url": "https://media.aquatome.com/video/vg0xJoA0Vj4/at0-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hai bể cùng cỡ đặt cạnh nhau, bể kính thường ngả xanh, bể kính siêu trong trong hơn.",
+            "sharpness": 594.1
           }
         ]
       },
       {
-        "heading": "Có nên dán phông nền không, dán loại nào",
+        "heading": "Dán phông nền sau bể: phim keo hay phim tĩnh điện",
         "moments": [
           {
-            "t": 227,
-            "url": "https://media.aquatome.com/video/vg0xJoA0Vj4/t227.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Hai bể trống, mặt sau bể bên trái đã dán phim mờ."
-          },
-          {
-            "t": 256,
-            "url": "https://media.aquatome.com/video/vg0xJoA0Vj4/t256.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Đang áp tấm phim dán lên mặt sau của bể."
-          }
-        ]
-      },
-      {
-        "heading": "Gắn đèn và cài đặt",
-        "moments": [
-          {
-            "t": 385,
-            "url": "https://media.aquatome.com/video/vg0xJoA0Vj4/t385.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Đèn Chihiros đã được gắn lên thành bể, chiếu sáng đều."
+            "t": 220,
+            "url": "https://media.aquatome.com/video/vg0xJoA0Vj4/at220-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "So sánh hai bể kính, một bể đã dán phông nền phía sau.",
+            "sharpness": 168.2
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/vg0xJoA0Vj4/p2-1bV9MaWdodC5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/vg0xJoA0Vj4/p2-1bV9MaWdodC5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/vg0xJoA0Vj4/p1-0YW5nLmFycC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/vg0xJoA0Vj4/p1-0YW5nLmFycC5qcGc-480.webp",
           "width": 960,
-          "height": 666,
-          "licence": "CC BY-SA 3.0",
-          "author": "Lime Huang",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_Aquarium_Light.jpg",
-          "caption": "Bể thủy sinh có cây xanh tốt, đèn LED gắn trên thành bể bằng chân kẹp."
+          "height": 759,
+          "licence": "Public domain",
+          "author": "Adrian Pingstone",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yellow.tang.arp.jpg",
+          "caption": "Cá tang vàng bơi trước nền bể tối, nổi bật và gọn mắt."
         }
       },
       {
         "heading": "Lắp lọc trong cho bể low tech",
-        "moments": [
-          {
-            "t": 424,
-            "url": "https://media.aquatome.com/video/vg0xJoA0Vj4/t424.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cầm thân lọc trong, xem núm vặn và đầu ra nước."
-          },
-          {
-            "t": 454,
-            "url": "https://media.aquatome.com/video/vg0xJoA0Vj4/t454.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Áp lọc trong vào góc bể, ép núm hít vào kính cho chắc."
-          }
-        ],
+        "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/vg0xJoA0Vj4/p3-ZXJkcml2ZTIuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/vg0xJoA0Vj4/p3-ZXJkcml2ZTIuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/vg0xJoA0Vj4/p3-LmZpbHRlcjIuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/vg0xJoA0Vj4/p3-LmZpbHRlcjIuanBn-480.webp",
           "width": 960,
           "height": 720,
           "licence": "CC BY-SA 4.0",
           "author": "Ofkun",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Suisaku.eight.drive.m.internal.aqualium.filter.moterdrive2.jpg",
-          "caption": "Lọc trong Suisaku đã lắp ống đầu ra, sẵn sàng đặt vào bể."
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Suisaku.space.power.fit.internal.aqualium.filter2.jpg",
+          "caption": "Lọc trong nhỏ gọn cùng phụ kiện, sẵn sàng lắp vào bể."
         }
       },
       {
         "heading": "Lắp lọc ngoài cho bể high tech",
-        "moments": [
-          {
-            "t": 483,
-            "url": "https://media.aquatome.com/video/vg0xJoA0Vj4/t483.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Túi phụ kiện chứa các chân cao su nhỏ để lót đáy lọc."
-          },
-          {
-            "t": 523,
-            "url": "https://media.aquatome.com/video/vg0xJoA0Vj4/t523.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Hộp lọc ngoài đặt cạnh vật liệu lọc và phụ kiện vừa mở ra."
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/vg0xJoA0Vj4/p4-JfRmlsdGVyLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/vg0xJoA0Vj4/p4-JfRmlsdGVyLmpwZw-480.webp",
@@ -190,25 +142,19 @@
           "licence": "CC BY-SA 4.0",
           "author": "Fish Tank Society",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
-          "caption": "Lọc ngoài đặt trong tủ dưới bể, ống dẫn nối sẵn, bên cạnh là xô nước."
+          "caption": "Lọc ngoài đặt trong tủ bể, có ống nối và xô nước bên cạnh."
         }
       },
       {
-        "heading": "Đặt sưởi rời trong bể low tech",
+        "heading": "Đặt sưởi trong bể cho đúng",
         "moments": [
           {
-            "t": 631,
-            "url": "https://media.aquatome.com/video/vg0xJoA0Vj4/t631.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Mở hộp sưởi rời, cầm thân sưởi và dây điện trên tay."
-          },
-          {
-            "t": 651,
-            "url": "https://media.aquatome.com/video/vg0xJoA0Vj4/t651.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Sưởi đặt phía sau lọc, không chạm vào thân lọc trong bể."
+            "t": 20,
+            "url": "https://media.aquatome.com/video/vg0xJoA0Vj4/at20-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cây sưởi mảnh đặt sát góc bể, cạnh đám rong và cây thủy sinh.",
+            "sharpness": 787.6
           }
         ],
         "photo": {
@@ -219,46 +165,8 @@
           "licence": "CC BY-SA 3.0",
           "author": "Ewkaa",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grza%C5%82ka_do_akwarium.jpg",
-          "caption": "Thân sưởi rời có dây điện và giác hút, chưa lắp vào bể."
+          "caption": "Cây sưởi bể cá nhỏ có giác hút, dây điện gọn, cắm điện là chạy."
         }
-      },
-      {
-        "heading": "Ráp bộ CO2 từng bước",
-        "moments": [
-          {
-            "t": 779,
-            "url": "https://media.aquatome.com/video/vg0xJoA0Vj4/t779.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bình CO2 đứng thẳng, gắn van giảm áp và nối ống dẫn."
-          },
-          {
-            "t": 838,
-            "url": "https://media.aquatome.com/video/vg0xJoA0Vj4/t838.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cầm van điện (solenoid) bên cạnh bình CO2 và van giảm áp."
-          }
-        ]
-      },
-      {
-        "heading": "Bắt đầu từ đâu",
-        "moments": [
-          {
-            "t": 434,
-            "url": "https://media.aquatome.com/video/vg0xJoA0Vj4/t434.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Đang lắp bộ lọc nhỏ vào bể trống."
-          },
-          {
-            "t": 878,
-            "url": "https://media.aquatome.com/video/vg0xJoA0Vj4/t878.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể trống đã gắn đèn, ống và dây đang được sắp xếp."
-          }
-        ]
       }
     ]
   }
