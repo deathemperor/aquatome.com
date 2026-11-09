@@ -113,7 +113,8 @@ final class FakeChat {
     }
     // `-chat-refuses-over`: a Worker that takes less than its status said.
     let over = number("-chat-refuses-over") ?? number("-chat-max") ?? 500
-    guard question.utf16.count <= over else { return refuse(413, #"{"error":"too long","limit":\#(over)}"#) }
+    // In characters as the reader sees them, as the Worker counts (`charsOf`, graphemes): Swift's `count`.
+    guard question.count <= over else { return refuse(413, #"{"error":"too long","limit":\#(over)}"#) }
     if args.contains("-chat-rate") { return refuse(429, #"{"error":"rate","limit":30}"#) }
     if args.contains("-chat-busy") { return refuse(429, #"{"error":"busy"}"#) }
     let at = "\(sub) \(conversation)"

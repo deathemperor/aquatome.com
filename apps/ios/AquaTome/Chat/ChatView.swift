@@ -71,7 +71,11 @@ private struct ChatThread: View {
   @State private var onSite: URL?
   /// The reader is up the thread while an answer lands: "Câu trả lời mới ↓" over the box.
   @State private var newBelow = false
-  @State private var lastInView = true
+  /// Each turn on the screen or not, by its question (iOS 18 on). Watched on every turn, not just the newest: a watch
+  /// added and taken away as a turn stops being the newest made it a new view, losing what it held (a question opened
+  /// with "Xem thêm" closed again).
+  @State private var visible: [UUID: Bool] = [:]
+  private var lastInView: Bool { model.thread.last.map { visible[$0.id] ?? true } ?? true }
   /// A section closed with its heading off the screen: back to it.
   @State private var scrollBack: String?
   /// The earlier conversation under the starters, being read back, or that couldn't be.
@@ -106,7 +110,10 @@ private struct ChatThread: View {
                 // The newest question keeps a screen's height below it: the scroll on sending can put it under the bar,
                 // and nothing that shrinks under it (the steps folding) moves it.
                 .frame(minHeight: last ? geo.size.height : nil, alignment: .top)
-                .onScrollVisible(last) { lastInView = $0; if $0 { newBelow = false } }
+                .onScrollVisible { v in
+                  visible[a.id] = v
+                  if v, a.id == model.thread.last?.id { newBelow = false }
+                }
                 // Stopped: back down towards the box as it fades; under Reduce Motion, a plain fade.
                 .transition(.asymmetric(insertion: .identity, removal: reduceMotion ? .opacity : .opacity.combined(with: .move(edge: .bottom))))
                 .onGeometryChange(for: CGFloat.self) { $0.frame(in: .scrollView).minY } action: { if last { lastTop = $0 } }
@@ -610,15 +617,18 @@ private struct Pause: View {
   @State private var still = false
 
   var body: some View {
-    Group {
-      if still { ProgressView().controlSize(.small).transition(.opacity).accessibilityIdentifier("chat-pause") }
-    }
-    .frame(maxWidth: .infinity, alignment: .leading)
-    .task(id: text) {
-      still = false
-      try? await Task.sleep(for: .seconds(0.3))
-      if !Task.isCancelled { withAnimation(.easeOut(duration: 0.15)) { still = true } }
-    }
+    // A view even before the spinner shows: SwiftUI runs no task on an empty one, so the spinner never came. The spinner
+    // lies over the room under the last line, so it takes no space and nothing moves as it comes or goes.
+    Color.clear.frame(height: 0)
+      .frame(maxWidth: .infinity, alignment: .leading)
+      .overlay(alignment: .topLeading) {
+        if still { ProgressView().controlSize(.small).transition(.opacity).accessibilityIdentifier("chat-pause") }
+      }
+      .task(id: text) {
+        still = false
+        try? await Task.sleep(for: .seconds(0.3))
+        if !Task.isCancelled { withAnimation(.easeOut(duration: 0.15)) { still = true } }
+      }
   }
 }
 
@@ -797,8 +807,8 @@ private struct Wrap: Layout {
 }
 
 extension View {
-  /// Told whether this view is on screen as the thread scrolls (iOS 18 on; before, always).
-  @ViewBuilder func onScrollVisible(_ watch: Bool, _ seen: @escaping (Bool) -> Void) -> some View {
-    if watch, #available(iOS 18.0, *) { onScrollVisibilityChange(threshold: 0.05, seen) } else { self }
+  /// Told whether this view is on screen as the thread scrolls (iOS 18 on; before, never told).
+  @ViewBuilder func onScrollVisible(_ seen: @escaping (Bool) -> Void) -> some View {
+    if #available(iOS 18.0, *) { onScrollVisibilityChange(threshold: 0.05, seen) } else { self }
   }
 }
