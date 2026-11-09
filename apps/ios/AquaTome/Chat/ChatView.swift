@@ -60,6 +60,8 @@ private struct ChatThread: View {
   /// first words and the keyboard going down put it back under the bar; scrolled into earlier turns or down the answer,
   /// nothing moves.
   @State private var lastTop: CGFloat?
+  /// The box's height, with what's over it: the screen above it is what the reader sees.
+  @State private var boxHeight: CGFloat = 0
 
   private var signedOut: Bool { account.user == nil }
 
@@ -102,10 +104,15 @@ private struct ChatThread: View {
         .onChange(of: model.thread.last?.reply.writing) { _, w in if w == true { pinIfOnIt(proxy, height: geo.size.height) } }
         .onChange(of: typing) { _, up in if !up { pinIfOnIt(proxy, height: geo.size.height) } }
         .safeAreaInset(edge: .bottom, spacing: 0) {
-          ChatComposer(model: model, typing: $typing, signedOut: signedOut, newBelow: newBelow) {
+          // The newest question below the box: the reader is in earlier turns, its turn (a screen at least) all below.
+          let farUp = !model.thread.isEmpty && (lastTop ?? 0) > geo.size.height - boxHeight
+          ChatComposer(model: model, typing: $typing, signedOut: signedOut, newBelow: newBelow, farUp: farUp) {
             newBelow = false
             if let id = model.thread.last?.id { withAnimation { proxy.scrollTo(id, anchor: .top) } }
+          } toEnd: {
+            if let id = model.thread.last?.id { withAnimation(reduceMotion ? nil : .smooth(duration: 0.35)) { proxy.scrollTo(id, anchor: .bottom) } }
           }
+          .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { boxHeight = $0 }
         }
       }
     }
@@ -114,6 +121,12 @@ private struct ChatThread: View {
     .sensoryFeedback(.impact(weight: .light), trigger: model.thread.count) { a, b in b > a }
     .sensoryFeedback(.impact(flexibility: .soft), trigger: model.thread.last?.reply.writing) { _, b in b == true }
     .sensoryFeedback(.warning, trigger: warned) { _, b in b }
+  }
+
+  /// "Sửa và hỏi lại": the question back in the box, keyboard up, unless the day is refused (nothing can be sent).
+  private func editAgain(_ question: String) {
+    model.editAgain(question)
+    if model.stop == nil { typing = true }
   }
 
   private var warned: Bool {
@@ -160,7 +173,8 @@ private struct ChatThread: View {
   @ViewBuilder private func turn(_ a: ChatModel.Asked, last: Bool) -> some View {
     VStack(alignment: .leading, spacing: 12) {
       if a.anew { NewConversation() }
-      Bubble(text: a.question).id(a.id)
+      // Its answer still on its way, only copied: editing it then is the stop (#767), so nothing is asked twice.
+      Bubble(text: a.question, editAgain: last && model.answering ? nil : { editAgain(a.question) }).id(a.id)
       switch a.outcome {
       // Asked again only under the latest question.
       case .failed(let code) where code != "cut" && !a.reply.text.isEmpty:
@@ -331,6 +345,8 @@ private struct WhoAnswers: View {
 /// whole.
 private struct Bubble: View {
   let text: String
+  /// "Sửa và hỏi lại" in its long-press menu; nil, only "Sao chép".
+  let editAgain: (() -> Void)?
   @Environment(\.colorScheme) private var scheme
   @State private var whole = false
   /// The question's height in full, and as shown: taller in full, six lines cut it.
@@ -364,9 +380,17 @@ private struct Bubble: View {
       // Dark: a deep green with white text, not the bright tint: the answer is what the eye should go to.
       .foregroundStyle(scheme == .dark ? Color.white : Color.primary)
       .background(scheme == .dark ? Color(red: 0.11, green: 0.33, blue: 0.24) : Color.accentColor.opacity(0.16), in: .rect(cornerRadius: 18))
-      .textSelection(.enabled)
+      // Long-pressed, the bubble lifts with a short menu by it, as Messages does; VoiceOver offers the same as its actions.
+      .contentShape(.contextMenuPreview, .rect(cornerRadius: 18))
+      .contextMenu { menu }
       .accessibilityLabel(Text("Bạn hỏi: \(text)"))
+      .accessibilityActions { menu }
       .accessibilityIdentifier("chat-question")
+  }
+
+  @ViewBuilder private var menu: some View {
+    Button("Sao chép", systemImage: "doc.on.doc") { UIPasteboard.general.string = text }
+    if let editAgain { Button("Sửa và hỏi lại", systemImage: "pencil", action: editAgain) }
   }
 }
 
