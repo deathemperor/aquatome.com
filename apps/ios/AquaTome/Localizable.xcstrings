@@ -11485,6 +11485,28 @@
         }
       }
     },
+    "Thu gọn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ciutkan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tunjuk kurang"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แสดงน้อยลง"
+          }
+        }
+      }
+    },
     "Thuật ngữ": {
       "localizations": {
         "id": {
@@ -19115,28 +19137,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "เกี่ยวกับ"
-          }
-        }
-      }
-    },
-    "Thu gọn": {
-      "localizations": {
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ciutkan"
-          }
-        },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tunjuk kurang"
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "แสดงน้อยลง"
           }
         }
       }
