@@ -48,7 +48,10 @@ struct V2Root: View {
       }
       Tab("Đèn", systemImage: "lightbulb", value: Pick.lights) { LightsView().v2ClearUnderTabBar(on: Color(.systemGroupedBackground), fade: 10) }
       Tab(value: Pick.search, role: .search) {
-        HandbookView(path: $searchPath).v2StackLinks($searchPath).v2ClearUnderTabBar(on: Color(.systemGroupedBackground), fade: V2Fade.height)
+        HandbookView(path: $searchPath).v2StackLinks($searchPath)
+          .environment(\.v2Pages, true)
+          .environment(\.v2OpenFull) { item, at in searchPath.append(FullPage(item: item, at: at)) }
+          .v2ClearUnderTabBar(on: Color(.systemGroupedBackground), fade: V2Fade.height)
       }
     }
     // The owner's: no band behind the tab bar, and nothing through its glass (ClearUnderTabBar on each tab).
@@ -220,6 +223,8 @@ extension EnvironmentValues {
   /// A fish's or plant's page as v1 draws it (FullPage), pushed on the stack in front where v2's holds a part it can't draw
   /// ("Xem phần này ở trang đầy đủ"), counted for switching back to v1 (V2Root).
   @Entry var v2OpenFull: (HandbookIndex.Item, _ at: String?) -> Void = { _, _ in }
+  /// On v2's search tab, whose screen is v1's (HandbookView): a fish's or plant's page opens as v2 draws it there too.
+  @Entry var v2Pages = false
   /// What the tab stands on under its bar and fade, for a page whose colour reaches them (ClearUnderTabBar).
   @Entry var v2FootGround: Binding<FootGround?>?
   /// How many times the screen has been asked again ("Thử lại", a pull to refresh): a photo that didn't come tries again.

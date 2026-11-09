@@ -56,7 +56,8 @@ struct OwnerComments: View {
       HStack(alignment: .firstTextBaseline) {
         (Text(verbatim: c.name).font(.subheadline.weight(.semibold)) + Text(verbatim: c.at.map { " · " + Self.ago($0) } ?? "").font(.footnote).foregroundStyle(.secondary))
         Spacer(minLength: 8)
-        if c.state != "shown" {
+        // Not what the filter already says.
+        if c.state != "shown", c.state != comments.state {
           let held = c.state == "held"
           Text(verbatim: held ? "Held" : "Hidden").font(.caption.weight(.semibold))
             .foregroundStyle(held ? Color.orange : .secondary)

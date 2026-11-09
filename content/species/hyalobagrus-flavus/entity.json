@@ -10,6 +10,62 @@
     "indonesia",
     "batang-hari"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Batang Hari",
+        "Mentaya",
+        "Sumatra",
+        "Borneo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to parts of Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "This is a riverine species found in the Batang Hari drainage in Sumatra and the Mentaya Basin in Borneo.",
+          "countries": [],
+          "regions": [
+            "Batang Hari",
+            "Mentaya",
+            "Sumatra",
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2338091,
+      "total": 1,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "ID",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

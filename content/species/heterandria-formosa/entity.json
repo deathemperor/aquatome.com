@@ -11,6 +11,307 @@
     "florida",
     "st-johns"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "US"
+      ],
+      "regions": [
+        "Mississippi",
+        "Florida peninsula",
+        "Cape Fear River",
+        "Lake Okeechobee",
+        "St. Johns",
+        "Santee"
+      ],
+      "sources": [
+        "glaser",
+        "aquariumbreeder",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Heterandria formosa originates from Florida and neighbouring states of the USA.",
+          "countries": [
+            "US"
+          ],
+          "regions": []
+        },
+        {
+          "source": "aquariumbreeder",
+          "quote": "It is commonly found throughout the south-eastern United States, from at least as far west as the western Mississippi river drainage in West Baton Rouge Parish, Louisiana, throughout the Florida peninsula, and as far north as the Cape Fear River, North Carolina.",
+          "countries": [],
+          "regions": [
+            "Mississippi",
+            "Florida peninsula",
+            "Cape Fear River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Rivers and areas include: Bogue Chitto, Caloosahatchee, Coosawhatchie, Everglades National Park, Frog Creek, Greenfield Lake, Haskell Wetlands, Hatchet Creek, Hillsborough, Kanawha, Kissimmee, Lake Okeechobee, Otter Creek, Pee Dee, Santee, Shark, St. Johns, St. Louis Canal, Stanley Creek, Steinhatchee, Wakulla.",
+          "countries": [],
+          "regions": [
+            "Lake Okeechobee",
+            "St. Johns",
+            "Santee"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2349968,
+      "total": 1589,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "US",
+          1588
+        ],
+        [
+          "MX",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -108.28125,
+          28.125,
+          1,
+          0
+        ],
+        [
+          -97.03125,
+          29.53125,
+          1,
+          1
+        ],
+        [
+          -95.625,
+          28.125,
+          1,
+          1
+        ],
+        [
+          -95.625,
+          29.53125,
+          38,
+          38
+        ],
+        [
+          -94.21875,
+          29.53125,
+          34,
+          34
+        ],
+        [
+          -94.21875,
+          30.9375,
+          2,
+          2
+        ],
+        [
+          -92.8125,
+          29.53125,
+          35,
+          35
+        ],
+        [
+          -92.8125,
+          30.9375,
+          5,
+          5
+        ],
+        [
+          -91.40625,
+          28.125,
+          10,
+          10
+        ],
+        [
+          -91.40625,
+          29.53125,
+          161,
+          161
+        ],
+        [
+          -90,
+          28.125,
+          39,
+          39
+        ],
+        [
+          -90,
+          29.53125,
+          103,
+          103
+        ],
+        [
+          -88.59375,
+          29.53125,
+          18,
+          18
+        ],
+        [
+          -88.59375,
+          30.9375,
+          17,
+          17
+        ],
+        [
+          -88.59375,
+          32.34375,
+          1,
+          1
+        ],
+        [
+          -87.1875,
+          29.53125,
+          36,
+          36
+        ],
+        [
+          -87.1875,
+          30.9375,
+          1,
+          1
+        ],
+        [
+          -85.78125,
+          29.53125,
+          20,
+          20
+        ],
+        [
+          -85.78125,
+          30.9375,
+          4,
+          4
+        ],
+        [
+          -84.375,
+          28.125,
+          10,
+          10
+        ],
+        [
+          -84.375,
+          29.53125,
+          47,
+          47
+        ],
+        [
+          -84.375,
+          30.9375,
+          4,
+          4
+        ],
+        [
+          -82.96875,
+          25.3125,
+          20,
+          20
+        ],
+        [
+          -82.96875,
+          26.71875,
+          61,
+          61
+        ],
+        [
+          -82.96875,
+          28.125,
+          277,
+          277
+        ],
+        [
+          -82.96875,
+          29.53125,
+          98,
+          98
+        ],
+        [
+          -82.96875,
+          30.9375,
+          4,
+          4
+        ],
+        [
+          -82.96875,
+          32.34375,
+          1,
+          1
+        ],
+        [
+          -81.5625,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          -81.5625,
+          25.3125,
+          90,
+          90
+        ],
+        [
+          -81.5625,
+          26.71875,
+          173,
+          173
+        ],
+        [
+          -81.5625,
+          28.125,
+          243,
+          243
+        ],
+        [
+          -81.5625,
+          29.53125,
+          4,
+          4
+        ],
+        [
+          -81.5625,
+          30.9375,
+          3,
+          3
+        ],
+        [
+          -81.5625,
+          32.34375,
+          5,
+          5
+        ],
+        [
+          -80.15625,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          -80.15625,
+          32.34375,
+          5,
+          5
+        ],
+        [
+          -78.75,
+          33.75,
+          14,
+          14
+        ],
+        [
+          -78.75,
+          35.15625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

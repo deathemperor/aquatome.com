@@ -10,7 +10,8 @@ struct FactsCard: View {
   let facts: HandbookIndex.Facts
   var plant: HandbookIndex.Plant?
   var inPage = false
-  /// v2's card (docs/design/v2-fish-page.md): its labels a size up, the difficulty's word plain, its "2/8" smaller.
+  /// v2's card (docs/design/v2-fish-page.md): six figures, not its lifespan; in rows of three from the left, one missing
+  /// closing up; its labels a size up, the difficulty's word plain, its "2/8" smaller.
   var v2 = false
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.dynamicTypeSize) private var size
@@ -21,7 +22,7 @@ struct FactsCard: View {
       // As many to a row as fit the reader's text size: three, two, or one at the largest.
       let n = size.isAccessibilitySize ? 1 : size >= .xxLarge ? 2 : 3
       Grid(alignment: .topLeading, horizontalSpacing: 12, verticalSpacing: 16) {
-        ForEach(Self.rows(all.count, n), id: \.self) { row in
+        ForEach(v2 ? Self.plainRows(all.count, n) : Self.rows(all.count, n), id: \.self) { row in
           GridRow {
             ForEach(row, id: \.self) { i in
               Fact(item: all[i], large: true, v2: v2).frame(maxWidth: .infinity, alignment: .leading)
@@ -73,7 +74,7 @@ struct FactsCard: View {
     if let r = facts.ph { out.append(Item(label: "pH", value: HandbookIndex.Facts.range(r, locale))) }
     if let r = facts.gh { out.append(Item(label: "Độ cứng (dGH)", value: HandbookIndex.Facts.range(r, locale))) }
     if let v = facts.sizeCm { out.append(Item(label: "Kích thước", value: "\(HandbookIndex.Facts.number(v, locale)) cm")) }
-    if let r = facts.lifeYears { out.append(Item(label: "Tuổi thọ", value: "\(HandbookIndex.Facts.range(r, locale)) \(String(localized: "năm"))")) }
+    if !v2, let r = facts.lifeYears { out.append(Item(label: "Tuổi thọ", value: "\(HandbookIndex.Facts.range(r, locale)) \(String(localized: "năm"))")) }
     if let v = facts.tankCm { out.append(Item(label: "Bể tối thiểu", value: "\(HandbookIndex.Facts.number(v, locale)) cm")) }
     if let d = facts.difficulty {
       // The word in its level's colour, "6/8" beside it; read as the site's badge is: "Độ khó 6/8: khó".
@@ -114,6 +115,11 @@ struct FactsCard: View {
       rows += [above.lowerBound..<above.upperBound - 1, above.upperBound - 1..<last.upperBound]
     }
     return rows
+  }
+
+  /// `n` to a row, in order, the last row as long as is left.
+  static func plainRows(_ count: Int, _ n: Int) -> [Range<Int>] {
+    stride(from: 0, to: count, by: n).map { $0..<min($0 + n, count) }
   }
 
   /// The site's words for each temperament (TEMPERAMENT_LABELS).

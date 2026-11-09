@@ -17,9 +17,11 @@
     "hygrophila-pinnatifida",
     "alternanthera-reineckii",
     "blyxa-japonica",
-    "bucephalandra-sp"
+    "bucephalandra-sp",
+    "micranthemum-tweediei",
+    "poecilia-reticulata"
   ],
-  "updatedAt": "2026-11-06",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "MoI3OuGSMaQ",
     "title": "CHEAP AQUARIUM💰 VS EXPENSIVE AQUARIUM💰💰💰WILL IT MAKE A BIG DIFFERENCE?",
@@ -85,40 +87,34 @@
     "taxa": [
       "Micranthemum tweediei",
       "Marsilea hirsuta",
+      "Marsilea crenata",
       "Vesicularia ferriei",
+      "Hygrophila pinnatifida",
       "Hygrophila lancea",
       "Micranthemum umbrosum",
       "Rotala rotundifolia",
       "Ludwigia repens",
       "Phyllanthus fluitans",
-      "Marsilea crenata",
       "Lilaeopsis sp.",
-      "Hygrophila pinnatifida",
       "Alternanthera reineckii",
-      "Blyxa japonica",
       "Nesaea pedicellata",
-      "Bucephalandra sp."
+      "Blyxa japonica",
+      "Bucephalandra sp.",
+      "Poecilia reticulata"
     ],
     "gear": [
       {
         "category": "be-ca",
-        "type": "chuan",
+        "type": "nano",
         "brand": "Green Aqua",
         "model": "Optic White 36P",
-        "t": 100
+        "t": 106
       },
       {
         "category": "be-ca",
-        "type": "chuan",
+        "type": "nano",
         "brand": "ILA",
         "t": 136
-      },
-      {
-        "category": "den",
-        "type": "thuy-sinh",
-        "brand": "Chihiros",
-        "model": "A2",
-        "t": 65
       },
       {
         "category": "den",
@@ -131,15 +127,22 @@
         "category": "den",
         "type": "thuy-sinh",
         "brand": "Twinstar",
-        "model": "30b",
-        "t": 215
+        "model": "30B",
+        "t": 203
+      },
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "brand": "Chihiros",
+        "model": "A2 series",
+        "t": 65
       },
       {
         "category": "phan-nen",
         "type": "phan",
         "brand": "Aquario",
         "model": "Neo Soil",
-        "t": 330
+        "t": 346
       },
       {
         "category": "phan-nen",
@@ -154,7 +157,7 @@
       {
         "category": "khac",
         "brand": "Master Line",
-        "model": "root tabs",
+        "model": "Root caps",
         "t": 376
       },
       {
@@ -166,7 +169,7 @@
       },
       {
         "category": "loc",
-        "type": "thung",
+        "type": "treo",
         "t": 1025
       },
       {
@@ -184,21 +187,21 @@
     ],
     "figures": [
       {
-        "heading": "Kính bể rẻ và kính bể đắt khác gì nhau",
+        "heading": "Bể kính rẻ và bể kính đắt khác nhau chỗ nào",
         "moments": [
           {
             "t": 110,
-            "url": "https://media.aquatome.com/video/MoI3OuGSMaQ/t109-hd.webp",
+            "url": "https://media.aquatome.com/video/MoI3OuGSMaQ/at110-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Hai bể kính đặt cạnh nhau để so sánh độ trong và màu kính."
+            "caption": "Hai bể kính 36P đặt cạnh nhau để so sánh độ trong và màu kính."
           },
           {
             "t": 140,
-            "url": "https://media.aquatome.com/video/MoI3OuGSMaQ/t138-hd.webp",
+            "url": "https://media.aquatome.com/video/MoI3OuGSMaQ/at140-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Hai bể nhìn gần, thấy rõ ánh màu kính và mép kính khác nhau."
+            "caption": "Cận hai bể: bể rẻ ngả xanh lá, bể đắt trong hơn."
           }
         ],
         "photo": {
@@ -209,25 +212,25 @@
           "licence": "CC BY-SA 4.0",
           "author": "Pelagic",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sydney_Zoo_aquarium_exhibit_A,_front_view_crop_2023-02-05.jpg",
-          "caption": "Bể kính nhìn ngang, thấy rõ mặt kính và đường mép bể."
+          "caption": "Mặt kính bể nhìn ngang, thấy rõ độ trong và đường viền kính."
         }
       },
       {
-        "heading": "Đèn 170 euro và đèn 30 euro chênh nhau thế nào",
+        "heading": "Đèn 170 euro so với đèn 30 euro",
         "moments": [
           {
-            "t": 290,
-            "url": "https://media.aquatome.com/video/MoI3OuGSMaQ/t287-hd.webp",
+            "t": 310,
+            "url": "https://media.aquatome.com/video/MoI3OuGSMaQ/at310-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Đèn Skylight bên trái sáng hơn đèn Twinstar bên phải."
+            "caption": "Hai bể đặt cạnh nhau, mỗi bể một cây đèn để so sánh độ sáng."
           },
           {
-            "t": 310,
-            "url": "https://media.aquatome.com/video/MoI3OuGSMaQ/t307-hd.webp",
+            "t": 320,
+            "url": "https://media.aquatome.com/video/MoI3OuGSMaQ/at320-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Hai bể đặt cạnh nhau, mỗi bể một đèn đang bật để so sánh."
+            "caption": "Hai cây đèn gác trên hai bể, nhìn bằng mắt thường chênh không nhiều."
           }
         ],
         "photo": {
@@ -238,25 +241,25 @@
           "licence": "CC BY-SA 3.0",
           "author": "Lime Huang",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_Aquarium_Light.jpg",
-          "caption": "Bể thủy sinh nhỏ trồng cây xanh tốt dưới đèn LED gắn trên thành bể."
+          "caption": "Bể thủy sinh nhỏ có đèn LED gắn trên thành bể."
         }
       },
       {
-        "heading": "Làm nền: phân nền hay đất ao phủ sỏi",
+        "heading": "Lót nền: phân nền và đất trồng cây ao phủ sỏi",
         "moments": [
           {
             "t": 380,
-            "url": "https://media.aquatome.com/video/MoI3OuGSMaQ/t376-hd.webp",
+            "url": "https://media.aquatome.com/video/MoI3OuGSMaQ/at380-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Các túi phân nền, đất trồng cây và phân viên bày sẵn trên bàn."
+            "caption": "Các túi đất trồng cây ao, phân nhét và sỏi bày sẵn trên bàn."
           },
           {
-            "t": 490,
-            "url": "https://media.aquatome.com/video/MoI3OuGSMaQ/t485-hd.webp",
+            "t": 530,
+            "url": "https://media.aquatome.com/video/MoI3OuGSMaQ/at530-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể nhỏ đã trải lớp nền tối, đang dặm nền bằng dụng cụ."
+            "caption": "Cốc đựng sỏi giá rẻ để phủ lên lớp đất trồng cây ao."
           }
         ]
       },
@@ -265,77 +268,65 @@
         "moments": [
           {
             "t": 670,
-            "url": "https://media.aquatome.com/video/MoI3OuGSMaQ/t663-hd.webp",
+            "url": "https://media.aquatome.com/video/MoI3OuGSMaQ/at670-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cây được chia đều ra hai khay trước khi trồng vào hai bể."
+            "caption": "Hai khay cây chia đều, sẵn sàng trồng vào hai bể."
           },
           {
-            "t": 680,
-            "url": "https://media.aquatome.com/video/MoI3OuGSMaQ/t673-hd.webp",
+            "t": 830,
+            "url": "https://media.aquatome.com/video/MoI3OuGSMaQ/at830-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cận cảnh cây xanh và cây đỏ trong khay, chia đều cho hai bể."
+            "caption": "Hai bể đã trồng cây kiểu Dutch nhỏ với tiền, trung, hậu cảnh."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/MoI3OuGSMaQ/p3-lfRmVydGlnLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/MoI3OuGSMaQ/p3-lfRmVydGlnLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/MoI3OuGSMaQ/p3-J1LUluZGlhLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/MoI3OuGSMaQ/p3-J1LUluZGlhLmpwZw-480.webp",
           "width": 960,
-          "height": 339,
-          "licence": "CC BY-SA 3.0",
-          "author": "Shay Fertig",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Enchanted_Garden_by_Shay_Fertig.jpg",
-          "caption": "Bể thủy sinh kiểu Dutch với các cụm cây xanh đỏ chia lớp rõ ràng."
+          "height": 720,
+          "licence": "CC BY 4.0",
+          "author": "Yercaud-elango",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Micranthemum_tweediei-1-veda_aquarium-bengaluru-India.jpg",
+          "caption": "Thảm Monte Carlo xanh mướt phủ kín nền tiền cảnh bể thủy sinh."
         }
       },
       {
-        "heading": "Lọc có cần đắt không",
+        "heading": "Lọc: chỗ có thể bớt tiền",
         "moments": [
           {
-            "t": 1010,
-            "url": "https://media.aquatome.com/video/MoI3OuGSMaQ/t999-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh nhỏ cây đỏ, thiết bị lọc gọn phía trên."
-          },
-          {
             "t": 1040,
-            "url": "https://media.aquatome.com/video/MoI3OuGSMaQ/t1029-hd.webp",
+            "url": "https://media.aquatome.com/video/MoI3OuGSMaQ/at1040-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể rẻ dùng lọc trong đơn giản gắn vào kính bên phải."
+            "caption": "Bể rẻ dùng lọc trong nhỏ gắn bằng giác hút vào kính."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/MoI3OuGSMaQ/p4-LmZpbHRlcjEuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/MoI3OuGSMaQ/p4-LmZpbHRlcjEuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/MoI3OuGSMaQ/p4-LmZpbHRlcjIuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/MoI3OuGSMaQ/p4-LmZpbHRlcjIuanBn-480.webp",
           "width": 960,
           "height": 720,
           "licence": "CC BY-SA 4.0",
           "author": "Ofkun",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Suisaku.space.power.fit.internal.aqualium.filter1.jpg",
-          "caption": "Lọc trong đơn giản, rẻ tiền, kèm ống xả và núm hít cao su."
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Suisaku.space.power.fit.internal.aqualium.filter2.jpg",
+          "caption": "Lọc trong đơn giản của Suisaku, kèm dây điện, ống xả và phụ kiện."
         }
       },
       {
-        "heading": "Bắt đầu từ đâu",
-        "moments": [
-          {
-            "t": 1470,
-            "url": "https://media.aquatome.com/video/MoI3OuGSMaQ/t1454-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bộ CO2 bình với van, dây dẫn và chai CO2 tự chế bên cạnh."
-          },
-          {
-            "t": 1490,
-            "url": "https://media.aquatome.com/video/MoI3OuGSMaQ/t1474-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh nhỏ trồng cây đỏ và thảm cỏ xanh đẹp mắt."
-          }
-        ]
+        "heading": "Chạy hai bể thế nào và tổng chi phí",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/MoI3OuGSMaQ/p7-NfUGxhbnRzLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/MoI3OuGSMaQ/p7-NfUGxhbnRzLmpwZw-480.webp",
+          "width": 960,
+          "height": 638,
+          "licence": "CC BY 4.0",
+          "author": "Abhik.Mazumdar.73",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_with_Mermaid_Statue_Driftwood_and_Anubias_Aquatic_Plants.jpg",
+          "caption": "Bể thủy sinh nền cát trắng, bố trí lũa và cây lá xanh."
+        }
       }
     ]
   }

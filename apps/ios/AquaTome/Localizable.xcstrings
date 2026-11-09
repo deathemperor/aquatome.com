@@ -551,6 +551,28 @@
         }
       }
     },
+    "%lld ảnh bạn đọc gửi, ngoài %lld ảnh ở trên.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld foto kiriman pembaca, di luar %2$lld foto di atas."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld foto kiriman pembaca, selain %2$lld foto di atas."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ภาพจากผู้อ่าน %1$lld ภาพ นอกเหนือจาก %2$lld ภาพด้านบน"
+          }
+        }
+      }
+    },
     "%lld ảnh": {
       "localizations": {
         "id": {
@@ -6047,6 +6069,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "ส่งรูปภาพ"
+          }
+        }
+      }
+    },
+    "Gửi ảnh của bạn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kirim foto Anda"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hantar foto anda"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ส่งรูปภาพของคุณ"
           }
         }
       }
@@ -12669,6 +12713,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "ดูทั้งหมด %lld"
+          }
+        }
+      }
+    },
+    "Xem %lld ảnh bạn đọc gửi ↓": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lihat %lld foto kiriman pembaca ↓"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lihat %lld foto kiriman pembaca ↓"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ดูภาพจากผู้อ่าน %lld ภาพ ↓"
           }
         }
       }

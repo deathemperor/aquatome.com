@@ -45,9 +45,7 @@ final class PhotoViewerFlowTests: XCTestCase {
   /// Full photos held back (`-slow-pictures`), the fetches left far behind are stopped on the way.
   func testOnlyThePhotosNearTheOneShownAreFetched() {
     let app = launch("-slow-pictures", "-large-gallery")
-    let all = app.buttons["gallery-all"]
-    reveal(app, all)
-    all.tap()
+    rowPhoto(app, "Ảnh thử 1").tap()
     let asked = app.descendants(matching: .any)["picture-requests"]
     XCTAssertTrue(wait(asked, label: "1 2 3", timeout: 5), "fetched \(asked.label), not 1 2 3")
     let eighth = app.buttons["Ảnh 8 trên 28"]
@@ -70,9 +68,7 @@ final class PhotoViewerFlowTests: XCTestCase {
   /// decoded for 40 points and blurred scaled up.
   func testAPhotoPickedInTheStripShowsItsThumbnailSharp() {
     let app = launch("-slow-pictures", "-large-gallery")
-    let all = app.buttons["gallery-all"]
-    reveal(app, all)
-    all.tap()
+    rowPhoto(app, "Ảnh thử 1").tap()
     let eighth = app.buttons["Ảnh 8 trên 28"]
     XCTAssertTrue(eighth.waitForExistence(timeout: 5), "no photo 8 in the strip")
     eighth.tap()

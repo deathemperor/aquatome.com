@@ -6,9 +6,10 @@
   "html": "",
   "photos": [],
   "mentions": [
-    "microsorum-pteropus"
+    "microsorum-pteropus",
+    "carassius-auratus"
   ],
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "2NdWisNvjL4",
     "title": "BEGINNER PLANT: Java Fern",
@@ -27,48 +28,105 @@
       "height": 720
     },
     "taxa": [
-      "Microsorum pteropus"
+      "Microsorum pteropus",
+      "Carassius auratus"
     ],
     "gear": [
       {
         "category": "cay-thuy-sinh",
         "type": "gan-lua",
-        "t": 256
+        "t": 240
       },
       {
-        "category": "den",
-        "type": "thuy-sinh",
-        "t": 63
+        "category": "phan-nen",
+        "type": "phan",
+        "t": 193
       }
     ],
     "figures": [
       {
-        "heading": "Dương xỉ Java trông thế nào và hợp với ai",
-        "moments": [],
+        "heading": "Cần đèn mạnh cỡ nào",
+        "moments": [
+          {
+            "t": 10,
+            "url": "https://media.aquatome.com/video/2NdWisNvjL4/at10.webp",
+            "width": 160,
+            "height": 90,
+            "caption": "Bể có đèn sáng, đá xếp và vài cây xanh nhỏ ở góc."
+          },
+          {
+            "t": 40,
+            "url": "https://media.aquatome.com/video/2NdWisNvjL4/at40-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể cong thắp đèn, cây xanh mọc xen giữa các khối đá."
+          }
+        ]
+      },
+      {
+        "heading": "Đặt cây ở đâu trong bể",
+        "moments": [
+          {
+            "t": 105,
+            "url": "https://media.aquatome.com/video/2NdWisNvjL4/at105-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể hòa đá với vài cây nhỏ mới trồng ở khoảng giữa bể."
+          }
+        ]
+      },
+      {
+        "heading": "Nhiệt độ và pH",
+        "moments": [
+          {
+            "t": 140,
+            "url": "https://media.aquatome.com/video/2NdWisNvjL4/at140-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh không sưởi với đá, cây xanh nhỏ và đàn cá bơi."
+          }
+        ]
+      },
+      {
+        "heading": "Cây lớn tới đâu và có cần phân không",
+        "moments": [
+          {
+            "t": 295,
+            "url": "https://media.aquatome.com/video/2NdWisNvjL4/at295-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cây xanh tươi mọc trên nền đất tối, hiển thị trên màn hình điện thoại."
+          }
+        ],
         "photo": {
-          "url": "https://media.aquatome.com/video/2NdWisNvjL4/p0-aGVfd2lsZC4uanBn.webp",
-          "thumb": "https://media.aquatome.com/video/2NdWisNvjL4/p0-aGVfd2lsZC4uanBn-480.webp",
+          "url": "https://media.aquatome.com/video/2NdWisNvjL4/p3-aGVfd2lsZC4uanBn.webp",
+          "thumb": "https://media.aquatome.com/video/2NdWisNvjL4/p3-aGVfd2lsZC4uanBn-480.webp",
           "width": 960,
           "height": 720,
           "licence": "CC BY-SA 3.0",
           "author": "Fhurzan",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Java_Fern_(Microsorum_pteropus)_growing_in_the_wild..jpg",
-          "caption": "Cụm dương xỉ Java lá dài xanh đậm mọc bên bờ suối."
+          "caption": "Cây mọc thành bụi dày ven suối ngoài tự nhiên, trên nền đất giàu mùn."
         }
       },
       {
-        "heading": "Nhiệt độ và thông số nước",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/2NdWisNvjL4/p2-YXF1YXJpdW0uanBn.webp",
-          "thumb": "https://media.aquatome.com/video/2NdWisNvjL4/p2-YXF1YXJpdW0uanBn-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Ranjith-chemmad",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Freshwater_aquarium.jpg",
-          "caption": "Thảm rêu xanh tốt trong bể nước ngọt, có đàn cá nhỏ bơi phía trên."
-        }
+        "heading": "Trồng thế nào: vùi nền hay bám lũa",
+        "moments": [
+          {
+            "t": 250,
+            "url": "https://media.aquatome.com/video/2NdWisNvjL4/at250-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể có đá xếp thành vòm, cây nhỏ đặt cạnh chân đá."
+          },
+          {
+            "t": 290,
+            "url": "https://media.aquatome.com/video/2NdWisNvjL4/at290-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh đá xếp trên nền cát, cây đặt gần gốc đá."
+          }
+        ]
       }
     ]
   }

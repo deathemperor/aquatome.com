@@ -1,6 +1,12 @@
 {
   "id": "pogostemon-quadrifolius",
   "scientificName": "Pogostemon quadrifolius",
+  "synonyms": [
+    "Anuragia quadrifolia",
+    "Dysophylla quadrifolia",
+    "Dysophylla rupestris",
+    "Eusteralis quadrifolia"
+  ],
   "difficulty": 1,
   "light": "medium",
   "co2": "optional",
@@ -17,58 +23,116 @@
       "html": "<ul><li>Origin: Asia (Laos)</li><li>Light demand: Medium</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/pogostemon-octopus-care-guide-planting-growing-and-propagation/",
+      "html": "<ul><li>Other names: Octopus plant</li><li>Scientific name: Pogostemon quadrifolius (previously Pogostemon stellatus 'octopus')</li><li>Minimum tank size: 40 litres</li><li>Lighting: Moderate</li><li>Water hardness: soft to moderately hard (up to 12 GH)</li><li>Substrate: any</li><li>Growth rate: fast</li><li>Placement: midground and background</li><li>Leaf size: up to 15 cm</li><li>Fertilizer: recommended</li><li>CO2: not needed</li><li>Propagation: head cuttings</li></ul><p>This plant possesses antioxidant and antimicrobial properties. Pogostemon quadrifolius is an important medicinal plant in India and some adjacent countries and is used as a folk medicine against stomach ache, fever, cough, headaches, wound healing, heart diseases, chicken pox, and even snake bites.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/pogostemon-octopus-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Pogostemon octopus is native to Southeast Asia (India: Khasia, Assam, Sambalpur, Kerala, Godavari District and Garo Hills; Bangladesh: Chittagong; Myanmar; China) and Australia, growing predominantly in swamps, marshes and rice fields. The species has spread to other parts of the world, such as the United States, Germany and the United Kingdom.</p><p>Taxonomy: new studies place Pogostemon octopus in Pogostemon quadrifolius rather than as a variety of Pogostemon stellatus. In the 2013 revision of the genus Pogostemon, Pogostemon stellatus 'octopus' was reclassified as Pogostemon quadrifolius. Synonyms: Pogostemon stellatus; Anuragia quadrifolia; Dysophylla quadrifolia; Dysophylla rupestris; Eusteralis quadrifolia. Family: Lamiaceae.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/pogostemon-octopus-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Pogostemon octopus can be grown emersed or submerged, which makes it a great choice for paludariums. If grown emersed, it has a denser structure, the leaves become shorter and broader with small sharp edges and can turn a little reddish. Emersed plants also bear small purplish flowers.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/pogostemon-octopus-care-guide-planting-growing-and-propagation/",
+      "html": "<p>The recommended minimum tank size is 40 litres. The plant is not ideal for nano aquariums because its long stems fill the tank within a few weeks and require much more frequent pruning.</p>"
+    },
+    {
       "key": "maintenance",
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Pogostemonquadrifolius(053ICLP)/31147",
       "html": "<p>This plant is very easy to care for and grows strongly under a wide range of conditions, making it a reliable choice for both new and experienced aquarists. Regular trimming is recommended to maintain a compact and tidy appearance, as the plant quickly produces new shoots. Replanting head cuttings encourages dense growth, while side shoots can also be used and develop at a slightly slower pace, which makes them well suited for smaller aquariums and Nano Cubes.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/pogostemon-octopus-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Pogostemon octopus is an undemanding, beginner-friendly plant. Prune the shoots from time to time so they do not reach the water surface; overgrowth is not a problem if you want a jungle look. The stems take about 2–3 weeks after planting to reach the surface, so the first pruning is ideally in the third week, using sharp scissors. Cut stems float to the surface, so collect them with a net.</p><p>Partial water changes are important as they add microelements and improve the growth rate. Other care includes regular fertilizing (liquid in the water column or tablets in the substrate) and routine inspections to remove dead or decaying parts.</p><p>Problems:</p><ul><li>Melting: the plant may melt when kept in dim light for long periods. Check that the lighting is not too low.</li><li>Overgrowth: under high light the plant grows fast and may need a lot of trimming. Trim regularly or lower the light.</li><li>Pale or yellow colour: caused by nutrient deficiencies, especially low iron, and insufficient macro and micronutrients. Proper fertilization and care solve this.</li></ul>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/pogostemon-octopus-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Temperature: ideally 23–28 °C, as the plant thrives in warm water. It can be kept at 20 °C but growth will be slower.</p><p>pH: 6.5–7.5.</p><p>Hardness: soft to moderately hard water (up to 12 GH).</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/pogostemon-octopus-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Lighting: medium lighting is best. The plant tolerates low lighting, but it should be at the higher end (20–40 PAR). Provide around 8–10 hours of bright light daily with a quality aquarium LED. High light makes the plant grow faster and more robust; to keep growth slow, high-intensity lighting is unnecessary.</p><p>Substrate: any substrate, including sand and gravel, as the plant takes nutrients from both the substrate and the water column. A nutrient-rich substrate (for example, ADA Amazonia aqua soil) means less fertilization, while with gravel or sand fertilizers must be dosed to enrich the water.</p><p>CO2: injection is not necessary, thus optional. It improves growth rate and appearance, but the plant does relatively well without it.</p><p>Fertilizers: recommended, as they give a bushier look, improve coloration and help the plant settle in and make new growth after planting. Liquid fertilizers can be dosed directly into the water column.</p><p>If you keep shrimp with this plant, note that high CO2 levels and copper (present in most fertilizers) are extremely dangerous to shrimp.</p>"
+    },
+    {
       "key": "notes",
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Pogostemonquadrifolius(053ICLP)/31147",
       "html": "<p>Pogostemon quadrifolius from Laos is a distinctive stem plant closely related to Pogostemon stellatus. It is often referred to as Pogostemon stellatus 'Octopus' due to its characteristic growth form.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/pogostemon-octopus-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Description: a perennial aquatic stem plant, on average 25–50 cm tall, with long, wispy bright green foliage. Thanks to its thick stem and narrow leaves (about 6 mm wide) it looks airy and elegant. Unlike the common Pogostemon stellatus, which shows reddish-purple or orange hues, the 'octopus' form has mainly green foliage that does not change with light or nutrients. Whorls of linear to lanceolate, grass-like leaves are typically 10–12 cm long.</p><p>Why 'octopus'? The main theory is that the long narrow leaves look like octopus arms, especially in a current. It is also a catchy marketing name.</p><p>Planting and propagation: the plant suits the midground and background and is often used for focal points. Before planting, disinfect the plants to remove pond snails, algae and parasites. Plant each stem about 2.5 cm deep, with 5–7 cm between plantlets. Propagation is very easy:</p><ul><li>cut the stem anywhere (for example, the top 10–12 cm),</li><li>remove the bottom leaves,</li><li>replant the cut stems in the substrate.</li></ul><p>Pruning the tops also promotes side shoots, making the plant denser.</p><p>Benefits: an excellent decoration for jungle aquascapes; its open structure does not block light for other plants; as a fast grower it is a good nitrate sponge; it gives cover for invertebrates, small frogs, fish and fry; it provides biofilm as a first food for newly hatched fry and shrimplets; it oxygenates the water.</p><p>Tankmates: compatible with a wide range of freshwater fish (bettas, swordtails, tetras, gouramis, harlequin rasboras, zebra danios, cherry barbs, platies, guppies, mollies, otocinclus, pygmy corydoras and others), dwarf shrimp (Neocaridina, Caridina, Amano, ghost shrimp and others) and freshwater snails. Avoid keeping it with crayfish or freshwater crabs, which tear the foliage and uproot the plant, and with aggressive plant-eating fish such as Texas cichlids, Jack Dempsey, Red Devil and Oscars.</p><p>Buying: sold as bunched plants (stems held with foam and a lead weight) or potted plants (stems in rock wool in a container), usually with more than five stems. Choose fresh, healthy specimens without decay, curling or discoloration.</p>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/aquariumbreeder/79c25d97c85bd7e3.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/79c25d97c85bd7e3-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/pogostemon-octopus-care-guide-planting-growing-and-propagation/",
+      "source": "aquariumbreeder"
+    },
+    {
       "url": "https://media.aquatome.com/commons/997398b2d0448f53.webp",
+      "thumb": "https://media.aquatome.com/commons/997398b2d0448f53-480.webp",
       "width": 960,
       "height": 1084,
       "licence": "CC BY-SA 3.0",
       "author": "Vinayaraj",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pogostemon_quadrifolius.JPG",
-      "caption": "Pogostemon quadrifolius",
-      "thumb": "https://media.aquatome.com/commons/997398b2d0448f53-480.webp"
+      "caption": "Pogostemon quadrifolius"
     },
     {
       "url": "https://media.aquatome.com/commons/dfe9f5ffe73b04a1.webp",
+      "thumb": "https://media.aquatome.com/commons/dfe9f5ffe73b04a1-480.webp",
       "width": 960,
       "height": 1280,
       "licence": "CC BY-SA 4.0",
       "author": "Vinayaraj",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pogostemon_quadrifolius_at_Mayyil_(3).jpg",
-      "caption": "Photos taken at Mayyil and Peravoor",
-      "thumb": "https://media.aquatome.com/commons/dfe9f5ffe73b04a1-480.webp"
+      "caption": "Photos taken at Mayyil and Peravoor"
     },
     {
       "url": "https://media.aquatome.com/commons/e901f1f3334c0304.webp",
+      "thumb": "https://media.aquatome.com/commons/e901f1f3334c0304-480.webp",
       "width": 960,
       "height": 1481,
       "licence": "CC BY-SA 3.0",
       "author": "Vinayaraj",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pogostemon_quadrifolius_16.JPG",
-      "caption": "Pogostemon quadrifolius",
-      "thumb": "https://media.aquatome.com/commons/e901f1f3334c0304-480.webp"
+      "caption": "Pogostemon quadrifolius"
     },
     {
       "url": "https://media.aquatome.com/commons/d6c0d517b7294cd5.webp",
+      "thumb": "https://media.aquatome.com/commons/d6c0d517b7294cd5-480.webp",
       "width": 960,
       "height": 1280,
       "licence": "CC BY-SA 4.0",
       "author": "Vinayaraj",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pogostemon_quadrifolius_at_Mayyil_2018_(10).jpg",
-      "caption": "Photos from Aralam Butterfly Survey 2019 and around- by Vinayaraj",
-      "thumb": "https://media.aquatome.com/commons/d6c0d517b7294cd5-480.webp"
+      "caption": "Photos from Aralam Butterfly Survey 2019 and around- by Vinayaraj"
     }
   ],
   "productSlots": [
@@ -92,5 +156,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-09"
 }

@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-11-03",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "lYyEHHmeZY0",
     "title": "HOW TO: A complete aquarium filter - ALL IN ONE TUTORIAL",
@@ -32,12 +32,12 @@
       {
         "category": "loc",
         "type": "suc-khi",
-        "t": 60
+        "t": 90
       },
       {
         "category": "loc",
         "type": "bot-bien",
-        "t": 60
+        "t": 66
       },
       {
         "category": "cay-thuy-sinh",
@@ -47,153 +47,129 @@
     ],
     "figures": [
       {
-        "heading": "Lọc này chạy theo nguyên lý nào",
-        "moments": [
-          {
-            "t": 96,
-            "url": "https://media.aquatome.com/video/lYyEHHmeZY0/t96.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Chai lọc sủi gắn bên hông bể, phía trên có cây trồng."
-          },
-          {
-            "t": 116,
-            "url": "https://media.aquatome.com/video/lYyEHHmeZY0/t116.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cận cảnh chai lọc chứa đầy viên vật liệu lọc vi sinh."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/lYyEHHmeZY0/p0-MyU4MyVCQzIuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/lYyEHHmeZY0/p0-MyU4MyVCQzIuanBn-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Ofkun",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E3%80%8C%E6%B0%B4%E4%BD%9C%E3%80%8D%E3%82%A2%E3%82%AF%E3%82%A2%E3%83%AA%E3%82%A6%E3%83%A0%E7%94%A8%E3%82%A8%E3%82%A2%E3%83%AA%E3%83%95%E3%83%88%E5%BC%8F%E6%B0%B4%E4%B8%AD%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF%E3%83%BC2.jpg",
-          "caption": "Lọc sủi airlift cắt ngang: bông lọc cơ học phía trên, sỏi vi sinh bên dưới."
-        }
-      },
-      {
         "heading": "Cần chuẩn bị những gì",
         "moments": [
           {
             "t": 25,
-            "url": "https://media.aquatome.com/video/lYyEHHmeZY0/t25.webp",
+            "url": "https://media.aquatome.com/video/lYyEHHmeZY0/at25.webp",
             "width": 320,
             "height": 180,
-            "caption": "Chai nước nhựa loại thường, có nắp, đặt trên mặt bàn."
+            "caption": "Chai nước nhựa loại thường dùng để làm bộ lọc."
           },
           {
             "t": 35,
-            "url": "https://media.aquatome.com/video/lYyEHHmeZY0/t35.webp",
+            "url": "https://media.aquatome.com/video/lYyEHHmeZY0/at35.webp",
             "width": 320,
             "height": 180,
-            "caption": "Máy khoan với mũi khoan bên cạnh nắp chai đã khoan lỗ."
-          }
-        ]
-      },
-      {
-        "heading": "Khoan chai thế nào",
-        "moments": [
-          {
-            "t": 31,
-            "url": "https://media.aquatome.com/video/lYyEHHmeZY0/t31.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Chai nhựa trong được cầm trên tay, chuẩn bị khoan lỗ."
-          },
-          {
-            "t": 41,
-            "url": "https://media.aquatome.com/video/lYyEHHmeZY0/t41.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Dùng mũi hàn nóng để khoan lỗ trên thân chai nhựa."
+            "caption": "Mũi khoan bậc và đáy chai đã khoan lỗ nhỏ."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/lYyEHHmeZY0/p2-b3NhZ2FpYWsuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/lYyEHHmeZY0/p2-b3NhZ2FpYWsuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/lYyEHHmeZY0/p0-JfQm90dGxlLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/lYyEHHmeZY0/p0-JfQm90dGxlLmpwZw-480.webp",
+          "width": 960,
+          "height": 1510,
+          "licence": "CC BY-SA 4.0",
+          "author": "Kykywinks",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Plastic_Water_Bottle.jpg",
+          "caption": "Chai nước nhựa trong loại thường, dùng làm thân bộ lọc chai."
+        }
+      },
+      {
+        "heading": "Cắt và khoan chai thế nào",
+        "moments": [
+          {
+            "t": 29,
+            "url": "https://media.aquatome.com/video/lYyEHHmeZY0/at29.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Khoan lỗ trên chai nhựa, tay giữ chai chắc chắn."
+          },
+          {
+            "t": 39,
+            "url": "https://media.aquatome.com/video/lYyEHHmeZY0/at39-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Dùng mũi khoan bậc để khoan lỗ trên thân chai nhựa."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/lYyEHHmeZY0/p1-b3NhZ2FpYWsuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/lYyEHHmeZY0/p1-b3NhZ2FpYWsuanBn-480.webp",
           "width": 960,
           "height": 540,
           "licence": "CC BY 4.0",
           "author": "Gorkaazk",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Liztor_beltzak_harrapatzeko_tranpak_egiteko_behar_diren_osagaiak.jpg",
-          "caption": "Chai nhựa đã khoan lỗ cùng mũi khoan và dụng cụ để làm lọc."
+          "caption": "Chai nhựa, mũi khoan và dao đã chuẩn bị sẵn để cắt và khoan chai."
         }
       },
       {
-        "heading": "Lắp ráp từng bước",
+        "heading": "Lắp ráp lọc theo thứ tự nào",
         "moments": [
           {
-            "t": 67,
-            "url": "https://media.aquatome.com/video/lYyEHHmeZY0/t67.webp",
+            "t": 51,
+            "url": "https://media.aquatome.com/video/lYyEHHmeZY0/at51.webp",
             "width": 320,
             "height": 180,
-            "caption": "Chai lọc đã gắn giác hút và dây sủi, bên cạnh miếng bông đen."
+            "caption": "Gắn núm giác hút vào thân chai nhựa làm lọc."
           },
           {
-            "t": 80,
-            "url": "https://media.aquatome.com/video/lYyEHHmeZY0/t80.webp",
+            "t": 67,
+            "url": "https://media.aquatome.com/video/lYyEHHmeZY0/at67-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Chụp miếng mút đen vào nắp chai, dây oxy đã luồn vào."
+          }
+        ]
+      },
+      {
+        "heading": "Nước chạy trong lọc ra sao",
+        "moments": [
+          {
+            "t": 96,
+            "url": "https://media.aquatome.com/video/lYyEHHmeZY0/at96-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Chai lọc gắn bên hông bể, trầu bà mọc phía trên miệng chai."
+          },
+          {
+            "t": 116,
+            "url": "https://media.aquatome.com/video/lYyEHHmeZY0/at116-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Chai lọc treo trong bể, bên trong đầy viên vật liệu lọc vi sinh."
+          }
+        ]
+      },
+      {
+        "heading": "Vệ sinh và chăm cây trên lọc",
+        "moments": [
+          {
+            "t": 143,
+            "url": "https://media.aquatome.com/video/lYyEHHmeZY0/at143.webp",
             "width": 320,
             "height": 180,
-            "caption": "Chuẩn bị đổ vật liệu vi sinh vào chai, bên cạnh có cành trầu bà."
+            "caption": "Cận cảnh miếng mút đen ở đáy ống lọc chứa sỏi đất nung."
+          },
+          {
+            "t": 145,
+            "url": "https://media.aquatome.com/video/lYyEHHmeZY0/at145.webp",
+            "width": 320,
+            "height": 180,
+            "caption": "Cây trầu bà mọc trên lọc gắn ở thành bể."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/lYyEHHmeZY0/p3-JfZm9hbV8yLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/lYyEHHmeZY0/p3-JfZm9hbV8yLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/lYyEHHmeZY0/p4-JfZm9hbV8yLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/lYyEHHmeZY0/p4-JfZm9hbV8yLmpwZw-480.webp",
           "width": 960,
           "height": 720,
           "licence": "CC BY-SA 4.0",
           "author": "Ofkun",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Sponge_Filter_foam_2.jpg",
-          "caption": "Miếng bông lọc xốp hình trụ dùng làm lọc sinh học cho bể cá."
+          "caption": "Miếng mút lọc hình nón màu xám, loại tháo ra xả sạch rồi chụp lại."
         }
-      },
-      {
-        "heading": "Đặt lọc vào bể và cho chạy",
-        "moments": [
-          {
-            "t": 90,
-            "url": "https://media.aquatome.com/video/lYyEHHmeZY0/t90.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Đặt chai lọc có trầu bà vào bể và gắn giác hút lên kính."
-          },
-          {
-            "t": 100,
-            "url": "https://media.aquatome.com/video/lYyEHHmeZY0/t100.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Lọc chai gắn vào kính bể, miệng chai nhô lên trên mặt nước."
-          }
-        ]
-      },
-      {
-        "heading": "Vệ sinh lọc",
-        "moments": [
-          {
-            "t": 143,
-            "url": "https://media.aquatome.com/video/lYyEHHmeZY0/t143.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Chai lọc tự chế với miếng bông đen giữ cặn ở đáy chai."
-          }
-        ]
-      },
-      {
-        "heading": "Khi cúp điện",
-        "moments": [
-          {
-            "t": 161,
-            "url": "https://media.aquatome.com/video/lYyEHHmeZY0/t161.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cây trầu bà gắn trên thành bể, rễ hút nitrate trong nước."
-          }
-        ]
       }
     ]
   }

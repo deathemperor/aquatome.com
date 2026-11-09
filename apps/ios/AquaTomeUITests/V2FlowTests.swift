@@ -105,6 +105,111 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(app.tabBars.buttons["Hôm nay"].isSelected, "the home link opened another tab")
   }
 
+  /// The editors' day (`-plan`): their fish, their guide and their story in their words, not Hôm nay's own picks (Cá neon,
+  /// and the neon guide under its own title), and the story opens its page.
+  func testHomNayShowsTheEditorsDay() {
+    let app = launch("-v2", "YES", "-plan", "-today", "2026-11-13")
+    app.launchForFlow()
+    let fish = app.buttons["v2-fish-of-the-day"]
+    XCTAssertTrue(fish.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    XCTAssertTrue(fish.label.contains("Cá ngựa vằn"), "not the editors' fish: \(fish.label)")
+    let guide = app.buttons.matching(NSPredicate(format: "label CONTAINS %@", "Cách hạn chế rêu hại")).firstMatch
+    repeatUntil(guide.exists && guide.isHittable, times: 4) { app.swipeUp() }
+    XCTAssertTrue(guide.exists, "not the editors' guide")
+    let story = app.buttons.matching(NSPredicate(format: "label CONTAINS %@", "Đàn neon đầu tiên")).firstMatch
+    repeatUntil(story.exists && story.isHittable, times: 4) { app.swipeUp() }
+    XCTAssertTrue(story.exists, "no story in the editors' words")
+    XCTAssertTrue(story.label.contains("Cho người mới") && story.label.contains("Sáu con trở lên"), story.label)
+    XCTAssertFalse(app.buttons.matching(NSPredicate(format: "label CONTAINS %@", "Nuôi cá neon trong bể nhỏ")).firstMatch.exists,
+                   "the story's page on a card under its own title too")
+    story.tap()
+    XCTAssertTrue(app.staticTexts["Nuôi cá neon trong bể nhỏ"].waitForExistence(timeout: 5), "the story's page didn't open")
+  }
+
+  /// A day the editors planned without a fish has no fish card: not one of Hôm nay's own picks in its place.
+  func testADayPlannedWithoutAFishShowsNone() {
+    let app = launch("-v2", "YES", "-plan", "-today", "2026-11-14")
+    app.launchForFlow()
+    let guide = app.buttons.matching(NSPredicate(format: "label CONTAINS %@", "Nuôi cá neon trong bể nhỏ")).firstMatch
+    XCTAssertTrue(guide.waitForExistence(timeout: 10), "not the editors' guide")
+    XCTAssertFalse(app.buttons["v2-fish-of-the-day"].exists, "a fish on a day planned without one")
+  }
+
+  /// A date the editors haven't planned has Hôm nay's own picks: for a reader with no fish yet, Cá neon.
+  func testADayNotPlannedHasHomNaysOwnPicks() {
+    let app = launch("-v2", "YES", "-plan", "-today", "2026-11-15")
+    app.launchForFlow()
+    let fish = app.buttons["v2-fish-of-the-day"]
+    XCTAssertTrue(fish.waitForExistence(timeout: 10), "no fish of the day on a day not planned")
+    XCTAssertTrue(fish.label.contains("Cá neon"), fish.label)
+  }
+
+  /// On a phone whose calendar counts the Buddhist era (a Thai phone's own: 2569), the editors' day is still found by
+  /// the date they wrote.
+  func testHomNayFindsTheEditorsDayOnAThaiCalendar() {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "th_TH@calendar=buddhist", "-fixed-handbook", "-reset-defaults",
+                           "-v2", "YES", "-plan", "-today", "2026-11-13"]
+    app.launchForFlow()
+    let fish = app.buttons["v2-fish-of-the-day"]
+    XCTAssertTrue(fish.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    XCTAssertTrue(fish.label.contains("Cá ngựa vằn"), "not the editors' fish: \(fish.label)")
+  }
+
+  /// At the largest text, a guide's or a story's card with a photo grows to hold its words: none cut to one line over an
+  /// empty band between it and the next card ("Cách hạn…", council round 2). The cards stand the page's 28 pt apart.
+  func testAGuidesCardWithAPhotoHoldsItsWordsAtTheLargestText() {
+    let app = launch("-v2", "YES", "-plan", "-today", "2026-11-13", "-fixed-pictures",
+                     "-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL")
+    app.launchForFlow()
+    func card(_ words: String) -> XCUIElement { app.buttons.matching(NSPredicate(format: "label CONTAINS %@", words)).firstMatch }
+    let guide = card("Cách hạn chế rêu hại"), story = card("Đàn neon đầu tiên"), tank = app.buttons["v2-first-tank"]
+    XCTAssertTrue(guide.waitForExistence(timeout: 10) && story.exists && tank.exists, "not the editors' day")
+    for (a, b, what) in [(guide, story, "the guide"), (story, tank, "the story")] {
+      let gap = b.frame.minY - a.frame.maxY
+      XCTAssertLessThan(gap, 40, "an empty band of \(Int(gap)) pt under \(what)'s card")
+    }
+  }
+
+  /// A guide's or story's card whose photo doesn't come (offline, nothing kept) waits on its own ground, rust or plum,
+  /// not the tank card's green: one card twice.
+  func testAPlannedCardWhosePhotoDoesntComeKeepsItsOwnGround() {
+    // No `-fixed-pictures`: with the fixed index, no photo comes.
+    let app = launch("-v2", "YES", "-plan", "-today", "2026-11-13")
+    app.launchForFlow()
+    for words in ["Cách hạn chế rêu hại", "Đàn neon đầu tiên"] {
+      let card = app.buttons.matching(NSPredicate(format: "label CONTAINS %@", words)).firstMatch
+      XCTAssertTrue(card.waitForExistence(timeout: 10), "no card for \(words)")
+      bring(app, card, to: 200)
+      let f = card.frame, ground = Pixels(XCUIScreen.main.screenshot()).at(f.midX, f.maxY - 8)
+      XCTAssertGreaterThan(ground.r - ground.g, 30, "\(words)'s card on the tank card's green: \(ground)")
+    }
+  }
+
+  /// At the largest text a card's round mark (a guide's book, a story's quote, a video's play) holds its symbol inside its
+  /// circle, and grows no bigger than at the largest size before the accessibility ones: not a play triangle out past its
+  /// circle, not a quarter of the screen of decoration. It leads each card the same way, over its eyebrow.
+  func testACardsMarkHoldsItsSymbolAndStaysSmallAtTheLargestText() {
+    let app = launch("-v2", "YES", "-plan", "-today", "2026-11-14", "-fixed-pictures",
+                     "-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL")
+    app.launchForFlow()
+    for words in ["Nuôi cá neon trong bể nhỏ", "Ít rêu hơn khi bể đủ cây", "Rêu hại từ A đến Z"] {
+      let card = app.buttons.matching(NSPredicate(format: "label CONTAINS %@", words)).firstMatch
+      XCTAssertTrue(card.waitForExistence(timeout: 10), "no card for \(words)")
+      bring(app, card, to: 230)
+      let f = card.frame
+      guard let mark = Pixels(XCUIScreen.main.screenshot()).mark(in: CGRect(x: f.minX + 14, y: f.minY + 10, width: 150, height: min(f.height - 20, 500)),
+                                                              groundX: f.minX + 8) else {
+        XCTFail("no mark found on \(words)'s card")
+        continue
+      }
+      XCTAssertLessThanOrEqual(mark.circle.width, 72, "\(words)'s mark \(Int(mark.circle.width)) pt across")
+      // First on each card, then its eyebrow: under a wrapped eyebrow it hung below a word left on its own line.
+      XCTAssertLessThan(mark.circle.minY - f.minY, 32, "\(words)'s mark isn't the first thing on its card")
+      XCTAssertTrue(mark.circle.insetBy(dx: -1, dy: -1).contains(mark.symbol), "\(words)'s symbol \(mark.symbol) out past its circle \(mark.circle)")
+    }
+  }
+
   func testALinkFromOutsideOpensItsPageOnKhamPha() {
     let app = launch("-v2", "YES")
     app.launchForFlow()
@@ -174,6 +279,46 @@ final class V2FlowTests: XCTestCase {
     mate.tap()
     XCTAssertTrue(app.staticTexts["Cá ngựa vằn"].waitForExistence(timeout: 5), "the tank-mate's page didn't open")
     XCTAssertTrue(app.tabBars.buttons["Khám phá"].isSelected, "the tank-mate opened on another tab")
+  }
+
+  /// No page v2 opens sends the reader to v1's whole page, however it's reached: Hôm nay's fish, guide and story, Khám
+  /// phá, a tank-mate's row on another page and a search. A fish from each is v2's page. (Only a part v2 can't draw offers
+  /// v1's page, at that part: "Xem phần này ở trang đầy đủ".)
+  func testNoPageOffersTheWholePageWhereverItsOpenedFrom() {
+    let app = launch("-v2", "YES", "-plan", "-today", "2026-11-13")
+    app.launchForFlow()
+    let species = app.descendants(matching: .any)["v2-species"]
+    let fish = app.buttons["v2-fish-of-the-day"]
+    XCTAssertTrue(fish.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    fish.tap()
+    readWhole(app, "Hôm nay's fish", opened: species)
+    goBack(app)
+    for (card, title) in [("Cách hạn chế rêu hại", "Cách hạn chế rêu hại"), ("Đàn neon đầu tiên", "Nuôi cá neon trong bể nhỏ")] {
+      let c = app.buttons.matching(NSPredicate(format: "label CONTAINS %@", card)).firstMatch
+      repeatUntil(c.exists && c.isHittable, times: 6) { app.swipeUp() }
+      c.tap()
+      readWhole(app, "Hôm nay's \(card)", opened: app.staticTexts[title])
+      goBack(app)
+    }
+    app.openTab("Khám phá")
+    let neon = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá neon")).firstMatch
+    XCTAssertTrue(neon.waitForExistence(timeout: 5), "no Cá neon on Khám phá")
+    neon.tap()
+    readWhole(app, "Khám phá's Cá neon", opened: species)
+    let mate = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá ngựa vằn")).firstMatch
+    repeatUntil(mate.exists && mate.isHittable, times: 12) { app.swipeDown() }
+    mate.tap()
+    readWhole(app, "a tank-mate's page", opened: app.staticTexts["Cá ngựa vằn"])
+    XCTAssertTrue(species.exists, "a tank-mate's page isn't v2's")
+    app.tabBars.buttons.element(boundBy: app.tabBars.buttons.count - 1).tap()
+    let field = app.searchFields.firstMatch
+    XCTAssertTrue(field.waitForExistence(timeout: 5), "no search field")
+    field.tap()
+    field.typeText("ca neon")
+    let found = app.descendants(matching: .any).matching(identifier: "item").matching(NSPredicate(format: "label BEGINSWITH 'Cá neon'")).firstMatch
+    XCTAssertTrue(found.waitForExistence(timeout: 5), "no Cá neon found")
+    found.tap()
+    readWhole(app, "a search's Cá neon", opened: species)
   }
 
   /// v2's fish page carries the whole page, in its order, with no row sending the reader to v1's page for the rest: its
@@ -270,6 +415,47 @@ final class V2FlowTests: XCTestCase {
     parts.matching(NSPredicate(format: "label BEGINSWITH 'Các dòng và cá lai'")).firstMatch.tap()
     wait(for: [expectation(for: NSPredicate(format: "label CONTAINS 'Các dòng và cá lai'"), evaluatedWith: title)], timeout: 5)
     XCTAssertTrue(app.buttons["save-for-later"].exists, "a long part's name crowds the bookmark into iOS's own ⋯")
+  }
+
+  /// A page's photos all open as their grid (PhotoGrid) three ways: the banner, "N ảnh" in its corner, tapped anywhere;
+  /// the carousel's last tile; and the title list's "Ảnh" with its count, which leaves the page where it was.
+  func testAPagesPhotosOpenTheirGridFromTheBannerTheRowAndTheTitle() {
+    let app = ownersNeon("-long-part", "-large-gallery", "-fixed-pictures")
+    let grid = app.staticTexts["28 ảnh"], back = { app.navigationBars.buttons.element(boundBy: 0).tap() }
+    let banner = app.buttons["v2-lead-photo-grid"]
+    XCTAssertTrue(banner.waitForExistence(timeout: 5), "the banner isn't a way in")
+    XCTAssertTrue(banner.label.hasSuffix("Xem tất cả 28 ảnh"), banner.label)
+    // Its far corner, not only where the count is.
+    banner.coordinate(withNormalizedOffset: CGVector(dx: 0.1, dy: 0.4)).tap()
+    XCTAssertTrue(grid.waitForExistence(timeout: 5), "the banner didn't open the grid")
+    XCTAssertTrue(app.buttons["grid-photo-1"].exists, "no photos in the grid")
+    back()
+    // The carousel's last tile, after the photos the page's row shows and not every photo. Up the screen first: at its
+    // foot a drag lands on the tab bar.
+    let first = app.buttons["Đàn cá neon trong bể"], all = app.buttons["v2-gallery-all"]
+    reveal(app, first)
+    bring(app, first, to: 300)
+    let y = first.frame.midY / app.frame.height
+    repeatUntil(all.isHittable, times: 6) {
+      app.coordinate(withNormalizedOffset: CGVector(dx: 0.85, dy: y)).press(forDuration: 0.05,
+        thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.15, dy: y)), withVelocity: .fast, thenHoldForDuration: 0.1)
+    }
+    XCTAssertTrue(all.isHittable, "no last tile to all the photos")
+    XCTAssertFalse(app.buttons["Cá neon bơi"].exists, "a photo the row doesn't show, on the carousel")
+    all.tap()
+    XCTAssertTrue(grid.waitForExistence(timeout: 5), "the last tile didn't open the grid")
+    back()
+    // The title's list: "Ảnh" first, with how many, to the grid.
+    let title = app.descendants(matching: .any)["page-navigator-title"].firstMatch
+    title.tap()
+    let photos = app.buttons.matching(identifier: "page-navigator-part").firstMatch
+    XCTAssertTrue(photos.waitForExistence(timeout: 5), "no list")
+    XCTAssertTrue(photos.label.hasPrefix("Ảnh") && photos.label.contains("28"), "not the photos first, with their count: \(photos.label)")
+    let before = all.frame.minY
+    photos.tap()
+    XCTAssertTrue(grid.waitForExistence(timeout: 5), "the list's Ảnh didn't open the grid")
+    back()
+    XCTAssertEqual(all.frame.minY, before, accuracy: 2, "the page moved for its photos")
   }
 
   /// A plant's page has its care in its card as a fish's has its figures: how hard, its light, its CO₂, how fast it grows.
@@ -501,16 +687,20 @@ final class V2FlowTests: XCTestCase {
     XCTAssertLessThan(colour.distance(to: after), 40, "the neon's colour gone from under the tab bar: \(colour) before, \(after) after")
   }
 
-  /// Every figure in view, none off a strip's edge, and the page's colour on under the tab bar with no white between.
+  /// Every figure in view, the card's six (not its lifespan, as the mock's card), none off its edge, and the page's colour
+  /// on under the tab bar with no white between.
   func testAFishsPageShowsEveryFigureOnItsColourUnderTheTabBar() {
     let app = launch("-v2", "YES")
     app.launchForFlow()
     XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
     follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
     XCTAssertTrue(app.links["John Roe"].waitForExistence(timeout: 5), "its text didn't come")
-    let figure = app.descendants(matching: .any).matching(NSPredicate(format: "label BEGINSWITH %@", "Tuổi thọ")).firstMatch
+    let figure = app.descendants(matching: .any).matching(NSPredicate(format: "label BEGINSWITH %@", "Độ khó")).firstMatch
     repeatUntil(figure.exists, times: 2) { app.swipeUp() }
     XCTAssertTrue(figure.exists, "no last figure")
+    XCTAssertEqual(app.descendants(matching: .any).matching(identifier: "fact").count, 6, "not the card's six figures")
+    XCTAssertFalse(app.descendants(matching: .any).matching(NSPredicate(format: "label BEGINSWITH %@", "Tuổi thọ")).firstMatch.exists,
+                   "its lifespan on the card")
     XCTAssertTrue(app.frame.contains(figure.frame), "a figure off the screen: \(figure.frame)")
     Thread.sleep(forTimeInterval: 0.5)
     let shot = Pixels(XCUIScreen.main.screenshot())
@@ -645,6 +835,24 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(app.staticTexts["Đọc gần đây"].waitForExistence(timeout: 5), "it never took its place")
   }
 
+  /// A page just opened (`opened` comes), read down to its end: nowhere a row to v1's whole page.
+  private func readWhole(_ app: XCUIApplication, _ page: String, opened: XCUIElement) {
+    XCTAssertTrue(opened.waitForExistence(timeout: 5), "\(page) didn't open as it should")
+    let row = app.descendants(matching: .any)
+      .matching(NSPredicate(format: "identifier == 'v2-full-page' OR label CONTAINS[c] 'xem trang đầy đủ'")).firstMatch
+    for _ in 0..<8 {
+      XCTAssertFalse(row.exists, "a row to the whole page on \(page)")
+      app.swipeUp(velocity: .fast)
+    }
+    XCTAssertFalse(row.exists, "a row to the whole page at the end of \(page)")
+  }
+
+  /// Back a page: v2's own button on its page, iOS's on another.
+  private func goBack(_ app: XCUIApplication) {
+    let own = app.buttons["v2-back"]
+    if own.exists { own.tap() } else { app.navigationBars.buttons.element(boundBy: 0).tap() }
+  }
+
   /// The neon's page on v2, opened from a link.
   private func openNeon(_ args: String...) -> XCUIApplication {
     let app = XCUIApplication()
@@ -681,6 +889,17 @@ final class V2FlowTests: XCTestCase {
     follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
     XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the fish's page didn't open")
     return app
+  }
+
+  /// Dragged, without a fling, until its top is `y` points down the screen.
+  private func bring(_ app: XCUIApplication, _ e: XCUIElement, to y: CGFloat) {
+    for _ in 0..<12 {
+      let dy = e.frame.minY - y
+      if abs(dy) < 24 { return }
+      let from = app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.6))
+      from.press(forDuration: 0.05, thenDragTo: from.withOffset(CGVector(dx: 0, dy: -max(-300, min(300, dy)))), withVelocity: .slow,
+                 thenHoldForDuration: 0.3)
+    }
   }
 
   /// A link opened by the system to the running app (`XCUIApplication.open` launches it anew), past the system's question.
@@ -726,8 +945,60 @@ private struct Pixels {
     bitmap.draw(cg, in: CGRect(x: 0, y: 0, width: cg.width, height: cg.height))
   }
 
-  func at(_ x: CGFloat, _ y: CGFloat) -> RGB {
-    let bytes = bitmap.data!.assumingMemoryBound(to: UInt8.self), o = Int(y * scale) * bitmap.bytesPerRow + Int(x * scale) * 4
+  func at(_ x: CGFloat, _ y: CGFloat) -> RGB { pixel(Int(x * scale), Int(y * scale)) }
+
+  private func pixel(_ x: Int, _ y: Int) -> RGB {
+    let bytes = bitmap.data!.assumingMemoryBound(to: UInt8.self), o = y * bitmap.bytesPerRow + x * 4
     return RGB(r: Double(bytes[o]), g: Double(bytes[o + 1]), b: Double(bytes[o + 2]))
+  }
+
+  /// A card's round mark in `area`, in points: its circle, white at 18 % on the card's ground (read at `groundX`, left of
+  /// it, on each line), the largest solid run of that tone; and its symbol, the white joined to what's white inside the
+  /// circle, all of it, so a symbol out past its circle shows as one.
+  func mark(in area: CGRect, groundX: CGFloat) -> (circle: CGRect, symbol: CGRect)? {
+    let s = scale, x0 = max(Int(area.minX * s), 0), x1 = min(Int(area.maxX * s), bitmap.width - 1)
+    let y0 = max(Int(area.minY * s), 0), y1 = min(Int(area.maxY * s), bitmap.height - 1), gx = Int(groundX * s)
+    guard x1 > x0 + 4, y1 > y0 + 4 else { return nil }
+    let w = x1 - x0 + 1, h = y1 - y0 + 1
+    var tone = [Bool](repeating: false, count: w * h)
+    for y in 0..<h {
+      let g = pixel(gx, y + y0), c = RGB(r: g.r * 0.82 + 255 * 0.18, g: g.g * 0.82 + 255 * 0.18, b: g.b * 0.82 + 255 * 0.18)
+      for x in 0..<w where pixel(x + x0, y + y0).distance(to: c) < 18 { tone[y * w + x] = true }
+    }
+    // Solid: the tone on a pixel and the eight round it, not a letter's soft edge.
+    var solid = [Bool](repeating: false, count: w * h)
+    for y in 1..<(h - 1) {
+      for x in 1..<(w - 1) { solid[y * w + x] = (-1...1).allSatisfy { dy in (-1...1).allSatisfy { dx in tone[(y + dy) * w + x + dx] } } }
+    }
+    typealias Box = (minX: Int, minY: Int, maxX: Int, maxY: Int)
+    func run(from start: [Int], _ inside: (Int) -> Bool, _ seen: inout [Bool]) -> (n: Int, box: Box) {
+      var stack = start, n = 0, box: Box = (.max, .max, .min, .min)
+      for i in start { seen[i] = true }
+      while let j = stack.popLast() {
+        n += 1
+        let x = j % w, y = j / w
+        box = (min(box.minX, x), min(box.minY, y), max(box.maxX, x), max(box.maxY, y))
+        for (nx, ny) in [(x - 1, y), (x + 1, y), (x, y - 1), (x, y + 1)] where nx >= 0 && ny >= 0 && nx < w && ny < h {
+          let k = ny * w + nx
+          if !seen[k] && inside(k) { seen[k] = true; stack.append(k) }
+        }
+      }
+      return (n, box)
+    }
+    var seen = [Bool](repeating: false, count: w * h), circle: (n: Int, box: Box)?
+    for i in solid.indices where solid[i] && !seen[i] {
+      let r = run(from: [i], { solid[$0] }, &seen)
+      if r.n > (circle?.n ?? 0) { circle = r }
+    }
+    guard let c = circle?.box else { return nil }
+    func white(_ k: Int) -> Bool { let p = pixel(k % w + x0, k / w + y0); return min(p.r, p.g, p.b) > 225 }
+    let inner = (c.minY...c.maxY).flatMap { y in (c.minX...c.maxX).map { y * w + $0 } }.filter(white)
+    guard !inner.isEmpty else { return nil }
+    var seenWhite = [Bool](repeating: false, count: w * h)
+    let symbol = run(from: inner, white, &seenWhite).box
+    func points(_ b: Box) -> CGRect {
+      CGRect(x: CGFloat(b.minX + x0) / s, y: CGFloat(b.minY + y0) / s, width: CGFloat(b.maxX - b.minX + 1) / s, height: CGFloat(b.maxY - b.minY + 1) / s)
+    }
+    return (points(c), points(symbol))
   }
 }

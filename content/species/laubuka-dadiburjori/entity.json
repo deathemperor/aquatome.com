@@ -18,12 +18,53 @@
           "min": 22,
           "max": 28
         }
+      },
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
       }
     ],
     "sizeCm": [
       {
         "source": "glaser",
         "value": 3
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 3
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 10
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
       }
     ]
   },
@@ -33,6 +74,12 @@
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/neochela-dadiburjori-laubuka-dadiburjori-chela-dadiburjori-2/",
       "html": "<p>This nano fish comes from southern India (Kerala) and grows to a maximum length of 3 cm. It is an absolutely peaceful schooling fish.</p>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neochela-dadiburjori",
+      "html": "<p>The dadio, Laubuka dadiburjori, is a small cyprinid endemic to southern India, recorded from Goa, Karnataka, Kerala and Tamil Nadu. It has also been marketed as 'Burjor's brilliance', 'orange chela' and 'orange hatchetfish', and does not exceed 30 mm SL. A dark bluish stripe runs from the eye to the caudal peduncle, typically forming 2-5 round spots. There is a suggestion that it is not a direct relative of other Laubuka and may warrant its own genus.</p>"
     },
     {
       "key": "beforeYouBuy",
@@ -47,10 +94,40 @@
       "html": "<p>Southern India (Kerala).</p>"
     },
     {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neochela-dadiburjori",
+      "html": "<p>Endemic to southern India with records from the states of Goa, Karnataka, Kerala, and Tamil Nadu, including the rivers Meenachil, Bharatapuzha, Chalakkudy, and Sita.</p><p>Type locality is 'Cochin, Kerala, India'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neochela-dadiburjori",
+      "html": "<p>Inhabits small tributary streams and freshwater pools, and is typically associated with dense riparian or aquatic vegetation.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neochela-dadiburjori",
+      "html": "<p>An aquarium with base dimensions of 90 × 30 cm or equivalent should be the smallest considered.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neochela-dadiburjori",
+      "html": "<p>Should ideally be maintained in a planted set-up with some water movement, with a layer of vegetation covering at least part of the surface.</p><p>Some clumps of Taxiphyllum or similar would be a useful addition as they will provide a source of micro-organisms upon which both fry and adults can feed, and they may also be used for egg deposition. An air-powered sponge-type filter unit is best and should be matured before the fish are added.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/neochela-dadiburjori-laubuka-dadiburjori-chela-dadiburjori-2/",
       "html": "<p>The chemical composition of the water is not important for keeping these fish; any tap water suitable for drinking can be used. The water temperature should be in the range 22-28°C.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neochela-dadiburjori",
+      "html": "<ul><li>Temperature: 20–24°C</li><li>pH: 6.0–7.5</li><li>Hardness: 2–10 dGH</li></ul>"
     },
     {
       "key": "diet",
@@ -59,10 +136,22 @@
       "html": "<p>Any common fish food of a suitable size is readily accepted, but Neochela dadiburjori does not like to eat from the bottom, so this should be borne in mind. Small midges and flies are its absolute favorite food.</p>"
     },
     {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neochela-dadiburjori",
+      "html": "<p>Likely to feed on small invertebrates and other zooplankton in nature. In the aquarium it will accept dried foods of a suitable size but should also be offered meals of small live or frozen fare such as Daphnia, Artemia, grindal worms and suchlike.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/neochela-dadiburjori-laubuka-dadiburjori-chela-dadiburjori-2/",
       "html": "<p>Neochela dadiburjori is particularly suitable for vitalizing the upper third of the water, similar to the way hatchet tetras do in the South American aquarium.</p><p>During a photo session, an unusual behavior was documented: one specimen stretched and put its head on its neck, which is normally not possible for most fish for anatomical reasons. It may be a special adaptation of these surface fish to make it easier for them to pick small midges and flies from below the water surface.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neochela-dadiburjori",
+      "html": "<p>This species is very peaceful and places no special demands in terms of water chemistry thus it can be combined with many other species. As always when selecting a compatible community of fish thorough research is essential, and its small adult size must be a consideration.</p><p>It's a schooling fish by nature and should be kept in a group of at least 8-10 specimens. Maintaining decent numbers will not only make the fish less nervous but result in a more effective, natural-looking display.</p>"
     },
     {
       "key": "dimorphism",
@@ -71,10 +160,22 @@
       "html": "<p>Males and females differ mainly in terms of body shape.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neochela-dadiburjori",
+      "html": "<p>Sexually mature females are deeper-bodied and tend to grow slightly larger than males.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/neochela-dadiburjori-laubuka-dadiburjori-chela-dadiburjori-2/",
       "html": "<p>They prefer to spawn on the upper side of broad leaves, especially on Ludwigia species. However, they also show an amazing ability to adapt. About 50 years ago, when first imported, the first breeders reported that the animals also accepted the root area of floating ferns or the leaves of aquatic plants in the middle water layers as spawning substrates.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neochela-dadiburjori",
+      "html": "<p>An egg-scattering spawner that does not exhibit parental care.</p><p>If the fish are in good condition they will spawn often and in a densely-planted, mature aquarium it's possible that small numbers of fry may start to appear without intervention.</p><p>However if you want to increase the yield of fry a slightly more controlled approach is recommended; males tend to choose plant leaves or similar near the water surface as spawning sites therefore providing some suitably arranged décor is the first step. This can be done in the main tank or separately, as you prefer.</p><p>When the fish spawn the leaf holding the leaves is removed and placed into a separate container with some water from the aquarium it came from and a few drops of fungicide. An airline set to bubble gently should also be added.</p><p>Fertile eggs hatch in 2-3 days, and the fry become free swimming in a further 4-5 days. At this point they should be offered an infusoria-grade food, until large enough to accept Artemia nauplii and such like.</p>"
     },
     {
       "key": "notes",
@@ -83,20 +184,54 @@
       "html": "<p>The species was originally listed as Chela dadyburjori, which is also the spelling in the Aquarium Atlas, because the species name honors a Mr. Dadyburjor. However, the scientifically correct spelling is dadiburjori (with an \"i\", not a \"y\").</p><p>Neochela was originally placed as a subgenus of Chela by Silas in 1958. Silas saw Laubuka (the spelling Laubuca with a \"c\" is incorrect) as a synonym of Chela. Later, other authors (Pethiyagoda et al, 2008) elevated Laubuka to genus rank again; today, only the species atpar (synonym: cachius) and macrolepis are included in Chela. The distinction between Chela and Laubuka is based on skeletal features and is not externally visible. Kottelat (2013) finally elevated Neochela to generic rank; the genus contains only one species, N. dadiburjori. The main externally recognizable difference to Laubuka and Chela is that Neochela has no or only an incomplete lateral line (complete in the other two genera).</p>"
     },
     {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neochela-dadiburjori",
+      "html": "<p>L. dadiburjori has also been marketed as 'Burjor's brilliance', 'orange chela', and 'orange hatchetfish' in the aquarium trade.</p><p>It can be distinguished from other members of the genus by the following characters: lateral line absent or perforating only 2-5 scales; pharyngeal teeth hooked; body size small, not exceeding 30 mm SL; body depth less than 25 % SL; colour pattern comprising a dark bluish lateral stripe extending from the eye to the caudal peduncle, typically, but not always, forming 2-5 circular spots along its length.</p><p>The generic name tended to be spelled 'Laubuca' for a number of years, but it is now established that Bleeker used 'Laubuka' first, therefore this spelling has priority.</p><p>Among other cyprinids Laubuka species are closely related to the genera Chela, Malayochela, and Devario according to recent phylogentic research, which also supports the splitting of the formerly much larger Chela grouping into Chela, Malayochela, and Laubuka. There is also a suggestion that L. dadiburjori is not a direct relative of other Laubuka species and may warrant placement in its own genus.</p>"
+    },
+    {
       "key": "references",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/neochela-dadiburjori-laubuka-dadiburjori-chela-dadiburjori-2/",
       "html": "<ul><li>Kottelat, M. (2013): The fishes of the inland waters of southeast Asia: a catalogue and core bibliography of the fishes known to occur in freshwaters, mangroves and estuaries. Raffles Bulletin of Zoology Supplement No. 27: 1-663.</li><li>Meinken, H. (1976): Chela dadyburjori. DATZ 29(4)1976: 120-122</li><li>Menon, A. G. K. (1952): Notes on fishes in the Indian Museum. XLVI. On a new fish of the genus Laubuca from Cochin. Records of the Indian Museum (Calcutta) v. 49 (pt 1): 1-4</li><li>Neumann, H. (1976): Chela (Laubuca) dadiborjori. DATZ 29(2)1976: 39-40</li><li>Niewenhuizen, A.van den (1976): Chela dadyburjori. DATZ 29(12)1976: 404-405</li><li>Pethiyagoda, R., M. Kottelat, A. Silva, K. Maduwage &amp; M. Meegaskumbura (2008): A review of the genus Laubuca in Sri Lanka, with description of three new species (Teleostei: Cyprinidae). Ichthyological Exploration of Freshwaters v. 19 (no. 1): 7-26</li><li>Silas, E. G. (1958): Studies on cyprinid fishes of the oriental genus Chela Hamilton. Journal of the Bombay Natural History Society v. 55 (pt 1): 54-99, Pls. 1-2.</li></ul>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neochela-dadiburjori",
+      "html": "<ul><li>Menon, A. G. K. (1952). Notes on fishes in the Indian Museum. XLVI. On a new fish of the genus Laubuca from Cochin. Records of the Indian Museum (Calcutta) v. 49 (pt 1), 1-4</li><li>Kulabtong, S., S. Suksri and C. Nonpayom (2012). A new species of genus Laubuca Bleeker, 1860 cyprinid fish from Bangladesh (Cypriniformes, Cyprinidae). Biodiversity Journal 3(1), 93-95</li><li>Fang, F., M. Norén, T. Y. Liao, M. Källersjö and S. O. Kullander (2009). Molecular phylogenetic interrelationships of the south Asian cyprinid genera Danio, Devario and Microrasbora (Teleostei, Cyprinidae, Danioninae). Zoologica Scripta 38(1), 1-20</li><li>Pethiyagoda, R., M. Kottelat, A. Silva, K. Maduwage and M. Meegaskumbura (2008). A review of the genus Laubuca in Sri Lanka, with description of three new species (Teleostei: Cyprinidae). Ichthyological Exploration of Freshwaters 19(1), 7-26</li><li>Ramsay, G. (2011). Laubuca dadiburjori – Dadio Available online at: http://fcas.wordpress.com/2011/10/26/laubuca-dadiburjori-dadio/</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/f3bbcca2af5ead70.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/f3bbcca2af5ead70-480.webp",
+      "width": 640,
+      "height": 385,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neochela-dadiburjori",
+      "caption": "Wild specimen from the Sita River in Karnataka state, southern India.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/76a2694f6918766a.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/76a2694f6918766a-480.webp",
+      "width": 600,
+      "height": 400,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neochela-dadiburjori",
+      "caption": "Aquarium-bred fry.",
+      "source": "seriouslyfish"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá nano",
-        "bể cá 40cm"
+        "bể cá 90cm"
       ]
     },
     {
@@ -120,5 +255,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-09"
 }

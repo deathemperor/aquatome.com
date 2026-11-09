@@ -60,6 +60,10 @@ struct SpeciesPage: View {
   @State private var putting = false
   /// The gallery's photo shown full screen.
   @State private var viewing: Int?
+  /// The page's photo grid (PhotoGrid), open where its way in opens it.
+  @State private var gridAt: PhotoGrid.Place?
+  /// Its readers' photos, as the site answered: nil until it has. Shared by its readers' part and the grid.
+  @State private var readerPhotos: [Readers.Photo]?
   /// The page's first words have reached the bar: the band behind it shows.
   @State private var scrolled = false
   /// The name itself has gone under the bar: the bar says it from here, not above the name still on the page.
@@ -259,6 +263,9 @@ struct SpeciesPage: View {
     }
     .environment(player)
     .navigationDestination(item: $onSite) { WebScreen(url: $0).v2ClearOfTheFade() }
+    .navigationDestination(item: $gridAt) { place in
+      if let grid { PhotoGrid(gallery: grid, talk: doc?.talk, at: place, readerPhotos: $readerPhotos).v2ClearOfTheFade() }
+    }
     .v2ClearOfTheFade()
     .ignoresSafeArea(edges: .top)
     // Once its text is in: the photo and name alone fit the screen, "read to the end" at once.
@@ -483,11 +490,22 @@ struct SpeciesPage: View {
     (doc?.blocks ?? []).compactMap { if case let .gallery(_, note, _, _, _) = $0, !note.isEmpty { note } else { nil } }.joined(separator: "\n")
   }
 
+  /// The carousel's photos, each with its place in `photos`, the viewer's. With a grid to open, those the page's row shows
+  /// (its gallery's `strip`), so the last tile, to all of them, is a few swipes along and not a hundred.
+  private var rowPhotos: [(i: Int, p: PageDoc.Image)] {
+    let all = photos.enumerated().map { (i: $0.offset, p: $0.element) }
+    guard galleryCount != nil else { return all }
+    var shown = Set<String>()
+    for case let .gallery(_, _, list, strip, _) in doc?.blocks ?? [] { shown.formUnion(strip.map { list[$0].src }) }
+    let row = all.filter { shown.contains($0.p.src) }
+    return row.isEmpty ? all : row
+  }
+
   /// The page's other photos as a carousel, each opening full screen.
   private var gallery: some View {
     ScrollView(.horizontal, showsIndicators: false) {
       LazyHStack(alignment: .top, spacing: 10) {
-        ForEach(Array(photos.enumerated()), id: \.element.src) { i, p in
+        ForEach(rowPhotos, id: \.p.src) { i, p in
           VStack(alignment: .leading, spacing: 4) {
             Button { viewing = i } label: {
               V2Photo(src: p.thumb ?? p.src, ground: colour)
@@ -790,7 +808,7 @@ struct SpeciesPage: View {
     if let n = galleryCount {
       out.append(.init(id: Self.photosID, name: "Ảnh", count: n, photos: true, thumbs: galleryPhotos.prefix(3).map { $0.thumb ?? $0.src }))
     }
-    let readers = PageNavigator.Part(id: Self.readersID, name: "Ảnh bạn đọc", tail: true)
+    let readers = PageNavigator.Part(id: Self.readersID, name: "Ảnh bạn đọc", count: readerPhotos?.count, tail: true)
     for i in whole.parts.indices {
       if i == whole.readersAt, doc.talk != nil { out.append(readers) }
       guard drawn(i, whole, doc), let name = partName(i, whole, doc) else { continue }
@@ -819,32 +837,23 @@ struct SpeciesPage: View {
     return nil
   }
 
-  /// The page's gallery's photos, the lead photo among them, as its grid has them: a gallery starts at 6.
-  private var galleryPhotos: [PageDoc.Image] {
-    for case let .gallery(_, _, list, _, _) in doc?.blocks ?? [] { return list }
-    return []
+  /// The page's gallery, as its grid has it (the same as v1's page builds), the lead photo among its photos.
+  private var grid: PhotoGrid.Gallery? {
+    whole.flatMap { PhotoGrid.Gallery(pieces: $0.pieces.joined(), name: item.name) }
   }
 
+  private var galleryPhotos: [PageDoc.Image] { grid?.photos ?? [] }
+
+  /// How many photos the grid has, where the page has one: a gallery starts at 6.
   private var galleryCount: Int? { galleryPhotos.count >= 6 ? galleryPhotos.count : nil }
 
-  /// All the page's photos: from the banner, the carousel's last tile and the navigator's "Ảnh".
+  /// All the page's photos, in their grid: from the banner, the carousel's last tile and the navigator's "Ảnh".
   private func allPhotos() {
-    viewing = 0
+    gridAt = .photos
   }
 
   /// "110 ảnh" on the banner's corner, over whatever the photo is.
-  private func badge(_ n: Int) -> some View {
-    Label { Text("\(n) ảnh") } icon: { Image(systemName: "photo.on.rectangle") }
-      .font(.system(size: 14, weight: .semibold))
-      .dynamicTypeSize(...DynamicTypeSize.xxLarge)
-      .foregroundStyle(.white)
-      .padding(.horizontal, 12)
-      .frame(minHeight: 32)
-      .background(.black.opacity(0.46), in: Capsule())
-      .background(.ultraThinMaterial, in: Capsule())
-      .environment(\.colorScheme, .dark)
-      .padding(12)
-  }
+  private func badge(_ n: Int) -> some View { BannerCount(n: n).padding(12) }
 
   /// A part's name: its heading, or the title of the block that draws it.
   private func partName(_ i: Int, _ whole: WholeParts, _ doc: PageDoc) -> String? {
@@ -956,7 +965,11 @@ struct SpeciesPage: View {
 
   /// Its readers' photos and comments, as v1's page has them, under v2's headings; the gap after them only when they show.
   @ViewBuilder private func readers(_ doc: PageDoc) -> some View {
-    if let talk = doc.talk { ReadersPart(talk: talk, name: doc.title, heading: .title2.bold(), space: (.bottom, 28)).padding(.horizontal, 20) }
+    if let talk = doc.talk {
+      ReadersPart(talk: talk, name: doc.title, photos: $readerPhotos, grid: galleryCount != nil ? { gridAt = .readers } : nil,
+                  heading: .title2.bold(), space: (.bottom, 28))
+        .padding(.horizontal, 20)
+    }
   }
 }
 
@@ -1033,5 +1046,32 @@ private struct MatesCredits: View {
       }
       .foregroundStyle(.v2Faint).tint(Color.v2Faint)
     }
+  }
+}
+
+/// How many photos a page has, on its banner's corner: the mock's (nav.css `.herob`), as v1's page has it. 14 on 32 with 12
+/// at the sides, growing with the text, and 28 on 52 with 18 at the accessibility sizes. Until v1's badge, the same numbers,
+/// is on main: then the banner calls that one.
+@available(iOS 18, *)
+private struct BannerCount: View {
+  let n: Int
+  @Environment(\.dynamicTypeSize) private var size
+  @ScaledMetric(relativeTo: .subheadline) private var text: CGFloat = 14
+  @ScaledMetric(relativeTo: .subheadline) private var height: CGFloat = 32
+  @ScaledMetric(relativeTo: .subheadline) private var side: CGFloat = 12
+
+  var body: some View {
+    let big = size.isAccessibilitySize
+    HStack(spacing: 6) {
+      Image(systemName: "photo.on.rectangle")
+      Text("\(n) ảnh")
+    }
+    .font(.system(size: big ? 28 : text, weight: .semibold))
+    .foregroundStyle(.white)
+    .padding(.horizontal, big ? 18 : side)
+    .frame(height: big ? 52 : height)
+    .background(.black.opacity(0.46), in: Capsule())
+    .background(.ultraThinMaterial, in: Capsule())
+    .environment(\.colorScheme, .dark)
   }
 }

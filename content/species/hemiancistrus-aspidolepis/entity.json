@@ -10,6 +10,98 @@
     "panama",
     "gatun-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PA"
+      ],
+      "regions": [
+        "Gatun River",
+        "Chagres"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Veragua, Panama.",
+          "countries": [
+            "PA"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Central America: Gatun River basin in the Caribbean coastal drainage. Panama Caribbean rivers, Chagres, Gatun.",
+          "countries": [],
+          "regions": [
+            "Gatun River",
+            "Chagres"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340160,
+      "total": 53,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "PA",
+          44
+        ],
+        [
+          "CR",
+          9
+        ]
+      ],
+      "cells": [
+        [
+          -84.375,
+          8.4375,
+          9,
+          0
+        ],
+        [
+          -82.96875,
+          8.4375,
+          2,
+          2
+        ],
+        [
+          -81.5625,
+          7.03125,
+          8,
+          8
+        ],
+        [
+          -81.5625,
+          8.4375,
+          7,
+          7
+        ],
+        [
+          -80.15625,
+          8.4375,
+          14,
+          14
+        ],
+        [
+          -78.75,
+          7.03125,
+          10,
+          10
+        ],
+        [
+          -78.75,
+          8.4375,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -13,7 +13,10 @@
   "File:Phyllanthus fluitans clusters.jpg",
   "File:Phyllanthus fluitan leaves on water.jpg",
   "File:New leaf fluitans.jpg",
-  "File:Phyllanthus fluitans5.jpg"
+  "File:Phyllanthus fluitans5.jpg",
+  "flickr:12516939235",
+  "flickr:12795680985",
+  "flickr:12796090584"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/b9a578385716703b.webp": "a2de2b2dccd91498",
@@ -27,7 +30,8 @@
   "https://media.aquatome.com/commons/395411dbb74f4ca8.webp": "270dd8c40e4f0e33",
   "https://media.aquatome.com/inaturalist/44511608.webp": "6010060e4e1c1961",
   "https://media.aquatome.com/inaturalist/567586202.webp": "2aab452d99c5c763",
-  "https://media.aquatome.com/inaturalist/41837943.webp": "376bdc9abb87516d"
+  "https://media.aquatome.com/inaturalist/41837943.webp": "376bdc9abb87516d",
+  "https://live.staticflickr.com/3805/12516939235_2a8a06b0f9_b.jpg": "4d7d6b4d7c7b5b4e"
  },
  "inat": {
   "taxon": 207419,
@@ -41,5 +45,9 @@
  "gbif": {
   "key": 5381811,
   "next": null
- }
+ },
+ "openverse": {
+  "next": null
+ },
+ "exhausted": "2026-11-09"
 }

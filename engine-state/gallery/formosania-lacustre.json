@@ -1,11 +1,28 @@
 {
  "queue": [],
- "judged": [],
+ "judged": [
+  "inat:571786692",
+  "inat:571790181",
+  "inat:591233153",
+  "inat:591234956"
+ ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/3216dcd6ba3b5bbd.webp": "c3fcf1d2d0161dc7",
   "https://media.aquatome.com/seriouslyfish/1e3e63b3bda7fea3.webp": "4fcf1f1e0c060744",
   "https://media.aquatome.com/seriouslyfish/764d87d6838cbd67.webp": "0c18b0f1e8e5834b",
-  "https://media.aquatome.com/seriouslyfish/be16b6a01a1b594d.webp": "8b0b1e302061c825"
+  "https://media.aquatome.com/seriouslyfish/be16b6a01a1b594d.webp": "8b0b1e302061c825",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/571786692/large.jpg": "ed676773f9e9a44c",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/571790181/large.jpg": "f4707874e464c081",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/591233153/large.jpg": "0783c3c3e0d001c3",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/591234956/large.jpg": "0d0f0e0efcfc1d0d"
  },
- "commons": "2026-11-08"
+ "commons": "2026-11-08",
+ "inat": {
+  "taxon": 1315806,
+  "pass": "done",
+  "after": {
+   "research": 326447141,
+   "agree": 326450460
+  }
+ }
 }

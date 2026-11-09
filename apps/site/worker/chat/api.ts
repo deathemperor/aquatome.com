@@ -5,11 +5,11 @@ import { loadStore } from '../accounts/tanks'
 import { accountDayKey } from '../comments/api'
 import { kvHealth } from '../fishid/api'
 import { clientFor, costOf, DEFAULT_MODEL, priceOf } from '../fishid/claude'
-import { classify, failed, healthyKeys, isApiError, loadKeys, rotate, type Attempt, type KeyEntry } from '../fishid/keys'
+import { healthyKeys, isApiError, loadKeys, rotate, type Attempt, type KeyEntry } from '../fishid/keys'
 import { ledgerClient, usdCap } from '../fishid/ledger'
 import { relayFetch } from '../fishid/relay'
 import { turnsOf } from '../fishid/transcript'
-import { answerQuestion, CHAT_LIMITS, MAX_TOKENS, type ChatRun, type Earlier, type Start } from './agent'
+import { answerQuestion, CHAT_LIMITS, MAX_TOKENS, OPENING_TOKENS, type ChatRun, type Earlier, type Start } from './agent'
 import type { ChatBlock } from './answer'
 import { handbookOf, type Handbook, type Lang, type Source } from './handbook'
 import { chatAccount, conversationKey, retryKey } from './store'
@@ -18,7 +18,8 @@ import { transcriptKey, type ChatRunRecord } from './transcript'
 
 /**
  * The chat (protocols/chat.openapi.json): GET /api/chat says whether it's on; POST asks one question in a conversation,
- * for signed-in readers only. Off unless CHAT is "1" and everything it needs is bound.
+ * for signed-in readers only. Off unless CHAT is "1" (or "owner", on for the owner's accounts only) and everything it needs
+ * is bound.
  *
  * - Who: the app's bearer, or the site's session cookie from the site's own pages (same-origin), as accounts checks
  *   them. No session is 401; a bearer that isn't a live app session never falls back to the cookie.
@@ -37,8 +38,13 @@ import { transcriptKey, type ChatRunRecord } from './transcript'
  *   (`chat-run/<account>/<conversation>/<n>-<run>.json`), kept as the conversation is and deleted with the account.
  */
 export type ChatEnv = {
-  /** "1": chat is on. */
+  /**
+   * "1": chat is on. "owner": on for the owner's accounts only (OWNER_ACCOUNTS), as the owner's report is: anyone else,
+   * signed in or not, finds it off, the GET too.
+   */
   CHAT?: string
+  /** The owner's account ids, comma-separated (a Worker secret, as the dashboard reads it). */
+  OWNER_ACCOUNTS?: string
   CHAT_MODEL?: string
   /** Questions per account a day, for the whole site a day, and in one conversation (defaults below). */
   CHAT_PER_ACCOUNT?: string
@@ -112,18 +118,24 @@ export function callClaude(c: Anthropic, b: Anthropic.MessageCreateParamsNonStre
   const done = s.finalMessage().catch((e: unknown) => { throw e instanceof sdkError && !isApiError(e) ? Object.assign(e, { status: undefined }) : e })
   return Promise.race([done, bound]).finally(() => clearTimeout(timer))
 }
+/** On for this account: everyone's while CHAT is "1", the owner's alone while it is "owner". */
+const askable = (env: ChatEnv, userId: string | undefined) => env.CHAT !== 'owner' || (userId !== undefined && (env.OWNER_ACCOUNTS ?? '').split(',').map(id => id.trim()).includes(userId))
 const limit = (v: string | undefined, d: number) => (Number(v) > 0 ? Math.floor(Number(v)) : d)
 const live = (env: ChatEnv): env is ChatEnv & Required<Pick<ChatEnv, 'ANTHROPIC_KEYS' | 'COMMENT_HMAC_KEY' | 'ACCOUNT_HMAC_KEY' | 'DB' | 'UPLOADS' | 'FISHID_LEDGER'>> =>
-  env.CHAT === '1' && Boolean(env.ANTHROPIC_KEYS && env.COMMENT_HMAC_KEY && env.ACCOUNT_HMAC_KEY && env.DB && env.UPLOADS && env.FISHID_LEDGER)
+  (env.CHAT === '1' || env.CHAT === 'owner') && Boolean(env.ANTHROPIC_KEYS && env.COMMENT_HMAC_KEY && env.ACCOUNT_HMAC_KEY && env.DB && env.UPLOADS && env.FISHID_LEDGER)
 
-/** The chat's most a question can cost, reserved at admission: every call's input past the trigger by half, all written to cache, and every output in full. */
+/**
+ * The chat's most a question can cost, reserved at admission: every call's input past the trigger by half, all written to
+ * cache, and every output in full; and the first line's call, whose input (the first message) is under the trigger.
+ */
 export function chatWorstCost(model: string): number {
   const p = priceOf(model)
-  return (CHAT_LIMITS.inputTokens * 1.5 * Math.max(p.input, p.cacheWrite) + CHAT_LIMITS.calls * MAX_TOKENS * p.output) / 1e6
+  const line = CHAT_LIMITS.inputTokens * p.input + OPENING_TOKENS * p.output
+  return (CHAT_LIMITS.inputTokens * 1.5 * Math.max(p.input, p.cacheWrite) + CHAT_LIMITS.calls * MAX_TOKENS * p.output + line) / 1e6
 }
 
 /** The contract's `Turn`. */
-export type Turn = { conversation: string; n: number; text: string; blocks: ChatBlock[]; suggestions: string[]; covered: boolean; model: string; steps?: Step[] }
+export type Turn = { conversation: string; n: number; text: string; blocks: ChatBlock[]; suggestions: string[]; covered: boolean; model: string; steps?: Step[]; opening?: string }
 /** A conversation as kept (under its account's prefix): when it began, its turns, and the question being answered. */
 export type Conversation = { created: number; turns: (Earlier & { n: number; at: number })[]; running?: { key: string; at: number } }
 /** A question's outcome, kept for its retries: its turn, or the error it ended on. */
@@ -216,6 +228,7 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   const maxTurns = limit(env.CHAT_MAX_TURNS, MAX_TURNS)
   if (req.method === 'GET') {
     if (!live(env)) return json({ on: false })
+    if (env.CHAT === 'owner' && !askable(env, (await sessionOf(req, env.DB, now).catch(() => null))?.userId)) return json({ on: false })
     const resting = !(await healthyKeys((await keysOf(env.ANTHROPIC_KEYS)).keys, kvHealth(env.AB), now.getTime())).length
     return json({ on: true, resting, perAccount, maxTurns, maxChars })
   }
@@ -227,6 +240,8 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   const bearer = req.headers.has('authorization')
   if (!bearer && tokenOf(req)?.via === 'cookie' && !sameSiteOk(req, true)) return json({ error: 'cross-origin' }, 403)
   const session = await sessionOf(req, env.DB, now)
+  // On for the owner only: anyone else finds it off, signed in or not, before anything is read or counted.
+  if (!askable(env, session?.userId)) return json({ error: 'chat_off' }, 503)
   if (!session || (bearer && session.via !== 'bearer')) return json({ error: 'session' }, 401)
   const idem = req.headers.get('idempotency-key')?.trim().toLowerCase() ?? ''
   if (idem && !UUID.test(idem)) return json({ error: 'bad idempotency-key' }, 400)
@@ -300,73 +315,74 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   const fetchImpl = deps.fetch ?? (env.FISHID_RELAY ? relayFetch(env.FISHID_RELAY) : undefined)
   const spends: Promise<unknown>[] = []
   const tally: Record<string, number> = {}
+  /** The key that answered the run's last call: the one that wrote the answer, as a run may change keys. */
+  let wrote: string | undefined
   const attempts: Attempt[] = []
   const began = clock()
+  /** On a stream: when it sent the text's first piece and its last; when the run ended; when it sent `done` (or its error). */
+  let wordsAt: number | undefined
+  let lastAt: number | undefined
+  let answeredAt: number | undefined
+  let doneAt: number | undefined
   /** The run as the agent ran it, for its transcript: none when it never started (the handbook unread). */
   let trail: ChatRun | undefined
 
   /** The run, after admission: its turn, or the error it ends on (as the JSON answer's status). */
-  const work = async (onStep?: (s: Step) => void, onText?: (piece: string) => void): Promise<{ status: number; body: Record<string, unknown> }> => {
+  const work = async (onStep?: (s: Step) => void, onText?: (piece: string) => void, onBlock?: (b: ChatBlock) => void, onOpening?: (line: string) => void): Promise<{ status: number; body: Record<string, unknown> }> => {
     // Read inside the run, which outlives a dropped connection: read before it, a drop would leave the mark and the ledger open.
     const hb = await handbookOf(deps.source ?? assetSource(env, url.origin), q.lang).catch(e => { console.error('chat handbook:', e); return null })
     if (!hb) return { status: 503, body: { error: 'unavailable' } }
     let key: KeyEntry | undefined
-    let client: Anthropic | undefined
     const onUsage = (u: Anthropic.Usage) => {
       const usd = costOf(model, { input: u.input_tokens, output: u.output_tokens, cacheRead: u.cache_read_input_tokens ?? 0, cacheWrite: u.cache_creation_input_tokens ?? 0 })
       spends.push(ledger.spend(day, run, usd).catch(e => console.error('chat spend:', e)))
     }
-    class FirstCall extends Error { constructor(readonly reason: 'resting' | 'unavailable' | 'request') { super(reason) } }
+    /** A call no key answered: resting or unavailable (ours), or our request refused. */
+    class NoAnswer extends Error { constructor(readonly reason: 'resting' | 'unavailable' | 'request') { super(reason) } }
     /** The reader has some of the text: it streamed. */
     let shown = false
+    /** The keys a call of this run set aside (out of credit, refused, rate-limited): no later call asks them again. */
+    const aside = new Set<string>()
     try {
       const out = await answerQuestion({
-        // The first call rotates over the healthy keys; the run keeps the key that answered (its thinking is that key's).
+        // Every call rotates over the healthy keys, the run's key first once it has one: a key that runs dry or is
+        // refused mid-answer hands the rest of the run to the next (the run's thinking reads back on any of our keys).
+        // Once the reader has some of the text, a call that fails isn't asked again of the next key: what they read
+        // would be followed by a second answer from its start. It is our side's failure, as no key answering is.
+        // Before that, the next key is asked, without streaming once any of the first's text was read (its reader can't
+        // start again), so that answer's text comes whole.
         send: async (b, { timeoutMs, call, onText: onDelta }) => {
-          if (call === 1) {
-            // Once the reader has some of its text, a call that fails isn't asked again of the next key: what they read
-            // would be followed by a second answer from its start. It is our side's failure, as no key answering is.
-            // Before that, the next key is asked, without streaming once any of the first's text was read (its reader
-            // can't start again), so that answer's text comes whole.
-            let fed = false
-            const r = await rotate(healthy, store, async (k, left) => {
-              const feed = onDelta && !fed ? (d: string) => { fed = true; onDelta(d) } : undefined
-              try { return await callClaude(await clientFor(k, fetchImpl), b, Math.min(left, timeoutMs), feed) } catch (e) { throw shown ? new FirstCall('unavailable') : e }
-            }, { random: deps.random, clock, budgetMs: timeoutMs })
-            attempts.push(...r.attempts)
-            if (!r.ok) throw new FirstCall(r.reason)
-            key = healthy.find(k => k.hash === r.hash)!
-            client = await clientFor(key, fetchImpl)
-            tally[key.hash] = (tally[key.hash] ?? 0) + 1
-            onUsage(r.value.usage)
-            return r.value
-          }
-          const t = clock()
-          try {
-            const m = await callClaude(client!, b, timeoutMs, onDelta)
-            tally[key!.hash] = (tally[key!.hash] ?? 0) + 1
-            onUsage(m.usage)
-            return m
-          } catch (e) {
-            attempts.push((await failed(key!, e, store, clock() - t, clock)).attempt)
-            throw e
-          }
+          const ready = healthy.filter(k => !aside.has(k.hash))
+          const mine = key && !aside.has(key.hash) ? key : undefined
+          let fed = false
+          const r = await rotate(mine ? [mine, ...ready.filter(k => k !== mine)] : ready, store, async (k, left) => {
+            const feed = onDelta && !fed ? (d: string) => { fed = true; onDelta(d) } : undefined
+            try { return await callClaude(await clientFor(k, fetchImpl), b, Math.min(left, timeoutMs), feed) } catch (e) { throw shown ? new NoAnswer('unavailable') : e }
+          }, { random: mine ? () => 0 : deps.random, clock, budgetMs: timeoutMs })
+          attempts.push(...r.attempts)
+          for (const a of r.attempts) if (a.marked) aside.add(a.hash)
+          if (!r.ok) throw new NoAnswer(r.reason)
+          const used = healthy.find(k => k.hash === r.hash)!
+          tally[used.hash] = (tally[used.hash] ?? 0) + 1
+          onUsage(r.value.usage)
+          // The first line's call (0) is beside the run's: its key isn't the run's, nor the one that wrote the answer.
+          if (call !== 0) { key = used; wrote = used.hash }
+          return r.value
         },
         model, lang: q.lang, question: q.question, earlier: conv?.turns ?? [], start: (conv?.turns.length ? {} : q.start), handbook: hb,
         tanks: () => tanksOf(env.DB, session.userId, now).catch(e => { console.error('chat tanks:', e); return null }),
         onStep, clock,
-        ...(onText ? { onText: (piece: string) => { shown = true; onText(piece) } } : {}),
+        ...(onText ? { onText: (piece: string) => { shown = true; onText(piece) }, ...(onBlock ? { onBlock } : {}) } : {}),
+        ...(onOpening ? { opening: true, onOpening } : {}),
       })
       trail = out
       if (out.dropped.length) console.log(JSON.stringify({ chat: 'dropped', dropped: out.dropped }))
-      // No key answered the first call: resting or unavailable (ours), or our request refused (failed). A later call
-      // that failed or ran out of time: unavailable, unless the API refused our request (a 400 that isn't the key's: out
-      // of credit also comes as a 400, and the key's fault gives the reader's count back). An answer we can't read (a
-      // refusal, one cut short): failed.
-      if (out.error instanceof FirstCall) return out.error.reason === 'request' ? { status: 502, body: { error: 'failed' } } : { status: 503, body: { error: out.error.reason } }
+      // No key answered a call: resting or unavailable (ours), or our request refused (failed: a 400 that isn't the
+      // key's; out of credit also comes as a 400, and the key's fault goes to the next key). The run out of time:
+      // unavailable. An answer we can't read (a refusal, one cut short): failed.
+      if (out.error instanceof NoAnswer) return out.error.reason === 'request' ? { status: 502, body: { error: 'failed' } } : { status: 503, body: { error: out.error.reason } }
       if (out.error && !out.message) {
-        if (isApiError(out.error) && out.error.status === 400 && !classify(out.error).mark) return { status: 502, body: { error: 'failed' } }
-        if (isApiError(out.error) || (out.error as Error)?.message === 'out of time') return { status: 503, body: { error: 'unavailable' } }
+        if ((out.error as Error)?.message === 'out of time') return { status: 503, body: { error: 'unavailable' } }
         throw out.error
       }
       if (!out.answer) return { status: 502, body: { error: 'failed' } }
@@ -374,6 +390,9 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
         conversation: q.conversation, n: (conv?.turns.length ?? 0) + 1, text: out.answer.text, blocks: out.blocks,
         suggestions: out.answer.suggestions.filter(s => s.trim()).slice(0, 3), covered: out.answer.covered, model,
         ...(out.steps.length ? { steps: out.steps } : {}),
+        // An off-topic answer keeps no line: `done` has the last word, and the app takes away the one it showed (the
+        // Design Lead's rule). The transcript keeps it all the same: the reader saw it.
+        ...(out.opening && !out.answer.offTopic ? { opening: out.opening } : {}),
       }
       return { status: 200, body: turn as unknown as Record<string, unknown> }
     } catch (e) {
@@ -383,57 +402,68 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   }
 
   /**
-   * After the run: the outcome is kept for retries, then the conversation gets the turn (or just loses its mark), then
-   * the ledger settles. In that order: a retry that finds no mark finds the kept answer, and never runs the question again.
+   * After the run: the outcome is kept for retries, then the conversation gets the turn (or just loses its mark). In that
+   * order: a retry that finds no mark finds the kept answer, and never runs the question again. Then the ledger settles.
+   * The reader's answer waits for these alone, so a question asked right after it finds the conversation free and the
+   * count already given back.
    */
-  const finish = async (done: { status: number; body: Record<string, unknown> }) => {
+  const save = async (done: { status: number; body: Record<string, unknown> }) => {
     const turn = done.status === 200 ? done.body as unknown as Turn : undefined
     const next: Conversation = { created: mark.created, turns: turn ? [...mark.turns, { n: turn.n, question: q.question, text: turn.text, blocks: turn.blocks, at: clock() }] : mark.turns }
     const k: Kept = turn ? { at: clock(), turn } : { at: clock(), status: done.status, error: String(done.body.error) }
     if (keptKey) await env.UPLOADS.put(keptKey, JSON.stringify(k)).catch(e => console.error('chat kept:', e))
+    await env.UPLOADS.put(convKey, JSON.stringify(next)).catch(e => console.error('chat conversation:', e))
+    await Promise.all(spends)
+    // Our side failed (503: no key, Claude unreachable): the reader's count goes back. So does a question that wasn't about
+    // fishkeeping (the owner's rule), up to a day's worth of them, so looping off-topic questions can't use up chat's own
+    // day for everyone. Chat's own day and the dollars spent still count. A failed answer (502) still counts, unless its
+    // text had begun on the stream: only a whole answer counts, so one cut off after the reader's first words goes back too.
+    const ok = turn ? wrote : undefined
+    const offTopic = done.status === 200 && trail?.answer?.offTopic === true
+    const cutOff = !turn && wordsAt !== undefined
+    await ledger.settle({ day, run, refund: done.status === 503 || cutOff, ...(offTopic ? { offTopic: perAccount } : {}), keys: tally, ...(ok ? { ok } : {}) }).catch(e => console.error('chat settle:', e))
+  }
+  /** Then, once the reader has the answer: the transcript, and the check for an account deleted meanwhile. */
+  const after = async (done: { status: number; body: Record<string, unknown> }) => {
     // The transcript beside the conversation: never in the reader's way, so one that can't be made or saved is only logged.
     const record = (() => { try { return trail && JSON.stringify(transcript(done, trail)) } catch (e) { console.error('chat transcript:', e) } })()
     const runKey = record ? transcriptKey(account, q.conversation, (conv?.turns.length ?? 0) + 1, run) : ''
-    await Promise.all([
-      env.UPLOADS.put(convKey, JSON.stringify(next)).catch(e => console.error('chat conversation:', e)),
-      record && env.UPLOADS.put(runKey, record).catch(e => console.error('chat transcript:', e)),
-    ])
+    if (record) await env.UPLOADS.put(runKey, record).catch(e => console.error('chat transcript:', e))
     // The account deleted while this ran (deleteUser): what it just wrote goes too. Its account still there, deleteUser's
     // second pass, after the account's rows, comes after these writes and deletes them.
     const still = await env.DB.prepare('SELECT 1 FROM users WHERE id = ?').bind(session.userId).first().catch(() => true)
     if (!still) await env.UPLOADS.delete([convKey, ...(keptKey ? [keptKey] : []), ...(runKey ? [runKey] : [])]).catch(e => console.error('chat deleted account:', e))
-    await Promise.all(spends)
-    // Our side failed (503: no key, Claude unreachable): the reader's count goes back. So does a question that wasn't about
-    // fishkeeping (the owner's rule), up to a day's worth of them, so looping off-topic questions can't use up chat's own
-    // day for everyone. Chat's own day and the dollars spent still count. A failed answer (502) still counts.
-    const ok = turn && Object.keys(tally).length ? Object.keys(tally).at(-1) : undefined
-    const offTopic = done.status === 200 && trail?.answer?.offTopic === true
-    await ledger.settle({ day, run, refund: done.status === 503, ...(offTopic ? { offTopic: perAccount } : {}), keys: tally, ...(ok ? { ok } : {}) }).catch(e => console.error('chat settle:', e))
   }
 
+  const since = (t: number | undefined) => (t === undefined ? undefined : t - now.getTime())
   /** What the question said and did (transcript.ts): what the reader asked and got, never who they are. */
   const transcript = (done: { status: number; body: Record<string, unknown> }, t: ChatRun): ChatRunRecord => {
     const s = t.spent
     return {
       v: 1, conversation: q.conversation, n: (conv?.turns.length ?? 0) + 1, at: now.toISOString(), lang: q.lang, model,
       question: q.question, outcome: done.status === 200 ? 'ok' : String(done.body.error), ms: clock() - began,
+      // From the question's arrival: to the run's start (the session, the conversation, the ledger); on a stream, to the
+      // text's first piece and its last, the run's end, and `done` (the turn saved).
+      timing: { before: began - now.getTime(), words: since(wordsAt), last: since(lastAt), answered: since(answeredAt), done: since(doneAt) },
       cost: costOf(model, s), tokens: { input: s.input + s.cacheRead + s.cacheWrite, output: s.output },
       agent: { calls: t.calls, tools: t.tools, stopped: t.stopped },
       ...(t.answer ? { answer: { text: t.answer.text, covered: t.answer.covered, ...(t.answer.offTopic ? { offTopic: true } : {}), blocks: t.blocks.length, dropped: t.dropped } } : {}),
+      ...(t.opening ? { opening: t.opening } : {}),
       turns: turnsOf(t.history, t.message),
     }
   }
 
   if (!stream) {
     // The run goes on if the reader's connection drops (waitUntil), so its retry gets its answer and the mark clears.
-    const p = work().then(async done => { await finish(done); return done })
-    wait(p.catch(() => undefined))
+    const p = work().then(async done => { await save(done); return done })
+    wait(p.then(after).catch(() => undefined))
     const done = await p
     return json(done.body, done.status)
   }
-  // The stream: steps as they happen, then the text as Claude writes it, the blocks, and done (the whole turn); or error.
-  // Pings while it works. Every step comes before the text: the run ends on the call that writes it (agent.ts
-  // `streaming`). Done comes once the turn is saved: a question asked right after it finds the conversation free.
+  // The stream: steps as they happen, then the text as Claude writes it, the blocks as Claude picks them, and done (the
+  // whole turn); or error. Pings while it works. Every step comes before the text: the run ends on the call that writes
+  // it (agent.ts `streaming`), and its picks come after its text. Done comes once the turn is saved and settled (`save`): a
+  // question asked right after it finds the conversation free.
   const enc = new TextEncoder()
   const { readable, writable } = new TransformStream<Uint8Array, Uint8Array>()
   const w = writable.getWriter()
@@ -442,18 +472,28 @@ export async function chat(req: Request, url: URL, env: ChatEnv, now: Date, deps
   const ping = setInterval(() => send(': ping\n\n'), PING_MS)
   wait((async () => {
     let shown = false
-    const done = await work(step => send(sse('step', step)), piece => { shown = true; send(sse('text', { text: piece })) })
+    let sent = 0
+    const done = await work(
+      step => send(sse('step', step)),
+      piece => { if (!shown) wordsAt = clock(); shown = true; lastAt = clock(); send(sse('text', { text: piece })) },
+      block => { sent++; send(sse('block', block)) },
+      line => send(sse('opening', { text: line })),
+    )
+    answeredAt = clock()
     const t = done.status === 200 ? done.body as unknown as Turn : undefined
     if (t) {
-      // An off-topic answer's line, the Worker's own, comes whole, as does a text that didn't stream.
-      if (!shown) send(sse('text', { text: t.text }))
-      for (const b of t.blocks) send(sse('block', b))
+      // An off-topic answer's line, the Worker's own, comes whole, as does a text that didn't stream; then the blocks the
+      // stream didn't send as Claude picked them (all of them, then).
+      if (!shown) { wordsAt = lastAt = clock(); send(sse('text', { text: t.text })) }
+      for (const b of t.blocks.slice(sent)) send(sse('block', b))
     }
-    await finish(done)
+    await save(done)
     clearInterval(ping)
     if (t) send(sse('done', t))
     else send(sse('error', { error: done.status === 502 ? 'failed' : done.body.error === 'resting' ? 'resting' : 'unavailable' }))
+    doneAt = clock()
     await w.close().catch(() => {})
+    await after(done)
   })())
   return new Response(readable, { headers: streamHeaders })
 }

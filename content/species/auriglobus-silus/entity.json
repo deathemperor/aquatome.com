@@ -9,6 +9,58 @@
     "asia",
     "thailand"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5961181,
+      "total": 22,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "MY",
+          22
+        ]
+      ],
+      "cells": [
+        [
+          109.6875,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          112.5,
+          1.40625,
+          16,
+          0
+        ],
+        [
+          112.5,
+          2.8125,
+          5,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "difficulty": [
       {
