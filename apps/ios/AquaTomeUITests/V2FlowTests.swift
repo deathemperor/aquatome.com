@@ -436,11 +436,13 @@ final class V2FlowTests: XCTestCase {
     reveal(app, first)
     bring(app, first, to: 300)
     let y = first.frame.midY / app.frame.height
-    repeatUntil(all.isHittable, times: 6) {
+    // By its place: a tile built off the screen has no point to tap, and asking whether it's hittable fails the test.
+    func inView() -> Bool { all.exists && app.frame.contains(CGPoint(x: all.frame.midX, y: all.frame.midY)) }
+    repeatUntil(inView(), times: 6) {
       app.coordinate(withNormalizedOffset: CGVector(dx: 0.85, dy: y)).press(forDuration: 0.05,
         thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.15, dy: y)), withVelocity: .fast, thenHoldForDuration: 0.1)
     }
-    XCTAssertTrue(all.isHittable, "no last tile to all the photos")
+    XCTAssertTrue(inView(), "no last tile to all the photos")
     XCTAssertFalse(app.buttons["Cá neon bơi"].exists, "a photo the row doesn't show, on the carousel")
     all.tap()
     XCTAssertTrue(grid.waitForExistence(timeout: 5), "the last tile didn't open the grid")
@@ -802,6 +804,16 @@ final class V2FlowTests: XCTestCase {
     // Hôm nay still there, its fish's card in view, and no page pushed over it.
     XCTAssertFalse(fish.waitForNonExistence(timeout: 2), "a tap under the bar opened what's behind it")
     XCTAssertTrue(fish.isHittable, "a tap under the bar opened what's behind it")
+  }
+
+  /// A group's tile says what its number counts ("474 loài"), not a bare number.
+  func testAGroupsTileSaysWhatItCounts() {
+    let app = launch("-v2", "YES")
+    app.launchForFlow()
+    app.openTab("Khám phá")
+    let tile = app.buttons.matching(NSPredicate(format: "label MATCHES %@", ".*[0-9]+ loài")).firstMatch
+    repeatUntil(tile.exists, times: 6) { app.swipeUp() }
+    XCTAssertTrue(tile.exists, "no group's tile with what it counts")
   }
 
   func testAPageReadIsOnOneShelfOfKhamPha() {

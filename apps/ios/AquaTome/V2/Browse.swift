@@ -265,7 +265,6 @@ struct BrowseHome: View {
       }
     }
     .contentMargins(.horizontal, 20, for: .scrollContent)
-    .v2ShelfEdge()
   }
 
   private func guides(_ items: [HandbookIndex.Item]) -> some View {
@@ -419,7 +418,7 @@ private struct GroupTile: View {
         HStack(alignment: .firstTextBaseline) {
           Text(verbatim: group.label).font(.subheadline.weight(.semibold)).lineLimit(2).multilineTextAlignment(.leading)
           Spacer(minLength: 4)
-          Text(group.count, format: .number).font(.caption)
+          Text("\(group.count) loài").font(.caption)
         }
         .foregroundStyle(.white)
         .padding(.horizontal, 10)

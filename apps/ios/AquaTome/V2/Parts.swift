@@ -333,7 +333,8 @@ struct WordsOnPhoto<Words: View>: ViewModifier {
   let colour: Color
   let edge: VerticalEdge
   let height: CGFloat
-  var fade: CGFloat = 56
+  /// Long enough to dissolve into the photo: on one with a black ground, 56 ended in a hard stripe.
+  var fade: CGFloat = 120
   @ViewBuilder let words: Words
   @State private var wordsHeight: CGFloat = 0
 
@@ -438,9 +439,19 @@ struct CardPress: ButtonStyle {
 }
 
 extension View {
-  /// A card's shape: rounded, with a soft shadow.
-  func v2Card(_ radius: CGFloat = 22) -> some View {
-    clipShape(.rect(cornerRadius: radius, style: .continuous))
+  /// A card's shape: rounded, with a soft shadow, and in the dark a hairline.
+  func v2Card(_ radius: CGFloat = 22) -> some View { modifier(CardShape(radius: radius)) }
+}
+
+private struct CardShape: ViewModifier {
+  let radius: CGFloat
+  @Environment(\.colorScheme) private var scheme
+
+  func body(content: Content) -> some View {
+    content
+      .clipShape(.rect(cornerRadius: radius, style: .continuous))
+      // A black photo on the black page would lose the card's edge, and no shadow shows there.
+      .overlay { if scheme == .dark { RoundedRectangle(cornerRadius: radius, style: .continuous).strokeBorder(.white.opacity(0.08), lineWidth: 0.5) } }
       .shadow(color: .black.opacity(0.14), radius: 16, y: 8)
   }
 }
