@@ -1,0 +1,127 @@
+{
+  "id": "hoplosternum-magdalenae",
+  "native": {
+    "input": "6589725b5a1ef65d",
+    "at": "2026-11-08T22:57:48.089Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Hoplosternum magdalenae Eigenmann, 1913. Type locality: Soplaviento, Colombia. Etymology: Hoplosternum comes from the Greek hoplon, meaning shield, and sternum, meaning breast, in reference to the prominent coracoid bones on the breast. The species is named after the Magdalena River, part of its native habitat.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "South America: Magdalena and Sinú River basins, Colombia.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Magdalena",
+        "source": "planetcatfish",
+        "quote": "South America: Magdalena and Sinú River basins, Colombia.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Sinú",
+        "source": "planetcatfish",
+        "quote": "South America: Magdalena and Sinú River basins, Colombia.",
+        "country": "CO",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hoplosternum magdalenae",
+    "status": "ACCEPTED",
+    "taxonKey": 2342515,
+    "datasets": [
+      [
+        "372ac467-9b19-4373-8a0f-85fb3a91b6ca",
+        907
+      ],
+      [
+        "ba1e6e34-8196-422a-ae31-f71717dd1de8",
+        62
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        41
+      ],
+      [
+        "0c17fe57-fdea-4c15-a592-24631241215a",
+        39
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        19
+      ],
+      [
+        "5099e00c-b9bc-41eb-8bc1-8bffda8878fe",
+        8
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        8
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        8
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        5
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        3
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        3
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        3
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        2
+      ],
+      [
+        "80099991-9ab4-4c95-9105-1c6b144f9406",
+        2
+      ],
+      [
+        "eaad657f-7bda-4705-a181-053d9e38033f",
+        2
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "CO"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T22:57:48.089Z"
+  }
+}

@@ -275,16 +275,12 @@
     ]
   },
   "aponogeton-ulvaceus": {
-    "at": "2026-11-06",
-    "from": "2026-10-30",
+    "at": "2026-11-09",
+    "from": "2026-11-08",
     "name": "Aponogeton ulvaceus",
-    "confidence": "medium",
-    "score": 0.75,
-    "notes": [
-      "\"Satu bebawang boleh mengeluarkan\": English says \"single root\"; \"bebawang\" is acceptable but \"akar\"/\"ubi\" is more common; \"ubi\" (umbi) is the usual hobby term for bulb, so use \"umbi\" instead of \"bebawang\" throughout.",
-      "\"Jenis: bebawang (bulb)\": \"umbi\" is the more standard Malay term for plant bulb/tuber; \"bebawang\" sounds like onion-like and is less natural.",
-      "\"tahan lasak\" for \"relatively tolerant\" is slightly stronger than the original; consider \"agak toleran\"."
-    ]
+    "confidence": "high",
+    "score": 0.95,
+    "notes": []
   },
   "bacopa-australis": {
     "at": "2026-11-07",
@@ -511,6 +507,43 @@
       "'memerlukan keadaan yang sedikit lebih tinggi' is awkward; use 'keperluan yang sedikit lebih tinggi' or 'lebih menuntut'.",
       "'kedua-duanya banyak persamaan' is missing a verb; use 'kedua-duanya mempunyai banyak persamaan'.",
       "'tangki' is acceptable, but 'akuarium' is the more common hobby term; consider 'dalam akuarium'."
+    ]
+  },
+  "bucephalandra-sp-red": {
+    "at": "2026-11-09",
+    "from": "2026-10-30",
+    "name": "Bucephalandra sp. 'Red'",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"Berizom\" is acceptable but \"Jenis: Berizom\" would be clearer as \"Jenis: Berrizom (rhizomatous)\"; consider \"berakar rizom\".",
+      "\"tumbuh lebih kurang secara epifit\" is awkward; use \"biasanya tumbuh agak epifit\" or \"hampir epifit\".",
+      "\"Keperluan cahaya: rendah\" fine, but \"Ini akan menyebabkan\" could be \"Ini akan menyebabkan tumbuhan itu reput dan mati\" -> more natural \"Perbuatan ini boleh menyebabkan...\" (English 'will' is firm, minor).",
+      "\"daun yang tumbuh di bawah air\" for 'submerse leaves' is fine; \"merah seperti kulit\" is slightly awkward; consider \"bertekstur seperti kulit, berwarna merah\"."
+    ]
+  },
+  "bucephalandra-sp-red-cherry": {
+    "at": "2026-11-09",
+    "from": "2026-11-06",
+    "name": "Bucephalandra Red Cherry",
+    "confidence": "medium",
+    "score": 0.95,
+    "notes": []
+  },
+  "bucephalandra-sp-round-leaf": {
+    "at": "2026-11-09",
+    "from": "2026-11-06",
+    "name": "Bucephalandra Round Leaf",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "Item 2: the English source is actually Vietnamese, but the Malay follows it faithfully; no fix needed there.",
+      "Item 2: 'rendam berasingan dalam air' loses the 'chậu' sense and is slightly awkward; 'keluarkan sahaja dari pasu' is added, so say 'tanggalkan sahaja' to stay closer to 'gỡ ra'.",
+      "Item 2: 'Tempat letak' is awkward; use 'Penempatan' or 'Kedudukan tanaman'.",
+      "Item 2: 'lebihan nutrien' for 'phân dư' is acceptable, but 'tangki' and 'akuarium' are mixed; use one term consistently.",
+      "Item 3: 'secara emersed' leaves English in place; use 'timbul di atas air (emersed)' or similar.",
+      "Item 3: 'akuarium bertumbuhan' is non-standard; use 'akuarium tanaman berair' or 'akuarium tumbuhan'.",
+      "Item 3: the source spells 'Bucephelandra', but the Malay writes 'Bucephalandra', the correct form, so no change is needed."
     ]
   }
 }

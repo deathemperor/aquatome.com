@@ -1,15 +1,39 @@
 {
   "id": "exostoma-labiatum",
   "native": {
-    "input": "d5fafc57a37d6c37",
-    "at": "2026-11-08T18:57:48.756Z",
+    "input": "1ba69f2f7f363fdc",
+    "at": "2026-11-08T22:57:48.089Z",
     "claims": [
       {
         "code": "IN",
         "status": "native",
         "source": "planetcatfish",
-        "quote": "Asia: India. Reported from the Brahmaputra River in Tibet and the upper Salween basin.",
+        "quote": "Type locality: Mishmee Hills [Mishmi Mountains], Arunachal Pradesh, India.",
         "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Asia: Brahmaputra drainage, northeast India (Hora & Silas, 1952b; Chu et al., 1999; Jayaram, 1999).",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Reported from the Salween drainage, Myanmar (Kottelat, 1989) and the Irrawaddy drainage, China (Chu et al., 1999).",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Reported from the Salween drainage, Myanmar (Kottelat, 1989) and the Irrawaddy drainage, China (Chu et al., 1999).",
+        "words": "China",
         "ok": true
       }
     ],
@@ -17,20 +41,34 @@
       {
         "name": "Brahmaputra",
         "source": "planetcatfish",
-        "quote": "Asia: India. Reported from the Brahmaputra River in Tibet and the upper Salween basin.",
+        "quote": "Reported from the Brahmaputra River in Tibet and the upper Salween basin.",
         "ok": true
       },
       {
         "name": "Salween",
         "source": "planetcatfish",
-        "quote": "Asia: India. Reported from the Brahmaputra River in Tibet and the upper Salween basin.",
+        "quote": "Reported from the Brahmaputra River in Tibet and the upper Salween basin.",
         "ok": true
       },
       {
-        "name": "Mishmee Hills",
-        "source": "planetcatfish",
-        "quote": "Type locality: Mishmee Hills [Mishmi Mountains], Arunachal Pradesh, India.",
+        "name": "Brahmaputra",
+        "source": "scotcat",
+        "quote": "Asia: Brahmaputra drainage, northeast India (Hora & Silas, 1952b; Chu et al., 1999; Jayaram, 1999).",
         "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Salween",
+        "source": "scotcat",
+        "quote": "Reported from the Salween drainage, Myanmar (Kottelat, 1989) and the Irrawaddy drainage, China (Chu et al., 1999).",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Irrawaddy",
+        "source": "scotcat",
+        "quote": "Reported from the Salween drainage, Myanmar (Kottelat, 1989) and the Irrawaddy drainage, China (Chu et al., 1999).",
+        "country": "CN",
         "ok": true
       }
     ],
@@ -72,9 +110,11 @@
       ]
     ],
     "native": [
-      "IN"
+      "IN",
+      "MM",
+      "CN"
     ],
     "requests": 11,
-    "at": "2026-11-08T18:57:48.756Z"
+    "at": "2026-11-08T22:57:48.089Z"
   }
 }

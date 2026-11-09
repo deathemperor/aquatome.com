@@ -1,0 +1,65 @@
+{
+  "id": "hyalobagrus-flavus",
+  "native": {
+    "input": "a8af691abb3bb722",
+    "at": "2026-11-08T22:57:48.089Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to parts of Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Batang Hari",
+        "source": "seriouslyfish",
+        "quote": "This is a riverine species found in the Batang Hari drainage in Sumatra and the Mentaya Basin in Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Mentaya",
+        "source": "seriouslyfish",
+        "quote": "This is a riverine species found in the Batang Hari drainage in Sumatra and the Mentaya Basin in Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "This is a riverine species found in the Batang Hari drainage in Sumatra and the Mentaya Basin in Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "This is a riverine species found in the Batang Hari drainage in Sumatra and the Mentaya Basin in Borneo.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hyalobagrus flavus",
+    "status": "ACCEPTED",
+    "taxonKey": 2338091,
+    "datasets": [
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T22:57:48.089Z"
+  }
+}

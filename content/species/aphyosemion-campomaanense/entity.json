@@ -10,6 +10,56 @@
     "cameroon",
     "campo-ma-an"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CM"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This fish originates from Cameroon.",
+          "countries": [
+            "CM"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348415,
+      "total": 6,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "CM",
+          4
+        ],
+        [
+          "DE",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          9.84375,
+          1.40625,
+          4,
+          4
+        ],
+        [
+          9.84375,
+          50.625,
+          2,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

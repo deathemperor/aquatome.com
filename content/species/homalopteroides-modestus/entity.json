@@ -12,6 +12,80 @@
     "thailand",
     "mae-klong"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM",
+        "TH"
+      ],
+      "regions": [
+        "Salween",
+        "Mae Klong",
+        "Tenasserim",
+        "Tenasserim Range"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "H. modestus is known to occur in the Salween, Mae Klong, and Tenasserim river systems in southern Myanmar and western Thailand, of which the latter two drain the Tenasserim Range of mountains.",
+          "countries": [
+            "MM",
+            "TH"
+          ],
+          "regions": [
+            "Salween",
+            "Mae Klong",
+            "Tenasserim",
+            "Tenasserim Range"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8031367,
+      "total": 7,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "MM",
+          6
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          92.8125,
+          22.5,
+          3,
+          3
+        ],
+        [
+          94.21875,
+          16.875,
+          2,
+          2
+        ],
+        [
+          95.625,
+          16.875,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          16.875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

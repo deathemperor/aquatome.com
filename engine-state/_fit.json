@@ -3467,10 +3467,10 @@
     "products": []
   },
   "id/plants/eleocharis-pusilla": {
-    "at": "2026-11-08",
-    "hash": "ae92a90b37b97d2d",
+    "at": "2026-11-09",
+    "hash": "cb675a694f64a542",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -4197,10 +4197,10 @@
     "products": []
   },
   "id/plants/pogostemon-deccanensis": {
-    "at": "2026-11-08",
-    "hash": "761b604293fa3b83",
+    "at": "2026-11-09",
+    "hash": "8e4bff7a9d6b71eb",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -12433,10 +12433,10 @@
     "products": []
   },
   "id/species/phalacronotus-apogon": {
-    "at": "2026-11-08",
-    "hash": "a9ea4415a83ea23f",
+    "at": "2026-11-09",
+    "hash": "1d030fd0bf1d6f25",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -14836,9 +14836,10 @@
     "products": []
   },
   "ms/plants/aponogeton-ulvaceus": {
-    "at": "2026-11-07",
-    "hash": "d8b654fc2f10c00c",
+    "at": "2026-11-09",
+    "hash": "33d414a336032cd2",
     "model": "opus",
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -15891,20 +15892,23 @@
     "products": []
   },
   "ms/species/trigonostigma-heteromorpha": {
-    "at": "2026-11-08",
-    "hash": "448dd81c3f083874",
+    "at": "2026-11-09",
+    "hash": "f0ec75c32bf008fb",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P21",
+        "part": "P33",
         "quote": "dilabel T. cf. heteromorpha dalam gambar",
-        "why": "It points to a picture from the source article, and this page has no pictures.",
+        "why": "Points the reader to a picture the page does not have.",
         "by": "model"
       }
     ],
-    "products": []
+    "products": [
+      "ADA Amazonia aqua soil",
+      "Fluval Plant and Shrimp Stratum"
+    ]
   },
   "ms/species/xiphophorus-hellerii": {
     "at": "2026-11-07",
@@ -19586,19 +19590,11 @@
     "products": []
   },
   "th/plants/eleocharis-pusilla": {
-    "at": "2026-11-07",
-    "hash": "4c095ae6fee7e77b",
+    "at": "2026-11-09",
+    "hash": "f4b51b1fef4d8fd8",
     "model": "opus",
-    "findings": [
-      {
-        "check": "words",
-        "part": "P2",
-        "quote": "เป็นหนึ่งในไม้น้ำที่ปลูกทำพรมได้อย่างเชื่อถือได้ที่สุด",
-        "why": "Literal calque of English 'most reliable carpeting plant'; Thai keepers don't phrase it this way.",
-        "by": "model",
-        "fix": "ปูพรมได้ง่ายและชัวร์ที่สุด"
-      }
-    ],
+    "checklist": 3,
+    "findings": [],
     "products": []
   },
   "th/plants/eriocaulon-cinereum": {
@@ -20354,10 +20350,10 @@
     "products": []
   },
   "th/plants/pogostemon-deccanensis": {
-    "at": "2026-11-07",
-    "hash": "480a80b40256c453",
+    "at": "2026-11-09",
+    "hash": "b1dc4578ab5605c6",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -28770,10 +28766,10 @@
     "products": []
   },
   "th/species/phalacronotus-apogon": {
-    "at": "2026-11-08",
-    "hash": "a146eb38e862c782",
+    "at": "2026-11-09",
+    "hash": "1d667327cc09ce09",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -66570,10 +66566,10 @@
     "products": []
   },
   "vi/plants/eleocharis-pusilla": {
-    "at": "2026-11-07",
-    "hash": "3ac0151e44143b7d",
+    "at": "2026-11-09",
+    "hash": "4033d3bea02d6575",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -96762,5 +96758,835 @@
       }
     ],
     "products": []
+  },
+  "id/species/aphyolebias-schleseri": {
+    "at": "2026-11-09",
+    "hash": "0cf358d9d0e7ed6a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/aphyosemion-campomaanense": {
+    "at": "2026-11-09",
+    "hash": "a7e2b2569b6fb428",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Ikan yang ditawarkan merupakan hasil budidaya Jerman, berukuran 4–5 cm.",
+        "why": "This refers to the source shop's own stock on offer, which the reader doesn't know about.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "id/species/auriglobus-silus": {
+    "at": "2026-11-09",
+    "hash": "baef5ad20a336d4c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Ukuran yang tersedia: 4–5 cm.",
+        "why": "This is the original shop's stock listing, the size it had on offer, not a fact about the fish.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "id/species/caridina-dennerli": {
+    "at": "2026-11-09",
+    "hash": "7f4db739a3c18f96",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Sekarang sudah tersedia spesimen hasil penangkaran di Jerman. Menurut penangkarnya,",
+        "why": "This is the German source's news about its stock, quoting a breeder the reader doesn't know, given as if it were the reader's own market.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "id/species/centromochlus-perugiae": {
+    "at": "2026-11-09",
+    "hash": "cf014c66eb4274e8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/centromochlus-romani": {
+    "at": "2026-11-09",
+    "hash": "22e3c9606026107c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P3",
+        "quote": "Lihat artikel Catfish of the Month edisi Januari 2010.",
+        "why": "Points the reader to the source site's own article series, which this page does not have.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "id/species/cephalosilurus-apurensis": {
+    "at": "2026-11-09",
+    "hash": "5f08057d446fe895",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P2",
+        "quote": "Beberapa ekor ikan langka ini kembali diimpor.",
+        "why": "This is the source shop's stock news, which means nothing to a reader in Indonesia.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P2",
+        "quote": "Ikan ini hanya tersedia dalam jumlah yang sangat sedikit.",
+        "why": "This tells the reader how much stock the source shop has.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "id/species/cephalosilurus-fowleri": {
+    "at": "2026-11-09",
+    "hash": "18446be5a5256741",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/cetopsis-coecutiens": {
+    "at": "2026-11-09",
+    "hash": "40011c448740c00b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/chaetostoma-fischeri": {
+    "at": "2026-11-09",
+    "hash": "f52aa07f8002e03a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/chaetostoma-formosae": {
+    "at": "2026-11-09",
+    "hash": "fdaa1db71d6362b4",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/chaetostoma-leucomelas": {
+    "at": "2026-11-09",
+    "hash": "12ee84c91b26475f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/chaetostoma-marginatum": {
+    "at": "2026-11-09",
+    "hash": "4213d501ceaac552",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/hypergastromyzon-humilis": {
+    "at": "2026-11-09",
+    "hash": "652b0bf93600aad0",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/kottelatlimia-katik": {
+    "at": "2026-11-09",
+    "hash": "a4d81cbb07310b99",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/kryptopterus-limpok": {
+    "at": "2026-11-09",
+    "hash": "78a05ec4b9ab5625",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/kryptopterus-macrocephalus": {
+    "at": "2026-11-09",
+    "hash": "00d15bae87645bc1",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/kryptopterus-palembangensis": {
+    "at": "2026-11-09",
+    "hash": "715a0d00ca16f1e4",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/labiobarbus-leptocheilus": {
+    "at": "2026-11-09",
+    "hash": "69281aeec13f0929",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P10",
+        "quote": "lihat contohnya foto spesimen dari Salween",
+        "why": "Points the reader to a photo the page does not have.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "ms/breeds/koi": {
+    "at": "2026-11-09",
+    "hash": "98490485ec8f917f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "kira-kira 40 liter air bagi setiap 2.5 cm panjang ikan dewasa",
+        "why": "Converted from the imperial '10 gallons per inch' rule.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Anak koi di bawah 15 cm boleh dimulakan dalam tangki 110 liter.",
+        "why": "110 litres is a converted 30-gallon tank size nobody in Malaysia would name.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "L5",
+        "quote": "Anak koi di bawah 15 cm boleh dimulakan dalam tangki 110 liter.",
+        "why": "110 litres is a converted 30-gallon tank size.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "ms/breeds/koi-angelfish": {
+    "at": "2026-11-09",
+    "hash": "8cb4ee7523391454",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/cards/trivia-glass-catfish-name": {
+    "at": "2026-11-09",
+    "hash": "5661b9fbcfe8182c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/guides/aquatome-cac-loai-thuc-an-cho-ca-thuc-an-song-trun-chi-trung-huyet-artemia-bobo": {
+    "at": "2026-11-09",
+    "hash": "d251574375d51786",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Dalam satu tinjauan tidak rasmi pada tahun 2018 terhadap 445 pembaca",
+        "why": "Refers to the original source's own readers, whom this reader does not know.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "ms/guides/aquatome-cach-chon-va-su-dung-may-loc-nuoc-loc-thung-cho-be-ca": {
+    "at": "2026-11-09",
+    "hash": "eb379381587822b0",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Jika mahu, letakkan pad penggilap halus di hujung sekali (pilihan).",
+        "why": "Literal calque of 'fine polishing pad'; local keepers use the English term.",
+        "by": "model",
+        "fix": "polishing pad / kapas halus"
+      }
+    ],
+    "products": []
+  },
+  "ms/plants/bucephalandra-sp-red": {
+    "at": "2026-11-09",
+    "hash": "901107748b33b183",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/plants/bucephalandra-sp-red-cherry": {
+    "at": "2026-11-09",
+    "hash": "1e23fe3f4e890659",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Dijual dalam satu bahagian berisi 3 rizom (ada pilihan satu, dua atau tiga bahagian).",
+        "why": "This describes how the source shop sells and packs its own stock.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "ms/plants/bucephalandra-sp-round-leaf": {
+    "at": "2026-11-09",
+    "hash": "833e2c730169eddd",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Kuantiti: 3 rizom",
+        "why": "This is the source shop's product listing (what it sells per order), not a fact about the plant.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "ms/species/acanthodoras-cataphractus": {
+    "at": "2026-11-09",
+    "hash": "f8786a0c45011b4e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/acanthodoras-spinosissimus": {
+    "at": "2026-11-09",
+    "hash": "5f0f5cdb825b14c8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "ms/species/acanthopsoides-molobrion": {
+    "at": "2026-11-09",
+    "hash": "f6fc7ee961336813",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P11",
+        "quote": "seorang ahli komuniti, Mark Duffill, pernah berjaya membiakkan A. sp. 'A01'",
+        "why": "Refers to a member of the source website's community as if the reader belonged to it.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "ms/species/acanthopsoides-robertsi": {
+    "at": "2026-11-09",
+    "hash": "25dfe4399d2c5f64",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P4",
+        "quote": "Di lokasi dalam gambar ini, A. robertsi dikutip bersama Betta lehi",
+        "why": "Refers to a photo from the original article that the page does not have.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P12",
+        "quote": "termasuk ikan dalam gambar ini",
+        "why": "Refers to a photo of the fish that the page does not include.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "ms/species/acantopsis-dialuzona": {
+    "at": "2026-11-09",
+    "hash": "8b760dafb6ad2208",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P6",
+        "quote": "jadi penapis elektrik, powerhead tambahan atau batu udara patut digunakan",
+        "why": "\"Penapis elektrik\" is a literal calque of the English \"power filter\"; local keepers just say filter.",
+        "by": "model",
+        "fix": "penapis / filter"
+      }
+    ],
+    "products": []
+  },
+  "th/species/aphyolebias-schleseri": {
+    "at": "2026-11-09",
+    "hash": "e635fd83b26a365a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/aphyosemion-campomaanense": {
+    "at": "2026-11-09",
+    "hash": "8355e8c793acef66",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "ปลาที่มีจำหน่ายเป็นปลาเพาะพันธุ์ในเยอรมนี ขนาด 4–5 ซม.",
+        "why": "This describes the stock the source shop has for sale, which a reader in Thailand doesn't know about.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/auriglobus-silus": {
+    "at": "2026-11-09",
+    "hash": "645a64d3f542c9e5",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P4",
+        "quote": "ปลาปักเป้าที่ว่องไวชนิดนี้ได้รับมาจากประเทศไทยเมื่อเดือนธันวาคม 2007",
+        "why": "This is the source exporter's own stock news about getting the fish in from Thailand, which reads oddly to a reader who lives in Thailand.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/caridina-dennerli": {
+    "at": "2026-11-09",
+    "hash": "746064212188e184",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/centromochlus-perugiae": {
+    "at": "2026-11-09",
+    "hash": "b6b40da897136b65",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/centromochlus-romani": {
+    "at": "2026-11-09",
+    "hash": "f8ccb92c6b064eeb",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P3",
+        "quote": "ดูบทความ Catfish of the Month ฉบับเดือนมกราคม 2010",
+        "why": "It sends the reader to an article from the source website, and that article isn't on this page.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/cephalosilurus-apurensis": {
+    "at": "2026-11-09",
+    "hash": "8c9e62b79b005f8b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P2",
+        "quote": "ปลาหายากชนิดนี้มีการนำเข้ามาอีกครั้งจำนวนไม่กี่ตัว ปลามีความยาว 20–25 ซม. และเกือบโตเต็มวัยแล้ว",
+        "why": "This is the source importer's stock news about its own shipment, given as if the reader knew it.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/cephalosilurus-fowleri": {
+    "at": "2026-11-09",
+    "hash": "b8137f6b2c7a9d44",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/cetopsis-coecutiens": {
+    "at": "2026-11-09",
+    "hash": "c3c228990a91340d",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/chaetostoma-fischeri": {
+    "at": "2026-11-09",
+    "hash": "f0a704fa1feca32a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/chaetostoma-formosae": {
+    "at": "2026-11-09",
+    "hash": "0fe3c751da2c3636",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "เป็นปลาแมวปากดูดจากลำธารเชิงเขา",
+        "why": "Calque of 'suckermouth catfish'; ปลาแมว is a different (anchovy) fish in Thai, keepers say แคทฟิช/ซัคเกอร์.",
+        "by": "model",
+        "fix": "แคทฟิชปากดูด (ปลาซัคเกอร์/เพลโก)"
+      }
+    ],
+    "products": []
+  },
+  "th/species/chaetostoma-leucomelas": {
+    "at": "2026-11-09",
+    "hash": "028b9aad4172e065",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/chaetostoma-marginatum": {
+    "at": "2026-11-09",
+    "hash": "49823b1356f9d09f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/hypergastromyzon-humilis": {
+    "at": "2026-11-09",
+    "hash": "6c2b45ad3e3380cb",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/kottelatlimia-katik": {
+    "at": "2026-11-09",
+    "hash": "67829361f21245ae",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/kryptopterus-limpok": {
+    "at": "2026-11-09",
+    "hash": "f7324a2dacf84e4b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/kryptopterus-macrocephalus": {
+    "at": "2026-11-09",
+    "hash": "68dff98f59f7e9b3",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/kryptopterus-palembangensis": {
+    "at": "2026-11-09",
+    "hash": "82f7b4c1f4b2f8a6",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/labiobarbus-leptocheilus": {
+    "at": "2026-11-09",
+    "hash": "46f78cfb746a5cc7",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P10",
+        "quote": "(ดูตัวอย่างได้จากภาพปลาจากแม่น้ำสาละวิน)",
+        "why": "Points the reader to a picture the page does not have.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-ada-15": {
+    "at": "2026-11-09",
+    "hash": "ca111db66501388e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể Iwagumi này do Balbi vaquero set trực tiếp trong một buổi live.",
+        "why": "It describes a particular creator's live-stream tank as if the reader had watched it or knew who that person is.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-ada-hardscape-focused-tank": {
+    "at": "2026-11-09",
+    "hash": "5c0af918890e55b9",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể bonsai dưới nước này là của ADG (Aquarium Design Group), một nhóm ở Mỹ. Nhìn vào",
+        "why": "The page talks about 'this tank' and asks the reader to look at it, but the page has no picture of it; it comes from a source showcase.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-ada-hardscape-only-tank": {
+    "at": "2026-11-09",
+    "hash": "749d2aaadce34a0f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể này là của ADG (Aquarium Design Group), một nhóm làm bể ở Mỹ.",
+        "why": "It describes a particular tank as if the reader could see it, but the page has no picture; this is a caption carried over from the source.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-andre-longarco": {
+    "at": "2026-11-09",
+    "hash": "8076bcd3720b91b8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-art-commissio": {
+    "at": "2026-11-09",
+    "hash": "d14a46054a17e81b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-chonlatee-jaturonrusmee-2018": {
+    "at": "2026-11-09",
+    "hash": "f36828b6fc9f4aed",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-cory-hopkins": {
+    "at": "2026-11-09",
+    "hash": "128fff85295488fd",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Đây là một bể nature style kiểu cổ điển, lũa và cây quyện vào nhau rất khéo.",
+        "why": "The page describes a particular tank (Cory Hopkins's) as though the reader could see it, but the page has no picture and never says who he is.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-cory-hopkins-1": {
+    "at": "2026-11-09",
+    "hash": "79dececea32884f8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bố cục này minh họa tiềm năng của bể thủy sinh không châm CO2.",
+        "why": "It describes a particular tank layout (presumably Cory Hopkins's) as if the reader could see it, but the page has no picture of it.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-cory-hopkins-2": {
+    "at": "2026-11-09",
+    "hash": "52c92ca4e999bb3b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Nhìn bố cục này, người xem có cảm giác như đang bước vào một khu rừng bí ẩn.",
+        "why": "Describes a specific aquascape the reader has no picture of, as if it were shown on the page.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-cory-hopkins-natural-biotope-1": {
+    "at": "2026-11-09",
+    "hash": "205ce9eacfefc0a0",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể biotope châu Phi này trồng xen nhiều loài súng với vài loài Aponogeton.",
+        "why": "It describes a particular person's tank (Cory Hopkins) as if the reader could see it, but the page has no picture of it.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-craftspeak": {
+    "at": "2026-11-09",
+    "hash": "56a2d558bc26984e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Kỷ niệm ở đây là những buổi rảnh rỗi rong chơi trong rừng với bạn bè.",
+        "why": "The source aquascaper's personal childhood story, told as if the reader knew him.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể đặt ở phòng khách, đúng lúc chủ bể mới chuyển sang làm việc ở nhà.",
+        "why": "Details of an unnamed source person's home and life.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Trong những bể chủ bể từng có, chưa bể nào cho cảm giác thiên nhiên được như vậy.",
+        "why": "Refers to the source person's own past tanks as if known to the reader.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Đây là bố cục mới nhất, làm theo ý tưởng hình vòm, hay hình cây cầu.",
+        "why": "Presents the source's own latest tank as if the reader followed his work.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Hồi mới chơi, có những người bạn tốt sẵn lòng giải đáp mọi thắc mắc.",
+        "why": "First-person thanks from the interviewed aquascaper.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/aquatome-cac-loai-thuc-an-cho-ca-thuc-an-song-trun-chi-trung-huyet-artemia-bobo": {
+    "at": "2026-11-09",
+    "hash": "3dd12eb0381a793e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Một hướng dẫn nuôi cá ngựa làm theo các bước sau:",
+        "why": "Points to an unnamed outside guide the reader cannot see.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Một người chơi cá xiêm kể cách làm của mình như sau:",
+        "why": "Brings in an unknown keeper's own story as the source of the method.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Năm 2018, một cuộc khảo sát không chính thức với 445 độc giả",
+        "why": "Refers to the original publication's readers, whom this reader doesn't know.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/aquatome-chon-da-soi-cat-va-nen-trang-tri-cho-be-thuy-sinh": {
+    "at": "2026-11-09",
+    "hash": "93bf14761494b30f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Một nhà sản xuất phân nền làm bể mẫu với lớp phân nền dày 8 cm.",
+        "why": "Refers to a manufacturer's display tank the reader has never seen.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Manado Dark",
+      "Tropica Aquarium Soil Powder",
+      "ADA Aqua Soil Amazonia",
+      "Sansibar"
+    ]
   }
 }

@@ -12,6 +12,103 @@
     "malaysia",
     "rajang"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID",
+        "MY"
+      ],
+      "regions": [
+        "Borneo",
+        "Mahakam",
+        "Barito",
+        "Katingan",
+        "Rejang",
+        "Tatau"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Homalopteroides stephensoni is a hillstream loach from Borneo, recorded from Kalimantan in Indonesia and from Sabah and Sarawak in Malaysia.",
+          "countries": [
+            "ID",
+            "MY"
+          ],
+          "regions": [
+            "Borneo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from the 'upper Mahakam river, East Kalimantan province, Borneo' and also known from West Kalimantan (collected from the Danau Sentarum National Park and Pinoh river), Central Kalimantan (Katingan and Barito river systems), East Kalimantan (Malinau river basin) in the Indonesian part of the island, as well as parts of Sabah (near the town of Tinom; Danum Valley) and Sarawak (Rejang and Tatau river systems) provinces in the Malaysian portion.",
+          "countries": [],
+          "regions": [
+            "Mahakam",
+            "Barito",
+            "Katingan",
+            "Rejang",
+            "Tatau"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9485338,
+      "total": 9,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "ID",
+          6
+        ],
+        [
+          "MY",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          111.09375,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          113.90625,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          115.3125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          115.3125,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          115.3125,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          116.71875,
+          4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

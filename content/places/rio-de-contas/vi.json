@@ -1,6 +1,6 @@
 {
   "slug": "rio-de-contas",
-  "name": "sông de Contas",
+  "name": "sông Contas",
   "altNames": [
     "Rio de Contas"
   ],
@@ -8,5 +8,6 @@
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }
