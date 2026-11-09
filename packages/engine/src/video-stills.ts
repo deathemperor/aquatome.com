@@ -6,6 +6,7 @@ import { LlmError } from './claude'
 import { dhash } from './gallery'
 import type { Media } from './source-photos'
 import { sharpFrame, tileTime, type ImageDeps, type VideoFrames } from './video-images'
+import { frameSharpness } from './still-sharpness'
 import { judgeSheet, ocrHit, ocrOf, type WatermarkDeps, type WatermarkEntry } from './watermarks'
 import { throttled } from './youtube'
 
@@ -181,7 +182,7 @@ export async function videoStills(root: string, d: StillDeps, o: { limit?: numbe
         const s = await d.media.put(`video/${v.youtubeId}/at${t}-hd.webp`, hd)
         marks[s.url] = entry
         hashes[s.url] = await dhash(hd)
-        swap.set(m, { ...m, t, url: s.url, width: s.width, height: s.height })
+        swap.set(m, { ...m, t, url: s.url, width: s.width, height: s.height, sharpness: await frameSharpness(hd) })
       }
       if (swap.size || drop.size || retimed) await save(figures.map(f => ({ ...f, moments: f.moments.filter(m => !drop.has(m)).map(m => swap.get(m) ?? m) })).filter(f => f.moments.length || f.photo))
       if (swap.size || drop.size) changed = true

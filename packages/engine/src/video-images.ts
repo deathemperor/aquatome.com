@@ -3,6 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { parse } from 'node-html-parser'
 import sharp from 'sharp'
+import { frameSharpness } from './still-sharpness'
 import { GuideSchema, type GuideEntity, type Photo, type Translation } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
 import type { Media } from './source-photos'
@@ -163,7 +164,7 @@ async function figuresFor(e: GuideEntity, vi: Translation, d: ImageDeps, dir: st
         await writeFile(f, hd ?? c.jpg)
         if ((await d.faces([f]))[0]) continue // no people in our pictures
         const m = await d.media.put(`video/${v.youtubeId}/at${c.t}${hd ? '-hd' : ''}.webp`, hd ?? c.jpg)
-        fig.moments.push({ t: c.t, url: m.url, width: m.width, height: m.height, caption: pk.caption.trim() })
+        fig.moments.push({ t: c.t, url: m.url, width: m.width, height: m.height, caption: pk.caption.trim(), ...(hd ? { sharpness: await frameSharpness(hd) } : {}) })
         seen.add(c.t)
       }
       fig.moments.sort((a, b) => a.t - b.t)
