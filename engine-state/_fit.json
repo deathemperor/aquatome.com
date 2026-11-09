@@ -56713,7 +56713,7 @@
     "sourceRead": true
   },
   "vi/guides/youtube-IAGN8lN997s": {
-    "at": "2026-11-08",
+    "at": "2026-11-09",
     "hash": "ef4cbda9863da2c8",
     "model": "opus",
     "checklist": 3,
@@ -57039,7 +57039,7 @@
     ]
   },
   "vi/guides/youtube-J_PR999bgtw": {
-    "at": "2026-11-08",
+    "at": "2026-11-09",
     "hash": "2f49034b4304312e",
     "model": "opus",
     "checklist": 3,
@@ -57354,39 +57354,38 @@
     ]
   },
   "vi/guides/youtube-jhSeTo1Tdp0": {
-    "at": "2026-11-08",
-    "hash": "e4e0f7af6e7b16d7",
+    "at": "2026-11-09",
+    "hash": "5999baf0b5b17a1b",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
         "part": "P1",
-        "quote": "Rải khoảng 2,5–5 cm phân nền vào bể.",
-        "why": "2.5–5 cm is a straight conversion of 1–2 inches, not a depth a Vietnamese keeper would give.",
+        "quote": "Trải khoảng 2,5–5 cm phân nền xuống đáy bể.",
+        "why": "2.5–5 cm is a direct conversion of 1–2 inches, not a figure a Vietnamese keeper would give.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "L1",
+        "quote": "Trải 2,5–5 cm phân nền aqua soil rồi xịt ướt để trồng cây dễ hơn.",
+        "why": "Same inch-converted substrate depth repeated in the summary.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
-        "quote": "loại phân nền đã dùng cho một bể cube trước đó",
-        "why": "Mentions the original writer's earlier tank as if the reader knew about it.",
+        "quote": "Bể này dùng cùng loại nền và cùng loại cây với một bể cube đã set trước đó",
+        "why": "Refers to the original writer's earlier cube tank as if the reader knew it.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
-        "quote": "CO2 của bể nano này chia nhánh từ bình CO2 của bể cube bên cạnh.",
-        "why": "Assumes the reader knows the writer's own setup with a cube tank next to it.",
+        "quote": "CO2 lấy chung từ bình CO2 của bể cube",
+        "why": "Relies on the writer's own other tank setup unknown to the reader.",
         "by": "model"
-      },
-      {
-        "check": "words",
-        "part": "P1",
-        "quote": "dán phim mờ phía sau kính",
-        "why": "Vietnamese keepers say decal for the frosted sheet on the back glass, not 'phim mờ'.",
-        "by": "model",
-        "fix": "dán decal mờ phía sau kính"
       }
     ],
     "products": [
@@ -58166,8 +58165,8 @@
     "products": []
   },
   "vi/guides/youtube-KGII9S9qwDI": {
-    "at": "2026-11-08",
-    "hash": "0e83c6f37abe882c",
+    "at": "2026-11-09",
+    "hash": "3db9cb38ba47449b",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -59420,23 +59419,37 @@
     "products": []
   },
   "vi/guides/youtube-lYyEHHmeZY0": {
-    "at": "2026-11-08",
-    "hash": "93a9672854bc627e",
+    "at": "2026-11-09",
+    "hash": "57b2df9a1c23e7e5",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "price",
         "part": "P1",
-        "quote": "Tính luôn máy sủi thì tổng chi phí khoảng 15 đô la.",
-        "why": "The cost is given in US dollars, not in Vietnamese currency.",
+        "quote": "Tính cả một máy sủi rẻ thì tổng chi phí khoảng 15 USD hoặc hơn một chút.",
+        "why": "Cost is given in US dollars, not Vietnamese currency.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "L6",
+        "quote": "Tính cả máy sủi rẻ thì tổng chi phí khoảng 15 USD hoặc nhỉnh hơn một chút.",
+        "why": "Cost is given in US dollars, not Vietnamese currency.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "L14",
+        "quote": "Tính cả một máy sủi rẻ thì tổng cộng khoảng 15 USD hoặc nhỉnh hơn một chút.",
+        "why": "Cost is given in US dollars, not Vietnamese currency.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P1",
-        "quote": "cách mép cắt khoảng 2,5 cm",
-        "why": "2.5 cm is a converted 1 inch, a measurement a keeper in Vietnam would not naturally give.",
+        "quote": "cách mép khoảng 2,5 cm",
+        "why": "2.5 cm is a converted 1 inch, a figure from an imperial source.",
         "by": "model"
       }
     ],
@@ -59451,20 +59464,29 @@
     "products": []
   },
   "vi/guides/youtube-M0kds6giFrU": {
-    "at": "2026-11-08",
-    "hash": "a9d457f77dc2791c",
+    "at": "2026-11-09",
+    "hash": "1b82dccd8f1dac33",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
-        "part": "P5",
-        "quote": "Ảnh chụp ngày 28/12/2015 là lúc cây mới trồng. Đến ảnh ngày 24/4/2016",
-        "why": "Points at dated photos of the source writer's own tank, which the page does not have.",
+        "part": "P1",
+        "quote": "Năm cây này là những cây phổ biến và hợp ý người viết.",
+        "why": "It speaks in the original writer's voice, someone the reader doesn't know.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Hai tấm ảnh chụp cùng một bể, một tấm ngày 28/12/2015 và một tấm ngày 24/4/2016",
+        "why": "It refers to photos of the source's own tank that the page doesn't have.",
         "by": "model"
       }
     ],
-    "products": []
+    "products": [
+      "Dennerle"
+    ]
   },
   "vi/guides/youtube-M3sSLf31zso": {
     "at": "2026-11-08",
@@ -59780,123 +59802,123 @@
     "products": []
   },
   "vi/guides/youtube-MoI3OuGSMaQ": {
-    "at": "2026-11-08",
-    "hash": "fabadfba5b9028ed",
+    "at": "2026-11-09",
+    "hash": "944103bc3011cc81",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "shop",
+        "check": "price",
         "part": "P1",
-        "quote": "Bể rẻ là loại 36p kính siêu trong của Green Aqua",
-        "why": "Green Aqua is a shop in Hungary that does not sell in Vietnam.",
+        "quote": "Bể rẻ là loại kính optic white, giá khoảng 40–46 euro.",
+        "why": "Tank price given in euros, a foreign currency.",
         "by": "model"
       },
       {
         "check": "price",
         "part": "P1",
-        "quote": "giá khoảng 40–46 euro. Bể đắt của hãng ILA giá khoảng 70–72 euro",
-        "why": "Tank prices are given in euros.",
+        "quote": "Bể đắt của hãng ILA giá khoảng 70 euro",
+        "why": "Tank price given in euros.",
         "by": "model"
       },
       {
         "check": "price",
         "part": "P1",
-        "quote": "Bể đắt dùng đèn Skylight AQI 40 giá 170 euro",
-        "why": "Light prices are given in euros.",
+        "quote": "Bể đắt dùng đèn Skylight AQI 40 giá 170 euro.",
+        "why": "Light price given in euros.",
         "by": "model"
       },
       {
         "check": "price",
         "part": "P1",
-        "quote": "Một túi phân nền 3 lít giá khoảng 15–17 euro. Túi đất ao giá 10 euro, sỏi thêm 2,5 euro",
-        "why": "Substrate prices are given in euros.",
+        "quote": "Túi phân nền 3 lít khoảng 15 euro. Túi đất trồng cây ao 10 euro cộng sỏi 2,50 euro",
+        "why": "Substrate prices given in euros.",
         "by": "model"
       },
       {
         "check": "price",
         "part": "P1",
-        "quote": "Bể đắt dùng Dennerle Scapers Flow, giá khoảng 73 euro",
-        "why": "Filter prices are given in euros.",
+        "quote": "Bể đắt dùng Dennerle Scapers Flow, giá khoảng 70–80 euro.",
+        "why": "Filter price given in euros.",
         "by": "model"
       },
       {
         "check": "price",
         "part": "P1",
-        "quote": "van Strideways Pro, giá van khoảng 100–110 euro",
-        "why": "The CO2 regulator price is given in euros.",
+        "quote": "Van giá khoảng 100–110 euro, bình 2 kg khoảng 80 euro, bình 500 g giá 42,50 euro.",
+        "why": "CO2 equipment prices given in euros.",
         "by": "model"
       },
       {
         "check": "price",
         "part": "P1",
-        "quote": "| 484,5 euro",
-        "why": "The cost table totals are in euros.",
-        "by": "model"
-      },
-      {
-        "check": "price",
-        "part": "L1",
-        "quote": "hết khoảng 107,5 euro, một bể dùng đồ đắt hết khoảng 484,5 euro",
-        "why": "The summary gives costs in euros.",
+        "quote": "| 484,50 euro",
+        "why": "The cost table totals everything in euros.",
         "by": "model"
       },
       {
         "check": "price",
         "part": "L2",
-        "quote": "đèn 170 euro sáng hơn rõ so với đèn 30 euro",
-        "why": "The summary gives light prices in euros.",
+        "quote": "Đèn 170 euro sáng hơn đèn 30 euro",
+        "why": "Summary prices in euros.",
         "by": "model"
       },
       {
         "check": "price",
-        "part": "L8",
-        "quote": "Bể rẻ trong thí nghiệm dùng một lọc trong 14 euro",
-        "why": "The answer gives the filter price in euros.",
-        "by": "model"
-      },
-      {
-        "check": "price",
-        "part": "L10",
-        "quote": "đất ao 10 euro cộng sỏi 2,5 euro, so với khoảng 15–17 euro",
-        "why": "The answer gives substrate prices in euros.",
+        "part": "L6",
+        "quote": "Tổng chi phí là 484,50 euro so với 107,50 euro, chênh gần 400 euro.",
+        "why": "Summary totals in euros.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
-        "quote": "Đèn này từng dùng cho một bể guppy không lọc và bể đó lên tốt",
-        "why": "It brings up the source writer's own earlier tank as if the reader knew it.",
+        "quote": "Đây cũng là cây đèn đang dùng cho một bể guppy không lọc mới set khoảng ba tuần.",
+        "why": "Mentions the original author's own guppy tank as if the reader knew about it.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
-        "quote": "Lúc quay ở mức 85%, Skylight bị nháy trên máy quay",
-        "why": "It refers to filming the source video.",
+        "quote": "đèn Skylight bị nhấp nháy khi quay phim",
+        "why": "Comes from the filming of the source video.",
         "by": "model"
       },
       {
-        "check": "words",
+        "check": "source",
         "part": "P1",
-        "quote": "chỉ có mấy núm hít bị lỏng và cần thay",
-        "why": "'Núm hít' is not the usual hobby word for suction cups.",
-        "by": "model",
-        "fix": "giác hút"
+        "quote": "một cây nuôi cấy mô còn dư",
+        "why": "The author's own leftover plant, part of their personal story.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "theo kinh nghiệm của người làm có thể chạy ổn 6–7 tuần",
+        "why": "Points to the source's maker as someone the reader doesn't know.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bình trong bài làm trước hai ngày là đã có bọt CO2",
+        "why": "Refers to the source's own bottle as if the reader had seen it.",
+        "by": "model"
       }
     ],
     "products": [
-      "Green Aqua",
       "ILA",
       "Skylight AQI 40",
       "Twinstar 30B",
+      "Twinstar B-line",
       "Aquario Neo Soil",
+      "Master Line",
       "Dennerle Scapers Flow",
       "Strideways Pro"
     ],
     "doses": [
       {
-        "treatment": "root tabs",
+        "treatment": "master line",
         "strength": "",
         "amount": 5,
         "amountMax": 0,
@@ -59905,7 +59927,7 @@
         "perUnit": "",
         "use": "plants",
         "method": "other",
-        "quote": "Bóc vỏ phân viên rồi rắc đều lên mặt nền. Bể này dùng 5 viên."
+        "quote": "Lấy 5 viên phân nhét, mở ra và rắc đều lên mặt lớp nền vừa rải."
       }
     ],
     "sourceRead": true
@@ -59960,59 +59982,30 @@
     ]
   },
   "vi/guides/youtube-mY_9yWKaAFc": {
-    "at": "2026-11-08",
-    "hash": "a8697bbb8af9ca4d",
+    "at": "2026-11-09",
+    "hash": "dba5d7309c24fa53",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "Bể trong bài có kích thước 60x40x40cm",
-        "why": "Refers to the source article's own tank as if the reader knew it.",
+        "quote": "Bể này trước đây chạy đèn Chihiros Plus 6 tiếng mỗi ngày.",
+        "why": "Tells the writer's own tank story as if the reader already knew that tank.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
-        "quote": "Lúc quay, bể mới set được 2 tuần.",
-        "why": "Points to the filming of the source video, which the reader has not seen.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Chủ bể đang dùng nó để chạy thử một cây đèn LED JIM mới",
-        "why": "Brings in the source video's tank owner, a person the reader doesn't know.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P5",
-        "quote": "Chủ bể đánh giá đó là dấu hiệu hạt nền chắc",
-        "why": "Gives the source tank owner's own judgement in his voice.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P11",
-        "quote": "Đến lúc quay video, rêu hại đã được kiểm soát ở mức tương đối.",
-        "why": "Refers to the source video the reader does not have.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "L12",
-        "quote": "Bể trong bài không dùng cốt nền",
-        "why": "Refers to the source article's tank.",
+        "quote": "Bể đang thay nước 2 ngày một lần, mỗi lần khoảng 30%.",
+        "why": "Describes the current care of the writer's own tank instead of advising the reader.",
         "by": "model"
       }
     ],
     "products": [
       "Tropica",
-      "JIM",
-      "Chihiros Plus",
-      "keo 502"
+      "đèn LED JIM",
+      "Chihiros Plus"
     ]
   },
   "vi/guides/youtube-MzV5g3hZFzo": {
