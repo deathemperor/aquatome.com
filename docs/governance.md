@@ -124,7 +124,10 @@ that would have caught it).
     section from (`apps/site/test/chat-sections.test.ts`). The app reads the same recorded answers: every event of
     them, `done` holding what streamed; an event, block or figure it doesn't know left out, not the turn; its question
     of the contract's names, fish ID's guesses within its limits; the event stream's own rules (line ends, comments, an
-    event cut off at the end), through the app's session too (`AquaTomeKit/Tests/HandbookTests/ChatTests.swift`).
+    event cut off at the end), through the app's session too; the answer as the screen draws it (each page read once a
+    turn, no step after the text, a turn that comes whole drawn at once, nothing after its end), the steps' fold row
+    (the pages read, else the search, else the last step), numbered lines as a list, the reader's day starting again at
+    midnight UTC, and a question that got no answer asked again as another (`AquaTomeKit/Tests/HandbookTests/ChatTests.swift`).
     The chat's agent, before its handler: the handbook searched by names as readers type them (Thai by its words), a
     guide found past its title by a section heading or FAQ question with the section to open it at (the build's
     `/app/chat/<lang>.json`, each guide's own; a query's words weighed by how rare they are, so its subject counts),
@@ -1021,6 +1024,8 @@ UI flows, by class (a line each, with a blank line between, so pull requests tha
 - `AppIconFlowTests`: the app's icon chosen from its picker (every icon listed in the app with a preview to draw, none unlisted) and the default again.
 
 - `AppLinkFlowTests`: the app opened from a web page as the site's "Mở trong ứng dụng" opens it (`aquatome://open?url=<a page>`, Vietnamese at the site's root): opening the app, a page it draws once its index is read; while it runs, a tool's tab, a page it has no screen for as its web page on the Tìm tab, a bare `aquatome://` back at the home, and another site's address changing nothing.
+
+- `ChatFlowTests`: the chat screen on a stand-in chat that streams the contract's recorded answers (from a fish's page, signed in on the screen, a starter asked: the wait, its steps, then the steps folded into the pages read, the text and the next questions, the fold listing the pages again; no entry while chat is off; from fish ID's result, its guesses as fish ID words them and a starter telling them apart; the day used leaving the question in the box, unsent, with Tìm searching it; a failed answer and Claude unreachable each said, asked again under the same bubble, never a second; left mid-answer, the answer back on return, once; an answer lost past its 24 hours asked again; a conversation past its questions going on in a new one after a divider; starting over; offline a starter going into the box with send off; past 500 characters send off).
 
 - `FactsCardFlowTests`: a fish's facts under its name as the site's data card writes them (its lifespan after its size, one figure when the sources give one, none when they give none; three to a row, the last never alone; the difficulty read as its badge, "Độ khó 2/8: dễ"), the sources behind them and the page's credit under them, as a row with the same badge over a web page, a breed's own figures on its and a plant's care on its.
 

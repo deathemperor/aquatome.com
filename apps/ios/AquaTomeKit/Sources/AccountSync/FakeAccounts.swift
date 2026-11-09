@@ -130,6 +130,10 @@ public final class FakeAccounts {
   /// Ends every session of an account, as signing out elsewhere or deleting it there would.
   public func endSessions(of sub: String) { tokens = tokens.filter { $0.value != sub } }
 
+  /// The account a bearer token is a live session of, as another of the site's APIs (the chat's) checks one: none with
+  /// accounts off, or offline.
+  public func account(bearer: String) -> String? { accountsOn && !offline ? tokens[bearer] : nil }
+
   /// A multipart form's parts, by name: each one's bytes, and its filename when it's a file.
   static func parts(_ r: URLRequest) -> [String: (filename: String?, data: Data)] {
     guard let boundary = r.value(forHTTPHeaderField: "Content-Type")?.firstMatch(of: /multipart\/form-data; boundary=(.+)/)?.1,

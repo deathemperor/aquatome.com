@@ -14,6 +14,7 @@ struct PageView: View {
   @Environment(TanksModel.self) private var tanks
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.openScreen) private var openScreen
+  @Environment(ChatStore.self) private var chat
   @Environment(AccountModel.self) private var account
   /// The owner's trial of a way round the page, and which state of it: for anyone else, today's page.
   @AppStorage(PageNavigator.Trial.key) private var trialName = PageNavigator.Trial.today.rawValue
@@ -48,8 +49,8 @@ struct PageView: View {
     let native = handbook.drawsItself(item) && !onWeb
     Group {
       if native, let pieces {
-        NativePage(pieces: pieces, facts: facts(inPage: true), put: inPagePut ? { putting = true } : nil, web: { onWeb = true },
-                   nameInView: { nameInView = $0 }, path: item.path, navigator: trial == .today ? nil : navigator)
+        NativePage(pieces: pieces, facts: facts(inPage: true), put: inPagePut ? { putting = true } : nil, ask: chat.on ? ask : nil,
+                   web: { onWeb = true }, nameInView: { nameInView = $0 }, path: item.path, navigator: trial == .today ? nil : navigator)
       } else if native && !tried {
         ProgressView().frame(maxWidth: .infinity, maxHeight: .infinity)
       } else {
@@ -126,6 +127,13 @@ struct PageView: View {
 
   private var trial: PageNavigator.Trial {
     account.owner.isOwner == true ? PageNavigator.Trial(rawValue: trialName) ?? .today : .today
+  }
+
+  /// The chat about this fish (a species or breed) or plant.
+  private var ask: ChatRoute? {
+    guard [.fish, .plant].contains(item.kind), let id = item.contentId else { return nil }
+    return ChatRoute(start: Chat.Start(from: .species, about: id),
+                     subject: ChatSubject(plant: item.kind == .plant, name: item.name, sci: item.sub, img: item.img.flatMap(URL.init(string:)), guesses: nil, second: nil))
   }
 
   /// The page the app draws has a place for putting the fish or plant on a tank, under its name (`.facts`).

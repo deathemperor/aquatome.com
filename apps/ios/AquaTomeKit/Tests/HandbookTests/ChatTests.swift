@@ -273,6 +273,15 @@ private func key(_ b: Chat.Block) -> String {
   #expect(Chat.refusal(Data("<html>".utf8), status: 502) == .refused("failed", limit: nil))
 }
 
+/// Chat may be on for the owner's account alone: GET goes as the account when signed in, with no cookie either way.
+@Test func theChatsStateIsAskedAsTheAccountWhenSignedIn() {
+  let signedIn = Chat.status(site: site, version: "1.4", ownCopy: nil, token: "t0k")
+  #expect(signedIn.value(forHTTPHeaderField: "Authorization") == "Bearer t0k")
+  #expect((signedIn.httpMethod ?? "GET") == "GET" && signedIn.url?.path == "/api/chat" && !signedIn.httpShouldHandleCookies)
+  let signedOut = Chat.status(site: site, version: "1.4", ownCopy: nil)
+  #expect(signedOut.value(forHTTPHeaderField: "Authorization") == nil)
+}
+
 @Test func theChatsStateIsReadAsGetGivesIt() {
   #expect(Chat.status(Data(#"{"on":true,"perAccount":20,"maxTurns":12,"maxChars":500}"#.utf8), status: 200)
           == Chat.Status(on: true, resting: false, perAccount: 20, maxTurns: 12, maxChars: 500))
@@ -374,4 +383,143 @@ private func key(_ b: Chat.Block) -> String {
   #expect(anew)
   #expect(c.started == later && c.turns == 1)
   #expect(!c.ended(account: "a", now: later.addingTimeInterval(23 * 3600)))
+}
+
+@Test func aQuestionThatGotNoAnswerIsAskedAgainAsAnother() {
+  let t0 = Date(timeIntervalSince1970: 1_700_000_000)
+  var c = Chat.Conversation(account: "a")
+  c.asked(at: t0)
+  // Its stream ended in an error: "Hỏi lại" sends it with a new key, an hour on, and its 24 hours count from then.
+  c.failed()
+  let later = t0.addingTimeInterval(3600)
+  c.asked(at: later)
+  _ = c.answered(n: 1)
+  #expect(c.started == later)
+}
+
+@Test func theConversationIsKeptAsItWas() throws {
+  var c = Chat.Conversation(account: "a")
+  c.asked(at: Date(timeIntervalSince1970: 1_700_000_000))
+  _ = c.answered(n: 1)
+  c.asked(at: Date(timeIntervalSince1970: 1_700_000_600))
+  let back = try JSONDecoder().decode(Chat.Conversation.self, from: JSONEncoder().encode(c))
+  #expect(back == c)
+  let start = Chat.Start(from: .fishId, identified: Chat.Identified(verdict: "fish", results: [.init(scientificName: "Betta splendens", id: "betta-splendens", confidence: 0.9)]))
+  #expect(try JSONDecoder().decode(Chat.Start.self, from: JSONEncoder().encode(start)) == start)
+}
+
+// MARK: The answer on the screen
+
+private let neonPage = Chat.PageRef(kind: "fish", title: "Cá neon xanh", path: "/vi/ca/ca-neon-xanh/")
+private let guidePage = Chat.PageRef(kind: "guide", title: "Nuôi cá neon", path: "/vi/huong-dan/nuoi-ca-neon/")
+
+@Test func theRecordedAnswerIsDrawnAsItStreamsThenWhole() async throws {
+  var r = Chat.Reply()
+  var foldedAt: Int?
+  for (i, e) in try await chat("chat-stream-species.sse").enumerated() {
+    r.take(e)
+    if r.writing, foldedAt == nil { foldedAt = i }
+  }
+  let t = try #require(r.turn)
+  #expect(!r.whole && r.error == nil && r.text == t.text && r.blocks.count == t.blocks.count)
+  // The text started after the three steps.
+  #expect(foldedAt == 3 && r.steps.count == 3)
+}
+
+@Test func textInDozensOfPiecesIsJoinedAsItComesThenDoneReplacesIt() async throws {
+  // The Worker streams the text as Claude writes it: dozens of pieces, some cut mid-word. Before `done`, the screen holds
+  // all of them so far, never only the last.
+  let t = try #require(try await chat("chat-stream-species.sse").lazy.compactMap { if case .done(let t) = $0 { t } else { nil } }.first)
+  let words = Array(t.text)
+  var r = Chat.Reply()
+  // About thirty pieces, whatever the recorded answer's length.
+  let size = max(1, words.count / 30)
+  var at = 0, pieces = 0
+  while at < words.count {
+    let end = min(at + size, words.count)
+    r.take(.text(String(words[at..<end])))
+    pieces += 1
+    #expect(r.text == String(words[..<end]), "piece \(pieces) didn't join what came before it")
+    at = end
+  }
+  #expect(pieces >= 24)
+  #expect(r.turn == nil && r.writing)
+  r.take(.done(t))
+  #expect(r.text == t.text && r.turn != nil)
+}
+
+@Test func eachPageShowsOnceATurnAndNoStepAfterTheText() {
+  var r = Chat.Reply()
+  r.take(.step(.read(neonPage)))
+  r.take(.step(.search("cá neon")))
+  // Its outline, then a section of it: the same page.
+  r.take(.step(.read(neonPage)))
+  r.take(.step(.read(guidePage)))
+  #expect(r.steps == [.read(neonPage), .search("cá neon"), .read(guidePage)])
+  #expect(!r.writing)
+  r.take(.text("Dễ."))
+  r.take(.step(.tanks))
+  #expect(r.writing && r.steps.count == 3)
+}
+
+@Test func aTurnThatComesWholeIsDrawnAtOnceAndNothingAfterItsEnd() async throws {
+  // Back from the background: the retry's replay is its `done` alone.
+  guard case .done(let t) = try #require(try await chat("chat-stream-species.sse").last) else { Issue.record("no done"); return }
+  var r = Chat.Reply()
+  r.take(.done(t))
+  #expect(r.whole && r.text == t.text && r.steps.count == 3)
+  r.take(.text(" Thêm."))
+  r.take(.error("failed"))
+  #expect(r.text == t.text && r.error == nil)
+  // An error ends it as `done` does.
+  var failed = Chat.Reply()
+  failed.take(.step(.search("cá neon")))
+  failed.take(.error("failed"))
+  failed.take(.text("x"))
+  #expect(failed.ended && failed.error == "failed" && failed.text.isEmpty)
+}
+
+@Test func theStepsFoldIntoThePagesReadElseTheSearchElseTheLastStep() {
+  #expect(Chat.fold([]) == nil)
+  #expect(Chat.fold([.search("a"), .search("b")]) == .searched)
+  #expect(Chat.fold([.search("a"), .read(neonPage), .tanks, .read(guidePage), .read(neonPage)]) == .pages(2))
+  #expect(Chat.fold([.tanks, .search("a")]) == .tanks)
+  #expect(Chat.fold([.search("a"), .tanks, .mates]) == .mates)
+}
+
+@Test func numberedLinesAreAListAndTheRestStaysText() {
+  let text = """
+  Rêu nâu thường do bể mới và thiếu ánh sáng.
+  1. Lau kính mỗi tuần.
+  2. Thả ốc nerita.
+
+  Sau 1 tuần rêu không lan nữa là đúng hướng.
+  Năm 2024. Không phải bước.
+  """
+  #expect(Chat.paragraphs(text) == [
+    .text("Rêu nâu thường do bể mới và thiếu ánh sáng."),
+    .list([.init(n: 1, text: "Lau kính mỗi tuần."), .init(n: 2, text: "Thả ốc nerita.")]),
+    .text("Sau 1 tuần rêu không lan nữa là đúng hướng.\nNăm 2024. Không phải bước."),
+  ])
+  #expect(Chat.paragraphs("Dễ.\n\n\nVừa đủ.") == [.text("Dễ."), .text("Vừa đủ.")])
+  // Still streaming: a last line that is only a number, with or without its full stop, waits for its words, so it never
+  // shows as text and then turns into a step. Whole, the text is drawn as it is.
+  #expect(Chat.paragraphs("Vậy:\n1.", streaming: true) == [.text("Vậy:")])
+  #expect(Chat.paragraphs("1. Lau kính.\n2", streaming: true) == [.list([.init(n: 1, text: "Lau kính.")])])
+  #expect(Chat.paragraphs("1. Lau kính.\n 2. ", streaming: true) == [.list([.init(n: 1, text: "Lau kính.")])])
+  #expect(Chat.paragraphs("1. Lau kính.\n2. Thả", streaming: true) == [.list([.init(n: 1, text: "Lau kính."), .init(n: 2, text: "Thả")])])
+  #expect(Chat.paragraphs("Bể 60", streaming: true) == [.text("Bể 60")])
+  #expect(Chat.paragraphs("Vậy:\n1.") == [.text("Vậy:\n1.")])
+}
+
+@Test func theDayStartsAgainAtMidnightUTC() {
+  // 01:00 in Vietnam is 18:00 UTC the day before: again at 07:00 the same morning.
+  let at = ISO8601DateFormatter().date(from: "2026-11-07T18:00:00Z")!
+  #expect(Chat.dayResets(after: at) == ISO8601DateFormatter().date(from: "2026-11-08T00:00:00Z")!)
+  let midnight = ISO8601DateFormatter().date(from: "2026-11-08T00:00:00Z")!
+  #expect(Chat.dayResets(after: midnight) == ISO8601DateFormatter().date(from: "2026-11-09T00:00:00Z")!)
+}
+
+@Test func theMatesStepIsRead() {
+  guard case .step(.mates)? = Chat.event(ServerEvent(name: "step", data: #"{"kind":"mates"}"#)) else { Issue.record("no mates step"); return }
 }
