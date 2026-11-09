@@ -30,6 +30,8 @@ const SHARP = /-hd\.webp$/
 export const stillDone = (m: { t: number; url: string }, kept: Record<string, string> = {}) => SHARP.test(m.url) || String(m.t) in kept
 /** A still's address before 2026-11-07, `t<t>.webp` or `t<t>-hd.webp`: the `t` it was given, its tile k ÷ fps. */
 const BY_FPS = /\/t(\d+)(?:-hd)?\.webp$/
+/** A tile stored since 2026-11-07, `at<t>.webp`: step 0 leaves its `t` alone, since it reads as the second it shows. */
+const AT_SECOND = /\/at\d+\.webp$/
 const sortedJson = (o: Record<string, unknown>) => `${JSON.stringify(Object.fromEntries(Object.entries(o).sort(([a], [b]) => (a < b ? -1 : 1))), null, 2)}\n`
 
 /**
@@ -110,18 +112,24 @@ export async function videoStills(root: string, d: StillDeps, o: { limit?: numbe
       }
 
       // 1. The frame at each tile's second, when it shows the tile's moment.
-      const grabbed: { m: Moment; hd: Uint8Array; png: string }[] = []
+      const grabbed: { m: Moment; t: number; hd: Uint8Array; png: string }[] = []
       let left = 0
       for (const m of figures.flatMap(f => f.moments)) {
         if (stillDone(m, kept)) continue
         if (m.url in rejected) { kept[String(m.t)] = 'rejected'; continue } // never given a new address that escapes it
         try {
-          const hd = await sharpFrame(d.grab, frames.stream, m.t, await d.get(m.url))
+          const tile = await d.get(m.url)
+          let t = m.t
+          let hd = await sharpFrame(d.grab, frames.stream, t, tile)
+          // A still made while the video's tile interval was misread (storyboardInterval) names a second up to 1.3% early:
+          // the frame is at the second its tile really shows, and the still's play button starts there too.
+          const shown = frames.storyboard && AT_SECOND.test(m.url) ? tileTime(frames.storyboard, m.t) : m.t
+          if (!hd && shown !== m.t) { hd = await sharpFrame(d.grab, frames.stream, shown, tile); if (hd) { t = shown; retimed++ } }
           inARow = 0
           if (!hd) { kept[String(m.t)] = `the frame at ${m.t} s isn't the tile's moment`; report.kept.push(`${id} t${m.t}`); continue }
           const png = join(dir, `${id}-${m.t}.png`)
           await writeFile(png, hd)
-          grabbed.push({ m, hd, png })
+          grabbed.push({ m, t, hd, png })
         } catch (err) {
           if (throttled(err)) { report.stopped = (err as Error).message; break }
           left++
@@ -166,13 +174,13 @@ export async function videoStills(root: string, d: StillDeps, o: { limit?: numbe
 
       // 3. Upload what passed, then the guide with its stills swapped and any dropped.
       const swap = new Map<Moment, Moment>()
-      for (const { m, hd } of grabbed) {
+      for (const { m, t, hd } of grabbed) {
         const entry = entries.get(m)
         if (!entry) continue
-        const s = await d.media.put(`video/${v.youtubeId}/at${m.t}-hd.webp`, hd)
+        const s = await d.media.put(`video/${v.youtubeId}/at${t}-hd.webp`, hd)
         marks[s.url] = entry
         hashes[s.url] = await dhash(hd)
-        swap.set(m, { ...m, url: s.url, width: s.width, height: s.height })
+        swap.set(m, { ...m, t, url: s.url, width: s.width, height: s.height })
       }
       if (swap.size || drop.size || retimed) await save(figures.map(f => ({ ...f, moments: f.moments.filter(m => !drop.has(m)).map(m => swap.get(m) ?? m) })).filter(f => f.moments.length || f.photo))
       if (swap.size || drop.size) changed = true
