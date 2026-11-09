@@ -135,7 +135,7 @@ test('a guide AquaTome wrote is checked again as it is, against the facts its wr
   // A source listed twice, one that isn't a web page, and a fact about Vietnam, which only the Vietnamese guide has.
   await put(root, `engine-state/topics/${g}.json`, {
     found: true, species: [],
-    sources: [{ url: 'note: a book', title: 'Book' }, { url: 'https://society.example/fin-rot', title: 'Society' }, { url: 'https://shop.example/a', title: 'Shop' }, { url: 'https://society.example/fin-rot', title: 'Society again' }],
+    sources: [{ url: 'note: a book', title: 'Book', kind: 'other' }, { url: 'https://society.example/fin-rot', title: 'Society', kind: 'society' }, { url: 'https://shop.example/a', title: 'Shop', kind: 'shop' }, { url: 'https://society.example/fin-rot', title: 'Society again', kind: 'society' }],
     facts: [
       { section: 'treatment', fact: 'From the book.', source: 0 },
       { section: 'treatment', fact: 'The society lists malachite green as effective in some cases.', source: 3 },
@@ -154,7 +154,8 @@ test('a guide AquaTome wrote is checked again as it is, against the facts its wr
   const r = await reviewBackfill(d, { kinds: ['topic'], limit: 5 })
   expect(r.checked).toEqual([`topic vi/guides/${g}: 0.96 (was 0.72), 0 notes`])
   const facts = (p: string) => JSON.parse(p.split('FACTS:\n')[1]!.split('\n\nGUIDE:')[0]!)
-  expect(facts(prompts[0]!)).toEqual({ topic: 'Thối vây vi', kind: 'disease', facts: [
+  // Each source's kind, numbered as the facts cite them, so a page names the society as a society.
+  expect(facts(prompts[0]!)).toEqual({ topic: 'Thối vây vi', kind: 'disease', sources: [{ source: 0, kind: 'society' }, { source: 1, kind: 'shop' }], facts: [
     { section: 'treatment', fact: 'The society lists malachite green as effective in some cases.', source: 0 },
     { section: 'vietnam', fact: 'Shops in Vietnam sell it.', source: 1 },
   ] })
@@ -169,7 +170,8 @@ test('a guide AquaTome wrote is checked again as it is, against the facts its wr
   // Another language: its own facts, without Vietnam's, numbered by its references.
   await reviewBackfill(d, { kinds: ['topic'], limit: 5, only: [`id/guides/${g}`] })
   expect(prompts[1]).toContain('Indonesian (Bahasa Indonesia) GUIDE')
-  expect(facts(prompts[1]!)).toEqual({ topic: 'Thối vây vi', kind: 'disease', facts: [{ section: 'treatment', fact: 'The society lists malachite green as effective in some cases.', source: 0 }] })
+  expect(facts(prompts[1]!)).toEqual({ topic: 'Thối vây vi', kind: 'disease', sources: [{ source: 0, kind: 'society' }], facts: [{ section: 'treatment', fact: 'The society lists malachite green as effective in some cases.', source: 0 }] })
+  expect(prompts[1]).toMatch(/naming one as another kind[^\n]*is a wrong claim/)
   expect(JSON.parse(await readFile(join(root, `content/guides/${g}/id.json`), 'utf8')).quality).toEqual({ score: 0.96, indexable: true })
 })
 

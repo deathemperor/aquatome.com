@@ -3,7 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
-import { localizeTopic, makeTopic, usableFact, type TopicFacts } from '../src/topics'
+import { localizeTopic, makeTopic, SOURCE_KINDS, usableFact, type TopicFacts } from '../src/topics'
 
 const facts: TopicFacts = {
   found: true,
@@ -14,7 +14,7 @@ const facts: TopicFacts = {
     { section: 'what', fact: 'Popeye is a symptom, not a disease', source: 3 }, // a page listed twice: cites its first listing
   ],
   species: ['Carassius auratus', 'Betta splendens (Siamese fighting fish)', 'Nothing here'],
-  sources: [{ url: 'https://edis.ifas.ufl.edu/x', title: 'UF/IFAS', kind: 'university' }, { url: 'https://example.org/epsom', title: 'Epsom', kind: 'article' }, { url: 'a book', title: 'Book', kind: 'other' }, { url: 'https://edis.ifas.ufl.edu/x', title: 'UF/IFAS (search summary)', kind: 'university' }],
+  sources: [{ url: 'https://edis.ifas.ufl.edu/x', title: 'UF/IFAS', kind: 'university' }, { url: 'https://example.org/epsom', title: 'Epsom', kind: 'keeper' }, { url: 'a book', title: 'Book', kind: 'other' }, { url: 'https://edis.ifas.ufl.edu/x', title: 'UF/IFAS (search summary)', kind: 'university' }],
 }
 
 async function site() {
@@ -49,6 +49,9 @@ test('makeTopic: cited facts → Vietnamese guide checked against them, rewritte
   expect(prompts[0]).toContain('Epsom salt 1 tablespoon per 5 gallons')
   expect(prompts[0]).not.toContain('Poor water quality')
   expect(prompts[0]).toMatch(/"Popeye is a symptom, not a disease",\s*"source": 0/)
+  // Each source's kind, numbered as the facts cite them, and how the page names each kind.
+  expect(prompts[0]).toMatch(/"sources": \[\s*\{\s*"source": 0,\s*"kind": "university"\s*\},\s*\{\s*"source": 1,\s*"kind": "keeper"\s*\}\s*\]/)
+  expect(prompts[0]).toContain('- society: "một hội người nuôi cá"')
   expect(checks).toBe(4)
   expect(prompts[4]).toContain('"3 ngày" is not in the facts')
   const e = JSON.parse(await readFile(join(root, 'content/guides/aquatome-ca-bi-loi-mat-popeye/entity.json'), 'utf8'))
@@ -105,6 +108,8 @@ test('localizeTopic: from the same facts, minus Vietnam-only ones; cites only th
   const r = await localizeTopic(root, llm, r0.id, 'th')
   expect(r).toMatchObject({ slug: 'fish-popeye-causes-treatment', score: 0.88 })
   expect(prompts[0]).toContain('Thai')
+  expect(prompts[0]).toContain('shop: a fishkeeping guide, never the shop by name')
+  expect(prompts[0]).not.toContain('{{')
   expect(prompts[0]).not.toContain('thuốc lồi mắt')
   const th = JSON.parse(await readFile(join(root, 'content/guides', r0.id, 'th.json'), 'utf8'))
   expect(th.refs).toEqual([{ url: 'https://edis.ifas.ufl.edu/x', title: 'UF/IFAS' }])
@@ -254,4 +259,9 @@ test('a dose from a fish farm\'s page or a forum post is written only when anoth
   prompts.length = 0
   await localizeTopic(root, llm, r.id, 'id')
   expect(written(prompts[0]!)).toEqual(kept)
+})
+
+test('the Vietnamese writer has a name for every kind of source', async () => {
+  const prompt = await readFile(join(import.meta.dirname, '../src/prompts/topic.md'), 'utf8')
+  for (const kind of Object.keys(SOURCE_KINDS)) expect(prompt).toMatch(new RegExp(`^\\s*- ${kind}: "`, 'm'))
 })

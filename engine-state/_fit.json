@@ -49496,11 +49496,14 @@
   },
   "vi/guides/youtube-8SwotDmf5eM": {
     "at": "2026-11-08",
-    "hash": "1f7e6595950406b9",
+    "hash": "c6f188f7ccdea082",
     "model": "opus",
     "checklist": 3,
     "findings": [],
-    "products": []
+    "products": [
+      "Thủy Mộc",
+      "ADA"
+    ]
   },
   "vi/guides/youtube-8wpB5jlgKEg": {
     "at": "2026-11-08",
@@ -50080,14 +50083,21 @@
         "check": "price",
         "part": "P1",
         "quote": "Khoảng 7–8 USD",
-        "why": "Plant prices are given in US dollars, including shipping, which only makes sense abroad.",
+        "why": "Plant price given in US dollars, not Vietnamese currency.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "Cây nuôi cấy mô, tính cả phí ship",
+        "why": "Price including shipping, up to about 20 USD, reflects buying abroad.",
         "by": "model"
       },
       {
         "check": "price",
         "part": "L6",
         "quote": "giá khoảng 7–8 USD một bụi, bản nuôi cấy mô khoảng 12 USD",
-        "why": "Summary repeats prices in US dollars rather than Vietnamese prices.",
+        "why": "Prices in US dollars in the summary.",
         "by": "model"
       }
     ],
@@ -52472,6 +52482,13 @@
       {
         "check": "price",
         "part": "P1",
+        "quote": "nên một máng hai bóng dễ đội lên khoảng 120 USD",
+        "why": "Price given in US dollars.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "P1",
         "quote": "mua trên mạng khoảng 25–30 USD",
         "why": "Price given in US dollars.",
         "by": "model"
@@ -52479,15 +52496,8 @@
       {
         "check": "price",
         "part": "P1",
-        "quote": "một máng hai bóng dễ đội lên khoảng 120 USD",
-        "why": "Price given in US dollars.",
-        "by": "model"
-      },
-      {
-        "check": "price",
-        "part": "P1",
         "quote": "Bộ ổ dùng ở đây mua lúc xả hàng, chưa tới 10 USD.",
-        "why": "Price given in US dollars.",
+        "why": "Price in US dollars, from the source's own purchase.",
         "by": "model"
       },
       {
@@ -52501,41 +52511,55 @@
         "check": "source",
         "part": "P1",
         "quote": "Các loại đèn dưới đây đều đã chạy thật trên một kệ nhiều bể suốt mấy tháng.",
-        "why": "Refers to the source writer's own tank rack as if the reader knew it.",
+        "why": "Refers to the source's own tank rack as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Cả dàn bể đang nói tới đều dùng LED 5000K.",
+        "why": "Refers to the source's own tanks.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "nhưng loại đèn đang nói tới thì không lắp được",
+        "why": "Refers to the source's own specific light.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "máng huỳnh quang treo xưởng đang dùng lại có phích ba chấu có tiếp đất",
+        "why": "Refers to the source's own equipment.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
         "quote": "Lý do là phải quay video vào bất kỳ giờ nào, có hôm một giờ sáng, có hôm tám giờ sáng.",
-        "why": "The original video creator's personal story.",
+        "why": "The source creator's own video-making story.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
         "quote": "Đèn chỉ bật khi có người vào phòng làm việc, hôm nào vắng nhà thì tắt nguyên ngày.",
-        "why": "Describes the source's own work room and routine.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "L11",
-        "quote": "Loại ổ dùng ở đây chỉ nhận phích hai chấu",
-        "why": "Refers to the source's own equipment the reader doesn't know.",
+        "why": "The source's own room and routine presented to the reader.",
         "by": "model"
       },
       {
         "check": "words",
         "part": "P1",
         "quote": "mua đèn tuýp treo xưởng (shop light) ngoài cửa hàng điện",
-        "why": "Calque of the English 'shop light'; not a term Vietnamese keepers use.",
+        "why": "Calque of the English 'shop light'; not a Vietnamese hobby term.",
         "by": "model",
-        "fix": "máng đèn tuýp LED / đèn tuýp LED liền máng"
+        "fix": "máng đèn tuýp / đèn tuýp LED"
       }
     ],
     "products": [
-      "AI Prime (Aqua Illumination)",
+      "AI Prime",
       "Kessil",
       "EcoTech Radion"
     ]
@@ -60546,25 +60570,26 @@
     "checklist": 3,
     "findings": [
       {
-        "check": "source",
-        "part": "P3",
-        "quote": "Bản cũ chỉ là một hộp nhựa cắt đôi, đá sủi, lưới đan len và đèn bàn.",
-        "why": "It refers to the source writer's earlier build as if the reader already knew it.",
-        "by": "model"
-      },
-      {
         "check": "units",
         "part": "P1",
         "quote": "dày chưa tới 7,5 cm",
-        "why": "7.5 cm is a converted 3 inches, not a figure a keeper in Vietnam would pick.",
+        "why": "7.5 cm is a converted 3 inches, a figure nobody in Vietnam would give.",
         "by": "model"
       },
       {
-        "check": "units",
-        "part": "P5",
-        "quote": "Hộp thứ nhất chừa vành khoảng 2,5 cm, hộp thứ hai chừa gấp đôi, khoảng 5 cm.",
-        "why": "2.5 cm and 5 cm are converted 1 inch and 2 inches.",
+        "check": "source",
+        "part": "P1",
+        "quote": "Bản cũ chỉ là một hộp nhựa cắt đôi, đá sủi, lưới đan len và đèn bàn.",
+        "why": "Refers to the source author's earlier build as if the reader already knew it.",
         "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "L4",
+        "quote": "xanh hoàng gia 440 nm",
+        "why": "A literal translation of 'royal blue' that local keepers don't use.",
+        "by": "model",
+        "fix": "royal blue"
       }
     ],
     "products": [
@@ -60808,15 +60833,22 @@
   },
   "vi/guides/youtube-s9MMmXyOyec": {
     "at": "2026-11-08",
-    "hash": "adb746172bb838bd",
+    "hash": "af21f1850cfdf226",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "Bể trong ví dụ lúc đầu chỉ dùng một đèn thuộc cỡ cho bể 90 cm.",
-        "why": "The page retells the source writer's own tank story as if the reader knew that tank.",
+        "quote": "Bể thủy sinh dài 1,2 m này phải chăm vài tháng thì cây mới lên đẹp.",
+        "why": "The page talks about the source video's own tank as though the reader already knows it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể 1,2 m này lúc đầu dùng một đèn, đến tháng thứ tư thì đèn đó đã thiếu sáng",
+        "why": "It tells the story of the source's own tank and lights as if the reader had seen them.",
         "by": "model"
       }
     ],
@@ -65392,52 +65424,44 @@
       {
         "check": "price",
         "part": "P1",
-        "quote": "tiền làm khoảng 5 USD, tiền chạy chừng 2 USD mỗi tháng cho bể cỡ 40 lít",
-        "why": "Costs are given in US dollars, not Vietnamese đồng.",
+        "quote": "tiền làm khoảng 5 USD, tiền chạy chừng 2 USD mỗi tháng",
+        "why": "Costs are given in US dollars, not Vietnamese money.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P1",
         "quote": "Tổng chiều dài chừng 1,8 m",
-        "why": "1.8 m is a conversion of 6 feet.",
+        "why": "1,8 m is a converted 6 feet of tubing.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P1",
-        "quote": "tấm gỗ có khoan lỗ 3,8 cm cho chai đứng khít",
-        "why": "3.8 cm is a conversion of 1.5 inches.",
+        "quote": "tấm gỗ có khoan lỗ 3,8 cm",
+        "why": "3,8 cm is a converted 1.5 inch hole.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "Một chai khoảng 75 lít, hai chai tới khoảng 150–190 lít",
+        "why": "Tank sizes converted from 20 and 40–50 gallons.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P1",
         "quote": "khoảng 1 lít hỗn hợp cho mỗi 38 lít nước",
-        "why": "38 litres is a conversion of 10 US gallons.",
+        "why": "38 litres is a converted 10 gallons.",
         "by": "model"
-      },
-      {
-        "check": "units",
-        "part": "P1",
-        "quote": "hai chai tới khoảng 150–190 lít",
-        "why": "150–190 litres is a conversion of 40–50 gallons.",
-        "by": "model"
-      },
-      {
-        "check": "words",
-        "part": "P1",
-        "quote": "tự kín như một cái bulkhead",
-        "why": "English hobby term left untranslated.",
-        "by": "model",
-        "fix": "co nối xuyên vách"
       }
     ],
     "products": []
   },
   "vi/guides/youtube-zikyuEMALJE": {
     "at": "2026-11-08",
-    "hash": "09e5f2f3f665880f",
+    "hash": "6fa3a18faddb9054",
     "model": "opus",
     "checklist": 3,
     "findings": [],
