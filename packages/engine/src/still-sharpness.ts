@@ -23,7 +23,7 @@ export async function sharpnessOf(stored: Uint8Array): Promise<number> {
     const i = y * w + x
     const v = data[i - w]! + data[i + w]! + data[i - 1]! + data[i + 1]! - 4 * data[i]!
     const k = cy * cols + cx
-    sum[k] += v; sq[k] += v * v; n[k]++
+    sum[k] = sum[k]! + v; sq[k] = sq[k]! + v * v; n[k] = n[k]! + 1
   }
   const vars = Array.from(sum, (s, k) => sq[k]! / n[k]! - (s / n[k]!) ** 2).sort((a, b) => a - b)
   return Math.round(vars[Math.min(vars.length - 1, Math.floor(0.95 * vars.length))]! * 10) / 10
