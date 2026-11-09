@@ -122,24 +122,25 @@ final class ChatFlowTests: XCTestCase {
 
   /// A short newest turn: the round ↓ puts its question back under the bar, where it sat when answered.
   func testTheRoundArrowPutsAShortLastTurnBackUnderTheBar() {
-    let app = launch("-chat-uncovered")
+    // Claude unreachable: each turn is only its question and a card, and earlier turns stand above the newest.
+    let app = launch("-chat-unavailable")
     openChat(app)
     signIn(app)
     ask(app, String(repeating: "Bể neon của mình bị rêu tóc mọc kín, ", count: 10))
-    let answers = app.descendants(matching: .any).matching(identifier: "chat-answer")
-    XCTAssertTrue(answers.element(boundBy: 0).waitForExistence(timeout: 20), "no first answer")
+    let cards = app.descendants(matching: .any).matching(identifier: "chat-failed")
+    XCTAssertTrue(cards.element(boundBy: 0).waitForExistence(timeout: 20), "no first card")
     let more = app.buttons["chat-more"]
     reveal(app, more)
     more.tap()
-    ask(app, "Neon ăn gì?")
-    XCTAssertTrue(answers.element(boundBy: 1).waitForExistence(timeout: 20), "no second answer")
-    ask(app, "Neon sống bao lâu?")
-    XCTAssertTrue(answers.element(boundBy: 2).waitForExistence(timeout: 20), "no third answer")
+    for (n, q) in ["Neon ăn gì?", "Neon sống bao lâu?", "Neon đẻ thế nào?"].enumerated() {
+      ask(app, q)
+      XCTAssertTrue(cards.element(boundBy: n + 1).waitForExistence(timeout: 20), "no card for \(q)")
+    }
     let toEnd = app.buttons["chat-to-end"]
     repeatUntil(toEnd.exists, times: 4) { element(app, "chat").swipeDown() }
     XCTAssertTrue(toEnd.exists, "no ↓ up in the earlier turns")
     toEnd.tap()
-    let bar = app.navigationBars.firstMatch, newest = app.staticTexts.matching(identifier: "chat-question").element(boundBy: 2)
+    let bar = app.navigationBars.firstMatch, newest = app.staticTexts.matching(identifier: "chat-question").element(boundBy: 3)
     XCTAssertTrue(soon(abs(newest.frame.minY - bar.frame.maxY) < 44),
                   "the question isn't under the bar: its top at \(newest.frame.minY), the bar's end at \(bar.frame.maxY)")
   }
@@ -586,7 +587,8 @@ final class ChatFlowTests: XCTestCase {
     section.press(forDuration: 1)
     XCTAssertTrue(app.buttons["Mở"].waitForExistence(timeout: 5), "no Mở on a section")
     XCTAssertTrue(app.buttons["Chia sẻ"].exists, "no Chia sẻ on a section")
-    app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.05)).tap()
+    // On the dimmed page, above the menu: the status bar's area doesn't take the tap.
+    app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.15)).tap()
     XCTAssertTrue(app.buttons["Chia sẻ"].waitForNonExistence(timeout: 5), "the menu stayed")
     let tool = app.descendants(matching: .any).matching(identifier: "chat-tool").firstMatch
     reveal(app, tool)
