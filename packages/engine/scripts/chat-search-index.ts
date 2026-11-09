@@ -1,25 +1,26 @@
 /**
- * Fills the chat's section search (apps/site/worker/chat/section-search.ts): every handbook section in the languages the
- * chat hands sections over in (handover.ts `SEARCHED`), embedded and written to the Vectorize index, a namespace a
- * language. A section's text is read from the handbook when it's handed over, so one that changed still reads right; a
- * section added since is found once this runs again.
+ * Keeps the chat's section search (apps/site/worker/chat/section-search.ts) in step with the live handbook: every section
+ * in the languages the chat hands sections over in (handover.ts `SEARCHED`), embedded and written to the Vectorize index, a
+ * namespace a language. Runs after each deploy (.github/workflows/chat-search.yml). A record of what it wrote
+ * (`written-<index>-<lang>.json` in --cache) means a run embeds and writes only the sections new or changed since, and
+ * removes those the handbook no longer has; with no record it writes them all.
  *
- *   pnpm --filter @aq/engine exec tsx scripts/chat-search-index.ts [--create] [--site <a chat-speed.ts build folder>]
+ *   pnpm --filter @aq/engine exec tsx scripts/chat-search-index.ts [--create] [--site <url>]
  *
  * The Cloudflare token (Workers AI: Read, Vectorize: Edit) is read from --token, a file, never printed; the account from --account.
  */
 import { createHash } from 'node:crypto'
-import { mkdir, readFile } from 'node:fs/promises'
+import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { homedir } from 'node:os'
-import { basename, join } from 'node:path'
+import { join } from 'node:path'
 import { parseArgs } from 'node:util'
 import { SEARCHED } from '../../../apps/site/worker/chat/handover'
-import { docsOf, latestBuild, siteSource, vectors, type Embedder } from './chat-search-lib'
+import { changesOf, docsOf, hash, liveSource, vectors, type Embedder } from './chat-search-lib'
 import { pool } from './eval-lib'
 
 const { values: args } = parseArgs({
   options: {
-    site: { type: 'string' },
+    site: { type: 'string', default: 'https://aquatome.com' },
     index: { type: 'string', default: 'aquatome-chat-sections' },
     create: { type: 'boolean', default: false },
     token: { type: 'string', default: join(homedir(), '.config/aquatome/cf-ai-token') },
@@ -42,20 +43,25 @@ async function main() {
   }
   await mkdir(args.cache!, { recursive: true })
   if (args.create) await call(api, JSON.stringify({ name: args.index, description: 'The chat\'s handbook sections, one namespace a language', config: { dimensions: DIMENSIONS, metric: 'cosine' } }), 'application/json')
-  const dir = args.site ?? await latestBuild()
-  console.log(`Handbook: ${basename(dir)}`)
-  const source = siteSource(dir)
+  const batches = <T>(all: T[]) => Array.from({ length: Math.ceil(all.length / BATCH) }, (_, i) => all.slice(i * BATCH, (i + 1) * BATCH))
   for (const lang of SEARCHED) {
+    const source = liveSource(args.site!)
+    // Read here, where a failure stops the run: handbookOf takes a topics file it can't read for one holding every video guide.
+    await source.topics(lang)
     const { docs } = await docsOf(source, lang, Number(args.chars))
-    const v = await vectors(e, `docs-${lang}`, docs.map(d => d.text))
-    const lines = docs.map((d, i) => JSON.stringify({
-      id: createHash('sha256').update(`${lang}:${d.path}#${d.heading ?? ''}`).digest('hex').slice(0, 32),
-      namespace: lang, values: Array.from(v[i]!), metadata: { path: d.path, ...(d.heading ? { heading: d.heading } : {}) },
-    }))
-    const batches: string[][] = []
-    for (let i = 0; i < lines.length; i += BATCH) batches.push(lines.slice(i, i + BATCH))
-    await pool(batches.map(b => () => call(`${api}/${args.index}/upsert`, b.join('\n'), 'application/x-ndjson')), 4)
-    console.log(`${lang}: ${lines.length} sections written`)
+    const byId = new Map(docs.map(d => [createHash('sha256').update(`${lang}:${d.path}#${d.heading ?? ''}`).digest('hex').slice(0, 32), d]))
+    const wanted = Object.fromEntries([...byId].map(([id, d]) => [id, hash(`${e.model}\n${d.text}`)]))
+    const record = join(args.cache!, `written-${args.index}-${lang}.json`)
+    const { write, gone } = changesOf(JSON.parse(await readFile(record, 'utf8').catch(() => '{}')) as Record<string, string>, wanted)
+    const v = await vectors(e, `docs-${lang}`, write.map(id => byId.get(id)!.text))
+    const lines = write.map((id, i) => {
+      const d = byId.get(id)!
+      return JSON.stringify({ id, namespace: lang, values: Array.from(v[i]!), metadata: { path: d.path, ...(d.heading ? { heading: d.heading } : {}) } })
+    })
+    await pool(batches(lines).map(b => () => call(`${api}/${args.index}/upsert`, b.join('\n'), 'application/x-ndjson')), 4)
+    await pool(batches(gone).map(b => () => call(`${api}/${args.index}/delete_by_ids`, JSON.stringify({ ids: b }), 'application/json')), 4)
+    await writeFile(record, JSON.stringify(wanted))
+    console.log(`${lang}: ${byId.size} sections, ${write.length} written, ${gone.length} removed`)
   }
 }
 

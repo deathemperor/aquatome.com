@@ -14,7 +14,7 @@ import { pool } from './eval-lib'
 
 export type Doc = { path: string; heading: string | null; title: string; text: string }
 export type Embedder = { token: string; account: string; model: string; cache: string }
-const hash = (s: string) => createHash('sha256').update(s).digest('hex').slice(0, 16)
+export const hash = (s: string) => createHash('sha256').update(s).digest('hex').slice(0, 16)
 
 /** The handbook build read last (chat-speed.ts keeps one folder a build). */
 export async function latestBuild(): Promise<string> {
@@ -27,6 +27,21 @@ export function siteSource(dir: string): Source {
   const file = (p: string) => join(dir, p.replace(/^\//, '').replace(/\//g, '_'))
   const json = async <T>(p: string): Promise<T | null> => { try { return JSON.parse(await readFile(file(p), 'utf8')) as T } catch { return null } }
   return { index: l => json(`/app/${l}.json`), shard: (l, k, n) => json(`/app/pages/${l}/${k}-${n}.json`), topics: l => json(`/app/chat/${l}.json`) }
+}
+
+/** The handbook as the site serves it now, each file read once. A read that fails stops the run: a page left out would be taken for one removed. */
+export function liveSource(site: string, get: typeof fetch = fetch): Required<Source> {
+  const read = new Map<string, Promise<unknown>>()
+  const json = <T>(path: string): Promise<T> => {
+    if (!read.has(path)) read.set(path, get(new URL(path, site)).then(r => { if (!r.ok) throw new Error(`${path}: ${r.status}`); return r.json() }))
+    return read.get(path) as Promise<T>
+  }
+  return { index: l => json(`/app/${l}.json`), shard: (l, k, n) => json(`/app/pages/${l}/${k}-${n}.json`), topics: l => json(`/app/chat/${l}.json`) }
+}
+
+/** What a run has to do, from each section's id and text hash: what it wrote last time, against the handbook now. */
+export function changesOf(written: Record<string, string>, wanted: Record<string, string>): { write: string[]; gone: string[] } {
+  return { write: Object.keys(wanted).filter(id => written[id] !== wanted[id]), gone: Object.keys(written).filter(id => !(id in wanted)) }
 }
 
 /** Every section a read_page call can open: a page's opening (heading null) and each heading with an id. */
