@@ -1,8 +1,8 @@
 {
   "id": "corydoras-oiapoquensis",
   "native": {
-    "input": "57a894a4742060f6",
-    "at": "2026-11-07T13:20:47.766Z",
+    "input": "e0c41ee929790e39",
+    "at": "2026-11-08T18:57:48.756Z",
     "claims": [
       {
         "code": "GF",
@@ -11,6 +11,22 @@
         "quote": "Type locality: Cumuri Creek at left bank of Oyapock R., French Guiana.",
         "words": "French Guiana",
         "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Rio Oyapock in French Guiana and Brazil.",
+        "words": "French Guiana",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Rio Oyapock in French Guiana and Brazil.",
+        "words": "Brazil",
+        "ok": true
       }
     ],
     "regions": [
@@ -18,6 +34,12 @@
         "name": "Oyapock",
         "source": "planetcatfish",
         "quote": "South America: Oyapock River basin.",
+        "ok": true
+      },
+      {
+        "name": "Rio Oyapock",
+        "source": "seriouslyfish",
+        "quote": "Rio Oyapock in French Guiana and Brazil.",
         "ok": true
       }
     ],
@@ -71,9 +93,10 @@
       ]
     ],
     "native": [
-      "GF"
+      "GF",
+      "BR"
     ],
     "requests": 12,
-    "at": "2026-11-07T13:20:47.766Z"
+    "at": "2026-11-08T18:57:48.756Z"
   }
 }

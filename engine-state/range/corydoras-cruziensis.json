@@ -1,0 +1,76 @@
+{
+  "id": "corydoras-cruziensis",
+  "native": {
+    "input": "514e18110b308f83",
+    "at": "2026-11-08T18:57:48.756Z",
+    "claims": [
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The Santa Cruz cory, Hoplisoma cruziense, long known as Corydoras cruziensis, is an armoured catfish from the Bolivian portion of the Río Madeira basin.",
+        "words": "Bolivian",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The precise extent of its range is unclear but it appears restricted to the Bolivian portion of the Río Madeira basin, and possibly the Mamoré and Beni tributary drainages.",
+        "words": "Bolivian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Madeira",
+        "source": "seriouslyfish",
+        "quote": "The precise extent of its range is unclear but it appears restricted to the Bolivian portion of the Río Madeira basin, and possibly the Mamoré and Beni tributary drainages.",
+        "country": "BO",
+        "ok": true
+      },
+      {
+        "name": "Mamoré",
+        "source": "seriouslyfish",
+        "quote": "The precise extent of its range is unclear but it appears restricted to the Bolivian portion of the Río Madeira basin, and possibly the Mamoré and Beni tributary drainages.",
+        "ok": true
+      },
+      {
+        "name": "Beni",
+        "source": "seriouslyfish",
+        "quote": "The precise extent of its range is unclear but it appears restricted to the Bolivian portion of the Río Madeira basin, and possibly the Mamoré and Beni tributary drainages.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras cruziensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2342780,
+    "datasets": [
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        5
+      ],
+      [
+        "58414378-4fb2-47e0-8dd5-8b55d5c77117",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "BO"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T18:57:48.756Z"
+  }
+}

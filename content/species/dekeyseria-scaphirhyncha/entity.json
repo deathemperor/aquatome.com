@@ -20,11 +20,13 @@
       ],
       "regions": [
         "Negro River",
-        "Solimões",
-        "Nhamundá"
+        "Amazon",
+        "Rio Orinoco",
+        "Rio Amazon"
       ],
       "sources": [
-        "planetcatfish"
+        "planetcatfish",
+        "scotcat"
       ],
       "quotes": [
         {
@@ -48,8 +50,16 @@
           "quote": "Also recorded from the Middle Amazon (Solimões), Negro and the Lower Amazon, Nhamundá.",
           "countries": [],
           "regions": [
-            "Solimões",
-            "Nhamundá"
+            "Amazon"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Upper course of the Rio Orinoco and the middle to lower Rio Amazon.",
+          "countries": [],
+          "regions": [
+            "Rio Orinoco",
+            "Rio Amazon"
           ]
         }
       ]

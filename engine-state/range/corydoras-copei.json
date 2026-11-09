@@ -1,0 +1,65 @@
+{
+  "id": "corydoras-copei",
+  "native": {
+    "input": "c7e8629c5a33b267",
+    "at": "2026-11-08T18:57:48.756Z",
+    "claims": [
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Hoplisoma copei, long known as Corydoras copei, is an armoured catfish from Peru, apparently endemic to the Río Pastaza basin and possibly the lower Río Marañón.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Downstream of Río Huytoyacu, right tributary of Río Pastaza, about 40 kilometers north of Lago Rimachi, 4°13'S, 76°38'W, Peru', and this species appears to be endemic to the Pastaza basin and possibly the lower rio Marañón with a couple of records from the rio Samiria, a right bank tributary.",
+        "words": "Peru",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Río Pastaza",
+        "source": "seriouslyfish",
+        "quote": "Hoplisoma copei, long known as Corydoras copei, is an armoured catfish from Peru, apparently endemic to the Río Pastaza basin and possibly the lower Río Marañón.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Río Marañón",
+        "source": "seriouslyfish",
+        "quote": "Hoplisoma copei, long known as Corydoras copei, is an armoured catfish from Peru, apparently endemic to the Río Pastaza basin and possibly the lower Río Marañón.",
+        "country": "PE",
+        "ok": true
+      },
+      {
+        "name": "Río Samiria",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Downstream of Río Huytoyacu, right tributary of Río Pastaza, about 40 kilometers north of Lago Rimachi, 4°13'S, 76°38'W, Peru', and this species appears to be endemic to the Pastaza basin and possibly the lower rio Marañón with a couple of records from the rio Samiria, a right bank tributary.",
+        "country": "PE",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras copei",
+    "status": "ACCEPTED",
+    "taxonKey": 2342637,
+    "datasets": [],
+    "native": [
+      "PE"
+    ],
+    "requests": 2,
+    "at": "2026-11-08T18:57:48.756Z"
+  }
+}

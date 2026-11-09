@@ -1,0 +1,20 @@
+{
+  "slug": "ca-lau-kieng-aspidolepis",
+  "name": "Cá lau kiếng aspidolepis",
+  "altNames": [],
+  "sections": {
+    "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Hypostomus aspidolepis (Günther, 1867)</li><li>Nơi thu mẫu chuẩn: Veragua, Panama.</li><li>Tên đồng nghĩa: Chaetostomus aspidolepis, Hemiancistrus aspidolepis</li></ul>",
+    "distribution:planetcatfish": "<p>Trung Mỹ: lưu vực sông Gatun, thuộc hệ sông đổ ra bờ biển Caribe. Loài này sống ở các sông phía Caribe của Panama, gồm sông Chagres và sông Gatun.</p>",
+    "habitat:planetcatfish": "<p>Ngoài tự nhiên, loài này sống ở nơi nước chảy mạnh, nhiệt độ khoảng 25 °C, pH 7,4.</p>",
+    "reproduction:planetcatfish": "<p>Sinh sản: chưa có tài liệu nào nói về việc loài này sinh sản.</p>",
+    "references:planetcatfish": "<p>Proceedings of the Zoological Society of London 1866 (pt 3), pp 603.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": false,
+    "bySource": {
+      "planetcatfish": 0.9
+    },
+    "reason": "thin"
+  }
+}

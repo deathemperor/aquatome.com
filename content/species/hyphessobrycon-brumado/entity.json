@@ -1,0 +1,138 @@
+{
+  "id": "hyphessobrycon-brumado",
+  "scientificName": "Hyphessobrycon brumado",
+  "order": "Characiformes",
+  "family": "Characidae",
+  "genus": "Hyphessobrycon",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-de-contas"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 3.2
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-brumado",
+      "html": "<p>Hyphessobrycon brumado is a small characid known only from the rio Brumado, part of the coastal rio de Contas drainage in Bahia state, eastern Brazil. It was collected from moderately-flowing streams at 971-1048 m with rock and sand substrates. It superficially resembles the silver-tipped tetra, Hasemania nana, but has an adipose fin, and a broad black lateral stripe extends onto the median caudal-fin rays.</p><ul><li>Space: small tank</li><li>Social: needs to be in a group</li><li>Compatibility: fine with others</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-brumado",
+      "html": "<p>Known only from the rio Brumado, a tributary within the coastal rio de Contas drainage in Bahia state, eastern Brazil.</p><p>The full type locality is 'Rio Brumado, at Ponte do Coronel, rio de Contas drainage, 13°29'37.0\"S, 41°52'0.6\"W, Rio de Contas Municipality, Bahia, Brazil'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-brumado",
+      "html": "<p>Collected from moderately-flowing streams at altitudes between 971-1048 m AMSL with substrates of rock and sand and riparian vegetation comprising grass, shrubs and trees.</p><p>Sympatric fish species included Astyanax aff. lacustris, Gymnotus aff. carapo, Hypostomus sp., Parotocinclus jimi, Poecilia reticulata, Rhamdia aff. quelen, and Trichomycterus sp.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-brumado",
+      "html": "<p>The stomach contents of wild specimens included filamentous algae, fragments of vascular plants, adults and larvae of Diptera (Chironomidae and Simuliidae), larvae of Trichoptera, adults of Formicidae, Aranae, and fragments of unidentified arthropods.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-brumado",
+      "html": "<p>In some females the lateral stripe is less broad and rounded caudal blotch more conspicuous than in males, while some males possess a greater degree of dark pigmentation on the caudal-fin than females.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-brumado",
+      "html": "<p>This species superficially resembles the popular silver-tipped tetra, Hasemania nana, but can easily be told apart by presence (vs. absence) of an adipose-fin.</p><p>It can be told apart from other Hyphessobrycon species from northeastern Brazilian drainages by possession of a broad black lateral stripe on the body that extends onto the median caudal-fin rays (vs. absence of broad stripe and/or median caudal-fin rays hyaline), absence of a humeral spot (vs. presence in some species) and absence of a well defined caudal spot (mainly in males).</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-brumado",
+      "html": "<ul><li>Zanata, A. M. and P. Camelier (2010). Hyphessobrycon brumado: a new characid fish (Ostariophysi: Characiformes) from the upper rio de Contas drainage, Chapada Diamantina, Bahia, Brazil. Neotropical Ichthyology 8(4), 771-777</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/e4fb38012e43d068.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/e4fb38012e43d068-480.webp",
+      "width": 779,
+      "height": 304,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-brumado",
+      "caption": "Paratype, just after fixation, male, UFBA 4341, 29.6 mm SL.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/ba3d3c03007e7ae4.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/ba3d3c03007e7ae4-480.webp",
+      "width": 799,
+      "height": 315,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-brumado",
+      "caption": "Hyphessobrycon brumado, holotype, male, MZUSP 101246, 30.7 mm SL, Brazil, Bahia, Rio de Contas Municipality, rio Brumado, at Ponte do Coronel, rio de Contas drainage.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/9dee6de2e5ab6ded.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/9dee6de2e5ab6ded-480.webp",
+      "width": 600,
+      "height": 449,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hyphessobrycon-brumado",
+      "caption": "Type locality of Hyphessobrycon brumado, Brazil, Bahia, Rio de Contas Municipality, rio de Contas drainage, rio Brumado, at Ponte do Coronel.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nhỏ 40cm",
+        "bể cá mini để cá tetra"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ cho bể cá",
+        "lọc sủi mút"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá tetra nhỏ",
+        "thức ăn vi mô cho cá nhỏ"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "sỏi nền bể thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

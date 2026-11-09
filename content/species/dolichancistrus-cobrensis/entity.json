@@ -1,0 +1,93 @@
+{
+  "id": "dolichancistrus-cobrensis",
+  "scientificName": "Dolichancistrus cobrensis",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Dolichancistrus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "venezuela",
+    "catatumbo"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "planetcatfish",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "planetcatfish",
+        "value": 7.9
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1319",
+      "html": "<p>Scientific name: Dolichancistrus cobrensis (Schultz, 1944).</p><p>Synonym: Pseudancistrus pediculatus cobrensis.</p><p>Etymology: Greek, dolichos = long + Greek, agkistron = hook, meaning \"Long Ancistrus\".</p><p>Size: 79 mm SL.</p><p>IUCN Red List: Not Evaluated.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1319",
+      "html": "<p>South America: Catatumbo River basin in the Lake Maracaibo drainage, Venezuela.</p><p>Type locality: Río Cobre, tributary to Río Quinta, below La Grita, Catatumbo system, Maracaibo basin, Venezuela.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1319",
+      "html": "<p>Temperature: 20–24°C.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1319",
+      "html": "<p>Unreported in the aquarium. There is no breeding report.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1319",
+      "html": "<p>Dolichancistrus is similar to Leptoancistrus, Cordylancistrus and Chaetostoma. Dolichancistrus is differentiated from Leptoancistrus by the presence of the adipose and anal fins (vs. their absence); from Cordylancistrus and Chaetostoma by the presence of pectoral-fin spines in mature males longer than those in adult females and immatures of both sexes (vs. the pectoral spines of equal length in both sexes); and from most species of Chaetostoma in having a plated snout (vs. naked). Dolichancistrus differs from Chaetostoma platyrhynchus in having the hypertrophied cheek odontodes evertible to more than 90º (vs. evertible only to approximately 30–40º) and in bearing hypertrophied cheek odontodes that are distally recurved (vs. odontodes straight along their entire length).</p>"
+    },
+    {
+      "key": "references",
+      "source": "planetcatfish",
+      "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1319",
+      "html": "<p>Proceedings of the United States National Museum v. 94 (no. 3172), pp 299, Pl. 9 (figs. A-B).</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá thủy sinh nhỏ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thác cho bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "máy làm mát nước bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-08"
+}

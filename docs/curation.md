@@ -46,9 +46,12 @@ language's app index (`/app/<lang>.json`, `apps/site/src/lib/curation.ts`):
 
 Among the pages that pass, it scores:
 - the week's own lists first, in their order;
+- then, for a week with no video guide yet, a video guide: one a week, shown in YouTube's own player;
 - then the week's tags (`cold`, `heater`, `beginner`, `nano`, `local`), matched to the page's figures;
 - then how well known the fish is (the site's staples and popular lists);
 - then Search Console impressions across the four languages, and pages updated in the last 14 days.
+- A fish with a loop (`loops`) gains as much as a large photo does, so a fish moves up once its loop is in, and never
+  past the week's own list.
 
 The same page never comes back within 28 days, nor the same fish group two days running. A day a person chose
 (`fixed`) is kept while it passes. A pick that stops passing (held back, its photo removed) is replaced, and the run

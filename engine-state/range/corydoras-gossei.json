@@ -1,0 +1,84 @@
+{
+  "id": "corydoras-gossei",
+  "native": {
+    "input": "262bdbbdf57807ca",
+    "at": "2026-11-08T18:57:48.756Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The palespotted cory, Hoplisoma gossei, long known as Corydoras gossei, is an armoured catfish from the rio Mamoré watershed in Rondônia state, northwestern Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "It is also likely to occur in northern Bolivia, since the Mamoré forms the border between the two countries at the type locality.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the rio Mamoré watershed in Rondónia state, northwestern Brazil, but also likely to occur in northern Bolivia given that the Mamoré forms the border between the two countries at the type locality.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Known only from the rio Mamoré watershed in Rondónia state, northwestern Brazil, but also likely to occur in northern Bolivia given that the Mamoré forms the border between the two countries at the type locality.",
+        "words": "Bolivia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Mamoré",
+        "source": "seriouslyfish",
+        "quote": "Known only from the rio Mamoré watershed in Rondónia state, northwestern Brazil, but also likely to occur in northern Bolivia given that the Mamoré forms the border between the two countries at the type locality.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Madeira",
+        "source": "seriouslyfish",
+        "quote": "The Mamoré is a major affluent within the upper rio Madeira, itself an important Amazon tributary with its confluence east of Manaus.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BO"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras gossei",
+    "status": "ACCEPTED",
+    "taxonKey": 2342735,
+    "datasets": [
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-08T18:57:48.756Z"
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "id": "corydoras-griseus",
+  "native": {
+    "input": "17069e4b742969a6",
+    "at": "2026-11-08T18:57:48.756Z",
+    "claims": [
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Hoplisoma griseum, long known as Corydoras griseus, is an armoured catfish from Guyana, where it may be restricted to the Potaro River in the Essequibo watershed.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to Guyana, where it may be restricted to the Potaro River, a major tributary within the Essequibo watershed.",
+        "words": "Guyana",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Essequibo",
+        "source": "seriouslyfish",
+        "quote": "Native to Guyana, where it may be restricted to the Potaro River, a major tributary within the Essequibo watershed.",
+        "country": "GY",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras griseus",
+    "status": "ACCEPTED",
+    "taxonKey": 2342767,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        5
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        3
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        3
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        1
+      ]
+    ],
+    "native": [
+      "GY"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T18:57:48.756Z"
+  }
+}

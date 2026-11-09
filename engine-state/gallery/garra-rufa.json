@@ -109,12 +109,12 @@
   "https://media.aquatome.com/commons/a4da5aa3e03a0cbe.webp": "d1c79b0fc7460e45",
   "https://media.aquatome.com/commons/958c11b6e8411f0b.webp": "9fa62c4e1fcf0f4f",
   "https://media.aquatome.com/inaturalist/617421868.webp": "68ea5860e8bdf03f",
-  "https://live.staticflickr.com/65535/52545518228_a9c01f7821_b.jpg": "6961e1eae3a383b1",
-  "https://live.staticflickr.com/65535/52522608212_2aab566632_b.jpg": "d2c9c94b0d0d1b36",
-  "https://live.staticflickr.com/65535/52545518108_4b481c918a_b.jpg": "e4e0e1cdb7258742",
-  "https://live.staticflickr.com/65535/52658888126_2e6c97d93c_b.jpg": "80219a4c8e1b4cce",
-  "https://live.staticflickr.com/65535/52659383438_cfd9e7bfc1_b.jpg": "30016b4c1c185c4e",
-  "https://live.staticflickr.com/65535/52659337605_b8d3163da1_b.jpg": "3801638c9e1c4ece"
+  "https://media.aquatome.com/flickr/52522608212.webp": "d2c1c94b0d1d1a32",
+  "https://media.aquatome.com/flickr/52545518228.webp": "6961e1eae7a38bb9",
+  "https://media.aquatome.com/flickr/52545518108.webp": "e4e0e1cd372d874a",
+  "https://media.aquatome.com/flickr/52658888126.webp": "80219e6c86194cce",
+  "https://media.aquatome.com/flickr/52659383438.webp": "30812b4c1c185cce",
+  "https://media.aquatome.com/flickr/52659337605.webp": "b823638c1e1c4cce"
  },
  "inat": {
   "taxon": 361334,
@@ -130,6 +130,7 @@
   "next": null
  },
  "openverse": {
-  "next": 5
- }
+  "next": null
+ },
+ "exhausted": "2026-11-08"
 }

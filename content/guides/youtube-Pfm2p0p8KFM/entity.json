@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-08",
   "video": {
     "youtubeId": "Pfm2p0p8KFM",
     "title": "Cách Chọn Và Lắp Đặt Bình CO2 Cho Bể Thủy Sinh • Thủy Sinh Cơ Bản • Phần 5",
@@ -30,7 +30,12 @@
       {
         "category": "co2",
         "type": "binh",
-        "t": 197
+        "t": 437
+      },
+      {
+        "category": "co2",
+        "type": "mini",
+        "t": 1352
       }
     ],
     "figures": [
@@ -38,148 +43,99 @@
         "heading": "Vì sao cây thủy sinh cần CO2",
         "moments": [
           {
-            "t": 1056,
-            "url": "https://media.aquatome.com/video/Pfm2p0p8KFM/t1056.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bình CO2 nhôm và bộ van điều áp đang được lắp cho bể thủy sinh."
+            "t": 1030,
+            "url": "https://media.aquatome.com/video/Pfm2p0p8KFM/at1030-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bộ khuếch tán CO2 dạng cốc trong hồ thủy sinh."
+          },
+          {
+            "t": 1040,
+            "url": "https://media.aquatome.com/video/Pfm2p0p8KFM/at1040-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bình CO2 bằng nhôm đặt trên bàn, chuẩn bị lắp bộ điều áp."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/Pfm2p0p8KFM/p0-ha3Zhcml1bS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/Pfm2p0p8KFM/p0-ha3Zhcml1bS5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/Pfm2p0p8KFM/p0-NfUGxhbnRzLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/Pfm2p0p8KFM/p0-NfUGxhbnRzLmpwZw-480.webp",
           "width": 960,
-          "height": 737,
-          "licence": "Public domain",
-          "author": "User Aleš Tošovský",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amaterske_akvarium.jpg",
-          "caption": "Bể thủy sinh cây xanh um, rậm rạp và phát triển khỏe."
+          "height": 638,
+          "licence": "CC BY 4.0",
+          "author": "Abhik.Mazumdar.73",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_with_Mermaid_Statue_Driftwood_and_Anubias_Aquatic_Plants.jpg",
+          "caption": "Cây thủy sinh lá xanh mướt bám trên lũa trong bể nền cát trắng."
         }
       },
       {
-        "heading": "Các cách cấp CO2 cho bể",
-        "moments": [
-          {
-            "t": 434,
-            "url": "https://media.aquatome.com/video/Pfm2p0p8KFM/t434.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bình CO2 bằng nhôm đặt trên bàn cùng van và các phụ kiện."
-          },
-          {
-            "t": 503,
-            "url": "https://media.aquatome.com/video/Pfm2p0p8KFM/t503.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bình CO2 cùng bộ van điều áp và cốc sủi đặt trên bàn."
-          }
-        ]
-      },
-      {
-        "heading": "Những lo ngại khiến nhiều người chưa mua bình CO2",
+        "heading": "Cây trên cạn sống được, sao cây trong bể lại thiếu CO2",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/Pfm2p0p8KFM/p3-bXBsZV8oMikuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/Pfm2p0p8KFM/p3-bXBsZV8oMikuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/Pfm2p0p8KFM/p1-5Nzk3ODE5KS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/Pfm2p0p8KFM/p1-5Nzk3ODE5KS5qcGc-480.webp",
           "width": 960,
-          "height": 1280,
+          "height": 559,
+          "licence": "CC BY 2.0",
+          "author": "Phalinn Ooi from Kuala Lumpur, Malaysia",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:London_Aquarium_(539797819).jpg",
+          "caption": "Thảm cây thủy sinh xanh tốt trong bể nền cát trắng."
+        }
+      },
+      {
+        "heading": "Cá thở ra CO2 hay thay nước nhiều có đủ không",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/Pfm2p0p8KFM/p2-bV9maXNoZXMuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/Pfm2p0p8KFM/p2-bV9maXNoZXMuanBn-480.webp",
+          "width": 960,
+          "height": 640,
           "licence": "CC BY-SA 4.0",
-          "author": "Leiem",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Carbon_dioxide_sample_(2).jpg",
-          "caption": "Bình CO2 được đai cố định chắc chắn vào tường để đảm bảo an toàn."
+          "author": "KannanVM",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pookode_Lake_Fresh_Water_Aquarium_fishes.jpg",
+          "caption": "Cá vàng bơi trong bể trồng cây, nền sỏi nhiều màu."
         }
       },
       {
-        "heading": "Chọn bình: bình sắt hay bình nhôm",
-        "moments": [
-          {
-            "t": 464,
-            "url": "https://media.aquatome.com/video/Pfm2p0p8KFM/t464.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bình nhôm CO2 đứng trên bàn, gọn nhẹ, kèm van và bộ điều áp."
-          },
-          {
-            "t": 494,
-            "url": "https://media.aquatome.com/video/Pfm2p0p8KFM/t494.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Toàn cảnh bình nhôm cạnh bộ van điều áp và điện từ."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/Pfm2p0p8KFM/p4-QR190YW5rcy5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/Pfm2p0p8KFM/p4-QR190YW5rcy5qcGc-480.webp",
-          "width": 960,
-          "height": 1079,
-          "licence": "CC BY-SA 3.0",
-          "author": "Tasma3197",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:LPG_tanks.jpg",
-          "caption": "Hai bình khí hình trụ màu bạc, gọn, gắn đai cố định."
-        }
-      },
-      {
-        "heading": "Van cơ và van điện khác nhau thế nào",
-        "moments": [
-          {
-            "t": 513,
-            "url": "https://media.aquatome.com/video/Pfm2p0p8KFM/t513.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bình CO2 và các phụ kiện van đặt rời trên bàn."
-          }
-        ]
-      },
-      {
-        "heading": "Lắp bộ van cơ từng bước",
-        "moments": [
-          {
-            "t": 701,
-            "url": "https://media.aquatome.com/video/Pfm2p0p8KFM/t701.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bình CO2, bộ van tinh chỉnh và dây dẫn khí đặt trên bàn."
-          },
-          {
-            "t": 770,
-            "url": "https://media.aquatome.com/video/Pfm2p0p8KFM/t770.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cầm dây CO2 để nối vào van một chiều cạnh bình."
-          }
-        ]
-      },
-      {
-        "heading": "Lắp bộ van điện",
-        "moments": [
-          {
-            "t": 1076,
-            "url": "https://media.aquatome.com/video/Pfm2p0p8KFM/t1076.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bộ van điện có đồng hồ và dây điện trước khi lắp vào bình."
-          },
-          {
-            "t": 1214,
-            "url": "https://media.aquatome.com/video/Pfm2p0p8KFM/t1214.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Lắp bộ van điện lên bình CO2, chỉnh đồng hồ cho thẳng."
-          }
-        ]
-      },
-      {
-        "heading": "Chỉnh lượng CO2 cho vừa bể",
+        "heading": "Những lo ngại khi định mua bình CO2",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/Pfm2p0p8KFM/p8-FzY2FwaW5nLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/Pfm2p0p8KFM/p8-FzY2FwaW5nLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/Pfm2p0p8KFM/p4-QxMDgzMDkpLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/Pfm2p0p8KFM/p4-QxMDgzMDkpLmpwZw-480.webp",
+          "width": 900,
+          "height": 1200,
+          "licence": "CC BY 2.0",
+          "author": "Newtown grafitti from Sydney, Australia",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:CO2_extinguisher_(9544108309).jpg",
+          "caption": "Bình chữa cháy CO2 màu đỏ, loại bình khí mà dân chơi cây thủy sinh hay dùng."
+        }
+      },
+      {
+        "heading": "Lắp bộ CO2 van cơ",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/Pfm2p0p8KFM/p7-yb0NPMi0wMS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/Pfm2p0p8KFM/p7-yb0NPMi0wMS5qcGc-480.webp",
+          "width": 800,
+          "height": 600,
+          "licence": "CC BY-SA 4.0",
+          "author": "Pmerino",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:ManometroCO2-01.jpg",
+          "caption": "Bộ van điều áp có hai đồng hồ, dùng gắn vào bình khí CO2."
+        }
+      },
+      {
+        "heading": "Chỉnh lượng CO2 bao nhiêu là vừa",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/Pfm2p0p8KFM/p10-FzY2FwaW5nLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/Pfm2p0p8KFM/p10-FzY2FwaW5nLmpwZw-480.webp",
           "width": 960,
           "height": 338,
           "licence": "CC BY 3.0",
           "author": "Ghostsword",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Embalo_Aquascaping.jpg",
-          "caption": "Bể thủy sinh cây xanh tốt, cá neon bơi khoẻ khi CO2 vừa đủ."
+          "caption": "Bể thủy sinh cây rậm rạp với đàn cá neon, kiểu bể thường châm CO2."
         }
       }
     ]

@@ -1,37 +1,10 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Labiobarbus_ocellatus.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Labiobarbus_ocellatus.jpg/500px-Labiobarbus_ocellatus.jpg",
-   "width": 2048,
-   "height": 1365,
-   "licence": "CC BY-SA 4.0",
-   "author": "https://www.inaturalist.org/photos/258536518",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Labiobarbus_ocellatus.jpg",
-   "caption": "Labiobarbus ocellatus. Species of fish.",
-   "key": "File:Labiobarbus ocellatus.jpg"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/258536518/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/258536518/medium.jpeg",
-   "width": 2048,
-   "height": 1365,
-   "licence": "CC BY-SA",
-   "author": "Abu Hamas",
-   "sourceUrl": "https://www.inaturalist.org/photos/258536518",
-   "key": "inat:258536518"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/258536523/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/258536523/medium.jpeg",
-   "width": 2048,
-   "height": 1365,
-   "licence": "CC BY-SA",
-   "author": "Abu Hamas",
-   "sourceUrl": "https://www.inaturalist.org/photos/258536523",
-   "key": "inat:258536523"
-  }
+ "queue": [],
+ "judged": [
+  "File:Labiobarbus ocellatus.jpg",
+  "inat:258536518",
+  "inat:258536523"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {},
+ "commons": "2026-11-08"
 }

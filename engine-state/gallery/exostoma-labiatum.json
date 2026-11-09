@@ -3,8 +3,19 @@
  "judged": [],
  "hashes": {
   "https://media.aquatome.com/scotcat/7032fbef85cdd130.webp": "4b92faf408e9e4e6",
-  "https://media.aquatome.com/scotcat/b8ae6d806fe0fdb1.webp": "ce9b52d78e2b2f27",
-  "https://media.aquatome.com/scotcat/8a84868497503632.webp": "2f2f0e0dccc2d9db"
+  "https://media.aquatome.com/scotcat/b8ae6d806fe0fdb1.webp": "ce9b52d78e2b2f27"
  },
- "commons": "2026-11-08"
+ "commons": "2026-11-08",
+ "inat": {
+  "taxon": 100833,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 5202552,
+  "next": null
+ }
 }

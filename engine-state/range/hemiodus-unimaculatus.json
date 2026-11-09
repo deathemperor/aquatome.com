@@ -1,0 +1,257 @@
+{
+  "id": "hemiodus-unimaculatus",
+  "native": {
+    "input": "3e85e902b4a0aa80",
+    "at": "2026-11-08T18:57:48.756Z",
+    "claims": [
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Hemiodus unimaculatus is a large, shoaling hemiodontid characin from Guyana, Suriname, French Guiana and Brazil.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Hemiodus unimaculatus is a large, shoaling hemiodontid characin from Guyana, Suriname, French Guiana and Brazil.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Hemiodus unimaculatus is a large, shoaling hemiodontid characin from Guyana, Suriname, French Guiana and Brazil.",
+        "words": "French Guiana",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Hemiodus unimaculatus is a large, shoaling hemiodontid characin from Guyana, Suriname, French Guiana and Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Guyana, Suriname, French Guiana and Brazil.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "SR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Guyana, Suriname, French Guiana and Brazil.",
+        "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Guyana, Suriname, French Guiana and Brazil.",
+        "words": "French Guiana",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Guyana, Suriname, French Guiana and Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "PE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hemiodus unimaculatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2354880,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        446
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        155
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        110
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        99
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        66
+      ],
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        50
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        45
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        41
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        40
+      ],
+      [
+        "a81d01b9-1322-4487-b9e1-f0322941ba0e",
+        36
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        33
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        30
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        27
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        20
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        18
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        17
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        17
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        17
+      ],
+      [
+        "58414378-4fb2-47e0-8dd5-8b55d5c77117",
+        16
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        14
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        13
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        11
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        9
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        8
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        7
+      ],
+      [
+        "ada824f0-5741-4f99-8452-9bcf46472a84",
+        4
+      ],
+      [
+        "5818223b-9b8e-432c-9fca-cb4c43387e6a",
+        2
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        2
+      ],
+      [
+        "b8ed9b7c-5b73-4e6d-a6e1-b0911a09f947",
+        2
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "6424b95e-eee2-41fc-9450-bac5d6767525",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ],
+      [
+        "e1a01804-881b-42ae-8f97-1e80f697fd56",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        1
+      ]
+    ],
+    "native": [
+      "GY",
+      "SR",
+      "GF",
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T18:57:48.756Z"
+  }
+}

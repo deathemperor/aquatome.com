@@ -174,10 +174,14 @@
     "reason": "quarantine advice, multiple fish"
   },
   "-zyasUNdoXY": {
-    "at": "2026-11-07",
+    "at": "2026-11-08",
     "title": "The Rare Spiny Eel We Know Almost Nothing About",
     "channel": "Steenfott Aquatics",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Mastacembelus notophthalmus",
+    "page": "species/mastacembelus-notophthalmus",
+    "done": "new page",
+    "score": 0.97
   },
   "0_cXMyoo5k0": {
     "at": "2026-11-07",
@@ -204,16 +208,25 @@
     "reason": "product comparison"
   },
   "0jDtVBHz9WU": {
-    "at": "2026-11-07",
+    "at": "2026-11-08",
     "title": "Sundadanio axelrodi - Neon Blue Rasbora (Species Spotlight)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Sundadanio axelrodi",
+    "page": "species/sundadanio-axelrodi",
+    "done": "low",
+    "score": 0.55,
+    "reason": "[notes] 'Nửa thân trên ... ánh xanh lam óng ánh, ... phần giữa và phần dưới thân có màu đỏ sẫm' - the video says this, but it is not flagged as differing from the page; page lists color forms (red/green/blue) and the video describes only one.; [behaviour] 'thấy đàn từ sáu con trở lên là đủ' - the video says the recommended amount is at least six, as a general recommendation, not one keeper's experience; framing it as a keeper's finding misattributes it."
   },
   "0MfEDzqMB1c": {
-    "at": "2026-11-07",
+    "at": "2026-11-08",
     "title": "Redtail Garra Explained – The River Fish Everyone Misidentifies",
     "channel": "Steenfott Aquatics",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Garra panitvongi",
+    "page": "species/garra-panitvongi",
+    "done": "new page",
+    "score": 0.94
   },
   "0noxDzAmvGw": {
     "at": "2026-11-07",
@@ -248,10 +261,15 @@
     "reason": "supplies"
   },
   "1rJLXLHEGE4": {
-    "at": "2026-11-07",
+    "at": "2026-11-08",
     "title": "APISTOGRAMMA BORELLII OPAL SPECIES PROFILE",
     "channel": "Daniel Keeping Fish",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Apistogramma borellii",
+    "page": "species/apistogramma-borellii",
+    "done": "low",
+    "score": 0.45,
+    "reason": "aquariumSize: 'Bể khoảng 75 lít' — video says 20 gallons (~75 L) but never in litres; conversion OK, yet 'có lẽ là vừa nhất' is fine. Page already has tank size 45x30 (~41 L); the difference from the page is not stated plainly.; waterConditions: '22–28 °C' differs from page's 20–26°C but the difference isn't pointed out as video vs page."
   },
   "1rP3Bez5w6E": {
     "at": "2026-11-07",
@@ -318,10 +336,15 @@
     "reason": "hybrid breeding project"
   },
   "2RrQVvB-jG0": {
-    "at": "2026-11-07",
+    "at": "2026-11-08",
     "title": "Meet the Feisty Samurai Gourami - Sphaerichthys vaillanti. Also Known as Vaillants Chocolate Gourami",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Sphaerichthys vaillanti",
+    "page": "species/sphaerichthys-vaillanti",
+    "done": "low",
+    "score": 0.55,
+    "reason": "[behaviour] 'chỉ nuôi một cặp chứ không nuôi theo nhóm' contradicts the page, which says to keep at least 6 in a group. NEW never says plainly that the video differs from the page.; [behaviour] 'nuôi chung dễ với ... cá chì và tetra' contradicts the page, which says to avoid fast tetras and rasbora. The conflict isn't flagged. 'cá chì' is also an odd name for pencilfish."
   },
   "389z7qmNV44": {
     "at": "2026-11-07",
@@ -372,10 +395,12 @@
     "reason": "channel vlog on wood"
   },
   "41LcoRQiYT0": {
-    "at": "2026-11-07",
+    "at": "2026-11-08",
     "title": "Angel fish spawning",
     "channel": "Team Detritus",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "49XUqptZAQE": {
     "at": "2026-11-07",

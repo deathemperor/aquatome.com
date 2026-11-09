@@ -10,7 +10,8 @@
     "guinea",
     "sierra-leone",
     "moka",
-    "liberia"
+    "liberia",
+    "conakry"
   ],
   "range": {
     "native": {
@@ -183,6 +184,10 @@
       {
         "source": "aquariumbreeder",
         "value": 3.5
+      },
+      {
+        "source": "glaser",
+        "value": 4
       }
     ],
     "tankCm": [
@@ -235,6 +240,12 @@
       "html": "<ul><li>Scientific name: Epiplatys annulatus</li><li>Other names: Clown killie, Banded panchax, Rocket panchax</li><li>Optimal tank size: 40 litres</li><li>Breeding: Easy – Medium</li><li>Optimal KH: 1 – 6</li><li>Dwellers: Top</li><li>Nitrate: less than 40</li><li>Diet: Carnivore</li><li>Temperament: Peaceful</li><li>Colour form: black bands with blue, red and yellow fins</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/pseudepiplatys_annulatus_conakry_en/",
+      "html": "<p>This tiny and charming little jewel becomes only 3-4 cm long. Common name: Clown Killi.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/epiplatys-annulatus",
@@ -245,6 +256,12 @@
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/clown-killifish-detailed-guide-care-diet-and-breeding/",
       "html": "<p>Clown Killifish have a very restricted distribution. They are recorded in three of West Africa's ichthyological provinces – Guinea, Liberia and Sierra Leone – where the hot and wet seasons are very pronounced.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/pseudepiplatys_annulatus_conakry_en/",
+      "html": "<p>The animals are wild collected specimens of the form known in the hobby as the 'Conakry variety'.</p>"
     },
     {
       "key": "habitat",
@@ -409,6 +426,12 @@
       "html": "<p>Killifish does not come from the verb \"to kill\" but from the Dutch word 'kil', meaning 'small stream or creek', derived from Middle Dutch 'kille'.</p><p>The species was described by George Albert Boulenger in 1915 as Haplochilus annulatus. It has since been known as Pseudepiplatys annulatus, Aplocheilus annulatus, Haplochilus annulatus and Panchax annulatus; Epiplatys annulatus is the current name.</p><p>Epiplatys comes from the Greek epí ('above, on top of') and platýs ('flat, broad'). Annulatus comes from the Latin 'annulus', meaning 'ring' (the banded pattern), not 'annual'. Clown Killifish are not annual killies and are short-lived, living 2 – 3 years in the aquarium under optimal conditions. High temperatures increase metabolism and shorten lifespan.</p><p>They are also called 'Rockets' because their tails look like a rocket flame, especially in males.</p><p>Description: they have small heads with bright neon blue eyes and elongated slender bodies with 4 vertical dark stripes alternating with cream or yellowish bars between the snout and caudal fin. Colour pattern can differ slightly between populations. Stressed fish can temporarily lose colour, especially during shipping, and young fish are less colourful.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/pseudepiplatys_annulatus_conakry_en/",
+      "html": "<p>Pseudepiplatys: from ancient Greek, means “false Epiplatys”. annulatus: Latin, means “ringed”.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/epiplatys-annulatus",
@@ -478,16 +501,6 @@
       "author": "Aquarium Breeder",
       "sourceUrl": "https://aquariumbreeder.com/clown-killifish-detailed-guide-care-diet-and-breeding/",
       "source": "aquariumbreeder"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/43feca8b8e2a0767.webp",
-      "thumb": "https://media.aquatome.com/commons/43feca8b8e2a0767-480.webp",
-      "width": 871,
-      "height": 438,
-      "licence": "CC0",
-      "author": "ATuin-hek at English Wikipedia",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Clown_killi_1.jpg",
-      "caption": "Clown killi, also called Banded panchax (Epiplatys annulatus)."
     }
   ],
   "videos": [
