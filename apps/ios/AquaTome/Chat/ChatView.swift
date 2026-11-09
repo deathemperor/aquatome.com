@@ -147,13 +147,16 @@ private struct ChatThread: View {
       .font(.title2.weight(.bold))
       .accessibilityAddTraits(.isHeader)
       WhoAnswers(fromPhoto: s.fromPhoto)
-      // Signed out, none of them could be sent: the sign-in card instead.
+      // Signed out, none of them could be sent: the sign-in card instead. At the first letter typed the starters fade,
+      // and come back when the box is empty: the title and the line about who answers are left, so the box has nothing
+      // to cut as it grows.
       if signedOut {
         ChatSignIn().padding(.top, 12)
-      } else {
-        Chips(items: starters, dim: model.offline || model.stop != nil) { model.send($0) }.padding(.top, 12)
+      } else if model.draft.isEmpty {
+        Chips(items: starters, dim: model.offline || model.stop != nil) { model.send($0) }.padding(.top, 12).transition(.opacity)
       }
     }
+    .animation(reduceMotion ? nil : .easeOut(duration: 0.2), value: model.draft.isEmpty)
     .padding(.top, 24)
     .transition(.opacity)
   }

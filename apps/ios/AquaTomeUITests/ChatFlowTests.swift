@@ -111,6 +111,21 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertTrue(element(app, "chat-answer").exists, "the answer above went")
   }
 
+  /// Typing on the empty screen: at the first letter the starters fade, and they come back when the box is empty; the
+  /// line about who answers stays.
+  func testTypingOnTheEmptyScreenTheStartersFade() {
+    let app = launch()
+    openChat(app)
+    signIn(app)
+    let box = element(app, "chat-box"), starter = app.buttons.matching(identifier: "chat-chip").firstMatch
+    box.tap()
+    box.typeText("N")
+    XCTAssertTrue(starter.waitForNonExistence(timeout: 5), "the starters stayed with a letter typed")
+    XCTAssertTrue(app.staticTexts["Claude (AI của Anthropic) trả lời theo cẩm nang AquaTome, chỗ nào cẩm nang chưa nói đến thì dùng kiến thức chung về nuôi cá."].exists, "the line about who answers went")
+    box.typeText(XCUIKeyboardKey.delete.rawValue)
+    XCTAssertTrue(starter.waitForExistence(timeout: 5), "the starters didn't come back with the box empty")
+  }
+
   /// Up in earlier turns, the newest question below the box: a small round ↓ brings the end back. Never while the newest
   /// question or its answer is on screen.
   func testUpInEarlierTurnsARoundArrowBringsTheEndBack() {
