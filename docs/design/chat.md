@@ -17,7 +17,9 @@ gets it. The owner gets it first, alone: chat is on for the owner's account only
 | "Hỏi về cá …" on v2's fish page, directly under "Thêm vào bể" ([v2-fish-page.md](v2-fish-page.md)) | whichever of #921 and #765 lands second | |
 | Chat on for the owner's account alone | AI Lead | #939 |
 | A conversation's title, from its first answer | AI Lead | #913, once the editors pass it |
-| A question given back when an answer breaks after its text has begun | AI Lead | to come |
+| A question given back when an answer breaks after its text has begun | AI Lead | #939 |
+| The first line while the chat reads (the Worker) | AI Lead | #951 |
+| The first line on the screen ("The first line", below) | iOS content lead | after #765, where it doesn't hold up a build |
 
 ## Round 27, fixed in the build
 
@@ -44,6 +46,41 @@ gets it. The owner gets it first, alone: chat is on for the owner's account only
 7. **An answer cut off after its text began** keeps "Câu hỏi này không bị tính.". The Worker gives the question back
    for any error once text has gone out, the failed path included (with #939), so the line holds: only a finished
    answer counts. An answer that failed before any text came still counts, as the contract says.
+
+## The first line (on the owner's account from 2026-11-09)
+
+While the chat reads, the Worker sends one sentence in the reader's language saying what it's looking up. For example:
+"Mình đang xem hướng dẫn về cá chết dần khi nước vẫn trong và cách giặt lọc." It arrives about 1.1 s after the question
+reaches the Worker (1.4 s at the 90th percentile), against 6–9 s for a hard problem's first words. It's an `opening`
+event (`protocols/chat.openapi.json`, recorded in `protocols/chat-stream-opening.sse`): at most once, only before the
+first `step`, at most 200 characters. `done` carries it as `Turn.opening`. A turn without one looks as it did before.
+It belongs to the wait, not the answer:
+
+- **Place.** It's the first row of the wait's box, under the question, above the steps and "Đang soạn câu trả lời…".
+  - It uses the steps' type (subheadline, secondary), the box's full width, with no tick or glyph. The answer's text,
+    body size and primary, under no box, never looks like it.
+  - It's always first, even if a step got there before it.
+  - "Đang soạn câu trả lời…" with its spinner stays last in the box until the first words, so the answer is plainly
+    still coming.
+- **Motion.** It fades in over 200 ms, and the rows under it move down by its height on the same curve. With the
+  keyboard up, it follows the rule for a step arriving.
+- **When the answer comes,** it folds away with the steps into their row. A tap on the row lists the line first, then
+  the steps.
+  - With no steps (pages handed over before the answer, a later change), the box goes as a box with no steps does,
+    and the line goes with it.
+  - "Sao chép" copies the answer only. A reopened conversation, or a turn that comes back whole, shows only the row.
+- **`done` has the last word.** If the final `Turn` has no `opening` (the answer turned out off topic and the Worker
+  put its own line in its place), the app takes the line away. It isn't listed under the row, isn't kept, and isn't
+  shown on reopening.
+- **Plain text.** No links, no markdown, nothing tappable. The Worker also holds back a line with a link, a phone number,
+  an email, an address or a rude word, a second sentence, or the wrong language. A line held back means the wait looks
+  as it did before.
+- **VoiceOver** reads the line once when it comes, as a polite announcement that doesn't interrupt. The steps behave as
+  before, and the answer is read once, whole. No haptic for the line: the soft one stays with the first words.
+- **A break after the line, before any text:** the box folds as at the first words, and the cut-off card comes under its
+  row: "Câu trả lời bị ngắt giữa chừng", "Câu hỏi này không bị tính.", "Hỏi lại". The Worker gives the question back.
+- **Stop after the line:** as before. The turn leaves, line and all, and the question goes back in the box. The line
+  doesn't end the stop's window.
 
 ## Pictures
 
