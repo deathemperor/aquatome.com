@@ -5,8 +5,10 @@
   "sourceUrl": "https://www.youtube.com/watch?v=qImy1PXdkvU",
   "html": "",
   "photos": [],
-  "mentions": [],
-  "updatedAt": "2026-11-06",
+  "mentions": [
+    "carassius-auratus"
+  ],
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "qImy1PXdkvU",
     "title": "How to Properly Clean a Sponge Filter (Detailed Version)",
@@ -98,7 +100,8 @@
       "height": 720
     },
     "taxa": [
-      "Melanoides tuberculata"
+      "Melanoides tuberculata",
+      "Carassius auratus"
     ],
     "gear": [
       {
@@ -106,31 +109,26 @@
         "type": "bot-bien",
         "brand": "Aquarium Co-Op",
         "model": "Coarse Sponge Filter",
-        "t": 33
-      },
-      {
-        "category": "loc",
-        "type": "suc-khi",
-        "t": 330
+        "t": 36
       }
     ],
     "figures": [
       {
-        "heading": "Nên dùng mút thô hay mút mịn",
+        "heading": "Lọc mút gồm những loại nào",
         "moments": [
           {
             "t": 65,
-            "url": "https://media.aquatome.com/video/qImy1PXdkvU/t65-hd.webp",
+            "url": "https://media.aquatome.com/video/qImy1PXdkvU/at65-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Mút lọc gắn trên ống hút trong bể, có dòng bọt khí đi lên."
+            "caption": "Miếng lọc mút gắn ở đầu ống hút, có dòng khí sục lên."
           },
           {
             "t": 70,
-            "url": "https://media.aquatome.com/video/qImy1PXdkvU/t70-hd.webp",
+            "url": "https://media.aquatome.com/video/qImy1PXdkvU/at70-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Miếng mút lọc đen đặt trong bể, cá vàng bơi gần đó."
+            "caption": "Lọc mút đen đặt trong bể, cá vàng bơi gần bên cạnh."
           }
         ],
         "photo": {
@@ -141,68 +139,73 @@
           "licence": "CC BY-SA 4.0",
           "author": "Ofkun",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Sponge_Filter_foam_1.jpg",
-          "caption": "Miếng mút lọc thô màu đen với các lỗ to, chứa được nhiều cặn."
+          "caption": "Miếng mút lọc thô màu đen với các lỗ lớn để giữ cặn."
         }
       },
       {
-        "heading": "Khi nào cần vệ sinh lọc",
+        "heading": "Khi nào cần rửa mút",
         "moments": [
           {
-            "t": 35,
-            "url": "https://media.aquatome.com/video/qImy1PXdkvU/t35-hd.webp",
+            "t": 75,
+            "url": "https://media.aquatome.com/video/qImy1PXdkvU/at75-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể cá có cây thủy sinh và hòn đá trang trí, nước hơi đục."
+            "caption": "Đàn cá vàng bơi trong bể cát sỏi sáng."
           },
           {
-            "t": 75,
-            "url": "https://media.aquatome.com/video/qImy1PXdkvU/t74-hd.webp",
+            "t": 80,
+            "url": "https://media.aquatome.com/video/qImy1PXdkvU/at80-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Mấy con cá vàng đuôi xòe đang bơi trong bể thả khá dày."
+            "caption": "Mút lọc sủi khí màu đen trong bể cá vàng."
+          }
+        ]
+      },
+      {
+        "heading": "Chuẩn bị túi để hứng cặn",
+        "moments": [
+          {
+            "t": 155,
+            "url": "https://media.aquatome.com/video/qImy1PXdkvU/at155-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Túi zip được đưa vào bể để hứng cặn khi tháo mút lọc."
+          },
+          {
+            "t": 165,
+            "url": "https://media.aquatome.com/video/qImy1PXdkvU/at165-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tay cầm túi zip úp quanh mút lọc dưới đáy bể."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/qImy1PXdkvU/p1-JfZm9hbV8xLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/qImy1PXdkvU/p1-JfZm9hbV8xLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/qImy1PXdkvU/p2-zc2JldXRlbC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/qImy1PXdkvU/p2-zc2JldXRlbC5qcGc-480.webp",
           "width": 960,
           "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Ofkun",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Sponge_Filter_foam_1.jpg",
-          "caption": "Cận cảnh khối mút lọc xốp màu đen với các lỗ rỗng sâu bên trong."
+          "licence": "CC BY-SA 3.0",
+          "author": "Corneille",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Druckverschlussbeutel.jpg",
+          "caption": "Túi zip trong suốt cỡ lớn, dùng để hứng cặn khi tháo lọc mút."
         }
       },
       {
-        "heading": "Chuẩn bị gì",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/qImy1PXdkvU/p2-OlppcGxvY2suanBn.webp",
-          "thumb": "https://media.aquatome.com/video/qImy1PXdkvU/p2-OlppcGxvY2suanBn-480.webp",
-          "width": 868,
-          "height": 476,
-          "licence": "Public domain",
-          "author": "User:Mattes",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ziplock.jpg",
-          "caption": "Túi nilon có khóa zip loại lớn, dùng được để hứng nước khi rửa bể."
-        }
-      },
-      {
-        "heading": "Các bước vệ sinh lọc bio bằng túi nilon",
+        "heading": "Lấy mút ra khỏi bể mà không làm rơi cặn",
         "moments": [
           {
-            "t": 160,
-            "url": "https://media.aquatome.com/video/qImy1PXdkvU/t159-hd.webp",
+            "t": 170,
+            "url": "https://media.aquatome.com/video/qImy1PXdkvU/at170-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Túi nilon được nhúng trong bể, nước đang vào đầy túi."
+            "caption": "Hai tay đẩy miếng mút lọc vào trong túi dưới nước."
           },
           {
-            "t": 185,
-            "url": "https://media.aquatome.com/video/qImy1PXdkvU/t184-hd.webp",
+            "t": 175,
+            "url": "https://media.aquatome.com/video/qImy1PXdkvU/at175-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Túi nilon đã đầy nước, hạ thấp trong bể cạnh bộ lọc."
+            "caption": "Nhấc túi chứa mút lọc lên, cặn nằm gọn trong túi."
           }
         ],
         "photo": {
@@ -213,36 +216,55 @@
           "licence": "CC BY-SA 4.0",
           "author": "Ofkun",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Sponge_Filter_foam_1.jpg",
-          "caption": "Miếng mút lọc bio hình trụ côn màu đen, thấy rõ các lỗ xốp."
+          "caption": "Miếng mút lọc xốp màu đen, loại hay dùng cho lọc mút trong bể cá."
         }
       },
       {
-        "heading": "Vệ sinh sủi khí và ống hút",
+        "heading": "Bóp rửa mút cho đúng",
         "moments": [
           {
-            "t": 385,
-            "url": "https://media.aquatome.com/video/qImy1PXdkvU/t382-hd.webp",
+            "t": 225,
+            "url": "https://media.aquatome.com/video/qImy1PXdkvU/at225-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Hai tay đang vặn và bóp đầu sủi khí để đẩy cặn ra."
+            "caption": "Bóp mút trong túi nước, nước nâu đầy cặn bẩn."
+          },
+          {
+            "t": 285,
+            "url": "https://media.aquatome.com/video/qImy1PXdkvU/at285-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Mút nằm trong túi nước bể, nước đục vì cặn."
+          }
+        ]
+      },
+      {
+        "heading": "Kiểm tra cục sủi và ống hút",
+        "moments": [
+          {
+            "t": 380,
+            "url": "https://media.aquatome.com/video/qImy1PXdkvU/at380-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tay cầm cục sủi nhỏ, tháo ra để kiểm tra."
           },
           {
             "t": 405,
-            "url": "https://media.aquatome.com/video/qImy1PXdkvU/t402-hd.webp",
+            "url": "https://media.aquatome.com/video/qImy1PXdkvU/at405-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Cầm sủi khí trên bể để kiểm tra lại bằng mắt."
+            "caption": "Cầm cục sủi kiểm tra ngay cạnh bể cá."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/qImy1PXdkvU/p4-uZF9zdG9uZS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/qImy1PXdkvU/p4-uZF9zdG9uZS5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/qImy1PXdkvU/p5-uZF9zdG9uZS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/qImy1PXdkvU/p5-uZF9zdG9uZS5qcGc-480.webp",
           "width": 960,
           "height": 720,
           "licence": "CC BY-SA 4.0",
           "author": "Ofkun",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Air_pump_and_stone.jpg",
-          "caption": "Máy sục khí mini với ống dây silicon trắng và cục sủi khí đen."
+          "caption": "Máy sủi khí với ống dẫn và cục sủi đặt trên nền trơn."
         }
       },
       {
@@ -250,120 +272,98 @@
         "moments": [
           {
             "t": 425,
-            "url": "https://media.aquatome.com/video/qImy1PXdkvU/t422-hd.webp",
+            "url": "https://media.aquatome.com/video/qImy1PXdkvU/at425-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Thả cục lọc mút đen xuống lại trong bể."
+            "caption": "Thả lọc mút vuông xuống bể, cá vàng bơi gần đó."
           },
           {
             "t": 430,
-            "url": "https://media.aquatome.com/video/qImy1PXdkvU/t427-hd.webp",
+            "url": "https://media.aquatome.com/video/qImy1PXdkvU/at430-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Lọc đã về chỗ cũ, bọt khí sủi lên cạnh cây thủy sinh."
+            "caption": "Lọc đã nằm dưới đáy bể cạnh cây, ống nối đứng lên trên."
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/qImy1PXdkvU/p5-JfZm9hbV8yLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/qImy1PXdkvU/p5-JfZm9hbV8yLmpwZw-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Ofkun",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Sponge_Filter_foam_2.jpg",
-          "caption": "Khối mút lọc hình trụ màu xám, dùng lồng vào ống lọc."
-        }
-      },
-      {
-        "heading": "Sai lầm hay gặp: cầm mút nhấc thẳng lên",
-        "moments": [
-          {
-            "t": 470,
-            "url": "https://media.aquatome.com/video/qImy1PXdkvU/t467-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nước bể hơi đục, cặn lơ lửng trong lúc đang thao tác dọn bể."
-          },
-          {
-            "t": 485,
-            "url": "https://media.aquatome.com/video/qImy1PXdkvU/t482-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể cá với cây thủy sinh và cá vàng, nước trong trước khi dọn."
-          }
-        ]
-      },
-      {
-        "heading": "Rửa mút ở vòi nước được không",
-        "moments": [
-          {
-            "t": 520,
-            "url": "https://media.aquatome.com/video/qImy1PXdkvU/t516-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Rửa mút lọc màu xanh dưới vòi nước máy ở bồn rửa."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/qImy1PXdkvU/p7-OTU0MDU1MykuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/qImy1PXdkvU/p7-OTU0MDU1MykuanBn-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY 2.0",
-          "author": "Tony Webster",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Water_Faucet_Sink_Basin_Disposal_(53659540553).jpg",
-          "caption": "Nước máy chảy từ vòi vào bồn rửa inox."
-        }
-      },
-      {
-        "heading": "Tận dụng nước rửa lọc",
-        "moments": [
-          {
-            "t": 665,
-            "url": "https://media.aquatome.com/video/qImy1PXdkvU/t660-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Xô chứa nước rửa lọc màu nâu đục sau khi vắt mút."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/qImy1PXdkvU/p8-NwcmluZ18yLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/qImy1PXdkvU/p8-NwcmluZ18yLmpwZw-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Jason M. C., Han",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Small_items_in_Commons_Life_of_2019_Spring_2.jpg",
-          "caption": "Bể cá cảnh đặt cạnh chậu hoa trên bệ cửa sổ trong nhà."
-        }
-      },
-      {
-        "heading": "Bắt đầu từ đâu",
-        "moments": [
-          {
-            "t": 155,
-            "url": "https://media.aquatome.com/video/qImy1PXdkvU/t154-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay đeo găng cầm túi zip lớn đưa xuống bể để xử lý mút lọc."
-          },
-          {
-            "t": 165,
-            "url": "https://media.aquatome.com/video/qImy1PXdkvU/t164-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Túi zip trong suốt được mở ra ngay trong bể, cạnh cây thủy sinh."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/qImy1PXdkvU/p9-JfZm9hbV8xLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/qImy1PXdkvU/p9-JfZm9hbV8xLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/qImy1PXdkvU/p6-JfZm9hbV8xLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/qImy1PXdkvU/p6-JfZm9hbV8xLmpwZw-480.webp",
           "width": 960,
           "height": 720,
           "licence": "CC BY-SA 4.0",
           "author": "Ofkun",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Sponge_Filter_foam_1.jpg",
-          "caption": "Cận cảnh khối mút lọc đen với các lỗ xốp li ti."
+          "caption": "Cục mút lọc xốp màu đen, loại hay dùng cho lọc sủi trong bể cá."
+        }
+      },
+      {
+        "heading": "Nhấc mút không dùng túi thì sao",
+        "moments": [
+          {
+            "t": 460,
+            "url": "https://media.aquatome.com/video/qImy1PXdkvU/at460-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể đầy cặn lơ lửng, nước đục sau khi nhấc mút."
+          },
+          {
+            "t": 470,
+            "url": "https://media.aquatome.com/video/qImy1PXdkvU/at470-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cặn trôi khắp bể, nước đục trông bẩn hơn lúc trước."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/qImy1PXdkvU/p7-JfZm9hbV8xLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/qImy1PXdkvU/p7-JfZm9hbV8xLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Ofkun",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Sponge_Filter_foam_1.jpg",
+          "caption": "Khối mút lọc đen cận cảnh, thấy rõ các lỗ xốp giữ cặn."
+        }
+      },
+      {
+        "heading": "Có nên rửa mút ở vòi nước không",
+        "moments": [
+          {
+            "t": 530,
+            "url": "https://media.aquatome.com/video/qImy1PXdkvU/at530-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Rửa mút lọc dưới vòi nước trong bồn rửa."
+          }
+        ]
+      },
+      {
+        "heading": "Tận dụng nước bẩn sau khi rửa mút",
+        "moments": [
+          {
+            "t": 645,
+            "url": "https://media.aquatome.com/video/qImy1PXdkvU/at645-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Xô nước nâu sau khi bóp rửa mút lọc."
+          },
+          {
+            "t": 650,
+            "url": "https://media.aquatome.com/video/qImy1PXdkvU/at650-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đổ nước bẩn từ xô ra tưới cây ngoài vườn."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/qImy1PXdkvU/p9-vbV9hX2Zhci5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/qImy1PXdkvU/p9-vbV9hX2Zhci5qcGc-480.webp",
+          "width": 960,
+          "height": 2133,
+          "licence": "CC BY-SA 4.0",
+          "author": "Zmu'az4Z",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_of_a_fish_tank_from_a_far.jpg",
+          "caption": "Bồn chứa nước đặt cạnh cây trồng, dùng nước giàu dinh dưỡng để tưới cây."
         }
       }
     ]

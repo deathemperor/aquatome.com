@@ -14,11 +14,12 @@ export type Schema = {
 /**
  * A response's body by media type; a text/event-stream one names each event's schema (`x-events`), the events that end
  * it (`x-end`: `result` and `error` when missing, as fish ID's), the order its other events come in (`x-order`: all of
- * one name before the next name's first), the end event that holds the whole of what was streamed (`x-whole`: its
- * `text` the `text` events' pieces joined, its `blocks` the `block` events, its `steps` the `step` events; chat's
- * `done`; a stream of that event alone, a retry's replay, holds itself) and the recorded streams that follow it (`x-fixtures`, files in protocols/).
+ * one name before the next name's first), the events that come at most once (`x-once`), the end event that holds the
+ * whole of what was streamed (`x-whole`: its `text` the `text` events' pieces joined, its `blocks` the `block` events,
+ * its `steps` the `step` events, its `opening` the `opening` event's line or none; chat's `done`; a stream of that event alone,
+ * a retry's replay, holds itself) and the recorded streams that follow it (`x-fixtures`, files in protocols/).
  */
-export type Media = { schema: Schema; 'x-events'?: Record<string, Schema>; 'x-end'?: string[]; 'x-order'?: string[]; 'x-whole'?: string; 'x-fixtures'?: string[] }
+export type Media = { schema: Schema; 'x-events'?: Record<string, Schema>; 'x-end'?: string[]; 'x-order'?: string[]; 'x-once'?: string[]; 'x-whole'?: string; 'x-fixtures'?: string[] }
 export type Op = { responses: Record<string, { description: string; content: { 'application/json': Media; 'text/event-stream'?: Media } }> }
 
 /** One block of a server-sent events body: an event with its data, or a comment line (`: ping`). */
@@ -127,15 +128,18 @@ export function contract(file: string) {
     const order = media['x-order'] ?? []
     const rank = names.map(n => order.indexOf(n!))
     rank.forEach((r, i) => { if (r >= 0 && rank.slice(0, i).some(p => p > r)) out.push(`[${i}] ${names[i]}: after a later kind of event (${order.join(', ')}, in that order)`) })
+    for (const once of media['x-once'] ?? []) if (names.filter(n => n === once).length > 1) out.push(`more than one ${once}`)
     // A replay (a retry's kept answer) is the end event alone: nothing came before it to hold.
     const whole = media['x-whole'] && events.length > 1 ? events.find(b => b.event === media['x-whole']) : undefined
     if (whole) {
       const data = (name: string) => events.filter(b => b.event === name).map(b => { try { return JSON.parse(b.data!) } catch { return undefined } })
-      let turn: { text?: string; blocks?: unknown[]; steps?: unknown[] } = {}
+      let turn: { text?: string; blocks?: unknown[]; steps?: unknown[]; opening?: string } = {}
       try { turn = JSON.parse(whole.data!) } catch { /* reported above */ }
       if (data('text').map(p => p?.text).join('') !== turn.text) out.push(`${whole.event}: its text isn't the pieces joined`)
       if (JSON.stringify(data('block')) !== JSON.stringify(turn.blocks ?? [])) out.push(`${whole.event}: its blocks aren't the blocks streamed`)
       if (JSON.stringify(data('step')) !== JSON.stringify(turn.steps ?? [])) out.push(`${whole.event}: its steps aren't the steps streamed`)
+      // Missing, the answer took the line back (chat's: one not about fishkeeping).
+      if (turn.opening !== undefined && data('opening')[0]?.text !== turn.opening) out.push(`${whole.event}: its opening isn't the line streamed`)
     }
     return out
   }

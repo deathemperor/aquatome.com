@@ -1,0 +1,95 @@
+{
+  "id": "homalopterula-gymnogaster",
+  "native": {
+    "input": "720ce053f76f2f6d",
+    "at": "2026-11-08T22:57:48.089Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Homalopterula gymnogaster is a hillstream loach from Sumatra, Indonesia, described from Lake Maninjau and recorded from Jambi province northwards.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'Lake Meninju, Sumatra, Indonesia', currently known as Danau (lake) Maninjau, but conceivably the fish may have been obtained from the outflowing Antokan river rather on its western side than the lake itself.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Homalopterula gymnogaster is a hillstream loach from Sumatra, Indonesia, described from Lake Maninjau and recorded from Jambi province northwards.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Lake Maninjau",
+        "source": "seriouslyfish",
+        "quote": "Homalopterula gymnogaster is a hillstream loach from Sumatra, Indonesia, described from Lake Maninjau and recorded from Jambi province northwards.",
+        "ok": true
+      },
+      {
+        "name": "Batang Hari",
+        "source": "seriouslyfish",
+        "quote": "In the headwaters of the Batang Hari river this species has also been recorded at 1950 m AMSL, higher than any other balitorid in Sumatra, in Danau Gunung Tujuh, another caldera lake located at the border between Jambi and West Sumatra provinces in Kerinci Seblat National Park.",
+        "ok": true
+      },
+      {
+        "name": "Danau Gunung Tujuh",
+        "source": "seriouslyfish",
+        "quote": "In the headwaters of the Batang Hari river this species has also been recorded at 1950 m AMSL, higher than any other balitorid in Sumatra, in Danau Gunung Tujuh, another caldera lake located at the border between Jambi and West Sumatra provinces in Kerinci Seblat National Park.",
+        "ok": true
+      },
+      {
+        "name": "Antokan",
+        "source": "seriouslyfish",
+        "quote": "Type locality is given as 'Lake Meninju, Sumatra, Indonesia', currently known as Danau (lake) Maninjau, but conceivably the fish may have been obtained from the outflowing Antokan river rather on its western side than the lake itself.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Bohorok",
+        "source": "seriouslyfish",
+        "quote": "Additional occurrence records are not extensive, but it appears to occur throughout much of the island with a range extending northwards from Jambi province at least as far as the Sungai (river) Bohorok in Karo Regency, North Sumatra province.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Homalopterula gymnogaster",
+    "status": "ACCEPTED",
+    "taxonKey": 9447940,
+    "datasets": [
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        9
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-08T22:57:48.089Z"
+  }
+}

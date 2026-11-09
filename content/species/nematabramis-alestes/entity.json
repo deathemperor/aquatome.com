@@ -1,0 +1,78 @@
+{
+  "id": "nematabramis-alestes",
+  "scientificName": "Nematabramis alestes",
+  "order": "Cypriniformes",
+  "family": "Cyprinidae",
+  "genus": "Nematabramis",
+  "group": "barbs",
+  "places": [
+    "asia",
+    "philippines",
+    "mindanao"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 10.5
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nematabramis-alestes",
+      "html": "<p>Nematabramis alestes is a cyprinid from the southern Philippines, with records from Basilan, Mindanao, Palawan and Busuanga. The only member of the genus with barbels shorter than the head, its body has a pronounced ventral keel.</p><ul><li>Needs to be kept in a group</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nematabramis-alestes",
+      "html": "<p>Native to the southern Philippines with records from the islands of Basilan, Mindanao, Palawan, and Busuanga. It may also occur on other islands in the region, such as Tawi-Tawi or Balabac.</p><p>Type locality is 'Zamboanga, western Mindanao, Philippines'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nematabramis-alestes",
+      "html": "<p>Nematabramis species are found in a variety of habitat types, from swiftly-flowing tributary streams to pools, lakes, and degraded swamps.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nematabramis-alestes",
+      "html": "<p>N. alestes is the only member of the genus in which the barbels are shorter than the head, with additional diagnostic characters as follows: 8-9 branched dorsal-fin rays; 12-14 branched anal-fin rays; 22-23 predorsal scales; body with a pronounced ventral keel.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/nematabramis-alestes",
+      "html": "<ul><li>Seale, A. and B. A. Bean (1907). On a collection of fishes from the Philippine Islands, made by Maj. Edgar A. Mearns, surgeon, U. S. Army, with descriptions of seven new species. Proceedings of the United States National Museum v. 33 (no. 1568), 229-248</li><li>Kottelat, M. (2013). The fishes of the inland waters of southeast Asia: a catalogue and core bibiography of the fishes known to occur in freshwaters, mangroves and estuaries. The Raffles Bulletin of Zoology Supplement 27, 1-663</li><li>Inger, R. F. and P. K. Chin (1962). The fresh-water fishes of North Borneo. Fieldiana Zoology v.45, 1-268</li></ul>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm",
+        "bể cá thủy sinh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy sục khí"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

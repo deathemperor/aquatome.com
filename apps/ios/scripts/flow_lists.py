@@ -42,7 +42,8 @@ SHOTS = {
               'testAKindOfKit', 'testAKindOfKitInTheDark'],
     'video': ['testAVideoPlaying'],
     # The photo viewer over a fish's gallery.
-    'viewer': ['testTheGalleryViewer', 'testTheGalleryViewerInTheDark', 'testTheGalleryViewerInLargeText'],
+    'viewer': ['testTheGalleryViewer', 'testTheGalleryViewerInTheDark', 'testTheGalleryViewerInLargeText',
+               'testThePhotoGrid', 'testThePhotoGridInTheDark', 'testThePhotoGridInTheLargestText'],
     # A search's results under its chips (HandbookView, its rows HomeList's).
     'search': ['testASearch', 'testASearchInTheDark', 'testASearchInTheLargestText', 'testASearchInTheLargestTextInTheDark',
                'testASearchFindingMoreThanItLists', 'testAKindASearchFindsNoneOf',
@@ -87,7 +88,7 @@ HANDBOOK_MODEL = HANDBOOK_SCREENS + ['TankCheckFlowTests', 'TanksFlowTests/testL
                                      'TankVolumeFlowTests', 'TankMatesFlowTests', 'TelemetryFlowTests']
 # A page open (PageView), or drawn by the app (NativePage): the flows that open one.
 PAGES = ['NativePageFlowTests', 'PageNavigatorFlowTests', 'FactsCardFlowTests', 'ReaderPostFlowTests', 'ReadingFlowTests',
-         'TankLifeFlowTests', 'HandbookFlowTests/testAPageOpensInTheApp',
+         'PhotoGridFlowTests', 'TankLifeFlowTests', 'HandbookFlowTests/testAPageOpensInTheApp',
          'TanksFlowTests/testListsATanksFishAndPlantsAndOpensTheirPages', 'VideoFlowTests',
          'TelemetryFlowTests'] + shots('pages', 'video', 'viewer', 'home', 'tab-bar')
 # The app's icon picker: its flows, and its shots.
@@ -149,7 +150,7 @@ REACH = {
                                      + shots('search', 'tools', 'home', 'tab-bar'),
     # The handbook's screens with a shot of their own: the handbook's flows, and their shots.
     APP + 'Handbook/BrowseView.swift': HANDBOOK_FLOWS + shots('home'),
-    APP + 'Handbook/PhotoViewer.swift': HANDBOOK_FLOWS + shots('viewer'),
+    APP + 'Handbook/PhotoViewer.swift': HANDBOOK_FLOWS + ['PhotoViewerFlowTests', 'PhotoGridFlowTests'] + shots('viewer'),
     APP + 'Handbook/PagePlayer.swift': HANDBOOK_FLOWS + shots('video'),
     APP + 'Handbook/FishIdView.swift': HANDBOOK_FLOWS + shots('fish-id'),
     APP + 'Handbook/PageView.swift': PAGES,
@@ -158,6 +159,12 @@ REACH = {
     APP + 'Handbook/NativePage.swift': PAGES + ['OfflineFlowTests'],
     APP + 'Handbook/FactsCard.swift': ['FactsCardFlowTests', 'NativePageFlowTests'] + shots('pages'),
     APP + 'Handbook/KeepOffline.swift': ['OfflineFlowTests'],
+    # The photo grid: its flows, and its shots (with the viewer's, which it opens).
+    APP + 'Handbook/PhotoGrid.swift': ['PhotoGridFlowTests'] + shots('viewer'),
+    # Every page's pictures, the viewer's and the grid's, fetched and kept for offline: the grid's flows count its fetches.
+    APP + 'Handbook/PageImages.swift': HANDBOOK_SCREENS + ['PhotoViewerFlowTests', 'PhotoGridFlowTests', 'OfflineFlowTests'],
+    # Worked out in the kit (job `kit`), drawn only by the grid.
+    KIT + 'Sources/Handbook/PhotoRows.swift': ['PhotoGridFlowTests'],
     APP + 'Handbook/ReaderPost.swift': ['ReaderPostFlowTests'],
     # The photo picker both screens open (the flows hand them a photo, as picked).
     APP + 'Handbook/ImagePicker.swift': ['FishIdFlowTests', 'ReaderPostFlowTests'],
@@ -265,6 +272,7 @@ def check(runs, left, reached):
     for paths, screens in (([APP + 'Handbook/HomeList.swift'], ('search', 'tools', 'home', 'tab-bar')),
                            ([APP + 'Handbook/NativePage.swift'], ('pages', 'video', 'viewer', 'home', 'tab-bar')),
                            ([APP + 'Handbook/FactsCard.swift'], ('pages',)), ([APP + 'Handbook/PhotoViewer.swift'], ('viewer',)),
+                           ([APP + 'Handbook/PhotoGrid.swift'], ('viewer',)),
                            ([APP + 'Handbook/BrowseView.swift'], ('home',)), ([APP + 'Handbook/FishIdView.swift'], ('fish-id',)),
                            ([APP + 'Lights/LightsView.swift'], ('light',)), ([APP + 'Lights/LightOutlet.swift'], ('light',)),
                            ([APP + 'AppIcon/AppIconPicker.swift'], ('icons',)), ([APP + 'Tanks/TanksView.swift'], ('tanks',)),
@@ -306,6 +314,11 @@ def check(runs, left, reached):
     got = reached([APP + 'Handbook/NativePage.swift'])
     assert {'OfflineFlowTests', 'TankLifeFlowTests', 'HandbookFlowTests/testAPageOpensInTheApp'} <= got, got
     assert reached([APP + 'Handbook/KeepOffline.swift']) == {'OfflineFlowTests'}
+    assert reached([APP + 'Handbook/PhotoGrid.swift']) == {'PhotoGridFlowTests', *shots('viewer')}
+    assert {'PhotoGridFlowTests', 'PhotoViewerFlowTests', 'OfflineFlowTests'} | set(HANDBOOK_SCREENS) <= reached([APP + 'Handbook/PageImages.swift'])
+    assert 'PhotoViewerFlowTests' in reached([APP + 'Handbook/PhotoViewer.swift'])
+    assert reached([KIT + 'Sources/Handbook/PhotoRows.swift']) == {'PhotoGridFlowTests'}
+    assert 'PhotoGridFlowTests' in reached([APP + 'Handbook/NativePage.swift'])
     # The tank-mates tool: its own flows.
     assert reached([APP + 'Handbook/TankMatesView.swift']) == {'TankMatesFlowTests', 'NativePageFlowTests/testTheTankMatesToolOpensSetToTheFish'}
     assert 'TankMatesFlowTests' in runs([f'apps/ios/{UI}/TankMatesFlowTests.swift'])

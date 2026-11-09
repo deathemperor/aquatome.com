@@ -11,7 +11,7 @@ Until 16 Nov the editors sit with Anthropic and xAI only (the owner, 2026-11-08)
 scores, to be read again by all four:
 - the app's card copy: the calendar's themes, shelf titles and story cards (`content/curation.json`);
 - the first two Hôm nay cards, medaka and climbing perch (`content/cards`);
-- the chat screen's new Vietnamese strings, read in the Design Lead's rounds (`chat-brief.md`);
+- the chat screen's new Vietnamese strings, read in the Design Lead's rounds (`docs/design/chat.md`, "Editors");
 - the guide writer's voice A (prompts from rounds 9 to 11), on the three sample guides: blue-green algae, quarantine, shopping list.
 
 ## The app's card copy (2026-11-08)

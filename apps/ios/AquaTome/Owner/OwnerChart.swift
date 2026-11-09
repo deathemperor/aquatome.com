@@ -173,8 +173,9 @@ struct OwnerChart: View {
   static let whole = Color(light: 0xdde8e1, dark: 0x22382e)
 }
 
-/// A tile's small columns, one a day: the day picked in full colour (today's lighter), the rest paler, a day still to
-/// come a faint line. A tap on one, or a finger dragged across, reads it out under them, in the server's words.
+/// A tile's small columns, one a day: the days in full colour and today's lighter, or the day picked in full colour and
+/// the rest lighter; a day still to come a faint line. The lighter green is still 3:1 on the card, light and dark (the
+/// Design Lead, 8 Nov). A tap on one, or a finger dragged across, reads it out under them, in the server's words.
 struct OwnerBars: View {
   let label: String
   let bars: Owner.Bars
@@ -194,7 +195,7 @@ struct OwnerBars: View {
           let h = max(2, size.height * CGFloat(v / high))
           let full = i == picked || (picked == nil && i != bars.today)
           ctx.fill(Path(roundedRect: CGRect(x: x, y: size.height - h, width: w, height: h), cornerRadius: 2),
-                   with: .color(OwnerChart.green.opacity(i == picked ? 1 : full ? 0.45 : 0.25)))
+                   with: .color(OwnerChart.green.opacity(full ? 1 : 0.7)))
         }
       }
       .frame(height: 24)

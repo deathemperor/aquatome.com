@@ -1097,6 +1097,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/loricariidae/hemiancistrus_landoni.htm": {
+    "entityIds": [
+      "species/hemiancistrus-landoni"
+    ],
+    "updatedAt": "2026-11-08T23:55:27.234Z",
+    "hash": "e768147bccaa4e5a3824b884b5dc8c6d0e429aa9964fcecc3275a670a9dac85b",
+    "processedHash": "e768147bccaa4e5a3824b884b5dc8c6d0e429aa9964fcecc3275a670a9dac85b",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/loricariidae/hemiancistrus_medians.htm": {
     "entityIds": [
       "species/hemiancistrus-medians"
@@ -1184,6 +1194,26 @@
     "updatedAt": "2026-11-08T11:51:24.216Z",
     "hash": "94d0f7ba0d47a8a726a929c166b5ddd17221cff89a178c9c128536001fbe7cb2",
     "processedHash": "94d0f7ba0d47a8a726a929c166b5ddd17221cff89a178c9c128536001fbe7cb2",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/hypostomus_hemicochliodon.htm": {
+    "entityIds": [
+      "species/hypostomus-hemicochliodon"
+    ],
+    "updatedAt": "2026-11-08T23:58:30.018Z",
+    "hash": "5a4ca45f14732d27e2c298da752f6df27132f96ffbf9433cb228f8cc8b5a3b3c",
+    "processedHash": "5a4ca45f14732d27e2c298da752f6df27132f96ffbf9433cb228f8cc8b5a3b3c",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/hypostomus_hondae.htm": {
+    "entityIds": [
+      "species/hypostomus-hondae"
+    ],
+    "updatedAt": "2026-11-09T00:00:05.381Z",
+    "hash": "49f034984910dc46c9cf7f6012c9b15461cff0d668c27a70e98b0880b558f718",
+    "processedHash": "49f034984910dc46c9cf7f6012c9b15461cff0d668c27a70e98b0880b558f718",
     "status": "processed",
     "attempts": 0
   },
@@ -1277,6 +1307,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/loricariidae/metaloricaria_nijsseni.htm": {
+    "entityIds": [
+      "species/metaloricaria-nijsseni"
+    ],
+    "updatedAt": "2026-11-09T00:02:08.689Z",
+    "hash": "17cfaf8d13656bb180455256f99aa818b7741f1a1cc6f99e85bce75db758bdd1",
+    "processedHash": "17cfaf8d13656bb180455256f99aa818b7741f1a1cc6f99e85bce75db758bdd1",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/loricariidae/neblinichthys_pilosus.htm": {
     "entityIds": [
       "species/neblinichthys-pilosus"
@@ -1304,6 +1344,16 @@
     "updatedAt": "2026-11-08T18:10:10.591Z",
     "hash": "c9809105d5121b3a49ebf701bf00db057a0432a9b560be16b96efbba3929a730",
     "processedHash": "c9809105d5121b3a49ebf701bf00db057a0432a9b560be16b96efbba3929a730",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/panaque_cochliodon.htm": {
+    "entityIds": [
+      "species/panaque-cochliodon"
+    ],
+    "updatedAt": "2026-11-09T00:04:29.587Z",
+    "hash": "92eb3673f99dd030b80ea340e106bc1824bb69db43deb28a4643f60fd9f36054",
+    "processedHash": "92eb3673f99dd030b80ea340e106bc1824bb69db43deb28a4643f60fd9f36054",
     "status": "processed",
     "attempts": 0
   },

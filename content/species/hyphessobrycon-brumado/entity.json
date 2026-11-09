@@ -10,6 +10,52 @@
     "brazil",
     "rio-de-contas"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Brumado",
+        "Rio de Contas"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the rio Brumado, a tributary within the coastal rio de Contas drainage in Bahia state, eastern Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Brumado",
+            "Rio de Contas"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5962469,
+      "total": 17,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "BR",
+          17
+        ]
+      ],
+      "cells": [
+        [
+          -42.1875,
+          -14.0625,
+          17,
+          17
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -18,6 +18,10 @@ final class OwnerFlowTests: XCTestCase {
     XCTAssertTrue(app.buttons["owner-tile-needs"].label.hasPrefix("Needs you, 9"), app.buttons["owner-tile-needs"].label)
     XCTAssertTrue(app.staticTexts["Wednesday 4 Nov · figures as of 16:00"].exists, "when the figures were read")
     XCTAssertEqual(app.buttons.matching(identifier: "owner-need").count, 4, "a line each of what needs the owner")
+    // Each line its title and the line under it, as the site draws them; the count is the tile's, not the heading's.
+    let key = app.buttons.matching(identifier: "owner-need").firstMatch
+    XCTAssertTrue(key.label.hasPrefix("Fish ID and chat are down, Every key resting, the first until Wed 4 Nov, 16:30."), key.label)
+    XCTAssertFalse(app.staticTexts["Needs you · 4"].exists, "a count beside the heading")
 
     // The cost tile scrolls to the costs, far down; the keys' line opens their section at its heading.
     app.buttons["owner-tile-cost"].tap()
@@ -45,6 +49,20 @@ final class OwnerFlowTests: XCTestCase {
     for key in ["needs", "answers", "shipped", "cost"] { XCTAssertTrue(app.buttons["owner-tile-" + key].exists, "no \(key) tile") }
     app.buttons["owner-tile-cost"].tap()
     XCTAssertTrue(becomesHittable(app.buttons["owner-keys"]), "the cost tile didn't go to the costs")
+  }
+
+  /// The report button floats over every screen of the owner's: the overview's last row ends above it.
+  func testTheOverviewsLastRowEndsAboveTheReportButton() {
+    let app = launch()
+    signIn(app)
+    open(app, "owner-dashboard")
+    XCTAssertTrue(app.buttons["owner-tile-needs"].waitForExistence(timeout: 10), "the overview didn't load")
+    let button = app.buttons["owner-report"]
+    XCTAssertTrue(button.waitForExistence(timeout: 10), "no report button")
+    for _ in 0..<12 { app.swipeUp() }
+    let last = app.buttons.matching(identifier: "owner-page").allElementsBoundByIndex.last
+    XCTAssertNotNil(last, "no pages")
+    XCTAssertLessThanOrEqual(last!.frame.maxY, button.frame.minY, "the last row ends under the report button")
   }
 
   func testNothingNeedingTheOwnerSaysSoInOneLine() {
@@ -216,6 +234,7 @@ final class OwnerFlowTests: XCTestCase {
     XCTAssertTrue(held.exists)
     XCTAssertTrue(held.descendants(matching: .any)["owner-comment-reason"].label.contains("Held when posted: it has “zalo:”, a blocked term"))
     XCTAssertEqual(app.descendants(matching: .any).matching(identifier: "owner-comment").count, 3)
+    XCTAssertFalse(app.staticTexts["Held"].exists, "a Held badge under the Held filter")
     // The other two held, 50 at a time.
     app.scrollToAndTap("owner-more")
     XCTAssertTrue(comment(app, "Reader 00").waitForExistence(timeout: 10), "the rest weren't read")

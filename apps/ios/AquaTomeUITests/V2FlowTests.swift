@@ -120,6 +120,111 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(app.tabBars.buttons["Hôm nay"].isSelected, "the home link opened another tab")
   }
 
+  /// The editors' day (`-plan`): their fish, their guide and their story in their words, not Hôm nay's own picks (Cá neon,
+  /// and the neon guide under its own title), and the story opens its page.
+  func testHomNayShowsTheEditorsDay() {
+    let app = launch("-v2", "YES", "-plan", "-today", "2026-11-13")
+    app.launchForFlow()
+    let fish = app.buttons["v2-fish-of-the-day"]
+    XCTAssertTrue(fish.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    XCTAssertTrue(fish.label.contains("Cá ngựa vằn"), "not the editors' fish: \(fish.label)")
+    let guide = app.buttons.matching(NSPredicate(format: "label CONTAINS %@", "Cách hạn chế rêu hại")).firstMatch
+    repeatUntil(guide.exists && guide.isHittable, times: 4) { app.swipeUp() }
+    XCTAssertTrue(guide.exists, "not the editors' guide")
+    let story = app.buttons.matching(NSPredicate(format: "label CONTAINS %@", "Đàn neon đầu tiên")).firstMatch
+    repeatUntil(story.exists && story.isHittable, times: 4) { app.swipeUp() }
+    XCTAssertTrue(story.exists, "no story in the editors' words")
+    XCTAssertTrue(story.label.contains("Cho người mới") && story.label.contains("Sáu con trở lên"), story.label)
+    XCTAssertFalse(app.buttons.matching(NSPredicate(format: "label CONTAINS %@", "Nuôi cá neon trong bể nhỏ")).firstMatch.exists,
+                   "the story's page on a card under its own title too")
+    story.tap()
+    XCTAssertTrue(app.staticTexts["Nuôi cá neon trong bể nhỏ"].waitForExistence(timeout: 5), "the story's page didn't open")
+  }
+
+  /// A day the editors planned without a fish has no fish card: not one of Hôm nay's own picks in its place.
+  func testADayPlannedWithoutAFishShowsNone() {
+    let app = launch("-v2", "YES", "-plan", "-today", "2026-11-14")
+    app.launchForFlow()
+    let guide = app.buttons.matching(NSPredicate(format: "label CONTAINS %@", "Nuôi cá neon trong bể nhỏ")).firstMatch
+    XCTAssertTrue(guide.waitForExistence(timeout: 10), "not the editors' guide")
+    XCTAssertFalse(app.buttons["v2-fish-of-the-day"].exists, "a fish on a day planned without one")
+  }
+
+  /// A date the editors haven't planned has Hôm nay's own picks: for a reader with no fish yet, Cá neon.
+  func testADayNotPlannedHasHomNaysOwnPicks() {
+    let app = launch("-v2", "YES", "-plan", "-today", "2026-11-15")
+    app.launchForFlow()
+    let fish = app.buttons["v2-fish-of-the-day"]
+    XCTAssertTrue(fish.waitForExistence(timeout: 10), "no fish of the day on a day not planned")
+    XCTAssertTrue(fish.label.contains("Cá neon"), fish.label)
+  }
+
+  /// On a phone whose calendar counts the Buddhist era (a Thai phone's own: 2569), the editors' day is still found by
+  /// the date they wrote.
+  func testHomNayFindsTheEditorsDayOnAThaiCalendar() {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "th_TH@calendar=buddhist", "-fixed-handbook", "-reset-defaults",
+                           "-v2", "YES", "-plan", "-today", "2026-11-13"]
+    app.launchForFlow()
+    let fish = app.buttons["v2-fish-of-the-day"]
+    XCTAssertTrue(fish.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    XCTAssertTrue(fish.label.contains("Cá ngựa vằn"), "not the editors' fish: \(fish.label)")
+  }
+
+  /// At the largest text, a guide's or a story's card with a photo grows to hold its words: none cut to one line over an
+  /// empty band between it and the next card ("Cách hạn…", council round 2). The cards stand the page's 28 pt apart.
+  func testAGuidesCardWithAPhotoHoldsItsWordsAtTheLargestText() {
+    let app = launch("-v2", "YES", "-plan", "-today", "2026-11-13", "-fixed-pictures",
+                     "-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL")
+    app.launchForFlow()
+    func card(_ words: String) -> XCUIElement { app.buttons.matching(NSPredicate(format: "label CONTAINS %@", words)).firstMatch }
+    let guide = card("Cách hạn chế rêu hại"), story = card("Đàn neon đầu tiên"), tank = app.buttons["v2-first-tank"]
+    XCTAssertTrue(guide.waitForExistence(timeout: 10) && story.exists && tank.exists, "not the editors' day")
+    for (a, b, what) in [(guide, story, "the guide"), (story, tank, "the story")] {
+      let gap = b.frame.minY - a.frame.maxY
+      XCTAssertLessThan(gap, 40, "an empty band of \(Int(gap)) pt under \(what)'s card")
+    }
+  }
+
+  /// A guide's or story's card whose photo doesn't come (offline, nothing kept) waits on its own ground, rust or plum,
+  /// not the tank card's green: one card twice.
+  func testAPlannedCardWhosePhotoDoesntComeKeepsItsOwnGround() {
+    // No `-fixed-pictures`: with the fixed index, no photo comes.
+    let app = launch("-v2", "YES", "-plan", "-today", "2026-11-13")
+    app.launchForFlow()
+    for words in ["Cách hạn chế rêu hại", "Đàn neon đầu tiên"] {
+      let card = app.buttons.matching(NSPredicate(format: "label CONTAINS %@", words)).firstMatch
+      XCTAssertTrue(card.waitForExistence(timeout: 10), "no card for \(words)")
+      bring(app, card, to: 200)
+      let f = card.frame, ground = Pixels(XCUIScreen.main.screenshot()).at(f.midX, f.maxY - 8)
+      XCTAssertGreaterThan(ground.r - ground.g, 30, "\(words)'s card on the tank card's green: \(ground)")
+    }
+  }
+
+  /// At the largest text a card's round mark (a guide's book, a story's quote, a video's play) holds its symbol inside its
+  /// circle, and grows no bigger than at the largest size before the accessibility ones: not a play triangle out past its
+  /// circle, not a quarter of the screen of decoration. It leads each card the same way, over its eyebrow.
+  func testACardsMarkHoldsItsSymbolAndStaysSmallAtTheLargestText() {
+    let app = launch("-v2", "YES", "-plan", "-today", "2026-11-14", "-fixed-pictures",
+                     "-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL")
+    app.launchForFlow()
+    for words in ["Nuôi cá neon trong bể nhỏ", "Ít rêu hơn khi bể đủ cây", "Rêu hại từ A đến Z"] {
+      let card = app.buttons.matching(NSPredicate(format: "label CONTAINS %@", words)).firstMatch
+      XCTAssertTrue(card.waitForExistence(timeout: 10), "no card for \(words)")
+      bring(app, card, to: 230)
+      let f = card.frame
+      guard let mark = Pixels(XCUIScreen.main.screenshot()).mark(in: CGRect(x: f.minX + 14, y: f.minY + 10, width: 150, height: min(f.height - 20, 500)),
+                                                              groundX: f.minX + 8) else {
+        XCTFail("no mark found on \(words)'s card")
+        continue
+      }
+      XCTAssertLessThanOrEqual(mark.circle.width, 72, "\(words)'s mark \(Int(mark.circle.width)) pt across")
+      // First on each card, then its eyebrow: under a wrapped eyebrow it hung below a word left on its own line.
+      XCTAssertLessThan(mark.circle.minY - f.minY, 32, "\(words)'s mark isn't the first thing on its card")
+      XCTAssertTrue(mark.circle.insetBy(dx: -1, dy: -1).contains(mark.symbol), "\(words)'s symbol \(mark.symbol) out past its circle \(mark.circle)")
+    }
+  }
+
   func testALinkFromOutsideOpensItsPageOnKhamPha() {
     let app = launch("-v2", "YES")
     app.launchForFlow()
@@ -558,6 +663,17 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(app.staticTexts["Đọc gần đây"].waitForExistence(timeout: 5), "it never took its place")
   }
 
+  /// Dragged, without a fling, until its top is `y` points down the screen.
+  private func bring(_ app: XCUIApplication, _ e: XCUIElement, to y: CGFloat) {
+    for _ in 0..<12 {
+      let dy = e.frame.minY - y
+      if abs(dy) < 24 { return }
+      let from = app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.6))
+      from.press(forDuration: 0.05, thenDragTo: from.withOffset(CGVector(dx: 0, dy: -max(-300, min(300, dy)))), withVelocity: .slow,
+                 thenHoldForDuration: 0.3)
+    }
+  }
+
   /// A link opened by the system to the running app (`XCUIApplication.open` launches it anew), past the system's question.
   private func follow(_ app: XCUIApplication, _ url: URL) {
     XCUIDevice.shared.system.open(url)
@@ -601,9 +717,61 @@ private struct Pixels {
     bitmap.draw(cg, in: CGRect(x: 0, y: 0, width: cg.width, height: cg.height))
   }
 
-  func at(_ x: CGFloat, _ y: CGFloat) -> RGB {
-    let bytes = bitmap.data!.assumingMemoryBound(to: UInt8.self), o = Int(y * scale) * bitmap.bytesPerRow + Int(x * scale) * 4
+  func at(_ x: CGFloat, _ y: CGFloat) -> RGB { pixel(Int(x * scale), Int(y * scale)) }
+
+  private func pixel(_ x: Int, _ y: Int) -> RGB {
+    let bytes = bitmap.data!.assumingMemoryBound(to: UInt8.self), o = y * bitmap.bytesPerRow + x * 4
     return RGB(r: Double(bytes[o]), g: Double(bytes[o + 1]), b: Double(bytes[o + 2]))
+  }
+
+  /// A card's round mark in `area`, in points: its circle, white at 18 % on the card's ground (read at `groundX`, left of
+  /// it, on each line), the largest solid run of that tone; and its symbol, the white joined to what's white inside the
+  /// circle, all of it, so a symbol out past its circle shows as one.
+  func mark(in area: CGRect, groundX: CGFloat) -> (circle: CGRect, symbol: CGRect)? {
+    let s = scale, x0 = max(Int(area.minX * s), 0), x1 = min(Int(area.maxX * s), bitmap.width - 1)
+    let y0 = max(Int(area.minY * s), 0), y1 = min(Int(area.maxY * s), bitmap.height - 1), gx = Int(groundX * s)
+    guard x1 > x0 + 4, y1 > y0 + 4 else { return nil }
+    let w = x1 - x0 + 1, h = y1 - y0 + 1
+    var tone = [Bool](repeating: false, count: w * h)
+    for y in 0..<h {
+      let g = pixel(gx, y + y0), c = RGB(r: g.r * 0.82 + 255 * 0.18, g: g.g * 0.82 + 255 * 0.18, b: g.b * 0.82 + 255 * 0.18)
+      for x in 0..<w where pixel(x + x0, y + y0).distance(to: c) < 18 { tone[y * w + x] = true }
+    }
+    // Solid: the tone on a pixel and the eight round it, not a letter's soft edge.
+    var solid = [Bool](repeating: false, count: w * h)
+    for y in 1..<(h - 1) {
+      for x in 1..<(w - 1) { solid[y * w + x] = (-1...1).allSatisfy { dy in (-1...1).allSatisfy { dx in tone[(y + dy) * w + x + dx] } } }
+    }
+    typealias Box = (minX: Int, minY: Int, maxX: Int, maxY: Int)
+    func run(from start: [Int], _ inside: (Int) -> Bool, _ seen: inout [Bool]) -> (n: Int, box: Box) {
+      var stack = start, n = 0, box: Box = (.max, .max, .min, .min)
+      for i in start { seen[i] = true }
+      while let j = stack.popLast() {
+        n += 1
+        let x = j % w, y = j / w
+        box = (min(box.minX, x), min(box.minY, y), max(box.maxX, x), max(box.maxY, y))
+        for (nx, ny) in [(x - 1, y), (x + 1, y), (x, y - 1), (x, y + 1)] where nx >= 0 && ny >= 0 && nx < w && ny < h {
+          let k = ny * w + nx
+          if !seen[k] && inside(k) { seen[k] = true; stack.append(k) }
+        }
+      }
+      return (n, box)
+    }
+    var seen = [Bool](repeating: false, count: w * h), circle: (n: Int, box: Box)?
+    for i in solid.indices where solid[i] && !seen[i] {
+      let r = run(from: [i], { solid[$0] }, &seen)
+      if r.n > (circle?.n ?? 0) { circle = r }
+    }
+    guard let c = circle?.box else { return nil }
+    func white(_ k: Int) -> Bool { let p = pixel(k % w + x0, k / w + y0); return min(p.r, p.g, p.b) > 225 }
+    let inner = (c.minY...c.maxY).flatMap { y in (c.minX...c.maxX).map { y * w + $0 } }.filter(white)
+    guard !inner.isEmpty else { return nil }
+    var seenWhite = [Bool](repeating: false, count: w * h)
+    let symbol = run(from: inner, white, &seenWhite).box
+    func points(_ b: Box) -> CGRect {
+      CGRect(x: CGFloat(b.minX + x0) / s, y: CGFloat(b.minY + y0) / s, width: CGFloat(b.maxX - b.minX + 1) / s, height: CGFloat(b.maxY - b.minY + 1) / s)
+    }
+    return (points(c), points(symbol))
   }
 }
 

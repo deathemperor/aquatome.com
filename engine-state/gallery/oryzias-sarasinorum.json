@@ -1,28 +1,13 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/5/52/Xenopoecilus_sarasinorum_%28Wroclaw_Zoo%29.JPG",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Xenopoecilus_sarasinorum_%28Wroclaw_Zoo%29.JPG/500px-Xenopoecilus_sarasinorum_%28Wroclaw_Zoo%29.JPG",
-   "width": 2592,
-   "height": 1944,
-   "licence": "CC BY-SA 3.0",
-   "author": "Guérin Nicolas (messages)",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xenopoecilus_sarasinorum_(Wroclaw_Zoo).JPG",
-   "caption": "Wrocław zoo",
-   "key": "File:Xenopoecilus sarasinorum (Wroclaw Zoo).JPG"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Xenopoecilus_sarasinorum_%28Wroclaw_zoo%29-1.JPG",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Xenopoecilus_sarasinorum_%28Wroclaw_zoo%29-1.JPG/500px-Xenopoecilus_sarasinorum_%28Wroclaw_zoo%29-1.JPG",
-   "width": 2592,
-   "height": 1944,
-   "licence": "CC BY-SA 3.0",
-   "author": "Guérin Nicolas (messages)",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xenopoecilus_sarasinorum_(Wroclaw_zoo)-1.JPG",
-   "caption": "Picture taken in the zoo of Wrocław (Poland): Xenopoecilus sarasinorum (Popta, 1905) (=Oryzias sarasinorum)",
-   "key": "File:Xenopoecilus sarasinorum (Wroclaw zoo)-1.JPG"
-  }
+ "queue": [],
+ "judged": [
+  "File:Xenopoecilus sarasinorum (Wroclaw Zoo).JPG",
+  "File:Xenopoecilus sarasinorum (Wroclaw zoo)-1.JPG"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/seriouslyfish/2ccda4b5240f7efe.webp": "9e1c3e3626060c08",
+  "https://upload.wikimedia.org/wikipedia/commons/5/52/Xenopoecilus_sarasinorum_%28Wroclaw_Zoo%29.JPG": "224e069a091d0f17",
+  "https://upload.wikimedia.org/wikipedia/commons/f/fa/Xenopoecilus_sarasinorum_%28Wroclaw_zoo%29-1.JPG": "5258020e43730e1e"
+ },
+ "commons": "2026-11-09"
 }

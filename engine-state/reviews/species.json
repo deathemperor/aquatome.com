@@ -137,6 +137,42 @@
       "kept": false
     }
   ],
+  "vi/species/hyphessobrycon-eschwartzae#4QNZbyXjZuI": [
+    {
+      "at": "2026-11-09T05:53:01Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "notes: \"Cá tự nhiên vừa bắt về có màu vàng và vàng óng sáng hơn nhiều\" is stated flatly as fact. The video says it was noticed in wild fish and \"it is said\" colours fade, so the claim is attributed too loosely.",
+        "notes: \"Người chơi đã nuôi loài này từ trước khi nó được mô tả chính thức\" is in the video, but it sits under the notes heading with colour-fading content. This is a minor structure issue.",
+        "behaviour: \"Người này nuôi chung chúng với cá chuột...\" The video does not say the keeper actually keeps them with these fish. It only lists options (\"you have plenty of options for neighbors\"), so this is invented personal experience.",
+        "behaviour: \"một người nuôi loài này thấy đàn 10, 15 hay 20 con thì đẹp hơn hẳn\" turns the narrator's opinion into a keeper's experience. The video frames it as a recommendation. This is acceptable but slightly shifted.",
+        "behaviour: \"cá chuột\" is a poor translation of corydoras (\"corridors\" in the video). Hobbyists say \"cá chuột\" for corydoras, but the sense is unclear. \"Đủ lớn để coi một con tetra 2 cm là mồi\" is also awkward.",
+        "maintenance: \"Một người nuôi loài này muốn set bể giống nơi chúng sống ngoài tự nhiên\" and \"Người này cũng khuyên\" repeat the one-keeper framing mechanically. The result reads stiff and translated.",
+        "waterConditions: \"Một người nuôi chúng chọn nước mềm, hơi chua đến trung tính\" is a recommendation in the video (\"I would recommend\"), not the keeper's own setup. The 22–27 °C range is stated as a fact for the species, which is fine.",
+        "diet: \"cám lá\" is an unnatural term for flakes. \"Cho chúng ăn khá dễ\" is fine. The krill remark is accurate."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-09T05:53:01Z",
+      "model": "sonnet",
+      "score": 0.62,
+      "notes": [
+        "notes: 'Loài này đã có trong bể của người chơi từ trước khi được mô tả chính thức' is fine, but the sculptor/philanthropist origin overlaps the PAGE's name-origin text (Schwartz financial support), so it repeats what the page already has.",
+        "dimorphism: 'Cá cái tròn bụng rõ nhất khi đang mang trứng' repeats the page's point that females are fuller, and the 'hooks on anal fin' in NEW partly duplicates the page.",
+        "notes: 'dải sáng phản quang' above the dark stripe partly duplicates the page's description of stripes (black stripe, red stripe above).",
+        "behaviour: 'cá chuột' for corridors is acceptable, but 'Chúng hiền và nhỏ' plus the compatibility list: 'Nuôi chung được với…' repeats page card 'Nuôi chung: hợp với các loài khác' in more detail; ok but the list is the video narrator's opinion presented as a rule.",
+        "notes: 'Cá tự nhiên mới bắt về có màu vàng và ánh kim đậm hơn hẳn' - the video says brighter yellow and golden, not 'ánh kim'; 'đậm hơn hẳn' overstated.",
+        "maintenance/waterConditions: narrator's personal advice ('I would recommend', 'Nothing I've found indicates') given as flat rules, not attributed to one keeper's experience.",
+        "reproduction: 'cá bố mẹ sẽ ăn trứng' is stated as fact; the video only implies eggs should fall where adults cannot immediately eat them.",
+        "diet: 'Miệng chúng rất nhỏ' is an inference; the video only says they are tiny tetras."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/mastacembelus-notophthalmus": [
     {
       "at": "2026-11-08T18:05:03Z",
@@ -156,6 +192,40 @@
         "\"Ở Sumatra và Borneo thì đã có ghi chép từ trước. Sau đó một nghiên cứu...\" – sequence is roughly supported, but minor embellishment.",
         "\"bể cao không có ích gì cho nó\" – slight overstatement of 'large bottom area rather than a tall tank'.",
         "\"nên trải nền cát\" – facts say provide sand among other items; acceptable but 'trùn chỉ đông lạnh' mistranslates bloodworms (trùn chỉ are tubifex; bloodworms are lăng quăng đỏ)."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/nannostomus-marginatus#4mcmcGUXioo": [
+    {
+      "at": "2026-11-09T05:51:40Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [
+        "[behaviour] \"Một người nuôi loài này lâu thấy chúng hợp nuôi chung\": the video presents the community-tank fit and the shyness as general statements, not one keeper's experience. The page says the opposite (\"không hợp với bể cộng đồng\"), and NEW doesn't say it differs.",
+        "[behaviour] \"Cùng người nuôi đó thấy cá vẫn gây nhau đôi lúc\": the video states the disputes as general fact, not as this keeper's observation. The attribution is wrong.",
+        "[behaviour] \"Nên nuôi ít nhất 10 con\": the page already says \"lý tưởng là từ 10 con trở lên\", so this repeats it.",
+        "[behaviour] The video's reasons for larger groups (natural behaviour, subordinate males not harassed) are left out. The page says male aggression is rare, but NEW says \"cá vẫn gây nhau đôi lúc\" and doesn't note the difference.",
+        "[beforeYouBuy] \"khỏe hơn mong đợi\": the video says \"incredibly hardy\". \"Hơn mong đợi\" is added, and \"Với người đó\" is stiff.",
+        "[notes] \"đứng ngay sau, chênh không bao nhiêu\" and \"khó loài nào trong chi qua được nó\": the video says only \"close second\" and \"definite winner in the cuteness pageantry\". NEW overstates this, and it reads as translated.",
+        "[behaviour] \"như trẻ con chơi đuổi bắt\" and \"túm chặt vào nhau\" are loose, translated-sounding wording of the video's \"games of tag\" and \"tight shoal\".",
+        "[behaviour] The video's plants, mid-to-top level and hiding-spot details are not used. The behaviour text is thin and carries the unsupported attributions."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-09T05:51:40Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "[behaviour] \"Thỉnh thoảng con đực vẫn gây nhau, chuyện này bình thường\" repeats page's male-competition point, and the page says males rarely fight, so the video's difference (occasional disputes are normal) isn't stated plainly.",
+        "[behaviour] \"Đàn càng đông thì mấy con đực yếu càng ít bị bắt nạt\" is close to the page's group-size claim (đàn đông chia đều hung hăng), so it is partly already on the page.",
+        "[behaviour] The video says to keep them in groups of at least 10, but NEW omits it. It also doesn't say where the video differs from the page, which says they aren't suited to community tanks while the video calls them a good community fish.",
+        "[behaviour] \"lao qua lại khắp bể\" and \"hay đuổi nhau như chơi đùa\" are a loose paraphrase of \"zipping around... games of tag\"; the wording is translation-like.",
+        "[maintenance] \"Một người nuôi loài này thấy chúng rất khỏe\" turns the video channel's experience into a keeper's note, which is acceptable, but it is placed under maintenance and is vague. \"Người nuôi đó\" in [diet] relies on the previous section and does not stand alone.",
+        "[notes] \"chỉ đứng thứ hai về độ nhỏ\" is fine, but the video says \"close second\" (gần nhất sau), and the \"cute\" point is missing. The tone is acceptable."
       ],
       "attempt": "first",
       "kept": false
@@ -334,6 +404,38 @@
         "[waterConditions] \"Nước càng ấm thì cá càng lớn nhanh\" - stated as a general rule for the species, but the video says it about Blue Star only.",
         "[maintenance] \"Cần giữ cho bể sáng tối đều đặn theo giờ cố định\" - \"theo giờ cố định\" (fixed hours) is not in the video, which only says regular changing of light and darkness. \"Cần\" turns that into a rule.",
         "[notes] \"Năm 2011... Toàn bộ Blue Star đang nuôi khắp thế giới\" - this is accurate. The notes section does not say it differs from the page, which says the Endler was found in 1975 at Laguna de Patos, while Campoma is a different, later discovery."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/puntius-titteya#541vhQjR9fI": [
+    {
+      "at": "2026-11-09T05:54:12Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [
+        "[habitat] 'sông suối uốn khúc, nước chảy nhẹ' and 'tán cây... lọc bớt nắng' repeat the page, which already has shaded streams and gentle current; mostly redundant.",
+        "[diet] 'Thức ăn dạng viên nén chúng cũng chịu ăn' — the video says 'tablets' (viên nén), but the page already says they accept pellets (thức ăn viên); it adds nothing new. The wording is also stilted.",
+        "[behaviour] 'góc khuất riêng ở phần dưới của bể' — the video says males set up territories at the lower level, which is partly new. 'Bể cần đủ rộng để con đực nào cũng có góc của mình' is a reasonable restatement, but the page already covers tank space for the group and says males get better colour when rivals are present.",
+        "[dimorphism] 'Con cái thường mang màu cam nhạt, trầm, chứ không hẳn là đỏ ngả nâu' — the video says females are a muted orange, but the page already says females are paler and reddish-brown. The 'chứ không hẳn' phrasing contradicts the page without explaining that the video differs.",
+        "[dimorphism] The NEW text leaves out that males are red and slimmer, but the page already covers this, so little is new overall.",
+        "Overall the NEW text is very thin and largely duplicates the page; it contains little new video-sourced content."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-09T05:54:12Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "[dimorphism] \"Một người nuôi loài này thấy con cái thường có màu cam nhạt\" makes the video's general statement (females have a muted orange hue) look like one keeper's own observation. The video doesn't present it that way.",
+        "[dimorphism] The page already says females are \"đỏ ngả nâu, nhạt hơn\". The sentence doesn't say plainly that the video differs (muted orange, not brownish red).",
+        "[diet] \"Ngoài cám vảy và cám hạt\" repeats what the page already has (flakes, granules, pellets). Only the tablets are new, and the sentence adds almost nothing.",
+        "[diet] \"cá cũng ăn ngay cả thức ăn dạng viên nén\" is awkward, translated-sounding Vietnamese. \"ăn ngay cả\" is unnatural.",
+        "[behaviour] \"Chúng lên màu đẹp nhất lúc tán con cái ... hoặc lúc đọ sức với con đực khác\" overlaps the page, which already says males colour up best with females to show off and with rival males.",
+        "[behaviour] The territory point (\"giữ một góc khuất riêng ở tầng dưới\") is the only new fact, and it sits next to the page's \"tầng giữa đến tầng đáy\" line. It is a mild, unflagged overlap."
       ],
       "attempt": "first",
       "kept": false

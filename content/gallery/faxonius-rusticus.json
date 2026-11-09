@@ -2,6 +2,18 @@
   "id": "faxonius-rusticus",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/75456771.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/75456771-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Nick Tobler (Cowturtle)",
+      "sourceUrl": "https://www.inaturalist.org/photos/75456771",
+      "caption": "Hai con tôm càng đỏ gỉ trên đá ngoài tự nhiên",
+      "best": true,
+      "kind": "pair"
+    },
+    {
       "url": "https://media.aquatome.com/commons/77062fb0e30bb3fc.webp",
       "thumb": "https://media.aquatome.com/commons/77062fb0e30bb3fc-480.webp",
       "width": 1200,
@@ -12,6 +24,66 @@
       "caption": "Tôm càng đỏ gỉ nhìn chính diện, càng xanh lục trong tự nhiên",
       "best": true,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/5838607.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/5838607-480.webp",
+      "width": 1000,
+      "height": 664,
+      "licence": "CC BY-SA",
+      "author": "psweet",
+      "sourceUrl": "https://www.inaturalist.org/photos/5838607",
+      "caption": "Tôm càng đỏ gỉ càng lớn trên bãi cát",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/89374716.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/89374716-480.webp",
+      "width": 983,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Brodie Cass Talbott",
+      "sourceUrl": "https://www.inaturalist.org/photos/89374716",
+      "caption": "Tôm càng đỏ gỉ màu vàng nhạt dưới nước trên nền cát",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/28814438.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/28814438-480.webp",
+      "width": 1024,
+      "height": 582,
+      "licence": "CC BY",
+      "author": "moxostoma",
+      "sourceUrl": "https://www.inaturalist.org/photos/28814438",
+      "caption": "Tôm càng đỏ gỉ nhìn nghiêng, nền sáng",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/35149474.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/35149474-480.webp",
+      "width": 1024,
+      "height": 954,
+      "licence": "CC BY",
+      "author": "Shirley Zundell",
+      "sourceUrl": "https://www.inaturalist.org/photos/35149474",
+      "caption": "Tôm càng đỏ gỉ giơ càng trên đá ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/81960078.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/81960078-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Dan Riley",
+      "sourceUrl": "https://www.inaturalist.org/photos/81960078",
+      "caption": "Tôm càng đỏ gỉ trưởng thành với càng lớn trên nền gỗ",
+      "best": true,
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/commons/0aa896a0a6bebd0c.webp",
@@ -34,6 +106,42 @@
       "author": "Ryan Hodnett",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rusty_Crayfish_(Faxonius_rusticus)_-_Guelph,_Ontario_2020-04-08_(06).jpg",
       "caption": "Tôm càng đỏ gỉ giơ càng trên đáy bùn dưới nước",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/25379915.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/25379915-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "bg1159",
+      "sourceUrl": "https://www.inaturalist.org/photos/25379915",
+      "caption": "Tôm càng đỏ gỉ màu cam dưới nước nông",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/30927920.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/30927920-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Rob Foster",
+      "sourceUrl": "https://www.inaturalist.org/photos/30927920",
+      "caption": "Tôm càng đỏ gỉ với đốm đỏ đặc trưng bên bờ nước",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/75088523.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/75088523-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY-SA",
+      "author": "Ryan Hodnett",
+      "sourceUrl": "https://www.inaturalist.org/photos/75088523",
+      "caption": "Tôm càng đỏ gỉ trưởng thành dưới nước nông trong tự nhiên",
       "best": true,
       "kind": "habitat"
     },
@@ -62,6 +170,30 @@
       "kind": "other"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/33660861.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/33660861-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Steven Joyner",
+      "sourceUrl": "https://www.inaturalist.org/photos/33660861",
+      "caption": "Tôm càng đỏ gỉ càng xanh trên nền cát ven sông",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/1863233.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/1863233-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Trevor Edmonson",
+      "sourceUrl": "https://www.inaturalist.org/photos/1863233",
+      "caption": "Tôm càng đỏ gỉ màu nâu đỏ trên nền sỏi đá",
+      "best": false,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/commons/4126c59e63ce2bf7.webp",
       "thumb": "https://media.aquatome.com/commons/4126c59e63ce2bf7-480.webp",
       "width": 1024,
@@ -72,9 +204,57 @@
       "caption": "Tôm càng đỏ gỉ trên đá ven nước",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/25380174.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/25380174-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "bg1159",
+      "sourceUrl": "https://www.inaturalist.org/photos/25380174",
+      "caption": "Cận cảnh mai tôm càng đỏ gỉ với đốm màu gỉ",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/4797676.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/4797676-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Kristof Zyskowski",
+      "sourceUrl": "https://www.inaturalist.org/photos/4797676",
+      "caption": "Tôm càng đỏ gỉ trên tảng đá ven suối",
+      "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/69363320.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/69363320-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC0",
+      "author": "Heather C.",
+      "sourceUrl": "https://www.inaturalist.org/photos/69363320",
+      "caption": "Tôm càng đỏ gỉ nhỏ bò trên nền đá ven nước",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/28814433.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/28814433-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "moxostoma",
+      "sourceUrl": "https://www.inaturalist.org/photos/28814433",
+      "caption": "Tôm càng đỏ gỉ nhìn từ trên, nền sáng",
+      "best": false,
+      "kind": "other"
     }
   ],
-  "seen": 11,
-  "updatedAt": "2026-11-08",
-  "builtAt": "2026-11-08"
+  "seen": 71,
+  "updatedAt": "2026-11-09",
+  "builtAt": "2026-11-09"
 }

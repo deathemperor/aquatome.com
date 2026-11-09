@@ -7,7 +7,9 @@
   "group": "shrimp",
   "places": [
     "asia",
-    "japan"
+    "japan",
+    "taiwan",
+    "south-korea"
   ],
   "range": {
     "native": {
@@ -153,6 +155,13 @@
           "min": 15,
           "max": 27
         }
+      },
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 18,
+          "max": 28
+        }
       }
     ],
     "ph": [
@@ -161,6 +170,13 @@
         "value": {
           "min": 6,
           "max": 7.6
+        }
+      },
+      {
+        "source": "aquariumcoop",
+        "value": {
+          "min": 6,
+          "max": 8
         }
       }
     ],
@@ -176,6 +192,10 @@
     "sizeCm": [
       {
         "source": "sprucepets",
+        "value": 5
+      },
+      {
+        "source": "aquariumcoop",
         "value": 5
       }
     ],
@@ -209,10 +229,28 @@
       "html": "<ul><li><strong>Common names:</strong> Amano Shrimp, Japonica Amano Shrimp, Japanese Swamp Shrimp</li><li><strong>Scientific name:</strong> Caridina multidentata (previously known as C. japonica)</li><li><strong>Adult size:</strong> 5 cm (2 inches)</li><li><strong>Life expectancy:</strong> 2 to 3 years</li><li><strong>Origin:</strong> Japan</li><li><strong>Social:</strong> Peaceful</li><li><strong>Tank level:</strong> Bottom dweller</li><li><strong>Minimum tank size:</strong> 38 litres (10 gallons)</li><li><strong>Diet:</strong> Omnivore</li><li><strong>Breeding:</strong> Egg layer</li><li><strong>Care:</strong> Beginner</li><li><strong>pH:</strong> 6.0 to 7.6</li><li><strong>Hardness:</strong> 3 to 10 dKH</li><li><strong>Temperature:</strong> 15 to 27 °C (60 to 80 °F)</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/amano-shrimp",
+      "html": "<p>Caridina multidentata (formerly Caridina japonica) is an algae-eating dwarf shrimp that grows to about 4–5 cm, slightly bigger than the average Neocaridina cherry shrimp. It is clear-colored with a tan or gray-blue tint (sometimes affected by diet) and a solid stripe down the back.</p>"
+    },
+    {
       "key": "distribution",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/amano-shrimp-species-profile-5101733",
       "html": "<p>As their alternative names suggest, the Amano shrimp is native to Japan. Originally dwelling in freshwater swamps, these crustaceans have been recently brought into the aquarium hobby. As with many other shrimp species, the Amano shrimp survives in the wild by grazing on algae and detritus left by other aquatic animals.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/amano-shrimp",
+      "html": "<p>They come from East Asia, in countries like Japan, Taiwan and Korea, and can thrive in both freshwater and low brackish waters.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/amano-shrimp",
+      "html": "<p>They have a low bioload and do not need to be kept in groups, so they can live in most nano tanks (or larger), as long as there is a tight-fitting lid. Amano shrimp are expert escapers, so cover any openings where power cords or airline tubing leave the tank.</p>"
     },
     {
       "key": "maintenance",
@@ -221,10 +259,28 @@
       "html": "<p>The Amano shrimp is an excellent addition to a well-established aquarium with a shrimp-friendly substrate. Although you do not need to use a shrimp-specific substrate, large rocks or lots of bulky décor items are harder for a shrimp to navigate in comparison to smaller rocks, gravel, sand, or live plant substrate.</p><p>Live plants are a great addition to a shrimp aquarium and you will often see them nibbling on dead areas. There is a common misconception that shrimp destroy live plants, but they only eat the dead materials. If your plants fail to thrive, do not blame your shrimp.</p><p>Just because the Amano shrimp likes to clean your tank for a living does not mean your maintenance routine should be altered! Continue to keep a close eye on your water chemistry and stick to your usual maintenance practices. Just like fish, shrimp do not tolerate poor water quality. Depending on how many shrimp you have in your tank, expect to continue cleaning some of the algae yourself!</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/amano-shrimp",
+      "html": "<p>Their hardiness makes them adaptable to a wide range of water parameters: 18–28°C, pH 6–8, and moderate to hard GH. As with most crustaceans, they need at least some minerals to promote healthy exoskeleton molts, so add Wonder Shell or Seachem Equilibrium if you have soft water.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/amano-shrimp",
+      "html": "<p>They would love to live in a jungle of live aquarium plants and decorations, where they can graze all day long and hide when molting.</p>"
+    },
+    {
       "key": "diet",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/amano-shrimp-species-profile-5101733",
       "html": "<p>Many hobbyists make the incorrect assumption that Amano shrimp can subsist on only the algae in the aquarium. However, the Amano shrimp does best when fed a mixed diet of plant and animal-based proteins. If kept in a tank with other fish species, just make sure there are enough leftovers for the shrimp to have a thorough meal.</p><p>You do not have to feed a shrimp-specific diet. Depending upon the other species in your tank, your shrimp will do well on a mix of omnivore, herbivore and/or carnivore fish diets being fed to other tankmates.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/amano-shrimp",
+      "html": "<p>These scavengers will eat anything they can get their little hands on: all types of fish foods, blanched vegetables, biofilm, rotting leaves, and algae. They prefer not to eat algae if tastier options are available, so limit feedings for a few days if you want them to work on an algae problem.</p><p>Unlike snails, they aren't as good at eating flat algae growing on surfaces, but they will go after hair algae, thread algae, and even black beard algae if you have a group of hungry shrimp. They are also great at picking leftover crumbs from tight corners and small crevices.</p><p>Feed foods with added calcium, like shrimp foods and Hikari Crab Cuisine, to help them molt successfully. If you see an empty, clear (not solid-colored) exoskeleton, leave it in the tank so the shrimp can consume it for extra minerals. A molted exoskeleton looks like a dead shrimp but is empty inside and clear in color.</p>"
     },
     {
       "key": "behaviour",
@@ -233,19 +289,70 @@
       "html": "<p>The Amano shrimp is mostly translucent and either brown or tan in color. They may have a brown or tan stripe running along the length of their dorsal ridge with matching darker stripes or bands along the sides of their body. The stripe across their back may have a solid white or lighter color line in the middle. Their side bars may be broken up, look more like dots, or run only partway the length of the shrimp.</p><p>A peaceful, community player, the Amano shrimp's biggest concern is being snacked upon by its tankmates. Small, crunchy shrimp should not be on the diet of any of the fish kept with this species. Even if you try to satiate the appetites of aggressive carnivores, they will likely still snack upon defenseless shrimp.</p><p>It should only be kept with nonaggressive species of fish such as livebearers and tetras, danios or other small community fish species.</p><p>Given its temperature range tolerance, the Amano shrimp does well in both heated and non-heated aquariums. As with most shrimp species, they like to have lots of places to hide from their tankmates. Keep this in mind if you are housing them with any other species that like to have their own space, such as a Plecostomus.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/amano-shrimp",
+      "html": "<p>While they aren't the most attractive shrimp, they have lots of interesting behaviors. They constantly graze for food with their front legs, climb plant leaves, and swipe food from bigger fish.</p><p>Because of their outgoing nature, they can be kept with many similar-sized, peaceful community animals like tetras, Endler's livebearers, corydoras catfish, bristlenose plecos, kuhli loaches, other shrimp, and snails. Stay away from any fish big enough to eat them, like medium to large cichlids, barbs, and goldfish.</p><p>They have bottomless stomachs and will happily steal fish food from tank mates, so don't keep too many with smaller dwarf shrimp and other slower eaters. Amano shrimp are larger than cherry shrimp and may outcompete them for food if there isn't plenty to go around.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/amano-shrimp-species-profile-5101733",
       "html": "<p>There are subtle physical characteristics that can differentiate male and female Amano shrimp. Provided they are the same age and fed the same diet, female Amano shrimp will be larger than males. Females also have a spot on their underside, known as a saddle, for storing eggs. This may not be evident, however, if your female is not in the process of spawning.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/amano-shrimp",
+      "html": "<p>Males are smaller and have dots along the side of the body, while females are larger and have a row of dashes instead of dots.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "sprucepets",
       "sourceUrl": "https://www.thesprucepets.com/amano-shrimp-species-profile-5101733",
       "html": "<p>It has been difficult for hobbyists to breed the Amano shrimp in captivity. Like other shrimp species, the female will release a breeding hormone to attract the males to breed. You may note a change in your shrimps' behavior as they try to find the mature female.</p><p>In the wild, the fertilized eggs will drift along the current into brackish water, and out to the open sea. Once fully grown, the shrimp will return to freshwater. This is thought to be the main issue with successfully breeding this shrimp in captivity.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "aquariumcoop",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/amano-shrimp",
+      "html": "<p>They won't crossbreed with cherry or crystal shrimp. They are not capable of reproducing in regular freshwater tanks, since their larvae require highly brackish or salt water to survive. If you see a female fanning eggs under her tail, don't expect baby shrimp.</p>"
     }
   ],
   "photos": [
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/04180ecb084a4653.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/04180ecb084a4653-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/amano-shrimp",
+      "caption": "Care Guide for Amano Shrimp — Nature’s Amazing Algae Eater - Aquarium Co-Op",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/01a00d6ca00c8607.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/01a00d6ca00c8607-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/amano-shrimp",
+      "caption": "amano shrimp in a planted aquarium",
+      "source": "aquariumcoop"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumcoop/53097fbc4f405db5.webp",
+      "thumb": "https://media.aquatome.com/aquariumcoop/53097fbc4f405db5-480.webp",
+      "width": 1000,
+      "height": 667,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Co-op",
+      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/amano-shrimp",
+      "caption": "female berried amano shrimp",
+      "source": "aquariumcoop"
+    },
     {
       "url": "https://media.aquatome.com/sprucepets/4bbad808767dd038.webp",
       "thumb": "https://media.aquatome.com/sprucepets/4bbad808767dd038-480.webp",
@@ -289,5 +396,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-09"
 }

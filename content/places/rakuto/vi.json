@@ -1,10 +1,13 @@
 {
   "slug": "rakuto",
-  "name": "Rakuto",
-  "altNames": [],
+  "name": "sông Nakdong",
+  "altNames": [
+    "Rakuto"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

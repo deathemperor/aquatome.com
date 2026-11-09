@@ -10,6 +10,116 @@
     "french-guiana",
     "maroni"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GF"
+      ],
+      "regions": [
+        "Oyapock",
+        "Maroni",
+        "Approuague",
+        "Kourou",
+        "Sinnamary",
+        "Mana"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Hyphessobrycon borealis is a small characid from French Guiana, recorded from the Oyapock/Oiapoque to the Maroni river systems.",
+          "countries": [
+            "GF"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Has a relatively wide distribution in French Guiana, where it has been recorded from the Oyapock/Oiapoque, Approuague, Kaw, Kourou, Sinnamary, Mana and Maroni river systems.",
+          "countries": [],
+          "regions": [
+            "Oyapock",
+            "Maroni",
+            "Approuague",
+            "Kourou",
+            "Sinnamary",
+            "Mana"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2354659,
+      "total": 155,
+      "fetched": "2026-11-08",
+      "countries": [
+        [
+          "GF",
+          123
+        ],
+        [
+          "BR",
+          16
+        ],
+        [
+          "SR",
+          16
+        ]
+      ],
+      "cells": [
+        [
+          -56.25,
+          2.8125,
+          2,
+          0
+        ],
+        [
+          -56.25,
+          4.21875,
+          8,
+          0
+        ],
+        [
+          -54.84375,
+          2.8125,
+          13,
+          12
+        ],
+        [
+          -54.84375,
+          4.21875,
+          20,
+          15
+        ],
+        [
+          -53.4375,
+          2.8125,
+          31,
+          25
+        ],
+        [
+          -53.4375,
+          4.21875,
+          67,
+          67
+        ],
+        [
+          -52.03125,
+          2.8125,
+          11,
+          1
+        ],
+        [
+          -52.03125,
+          4.21875,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

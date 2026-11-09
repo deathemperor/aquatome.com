@@ -4,6 +4,7 @@ import { expect, test } from 'vitest'
 import { COOKIE, createSession, type Client } from '../accounts/session'
 import { syncStore } from '../accounts/tanks'
 import { assetSource, callClaude, chat, chatWorstCost, type ChatDeps, type ChatEnv, type Conversation } from '../chat/api'
+import { OPENING_SYSTEM } from '../chat/agent'
 import { OFF_TOPIC } from '../chat/answer'
 import { chatAccount, conversationKey } from '../chat/store'
 import type { ChatRunRecord } from '../chat/transcript'
@@ -127,7 +128,15 @@ const ask = (auth: Record<string, string>, body: Record<string, unknown> = {}, h
 const bearer = (token: string) => ({ authorization: `Bearer ${token}` })
 const { answer, streamMisfits, api } = contract('chat.openapi.json')
 const sseMedia = api.paths['/api/chat'].post.responses['200'].content['text/event-stream']
-const deps = (fetch: typeof globalThis.fetch, extra: ChatDeps = {}): ChatDeps => ({ fetch, random: () => 0, ...extra })
+/**
+ * The first line's call (a stream's), answered apart from the run's with `line` ("-": none), so the run's calls are the
+ * test's own fake's, in its order.
+ */
+const lineApart = (fetch: typeof globalThis.fetch, line: string) => (async (input: RequestInfo | URL, init?: RequestInit) => {
+  const body = await new Request(input, init).json().catch(() => ({})) as { system?: unknown }
+  return body.system === OPENING_SYSTEM ? msg([{ type: 'text', text: line }]) : fetch(input, init)
+}) as typeof globalThis.fetch
+const deps = (fetch: typeof globalThis.fetch, extra: ChatDeps = {}, line = '-'): ChatDeps => ({ fetch: lineApart(fetch, line), random: () => 0, ...extra })
 /** The chat's answer, held to the contract; `waits`: the work it left running (a stream's run, its saving). */
 async function run(req: Request, e: ChatEnv, d: ChatDeps, now = new Date()) {
   const waits: Promise<unknown>[] = []
@@ -148,6 +157,27 @@ test('GET: off without the flag or what it needs; on, its limits; through the Wo
   expect(await viaWorker.json()).toMatchObject({ on: true })
   const off = await run(ask({}), env({ CHAT: undefined }).e, {})
   expect([off.res.status, off.body]).toEqual([503, { error: 'chat_off' }])
+})
+
+test('on for the owner only (CHAT "owner"): the owner\'s session finds it on and is answered; anyone else, signed in or not, finds it off and nothing counts', async () => {
+  const { e, db, ledger } = env({ CHAT: 'owner' })
+  const owner = await signIn(db, 'app')
+  const ownerWeb = await signIn(db, 'web')
+  const other = await signIn(db, 'app')
+  e.OWNER_ACCOUNTS = ` ${owner.id}, ${ownerWeb.id}`
+  const status = new Request('https://x.test/api/chat')
+  const get = async (headers: Record<string, string>) => (await run(new Request(status, { headers }), e, {})).body
+  expect(await get({})).toEqual({ on: false })
+  expect(await get(bearer(other.token))).toEqual({ on: false })
+  expect(await get(bearer(owner.token))).toEqual({ on: true, resting: false, perAccount: 30, maxTurns: 20, maxChars: 1500 })
+  expect(await get({ cookie: `${COOKIE}=${ownerWeb.token}` })).toMatchObject({ on: true })
+  // Off for everyone else before anything is read or counted; no OWNER_ACCOUNTS, off for all.
+  const c = claude(NEON)
+  for (const auth of [{}, bearer(other.token)]) expect([(await run(ask(auth), e, deps(c.fetch))).res.status, c.bodies.length]).toEqual([503, 0])
+  expect((await run(ask(bearer(other.token)), e, deps(c.fetch))).body).toEqual({ error: 'chat_off' })
+  expect(ledger.day()).toBeUndefined()
+  expect((await run(ask(bearer(owner.token)), { ...e, OWNER_ACCOUNTS: undefined }, deps(c.fetch))).body).toEqual({ error: 'chat_off' })
+  expect((await run(ask(bearer(owner.token)), e, deps(c.fetch))).body).toMatchObject({ n: 1, text: 'Cá neon xanh sống theo đàn.' })
 })
 
 test('who may ask: an app session as a bearer, or a site session from the site\'s own pages; nothing else, and nothing malformed', async () => {
@@ -286,6 +316,9 @@ test('each question\'s transcript is kept under its account and conversation: wh
     answer: { text: 'Cá neon xanh sống theo đàn.', covered: true, blocks: 2, dropped: [] },
   })
   expect(first.cost).toBeGreaterThan(0)
+  // Its timing from the question's arrival: the run's start; the JSON answer has no first words to time.
+  expect(first.timing!.before).toBeGreaterThanOrEqual(0)
+  expect(first.timing!.words).toBeUndefined()
   // What Claude asked of the tools and what they answered, then its answer; not the first message (the handbook's map).
   expect(first.turns).toHaveLength(2)
   expect(first.turns[0]!.tools).toMatchObject([{ name: 'read_page', input: { path: '/vi/ca/ca-neon-xanh/', heading: null } }])
@@ -372,7 +405,7 @@ test('the stream: steps as they happen, the text, each block, then done holding 
 })
 
 test('the stream: the text in pieces as Claude writes it, after every step and before the first block; joined, the turn\'s text', async () => {
-  const { e, db } = env()
+  const { e, db, store } = env()
   const me = await signIn(db)
   const said = 'Cá neon xanh sống theo đàn, từ 8 con trở lên.\n1. Thả thêm cho đủ đàn.'
   const c = claude([() => reads('/vi/ca/ca-neon-xanh/'), () => msg([{ type: 'text', text: JSON.stringify({ offTopic: false, text: said, covered: true, blocks: [pick({ ids: ['paracheirodon-innesi'] })], suggestions: [] }) }])])
@@ -387,11 +420,137 @@ test('the stream: the text in pieces as Claude writes it, after every step and b
   expect(names.slice(names.lastIndexOf('text') + 1)).toEqual(['block', 'done'])
   expect(events.filter(x => x.event === 'text').map(x => x.data.text).join('')).toBe(said)
   expect(events.at(-1)!.data).toMatchObject({ n: 1, text: said })
+  // The transcript times the first words, from the question's arrival.
+  const record = store.read<ChatRunRecord>([...store.m.keys()].find(k => k.startsWith('chat-run/'))!)!
+  expect(record.timing!.words).toBeGreaterThanOrEqual(record.timing!.before)
   // Every call asked for a stream; the JSON answer's never do.
   expect(c.bodies.map(b => b.stream)).toEqual([true, true])
   const plain = claude(NEON)
   await run(ask(bearer(me.token), { conversation: '9f1c2a52-8d3e-4b7a-9c41-2e5d7f80b913' }), e, deps(plain.fetch))
   expect(plain.bodies.map(b => b.stream)).toEqual([undefined, undefined])
+})
+
+test('the stream opens with the first line, before the first step; done and the transcript hold it, an off-topic answer takes it back; a JSON answer asks for none', async () => {
+  const { e, db, store } = env()
+  const me = await signIn(db)
+  const line = 'Mình đang tra cẩm nang về cách nuôi cá neon xanh cho bạn.'
+  // The run's first call answers after the line's small one, as it does.
+  const late = (r: () => Response) => () => new Promise<Response>(ok => setTimeout(() => ok(r()), 20))
+  const c = claude([late(() => reads('/vi/ca/ca-neon-xanh/')), NEON[1]!])
+  const { res } = await run(ask(bearer(me.token), {}, { accept: 'text/event-stream' }), e, deps(c.fetch, {}, line))
+  const text = await res.text()
+  expect(streamMisfits(text, sseMedia)).toEqual([])
+  expect(text.split('\n\n').filter(Boolean).map(b => b.split('\n')[0])).toEqual(['event: opening', 'event: step', 'event: text', 'event: block', 'event: block', 'event: done'])
+  expect(text.split('\n\n')[0]).toBe(`event: opening\ndata: ${JSON.stringify({ text: line })}`)
+  expect(JSON.parse(text.split('event: done\ndata: ')[1]!).opening).toBe(line)
+  expect(store.read<ChatRunRecord>([...store.m.keys()].find(k => k.startsWith('chat-run/'))!)!.opening).toBe(line)
+  expect(c.bodies.length).toBe(2)
+  // Off topic after all: the line went out, and done, the last word, has none.
+  const off = claude([late(() => answers({ offTopic: true, text: 'x' }))])
+  const o = await run(ask(bearer(me.token), { conversation: crypto.randomUUID() }, { accept: 'text/event-stream' }), e, deps(off.fetch, {}, line))
+  const offText = await o.res.text()
+  expect(streamMisfits(offText, sseMedia)).toEqual([])
+  expect(offText.startsWith('event: opening')).toBe(true)
+  expect(JSON.parse(offText.split('event: done\ndata: ')[1]!).opening).toBeUndefined()
+  // The transcript keeps it: the reader saw it.
+  const records = [...store.m.keys()].filter(k => k.startsWith('chat-run/')).map(k => store.read<ChatRunRecord>(k)!)
+  expect(records.find(r => r.answer?.text === OFF_TOPIC.vi)?.opening).toBe(line)
+  // The JSON answer, with no wait to show it in, makes no call for it.
+  const systems: unknown[] = []
+  const plain = claude(NEON)
+  const watched = (async (input: RequestInfo | URL, init?: RequestInit) => {
+    systems.push(((await new Request(input, init).json()) as { system?: unknown }).system)
+    return plain.fetch(input, init)
+  }) as typeof globalThis.fetch
+  const j = await run(ask(bearer(me.token), { conversation: crypto.randomUUID() }), e, { fetch: watched, random: () => 0 })
+  expect(j.res.status).toBe(200)
+  expect(j.body.opening).toBeUndefined()
+  expect(systems.length).toBe(2)
+  expect(systems).not.toContain(OPENING_SYSTEM)
+})
+
+test('the first line\'s call is beside the run\'s: on another key it counts there, and never becomes the run\'s key or the one credited with the answer', async () => {
+  const { e, db, ledger } = env()
+  const me = await signIn(db)
+  const overloaded = () => Response.json({ type: 'error', error: { type: 'overloaded_error', message: 'Overloaded' } }, { status: 529 })
+  const run_: string[] = []
+  const lines: string[] = []
+  const fetch = (async (input: RequestInfo | URL, init?: RequestInit) => {
+    const req = new Request(input, init)
+    const key = req.headers.get('x-api-key') ?? req.headers.get('authorization')!.replace(/^Bearer\s+/i, '')
+    const body = await req.json() as { system?: unknown; stream?: boolean }
+    if (body.system === OPENING_SYSTEM) {
+      // A is busy for the line; B writes it, once the run has ended.
+      lines.push(key)
+      return key === A ? overloaded() : new Promise<Response>(ok => setTimeout(() => ok(msg([{ type: 'text', text: 'Mình đang tra cẩm nang về cá neon xanh cho bạn.' }])), 30))
+    }
+    run_.push(key)
+    const r = await NEON[Math.min(run_.length, NEON.length) - 1]!()
+    return body.stream ? streamOf(r) : r
+  }) as typeof globalThis.fetch
+  const { res } = await run(ask(bearer(me.token), {}, { accept: 'text/event-stream' }), e, { fetch, random: () => 0 })
+  await res.text()
+  expect([lines, run_]).toEqual([[A, B], [A, A]])
+  const day = ledger.day()!
+  expect(Object.values(day.keys).sort()).toEqual([1, 2])
+  const [a] = Object.entries(day.keys).find(([, n]) => n === 2)!
+  expect(day.ok).toEqual({ [a]: 1 })
+})
+
+/** `p`, or a failure naming `what` once `ms` have passed. */
+const within = <T>(p: Promise<T>, ms: number, what: string) => Promise.race([p, new Promise<never>((_, no) => setTimeout(() => no(new Error(`no ${what} within ${ms} ms`)), ms))])
+
+test('on the stream, a card goes out as soon as Claude has picked it, while its call still writes; done once the turn is saved and settled, before the transcript', async () => {
+  const { e, db, store, ledger } = env()
+  const me = await signIn(db)
+  const said = 'Cá neon xanh sống theo đàn, từ 8 con trở lên.'
+  const first = pick({ ids: ['paracheirodon-innesi'] })
+  const raw = JSON.stringify({ offTopic: false, text: said, covered: true, blocks: [first, pick({ t: 'tool', tool: 'tank-volume', tank: { l: 60, w: 30, h: 36 } })], suggestions: ['Nuôi chung với cá gì?'] })
+  const cut = raw.indexOf(JSON.stringify(first)) + JSON.stringify(first).length
+  // The answer's call writes its text and first pick, then holds the rest until the test has had that card.
+  let more!: () => void
+  const held = new Promise<void>(r => { more = r })
+  const delta = (t: string) => sseEv('content_block_delta', { index: 0, delta: { type: 'text_delta', text: t } })
+  const answer = () => new Response(new ReadableStream({
+    async start(ctl) {
+      const enc = new TextEncoder()
+      ctl.enqueue(enc.encode(started + sseEv('content_block_start', { index: 0, content_block: { type: 'text', text: '' } }) + delta(raw.slice(0, cut))))
+      await held
+      ctl.enqueue(enc.encode(delta(raw.slice(cut)) + sseEv('content_block_stop', { index: 0 }) + sseEv('message_delta', { delta: { stop_reason: 'end_turn', stop_sequence: null }, usage: { output_tokens: 9 } }) + sseEv('message_stop', {})))
+      ctl.close()
+    },
+  }), { headers: { 'content-type': 'text/event-stream' } })
+  // The transcript's write is held until the test has had done.
+  let write!: () => void
+  const writing = new Promise<void>(r => { write = r })
+  e.UPLOADS = hooked(store.bucket, { put: async k => { if (k.startsWith('chat-run/')) await writing } })
+  const waits: Promise<unknown>[] = []
+  const res = await chat(ask(bearer(me.token), {}, { accept: 'text/event-stream' }), new URL('https://x.test/api/chat'), e, new Date(), deps(claude([() => reads('/vi/ca/ca-neon-xanh/'), answer]).fetch), p => { waits.push(p) })
+  const reader = res.body!.getReader()
+  const dec = new TextDecoder()
+  let got = ''
+  const until = async (s: string) => { while (!got.includes(s)) { const r = await reader.read(); if (r.done) throw new Error(`the stream ended before ${s}`); got += dec.decode(r.value, { stream: true }) } }
+  await within(until('event: block'), 2000, 'card while the call still writes')
+  expect(got).not.toContain('event: done')
+  more()
+  await within(until('event: done'), 2000, 'done before the transcript is written')
+  // The conversation is free for the next question and the run settled; the transcript isn't written yet.
+  expect(store.read<Conversation>(await convKey(me))).toMatchObject({ turns: [{ n: 1 }] })
+  expect(store.read<Conversation>(await convKey(me))!.running).toBeUndefined()
+  expect(ledger.day()!.runs).toEqual({})
+  expect([...store.m.keys()].some(k => k.startsWith('chat-run/'))).toBe(false)
+  write()
+  for (let r = await reader.read(); !r.done; r = await reader.read()) got += dec.decode(r.value, { stream: true })
+  await Promise.all(waits)
+  expect(streamMisfits(got, sseMedia)).toEqual([])
+  const events = got.split('\n\n').filter(Boolean).map(b => ({ event: b.split('\n')[0]!.slice('event: '.length), data: JSON.parse(b.split('\ndata: ')[1]!) }))
+  const done = events.at(-1)!
+  expect(done.event).toBe('done')
+  expect(events.filter(x => x.event === 'block').map(x => x.data)).toEqual(done.data.blocks)
+  expect(done.data.blocks.map((b: { t: string }) => b.t)).toEqual(['species', 'tool'])
+  // The transcript times the text's first piece and its last, the run's end and done, in that order.
+  const t = store.read<ChatRunRecord>([...store.m.keys()].find(k => k.startsWith('chat-run/'))!)!.timing!
+  expect(t.before <= t.words! && t.words! <= t.last! && t.last! <= t.answered! && t.answered! <= t.done!).toBe(true)
 })
 
 test('a first call whose text has begun isn\'t asked again of the next key when it fails: the reader gets the error, never a second answer after the first words', async () => {
@@ -676,16 +835,108 @@ test('an R2 error marking the question is unavailable (503), not answering, and 
   expect(Object.values(ledger.day()!.readers)).toEqual([0])
 })
 
-test('a key that runs out of credit during a question is ours: unavailable, and the count goes back; a request the API refuses is failed, and counts', async () => {
-  const { e, db, ledger } = env()
-  const me = await signIn(db)
+test('a key that runs dry during a question hands the rest of the run to the next key: the reader is answered, and the dry key isn\'t asked again; with every key dry, chat rests and the count goes back; a request the API refuses is failed, and counts', async () => {
   const refused = (message: string) => () => Response.json({ type: 'error', error: { type: 'invalid_request_error', message } }, { status: 400 })
-  const out = await run(ask(bearer(me.token)), e, deps(claude([() => reads('/vi/ca/ca-neon-xanh/'), refused('Your credit balance is too low to access the Anthropic API.')]).fetch))
-  expect([out.res.status, out.body]).toEqual([503, { error: 'unavailable' }])
-  expect(Object.values(ledger.day()!.readers)).toEqual([0])
-  const bad = await run(ask(bearer(me.token), { conversation: '7f1c2a52-8d3e-4b7a-9c41-2e5d7f80b913' }), e, deps(claude([() => reads('/vi/ca/ca-neon-xanh/'), refused('messages: bad request')]).fetch))
-  expect([bad.res.status, bad.body]).toEqual([502, { error: 'failed' }])
-  expect(Object.values(ledger.day()!.readers)).toEqual([1])
+  const credit = refused('Your credit balance is too low to access the Anthropic API.')
+  {
+    const { e, db, ledger } = env()
+    const me = await signIn(db)
+    // The key that answers the first call then runs dry; the other has credit.
+    const keys: string[] = []
+    let dry: string | undefined
+    let served = 0
+    const fetch = (async (input: RequestInfo | URL, init?: RequestInit) => {
+      const h = new Request(input, init).headers
+      const k = h.get('x-api-key') ?? h.get('authorization')!.replace(/^Bearer\s+/i, '')
+      keys.push(k)
+      dry ??= k
+      return k === dry && served >= 1 ? credit() : NEON[served++]!()
+    }) as typeof globalThis.fetch
+    const r = await run(ask(bearer(me.token)), e, deps(fetch))
+    expect([r.res.status, r.body]).toMatchObject([200, { n: 1, text: 'Cá neon xanh sống theo đàn.' }])
+    const other = dry === A ? B : A
+    expect(keys).toEqual([dry, dry, other])
+    expect(Object.values(ledger.day()!.readers)).toEqual([1])
+    // The next question doesn't ask the dry key: it is set aside for the day.
+    keys.length = 0
+    served = 0
+    expect((await run(ask(bearer(me.token), { conversation: '7f1c2a52-8d3e-4b7a-9c41-2e5d7f80b913' }), e, deps(fetch))).body).toMatchObject({ n: 1 })
+    expect(keys).toEqual([other, other])
+  }
+  {
+    // Every key dry mid-question: chat rests, and the reader's count goes back.
+    const { e, db, ledger } = env()
+    const me = await signIn(db)
+    const out = await run(ask(bearer(me.token)), e, deps(claude([() => reads('/vi/ca/ca-neon-xanh/'), credit]).fetch))
+    expect([out.res.status, out.body]).toEqual([503, { error: 'resting' }])
+    expect(Object.values(ledger.day()!.readers)).toEqual([0])
+  }
+  {
+    // Our request refused: failed, and it counts; the next key isn't asked.
+    const { e, db, ledger } = env()
+    const me = await signIn(db)
+    const c = claude([() => reads('/vi/ca/ca-neon-xanh/'), refused('messages: bad request')])
+    const bad = await run(ask(bearer(me.token)), e, deps(c.fetch))
+    expect([bad.res.status, bad.body]).toEqual([502, { error: 'failed' }])
+    expect(c.bodies).toHaveLength(2)
+    expect(Object.values(ledger.day()!.readers)).toEqual([1])
+  }
+})
+
+test('each call asks the run\'s key first, a key set aside stays out for the rest of the run, and the answer is credited to the key that wrote it', async () => {
+  const overloaded = () => Response.json({ type: 'error', error: { type: 'overloaded_error', message: 'Overloaded' } }, { status: 529 })
+  const credit = () => Response.json({ type: 'error', error: { type: 'invalid_request_error', message: 'Your credit balance is too low to access the Anthropic API.' } }, { status: 400 })
+  const scripted = (replies: (() => Response | Promise<Response>)[]) => {
+    const keys: string[] = []
+    const fetch = (async (input: RequestInfo | URL, init?: RequestInit) => {
+      const h = new Request(input, init).headers
+      keys.push(h.get('x-api-key') ?? h.get('authorization')!.replace(/^Bearer\s+/i, ''))
+      return replies[keys.length - 1]!()
+    }) as typeof globalThis.fetch
+    return { keys, fetch }
+  }
+  {
+    // A answers the first call; overloaded on the second, B answers it; on the third B is overloaded first, as the run's
+    // key now, and A writes the answer.
+    const { e, db, ledger } = env()
+    const me = await signIn(db)
+    const read = () => reads('/vi/ca/ca-neon-xanh/')
+    const c = scripted([read, overloaded, read, overloaded, NEON[1]!])
+    const r = await run(ask(bearer(me.token)), e, deps(c.fetch))
+    expect(r.res.status).toBe(200)
+    expect(c.keys).toEqual([A, A, B, B, A])
+    const day = ledger.day()!
+    const [first] = Object.entries(day.keys).find(([, n]) => n === 2)!
+    expect(day.ok).toEqual({ [first]: 1 })
+  }
+  {
+    // A runs dry on the second call and B answers it; B is overloaded on the third, and A isn't asked again.
+    const { e, db } = env()
+    const me = await signIn(db)
+    const read = () => reads('/vi/ca/ca-neon-xanh/')
+    const c = scripted([read, credit, read, overloaded, NEON[1]!])
+    const r = await run(ask(bearer(me.token)), e, deps(c.fetch))
+    expect([r.res.status, r.body]).toEqual([503, { error: 'unavailable' }])
+    expect(c.keys).toEqual([A, A, B, B])
+  }
+})
+
+test('a later call whose text has begun isn\'t asked again of the next key when it fails: the reader gets the error, never a second answer after the first words', async () => {
+  const { e, db } = env()
+  const me = await signIn(db)
+  const opening = sseEv('content_block_start', { index: 0, content_block: { type: 'text', text: '' } }) + sseEv('content_block_delta', { index: 0, delta: { type: 'text_delta', text: '{"offTopic":false,"text":"Cá neon' } })
+  let asked = 0
+  const fetch = (async (input: RequestInfo | URL, init?: RequestInit) => {
+    asked++
+    const body = await new Request(input, init).json() as { stream?: boolean }
+    return asked === 1 ? streamOf(await reads('/vi/ca/ca-neon-xanh/')) : body.stream ? cutStream(started + opening, 'error') : answers({})
+  }) as typeof globalThis.fetch
+  const { res } = await run(ask(bearer(me.token), {}, { accept: 'text/event-stream' }), e, deps(fetch))
+  const text = await res.text()
+  expect(streamMisfits(text, sseMedia)).toEqual([])
+  expect(asked).toBe(2)
+  expect(text).toContain('event: text\ndata: {"text":"Cá neon"}')
+  expect(text.endsWith('event: error\ndata: {"error":"unavailable"}\n\n')).toBe(true)
 })
 
 test('an off-topic question is answered with the fixed line and gives the reader\'s count back; the site\'s day still counts it', async () => {
@@ -755,6 +1006,22 @@ test('failures: Claude unreachable on every key is unavailable and gives the cou
   // On a stream, the same error as an event after the stream began.
   const s = await run(ask(bearer(me.token), { conversation: '8f1c2a52-8d3e-4b7a-9c41-2e5d7f80b913' }, { accept: 'text/event-stream' }), e, deps(bad.fetch))
   expect((await s.res.text()).endsWith('event: error\ndata: {"error":"failed"}\n\n')).toBe(true)
+})
+
+test('only a whole answer counts: an answer cut off after its text began on the stream is failed and gives the count back; the same answer unseen still counts', async () => {
+  const { e, db, ledger } = env()
+  const me = await signIn(db)
+  const cut = () => claude([() => msg([{ type: 'text', text: '{"offTopic":false,"text":"Cá neon xanh sống theo đàn, từ 8 con' }], 'max_tokens')])
+  // Without a stream the reader saw nothing of it: failed, and it counts.
+  const f = await run(ask(bearer(me.token)), e, deps(cut().fetch))
+  expect([f.res.status, f.body]).toEqual([502, { error: 'failed' }])
+  expect(Object.values(ledger.day()!.readers)).toEqual([1])
+  // On a stream the reader had its first words, then the error: failed, and its count goes back.
+  const s = await run(ask(bearer(me.token), { conversation: crypto.randomUUID() }, { accept: 'text/event-stream' }), e, deps(cut().fetch))
+  const text = await s.res.text()
+  expect(text).toContain('event: text')
+  expect(text.endsWith('event: error\ndata: {"error":"failed"}\n\n')).toBe(true)
+  expect(Object.values(ledger.day()!.readers)).toEqual([1])
 })
 
 test('read_tanks reads the account\'s synced tanks with their ids, its fish named as the handbook names them', async () => {

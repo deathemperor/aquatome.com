@@ -1,0 +1,243 @@
+{
+  "id": "chihiros-commander-4",
+  "brand": "Chihiros",
+  "model": "Commander 4",
+  "category": "den",
+  "type": "thuy-sinh",
+  "specs": [
+    {
+      "key": "Product type",
+      "value": "Bluetooth dimming controller for Chihiros LED lights; not a light itself",
+      "source": 3
+    },
+    {
+      "key": "Channels",
+      "value": "4 channels (red, green, blue, white), each adjusted on its own",
+      "source": 3
+    },
+    {
+      "key": "Control app",
+      "value": "My Chihiros (formerly Chihiros Magic), for iOS and Android",
+      "source": 5
+    },
+    {
+      "key": "Programming",
+      "value": "Daily light schedule with sunrise, midday pause and sunset presets, a light-curve graph and stepless dimming; built-in timer",
+      "source": 4
+    },
+    {
+      "key": "Power-off memory",
+      "value": "Seller says it keeps brightness settings after a power cut",
+      "source": 0
+    },
+    {
+      "key": "Rated load (generic Commander manual)",
+      "value": "Constant-voltage LED lamps under 36 V and up to 100 W (third-party copy of the manual; the model it covers is unclear)",
+      "source": 6
+    },
+    {
+      "key": "Environment",
+      "value": "Indoor use only; keep away from water and damp",
+      "source": 0
+    },
+    {
+      "key": "Warranty",
+      "value": "6 months from delivery (Shrimp Home's policy for Chihiros spare parts)",
+      "source": 7
+    },
+    {
+      "key": "SKU (India distributor)",
+      "value": "CHI-094-COM4",
+      "source": 3
+    }
+  ],
+  "variants": [
+    {
+      "name": "Commander 4",
+      "specs": [
+        {
+          "key": "Compatible lights",
+          "value": "WRGB, Vivid and A Plus RGB series",
+          "source": 4
+        },
+        {
+          "key": "EU price",
+          "value": "39.90 €",
+          "source": 4
+        }
+      ]
+    },
+    {
+      "name": "Commander 1 (sister model)",
+      "specs": [
+        {
+          "key": "Compatible lights",
+          "value": "A, A Plus, C, E, S, RGB, X100, X200 and Wabi-kusa lights",
+          "source": 4
+        },
+        {
+          "key": "Control",
+          "value": "All LEDs dimmed together; no separate colour channels",
+          "source": 4
+        },
+        {
+          "key": "EU price",
+          "value": "24.90 €",
+          "source": 4
+        }
+      ]
+    },
+    {
+      "name": "Chihiros WRGB light bundles sold with the controller (Thủy Sinh 365)",
+      "specs": [
+        {
+          "key": "30–45 cm",
+          "value": "25W",
+          "source": 8
+        },
+        {
+          "key": "45–60 cm",
+          "value": "38W",
+          "source": 8
+        },
+        {
+          "key": "60–80 cm",
+          "value": "50W",
+          "source": 8
+        },
+        {
+          "key": "90–110 cm",
+          "value": "75W",
+          "source": 8
+        },
+        {
+          "key": "120–140 cm",
+          "value": "95W",
+          "source": 8
+        }
+      ]
+    },
+    {
+      "name": "Chihiros WRGB 60 (bundled with Commander 4)",
+      "specs": [
+        {
+          "key": "Power",
+          "value": "50W; AC 100–240V / DC 12–24V",
+          "source": 9
+        },
+        {
+          "key": "Luminous flux",
+          "value": "3,500 lm",
+          "source": 9
+        },
+        {
+          "key": "Dimensions",
+          "value": "60 x 14 x 1.8 cm",
+          "source": 9
+        },
+        {
+          "key": "LEDs",
+          "value": "204",
+          "source": 9
+        },
+        {
+          "key": "Tank length",
+          "value": "60–80 cm",
+          "source": 9
+        },
+        {
+          "key": "LED lifespan",
+          "value": ">50,000 h",
+          "source": 9
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://thuysinhtim.vn/bo-dieu-khien-bluetooth-chihiros-commander-4",
+      "title": "Bộ Điều Khiển Bluetooth Chihiros Commander 4 – Thủy Sinh Tím",
+      "kind": "shop",
+      "at": "2026-11-09"
+    },
+    {
+      "url": "https://shopthuysinh.com/commander-4-chihiros-bo-dieu-chinh-den-chihiros-wrgb-qua-bluetooth",
+      "title": "Commander 4 Chihiros bộ điều chỉnh đèn WRGB qua bluetooth – ShopThuySinh.com",
+      "kind": "shop",
+      "at": "2026-11-09"
+    },
+    {
+      "url": "https://thuysinhtim.vn/",
+      "title": "Thủy Sinh Tím homepage",
+      "kind": "shop",
+      "at": "2026-11-09"
+    },
+    {
+      "url": "https://www.aquariumsindia.com/shop/controllers-monitors/chihiros-commander4/",
+      "title": "Chihiros COMMANDER-4 Bluetooth Dimming Controller – Aquariums India",
+      "kind": "shop",
+      "at": "2026-11-09"
+    },
+    {
+      "url": "https://www.garnelenhaus.com/chihiros/commander-bluetooth-controller",
+      "title": "Chihiros Commander (Bluetooth Controller) – Garnelenhaus",
+      "kind": "shop",
+      "at": "2026-11-09"
+    },
+    {
+      "url": "https://apps.apple.com/us/app/my-chihiros/id1478240739",
+      "title": "My Chihiros – App Store",
+      "kind": "manufacturer",
+      "at": "2026-11-09"
+    },
+    {
+      "url": "https://ukaps.org/forum/threads/chihiros-magic-app-commander-4-alternatives.58533/",
+      "title": "Chihiros Magic app / Commander 4 alternatives – UKAPS forum",
+      "kind": "forum",
+      "at": "2026-11-09"
+    },
+    {
+      "url": "https://shrimphome.vn/linh-kien-thay-the-chihiros-bluetooth-adapter-dimmer-commander",
+      "title": "Linh kiện thay thế Chihiros bluetooth, adapter, dimmer, commander – Shrimp Home",
+      "kind": "shop",
+      "at": "2026-11-09"
+    },
+    {
+      "url": "https://thuysinh365.com/products/den-led-thuy-sinh-chihiros-wrgb-dieu-chinh-bang-bluetooth",
+      "title": "Đèn led thủy sinh Chihiros WRGB điều chỉnh bằng Bluetooth – Thủy Sinh 365",
+      "kind": "shop",
+      "at": "2026-11-09"
+    },
+    {
+      "url": "https://thuysinhtim.vn/den-led-chihiros-wrgb-60",
+      "title": "Đèn LED Chihiros WRGB 60 – Thủy Sinh Tím",
+      "kind": "shop",
+      "at": "2026-11-09"
+    },
+    {
+      "url": "https://www.plantedaquaria.ca/products/chihiros-wrgb-ii-slim-led-lights",
+      "title": "Chihiros WRGB-II Slim LED Lights – Planted Aquaria",
+      "kind": "shop",
+      "at": "2026-11-09"
+    },
+    {
+      "url": "https://bbs.chihirosaquaticstudio.com/threads/bluetooth-connectivity-issues-with-the-app.7841/",
+      "title": "Bluetooth connectivity issues with the app – Chihiros forum",
+      "kind": "forum",
+      "at": "2026-11-09"
+    },
+    {
+      "url": "https://shrimphome.vn/chihiros",
+      "title": "Chihiros – Shrimp Home",
+      "kind": "shop",
+      "at": "2026-11-09"
+    },
+    {
+      "url": "https://github.com/deathemperor/aquatome.com/blob/main/docs/research/aquarium-device-control.md#hands-on-results-2026-10-31",
+      "title": "Ghi chép thử nghiệm của AquaTome: điều khiển đèn thủy sinh qua Bluetooth (31/10/2026)",
+      "kind": "test",
+      "at": "2026-11-09"
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

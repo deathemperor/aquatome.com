@@ -1,0 +1,172 @@
+{
+  "id": "neolamprologus-fasciatus",
+  "scientificName": "Neolamprologus fasciatus",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Neolamprologus",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "democratic-republic-of-the-congo",
+    "lake-tanganyika",
+    "tanzania",
+    "zambia"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 23,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 7.5,
+          "max": 9
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 8,
+          "max": 25
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 15
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-fasciatus",
+      "html": "<p>The barred lamprologus, Neolamprologus fasciatus, is a predatory cichlid endemic to Lake Tanganyika, living mainly in rocky areas. Its laterally compressed body lets it enter crevices in the rockwork to prey on invertebrates, eggs, fry and small fish. It is sometimes confused with juvenile Altolamprologus but has a blue-green iris and a more elongate body.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-fasciatus",
+      "html": "<p>Endemic to Lake Tanganyika.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-fasciatus",
+      "html": "<p>It generally occurs in rocky areas but also may be found in shallow waters around the water's edge.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-fasciatus",
+      "html": "<p>Standard length: 150 mm SL.</p><p>Aquarium base: 90 × 38 cm.</p><p>Volume: ~103 litres (90 × 38 × 30 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-fasciatus",
+      "html": "<p>Should be housed in a Lake Tanganyika biotope setup, with piles of rocks arranged to form caves filling much of the aquarium. A sandy substrate is preferable.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-fasciatus",
+      "html": "<ul><li>Temperature: 23–27 °C</li><li>pH: 7.5–9.0</li><li>Hardness: 8–25 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-fasciatus",
+      "html": "<p>Most live and frozen foods are readily accepted. Dried foods are rarely accepted.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-fasciatus",
+      "html": "<p>Although it is a territorial species, it is generally peaceful towards fish it can't fit into its mouth and is a good addition to a Tanganyikan community. Suitable tankmates include other Neolamprologus species, Julidochromis, Eretmodus and Telmatochromis. However it is quite shy and aggressive or very vigorous tankmates such as Mbuna should be avoided. It can be maintained singly, in pairs or as a group in a suitably sized tank.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-fasciatus",
+      "html": "<p>Unknown. It appears that the sexes are identical physically.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-fasciatus",
+      "html": "<p>Not achieved in aquaria. It is known to spawn in caves and also in snail shells in nature.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-fasciatus",
+      "html": "<p>N. fasciatus is a predator by nature and its body shape has been adapted to allow it to enter small crevices and gaps in the rockwork of Lake Tanganyika to prey on invertebrates, eggs, fry and small fish. The lateral compression exhibited by this fish also makes the fish hard to spot head on, giving it an advantage over both its predators and prey. It hunts in a head down position a few feet above the substrate, moving its body in sinuous motions to counteract the water currents. It is sometimes confused with juvenile Altolamprologus species but can be easily distinguished by its blue-green iris and more elongate body shape.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/e5148b2bdebf7b56.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/e5148b2bdebf7b56-480.webp",
+      "width": 603,
+      "height": 300,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/neolamprologus-fasciatus",
+      "caption": "Neolamprologus fasciatus",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 90cm"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền hồ Tanganyika",
+        "cát cho bể cichlid"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 90cm"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 100W"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}
