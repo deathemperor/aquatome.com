@@ -55,6 +55,28 @@ test("commons: a file whose own categories or description say it is a drawing, f
   expect(c.map(x => x.key)).toEqual(['File:A.jpg'])
 })
 
+test('commons: files with long names are asked for in addresses the server takes, each file once', async () => {
+  // Found 2026-11-10 in the photos log: "vittina-waigiensis commons: HTTP 414" every cycle (72 times on 6 pages), so those
+  // pages' Commons photos were never read. Museum shell series name each file in a sentence.
+  const long = (i: number) => `File:Vittina waigiensis (Lesson, 1831) – shell ${i}, ${'Naturalis Biodiversity Center, Leiden, the Netherlands; '.repeat(4)}.jpg`
+  const titles = Array.from({ length: 120 }, (_, i) => long(i))
+  const lengths: number[] = []
+  const asked: string[] = []
+  const c = await commonsCandidates('Vittina waigiensis', async (u: string) => {
+    const q = new URL(u).searchParams
+    if (q.get('list') === 'categorymembers') return { query: { categorymembers: titles.map(title => ({ ns: 6, title })) } }
+    if (q.get('list') === 'search') return { query: { search: [] } }
+    lengths.push(u.length)
+    const batch = q.get('titles')!.split('|')
+    asked.push(...batch)
+    expect(batch.length).toBeLessThanOrEqual(50)
+    return { query: { pages: Object.fromEntries(batch.map((t, i) => [String(i), info(t, 'CC BY 4.0')])) } }
+  })
+  expect(Math.max(...lengths)).toBeLessThan(8000)
+  expect(asked).toEqual(titles)
+  expect(c).toHaveLength(120)
+})
+
 /** A different picture for every address (seeded noise), so near-copy detection tells them apart; `same` makes two addresses one picture. */
 const same = new Map<string, string>()
 const picture = (url: string) => {
