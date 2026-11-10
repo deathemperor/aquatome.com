@@ -183,6 +183,7 @@ struct UnlistedCount: View {
       }
       if failed { Text("Chưa lưu được thay đổi. Thử lại.").foregroundStyle(Color.warning) }
     }
+    .modifier(ClearUnderTopBar(shown: true, ground: Color(.systemGroupedBackground)))
     .navigationTitle(handbook.page(for: entry)?.name ?? entry.name)
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {
@@ -254,6 +255,7 @@ struct PutOnTank: View {
       }
       if failed { Text("Chưa lưu được thay đổi. Thử lại.").foregroundStyle(Color.warning) }
     }
+    .modifier(ClearUnderTopBar(shown: true, ground: Color(.systemGroupedBackground)))
     .navigationTitle(life.name)
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {
@@ -335,6 +337,7 @@ struct LifePicker: View {
       // Scientific names are typed here, as on the site's search: not corrected, not capitalized.
       .autocorrectionDisabled()
       .textInputAutocapitalization(.never)
+      .modifier(ClearUnderTopBar(shown: true, ground: Color(.systemGroupedBackground)))
       .navigationTitle("Thêm cá hoặc cây")
       .navigationBarTitleDisplayMode(.inline)
       .toolbar { ToolbarItem(placement: .cancellationAction) { Button("Hủy") { dismiss() } } }
@@ -410,6 +413,7 @@ struct NewUnlisted: View {
       if full { Text("Đã đủ \(maxUnlisted) loài chưa có trang trên bể này.").foregroundStyle(Color.warning) }
       if failed { Text("Chưa lưu được thay đổi. Thử lại.").foregroundStyle(Color.warning) }
     }
+    .modifier(ClearUnderTopBar(shown: true, ground: Color(.systemGroupedBackground)))
     .navigationTitle(typed)
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {

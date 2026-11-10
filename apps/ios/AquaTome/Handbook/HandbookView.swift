@@ -40,7 +40,9 @@ struct HandbookView: View {
       .listStyle(.insetGrouped)
       // The chips right under the search field, not a section's space below it; the home keeps its own.
       .contentMargins(.top, handbook.query.isEmpty ? nil : 4, for: .scrollContent)
-      .searchable(text: $handbook.query, prompt: Text("Tìm loài cá, cây, hướng dẫn"))
+      // Placed, not left to iOS: iOS 27 keeps a search tab's field out of sight until the page is pulled down.
+      .searchable(text: $handbook.query, placement: .navigationBarDrawer(displayMode: .always), prompt: Text("Tìm loài cá, cây, hướng dẫn"))
+      .modifier(ClearUnderTopBar(shown: true, ground: Color(.systemGroupedBackground)))
       .navigationTitle("Tìm")
       .profileButton()
       .navigationDestination(for: HandbookIndex.Item.self) { item in

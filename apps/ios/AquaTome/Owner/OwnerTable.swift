@@ -104,6 +104,7 @@ struct OwnerTableScreen: View {
     }
     .clearOfOwnerReport()
     .background(Color(uiColor: .systemGroupedBackground))
+    .modifier(ClearUnderTopBar(shown: true, ground: Color(.systemGroupedBackground)))
     .navigationTitle(Text(verbatim: route.title))
     .navigationBarTitleDisplayMode(.inline)
     .task {
