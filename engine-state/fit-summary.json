@@ -1,5 +1,5 @@
 {
- "day": "2026-11-10",
+ "day": "2026-11-11",
  "baseline": {
   "day": "2026-11-08",
   "pct": {
@@ -11,11 +11,11 @@
  },
  "langs": {
   "vi": {
-   "pages": 3872,
-   "read": 3455,
-   "wrong": 1568,
+   "pages": 3915,
+   "read": 3500,
+   "wrong": 1585,
    "pct": 45,
-   "held": 304
+   "held": 321
   },
   "id": {
    "pages": 1202,
@@ -58,50 +58,37 @@
  },
  "sample": [
   {
-   "lang": "vi",
-   "path": "/vi/ca/ca-tetra-lung-do/",
-   "url": "https://aquatome.com/ca/ca-tetra-lung-do/",
-   "title": "Cá tetra tim chảy máu lưng lửa",
-   "wrong": [
-    {
-     "check": "words",
-     "quote": "ghi nhận"
-    },
-    {
-     "check": "words",
-     "quote": "Tuy vậy"
-    },
-    {
-     "check": "words",
-     "quote": "gần như không"
-    }
-   ]
+   "lang": "id",
+   "path": "/id/tanaman/creeping-jenny/",
+   "url": "https://aquatome.com/id/tanaman/creeping-jenny/",
+   "title": "Creeping Jenny",
+   "wrong": []
   },
   {
    "lang": "vi",
-   "path": "/vi/huong-dan/5-loai-tep-nuoc-ngot-dang-nuoi-cho-be-thuy-sinh/",
-   "url": "https://aquatome.com/huong-dan/5-loai-tep-nuoc-ngot-dang-nuoi-cho-be-thuy-sinh/",
-   "title": "5 loại tép nước ngọt đáng nuôi cho bể thủy sinh",
+   "path": "/vi/ca/ca-hoang-hau-vang/",
+   "url": "https://aquatome.com/ca/ca-hoang-hau-vang/",
+   "title": "Cá hoàng hậu vàng",
    "wrong": [
     {
-     "check": "product",
-     "quote": "Wonder Shell"
+     "check": "words",
+     "quote": "phần lớn"
     },
     {
-     "check": "elsewhere",
-     "quote": "Loại này dễ mua ở các chuỗi cửa hàng thú cưng lớn"
+     "check": "words",
+     "quote": "dân chơi"
     },
     {
-     "check": "source",
-     "quote": "bạn xem bài chi tiết về nhân giống tép cherry"
+     "check": "words",
+     "quote": "cá nhân giống"
     }
    ]
   },
   {
    "lang": "id",
-   "path": "/id/ikan/dichotomyctere-fluviatilis/",
-   "url": "https://aquatome.com/id/ikan/dichotomyctere-fluviatilis/",
-   "title": "Dichotomyctere fluviatilis",
+   "path": "/id/ikan/batasio-tigrinus/",
+   "url": "https://aquatome.com/id/ikan/batasio-tigrinus/",
+   "title": "Batasio tigrinus",
    "wrong": []
   }
  ]
