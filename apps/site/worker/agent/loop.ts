@@ -147,7 +147,8 @@ export async function runAgent<Step>(a: AgentInput<Step>): Promise<AgentRun<Step
     const effort = a.lastEffort && (trying || (forced && !(a.pace && left >= a.pace.answer * each))) ? a.lastEffort : a.effort
     const began = clock()
     const grace = lim.writingGraceMs ?? 0
-    const giveUp = a.lastTry && left > a.lastTry.ms ? left - a.lastTry.ms : left
+    // A call gets at least a second before it's given up: key rotation sends nothing with less (fishid/keys.ts `rotate`).
+    const giveUp = a.lastTry && left - a.lastTry.ms >= 1000 ? left - a.lastTry.ms : left
     /** How long the call may go before it begins writing. */
     const wait = trying ? left + grace : Math.min(forced && a.pace ? left : lim.callMs, giveUp)
     let r: Anthropic.Message
@@ -163,7 +164,7 @@ export async function runAgent<Step>(a: AgentInput<Step>): Promise<AgentRun<Step
         messages: trying ? withWord(history, a.lastTry!.word) : forced && a.lastWord ? withWord(history, a.lastWord) : [...history],
       }, { timeoutMs: wait, writingMs: left + grace, call: run.calls })
     } catch (e) {
-      if (!held && !trying && a.lastTry && !a.lastTry.begun() && clock() - began >= wait) { trying = true; continue }
+      if (!held && !trying && a.lastTry && !a.lastTry.begun() && clock() - began > wait - 1000) { trying = true; continue }
       return held ? { ...run, message: held, stopped: 'answer' } : { ...run, stopped: 'error', error: e }
     }
     took += clock() - began

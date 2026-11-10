@@ -261,6 +261,27 @@ describe('the last try', () => {
     expect(r.message?.content).toEqual([{ type: 'text', text: '{"verdict":"fish","guesses":[]}' }])
   })
 
+  test('a key that fails in the last second of a call\'s time counts as that time gone: rotation has no room for another', async () => {
+    const clock = { now: 0 }
+    const calls: number[] = []
+    const send: AgentInput<string>['send'] = async (_, { timeoutMs }) => {
+      calls.push(timeoutMs)
+      if (calls.length === 1) { clock.now += timeoutMs - 500; throw new Error('overloaded') }
+      return answers()
+    }
+    const r = await runAgent(input(send, { clock: () => clock.now, limits, lastTry: lastTry() }))
+    expect(calls).toHaveLength(2)
+    expect(r.error).toBeUndefined()
+  })
+
+  test('a call starting too late to be given up is still sent, with all the time left', async () => {
+    const clock = { now: 0, per: [23_000, 1_000] }
+    const c = script([() => asks([{ name: 'echo', input: { q: 'x' } }]), () => answers()], clock)
+    const r = await runAgent(input(c.send, { clock: () => clock.now, pace: { answer: 7, quick: 6.5, first: 4 }, limits, lastTry: lastTry() }))
+    expect(c.calls[1]!.timeoutMs).toBe(4_000)
+    expect(r.error).toBeUndefined()
+  })
+
   test('none once the reader has some of the answer: a second answer can\'t follow it', async () => {
     const c = silent([() => answers()])
     const r = await runAgent(input(c.send, { clock: c.clock, limits, lastTry: lastTry(true) }))
