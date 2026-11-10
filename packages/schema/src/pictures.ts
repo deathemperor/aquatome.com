@@ -1,4 +1,15 @@
 import { THUMB_WIDTH } from './thumb'
+import type { Photo } from './types'
+
+/** A photo a card can crop to its shape and keep the fish whole: not a strip wider than about 2:1. */
+export const fitsCard = (p: Pick<Photo, 'width' | 'height'>) => p.width <= p.height * 2.2
+
+/**
+ * A photo without a source's watermark banner (Glaser stamps its name across the top) that a card can crop whole, else
+ * one without the banner, else the first. The site's cards take this; the engine's ranking of a fish's head photo reads
+ * the same order, so a card and the page it opens show one picture.
+ */
+export const cleanPhoto = (photos: Photo[]) => photos.find(p => p.source !== 'glaser' && fitsCard(p)) ?? photos.find(p => p.source !== 'glaser') ?? photos[0]
 
 /**
  * One picture, whatever file it is in: the same photo stored twice (two articles of one source each had a copy),

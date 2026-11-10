@@ -1,4 +1,4 @@
-import { linkTerms, type Content, type LinkTarget, type Localized, type GuideEntity, type Photo, type PlantEntity, type SpeciesEntity } from '@aq/schema'
+import { fitsCard, linkTerms, type Content, type LinkTarget, type Localized, type GuideEntity, type Photo, type PlantEntity, type SpeciesEntity } from '@aq/schema'
 import { categories } from './equipment'
 import { GROUP_LABELS } from './format'
 import { taxonHref } from './taxa-places'
@@ -125,7 +125,7 @@ export const guidesMentioning = (c: Content, key: string): Localized<GuideEntity
 export function guideImages(c: Content, g: Localized<GuideEntity>): Photo[] {
   const m = mentionIndex(c).guides.get(g.id)
   // A section's photo can be a strip (a lamp, a tank's length) that a card's 16:9 would crop to a sliver.
-  const sections = (g.video?.figures ?? []).flatMap(f => f.photo ?? []).filter(p => p.width <= p.height * 2.2)
+  const sections = (g.video?.figures ?? []).flatMap(f => f.photo ?? []).filter(fitsCard)
   return [...g.photos, ...sections, ...(m?.species ?? []).flatMap(s => s.photos[0] ?? []), ...(m?.plants ?? []).flatMap(p => p.photos[0] ?? [])]
 }
 
