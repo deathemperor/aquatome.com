@@ -91,7 +91,8 @@ keep_unpublished() {
   if [ -n "${TIMED_OUT:-}" ]; then
     git branch -q -f "kept/$1/$when" HEAD && log "tests ran out of time: this run's work is kept on kept/$1/$when for the next run"
   else
-    git branch -q -f "held/$1/$when" HEAD && log "checks failed twice: this run's work is on held/$1/$when, not published"
+    # Off main at once: a next run that couldn't fetch would carry on from this commit, and could publish it.
+    git branch -q -f "held/$1/$when" HEAD && git reset -q --hard origin/main && log "checks failed twice: this run's work is on held/$1/$when, not published"
   fi
 }
 HELD_DAYS=14
@@ -100,7 +101,8 @@ drop_old_held() {
   cutoff=$(date -u -v-"$HELD_DAYS"d +%Y%m%dT%H%M%S 2>/dev/null || date -u -d "$HELD_DAYS days ago" +%Y%m%dT%H%M%S)
   for branch in $(git for-each-ref --format='%(refname:short)' "refs/heads/held/$1/"); do
     [[ "${branch##*/}" < "$cutoff" ]] || continue
-    git branch -q -D "$branch" && log "$branch was held $HELD_DAYS days: dropped"
+    # One that can't go (a worktree someone is reading it in) mustn't stop the run.
+    if git branch -q -D "$branch"; then log "$branch was held $HELD_DAYS days: dropped"; else log "$branch is past $HELD_DAYS days and couldn't be dropped"; fi
   done
 }
 # The work earlier runs of <job> kept, oldest first: each on main as it is now, swept and checked as any run's commit is,

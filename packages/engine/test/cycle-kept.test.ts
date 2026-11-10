@@ -162,6 +162,8 @@ test('a test that fails twice ends on a held branch with nothing published, and 
   expect(c.onMain('content/b.json')).toBe('')
   const [held = ''] = c.branches()
   expect(held).toMatch(/^held\/photos\/\d{8}T\d{6}$/)
+  // Off main already, so a next run that can't fetch doesn't carry on from it and push it.
+  expect(c.sh('git rev-parse HEAD')).toBe(c.sh('git rev-parse origin/main'))
   // The next run's start: it passes its checks, and the held work still isn't its to publish.
   c.sh('git fetch -q origin && git reset -q --hard origin/main')
   expect(c.cycle('publish_kept photos')).toBe('')
@@ -177,6 +179,10 @@ test("a held branch is dropped after 14 days, by its own job's next run", () => 
   c.sh(`git branch ${old} HEAD && git branch ${young} HEAD && git branch ${other} HEAD`)
   expect(c.cycle('publish_kept photos')).toBe(`LOG ${old} was held 14 days: dropped`)
   expect(c.branches().sort()).toEqual([young, other].sort())
+  // One that can't be deleted (a worktree on it) is logged, and the run goes on.
+  const reading = `held/photos/${when(16)}`
+  c.sh(`git branch ${reading} HEAD && git worktree add -q ../reading ${reading}`)
+  expect(c.cycle('publish_kept photos; echo "WENT ON"')).toBe(`LOG ${reading} is past 14 days and couldn't be dropped\nWENT ON`)
 })
 
 test('a checkout that is not an engine clone keeps nothing', () => {
