@@ -12,6 +12,57 @@
     "lake-inle",
     "salween"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Inle Lake"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Microrasbora rubescens is found exclusively in Inle Lake and the surrounding area in Burma.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Inle Lake"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2362730,
+      "total": 54,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "MM",
+          54
+        ]
+      ],
+      "cells": [
+        [
+          95.625,
+          19.6875,
+          23,
+          23
+        ],
+        [
+          97.03125,
+          19.6875,
+          31,
+          31
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

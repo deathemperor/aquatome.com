@@ -1,0 +1,82 @@
+{
+  "id": "microsynodontis-polli",
+  "native": {
+    "input": "07ab9658bcc4cea2",
+    "at": "2026-11-10T12:58:20.267Z",
+    "claims": [
+      {
+        "code": "LR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The pygmy synodontis, Microsynodontis polli, is a small catfish from the upper Niger basin in Liberia and Guinea, growing to around 40 mm SL.",
+        "words": "Liberia",
+        "ok": true
+      },
+      {
+        "code": "GN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The pygmy synodontis, Microsynodontis polli, is a small catfish from the upper Niger basin in Liberia and Guinea, growing to around 40 mm SL.",
+        "words": "Guinea",
+        "ok": true
+      },
+      {
+        "code": "GN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "M. polli is reported for the upper Niger in Guinea and Liberia.",
+        "words": "Guinea",
+        "ok": true
+      },
+      {
+        "code": "LR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "M. polli is reported for the upper Niger in Guinea and Liberia.",
+        "words": "Liberia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Niger",
+        "source": "seriouslyfish",
+        "quote": "A West African species found in Liberia and Guinea, where it inhabits parts of the Upper Niger river basin.",
+        "ok": false,
+        "why": "a country"
+      },
+      {
+        "name": "Niger",
+        "source": "glaser",
+        "quote": "M. polli is reported for the upper Niger in Guinea and Liberia.",
+        "ok": false,
+        "why": "a country"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "NE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Microsynodontis polli",
+    "status": "ACCEPTED",
+    "taxonKey": 2344196,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        1
+      ]
+    ],
+    "native": [
+      "LR",
+      "GN"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T12:58:20.267Z"
+  }
+}

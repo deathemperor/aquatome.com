@@ -12,6 +12,179 @@
     "republic-of-the-congo",
     "cameroon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CM",
+        "CG",
+        "CD"
+      ],
+      "regions": [
+        "Congo basin"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The banded ctenopoma, Microctenopoma fasciolatum, is an anabantoid from the Congo basin and a handful of rivers in Cameroon.",
+          "countries": [
+            "CM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known from the Congo basin in both the Republic of Congo and Democratic Republic of Congo, as well as a handful of rivers in Cameroon.",
+          "countries": [
+            "CG",
+            "CD"
+          ],
+          "regions": [
+            "Congo basin"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2391653,
+      "total": 74,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "CD",
+          68
+        ],
+        [
+          "CG",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          12.65625,
+          -7.03125,
+          3,
+          3
+        ],
+        [
+          14.0625,
+          -5.625,
+          6,
+          6
+        ],
+        [
+          14.0625,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          15.46875,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          15.46875,
+          -2.8125,
+          24,
+          24
+        ],
+        [
+          15.46875,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          15.46875,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          16.875,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          18.28125,
+          -1.40625,
+          9,
+          9
+        ],
+        [
+          18.28125,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          19.6875,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          19.6875,
+          -1.40625,
+          4,
+          4
+        ],
+        [
+          19.6875,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          19.6875,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          21.09375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          21.09375,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          22.5,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          22.5,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          23.90625,
+          0,
+          6,
+          6
+        ],
+        [
+          25.3125,
+          2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

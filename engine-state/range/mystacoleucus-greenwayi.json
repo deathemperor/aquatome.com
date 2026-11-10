@@ -1,0 +1,140 @@
+{
+  "id": "mystacoleucus-greenwayi",
+  "native": {
+    "input": "25008a0578f8529e",
+    "at": "2026-11-10T12:58:20.267Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Mystacoleucus greenwayi is a riverine cyprinid from the middle Mekong basin in Thailand and Laos and the Chao Phraya watershed.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Mystacoleucus greenwayi is a riverine cyprinid from the middle Mekong basin in Thailand and Laos and the Chao Phraya watershed.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Present in the middle Mekong River basin in Thailand and Laos plus the Chao Phraya watershed in central Thailand.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Present in the middle Mekong River basin in Thailand and Laos plus the Chao Phraya watershed in central Thailand.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Ban Nam Khueng, 30 km northwest of Ban Nam Khueng, about 6 km from Mekong River, Laos'.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "In the Mun River, close to the Pak Mun dam, Thailand, sympatric species included Hampala dispar, Cyclocheilichthys apogon, Osteochilus vittatus, Kryptopterus apogon, K. bleekeri, Acanthopsis choirorhynchus, Raiamas guttatus, and Puntioplites proctozysron.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "In a small stream of the Nam Ou river watershed, Phôngsali Province, northern Laos it occurred sympatrically with Acheilognathus deignani, Cyprinus rubrofuscus, Devario laoensis, Pseudorasbora parva, and Barbodes semifasciolatus.",
+        "words": "Laos",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Present in the middle Mekong River basin in Thailand and Laos plus the Chao Phraya watershed in central Thailand.",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "Present in the middle Mekong River basin in Thailand and Laos plus the Chao Phraya watershed in central Thailand.",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Ping",
+        "source": "seriouslyfish",
+        "quote": "In the latter it is restricted to the Ping, Yom and Nan tributary systems.",
+        "ok": true
+      },
+      {
+        "name": "Yom",
+        "source": "seriouslyfish",
+        "quote": "In the latter it is restricted to the Ping, Yom and Nan tributary systems.",
+        "ok": true
+      },
+      {
+        "name": "Nan",
+        "source": "seriouslyfish",
+        "quote": "In the latter it is restricted to the Ping, Yom and Nan tributary systems.",
+        "ok": true
+      },
+      {
+        "name": "Mun River",
+        "source": "seriouslyfish",
+        "quote": "In the Mun River, close to the Pak Mun dam, Thailand, sympatric species included Hampala dispar, Cyclocheilichthys apogon, Osteochilus vittatus, Kryptopterus apogon, K. bleekeri, Acanthopsis choirorhynchus, Raiamas guttatus, and Puntioplites proctozysron.",
+        "country": "TH",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Mystacoleucus greenwayi",
+    "status": "ACCEPTED",
+    "taxonKey": 2363140,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        11
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "LA"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T12:58:20.267Z"
+  }
+}

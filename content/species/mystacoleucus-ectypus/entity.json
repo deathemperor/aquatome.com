@@ -12,6 +12,109 @@
     "thailand",
     "mun"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LA",
+        "TH"
+      ],
+      "regions": [
+        "Mekong",
+        "Khorat Plateau",
+        "Mun",
+        "Songkhram",
+        "Nam Mang",
+        "Nam Kou"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Mystacoleucus ectypus is a pelagic cyprinid from the middle Mekong basin in Laos and Thailand, and may be endemic to the Khorat Plateau.",
+          "countries": [
+            "LA",
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known from the middle Mekong basin in Laos and Thailand, and may be endemic to the Khorat Plateau.",
+          "countries": [],
+          "regions": [
+            "Mekong",
+            "Khorat Plateau"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Records exist from the Mun and Songkhram watersheds in northeastern Thailand, and a number of Mekong tributaries in Laos, including the Nam Mang and Nam Kou drainages.",
+          "countries": [],
+          "regions": [
+            "Mun",
+            "Songkhram",
+            "Nam Mang",
+            "Nam Kou"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2363146,
+      "total": 8,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "LA",
+          5
+        ],
+        [
+          "TH",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          18.28125,
+          3,
+          3
+        ],
+        [
+          104.0625,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          14.0625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

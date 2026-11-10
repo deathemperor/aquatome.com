@@ -13,6 +13,130 @@
     "ogowe",
     "cameroon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CD",
+        "GA",
+        "CM"
+      ],
+      "regions": [
+        "Congo",
+        "Ogowe"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Recorded from Democratic Republic of Congo, Gabon and Cameroon, where it's found in the Congo and Ogowe river basins.",
+          "countries": [
+            "CD",
+            "GA",
+            "CM"
+          ],
+          "regions": [
+            "Congo",
+            "Ogowe"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344189,
+      "total": 67,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "CM",
+          51
+        ],
+        [
+          "GA",
+          13
+        ],
+        [
+          "CD",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          8.4375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          9.84375,
+          -2.8125,
+          5,
+          5
+        ],
+        [
+          9.84375,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          11.25,
+          1.40625,
+          10,
+          10
+        ],
+        [
+          11.25,
+          2.8125,
+          10,
+          10
+        ],
+        [
+          11.25,
+          4.21875,
+          10,
+          10
+        ],
+        [
+          12.65625,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          12.65625,
+          0,
+          3,
+          3
+        ],
+        [
+          12.65625,
+          1.40625,
+          6,
+          6
+        ],
+        [
+          12.65625,
+          2.8125,
+          14,
+          14
+        ],
+        [
+          12.65625,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          14.0625,
+          -5.625,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

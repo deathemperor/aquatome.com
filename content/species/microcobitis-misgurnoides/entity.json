@@ -12,6 +12,57 @@
     "laos",
     "mekong"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VN",
+        "LA"
+      ],
+      "regions": [
+        "Mekong",
+        "Annamite mountain range",
+        "Thua Luu"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Microcobitis misgurnoides is a small cobitid loach from central Vietnam and the Mekong system in eastern Laos, growing to 41 mm SL.",
+          "countries": [
+            "VN",
+            "LA"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's also said to occur in some rivers of eastern Laos which drain the western Annamite mountain range and form part of the Mekong River system.",
+          "countries": [],
+          "regions": [
+            "Mekong",
+            "Annamite mountain range"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from a lake known as Thua Luu, south of the city of Da Nang, Vietnam and since recorded from various river basins in central regions of the country.",
+          "countries": [],
+          "regions": [
+            "Thua Luu"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5962933,
+      "total": 0,
+      "fetched": "2026-11-10",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

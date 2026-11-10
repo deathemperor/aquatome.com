@@ -1,0 +1,74 @@
+{
+  "id": "mystus-rhegma",
+  "native": {
+    "input": "ff756671317e35a5",
+    "at": "2026-11-10T12:58:20.267Z",
+    "claims": [
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Mystus rhegma is a peaceful bagrid catfish from Laos, Thailand and Cambodia, where it inhabits rivers and flooded areas including fields.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Mystus rhegma is a peaceful bagrid catfish from Laos, Thailand and Cambodia, where it inhabits rivers and flooded areas including fields.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Mystus rhegma is a peaceful bagrid catfish from Laos, Thailand and Cambodia, where it inhabits rivers and flooded areas including fields.",
+        "words": "Cambodia",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Mystus rhegma",
+    "status": "ACCEPTED",
+    "taxonKey": 5201848,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        9
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ]
+    ],
+    "native": [
+      "LA",
+      "TH",
+      "KH"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T12:58:20.267Z"
+  }
+}

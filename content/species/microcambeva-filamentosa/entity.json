@@ -10,6 +10,56 @@
     "brazil",
     "ribeira-de-iguape"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Ribeira do Iguape"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Rio Preto close to the STB-420 road, tributary of the Rio Ipiranga, which is a tributary of the Rio Juquiá, Rio Ribeira do Iguape basin, Município de Sete Barras, Estado de São Paulo, Brazil, 24°11'36\"S, 47°53'26\"W, elevation about 25 meters.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Ribeira do Iguape"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 11120608,
+      "total": 4,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "BR",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -49.21875,
+          -25.3125,
+          2,
+          2
+        ],
+        [
+          -47.8125,
+          -25.3125,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {

@@ -10,6 +10,57 @@
     "venezuela",
     "lake-valencia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE"
+      ],
+      "regions": [
+        "Lake Valencia"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The species is endemic to Lake Valencia in Venezuela (including some tributary rivers).",
+          "countries": [
+            "VE"
+          ],
+          "regions": [
+            "Lake Valencia"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2352623,
+      "total": 13,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "VE",
+          13
+        ]
+      ],
+      "cells": [
+        [
+          -68.90625,
+          9.84375,
+          4,
+          4
+        ],
+        [
+          -67.5,
+          9.84375,
+          9,
+          9
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

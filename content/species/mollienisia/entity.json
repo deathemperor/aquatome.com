@@ -13,6 +13,36 @@
     "colombia",
     "venezuela"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "US",
+        "MX"
+      ],
+      "regions": [],
+      "sources": [
+        "sprucepets"
+      ],
+      "quotes": [
+        {
+          "source": "sprucepets",
+          "quote": "Mollies are mostly found from Southern United States down into Central America and northern South America.",
+          "countries": [
+            "US"
+          ],
+          "regions": []
+        },
+        {
+          "source": "sprucepets",
+          "quote": "Origin: South and Central America, Mexico",
+          "countries": [
+            "MX"
+          ],
+          "regions": []
+        }
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

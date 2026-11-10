@@ -1,0 +1,74 @@
+{
+  "id": "microdevario-gatesi",
+  "native": {
+    "input": "91cee2091e3822ea",
+    "at": "2026-11-10T12:58:20.267Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Microdevario gatesi is a miniature cyprinid from the lower Irrawaddy basin in Myanmar, growing to around 23 mm SL.",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from the lower Irrawaddy River basin in Myanmar, including the Sittaung and Bago tributary drainages, and is possibly endemic to the Irrawaddy Delta region.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Irrawaddy",
+        "source": "seriouslyfish",
+        "quote": "Known only from the lower Irrawaddy River basin in Myanmar, including the Sittaung and Bago tributary drainages, and is possibly endemic to the Irrawaddy Delta region.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Sittaung",
+        "source": "seriouslyfish",
+        "quote": "Known only from the lower Irrawaddy River basin in Myanmar, including the Sittaung and Bago tributary drainages, and is possibly endemic to the Irrawaddy Delta region.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Bago",
+        "source": "seriouslyfish",
+        "quote": "Known only from the lower Irrawaddy River basin in Myanmar, including the Sittaung and Bago tributary drainages, and is possibly endemic to the Irrawaddy Delta region.",
+        "country": "MM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Microdevario gatesi",
+    "status": "ACCEPTED",
+    "taxonKey": 2363251,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "MM"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T12:58:20.267Z"
+  }
+}

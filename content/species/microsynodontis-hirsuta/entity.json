@@ -10,6 +10,50 @@
     "gabon",
     "ntem"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GA"
+      ],
+      "regions": [
+        "Ntem River"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Africa: Ntem River, Gabon. Type locality: Ngomo creek, where it crosses the Oyem-Minvoul road, 1°41'30.0''N, 11°39'18.9''E, Woleu-Ntem Province, Gabon.",
+          "countries": [
+            "GA"
+          ],
+          "regions": [
+            "Ntem River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344192,
+      "total": 2,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "GA",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          11.25,
+          1.40625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -10,6 +10,66 @@
     "myanmar",
     "irrawaddy"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Irrawaddy",
+        "Sittaung",
+        "Bago"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Microdevario gatesi is a miniature cyprinid from the lower Irrawaddy basin in Myanmar, growing to around 23 mm SL.",
+          "countries": [
+            "MM"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the lower Irrawaddy River basin in Myanmar, including the Sittaung and Bago tributary drainages, and is possibly endemic to the Irrawaddy Delta region.",
+          "countries": [],
+          "regions": [
+            "Irrawaddy",
+            "Sittaung",
+            "Bago"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2363251,
+      "total": 3,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "MM",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          92.8125,
+          22.5,
+          1,
+          1
+        ],
+        [
+          95.625,
+          15.46875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -1,0 +1,228 @@
+{
+  "id": "metynnis-lippincottianus",
+  "native": {
+    "input": "1f8aab4e5c9f7f24",
+    "at": "2026-11-10T12:58:20.267Z",
+    "claims": [
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "M. lippincottianus is widespread in South America and occurs in Bolivia, Brazil, Ecuador, Colombia and French Guyana.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "M. lippincottianus is widespread in South America and occurs in Bolivia, Brazil, Ecuador, Colombia and French Guyana.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "glaser",
+        "quote": "M. lippincottianus is widespread in South America and occurs in Bolivia, Brazil, Ecuador, Colombia and French Guyana.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "M. lippincottianus is widespread in South America and occurs in Bolivia, Brazil, Ecuador, Colombia and French Guyana.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "glaser",
+        "quote": "M. lippincottianus is widespread in South America and occurs in Bolivia, Brazil, Ecuador, Colombia and French Guyana.",
+        "words": "French Guyana",
+        "ok": false,
+        "why": "\"French Guyana\" is not GF"
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Metynnis lippincottianus is a spotted silver dollar from Brazil and French Guiana, found in the lower and middle Amazon and the Oyapock system.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "GF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Metynnis lippincottianus is a spotted silver dollar from Brazil and French Guiana, found in the lower and middle Amazon and the Oyapock system.",
+        "words": "French Guiana",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Records from other major watersheds in Brazil, such as the São Francisco, plus the upper Amazon in Bolivia and Colombia may refer to other species.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Records from other major watersheds in Brazil, such as the São Francisco, plus the upper Amazon in Bolivia and Colombia may refer to other species.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Metynnis lippincottianus is a spotted silver dollar from Brazil and French Guiana, found in the lower and middle Amazon and the Oyapock system.",
+        "ok": true
+      },
+      {
+        "name": "Oyapock",
+        "source": "seriouslyfish",
+        "quote": "Metynnis lippincottianus is a spotted silver dollar from Brazil and French Guiana, found in the lower and middle Amazon and the Oyapock system.",
+        "ok": true
+      },
+      {
+        "name": "Parnaíba",
+        "source": "seriouslyfish",
+        "quote": "Records from some coastal drainages south of the Amazon's mouth, including the Piriá, Pericumã, and Parnaíba watersheds, also appear legitimate.",
+        "ok": true
+      }
+    ],
+    "disputed": [
+      "BO",
+      "CO"
+    ],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BO",
+        "CO"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Metynnis lippincottianus",
+    "status": "ACCEPTED",
+    "taxonKey": 2353419,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        243
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        52
+      ],
+      [
+        "a1d21898-1f56-4e38-8f71-e2b821187790",
+        33
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        15
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        14
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        12
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        12
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        10
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        4
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        4
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        4
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        3
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        2
+      ],
+      [
+        "58414378-4fb2-47e0-8dd5-8b55d5c77117",
+        2
+      ],
+      [
+        "ada824f0-5741-4f99-8452-9bcf46472a84",
+        2
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        2
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        1
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        1
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        1
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        1
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        1
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        1
+      ],
+      [
+        "f946666e-67dc-4848-9fa8-2162f3559e33",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "EC",
+      "GF"
+    ],
+    "requests": 12,
+    "at": "2026-11-10T12:58:20.267Z"
+  }
+}

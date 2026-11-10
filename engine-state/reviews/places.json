@@ -291,6 +291,18 @@
       "kept": true
     }
   ],
+  "id/places/annamite-mountain-range": [
+    {
+      "at": "2026-11-10T15:00:15Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "dãy Trường Sơn → Pegunungan Annam: source is Vietnamese, but the answer is fine (Pegunungan Annam). Not an error."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/annamite-mountains": [
     {
       "at": "2026-11-08T05:19:45Z",
@@ -2074,6 +2086,18 @@
       "kept": true
     }
   ],
+  "id/places/corantijne": [
+    {
+      "at": "2026-11-10T15:00:15Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Corantijne → Corantijne: Indonesian atlases usually write Sungai Courantyne or Corantijne; borderline."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/crocker-mountain-range": [
     {
       "at": "2026-11-08T12:08:48Z",
@@ -2825,6 +2849,16 @@
       "kept": true
     }
   ],
+  "id/places/grijalva": [
+    {
+      "at": "2026-11-10T15:00:15Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/groot-eylandt": [
     {
       "at": "2026-11-08T05:20:19Z",
@@ -2981,6 +3015,16 @@
       "notes": [
         "vịnh Carpentaria (Vietnamese)"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/guyana-shield": [
+    {
+      "at": "2026-11-10T15:00:15Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -3339,6 +3383,16 @@
       "kept": true
     }
   ],
+  "id/places/itapicuru": [
+    {
+      "at": "2026-11-10T15:00:15Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/itenez": [
     {
       "at": "2026-11-06T12:35:46Z",
@@ -3492,6 +3546,18 @@
       "kept": true
     }
   ],
+  "id/places/jin-jiang": [
+    {
+      "at": "2026-11-10T15:00:15Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Jin Jiang: Indonesian would usually write Sungai Jin (Jin Jiang); borderline, not flagged."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/jinsha": [
     {
       "at": "2026-11-09T00:08:04Z",
@@ -3512,6 +3578,18 @@
       "notes": [
         "The source names are Vietnamese, not Indonesian: \"sông Trường Giang\", \"hồ Động Đình\", \"sông Gia Lăng\", \"sông Kim Sa\", \"hồ Điền Trì\", \"sông Mân\" (twice), \"dãy Wulin\", \"sông Dương Tử\", \"sông Nueces\", \"sông São Bartolomeu\", \"sông Nakdong\".",
         "Indonesian atlases write these as Sungai Yangtze (or Chang Jiang), Danau Dongting, Sungai Jialing, Sungai Jinsha, Danau Dianchi, Sungai Min, Pegunungan Wulin, Sungai Nueces, Sungai São Bartolomeu and Sungai Nakdong."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/jiulong-jiang": [
+    {
+      "at": "2026-11-10T15:00:15Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Jiulong Jiang: acceptable."
       ],
       "attempt": "first",
       "kept": true
@@ -6303,6 +6381,18 @@
       "kept": true
     }
   ],
+  "id/places/nam-kou": [
+    {
+      "at": "2026-11-10T15:00:15Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Nam Kou: acceptable."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/nam-lawe-river": [
     {
       "at": "2026-11-08T05:20:55Z",
@@ -6740,6 +6830,18 @@
       "kept": true
     }
   ],
+  "id/places/ogowe-river": [
+    {
+      "at": "2026-11-10T15:00:16Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Ogooué: acceptable (Sungai Ogooué)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/ogun": [
     {
       "at": "2026-11-08T05:20:55Z",
@@ -6756,6 +6858,18 @@
       "model": "sonnet",
       "score": 0.1,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/okano-river": [
+    {
+      "at": "2026-11-10T15:00:16Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Okano: acceptable but would normally be Sungai Okano; borderline."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -6989,6 +7103,18 @@
       "score": 0.7,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/papaloapan": [
+    {
+      "at": "2026-11-10T15:00:16Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Papaloapán → Papaloapan: fine."
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -7545,6 +7671,16 @@
       "score": 0.7,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/ribeira-do-iguape": [
+    {
+      "at": "2026-11-10T15:00:16Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -8483,6 +8619,18 @@
       "kept": true
     }
   ],
+  "id/places/rio-orthon": [
+    {
+      "at": "2026-11-10T15:00:16Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Orthon: would normally be Sungai Orthon; borderline."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/rio-oyapock": [
     {
       "at": "2026-11-08T05:21:30Z",
@@ -9278,6 +9426,18 @@
       "kept": true
     }
   ],
+  "id/places/sakhalin-island": [
+    {
+      "at": "2026-11-10T15:00:16Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "Sakhalin: Indonesian is Pulau Sakhalin; the bare name is borderline."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/sale-river": [
     {
       "at": "2026-11-10T09:22:03Z",
@@ -9498,6 +9658,16 @@
       "kept": true
     }
   ],
+  "id/places/saramacca": [
+    {
+      "at": "2026-11-10T15:00:16Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/sassandra": [
     {
       "at": "2026-11-06T12:35:53Z",
@@ -9704,6 +9874,16 @@
       "kept": true
     }
   ],
+  "id/places/siberia": [
+    {
+      "at": "2026-11-10T15:00:16Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/sicily": [
     {
       "at": "2026-11-08T05:21:59Z",
@@ -9785,6 +9965,26 @@
       "at": "2026-11-08T20:40:33Z",
       "model": "sonnet",
       "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/sipaliwini": [
+    {
+      "at": "2026-11-10T15:00:16Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/sipaliwini-river": [
+    {
+      "at": "2026-11-10T15:00:16Z",
+      "model": "sonnet",
+      "score": 0.6,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -10332,6 +10532,16 @@
       "at": "2026-11-09T00:08:05Z",
       "model": "sonnet",
       "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/tehuantepec": [
+    {
+      "at": "2026-11-10T15:00:16Z",
+      "model": "sonnet",
+      "score": 0.6,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -24636,6 +24846,16 @@
       "kept": true
     }
   ],
+  "th/places/annamite-mountain-range": [
+    {
+      "at": "2026-11-10T15:01:53Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/annamite-mountains": [
     {
       "at": "2026-11-08T05:27:07Z",
@@ -26564,6 +26784,16 @@
       "kept": true
     }
   ],
+  "th/places/corantijne": [
+    {
+      "at": "2026-11-10T15:01:53Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/crocker-mountain-range": [
     {
       "at": "2026-11-08T12:10:04Z",
@@ -27346,6 +27576,16 @@
       "kept": true
     }
   ],
+  "th/places/grijalva": [
+    {
+      "at": "2026-11-10T15:01:53Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/groot-eylandt": [
     {
       "at": "2026-11-08T05:27:55Z",
@@ -27505,6 +27745,16 @@
       "at": "2026-11-09T00:10:26Z",
       "model": "sonnet",
       "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/guyana-shield": [
+    {
+      "at": "2026-11-10T15:01:53Z",
+      "model": "sonnet",
+      "score": 0.7,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -27904,6 +28154,16 @@
       "kept": true
     }
   ],
+  "th/places/itapicuru": [
+    {
+      "at": "2026-11-10T15:01:53Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/itenez": [
     {
       "at": "2026-11-06T12:36:00Z",
@@ -28090,6 +28350,16 @@
       "kept": true
     }
   ],
+  "th/places/jin-jiang": [
+    {
+      "at": "2026-11-10T15:01:53Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/jinsha": [
     {
       "at": "2026-11-09T00:10:26Z",
@@ -28107,6 +28377,16 @@
       "at": "2026-11-09T18:18:37Z",
       "model": "sonnet",
       "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/jiulong-jiang": [
+    {
+      "at": "2026-11-10T15:01:53Z",
+      "model": "sonnet",
+      "score": 0.7,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -31025,6 +31305,18 @@
       "kept": true
     }
   ],
+  "th/places/nam-kou": [
+    {
+      "at": "2026-11-10T15:01:53Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "sông Kou → กก (กก is the Kok River; Nam Kou in Laos is a different river)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/nam-lawe-river": [
     {
       "at": "2026-11-08T05:28:40Z",
@@ -31541,6 +31833,16 @@
       "kept": true
     }
   ],
+  "th/places/ogowe-river": [
+    {
+      "at": "2026-11-10T15:01:53Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/ogun": [
     {
       "at": "2026-11-08T05:28:40Z",
@@ -31556,6 +31858,16 @@
       "at": "2026-11-08T05:28:40Z",
       "model": "sonnet",
       "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/okano-river": [
+    {
+      "at": "2026-11-10T15:01:53Z",
+      "model": "sonnet",
+      "score": 0.7,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -31772,6 +32084,16 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/papaloapan": [
+    {
+      "at": "2026-11-10T15:01:53Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -32382,6 +32704,18 @@
         "Ribeira de Iguape → ริเบย์ราจีอีกวาปี (garbled; should be ริเบย์รา-ดี-อีกวาเป)"
       ],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/ribeira-do-iguape": [
+    {
+      "at": "2026-11-10T15:01:53Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "Ribeira do Iguape → ริเบย์รา ดู อีกวาเป (minor: Iguape would be closer to อีกวาปี)"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -33363,6 +33697,16 @@
       "kept": true
     }
   ],
+  "th/places/rio-orthon": [
+    {
+      "at": "2026-11-10T15:01:53Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/rio-oyapock": [
     {
       "at": "2026-11-08T05:29:24Z",
@@ -34225,6 +34569,16 @@
       "kept": true
     }
   ],
+  "th/places/sakhalin-island": [
+    {
+      "at": "2026-11-10T15:01:53Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/sale-river": [
     {
       "at": "2026-11-10T09:23:39Z",
@@ -34461,6 +34815,16 @@
       "kept": true
     }
   ],
+  "th/places/saramacca": [
+    {
+      "at": "2026-11-10T15:01:53Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/sassandra": [
     {
       "at": "2026-11-06T12:36:07Z",
@@ -34688,6 +35052,16 @@
       "kept": true
     }
   ],
+  "th/places/siberia": [
+    {
+      "at": "2026-11-10T15:01:53Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/sicily": [
     {
       "at": "2026-11-08T05:30:02Z",
@@ -34765,6 +35139,26 @@
       "at": "2026-11-08T20:47:48Z",
       "model": "sonnet",
       "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/sipaliwini": [
+    {
+      "at": "2026-11-10T15:01:53Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/sipaliwini-river": [
+    {
+      "at": "2026-11-10T15:01:53Z",
+      "model": "sonnet",
+      "score": 0.7,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -35329,6 +35723,16 @@
       "at": "2026-11-09T00:10:26Z",
       "model": "sonnet",
       "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/tehuantepec": [
+    {
+      "at": "2026-11-10T15:01:53Z",
+      "model": "sonnet",
+      "score": 0.7,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -36894,6 +37298,19 @@
       "model": "sonnet",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/annamite-mountain-range": [
+    {
+      "at": "2026-11-10T14:59:54Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "No wrong places found. 'dãy Trường Sơn' is the standard Vietnamese name for the Annamite Range.",
+        "The other names keep the source's spelling, which is acceptable."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -39410,6 +39827,18 @@
       "kept": true
     }
   ],
+  "vi/places/corantijne": [
+    {
+      "at": "2026-11-10T14:59:54Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "The other names keep the source's spelling, which is acceptable."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/corsica": [
     {
       "at": "2026-11-07T20:33:14Z",
@@ -40414,6 +40843,18 @@
       "kept": true
     }
   ],
+  "vi/places/grijalva": [
+    {
+      "at": "2026-11-10T14:59:54Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "The other names keep the source's spelling, which is acceptable."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/groot-eylandt": [
     {
       "at": "2026-11-07T20:34:11Z",
@@ -40645,6 +41086,19 @@
       "model": "sonnet",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/guyana-shield": [
+    {
+      "at": "2026-11-10T14:59:54Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "Uncertain: Vietnamese Wikipedia often spells the Guyana Shield 'Khiên Guiana'. 'khiên Guyana' is still the source name with its generic word in Vietnamese, so it is acceptable.",
+        "The other names keep the source's spelling, which is acceptable."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -41192,6 +41646,18 @@
       "kept": true
     }
   ],
+  "vi/places/itapicuru": [
+    {
+      "at": "2026-11-10T14:59:54Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "The other names keep the source's spelling, which is acceptable."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/itaya": [
     {
       "at": "2026-11-07T20:35:05Z",
@@ -41414,6 +41880,18 @@
       "kept": true
     }
   ],
+  "vi/places/jin-jiang": [
+    {
+      "at": "2026-11-10T14:59:54Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "The other names keep the source's spelling, which is acceptable."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/jinsha": [
     {
       "at": "2026-11-09T00:06:30Z",
@@ -41436,6 +41914,18 @@
         "All 26 names point to the right place.",
         "The Chinese rivers and lakes use the usual Sino-Vietnamese names: Trường Giang, Động Đình, Gia Lăng, Kim Sa, Điền Trì, Mân and Dương Tử.",
         "The other names keep the source spelling, which is allowed."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/jiulong-jiang": [
+    {
+      "at": "2026-11-10T14:59:55Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "The other names keep the source's spelling, which is acceptable."
       ],
       "attempt": "first",
       "kept": true
@@ -45526,6 +46016,19 @@
       "kept": true
     }
   ],
+  "vi/places/nam-kou": [
+    {
+      "at": "2026-11-10T14:59:55Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "Where a generic word appears, it is rendered in Vietnamese ('sông', 'đảo', 'khiên', 'dãy'). For 'Nam Kou', 'sông Kou' is correct because 'Nam' is Lao for 'river'.",
+        "The other names keep the source's spelling, which is acceptable."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/nam-lawe-river": [
     {
       "at": "2026-11-07T20:36:54Z",
@@ -46215,6 +46718,18 @@
       "kept": true
     }
   ],
+  "vi/places/ogowe-river": [
+    {
+      "at": "2026-11-10T14:59:55Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "The other names keep the source's spelling, which is acceptable."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/ogun": [
     {
       "at": "2026-11-07T20:37:55Z",
@@ -46241,6 +46756,18 @@
       "model": "sonnet",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/okano-river": [
+    {
+      "at": "2026-11-10T14:59:55Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "The other names keep the source's spelling, which is acceptable."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -46571,6 +47098,18 @@
       "model": "sonnet",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/papaloapan": [
+    {
+      "at": "2026-11-10T14:59:55Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "The other names keep the source's spelling, which is acceptable."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -47460,6 +47999,18 @@
       "model": "sonnet",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/ribeira-do-iguape": [
+    {
+      "at": "2026-11-10T14:59:55Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "The other names keep the source's spelling, which is acceptable."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -48623,6 +49174,18 @@
       "kept": true
     }
   ],
+  "vi/places/rio-orthon": [
+    {
+      "at": "2026-11-10T14:59:55Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "The other names keep the source's spelling, which is acceptable."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/rio-oyapock": [
     {
       "at": "2026-11-07T20:39:30Z",
@@ -49730,6 +50293,18 @@
       "kept": true
     }
   ],
+  "vi/places/sakhalin-island": [
+    {
+      "at": "2026-11-10T14:59:55Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "The other names keep the source's spelling, which is acceptable."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/sale-river": [
     {
       "at": "2026-11-10T09:21:45Z",
@@ -50104,6 +50679,18 @@
       "kept": true
     }
   ],
+  "vi/places/saramacca": [
+    {
+      "at": "2026-11-10T14:59:55Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "The other names keep the source's spelling, which is acceptable."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/sarawak": [
     {
       "at": "2026-11-07T20:39:32Z",
@@ -50403,6 +50990,18 @@
       "kept": true
     }
   ],
+  "vi/places/siberia": [
+    {
+      "at": "2026-11-10T14:59:55Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "The other names keep the source's spelling, which is acceptable."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/sicily": [
     {
       "at": "2026-11-07T20:40:24Z",
@@ -50497,6 +51096,30 @@
       "model": "sonnet",
       "score": 0.96,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/sipaliwini": [
+    {
+      "at": "2026-11-10T14:59:55Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "The other names keep the source's spelling, which is acceptable."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/sipaliwini-river": [
+    {
+      "at": "2026-11-10T14:59:55Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "The other names keep the source's spelling, which is acceptable."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -51304,6 +51927,18 @@
       "model": "sonnet",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/tehuantepec": [
+    {
+      "at": "2026-11-10T14:59:55Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "The other names keep the source's spelling, which is acceptable."
+      ],
       "attempt": "first",
       "kept": true
     }

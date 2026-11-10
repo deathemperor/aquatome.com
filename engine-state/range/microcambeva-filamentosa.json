@@ -1,0 +1,48 @@
+{
+  "id": "microcambeva-filamentosa",
+  "native": {
+    "input": "e250f9324c2baefc",
+    "at": "2026-11-10T12:58:20.267Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Rio Preto close to the STB-420 road, tributary of the Rio Ipiranga, which is a tributary of the Rio Juquiá, Rio Ribeira do Iguape basin, Município de Sete Barras, Estado de São Paulo, Brazil, 24°11'36\"S, 47°53'26\"W, elevation about 25 meters.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Ribeira do Iguape",
+        "source": "planetcatfish",
+        "quote": "Type locality: Rio Preto close to the STB-420 road, tributary of the Rio Ipiranga, which is a tributary of the Rio Juquiá, Rio Ribeira do Iguape basin, Município de Sete Barras, Estado de São Paulo, Brazil, 24°11'36\"S, 47°53'26\"W, elevation about 25 meters.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Microcambeva filamentosa",
+    "status": "ACCEPTED",
+    "taxonKey": 11120608,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        4
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T12:58:20.267Z"
+  }
+}

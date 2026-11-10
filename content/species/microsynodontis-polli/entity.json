@@ -11,6 +11,49 @@
     "niger",
     "liberia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LR",
+        "GN"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The pygmy synodontis, Microsynodontis polli, is a small catfish from the upper Niger basin in Liberia and Guinea, growing to around 40 mm SL.",
+          "countries": [
+            "LR",
+            "GN"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344196,
+      "total": 1,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "GN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -9.84375,
+          7.03125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

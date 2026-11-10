@@ -10,6 +10,54 @@
     "myanmar",
     "sittaung"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [
+        "Irrawaddy",
+        "Sittaung",
+        "Bago"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Microdevario nanus is a miniature cyprinid from the lower Sittaung and Bago drainages of the Irrawaddy system in Myanmar.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Irrawaddy",
+            "Sittaung",
+            "Bago"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2363246,
+      "total": 3,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "MM",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          95.625,
+          16.875,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

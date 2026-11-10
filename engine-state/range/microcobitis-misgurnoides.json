@@ -1,0 +1,82 @@
+{
+  "id": "microcobitis-misgurnoides",
+  "native": {
+    "input": "7225751ffd26a971",
+    "at": "2026-11-10T12:58:20.267Z",
+    "claims": [
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Microcobitis misgurnoides is a small cobitid loach from central Vietnam and the Mekong system in eastern Laos, growing to 41 mm SL.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Microcobitis misgurnoides is a small cobitid loach from central Vietnam and the Mekong system in eastern Laos, growing to 41 mm SL.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from a lake known as Thua Luu, south of the city of Da Nang, Vietnam and since recorded from various river basins in central regions of the country.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It's also said to occur in some rivers of eastern Laos which drain the western Annamite mountain range and form part of the Mekong River system.",
+        "words": "Laos",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "It's also said to occur in some rivers of eastern Laos which drain the western Annamite mountain range and form part of the Mekong River system.",
+        "country": "LA",
+        "ok": true
+      },
+      {
+        "name": "Annamite mountain range",
+        "source": "seriouslyfish",
+        "quote": "It's also said to occur in some rivers of eastern Laos which drain the western Annamite mountain range and form part of the Mekong River system.",
+        "country": "LA",
+        "ok": true
+      },
+      {
+        "name": "Thua Luu",
+        "source": "seriouslyfish",
+        "quote": "Described from a lake known as Thua Luu, south of the city of Da Nang, Vietnam and since recorded from various river basins in central regions of the country.",
+        "country": "VN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Microcobitis misgurnoides",
+    "status": "ACCEPTED",
+    "taxonKey": 5962933,
+    "datasets": [],
+    "native": [
+      "VN",
+      "LA"
+    ],
+    "requests": 2,
+    "at": "2026-11-10T12:58:20.267Z"
+  }
+}

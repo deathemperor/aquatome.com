@@ -10,6 +10,59 @@
     "gabon",
     "ogowe"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GA"
+      ],
+      "regions": [
+        "Ogowe River",
+        "Okano River"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Okano River on rapids 0.5 km south of the village of Na, Woleu-Ntem Province, Gabon.",
+          "countries": [
+            "GA"
+          ],
+          "regions": [
+            "Okano River"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Africa: Ogowe River, Gabon.",
+          "countries": [],
+          "regions": [
+            "Ogowe River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2344195,
+      "total": 3,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "GA",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          11.25,
+          0,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -13497,10 +13497,10 @@
     "products": []
   },
   "id/species/oliotius-oligolepis": {
-    "at": "2026-11-08",
+    "at": "2026-11-10",
     "hash": "f243186506e906df",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -31863,10 +31863,10 @@
     "products": []
   },
   "th/species/oliotius-oligolepis": {
-    "at": "2026-11-08",
+    "at": "2026-11-10",
     "hash": "f99c9516b3a9fb65",
     "model": "opus",
-    "checklist": 2,
+    "checklist": 3,
     "findings": [],
     "products": []
   },
@@ -53539,32 +53539,16 @@
   },
   "vi/guides/youtube-2C3R41TTN1s": {
     "at": "2026-11-10",
-    "hash": "c6816a3956437417",
+    "hash": "7283843179af1d73",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "source",
         "part": "P1",
-        "quote": "Bể cũ ở đây trồng dày nên ít lo ammonia tăng vọt sau khi đổi lọc.",
-        "why": "Refers to the source author's own old tank as if the reader knew it.",
+        "quote": "Cuối bài là một cách khởi động bể mới bằng lọc đã chạy lâu.",
+        "why": "Promises a section on starting with a mature filter that the page does not contain, left over from the original article.",
         "by": "model"
-      },
-      {
-        "check": "words",
-        "part": "P1",
-        "quote": "bộ khuếch tán gắn trên đường ống lọc",
-        "why": "Dictionary translation of 'inline diffuser'; keepers in Vietnam call it a sủi.",
-        "by": "model",
-        "fix": "sủi CO2 inline"
-      },
-      {
-        "check": "words",
-        "part": "P1",
-        "quote": "hệ CO2 bình áp suất",
-        "why": "Calque of 'pressurised CO2 system'; keepers simply say CO2 bình.",
-        "by": "model",
-        "fix": "bình CO2"
       }
     ],
     "products": []
@@ -56970,8 +56954,8 @@
     ]
   },
   "vi/guides/youtube-aH4S9WEj8T0": {
-    "at": "2026-11-09",
-    "hash": "9820df4f213164f9",
+    "at": "2026-11-10",
+    "hash": "ad017aae2f567866",
     "model": "opus",
     "checklist": 3,
     "findings": [
@@ -56979,21 +56963,14 @@
         "check": "source",
         "part": "P1",
         "quote": "Bể ở đây đã hai tháng không tỉa cây cắt cắm và gần bốn tháng chưa đụng tới rêu.",
-        "why": "Describes the source's own tank as if the reader knew it.",
+        "why": "Refers to the source's own tank as if the reader knew it.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P5",
         "quote": "ở bể này những lần tỉa trước nó đều phủ lại đẹp",
-        "why": "Refers to the source's own tank and its history.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P6",
-        "quote": "Trong bể còn nhiều cá, phía sau nền lại đắp cao",
-        "why": "Describes the source's own tank setup as if the reader knew it.",
+        "why": "Tells the source's own tank history as if the reader knew it.",
         "by": "model"
       }
     ],
@@ -82502,36 +82479,28 @@
     "sourceRead": true
   },
   "vi/species/apistogramma-agassizii": {
-    "at": "2026-11-09",
-    "hash": "81844551cbb77d9e",
+    "at": "2026-11-10",
+    "hash": "3d71ff3e5ad7fbca",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/apistogramma-alacrina": {
+    "at": "2026-11-10",
+    "hash": "42ded308a13dabdc",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "words",
-        "part": "P1",
-        "quote": "là một loài cá rô phi lùn (dwarf cichlid)",
-        "why": "\"Rô phi\" means tilapia; this is a literal calque of \"dwarf cichlid\".",
+        "part": "P8",
+        "quote": "cá chì (Nannostomus spp.)",
+        "why": "Vietnamese keepers call Nannostomus pencilfish 'cá bút chì', not 'cá chì'.",
         "by": "model",
-        "fix": "cichlid lùn"
-      },
-      {
-        "check": "words",
-        "part": "P5",
-        "quote": "lá bàng biển Ketapang",
-        "why": "Keepers in Vietnam just say lá bàng; \"Ketapang\" is the Malay/Indonesian name.",
-        "by": "model",
-        "fix": "lá bàng"
+        "fix": "cá bút chì"
       }
     ],
-    "products": []
-  },
-  "vi/species/apistogramma-alacrina": {
-    "at": "2026-11-07",
-    "hash": "fd43fd71161d38ab",
-    "model": "opus",
-    "checklist": 2,
-    "findings": [],
     "products": []
   },
   "vi/species/apistogramma-atahualpa": {
@@ -82551,28 +82520,11 @@
     "products": []
   },
   "vi/species/apistogramma-baenschi": {
-    "at": "2026-11-09",
-    "hash": "d94140535a4bc946",
+    "at": "2026-11-10",
+    "hash": "a7875539b9cd33b4",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "words",
-        "part": "P7",
-        "quote": "ấu trùng muỗi chironomid (trùn chỉ/bloodworm)",
-        "why": "Bloodworm is called trùn huyết in Vietnam; trùn chỉ means tubifex, a different food.",
-        "by": "model",
-        "fix": "trùn huyết"
-      },
-      {
-        "check": "words",
-        "part": "P5",
-        "quote": "lọc mút chạy bằng khí (sponge filter)",
-        "why": "Literal rendering; keepers in Vietnam call this an air-driven sponge filter lọc vi sinh or lọc bio.",
-        "by": "model",
-        "fix": "lọc vi sinh (lọc bio)"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/species/apistogramma-barlowi": {
@@ -82666,35 +82618,35 @@
     "products": []
   },
   "vi/species/apistogramma-cinilabra": {
-    "at": "2026-11-08",
-    "hash": "412b5414b89a9422",
-    "model": "opus",
-    "checklist": 2,
-    "findings": [
-      {
-        "check": "words",
-        "part": "P5",
-        "quote": "Quả/nón cây tống quán sủi (alder)",
-        "why": "This is the dictionary name for alder. Keepers in Vietnam just call these alder cones.",
-        "by": "model",
-        "fix": "nón alder (quả alder)"
-      }
-    ],
-    "products": []
-  },
-  "vi/species/apistogramma-commbrae": {
-    "at": "2026-11-09",
-    "hash": "27b0812f4874b0ac",
+    "at": "2026-11-10",
+    "hash": "5ffd7f5084f8f6ec",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "words",
         "part": "P5",
-        "quote": "tuyệt đối không nên thả vào bể chưa hoàn tất chu trình nitrat hóa",
-        "why": "Literal rendering of 'nitrification cycle'; Vietnamese keepers speak of the nitrogen cycle or a tank not yet cycled.",
+        "quote": "Quả nón cây alder (cây éc)",
+        "why": "\"Cây éc\" is not a name Vietnamese keepers use for alder; it looks like a dictionary rendering.",
         "by": "model",
-        "fix": "chu trình nitơ / bể chưa chạy vi sinh"
+        "fix": "trái alder"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/apistogramma-commbrae": {
+    "at": "2026-11-10",
+    "hash": "589bd568451a7e90",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P5",
+        "quote": "tuyệt đối không thả vào bể chưa trưởng thành về mặt sinh học (chưa cycle)",
+        "why": "Literal calque of 'biologically immature tank'; Vietnamese keepers say the tank hasn't been cycled with bacteria.",
+        "by": "model",
+        "fix": "bể chưa chạy vi sinh"
       }
     ],
     "products": []
@@ -82881,32 +82833,39 @@
     "products": []
   },
   "vi/species/apistogramma-macmasteri": {
-    "at": "2026-11-09",
+    "at": "2026-11-10",
     "hash": "24b14a4899864ad5",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
-        "check": "words",
-        "part": "P7",
-        "quote": "ấu trùng muỗi chironomid (trùn chỉ/bloodworm)",
-        "why": "Bloodworm is mistranslated as 'trùn chỉ', which is tubifex; keepers call bloodworm 'trùn huyết'.",
-        "by": "model",
-        "fix": "trùn huyết"
+        "check": "elsewhere",
+        "part": "P5",
+        "quote": "lá dẻ gai (beech), lá sồi (oak)",
+        "why": "Beech and oak leaves are a European keeper's choice, not something available or used in Vietnam.",
+        "by": "model"
       },
       {
         "check": "words",
         "part": "P1",
-        "quote": "một loài cá rô phi cảnh/cichlid (họ Cichlidae) lùn",
-        "why": "'Cá rô phi cảnh' is not a term keepers in Vietnam use; they say cichlid.",
+        "quote": "cá rô phi cảnh/cichlid",
+        "why": "Calque of 'dwarf cichlid'; Vietnamese keepers do not call apistos ornamental tilapia.",
         "by": "model",
         "fix": "cichlid lùn"
       },
       {
         "check": "words",
+        "part": "P7",
+        "quote": "trùn chỉ/bloodworm",
+        "why": "Trùn chỉ is tubifex; bloodworm is called trùn huyết by Vietnamese keepers.",
+        "by": "model",
+        "fix": "trùn huyết"
+      },
+      {
+        "check": "words",
         "part": "P8",
-        "quote": "'dither' (cá làm mồi/cá trấn an)",
-        "why": "'Cá làm mồi' reads as feeder fish; keepers in Vietnam just write cá dither.",
+        "quote": "cá làm mồi/cá trấn an",
+        "why": "Mistranslation of 'dither fish'; 'cá làm mồi' means bait fish.",
         "by": "model",
         "fix": "cá dither"
       }
@@ -83013,28 +82972,11 @@
     "products": []
   },
   "vi/species/apistogramma-panduro": {
-    "at": "2026-11-09",
-    "hash": "697197ea57edff3e",
+    "at": "2026-11-10",
+    "hash": "05976b4dc5c7a8b6",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "words",
-        "part": "P1",
-        "quote": "là một loài cá rồng lùn (cichlid lùn)",
-        "why": "\"Cá rồng\" means arowana in Vietnam, so calling a dwarf cichlid that is a mistranslation.",
-        "by": "model",
-        "fix": "cichlid lùn / cá apisto"
-      },
-      {
-        "check": "words",
-        "part": "P8",
-        "quote": "ấu trùng Chironomidae (trùn chỉ đỏ)",
-        "why": "\"Trùn chỉ\" means tubifex worms; Vietnamese keepers call bloodworms (Chironomidae larvae) \"trùng huyết\".",
-        "by": "model",
-        "fix": "trùng huyết"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/species/apistogramma-pantalone": {
@@ -83104,50 +83046,34 @@
     "products": []
   },
   "vi/species/apistogramma-steindachneri": {
-    "at": "2026-11-08",
-    "hash": "3a59d89bdd8a9a49",
+    "at": "2026-11-10",
+    "hash": "d4be29059fa1bd4a",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "source",
-        "part": "P11",
-        "quote": "Lưu ý biên tập: bản gốc tiếng Anh trích dẫn Farias và cộng sự (2000)",
-        "why": "Points the reader to an English original article they never saw.",
-        "by": "model"
-      },
-      {
-        "check": "words",
-        "part": "P1",
-        "quote": "là một loài cá rô phi lùn (dwarf cichlid)",
-        "why": "'Cá rô phi' means tilapia; Vietnamese keepers call these dwarf cichlids differently.",
-        "by": "model",
-        "fix": "cichlid lùn"
-      },
-      {
-        "check": "words",
-        "part": "P7",
-        "quote": "ấu trùng muỗi chironomid (trùn chỉ/bloodworm)",
-        "why": "Trùn chỉ is tubifex, not bloodworm; keepers call bloodworm by another name.",
-        "by": "model",
-        "fix": "trùn huyết"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/species/apistogramma-trifasciata": {
-    "at": "2026-11-09",
-    "hash": "dcb65b3ba7389a9c",
+    "at": "2026-11-10",
+    "hash": "becc80350f3f8179",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "words",
         "part": "P5",
-        "quote": "chưa hoàn tất chu trình nitrat hóa",
-        "why": "Dictionary rendering; Vietnamese keepers speak of the nitrogen cycle or a tank that has 'run bacteria'.",
+        "quote": "thả quả cây tống quán sủi (alder)",
+        "why": "Dictionary name for alder; keepers just call them alder cones.",
         "by": "model",
-        "fix": "chưa chạy xong chu trình nitơ (bể chưa chạy vi sinh)"
+        "fix": "quả alder"
+      },
+      {
+        "check": "words",
+        "part": "P8",
+        "quote": "như cá chì Nannostomus spp.",
+        "why": "Pencilfish are called 'cá bút chì' by Vietnamese keepers.",
+        "by": "model",
+        "fix": "cá bút chì"
       }
     ],
     "products": []
@@ -83192,20 +83118,11 @@
     "products": []
   },
   "vi/species/apistogramma-viejita": {
-    "at": "2026-11-07",
-    "hash": "2139814758ab7d95",
+    "at": "2026-11-10",
+    "hash": "178377511b57a45c",
     "model": "opus",
-    "checklist": 2,
-    "findings": [
-      {
-        "check": "words",
-        "part": "P5",
-        "quote": "lọc mút xốp chạy bằng khí hoặc loại tương tự là đủ",
-        "why": "Literal rendering of 'air-driven sponge filter'; Vietnamese keepers call it a lọc vi sinh run by an air pump.",
-        "by": "model",
-        "fix": "lọc vi sinh chạy bằng sủi khí"
-      }
-    ],
+    "checklist": 3,
+    "findings": [],
     "products": []
   },
   "vi/species/apistogrammoides-pucallpaensis": {
@@ -111410,5 +111327,451 @@
       }
     ],
     "products": []
+  },
+  "id/species/copadichromis-chrysonotus": {
+    "at": "2026-11-10",
+    "hash": "0d6f4fef5baeb215",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/copadichromis-ilesi": {
+    "at": "2026-11-10",
+    "hash": "b24679df788e34ab",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/copadichromis-virginalis": {
+    "at": "2026-11-10",
+    "hash": "08993a1899405635",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/copeina-guttata": {
+    "at": "2026-11-10",
+    "hash": "4f76de9d4d19a73a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/copella-arnoldi": {
+    "at": "2026-11-10",
+    "hash": "1a3ea3d97b5774db",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/copella-carsevennensis": {
+    "at": "2026-11-10",
+    "hash": "b26b233e9f6dbbf3",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/copella-eigenmanni": {
+    "at": "2026-11-10",
+    "hash": "ef5a163bbaa0da62",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/copella-meinkeni": {
+    "at": "2026-11-10",
+    "hash": "c80daa26a1e19af9",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/copella-nattereri": {
+    "at": "2026-11-10",
+    "hash": "1dbe081f06ee8b4d",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/corydoras-acrensis": {
+    "at": "2026-11-10",
+    "hash": "48dfb528365d7197",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/corydoras-acutus": {
+    "at": "2026-11-10",
+    "hash": "5923ddef47808329",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/corydoras-adolfoi": {
+    "at": "2026-11-10",
+    "hash": "a50e5de0f8fed200",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P6",
+        "quote": "Saat ini dipelihara pada pH 6–7",
+        "why": "The shop is describing its own fish in stock, which the reader has never seen.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P8",
+        "quote": "Saat ini diberi pakan blackworm, cacing darah beku, dan pelet.",
+        "why": "The shop is describing how it currently feeds its own stock.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "id/species/corydoras-agassizii": {
+    "at": "2026-11-10",
+    "hash": "7a2bcec42afc18d8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/corydoras-albolineatus": {
+    "at": "2026-11-10",
+    "hash": "b21a7ec32dad15ce",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/corydoras-amandajanea": {
+    "at": "2026-11-10",
+    "hash": "419440aae38144eb",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P9",
+        "quote": "ciri-ciri diagnostiknya belum bisa diberikan karena deskripsi tipenya belum didapatkan sampai saat ini",
+        "why": "This is the original writer speaking about their own failure to get the type description, which the reader knows nothing about.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "id/species/corydoras-ambiacus": {
+    "at": "2026-11-10",
+    "hash": "285c2bd3bf8c3797",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/corydoras-arcuatus": {
+    "at": "2026-11-10",
+    "hash": "5a10997ae6e542a8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "id/species/corydoras-armatus": {
+    "at": "2026-11-10",
+    "hash": "0e638ed8e4f37c9d",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P10",
+        "quote": "Ikan dari Venezuela baru saja diimpor sebagai spesimen yang sehat dan besar.",
+        "why": "This is the source shop's stock news about a recent import, which the reader knows nothing about.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "id/species/wallago-attu": {
+    "at": "2026-11-10",
+    "hash": "d2ca36dc4a060c29",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P8",
+        "quote": "sangat mampu menyebabkan cedera (lihat di bawah)",
+        "why": "Points the reader to a later part of the original article, which this page doesn't clearly link to.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/copadichromis-chrysonotus": {
+    "at": "2026-11-10",
+    "hash": "e6b8335b6637eac2",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/copadichromis-ilesi": {
+    "at": "2026-11-10",
+    "hash": "a5d664d1981a6ff5",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/copadichromis-virginalis": {
+    "at": "2026-11-10",
+    "hash": "4762ebd36b95ea7b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/copeina-guttata": {
+    "at": "2026-11-10",
+    "hash": "de2b638dc1ee1c50",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P3",
+        "quote": "(ประมาณ 110 ลิตร)",
+        "why": "110 litres is a conversion of 30 US gallons, not a volume a Thai keeper would quote.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/copella-arnoldi": {
+    "at": "2026-11-10",
+    "hash": "0bc944cc812ab235",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P11",
+        "quote": "จึงยังแยกรายการไว้เป็นสองชนิดไปก่อนในขณะนี้",
+        "why": "This is the source database talking about its own species listing, which the reader doesn't have.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/copella-carsevennensis": {
+    "at": "2026-11-10",
+    "hash": "dc33533a1c7dec58",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/copella-eigenmanni": {
+    "at": "2026-11-10",
+    "hash": "262389987c361ba9",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P7",
+        "quote": "ปลาแมวขนาดเล็กในวงศ์ Callichthyidae หรือ Loricariidae",
+        "why": "Literal calque of 'catfish'; Thai keepers say ปลาแคทฟิช (or ปลาแพะ / ปลาซักเกอร์).",
+        "by": "model",
+        "fix": "ปลาแคทฟิชขนาดเล็ก"
+      }
+    ],
+    "products": []
+  },
+  "th/species/copella-meinkeni": {
+    "at": "2026-11-10",
+    "hash": "7f69014cc343f26a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/copella-nattereri": {
+    "at": "2026-11-10",
+    "hash": "0f6602785c04ab23",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/corydoras-acrensis": {
+    "at": "2026-11-10",
+    "hash": "0b7720e4f0d5c3b1",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/corydoras-acutus": {
+    "at": "2026-11-10",
+    "hash": "92cb89c4d9de8b0a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/corydoras-adolfoi": {
+    "at": "2026-11-10",
+    "hash": "067e8a5d56df31c9",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P6",
+        "quote": "ปัจจุบันเลี้ยงไว้ที่ค่า pH 6–7",
+        "why": "The source shop speaks about how it currently keeps its own stock.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P8",
+        "quote": "ปัจจุบันให้กินแบล็กเวิร์ม (blackworm) หนอนแดงแช่แข็ง และอาหารเม็ด",
+        "why": "The source shop describes what it currently feeds its own fish.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "th/species/corydoras-agassizii": {
+    "at": "2026-11-10",
+    "hash": "58c09d2cfa8ba103",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/corydoras-albolineatus": {
+    "at": "2026-11-10",
+    "hash": "002146f6bcaf6320",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/corydoras-amandajanea": {
+    "at": "2026-11-10",
+    "hash": "b13f895eb21de362",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/corydoras-ambiacus": {
+    "at": "2026-11-10",
+    "hash": "c12bb58330ac824f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/corydoras-arcuatus": {
+    "at": "2026-11-10",
+    "hash": "3b8dcda5783b5cd0",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P5",
+        "quote": "ปลาซิวเมฆขาว",
+        "why": "Literal translation of 'White Cloud Mountain minnow'; Thai keepers use the trade name.",
+        "by": "model",
+        "fix": "ปลาไวท์คลาวด์ (ปลาคาร์ดินัลจีน)"
+      }
+    ],
+    "products": []
+  },
+  "th/species/corydoras-armatus": {
+    "at": "2026-11-10",
+    "hash": "579f7ab5f9d2520f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "th/species/toxotes-chatareus": {
+    "at": "2026-11-10",
+    "hash": "e97e0c59d1723a45",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P11",
+        "quote": "ส่วน Toxotes chatareus ก็มีวางขายในสหราชอาณาจักรแต่พบน้อยกว่ามาก",
+        "why": "It describes what is for sale in UK shops as if that were the reader's market, when the reader is in Thailand.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-e_GFYgSzWXI": {
+    "at": "2026-11-10",
+    "hash": "6dfbb72f1709b75f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bài này đi theo một bể khoảng 40 lít, từ bước rêu dry start đến lúc trồng xong",
+        "why": "The page follows the original creator's own tank build as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P3",
+        "quote": "Đợt này rêu lên không đẹp, vì người làm đi nghỉ nên bể không được xịt đều.",
+        "why": "It tells the source author's personal story (going on holiday) about their own tank.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P6",
+        "quote": "Loại lũa trong bể này khá khó chịu.",
+        "why": "It refers to the source's own sample tank and its wood as if the reader knew them.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P15",
+        "quote": "Cốc Bucephalandra cấy mô để dành cho bể này bị mốc trên lớp gel, nên phải lấy hết cây ra để riêng.",
+        "why": "It is a first-person anecdote from the source creator's build.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P27",
+        "quote": "Lúc này trong bể đã có cá otto, tép Amano và vài loại tép khác",
+        "why": "It describes the stock in the source's own tank as if the reader knew it.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "keo 502"
+    ]
   }
 }

@@ -11628,6 +11628,22 @@
     ],
     "ruled": "a95f1c426a04b22c"
   },
+  "vi/guides/youtube--YXB8au4nnU": {
+    "at": "2026-11-10",
+    "hash": "f31e9a6d8335d4d8",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L10",
+        "quote": "Thay nước thường xuyên mấy tuần đầu để giữ amoniac thấp thì có lẽ đã tránh được.",
+        "problem": "The sentence has no subject and uses a past 'would have been avoided' form, so the advice reads awkwardly.",
+        "fix": "Mấy tuần đầu nên thay nước thường xuyên để giữ amoniac thấp, như vậy cây ít bị nhũn hơn.",
+        "field": "faq.1.a"
+      }
+    ],
+    "ruled": "f31e9a6d8335d4d8"
+  },
   "vi/guides/youtube-025oy0MtL-s": {
     "at": "2026-11-07",
     "hash": "aaa16a9ba3403cc1",
@@ -11767,6 +11783,22 @@
     "hash": "e99956f0c25d9821",
     "findings": [],
     "ruled": "e99956f0c25d9821"
+  },
+  "vi/guides/youtube-0rH4zXXLOfs": {
+    "at": "2026-11-10",
+    "hash": "86fd6604776470e7",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Thêm đá 2B vào những chỗ làm nổi phần còn lại của bố cục.",
+        "problem": "The sentence reads as a literal translation, and it isn't clear where the 2B stones should go.",
+        "fix": "Thêm đá 2B vào những chỗ cần làm điểm nhấn cho cả bố cục.",
+        "field": "body"
+      }
+    ],
+    "ruled": "86fd6604776470e7"
   },
   "vi/guides/youtube-0sRRk-LEl9E": {
     "at": "2026-11-07",
@@ -11964,6 +11996,21 @@
     ],
     "ruled": "99f5a1f25fc3d332"
   },
+  "vi/guides/youtube-2C3R41TTN1s": {
+    "at": "2026-11-10",
+    "hash": "9f8e0565de04ef20",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Cuối bài là một cách khởi động bể mới bằng lọc đã chạy lâu.",
+        "problem": "The intro promises a section on starting the new tank with a long-running filter, but the page ends at CO2 and temperature and never covers it.",
+        "field": "body"
+      }
+    ],
+    "ruled": "9f8e0565de04ef20"
+  },
   "vi/guides/youtube-2EvDsbrS9Dg": {
     "at": "2026-11-09",
     "hash": "0775c65521b6fcee",
@@ -11985,6 +12032,12 @@
     "hash": "85cfd57c8bbc2cf7",
     "findings": [],
     "ruled": "85cfd57c8bbc2cf7"
+  },
+  "vi/guides/youtube-3jqe5KGD9lI": {
+    "at": "2026-11-10",
+    "hash": "46e87b627da5f225",
+    "findings": [],
+    "ruled": "46e87b627da5f225"
   },
   "vi/guides/youtube-3OYP0CMIcf0": {
     "at": "2026-11-10",
@@ -12309,6 +12362,21 @@
       }
     ],
     "ruled": "7ae07d5b26537ae1"
+  },
+  "vi/guides/youtube-6mYLnYSWKWE": {
+    "at": "2026-11-10",
+    "hash": "d3ad9e8dcf25da9f",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Phần dưới đi qua một bể 60 cm có 11 loài cây ở giai đoạn đó",
+        "problem": "The intro says 11 plant species, but the per-species table lists only 10.",
+        "field": "body"
+      }
+    ],
+    "ruled": "d3ad9e8dcf25da9f"
   },
   "vi/guides/youtube-6oVW1-m8Aic": {
     "at": "2026-11-04",
@@ -12770,6 +12838,22 @@
       }
     ],
     "ruled": "f958f41ccbf3ba51"
+  },
+  "vi/guides/youtube-9YC0BTdRFbs": {
+    "at": "2026-11-10",
+    "hash": "0b333bc0d5d1c80b",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bật lọc lại cho bể chạy bình thường.",
+        "problem": "The deep-clean steps say to switch the filter back on, but no earlier step says to switch it off, and the filter section says the filter doesn't need touching.",
+        "fix": "Thêm bước đầu: \"Tắt lọc trước khi lấy lá và hút nền.\"",
+        "field": "body"
+      }
+    ],
+    "ruled": "0b333bc0d5d1c80b"
   },
   "vi/guides/youtube-9zhkRJllCNg": {
     "at": "2026-11-06",
@@ -14257,6 +14341,23 @@
     ],
     "ruled": "4b11cd857b1ff590"
   },
+  "vi/guides/youtube-fV5MucIp1M8": {
+    "at": "2026-11-10",
+    "hash": "3a0041beef2a850e",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "L8",
+        "quote": "Bể khoảng 150 lít (90 × 45 × 40 cm), khoảng 150 lít, đủ để làm",
+        "problem": "The phrase \"khoảng 150 lít\" appears twice in the same sentence, which reads like a leftover from a unit conversion.",
+        "fix": "Bể khoảng 150 lít (90 × 45 × 40 cm) đủ để làm",
+        "rule": "The same phrase of three or more words repeats on both sides of a parenthesis in one sentence.",
+        "field": "faq.0.a"
+      }
+    ],
+    "ruled": "3a0041beef2a850e"
+  },
   "vi/guides/youtube-FwandSa_Hrg": {
     "at": "2026-11-06",
     "hash": "e0521068535c1481",
@@ -14385,6 +14486,12 @@
     "hash": "4804a7259ce85734",
     "findings": [],
     "ruled": "4804a7259ce85734"
+  },
+  "vi/guides/youtube-gLGThPLYY_w": {
+    "at": "2026-11-10",
+    "hash": "dbdd35b4e453deb9",
+    "findings": [],
+    "ruled": "dbdd35b4e453deb9"
   },
   "vi/guides/youtube-glJgch3u4g8": {
     "at": "2026-11-04",
@@ -15016,6 +15123,23 @@
     "hash": "4bca93139567b8a4",
     "findings": [],
     "ruled": "4bca93139567b8a4"
+  },
+  "vi/guides/youtube-iS01ihUInXE": {
+    "at": "2026-11-10",
+    "hash": "16e4bd6430143187",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "một bể khoảng 150 lít (90 × 45 × 40 cm) (khoảng 150 lít)",
+        "problem": "The tank volume is said twice, once before the dimensions and again in a second bracket after them.",
+        "fix": "một bể khoảng 150 lít (90 × 45 × 40 cm)",
+        "rule": "Two bracketed groups in a row where the second repeats a figure already given just before the first.",
+        "field": "body"
+      }
+    ],
+    "ruled": "16e4bd6430143187"
   },
   "vi/guides/youtube-iS8fJvjUa1Q": {
     "at": "2026-11-07",
@@ -15848,6 +15972,33 @@
     "findings": [],
     "ruled": "99b88e265695c3f7"
   },
+  "vi/guides/youtube-l_lPQ-xBC1Q": {
+    "at": "2026-11-10",
+    "hash": "5332defae67d9e4c",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Một bể khoảng 150 lít (90 × 45 × 40 cm) (khoảng 150 lít)",
+        "problem": "The volume is written twice in the same sentence.",
+        "fix": "Một bể khoảng 150 lít (90 × 45 × 40 cm)",
+        "rule": "The same parenthetical figure repeats right after the figure it restates.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "L1",
+        "quote": "Bể paludarium khoảng 150 lít (90 × 45 × 40 cm) (khoảng 150 lít)",
+        "problem": "The volume is written twice in the summary line.",
+        "fix": "Bể paludarium khoảng 150 lít (90 × 45 × 40 cm)",
+        "rule": "The same parenthetical figure repeats right after the figure it restates.",
+        "field": "summary.0"
+      }
+    ],
+    "ruled": "5332defae67d9e4c"
+  },
   "vi/guides/youtube-L1Xd9owK1fs": {
     "at": "2026-11-02",
     "hash": "5d576aea4de9b629",
@@ -15946,6 +16097,12 @@
       }
     ],
     "ruled": "68b77675e264a0b0"
+  },
+  "vi/guides/youtube-lF8pam4eLMc": {
+    "at": "2026-11-10",
+    "hash": "46f2d086a40b23a9",
+    "findings": [],
+    "ruled": "46f2d086a40b23a9"
   },
   "vi/guides/youtube-LFIB7o9BnFA": {
     "at": "2026-11-02",
@@ -16264,6 +16421,31 @@
     ],
     "ruled": "77cf620e5ef2f753"
   },
+  "vi/guides/youtube-mkOoOqMc7zU": {
+    "at": "2026-11-10",
+    "hash": "80ee93b47cb2c699",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bài này đi qua cách làm một bể bán cạn",
+        "problem": "\"đi qua cách làm\" is a word-for-word calque of English \"walks through\" and reads as a translation.",
+        "fix": "Bài này hướng dẫn từng bước làm một bể bán cạn",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "phần cạn rộng khoảng 45 lít",
+        "problem": "\"rộng\" (wide) is paired with a volume in litres, which reads oddly.",
+        "fix": "phần cạn chứa được khoảng 45 lít",
+        "field": "body"
+      }
+    ],
+    "ruled": "80ee93b47cb2c699"
+  },
   "vi/guides/youtube-MLFzjm6V9iU": {
     "at": "2026-11-06",
     "hash": "d1c8ad9b97463b6c",
@@ -16479,6 +16661,22 @@
     "findings": [],
     "ruled": "1c6cd12ee206fb90"
   },
+  "vi/guides/youtube-nn20HPPwGRY": {
+    "at": "2026-11-10",
+    "hash": "bfc053b138c54439",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Miễn là mình thấy vui và không làm hại cá, tép trong bể.",
+        "problem": "A dependent clause starting with \"Miễn là\" stands alone as a sentence fragment.",
+        "fix": "Giữ cây thủy sinh không có cách đúng hay sai tuyệt đối, miễn là mình thấy vui và không làm hại cá, tép trong bể.",
+        "field": "body"
+      }
+    ],
+    "ruled": "bfc053b138c54439"
+  },
   "vi/guides/youtube-NNbR0grp8iE": {
     "at": "2026-11-02",
     "hash": "cc7d99ab51d8a6e5",
@@ -16672,6 +16870,23 @@
       }
     ],
     "ruled": "2d9313370c604edc"
+  },
+  "vi/guides/youtube-ogiCy6qvGUs": {
+    "at": "2026-11-10",
+    "hash": "c90df86aed1f707f",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L12",
+        "quote": "Làm vậy không công bằng với cá, nên không nên làm.",
+        "problem": "The doubled \"nên … nên\" reads awkwardly, and the house style allows only one \"nên\" per sentence.",
+        "fix": "Làm vậy không công bằng với cá, đừng làm.",
+        "rule": "A sentence containing \"nên không nên\".",
+        "field": "faq.2.a"
+      }
+    ],
+    "ruled": "c90df86aed1f707f"
   },
   "vi/guides/youtube-oHh1FU_k1jo": {
     "at": "2026-11-02",
@@ -16962,6 +17177,22 @@
       }
     ],
     "ruled": "119104fde2aacb1d"
+  },
+  "vi/guides/youtube-PpVR2NkBtcw": {
+    "at": "2026-11-10",
+    "hash": "919e3e98326df022",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "thay 50% nước như lịch thường ngày rồi châm phân",
+        "problem": "\"lịch thường ngày\" reads as a daily schedule, suggesting a 50% water change every day instead of the usual routine.",
+        "fix": "thay 50% nước theo lịch thay nước thường lệ rồi châm phân",
+        "field": "body"
+      }
+    ],
+    "ruled": "919e3e98326df022"
   },
   "vi/guides/youtube-pRIhyV1gwaw": {
     "at": "2026-11-06",
@@ -17552,6 +17783,22 @@
     "findings": [],
     "ruled": "4344b10e51fbc0c8"
   },
+  "vi/guides/youtube-sHGqouoq1uM": {
+    "at": "2026-11-10",
+    "hash": "8424e7f9a4e6e9af",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "L9",
+        "quote": "Thảm Marsilea mọc quá cao có phải nhổ lên trồng lại không?",
+        "problem": "The FAQ says the Marsilea carpet grows too tall, but the body says it spreads out toward the front of the tank.",
+        "fix": "Thảm Marsilea mọc tràn ra phía trước có phải nhổ lên trồng lại không?",
+        "field": "faq.1.q"
+      }
+    ],
+    "ruled": "8424e7f9a4e6e9af"
+  },
   "vi/guides/youtube-SIMNLeXB8Pc": {
     "at": "2026-11-09",
     "hash": "ab06800b7f45ab01",
@@ -17860,6 +18107,12 @@
     "findings": [],
     "ruled": "ffcdc20eee8b43fa"
   },
+  "vi/guides/youtube-T7rX6KXAZK0": {
+    "at": "2026-11-10",
+    "hash": "a02e0052942008d3",
+    "findings": [],
+    "ruled": "a02e0052942008d3"
+  },
   "vi/guides/youtube-tau-i3HxVFQ": {
     "at": "2026-11-05",
     "hash": "8c067b384c9ede29",
@@ -17967,6 +18220,33 @@
       }
     ],
     "ruled": "cf06a2f56c486607"
+  },
+  "vi/guides/youtube-tsC3o70UXWM": {
+    "at": "2026-11-10",
+    "hash": "e33855ad7397438d",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Một bể khoảng 75 lít (75 × 30 × 30 cm) (khoảng 75 lít)",
+        "problem": "The volume \"khoảng 75 lít\" is written twice in the same phrase, which looks like a conversion was inserted twice.",
+        "fix": "Một bể cũ khoảng 75 lít (75 × 30 × 30 cm)",
+        "rule": "The same volume figure, such as \"khoảng N lít\", appears twice within one sentence.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L1",
+        "quote": "Một bể khoảng 75 lít (75 × 30 × 30 cm) cũ (khoảng 75 lít)",
+        "problem": "The volume is given twice, and \"cũ\" lands after the brackets, so the phrase reads garbled.",
+        "fix": "Một bể cũ khoảng 75 lít (75 × 30 × 30 cm)",
+        "rule": "The same volume figure, such as \"khoảng N lít\", appears twice within one sentence.",
+        "field": "summary.0"
+      }
+    ],
+    "ruled": "e33855ad7397438d"
   },
   "vi/guides/youtube-U_2TYWQ_i3U": {
     "at": "2026-11-03",
@@ -18218,6 +18498,22 @@
     "findings": [],
     "ruled": "547e9cb5093db6e3"
   },
+  "vi/guides/youtube-UlNMD54h6_g": {
+    "at": "2026-11-10",
+    "hash": "dc91773415757e91",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Khối lũa đá dốc dần về một bên, kéo mắt người xem từ trái sang phải.",
+        "problem": "The table fixes the triangle layout's direction as left to right, but the text below says it can slope either way.",
+        "fix": "Khối lũa đá dốc dần về một bên, kéo mắt người xem chạy theo hướng dốc.",
+        "field": "body"
+      }
+    ],
+    "ruled": "dc91773415757e91"
+  },
   "vi/guides/youtube-uzhJRcM1tx4": {
     "at": "2026-11-10",
     "hash": "b927836559461773",
@@ -18239,6 +18535,12 @@
     "hash": "a1c3a9d2755bff38",
     "findings": [],
     "ruled": "a1c3a9d2755bff38"
+  },
+  "vi/guides/youtube-V61XUFz8e5c": {
+    "at": "2026-11-10",
+    "hash": "5c68cf20fcb40796",
+    "findings": [],
+    "ruled": "5c68cf20fcb40796"
   },
   "vi/guides/youtube-vAcExLb0I1w": {
     "at": "2026-11-05",

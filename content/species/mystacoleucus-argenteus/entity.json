@@ -14,6 +14,85 @@
     "china",
     "yunnan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM",
+        "TH",
+        "CN"
+      ],
+      "regions": [
+        "Salween",
+        "Irrawaddy"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Mystacoleucus argenteus is a cyprinid from the Salween and middle Irrawaddy basins in Myanmar and western Thailand.",
+          "countries": [
+            "MM",
+            "TH"
+          ],
+          "regions": [
+            "Salween",
+            "Irrawaddy"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Has been collected from the lower Salween River basin in southern China (Yunnan province), Myanmar and western Thailand (Mae Hong Song and Tak provinces), and the middle Irrawaddy River in Myanmar.",
+          "countries": [
+            "CN"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2363148,
+      "total": 9,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "MM",
+          7
+        ],
+        [
+          "TH",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          14.0625,
+          3,
+          3
+        ],
+        [
+          97.03125,
+          15.46875,
+          3,
+          3
+        ],
+        [
+          97.03125,
+          16.875,
+          2,
+          2
+        ],
+        [
+          97.03125,
+          25.3125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

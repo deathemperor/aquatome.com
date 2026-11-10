@@ -1,0 +1,39 @@
+{
+  "id": "mollienisia",
+  "native": {
+    "input": "4674c17a38a23cd6",
+    "at": "2026-11-10T12:58:20.267Z",
+    "claims": [
+      {
+        "code": "US",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "Mollies are mostly found from Southern United States down into Central America and northern South America.",
+        "words": "United States",
+        "ok": true
+      },
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "sprucepets",
+        "quote": "Origin: South and Central America, Mexico",
+        "words": "Mexico",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CO",
+        "VE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "unmatched": true,
+    "at": "2026-11-10T12:58:20.267Z"
+  }
+}

@@ -22,6 +22,143 @@
     "indonesia",
     "kapuas"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM",
+        "CN",
+        "VN",
+        "TH",
+        "LA",
+        "KH",
+        "MY",
+        "ID"
+      ],
+      "regions": [
+        "Mekong",
+        "Chao Phraya",
+        "Borneo",
+        "Sumatra",
+        "Java",
+        "Kapuas"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Mystacoleucus obtusirostris is a riverine cyprinid found from Myanmar and southwestern China to Vietnam, Borneo, Sumatra and Java.",
+          "countries": [
+            "MM",
+            "CN",
+            "VN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "M. obtusirostris is the most widely-distributed member of the genus with a range extending eastwards from Myanmar through southwestern China, Thailand, Laos, Cambodia, and Vietnam, and to the south through Peninsular Malaysia to the Greater Sunda Islands of Borneo, Sumatra and Java.",
+          "countries": [
+            "TH",
+            "LA",
+            "KH",
+            "MY"
+          ],
+          "regions": [
+            "Borneo",
+            "Sumatra",
+            "Java"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Indonesia: Java: Buitenzorg [Bogor]'.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It occurs in several major river systems including the Mekong, Chao Phraya, Mae Klong, Batang Hari, and Kapuas, with populations varying somewhat in terms of colour pattern.",
+          "countries": [],
+          "regions": [
+            "Mekong",
+            "Chao Phraya",
+            "Kapuas"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 10308490,
+      "total": 9,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "KH",
+          3
+        ],
+        [
+          "TH",
+          3
+        ],
+        [
+          "ID",
+          2
+        ],
+        [
+          "MY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          101.25,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          101.25,
+          5.625,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          11.25,
+          3,
+          3
+        ],
+        [
+          106.875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          -1.40625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

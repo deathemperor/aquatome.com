@@ -1,0 +1,58 @@
+{
+  "id": "nannacara-adoketa",
+  "native": {
+    "input": "4b38abc3a71258c2",
+    "at": "2026-11-10T12:58:20.267Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The zebra acara, Ivanacara adoketa, is a cichlid from Brazil that appears to be endemic to the middle and upper rio Negro system.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Negro",
+        "source": "glaser",
+        "quote": "The species occurs only in a narrowly defined area on the middle Rio Negro.",
+        "ok": true
+      },
+      {
+        "name": "rio Negro",
+        "source": "seriouslyfish",
+        "quote": "The zebra acara, Ivanacara adoketa, is a cichlid from Brazil that appears to be endemic to the middle and upper rio Negro system.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Nannacara adoketa",
+    "status": "ACCEPTED",
+    "taxonKey": 5208104,
+    "datasets": [
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        5
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 12,
+    "at": "2026-11-10T12:58:20.267Z"
+  }
+}
