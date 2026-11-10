@@ -177,16 +177,16 @@ const GuidePhoto = Photo.extend({ section: z.object({ vi: z.string(), ...section
  * A video still is shown only when it passes all three bars (the owner's report, 2026-11-09: unreadable smudges on a phone).
  * - Its shorter side is 480 px or more: a storyboard tile (90 or 180 px), or a frame from a video under 480p, doesn't.
  *   Stills are never stored larger than the frame they came from, so this is the source's resolution too.
- * - Its `sharpness` (the engine's still-sharpness.ts) is at the bar; a still not yet measured isn't shown. Tuned by eye
- *   on 58 stills seen whole at phone width: at 12 it stops 3 of the 7 blurry and 1 of the 45 fine. It stops the frames
- *   with nothing in focus. A soft frame with texture passes: stopping those would cost most of the fine ones
- *   (packages/engine/test/still-sharpness-labels.json).
+ * - Its `sharpness` (the engine's still-sharpness.ts) is at the bar; a still not yet measured isn't shown. Judged blind
+ *   at phone width on 120 live stills (2026-11-10, packages/engine/test/still-sharpness-labels.json), every one called
+ *   soft scored under 160 and none of the 36 sampled above it was soft. The cost is the fine frames under 160. At 12 (the
+ *   bar from 9 Nov) it stopped only frames with nothing in focus, and the owner's report of blurry captures stayed open.
  * - Its `person` verdict says no one is in it, hands included (PRODUCT.md). guide-photos.ts or video-stills.ts writes it once
  *   a model has looked; a still not yet judged isn't shown. Tiles hid the people in teaching videos: of 30 frames sampled on
  *   2026-11-09, 14 showed hands or a person.
  */
 export const STILL_MIN_SIDE = 480
-export const STILL_MIN_SHARPNESS = 12
+export const STILL_MIN_SHARPNESS = 160
 export const stillShown = (m: { width: number; height: number; sharpness?: number; person?: boolean }) =>
   Math.min(m.width, m.height) >= STILL_MIN_SIDE && (m.sharpness ?? 0) >= STILL_MIN_SHARPNESS && m.person === false
 
