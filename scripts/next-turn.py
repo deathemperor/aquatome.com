@@ -69,7 +69,9 @@ def keep(args):
     queues = ("sim", "checks")
     if args[:1] in (["--sim"], ["--checks"]):
         queues, args = (args[0][2:],), args[1:]
-    if not args or not args[0].strip():  # A blank name, from a pgrep that found nothing, would keep the turn for no one.
+    # A blank name, from a pgrep that found nothing, would keep the turn for no one; so would a dash's, a mistyped option
+    # (2026-11-10: `--help` kept both queues' next turns for a run called --help).
+    if not args or not args[0].strip() or args[0].startswith("-"):
         sys.exit(__doc__)
     who, minutes = args[0], min(float(args[1]) if len(args) > 1 else 30.0, MAX_MINUTES)
     if who.isdigit():
@@ -92,6 +94,9 @@ def main():
         if who:
             print(who)
         return 0 if who else 1
+    if sys.argv[1:2] in (["--help"], ["-h"]):
+        print(__doc__)
+        return 0
     keep(sys.argv[1:])
     return 0
 

@@ -426,6 +426,28 @@ test("a session other than the chief of staff's can't keep a turn, whatever its 
   }
   expect(hook('scripts/next-turn.py wt-grid', 'cos').status).toBe(0)
   expect(hook('scripts/next-turn.py --kept checks 1 x', 'a-lead').status).toBe(0)
+  expect(hook('scripts/next-turn.py --help', 'a-lead').status).toBe(0)
+})
+
+// 2026-11-10: `next-turn.py --help` took "--help" for a run's name and kept both queues' next turns for it.
+test('a name that starts with a dash keeps nothing, and --help prints the usage for any thread', () => {
+  const q = keptQueue()
+  const kept = () => ['sim', 'checks'].filter(queue => existsSync(`${q.dir}/.cache/aquatome/${queue}.next`))
+  for (const args of [['--bogus'], ['-x'], ['--sim', '--help'], ['--checks', '-h'], ['-5']]) {
+    const r = q.next('cos', ...args)
+    expect(r.status, args.join(' ')).toBe(1)
+    expect(r.stderr, args.join(' ')).toContain('scripts/next-turn.py [--sim | --checks]')
+  }
+  for (const [thread, flag] of [['cos', '--help'], ['cos', '-h'], ['a-lead', '--help']] as const) {
+    const r = q.next(thread, flag)
+    expect(r.status).toBe(0)
+    expect(r.stdout).toContain('scripts/next-turn.py [--sim | --checks]')
+  }
+  expect(kept()).toEqual([])
+  // A good name after all that still keeps both.
+  expect(q.next('cos', 'wt-grid').status).toBe(0)
+  expect(kept()).toEqual(['sim', 'checks'])
+  q.release()
 })
 
 test('the checks queue through scripts/checks.sh is the queue, for the hook and the engine', () => {

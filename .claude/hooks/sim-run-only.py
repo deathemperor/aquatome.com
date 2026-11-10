@@ -145,7 +145,7 @@ def bare_run(command, queued=False):
             return SIM
         if re.fullmatch(r"python[\d.]*", name or "") and args:  # python3 scripts/next-turn.py ...
             name, args = os.path.basename(args[0]), args[1:]
-        if name == "next-turn.py" and args[:1] != ["--kept"] and not granter():
+        if name == "next-turn.py" and args[:1] not in (["--kept"], ["--help"], ["-h"]) and not granter():
             return GRANT
         # Simulator.app's window is WindowServer's to draw, every frame, on top of the simulator's own rendering.
         if name == "open" and any(re.fullmatch(r"(.*/)?Simulator(\.app)?/?", a) for a in args):
