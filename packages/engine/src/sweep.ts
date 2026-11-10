@@ -361,8 +361,9 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
       changed(file.slice(content.length + 1))
     }
   }
-  // A source's "read next" cards, stored as a guide's photos before the picker knew them (source-photos.ts): an unplaced
-  // photo at the card's width, in a guide from that source. Another article's picture, so off the guide and never picked again.
+  // A source's "read next" cards, stored as a guide's photos before the picker knew them (source-photos.ts): the unplaced
+  // photos at the card's exact width that end a guide from that source's list, never its lead (an article's own photo that
+  // no heading took is earlier in the list). Another article's picture, so off the guide and never picked again.
   const cardWidths = new Map(SOURCES.flatMap(s => (s.cardWidth ? [[s.id as string, s.cardWidth] as const] : [])))
   for (const id of (await readdir(join(content, 'guides')).catch(() => [] as string[])).sort()) {
     const file = join(content, 'guides', id, 'entity.json')
@@ -371,14 +372,15 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
     const e = JSON.parse(raw) as { source?: string; photos?: { url: string; width: number; section?: object }[] }
     const width = cardWidths.get(e.source ?? '')
     if (!width) continue
-    const isCard = (p: { width: number; section?: object }, i: number) => i > 0 && !p.section && p.width <= width
-    const cards = (e.photos ?? []).filter(isCard)
-    if (!cards.length) continue
-    for (const p of cards) {
+    const photos = e.photos ?? []
+    let end = photos.length
+    while (end > 1 && !photos[end - 1]!.section && photos[end - 1]!.width === width) end--
+    if (end === photos.length) continue
+    for (const p of photos.slice(end)) {
       report.photos.push(`guides/${id}: ${p.url} (a read-next card)`)
       maps.set(p.url, `card: a read-next card of ${e.source}, not an article's photo`)
     }
-    await write(file, raw, { ...e, photos: e.photos!.filter((p, i) => !isCard(p, i)) })
+    await write(file, raw, { ...e, photos: photos.slice(0, end) })
     changed(`guides/${id}/entity.json`)
   }
   // A map or an ad's poster is no fish's photo: off every page, and never picked again.
