@@ -51,6 +51,8 @@ export function composeMessage(report) {
     ...line('Screen', w.screen),
     ...line('Item', [w.kind, w.item].filter(Boolean).join(' ')),
     ...line('Section', w.section),
+    ...line('Conversation', w.conversation),
+    ...line('Answers on screen', w.answers),
     ...line('Language', w.lang),
     ...line('Version', w.version),
     ...line('Theme', w.theme),

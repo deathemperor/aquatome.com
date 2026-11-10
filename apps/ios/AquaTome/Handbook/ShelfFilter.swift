@@ -15,7 +15,7 @@ struct FishShelf: View {
                  why: "Những loài này còn thiếu số liệu bạn đang lọc (nhiệt độ, pH, chiều dài bể hoặc độ khó). Số đã có thì hợp, nhưng chưa đủ để nói chắc.",
                  header: header)
       .toolbar { FilterButton(active: !filter.isEmpty) { editing = true } }
-      .sheet(isPresented: $editing) { FishFilterForm(filter: $filter) }
+      .sheet(isPresented: $editing) { FishFilterForm(filter: $filter).ownerScreen("sheet filter") }
   }
 }
 
@@ -31,7 +31,7 @@ struct PlantShelf: View {
                  why: "Những cây này còn thiếu thông tin bạn đang lọc (ánh sáng, CO₂, vị trí hoặc độ khó). Thông tin đã có thì hợp, nhưng chưa đủ để nói chắc.",
                  header: nil)
       .toolbar { FilterButton(active: !filter.isEmpty) { editing = true } }
-      .sheet(isPresented: $editing) { PlantFilterForm(filter: $filter) }
+      .sheet(isPresented: $editing) { PlantFilterForm(filter: $filter).ownerScreen("sheet filter") }
   }
 }
 

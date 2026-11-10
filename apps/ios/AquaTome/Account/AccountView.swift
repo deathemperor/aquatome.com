@@ -41,6 +41,7 @@ struct AccountView: View {
       .background { AppearanceProbe(id: "appearance-sheet") }
       #endif
     }
+    .ownerScreen("account")
   }
 
   /// "AquaTome 1.0 (231)".

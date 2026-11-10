@@ -453,7 +453,7 @@ private struct Ways: View {
               }
             } else {
               minor("Email", label: "Đăng nhập bằng email", symbol: "envelope.fill", id: "email-sign-in") { email = true }
-                .sheet(isPresented: $email) { EmailSignIn() }
+                .sheet(isPresented: $email) { EmailSignIn().ownerScreen("sheet email-sign-in") }
             }
           }
         }
@@ -523,7 +523,7 @@ struct SignInButton: View {
         .disabled(account.working || !account.canSync)
         .alignmentGuide(.listRowSeparatorLeading) { _ in 0 }
         .accessibilityIdentifier("email-sign-in")
-        .sheet(isPresented: $email) { EmailSignIn() }
+        .sheet(isPresented: $email) { EmailSignIn().ownerScreen("sheet email-sign-in") }
     }
   }
 }

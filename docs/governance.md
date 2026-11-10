@@ -223,7 +223,7 @@ that would have caught it).
     In the app (`AquaTomeUITests/OwnerFlowTests.swift`, `AccountSyncTests/OwnerReportTests.swift`): the button and a
     screenshot's offer for the owner's account alone, none for another and gone at signing out, and the report's form with
     the session as a bearer and no cookie, saying whether its picture is the app's screen or one the owner picked. In v2
-    it names v2's tab and the page on it with its item, not a page left on another tab, and its picture is the screen.
+    it names v2's tab and each screen standing on it (a chat with its conversation and the answers on the screen, a fish page with its slug, the dashboard inside the Tài khoản sheet), not a page left on another tab, and its picture is the screen.
   - The owner's daily report (`daily-report.yml`, `scripts/daily-report.mjs`, `apps/site/worker/daily/`), mailed at 07:00
     and pushed to the owner's phones as the owner set it, and logged on `/_ab/bao-cao/`, a section of the app's too. The
     collector on GitHub's JSON: a cycle told from the engine's hourly check, a workflow failing with no later success,

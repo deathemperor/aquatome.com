@@ -113,5 +113,6 @@ struct OwnerTableScreen: View {
         problem = await owner.say(error, overview: false)
       }
     }
+    .ownerScreen("dashboard table \(route.key)")
   }
 }

@@ -114,7 +114,7 @@ struct PageView: View {
         .background(.bar)
       }
       .onAppear { handbook.read(item) }
-      .ownerShows(item.path, as: "page")
+      .ownerShows(item.path, as: "\(item.kind.rawValue) page")
       .sheet(isPresented: $putting, onDismiss: {
         if let id = openAfter { openAfter = nil; openScreen(.tanks(id)) }
       }) {
@@ -164,6 +164,7 @@ struct WebScreen: View {
             .accessibilityIdentifier("page-status")
         }
       }
+    .ownerScreen("web page", path: url.host == handbook.site.host ? url.path : nil)
   }
 }
 

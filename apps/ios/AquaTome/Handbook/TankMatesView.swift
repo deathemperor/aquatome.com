@@ -64,12 +64,13 @@ struct TankMatesView: View {
     }
     .scrollDismissesKeyboard(.interactively)
     .navigationTitle("Kiểm tra nuôi chung")
-    .sheet(isPresented: $picking) { FishPicker(chosen: Set(chosen.map(\.id)), add: add) }
+    .sheet(isPresented: $picking) { FishPicker(chosen: Set(chosen.map(\.id)), add: add).ownerScreen("sheet fish-picker") }
     .onChange(of: handbook.count, initial: true) { start() }
     // The tool changed: what was saved is no longer what it shows.
     .onChange(of: chosen.map { "\($0.id):\($0.count)" }) { said = nil }
     // The tank picked gone (removed, or by a sync): a new one again, not saved to a tank that isn't there.
     .onChange(of: tanks.tanks.map(\.id)) { if let t = target, !$1.contains(t) { target = nil } }
+    .ownerScreen("tool tank-mates")
   }
 
   /// What's checked: the reader's tank picked, with these fish put on it as saving leaves it; else these fish alone, in

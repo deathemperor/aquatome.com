@@ -101,7 +101,7 @@ struct TanksView: View {
           }
         }
       }
-      .sheet(isPresented: $adding) { TankForm(editing: nil) }
+      .sheet(isPresented: $adding) { TankForm(editing: nil).ownerScreen("sheet tank-form") }
     }
   }
 }
@@ -146,6 +146,7 @@ private struct TankDetail: View {
 
   var body: some View {
     tank.onAppear { telemetry.telemetry.record(.view(.tank)) }
+      .ownerScreen("tank")
   }
 
   @ViewBuilder private var tank: some View {
@@ -187,8 +188,8 @@ private struct TankDetail: View {
       // Fish and plants are named from the handbook's index, which may not be loaded yet if the Tìm tab wasn't opened.
       .task { if !t.species.isEmpty || !t.plants.isEmpty || !t.unlisted.isEmpty { await handbook.appear() } }
       .toolbar { Button("Sửa") { editing = true }.accessibilityIdentifier("edit") }
-      .sheet(isPresented: $editing) { TankForm(editing: t) }
-      .sheet(item: $lifeSheet) { LifeSheetView(sheet: $0, tankId: t.id) }
+      .sheet(isPresented: $editing) { TankForm(editing: t).ownerScreen("sheet tank-form") }
+      .sheet(item: $lifeSheet) { LifeSheetView(sheet: $0, tankId: t.id).ownerScreen("sheet tank-life") }
     } else {
       ContentUnavailableView("Bể này đã bị xóa.", systemImage: "trash")
     }

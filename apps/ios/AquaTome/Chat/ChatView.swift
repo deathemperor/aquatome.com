@@ -22,6 +22,7 @@ struct ChatView: View {
     .background(Color(uiColor: .systemGroupedBackground).ignoresSafeArea())
     .navigationTitle("Hỏi AquaTome")
     .navigationBarTitleDisplayMode(.inline)
+    .ownerScreen(route.start.about.map { "chat \($0)" } ?? "chat")
     // The box and its line sit at the foot of the screen.
     .toolbar(.hidden, for: .tabBar)
     .toolbar {
@@ -106,6 +107,7 @@ private struct ChatThread: View {
         .defaultScrollAnchor(.top)
         // On the scroll view alone: around the composer too, it stood over the box's, send's and the line's own.
         .accessibilityIdentifier("chat")
+        .ownerShowsChat(model.onScreen(visible))
         .onChange(of: model.thread.last?.id) {
           guard let id = model.thread.last?.id else { return }
           Task { @MainActor in withAnimation(reduceMotion ? nil : .smooth(duration: 0.35)) { proxy.scrollTo(id, anchor: .top) } }

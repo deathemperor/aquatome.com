@@ -267,6 +267,7 @@ struct PutOnTank: View {
       fill()
     }
     .onChange(of: target) { fill() }
+    .ownerScreen("put-on-tank")
   }
 
   /// What's typed, when it's a number the store takes.
@@ -341,6 +342,7 @@ struct LifePicker: View {
       .navigationDestination(item: $picked) { life in PutOnTank(life: life, tankId: tankId, done: { dismiss() }) }
       .navigationDestination(item: $named) { name in
         NewUnlisted(name: name, sci: NewUnlisted.readsAsScientific(name) ? name : nil, tankId: tankId, done: { dismiss() })
+          .ownerScreen("new-unlisted")
       }
       .refreshable { await handbook.load() }
       // Until the index is here (the tanks tab may be the first one opened), or when it can't be; not over what was

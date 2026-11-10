@@ -119,7 +119,7 @@ struct AquaTomeApp: App {
       #endif
       // The owner's report button, and its offer after a screenshot (OwnerReport): the owner's account alone. Inside the
       // environment below, which it reads the account from.
-      .ownerReports { OwnerReportHere.place(tab: tab.screen.rawValue, account: showingAccount, lang: handbook.lang) }
+      .ownerReports { OwnerReportHere.place(tab: tab.screen.rawValue, lang: handbook.lang) }
       .environment(lights)
       .environment(handbook)
       .environment(tanks)

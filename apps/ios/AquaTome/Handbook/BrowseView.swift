@@ -29,6 +29,7 @@ struct BrowseView: View {
 
   var body: some View {
     shelf.onAppear { telemetry.telemetry.record(.view(.shelf)) }
+      .ownerScreen("list \(String("\(browse)".prefix { $0 != "(" }))")
   }
 
   @ViewBuilder private var shelf: some View {

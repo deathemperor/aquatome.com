@@ -14,9 +14,13 @@ public struct OwnerReportPlace: Sendable, Equatable {
   public var viewport: String?
   /// How the picture came: "screen", this app's own drawing of its screen, or "picked".
   public var picture: String?
+  /// On the chat: its conversation, and the numbers of the answers on the screen ("2,3").
+  public var conversation: String?
+  public var answers: String?
 
   public init(screen: String? = nil, path: String? = nil, lang: String? = nil, version: String? = nil, theme: String? = nil,
-              textSize: String? = nil, device: String? = nil, viewport: String? = nil, picture: String? = nil) {
+              textSize: String? = nil, device: String? = nil, viewport: String? = nil, picture: String? = nil,
+              conversation: String? = nil, answers: String? = nil) {
     self.screen = screen
     self.path = path
     self.lang = lang
@@ -26,6 +30,8 @@ public struct OwnerReportPlace: Sendable, Equatable {
     self.device = device
     self.viewport = viewport
     self.picture = picture
+    self.conversation = conversation
+    self.answers = answers
   }
 
   /// What each section of the site's pages holds, by its folder.
@@ -58,6 +64,8 @@ public struct OwnerReportPlace: Sendable, Equatable {
     o["device"] = device
     o["viewport"] = viewport
     o["picture"] = picture
+    o["conversation"] = conversation
+    o["answers"] = answers
     return o
   }
 }

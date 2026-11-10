@@ -104,6 +104,7 @@ struct FishIdView: View {
         Task { await take { data } }
       }, cancelled: { camera = false })
       .ignoresSafeArea()
+      .ownerScreen("camera")
     }
     .sheet(isPresented: $library) {
       ImagePicker(source: .photoLibrary, picked: { data in
@@ -111,7 +112,9 @@ struct FishIdView: View {
         picked = PickedPhoto(data: data)
       }, cancelled: { library = false })
       .ignoresSafeArea()
+      .ownerScreen("sheet photo-library")
     }
+    .ownerScreen("tool fish-id")
   }
 
   // MARK: The tool

@@ -25,7 +25,7 @@ struct PlugsSection: View {
           if let l = plugs.board.list, !l.plugs.isEmpty {
             Button("Thêm ổ cắm") { adding = true }
               .accessibilityIdentifier("add-plug")
-              .sheet(isPresented: $adding) { AddPlug(tankId: tank.id) }
+              .sheet(isPresented: $adding) { AddPlug(tankId: tank.id).ownerScreen("sheet add-plug") }
           }
         }
       } header: {
@@ -51,7 +51,7 @@ struct PlugsSection: View {
   }
 
   private var keys: some View {
-    Button("Khóa Tuya") { settingUp = true }.accessibilityIdentifier("plug-setup").sheet(isPresented: $settingUp) { PlugSetup() }
+    Button("Khóa Tuya") { settingUp = true }.accessibilityIdentifier("plug-setup").sheet(isPresented: $settingUp) { PlugSetup().ownerScreen("sheet plug-setup") }
   }
 }
 
@@ -64,7 +64,7 @@ struct PlugKeysSection: View {
     Section {
       Button(plugs.dataCenter == nil ? String(localized: "Thiết lập ổ cắm") : String(localized: "Khóa Tuya")) { settingUp = true }
         .accessibilityIdentifier("plug-setup")
-        .sheet(isPresented: $settingUp) { PlugSetup() }
+        .sheet(isPresented: $settingUp) { PlugSetup().ownerScreen("sheet plug-setup") }
     } header: {
       Text("Ổ cắm thông minh")
     } footer: {
@@ -138,7 +138,7 @@ private struct PlugRows: View {
         .buttonStyle(.borderless)
         .accessibilityIdentifier("edit-plug")
     }
-    .sheet(isPresented: $editing) { NavigationStack { PlugForm(deviceId: device.id) { editing = false } } }
+    .sheet(isPresented: $editing) { NavigationStack { PlugForm(deviceId: device.id) { editing = false } }.ownerScreen("sheet plug-form") }
     ForEach(Array(device.outlets.enumerated()), id: \.element.code) { i, o in
       OutletRow(outlet: o, number: i + 1, key: PlugBoard.Outlet(provider: provider, device: remoteId, code: o.code))
     }

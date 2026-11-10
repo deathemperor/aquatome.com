@@ -272,7 +272,7 @@ struct SpeciesPage: View {
     .environment(player)
     .navigationDestination(item: $onSite) { WebScreen(url: $0).v2ClearOfTheFade() }
     .navigationDestination(item: $gridAt) { place in
-      if let grid { PhotoGrid(gallery: grid, talk: doc?.talk, at: place, readerPhotos: $readerPhotos).v2ClearOfTheFade() }
+      if let grid { PhotoGrid(gallery: grid, talk: doc?.talk, at: place, readerPhotos: $readerPhotos).ownerScreen("photos").v2ClearOfTheFade() }
     }
     .v2ClearOfTheFade()
     .ignoresSafeArea(edges: .top)

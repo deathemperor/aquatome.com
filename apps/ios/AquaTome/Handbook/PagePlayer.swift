@@ -383,7 +383,7 @@ struct VideoSlot: View {
     .id(PagePlayer.anchor(id))
     .onDisappear { player.leave(id) }
     .fullScreenCover(isPresented: Binding(get: { player.full && web != nil }, set: { player.full = $0 })) {
-      if let web { FullVideo(player: player, web: web, title: title) }
+      if let web { FullVideo(player: player, web: web, title: title).ownerScreen("video full screen") }
     }
   }
 

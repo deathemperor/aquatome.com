@@ -324,7 +324,7 @@ private struct OwnerReportSheet: View {
   }
 
   private var where_: String {
-    [place.screen, place.path, place.version].compactMap { $0 }.joined(separator: " · ")
+    [place.screen, place.path, place.conversation, place.answers.map { "câu \($0)" }, place.version].compactMap { $0 }.joined(separator: " · ")
   }
 
   private func send() async {
@@ -356,26 +356,50 @@ private struct OwnerReportSheet: View {
   }
 }
 
-/// What a report names beyond the app's tab, from small hooks where it shows: v2's tab in front (V2Root), and the page on
-/// the screen with the view that draws it, "page" for v1's (PageView) and "species" for v2's fish page (SpeciesPage).
+/// What a report names as showing: v2's tab in front (V2Root), then each screen standing on it, as one line in each screen
+/// says while it's up. A screen pushed takes the place of the one under it, whose `onDisappear` comes; a sheet stands on it.
 @MainActor
 enum OwnerShowing {
-  struct Page: Equatable {
-    let path: String
-    let view: String
+  struct Screen {
+    let id: UUID
+    let name: String
+    let path: String?
+  }
+
+  /// The chat on the screen: the conversation as the bucket has it, and the numbers of the answers showing.
+  struct Chat: Equatable {
+    let conversation: String
+    let answers: [Int]
   }
 
   fileprivate static var v2Tab: String?
-  fileprivate static var page: Page?
+  fileprivate static var screens: [Screen] = []
+  fileprivate static var chat: Chat?
+}
+
+/// Its own id: the same fish on two tabs' stacks are two screens, and one going mustn't take the other's name with it.
+private struct OwnerScreenName: ViewModifier {
+  let name: String
+  let path: String?
+  @State private var id = UUID()
+
+  func body(content: Content) -> some View {
+    content
+      .onAppear {
+        OwnerShowing.screens.removeAll { $0.id == id }
+        OwnerShowing.screens.append(OwnerShowing.Screen(id: id, name: name, path: path))
+      }
+      .onDisappear { OwnerShowing.screens.removeAll { $0.id == id } }
+  }
 }
 
 extension View {
-  /// This page names itself in a report while it's on the screen. One pushed over it may have appeared first: it leaves
-  /// that one's name, even for the same item (v2's fish page under v1's whole page for it).
+  /// A screen's name in a report while it's up: "chat", "tool fish-id", "sheet tank-form".
+  func ownerScreen(_ name: String, path: String? = nil) -> some View { modifier(OwnerScreenName(name: name, path: path)) }
+
+  /// A page of the handbook's: its name in a report is the view that draws it and the page's slug, and its path gives the item.
   func ownerShows(_ path: String, as view: String) -> some View {
-    let page = OwnerShowing.Page(path: path, view: view)
-    return onAppear { OwnerShowing.page = page }
-      .onDisappear { if OwnerShowing.page == page { OwnerShowing.page = nil } }
+    ownerScreen([view, path.split(separator: "/").last.map(String.init)].compactMap { $0 }.joined(separator: " "), path: path)
   }
 
   /// v2's tab in front, by its name, for a report; nil once v1 is back.
@@ -383,16 +407,30 @@ extension View {
     onChange(of: tab, initial: true) { OwnerShowing.v2Tab = tab }
       .onDisappear { OwnerShowing.v2Tab = nil }
   }
+
+  /// The chat's conversation and the answers on the screen, while it's up. Again on each appearing: `onChange` isn't, and
+  /// the chat comes back from a page pushed over it.
+  func ownerShowsChat(_ chat: OwnerShowing.Chat?) -> some View {
+    onChange(of: chat, initial: true) { OwnerShowing.chat = chat }
+      .onAppear { OwnerShowing.chat = chat }
+      .onDisappear { OwnerShowing.chat = nil }
+  }
 }
 
-/// What's showing now, for a report: the app's start says its tab and whether the account sheet is up, the hooks above
-/// v2's tab and the page, and the rest is the phone's. The screen reads as "v2 today species", "handbook page", "account".
+/// What's showing now, for a report: the app's start says its tab, the hooks above the rest of the way up to the screen in
+/// front, and the rest is the phone's. The screen reads as "v2 today / chat ca-neon" or "handbook / fish page ca-neon".
 @MainActor
 enum OwnerReportHere {
-  static func place(tab: String, account: Bool, lang: String) -> OwnerReportPlace {
-    let page = account ? nil : OwnerShowing.page
-    let screen = [OwnerShowing.v2Tab == nil ? nil : "v2", account ? "account" : OwnerShowing.v2Tab ?? tab, page?.view]
-      .compactMap { $0 }.joined(separator: " ")
+  /// As long as the Worker's check on a screen's name takes.
+  private static let longest = 200
+
+  static func place(tab: String, lang: String) -> OwnerReportPlace {
+    let base = OwnerShowing.v2Tab.map { "v2 \($0)" } ?? tab
+    let top = OwnerShowing.screens.last
+    let whole = ([base] + OwnerShowing.screens.map(\.name)).joined(separator: " / ")
+    // Deep and long: the tab and the screen in front. Anything the Worker's check would refuse goes, not the whole name.
+    let name = whole.count <= longest ? whole : [base, top?.name].compactMap { $0 }.joined(separator: " / ")
+    let screen = String(name.map { $0.isASCII && ($0.isLetter || $0.isNumber || " _./-".contains($0)) ? $0 : "-" }.prefix(longest))
     let info = Bundle.main.infoDictionary
     let version = [info?["CFBundleShortVersionString"] as? String, (info?["CFBundleVersion"] as? String).map { "(\($0))" }].compactMap { $0 }.joined(separator: " ")
     let window = OwnerShot.appWindow
@@ -400,13 +438,15 @@ enum OwnerReportHere {
     let scale = window?.traitCollection.displayScale ?? 0
     return OwnerReportPlace(
       screen: screen,
-      path: page?.path,
+      path: top?.path,
       lang: lang,
       version: version.isEmpty ? nil : version,
       theme: window?.traitCollection.userInterfaceStyle == .dark ? "dark" : "light",
       textSize: UIApplication.shared.preferredContentSizeCategory.rawValue.replacingOccurrences(of: "UICTContentSizeCategory", with: ""),
       device: "\(model) iOS \(UIDevice.current.systemVersion)",
-      viewport: "\(Int(bounds.width))x\(Int(bounds.height))@\(Int(scale))x"
+      viewport: "\(Int(bounds.width))x\(Int(bounds.height))@\(Int(scale))x",
+      conversation: OwnerShowing.chat?.conversation,
+      answers: OwnerShowing.chat.flatMap { $0.answers.isEmpty ? nil : $0.answers.map(String.init).joined(separator: ",") }
     )
   }
 

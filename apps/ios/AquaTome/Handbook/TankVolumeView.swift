@@ -84,6 +84,7 @@ struct TankVolumeView: View {
     }
     // The tank picked to save to, deleted on the tanks tab meanwhile: a new one, as the site's picker resets.
     .onChange(of: tanks.tanks.map(\.id)) { _, ids in if let t = target, !ids.contains(t) { target = nil } }
+    .ownerScreen("tool tank-volume")
   }
 
   private var sizes: some View {

@@ -85,7 +85,7 @@ struct OwnerScreen: View {
       }
     }
     // Two switches: a sheet of their height, the whole screen only at the largest text.
-    .sheet(isPresented: $bell) { OwnerDelivery().presentationDetents(size.isAccessibilitySize ? [.large] : [.medium]) }
+    .sheet(isPresented: $bell) { OwnerDelivery().presentationDetents(size.isAccessibilitySize ? [.large] : [.medium]).ownerScreen("sheet report-delivery") }
     .refreshable { await load() }
     .task(id: "\(at ?? "")|\(period ?? "")|\(owner.era)|\(shown)") { await load() }
     // Another account, a sign-out, the session over: what this screen read goes with it.
@@ -94,6 +94,7 @@ struct OwnerScreen: View {
                         titleVisibility: .visible, presenting: asking) { a in
       Button(role: .destructive) { Task { _ = await send(a) } } label: { Text(verbatim: a.label) }
     }
+    .ownerScreen("dashboard \(key.isEmpty ? "home" : key)")
   }
 
   private func load() async {
