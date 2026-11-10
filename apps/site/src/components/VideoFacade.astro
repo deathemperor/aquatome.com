@@ -1,11 +1,12 @@
 ---
 import type { Video } from '@aq/schema'
-import { i18n } from '../lib/i18n'
+import { i18n, langOf } from '../lib/i18n'
+import { videoAbout } from '../lib/video-about'
 interface Props { videos: Video[]; heading?: string }
 const { videos, heading = 'Video' } = Astro.props
 const { t } = i18n(Astro.url)
 const mins = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`
-const langLabel = (l: string) => (l === 'vi' ? t('tiếng Việt') : l.toUpperCase())
+const lang = langOf(Astro.url.pathname)
 ---
 {videos.length > 0 && (
   <section class="videos" aria-labelledby="videos-h" data-pagefind-ignore>
@@ -18,7 +19,7 @@ const langLabel = (l: string) => (l === 'vi' ? t('tiếng Việt') : l.toUpperCa
               style={`background-image:url(https://i.ytimg.com/vi/${v.youtubeId}/hqdefault.jpg)`}>
               <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg></span>
             </button>
-            <p>{v.title}<small>{mins(v.durationSec)}, {langLabel(v.lang)}</small></p>
+            <p data-title-from={v.originalTitle}>{v.title}<small>{mins(v.durationSec)}, {videoAbout(v, lang, t)}</small></p>
           </li>
         ))}
       </ul>
