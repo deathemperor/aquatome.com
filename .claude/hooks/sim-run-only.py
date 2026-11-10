@@ -38,7 +38,8 @@ KEEP_LOCK = ("A lockf on a queue's lock needs -k (AGENTS.md, This Mac): without 
 QUEUE_LOCKS = {"checks.lock", "sim.lock"}
 # A kill fed by pgrep within one word: kill "$(pgrep x)", or with backticks.
 PGREP_FED = re.compile(r"(\$\(|`)\s*(\S*/)?pgrep\b")
-PIPE = re.compile(r"\)*\|&?")
+PIPE = re.compile(r"\)*\|&?\n*")  # the lexer runs separators together: a pipe at a line's end comes with its newline
+XARGS_VALUE = {"-n", "-I", "-L", "-P", "-s", "-E", "-J", "-R", "-S"}
 GRANT = ("Only the chief of staff keeps the next turn for a run (AGENTS.md, This Mac): scripts/next-turn.py runs from their "
          "own thread.")
 QUEUE = ("Heavy work takes turns on this Mac (AGENTS.md, This Mac): start it as scripts/checks.sh nice -n 10 <command> (from the "
@@ -50,6 +51,7 @@ def segments(command):
     """Each command in a line of shell: its words, and the separator that ended it ("" at the end)."""
     # A heredoc's body is text, not commands.
     command = re.sub(r"<<-?\s*['\"]?(\w+)['\"]?([^\n]*)\n.*?\n\s*\1[ \t]*(?=\n|$)", r"\2", command, flags=re.S)
+    command = re.sub(r"\d*>&\d*-?", " ", command)  # 2>&1's & separates nothing
     lexer = shlex.shlex(command, posix=True, punctuation_chars=";&|()\n")
     lexer.whitespace = " \t\r"
     lexer.whitespace_split = True
@@ -161,7 +163,13 @@ def kills_by_name(name, args, after_kill, pgrep_upstream):
     if name == "pgrep":
         return after_kill
     if name == "xargs":
-        return any(re.search(r"\b(pkill|killall)\b", a) or (pgrep_upstream and re.search(r"\bkill\b", a)) for a in args)
+        i = 0
+        while i < len(args) and args[i].startswith("-"):
+            i += 2 if args[i] in XARGS_VALUE else 1
+        runs, rest, _ = unwrapped(args[i:])
+        if runs in SHELLS:  # xargs -I{} sh -c 'kill {}'
+            return any(re.search(r"\b(pkill|killall)\b", a) or (pgrep_upstream and re.search(r"\bkill\b", a)) for a in rest)
+        return runs in ("pkill", "killall") or (pgrep_upstream and runs == "kill")
     return False
 
 
@@ -177,7 +185,7 @@ def bare_run(command, queued=False):
             return KILL
         if name == "lockf":
             return KEEP_LOCK
-        after_kill = name == "kill" and ended_by == "("  # kill $(pgrep x): the shell's $( ends this part, and pgrep starts the next
+        after_kill = name == "kill" and ended_by.startswith("(")  # kill $(pgrep x): the $( ends this part, and pgrep starts the next
         pgrep_upstream = pgrep_upstream and PIPE.fullmatch(ended_by) is not None
         if name == "xcodebuild" and runs_tests(args):
             return SIM

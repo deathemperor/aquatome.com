@@ -488,6 +488,11 @@ test('a session kills only by pid, and a lockf on a queue keeps the lock', () =>
     'pgrep -f foo | xargs kill',
     'pgrep -f foo | head -1 | xargs -n1 kill -9',
     "pgrep foo | xargs -I{} sh -c 'kill {}'",
+    'pgrep -f foo 2>&1 | xargs kill',
+    'pgrep -f foo |\n  xargs kill',
+    'kill $(\npgrep foo)',
+    'pgrep foo | xargs -r sudo kill',
+    'pgrep foo | xargs -I {} kill {}',
   ]) refused(c, 'a pid you started')
   for (const c of [
     'lockf -t 0 $HOME/.cache/aquatome/checks.lock true',
@@ -504,6 +509,9 @@ test('a session kills only by pid, and a lockf on a queue keeps the lock', () =>
     'pgrep -f foo | wc -l',
     'echo $(pgrep -f foo)',
     'cat my.pids | xargs kill',
+    'git ls-files | xargs grep -ln pkill',
+    'rg -l killall | xargs grep -n killall',
+    'pgrep foo | xargs echo kill',
     'pgrep foo; cat my.pids | xargs kill',
     'git log --grep pkill',
     'grep -rn "pkill" scripts',
