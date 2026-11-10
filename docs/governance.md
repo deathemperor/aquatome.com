@@ -420,7 +420,7 @@ The layers above still check the result.
     the two never check one guide at once). From `VIDEO_RECHECK_SINCE`: `review-backfill --kind video-guide
     --reviewed-before` rechecks every guide with no review from that time on, whatever its score (and the ones never
     reviewed), `VIDEO_REREVIEW_LIMIT` a run (30); then `videos --redo --rechecked-since` writes again, from the
-    recheck's notes, the guides it left under the bar, `VIDEO_REDO_LIMIT` a run (8). Paced on 2026-11-08 from 60 and
+    recheck's notes, the guides it left under the bar, `VIDEO_REDO_LIMIT` a run (0: paused 2026-11-10 until the writer's fix is measured on 30 guides; it was 8). Paced on 2026-11-08 from 60 and
     30, when the engine's first account would have run out days before its weekly reset. Both `VIDEO_PARALLEL` (4) at
     once, on the engine's Claude accounts, stopping when every account is at its limit. The riskiest guides first:
     `RECHECK_FIRST` (a guide the chat quotes), then medicine, doses, chemicals and treatments, then water, then the rest,
