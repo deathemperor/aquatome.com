@@ -55,6 +55,11 @@ told from a Mac by its touch points, so a touch-screen Mac would read as a table
 as a tablet or a desktop. A browser that names no system we know (a TV, a console) sends it empty, as rows from before the
 field have it: empty means not recorded, and never desktop.
 
+A tap that opens a glossary term's card is an event (`tip`), and so is following the card's link (`tipmore`,
+`src/scripts/glossary-tip.ts`), each with the term's page in `blob9` beside the page it was opened on. Only a term's card
+counts: a source's mark and a data card's label use the same card and aren't counted, and neither is a hover on a computer.
+A click on a term there opens its page, so it reads as that page's view coming from one of ours.
+
 Two runs of our own checks from before our network was marked are left out by time, as the 5 November reset was
 (`OUR_RUNS`, `worker/admin/ae.ts`): tabs from Vietnam on 7 November, 20:40 to 21:24 UTC (56), and on 8 November, 00:28 to
 00:44 UTC (23). They were a third of the tabs counted until then, so the week's sessions dip; the readers page lists them.
