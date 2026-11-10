@@ -37,7 +37,7 @@ final class OwnerFlowTests: XCTestCase {
     // Every page, grouped, each with its figure.
     let comments = page(app, "Comments")
     XCTAssertTrue(comments.label.hasPrefix("Comments, 5 held, waiting for you"), comments.label)
-    XCTAssertEqual(app.buttons.matching(identifier: "owner-page").count, 14, "every page")
+    XCTAssertEqual(app.buttons.matching(identifier: "owner-page").count, 15, "every page")
   }
 
   /// v2, the app's look (the owner, 8 Nov): the dashboard opens from its profile button, as from v1's.
