@@ -729,6 +729,18 @@ final class V2FlowTests: XCTestCase {
     XCTAssertFalse(app.navigationBars["Đèn Chihiros"].exists, "Đèn stayed in front")
   }
 
+  /// The owner's report (10 Nov, iOS 27.2, dark): "Search page but search is hidden". The field waited behind a pull, and a grey
+  /// band with a line stood over the title. At rest, with no pull: the field is there to tap, and the bar is on the page's black.
+  func testTheSearchTabShowsItsFieldWithNoBandAtRest() {
+    let app = launch("-v2", "YES", "-dark")
+    app.launchForFlow()
+    app.openTab("Tìm kiếm")
+    let field = app.searchFields.firstMatch
+    XCTAssertTrue(field.waitForExistence(timeout: 5), "the search tab's field isn't there without a pull")
+    XCTAssertTrue(field.isHittable, "the search tab's field can't be tapped without a pull")
+    app.noBandBehindTheBar(above: field.frame.minY - 2, "the search tab, dark")
+  }
+
   func testTheTabBarStaysWholeWhileScrolling() {
     let app = launch("-v2", "YES")
     app.launchForFlow()

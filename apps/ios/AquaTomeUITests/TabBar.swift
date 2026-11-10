@@ -49,8 +49,16 @@ extension XCUIApplication {
     XCTAssertGreaterThan(seen, 200, "\(title): its large title can't be seen", file: file, line: line)
   }
 
-  /// How many side-by-side or stacked pixel pairs in `rect` (in points) are `apart` or more grey levels apart.
-  private func edges(in rect: CGRect, apart: Int) -> Int? {
+  /// Whether the strip behind the bar, from the top of the screen down to `bottom`, is a dark page's own black. iOS 27's frosted
+  /// band read 8 of 255 there on the owner's phone, with a line of 32 at its foot; the app's own band reads 0 (10 Nov).
+  func noBandBehindTheBar(above bottom: CGFloat, _ screen: String, file: StaticString = #filePath, line: UInt = #line) {
+    let seen = grey(in: CGRect(x: frame.width * 0.3, y: 0, width: 2, height: bottom))?.px.max().map(Int.init) ?? 255
+    print("the brightest behind the bar, \(screen): \(seen)")
+    XCTAssertLessThan(seen, 4, "\(screen): a band stands behind the bar", file: file, line: line)
+  }
+
+  /// The screen's grey levels in `rect` (in points), row by row.
+  private func grey(in rect: CGRect) -> (px: [UInt8], w: Int, h: Int)? {
     guard let shot = XCUIScreen.main.screenshot().image.cgImage else { return nil }
     let scale = CGFloat(shot.width) / frame.width
     let band = CGRect(x: rect.minX * scale, y: rect.minY * scale, width: rect.width * scale, height: rect.height * scale).integral
@@ -60,6 +68,12 @@ extension XCUIApplication {
     guard let ctx = CGContext(data: &px, width: w, height: h, bitsPerComponent: 8, bytesPerRow: w,
                               space: CGColorSpaceCreateDeviceGray(), bitmapInfo: CGImageAlphaInfo.none.rawValue) else { return nil }
     ctx.draw(box, in: CGRect(x: 0, y: 0, width: w, height: h))
+    return (px, w, h)
+  }
+
+  /// How many side-by-side or stacked pixel pairs in `rect` (in points) are `apart` or more grey levels apart.
+  private func edges(in rect: CGRect, apart: Int) -> Int? {
+    guard let (px, w, h) = grey(in: rect) else { return nil }
     var sharp = 0
     for y in 0..<h {
       for x in 0..<w {
