@@ -44,6 +44,11 @@ export function changesOf(written: Record<string, string>, wanted: Record<string
   return { write: Object.keys(wanted).filter(id => written[id] !== wanted[id]), gone: Object.keys(written).filter(id => !(id in wanted)) }
 }
 
+export const batchesOf = <T>(all: T[], size: number): T[][] => Array.from({ length: Math.ceil(all.length / size) }, (_, i) => all.slice(i * size, (i + 1) * size))
+
+/** The delete calls for these ids: Vectorize refuses more than 100 in one. */
+export const deleteBodies = (ids: string[]): string[] => batchesOf(ids, 100).map(b => JSON.stringify({ ids: b }))
+
 /** Every section a read_page call can open: a page's opening (heading null) and each heading with an id. */
 export async function docsOf(source: Source, lang: Lang, chars: number): Promise<{ docs: Doc[]; hb: Handbook }> {
   const hb = (await handbookOf(source, lang))!

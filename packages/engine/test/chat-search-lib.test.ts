@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import type { Source } from '../../../apps/site/worker/chat/handbook'
-import { changesOf, docsOf, liveSource } from '../scripts/chat-search-lib'
+import { changesOf, deleteBodies, docsOf, liveSource } from '../scripts/chat-search-lib'
 
 describe('changesOf', () => {
   it('writes what is new or changed and removes what the handbook no longer has', () => {
@@ -9,6 +9,19 @@ describe('changesOf', () => {
 
   it('writes everything and removes nothing with no record', () => {
     expect(changesOf({}, { a: '1', b: '2' })).toEqual({ write: ['a', 'b'], gone: [] })
+  })
+})
+
+describe('deleteBodies', () => {
+  it('sends at most 100 ids in a call, which is all Vectorize takes, and every id once', () => {
+    const ids = Array.from({ length: 250 }, (_, i) => `id-${i}`)
+    const sent = deleteBodies(ids).map(b => (JSON.parse(b) as { ids: string[] }).ids)
+    expect(sent.map(b => b.length)).toEqual([100, 100, 50])
+    expect(sent.flat()).toEqual(ids)
+  })
+
+  it('makes no call with nothing to remove', () => {
+    expect(deleteBodies([])).toEqual([])
   })
 })
 
