@@ -7,7 +7,7 @@ import { contactSheet } from './video-images'
 
 /**
  * No dead fish on a page, for what the photo check hasn't asked about (photo-check.ts asks since 2026-11-05): each species
- * and plant page's videos, by the thumbnail the page shows (no check looked at them), then its main photo when no verdict
+ * and plant page's videos, by the thumbnail the page shows and three frames from further in, then its main photo when no verdict
  * of the photo check has `logo` (one from before it asked about dead fish). Twelve to a contact sheet, one model call
  * each. A dead fish or fish as food puts a video on engine-state/_video-rejected.json (the sweep takes it off every page,
  * findVideos never picks it) and a photo on _photo-rejected.json (the faces step takes it off every page, the photo
@@ -16,8 +16,13 @@ import { contactSheet } from './video-images'
  * speckled peacock bass page's video whose thumbnail shows the fish dead on a road beside a tape measure. The first run
  * (2026-11-07, all 2,875) flagged 180, looked at by eye: 110 dead or preserved, 70 live fish in a hand or water, or
  * graphics, which the prompt now leaves out.
+ *
+ * A thumbnail is one picture, often chosen by the uploader: the climbing perch Short (2026-11-10) showed a live fish in a
+ * hand and passed, with fish gutted in a bowl three quarters through. So a video is its thumbnail and the frames YouTube
+ * publishes from about a quarter, half and three quarters through, two by two on one tile. `frames` marks a verdict that
+ * saw them. One from before stays until a `backCheck` run, which looks at each of those once.
  */
-export type DeadVerdict = { dead: boolean; note: string }
+export type DeadVerdict = { dead: boolean; note: string; frames?: boolean }
 export type DeadScreenDeps = {
   get: (url: string) => Promise<Uint8Array>
   look: (sheet: string, prompt: string) => Promise<{ tiles: ({ n: number } & DeadVerdict)[] }>
@@ -26,23 +31,34 @@ export const DEAD_SCREEN_SCHEMA = {
   type: 'object', required: ['tiles'],
   properties: { tiles: { type: 'array', items: { type: 'object', required: ['n', 'dead', 'note'], properties: { n: { type: 'number' }, dead: { type: 'boolean' }, note: { type: 'string' } } } } },
 }
-export const DEAD_SCREEN_PROMPT = `Each numbered tile is a picture an aquarium handbook's fish or plant page shows: a video's thumbnail or the page's photo. For each tile:
-- dead: true if it shows a dead fish or other dead animal, or fish as food: at a market or fishmonger's, on ice; on a plate, cooked, fillets; a fish lying on the ground, a road, a floor, a board, a tray, a mesh, a ruler or a tape measure; a big catch hung up or held up by an angler; a preserved, mounted, museum or lab specimen, in a jar, on a specimen plate, or laid out flat on a plain or gridded background for a photo (for a snail, an empty shell; for a plant, a pressed herbarium sheet). When you can't tell whether a fish lying out of the water is alive, it is dead. Not dead: a live fish in water (a tank, a pond, a river, a tub, a cup, a bag, a photo tank), a small live fish held in a hand or a net for a moment, a drawing, painting or graphic.
+export const DEAD_SCREEN_PROMPT = `Each numbered tile is what an aquarium handbook's fish or plant page shows: a video, as four pictures two by two (its thumbnail and three frames from through it), or the page's photo. Look at every picture on a tile. For each tile:
+- dead: true if any picture on it shows a dead fish or other dead animal, or fish as food: at a market or fishmonger's, on ice; on a plate, cooked, fillets; a fish lying on the ground, a road, a floor, a board, a tray, a mesh, a ruler or a tape measure; a big catch hung up or held up by an angler; a preserved, mounted, museum or lab specimen, in a jar, on a specimen plate, or laid out flat on a plain or gridded background for a photo (for a snail, an empty shell; for a plant, a pressed herbarium sheet). When you can't tell whether a fish lying out of the water is alive, it is dead. Not dead: a live fish in water (a tank, a pond, a river, a tub, a cup, a bag, a photo tank), a small live fish held in a hand or a net for a moment, a drawing, painting or graphic.
 - note: a few words on what it shows (for dead: what makes it so, e.g. "fish on a tape measure on a road").
 Answer every tile, by its number.`
 const PER_SHEET = 12
 export const thumbnail = (youtubeId: string) => `https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg`
+/** A video's thumbnail, then the frames YouTube publishes from about a quarter, half and three quarters through. */
+export const videoFrames = (youtubeId: string) => [thumbnail(youtubeId), ...[1, 2, 3].map(n => `https://i.ytimg.com/vi/${youtubeId}/hq${n}.jpg`)]
 
 type Item = { key: string; url: string; files: string[]; video?: string }
 const readJson = async <T>(path: string): Promise<T | undefined> => readFile(path, 'utf8').then(s => JSON.parse(s) as T, () => undefined)
 const indentOf = (raw: string) => /^\{\n( +)"/.exec(raw)?.[1]?.length ?? 0
+
+/** A video's pictures on one tile, two by two, each without the black bars YouTube pads it to 4:3 with. */
+async function videoTile(frames: Buffer[]) {
+  const W = 480, H = 270
+  const unbarred = async (b: Buffer): Promise<Buffer> => { try { return await sharp(b).trim({ background: '#000', threshold: 20 }).toBuffer() } catch { return b } }
+  const parts = await Promise.all(frames.map(async (b, i) => ({ input: await sharp(await unbarred(b)).resize(W, H, { fit: 'contain', background: '#000' }).toBuffer(), left: (i % 2) * W, top: Math.floor(i / 2) * H })))
+  return sharp({ create: { width: 2 * W, height: 2 * H, channels: 3, background: '#000' } }).composite(parts).jpeg({ quality: 85 }).toBuffer()
+}
 
 async function pool<T>(items: T[], n: number, f: (x: T) => Promise<void>) {
   let next = 0
   await Promise.all(Array.from({ length: Math.max(1, n) }, async () => { while (next < items.length) await f(items[next++]!) }))
 }
 
-export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: number; parallel?: number }) {
+/** `backCheck`: also the videos judged from their thumbnail alone (the screen's verdicts from before it saw frames). */
+export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: number; parallel?: number; backCheck?: boolean }) {
   const content = join(root, 'content')
   const state = (f: string) => join(root, 'engine-state', f)
   const cache = (await readJson<Record<string, DeadVerdict>>(state('_dead-screen.json'))) ?? {}
@@ -64,7 +80,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
       const e = await readJson<{ photos?: { url: string }[]; videos?: { youtubeId: string }[] }>(file)
       for (const v of e?.videos ?? []) {
         const key = `youtube:${v.youtubeId}`
-        if (key in cache || v.youtubeId in videoRejected) continue
+        if (v.youtubeId in videoRejected || (key in cache && !(o.backCheck && !cache[key]!.frames))) continue
         const it = videos.get(key) ?? { key, url: thumbnail(v.youtubeId), files: [], video: v.youtubeId }
         it.files.push(file)
         videos.set(key, it)
@@ -86,14 +102,15 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
   try {
     await pool(sheets.map((items, i) => ({ items, i })), o.parallel ?? 1, async ({ items, i }) => {
       if (report.stopped) return
-      const ok: { it: Item; b: Buffer }[] = []
+      const ok: { it: Item; b: Buffer; frames: boolean }[] = []
       for (const it of items) {
         try {
-          let b = Buffer.from(await d.get(it.url))
-          // A thumbnail is 4:3 with the 16:9 frame between black bars: the frame, as the page shows it.
-          const m = await sharp(b).metadata()
-          if (it.video && m.width === 480 && m.height === 360) b = await sharp(b).extract({ left: 0, top: 45, width: 480, height: 270 }).toBuffer()
-          ok.push({ it, b })
+          const first = Buffer.from(await d.get(it.url))
+          if (!it.video) { ok.push({ it, b: first, frames: false }); continue }
+          // A frame YouTube doesn't have (a very new or very short video) is passed over.
+          const more: Buffer[] = []
+          for (const u of videoFrames(it.video).slice(1)) { try { more.push(Buffer.from(await d.get(u))) } catch { /* not published */ } }
+          ok.push({ it, b: await videoTile([first, ...more]), frames: more.length > 0 })
         } catch (err) { report.failed.push(`${it.key}: ${(err as Error).message.slice(0, 120)}`) }
       }
       if (!ok.length) return
@@ -105,7 +122,7 @@ export async function screenDead(root: string, d: DeadScreenDeps, o: { limit: nu
         for (const t of v.tiles ?? []) {
           const x = ok[t.n - 1]
           if (!x || typeof t.dead !== 'boolean') continue
-          cache[x.it.key] = { dead: t.dead, note: String(t.note ?? '').slice(0, 120) }
+          cache[x.it.key] = { dead: t.dead, note: String(t.note ?? '').slice(0, 120), ...(x.frames ? { frames: true } : {}) }
           report.judged++
           if (t.dead) off.push(x.it)
         }
