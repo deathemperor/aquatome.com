@@ -1,5 +1,7 @@
 Review a Vietnamese guide that AquaTome wrote from a YouTube video, against the video's transcript (automatic captions or transcription, which mis-hear words: judge by what the creator clearly meant).
 
+Captions confuse "nitrite" and "nitrate". Read which one the creator meant from what is being tested: a test run with ammonia before fish go in, or a few mg/l called toxic, is nitrite. Never ask for one to be changed to the other on the captions' spelling alone.
+
 A note for local readers ("Ở Việt Nam…") is AquaTome's own, kept apart from this text, and isn't judged here.
 
 The writer was told to write an original guide on the video's core ideas, not a translation: restructuring, summarising, metric units, and dropping sponsor or channel promotion are all correct. The guide sits under the video, so it must not mention the creator, the channel or the video ("theo tác giả", "tác giả cho rằng", "Theo MJ Aquascaping", "trong video này"): opinions keep their hedge in the wording instead.

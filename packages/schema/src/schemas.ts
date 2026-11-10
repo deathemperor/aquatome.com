@@ -326,6 +326,8 @@ export const TranslationSchema = z.object({
   nameFixed: z.boolean().optional(),
   /** Owner-fixed text: the engine never replaces this guide's body (nameFixed's kin, for a fix made by hand). */
   bodyFixed: z.boolean().optional(),
+  /** Owner-fixed questions, set with bodyFixed: a video guide written again keeps this FAQ (the other writers leave a guide with a fixed body alone). */
+  faqFixed: z.boolean().optional(),
   /**
    * A note for this language's readers (what is sold here, a cheaper local way), labelled "Ở Việt Nam…" and kept apart from
    * what the source says. Its own field, so a source read again or a video checked again can't lose it, and no reviewer
