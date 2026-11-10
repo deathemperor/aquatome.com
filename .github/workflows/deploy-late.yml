@@ -1,0 +1,25 @@
+name: Deploy late (hourly)
+# Changes that have waited over 3 hours for a deploy open an issue, which the daily report lists; the run that opens it
+# fails, so it's reported within the hour. On 10 Nov nothing went live for two hours and only a lead's noticing told anyone.
+on:
+  schedule:
+    - cron: '23 * * * *' # away from the top of the hour, GitHub's busiest
+  workflow_dispatch:
+concurrency:
+  group: deploy-late
+  cancel-in-progress: false
+permissions:
+  contents: read
+  issues: write
+  actions: read
+env:
+  GH_TOKEN: ${{ github.token }}
+jobs:
+  late:
+    name: Say so when changes have waited too long
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Open, update or close the issue
+        run: node scripts/site-watch.mjs deploy-late "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"

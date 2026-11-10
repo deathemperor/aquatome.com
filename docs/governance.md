@@ -294,6 +294,9 @@ that would have caught it).
 - Deploys from GitHub Actions (`deploy.yml`, which engine runs start too) run `pnpm test`, then the page checks and
   Lighthouse on the **real** build before uploading (`deploy.sh` with `E2E_GATE=1`). The fixture build's browser checks
   run in `ci.yml` only: the engine's pushes change `content/`, which the fixture build doesn't read.
+- The upload is a step of its own with its own time limit, so a long build can't use up its time. Changes that wait over 3
+  hours for a deploy open an issue (`deploy-late.yml`, hourly), which the daily report lists and which closes itself once a
+  deploy catches up. GitHub shows a run cut off at its job's limit as cancelled, so each long step carries its own limit.
 - A pull request that changes only the iOS app (`apps/ios/`, `ios.yml`, `testflight.yml`) skips the site's checks;
   `protocols/` is the site's too.
 - Every pull request's body says what it changes for the owner, in a `## Changelog` section (AGENTS.md): `ci.yml`'s

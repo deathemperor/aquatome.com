@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { checks, prComment, sitemapPages } from '../../../scripts/site-watch.mjs'
+import { checks, prComment, sitemapPages, lateDeploy } from '../../../scripts/site-watch.mjs'
 
 // One page's review in Playwright's JSON report, shaped as a real run writes it (ci.yml runs the phone project only).
 const LIMIT = "Claude usage limit: You've hit your weekly limit · resets Nov 5, 6am (UTC)"
@@ -47,4 +47,11 @@ test('the pages a site offers: through the index of its sitemaps, or an older bu
   expect(await sitemapPages('https://aquatome.com', get)).toEqual(['/ca/x/', '/'])
   files['/sitemap.xml'] = '<urlset><url><loc>https://aquatome.com/old/</loc></url></urlset>'
   expect(await sitemapPages('https://aquatome.com', get)).toEqual(['/old/'])
+})
+
+test('changes waiting for a deploy are late at 3 hours, counted from the oldest', () => {
+  const now = Date.parse('2026-11-10T10:00:00Z')
+  expect(lateDeploy([], now)).toBeNull()
+  expect(lateDeploy(['2026-11-10T07:01:00Z', '2026-11-10T09:00:00Z'], now)).toBeNull()
+  expect(lateDeploy(['2026-11-10T06:30:00Z', '2026-11-10T09:00:00Z'], now)).toEqual({ hours: 3, changes: 2 })
 })

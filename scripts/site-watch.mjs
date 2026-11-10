@@ -4,7 +4,7 @@
 //
 //   site-watch.mjs prepare <site> <dir>      sitemap → <dir>/e2e-pages.json; pages of open issues → <dir>/e2e-recheck.json
 //   site-watch.mjs report <results.json>[,<more.json>] <run-url>    (the page checks, then Lighthouse's own run)
-//   site-watch.mjs deploy-failed <run-url> | deploy-ok <run-url>
+//   site-watch.mjs deploy-failed <run-url> | deploy-ok <run-url> | deploy-late <run-url>
 //   site-watch.mjs pr-comment <results.json> <pr-number> <run-url>    the AI review's findings as one comment on the PR, and
 //                                                                     how many reviews did not run, and why
 //
@@ -44,7 +44,7 @@ function failing(issues, { fp, path, title, details, runUrl, autofix = false }) 
   const seen = `**Last failed:** ${today()}, [run](${runUrl})`
   const open = issues.get(fp)
   if (open) {
-    act('issue', 'edit', String(open.number), '--body', open.body.replace(/\*\*Last failed:\*\*.*$/m, seen))
+    act('issue', 'edit', String(open.number), '--title', title, '--body', open.body.replace(/\*\*Last failed:\*\*.*$/m, seen))
     return console.log(`#${open.number} still failing: ${title}`)
   }
   const body = [marker(fp, path), `${seen}`, '', details, '', 'Closes by itself when the check passes again (docs/governance.md, layer 2). Fixing it: reproduce with the check, keep the check, fix the page.'].join('\n')
@@ -126,6 +126,26 @@ export async function sitemapPages(site, get = fetch) {
   return sheets.flatMap(locs).map(u => new URL(u).pathname)
 }
 
+export const LATE_HOURS = 3
+/** Changes that have waited too long for a deploy, from their commits' dates; null while none has. */
+export function lateDeploy(commitDates, now) {
+  if (!commitDates.length) return null
+  const hours = Math.floor((now - Math.min(...commitDates.map(d => Date.parse(d)))) / 3_600_000)
+  return hours >= LATE_HOURS ? { hours, changes: commitDates.length } : null
+}
+/** The commits on main a deploy would carry (deploy.yml's paths) that came after the last deploy to finish. */
+function waitingCommits() {
+  const repo = process.env.GITHUB_REPOSITORY ?? 'deathemperor/aquatome.com'
+  const sha = gh('run', 'list', '-R', repo, '--workflow', 'deploy.yml', '--status', 'success', '--limit', '1', '--json', 'headSha', '--jq', '.[0].headSha').trim()
+  const since = gh('api', `repos/${repo}/commits/${sha}`, '--jq', '.commit.committer.date').trim()
+  const seen = new Map()
+  for (const path of ['apps', 'packages/schema', 'content', 'pnpm-lock.yaml']) {
+    const list = JSON.parse(gh('api', '-X', 'GET', `repos/${repo}/commits`, '-f', 'sha=main', '-f', `since=${since}`, '-f', `path=${path}`, '-f', 'per_page=100'))
+    for (const c of list) if (c.sha !== sha) seen.set(c.sha, c.commit.committer.date)
+  }
+  return [...seen.values()]
+}
+
 // Run as a script it acts; imported (its test, apps/site/test/site-watch.test.ts) it only defines.
 const main = import.meta.url === pathToFileURL(process.argv[1] ?? '').href
 const [cmd, ...args] = main ? process.argv.slice(2) : []
@@ -163,6 +183,16 @@ if (cmd === 'prepare') {
   failing(openIssues(), { fp: fingerprint('deploy'), title: 'Deploy failed', details: 'The last deploy did not finish: aquatome.com still shows the version before it. Open the run, fix the failing step, then run deploy.yml again.', runUrl: args[0] })
 } else if (cmd === 'deploy-ok') {
   passing(openIssues(), fingerprint('deploy'), args[0], 'A deploy finished')
+} else if (cmd === 'deploy-late') {
+  const issues = openIssues()
+  const fp = fingerprint('deploy-late')
+  const late = lateDeploy(waitingCommits(), Date.now())
+  if (late) {
+    ensureLabel()
+    const first = !issues.has(fp)
+    failing(issues, { fp, title: `No deploy has finished for ${late.hours} hours: ${late.changes} changes waiting`, details: 'Changes are merged and aquatome.com still shows the version before them. Look at the Deploy aquatome.com runs: a run cut off by its time limit shows as cancelled.', runUrl: args[0] })
+    if (first) process.exitCode = 1 // once, so a failed run reports it; the issue carries it from there
+  } else passing(issues, fp, args[0], 'Deploys caught up')
 } else if (cmd === 'pr-comment') {
   const [file, pr, runUrl] = args
   const body = prComment(existsSync(file) ? checks(JSON.parse(readFileSync(file, 'utf8'))) : [], runUrl)
