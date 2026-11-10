@@ -402,6 +402,9 @@ The layers above still check the result.
   - **A rewrite starts from them.** `videos --redo`, `breed --redo`, `topic --redo`, `product --redo`, the localizers'
     `--redo` and `rewrite-vi` give the writer the last kept review's notes, under the same rule as the rewrite within a
     run (under the bar, or any note for the pages checked against their research).
+  - **The style rewrite takes the pages out of search for their score first** (`rewriteExisting`, `vi-backfill.ts`),
+    then the rest in its kinds' order: a kept rewrite is what brings such a page back, and in folder order the last of
+    them waited five weeks (2026-11-10: 238 fish and plant pages; 28 of the 31 it had reached were back in search).
   - **What recurs, per kind:** `docs/review/reviews.md` (`pnpm engine reviews`, each cycle's photos part): how many pages
     each kind last left under the bar and the faults their notes name most, grouped, with notes quoted and their pages.
     What prompt fixes start from.

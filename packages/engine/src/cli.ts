@@ -855,7 +855,8 @@ if (cmd === 'run' || cmd === 'card-fill') {
   // Vietnamese thumbnail labels: pnpm engine covers [--redo] [--limit N] (--redo rewrites the ones already there).
   await covers({ redo: values.redo, limit: values.limit ? Number(values.limit) : undefined })
 } else if (cmd === 'rewrite-vi') {
-  // Existing Vietnamese rewritten in the site's style, worst-read kinds first, each page once, reviewer-gated:
+  // Existing Vietnamese rewritten in the site's style, pages out of search for their score first, then worst-read kinds
+  // first, each page once, reviewer-gated:
   // pnpm engine rewrite-vi [--limit N] [--only guides,species,plants,glossary] [--match <regex>: re-edit pages containing it]
   //   [--phrases: re-edit pages with a phrase from the Vietnamese list (phrases.ts)] [--dry-run: list the pages and parts, no model call]
   const kinds = values.only?.split(',').filter((k): k is (typeof REWRITE_KINDS)[number] => (REWRITE_KINDS as readonly string[]).includes(k))
