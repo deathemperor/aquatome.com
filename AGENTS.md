@@ -31,8 +31,12 @@ Leads, the engine and main's iOS runs share one Mac. A booted simulator is the h
   refused, and told who is up. `scripts/mac-status.py` says the load, the heat, who is up and whether it's quiet enough to
   record.
 - A screen recording runs as `scripts/quiet-recording.py [minutes] <command>`, which holds both queues' turns so nothing of
-  ours tests beside it, and gives them back unrecorded if the Mac stays too loaded. `scripts/frames-check.py <video> --expected
-  <frames>` says whether it kept every frame.
+  ours tests beside it, and gives them back unrecorded if the Mac stays too loaded. Between 08:00 and 22:00 it needs the chief
+  of staff's word first: it can hold the simulator idle for 15 minutes and both queues for 20. `scripts/frames-check.py <video>
+  --expected <frames>` says whether it kept every frame, and a recording offered as evidence of motion carries that count, or
+  it isn't evidence (the chief of staff, 2026-11-10).
+- Stop a process only by a pid you started yourself, whether you're a lead, a helper or a reviewer: `pkill` and `killall` match
+  other people's runs (the chief of staff, 2026-11-10). Other projects on this Mac are the owner's and are never touched.
 - Close a Device session when done: `agent-device close --shutdown`. `device_close` alone can leave the simulator running.
 - What's on screen is drawn every frame: WindowServer's compositing was a third of the GPU through the hot hours of
   2026-11-08. Simulators run headless (`xcrun simctl boot`, or xcodebuild's own); opening Simulator.app is refused. Watch
