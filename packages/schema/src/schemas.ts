@@ -233,6 +233,12 @@ export const CaptionsSchema = z.record(z.string(), z.string())
 export const PictureHashesSchema = z.record(z.string(), z.string().regex(/^[0-9a-f]{16}$/))
 
 /**
+ * content/one-voice.json: a species' id, then a heading (section key), then the one source that speaks under it. Where the
+ * sources under a heading can't both be true, the page shows that source's text alone (load.ts).
+ */
+export const OneVoiceSchema = z.record(z.string(), z.partialRecord(z.enum(SECTION_ORDER), SourceId))
+
+/**
  * A gallery photo can carry what the screening model said of it, so a top-up re-ranks the whole gallery: `best`, one of
  * its picks of a contact sheet; `kind`, what it shows (male, female, colour form, juvenile, habitat; for a plant
  * submersed, emersed, flower…). Photos screened before these existed have neither.
