@@ -5,12 +5,12 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution | lethal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 3799 | 3375 | 1535 | 72 | 48 | 199 | 33 | 992 | 457 | 2703 | 469 | 10 | 15 | 0 | 3 | 0 | 3 | 0 |
+| Vietnamese | 3842 | 3417 | 1541 | 72 | 49 | 197 | 33 | 993 | 456 | 2707 | 473 | 10 | 15 | 0 | 3 | 0 | 3 | 0 |
 | Indonesian | 1150 | 988 | 305 | 19 | 4 | 3 | 5 | 153 | 58 | 46 | 135 | 0 | 0 | 0 | 3 | 0 | 0 | 0 |
 | Thai | 1143 | 982 | 290 | 17 | 4 | 4 | 3 | 136 | 69 | 70 | 122 | 0 | 1 | 0 | 1 | 0 | 0 | 0 |
 | Malay | 180 | 138 | 50 | 4 | 1 | 0 | 0 | 22 | 16 | 6 | 16 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 
-Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 10 of 126, Indonesian 2 of 51, Thai 2 of 51, Malay 1 of 17.
+Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 10 of 125, Indonesian 2 of 51, Thai 2 of 51, Malay 1 of 17.
 
 ## Doses on more than one page
 
@@ -76,14 +76,13 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - ada amazonia: 14
 - ada amazonia aqua soil: 14
 - hikari first bites: 14
+- keo 502: 13
 - easy fry and small fish food: 12
 - hikari shrimp cuisine: 12
 - hikari vibra bites: 12
-- keo 502: 12
 - aquario neo soil: 11
-- keo 502: 11
+- eheim: 11
 - seachem fluorite: 11
-- eheim: 10
 - aquaclear: 9
 - carib sea eco-complete: 9
 - ge silicone 1: 9

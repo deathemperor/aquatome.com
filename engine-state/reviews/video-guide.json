@@ -92,6 +92,35 @@
   ],
   "vi/guides/youtube--E2eo-dx-qk": [
     {
+      "at": "2026-11-10T03:32:10Z",
+      "model": "sonnet",
+      "score": 0.75,
+      "notes": [
+        "\"Tự làm thì có thể chọn nẹp mỏng nếu muốn\": the video only says shelf edging comes in various thicknesses and you can use whatever you like. It never says to pick a thin one. Change it to \"chọn độ dày tùy ý\".",
+        "\"dao lam để rạch và cắt nẹp\" and \"Cắt nẹp đúng chiều dài\": the video uses the razor only to score the edging and snap it off. It doesn't say what cuts the piece to length. Limit the razor to scoring and snapping, and don't name a tool for the length cut.",
+        "\"dùng được thật\" is a calque of \"practical\" and reads awkwardly. Rephrase it as something like \"tiện dụng\"."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-10T03:32:10Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "\"Nắp ... nếu thích tự làm thì mua tấm vật liệu về cắt nắp theo kích thước gờ\": the video gives no sizing step. Cut it to \"mua vật liệu về tự làm nắp\" with no sizing detail.",
+        "\"Viền to là chuyện dễ thấy.\": this filler sentence isn't in the video. Delete it.",
+        "\"Tự làm thì chọn được viền mỏng gọn hơn\": the video doesn't say this outright. It only says shelf edging comes in various thicknesses and you can use whatever you like. Reword to that, or hedge it (\"có thể chọn nẹp mỏng nếu muốn\").",
+        "\"Chờ 24 giờ cho silicon khô\": the video only says to wait 24 hours. Remove the stated reason \"cho silicon khô\".",
+        "\"Nẹp nhựa làm cho mép kệ cắt dễ, kích thước vừa phải nên làm viền rất hợp\" (summary bullet): this reads like a machine translation and is unclear. Rewrite it in natural Vietnamese, e.g. \"Nẹp nhựa bo mép kệ cắt dễ, kích thước vừa phải nên hợp để làm viền\".",
+        "\"Dán silicon nẹp lên mép trên của bể\" and \"dán silicon nẹp vào mặt trong\": the word order is broken. Rewrite as \"Bôi silicon rồi dán nẹp lên...\" or \"Dán nẹp bằng silicon lên...\".",
+        "FAQ \"Bể dài 90 cm cần bao nhiêu nẹp? ... hai cây là đủ\": this states a firm rule. The video only says the creator took a couple of 8 ft lengths for a 3 ft tank. Hedge it (\"người làm lấy hai cây cho bể khoảng 90 cm\") or drop the question.",
+        "\"Màu nào cũng được\" is stated twice, in the steps and in the FAQ. Keep it once, because the repetition adds nothing."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
+    {
       "at": "2026-11-08T22:26:52Z",
       "model": "sonnet",
       "score": 0.45,
@@ -2100,6 +2129,18 @@
     }
   ],
   "vi/guides/youtube-4WD_WU536g8": [
+    {
+      "at": "2026-11-10T03:31:48Z",
+      "model": "sonnet",
+      "score": 0.75,
+      "notes": [
+        "\"chỉ với kính đã cắt sẵn, silicone, băng keo giấy và băng keo điện\": the video never lists materials or says the glass comes pre-cut. Remove this materials list, or say only that the build uses glass panels, silicone and tape.",
+        "\"Cứ chọn silicone 100% không có phụ gia\" and \"Nên dùng silicone 100% không phụ gia\" (summary bullet): the speaker only says \"my suggestion would be\". Hedge both, e.g. \"một gợi ý là dùng silicone 100% không phụ gia\", instead of a firm instruction.",
+        "The table column \"Hợp với ai\" with \"Người đã quen tay\" for the wipe-then-scrape method: the speaker gives this as his own habit. He only says beginners should leave the silicone alone. Remove the column or word it as \"một cách là…\" for the second method, not as advice for experienced people."
+      ],
+      "attempt": "first",
+      "kept": true
+    },
     {
       "at": "2026-11-08T22:26:53Z",
       "model": "sonnet",
@@ -7049,6 +7090,35 @@
   ],
   "vi/guides/youtube-EJtE6JlD7Xg": [
     {
+      "at": "2026-11-10T03:32:43Z",
+      "model": "sonnet",
+      "score": 0.75,
+      "notes": [
+        "\"Mua mới ở tiệm vật liệu xây dựng\": the video says a hardware store. Change it to \"tiệm đồ kim khí/dụng cụ\" or just \"cửa hàng bán đồ gia dụng, dụng cụ\".",
+        "\"Dùng bio ball thì tháp vẫn chạy như vậy.\": this sentence is filler and repeats the point just made. Delete it.",
+        "The final FAQ block repeats the cost, hole-drilling, raised-bucket and scrubber-versus-bio-ball content almost word for word. Cut the repeats, or keep only the questions that add something, so the guide reads as written in the writer's own words.",
+        "\"Nước chảy qua cước rồi thoát ra ở đáy, còn vi sinh thì có nhiều oxy.\": the clauses are joined awkwardly and read like a translation. Rewrite it as natural prose, for example by saying that the air-exposed scrubbers give the bacteria plenty of oxygen."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-10T03:32:43Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "\"Máy khoan và dụng cụ cắt nhựa để cắt xô và khoan lỗ\": the video's supplies don't list tools; remove this bullet.",
+        "\"Mua sẵn một bộ cho bể lớn không rẻ, nhưng tự làm thì...\": the video never says store-bought filters are expensive; remove this claim.",
+        "\"các vi khuẩn có lợi bám trên bề mặt vật liệu và xử lý chất thải của cá\": added explanation not in the video (waste processing); cut to just saying that bacteria live on the media.",
+        "\"Đây là loại lọc mà người làm video thích và đã dùng nhiều năm\": mentions the video's creator; rewrite without referring to anyone or drop it.",
+        "\"Một bộ cùng kiểu được làm và dùng từ khoảng bảy năm trước\": refers to the creator's own earlier build; remove.",
+        "\"vi sinh luôn có nhiều oxy\" (appears in the body and the FAQ): \"luôn\" is stronger than the video, which only says the setup gives an oxygen-rich environment; change to \"có nhiều oxy\".",
+        "\"gánh được bể nuôi dày hơn\": the video only says higher surface area allows a larger bio load; reword to \"chịu được lượng chất thải lớn hơn\" or drop the stocking-density claim."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
+    {
       "at": "2026-11-08T22:29:47Z",
       "model": "sonnet",
       "score": 0.45,
@@ -7461,6 +7531,41 @@
     }
   ],
   "vi/guides/youtube-FBPzPrh-i_A": [
+    {
+      "at": "2026-11-10T03:32:31Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "\"Đèn cần mạnh\" / \"Đèn phải mạnh\" (in the summary, the lighting section and the FAQ): the video only asks for good lighting at 6,000–8,000 K, which is colour temperature, not strength. Change this to \"ánh sáng tốt, khoảng 6.000–8.000 K\" and drop \"mạnh\".",
+        "\"Cây trong bể ở đây mới cao khoảng 2,5 cm\": this points to the creator's own tank. Rewrite it neutrally, for example \"cây nhỏ cao khoảng 2,5 cm, chồng bốn cây như vậy là tới cỡ tối đa\", without \"ở đây\".",
+        "\"nhìn từ trên xuống\" (summary and appearance section): the video doesn't give this viewing angle. Remove it and keep only that the leaves form a small four-point star.",
+        "\"loài này có dáng riêng\": the video doesn't say this. It only says carpeting plants like this look better than hair grass. Remove the sentence or say only that the creator found it better looking than hair grass.",
+        "\"Cắm cây ở dải tiền cảnh, phía trước bể, rồi chờ cây lan ra thành thảm\": this is an invented planting step. Remove it, or fold it into the foreground description without presenting it as a step.",
+        "\"Bể càng sâu thì ánh sáng xuống tới nền càng khó đủ\" (FAQ): this states as fact something the video only doubts for this one tank. Hedge it, for example \"ở bể sâu khó biết ánh sáng xuống nền có đủ không\".",
+        "\"Những ngọn dài thường được khuyên cắt bớt\" and \"nên đọc thêm trước khi quyết định\": the video only says the long stems are supposedly cut off and the creator doesn't know why. Hedge it as \"có thể cắt bớt ngọn dài\" and drop the added advice to read more."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-10T03:32:31Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [
+        "\"dòng Flourite của Seachem\": the video never names Flourite or Seachem (the speaker only forgot the name of another substrate); remove it.",
+        "\"Finnex Planted+\" and \"đèn thủy sinh của Fluval\": the video says only that a Finnex light and the planted light built into the Fluval tank work fine; remove the \"Planted+\" model name and don't present Fluval lights as a general recommendation.",
+        "\"Thật ra đèn nào trồng được cây cũng có thể thử, miễn là đủ mạnh\": reword to say any planted-tank light might work, without the invented \"miễn là đủ mạnh cho loài này\" condition.",
+        "\"mặt trời rọi thẳng xuống cây. Vì vậy trong bể nó cần đèn khỏe\": the video does not give this cause; it only says the plant lives in very shallow streams and a shallow tank suits it better. Remove the sunlight claim and the \"vì vậy\" reasoning.",
+        "\"Lý do là cây đòi hai thứ: nền tốt và đèn mạnh\" and the FAQ \"một trong hai lý do\": the video gives only the good substrate as the reason for the intermediate rating; lighting is a separate need. Fix to say the substrate is the reason.",
+        "\"Cây cần phân nền tốt\" (summary, substrate section, FAQ): the video says the plant needs a good substrate, and the speaker is trying it in sand as a test. Keep it, but hedge any \"phân nền\" wording toward \"nền tốt\", and note \"Eco-Complete/Stratum\" are examples (\"có thể\").",
+        "\"Cây cao tối đa khoảng 10 cm\" and \"Chăm tốt thì cây cao tới khoảng 10 cm\": the video says up to about four inches depending on how well it does, and the speaker's wording is loose. Hedge with \"có thể cao tới khoảng 10 cm\" instead of a firm maximum.",
+        "\"Lá mọc đối xứng thành bốn cánh đều nhau\" and \"Cây này phải cắm xuống nền, khác với ráy (Anubias)\": \"phải\" is stronger than the video. The speaker says to bury the stem fairly deep and compares it to Anubias; soften it and drop \"không buộc lên đá hay lũa\" as a rule for this plant.",
+        "\"Nếu muốn thử cây khó hơn một bậc cho tiền cảnh thì có thể chọn nó thay cho ngưu mao chiên\": this is one person's choice presented as advice. Hedge it as the speaker's own plan, e.g. \"một cách là\", or remove it.",
+        "\"Nó không thuộc nhóm cây dễ như ráy hay dương xỉ\" and \"Ở những bể như vậy cây sẽ lên tốt\": the video never mentions ferns, and \"sẽ lên tốt\" is firmer than the video's \"would go fine\". Remove the fern reference and hedge to \"có thể lên tốt\"."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
     {
       "at": "2026-11-08T17:36:06Z",
       "model": "sonnet",
@@ -16436,6 +16541,39 @@
   ],
   "vi/guides/youtube-YnloIslvwHA": [
     {
+      "at": "2026-11-10T03:29:48Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "\"Dùng đèn vừa phải, nếu quá sáng thì giảm bớt\": the transcript is garbled here (\"remove the bottle labeled difficult to grow\"). It never says how to reduce the light, so keep only \"dùng đèn vừa phải\" and drop the \"giảm bớt\" advice, or hedge it.",
+        "\"Nhìn từ ngoài vào thì chủ yếu chỉ thấy cây, dây không lộ nhiều\": the transcript is unclear on this (\"not easy to hide the wire, only the paper is visible\"). Remove it or soften it to \"có thể\", so it isn't stated as a firm result.",
+        "The opening bullet list repeats the later sections almost word for word (nền 4–5 cm, khía lũa, quấn rêu, đèn/CO2). Cut the duplication and write one clear intro in the writer's own words, so it reads as a guide and not a note-style summary.",
+        "\"Nền trải khoảng 4–5 cm\": the transcript line is garbled (\"Japanese Combat Flower substrate, spread 4-5 cm above the water\"). State this more cautiously, for example \"lớp nền dày khoảng 4–5 cm\", and don't present it as a clearly confirmed spec.",
+        "\"Trồng cây theo từng vùng: bên trái, ở giữa và bên phải\": this step has no content because the plant names in the transcript are garbled. Either drop the step or merge it into one short sentence, so it isn't an empty step."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-10T03:29:48Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "\"Phần khó nhất là buộc cây lên lũa, nên bài đi kỹ phần này\": the video never says this is the hardest part; remove this claim and the 'Đọc xong, bạn sẽ biết...' promise sentence.",
+        "\"Các việc được làm theo thứ tự: trải phân nền, buộc rêu và ráy lên lũa, trồng cây rồi châm nước\": the stated order is not clearly given in the video (the tying is shown after planting setup); remove or hedge this sentence.",
+        "\"Phân nền được rải cách thành kính khoảng 2–3 cm\": the transcript says about 2-3 cm buried at the sides to stop moss spreading and damaging plants; it is unclear and not a layer 'cách thành kính'. Correct to the stated purpose or remove.",
+        "\"Lớp nền chính dày khoảng 4–5 cm\" (also in the summary bullet): the transcript says 4-5 cm 'above the water' and is garbled, so state it only hedged, e.g. 'khoảng 4–5 cm', without calling it the main layer, or drop it.",
+        "\"Như vậy về sau, bên dưới ráy sẽ có một lớp rêu dày, và đàn cá có chỗ bơi thành đàn\": the section title 'Vì sao chọn ráy thân cao' and the wording state the result as certain; hedge it with 'có thể' and keep it as the creator's intention.",
+        "\"Buộc xong thì cắt phần dây thừa\" and \"Dây không dễ giấu hết, nhưng nhìn từ ngoài vào thì chủ yếu thấy ráy\": garbled in the transcript; the point is that the wire is hard to hide yet mostly only the plant shows. Simplify to what is said and drop the contradictory phrasing.",
+        "\"Trồng mỗi loại cây ở một vùng: bên trái, ở giữa và bên phải\": the transcript names plants (garbled) per area; saying 'each type' is vague and the 'làm ẩm nền trước khi trồng' purpose (avoid missing plants) is omitted. Fix to match or remove.",
+        "\"các cụm cách nhau khoảng 2 cm\": the transcript says clumps about 2 finger lengths apart and each clump about 2 cm; correct the spacing to 'khoảng hai ngón tay' or hedge, and do not state it firmly.",
+        "\"Bể này chỉ dùng đèn ở mức trung bình\": the video also says to remove/reduce if too bright; 'chỉ' is stronger than the video. Use 'dùng đèn vừa phải, nếu quá sáng thì giảm bớt'.",
+        "The FAQ repeats the body almost verbatim (four questions restating earlier sections) and the opening bullet list duplicates the guide; remove the redundant FAQ questions and keep it concise."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
+    {
       "at": "2026-11-08T17:33:56Z",
       "model": "sonnet",
       "score": 0.4,
@@ -16456,6 +16594,29 @@
     }
   ],
   "vi/guides/youtube-YpQiCUFALSM": [
+    {
+      "at": "2026-11-10T03:29:45Z",
+      "model": "sonnet",
+      "score": 0.75,
+      "notes": [
+        "\"Tiền đồ chỉ dưới 20 USD\" and \"Tiền đồ ban đầu dưới 20 USD\" (FAQ): \"tiền đồ\" is not natural Vietnamese. Change it to \"chi phí ban đầu\".",
+        "\"in ảnh cá của mình để vào cho hợp với kệ\": the video doesn't give a reason for the picture frames. It only says the creator printed photos of their own fish to put in them. Remove \"cho hợp với kệ\" or rephrase it as a plain optional touch."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-10T03:29:45Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "\"Ai cũng làm được, và tiền đồ chỉ dưới 20 USD.\": the video never says anyone can do it. Delete \"Ai cũng làm được\" and keep only the cost of under 20 USD.",
+        "\"tính luôn hũ, nước và mọi thứ bên trong\": the video only says the whole combined weight is under 8 pounds and never mentions water. Say the whole shelf is under about 3.6 kg and drop the list of what it includes.",
+        "\"rồi vặn nắp phía trên\" and \"rồi vặn nắp ở phía trên\": the video only says the cap goes on top, with no screwing step. Change to \"đặt nắp lên phía trên\"."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
     {
       "at": "2026-11-08T17:33:56Z",
       "model": "sonnet",
@@ -27189,6 +27350,35 @@
   ],
   "vi/guides/youtube-xf_ylcdUQsQ": [
     {
+      "at": "2026-11-10T03:30:10Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "\"Beta Acuarios\": the transcript only has the garbled \"better acquirers\", so the brand is a guess. Remove the maker's name and keep just \"bể kính Opti White\".",
+        "\"Creaqua Nano Elite\": the brand is a guess from the garbled caption. Remove the brand and write only \"đèn Nano Elite\" (or just \"đèn nano\").",
+        "\"Không cần trồng hết mọi thứ ngay một lần.\": this reads as advice, but the video only says some mosses will be added later. Remove the sentence or rephrase it as a plain fact: \"một số loại rêu sẽ được thêm sau\".",
+        "\"hụt vài cm ở mép dưới\": the transcript is unclear and says about 1 cm. Change to \"hụt một chút\" instead of a specific number.",
+        "\"nền mờ kiểu kính phun cát\": the video only says \"frosted background effect\". Remove the sandblasted-glass comparison and say \"hiệu ứng nền mờ\".",
+        "\"nên phần này đáng bỏ công\": this is the writer's own conclusion. Rewrite it as a hedged opinion that the creator thinks small details can make or break a hardscape (\"chi tiết nhỏ có thể làm bố cục đẹp lên hoặc hỏng đi\"), and drop the added advice."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-10T03:30:10Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [
+        "The plant list (\"Rêu: Amblystegium serpens, Taxiphyllum sp. 'Flame'…\" through \"Rotala rotundifolia 'H'ra'\") is invented. The video says only that the plant names are in the description or on screen. Delete the whole list and the sentence \"Danh sách cây gồm:\".",
+        "\"Phân nền là JBL plant soil màu nâu\" is not in the video. Remove the substrate brand and colour.",
+        "\"Bộ CO2 dùng ở đây là Dennerle Primus 160 loại bình dùng một lần\" is invented. The video only says a CO2 system must be installed. Remove the product name and the disposable-cylinder detail.",
+        "\"kèm vài mẹo dùng được cho bể nào cũng vậy\" is a generalisation the video doesn't make. Remove it, or say the tips come from this one build.",
+        "\"Nếu bạn thấy mình không giỏi xếp lũa đá thì phần này có thể mất nhiều thời gian hơn cả\" turns the creator's own experience into advice to the reader. Reword it as one person's experience, or drop it."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
+    {
       "at": "2026-11-08T17:33:42Z",
       "model": "sonnet",
       "score": 0.4,
@@ -27946,6 +28136,28 @@
     }
   ],
   "vi/guides/youtube-zfTnqG22oS8": [
+    {
+      "at": "2026-11-10T03:29:57Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"có thể bẻ đôi bằng tay mà không cần kéo\": the video only says the rhizome is brittle enough to split by hand. Remove \"mà không cần kéo\", since the video never mentions scissors for this."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-10T03:29:57Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "\"Cách buộc dây không phải ai cũng hợp.\": this makes one person's habit sound like a general rule. The creator only says he personally doesn't tie plants, because he plants after the hardscape is done. Rewrite it as a hedge, e.g. \"Nếu hay trồng cây sau khi đã xếp xong đá và lũa thì có thể khó buộc dây\". Remove \"không phải ai cũng hợp\".",
+        "\"chẳng hạn một bụi ráy nằm sẵn trong khe của bố cục\": the video doesn't describe the anubias as already sitting in a crevice. It only asks how he would tie these anubias to the hardscape when he plants after the hardscape is done. Remove the crevice detail or reword it to what he says.",
+        "\"đừng để thảm mọc quá dày\" and \"thảm mọc quá dày thì sẽ bong khỏi nền\" (also \"Cây trải thảm không nên để mọc quá dày\" in the summary): the video says not to let the carpet \"grow too much\", i.e. overgrown, not too thick. Change \"dày\" to \"mọc quá nhiều/um tùm\" or \"mọc quá cao\"."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
     {
       "at": "2026-11-08T22:26:15Z",
       "model": "sonnet",

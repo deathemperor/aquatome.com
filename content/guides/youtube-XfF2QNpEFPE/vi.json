@@ -41,7 +41,8 @@
   "held": {
     "checks": [
       "shop",
-      "source"
+      "source",
+      "units"
     ],
     "at": "2026-11-10"
   }

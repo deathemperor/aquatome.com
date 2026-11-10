@@ -1,12 +1,12 @@
 {
   "id": "youtube-YnloIslvwHA",
-  "kind": "aquascaping",
+  "kind": "setup",
   "source": "youtube",
   "sourceUrl": "https://www.youtube.com/watch?v=YnloIslvwHA",
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-10",
   "video": {
     "youtubeId": "YnloIslvwHA",
     "title": "#0009 Chia sẻ bí quyết buộc rêu ráy lên gỗ lũa trong hồ thủy sinh cực đẹp - Aqua Hà Nội",
@@ -24,9 +24,7 @@
       "width": 1280,
       "height": 720
     },
-    "taxa": [
-      "Hemianthus micranthemoides"
-    ],
+    "taxa": [],
     "gear": [
       {
         "category": "phan-nen",
@@ -34,53 +32,40 @@
         "t": 0
       },
       {
-        "category": "cay-thuy-sinh",
-        "type": "gan-lua",
-        "t": 120
-      },
-      {
         "category": "co2",
         "t": 452
+      },
+      {
+        "category": "cay-thuy-sinh",
+        "type": "gan-lua",
+        "t": 122
       }
     ],
     "figures": [
       {
-        "heading": "Chuẩn bị nền thế nào",
+        "heading": "Chuẩn bị phân nền thế nào",
         "moments": [
           {
-            "t": 30,
-            "url": "https://media.aquatome.com/video/YnloIslvwHA/t30.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Lớp phân nền lót được trải đều dưới đáy bể kính."
+            "t": 35,
+            "url": "https://media.aquatome.com/video/YnloIslvwHA/at35-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Phân nền đã được trải đều trong bể, chưa có nước.",
+            "sharpness": 4544.5
           },
           {
-            "t": 59,
-            "url": "https://media.aquatome.com/video/YnloIslvwHA/t59.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Lớp nền chính phủ lên trên lớp lót trong bể."
+            "t": 60,
+            "url": "https://media.aquatome.com/video/YnloIslvwHA/at60-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Lớp phân nền dày được san phẳng trong bể trước khi trồng cây.",
+            "sharpness": 4189
           }
         ]
       },
       {
-        "heading": "Chọn ráy cho khúc lũa",
-        "moments": [
-          {
-            "t": 99,
-            "url": "https://media.aquatome.com/video/YnloIslvwHA/t99.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Khúc lũa đã đặt trong bể, nền đất còn trống để trồng ráy và rêu."
-          },
-          {
-            "t": 104,
-            "url": "https://media.aquatome.com/video/YnloIslvwHA/t104.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Khúc lũa nhiều nhánh đặt trên nền, chừa khoảng trống phía dưới."
-          }
-        ],
+        "heading": "Chọn ráy thân cao để làm gì",
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/YnloIslvwHA/p1-NfUGxhbnRzLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/YnloIslvwHA/p1-NfUGxhbnRzLmpwZw-480.webp",
@@ -89,104 +74,123 @@
           "licence": "CC BY 4.0",
           "author": "Abhik.Mazumdar.73",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_with_Mermaid_Statue_Driftwood_and_Anubias_Aquatic_Plants.jpg",
-          "caption": "Bụi ráy xanh mọc trên khúc lũa trong bể nền cát trắng."
+          "caption": "Bụi ráy lá xanh mọc trên lũa trong hồ thủy sinh, chừa khoảng trống bên dưới cho cá bơi."
         }
       },
       {
-        "heading": "Buộc rêu và ráy lên lũa",
+        "heading": "Khía lũa và quấn rêu vào ráy",
         "moments": [
           {
-            "t": 173,
-            "url": "https://media.aquatome.com/video/YnloIslvwHA/t173.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Rêu đã được phủ thành dải dài trên khúc lũa."
+            "t": 155,
+            "url": "https://media.aquatome.com/video/YnloIslvwHA/at155-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Xếp từng miếng rêu lên khúc lũa trước khi quấn cước.",
+            "sharpness": 376.7
           },
           {
-            "t": 188,
-            "url": "https://media.aquatome.com/video/YnloIslvwHA/t188.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Tay đặt và quấn cước giữ rêu vào lũa."
+            "t": 185,
+            "url": "https://media.aquatome.com/video/YnloIslvwHA/at185-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Rêu đã được quấn chặt dọc theo khúc lũa.",
+            "sharpness": 1767.2
           }
         ]
       },
       {
-        "heading": "Giấu dây và giữ ẩm khi làm",
+        "heading": "Buộc ráy vào lũa mà không làm dập rễ",
         "moments": [
           {
-            "t": 326,
-            "url": "https://media.aquatome.com/video/YnloIslvwHA/t326.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Ráy buộc trên khúc lũa phủ rêu, nhìn từ ngoài khó thấy dây."
+            "t": 290,
+            "url": "https://media.aquatome.com/video/YnloIslvwHA/at290-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tay đang luồn dây buộc cây ráy vào lũa.",
+            "sharpness": 442.2
           },
           {
-            "t": 331,
-            "url": "https://media.aquatome.com/video/YnloIslvwHA/t331.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Phun nước lên rêu và ráy trong lúc buộc để cây khỏi khô."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/YnloIslvwHA/p3-NfUGxhbnRzLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/YnloIslvwHA/p3-NfUGxhbnRzLmpwZw-480.webp",
-          "width": 960,
-          "height": 638,
-          "licence": "CC BY 4.0",
-          "author": "Abhik.Mazumdar.73",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_with_Mermaid_Statue_Driftwood_and_Anubias_Aquatic_Plants.jpg",
-          "caption": "Ráy đã buộc vào lũa, nhìn từ ngoài vào không thấy dây, chỉ lộ lá."
-        }
-      },
-      {
-        "heading": "Trồng cây nền và trân châu tiền cảnh",
-        "moments": [
-          {
-            "t": 386,
-            "url": "https://media.aquatome.com/video/YnloIslvwHA/t386.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đang xịt nước làm ẩm nền trước khi trồng cây."
-          },
-          {
-            "t": 415,
-            "url": "https://media.aquatome.com/video/YnloIslvwHA/t415.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Các khóm cây xanh được trồng thành hàng trên nền đất quanh lũa."
+            "t": 330,
+            "url": "https://media.aquatome.com/video/YnloIslvwHA/at330-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ráy đã buộc xong trên lũa, dây gần như không lộ.",
+            "sharpness": 1034.5
           }
         ]
       },
       {
-        "heading": "Đèn, CO2 và cho nước vào",
+        "heading": "Khi nào cắt bỏ dây buộc",
         "moments": [
+          {
+            "t": 340,
+            "url": "https://media.aquatome.com/video/YnloIslvwHA/at340-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Lũa phủ ráy xanh tốt, bám chắc, sẵn sàng cắt dây buộc.",
+            "sharpness": 1922.5
+          },
+          {
+            "t": 355,
+            "url": "https://media.aquatome.com/video/YnloIslvwHA/at355-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cành lũa với cụm ráy xanh đã bám vào gỗ.",
+            "sharpness": 598.3
+          }
+        ]
+      },
+      {
+        "heading": "Trồng cây và trải thảm trân châu",
+        "moments": [
+          {
+            "t": 375,
+            "url": "https://media.aquatome.com/video/YnloIslvwHA/at375-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Lũa phủ rêu đặt trên nền đất đã san phẳng trong bể.",
+            "sharpness": 2642.4
+          },
           {
             "t": 450,
-            "url": "https://media.aquatome.com/video/YnloIslvwHA/t450.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cây vừa trồng trên nền đất đen, chưa cho nước vào."
-          },
-          {
-            "t": 485,
-            "url": "https://media.aquatome.com/video/YnloIslvwHA/t485.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Dẫn nước từ từ qua ống vào hồ có cây vừa trồng."
+            "url": "https://media.aquatome.com/video/YnloIslvwHA/at450-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Các cụm cây nhỏ được trồng rải rác ở tiền cảnh bên cạnh lũa phủ rêu.",
+            "sharpness": 9492.8
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/YnloIslvwHA/p5-FzY2FwaW5nLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/YnloIslvwHA/p5-FzY2FwaW5nLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/YnloIslvwHA/p5-dWxhY2VhXzIuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/YnloIslvwHA/p5-dWxhY2VhXzIuanBn-480.webp",
           "width": 960,
-          "height": 338,
-          "licence": "CC BY 3.0",
-          "author": "Ghostsword",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Luis_Embalo_Aquascaping.jpg",
-          "caption": "Bể thủy sinh cây rậm rạp, đèn sáng, cá neon bơi giữa các bụi cây."
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Coughdrop12",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pangea_America_Halophila_stipulacea_2.jpg",
+          "caption": "Những cụm cây xanh được trồng ở tiền cảnh trên nền sỏi trong bể."
         }
+      },
+      {
+        "heading": "Đèn và CO2 cho bể này",
+        "moments": [
+          {
+            "t": 455,
+            "url": "https://media.aquatome.com/video/YnloIslvwHA/at455-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cây thủy sinh mới trồng trên nền đất đen, cần ánh sáng vừa phải.",
+            "sharpness": 9690.8
+          },
+          {
+            "t": 475,
+            "url": "https://media.aquatome.com/video/YnloIslvwHA/at475-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Toàn cảnh bể thủy sinh với lũa và cây, chưa đổ nước.",
+            "sharpness": 2959.5
+          }
+        ]
       }
     ]
   }
