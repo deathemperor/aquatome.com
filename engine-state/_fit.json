@@ -110695,5 +110695,157 @@
       }
     ],
     "products": []
+  },
+  "vi/species/tropheops-tropheops": {
+    "at": "2026-11-10",
+    "hash": "7f2bcd9b76eef87a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P10",
+        "quote": "tách cá bột khỏi miệng mẹ nhân tạo",
+        "why": "Calque of 'artificially strip'; keepers call this stripping by its local term.",
+        "by": "model",
+        "fix": "tuốt trứng / tuốt cá bột"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/tropheus-brichardi": {
+    "at": "2026-11-10",
+    "hash": "7708a4cd4d25d304",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P8",
+        "quote": "Một nhóm cần bể tối thiểu 152 cm x 46 cm x 46 cm.",
+        "why": "These are 60 × 18 × 18 inches converted to cm; nobody in Vietnam sizes a tank this way.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/tropheus-moorii": {
+    "at": "2026-11-10",
+    "hash": "3fcb8565bc66278c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/tyrannochromis-macrostoma": {
+    "at": "2026-11-10",
+    "hash": "b04da1ffc5a676be",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/vieja-bifasciata": {
+    "at": "2026-11-10",
+    "hash": "bde8ee731cbe6f16",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/vieja-fenestrata": {
+    "at": "2026-11-10",
+    "hash": "bc607d639ab223f8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Ở Anh loài này không mấy phổ biến",
+        "why": "Describes availability in the UK trade as if it were the reader's own market.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P11",
+        "quote": "nhưng ở Anh loài này không mấy phổ biến",
+        "why": "Again refers to the UK market as the reader's, not Vietnam's.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/vieja-zonata": {
+    "at": "2026-11-10",
+    "hash": "0fe128b3febb623b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/wallago-attu": {
+    "at": "2026-11-10",
+    "hash": "9c98dfbd10838338",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P8",
+        "quote": "cá nhỏ có thể cho ăn cá thịt trắng như lancefish, giun đất và tôm",
+        "why": "Lancefish is a frozen food sold in shops abroad that a keeper in Vietnam would not know or find.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/xenotilapia-flavipinnis": {
+    "at": "2026-11-10",
+    "hash": "28d6ad8a94767bec",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/xenotilapia-melanogenys": {
+    "at": "2026-11-10",
+    "hash": "e7682770b6133be1",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/xenotilapia-sima": {
+    "at": "2026-11-10",
+    "hash": "b607c15a16a37581",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/xenotoca-eiseni": {
+    "at": "2026-11-10",
+    "hash": "742c2c961e5642c9",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/xenurolebias-myersi": {
+    "at": "2026-11-10",
+    "hash": "c63d0a868e116613",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/zoogoneticus-tequila": {
+    "at": "2026-11-10",
+    "hash": "f611001f09390e5f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
   }
 }
