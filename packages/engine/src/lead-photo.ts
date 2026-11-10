@@ -4,7 +4,7 @@ import { join } from 'node:path'
 import type { Photo } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
-import { across, cardWorthy, LARGE_PX, readCalendar, readVerdicts, SLOT_RATIO } from './curation'
+import { across, cardWorthy, LARGE_PX, ownMarkOnly, readCalendar, readVerdicts, SLOT_RATIO } from './curation'
 import { contactSheet } from './video-images'
 
 /**
@@ -18,7 +18,9 @@ import { contactSheet } from './video-images'
  * that passed showed the fish smaller, dimmer, or beside a ruler. So the model is shown the two side by side, and the
  * head stays unless it says the other is as good; no answer is no change. Each pair is asked once
  * (`engine-state/_photo-leads.json`, photo → head → answer), at most `TRIES` photos a fish, the page's own photos, then the
- * gallery's `best`, then the rest. A page with no photo of its own takes the first that passes: nothing to compare.
+ * gallery's `best`, then the rest. A page with no photo of its own takes the best that passes, whatever its size, plants
+ * too: no page shows nothing while a passed photo of it exists, and a small one can't take a card anyway (the chief of
+ * staff, 2026-11-10: 131 pages showed nothing, their albums being under the grid's minimum).
  * The head that gives way stays on the page, second; a gallery photo that leads stays in its gallery.
  *
  * A long fish filling a wide frame can lose its head to the card's crop, and both the site's cards and the app's centre
@@ -54,18 +56,22 @@ const fills = (p: Photo) => across(p.large ?? p, 'square') >= LARGE_PX
 export const cardCrop = (bytes: Uint8Array) => sharp(bytes).rotate().resize(640, Math.round(640 / SLOT_RATIO.square), { fit: 'cover', position: 'centre' }).jpeg({ quality: 85 }).toBuffer()
 
 /** What a fish's head should do: lead with this photo, or ask about this pair first; nothing if it stays. */
-export function leadChoice(own: Photo[], gallery: GalleryPhoto[], passes: (p: Photo) => boolean, compared: Compared): { lead: Photo } | { ask: { head: Photo; photo: Photo } } | undefined {
+export function leadChoice(own: Photo[], gallery: GalleryPhoto[], passes: (p: Photo) => boolean, compared: Compared, marked: (p: Photo) => boolean = () => false): { lead: Photo } | { ask: { head: Photo; photo: Photo } } | undefined {
   const head = own[0]
-  const back = head && own.slice(1).find(o => { const said = compared[head.url]?.[o.url]; return passes(o) && (said === false || (said === true && fills(o))) })
+  // Best first, then the largest.
+  const pool = [...new Map([...own.slice(1), ...[...gallery].sort((a, b) => Number(b.best ?? false) - Number(a.best ?? false) || across(b.large ?? b, 'square') - across(a.large ?? a, 'square'))].map(p => [p.url, p])).values()]
+  if (!head) { const lead = pool.find(passes) ?? pool.find(marked); return lead ? { lead } : undefined }
+  // A photo with its source's mark leads only where nothing else passes.
+  if (marked(head)) { const lead = pool.find(passes); if (lead) return { lead } }
+  const back = own.slice(1).find(o => { const said = compared[head.url]?.[o.url]; return passes(o) && (said === false || (said === true && fills(o))) })
   if (back) return { lead: back }
-  if (head && fills(head)) return undefined
+  if (fills(head)) return undefined
   const seen = new Set<string>()
   const candidates = [...own.slice(1), ...gallery.filter(p => p.best), ...gallery.filter(p => !p.best)].filter(p => {
     if (seen.has(p.url) || !fills(p) || !passes(p)) return false
     seen.add(p.url)
     return true
   })
-  if (!head) return candidates[0] ? { lead: candidates[0] } : undefined
   for (const photo of candidates.slice(0, TRIES)) {
     const said = compared[photo.url]?.[head.url]
     if (said === undefined) return { ask: { head, photo } }
@@ -87,19 +93,23 @@ export async function screenLeads(root: string, d: LeadDeps, o: { limit: number;
 
   type Fish = { ref: string; id: string; path: string; raw: string; entity: Entity; gallery: GalleryPhoto[] }
   const all: Fish[] = []
-  for (const kind of ['species', 'breeds']) {
+  for (const kind of ['species', 'breeds', 'plants']) {
     for (const id of (await readdir(join(content, kind)).catch(() => [] as string[])).sort()) {
       const ref = `${kind}/${id}`
-      if (o.only ? !o.only.includes(id) : o.calendar && !coming.has(ref)) continue
       const path = join(content, kind, id, 'entity.json')
       const raw = await readFile(path, 'utf8').catch(() => null)
       if (!raw) continue
+      const empty = !(JSON.parse(raw) as Entity).photos?.length
+      // A plant is only ever given a first photo; the side-by-side and the crop's question are about fish. An empty page
+      // needs no model call, so --calendar fills them too.
+      if (kind === 'plants' && !empty) continue
+      if (o.only ? !o.only.includes(id) : o.calendar && !coming.has(ref) && !empty) continue
       const g = JSON.parse(await readFile(join(content, 'gallery', `${id}.json`), 'utf8').catch(() => '{}')) as { photos?: GalleryPhoto[] }
       all.push({ ref, id, path, raw, entity: JSON.parse(raw) as Entity, gallery: g.photos ?? [] })
     }
   }
   all.sort((a, b) => Number(coming.has(b.ref)) - Number(coming.has(a.ref)))
-  const choose = (f: Fish) => leadChoice(f.entity.photos ?? [], f.gallery, p => cardWorthy(p.url, f.id, verdicts, cur.avoid), compared)
+  const choose = (f: Fish) => leadChoice(f.entity.photos ?? [], f.gallery, p => cardWorthy(p.url, f.id, verdicts, cur.avoid), compared, p => ownMarkOnly(p, f.id, verdicts, cur.avoid))
 
   // Asked in rounds, since a pair answered no sends its fish on to the next photo.
   const dir = await mkdtemp(join(tmpdir(), 'lead-photos-'))

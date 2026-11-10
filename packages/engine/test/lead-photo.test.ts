@@ -14,10 +14,23 @@ const photo = (n: string, width = 1000, height = 667): Photo => ({ url: url(n), 
 const big = (n: string) => photo(n, 1600, 1400)
 const yes = () => true
 
-test('a head big enough for the card stays; a page with no photo takes the first that passes, the gallery\'s best first', () => {
+test('a head big enough for the card stays; a page with no photo takes the best that passes, whatever its size, then the largest', () => {
   expect(leadChoice([big('head')], [big('other')], yes, {})).toBeUndefined()
   expect(leadChoice([], [big('plain'), { ...big('chosen'), best: true }], yes, {})).toEqual({ lead: { ...big('chosen'), best: true } })
-  expect(leadChoice([], [photo('small')], yes, {})).toBeUndefined()
+  expect(leadChoice([], [photo('small')], yes, {})).toEqual({ lead: photo('small') })
+  expect(leadChoice([], [photo('small', 500, 400), photo('larger', 900, 700)], yes, {})).toEqual({ lead: photo('larger', 900, 700) })
+  expect(leadChoice([], [photo('small')], () => false, {})).toBeUndefined()
+})
+
+test("a photo with its source's own mark leads only where nothing else passes, and an unmarked one replaces it", () => {
+  const isMarked = (p: Photo) => name(p.url).startsWith('marked')
+  const passes = (p: Photo) => !isMarked(p)
+  expect(leadChoice([], [big('marked-1')], passes, {}, isMarked)).toEqual({ lead: big('marked-1') })
+  expect(leadChoice([], [big('marked-1'), photo('plain', 500, 400)], passes, {}, isMarked)).toEqual({ lead: photo('plain', 500, 400) })
+  expect(leadChoice([big('marked-1')], [photo('plain', 500, 400)], passes, {}, isMarked)).toEqual({ lead: photo('plain', 500, 400) })
+  expect(leadChoice([big('marked-1')], [], passes, {}, isMarked)).toBeUndefined()
+  // It never replaces an unmarked head.
+  expect(leadChoice([photo('head', 500, 400)], [big('marked-1')], passes, {}, isMarked)).toBeUndefined()
 })
 
 test('a large copy counts for the head and for what could replace it', () => {
@@ -124,6 +137,29 @@ test("a photo on the calendar's avoid list doesn't lead; --calendar touches only
   expect(seen).toEqual([['z-head', 'z-gal']])
   expect((await entity(root, 'zzz')).photos.map(p => name(p.url))).toEqual(['z-gal', 'z-head'])
   expect((await entity(root, 'aaa')).photos.map(p => name(p.url))).toEqual(['a-head'])
+})
+
+test("--calendar fills an empty page with no model call; a plant is given a first photo and otherwise left alone", async () => {
+  const root = await store({ aaa: { photos: [photo('a-head')], gallery: [big('a-gal')] }, empty: { photos: [], gallery: [photo('e-gal', 500, 400)] } })
+  const subjects = JSON.parse(await readFile(join(root, 'engine-state/_photo-subjects.json'), 'utf8'))
+  const ok = { ok: 'yes', typical: true, note: '', person: false, logo: false }
+  await mkdir(join(root, 'content/plants/bare'), { recursive: true })
+  await mkdir(join(root, 'content/plants/full'), { recursive: true })
+  await writeFile(join(root, 'content/plants/bare/entity.json'), JSON.stringify({ id: 'bare', photos: [] }))
+  await writeFile(join(root, 'content/plants/full/entity.json'), JSON.stringify({ id: 'full', photos: [photo('p-head')] }))
+  await writeFile(join(root, 'content/gallery/bare.json'), JSON.stringify({ id: 'bare', photos: [photo('p-gal')] }))
+  await writeFile(join(root, 'content/gallery/full.json'), JSON.stringify({ id: 'full', photos: [big('p-big')] }))
+  for (const [u, id] of [[url('p-gal'), 'bare'], [url('p-head'), 'full'], [url('p-big'), 'full']] as const) (subjects[u] ??= {})[id] = ok
+  await writeFile(join(root, 'engine-state/_photo-subjects.json'), JSON.stringify(subjects))
+  const { d, seen } = model(yes)
+  const r = await screenLeads(root, d, { limit: 3, calendar: true })
+  expect(seen).toEqual([])
+  expect(r.gained).toHaveLength(2)
+  expect((await entity(root, 'empty')).photos.map(p => name(p.url))).toEqual(['e-gal'])
+  expect((await entity(root, 'aaa')).photos.map(p => name(p.url))).toEqual(['a-head'])
+  const plant = async (id: string) => (JSON.parse(await readFile(join(root, 'content/plants', id, 'entity.json'), 'utf8')) as { photos: Photo[] }).photos.map(p => name(p.url))
+  expect(await plant('bare')).toEqual(['p-gal'])
+  expect(await plant('full')).toEqual(['p-head'])
 })
 
 test("a download that fails leaves that pair out of the sheet, and the others are still numbered right", async () => {
