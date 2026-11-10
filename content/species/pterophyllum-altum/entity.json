@@ -159,6 +159,17 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pterophyllum-altum",
       "html": "<p>Altum Angels are a lot less common in the trade than their well known (arguably the best known tropical fish) relatives Pterophyllum Scalare, the common Angelfish. However, they are still available from some of the better tropical fish suppliers. They are a challenge to keep - they share all of their relatives' difficulties (susceptible to hole-in-the-head disease, very weak to nitrate buildups, extremely prone to stress-related diseases, commonly eat their own spawns etc.) and have a few of their own (water parameters - very acidic and soft, feeding difficulties, lack of willingness to spawn in captivity and so on). That in its own right is very rewarding though, hence the reason that Altum Angels are quite a popular fish with the more experienced aquarist. Altum Angels require high temperatures but can be kept happily with Discus, as they possess similar water parameter requirements. Be wary of the Altum Angels eating Discus spawns, however.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Altum needs high temperatures, 28 to 32°C, and a pH of 4.8 to 6.2. At a higher pH the fish usually will not do well at all. This species must be kept in soft water, hardness 0–5°H, virtually undetectable. Another source reports that when the fish is not being bred, medium-hard water with a neutral pH is sufficient. For breeding attempts the water should contain almost no minerals and have a pH around 5.</p>",
+      "refs": [
+        0,
+        1
+      ],
+      "fixed": true
     }
   ],
   "photos": [
@@ -256,5 +267,15 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-03",
+  "refs": [
+    {
+      "url": "https://www.seriouslyfish.com/species/pterophyllum-altum",
+      "title": "Seriously Fish: Pterophyllum altum"
+    },
+    {
+      "url": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/pterophyllum_altum_en/",
+      "title": "Aquarium Glaser: Pterophyllum altum"
+    }
+  ]
 }
