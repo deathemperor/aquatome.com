@@ -7,12 +7,17 @@ import { afterEach, beforeEach, expect, test, vi } from 'vitest'
 
 // A `claude` that answers at once with what the CLI prints: the structured output, its cost and tokens.
 const spawned = vi.hoisted(() => [] as { cwd: string }[])
+// What the next `claude` prints instead, as the pipe hands it over: in these chunks.
+const printed = vi.hoisted(() => ({ chunks: undefined as Buffer[] | undefined }))
 vi.mock('node:child_process', () => ({
   spawn: (_cmd: string, _args: string[], opts: { cwd: string }) => {
     spawned.push(opts)
     const child = Object.assign(new EventEmitter(), { stdout: new PassThrough(), stderr: new PassThrough(), stdin: new PassThrough(), kill: () => true })
     child.stdin.on('finish', () => {
-      child.stdout.end(JSON.stringify({ structured_output: { ok: true }, total_cost_usd: 0.12, usage: { input_tokens: 3, output_tokens: 40 } }))
+      const chunks = printed.chunks
+      printed.chunks = undefined
+      if (chunks) { for (const c of chunks) child.stdout.write(c); child.stdout.end() }
+      else child.stdout.end(JSON.stringify({ structured_output: { ok: true }, total_cost_usd: 0.12, usage: { input_tokens: 3, output_tokens: 40 } }))
       setImmediate(() => child.emit('close', 0))
     })
     return child
@@ -48,6 +53,18 @@ test('a call that reads no files runs from an empty folder, not /tmp, whose ever
     expect(await realpath(cwd)).not.toBe(await realpath('/tmp'))
     expect(await readdir(cwd)).toEqual([])
   }
+})
+
+// The pipe hands a long answer over in chunks, cut at any byte. Each chunk decoded by itself turned a character cut in two
+// into "\uFFFD\uFFFD": 40 pages had one on 2026-11-10, 38 of them Thai, whose every letter is three bytes ("ที่\uFFFD\uFFFDพาะ"
+// for "ที่เพาะ" on the guppy's page), and the translation reviewer marked each page down for it.
+test('a character the pipe cuts in two between chunks of the answer is read whole', async () => {
+  const text = 'มีสายพันธุ์ที่เพาะในตู้ปลา, cá bảy màu'
+  const bytes = Buffer.from(JSON.stringify({ structured_output: { text }, total_cost_usd: 0, usage: {} }))
+  // Cut inside "เ" (three bytes), and inside "ả" further on.
+  const thai = bytes.indexOf(Buffer.from('เ')) + 1, viet = bytes.indexOf(Buffer.from('ả')) + 1
+  printed.chunks = [bytes.subarray(0, thai), bytes.subarray(thai, viet), bytes.subarray(viet)]
+  expect(await claudeCli<{ text: string }>({ system: 's', prompt: 'p', schema: {} })).toEqual({ text })
 })
 
 test('ENGINE_COST_LOG gets a line a call; a log it cannot write never fails the call', async () => {
