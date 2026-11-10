@@ -1145,6 +1145,28 @@
         }
       }
     },
+    "AquaTome sẽ xem lại câu trả lời này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome akan meninjau jawaban ini."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome akan menyemak jawapan ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AquaTome จะตรวจสอบคำตอบนี้อีกครั้ง"
+          }
+        }
+      }
+    },
     "AquaTome đã hết lượt hỏi Claude hôm nay": {
       "localizations": {
         "id": {
@@ -1295,6 +1317,50 @@
           "stringUnit": {
             "state": "translated",
             "value": "รายงานรูปนี้ไหม?"
+          }
+        }
+      }
+    },
+    "Báo câu trả lời sai": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laporkan jawaban yang salah"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laporkan jawapan yang salah"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แจ้งคำตอบที่ผิด"
+          }
+        }
+      }
+    },
+    "Báo sai": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laporkan kesalahan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Laporkan kesilapan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แจ้งว่าผิด"
           }
         }
       }
@@ -2945,6 +3011,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "ส่งอีเมลไม่สำเร็จ โปรดลองใหม่ภายหลัง"
+          }
+        }
+      }
+    },
+    "Chưa gửi được. Bấm Gửi lần nữa.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum terkirim. Ketuk Kirim sekali lagi."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Belum dihantar. Ketik Hantar sekali lagi."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังส่งไม่ได้ กด “ส่ง” อีกครั้ง"
           }
         }
       }
@@ -7745,6 +7833,50 @@
         }
       }
     },
+    "Không báo được câu trả lời này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jawaban ini tidak bisa dilaporkan."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jawapan ini tidak dapat dilaporkan."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แจ้งคำตอบนี้ไม่ได้"
+          }
+        }
+      }
+    },
+    "Không bắt buộc. AquaTome sẽ xem lại câu trả lời này.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak wajib diisi. AquaTome akan meninjau jawaban ini."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak wajib. AquaTome akan menyemak jawapan ini."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม่บังคับ AquaTome จะตรวจสอบคำตอบนี้อีกครั้ง"
+          }
+        }
+      }
+    },
     "Không nhận được câu trả lời": {
       "localizations": {
         "id": {
@@ -10821,6 +10953,50 @@
           "stringUnit": {
             "state": "translated",
             "value": "ความกว้างด้านที่ 2"
+          }
+        }
+      }
+    },
+    "Sai ở đâu?": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salahnya di mana?"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apa yang salah?"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ผิดตรงไหน"
+          }
+        }
+      }
+    },
+    "Sai ở đâu? (không bắt buộc)": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salahnya di mana? (tidak wajib)"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apa yang salah? (tidak wajib)"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ผิดตรงไหน (ไม่บังคับ)"
           }
         }
       }
@@ -15859,6 +16035,50 @@
           "stringUnit": {
             "state": "translated",
             "value": "ตอนนี้ 23:59 แล้ว วันนี้ไม่มีเวลาเหลือให้เปิดไฟเพิ่ม"
+          }
+        }
+      }
+    },
+    "Đã báo": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sudah dilaporkan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Telah dilaporkan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แจ้งแล้ว"
+          }
+        }
+      }
+    },
+    "Đã báo. Cảm ơn bạn.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sudah dilaporkan. Terima kasih."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Telah dilaporkan. Terima kasih."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แจ้งแล้ว ขอบคุณ"
           }
         }
       }

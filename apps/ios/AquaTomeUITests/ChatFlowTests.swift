@@ -74,6 +74,102 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertEqual(box.value as? String, "Còn tép", "the draft left the box")
   }
 
+  /// "Báo sai" under a finished answer: a reason, sent, and the control saying so instead of being a button.
+  func testAWrongAnswerIsReportedAndSaysSo() {
+    let app = launch()
+    openReportSheet(app)
+    let reason = element(app, "chat-report-reason")
+    XCTAssertTrue(reason.waitForExistence(timeout: 5), "no sheet")
+    reason.tap()
+    reason.typeText("Sai số lít")
+    app.buttons["chat-report-send"].tap()
+    let done = element(app, "chat-reported")
+    XCTAssertTrue(done.waitForExistence(timeout: 5), "not said to be reported")
+    XCTAssertEqual(done.label, "Đã báo")
+    XCTAssertFalse(app.buttons["chat-report"].exists, "still a button")
+    XCTAssertFalse(reason.exists, "the sheet stayed")
+  }
+
+  /// A report that fails keeps the sheet and says to send again.
+  func testAReportThatFailsCanBeSentAgain() {
+    let app = launch("-chat-report-fails")
+    openReportSheet(app)
+    let send = app.buttons["chat-report-send"]
+    XCTAssertTrue(send.waitForExistence(timeout: 5), "no sheet")
+    send.tap()
+    XCTAssertTrue(element(app, "chat-report-failed").waitForExistence(timeout: 5), "no line saying it failed")
+    XCTAssertTrue(send.exists, "the sheet went")
+    send.tap()
+    XCTAssertTrue(element(app, "chat-reported").waitForExistence(timeout: 5), "not sent the second time")
+  }
+
+  /// Refused for good (the conversation hidden on another device): said once, not a button to retry forever.
+  func testAReportRefusedForGoodSaysSoAndStops() {
+    let app = launch("-chat-report-gone")
+    openReportSheet(app)
+    let send = app.buttons["chat-report-send"]
+    XCTAssertTrue(send.waitForExistence(timeout: 5), "no sheet")
+    send.tap()
+    XCTAssertTrue(element(app, "chat-report-refused").waitForExistence(timeout: 5), "not said")
+    XCTAssertFalse(app.buttons["chat-report"].exists, "still a button")
+  }
+
+  /// The keyboard's return sends, and a report another device already sent reads the same as one sent now.
+  func testTheKeyboardsReturnSendsAReportAndOneSentBeforeReadsTheSame() {
+    let app = launch("-chat-report-already")
+    openReportSheet(app)
+    let reason = element(app, "chat-report-reason")
+    XCTAssertTrue(reason.waitForExistence(timeout: 5), "no sheet")
+    reason.tap()
+    reason.typeText("Sai số lít\n")
+    XCTAssertTrue(element(app, "chat-reported").waitForExistence(timeout: 5), "the return key didn't send it")
+    XCTAssertFalse(app.buttons["chat-report"].exists, "still a button")
+  }
+
+  /// While it goes, the button says so and can't be sent twice.
+  func testAReportOnItsWaySaysSoOnItsButton() {
+    let app = launch("-chat-report-slow")
+    openReportSheet(app)
+    let send = app.buttons["chat-report-send"]
+    XCTAssertTrue(send.waitForExistence(timeout: 5), "no sheet")
+    XCTAssertEqual(send.label, "Gửi")
+    send.tap()
+    XCTAssertTrue(soon(send.label == "Đang gửi…"), "the button didn't say it's sending: \(send.label)")
+    XCTAssertFalse(send.isEnabled, "it can be sent twice")
+    XCTAssertTrue(element(app, "chat-reported").waitForExistence(timeout: 8), "not sent")
+  }
+
+  /// At the largest text the field keeps a short placeholder, and "optional" moves to the line under it.
+  func testAtTheLargestTextTheReportSheetSaysOptionalUnderTheField() {
+    let app = launch("-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL")
+    openReportSheet(app)
+    let reason = element(app, "chat-report-reason")
+    XCTAssertTrue(reason.waitForExistence(timeout: 5), "no sheet")
+    XCTAssertEqual(reason.placeholderValue, "Sai ở đâu?")
+    XCTAssertTrue(app.staticTexts["Không bắt buộc. AquaTome sẽ xem lại câu trả lời này."].exists, "no line saying it's optional")
+    XCTAssertTrue(app.buttons["chat-report-send"].isHittable, "Gửi is off the sheet")
+  }
+
+  /// A failure has no finished answer to report.
+  func testAFailedAnswerHasNoReport() {
+    let app = launch("-chat-failed")
+    openChat(app)
+    signIn(app)
+    ask(app, "Neon sống bao lâu?")
+    XCTAssertTrue(element(app, "chat-failed").waitForExistence(timeout: 15), "no failure card")
+    XCTAssertFalse(app.buttons["chat-report"].exists, "a report on a failure")
+  }
+
+  private func openReportSheet(_ app: XCUIApplication) {
+    openChat(app)
+    signIn(app)
+    ask(app, "Neon sống bao lâu?")
+    let report = app.buttons["chat-report"]
+    XCTAssertTrue(report.waitForExistence(timeout: 30), "no Báo sai under the answer")
+    reveal(app, report, above: element(app, "chat-box"))
+    report.tap()
+  }
+
   /// The mock's largest text, empty: the title names the fish, so the screen starts at it, and the line about who answers
   /// and the starters clear the box.
   func testAtTheLargestTextTheEmptyScreenStartsAtItsTitle() {
@@ -555,8 +651,9 @@ final class ChatFlowTests: XCTestCase {
     app.buttons["chat-send"].tap()
   }
 
-  private func reveal(_ app: XCUIApplication, _ e: XCUIElement) {
-    repeatUntil(e.exists && e.isHittable, times: 12) {
+  /// `above`: what floats over the scroll, which a control under it reads as hittable while a tap there lands on it.
+  private func reveal(_ app: XCUIApplication, _ e: XCUIElement, above: XCUIElement? = nil) {
+    repeatUntil(e.exists && e.isHittable && above.map { e.frame.maxY <= $0.frame.minY } != false, times: 12) {
       app.coordinate(withNormalizedOffset: CGVector(dx: 0.02, dy: 0.7))
         .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.02, dy: 0.4)), withVelocity: .fast, thenHoldForDuration: 0.1)
     }

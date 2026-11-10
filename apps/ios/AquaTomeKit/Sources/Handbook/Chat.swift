@@ -254,6 +254,49 @@ public enum Chat {
 
   private static func object(_ data: Data) -> [String: Any]? { (try? JSONSerialization.jsonObject(with: data)) as? [String: Any] }
 
+  // MARK: Reporting a wrong answer (Báo sai)
+
+  /// What the Worker says of a report: kept now, or kept before (from another device).
+  public enum Reported: Sendable, Equatable { case saved, already }
+
+  /// The longest reason the Worker keeps, in characters as the reader sees them.
+  public static let reasonLimit = 140
+
+  /// The reason as sent: trimmed, nil when nothing's typed.
+  public static func reason(_ typed: String) -> String? {
+    let t = typed.trimmingCharacters(in: .whitespacesAndNewlines)
+    return t.isEmpty ? nil : t
+  }
+
+  /// Whether the Worker will take it: one line of at most `reasonLimit` characters. Nothing typed is fine.
+  public static func reasonFits(_ typed: String) -> Bool {
+    guard let r = reason(typed) else { return true }
+    return r.count <= reasonLimit && !r.contains(where: \.isNewline)
+  }
+
+  /// POST …/conversations/{id}/report: this turn's answer was wrong.
+  public static func report(_ id: UUID, turn: Int, reason typed: String?, site: URL, token: String, version: String, ownCopy: String?) -> URLRequest {
+    var r = status(site: site, version: version, ownCopy: ownCopy)
+    r.url = site.appending(path: "api/chat/conversations/\(id.uuidString.lowercased())/report")
+    r.httpMethod = "POST"
+    r.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+    r.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    var body: [String: Any] = ["turn": turn]
+    if let reason = typed.flatMap(reason) { body["reason"] = reason }
+    r.httpBody = try? JSONSerialization.data(withJSONObject: body)
+    return r
+  }
+
+  /// A report's answer, nil unless it was kept.
+  public static func reported(_ data: Data, status: Int) -> Reported? {
+    guard status == 200 else { return nil }
+    return switch object(data)?["result"] as? String {
+    case "saved": .saved
+    case "already": .already
+    default: nil
+    }
+  }
+
   private static func turn(_ o: [String: Any]) -> Turn? {
     guard let c = (o["conversation"] as? String).flatMap(UUID.init(uuidString:)), let n = o["n"] as? Int, let text = o["text"] as? String,
           let covered = o["covered"] as? Bool else { return nil }
