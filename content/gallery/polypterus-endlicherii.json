@@ -26,6 +26,19 @@
       "kind": "other"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/345855131.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/345855131-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Sandipan Das",
+      "sourceUrl": "https://www.inaturalist.org/photos/345855131",
+      "caption": "Cá khủng long yên ngựa nhìn chính diện trên nền sỏi",
+      "best": true,
+      "kind": "other",
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/commons/1b70c951eb2d55b7.webp",
       "thumb": "https://media.aquatome.com/commons/1b70c951eb2d55b7-480.webp",
       "width": 960,
@@ -36,9 +49,22 @@
       "caption": "Cá khủng long yên ngựa với vây ngực rõ trong bể",
       "best": true,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/58007961.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/58007961-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-SA",
+      "author": "Rafael Rosa",
+      "sourceUrl": "https://www.inaturalist.org/photos/58007961",
+      "caption": "Cá khủng long yên ngựa bơi sát kính trong bể nuôi",
+      "best": false,
+      "kind": "other",
+      "unchecked": true
     }
   ],
-  "seen": 7,
-  "updatedAt": "2026-11-09",
-  "builtAt": "2026-11-09"
+  "seen": 12,
+  "updatedAt": "2026-11-10",
+  "builtAt": "2026-11-10"
 }

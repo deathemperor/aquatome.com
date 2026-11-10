@@ -62,6 +62,35 @@
       "kind": "habitat"
     },
     {
+      "url": "https://media.aquatome.com/tropica/e5ff857a9ba05c08.webp",
+      "thumb": "https://media.aquatome.com/tropica/e5ff857a9ba05c08-480.webp",
+      "width": 1000,
+      "height": 1000,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Pogostemonstellatus(053G)/4498",
+      "source": "tropica",
+      "kind": "other",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/tropica/5a5f165c8eb03d85.webp",
+      "thumb": "https://media.aquatome.com/tropica/5a5f165c8eb03d85-480.webp",
+      "width": 1200,
+      "height": 750,
+      "large": {
+        "url": "https://media.aquatome.com/tropica/5a5f165c8eb03d85-large.webp",
+        "width": 1920,
+        "height": 1200
+      },
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Pogostemonstellatus(053G)/4498",
+      "source": "tropica",
+      "kind": "submersed",
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/288941429.webp",
       "thumb": "https://media.aquatome.com/inaturalist/288941429-480.webp",
       "width": 768,
@@ -96,6 +125,18 @@
       "caption": "Bụi Pogostemon stellatus ra hoa bên mép nước",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/tropica/99bad474cd92755c.webp",
+      "thumb": "https://media.aquatome.com/tropica/99bad474cd92755c-480.webp",
+      "width": 1000,
+      "height": 1000,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Pogostemonstellatus(053G)/4498",
+      "source": "tropica",
+      "kind": "other",
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/643747209.webp",
@@ -135,6 +176,6 @@
     }
   ],
   "seen": 21,
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-10",
   "builtAt": "2026-10-31"
 }

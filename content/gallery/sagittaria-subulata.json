@@ -62,6 +62,18 @@
       "kind": "habitat"
     },
     {
+      "url": "https://media.aquatome.com/tropica/f209b267d2fe3b31.webp",
+      "thumb": "https://media.aquatome.com/tropica/f209b267d2fe3b31-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Sagittariasubulata(079TC)/18270",
+      "source": "tropica",
+      "kind": "other",
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/commons/3322e16728a89df6.webp",
       "thumb": "https://media.aquatome.com/commons/3322e16728a89df6-480.webp",
       "width": 1200,
@@ -98,6 +110,35 @@
       "kind": "flower"
     },
     {
+      "url": "https://media.aquatome.com/tropica/b2a3f45878762b4b.webp",
+      "thumb": "https://media.aquatome.com/tropica/b2a3f45878762b4b-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Sagittariasubulata(079TC)/18270",
+      "source": "tropica",
+      "kind": "other",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/tropica/e6c899b94f1af24b.webp",
+      "thumb": "https://media.aquatome.com/tropica/e6c899b94f1af24b-480.webp",
+      "width": 1200,
+      "height": 750,
+      "large": {
+        "url": "https://media.aquatome.com/tropica/e6c899b94f1af24b-large.webp",
+        "width": 1432,
+        "height": 895
+      },
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Sagittariasubulata(079TC)/18270",
+      "source": "tropica",
+      "kind": "submersed",
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/702542120.webp",
       "thumb": "https://media.aquatome.com/inaturalist/702542120-480.webp",
       "width": 1024,
@@ -108,9 +149,21 @@
       "caption": "Hoa sagittaria subulata nở bên bờ cát",
       "best": false,
       "kind": "flower"
+    },
+    {
+      "url": "https://media.aquatome.com/tropica/e601c40d06e3235c.webp",
+      "thumb": "https://media.aquatome.com/tropica/e601c40d06e3235c-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Sagittariasubulata(079TC)/18270",
+      "source": "tropica",
+      "kind": "other",
+      "unchecked": true
     }
   ],
   "seen": 22,
-  "updatedAt": "2026-11-08",
+  "updatedAt": "2026-11-10",
   "builtAt": "2026-11-08"
 }

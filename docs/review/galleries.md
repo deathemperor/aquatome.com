@@ -5,12 +5,12 @@ Written by `pnpm engine gallery` (2026-11-10). Targets: packages/engine/src/gall
 | Tier | Target | Species | Plants | Breeds | At target | Below |
 | --- | --- | --- | --- | --- | --- | --- |
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
-| shop | 60 | 131 | 79 | 24 | 30 | 204 |
+| shop | 60 | 131 | 80 | 24 | 32 | 203 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 517 | 28 | 9 | 18 | 536 |
-| rest | 20 | 1663 | 75 | 0 | 41 | 1697 |
+| covered | 30 | 535 | 28 | 9 | 18 | 554 |
+| rest | 20 | 1676 | 75 | 0 | 46 | 1705 |
 
-## Short of target: every source read (252)
+## Short of target: every source read (254)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -45,7 +45,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | plants/bolbitis-heudelotii | shop | 0 | 60 |
 | breeds/black-moor-goldfish | shop | 6 | 60 |
 | species/sahyadria-denisonii | shop | 26 | 60 |
-| plants/vesicularia-ferriei | shop | 0 | 60 |
+| plants/vesicularia-ferriei | shop | 2 | 60 |
 | breeds/bubble-eye-goldfish | shop | 6 | 60 |
 | species/glossolepis-incisus | shop | 6 | 60 |
 | breeds/halfmoon-betta | shop | 27 | 60 |
@@ -85,7 +85,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | plants/cyperus-helferi | shop | 1 | 60 |
 | species/garra-flavatra | shop | 8 | 60 |
 | plants/aponogeton-madagascariensis | shop | 1 | 60 |
-| plants/riccardia-chamedryfolia | shop | 56 | 60 |
+| plants/riccardia-chamedryfolia | shop | 59 | 60 |
 | species/synodontis-petricola | shop | 2 | 60 |
 | species/peckoltia-compta | shop | 0 | 60 |
 | plants/monosolenium-tenerum | shop | 3 | 60 |
@@ -109,7 +109,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/thayeria-boehlkei | shop | 5 | 60 |
 | species/labidochromis-caeruleus | shop | 15 | 60 |
 | plants/ammannia-gracilis | shop | 2 | 60 |
-| plants/pogostemon-stellatus | shop | 11 | 60 |
+| plants/pogostemon-stellatus | shop | 14 | 60 |
 | species/notropis-chrosomus | shop | 15 | 60 |
 | species/brachygobius-doriae | shop | 4 | 60 |
 | species/monodactylus-sebae | shop | 8 | 60 |
@@ -117,17 +117,17 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | plants/ludwigia-glandulosa | shop | 11 | 60 |
 | species/dario-dario | shop | 0 | 60 |
 | plants/limnophila-aromatica | shop | 18 | 60 |
-| plants/utricularia-graminifolia | shop | 10 | 60 |
+| plants/utricularia-graminifolia | shop | 13 | 60 |
 | species/poropanchax-normani | shop | 6 | 60 |
 | species/hasemania-nana | shop | 1 | 60 |
 | plants/marsilea-hirsuta | shop | 12 | 60 |
 | species/gyrinocheilus-aymonieri | shop | 14 | 60 |
 | species/erpetoichthys-calabaricus | shop | 2 | 60 |
-| plants/sagittaria-subulata | shop | 9 | 60 |
+| plants/sagittaria-subulata | shop | 13 | 60 |
 | species/trichopsis-vittata | shop | 11 | 60 |
 | plants/lilaeopsis-brasiliensis | shop | 9 | 60 |
 | species/boraras-urophthalmoides | shop | 1 | 60 |
-| plants/taxiphyllum-alternans | shop | 3 | 60 |
+| plants/taxiphyllum-alternans | shop | 6 | 60 |
 | plants/fissidens-fontanus | shop | 22 | 60 |
 | species/poecilia-sphenops | shop | 17 | 60 |
 | plants/cryptocoryne-beckettii | shop | 1 | 60 |
@@ -145,7 +145,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/danio-margaritatus | shop | 10 | 60 |
 | species/atractosteus-spatula | shop | 41 | 60 |
 | species/hyphessobrycon-megalopterus | shop | 4 | 60 |
-| plants/vesicularia-montagnei | shop | 1 | 60 |
+| plants/vesicularia-montagnei | shop | 4 | 60 |
 | species/hyphessobrycon-sweglesi | shop | 4 | 60 |
 | plants/micranthemum-callitrichoides | shop | 6 | 60 |
 | species/trigonostigma-hengeli | shop | 2 | 60 |
@@ -196,11 +196,10 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | plants/phyllanthus-fluitans | shop | 11 | 60 |
 | species/pristella-maxillaris | shop | 3 | 60 |
 | species/prionobrama-filigera | shop | 1 | 60 |
-| plants/pogostemon-deccanensis | shop | 41 | 60 |
+| plants/pogostemon-deccanensis | shop | 45 | 60 |
 | species/hyphessobrycon-rosaceus | shop | 4 | 60 |
 | species/carinotetraodon-travancoricus | shop | 13 | 60 |
 | species/pterygoplichthys-joselimaianus | shop | 3 | 60 |
-| plants/ranunculus-inundatus | shop | 59 | 60 |
 | species/sewellia-lineolata | shop | 3 | 60 |
 | plants/rotala-macrandra | shop | 2 | 60 |
 | species/sewellia-breviventralis | shop | 0 | 60 |
@@ -264,7 +263,10 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/axelrodia-riesei | covered | 1 | 30 |
 | species/betta-siamorientalis | covered | 0 | 30 |
 | species/betta-unimaculata | covered | 0 | 30 |
+| species/boraras-merah | covered | 3 | 30 |
 | species/brachyplatystoma-vaillantii | covered | 1 | 30 |
 | species/brevibora-dorsiocellata | covered | 1 | 30 |
 | species/brochis-multiradiatus | covered | 3 | 30 |
+| species/corydoras-habrosus | covered | 8 | 30 |
+| species/corydoras-semiaquilus | covered | 2 | 30 |
 | species/betta-macrostoma | covered | 0 | 30 |

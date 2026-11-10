@@ -14,6 +14,23 @@
       "kind": "habitat"
     },
     {
+      "url": "https://media.aquatome.com/tropica/28bf736b6e6aadd1.webp",
+      "thumb": "https://media.aquatome.com/tropica/28bf736b6e6aadd1-480.webp",
+      "width": 1200,
+      "height": 855,
+      "large": {
+        "url": "https://media.aquatome.com/tropica/28bf736b6e6aadd1-large.webp",
+        "width": 1685,
+        "height": 1200
+      },
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Taxiphyllumalternans'TaiwanMoss'(003CTC)/19551",
+      "source": "tropica",
+      "best": true,
+      "kind": "submersed"
+    },
+    {
       "url": "https://media.aquatome.com/flickr/24486132179.webp",
       "thumb": "https://media.aquatome.com/flickr/24486132179-480.webp",
       "width": 1024,
@@ -36,9 +53,31 @@
       "caption": "Thảm rêu Đài Loan mọc ngoài tự nhiên trên nền đất",
       "best": true,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/tropica/059db1a8c191bb3a.webp",
+      "thumb": "https://media.aquatome.com/tropica/059db1a8c191bb3a-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Taxiphyllumalternans'TaiwanMoss'(003CTC)/19551",
+      "source": "tropica",
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/tropica/f096649ad963f6ff.webp",
+      "thumb": "https://media.aquatome.com/tropica/f096649ad963f6ff-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Taxiphyllumalternans'TaiwanMoss'(003CTC)/19551",
+      "source": "tropica",
+      "kind": "other"
     }
   ],
   "seen": 23,
-  "updatedAt": "2026-11-08",
+  "updatedAt": "2026-11-10",
   "builtAt": "2026-11-08"
 }

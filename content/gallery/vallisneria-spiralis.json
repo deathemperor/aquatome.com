@@ -11,8 +11,7 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vallisn%C3%A9rie_Vallisneria_spiralis_Brant%C3%B4me-Dronne_2014_2.JPG",
       "caption": "Lá Lá lúa Tiger vươn thẳng dưới nước trong môi trường tự nhiên",
       "best": true,
-      "kind": "habitat",
-      "unchecked": true
+      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/commons/20333c2aa95823e1.webp",
@@ -24,8 +23,24 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vallisn%C3%A9rie_Vallisneria_spiralis_Brant%C3%B4me-Dronne_2014_4.JPG",
       "caption": "Bụi Lá lúa Tiger lá dài mọc dưới nước, ngả theo dòng",
       "best": true,
-      "kind": "submersed",
-      "unchecked": true
+      "kind": "submersed"
+    },
+    {
+      "url": "https://media.aquatome.com/tropica/32a5549cfa5b0c5e.webp",
+      "thumb": "https://media.aquatome.com/tropica/32a5549cfa5b0c5e-480.webp",
+      "width": 1200,
+      "height": 750,
+      "large": {
+        "url": "https://media.aquatome.com/tropica/32a5549cfa5b0c5e-large.webp",
+        "width": 1920,
+        "height": 1200
+      },
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Vallisneriaspiralis'Tiger'(055A)/4503",
+      "source": "tropica",
+      "best": true,
+      "kind": "submersed"
     },
     {
       "url": "https://media.aquatome.com/commons/25d999a9e96dd7c7.webp",
@@ -37,8 +52,29 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vallisneria_spiralis_vaam3_001_php.jpg",
       "caption": "Thảm Vallisneria mọc dưới nước trong môi trường tự nhiên",
       "best": false,
-      "kind": "habitat",
-      "unchecked": true
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/tropica/0ff2734906d4fd89.webp",
+      "thumb": "https://media.aquatome.com/tropica/0ff2734906d4fd89-480.webp",
+      "width": 1000,
+      "height": 1000,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Vallisneriaspiralis'Tiger'(055A)/4503",
+      "source": "tropica",
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/tropica/fc86f488bab85b47.webp",
+      "thumb": "https://media.aquatome.com/tropica/fc86f488bab85b47-480.webp",
+      "width": 1000,
+      "height": 1000,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Vallisneriaspiralis'Tiger'(055A)/4503",
+      "source": "tropica",
+      "kind": "other"
     }
   ],
   "seen": 5,

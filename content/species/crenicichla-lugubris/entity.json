@@ -698,16 +698,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/7e9f2a7f21742e9d.webp",
-      "thumb": "https://media.aquatome.com/commons/7e9f2a7f21742e9d-480.webp",
-      "width": 960,
-      "height": 643,
-      "licence": "CC BY 4.0",
-      "author": "Whaldener Endo",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Crenicichla_lugubris_204987076.jpg",
-      "caption": "Spottail Pike Cichlid (Crenicichla lugubris)"
-    },
-    {
       "url": "https://media.aquatome.com/commons/b745cf5f5aef5694.webp",
       "thumb": "https://media.aquatome.com/commons/b745cf5f5aef5694-480.webp",
       "width": 960,
@@ -715,7 +705,12 @@
       "licence": "CC BY-SA 4.0",
       "author": "Herbisius",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Crenicichla_Xingu_1_female_and_male.tif",
-      "caption": "Paar Crenicichla Xingu 1 (W oben, M unten)"
+      "caption": "Paar Crenicichla Xingu 1 (W oben, M unten)",
+      "large": {
+        "url": "https://media.aquatome.com/commons/b745cf5f5aef5694-large.webp",
+        "width": 1694,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/7a50b50eaa7d6011.webp",

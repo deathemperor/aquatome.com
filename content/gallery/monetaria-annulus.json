@@ -51,6 +51,19 @@
       "kind": "habitat"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/173505215.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/173505215-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Mahomed Desai",
+      "sourceUrl": "https://www.inaturalist.org/photos/173505215",
+      "caption": "Ốc tiền vòng vàng bên san hô mềm trong bể",
+      "best": true,
+      "kind": "other",
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/commons/b3e946a6ce19916b.webp",
       "thumb": "https://media.aquatome.com/commons/b3e946a6ce19916b-480.webp",
       "width": 1200,
@@ -84,6 +97,19 @@
       "author": "Jean-Paul Boerekamps",
       "sourceUrl": "https://www.inaturalist.org/photos/110916488",
       "caption": "Ốc tiền vòng vàng sống bò trên nền cát ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/214641878.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/214641878-480.webp",
+      "width": 771,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Monica Ventrice",
+      "sourceUrl": "https://www.inaturalist.org/photos/214641878",
+      "caption": "Ốc tiền vòng vàng với vòng vàng trên đá ven biển",
       "best": true,
       "kind": "habitat",
       "unchecked": true
@@ -154,6 +180,19 @@
       "unchecked": true
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/214840216.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/214840216-480.webp",
+      "width": 1024,
+      "height": 766,
+      "licence": "CC BY",
+      "author": "Dominik Maximilián Ramík",
+      "sourceUrl": "https://www.inaturalist.org/photos/214840216",
+      "caption": "Ốc tiền vòng vàng trên đá ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/48871444.webp",
       "thumb": "https://media.aquatome.com/inaturalist/48871444-480.webp",
       "width": 1024,
@@ -217,6 +256,19 @@
       "unchecked": true
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/214641175.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/214641175-480.webp",
+      "width": 1024,
+      "height": 771,
+      "licence": "CC BY",
+      "author": "Monica Ventrice",
+      "sourceUrl": "https://www.inaturalist.org/photos/214641175",
+      "caption": "Ốc tiền vòng vàng trên nền cát và đá ven biển",
+      "best": false,
+      "kind": "habitat",
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/15751430.webp",
       "thumb": "https://media.aquatome.com/inaturalist/15751430-480.webp",
       "width": 1024,
@@ -225,6 +277,19 @@
       "author": "Andrew Deacon",
       "sourceUrl": "https://www.inaturalist.org/photos/15751430",
       "caption": "Ốc tiền vòng vàng trong khe đá phủ rong",
+      "best": false,
+      "kind": "habitat",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/173505222.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/173505222-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Mahomed Desai",
+      "sourceUrl": "https://www.inaturalist.org/photos/173505222",
+      "caption": "Ốc tiền vòng vàng bò trên san hô màu cam",
       "best": false,
       "kind": "habitat",
       "unchecked": true
@@ -243,7 +308,7 @@
       "unchecked": true
     }
   ],
-  "seen": 200,
+  "seen": 240,
   "updatedAt": "2026-11-10",
   "builtAt": "2026-11-10"
 }

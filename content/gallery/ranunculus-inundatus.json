@@ -266,6 +266,18 @@
       "kind": "habitat"
     },
     {
+      "url": "https://media.aquatome.com/tropica/02a799002cd2b166.webp",
+      "thumb": "https://media.aquatome.com/tropica/02a799002cd2b166-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Ranunculusinundatus(022CTC)/18225",
+      "source": "tropica",
+      "kind": "other",
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/347392273.webp",
       "thumb": "https://media.aquatome.com/inaturalist/347392273-480.webp",
       "width": 1024,
@@ -711,6 +723,6 @@
     }
   ],
   "seen": 124,
-  "updatedAt": "2026-11-09",
+  "updatedAt": "2026-11-10",
   "builtAt": "2026-11-09"
 }

@@ -76,24 +76,7 @@
       },
       {
         "heading": "Phủ APT Fix khi thay nước thế nào",
-        "moments": [
-          {
-            "t": 230,
-            "url": "https://media.aquatome.com/video/ZbUcP1amgZ8/at230-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bơm APT Fix trực tiếp lên đá và thảm cây khi đã xả nước thấp.",
-            "sharpness": 2455.6
-          },
-          {
-            "t": 235,
-            "url": "https://media.aquatome.com/video/ZbUcP1amgZ8/at235-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh phủ thuốc lên chỗ rêu hại bám trên đá lũa.",
-            "sharpness": 2690.5
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/ZbUcP1amgZ8/p1-uYV9ydWJyYS5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/ZbUcP1amgZ8/p1-uYV9ydWJyYS5qcGc-480.webp",
@@ -114,7 +97,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hút dọn phần nền trong bể, xung quanh là cây thủy sinh và đá.",
-            "sharpness": 753.6
+            "sharpness": 753.6,
+            "person": false
           }
         ]
       },
@@ -127,7 +111,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hai bể thủy sinh cây mọc dày, được châm phân đầy đủ.",
-            "sharpness": 438.6
+            "sharpness": 438.6,
+            "person": false
           },
           {
             "t": 295,
@@ -135,7 +120,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh cây xanh tốt quanh lũa phủ rêu và đá.",
-            "sharpness": 1415.9
+            "sharpness": 1415.9,
+            "person": false
           }
         ],
         "photo": {
@@ -166,7 +152,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh có thảm cỏ và lũa, cần theo dõi nitrat, photphat.",
-            "sharpness": 1774.7
+            "sharpness": 1774.7,
+            "person": false
           }
         ],
         "photo": {
@@ -189,7 +176,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh có đá lũa và thảm cây xanh khỏe, gọn gàng.",
-            "sharpness": 1377.8
+            "sharpness": 1377.8,
+            "person": false
           },
           {
             "t": 480,
@@ -197,7 +185,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hai bể thủy sinh dưới đèn LED, cây phát triển tốt, không thấy rêu hại.",
-            "sharpness": 1372.8
+            "sharpness": 1372.8,
+            "person": false
           }
         ]
       }

@@ -76,7 +76,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ke gắn tường với thanh gỗ đặt lên, nhìn rõ kiểu lắp ngược.",
-            "sharpness": 332
+            "sharpness": 332,
+            "person": false
           }
         ]
       },
@@ -97,7 +98,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Chồng ván gỗ dày mỏng xếp trong cửa hàng để chọn mua.",
-            "sharpness": 1238
+            "sharpness": 1238,
+            "person": false
           }
         ]
       },
@@ -105,20 +107,13 @@
         "heading": "Thử đèn shop light LED giá rẻ",
         "moments": [
           {
-            "t": 205,
-            "url": "https://media.aquatome.com/video/XX61L_oweGg/at205-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể dưới đèn thả cho ánh sáng lăn tăn, màu trắng lạnh.",
-            "sharpness": 1757.8
-          },
-          {
             "t": 215,
             "url": "https://media.aquatome.com/video/XX61L_oweGg/at215-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể dưới đèn shop light LED cho màu ánh sáng vàng ấm, khác hẳn.",
-            "sharpness": 1170.5
+            "sharpness": 1170.5,
+            "person": false
           }
         ],
         "photo": {

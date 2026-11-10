@@ -51,15 +51,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Phân nền đã được trải đều trong bể, chưa có nước.",
-            "sharpness": 4544.5
-          },
-          {
-            "t": 60,
-            "url": "https://media.aquatome.com/video/YnloIslvwHA/at60-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lớp phân nền dày được san phẳng trong bể trước khi trồng cây.",
-            "sharpness": 4189
+            "sharpness": 4544.5,
+            "person": false
           }
         ]
       },
@@ -78,69 +71,6 @@
         }
       },
       {
-        "heading": "Khía lũa và quấn rêu vào ráy",
-        "moments": [
-          {
-            "t": 155,
-            "url": "https://media.aquatome.com/video/YnloIslvwHA/at155-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Xếp từng miếng rêu lên khúc lũa trước khi quấn cước.",
-            "sharpness": 376.7
-          },
-          {
-            "t": 185,
-            "url": "https://media.aquatome.com/video/YnloIslvwHA/at185-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Rêu đã được quấn chặt dọc theo khúc lũa.",
-            "sharpness": 1767.2
-          }
-        ]
-      },
-      {
-        "heading": "Buộc ráy vào lũa mà không làm dập rễ",
-        "moments": [
-          {
-            "t": 290,
-            "url": "https://media.aquatome.com/video/YnloIslvwHA/at290-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay đang luồn dây buộc cây ráy vào lũa.",
-            "sharpness": 442.2
-          },
-          {
-            "t": 330,
-            "url": "https://media.aquatome.com/video/YnloIslvwHA/at330-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ráy đã buộc xong trên lũa, dây gần như không lộ.",
-            "sharpness": 1034.5
-          }
-        ]
-      },
-      {
-        "heading": "Khi nào cắt bỏ dây buộc",
-        "moments": [
-          {
-            "t": 340,
-            "url": "https://media.aquatome.com/video/YnloIslvwHA/at340-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lũa phủ ráy xanh tốt, bám chắc, sẵn sàng cắt dây buộc.",
-            "sharpness": 1922.5
-          },
-          {
-            "t": 355,
-            "url": "https://media.aquatome.com/video/YnloIslvwHA/at355-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cành lũa với cụm ráy xanh đã bám vào gỗ.",
-            "sharpness": 598.3
-          }
-        ]
-      },
-      {
         "heading": "Trồng cây và trải thảm trân châu",
         "moments": [
           {
@@ -149,7 +79,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lũa phủ rêu đặt trên nền đất đã san phẳng trong bể.",
-            "sharpness": 2642.4
+            "sharpness": 2642.4,
+            "person": false
           },
           {
             "t": 450,
@@ -157,7 +88,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Các cụm cây nhỏ được trồng rải rác ở tiền cảnh bên cạnh lũa phủ rêu.",
-            "sharpness": 9492.8
+            "sharpness": 9492.8,
+            "person": false
           }
         ],
         "photo": {
@@ -180,7 +112,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây thủy sinh mới trồng trên nền đất đen, cần ánh sáng vừa phải.",
-            "sharpness": 9690.8
+            "sharpness": 9690.8,
+            "person": false
           },
           {
             "t": 475,
@@ -188,7 +121,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể thủy sinh với lũa và cây, chưa đổ nước.",
-            "sharpness": 2959.5
+            "sharpness": 2959.5,
+            "person": false
           }
         ]
       }
