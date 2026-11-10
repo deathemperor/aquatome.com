@@ -27,6 +27,7 @@ import { fitRewrite } from './fit-rewrite'
 import { candidates, cardsOf, checkCalendar, demandByPath, plan, readCalendar, writeCalendar } from './curation'
 import { phraseMatch } from './phrases'
 import { readerReport, readPages } from './reader'
+import { updatePageDates } from './page-dates'
 import { sweep } from './sweep'
 import { dropFacePhotos, visionFaces } from './faces'
 import { backfillPhotos } from './photo-backfill'
@@ -463,6 +464,9 @@ if (cmd === 'run' || cmd === 'card-fill') {
   const r = await sweep(ROOT, titles > 0 ? { llm: claudeCli, titles, model: process.env.READER_MODEL ?? 'opus' } : {})
   console.log(`sweep: ${r.files.length} files; ${Object.entries(r.text).map(([k, v]) => `${k} ${v.length}`).join(', ') || 'no text fixes'}; ${r.photos.length} photos off (${r.rejected} off every page); ${r.videos.length} videos off; ${r.card.length} cards (${r.summaries.length} summaries to write again); ${r.tanks.length} tank searches; ${r.shop.length} shop texts; ${r.varieties.length} variety pages; ${r.titles.length} titles; ${r.names.length} other names off; ${r.mentions.length} breeds off guides; ${r.links.length} breed links${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   for (const x of [...Object.entries(r.text).flatMap(([k, v]) => v.map(p => `${k}: ${p}`)), ...r.photos.map(x => `photo off: ${x}`), ...r.videos.map(x => `video off: ${x}`), ...r.card.map(x => `card: ${x}`), ...r.summaries.map(x => `summary again: ${x}`), ...r.tanks.map(x => `tank search: ${x}`), ...r.shop.map(x => `shop text off: ${x}`), ...r.varieties.map(x => `variety page off: ${x}`), ...r.titles.map(x => `title: ${x}`), ...r.names.map(x => `name off: ${x}`), ...r.mentions.map(x => `mention off: ${x}`), ...r.links.map(x => `link: ${x}`), ...r.unmatched.map(x => `not linked: ${x}`)]) console.log(x)
+  // After the sweep's own fixes, so a fix a reader sees dates its page (page-dates.ts).
+  const dated = await updatePageDates(join(ROOT, 'content'))
+  console.log(`page dates: ${dated.files} files, ${dated.changed} changed`)
 } else if (cmd === 'audit') {
   // Pictures per page → docs/review/content-audit.md; every published page against the content rules, in each language →
   // docs/review/content-rules.md (reports only; nothing is hidden). --fix: first the rules' safe fixes on the stored text,
