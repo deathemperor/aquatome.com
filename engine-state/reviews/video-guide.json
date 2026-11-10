@@ -4953,6 +4953,33 @@
   ],
   "vi/guides/youtube-AIQYex-S3e4": [
     {
+      "at": "2026-11-10T01:28:55Z",
+      "model": "sonnet",
+      "score": 0.75,
+      "notes": [
+        "\"khoảng 20 cm là mức tối thiểu\" (in the list and in the FAQ answer) is the creator's own habit (\"I find 8 inches tends to be the bare minimum\"). Hedge it, e.g. \"khoảng 20 cm thường là mức tối thiểu\" or \"có thể chừa khoảng 20 cm\", so it doesn't read as a universal rule.",
+        "\"Sau khi dựng xong, tìm thanh xương gỗ trong tường và bắt vít cả kệ vào đó\" gets the order wrong. The creator found the studs and screwed the whole rack to the wall, and the tanks were already installed at that point. Reword so it doesn't set a step order, or say the rack was fixed to the wall studs with the tanks in place.",
+        "\"Có thể tận dụng lại tấm cũ, chẳng hạn cắt nhỏ tấm nắp của một bể lớn hơn\" is accurate but vague about where the panels came from. The creator reused panels that had been lids on his own larger tank, so reword as an option (\"một cách là…\") and not a general tip.",
+        "The guide leaves out that only eight of the twelve tanks were set up, because the creator ran out of PVC parts and sponge, and the bottom rack wasn't finished. Add one short sentence saying the bottom tier may be left for later if materials run short."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-10T01:28:55Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "\"Bể kính loại này có viền nhựa ở đáy\": the video only says the glass tanks have a lip underneath. Remove \"nhựa\" and say only \"viền ở đáy\".",
+        "\"Lọc vách mút Hamburg ... là một tấm mút chắn ngang một đầu bể, phía sau có ống PVC hút nước\": the video gives no such definition or placement (\"một đầu bể\"). Remove it or describe only what the video says: a sponge with a PVC pipe and an airline.",
+        "\"Đèn shop light (đèn xưởng, loại treo trần)\": \"loại treo trần\" is not in the video. Remove it.",
+        "\"cắt nhỏ nắp của một bể lớn đã bỏ\": the video only says the panels used to be the lids on a 2000-gallon tank. \"đã bỏ\" is invented. Say only that the panels were reused from the lids of a larger tank.",
+        "\"nên mỗi tầng chỉ cần một cây\": this is an inference the video doesn't state. The video says only that each light strip lights four tanks. Remove the \"nên...\" clause."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
+    {
       "at": "2026-11-09T03:28:46Z",
       "model": "sonnet",
       "score": 0.4,
@@ -4973,6 +5000,35 @@
     }
   ],
   "vi/guides/youtube-A_vsnpDVUSw": [
+    {
+      "at": "2026-11-10T01:27:29Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "\"cây cắt cắm\" (title, bullets, intro) is not a normal hobby term and reads oddly, as if it were a kind of plant. Use \"cây thân mọc\" (or \"cây thân\") for stem plants. Use \"ngọn cắt\" or \"cành giâm\" for the cuttings.",
+        "\"mọc cao quá ý mình\" and \"cao hơn ý mình\" are awkward, colloquial phrasing. Rewrite as \"cao hơn mức mình muốn\".",
+        "\"Bể này tỉa chỉ vì muốn cây hậu cảnh trông thấp hơn.\" is clumsy and repeats the opening line. Merge it into one sentence or drop it.",
+        "The summary bullets, the intro paragraph and the later sections all repeat the same points (trimming, replanting the tops, tuốt lá, tweezers). The text reads like notes. Cut the repetition so each point appears once."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-10T01:27:29Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "\"Cây hậu cảnh lên cao nhanh thì lần nào cũng phải tỉa\": the video only says the creator doesn't want to trim them every time. Remove \"lên cao nhanh\" and \"lần nào cũng\", and hedge it as one person's reason, e.g. \"nếu không muốn phải tỉa mỗi lần\".",
+        "\"lên khỏe thì chỉ sau vài tuần đã vươn cao\": this turns one 4-week-old tank into a general rule about growth speed. Remove it, or say only that in this tank the plants had grown tall after about 4 weeks.",
+        "\"Lần lượt tỉa hết các cụm cây hậu cảnh\": the video gives no such step. It only says to start on the left side and cut to a height that's not too short and not too tall. Remove this step.",
+        "The heading \"Khi nào thì tỉa\" doesn't match its content, which describes the example tank and the creator's preference for shorter plants. The video gives no timing or trigger for trimming. Rename it (e.g. \"Bể ví dụ\") or drop the \"when\" framing.",
+        "\"Cây cao như vậy nhìn vẫn đẹp… còn không thì đây là chuyện tùy ý\": this editorialises beyond the video. Keep only that the creator trimmed because they prefer shorter plants, and drop the extra commentary.",
+        "The \"(stem plant)\" English gloss in the intro paragraph is left in place. Remove it or use a Vietnamese term only.",
+        "The bullet summary and the three FAQ answers just repeat the body (scissors, stripping leaves, tweezers). Cut the redundant FAQ, which adds nothing and makes the guide read like padding."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
     {
       "at": "2026-11-08T17:35:37Z",
       "model": "sonnet",
@@ -5742,6 +5798,16 @@
     }
   ],
   "vi/guides/youtube-C4W86NMP3CU": [
+    {
+      "at": "2026-11-10T01:27:10Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"cứng gấp bốn lần\" (appears in the intro and in the scratch-test section): the video says tempered glass is four times stronger than regular glass, not harder. Change to \"chịu lực gấp bốn lần\" or \"bền hơn gấp bốn lần\"."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
     {
       "at": "2026-11-08T19:29:01Z",
       "model": "sonnet",
@@ -7149,6 +7215,37 @@
   ],
   "vi/guides/youtube-EV1ZR6CjOzc": [
     {
+      "at": "2026-11-10T01:31:11Z",
+      "model": "sonnet",
+      "score": 0.75,
+      "notes": [
+        "The sentence \"Xếp xong phần chân đế thì bắt đầu uốn dần lên để tạo vòm\" appears twice, in the bullet list and again under its own heading. Remove the \"dần\" (the video doesn't say it is gradual) and drop the duplicate section, or merge it into the arch section.",
+        "The point that the arch rock is the hardest and must be curved is repeated four times: the bullet list, the arch section, the FAQ answer and the sentence in the section on the arch. Keep it once or twice and cut the rest.",
+        "The FAQ on protecting the glass repeats the \"Bảo vệ kính khi xếp đá\" section almost word for word, and adds no new information. Remove it or merge it into the section.",
+        "\"Làm vậy để đá không rơi...\" and \"Nền dốc như vậy làm bố cục có chiều sâu hơn\" read like a calque of the English. Rewrite them in more natural Vietnamese, for example \"Nhờ vậy đá không rơi...\" and \"Nền dốc dần về sau giúp bố cục trông sâu hơn\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-10T01:31:11Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "\"Xếp phần chân đế trước, sau đó mới dựng vòm\" / the numbered list \"Xếp đá theo thứ tự nào\": the video only says to start bending to make the arch after arranging the base; rewrite as a loose description rather than a prescribed order, and drop the step \"Ghép thêm các khối đá khác, chẳng hạn một sườn núi bên trái bể\", which is not given as a step.",
+        "\"Một cách ghép đá là dùng keo 502... Nhớ rửa sạch đá trước để keo bám chắc hơn\" in the FAQ: fine as hedged, but the FAQ question \"Ghép đá làm vòm thì dùng keo gì?\" repeats content; remove the imperative \"Nhớ\" that adds advice stated as a rule.",
+        "\"Nhét túi ni lông quanh mép bể để đá có rơi vào cũng không làm xước hay vỡ kính\": the video says the bags prevent rocks from falling into the tank and scratching or breaking it; correct to this (bags stop rocks from falling in), not that rocks falling in are harmless.",
+        "\"Lúc dựng vòm, có thể lấy mấy bao phân nền kê đỡ phía dưới\": the video says substrate bags support the bottom part; \"phân nền\" is the correct term, but \"Lancôme\" is a mishearing, fine; however keep it hedged as one person's method (\"một cách là\").",
+        "\"Đắp nền dốc lên về phía sau để bố cục có chiều sâu hơn\" in the summary bullets is stated as firm advice; hedge it (\"có thể\") as it is just what the creator did.",
+        "\"Phần khó nằm ở viên đá làm vòm, còn mấy việc như rửa đá, ghép keo hay lót mép bể thì đơn giản nhưng không nên bỏ qua\": the video never calls these steps simple or says not to skip them; remove this claim.",
+        "\"Bố cục vòm đá là kiểu ghép nhiều viên đá thành một khối có cung vòm\": a definition not given in the video; remove or reduce to what the video says.",
+        "\"Dọn mùn cưa thừa... quét sạch phần mùn cưa thừa còn dính trên đá\": the video only says to use a broom to clean off excess sawdust; remove \"còn dính trên đá\" and \"sạch\" details not given.",
+        "\"Viên đá làm vòm khó xếp nhất\" / \"Nên chọn những viên có dáng cong sẵn\": the video says \"should choose rocks with a curved shape\"; remove \"sẵn\" and keep it as soft advice."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
+    {
       "at": "2026-11-08T15:30:04Z",
       "model": "sonnet",
       "score": 0.4,
@@ -7314,6 +7411,35 @@
     }
   ],
   "vi/guides/youtube-FAccJ8TTIAs": [
+    {
+      "at": "2026-11-10T01:31:57Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "\"dựng trước khi trồng cây\": the video never says hardscape is built before planting. Remove this clause and keep only \"phần khung lũa, đá trong bể\".",
+        "\"Với lũa thì có thể du di.\" and \"Với lũa thì có thể du di hơn. Còn với đá thì nên tránh.\" (also in the FAQ): the creator only says \"I think with wood it's a little different, you can get away with it\". Hedge this as one person's view (e.g. \"với lũa có lẽ còn du di được\") and drop the firm contrast."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-10T01:31:57Z",
+      "model": "sonnet",
+      "score": 0.55,
+      "notes": [
+        "\"ai cũng nhận ra là có người đặt chúng ở đó\": the speaker only says it can easily look fake or placed; remove \"ai cũng\" and hedge, e.g. \"dễ trông giả, như có người đặt ở đó\".",
+        "\"nhìn rất dễ thấy giả\": stronger than the video's \"easily look fake\"; soften to \"có thể trông giả\".",
+        "\"Bố cục sẽ thú vị hơn hẳn\": the video says \"much more interesting look\" only as a likely outcome; hedge, e.g. \"bố cục thường trông thú vị hơn\".",
+        "\"Hãy kìm lại\": an added instruction the video doesn't give; remove it and keep only the advice to take your time.",
+        "\"Người khác nhìn từ góc khác, họ sẽ chỉ ra những chỗ mình chưa thấy\": stated as certain; the video says people \"can\" give a different perspective, so change to \"có thể cho góc nhìn khác\".",
+        "\"Mua xong bể, đèn, lọc, đôi khi bạn sẽ nóng lòng\": the video says 'we sometimes feel impatient' about the equipment; the sentence is okay but \"Khoảng đó có khi là nửa năm, có khi cả năm\" is fine; instead fix \"Còn với đá thì nên tránh\" / \"trộn vài loại vẫn ổn\": the video only says wood mixing can be gotten away with, so drop \"trộn vài loại vẫn ổn\" or hedge it with \"có thể\".",
+        "\"Nếu bạn thích môn này và định chơi lâu thì có lẽ nên gom thêm dần\": fine, but \"Trước khi chọn vật liệu, hãy lên mạng tìm hiểu\" and the FAQ \"Bỏ lũa vào bể thì nước có bị nâu không? Có thể.\" are fine; however the FAQ \"Có nên trộn nhiều loại đá trong một bể? Không nên\" states a firm rule; hedge it as \"nên tránh vì dễ trông giả\" attributing only to look.",
+        "\"Đá có thể đổi thông số nước ... làm nước cứng hơn\" and \"một số loại đá nhả canxi\": the video says rocks might alter parameters and leach some calcium; hedge \"một số loại đá nhả canxi\" to \"đá có thể nhả canxi\" and avoid saying specific kinds.",
+        "The opening summary bullet list duplicates the guide and omits the seventh tip (growing a collection of hardscape); add that point to the summary, since the title promises 7 tips."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
     {
       "at": "2026-11-08T22:29:49Z",
       "model": "sonnet",
@@ -17620,6 +17746,31 @@
   ],
   "vi/guides/youtube-aLvkYA8AqBY": [
     {
+      "at": "2026-11-10T01:29:09Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "\"Trước khi mua thì xem kỹ độ dày kính.\" The video gives no advice to check glass thickness before buying. Remove this sentence."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-10T01:29:09Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "\"Đáy là khung gỗ đã phủ pond armor\": the video never says the base is a wooden frame. Remove \"khung gỗ\" and say only that the base is coated with pond armor and has bottom braces.",
+        "\"theo một số người nuôi lâu năm thì chúng đóng chắc hơn\": this is only the creator's own opinion, and \"some long-time keepers\" is invented. Rewrite it as a hedged view, e.g. \"có thể bể đời cũ đóng chắc hơn, còn bể mới dạo này có xu hướng dùng kính mỏng hơn\".",
+        "\"kính dày thì đắt, tấm kính nặng khó giữ đứng, và miệng bể dài rộng cần giằng cho chắc\": the video never frames three difficulties, and it never says thick glass is expensive. Delete or rewrite this intro so it only says what the guide covers.",
+        "\"chạy quanh hết miệng bể ở mặt trong\" and \"dán silicone quanh hết miệng bể ở mặt trong\" (also in the FAQ): the video does not say the euro braces go on the inside face. Remove \"ở mặt trong\".",
+        "\"búa cao su\": the video only says \"mallet\", not rubber. Change it to \"búa\".",
+        "\"Lúc làm đáy thì nên nghĩ trước xem bước lắp kính sẽ cần chỗ thế nào\": this is generic advice the video doesn't give. The video only says he didn't plan the bracing ahead. Remove it or state it only as what he did wrong."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
+    {
       "at": "2026-11-08T23:30:24Z",
       "model": "sonnet",
       "score": 0.4,
@@ -18876,6 +19027,36 @@
   ],
   "vi/guides/youtube-dWX5azsrKSk": [
     {
+      "at": "2026-11-10T01:30:20Z",
+      "model": "sonnet",
+      "score": 0.75,
+      "notes": [
+        "\"Cây đèn trong bài dùng bóng đơn màu, không phải đèn RGB. Phần dưới nói ánh sáng của nó ra sao…\": this meta intro repeats the opening bullets and reads like a table of contents. Delete it or fold it into one natural sentence.",
+        "\"công suất thấp hơn hẳn một đèn khác\" (in the bullet and in the section): the transcript gives the actual wattage, about 9 W against about 150 W for the other light. Replace the vague wording with \"khoảng 9 W\" and keep the 150 W comparison.",
+        "The opening bullet list repeats the sections below almost line for line (colour temperature, T5 colour, tank length, RGB, blue bulb). Cut the repeated bullets, or shorten the list to a short summary, so the guide doesn't say everything twice.",
+        "\"mà công suất thấp hơn hẳn\" (bullet) and \"Phải tính chuyện pha màu\" (table): both read like note-style or translated phrasing. Reword them into natural Vietnamese, for example \"nhưng công suất chỉ bằng một phần nhỏ\" and \"phải chỉnh các kênh màu\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-10T01:30:20Z",
+      "model": "sonnet",
+      "score": 0.55,
+      "notes": [
+        "\"Đèn thủy sinh bây giờ có hai kiểu chính. Một kiểu là đèn RGB chỉnh được từng kênh màu, kiểu còn lại chỉ có một màu sáng cố định\": this framing and the 'giá cao thì khác gì đèn RGB, và nó hợp với ai' intro are not in the video; remove or reduce to what the video says (this lamp is single-colour, not RGB).",
+        "\"Đèn có ít thứ để hỏng hơn, và không bao giờ bị lệch màu vì một kênh nào đó chạy sai\": 'không bao giờ' is stronger than the video, which only says it doesn't have colour-channel faults; 'ít thứ để hỏng hơn' is invented. Hedge to 'không gặp lỗi kênh màu' and drop the rest.",
+        "\"Một cây đèn này chơi được bể dài 1 m, thậm chí 1,1 m vẫn thoải mái\": the video says about 1 m to 1.1 m is fine; 'thậm chí' is okay-ish but the guide also drops the 9 W power and the comparison (the video says the lamp is low wattage vs about 150 W for another light); this key point is missing, so add or keep to what the video says. Also the video's power figure is unclear, so do not state it fir…",
+        "\"Khi bật hết bóng blue lên, ánh sáng chuyển sang tông xanh, màu này dùng được cho bể nước mặn\" and the FAQ \"Đèn này có dùng cho bể nước mặn được không?\": the creator only says this is a colour that can be used for a saltwater tank, and the 'bóng blue' combo is stated as a firm answer; hedge to 'có thể dùng' and do not present it as a verified answer to the FAQ.",
+        "\"Một phần lý do nằm ở thiết kế và chất lượng của đèn. Ngoài ra, đèn còn có thể bật kèm bóng blue\": the video's reasons for the high price are unclear and the sentence is a cause the video doesn't clearly give; remove the 'Vì sao đèn đắt' section or hedge it as one possible reason, and do not make blue bulbs a price reason.",
+        "\"Một cây đèn đơn màu giá cao\", \"Bài này nói về một cây đèn đơn màu cao cấp\": 'cao cấp' is not stated in the video; remove it.",
+        "\"Chỉnh từng kênh xanh, đỏ, vàng\" and \"Phải nghĩ cách chỉnh kênh màu\" in the table: this is a rewording of the transcript, and the table plus the repeated bullet list, section texts and FAQ repeat the same points three times. Cut the repetition and write in your own words.",
+        "\"Đèn có nhiệt độ màu khoảng 6.500 K, gần với ánh sáng mặt trời\" and \"Bù lại thì cắm điện là chơi\": the sentences are close to the transcript ('cứ bật lên cắm điện và chơi thôi'); rephrase in your own words. The wording 'Bù lại thì' is a calque-like phrasing; make it natural."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
+    {
       "at": "2026-11-08T15:29:56Z",
       "model": "sonnet",
       "score": 0.4,
@@ -18917,6 +19098,32 @@
     }
   ],
   "vi/guides/youtube-da78xmuwTHo": [
+    {
+      "at": "2026-11-10T01:30:25Z",
+      "model": "sonnet",
+      "score": 0.75,
+      "notes": [
+        "\"khoét hai lỗ ... để thả nước và thả cá\" (also in the FAQ \"chỗ thả nước, thả cá\"): \"thả nước\" is awkward and reads like a translation. Reword it as \"đổ nước và thả cá\", or \"đổ nước, thả cá\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-10T01:30:25Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "\"Tấm trước và tấm sau dài bằng chiều dài tấm đáy... Vì vậy tấm đáy cắt đúng bằng kích thước ngoài\" and the FAQ \"Tấm đáy có cần cắt rộng hơn để ốp các tấm thành vào cạnh không? Không...\": the video only says the panels sit on top of the base, not on its sides, and that the creator made the base exactly 48x36 as he wanted. Remove the inference \"Vì vậy\" and the FAQ; at most say the base was cut to t…",
+        "\"Giằng trên của bể acrylic rất quan trọng\" / \"Giằng trên lắp vào ... không đặt đè lên trên mép\": fine as meaning, but the term \"giằng trên\" and the claim \"mỗi chiều của giằng phải trừ độ dày acrylic ở cả hai bên\" are OK. However the example \"Chiều rộng giằng ở ví dụ này là 35 inch (khoảng 89 cm)\" is wrong: the transcript gives the full sheet as 45 (a mishearing, in effect 47) by 35, and the sheet…",
+        "\"Kích thước tính giống như giằng nguyên tấm\" and \"còn cách tính kích thước thì giống nhau\" (Euro bracing): the video only says \"you'd do the same thing\" for strips, so this is acceptable only loosely. Hedge it or remove the claim that the calculation is identical, and remove it from the FAQ answer.",
+        "\"khoét hai lỗ trên tấm để thả nước và thả cá\": the transcript says access holes to put water and fish in, which is roughly right. But \"Tấm giằng ở đây cũng dày 12 mm\" should be rephrased: the video says the lid/sheet is also half inch, so write \"dày nửa inch (khoảng 12 mm)\".",
+        "\"thường rộng khoảng 4 inch (khoảng 10 cm)\" for Euro bracing: the video says \"usually around four inch strips\" and \"I believe it's called Euro bracing\", so hedge the name (\"hình như gọi là\") rather than stating it firmly. In the FAQ, \"dải acrylic rộng khoảng 10 cm\" should be hedged similarly.",
+        "\"Tấm trước chiếm một phần chiều rộng bể, tấm sau chiếm thêm một phần nữa\" and \"Lấy chiều rộng bể trừ đi hai lần độ dày\": awkward, translation-like and wordy. Rewrite more naturally, e.g. \"Hai đầu tấm hông bị tấm trước và tấm sau chiếm mất, mỗi bên bằng độ dày acrylic\".",
+        "The summary bullet list placed before the intro (\"Tấm trước, tấm sau và hai tấm hông...\") repeats the content with note-style clauses; the bullet \"Giằng kiểu Euro bằng các dải acrylic thì rẻ hơn nhiều\" is fine, but the bullet \"nên kích thước cũng phải trừ độ dày acrylic ở mỗi bên\" uses a \"nên\" calque. Rephrase in natural Vietnamese."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
     {
       "at": "2026-11-08T22:29:29Z",
       "model": "sonnet",

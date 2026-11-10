@@ -5,7 +5,7 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution | lethal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 3797 | 3374 | 1537 | 72 | 48 | 198 | 33 | 993 | 456 | 2710 | 470 | 10 | 15 | 0 | 3 | 0 | 3 | 0 |
+| Vietnamese | 3797 | 3372 | 1536 | 72 | 48 | 199 | 33 | 993 | 456 | 2705 | 469 | 10 | 15 | 0 | 3 | 0 | 3 | 0 |
 | Indonesian | 1136 | 970 | 298 | 19 | 4 | 3 | 5 | 147 | 57 | 46 | 134 | 0 | 0 | 0 | 3 | 0 | 0 | 0 |
 | Thai | 1129 | 964 | 284 | 17 | 4 | 4 | 3 | 131 | 68 | 71 | 121 | 0 | 1 | 0 | 1 | 0 | 0 | 0 |
 | Malay | 180 | 138 | 50 | 4 | 1 | 0 | 0 | 22 | 16 | 6 | 16 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
@@ -90,8 +90,8 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - weld-on 4: 9
 - apt fix: 8
 - fluval: 8
-- krylon fusion: 8
 - easy shrimp and snail shells: 7
+- krylon fusion: 7
 - repashy soilent green: 7
 - tetramin: 7
 - twinstar: 7

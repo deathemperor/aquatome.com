@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-11-05",
+  "updatedAt": "2026-11-10",
   "video": {
     "youtubeId": "C4W86NMP3CU",
     "title": "HOW TO DRILL AQUARIUM GLASS - tips and tricks - The king of DIY",
@@ -25,87 +25,106 @@
       "height": 720
     },
     "taxa": [],
-    "gear": [
-      {
-        "category": "be-ca",
-        "type": "lon",
-        "t": 165
-      }
-    ],
+    "gear": [],
     "figures": [
       {
-        "heading": "Làm sao biết kính bể có phải kính cường lực",
+        "heading": "Soi bằng kính râm phân cực",
         "moments": [
           {
-            "t": 98,
-            "url": "https://media.aquatome.com/video/C4W86NMP3CU/t98.webp",
-            "width": 159,
-            "height": 90,
-            "caption": "Nhìn qua tấm kính cửa xe để tìm vệt ứng suất của kính cường lực."
+            "t": 105,
+            "url": "https://media.aquatome.com/video/C4W86NMP3CU/at105-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Nhìn qua kính cửa sổ bên hông xe hơi để soi các vệt khuyết tật.",
+            "sharpness": 609.4
           },
           {
-            "t": 108,
-            "url": "https://media.aquatome.com/video/C4W86NMP3CU/t108.webp",
+            "t": 120,
+            "url": "https://media.aquatome.com/video/C4W86NMP3CU/at120.webp",
             "width": 159,
             "height": 90,
-            "caption": "Đổi góc nhìn vào kính cửa sổ xe để soi các vệt sọc."
+            "caption": "Kính hông xe nhìn bằng kính râm phân cực, thử tìm vết ứng suất."
           }
         ]
       },
       {
-        "heading": "Cần chuẩn bị những gì",
+        "heading": "Tìm con dấu và xem cạnh kính",
         "moments": [
           {
-            "t": 309,
-            "url": "https://media.aquatome.com/video/C4W86NMP3CU/t309.webp",
+            "t": 165,
+            "url": "https://media.aquatome.com/video/C4W86NMP3CU/at165.webp",
             "width": 159,
             "height": 90,
-            "caption": "Mũi khoét kính lắp lên cổ ren của co để so cỡ."
-          }
-        ]
-      },
-      {
-        "heading": "Các bước khoan lỗ",
-        "moments": [
-          {
-            "t": 329,
-            "url": "https://media.aquatome.com/video/C4W86NMP3CU/t329.webp",
-            "width": 159,
-            "height": 90,
-            "caption": "Mũi khoét kim cương đang khoan vào kính bể."
+            "caption": "Cạnh kính bể nhìn từ bên hông, thấy rõ viền kính."
           },
           {
-            "t": 447,
-            "url": "https://media.aquatome.com/video/C4W86NMP3CU/t447.webp",
-            "width": 159,
-            "height": 90,
-            "caption": "Máy khoan cầm tay khoét lỗ trên kính bể cá."
+            "t": 185,
+            "url": "https://media.aquatome.com/video/C4W86NMP3CU/at185-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh cạnh kính xanh của bể, thấy rõ mép kính.",
+            "sharpness": 136.1
           }
         ]
       },
       {
-        "heading": "Kính dày hay kính mỏng thì đáng sợ hơn",
+        "heading": "Cào thử bằng mũi khoét",
         "moments": [
           {
-            "t": 486,
-            "url": "https://media.aquatome.com/video/C4W86NMP3CU/t486.webp",
+            "t": 245,
+            "url": "https://media.aquatome.com/video/C4W86NMP3CU/at245.webp",
             "width": 159,
             "height": 90,
-            "caption": "Cầm máy khoan áp vào mặt kính bể lớn để khoan."
+            "caption": "Cầm mũi khoét kim cương áp lên mặt kính bể để cào thử."
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/C4W86NMP3CU/p2-NfNjhEJTIyLkpQRw.webp",
+          "thumb": "https://media.aquatome.com/video/C4W86NMP3CU/p2-NfNjhEJTIyLkpQRw-480.webp",
+          "width": 960,
+          "height": 715,
+          "licence": "CC BY-SA 3.0",
+          "author": "Dmitry G",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Diamond_core_hole_saw_%22LEC_68D%22.JPG",
+          "caption": "Mũi khoét kim cương màu vàng cùng mũi dẫn hướng, dùng để khoan kính."
+        }
+      },
+      {
+        "heading": "Cần chuẩn bị gì",
+        "moments": [
+          {
+            "t": 270,
+            "url": "https://media.aquatome.com/video/C4W86NMP3CU/at270.webp",
+            "width": 159,
+            "height": 90,
+            "caption": "Cận cảnh đai ốc và gioăng của co xuyên vách."
+          },
+          {
+            "t": 300,
+            "url": "https://media.aquatome.com/video/C4W86NMP3CU/at300-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Mũi khoét kim cương dùng để khoét lỗ trên bể kính.",
+            "sharpness": 89.4
+          }
+        ]
+      },
+      {
+        "heading": "Các bước khoan",
+        "moments": [
+          {
+            "t": 380,
+            "url": "https://media.aquatome.com/video/C4W86NMP3CU/at380-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Máy khoan cầm tay có vòng chỉnh lực, chuẩn bị khoan bể.",
+            "sharpness": 114.3
           }
         ]
       },
       {
         "heading": "Bột kính rơi vào bể có hại cá không",
-        "moments": [
-          {
-            "t": 398,
-            "url": "https://media.aquatome.com/video/C4W86NMP3CU/t398.webp",
-            "width": 159,
-            "height": 90,
-            "caption": "Bể kính trống chuẩn bị khoan, chưa có nước và cá."
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/C4W86NMP3CU/p5-eixfVGliZXQuanBn.webp",
           "thumb": "https://media.aquatome.com/video/C4W86NMP3CU/p5-eixfVGliZXQuanBn-480.webp",
@@ -118,33 +137,17 @@
         }
       },
       {
-        "heading": "Bắt đầu từ đâu",
+        "heading": "Kính mỏng hay kính dày khó khoan hơn",
         "moments": [
           {
-            "t": 417,
-            "url": "https://media.aquatome.com/video/C4W86NMP3CU/t417.webp",
-            "width": 159,
-            "height": 90,
-            "caption": "Vị trí khoan trên kính bể, có vòng nước quanh mũi khoan."
-          },
-          {
-            "t": 422,
-            "url": "https://media.aquatome.com/video/C4W86NMP3CU/t422.webp",
-            "width": 159,
-            "height": 90,
-            "caption": "Mũi khoét kim cương gắn vào máy khoan, đang đặt lên kính bể."
+            "t": 465,
+            "url": "https://media.aquatome.com/video/C4W86NMP3CU/at465-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Lỗ khoan tròn trên tấm kính bể với nước chảy qua.",
+            "sharpness": 31.6
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/C4W86NMP3CU/p6-NfNjhEJTIyLkpQRw.webp",
-          "thumb": "https://media.aquatome.com/video/C4W86NMP3CU/p6-NfNjhEJTIyLkpQRw-480.webp",
-          "width": 960,
-          "height": 715,
-          "licence": "CC BY-SA 3.0",
-          "author": "Dmitry G",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Diamond_core_hole_saw_%22LEC_68D%22.JPG",
-          "caption": "Mũi khoét kim cương cùng cán và mũi dẫn, dùng để khoan kính bể."
-        }
+        ]
       }
     ]
   }

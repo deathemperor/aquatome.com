@@ -55234,7 +55234,7 @@
   ]
  },
  "vi/guides/youtube-A_vsnpDVUSw": {
-  "at": "2026-11-08",
+  "at": "2026-11-10",
   "hash": "0cd4f29fea7eb300",
   "model": "opus",
   "checklist": 3,
@@ -55561,7 +55561,7 @@
   ]
  },
  "vi/guides/youtube-AIQYex-S3e4": {
-  "at": "2026-11-08",
+  "at": "2026-11-10",
   "hash": "6f7bbe21e6006d03",
   "model": "opus",
   "checklist": 3,
@@ -55569,38 +55569,46 @@
    {
     "check": "units",
     "part": "P1",
-    "quote": "Tải ở tầng dưới tương đương đặt một bể khoảng 680 lít",
-    "why": "680 litres is a converted 180-gallon tank, not a size anyone in Vietnam would name.",
+    "quote": "Bốn bể đặt cạnh nhau dư ra hơn 2,5 cm.",
+    "why": "2.5 cm is a converted 1 inch, not a figure a Vietnamese keeper would give.",
     "by": "model"
    },
    {
     "check": "units",
     "part": "P1",
+    "quote": "Tải ở tầng dưới tương đương đặt một bể khoảng 680 lít",
+    "why": "680 litres is a converted 180-gallon tank size.",
+    "by": "model"
+   },
+   {
+    "check": "elsewhere",
+    "part": "P1",
     "quote": "Kệ dùng gỗ 2x4 (tiết diện khoảng 4 x 9 cm) dựng đứng làm chân.",
-    "why": "2x4 is the US lumber size in inches, given as the reader's own way of buying wood.",
+    "why": "2x4 is an American lumber size, not how timber is sold in Vietnam.",
     "by": "model"
    },
    {
     "check": "elsewhere",
     "part": "P1",
     "quote": "tìm thanh xương tường (stud) hoặc chỗ tường chắc rồi bắt vít cố định kệ vào tường",
-    "why": "Wooden wall studs belong to American timber-framed houses; homes in Vietnam have brick or concrete walls.",
-    "by": "model"
-   },
-   {
-    "check": "elsewhere",
-    "part": "P1",
-    "quote": "Bể kính loại thương mại thường có viền nhựa ở đáy.",
-    "why": "Mass-produced tanks with plastic rims are the US norm; tanks in Vietnam are usually custom-made rimless glass.",
+    "why": "Wood-stud walls are American; Vietnamese houses have brick or concrete walls.",
     "by": "model"
    },
    {
     "check": "words",
     "part": "P1",
-    "quote": "Đèn LED dạng thanh dùng cho xưởng hay nhà kho",
-    "why": "A calque of the American 'shop light'; Vietnamese keepers just name the tube light.",
+    "quote": "hợp với phòng kỹ thuật hoặc góc nuôi cá giống",
+    "why": "Calque of 'fish room'; Vietnamese keepers don't call it a technical room.",
     "by": "model",
-    "fix": "đèn tuýp LED"
+    "fix": "phòng nuôi cá"
+   },
+   {
+    "check": "words",
+    "part": "P1",
+    "quote": "Bể kính loại thương mại thường có viền nhựa ở đáy.",
+    "why": "Calque of 'commercial tanks'.",
+    "by": "model",
+    "fix": "bể kính bán sẵn"
    }
   ],
   "products": []
@@ -55636,57 +55644,64 @@
   "products": []
  },
  "vi/guides/youtube-aLvkYA8AqBY": {
-  "at": "2026-11-08",
-  "hash": "80d5cc3c6a3a227c",
+  "at": "2026-11-10",
+  "hash": "4d578a5644be5d9c",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "price",
     "part": "P1",
-    "quote": "mua cách nhau khoảng một tuần, tổng giá khoảng 300 USD",
-    "why": "The cost is given in US dollars, not Vietnamese đồng.",
+    "quote": "Hai bể mua cách nhau khoảng một tuần, giống hệt nhau, tổng cộng khoảng 300 USD.",
+    "why": "Price given in US dollars.",
     "by": "model"
    },
    {
     "check": "price",
     "part": "P1",
-    "quote": "Thêm khoảng 100 USD tiền mua và cắt thanh giằng, toàn bộ kính tốn khoảng 400 USD.",
-    "why": "More costs in US dollars that mean nothing to a buyer in Vietnam.",
+    "quote": "hết khoảng 100 USD, nên tổng tiền kính là khoảng 400 USD",
+    "why": "Price given in US dollars.",
+    "by": "model"
+   },
+   {
+    "check": "price",
+    "part": "L8",
+    "quote": "hết khoảng 300 USD, thêm 100 USD dải giằng là đủ kính cho cả bể",
+    "why": "Price given in US dollars.",
     "by": "model"
    },
    {
     "check": "units",
     "part": "P1",
-    "quote": "Bể ở đây được ghép từ kính của hai bể cũ khoảng 492 lít",
-    "why": "492 litres is a converted 130-gallon tank, not a size anyone in Vietnam would use.",
+    "quote": "hai bể cũ khoảng 492 lít, dài 1,8 m, kính dày 12 mm",
+    "why": "492 litres is a converted 130-gallon tank size.",
     "by": "model"
    },
    {
     "check": "units",
     "part": "L8",
-    "quote": "Kính 12 mm từ hai bể cũ khoảng 492 lít ở đây",
-    "why": "The converted 130-gallon tank volume again.",
-    "by": "model"
-   },
-   {
-    "check": "units",
-    "part": "P1",
-    "quote": "Dải kính rộng khoảng 7,5 cm là mức hẹp nhất nên dùng.",
-    "why": "7.5 cm is a converted 3-inch measurement.",
+    "quote": "Hai bể khoảng 492 lít kính 12 mm",
+    "why": "492 litres is a converted 130-gallon tank size.",
     "by": "model"
    },
    {
     "check": "source",
     "part": "P1",
-    "quote": "Hai bể cũ giống hệt nhau, mua cách nhau khoảng một tuần",
-    "why": "This is the original writer's own build story, told as if the reader knew it.",
+    "quote": "Bể ở đây có vách trước và sau dài khoảng 1,8 m, kính 12 mm.",
+    "why": "Refers to the source's own build as if the reader knew it.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "L12",
+    "quote": "Ở đây bể được để cả tuần rồi mới thử nước.",
+    "why": "Refers to the source's own tank as if the reader knew it.",
     "by": "model"
    }
   ],
   "products": [
-   "Pond Armor",
-   "Krylon Fusion"
+   "pond armor",
+   "Krylon Fusion Gloss"
   ]
  },
  "vi/guides/youtube-an_VB8nHpk4": {
@@ -56927,18 +56942,25 @@
   ]
  },
  "vi/guides/youtube-C4W86NMP3CU": {
-  "at": "2026-11-08",
+  "at": "2026-11-10",
   "hash": "2102691fa05c8292",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
+    "check": "units",
+    "part": "L12",
+    "quote": "Ví dụ co 2 cm dùng mũi khoảng 38 mm.",
+    "why": "A '2 cm' bulkhead is a conversion of a 3/4-inch fitting; keepers in Vietnam size bulkheads by pipe diameter (phi 21/27), as P1 does.",
+    "by": "model"
+   },
+   {
     "check": "words",
     "part": "P1",
     "quote": "Kính mỏng có rất nhiều thứ có thể sai và dễ nứt hơn hẳn.",
-    "why": "Calque of the English 'a lot can go wrong'; a Vietnamese keeper would not phrase it this way.",
+    "why": "Literal calque of 'lots of things can go wrong'.",
     "by": "model",
-    "fix": "Kính mỏng dễ gặp sự cố hơn và dễ nứt hơn hẳn."
+    "fix": "Kính mỏng dễ gặp sự cố hơn nhiều"
    }
   ],
   "products": []
@@ -57828,30 +57850,23 @@
   "products": []
  },
  "vi/guides/youtube-da78xmuwTHo": {
-  "at": "2026-11-08",
-  "hash": "b92cf0c9f462d838",
+  "at": "2026-11-10",
+  "hash": "4fe29e82d0140fe9",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "units",
-    "part": "P4",
-    "quote": "một bể có đáy dài khoảng 120 cm, rộng khoảng 90 cm, cao khoảng 51 cm",
-    "why": "These are a 48 × 36 × 20 inch tank converted to centimetres, not sizes a Vietnamese builder would pick.",
-    "by": "model"
-   },
-   {
-    "check": "units",
-    "part": "P5",
-    "quote": "tức khoảng 122 cm trong ví dụ",
-    "why": "122 cm is 48 inches converted, and it doesn't match the 120 cm given just before it.",
+    "part": "P1",
+    "quote": "một bể dài 122 cm, rộng 91 cm, cao 51 cm",
+    "why": "A 48 × 36 × 20 inch tank converted to centimetres, which no keeper in Vietnam would pick as a size.",
     "by": "model"
    },
    {
     "check": "source",
-    "part": "P10",
-    "quote": "Ví dụ mẫu dùng giằng kín với hai lỗ thao tác và nắp cũng làm bằng mica.",
-    "why": "This talks about the source's own example tank as if the reader had seen it.",
+    "part": "P1",
+    "quote": "Khi đã biết mua acrylic ở đâu và giá khoảng bao nhiêu",
+    "why": "Assumes the reader read an earlier article in the source series that this page does not have.",
     "by": "model"
    }
   ],
@@ -58276,21 +58291,27 @@
   "products": []
  },
  "vi/guides/youtube-dWX5azsrKSk": {
-  "at": "2026-11-08",
-  "hash": "8209afa1d2c5c0df",
+  "at": "2026-11-10",
+  "hash": "01b757e35d6bb962",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "source",
     "part": "P1",
-    "quote": "Phần sau là cách set một bể mới dưới đèn, trong đó có cách xử lý lũa đỗ quyên nhẹ hay nổi.",
-    "why": "It promises a later section on setting up a tank and fixing floating driftwood, but the page has no such section; this was carried over from the original video.",
+    "quote": "Cây đèn trong bài dùng bóng đơn màu, không phải đèn RGB.",
+    "why": "It refers to a specific lamp from the source article or video as if the reader already knew which one it is.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "thấp hơn hẳn một cây đèn khác đang chạy bể 90 cm",
+    "why": "It refers to the original writer's own other lamp and tank, which the reader has never seen.",
     "by": "model"
    }
   ],
   "products": [
-   "Flat One",
    "JBL"
   ]
  },
@@ -59172,19 +59193,11 @@
   "products": []
  },
  "vi/guides/youtube-EV1ZR6CjOzc": {
-  "at": "2026-11-08",
-  "hash": "e2c510ce611f1da4",
+  "at": "2026-11-10",
+  "hash": "0f038d456e8c96d5",
   "model": "opus",
   "checklist": 3,
-  "findings": [
-   {
-    "check": "source",
-    "part": "P1",
-    "quote": "Ngoài vòm ở giữa, bên trái bể có thêm một sườn núi bằng đá để cân bố cục.",
-    "why": "Describes the source's own tank layout as if the reader knew it.",
-    "by": "model"
-   }
-  ],
+  "findings": [],
   "products": [
    "Keo 502"
   ]
@@ -59347,18 +59360,18 @@
   "products": []
  },
  "vi/guides/youtube-FAccJ8TTIAs": {
-  "at": "2026-11-08",
-  "hash": "44fec5fd6e542b46",
+  "at": "2026-11-10",
+  "hash": "759d2860386f6320",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "words",
     "part": "P1",
-    "quote": "Đổ vào một lớp cát chơi loại rẻ tiền để mô phỏng nền.",
-    "why": "\"Cát chơi\" is a literal rendering of the English \"play sand\" (a US product); keepers in Vietnam would say cheap building or river sand.",
+    "quote": "Đổ vào một ít cát chơi.",
+    "why": "\"Cát chơi\" is a calque of the US \"play sand\"; keepers in Vietnam just say sand.",
     "by": "model",
-    "fix": "cát xây dựng / cát sông loại rẻ tiền"
+    "fix": "cát"
    }
   ],
   "products": []
