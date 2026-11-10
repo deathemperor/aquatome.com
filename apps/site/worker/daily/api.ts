@@ -6,7 +6,7 @@ import { readCapped } from '../comments/api'
 import { ae, bearerOk, liveOwnerApps, loadOverview, loadQuality, loadScoreboard, type AdminEnv } from '../dashboard'
 import { addChanges } from './changelog'
 import { compose, type Composed } from './compose'
-import { parseGitHubSide, type GitHubSide } from './github'
+import { parseChanges, parseGitHubSide, type GitHubSide } from './github'
 import { getReport, putReport, type Report } from './log'
 import { pushReport, type PushOutcome } from './push'
 import { getSettings } from './settings'
@@ -80,8 +80,29 @@ const PUSH_SKIPPED = new Set(['push_off', 'no_device', 'no_apns_key'])
 /** What a report's answer and the job's log say of it: no address, no token. */
 const outcomeOf = (r: Pick<Report, 'sent' | 'why' | 'push'>) => ({ sent: r.sent, ...(r.why ? { why: r.why } : {}), ...(r.push ? { push: r.push } : {}) })
 
+const notFound = () => new Response('Not found', { status: 404, headers: { 'cache-control': 'no-store', 'x-robots-tag': 'noindex, nofollow' } })
+
+/**
+ * POST /_ab/changelog, from changelog.yml on each push to main with the dashboard token (anyone else: 404): what merged
+ * lately, into the change log the dashboard's "Shipped in 24 hours" reads, so that never waits for the report. The report
+ * adds the same lines, and addChanges keeps each once.
+ */
+export async function changesRoute(req: Request, env: DailyEnv, now = new Date()): Promise<Response> {
+  if (req.method !== 'POST' || !bearerOk(req, env.AB_DASH_TOKEN)) return notFound()
+  const body = await readCapped(req, MAX_BODY)
+  if (body === null) return reply(413, { error: 'too_large' })
+  const changes = parseChanges(body)
+  if (!changes) return reply(400, { error: 'bad_report' })
+  try {
+    return reply(200, { ok: true, added: await addChanges(env.AB, changes, now) })
+  } catch (e) {
+    console.error('change log not written:', (e as Error)?.message ?? 'unknown')
+    return reply(503, { error: 'unavailable' })
+  }
+}
+
 export async function dailyReportRoute(req: Request, url: URL, env: DailyEnv, now = new Date()): Promise<Response> {
-  if (req.method !== 'POST' || !bearerOk(req, env.AB_DASH_TOKEN)) return new Response('Not found', { status: 404, headers: { 'cache-control': 'no-store', 'x-robots-tag': 'noindex, nofollow' } })
+  if (req.method !== 'POST' || !bearerOk(req, env.AB_DASH_TOKEN)) return notFound()
   const body = await readCapped(req, MAX_BODY)
   if (body === null) return reply(413, { error: 'too_large' })
   const gh = parseGitHubSide(body)

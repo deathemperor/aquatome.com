@@ -2,9 +2,13 @@ name: Daily report to the owner
 # Every morning: what needs care, highlights, what was built, and the site's and the app's numbers, mailed to the owner and
 # kept on the dashboard (/_ab/bao-cao/). This job reads the last 24 hours from GitHub with its read-only token
 # (scripts/daily-report.mjs); the Worker adds the rest, stores the report and sends it (apps/site/worker/daily).
+#
+# 07:00 in Vietnam comes from this Mac, which starts this job at 06:58 (scripts/install-daily-report-schedule.sh): GitHub's
+# schedule ran it about 5 hours late on each day of 6 to 9 Nov 2026. The cron stays as the backstop for a morning the Mac
+# didn't start it, and makes no report once one has succeeded that day (daily-report.mjs, reportedToday).
 on:
   schedule:
-    - cron: '0 0 * * *' # 07:00 in Vietnam
+    - cron: '20 1 * * *' # 08:20 in Vietnam, after the Mac's start and away from the top of the hour, GitHub's busiest
   workflow_dispatch:
 concurrency:
   group: daily-report

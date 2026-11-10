@@ -29,7 +29,7 @@ export const SCOREBOARD_PATH = '/_ab/thanh-cong/'
 /** The daily report's log and its delivery (worker/daily). */
 export const REPORT_PATH = '/_ab/bao-cao/'
 export const REPORT_NAME = 'Daily reports'
-/** The product change log (daily/changelog.ts), which the daily report adds to. */
+/** The product change log (daily/changelog.ts), which each merge adds to. */
 export const CHANGELOG_PATH = '/_ab/thay-doi/'
 export const CHANGELOG_NAME = 'Changelog'
 export type WebPath = AdminPath

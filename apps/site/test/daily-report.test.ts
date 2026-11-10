@@ -1,8 +1,8 @@
 import { expect, test, vi } from 'vitest'
-import { mkdirSync, mkdtempSync, writeFileSync } from 'node:fs'
+import { mkdirSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { calendar, post, read, summarise } from '../../../scripts/daily-report.mjs'
+import { calendar, CHANGES_URL, landedChanges, post, read, reportedToday, summarise } from '../../../scripts/daily-report.mjs'
 import { parseGitHubSide } from '../worker/daily/github'
 
 // The collector, on GitHub's JSON as its REST API gives it: no network.
@@ -198,6 +198,72 @@ test('read: what GitHub won\'t give is named, never counted as none', () => {
 
 const answer = (status: number, body = '{}') => new Response(body, { status })
 const quiet = () => ({ sleep: vi.fn(async () => {}), log: vi.fn() })
+
+// The change log the dashboard's "Shipped in 24 hours" reads: on 2026-11-10 it showed 4 of 39 lines, because only the
+// report wrote it and GitHub had started the report about 5 hours late.
+test('each push to main sends what merged in the last two days, in the same words and times as the report, so they are kept once', () => {
+  const section = (line: string) => `## Changelog\n- ${line}\n`
+  const closed = [
+    pr(1, { merged_at: ago(1), body: section('Site: Newest.') }),
+    pr(2, { merged_at: ago(30), body: section('App: From yesterday.') }),
+    pr(3, { merged_at: ago(49), body: section('Site: Too old for this sweep.') }),
+    pr(4, { closed_at: ago(1), body: section('Site: Closed, never merged.') }),
+    pr(5, { merged_at: ago(2), title: 'fix(engine): a line from the title', body: null }),
+    pr(6, { merged_at: ago(3), body: '## Changelog\n- none\n' }),
+  ]
+  const asked: string[] = []
+  const api = (path: string) => {
+    asked.push(path)
+    if (path.includes('/pulls?state=closed')) return closed
+    if (path.includes('/pulls/5/files')) return [{ filename: 'packages/engine/src/x.ts' }]
+    throw new Error(`not expected: ${path}`)
+  }
+  const lines = landedChanges(api, REPO, NOW)
+  expect(lines).toEqual([
+    { area: 'Site', text: 'Newest.', at: ago(1) },
+    { area: 'Engine', text: 'A line from the title.', at: ago(2) },
+    { area: 'App', text: 'From yesterday.', at: ago(30) },
+  ])
+  expect(asked.filter(q => q.includes('/files'))).toHaveLength(1)
+  expect(lines).toEqual(expect.arrayContaining(sum({ closed, files: { 5: ['packages/engine/src/x.ts'] } }).changes))
+})
+
+test('the merge\'s lines go to their own address, with the dashboard token', async () => {
+  const q = quiet()
+  const fetchFn = vi.fn(async () => answer(200, '{"ok":true,"added":1}'))
+  expect(await post({ changes: [] }, { token: 'tok', url: CHANGES_URL, fetchFn, ...q })).toBe(true)
+  const [url, init] = fetchFn.mock.calls[0]! as unknown as [string, RequestInit]
+  expect(url).toBe('https://aquatome.com/_ab/changelog')
+  expect((init.headers as Record<string, string>).authorization).toBe('Bearer tok')
+})
+
+test('changelog.yml runs on every push to main, whatever it touched, and on main\'s own code', () => {
+  const yml = readFileSync(new URL('../../../.github/workflows/changelog.yml', import.meta.url), 'utf8')
+  expect(yml).toMatch(/\bpush:\n\s+branches: \[main\]/)
+  expect(yml).not.toMatch(/paths(-ignore)?:/)
+  expect(yml).not.toMatch(/\bpull_request/)
+  expect(yml).toContain('node scripts/daily-report.mjs changes')
+})
+
+// GitHub started the 07:00 report at 05:15–05:48 UTC four days running. The Mac starts it (install-daily-report-schedule.sh),
+// and GitHub's schedule stays for a morning the Mac didn't.
+test('GitHub\'s schedule is only the backstop: it makes no report once a started one has succeeded today in Vietnam', () => {
+  const started = (o: Record<string, unknown>) => run({ event: 'workflow_dispatch', created_at: ago(0, 2), ...o })
+  expect(reportedToday([started({})], NOW)).toBe(true)
+  // Its own earlier runs don't count: one that skipped made no report.
+  expect(reportedToday([started({ event: 'schedule' })], NOW)).toBe(false)
+  expect(reportedToday([started({ conclusion: 'failure' })], NOW)).toBe(false)
+  expect(reportedToday([started({ status: 'in_progress', conclusion: null })], NOW)).toBe(false)
+  // 23:00 the evening before, in Vietnam.
+  expect(reportedToday([started({ created_at: ago(8) })], NOW)).toBe(false)
+  expect(reportedToday([], NOW)).toBe(false)
+})
+
+test('the backstop\'s cron comes after the Mac\'s start, away from the top of the hour', () => {
+  const yml = readFileSync(new URL('../../../.github/workflows/daily-report.yml', import.meta.url), 'utf8')
+  expect(yml).toContain("cron: '20 1 * * *'")
+  expect(yml).toContain('workflow_dispatch:')
+})
 
 test('post: once to the site with the dashboard token; retries what may pass, as deploy.sh does; fails if it still refuses', async () => {
   const q = quiet()

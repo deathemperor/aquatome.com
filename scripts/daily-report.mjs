@@ -3,6 +3,9 @@
 // JSON, POSTed to the site (apps/site/worker/daily), which adds the site's and the app's numbers, keeps the report and
 // mails it. The workflow's run id is its idempotency key: a retried POST never sends twice. Uses the gh CLI (GH_TOKEN) and
 // AB_DASH_TOKEN. DRY_RUN=1 prints the JSON instead of posting it (GITHUB_REPOSITORY=owner/name to try it locally).
+//
+// `node scripts/daily-report.mjs changes` (changelog.yml, on each push to main): only what merged lately, to the change log
+// the dashboard reads, so "Shipped in 24 hours" never waits for the report.
 import { execFileSync } from 'node:child_process'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
@@ -10,7 +13,10 @@ import { fileURLToPath, pathToFileURL } from 'node:url'
 import { productChanges, sectionLines, titleQualifies } from './changelog.mjs'
 
 const REPORT_URL = 'https://aquatome.com/_ab/report'
+export const CHANGES_URL = 'https://aquatome.com/_ab/changelog'
 const DAY_MS = 86_400_000
+/** How far back each push looks: a merge whose push started nothing (the workflow token's), or a write KV lost, comes with the next. */
+const SWEEP_MS = 2 * DAY_MS
 const MAX_LIST = 50
 const MAX_TITLE = 200
 /** Product changes: a few lines a pull request, so more than MAX_LIST (github.ts reads the same bound). */
@@ -148,6 +154,35 @@ export function calendar(root, now) {
   return { weeks, days }
 }
 
+/** A list of up to five pages of 100, `one` giving each page. */
+function allPages(one, path) {
+  const all = []
+  for (let page = 1; page <= 5; page++) {
+    const got = one(`${path}&page=${page}`)
+    all.push(...got)
+    if (got.length < 100) break
+  }
+  return all
+}
+
+/** The lines of what merged in the last SWEEP_MS, in the report's words and times: the change log keeps each once (worker/daily/changelog.ts). */
+export function landedChanges(api, repo, now) {
+  const prs = merged(api(`repos/${repo}/pulls?state=closed&sort=updated&direction=desc&per_page=100`), now.getTime() - SWEEP_MS)
+  /** @type {Record<number, string[]>} */
+  const files = {}
+  for (const p of prs) {
+    if (!sectionLines(p.body) && titleQualifies(p.title)) files[p.number] = allPages(api, `repos/${repo}/pulls/${p.number}/files?per_page=100`).map(f => f.filename)
+  }
+  return productChanges(prs, files).slice(0, MAX_CHANGES)
+}
+
+/**
+ * Whether a started run (the Mac's at 06:58, install-daily-report-schedule.sh, or one by hand) made today's report, the
+ * day being Vietnam's. Only then does GitHub's schedule, the backstop, make none. Its own runs don't count: one may have
+ * skipped. `runs`: GitHub's, of daily-report.yml.
+ */
+export const reportedToday = (runs, now) => runs.some(r => r.event === 'workflow_dispatch' && r.conclusion === 'success' && VN_DATE.format(new Date(r.created_at)) === VN_DATE.format(now))
+
 /** Everything `summarise` needs, through `api` (a path → its JSON). A part GitHub won't give is named in `missing`, not counted as none. */
 export function read(api, repo, now) {
   const missing = []
@@ -155,15 +190,7 @@ export function read(api, repo, now) {
     try { return api(path) } catch { missing.push(what); return empty }
   }
   // Open issues and pull requests can pass one page (issues lists pull requests too).
-  const pages = (what, path) => {
-    const all = []
-    for (let page = 1; page <= 5; page++) {
-      const one = get(what, `${path}&page=${page}`, [])
-      all.push(...one)
-      if (one.length < 100) break
-    }
-    return all
-  }
+  const pages = (what, path) => allPages(p => get(what, p, []), path)
   const since = new Date(now.getTime() - DAY_MS).toISOString()
   const files = get('the workflow list', `repos/${repo}/actions/workflows?per_page=100`, { workflows: [] }).workflows
     .filter(w => w.state === 'active' && w.path.startsWith('.github/workflows/')).map(w => w.path.split('/').pop())
@@ -197,14 +224,14 @@ const TRANSIENT = status => status === 408 || status === 409 || status === 425 |
  * POSTs the report, as deploy.sh retries its upload: three tries, 30 then 60 s apart, on what may pass (no answer, 5xx, 429,
  * 409 while another try is in progress). Any other refusal ends it at once. True once the Worker has taken it.
  * @param {unknown} payload
- * @param {{ token?: string, fetchFn?: (url: string, init: RequestInit) => Promise<Response>, sleep?: (t: number) => Promise<unknown>, log?: (line: string) => void }} [options]
+ * @param {{ token?: string, url?: string, fetchFn?: (url: string, init: RequestInit) => Promise<Response>, sleep?: (t: number) => Promise<unknown>, log?: (line: string) => void }} [options]
  */
-export async function post(payload, { token, fetchFn = fetch, sleep = t => new Promise(r => setTimeout(r, t)), log = console.log } = {}) {
+export async function post(payload, { token, url = REPORT_URL, fetchFn = fetch, sleep = t => new Promise(r => setTimeout(r, t)), log = console.log } = {}) {
   for (let i = 1; i <= 3; i++) {
     let status = 0
     let body = ''
     try {
-      const r = await fetchFn(REPORT_URL, {
+      const r = await fetchFn(url, {
         method: 'POST', body: JSON.stringify(payload), signal: AbortSignal.timeout(120_000),
         headers: { authorization: `Bearer ${token}`, 'content-type': 'application/json', 'user-agent': 'aquatome-daily-report' },
       })
@@ -229,11 +256,22 @@ export async function post(payload, { token, fetchFn = fetch, sleep = t => new P
 
 // Run as a script it acts; imported (its test, apps/site/test/daily-report.test.ts) it only defines.
 if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {
-  const { GITHUB_REPOSITORY: repo, GITHUB_RUN_ID: runId = '0', GITHUB_SERVER_URL: server = 'https://github.com', AB_DASH_TOKEN: token, DRY_RUN: dry } = process.env
+  const { GITHUB_REPOSITORY: repo, GITHUB_RUN_ID: runId = '0', GITHUB_SERVER_URL: server = 'https://github.com', GITHUB_EVENT_NAME: event, AB_DASH_TOKEN: token, DRY_RUN: dry } = process.env
   const now = new Date()
   const api = path => JSON.parse(execFileSync('gh', ['api', path], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'inherit'], maxBuffer: 64 * 1024 * 1024 }))
+  if (process.argv[2] === 'changes') {
+    const changes = landedChanges(api, repo, now)
+    if (dry) console.log(JSON.stringify(changes, null, 2))
+    else if (!(await post({ changes }, { token, url: CHANGES_URL }))) process.exit(1)
+    process.exit(0)
+  }
+  const raw = read(api, repo, now)
+  if (event === 'schedule' && reportedToday(raw.runs['daily-report.yml'] ?? [], now)) {
+    console.log("Today's report has been made: GitHub's schedule is only the backstop.")
+    process.exit(0)
+  }
   const cal = calendar(fileURLToPath(new URL('..', import.meta.url)), now)
-  const payload = { ...summarise(read(api, repo, now), { now, runId, runUrl: `${server}/${repo}/actions/runs/${runId}` }), ...(cal ? { calendar: cal } : {}) }
+  const payload = { ...summarise(raw, { now, runId, runUrl: `${server}/${repo}/actions/runs/${runId}` }), ...(cal ? { calendar: cal } : {}) }
   if (dry) console.log(JSON.stringify(payload, null, 2))
   else if (!(await post(payload, { token }))) process.exit(1)
 }
