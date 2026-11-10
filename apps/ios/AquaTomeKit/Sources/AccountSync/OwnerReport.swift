@@ -94,6 +94,8 @@ extension OwnerClient {
   public func report(words: String, place: OwnerReportPlace, jpeg: Data?) async throws -> Int {
     let boundary = "aquatome-\(UUID().uuidString)"
     var r = URLRequest(url: base.appending(path: "api/feedback"))
+    // A report carries a picture and may be on a slow connection.
+    r.timeoutInterval = 120
     r.httpMethod = "POST"
     r.httpShouldHandleCookies = false
     r.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")

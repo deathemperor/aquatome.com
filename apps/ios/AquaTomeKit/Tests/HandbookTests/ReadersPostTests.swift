@@ -180,3 +180,30 @@ private let site = URL(string: "https://aquatome.com")!
   #expect(!Readers.blocks("post:c1", author: "0f1e2d3c4b5a6978", id: "c2"))
   #expect(!Readers.blocks("0f1e2d3c4b5a6978", author: nil, id: "c2"))
 }
+
+@Test func reportPictureIsSmaller() throws {
+  let ctx = try #require(CGContext(data: nil, width: 4000, height: 3000, bitsPerComponent: 8, bytesPerRow: 0, space: CGColorSpaceCreateDeviceRGB(),
+                                   bitmapInfo: CGImageAlphaInfo.noneSkipLast.rawValue))
+  let pixels = try #require(ctx.data).assumingMemoryBound(to: UInt8.self)
+  var noise: UInt32 = 1
+  for y in 0..<3000 {
+    for x in 0..<4000 {
+      let offset = y * ctx.bytesPerRow + x * 4
+      for channel in 0..<3 {
+        noise = noise &* 1664525 &+ 1013904223
+        pixels[offset + channel] = UInt8(truncatingIfNeeded: noise >> 24)
+      }
+      pixels[offset + 3] = 255
+    }
+  }
+  let original = NSMutableData()
+  let dest = try #require(CGImageDestinationCreateWithData(original, "public.jpeg" as CFString, 1, nil))
+  CGImageDestinationAddImage(dest, try #require(ctx.makeImage()), nil)
+  #expect(CGImageDestinationFinalize(dest))
+  let sent = try #require(Readers.shrinkForReport(original as Data))
+  let defaults = try #require(Readers.shrink(original as Data))
+  let source = try #require(CGImageSourceCreateWithData(sent as CFData, nil))
+  let image = try #require(CGImageSourceCreateImageAtIndex(source, 0, nil))
+  #expect(max(image.width, image.height) <= 1600)
+  #expect(sent.count < defaults.count)
+}

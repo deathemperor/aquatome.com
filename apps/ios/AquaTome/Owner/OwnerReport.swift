@@ -315,7 +315,7 @@ private struct OwnerReportSheet: View {
 
   /// A photo they picked, as the app sends any photo: no metadata, any format the site takes, and a size it does.
   private func take(_ data: Data?) async {
-    if let data, let small = await Task.detached(operation: { Readers.shrink(data) }).value {
+    if let data, let small = await Task.detached(operation: { Readers.shrinkForReport(data) }).value {
       jpeg = small
       theirs = true
       problem = nil

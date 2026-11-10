@@ -140,3 +140,10 @@ func itemOfPath() {
   #expect(OwnerReportPlace.item(of: "/gioi-thieu/x/") == nil)
   #expect(OwnerReportPlace.item(of: nil) == nil)
 }
+
+@Test func reportGivesTwoMinutes() async throws {
+  let box = Box()
+  _ = try await answering(201, #"{"id":"x","waiting":1}"#) { box.request = $0 }.report(words: "Sai", place: place, jpeg: nil)
+  let r = try #require(box.request)
+  #expect(r.timeoutInterval == 120)
+}
