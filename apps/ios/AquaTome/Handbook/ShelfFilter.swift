@@ -176,6 +176,7 @@ private struct FilterForm<Fields: View>: View {
   var body: some View {
     NavigationStack {
       Form { fields }
+        .modifier(ClearUnderTopBar(shown: true, ground: Color(.systemGroupedBackground)))
         .navigationTitle(title)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

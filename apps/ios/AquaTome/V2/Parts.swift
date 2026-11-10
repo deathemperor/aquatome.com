@@ -405,6 +405,24 @@ struct ClearUnderTopBar: ViewModifier {
   }
 }
 
+/// `ClearUnderTopBar` for a screen with iOS's large title: the band comes once the title has gone up into the bar, when the
+/// page's words are under the bar. Before that it would stand over the title (10 Nov). iOS 17 has no edge to replace.
+struct ClearUnderLargeTitle: ViewModifier {
+  var ground = Color(.systemBackground)
+  @State private var titleGone = false
+  @ScaledMetric(relativeTo: .largeTitle) private var titleHeight: CGFloat = 44
+
+  func body(content: Content) -> some View {
+    if #available(iOS 18, *) {
+      content
+        .onScrollGeometryChange(for: Bool.self) { [titleHeight] in $0.contentOffset.y + $0.contentInsets.top > min(titleHeight, V2Fade.largeTitleAtMost) } action: { _, gone in titleGone = gone }
+        .modifier(ClearUnderTopBar(shown: titleGone, ground: ground))
+    } else {
+      content
+    }
+  }
+}
+
 extension ShapeStyle where Self == Color {
   /// A line under a page's name: the text's colour at 60%. The system's secondary measures 3.5:1 on white, under 4.5:1.
   static var v2Faint: Color { .primary.opacity(0.6) }

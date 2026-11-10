@@ -259,7 +259,8 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
     home.guides = leadGuides(c).map(g => at(`/vi/huong-dan/${g.t.slug}/`))
   }
   if (served(lang, '/vi/thuat-ngu/x/')) {
-    for (const g of appGlossary(lang, c)) items.push(clean({ kind: 'glossary', name: g.t.name, aka: aka(g.t.altNames), path: at(`/vi/thuat-ngu/${g.t.slug}/`) }))
+    // A term's English name is among its other names: the chat's search and the app's read them from here.
+    for (const g of appGlossary(lang, c)) items.push(clean({ kind: 'glossary', name: g.t.name, aka: aka([g.t.name, ...g.t.altNames].includes(g.en) ? g.t.altNames : [...g.t.altNames, g.en]), path: at(`/vi/thuat-ngu/${g.t.slug}/`) }))
   }
   // A series as its page lists it; the same series the app gets pages of.
   for (const { s, guides } of appSeries(lang, c)) {

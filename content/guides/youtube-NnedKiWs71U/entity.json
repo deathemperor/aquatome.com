@@ -167,20 +167,13 @@
         "heading": "Trải nền và trồng cây theo thứ tự nào",
         "moments": [
           {
-            "t": 710,
-            "url": "https://media.aquatome.com/video/NnedKiWs71U/at710-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây Syngonium đã đặt trong bể trống, rễ quấn giữa đá và lũa.",
-            "sharpness": 1682
-          },
-          {
             "t": 770,
             "url": "https://media.aquatome.com/video/NnedKiWs71U/at770-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Nền chia vùng: sỏi nhỏ và cát ở phía trước, có đá lớn.",
-            "sharpness": 860.7
+            "sharpness": 860.7,
+            "person": false
           }
         ],
         "photo": {

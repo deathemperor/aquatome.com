@@ -557,7 +557,7 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
       const name = unescapePlain(d.viTitle).trim()
       const vi = TranslationSchema.parse(metricPage({
         slug: prev.vi?.slug ?? pickSlug(name, 'video', await guideSlugs(contentRoot)), name, altNames: [], sections: {},
-        body: prev.vi?.bodyFixed ? prev.vi.body : sanitizeHtml(d.body), ...plainParts(d.summary, d.faq),
+        body: prev.vi?.bodyFixed ? prev.vi.body : sanitizeHtml(d.body), ...plainParts(d.summary, prev.vi?.faqFixed ? prev.vi.faq ?? [] : d.faq),
         ...(m.chapters.length && d.chapters.length === m.chapters.length ? { chapters: d.chapters.map(c => c.trim()) } : {}),
         // A guide held out of the chat (video-hold.ts) stays held while its new version is under the bar.
         quality: { score, indexable: score >= QUALITY_THRESHOLD, bySource: { youtube: score }, ...(held && score < QUALITY_THRESHOLD ? { chat: false as const } : {}) },
@@ -565,6 +565,7 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
         // A note for local readers isn't the video's: a new version of the guide keeps it.
         ...(prev.vi?.localNote ? { localNote: prev.vi.localNote } : {}),
         ...(prev.vi?.bodyFixed ? { bodyFixed: true } : {}),
+        ...(prev.vi?.faqFixed ? { faqFixed: true } : {}),
       }, 'vi'))
       await mkdir(dir, { recursive: true })
       await writeJson(join(dir, 'entity.json'), entity)

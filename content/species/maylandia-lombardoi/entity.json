@@ -10,6 +10,54 @@
     "malawi",
     "lake-malawi"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Malawi",
+        "Mbenji Islands"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Malawi.",
+          "countries": [],
+          "regions": [
+            "Lake Malawi"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It has a limited natural range, being confined to the Mbenji Islands and Nkhomo Reef, but has also successfully been introduced around Namalenje Island.",
+          "countries": [],
+          "regions": [
+            "Mbenji Islands"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2372997,
+      "total": 5,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "MW",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          33.75,
+          -14.0625,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

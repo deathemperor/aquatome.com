@@ -75,6 +75,7 @@ struct FishIdView: View {
         if let s = f.line.map(text) ?? first { AccessibilityNotification.Announcement(s).post() }
       }
     }
+    .modifier(ClearUnderTopBar(shown: true, ground: Color(.systemGroupedBackground)))
     .navigationTitle("Đây là cá gì?")
     .navigationBarTitleDisplayMode(.inline)
     .navigationDestination(item: $onSite) { WebScreen(url: $0) }

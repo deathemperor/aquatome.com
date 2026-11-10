@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-11-03",
+  "updatedAt": "2026-11-10",
   "video": {
     "youtubeId": "rX-M8H1iGvM",
     "title": "HOW TO: Build aquarium sump filtration system - moving bed",
@@ -46,12 +46,16 @@
         "category": "khac",
         "brand": "Weldon",
         "model": "4",
-        "t": 104
+        "t": 120
       },
       {
         "category": "loc",
         "type": "bot-bien",
         "t": 292
+      },
+      {
+        "category": "suoi",
+        "t": 360
       }
     ],
     "figures": [
@@ -59,128 +63,208 @@
         "heading": "Chọn kích thước sump thế nào",
         "moments": [
           {
-            "t": 413,
-            "url": "https://media.aquatome.com/video/rX-M8H1iGvM/t413.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Thùng sump đặt trong gầm tủ, miệng sump sát mặt dưới tủ."
+            "t": 20,
+            "url": "https://media.aquatome.com/video/rX-M8H1iGvM/at20-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Thùng sump mica hoàn chỉnh với các vách ngăn bên trong.",
+            "sharpness": 417
+          },
+          {
+            "t": 55,
+            "url": "https://media.aquatome.com/video/rX-M8H1iGvM/at55-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cắt tấm mica trên máy cưa bàn, vụn mica văng đầy mặt bàn.",
+            "sharpness": 1843.5
+          }
+        ]
+      },
+      {
+        "heading": "Dán thùng mica bằng keo mao dẫn",
+        "moments": [
+          {
+            "t": 110,
+            "url": "https://media.aquatome.com/video/rX-M8H1iGvM/at110-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Chạy keo loãng dọc mép nối giữa hai tấm mica.",
+            "sharpness": 50.9
+          },
+          {
+            "t": 120,
+            "url": "https://media.aquatome.com/video/rX-M8H1iGvM/at120-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hai tấm mica dựng vuông góc, đang dán keo dọc mép nối.",
+            "sharpness": 560.2
+          }
+        ]
+      },
+      {
+        "heading": "Đặt vách ngăn và khoan lỗ ra sao",
+        "moments": [
+          {
+            "t": 220,
+            "url": "https://media.aquatome.com/video/rX-M8H1iGvM/at220-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Thùng mica trong với hai vách ngăn đen đã được đặt vào.",
+            "sharpness": 130.9
+          },
+          {
+            "t": 245,
+            "url": "https://media.aquatome.com/video/rX-M8H1iGvM/at245-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Thùng sump có vách ngăn đen bên trong, nhìn từ bên cạnh.",
+            "sharpness": 1122
+          }
+        ]
+      },
+      {
+        "heading": "Bố trí lọc cơ học ở ngăn đầu",
+        "moments": [
+          {
+            "t": 290,
+            "url": "https://media.aquatome.com/video/rX-M8H1iGvM/at290-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Túi lọc trắng treo trong ngăn đầu của hồ.",
+            "sharpness": 579.1
+          },
+          {
+            "t": 295,
+            "url": "https://media.aquatome.com/video/rX-M8H1iGvM/at295-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Gờ mica trong ngăn lọc đầu, bên dưới có bông lọc lót sẵn.",
+            "sharpness": 587.8
+          }
+        ]
+      },
+      {
+        "heading": "Làm sao cho vật liệu đảo liên tục",
+        "moments": [
+          {
+            "t": 320,
+            "url": "https://media.aquatome.com/video/rX-M8H1iGvM/at320-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hai ống sục khí dán silicone vào miếng gạch men trong ngăn lọc.",
+            "sharpness": 136.6
+          },
+          {
+            "t": 330,
+            "url": "https://media.aquatome.com/video/rX-M8H1iGvM/at330-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Vật liệu K1 được sục khí đảo liên tục trong ngăn lọc.",
+            "sharpness": 471.8
+          }
+        ]
+      },
+      {
+        "heading": "Giảm tiếng ồn cho sump",
+        "moments": [
+          {
+            "t": 335,
+            "url": "https://media.aquatome.com/video/rX-M8H1iGvM/at335-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Sump đặt trong tủ chân bể, vật liệu lọc trắng đang chuyển động nhẹ.",
+            "sharpness": 435.8
+          },
+          {
+            "t": 345,
+            "url": "https://media.aquatome.com/video/rX-M8H1iGvM/at345-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tay đặt tấm polycarbonate trong suốt lên đậy miệng sump.",
+            "sharpness": 2769.4
+          }
+        ]
+      },
+      {
+        "heading": "Nước chạy trong sump thế nào",
+        "moments": [
+          {
+            "t": 355,
+            "url": "https://media.aquatome.com/video/rX-M8H1iGvM/at355-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ống nước tràn từ bể chính đổ xuống ngăn sump bên dưới.",
+            "sharpness": 13
+          },
+          {
+            "t": 370,
+            "url": "https://media.aquatome.com/video/rX-M8H1iGvM/at370-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ngăn moving bed trong sump với giá thể vi sinh đang xoay đảo.",
+            "sharpness": 551.4
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/rX-M8H1iGvM/p0-TmV3X1N1bXAuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/rX-M8H1iGvM/p0-TmV3X1N1bXAuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/rX-M8H1iGvM/p6-TmV3X1N1bXAuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/rX-M8H1iGvM/p6-TmV3X1N1bXAuanBn-480.webp",
           "width": 960,
           "height": 720,
           "licence": "Public domain",
           "author": "Gtstricky",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reef_Aquarium_New_Sump.jpg",
-          "caption": "Thùng sump mica nhiều ngăn kèm bơm, đặt trong gầm tủ."
+          "caption": "Bể sump acrylic chia nhiều ngăn, có bơm đặt ở ngăn cuối."
         }
       },
       {
-        "heading": "Cắt và dán thùng mica",
+        "heading": "Vì sao lọc moving bed hiệu quả",
         "moments": [
           {
-            "t": 128,
-            "url": "https://media.aquatome.com/video/rX-M8H1iGvM/t128.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Các tấm mica đã dựng vuông góc trên tấm đáy, chuẩn bị dán."
-          }
-        ]
-      },
-      {
-        "heading": "Làm vách ngăn cho ngăn moving bed",
-        "moments": [
-          {
-            "t": 226,
-            "url": "https://media.aquatome.com/video/rX-M8H1iGvM/t226.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Khoan lỗ nhỏ trên tấm mica làm vách ngăn."
+            "t": 375,
+            "url": "https://media.aquatome.com/video/rX-M8H1iGvM/at375-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ngăn lọc moving bed đầy hạt vật liệu đang xoay đảo trong bể.",
+            "sharpness": 516.7
           },
           {
-            "t": 251,
-            "url": "https://media.aquatome.com/video/rX-M8H1iGvM/t251.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Vách ngăn đục lỗ gần đáy đã lắp trong thùng mica."
+            "t": 400,
+            "url": "https://media.aquatome.com/video/rX-M8H1iGvM/at400-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh hạt vật liệu moving bed va vào nhau liên tục.",
+            "sharpness": 18.8
           }
-        ]
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/rX-M8H1iGvM/p7-wMy4yMDI0KS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/rX-M8H1iGvM/p7-wMy4yMDI0KS5qcGc-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 4.0",
+          "author": "Lameiro",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Biosoportes_02-01b_(Area_da_Cruz,_23.03.2024).jpg",
+          "caption": "Các hạt giá thể vi sinh moving bed (K1, K3) với nhiều kích cỡ khác nhau."
+        }
       },
       {
-        "heading": "Cho bao nhiêu vật liệu là vừa",
+        "heading": "Điểm trừ của cách làm này",
         "moments": [
           {
-            "t": 325,
-            "url": "https://media.aquatome.com/video/rX-M8H1iGvM/t325.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Ngăn lọc chứa đầy vật liệu vi sinh K1 đang đảo lộn."
+            "t": 420,
+            "url": "https://media.aquatome.com/video/rX-M8H1iGvM/at420-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Sump nằm sát dưới tủ, phía trên chỉ còn khoảng trống hẹp.",
+            "sharpness": 489.2
           },
           {
-            "t": 339,
-            "url": "https://media.aquatome.com/video/rX-M8H1iGvM/t339.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cận cảnh hạt vật liệu vi sinh chuyển động trong ngăn lọc."
-          }
-        ]
-      },
-      {
-        "heading": "Bố trí lọc cơ học và sục khí",
-        "moments": [
-          {
-            "t": 295,
-            "url": "https://media.aquatome.com/video/rX-M8H1iGvM/t295.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bôi keo silicon để gắn ống sục khí lên miếng gạch men."
-          },
-          {
-            "t": 315,
-            "url": "https://media.aquatome.com/video/rX-M8H1iGvM/t315.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Hai mẩu mica gắn vào vách ngăn để làm chỗ gác lọc."
-          }
-        ]
-      },
-      {
-        "heading": "Giữ cho sump chạy êm",
-        "moments": [
-          {
-            "t": 329,
-            "url": "https://media.aquatome.com/video/rX-M8H1iGvM/t329.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Sump moving bed với vật liệu lọc trắng chuyển động trong tủ gỗ."
-          },
-          {
-            "t": 344,
-            "url": "https://media.aquatome.com/video/rX-M8H1iGvM/t344.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Mặt trên sump được đậy nắp, ống dẫn khí chạy phía trên."
-          }
-        ]
-      },
-      {
-        "heading": "Nước đi qua sump ra sao và vì sao moving bed lọc tốt",
-        "moments": [
-          {
-            "t": 354,
-            "url": "https://media.aquatome.com/video/rX-M8H1iGvM/t354.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cận cảnh hạt moving bed va vào nhau cạnh vách ngăn sump."
-          },
-          {
-            "t": 359,
-            "url": "https://media.aquatome.com/video/rX-M8H1iGvM/t359.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Ngăn moving bed đầy hạt vật liệu lọc đang xoay đảo liên tục."
+            "t": 430,
+            "url": "https://media.aquatome.com/video/rX-M8H1iGvM/at430-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Khe hở giữa sump và trần tủ khá chật, nhìn thấy cả ống nước.",
+            "sharpness": 373.5
           }
         ]
       }

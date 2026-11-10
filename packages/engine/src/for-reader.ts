@@ -153,7 +153,7 @@ export async function rewriteForReader(root: string, id: string, d: { llm: Llm }
   if (!source.trim()) return { id, skipped: 'no source kept' }
   const r = await writeForReader(d, id, source, { ...o, ...(vi.nameFixed ? { name: vi.name } : {}) })
   if (r.kept) {
-    const { bodyFixed: _f, localNote: _n, ...rest } = vi
+    const { bodyFixed: _f, faqFixed: _q, localNote: _n, ...rest } = vi
     const out = TranslationSchema.parse(metricPage({ ...rest, name: r.written.name, body: r.written.body, ...plainParts(r.written.summary, r.written.faq), quality: { score: r.score, indexable: true } }, 'vi'))
     await writeFile(join(dir, 'vi.json'), `${JSON.stringify(out, null, 2)}\n`)
   }

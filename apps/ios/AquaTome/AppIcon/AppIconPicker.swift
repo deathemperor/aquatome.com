@@ -100,6 +100,7 @@ struct AppIconPicker: View {
       }
       .padding()
     }
+    .modifier(ClearUnderTopBar(shown: true))
     .navigationTitle("Biểu tượng ứng dụng")
     .navigationBarTitleDisplayMode(.inline)
     .alert("Không đổi được biểu tượng. Thử lại sau.", isPresented: $failed) {}

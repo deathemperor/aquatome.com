@@ -13,10 +13,7 @@ struct TodayView: View {
   @Environment(TanksModel.self) private var tanks
   @Environment(\.colorScheme) private var scheme
   @Namespace private var zoom
-  /// The large title has gone up into the bar, as on Khám phá.
-  @State private var titleGone = false
   @State private var refreshes = 0
-  @ScaledMetric(relativeTo: .largeTitle) private var titleHeight: CGFloat = 44
   /// The day the feed is for: read at midnight, or on coming back after it, not left at yesterday's.
   @State private var today = TodayView.now
   /// No fish yet, as the day began: held, so a fish added from the card doesn't change the card under the sheet.
@@ -53,8 +50,7 @@ struct TodayView: View {
         .padding(.bottom, 32)
       }
       .v2ClearOfTheFade()
-      .onScrollGeometryChange(for: Bool.self) { [titleHeight] in $0.contentOffset.y + $0.contentInsets.top > min(titleHeight, V2Fade.largeTitleAtMost) } action: { _, gone in titleGone = gone }
-      .modifier(ClearUnderTopBar(shown: titleGone))
+      .modifier(ClearUnderLargeTitle())
       .navigationTitle("Hôm nay")
       // Its own, not one iOS picks from what passes under the bar: a dark card there turned the bar's words and the clock
       // white on the white band. As a fish's page pins its own.

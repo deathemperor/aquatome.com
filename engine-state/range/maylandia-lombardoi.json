@@ -1,0 +1,48 @@
+{
+  "id": "maylandia-lombardoi",
+  "native": {
+    "input": "ee27f53cc69c2a93",
+    "at": "2026-11-10T07:58:31.896Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Lake Malawi",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Malawi.",
+        "ok": true
+      },
+      {
+        "name": "Mbenji Islands",
+        "source": "seriouslyfish",
+        "quote": "It has a limited natural range, being confined to the Mbenji Islands and Nkhomo Reef, but has also successfully been introduced around Namalenje Island.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "MW"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Maylandia lombardoi",
+    "status": "ACCEPTED",
+    "taxonKey": 2372997,
+    "datasets": [
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        3
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        2
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-10T07:58:31.896Z"
+  }
+}

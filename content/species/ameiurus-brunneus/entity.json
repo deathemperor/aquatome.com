@@ -313,7 +313,12 @@
       "author": "iNaturalist user skitterbug",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Snailbullhead.jpg",
       "caption": "A snail bullhead (Ameiurus brunneus) photographed near Canton, Georgia",
-      "thumb": "https://media.aquatome.com/commons/f9a13d324d631212-480.webp"
+      "thumb": "https://media.aquatome.com/commons/f9a13d324d631212-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/f9a13d324d631212-large.webp",
+        "width": 1680,
+        "height": 1200
+      }
     }
   ],
   "videos": [

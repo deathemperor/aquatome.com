@@ -11,7 +11,7 @@ import { rewriteVi, type Part, type RewriteOpts } from './vi-rewrite'
 export const REWRITE_KINDS = ['guides', 'species', 'plants', 'glossary'] as const
 type Kind = (typeof REWRITE_KINDS)[number]
 type Group = { source?: string; parts: Part[] }
-type Job = { id: string; kind: Kind; slug: string; groups: Group[] }
+type Job = { id: string; kind: Kind; slug: string; groups: Group[]; /** Out of search for its score: a kept rewrite can bring it back. A thin page stays out whatever its words. */ low: boolean }
 type Vi = { sections?: Record<string, string>; body?: string; bodyFixed?: boolean; definition?: string; summary?: string[]; faq?: { q: string; a: string }[]; quality?: { score: number; indexable: boolean; bySource?: Record<string, number>; reason?: 'thin' | 'score' } }
 export type RewriteState = Record<string, { at: string; rewritten: number; of: number; scores: number[]; error?: string; v?: number }>
 /** Bump when the rewrite or its checks change: pages not fully rewritten under an older version get another try. */
@@ -58,7 +58,7 @@ async function jobs(contentRoot: string, kinds: readonly Kind[], match?: RegExp)
           if (g.parts.length) groups.push(g)
         }
       }
-      if (groups.length) out.push({ id: `${kind}/${slug}`, kind, slug, groups })
+      if (groups.length) out.push({ id: `${kind}/${slug}`, kind, slug, groups, low: vi.quality?.indexable === false && vi.quality.reason !== 'thin' })
     }
   }
   return out
@@ -76,7 +76,8 @@ export async function rewriteExisting(contentRoot: string, stateFile: string, d:
   const names = await json<Record<string, { name: string }>>(join(contentRoot, 'sources.json')).catch(() => ({}) as Record<string, { name: string }>)
   const due = (s: RewriteState[string] | undefined) => !s || (s.rewritten < s.of && (s.v ?? 1) < REWRITE_V)
   // `match` re-edits the pages that contain it (after a style rule changes), whether or not they were rewritten before.
-  for (const job of (await jobs(contentRoot, o.kinds ?? REWRITE_KINDS, o.match)).filter(j => o.match || due(state[j.id]))) {
+  // Pages out of search for their score go first, each group in the kinds' and folders' order (the sort is stable).
+  for (const job of (await jobs(contentRoot, o.kinds ?? REWRITE_KINDS, o.match)).filter(j => o.match || due(state[j.id])).sort((a, b) => Number(b.low) - Number(a.low))) {
     if (report.done.length + report.kept.length + report.failed.length >= o.limit) break
     if (o.dry) { report.done.push(`${job.id} (${job.groups.length} part${job.groups.length > 1 ? 's' : ''})`); continue }
     const file = join(contentRoot, job.kind, job.slug, 'vi.json')

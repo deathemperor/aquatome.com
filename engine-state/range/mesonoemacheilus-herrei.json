@@ -1,0 +1,67 @@
+{
+  "id": "mesonoemacheilus-herrei",
+  "native": {
+    "input": "83cd7b8922e10edc",
+    "at": "2026-11-10T07:58:31.896Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Mesonoemacheilus herrei is a loach from the Anaimalai Hills of the Western Ghats in Tamil Nadu, southern India.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the Anaimalai Hills range of the Western Ghats mountains in southern India with type locality over 1000 m AMSL in the municipality of Valparai, Coimbatore district, Tamil Nadu state.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Western Ghats",
+        "source": "seriouslyfish",
+        "quote": "Mesonoemacheilus herrei is a loach from the Anaimalai Hills of the Western Ghats in Tamil Nadu, southern India.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Anaimalai Hills",
+        "source": "seriouslyfish",
+        "quote": "Mesonoemacheilus herrei is a loach from the Anaimalai Hills of the Western Ghats in Tamil Nadu, southern India.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Mesonoemacheilus herrei",
+    "status": "ACCEPTED",
+    "taxonKey": 2358151,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        15
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T07:58:31.896Z"
+  }
+}

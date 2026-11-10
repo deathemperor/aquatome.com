@@ -52,8 +52,13 @@ export type RunReport = { perSource: Partial<Record<SourceId, Counts>>; needsHum
 type Kind = 'species' | 'plants' | 'guides' | 'places' | 'glossary' | 'breeds'
 const readJson = async <T>(path: string): Promise<T | undefined> => readFile(path, 'utf8').then(s => JSON.parse(s) as T, () => undefined)
 const writeJson = async (path: string, data: unknown) => writeFile(path, `${JSON.stringify(data, null, 2)}\n`)
-const MAX_PHOTOS = 8
-const rank = (p: Photo) => (p.source ? SOURCE_IDS.indexOf(p.source) : SOURCE_IDS.length)
+/** The photos a page keeps as its own. */
+export const MAX_PHOTOS = 8
+/**
+ * A source's photos come before open-licence ones, in the registry's order. Not those a step of the source's own places
+ * (`photoStep`: Tropica): they keep the place that step gave them, behind what the page had, whichever source is read.
+ */
+const rank = (p: Photo) => (p.source && !SOURCES.find(s => s.id === p.source)?.photoStep ? SOURCE_IDS.indexOf(p.source) : SOURCE_IDS.length)
 
 const MAX_LLM_FAILURES = 3
 /** Pages in a row that failed on the network: it is the network, not the pages, so the source stops (their attempts last). */
@@ -84,6 +89,14 @@ export const mergePhotos = (prev: Photo[], source: SourceId, url: string, fresh:
   const head = prev[0] && !replaced(prev[0]) && across(prev[0].large ?? prev[0], 'square') >= LARGE_PX ? prev[0] : undefined
   return (head ? [head, ...merged.filter(p => p.url !== head.url)] : merged).slice(0, MAX_PHOTOS)
 }
+
+/**
+ * A page's photos once one of its source pages is read: that page's photos as they are now (mergePhotos), but for a
+ * source whose photos a step of its own takes (sources.ts `photoStep`: Tropica). Its page's pictures aren't the picker's
+ * to find, so a read brings none, and the ones its step stored stay.
+ */
+export const photosAfterRead = async (prev: Photo[], source: SourceId, url: string, fresh: () => Promise<Photo[]>) =>
+  sourceById(source).photoStep ? prev : mergePhotos(prev, source, url, await fresh())
 
 /** content/ access for one run: existing items, taken slugs, validated writes. */
 function store(contentRoot: string) {
@@ -262,7 +275,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       const item = mergeSpecies(existing, page, { source, url, taxon, now, takenSlugs: new Set([...await s.taken('species', existing.vi?.slug), ...await s.taken('breeds')]), takenNames: new Set([...await s.takenNames('species', slugify(taxon.canonicalName)), ...await s.takenNames('breeds')]), quality: combineQuality(existing.vi?.quality, source, score) })
       // Judged on depth at every merge too, as the public build shows it (published sources): a thin page is out of search.
       item.vi.quality = judgeQuality(item.vi.quality, item.vi.quality.indexable, speciesDepth(item.entity.sections.filter(x => mayPublish(sourceNames[x.source], 'text'))).deep)
-      item.entity.photos = mergePhotos(item.entity.photos, source, url, await sourcePhotos([taxon.canonicalName, page.scientificName!, ...page.enCommonNames], item.entity.photos))
+      item.entity.photos = await photosAfterRead(item.entity.photos, source, url, () => sourcePhotos([taxon.canonicalName, page.scientificName!, ...page.enCommonNames], item.entity.photos))
       if (!item.entity.photos.length) item.entity.photos = await soft('commons photos', () => findPhotos(taxon.canonicalName, http, 4, blocked), [])
       if (!item.entity.videos.length) item.entity.videos = await soft('videos', () => findVideos([taxon.canonicalName, ...page.enCommonNames], llm, http, { skip: videoRejected }), [])
       const known = new Set(await s.ids('places'))
@@ -277,7 +290,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       if (outranked(existing.entity?.sections, source, url, page.sections.length)) return [`plants/${slugify(page.scientificName)}`]
       const item = mergePlant(existing, page, { source, url, now, takenSlugs: await s.taken('plants', existing.vi?.slug), takenNames: await s.takenNames('plants', slugify(page.scientificName)), quality: combineQuality(existing.vi?.quality, source, score) })
       if (!item) return null
-      item.entity.photos = mergePhotos(item.entity.photos, source, url, await sourcePhotos([item.entity.scientificName, ...page.enCommonNames], item.entity.photos))
+      item.entity.photos = await photosAfterRead(item.entity.photos, source, url, () => sourcePhotos([item.entity.scientificName, ...page.enCommonNames], item.entity.photos))
       if (!item.entity.photos.length) item.entity.photos = await soft('commons photos', () => findPhotos(item.entity.scientificName, http, 4, blocked), [])
       await s.write('plants', PlantSchema, item)
       await appendChangelog(contentRoot, [log('plant', item.entity.id, !!existing.entity)])

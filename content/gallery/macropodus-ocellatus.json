@@ -26,6 +26,18 @@
       "kind": "female"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/28365502.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/28365502-480.webp",
+      "width": 1024,
+      "height": 705,
+      "licence": "CC BY-SA",
+      "author": "Zinogre",
+      "sourceUrl": "https://www.inaturalist.org/photos/28365502",
+      "caption": "Cá cờ đuôi tròn trong bể thủy sinh có rêu",
+      "best": true,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/commons/de97ac8e391c29fa.webp",
       "thumb": "https://media.aquatome.com/commons/de97ac8e391c29fa-480.webp",
       "width": 1200,
@@ -34,6 +46,18 @@
       "author": "Andrew Bogott",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Macropodus_ocellatus.png",
       "caption": "Cá cờ đuôi tròn đực vây dài, đuôi có đốm xanh",
+      "best": true,
+      "kind": "male"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/28365944.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/28365944-480.webp",
+      "width": 1024,
+      "height": 682,
+      "licence": "CC BY-SA",
+      "author": "Zinogre",
+      "sourceUrl": "https://www.inaturalist.org/photos/28365944",
+      "caption": "Cá cờ đuôi tròn đực bơi trên rêu trong bể",
       "best": true,
       "kind": "male"
     },
@@ -50,7 +74,7 @@
       "kind": "male"
     }
   ],
-  "seen": 8,
-  "updatedAt": "2026-11-09",
-  "builtAt": "2026-11-09"
+  "seen": 15,
+  "updatedAt": "2026-11-10",
+  "builtAt": "2026-11-10"
 }

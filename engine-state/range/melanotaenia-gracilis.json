@@ -1,0 +1,93 @@
+{
+  "id": "melanotaenia-gracilis",
+  "native": {
+    "input": "addb9a988c400d66",
+    "at": "2026-11-10T07:58:31.896Z",
+    "claims": [
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The slender rainbowfish, Melanotaenia gracilis, is a small rainbowfish from the Drysdale and Carson Rivers in the Kimberley, north-western Australia.",
+        "words": "Australia",
+        "ok": true
+      },
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This uniquely-shaped rainbow is an uncommonly seen species in the hobby, mainly because it hails from such a remote area in Australia.",
+        "words": "Australia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Drysdale River",
+        "source": "seriouslyfish",
+        "quote": "So far, it has been recorded only from the Drysdale and Carson Rivers in the Kimberley area.",
+        "ok": false,
+        "why": "its name is not in the quote"
+      },
+      {
+        "name": "Carson River",
+        "source": "seriouslyfish",
+        "quote": "So far, it has been recorded only from the Drysdale and Carson Rivers in the Kimberley area.",
+        "ok": true
+      },
+      {
+        "name": "Kimberley",
+        "source": "seriouslyfish",
+        "quote": "The slender rainbowfish, Melanotaenia gracilis, is a small rainbowfish from the Drysdale and Carson Rivers in the Kimberley, north-western Australia.",
+        "country": "AU",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Melanotaenia gracilis",
+    "status": "ACCEPTED",
+    "taxonKey": 2411685,
+    "datasets": [
+      [
+        "39905320-6c8a-11de-8226-b8a03c50a862",
+        28
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        15
+      ],
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        14
+      ],
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        7
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        2
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ]
+    ],
+    "native": [
+      "AU"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T07:58:31.896Z"
+  }
+}

@@ -1,8 +1,8 @@
 {
   "id": "garra-rakhinica",
   "native": {
-    "input": "979a96459c623238",
-    "at": "2026-11-08T10:57:49.558Z",
+    "input": "ae7be4f97c0935fa",
+    "at": "2026-11-10T07:58:31.896Z",
     "claims": [
       {
         "code": "MM",
@@ -18,6 +18,13 @@
         "name": "Rakhine Yoma",
         "source": "seriouslyfish",
         "quote": "This species is known only from its type locality, a minor stream draining in to the Bay of Bengal from the western slope of the Rakhine Yoma mountain range in western Myanmar.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Thade River",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Taunggok, Thade River drainage, Yan Khaw Chaung, about 4 kilometers on logging road from Gwetauk village, 23 kilometers on road Taunggok-Pyay, 18°47'48\"N, 94°21'46\"E, Rakhine State, Myanmar'.",
         "country": "MM",
         "ok": true
       }

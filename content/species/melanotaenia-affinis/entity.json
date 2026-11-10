@@ -12,6 +12,86 @@
     "asia",
     "indonesia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PG"
+      ],
+      "regions": [
+        "Sepik River",
+        "New Guinea"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Papua New Guinea.",
+          "countries": [
+            "PG"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The \"Pagwi\" form has a very limited distribution, being known only from a tributary of the Sepik River in New Guinea, while the \"Bluewater Creek\" form has only been collected from a single location close to Madang, in Papua New Guinea.",
+          "countries": [],
+          "regions": [
+            "Sepik River",
+            "New Guinea"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2411652,
+      "total": 31,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "PG",
+          27
+        ],
+        [
+          "ID",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          139.21875,
+          -2.8125,
+          4,
+          0
+        ],
+        [
+          142.03125,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          143.4375,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          144.84375,
+          -7.03125,
+          6,
+          6
+        ],
+        [
+          144.84375,
+          -5.625,
+          13,
+          13
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

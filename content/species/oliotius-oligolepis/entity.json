@@ -71,6 +71,15 @@
       "html": "<p>Apparently endemic to western central Sumatra, Indonesia, but the full extent of its distribution is unclear. The few recent records that exist pertain to lower basins of the Aek Sibundung, Aek Sumuran, and Aek Garoga rivers in Sumatera Utara (North Sumatra) province, with the Batang Gadis drainage and associated National Park possibly representing the northern limit of its range (D. Lumbantobing, pers. comm.).</p><p>Type locality is 'Lake Meninju, Sumatra, Indonesia', which corresponds to the crater lake Danau Maninjau in Sumatera Barat (West Sumatra) province.</p>"
     },
     {
+      "key": "habitat",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này thích nơi nước trong và nhiều oxy. Có thể gặp chúng ở vũng nhỏ, suối, hồ, sông và cả mương thoát nước.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/oliotius-oligolepis",
@@ -81,6 +90,15 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/oliotius-oligolepis",
       "html": "<p>Choice of décor is not especially critical though it tends to show better colouration in a well-decorated set-up. The addition of floating or overhanging vegetation and driftwood roots or branches also seems to be appreciated.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Một người nuôi loài này vài năm thấy chúng khỏe và có phần nhát. Trong bể nhiều cây, có sẵn chỗ trốn để thỉnh thoảng lẩn vào một lúc, cá trông thoải mái hơn. Với người nuôi này, đây là loài hợp cho cả người mới lẫn người chơi lâu năm.</p>",
+      "refs": [
+        0
+      ]
     },
     {
       "key": "waterConditions",
@@ -101,10 +119,28 @@
       "html": "<p>Generally very peaceful making it an ideal resident of the well-researched community aquarium.</p><p>It is a schooling species by nature, and at least 6-10 specimens should be purchased. Maintaining it in such numbers will not only make the fish less skittish but result in a more effective, natural looking display, and males will develop better colours in the presence of conspecific rivals.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này hiếu động và ham đùa nghịch. Nên nuôi nhiều con cái hơn con đực, vì như vậy cá đực có thể bớt dữ với nhau khi giữ khu vực riêng và cả đàn cũng yên ổn hơn. Những con đực hay thị uy với nhau, nhưng ít khi có con nào bị thương. Mấy màn vờn nhau bất chợt đó xem cũng vui.</p>",
+      "refs": [
+        0
+      ]
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/oliotius-oligolepis",
       "html": "<p>Adult males are noticeably smaller, slimmer, and more colourful than females, the latter character being more noticeable in nuptial individuals.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Ở cá đực đủ lớn, vây lưng, vây bụng và vây hậu môn có màu nâu đỏ, viền đen rõ. Cá cái thân màu kem, ba vây này hơi vàng đến trong, phần viền đen cũng không đậm bằng.</p>",
+      "refs": [
+        0
+      ]
     },
     {
       "key": "reproduction",
@@ -149,7 +185,14 @@
       "source": "seriouslyfish"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "7WuDB1RXfKY",
+      "title": "Get to Know the Charming Checkered Barb - Oliotius oligolepis",
+      "durationSec": 172,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -179,5 +222,11 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-04"
+  "updatedAt": "2026-11-10",
+  "refs": [
+    {
+      "url": "https://www.youtube.com/watch?v=7WuDB1RXfKY",
+      "title": "Get to Know the Charming Checkered Barb - Oliotius oligolepis"
+    }
+  ]
 }

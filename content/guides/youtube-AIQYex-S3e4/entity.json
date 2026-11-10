@@ -57,7 +57,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Các bể xếp theo cạnh dài chạy ra sau, đặt trên khung gỗ nhiều tầng.",
-            "sharpness": 186.4
+            "sharpness": 186.4,
+            "person": false
           },
           {
             "t": 60,
@@ -65,7 +66,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nhìn từ dưới: bể vắt ngang hai thanh gỗ đỡ phía trước và sau.",
-            "sharpness": 175
+            "sharpness": 175,
+            "person": false
           }
         ]
       },
@@ -78,14 +80,17 @@
             "width": 1200,
             "height": 675,
             "caption": "Dãy bể kính xếp trên giá gỗ, thấy rõ khoảng trống phía trên mỗi bể.",
-            "sharpness": 636.5
+            "sharpness": 636.5,
+            "person": false
           },
           {
             "t": 145,
-            "url": "https://media.aquatome.com/video/AIQYex-S3e4/at145.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Đèn treo phía trên các bể đặt cạnh nhau, chừa khoảng trống để chỉnh."
+            "url": "https://media.aquatome.com/video/AIQYex-S3e4/at145-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đèn treo phía trên các bể đặt cạnh nhau, chừa khoảng trống để chỉnh.",
+            "sharpness": 375.1,
+            "person": false
           }
         ],
         "photo": {
@@ -100,27 +105,6 @@
         }
       },
       {
-        "heading": "Tính sức chịu tải của kệ",
-        "moments": [
-          {
-            "t": 195,
-            "url": "https://media.aquatome.com/video/AIQYex-S3e4/at195-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hàng bể kính trống đặt trên kệ gỗ, có đèn phía trên.",
-            "sharpness": 751.7
-          },
-          {
-            "t": 255,
-            "url": "https://media.aquatome.com/video/AIQYex-S3e4/at255-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các bể xếp nhiều tầng trên khung kệ gỗ 2x4.",
-            "sharpness": 829.2
-          }
-        ]
-      },
-      {
         "heading": "Làm lọc vách mút Hamburg",
         "moments": [
           {
@@ -129,7 +113,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ống PVC đẩy dòng nước chảy ra, tạo bọt khí trong bể.",
-            "sharpness": 326.3
+            "sharpness": 326.3,
+            "person": false
           }
         ],
         "photo": {
@@ -146,14 +131,6 @@
       {
         "heading": "Vệ sinh lọc và chuyện sưởi",
         "moments": [
-          {
-            "t": 305,
-            "url": "https://media.aquatome.com/video/AIQYex-S3e4/at305-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cầm thiết bị sưởi nhỏ để lắp vào bể.",
-            "sharpness": 631.2
-          },
           {
             "t": 320,
             "url": "https://media.aquatome.com/video/AIQYex-S3e4/at320-hd.webp",
@@ -176,16 +153,7 @@
       },
       {
         "heading": "Chọn đèn cho dàn bể",
-        "moments": [
-          {
-            "t": 400,
-            "url": "https://media.aquatome.com/video/AIQYex-S3e4/at400-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây đèn LED shop light treo dài phía trên hàng bể.",
-            "sharpness": 270.4
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/AIQYex-S3e4/p5-lnaHQoNlcpLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/AIQYex-S3e4/p5-lnaHQoNlcpLmpwZw-480.webp",
@@ -200,14 +168,6 @@
       {
         "heading": "Dùng dàn bể vào việc gì",
         "moments": [
-          {
-            "t": 470,
-            "url": "https://media.aquatome.com/video/AIQYex-S3e4/at470-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể đáy trơn rải sỏi, dùng làm bể nuôi giữ cá.",
-            "sharpness": 351.2
-          },
           {
             "t": 505,
             "url": "https://media.aquatome.com/video/AIQYex-S3e4/at505-hd.webp",

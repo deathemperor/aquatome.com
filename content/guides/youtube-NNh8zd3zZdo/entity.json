@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-11-05",
+  "updatedAt": "2026-11-10",
   "video": {
     "youtubeId": "NNh8zd3zZdo",
     "title": "HOW TO: Eheim professionel 3",
@@ -31,7 +31,7 @@
         "category": "loc",
         "type": "thung",
         "brand": "Eheim",
-        "model": "Professional 3 Ultra G 160",
+        "model": "Professionel 3 Ultra G 160",
         "t": 0
       },
       {
@@ -46,7 +46,14 @@
         "type": "thung",
         "brand": "Fluval",
         "model": "FX5",
-        "t": 108
+        "t": 98
+      },
+      {
+        "category": "loc",
+        "type": "thung",
+        "brand": "Eheim",
+        "model": "Professionel 3 2075",
+        "t": 1405
       },
       {
         "category": "khac",
@@ -57,176 +64,66 @@
     ],
     "figures": [
       {
-        "heading": "Lọc này mạnh cỡ nào, có đáng nâng cấp không",
+        "heading": "Thông số của lọc so với Fluval 405",
         "moments": [
           {
-            "t": 1286,
-            "url": "https://media.aquatome.com/video/NNh8zd3zZdo/t1286.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Hai thùng lọc ngoài đặt cạnh nhau dưới bể để so sánh."
+            "t": 1100,
+            "url": "https://media.aquatome.com/video/NNh8zd3zZdo/at1100-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bộ ống dẫn nước của lọc thùng chuẩn bị lắp vào bể.",
+            "sharpness": 144.5
           },
           {
-            "t": 1345,
-            "url": "https://media.aquatome.com/video/NNh8zd3zZdo/t1345.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Đặt tay lên thùng lọc để so kích thước hai loại lọc."
+            "t": 1120,
+            "url": "https://media.aquatome.com/video/NNh8zd3zZdo/at1120-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ống hút và ống xả của lọc được gắn vào thành bể.",
+            "sharpness": 145.3
           }
         ]
       },
       {
-        "heading": "Mở thùng và hiểu đường đi của nước",
-        "moments": [
-          {
-            "t": 297,
-            "url": "https://media.aquatome.com/video/NNh8zd3zZdo/t297.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Thùng lọc với cụm nối ống và nút đỏ ở phía dưới."
-          },
-          {
-            "t": 415,
-            "url": "https://media.aquatome.com/video/NNh8zd3zZdo/t415.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Thùng lọc đã mở nắp, thấy ngăn vật liệu lọc bên trong."
-          }
-        ],
+        "heading": "Mở thùng và cấu tạo bên trong",
+        "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/NNh8zd3zZdo/p1-JfRmlsdGVyLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/NNh8zd3zZdo/p1-JfRmlsdGVyLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/NNh8zd3zZdo/p2-JfRmlsdGVyLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/NNh8zd3zZdo/p2-JfRmlsdGVyLmpwZw-480.webp",
           "width": 960,
           "height": 720,
           "licence": "CC BY-SA 4.0",
           "author": "Fish Tank Society",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
-          "caption": "Lọc thùng đặt trong tủ bể, có van đỏ, ống mềm và xô hứng nước."
+          "caption": "Thùng lọc ngoài đặt trong tủ bể, có cụm khóa nối ống và kẹp nắp."
         }
       },
       {
-        "heading": "Ráp ống xả và thanh phun mưa",
-        "moments": [
-          {
-            "t": 564,
-            "url": "https://media.aquatome.com/video/NNh8zd3zZdo/t564.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Các đoạn ống, co và phụ kiện của thanh phun mưa bày sẵn trên bàn."
-          },
-          {
-            "t": 772,
-            "url": "https://media.aquatome.com/video/NNh8zd3zZdo/t772.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Gắn co góc vào cụm ống để ráp thanh phun mưa."
-          }
-        ]
-      },
-      {
-        "heading": "Ráp ống hút",
-        "moments": [
-          {
-            "t": 821,
-            "url": "https://media.aquatome.com/video/NNh8zd3zZdo/t821.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Ba đoạn ống trong suốt dùng để nối dài ống hút."
-          },
-          {
-            "t": 870,
-            "url": "https://media.aquatome.com/video/NNh8zd3zZdo/t870.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Các đoạn ống đã nối dài, đang gắn gioăng và khớp nối."
-          }
-        ]
-      },
-      {
-        "heading": "Rửa vật liệu và gắn ống mềm vào thùng",
-        "moments": [
-          {
-            "t": 940,
-            "url": "https://media.aquatome.com/video/NNh8zd3zZdo/t940.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Đổ vật liệu lọc vào khay của thùng lọc để chuẩn bị rửa."
-          },
-          {
-            "t": 1009,
-            "url": "https://media.aquatome.com/video/NNh8zd3zZdo/t1009.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Ống mềm màu xanh được kéo ra để gắn vào thùng lọc."
-          }
-        ],
+        "heading": "Rửa vật liệu lọc và nối ống mềm",
+        "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/NNh8zd3zZdo/p4-sXzA2MDIyNy5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/NNh8zd3zZdo/p4-sXzA2MDIyNy5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/NNh8zd3zZdo/p6-b0V4dGVybm8uanBn.webp",
+          "thumb": "https://media.aquatome.com/video/NNh8zd3zZdo/p6-b0V4dGVybm8uanBn-480.webp",
           "width": 960,
-          "height": 614,
-          "licence": "CC BY-SA 3.0",
-          "author": "Wikimedia Commons",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Filtermaterial_060227.jpg",
-          "caption": "Các loại vật liệu lọc như bông xốp, sứ lọc, sỏi nung và bóng nhựa."
+          "height": 1280,
+          "licence": "CC BY-SA 4.0",
+          "author": "Katn88",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:FiltroExterno.jpg",
+          "caption": "Thùng lọc ngoài Eheim có nắp đầu bơm và chỗ nối ống mềm."
         }
       },
       {
-        "heading": "Đặt ống vào bể và cắt ống cho vừa",
-        "moments": [
-          {
-            "t": 1118,
-            "url": "https://media.aquatome.com/video/NNh8zd3zZdo/t1118.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Tay cầm ống mềm xanh để nối vào ống hút trong bể."
-          },
-          {
-            "t": 1197,
-            "url": "https://media.aquatome.com/video/NNh8zd3zZdo/t1197.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Ống mềm đã gắn vào ống ở thành bể, còn hơi chùng."
-          }
-        ],
+        "heading": "Đặt ống vào bể và nối ống mềm",
+        "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/NNh8zd3zZdo/p5-JfRmlsdGVyLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/NNh8zd3zZdo/p5-JfRmlsdGVyLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/NNh8zd3zZdo/p7-JfRmlsdGVyLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/NNh8zd3zZdo/p7-JfRmlsdGVyLmpwZw-480.webp",
           "width": 960,
           "height": 720,
           "licence": "CC BY-SA 4.0",
           "author": "Fish Tank Society",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
-          "caption": "Lọc thùng đặt trong tủ dưới bể, với ống mềm nối khớp nhanh."
-        }
-      },
-      {
-        "heading": "Mồi nước và chạy lọc",
-        "moments": [
-          {
-            "t": 1227,
-            "url": "https://media.aquatome.com/video/NNh8zd3zZdo/t1227.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Nước chảy ra đều từ thanh phun mưa, mặt nước gợn sóng."
-          },
-          {
-            "t": 1266,
-            "url": "https://media.aquatome.com/video/NNh8zd3zZdo/t1266.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Hai thùng lọc ngoài nối ống xanh, sẵn sàng mồi nước và chạy lọc."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/NNh8zd3zZdo/p6-JfRmlsdGVyLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/NNh8zd3zZdo/p6-JfRmlsdGVyLmpwZw-480.webp",
-          "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Fish Tank Society",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
-          "caption": "Lọc thùng đặt trong tủ dưới bể, ống nối với xô nước khi mồi lọc."
+          "caption": "Lọc thùng đặt trong tủ bể, ống mềm nối qua khớp nối nhanh."
         }
       }
     ]

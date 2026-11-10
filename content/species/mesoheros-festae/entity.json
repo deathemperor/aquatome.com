@@ -163,7 +163,18 @@
       "html": "<p>The Red Terror can be troublesome to breed due to pairing problems - if a pair of fish are incompatible and are housed together for any length of time, it is likely that the weaker fish will be killed. The best way of getting a true pair is to grow 6 juveniles up until a noticeably strong pair has formed. Also, its size means finding an aquarium and suitable breeding surfaces can be difficult. Rocks (siliconed if necessary) and bits of slate used to create man-made caves are ideal. Mesoheros festae is not a fish to be messed with. Its large size and ferocious attitude can lead to some serious issues in an aquarium. Make sure you have a large enough aquarium to begin with, as very few shops or hobbyists will take a 30 cm+ Red Terror off your hands when it grows too large for your tank. A stunning fish and a challenge to breed, the Red Terror can make an amazing centre piece for any large, predatory South American cichlid setup.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/d4c468b999b6a872.webp",
+      "thumb": "https://media.aquatome.com/commons/d4c468b999b6a872-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "CC BY-SA 4.0",
+      "author": "Tylwyth Eldar",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oniria_-_Poisson_38.jpg",
+      "caption": "Cá red terror con có sọc đen trên nền sỏi"
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
@@ -185,5 +196,81 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-03",
+  "range": {
+    "native": {
+      "countries": [
+        "EC",
+        "PE"
+      ],
+      "regions": [
+        "Rio Esmeraldas",
+        "Rio Tumbes"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The red terror, Mesoheros festae, is a large, territorial cichlid from the Rio Esmeraldas in Ecuador and the Rio Tumbes in Peru.",
+          "countries": [
+            "EC",
+            "PE"
+          ],
+          "regions": [
+            "Rio Esmeraldas",
+            "Rio Tumbes"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9285139,
+      "total": 21,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "EC",
+          20
+        ],
+        [
+          "PE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -81.5625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -80.15625,
+          -4.21875,
+          3,
+          3
+        ],
+        [
+          -80.15625,
+          -2.8125,
+          7,
+          7
+        ],
+        [
+          -80.15625,
+          -1.40625,
+          6,
+          6
+        ],
+        [
+          -80.15625,
+          0,
+          4,
+          4
+        ]
+      ]
+    }
+  }
 }

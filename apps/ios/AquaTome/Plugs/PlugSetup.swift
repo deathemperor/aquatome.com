@@ -69,6 +69,7 @@ struct PlugSetup: View {
           }
         }
       }
+      .modifier(ClearUnderTopBar(shown: true, ground: Color(.systemGroupedBackground)))
       .navigationTitle("Thiết lập ổ cắm")
       .navigationBarTitleDisplayMode(.inline)
       .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Xong") { dismiss() }.accessibilityIdentifier("setup-done") } }

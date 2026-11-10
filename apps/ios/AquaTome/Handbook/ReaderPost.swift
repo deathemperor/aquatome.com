@@ -72,6 +72,7 @@ struct ReaderPost: View {
           form
         }
       }
+      .modifier(ClearUnderTopBar(shown: true, ground: Color(.systemGroupedBackground)))
       .navigationTitle(kind == .comment ? "Thảo luận" : "Ảnh bạn đọc")
       .navigationBarTitleDisplayMode(.inline)
       .toolbar { Button("Đóng") { dismiss() }.disabled(sending) }

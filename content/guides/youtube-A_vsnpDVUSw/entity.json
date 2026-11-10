@@ -57,7 +57,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ngọn cây hậu cảnh mọc cao sát mặt nước, dưới đèn T5.",
-            "sharpness": 555.6
+            "sharpness": 555.6,
+            "person": false
           },
           {
             "t": 30,
@@ -65,7 +66,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể với cây hậu cảnh Alternanthera reineckii mọc cao phía sau.",
-            "sharpness": 1258.7
+            "sharpness": 1258.7,
+            "person": false
           }
         ],
         "photo": {
@@ -82,14 +84,6 @@
       {
         "heading": "Tỉa cây thế nào",
         "moments": [
-          {
-            "t": 106,
-            "url": "https://media.aquatome.com/video/A_vsnpDVUSw/at106-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Kéo đang cắt thân cây Alternanthera trong bể thủy sinh.",
-            "sharpness": 464
-          },
           {
             "t": 136,
             "url": "https://media.aquatome.com/video/A_vsnpDVUSw/at136-hd.webp",
@@ -150,7 +144,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây hậu cảnh thân cao mọc phía sau bể thủy sinh.",
-            "sharpness": 434.5
+            "sharpness": 434.5,
+            "person": false
           }
         ],
         "photo": {

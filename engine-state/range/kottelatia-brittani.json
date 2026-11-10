@@ -1,8 +1,8 @@
 {
   "id": "kottelatia-brittani",
   "native": {
-    "input": "5c4723a8a96f8a68",
-    "at": "2026-11-09T09:57:55.009Z",
+    "input": "110158e3ab202ad0",
+    "at": "2026-11-10T07:58:31.896Z",
     "claims": [
       {
         "code": "MY",
@@ -23,20 +23,20 @@
     ],
     "regions": [
       {
-        "name": "Johor River",
+        "name": "Johore River",
         "source": "seriouslyfish",
-        "quote": "It was described from Segamat District within the Johor River watershed, Johor state, southern Peninsular Malaysia, but the type specimens were obtained via a Singapore wholesaler so it's possible that a mistake was made as there exist no other records of the species in Peninsular Malaysia.",
+        "quote": "Type locality is 'Johore River, Segamat, Malaysia'.",
         "country": "MY",
         "ok": true
       },
       {
-        "name": "Batang Hari",
+        "name": "Sumatra",
         "source": "seriouslyfish",
         "quote": "There appears to be a possibility that it is endemic to Sumatra, since a record from the Batang Hari river, in Jambi province (Tan & Kottelat, 2009) appears to represent the first official record since the description was published.",
         "ok": true
       },
       {
-        "name": "Sumatra",
+        "name": "Batang Hari",
         "source": "seriouslyfish",
         "quote": "There appears to be a possibility that it is endemic to Sumatra, since a record from the Batang Hari river, in Jambi province (Tan & Kottelat, 2009) appears to represent the first official record since the description was published.",
         "ok": true

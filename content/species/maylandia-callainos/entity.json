@@ -11,6 +11,85 @@
     "lake-malawi",
     "tanzania"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Malawi",
+        "Ruhuhu River",
+        "Kande Island",
+        "Chitande Island"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Malawi.",
+          "countries": [],
+          "regions": [
+            "Lake Malawi"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It occurs around the north of the lake, between Ikombe and the Ruhuhu River in the east, and from Kande Island to Ngara in the west.",
+          "countries": [],
+          "regions": [
+            "Ruhuhu River",
+            "Kande Island"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "There is also a population near Chitande Island, where the males are cobalt blue and the females are white.",
+          "countries": [],
+          "regions": [
+            "Chitande Island"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2372988,
+      "total": 36,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "MW",
+          26
+        ],
+        [
+          "TZ",
+          10
+        ]
+      ],
+      "cells": [
+        [
+          33.75,
+          -14.0625,
+          10
+        ],
+        [
+          33.75,
+          -12.65625,
+          6
+        ],
+        [
+          33.75,
+          -11.25,
+          15
+        ],
+        [
+          33.75,
+          -9.84375,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

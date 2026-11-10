@@ -34,7 +34,7 @@ import { fishId, type FishIdDeps, type FishIdEnv } from './fishid/api'
 import { appEventsRoute } from './telemetry/events'
 import { appDiagnosticsRoute } from './telemetry/diagnostics'
 import { countryOf } from './telemetry/shared'
-import { asksLang, chooserPage, langCookie, langPoint, pickedLang, pickResponse } from './lang-ask'
+import { asksLang, chooserEvent, chooserPage, langCookie, langPoint, pickedLang, pickResponse } from './lang-ask'
 import { homeOf, LANGS, langOfCountry, langOfTag, prefixedLang, type Lang } from '@aq/schema/langs'
 import { sweepRetries } from './chat/store'
 import { sweepKept } from './fishid/kept'
@@ -90,9 +90,16 @@ async function events(req: Request, url: URL, env: FullEnv): Promise<Response> {
   const site = req.headers.get('sec-fetch-site')
   if ((origin && origin !== new URL(req.url).origin) || (site && site !== 'same-origin')) return new Response(null, { status: 403 })
   if (isBot(req.headers.get('user-agent'), req.headers.get('accept-language'))) return new Response(null, { status: 204 })
-  const e = parseEvent((await req.text()).slice(0, MAX_EVENT_BYTES + 1))
+  const body = (await req.text()).slice(0, MAX_EVENT_BYTES + 1)
+  const country = String((req as { cf?: { country?: string } }).cf?.country ?? '')
+  const chooser = chooserEvent(body)
+  if (chooser) {
+    env.EVENTS?.writeDataPoint(langPoint(chooser, country, await whoIs(req, env)))
+    return new Response(null, { status: 204 })
+  }
+  const e = parseEvent(body)
   if (!e) return new Response(null, { status: 400 })
-  env.EVENTS?.writeDataPoint(toDataPoint(visitorOf(ownReferrer(e, url.hostname), req, VISITOR_STATS), String((req as { cf?: { country?: string } }).cf?.country ?? ''), await whoIs(req, env)))
+  env.EVENTS?.writeDataPoint(toDataPoint(visitorOf(ownReferrer(e, url.hostname), req, VISITOR_STATS), country, await whoIs(req, env)))
   return new Response(null, { status: 204 })
 }
 
@@ -219,17 +226,11 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
   if (url.pathname === '/') {
     const al = req.headers.get('accept-language')
     const country = isBot(req.headers.get('user-agent'), al) ? '' : countryOf(req)
-    // A page fetched ahead of a click (the Vietnamese pages prefetch /, Base.astro) is served but not counted.
-    const count = country && !/prefetch/i.test(req.headers.get('sec-purpose') ?? '')
     const picked = pickedLang(url)
-    if (picked && count) env.EVENTS?.writeDataPoint(langPoint(`/?lang=${picked}`, country))
     if (picked && picked !== 'vi') return finish(pickResponse(picked, url.searchParams), env)
     if (picked) remember = langCookie(picked)
     const chosen = picked ?? chosenLang(req.headers.get('cookie'))
-    if (!chosen && !askedLang(al) && asksLang(country)) {
-      if (count) env.EVENTS?.writeDataPoint(langPoint('/', country))
-      return finish(chooserPage(url.searchParams), env)
-    }
+    if (!chosen && !askedLang(al) && asksLang(country)) return finish(chooserPage(url.searchParams), env)
     const lang = chosen ?? rootLang(al, country)
     if (lang !== 'vi') return finish(new Response(null, { status: 302, headers: { location: `${homeOf(lang)}${url.search}`, link: DISCOVERY_LINK, vary: 'Accept-Language, Cookie', 'cache-control': 'private, no-store' } }), env)
   }

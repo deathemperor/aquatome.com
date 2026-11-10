@@ -144,6 +144,9 @@ if part photos; then
   pnpm engine fishbase-photos || log "fishbase-photos: failed"
   # Jan D. Bastmeijer's own photos (used with permission) on Cryptocoryne pages that have none of his yet.
   pnpm engine crypts-photos || log "crypts-photos: failed"
+  # Tropica's own photos of its plants (used with permission), never its drawings, on plant pages that have none of its
+  # yet: 60 pages a cycle at five seconds a request, so its 152 pages take three cycles.
+  pnpm engine tropica-photos --limit 60 || log "tropica-photos: failed"
 fi
 if part pages sf photos; then
   # No people in photos: drop any with a human face (before thumbs, so none are made for dropped photos).

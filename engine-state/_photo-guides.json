@@ -345,7 +345,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "dark snail on a green blade of aquarium grass"
+    "note": "dark snail on a green blade of aquarium grass",
+    "other": {
+      "snail": false
+    }
   },
   "https://media.aquatome.com/aquariumbreeder/052fd2e29c7db111.webp": {
     "person": false,
@@ -357,7 +360,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "crystal red and black shrimp on a green carpet plant, with substrate blurred behind"
+    "note": "crystal red and black shrimp on a green carpet plant, with substrate blurred behind",
+    "other": {
+      "shrimp": false
+    }
   },
   "https://media.aquatome.com/aquariumbreeder/089b99e171bcf77a.webp": {
     "person": false,
@@ -387,7 +393,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "Cryptocoryne-type plant leaves with algae and holes in a planted tank"
+    "note": "Cryptocoryne-type plant leaves with algae and holes in a planted tank",
+    "other": {
+      "cryptocoryne": false
+    }
   },
   "https://media.aquatome.com/aquariumbreeder/2f6a89f4dcff2377.webp": {
     "person": false,
@@ -435,7 +444,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "red water mite on a strand of moss or plant, green background"
+    "note": "red water mite on a strand of moss or plant, green background",
+    "other": {
+      "shrimp": false
+    }
   },
   "https://media.aquatome.com/aquariumbreeder/8b81893b46ec7178.webp": {
     "person": false,
@@ -459,13 +471,19 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "colour diagram of a snail's internal organs, no text"
+    "note": "colour diagram of a snail's internal organs, no text",
+    "other": {
+      "snail": false
+    }
   },
   "https://media.aquatome.com/aquariumbreeder/b40dca8c4c2540cf.webp": {
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "line drawing of snail anatomy; the English labels (Shell, Eyes, Mouth, etc.) are part of the diagram, so not counted as "
+    "note": "line drawing of snail anatomy; the English labels (Shell, Eyes, Mouth, etc.) are part of the diagram, so not counted as ",
+    "other": {
+      "snail": false
+    }
   },
   "https://media.aquatome.com/aquariumbreeder/c0e25bd3e9c353d3.webp": {
     "person": false,
@@ -483,7 +501,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "dark shrimp on a carpet of bright green moss"
+    "note": "dark shrimp on a carpet of bright green moss",
+    "other": {
+      "shrimp": false
+    }
   },
   "https://media.aquatome.com/aquariumbreeder/d8072443e760260c.webp": {
     "person": false,
@@ -519,13 +540,19 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "seed shrimp (ostracod) on a black background"
+    "note": "seed shrimp (ostracod) on a black background",
+    "other": {
+      "shrimp": false
+    }
   },
   "https://media.aquatome.com/aquariumbreeder/fe76ab248d9fb698.webp": {
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "close-up of a small translucent limpet on tank glass"
+    "note": "close-up of a small translucent limpet on tank glass",
+    "other": {
+      "snail": false
+    }
   },
   "https://media.aquatome.com/aquariumcoop/00182144fdae9574.webp": {
     "person": false,
@@ -837,7 +864,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "angelfish among grassy stem plants"
+    "note": "angelfish among grassy stem plants",
+    "other": {
+      "angelfish": false
+    }
   },
   "https://media.aquatome.com/aquariumcoop/0ceb260e3bab2b82.webp": {
     "person": false,
@@ -1197,7 +1227,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "dim close-up of Java fern-type leaves on a dark background"
+    "note": "dim close-up of Java fern-type leaves on a dark background",
+    "other": {
+      "cryptocoryne": false
+    }
   },
   "https://media.aquatome.com/aquariumcoop/1e0bd3776753a3a2.webp": {
     "person": false,
@@ -1293,7 +1326,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "calico fancy goldfish with sinking food pellets and plant"
+    "note": "calico fancy goldfish with sinking food pellets and plant",
+    "other": {
+      "goldfish": false
+    }
   },
   "https://media.aquatome.com/aquariumcoop/212b9a3d28de6844.webp": {
     "person": false,
@@ -1341,7 +1377,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "crystal red shrimp on plants close-up"
+    "note": "crystal red shrimp on plants close-up",
+    "other": {
+      "shrimp": false
+    }
   },
   "https://media.aquatome.com/aquariumcoop/22ca3916044fc32c.webp": {
     "person": false,
@@ -1371,13 +1410,19 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "pearl gourami close-up"
+    "note": "pearl gourami close-up",
+    "other": {
+      "gourami": false
+    }
   },
   "https://media.aquatome.com/aquariumcoop/231a828798dbb453.webp": {
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "frozen bloodworm cubes in a blister tray, no brand shown"
+    "note": "frozen bloodworm cubes in a blister tray, no brand shown",
+    "other": {
+      "betta": false
+    }
   },
   "https://media.aquatome.com/aquariumcoop/233a6e29016adcd9.webp": {
     "person": false,
@@ -1407,7 +1452,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "close-up of a single cardinal tetra with a blurred snail shell behind"
+    "note": "close-up of a single cardinal tetra with a blurred snail shell behind",
+    "other": {
+      "tetra": false
+    }
   },
   "https://media.aquatome.com/aquariumcoop/24c85d95c518d33d.webp": {
     "person": false,
@@ -1545,7 +1593,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "many snails on plants and gravel in a tank"
+    "note": "many snails on plants and gravel in a tank",
+    "other": {
+      "snail": false
+    }
   },
   "https://media.aquatome.com/aquariumcoop/279aedada121d12a.webp": {
     "person": false,
@@ -1563,7 +1614,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "kribensis cichlid (Pelvicachromis pulcher) on dark background"
+    "note": "kribensis cichlid (Pelvicachromis pulcher) on dark background",
+    "other": {
+      "cichlid": false
+    }
   },
   "https://media.aquatome.com/aquariumcoop/284a25b6e97b173a.webp": {
     "person": false,
@@ -1611,7 +1665,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "Congo tetras in a planted tank with a carpet plant and driftwood"
+    "note": "Congo tetras in a planted tank with a carpet plant and driftwood",
+    "other": {
+      "tetra": false
+    }
   },
   "https://media.aquatome.com/aquariumcoop/29ba8d426c4c2766.webp": {
     "person": false,
@@ -1725,7 +1782,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "blue marble betta among plants and moss"
+    "note": "blue marble betta among plants and moss",
+    "other": {
+      "betta": false
+    }
   },
   "https://media.aquatome.com/aquariumcoop/2df05472e2dcf891.webp": {
     "person": false,
@@ -1875,7 +1935,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "German blue ram cichlid over gravel with plants and a blue background"
+    "note": "German blue ram cichlid over gravel with plants and a blue background",
+    "other": {
+      "cichlid": false
+    }
   },
   "https://media.aquatome.com/aquariumcoop/329da4f55289db43.webp": {
     "person": false,
@@ -1917,7 +1980,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "school of tiger barbs in front of bright blue and green background"
+    "note": "school of tiger barbs in front of bright blue and green background",
+    "other": {
+      "barb": false
+    }
   },
   "https://media.aquatome.com/aquariumcoop/3405936a9a75a50c.webp": {
     "person": false,
@@ -2157,7 +2223,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "assorted mollies against a blue background"
+    "note": "assorted mollies against a blue background",
+    "other": {
+      "molly": false
+    }
   },
   "https://media.aquatome.com/aquariumcoop/3d3513f8c37301ee.webp": {
     "person": false,
@@ -2469,7 +2538,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "albino bristlenose pleco on white pebbles by driftwood"
+    "note": "albino bristlenose pleco on white pebbles by driftwood",
+    "other": {
+      "pleco": false
+    }
   },
   "https://media.aquatome.com/aquariumcoop/48471da7356d0393.webp": {
     "person": false,
@@ -2571,7 +2643,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "school of harlequin rasboras over green plants"
+    "note": "school of harlequin rasboras over green plants",
+    "other": {
+      "rasbora": false
+    }
   },
   "https://media.aquatome.com/aquariumcoop/4ebe3a86f9485c71.webp": {
     "person": false,
@@ -2871,7 +2946,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "julii cory catfish resting on cryptocoryne leaves"
+    "note": "julii cory catfish resting on cryptocoryne leaves",
+    "other": {
+      "corydoras": false
+    }
   },
   "https://media.aquatome.com/aquariumcoop/5ca5c278ed70b9c6.webp": {
     "person": true,
@@ -3351,7 +3429,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "kuhli loach in dense green stem plants"
+    "note": "kuhli loach in dense green stem plants",
+    "other": {
+      "loach": false
+    }
   },
   "https://media.aquatome.com/aquariumcoop/71565d056b824d52.webp": {
     "person": false,
@@ -3513,7 +3594,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "spotted pufferfish on a black background"
+    "note": "spotted pufferfish on a black background",
+    "other": {
+      "puffer": false
+    }
   },
   "https://media.aquatome.com/aquariumcoop/77b0ca531c69655c.webp": {
     "person": false,
@@ -3525,7 +3609,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "red and white rosetail betta near the water surface beside a green plant"
+    "note": "red and white rosetail betta near the water surface beside a green plant",
+    "other": {
+      "betta": false
+    }
   },
   "https://media.aquatome.com/aquariumcoop/780121a478af227e.webp": {
     "person": false,
@@ -3663,7 +3750,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "long-finned comet goldfish in a planted tank"
+    "note": "long-finned comet goldfish in a planted tank",
+    "other": {
+      "goldfish": false
+    }
   },
   "https://media.aquatome.com/aquariumcoop/7bef9fbfcfbbb954.webp": {
     "person": false,
@@ -3747,7 +3837,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "clown loach on a rock in front of green plants"
+    "note": "clown loach on a rock in front of green plants",
+    "other": {
+      "loach": false
+    }
   },
   "https://media.aquatome.com/aquariumcoop/7ee6e3b64582d7dd.webp": {
     "person": false,
@@ -4167,7 +4260,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "school of orange serpae-type tetras in a planted tank over gravel"
+    "note": "school of orange serpae-type tetras in a planted tank over gravel",
+    "other": {
+      "tetra": false
+    }
   },
   "https://media.aquatome.com/aquariumcoop/8da2a0eaacdb43e0.webp": {
     "person": false,
@@ -4197,7 +4293,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "colourful dwarf cichlid (Apistogramma) on a dark background"
+    "note": "colourful dwarf cichlid (Apistogramma) on a dark background",
+    "other": {
+      "cichlid": false
+    }
   },
   "https://media.aquatome.com/aquariumcoop/8e8a9e598da4f7b4.webp": {
     "person": false,
@@ -4245,7 +4344,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "orange fancy goldfish over gravel with rocks and plants"
+    "note": "orange fancy goldfish over gravel with rocks and plants",
+    "other": {
+      "goldfish": false
+    }
   },
   "https://media.aquatome.com/aquariumcoop/9123f632f4564327.webp": {
     "person": false,
@@ -4275,7 +4377,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "school of harlequin rasboras in a planted tank with moss"
+    "note": "school of harlequin rasboras in a planted tank with moss",
+    "other": {
+      "rasbora": false
+    }
   },
   "https://media.aquatome.com/aquariumcoop/919ebf663d197a6a.webp": {
     "person": true,
@@ -4389,7 +4494,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "two discus fish in a planted tank with light gravel"
+    "note": "two discus fish in a planted tank with light gravel",
+    "other": {
+      "discus": false
+    }
   },
   "https://media.aquatome.com/aquariumcoop/98c0c9466651ff91.webp": {
     "person": false,
@@ -4708,6 +4816,12 @@
     "mark": false,
     "brand": false,
     "note": "Long tweezers pushing a green root tab into a carpeted planted tank next to a red Alternanthera."
+  },
+  "https://media.aquatome.com/aquariumcoop/a4bbac33a1cfd953.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "hand and arm scrubbing green algae off tank glass with a sponge, entering from upper left"
   },
   "https://media.aquatome.com/aquariumcoop/a4bd134c1a5872a2.webp": {
     "person": false,
@@ -5337,7 +5451,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "mystery snail on rock with red cherry shrimp and carpet plants"
+    "note": "mystery snail on rock with red cherry shrimp and carpet plants",
+    "other": {
+      "snail": false
+    }
   },
   "https://media.aquatome.com/aquariumcoop/be58563f9d52db79.webp": {
     "person": false,
@@ -5583,7 +5700,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "male fancy guppy with orange and black patterned tail in front of green plants"
+    "note": "male fancy guppy with orange and black patterned tail in front of green plants",
+    "other": {
+      "guppy": false
+    }
   },
   "https://media.aquatome.com/aquariumcoop/ca216fd222e43f52.webp": {
     "person": false,
@@ -5655,7 +5775,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "orange blood parrot cichlid against green background"
+    "note": "orange blood parrot cichlid against green background",
+    "other": {
+      "cichlid": false
+    }
   },
   "https://media.aquatome.com/aquariumcoop/cc13fe5cc7acfd7d.webp": {
     "person": false,
@@ -5895,7 +6018,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "red and white halfmoon betta beside green plants"
+    "note": "red and white halfmoon betta beside green plants",
+    "other": {
+      "betta": false
+    }
   },
   "https://media.aquatome.com/aquariumcoop/d4fa6d2fac2cf830.webp": {
     "person": false,
@@ -5937,7 +6063,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "orange spotted platy fish against green background"
+    "note": "orange spotted platy fish against green background",
+    "other": {
+      "platy": false
+    }
   },
   "https://media.aquatome.com/aquariumcoop/d595f8451d3b9287.webp": {
     "person": false,
@@ -6015,7 +6144,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "clown loach swimming among green grass-like plants"
+    "note": "clown loach swimming among green grass-like plants",
+    "other": {
+      "loach": false
+    }
   },
   "https://media.aquatome.com/aquariumcoop/db79a39d2594b583.webp": {
     "person": false,
@@ -6099,7 +6231,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "spotted Corydoras catfish among carpet grass and red stem plants"
+    "note": "spotted Corydoras catfish among carpet grass and red stem plants",
+    "other": {
+      "corydoras": false
+    }
   },
   "https://media.aquatome.com/aquariumcoop/dfaa17a8e8eb729d.webp": {
     "person": false,
@@ -6165,7 +6300,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "orange killifish swimming among green plants and driftwood"
+    "note": "orange killifish swimming among green plants and driftwood",
+    "other": {
+      "betta": false
+    }
   },
   "https://media.aquatome.com/aquariumcoop/e4331e4ff693b80e.webp": {
     "person": false,
@@ -6345,7 +6483,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "red crystal shrimp among green plants"
+    "note": "red crystal shrimp among green plants",
+    "other": {
+      "shrimp": false
+    }
   },
   "https://media.aquatome.com/aquariumcoop/eb81cbf9f51e7c89.webp": {
     "person": false,
@@ -6501,7 +6642,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "Boeseman's rainbowfish school with a reddish fish against a green background"
+    "note": "Boeseman's rainbowfish school with a reddish fish against a green background",
+    "other": {
+      "rainbowfish": false
+    }
   },
   "https://media.aquatome.com/aquariumcoop/f3c13c4483a60423.webp": {
     "person": true,
@@ -6525,7 +6669,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "orange killifish among fine-leaved plants"
+    "note": "orange killifish among fine-leaved plants",
+    "other": {
+      "killifish": false
+    }
   },
   "https://media.aquatome.com/aquariumcoop/f5ecd324ff4f23fe.webp": {
     "person": false,
@@ -6675,7 +6822,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "striped snail on a snail shell among small green plants"
+    "note": "striped snail on a snail shell among small green plants",
+    "other": {
+      "snail": false
+    }
   },
   "https://media.aquatome.com/aquariumcoop/fb66ce914d8ff163.webp": {
     "person": false,
@@ -6903,7 +7053,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "red and turquoise pigeon-blood-pattern discus in a planted tank"
+    "note": "red and turquoise pigeon-blood-pattern discus in a planted tank",
+    "other": {
+      "discus": false
+    }
   },
   "https://media.aquatome.com/commons/98154de63adce2ff.webp": {
     "person": false,
@@ -6993,7 +7146,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "group of patterned plecos grouped together over rocks and gravel"
+    "note": "group of patterned plecos grouped together over rocks and gravel",
+    "other": {
+      "loach": false
+    }
   },
   "https://media.aquatome.com/loachesonline/ff7bd10606fddeda.webp": {
     "person": false,
@@ -7053,7 +7209,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "aerial view from an aircraft of a wooded rocky island in a lake, with glare"
+    "note": "aerial view from an aircraft of a wooded rocky island in a lake, with glare",
+    "other": {
+      "cichlid": false
+    }
   },
   "https://media.aquatome.com/seriouslyfish/159dafbd4d39f71a.webp": {
     "person": false,
@@ -7137,7 +7296,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "Two spotted eel-like fish (likely Polypterus bichirs) resting on colourful gravel under a plant in an aquarium."
+    "note": "Two spotted eel-like fish (likely Polypterus bichirs) resting on colourful gravel under a plant in an aquarium.",
+    "other": {
+      "loach": false
+    }
   },
   "https://media.aquatome.com/seriouslyfish/3779218f801b50c4.webp": {
     "person": false,
@@ -7179,7 +7341,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "banded freshwater shrimp on a stone"
+    "note": "banded freshwater shrimp on a stone",
+    "other": {
+      "shrimp": false
+    }
   },
   "https://media.aquatome.com/seriouslyfish/407bb9e4cd71b6c3.webp": {
     "person": false,
@@ -7233,7 +7398,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "barred barb fish close-up on orange background"
+    "note": "barred barb fish close-up on orange background",
+    "other": {
+      "barb": false
+    }
   },
   "https://media.aquatome.com/seriouslyfish/5147d9adc8225daf.webp": {
     "person": false,
@@ -7341,7 +7509,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "speckled cichlid on a dark background"
+    "note": "speckled cichlid on a dark background",
+    "other": {
+      "cichlid": false
+    }
   },
   "https://media.aquatome.com/seriouslyfish/7e8b6eaa04c27af0.webp": {
     "person": false,
@@ -7425,7 +7596,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "Underwater view of a murky river with a sunken log and a few fish."
+    "note": "Underwater view of a murky river with a sunken log and a few fish.",
+    "other": {
+      "loach": false
+    }
   },
   "https://media.aquatome.com/seriouslyfish/98ea4b5608ebd36f.webp": {
     "person": false,
@@ -7527,7 +7701,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "tiger barb close-up in front of driftwood"
+    "note": "tiger barb close-up in front of driftwood",
+    "other": {
+      "barb": false
+    }
   },
   "https://media.aquatome.com/seriouslyfish/c61257f57db99b42.webp": {
     "person": false,
@@ -7587,7 +7764,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "Close-up of a striped killifish against a plain background."
+    "note": "Close-up of a striped killifish against a plain background.",
+    "other": {
+      "killifish": false
+    }
   },
   "https://media.aquatome.com/seriouslyfish/d5b4fa8228b15fd6.webp": {
     "person": false,
@@ -7617,7 +7797,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "Spotted Synodontis catfish on a rounded stone, with plants and wood behind."
+    "note": "Spotted Synodontis catfish on a rounded stone, with plants and wood behind.",
+    "other": {
+      "loach": false
+    }
   },
   "https://media.aquatome.com/seriouslyfish/ee61f633806ed018.webp": {
     "person": false,
@@ -7677,13 +7860,19 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "large school of rainbowfish around a lit column in a big tank"
+    "note": "large school of rainbowfish around a lit column in a big tank",
+    "other": {
+      "rainbowfish": false
+    }
   },
   "https://media.aquatome.com/sprucepets/063097be692de7d4.webp": {
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "two male bettas facing each other through a glass divider over white pebbles"
+    "note": "two male bettas facing each other through a glass divider over white pebbles",
+    "other": {
+      "betta": false
+    }
   },
   "https://media.aquatome.com/sprucepets/09a036512d832468.webp": {
     "person": false,
@@ -7701,7 +7890,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "gold barbs swimming"
+    "note": "gold barbs swimming",
+    "other": {
+      "barb": false
+    }
   },
   "https://media.aquatome.com/sprucepets/0b658aa0b4164582.webp": {
     "person": false,
@@ -7761,7 +7953,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "red and blue halfmoon betta at the water surface"
+    "note": "red and blue halfmoon betta at the water surface",
+    "other": {
+      "betta": false
+    }
   },
   "https://media.aquatome.com/sprucepets/1420a522340a0d67.webp": {
     "person": false,
@@ -7791,7 +7986,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "dwarf gourami against a blue background"
+    "note": "dwarf gourami against a blue background",
+    "other": {
+      "gourami": false
+    }
   },
   "https://media.aquatome.com/sprucepets/1c5d446f70f46c1b.webp": {
     "person": false,
@@ -7947,7 +8145,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "panda cory catfish on white gravel"
+    "note": "panda cory catfish on white gravel",
+    "other": {
+      "corydoras": false
+    }
   },
   "https://media.aquatome.com/sprucepets/411c5d6eba06027d.webp": {
     "person": false,
@@ -8091,7 +8292,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "blue discus with a yellow discus behind it"
+    "note": "blue discus with a yellow discus behind it",
+    "other": {
+      "cichlid": false
+    }
   },
   "https://media.aquatome.com/sprucepets/65ad48a9c748e03f.webp": {
     "person": false,
@@ -8121,7 +8325,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "silver angelfish in front of green plants"
+    "note": "silver angelfish in front of green plants",
+    "other": {
+      "angelfish": false
+    }
   },
   "https://media.aquatome.com/sprucepets/6983191d4f4dd96c.webp": {
     "person": false,
@@ -8151,7 +8358,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "many fancy goldfish in a round blue-lit display tank"
+    "note": "many fancy goldfish in a round blue-lit display tank",
+    "other": {
+      "goldfish": false
+    }
   },
   "https://media.aquatome.com/sprucepets/707e29437c2ae688.webp": {
     "person": false,
@@ -8235,7 +8445,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "pink, blue and red betta resting on sand by a rock"
+    "note": "pink, blue and red betta resting on sand by a rock",
+    "other": {
+      "betta": false
+    }
   },
   "https://media.aquatome.com/sprucepets/84cd67f380b3e29f.webp": {
     "person": false,
@@ -8355,7 +8568,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "speckled blue platy against a plain light background"
+    "note": "speckled blue platy against a plain light background",
+    "other": {
+      "platy": false
+    }
   },
   "https://media.aquatome.com/sprucepets/9d9360c581b99176.webp": {
     "person": false,
@@ -8415,7 +8631,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "red Nothobranchius killifish over pale gravel"
+    "note": "red Nothobranchius killifish over pale gravel",
+    "other": {
+      "killifish": false
+    }
   },
   "https://media.aquatome.com/sprucepets/af0aa9865d8f729c.webp": {
     "person": false,
@@ -8577,7 +8796,10 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "gourami (three-spot type) against a blue background"
+    "note": "gourami (three-spot type) against a blue background",
+    "other": {
+      "gourami": false
+    }
   },
   "https://media.aquatome.com/sprucepets/d5415e5df1471572.webp": {
     "person": false,
@@ -8799,7 +9021,7 @@
     "person": false,
     "mark": false,
     "brand": false,
-    "note": "close-up of a filled tank with driftwood and rock hardscape and a skull ornament"
+    "note": "rimless aquarium hardscaped with driftwood, rocks and a skull ornament on a stand; no people or added marks"
   },
   "https://media.aquatome.com/video/-5cy6iLFhJQ/at125-hd.webp": {
     "person": false,
@@ -8818,6 +9040,12 @@
     "mark": false,
     "brand": false,
     "note": "plants laid out on a tray beside a styrofoam box of plants in water, a red bowl and a towel"
+  },
+  "https://media.aquatome.com/video/-5cy6iLFhJQ/at235-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "tank on stand above tiled floor with plastic tubs, red basin, foam box and tray of plants ready for planting; no people "
   },
   "https://media.aquatome.com/video/-5cy6iLFhJQ/at275-hd.webp": {
     "person": false,
@@ -8945,11 +9173,23 @@
     "brand": false,
     "note": "Tank with a top brace clamped on; a blurred person's arm and torso in a blue shirt are behind the tank at the top. Decor"
   },
+  "https://media.aquatome.com/video/-E2eo-dx-qk/at150-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "homemade white-panel tank in front of a green screen; blurred person in a blue shirt behind the glass, shirt print reads"
+  },
   "https://media.aquatome.com/video/-E2eo-dx-qk/at66-hd.webp": {
     "person": true,
     "mark": false,
     "brand": false,
     "note": "hands, one in a beige finger splint, working a white plastic strip; a blue TV-screen frame graphic surrounds the shot bu"
+  },
+  "https://media.aquatome.com/video/-E2eo-dx-qk/at68-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "hand pressing a white trim strip along a panel edge next to a craft knife; the video is shown inside an added blue TV-sc"
   },
   "https://media.aquatome.com/video/-E2eo-dx-qk/at70-hd.webp": {
     "person": true,
@@ -11099,6 +11339,60 @@
     "brand": false,
     "note": "shelving unit holding several planted nano aquariums, with a larger tank on a stand to the right"
   },
+  "https://media.aquatome.com/video/2C3R41TTN1s/at100-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "person standing in dim room beside a driftwood aquascape tank, left of the tank"
+  },
+  "https://media.aquatome.com/video/2C3R41TTN1s/at125-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "corner of aquascape with driftwood and grass, planted tank in background"
+  },
+  "https://media.aquatome.com/video/2C3R41TTN1s/at150-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "edge of rimless tank with gravel and red wood against dark blue background"
+  },
+  "https://media.aquatome.com/video/2C3R41TTN1s/at155-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "close view of red driftwood with roots on pale gravel in rimless tank"
+  },
+  "https://media.aquatome.com/video/2C3R41TTN1s/at250-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "tank corner on cabinet with driftwood, hoses and cables running down behind"
+  },
+  "https://media.aquatome.com/video/2C3R41TTN1s/at280-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "Oase canister filter with hoses inside a cabinet; maker's own logo only"
+  },
+  "https://media.aquatome.com/video/2C3R41TTN1s/at295-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "clear filter hoses with black connector inside a white cabinet"
+  },
+  "https://media.aquatome.com/video/2C3R41TTN1s/at300-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "CO2 regulator with gauges and bubble counters on a manifold; faint maker's engraving on the block"
+  },
+  "https://media.aquatome.com/video/2C3R41TTN1s/at340-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "man seen from neck down in shorts standing between two planted tanks with Oase canister filters in open cabinets"
+  },
   "https://media.aquatome.com/video/2EvDsbrS9Dg/at135-hd.webp": {
     "person": false,
     "mark": false,
@@ -11860,6 +12154,66 @@
     "mark": false,
     "brand": false,
     "note": "neon tetras among aerial roots and driftwood below an acrylic lid"
+  },
+  "https://media.aquatome.com/video/3jqe5KGD9lI/at120-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "arm and hand working inside a planted tank, torso in grey shirt at right edge"
+  },
+  "https://media.aquatome.com/video/3jqe5KGD9lI/at145-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "hand and arm at top right holding clear siphon tubing at planted tank"
+  },
+  "https://media.aquatome.com/video/3jqe5KGD9lI/at195-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "planted tank with plastic container floating inside, hang-on filter, no people"
+  },
+  "https://media.aquatome.com/video/3jqe5KGD9lI/at210-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "arm and hand from left holding plastic container and tubing in planted tank"
+  },
+  "https://media.aquatome.com/video/3jqe5KGD9lI/at255-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "hand holding a connector on airline tubing in front of a planted tank"
+  },
+  "https://media.aquatome.com/video/3jqe5KGD9lI/at270-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "plastic tub with leaves, moss and detritus, tube and airline in water"
+  },
+  "https://media.aquatome.com/video/3jqe5KGD9lI/at290-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "plastic tub with leaf litter and moss, tweezers picking at a leaf"
+  },
+  "https://media.aquatome.com/video/3jqe5KGD9lI/at300-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "planted aquascape with rocks and driftwood, net hanging at top of tank"
+  },
+  "https://media.aquatome.com/video/3jqe5KGD9lI/at55-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "hand at right edge holding a white mounting rail beside a yellow tape measure"
+  },
+  "https://media.aquatome.com/video/3jqe5KGD9lI/at70-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "two hands fastening a white mounting rail to a wall"
   },
   "https://media.aquatome.com/video/3rsUbzVwaUo/at1200-hd.webp": {
     "person": false,
@@ -13553,6 +13907,60 @@
     "brand": false,
     "note": "Similar frame to photo 1: pale rocks and carpet plants on dark soil"
   },
+  "https://media.aquatome.com/video/6mYLnYSWKWE/at1050-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "rimless planted tank under light; man with glasses standing in shadow at right edge"
+  },
+  "https://media.aquatome.com/video/6mYLnYSWKWE/at1150-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "macro of red plant leaf with tiny bubbles"
+  },
+  "https://media.aquatome.com/video/6mYLnYSWKWE/at360-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "glass CO2 diffuser on suction cup in front of plants"
+  },
+  "https://media.aquatome.com/video/6mYLnYSWKWE/at50-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "close-up of an iridescent blue platy-type fish among plants"
+  },
+  "https://media.aquatome.com/video/6mYLnYSWKWE/at530-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "red cryptocoryne and green stem plants in dark soil at tank corner"
+  },
+  "https://media.aquatome.com/video/6mYLnYSWKWE/at70-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "close-up of carpet and stem plants on dark soil"
+  },
+  "https://media.aquatome.com/video/6mYLnYSWKWE/at820-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "rimless planted tank with LED light and low foreground plants, front view"
+  },
+  "https://media.aquatome.com/video/6mYLnYSWKWE/at950-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "planted tank; man's face at top left and hand holding a dark hose in the water"
+  },
+  "https://media.aquatome.com/video/6mYLnYSWKWE/at970-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "planted aquascape with glass lily pipe and floating plants at surface"
+  },
   "https://media.aquatome.com/video/6oVW1-m8Aic/at125-hd.webp": {
     "person": false,
     "mark": false,
@@ -14495,6 +14903,12 @@
     "brand": false,
     "note": "lava rock hardscape groups in empty glass tank; faint small logo on the glass at lower left is on the tank, not overlaid"
   },
+  "https://media.aquatome.com/video/8j3tBq_SQs0/at395-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "finished dark-stained shelving stand on wood floor, no people"
+  },
   "https://media.aquatome.com/video/8wpB5jlgKEg/at375-hd.webp": {
     "person": false,
     "mark": true,
@@ -14620,6 +15034,30 @@
     "mark": false,
     "brand": false,
     "note": "wider view of the rock scape with carpet plant and background plants"
+  },
+  "https://media.aquatome.com/video/9QSxJymRBak/at14-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "arowana in upper tank under blue light, two spotted stingrays in lower tank"
+  },
+  "https://media.aquatome.com/video/9QSxJymRBak/at20-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "arowana in upper tank under red light, two spotted stingrays in lower tank"
+  },
+  "https://media.aquatome.com/video/9QSxJymRBak/at26-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "arowana in upper tank under pale cyan-white light, two spotted stingrays in lower tank"
+  },
+  "https://media.aquatome.com/video/9QSxJymRBak/at8-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "arowana in upper tank under cyan light, spotted stingrays in lower tank"
   },
   "https://media.aquatome.com/video/9S0ed5N8yoo/at105-hd.webp": {
     "person": true,
@@ -14806,6 +15244,108 @@
     "mark": false,
     "brand": false,
     "note": "discus and tetra tank with blue background, potted plants and lighting; no people, overlays or shop branding seen"
+  },
+  "https://media.aquatome.com/video/9WaC5d14Ij0/at40-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "open aquarium stand with white Seamless Sump tank and power adapter on a battery box; maker's own name on its product"
+  },
+  "https://media.aquatome.com/video/9WaC5d14Ij0/at50-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "dark stand interior with white Seamless Sump tank, power adapter on a battery box and power strip; maker's own name on i"
+  },
+  "https://media.aquatome.com/video/9WaC5d14Ij0/at55-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "white Seamless Sump tank in stand with power adapter on a battery box and power strip at right; maker's own name on its "
+  },
+  "https://media.aquatome.com/video/9YC0BTdRFbs/at145-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "paludarium branches and plants; fingers at top right edge holding long tweezers"
+  },
+  "https://media.aquatome.com/video/9YC0BTdRFbs/at175-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "close-up of dense green terrestrial plants beside dark wood"
+  },
+  "https://media.aquatome.com/video/9YC0BTdRFbs/at190-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "dense green plants with blurred long tweezers passing in front"
+  },
+  "https://media.aquatome.com/video/9YC0BTdRFbs/at220-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "pilea and other foliage plants among pale branches"
+  },
+  "https://media.aquatome.com/video/9YC0BTdRFbs/at255-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "underwater view of paludarium shallows with leaf litter, plants and a newt's foot at the surface"
+  },
+  "https://media.aquatome.com/video/9YC0BTdRFbs/at270-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "Hand and forearm reaching into shallow water of a paludarium, placing a stone"
+  },
+  "https://media.aquatome.com/video/9YC0BTdRFbs/at290-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "paludarium being siphoned; hand at top centre holding gravel vacuum tube in the water"
+  },
+  "https://media.aquatome.com/video/9YC0BTdRFbs/at295-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "Hand at top of frame holding clear siphon tubing in a planted paludarium"
+  },
+  "https://media.aquatome.com/video/9YC0BTdRFbs/at330-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "Hand and forearm holding clear tubing over a small bowl in a planted paludarium tank"
+  },
+  "https://media.aquatome.com/video/9YC0BTdRFbs/at370-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "Slate pieces forming a stream between coir-covered root structures during hardscape build"
+  },
+  "https://media.aquatome.com/video/9YC0BTdRFbs/at400-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "Water trickling over rocks and slate into shallow gravel area of paludarium"
+  },
+  "https://media.aquatome.com/video/9YC0BTdRFbs/at425-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "Blurred hand at top of frame rinsing dark leaf litter in a blue bucket of water; seed pods on white paper beside it"
+  },
+  "https://media.aquatome.com/video/9YC0BTdRFbs/at445-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "planted paludarium with driftwood and leaf litter; arm and hand reaching into tank at left"
+  },
+  "https://media.aquatome.com/video/9YC0BTdRFbs/at5-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "wood hardscape with emergent plants and leaf litter in a low-water tank"
   },
   "https://media.aquatome.com/video/9_o6AAKAABU/at20-hd.webp": {
     "person": false,
@@ -15040,6 +15580,42 @@
     "mark": false,
     "brand": false,
     "note": "side view of the same rimless tank with its LED light, rocks and plants"
+  },
+  "https://media.aquatome.com/video/9zhkRJllCNg/at30-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": true,
+    "note": "black clamp lamp beside LED bulb box; Lexman (Leroy Merlin house brand) logo on the box"
+  },
+  "https://media.aquatome.com/video/9zhkRJllCNg/at335-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "submersible pump running on the tank bottom with green hose"
+  },
+  "https://media.aquatome.com/video/9zhkRJllCNg/at375-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "coco fibre and root mat panels on a white board"
+  },
+  "https://media.aquatome.com/video/9zhkRJllCNg/at40-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "empty glass terrarium-style tank with black frame on a table"
+  },
+  "https://media.aquatome.com/video/9zhkRJllCNg/at450-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "root mat background glued to the inside of a glass tank, lit lid above"
+  },
+  "https://media.aquatome.com/video/9zhkRJllCNg/at455-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "closer view of root mat background with glue inside the tank"
   },
   "https://media.aquatome.com/video/A1a-GetRJxM/at15-hd.webp": {
     "person": false,
@@ -15281,6 +15857,90 @@
     "brand": false,
     "note": "curved-front aquarium with grey rock hardscape and plants on a cabinet; framed group photo hangs on the wall (a picture "
   },
+  "https://media.aquatome.com/video/AIQYex-S3e4/at140-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "empty glass tanks on wooden rack with hanging light, tripod in background"
+  },
+  "https://media.aquatome.com/video/AIQYex-S3e4/at145-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "blurred upward view of empty glass tanks with black rims on a wooden and metal rack; no people, overlays or shop brandin"
+  },
+  "https://media.aquatome.com/video/AIQYex-S3e4/at195-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "row of empty tanks on rack; torso in black tank top at left and blurred arm and hand across top"
+  },
+  "https://media.aquatome.com/video/AIQYex-S3e4/at255-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "man in black tank top, arms and hands holding white fitting beside tanks with airline and hanging light"
+  },
+  "https://media.aquatome.com/video/AIQYex-S3e4/at280-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "water pouring from a pipe into a black-rimmed tank under a light, with a sponge filter"
+  },
+  "https://media.aquatome.com/video/AIQYex-S3e4/at305-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "arms and hands of a person fitting a small fitting onto a tank rim on a wooden rack under a shop light"
+  },
+  "https://media.aquatome.com/video/AIQYex-S3e4/at400-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "row of tanks with lids under a hanging light on a wooden rack; person's head and arm at the left edge"
+  },
+  "https://media.aquatome.com/video/AIQYex-S3e4/at470-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "person in a black tank top, torso and arm, reaching over a gravel-filled tank on a wooden rack"
+  },
+  "https://media.aquatome.com/video/AIQYex-S3e4/at5-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "glass tanks on wooden rack with shop light; dark blurred unidentifiable shape in left foreground"
+  },
+  "https://media.aquatome.com/video/AIQYex-S3e4/at60-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "looking up at glass tank bottoms on wooden rack above bright light"
+  },
+  "https://media.aquatome.com/video/A_vsnpDVUSw/at106-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "Stem plants being trimmed; fingers holding tweezers or scissors at the top right, blurred"
+  },
+  "https://media.aquatome.com/video/A_vsnpDVUSw/at26-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "Close-up of the tank rim and filter pipes above stem plants; no person, overlay or shop brand seen"
+  },
+  "https://media.aquatome.com/video/A_vsnpDVUSw/at30-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "Planted aquascape with lava rock, moss and stem plants; no person, overlay or shop brand seen"
+  },
+  "https://media.aquatome.com/video/A_vsnpDVUSw/at96-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "Stem plants and Anubias in the tank with particles floating in the water; no person, overlay or shop brand seen"
+  },
   "https://media.aquatome.com/video/AaUxNrrQxo8/at140-hd.webp": {
     "person": true,
     "mark": false,
@@ -15389,11 +16049,125 @@
     "brand": false,
     "note": "hand holding a phone that shows an illustration of a bulb plant; fingers visible at right and left edges"
   },
+  "https://media.aquatome.com/video/AdOl8K9Ri4Q/at112-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "water pouring into glass tank with submersible pump, black pipes alongside"
+  },
+  "https://media.aquatome.com/video/AdOl8K9Ri4Q/at122-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "DIY canister filter running beside glass tank with cords and tubing; unreadable printed label on pipe, no shop name"
+  },
+  "https://media.aquatome.com/video/AdOl8K9Ri4Q/at136-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "black canister-style filter hung on a small glass tank, pouring water in, on a table against a black curtain; no people,"
+  },
+  "https://media.aquatome.com/video/AdOl8K9Ri4Q/at76-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "close-up of black PVC pipe fittings and canister lid; unreadable printed label on pipe, no shop name"
+  },
+  "https://media.aquatome.com/video/AdOl8K9Ri4Q/at92-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "black canister and return pipe beside glass tank with submerged pump"
+  },
   "https://media.aquatome.com/video/Ak-uEluqWlo/at113-hd.webp": {
     "person": true,
     "mark": false,
     "brand": false,
     "note": "hands gluing driftwood branches together; partly hidden box behind with no readable shop name"
+  },
+  "https://media.aquatome.com/video/Ak-uEluqWlo/at180-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "tank with sloped substrate layer; maker's own ADA-style product boxes at left, maker's logo on the glass"
+  },
+  "https://media.aquatome.com/video/Ak-uEluqWlo/at275-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "close-up of aquascape with driftwood, rocks and small plants in dark substrate"
+  },
+  "https://media.aquatome.com/video/Ak-uEluqWlo/at295-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "planted nano tank with driftwood and blue betta; small UNS maker's logo on the tank glass at lower right, not an overlay"
+  },
+  "https://media.aquatome.com/video/Ak-uEluqWlo/at310-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "close-up of driftwood, stem plants and blue betta"
+  },
+  "https://media.aquatome.com/video/Ak-uEluqWlo/at335-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "planted nano tank with betta near top right; small UNS maker's logo on the glass at lower right, not an overlay"
+  },
+  "https://media.aquatome.com/video/Ak-uEluqWlo/at375-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "planted tank with long metal aquascaping tool among plants, no hand in view"
+  },
+  "https://media.aquatome.com/video/Ak-uEluqWlo/at85-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "empty tank with clip-on LED light on a wooden table"
+  },
+  "https://media.aquatome.com/video/AnakIetIR0U/at10-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "driftwood on towel with spray bottle, fishing line spool, scissors and blade on a table"
+  },
+  "https://media.aquatome.com/video/AnakIetIR0U/at15-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "driftwood with anubias, fishing line spool, spray bottle and scissors on towel"
+  },
+  "https://media.aquatome.com/video/AnakIetIR0U/at20-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "closer view of driftwood with anubias, green thread spool, spray bottle and scissors on a towel; no people or overlays"
+  },
+  "https://media.aquatome.com/video/AnakIetIR0U/at335-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "Driftwood with several Anubias plants attached, on white towel"
+  },
+  "https://media.aquatome.com/video/AnakIetIR0U/at345-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "Close-up of small Anubias tied to lower driftwood branch"
+  },
+  "https://media.aquatome.com/video/AnakIetIR0U/at5-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "driftwood with anubias on a towel, green thread spool, spray bottle and scissors on a table; no people or overlays"
+  },
+  "https://media.aquatome.com/video/AnakIetIR0U/at80-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "close-up of anubias roots and rhizome on white towel"
   },
   "https://media.aquatome.com/video/AqBogTwt6c4/at10-hd.webp": {
     "person": false,
@@ -15755,11 +16529,65 @@
     "brand": false,
     "note": "neon tetras and other small fish gathered around a food tablet among plants and driftwood"
   },
+  "https://media.aquatome.com/video/B4DB-iHBofo/at180-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "rimless tank with large rocks and pebbles hardscape; small red tank-maker mark on glass corner only"
+  },
   "https://media.aquatome.com/video/B4DB-iHBofo/at188-hd.webp": {
     "person": false,
     "mark": false,
     "brand": false,
     "note": "rimless tank with a large pale rock and pebbles in front of a frosted backdrop, under a light"
+  },
+  "https://media.aquatome.com/video/B4DB-iHBofo/at300-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "close-up of wet driftwood roots over a rock"
+  },
+  "https://media.aquatome.com/video/B4DB-iHBofo/at400-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "tank with driftwood and rock hardscape, droplets on back glass"
+  },
+  "https://media.aquatome.com/video/B4DB-iHBofo/at405-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "close-up of wet rocks, pebbles and mossy root"
+  },
+  "https://media.aquatome.com/video/B4DB-iHBofo/at565-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "early planted aquascape with driftwood, grass-like plants and black and sand substrate, seen at the tank corner"
+  },
+  "https://media.aquatome.com/video/B4DB-iHBofo/at580-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "driftwood and rocks with narrow-leaf ferns and small plants on sandy substrate"
+  },
+  "https://media.aquatome.com/video/B4DB-iHBofo/at640-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "small striped nano fish swimming in front of blurred green plants"
+  },
+  "https://media.aquatome.com/video/B4DB-iHBofo/at670-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "moss-covered rock on colourful gravel with a small blue shrimp"
+  },
+  "https://media.aquatome.com/video/B4DB-iHBofo/at785-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "lit planted rimless aquarium with LED light on a stand in a dark room"
   },
   "https://media.aquatome.com/video/B8fj1mf64yE/at215-hd.webp": {
     "person": true,
@@ -15928,6 +16756,54 @@
     "mark": false,
     "brand": false,
     "note": "two planted tanks side by side; a jar of ORGANIX colour fish food in front, which is the maker's own brand"
+  },
+  "https://media.aquatome.com/video/BhXty76I-ss/at110-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "rummy-nose tetras in bare tank with small plant and cave"
+  },
+  "https://media.aquatome.com/video/BhXty76I-ss/at210-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "small yellow fish in tank with sponge filter, java fern and cave; green species tag on front edge, no shop name"
+  },
+  "https://media.aquatome.com/video/BhXty76I-ss/at235-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "close-up of small orange striped fish and a pale blue gourami above Java fern"
+  },
+  "https://media.aquatome.com/video/BhXty76I-ss/at310-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "tank of small red tetras over pale substrate with plant and clay cave, pink lighting"
+  },
+  "https://media.aquatome.com/video/BhXty76I-ss/at315-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "close-up of red tetras and one silver striped fish under pink lighting"
+  },
+  "https://media.aquatome.com/video/BhXty76I-ss/at35-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "neon tetras in tank with plant on driftwood, sponge filter at left, metal tube at right"
+  },
+  "https://media.aquatome.com/video/BhXty76I-ss/at75-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "small tetras schooling over grassy green carpet plants"
+  },
+  "https://media.aquatome.com/video/BhXty76I-ss/at90-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "planted tetra display tank; yellow label on rim reads display tank, fish not for sale, no shop name"
   },
   "https://media.aquatome.com/video/BiNf-SlKfLI/at100-hd.webp": {
     "person": false,
@@ -16204,6 +17080,12 @@
     "mark": false,
     "brand": false,
     "note": "greenhouse nursery with rows of potted aquatic plants; yellow hanging cards, no readable brand"
+  },
+  "https://media.aquatome.com/video/C4W86NMP3CU/at105-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "Car interior seen through the side window, with trees and a house outside; no person, overlay or shop brand seen"
   },
   "https://media.aquatome.com/video/C4oUkABhXDA/at145-hd.webp": {
     "person": true,
@@ -17105,6 +17987,90 @@
     "brand": false,
     "note": "moss-covered rock with rasboras and stem plants behind"
   },
+  "https://media.aquatome.com/video/Ct6YVxp_mFc/at10-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "Planted rimless tank on a cabinet in a dark room, small nano tank behind it"
+  },
+  "https://media.aquatome.com/video/Ct6YVxp_mFc/at230-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "Planted tank; an arm reaches down to the hardscape in the middle, and a person in shorts stands at the right"
+  },
+  "https://media.aquatome.com/video/Ct6YVxp_mFc/at30-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "Large planted tank with red and green plants, driftwood and fish; no person, overlay or shop brand seen"
+  },
+  "https://media.aquatome.com/video/Ct6YVxp_mFc/at350-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "Planted tank; a person's body is partly visible at the right edge"
+  },
+  "https://media.aquatome.com/video/Ct6YVxp_mFc/at40-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "School of red tetras and a flying fox over plants, rocks and gravel"
+  },
+  "https://media.aquatome.com/video/Ct6YVxp_mFc/at430-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "Planted tank; a hand and forearm reach into the water at top right, working among the stem plants"
+  },
+  "https://media.aquatome.com/video/Ct6YVxp_mFc/at470-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "close-up of red and green Cryptocoryne leaves with a shrimp and floating particles"
+  },
+  "https://media.aquatome.com/video/Ct6YVxp_mFc/at560-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "planted tank with tetras and an angelfish; gloved hand with wristband reaching into the water at top right"
+  },
+  "https://media.aquatome.com/video/Ct6YVxp_mFc/at570-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "planted tank with tetras and an angelfish; fingers of a hand dipping in at the top centre"
+  },
+  "https://media.aquatome.com/video/Ct6YVxp_mFc/at610-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "planted tank with angelfish and tetras; gloved hand and arm working among the plants at top right"
+  },
+  "https://media.aquatome.com/video/Ct6YVxp_mFc/at810-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "Aquascape on white sand; a hand wearing a watch works on a moss-covered rock with a tool, body at left"
+  },
+  "https://media.aquatome.com/video/Ct6YVxp_mFc/at820-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "planted aquarium with driftwood, rocks, Cryptocoryne and white sand"
+  },
+  "https://media.aquatome.com/video/Ct6YVxp_mFc/at860-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "planted aquarium with driftwood, rocks, red and green plants and an angelfish"
+  },
+  "https://media.aquatome.com/video/Ct6YVxp_mFc/at880-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "long planted tank in a room; person standing beside the tank on the right, seen in silhouette"
+  },
   "https://media.aquatome.com/video/CteRIdT1Ous/at160-hd.webp": {
     "person": true,
     "mark": false,
@@ -17915,6 +18881,54 @@
     "brand": false,
     "note": "hand adjusting a CO2 regulator and bubble counter on a cylinder valve; AquaTV logo watermark top right"
   },
+  "https://media.aquatome.com/video/EJtE6JlD7Xg/at122-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "white bucket standing in an empty tank; what looks like a small bit of a foot or shoe at the bottom-left edge; small blu"
+  },
+  "https://media.aquatome.com/video/EJtE6JlD7Xg/at128-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "bucket of blue filter media held next to an empty glass tank; a hand and arm hold the bucket at left edge; the video is "
+  },
+  "https://media.aquatome.com/video/EJtE6JlD7Xg/at158-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "close-up of stacked white buckets with filter floss inside, sitting in a tank; blue decorative screen frame graphic, no "
+  },
+  "https://media.aquatome.com/video/EJtE6JlD7Xg/at186-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "black stacked-bucket filter on a stand inside an empty glass tank; blue decorative screen frame graphic, no logo or text"
+  },
+  "https://media.aquatome.com/video/EJtE6JlD7Xg/at26-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "pile of colourful scrubber pads on a tiled floor, inside a blue TV-style video frame graphic"
+  },
+  "https://media.aquatome.com/video/EJtE6JlD7Xg/at32-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "empty glass tank, white buckets and a jigsaw on the floor; tool brand is the maker's own"
+  },
+  "https://media.aquatome.com/video/EJtE6JlD7Xg/at62-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "person in grey hoodie cutting a white bucket with a jigsaw; hands, arms and body visible"
+  },
+  "https://media.aquatome.com/video/EJtE6JlD7Xg/at72-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "person squatting, drilling holes in a bucket lid; hands, arms, legs and a sandalled foot visible"
+  },
   "https://media.aquatome.com/video/EO2WPrekSF8/at180-hd.webp": {
     "person": false,
     "mark": false,
@@ -17998,6 +19012,78 @@
     "mark": false,
     "brand": false,
     "note": "fingers holding a dirty piece of tubing with a suction cup over the sink"
+  },
+  "https://media.aquatome.com/video/EV1ZR6CjOzc/at125-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "person's arms and hands placing rocks in a rimless tank, with their body seen at left; green substrate bags have small p"
+  },
+  "https://media.aquatome.com/video/EV1ZR6CjOzc/at150-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "Hand and arm placing a dragon stone rock against green substrate bags in an empty tank; another person partly visible at"
+  },
+  "https://media.aquatome.com/video/EV1ZR6CjOzc/at180-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "Rockscape build with green substrate bags and a glue bottle; a person's arm and body are cut off at the left edge. No sh"
+  },
+  "https://media.aquatome.com/video/EV1ZR6CjOzc/at225-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "A person standing at the right with both arms in the tank, arranging dragon stone on dark substrate."
+  },
+  "https://media.aquatome.com/video/EV1ZR6CjOzc/at245-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "Hand at the top right adjusting a rock pillar; a glue bottle sits on the substrate. No shop branding visible."
+  },
+  "https://media.aquatome.com/video/EV1ZR6CjOzc/at25-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "rimless tank with a dragon stone arch hardscape on dark substrate under an LED light"
+  },
+  "https://media.aquatome.com/video/EV1ZR6CjOzc/at285-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "Arm reaching in from the top right, placing rock over the green substrate bags. Bag labels belong to the substrate maker"
+  },
+  "https://media.aquatome.com/video/EV1ZR6CjOzc/at30-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "rough rocks laid on wet concrete outdoors; a person crouches at right, with arms, hands, leg and a foot in a sandal visi"
+  },
+  "https://media.aquatome.com/video/EV1ZR6CjOzc/at530-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "Finished rock arch hardscape, with a person's arm and hand pressing the substrate at the right. The person behind the ta"
+  },
+  "https://media.aquatome.com/video/EV1ZR6CjOzc/at540-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "rock arch hardscape in a tank; a person's arm reaches into the tank from the right and their torso in a printed T-shirt "
+  },
+  "https://media.aquatome.com/video/EV1ZR6CjOzc/at545-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "finished rock arch hardscape in an empty planted-style tank, no person visible"
+  },
+  "https://media.aquatome.com/video/EV1ZR6CjOzc/at555-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "hand using a brush on the rocks under the arch inside the tank"
   },
   "https://media.aquatome.com/video/Ejng2T-a2Gk/at130-hd.webp": {
     "person": false,
@@ -18604,6 +19690,96 @@
     "mark": false,
     "brand": false,
     "note": "close-up of bottom-dwelling fish on dark gravel beside a feeding cone"
+  },
+  "https://media.aquatome.com/video/GAac09m7CVA/at110-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "liquid poured from an unlabelled bottle into a putty ring on glass; fingertips holding the bottle at the top right corne"
+  },
+  "https://media.aquatome.com/video/GAac09m7CVA/at160-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "hand placing a white plastic grid filter-box divider in an empty glass tank; hand at upper left, person's dark clothing "
+  },
+  "https://media.aquatome.com/video/GAac09m7CVA/at190-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "white grid box holding a filter sponge, a pump and a frosted tube in a bare glass tank"
+  },
+  "https://media.aquatome.com/video/GAac09m7CVA/at255-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "hand pressing a grey rock against foam on the bottom of a tank with a coco-fibre back panel; hand and arm from upper mid"
+  },
+  "https://media.aquatome.com/video/GAac09m7CVA/at280-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "close-up of large grey rocks stacked on green foam pieces on the tank bottom"
+  },
+  "https://media.aquatome.com/video/GAac09m7CVA/at340-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "dark gravel substrate soaking in water in a white bucket"
+  },
+  "https://media.aquatome.com/video/GAac09m7CVA/at390-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "tank hardscape of grey rocks and spider-wood roots in front of a coco-fibre back panel; person's hands and dark shirt bl"
+  },
+  "https://media.aquatome.com/video/GAac09m7CVA/at440-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "Fingers holding tweezers and a bare forearm (top edge) planting a syngonium among roots and rock on a coco-fibre backgro"
+  },
+  "https://media.aquatome.com/video/GAac09m7CVA/at45-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "gloved hands scoring a glass pane with a glass cutter along a ruler; the ruler shows only its maker's name"
+  },
+  "https://media.aquatome.com/video/GAac09m7CVA/at470-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "Fingers at the left edge placing a thin root by grey rocks and a fern"
+  },
+  "https://media.aquatome.com/video/GAac09m7CVA/at485-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "Hand at the top holding a paintbrush, brushing brown soil substrate near rocks in a glass tank"
+  },
+  "https://media.aquatome.com/video/GAac09m7CVA/at495-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "Grey rockwork and roots on brown soil substrate in a glass tank"
+  },
+  "https://media.aquatome.com/video/GAac09m7CVA/at590-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "Close-up of a snail on sand by grey rocks"
+  },
+  "https://media.aquatome.com/video/GAac09m7CVA/at645-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "Paludarium with roots, syngonium, ferns and floating plants on the water"
+  },
+  "https://media.aquatome.com/video/GAac09m7CVA/at65-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "cut glass panes lying on a carpeted stand"
   },
   "https://media.aquatome.com/video/GBY4toeKYlA/at115-hd.webp": {
     "person": true,
@@ -20483,6 +21659,90 @@
     "brand": false,
     "note": "kuhli loach climbing a moss-covered sponge filter"
   },
+  "https://media.aquatome.com/video/JpAXeFEVws8/at0-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "Close-up of a planted tank with the water level lowered, carpet plants and red stem plants above the waterline"
+  },
+  "https://media.aquatome.com/video/JpAXeFEVws8/at200-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "Person's arm in a black sleeve reaching into the tank with a green tool, centre to right"
+  },
+  "https://media.aquatome.com/video/JpAXeFEVws8/at230-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "Fingertip pointing at the carpet plants at the right edge of a part-drained tank"
+  },
+  "https://media.aquatome.com/video/JpAXeFEVws8/at300-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "Full planted tank under an LED light; a small unreadable sticker on the glass, bottom right"
+  },
+  "https://media.aquatome.com/video/JpAXeFEVws8/at310-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "Same planted tank from a slightly different angle; a small unreadable sticker on the glass"
+  },
+  "https://media.aquatome.com/video/JpAXeFEVws8/at340-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "Planted tank next to a smaller tank with yellow-green plants on a stand"
+  },
+  "https://media.aquatome.com/video/JpAXeFEVws8/at370-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "Wrapped Juwel SBX Rio 300/350 cabinet box on the floor. Juwel is the maker's own name and the orange tape only says 'fra"
+  },
+  "https://media.aquatome.com/video/JpAXeFEVws8/at560-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "Assembled black aquarium cabinet next to a shelf holding planted tanks"
+  },
+  "https://media.aquatome.com/video/JpAXeFEVws8/at600-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "Inside of the open black cabinet, showing the door hinge and shelf"
+  },
+  "https://media.aquatome.com/video/JpAXeFEVws8/at690-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "Oase canister filter on the cabinet beside a cardboard box. A person's arm, hand and torso in a navy hoodie are at the r"
+  },
+  "https://media.aquatome.com/video/JpAXeFEVws8/at740-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "Top of an Oase canister filter, showing the blue cap and hose connectors"
+  },
+  "https://media.aquatome.com/video/JpAXeFEVws8/at900-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "Hands holding a red filter sponge and a grey tube next to an Oase canister filter, with a person in a navy hoodie on the"
+  },
+  "https://media.aquatome.com/video/JpAXeFEVws8/at950-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "Hands and forearms lift a bag of filter fittings out of a cardboard box. The Oase logo on the canister filter is the mak"
+  },
+  "https://media.aquatome.com/video/JpAXeFEVws8/at960-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "Hands take clear acrylic pipes out of the box beside the canister filter. The Oase logo is the maker's own brand, so bra"
+  },
   "https://media.aquatome.com/video/Jth3Ks8lm6c/at0-hd.webp": {
     "person": true,
     "mark": false,
@@ -20710,6 +21970,30 @@
     "mark": false,
     "brand": false,
     "note": "Rimless planted aquascape tank under a hanging LED light, shelves with more tanks on the left"
+  },
+  "https://media.aquatome.com/video/K9d5oaWnvJY/at180-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "Close-up of a red ramshorn snail on driftwood under purple light."
+  },
+  "https://media.aquatome.com/video/K9d5oaWnvJY/at20-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "Front view of the planted tank with red driftwood and tall grasses at the waterline."
+  },
+  "https://media.aquatome.com/video/K9d5oaWnvJY/at225-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "Side view of a tank with red driftwood, grass and moss. There is a small pinkish shape at the top-left edge that may be "
+  },
+  "https://media.aquatome.com/video/K9d5oaWnvJY/at230-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "Front view of a driftwood and rock layout with small plants on a gravel substrate."
   },
   "https://media.aquatome.com/video/KDbGcwFCT7M/at325-hd.webp": {
     "person": false,
@@ -22001,6 +23285,30 @@
     "brand": false,
     "note": "dark planted aquarium with driftwood and fish"
   },
+  "https://media.aquatome.com/video/M8-oNwl3X4k/at150-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "Rimless acrylic tank with a frosted backing film; hands working with a tool at the left edge"
+  },
+  "https://media.aquatome.com/video/M8-oNwl3X4k/at160-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "Empty clear acrylic cube tank with a clip-on light, in front of a seascape print"
+  },
+  "https://media.aquatome.com/video/M8-oNwl3X4k/at210-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "Dark substrate being poured from a bag into an acrylic tank; an arm shows at top right. The bag's brand can't be read"
+  },
+  "https://media.aquatome.com/video/M8-oNwl3X4k/at90-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "Backing film laid on a table beside a tape measure; a hand and arm smoothing the film at right, a second hand's fingerti"
+  },
   "https://media.aquatome.com/video/MCII9KCy60M/at25-hd.webp": {
     "person": false,
     "mark": false,
@@ -22763,11 +24071,59 @@
     "brand": false,
     "note": "close-up of stones, driftwood and substrate/fibre in the hardscape"
   },
+  "https://media.aquatome.com/video/NnedKiWs71U/at710-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "Glass tank with a rock and driftwood hardscape; a hand placing a plant with light green leaves at top right"
+  },
+  "https://media.aquatome.com/video/NnedKiWs71U/at770-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "Close-up of gravel, a round stone and sand, with tweezers planting a stem; no hand in view"
+  },
   "https://media.aquatome.com/video/NnedKiWs71U/at90-hd.webp": {
     "person": true,
     "mark": false,
     "brand": false,
     "note": "hands using a scraper on a glass tank with silicone residue; no readable brand on the tool"
+  },
+  "https://media.aquatome.com/video/NsTJkrUrc_U/at190-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "Sump-style tank with a large chamber of ceramic filter media, tubing and a pump on the right"
+  },
+  "https://media.aquatome.com/video/NsTJkrUrc_U/at255-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "Hand and arm pointing at a sand filter under a wooden stand that holds an acrylic cylinder"
+  },
+  "https://media.aquatome.com/video/NsTJkrUrc_U/at280-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "Clear acrylic cylinder with a blue base on a wooden stand, black PVC pipes with a red valve"
+  },
+  "https://media.aquatome.com/video/NsTJkrUrc_U/at535-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "Man in a black tank top reaching up to a large acrylic tank in a fish room; blurry, unreadable lettering on the back wal"
+  },
+  "https://media.aquatome.com/video/NsTJkrUrc_U/at675-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "Hand pointing at the stand with the filter under it, with a stepladder and PVC plumbing"
+  },
+  "https://media.aquatome.com/video/NsTJkrUrc_U/at680-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "Arm and hand pointing at the acrylic cylinder on the stand, with a stepladder and PVC plumbing"
   },
   "https://media.aquatome.com/video/O3u6GuClWi0/at100-hd.webp": {
     "person": false,
@@ -23189,6 +24545,72 @@
     "brand": false,
     "note": "rimless tank being set up with driftwood, rocks, stem plants and brown substrate, shelves beside it"
   },
+  "https://media.aquatome.com/video/Omxb5ByqLMs/at225-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "red arowana close to surface, plants and roots below"
+  },
+  "https://media.aquatome.com/video/Omxb5ByqLMs/at230-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "arowana by tank corner glass, red fin at right edge"
+  },
+  "https://media.aquatome.com/video/Omxb5ByqLMs/at245-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "close-up of red arowanas, spotted stingray on sand"
+  },
+  "https://media.aquatome.com/video/Omxb5ByqLMs/at255-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "wide view of arowanas over driftwood and sand, stingrays"
+  },
+  "https://media.aquatome.com/video/Omxb5ByqLMs/at305-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "red arowanas and stingray in large planted tank with driftwood"
+  },
+  "https://media.aquatome.com/video/Omxb5ByqLMs/at315-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "arowana near surface, stingray on sand, driftwood and plants"
+  },
+  "https://media.aquatome.com/video/Omxb5ByqLMs/at355-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "close-up of red arowana"
+  },
+  "https://media.aquatome.com/video/Omxb5ByqLMs/at370-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "arowanas and spotted stingray in tank with driftwood"
+  },
+  "https://media.aquatome.com/video/Omxb5ByqLMs/at435-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "arowana, other fish and stingray in planted tank"
+  },
+  "https://media.aquatome.com/video/Omxb5ByqLMs/at5-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "two red arowanas over green plants and driftwood"
+  },
+  "https://media.aquatome.com/video/Omxb5ByqLMs/at50-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "three arowanas swimming near rock background and plants"
+  },
   "https://media.aquatome.com/video/OrW6PZgqKSM/at130-hd.webp": {
     "person": true,
     "mark": false,
@@ -23213,6 +24635,18 @@
     "brand": false,
     "note": "tank with large rocks, pebbles and sand, no water yet"
   },
+  "https://media.aquatome.com/video/OrW6PZgqKSM/at320-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "pot of dried leaves and twigs; hand placing dried leaves on right"
+  },
+  "https://media.aquatome.com/video/OrW6PZgqKSM/at330-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "leaves boiled in a pot on a stove; hand holding tongs at upper right"
+  },
   "https://media.aquatome.com/video/OrW6PZgqKSM/at340-hd.webp": {
     "person": true,
     "mark": false,
@@ -23230,6 +24664,12 @@
     "mark": false,
     "brand": false,
     "note": "fish room with several planted tanks on wooden stands under pendant lights"
+  },
+  "https://media.aquatome.com/video/OrW6PZgqKSM/at490-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "blue betta among leaf litter and twigs, tweezers in the tank; no hand visible"
   },
   "https://media.aquatome.com/video/OrW6PZgqKSM/at60-hd.webp": {
     "person": true,
@@ -23489,6 +24929,12 @@
     "brand": false,
     "note": "A hand and arm, coming in from the top right, hold a driftwood piece inside an empty tank under a hanging light. A red r"
   },
+  "https://media.aquatome.com/video/PGgJNhjbXNg/at5-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "fingers holding a small musk/mud turtle"
+  },
   "https://media.aquatome.com/video/Pc-uoB80jyk/at39-hd.webp": {
     "person": true,
     "mark": false,
@@ -23501,11 +24947,101 @@
     "brand": false,
     "note": "hands drilling a hole in a terracotta pot with a DeWalt drill (maker's own brand, not a shop) on a workbench"
   },
+  "https://media.aquatome.com/video/PflID7JtZ3U/at110-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "man drilling the corner of a finished wooden aquarium stand frame at right"
+  },
+  "https://media.aquatome.com/video/PflID7JtZ3U/at120-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "wooden 2x4 stand frame being built; person's arm and leg at right edge"
+  },
+  "https://media.aquatome.com/video/PflID7JtZ3U/at160-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "finished wooden stand frame; person's legs and feet at left, and a person in the inset picture top-left"
+  },
+  "https://media.aquatome.com/video/PflID7JtZ3U/at25-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "man kneeling with a drill, clamping a wooden stand base frame; inset of an earlier frame at top left (part of the video,"
+  },
+  "https://media.aquatome.com/video/PflID7JtZ3U/at260-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "stand frame with top added; blurred leg and foot of person at left edge, person in the inset picture top-left"
+  },
+  "https://media.aquatome.com/video/PflID7JtZ3U/at50-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "wooden stand frame with uprights; blurred person walking at right and another person in the top-left inset"
+  },
+  "https://media.aquatome.com/video/PflID7JtZ3U/at500-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "dark painted cabinet stand and canopy, seen from a low angle"
+  },
+  "https://media.aquatome.com/video/PflID7JtZ3U/at510-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "finished dark paneled aquarium stand and canopy around the tank"
+  },
   "https://media.aquatome.com/video/Pfm2p0p8KFM/at1030-hd.webp": {
     "person": false,
     "mark": true,
     "brand": false,
     "note": "glass CO2 diffuser in a tank with a moss-covered background; 'AquaTV' logo watermark in the top right corner"
+  },
+  "https://media.aquatome.com/video/PfpdJUIG9TQ/at125-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "hand and arm using a paintbrush to smooth dark aquasoil; person's reflection in the back glass"
+  },
+  "https://media.aquatome.com/video/PfpdJUIG9TQ/at180-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "driftwood and rock hardscape on soil; person's body in grey shirt at left edge, hand at bottom left; tank maker's logo o"
+  },
+  "https://media.aquatome.com/video/PfpdJUIG9TQ/at260-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "tank being filled through a red hose fitting onto a dish over the soil, hardscape in place; tank maker's logo on the gla"
+  },
+  "https://media.aquatome.com/video/PfpdJUIG9TQ/at265-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "hand placing sponge media in a clear filter box at the tank's back corner"
+  },
+  "https://media.aquatome.com/video/PfpdJUIG9TQ/at35-hd.webp": {
+    "person": true,
+    "mark": false,
+    "brand": false,
+    "note": "gloved hand and arm painting the back of a glass tank with a roller; paint can label not readable"
+  },
+  "https://media.aquatome.com/video/PfpdJUIG9TQ/at50-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "empty rimless tank on wooden stand; small maker's logo printed on the glass itself, not added afterwards"
+  },
+  "https://media.aquatome.com/video/PfpdJUIG9TQ/at85-hd.webp": {
+    "person": false,
+    "mark": false,
+    "brand": false,
+    "note": "driftwood soaking in a blue bucket under a running tap"
   },
   "https://media.aquatome.com/video/PhyjQmfD3cg/at105-hd.webp": {
     "person": false,

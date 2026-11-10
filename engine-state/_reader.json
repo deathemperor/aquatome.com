@@ -648,6 +648,12 @@
     "findings": [],
     "ruled": "17768bf6bd9aaae9"
   },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-dutch-style-1": {
+    "at": "2026-11-10",
+    "hash": "fddb4ec88ddb6b86",
+    "findings": [],
+    "ruled": "fddb4ec88ddb6b86"
+  },
   "vi/guides/2hraquarist-blogs-aquascaping-ideas-dutch-style-2": {
     "at": "2026-11-09",
     "hash": "9f83402c5fbb88ca",
@@ -669,6 +675,12 @@
       }
     ],
     "ruled": "73b5b17660eb229a"
+  },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-dutch-style-rf": {
+    "at": "2026-11-10",
+    "hash": "7e6a4a68f82a8da4",
+    "findings": [],
+    "ruled": "7e6a4a68f82a8da4"
   },
   "vi/guides/2hraquarist-blogs-aquascaping-ideas-fernando-ferreira": {
     "at": "2026-11-09",
@@ -1045,6 +1057,12 @@
     "findings": [],
     "ruled": "03361a6f4f0e2c14"
   },
+  "vi/guides/aquariumbreeder-crabs-as-pets-pros-and-cons": {
+    "at": "2026-11-10",
+    "hash": "687fc4405763327b",
+    "findings": [],
+    "ruled": "687fc4405763327b"
+  },
   "vi/guides/aquariumbreeder-crayfish-and-suitable-tank-mates": {
     "at": "2026-11-07",
     "hash": "7aa00f6e2efbee55",
@@ -1239,6 +1257,22 @@
       }
     ],
     "ruled": "4468ab7ceaa2bc3d"
+  },
+  "vi/guides/aquariumbreeder-dwarf-shrimp-and-breeding-facts": {
+    "at": "2026-11-10",
+    "hash": "8c4c1613a2322bce",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "quạt cho trứng sạch bẩn và đủ oxy đến lúc nở",
+        "problem": "\"sạch bẩn\" reads as \"clean and dirty\" and is unnatural for \"clean of dirt\".",
+        "fix": "quạt cho trứng sạch và đủ oxy đến lúc nở",
+        "field": "body"
+      }
+    ],
+    "ruled": "8c4c1613a2322bce"
   },
   "vi/guides/aquariumbreeder-fiddler-crab-tank-setup": {
     "at": "2026-11-10",
@@ -4785,6 +4819,31 @@
     "findings": [],
     "ruled": "3470c7153d39a107"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-par-for-planted-tanks": {
+    "at": "2026-11-10",
+    "hash": "39418f69e9911b8b",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "PAR có quan trọng với bể thủy sinh thành công không?",
+        "problem": "The heading copies the English structure word for word ('important for a successful planted tank') and reads like a translation.",
+        "fix": "Muốn bể thủy sinh đẹp thì PAR quan trọng tới đâu?",
+        "field": "body"
+      },
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "What is PAR? Lighting & Brightness Explained for Planted Tanks - Aquarium Co-Op",
+        "problem": "The caption is only the source article's title and doesn't say what the photo shows.",
+        "rule": "A caption that is identical to the source page's title, ending in ' - <site name>'.",
+        "field": "caption"
+      }
+    ],
+    "ruled": "39418f69e9911b8b"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-pencilfish": {
     "at": "2026-11-05",
     "hash": "5336f61fa5ea9e57",
@@ -4957,6 +5016,31 @@
       }
     ],
     "ruled": "ca0975f60629ad0f"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-pre-filters-how-one-small-hack-transformed-the-aquarium-hobby": {
+    "at": "2026-11-10",
+    "hash": "6b98733026779cac",
+    "findings": [
+      {
+        "kind": "unsupported",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Vì vậy giờ mút lỗ thô đã thành loại tiêu chuẩn.",
+        "problem": "The source says only that Aquarium Co-Op made its own coarser pre-filters its standard, but the page presents coarse sponges as the standard across the whole hobby.",
+        "fix": "Vì vậy Aquarium Co-Op chuyển sang lấy mút lỗ thô làm loại chuẩn.",
+        "field": "body"
+      },
+      {
+        "kind": "unsupported",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Loại mút này có ba cỡ, giống như tất thể thao, kiểu gì cũng có một cỡ vừa.",
+        "problem": "The three sizes belong to Aquarium Co-Op's own product line, but the page states it as a fact about every pre-filter sponge.",
+        "fix": "Mút lọc đầu vào của Aquarium Co-Op có ba cỡ, giống như tất thể thao, kiểu gì cũng có một cỡ vừa.",
+        "field": "body"
+      }
+    ],
+    "ruled": "6b98733026779cac"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-quarantine-tank": {
     "at": "2026-11-01",
@@ -5393,6 +5477,12 @@
       }
     ],
     "ruled": "be06dad1fd870d71"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-the-best-small-fish-for-your-aquarium-a-guide-to-stunning-nano-fish": {
+    "at": "2026-11-10",
+    "hash": "0727c12319b04f9f",
+    "findings": [],
+    "ruled": "0727c12319b04f9f"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-time-saving-tips-for-aquariums": {
     "at": "2026-11-08",
@@ -7872,11 +7962,33 @@
     "findings": [],
     "ruled": "f7ba5e1882d917a7"
   },
+  "vi/guides/glaser-en-25-perchlike-fishes-25a-perchlike-fishes-1-labyrinth-fishes-many-varieties-of-snakehead-currently-available-at-aquarium-glaser-en": {
+    "at": "2026-11-10",
+    "hash": "571b15538810c18e",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "một loài khoa học vẫn chưa mô tả",
+        "problem": "The word order is garbled: it says 'a science species not yet described' instead of 'a species not yet scientifically described'.",
+        "fix": "một loài vẫn chưa được mô tả khoa học",
+        "field": "body"
+      }
+    ],
+    "ruled": "571b15538810c18e"
+  },
   "vi/guides/glaser-en-25-perchlike-fishes-25c-perchlike-fishes-3-remaining-cichlids-from-africa-pelvicachromis-humilis-and-close-relatives-from-guinea-3-pelvicachromis-humilis-sierra-leone-p-signatus-en": {
     "at": "2026-11-07",
     "hash": "d9b1617abe06315b",
     "findings": [],
     "ruled": "d9b1617abe06315b"
+  },
+  "vi/guides/glaser-en-25-perchlike-fishes-25d-perchlike-fishes-4-south-american-dwarf-cichlids-a-brandnew-dwarf-cichlid-apistogramma-sp-cristal-en": {
+    "at": "2026-11-10",
+    "hash": "a301ae652ef20bc5",
+    "findings": [],
+    "ruled": "a301ae652ef20bc5"
   },
   "vi/guides/glaser-en-25-perchlike-fishes-25d-perchlike-fishes-4-south-american-dwarf-cichlids-apistogramma-agassizii-tefe-ii-and-a-geisleri-en": {
     "at": "2026-11-09",
@@ -7889,6 +8001,12 @@
     "hash": "4f78f5ee78410600",
     "findings": [],
     "ruled": "4f78f5ee78410600"
+  },
+  "vi/guides/glaser-en-25-perchlike-fishes-25d-perchlike-fishes-4-south-american-dwarf-cichlids-many-fantastic-apistogramma-arrived-en": {
+    "at": "2026-11-10",
+    "hash": "f5b27a98ec982e18",
+    "findings": [],
+    "ruled": "f5b27a98ec982e18"
   },
   "vi/guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-bred-cichla-from-southeast-asia-en": {
     "at": "2026-11-10",
@@ -7927,6 +8045,35 @@
       }
     ],
     "ruled": "cec9d57fd5604557"
+  },
+  "vi/guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-new-clown-angels-en": {
+    "at": "2026-11-10",
+    "hash": "052b483af239d0bd",
+    "findings": [],
+    "ruled": "052b483af239d0bd"
+  },
+  "vi/guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-the-discus-season-has-started-2-en": {
+    "at": "2026-11-10",
+    "hash": "34eb827b52682942",
+    "findings": [],
+    "ruled": "34eb827b52682942"
+  },
+  "vi/guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-the-discus-season-has-started-en": {
+    "at": "2026-11-10",
+    "hash": "0504de301ef8a93d",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "cá đĩa xanh lá (ít đốm đỏ), mã 737105",
+        "problem": "The wholesaler's stock code is a leftover from the source's sales listing, and it means nothing to a hobbyist reading the page.",
+        "fix": "cá đĩa xanh lá (ít đốm đỏ).",
+        "rule": "a 5–7 digit product code after \"mã\" in the body text",
+        "field": "body"
+      }
+    ],
+    "ruled": "0504de301ef8a93d"
   },
   "vi/guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-thorichthys-week-at-aquarium-glaser-en": {
     "at": "2026-11-10",
@@ -11768,6 +11915,22 @@
     ],
     "ruled": "ba281f9a623983f5"
   },
+  "vi/guides/youtube-1weSZQGGs2k": {
+    "at": "2026-11-10",
+    "hash": "3461f7c60b1a976c",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L4",
+        "quote": "Cây bắt đầu sống thủy canh, sau đó rễ mới xuống tới lớp phân nền dưới đáy.",
+        "problem": "The wording says the plants 'start to live' hydroponically rather than 'at first live' hydroponically. This reads awkwardly and doesn't match the order of events in P1.",
+        "fix": "Lúc đầu cây sống thủy canh, sau một thời gian rễ mới xuống tới lớp phân nền dưới đáy.",
+        "field": "summary.3"
+      }
+    ],
+    "ruled": "3461f7c60b1a976c"
+  },
   "vi/guides/youtube-2AKSK5DHDUw": {
     "at": "2026-11-06",
     "hash": "30e3d6d24d3cb80a",
@@ -12781,6 +12944,12 @@
     "findings": [],
     "ruled": "11850bb34ea37d00"
   },
+  "vi/guides/youtube-ahKKqSGy0Mw": {
+    "at": "2026-11-10",
+    "hash": "a94b27f0b16d50cd",
+    "findings": [],
+    "ruled": "a94b27f0b16d50cd"
+  },
   "vi/guides/youtube-ahN0nP8HLaI": {
     "at": "2026-11-07",
     "hash": "5a6579cd57492639",
@@ -13047,6 +13216,31 @@
     "hash": "9f8aea373799d355",
     "findings": [],
     "ruled": "9f8aea373799d355"
+  },
+  "vi/guides/youtube-BKdHgA1uO2E": {
+    "at": "2026-11-10",
+    "hash": "0707be08e7d04126",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Lấy thêm một túi nước khác giũ tiếp cho đến khi mút sạch.",
+        "problem": "The cleaning steps never say to use tank water, but the page promises the bacteria survive. A reader rinsing in chlorinated tap water would kill them.",
+        "fix": "Lấy thêm một túi nước bể (nước rút từ bể ra, không dùng nước máy) giũ tiếp cho đến khi mút sạch.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Chụp mút vào đầu ống hút, chỉ cho ống vào vừa chạm.",
+        "problem": "It is unclear what the tube should touch, so the reader can't tell how far to push the sponge on.",
+        "fix": "Chụp mút vào đầu ống hút, chỉ cho ống vào vừa ngập miệng lỗ của mút.",
+        "field": "body"
+      }
+    ],
+    "ruled": "0707be08e7d04126"
   },
   "vi/guides/youtube-BTGMS7pm6zo": {
     "at": "2026-11-08",
@@ -14817,6 +15011,12 @@
     ],
     "ruled": "e6664bc875fc3e43"
   },
+  "vi/guides/youtube-ipTDkQsT6HQ": {
+    "at": "2026-11-10",
+    "hash": "4bca93139567b8a4",
+    "findings": [],
+    "ruled": "4bca93139567b8a4"
+  },
   "vi/guides/youtube-iS8fJvjUa1Q": {
     "at": "2026-11-07",
     "hash": "d068c9eb0ad964e8",
@@ -14959,6 +15159,12 @@
       }
     ],
     "ruled": "8a264ca7ac5b1c7c"
+  },
+  "vi/guides/youtube-IvUQMwrsjyc": {
+    "at": "2026-11-10",
+    "hash": "223928d4760f5326",
+    "findings": [],
+    "ruled": "223928d4760f5326"
   },
   "vi/guides/youtube-iY8NEK9GGzo": {
     "at": "2026-11-07",
@@ -15152,6 +15358,23 @@
       }
     ],
     "ruled": "189edd40ec15f99c"
+  },
+  "vi/guides/youtube-JmUTEUoY6Jg": {
+    "at": "2026-11-10",
+    "hash": "b5ec849d79324fd1",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Không nêu riêng (chung: từ 20 lít)",
+        "problem": "The table says 'Không nêu' (not stated) in several cells. That is a leftover note about the source, and to a reader it looks like missing data, not advice.",
+        "fix": "Từ 20 lít",
+        "rule": "a table cell containing 'Không nêu'",
+        "field": "body"
+      }
+    ],
+    "ruled": "b5ec849d79324fd1"
   },
   "vi/guides/youtube-JpAXeFEVws8": {
     "at": "2026-11-04",
@@ -17994,6 +18217,22 @@
     "hash": "547e9cb5093db6e3",
     "findings": [],
     "ruled": "547e9cb5093db6e3"
+  },
+  "vi/guides/youtube-uzhJRcM1tx4": {
+    "at": "2026-11-10",
+    "hash": "b927836559461773",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "thời gian chăm chỉ khoảng 15–20 phút mỗi tuần",
+        "problem": "Placed together, \"chăm\" and \"chỉ\" read as the word \"chăm chỉ\" (diligent), so readers stumble over the sentence.",
+        "fix": "nhưng sau hơn một năm, mỗi tuần chỉ mất khoảng 15–20 phút chăm bể.",
+        "field": "body"
+      }
+    ],
+    "ruled": "b927836559461773"
   },
   "vi/guides/youtube-v5nzl93fEXA": {
     "at": "2026-11-01",

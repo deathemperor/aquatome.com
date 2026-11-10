@@ -17,7 +17,12 @@
   "File:Hippolytidae Lysmata debelius 2.jpg",
   "File:Lysmata debelius shrimp at Blue Reef Aquarium, Southsea.jpg",
   "File:Fire Shrimp, Blue Reef Aquarium.jpg",
-  "File:Fire shrimp with cardinalfish.jpg"
+  "File:Fire shrimp with cardinalfish.jpg",
+  "inat:615931296",
+  "inat:30248859",
+  "inat:39303584",
+  "inat:51512753",
+  "inat:339836936"
  ],
  "hashes": {
   "https://media.aquatome.com/aquariumbreeder/ba3abb480ace44cc.webp": "3734d8b9b9ee0206",
@@ -29,7 +34,18 @@
   "https://media.aquatome.com/commons/58dcc33f98360ecb.webp": "4e2fefcec2860276",
   "https://media.aquatome.com/commons/869dbe010ca8c3e2.webp": "e5b1683ab292951c",
   "https://media.aquatome.com/commons/589cc9254ce41d3a.webp": "dc5d3b1317070676",
-  "https://media.aquatome.com/commons/ddcd15116724dd0c.webp": "afae2e3a69662d74"
+  "https://media.aquatome.com/commons/ddcd15116724dd0c.webp": "afae2e3a69662d74",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/615931296/large.jpg": "cfb4ac9cb0f0c171",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/39303584/large.jpg": "14d9e9735bd0128b",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/51512753/large.jpg": "0b171c58c2c86c0f"
  },
- "commons": "2026-11-08"
+ "commons": "2026-11-08",
+ "inat": {
+  "taxon": 508074,
+  "pass": "done",
+  "after": {
+   "research": 338666318,
+   "agree": 396341088
+  }
+ }
 }

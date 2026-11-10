@@ -25,12 +25,12 @@
     "native": {
       "countries": [
         "CI",
+        "CM",
         "GH",
         "TG",
         "BJ",
         "BF",
         "NG",
-        "CM",
         "TD",
         "CF"
       ],
@@ -44,28 +44,29 @@
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "It has been recorded in Ivory Coast, Ghana, Togo, Benin, Burkina Faso, Nigeria, Cameroon, Chad and the Central African Republic.",
+          "quote": "It is found in West and Central Africa, from the Sassandra in Ivory Coast to Kribi in Cameroon, and in the Niger, Volta and Chad basins.",
           "countries": [
             "CI",
+            "CM"
+          ],
+          "regions": [
+            "Volta",
+            "Sassandra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It has been recorded in Ivory Coast, Ghana, Togo, Benin, Burkina Faso, Nigeria, Cameroon, Chad and the Central African Republic.",
+          "countries": [
             "GH",
             "TG",
             "BJ",
             "BF",
             "NG",
-            "CM",
             "TD",
             "CF"
           ],
           "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "It is found in West and Central Africa, from the Sassandra in Ivory Coast to Kribi in Cameroon, and in the Niger, Volta and Chad basins.",
-          "countries": [],
-          "regions": [
-            "Volta",
-            "Sassandra"
-          ]
         }
       ]
     },

@@ -141,6 +141,7 @@ struct ProfilePicturePicker: View {
       }
       .padding(20)
     }
+    .modifier(ClearUnderTopBar(shown: true))
     .navigationTitle("Ảnh đại diện")
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {

@@ -37,13 +37,16 @@ struct BrowseView: View {
     switch browse {
     case .fish(let group):
       FishShelf(items: group.map { s.fish(group: $0, handbook.labels) } ?? s.all(.fish))
+        .modifier(ClearUnderTopBar(shown: true))
         .navigationTitle(group.map { handbook.labels["group", $0] ?? $0 } ?? String(localized: "Tất cả loài"))
     case .plants(let placement):
       PlantShelf(items: placement.map { s.plants(placement: $0) } ?? s.all(.plant))
+        .modifier(ClearUnderTopBar(shown: true))
         .navigationTitle(placement.map { handbook.labels["placement", $0] ?? $0 } ?? String(localized: "Cây thủy sinh"))
     case .guides(let section):
       let guides = section.map { s.guides(section: $0) } ?? s.all(.guide)
       List(guides) { Row(item: $0) }
+        .modifier(ClearUnderLargeTitle(ground: Color(.systemGroupedBackground)))
         .navigationTitle(section.map { handbook.labels["section", $0] ?? $0 } ?? String(localized: "Tất cả hướng dẫn"))
         .toolbar { KeepOffline(items: guides) }
         #if DEBUG
@@ -55,6 +58,7 @@ struct BrowseView: View {
     case .videos:
       // The series (Tìm's "Tất cả video", counted in series); kept to read offline, every video guide in them.
       List(s.all(.video)) { Row(item: $0) }
+        .modifier(ClearUnderLargeTitle(ground: Color(.systemGroupedBackground)))
         .navigationTitle("Video hướng dẫn")
         .toolbar { KeepOffline(items: s.videoGuides) }
     case .saved:
@@ -62,6 +66,7 @@ struct BrowseView: View {
       List(saved) { item in
         Row(item: item).swipeActions { Button("Bỏ lưu", role: .destructive) { handbook.toggleSaved(item) } }
       }
+      .modifier(ClearUnderLargeTitle(ground: Color(.systemGroupedBackground)))
       .navigationTitle("Đã lưu để đọc sau")
       .accessibilityIdentifier("saved")
     case .ways(let kind):
@@ -76,6 +81,7 @@ struct BrowseView: View {
         }
         .accessibilityIdentifier("shelf")
       }
+      .modifier(ClearUnderLargeTitle(ground: Color(.systemGroupedBackground)))
       .navigationTitle(kind == .fish ? LocalizedStringKey("Nhóm cá") : kind == .plant ? "Vị trí trồng" : "Chủ đề")
     case .kept:
       // In one place: each let go of with a swipe, or all at once.
@@ -87,6 +93,7 @@ struct BrowseView: View {
             Task { await handbook.unkeep(gone) }
           }
       }
+      .modifier(ClearUnderLargeTitle(ground: Color(.systemGroupedBackground)))
       .navigationTitle("Đã tải để đọc offline")
       .toolbar {
         ToolbarItem(placement: .topBarTrailing) {
@@ -99,6 +106,7 @@ struct BrowseView: View {
       LatestList()
     case let .pages(title, paths):
       List(paths.compactMap(handbook.item(at:))) { Row(item: $0) }
+        .modifier(ClearUnderLargeTitle(ground: Color(.systemGroupedBackground)))
         .navigationTitle(title)
     case .glossary:
       List {
@@ -106,6 +114,7 @@ struct BrowseView: View {
           Section { ForEach(group.items) { Row(item: $0) } } header: { Text(verbatim: group.letter) }
         }
       }
+      .modifier(ClearUnderLargeTitle(ground: Color(.systemGroupedBackground)))
       .navigationTitle("Thuật ngữ")
     }
   }
@@ -135,6 +144,7 @@ private struct LatestList: View {
         }
       }
     }
+    .modifier(ClearUnderLargeTitle(ground: Color(.systemGroupedBackground)))
     .navigationTitle("Mới cập nhật")
   }
 

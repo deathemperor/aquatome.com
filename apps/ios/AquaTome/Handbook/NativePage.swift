@@ -1021,6 +1021,7 @@ struct ReadersPart: View {
     .sheet(isPresented: $managing) {
       NavigationStack {
         List { BlockedList() }
+          .modifier(ClearUnderTopBar(shown: true, ground: Color(.systemGroupedBackground)))
           .ownerScreen("sheet blocked-readers")
           .navigationTitle("Người đã chặn")
           .navigationBarTitleDisplayMode(.inline)

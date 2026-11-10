@@ -2,6 +2,18 @@
   "id": "lobocheilos-rhabdoura",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/105634646.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/105634646-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "dhfischer",
+      "sourceUrl": "https://www.inaturalist.org/photos/105634646",
+      "caption": "Cá Lobocheilos rhabdoura bơi trên nền sỏi trong suối",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/424d8986f21b2086.webp",
       "thumb": "https://media.aquatome.com/commons/424d8986f21b2086-480.webp",
       "width": 1024,
@@ -12,9 +24,21 @@
       "caption": "Cá Lobocheilos rhabdoura nhìn nghiêng trong bể chụp ảnh nhỏ",
       "best": true,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/105634639.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/105634639-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "dhfischer",
+      "sourceUrl": "https://www.inaturalist.org/photos/105634639",
+      "caption": "Cá Lobocheilos rhabdoura trong môi trường suối tự nhiên, đáy đá sỏi",
+      "best": true,
+      "kind": "habitat"
     }
   ],
-  "seen": 1,
-  "updatedAt": "2026-11-09",
-  "builtAt": "2026-11-09"
+  "seen": 6,
+  "updatedAt": "2026-11-10",
+  "builtAt": "2026-11-10"
 }

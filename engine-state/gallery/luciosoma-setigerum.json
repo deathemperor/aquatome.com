@@ -1,6 +1,26 @@
 {
  "queue": [],
- "judged": [],
- "hashes": {},
- "commons": "2026-11-09"
+ "judged": [
+  "inat:105634630",
+  "inat:226641296",
+  "inat:226641410",
+  "inat:251815603",
+  "inat:356950019",
+  "inat:471093500"
+ ],
+ "hashes": {
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/105634630/large.jpg": "6823380e9b9a8bc5",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/226641296/large.jpg": "1f3d3db587834b4d",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/226641410/large.jpg": "1909460534e8d2d1",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/471093500/large.jpg": "38c86eb296673496"
+ },
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 187640,
+  "pass": "done",
+  "after": {
+   "research": 262208119,
+   "agree": 0
+  }
+ }
 }

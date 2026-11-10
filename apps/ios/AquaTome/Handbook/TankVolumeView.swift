@@ -64,6 +64,7 @@ struct TankVolumeView: View {
         return .handled
       })
     }
+    .modifier(ClearUnderLargeTitle(ground: Color(.systemGroupedBackground)))
     .navigationTitle("Bể bao nhiêu lít?")
     .navigationDestination(item: $web) { WebScreen(url: $0) }
     .onAppear {

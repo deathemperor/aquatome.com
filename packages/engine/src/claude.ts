@@ -32,6 +32,10 @@ function once<T>(system: string, prompt: string, schema: object, opts: RunOpts, 
     let out = ''
     let err = ''
     const timer = setTimeout(() => child.kill('SIGTERM'), opts.timeoutMs ?? 10 * 60_000)
+    // Decoded across chunks: the pipe cuts a long answer at any byte, and a chunk decoded by itself turns a character cut
+    // in two into U+FFFD (a Thai letter is three bytes: 38 Thai pages had one, 2026-11-10).
+    child.stdout.setEncoding('utf8')
+    child.stderr.setEncoding('utf8')
     child.stdout.on('data', d => (out += d))
     child.stderr.on('data', d => (err += d))
     child.on('error', e => reject(new LlmError(e.message)))

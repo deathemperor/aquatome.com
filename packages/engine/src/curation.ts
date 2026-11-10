@@ -110,6 +110,19 @@ export function cardWorthy(url: string, page: string, v: Verdicts, avoid: Record
   return !!verdict && verdict.ok === 'yes' && verdict.typical && !verdict.person && !verdict.logo
 }
 
+/** Sites whose own mark on their photos the owner allows (the chief of staff, 2026-11-10: Aquarium Glaser's logo). */
+const OWN_MARK = /^https?:\/\/(www\.)?aquariumglaser\.de\//
+
+/**
+ * A photo that passes in every way but for a mark its own source may keep. It ranks below every unmarked photo, leads a page
+ * only where nothing else passes (lead-photo.ts), and is never a card: `cardWorthy` still says no.
+ */
+export function ownMarkOnly(p: Pick<Photo, 'url' | 'sourceUrl'>, page: string, v: Verdicts, avoid: Record<string, string>): boolean {
+  if (!OWN_MARK.test(p.sourceUrl) || p.url in v.rejected || p.url in avoid || (v.faces[p.url] ?? 0) > 0) return false
+  const own = v.subjects[p.url]?.[page]
+  return !!own && !own.guide && own.ok === 'yes' && !!own.typical && !own.person && !!own.logo
+}
+
 /**
  * A page's checked photos: the best for each card shape, and every one with its size across each. A photo with a large
  * copy (large-photos.ts) leads by that copy, the address the app loads; its page copy stays one a calendar may name.

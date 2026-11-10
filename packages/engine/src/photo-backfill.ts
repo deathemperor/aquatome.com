@@ -65,9 +65,9 @@ export async function backfillPhotos(root: string, d: BackfillDeps, opts: { limi
       const scotcat = kind === 'species' && !own.some(r => r.source === 'scotcat') ? scotcatUrl(e.scientificName, e.family) : undefined
       const refs = scotcat ? [...own, { source: 'scotcat' as const, sourceUrl: scotcat }] : own
       // Only sources the engine reads (not our own guides, Facebook or video), and not those read through the Internet
-      // Archive: the archive keeps no usable copies of their photos.
+      // Archive: the archive keeps no usable copies of their photos. Nor one whose photos a step of its own takes (Tropica).
       const due = (u: string) => !tried[u] || d.now().getTime() - Date.parse(tried[u]!) > RETRY_MS || (unsectioned && tried[u]! < SECTIONS_SINCE)
-      const urls = [...new Map(refs.map(r => [r.sourceUrl, r.source])).entries()].filter(([u, s]) => SOURCES.some(x => x.id === s) && sourceById(s).via !== 'archive' && !moved.has(s) && due(u))
+      const urls = [...new Map(refs.map(r => [r.sourceUrl, r.source])).entries()].filter(([u, s]) => SOURCES.some(x => x.id === s) && sourceById(s).via !== 'archive' && !sourceById(s).photoStep && !moved.has(s) && due(u))
       if (!urls.length) continue
       pages++
       const before = e.photos.length

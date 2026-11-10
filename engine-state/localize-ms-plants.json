@@ -282,6 +282,22 @@
     "score": 0.95,
     "notes": []
   },
+  "azolla": {
+    "at": "2026-11-10",
+    "from": "2026-11-10",
+    "name": "Azolla",
+    "confidence": "high",
+    "score": 0.3,
+    "notes": [
+      "Item 5: the English source is actually Vietnamese (not English) – the MS is a translation of Vietnamese text; the source mismatch means it cannot be verified as faithful to the given original, and the content (e.g. 'bèo dâu') is a different text from the other items.",
+      "Item 4: 'Fairy moss' was rendered 'Azolla' – a name change is acceptable, but also check consistency; 'sekurang-kurangnya 40 liter' should use 'litre' (standard Malaysian spelling).",
+      "Item 3: 'sebab itulah ia dipanggil \"mosquito fern\"' – 'hence the name' is OK, but 'Fairy moss' subject changed to 'Azolla' inconsistently; fine, but 'Biojisimnya boleh berganda setiap beberapa hari' ok.",
+      "Item 8: 'udang kara' means lobster/spiny lobster, not crayfish; use 'udang karang' or 'kerang air tawar (crayfish)' – 'udang galah/crayfish' to avoid wrong animal.",
+      "Item 8: 'Kisar bersama tanah liat montmorillonit sebagai pengikat' fine, but 'lemas' for fish 'choke' due to low oxygen: better 'sesak nafas/mati lemas akibat kekurangan oksigen'.",
+      "Item 1/2/6: 'paku pakis' is redundant; use 'paku-pakis' or 'paku pakis' consistently; 'musim bunga' and 'musim sejuk' are non-Malaysian-context but acceptable.",
+      "Item 7: 'Suhu sejuk (−4 °C ke bawah)' ok; 'mati layu' – 'mati ke atas/mati reput' more natural for die back."
+    ]
+  },
   "bacopa-australis": {
     "at": "2026-11-07",
     "from": "2026-10-30",
@@ -544,6 +560,51 @@
       "Item 3: 'secara emersed' leaves English in place; use 'timbul di atas air (emersed)' or similar.",
       "Item 3: 'akuarium bertumbuhan' is non-standard; use 'akuarium tanaman berair' or 'akuarium tumbuhan'.",
       "Item 3: the source spells 'Bucephelandra', but the Malay writes 'Bucephalandra', the correct form, so no change is needed."
+    ]
+  },
+  "bucephelandra-sp": {
+    "at": "2026-11-10",
+    "from": "2026-10-29",
+    "name": "Bucephalandra Silver",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"tumbuh tenggelam di dalam air\" is slightly awkward; \"tumbuh secara terendam (submersed)\" is more natural hobby wording.",
+      "\"tumbuh di atas permukaan air (emersed)\" is imprecise; \"tumbuh secara emers (di atas air)\" is better.",
+      "\"tangki akuarium bertumbuhan\" is unnatural for planted tank; use \"akuarium tumbuhan berair\" or \"akuarium bertanaman (planted tank)\".",
+      "\"sangat sesuai ... dan amat sesuai\" repeats the same intensity; vary the wording, e.g. \"sesuai sekali\" for the second."
+    ]
+  },
+  "cabomba-aquatica": {
+    "at": "2026-11-10",
+    "from": "2026-10-30",
+    "name": "Cabomba aquatica",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "\"tangki\" is acceptable but \"akuarium\" is the more common term for a hobbyist's tank; consider \"dalam akuarium\".",
+      "\"asingkan kepada pokok-pokok yang berasingan\" is awkward; use \"asingkan kepada pokok individu\".",
+      "\"setiap batang boleh menjadi 5–8 cm lebar\" is awkward; use \"setiap batang boleh mencapai lebar 5–8 cm\".",
+      "\"Ia spesies Cabomba yang paling mudah dijaga\" is slightly loose; \"paling kurang kompleks/tidak cerewet\" is closer to the source. Add \"yang\" and use \"Ia merupakan spesies Cabomba yang ...\".",
+      "\"Di tempat asalnya, tumbuhan ini dimakan\": the English says \"locally\", so \"setempat\" would be more faithful than the added \"origin\" idea.",
+      "\"Tanam ... ke dalam substrat dengan sedikit jarak\" is ambiguous: the English means plant with some depth into the substrate. Clarify as \"tanam sedikit dalam ke dalam substrat\" and keep \"jarak\" separate if spacing is meant."
+    ]
+  },
+  "caloglossa-beccarii": {
+    "at": "2026-11-10",
+    "from": "2026-10-29",
+    "name": "Red Moss",
+    "confidence": "medium",
+    "score": 0.7,
+    "notes": [
+      "Section 7 Flow: \"arus air yang perlahan adalah optimum\" — English says gentle current is optimal but not mandatory; fine, but \"Sekali lagi, spektrum cahaya lebih penting\" changes \"I would repeat\"; acceptable. Main issue below.",
+      "Section 10 Size: the English gives \"2 – 5 inches (5 – 10 cm)\"; the conversion is fine, but in Section 1 \"Saiz dalam akuarium: 5–10 cm\" is fine too, so no change needed there.",
+      "Section 6 Temperature: the English range 75–84°F (24–29°C) is fine, but \"Salinity ... (<5pmm)\" keeps the source typo \"pmm\"; correct it to \"ppm\" (or \"ppt\") rather than copying it.",
+      "Section 8: \"Caloglossa menjadi makanan kegemaran sesetengah ikan\" — the English says \"treat\" (a snack that fish eat, so it can get eaten). Clarify that some fish like cichlids will eat/graze it, which is the care warning.",
+      "Section 10: \"Tanpa aliran udara yang mencukupi\" and \"sediakan aliran udara\" — \"airflow\" in an aquarium is better rendered as water circulation (\"pergerakan/aliran air\"); \"aliran udara\" implies air movement and may mislead.",
+      "Section 10: \"Ia bercabang secara bercabang dua\" is redundant; use \"bercabang dua seperti garpu\".",
+      "Section 10: \"Jenis alga lain boleh mengatasi Red algae\" is fine, but \"Sebaik sahaja ia stabil dalam tangki\" should read \"sebaik sahaja ia sebati/mantap\"; minor.",
+      "Section 7: \"Aquarium berlampu malap\" for \"low-light\" is fine, but \"CO2 ... tahap tinggi sangat berbahaya\" is OK; no change."
     ]
   }
 }

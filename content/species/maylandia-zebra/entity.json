@@ -10,6 +10,92 @@
     "malawi",
     "lake-malawi"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Malawi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The zebra mbuna, Maylandia zebra, is a cichlid endemic to Lake Malawi, where it inhabits rocky zones around shores, reefs and islands.",
+          "countries": [],
+          "regions": [
+            "Lake Malawi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2373039,
+      "total": 171,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "MW",
+          139
+        ],
+        [
+          "MZ",
+          18
+        ],
+        [
+          "TZ",
+          10
+        ],
+        [
+          "US",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -115.3125,
+          35.15625,
+          3
+        ],
+        [
+          -81.5625,
+          25.3125,
+          1
+        ],
+        [
+          33.75,
+          -15.46875,
+          27
+        ],
+        [
+          33.75,
+          -14.0625,
+          77
+        ],
+        [
+          33.75,
+          -12.65625,
+          39
+        ],
+        [
+          33.75,
+          -11.25,
+          19
+        ],
+        [
+          33.75,
+          -9.84375,
+          4
+        ],
+        [
+          35.15625,
+          -15.46875,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
