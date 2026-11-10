@@ -28,6 +28,7 @@ struct AccountView: View {
       }
       // The first card close under the title, as the mock.
       .contentMargins(.top, 14, for: .scrollContent)
+      .modifier(ClearUnderTopBar(shown: true, ground: Color(.systemGroupedBackground)))
       .navigationTitle("Tài khoản")
       .navigationBarTitleDisplayMode(.inline)
       .modifier(RowLabel())
@@ -46,8 +47,6 @@ struct AccountView: View {
     }
     // On the stack, not its first screen: the pages pushed onto it read their environment from here.
     .environment(\.closeAccountSheet, { dismiss() })
-    // A sheet draws its own bar: the rows are cut off under it, as on the tabs and in the mock.
-    .titleOverWhatScrolls()
   }
 
   /// "AquaTome 1.0 (231)".
