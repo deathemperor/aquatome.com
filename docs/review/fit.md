@@ -5,10 +5,10 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution | lethal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 3938 | 3517 | 1591 | 73 | 49 | 200 | 35 | 1034 | 459 | 2724 | 484 | 9 | 16 | 0 | 3 | 0 | 3 | 0 |
-| Indonesian | 1211 | 1047 | 317 | 20 | 7 | 3 | 5 | 159 | 58 | 50 | 139 | 0 | 0 | 0 | 3 | 0 | 0 | 0 |
-| Thai | 1204 | 1013 | 284 | 15 | 4 | 4 | 3 | 132 | 66 | 69 | 121 | 0 | 0 | 0 | 1 | 0 | 0 | 0 |
-| Malay | 186 | 144 | 54 | 5 | 1 | 0 | 0 | 23 | 17 | 6 | 18 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Vietnamese | 3938 | 3518 | 1588 | 73 | 49 | 200 | 35 | 1030 | 458 | 2720 | 484 | 9 | 16 | 0 | 3 | 0 | 3 | 0 |
+| Indonesian | 1231 | 1067 | 318 | 20 | 7 | 3 | 5 | 159 | 58 | 50 | 140 | 0 | 0 | 0 | 3 | 0 | 0 | 0 |
+| Thai | 1224 | 1033 | 286 | 15 | 4 | 4 | 3 | 133 | 66 | 69 | 122 | 0 | 0 | 0 | 1 | 0 | 0 | 0 |
+| Malay | 189 | 147 | 56 | 5 | 1 | 0 | 0 | 25 | 17 | 6 | 19 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 
 Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 9 of 129, Indonesian 2 of 52, Thai 2 of 51, Malay 1 of 17.
 
@@ -74,10 +74,10 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - panacur: 33
 - ada: 20
 - fluval stratum: 16
+- keo 502: 15
 - ada amazonia: 14
 - ada amazonia aqua soil: 14
 - hikari first bites: 14
-- keo 502: 14
 - easy fry and small fish food: 12
 - hikari shrimp cuisine: 12
 - hikari vibra bites: 12
