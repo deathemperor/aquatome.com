@@ -28,6 +28,8 @@ export type SourceConfig = {
   photoPages?: RegExp
   /** Narrowest photo taken from this source (default 600 px). */
   minPhotoWidth?: number
+  /** Its photos come from a step of their own (Tropica: tropica-photos.ts), so reading its pages neither takes nor drops any. */
+  photoStep?: true
   /** Width of its "read next" card images: a guide's unplaced photo this wide or narrower is a card, not the article's (sweep.ts). */
   cardWidth?: number
   /** Its species profiles, named "genus-epithet" in the address: a thin species' profile here is fetched first (depth.ts). */
@@ -58,7 +60,7 @@ export const SOURCES: SourceConfig[] = [
   // Old static site, ~4,000 catfish factsheets listed on one page per family; robots.txt asks 10 s between requests.
   // Each photo (500 px) has its own page with the photographer's credit.
   { id: 'scotcat', tier: 'specialist', discover: { kind: 'crawl', start: SCOTCAT_FAMILIES.map(f => `https://www.scotcat.com/${f}family.htm`) }, include: /^https:\/\/www\.scotcat\.com\/[a-z]+idae\/[a-z0-9_]+\.htm$/, contentSelector: '.top-padding-10', photoPages: /^https:\/\/www\.scotcat\.com\/[a-z]+idae\/[a-z0-9_]+\d\.htm$/, minPhotoWidth: 500, profiles: /scotcat\.com\/[a-z]+idae\//, delayMs: 10_000 },
-  { id: 'tropica', tier: 'specialist', discover: { kind: 'crawl', start: ['https://tropica.com/en/plants/'] }, include: /tropica\.com\/en\/plants\/plantdetails\//, dedupe: /\([^)]*\)\/\d+$/, contentSelector: '.content', delayMs: POLITE },
+  { id: 'tropica', tier: 'specialist', discover: { kind: 'crawl', start: ['https://tropica.com/en/plants/'] }, include: /tropica\.com\/en\/plants\/plantdetails\//, dedupe: /\([^)]*\)\/\d+$/, contentSelector: '.content', photoStep: true, delayMs: POLITE },
 ]
 
 export const sourceById = (id: SourceId): SourceConfig => {
