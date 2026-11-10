@@ -1,10 +1,13 @@
 {
   "slug": "lower-congo",
-  "name": "Lower Congo",
-  "altNames": [],
+  "name": "Hạ Congo",
+  "altNames": [
+    "Lower Congo"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

@@ -21,7 +21,8 @@
       ],
       "regions": [
         "Salween",
-        "Ataran"
+        "Ataran",
+        "Hanthayaw"
       ],
       "sources": [
         "seriouslyfish",
@@ -38,15 +39,9 @@
             "TH"
           ],
           "regions": [
-            "Salween"
-          ]
-        },
-        {
-          "source": "scotcat",
-          "quote": "Asia: Ataran River drainage in Myanmar.",
-          "countries": [],
-          "regions": [
-            "Ataran"
+            "Salween",
+            "Ataran",
+            "Hanthayaw"
           ]
         }
       ]

@@ -800,18 +800,16 @@
     ]
   },
   "echinodorus-angustifolia": {
-    "at": "2026-10-30",
-    "from": "2026-10-29",
+    "at": "2026-11-10",
+    "from": "2026-11-10",
     "name": "Echinodorus Vesuvius",
     "confidence": "medium",
-    "score": 0.85,
+    "score": 0.78,
     "notes": [
-      "\"Daun-daun emersed ini akan meleleh (melting)\": 'melt back' is better rendered as daun lama akan rontok/mati (melt); 'meleleh' is slightly awkward.",
-      "\"kebun budidaya tanaman\": more natural as 'farm tanaman' or 'penangkaran/pembudidaya tanaman air'.",
-      "\"Banyak menyerap nutrisi lewat akar\": 'heavy root feeder' is more natural as 'rakus nutrisi lewat akar' or 'pemakan nutrisi lewat akar (root feeder)'.",
-      "\"hutan yang meliuk-liuk\": 'gnarled' means tangled/twisted; consider 'hutan yang berkelok-kelok dan lebat'.",
-      "\"Vesuvius cocok masuk kategori yang terakhir\": awkward; use 'termasuk dalam kategori terakhir (tekstur unik)'.",
-      "\"Nama umumnya dipilih\": 'common name' is slightly unclear; consider 'Nama populernya'."
+      "Item 5: \"vallisneria spiralis (corkscrew vallisneria)\" adds a species name that the source does not give. Corkscrew vallisneria is not clearly V. spiralis. Use \"vallisneria corkscrew (corkscrew vallisneria)\" or just \"corkscrew vallisneria\".",
+      "Item 4: \"hutan kecil yang meliuk-liuk\" for \"gnarled forest\" adds \"kecil\". Use \"hutan yang rimbun dan meliuk-liuk\" or similar.",
+      "Item 3: the source text is Vietnamese, not English. The Indonesian matches it in meaning. Check that the source language was intended.",
+      "Items 2 and 3: \"kebun tanaman\" for \"plant farms\" is slightly awkward. \"Farm tanaman\" or \"budidaya tanaman\" is more natural."
     ]
   },
   "echinodorus-aquartica": {
@@ -1937,6 +1935,21 @@
       "Item 3: \"Riccia memberikan\" replaces the pronoun \"it\" with the name; acceptable, but \"Tanaman ini\" would be closer."
     ]
   },
+  "rotala-indica": {
+    "at": "2026-11-10",
+    "from": "2026-11-09",
+    "name": "Rotala indica",
+    "confidence": "high",
+    "score": 0.85,
+    "notes": [
+      "Section 5: 'Kesadahan: ... jaga di kisaran 2–12 °dGH' is fine, but 'fairly hard' → 'cukup sadah' is OK; no issue.",
+      "Section 7: 'Leaf shape ... lanset' (lanceolate) is acceptable but 'berbentuk lanset/menyerupai tombak' would read more naturally.",
+      "Section 7: 'ikan pedang (swordtail)' is fine; 'cupang' for bettas is fine, but 'Texas cichlid, red devil, oscar' left in English — consider 'ikan oscar' for clarity.",
+      "Section 7: 'Tempat mencari makan' for 'Foraging place' is slightly awkward; 'tempat mencari pakan' is more usual in the hobby.",
+      "Section 4: 'disinfeksi' is stiff; 'didisinfeksi/dibersihkan dengan larutan disinfektan' reads more naturally.",
+      "Section 3: the source says 'The author recommends'; the neutral passive is fine, but 'tidak kurang dari 40 liter' is OK."
+    ]
+  },
   "rotala-indica-bonsai": {
     "at": "2026-11-06",
     "from": "2026-10-31",
@@ -2084,15 +2097,15 @@
     ]
   },
   "spirodela-polyrrhiza": {
-    "at": "2026-11-06",
-    "from": "2026-10-31",
+    "at": "2026-11-10",
+    "from": "2026-11-10",
     "name": "Giant Duckweed",
     "confidence": "medium",
     "score": 0.9,
     "notes": [
-      "\"aquarist\" is left in English; use \"aquascaper\" or \"penghobi akuarium\" instead.",
-      "\"Daunnya\" for \"fronds\": duckweed has thalli, not true leaves. This is acceptable, but \"talus\" or \"daun\" is fine and not a real error.",
-      "\"Kebutuhan cahaya\": \"Tuntutan cahaya\" is not needed. The current wording is fine."
+      "Item 2: the source is Vietnamese, not English, but the translation is faithful. 'Giant duckweed' is acceptable, though 'Bèo tấm lớn' could also be rendered with the local name 'kiambang/mata lele' where appropriate.",
+      "Item 3: 'aquarist' left in English; 'aquascaper' or 'penghobi akuarium' would be more natural for Indonesian readers.",
+      "Item 3: 'Greater Duckweed' is kept in English with no local name. Consider adding 'mata lele/kiambang raksasa' if that fits the hobby usage."
     ]
   },
   "staurogyne-repens": {

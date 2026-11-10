@@ -18,8 +18,9 @@
       "regions": [
         "Tapajós",
         "Xingu",
+        "Amazon",
         "Tocantins",
-        "Amazon"
+        "Rio Cuiaba"
       ],
       "sources": [
         "glaser",
@@ -27,19 +28,29 @@
       ],
       "quotes": [
         {
-          "source": "glaser",
-          "quote": "Wild catches of H. pulchripinnis from the Rio Cuiaba in the state of Mato Grosso (Brazil) have recently been received.",
+          "source": "seriouslyfish",
+          "quote": "The lemon tetra, Hyphessobrycon pulchripinnis, is a characid from central Brazil, mostly recorded from the rio Tapajós basin.",
           "countries": [
             "BR"
           ],
-          "regions": []
+          "regions": [
+            "Tapajós"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Fish identical to it have been photographed in the lower Xingu, while a related 'orange red' form from the Tapajós may not be the same species.",
+          "countries": [],
+          "regions": [
+            "Xingu"
+          ]
         },
         {
           "source": "glaser",
-          "quote": "Wild catches were hardly ever made and it was not until 1980 that Gery discovered that the home of the lemon tetra is in the lower Amazon basin, more precisely in the middle and lower Tapajós between Itaituba and Jacare Acanga, as well as in streams that flow into the Rio Curua do Sol.",
+          "quote": "Its native habitat was unknown until 1980, although the species was described as early as 1937. The first description was based on aquarium fish imports whose origin was unknown and only vaguely stated as \"probably Amazonas\". Although breeding the fish is not easy (randomly matched pairs often do not spawn, the females have to be brought to spawn at regular intervals so that the spawn remains fertile, etc.), wild catches were hardly ever made and it was not until 1980 that Gery discovered that the home of the lemon tetra is in the lower Amazon basin, more precisely in the middle and lower Tapajós between Itaituba and Jacare Acanga, as well as in streams that flow into the Rio Curua do Sol.",
           "countries": [],
           "regions": [
-            "Tapajós"
+            "Amazon"
           ]
         },
         {
@@ -47,16 +58,15 @@
           "quote": "Other authors also mention the Xingu and the Tocantins.",
           "countries": [],
           "regions": [
-            "Xingu",
             "Tocantins"
           ]
         },
         {
-          "source": "seriouslyfish",
-          "quote": "This species' distribution is somewhat confusing. The type locality is vague (see below), and the majority of subsequent reports pertain to the rio Tapajós basins in central Brazil, one of the primary affluents of the lower Amazon River basin.",
+          "source": "glaser",
+          "quote": "Wild catches of H. pulchripinnis from the Rio Cuiaba in the state of Mato Grosso (Brazil) have recently been received.",
           "countries": [],
           "regions": [
-            "Amazon"
+            "Rio Cuiaba"
           ]
         }
       ]

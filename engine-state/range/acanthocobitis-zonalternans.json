@@ -1,8 +1,8 @@
 {
   "id": "acanthocobitis-zonalternans",
   "native": {
-    "input": "323e0f27a5b53d03",
-    "at": "2026-11-05T22:45:18.315Z",
+    "input": "cf604b01544dce2a",
+    "at": "2026-11-09T23:57:44.132Z",
     "claims": [
       {
         "code": "IN",
@@ -29,11 +29,43 @@
         "ok": true
       },
       {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species' known range extends southwards from the Indian state of Manipur (Brahmaputra River system) through Myanmar (including the Chindwin, Ayeyarwady, Sittaung and Salween River drainages), into western and peninsular Thailand (including the Mae Klong and Tapi Rivers) and possibly mainland Peninsular Malaysia (it was recorded from the Langkawi Islands off the country's western coastline during surveys for a study published in 2006).",
+        "words": "Indian",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species' known range extends southwards from the Indian state of Manipur (Brahmaputra River system) through Myanmar (including the Chindwin, Ayeyarwady, Sittaung and Salween River drainages), into western and peninsular Thailand (including the Mae Klong and Tapi Rivers) and possibly mainland Peninsular Malaysia (it was recorded from the Langkawi Islands off the country's western coastline during surveys for a study published in 2006).",
+        "words": "Myanmar",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species' known range extends southwards from the Indian state of Manipur (Brahmaputra River system) through Myanmar (including the Chindwin, Ayeyarwady, Sittaung and Salween River drainages), into western and peninsular Thailand (including the Mae Klong and Tapi Rivers) and possibly mainland Peninsular Malaysia (it was recorded from the Langkawi Islands off the country's western coastline during surveys for a study published in 2006).",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
         "code": "MY",
         "status": "doubtful",
         "source": "seriouslyfish",
         "quote": "This species' known range extends southwards from the Indian state of Manipur (Brahmaputra River system) through Myanmar (including the Chindwin, Ayeyarwady, Sittaung and Salween River drainages), into western and peninsular Thailand (including the Mae Klong and Tapi Rivers) and possibly mainland Peninsular Malaysia (it was recorded from the Langkawi Islands off the country's western coastline during surveys for a study published in 2006).",
         "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Kottelat (1990) designated a neotype from 'Huai Mae Charno, 4 kilometers south of Amphoe Mae Ramat on road 1085, 16°58'N, 98°34'E, Tak Province, Salween basin, Thailand'.",
+        "words": "Thailand",
         "ok": true
       }
     ],
@@ -46,14 +78,14 @@
         "ok": true
       },
       {
-        "name": "Ayeyarwady",
+        "name": "Salween",
         "source": "seriouslyfish",
         "quote": "This species' known range extends southwards from the Indian state of Manipur (Brahmaputra River system) through Myanmar (including the Chindwin, Ayeyarwady, Sittaung and Salween River drainages), into western and peninsular Thailand (including the Mae Klong and Tapi Rivers) and possibly mainland Peninsular Malaysia (it was recorded from the Langkawi Islands off the country's western coastline during surveys for a study published in 2006).",
         "country": "MM",
         "ok": true
       },
       {
-        "name": "Salween",
+        "name": "Ayeyarwady",
         "source": "seriouslyfish",
         "quote": "This species' known range extends southwards from the Indian state of Manipur (Brahmaputra River system) through Myanmar (including the Chindwin, Ayeyarwady, Sittaung and Salween River drainages), into western and peninsular Thailand (including the Mae Klong and Tapi Rivers) and possibly mainland Peninsular Malaysia (it was recorded from the Langkawi Islands off the country's western coastline during surveys for a study published in 2006).",
         "country": "MM",
@@ -67,14 +99,14 @@
         "ok": true
       },
       {
-        "name": "Mae Klong",
+        "name": "Sittaung",
         "source": "seriouslyfish",
         "quote": "This species' known range extends southwards from the Indian state of Manipur (Brahmaputra River system) through Myanmar (including the Chindwin, Ayeyarwady, Sittaung and Salween River drainages), into western and peninsular Thailand (including the Mae Klong and Tapi Rivers) and possibly mainland Peninsular Malaysia (it was recorded from the Langkawi Islands off the country's western coastline during surveys for a study published in 2006).",
-        "country": "TH",
+        "country": "MM",
         "ok": true
       },
       {
-        "name": "Tapi",
+        "name": "Mae Klong",
         "source": "seriouslyfish",
         "quote": "This species' known range extends southwards from the Indian state of Manipur (Brahmaputra River system) through Myanmar (including the Chindwin, Ayeyarwady, Sittaung and Salween River drainages), into western and peninsular Thailand (including the Mae Klong and Tapi Rivers) and possibly mainland Peninsular Malaysia (it was recorded from the Langkawi Islands off the country's western coastline during surveys for a study published in 2006).",
         "country": "TH",

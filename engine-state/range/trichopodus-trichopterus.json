@@ -1,9 +1,17 @@
 {
   "id": "trichopodus-trichopterus",
   "native": {
-    "input": "e6f036a8a9163cd7",
-    "at": "2026-11-05T19:44:13.099Z",
+    "input": "ca0b699d1d6919b7",
+    "at": "2026-11-09T23:57:44.132Z",
     "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The three-spot gourami, Trichopodus trichopterus, is a labyrinth fish found mostly in the Mekong basin of Southeast Asia and southern China.",
+        "words": "China",
+        "ok": true
+      },
       {
         "code": "CN",
         "status": "native",

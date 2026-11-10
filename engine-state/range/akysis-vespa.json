@@ -1,8 +1,8 @@
 {
   "id": "akysis-vespa",
   "native": {
-    "input": "697e7a1b3c8b1b98",
-    "at": "2026-11-07T02:19:57.912Z",
+    "input": "e9a481b7e129d4ce",
+    "at": "2026-11-09T23:57:44.132Z",
     "claims": [
       {
         "code": "MM",
@@ -54,6 +54,20 @@
       },
       {
         "name": "Ataran",
+        "source": "seriouslyfish",
+        "quote": "Appears endemic to headwaters of the Salween River basin around the border between Myanmar and Thailand, specifically the Megathat Chaung (Megathat stream) in the upper Ataran (known as the Kasat in Thai) drainage in Kayin/Karen State, Myanmar, and Hanthayaw River (Suriya in Thai), Tak Province, Thailand.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Hanthayaw",
+        "source": "seriouslyfish",
+        "quote": "Appears endemic to headwaters of the Salween River basin around the border between Myanmar and Thailand, specifically the Megathat Chaung (Megathat stream) in the upper Ataran (known as the Kasat in Thai) drainage in Kayin/Karen State, Myanmar, and Hanthayaw River (Suriya in Thai), Tak Province, Thailand.",
+        "country": "TH",
+        "ok": true
+      },
+      {
+        "name": "Ataran",
         "source": "scotcat",
         "quote": "Asia: Ataran River drainage in Myanmar.",
         "country": "MM",
@@ -70,7 +84,6 @@
         "name": "Ataran",
         "source": "glaser",
         "quote": "It is known so far only from the upper reaches of the Ataran river in the northern part of Burma.",
-        "country": "MM",
         "ok": true
       }
     ],

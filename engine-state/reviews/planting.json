@@ -224,6 +224,21 @@
       "kept": true
     }
   ],
+  "vi/plants/echinodorus-angustifolia": [
+    {
+      "at": "2026-11-10T00:10:40Z",
+      "model": "opus",
+      "score": 0.8,
+      "notes": [
+        "\"thì cây mới lên tốt\" makes rich substrate or root tabs sound required. The INPUT only says the plant does best (\"phát triển tốt nhất\") with them.",
+        "\"phân nhét quanh gốc\" adds a placement detail (around the base) that the INPUT doesn't give. It only says \"phân viên bón rễ\".",
+        "\"đưa ra hậu cảnh\" is an odd verb choice, since \"ra\" suggests moving forward. \"đặt ở hậu cảnh\" reads more naturally.",
+        "\"lan dần\" goes against the INPUT, which says the plant spreads quickly (\"lan nhanh\")."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/plants/echinodorus-ozelot-green": [
     {
       "at": "2026-11-07T13:38:26Z",
@@ -441,6 +456,19 @@
         "\"khi đó cần châm thêm phân\" makes the source's hedge firmer. The INPUT only says pale leaves \"có thể là dấu hiệu bể cần châm thêm phân\".",
         "\"do trồng cạn kiểu đầm lầy\" adds \"trồng cạn\" and a causal \"do\". The INPUT only says the plants are \"trồng trong điều kiện đầm lầy\". This is minor.",
         "\"thân dài 20–60 cm\" comes from the notes, but the quick facts give the height as \"15 - 30+ cm\". The passage doesn't mention this second figure."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/plants/spirodela-polyrrhiza": [
+    {
+      "at": "2026-11-10T00:10:19Z",
+      "model": "opus",
+      "score": 0.85,
+      "notes": [
+        "\"không phải vùi xuống nền hay buộc vào đâu cả\" is an inference about planting method; the INPUT only gives \"vị trí: thả nổi\" and doesn't say anything about not burying or tying the plant",
+        "\"cho cá bơi bên dưới\" adds a small detail; the INPUT only says it gives shade and shelter for fish"
       ],
       "attempt": "first",
       "kept": true

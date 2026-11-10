@@ -1,10 +1,13 @@
 {
   "slug": "bolovens-plateau",
-  "name": "Bolovens Plateau",
-  "altNames": [],
+  "name": "cao nguyên Bolaven",
+  "altNames": [
+    "Bolovens Plateau"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

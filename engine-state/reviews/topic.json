@@ -2936,6 +2936,44 @@
       "kept": true
     }
   ],
+  "vi/guides/aquatome-cho-ca-sinh-san-giao-phoi-va-cham-ca-con": [
+    {
+      "at": "2026-11-10T01:54:03Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"Lý do là nhớt của bố mẹ có kháng thể, đạm và vi sinh vật có lợi cho cá con trong bốn tuần đầu\" links the survival difference to mucus as a cause. The facts give both points but do not state this causal link.",
+        "\"Mẻ giun vi sinh đã gây sẵn chưa, để kịp cho ăn khi cá bột tự bơi được?\" The facts say to feed infusoria-sized food for the first few days, then microworms. They do not say microworms should be ready by free-swimming."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.93,
+        0.82,
+        0.9
+      ]
+    },
+    {
+      "at": "2026-11-10T01:54:03Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"Một bài báo\" for discus timeline: source 5 is news, so that is acceptable; no issue.",
+        "\"Thay mới lớp thức ăn trong hộp định kỳ để mẻ giun sống lâu\" - the facts only say a refreshed medium lasts up to 3 months at 20°C; the periodic refreshing step is a mild generalisation.",
+        "\"Cá dĩa đẻ trứng\" and \"Cá mái đẻ ra cá bột bơi được ngay\" - 'swim immediately' is not in the facts; the guppy facts only say they drop fry one by one.",
+        "\"Nên cho ăn xen thức ăn khác như giun vi sinh\" - the advice to alternate foods is not in the facts.",
+        "\"Bể càng chật thì cá lớn càng hay ăn con\" - fine, but the heading \"Cá bảy màu không ghép đực mà vẫn đẻ là sao?\" is an unsupported framing, though the sperm storage fact supports the answer.",
+        "\"Cá dĩa xanh\" is called blue discus; the facts say 'blue discus', which is fine. \"Ấp nhân tạo: tách trứng hay cá bột khỏi bố mẹ\" is a definition the facts only give as 'artificial rearing'."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.82,
+        0.85,
+        0.8
+      ]
+    }
+  ],
   "vi/guides/aquatome-chon-da-soi-cat-va-nen-trang-tri-cho-be-thuy-sinh": [
     {
       "at": "2026-11-09T00:18:19Z",
@@ -3156,6 +3194,45 @@
       ],
       "attempt": "recheck",
       "kept": true
+    }
+  ],
+  "vi/guides/aquatome-su-co-may-bom-nuoc-keu-to-giat-cuc-nong-yeu-nhiem-dien-chay": [
+    {
+      "at": "2026-11-10T01:48:04Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"Cắm que tiếp đất vào bể mà không có GFCI\" is listed as a common mistake. The facts only say to plug a ground probe into a GFCI outlet if you use one. They don't list this as a mistake.",
+        "\"Nhà sản xuất dặn chỉ dùng máy bơm trên mạch có GFCI bảo vệ. Ổ cắm thường không ngắt điện khi người bị giật.\" The second sentence comes from the magazine (source 4), but the line reads as if the maker said it.",
+        "\"Đi dép đế cao su khô\" is placed in the immediate-action steps. It is a prevention tip in the facts.",
+        "\"Cá cảnh tiêu hóa sẽ tốn oxy\" and similar wording are fine. But \"Một hướng dẫn nuôi cá liệt kê\" and \"Nhà sản xuất dặn không tự sửa\" apply the maker label correctly. \"Hướng dẫn của máy SuperFish ghi...\" is also supported. The line \"Máy khó khởi động... nên lúc máy tự ngừng chưa chắc là nó đã hỏng\" is an unsupported inference.",
+        "The intro says the pump \"đặt chạm kính\" causes noise. It also gives \"bọt khí kẹt trong ống\" as a cause of noise. The facts say trapped air in the pump, not in the tubing, for noise."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "reads": [
+        0.82,
+        0.82,
+        0.8
+      ]
+    },
+    {
+      "at": "2026-11-10T01:48:04Z",
+      "model": "sonnet",
+      "score": 0.86,
+      "notes": [
+        "\"Phần hỏng nằm ở điện hay mô tơ thì nghe theo nhà sản xuất cho an toàn\" is the guide's own recommendation. The facts only say not to self-repair.",
+        "\"chừa một đoạn võng xuống thấp hơn ổ\" adds a detail about how to shape the drip loop. The facts only say to make a drip loop.",
+        "\"không chờ tới lúc nó hỏng hẳn\" is a mild extrapolation that the facts do not state.",
+        "\"loại CB tự ngắt khi có dòng rò\" is an explanation of ELCB/RCCB. The facts only name them as residual-current breakers."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.9,
+        0.8,
+        0.86
+      ]
     }
   ],
   "vi/guides/aquatome-trung-mo-neo-va-ran-ca-nhan-biet-va-cach-diet": [

@@ -17,7 +17,6 @@
       ],
       "regions": [
         "Lake Acı",
-        "Anatolia",
         "Taurus mountains"
       ],
       "sources": [
@@ -31,8 +30,7 @@
             "TR"
           ],
           "regions": [
-            "Lake Acı",
-            "Anatolia"
+            "Lake Acı"
           ]
         },
         {
@@ -64,6 +62,11 @@
         ]
       ]
     }
+  },
+  "water": {
+    "kind": "brackish",
+    "source": "seriouslyfish",
+    "quote": "Fine-leaved plants such as Java moss or Ceratophyllum can be used but may fail to thrive as the addition of marine salt to the water in the ratio of 1-2 g/L is necessary."
   },
   "dataCard": {
     "ph": [
@@ -209,10 +212,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29",
-  "water": {
-    "kind": "brackish",
-    "source": "seriouslyfish",
-    "quote": "Fine-leaved plants such as Java moss or Ceratophyllum can be used but may fail to thrive as the addition of marine salt to the water in the ratio of 1-2 g/L is necessary."
-  }
+  "updatedAt": "2026-10-29"
 }

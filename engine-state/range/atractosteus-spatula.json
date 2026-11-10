@@ -1,9 +1,25 @@
 {
   "id": "atractosteus-spatula",
   "native": {
-    "input": "b0127a982124e416",
-    "at": "2026-11-05T16:38:28.515Z",
+    "input": "a1c8c3b4873f3b34",
+    "at": "2026-11-09T23:57:44.132Z",
     "claims": [
+      {
+        "code": "US",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The alligator gar, Atractosteus spatula, is a gar from the lower Mississippi basin and Gulf Coast states of the south-eastern USA and Mexico.",
+        "words": "USA",
+        "ok": true
+      },
+      {
+        "code": "MX",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The alligator gar, Atractosteus spatula, is a gar from the lower Mississippi basin and Gulf Coast states of the south-eastern USA and Mexico.",
+        "words": "Mexico",
+        "ok": true
+      },
       {
         "code": "US",
         "status": "native",

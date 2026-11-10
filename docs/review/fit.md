@@ -5,19 +5,19 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution | lethal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 3797 | 3372 | 1536 | 72 | 48 | 199 | 33 | 993 | 456 | 2705 | 469 | 10 | 15 | 0 | 3 | 0 | 3 | 0 |
-| Indonesian | 1136 | 970 | 298 | 19 | 4 | 3 | 5 | 147 | 57 | 46 | 134 | 0 | 0 | 0 | 3 | 0 | 0 | 0 |
-| Thai | 1129 | 964 | 284 | 17 | 4 | 4 | 3 | 131 | 68 | 71 | 121 | 0 | 1 | 0 | 1 | 0 | 0 | 0 |
+| Vietnamese | 3775 | 3353 | 1517 | 72 | 48 | 197 | 33 | 977 | 446 | 2701 | 468 | 10 | 15 | 0 | 3 | 0 | 3 | 0 |
+| Indonesian | 1150 | 984 | 304 | 19 | 4 | 3 | 5 | 153 | 57 | 46 | 134 | 0 | 0 | 0 | 3 | 0 | 0 | 0 |
+| Thai | 1143 | 978 | 289 | 17 | 4 | 4 | 3 | 136 | 68 | 70 | 121 | 0 | 1 | 0 | 1 | 0 | 0 | 0 |
 | Malay | 180 | 138 | 50 | 4 | 1 | 0 | 0 | 22 | 16 | 6 | 16 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 
-Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 10 of 126, Indonesian 2 of 51, Thai 2 of 51, Malay 1 of 17.
+Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 10 of 125, Indonesian 2 of 51, Thai 2 of 51, Malay 1 of 17.
 
 ## Doses on more than one page
 
 Per litre, by what the pages say each is for. A conflict is the same treatment, strength, use and method at rates that can't both be right: flagged, never averaged. A person settles which holds.
 
-- salt — **4 conflicts**: water, unsaid: 10–15 g/l, 10–20 g/l (3 pages); water, wholeTank: 5–10 g/l, 1–3 g/l, 10–15 g/l (10 pages); fungus, unsaid: 1 g/l, 1.364 ml/l, 1–3 g/l (3 pages); other, wholeTank: 1.111–1.667 ml/l, 3.947 ml/l, 1–3 g/l (7 pages); water, other: 15–25 g/l, 0.104 hộp/l (2 pages); bacteria, wholeTank: 1.316 ml/l (1 pages); ich, wholeTank: 1.974 ml/l (1 pages); other, other: 15 ml/l, 5 ml/l, 0.5 ml/l, 30 g/l (5 pages); bacteria, bath: 22.222 g/l (4 pages); parasites, wholeTank: 0.013 cup/l, 0.75 ml/l, 3.2 ml/l (5 pages); finRot, bath: 10 g/l (4 pages); other, unsaid: 1–3 g/l, 17 g/l, 12 g/l, 0.5 ml/l, 1.316 ml/l (5 pages); unsaid, unsaid: 0.5 ml/l (1 pages); fungus, wholeTank: 1–5 g/l, 1–3 g/l, 1.364 ml/l, 2 ml/l, 3.947 ml/l (3 pages); fungus, bath: 30 g/l, 1–5 g/l (4 pages); other, bath: 1–3 g/l (3 pages); snails, dip: 63.158 ml/l, 0.263 cup/l (3 pages); disinfecting, other: 5 ml/l (2 pages); bacteria, unsaid: 7.368 g/l (2 pages); finRot, wholeTank: 1–3 g/l (1 pages); disinfecting, bath: 5 ml/l (1 pages)
-- sea salt: water, wholeTank: 1–2 g/l, 1–3 g/l, 5 ml/l, 5–10 g/l, 0.5–1 ml/l, 3–10 g/l, 15 g/l, 0.5 ml/l, 7.5 ml/l (36 pages); water, unsaid: 1–3 g/l, 5–15 g/l, 10–20 g/l (6 pages); other, wholeTank: 0.1 thìa/l (1 pages); water, other: 30 ml/l, 18.75 ml/l, 7.5 ml/l (6 pages); other, other: 15 ml/l (1 pages); other, unsaid: 1–3 g/l (2 pages)
+- salt — **4 conflicts**: water, unsaid: 10–15 g/l, 10–20 g/l (3 pages); water, wholeTank: 5–10 g/l, 1–3 g/l, 10–15 g/l (10 pages); fungus, unsaid: 1 g/l, 1.364 ml/l, 1–3 g/l (3 pages); other, wholeTank: 1.111–1.667 ml/l, 3.947 ml/l, 1–3 g/l (7 pages); water, other: 15–25 g/l (1 pages); bacteria, wholeTank: 1.316 ml/l (1 pages); ich, wholeTank: 1.974 ml/l (1 pages); other, other: 15 ml/l, 5 ml/l, 0.5 ml/l, 30 g/l (5 pages); bacteria, bath: 22.222 g/l (4 pages); parasites, wholeTank: 0.013 cup/l, 0.75 ml/l, 3.2 ml/l (5 pages); finRot, bath: 10 g/l (4 pages); other, unsaid: 1–3 g/l, 17 g/l, 12 g/l, 0.5 ml/l, 1.316 ml/l (5 pages); unsaid, unsaid: 0.5 ml/l (1 pages); fungus, wholeTank: 1–5 g/l, 1–3 g/l, 1.364 ml/l, 2 ml/l, 3.947 ml/l (3 pages); fungus, bath: 30 g/l, 1–5 g/l (4 pages); other, bath: 1–3 g/l (3 pages); snails, dip: 63.158 ml/l, 0.263 cup/l (3 pages); disinfecting, other: 5 ml/l (2 pages); bacteria, unsaid: 7.368 g/l (2 pages); finRot, wholeTank: 1–3 g/l (1 pages); disinfecting, bath: 5 ml/l (1 pages)
+- sea salt: water, wholeTank: 1–2 g/l, 1–3 g/l, 5 ml/l, 5–10 g/l, 0.5–1 ml/l, 3–10 g/l, 15 g/l, 0.5 ml/l, 18.75 ml/l, 7.5 ml/l (37 pages); water, unsaid: 1–3 g/l, 5–15 g/l, 10–20 g/l (6 pages); other, wholeTank: 0.1 thìa/l (1 pages); water, other: 30 ml/l, 7.5 ml/l (5 pages); other, other: 15 ml/l (1 pages); other, unsaid: 1–3 g/l (2 pages)
 - metronidazole: other, wholeTank: 13 mg/l, 13.158 mg/l, 13.21 mg/l (4 pages); bacteria, wholeTank: 12.5 mg/l (3 pages); parasites, wholeTank: 12.5 mg/l, 0.013 g/l (8 pages); parasites, bath: 6.25 mg/l, 0.05 tablet/l (4 pages); bacteria, unsaid: 12.5 mg/l (1 pages)
 - epsom salt: water, other: 2.5 ml/l (1 pages); other, bath: 0.264 thìa/l, 0.263 sendok/l, 0.263 ช้อน/l, 0.264 sudu/l (4 pages); unsaid, wholeTank: 0.263–0.789 ml/l (1 pages); bacteria, unsaid: 0.263 ml/l (1 pages); other, wholeTank: 0.263–0.789 ml/l, 0.25–0.75 ml/l (3 pages); other, unsaid: 0.263 ml/l, 0.25 ml/l (3 pages)
 - malachite green: ich, wholeTank: 0.132 ml/l (1 pages); fungus, bath: 0.1 mg/l (4 pages); fungus, spot: 100 mg/l (4 pages)

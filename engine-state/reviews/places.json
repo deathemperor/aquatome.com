@@ -393,6 +393,16 @@
       "kept": true
     }
   ],
+  "id/places/armenia": [
+    {
+      "at": "2026-11-10T01:37:16Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/arut": [
     {
       "at": "2026-11-08T05:19:45Z",
@@ -1092,6 +1102,26 @@
       "kept": true
     }
   ],
+  "id/places/bokeo": [
+    {
+      "at": "2026-11-10T01:37:16Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/bolovens-plateau": [
+    {
+      "at": "2026-11-10T01:37:16Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/bondele": [
     {
       "at": "2026-11-06T12:35:53Z",
@@ -1485,6 +1515,16 @@
       "at": "2026-11-06T19:55:55Z",
       "model": "sonnet",
       "score": 0.4,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/cebu": [
+    {
+      "at": "2026-11-10T01:37:16Z",
+      "model": "sonnet",
+      "score": 0.3,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -2040,6 +2080,16 @@
       "kept": true
     }
   ],
+  "id/places/curua-una": [
+    {
+      "at": "2026-11-10T01:37:16Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/cuvette-centrale": [
     {
       "at": "2026-11-06T12:35:46Z",
@@ -2057,6 +2107,18 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/czech-republic": [
+    {
+      "at": "2026-11-10T01:37:16Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "Czech Republic (Indonesian: Republik Ceko; the original here is the English name, though the entry's output is correct; the input side is not an issue)"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -2973,6 +3035,18 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/hungary": [
+    {
+      "at": "2026-11-10T01:37:16Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "Hungary → Hongaria is fine"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -4142,6 +4216,18 @@
       "kept": true
     }
   ],
+  "id/places/kyeintali-chaung": [
+    {
+      "at": "2026-11-10T01:37:16Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "Kyeintali (should be Sungai Kyeintali)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/kyushu": [
     {
       "at": "2026-11-09T18:15:13Z",
@@ -4192,6 +4278,16 @@
       "kept": true
     }
   ],
+  "id/places/lago-do-coari": [
+    {
+      "at": "2026-11-10T01:37:16Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/lago-maracaibo": [
     {
       "at": "2026-11-09T07:33:46Z",
@@ -4200,6 +4296,16 @@
       "notes": [
         "hồ Maracaibo (Vietnamese; Danau Maracaibo correct)"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/lago-maracana": [
+    {
+      "at": "2026-11-10T01:37:16Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -4923,6 +5029,16 @@
       "kept": true
     }
   ],
+  "id/places/lower-congo": [
+    {
+      "at": "2026-11-10T01:37:16Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/lower-congo-river": [
     {
       "at": "2026-11-09T22:55:04Z",
@@ -5006,6 +5122,18 @@
         "sông Mã",
         "sông Madeira",
         "sông Mae Klong"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/ma-river": [
+    {
+      "at": "2026-11-10T01:37:16Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "Mã (should be Sungai Mã)"
       ],
       "attempt": "first",
       "kept": true
@@ -5239,6 +5367,16 @@
       "kept": true
     }
   ],
+  "id/places/maluku": [
+    {
+      "at": "2026-11-10T01:37:16Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/mamoni": [
     {
       "at": "2026-11-06T12:35:46Z",
@@ -5410,6 +5548,16 @@
         "marmore: \"Mamoré\" okay, but source \"Marmoré\" is a misspelling"
       ],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/marquesas-islands": [
+    {
+      "at": "2026-11-10T01:37:16Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -5969,6 +6117,18 @@
       "kept": true
     }
   ],
+  "id/places/naga-river": [
+    {
+      "at": "2026-11-10T01:37:16Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "Naga (should be Sungai Naga)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/nam-khwe-river": [
     {
       "at": "2026-11-08T05:20:55Z",
@@ -6298,6 +6458,16 @@
       "at": "2026-11-09T22:55:04Z",
       "model": "sonnet",
       "score": 0.96,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/normanby-island": [
+    {
+      "at": "2026-11-10T01:37:16Z",
+      "model": "sonnet",
+      "score": 0.3,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -7633,6 +7803,18 @@
       "kept": true
     }
   ],
+  "id/places/rio-doce": [
+    {
+      "at": "2026-11-10T01:37:16Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "Doce (should be Sungai Doce)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/rio-doze-de-outubro": [
     {
       "at": "2026-11-09T07:33:46Z",
@@ -7893,6 +8075,18 @@
       "kept": true
     }
   ],
+  "id/places/rio-jutai": [
+    {
+      "at": "2026-11-10T01:37:17Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "Jutaí (should be Sungai Jutaí)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/rio-la-plata": [
     {
       "at": "2026-11-08T05:21:30Z",
@@ -8029,6 +8223,18 @@
       "model": "sonnet",
       "score": 0.1,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/rio-moju": [
+    {
+      "at": "2026-11-10T01:37:17Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "Moju (should be Sungai Moju)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -8309,6 +8515,18 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/rio-preto-da-eva": [
+    {
+      "at": "2026-11-10T01:37:17Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "Preto da Eva (should be Sungai Preto da Eva)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -8677,6 +8895,16 @@
       "at": "2026-11-08T05:21:30Z",
       "model": "sonnet",
       "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/romania": [
+    {
+      "at": "2026-11-10T01:37:17Z",
+      "model": "sonnet",
+      "score": 0.3,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -9174,6 +9402,16 @@
       "kept": true
     }
   ],
+  "id/places/serbia": [
+    {
+      "at": "2026-11-10T01:37:17Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/sesan": [
     {
       "at": "2026-11-09T07:33:47Z",
@@ -9441,6 +9679,18 @@
         "songkhram (region, in thailand): \"สงคราม\" is Thai script, not Indonesian (should be Songkhram)"
       ],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/songkhram-river": [
+    {
+      "at": "2026-11-10T01:37:17Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "Songkhram-river: สงคราม is Thai script, not Indonesian (should be Sungai Songkhram)"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -10047,6 +10297,16 @@
       "kept": true
     }
   ],
+  "id/places/todos-santos": [
+    {
+      "at": "2026-11-10T01:37:17Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/togo-hills": [
     {
       "at": "2026-11-08T08:48:28Z",
@@ -10286,6 +10546,16 @@
   "id/places/urubu": [
     {
       "at": "2026-11-09T11:45:44Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/uzbekistan": [
+    {
+      "at": "2026-11-10T01:37:17Z",
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
@@ -22016,6 +22286,18 @@
       "kept": true
     }
   ],
+  "th/places/armenia": [
+    {
+      "at": "2026-11-10T01:42:04Z",
+      "model": "sonnet",
+      "score": 0.74,
+      "notes": [
+        "Armenia → อาร์มีเนีย (standard Thai is อาร์เมเนีย)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/aru-islands": [
     {
       "at": "2026-11-06T12:36:07Z",
@@ -22772,6 +23054,26 @@
       "kept": true
     }
   ],
+  "th/places/bokeo": [
+    {
+      "at": "2026-11-10T01:42:04Z",
+      "model": "sonnet",
+      "score": 0.74,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/bolovens-plateau": [
+    {
+      "at": "2026-11-10T01:42:04Z",
+      "model": "sonnet",
+      "score": 0.74,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/bondele": [
     {
       "at": "2026-11-06T12:36:00Z",
@@ -23189,6 +23491,16 @@
       "at": "2026-11-06T20:00:19Z",
       "model": "sonnet",
       "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/cebu": [
+    {
+      "at": "2026-11-10T01:42:04Z",
+      "model": "sonnet",
+      "score": 0.74,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -23793,6 +24105,16 @@
       "kept": true
     }
   ],
+  "th/places/curua-una": [
+    {
+      "at": "2026-11-10T01:42:04Z",
+      "model": "sonnet",
+      "score": 0.74,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/cuvette-centrale": [
     {
       "at": "2026-11-06T12:36:00Z",
@@ -23810,6 +24132,16 @@
       "score": 0.55,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/czech-republic": [
+    {
+      "at": "2026-11-10T01:42:04Z",
+      "model": "sonnet",
+      "score": 0.74,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -24784,6 +25116,16 @@
       "score": 0.72,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/hungary": [
+    {
+      "at": "2026-11-10T01:42:04Z",
+      "model": "sonnet",
+      "score": 0.74,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -26049,6 +26391,16 @@
       "kept": true
     }
   ],
+  "th/places/kyeintali-chaung": [
+    {
+      "at": "2026-11-10T01:42:04Z",
+      "model": "sonnet",
+      "score": 0.74,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/kyrgyzstan": [
     {
       "at": "2026-11-06T12:36:17Z",
@@ -26121,6 +26473,16 @@
       "kept": true
     }
   ],
+  "th/places/lago-do-coari": [
+    {
+      "at": "2026-11-10T01:42:04Z",
+      "model": "sonnet",
+      "score": 0.74,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/lago-maracaibo": [
     {
       "at": "2026-11-09T07:46:38Z",
@@ -26129,6 +26491,16 @@
       "notes": [
         "Many entries are Thai-script transliterations, but several are questionable or incomplete."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/lago-maracana": [
+    {
+      "at": "2026-11-10T01:42:04Z",
+      "model": "sonnet",
+      "score": 0.74,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -26865,6 +27237,16 @@
       "kept": true
     }
   ],
+  "th/places/lower-congo": [
+    {
+      "at": "2026-11-10T01:42:04Z",
+      "model": "sonnet",
+      "score": 0.74,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/lower-congo-river": [
     {
       "at": "2026-11-09T22:57:23Z",
@@ -26940,6 +27322,16 @@
       "at": "2026-11-08T05:28:39Z",
       "model": "sonnet",
       "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/ma-river": [
+    {
+      "at": "2026-11-10T01:42:04Z",
+      "model": "sonnet",
+      "score": 0.74,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -27199,6 +27591,16 @@
       "kept": true
     }
   ],
+  "th/places/maluku": [
+    {
+      "at": "2026-11-10T01:42:04Z",
+      "model": "sonnet",
+      "score": 0.74,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/mamoni": [
     {
       "at": "2026-11-06T12:36:07Z",
@@ -27356,6 +27758,16 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/marquesas-islands": [
+    {
+      "at": "2026-11-10T01:42:04Z",
+      "model": "sonnet",
+      "score": 0.74,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -27948,6 +28360,16 @@
       "kept": true
     }
   ],
+  "th/places/naga-river": [
+    {
+      "at": "2026-11-10T01:42:04Z",
+      "model": "sonnet",
+      "score": 0.74,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/nakhon-si-thammarat": [
     {
       "at": "2026-11-06T12:36:17Z",
@@ -28359,6 +28781,16 @@
       "at": "2026-11-09T22:57:23Z",
       "model": "sonnet",
       "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/normanby-island": [
+    {
+      "at": "2026-11-10T01:42:04Z",
+      "model": "sonnet",
+      "score": 0.74,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -29751,6 +30183,16 @@
       "kept": true
     }
   ],
+  "th/places/rio-doce": [
+    {
+      "at": "2026-11-10T01:42:05Z",
+      "model": "sonnet",
+      "score": 0.74,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/rio-doze-de-outubro": [
     {
       "at": "2026-11-09T07:46:38Z",
@@ -30029,6 +30471,16 @@
       "kept": true
     }
   ],
+  "th/places/rio-jutai": [
+    {
+      "at": "2026-11-10T01:42:05Z",
+      "model": "sonnet",
+      "score": 0.74,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/rio-la-plata": [
     {
       "at": "2026-11-08T05:29:24Z",
@@ -30174,6 +30626,16 @@
       "at": "2026-11-08T05:29:24Z",
       "model": "sonnet",
       "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/rio-moju": [
+    {
+      "at": "2026-11-10T01:42:05Z",
+      "model": "sonnet",
+      "score": 0.74,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -30467,6 +30929,16 @@
       "at": "2026-11-09T00:10:26Z",
       "model": "sonnet",
       "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/rio-preto-da-eva": [
+    {
+      "at": "2026-11-10T01:42:05Z",
+      "model": "sonnet",
+      "score": 0.74,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -30901,6 +31373,16 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/romania": [
+    {
+      "at": "2026-11-10T01:42:05Z",
+      "model": "sonnet",
+      "score": 0.74,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -31412,6 +31894,16 @@
       "kept": true
     }
   ],
+  "th/places/serbia": [
+    {
+      "at": "2026-11-10T01:42:05Z",
+      "model": "sonnet",
+      "score": 0.74,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/sesan": [
     {
       "at": "2026-11-09T07:46:38Z",
@@ -31698,6 +32190,16 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/songkhram-river": [
+    {
+      "at": "2026-11-10T01:42:05Z",
+      "model": "sonnet",
+      "score": 0.74,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -32270,6 +32772,16 @@
       "kept": true
     }
   ],
+  "th/places/thua-thien-hue": [
+    {
+      "at": "2026-11-10T01:42:05Z",
+      "model": "sonnet",
+      "score": 0.74,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/thumbi-west-island": [
     {
       "at": "2026-11-08T05:30:02Z",
@@ -32362,6 +32874,16 @@
       "notes": [
         "tocantins-river: โตกังชีส (standard โตกันตินส์)"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/todos-santos": [
+    {
+      "at": "2026-11-10T01:42:05Z",
+      "model": "sonnet",
+      "score": 0.74,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -32609,6 +33131,16 @@
       "at": "2026-11-09T11:49:05Z",
       "model": "sonnet",
       "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/uzbekistan": [
+    {
+      "at": "2026-11-10T01:42:05Z",
+      "model": "sonnet",
+      "score": 0.74,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -34900,12 +35432,34 @@
       "kept": true
     }
   ],
+  "vi/places/bokeo": [
+    {
+      "at": "2026-11-10T01:34:31Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/boldaji": [
     {
       "at": "2026-11-07T20:33:13Z",
       "model": "sonnet",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/bolovens-plateau": [
+    {
+      "at": "2026-11-10T01:34:31Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [
+        "No problems found. 'quần đảo Marquises' uses the French spelling, which Vietnamese sources use. 'cao nguyên Bolaven' and 'đảo Chu Sơn' are names Vietnamese readers use. In the other entries only the generic word is put into Vietnamese."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -35434,6 +35988,16 @@
       "kept": true
     }
   ],
+  "vi/places/cebu": [
+    {
+      "at": "2026-11-10T01:34:31Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/central-kalimantan": [
     {
       "at": "2026-11-07T20:33:13Z",
@@ -35791,6 +36355,18 @@
       "notes": [
         "None of the names is wrong.",
         "All the other names keep the source's spelling, which is how Vietnamese writes foreign place names."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/chusan-island": [
+    {
+      "at": "2026-11-10T01:34:31Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [
+        "No problems found. 'quần đảo Marquises' uses the French spelling, which Vietnamese sources use. 'cao nguyên Bolaven' and 'đảo Chu Sơn' are names Vietnamese readers use. In the other entries only the generic word is put into Vietnamese."
       ],
       "attempt": "first",
       "kept": true
@@ -36171,6 +36747,16 @@
       "at": "2026-11-08T05:15:07Z",
       "model": "sonnet",
       "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/curua-una": [
+    {
+      "at": "2026-11-10T01:34:31Z",
+      "model": "sonnet",
+      "score": 0.96,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -39219,6 +39805,16 @@
       "kept": true
     }
   ],
+  "vi/places/kyeintali-chaung": [
+    {
+      "at": "2026-11-10T01:34:31Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/kyushu": [
     {
       "at": "2026-11-09T18:14:05Z",
@@ -39287,6 +39883,16 @@
       "kept": true
     }
   ],
+  "vi/places/lago-do-coari": [
+    {
+      "at": "2026-11-10T01:34:32Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/lago-maracaibo": [
     {
       "at": "2026-11-09T07:28:43Z",
@@ -39295,6 +39901,16 @@
       "notes": [
         "No wrong places found. Generic words are put into Vietnamese correctly: sông (river), vịnh (bay), hồ (lake), đảo (island). Proper names keep the source spelling."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/lago-maracana": [
+    {
+      "at": "2026-11-10T01:34:32Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -40422,6 +41038,16 @@
       "kept": true
     }
   ],
+  "vi/places/lower-congo": [
+    {
+      "at": "2026-11-10T01:34:32Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/lower-congo-river": [
     {
       "at": "2026-11-09T22:53:55Z",
@@ -40523,6 +41149,16 @@
         "\"sông Tapi\" for Maenam Tapi is fine because 'Maenam' means river in Thai. \"sông Luo Suo\" is fine because 'Jiang' means river in Chinese.",
         "\"Lam\" and \"Mã\" are probably the Lam and Mã rivers. Their sources have no generic word, so leaving out 'sông' is acceptable."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/ma-river": [
+    {
+      "at": "2026-11-10T01:34:32Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -40851,6 +41487,16 @@
       "kept": true
     }
   ],
+  "vi/places/maluku": [
+    {
+      "at": "2026-11-10T01:34:32Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/mamberamo": [
     {
       "at": "2026-11-07T20:36:52Z",
@@ -41117,6 +41763,18 @@
       "model": "sonnet",
       "score": 0.72,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/marquesas-islands": [
+    {
+      "at": "2026-11-10T01:34:32Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [
+        "No problems found. 'quần đảo Marquises' uses the French spelling, which Vietnamese sources use. 'cao nguyên Bolaven' and 'đảo Chu Sơn' are names Vietnamese readers use. In the other entries only the generic word is put into Vietnamese."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -41924,6 +42582,16 @@
       "kept": true
     }
   ],
+  "vi/places/naga-river": [
+    {
+      "at": "2026-11-10T01:34:32Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/nakdong": [
     {
       "at": "2026-11-07T20:36:54Z",
@@ -42484,6 +43152,16 @@
       "at": "2026-11-09T22:53:55Z",
       "model": "sonnet",
       "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/normanby-island": [
+    {
+      "at": "2026-11-10T01:34:32Z",
+      "model": "sonnet",
+      "score": 0.96,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -44391,6 +45069,16 @@
       "kept": true
     }
   ],
+  "vi/places/rio-doce": [
+    {
+      "at": "2026-11-10T01:34:32Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/rio-doze-de-outubro": [
     {
       "at": "2026-11-09T07:28:43Z",
@@ -44702,6 +45390,16 @@
       "kept": true
     }
   ],
+  "vi/places/rio-jutai": [
+    {
+      "at": "2026-11-10T01:34:32Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/rio-la-plata": [
     {
       "at": "2026-11-08T05:15:07Z",
@@ -44871,6 +45569,16 @@
       "at": "2026-11-07T20:38:47Z",
       "model": "sonnet",
       "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/rio-moju": [
+    {
+      "at": "2026-11-10T01:34:32Z",
+      "model": "sonnet",
+      "score": 0.96,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -45261,6 +45969,16 @@
       "notes": [
         "All 50 names point to the right place. None is a literal word-by-word translation, and none leaves a generic word in another language."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/rio-preto-da-eva": [
+    {
+      "at": "2026-11-10T01:34:32Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -46996,6 +47714,16 @@
       "kept": true
     }
   ],
+  "vi/places/songkhram-river": [
+    {
+      "at": "2026-11-10T01:34:32Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/south-kalimantan": [
     {
       "at": "2026-11-07T20:40:25Z",
@@ -47780,6 +48508,16 @@
       "kept": true
     }
   ],
+  "vi/places/thua-thien-hue": [
+    {
+      "at": "2026-11-10T01:34:32Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/thumbi-west-island": [
     {
       "at": "2026-11-08T05:15:07Z",
@@ -47909,6 +48647,16 @@
       "at": "2026-11-07T20:41:16Z",
       "model": "sonnet",
       "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/todos-santos": [
+    {
+      "at": "2026-11-10T01:34:32Z",
+      "model": "sonnet",
+      "score": 0.96,
       "notes": [],
       "attempt": "first",
       "kept": true

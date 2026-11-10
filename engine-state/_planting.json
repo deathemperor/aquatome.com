@@ -122,6 +122,11 @@
     "at": "2026-11-08",
     "kept": false
   },
+  "echinodorus-angustifolia": {
+    "at": "2026-11-10",
+    "score": 0.8,
+    "kept": true
+  },
   "echinodorus-aquartica": {
     "at": "2026-11-09",
     "kept": false
@@ -228,6 +233,10 @@
     "at": "2026-11-09",
     "score": 0.9,
     "kept": true
+  },
+  "hygrophila-serpyllum": {
+    "at": "2026-11-10",
+    "kept": false
   },
   "lagenandra-meeboldii": {
     "at": "2026-11-08",
@@ -337,10 +346,19 @@
     "at": "2026-11-09",
     "kept": false
   },
+  "spirodela-polyrrhiza": {
+    "at": "2026-11-10",
+    "score": 0.85,
+    "kept": true
+  },
   "utricularia-graminifolia": {
     "at": "2026-11-09",
     "score": 0.85,
     "kept": true
+  },
+  "vallisneria": {
+    "at": "2026-11-10",
+    "kept": false
   },
   "vallisneria-sp-gigantea": {
     "at": "2026-11-08",

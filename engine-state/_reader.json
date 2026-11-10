@@ -654,6 +654,22 @@
     "findings": [],
     "ruled": "9f83402c5fbb88ca"
   },
+  "vi/guides/2hraquarist-blogs-aquascaping-ideas-dutch-style-mc": {
+    "at": "2026-11-10",
+    "hash": "73b5b17660eb229a",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "còn hậu cảnh là các loại cây thân dài mọc cao",
+        "problem": "Source says 'stem plants', and Vietnamese hobbyists call these 'cây cắt cắm', not 'cây thân dài'.",
+        "fix": "còn hậu cảnh là cây cắt cắm mọc cao",
+        "field": "body"
+      }
+    ],
+    "ruled": "73b5b17660eb229a"
+  },
   "vi/guides/2hraquarist-blogs-aquascaping-ideas-fernando-ferreira": {
     "at": "2026-11-09",
     "hash": "1e7d79ef8f11362a",
@@ -1223,6 +1239,23 @@
       }
     ],
     "ruled": "4468ab7ceaa2bc3d"
+  },
+  "vi/guides/aquariumbreeder-fiddler-crab-tank-setup": {
+    "at": "2026-11-10",
+    "hash": "ff2d9f720baa101e",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "4.5. Nuôi cua vĩ cầm trong bể không nền",
+        "problem": "The Step 4 sub-sections go from 4.3 to 4.5, so 4.4 is missing.",
+        "fix": "4.4. Nuôi cua vĩ cầm trong bể không nền (và đánh lại 4.6 → 4.5, 4.7 → 4.6)",
+        "rule": "Numbered sub-headings under one step that skip a number in sequence.",
+        "field": "body"
+      }
+    ],
+    "ruled": "ff2d9f720baa101e"
   },
   "vi/guides/aquariumbreeder-filter-and-or-protein-skimmer-do-i-need-both": {
     "at": "2026-11-08",
@@ -1911,6 +1944,32 @@
       }
     ],
     "ruled": "3c73e3d78a838e2b"
+  },
+  "vi/guides/aquariumbreeder-new-tank-syndrome": {
+    "at": "2026-11-10",
+    "hash": "8f1c582e8e604239",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "## 1. Thay hết vật liệu lọc một lần",
+        "problem": "The three numbered causes are subsections of the mini-cycle section in the source, but here they are headings at the same level as their parent. Because of that, the next section, 'Xử lý hội chứng bể mới…', reads like it belongs in the same list.",
+        "fix": "### 1. Thay hết vật liệu lọc một lần",
+        "rule": "Numbered headings that come right after a heading ending a list intro (e.g. 'nguyên nhân hay gặp:') sit at the same level as that parent heading.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Không chỉ bể mới thiết lập mới dễ bị hội chứng bể mới.",
+        "problem": "'mới' appears three times in this short sentence, which makes it awkward to read.",
+        "fix": "Không riêng bể mới set mới dễ bị hội chứng bể mới.",
+        "field": "body"
+      }
+    ],
+    "ruled": "8f1c582e8e604239"
   },
   "vi/guides/aquariumbreeder-optimize-your-biofilter-a-guide-to-ideal-biological-filtration": {
     "at": "2026-11-07",
@@ -4259,6 +4318,12 @@
     "findings": [],
     "ruled": "1d7f257433422938"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-how-to-choose-aquarium-plants": {
+    "at": "2026-11-10",
+    "hash": "c2d391552d13574c",
+    "findings": [],
+    "ruled": "c2d391552d13574c"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-how-to-choose-the-right-aquarium-heater": {
     "at": "2026-11-01",
     "hash": "cb58436f0241c8ab",
@@ -4849,6 +4914,12 @@
     ],
     "ruled": "93f8a5240c0c20e2"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-potassium-fertilizer": {
+    "at": "2026-11-10",
+    "hash": "4e9ca73e44e03409",
+    "findings": [],
+    "ruled": "4e9ca73e44e03409"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-pothos": {
     "at": "2026-11-02",
     "hash": "15cc566a47fef903",
@@ -4956,6 +5027,31 @@
     "findings": [],
     "ruled": "d387331bc37093c1"
   },
+  "vi/guides/aquariumcoop-blogs-aquarium-refresh-your-aquarium-and-passion-for-the-hobby": {
+    "at": "2026-11-10",
+    "hash": "7060b58b993d1d2d",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "nhìn thấy con bảy màu con đầu tiên",
+        "problem": "The doubled 'con' reads clumsily and makes the reader stumble.",
+        "fix": "nhìn thấy chú cá bảy màu con đầu tiên",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Nhân nói tới mạng, cũng phải nhắc tới mạng xã hội.",
+        "problem": "'Nhân nói tới mạng' refers back to an earlier mention of the internet, but the paragraph before it is about CO2 and misting devices, so the link is lost.",
+        "fix": "Cũng nên nhắc tới mạng xã hội.",
+        "field": "body"
+      }
+    ],
+    "ruled": "7060b58b993d1d2d"
+  },
   "vi/guides/aquariumcoop-blogs-aquarium-repashy-gel-fish-food": {
     "at": "2026-11-02",
     "hash": "0728e1be6e3e4af3",
@@ -5027,6 +5123,31 @@
     "hash": "11b5937ecdb5f045",
     "findings": [],
     "ruled": "11b5937ecdb5f045"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-selecting-the-right-algae-eater-for-your-aquarium": {
+    "at": "2026-11-10",
+    "hash": "31d1c5901a101b78",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Chúng giữ một việc quan trọng trong hệ sinh thái của bể",
+        "problem": "This is a word-for-word rendering of \"serving a vital purpose\" and reads stiff in Vietnamese.",
+        "fix": "Trong bể, chúng lo phần dọn rêu",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "thả đúng đội dọn bể thì rất đáng công!",
+        "problem": "\"Đội dọn bể\" is a literal translation of the English idiom \"clean up crew\". Vietnamese hobbyists don't say it.",
+        "fix": "chọn đúng cá, tép, ốc ăn rêu cho bể thì rất đáng công!",
+        "field": "body"
+      }
+    ],
+    "ruled": "31d1c5901a101b78"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-shell-dwellers": {
     "at": "2026-11-05",
@@ -5686,6 +5807,31 @@
       }
     ],
     "ruled": "83ad404b094d1a16"
+  },
+  "vi/guides/aquariumcoop-blogs-aquarium-undergravel-filters-classic-simple-filtration": {
+    "at": "2026-11-10",
+    "hash": "2a663464f9371d6f",
+    "findings": [
+      {
+        "kind": "caption",
+        "severity": "low",
+        "part": "C1",
+        "quote": "Undergravel Filters: Classic Simple Filtration - Aquarium Co-Op",
+        "problem": "The caption is just the source article's title and says nothing about what the photo shows.",
+        "rule": "A caption that is the same as the source article title plus the site name.",
+        "field": "caption"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "cứ chỉnh nó tới đúng chỗ muốn để sau khi đã xếp đá, lũa",
+        "problem": "The phrase is awkward and hard to parse; it reads as a word-for-word rendering of 'the location you want it to stay in after your hardscape is installed'.",
+        "fix": "cứ chỉnh nó tới chỗ muốn đặt ống, tính luôn chỗ đá, lũa sẽ xếp sau này.",
+        "field": "body"
+      }
+    ],
+    "ruled": "2a663464f9371d6f"
   },
   "vi/guides/aquariumcoop-blogs-aquarium-underrated-fish": {
     "at": "2026-11-09",
@@ -7687,6 +7833,62 @@
     "hash": "b7bcedd4371c9759",
     "findings": [],
     "ruled": "b7bcedd4371c9759"
+  },
+  "vi/guides/glaser-en-25-perchlike-fishes-25d-perchlike-fishes-4-south-american-dwarf-cichlids-biotoecus-special-en": {
+    "at": "2026-11-10",
+    "hash": "4f78f5ee78410600",
+    "findings": [],
+    "ruled": "4f78f5ee78410600"
+  },
+  "vi/guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-bred-cichla-from-southeast-asia-en": {
+    "at": "2026-11-10",
+    "hash": "10ae40af5d99907c",
+    "findings": [],
+    "ruled": "10ae40af5d99907c"
+  },
+  "vi/guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-brown-red-discus-madeira-nova-olinda-do-norte-en": {
+    "at": "2026-11-10",
+    "hash": "efd7d2d4edc61a50",
+    "findings": [
+      {
+        "kind": "unsupported",
+        "severity": "low",
+        "part": "P1",
+        "quote": "cá đĩa Madeira đã nổi tiếng là con nào cũng nhiều màu đỏ",
+        "problem": "The source says Madeira discus are famous for a high degree of red colour. It does not say every fish has it.",
+        "fix": "Từ mấy chục năm nay, cá đĩa Madeira đã nổi tiếng là có nhiều màu đỏ.",
+        "field": "body"
+      }
+    ],
+    "ruled": "efd7d2d4edc61a50"
+  },
+  "vi/guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-chanchitos": {
+    "at": "2026-11-10",
+    "hash": "cec9d57fd5604557",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Australoheros scitulus là một loài chanchito đẹp, cá có từ một trại ở Đức.",
+        "problem": "The phrase \"cá có từ một trại\" is awkward Vietnamese, since \"có từ\" reads as \"has existed since\" rather than \"came from\".",
+        "fix": "Australoheros scitulus là một loài chanchito đẹp, lấy về từ một trại ở Đức.",
+        "field": "body"
+      }
+    ],
+    "ruled": "cec9d57fd5604557"
+  },
+  "vi/guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-thorichthys-week-at-aquarium-glaser-en": {
+    "at": "2026-11-10",
+    "hash": "8b848fe0f581a913",
+    "findings": [],
+    "ruled": "8b848fe0f581a913"
+  },
+  "vi/guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-wild-collected-oscars-from-brazil-en": {
+    "at": "2026-11-10",
+    "hash": "9a34ae26f1da2cce",
+    "findings": [],
+    "ruled": "9a34ae26f1da2cce"
   },
   "vi/guides/glaser-en-fisharchive-black-winged-dwarf-hatchets-carnegiella-marthae-and-c-schereri": {
     "at": "2026-11-03",
@@ -11148,6 +11350,22 @@
     "findings": [],
     "ruled": "4c8ea9eef96827fe"
   },
+  "vi/guides/youtube--e-b2H4-mu8": {
+    "at": "2026-11-10",
+    "hash": "0de266b2de3c2814",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "low",
+        "part": "L12",
+        "quote": "thay bằng đầu vòi loe cỡ 2 cm",
+        "problem": "The FAQ gives the nozzle as 2 cm while the body says 1.9 cm.",
+        "fix": "thay bằng đầu vòi loe cỡ 1,9 cm",
+        "field": "faq.2.a"
+      }
+    ],
+    "ruled": "0de266b2de3c2814"
+  },
   "vi/guides/youtube--MG8jX9LOvI": {
     "at": "2026-11-07",
     "hash": "d9e604d6f7a869e4",
@@ -11542,6 +11760,12 @@
       }
     ],
     "ruled": "ecd88a93367ce2b2"
+  },
+  "vi/guides/youtube-3XYr9e7ZTlc": {
+    "at": "2026-11-10",
+    "hash": "b84d8c547d18a297",
+    "findings": [],
+    "ruled": "b84d8c547d18a297"
   },
   "vi/guides/youtube-43bSNzlX9Fo": {
     "at": "2026-11-05",
@@ -12132,6 +12356,22 @@
     "hash": "550bb6b4da088585",
     "findings": [],
     "ruled": "550bb6b4da088585"
+  },
+  "vi/guides/youtube-9aQBGpWbxBA": {
+    "at": "2026-11-10",
+    "hash": "0e34c9f47da5182c",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Lắp máy bơm và bộ điều khiển ở đầu kia của đường ống, dưới sump.",
+        "problem": "\"dưới sump\" reads as underneath the sump, but the pump sits inside the sump under the cabinet.",
+        "fix": "Lắp máy bơm và bộ điều khiển ở đầu kia của đường ống, trong sump dưới tủ.",
+        "field": "body"
+      }
+    ],
+    "ruled": "0e34c9f47da5182c"
   },
   "vi/guides/youtube-9i-EoBCBWR8": {
     "at": "2026-11-06",
@@ -13716,6 +13956,28 @@
     "hash": "57caea994c9cae49",
     "findings": [],
     "ruled": "57caea994c9cae49"
+  },
+  "vi/guides/youtube-fXiFGMTtUyk": {
+    "at": "2026-11-10",
+    "hash": "bd0080969595f9bb",
+    "findings": [],
+    "ruled": "bd0080969595f9bb"
+  },
+  "vi/guides/youtube-G4qC-5UEEWo": {
+    "at": "2026-11-10",
+    "hash": "7c9ce1ce48c94d2b",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "bơi uyển chuyển và khá thân người",
+        "problem": "\"Thân người\" is not a natural Vietnamese way to say a fish is friendly with people. Hobbyists say \"dạn người\" or \"quen người\".",
+        "fix": "bơi uyển chuyển và khá dạn người",
+        "field": "body"
+      }
+    ],
+    "ruled": "7c9ce1ce48c94d2b"
   },
   "vi/guides/youtube-g6kNBCl1hl0": {
     "at": "2026-11-04",
@@ -15550,6 +15812,12 @@
       }
     ],
     "ruled": "bd5d15dd19edd53f"
+  },
+  "vi/guides/youtube-MhBjnxcrRMg": {
+    "at": "2026-11-10",
+    "hash": "53211983a519b3c9",
+    "findings": [],
+    "ruled": "53211983a519b3c9"
   },
   "vi/guides/youtube-MJ3fqxhMmxE": {
     "at": "2026-11-08",

@@ -1,8 +1,8 @@
 {
   "id": "aphyosemion-elberti",
   "native": {
-    "input": "93298b2dfac7289f",
-    "at": "2026-11-06T09:17:06.855Z",
+    "input": "d99ccab96a15ac2d",
+    "at": "2026-11-09T23:57:44.132Z",
     "claims": [
       {
         "code": "CM",
@@ -49,7 +49,7 @@
       {
         "name": "Sanaga",
         "source": "seriouslyfish",
-        "quote": "Its range follows the Sanaga River system across Cameroon.",
+        "quote": "This species' range is currently understood to extend from eastern Nigeria across central Cameroon (via the Sanaga River system of which the Mbam is a tributary) and across the border into Central African Republic (upper Mambéré basin).",
         "country": "CM",
         "ok": true
       },
@@ -57,13 +57,6 @@
         "name": "Mambéré",
         "source": "seriouslyfish",
         "quote": "The red-barred lyretail, Aphyosemion elberti, is a killifish from central Cameroon and the upper Mambéré basin in the Central African Republic.",
-        "country": "CF",
-        "ok": true
-      },
-      {
-        "name": "Lebo River",
-        "source": "seriouslyfish",
-        "quote": "It was described from 'Jade Plateau, Cameroon', this apparently corresponding to the Lebo River which lies in what is now the Central African Republic and presumably forms part of the Mambéré headwaters.",
         "country": "CF",
         "ok": true
       }

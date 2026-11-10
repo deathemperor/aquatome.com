@@ -1,8 +1,8 @@
 {
   "id": "agamyxis-pectinifrons",
   "native": {
-    "input": "fa01e9df7456e27d",
-    "at": "2026-11-05T16:38:28.515Z",
+    "input": "8f516399cebec735",
+    "at": "2026-11-09T23:57:44.132Z",
     "claims": [
       {
         "code": "BO",
@@ -35,6 +35,14 @@
         "quote": "The spotted talking catfish, Agamyxis pectinifrons, is a doradid catfish from the Amazon basin in Bolivia, Brazil, Colombia and Peru.",
         "words": "Peru",
         "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "The type locality is given as 'Pebas, Equador' by Cope (1870), but this apparently refers to the settlement of the same name located east of the city of Iquitos in Loreto Region, northern Peru, an area once disputably claimed by Ecuador.",
+        "words": "Ecuador",
+        "ok": true
       }
     ],
     "regions": [
@@ -42,6 +50,18 @@
         "name": "Amazon",
         "source": "seriouslyfish",
         "quote": "The spotted talking catfish, Agamyxis pectinifrons, is a doradid catfish from the Amazon basin in Bolivia, Brazil, Colombia and Peru.",
+        "ok": true
+      },
+      {
+        "name": "Marañon",
+        "source": "seriouslyfish",
+        "quote": "The whitewater Caño Yarina, a tributary of the Río Pacaya located close to the confluence of the ríos Marañon and Ucayali represents a typical biotope.",
+        "ok": true
+      },
+      {
+        "name": "Ucayali",
+        "source": "seriouslyfish",
+        "quote": "The whitewater Caño Yarina, a tributary of the Río Pacaya located close to the confluence of the ríos Marañon and Ucayali represents a typical biotope.",
         "ok": true
       },
       {

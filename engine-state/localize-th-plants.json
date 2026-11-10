@@ -737,15 +737,12 @@
     ]
   },
   "echinodorus-angustifolia": {
-    "at": "2026-10-30",
-    "from": "2026-10-29",
-    "name": "อิคิโนโดรัส วิซูเวียส",
+    "at": "2026-11-10",
+    "from": "2026-11-10",
+    "name": "อิชิโนโดรัส วิซูเวียส",
     "confidence": "medium",
     "score": 0.9,
-    "notes": [
-      "\"สาหร่ายริบบิ้น\" for vallisneria: Thai hobbyists more commonly write \"วาลิสเนเรีย\" or \"สาหร่ายหางหมา/หางไหม\"; consider giving the Latin name in brackets once.",
-      "\"ไม้น้ำกลุ่มอเมซอน\" for \"sword plant\": consider \"ไม้น้ำกลุ่มอเมซอนซอร์ด (sword plant)\" to keep the source term."
-    ]
+    "notes": []
   },
   "echinodorus-aquartica": {
     "at": "2026-10-30",
@@ -1889,6 +1886,25 @@
     "score": 0.9,
     "notes": []
   },
+  "rotala-indica": {
+    "at": "2026-11-10",
+    "from": "2026-11-09",
+    "name": "โรทาล่า อินดิก้า",
+    "confidence": "medium",
+    "score": 0.6,
+    "notes": [
+      "Section 3: 'The author recommends a tank of no less than 40 litres' is rendered as a bare 'แนะนำให้ใช้ตู้...'. This is fine, but check the neutral phrasing.",
+      "Section 4: 'ดูแลไม่ยากถึงปานกลาง' mistranslates 'low to moderate care demands'. Use 'ต้องการการดูแลน้อยถึงปานกลาง'.",
+      "Section 4: 'Chlorosis' is rendered as 'อาการใบเหลือง' and then 'ขาดไนโตรเจน และค่า pH เป็นกรดหรือด่างมากเกินไป'. The wording is OK, but 'คนหรือปัดกอต้น ... ช้อนออก' is awkward. Consider 'ใช้มือโบกเบา ๆ'.",
+      "Section 7: 'Anacharis' is rendered 'สาเหตุ สาหร่ายหางกระรอก' and 'Amano shrimp' as 'กุ้งยามาโตะ'. Both are acceptable. However, 'harlequin rasbora' → 'ปลาซิวฮาร์เลควิน' and 'zebra danio' → 'ปลาม้าลาย' are fine.",
+      "Section 7: 'Texas cichlids' → 'ปลาเท็กซัส' is an unclear term. Use 'ปลาหมอเท็กซัส'. 'Jack Dempsey' is rendered 'ปลาแจ็คเดมป์ซีย์', which is acceptable.",
+      "Section 7: 'spike inflorescence' → 'ช่อเชิงเดี่ยว' is an incorrect botanical term. A spike is 'ช่อดอกแบบช่อเชิงลด'.",
+      "Section 7: 'freshwater crayfish' is rendered 'กุ้งเครย์ฟิช', which is acceptable. 'Pygmy corydoras' → 'ปลาคอรี่แคระ' is fine.",
+      "Section 7 table: 'Smaller (up to 20+ cm)' → 'ได้ถึง 20 ซม. ขึ้นไป' is acceptable. The 'Benefits' item 'Oxygenation' is fine.",
+      "Section 1: 'Fertilizers: not needed to low' → 'ไม่จำเป็นถึงต้องการเล็กน้อย' is awkward. Use 'ไม่จำเป็นถึงใช้น้อย'.",
+      "Section 5: 'keep it at 2–12 °dGH' has an added '(GH)' clarification. This is minor."
+    ]
+  },
   "rotala-indica-bonsai": {
     "at": "2026-11-06",
     "from": "2026-10-31",
@@ -2038,15 +2054,16 @@
     ]
   },
   "spirodela-polyrrhiza": {
-    "at": "2026-11-06",
-    "from": "2026-10-31",
+    "at": "2026-11-10",
+    "from": "2026-11-10",
     "name": "แหนใหญ่",
     "confidence": "medium",
-    "score": 0.85,
+    "score": 0.75,
     "notes": [
-      "\"แหนใหญ่\" is acceptable, but Spirodela polyrrhiza is more commonly called \"แหนเป็ดใหญ่\" or \"จอกหูหนูใหญ่\" by Thai hobbyists; consider checking the common name.",
-      "\"ตักออกเป็นประจำ\" for \"regular thinning\" is fine, but \"ตักออกบางส่วนเป็นประจำ\" would be clearer that only some are removed.",
-      "\"fronds\" translated as \"แผ่นใบ\" is slightly awkward; \"ใบ\" or \"แผ่นใบเล็ก\" would read more naturally."
+      "Item 1: \"หลังเลี้ยงในตู้ปลาได้สองเดือน\" is slightly awkward; more natural: \"หลังปลูกในตู้ครบสองเดือน\".",
+      "Item 2: The English original is missing: the source is Vietnamese, not English. The Thai is faithful, though; \"แหนใหญ่\" is acceptable. Consider adding \"(Greater Duckweed)\" or the Latin name for clarity.",
+      "Item 3: \"ใบกลมเล็กสีเขียว\" for \"fronds\" is fine, but \"ใช้งานได้หลากหลาย\" for \"versatile\" is a literal, slightly stiff rendering. Prefer a more natural phrasing such as \"ใช้ประโยชน์ได้หลายอย่าง\".",
+      "Item 3: \"การที่โตเร็วช่วยให้ดูดซับธาตุอาหารได้มาก\" is clumsy; rephrase as \"เพราะโตเร็วจึงดูดซับธาตุอาหารได้มาก\"."
     ]
   },
   "staurogyne-repens": {

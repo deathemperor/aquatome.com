@@ -25,7 +25,8 @@
       "regions": [
         "Mekong",
         "Chao Phraya",
-        "Mae Klong"
+        "Mae Klong",
+        "Songkhram River"
       ],
       "sources": [
         "seriouslyfish",
@@ -41,10 +42,24 @@
             "KH",
             "VN"
           ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "The species is distributed in the drainages of the big rivers Mekong, Chao Phraya and Mae Klong, the distribution area includes the countries Thailand, Cambodia, Laos and Vietnam.",
+          "countries": [],
           "regions": [
             "Mekong",
             "Chao Phraya",
             "Mae Klong"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Of the wild fish collected for the aquarium trade, many are thought to originate from the Songkhram River, a Mekong tributary in northeastern Thailand.",
+          "countries": [],
+          "regions": [
+            "Songkhram River"
           ]
         }
       ]
