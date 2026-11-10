@@ -15,7 +15,7 @@ import { homedir } from 'node:os'
 import { join } from 'node:path'
 import { parseArgs } from 'node:util'
 import { SEARCHED } from '../../../apps/site/worker/chat/handover'
-import { changesOf, docsOf, hash, liveSource, vectors, type Embedder } from './chat-search-lib'
+import { batchesOf, changesOf, deleteBodies, docsOf, hash, liveSource, vectors, type Embedder } from './chat-search-lib'
 import { pool } from './eval-lib'
 
 const { values: args } = parseArgs({
@@ -43,7 +43,6 @@ async function main() {
   }
   await mkdir(args.cache!, { recursive: true })
   if (args.create) await call(api, JSON.stringify({ name: args.index, description: 'The chat\'s handbook sections, one namespace a language', config: { dimensions: DIMENSIONS, metric: 'cosine' } }), 'application/json')
-  const batches = <T>(all: T[]) => Array.from({ length: Math.ceil(all.length / BATCH) }, (_, i) => all.slice(i * BATCH, (i + 1) * BATCH))
   for (const lang of SEARCHED) {
     const { docs } = await docsOf(liveSource(args.site!), lang, Number(args.chars))
     const byId = new Map(docs.map(d => [createHash('sha256').update(`${lang}:${d.path}#${d.heading ?? ''}`).digest('hex').slice(0, 32), d]))
@@ -55,8 +54,8 @@ async function main() {
       const d = byId.get(id)!
       return JSON.stringify({ id, namespace: lang, values: Array.from(v[i]!), metadata: { path: d.path, ...(d.heading ? { heading: d.heading } : {}) } })
     })
-    await pool(batches(lines).map(b => () => call(`${api}/${args.index}/upsert`, b.join('\n'), 'application/x-ndjson')), 4)
-    await pool(batches(gone).map(b => () => call(`${api}/${args.index}/delete_by_ids`, JSON.stringify({ ids: b }), 'application/json')), 4)
+    await pool(batchesOf(lines, BATCH).map(b => () => call(`${api}/${args.index}/upsert`, b.join('\n'), 'application/x-ndjson')), 4)
+    await pool(deleteBodies(gone).map(body => () => call(`${api}/${args.index}/delete_by_ids`, body, 'application/json')), 4)
     await writeFile(record, JSON.stringify(wanted))
     console.log(`${lang}: ${byId.size} sections, ${write.length} written, ${gone.length} removed`)
   }
