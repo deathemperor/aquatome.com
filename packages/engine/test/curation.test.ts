@@ -264,6 +264,26 @@ test("a card's photo is its page's head photo or none: never another, however bi
   expect(plan(before, [a, unchecked], '2026-11-09', 1).calendar.days[0]!.guideImg).toBeUndefined()
 })
 
+test("a card photo the owner chose from the page's album stays while it passes, then the card goes back to the head", () => {
+  // The owner (2026-11-10): "Use this image for altum today post", a photo from the album, not the page's head.
+  const url = 'https://media.aquatome.com/commons/1111111111111111.webp'
+  const chosen = 'https://media.aquatome.com/commons/2222222222222222.webp'
+  const px = { square: 1200, guide: 1200, wide: 1200 }
+  const head = { url, px }
+  const cur = CurationSchema.parse({ version: 1, weeks: [], days: [{ date: '2026-11-09', fish: 'species/aaaa', img: chosen, imgChosen: true }] })
+  const fishLines = (lines: string[]) => lines.filter(x => x.includes(' fish species/'))
+  const a = fish('aaaa', { head, checked: { [url]: px, [chosen]: px } })
+  const { calendar } = plan(cur, [a], '2026-11-09', 1)
+  expect(calendar.days[0]).toMatchObject({ fish: 'species/aaaa', img: chosen, imgChosen: true })
+  expect(fishLines(checkCalendar(calendar, [a], '2026-11-09', 1))).toEqual([])
+  // No longer one of the page's checked photos: the check says so, and the planner puts the head back.
+  const gone = fish('aaaa', { head, checked: { [url]: px } })
+  expect(fishLines(checkCalendar(cur, [gone], '2026-11-09', 1))).toEqual([`2026-11-09 fish species/aaaa: photo ${chosen} isn't one of the page's checked photos`])
+  const back = plan(cur, [gone], '2026-11-09', 1).calendar.days[0]!
+  expect(back.img).toBe(url)
+  expect(back.imgChosen).toBeUndefined()
+})
+
 test('a fish whose head photo is under the rule stays off the calendar, however big its gallery photos are', () => {
   const big1 = fish('big1'), small = fish('small', { head: { url: 'https://media.aquatome.com/commons/3333333333333333.webp', px: { square: 608, guide: 900, wide: 900 } } })
   expect(problemOf(small)).toBe('head photo 608 px across, under 1140')

@@ -11,7 +11,8 @@ import type { PhotoVerdict } from './photo-check'
  * - it passes the reader-fit gate (gate.ts): not held back, and no finding the gate holds a page for;
  * - its card photo is its page's head photo, checked (the right fish, typical, no person, logo or watermark) and big
  *   enough for the card. A card shows the head photo or none, never another (the chief of staff, 2026-11-10: the Altum's
- *   card and page differed, and the page flashed as one replaced the other).
+ *   card and page differed, and the page flashed as one replaced the other). The one exception is a photo the owner chose
+ *   from the page's album for that day (`imgChosen`), kept while it passes.
  * A person's choice (`fixed`, or a week's own lists) is kept while it passes; a pick that stops passing is replaced.
  * Picks come from the week's theme (its `tags` and lists), how well known a fish is, readers' searches (Search Console),
  * and what's new, never the same fish twice in four weeks.
@@ -309,8 +310,9 @@ export function plan(cur: Curation, cands: Candidate[], from: string, days: numb
         : 'empty'
       if (ref && !p) {
         report.kept.push(`${date} ${slot}`)
-        if (slot === 'fish') d.img = c!.head!.url
-        else guidePhoto(d, c!)
+        if (slot === 'fish') {
+          if (!d.imgChosen || problem(c, 'square', d.img)) { d.img = c!.head!.url; delete d.imgChosen }
+        } else guidePhoto(d, c!)
         continue
       }
       if (ref) report.replaced.push({ date, slot, was: ref, why: p! })
@@ -336,6 +338,7 @@ export function plan(cur: Curation, cands: Candidate[], from: string, days: numb
       if (slot === 'fish') d.img = best.head!.url
       else { delete d.guideImg; guidePhoto(d, best) }
       delete d.fixed
+      if (slot === 'fish') delete d.imgChosen
       report.filled.push(`${date} ${slot}: ${best.ref}`)
       const reasons = [
         ...(pool.includes(best.ref) ? ["on this week's list"] : []),
@@ -426,7 +429,7 @@ export function checkCalendar(cur: Curation, cands: Candidate[], from: string, d
   }
   for (const d of cur.days.filter(x => x.date >= from)) {
     const notHead = (img: string | undefined, ref: string) => (img && img !== byRef.get(ref)?.head?.url ? "its card's photo isn't the page's head photo" : undefined)
-    const fish = d.fish && (fishProblem(byRef.get(d.fish)) ?? (d.img ? notHead(d.img, d.fish) : 'no photo set for the card'))
+    const fish = d.fish && (fishProblem(byRef.get(d.fish)) ?? (!d.img ? 'no photo set for the card' : d.imgChosen ? problem(byRef.get(d.fish), 'square', d.img) : notHead(d.img, d.fish)))
     if (fish) out.push(`${d.date} fish ${d.fish}: ${fish}`)
     const guide = d.guide && (problem(byRef.get(d.guide), 'guide', d.guideImg, { photo: false }) ?? notHead(d.guideImg, d.guide))
     if (guide) out.push(`${d.date} guide ${d.guide}: ${guide}`)
