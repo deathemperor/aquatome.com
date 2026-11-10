@@ -72,6 +72,17 @@ test('the gill fluke guide gives praziquantel in food by the fish\'s weight, and
     expect(t.bodyFixed, lang).toBe(true)
     expect(t.body, lang).not.toMatch(/35–125|50–75 (?:mg|มก)/u)
     expect(t.body, lang).toMatch(/<td>40 (?:mg|มก)/u)
+    expect(t.body, `${lang}: Florida's warning beside its food dose`).toMatch(/nghiên cứu|diteliti|dikaji|วิจัย/u)
+  }
+})
+
+// University of Florida's angelfish paper: "50mg/kg body weight for five consecutive days". A dose per kilo says a kilo of what.
+test('the hexamita guide says the food dose is per kilo of the fish, in every language', async () => {
+  const dir = fileURLToPath(new URL('../../../content/guides/aquatome-ca-di-phan-trang-benh-trung-roi-hexamita-ca-dia-nguyen-nhan-cach-chua/', import.meta.url))
+  for (const lang of ['vi', 'id', 'th', 'ms']) {
+    const t = JSON.parse(await readFile(join(dir, `${lang}.json`), 'utf8')) as Translation
+    expect(t.body, lang).toMatch(/50 (?:mg|มก\.)(?:\/(?:kg|กก\.) | cho mỗi kg )(?:berat|น้ำหนัก|trọng lượng)/u)
+    expect(t.body, lang).not.toMatch(/50 (?:mg|มก\.)\/(?:kg|กก\.)(?! (?:berat|น้ำหนัก))/u)
   }
 })
 
