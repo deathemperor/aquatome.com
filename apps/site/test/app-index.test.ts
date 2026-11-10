@@ -117,6 +117,16 @@ test('the index lists every glossary term the glossary list shows, a page out of
   // The fixture has no Indonesian or Thai term: its Vietnamese ones, listed as those languages' glossary lists them.
   const c = await getContent('vi')
   for (const lang of OTHER_LANGS) expect(appIndex(lang, c).items.filter(i => i.kind === 'glossary').map(slugOf), lang).toEqual(c.glossary.map(g => g.t.slug))
+  // A term's English name is among its other names, in every language: the chat's search and the app's read them from here.
+  expect(c.glossary.some(g => g.en !== g.t.name), 'the fixture has a term whose English name differs').toBe(true)
+  for (const lang of LANGS) {
+    const items = appIndex(lang, c).items.filter(i => i.kind === 'glossary')
+    expect(items.map(slugOf), lang).toEqual(c.glossary.map(g => g.t.slug))
+    for (const g of c.glossary) {
+      const item = items.find(i => slugOf(i) === g.t.slug)!
+      expect([item.name, ...(item.aka ?? [])], `${lang} ${g.t.slug}`).toContain(g.en)
+    }
+  }
 })
 
 test('a plant or a species whose translation scored low is still listed, as the site\'s lists show it', async () => {

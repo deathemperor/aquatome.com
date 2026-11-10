@@ -1,0 +1,209 @@
+{
+  "id": "xenurolebias-myersi",
+  "scientificName": "Xenurolebias myersi",
+  "order": "Cyprinodontiformes",
+  "family": "Rivulidae",
+  "genus": "Xenurolebias",
+  "group": "killifish",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-doce"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5.5,
+          "max": 7
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 45
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 0.5,
+          "max": 1.3
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xenurolebias-myersi",
+      "html": "<p>Needs a tight-fitting lid as this species is known to jump. Simpsonichtys species tend to be accomplished jumpers so a tightly-fitting cover should be considered essential.</p><p>Xenurolebias myersi is an annual killifish from minor coastal river basins in eastern Brazil, in Bahia and Espírito Santo states. Its range lies between the rio Jucuruçu and the rio Doce. It inhabits rain-fed pools and swamps that dry out each year, when the adults die and the eggs wait in diapause until the rains return. Whether it is conspecific with X. izecksohni remains unclear.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xenurolebias-myersi",
+      "html": "<p>Known from a handful of minor river basins draining the eastern Brazilian coastal plains between the rio Jucuruçu, southern Bahia state, and rio Doce, Espírito Santo state.</p><p>Type locality is 'temporary pool along road between Conceição da Barra and Itaúnas, 18 km from Conceição da Barra, Espírito Santo, Brazil [about 18°30’S 39°40’W]'.</p><p>The population from the rios Doce and Barra Seca may refer to Xenurolebias izecksohni (Da Cruz, 1983) which appears to be of uncertain taxonomic status (see 'Notes').</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xenurolebias-myersi",
+      "html": "<p>Inhabits ephemeral, shallow depressions, pools and swamps which are fed by rainwater and become completely dessicated during some months each year, typically between July and November.</p><p>All adult individuals die when the pools dry up and the eggs undergo a period of diapause until the rains return (see 'Reproduction').</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xenurolebias-myersi",
+      "html": "<p>Standard length: 4 cm SL.</p><p>Aquarium base: 45 × 30 cm. Volume: approximately 40 litres.</p><p>Unless isolated temporarily for spawning purposes even a single pair should be offered an aquarium with base dimensions of 45 × 30 cm or more.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xenurolebias-myersi",
+      "html": "<p>A dark substrate should ideally be used, and a clump or two of floating vegetation seems to be appreciated by the fish and provide sub-dominant individuals a means of respite.</p><p>Other décor can simply consist of a plastic tub or similar containing a layer of spawning medium (see 'Reproduction') and if filtration is employed an air-driven sponge-type unit should prove sufficient.</p><p>Simpsonichtys species tend to be accomplished jumpers so a tightly-fitting cover should be considered essential.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xenurolebias-myersi",
+      "html": "<ul><li>Temperature: 20–27°C</li><li>pH: 5.5–7.0</li><li>Hardness: 1–5 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xenurolebias-myersi",
+      "html": "<p>A natural micropredator meaning small live or frozen foods such as Daphnia, Artemia, whiteworm, mosquito larvae, etc., should form the basis of the diet.</p><p>Adults should not be offered high protein or fatty foods in excessive quantities.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xenurolebias-myersi",
+      "html": "<p>Best maintained in a species-specific arrangement with at least 2-3 females per male in order to dissipate aggression.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xenurolebias-myersi",
+      "html": "<p>Males grow slightly larger than females and develop filamentous extensions on the dorsal and anal fins as they mature whereas females only develop relatively short filamentous rays on the posterior margin of the anal-fin.</p><p>Male colour pattern comprises 10-15 dark crimson to dark brown vertical bars on a brownish yellow to greenish blue background.</p><p>Females possess 9–12 broad dark brownish grey bars on a pale brown background, typically with 1–3 vertically elongated to roundish black blotches on the anterior portion of the flank and 1–3 small grey to black spots on the posterior edge of the caudal peduncle.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xenurolebias-myersi",
+      "html": "<p>When its natural habitats become dessicated during the dry season the adult fish die, leaving fertilised eggs, which have a thickened, drought-resistant outer layer encased within the substrate.</p><p>The eggs remain in a state of diapause until the rains return some 4-5 months later at which point they begin to hatch.</p><p>The fry grow very quickly and can attain sexual maturity within 3-4 weeks under favourable conditions.</p><p>Eggs are deposited into soft substrates with most breeders using a shallow plastic container filled with peat moss or coconut fibre (the latter is recommended since peat extraction is an unsustainable, environmentally-damaging process).</p><p>Typical lifespan in the aquarium is 6-16 months and eggs should be stored at a temperature of 21–25°C for 2-4 months before being wetted.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xenurolebias-myersi",
+      "html": "<p>This species has a somewhat confusing taxonomic history and it remains unclear whether it is conspecific with X. izecksohni (Da Cruz, 1983) or not.</p><p>The latter is considered to represent a synonym of X. myersi by Costa (2007), but the majority of authors do not follow the conclusions of that study and continue to view both as valid.</p><p>X. myersi can be told apart from other species formerly placed in Simpsonichthys, except X. izecksohni, by the following combination of characters: females with filamentous rays on the posterior margin of the anal-fin (vs. absent in other species); caudal-fin lanceolate and asymmetrical with expanded ventral portion in males (vs. rounded or subtruncate with dorsal and ventral portions symmetrical); colour pattern comprising a bar on posterior portion of caudal peduncle, extending posteriorly over dorsal and ventral margins of caudal-fin in males (vs. no such pattern).</p><p>This species was formerly placed in Simpsonichthys, a genus that also has a somewhat unstable past.</p><p>It was first raised by de Carvalho (1959) but later moved into synonymy with Cynolebias Steindachner by Parenti (1981).</p><p>Cynolebias was then split into the genera Spectrolebias Costa &amp; Nielsen, Nematolebias Costa, Austrolebias Costa, and Megalebias Costa while Simpsonichthys was revalidated (Costa, 1996).</p><p>These remain valid with the exception of Megalebias, currently a synonym of Austrolebias.</p><p>Costa (2006) then divided Simpsonichthys into five subgenera consisting of Simpsonichthys, Spectrolebias, previously considered a genus in its own right, Xenurolebias, Ophthalmolebias, and Hypsolebias, based on their morphology and phylogenetic relationships.</p><p>X. myersi and X. izecksohni were the only two species included in Xenurolebias based on the characters given above as diagnostic for X. myersi.</p><p>This was followed by an extensive taxonomic revision of Simpsonichthys (Costa, 2007) in which descriptions, distributions, identification keys and a revised taxonomy for all five subgenera and fifty species were provided.</p><p>Although subgenera are rarely used in modern systematics there was no effect on higher taxonomy and all species remained in Simpsonichthys, typically being referred to in the format Simpsonichthys (subgenus) species, e.g., S. (Xenurolebias) myersi.</p><p>Costa (2010) subsequently published a review of the historical biogeography of the Cynolebiasini (a hypothetical tribe existing within the family Rivulidae).</p><p>In this latter study the four subgenera Spectrolebias, Xenurolebias, Ophthalmolebias, and Hypsolebias, are considered to represent separate and distinct genera although no additional criteria or characters are provided to support this decision.</p><p>Costa &amp; Amorim (2014) then published an integrative taxonomic study of Xenurolebias using molecular and morphological data. The Catalog of Fishes and FishBase now both treat Xenurolebias as a genus and X. izecksohni as a valid species.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xenurolebias-myersi",
+      "html": "<ul><li>de Carvalho, A. L. (1959). Novo gênero e nova espécie de peixe anual de Brasília, com uma nota sôbre os peixes anuais da Baixada Fluminense, Brasil (Pisces - Cyprinodontidae - Fundulinae). Boletim do Museu Nacional do Rio de Janeiro, Zoologia, Nova Série No. 201, 1-10</li><li>Costa, W. J. E. M. (2007). Taxonomic revision of the seasonal South American killifish genus Simpsonichthys (Teleostei: Cyprinodontiformes: Aplocheiloidei: Rivulidae). Zootaxa 1669, 1-134</li><li>Costa, W. J. E. M. (2010). Historical biogeography of cynolebiasine annual killifishes inferred from dispersal–vicariance analysis. Journal of Biogeography 37, 1995–2004</li><li>Costa, W. J. E. M. (2006). Descriptive morphology and phylogenetic relationships among species of the Neotropical annual killifish genera Nematolebias and Simpsonichthys (Cyprinodontiformes: Aplocheiloidei: Rivulidae). Neotropical Ichthyology 4(1), 1-26</li><li>Murphy, W. J. and G. E. Collier (1997). A molecular phylogeny for aplocheiloid fishes (Atherinomorpha, Cyprinodontiformes): the role of vicariance and the origins of annualism. Molecular Biology and Evolution 14(8), 790-799</li><li>Costa, W. J. E. M. (1996). Phylogenetic and biogeographic analysis of the Neotropical annual fish genus Simpsonichthys (Cyprinodontiformes: Rivulidae). Journal of Comparative Biology 1(3/4), 129-140</li><li>Parenti, L. R. (1981). A phylogenetic and biogeographic analysis of cyprinodontiform fishes (Teleostei, Atherinomorpha). Bulletin of the American Museum of Natural History 168(4), 335-557</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/479278b899201de1.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/479278b899201de1-480.webp",
+      "width": 800,
+      "height": 545,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xenurolebias-myersi",
+      "caption": "Fry at 2 days of age, feeding on Artemia nauplii. Size 6 mm TL.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/0eb778bc881b4caf.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/0eb778bc881b4caf-480.webp",
+      "width": 1024,
+      "height": 563,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xenurolebias-myersi",
+      "caption": "Adult male individual.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/e5341b2847911c47.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/e5341b2847911c47-480.webp",
+      "width": 1024,
+      "height": 518,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/xenurolebias-myersi",
+      "caption": "Adult female at 96 days of age and 25 mm TL.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 50cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc sủi mút",
+        "máy sục khí mini"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "bo bo đông lạnh",
+        "artemia"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "xơ dừa ươm trứng",
+        "nền sẫm màu cho bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-10"
+}

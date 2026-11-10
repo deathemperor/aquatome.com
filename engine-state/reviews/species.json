@@ -68,6 +68,42 @@
       "kept": false
     }
   ],
+  "vi/species/anentome-helena#91J9w0-vZDM": [
+    {
+      "at": "2026-11-10T06:36:40Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [
+        "[behaviour] 'Radula có răng rất nhỏ' fine, but 'bàn chân khỏe giữ chặt' ok; however 'tìm miệng vỏ' fine.",
+        "[notes] 'Nhiều người tưởng loài này ăn bằng ống thở' - the page already says the siphon is used for breathing and sniffing; the 'ăn bằng vòi' point partly repeats the page's 'dùng chiếc vòi để dò tìm con mồi' (which conflicts: video says siphon detects prey, proboscis feeds). The page mislabels the siphon as 'vòi'; NEW does not flag this difference.",
+        "[waterConditions] 'Thông số nước chỉ cần ổn định là ốc tự quen' - fine but vague; the video's ideal pH 7-8, 21-28°C differs from page (7.2-8, 21-27) and NEW doesn't say so.",
+        "[reproduction] 'Trứng chuyển dần sang nâu nhạt' omits the yellowish start and the page already says one yellow egg per capsule; also page already says reproduction is much slower than pest snails, so 'đẻ chậm' repeats it.",
+        "[reproduction] 'chắc là loài này không tràn bể' - hedge 'chắc là' reads awkward; video says 'most likely will not overrun'.",
+        "[beforeYouBuy] 'ai cho đẻ để bán có thể bán được giá cao hơn nhiều' - awkward, translation-like Vietnamese; also repeats slow breeding already on page.",
+        "[diet] 'thích ăn ốc hơn các loại thức ăn đạm' and snail eggs/baby shrimp: page already says it eats fish eggs and protein food once pests are gone; 'tép con' is new and fine, but the preference partly duplicates page.",
+        "[maintenance] Lifespan ~2 years is fine, but 'bể có đủ mồi... không khó' is OK; sentence 'Bể có đủ mồi... thì chăm... không khó' slightly stiff."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-10T06:36:40Z",
+      "model": "sonnet",
+      "score": 0.4,
+      "notes": [
+        "\"Đói đến mấy, loài này cũng không đụng tới trứng của đồng loại\": the video says they don't attack each other or their own kind, not that they leave eggs alone.",
+        "\"Ốc cũng có thể ăn bo bo\": the video lists fish flakes, pellets, bloodworms, daphnia. Daphnia is not bo bo (it is water fleas, though bo bo is a common Vietnamese word for it), and the dietary item is loosely rendered.",
+        "\"một người nuôi loài này cho rằng pH 7 và nhiệt độ tới 28 °C vẫn hợp\": the video gives pH 7 to 8 and 21 to 28 °C as the ideal parameters, not one keeper's opinion. This also misstates the range and overlaps the page's figures.",
+        "\"một người nuôi loài này lưu ý ốc có thể ăn cả tép con\": the video presents baby shrimp as a plain warning, not one keeper's remark. The attribution is wrong.",
+        "\"Ai cho ốc đẻ để bán thì có thể bán giá cao hơn hẳn\": a partial claim, since the video says it can possibly be sold for much more than any other pest snail. \"Hẳn\" overstates it.",
+        "\"Nó thường vùi mình chờ mồi đi ngang\" and the siphon passage overlap what the page already says about burying and the siphon (the page covers burying in the substrate and using the siphon to find prey).",
+        "\"ốc dùng bàn chân khỏe giữ chặt con mồi\": the video says \"muscular food\" (foot) captures the prey after the siphon locates it, which matches. But the claim \"lâu nở như vậy nên chắc là không tràn bể\" is slightly changed: the video says they reproduce more slowly than other snails.",
+        "\"Thân ốc màu kem nhạt, lấm tấm đốm sẫm\" is fine, but the page says the shell has brown stripes, and the NEW text does not say that the video differs from the page. The video says a cone-shaped shell, with no stripes mentioned."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/apistogramma-borellii#1rJLXLHEGE4": [
     {
       "at": "2026-11-08T23:56:07Z",
@@ -402,6 +438,37 @@
         "[notes] \"do Skyfish, một người lai tạo có tiếng ở đó, cho ra\": it names a breeder. This is said in the video, but \"cho ra\" states it more firmly than the speaker's \"ich weiß\".",
         "[beforeYouBuy] \"Ở Đức, tép Sunburst chỉ có một nơi phân phối\": the video says exclusive in Germany, and the speaker believes worldwide. This is fine, but the claim is stated without the hedge about whether it is exclusive worldwide.",
         "[notes] \"Màu của nó chắc là chọn lọc từ tép cam\": the video says \"wahrscheinlich\", so the hedge is kept. The wording \"chắc là\" and \"cho ra\" reads a bit like a translation."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
+  "vi/species/oliotius-oligolepis#7WuDB1RXfKY": [
+    {
+      "at": "2026-11-10T06:33:13Z",
+      "model": "sonnet",
+      "score": 0.86,
+      "notes": [
+        "[maintenance] \"Với người nuôi này, đây là loài hợp cho cả người mới lẫn người chơi lâu năm\" repeats \"người nuôi này\" and reads a bit stiff. It is attributed to one keeper, so the facts are fine.",
+        "[behaviour] \"cá đực có thể bớt dữ với nhau khi giữ khu vực riêng\" is slightly muddled. The video says the ratio reduces territorial aggression among males. Rewording would be cleaner.",
+        "[behaviour] \"cả đàn cũng yên ổn hơn\" is a loose rendering of \"more harmonious setup\". It is acceptable but a little vague."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-10T06:33:13Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "[dimorphism] Description of males as more colorful and females as rounder is partly redundant with the page's 'nhiều màu hơn cá cái'; the page already says males are more colorful, so the colour difference overlaps.",
+        "[maintenance] 'Một người nuôi loài này vài năm' is acceptable, but 'Theo kinh nghiệm của người nuôi đó' repeats the attribution awkwardly and reads like a translation.",
+        "[maintenance] 'Bể nhiều cây với thật nhiều chỗ trốn là hợp nhất' is stated as a rule, while the video frames it as the keepers' experience that the fish can be shy.",
+        "[maintenance] 'lánh vào' is a typo/awkward wording (should be 'lẩn/ẩn vào'); 'thỉnh thoảng lánh vào một lúc' reads like a literal translation of 'nip off for a timeout'.",
+        "[behaviour] 'cá hiếu động và ham đùa nghịch' is fine, but 'giành chỗ' is not in the video; the video says territorial aggression, not competition for spots.",
+        "[behaviour] 'gườm nhau để phân hơn thua' is an embellishment; the video only says males may display dominance against one another.",
+        "[habitat] 'vũng nhỏ' and the water description are fine, but the page's distribution already covers the habitat region, and the video's 'small pools, streams, lakes, rivers, drainage ditches' list is not in conflict, just thin.",
+        "[behaviour] Ratio advice 'nên để số con cái nhiều hơn' is stated as a rule, while the video says 'it is advisable', which is acceptable; the group-of-six advice is omitted, and the page already has 6–10."
       ],
       "attempt": "first",
       "kept": false

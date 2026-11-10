@@ -9,6 +9,7 @@ Việc của bạn: sửa đúng những chỗ ghi chú nêu, đối chiếu v�
 - Phần cuối hay câu hỏi FAQ chỉ nhắc lại điều thân bài đã nói: bỏ hoặc gộp. Các ý tóm tắt (`summary`) vốn tóm lại thân bài, giữ chúng.
 - Ghi chú nói một chỗ là ổn, chấp nhận được, hoặc không chỉ ra lỗi nào: bỏ qua.
 - Người duyệt cũng có thể sai. Đối chiếu từng ghi chú với bản ghi trước khi sửa: ghi chú bảo thêm một chi tiết, bước, thứ tự hay lời khuyên mà bản ghi không có thì không thêm, chỉ xóa hoặc làm mềm chỗ đó.
+- Bản ghi tự động hay lẫn "nitrite" (nitrit) với "nitrate" (nitrat). Ghi chú bảo đổi từ này sang từ kia thì xem người nói đang test gì rồi mới sửa: test cùng amoniac trước khi thả cá, hay chỉ vài mg/l mà đã bị gọi là độc, thì đó là nitrit.
 
 Không thêm ý, chi tiết, bước, ví dụ hay câu hỏi mới. Không viết lại những đoạn ghi chú không nhắc. Không nhắc người làm video, kênh hay video. Giữ cấu trúc HTML và các thẻ đang dùng. `chapters` giữ đúng số lượng và thứ tự.
 

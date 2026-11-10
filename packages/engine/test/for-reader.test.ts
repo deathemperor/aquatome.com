@@ -91,7 +91,7 @@ test('a guide a person fixed stays unless forced; a kept rewrite replaces its te
   await mkdir(join(root, 'sources/aquariumcoop'), { recursive: true })
   await writeFile(join(root, 'sources/aquariumcoop/blogs-aquarium-x.md'), '---\nurl: u\n---\nThe article.')
   await writeFile(join(dir, 'entity.json'), JSON.stringify({ id: 'aquariumcoop-blogs-aquarium-x', kind: 'care', source: 'aquariumcoop', sourceUrl: 'https://www.aquariumcoop.com/blogs/aquarium/x', html: '', photos: [], mentions: [], updatedAt: '2026-11-01' }))
-  const vi = { slug: 'x', name: 'Cũ', altNames: [], sections: {}, body: '<p>Cũ.</p>', bodyFixed: true, localNote: { html: '<p>Hộp.</p>', refs: [] } }
+  const vi = { slug: 'x', name: 'Cũ', altNames: [], sections: {}, body: '<p>Cũ.</p>', bodyFixed: true, faqFixed: true, localNote: { html: '<p>Hộp.</p>', refs: [] } }
   await writeFile(join(dir, 'vi.json'), JSON.stringify(vi))
   const id = 'aquariumcoop-blogs-aquarium-x'
   expect(await rewriteForReader(root, id, { llm: fake({ written: [good] }).llm })).toMatchObject({ skipped: 'a person fixed its text' })
@@ -103,6 +103,7 @@ test('a guide a person fixed stays unless forced; a kept rewrite replaces its te
   const out = JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8'))
   expect(out).toMatchObject({ slug: 'x', name: good.name })
   expect(out.bodyFixed).toBeUndefined()
+  expect(out.faqFixed).toBeUndefined()
   expect(out.localNote).toBeUndefined()
 })
 

@@ -1,7 +1,7 @@
 # Photos that don't show their page's subject
 
 Written by `pnpm engine check-photos` (2026-11-10), most-read pages first. Rules: docs/governance.md, "Photos".
-5498 verdicts. Shows it: 3747; its habitat (asked again): 3; something else: 282; not a photo of it: 186; dead or as food: 261; a person in it: 89; a logo on it: 34; can't tell: 878.
+5352 verdicts. Shows it: 3667; its habitat (asked again): 3; something else: 279; not a photo of it: 187; dead or as food: 259; a person in it: 89; a logo on it: 34; can't tell: 817.
 
 ## Left with no photo (62)
 
@@ -68,7 +68,7 @@ Written by `pnpm engine check-photos` (2026-11-10), most-read pages first. Rules
 - species/serrasalmus-manueli
 - species/silurichthys-hasseltii
 
-## Can't tell: still shown (878)
+## Can't tell: still shown (817)
 
 | Page | Photo | What the model saw |
 | --- | --- | --- |
@@ -531,18 +531,17 @@ Written by `pnpm engine check-photos` (2026-11-10), most-read pages first. Rules
 | species/apistogramma-commbrae | [photo](https://media.aquatome.com/inaturalist/63953467.webp) | pale wild-caught cichlid in photo tank, identity unclear |
 | species/apistogramma-macmasteri | [photo](https://media.aquatome.com/commons/b2aa91b6786b3fe6.webp) | two red-headed males; possibly A. hongsloi or a colour strain |
 | species/apistogramma-macmasteri | [photo](https://media.aquatome.com/commons/b603c189513fec07.webp) | orange-tailed apisto without red caudal edge; possibly another Apistogramma |
-| species/ariopsis-felis | [photo](https://media.aquatome.com/inaturalist/127738278.webp) | dense group of sea catfish in shallow water seen from above; can't confirm the species |
-| species/ariopsis-felis | [photo](https://media.aquatome.com/inaturalist/446544212.webp) | two blurry catfish over the bottom in murky water |
-| species/ariopsis-felis | [photo](https://media.aquatome.com/inaturalist/446544227.webp) | two catfish seen from above through murky shallow water; too blurry to confirm species |
-| species/ariopsis-felis | [photo](https://media.aquatome.com/inaturalist/588306823.webp) | dark catfish group in murky blue water; can't rule out freshwater catfish |
-| species/aspidoras-pauciradiatus | [photo](https://media.aquatome.com/commons/25ba1faea3fdfb03.webp) | darker reticulated catfish with no black dorsal blotch; may be another Aspidoras or Corydoras species |
-| species/aspidoras-pauciradiatus | [photo](https://media.aquatome.com/commons/eec740e6ef88efce.webp) | dark mottled catfish with spotted dorsal, not the typical pattern; possibly a different Aspidoras species |
-| species/asterophysus-batrachus | [photo](https://media.aquatome.com/commons/71f098e21c47248a.webp) | grey-brown catfish in tank with head hidden under wood; can't confirm it is Asterophysus |
-| species/atractosteus-tristoechus | [photo](https://media.aquatome.com/commons/0653fe0db7d4a48b.webp) | plain grey gar-like fish seen from above in murky shallow water; head and snout not visible, so the species can't be con |
-| species/auchenipterus-nigripinnis | [photo](https://media.aquatome.com/scotcat/337e9f17ce69eeee.webp) | small pinkish catfish in bare tank, blurry; could be juvenile, ID not certain |
-| species/auchenipterus-nigripinnis | [photo](https://media.aquatome.com/scotcat/645b86f9b3658d42.webp) | pinkish small catfish in bare tank, blurry; ID not certain |
-| species/auchenoglanis-occidentalis | [photo](https://media.aquatome.com/scotcat/b048cf319b46178b.webp) | dark, distant view of a large catfish; can't confirm the species |
-| species/auchenoglanis-occidentalis | [photo](https://media.aquatome.com/scotcat/f96051c32847a8aa.webp) | spotted catfish with long barbels; may be a different claroteid |
+| species/apistogramma-paulmuelleri | [photo](https://media.aquatome.com/seriouslyfish/5599ffc19a2cbedb.webp) | only head of yellow fish peeking from coconut cave behind sand mound |
+| species/apistogramma-trifasciata | [photo](https://media.aquatome.com/seriouslyfish/56a9f4d321edecab.webp) | small distant yellow apisto, probably a female, on a coconut cave |
+| species/ariopsis-felis | [photo](https://media.aquatome.com/inaturalist/446544212.webp) | two catfish seen faintly from above through murky shallow water, marks not clear |
+| species/ariopsis-felis | [photo](https://media.aquatome.com/inaturalist/446544227.webp) | two catfish seen faintly from above through murky shallow water, marks not clear |
+| species/ariopsis-felis | [photo](https://media.aquatome.com/inaturalist/588306823.webp) | blue-tinted catfish group from above in murky water, marks not visible |
+| species/aspidoras-pauciradiatus | [photo](https://media.aquatome.com/commons/25ba1faea3fdfb03.webp) | resting on leaf; vermiculated banded pattern, possible look-alike |
+| species/aspidoras-pauciradiatus | [photo](https://media.aquatome.com/commons/eec740e6ef88efce.webp) | on pebbles; dark banded pattern unlike spotted form, possible look-alike |
+| species/aspidoras-taurus | [photo](https://media.aquatome.com/inaturalist/346366987.webp) | dark-blotched small catfish on sand, maybe juvenile, pattern differs from adults |
+| species/aspidoras-taurus | [photo](https://media.aquatome.com/inaturalist/346367003.webp) | dark and cream blotched small catfish on sand, maybe juvenile, species unclear |
+| species/aspidoras-taurus | [photo](https://media.aquatome.com/inaturalist/346367021.webp) | blotched small catfish from the front on sand, partly blurred, species unclear |
+| species/asterophysus-batrachus | [photo](https://media.aquatome.com/commons/71f098e21c47248a.webp) | pale, washed-out fish under log in tank; head and mouth poorly seen |
 | species/bagrichthys-macracanthus | [photo](https://media.aquatome.com/scotcat/b1fda7e69abe3ae2.webp) | smaller pinkish-black catfish with white stripe and short dorsal on sand; possibly juvenile or other Bagrichthys |
 | species/barbodes-semifasciolatus | [photo](https://media.aquatome.com/inaturalist/673322750.webp) | silvery barb with short bars on black background; could be wild type but other barbs can't be ruled out |
 | species/baryancistrus-xanthellus | [photo](https://media.aquatome.com/commons/86187f7f93623f3e.webp) | two plecos with small spots and thin orange fin edges, dim view; could be L177 (Baryancistrus chrysolomus) |
@@ -951,7 +950,7 @@ Written by `pnpm engine check-photos` (2026-11-10), most-read pages first. Rules
 | species/xiphophorus-cortezi | [photo](https://media.aquatome.com/commons/747453e33e15e061.webp) | single small female-type fish with a dark zigzag side stripe; could be a female X. cortezi but other small Xiphophorus l |
 | species/zenarchopterus-dunckeri | [photo](https://media.aquatome.com/commons/032533e6a2cde605.webp) | live silvery halfbeak at surface of tank; clearly a halfbeak but species (Zenarchopterus vs Dermogenys etc.) not confirm |
 
-## Removed (839)
+## Removed (834)
 
 "Something else" names what the photo shows instead; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
 
@@ -1353,21 +1352,28 @@ Written by `pnpm engine check-photos` (2026-11-10), most-read pages first. Rules
 | species/amia-calva | [photo](https://media.aquatome.com/commons/681d4d1568a540ca.webp) | dead: bowfin lying on wooden dock boards at night, caught fish |
 | species/anabas-testudineus | [photo](https://media.aquatome.com/commons/5ee0b7e9baa2a50f.webp) | dead: specimen cut out on white background with fins spread |
 | species/anabas-testudineus | [photo](https://media.aquatome.com/inaturalist/101895423.webp) | dead: climbing perch lying on bare soil, apparently caught |
+| species/anabas-testudineus | [photo](https://media.aquatome.com/inaturalist/237369134.webp) | dead: wet climbing perch lying on a metal tray or sink, landed catch, cannot tell it is alive |
 | species/anabas-testudineus | [photo](https://media.aquatome.com/inaturalist/330904380.webp) | dead: three caught climbing perch lying in a blue bucket, a landed catch |
 | species/anabas-testudineus | [photo](https://media.aquatome.com/inaturalist/617710483.webp) | looks like a snakehead (Channa): long cylindrical mottled body, in murky pond |
+| species/anabas-testudineus | [photo](https://media.aquatome.com/inaturalist/617719816.webp) | dead: fish with large open skin lesion lying motionless in shallow murky water, appears dead |
 | species/ancharius-fuscus | [photo](https://media.aquatome.com/commons/186c925dfd0a1d37.webp) | Engraved drawing of Ancharius fuscus, side view from plate |
 | species/ancharius-fuscus | [photo](https://media.aquatome.com/commons/380932ac35ad9cb6.webp) | Engraved drawing of Ancharius fuscus, side view (mirrored) |
 | species/ancharius-fuscus | [photo](https://media.aquatome.com/commons/79551bd0d5984e72.webp) | Old scientific plate drawing: Paratilapia? eel-like catfish and Ancharius fuscus with head details |
 | species/apistogramma-cacatuoides (a guide photo) | [photo](https://media.aquatome.com/video/0MzfLrSqfXY/p2-Y21hc3RlcmkuanBn.webp) | pair of a different Apistogramma (macmasteri/viejita type): red face, red-edged tail, no cockatoo dorsal |
+| species/apistogramma-panduro | [photo](https://media.aquatome.com/glaser/fcbf1a2f2787a692.webp) | logo: Otumo company logo graphic on white, no fish |
 | species/ariopsis-felis | [photo](https://media.aquatome.com/commons/3d812e5524112238.webp) | scientific drawing labelled Galeichthys felis |
 | species/ariopsis-felis | [photo](https://media.aquatome.com/commons/4c3c7b66f3ed8a5e.webp) | black-and-white scientific drawing |
 | species/ariopsis-felis | [photo](https://media.aquatome.com/commons/509366400e80ecfc.webp) | historical drawing of Arius felis (salt-water catfish), not a photo |
+| species/ariopsis-felis | [photo](https://media.aquatome.com/inaturalist/255805936.webp) | dead: catch on a hook being hauled out of the water |
 | species/ariopsis-felis | [photo](https://media.aquatome.com/inaturalist/255805947.webp) | dead: sea catfish caught on a fishing hook, hanging above the water |
 | species/ariopsis-felis | [photo](https://media.aquatome.com/inaturalist/45282196.webp) | dead: sea catfish caught on a hook, hauled out of the water |
 | species/ariopsis-felis | [photo](https://media.aquatome.com/inaturalist/7368781.webp) | dead: catfish caught and held in a plastic basket in shallow water, gills showing red; can't tell if it's alive |
+| species/ariopsis-felis | [photo](https://media.aquatome.com/inaturalist/86505605.webp) | dead: landed catch lying on a wooden dock |
 | species/ariopsis-felis | [photo](https://media.aquatome.com/scotcat/7eef1fa8ac9979f6.webp) | Liberia postage stamp painting of the fish |
 | species/ariopsis-felis | [photo](https://media.aquatome.com/scotcat/993434fa9fc1dcf5.webp) | DR Congo postage stamp painting of the fish |
 | species/atractosteus-tristoechus | [photo](https://media.aquatome.com/commons/48a6fc9ea9b0f27e.webp) | likely spotted/Florida gar (Lepisosteus): dense dark spots over body and head, slender snout; Cuban gar is plainer with  |
+| species/auchenipterus-nigripinnis | [photo](https://media.aquatome.com/scotcat/337e9f17ce69eeee.webp) | people: small pinkish-red headed fish in bare tank, poor view; blurred person's arm behind the glass |
+| species/auchenipterus-nigripinnis | [photo](https://media.aquatome.com/scotcat/645b86f9b3658d42.webp) | people: small pale fish with reddish head in bare tank, unusual colour; blurred hand or arm behind the glass |
 | species/auchenoglanis-occidentalis | [photo](https://media.aquatome.com/scotcat/18666fd17520163e.webp) | Côte d'Ivoire postage stamp with an illustration |
 | species/bagrichthys-hypselopterus | [photo](https://media.aquatome.com/scotcat/0730a241c79ba988.webp) | dead: dead lancer catfish lying on a tiled floor with other caught fish |
 | species/bagrichthys-obscurus | [photo](https://media.aquatome.com/scotcat/662ea8c27ad2678e.webp) | dead: dead/preserved catfish specimen on grey background, faded colours |

@@ -49,9 +49,24 @@ clients with no `Accept-Language`, our own checks and the owner. It needs the pa
 blocker stops `/_e` isn't counted. On 4-5 November every Google visit Cloudflare Web Analytics saw was in the beacon too, 10
 of 10, so that loss looks small. Analytics Engine keeps about 3 months, enough for the 12 weeks.
 
+Each event also carries the device, one word the browser works out: phone, tablet or desktop (`src/lib/beacon.ts`,
+`blob8`). Nothing else about the device is kept, neither the browser's details nor the screen's size. An iPad on Safari is
+told from a Mac by its touch points, so a touch-screen Mac would read as a tablet. A phone asking for the desktop site reads
+as a tablet or a desktop. A browser that names no system we know (a TV, a console) sends it empty, as rows from before the
+field have it: empty means not recorded, and never desktop.
+
+A tap that opens a glossary term's card is an event (`tip`), and so is following the card's link (`tipmore`,
+`src/scripts/glossary-tip.ts`), each with the term's page in `blob9` beside the page it was opened on. Only a term's card
+counts: a source's mark and a data card's label use the same card and aren't counted, and neither is a hover on a computer.
+A click on a term there opens its page, so it reads as that page's view coming from one of ours.
+
 Two runs of our own checks from before our network was marked are left out by time, as the 5 November reset was
 (`OUR_RUNS`, `worker/admin/ae.ts`): tabs from Vietnam on 7 November, 20:40 to 21:24 UTC (56), and on 8 November, 00:28 to
 00:44 UTC (23). They were a third of the tabs counted until then, so the week's sessions dip; the readers page lists them.
+
+The language chooser's table (readers page) counts views of the page at `aquatome.com/`, not visitors, and only when a
+small script on it runs in a browser, so a program that runs no script isn't a view. Our Lighthouse check counted 87 of them
+on 5 November, before it said it was ours; those are left out and listed with the other runs.
 
 ## Act
 

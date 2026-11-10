@@ -58,7 +58,7 @@ pnpm engine check-photos --limit 20 || log "check-photos: failed"
 # New guides' photos, their video sections' photos and their stills: no people, no logos (guide-photos.ts), 20 calls a
 # run, leads first, stills last; after video-stills, so a frame it just made can be judged in the same run.
 pnpm engine guide-photos --limit 20 || log "guide-photos: failed"
-# No dead fish on a page (dead-screen.ts): video thumbnails and main photos the photo check never asked about, 48 a run
+# No dead fish on a page (dead-screen.ts): videos (thumbnail and three frames) and main photos the photo check never asked about, 48 a run
 # (4 model calls); a dead one leaves every page for good.
 pnpm engine dead-screen --limit "${DEAD_SCREEN_LIMIT:-48}" || log "dead-screen: failed"
 # New guides' video stills and photos: none with a watermark (macOS Vision reads the text, the model judges it).

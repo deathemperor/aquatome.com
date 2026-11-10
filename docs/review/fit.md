@@ -5,12 +5,12 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution | lethal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 3842 | 3420 | 1544 | 72 | 49 | 199 | 33 | 994 | 456 | 2707 | 472 | 9 | 15 | 0 | 3 | 0 | 3 | 0 |
-| Indonesian | 1192 | 1029 | 313 | 20 | 6 | 3 | 5 | 155 | 59 | 50 | 139 | 0 | 0 | 0 | 3 | 0 | 0 | 0 |
-| Thai | 1185 | 1023 | 297 | 18 | 4 | 4 | 3 | 137 | 72 | 72 | 127 | 0 | 0 | 0 | 1 | 0 | 0 | 0 |
-| Malay | 186 | 143 | 53 | 5 | 1 | 0 | 0 | 23 | 16 | 6 | 17 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Vietnamese | 3874 | 3446 | 1558 | 72 | 49 | 199 | 33 | 1005 | 462 | 2710 | 475 | 9 | 16 | 0 | 3 | 0 | 3 | 0 |
+| Indonesian | 1192 | 1028 | 312 | 20 | 6 | 3 | 5 | 155 | 58 | 50 | 139 | 0 | 0 | 0 | 3 | 0 | 0 | 0 |
+| Thai | 1185 | 1022 | 296 | 18 | 4 | 4 | 3 | 137 | 71 | 72 | 127 | 0 | 0 | 0 | 1 | 0 | 0 | 0 |
+| Malay | 186 | 144 | 54 | 5 | 1 | 0 | 0 | 23 | 17 | 6 | 18 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 
-Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 10 of 123, Indonesian 2 of 52, Thai 2 of 52, Malay 1 of 17.
+Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 9 of 121, Indonesian 2 of 52, Thai 2 of 52, Malay 1 of 17.
 
 ## Doses on more than one page
 
@@ -71,8 +71,8 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 
 - repashy: 48
 - panacur: 33
-- ada: 16
-- fluval stratum: 15
+- ada: 17
+- fluval stratum: 16
 - ada amazonia: 14
 - ada amazonia aqua soil: 14
 - hikari first bites: 14
@@ -83,9 +83,9 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - aquario neo soil: 11
 - eheim: 11
 - seachem fluorite: 11
+- ge silicone 1: 10
 - aquaclear: 9
 - carib sea eco-complete: 9
-- ge silicone 1: 9
 - weld-on 4: 9
 - apt fix: 8
 - fluval: 8
@@ -93,6 +93,8 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - easy shrimp and snail shells: 7
 - krylon fusion: 7
 - repashy soilent green: 7
+- seachem flourite: 7
+- seachem flourite dark: 7
 - tetramin: 7
 - twinstar: 7
 - caribsea eco-complete: 6
@@ -103,9 +105,7 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - liquifry: 6
 - my chihiros: 6
 - pond armor: 6
-- seachem flourite: 6
-- seachem flourite dark: 6
+- tropica: 6
 - vibra bites: 6
 - aquaclear 70: 5
 - aquario neo flow: 5
-- easy planter: 5

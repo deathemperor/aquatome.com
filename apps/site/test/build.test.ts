@@ -675,7 +675,7 @@ describe('instant navigation', () => {
   })
   test('analytics wait until a preloaded page is shown', () => {
     const beacon = dom.querySelector('script[data-beacon]')!.textContent!
-    expect(beacon).toMatch(/document\.prerendering\?document\.addEventListener\('prerenderingchange',go/)
+    expect(beacon).toMatch(/D=document\b.*D\.prerendering\?D\.addEventListener\('prerenderingchange',go/)
     expect(html).not.toContain('<script type="module" src="https://static.cloudflareinsights.com')
   })
 })
