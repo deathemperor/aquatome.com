@@ -3,7 +3,7 @@ import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { LANG } from '@aq/schema/langs'
-import { DIST, page } from './dist'
+import { DIST, page, sitemapText } from './dist'
 
 // Malay is served (the language table's `served: true`): the fixture's Malay files, one of each kind the engine writes,
 // are pages at Malay's addresses, in Malay, in the sitemap and in the app's index.
@@ -18,7 +18,7 @@ const PAGES: Record<string, [string, string]> = {
 
 test('the fixture\'s Malay files are pages at its addresses, in its sitemap and in the app\'s index', () => {
   expect(LANG.ms.served).toBe(true)
-  const sitemap = readFileSync(join(DIST, 'sitemap.xml'), 'utf8')
+  const sitemap = sitemapText()
   const app = JSON.parse(readFileSync(join(DIST, 'app/ms.json'), 'utf8')) as { lang: string; items: { path: string }[] }
   expect(app.lang).toBe('ms')
   for (const [file, [path, name]] of Object.entries(PAGES)) {

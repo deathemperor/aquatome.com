@@ -2,7 +2,7 @@ import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { LANG, WRITTEN_LANGS } from '@aq/schema/langs'
-import { DIST } from './dist'
+import { DIST, sitemapText } from './dist'
 
 // A language the engine writes and the site doesn't serve yet (the language table's `served: false`): its files land with
 // the engine's pushes, here as the fixture's, and nothing on the built site may show them. The fixture has one of each kind
@@ -20,7 +20,7 @@ test('no page, list or app file of it on the built site', () => {
     expect(existsSync(join(DIST, prefix)), prefix).toBe(false)
     expect(existsSync(join(DIST, 'app', `${l}.json`)), `/app/${l}.json`).toBe(false)
     expect(existsSync(join(DIST, 'app/latest', `${l}.json`)), `/app/latest/${l}.json`).toBe(false)
-    expect(readFileSync(join(DIST, 'sitemap.xml'), 'utf8'), 'sitemap').not.toContain(`${prefix}/`)
+    expect(sitemapText(), 'sitemap').not.toContain(`${prefix}/`)
     for (const f of texts) {
       const s = readFileSync(f, 'utf8')
       if (NAMED.some(re => re.test(s))) expect.fail(`${f} shows the fixture's ${l} text`)

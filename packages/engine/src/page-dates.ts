@@ -5,6 +5,7 @@ import { join } from 'node:path'
 /**
  * Fields a reader never sees: scores, stamps, and notes to the engine itself. The engine rewrites them on runs that
  * change nothing on the page (a merge moves `updatedAt`, a re-score moves `quality`), so they can't date a page.
+ * A change to this list changes every file's hash, and the next sweep then dates every page that day.
  */
 const BOOKKEEPING = new Set(['updatedAt', 'quality', 'held', 'nameFixed', 'bodyFixed', 'redirectFrom', 'generatedAt', 'builtAt', 'seen', 'speciesUpdatedAt', 'fetched', 'at'])
 

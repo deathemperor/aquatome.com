@@ -33,7 +33,7 @@ test('heater: 60×30×36 cm from 16 °C to 26 °C → 75 W; warm room → none',
 })
 
 test('tools page: nav link, a card for every tool, sitemap; the checker\'s species index; species pages link to the checker', async () => {
-  const { page, DIST } = await import('./dist')
+  const { page, DIST, sitemapText } = await import('./dist')
   const { readFileSync } = await import('node:fs')
   const { dom } = page('/cong-cu/')
   expect(dom.querySelector('nav a[href="/cong-cu/"]')).not.toBeNull()
@@ -57,7 +57,7 @@ test('tools page: nav link, a card for every tool, sitemap; the checker\'s speci
   expect(idx.some(i => i.sizeCm !== undefined)).toBe(true)
   expect(idx.find(i => i.slug === 'ca-neon-vua')).toMatchObject({ temperament: 'peaceful', schoolMin: 8, aka: ['Cardinal tetra'], pop: 3 })
   expect(idx.find(i => i.slug === 'ca-neon-vua')?.img).toMatch(/^https:\/\//)
-  const sitemap = readFileSync(`${DIST}/sitemap.xml`, 'utf8')
+  const sitemap = sitemapText()
   for (const p of ['/cong-cu/', '/cong-cu/nuoi-chung/', '/id/alat/kecocokan-ikan/', '/th/tools/tank-mates/']) expect(sitemap).toContain(p)
   expect(page('/ca/ca-neon-vua/').dom.querySelector('a[href="/cong-cu/nuoi-chung/?ca=ca-neon-vua:8"]')).not.toBeNull()
 })
