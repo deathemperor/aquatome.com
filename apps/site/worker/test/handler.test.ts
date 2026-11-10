@@ -532,6 +532,25 @@ test('a renamed page\'s old address 301s to the new one with ?tu=<old slug>, its
   expect([id.status, id.headers.get('location')]).toEqual([301, '/id/asal/north-america/united-states/'])
 })
 
+test('a missing fish or plant gallery 302s to its existing page, keeping the query; renamed pages still 301', async () => {
+  const table = { '/ca/old/anh/': '/ca/x/' }
+  const live = ['/ca/x/', '/cay/y/', '/ca/old/']
+  const { e } = env({ ASSETS: { fetch: async (r: Request) => { const p = new URL(r.url).pathname; return p === '/redirects.json' ? Response.json(table) : live.includes(p) ? new Response(PAGE, { headers: { 'content-type': 'text/html; charset=utf-8' } }) : new Response('<h1>404</h1>', { status: 404, headers: { 'content-type': 'text/html' } }) } } as unknown as Fetcher })
+  for (const [from, to] of [['/ca/x/anh/', '/ca/x/'], ['/cay/y/anh/', '/cay/y/'], ['/ca/x/anh', '/ca/x/'], ['/ca/x/anh/?a=1', '/ca/x/?a=1']]) {
+    const r = await handle(get(from!), e)
+    expect([r.status, r.headers.get('location')], from).toEqual([302, to])
+    expect((await follow(r, e)).status, from).toBe(200)
+  }
+  for (const path of ['/ca/khong-co/anh/', '/ca/x/extra/anh/', '/id/ca/x/anh/', '/th/cay/y/anh/']) {
+    expect((await handle(get(path), e)).status, path).toBe(404)
+  }
+  const renamed = await handle(get('/ca/old/anh/'), e)
+  expect([renamed.status, renamed.headers.get('location')]).toEqual([301, '/ca/x/'])
+  live.push('/ca/x/anh/')
+  const existing = await handle(get('/ca/x/anh/'), e)
+  expect([existing.status, existing.headers.get('location')]).toEqual([200, null])
+})
+
 test('a page view never waits on KV: the list baked in at deploy answers until the live one is in, then the live one wins', async () => {
   let release!: (v: string | null) => void
   const kv = new Promise<string | null>(r => { release = r })
