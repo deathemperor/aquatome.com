@@ -1,0 +1,159 @@
+{
+  "id": "tatia-galaxias",
+  "scientificName": "Tatia galaxias",
+  "order": "Siluriformes",
+  "family": "Auchenipteridae",
+  "genus": "Tatia",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "venezuela",
+    "orinoco",
+    "colombia",
+    "meta"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 30
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 12.6
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 100
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tatia-galaxias",
+      "html": "<p>Tatia galaxias is a wood catfish from the Orinoco river basin in Venezuela and Colombia, dark with small, round white spots like stars. It is sometimes confused with Tatia intermedia, in which the spots are longer and oval.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tatia-galaxias",
+      "html": "<p>Known only from the Orinoco basin in Venezuela and Colombia.</p><p>In Venezuela it's recorded from the Apure and Cinaruco rivers in Apure state, from tributaries of the middle Orinoco near Caicara del Orinoco in Bolívar state, and in Amazonas state from the Atabapo, Sipapo and Mavaca rivers. Mees (1988) also recorded it from the Guarapiche river in Monagas state. In Colombia it's known from the Meta drainage, where it has been collected from a small stream thought to belong to the Mozambique lake complex and from the El Viento stream south of Matazul (Sarmento-Soares and Martins-Pinheiro, 2008).</p><p>Type locality is 'Caño de Quiribana into Rio Orinoco, Venezuela'.</p><p>Older records of Tatia intermedia and T. aulopygia from the Orinoco basin belong to this species (see 'Notes').</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tatia-galaxias",
+      "html": "<p>Collected from both clear and acidic black water rivers, and from small streams. Fish from black water are usually darker than those from clear water (Sarmento-Soares and Martins-Pinheiro, 2008).</p><p>Nothing has been published on the habitat of this species in particular. Members of the genus Tatia live in the still or slow parts of streams, rivers and lakes, where they hide in submerged wood or rock crevices during the day. At night they come out and stay close to the surface near the bank or in midstream, where they swim fast and erratically and catch insects that fall onto the water.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tatia-galaxias",
+      "html": "<p>Standard length: 12.6 cm SL.</p><p>No published account of this species' space needs in an aquarium is known. The adults measured by Sarmento-Soares and Martins-Pinheiro (2008) averaged 6.5 cm SL, but the largest known specimen reached 12.6 cm SL, so a tank of at least 100 cm in length is a sensible minimum for a group.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tatia-galaxias",
+      "html": "<p>There are no detailed husbandry reports for this species, so this section is based on the genus.</p><p>Tatia species hide by day in narrow gaps, so furnish the tank with driftwood arranged to leave plenty of crevices they can squeeze into. Keep the water clean and well oxygenated. Sarmento-Soares and Martins-Pinheiro (2008) note that Tatia seem intolerant of low oxygen, and that most did not survive transport to Europe and North America (Sands, 1984).</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tatia-galaxias",
+      "html": "<ul><li>Temperature: 22–30°C</li><li>pH: 6.0–7.0</li><li>Hardness: not recorded</li></ul><p>No water measurements have been published from the places where this species was collected. It's known from both clear and acidic black water rivers. Planet Catfish lists 22–26 °C and pH 6.0–7.0, without giving a source.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tatia-galaxias",
+      "html": "<p>In the wild, Tatia species feed on small fruits and invertebrates, including insects taken from the surface at night (Sarmento-Soares and Martins-Pinheiro, 2008).</p><p>No account of feeding this species in an aquarium has been found. Going by the diet of the genus, small live and frozen invertebrates such as bloodworm are the obvious place to start, offered after the lights go out.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tatia-galaxias",
+      "html": "<p>Like the rest of the genus, it's nocturnal and spends the day out of sight in a crevice. No reliable report has been found of how it behaves towards its own kind or other fishes.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tatia-galaxias",
+      "html": "<p>Mature males have a strongly modified anal fin with thickened front rays, the longest of which form a pointed tip, and a visible genital papilla with a long, slender duct. Females have no obvious papilla. In males the upper lobe of the caudal fin is slightly longer than the lower, while in females the two lobes are the same length.</p><p>Sexual maturity is reached above 5.4 cm SL (Sarmento-Soares and Martins-Pinheiro, 2008). Mees (1974) found the male anal fin starts to develop at around 4.5 cm SL.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tatia-galaxias",
+      "html": "<p>Members of the subfamily Centromochlinae, which includes Tatia, are thought to breed by internal insemination. The male's modified anal fin probably channels sperm, and he may press it against the female's belly to inseminate her, but this has not been observed (Sarmento-Soares and Martins-Pinheiro, 2008).</p><p>A first aquarium spawning was reported by H. J. Franke in Tropical Fish Hobbyist in 1990, in an article titled 'The first breeding of the starry woodcat, Tatia galaxias'. The article could not be read, so no details can be given here.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tatia-galaxias",
+      "html": "<p>Known in the hobby as the Milky Way woodcat or starry woodcat.</p><p>Etymology: Tatia was named by Miranda Ribeiro in 1911 for the ichthyologist Charles Tate Regan of the British Museum (Natural History), London, for his many contributions to the knowledge of South American freshwater fishes. The name galaxias comes from the Greek galaxías, meaning 'Milky Way'. Mees did not explain the name, but it probably refers to the small white dots spread evenly over the dark brown body, which look like stars.</p><p>It's easily confused with Tatia intermedia, and Planet Catfish notes that fish sold as T. galaxias are often T. intermedia. Mees (1974) separated the two by colour: T. galaxias has a darker body with smaller white spots, and its tail is dark with white spots, while T. intermedia has a pale tail with dark spots and bars. The spots of T. galaxias are usually round, while those of T. intermedia tend to be oval.</p><p>The colour pattern varies, and different forms can be found together at the same locality. Some fish are light brown, some are uniformly dark, and a few have oval white spots. Small juveniles under about 4 cm SL usually have roundish spots over the body and caudal fin.</p><p>Measurements separate the two species more reliably. T. galaxias has a much larger eye (37.0–42.9% of head length, against 21.4–26.3% in T. intermedia), a shorter snout (23.1–28.9% of head length, against 38.8–44.3%), seven ribs against ten, and 32–33 vertebrae against 35–36 (Sarmento-Soares and Martins-Pinheiro, 2008).</p><p>Older works recorded fish from the Orinoco basin as Centromochlus aulopygius, Tatia aulopygia or T. intermedia. Sarmento-Soares and Martins-Pinheiro (2008) treat those records as this species.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tatia-galaxias",
+      "html": "<ul><li>Sarmento-Soares, Luisa Maria; Martins-Pinheiro, Ronaldo Fernando (2008). A systematic revision of Tatia (Siluriformes: Auchenipteridae: Centromochlinae) FapUNIFESP (SciELO) doi.org/10.1590/s1679-62252008000300022</li></ul>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 100cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể 100cm",
+        "máy sục khí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "thức ăn cho cá da trơn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá",
+        "máy sưởi thủy sinh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-10"
+}

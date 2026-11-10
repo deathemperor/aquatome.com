@@ -5,12 +5,59 @@
   "family": "Cichlidae",
   "genus": "Crenicichla",
   "group": "cichlids",
-  "places": [],
+  "places": [
+    "south-america",
+    "brazil",
+    "tocantins"
+  ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 8
+      },
+      {
+        "source": "seriouslyfish",
+        "value": 7.6
+      }
+    ],
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 6.8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 8
+        }
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 90
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
       }
     ]
   },
@@ -22,10 +69,76 @@
       "html": "<p>Males reach a maximum length of about 8 cm; females stay smaller, at only 6-7 cm.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallaciia-compressiceps",
+      "html": "<p>The compressiceps dwarf pike cichlid, Wallaciia compressiceps, is a small pike cichlid known only from the lower Rio Tocantins basin in Brazil. It swims a great deal and can be very quick and very aggressive, so it needs a larger aquarium than its size suggests, and anything half its size will be seen as food. A number of hobbyists have found it very difficult to spawn without target fish in the aquarium.</p><p>It needs a well-established tank.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallaciia-compressiceps",
+      "html": "<p>Known only from the lower Rio Tocantins basin, Brazil.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallaciia-compressiceps",
+      "html": "<p>Known only from the lower Rio Tocantins basin, Brazil.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallaciia-compressiceps",
+      "html": "<p>Standard length: 76 mm SL.</p><p>Aquarium base: 90 × 38 cm.</p><p>Volume: ~154 litres.</p><p>A tank of 90 cm × 45 cm × 37.5 cm – 160 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallaciia-compressiceps",
+      "html": "<p>Provide an aquarium with plenty of hiding places, especially using bits of wood and leaves scattered across the substrate. Plants are fine, it is unlikely that Compressiceps will unearth them.</p><p>Make sure regular partial water changes are undertaken as the Dwarf Pikes are all quite sensitive to water pollutants.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallaciia-compressiceps",
+      "html": "<ul><li>Temperature: 24–27°C</li><li>pH: 5.0–6.8</li><li>Hardness: 2–8 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallaciia-compressiceps",
+      "html": "<p>Tank bred specimens will happily take most foods, but wild caught fish may demand live or at the least frozen foods. A variety of foods is vital, as it has been reported that hole-in-the-head disease can be caught by poorly fed Pikes. Feed live and frozen foods regularly, even to fish which will accept dry foods. Earth and mealworms are ideal, and crustaceans too as that is what Wallaciia compressiceps will prey on in the wild.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallaciia-compressiceps",
+      "html": "<p>Can be very aggressive, hence the requirement for such a large tank in relation to this fish's size. Only keep with bigger, robust fish. Anything half the Compressiceps' size will be seen as food, even though in the wild Compressiceps rarely eat other fish.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/crenicichla_compressiceps_en/",
       "html": "<p>Both sexes of the variety currently available have black bands in the vertical fins. Males can be recognized best by the overall shape (larger and more slender). In males the black vertical bands are more intense and the males have a bright red band in the dorsal fin, which is lacking in females. A female is also quite easy to recognize by its behaviour, as in Crenicichla compressiceps the females are the ones that wear the trousers.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallaciia-compressiceps",
+      "html": "<p>Males have striped yellow fins.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallaciia-compressiceps",
+      "html": "<p>It has been noted by a number of hobbyists that spawning Crenicichla Compressiceps may be very difficult without target fish in the aquarium. Target fish serve as targets for cichlids aggression and, in so doing, help diffuse intraspecific aggression and cement pair bonds. Target fish for cichlids may range from other individuals of the same species, to other cichlids, to even some non-cichlids.</p><p>Condition a pair of Compressiceps by feeding high quality live or frozen foods. As females ripen, they may develop a reddened belly (not unlike that of the Kribensis females). Courtship involves a thoroughly interesting head-down shaking dance.</p><p>Compressiceps, as with nearly all the Pike cichlids are cave brooders. They will often hide their eggs in complex twists of bits of wood, or under rocks if possible. Another possibility is a clay saucer propped up slightly to allow the Compressiceps underneath. Eggs are typically hung by an adhesive filament from the top of the spawning area. Generally with Compressiceps, only around 25 to 50 eggs will be laid.</p><p>Fry will hatch in 2-3 days, and may become free swimming within another 4 days. Temperature of the water seems to make a difference in the length of time it takes fry to hatch and become free swimming. Fry will grow quickly and parents will look after them very carefully - even more so if target fish have been used, Compressiceps' parental care is greatly increased in the presence of other fish.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/wallaciia-compressiceps",
+      "html": "<p>Wallaciia compressiceps are an excellent little fish. They are small, but they swim a great deal (and can be incredibly quick) so require larger aquaria than other, similar sized fish. In the wild, Compressiceps are insect feeders. They will wait quietly then quickly sweep down and prey on any nearby insects. They have good vision in the night and will often feed in the dark.</p><p>Be careful when choosing tankmates, though as previously mentioned it may be mandatory to include some fish to encourage a pair of Wallaciia compressiceps to spawn. Wallaciia compressiceps are a highly attractive fish which are relatively easy to look after and viable to consider for breeding. They are available reasonably commonly in the trade.</p><p>The species was moved from Crenicichla compressiceps to Wallaciia compressiceps in 2023.</p>"
     }
   ],
   "photos": [],
@@ -34,8 +147,7 @@
     {
       "category": "be-ca",
       "keywords": [
-        "bể cá 60cm",
-        "bể cá mini"
+        "bể cá 90cm"
       ]
     },
     {
@@ -52,5 +164,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-10"
 }

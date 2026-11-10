@@ -88994,8 +88994,8 @@
     "products": []
   },
   "vi/species/crenicichla-compressiceps": {
-    "at": "2026-11-09",
-    "hash": "bd2da349149b99d7",
+    "at": "2026-11-10",
+    "hash": "653499375c1f5cc3",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -108537,5 +108537,451 @@
       "Sobo",
       "SunSun"
     ]
+  },
+  "vi/species/centromochlus-reticulatus": {
+    "at": "2026-11-10",
+    "hash": "fe10d89adb0ddb4b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/stiphodon-alcedo": {
+    "at": "2026-11-10",
+    "hash": "4eefb21754bd6aaf",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/stiphodon-atratus": {
+    "at": "2026-11-10",
+    "hash": "2d9341f195934722",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/stiphodon-birdsong": {
+    "at": "2026-11-10",
+    "hash": "2abaf5518ac6dbdf",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P9",
+        "quote": "như cá kim tơ (Tanichthys)",
+        "why": "Keepers in Vietnam call Tanichthys by its local hobby name, not \"cá kim tơ\".",
+        "by": "model",
+        "fix": "cá bạch vân"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/stiphodon-maculidorsalis": {
+    "at": "2026-11-10",
+    "hash": "c11f5d9182914ca2",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/stiphodon-rutilaureus": {
+    "at": "2026-11-10",
+    "hash": "a3b29de45a6a3e62",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P12",
+        "quote": "Con cá trong ảnh trên do mấy người sưu tầm tư nhân mang về từ miền bắc Papua New Guinea năm 2008.",
+        "why": "It points to a photo above, but the page has no pictures; the photo belonged to the original article.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/stiphodon-semoni": {
+    "at": "2026-11-10",
+    "hash": "4abdbd10e847edd7",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P8",
+        "quote": "đồ ăn mặn cỡ nhỏ như trùng huyết sống hoặc đông lạnh",
+        "why": "Calque of 'meaty foods'; 'đồ ăn mặn' means salty food in Vietnamese.",
+        "by": "model",
+        "fix": "thức ăn đạm động vật / thức ăn tươi (mồi tươi)"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/stiphodon-surrufus": {
+    "at": "2026-11-10",
+    "hash": "16c64b8d5265e73c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/stomatepia-pindu": {
+    "at": "2026-11-10",
+    "hash": "908a7d5109d00d21",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/synaptolaemus-latofasciatus": {
+    "at": "2026-11-10",
+    "hash": "7742fcc9be42039c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/syncrossus-helodes": {
+    "at": "2026-11-10",
+    "hash": "41ce9f911d88f86c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Panacur"
+    ]
+  },
+  "vi/species/synodontis-acanthomias": {
+    "at": "2026-11-10",
+    "hash": "0ca325e581a358f6",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/synodontis-alberti": {
+    "at": "2026-11-10",
+    "hash": "3a62828fe6563cc7",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/synodontis-albolineatus": {
+    "at": "2026-11-10",
+    "hash": "d84e36ec6a443e84",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "là một loài cá nheo rên nhỏ",
+        "why": "\"Cá nheo rên\" is a literal calque of the English \"squeaker catfish\"; keepers in Vietnam just call these fish Synodontis.",
+        "by": "model",
+        "fix": "cá Synodontis"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/synodontis-aterrimus": {
+    "at": "2026-11-10",
+    "hash": "2f1cbae9c8f042ab",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/synodontis-brichardi": {
+    "at": "2026-11-10",
+    "hash": "c448ce99be85bc2a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/synodontis-decorus": {
+    "at": "2026-11-10",
+    "hash": "f82dcd9280c491a4",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/synodontis-dhonti": {
+    "at": "2026-11-10",
+    "hash": "d1f20b5af9542b7b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/synodontis-granulosus": {
+    "at": "2026-11-10",
+    "hash": "2ca2b4a96891f510",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/synodontis-greshoffi": {
+    "at": "2026-11-10",
+    "hash": "1c9f708655962652",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/synodontis-membranaceus": {
+    "at": "2026-11-10",
+    "hash": "b7ff870e1d234656",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/synodontis-nigrita": {
+    "at": "2026-11-10",
+    "hash": "3abbc42d33b71e1f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/synodontis-njassae": {
+    "at": "2026-11-10",
+    "hash": "e0c9807dc26f44d7",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/synodontis-pleurops": {
+    "at": "2026-11-10",
+    "hash": "39dcb7ffdf2be0d4",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/synodontis-polli": {
+    "at": "2026-11-10",
+    "hash": "f5ac048c11aa2890",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/synodontis-robbianus": {
+    "at": "2026-11-10",
+    "hash": "ef9f7528c932b08b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/synodontis-schall": {
+    "at": "2026-11-10",
+    "hash": "8ffff6331f37dfe8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/synodontis-schoutedeni": {
+    "at": "2026-11-10",
+    "hash": "867beb4ab87c1382",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/synodontis-waterloti": {
+    "at": "2026-11-10",
+    "hash": "4a1c3e2962065ef1",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/taeniacara-candidi": {
+    "at": "2026-11-10",
+    "hash": "7646b381a1a4bded",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P5",
+        "quote": "mấy mẩu lũa, gỗ bog, gỗ mopani",
+        "why": "\"Gỗ bog\" is a half-translated calque of English \"bogwood\"; keepers in Vietnam just say lũa.",
+        "by": "model",
+        "fix": "lũa"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/taenioides-cirratus": {
+    "at": "2026-11-10",
+    "hash": "c4b9f234189d0d01",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "Bể 75 cm x 12 cm x 12 cm (70 lít)",
+        "why": "The 12 figures are unconverted inches (30×12×12 in); 75×12×12 cm is only about 11 litres, so it should be 75×30×30 cm.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P11",
+        "quote": "đã về tiệm ít nhất một lần trong vài năm gần đây",
+        "why": "This is about imports into the source country's trade, but it is given as if it were the reader's local shops.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/tatia-galaxias": {
+    "at": "2026-11-10",
+    "hash": "0aaf02107f625d60",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/tetraodon-miurus": {
+    "at": "2026-11-10",
+    "hash": "7aff5543afb256fd",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P7",
+        "quote": "Cho ăn tôm, giun đất, cá lancefish, trai và những món tương tự.",
+        "why": "Lancefish is an English name for a frozen food sold abroad; keepers in Vietnam don't use this word.",
+        "by": "model",
+        "fix": "cá mồi nhỏ đông lạnh"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/tetraodon-pustulatus": {
+    "at": "2026-11-10",
+    "hash": "1cc0b932ea4307a7",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/thayeria-ifati": {
+    "at": "2026-11-10",
+    "hash": "f86e7826c3e7f89b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P5",
+        "quote": "Nếu không tìm được lũa có dáng ưng ý thì dùng cành dẻ gai cũng an toàn",
+        "why": "Suggests collecting European beech branches and beech/oak leaves, which are common where the source was written but not in Vietnam.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/thayeria-obliqua": {
+    "at": "2026-11-10",
+    "hash": "0b26e3861d8011b9",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P5",
+        "quote": "cành dẻ gai thường cũng dùng được, miễn là phơi thật khô và lột sạch vỏ",
+        "why": "Collecting common beech branches is a European habit; beech doesn't grow wild where this reader lives.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/tilapia-guinasana": {
+    "at": "2026-11-10",
+    "hash": "5534bd56ea6fdbb8",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/toxotes-chatareus": {
+    "at": "2026-11-10",
+    "hash": "9a1756ddb6ea43fb",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P11",
+        "quote": "Toxotes chatareus cũng có bán ở Anh nhưng hiếm gặp hơn nhiều",
+        "why": "Availability in UK shops is given as if it were the reader's own market.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/trachelyichthys-decaradiatus": {
+    "at": "2026-11-10",
+    "hash": "4f8c99f82cf1143f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/trachelyichthys-exilis": {
+    "at": "2026-11-10",
+    "hash": "a13151e2b38f7100",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/tramitichromis-intermedius": {
+    "at": "2026-11-10",
+    "hash": "a869ccaa4dbc3337",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "bể không được hẹp hơn 38 cm",
+        "why": "38 cm is a converted 15-inch tank width that no keeper in Vietnam would give.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/species/trematocranus-placodon": {
+    "at": "2026-11-10",
+    "hash": "de90d6f65839bb23",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/species/trigonopoma-gracile": {
+    "at": "2026-11-10",
+    "hash": "ad5ee360ce3c126a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
   }
 }

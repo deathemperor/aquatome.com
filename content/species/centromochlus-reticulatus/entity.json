@@ -1,0 +1,179 @@
+{
+  "id": "centromochlus-reticulatus",
+  "scientificName": "Centromochlus reticulatus",
+  "order": "Siluriformes",
+  "family": "Auchenipteridae",
+  "genus": "Centromochlus",
+  "group": "catfish",
+  "places": [
+    "south-america",
+    "guyana",
+    "rupununi",
+    "brazil",
+    "preto-da-eva"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 22,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 1,
+          "max": 12
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 2.7
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 60
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tatia-reticulata",
+      "html": "<p>The reticulated driftwood catfish, Tatia reticulata, is a small auchenipterid first known from the upper Rupununi River basin in Guyana. Its secretive, mostly nocturnal habits mean it may have been overlooked elsewhere, and it has been recorded from the rio Preto da Eva near Manaus, Brazil. Sometimes traded as 'purple oil catfish', it is highly gregarious and ideally kept in groups of at least eight.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tatia-reticulata",
+      "html": "<p>Initially known only from the upper Rupununi River basin in Guyana but it may have been overlooked elsewhere due to its secretive, mostly nocturnal behaviour.</p><p>For example, it's been recorded in the rio Preto da Eva, a tributary of the Amazon a little downstream of Manaus in Amazonas state, Brazil and an identical-looking fish is sometimes exported from Peru.</p><p>Type locality is 'Karanambo, Rupununi, Guyana'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tatia-reticulata",
+      "html": "<p>In nature it takes refuge among submerged woody structures during the day, emerging to forage at night, and this habit gives rise to the common names of 'wood' or 'driftwood' catfishes for the family Auchenipteridae in general.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tatia-reticulata",
+      "html": "<p>An aquarium with base dimensions of 60 × 30 cm or equivalent (about 54 litres) should be the smallest considered for general care.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tatia-reticulata",
+      "html": "<p>Not difficult to maintain under the correct conditions; we recommend keeping it in a tank designed to simulate a flowing stream with a substrate of variably-sized rocks, sand, fine gravel, and some water-worn boulders.</p><p>This can be further furnished with driftwood branches, terracotta pipes, plant pots, etc., arranged to form a network of nooks, crannies, and shaded spots.</p><p>Tatia species also enjoy sheltering among surface vegetation such as Ceratopteris spp.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tatia-reticulata",
+      "html": "<ul><li>Temperature: 22–28°C</li><li>pH: 5.0–7.5</li><li>Hardness: 1–12 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tatia-reticulata",
+      "html": "<p>Tatia species will accept most sinking dried foods, but particularly relish small live and frozen varieties such as bloodworm, Tubifex, etc.</p><p>Once acclimatised they readily leave their hiding places when food is introduced and unlike most catfishes tend to actively feed at the surface.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tatia-reticulata",
+      "html": "<p>A peaceful species which can be maintained in a well-chosen community alongside other small, quiet fishes.</p><p>It's highly gregarious and ideally should be maintained in numbers of no less than 8.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tatia-reticulata",
+      "html": "<p>Adult males possess an elongated, relatively pointed anal-fin while that of the female is rounded, and the urogenital papilla in males emerges from a small flap of skin at the anal-fin origin.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tatia-reticulata",
+      "html": "<p>All members of the family Auchenipteridae are thought to practise internal insemination and females can carry mature, unfertilised eggs and sperm packets inside the body for unspecified periods of time.</p><p>When conditions are satisfactory fertilisation is triggered and the eggs deposited, and there is no subsequent parental care.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tatia-reticulata",
+      "html": "<p>This species is sometimes traded as 'purple oil catfish' and is considered desirable in the aquarium hobby.</p><p>It was formerly placed in Centromochlus. Calegari, Vari &amp; Reis (2019) revalidated Tatia as a genus, and the Catalog of Fishes and FishBase both now place this species in it.</p><p>Tatia is sometimes included in the putative subfamily Centromochlinae, which also includes Centromochlus, Gelanoglanis and Glanidium.</p><p>This grouping is told apart from other auchenipterids by having modified anal-fin rays and proximal pterygiophores orientated posteriorly, a male urogenital papilla emerging from a flap of skin at the anal-fin origin, and the proximal anal-fin radials at least partially joined to each other.</p><p>The family Auchenipteridae is endemic to the neotropics and members are told apart from other catfishes by the following combination of characters: absence of bony plates on body; predorsal area covered in sutured bony plates clearly visible beneath a thin epidermis; absence of nasal barbels; adipose-fin small, occasionally absent; eye without a distinct orbital rim and covered by adipose tissue.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tatia-reticulata",
+      "html": "<ul><li>Ferraris, C. J., Jr. (2007). Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418, 1-628</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Soares-Porto, L. M. in Malabarba, L. R. et al.: Phylogeny and classification of Neotropical fishes (1998). Monophyly and interrelationships of the Centromochlinae (Siluriformes: Auchenipteridae). EDIPUCRS, Porto Alegre, 331-350</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/8adabf44785cfcaa.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/8adabf44785cfcaa-480.webp",
+      "width": 800,
+      "height": 343,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/tatia-reticulata",
+      "caption": "Female specimen from the UK aquarium trade.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 50W"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng huyết đông lạnh",
+        "thức ăn chìm cho cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-10"
+}

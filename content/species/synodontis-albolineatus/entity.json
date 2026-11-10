@@ -1,0 +1,160 @@
+{
+  "id": "synodontis-albolineatus",
+  "scientificName": "Synodontis albolineatus",
+  "order": "Siluriformes",
+  "family": "Mochokidae",
+  "genus": "Synodontis",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "gabon",
+    "majinga",
+    "cameroon"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 15
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 10
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 75
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-albolineatus",
+      "html": "<p>The mustard synodontis, Synodontis albolineatus, is a small squeaker catfish endemic to the Majinga river system in Gabon. Also known as the mustard squeaker, it is imported infrequently but sometimes turns up in mixed boxes of Synodontis from exporters. It reaches around 10 cm and is peaceful with most species, though territorial towards its own kind in smaller systems.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-albolineatus",
+      "html": "<p>Endemic to Gabon, specifically the Majinga river system.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-albolineatus",
+      "html": "<p>Occurs in various biotopes in the Majinga river system.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-albolineatus",
+      "html": "<p>Standard length: 10 cm SL.</p><p>Aquarium base: 75 × 30 cm. Volume: ~68 litres (75 × 30 × 30 cm).</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-albolineatus",
+      "html": "<p>A densely planted aquarium with a soft substrate and rocks, pieces of driftwood and twisted roots arranged to form hiding places is ideal for this species. Floating vegetation is also recommended in order to diffuse the light entering the tank.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-albolineatus",
+      "html": "<ul><li>Temperature: 24–28°C</li><li>pH: 6.5–7.5</li><li>Hardness: 5–15 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-albolineatus",
+      "html": "<p>Synodontis are omnivorous and are most unfussy in terms of feeding. Frozen, live and dried foods are all accepted. It also relishes vegetable matter in the form of shelled peas, cucumber etc., which it will rasp at with the teeth in its lower jaw.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-albolineatus",
+      "html": "<p>A peaceful fish that can be maintained successfully with most species. Good tankmates include Alestiid tetras, Pelvicachromis sp. and other peaceful cichlids, Mormyrids, Gouramis and larger rasboras and barbs. Can be kept with others of its own kind in a suitably sized aquarium but is territorial in smaller systems.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-albolineatus",
+      "html": "<p>Unknown. Its size makes it very difficult to be sexed accurately using the genital papillae method.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-albolineatus",
+      "html": "<p>Not recorded in aquaria.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/synodontis-albolineatus",
+      "html": "<p>Also known as the Mustard Squeaker, this species is imported infrequently, though it sometimes shows up in mixed boxes of Synodontis from exporters. An ideal Syno for the general community due to its small adult size.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 80cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá 80cm",
+        "máy lọc nước hồ cá"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá nhiệt đới"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nheo",
+        "viên chìm cho cá đáy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-10"
+}
