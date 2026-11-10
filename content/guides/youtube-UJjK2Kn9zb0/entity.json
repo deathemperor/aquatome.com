@@ -64,20 +64,13 @@
         "heading": "Lắp đèn LED dây dưới tầng kệ",
         "moments": [
           {
-            "t": 75,
-            "url": "https://media.aquatome.com/video/UJjK2Kn9zb0/at75-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cuộn đèn LED dây được kéo ra dọc theo tầng kệ gỗ.",
-            "sharpness": 823.2
-          },
-          {
             "t": 95,
             "url": "https://media.aquatome.com/video/UJjK2Kn9zb0/at95-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Đèn LED dây đã gắn dưới tầng kệ trên, còn đoạn thừa cuộn lại.",
-            "sharpness": 896.9
+            "sharpness": 896.9,
+            "person": false
           }
         ],
         "photo": {
@@ -95,41 +88,13 @@
         "heading": "Đặt bể, đi dây điện và lắp sưởi",
         "moments": [
           {
-            "t": 160,
-            "url": "https://media.aquatome.com/video/UJjK2Kn9zb0/at160-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể đang được đưa vào kệ, dây điện được luồn ra phía sau.",
-            "sharpness": 1109.4
-          },
-          {
             "t": 175,
             "url": "https://media.aquatome.com/video/UJjK2Kn9zb0/at175-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể đã đặt vào giữa kệ, bật đèn LED để thử.",
-            "sharpness": 214.9
-          }
-        ]
-      },
-      {
-        "heading": "Rải nền cát lọc hồ bơi",
-        "moments": [
-          {
-            "t": 250,
-            "url": "https://media.aquatome.com/video/UJjK2Kn9zb0/at250-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lớp cát lọc hồ bơi trắng được rải đều dọc đáy bể.",
-            "sharpness": 811.4
-          },
-          {
-            "t": 260,
-            "url": "https://media.aquatome.com/video/UJjK2Kn9zb0/at260-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cát được san phẳng, hơi dốc về phía sau bể.",
-            "sharpness": 631.2
+            "sharpness": 214.9,
+            "person": false
           }
         ]
       },
@@ -163,27 +128,6 @@
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Filtermaterial_060227.jpg",
           "caption": "Các loại vật liệu lọc như mút, sứ lọc và bóng nhựa dùng nuôi vi sinh."
         }
-      },
-      {
-        "heading": "Thêm thổi luồng cho bể dài",
-        "moments": [
-          {
-            "t": 360,
-            "url": "https://media.aquatome.com/video/UJjK2Kn9zb0/at360-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh máy thổi luồng Jebao SW2 nano với cánh quạt.",
-            "sharpness": 472.1
-          },
-          {
-            "t": 375,
-            "url": "https://media.aquatome.com/video/UJjK2Kn9zb0/at375-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bộ điều khiển Wavemaker của thổi luồng, chỉnh được lưu lượng.",
-            "sharpness": 1010.2
-          }
-        ]
       },
       {
         "heading": "Làm nắp bể",
@@ -223,7 +167,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ngăn lọc với các lỗ khoan phía trên và ống nước trắng.",
-            "sharpness": 1011.8
+            "sharpness": 1011.8,
+            "person": false
           }
         ],
         "photo": {

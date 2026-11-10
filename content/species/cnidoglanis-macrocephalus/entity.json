@@ -381,7 +381,12 @@
       "author": "Sylke Rohrlach",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Estuary_Catfish-Cnidoglanis_macrocephalus.JPG",
       "caption": "at Shelly Beach, Manly, Sydney",
-      "thumb": "https://media.aquatome.com/commons/9667cc64e3195973-480.webp"
+      "thumb": "https://media.aquatome.com/commons/9667cc64e3195973-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/9667cc64e3195973-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/ea3738940b36952a.webp",

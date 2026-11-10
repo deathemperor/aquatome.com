@@ -58,7 +58,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ốc bladder nhỏ bám trên đám rêu và cây thủy sinh.",
-            "sharpness": 512.2
+            "sharpness": 512.2,
+            "person": false
           }
         ],
         "photo": {
@@ -76,14 +77,6 @@
         "heading": "Hút rêu thay vì chà bằng bàn chải",
         "moments": [
           {
-            "t": 165,
-            "url": "https://media.aquatome.com/video/VJ_EZRwwFZg/at165-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng máy hút rêu cầm tay hút rêu hại trên nền cát và đá trong bể.",
-            "sharpness": 1719.4
-          },
-          {
             "t": 185,
             "url": "https://media.aquatome.com/video/VJ_EZRwwFZg/at185.webp",
             "width": 320,
@@ -94,24 +87,7 @@
       },
       {
         "heading": "Đo TDS thay cho test GH, KH hằng tuần",
-        "moments": [
-          {
-            "t": 305,
-            "url": "https://media.aquatome.com/video/VJ_EZRwwFZg/at305-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đưa bút đo TDS vào bể thủy sinh để đo nước.",
-            "sharpness": 2625.8
-          },
-          {
-            "t": 315,
-            "url": "https://media.aquatome.com/video/VJ_EZRwwFZg/at315-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Máy đo TDS đang đo nước trong cốc, màn hình hiện số.",
-            "sharpness": 1000.8
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/VJ_EZRwwFZg/p2-kcy1tZXRlci5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/VJ_EZRwwFZg/p2-kcy1tZXRlci5qcGc-480.webp",
@@ -124,44 +100,16 @@
         }
       },
       {
-        "heading": "Mồi ống xi phông mà không cần hút bằng miệng",
-        "moments": [
-          {
-            "t": 380,
-            "url": "https://media.aquatome.com/video/VJ_EZRwwFZg/at380-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ống xi phông được nhấn chìm trong bể, bên trong đầy nước.",
-            "sharpness": 1028.3
-          },
-          {
-            "t": 415,
-            "url": "https://media.aquatome.com/video/VJ_EZRwwFZg/at415-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nước chảy từ ống xi phông xuống xô sau khi mồi xong.",
-            "sharpness": 211.8
-          }
-        ]
-      },
-      {
         "heading": "Cắm lại cây cắt tỉa sao cho cây không nổi",
         "moments": [
-          {
-            "t": 530,
-            "url": "https://media.aquatome.com/video/VJ_EZRwwFZg/at530-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nhíp cắm ngọn cây lá đỏ xuống nền giữa đám cây thấp.",
-            "sharpness": 1081.3
-          },
           {
             "t": 555,
             "url": "https://media.aquatome.com/video/VJ_EZRwwFZg/at555-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Dùng nhíp cắm cây nhỏ xuống nền phân trong bể thủy sinh.",
-            "sharpness": 1297.6
+            "sharpness": 1297.6,
+            "person": false
           }
         ]
       }

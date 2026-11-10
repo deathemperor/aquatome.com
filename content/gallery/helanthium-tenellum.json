@@ -86,6 +86,18 @@
       "kind": "habitat"
     },
     {
+      "url": "https://media.aquatome.com/tropica/10dc0e2107f4cdbe.webp",
+      "thumb": "https://media.aquatome.com/tropica/10dc0e2107f4cdbe-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Helanthiumtenellum'Green'(067ATC)/4757",
+      "source": "tropica",
+      "kind": "other",
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/commons/f85fb66fdea848ab.webp",
       "thumb": "https://media.aquatome.com/commons/f85fb66fdea848ab-480.webp",
       "width": 1200,
@@ -122,16 +134,16 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/commons/521ab444de801e77.webp",
-      "thumb": "https://media.aquatome.com/commons/521ab444de801e77-480.webp",
+      "url": "https://media.aquatome.com/tropica/10e7e821457911bd.webp",
+      "thumb": "https://media.aquatome.com/tropica/10e7e821457911bd-480.webp",
       "width": 1200,
-      "height": 797,
-      "licence": "CC BY 4.0",
-      "author": "Uccio D'Agostino",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neocaridina_heteropoda,_Echinodorus_tenellus,_Danio_margaritatus_(Microrasbora_Galaxy,_Galaxy_Rasbora).jpg",
-      "caption": "Thảm Cỏ nhật bản xanh với cá nhỏ và tép",
-      "best": false,
-      "kind": "submersed"
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Helanthiumtenellum'Green'(067ATC)/4757",
+      "source": "tropica",
+      "kind": "other",
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/441848937.webp",
@@ -255,6 +267,6 @@
     }
   ],
   "seen": 39,
-  "updatedAt": "2026-11-06",
+  "updatedAt": "2026-11-10",
   "builtAt": "2026-11-06"
 }

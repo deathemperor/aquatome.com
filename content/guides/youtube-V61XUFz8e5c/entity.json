@@ -63,7 +63,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bọ đuôi bật nhỏ bò trên gỗ mục và lớp đất ẩm.",
-            "sharpness": 260.3
+            "sharpness": 260.3,
+            "person": false
           },
           {
             "t": 110,
@@ -71,7 +72,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Rêu phủ lên phù điêu đá, lá khô rụng dồn quanh chân tường.",
-            "sharpness": 790.7
+            "sharpness": 790.7,
+            "person": false
           }
         ],
         "photo": {
@@ -117,15 +119,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đổ silicone xanh vào khung quanh mẫu tượng để làm khuôn.",
-            "sharpness": 772.3
-          },
-          {
-            "t": 740,
-            "url": "https://media.aquatome.com/video/V61XUFz8e5c/at740-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khuôn cột đổ đầy bê tông trong khung gỗ, đang đóng rắn.",
-            "sharpness": 510.1
+            "sharpness": 772.3,
+            "person": false
           }
         ]
       },
@@ -133,20 +128,13 @@
         "heading": "Làm bê tông mới trông cũ",
         "moments": [
           {
-            "t": 810,
-            "url": "https://media.aquatome.com/video/V61XUFz8e5c/at810-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng bùi nhùi chà lên mặt phù điêu để tạo mảng sáng.",
-            "sharpness": 976.5
-          },
-          {
             "t": 820,
             "url": "https://media.aquatome.com/video/V61XUFz8e5c/at820-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bức phù điêu bê tông đã phủ men, trông cũ như phủ rêu.",
-            "sharpness": 511.2
+            "sharpness": 511.2,
+            "person": false
           }
         ],
         "photo": {
@@ -161,27 +149,6 @@
         }
       },
       {
-        "heading": "Làm cảnh đổ nát mà không rò đất",
-        "moments": [
-          {
-            "t": 870,
-            "url": "https://media.aquatome.com/video/V61XUFz8e5c/at870-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cưa tay cột bê tông theo góc đã lấy để tránh bụi.",
-            "sharpness": 339.9
-          },
-          {
-            "t": 880,
-            "url": "https://media.aquatome.com/video/V61XUFz8e5c/at880-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ghép các mảnh cột có hoa văn lên nhau trong bể.",
-            "sharpness": 1378.3
-          }
-        ]
-      },
-      {
         "heading": "Đắp sườn đất và phần cạn cho cua",
         "moments": [
           {
@@ -190,7 +157,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Dùng keo dán xơ dừa và đá nham thạch vào tường chắn.",
-            "sharpness": 1937.7
+            "sharpness": 1937.7,
+            "person": false
           },
           {
             "t": 960,
@@ -198,30 +166,14 @@
             "width": 1200,
             "height": 675,
             "caption": "Đèn gắn trong hồ, đặt cạnh các mảng đá tường chắn.",
-            "sharpness": 541.9
+            "sharpness": 541.9,
+            "person": false
           }
         ]
       },
       {
         "heading": "Hoàn thiện phần nước, cây và tinh thể",
-        "moments": [
-          {
-            "t": 1090,
-            "url": "https://media.aquatome.com/video/V61XUFz8e5c/at1090-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tinh thể phát sáng xanh đặt giữa lớp lá khô trong bể.",
-            "sharpness": 295
-          },
-          {
-            "t": 1120,
-            "url": "https://media.aquatome.com/video/V61XUFz8e5c/at1120-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây không khí, dương xỉ và lũa spider wood gắn trên nền đá lửa.",
-            "sharpness": 2801.3
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/V61XUFz8e5c/p6-IyMTU5ODEpLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/V61XUFz8e5c/p6-IyMTU5ODEpLmpwZw-480.webp",
@@ -234,19 +186,6 @@
         }
       },
       {
-        "heading": "Lắp thác nước và lọc",
-        "moments": [
-          {
-            "t": 1100,
-            "url": "https://media.aquatome.com/video/V61XUFz8e5c/at1100-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Xếp đá và trồng cây quanh chân thác trong hồ.",
-            "sharpness": 1797.8
-          }
-        ]
-      },
-      {
         "heading": "Thả sinh vật và kiểm soát đàn cua",
         "moments": [
           {
@@ -255,7 +194,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ốc nhỏ bò trên cây thủy sinh, cạnh khu đất ẩm trong bể.",
-            "sharpness": 307.8
+            "sharpness": 307.8,
+            "person": false
           },
           {
             "t": 1160,
@@ -263,7 +203,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cua vampire tím nhỏ trong lớp rêu sphagnum bên cạnh các khúc gỗ.",
-            "sharpness": 1737.4
+            "sharpness": 1737.4,
+            "person": false
           }
         ],
         "photo": {

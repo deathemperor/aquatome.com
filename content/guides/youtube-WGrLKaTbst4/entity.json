@@ -91,15 +91,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Khối đá nham thạch đặt trên nền cát trắng, bên cạnh cây thủy sinh.",
-            "sharpness": 416
-          },
-          {
-            "t": 405,
-            "url": "https://media.aquatome.com/video/WGrLKaTbst4/at405-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh đá nham thạch đen với nhiều lỗ rỗng cho vi sinh bám.",
-            "sharpness": 1945.3
+            "sharpness": 416,
+            "person": false
           }
         ]
       },
@@ -112,7 +105,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây cạn có lá ngoài không khí, xanh tốt và lớn nhanh.",
-            "sharpness": 471.1
+            "sharpness": 471.1,
+            "person": false
           },
           {
             "t": 480,
@@ -120,7 +114,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây ven nước và cây nổi mọc um tùm phía trên hồ.",
-            "sharpness": 1635.3
+            "sharpness": 1635.3,
+            "person": false
           }
         ],
         "photo": {
@@ -144,14 +139,6 @@
             "height": 675,
             "caption": "Dùng máy khoan bắt vít để ghép thành giá đỡ đèn.",
             "sharpness": 113.9
-          },
-          {
-            "t": 115,
-            "url": "https://media.aquatome.com/video/WGrLKaTbst4/at115-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Gắn bát đèn spot vào giá gỗ đã sơn đen phía sau bể.",
-            "sharpness": 772.4
           }
         ]
       },
@@ -159,20 +146,13 @@
         "heading": "Gói nền đất trong túi lưới để bể đỡ bẩn",
         "moments": [
           {
-            "t": 175,
-            "url": "https://media.aquatome.com/video/WGrLKaTbst4/at175-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đổ nền cũ có vi sinh lên tấm lưới mắt nhỏ đã trải ra.",
-            "sharpness": 1721.3
-          },
-          {
             "t": 190,
             "url": "https://media.aquatome.com/video/WGrLKaTbst4/at190-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Các túi lưới đựng đất được đặt nằm dưới đáy bể.",
-            "sharpness": 2341.6
+            "sharpness": 2341.6,
+            "person": false
           }
         ]
       },
@@ -180,20 +160,13 @@
         "heading": "Làm bố cục bằng rễ cây và đá nham thạch",
         "moments": [
           {
-            "t": 235,
-            "url": "https://media.aquatome.com/video/WGrLKaTbst4/at235-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Rễ lũa được chèn đá nham thạch đen để giữ vững trong bể.",
-            "sharpness": 764.1
-          },
-          {
             "t": 250,
             "url": "https://media.aquatome.com/video/WGrLKaTbst4/at250-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bố cục rễ bạch đàn dựng đứng cùng đá nham thạch đen trên nền cát.",
-            "sharpness": 1616.5
+            "sharpness": 1616.5,
+            "person": false
           }
         ],
         "photo": {
@@ -216,7 +189,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể hoàn chỉnh với cây ven nước xen lẫn lũa và đá.",
-            "sharpness": 1782
+            "sharpness": 1782,
+            "person": false
           },
           {
             "t": 345,
@@ -224,7 +198,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây trồng ngang mực nước, nhét giữa các viên đá nham thạch.",
-            "sharpness": 3245
+            "sharpness": 3245,
+            "person": false
           }
         ],
         "photo": {
@@ -278,7 +253,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể không lọc với cây thủy sinh xanh tốt trên mặt và dưới đáy.",
-            "sharpness": 2003
+            "sharpness": 2003,
+            "person": false
           },
           {
             "t": 580,
@@ -286,7 +262,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh cụm cây rậm rạp trồng nổi hút chất thải trong bể.",
-            "sharpness": 311.2
+            "sharpness": 311.2,
+            "person": false
           }
         ],
         "photo": {

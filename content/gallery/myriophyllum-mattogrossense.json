@@ -26,6 +26,18 @@
       "kind": "submersed"
     },
     {
+      "url": "https://media.aquatome.com/gbif/4410788833-7b64e4789efee984.webp",
+      "thumb": "https://media.aquatome.com/gbif/4410788833-7b64e4789efee984-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "CC0 1.0",
+      "author": "David Tempelman",
+      "sourceUrl": "https://www.gbif.org/occurrence/4410788833",
+      "caption": "Ngọn Cây myriophyllum Mato Grosso mọc nổi trên mặt nước",
+      "best": true,
+      "kind": "emersed"
+    },
+    {
       "url": "https://media.aquatome.com/gbif/4410788833-25cda6f0b7057c24.webp",
       "thumb": "https://media.aquatome.com/gbif/4410788833-25cda6f0b7057c24-480.webp",
       "width": 705,
@@ -50,18 +62,6 @@
       "kind": "detail"
     },
     {
-      "url": "https://media.aquatome.com/gbif/4410788833-7b64e4789efee984.webp",
-      "thumb": "https://media.aquatome.com/gbif/4410788833-7b64e4789efee984-480.webp",
-      "width": 800,
-      "height": 600,
-      "licence": "CC0 1.0",
-      "author": "David Tempelman",
-      "sourceUrl": "https://www.gbif.org/occurrence/4410788833",
-      "caption": "Ngọn Cây myriophyllum Mato Grosso mọc nổi trên mặt nước",
-      "best": true,
-      "kind": "emersed"
-    },
-    {
       "url": "https://media.aquatome.com/gbif/5283401603-39c538f07966c055.webp",
       "thumb": "https://media.aquatome.com/gbif/5283401603-39c538f07966c055-480.webp",
       "width": 800,
@@ -72,6 +72,17 @@
       "caption": "Cây myriophyllum Mato Grosso mọc thành mảng ven bờ ngoài tự nhiên",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/tropica/56ea6b3f39254a99.webp",
+      "thumb": "https://media.aquatome.com/tropica/56ea6b3f39254a99-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Myriophyllummattogrossense(037CLP)/31139",
+      "source": "tropica",
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/gbif/4462501227-83a68ddedb1b4684.webp",
@@ -99,6 +110,6 @@
     }
   ],
   "seen": 19,
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-10",
   "builtAt": "2026-11-02"
 }

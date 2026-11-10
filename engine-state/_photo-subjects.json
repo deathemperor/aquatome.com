@@ -661,7 +661,9 @@
     "cambarellus-diminutus": {
       "ok": "unsure",
       "typical": true,
-      "note": "Mottled orange-brown dwarf crayfish (Cambarellus) on gravel among moss. It fits C. diminutus, but C. puer, C. shufeldtii"
+      "note": "mottled brown dwarf crayfish on gravel among moss; could be C. diminutus or a look-alike Cambarellus (e.g. C. puer/shufe",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/aquariumbreeder/db0ae8a2eb62661e.webp": {
@@ -4539,6 +4541,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/bwaquatics/34c8854d928bd864.webp": {
+    "boraras-maculatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "single spotted rasbora on black background, body, anal and tail-base spots",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/bwaquatics/48ca613a6ab505fa.webp": {
     "pseudomugil-luminatus": {
       "ok": "unsure",
@@ -4731,6 +4742,15 @@
       "ok": "yes",
       "typical": true,
       "note": "male Betta imbellis, dark body with blue scales, red-edged tail",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/002f6889c8ba4634.webp": {
+    "helanthium-tenellum": {
+      "ok": "yes",
+      "typical": false,
+      "note": "emersed plant with narrow lance-shaped leaves on a wet rock",
       "logo": false,
       "person": false
     }
@@ -5966,6 +5986,15 @@
       "note": "fuzzy green marimo balls washed up out of water among reed debris on a shore"
     }
   },
+  "https://media.aquatome.com/commons/0f62c53c9f468497.webp": {
+    "eleocharis-montevidensis": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "Eleocharis flower spikelet in the wild; species can't be confirmed",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/0fada46707e939af.webp": {
     "corydoras-sterbai": {
       "ok": "yes",
@@ -6045,8 +6074,9 @@
     "botia-histrionica": {
       "ok": "yes",
       "typical": true,
-      "note": "adult golden zebra loaches on gravel, gold body with broken dark bands, striped tail",
-      "logo": false
+      "note": "adult with reticulated gold-brown pattern and barred tail",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/1122be171e8c447c.webp": {
@@ -7174,7 +7204,9 @@
     "boulengerella-maculata": {
       "ok": "unsure",
       "typical": false,
-      "note": "Stockier spotted pike characin in an aquarium; could be Ctenolucius rather than Boulengerella"
+      "note": "spotted pike-like characin with shorter snout in a planted tank; species unclear",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/1d069314c67c02d5.webp": {
@@ -8968,6 +9000,15 @@
       "logo": false
     }
   },
+  "https://media.aquatome.com/commons/32f68f521b42aabd.webp": {
+    "pomacea-diffusa": {
+      "ok": "other",
+      "typical": false,
+      "note": "spotted pointed-shell snail, Physa/Lymnaea type, not apple snail",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/33060371c1586af0.webp": {
     "pelvicachromis-pulcher": {
       "ok": "yes",
@@ -9880,7 +9921,9 @@
     "betta-rubra": {
       "ok": "yes",
       "typical": true,
-      "note": "male among plants, red fins and barred body"
+      "note": "male among aquarium plants",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/3e0036549ee2b313.webp": {
@@ -10271,8 +10314,10 @@
   "https://media.aquatome.com/commons/43ac135ac908d19e.webp": {
     "cambarellus-diminutus": {
       "ok": "unsure",
-      "typical": true,
-      "note": "Small pale beige dwarf crayfish (Cambarellus) on plant stem; clear adult view, but no species marks visible, so C. dimin"
+      "typical": false,
+      "note": "pale translucent dwarf crayfish on stem plant; species unclear, possibly juvenile or other Cambarellus",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/43afb5813886e48a.webp": {
@@ -10786,6 +10831,14 @@
       "note": "Adult side view on sand; maze-like head pattern, dark midlateral stripe, black dorsal tip"
     }
   },
+  "https://media.aquatome.com/commons/4afc96a4b14db4ff.webp": {
+    "tropheops-tropheops": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Melanochromis auratus",
+      "file": true
+    }
+  },
   "https://media.aquatome.com/commons/4b08960b366e6a26.webp": {
     "corydoras-melanotaenia": {
       "ok": "yes",
@@ -11016,6 +11069,15 @@
       "ok": "other",
       "typical": false,
       "note": "Pompom goldfish: dark body with orange nasal pompoms instead of a clear wen"
+    }
+  },
+  "https://media.aquatome.com/commons/4e313926dc845372.webp": {
+    "pomacea-diffusa": {
+      "ok": "yes",
+      "typical": true,
+      "note": "golden-brown mystery snail on dark surface with white food",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/4e5d56690eb2750a.webp": {
@@ -11251,6 +11313,15 @@
       "typical": false,
       "note": "dried museum specimen in three views with a 3 cm scale bar",
       "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/521ab444de801e77.webp": {
+    "helanthium-tenellum": {
+      "ok": "other",
+      "typical": false,
+      "note": "celestial pearl danio and cherry shrimp over a fine grassy carpet in an aquarium",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/52388a74f8c44a2e.webp": {
@@ -13071,8 +13142,10 @@
   "https://media.aquatome.com/commons/6aa9c3e3a5912b3e.webp": {
     "boraras-naevus": {
       "ok": "yes",
-      "typical": true,
-      "note": "Pair on white background: red male with mid-body blotch in front, paler female behind"
+      "typical": false,
+      "note": "two pale fish in a white photo tank, colours faded",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/6ac591361d759904.webp": {
@@ -13397,6 +13470,15 @@
       "ok": "yes",
       "typical": true,
       "note": "high-grade crystal red shrimp, mostly white with dark red saddle, on a leaf",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/6eabf4d6bd8229d5.webp": {
+    "pomacea-diffusa": {
+      "ok": "yes",
+      "typical": false,
+      "note": "banded mystery snail feeding with small snails, dark shot",
       "logo": false,
       "person": false
     }
@@ -15048,7 +15130,9 @@
     "boraras-maculatus": {
       "ok": "yes",
       "typical": false,
-      "note": "Pale, washed-out fish, perhaps a female or stressed, with large dark spots; pattern still matches"
+      "note": "pale, washed-out spotted rasbora with large body spot, among plants",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/8510fe55fc63847b.webp": {
@@ -15056,6 +15140,15 @@
       "ok": "yes",
       "typical": true,
       "note": "male with yellow female",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/85115f8f90919e97.webp": {
+    "eleocharis-montevidensis": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "Eleocharis spikelet close-up; species can't be confirmed",
       "logo": false,
       "person": false
     }
@@ -15315,6 +15408,15 @@
       "ok": "unsure",
       "typical": false,
       "note": "emersed Echinodorus with flower stalks in a bucket with floating plants, species unclear",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/884f25938913a32b.webp": {
+    "pomacea-diffusa": {
+      "ok": "other",
+      "typical": false,
+      "note": "pond/bladder snails (Physa-like spotted pointed shells) on tank glass",
       "logo": false,
       "person": false
     }
@@ -17060,6 +17162,14 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/commons/a26b8b7eacced282.webp": {
+    "trigonopoma-gracile": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Rasbora einthovenii",
+      "file": true
+    }
+  },
   "https://media.aquatome.com/commons/a26f2b6f13c9afab.webp": {
     "liobagrus-reinii": {
       "ok": "yes",
@@ -18391,6 +18501,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/commons/b55acc72a14c7916.webp": {
+    "pomacea-diffusa": {
+      "ok": "yes",
+      "typical": true,
+      "note": "banded mystery snail crawling on wood",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/b5601a44e500ccf7.webp": {
     "monodactylus-sebae": {
       "ok": "unsure",
@@ -19217,6 +19336,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/commons/be7ca311284c3fe8.webp": {
+    "pomacea-diffusa": {
+      "ok": "yes",
+      "typical": false,
+      "note": "gold mystery snail, partial close-up",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/bec160bc2dfd784e.webp": {
     "limnophila-aromatica": {
       "ok": "yes",
@@ -19547,6 +19675,12 @@
       "typical": true,
       "note": "fahaka puffer head and front body, striped pattern",
       "logo": false
+    },
+    "tetraodon-pustulatus": {
+      "ok": "other",
+      "typical": false,
+      "note": "its Commons file names Tetraodon lineatus",
+      "file": true
     }
   },
   "https://media.aquatome.com/commons/c29f743b8aca0420.webp": {
@@ -20467,8 +20601,10 @@
   "https://media.aquatome.com/commons/cde892b3e0644eca.webp": {
     "boraras-naevus": {
       "ok": "yes",
-      "typical": true,
-      "note": "Adult male, side view on white background: orange-red body, mid-body blotch, red-and-black fins"
+      "typical": false,
+      "note": "pale, washed-out fish in a white photo tank, blotch faded to grey",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/ce04768ba2e61e08.webp": {
@@ -24542,6 +24678,15 @@
       "ok": "yes",
       "typical": true,
       "note": "male pea puffer facing camera among plants",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/flickr/16929491034.webp": {
+    "helanthium-tenellum": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "wild wetland with small white flowers next to a log; plants hard to pick out",
       "logo": false,
       "person": false
     }
@@ -30806,7 +30951,9 @@
     "boulengerella-maculata": {
       "ok": "yes",
       "typical": false,
-      "note": "Pale, washed-out top view in murky water; spots are faint"
+      "note": "pale, washed-out fish seen from above in murky water",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/418806798.webp": {
@@ -31028,6 +31175,24 @@
       "ok": "yes",
       "typical": true,
       "note": "close-up of single white flower",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/inaturalist/441848870.webp": {
+    "helanthium-tenellum": {
+      "ok": "yes",
+      "typical": false,
+      "note": "close-up of a white three-petal flower in the wild",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/inaturalist/441848937.webp": {
+    "helanthium-tenellum": {
+      "ok": "yes",
+      "typical": false,
+      "note": "white three-petal flower and a bud in the wild",
       "logo": false,
       "person": false
     }
@@ -31375,7 +31540,9 @@
     "betta-rubra": {
       "ok": "unsure",
       "typical": false,
-      "note": "small dark fish in a cloudy tank, too dull to identify"
+      "note": "dark distant fish in tank with thermometer, can't confirm",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/46220989.webp": {
@@ -34027,7 +34194,9 @@
     "boulengerella-maculata": {
       "ok": "yes",
       "typical": true,
-      "note": "Spotted, slender pike characin with orange snout tip, seen from above in shallow sandy water"
+      "note": "spotted fish with orange-tipped snout over sand in the wild, rear cut off",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/66191914.webp": {
@@ -34641,7 +34810,9 @@
     "boulengerella-maculata": {
       "ok": "yes",
       "typical": true,
-      "note": "Whole spotted fish with orange snout tip, seen from above"
+      "note": "spotted fish over a brown sandy bottom, seen from above",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/743992411.webp": {
@@ -35192,6 +35363,15 @@
       "ok": "yes",
       "typical": true,
       "note": "Mayaca stems with a pale purple three-petalled flower",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/loachesonline/4ddd9e9b744ef709.webp": {
+    "botia-histrionica": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "pale banded/blotched botia, washed-out pattern, species unclear",
       "logo": false,
       "person": false
     }
@@ -38627,7 +38807,9 @@
     "boraras-maculatus": {
       "ok": "yes",
       "typical": true,
-      "note": "Adult in red-orange colour, large mid-body spot plus spots at the anal fin and tail base, on a black background"
+      "note": "orange adult with three dark spots on black background",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/0c5190aa7487064d.webp": {
@@ -38895,7 +39077,9 @@
     "betta-rubra": {
       "ok": "yes",
       "typical": true,
-      "note": "side view on black, reddish with dark bars"
+      "note": "fish with red bars on black background",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/17db6be1214348a4.webp": {
@@ -40052,7 +40236,9 @@
     "boraras-naevus": {
       "ok": "yes",
       "typical": true,
-      "note": "red male with a large black body blotch"
+      "note": "male strawberry rasbora, red with large black blotch, side view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/472a198bf2a15cd0.webp": {
@@ -40252,6 +40438,15 @@
       "logo": false
     }
   },
+  "https://media.aquatome.com/seriouslyfish/4f0252178d07cac1.webp": {
+    "boulengerella-maculata": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "several slender reddish Boulengerella among driftwood, dark view; could be B. lateristriga",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/seriouslyfish/4f0fb2ccff14c56a.webp": {
     "stiphodon-atropurpureus": {
       "ok": "yes",
@@ -40280,7 +40475,9 @@
     "botia-histrionica": {
       "ok": "unsure",
       "typical": false,
-      "note": "Mottled, spotted loach with pale centres in its dark marks; could be B. kubotai or B. rostrata"
+      "note": "dark loach with pale spots, could be B. kubotai or rostrata",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/501bf0b149934e2b.webp": {
@@ -41154,7 +41351,9 @@
     "botia-histrionica": {
       "ok": "yes",
       "typical": true,
-      "note": "Young fish with clean, wide dark bands on a golden body and banded fins"
+      "note": "gold body with broad dark vertical bands",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/79a4cee4fe5a2ab7.webp": {
@@ -42188,7 +42387,9 @@
     "boraras-naevus": {
       "ok": "yes",
       "typical": true,
-      "note": "red male swimming at an angle"
+      "note": "male against a dark background, seen at an angle",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/a8a164c6601a108b.webp": {
@@ -42284,7 +42485,9 @@
     "boraras-naevus": {
       "ok": "yes",
       "typical": true,
-      "note": "red male, side view, black blotch"
+      "note": "male, bright red with black blotch, clear side view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/aceb1e27399b71ac.webp": {
@@ -42744,6 +42947,15 @@
       "note": "two barred loaches on tank bottom, dim lighting"
     }
   },
+  "https://media.aquatome.com/seriouslyfish/bffb3c257a9ef582.webp": {
+    "boulengerella-maculata": {
+      "ok": "yes",
+      "typical": true,
+      "note": "spotted pike characin by driftwood in a dark tank",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/seriouslyfish/c00927469d95a226.webp": {
     "sewellia-speciosa": {
       "ok": "yes",
@@ -42820,7 +43032,9 @@
     "betta-rubra": {
       "ok": "yes",
       "typical": true,
-      "note": "bright red-barred fish over a leaf"
+      "note": "red-barred fish on leaf litter",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/c4d90a3382393738.webp": {
@@ -42835,8 +43049,10 @@
   "https://media.aquatome.com/seriouslyfish/c50dd6b12e8f26ee.webp": {
     "botia-histrionica": {
       "ok": "yes",
-      "typical": false,
-      "note": "Older adult whose bands have broken up into a mottled, ringed pattern"
+      "typical": true,
+      "note": "adult with gold reticulated pattern",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/c5456f1dcf144df3.webp": {
@@ -43099,7 +43315,9 @@
     "boraras-maculatus": {
       "ok": "yes",
       "typical": true,
-      "note": "Two adults over plants, showing the typical three-spot pattern"
+      "note": "two adults in front of green plants",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/d30a4bc060f5095d.webp": {
@@ -43420,7 +43638,9 @@
     "boraras-naevus": {
       "ok": "yes",
       "typical": true,
-      "note": "female: duller orange with a smaller blotch"
+      "note": "female, more orange-gold with a smaller black spot",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/e2e952410c961141.webp": {
@@ -43588,7 +43808,9 @@
     "botia-histrionica": {
       "ok": "yes",
       "typical": true,
-      "note": "Group of gold zebra loaches with dark split bands on a golden body, over gravel"
+      "note": "banded loaches on gravel among plants",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/ecc96a23a2d70d46.webp": {
@@ -43915,7 +44137,9 @@
     "betta-rubra": {
       "ok": "yes",
       "typical": true,
-      "note": "adult male, red body with dark vertical bars"
+      "note": "red male with dark bars, side view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/f8a183cffe694ca0.webp": {
@@ -43996,7 +44220,9 @@
     "betta-rubra": {
       "ok": "yes",
       "typical": false,
-      "note": "duller fish, likely female or stressed colouring"
+      "note": "duller fish, likely female, faint red bars",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/fc85e2524e237609.webp": {
@@ -44990,6 +45216,24 @@
       "guide": true
     }
   },
+  "https://media.aquatome.com/tropica/00552aefd6bfa6ae.webp": {
+    "echinodorus-grisebachii-tropica": {
+      "ok": "yes",
+      "typical": false,
+      "note": "young tissue-culture plant out of its cup on a white background",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/00feed4d80dde952.webp": {
+    "anubias-barteri-var-coffeifolia": {
+      "ok": "yes",
+      "typical": true,
+      "note": "potted coffeifolia with puckered leaves and reddish petioles on white",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/tropica/02256d2766141e3a.webp": {
     "anubias-gracilis": {
       "ok": "yes",
@@ -45008,6 +45252,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/tropica/08ee0bde0faaba92.webp": {
+    "eleocharis-montevidensis": {
+      "ok": "yes",
+      "typical": true,
+      "note": "plant in nursery pot on white background",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/tropica/0989f717b05fbb78.webp": {
     "cyperus-helferi": {
       "ok": "yes",
@@ -45017,11 +45270,29 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/tropica/09e05b566909ca62.webp": {
+    "anubias-barteri-mini-coin": {
+      "ok": "yes",
+      "typical": false,
+      "note": "Mini Coin tissue culture seen from above in its cup",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/tropica/0b87f4ec663c7f52.webp": {
     "cryptocoryne-undulata": {
       "ok": "yes",
       "typical": true,
       "note": "potted plant on white background, lance-shaped green leaves with reddish stems",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/0b90f0a957ce8b39.webp": {
+    "eriocaulon-sp-vietnam": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "close-up of narrow grass-like leaves underwater, no rosette visible to confirm",
       "logo": false,
       "person": false
     }
@@ -45044,11 +45315,38 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/tropica/0c778d829793e9ad.webp": {
+    "echinodorus-red-diamond": {
+      "ok": "yes",
+      "typical": false,
+      "note": "single orange-red wavy-edged leaf close-up",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/tropica/0ea0c98475c977a7.webp": {
     "cryptocoryne-parva": {
       "ok": "yes",
       "typical": false,
       "note": "top view of the plant in a tissue-culture cup",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/1093fdcdf7dd52ba.webp": {
+    "philodendron-sp-mini-midget": {
+      "ok": "yes",
+      "typical": true,
+      "note": "close-up of glossy leaves of clump",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/12fc1c25e56107a8.webp": {
+    "aponogeton-ulvaceus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "whole plant with wavy leaves on its tuber, white background",
       "logo": false,
       "person": false
     }
@@ -45062,11 +45360,74 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/tropica/168fb94d8e0badf1.webp": {
+    "bucephalandra-sordidula": {
+      "ok": "yes",
+      "typical": true,
+      "note": "close-up of Bucephalandra leaf with blue iridescent sheen and red petioles, underwater",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/tropica/16eb804340bea575.webp": {
     "cryptocoryne-wendtii": {
       "ok": "yes",
       "typical": false,
       "note": "tissue-culture cup of Cryptocoryne wendtii 'Green', labelled product shot",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/17988c0c0f37d105.webp": {
+    "alternanthera-reineckii-mini": {
+      "ok": "yes",
+      "typical": false,
+      "note": "tissue-culture cup of A. reineckii 'Mini', labelled 1-2-Grow product shot; label is printed on the cup",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/1b3dba46f828959d.webp": {
+    "philodendron-sp-mini-midget": {
+      "ok": "none",
+      "typical": false,
+      "note": "product packshot: Tropica tissue-culture cup with printed label",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/1de5d6d35510d5a2.webp": {
+    "helanthium-tenellum": {
+      "ok": "none",
+      "typical": false,
+      "note": "product packshot: Tropica 1-2-Grow cup labelled Helanthium tenellum 'Green'",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/1e401103c0f8864a.webp": {
+    "echinodorus-ozelot-green": {
+      "ok": "yes",
+      "typical": false,
+      "note": "close-up of spotted leaves, young leaf reddish-marbled",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/21534d003c18c069.webp": {
+    "eriocaulon-sp-vietnam": {
+      "ok": "yes",
+      "typical": true,
+      "note": "close view of the narrow-leaved rosette on white background",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/216f22fb05178fdf.webp": {
+    "echinodorus-ozelot-green": {
+      "ok": "yes",
+      "typical": true,
+      "note": "potted spotted green sword plant on white background",
       "logo": false,
       "person": false
     }
@@ -45080,11 +45441,56 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/tropica/23ef2f23c8b487d3.webp": {
+    "anubias-barteri-var-nana-kirin": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Anubias with wavy, crinkled leaves in a plastic nursery pot on white, roots visible; the pot has a moulded emblem, but n",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/25fa0da665570981.webp": {
+    "lysimachia-parvifolia": {
+      "ok": "yes",
+      "typical": false,
+      "note": "top view of plant in tissue-culture cup, red-orange leaves",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/tropica/29a43da4140e2f25.webp": {
     "anubias-barteri": {
       "ok": "yes",
       "typical": true,
       "note": "potted Anubias with rounded heart-shaped leaves and roots, on a white background; the logo is moulded into the pot, not ",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/2ab52c99184967a6.webp": {
+    "aponogeton-boivinianus": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "close-up of reddish-orange quilted leaf; species unclear",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/2bcfedfa956a9aeb.webp": {
+    "bucephalandra-sp-red": {
+      "ok": "other",
+      "typical": false,
+      "note": "aquarium stem plant with serrated leaves and red stems, not Bucephalandra (possibly Hygrophila)",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/2f0e3fc67d4ba5ca.webp": {
+    "echinodorus-rose": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "blurry close-up of green leaf bases with water drops",
       "logo": false,
       "person": false
     }
@@ -45107,11 +45513,56 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/tropica/31380b8faaf74ed2.webp": {
+    "ammannia-crassicaulis": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "aquascape with red fine-leaved stem plant bush (possibly Rotala) and rasboras; can't confirm Ammannia",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/32d58a7284bb8f0b.webp": {
+    "echinodorus-rose": {
+      "ok": "yes",
+      "typical": false,
+      "note": "emersed plants in two pots on white",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/tropica/333629f692945284.webp": {
     "aponogeton-madagascariensis": {
       "ok": "yes",
       "typical": false,
       "note": "close-up of lattice leaves on white background",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/34c94654973795e0.webp": {
+    "alternanthera-reineckii-mini": {
+      "ok": "yes",
+      "typical": false,
+      "note": "tissue-culture clump taken out of its cup, on white",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/36b8fe55612cc5de.webp": {
+    "echinodorus-aquartica": {
+      "ok": "unsure",
+      "typical": true,
+      "note": "potted Echinodorus with broad oval leaves; could be another sword",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/370d3ee58538b9e2.webp": {
+    "hygrophila-odora": {
+      "ok": "yes",
+      "typical": true,
+      "note": "potted plant with narrow, finely pinnate leaves on a white background",
       "logo": false,
       "person": false
     }
@@ -45125,6 +45576,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/tropica/39206706e0d64a71.webp": {
+    "bacopa-australis": {
+      "ok": "yes",
+      "typical": true,
+      "note": "dense bright green bush of Bacopa australis in an aquascape, red stem plant behind",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/tropica/398caf3c5a02e7e4.webp": {
     "aponogeton-madagascariensis": {
       "ok": "yes",
@@ -45134,11 +45594,29 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/tropica/3a36073dfad3909a.webp": {
+    "bucephalandra-sp-needle-leaf": {
+      "ok": "yes",
+      "typical": true,
+      "note": "tissue-culture clump taken out of the cup, on white",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/tropica/3b3128fe2df81aae.webp": {
     "cardamine-lyrata": {
       "ok": "yes",
       "typical": true,
       "note": "dense stand of Cardamine lyrata with round leaves on long stalks in an aquarium",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/3e028079e476e8bf.webp": {
+    "microsorum-pteropus-narrow": {
+      "ok": "yes",
+      "typical": true,
+      "note": "potted Java fern Narrow on white background",
       "logo": false,
       "person": false
     }
@@ -45170,11 +45648,56 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/tropica/4627dd7042d7b0b1.webp": {
+    "eleocharis-montevidensis": {
+      "ok": "yes",
+      "typical": false,
+      "note": "close-up of green stems on white background",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/tropica/4a4323205af03ac5.webp": {
     "bacopa-salzmannii": {
       "ok": "yes",
       "typical": false,
       "note": "close-up of pink-purple submersed shoot tips, blurred background",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/4ac209fc825da7c1.webp": {
+    "echinodorus-aquartica": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "close-up of wet green sword leaves only",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/4b4cbbe1ba73f96d.webp": {
+    "myriophyllum-sp-guyana": {
+      "ok": "yes",
+      "typical": false,
+      "note": "tissue-culture clump taken out of the cup, on a white background",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/50445fc88a870df8.webp": {
+    "micranthemum-tweediei-monte-carlo": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Monte Carlo clump out of cup, small round leaves",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/51923e9652fa72eb.webp": {
+    "ammannia-crassicaulis": {
+      "ok": "yes",
+      "typical": true,
+      "note": "emersed potted plant, green lanceolate leaves, reddish stems",
       "logo": false,
       "person": false
     }
@@ -45197,11 +45720,47 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/tropica/56ea6b3f39254a99.webp": {
+    "myriophyllum-mattogrossense": {
+      "ok": "yes",
+      "typical": true,
+      "note": "bunch of fine, feathery light-green stems with reddish stems in a plastic holder, shown on a white background",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/58e7fabaf465823e.webp": {
+    "echinodorus-rose": {
+      "ok": "yes",
+      "typical": false,
+      "note": "emersed potted plant, green leaves, on white",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/tropica/5a682acb481d2e2b.webp": {
     "aegagropila-linnaei": {
       "ok": "yes",
       "typical": true,
       "note": "marimo balls on gravel in a decorated tank, with a catfish swimming past",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/5d15a49fd305fd0a.webp": {
+    "limnophila-hippuridoides": {
+      "ok": "yes",
+      "typical": true,
+      "note": "submersed red-purple whorled stems in planted tank with swordtails and Java fern",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/609c3cf03a27fc0e.webp": {
+    "echinodorus-red-diamond": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "aquascape with several sword plant cultivars; Red Diamond can't be singled out",
       "logo": false,
       "person": false
     }
@@ -45224,6 +45783,24 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/tropica/674a9317aa9aff06.webp": {
+    "anubias-barteri-mini-coin": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Mini Coin clump with small round leaves, taken out of the cup, on a white background",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/691000a2982cc2d8.webp": {
+    "anubias-barteri-var-nana-pinto": {
+      "ok": "yes",
+      "typical": true,
+      "note": "variegated white-speckled Anubias Pinto in a grey plant holder, white background",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/tropica/6a8eeda0b087859f.webp": {
     "blyxa-japonica": {
       "ok": "yes",
@@ -45242,6 +45819,78 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/tropica/6d3836312fff6334.webp": {
+    "eleocharis-montevidensis": {
+      "ok": "yes",
+      "typical": true,
+      "note": "tall spikerush stems in a planted aquarium with red stem plants",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/7483561266898264.webp": {
+    "hygrophila-lancea-araguaia": {
+      "ok": "yes",
+      "typical": false,
+      "note": "tissue-culture clump taken out of the cup, on white",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/7e05b455d778f396.webp": {
+    "bucephalandra-sp-needle-leaf": {
+      "ok": "yes",
+      "typical": true,
+      "note": "tissue-culture clump taken out of the cup, on white",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/7f4a764bfc900d54.webp": {
+    "aponogeton-ulvaceus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "large wavy translucent green leaves spreading at the surface in a planted tank",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/87df586d4c135d2c.webp": {
+    "lysimachia-parvifolia": {
+      "ok": "yes",
+      "typical": true,
+      "note": "plant clump out of cup on white background",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/87df84e1568192ff.webp": {
+    "echinodorus-rose": {
+      "ok": "yes",
+      "typical": true,
+      "note": "submersed plant with reddish-olive wavy leaves in planted tank",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/8b3cf04fae8fd3a1.webp": {
+    "echinodorus-reni": {
+      "ok": "yes",
+      "typical": false,
+      "note": "close-up of oval green leaves with reddish veins and water droplets",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/8cbd851ccf1c7cd9.webp": {
+    "echinodorus-reni": {
+      "ok": "yes",
+      "typical": true,
+      "note": "whole Echinodorus plant with reddish-tinged leaves, roots and pot base, on white background",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/tropica/8d64c8d6d66d0043.webp": {
     "cryptocoryne-nurii": {
       "ok": "yes",
@@ -45256,6 +45905,24 @@
       "ok": "unsure",
       "typical": false,
       "note": "close-up of pink-red leaves with green midrib in tank; species unclear",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/9033ab1d7bb28849.webp": {
+    "bucephalandra-sordidula": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "close-up of potted Bucephalandra with water drops; dark green leaves, variety can't be confirmed",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/917cac01dd348182.webp": {
+    "anubias-barteri-var-coffeifolia": {
+      "ok": "yes",
+      "typical": false,
+      "note": "close-up of wet puckered leaf only",
       "logo": false,
       "person": false
     }
@@ -45305,11 +45972,92 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/tropica/9ab5167316103d0e.webp": {
+    "philodendron-sp-mini-midget": {
+      "ok": "yes",
+      "typical": false,
+      "note": "tissue-culture plantlets seen from above in cup",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/9b2ac3e8138a40b8.webp": {
+    "echinodorus-red-diamond": {
+      "ok": "yes",
+      "typical": true,
+      "note": "potted emersed sword plant with reddish-green leaves on white",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/9bce7745a5a9ae0f.webp": {
+    "micranthemum-tweediei-monte-carlo": {
+      "ok": "none",
+      "typical": false,
+      "note": "product packshot: tissue-culture cup with printed Monte Carlo label",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/9c16a4d162e0a1cb.webp": {
+    "aponogeton-longiplumulosus": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "close-up of strongly wavy leaf tips against white; species unclear",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/tropica/9c1969223490493a.webp": {
     "cryptocoryne-parva": {
       "ok": "yes",
       "typical": false,
       "note": "tissue-culture clump taken out of the cup, still in gel",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/9c71aec6597487c2.webp": {
+    "limnophila-hippuridoides": {
+      "ok": "yes",
+      "typical": false,
+      "note": "close-up of emersed potted plant with toothed lanceolate leaves",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/9d60e1a0d256f683.webp": {
+    "limnophila-hippuridoides": {
+      "ok": "yes",
+      "typical": false,
+      "note": "emersed-grown potted plant, serrated leaves, on white",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/9e3ba15520d8c86d.webp": {
+    "hygrophila-lancea-araguaia": {
+      "ok": "yes",
+      "typical": false,
+      "note": "tissue-culture cup of H. lancea 'Araguaia', the cup's own label reads the name; product shot",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/9f600dd117753c3d.webp": {
+    "echinodorus-aquartica": {
+      "ok": "unsure",
+      "typical": true,
+      "note": "large rosette of wavy-edged green Echinodorus leaves in a tank; cultivar unclear",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/a0ad3ce9e6b6b4d5.webp": {
+    "echinodorus-grisebachii-tropica": {
+      "ok": "none",
+      "typical": false,
+      "note": "product packshot: Tropica 1-2-Grow cup with printed label",
       "logo": false,
       "person": false
     }
@@ -45323,11 +46071,38 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/tropica/a0efc518a5463e1b.webp": {
+    "anubias-barteri-petite": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "Anubias in a grey plastic holder on white background (product shot); long petioles and fairly large ovate leaves suggest",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/tropica/a2a3c61ee2adbc00.webp": {
     "cryptocoryne-albida": {
       "ok": "yes",
       "typical": true,
       "note": "narrow reddish-brown leaves planted among rocks in an aquascape",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/a37eb651e61324fb.webp": {
+    "aponogeton-longiplumulosus": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "young plant on a tuber against white; could be another Aponogeton such as A. crispus",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/a46b533f57b6fd25.webp": {
+    "bucephalandra-sp-red": {
+      "ok": "yes",
+      "typical": true,
+      "note": "close-up of red new leaves among dark green wavy leaves",
       "logo": false,
       "person": false
     }
@@ -45341,11 +46116,128 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/tropica/a8a9d15faca17fbb.webp": {
+    "anubias-barteri-mini-coin": {
+      "ok": "yes",
+      "typical": false,
+      "note": "Mini Coin tissue-culture plant in a labelled Tropica 1-2-Grow cup (label is printed on the cup, not added)",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/a939e2bf9b71a2f0.webp": {
+    "echinodorus-grisebachii-tropica": {
+      "ok": "yes",
+      "typical": true,
+      "note": "close-up of puckered green leaves growing in an aquarium",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/ac179bf3f4a9c3db.webp": {
+    "bucephalandra-sp-needle-leaf": {
+      "ok": "yes",
+      "typical": false,
+      "note": "tissue-culture cup labeled Bucephalandra 'Needle Leaf' (Tropica 1-2-Grow); the cup label is part of the product, not an ",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/b0f9eab155c554e6.webp": {
+    "hygrophila-lancea-araguaia": {
+      "ok": "yes",
+      "typical": false,
+      "note": "top view of tissue-culture cup with narrow green-red leaves",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/b1c7931adc7b4f15.webp": {
+    "microsorum-pteropus-narrow": {
+      "ok": "yes",
+      "typical": true,
+      "note": "potted Java fern Narrow on white background",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/b2bada510d15e356.webp": {
+    "bacopa-australis": {
+      "ok": "yes",
+      "typical": true,
+      "note": "potted Bacopa australis in a net pot on white background",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/b59d8931bcb0d475.webp": {
+    "aponogeton-longiplumulosus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "dense stand of long narrow wavy-edged leaves in an aquarium",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/b65c6bb3570605ec.webp": {
+    "echinodorus-grisebachii-tropica": {
+      "ok": "yes",
+      "typical": false,
+      "note": "young tissue-culture plant seen from above in its cup",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/tropica/b8b44e4b931484f0.webp": {
     "echinodorus-grisebachii": {
       "ok": "yes",
       "typical": false,
       "note": "close-up of sword leaves on white",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/b9afefb313e260ee.webp": {
+    "echinodorus-x-barthii": {
+      "ok": "yes",
+      "typical": false,
+      "note": "young potted sword plant with bronze-red new leaf and green older leaves, roots out of pot, on white background",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/bb631bbb316919e9.webp": {
+    "bucephalandra-sp-red": {
+      "ok": "yes",
+      "typical": true,
+      "note": "potted Bucephalandra with dark wavy leaves and red new shoots",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/bd5440bc6765c64f.webp": {
+    "aponogeton-boivinianus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "large dark green bullate leaves in planted tank",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/c49f296d2d3cab24.webp": {
+    "myriophyllum-sp-guyana": {
+      "ok": "yes",
+      "typical": false,
+      "note": "top view of the tissue-culture cup with dense bright green whorls",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/c582a2c47e29120c.webp": {
+    "echinodorus-aquartica": {
+      "ok": "yes",
+      "typical": true,
+      "note": "compact Echinodorus with lanceolate leaves in a net pot, product shot",
       "logo": false,
       "person": false
     }
@@ -45359,11 +46251,74 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/tropica/ca75e27ea0ec10cc.webp": {
+    "ammannia-crassicaulis": {
+      "ok": "yes",
+      "typical": false,
+      "note": "close-up of emersed stems and leaves",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/cc89a1dc8dda738e.webp": {
+    "myriophyllum-sp-guyana": {
+      "ok": "yes",
+      "typical": false,
+      "note": "tissue-culture cup of Myriophyllum 'Guyana', packshot with the product label printed on the cup (part of the scene)",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/cfd646f5c40d89f8.webp": {
+    "bucephalandra-sp-red": {
+      "ok": "yes",
+      "typical": true,
+      "note": "potted Bucephalandra clump with red shoots",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/d1f6e6c91c310cd0.webp": {
+    "microsorum-pteropus-narrow": {
+      "ok": "yes",
+      "typical": true,
+      "note": "narrow-leaved Java fern in planted tank with red tiger lotus",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/tropica/d459fd6a6ee3e964.webp": {
     "cardamine-lyrata": {
       "ok": "yes",
       "typical": true,
       "note": "Cardamine lyrata in a nursery pot on a white background",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/d514154d991ca63b.webp": {
+    "echinodorus-red-diamond": {
+      "ok": "yes",
+      "typical": false,
+      "note": "close-up of olive-red veined leaf in front of pot",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/d6cfab7ff7cf8cc3.webp": {
+    "aponogeton-ulvaceus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "close-up of a translucent leaf blade showing its veins",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/d8cccb1c18b55476.webp": {
+    "eriocaulon-sp-vietnam": {
+      "ok": "yes",
+      "typical": true,
+      "note": "potted plant in a net pot on white, narrow-leaved rosette",
       "logo": false,
       "person": false
     }
@@ -45386,11 +46341,38 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/tropica/dec5caf13794d7e9.webp": {
+    "philodendron-sp-mini-midget": {
+      "ok": "yes",
+      "typical": true,
+      "note": "plant clump out of cup with gel, white background",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/tropica/e14ce099577cd987.webp": {
     "cryptocoryne-crispatula": {
       "ok": "yes",
       "typical": false,
       "note": "tissue-culture plantlets seen from above on white background",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/e2ceb90d002052c7.webp": {
+    "bacopa-australis": {
+      "ok": "yes",
+      "typical": true,
+      "note": "close-up of stems with small rounded opposite leaves on white",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/e58c0001b54153f1.webp": {
+    "lysimachia-parvifolia": {
+      "ok": "yes",
+      "typical": false,
+      "note": "tissue-culture cup of Lysimachia parvifolia 'Red', Tropica packshot with printed label on cup",
       "logo": false,
       "person": false
     }
@@ -45404,6 +46386,42 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/tropica/e9345abd5becae0f.webp": {
+    "anubias-barteri-var-coffeifolia": {
+      "ok": "yes",
+      "typical": true,
+      "note": "group of coffeifolia with puckered leaves in aquascape on wood and rock",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/ea38f49f3e3f3460.webp": {
+    "echinodorus-ozelot-green": {
+      "ok": "yes",
+      "typical": true,
+      "note": "large green sword leaves with dark spots in planted tank, red crypts in front",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/ed5448225e1ab070.webp": {
+    "bucephalandra-sordidula": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "potted Bucephalandra in orange net pot on white; no blue sheen visible, variety can't be confirmed",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/f1f19426cfca5486.webp": {
+    "ammannia-crassicaulis": {
+      "ok": "yes",
+      "typical": false,
+      "note": "close-up of emersed leaves and reddish stem",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/tropica/f2b04c270a9e8a74.webp": {
     "blyxa-japonica": {
       "ok": "yes",
@@ -45413,11 +46431,38 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/tropica/f4eea5418e8c2965.webp": {
+    "aponogeton-boivinianus": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "bulb plant on white with reddish-yellow quilted leaves; could be another Aponogeton",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/tropica/f5b86d1fcd6f6502.webp": {
     "ceratophyllum-demersum": {
       "ok": "yes",
       "typical": true,
       "note": "hornwort stems in a planted aquarium among other stem plants",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/f808bb51b286d930.webp": {
+    "microsorum-pteropus-narrow": {
+      "ok": "none",
+      "typical": false,
+      "note": "Tropica product packshot in blister pack",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/f8b252660d31e57c.webp": {
+    "lysimachia-parvifolia": {
+      "ok": "yes",
+      "typical": true,
+      "note": "close-up of orange-red and green leaves",
       "logo": false,
       "person": false
     }
@@ -45449,11 +46494,39 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/tropica/fb6c9d6a4b6e4018.webp": {
+    "alternanthera-reineckii-mini": {
+      "ok": "yes",
+      "typical": false,
+      "note": "top view of a tissue-culture cup of red-brown A. reineckii 'Mini'",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/tropica/fb7406f13f41645c.webp": {
+    "micranthemum-tweediei-monte-carlo": {
+      "ok": "yes",
+      "typical": false,
+      "note": "Monte Carlo seen from above in tissue-culture cup",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/video/-5dase5hg20/p5-5uZXNpXzAxLmpwZw.webp": {
     "paracheirodon-innesi": {
       "ok": "yes",
       "typical": true,
       "note": "single neon tetra in planted tank, bluish light, red on rear half only",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/-LWDlOsd634/p3-1MTUxNDgxKS5qcGc.webp": {
+    "hydrocotyle-tripartita": {
+      "ok": "yes",
+      "typical": true,
+      "note": "dense green carpet of small three-lobed leaves growing emersed on the ground, fallen leaves among it",
       "logo": false,
       "person": false,
       "guide": true
@@ -45759,6 +46832,26 @@
       "ok": "yes",
       "typical": false,
       "note": "adult tiger oscar, orange-black marbled form, in tank with driftwood",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/5qzNHhM4FXE/p1-EU0MwMDI1My5KUEc.webp": {
+    "marsilea-hirsuta": {
+      "ok": "yes",
+      "typical": true,
+      "note": "floating clover-like leaves on water with botanical garden name label",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/5qzNHhM4FXE/p3-EU0MwNzk1Ny5KUEc.webp": {
+    "sagittaria-subulata": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Sagittaria subulata leaves in a glass botanical tank with name sign; some reflections",
       "logo": false,
       "person": false,
       "guide": true
@@ -46505,6 +47598,16 @@
       "guide": true
     }
   },
+  "https://media.aquatome.com/video/IhNVrZCse48/p7-bV9maXNoZXMuanBn.webp": {
+    "carassius-auratus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "calico fantail goldfish swimming over gravel in a planted tank",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
   "https://media.aquatome.com/video/Iinv7wWjhzA/p0-FsYXJlXzAzLmpwZw.webp": {
     "pterophyllum-scalare": {
       "ok": "yes",
@@ -47190,6 +48293,16 @@
       "ok": "yes",
       "typical": true,
       "note": "close-up of bright green Java moss with slender branches in a tank",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/TkKqmLMj0Kg/p6-EU0MwNzk1Ny5KUEc.webp": {
+    "sagittaria-subulata": {
+      "ok": "yes",
+      "typical": true,
+      "note": "same view: Sagittaria subulata growing densely in a glass tank, labelled by sign",
       "logo": false,
       "person": false,
       "guide": true
@@ -47961,6 +49074,26 @@
       "guide": true
     }
   },
+  "https://media.aquatome.com/video/hMKRY7EkfIk/p1-aWNhX2Zhcm0uSlBH.webp": {
+    "cryptocoryne-nurii": {
+      "ok": "yes",
+      "typical": true,
+      "note": "single brown-green Cryptocoryne with wavy-edged leaves, out of water on dark glass",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/hMKRY7EkfIk/p5-bV9maXNoZXMuanBn.webp": {
+    "carassius-auratus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "calico fantail goldfish swimming just above the gravel substrate",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
   "https://media.aquatome.com/video/hPicG4pgGmI/p7-bG93ZXJfMS53ZWJw.webp": {
     "echinodorus-grisebachii": {
       "ok": "yes",
@@ -48036,6 +49169,16 @@
       "ok": "yes",
       "typical": true,
       "note": "frontosa with black and white bars swimming by rocks in a tank, a second one behind",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/jOiyRfgw_HM/p4-bV9maXNoZXMuanBn.webp": {
+    "carassius-auratus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "goldfish tank with gravel, plants and clear water",
       "logo": false,
       "person": false,
       "guide": true
@@ -48413,6 +49556,16 @@
       "guide": true
     }
   },
+  "https://media.aquatome.com/video/sdYW9rupCa8/p0-J1LUluZGlhLmpwZw.webp": {
+    "micranthemum-tweediei-monte-carlo": {
+      "ok": "yes",
+      "typical": true,
+      "note": "dense Monte Carlo carpet in aquarium with shrimp, matches caption",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
   "https://media.aquatome.com/video/sgorNs-99pc/p5-xMTg1NTY0KS5qcGc.webp": {
     "vesicularia-montagnei": {
       "ok": "yes",
@@ -48649,86 +49802,6 @@
       "typical": false,
       "note": "its Commons file names Rasbora einthovenii",
       "file": true
-    }
-  },
-  "https://media.aquatome.com/video/-LWDlOsd634/p3-1MTUxNDgxKS5qcGc.webp": {
-    "hydrocotyle-tripartita": {
-      "ok": "yes",
-      "typical": true,
-      "note": "dense green carpet of small three-lobed leaves growing emersed on the ground, fallen leaves among it",
-      "logo": false,
-      "person": false,
-      "guide": true
-    }
-  },
-  "https://media.aquatome.com/video/5qzNHhM4FXE/p1-EU0MwMDI1My5KUEc.webp": {
-    "marsilea-hirsuta": {
-      "ok": "yes",
-      "typical": true,
-      "note": "floating clover-like leaves on water with botanical garden name label",
-      "logo": false,
-      "person": false,
-      "guide": true
-    }
-  },
-  "https://media.aquatome.com/video/5qzNHhM4FXE/p3-EU0MwNzk1Ny5KUEc.webp": {
-    "sagittaria-subulata": {
-      "ok": "yes",
-      "typical": true,
-      "note": "Sagittaria subulata leaves in a glass botanical tank with name sign; some reflections",
-      "logo": false,
-      "person": false,
-      "guide": true
-    }
-  },
-  "https://media.aquatome.com/video/IhNVrZCse48/p7-bV9maXNoZXMuanBn.webp": {
-    "carassius-auratus": {
-      "ok": "yes",
-      "typical": false,
-      "note": "calico fantail goldfish swimming over gravel in a planted tank",
-      "logo": false,
-      "person": false,
-      "guide": true
-    }
-  },
-  "https://media.aquatome.com/video/TkKqmLMj0Kg/p6-EU0MwNzk1Ny5KUEc.webp": {
-    "sagittaria-subulata": {
-      "ok": "yes",
-      "typical": true,
-      "note": "same view: Sagittaria subulata growing densely in a glass tank, labelled by sign",
-      "logo": false,
-      "person": false,
-      "guide": true
-    }
-  },
-  "https://media.aquatome.com/video/hMKRY7EkfIk/p1-aWNhX2Zhcm0uSlBH.webp": {
-    "cryptocoryne-nurii": {
-      "ok": "yes",
-      "typical": true,
-      "note": "single brown-green Cryptocoryne with wavy-edged leaves, out of water on dark glass",
-      "logo": false,
-      "person": false,
-      "guide": true
-    }
-  },
-  "https://media.aquatome.com/video/hMKRY7EkfIk/p5-bV9maXNoZXMuanBn.webp": {
-    "carassius-auratus": {
-      "ok": "yes",
-      "typical": false,
-      "note": "calico fantail goldfish swimming just above the gravel substrate",
-      "logo": false,
-      "person": false,
-      "guide": true
-    }
-  },
-  "https://media.aquatome.com/video/jOiyRfgw_HM/p4-bV9maXNoZXMuanBn.webp": {
-    "carassius-auratus": {
-      "ok": "yes",
-      "typical": false,
-      "note": "goldfish tank with gravel, plants and clear water",
-      "logo": false,
-      "person": false,
-      "guide": true
     }
   }
 }

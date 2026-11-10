@@ -86,16 +86,28 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/317089758.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/317089758-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "chiuluan",
-      "sourceUrl": "https://www.inaturalist.org/photos/317089758",
-      "caption": "Cây thủy cúc ngập nước trong suối, lá xẻ mảnh",
-      "best": false,
-      "kind": "submersed"
+      "url": "https://media.aquatome.com/tropica/4dc42167768230d3.webp",
+      "thumb": "https://media.aquatome.com/tropica/4dc42167768230d3-480.webp",
+      "width": 1000,
+      "height": 1000,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Hygrophiladifformis(051BDT)/4485",
+      "source": "tropica",
+      "kind": "other",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/tropica/e2fad567d215aa46.webp",
+      "thumb": "https://media.aquatome.com/tropica/e2fad567d215aa46-480.webp",
+      "width": 1000,
+      "height": 1000,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Hygrophiladifformis(051BDT)/4485",
+      "source": "tropica",
+      "kind": "submersed",
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/168504515.webp",
@@ -134,6 +146,23 @@
       "kind": "habitat"
     },
     {
+      "url": "https://media.aquatome.com/tropica/654307e2f97fcd38.webp",
+      "thumb": "https://media.aquatome.com/tropica/654307e2f97fcd38-480.webp",
+      "width": 1200,
+      "height": 750,
+      "large": {
+        "url": "https://media.aquatome.com/tropica/654307e2f97fcd38-large.webp",
+        "width": 1361,
+        "height": 851
+      },
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Hygrophiladifformis(051BDT)/4485",
+      "source": "tropica",
+      "kind": "submersed",
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/168504530.webp",
       "thumb": "https://media.aquatome.com/inaturalist/168504530-480.webp",
       "width": 1024,
@@ -168,9 +197,21 @@
       "caption": "Cây thủy cúc mọc ven mương nước trong tự nhiên",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/317089758.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/317089758-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "chiuluan",
+      "sourceUrl": "https://www.inaturalist.org/photos/317089758",
+      "caption": "Cây thủy cúc ngập nước trong suối, lá xẻ mảnh",
+      "best": false,
+      "kind": "submersed"
     }
   ],
   "seen": 31,
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-10",
   "builtAt": "2026-10-31"
 }

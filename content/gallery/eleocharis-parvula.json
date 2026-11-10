@@ -38,6 +38,18 @@
       "kind": "emersed"
     },
     {
+      "url": "https://media.aquatome.com/inaturalist/534713609.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/534713609-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Chase Mathey",
+      "sourceUrl": "https://www.inaturalist.org/photos/534713609",
+      "caption": "Cỏ tóc tiên lùn mọc dày, cận cảnh lá",
+      "best": true,
+      "kind": "detail"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/537210972.webp",
       "thumb": "https://media.aquatome.com/inaturalist/537210972-480.webp",
       "width": 1024,
@@ -60,18 +72,6 @@
       "caption": "Thảm Cỏ tóc tiên lùn có hoa mọc trên cạn",
       "best": true,
       "kind": "emersed"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/534713609.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/534713609-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Chase Mathey",
-      "sourceUrl": "https://www.inaturalist.org/photos/534713609",
-      "caption": "Cỏ tóc tiên lùn mọc dày, cận cảnh lá",
-      "best": true,
-      "kind": "detail"
     },
     {
       "url": "https://media.aquatome.com/flickr/20999143536.webp",
@@ -108,6 +108,18 @@
       "caption": "Đám Cỏ tóc tiên lùn mọc dày ở vùng đất ẩm",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/tropica/ec82adbf11ce3597.webp",
+      "thumb": "https://media.aquatome.com/tropica/ec82adbf11ce3597-480.webp",
+      "width": 1200,
+      "height": 1800,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Eleocharisparvula(132CPCS)/30198",
+      "source": "tropica",
+      "kind": "other",
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/commons/59838f064cc6671f.webp",
@@ -156,6 +168,18 @@
       "caption": "Thảm Cỏ tóc tiên lùn mọc trên bùn ngoài tự nhiên",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/tropica/16fdeabd54137987.webp",
+      "thumb": "https://media.aquatome.com/tropica/16fdeabd54137987-480.webp",
+      "width": 1200,
+      "height": 1200,
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Eleocharisparvula(132CPCS)/30198",
+      "source": "tropica",
+      "kind": "other",
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/162758733.webp",
@@ -219,6 +243,6 @@
     }
   ],
   "seen": 58,
-  "updatedAt": "2026-11-08",
+  "updatedAt": "2026-11-10",
   "builtAt": "2026-11-08"
 }

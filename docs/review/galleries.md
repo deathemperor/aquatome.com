@@ -8,9 +8,9 @@ Written by `pnpm engine gallery` (2026-11-10). Targets: packages/engine/src/gall
 | shop | 60 | 131 | 79 | 24 | 30 | 204 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
 | covered | 30 | 517 | 28 | 9 | 18 | 536 |
-| rest | 20 | 1662 | 75 | 0 | 34 | 1703 |
+| rest | 20 | 1663 | 75 | 0 | 41 | 1697 |
 
-## Short of target: every source read (250)
+## Short of target: every source read (252)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -77,7 +77,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/corydoras-hastatus | shop | 1 | 60 |
 | breeds/mickey-mouse-platy | shop | 3 | 60 |
 | species/corydoras-similis | shop | 0 | 60 |
-| plants/helanthium-tenellum | shop | 21 | 60 |
+| plants/helanthium-tenellum | shop | 22 | 60 |
 | breeds/butterfly-koi | shop | 6 | 60 |
 | species/corydoras-adolfoi | shop | 1 | 60 |
 | breeds/pigeon-blood-discus | shop | 4 | 60 |
@@ -91,9 +91,9 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | plants/monosolenium-tenerum | shop | 3 | 60 |
 | plants/echinodorus-grisebachii | shop | 7 | 60 |
 | species/caridina-multidentata | shop | 38 | 60 |
-| plants/hygrophila-difformis | shop | 14 | 60 |
+| plants/hygrophila-difformis | shop | 17 | 60 |
 | species/leporacanthicus-joselimai | shop | 1 | 60 |
-| plants/hygrophila-corymbosa | shop | 7 | 60 |
+| plants/hygrophila-corymbosa | shop | 9 | 60 |
 | species/melanotaenia-lacustris | shop | 1 | 60 |
 | plants/cryptocoryne-spiralis | shop | 6 | 60 |
 | species/melanotaenia-parkinsoni | shop | 1 | 60 |
@@ -114,7 +114,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/brachygobius-doriae | shop | 4 | 60 |
 | species/monodactylus-sebae | shop | 8 | 60 |
 | species/melanotaenia-praecox | shop | 5 | 60 |
-| plants/ludwigia-glandulosa | shop | 9 | 60 |
+| plants/ludwigia-glandulosa | shop | 11 | 60 |
 | species/dario-dario | shop | 0 | 60 |
 | plants/limnophila-aromatica | shop | 18 | 60 |
 | plants/utricularia-graminifolia | shop | 10 | 60 |
@@ -125,10 +125,10 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/erpetoichthys-calabaricus | shop | 2 | 60 |
 | plants/sagittaria-subulata | shop | 9 | 60 |
 | species/trichopsis-vittata | shop | 11 | 60 |
-| plants/lilaeopsis-brasiliensis | shop | 5 | 60 |
+| plants/lilaeopsis-brasiliensis | shop | 9 | 60 |
 | species/boraras-urophthalmoides | shop | 1 | 60 |
 | plants/taxiphyllum-alternans | shop | 3 | 60 |
-| plants/fissidens-fontanus | shop | 18 | 60 |
+| plants/fissidens-fontanus | shop | 22 | 60 |
 | species/poecilia-sphenops | shop | 17 | 60 |
 | plants/cryptocoryne-beckettii | shop | 1 | 60 |
 | species/corydoras-panda | shop | 14 | 60 |
@@ -147,10 +147,10 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/hyphessobrycon-megalopterus | shop | 4 | 60 |
 | plants/vesicularia-montagnei | shop | 1 | 60 |
 | species/hyphessobrycon-sweglesi | shop | 4 | 60 |
-| plants/micranthemum-callitrichoides | shop | 5 | 60 |
+| plants/micranthemum-callitrichoides | shop | 6 | 60 |
 | species/trigonostigma-hengeli | shop | 2 | 60 |
 | species/boraras-brigittae | shop | 4 | 60 |
-| plants/eleocharis-parvula | shop | 18 | 60 |
+| plants/eleocharis-parvula | shop | 20 | 60 |
 | species/gymnarchus-niloticus | shop | 7 | 60 |
 | species/agamyxis-pectinifrons | shop | 0 | 60 |
 | species/chitala-ornata | shop | 10 | 60 |
@@ -174,26 +174,26 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/amphilophus-labiatus | shop | 5 | 60 |
 | species/epalzeorhynchos-bicolor | shop | 10 | 60 |
 | species/pethia-conchonius | shop | 6 | 60 |
-| plants/gratiola-viscidula | shop | 6 | 60 |
+| plants/gratiola-viscidula | shop | 8 | 60 |
 | species/synodontis-eupterus | shop | 11 | 60 |
 | species/tropheus-duboisi | shop | 1 | 60 |
 | species/balantiocheilos-melanopterus | shop | 19 | 60 |
-| plants/hygrophila-pinnatifida | shop | 11 | 60 |
+| plants/hygrophila-pinnatifida | shop | 14 | 60 |
 | plants/juncus-repens | shop | 42 | 60 |
 | species/maylandia-estherae | shop | 21 | 60 |
 | species/hyphessobrycon-amandae | shop | 5 | 60 |
-| plants/lagenandra-meeboldii | shop | 9 | 60 |
+| plants/lagenandra-meeboldii | shop | 10 | 60 |
 | species/trigonostigma-espei | shop | 3 | 60 |
 | species/microdevario-kubotai | shop | 2 | 60 |
-| plants/limnophila-hippuridoides | shop | 0 | 60 |
+| plants/limnophila-hippuridoides | shop | 3 | 60 |
 | species/danio-kyathit | shop | 0 | 60 |
 | species/danio-choprae | shop | 3 | 60 |
 | species/tanichthys-albonubes | shop | 5 | 60 |
-| plants/myriophyllum-mattogrossense | shop | 8 | 60 |
+| plants/myriophyllum-mattogrossense | shop | 9 | 60 |
 | species/inpaichthys-kerri | shop | 5 | 60 |
-| plants/nymphoides-hydrophylla | shop | 39 | 60 |
+| plants/nymphoides-hydrophylla | shop | 42 | 60 |
 | species/paracheirodon-simulans | shop | 2 | 60 |
-| plants/phyllanthus-fluitans | shop | 8 | 60 |
+| plants/phyllanthus-fluitans | shop | 11 | 60 |
 | species/pristella-maxillaris | shop | 3 | 60 |
 | species/prionobrama-filigera | shop | 1 | 60 |
 | plants/pogostemon-deccanensis | shop | 41 | 60 |
@@ -246,7 +246,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/datnioides-pulcher | popular | 2 | 40 |
 | species/pangasianodon-hypophthalmus | popular | 30 | 40 |
 | species/dichotomyctere-nigroviridis | popular | 13 | 40 |
-| species/pomacea-diffusa | popular | 18 | 40 |
+| species/pomacea-diffusa | popular | 16 | 40 |
 | breeds/electric-blue-ram | covered | 1 | 30 |
 | breeds/blue-diamond-discus | covered | 1 | 30 |
 | breeds/glofish | covered | 13 | 30 |
@@ -265,4 +265,6 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/betta-siamorientalis | covered | 0 | 30 |
 | species/betta-unimaculata | covered | 0 | 30 |
 | species/brachyplatystoma-vaillantii | covered | 1 | 30 |
+| species/brevibora-dorsiocellata | covered | 1 | 30 |
+| species/brochis-multiradiatus | covered | 3 | 30 |
 | species/betta-macrostoma | covered | 0 | 30 |

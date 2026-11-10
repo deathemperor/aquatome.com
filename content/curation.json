@@ -371,11 +371,11 @@
    "date": "2026-11-10",
    "fish": "species/pterophyllum-altum",
    "img": "https://media.aquatome.com/commons/39763a757b3e093b.webp",
-   "imgChosen": true,
-   "fixed": true,
    "guide": "guides/sprucepets-platy-types-1381066",
    "guideImg": "https://media.aquatome.com/sprucepets/9d227b32ea4026ab.webp",
-   "why": "Guide: Các biến thể của cá bình tích (Xiphophorus spp.), 4 search impressions."
+   "why": "Guide: Các biến thể của cá bình tích (Xiphophorus spp.), 4 search impressions.",
+   "fixed": true,
+   "imgChosen": true
   },
   {
    "date": "2026-11-11",
@@ -509,18 +509,19 @@
   },
   {
    "date": "2026-11-27",
+   "fish": "species/barbodes-binotatus",
    "img": "https://media.aquatome.com/commons/48ac6e801db605ad-large.webp",
    "guide": "guides/sprucepets-aquarium-catfish-breeds-5115234",
    "guideImg": "https://media.aquatome.com/sprucepets/eb26692e4b7b47a6.webp",
-   "why": "Fish: Cá barb đốm, native to Vietnam.",
-   "fish": "species/barbodes-binotatus"
+   "why": "Fish: Cá barb đốm, native to Vietnam."
   },
   {
    "date": "2026-11-28",
-   "img": "https://media.aquatome.com/commons/c58b9359825a4664-large.webp",
+   "img": "https://media.aquatome.com/inaturalist/513666208-large.webp",
    "guide": "guides/2hraquarist-blogs-algae-control-how-to-get-rid-of-staghorn-algae",
    "guideImg": "https://media.aquatome.com/2hraquarist/0eeea2db93aa3f5b.webp",
-   "why": "Fish: Cá chạch bùn, native to Vietnam."
+   "why": "Fish: Cá lóc đốm, native to Vietnam.",
+   "fish": "species/channa-maculata"
   },
   {
    "date": "2026-11-29",
@@ -536,6 +537,14 @@
    "img": "https://media.aquatome.com/commons/c61a7aecabf37bf2-large.webp",
    "guide": "guides/youtube-ohUzvlrSQDs",
    "why": "Fish: Cá frontosa, on this week's list. Guide: Set bể thủy sinh chủ đề châu Phi cho cichlid bướm và cá Congo, on this week's list, the week's video guide."
+  },
+  {
+   "date": "2026-12-01",
+   "fish": "species/polypterus-senegalus",
+   "img": "https://media.aquatome.com/commons/d7ac46635fc173c6-large.webp",
+   "guide": "guides/2hraquarist-blogs-algae-control-tackle-algae-by-doing-nothing",
+   "guideImg": "https://media.aquatome.com/2hraquarist/e97391145c58b6d6.webp",
+   "why": "Fish: Cá khủng long Senegal, on this week's list. Guide: Xử lý tảo bằng cách... không làm gì cả?, the best left with a big enough photo."
   }
  ],
  "loops": {

@@ -687,7 +687,12 @@
       "author": "Kacper Aleksander",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Banjo_cat.jpg",
       "caption": "Banjo catfish (Bunocephalus coracoideus)",
-      "thumb": "https://media.aquatome.com/commons/5155fce2eece5ba6-480.webp"
+      "thumb": "https://media.aquatome.com/commons/5155fce2eece5ba6-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/5155fce2eece5ba6-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/scotcat/8b439449f52e8f34.webp",
