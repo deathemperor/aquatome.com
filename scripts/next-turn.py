@@ -69,7 +69,7 @@ def keep(args):
     queues = ("sim", "checks")
     if args[:1] in (["--sim"], ["--checks"]):
         queues, args = (args[0][2:],), args[1:]
-    if not args:
+    if not args or not args[0].strip():  # A blank name, from a pgrep that found nothing, would keep the turn for no one.
         sys.exit(__doc__)
     who, minutes = args[0], min(float(args[1]) if len(args) > 1 else 30.0, MAX_MINUTES)
     if who.isdigit():
