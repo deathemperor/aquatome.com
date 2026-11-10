@@ -1,3 +1,4 @@
+import { parse } from 'node-html-parser'
 import { isChallenge } from './outline'
 
 /**
@@ -80,7 +81,13 @@ export class ArchiveFetcher {
     return new Uint8Array(await r.arrayBuffer())
   }
 
-  async links(): Promise<string[]> { throw new Error('archive sources are discovered from the capture index') }
+  /** The links on the page's newest copy (`id_`, so they are the site's own). `scope`: the part of the page. */
+  async links(url: string, scope = 'body'): Promise<string[]> {
+    const { html } = await this.get(url)
+    return parse(html).querySelectorAll(`${scope} a[href]`).flatMap(a => {
+      try { return [new URL(a.getAttribute('href')!, url).href] } catch { return [] }
+    })
+  }
 }
 
 /** Capture-index query: every URL archived under `prefix` with a good capture, one row per URL. */

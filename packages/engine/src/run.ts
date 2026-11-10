@@ -22,8 +22,9 @@ import { QUALITY_THRESHOLD, gate, reviewTranslation } from './quality'
 import { logReviews, type Review } from './review-log'
 import { linkedPhotos, pickSourcePhotos, storeSourcePhotos, type Media } from './source-photos'
 import { snapshotHash, writeSnapshot } from './snapshot'
-import { SOURCES, sourceById } from './sources'
-import { BROWSER_GONE, attemptsAfter, errorKind, loadState, needsFetch, saveState, setSourceBlock, sourceBlockedSince, type UrlState } from './state'
+import { ARCHIVE_POLITE } from './archive'
+import { SOURCES, sourceById, type SourceConfig } from './sources'
+import { BROWSER_GONE, attemptsAfter, errorKind, loadState, moveToArchive, needsFetch, noteBlock, saveState, setSourceBlock, sourceBlockedSince, sourcesOnArchive, type UrlState } from './state'
 import { findVideos, readVideoRejected } from './videos'
 import { popularFirst } from './shops'
 import { acceptedNames, addSourceNames, candidates, resolveWanted, wantedFirst, wantedIn, withPopular, type Wanted } from './wanted'
@@ -34,7 +35,7 @@ type Reader = Pick<ChromeFetcher, 'text' | 'links' | 'bytes'> & { get(url: strin
 
 export type Deps = {
   fetcher: Reader
-  /** Reads sources with `via: 'archive'` (the Internet Archive's copies). */
+  /** Reads sources with `via: 'archive'`, and those that moved there by themselves (the Internet Archive's copies). */
   archive?: Reader
   llm: Llm
   http: (url: string) => Promise<unknown>
@@ -46,7 +47,7 @@ export type Deps = {
   readersWanted?: () => Promise<ReaderWant[]>
 }
 type Counts = { discovered: number; fetched: number; processed: number; skipped: number; blocked: number; errors: number }
-export type RunReport = { perSource: Partial<Record<SourceId, Counts>>; needsHuman: SourceId[]; changed: ChangelogEntry[]; errors: string[]; depth?: DepthReport }
+export type RunReport = { perSource: Partial<Record<SourceId, Counts>>; needsHuman: SourceId[]; movedToArchive: SourceId[]; changed: ChangelogEntry[]; errors: string[]; depth?: DepthReport }
 
 type Kind = 'species' | 'plants' | 'guides' | 'places' | 'glossary' | 'breeds'
 const readJson = async <T>(path: string): Promise<T | undefined> => readFile(path, 'utf8').then(s => JSON.parse(s) as T, () => undefined)
@@ -58,6 +59,20 @@ const MAX_LLM_FAILURES = 3
 /** Pages in a row that failed on the network: it is the network, not the pages, so the source stops (their attempts last). */
 const MAX_NETWORK_FAILURES = 3
 const BLOCK_MEMORY_MS = 86_400_000
+/** A source that meets a browser check on this many runs within the window reads the Internet Archive's copies from then on (the owner, 2026-11-10: a person can't always pass one). */
+export const ARCHIVE_AFTER_BLOCKS = 2
+export const ARCHIVE_BLOCK_WINDOW_MS = 7 * 86_400_000
+
+/** Whether the archive has a readable copy of the page that lists this source, or else of a page already read. */
+async function archiveHolds(archive: Reader | undefined, src: SourceConfig, read: string[]): Promise<boolean> {
+  if (!archive) return false
+  const listing = src.discover.kind === 'crawl' ? src.discover.start[0] : src.discover.kind === 'sitemap' ? src.discover.urls[0] : undefined
+  for (const url of [listing, read[0]]) {
+    if (!url) continue
+    try { await archive.get(url); return true } catch { /* no copy of this one */ }
+  }
+  return false
+}
 
 /**
  * This page's fresh photos replace its old ones; source photos first (registry order), open-licence photos after. A head
@@ -156,7 +171,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
   const gbifCache: Record<string, Taxon | null> = {}
   const blocked = (await readJson<Record<string, string>>(join(root, 'engine-state/_photo-rejected.json'))) ?? {}
   const deadline = opts.maxMinutes ? deps.now().getTime() + opts.maxMinutes * 60_000 : Infinity
-  const report: RunReport = { perSource: {}, needsHuman: [], changed: [], errors: [] }
+  const report: RunReport = { perSource: {}, needsHuman: [], movedToArchive: [], changed: [], errors: [] }
   const today = () => deps.now().toISOString().slice(0, 10)
 
   // Species our pages name but don't have yet: their source pages are fetched first (see wanted.ts); the audit lists the rest.
@@ -297,19 +312,34 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
     const until = deadline === Infinity ? Infinity : deps.now().getTime() + (deadline - deps.now().getTime()) / (order.length - i)
     const counts: Counts = { discovered: 0, fetched: 0, processed: 0, skipped: 0, blocked: 0, errors: 0 }
     report.perSource[id] = counts
-    const fetcher = src.via === 'archive' ? deps.archive : deps.fetcher
+    const onArchive = src.via === 'archive' || (await sourcesOnArchive(root)).has(id)
+    const fetcher = onArchive ? deps.archive : deps.fetcher
     if (!fetcher) { report.errors.push(`${id}: no archive reader`); continue }
     // An archived source never meets the site's browser check, so an old block doesn't hold it back.
-    const blockedAt = src.via === 'archive' ? undefined : await sourceBlockedSince(root, id)
+    const blockedAt = onArchive ? undefined : await sourceBlockedSince(root, id)
     if (blockedAt && !opts.retryBlocked && deps.now().getTime() - new Date(blockedAt).getTime() < BLOCK_MEMORY_MS) {
       report.needsHuman.push(id) // still waiting for the owner to pass the browser check in the engine's Chrome profile
       continue
     }
-    const block = async () => { counts.blocked++; report.needsHuman.push(id); await setSourceBlock(root, id, deps.now().toISOString()) }
+    let blockNoted = false
+    const block = async () => {
+      counts.blocked++
+      if (blockNoted) return
+      blockNoted = true
+      const at = deps.now().toISOString()
+      if (await noteBlock(root, id, at, ARCHIVE_BLOCK_WINDOW_MS) >= ARCHIVE_AFTER_BLOCKS && await archiveHolds(deps.archive, src, Object.keys(await loadState(root, id)))) {
+        await moveToArchive(root, id, at)
+        report.movedToArchive.push(id)
+        return
+      }
+      report.needsHuman.push(id)
+      await setSourceBlock(root, id, at)
+    }
+    const delayMs = onArchive ? Math.max(src.delayMs, ARCHIVE_POLITE) : src.delayMs
     let last = -Infinity
     /** ≥ delayMs between any two requests to this source (pages, sitemaps, images); time spent translating counts. */
     const polite = <A extends unknown[], R>(f: (...a: A) => Promise<R>) => async (...a: A) => {
-      await deps.sleep(Math.max(0, last + src.delayMs - deps.now().getTime()))
+      await deps.sleep(Math.max(0, last + delayMs - deps.now().getTime()))
       try { return await f(...a) } finally { last = deps.now().getTime() }
     }
     const get = polite((u: string) => fetcher.get(u))
@@ -319,12 +349,17 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
     // An archived source keeps its last good index: the archive's index is often down, the species list barely changes.
     const indexFile = join(root, 'engine-state', `_index-${id}.json`)
     try {
-      found = await discover(src, polite((u: string) => fetcher.text(u)), links)
-      if (src.via === 'archive' && found.length) await mkdir(join(root, 'engine-state'), { recursive: true }).then(() => writeFile(indexFile, `${JSON.stringify(found)}\n`))
+      // Off the capture index, a sitemap is read from its archived copy, never from the site.
+      const text = onArchive && src.discover.kind !== 'archive' ? polite(async (u: string) => (await fetcher.get(u)).html) : polite((u: string) => fetcher.text(u))
+      found = await discover(src, text, links)
+      if (onArchive && !found.length) throw new Error('the archive lists no pages')
+      if (onArchive && found.length) await mkdir(join(root, 'engine-state'), { recursive: true }).then(() => writeFile(indexFile, `${JSON.stringify(found)}\n`))
     } catch (e) {
       if (e instanceof ChallengeError) { await block(); continue }
-      const kept = src.via === 'archive' ? JSON.parse(await readFile(indexFile, 'utf8').catch(() => 'null')) as typeof found | null : null
-      if (!kept) {
+      const lastIndex = onArchive ? JSON.parse(await readFile(indexFile, 'utf8').catch(() => 'null')) as typeof found | null : null
+      // No index yet: the pages already read are still there to read again.
+      const kept = lastIndex?.length || !onArchive ? lastIndex : Object.keys(await loadState(root, id)).map(url => ({ url }))
+      if (!kept?.length) {
         counts.errors++
         report.errors.push(`${id}: discovery failed: ${(e as Error).message}`)
         continue

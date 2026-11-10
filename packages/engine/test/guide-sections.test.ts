@@ -34,13 +34,13 @@ test('each page image keeps the heading it sits under; a guide photo gets the se
 
 test('a published guide is read once more for every photo of its source, each in its section, with no cap of 6', async () => {
   const root = await mkdtemp(join(tmpdir(), 'gs-'))
-  const URL_ = 'https://www.thesprucepets.com/low-maintenance-freshwater-fish-4770223'
-  const dir = join(root, 'content', 'guides', 'sprucepets-low-maintenance-freshwater-fish-4770223')
+  const URL_ = 'https://www.aquariumcoop.com/blogs/aquarium/low-maintenance-freshwater-fish'
+  const dir = join(root, 'content', 'guides', 'aquariumcoop-low-maintenance-freshwater-fish')
   await mkdir(dir, { recursive: true })
   await mkdir(join(root, 'engine-state'), { recursive: true })
-  await writeFile(join(root, 'content', 'sources.json'), JSON.stringify({ sprucepets: { name: 'The Spruce Pets' } }))
-  const old = (n: number) => ({ url: `https://m/old${n}.webp`, width: 1200, height: 800, licence: 'x', author: 'y', sourceUrl: URL_, source: 'sprucepets' })
-  await writeFile(join(dir, 'entity.json'), JSON.stringify({ source: 'sprucepets', sourceUrl: URL_, photos: [old(1), old(2), old(3)] }))
+  await writeFile(join(root, 'content', 'sources.json'), JSON.stringify({ aquariumcoop: { name: 'Aquarium Co-op' } }))
+  const old = (n: number) => ({ url: `https://m/old${n}.webp`, width: 1200, height: 800, licence: 'x', author: 'y', sourceUrl: URL_, source: 'aquariumcoop' })
+  await writeFile(join(dir, 'entity.json'), JSON.stringify({ source: 'aquariumcoop', sourceUrl: URL_, photos: [old(1), old(2), old(3)] }))
   await writeFile(join(dir, 'vi.json'), JSON.stringify({ body: VI.map(h => `<h3>${h}</h3><p>…</p>`).join('') }))
   await writeFile(join(dir, 'ms.json'), JSON.stringify({ body: VI.map(h => `<h3>${h} (ms)</h3><p>…</p>`).join('') })) // a language the site doesn't serve yet
   // Read before the cap went: tried, but not since.

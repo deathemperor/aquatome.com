@@ -33,7 +33,7 @@ import { dropFacePhotos, visionFaces } from './faces'
 import { backfillPhotos } from './photo-backfill'
 import { ChromeFetcher } from './fetch'
 import { r2Media } from './media'
-import { largePhotos } from './large-photos'
+import { headsUnderBar, largePhotos } from './large-photos'
 import { LEAD_SCHEMA, screenLeads } from './lead-photo'
 import { mirrorPhotos } from './mirror-photos'
 import sharp from 'sharp'
@@ -43,7 +43,7 @@ import { cryptsPhotos } from './crypts-photos'
 import { ownPhotos } from './own-photos'
 import { httpAdmin, moderate } from './moderate'
 import { httpPhotoAdmin, moderatePhotos, photoPages, VERDICT_SCHEMA, type Verdict } from './reader-photos'
-import { runEngine } from './run'
+import { ARCHIVE_AFTER_BLOCKS, runEngine } from './run'
 import { cardGaps } from './card-fill'
 import { depthReport, popularityOrder, thinSpecies, type DepthReport } from './depth'
 import { SOURCES } from './sources'
@@ -136,7 +136,7 @@ const readersWanted = (() => {
 /** No people or marks: the model guide-photos and video-stills ask. */
 const guidePhotoLook: GuidePhotoDeps['look'] = (file, prompt) => claudeVision({ system: 'You look at pictures for an aquarium handbook. Reply only with JSON.', prompt, schema: GUIDE_PHOTO_SCHEMA, file, model: process.env.GUIDE_PHOTOS_MODEL ?? 'opus' })
 
-const { positionals, values } = parseArgs({ allowPositionals: true, options: { sources: { type: 'string' }, phrases: { type: 'boolean' }, calendar: { type: 'boolean' }, except: { type: 'string' }, limit: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' }, channels: { type: 'string' }, lang: { type: 'string' }, category: { type: 'string' }, type: { type: 'string' }, kind: { type: 'string' }, 'based-on': { type: 'string' }, match: { type: 'string' }, 'dry-run': { type: 'boolean' }, backfill: { type: 'boolean' }, seed: { type: 'string' }, parallel: { type: 'string' }, jobs: { type: 'string' }, sheets: { type: 'string' }, shard: { type: 'string' }, pages: { type: 'string' }, fix: { type: 'boolean' }, rewrites: { type: 'string' }, popular: { type: 'boolean' }, titles: { type: 'string' }, records: { type: 'string' }, 'no-new-pages': { type: 'boolean' }, video: { type: 'string' }, 'reviewed-before': { type: 'string' }, 'rechecked-since': { type: 'string' }, class: { type: 'string' }, clear: { type: 'boolean' }, days: { type: 'string' }, check: { type: 'boolean' }, gsc: { type: 'string' }, from: { type: 'string' } } })
+const { positionals, values } = parseArgs({ allowPositionals: true, options: { heads: { type: 'boolean' }, sources: { type: 'string' }, phrases: { type: 'boolean' }, calendar: { type: 'boolean' }, except: { type: 'string' }, limit: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' }, channels: { type: 'string' }, lang: { type: 'string' }, category: { type: 'string' }, type: { type: 'string' }, kind: { type: 'string' }, 'based-on': { type: 'string' }, match: { type: 'string' }, 'dry-run': { type: 'boolean' }, backfill: { type: 'boolean' }, seed: { type: 'string' }, parallel: { type: 'string' }, jobs: { type: 'string' }, sheets: { type: 'string' }, shard: { type: 'string' }, pages: { type: 'string' }, fix: { type: 'boolean' }, rewrites: { type: 'string' }, popular: { type: 'boolean' }, titles: { type: 'string' }, records: { type: 'string' }, 'no-new-pages': { type: 'boolean' }, video: { type: 'string' }, 'reviewed-before': { type: 'string' }, 'rechecked-since': { type: 'string' }, class: { type: 'string' }, clear: { type: 'boolean' }, days: { type: 'string' }, check: { type: 'boolean' }, gsc: { type: 'string' }, from: { type: 'string' } } })
 
 /**
  * Openverse's API (anonymous: 20 requests a minute, 200 a day). A registered Openverse app raises that: its client id and
@@ -224,6 +224,7 @@ if (cmd === 'run' || cmd === 'card-fill') {
     }
     console.table(report.perSource)
     if (report.needsHuman.length) console.log(`needs-human: ${report.needsHuman.join(', ')} — pass the browser check in the engine Chrome profile, then: pnpm engine run --sources <id> --retry-blocked`)
+    if (report.movedToArchive.length) console.log(`moved to the Internet Archive: ${report.movedToArchive.join(', ')} (browser checks on ${ARCHIVE_AFTER_BLOCKS} runs within a week)`)
     for (const e of report.errors) console.log(`error: ${e}`)
     console.log(`changed: ${report.changed.length}`)
     if (cmd === 'card-fill') {
@@ -392,7 +393,7 @@ if (cmd === 'run' || cmd === 'card-fill') {
   for (const f of r.failed.slice(0, 20)) console.log(`failed: ${f}`)
 } else if (cmd === 'lead-photos') {
   // A fish's head photo, which its cards show too (lead-photo.ts): a head under the card's 1,140 px gives way to one that
-  // passes and shows the fish as well, the model comparing the two. --limit model calls a run (default 10), 3 pairs each,
+  // passes, shows the fish as well and keeps its head inside the card's crop, the model comparing the two. --limit model calls a run (default 10), 3 pairs each,
   // the calendar's fish first. --calendar: only the fish on the coming days. --only id,id: these fish alone.
   const r = await screenLeads(ROOT, {
     get: async u => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
@@ -403,7 +404,8 @@ if (cmd === 'run' || cmd === 'card-fill') {
   for (const x of r.failed.slice(0, 20)) console.log(`failed: ${x}`)
 } else if (cmd === 'large-photos') {
   // Copies 1,200 on the short side of the photos that may lead the app's large cards (large-photos.ts), for the fish and breed
-  // pages --only id,id, in that order. --limit N: photos fetched this run.
+  // pages --only id,id, in that order, or with --heads every fish's head photo that's under the card's size (the same
+  // picture larger, so the cycle runs it). --limit N: photos fetched this run.
   // pnpm engine large-photos --only betta-splendens,poecilia-reticulata [--limit 200]
   const bytes = async (u: string) => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) }
   const commons = async (file: string) => {
@@ -417,9 +419,9 @@ if (cmd === 'run' || cmd === 'card-fill') {
   }
   // Turned the way it shows (EXIF orientations 5-8 are quarter turns).
   const size = async (b: Uint8Array) => { const m = await sharp(b).metadata(); return (m.orientation ?? 1) >= 5 ? { width: m.height, height: m.width } : { width: m.width, height: m.height } }
-  const ids = (values.only ?? '').split(',').map(x => x.trim()).filter(Boolean)
-  if (!ids.length) throw new Error('large-photos: --only id,id')
-  const r = await largePhotos(ROOT, ids, { bytes, commons, size, put: media().putLarge, sleep: ms => new Promise(res => setTimeout(res, ms)) }, { limit: values.limit ? Number(values.limit) : undefined })
+  const ids = values.heads ? await headsUnderBar(ROOT) : (values.only ?? '').split(',').map(x => x.trim()).filter(Boolean)
+  if (!ids.length && !values.heads) throw new Error('large-photos: --only id,id, or --heads')
+  const r = await largePhotos(ROOT, ids, { bytes, commons, size, put: media().putLarge, sleep: ms => new Promise(res => setTimeout(res, ms)) }, { limit: values.limit ? Number(values.limit) : undefined, headsOnly: !!values.heads })
   console.log(`large-photos: ${r.added} added, ${r.smaller} with no larger size, ${r.skipped} from a source without one, ${r.failed.length} failed`)
   for (const f of r.failed.slice(0, 20)) console.log(`failed: ${f}`)
 } else if (cmd === 'fishbase-photos') {
