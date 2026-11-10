@@ -1,0 +1,37 @@
+name: Chat search index (after each deploy)
+# The chat's section search from the handbook that has just gone live (packages/engine/scripts/chat-search-index.ts): new
+# and changed sections written, removed ones deleted. Only the record of what was written is kept between runs. Should it
+# be lost, the next run embeds every section again (about 1.5 US cents) and carries on.
+on:
+  workflow_run:
+    workflows: ['Deploy aquatome.com'] # deploy.yml's name
+    types: [completed]
+  workflow_dispatch:
+concurrency:
+  group: chat-search
+  cancel-in-progress: false
+permissions:
+  contents: read
+jobs:
+  refresh:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Install Node, pnpm and the dependencies
+        uses: ./.github/actions/setup
+      # Saved only when the job passes: a run that fails is done again from the last good record.
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/.cache/aquatome/evals/search/written-*.json
+          key: chat-search-written-${{ github.run_id }}
+          restore-keys: chat-search-written-
+      - name: Bring the index up to date
+        env:
+          CF_AI_TOKEN: ${{ secrets.CF_AI_TOKEN }}
+          CF_ACCOUNT_ID: ${{ vars.CF_ACCOUNT_ID }}
+        run: |
+          printf '%s' "$CF_AI_TOKEN" > "$RUNNER_TEMP/cf-ai-token"
+          printf '%s' "$CF_ACCOUNT_ID" > "$RUNNER_TEMP/cf-account"
+          pnpm --filter @aq/engine exec tsx scripts/chat-search-index.ts --token "$RUNNER_TEMP/cf-ai-token" --account "$RUNNER_TEMP/cf-account"
