@@ -111,3 +111,15 @@ test('a Vietnamese page that doses 35% oxy già says it isn\'t the pharmacy\'s 3
   const text = (p: (typeof pages)[number]) => [...p.fields.map(f => f.html), ...p.lines.map(l => l.text)].join(' ').replace(/<[^>]+>/g, ' ')
   expect(pages.filter(p => strong.test(text(p)) && !told.test(text(p))).map(p => p.path)).toEqual([])
 }, 300_000)
+
+// The owner's report of 10 Nov: the Altum page said a hard, neutral tank is enough and that soft water is a must, under one
+// heading. Where the sources can't both be true, the page shows the one that speaks for that heading (Seriously Fish for
+// water, the owner's rule of 2026-11-06), whatever a later read of a source writes back into the page's file.
+test('a heading whose sources could not both be true speaks with one voice', async () => {
+  const root = fileURLToPath(new URL('../../../content', import.meta.url))
+  const voices = JSON.parse(readFileSync(join(root, 'one-voice.json'), 'utf8')) as Record<string, Record<string, string>>
+  expect(Object.keys(voices)).toContain('pterophyllum-altum')
+  const { species } = await loadAll({ root, lang: 'vi', publicBuild: true })
+  const heard = (id: string, key: string) => species.find(s => s.id === id)?.sections.filter(x => x.key === key).map(x => x.source)
+  for (const [id, keep] of Object.entries(voices)) for (const [key, source] of Object.entries(keep)) expect(heard(id, key), `${id} ${key}`).toEqual([source])
+}, 120_000)
