@@ -574,6 +574,213 @@ private let guidePage = Chat.PageRef(kind: "guide", title: "Nuôi cá neon", pat
   }
 }
 
+// MARK: Stopping a question, and past conversations
+
+/// A recorded JSON answer's body, as data, with its status.
+private func answer(_ name: String) throws -> (Data, Int) {
+  let o = try #require(JSONSerialization.jsonObject(with: recorded(name)) as? [String: Any])
+  return (try JSONSerialization.data(withJSONObject: try #require(o["body"])), try #require(o["status"] as? Int))
+}
+
+private func iso(_ s: String) -> Date { try! Date(s, strategy: Date.ISO8601FormatStyle()) }
+
+@Test func aStopNamesItsQuestionByItsKey() throws {
+  let key = UUID()
+  let r = Chat.cancel(key: key, site: site, token: "t", version: "1.0", ownCopy: nil)
+  #expect(r.httpMethod == "POST")
+  #expect(r.url?.path == "/api/chat/cancel")
+  #expect(r.value(forHTTPHeaderField: "Authorization") == "Bearer t")
+  #expect(r.value(forHTTPHeaderField: "User-Agent") == "AquaTome-iOS/1.0")
+  let sent = try #require(r.httpBody)
+  let body = try #require(JSONSerialization.jsonObject(with: sent) as? [String: Any])
+  #expect(body as? [String: String] == ["key": key.uuidString.lowercased()])
+}
+
+@Test func aStopsAnswerSaysWhichCameFirst() throws {
+  let (cancelled, ok) = try answer("chat-cancel-cancelled.json")
+  #expect(Chat.stopped(cancelled, status: ok) == .cancelled)
+  let (late, ok2) = try answer("chat-cancel-late.json")
+  #expect(Chat.stopped(late, status: ok2) == .tooLate)
+  // Anything else leaves the question going on.
+  #expect(Chat.stopped(Data(#"{"error":"session"}"#.utf8), status: 401) == nil)
+  #expect(Chat.stopped(Data(#"{"result":"later"}"#.utf8), status: 200) == nil)
+}
+
+@Test func aStoppedQuestionsOwnRequestAndStreamSaySo() async throws {
+  let (body, status) = try answer("chat-cancelled.json")
+  #expect(Chat.refusal(body, status: status) == .refused("cancelled", limit: nil))
+  let raw = try await ServerEvents.events(in: recorded("chat-stream-cancelled.sse"))
+  var reply = Chat.Reply()
+  raw.compactMap(Chat.event).forEach { reply.take($0) }
+  #expect(reply.error == "cancelled")
+  #expect(!reply.writing)
+}
+
+@Test func theListsRowsReadAsTheContractRecordsThem() throws {
+  let (body, status) = try answer("chat-conversations.json")
+  let list = try #require(Chat.history(body, status: status))
+  let contract = try #require(JSONSerialization.jsonObject(with: body) as? [String: Any])
+  #expect(list.rows.count == (contract["rows"] as? [Any])?.count)
+  #expect(list.next == contract["next"] as? String)
+  // A chain: oldest first, the last the one to carry on.
+  let chain = list.rows[0]
+  #expect(chain.conversations.count == 2)
+  #expect(chain.first.question == "Nuôi cá này thế nào?")
+  #expect(chain.first.from == .fishId)
+  #expect(chain.first.about?.name == "Cá neon xanh")
+  #expect(chain.last.question == "Bể 40 lít thả bao nhiêu neon?")
+  #expect(chain.last.open)
+  #expect(chain.last.continues == chain.first.id)
+  #expect(chain.asked == 5)
+  #expect(chain.first.started == iso("2026-11-05T13:02:11Z"))
+  #expect(chain.holds(chain.last.id))
+  #expect(!chain.holds(UUID()))
+}
+
+@Test func aRowTakesTheFirstTitleInItsChainOldestFirst() throws {
+  // The first conversation opened off topic and was carried on a day later: no title of its own, its successors have.
+  let body = Data("""
+  {"rows":[{"conversations":[
+    {"id":"11111111-1111-4111-8111-111111111111","question":"Hôm nay trời đẹp nhỉ?","started":"2026-11-01T08:00:00Z","last":"2026-11-01T08:00:00Z","n":1,"open":false},
+    {"id":"22222222-2222-4222-8222-222222222222","question":"Cá đĩa ăn gì?","title":"Thức ăn hằng ngày","started":"2026-11-02T09:00:00Z","last":"2026-11-02T09:00:00Z","n":1,"open":false,"continues":"11111111-1111-4111-8111-111111111111"},
+    {"id":"33333333-3333-4333-8333-333333333333","question":"Bao lâu thay nước?","title":"Lịch thay nước","started":"2026-11-03T09:00:00Z","last":"2026-11-03T09:00:00Z","n":1,"open":true,"continues":"22222222-2222-4222-8222-222222222222"}]},
+   {"conversations":[{"id":"44444444-4444-4444-8444-444444444444","question":"Neon sống bao lâu?","title":"","started":"2026-11-04T09:00:00Z","last":"2026-11-04T09:00:00Z","n":1,"open":true}]}]}
+  """.utf8)
+  let rows = try #require(Chat.history(body, status: 200)).rows
+  #expect(rows[0].first.title == nil)
+  #expect(rows[0].title == "Thức ăn hằng ngày")
+  // None, or an empty one: the row says its first question's words, as before.
+  #expect(rows[1].first.title == nil)
+  #expect(rows[1].title == nil)
+}
+
+@Test func carryingARowOnSendsWhatItsFirstQuestionSent() throws {
+  let (body, status) = try answer("chat-conversations.json")
+  let rows = try #require(Chat.history(body, status: status)).rows
+  // Fish ID: its guesses, not the page its picture came from.
+  let fish = try #require(rows.first { $0.first.from == .fishId })
+  #expect(fish.start.from == .fishId)
+  #expect(fish.start.about == nil)
+  #expect(fish.start.identified?.results.first?.scientificName == "Paracheirodon innesi")
+  // A species' page: its id.
+  let page = try #require(rows.first { $0.first.from == .species })
+  #expect(page.start.from == .species)
+  #expect(page.start.about == page.first.about?.id)
+  #expect(page.start.identified == nil)
+}
+
+@Test func aConversationReadBackKeepsItsTurnsAsTheyWereAnswered() throws {
+  let (body, status) = try answer("chat-conversation.json")
+  let past = try #require(Chat.past(body, status: status))
+  #expect(past.id == UUID(uuidString: "6f1c2a52-8d3e-4b7a-9c41-2e5d7f80b913"))
+  #expect(!past.turns.isEmpty)
+  let first = past.turns[0]
+  #expect(first.question == "Nuôi cá này thế nào?")
+  #expect(first.asked == iso("2026-11-05T13:02:11Z"))
+  #expect(first.turn.n == 1)
+  #expect(!first.turn.blocks.isEmpty)
+  // Kept as a stream's `done` brings it: the same turn read again.
+  guard case .done(let again)? = Chat.event(ServerEvent(name: "done", data: first.data)) else { Issue.record("not a done"); return }
+  #expect(again.text == first.turn.text)
+  #expect(again.blocks.count == first.turn.blocks.count)
+}
+
+@Test func aHideSaysEveryConversationItHid() throws {
+  let (body, status) = try answer("chat-hidden.json")
+  #expect(Chat.hidden(body, status: status)?.count == 2)
+  #expect(Chat.hidden(Data(#"{"error":"session"}"#.utf8), status: 401) == nil)
+}
+
+@Test func theListsRequestsAskAsTheContractSays() throws {
+  let id = try #require(UUID(uuidString: "6F1C2A52-8D3E-4B7A-9C41-2E5D7F80B913"))
+  let page = Chat.conversations(before: "abc", limit: 1, about: "betta-splendens", site: site, token: "t", version: "1.0", ownCopy: nil)
+  #expect(page.httpMethod == "GET")
+  #expect(page.url?.path == "/api/chat/conversations")
+  #expect(page.url?.query == "before=abc&limit=1&about=betta-splendens")
+  #expect(page.value(forHTTPHeaderField: "Authorization") == "Bearer t")
+  #expect(Chat.conversations(site: site, token: "t", version: "1.0", ownCopy: nil).url?.query == nil)
+  let read = Chat.conversation(id, site: site, token: "t", version: "1.0", ownCopy: nil)
+  #expect(read.url?.path == "/api/chat/conversations/6f1c2a52-8d3e-4b7a-9c41-2e5d7f80b913")
+  let hide = Chat.hide(id, site: site, token: "t", version: "1.0", ownCopy: nil)
+  #expect(hide.httpMethod == "POST")
+  #expect(hide.url?.path == "/api/chat/conversations/6f1c2a52-8d3e-4b7a-9c41-2e5d7f80b913/hide")
+}
+
+@Test func theFirstQuestionOfACarriedOnConversationNamesWhatItCarriesOn() throws {
+  let before = UUID()
+  func body(_ start: Chat.Start?, _ continues: UUID?) throws -> [String: Any] {
+    let r = Chat.ask("q", conversation: UUID(), lang: "vi", start: start, continues: continues, key: UUID(), site: site, token: "t", version: "1.0", ownCopy: nil)
+    let sent = try #require(r.httpBody)
+    return try #require(JSONSerialization.jsonObject(with: sent) as? [String: Any])
+  }
+  #expect(try body(Chat.Start(from: .species, about: "a"), before)["continues"] as? String == before.uuidString.lowercased())
+  // Only a first question says so.
+  #expect(try body(nil, before)["continues"] == nil)
+  #expect(try body(Chat.Start(from: .species, about: "a"), nil)["continues"] == nil)
+}
+
+@Test func aConversationCarriesOnTheOneItFollows() {
+  var c = Chat.Conversation(account: "a")
+  // Nothing answered in it: no row of its own, so what it carried on goes on.
+  let earlier = UUID()
+  #expect(Chat.Conversation(account: "a", continues: earlier).next(account: "a").continues == earlier)
+  #expect(c.next(account: "a").continues == nil)
+  c.asked(at: .now)
+  _ = c.answered(n: 1)
+  let next = c.next(account: "a")
+  #expect(next.continues == c.id)
+  #expect(next.id != c.id)
+  #expect(next.turns == 0)
+  // Another account's conversation carries nothing of it.
+  #expect(c.next(account: "b").continues == nil)
+}
+
+@Test func aReopenedConversationGoesOnOnlyWhileItIsOpen() {
+  let now = iso("2026-11-07T12:00:00Z")
+  func summary(open: Bool) -> Chat.Summary {
+    Chat.Summary(id: UUID(), question: "q", from: .species, about: nil, identified: nil, started: iso("2026-11-07T08:00:00Z"), last: iso("2026-11-07T09:00:00Z"),
+                 n: 3, open: open, continues: nil)
+  }
+  let open = Chat.Conversation(reopening: summary(open: true), account: "a")
+  #expect(!open.ended(account: "a", now: now))
+  #expect(open.turns == 3)
+  #expect(open.started == iso("2026-11-07T08:00:00Z"))
+  // Still its 24 hours by the clock: the server said it's closed (its questions used up).
+  #expect(Chat.Conversation(reopening: summary(open: false), account: "a").ended(account: "a", now: now))
+  // Past its 24 hours while reopened.
+  #expect(open.ended(account: "a", now: iso("2026-11-08T08:00:00Z")))
+  #expect(open.ended(account: "b", now: now))
+}
+
+@Test func rowsGoUnderTheirHeadingsByTheReadersDays() throws {
+  var calendar = Calendar(identifier: .gregorian)
+  calendar.timeZone = try #require(TimeZone(identifier: "Asia/Ho_Chi_Minh"))
+  let now = iso("2026-11-07T17:30:00Z") // 00:30 on the 8th there.
+  func period(_ s: String) -> Chat.Period { Chat.period(of: iso(s), now: now, calendar: calendar) }
+  #expect(period("2026-11-07T17:05:00Z") == .today) // 00:05 on the 8th.
+  #expect(period("2026-11-07T16:50:00Z") == .yesterday) // 23:50 on the 7th: under an hour ago, another day.
+  #expect(period("2026-11-06T17:00:00Z") == .yesterday)
+  #expect(period("2026-11-06T16:00:00Z") == .week)
+  #expect(period("2026-11-01T00:00:00Z") == .week) // 7 days back.
+  #expect(period("2026-10-31T16:00:00Z") == .earlier)
+  // A phone's clock behind the server's.
+  #expect(period("2026-11-08T03:00:00Z") == .today)
+}
+
+@Test func theListsHeadingsAreOnlyThoseWithRowsInOrder() throws {
+  var calendar = Calendar(identifier: .gregorian)
+  calendar.timeZone = .gmt
+  let now = iso("2026-11-07T12:00:00Z")
+  func row(_ last: String) throws -> Chat.Row {
+    try #require(Chat.Row([Chat.Summary(id: UUID(), question: last, from: .search, about: nil, identified: nil, started: iso(last), last: iso(last), n: 1, open: false, continues: nil)]))
+  }
+  let rows = try [row("2026-11-07T10:00:00Z"), row("2026-11-07T09:00:00Z"), row("2026-10-01T09:00:00Z")]
+  let sections = Chat.sections(rows, now: now, calendar: calendar)
+  #expect(sections.map(\.period) == [.today, .earlier])
+  #expect(sections[0].rows.count == 2)
+  #expect(Chat.Row([]) == nil)
+}
+
 @Test func aPhotoTheTurnShowedIsLeftOutOfASectionAtAnySize() throws {
   // As the recording has it: the card's at a width, the section's whole.
   let image = #"{"t":"figure","img":{"src":"https://media.aquatome.com/a/4286e57c.webp","w":640,"h":402},"caption":[]}"#

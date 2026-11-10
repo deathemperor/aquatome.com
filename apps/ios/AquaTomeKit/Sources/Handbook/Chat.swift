@@ -194,7 +194,7 @@ public enum Chat {
     case block(Block)
     /// The whole turn: it replaces what streamed.
     case done(Turn)
-    /// No answer: `failed` (counted), `unavailable` or `resting` (the reader's count given back).
+    /// No answer: `failed` (counted), `unavailable`, `resting` or `cancelled` (the reader's count given back).
     case error(String)
   }
 
@@ -225,8 +225,8 @@ public enum Chat {
 
   /// POST /api/chat as the account, asking for the stream: one question in `conversation`, `start` with its first only.
   /// `key` is the question's: the same again for a retry of it (back from the background mid-answer), which gets its
-  /// turn, counted once.
-  public static func ask(_ question: String, conversation: UUID, lang: String, start: Start?, key: UUID, site: URL, token: String,
+  /// turn, counted once. `continues`, with a first question only: the conversation it carries on.
+  public static func ask(_ question: String, conversation: UUID, lang: String, start: Start?, continues: UUID? = nil, key: UUID, site: URL, token: String,
                          version: String, ownCopy: String?) -> URLRequest {
     var r = status(site: site, version: version, ownCopy: ownCopy)
     r.httpMethod = "POST"
@@ -240,6 +240,7 @@ public enum Chat {
     var body: [String: Any] = ["conversation": conversation.uuidString.lowercased(), "question": question, "lang": lang]
     if let start {
       body["from"] = start.from.rawValue
+      if let continues { body["continues"] = continues.uuidString.lowercased() }
       if let about = start.about { body["about"] = about }
       if let i = start.identified {
         body["identified"] = ["verdict": i.verdict, "results": i.results.map { g -> [String: Any] in
@@ -285,9 +286,9 @@ public enum Chat {
     }
   }
 
-  private static func object(_ data: Data) -> [String: Any]? { (try? JSONSerialization.jsonObject(with: data)) as? [String: Any] }
+  static func object(_ data: Data) -> [String: Any]? { (try? JSONSerialization.jsonObject(with: data)) as? [String: Any] }
 
-  private static func turn(_ o: [String: Any]) -> Turn? {
+  static func turn(_ o: [String: Any]) -> Turn? {
     guard let c = (o["conversation"] as? String).flatMap(UUID.init(uuidString:)), let n = o["n"] as? Int, let text = o["text"] as? String,
           let covered = o["covered"] as? Bool else { return nil }
     return Turn(conversation: c, n: n, text: text, blocks: (o["blocks"] as? [Any] ?? []).compactMap { ($0 as? [String: Any]).flatMap(block) },
@@ -348,14 +349,18 @@ public enum Chat {
   }
 
   private static func card(_ o: [String: Any]) -> Card? {
-    guard let p = o["page"] as? [String: Any], let id = p["id"] as? String, let kind = p["kind"] as? String, let name = p["name"] as? String else { return nil }
-    let img = (p["img"] as? String).flatMap { $0.hasPrefix("https://") ? URL(string: $0) : nil }
+    guard let page = linked(o["page"]) else { return nil }
     func decoded<T: Decodable>(_ key: String) -> T? {
       // An object only: JSONSerialization raises (it can't throw) on a value that isn't one, as `null`.
       (o[key] as? [String: Any]).flatMap { try? JSONSerialization.data(withJSONObject: $0) }.flatMap { try? JSONDecoder().decode(T.self, from: $0) }
     }
-    return Card(page: Linked(id: id, kind: kind, name: name, sci: p["sci"] as? String, path: own(p["url"]), img: img),
-                facts: decoded("facts"), plant: decoded("plant"))
+    return Card(page: page, facts: decoded("facts"), plant: decoded("plant"))
+  }
+
+  static func linked(_ v: Any?) -> Linked? {
+    guard let p = v as? [String: Any], let id = p["id"] as? String, let kind = p["kind"] as? String, let name = p["name"] as? String else { return nil }
+    let img = (p["img"] as? String).flatMap { $0.hasPrefix("https://") ? URL(string: $0) : nil }
+    return Linked(id: id, kind: kind, name: name, sci: p["sci"] as? String, path: own(p["url"]), img: img)
   }
 
   private static func page(_ v: Any?) -> PageRef? {
@@ -382,14 +387,39 @@ public enum Chat {
     public private(set) var started: Date?
     /// The questions answered in it.
     public private(set) var turns = 0
+    /// The conversation this one carries on: sent with its first question.
+    public private(set) var continues: UUID?
+    /// The server said it takes no more questions: reopened from the list, past its 24 hours or its questions.
+    private var closed = false
     /// The question being asked, when it was: nil once answered.
     private var asking: Date?
 
-    public init(account: String, id: UUID = UUID()) { self.account = account; self.id = id }
+    public init(account: String, id: UUID = UUID(), continues: UUID? = nil) {
+      self.account = account
+      self.id = id
+      self.continues = continues
+    }
+
+    /// One reopened from the list, as `account` (whose list it is).
+    public init(reopening s: Summary, account: String) {
+      self.account = account
+      id = s.id
+      started = s.started
+      turns = s.n
+      continues = s.continues
+      closed = !s.open
+    }
 
     /// Whether a question asked now, as `account`, can't go in this conversation.
     public func ended(account: String, now: Date) -> Bool {
-      account != self.account || started.map { now.timeIntervalSince($0) >= Self.lasts } == true
+      closed || account != self.account || started.map { now.timeIntervalSince($0) >= Self.lasts } == true
+    }
+
+    /// The new conversation a question goes in once this one has ended: as the same account it carries this one on, or,
+    /// with nothing answered in this one (so no row of its own), what this one carried on. As another account, nothing.
+    public func next(account: String) -> Conversation {
+      guard account == self.account else { return Conversation(account: account) }
+      return Conversation(account: account, continues: turns > 0 ? id : continues)
     }
 
     /// A question asked. A retry of it (the same key) isn't another.

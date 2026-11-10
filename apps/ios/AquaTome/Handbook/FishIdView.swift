@@ -247,14 +247,18 @@ struct FishIdView: View {
   /// Cá betta imbellis"), the first's page and photo.
   static func chat(_ f: FishId.Identification) -> ChatRoute? {
     guard let identified = Chat.Identified(f), let first = f.results.first else { return nil }
-    let guesses = f.results.prefix(3).enumerated().map { i, g in
-      let s = sure(g.confidence)
-      return "\(i == 0 ? s : ChatNames.inSentence(s)) \(g.page?.name ?? name(g))"
-    }
     return ChatRoute(start: Chat.Start(from: .fishId, identified: identified),
                      subject: ChatSubject(plant: f.verdict == "plant", name: first.page?.name ?? name(first), sci: nil, img: nil,
-                                          guesses: guesses.joined(separator: ", "),
+                                          guesses: worded(f.results.prefix(3).map { ($0.page?.name ?? name($0), $0.confidence) }),
                                           second: f.results.dropFirst().first.map { $0.page?.name ?? name($0) }))
+  }
+
+  /// Guesses as fish ID words them.
+  static func worded(_ guesses: [(name: String, confidence: Double)]) -> String {
+    guesses.enumerated().map { i, g in
+      let s = sure(g.confidence)
+      return "\(i == 0 ? s : ChatNames.inSentence(s)) \(g.name)"
+    }.joined(separator: ", ")
   }
 
   private func text(_ line: FishId.Line) -> String {

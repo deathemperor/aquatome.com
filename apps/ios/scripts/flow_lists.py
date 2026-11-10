@@ -238,6 +238,7 @@ REACH = {
     # (job `kit` tests them too).
     KIT + 'Sources/Handbook/Chat.swift': ['ChatFlowTests'] + shots('chat'),
     KIT + 'Sources/Handbook/ChatReply.swift': ['ChatFlowTests'] + shots('chat'),
+    KIT + 'Sources/Handbook/ChatHistory.swift': ['ChatFlowTests'],
     KIT + 'Sources/Handbook/ServerEvents.swift': ['ChatFlowTests'],
     KIT + 'Sources/TankCheck/': ['TankCheckFlowTests', 'TankLifeFlowTests', 'TankMatesFlowTests'],
     # Also the fish filtered to a tank (ShelfFilter reads its size), and the tank volume tool (Volume, VolumeForm).
