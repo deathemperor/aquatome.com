@@ -346,14 +346,9 @@ private struct OwnerReportSheet: View {
   }
 
   private func say(_ e: Error) async -> String? {
-    switch e as? OwnerError {
-    case .refused("rate_limited", _)?: return "Đã gửi quá nhiều trong một giờ. Lời và ảnh vẫn còn đây, lát nữa thử lại nhé."
-    case .refused("too_large", _)?: return "Ảnh quá lớn. Chọn ảnh khác nhé."
-    case .signedOut?:
-      await owner.failed(e, overview: false)
-      return "Phiên đăng nhập đã hết nên chưa gửi được. Đăng nhập lại rồi gửi nhé."
-    default: return await owner.say(e, overview: false)
-    }
+    if e is CancellationError { return nil }
+    await owner.failed(e, overview: false)
+    return (e as? OwnerError)?.reportProblem ?? "Chưa gửi được. Lời và ảnh vẫn còn đây, thử lại nhé."
   }
 }
 
