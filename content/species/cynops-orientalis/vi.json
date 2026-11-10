@@ -1,0 +1,32 @@
+{
+  "slug": "sa-giong-bung-lua-trung-quoc",
+  "name": "Sa giông bụng lửa Trung Quốc",
+  "altNames": [
+    "Sa giông bụng đỏ Trung Quốc",
+    "Chinese Fire Belly Newt"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<ul><li>Nguồn gốc: miền đông Trung Quốc</li><li>Con cái dài tới 10 cm, con đực khoảng 8 cm</li></ul>",
+    "distribution:glaser": "<p>Miền đông Trung Quốc.</p>",
+    "habitat:glaser": "<p>Ngoài tự nhiên ở miền đông Trung Quốc, sa giông bụng lửa Trung Quốc sống trong những vùng nước nhỏ, nước đứng hoặc chảy chậm, cây cỏ mọc dày.</p>",
+    "maintenance:glaser": "<p>Có thể nuôi chúng chủ yếu dưới nước, nhưng có thêm một phần cạn nhỏ với chỗ trốn và chỗ leo thì chúng thích hơn. Loài này không chịu được nhiệt độ trên 25 °C kéo dài. Nuôi trong nhà thì không cần sưởi.</p>",
+    "diet:glaser": "<p>Loài này thích đồ tươi sống như giun, côn trùng nước và ấu trùng của chúng.</p>",
+    "behaviour:glaser": "<p>Nuôi chung với cá nhỏ thì phải cẩn thận, vì sa giông khoái ăn cá nhỏ.</p>",
+    "dimorphism:glaser": "<p>Con cái dài được tới 10 cm, còn con đực nhỏ hơn một chút, khoảng 8 cm.</p>",
+    "reproduction:glaser": "<p>Muốn cho đẻ thì nên giữ chúng ở nhiệt độ thấp hơn trong vài tuần. Sa giông đẻ trứng lên lá cây thủy sinh. Giai đoạn ấu trùng khá ngắn, chỉ 3–4 tuần, dài hay ngắn tùy nhiệt độ.</p>"
+  },
+  "quality": {
+    "score": 0.85,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.85
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "elsewhere"
+    ],
+    "at": "2026-11-11"
+  }
+}

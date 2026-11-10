@@ -1,0 +1,26 @@
+{
+  "slug": "sa-giong-bung-lua",
+  "name": "Sa giông bụng lửa",
+  "altNames": [
+    "Fire bellied newt"
+  ],
+  "sections": {
+    "distribution:glaser": "<p>Theo nhà cung cấp, lô sa giông này được bắt ở tỉnh Hồ Bắc, Trung Quốc.</p>",
+    "maintenance:glaser": "<p>Sa giông bụng lửa chi Cynops rất hợp nuôi trong bể. Chúng thường dễ quen với việc sống dưới nước quanh năm.</p>",
+    "diet:glaser": "<p>Nuôi dưới nước thì cho ăn dễ hơn nhiều. Trên cạn, sa giông rất hay trốn và chỉ ăn đồ tươi sống, còn ở dưới nước chúng ăn cả thức ăn đông lạnh.</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.8
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-11"
+  }
+}

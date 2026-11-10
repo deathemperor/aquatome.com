@@ -1,8 +1,13 @@
 {
   "id": "schistura-balteata",
   "temperament": "semi-aggressive",
-  "finNipper": false,
+  "finNipper": true,
   "schoolMin": null,
-  "speciesUpdatedAt": "2026-11-04",
-  "generatedAt": "2026-11-06T06:32:26.747Z"
+  "speciesUpdatedAt": "2026-11-09",
+  "rules": {
+    "temperament": "b745c1cd5bd4",
+    "finNipper": "63a8978926d9",
+    "schoolMin": "bf8e33607d74"
+  },
+  "generatedAt": "2026-11-10T16:46:35.391Z"
 }

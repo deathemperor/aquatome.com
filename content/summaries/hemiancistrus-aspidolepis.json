@@ -1,8 +1,13 @@
 {
   "id": "hemiancistrus-aspidolepis",
-  "summary": "Cá lau kiếng aspidolepis (Hemiancistrus aspidolepis) dài tới 24 cm. Ngoài tự nhiên, nó sống ở nước chảy mạnh, khoảng 25 °C, pH 7,4, trong các sông phía Caribe của Panama. Hồ sơ chưa có thông tin về bể nuôi, thức ăn hay sinh sản, nên chưa đủ cơ sở để nói loài này hợp với ai. Đó cũng là điểm khó nhất với người mới.",
-  "mistakes": [],
+  "summary": "Hồ sơ cá lau kiếng aspidolepis (Hemiancistrus aspidolepis) có rất ít thông tin nuôi. Cá dài tới 24 cm, ngoài tự nhiên sống ở sông Chagres và sông Gatun, Panama, nơi nước chảy mạnh, pH 7,4. Điểm khó nhất là thiếu dữ liệu: hồ sơ không nói gì về thức ăn, độ cứng, bể tối thiểu hay chuyện sinh sản, nên chưa hợp với người cần hướng dẫn chăm sóc chi tiết.",
+  "mistakes": [
+    "Đừng mặc định nuôi loài này trong nước đứng; ngoài tự nhiên cá sống ở nước chảy mạnh nên hãy tạo dòng chảy trong bể."
+  ],
   "speciesUpdatedAt": "2026-11-08",
-  "generatedAt": "2026-11-08T19:59:17.274Z",
-  "review": "pending"
+  "generatedAt": "2026-11-10T16:57:40.691Z",
+  "review": "pending",
+  "problems": [
+    "The mistake \"Đừng mặc định nuôi loài này trong nước đứng ... hãy tạo dòng chảy trong bể\" gives tank-flow advice the page never gives. The page only says the species lives in fast-flowing water in the wild and has no care or tank guidance, so the fix is invented."
+  ]
 }

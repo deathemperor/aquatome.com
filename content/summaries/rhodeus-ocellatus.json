@@ -1,11 +1,14 @@
 {
   "id": "rhodeus-ocellatus",
-  "summary": "Cá bitterling Rhodeus ocellatus hợp với người thích loài đẻ trứng vào trai nước ngọt còn sống, và nuôi được trong ao vườn hoặc bể trong nhà. Nhiệt độ 10–26 °C, không cần sưởi, ăn tạp, thức ăn dạng mảnh là đủ. Điểm khó nhất là phải giữ chúng không thoát ra tự nhiên nếu nuôi ao vườn.",
+  "summary": "Cá bitterling Rhodeus ocellatus hợp với người thích loài lạ: nuôi được trong bể nhà hoặc ao vườn, không cần sưởi, ăn tạp và quen với thức ăn dạng mảnh. Hồ sơ không có số liệu về bể tối thiểu, pH, độ cứng hay nhiệt độ chuẩn, nên đừng tự suy ra các số này. Điểm khó nhất là chúng đẻ trứng vào trai nước ngọt còn sống, nên cần tính đến chuyện này trước khi nuôi.",
   "mistakes": [
-    "Nuôi ao vườn mà không chặn kỹ thì cá có thể thoát ra ngoài tự nhiên, nên cần bảo đảm chúng không ra được.",
-    "Lắp sưởi cho bể là thừa, loài này không cần sưởi và sống tốt ở nhiệt độ nước đến 26 °C."
+    "Nuôi ở ao vườn mà không chắn kỹ thì cá có thể thoát ra ngoài tự nhiên; nên làm ao kín để cá không ra được.",
+    "Mua sưởi cho bể là không cần thiết với loài này; bỏ sưởi và đừng để nước ấm lên."
   ],
   "speciesUpdatedAt": "2026-10-29",
-  "generatedAt": "2026-10-31T16:35:43.616Z",
-  "review": "pending"
+  "generatedAt": "2026-11-10T17:02:59.607Z",
+  "review": "pending",
+  "problems": [
+    "The second mistake's fix says \"đừng để nước ấm lên\" (don't let the water warm up). The page only says the fish do very well at water temperatures up to 26°C and need no heater. It gives no advice to stop the water warming, so this is invented advice."
+  ]
 }

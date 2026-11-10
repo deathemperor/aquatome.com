@@ -3,19 +3,27 @@
   "name": "Cá chổi hoàng gia lùn",
   "altNames": [
     "Cá da trơn cành cây lùn",
-    "Dwarf Royal Twig Catfish"
+    "Dwarf Royal Twig Catfish",
+    "Dwarf Royal Farlowella"
   ],
   "sections": {
     "quickFacts:planetcatfish": "<ul><li>Tên khoa học: Sturisomatichthys leightoni (Regan, 1912)</li><li>Họ: Loricariidae</li><li>Tên thường gọi: Dwarf Royal Twig Catfish, Leightons Störwels (ở Đức)</li><li>Tên đồng nghĩa: Oxyloricaria leightoni</li><li>Kích thước: 180 mm, đo theo chiều dài chuẩn (SL)</li><li>Nhiệt độ: 20–24°C</li><li>Sinh sản: chưa có ghi nhận</li></ul>",
     "distribution:planetcatfish": "<p>Loài này sống ở Nam Mỹ, trong lưu vực thượng nguồn sông Magdalena và sông Cauca, thuộc hệ các sông đổ ra biển Caribe của Colombia. Mẫu chuẩn được thu ở Honda, Colombia, ở độ cao khoảng 90–120 m.</p>",
     "reproduction:planetcatfish": "<p>Sinh sản: chưa có ghi nhận. Trên trang hiện có 2 báo cáo sinh sản.</p>",
-    "references:planetcatfish": "<p>Proceedings of the Zoological Society of London 1912 (pt 3) (art. 36), pp 669, Pl. 77 (fig. 2).</p>"
+    "references:planetcatfish": "<p>Proceedings of the Zoological Society of London 1912 (pt 3) (art. 36), pp 669, Pl. 77 (fig. 2).</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: thượng lưu sông Magdalena và sông Cauca, Colombia. Nơi thu mẫu chuẩn là Honda, Colombia, ở độ cao 90–120 m.</p>",
+    "maintenance:scotcat": "<p>Đây là loài hiền và thích bể rộng. Nó ưa nước mát hơn bình thường, khoảng 20–24°C, cần nước sạch, mềm và hơi chua.</p>",
+    "diet:scotcat": "<p>Cho ăn rau bina, đậu Hà Lan, viên tảo, thức ăn viên và thức ăn dạng mảnh đã chìm xuống đáy.</p>",
+    "dimorphism:scotcat": "<p>Cá đực mọc chùm gai odontode (gai nhỏ trên da) rõ ở hai bên đầu. Tia đầu tiên của vây lưng và các tia trên, dưới của vây đuôi ở con đực cũng dài ra.</p>",
+    "notes:scotcat": "<p>Hai bên đầu của loài này có ánh vàng. Nó là một trong những loài nhỏ nhất trong giống. Theo nghiên cứu của Covain và cộng sự năm 2016, giống Sturisoma chỉ gồm các loài ở phía đông dãy Andes (cis-Andean), còn giống Sturisomatichthys gồm các loài ở phía tây dãy Andes (trans-Andean).</p><p>Nguồn gốc tên gọi: tên loài leightoni đặt theo tên Bryan Leighton (1868–1919), một quân nhân người Anh. Ông là người đã \"tặng\" mẫu holotype cho Bảo tàng Anh (Lịch sử Tự nhiên).</p><p>Danh sách Đỏ IUCN: loài này phân bố khá rộng. Hiện chưa có số liệu về số lượng cá thể, xu hướng tăng giảm hay những mối đe dọa với nó, nhưng có vẻ nó khá phổ biến. IUCN xếp loài này vào mức Ít quan tâm.</p>",
+    "references:scotcat": "<p>Baensch, H.A. and R. Riehl 1991 Aquarien atlas. Bd. 3. Melle: Mergus, Verlag für Natur- und Heimtierkunde, Germany. 1104 p.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Turley, Paul E; Keeping and Breeding Sturisomatichthys leightoni, the Dwarf Royal Farlowella.</p><p>Superina, M., Sanchez-Duarte, P., Mesa-Salazar, L., Lasso, C. &amp; Usma, S. 2016. Sturisomatichthys leightoni. The IUCN Red List of Threatened Species 2016.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
   },
   "quality": {
     "score": 0.85,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.85
+      "planetcatfish": 0.85,
+      "scotcat": 0.95
     }
   }
 }

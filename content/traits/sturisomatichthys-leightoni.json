@@ -1,8 +1,13 @@
 {
   "id": "sturisomatichthys-leightoni",
-  "temperament": null,
+  "temperament": "peaceful",
   "finNipper": false,
   "schoolMin": null,
-  "speciesUpdatedAt": "2026-10-30",
-  "generatedAt": "2026-10-31T00:48:02.521Z"
+  "speciesUpdatedAt": "2026-11-10",
+  "rules": {
+    "temperament": "b745c1cd5bd4",
+    "finNipper": "63a8978926d9",
+    "schoolMin": "bf8e33607d74"
+  },
+  "generatedAt": "2026-11-10T16:50:15.203Z"
 }

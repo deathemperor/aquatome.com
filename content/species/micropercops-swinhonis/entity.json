@@ -1,0 +1,128 @@
+{
+  "id": "micropercops-swinhonis",
+  "scientificName": "Micropercops swinhonis",
+  "order": "Perciformes",
+  "family": "Odontobutidae",
+  "genus": "Micropercops",
+  "group": "gobies",
+  "places": [
+    "asia",
+    "china",
+    "korea",
+    "japan"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 18,
+          "max": 22
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 8
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/micropercops_swinhonis_en/",
+      "html": "<p>One of the most beautiful new fish species of 2003 is this goby, which is rather widely spread in China, Korea and Japan. It can reach a maximum size of approx. 8 cm. They are peaceful fish.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/micropercops_swinhonis_en/",
+      "html": "<p>As no regular imports of this beautiful species are made from the spreading area, the currently available fish are German bred.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/micropercops_swinhonis_en/",
+      "html": "<p>They must not be kept too warm, in keeping with their subtropical origin. 18–22°C are ideal.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/micropercops_swinhonis_en/",
+      "html": "<p>They eat every frozen and live food of adequate size; after habituation many specimens also accept dry food.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/63c7d110b9efca9d.webp",
+      "width": 960,
+      "height": 1314,
+      "licence": "CC BY 4.0",
+      "author": "Elena Bauer, Alexander F. Cerwenka, Ulrich K. Schliewen and Bettina Reichenbacher",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Odontobutid_otoliths.jpg",
+      "caption": "A–H, otoliths from the Chapelcorner Fish Beds, photos and interpretative drawings of right (A–B) and left (C–H) otoliths (sagittae) in medial view. A–F, †Paralates chapelcornerensis, NHMUK: A–B, PV P ",
+      "thumb": "https://media.aquatome.com/commons/63c7d110b9efca9d-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/a8ab0291b57aedda.webp",
+      "width": 960,
+      "height": 365,
+      "licence": "CC BY 4.0",
+      "author": "Tian et al. (2023)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_(10.3897-BDJ.11.e97884)_Figure_2.jpg",
+      "caption": "Figure 2 Specimen photos of some fish species collected from the Irtysh River Basin (Chinese section) and the Ulungur River Basin. a Abramis brama (Linnaeus, 1758); b Sander lucioperca (Linnaeus, 1758",
+      "thumb": "https://media.aquatome.com/commons/a8ab0291b57aedda-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "ioLp6ssxWo8",
+      "title": "20190408 좀구굴치 'Micropercops swinhonis'",
+      "durationSec": 61,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "R2r3OUfM_EQ",
+      "title": "👻🐟, Spring of the Ghostface Fish-Micropercops swinhonis",
+      "durationSec": 2761,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "AdnK9PnhIdU",
+      "title": "Hypeleotris Swinhonis",
+      "durationSec": 99,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "WsNkf72MaXQ",
+      "title": "ヨコシマドンコ",
+      "durationSec": 18,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "suoi",
+      "keywords": [
+        "quạt làm mát bể cá",
+        "máy làm lạnh nước bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn đông lạnh cho cá",
+        "trùng huyết đông lạnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc bể cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-10"
+}

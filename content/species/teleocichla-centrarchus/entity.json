@@ -8,22 +8,14 @@
   "places": [
     "south-america",
     "brazil",
-    "rio-xingu"
+    "rio-xingu",
+    "xingu"
   ],
   "dataCard": {
-    "tempC": [
-      {
-        "source": "glaser",
-        "value": {
-          "min": 28,
-          "max": 30
-        }
-      }
-    ],
     "sizeCm": [
       {
         "source": "glaser",
-        "value": 12
+        "value": 10
       }
     ]
   },
@@ -31,36 +23,67 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/teleocichla_centrarchus_en/",
-      "html": "<p>Teleocichla are small cichlids from Brazil. They love comparatively strong current. The genus is a close relative of the pike cichlids (Crenicichla). The genus Teleocichla was discovered only late, in 1988; currently 18 different species are known, 10 of them are still undescribed scientifically. The genus type is T. centrarchus.</p><p>Teleocichla centrarchus is one of the largest members of the genus. It attains a maximum length of about 12 cm (males) and 8 cm (females) respectively.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/teleocichla_centrarchus_en-2/",
+      "html": "<p>Teleocichla centrarchus from the Rio Xingu is probably the most imported Teleocichla. In addition, it is the type species of this genus. As the males reach a maximum length of approx. 10 cm, they can certainly still be called dwarf cichlids. Care and even breeding of T. centrarchus is not too difficult, as long as you pay attention to correct nutrition.</p>"
     },
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/teleocichla_centrarchus_en/",
-      "html": "<p>T. centrarchus originates from the Rio Xingu. There are 6 additional species of Teleocichla known from the Xingu.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/teleocichla_centrarchus_en-2/",
+      "html": "<p>Brazil, Rio Xingu.</p>"
     },
     {
-      "key": "waterConditions",
+      "key": "diet",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/teleocichla_centrarchus_en/",
-      "html": "<p>Because it originates from the Rio Xingu, it should be kept comparatively warm (28-30°C).</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/teleocichla_centrarchus_en-2/",
+      "html": "<p>They greedily eat large chunks like Krill, Mysis or red bloodworms, but they stuff so much into themselves that they will die from it sooner or later. It is better to feed them small live or frozen food like Artemia (frozen or newly hatched), Daphnia, Cyclops or lobster eggs.</p>"
     },
     {
       "key": "behaviour",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/teleocichla_centrarchus_en/",
-      "html": "<p>Like in all Teleocichla the air bladder is reduced, so the fish hardly ever swim in the water column. Very small tankmates will be eaten, but in general this species can be considered a peaceful one.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/teleocichla_centrarchus_en-2/",
+      "html": "<p>Since they are peaceful towards other species and do not destroy plants either, they can thoroughly be kept in a community tank, provided that the right nutrition can be guaranteed.</p>"
     },
     {
-      "key": "notes",
+      "key": "dimorphism",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/teleocichla_centrarchus_en/",
-      "html": "<p>All species of Teleocichla look very similar when frightened, so it can never be excluded that specimens of other Teleocichla are among the T. centrarchus offered.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/teleocichla_centrarchus_en-2/",
+      "html": "<p>The females, mostly only 8 cm maximum, are a little smaller than the males and soon show a pink belly, by which they signal their readiness to spawn to the male.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/teleocichla_centrarchus_en-2/",
+      "html": "<p>Breeding is not difficult, as long as you offer these fish a flat and tight cave to deposit their eggs and keep them in soft or medium-hard water.</p>"
     }
   ],
   "photos": [],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "oVAWa4tKxo0",
+      "title": "Teleocichla centrarchus (dvärgciklid) - Nols Akvariehobby",
+      "durationSec": 92,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "4HElmBRLeao",
+      "title": "Teleocichla centrarchus feeding",
+      "durationSec": 41,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "1ZZ3bFzRUm4",
+      "title": "Teleocichla centrarchus fry",
+      "durationSec": 14,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "UfQiaBTXnl4",
+      "title": "Teleocichla centrarchus guarding fry",
+      "durationSec": 35,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "suoi",
@@ -83,5 +106,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-10"
 }

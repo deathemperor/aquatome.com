@@ -8,7 +8,9 @@
   "places": [
     "asia",
     "malaysia",
-    "sarawak"
+    "sarawak",
+    "indonesia",
+    "borneo"
   ],
   "range": {
     "native": {
@@ -99,6 +101,10 @@
       {
         "source": "seriouslyfish",
         "value": 4.5
+      },
+      {
+        "source": "glaser",
+        "value": 6
       }
     ],
     "tankCm": [
@@ -122,6 +128,12 @@
       "html": "<p>Carinotetraodon borneensis is a small red-eyed puffer known only from southern Sarawak, Malaysia (Borneo), in the Sarawak, Sadong and Rajang rivers. Uncommon in the hobby, it is sometimes mixed among shipments of C. salivator, which has distinct dark bars on the head and body in both sexes. Males in particular tend to be territorial, but a group can be kept where there is enough cover and space.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/carinotetraodon_borneensis_en/",
+      "html": "<p>This pufferfish lives exclusively in pure freshwater on Borneo and is only very rarely imported. The maximum length is about 6 cm (males) and 4 cm (females).</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/carinotetraodon-borneensis",
@@ -132,6 +144,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/carinotetraodon-borneensis",
       "html": "<p>Likely to inhabit sluggish marginal zones with submerged terrestrial or aquatic vegetation.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/carinotetraodon_borneensis_en/",
+      "html": "<p>In the wild this fish lives in soft and acidic water.</p>"
     },
     {
       "key": "aquariumSize",
@@ -245,5 +263,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-10"
 }

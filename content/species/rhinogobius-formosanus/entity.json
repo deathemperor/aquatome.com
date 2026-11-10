@@ -41,6 +41,10 @@
       {
         "source": "seriouslyfish",
         "value": 10
+      },
+      {
+        "source": "glaser",
+        "value": 8
       }
     ],
     "tankCm": [
@@ -62,6 +66,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-formosanus",
       "html": "<p>Rhinogobius formosanus is a goby endemic to river systems of northern and northeastern Taiwan. Previously considered a subspecies of R. nagoyae, it has generally been accepted as distinct since 2008. Irregular, worm-like, reddish-brown lines on the cheek and opercle separate it from other Taiwanese Rhinogobius. Like many fishes from running water it needs spotless water and does best in a tank set up to simulate a flowing stream.</p><ul><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li></ul>"
+    },
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/rhinogobius_formosanus_en/",
+      "html": "<p>A pretty brook goby imported from Taiwan. The specific name refers to the old name of the island, as Taiwan was formerly known as Formosa. The fish can attain a maximum length of about 8 cm.</p>"
     },
     {
       "key": "distribution",
@@ -100,6 +110,12 @@
       "html": "<p>This is a robust species and can be aggressive at times but it can be kept in a community provided tankmates are chosen with care.</p><p>Peaceful, pelagic species which inhabit similar environments in nature such as Tanichthys or Danio species are perhaps the best choices for the upper levels, but we've also seen Rhinogobius spp. being maintained alongside barbs, small characins, poeciliid livebearers, etc.</p><p>Less suitable are freshwater shrimp from genera such as Caridina and Neocaridina as these are likely to be predated upon.</p><p>Balitorid and nemacheilid loaches may prove suitable in larger tanks but in smaller set-ups R. formosanus should ideally be the only benthic species included.</p><p>It should not be mixed with congeners, especially closely-related ones, since it's not yet clear if they're capable of hybridisation.</p><p>Larger fishes are best omitted although in very large set-ups it may be possible to add a few non-predatory, surface-dwelling ones, while the majority of cichlids and other territorial fishes inhabiting the lower reaches should be avoided entirely.</p><p>While males are territorial with one another to an extent serious damage is unlikely provided the tank contains sufficient cover, and in fact they appear to actively require the presence of conspecifics.</p><p>Aim to purchase at least two males and as many or more females or the fish may become listless and inactive.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/rhinogobius_formosanus_en/",
+      "html": "<p>One should not keep them along with too small other fish, for the gobies may take them happily for food.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/rhinogobius-formosanus",
@@ -136,7 +152,32 @@
       "caption": "Cá bống suối Đài Loan trong bể cá có đá cuội"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "9fz6WQLVUkw",
+      "title": "台灣吻鰕虎(Rhinogobius formosanus)",
+      "durationSec": 234,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "J6W1NtBtqTU",
+      "title": "Rhinogobius formosanus digging nest",
+      "durationSec": 119,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "dAJyCB0ke4Y",
+      "title": "Beautiful face-Rhinogobius formosanus 美麗的臉譜-台灣吻蝦虎 #shorts #台灣野外紀錄 #淡水魚 #freshwater #underwater #goby",
+      "durationSec": 14,
+      "lang": "zh"
+    },
+    {
+      "youtubeId": "ft_crF1W7hk",
+      "title": "The habitat of 𝑹𝒉𝒊𝒏𝒐𝒈𝒐𝒃𝒊𝒖𝒔 𝒇𝒐𝒓𝒎𝒐𝒔𝒂𝒏𝒖𝒔臺灣吻鰕虎#shorts #biotope #goby #台灣野外紀錄 #終於下雨啦",
+      "durationSec": 7,
+      "lang": "zh"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -169,5 +210,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-10"
 }

@@ -123,6 +123,13 @@
           "min": 22,
           "max": 28
         }
+      },
+      {
+        "source": "glaser",
+        "value": {
+          "min": 18,
+          "max": 28
+        }
       }
     ],
     "sizeCm": [
@@ -141,6 +148,10 @@
       {
         "source": "seriouslyfish",
         "value": 4
+      },
+      {
+        "source": "glaser",
+        "value": 1
       }
     ]
   },
@@ -152,10 +163,22 @@
       "html": "<p>The schooling bumblebee goby, Brachygobius aggregatus, is a small goby described from the Philippines and recorded from the lower Mekong in Vietnam. The name appears on ornamental trade lists quite often but seems to be routinely misapplied to other species, particularly B. doriae-type fishes. It is very similar to B. kabiliensis, and both are best considered nominal taxa for now since several species might be involved. Small live foods are probably essential.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/brachygobius_aggregatus_one_of_the_smallest_fishes_of_the_world_en/",
+      "html": "<p>Brachygobius aggregatus is one of the smallest fish species in the world. Males reach about 10 mm in the wild, females about 15 mm. It is a freshwater goby and very easy to keep.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-aggregatus",
       "html": "<p>Described from 'Dumaguete, Oriental Negros, Philippines', and Rainboth (1996) recorded it from the lower Mekong, Vietnam.</p><p>Additional records are minimal and its name may also have been applied to other species meaning the true extent of its range is unclear.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/brachygobius_aggregatus_one_of_the_smallest_fishes_of_the_world_en/",
+      "html": "<p>The specimens imported come from Vietnam (Mekong). The species was described from the Philippines; a scientific investigation is going on as to whether the Mekong species is really identical with B. aggregatus.</p>"
     },
     {
       "key": "aquariumSize",
@@ -170,10 +193,22 @@
       "html": "<p>Temperature: 22–28°C (72–82°F)</p><p>pH: not recorded</p><p>Hardness: not recorded</p>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/brachygobius_aggregatus_one_of_the_smallest_fishes_of_the_world_en/",
+      "html": "<p>Absolutely undemanding regarding water chemistry. Medium hard water and a pH around 7 may be ideal. The water temperature may be between 18 and 28°C.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-aggregatus",
       "html": "<p>As with congeners small live foods such as Artemia, Daphnia, etc., are probably essential although some specimens will learn to accept frozen alternatives. Dried products are normally ignored.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/brachygobius_aggregatus_one_of_the_smallest_fishes_of_the_world_en/",
+      "html": "<p>Fish of this size are best fed with live brine shrimp nauplii (Artemia). They also feed happily on any other type of live and frozen food, but live food is often difficult to obtain and frozen food difficult to dose. The easily bred brine shrimp nauplii are therefore the best choice, and it is no problem to feed Brachygobius aggregatus exclusively with this food.</p>"
     },
     {
       "key": "behaviour",
@@ -188,6 +223,12 @@
       "html": "<p>Though this species appears on ornamental trade lists quite often the name appears to be routinely misapplied to other species, particularly B. doriae-type fishes, and we've been unable to obtain any positively-identified photographs so far.</p><p>It can be diagnosed as follows: &lt;30 lateral scales; two black body bands reaching ventral midline posterior to anal-fin; band above anal-fin also reaching ventral midline; no black band on head, though the first band may touch the posterior margin of the eye; 6 branched anal-fin rays; predorsal scales absent.</p><p>67 specimens of the congener B. kabiliensis were listed as paratypes in the original description of B. aggregatus. These two are very similar-looking but can be told apart from one another by the fact that the black body bar above the anal-fin extends to the ventral midline in B. aggregatus, but in B. kabiliensis terminates around midbody. B. kabiliensis also possesses predorsal scales while B. aggregatus does not.</p><p>Both are best considered as nominal taxa for the time being since several species might be involved. Therefore, although we've assigned images to profiles based on how well they match the key of Inger (1958) their identification can only be thought of as tentative pending publication of a forthcoming review.</p><p>Brachygobius currently contains 9 described species, and although all are referred to collectively as 'bumblebee' gobies only B. doriae and B. sabanus are commonly-available in the ornamental trade.</p><p>The grouping is often included in the subfamily Gobionellinae alongside genera such as Chlamydogobius, Mugilogobius, Pseudogobiopsis, Rhinogobius, Schismatogobius, and Stigmatogobius.</p><p>It's considered most closely-related to the genus Pandaka with the two sharing numerous characters but differing in the morphology of the head lateral line system and number of epurals present.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/brachygobius_aggregatus_one_of_the_smallest_fishes_of_the_world_en/",
+      "html": "<p>Lexicon: Brachygobius: from ancient Greek, means \"short Gobius\"; Gobius is another genus of goby. aggregatus: Latin, means \"aggregate\", because the fish were found to be schooling.</p><p>Suggested common name: Mekong dwarf bumblebee goby, because a scientific investigation is going on as to whether the Mekong species is really identical with B. aggregatus, which was described from the Philippines.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/brachygobius-aggregatus",
@@ -195,7 +236,14 @@
     }
   ],
   "photos": [],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "xmbsyPdC-v4",
+      "title": "Abendessen im Gemeinschaftsbecken",
+      "durationSec": 163,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -225,5 +273,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-10"
 }

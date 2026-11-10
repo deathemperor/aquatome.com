@@ -5660,6 +5660,13 @@
     "genus": "Chaetoceros",
     "matchType": "FUZZY"
   },
+  "Chaetostoma dorsale": {
+    "canonicalName": "Chaetostoma dorsale",
+    "order": "Siluriformes",
+    "family": "Loricariidae",
+    "genus": "Chaetostoma",
+    "matchType": "EXACT"
+  },
   "Chaetostoma fischeri": {
     "canonicalName": "Chaetostoma fischeri",
     "order": "Siluriformes",
@@ -8160,6 +8167,13 @@
     "genus": "Crenicichla",
     "matchType": "EXACT"
   },
+  "Crenicichla zebrina": {
+    "canonicalName": "Crenicichla zebrina",
+    "order": "Perciformes",
+    "family": "Cichlidae",
+    "genus": "Crenicichla",
+    "matchType": "EXACT"
+  },
   "Crenuchus spilurus": {
     "canonicalName": "Crenuchus spilurus",
     "order": "Characiformes",
@@ -9569,6 +9583,7 @@
     "genus": "Distichodus",
     "matchType": "EXACT"
   },
+  "Diverse aquatic": null,
   "Dolichancistrus cobrensis": {
     "canonicalName": "Dolichancistrus cobrensis",
     "order": "Siluriformes",
@@ -12128,6 +12143,13 @@
     "genus": "Hemichromis",
     "matchType": "EXACT"
   },
+  "Hemidoras boulengeri": {
+    "canonicalName": "Opsodoras boulengeri",
+    "order": "Siluriformes",
+    "family": "Doradidae",
+    "genus": "Opsodoras",
+    "matchType": "EXACT"
+  },
   "Hemidoras stenopeltis": {
     "canonicalName": "Hemidoras stenopeltis",
     "order": "Siluriformes",
@@ -13193,6 +13215,13 @@
     "genus": "Hyphessobrycon",
     "matchType": "EXACT"
   },
+  "Hyphessobrycon dorsalis": {
+    "canonicalName": "Hyphessobrycon dorsalis",
+    "order": "Characiformes",
+    "family": "Characidae",
+    "genus": "Hyphessobrycon",
+    "matchType": "EXACT"
+  },
   "Hyphessobrycon ecuadoriensis": {
     "canonicalName": "Hyphessobrycon ecuadoriensis",
     "order": "Characiformes",
@@ -13578,6 +13607,13 @@
   },
   "Hypostomus auroguttatus": {
     "canonicalName": "Hypostomus auroguttatus",
+    "order": "Siluriformes",
+    "family": "Loricariidae",
+    "genus": "Hypostomus",
+    "matchType": "EXACT"
+  },
+  "Hypostomus boulengeri": {
+    "canonicalName": "Hypostomus boulengeri",
     "order": "Siluriformes",
     "family": "Loricariidae",
     "genus": "Hypostomus",
@@ -15626,6 +15662,13 @@
     "order": "Anura",
     "family": "Ranidae",
     "genus": "Lithobates",
+    "matchType": "EXACT"
+  },
+  "Lithodoras dorsalis": {
+    "canonicalName": "Lithodoras dorsalis",
+    "order": "Siluriformes",
+    "family": "Doradidae",
+    "genus": "Lithodoras",
     "matchType": "EXACT"
   },
   "Lobocheilos melanotaenia": {
@@ -21866,6 +21909,13 @@
     "matchType": "EXACT"
   },
   "Poissons nouveaux": null,
+  "Pollimyrus adspersus": {
+    "canonicalName": "Pollimyrus adspersus",
+    "order": "Osteoglossiformes",
+    "family": "Mormyridae",
+    "genus": "Pollimyrus",
+    "matchType": "EXACT"
+  },
   "Polycarbonate hai": null,
   "Polycentropsis abbreviata": {
     "canonicalName": "Polycentropsis abbreviata",
@@ -24471,6 +24521,7 @@
     "genus": "Rhodobryum",
     "matchType": "EXACT"
   },
+  "Rhopalurus junceus": null,
   "Rhynchodoras woodsi": {
     "canonicalName": "Rhynchodoras woodsi",
     "order": "Siluriformes",
@@ -25433,6 +25484,13 @@
   "Sentani chung": null,
   "Sepotuba empties": null,
   "Serov moved": null,
+  "Serpenticobitis cingulata": {
+    "canonicalName": "Serpenticobitis cingulata",
+    "order": "Cypriniformes",
+    "family": "Serpenticobitidae",
+    "genus": "Serpenticobitis",
+    "matchType": "EXACT"
+  },
   "Serpenticobitis octozona": {
     "canonicalName": "Serpenticobitis octozona",
     "order": "Cypriniformes",
@@ -27440,6 +27498,13 @@
     "genus": "Trichomycterus",
     "matchType": "EXACT"
   },
+  "Trichomycterus alternatus": {
+    "canonicalName": "Trichomycterus alternatus",
+    "order": "Siluriformes",
+    "family": "Trichomycteridae",
+    "genus": "Trichomycterus",
+    "matchType": "EXACT"
+  },
   "Trichomycterus auroguttatus": {
     "canonicalName": "Trichomycterus auroguttatus",
     "order": "Siluriformes",
@@ -28141,6 +28206,13 @@
     "order": "Osteoglossiformes",
     "family": "Notopteridae",
     "genus": "Xenomystus",
+    "matchType": "EXACT"
+  },
+  "Xenophallus umbratilis": {
+    "canonicalName": "Xenophallus umbratilis",
+    "order": "Cyprinodontiformes",
+    "family": "Poeciliidae",
+    "genus": "Xenophallus",
     "matchType": "EXACT"
   },
   "Xenophysogobio boulengeri": {

@@ -1,0 +1,94 @@
+{
+  "id": "drombus-globiceps",
+  "scientificName": "Drombus globiceps",
+  "order": "Perciformes",
+  "family": "Gobiidae",
+  "genus": "Drombus",
+  "group": "gobies",
+  "places": [
+    "asia",
+    "india"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/acentrogobius_globiceps_en/",
+      "html": "<p>This nice goby is only very occasionally available. It was imported once more from India. The species becomes only 5-7 cm long.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/acentrogobius_globiceps_en/",
+      "html": "<p>A slight addition of sea salt (one spoonful per 10 litres of water) is quite beneficial for the fish.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/acentrogobius_globiceps_en/",
+      "html": "<p>The determination is only preliminary due to the complicated situation in gobies; the fish may possibly belong to the species A. moloanus.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/43b20aaabc461c3b.webp",
+      "width": 960,
+      "height": 638,
+      "licence": "CC BY 3.0 au",
+      "author": "Dinh D. Tran, FiMSeA",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:DrombGlobiceps2DinhDTran.jpg",
+      "caption": "Kranji Drombus, Drombus globiceps",
+      "thumb": "https://media.aquatome.com/commons/43b20aaabc461c3b-480.webp"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/4f31ab1374db473e.webp",
+      "width": 960,
+      "height": 639,
+      "licence": "CC BY 3.0 au",
+      "author": "Dinh D. Tran, FiMSeA",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Drombus_globiceps_Dinh_D._Tran.jpg",
+      "caption": "Kranji Drombus, Drombus globiceps",
+      "thumb": "https://media.aquatome.com/commons/4f31ab1374db473e-480.webp"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "96Nq0bzY7Kg",
+      "title": "Drombus globiceps",
+      "durationSec": 63,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá nước lợ"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể nhỏ",
+        "máy sục khí mini"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn đông lạnh cho cá bống",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-10"
+}

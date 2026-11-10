@@ -17,7 +17,8 @@
     "gabon",
     "benin",
     "central-african-republic",
-    "republic-of-the-congo"
+    "republic-of-the-congo",
+    "congo"
   ],
   "dataCard": {
     "tempC": [
@@ -51,6 +52,10 @@
       {
         "source": "seriouslyfish",
         "value": 35
+      },
+      {
+        "source": "glaser",
+        "value": 40
       }
     ],
     "tankCm": [
@@ -68,6 +73,12 @@
   },
   "sections": [
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/polypterus_retropinnis_en/",
+      "html": "<p>Polypterus retropinnis is one of the smallest species of Polypterus. It attains a maximum length of only about 30-40 cm and is a very slender species.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-retropinnis",
@@ -78,6 +89,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-retropinnis",
       "html": "<p>Widely distributed throughout Western Africa. It has been recorded in Nigeria, Cameroon, Democratic Republic of Congo, Ghana, Liberia, Ivory Coast, Togo, Gabon, Benin, Central African Republic and Congo Republic.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/polypterus_retropinnis_en/",
+      "html": "<p>Congo (DR Congo).</p>"
     },
     {
       "key": "habitat",
@@ -116,6 +133,12 @@
       "html": "<p>Not to be trusted with tankmates it can fit in its mouth but is relatively peaceful otherwise. Suitable tankmates include other Polypterus species, Synodontis, Datnoides, Knife Fish, larger Ctenopoma species, medium to large characins and African Butterfly Fish.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/polypterus_retropinnis_en/",
+      "html": "<p>The peaceful fish are a good choice for community tanks with other large, but peaceful aquarium fish.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-retropinnis",
@@ -132,6 +155,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/polypterus-retropinnis",
       "html": "<p>Also known as the Speckled Bichir, this is an incredibly hardy, nocturnal species with very poor vision. P. retropinnis relies on its excellent sense of smell to locate food. This species along with others of its genus are some of the last surviving relatives of very ancient species. Fossils of earlier relatives have been found that date back to the Triassic Period, which occured during the early development of the dinosaurs more than 200 million years ago.</p><p>They have several interesting adaptations. The swim bladder is divided into 2 parts, of which the right hand section is considerably larger. This functions as an accessory breathing organ and means the fish can survive out of water for some time, provided it is kept moist. Like anabantoid species, this fish may actually drown if it is denied access to atmospheric air.</p><p>Young bichirs have amphibian-like external gills which are lost as the fish matures. This, coupled with their nocturnal mode of hunting, in which they emerge from their daytime refuges to hunt invertebrates and small fish in shallow water clearly exhibit the link these species form between fish and amphibians.</p><p>This species is imported infrequently. It is one of the \"upper-jawed\" tribe of polypterids so named on account of the upper jaw being longer than or equal in length to the lower jaw. Initially it was one of 2 subspecies, P. retropinnis retropinnis and P. retropinnis lowei. The latter has now been reclassified as being synonymous with P. palmas.</p><p>It should be noted that most Polypterus offered for sale are wild caught and as much may come in carrying infections or parasites. It is suggested to keep a close eye on new fish for the first few weeks after purchase.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/polypterus_retropinnis_en/",
+      "html": "<p>This bichir was thought for a while to be an undescribed species, but it was found to have been confused with the only recently described species Polypterus mokelembembe.</p>"
     }
   ],
   "photos": [],
@@ -190,5 +219,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-10"
 }

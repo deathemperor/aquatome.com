@@ -1,0 +1,26 @@
+{
+  "slug": "cua-nuoc-ngot-trichodactylus-kensleyi",
+  "name": "Cua nước ngọt Trichodactylus kensleyi",
+  "altNames": [
+    "Cua nước ngọt Paraguay",
+    "Paraguayan freshwater crab"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Lần đầu tiên có người nhập về một loài cua nước ngọt cỡ lớn từ Paraguay. Mai của chúng rộng khoảng 5-8 cm, và tính cả chân thì con cua lớn hơn bàn tay người. Loài cua này chắc là Trichodactylus kensleyi. Tên chi của nó có nghĩa là \"ngón tay có lông\". Nhìn ảnh sẽ thấy rõ lông mọc ở mấy đốt dưới của chân.</p>",
+    "behaviour:glaser": "<p>Nuôi cua trong bể xem rất vui. Chúng có vẻ khá khôn và có nhiều kiểu hành vi thú vị để xem. Nhưng phải nhớ cua cũng phá dữ lắm. Thứ gì trong bể, cây hay con, chúng cũng thử xem có ăn được không. Ngoài ra, loài cua này còn rất hay đánh nhau với cua cùng loài.</p>"
+  },
+  "quality": {
+    "score": 0.7,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.7
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-11"
+  }
+}

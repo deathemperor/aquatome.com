@@ -1,0 +1,26 @@
+{
+  "slug": "oc-nhoi-campuchia",
+  "name": "Ốc nhồi Campuchia",
+  "altNames": [],
+  "sections": {
+    "quickFacts:glaser": "<p>Đây là một loài ốc điển hình của họ Viviparidae (họ ốc đẻ con), có đủ mọi đặc điểm của họ này. Filopaludina (Siamopaludina) martensi cambodjensis dài khoảng 4 cm.</p>",
+    "diet:glaser": "<p>Nói cho đúng thì chúng không phải ốc ăn rêu. Thức ăn của chúng là lớp màng sinh vật bám trên bề mặt (Aufwuchs) và mùn bã hữu cơ. Trong bể, cho ăn thức ăn viên nén làm cho cá cảnh là chắc ăn.</p>",
+    "dimorphism:glaser": "<p>Loài ốc này có con đực, con cái riêng. Con đực có một bên xúc tu mang hình dạng khác thường, nhìn vào đó là nhận ra.</p>",
+    "reproduction:glaser": "<p>Loài ốc này đẻ con.</p>",
+    "notes:glaser": "<p>Chúng thở bằng mang chứ không bằng phổi. Vì vậy, giống như cá, chúng lấy oxy hòa tan trong nước để thở. Đây là lần đầu tiên loài ốc này được nhập về, và nguồn nhập là Thái Lan.</p>"
+  },
+  "quality": {
+    "score": 0.7,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.7
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-11"
+  }
+}

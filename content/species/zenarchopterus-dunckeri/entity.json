@@ -5,7 +5,10 @@
   "family": "Zenarchopteridae",
   "genus": "Zenarchopterus",
   "group": "other",
-  "places": [],
+  "places": [
+    "asia",
+    "taiwan"
+  ],
   "range": {
     "records": {
       "taxonKey": 2368793,
@@ -129,53 +132,49 @@
       ]
     }
   },
-  "dataCard": {
-    "ph": [
-      {
-        "source": "glaser",
-        "value": {
-          "min": 8,
-          "max": 8
-        }
-      }
-    ],
-    "sizeCm": [
-      {
-        "source": "glaser",
-        "value": 15
-      }
-    ]
-  },
+  "dataCard": {},
   "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/19-halfbeaks/zenarchopterus_dunckeri_en-2/",
+      "html": "<p>There are 20 valid species in the genus Zenarchopterus, all of them occurring along the Pacific coast of tropical Asia. The maximum length of Zenarchopterus is around 15 cm; only a few species are recorded to reach a greater length, most of them stay smaller. The species are very similar to each other and the only safe way to identify them positively is via the externally visible sexual organ of the males. In males, the posterior part of the anal fin is modified into a mating organ called the andropodium. Only in one species, Z. quadrimaculatus, a melanophore pattern exists; all other species are silvery.</p>"
+    },
     {
       "key": "beforeYouBuy",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/19-halfbeaks/zenarchopterus_dunckeri_en/",
-      "html": "<p>The large halfbeaks of the genus Zenarchopterus are only very rarely offered, because the animals are very shy during acclimatisation. When they panic they often hurt themselves seriously. A small group of fully grown specimens of Zenarchopterus dunckeri was successfully imported from Taiwan. The fish are currently about 15 cm long. The group is formed of two males and three females.</p>"
-    },
-    {
-      "key": "aquariumSize",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/19-halfbeaks/zenarchopterus_dunckeri_en/",
-      "html": "<p>These fish need spacious aquaria.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/19-halfbeaks/zenarchopterus_dunckeri_en-2/",
+      "html": "<p>Zenarchopterus have recently been imported from Taiwan. According to Taiwanese literature, the only existing species of Zenarchopterus in Taiwan is Z. dunckeri. As there is no adult male in the import (the specimens are around 8 cm long), this identification could not be verified, and the name has simply been adopted.</p>"
     },
     {
       "key": "waterConditions",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/19-halfbeaks/zenarchopterus_dunckeri_en/",
-      "html": "<p>These fish need very clean, bacteria-poor, hard water. The pH must be over 8. They are completely euryhaline and can also be kept in brackish or pure seawater, but an addition of salt is not absolutely essential.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/19-halfbeaks/zenarchopterus_dunckeri_en-2/",
+      "html": "<p>Zenarchopterus are typical estuarine fishes and thus prefer brackish water, although some species (among them Z. dunckeri) can be found far upstream and others also enter the open sea. It is best to keep them at a salinity of 5-15 grams of salt per litre.</p>"
     },
     {
       "key": "diet",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/19-halfbeaks/zenarchopterus_dunckeri_en/",
-      "html": "<p>The fish prefer flake foods, but also accept other food items as long as they are floating on the water surface. Once the food has sunk to the bottom it is ignored.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/19-halfbeaks/zenarchopterus_dunckeri_en-2/",
+      "html": "<p>In the wild they feed mainly on land insects that fall into the water, but in the aquarium they also feed happily on flake food.</p>"
     },
     {
       "key": "behaviour",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/19-halfbeaks/zenarchopterus_dunckeri_en/",
-      "html": "<p>Choose only absolutely peaceful tankmates for cleaning the tank of sunken food, for example Corys, because even harmless but curious fish can literally frighten the halfbeaks witless. Once Zenarchopterus have settled, they can live happily for many years in aquaria.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/19-halfbeaks/zenarchopterus_dunckeri_en-2/",
+      "html": "<p>Zenarchopterus are fascinating aquarium inhabitants that always swim close to the water surface. Towards any tankmates these fish are very peaceful, but they tend to panic and thus should not be combined with \"nasty\" species.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/19-halfbeaks/zenarchopterus_dunckeri_en-2/",
+      "html": "<p>Most probably all species of Zenarchopterus are egg layers, but so far no detailed breeding report is available.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/19-halfbeaks/zenarchopterus_dunckeri_en-2/",
+      "html": "<p>Lexicon: Zenarchopterus: ancient Greek, means \"the one with a life-giving fin\", referring to the andropodium found in male fish. dunckeri: dedication name for Georg Duncker, ichthyologist in the Zoologisches Museum Hamburg, who discovered (among other species) the harlequin barb, Trigonostigma heteromorpha. quadrimaculatus: Latin, means \"with four spots\".</p>"
     }
   ],
   "photos": [],
@@ -227,5 +226,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-10"
 }

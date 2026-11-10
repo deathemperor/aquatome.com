@@ -1,0 +1,112 @@
+{
+  "id": "mystus-bocourti",
+  "scientificName": "Mystus bocourti",
+  "order": "Siluriformes",
+  "family": "Bagridae",
+  "genus": "Mystus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "thailand",
+    "chao-phraya",
+    "laos",
+    "mekong",
+    "cambodia"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 25
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/mystus_bocourti_en/",
+      "html": "<p>Due to its extremely prolonged dorsal fin this fascinating species has also been placed in a genus on its own for a long time, namely Heterobagrus. The catfish becomes around 20-25 cm long. It is a very peaceful species; however, fish of small size will be taken as food, but neither congeners nor any other tankmate will be attacked by M. bocourti otherwise.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/mystus_bocourti_en/",
+      "html": "<p>Mystus bocourti comes from the river basins of the Mekong and the Chao Phraya in Thailand, Laos, and Cambodia.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/mystus_bocourti_en/",
+      "html": "<p>The fish feed readily on any usually frozen or live fish food and most often the animals don´t even refuse dried fish food.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/mystus_bocourti_en/",
+      "html": "<p>Lexicon: Mystus: not known for sure, but most probably derived from the ancient Greek word for “beard”. bocourti: dedication name for F. Bocourt who collected the type specimens. Heterobagrus: means “different Bagrus”; Bagrus is another genus of catfish.</p><p>Suggestion of a common name: Highfin King Cat</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/glaser/84bf99f0915807db.webp",
+      "thumb": "https://media.aquatome.com/glaser/84bf99f0915807db-480.webp",
+      "width": 850,
+      "height": 567,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/mystus_bocourti_en/",
+      "source": "glaser"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "wIDR80-aoCI",
+      "title": "Mystus Bocourti Hi-Fin Silver Lancer",
+      "durationSec": 43,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "htYZQ8EB30Y",
+      "title": "Mystus bocourti @ Sailfin Mystus/Sengat Layar Mekong (Thailand)",
+      "durationSec": 81,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "i-3533Hi3pA",
+      "title": "Mystus Bocourti (Silver Lance Catfish)",
+      "durationSec": 30,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "kBweUFv57aQ",
+      "title": "Iridscent Mystus Cat / Aquarium Tropical Fish",
+      "durationSec": 52,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150cm",
+        "bể cá lớn nuôi cá da trơn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể lớn",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá da trơn",
+        "thức ăn đông lạnh cho cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-10"
+}

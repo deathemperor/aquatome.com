@@ -447,6 +447,10 @@
       {
         "source": "seriouslyfish",
         "value": 62.5
+      },
+      {
+        "source": "glaser",
+        "value": 40
       }
     ],
     "tankCm": [
@@ -501,10 +505,22 @@
       "html": "<ul><li>Temperature: 22–26°C</li><li>pH: 7.5–9.0</li><li>Hardness: 10–25 dGH</li></ul>"
     },
     {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/violet_gobies_arrived__en/",
+      "html": "<p>Fine sand should be offered for this fish on the bottom of the tank.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/gobioides-broussonnetii",
       "html": "<p>Feeds mainly on filamentous algae and detritus in nature, filtering these small morsels out of its turbulent, nutrient-rich natural waters. Feeding newly-imported specimens can therefore be problematic. Most eventually learn to accept frozen and live foods such as bloodworm, brine shrimp, tubifex etc. and pieces of algae wafer, nori sheets or spirulina flakes. The provision of vegetable matter is absolutely essential for the long term well-being of the species.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25f-perchlike-fishes-6-gobies/violet_gobies_arrived__en/",
+      "html": "<p>These gobies are absolutely peaceful plankton feeders.</p>"
     },
     {
       "key": "behaviour",
@@ -534,46 +550,71 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/aa8afe9d489128a9.webp",
+      "thumb": "https://media.aquatome.com/commons/aa8afe9d489128a9-480.webp",
       "width": 960,
       "height": 540,
       "licence": "CC BY-SA 4.0",
       "author": "Kitty Kat Katarina",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gobioides_broussonnetii.jpg",
-      "caption": "This is my own Violet Goby, roughly 6 inches long. Photo taken with my Galaxy S 5.",
-      "thumb": "https://media.aquatome.com/commons/aa8afe9d489128a9-480.webp"
+      "caption": "This is my own Violet Goby, roughly 6 inches long. Photo taken with my Galaxy S 5."
     },
     {
       "url": "https://media.aquatome.com/commons/d19f517da301cb1a.webp",
+      "thumb": "https://media.aquatome.com/commons/d19f517da301cb1a-480.webp",
       "width": 960,
       "height": 541,
       "licence": "CC BY-SA 4.0",
       "author": "Cedricguppy - Loury Cédric",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gobioides_broussonnetii_-_Gobie_violet_-_Aqua_Porte_Dor%C3%A9e_16.JPG",
-      "caption": "Gobioides broussonnetii - Gobie violet - Aquarium du Palias de la Porte Dorée Paris, Ile de France, France",
-      "thumb": "https://media.aquatome.com/commons/d19f517da301cb1a-480.webp"
+      "caption": "Gobioides broussonnetii - Gobie violet - Aquarium du Palias de la Porte Dorée Paris, Ile de France, France"
     },
     {
       "url": "https://media.aquatome.com/commons/bc015b54e7d835fe.webp",
+      "thumb": "https://media.aquatome.com/commons/bc015b54e7d835fe-480.webp",
       "width": 960,
       "height": 723,
       "licence": "CC0",
       "author": "Joseph Stansbury Rosin",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:20220619_violet_goby_joseph_stansbury_rosin.png",
-      "caption": "a violet goby, Gobioides broussonnetii, is depicted in a home aquarium",
-      "thumb": "https://media.aquatome.com/commons/bc015b54e7d835fe-480.webp"
+      "caption": "a violet goby, Gobioides broussonnetii, is depicted in a home aquarium"
     },
     {
       "url": "https://media.aquatome.com/commons/1bbd7e8c95634545.webp",
+      "thumb": "https://media.aquatome.com/commons/1bbd7e8c95634545-480.webp",
       "width": 960,
       "height": 541,
       "licence": "CC BY-SA 4.0",
       "author": "Cedricguppy - Loury Cédric",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gobioides_broussonnetii_-_Gobie_violet_-_Aqua_Porte_Dor%C3%A9e_13.JPG",
-      "caption": "Gobioides broussonnetii - Gobie violet - Aquarium du Palias de la Porte Dorée Paris, Ile de France, France",
-      "thumb": "https://media.aquatome.com/commons/1bbd7e8c95634545-480.webp"
+      "caption": "Gobioides broussonnetii - Gobie violet - Aquarium du Palias de la Porte Dorée Paris, Ile de France, France"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "kuJyVXSNGWM",
+      "title": "Keeping a Dragon Goby in Freshwater: 3 Month Update",
+      "durationSec": 681,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "K-tDfL21xaw",
+      "title": "南美鰭龍 --- Gobioides broussonnetii ( Violet Goby )",
+      "durationSec": 146,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "0w6e_BKcyeg",
+      "title": "“close up look” 👀 DRAGON FISH (gobioides broussonnetii)",
+      "durationSec": 28,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "wRM869nUuqQ",
+      "title": "Lila Aalgrundel - Violet Goby - Dragon Goby - Gobioides broussonnetii",
+      "durationSec": 481,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -604,5 +645,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-10"
 }

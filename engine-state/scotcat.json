@@ -637,6 +637,46 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/auchenipteridae/tatia_gyrina.htm": {
+    "entityIds": [
+      "species/tatia-gyrina"
+    ],
+    "updatedAt": "2026-11-10T14:52:01.950Z",
+    "hash": "b88f8359a38b5486665513e35ff23ec6e9a6f5f23f6d3d0874c6f7cf46807a43",
+    "processedHash": "b88f8359a38b5486665513e35ff23ec6e9a6f5f23f6d3d0874c6f7cf46807a43",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/auchenipteridae/tatia_neivai.htm": {
+    "entityIds": [
+      "species/tatia-neivai"
+    ],
+    "updatedAt": "2026-11-10T14:55:29.344Z",
+    "hash": "978e1e8b79f829c59f518061ade674d676db4d7f3178c7a03be1f2ea520ae851",
+    "processedHash": "978e1e8b79f829c59f518061ade674d676db4d7f3178c7a03be1f2ea520ae851",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/auchenipteridae/tatia_strigata.htm": {
+    "entityIds": [
+      "species/tatia-strigata"
+    ],
+    "updatedAt": "2026-11-10T14:56:59.074Z",
+    "hash": "5625255222e042abcdee04a963c585791c3600ad2be8f1eb4327bf6c4d970a26",
+    "processedHash": "5625255222e042abcdee04a963c585791c3600ad2be8f1eb4327bf6c4d970a26",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/auchenipteridae/trachelyopterus_insignis.htm": {
+    "entityIds": [
+      "species/trachelyopterus-insignis"
+    ],
+    "updatedAt": "2026-11-10T15:00:04.378Z",
+    "hash": "8b7970214e8ba885d61dfb588d7a35ada8ad0bb6be36ed2b55517bd66669b069",
+    "processedHash": "8b7970214e8ba885d61dfb588d7a35ada8ad0bb6be36ed2b55517bd66669b069",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/auchenoglanididae/auchenoglanis_occidentalis.htm": {
     "entityIds": [
       "species/auchenoglanis-occidentalis"
@@ -694,6 +734,36 @@
     "updatedAt": "2026-11-09T14:52:45.534Z",
     "hash": "618d423d2146c4f0bbb3bb7487bae8425cfc03f974368c772feff0e6d9bbd78f",
     "processedHash": "618d423d2146c4f0bbb3bb7487bae8425cfc03f974368c772feff0e6d9bbd78f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/bagridae/tachysurus_nitidus.htm": {
+    "entityIds": [
+      "species/tachysurus-nitidus"
+    ],
+    "updatedAt": "2026-11-10T14:46:08.338Z",
+    "hash": "e4c97120d3b85c296dda05b56bd0c8b4646d6e9bc3352173c75ff3605eba1a60",
+    "processedHash": "e4c97120d3b85c296dda05b56bd0c8b4646d6e9bc3352173c75ff3605eba1a60",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/bagridae/tachysurus_nudiceps.htm": {
+    "entityIds": [
+      "species/tachysurus-nudiceps"
+    ],
+    "updatedAt": "2026-11-10T14:48:00.571Z",
+    "hash": "3a4ff5282a6978246603d28582286e8eeaf05080ee4ccb953b7a1b8b4d6d76f7",
+    "processedHash": "3a4ff5282a6978246603d28582286e8eeaf05080ee4ccb953b7a1b8b4d6d76f7",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/bagridae/tachysurus_trilineatus.htm": {
+    "entityIds": [
+      "species/tachysurus-trilineatus"
+    ],
+    "updatedAt": "2026-11-10T14:49:36.590Z",
+    "hash": "08b2226fc54c523cec3f94a98e5461bde5400d2c6cb3a7937ba44159e393c2b2",
+    "processedHash": "08b2226fc54c523cec3f94a98e5461bde5400d2c6cb3a7937ba44159e393c2b2",
     "status": "processed",
     "attempts": 0
   },
@@ -1612,6 +1682,16 @@
     "updatedAt": "2026-11-09T20:59:18.606Z",
     "hash": "f32687debe6d2e91a2f2b2b46c213ba7e12dfaa0b32c84012575ce16937c8eb5",
     "processedHash": "f32687debe6d2e91a2f2b2b46c213ba7e12dfaa0b32c84012575ce16937c8eb5",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/sturisomatichthys_leightoni.htm": {
+    "entityIds": [
+      "species/sturisomatichthys-leightoni"
+    ],
+    "updatedAt": "2026-11-10T14:44:24.654Z",
+    "hash": "b117699ce281adccc3bc2b0e28ee429e84c92d06204270ea40fef04f354a68ba",
+    "processedHash": "b117699ce281adccc3bc2b0e28ee429e84c92d06204270ea40fef04f354a68ba",
     "status": "processed",
     "attempts": 0
   },

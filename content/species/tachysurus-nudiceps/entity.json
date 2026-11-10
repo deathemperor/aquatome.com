@@ -15,6 +15,28 @@
       {
         "source": "planetcatfish",
         "value": 15
+      },
+      {
+        "source": "scotcat",
+        "value": 12
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 10,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 7,
+          "max": 7.8
+        }
       }
     ]
   },
@@ -26,10 +48,22 @@
       "html": "<p>Tachysurus nudiceps (Sauvage, 1883). Type locality: Lake Biwa, Japan. Size: 150 mm (5.9 inches) SL.</p><p>Tachysurus can be identified by an extrascapular without a laterosensory canal, and a pterotic with a broad lateral laminar expansion. It is among the most speciose catfish groups in East Asia and its members inhabit habitats ranging from fast-flowing hillstreams to large rivers.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/tachysurus_nudiceps.htm",
+      "html": "<ul><li>IUCN Red List: Not Evaluated</li></ul><p>Description: Dorsal spines (total): 1; dorsal soft rays (total): 5-7; anal spines: 0; anal soft rays: 18-20. Body elongated, anteriorly depressed, posteriorly compressed. Four pairs of mouth barbels present. No scales on body. Pectoral and dorsal fins enlarged and spinous. Posterior margin of caudal fin deeply notched.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1104",
       "html": "<p>Asia: Japan (Lake Biwa).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/tachysurus_nudiceps.htm",
+      "html": "<p>Asia: Japan, Lake Biwa; central and western Honshu, eastern Shikoku, and northwestern Kyushu islands (Matsuura et al., 2000). Reported from the Lower Pliocene of Mie Prefecture, Japan, in Watanabe &amp; Okuyama. Type locality: Lake Biwako, Japan.</p>"
     },
     {
       "key": "dimorphism",
@@ -44,10 +78,22 @@
       "html": "<p>Unreported. There is no breeding report.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/tachysurus_nudiceps.htm",
+      "html": "<p>Etymology: The genus name Tachysurus: tachys, swift; oura, tail, referring to the presumed agility of T. sinensis based on its \"long and nimble\" tail (translation). The specific name nudiceps: nudus, bare; ceps, head, i.e., bony or skinless, presumably referring to the top of the head, which is granulated, with a very thin covering of skin.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1104",
       "html": "<p>Bulletin de la Société philomathique de Paris (7th Série) v. 7, pp 145.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/tachysurus_nudiceps.htm",
+      "html": "<p>Ferraris, C.J. Jr. 2007 Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (04/2009). The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
@@ -86,13 +132,13 @@
     },
     {
       "url": "https://media.aquatome.com/commons/c0d3d113b0bf72c7.webp",
+      "thumb": "https://media.aquatome.com/commons/c0d3d113b0bf72c7-480.webp",
       "width": 800,
       "height": 533,
       "licence": "CC BY 2.5",
       "author": "opencage",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tachysurus_nudiceps_(2007).jpg",
-      "caption": "Gigi catfish Pseudobagrus nudiceps (=Syn. Tachysurus nudiceps) (Sauvage, 1883)",
-      "thumb": "https://media.aquatome.com/commons/c0d3d113b0bf72c7-480.webp"
+      "caption": "Gigi catfish Pseudobagrus nudiceps (=Syn. Tachysurus nudiceps) (Sauvage, 1883)"
     }
   ],
   "videos": [
@@ -141,5 +187,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-10"
 }

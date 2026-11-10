@@ -362,6 +362,10 @@
       {
         "source": "seriouslyfish",
         "value": 125
+      },
+      {
+        "source": "glaser",
+        "value": 40
       }
     ],
     "tankCm": [
@@ -450,41 +454,72 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/lepidosiren-paradoxa",
       "html": "<p>Lungfish are among the most intriguing of \"oddball\" aquarium species, being able to survive in extreme conditions. They are very ancient fish, having remained virtually unchanged for millions of years. This is the only species known from South America, and is the sole representative of its genus. Most hail from Africa, with a single species native to Australia. They belong to the class Sarcopterygii (lobe-finned fishes), members of which are actually more closely related to terrestrial vertebrates than to the Actinopterygii (ray-finned bony fishes).</p><p>Some of the natural waters of L. paradoxa dry out completely at times and the fish has developed several incredible adaptations in order to survive these periods. When the waters begin to recede, the fish will find a suitable nesting site, usually amongst heavy vegetation. Here, it will dig down into the muddy substrate, forming a tunnel. When it reaches a certain depth (this varies depending on the fish, but is typically around 30 cm), it writhes around until it forms a bulb shaped chamber, in which it will spend the dry season. It then positions itself in such a way that its head is pointing upwards, towards the entrance. The chamber is often filled with water initially and the fish has to rise to the entrance of the burrow to take in air. However, as the water level drops further, it becomes completely exposed to the air. At this point, it excretes copious amounts of a special mucous, which dries to form a \"cocoon\" around its body. Its metabolic rate also decreases drastically. There it remains, completely motionless, until the rains return. This state is known as aestivation.</p><p>Although it possesses both gills and a set of paired lungs, it's an obligatory air breather and will drown if not granted access to atmospheric air. The gills are rudimentary in structure and the fish has to rise to the surface periodically to obtain oxygen. The lungs are similar in structure to those of primitive amphibians and are formed from the heavily modified swim bladder. The limb-like fins are long, thin and fleshy. They are used mainly for touch. However, they are supported by a strong set of muscles and allow the fish to \"crawl\" across patches of dry land if necessary. There are four of these, located in the same positions as tetrapod legs. Other similarities between lungfish and tetrapods include the possession of tooth enamel, the way in which the bones of the skull are arranged and the distinct separation between pulmonary and body blood flow. Unlike most other fish species, the heart has 4 distinct chambers, facilitating the latter.</p><p>It's debatable as to whether this species should be considered an aquarium subject at all given its eventual size. All too often juveniles are sold without adequate information regarding their long term care. These can and will attain something close to their maximum size in captivity, and will do so quite quickly. The myth that fish will only grow to match the size of the tank they're kept in is just that. It's also worth noting that it can live for well over 20 years, making it a considerable long term commitment.</p><p>Many aquarists buy a young specimen with the intention of buying a bigger tank as it grows. However due to life's unpredictable nature very few actually take this step, instead attempting to rehome the fish. Public aquaria are already inundated with far too many 'cast offs' from the hobby, and are unlikely to take a big fish off your hands. Very few fellow hobbyists will have the facilities to do so, either. It's sad to think how many hundreds of these are doomed to a drastically reduced existence by the aquatic trade. Please don't buy one unless you have the resources required to house it for life already in place.</p><p>Those few that do will find it to be very hardy and undemanding. Some specimens even become very tame and seem to enjoy being 'petted' by their owner. If attempting this, be aware that it can inflict a nasty bite and should be approached with caution.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/29-lungfishes/lepidosiren_paradoxus_en/",
+      "html": "<p>The mouth of that species is very special. At the tip of the mouth is a small, round opening. It looks as if the fish would try to whistle or if it imagined to have a longtrink with drinking straw. In the real life these fish prefer to feed on snails.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/c094518e0034f09e.webp",
+      "thumb": "https://media.aquatome.com/commons/c094518e0034f09e-480.webp",
       "width": 960,
       "height": 549,
       "licence": "CC BY-SA 2.5",
       "author": "Wikimedia Commons",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lepidosiren_paradoxa_0.jpg",
-      "caption": "Lepidosiren paradoxa 0.jpg",
-      "thumb": "https://media.aquatome.com/commons/c094518e0034f09e-480.webp"
+      "caption": "Lepidosiren paradoxa 0.jpg"
     },
     {
       "url": "https://media.aquatome.com/commons/391f45e9ace526ed.webp",
+      "thumb": "https://media.aquatome.com/commons/391f45e9ace526ed-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY 4.0",
       "author": "Vincent A. Vos",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lepidosiren_paradoxa_118537122.jpg",
-      "caption": "South American lungfish (Lepidosiren paradoxa)",
-      "thumb": "https://media.aquatome.com/commons/391f45e9ace526ed-480.webp"
+      "caption": "South American lungfish (Lepidosiren paradoxa)"
     },
     {
       "url": "https://media.aquatome.com/commons/d63bff14661e9df5.webp",
+      "thumb": "https://media.aquatome.com/commons/d63bff14661e9df5-480.webp",
       "width": 960,
       "height": 960,
       "licence": "CC BY-SA 2.5",
       "author": "Wikimedia Commons",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lepidosiren_paradoxa.jpg",
-      "caption": "Lepidosiren paradoxa.jpg",
-      "thumb": "https://media.aquatome.com/commons/d63bff14661e9df5-480.webp"
+      "caption": "Lepidosiren paradoxa.jpg"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "u0uT4xRtRDM",
+      "title": "Lepidosiren Paradoxa",
+      "durationSec": 81,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "8A5njP_kABI",
+      "title": "Südamerikanischer Lungenfisch (Lepidosiren Paradoxa) im Aquarium",
+      "durationSec": 30,
+      "lang": "de-DE"
+    },
+    {
+      "youtubeId": "oCpsvUUNIu8",
+      "title": "16\" South American Lungfish (Lepidosiren paradoxa)",
+      "durationSec": 71,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "jSF_ZbN8jWU",
+      "title": "Lungfish feeding (cute)",
+      "durationSec": 105,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -515,5 +550,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-10"
 }
