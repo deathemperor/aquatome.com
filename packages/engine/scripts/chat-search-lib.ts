@@ -29,8 +29,21 @@ export function siteSource(dir: string): Source {
   return { index: l => json(`/app/${l}.json`), shard: (l, k, n) => json(`/app/pages/${l}/${k}-${n}.json`), topics: l => json(`/app/chat/${l}.json`) }
 }
 
+/** fetch, tried again when a connection drops or the server answers 5xx: a run makes over a thousand calls, and every one of them is safe to repeat. */
+export const steady = (get: typeof fetch = fetch, ms = 2000): typeof fetch => async (input, init) => {
+  for (let tries = 1; ; tries++) {
+    try {
+      const r = await get(input, init)
+      if (r.status < 500 || tries === 3) return r
+    } catch (e) {
+      if (tries === 3) throw e
+    }
+    await new Promise(res => setTimeout(res, ms * tries))
+  }
+}
+
 /** The handbook as the site serves it now, each file read once. A read that fails stops the run: a page left out would be taken for one removed. */
-export function liveSource(site: string, get: typeof fetch = fetch): Required<Source> {
+export function liveSource(site: string, get: typeof fetch = steady()): Required<Source> {
   const read = new Map<string, Promise<unknown>>()
   const json = <T>(path: string): Promise<T> => {
     if (!read.has(path)) read.set(path, get(new URL(path, site)).then(r => { if (!r.ok) throw new Error(`${path}: ${r.status}`); return r.json() }))
@@ -69,7 +82,7 @@ export async function docsOf(source: Source, lang: Lang, chars: number): Promise
 
 async function embed(e: Embedder, texts: string[]): Promise<number[][]> {
   for (let tries = 0; ; tries++) {
-    const r = await fetch(`https://api.cloudflare.com/client/v4/accounts/${e.account}/ai/run/${e.model}`, {
+    const r = await steady()(`https://api.cloudflare.com/client/v4/accounts/${e.account}/ai/run/${e.model}`, {
       method: 'POST', headers: { authorization: `Bearer ${e.token}`, 'content-type': 'application/json' }, body: JSON.stringify({ text: texts }),
     })
     const j = await r.json().catch(() => null) as { success?: boolean; result?: { data?: number[][] }; errors?: unknown } | null

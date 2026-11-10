@@ -15,7 +15,7 @@ import { homedir } from 'node:os'
 import { join } from 'node:path'
 import { parseArgs } from 'node:util'
 import { SEARCHED } from '../../../apps/site/worker/chat/handover'
-import { batchesOf, changesOf, deleteBodies, docsOf, hash, liveSource, vectors, type Embedder } from './chat-search-lib'
+import { batchesOf, changesOf, deleteBodies, docsOf, hash, liveSource, steady, vectors, type Embedder } from './chat-search-lib'
 import { pool } from './eval-lib'
 
 const { values: args } = parseArgs({
@@ -37,7 +37,7 @@ async function main() {
   const e: Embedder = { token: (await readFile(args.token!, 'utf8')).trim(), account: (await readFile(args.account!, 'utf8')).trim(), model: args.model!, cache: args.cache! }
   const api = `https://api.cloudflare.com/client/v4/accounts/${e.account}/vectorize/v2/indexes`
   const call = async (url: string, body: string, type: string) => {
-    const r = await fetch(url, { method: 'POST', headers: { authorization: `Bearer ${e.token}`, 'content-type': type }, body })
+    const r = await steady()(url, { method: 'POST', headers: { authorization: `Bearer ${e.token}`, 'content-type': type }, body })
     const j = await r.json().catch(() => null) as { success?: boolean; errors?: unknown } | null
     if (!j?.success) throw new Error(`${r.status} ${JSON.stringify(j?.errors ?? null)}`)
   }

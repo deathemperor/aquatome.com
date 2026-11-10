@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import type { Source } from '../../../apps/site/worker/chat/handbook'
-import { changesOf, deleteBodies, docsOf, liveSource } from '../scripts/chat-search-lib'
+import { changesOf, deleteBodies, docsOf, liveSource, steady } from '../scripts/chat-search-lib'
 
 describe('changesOf', () => {
   it('writes what is new or changed and removes what the handbook no longer has', () => {
@@ -22,6 +22,35 @@ describe('deleteBodies', () => {
 
   it('makes no call with nothing to remove', () => {
     expect(deleteBodies([])).toEqual([])
+  })
+})
+
+describe('steady', () => {
+  const answers = (...a: (number | Error)[]) => {
+    let call = 0
+    const get = (async () => {
+      const x = a[call++]!
+      if (x instanceof Error) throw x
+      return new Response('{}', { status: x })
+    }) as typeof fetch
+    return { get: steady(get, 0), calls: () => call }
+  }
+
+  it('tries again after a dropped connection or a 5xx', async () => {
+    const { get, calls } = answers(new TypeError('fetch failed'), 503, 200)
+    expect((await get('https://aquatome.test')).status).toBe(200)
+    expect(calls()).toBe(3)
+  })
+
+  it('gives up after three tries, with what the last one got', async () => {
+    await expect(answers(503, 503, new TypeError('fetch failed')).get('https://aquatome.test')).rejects.toThrow('fetch failed')
+    expect((await answers(503, 503, 502).get('https://aquatome.test')).status).toBe(502)
+  })
+
+  it('does not try again when the server has answered', async () => {
+    const { get, calls } = answers(404, 200)
+    expect((await get('https://aquatome.test')).status).toBe(404)
+    expect(calls()).toBe(1)
   })
 })
 
