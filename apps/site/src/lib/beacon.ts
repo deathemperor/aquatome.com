@@ -14,13 +14,13 @@ export const VID_MS = 3.42e10
  *   months; none when Global Privacy Control or Do Not Track is on, or when storage is blocked (the tab's count stays);
  * - clicks on what carries data-ev: "add to tank" (tank) and a page's source links (src);
  * - the device on each event, one word worked out here: phone, tablet (an iPad on Safari says it's a Mac, so its touch
- *   points tell) or desktop. The browser's own details and the screen's size stay in the browser;
+ *   points tell) or desktop, and empty when it can't tell. The browser's own details and the screen's size aren't kept;
  * - nothing at all, once «Không đếm tôi» on the privacy page set aq_nocount, in a tab already open too.
  * Under 1,500 characters either way (test/styles.test.ts).
  */
 export function beaconScript(on = VISITOR_STATS): string {
   const who = on
-    ? `var u='',n,L,g=!N.globalPrivacyControl&&N.doNotTrack!='1';try{L=localStorage;n=L.getItem('${NOCOUNT}');if(!n&&g){var a=(L.getItem('${VID}')||'').split('.');if(!(Date.now()-a[1]<${VID_MS})){a=[Math.random().toString(36).slice(2,12),Date.now()];L.setItem('${VID}',a.join('.'))}u=a[0]}}catch(e){}if(n)return;var y=N.userAgent,w=/^(?!.*iPad).*Mobi/.test(y)?'phone':/Mac|Android/.test(y)&&N.maxTouchPoints>1?'tablet':'desktop';`
+    ? `var u='',n,L,g=!N.globalPrivacyControl&&N.doNotTrack!='1';try{L=localStorage;n=L.getItem('${NOCOUNT}');if(!n&&g){var a=(L.getItem('${VID}')||'').split('.');if(!(Date.now()-a[1]<${VID_MS})){a=[Math.random().toString(36).slice(2,12),Date.now()];L.setItem('${VID}',a.join('.'))}u=a[0]}}catch(e){}if(n)return;var y=N.userAgent,w=/^(?!.*iPad).*Mobi/.test(y)?'phone':/Mac|Android/.test(y)&&N.maxTouchPoints>1?'tablet':/Win|Mac|X11|CrOS/.test(y)?'desktop':'';`
     : ''
   // Each event looks again, so «Không đếm tôi» pressed in an open tab stops it there too, and a deleted code isn't sent.
   const check = on ? `try{if(L.getItem('${NOCOUNT}'))return;u=g?(L.getItem('${VID}')||'').split('.')[0]:''}catch(e){}` : ''

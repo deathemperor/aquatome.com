@@ -51,8 +51,9 @@ of 10, so that loss looks small. Analytics Engine keeps about 3 months, enough f
 
 Each event also carries the device, one word the browser works out: phone, tablet or desktop (`src/lib/beacon.ts`,
 `blob8`). Nothing else about the device is kept, neither the browser's details nor the screen's size. An iPad on Safari is
-told from a Mac by its touch points. A phone asking for the desktop site reads as a tablet or a desktop. Rows from before the
-field have it empty, which means not recorded and never desktop.
+told from a Mac by its touch points, so a touch-screen Mac would read as a tablet. A phone asking for the desktop site reads
+as a tablet or a desktop. A browser that names no system we know (a TV, a console) sends it empty, as rows from before the
+field have it: empty means not recorded, and never desktop.
 
 Two runs of our own checks from before our network was marked are left out by time, as the 5 November reset was
 (`OUR_RUNS`, `worker/admin/ae.ts`): tabs from Vietnam on 7 November, 20:40 to 21:24 UTC (56), and on 8 November, 00:28 to

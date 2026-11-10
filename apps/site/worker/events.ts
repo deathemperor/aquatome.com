@@ -3,7 +3,7 @@ export type EventType = 'view' | 'scroll' | 'time' | 'aff' | 'tank' | 'src'
 /**
  * `r`: the referring site's host on a page's view, '' when none; the Worker keeps one of our own pages as '=' (ownReferrer).
  * `u`: the browser's visitor code (src/lib/beacon.ts), kept only with the visitor switch on (visitorOf).
- * `d`: the device, one word the browser works out (src/lib/beacon.ts); missing on a page cached from before it was sent.
+ * `d`: the device, one word the browser works out (src/lib/beacon.ts); '' when it can't tell, missing on a page cached from before it was sent.
  */
 export type Device = 'phone' | 'tablet' | 'desktop'
 export type AbEvent = { p: string; t: EventType; v: number; sid: string; r?: string; u?: string; d?: Device }
@@ -23,7 +23,7 @@ export function parseEvent(body: string): AbEvent | null {
   if (typeof sid !== 'string' || !/^[a-z0-9]{12}$/.test(sid)) return null
   if (r !== undefined && (typeof r !== 'string' || !/^[a-z0-9.-]{0,100}$/.test(r))) return null
   if (u !== undefined && (typeof u !== 'string' || !/^(?:[a-z0-9]{4,12})?$/.test(u))) return null
-  if (d !== undefined && !DEVICES.has(d)) return null
+  if (d !== undefined && d !== '' && !DEVICES.has(d)) return null
   return { p, t: t as EventType, v, sid, ...(r ? { r } : {}), ...(u ? { u } : {}), ...(d ? { d: d as Device } : {}) }
 }
 

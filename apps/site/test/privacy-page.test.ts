@@ -39,17 +39,20 @@ test('the privacy page says an account keeps the id of the profile picture its r
 test('the privacy page names the device word and says nothing else about the device is kept, in every language', () => {
   const vi = page('/chinh-sach-bao-mat/').dom.textContent
   expect(vi).toContain('quốc gia, loại thiết bị (điện thoại, máy tính bảng hay máy tính), mức cuộn')
-  expect(vi).toContain('chúng tôi chỉ lưu một từ đó, không lưu thông tin trình duyệt hay kích thước màn hình.')
+  expect(vi).toContain('trong thống kê này, chúng tôi chỉ lưu một từ đó, không lưu thông tin trình duyệt hay kích thước màn hình.')
+  expect(vi).toContain('thì không có mã khách; các sự kiện khác, gồm quốc gia và loại thiết bị, vẫn được ghi.')
   expect(vi).toContain('country, device type (phone, tablet or computer), scroll depth')
-  expect(vi).toContain("we keep only that one word, not your browser's details or screen size.")
-  for (const [path, type, kept] of [
-    ['/id/kebijakan-privasi/', 'jenis perangkat (ponsel, tablet, atau komputer)', 'kami hanya menyimpan satu kata itu'],
-    ['/th/privacy/', 'ประเภทอุปกรณ์ (โทรศัพท์ แท็บเล็ต หรือคอมพิวเตอร์)', 'เราเก็บเพียงคำเดียวนั้น'],
-    ['/ms/dasar-privasi/', 'jenis peranti (telefon, tablet atau komputer)', 'kami hanya menyimpan satu perkataan itu'],
+  expect(vi).toContain("in these statistics we keep only that one word, not your browser's details or screen size.")
+  expect(vi).toContain('gets no visitor code; its other events, including country and device type, are still recorded.')
+  for (const [path, type, kept, signals] of [
+    ['/id/kebijakan-privasi/', 'jenis perangkat (ponsel, tablet, atau komputer)', 'dalam statistik ini kami hanya menyimpan satu kata itu', 'termasuk negara dan jenis perangkat, tetap dicatat.'],
+    ['/th/privacy/', 'ประเภทอุปกรณ์ (โทรศัพท์ แท็บเล็ต หรือคอมพิวเตอร์)', 'ในสถิตินี้เราเก็บเพียงคำเดียวนั้น', 'รวมถึงประเทศและประเภทอุปกรณ์ ยังคงถูกบันทึก'],
+    ['/ms/dasar-privasi/', 'jenis peranti (telefon, tablet atau komputer)', 'dalam statistik ini kami hanya menyimpan satu perkataan itu', 'termasuk negara dan jenis peranti, tetap direkodkan.'],
   ] as const) {
     const text = page(path).dom.textContent
     expect(text, path).toContain(type)
     expect(text, path).toContain(kept)
+    expect(text, path).toContain(signals)
   }
 })
 

@@ -29,7 +29,11 @@ test('the device is one of three words, kept as blob8; anything else, a browser 
     expect(e).toEqual({ ...ok, d })
     expect(toDataPoint(e!).blobs[7]).toBe(d)
   }
-  for (const d of ['', 'iphone', 'Mozilla/5.0 (iPhone)', '390x844', 1, null, ['phone']]) expect(parseEvent(JSON.stringify({ ...ok, d }))).toBeNull()
+  // A browser that couldn't tell still counts, with the field empty.
+  const unknown = parseEvent(JSON.stringify({ ...ok, d: '' }))
+  expect(unknown).toEqual(ok)
+  expect(toDataPoint(unknown!).blobs[7]).toBe('')
+  for (const d of ['iphone', 'Mozilla/5.0 (iPhone)', '390x844', 1, null, ['phone']]) expect(parseEvent(JSON.stringify({ ...ok, d }))).toBeNull()
 })
 
 test('the visitor code is kept only with the visitor switch on, and never from a browser sending Global Privacy Control', () => {

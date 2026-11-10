@@ -72,6 +72,11 @@ test('switch on: the browser works out one of three words for the device and sen
     ['Mozilla/5.0 (Linux; Android 14; SM-X710) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 10, 'tablet'],
     [macSafari, 0, 'desktop'],
     ['Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 10, 'desktop'], // a touch-screen laptop
+    ['Mozilla/5.0 (X11; CrOS x86_64 16002.51.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', 10, 'desktop'], // a touch-screen Chromebook
+    // Can't tell: left empty, never guessed.
+    ['', 0, ''],
+    ['Mozilla/5.0 (Linux; Android 12; BRAVIA 4K UR3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36', 0, ''],
+    ['Mozilla/5.0 (SMART-TV; Linux; Tizen 7.0) AppleWebKit/537.36 (KHTML, like Gecko) Version/7.0 TV Safari/537.36', 0, ''],
   ]
   for (const [ua, touch, d] of agents) {
     const { sent, click } = run(true, { local: {}, ua, touch })
