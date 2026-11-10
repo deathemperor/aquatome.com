@@ -1,6 +1,6 @@
 import { existsSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
-import { expect, test } from 'vitest'
+import { describe, expect, test } from 'vitest'
 import { COOKIE, createSession, type Client } from '../accounts/session'
 import { syncStore } from '../accounts/tanks'
 import { assetSource, callClaude, chat, chatWorstCost, type ChatDeps, type ChatEnv, type Conversation } from '../chat/api'
@@ -697,6 +697,43 @@ test('a streamed call is bounded end to end: one that stalls after its first byt
   expect(Date.now() - t).toBeLessThan(2000)
   expect(isApiError(e) && e.status === undefined).toBe(true)
   expect(classify(e)).toEqual({ next: true })
+})
+
+describe('a call that has begun writing', () => {
+  const event = (type: string, data: object) => `event: ${type}\ndata: ${JSON.stringify({ type, ...data })}\n\n`
+  const start = event('message_start', { message: { id: 'm', type: 'message', role: 'assistant', model: 'claude-opus-5-5', content: [], stop_reason: null, stop_sequence: null, usage } })
+  const writes = event('content_block_start', { index: 0, content_block: { type: 'text', text: '' } }) + event('content_block_delta', { index: 0, delta: { type: 'text_delta', text: 'Nước' } })
+  const ends = event('content_block_stop', { index: 0 }) + event('message_delta', { delta: { stop_reason: 'end_turn', stop_sequence: null }, usage: { output_tokens: 1 } }) + event('message_stop', {})
+  const body = { model: 'claude-opus-5-5', max_tokens: 10, messages: [{ role: 'user' as const, content: 'hi' }] }
+  /** A stream that sends `first` at once and, `ms` later, `then` (and ends), or nothing more with no `then`. */
+  const streams = async (first: string, then?: string, ms = 0) => clientFor({ key: 'sk-ant-test', hash: 'h' } as KeyEntry, (async () => new Response(new ReadableStream({
+    start: ctl => {
+      ctl.enqueue(new TextEncoder().encode(first))
+      if (then !== undefined) setTimeout(() => { ctl.enqueue(new TextEncoder().encode(then)); ctl.close() }, ms)
+    },
+  }), { headers: { 'content-type': 'text/event-stream' } })) as typeof globalThis.fetch)
+
+  test('runs past its limit to the time left, so an answer on its way isn\'t lost', async () => {
+    const said: string[] = []
+    const m = await callClaude(await streams(start + writes, ends, 250), body, 100, d => said.push(d), undefined, 2000)
+    expect(said).toEqual(['Nước'])
+    expect(m.stop_reason).toBe('end_turn')
+  })
+
+  test('is still stopped when the time left runs out', async () => {
+    const t = Date.now()
+    const e = await callClaude(await streams(start + writes), body, 100, () => {}, undefined, 300).catch(x => x)
+    expect(Date.now() - t).toBeGreaterThanOrEqual(250)
+    expect(Date.now() - t).toBeLessThan(2000)
+    expect(isApiError(e) && e.status === undefined).toBe(true)
+  })
+
+  test('a call still silent at its limit gets no more time', async () => {
+    const t = Date.now()
+    const e = await callClaude(await streams(start), body, 100, () => {}, undefined, 2000).catch(x => x)
+    expect(Date.now() - t).toBeLessThan(1000)
+    expect(isApiError(e) && e.status === undefined).toBe(true)
+  })
 })
 
 test('retries by Idempotency-Key: after the answer, the kept turn with no new count; while it runs, it waits for that answer; another question meanwhile is 409', async () => {

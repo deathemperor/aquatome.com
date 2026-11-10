@@ -19,8 +19,8 @@ export const WHOLE_POST = 150
  * the chat's own reading: handed sections made Claude stop reading, and those answers lost (two judged passes, 2026-11-09).
  */
 export const handsOver = (question: string, tanks: readonly unknown[]) => tanks.length > 0 || question.trim().length >= WHOLE_POST
-/** The languages sections are handed over in. Thai lost its judged passes, for a reason not found: it keeps the chat's own reading (2026-11-09). */
-export const SEARCHED: readonly Lang[] = ['vi', 'id', 'ms']
+/** The languages sections are handed over in. Thai joined once it was judged under `handsOver` (2026-11-10): it had lost on short questions alone. */
+export const SEARCHED: readonly Lang[] = ['vi', 'id', 'ms', 'th']
 
 /** A section found: a page, and the id of a heading on it, or null for its opening. */
 export type Found = { path: string; heading: string | null }

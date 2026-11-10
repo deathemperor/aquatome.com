@@ -907,7 +907,7 @@ test('without onText a run is as before: no call is asked to stream, and a tool 
     },
     model: 'claude-opus-5-5', lang: 'vi', question: 'Nuôi cá neon thế nào?', earlier: [], start: {}, handbook: await hb(), tanks: async () => [],
   })
-  expect(opts.map(o => Object.keys(o))).toEqual([['timeoutMs', 'call'], ['timeoutMs', 'call']])
+  expect(opts.map(o => Object.keys(o))).toEqual([['timeoutMs', 'writingMs', 'call'], ['timeoutMs', 'writingMs', 'call']])
   expect(out).toMatchObject({ calls: 2, tools: 1, stopped: 'answer', answer: final })
 })
 

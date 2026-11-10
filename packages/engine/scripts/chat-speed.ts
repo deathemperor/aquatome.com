@@ -115,13 +115,17 @@ function sender(healthy: KeyEntry[], store: HealthStore, began: number, calls: C
     const into = o.call === 0 ? side : calls
     const call: Call = { n: o.call, at: sent - began, ms: 0, input: 0, cacheRead: 0, cacheWrite: 0, output: 0, forced: b.tool_choice?.type === 'none' }
     const read = textReader()
+    // As api.ts `callClaude`: a call that has begun writing may take the time left.
+    const stop = new AbortController()
+    let timer = setTimeout(() => stop.abort(), timeoutMs)
     try {
-      const stream = c.messages.stream(b, { timeout: timeoutMs, signal: AbortSignal.timeout(timeoutMs) })
+      const stream = c.messages.stream(b, { timeout: timeoutMs, signal: stop.signal })
       for await (const e of stream) {
         const t = Date.now() - sent
         if (e.type === 'message_start') call.first ??= t
         else if (e.type === 'content_block_start' && e.content_block.type === 'tool_use') call.tool ??= t
         else if (e.type === 'content_block_delta' && e.delta.type === 'text_delta') {
+          if (call.text === undefined && o.writingMs && o.writingMs > timeoutMs) { clearTimeout(timer); timer = setTimeout(() => stop.abort(), o.writingMs - t) }
           call.text ??= t
           if (read(e.delta.text)) { call.piece ??= t; call.last = t }
           feed?.(e.delta.text)
@@ -138,6 +142,8 @@ function sender(healthy: KeyEntry[], store: HealthStore, began: number, calls: C
       // An abort by the bound is the timeout a call that doesn't stream would have hit; a cut stream, the network.
       if ((e as Error)?.name === 'TimeoutError' || /aborted/i.test(String((e as Error)?.message))) throw Object.assign(new Error('Request timed out.'), { status: undefined })
       throw isApiError(e) ? e : Object.assign(e instanceof Error ? e : new Error(String(e)), { status: undefined })
+    } finally {
+      clearTimeout(timer)
     }
   }
   return async (b, o) => {
