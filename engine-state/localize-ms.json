@@ -358,13 +358,17 @@
     ]
   },
   "astronotus-ocellatus": {
-    "at": "2026-11-06",
-    "from": "2026-11-06",
-    "name": "Oscar",
+    "at": "2026-11-10",
+    "from": "2026-11-09",
+    "name": "Ikan Oscar",
     "confidence": "high",
-    "score": 0.93,
+    "score": 0.88,
     "notes": [
-      "Item 19: \"mengelakkan tangki berkemungkinan menjadi terlalu ramai ikan\" is awkward for \"potentially overpopulating your tank\". Use something like \"dan mengelakkan tangki menjadi terlalu sesak dengan ikan\"."
+      "Item 13: \"Oscar sangat menuntut kimia air yang baik\" reads stiffly. Use something like \"Oscar sangat sensitif terhadap kualiti air\".",
+      "Item 20: \"kekacang\" means legumes. For \"nuts\" use \"kacang\" or \"buah bernut\".",
+      "Item 18: \"ikan bilis/whitebait\" is imprecise, because whitebait is not the same as ikan bilis. Use \"whitebait\" or a more exact local term.",
+      "Item 6: \"Di banyak negeri di Amerika Syarikat yang ikan ini telah dilepaskan\" is awkward. Use \"Di banyak negeri di Amerika Syarikat tempat ikan ini dilepaskan ke alam liar\".",
+      "Item 12: \"Selain itu, ia agak tidak cerewet\" is a loose rendering of \"otherwise relatively unfussy\". Use \"Selain itu, ia tidak begitu cerewet\"."
     ]
   },
   "balantiocheilos-melanopterus": {
@@ -593,17 +597,15 @@
     ]
   },
   "danio-rerio": {
-    "at": "2026-11-06",
-    "from": "2026-11-01",
-    "name": "Zebra danio",
+    "at": "2026-11-10",
+    "from": "2026-11-09",
+    "name": "Ikan Zebra",
     "confidence": "medium",
     "score": 0.9,
     "notes": [
-      "Item 27: 'lebih gelap dan lebih terang warnanya' reads as contradictory for 'darker and more intensely coloured'. Use 'lebih gelap dan warnanya lebih pekat/ketara'.",
-      "Item 13: '10-gallon (40-litre)' became '38 liter', but the later '40-litre tank' stays 40. Use one figure for the same tank size across the text.",
-      "Item 31: 'ikan keli' for 'catfishes' normally means Clarias to a Malaysian reader. Use 'ikan berkumis (catfish)' or just 'catfish'.",
-      "Item 33: the 'cross-reared' sentence is clumsy ('ikan yang dibesarkan bersama ikan bercorak lain (cross-reared) lebih menyukai corak ikan yang membesar bersamanya'). Rephrase so it says fish prefer the pattern of the fish they were raised with.",
-      "Item 24: 'larva' sits beside 'anak ikan' for the same life stage. Use one term consistently."
+      "Item 17: \"Akuarium panjang 75 liter atau lebih panjang\" is awkward, because \"lebih panjang\" is wrong for a volume. Use \"75 liter atau lebih besar\".",
+      "Item 41: \"Sebaik sahaja telur dikeluarkan\" could be read as the eggs being removed. Use \"telur sudah diletakkan/ditabur\" for \"eggs have been laid\".",
+      "Item 34: \"Perhatikan interaksi antara mereka\" is slightly stiff. Use \"Pantau interaksi ikan-ikan itu\"."
     ]
   },
   "datnioides-microlepis": {
@@ -767,14 +769,16 @@
     "notes": []
   },
   "mikrogeophagus-ramirezi": {
-    "at": "2026-11-06",
-    "from": "2026-10-30",
-    "name": "Ram",
+    "at": "2026-11-10",
+    "from": "2026-11-09",
+    "name": "Ikan Ram",
     "confidence": "medium",
-    "score": 0.93,
+    "score": 0.88,
     "notes": [
-      "Item 3: \"dataran yang dinaiki air secara bermusim\" is slightly awkward; \"dataran yang dilanda banjir bermusim\" reads more naturally.",
-      "Item 11: \"diatributkan kepada\" is awkward; use \"dikaitkan dengan\" or \"dikreditkan kepada\"."
+      "Item 13: 'memakan telur atau anaknya' adds 'or its young'. The English says only 'eat their brood', so keep it to 'memakan anak/telur' without implying a separate fact.",
+      "Item 14: 'diatribusikan kepada Jens Meulengracht-Madsen' is awkward calque. Use 'dikreditkan kepada' or 'dikaitkan dengan'.",
+      "Item 14: 'Isbrücker (2011) ... bahawa Microgeophagus sensu Frey (1957) sebenarnya nama tersedia' is missing the copula 'ialah'.",
+      "Item 8: 'tangki' in 'hiasan tangki' is mixed with 'akuarium' used elsewhere. Use 'hiasan akuarium' consistently."
     ]
   },
   "monodactylus-argenteus": {
@@ -809,12 +813,23 @@
     ]
   },
   "oryzias-latipes": {
-    "at": "2026-11-07",
-    "from": "2026-10-30",
-    "name": "Medaka",
+    "at": "2026-11-10",
+    "from": "2026-11-09",
+    "name": "Ikan medaka",
     "confidence": "high",
-    "score": 0.95,
-    "notes": []
+    "score": 0.6,
+    "notes": [
+      "Item 3: 'sekumpulan telur ... menetas di sana' – English says they mated and laid eggs that hatched in space; fine, but 'beberapa ringgit' for 'a few dollars' changes currency; use neutral wording such as 'beberapa dolar' or keep as converted price.",
+      "Item 8: '45 × 30 cm ... (kira-kira 41 liter)' – 41 litres kept as is, acceptable; but 'liter' is Indonesian spelling, use 'liter/liter' consistently as 'liter' is accepted in Malaysia; prefer 'L' or 'liter' fine.",
+      "Item 6: 'tasik ladam' for 'oxbows' is fine, but 'dikutip' for 'collected' is awkward; use 'ditangkap' or 'dikumpulkan'.",
+      "Item 15: 'jentik-jentik' is Indonesian; use 'jentik-jentik nyamuk' or 'larva nyamuk' in Malaysian Malay.",
+      "Item 21: 'kiambang kecil (dwarf water lettuce)' and 'keladi bunting' for water hyacinth: 'keladi bunting' is the local name for Eichhornia, OK, but 'kiambang' is Salvinia; check dwarf water lettuce (Pistia) is 'kiambang' - acceptable. 'tukar air yang kerap' is awkward: use 'penukaran air yang kerap'.",
+      "Item 17/21: 'tangki' is acceptable; 'penghobi' acceptable.",
+      "Item 1: 'ricefish' left untranslated in the intro, while elsewhere 'ikan medaka'; use consistent 'ikan padi (ricefish)'.",
+      "Item 22: 'Universiti Kebangsaan Taiwan' for National University of Taiwan: use 'Universiti Kebangsaan Taiwan' fine, but 'Cyprinodontiformes' as 'famili' – English says family (error in source); keep as is.",
+      "Item 12/11: 'tahan suhu' should be 'tahan pada suhu' or 'bertoleransi terhadap suhu'.",
+      "Item 16: 'kelihatan paling menarik' for 'look most effective' acceptable."
+    ]
   },
   "osteoglossum-bicirrhosum": {
     "at": "2026-11-06",
@@ -1075,13 +1090,16 @@
     ]
   },
   "symphysodon-aequifasciatus": {
-    "at": "2026-11-06",
-    "from": "2026-10-31",
+    "at": "2026-11-10",
+    "from": "2026-11-09",
     "name": "Discus",
     "confidence": "high",
-    "score": 0.95,
+    "score": 0.75,
     "notes": [
-      "Item 8: 'terkenal sebagai yang paling cantik' weakens 'legendarily most beautiful'. Consider 'dikatakan legenda sebagai yang paling cantik' or 'terkenal secara legenda sebagai yang paling cantik'."
+      "Item 9: 'warna asas merah-oren yang sangat terang' adds 'terang' (bright); the English says 'strongly red-orange'. Use 'sangat pekat' or 'kuat'.",
+      "Item 5: 'sepasang ikan dewasa untuk dibiakkan' is awkward. Use 'sepasang ikan dewasa pembiak'.",
+      "Item 9: 'untuk ciri-ciri ini' is vague. Use 'bagi ciri-ciri tersebut'.",
+      "Item 9: 'Berdiri di depan akuarium yang berisi ikan yang megah ini' is stiff. Use 'Berdiri di hadapan akuarium yang menempatkan ikan-ikan yang indah ini'."
     ]
   },
   "symphysodon-discus": {

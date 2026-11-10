@@ -1,8 +1,8 @@
 {
   "id": "leptobarbus-rubripinna",
   "native": {
-    "input": "8af4a511b05423ca",
-    "at": "2026-11-09T16:24:16.651Z",
+    "input": "763cf3693cd870ea",
+    "at": "2026-11-10T07:58:31.896Z",
     "claims": [
       {
         "code": "LA",
@@ -34,6 +34,22 @@
         "source": "seriouslyfish",
         "quote": "Widely-distributed in the middle and lower Mekong River system in Laos, Thailand, Cambodia, and Vietnam, plus the Chao Phraya and Mae Klong watersheds in central and western Thailand.",
         "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Kemarat, Mekong drainage, Thailand'.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "A pelagic species primarily inhabiting rivers and larger streams but also some man-made lakes such as Bueng Boraphet reservoir in central-western Thailand.",
+        "words": "Thailand",
         "ok": true
       }
     ],

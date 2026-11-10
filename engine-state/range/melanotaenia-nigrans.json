@@ -1,0 +1,128 @@
+{
+  "id": "melanotaenia-nigrans",
+  "native": {
+    "input": "539e5607ae58d792",
+    "at": "2026-11-10T07:58:31.896Z",
+    "claims": [
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Melanotaenia nigrans comes from northern Australia, where it is irregularly distributed: from the Kimberley region in Western Australia through the northern part of the Northern Territory to the Cape York Peninsula in northern Queensland, including a number of offshore islands such as Groote Eylandt in the Gulf of Carpentaria and some islands in the Torres Strait.",
+        "words": "Australia",
+        "ok": true
+      },
+      {
+        "code": "PG",
+        "status": "doubtful",
+        "source": "glaser",
+        "quote": "There are persistent rumors that the species also occurs in New Guinea, but it has never been scientifically proven there.",
+        "words": "New Guinea",
+        "ok": false,
+        "why": "\"New Guinea\" is not PG"
+      },
+      {
+        "code": "PH",
+        "status": "introduced",
+        "source": "glaser",
+        "quote": "The species is said to be naturalized in the Philippines.",
+        "words": "Philippines",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Cape York Peninsula",
+        "source": "glaser",
+        "quote": "Melanotaenia nigrans comes from northern Australia, where it is irregularly distributed: from the Kimberley region in Western Australia through the northern part of the Northern Territory to the Cape York Peninsula in northern Queensland, including a number of offshore islands such as Groote Eylandt in the Gulf of Carpentaria and some islands in the Torres Strait.",
+        "ok": true
+      },
+      {
+        "name": "Groote Eylandt",
+        "source": "glaser",
+        "quote": "Melanotaenia nigrans comes from northern Australia, where it is irregularly distributed: from the Kimberley region in Western Australia through the northern part of the Northern Territory to the Cape York Peninsula in northern Queensland, including a number of offshore islands such as Groote Eylandt in the Gulf of Carpentaria and some islands in the Torres Strait.",
+        "ok": true
+      },
+      {
+        "name": "Torres Strait",
+        "source": "glaser",
+        "quote": "Melanotaenia nigrans comes from northern Australia, where it is irregularly distributed: from the Kimberley region in Western Australia through the northern part of the Northern Territory to the Cape York Peninsula in northern Queensland, including a number of offshore islands such as Groote Eylandt in the Gulf of Carpentaria and some islands in the Torres Strait.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Melanotaenia nigrans",
+    "status": "ACCEPTED",
+    "taxonKey": 2411677,
+    "datasets": [
+      [
+        "fa375330-6c8a-11de-8226-b8a03c50a862",
+        763
+      ],
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        435
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        140
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        55
+      ],
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        21
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        20
+      ],
+      [
+        "e4473544-f4cd-4429-b791-39d6e1fdb0a4",
+        14
+      ],
+      [
+        "18c93d12-34fb-4d3f-903c-b77215a1dcc9",
+        5
+      ],
+      [
+        "d51f93a6-a5b7-4025-83a9-3f7b8525755a",
+        5
+      ],
+      [
+        "39905320-6c8a-11de-8226-b8a03c50a862",
+        3
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "f0d00d00-aa57-4209-abaf-be2aed9a71dd",
+        1
+      ]
+    ],
+    "native": [
+      "AU"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T07:58:31.896Z"
+  }
+}

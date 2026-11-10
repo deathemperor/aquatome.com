@@ -10,6 +10,61 @@
     "indonesia",
     "aru-islands"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Mareremar River",
+        "Kobroor",
+        "Aru Islands"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Kobroor belongs to the Aru Islands, which are politically part of Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Aru Islands"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "M. picta was described from the drainage of the Mareremar River on the island of Kobroor.",
+          "countries": [],
+          "regions": [
+            "Mareremar River",
+            "Kobroor"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9361077,
+      "total": 1,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "ID",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          133.59375,
+          -7.03125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

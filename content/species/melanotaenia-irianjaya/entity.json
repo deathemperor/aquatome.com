@@ -10,6 +10,58 @@
     "indonesia",
     "bintuni-bay"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Irian Jaya rainbowfish, Melanotaenia irianjaya, is a rainbowfish from Indonesia, recorded only around Bintuni Bay in Irian Jaya.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2411698,
+      "total": 27,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "ID",
+          27
+        ]
+      ],
+      "cells": [
+        [
+          132.1875,
+          -4.21875,
+          13,
+          13
+        ],
+        [
+          132.1875,
+          -2.8125,
+          12,
+          12
+        ],
+        [
+          132.1875,
+          -1.40625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -10,6 +10,62 @@
     "d-r-congo",
     "congo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CD"
+      ],
+      "regions": [
+        "Congo"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: D.R. Congo",
+          "countries": [
+            "CD"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "But in the rapids of the lower Congo river not less than 5 different species of blind fish exist (among them the only blind species of cichlid of the World, Lamprologus lethops) – and nobody can explain why these fish are blind.",
+          "countries": [],
+          "regions": [
+            "Congo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2351745,
+      "total": 10,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "CD",
+          10
+        ]
+      ],
+      "cells": [
+        [
+          12.65625,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          14.0625,
+          -5.625,
+          9,
+          9
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

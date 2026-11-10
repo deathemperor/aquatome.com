@@ -1729,6 +1729,77 @@
       "kept": false
     }
   ],
+  "ms/guides/aquatome-cach-ly-ca-moi-mua-be-cach-ly-va-quy-trinh": [
+    {
+      "at": "2026-11-10T10:11:17Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Semua bersetuju tempohnya jangan kurang daripada dua minggu\" - overgeneralisation; the facts do not say all sources agree.",
+        "\"Sebuah panduan penjagaan ikan lain\" for 4–6 weeks after last symptom/death is correct as shop; but the 14–21 days is source 'other' described as \"Satu sumber lain\" - fine. \"Kebanyakan sumber mencadangkan sekitar 30 hari atau 4–6 minggu\" is an unsupported generalisation, since several sources give shorter periods.",
+        "\"Ikut dos pada label setiap produk yang anda beli\" for the three-medicine soak - the facts give a dose for this regimen (per 10 gallons, 1 packet etc.), so the guide turned a given dose into 'follow label' and omitted it; minor.",
+        "\"Selepas itu, ubah parameter air sedikit demi sedikit\" is placed as a step after water changes, an ordering not in the facts.",
+        "\"Seorang doktor haiwan menegaskan bahawa kuarantin perlu dibuat dalam tangki yang benar-benar berasingan\" - vet source 2 is correct; fine. \"Rawat ikan ikut label ubat\" in FAQ is allowed."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "reads": [
+        0.82,
+        0.8,
+        0.72
+      ]
+    },
+    {
+      "at": "2026-11-10T10:11:17Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"Pengudaraan yang cukup, contohnya pam udara\": the facts require good aeration but never name an air pump. This is a small addition.",
+        "\"Letakkan beberapa tempat sembunyi ... supaya ikan tidak tertekan\": the facts list hides as setup items. The reason given (reducing stress) is the guide's own and is not in the facts."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.9,
+        0.88,
+        0.9
+      ]
+    }
+  ],
+  "ms/guides/aquatome-cach-tao-vi-sinh-va-dung-men-vi-sinh-cho-ho-ca": [
+    {
+      "at": "2026-11-10T10:14:41Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "\"bukan Nitrobacter seperti yang lama dipercayai\": the facts do not say it was long believed. They only list the Nitrobacter claim as a myth.",
+        "\"Bezanya terletak pada bacaan ujian... nitrit biasanya masih rendah atau tiada\": this contrast between new tank syndrome and a biofilter crash is the guide's own inference. The two sources are not compared in the facts."
+      ],
+      "attempt": "rewrite",
+      "kept": false,
+      "reads": [
+        0.92,
+        0.88,
+        0.8
+      ]
+    },
+    {
+      "at": "2026-11-10T10:14:41Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"ammonia daripada sisa ikan dan makanan\": the facts never say where the ammonia comes from.",
+        "\"Dapatkan bantuan jika ikan terus lesu... walaupun air sudah ditukar dan bacaan ammonia serta nitrit sudah turun\": this \"when to worry\" advice is a generalisation. The facts only say secondary infections may need a vet."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.9,
+        0.9,
+        0.92
+      ]
+    }
+  ],
   "th/guides/aquatome-be-ca-khi-mat-dien-giu-ca-song-the-nao": [
     {
       "at": "2026-11-08T14:57:25Z",

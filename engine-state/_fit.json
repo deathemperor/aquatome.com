@@ -11186,6 +11186,29 @@
   "findings": [],
   "products": []
  },
+ "id/species/clarias-gariepinus": {
+  "at": "2026-11-10",
+  "hash": "cce92685bd772990",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P10",
+    "quote": "4 foto dari kontributor Philip Marazzi memperlihatkan sebuah kolam yang mengering di Maasai Mara",
+    "why": "Refers to photos and a contributor from the source site that the page does not have.",
+    "by": "model"
+   },
+   {
+    "check": "elsewhere",
+    "part": "P9",
+    "quote": "sehingga tetap memenuhi undang-undang kesejahteraan hewan",
+    "why": "Describes a breeder practice driven by a foreign (German) animal welfare law as if it applied to the reader.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
  "id/species/clarias-insolitus": {
   "at": "2026-11-07",
   "hash": "457ea3de0febd1ee",
@@ -11206,6 +11229,245 @@
   "hash": "ae641c356ada5dff",
   "model": "opus",
   "checklist": 2,
+  "findings": [],
+  "products": []
+ },
+ "id/species/clarias-pachynema": {
+  "at": "2026-11-10",
+  "hash": "385d7a8de2a227d5",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/clarotes-laticeps": {
+  "at": "2026-11-10",
+  "hash": "d53328abdc5ee454",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/clavularia-viridis": {
+  "at": "2026-11-10",
+  "hash": "994215239e17bed9",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "words",
+    "part": "P9",
+    "quote": "menggunakan alat bantu seperti turkey baster atau pipet",
+    "why": "\"Turkey baster\" is an American kitchen tool name; keepers in Indonesia just say pipet.",
+    "by": "model",
+    "fix": "pipet"
+   }
+  ],
+  "products": [
+   "reef roids"
+  ],
+  "doses": [
+   {
+    "treatment": "iodine",
+    "strength": "15ppt",
+    "amount": 15,
+    "amountMax": 0,
+    "unit": "ppt",
+    "per": 0,
+    "perUnit": "",
+    "use": "other",
+    "method": "dip",
+    "quote": "celup koral dalam larutan iodin (15 ppt)"
+   }
+  ],
+  "sourceRead": true
+ },
+ "id/species/cleithracara-maronii": {
+  "at": "2026-11-10",
+  "hash": "a41bb25a638b9c7f",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P13",
+    "quote": "Dalam sebuah perjalanan koleksi pribadi ke Guyana Prancis, ditemukan varian lokal Cleithracara maronii di dekat Kourou",
+    "why": "The source writer's own collecting-trip story, told as if the reader knew it.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "id/species/clupisoma-bastari": {
+  "at": "2026-11-10",
+  "hash": "77444f824729420d",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/clupisoma-garua": {
+  "at": "2026-11-10",
+  "hash": "e105a542db4f8625",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/clupisoma-longianale": {
+  "at": "2026-11-10",
+  "hash": "93a0ac014e562f2b",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/clupisoma-prateri": {
+  "at": "2026-11-10",
+  "hash": "8d498d641770b41c",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/clypeobarbus-congicus": {
+  "at": "2026-11-10",
+  "hash": "b71f7429dd7285b3",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P6",
+    "quote": "Daun beech dan oak cocok dipakai asalkan sudah dikeringkan sepenuhnya terlebih dulu",
+    "why": "Beech and oak leaves come from temperate trees found where the source's readers live, not in Indonesia.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "id/species/cnidoglanis-macrocephalus": {
+  "at": "2026-11-10",
+  "hash": "c0a78a5cc7ffa684",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/cobitis-macrostigma": {
+  "at": "2026-11-10",
+  "hash": "9b34c07b0207ca00",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P1",
+    "quote": "sangat cocok sebagai penghuni dasar di akuarium komunitas tanpa pemanas",
+    "why": "Assumes a cool-climate home; an unheated tank in Indonesia runs about 26–30 °C, above this fish's 10–24 °C range.",
+    "by": "model",
+    "fix": "Rewrite to say the fish needs cool water, which in a tropical climate may require a chiller."
+   }
+  ],
+  "products": []
+ },
+ "id/species/colomesus-asellus": {
+  "at": "2026-11-10",
+  "hash": "00866c0da6857db2",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "words",
+    "part": "P18",
+    "quote": "platy pedang (swordtail)",
+    "why": "Calque; Indonesian keepers call Xiphophorus hellerii 'ikan pedang' or swordtail, not 'platy pedang'.",
+    "by": "model",
+    "fix": "ikan pedang (swordtail)"
+   }
+  ],
+  "products": [
+   "Fritz ParaCleanse",
+   "PraziPro",
+   "Repashy"
+  ],
+  "doses": [
+   {
+    "treatment": "clove oil",
+    "strength": "",
+    "amount": 2,
+    "amountMax": 4,
+    "unit": "drop",
+    "per": 1,
+    "perUnit": "litre",
+    "use": "other",
+    "method": "bath",
+    "quote": "menambahkan 2–4 tetes minyak cengkih per 1 liter air"
+   }
+  ],
+  "sourceRead": true
+ },
+ "id/species/colomesus-psittacus": {
+  "at": "2026-11-10",
+  "hash": "48770fb3a4032f62",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/colomesus-tocantinensis": {
+  "at": "2026-11-10",
+  "hash": "ad1a197c8ec445f3",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/colossoma-macropomum": {
+  "at": "2026-11-10",
+  "hash": "5c80fa309e72fc4c",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P5",
+    "quote": "beberapa potongan besar kayu apung atau cabang pohon beech",
+    "why": "Beech branches are a European/North American aquascaping material that is not available in Indonesia.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "id/species/congochromis-dimidiatus": {
+  "at": "2026-11-10",
+  "hash": "cdb8fb6a1df6a86b",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/congochromis-sabinae": {
+  "at": "2026-11-10",
+  "hash": "f26e67a5e0cb8b96",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/copadichromis-azureus": {
+  "at": "2026-11-10",
+  "hash": "7c816268edf47b4a",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/copadichromis-borleyi": {
+  "at": "2026-11-10",
+  "hash": "acb3e575652f7340",
+  "model": "opus",
+  "checklist": 3,
   "findings": [],
   "products": []
  },
@@ -16150,6 +16412,60 @@
   "findings": [],
   "products": []
  },
+ "ms/guides/aquatome-cach-ly-ca-moi-mua-be-cach-ly-va-quy-trinh": {
+  "at": "2026-11-10",
+  "hash": "daf3961d8584a88e",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [],
+  "doses": [
+   {
+    "treatment": "bleach",
+    "strength": "",
+    "amount": 1,
+    "amountMax": 0,
+    "unit": "part",
+    "per": 20,
+    "perUnit": "part water",
+    "use": "disinfecting",
+    "method": "dip",
+    "quote": "larutan peluntur dan air pada nisbah 1:20"
+   }
+  ],
+  "sourceRead": true
+ },
+ "ms/guides/aquatome-cach-tao-vi-sinh-va-dung-men-vi-sinh-cho-ho-ca": {
+  "at": "2026-11-10",
+  "hash": "0b44420d223e3a4d",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P1",
+    "quote": "Hidupkan aliran air dan panaskan air ke 24–26 °C sebelum memasukkan bakteria.",
+    "why": "This assumes water colder than 24–26 °C that needs heating, which is normal in a cold climate, but tap and tank water in Malaysia are usually warmer than that already.",
+    "by": "model"
+   }
+  ],
+  "products": [],
+  "doses": [
+   {
+    "treatment": "ammonium chloride",
+    "strength": "",
+    "amount": 2,
+    "amountMax": 0,
+    "unit": "ppm",
+    "per": 0,
+    "perUnit": "",
+    "use": "other",
+    "method": "wholeTank",
+    "quote": "tambah ammonium klorida sehingga ammonia kira-kira 2.0 ppm"
+   }
+  ],
+  "sourceRead": true
+ },
  "ms/plants/acorus-gramineus": {
   "at": "2026-11-07",
   "hash": "e69dfc118c7dbe49",
@@ -16381,6 +16697,14 @@
   "findings": [],
   "products": []
  },
+ "ms/plants/azolla": {
+  "at": "2026-11-10",
+  "hash": "a1207be477e209d6",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
  "ms/plants/bacopa-australis": {
   "at": "2026-11-07",
   "hash": "e3d02b301c67e229",
@@ -16533,6 +16857,32 @@
    }
   ],
   "products": []
+ },
+ "ms/plants/bucephelandra-sp": {
+  "at": "2026-11-10",
+  "hash": "247ff6b5c77f4938",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "ms/plants/cabomba-aquatica": {
+  "at": "2026-11-10",
+  "hash": "9196887dbc8bc95b",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "ms/plants/caloglossa-beccarii": {
+  "at": "2026-11-10",
+  "hash": "7faa58650bd00c4d",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [
+   "Seachem Flourish Excel"
+  ]
  },
  "ms/species/acanthodoras-cataphractus": {
   "at": "2026-11-09",
@@ -16733,8 +17083,8 @@
   "products": []
  },
  "ms/species/astronotus-ocellatus": {
-  "at": "2026-11-08",
-  "hash": "bb3cf22188b44a92",
+  "at": "2026-11-10",
+  "hash": "1d9a7c5c4cb00c1d",
   "model": "opus",
   "checklist": 3,
   "findings": [
@@ -16742,21 +17092,14 @@
     "check": "elsewhere",
     "part": "P1",
     "quote": "Oscar dewasa membesar sepanjang sebiji bola sepak Amerika",
-    "why": "Compares size to an American football, a reference for readers in the US.",
-    "by": "model"
-   },
-   {
-    "check": "units",
-    "part": "P10",
-    "quote": "tetapi 280 L lebih baik kerana memberi lebih ruang untuk berenang dan berpusing",
-    "why": "280 L is a converted 75-gallon tank size, not one used in Malaysia.",
+    "why": "An American football is a size comparison made for a US reader, not one used in Malaysia.",
     "by": "model"
    },
    {
     "check": "units",
     "part": "P10",
     "quote": "tiga ekor oscar pernah dipelihara dalam tangki 470 L",
-    "why": "470 L is a converted 125-gallon tank size.",
+    "why": "470 L is a 125-gallon tank converted to litres, a size nobody in Malaysia would give.",
     "by": "model"
    }
   ],
@@ -17032,16 +17375,16 @@
   "products": []
  },
  "ms/species/danio-rerio": {
-  "at": "2026-11-08",
-  "hash": "610425c9ec1875df",
+  "at": "2026-11-10",
+  "hash": "80e205f6cdc1b787",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "units",
-    "part": "P31",
-    "quote": "Sesetengah penternak menggunakan jaring pada bingkai 2.5 cm di atas dasar",
-    "why": "A 2.5 cm height is a converted 1 inch, not a figure a Malaysian keeper would choose.",
+    "part": "P40",
+    "quote": "menggunakan jaring pada bingkai 2.5 cm di atas dasar",
+    "why": "2.5 cm is a converted 1 inch from an imperial source, not a figure a Malaysian keeper would give.",
     "by": "model"
    }
   ],
@@ -17189,15 +17532,23 @@
   "products": []
  },
  "ms/species/mikrogeophagus-ramirezi": {
-  "at": "2026-11-07",
-  "hash": "359ba7e3624b32e6",
+  "at": "2026-11-10",
+  "hash": "a84b043e83287b49",
   "model": "opus",
+  "checklist": 3,
   "findings": [
    {
     "check": "source",
-    "part": "P2",
-    "quote": "salah satu spesimen dalam gambar dikatakan telah dikutip di Rio Purus, Brazil",
-    "why": "Refers to a picture from the source article that this page does not have.",
+    "part": "P4",
+    "quote": "Ram dewasa tangkapan liar dari Venezuela kini ada dijual.",
+    "why": "This is the source shop's stock news, not something the reader can act on.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P5",
+    "quote": "salah satu spesimen dalam gambar dikatakan ditangkap di Sungai Purus, Brazil",
+    "why": "It refers to a photo from the source that this page does not have.",
     "by": "model"
    }
   ],
@@ -17253,15 +17604,16 @@
   ]
  },
  "ms/species/oryzias-latipes": {
-  "at": "2026-11-07",
-  "hash": "4f320c8a991c3104",
+  "at": "2026-11-10",
+  "hash": "dd9e888555875d1b",
   "model": "opus",
+  "checklist": 3,
   "findings": [
    {
     "check": "elsewhere",
-    "part": "P6",
-    "quote": "di banyak negara atau di rumah yang bertebat baik, ia paling sesuai dipelihara tanpa pemanas sepanjang tahun",
-    "why": "Written for a temperate-climate reader with insulated houses and heaters; in Malaysia the issue is keeping the water cool enough, not going without a heater.",
+    "part": "P12",
+    "quote": "di banyak negara/rumah yang bertebat baik, ia paling sesuai dipelihara tanpa pemanas sepanjang tahun",
+    "why": "Assumes a temperate country's cool insulated homes; in Malaysia an unheated tank runs well above 16–22 °C.",
     "by": "model"
    }
   ],
@@ -17535,15 +17887,16 @@
   "products": []
  },
  "ms/species/symphysodon-aequifasciatus": {
-  "at": "2026-11-07",
-  "hash": "140264ac10047122",
+  "at": "2026-11-10",
+  "hash": "033ef733e515e3a0",
   "model": "opus",
+  "checklist": 3,
   "findings": [
    {
     "check": "source",
-    "part": "P8",
-    "quote": "Pada masa ini, panjang ikan-ikan ini ialah 12-15 cm.",
-    "why": "This is about the fish the source shop had in stock at the time, and the reader has never seen them.",
+    "part": "P9",
+    "quote": "Varian \"Red Inferno\" dari Rio Moju kini sampai dalam kualiti yang luar biasa baik.",
+    "why": "This is the exporter's stock news about fish that have just arrived, written as if the reader knew that shop.",
     "by": "model"
    }
   ],
@@ -29173,6 +29526,29 @@
   "findings": [],
   "products": []
  },
+ "th/species/clarias-gariepinus": {
+  "at": "2026-11-10",
+  "hash": "0731ec57bdc602c8",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P10",
+    "quote": "ภาพ 4 ภาพจากผู้ร่วมส่งภาพ Philip Marazzi แสดงแอ่งน้ำที่แห้งขอดในเขต Maasai Mara",
+    "why": "Points to photos and a contributor from the source site that the page does not have.",
+    "by": "model"
+   },
+   {
+    "check": "elsewhere",
+    "part": "P9",
+    "quote": "ซึ่งเป็นไปตามกฎหมายสวัสดิภาพสัตว์",
+    "why": "Refers to the source country's (German) animal welfare law as if it applied to the reader.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
  "th/species/clarias-insolitus": {
   "at": "2026-11-08",
   "hash": "b1ff2fb607bc4801",
@@ -29194,6 +29570,235 @@
   "hash": "da44afa89bd29aeb",
   "model": "opus",
   "checklist": 2,
+  "findings": [],
+  "products": []
+ },
+ "th/species/clarias-pachynema": {
+  "at": "2026-11-10",
+  "hash": "5a6984c631f8bbf2",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/clarotes-laticeps": {
+  "at": "2026-11-10",
+  "hash": "1c986711f83548da",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/clavularia-viridis": {
+  "at": "2026-11-10",
+  "hash": "9bbc0568a97d34d7",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "words",
+    "part": "P8",
+    "quote": "หลอดไส้ หรือแม้แต่หลอดเมทัลฮาไลด์",
+    "why": "Incandescent bulbs are a mistranslation; reef keepers use fluorescent (T5) tubes, not incandescent.",
+    "by": "model",
+    "fix": "หลอดฟลูออเรสเซนต์ (T5)"
+   }
+  ],
+  "products": [
+   "Reef Roids"
+  ],
+  "doses": [
+   {
+    "treatment": "iodine",
+    "strength": "15ppt",
+    "amount": 15,
+    "amountMax": 0,
+    "unit": "ppt",
+    "per": 0,
+    "perUnit": "",
+    "use": "disinfecting",
+    "method": "dip",
+    "quote": "จุ่มปะการังในน้ำยาไอโอดีน (15 ppt)"
+   }
+  ],
+  "sourceRead": true
+ },
+ "th/species/cleithracara-maronii": {
+  "at": "2026-11-10",
+  "hash": "56531a2ce369d173",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/clupisoma-bastari": {
+  "at": "2026-11-10",
+  "hash": "b207ab9b9ba9608a",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/clupisoma-garua": {
+  "at": "2026-11-10",
+  "hash": "0d4badc21c6772fe",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/clupisoma-longianale": {
+  "at": "2026-11-10",
+  "hash": "2be90e35b28def0f",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/clupisoma-prateri": {
+  "at": "2026-11-10",
+  "hash": "43fed3c56d3350e9",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/clypeobarbus-congicus": {
+  "at": "2026-11-10",
+  "hash": "5f85563996258ba0",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P6",
+    "quote": "ใบบีช (common beech) และใบโอ๊กใช้ได้หากตากให้แห้งสนิทก่อน",
+    "why": "Beech and oak are temperate trees whose leaves a keeper in Thailand cannot easily collect; the advice assumes a reader abroad.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "th/species/cnidoglanis-macrocephalus": {
+  "at": "2026-11-10",
+  "hash": "17619837125a0098",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/cobitis-macrostigma": {
+  "at": "2026-11-10",
+  "hash": "5bf2e2b73a237c3a",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P1",
+    "quote": "เหมาะมากสำหรับเป็นปลาหน้าดินในตู้ปลารวมที่ไม่ใช้ฮีตเตอร์",
+    "why": "Calling an unheated tank ideal assumes a cool climate; in Thailand an unheated tank runs about 28–30 °C, above this fish's 10–24 °C range.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "th/species/colomesus-asellus": {
+  "at": "2026-11-10",
+  "hash": "9a4b27c0db42452d",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "units",
+    "part": "P10",
+    "quote": "หากเป็น 208 ลิตรจะยิ่งดี",
+    "why": "208 litres is a converted 55-gallon tank size, not one used in Thailand.",
+    "by": "model"
+   }
+  ],
+  "products": [
+   "Fritz ParaCleanse",
+   "PraziPro",
+   "Repashy"
+  ],
+  "doses": [
+   {
+    "treatment": "clove oil",
+    "strength": "",
+    "amount": 2,
+    "amountMax": 4,
+    "unit": "drop",
+    "per": 1,
+    "perUnit": "litre",
+    "use": "other",
+    "method": "bath",
+    "quote": "หยดน้ำมันกานพลู 2–4 หยดต่อน้ำ 1 ลิตร"
+   }
+  ],
+  "sourceRead": true
+ },
+ "th/species/colomesus-psittacus": {
+  "at": "2026-11-10",
+  "hash": "1e06105c1bbf7804",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/colomesus-tocantinensis": {
+  "at": "2026-11-10",
+  "hash": "5cb9366e7f20f5b9",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/colossoma-macropomum": {
+  "at": "2026-11-10",
+  "hash": "b96168fc9e38f486",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "units",
+    "part": "P4",
+    "quote": "อย่างน้อย 300 × 90 × 90 ซม. หรือราว 2550 ลิตร",
+    "why": "300 × 90 × 90 cm comes to about 2430 litres, so 2550 litres was converted from a 10 × 3 × 3 foot tank.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "th/species/congochromis-dimidiatus": {
+  "at": "2026-11-10",
+  "hash": "414cf68d5f8aad76",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/congochromis-sabinae": {
+  "at": "2026-11-10",
+  "hash": "1f315cac2f2e8c4c",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/copadichromis-azureus": {
+  "at": "2026-11-10",
+  "hash": "02b5ecf54fff73ca",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/copadichromis-borleyi": {
+  "at": "2026-11-10",
+  "hash": "94b26a52aefe70a9",
+  "model": "opus",
+  "checklist": 3,
   "findings": [],
   "products": []
  },
@@ -46746,8 +47351,8 @@
   "products": []
  },
  "vi/guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-brown-red-discus-madeira-nova-olinda-do-norte-en": {
-  "at": "2026-11-09",
-  "hash": "deb7ad46e2d7d083",
+  "at": "2026-11-10",
+  "hash": "3a7b9bec605b673d",
   "model": "opus",
   "checklist": 3,
   "findings": [
@@ -46755,110 +47360,117 @@
     "check": "source",
     "part": "P1",
     "quote": "Tuần trước có một lô cá đĩa màu nâu rất đẹp từ vùng Madeira về",
-    "why": "This is the source shop's news about new stock, which means nothing to a reader in Vietnam.",
+    "why": "This is the source shop's news about its own new stock, which the reader knows nothing about.",
     "by": "model"
    }
   ],
   "products": []
  },
  "vi/guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-chanchitos": {
-  "at": "2026-11-09",
-  "hash": "7c457cff79458bcf",
+  "at": "2026-11-10",
+  "hash": "3b6e4785f1ded2be",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "source",
     "part": "P1",
-    "quote": "Australoheros scitulus là một loài chanchito đẹp, cá có từ một trại ở Đức.",
-    "why": "Describes the source shop's own stock, saying where its fish came from, as if the reader knew that shop.",
+    "quote": "cá này lấy từ một trại ở Đức",
+    "why": "Refers to the source's own fish stock obtained from a German farm, as if the reader knew it.",
     "by": "model"
    }
   ],
   "products": []
  },
  "vi/guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-new-clown-angels-en": {
-  "at": "2026-11-09",
-  "hash": "7493ce6ff4624624",
+  "at": "2026-11-10",
+  "hash": "1cbbe47e87a98f49",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "source",
     "part": "P1",
-    "quote": "Lần đầu tiên có cá ông tiên gọi là \"Clown-Angel\" về từ một trại cá.",
-    "why": "This is a shop's stock news about a new arrival, written as if the reader knew that shop.",
+    "quote": "Lần đầu tiên có một trại gửi về dòng cá ông tiên gọi là \"Clown-Angel\".",
+    "why": "This is the source shop's news that new stock has arrived, which means nothing to a reader in Vietnam.",
     "by": "model"
    }
   ],
   "products": []
  },
  "vi/guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-new-names-for-goldseam-cichlid-and-green-terror-en": {
-  "at": "2026-11-09",
-  "hash": "14d6fa6427a75618",
+  "at": "2026-11-10",
+  "hash": "897644639b89b340",
   "model": "opus",
   "checklist": 3,
   "findings": [],
   "products": []
  },
  "vi/guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-the-discus-season-has-started-2-en": {
-  "at": "2026-11-09",
-  "hash": "108455595a85200b",
+  "at": "2026-11-10",
+  "hash": "bd253c49f2609ee1",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "source",
     "part": "P1",
-    "quote": "lứa cá đĩa bắt ngoài tự nhiên đầu tiên của mùa mới vẫn về tới",
-    "why": "This is stock-arrival news from the importer that wrote the original article, which the reader doesn't know.",
+    "quote": "lứa cá đĩa bắt ngoài tự nhiên đầu tiên của mùa mới đã về",
+    "why": "This is the source shop announcing new stock, which the reader has no connection to.",
     "by": "model"
    }
   ],
   "products": []
  },
  "vi/guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-the-discus-season-has-started-en": {
-  "at": "2026-11-09",
-  "hash": "1bf129b7198b119d",
+  "at": "2026-11-10",
+  "hash": "a91612d0c79aab58",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "source",
     "part": "P1",
-    "quote": "lứa cá đĩa bắt ngoài tự nhiên đầu tiên của mùa mới vẫn về được",
-    "why": "This is a shop's stock news about fish arriving, written for that shop's customers.",
+    "quote": "lứa cá đĩa bắt tự nhiên đầu tiên của mùa mới đã về",
+    "why": "This is an importer's stock news about wild discus arriving, and the reader doesn't know who that importer is.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "mã 737105",
+    "why": "This is the source shop's own stock code for a fish, which means nothing to a reader in Vietnam.",
     "by": "model"
    }
   ],
   "products": []
  },
  "vi/guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-thorichthys-week-at-aquarium-glaser-en": {
-  "at": "2026-11-09",
-  "hash": "a3aa2bc5bf781421",
+  "at": "2026-11-10",
+  "hash": "f77e66ebca7dd945",
   "model": "opus",
   "checklist": 3,
   "findings": [],
   "products": []
  },
  "vi/guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-wild-collected-oscars-from-brazil-en": {
-  "at": "2026-11-09",
-  "hash": "939a0c9cccfb6f01",
+  "at": "2026-11-10",
+  "hash": "0d800844251ca5ed",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "source",
     "part": "P1",
-    "quote": "Lại có thêm bốn con cá tai tượng (Oscar) nhập từ Brazil.",
-    "why": "This is a foreign importer's stock news about fish it has just received, which the reader has no access to.",
+    "quote": "Lại có thêm bốn con cá tai tượng (Oscar) nhập từ Brazil",
+    "why": "This is an importer's stock news about fish it just received, not something written for the reader.",
     "by": "model"
    },
    {
     "check": "source",
     "part": "P1",
-    "quote": "Con kia trông rất giống con tai tượng \"Zebra\" nhập năm ngoái.",
-    "why": "It mentions the source shop's earlier import as if the reader knew about it.",
+    "quote": "trông rất giống mấy con tai tượng \"Zebra\" nhập về năm ngoái",
+    "why": "It refers to the source shop's earlier shipment as if the reader knew about it.",
     "by": "model"
    }
   ],
@@ -73716,8 +74328,8 @@
   "sourceRead": false
  },
  "vi/guides/youtube-XaHIqAHi4MU": {
-  "at": "2026-11-08",
-  "hash": "13b057733d5efcbc",
+  "at": "2026-11-10",
+  "hash": "860a185f8cafa601",
   "model": "opus",
   "checklist": 3,
   "findings": [
@@ -73725,21 +74337,14 @@
     "check": "source",
     "part": "P1",
     "quote": "Bể Hà Lan 60 cm này trồng toàn các loại cây cắt cắm phổ biến.",
-    "why": "Talks about the source's own tank as if the reader already knew it.",
+    "why": "It talks about the source's own tank as if the reader already knew it.",
     "by": "model"
    },
    {
     "check": "source",
     "part": "P1",
     "quote": "Bể 60 cm này chỉ dùng hai đèn giá rẻ.",
-    "why": "Describes the source's own tank setup, which the reader has never seen.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "L1",
-    "quote": "Ở bể Hà Lan 60 cm này, rêu tóc lên vào tuần thứ hai",
-    "why": "The summary is about the source's tank instead of the reader's.",
+    "why": "It refers again to the original writer's own tank setup, which the reader has never seen.",
     "by": "model"
    }
   ],
@@ -75071,8 +75676,8 @@
   ]
  },
  "vi/guides/youtube-Yv6gkqeQ0aE": {
-  "at": "2026-11-09",
-  "hash": "b021b5c63f4b61c6",
+  "at": "2026-11-10",
+  "hash": "4e9cd9573d8c8780",
   "model": "opus",
   "checklist": 3,
   "findings": [
@@ -75080,65 +75685,29 @@
     "check": "price",
     "part": "P1",
     "quote": "vì sao giá lên tới hàng nghìn đô",
-    "why": "Price given in US dollars, not Vietnamese dong.",
+    "why": "Price given in US dollars for a US reader.",
     "by": "model"
    },
    {
     "check": "price",
     "part": "P1",
-    "quote": "thấy cá rồng bán ở cửa hàng với giá vài chục đô",
-    "why": "US shop price in dollars.",
-    "by": "model"
-   },
-   {
-    "check": "price",
-    "part": "P1",
-    "quote": "Loài này rất phổ biến, giá khoảng 20–100 đô",
-    "why": "Price in US dollars.",
+    "quote": "giá khoảng 20–100 đô và nuôi được ở khắp nơi trên thế giới",
+    "why": "Silver arowana price in US dollars from US shops.",
     "by": "model"
    },
    {
     "check": "price",
     "part": "P1",
     "quote": "kể cả giá 3.000–5.000 đô",
-    "why": "Price in US dollars for a US market.",
+    "why": "Hypothetical US market price in dollars.",
     "by": "model"
    },
    {
     "check": "price",
-    "part": "P1",
-    "quote": "Giá thường khoảng 100–200 đô, có nơi cao hơn",
+    "part": "L10",
+    "quote": "giá khoảng 20–100 đô",
     "why": "Price in US dollars.",
     "by": "model"
-   },
-   {
-    "check": "elsewhere",
-    "part": "P1",
-    "quote": "Không nuôi được cá rồng châu Á thì nuôi loài nào",
-    "why": "Assumes the reader lives in the US where Asian arowana is banned, which is not the case in Vietnam.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P1",
-    "quote": "trong cách xếp này chúng đứng thấp vì không hợp ý người xếp",
-    "why": "Refers to the original writer's personal ranking as if the reader knew them.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P1",
-    "quote": "Theo cách nhìn của một người chơi",
-    "why": "Brings in the original writer's personal opinion.",
-    "by": "model"
-   },
-   {
-    "check": "words",
-    "part": "P1",
-    "quote": "Rất dễ bị lác mắt",
-    "why": "Literal rendering of 'drop eye'; Vietnamese arowana keepers call it xệ mắt.",
-    "by": "model",
-    "fix": "xệ mắt"
    }
   ],
   "products": []
@@ -79239,23 +79808,23 @@
   "products": []
  },
  "vi/species/aequidens-patricki": {
-  "at": "2026-11-09",
-  "hash": "ea60dd032dc7e020",
+  "at": "2026-11-10",
+  "hash": "888332b0995668ad",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "source",
     "part": "P2",
-    "quote": "Những con vừa về gần đây, từ một trong những đợt nhập rất hiếm hoi từ Peru",
-    "why": "This is the source shop's stock news about fish it just received, which the reader doesn't know about.",
+    "quote": "Các cá thể mới nhận gần đây, từ một trong những đợt nhập rất hiếm hoi từ Peru",
+    "why": "This is the source shop's stock news about fish it just received, not something the reader knows about.",
     "by": "model"
    },
    {
     "check": "source",
     "part": "P7",
-    "quote": "Loài này từng được giới thiệu trong Newsletter Extra tuần 23 (3) năm 2013",
-    "why": "It points to the source shop's own newsletter, which the reader doesn't know and doesn't have.",
+    "quote": "Loài này từng được giới thiệu trong Newsletter Extra tuần lịch thứ 23 (3) năm 2013",
+    "why": "It points to the source wholesaler's own newsletter, which the reader has never seen.",
     "by": "model"
    }
   ],
@@ -79542,16 +80111,16 @@
   "products": []
  },
  "vi/species/alcolapia-alcalica": {
-  "at": "2026-11-09",
-  "hash": "08f7095aa6b700c3",
+  "at": "2026-11-10",
+  "hash": "fa2664ca7e1fe393",
   "model": "opus",
   "checklist": 3,
   "findings": [],
   "products": []
  },
  "vi/species/alcolapia-grahami": {
-  "at": "2026-11-09",
-  "hash": "49f186abff1c3963",
+  "at": "2026-11-10",
+  "hash": "f5e025afdea03b0c",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -80939,6 +81508,14 @@
     "fix": "trùng cỏ"
    }
   ],
+  "products": []
+ },
+ "vi/species/aphyolebias-schleseri": {
+  "at": "2026-11-10",
+  "hash": "734e60276f474373",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
   "products": []
  },
  "vi/species/aphyosemion-australe": {

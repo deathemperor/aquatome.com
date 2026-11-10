@@ -1,0 +1,54 @@
+{
+  "id": "maylandia-elegans",
+  "native": {
+    "input": "680665f22e7b48ce",
+    "at": "2026-11-10T07:58:31.896Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Lake Malawi",
+        "source": "glaser",
+        "quote": "Shell dwelling cichlids from Lake Malawi belong to a small complex of closely related species that are not easy to distinguish from each other.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "MW"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Maylandia elegans",
+    "status": "ACCEPTED",
+    "taxonKey": 2373025,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        18
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        5
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "96419bea-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "ee339baa-0fd3-4bc3-8a4e-b903c8d00615",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-10T07:58:31.896Z"
+  }
+}

@@ -1,0 +1,261 @@
+{
+  "id": "mesonauta-festivus",
+  "native": {
+    "input": "a9aa8004a38423ae",
+    "at": "2026-11-10T07:58:31.896Z",
+    "claims": [
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The flag cichlid, Mesonauta festivus, is a cichlid recorded from Venezuela, Peru, Brazil, Bolivia and Paraguay.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The flag cichlid, Mesonauta festivus, is a cichlid recorded from Venezuela, Peru, Brazil, Bolivia and Paraguay.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The flag cichlid, Mesonauta festivus, is a cichlid recorded from Venezuela, Peru, Brazil, Bolivia and Paraguay.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The flag cichlid, Mesonauta festivus, is a cichlid recorded from Venezuela, Peru, Brazil, Bolivia and Paraguay.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The flag cichlid, Mesonauta festivus, is a cichlid recorded from Venezuela, Peru, Brazil, Bolivia and Paraguay.",
+        "words": "Paraguay",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread through much of South America, it's been recorded from Peru, Brazil, Bolivia and Paraguay.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread through much of South America, it's been recorded from Peru, Brazil, Bolivia and Paraguay.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread through much of South America, it's been recorded from Peru, Brazil, Bolivia and Paraguay.",
+        "words": "Bolivia",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Widespread through much of South America, it's been recorded from Peru, Brazil, Bolivia and Paraguay.",
+        "words": "Paraguay",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Tapajós",
+        "source": "seriouslyfish",
+        "quote": "It's found in numerous river drainages, including the Rio Tapajós, Rio Jamari, Rio Madre de Dios, Rio Guaporé, Rio Mamoré, Rio Paraguay and Rio Paraná.",
+        "ok": true
+      },
+      {
+        "name": "Rio Paraguay",
+        "source": "seriouslyfish",
+        "quote": "It's found in numerous river drainages, including the Rio Tapajós, Rio Jamari, Rio Madre de Dios, Rio Guaporé, Rio Mamoré, Rio Paraguay and Rio Paraná.",
+        "ok": true
+      },
+      {
+        "name": "Rio Paraná",
+        "source": "seriouslyfish",
+        "quote": "It's found in numerous river drainages, including the Rio Tapajós, Rio Jamari, Rio Madre de Dios, Rio Guaporé, Rio Mamoré, Rio Paraguay and Rio Paraná.",
+        "ok": true
+      },
+      {
+        "name": "Rio Madre de Dios",
+        "source": "seriouslyfish",
+        "quote": "It's found in numerous river drainages, including the Rio Tapajós, Rio Jamari, Rio Madre de Dios, Rio Guaporé, Rio Mamoré, Rio Paraguay and Rio Paraná.",
+        "ok": true
+      },
+      {
+        "name": "Rio Mamoré",
+        "source": "seriouslyfish",
+        "quote": "It's found in numerous river drainages, including the Rio Tapajós, Rio Jamari, Rio Madre de Dios, Rio Guaporé, Rio Mamoré, Rio Paraguay and Rio Paraná.",
+        "ok": true
+      },
+      {
+        "name": "Rio Guaporé",
+        "source": "seriouslyfish",
+        "quote": "It's found in numerous river drainages, including the Rio Tapajós, Rio Jamari, Rio Madre de Dios, Rio Guaporé, Rio Mamoré, Rio Paraguay and Rio Paraná.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Mesonauta festivus",
+    "status": "ACCEPTED",
+    "taxonKey": 2369921,
+    "datasets": [
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        279
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        149
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        77
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        42
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        42
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        32
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        31
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        29
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        25
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        25
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        14
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        10
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        9
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        9
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        7
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        6
+      ],
+      [
+        "ada824f0-5741-4f99-8452-9bcf46472a84",
+        6
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        5
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        3
+      ],
+      [
+        "58414378-4fb2-47e0-8dd5-8b55d5c77117",
+        3
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        2
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        2
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        2
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "96419bea-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "f8ba5386-8b91-4976-95bd-692e5d105eae",
+        2
+      ],
+      [
+        "527885fc-bae8-48fd-8e13-349bb6dae9b8",
+        1
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        1
+      ]
+    ],
+    "native": [
+      "VE",
+      "PE",
+      "BR",
+      "BO",
+      "PY"
+    ],
+    "requests": 12,
+    "at": "2026-11-10T07:58:31.896Z"
+  }
+}

@@ -7520,6 +7520,19 @@
       "Item 1: \"ความยาวมาตรฐาน SL วัดจากปลายปากถึงโคนหาง\" is an added explanation not in the source; keep it short, e.g. \"ความยาวมาตรฐาน (SL)\"."
     ]
   },
+  "clarias-gariepinus": {
+    "at": "2026-11-10",
+    "from": "2026-11-07",
+    "name": "ปลาดุกแอฟริกา",
+    "confidence": "high",
+    "score": 0.8,
+    "notes": [
+      "Item 10: \"กระดูก premaxilla\" leaves the English anatomical term in place. Use a Thai term such as \"กระดูกพรีแมกซิลลา\" or \"กระดูกขากรรไกรบนส่วนหน้า\".",
+      "Item 10: \"นกกระสา Marabou\" is imprecise. A Marabou is a stork, not a heron or egret (กระสา). Use \"นกตะกรุมมาราบู\" or a similar stork name.",
+      "Item 7: \"ดุมาก\" for \"extremely predatory\" is a bit loose. \"เป็นปลานักล่าที่กินเนื้ออย่างรุนแรง\" or \"ล่าเหยื่อเก่งมาก\" is closer to the meaning.",
+      "Item 5: \"พบเกือบทั่วทั้งทวีป รวมถึงเอเชียไมเนอร์ และมีการนำเข้าไปในลาว\" runs together. The Laos introduction belongs to the Asia entry, so separate it more clearly."
+    ]
+  },
   "clarias-insolitus": {
     "at": "2026-11-04",
     "from": "2026-10-31",
@@ -7554,6 +7567,273 @@
     "notes": [
       "#7: \"ปลาตะพาก\" for spanner barb (Barbodes lateristriga) is doubtful. ตะพาก usually means Hypsibarbus. Use a correct local name for the spanner barb, or keep the English trade name \"spanner barb\" in brackets.",
       "#6: \"bogs and peats\" became \"บึง และป่าพรุ\". บึง is an open lake or marsh, not a bog, so a wording such as \"พื้นที่ชุ่มน้ำพรุ/ดินพรุ\" would be closer."
+    ]
+  },
+  "clarias-pachynema": {
+    "at": "2026-11-10",
+    "from": "2026-11-02",
+    "name": "ปลาดุก Clarias pachynema",
+    "confidence": "low",
+    "score": 0.5,
+    "notes": [
+      "Item 6: 'Silver Sharks' rendered as 'ปลาหางไหม้' — wrong species; Silver Shark is ปลาช่อนเงิน? no, commonly ปลาฉลามเงิน/ปลากระโห้ (Balantiocheilos). 'ปลาหางไหม้' is not Silver Shark. Fix to ปลาตะพากเงิน/ปลาฉลามเงิน.",
+      "Item 6: 'Tinfoil Barb' translated as 'ปลากระแห' — wrong species; Tinfoil Barb (Barbonymus schwanenfeldii) is ปลาตะเพียนทอง/ปลาแก้มช้ำ-type, not กระแห (Barbonymus altus is ปลากระแหแดง, closer). Use ปลาตะเพียนแดง/ตะเพียนทองตามที่นิยม.",
+      "Item 6: 'Spanner Barbs' translated as 'ปลาตะเพียนน้ำตก' — wrong; Spanner Barb is Barbodes lateristriga (ปลาตะเพียนลายประแจ or keep English trade name).",
+      "Item 6: 'Central American cichlids' as 'ปลาหมอสีจากอเมริกากลาง' is fine, but the tankmate species names are mis-mapped; verify all three.",
+      "Item 1/10: 'ลวดลายบนผิว' for 'surface-sculptured' is vague; 'ผิวเป็นลายนูน/ขรุขระ' better.",
+      "Item 10: 'ซี่กรองเหงือก ... อยู่ห่างกัน' fine; 'Preserved specimens' 'ดองรักษาไว้' acceptable.",
+      "Item 10: 'longer barbels compared to C. laeviceps' rendered 'หนวดที่ยาวกว่าเมื่อเทียบกับ' is awkward; 'หนวดที่ยาวกว่าของ C. laeviceps'.",
+      "Item 1: 'Maximum size: 356 mm (14 in) SL' -> '356 มม.' ; converting to cm (35.6 ซม.) would be more natural for hobbyists but not required.",
+      "Item 8: duplicated sentence 'ยังไม่มีรายงาน ไม่มีรายงานการเพาะพันธุ์' mirrors the source; acceptable."
+    ]
+  },
+  "clarotes-laticeps": {
+    "at": "2026-11-10",
+    "from": "2026-11-06",
+    "name": "ไวด์เฮด แคทฟิช",
+    "confidence": "low",
+    "score": 0.95,
+    "notes": []
+  },
+  "clavularia-viridis": {
+    "at": "2026-11-10",
+    "from": "2026-11-09",
+    "name": "โคลฟโพลิป",
+    "confidence": "medium",
+    "score": 0.6,
+    "notes": [
+      "Item 6: 'ต่อยกันไว้' for 'sting it away' is unclear/wrong; use 'ใช้เข็มพิษทำร้ายจนโคลฟโพลิปถอยหนี/ตายไป'.",
+      "Item 6: 'ธาตุรอง' for 'trace elements' should be 'ธาตุอาหารเสริม/ธาตุปริมาณน้อย (trace elements)'.",
+      "Item 6: 'ลอกออก' for 'peel them back' is too terse; say 'ลอกออกจากหินได้ง่าย'.",
+      "Item 6: 'เติบโตได้ดีบนหิน' lacks a subject, since the paragraph begins without the coral name; add 'โคลฟโพลิป'.",
+      "Item 6: 'ติดปะการังไว้บนหินแยก' fine, but 'ลามขึ้นทับ' repeated; ok. 'ตะไคร่' for algae is freshwater-style; use 'สาหร่าย'.",
+      "Item 12: Brown jelly 'ไอโอดีน (15 ppt)' keeps dosing but the 'follow bottle instructions' is OK; 'พักไว้ในตู้กักโรค' fine. 'ตะไคร่สะสมอยู่ในหนวด' should be 'สาหร่าย'.",
+      "Item 1: 'การกินอาหาร: สังเคราะห์แสง' and 'การลุกลาม: ใช่' are awkward; 'Invasive' should be 'รุกราน/แพร่ขยายรุนแรง', and 'Temper' as 'นิสัย' OK.",
+      "Item 3: 'Indo-Pacific region' listed as place; 'ปะการังอ่อนที่อยู่รวมกันเป็นโคโลนีและเชื่อมต่อกันด้วยไหล' is wordy; 'เกรตแบร์ริเออร์รีฟ' should be 'เกรตแบริเออร์รีฟ'.",
+      "Item 5: 'Palm tree polyp' rendered as 'โคลฟโพลิป' throughout, which is actually 'Clove polyps'; a unified name should be used or give Palm tree polyp (ปะการังต้นปาล์ม).",
+      "Item 8: 'หลอดไส้' (incandescent) is a literal translation and unusual advice for corals, but faithful; 'ตรวจสอบให้แน่ใจว่าแสงมีกำลังพอ' is OK."
+    ]
+  },
+  "cleithracara-maronii": {
+    "at": "2026-11-10",
+    "from": "2026-11-03",
+    "name": "ปลาหมอคีย์โฮล",
+    "confidence": "medium",
+    "score": 0.6,
+    "notes": [
+      "Item 10: 'a couple of feet across' converted to 'ประมาณ 60 ซม.' – fine; but 'ปลาที่ยาวเกินไม่กี่มิลลิเมตร' ok. No issue there.",
+      "Item 14: 'Nannancara' in the English became 'Nannacara' – the Latin name was changed; keep it exactly as in the source (Nannancara).",
+      "Item 14: 'kleithron, meaning lock' rendered as 'กุญแจล็อก' – should be 'ลิ่ม/สลักประตู' or simply 'ตัวล็อก'; 'กุญแจล็อก' is clumsy.",
+      "Item 7: 'หัวเป็นรูและเส้นข้างลำตัวกร่อน' – use the hobby term 'โรคหัวและเส้นข้างลำตัวกร่อน (HLLE)'; 'หัวเป็นรู' alone is non-standard.",
+      "Item 1: 'เหมาะกับการเลี้ยงในตู้ปลาอย่างสมบูรณ์แบบ' is stiff; 'เป็นปลาหมอสำหรับตู้ปลาที่ลงตัวที่สุด' reads more natural. Also 'ความต้องการในตลาดมาจากปลาที่เพาะพันธุ์' is awkward – say 'ตลาดได้รับปลาจากการเพาะพันธุ์'.",
+      "Item 5: 'Demerera' translated as 'เดเมรารา' – the usual spelling is 'เดเมอราร่า' / Demerara; also 'ในที่ต่ำ' for 'low altitude' is vague – say 'ที่ราบต่ำ'.",
+      "Item 9: 'ไรทะเล' for Artemia – hobbyists in Thailand say 'อาร์ทีเมีย'; 'ไรแดง' for Daphnia is acceptable, but 'ไรทะเล' may be confused; also 'หนอนแดง' for bloodworm is fine."
+    ]
+  },
+  "clupisoma-bastari": {
+    "at": "2026-11-10",
+    "from": "2026-10-29",
+    "name": "บาสตาร์ การัว",
+    "confidence": "low",
+    "score": 0.6,
+    "notes": [
+      "Item 6: \"Oviparous; eggs are unguarded\" is translated as \"วางไข่ และไม่เฝ้าไข่\". Use \"ออกลูกเป็นไข่\" or \"วางไข่ ไม่มีการดูแลไข่\". The current wording reads awkwardly.",
+      "Item 4: \"Abhisek Mishra\" is named in the text. The translator is told to write neutrally and drop bylines and shop talk. Rephrase it as \"ผู้เลี้ยงท่านหนึ่ง\" or similar. The anecdote about the keeper's attempts is shop talk and could be shortened.",
+      "Item 5: \"หนอนนก\" is the wrong term for \"mealworms\". Thai hobbyists use \"หนอนนก\" for mealworms, so this is acceptable. However, \"ไส้เดือน\" for earthworms is fine. Nothing needs changing here.",
+      "Item 1: \"Size: 18 cm TL\" is rendered as \"ความยาวทั้งหมด\" in brackets, which is fine. However, the temperature 22–24 °C is correctly converted. Nothing needs changing here.",
+      "Item 7: \"but it needs updating\" is translated as \"การประเมินนี้จำเป็นต้องได้รับการปรับปรุง\", which is fine.",
+      "Item 8: Reference list left untranslated, which is correct.",
+      "Item 2: \"อำเภอบาสตาร์\" for Bastar District is acceptable, but the word order puts the district after the distance clause. Reorder it so the sentence reads \"…ที่โลหันดิกุระ อำเภอบาสตาร์ ห่างจาก…\"."
+    ]
+  },
+  "clupisoma-garua": {
+    "at": "2026-11-10",
+    "from": "2026-10-30",
+    "name": "ปลาการัว",
+    "confidence": "low",
+    "score": 0.85,
+    "notes": [
+      "Item 2: \"แม่น้ำน้ำจืดในแถบลุ่มแม่น้ำคงคา\" is slightly awkward (repeated แม่น้ำ/น้ำ); better \"แม่น้ำน้ำจืดในเขตคงคา\" or \"แม่น้ำจืดในแถบลุ่มน้ำคงคา\".",
+      "Item 2: \"รวมถึงปากีสถาน...\" could be misread as being south of the Mahanadi; clearer: \"พบทั่วอินเดียตอนเหนือ (ไม่พบทางใต้ของแม่น้ำมหานที) รวมถึงปากีสถาน บังกลาเทศ และเนปาล\".",
+      "Item 6: \"ทำประมงเกินขนาด\" is non-standard; use \"ทำการประมงเกินขีดจำกัด\" or \"จับปลามากเกินไป\".",
+      "Item 5: \"วางไข่ (oviparous)\" - bracketed English is fine but \"ออกลูกเป็นไข่\" would be more precise for oviparous."
+    ]
+  },
+  "clupisoma-longianale": {
+    "at": "2026-11-10",
+    "from": "2026-10-30",
+    "name": "Clupisoma longianale",
+    "confidence": "low",
+    "score": 0.85,
+    "notes": [
+      "\"ในบรรดา Clupisoma ทั้งเก้าที่มีการบันทึกไว้\" leaves out \"species\" and \"genera\". Reword it to say that Clupisoma has nine recorded species, for example \"ในสกุล Clupisoma ที่มีการบันทึกไว้เก้าชนิด\".",
+      "\"ผูเอ่อร์\" is a non-standard romanisation of Puer. Use the common Thai form \"ผู่เอ๋อร์\" (with tone marks)."
+    ]
+  },
+  "clupisoma-prateri": {
+    "at": "2026-11-10",
+    "from": "2026-10-30",
+    "name": "คลูพิโซมา พราเทอรี",
+    "confidence": "low",
+    "score": 0.95,
+    "notes": []
+  },
+  "clypeobarbus-congicus": {
+    "at": "2026-11-10",
+    "from": "2026-11-02",
+    "name": "คองโกบาร์บ",
+    "confidence": "low",
+    "score": 0.7,
+    "notes": [
+      "Item 13: The byline 'Text & photos: Frank Schäfer' is copied over in English. Drop it, because author bylines should be removed.",
+      "Item 3: 'Boma' and 'Matadi' are left in Latin script only. Add Thai transliterations (โบมา, มาตาดี) or put the Latin names in brackets after them."
+    ]
+  },
+  "cnidoglanis-macrocephalus": {
+    "at": "2026-11-10",
+    "from": "2026-10-30",
+    "name": "เอสทูรี คอบเบลอร์",
+    "confidence": "low",
+    "score": 0.7,
+    "notes": [
+      "Item 2: \"Jervis Bay\" rendered as \"อ่าว Jervis\" is a half-translated place name; use a consistent form such as อ่าวเจอร์วิส (Jervis Bay).",
+      "Item 2: \"Malay Archipelago\" as \"หมู่เกาะมลายู\" is dated; the usual Thai term is หมู่เกาะมาเลย์.",
+      "Item 7: \"ต่อยด้วยเงี่ยงได้และทำให้เจ็บปวด\" is stiff; use \"เงี่ยงของปลาชนิดนี้ทำให้เจ็บปวดรุนแรงได้\". The warning that the spines sting is also not clearly stressed for handlers.",
+      "Item 6: \"สัตว์กลุ่มกุ้งกั้งปู\" for crustaceans is awkward; use \"สัตว์น้ำกลุ่มครัสเตเชียน\" or \"สัตว์จำพวกกุ้งปู\". \"ปลาวัยอ่อน\" for juveniles is acceptable but \"ปลาวัยรุ่น\" or \"ลูกปลา\" is more common.",
+      "Item 6: \"macrophytic algae\" as \"สาหร่ายขนาดใหญ่\" is loose; use \"สาหร่ายขนาดใหญ่ (macroalgae)\".",
+      "Item 1: \"ฟันแบบฟันกราม\" is clumsy; use \"ฟันรูปกราม (molariform)\". \"ชื่อสามัญ\" here is correct but the explanation \"การต่อยที่ทำให้เจ็บปวดซึ่งปลาชนิดนี้ทำได้\" reads awkwardly.",
+      "Item 8: \"เงี่ยง\" and \"ปลาตัวผู้จะเฝ้าไข่ ... ไว้ระหว่างครีบท้อง\" is ambiguous; clarify that the male holds or guards the eggs between his pelvic fins.",
+      "Item 4: The °F figure was dropped, which is acceptable. The \"Needs saltwater\" translation \"น้ำทะเล\" is fine, but the reader may need \"น้ำเค็ม/น้ำทะเล\"."
+    ]
+  },
+  "cobitis-macrostigma": {
+    "at": "2026-11-10",
+    "from": "2026-10-29",
+    "name": "ปลาค็อบิทิส มาโครสติกมา",
+    "confidence": "low",
+    "score": 0.75,
+    "notes": [
+      "#1 \"ปลาหมูสวยงาม...ที่รักสงบอย่างแท้จริง\": awkward word order; better \"ปลาหมูสวยงามจากจีน นิสัยสงบมาก\". \"ปลาหมู\" is fine, but \"ปลาหน้าดิน\" is OK.",
+      "#3 \"โดยไม่เลือก\" and \"ทุกชนิด\" slightly overstate; \"any type of usual fishfood\" means common foods, so use \"อาหารปลาทั่วไปทุกประเภท\" without \"โดยไม่เลือก\"/\"ทุกชนิด\" redundancy.",
+      "#5 Quoted common name \"Largespotted Spiny Loach\" left in English with no Thai name; add a Thai rendering, e.g. \"ปลาหมูหนามจุดใหญ่\", with the English in brackets."
+    ]
+  },
+  "colomesus-asellus": {
+    "at": "2026-11-10",
+    "from": "2026-11-03",
+    "name": "ปลาปักเป้าอเมซอน",
+    "confidence": "medium",
+    "score": 0.8,
+    "notes": [
+      "Item 24: \"bladder snail\" is rendered as \"หอยเชอรี่จิ๋ว\". That is a different snail (cherry snail). Use the usual Thai term for Physa, such as \"หอยฝาเดียว/หอยฟิซา (bladder snail)\".",
+      "Item 22: 114 L and 208 L are exact conversions of 30 and 55 gallons. Round them to 115 L and 210 L, as the nearest-5-litre convention requires.",
+      "Item 25: \"mollies\" is rendered as \"ปลาสอด\". Hobbyists usually write \"ปลาโมลลี่\". Check this term so it is not confused with platies."
+    ]
+  },
+  "colomesus-psittacus": {
+    "at": "2026-11-10",
+    "from": "2026-11-06",
+    "name": "ปักเป้าแบนด์",
+    "confidence": "low",
+    "score": 0.5,
+    "notes": [
+      "Item 5: \"standard gravity of ≥1.010\" translated as ความถ่วงจำเพาะ ≥1.010 is fine, but \"รากหรือกิ่งขอนไม้\" is awkward; use \"รากไม้หรือกิ่งไม้ (driftwood)\".",
+      "Item 5: \"it should be maintained in a well-decorated set-up\" is rendered literally. Also \"เปลี่ยนน้ำ 30–50% ทุกสัปดาห์ควรถือเป็นสิ่งที่ต้องทำ\" is stiff; use \"ต้องเปลี่ยนน้ำ 30–50% ทุกสัปดาห์\".",
+      "Item 3: \"saline habitats\" became \"แหล่งน้ำกร่อยหรือน้ำเค็ม\". This adds \"brackish\", which the source does not say. Use \"แหล่งน้ำเค็มลักษณะเดียวกัน\".",
+      "Item 4: 180×60×60 cm is 648 L. Keeping \"ประมาณ 648 ลิตร\" is exact, but round it to about 650 L as the sensible rounding for the converted figure.",
+      "Item 7: \"Brachyuran crabs\" was changed to \"Brachyura\", which alters the Latin name. Also \"unshelled crab legs\" was rendered \"ขาปูที่ยังไม่แกะเปลือก\", which is wrong: it means shell-on crab legs, so write \"ขาปูทั้งเปลือก\" (the Thai says \"not yet shelled\", which is acceptable, but \"ให้กินขาปูที่ยังไม่แกะเปลือก\" can mislead).",
+      "Item 7: \"Cirripedia\" is rendered as \"เพรียงหิน\", while the source means barnacles generally. Use \"เพรียง\".",
+      "Item 1: \"ปักเป้าแบนด์\" is a literal transliteration of \"banded\", not a name hobbyists use. Use \"ปักเป้าลายแถบ\" or the trade name.",
+      "Item 1: \"มีแนวโน้มจะก้าวร้าวหากไม่ได้เลี้ยงในระบบที่ใหญ่มากจริง ๆ\" is awkward and ambiguous. \"ตู้ที่เซ็ตตัวดีแล้ว\" is fine, but \"ปากแม่น้ำ\" is added in item 1 where the source says \"estuaries\", which is acceptable.",
+      "Item 11: \"ทำให้ฟันมีความยาวพอเหมาะ\" in item 7 and \"การสั่นกระเพาะลม\" in item 11 should be \"ถุงลม/กระเพาะลม (swim bladder)\". Also \"สัตว์กลุ่มกุ้งปู\" is vague for crustaceans: use \"สัตว์น้ำเปลือกแข็ง (crustacean)\"."
+    ]
+  },
+  "colomesus-tocantinensis": {
+    "at": "2026-11-10",
+    "from": "2026-11-06",
+    "name": "ปักเป้าโตกันตินส์",
+    "confidence": "low",
+    "score": 0.75,
+    "notes": [
+      "Item 1: \"ปัจจุบันพบเฉพาะ\" is fine, but \"ตัวอย่างชุดต้นแบบ (type series)\" is a bit stiff; consider \"ชุดตัวอย่างต้นแบบ\".",
+      "Item 4: \"กระเปาะพิเศษด้านล่างของกระเพาะอาหาร\" for \"specialised ventral diverticulum\" is loose; use \"ถุงยื่นพิเศษด้านท้อง\" or similar.",
+      "Item 4: \"ฟันกรามหรือฟันในคอหอย\" for \"jaw/pharyngeal teeth\" is inexact; \"ฟันที่ขากรรไกรหรือฟันคอหอย\" is more accurate.",
+      "Item 4: \"กระเพาะลม\" for swim bladder; hobbyists usually say \"ถุงลม\" or \"กระเพาะลม\" (acceptable), but \"diodontiform\" is left untranslated without explanation.",
+      "Item 4: \"ปลาปักเป้าเป็นปลาน้ำจืดทุติยภูมิ\" is awkward and reads as if all puffers are freshwater fish; rephrase to say that the freshwater puffers are secondarily freshwater."
+    ]
+  },
+  "colossoma-macropomum": {
+    "at": "2026-11-10",
+    "from": "2026-11-04",
+    "name": "Colossoma macropomum",
+    "confidence": "medium",
+    "score": 0.5,
+    "notes": [
+      "Item 1: 'easily capable of reaching 60 cm in captivity' is rendered 'โตได้ถึง 60 ซม. ในที่เลี้ยงได้ไม่ยาก', which is ambiguous and reads as if it is easy to keep. Rephrase: 'ในที่เลี้ยงก็โตได้ถึง 60 ซม. อย่างง่ายดาย'.",
+      "Item 4: the volume 'about 2550 litres' is wrong. 300×90×90 cm is about 2430 L, and the source figure comes from imperial rounding. Use about 2,500 L (the nearest 5 L would be 2430). Also the 'ปลาเล็ก' for 'youngsters' is fine, but 'at least' plus 'preferably larger' reads awkwardly.",
+      "Item 5: typo 'ไม่ใชช่ระบบซัมป์' should be 'ไม่ใช้ระบบซัมป์'. 'ของตกแต่งเหล่านี้หนักพอที่ปลาจะดันให้เคลื่อนที่ไม่ได้' is clumsy. Beech branches 'กิ่งบีช' is unclear to Thai hobbyists; add a note or use 'กิ่งไม้'.",
+      "Item 11: 'couple of feet in length' is converted to 'ราว 60 ซม.', which is acceptable. But 'ปลาเกมสำหรับตกเป็นกีฬา' is stiff; use 'ปลาสำหรับตกเป็นกีฬา (game fish)'.",
+      "Item 8: the family names Pimelodid, Doradid and Loricariid are left in Latin script. Give Thai terms or Thai common groups such as 'ปลากดทะเล/ปลาซัคเกอร์' with the Latin in brackets.",
+      "Item 2: 'ประชากรที่ถูกนำเข้าไปแพร่พันธุ์ได้ดี' is awkward and ambiguous. 'thriving' should read as populations that have become established and are flourishing. Rephrase more naturally."
+    ]
+  },
+  "congochromis-dimidiatus": {
+    "at": "2026-11-10",
+    "from": "2026-11-03",
+    "name": "คองโกโครมิส ดิมิเดียตัส",
+    "confidence": "low",
+    "score": 0.9,
+    "notes": [
+      "Item 8: the clause starting \"ยังเลี้ยงร่วมกับปลาคาราซิน...\" has no subject. Add \"ยังสามารถ\" or \"นอกจากนี้ยังเลี้ยงร่วมกับ...ได้\" so it reads naturally.",
+      "Item 9: \"หางมีรูปทรงคล้ายใบโพธิ์\" for \"spade-shaped tail\" is an odd comparison. Consider \"หางค่อนข้างเป็นรูปพลั่ว/หัวใจ\" or a plainer description."
+    ]
+  },
+  "congochromis-sabinae": {
+    "at": "2026-11-10",
+    "from": "2026-11-04",
+    "name": "คองโกโครมิส ซาบินี",
+    "confidence": "low",
+    "score": 0.8,
+    "notes": [
+      "Item 11: 'ฟันกรามปลายแหลมเดี่ยว' for 'unicuspid jaw teeth' — ฟันกราม means molars, which fish lack. Use 'ฟันที่ขากรรไกรปลายเดี่ยว' or similar.",
+      "Item 9: 'ขอบหน้าของครีบท้องสีขาวอมเทา' adds grey. The English says only 'whitish', so use 'สีขาวนวล' or 'ขาวอ่อน'.",
+      "Item 2: 'ควรรับฟังด้วยความระมัดระวัง' is awkward for information. Use 'ควรใช้ข้อมูลเหล่านี้ด้วยความระมัดระวัง'.",
+      "Item 11: 'ลำตัวค่อนข้างยาวปานกลาง' is redundant. Use 'ลำตัวค่อนข้างยาว'."
+    ]
+  },
+  "copadichromis-azureus": {
+    "at": "2026-11-10",
+    "from": "2026-11-06",
+    "name": "โคปาดิโครมิส อะซูเรียส",
+    "confidence": "low",
+    "score": 0.6,
+    "notes": [
+      "Item 4: \"ประมาณ 304 ลิตร\" is a 150×45×45 cm tank, about 304 L, which is correct, but \"ซม.\" wording is fine. Keep \"ประมาณ 300 ลิตร\" rounded per convention.",
+      "Item 10: \"ขุนปลาด้วยอาหารคุณภาพสูง\" – \"ขุน\" is for fattening livestock; use \"เตรียมความพร้อมปลา/เลี้ยงด้วยอาหารคุณภาพสูง\".",
+      "Item 10: \"ควรจัดตู้ตามที่แนะนำไว้ข้างต้น\" – the English is \"furnished as suggested\"; acceptable, but \"เพราะมักได้ลูกปลาที่แข็งแรงจำนวนมากกว่า\" is fine.",
+      "Item 11: \"วางไข่ตามปัจจัยตามฤดูกาล\" is awkward and repeats \"ตาม\"; use \"วางไข่ตามฤดูกาล\".",
+      "Item 11: \"ได้รับความนิยมในวงการปลาสวยงามอย่างสมเหตุสมผล\" is stilted; use \"ได้รับความนิยมสมกับที่ควรจะเป็น\".",
+      "Item 1/11: \"มีหลายสิบสีตามแหล่ง\" is vague; use \"มีสายพันธุ์สีตามแหล่งที่จับหลายสิบแบบ\".",
+      "Item 10: \"ซึ่งเป็นเพียงแอ่งตื้น ๆ ... ที่ตัวผู้เอาวัสดุหยาบออกไป\" – the English says it's a simple depression; \"ตื้น\" (shallow) is an added detail, and \"กินไข่เสีย\" in the fourth paragraph mixes up the brood.",
+      "Item 10: \"อาจคายไข่ออกมาก่อนกำหนดหรือกินไข่เสีย\" – the English says the brood (eggs/fry), and \"ถูกกิน\" in the next clause is unclear; use \"ลูกปลา/ไข่\" consistently."
+    ]
+  },
+  "copadichromis-borleyi": {
+    "at": "2026-11-10",
+    "from": "2026-11-06",
+    "name": "โคปาดิโครมิส บอร์เลยี",
+    "confidence": "low",
+    "score": 0.7,
+    "notes": [
+      "Item 10: 'สังเกตได้ง่ายจากปากที่ป่องออก' fine, but 'ขุนปลา' for 'condition the fish' suggests fattening; use 'เตรียมความพร้อมปลา' or similar.",
+      "Item 10: 'ตัวผู้จะเตรียมจุดวางไข่' loses the 'construct' detail slightly, minor; 'เขี่ยวัสดุหยาบ' should be spelled 'เขี่ย'.",
+      "Item 10: 'เพราะมักได้ลูกปลาที่แข็งแรงจำนวนมากกว่า' is acceptable but 'ไม่ให้แม่ปลากินลูก' changes 'avoid fry predation' to specifically the mother, minor.",
+      "Item 11: 'วางไข่ตามปัจจัยตามฤดูกาล' has a repeated 'ตาม'; rephrase as 'วางไข่ตามฤดูกาล'.",
+      "Item 11: 'พื้นที่ทรายที่ไม่ค่อยมีอะไร' for 'featureless' is awkward; use 'พื้นทรายโล่งที่ไม่มีลักษณะเด่น'.",
+      "Item 4: '~304 litres' converted to 'ประมาณ 300 ลิตร' is fine, but 'ว่ายน้ำตลอดเวลา' overstates 'active nature'; use 'ว่ายน้ำคล่องแคล่ว/ปราดเปรียว'.",
+      "Item 5: 'Anubias' is not a hard-water plant that fits as stated, but is faithful; however 'สักสองสามกอ' for 'a few bunches' is fine. 'เป็นปลาที่อาศัยในน้ำเปิด' should say 'ปลาน้ำเปิด/ปลาที่ว่ายในน้ำกลางสายน้ำ' for clarity.",
+      "Item 8: 'ชอบหาเรื่อง' for 'belligerent' is colloquial; use 'ก้าวร้าว'. Also 'ตัวผู้ไล่' lacks 'excessive attention' nuance.",
+      "Item 11: 'ปลาในสกุล Copadichromis รวมกับสกุล Mchenga ... เป็นกลุ่ม' is slightly ambiguous; use 'ร่วมกับ' and 'ประกอบเป็น'. 'ปลากลุ่มนี้ปรับตัวมาเพื่อใช้ชีวิตในน้ำเปิด' should convey pelagic (น้ำกลาง/เปลือกน้ำ)."
     ]
   },
   "corydoras-aeneus": {

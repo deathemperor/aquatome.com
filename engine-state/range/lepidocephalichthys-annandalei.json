@@ -1,8 +1,8 @@
 {
   "id": "lepidocephalichthys-annandalei",
   "native": {
-    "input": "bd0ac6cfa52ae19d",
-    "at": "2026-11-09T12:58:06.259Z",
+    "input": "e0af093646cf2514",
+    "at": "2026-11-10T07:58:31.896Z",
     "claims": [
       {
         "code": "NP",
@@ -40,6 +40,20 @@
         "name": "Brahmaputra",
         "source": "seriouslyfish",
         "quote": "Mid-to-lower reaches of the Ganges and Brahmaputra river systems in Nepal, Bangladesh plus surrounding north-east Indian states of Uttar Pradesh, Bihar, West Bengal, Assam and Meghalaya.",
+        "ok": true
+      },
+      {
+        "name": "Mahananda",
+        "source": "seriouslyfish",
+        "quote": "The type series was collected from two localities in India; the Mahananda river near the city of Siliguri (Ganges basin) and Teesta river close to Jalpaiguri town (Brahmaputra).",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Teesta",
+        "source": "seriouslyfish",
+        "quote": "The type series was collected from two localities in India; the Mahananda river near the city of Siliguri (Ganges basin) and Teesta river close to Jalpaiguri town (Brahmaputra).",
+        "country": "IN",
         "ok": true
       }
     ],

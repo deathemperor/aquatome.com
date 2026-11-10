@@ -1,0 +1,128 @@
+{
+  "id": "melanotaenia-fluviatilis",
+  "native": {
+    "input": "b5af98ff25e86143",
+    "at": "2026-11-10T07:58:31.896Z",
+    "claims": [
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Australian rainbowfish, Melanotaenia fluviatilis, is a rainbowfish from Queensland and New South Wales, Australia.",
+        "words": "Australia",
+        "ok": true
+      },
+      {
+        "code": "AU",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Australia, specifically Queensland and New South Wales.",
+        "words": "Australia",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Melanotaenia fluviatilis",
+    "status": "ACCEPTED",
+    "taxonKey": 2411659,
+    "datasets": [
+      [
+        "40c0f670-ee87-4576-be9d-2725e0b47035",
+        5016
+      ],
+      [
+        "37beb6ea-e591-41e3-b781-e384250dc42c",
+        2422
+      ],
+      [
+        "f38cc07c-49a8-4ca4-8882-5cdde1733c12",
+        1029
+      ],
+      [
+        "0645ccdb-e001-4ab0-9729-51f1755e007e",
+        608
+      ],
+      [
+        "fa375330-6c8a-11de-8226-b8a03c50a862",
+        292
+      ],
+      [
+        "39905320-6c8a-11de-8226-b8a03c50a862",
+        287
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        146
+      ],
+      [
+        "e4473544-f4cd-4429-b791-39d6e1fdb0a4",
+        136
+      ],
+      [
+        "1f396a46-b83e-4255-a840-859985f73ded",
+        129
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        26
+      ],
+      [
+        "f2069019-06c4-40fc-97a4-6672134a1f1f",
+        25
+      ],
+      [
+        "18c93d12-34fb-4d3f-903c-b77215a1dcc9",
+        13
+      ],
+      [
+        "d51f93a6-a5b7-4025-83a9-3f7b8525755a",
+        13
+      ],
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        6
+      ],
+      [
+        "84dbaec2-f762-11e1-a439-00145eb45e9a",
+        4
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        1
+      ],
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        1
+      ],
+      [
+        "84a649ce-ff81-420d-9c41-aa1de59e3766",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ],
+      [
+        "de55d6c3-248a-4f08-ba75-66dcff510f13",
+        1
+      ]
+    ],
+    "native": [
+      "AU"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T07:58:31.896Z"
+  }
+}
