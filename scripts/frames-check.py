@@ -4,12 +4,13 @@ and the v2 Lab agreed on 2026-11-10.
 
   scripts/frames-check.py <video> --expected 18[,12]
 
-Expected is each big move's frames, in the order they come: its length in the app times the recording's rate. A move passes
+Expected is each big move's frames, in the order they come: its length in the app times the recording's rate. A take with
+fewer big moves than that fails. A move passes
 with 90% of them captured (frames that differ from the one before) and no one frame carrying over 30% of its change, which
 is what a capture that jumped looks like: in the take that lost a card's opening, its first frame carried 54%. Exits 0 if
 all pass, 1 if not, 2 if no move was found.
 """
-import fractions
+import statistics
 import subprocess
 import sys
 
@@ -20,6 +21,14 @@ GAP = 4  # still frames that end a move
 BIG = 0.3  # of the largest move's change: smaller ones (a picture settling) aren't judged
 ENOUGH = 0.9
 LARGEST_STEP = 0.3
+
+
+def rate(path):
+    """Frames a second, from the usual gap between frames: an average would count a take's idle stretches against it."""
+    out = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v", "-show_entries", "packet=pts_time", "-of", "csv=p=0", path],
+                         capture_output=True, text=True, check=True).stdout
+    times = sorted(float(t.strip().rstrip(",")) for t in out.split())
+    return 1 / statistics.median(b - a for a, b in zip(times, times[1:]))
 
 
 def steps(path):
@@ -45,8 +54,7 @@ def main():
     if len(sys.argv) != 4 or sys.argv[2] != "--expected":
         sys.exit(__doc__)
     path, expected = sys.argv[1], [int(n) for n in sys.argv[3].split(",")]
-    rate = float(fractions.Fraction(subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v", "-show_entries", "stream=avg_frame_rate", "-of", "csv=p=0", path],
-                                                   capture_output=True, text=True, check=True).stdout.strip().rstrip(",")))
+    fps = rate(path)
     diffs = steps(path)
     found = moves(diffs)
     largest = max((sum(diffs[a:b + 1]) for a, b in found), default=0)
@@ -54,8 +62,10 @@ def main():
     if not big:
         print(f"{path}: no move found")
         sys.exit(2)
-    ok = rate >= RATE - 1
-    print(f"{path}: {rate:.0f} frames a second" + ("" if ok else f", and a recording needs {RATE}"))
+    ok = fps >= RATE - 1 and len(big) >= len(expected)
+    print(f"{path}: {fps:.0f} frames a second" + ("" if fps >= RATE - 1 else f", and a recording needs {RATE}"))
+    if len(big) < len(expected):
+        print(f"  {len(big)} big moves found, {len(expected)} expected")
     for n, (a, b) in enumerate(big):
         seg = diffs[a:b + 1]
         captured = sum(1 for d in seg if d > CHANGED)

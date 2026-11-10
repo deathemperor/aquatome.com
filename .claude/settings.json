@@ -12,7 +12,7 @@
       {
         "matcher": "mcp__infinitus__device_open",
         "hooks": [
-          { "type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR\"/scripts/mac-status.py --hook" }
+          { "type": "command", "command": "[ ! -f \"$CLAUDE_PROJECT_DIR\"/scripts/mac-status.py ] || python3 \"$CLAUDE_PROJECT_DIR\"/scripts/mac-status.py --hook" }
         ]
       }
     ]
