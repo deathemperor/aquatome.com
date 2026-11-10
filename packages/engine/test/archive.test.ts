@@ -128,3 +128,19 @@ test('sources read through the archive leave room for its redirect: under 15 req
   for (const id of ['2hraquarist', 'planetcatfish'] as const) expect(sourceById(id).delayMs).toBe(ARCHIVE_POLITE)
   expect(2 * (60_000 / ARCHIVE_POLITE)).toBeLessThan(15)
 })
+
+test('The Spruce Pets reads through the archive, at the archive\'s delay, and finds its fish articles on the archived hub', async () => {
+  const src = sourceById('sprucepets')
+  expect(src.via).toBe('archive')
+  expect(src.delayMs).toBe(ARCHIVE_POLITE)
+  const asked: string[] = []
+  const hub = '<main><a href="/guppy-1381234">Guppy</a><a href="https://www.thesprucepets.com/bettas-4161234">a category</a></main><a href="/about-1000000">outside main</a>'
+  const a = new ArchiveFetcher({ fetch: async (url: string) => { asked.push(url); return res(200, hub) }, now: () => new Date('2026-11-10T00:00:00Z'), sleep: async () => {}, ua: 'x' })
+  const start = (src.discover as { start: string[] }).start[0]!
+  const links = await a.links(start, 'main')
+  expect(links).toContain('https://www.thesprucepets.com/guppy-1381234')
+  expect(links).not.toContain('https://www.thesprucepets.com/about-1000000')
+  expect(asked.every(u => u.startsWith('https://web.archive.org/web/'))).toBe(true)
+  const found = await discover(src, async () => { throw new Error('no sitemap') }, (u, scope) => a.links(u, scope))
+  expect(found.map(f => f.url)).toEqual(['https://www.thesprucepets.com/guppy-1381234'])
+})
