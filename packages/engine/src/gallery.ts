@@ -48,8 +48,8 @@ export async function commonsCandidates(name: string, http: Http, max = 450, loo
   for (const x of s.query?.search ?? []) titles.add(x.title)
   const list = [...titles].filter(t => !unfitCommons({ title: t })).slice(0, max)
   const out: Candidate[] = []
-  for (let i = 0; i < list.length; i += 50) {
-    const r = (await api({ action: 'query', titles: list.slice(i, i + 50).join('|'), prop: 'imageinfo', iiprop: 'url|size|mime|extmetadata', iiurlwidth: '1280', iiextmetadatafilter: 'LicenseShortName|Artist|ImageDescription|Categories' })) as Info
+  for (const batch of titleBatches(list)) {
+    const r = (await api({ action: 'query', titles: batch.join('|'), prop: 'imageinfo', iiprop: 'url|size|mime|extmetadata', iiurlwidth: '1280', iiextmetadatafilter: 'LicenseShortName|Artist|ImageDescription|Categories' })) as Info
     for (const p of Object.values(r.query?.pages ?? {})) {
       const ii = p.imageinfo?.[0]
       const licence = ii?.extmetadata?.LicenseShortName?.value ?? ''
@@ -62,6 +62,23 @@ export async function commonsCandidates(name: string, http: Http, max = 450, loo
         author: authorText(ii.extmetadata?.Artist?.value) || 'Wikimedia Commons', sourceUrl: ii.descriptionurl,
       })
     }
+  }
+  return out
+}
+
+/**
+ * Titles for one file-details request: 50 at most (the API's limit), fewer when their names are long. Commons refuses an
+ * address past about 8,000 characters (HTTP 414), and museum shell series are named in whole sentences: until 2026-11-10
+ * the nerite and mystery snails' pages failed here every cycle, so Commons was never read for them.
+ */
+export function titleBatches(titles: string[], most = 50, room = 6000): string[][] {
+  const out: string[][] = []
+  let used = 0
+  for (const t of titles) {
+    const size = encodeURIComponent(t).length + 3 // and the "|" between two, as it is sent
+    if (!out.length || out.at(-1)!.length >= most || used + size > room) { out.push([]); used = 0 }
+    out.at(-1)!.push(t)
+    used += size
   }
   return out
 }
