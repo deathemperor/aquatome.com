@@ -882,6 +882,14 @@
                   "text": "4 new",
                   "tone": "plain"
                 }
+              },
+              {
+                "key": "bao-sai",
+                "name": "Chat reports",
+                "figure": {
+                  "text": "",
+                  "tone": "plain"
+                }
               }
             ]
           },
@@ -977,6 +985,10 @@
           {
             "key": "tai-khoan",
             "name": "Accounts"
+          },
+          {
+            "key": "bao-sai",
+            "name": "Chat reports"
           },
           {
             "key": "nhan-dien-ca",
@@ -1824,6 +1836,14 @@
                   "text": "4 new",
                   "tone": "plain"
                 }
+              },
+              {
+                "key": "bao-sai",
+                "name": "Chat reports",
+                "figure": {
+                  "text": "",
+                  "tone": "plain"
+                }
               }
             ]
           },
@@ -1919,6 +1939,10 @@
           {
             "key": "tai-khoan",
             "name": "Accounts"
+          },
+          {
+            "key": "bao-sai",
+            "name": "Chat reports"
           },
           {
             "key": "nhan-dien-ca",
@@ -2679,6 +2703,14 @@
                   "text": "4 new",
                   "tone": "plain"
                 }
+              },
+              {
+                "key": "bao-sai",
+                "name": "Chat reports",
+                "figure": {
+                  "text": "",
+                  "tone": "plain"
+                }
               }
             ]
           },
@@ -2774,6 +2806,10 @@
           {
             "key": "tai-khoan",
             "name": "Accounts"
+          },
+          {
+            "key": "bao-sai",
+            "name": "Chat reports"
           },
           {
             "key": "nhan-dien-ca",
@@ -3639,6 +3675,14 @@
                   "text": "4 new",
                   "tone": "plain"
                 }
+              },
+              {
+                "key": "bao-sai",
+                "name": "Chat reports",
+                "figure": {
+                  "text": "",
+                  "tone": "plain"
+                }
               }
             ]
           },
@@ -3734,6 +3778,10 @@
           {
             "key": "tai-khoan",
             "name": "Accounts"
+          },
+          {
+            "key": "bao-sai",
+            "name": "Chat reports"
           },
           {
             "key": "nhan-dien-ca",
@@ -8302,6 +8350,68 @@
               ]
             ],
             "empty": "None yet."
+          }
+        ]
+      }
+    },
+    {
+      "name": "section bao-sai",
+      "request": {
+        "method": "GET",
+        "path": "/api/owner/sections/bao-sai",
+        "headers": {
+          "Time-Zone": "Asia/Ho_Chi_Minh"
+        }
+      },
+      "status": 200,
+      "body": {
+        "tz": "Asia/Ho_Chi_Minh",
+        "title": "Chat reports",
+        "blocks": [
+          {
+            "kind": "note",
+            "text": "Chat answers readers marked as wrong, with their question and reason. Shown only here. Each is kept until the reader deletes their account, and goes with it.",
+            "tone": "plain"
+          },
+          {
+            "kind": "table",
+            "columns": [
+              "Reported",
+              "Question",
+              "Answer",
+              "Reason"
+            ],
+            "rows": [
+              [
+                {
+                  "text": "Wed 4 Nov, 15:12"
+                },
+                {
+                  "text": "Cá betta ăn gì?"
+                },
+                {
+                  "text": "Cá betta ăn thức ăn hạt."
+                },
+                {
+                  "text": "Thiếu thức ăn tươi"
+                }
+              ],
+              [
+                {
+                  "text": "Tue 3 Nov, 18:00"
+                },
+                {
+                  "text": "Bể 60 lít nuôi được mấy con?"
+                },
+                {
+                  "text": "Khoảng mười con."
+                },
+                {
+                  "text": ""
+                }
+              ]
+            ],
+            "empty": "No reports yet."
           }
         ]
       }

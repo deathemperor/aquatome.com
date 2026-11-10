@@ -22,7 +22,7 @@ The mockups' figures are samples that add up to each other; the build shows real
 ## Pages, grouped
 
 Today (the overview) · **Growth**: Scoreboard, Readers, Affiliate · **Content**: Content and engine, Wanted by
-readers, Hidden pages · **Community**: Comments (new), Reader photos, Accounts · **Fish ID**: Calls and keys, Kept
+readers, Hidden pages · **Community**: Comments (new), Reader photos, Accounts, Chat reports · **Fish ID**: Calls and keys, Kept
 photos · **App**: iPhone app · **Records**: Daily reports, Changelog.
 
 - Every page today keeps its place: the existing 14 plus Comments, whose counts leave Accounts.
