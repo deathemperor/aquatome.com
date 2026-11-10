@@ -345,10 +345,12 @@ test('sections are searched for on the first question alone, on the owner\'s acc
     CHAT_SEARCH: { query: async (_: number[], o: unknown) => { searches.push(o); return { matches: [{ metadata: { path: '/vi/huong-dan/thay-nuoc-dung-cach/' } }] } } } as unknown as Vectorize,
   }
   const handed = (b: Record<string, unknown>) => JSON.stringify((b.messages as { content: unknown }[])[0]!.content).includes('These sections came from a search')
-  const setup = async (CHAT: string) => {
+  const setup = async (CHAT: string, tank = true) => {
     const { e, db, store } = env({ CHAT, ...bindings })
     const me = await signIn(db)
     e.OWNER_ACCOUNTS = me.id
+    const at = new Date()
+    if (tank) await syncStore(db, me.id, { v: 1, tanks: [{ id: 'a1b2c3d4-0000-4000-8000-000000000001', name: 'Bể phòng khách', dims: { l: 60, w: 30, h: 36 }, species: [{ id: 'paracheirodon-innesi', count: 12 }], plants: [], createdAt: at.toISOString(), updatedAt: at.toISOString() }], devices: [] }, at)
     return { e, me, store, account: await chatAccount('k', me.id) }
   }
   const owner = await setup('owner')
@@ -364,12 +366,14 @@ test('sections are searched for on the first question alone, on the owner\'s acc
   expect((await run(ask(bearer(owner.me.token), { question: POST }), owner.e, deps(next.fetch))).body).toMatchObject({ n: 2 })
   expect(searches).toHaveLength(1)
   expect(next.bodies.some(handed)).toBe(false)
-  // A short question with no tank, on the owner's account: as today.
-  const short = await setup('owner')
-  const s = claude(NEON)
-  await run(ask(bearer(short.me.token)), short.e, deps(s.fetch))
-  expect(searches).toHaveLength(1)
-  expect(s.bodies.some(handed)).toBe(false)
+  // No saved tank on the owner's account, a short question or a whole post: as today.
+  const none = await setup('owner', false)
+  for (const body of [{}, { question: POST }]) {
+    const s = claude(NEON)
+    await run(ask(bearer(none.me.token), body), none.e, deps(s.fetch))
+    expect(searches).toHaveLength(1)
+    expect(s.bodies.some(handed)).toBe(false)
+  }
   // Chat open to everyone: as today, until the judged bar holds.
   const open = await setup('1')
   const o = claude(NEON)

@@ -2,7 +2,7 @@ import { existsSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { handbookOf, sectionsOf, type Handbook, type Source } from '../chat/handbook'
-import { HANDED_NOTE, handoverFor, handsOver, WHOLE_POST, type Found, type SectionSearch } from '../chat/handover'
+import { HANDED_NOTE, handoverFor, handsOver, type Found, type SectionSearch } from '../chat/handover'
 import { sectionSearch } from '../chat/section-search'
 import type { Tank } from '../chat/tools'
 
@@ -18,27 +18,26 @@ const tank: Tank = { id: 't1', name: 'Bể phòng khách', dims: { l: 60, w: 30,
 const POST = 'Bể em mới set được ba tuần, nước cứ đục trắng dù đã thay nước. '.repeat(4)
 const finds = (found: Found[]) => { const asked: string[] = []; const search: SectionSearch = async t => { asked.push(t); return found }; return { asked, search } }
 
-test('sections go with a saved tank or a whole post; a short question with neither stays on the chat\'s own reading', () => {
-  expect(handsOver('Nước đục có sao không?', [])).toBe(false)
-  expect(handsOver('Nước đục có sao không?', [tank])).toBe(true)
-  expect(handsOver('x'.repeat(WHOLE_POST), [])).toBe(true)
-  expect(handsOver('x'.repeat(WHOLE_POST - 1), [])).toBe(false)
-  expect(handsOver(`  ${'x'.repeat(WHOLE_POST - 1)}  `, [])).toBe(false)
+test('sections go only with a saved tank', () => {
+  expect(handsOver([])).toBe(false)
+  expect(handsOver([tank])).toBe(true)
 })
 
-test('a short question with no tank is not searched and hands nothing over, in Thai too', async () => {
+test('a question with no tank is not searched and hands nothing over, a whole post too, in Thai too', async () => {
   const h = await hb()
   const { asked, search } = finds([{ path: GUIDE, heading: null }])
   expect(await handoverFor({ question: 'Nước đục có sao không?', start: {}, tanks: [], hb: h, lang: 'vi', search })).toBeUndefined()
   expect(await handoverFor({ question: 'น้ำเขียว แก้ยังไง', start: {}, tanks: [], hb: h, lang: 'th', search })).toBeUndefined()
+  expect(await handoverFor({ question: POST, start: {}, tanks: [], hb: h, lang: 'vi', search })).toBeUndefined()
+  expect(await handoverFor({ question: POST, start: {}, tanks: [], hb: h, lang: 'th', search })).toBeUndefined()
   expect(asked).toEqual([])
 })
 
-test('Thai goes by the same rule as the other languages: a saved tank or a whole post is searched', async () => {
+test('Thai goes by the same rule as the other languages: a saved tank is searched, whatever the question\'s length', async () => {
   const h = await hb()
   const { asked, search } = finds([{ path: GUIDE, heading: null }])
   expect(await handoverFor({ question: 'น้ำเขียว แก้ยังไง', start: {}, tanks: [tank], hb: h, lang: 'th', search })).toBeDefined()
-  expect(await handoverFor({ question: POST, start: {}, tanks: [], hb: h, lang: 'th', search })).toBeDefined()
+  expect(await handoverFor({ question: POST, start: {}, tanks: [tank], hb: h, lang: 'th', search })).toBeDefined()
   expect(asked).toEqual(['น้ำเขียว แก้ยังไง', POST])
 })
 
@@ -57,13 +56,13 @@ test('with a saved tank: the tank without its name, then what the search found t
   expect(out.text).not.toContain('/vi/ca/ca-dia/')
 })
 
-test('a whole post with no tank hands over only the sections; from a fish\'s page, that page first and the search told which fish', async () => {
+test('a whole post with a saved tank hands over the tank and the sections; from a fish\'s page, that page first and the search told which fish', async () => {
   const h = await hb()
-  const post = await handoverFor({ question: POST, start: {}, tanks: [], hb: h, lang: 'vi', search: finds([{ path: GUIDE, heading: null }]).search })
-  expect(post!.text).not.toContain('saved tanks')
+  const post = await handoverFor({ question: POST, start: {}, tanks: [tank], hb: h, lang: 'vi', search: finds([{ path: GUIDE, heading: null }]).search })
+  expect(post!.text).toContain('saved tanks')
   expect(post!.sections).toEqual([{ path: GUIDE, heading: null }])
   const { asked, search } = finds([{ path: NEON, heading: null }, { path: GUIDE, heading: null }])
-  const from = await handoverFor({ question: POST, start: { from: 'species', about: 'paracheirodon-innesi' }, tanks: [], hb: h, lang: 'vi', search })
+  const from = await handoverFor({ question: POST, start: { from: 'species', about: 'paracheirodon-innesi' }, tanks: [tank], hb: h, lang: 'vi', search })
   const about = h.byId('paracheirodon-innesi')!
   expect(asked).toEqual([`${about.name}${about.sub ? ` (${about.sub})` : ''}: ${POST}`])
   // The page once, though the search found it too.
