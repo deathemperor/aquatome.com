@@ -22,6 +22,16 @@ test('picks the best source photos from a real page', () => {
   expect(picked[0]!.alt).not.toMatch(/habitat/i) // the hero is the fish, not the biotope
 })
 
+test("a source's read-next card, an image linking to another of its articles, is never picked; a link to its own file or another site doesn't make one", () => {
+  // The owner's report, 2026-11-10: arowanas and a corydoras on the platy guide, from The Spruce Pets' cards.
+  const page = `<main><h2>Hifin</h2><figure><img src="https://x.com/hifin.jpg" width="800" height="600" alt="Hifin platy"></figure>
+    <a href="/silver-arowana-1234"><img src="https://x.com/arowana.jpg" width="600" height="400" alt="Two silver arowana"></a>
+    <a href="https://x.com/full.jpg"><img src="https://x.com/zoom.jpg" width="800" height="600" alt="Platy to zoom"></a>
+    <a href="https://photos.example/p/1"><img src="https://x.com/credit.jpg" width="800" height="600" alt="Platy by a photographer"></a>
+    <a href="https://x.com/platy-types/"><img src="https://x.com/self.jpg" width="800" height="600" alt="Platy linking to its own page"></a></main>`
+  expect(pickSourcePhotos(htmlToOutline(page).images, 'https://x.com/platy-types', ['platy'], 6, 'guide').map(p => p.alt)).toEqual(['Hifin platy', 'Platy to zoom', 'Platy by a photographer', 'Platy linking to its own page'])
+})
+
 test('logos, icons, svgs, QR codes, tiny and banner images are never picked', () => {
   const picked = pickSourcePhotos([
     { src: '/logo.png', alt: 'Site logo', width: 900, height: 300 },

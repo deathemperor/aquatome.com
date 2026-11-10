@@ -24,6 +24,20 @@ const file = (src: string) => decodeURIComponent(src.split(/[?#]/)[0]!.split('/'
 const dedupeKey = (src: string) => file(src).toLowerCase().replace(/\.[a-z0-9]+$/, '').replace(/-(\d+x\d+|scaled)$/, '')
 const words = (s: string) => s.toLowerCase().replace(/[-_.]+/g, ' ')
 
+/**
+ * An image wrapped in a link to another page of the same site is that page's card ("read next"), not a picture of this
+ * one (the owner's report, 2026-11-10: arowanas and a corydoras on the platy guide, from The Spruce Pets' cards). A link to
+ * the image's own file, to its attachment page or to another site (a photographer's) doesn't make it one.
+ */
+function linksElsewhere(link: string, pageUrl: string) {
+  try {
+    const to = new URL(link, pageUrl)
+    const page = new URL(pageUrl)
+    const path = (u: URL) => u.pathname.replace(/\/$/, '')
+    return to.host === page.host && path(to) !== path(page) && !/\.(jpe?g|png|webp|avif|gif)$/i.test(to.pathname) && !/attachment/i.test(`${to.pathname}${to.search}`)
+  } catch { return false }
+}
+
 /** Best photos from a source page: real photos (not chrome), big enough, about the subject; the subject itself before scenery. */
 export function pickSourcePhotos(images: PageImage[], pageUrl: string, names: string[], max = 4, kind: 'subject' | 'guide' = 'subject', minWidth = MIN_WIDTH): Picked[] {
   const terms = [...new Set(names.flatMap(n => [n.toLowerCase(), ...n.toLowerCase().split(/\s+/).filter(w => w.length >= 4)]))]
@@ -34,6 +48,7 @@ export function pickSourcePhotos(images: PageImage[], pageUrl: string, names: st
     let src: string
     try { src = new URL(img.src, pageUrl).href } catch { continue }
     if (!/^https?:/.test(src) || /\.(svg|gif)(\?|$)/i.test(src) || JUNK.test(`${file(src)} ${img.alt}`) || QR.test(src)) continue
+    if (img.link && linksElsewhere(img.link, pageUrl)) continue
     if (img.width && img.width < minWidth) continue
     if (img.width && img.height && !okShape(img.width, img.height)) continue
     if (kind === 'subject' && PRODUCT.test(`${file(src)} ${img.alt}`)) continue
