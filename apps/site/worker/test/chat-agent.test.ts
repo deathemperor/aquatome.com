@@ -89,6 +89,21 @@ test('a guide written from one video is marked so in the search and its outline,
   expect(SYSTEM).toContain('oneVideo')
 })
 
+test('a glossary term named inside a longer search is found after every other match, unless its name is common', () => {
+  const term = (name: string, aka: string[] = []) => ({ kind: 'glossary', name, aka, path: `/vi/thuat-ngu/${fold(name)}/` }) as Item
+  const guide = (name: string, n: number) => ({ kind: 'guide', name, path: `/vi/huong-dan/g${n}/` }) as Item
+  const tanin = term('Tanin', ['Tannins']), nitrit = term('Nitrit', ['Nitrite']), water = term('Nước')
+  const yellow = guide('Nước vàng trong bể mới', 0)
+  const items = [tanin, nitrit, water, yellow, ...Array.from({ length: 13 }, (_, i) => guide(`Nước máy ${i}`, i + 1))]
+  expect(search(items, 'driftwood tannin', 'glossary')).toEqual([tanin])
+  expect(search(items, 'nitrite ngộ độc', 'glossary')).toEqual([nitrit])
+  // "Nước" is in 14 pages' names, so it says nothing about what's asked; and the guide that has most of the words comes first.
+  expect(search(items, 'nước vàng tannin', null)).toEqual([yellow, tanin])
+  expect(search(items, 'nước vàng', 'glossary')).toEqual([])
+  // A Thai name has no spaces, so "current" in an electrical query isn't the start of the term for water current.
+  expect(search([...items, term('กระแสน้ำ')], 'ค่ากระแสไฟฟ้า', 'glossary')).toEqual([])
+})
+
 test('read_tanks reads the reader\'s tanks with their ids, says when there are none, and is an error when they can\'t be read', async () => {
   const h = await hb()
   const tank: Tank = { id: 't1', name: 'Bể 60', dims: { l: 60, w: 30, h: 36 }, species: [{ id: 'paracheirodon-innesi', count: 10 }], unlisted: [{ name: 'Cá lạ', kind: 'fish', count: 2 }, { name: 'Rong lạ', kind: 'plant' }] }
