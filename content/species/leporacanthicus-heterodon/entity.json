@@ -10,6 +10,74 @@
     "brazil",
     "rio-xingu"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Xingu"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The golden vampire plec, Leporacanthicus heterodon, is a suckermouth catfish from the Rio Xingu basin in Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Xingu"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339393,
+      "total": 21,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "BR",
+          21
+        ]
+      ],
+      "cells": [
+        [
+          -54.84375,
+          -5.625,
+          7,
+          7
+        ],
+        [
+          -53.4375,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -53.4375,
+          -5.625,
+          5,
+          5
+        ],
+        [
+          -53.4375,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          -52.03125,
+          -4.21875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

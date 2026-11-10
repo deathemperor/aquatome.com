@@ -10,6 +10,62 @@
     "china",
     "fujian"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "IUCN Red List: Least Concern (IUCN 2024). This species has a wide distribution in Anhui, Jiangxi and Fujian Provinces, China. It is common and has a stable population trend.",
+          "countries": [
+            "CN"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342846,
+      "total": 5,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "CN",
+          4
+        ],
+        [
+          "KR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          108.28125,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          116.71875,
+          26.71875,
+          3,
+          3
+        ],
+        [
+          126.5625,
+          36.5625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

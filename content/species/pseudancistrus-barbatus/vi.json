@@ -3,7 +3,9 @@
   "name": "Cá pleco vòng hoa",
   "altNames": [
     "Cá lau kính Wreath",
-    "Wreath Pleco"
+    "Wreath Pleco",
+    "Cá tỳ bà râu",
+    "Bearded catfish"
   ],
   "sections": {
     "quickFacts:planetcatfish": "<p>Pseudancistrus barbatus (Valenciennes, 1840). Tên thường gọi: Wreath Pleco. Nơi thu mẫu chuẩn: sông La Mana, Guyane thuộc Pháp. Kích thước: 200 mm SL (chiều dài chuẩn, không tính vây đuôi).</p>",
@@ -11,13 +13,23 @@
     "habitat:planetcatfish": "<p>Cá sống ở các đoạn thác ghềnh. Chúng trú trong hốc và kẽ đá ở những chỗ nước chảy xiết. Râu trên mõm cá đực dài hay ngắn có thể phản ánh thứ bậc của con cá đó trong đàn.</p>",
     "reproduction:planetcatfish": "<p>Chưa có tài liệu nào ghi nhận loài này sinh sản.</p>",
     "notes:planetcatfish": "<p>Trong nhóm Ancistrini (trước đây gọi là Ancistrinae), Pseudancistrus là chi duy nhất không có tấm má bung ra được. Vì đặc điểm này nên đã có lúc chi này bị xếp vào Hypostominae.</p><p>Từ nguyên: tên chi ghép từ tiếng Hy Lạp pseudes (giả) và agkistron (móc, ngạnh), nghĩa là \"Ancistrus giả\". Tính ngữ loài barbatus nghĩa đen là \"có râu\".</p>",
-    "references:planetcatfish": "<p>Histoire naturelle des poissons v. 15, pp 506.</p>"
+    "references:planetcatfish": "<p>Histoire naturelle des poissons v. 15, pp 506.</p>",
+    "quickFacts:scotcat": "<ul><li>Tên thường gọi: cá lau kiếng râu (Bearded catfish)</li></ul>",
+    "distribution:scotcat": "<p>Nam Mỹ: lưu vực các sông Oyapock, Mana, Maroni, Suriname, Corantijn và Essequibo. Nơi thu mẫu chuẩn: Surinam.</p><p>Pseudancistrus barbatus chỉ sống trong các lưu vực sông ở Guiana thuộc Pháp. Loài này có ở sông Marowijne giáp Suriname, sông Mana và sông Oyapock giáp Brazil. Phạm vi phân bố (EOO) ước tính khoảng 87.877 km2, còn diện tích cư trú (AOO) khoảng 40.288 km2. Hệ sinh thái bị ảnh hưởng cục bộ ở hạ lưu sông Oyapock, đoạn ven biển Guiana thuộc Pháp gần các khu dân cư. Dọc dòng chính sông Marowijne, nơi chảy qua nhiều thành phố, cũng có tình trạng tương tự. Nguyên nhân là ô nhiễm, trầm tích tăng và hoạt động nông nghiệp. Người dân địa phương còn đánh bắt loài này ở quy mô nhỏ, và nạn đào vàng trái phép khá phổ biến ở Guiana thuộc Pháp. Ngoài những tác động cục bộ đó, vùng phân bố nói chung có vẻ còn giữ được khá tốt và không có mối đe dọa lớn nào. Vì thế Pseudancistrus barbatus được xếp vào nhóm Ít quan tâm (LC) (IUCN 2022).</p>",
+    "habitat:scotcat": "<p>Loài này sống ở thác ghềnh, nấp trong các khe đá ở những chỗ nước chảy xiết. Ở vùng nước nông, người dân bắt chúng bằng lao hoặc cung.</p>",
+    "maintenance:scotcat": "<p>Đây không phải loài dễ nuôi trong bể. Nó cần nước thật sạch, lọc tốt và không quá cứng. Nước nên giữ ấm. Cá đực đã lớn rất hay giành chỗ và không sống chung được với các loài cá lau kiếng lớn khác.</p>",
+    "waterConditions:scotcat": "<p>Nhiệt độ: 26-30°C. pH: 6.0-7.0. Nước cần lọc tốt và không quá cứng.</p>",
+    "diet:scotcat": "<p>Loài này gặm lớp rêu và vi sinh bám trên bề mặt (aufwuchs), chủ yếu ăn rau. Có thể cho ăn xà lách, rau chân vịt, dưa leo, bí ngòi, cùng thức ăn mảnh và thức ăn viên làm từ rau. Nó cũng ăn cả những thứ khác như ấu trùng côn trùng, động vật phù du và gỗ mềm, nhưng thức ăn chính vẫn phải là rau xanh.</p>",
+    "dimorphism:scotcat": "<p>Râu ở mõm cá đực dài hay ngắn có lẽ phản ánh thứ bậc của con đó trong đàn. Cá đực có đầu rộng, dọc mép mõm mọc những sợi râu dài.</p>",
+    "notes:scotcat": "<p>Nguồn gốc tên: barbatus nghĩa là có râu, ý chỉ các sợi râu ở mõm.</p>",
+    "references:scotcat": "<p>Calegari, B.B. 2022. Pseudancistrus barbatus. The IUCN Red List of Threatened Species 2022.</p><p>Armbruster, J.W., 2004. Pseudancistrus sidereus, a new species from southern Venezuela (Siluriformes: Loricariidae) with a redescription of Pseudancistrus. Zootaxa 628:1-15.</p><p>Froese, R. and D. Pauly. Editors. 2016. FishBase. World Wide Web electronic publication. www.fishbase.org, (04/2018).</p><p>Seidel, I. 2008. Back to Nature guide to L-catfishes, Ettlingen, Germany 208 p.</p>"
   },
   "quality": {
     "score": 0.8,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.8
+      "planetcatfish": 0.8,
+      "scotcat": 0.95
     }
   }
 }

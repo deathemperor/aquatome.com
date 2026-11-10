@@ -1,0 +1,35 @@
+{
+  "id": "limnopilos-naiyanetri",
+  "native": {
+    "input": "ff68cea58a83601b",
+    "at": "2026-11-09T16:24:16.651Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Thailand",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Limnopilos naiyanetri",
+    "status": "ACCEPTED",
+    "taxonKey": 5973999,
+    "datasets": [],
+    "native": [
+      "TH"
+    ],
+    "requests": 2,
+    "at": "2026-11-09T16:24:16.651Z"
+  }
+}

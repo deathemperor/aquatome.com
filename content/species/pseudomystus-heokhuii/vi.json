@@ -9,14 +9,21 @@
     "quickFacts:glaser": "<p>Loài cá da trơn ong bắp cày xinh xắn này mới được phát hiện và mô tả khoa học vào năm 2008. Giờ đây nó mới được nhập về lần đầu tiên. P. heokhuii dài khoảng 6 cm. Đây là một loài cá da trơn rất hiền.</p>",
     "habitat:glaser": "<p>Ngoài tự nhiên, Pseudomystus heokhuii sống ở những vùng nước đen rất khắc nghiệt. Nước ở đó có pH chỉ khoảng 3,5-4,5.</p>",
     "waterConditions:glaser": "<p>Ngoài tự nhiên chúng sống trong điều kiện khắc nghiệt như vậy, nhưng khi về bể thì chúng thích nghi rất tốt với nhiều kiểu nước khác nhau.</p>",
-    "reproduction:glaser": "<p>Cá cái có mang trứng. Ngay trong bể chụp ảnh, cá đực cũng đã có biểu hiện tán tỉnh. Như vậy có vẻ loài cá da trơn ong bắp cày xinh xắn này có thể sinh sản được cả trong bể nuôi.</p>"
+    "reproduction:glaser": "<p>Cá cái có mang trứng. Ngay trong bể chụp ảnh, cá đực cũng đã có biểu hiện tán tỉnh. Như vậy có vẻ loài cá da trơn ong bắp cày xinh xắn này có thể sinh sản được cả trong bể nuôi.</p>",
+    "quickFacts:scotcat": "<p>Họ: Bagridae. Cỡ khi lớn: 6,5 cm. Nhiệt độ: 21-26 °C. pH: 5,5-6,5. Loài do Lim &amp; Ng mô tả năm 2008.</p>",
+    "distribution:scotcat": "<p>Châu Á: lưu vực sông Batang Hari và sông Indragiri ở Sumatra, Indonesia. Nơi thu mẫu chuẩn là lưu vực Batang Hari, tại Rantau Panjang, Jambi, Sumatra.</p>",
+    "habitat:scotcat": "<p>Loài này sống trong các kênh nước ở vùng đồng bằng ngập lũ và trong đầm than bùn. Nước ở đó rất chua (pH 3,5-4,5) và có màu tanin.</p><p>Hiện mới chỉ thấy loài này ở lưu vực sông Batang Hari và Indragiri trên đảo Sumatra, với vùng phân bố khoảng 3.000 km2. Nơi chúng sống là đầm than bùn nước đen và rừng thạch nam. Vùng này đã bị phá và xuống cấp trên diện rộng do khai thác gỗ, trồng đồn điền (chủ yếu là cọ dầu) và nắn dòng, đào kênh. Đất bị chuyển đổi nhiều như vậy nên số điểm còn loài này chắc là không quá năm. Các mối đe dọa này nặng, lan rộng và có thể khiến loài tuyệt chủng chỉ trong thời gian ngắn. Vì thế IUCN (2020) xếp Pseudomystus heokhuii vào mức Nguy cấp theo tiêu chí B1ab(i,iii).</p>",
+    "waterConditions:scotcat": "<p>Nhiệt độ: 21-26 °C. pH: 5,5-6,5.</p>",
+    "dimorphism:scotcat": "<p>Vây lưng có 1 gai và 7 tia mềm. Vây hậu môn có 12-14 tia mềm. Số đốt sống là 35-36. Loài này có thân cao hơn (17,8-21,0% SL, so với 9,0-17,0) nên phân biệt được với mọi loài cùng chi, trừ Pseudomystus breviceps, P. bomboides, P. flavipinnis, P. myersi, P. siamensis, P. robustus, P. sobrinus và P. stenomus. So với Pseudomystus leiacanthus, nó khác ở những điểm sau: vây đuôi có hai vạch tối hẹp, không đều (P. leiacanthus chỉ có một), gai vây ngực dài hơn (19,3-22,4% SL, so với 15,2-18,6), vây đuôi dài hơn (33,5-40,0% SL, so với 25,7-31,9) và có thùy nhọn chứ không tròn. Râu mũi và râu hàm trên cũng dài hơn (lần lượt 63,1-81,1% HL so với 31,3-51,5, và 86,2-125,3% HL so với 70,9-91,3). Mảng răng tiền hàm thẳng chứ không cong hình lưỡi liềm. Nhìn từ trên xuống, mõm thon nhọn hơn, còn đường lưng phía trước vây lưng thì phẳng chứ không hơi lồi.</p><p>Màu sắc: loài này có một sọc nhạt chạy dọc giữa thân và hai dải nhạt chạy xiên ở hai bên thân. Kiểu màu này khác hẳn các loài cùng chi, vì không loài nào khác trong chi có sọc nhạt giữa thân rõ như vậy.</p>",
+    "notes:scotcat": "<p>Nguồn gốc tên: tên chi Pseudomystus ghép từ hai chữ Hy Lạp, pseudes là \"giả\" và mystax là \"có râu\". Năm 1553, Belon đã dùng chữ này để gọi mọi loài cá có râu. Tên loài đặt để vinh danh Heok Hui Ng, một trong hai người mô tả loài.</p>",
+    "references:scotcat": "<p>Froese, R. and D. Pauly. Editors. 2009. FishBase. www.fishbase.org, version (10/2011). Lim, K.K.P. and H.H. Ng 2008 Pseudomystus heokhuii, a new species of bagrid catfish from Sumatra (Teleostei:Bragidae). Zootaxa 1686:37-47. Ng, H.H. 2020. Pseudomystus heokhuii. The IUCN Red List of Threatened Species 2020.</p>"
   },
   "quality": {
     "score": 0.8,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.8
-    },
-    "reason": "thin"
+      "glaser": 0.8,
+      "scotcat": 0.85
+    }
   }
 }

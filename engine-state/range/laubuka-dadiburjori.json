@@ -1,0 +1,77 @@
+{
+  "id": "laubuka-dadiburjori",
+  "native": {
+    "input": "a8ccc2a84625cbb6",
+    "at": "2026-11-09T12:58:06.259Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This nano fish comes from southern India (Kerala) and grows to a maximum length of 3 cm.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The dadio, Laubuka dadiburjori, is a small cyprinid endemic to southern India, recorded from Goa, Karnataka, Kerala and Tamil Nadu.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Meenachil",
+        "source": "seriouslyfish",
+        "quote": "Endemic to southern India with records from the states of Goa, Karnataka, Kerala, and Tamil Nadu, including the rivers Meenachil, Bharatapuzha, Chalakkudy, and Sita.",
+        "ok": true
+      },
+      {
+        "name": "Bharatapuzha",
+        "source": "seriouslyfish",
+        "quote": "Endemic to southern India with records from the states of Goa, Karnataka, Kerala, and Tamil Nadu, including the rivers Meenachil, Bharatapuzha, Chalakkudy, and Sita.",
+        "ok": true
+      },
+      {
+        "name": "Chalakkudy",
+        "source": "seriouslyfish",
+        "quote": "Endemic to southern India with records from the states of Goa, Karnataka, Kerala, and Tamil Nadu, including the rivers Meenachil, Bharatapuzha, Chalakkudy, and Sita.",
+        "ok": true
+      },
+      {
+        "name": "Sita",
+        "source": "seriouslyfish",
+        "quote": "Endemic to southern India with records from the states of Goa, Karnataka, Kerala, and Tamil Nadu, including the rivers Meenachil, Bharatapuzha, Chalakkudy, and Sita.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Laubuka dadiburjori",
+    "status": "ACCEPTED",
+    "taxonKey": 7972048,
+    "datasets": [
+      [
+        "80f63c1e-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T12:58:06.259Z"
+  }
+}

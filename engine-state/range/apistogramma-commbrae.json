@@ -1,14 +1,14 @@
 {
   "id": "apistogramma-commbrae",
   "native": {
-    "input": "9bb4fc010fc46487",
-    "at": "2026-11-06T09:17:06.855Z",
+    "input": "c49512f44c2f2192",
+    "at": "2026-11-09T20:43:02.940Z",
     "claims": [
       {
         "code": "AR",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The Corumbá dwarf cichlid, Apistogramma commbrae, is widespread in the Paraguay River watershed of Argentina, Bolivia, Brazil and Paraguay.",
+        "quote": "This species is widespread in the Paraguay River watershed (Paraná River system) in Argentina, Bolivia, Brazil and Paraguay, above its confluence with the Salado River.",
         "words": "Argentina",
         "ok": true
       },
@@ -16,7 +16,7 @@
         "code": "BO",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The Corumbá dwarf cichlid, Apistogramma commbrae, is widespread in the Paraguay River watershed of Argentina, Bolivia, Brazil and Paraguay.",
+        "quote": "This species is widespread in the Paraguay River watershed (Paraná River system) in Argentina, Bolivia, Brazil and Paraguay, above its confluence with the Salado River.",
         "words": "Bolivia",
         "ok": true
       },
@@ -24,7 +24,7 @@
         "code": "BR",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The Corumbá dwarf cichlid, Apistogramma commbrae, is widespread in the Paraguay River watershed of Argentina, Bolivia, Brazil and Paraguay.",
+        "quote": "This species is widespread in the Paraguay River watershed (Paraná River system) in Argentina, Bolivia, Brazil and Paraguay, above its confluence with the Salado River.",
         "words": "Brazil",
         "ok": true
       },
@@ -32,7 +32,31 @@
         "code": "PY",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The Corumbá dwarf cichlid, Apistogramma commbrae, is widespread in the Paraguay River watershed of Argentina, Bolivia, Brazil and Paraguay.",
+        "quote": "This species is widespread in the Paraguay River watershed (Paraná River system) in Argentina, Bolivia, Brazil and Paraguay, above its confluence with the Salado River.",
+        "words": "Paraguay",
+        "ok": true
+      },
+      {
+        "code": "AR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Argentina, Brazil and Paraguay.",
+        "words": "Argentina",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Argentina, Brazil and Paraguay.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Argentina, Brazil and Paraguay.",
         "words": "Paraguay",
         "ok": true
       }

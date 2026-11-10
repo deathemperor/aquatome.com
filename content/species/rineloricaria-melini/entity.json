@@ -8,13 +8,36 @@
   "places": [
     "south-america",
     "brazil",
-    "rio-negro"
+    "rio-negro",
+    "amazon"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 12
+      },
+      {
+        "source": "scotcat",
+        "value": 10
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 26,
+          "max": 29
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
       }
     ]
   },
@@ -26,16 +49,34 @@
       "html": "<p>Rineloricaria melini is probably the most attractive Rineloricaria species. Adults reach full growth at 9–12 cm. Males are cave spawners.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rineloricaria_melini.htm",
+      "html": "<ul><li>Common name: Apache whiptail catfish</li><li>Synonym: Hemiloricaria melini</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/rineloricaria_melini_en/",
       "html": "<p>Origin: Brazil, Rio Negro.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rineloricaria_melini.htm",
+      "html": "<p>South America: Amazon River basin, Brazil. Type locality: Rio Solimoes near Manacapuru, close to the mouth of the Rio Negro, Brazil. The species is known from a single record, in its type locality, in the Solimões River, near Manacapuru, Amazonas, Brazil. There is no information on the current conservation status of the species, but no direct threats that could lead to its extinction have been identified. It has been categorised as Least Concern (IUCN 2022).</p>"
+    },
+    {
       "key": "habitat",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/rineloricaria_melini_en/",
       "html": "<p>They live in blackwater biotopes in the Rio Negro area.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rineloricaria_melini.htm",
+      "html": "<p>A blackwater species that requires soft, acidic water to spawn.</p>"
     },
     {
       "key": "equipment",
@@ -50,10 +91,34 @@
       "html": "<p>They are omnivores and need both vegetable and animal food.</p>"
     },
     {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rineloricaria_melini.htm",
+      "html": "<p>Omnivore. Vegetable food such as cucumber and other foods such as tablet, flake and frozen.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/rineloricaria_melini_en/",
       "html": "<p>Like all Rineloricaria species, the males are cave spawners.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rineloricaria_melini.htm",
+      "html": "<p>Rineloricaria species are usually cave spawners, where the female places her eggs after the male has cleaned inside. The male then guards and fans the eggs until hatching. The eggs hatch in 4-5 days, after which the male can be removed.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rineloricaria_melini.htm",
+      "html": "<p>Named in honour of Swedish herpetologist Douglas Melin (1895-1946), who collected the type. In some online searches this species comes up under its previous name, Hemiloricaria melini.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/loricariidae/rineloricaria_melini.htm",
+      "html": "<p>Chico Mendes Institute for Biodiversity Conservation (ICMBio). 2022. Rineloricaria melini. IUCN Red List of Threatened Species 2022. Evers, H.-G. &amp; I.Seidel: Mergus, Baensch Catfish Atlas Volume 1, 1st English edn., 2005. Pp.944. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p>"
     }
   ],
   "photos": [
@@ -115,5 +180,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-05"
+  "updatedAt": "2026-11-09"
 }

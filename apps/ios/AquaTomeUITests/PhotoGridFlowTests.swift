@@ -290,7 +290,7 @@ final class PhotoGridFlowTests: XCTestCase {
 
   // MARK: - Helpers
 
-  /// Cá neon, its page open, on the old look: v2's page has no way into the grid yet.
+  /// Cá neon, its page open, on the old look: V2FlowTests has v2's ways into the grid.
   private func launch(accounts: String? = nil, _ more: String...) -> XCUIApplication {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fixed-pictures"]

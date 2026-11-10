@@ -1,21 +1,29 @@
 {
   "slug": "ikan-riu",
-  "name": "Ikan riu",
-  "altNames": [
-    "Lais riu",
-    "Pseudeutropius"
-  ],
+  "name": "Ikan Riu",
+  "altNames": [],
   "sections": {
-    "quickFacts:planetcatfish": "<ul><li>Nama ilmiah: Pseudeutropius brachypopterus (Bleeker, 1858)</li><li>Famili: Horabagridae</li><li>Sinonim: Eutropius brachypopterus</li><li>Lokasi tipe: Palembang, Sumatra bagian selatan, Indonesia.</li><li>Etimologi: dari bahasa Yunani, pseudes = palsu + bahasa Yunani, eu = baik + lunas (keel), merujuk pada tubuh ikan yang pipih.</li><li>Ukuran: 11,5 cm SL.</li><li>Daftar Merah IUCN: Least Concern (Risiko Rendah), terakhir dinilai 2018.</li></ul>",
+    "quickFacts:planetcatfish": "<ul><li>Nama ilmiah: Pseudeutropius brachypopterus (Bleeker, 1858)</li><li>Famili: Horabagridae</li><li>Sinonim: Eutropius brachypopterus</li><li>Lokasi tipe: Palembang, Sumatra bagian selatan, Indonesia.</li><li>Etimologi: dari bahasa Yunani, pseudes = palsu + bahasa Yunani, eu = baik + lunas (keel, bagian dasar badan perahu), mengacu pada tubuh ikan yang pipih menyamping.</li><li>Ukuran: 115 mm SL.</li><li>Daftar Merah IUCN: Berisiko Rendah (Least Concern) (terakhir dinilai 2018).</li></ul>",
+    "quickFacts:scotcat": "<ul><li>Sinonim: Eutropius brachypopterus</li></ul>",
     "distribution:planetcatfish": "<p>Asia: Sumatra dan Kalimantan. Pasifik, sungai-sungai Kepulauan Sunda Besar, perairan Sumatra; Pasifik, sungai-sungai Kepulauan Sunda Besar, perairan Kalimantan.</p>",
-    "reproduction:planetcatfish": "<p>Pemijahan: belum dilaporkan. Belum ada laporan pemijahan untuk ikan ini.</p>",
-    "references:planetcatfish": "<p>Acta Societatis Regiae Scientiarum Indo-Neêrlandicae v. 4 (art. 2), pp 169.</p>"
+    "distribution:scotcat": "<p>Asia: Sungai Kapuas, Sumatra. Lokasi tipe: Palembang, Sumatra.</p><p>Spesies ini diketahui terdapat mulai dari daerah aliran Sungai Siak ke selatan hingga daerah aliran Sungai Musi di Sumatra, serta dari daerah aliran Sungai Kapuas dan Sungai Sampit (Mentaya) ke timur hingga daerah aliran Sungai Sebangau di Kalimantan. Luas wilayah keberadaannya (extent of occurrence, EOO) diperkirakan 540.000 km2, berdasarkan titik-titik bergeoreferensi (GBIF 2019) dan pendapat pakar (H.H. Ng, komunikasi pribadi 2019). Jumlah lokasi tempat spesies ini ditemukan belum diketahui. Namun, mengingat sebarannya yang luas, jumlahnya kemungkinan lebih dari 10.</p>",
+    "habitat:scotcat": "<p>Spesies ini menghuni perairan mengalir maupun perairan tenang; tampaknya lebih erat berkaitan dengan habitat rawa gambut berair hitam (blackwater).</p>",
+    "maintenance:scotcat": "<p>Ikan ini cukup pemalu, jadi perlu akuarium dengan banyak tanaman supaya merasa aman di lingkungannya. Pelihara minimal 6 ekor supaya bisa membentuk kelompok.</p>",
+    "waterConditions:scotcat": "<p>Suhu: 22–26 °C. pH: 6,0–7,0.</p>",
+    "diet:scotcat": "<p>Memakan larva serangga dan invertebrata kecil.</p>",
+    "behaviour:scotcat": "<p>Ditemukan bersama P. moolenburghae, dan keduanya berenang bergerombol bersama.</p>",
+    "reproduction:planetcatfish": "<p>Pemijahan: belum dilaporkan. Tidak ada laporan pemijahan.</p>",
+    "reproduction:scotcat": "<p>Ovipar (bertelur), telurnya tidak dijaga.</p>",
+    "notes:scotcat": "<p>Etimologi: nama spesifik (epitet spesifik) brachypopterus: brachýs, pendek; –po, singkatan dari hypó, di bawah atau kurang dari; pterus, dari pterón atau ptéryx, sayap atau sirip, mengacu pada sirip anal yang lebih pendek dibandingkan spesies sekerabat dari Asia dan Afrika dalam genus yang sama, yang saat itu dimasukkan ke dalam Eutropius (=Schilbe, sekarang dalam Schilbeidae).</p><p>Daftar Merah IUCN: Meskipun belum ada informasi rinci tentang status populasi spesies ini, data survei menunjukkan bahwa ikan ini masih melimpah di banyak bagian wilayah sebarannya yang diketahui. Karena itu spesies ini dinilai Berisiko Rendah (Least Concern). Namun, perlu dicatat bahwa habitat utama spesies ini (hutan rawa gambut berair hitam) telah mengalami perusakan dan degradasi dalam skala besar, dan dampak hilangnya habitat secara masif tersebut terhadap spesies ini perlu diteliti lebih lanjut. Spesies ini perlu dinilai ulang setelah tersedia lebih banyak informasi tentang dampak hilangnya habitat terhadap populasinya (IUCN 2019).</p>",
+    "references:planetcatfish": "<p>Acta Societatis Regiae Scientiarum Indo-Neêrlandicae v. 4 (art. 2), pp 169.</p>",
+    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (11/2009).</p><p>Kottelat, M., A.J. Whitten, S.N. Kartikasari and S. Wirjoatmodjo, 1993. Freshwater fishes of Western Indonesia and Sulawesi. Periplus Editions, Hong Kong. 221 p.</p><p>Ng, H.H. 2019. Pseudeutropius brachypopterus. The IUCN Red List of Threatened Species 2019.</p>"
   },
   "quality": {
     "score": 0.75,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.75
+      "planetcatfish": 0.75,
+      "scotcat": 0.75
     }
   }
 }

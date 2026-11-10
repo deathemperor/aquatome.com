@@ -11,6 +11,129 @@
     "ogooue",
     "cameroon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CM",
+        "GA"
+      ],
+      "regions": [
+        "Ogôoué",
+        "Nyanga",
+        "Kouilou-Niari"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Africa: known from the Ogôoué basin, Nyanga River and Kouilou-Niari system (Cameroon to Gabon).",
+          "countries": [
+            "CM",
+            "GA"
+          ],
+          "regions": [
+            "Ogôoué",
+            "Nyanga",
+            "Kouilou-Niari"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342040,
+      "total": 28,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "GA",
+          21
+        ],
+        [
+          "CG",
+          4
+        ],
+        [
+          "CM",
+          2
+        ],
+        [
+          "CD",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          9.84375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          9.84375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          11.25,
+          -4.21875,
+          2,
+          0
+        ],
+        [
+          11.25,
+          -2.8125,
+          2,
+          1
+        ],
+        [
+          11.25,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          12.65625,
+          -4.21875,
+          1,
+          0
+        ],
+        [
+          12.65625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          12.65625,
+          -1.40625,
+          3,
+          3
+        ],
+        [
+          12.65625,
+          0,
+          13,
+          13
+        ],
+        [
+          12.65625,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          14.0625,
+          -5.625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

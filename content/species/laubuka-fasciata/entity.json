@@ -10,6 +10,65 @@
     "india",
     "kerala"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Bharathapuzha",
+        "Chalakudy",
+        "Periyar",
+        "Muvattupuzha",
+        "Annamalai River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "This species is endemic to the state of Kerala in southwestern India, where it has been recorded from the Bharathapuzha, Chalakudy, Muvattupuzha, Periyar, Ponnani, Meenachil, Achenkovil, Chaliyar, and Manimala river systems.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Bharathapuzha",
+            "Chalakudy",
+            "Periyar",
+            "Muvattupuzha"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Annamalai River at base of Annamalai Hills, Chittur Taluk, Malabar, Kerala State, India'.",
+          "countries": [],
+          "regions": [
+            "Annamalai River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7541494,
+      "total": 1,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "IN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          78.75,
+          15.46875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

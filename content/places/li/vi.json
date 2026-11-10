@@ -1,10 +1,13 @@
 {
   "slug": "li",
-  "name": "Li",
-  "altNames": [],
+  "name": "sông Ly Giang",
+  "altNames": [
+    "Li"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

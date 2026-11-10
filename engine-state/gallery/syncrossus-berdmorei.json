@@ -1,17 +1,13 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Syncrossus_berdmorei.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Syncrossus_berdmorei.jpg/500px-Syncrossus_berdmorei.jpg",
-   "width": 2000,
-   "height": 1333,
-   "licence": "CC BY-SA 3.0",
-   "author": "Lerdsuwa",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Syncrossus_berdmorei.jpg",
-   "caption": "Syncrossus berdmorei. Size about 12cm SL.",
-   "key": "File:Syncrossus berdmorei.jpg"
-  }
+ "queue": [],
+ "judged": [
+  "File:Syncrossus berdmorei.jpg"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/seriouslyfish/e9c0a3d0c61e20c3.webp": "3c3e2f3736e3a175",
+  "https://media.aquatome.com/seriouslyfish/15654a192ca29ca9.webp": "cffe7e4e07f0e83b",
+  "https://media.aquatome.com/seriouslyfish/fcf849bda7a15703.webp": "3d2f320606480e3f",
+  "https://upload.wikimedia.org/wikipedia/commons/a/ad/Syncrossus_berdmorei.jpg": "272737735196de3b"
+ },
+ "commons": "2026-11-09"
 }

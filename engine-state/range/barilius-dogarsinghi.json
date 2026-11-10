@@ -1,0 +1,90 @@
+{
+  "id": "barilius-dogarsinghi",
+  "native": {
+    "input": "426ea80310ede726",
+    "at": "2026-11-09T12:58:06.259Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The majority of records for 'B.' dogarsinghi are from the Chindwin river system in Manipur and Nagaland states, northeastern India, with a handful of occurrences in Myanmar, and it may be restricted to the Manipur and Yu affluent drainages including their respective major tributaries the Myittha and Lokchao rivers, plus the upper Barak river basin which forms part of the Ganges-Brahmaputra system.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The majority of records for 'B.' dogarsinghi are from the Chindwin river system in Manipur and Nagaland states, northeastern India, with a handful of occurrences in Myanmar, and it may be restricted to the Manipur and Yu affluent drainages including their respective major tributaries the Myittha and Lokchao rivers, plus the upper Barak river basin which forms part of the Ganges-Brahmaputra system.",
+        "words": "Myanmar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Chindwin",
+        "source": "seriouslyfish",
+        "quote": "The majority of records for 'B.' dogarsinghi are from the Chindwin river system in Manipur and Nagaland states, northeastern India, with a handful of occurrences in Myanmar, and it may be restricted to the Manipur and Yu affluent drainages including their respective major tributaries the Myittha and Lokchao rivers, plus the upper Barak river basin which forms part of the Ganges-Brahmaputra system.",
+        "ok": true
+      },
+      {
+        "name": "Barak",
+        "source": "seriouslyfish",
+        "quote": "The majority of records for 'B.' dogarsinghi are from the Chindwin river system in Manipur and Nagaland states, northeastern India, with a handful of occurrences in Myanmar, and it may be restricted to the Manipur and Yu affluent drainages including their respective major tributaries the Myittha and Lokchao rivers, plus the upper Barak river basin which forms part of the Ganges-Brahmaputra system.",
+        "ok": true
+      },
+      {
+        "name": "Ganges-Brahmaputra",
+        "source": "seriouslyfish",
+        "quote": "The majority of records for 'B.' dogarsinghi are from the Chindwin river system in Manipur and Nagaland states, northeastern India, with a handful of occurrences in Myanmar, and it may be restricted to the Manipur and Yu affluent drainages including their respective major tributaries the Myittha and Lokchao rivers, plus the upper Barak river basin which forms part of the Ganges-Brahmaputra system.",
+        "ok": true
+      },
+      {
+        "name": "Naga Hills",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Etok stream near Chanderkhong, southern watershed of the Naga Hills, Manipur, Assam'.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Barilius dogarsinghi",
+    "status": "ACCEPTED",
+    "taxonKey": 2363326,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        4
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "IN",
+      "MM"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T12:58:06.259Z"
+  }
+}

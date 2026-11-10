@@ -1,0 +1,75 @@
+{
+  "id": "luciosoma-pellegrinii",
+  "native": {
+    "input": "a345d10e553a61d3",
+    "at": "2026-11-09T16:24:16.651Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Borneo, with its range extending northeastwards from the Kapuas River watershed in West Kalimantan (Kalimantan Barat) province, Indonesia, through East Kalimantan (Kalimantan Timur) to the Malaysian state of Sabah.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Borneo, with its range extending northeastwards from the Kapuas River watershed in West Kalimantan (Kalimantan Barat) province, Indonesia, through East Kalimantan (Kalimantan Timur) to the Malaysian state of Sabah.",
+        "words": "Malaysian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Borneo, with its range extending northeastwards from the Kapuas River watershed in West Kalimantan (Kalimantan Barat) province, Indonesia, through East Kalimantan (Kalimantan Timur) to the Malaysian state of Sabah.",
+        "ok": true
+      },
+      {
+        "name": "Kapuas",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Borneo, with its range extending northeastwards from the Kapuas River watershed in West Kalimantan (Kalimantan Barat) province, Indonesia, through East Kalimantan (Kalimantan Timur) to the Malaysian state of Sabah.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Mahakam",
+        "source": "seriouslyfish",
+        "quote": "The majority of records are from the Mahakam and Segama river systems.",
+        "ok": true
+      },
+      {
+        "name": "Segama",
+        "source": "seriouslyfish",
+        "quote": "The majority of records are from the Mahakam and Segama river systems.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Luciosoma pellegrinii",
+    "status": "ACCEPTED",
+    "taxonKey": 2360865,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        10
+      ]
+    ],
+    "native": [
+      "ID",
+      "MY"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T16:24:16.651Z"
+  }
+}

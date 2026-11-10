@@ -14,6 +14,42 @@
     "malaysia",
     "thailand"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY"
+      ],
+      "regions": [
+        "Sumatra",
+        "Mergui Archipelago",
+        "Sulawesi"
+      ],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "They are widely distributed in Sumatra (type locality Deli), the Mergui Archipelago in the Andaman Sea, Sulawesi, Peninsular Malaysia, and the Gulf of Thailand.",
+          "countries": [
+            "MY"
+          ],
+          "regions": [
+            "Sumatra",
+            "Mergui Archipelago",
+            "Sulawesi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 11116458,
+      "total": 0,
+      "fetched": "2026-11-09",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

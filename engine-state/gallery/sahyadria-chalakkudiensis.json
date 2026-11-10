@@ -1,17 +1,12 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Sahyadria_chalakkudiensis.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Sahyadria_chalakkudiensis.jpg/500px-Sahyadria_chalakkudiensis.jpg",
-   "width": 3456,
-   "height": 2304,
-   "licence": "CC BY-SA 4.0",
-   "author": "Beta Mahatvaraj",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sahyadria_chalakkudiensis.jpg",
-   "caption": "Sahyadria chalakkudiensis",
-   "key": "File:Sahyadria chalakkudiensis.jpg"
-  }
+ "queue": [],
+ "judged": [
+  "File:Sahyadria chalakkudiensis.jpg"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/seriouslyfish/836f6e1f04f53521.webp": "c4cac0838be0c100",
+  "https://media.aquatome.com/seriouslyfish/0e6a3ca4ef7e26db.webp": "6f37e3f0ece37726",
+  "https://media.aquatome.com/seriouslyfish/deb64dadd7c39cee.webp": "7f37e6a466e3717d"
+ },
+ "commons": "2026-11-09"
 }

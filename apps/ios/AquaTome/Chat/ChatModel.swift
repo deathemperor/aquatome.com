@@ -45,6 +45,13 @@ extension ChatRoute {
     self.init(start: row.start, subject: ChatSubject(plant: about?.kind == "plant", name: name ?? "AquaTome", sci: item?.sub, img: item?.img.flatMap(URL.init(string:)) ?? about?.img,
                                                      guesses: nil, second: nil))
   }
+
+  /// The chat about this fish (a species or breed) or plant.
+  init?(about item: HandbookIndex.Item) {
+    guard [.fish, .plant].contains(item.kind), let id = item.contentId else { return nil }
+    self.init(start: Chat.Start(from: .species, about: id),
+              subject: ChatSubject(plant: item.kind == .plant, name: item.name, sci: item.sub, img: item.img.flatMap(URL.init(string:)), guesses: nil, second: nil))
+  }
 }
 
 /// The chat as GET /api/chat last said, for the entries (a species page's "Hỏi về …", fish ID's row): asked when the app

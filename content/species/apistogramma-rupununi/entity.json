@@ -1,0 +1,141 @@
+{
+  "id": "apistogramma-rupununi",
+  "scientificName": "Apistogramma rupununi",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Apistogramma",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "brazil",
+    "amapa"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Most probably the specimens originate from Amapá in Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371281,
+      "total": 56,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "GY",
+          46
+        ],
+        [
+          "BR",
+          10
+        ]
+      ],
+      "cells": [
+        [
+          -61.875,
+          0,
+          4,
+          4
+        ],
+        [
+          -61.875,
+          2.8125,
+          4,
+          4
+        ],
+        [
+          -60.46875,
+          1.40625,
+          3,
+          1
+        ],
+        [
+          -60.46875,
+          2.8125,
+          37,
+          1
+        ],
+        [
+          -59.0625,
+          1.40625,
+          4,
+          0
+        ],
+        [
+          -59.0625,
+          2.8125,
+          2,
+          0
+        ],
+        [
+          -59.0625,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -59.0625,
+          5.625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_rupununi_en/",
+      "html": "<p>This dwarf cichlid has finally been imported again after quite a long time. Most probably the specimens originate from Amapá in Brazil. It is quite tricky to distinguish A. rupununi from A. steindachneri in small wild-collected specimens. However, the recently imported fish are quite large already (some males are already about 5 cm long). No specimen shows any prolongation of the uppermost and lowermost rays of the caudal fin. The lyratail of ripe males of A. steindachneri is the best feature to distinguish the two species; so the new imports are thought to belong to A. rupununi.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá cichlid lùn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "lọc sponge cho cá apistogramma"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "lá bàng khô"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

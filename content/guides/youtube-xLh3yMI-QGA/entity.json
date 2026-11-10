@@ -8,9 +8,10 @@
   "mentions": [
     "marsilea-hirsuta",
     "microsorum-pteropus",
-    "staurogyne-repens"
+    "staurogyne-repens",
+    "sagittaria-subulata"
   ],
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "xLh3yMI-QGA",
     "title": "BEGINNER PLANT:  Four Leaf Clover",
@@ -30,9 +31,9 @@
     },
     "taxa": [
       "Marsilea hirsuta",
+      "Sagittaria subulata",
       "Microsorum pteropus",
-      "Anubias sp.",
-      "Staurogyne repens"
+      "Anubias sp."
     ],
     "gear": [
       {
@@ -47,69 +48,54 @@
         "type": "phan",
         "brand": "ADA",
         "model": "Aqua Soil",
-        "t": 79
+        "t": 109
       },
       {
-        "category": "cay-thuy-sinh",
-        "type": "trong-nen",
-        "t": 48
+        "category": "den",
+        "type": "thuy-sinh",
+        "t": 80
       }
     ],
     "figures": [
       {
-        "heading": "Cỏ bốn lá có khó trồng không",
+        "heading": "Vì sao cỏ bốn lá mọc đứng thay vì bò thành thảm",
         "moments": [
           {
-            "t": 54,
-            "url": "https://media.aquatome.com/video/xLh3yMI-QGA/t54.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh cây cỏ bốn lá xanh tươi trên màn hình điện thoại."
+            "t": 50,
+            "url": "https://media.aquatome.com/video/xLh3yMI-QGA/at50-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh có đá xếp và cỏ thấp xanh mọc sát nền cát.",
+            "sharpness": 725.5
           },
           {
-            "t": 69,
-            "url": "https://media.aquatome.com/video/xLh3yMI-QGA/t69.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Thảm cỏ bốn lá xanh mọc ở tiền cảnh bể, cạnh hòn đá."
+            "t": 90,
+            "url": "https://media.aquatome.com/video/xLh3yMI-QGA/at90-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận hơn: thảm cỏ nhỏ mọc thấp dưới chân hòn đá.",
+            "sharpness": 376.3
           }
         ]
       },
       {
-        "heading": "Vì sao cây mọc đứng mà không trải thảm",
+        "heading": "Trồng trên nền gì",
         "moments": [
           {
-            "t": 143,
-            "url": "https://media.aquatome.com/video/xLh3yMI-QGA/t143.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cỏ xanh mọc thấp sát nền cạnh khối đá trong bể cong."
+            "t": 105,
+            "url": "https://media.aquatome.com/video/xLh3yMI-QGA/at105-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể có đá xếp cầu vòm, cỏ bốn lá phủ trên nền cát.",
+            "sharpness": 301.3
           },
           {
-            "t": 192,
-            "url": "https://media.aquatome.com/video/xLh3yMI-QGA/t192.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Góc gần hơn cho thấy nền cát còn thưa cây và ít thảm."
-          }
-        ]
-      },
-      {
-        "heading": "Trồng trên nền nào",
-        "moments": [
-          {
-            "t": 103,
-            "url": "https://media.aquatome.com/video/xLh3yMI-QGA/t103.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cỏ bốn lá xanh mướt trồng trên nền cát sáng trong hồ có đá."
-          },
-          {
-            "t": 118,
-            "url": "https://media.aquatome.com/video/xLh3yMI-QGA/t118.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Thảm cỏ bốn lá mọc sát nền cát cạnh cụm đá."
+            "t": 115,
+            "url": "https://media.aquatome.com/video/xLh3yMI-QGA/at115-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cỏ bốn lá xanh mọc thành thảm trên nền cát sáng màu.",
+            "sharpness": 452.3
           }
         ]
       },
@@ -117,39 +103,57 @@
         "heading": "Nhân giống bằng ngó",
         "moments": [
           {
-            "t": 232,
-            "url": "https://media.aquatome.com/video/xLh3yMI-QGA/t232.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cỏ bốn lá phủ nền cát ở góc bể thủy sinh."
+            "t": 205,
+            "url": "https://media.aquatome.com/video/xLh3yMI-QGA/at205-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể có cỏ bốn lá mọc rải rác ở góc trái và dưới đá.",
+            "sharpness": 187
           },
           {
-            "t": 266,
-            "url": "https://media.aquatome.com/video/xLh3yMI-QGA/t266.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Thảm cỏ bốn lá xanh mọc dày dưới chân đá trong bể."
+            "t": 235,
+            "url": "https://media.aquatome.com/video/xLh3yMI-QGA/at235-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cỏ bốn lá xanh mọc thành thảm nhỏ trên nền cát cạnh đá.",
+            "sharpness": 106.9
           }
         ]
       },
       {
-        "heading": "Kích thước, giống lùn và chuyện mua cây",
+        "heading": "Cây lớn cỡ nào",
         "moments": [
           {
-            "t": 310,
-            "url": "https://media.aquatome.com/video/xLh3yMI-QGA/t310.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Thảm cây xanh nhỏ mọc sát nền cạnh đá trong bể cong."
+            "t": 265,
+            "url": "https://media.aquatome.com/video/xLh3yMI-QGA/at265-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cỏ bốn lá phủ thấp trên nền cát cạnh bộ đá.",
+            "sharpness": 103.1
           },
           {
-            "t": 335,
-            "url": "https://media.aquatome.com/video/xLh3yMI-QGA/t335.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể có cụm cây thấp màu xanh tươi trải dưới chân đá."
+            "t": 275,
+            "url": "https://media.aquatome.com/video/xLh3yMI-QGA/at275-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Thảm cỏ bốn lá xanh mọc thấp dưới chân đá trong hồ.",
+            "sharpness": 88.3
           }
         ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/xLh3yMI-QGA/p4-bGlhX2t6MTAuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/xLh3yMI-QGA/p4-bGlhX2t6MTAuanBn-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY-SA 4.0",
+          "author": "Krzysztof Ziarnek, Kenraiz",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Marsilea_quadrifolia_kz10.jpg",
+          "caption": "Cỏ bốn lá mọc dưới nước, cuống dài, từng cây nhỏ nằm rải rác."
+        }
+      },
+      {
+        "heading": "Tìm mua và giá",
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/xLh3yMI-QGA/p5-bmppc291MDEuanBn.webp",
           "thumb": "https://media.aquatome.com/video/xLh3yMI-QGA/p5-bmppc291MDEuanBn-480.webp",
@@ -158,7 +162,7 @@
           "licence": "CC BY-SA 3.0",
           "author": "Keisotyo",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Marsilea_quadrifolia_denjisou01.jpg",
-          "caption": "Cận cảnh lá cỏ bốn lá xanh, nhìn rõ bốn lá chét."
+          "caption": "Cận cảnh lá cây dương xỉ cỏ bốn lá (clover fern) xanh tươi."
         }
       }
     ]

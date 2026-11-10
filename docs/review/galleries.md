@@ -7,10 +7,10 @@ Written by `pnpm engine gallery` (2026-11-09). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 131 | 79 | 24 | 30 | 204 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 454 | 22 | 9 | 14 | 471 |
-| rest | 20 | 1441 | 79 | 0 | 25 | 1495 |
+| covered | 30 | 496 | 23 | 9 | 14 | 514 |
+| rest | 20 | 1614 | 79 | 0 | 29 | 1664 |
 
-## Short of target: every source read (193)
+## Short of target: every source read (217)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -122,7 +122,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/hasemania-nana | shop | 1 | 60 |
 | plants/marsilea-hirsuta | shop | 12 | 60 |
 | species/gyrinocheilus-aymonieri | shop | 14 | 60 |
-| species/erpetoichthys-calabaricus | shop | 3 | 60 |
+| species/erpetoichthys-calabaricus | shop | 2 | 60 |
 | plants/sagittaria-subulata | shop | 9 | 60 |
 | species/trichopsis-vittata | shop | 11 | 60 |
 | plants/lilaeopsis-brasiliensis | shop | 5 | 60 |
@@ -135,7 +135,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/corydoras-sterbai | shop | 14 | 60 |
 | species/scleropages-jardinii | shop | 3 | 60 |
 | species/scleropages-formosus | shop | 38 | 60 |
-| species/polypterus-senegalus | shop | 16 | 60 |
+| species/polypterus-senegalus | shop | 15 | 60 |
 | species/channa-pulchra | shop | 0 | 60 |
 | species/channa-stewartii | shop | 0 | 60 |
 | species/channa-andrao | shop | 1 | 60 |
@@ -208,4 +208,28 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/marosatherina-ladigesi | shop | 2 | 60 |
 | species/pseudomugil-gertrudae | shop | 10 | 60 |
 | species/atyopsis-moluccensis | shop | 6 | 60 |
+| species/clarias-batrachus | shop | 24 | 60 |
+| species/cyrtocara-moorii | shop | 5 | 60 |
+| species/amatitlania-nigrofasciata | shop | 51 | 60 |
+| species/andinoacara-rivulatus | shop | 19 | 60 |
+| species/herichthys-carpintis | shop | 18 | 60 |
+| species/monopterus-albus | shop | 30 | 60 |
+| species/mastacembelus-erythrotaenia | shop | 6 | 60 |
+| species/macrognathus-siamensis | shop | 5 | 60 |
+| species/mastacembelus-armatus | shop | 1 | 60 |
+| species/trichopodus-trichopterus | shop | 52 | 60 |
+| species/trichopodus-leerii | shop | 19 | 60 |
+| species/botia-kubotai | shop | 2 | 60 |
+| species/yasuhikotakia-modesta | shop | 2 | 60 |
+| species/parambassis-ranga | shop | 2 | 60 |
+| species/scatophagus-argus | shop | 42 | 60 |
+| species/piaractus-brachypomus | shop | 44 | 60 |
+| species/aphyocharax-anisitsi | shop | 1 | 60 |
+| species/nematobrycon-lacortei | shop | 0 | 60 |
+| species/moenkhausia-sanctaefilomenae | shop | 8 | 60 |
+| species/symphysodon-discus | popular | 0 | 40 |
+| species/pterygoplichthys-pardalis | popular | 1 | 40 |
+| species/ancistrus-dolichopterus | popular | 5 | 40 |
+| species/hemigrammus-erythrozonus | popular | 6 | 40 |
+| species/poecilia-wingei | popular | 31 | 40 |
 | species/betta-macrostoma | covered | 0 | 30 |

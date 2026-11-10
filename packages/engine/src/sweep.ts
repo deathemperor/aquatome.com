@@ -4,7 +4,7 @@ import { loadAll, mayPublish, QUALITY_THRESHOLD, resolveDataCard, shownCard, tan
 import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, tidyNames, type BreedName, type NameOff } from './alt-names'
 import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
 import { LlmError, type Llm } from './claude'
-import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, fixTranslation, isAdPoster, isMap, NAMED_KINDS, renameStored, renameSwapped, renameSwappedIn, renumberLabels, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
+import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, fixTranslation, isAdPoster, isMap, NAMED_KINDS, renameStored, renameSwapped, renameSwappedIn, renumberLabels, sfScoreFixed, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
 import { loadPages, sectionFields } from './pages'
 import { sweepPlaceNames } from './place-names'
 import { sfDifficulty } from './process'
@@ -39,6 +39,8 @@ import { readVideoRejected } from './videos'
  * - a species' Seriously Fish difficulty: the word its stored page rates it (process.ts sfDifficulty), or none when the
  *   page rates nothing, for cards read before the engine read that word; a page in the old layout keeps its figure. Its
  *   approved summary goes back to pending, as above
+ * - a species' Seriously Fish quick-facts line that gives its count of measures as the difficulty ("Độ khó: 7/8"): the
+ *   card's figure, in English and every language (content-rules.ts sfScoreFixed). The card doesn't change, so its summary stays
  * - a species' or plant's text from a shop (species-sources.ts): a block that speaks as the shop or sells goes, in English
  *   and every language (the whole section when a translation's blocks don't match the English's). A page about one
  *   variety (engine-state/_variety-pages.json) leaves a species page, with its source's card figures and photos, unless
@@ -475,6 +477,34 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
         changed(`summaries/${id}.json`)
         report.summaries.push(id)
       }
+    }
+  }
+
+  // A Seriously Fish quick-facts line that gave its count of measures as the difficulty: the card's figure, after the card's
+  // own correction above.
+  for (const id of (await readdir(join(content, 'species')).catch(() => [] as string[])).sort()) {
+    const file = join(content, 'species', id, 'entity.json')
+    const raw = await readFile(file, 'utf8').catch(() => null)
+    const e = raw ? JSON.parse(raw) as Partial<SpeciesEntity> : null
+    const score = e?.dataCard?.difficulty?.find(v => v.source === 'seriouslyfish')?.value
+    const quick = e?.sections?.find(s => s.key === 'quickFacts' && s.source === 'seriouslyfish')
+    if (typeof score !== 'number' || !quick) continue
+    const fixed = sfScoreFixed(quick.html, 'en', score)
+    if (fixed !== quick.html) {
+      quick.html = fixed
+      await write(file, raw!, e)
+      changed(`species/${id}/entity.json`)
+      ;(report.text['sf-count'] ??= []).push(`species/${id}/en`)
+    }
+    for (const lang of WRITTEN_LANGS) {
+      const tfile = join(content, 'species', id, `${lang}.json`)
+      const traw = await readFile(tfile, 'utf8').catch(() => null)
+      const t = traw ? JSON.parse(traw) as Stored : null
+      const html = t?.sections?.['quickFacts:seriouslyfish']
+      if (!html || sfScoreFixed(html, lang, score) === html) continue
+      await write(tfile, traw!, { ...t, sections: { ...t!.sections, 'quickFacts:seriouslyfish': sfScoreFixed(html, lang, score) } })
+      changed(`species/${id}/${lang}.json`)
+      ;(report.text['sf-count'] ??= []).push(`species/${id}/${lang}`)
     }
   }
 

@@ -9,6 +9,93 @@
     "africa",
     "lake-tanganyika"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The species of the genus Lepidiolamprologus belong with about 15 cm final length to the largest representatives of the Lamprologus relationship in Lake Tanganyika.",
+          "countries": [],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2370750,
+      "total": 70,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "ZM",
+          34
+        ],
+        [
+          "TZ",
+          19
+        ],
+        [
+          "CD",
+          17
+        ]
+      ],
+      "cells": [
+        [
+          28.125,
+          -7.03125,
+          1
+        ],
+        [
+          28.125,
+          -5.625,
+          3
+        ],
+        [
+          28.125,
+          -4.21875,
+          6
+        ],
+        [
+          29.53125,
+          -9.84375,
+          10
+        ],
+        [
+          29.53125,
+          -8.4375,
+          17
+        ],
+        [
+          29.53125,
+          -7.03125,
+          5
+        ],
+        [
+          29.53125,
+          -5.625,
+          6
+        ],
+        [
+          30.9375,
+          -9.84375,
+          21
+        ],
+        [
+          30.9375,
+          -8.4375,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

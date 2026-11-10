@@ -1,0 +1,133 @@
+---
+url: https://www.seriouslyfish.com/species/rasbora-cf-dandia
+title: Rasbora cf. dandia · Seriously Fish
+fetchedAt: 2026-11-09T15:57:24.295Z
+hash: a7310df48713da5cddc0cdf2ccb34729636c8dda16b13cc7b4cf686b655ecdaf
+---
+
+On this page
+12 sections
+- Distribution
+- Habitat
+- Aquarium size
+- Maintenance
+- Water conditions
+- Diet
+- Behaviour and compatibility
+- Sexual dimorphism
+- Reproduction
+- Notes
+- References
+- Images · 5
+R cf. dandia is normally sold as R. wilpita.Enrico Richter
+## Quick factsEdit
+Max size
+99mm SL3.9in SL
+Aquarium size
+120 × 45cm48 × 18in
+Temp
+22–25°C72–77°F
+pH
+not recorded
+Hardness
+2–12dGH
+## Difficulty6 of 8 measures
+Moderate
+How the rating is worked out
+Space
+large tank
+Water
+flexible
+Temp
+needs a steady temperature
+Diet
+unknown
+Temperament
+peaceful
+Social
+needs to be in a group
+Compatibility
+unknown
+Other demands
+Each of these can raise the rating on its own, whatever the measures above say.
+Hardiness
+needs a well-established tank
+## Before you buy
+- Needs a tight-fitting lid as this species is known to jumpIn either situation the tank must have a very tightly-fitting cover as this species is a surface-dweller, an accomplished jumper and can escape through the tiniest of gaps.
+Rasbora cf. dandia is a cyprinid from Sri Lanka and southern India that may well be a form of R. dandia itself. It appears to be widely available in the trade but is often misidentified as R. wilpita, a species confirmed as endemic to a small number of Sri Lankan streams and probably much rarer in the hobby than previously thought. It inhabits virtually all kinds of lowland freshwater habitat, from rivers and streams to rice paddies and reservoirs.
+## Distribution
+Edit
+Widespread throughout Sri Lanka, where it's possibly the commonest freshwater fish species (Silva et al. 2010), and equally well-distributed in the southern Indian states of Karnataka, Kerala and Tamil Nadu.
+## Habitat
+Write a note
+Edit
+Inhabits virtually all kinds of lowland freshwater habitat to an elevation of around 700 m AMSL including rivers, streams, rice paddies, ponds and artificial reservoirs.
+## Aquarium size
+Write a note
+Edit
+Standard length
+99mm SL3.9in SL
+Aquarium base
+120 × 45cm48 × 18in
+Volume
+~243litres~64US gal
+A tank measuring at least 120 ∗ 45 ∗ 45 cm48 ∗ 18 ∗ 18 in/~243 litres~64 US gal is needed for long-term care.
+## Maintenance
+Write a note
+Edit
+Choice of décor is not as critical as water quality and the amount of open swimming-space provided. We suggest keeping it in a large, well-planted aquarium or alternatively it would look superb in a set-up designed to resemble a flowing river with a substrate of variably-sized rocks and gravel and some large water-worn boulders. The tank can be further furnished with driftwood branches and hardy aquatic plants such as Java fern, Bolbitis, Anubias or other species which can be grown attached to the décor. In either situation the tank must have a very tightly-fitting cover as this species is a surface-dweller, an accomplished jumper and can escape through the tiniest of gaps. Like other species that hail from pristine natural environments it is also intolerant to the accumulation of organic wastes and requires spotless water at all times in order to thrive.
+## Water conditions
+Edit
+Temperature
+22–25°C72–77°F
+pH
+not recorded
+Hardness
+2–12dGH
+Temperature: 22 – 25 °C72 – 77 °F
+pH: 6.0 - 7.5
+Hardness: 2 - 12°H
+These recommendations come from this profile’s own figures. They contain affiliate links, so we may earn a commission.
+## Diet
+Write a note
+Edit
+Probably feeds mostly on invertebrates both aquatic and terrestrial in nature as with similar members of the genus. In the aquarium it's easily-fed but for it to develop its best colours and condition offer regular meals of live and frozen foods such as bloodworm, Daphnia and Artemia along with good quality dried flakes and granules.
+## Behaviour and compatibility
+Write a note
+Edit
+This species is peaceful enough making it an ideal resident of larger community aquaria. It places no special demands in terms of water chemistry and can be combined with many of the most popular fish in the hobby including other cyprinids as well as tetras, livebearers, rainbowfish, anabantoids, catfish and loaches. As always when selecting a compatible community of fish proper research is essential and its adult size must be a consideration. In a biotope set-up you could try it alongside stream-dwelling species from southern India or Sri Lanka such as Puntius arulius, P. assimilis, P. filamentosus, P. cumingii, P. fasciatus, P. nigrofasciatus, P. titteya, Rasbora rasbora, Lepidocephalichthys guntea, L. thermalis, Acanthocobitis urophthalmus or Etroplus spp.. It's a schooling species by nature and ideally should be kept in a group of at least 6 specimens. Maintaining it in decent numbers will not only make the fish less nervous but will result in a more effective, natural-looking display. Males will also display some interesting behaviour as they compete with one other for female attention.
+## Sexual dimorphism
+Write a note
+Edit
+Mature females are noticeably rounder-bellied and often a little larger than males.
+## Reproduction
+Write a note
+Edit
+This species has been bred by Pete Liptrot and Paul Dixon at the Bolton Museum Aquarium, UK. Like most cyprinids this species is an egg-scattering, continuous spawner that exhibits no parental care. That is to say when the fish are in good condition they will spawn often and in a densely-planted, mature aquarium it is possible that small numbers of fry may start to appear without intervention. The relatively large, non-sticky eggs were not deposited in plants but rather scattered randomly over the substrate. These were siphoned into a smaller container since the adults had apparently eaten them following previous spawning events. The incubation period was approximately 60 hours. Initial food was Paramecium but the fry were able to accept Artemia nauplii, microworm and dried foods of a suitable size within 24 hours. The growth rate was very fast indeed with some measuring in excess of 25 mm1.0 in within 4 weeks and when considered along with egg size may be an indication that this species spawns in fast-moving water or habitats with a relative lack of nursery areas and smaller food items. If you wish to maximise yield it may be worth suspending a layer of plastic mesh or netting, with a large enough grade so that the eggs can fall through it but small enough so that the adults cannot reach them, above the base of the tank and removing the adults post-spawning. The widely available plastic 'grass'-type matting is also proven to work well as an 'egg trap' with some other Rasbora species.
+## Notes
+Edit
+This fish may well be a form of R. dandia itself but in the absence of scientific confirmation we list it with a 'cf' abbreviation for the time being. It appears to be widely available in the trade but is often (mis)identified as R. wilpita, a species now confirmed as endemic to a small number of streams in Sri Lanka and which is probably much rarer in the hobby than previously thought. Valenciennes initially described Leuciscus dandia as a new species from Sri Lanka in 1844 but the name was subsequently considered a synonym of Rasbora daniconius (Hamilton, 1822) by various authors including Brittan (1972) and Menon (1999). However in 2010 Silva et al. published new information in their review of the Rasbora species occurring in Sri Lanka, a grouping long-regarded to comprise just three species: R. daniconius, R. caverii (Jerdon, 1849) and R. wilpita Kottelat & Pethiyagoda 1991. Among this trio R. daniconius was described from "southern Bengal" in northeastern India but is currently understood to have an enormous distribution with records existing from India, Pakistan, Nepal, Bangladesh, Myanmar, Laos, Thailand and Malaysia. Silva et al. restored the name R. dandia and assigned it to those populations from southern India and Sri Lanka previously referred to R. daniconius, primarily distinguished on the basis it possesses a complete (vs. incomplete in R. daniconius) lateral line and shorter dorsal fin measuring 18.7-24.4% SL (vs. 25.4-27.3% SL). R. dandia can be further told apart from all other Rasbora species occurring in India and Sri Lanka by the following characters: axial (central) body stripe greater than one scale in depth and prominent throughout; mouth terminal; symphysial knob not prominent; transverse scales ½4/1/1½; pored lateral line scales 27-31; predorsal scales 13-14; caudal fin without prominent markings. It differs from R. wilpita in that the symphysial knob is not prominent (vs. prominent). In addition, Silva et al. demonstrated that R. caverii should be regarded as a junior synonym of R. dandia and revived the available name R. microcephalus (Jerdon, 1849) to replace it, while also describing two new species endemic to Sri Lanka, namely R. armitagei and R. naggsi. Rainboth's 'Fishes of the Cambodian Mekong' characterised members of Rasbora by possession of an unbranched, non-spiny first dorsal fin ray and seven soft dorsal rays, origin of the dorsal fin in the middle of the body, five branched anal fin rays, a small mouth not extending below the eye and a lack of barbels. It's long been recognised as a polyphyletic lineage as noted by Kottelat (1999) amongst others, and in 2010 the results of a phylogenetic analysis by T. Y. Liao et al. suggested a number of changes in order to improve the taxonomy. The authors found species of rasborin genera to actually represent a monophyletic grouping existing in six clades and erected four new genera (all containing former members of Rasbora) in order to preserve monophyly of the existing groups i.e. Boraras, Horadandia, Rasbora, Rasboroides and Trigonostigma. According to the authors the first two clades are monotypic; R. brittani should now be referred to as Kottelatia brittani and R. dorsiocellata as Brevibora dorsiocellata. The third clade comprises Boraras brigittae, Horadandia atukorali, Rasboroides vaterifloris, Trigonostigma heteromorpha and three species previously included in Rasbora but also moved into new genera; Trigonopoma gracile, T. pauciperforatum and Rasbosoma spilocerca. The results for B. brigittae and T. heteromorpha were found to be inconclusive in some respects and further work regarding their phylogenetic position was recommended. The fourth clade includes Rasbora semilineata, R. borapetensis, R. rubrodorsalis and an undescribed fish similar to R. beauforti. Clade five consists of R. daniconius, R. hubbsi, R. paucisqualis, R. wilpita, R. kobonensis, R. ornata and R. cf. daniconius. Clade six, meanwhile, is subdivided into two groupings. The first contains R. einthovenii, R. elegans and R. cephalotaenia and the second R. lateristriata, R. argyrotaenia, R. volzii, R. paviana, R. rasbora (plus an undescribed, similar fish), R. caudimaculata and R. trilineata. As this final clade contains the type species (see below) its members retain the generic name Rasbora as do clade five species because they don't differ sufficiently to warrant the erection of a new genus/genera. Unfortunately many species weren't included in the analysis, meaning inevitable questions are raised regarding the correct placement of the 40 or so other Rasboras, in particular. As the genus had previously been split into various 'species groups' (groups of closely-related species) dating back to Brittan (1972, who referred to them as 'species complexes') Liao et al. proposed the following arrangement whilst noting it may be subject to change with further phylogenetic studies: R. semilineata species group: R. semilineata, R. borapetensis, R. rubrodorsalis. R. trifasciata species group: R. trifasciata, R. amplistriga, R. api, R. bankanensis, R. dies, R. ennealepis, R. hubbsi, R. johannae, R. kluetensis, R. meinkeni, R. nodulosa, R. paucisqualis, R. rutteni, R. sarawakensis, R. taytayensis, R. tobana, R. truncata, R. tuberculata. R. daniconius species group: R. daniconius, R. armitagei, R. dandia, R. kobonensis, R. labiosa, R. microcephalus, R. ornata, R. wilpita. R. einthovenii species group: R. einthovenii, R. cephalotaenia, R. elegans, R. jacobsoni, R. kalochroma, R. kottelati, R. nematotaenia, R. patrickyapi, R. tubbi. R. argyrotaenia species group: R. argyrotaenia, R. aprotaenia, R. aurotaenia, R. baliensis, R. borneensis, R. bunguranensis, R. dusonensis, R. evereti, R. hobelmani, R. hossi, R. lateristriata, R. laticlavia, R. leptosoma, R. philippina, R. septentrionalis, R. spilotaenia, R. steineri, R. tawarensis, R. tornieri, R. volzii. R. sumatrana species group: R. sumatrana, R. atridorsalis, R. calliura, R. caudimaculata, R. dorsinotata, R. notura, R. paviana, R. rasbora, R. subtilis, R. trilineata, R. vulgaris. Not classified: R. beauforti, R. chrysotaenia, R. gerlachi (validity in question), R. lacrimula (said to compare most closely with R. dies and R. semilineata which are members of the R. trifasciata and R. semilineata groups, respectively) R. kalbarensis, R. reticulata, R. vulcanus (possibly not Rasboras) and R. zanzibarensis (identity in question). NB - this list has been amended from that published in Liao et al. to reflect subsequent new species descriptions and taxonomical changes. Shortly afterwards a paper investigating systematics of the subfamily Danioninae was published by Tang et al. (2010) Their results differed wildly from those of Liao et al. and the four new genera plus Boraras and Trigonostigma were synonymised with Rasbora based on an incomplete knowledge of relationships within the group, an approach they describe as 'more conservative'. Though perhaps neither conclusion is satisfactory we decided to adopt the system of Liao et al. pending future studies, if only because we prefer to retain Boraras and Trigonostigma. The identity of the type species, often given as R. rasbora in the past, is no longer in question; when Bleeker first referred to the name Rasbora in 1859 only four nominal members were included of which R. cephalotaenia (known as Leuciscus cephalotaenia at the time) should be considered the type. Howes (1980) suggested the separation of a number of species into the new genus Parluciosoma with type species P. (Rasbora) argyrotaenia but the monophyly of that grouping was not recovered by Liao et al..
+## References
+- Mayden, R. L., K. L. Tang, K. W. Conway, J. Freyhof, S. Chamberlain, M. Haskins, L. Schneider, M. Sudkamp, R. M. Wood, M. Agnew, A. Bufalino, Z. Sulaiman, M. Miya, K. Saitoh, S. He (2007). Phylogenetic relationships of Danio within the order Cypriniformes: a framework for comparative and evolutionary studies of a model species. Journal of Experimental Zoology, Molecular Development and Evolution 308B, 642-654
+- Kottelat, M. (1999). Nomenclature of the genera Barbodes, Cyclocheilichthys, Rasbora and Chonerhinos (Teleostei: Cyprinidae and Tetraodontidae), with comments on the definition of the first reviser. Raffles Bulletin of Zoology Supplement 47(2), 591-600
+- Liao, T. Y., Kullander, S. O. and F. Fang (2010). Phylogenetic analysis of the genus Rasbora (Teleostei: Cyprinidae). Zoologica Scripta 39(2), 155-176
+- Tang, K. L., M. K. Agnew, W. J. Chen., M. V. Hirt, T. Sado, L. M. Schneider, J. Freyhof, Z. Sulaiman, E. Swartz, C. Vidthayanon, M. Miya, K. Saitoh, A. M. Simons, R. M. Wood and R. L. Mayden (2010). Systematics of the subfamily Danioninae (Teleostei: Cypriniformes: Cyprinidae). Molecular Phylogenetics and Evolution 57(1), 189-214
+- Silva, A., K. Maduwage, and R. Pethiyagoda (2010). A review of the genus Rasbora in Sri Lanka, with description of two new species (Teleostei: Cyprinidae). Ichthyological Exploration of Freshwaters 21(1), 27-50
+## Species images · 5
+R cf. dandia is normally sold as R. wilpita.Enrico Richter
+This appears to be the same species given it has no prominent symphysial knob (see 'notes').Mark Duffill
+Captive-bred juveniles at just 5½ weeks of age.Pete Liptrot
+R cf. dandiaMark Duffill
+This fish, also sold as R. wilpita, also seems conspecific with others pictured here.Mark Duffill
+These photographs are used with each photographer's permission.
+Send a photograph
+## Profile completeness18 of 24
+75% complete
+- Add water conditions
+- Add community suitability
+Also missing: a recorded distribution, taxonomic authority, a common name, etymology.
+Report a mistake
+## Community
+Questions about Rasbora cf. dandia?
+Ask on Discord
+→

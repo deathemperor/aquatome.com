@@ -84,7 +84,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hai bể kính siêu trong không viền đặt cạnh nhau, giống hệt nhau.",
-            "sharpness": 418.5
+            "sharpness": 418.5,
+            "person": false
           },
           {
             "t": 10,
@@ -92,7 +93,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bố cục lũa, đá và nền đất trồng cây trong bể.",
-            "sharpness": 2320
+            "sharpness": 2320,
+            "person": false
           }
         ]
       },
@@ -105,7 +107,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cân phân nền hạt đen để chia đều cho hai bể.",
-            "sharpness": 387.7
+            "sharpness": 387.7,
+            "person": false
           },
           {
             "t": 310,
@@ -113,7 +116,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hai bể đã trải phân nền đều nhau, sẵn sàng cho thí nghiệm.",
-            "sharpness": 2225.7
+            "sharpness": 2225.7,
+            "person": false
           }
         ]
       },
@@ -126,7 +130,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bát phân nền đầy được cân trên cân điện tử.",
-            "sharpness": 362.4
+            "sharpness": 362.4,
+            "person": false
           },
           {
             "t": 270,
@@ -134,7 +139,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lớp phân nền đã đổ vào bể, trải khá đều.",
-            "sharpness": 2572.2
+            "sharpness": 2572.2,
+            "person": false
           }
         ],
         "photo": {
@@ -157,15 +163,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bố cục lũa và đá đã dựng xong trong bể.",
-            "sharpness": 1674.6
-          },
-          {
-            "t": 470,
-            "url": "https://media.aquatome.com/video/LiCZUjqLck8/at470-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh lũa black spider wood được đặt gắn vào đá.",
-            "sharpness": 1139.7
+            "sharpness": 1674.6,
+            "person": false
           }
         ]
       },
@@ -178,15 +177,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Các hộp cây nuôi cấy mô đặt trên bàn cạnh bể thí nghiệm.",
-            "sharpness": 1553.2
-          },
-          {
-            "t": 630,
-            "url": "https://media.aquatome.com/video/LiCZUjqLck8/at630-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cầm chậu cây thủy sinh có túi bọc, bên cạnh là các hộp cây nuôi cấy mô.",
-            "sharpness": 1029
+            "sharpness": 1553.2,
+            "person": false
           }
         ],
         "photo": {
@@ -202,24 +194,7 @@
       },
       {
         "heading": "Bố trí và trồng cây",
-        "moments": [
-          {
-            "t": 680,
-            "url": "https://media.aquatome.com/video/LiCZUjqLck8/at680-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các chậu cây đặt sẵn trên nền đất cạnh lũa để dự định bố trí.",
-            "sharpness": 1320.4
-          },
-          {
-            "t": 710,
-            "url": "https://media.aquatome.com/video/LiCZUjqLck8/at710-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các chậu cây thủy sinh chuẩn bị trồng, cầm trên tay.",
-            "sharpness": 1349.5
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/LiCZUjqLck8/p5-cXVhc2NhcGUucG5n.webp",
           "thumb": "https://media.aquatome.com/video/LiCZUjqLck8/p5-cXVhc2NhcGUucG5n-480.webp",

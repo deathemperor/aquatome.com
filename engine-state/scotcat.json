@@ -587,6 +587,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/aspredinidae/pterobunocephalus_depressus.htm": {
+    "entityIds": [
+      "species/pterobunocephalus-depressus"
+    ],
+    "updatedAt": "2026-11-09T20:44:02.876Z",
+    "hash": "7a7e99ae8b9b2b62ea96c81e4f8ebf74a238a85587a6abac6777d61d3639bea0",
+    "processedHash": "7a7e99ae8b9b2b62ea96c81e4f8ebf74a238a85587a6abac6777d61d3639bea0",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/auchenipteridae/ageneiosus_magoi.htm": {
     "entityIds": [
       "species/ageneiosus-magoi"
@@ -674,6 +684,16 @@
     "updatedAt": "2026-11-04T22:16:24.811Z",
     "hash": "f936e19daf13fd3bba54f7caeacb4a6dc112ff9fa8cbbe9f980b093bad099c62",
     "processedHash": "f936e19daf13fd3bba54f7caeacb4a6dc112ff9fa8cbbe9f980b093bad099c62",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/bagridae/pseudomystus_heokhuii.htm": {
+    "entityIds": [
+      "species/pseudomystus-heokhuii"
+    ],
+    "updatedAt": "2026-11-09T14:52:45.534Z",
+    "hash": "618d423d2146c4f0bbb3bb7487bae8425cfc03f974368c772feff0e6d9bbd78f",
+    "processedHash": "618d423d2146c4f0bbb3bb7487bae8425cfc03f974368c772feff0e6d9bbd78f",
     "status": "processed",
     "attempts": 0
   },
@@ -887,6 +907,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/doradidae/pterodoras_granulosus.htm": {
+    "entityIds": [
+      "species/pterodoras-granulosus"
+    ],
+    "updatedAt": "2026-11-09T20:46:13.967Z",
+    "hash": "bed31dc92ebb4f1f071cecd8eace69d350faa53574925a2ec3ed5936990deb15",
+    "processedHash": "bed31dc92ebb4f1f071cecd8eace69d350faa53574925a2ec3ed5936990deb15",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/heptapteridae/acentronichthys_leptos.htm": {
     "entityIds": [
       "species/acentronichthys-leptos"
@@ -944,6 +974,16 @@
     "updatedAt": "2026-11-07T23:47:09.782Z",
     "hash": "a53c8060a725e33d37185b804e62cd6f633d0384092d2f228ce777feefc6ca30",
     "processedHash": "a53c8060a725e33d37185b804e62cd6f633d0384092d2f228ce777feefc6ca30",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/horabagridae/pseudeutropius_brachypopterus.htm": {
+    "entityIds": [
+      "species/pseudeutropius-brachypopterus"
+    ],
+    "updatedAt": "2026-11-09T14:46:29.627Z",
+    "hash": "b07dabd86fab95d2e789bdf6fe45b0738891cc9075c8bbe09eb22c6d17a66183",
+    "processedHash": "b07dabd86fab95d2e789bdf6fe45b0738891cc9075c8bbe09eb22c6d17a66183",
     "status": "processed",
     "attempts": 0
   },
@@ -1465,6 +1505,26 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/loricariidae/pseudancistrus_barbatus.htm": {
+    "entityIds": [
+      "species/pseudancistrus-barbatus"
+    ],
+    "updatedAt": "2026-11-09T14:44:32.249Z",
+    "hash": "6a90389a863cbfae677f08862eb434f67313c15f2a08ce9a5cf0477a45e32bd4",
+    "processedHash": "6a90389a863cbfae677f08862eb434f67313c15f2a08ce9a5cf0477a45e32bd4",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/pseudolithoxus_tigris.htm": {
+    "entityIds": [
+      "species/pseudolithoxus-tigris"
+    ],
+    "updatedAt": "2026-11-09T14:49:58.492Z",
+    "hash": "f07cd48dd181741b92257ff66092919ffb913f7ef51645f15be6782194db5aa8",
+    "processedHash": "f07cd48dd181741b92257ff66092919ffb913f7ef51645f15be6782194db5aa8",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/loricariidae/pterygoplichthys_gibbiceps.htm": {
     "entityIds": [
       "species/pterygoplichthys-gibbiceps"
@@ -1492,6 +1552,66 @@
     "updatedAt": "2026-11-01T00:28:12.420Z",
     "hash": "5068ce2d0fabca65d62d3a80ffa5b4008944ae970d2a12ac4168d3611ded0e63",
     "processedHash": "5068ce2d0fabca65d62d3a80ffa5b4008944ae970d2a12ac4168d3611ded0e63",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/rhadinoloricaria_macromystax.htm": {
+    "entityIds": [
+      "species/rhadinoloricaria-macromystax"
+    ],
+    "updatedAt": "2026-11-09T20:48:21.069Z",
+    "hash": "e5c704e37df2db59824c65ef0dae9b9fe225121b1700895fc1a5bfed026f7794",
+    "processedHash": "e5c704e37df2db59824c65ef0dae9b9fe225121b1700895fc1a5bfed026f7794",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/rhadinoloricaria_rhami.htm": {
+    "entityIds": [
+      "species/rhadinoloricaria-rhami"
+    ],
+    "updatedAt": "2026-11-09T20:49:41.185Z",
+    "hash": "1f134da10d61d1d08fb66a7fe7b220e838ae3ce6b84d1d3e19b9300f13061686",
+    "processedHash": "1f134da10d61d1d08fb66a7fe7b220e838ae3ce6b84d1d3e19b9300f13061686",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/rineloricaria_melini.htm": {
+    "entityIds": [
+      "species/rineloricaria-melini"
+    ],
+    "updatedAt": "2026-11-09T20:51:32.718Z",
+    "hash": "c9da45d23afa9ec8ea9725c39442bf50100e2daa8f4776c0c9094fdf2a050019",
+    "processedHash": "c9da45d23afa9ec8ea9725c39442bf50100e2daa8f4776c0c9094fdf2a050019",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/scobinancistrus_aureatus.htm": {
+    "entityIds": [
+      "species/scobinancistrus-aureatus"
+    ],
+    "updatedAt": "2026-11-09T20:53:16.149Z",
+    "hash": "094910aa3c4ea64c2b185267e6bb884be0ec35a1f94170f0fb008ff740d926f5",
+    "processedHash": "094910aa3c4ea64c2b185267e6bb884be0ec35a1f94170f0fb008ff740d926f5",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/spectracanthicus_zuanoni.htm": {
+    "entityIds": [
+      "species/spectracanthicus-zuanoni"
+    ],
+    "updatedAt": "2026-11-09T20:56:39.185Z",
+    "hash": "308c340cfc8d39583c8120d04c19c733c5a481ed75edf11e59b7041d13b9261d",
+    "processedHash": "308c340cfc8d39583c8120d04c19c733c5a481ed75edf11e59b7041d13b9261d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/sturisomatichthys_aureus.htm": {
+    "entityIds": [
+      "species/sturisomatichthys-aureum"
+    ],
+    "updatedAt": "2026-11-09T20:59:18.606Z",
+    "hash": "f32687debe6d2e91a2f2b2b46c213ba7e12dfaa0b32c84012575ce16937c8eb5",
+    "processedHash": "f32687debe6d2e91a2f2b2b46c213ba7e12dfaa0b32c84012575ce16937c8eb5",
     "status": "processed",
     "attempts": 0
   },
@@ -1615,6 +1735,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/pimelodidae/pseudoplatystoma_corruscans.htm": {
+    "entityIds": [
+      "species/pseudoplatystoma-corruscans"
+    ],
+    "updatedAt": "2026-11-09T14:54:25.784Z",
+    "hash": "116a9a9da750f4df0f866e4c52b3664a08b5f04a63a6d0860364f9da247354b6",
+    "processedHash": "116a9a9da750f4df0f866e4c52b3664a08b5f04a63a6d0860364f9da247354b6",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/pseudopimelodidae/batrochoglanis_raninus.htm": {
     "entityIds": [
       "species/batrochoglanis-raninus"
@@ -1652,6 +1782,16 @@
     "updatedAt": "2026-11-09T05:48:05.201Z",
     "hash": "8518ca0b5ec388df1b79ea79b9b6a9d4f6b786ec77b0570247f73471eb078db6",
     "processedHash": "8518ca0b5ec388df1b79ea79b9b6a9d4f6b786ec77b0570247f73471eb078db6",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/scoloplacidae/scoloplax_empousa.htm": {
+    "entityIds": [
+      "species/scoloplax-empousa"
+    ],
+    "updatedAt": "2026-11-09T20:55:08.340Z",
+    "hash": "f99e6da451be89a549c50e8fbe7759b560304b988a3b9af9073f5c9d61923a90",
+    "processedHash": "f99e6da451be89a549c50e8fbe7759b560304b988a3b9af9073f5c9d61923a90",
     "status": "processed",
     "attempts": 0
   },

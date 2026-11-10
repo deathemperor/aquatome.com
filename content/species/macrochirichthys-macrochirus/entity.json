@@ -19,6 +19,185 @@
     "indonesia",
     "kapuas"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN",
+        "LA",
+        "TH",
+        "KH",
+        "VN",
+        "MY",
+        "ID"
+      ],
+      "regions": [
+        "Mekong",
+        "Chao Phraya",
+        "Mae Klong",
+        "Borneo",
+        "Sumatra",
+        "Java"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Widespread in Southeast Asia, including the Mekong basin in southern China, Laos, Thailand, Cambodia, and Vietnam, the Chao Phraya and Mae Klong systems in central and western Thailand, various smaller watersheds in southern Thailand and Peninsular Malaysia, and the Greater Sunda Islands of Borneo, Sumatra, and Java.",
+          "countries": [
+            "CN",
+            "LA",
+            "TH",
+            "KH",
+            "VN",
+            "MY"
+          ],
+          "regions": [
+            "Mekong",
+            "Chao Phraya",
+            "Mae Klong",
+            "Borneo",
+            "Sumatra",
+            "Java"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Java, Indonesia'.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2365904,
+      "total": 26,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "ID",
+          8
+        ],
+        [
+          "KH",
+          8
+        ],
+        [
+          "MY",
+          4
+        ],
+        [
+          "TH",
+          4
+        ],
+        [
+          "VN",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          101.25,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          11.25,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          104.0625,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          11.25,
+          2,
+          2
+        ],
+        [
+          105.46875,
+          12.65625,
+          3,
+          3
+        ],
+        [
+          105.46875,
+          14.0625,
+          3,
+          3
+        ],
+        [
+          106.875,
+          9.84375,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          0,
+          3,
+          3
+        ],
+        [
+          113.90625,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          115.3125,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          115.3125,
+          0,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

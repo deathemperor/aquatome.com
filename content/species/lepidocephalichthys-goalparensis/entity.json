@@ -15,6 +15,158 @@
     "myanmar",
     "irrawaddy"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "NP",
+        "IN",
+        "BD",
+        "MM"
+      ],
+      "regions": [
+        "Brahmaputra",
+        "Ganges",
+        "Irrawaddy"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known from the Brahmaputra and Ganges river drainages in Nepal, northern India and Bangladesh plus parts of the upper Irrawaddy (aka Ayeyarwaddy) basin in Myanmar.",
+          "countries": [
+            "NP",
+            "IN",
+            "BD",
+            "MM"
+          ],
+          "regions": [
+            "Brahmaputra",
+            "Ganges",
+            "Irrawaddy"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2368061,
+      "total": 26,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "NP",
+          11
+        ],
+        [
+          "IN",
+          8
+        ],
+        [
+          "BD",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          78.75,
+          28.125,
+          1,
+          1
+        ],
+        [
+          80.15625,
+          28.125,
+          1,
+          1
+        ],
+        [
+          84.375,
+          26.71875,
+          2,
+          2
+        ],
+        [
+          85.78125,
+          25.3125,
+          3,
+          3
+        ],
+        [
+          85.78125,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          87.1875,
+          25.3125,
+          4,
+          4
+        ],
+        [
+          87.1875,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          88.59375,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          90,
+          22.5,
+          1,
+          1
+        ],
+        [
+          90,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          91.40625,
+          19.6875,
+          1,
+          1
+        ],
+        [
+          91.40625,
+          23.90625,
+          3,
+          3
+        ],
+        [
+          92.8125,
+          25.3125,
+          3,
+          3
+        ],
+        [
+          94.21875,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          94.21875,
+          28.125,
+          1,
+          1
+        ],
+        [
+          95.625,
+          28.125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

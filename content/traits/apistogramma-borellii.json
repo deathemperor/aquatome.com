@@ -1,8 +1,13 @@
 {
   "id": "apistogramma-borellii",
-  "temperament": "semi-aggressive",
+  "temperament": "peaceful",
   "finNipper": false,
   "schoolMin": null,
-  "speciesUpdatedAt": "2026-10-29",
-  "generatedAt": "2026-10-29T05:31:20.027Z"
+  "speciesUpdatedAt": "2026-11-09",
+  "rules": {
+    "temperament": "b745c1cd5bd4",
+    "finNipper": "63a8978926d9",
+    "schoolMin": "bf8e33607d74"
+  },
+  "generatedAt": "2026-11-09T16:49:04.704Z"
 }

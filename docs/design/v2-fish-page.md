@@ -30,7 +30,8 @@ the screens have ⋯, and the tab bar is v2's. The owner agreed to all three.
 
    They come from the page's `title`, `sub`, `where` and `aka`. Body size, secondary, as in the first screen.
 3. **"Thêm vào bể"**, as v2 has it today.
-4. **"Hỏi về cá <name>"**, directly under "Thêm vào bể".
+4. **"Hỏi về cá <name>"**, directly under "Thêm vào bể": the owner's pick (2026-11-09). The mock's code and the picture above
+   have it after the facts card.
    - Full width, tint fill, the chat icon, and "Trả lời dựa trên cẩm nang AquaTome" centred under it (13, secondary; the chat's own line, which the
      editors read, where the screens have an older one).
    - It shows only while chat is on, which for now means the owner's account alone. It opens the chat about this fish.
@@ -45,6 +46,8 @@ the screens have ⋯, and the tab bar is v2's. The owner agreed to all three.
    - A photo opens the viewer at that photo.
    - Its last tile, "Xem tất cả N ảnh", opens the grid.
 7. **The page's parts**, in #921's order, a long one folding under "thêm".
+   - The row of chips above them (Nuôi chung, Nước, Cho ăn, Sinh sản) stays for readers and is hidden for whoever has the
+     page's title below. It goes for everyone when the title opens to everyone.
 8. **Tank-mates.** The list rows of the fourth screen replace v2's shelves.
    - Two groups, "Hợp với" and "Tránh", each a rounded list.
    - A row is the fish's photo (44 × 33, corners 5) and its name, with a line under it where the page gives one, then a
@@ -56,7 +59,7 @@ the screens have ⋯, and the tab bar is v2's. The owner agreed to all three.
 
 On a page with at least 4 parts and 3 screens of the folded page. Anyone else, or a shorter page, sees v2's bar as today.
 
-- **At the top:** "Mục lục", left-aligned beside the back button, 15 semibold, with a small chevron in the tint.
+- **At the top:** "Mục lục", left-aligned beside the back button, 15 semibold, with a small chevron: white on the photo, where the tint goes faint on a pale one, and the tint everywhere else. The shade behind the bar holds through it, so the word and the chevron read at 3:1 on the brightest photo.
   - It's plain text, not a capsule. Over the photo it sits on v2's shade. If white falls under 3:1 there, it gets a
     soft shadow.
 - **Scrolled:** once the name has gone under the bar, the bar shows two lines in the same place:

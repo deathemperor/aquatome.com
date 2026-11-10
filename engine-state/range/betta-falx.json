@@ -1,8 +1,8 @@
 {
   "id": "betta-falx",
   "native": {
-    "input": "b8687bf53c5b6217",
-    "at": "2026-11-06T15:17:52.851Z",
+    "input": "1ee5b11c5c75f374",
+    "at": "2026-11-09T12:58:06.259Z",
     "claims": [
       {
         "code": "ID",
@@ -33,6 +33,12 @@
         "name": "Alai River",
         "source": "seriouslyfish",
         "quote": "The type locality is within the Alai River watershed, Jambi.",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "glaser",
+        "quote": "It originates from central Sumatra.",
         "ok": true
       }
     ],

@@ -12,6 +12,84 @@
     "colombia",
     "orinoco"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO",
+        "VE"
+      ],
+      "regions": [
+        "Orinoco"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Found in the Upper Orinoco basin in Colombia and Venezuela.",
+          "countries": [
+            "CO",
+            "VE"
+          ],
+          "regions": [
+            "Orinoco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339394,
+      "total": 8,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "VE",
+          6
+        ],
+        [
+          "BR",
+          1
+        ],
+        [
+          "CO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -73.125,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          2.8125,
+          3,
+          3
+        ],
+        [
+          -67.5,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          -66.09375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -54.84375,
+          -12.65625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

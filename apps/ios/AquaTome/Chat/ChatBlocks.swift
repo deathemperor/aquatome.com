@@ -61,18 +61,48 @@ struct ChatBlocks: View {
   }
 }
 
-/// A box around a block.
+/// A card under a block: the "Về:" card's fill, its contents to the edge, each with its own padding.
 private struct BlockBox<Content: View>: View {
   /// Off inside a button, which reads as one element.
   var contained = true
   @ViewBuilder let content: Content
   var body: some View {
-    let box = VStack(alignment: .leading, spacing: 10) { content }
+    let box = VStack(alignment: .leading, spacing: 0) { content }
       .frame(maxWidth: .infinity, alignment: .leading)
-      .padding(14)
-      .background(.fill.quaternary, in: .rect(cornerRadius: 14))
+      .background(Color(uiColor: .secondarySystemGroupedBackground))
+      .clipShape(.rect(cornerRadius: 20))
     if contained { box.accessibilityElement(children: .contain) } else { box }
   }
+}
+
+/// A photo of a set height, as wide as it's given.
+private struct BandImage: View {
+  let src: String
+  let height: CGFloat
+  var corner: CGFloat = 0
+  var body: some View {
+    Color.clear.frame(height: height).frame(maxWidth: .infinity).overlay {
+      GeometryReader { g in PageImage(src: src, ratio: max(g.size.width, 1) / height, corner: corner) }
+    }
+    .accessibilityHidden(true)
+  }
+}
+
+/// A card foot's button: the tint's medium 16, at least 46 tall (72 at the largest text), padded for a title that wraps, all
+/// of it to tap.
+private struct CardFoot: ViewModifier {
+  @Environment(\.dynamicTypeSize) private var size
+  func body(content: Content) -> some View {
+    content
+      .font(.callout.weight(.medium))
+      .padding(.vertical, size.isAccessibilitySize ? 8 : 11)
+      .frame(minHeight: size.isAccessibilitySize ? 72 : 46)
+      .contentShape(.rect)
+  }
+}
+
+private extension View {
+  func cardFoot() -> some View { modifier(CardFoot()) }
 }
 
 /// A card's long-press menu: "Mở", its page in the app, and "Chia sẻ", the page's address on the site.
@@ -84,7 +114,7 @@ private struct CardMenu: ViewModifier {
   func body(content: Content) -> some View {
     if let path, let url = URL(string: path, relativeTo: handbook.site)?.absoluteURL {
       content
-        .contentShape(.contextMenuPreview, .rect(cornerRadius: 14))
+        .contentShape(.contextMenuPreview, .rect(cornerRadius: 20))
         .contextMenu {
           Button("Mở", systemImage: "doc.text") { open(path) }
           ShareLink(item: url) { Label("Chia sẻ", systemImage: "square.and.arrow.up") }
@@ -106,49 +136,64 @@ private struct SpeciesBlock: View {
   @Environment(HandbookModel.self) private var handbook
   @Environment(TanksModel.self) private var tanks
   @Environment(\.dynamicTypeSize) private var size
+  @ScaledMetric(relativeTo: .title3) private var nameSize: CGFloat = 19
+  @ScaledMetric(relativeTo: .subheadline) private var small: CGFloat = 14
   @State private var putting = false
 
   private var item: HandbookIndex.Item? { card.page.path.flatMap { handbook.item(at: $0) } }
 
   var body: some View {
     BlockBox {
-      if !own, let img = card.page.img {
-        PageImage(src: img.absoluteString, ratio: 2.1).accessibilityHidden(true)
-      }
-      HStack(spacing: 10) {
+      if !own, let img = card.page.img { BandImage(src: img.absoluteString, height: 150) }
+      let large = size.isAccessibilitySize
+      let header = own && large ? AnyLayout(VStackLayout(alignment: .leading, spacing: 12)) : AnyLayout(HStackLayout(spacing: 12))
+      header {
         if own, let img = card.page.img {
-          PageImage(src: img.absoluteString, ratio: 1, corner: 8).frame(width: 40, height: 40).accessibilityHidden(true)
+          PageImage(src: img.absoluteString, ratio: 4 / 3, corner: 10).frame(width: large ? 120 : 64, height: large ? 90 : 48).accessibilityHidden(true)
         }
-        VStack(alignment: .leading, spacing: 2) {
-          Text(card.page.name).font(.headline)
+        VStack(alignment: .leading, spacing: 3) {
+          Text(card.page.name).font(own ? .headline : .system(size: nameSize, weight: .semibold))
           if let sci = card.page.sci { Text(sci).italic().font(.subheadline).foregroundStyle(.secondary) }
         }
       }
       .accessibilityElement(children: .combine)
-      // No figures, no empty box: the Worker sends `facts: {}` for a fish the handbook has none of.
-      if let plant = card.plant, plant.any {
-        FactsCard(facts: .init(), plant: plant, inPage: true)
-      } else if let facts = card.facts, facts.any {
-        FactsCard(facts: facts, inPage: true)
-      }
-      if let facts = card.facts, let traits = FactsCard.traits(facts) { Text(traits) }
-      let canPut = item.flatMap { Life($0) } != nil
-      // At the largest text, one under the other with a line between.
+      .padding(EdgeInsets(top: 12, leading: 14, bottom: own ? 0 : 4, trailing: 14))
+      // No figures, no empty space: the Worker sends `facts: {}` for a fish the handbook has none of.
       Group {
-        if size.isAccessibilitySize {
-          VStack(alignment: .leading, spacing: 10) {
-            openButton
-            if card.page.path != nil && canPut { Divider() }
-            if canPut { putButton }
-          }
-        } else {
-          HStack(spacing: 20) {
-            openButton
-            if canPut { putButton }
-          }
+        if let plant = card.plant, plant.any {
+          FactsCard(facts: .init(), plant: plant, onCard: true)
+        } else if let facts = card.facts, facts.any {
+          FactsCard(facts: facts, onCard: true)
         }
       }
-      .font(.subheadline.weight(.semibold))
+      .padding(EdgeInsets(top: 12, leading: 14, bottom: 14, trailing: 14))
+      let figures = card.plant?.any == true || card.facts?.any == true
+      if let facts = card.facts, let traits = FactsCard.traits(facts, font: .system(size: small)) {
+        Text(traits).lineSpacing(2).padding(EdgeInsets(top: figures ? 0 : 12, leading: 14, bottom: 12, trailing: 14))
+      } else if !figures {
+        Color.clear.frame(height: 12)
+      }
+      let canPut = item.flatMap { Life($0) } != nil
+      if card.page.path != nil || canPut {
+        Divider()
+        // At the largest text, one under the other with a line between.
+        Group {
+          if large {
+            VStack(alignment: .leading, spacing: 0) {
+              openButton
+              if card.page.path != nil && canPut { Divider() }
+              if canPut { putButton }
+            }
+          } else {
+            HStack {
+              openButton
+              Spacer(minLength: 8)
+              if canPut { putButton }
+            }
+          }
+        }
+        .padding(.horizontal, 14)
+      }
     }
     .modifier(CardMenu(path: card.page.path, open: open))
     .accessibilityIdentifier("chat-card")
@@ -157,12 +202,18 @@ private struct SpeciesBlock: View {
 
   @ViewBuilder private var openButton: some View {
     if let p = card.page.path {
-      Button("Xem trang") { open(p) }.accessibilityIdentifier("chat-card-open")
+      Button { open(p) } label: { Text("Xem trang").cardFoot() }.accessibilityIdentifier("chat-card-open")
     }
   }
 
   private var putButton: some View {
-    Button { putting = true } label: { Label("Thêm vào bể", systemImage: "plus") }
+    Button { putting = true } label: {
+      HStack(spacing: 6) {
+        Image(systemName: "plus.circle.fill").accessibilityHidden(true)
+        Text("Thêm vào bể")
+      }
+      .cardFoot()
+    }
       .disabled(!tanks.canEdit)
       .accessibilityIdentifier("chat-card-put")
   }
@@ -171,13 +222,14 @@ private struct SpeciesBlock: View {
 // MARK: A comparison
 
 /// Two to four species side by side: their photos, then the card's rows, a row whose figures differ marked "khác", a
-/// figure bold only when it alone differs among three or more; then their traits. At the largest text the photos go
-/// and each figure says whose it is, a species to a line.
+/// figure bold only when it alone differs among three or more; then their traits. At the largest text the photos and
+/// names go and each figure says whose it is, a species to a line.
 private struct CompareBlock: View {
   let cards: [Chat.Card]
   let open: (String) -> Void
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.dynamicTypeSize) private var size
+  @ScaledMetric(relativeTo: .subheadline) private var small: CGFloat = 14
 
   /// A row: its label, each species' figure as shown (nil: none), and what it's compared by.
   private struct Row {
@@ -232,27 +284,24 @@ private struct CompareBlock: View {
 
   var body: some View {
     BlockBox {
-      if size.isAccessibilitySize {
-        // The photos go; each still opens its page, a species to a line.
-        VStack(alignment: .leading, spacing: 8) {
-          ForEach(Array(cards.enumerated()), id: \.offset) { _, c in name(c) { Text(c.page.name).font(.subheadline.weight(.semibold)).multilineTextAlignment(.leading) } }
-        }
-      } else {
+      // With no figures at all, the names are all it has.
+      if !size.isAccessibilitySize || rows.isEmpty {
         HStack(alignment: .top, spacing: 8) {
           ForEach(Array(cards.enumerated()), id: \.offset) { _, c in
             name(c) {
-              VStack(alignment: .leading, spacing: 4) {
+              VStack(alignment: .leading, spacing: 5) {
                 if let img = c.page.img {
-                  PageImage(src: img.absoluteString, ratio: 1.3, corner: 8).accessibilityHidden(true)
+                  BandImage(src: img.absoluteString, height: 58, corner: 9)
                 } else {
-                  Rectangle().fill(.fill.tertiary).aspectRatio(1.3, contentMode: .fit).clipShape(.rect(cornerRadius: 8)).accessibilityHidden(true)
+                  Rectangle().fill(.fill.tertiary).frame(height: 58).clipShape(.rect(cornerRadius: 9)).accessibilityHidden(true)
                 }
-                Text(c.page.name).font(.footnote.weight(.semibold)).multilineTextAlignment(.leading)
+                Text(c.page.name).font(.system(size: small, weight: .semibold)).multilineTextAlignment(.leading)
               }
             }
             .frame(maxWidth: .infinity, alignment: .topLeading)
           }
         }
+        .padding(EdgeInsets(top: 12, leading: 14, bottom: 6, trailing: 14))
       }
       ForEach(Array(rows.enumerated()), id: \.offset) { _, r in row(r) }
     }
@@ -260,28 +309,47 @@ private struct CompareBlock: View {
   }
 
   @ViewBuilder private func row(_ r: Row) -> some View {
-    VStack(alignment: .leading, spacing: 4) {
-      HStack(spacing: 6) {
-        Text(r.label).font(.footnote).foregroundStyle(.secondary)
-        if r.differs.differ { Text("khác").font(.caption.weight(.semibold)).foregroundStyle(.orange) }
-      }
+    Divider()
+    VStack(alignment: .leading, spacing: 3) {
+      Text(heading(r)).font(.footnote)
       if size.isAccessibilitySize {
-        ForEach(Array(cards.enumerated()), id: \.offset) { i, c in
-          Text("\(c.page.name): \(figure(r, i))").fontWeight(r.differs.alone == i ? .bold : .regular)
-        }
+        ForEach(Array(cards.indices), id: \.self) { i in Text(whose(r, i)).font(.subheadline) }
       } else {
         HStack(alignment: .top, spacing: 8) {
           ForEach(Array(cards.indices), id: \.self) { i in
             Text(figure(r, i))
               .font(.subheadline.weight(r.differs.alone == i ? .bold : .regular))
-              .foregroundStyle(r.values[i] == nil ? .secondary : .primary)
+              .foregroundStyle(r.values[i] == nil ? .tertiary : .primary)
               .frame(maxWidth: .infinity, alignment: .leading)
           }
         }
       }
     }
+    .padding(.horizontal, 14)
+    .padding(.vertical, 7)
     .accessibilityElement(children: .ignore)
     .accessibilityLabel(Text(spoken(r)))
+  }
+
+  /// A row's label, then "· khác" in the tint when its figures differ.
+  private func heading(_ r: Row) -> AttributedString {
+    var line = AttributedString(r.label)
+    line.foregroundColor = .secondary
+    guard r.differs.differ else { return line }
+    var mark = AttributedString(" · " + String(localized: "khác"))
+    mark.foregroundColor = .accentColor
+    mark.font = .footnote.weight(.semibold)
+    return line + mark
+  }
+
+  /// "Cá đĩa: **Khó 7/8**": the name quiet, the figure bold only when it alone differs.
+  private func whose(_ r: Row, _ i: Int) -> AttributedString {
+    var name = AttributedString(cards[i].page.name + ": ")
+    name.foregroundColor = .secondary
+    var value = AttributedString(figure(r, i))
+    if r.values[i] == nil { value.foregroundColor = Color(uiColor: .tertiaryLabel) }
+    if r.differs.alone == i { value.font = .subheadline.bold() }
+    return name + value
   }
 
   /// A species' name opening its page; one with no page, only its name.
@@ -332,17 +400,25 @@ private struct SectionBlock: View {
   @State private var heights: [Int: CGFloat] = [:]
   @State private var headingInView = true
   @State private var tip: Tip?
-  @ScaledMetric private var line: CGFloat = 22
+  @Environment(\.dynamicTypeSize) private var size
   private let gap: CGFloat = 8
+  /// Between a part's lines: the subheadline's 18 made the design's 21.
+  private let spacing: CGFloat = 3
+
+  /// A line of its text, the space under it included.
+  private var line: CGFloat {
+    UIFont.preferredFont(forTextStyle: .subheadline, compatibleWith: UITraitCollection(preferredContentSizeCategory: UIContentSizeCategory(size))).lineHeight + spacing
+  }
 
   private var drawn: [Chat.Part] { parts.filter(SectionPart.draws) }
   private var undrawn: [Chat.Part] { parts.filter { !SectionPart.draws($0) } }
 
-  /// All of it fits in the closed five lines.
-  private var fits: Bool {
-    let all = drawn.indices.reduce(CGFloat(0)) { $0 + (heights[$1] ?? line * 6) } + gap * CGFloat(max(0, drawn.count - 1))
-    return all <= line * 5
+  /// Closed, as tall as five whole lines. Nil: all of it fits.
+  private var closed: CGFloat? {
+    Chat.closedHeight(drawn.indices.map { heights[$0] ?? line * 6 }, line: line, spacing: spacing, gap: gap)
   }
+
+  private var fits: Bool { closed == nil }
 
   /// The parts shown open: whole ones, up to about fifteen lines (at least one).
   private var openCount: Int {
@@ -360,10 +436,17 @@ private struct SectionBlock: View {
     let cut = opened ? shown < drawn.count : !fits
     let rest = opened || fits ? Chat.Rest(drawn.dropFirst(shown) + undrawn) : Chat.Rest()
     BlockBox {
-      VStack(alignment: .leading, spacing: 2) {
-        Text(covered ? Self.kind(page.kind) : String(localized: "Trang gần nhất")).font(.caption.weight(.semibold)).foregroundStyle(.secondary)
+      VStack(alignment: .leading, spacing: 6) {
+        HStack(spacing: 6) {
+          Image(systemName: Self.icon(page.kind)).accessibilityHidden(true)
+          // In capitals to the eye only: VoiceOver reads the words.
+          Text(verbatim: from).tracking(0.4).textCase(.uppercase).accessibilityLabel(Text(verbatim: from))
+        }
+        .font(.caption.weight(.semibold))
+        .foregroundStyle(.secondary)
         Text(heading?.text ?? page.title).font(.headline)
       }
+      .padding(EdgeInsets(top: 13, leading: 14, bottom: 0, trailing: 14))
       .accessibilityElement(children: .combine)
       .accessibilityAddTraits(.isHeader)
       .onScrollVisible { headingInView = $0 }
@@ -373,18 +456,27 @@ private struct SectionBlock: View {
             SectionPart(part: p).onGeometryChange(for: CGFloat.self) { $0.size.height } action: { heights[i] = $0 }
           }
         }
+        .font(.subheadline)
+        .lineSpacing(spacing)
+        // At its full height, or the cap below would squeeze each text to a line.
+        .fixedSize(horizontal: false, vertical: true)
         // Closed: five lines, the fifth fading; open and cut, its last line.
-        .frame(maxHeight: opened ? nil : line * 5, alignment: .top)
+        .frame(maxHeight: opened ? nil : closed, alignment: .top)
         .clipped()
         .mask {
           VStack(spacing: 0) {
             Rectangle()
-            if cut { LinearGradient(colors: [.black, .clear], startPoint: .top, endPoint: .bottom).frame(height: line) }
+            if cut {
+              LinearGradient(stops: [.init(color: .black, location: 0), .init(color: .clear, location: 0.85)], startPoint: .top, endPoint: .bottom)
+                .frame(height: line)
+            }
           }
         }
         .contentShape(.rect)
         .onTapGesture { if !opened && !fits { change(to: true) } }
         .accessibilityAction(named: Text("Mở")) { if !fits { opened = true } }
+        .padding(.top, 8)
+        .padding(.horizontal, 14)
       }
       if opened || !rest.isEmpty {
         HStack {
@@ -393,11 +485,19 @@ private struct SectionBlock: View {
           if !rest.isEmpty { Text(Self.rest(rest)).font(.footnote).foregroundStyle(.secondary) }
         }
         .font(.subheadline.weight(.semibold))
+        .padding(.top, 8)
+        .padding(.horizontal, 14)
       }
+      Divider().padding(.top, 8)
       Button { open(page.path + (heading.map { "#\($0.id)" } ?? "")) } label: {
-        Text("Đọc tiếp trong “\(page.title)”").multilineTextAlignment(.leading)
+        HStack(spacing: 6) {
+          Text("Đọc tiếp trong “\(page.title)”").multilineTextAlignment(.leading)
+          Spacer(minLength: 0)
+          Image(systemName: "chevron.right").font(.caption).foregroundStyle(Color(uiColor: .tertiaryLabel)).accessibilityHidden(true)
+        }
+        .padding(.horizontal, 14)
+        .cardFoot()
       }
-      .font(.subheadline.weight(.semibold))
       .accessibilityIdentifier("chat-section-open")
     }
     .modifier(CardMenu(path: page.path + (heading.map { "#\($0.id)" } ?? ""), open: open))
@@ -438,6 +538,24 @@ private struct SectionBlock: View {
     let away = !headingInView
     change(to: false)
     if away { reveal(id) }
+  }
+
+  /// Over the heading: its kind and page, or that this is only the nearest page and its kind.
+  private var from: String {
+    let kind = Self.kind(page.kind)
+    return covered ? "\(kind) · \(page.title)" : "\(String(localized: "Trang gần nhất")) · \(kind)"
+  }
+
+  /// The page's kind as a symbol.
+  static func icon(_ k: String) -> String {
+    switch k {
+    case "guide": "book.closed.fill"
+    case "fish": "fish.fill"
+    case "plant": "leaf.fill"
+    case "glossary": "character.book.closed.fill"
+    case "video": "play.rectangle.fill"
+    default: "wrench.and.screwdriver.fill"
+    }
   }
 
   /// The page's kind, over the heading.
@@ -534,6 +652,7 @@ private struct ToolBlock: View {
   @Environment(\.dynamicTypeSize) private var size
   @Environment(TanksModel.self) private var tanks
   @Environment(HandbookModel.self) private var handbook
+  @ScaledMetric(relativeTo: .subheadline) private var small: CGFloat = 14
 
   private var check: TankCheck? { tool.check.flatMap { try? JSONDecoder().decode(TankCheck.self, from: $0) } }
 
@@ -551,22 +670,43 @@ private struct ToolBlock: View {
   }
 
   private func box(contained: Bool) -> some View {
-    BlockBox(contained: contained) {
-      HStack(alignment: .top, spacing: 10) {
+    let large = size.isAccessibilitySize
+    let square: CGFloat = large ? 64 : 40
+    let layout = large ? AnyLayout(VStackLayout(alignment: .leading, spacing: 12)) : AnyLayout(HStackLayout(alignment: .top, spacing: 12))
+    return BlockBox(contained: contained) {
+      layout {
         Image(systemName: tool.tool == "tank-mates" ? "fish.fill" : "wrench.and.screwdriver.fill")
-          .foregroundStyle(.tint).frame(width: 28, height: 28).background(.fill.tertiary, in: .rect(cornerRadius: 7)).accessibilityHidden(true)
+          .font(.system(size: large ? 30 : 18))
+          .foregroundStyle(.tint)
+          .frame(width: square, height: square)
+          .background(.tint.opacity(0.14), in: .rect(cornerRadius: square / 4))
+          .accessibilityHidden(true)
         VStack(alignment: .leading, spacing: 6) {
-          Text(tool.name).font(.headline)
-          if let what = checked { Text(what).font(.subheadline).foregroundStyle(.secondary) }
+          VStack(alignment: .leading, spacing: 3) {
+            Text(tool.name).font(.callout.weight(.semibold))
+            if let what = checked { Text(what).font(.system(size: small)).lineSpacing(2).foregroundStyle(.secondary) }
+          }
           if let check { TankCheckRows(check: check) }
-          if size.isAccessibilitySize, canGo {
-            if let tank = openableTank { Text("Mở \(tank.name)").font(.subheadline.weight(.semibold)).foregroundStyle(.tint) }
-            else { Text("Mở công cụ nuôi chung").font(.subheadline.weight(.semibold)).foregroundStyle(.tint) }
+          if large, canGo {
+            Group {
+              if let tank = openableTank { Text("Mở \(tank.name)") } else { Text("Mở công cụ nuôi chung") }
+            }
+            .font(.callout.weight(.medium))
+            .foregroundStyle(.tint)
+            .padding(.top, 6)
           }
         }
-        Spacer(minLength: 0)
-        if canGo { Image(systemName: "chevron.right").font(.footnote.weight(.semibold)).foregroundStyle(.tertiary).accessibilityHidden(true) }
+        // Beside the chevron's spacer its lines were measured a line short, and the last cut with "…".
+        .fixedSize(horizontal: false, vertical: true)
+        if !large {
+          Spacer(minLength: 0)
+          if canGo {
+            Image(systemName: "chevron.right").font(.footnote.weight(.semibold)).foregroundStyle(.tertiary).padding(.top, 12).accessibilityHidden(true)
+          }
+        }
       }
+      .padding(.horizontal, 14)
+      .padding(.vertical, 12)
     }
   }
 

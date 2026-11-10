@@ -1,0 +1,112 @@
+{
+  "id": "apistogramma-urteagai",
+  "scientificName": "Apistogramma urteagai",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Apistogramma",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "peru",
+    "madre-de-dios"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This pretty dwarf cichlid from the Madre de Dios region in Peru is offered only very occasionally.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371224,
+      "total": 20,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "PE",
+          20
+        ]
+      ],
+      "cells": [
+        [
+          -74.53125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -70.3125,
+          -14.0625,
+          8,
+          8
+        ],
+        [
+          -70.3125,
+          -12.65625,
+          10,
+          10
+        ],
+        [
+          -68.90625,
+          -12.65625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {},
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_urteagai_en/",
+      "html": "<p>This pretty dwarf cichlid from the Madre de Dios region in Peru is offered only very occasionally. The species is quite undemanding and thus a perfect subject for beginners who want to collect first experiences in keeping and breeding dwarf cichlids. A. urteagai does not require any special water conditions, this is another advantage of the species.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_urteagai_en/",
+      "html": "<p>Lexicon: Apistogramma: ancient Greek, means “with unreliable line”. It is not known whether the lateral line organ or the pattern is meant. urteagai: dedication name for Urteaga Cavero, one of the discoverers of the species.</p><p>Suggestion of a common name: Madre de Dios dwarf cichlid</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể nuôi cichlid lùn"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "lọc sponge cho bể cá nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cichlid lùn",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

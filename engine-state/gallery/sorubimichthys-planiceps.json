@@ -1,16 +1,11 @@
 {
- "queue": [
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/205425592/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/205425592/medium.jpg",
-   "width": 2048,
-   "height": 1285,
-   "licence": "CC0",
-   "author": "Whaldener Endo",
-   "sourceUrl": "https://www.inaturalist.org/photos/205425592",
-   "key": "inat:205425592"
-  }
+ "queue": [],
+ "judged": [
+  "inat:205425592"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/scotcat/2ca8c146cfd0d851.webp": "0f0f13c962891345",
+  "https://media.aquatome.com/commons/8e2f9380fa31b81c.webp": "63330e26323b3339"
+ },
+ "commons": "2026-11-09"
 }

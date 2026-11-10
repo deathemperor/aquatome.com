@@ -1,0 +1,76 @@
+{
+  "id": "laubuka-fasciata",
+  "native": {
+    "input": "296ec55fa88b2d73",
+    "at": "2026-11-09T12:58:06.259Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species is endemic to the state of Kerala in southwestern India, where it has been recorded from the Bharathapuzha, Chalakudy, Muvattupuzha, Periyar, Ponnani, Meenachil, Achenkovil, Chaliyar, and Manimala river systems.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Bharathapuzha",
+        "source": "seriouslyfish",
+        "quote": "This species is endemic to the state of Kerala in southwestern India, where it has been recorded from the Bharathapuzha, Chalakudy, Muvattupuzha, Periyar, Ponnani, Meenachil, Achenkovil, Chaliyar, and Manimala river systems.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Chalakudy",
+        "source": "seriouslyfish",
+        "quote": "This species is endemic to the state of Kerala in southwestern India, where it has been recorded from the Bharathapuzha, Chalakudy, Muvattupuzha, Periyar, Ponnani, Meenachil, Achenkovil, Chaliyar, and Manimala river systems.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Periyar",
+        "source": "seriouslyfish",
+        "quote": "This species is endemic to the state of Kerala in southwestern India, where it has been recorded from the Bharathapuzha, Chalakudy, Muvattupuzha, Periyar, Ponnani, Meenachil, Achenkovil, Chaliyar, and Manimala river systems.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Muvattupuzha",
+        "source": "seriouslyfish",
+        "quote": "This species is endemic to the state of Kerala in southwestern India, where it has been recorded from the Bharathapuzha, Chalakudy, Muvattupuzha, Periyar, Ponnani, Meenachil, Achenkovil, Chaliyar, and Manimala river systems.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Annamalai River",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Annamalai River at base of Annamalai Hills, Chittur Taluk, Malabar, Kerala State, India'.",
+        "country": "IN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Laubuka fasciata",
+    "status": "ACCEPTED",
+    "taxonKey": 7541494,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T12:58:06.259Z"
+  }
+}

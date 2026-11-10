@@ -8,7 +8,8 @@
   "places": [
     "africa",
     "democratic-republic-of-the-congo",
-    "congo"
+    "congo",
+    "congo-river"
   ],
   "dataCard": {
     "tempC": [
@@ -42,6 +43,10 @@
       {
         "source": "seriouslyfish",
         "value": 12
+      },
+      {
+        "source": "glaser",
+        "value": 12
       }
     ],
     "tankCm": [
@@ -71,6 +76,12 @@
       "html": "<p>Democratic Republic of Congo.</p>"
     },
     {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/orthochromis_stormsi_en/",
+      "html": "<p>Central Africa, where it inhabits the cataracts of the Congo River.</p>"
+    },
+    {
       "key": "habitat",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/orthochromis-stormsi",
@@ -95,6 +106,12 @@
       "html": "<ul><li>Temperature: 22–27°C</li><li>pH: 6.5–7.5</li><li>Hardness: 5–15 dGH</li></ul>"
     },
     {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/orthochromis_stormsi_en/",
+      "html": "<p>Owing to their origin in fast-flowing waters they need clean, oxygen-rich water.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/orthochromis-stormsi",
@@ -107,16 +124,34 @@
       "html": "<p>A territorial species that is generally peaceful towards heterospecifics. Good tankmates include Alestiid tetras and other non-aggressive species that can tolerate flowing water. It should be kept with other cichlids only in a large aquarium. Amongst themselves O. stormsi are very territorial and an individual will not permit another to enter its territory except for when spawning. It can be kept in groups in large enough aquaria, however, as the territories formed tend to be quite small, but only one male should be kept (with several females).</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/orthochromis_stormsi_en/",
+      "html": "<p>Their social behaviour is very interesting, but because of their rather high aggression potential they should be kept in a not too small group. In a 200 l tank about 10 animals can be accommodated. In such a group there is constant movement: apart from its favourite activity, feeding, it hunts conspecifics through the tank, rests on a stone and then begins hunting the neighbours again.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/orthochromis-stormsi",
       "html": "<p>Difficult to sex when young. Dominant male fish become far more colourful than females as adults and tend to grow slightly larger.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/orthochromis_stormsi_en/",
+      "html": "<p>The differences between sexes are only weakly pronounced: males appear more multicoloured, females have a darker basic colour.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/orthochromis-stormsi",
       "html": "<p>Possible but not easy. Maternal mouthbrooder. This species is rarely bred in captivity and little information is available. It is best bred in a harem situation with one male and several females. If a sexable group is not available, purchase a group of young fish and grow them on. It is likely that subdominant males will be eliminated by the alpha male so keep a close eye on proceedings and remove fish if necessary. The tank should be set up as above with a temperature around 25.5 °C and a pH of 7.0-7.5. Dither fish in the form of African tetras are recommended.</p><p>When the male is in spawning condition, his colours will intensify and he will begin displaying to the females. When a female is willing, she will lie next to the male on the substrate in such a fashion that her head is next to the caudal fin of the male, and vice versa. She then releases a few eggs at a time and the male produces a small amount of sperm, which the female takes into her mouth. The fish then quickly spin 180° and the female picks up the eggs before releasing the next batch. This continues until the female is carrying around 20-25 eggs. The male then plays no further part in broodcare and can go on to mate with other females immediately.</p><p>The female may carry the eggs for up to 4 weeks before releasing the free swimming fry. She will not eat during this period and can be easily spotted by her distended mouth. If a female is overly stressed, she may spit out the brood prematurely or eat them, so care must be taken if you decide to move the fish in order to avoid fry predation. Some breeders artificially strip the fry from the mother's mouth at the 3 week stage and raise them from that point as this usually results in a larger number of fry. The fry are quite large and can be fed newly hatched brine shrimp, microworm, and even powdered dry foods from the day they are released by the mother.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/orthochromis_stormsi_en/",
+      "html": "<p>Otherwise they are rather undemanding. With good care, you will with high probability eventually discover a \"chewing\" female (mouthbrooding) and can look forward to the new generation.</p>"
     },
     {
       "key": "notes",

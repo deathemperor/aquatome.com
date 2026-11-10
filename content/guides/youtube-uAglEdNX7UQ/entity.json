@@ -8,9 +8,10 @@
   "mentions": [
     "astronotus-ocellatus",
     "puntigrus-tetrazona",
-    "pterophyllum-scalare"
+    "pterophyllum-scalare",
+    "pangasianodon-hypophthalmus"
   ],
-  "updatedAt": "2026-11-05",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "uAglEdNX7UQ",
     "title": "The AQUARIUM is DONE!!",
@@ -32,13 +33,15 @@
     "taxa": [
       "Astronotus ocellatus",
       "Puntigrus tetrazona",
+      "Pterophyllum scalare",
       "Toxotes sp.",
-      "Pterophyllum scalare"
+      "Pangasianodon hypophthalmus"
     ],
     "gear": [
       {
         "category": "den",
-        "t": 90
+        "type": "thuy-sinh",
+        "t": 66
       },
       {
         "category": "be-ca",
@@ -48,146 +51,117 @@
     ],
     "figures": [
       {
-        "heading": "Chuẩn bị mặt dán trước khi gắn mica",
+        "heading": "Lắp tấm acrylic vào thân bể ván ép",
         "moments": [
           {
-            "t": 30,
-            "url": "https://media.aquatome.com/video/uAglEdNX7UQ/t30.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Thợ đứng trước bể, xử lý đường viền bên trong kính bể."
+            "t": 35,
+            "url": "https://media.aquatome.com/video/uAglEdNX7UQ/at35-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bơm silicone quanh viền để dán tấm acrylic vào bể.",
+            "sharpness": 360.8
           },
           {
-            "t": 39,
-            "url": "https://media.aquatome.com/video/uAglEdNX7UQ/t39.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh tay đang làm việc dọc mép bể để chuẩn bị dán."
+            "t": 75,
+            "url": "https://media.aquatome.com/video/uAglEdNX7UQ/at75-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tấm acrylic đã được lắp vào thân bể ván ép.",
+            "sharpness": 720.7
           }
         ]
       },
       {
-        "heading": "Dán và ép tấm mica vào khung",
+        "heading": "Bắt thanh giằng phía trên",
         "moments": [
           {
-            "t": 64,
-            "url": "https://media.aquatome.com/video/uAglEdNX7UQ/t64.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Dùng khối gỗ chống để ép tấm mica sát vào khung bể."
+            "t": 110,
+            "url": "https://media.aquatome.com/video/uAglEdNX7UQ/at110-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Thanh gỗ bắt vít ngang phía trên bể, có đèn LED gác lên.",
+            "sharpness": 346.2
           },
           {
-            "t": 69,
-            "url": "https://media.aquatome.com/video/uAglEdNX7UQ/t69.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Thanh gỗ chống tì vào tấm mica, có khăn lót phía trong bể."
+            "t": 120,
+            "url": "https://media.aquatome.com/video/uAglEdNX7UQ/at120-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Thanh giằng phía trên bể làm chỗ gác đèn và nắp bể.",
+            "sharpness": 42.4
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/uAglEdNX7UQ/p1-5waXN0b2xlLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/uAglEdNX7UQ/p1-5waXN0b2xlLmpwZw-480.webp",
-          "width": 960,
-          "height": 441,
-          "licence": "CC BY-SA 3.0 de",
-          "author": "D-Platoon",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kartuschenpistole.jpg",
-          "caption": "Súng bơm silicone và tuýp silicone dùng để dán mica vào khung bể."
-        }
-      },
-      {
-        "heading": "Chờ silicone khô bao lâu",
-        "moments": [
-          {
-            "t": 79,
-            "url": "https://media.aquatome.com/video/uAglEdNX7UQ/t79.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể kính trống đã dán silicone xong, đang để khô."
-          },
-          {
-            "t": 89,
-            "url": "https://media.aquatome.com/video/uAglEdNX7UQ/t89.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể kính đặt trên tủ, chờ keo silicone khô hẳn."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/uAglEdNX7UQ/p2-YWxhbnRfMDIuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/uAglEdNX7UQ/p2-YWxhbnRfMDIuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/uAglEdNX7UQ/p1-lnaHQoNlcpLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/uAglEdNX7UQ/p1-lnaHQoNlcpLmpwZw-480.webp",
           "width": 960,
           "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Vis M",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Silicone_sealant_02.jpg",
-          "caption": "Các ống keo silicone xếp trên kệ ở cửa hàng vật tư."
+          "licence": "CC BY 4.0",
+          "author": "223系新快速",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:LED_Wraparound_Shop_Light(6W).jpg",
+          "caption": "Đèn LED dạng thanh dùng cho xưởng, loại rẻ tiền có thể gác lên thanh giằng bể."
         }
       },
       {
-        "heading": "Làm giằng nóc, gác đèn và nắp",
+        "heading": "Vì sao thử nước trước khi chống thấm thanh giằng",
         "moments": [
           {
-            "t": 103,
-            "url": "https://media.aquatome.com/video/uAglEdNX7UQ/t103.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Thanh giằng gỗ chạy dọc mép trên của bể, sát mặt nước."
+            "t": 130,
+            "url": "https://media.aquatome.com/video/uAglEdNX7UQ/at130-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Thanh giằng gỗ đặt trên khung bể kính, chưa quét chống thấm.",
+            "sharpness": 196.9
           },
           {
-            "t": 118,
-            "url": "https://media.aquatome.com/video/uAglEdNX7UQ/t118.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Thanh gỗ giằng nóc đặt trên khung bể, làm chỗ gác đèn và nắp."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/uAglEdNX7UQ/p3-FRF9idWxicy5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/uAglEdNX7UQ/p3-FRF9idWxicy5qcGc-480.webp",
-          "width": 960,
-          "height": 546,
-          "licence": "CC BY 3.0",
-          "author": "Geoffrey.landis at English Wikipedia",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:LED_bulbs.jpg",
-          "caption": "Nhiều loại bóng đèn LED có thể dùng làm đèn chiếu sáng cho bể cá."
-        }
-      },
-      {
-        "heading": "Vì sao nửa trên mới là lúc đáng lo",
-        "moments": [
-          {
-            "t": 167,
-            "url": "https://media.aquatome.com/video/uAglEdNX7UQ/t167.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Góc bể kính với mực nước thấp, thấy rõ thành và đáy bể."
-          },
-          {
-            "t": 182,
-            "url": "https://media.aquatome.com/video/uAglEdNX7UQ/t182.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cạnh đáy bể kính nhìn nghiêng, có ống dây dẫn nước bên trong."
+            "t": 150,
+            "url": "https://media.aquatome.com/video/uAglEdNX7UQ/at150-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể kính đã châm nước để thử rỉ, có ống dẫn bên trong.",
+            "sharpness": 1215.9
           }
         ]
       },
       {
-        "heading": "Thử nước theo từng mức",
+        "heading": "Áp lực nước thay đổi thế nào khi châm",
         "moments": [
           {
-            "t": 187,
-            "url": "https://media.aquatome.com/video/uAglEdNX7UQ/t187.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Ống châm nước thả trong bể kính trống, nước đang dâng dần."
+            "t": 155,
+            "url": "https://media.aquatome.com/video/uAglEdNX7UQ/at155-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể kính đang châm nước, mực nước còn thấp với ống dẫn nước bên trong.",
+            "sharpness": 103.6
           },
           {
-            "t": 221,
-            "url": "https://media.aquatome.com/video/uAglEdNX7UQ/t221.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể đang được châm nước, mực nước còn ở mức thấp để kiểm tra rò rỉ."
+            "t": 170,
+            "url": "https://media.aquatome.com/video/uAglEdNX7UQ/at170-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đáy bể với lớp nước nông và ống châm nước đang chạy.",
+            "sharpness": 525.9
+          }
+        ]
+      },
+      {
+        "heading": "Châm nước lần đầu sao cho an toàn",
+        "moments": [
+          {
+            "t": 495,
+            "url": "https://media.aquatome.com/video/uAglEdNX7UQ/at495-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể đang được châm nước, mực nước lên khoảng nửa bể.",
+            "sharpness": 400.4
+          },
+          {
+            "t": 515,
+            "url": "https://media.aquatome.com/video/uAglEdNX7UQ/at515-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ống châm nước thả vào bể, nước đã lên quá nửa.",
+            "sharpness": 821.4
           }
         ]
       }

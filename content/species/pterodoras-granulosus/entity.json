@@ -7,13 +7,40 @@
   "group": "catfish",
   "places": [
     "south-america",
-    "peru"
+    "peru",
+    "amazon",
+    "argentina",
+    "parana",
+    "guyana",
+    "suriname"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 70
+      },
+      {
+        "source": "scotcat",
+        "value": 90
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
       }
     ]
   },
@@ -25,10 +52,52 @@
       "html": "<p>The Thorny Catfishes (Doradidae) are a small family of exclusively South American catfish. Currently 41 genera containing 127 species are known, but new species continue to be discovered. The largest species attain a maximum length of more than 100 cm. The world record for Opsodoras niger is 120 cm and a weight of 20 kg. The smallest species, Physopyxis lyra, becomes only 3.5 cm long. Most species attain a maximum length between 10 and 20 cm.</p><p>Pterodoras granulosus from Peru is a large species, which can become around 70 cm long. Juveniles of 7-10 cm were obtained.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/pterodoras_granulosus.htm",
+      "html": "<ul><li>Common name: Granulated catfish</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/pterodoras_granulosus.htm",
+      "html": "<p>South America: Amazon and Paraná River basins and coastal drainages in Guyana and Surinam.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/pterodoras_granulosus.htm",
+      "html": "<p>In their natural habitat they would form small groups and feed mainly on molluscs and the fruits of Astrocaryum javary.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/pterodoras_granulosus.htm",
+      "html": "<p>Would need a large tank with large pipes, plastic or ceramic, to rest in. House with same size or larger tank mates.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/pterodoras_granulosus.htm",
+      "html": "<p>Pellets, tablets, frozen mysis shrimp, worm food and mussels. You could also try various fruits such as bananas.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/fisharchive/pterodoras-granulosus-4/",
       "html": "<p>This species is as peaceful as any species of thorny catfish, but one should keep in mind that the fish has a large mouth and smaller fish will vanish there of course.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/pterodoras_granulosus.htm",
+      "html": "<p>Etymology: The specific name granulosus: granum (L.), seed or grain; –osus (L.), suffix connoting fullness, presumably referring to 23–28 shallow lateral plates (or scutes) along length of body, which may give the scaleless skin a granulated appearance.</p><p>IUCN Red List: Despite the little information available on this species, it has a wide range and no apparent threats. Therefore, it is assessed as Least Concern (IUCN 2023).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/pterodoras_granulosus.htm",
+      "html": "<p>Salvador, G.N. 2023. Pterodoras granulosus. The IUCN Red List of Threatened Species 2023. ScotCat Factsheet no. 238. April 2016. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
@@ -67,13 +136,13 @@
     },
     {
       "url": "https://media.aquatome.com/commons/0b73049b4260b4bf.webp",
+      "thumb": "https://media.aquatome.com/commons/0b73049b4260b4bf-480.webp",
       "width": 960,
       "height": 576,
       "licence": "CC BY 4.0",
       "author": "Photos: courtesy of Kelly Swing (A, B, C and D), Jonathan Valdiviezo-Rivera (F, G and H) and Daniel Escobar-Camacho (E), from a publication by Daniel Escobar-Camacho, Jonathan Valdiviezo-Rivera, Carolina Carrillo-Moreno, Pablo Argüello, Kelly Swing",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pterodoras_granulosus_Napo.jpg",
-      "caption": "From Yasuní National Park, Ecuador (Napo River Basin)",
-      "thumb": "https://media.aquatome.com/commons/0b73049b4260b4bf-480.webp"
+      "caption": "From Yasuní National Park, Ecuador (Napo River Basin)"
     }
   ],
   "videos": [],
@@ -99,5 +168,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-09"
 }

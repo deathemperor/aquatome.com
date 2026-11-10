@@ -10,6 +10,38 @@
     "china",
     "minjiang"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Minjiang River"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "China: Xihe River, a tributary of the Minjiang River, Qionglai City, Chengdu City, Sichuan Province, China.",
+          "countries": [
+            "CN"
+          ],
+          "regions": [
+            "Minjiang River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 11182861,
+      "total": 0,
+      "fetched": "2026-11-09",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

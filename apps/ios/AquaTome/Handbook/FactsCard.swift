@@ -5,24 +5,42 @@ import SwiftUI
 /// shortest tank and difficulty, the last as the site's badge (Difficulty.astro); a plant's care (difficulty, light, CO₂, growth, where
 /// it goes). They come from the handbook's index kept on the phone, so they show offline too, page or no page: the page's
 /// own copy doesn't repeat them. On a page the app draws (`inPage`), all of them at once under its name, the sources
-/// behind them and the page's credit under the card (NativePage); over a web page, a row across its top.
+/// behind them and the page's credit under the card (NativePage); on a chat's card (`onCard`), straight on it; over a web
+/// page, a row across its top.
 struct FactsCard: View {
   let facts: HandbookIndex.Facts
   var plant: HandbookIndex.Plant?
   var inPage = false
+  var onCard = false
+  /// v2's card (docs/design/v2-fish-page.md): six figures, not its lifespan; in rows of three from the left, one missing
+  /// closing up; its labels a size up, the difficulty's word plain, its "2/8" smaller.
+  var v2 = false
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.dynamicTypeSize) private var size
 
   var body: some View {
     let all = items
-    if inPage {
-      // As many to a row as fit the reader's text size: three, two, or one at the largest.
-      let n = size.isAccessibilitySize ? 1 : size >= .xxLarge ? 2 : 3
-      Grid(alignment: .topLeading, horizontalSpacing: 12, verticalSpacing: 16) {
+    // As many to a row as fit the reader's text size: three, two, or one at the largest.
+    let n = size.isAccessibilitySize ? 1 : size >= .xxLarge ? 2 : 3
+    if onCard {
+      // A row of two shares the width: three, two, two.
+      VStack(alignment: .leading, spacing: 10) {
         ForEach(Self.rows(all.count, n), id: \.self) { row in
+          HStack(alignment: .top, spacing: 10) {
+            ForEach(row, id: \.self) { i in
+              Fact(item: all[i], onCard: true).frame(maxWidth: .infinity, alignment: .leading)
+            }
+          }
+        }
+      }
+      .accessibilityElement(children: .contain)
+      .accessibilityIdentifier("facts-card")
+    } else if inPage {
+      Grid(alignment: .topLeading, horizontalSpacing: 12, verticalSpacing: 16) {
+        ForEach(v2 ? Self.plainRows(all.count, n) : Self.rows(all.count, n), id: \.self) { row in
           GridRow {
             ForEach(row, id: \.self) { i in
-              Fact(item: all[i], large: true).frame(maxWidth: .infinity, alignment: .leading)
+              Fact(item: all[i], large: true, v2: v2).frame(maxWidth: .infinity, alignment: .leading)
             }
           }
         }
@@ -71,7 +89,7 @@ struct FactsCard: View {
     if let r = facts.ph { out.append(Item(label: "pH", value: HandbookIndex.Facts.range(r, locale))) }
     if let r = facts.gh { out.append(Item(label: "Độ cứng (dGH)", value: HandbookIndex.Facts.range(r, locale))) }
     if let v = facts.sizeCm { out.append(Item(label: "Kích thước", value: "\(HandbookIndex.Facts.number(v, locale)) cm")) }
-    if let r = facts.lifeYears { out.append(Item(label: "Tuổi thọ", value: "\(HandbookIndex.Facts.range(r, locale)) \(String(localized: "năm"))")) }
+    if !v2, let r = facts.lifeYears { out.append(Item(label: "Tuổi thọ", value: "\(HandbookIndex.Facts.range(r, locale)) \(String(localized: "năm"))")) }
     if let v = facts.tankCm { out.append(Item(label: "Bể tối thiểu", value: "\(HandbookIndex.Facts.number(v, locale)) cm")) }
     if let d = facts.difficulty {
       // The word in its level's colour, "6/8" beside it; read as the site's badge is: "Độ khó 6/8: khó".
@@ -84,21 +102,21 @@ struct FactsCard: View {
 
   /// A fish's temperament and smallest school, as the site shows them under "Nuôi chung" (Companions.astro), not in its
   /// facts: the line under that heading on the page the app draws. Nil when the index has neither.
-  static func traits(_ facts: HandbookIndex.Facts) -> AttributedString? {
+  static func traits(_ facts: HandbookIndex.Facts, font: Font = .subheadline) -> AttributedString? {
     var parts: [AttributedString] = []
     func pair(_ label: String, _ value: String) -> AttributedString {
       var l = AttributedString(label + ": ")
-      l.font = .subheadline
+      l.font = font
       l.foregroundColor = .secondary
       var v = AttributedString(value)
-      v.font = .subheadline.weight(.semibold)
+      v.font = font.weight(.semibold)
       return l + v
     }
     if let t = facts.temperament.flatMap(temperament) { parts.append(pair(String(localized: "Tính cách"), t)) }
     if let n = facts.schoolMin { parts.append(pair(String(localized: "Đàn tối thiểu"), String(localized: "\(n) con"))) }
     guard var line = parts.first else { return nil }
     var dot = AttributedString(" · ")
-    dot.font = .subheadline
+    dot.font = font
     for p in parts.dropFirst() { line += dot + p }
     return line
   }
@@ -112,6 +130,11 @@ struct FactsCard: View {
       rows += [above.lowerBound..<above.upperBound - 1, above.upperBound - 1..<last.upperBound]
     }
     return rows
+  }
+
+  /// `n` to a row, in order, the last row as long as is left.
+  static func plainRows(_ count: Int, _ n: Int) -> [Range<Int>] {
+    stride(from: 0, to: count, by: n).map { $0..<min($0 + n, count) }
   }
 
   /// The site's words for each temperament (TEMPERAMENT_LABELS).
@@ -138,11 +161,27 @@ private struct Fact: View {
   let item: FactsCard.Item
   /// In the page's grid: the value at a size to read at a glance.
   var large = false
+  /// On a chat's card: the label 13, the value 16 semibold, difficulty as plain tint text.
+  var onCard = false
+  var v2 = false
 
   var body: some View {
-    let fact = VStack(alignment: .leading, spacing: large ? 4 : 2) {
-      Text(item.label).font(.caption).foregroundStyle(.secondary)
-      if let level = item.level {
+    let fact = VStack(alignment: .leading, spacing: onCard ? 3 : large ? 4 : 2) {
+      Text(item.label).font(onCard || v2 ? .footnote : .caption).foregroundStyle(.secondary)
+      if onCard {
+        HStack(alignment: .firstTextBaseline, spacing: 4) {
+          Text(verbatim: item.value)
+            .font(.callout.weight(.semibold))
+            .foregroundStyle(item.level == nil ? AnyShapeStyle(.primary) : AnyShapeStyle(.tint))
+            .monospacedDigit()
+          if let outOf = item.outOf { Text(verbatim: outOf).font(.callout).foregroundStyle(.secondary).monospacedDigit() }
+        }
+      } else if v2, item.level != nil {
+        HStack(alignment: .firstTextBaseline, spacing: 4) {
+          Text(verbatim: item.value).font(.title3.weight(.semibold))
+          if let outOf = item.outOf { Text(verbatim: outOf).font(.subheadline).foregroundStyle(.secondary).monospacedDigit() }
+        }
+      } else if let level = item.level {
         HStack(alignment: .firstTextBaseline, spacing: 6) {
           Text(verbatim: item.value)
             .font(large ? .subheadline.weight(.semibold) : .caption.weight(.semibold))

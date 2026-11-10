@@ -1,8 +1,8 @@
 {
   "id": "dicrossus-maculatus",
   "native": {
-    "input": "233cee66431d71ef",
-    "at": "2026-11-08T03:17:10.020Z",
+    "input": "cca012ccbf458ea8",
+    "at": "2026-11-09T20:43:02.940Z",
     "claims": [
       {
         "code": "BR",
@@ -18,6 +18,14 @@
         "source": "seriouslyfish",
         "quote": "Native to the Rio Tapajós, Rio Maués, and surrounding areas of the Brazilian Amazon basin.",
         "words": "Brazilian",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The animals currently available originate from the rio Tapajós basin in Brazil.",
+        "words": "Brazil",
         "ok": true
       }
     ],
@@ -38,6 +46,12 @@
         "name": "Amazon",
         "source": "seriouslyfish",
         "quote": "Native to the Rio Tapajós, Rio Maués, and surrounding areas of the Brazilian Amazon basin.",
+        "ok": true
+      },
+      {
+        "name": "rio Tapajós",
+        "source": "glaser",
+        "quote": "The animals currently available originate from the rio Tapajós basin in Brazil.",
         "country": "BR",
         "ok": true
       }

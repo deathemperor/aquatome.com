@@ -2,6 +2,18 @@
   "id": "horabagrus-brachysoma",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/617421481.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/617421481-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Gabriel",
+      "sourceUrl": "https://www.inaturalist.org/photos/617421481",
+      "caption": "Cá da trơn mặt trời non bơi trong bể cửa hàng",
+      "best": true,
+      "kind": "juvenile"
+    },
+    {
       "url": "https://media.aquatome.com/commons/9ca7a64dacdc2240.webp",
       "thumb": "https://media.aquatome.com/commons/9ca7a64dacdc2240-480.webp",
       "width": 1200,
@@ -14,7 +26,7 @@
       "kind": "other"
     }
   ],
-  "seen": 4,
-  "updatedAt": "2026-11-08",
-  "builtAt": "2026-11-08"
+  "seen": 12,
+  "updatedAt": "2026-11-09",
+  "builtAt": "2026-11-09"
 }

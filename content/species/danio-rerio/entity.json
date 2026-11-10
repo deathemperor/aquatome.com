@@ -23,13 +23,15 @@
         "LK"
       ],
       "regions": [
+        "Kosi River",
         "Ganges",
         "Brahmaputra",
         "Krishna"
       ],
       "sources": [
         "seriouslyfish",
-        "aquariumbreeder"
+        "aquariumbreeder",
+        "aquariumcoop"
       ],
       "quotes": [
         {
@@ -39,12 +41,13 @@
             "IN"
           ],
           "regions": [
+            "Kosi River",
             "Ganges"
           ]
         },
         {
           "source": "seriouslyfish",
-          "quote": "The zebra danio, Danio rerio, is a small cyprinid from India and Bangladesh, found mostly in slow or still pools and mature rice paddies.",
+          "quote": "At any rate it may be restricted to India (with the Eastern/Western Ghats mountain ranges representing its southern limit), Bangladesh and possibly Bhutan.",
           "countries": [
             "BD"
           ],
@@ -929,17 +932,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/seriouslyfish/fb25e3d63b865588.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/fb25e3d63b865588-480.webp",
-      "width": 819,
-      "height": 648,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/danio-rerio",
-      "caption": "The 'leopard danio' (aka 'B. rerio var. frankei') is an ornamental form of the species.",
-      "source": "seriouslyfish"
-    },
-    {
       "url": "https://media.aquatome.com/aquariumcoop/9664ae6c38256d7d.webp",
       "thumb": "https://media.aquatome.com/aquariumcoop/9664ae6c38256d7d-480.webp",
       "width": 1000,
@@ -962,6 +954,38 @@
       "source": "aquariumcoop"
     },
     {
+      "url": "https://media.aquatome.com/sprucepets/9de74927ec87b9fc.webp",
+      "thumb": "https://media.aquatome.com/sprucepets/9de74927ec87b9fc-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "The Spruce Pets",
+      "sourceUrl": "https://www.thesprucepets.com/zebra-danio-1378473",
+      "caption": "Zebrafish (Danio rerio) aquarium fish",
+      "source": "sprucepets"
+    },
+    {
+      "url": "https://media.aquatome.com/aquariumbreeder/524b58297ed956c7.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/524b58297ed956c7-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/danio-rerio-detailed-guide-care-diet-and-breeding/",
+      "source": "aquariumbreeder"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/fb25e3d63b865588.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/fb25e3d63b865588-480.webp",
+      "width": 819,
+      "height": 648,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/danio-rerio",
+      "caption": "The 'leopard danio' (aka 'B. rerio var. frankei') is an ornamental form of the species.",
+      "source": "seriouslyfish"
+    },
+    {
       "url": "https://media.aquatome.com/aquariumcoop/06eb6d988d32c622.webp",
       "thumb": "https://media.aquatome.com/aquariumcoop/06eb6d988d32c622-480.webp",
       "width": 1000,
@@ -982,27 +1006,6 @@
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/zebra-danio",
       "caption": "GloFish zebra danio",
       "source": "aquariumcoop"
-    },
-    {
-      "url": "https://media.aquatome.com/sprucepets/9de74927ec87b9fc.webp",
-      "thumb": "https://media.aquatome.com/sprucepets/9de74927ec87b9fc-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "dùng với sự cho phép",
-      "author": "The Spruce Pets",
-      "sourceUrl": "https://www.thesprucepets.com/zebra-danio-1378473",
-      "caption": "Zebrafish (Danio rerio) aquarium fish",
-      "source": "sprucepets"
-    },
-    {
-      "url": "https://media.aquatome.com/aquariumbreeder/524b58297ed956c7.webp",
-      "thumb": "https://media.aquatome.com/aquariumbreeder/524b58297ed956c7-480.webp",
-      "width": 1200,
-      "height": 800,
-      "licence": "dùng với sự cho phép",
-      "author": "Aquarium Breeder",
-      "sourceUrl": "https://aquariumbreeder.com/danio-rerio-detailed-guide-care-diet-and-breeding/",
-      "source": "aquariumbreeder"
     }
   ],
   "videos": [

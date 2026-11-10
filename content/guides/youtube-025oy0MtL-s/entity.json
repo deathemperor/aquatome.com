@@ -16,9 +16,11 @@
     "amatitlania-nigrofasciata",
     "amia-calva",
     "colomesus-asellus",
-    "tetraodon-lineatus"
+    "tetraodon-lineatus",
+    "paracheirodon-innesi",
+    "pterophyllum-scalare"
   ],
-  "updatedAt": "2026-11-05",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "025oy0MtL-s",
     "title": "Aquarium filtration - An introduction to MASTERING freshwater fish tank filters",
@@ -39,37 +41,37 @@
     "transcribed": true,
     "taxa": [
       "Astronotus ocellatus",
-      "Trachelyopterus galeatus",
-      "Tetraodon mbu",
+      "Paratrygon aiereba",
+      "Potamotrygon sp.",
+      "Colomesus asellus",
+      "Tetraodon lineatus",
+      "Pygocentrus nattereri",
       "Hoplias malabaricus",
-      "Colisa lalia",
-      "Betta splendens",
+      "Cichlasoma sp.",
       "Geophagus sp.",
       "Heros severus",
+      "Paracheirodon innesi",
+      "Betta splendens",
       "Symphysodon sp.",
-      "Poecilia reticulata",
-      "Pygocentrus nattereri",
-      "Amatitlania nigrofasciata",
-      "Synodontis multipunctatus",
-      "Lepisosteus sp.",
-      "Amia calva",
-      "Hippocampus sp.",
       "Artemia sp.",
-      "Colomesus asellus",
-      "Tetraodon lineatus"
+      "Hippocampus sp.",
+      "Pterophyllum scalare",
+      "Poecilia reticulata",
+      "Amatitlania nigrofasciata",
+      "Gymnothorax sp."
     ],
     "gear": [
       {
         "category": "loc",
         "type": "thung",
-        "t": 925
+        "t": 930
       },
       {
         "category": "loc",
         "type": "thung",
         "brand": "Eheim",
         "model": "2262",
-        "t": 2970
+        "t": 3186
       },
       {
         "category": "loc",
@@ -78,10 +80,8 @@
       },
       {
         "category": "loc",
-        "type": "thung",
-        "brand": "Fluval",
-        "model": "FX",
-        "t": 1307
+        "type": "tao-dong",
+        "t": 1250
       },
       {
         "category": "phan-nen",
@@ -96,7 +96,7 @@
     ],
     "figures": [
       {
-        "heading": "Lọc càng nhiều có càng tốt không",
+        "heading": "Lọc càng nhiều càng tốt có đúng không",
         "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/025oy0MtL-s/p0-JfRmlsdGVyLmpwZw.webp",
@@ -106,35 +106,35 @@
           "licence": "CC BY-SA 4.0",
           "author": "Fish Tank Society",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
-          "caption": "Bộ lọc thùng đặt trong tủ bể, ống nước xả vào xô."
+          "caption": "Lọc thùng ngoài đặt trong tủ bể, bên cạnh là xô và ống siphon."
         }
       },
       {
-        "heading": "Ước lượng cá nặng bao nhiêu và thải ra bao nhiêu",
+        "heading": "Ước lượng cân nặng và lượng chất thải của cá",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/025oy0MtL-s/p1-lbGxhdHVzKS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/025oy0MtL-s/p1-lbGxhdHVzKS5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/025oy0MtL-s/p1-lX1pvb18wMS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/025oy0MtL-s/p1-lX1pvb18wMS5qcGc-480.webp",
           "width": 960,
-          "height": 633,
-          "licence": "CC BY-SA 4.0",
-          "author": "Clément Bardot",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oscar_fish_(Astronotus_ocellatus).jpg",
-          "caption": "Cá oscar nhìn nghiêng trọn thân, dễ ước chiều dài và cân nặng."
+          "height": 643,
+          "licence": "CC BY-SA 3.0",
+          "author": "H. Zell",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Astronotus_ocellatus_-_Karlsruhe_Zoo_01.jpg",
+          "caption": "Cá Oscar trưởng thành nhìn nghiêng, thấy rõ cả thân dài và cao."
         }
       },
       {
-        "heading": "Ba kiểu lọc vi sinh khác nhau thế nào",
+        "heading": "Cần bao nhiêu vật liệu vi sinh",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/025oy0MtL-s/p3-JfRmlsdGVyLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/025oy0MtL-s/p3-JfRmlsdGVyLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/025oy0MtL-s/p2-sXzA2MDIyNy5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/025oy0MtL-s/p2-sXzA2MDIyNy5qcGc-480.webp",
           "width": 960,
-          "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Fish Tank Society",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
-          "caption": "Lọc thùng đặt trong tủ bể, bên cạnh là xô nước dùng khi vệ sinh."
+          "height": 614,
+          "licence": "CC BY-SA 3.0",
+          "author": "Wikimedia Commons",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Filtermaterial_060227.jpg",
+          "caption": "Các loại vật liệu vi sinh: bông lọc, sứ, bóng nhựa và sỏi nung."
         }
       },
       {
@@ -148,7 +148,7 @@
           "licence": "CC BY-SA 4.0",
           "author": "Fish Tank Society",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
-          "caption": "Lọc thùng đặt trong tủ dưới bể, ống nước nối ra xô bên cạnh."
+          "caption": "Lọc thùng đặt trong tủ bể, ống nước nối ra xô bên cạnh."
         }
       }
     ]

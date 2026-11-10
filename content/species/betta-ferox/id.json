@@ -1,0 +1,28 @@
+{
+  "slug": "betta-ferox",
+  "name": "Betta ferox",
+  "altNames": [
+    "Cupang ferox",
+    "Wild betta ferox"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Spesies Betta pengeram mulut (mouthbrooder) yang sangat langka. Panjang maksimum yang pernah dilaporkan sekitar 8 cm.</p>",
+    "distribution:glaser": "<p>Sejauh ini spesies ini hanya diketahui berasal dari wilayah yang sangat sempit di Thailand (Bori Pat).</p>",
+    "habitat:glaser": "<p>Ikan ini menghuni sungai-sungai kecil berair lunak dan agak asam. Suhu air di sana sekitar 25 °C.</p>",
+    "dimorphism:glaser": "<p>Umumnya ikan jantan tumbuh lebih besar daripada betina. Ikan betina hampir tidak memiliki sisik mengilap di tubuhnya.</p>",
+    "notes:glaser": "<p>Pernah masuk sejumlah sangat kecil spesimen dewasa hasil penangkaran Jerman dari spesies Betta yang sangat langka ini.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.9
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-10"
+  }
+}

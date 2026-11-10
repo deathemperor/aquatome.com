@@ -1,0 +1,73 @@
+{
+  "id": "lestradea-perspicax",
+  "native": {
+    "input": "1335413f882cb695",
+    "at": "2026-11-09T16:24:16.651Z",
+    "claims": [
+      {
+        "code": "BI",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the northern end of Lake Tanganyika (Burundi, DR Congo, Tanzania).",
+        "words": "Burundi",
+        "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the northern end of Lake Tanganyika (Burundi, DR Congo, Tanzania).",
+        "words": "DR Congo",
+        "ok": true
+      },
+      {
+        "code": "TZ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the northern end of Lake Tanganyika (Burundi, DR Congo, Tanzania).",
+        "words": "Tanzania",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Tanganyika",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the northern end of Lake Tanganyika (Burundi, DR Congo, Tanzania).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Lestradea perspicax",
+    "status": "ACCEPTED",
+    "taxonKey": 2372126,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        41
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        5
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        3
+      ]
+    ],
+    "native": [
+      "BI",
+      "CD",
+      "TZ"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T16:24:16.651Z"
+  }
+}

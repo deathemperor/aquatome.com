@@ -202,8 +202,8 @@ final class FakeChat {
   }
 
   /// `-chat-blocks`: the fish the chat started from and another, with the same facts' rows; a comparison of four, one with no
-  /// figures and no page, one figure alone differing; a section longer than it opens to, and a short one with a link in its
-  /// text, a summary and a block this screen doesn't draw; the tank-mates tool, set by its link and checked against a tank
+  /// figures and no page, one figure alone differing; a section longer than it opens to, a short one with a link in its
+  /// text, a summary and a block this screen doesn't draw, and one of a fish's page; the tank-mates tool, set by its link and checked against a tank
   /// (`-seed-tanks litres`'s).
   private static let everyBlock: String = {
     let steps = (1...24).map { #"[{"t":"p","c":["Bước \#($0): thay một phần ba nước, rồi cho ăn một lượng nhỏ và xem đàn cá ăn hết trong bao lâu."]}]"# }.joined(separator: ",")
@@ -220,6 +220,8 @@ final class FakeChat {
       "blocks":[{"t":"p","c":["Ngày hai lần, lượng ăn hết trong hai phút."]},{"t":"list","ordered":true,"items":[\#(steps)]},{"t":"p","c":["Cá ăn ít hơn khi nước lạnh."]}]},
      {"t":"section","page":{"kind":"guide","title":"Cách hạn chế rêu hại","url":"/vi/huong-dan/cach-han-che-reu-hai/"},
       "blocks":[{"t":"summary","title":"Tóm tắt nhanh","items":["Ít đèn hơn."]},{"t":"p","c":[{"text":"Cá neon sống theo đàn","href":"/vi/ca/ca-neon/"}]},{"t":"carousel","items":[{"src":"https://media.aquatome.com/a/neon.webp"}]}]},
+     {"t":"section","page":{"kind":"fish","title":"Cá neon","url":"/vi/ca/ca-neon/"},"heading":{"text":"Sinh sản ra sao?","id":"muc-reproduction"},
+      "blocks":[{"t":"p","c":["Đẻ trứng trong bể riêng, nước mềm và tối."]}]},
      {"t":"tool","tool":"tank-mates","name":"Nuôi chung","url":"/vi/cong-cu/nuoi-chung/?ca=ca-neon:6"},
      {"t":"tool","tool":"tank-mates","name":"Nuôi chung","check":{"verdict":{"level":"no","text":"Không nên nuôi chung: Cá betta (cá xiêm) hung dữ."},"warnings":[]},
       "tank":{"id":"00000000-0000-4000-8000-000000000001","name":"Bể cũ","dims":{"l":100,"w":40,"h":50},"fish":[{"name":"Cá neon","count":6},{"name":"Ốc lạ"}],"added":[{"name":"Cá betta","count":1}]}}]

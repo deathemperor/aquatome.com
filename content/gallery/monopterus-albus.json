@@ -50,18 +50,6 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/472204886.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/472204886-480.webp",
-      "width": 1024,
-      "height": 576,
-      "licence": "CC0",
-      "author": "Светлана Царахова",
-      "sourceUrl": "https://www.inaturalist.org/photos/472204886",
-      "caption": "Nhiều lươn đồng nuôi chung trong bể kính",
-      "best": true,
-      "kind": "group"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/136173335.webp",
       "thumb": "https://media.aquatome.com/inaturalist/136173335-480.webp",
       "width": 1024,
@@ -74,18 +62,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/469852828.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/469852828-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "槲蕨Miu",
-      "sourceUrl": "https://www.inaturalist.org/photos/469852828",
-      "caption": "Lươn đồng bò trên nền bùn đất ẩm ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/400685654.webp",
       "thumb": "https://media.aquatome.com/inaturalist/400685654-480.webp",
       "width": 1024,
@@ -94,6 +70,18 @@
       "author": "Licheng Shih",
       "sourceUrl": "https://www.inaturalist.org/photos/400685654",
       "caption": "Lươn đồng ngóc đầu khỏi hang trên nền đất",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/flickr/53824026944.webp",
+      "thumb": "https://media.aquatome.com/flickr/53824026944-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY 2.0",
+      "author": "papilioshih",
+      "sourceUrl": "https://www.flickr.com/photos/37180297@N08/53824026944",
+      "caption": "Lươn đồng trườn trên đất bùn ẩm ngoài tự nhiên",
       "best": true,
       "kind": "habitat"
     },
@@ -326,18 +314,6 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/404816340.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/404816340-480.webp",
-      "width": 1024,
-      "height": 684,
-      "licence": "CC BY",
-      "author": "Yung-Lun Lin",
-      "sourceUrl": "https://www.inaturalist.org/photos/404816340",
-      "caption": "Lươn đồng màu cam trong bể kính nhìn nghiêng",
-      "best": false,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/135629775.webp",
       "thumb": "https://media.aquatome.com/inaturalist/135629775-480.webp",
       "width": 512,
@@ -348,6 +324,18 @@
       "caption": "Lươn đồng màu đỏ cam trong vũng nước nông",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/404816340.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/404816340-480.webp",
+      "width": 1024,
+      "height": 684,
+      "licence": "CC BY",
+      "author": "Yung-Lun Lin",
+      "sourceUrl": "https://www.inaturalist.org/photos/404816340",
+      "caption": "Lươn đồng màu cam trong bể kính nhìn nghiêng",
+      "best": false,
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/2813136.webp",
@@ -362,7 +350,7 @@
       "kind": "habitat"
     }
   ],
-  "seen": 112,
-  "updatedAt": "2026-10-31",
-  "builtAt": "2026-10-31"
+  "seen": 117,
+  "updatedAt": "2026-11-09",
+  "builtAt": "2026-11-09"
 }

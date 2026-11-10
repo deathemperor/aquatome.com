@@ -10,6 +10,51 @@
     "indonesia",
     "natuna-islands"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Borneo",
+        "Sambas",
+        "Kalimantan",
+        "Natuna"
+      ],
+      "sources": [
+        "aquatome"
+      ],
+      "quotes": [
+        {
+          "source": "aquatome",
+          "quote": "Mẫu chuẩn của loài này đến từ Sambas, phía tây đảo Borneo, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Borneo"
+          ]
+        },
+        {
+          "source": "aquatome",
+          "quote": "Tài liệu phân loại chỉ có tên nó ở Kalimantan và quần đảo Natuna, cụ thể là sông Sambas thuộc Tây Kalimantan và Natuna.",
+          "countries": [],
+          "regions": [
+            "Sambas",
+            "Kalimantan",
+            "Natuna"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2332734,
+      "total": 0,
+      "fetched": "2026-11-09",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -1,7 +1,20 @@
 {
   "id": "hoplias-aimara",
-  "photos": [],
-  "seen": 2,
-  "updatedAt": "2026-11-08",
-  "builtAt": "2026-11-08"
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/420092055.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/420092055-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Guillaume Delaitre",
+      "sourceUrl": "https://www.inaturalist.org/photos/420092055",
+      "caption": "Cá hoplias aimara bơi trong nước nông trên nền cát",
+      "best": true,
+      "kind": "habitat"
+    }
+  ],
+  "seen": 4,
+  "updatedAt": "2026-11-09",
+  "builtAt": "2026-11-09"
 }

@@ -10,7 +10,7 @@
     "pygocentrus-nattereri",
     "amatitlania-nigrofasciata"
   ],
-  "updatedAt": "2026-11-03",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "wOFTF6CYtFc",
     "title": "HOW TO hatch and raise baby fish",
@@ -30,78 +30,237 @@
     },
     "taxa": [
       "Aulonocara sp.",
-      "Astatotilapia latifasciata",
+      "Astatotilapia burtoni",
       "Cyphotilapia frontosa",
-      "Pygocentrus nattereri",
       "Amatitlania nigrofasciata"
     ],
     "gear": [
       {
-        "category": "khac",
-        "brand": "EcoTech Marine",
-        "t": 0
+        "category": "loc",
+        "type": "suc-khi",
+        "t": 150
       },
       {
         "category": "thuc-an",
         "type": "song",
-        "t": 330
+        "t": 333
       },
       {
         "category": "thuc-an",
         "type": "dong-lanh",
-        "t": 330
+        "t": 333
       },
       {
         "category": "thuc-an",
         "type": "kho",
-        "t": 330
+        "t": 333
       },
       {
         "category": "loc",
-        "type": "suc-khi",
-        "t": 160
+        "type": "thung",
+        "t": 174
       }
     ],
     "figures": [
       {
-        "heading": "Tự làm ống lật trứng",
-        "moments": [],
+        "heading": "Cá ngậm trứng sinh sản thế nào",
+        "moments": [
+          {
+            "t": 30,
+            "url": "https://media.aquatome.com/video/wOFTF6CYtFc/at30-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá cichlid bơi gần khúc lũa trong bể tối.",
+            "sharpness": 275.4
+          },
+          {
+            "t": 35,
+            "url": "https://media.aquatome.com/video/wOFTF6CYtFc/at35-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá đực cichlid Malawi màu xanh bơi gần hõm đào trên nền.",
+            "sharpness": 159.2
+          }
+        ],
         "photo": {
-          "url": "https://media.aquatome.com/video/wOFTF6CYtFc/p1-TEVEX3R1YmUuSlBH.webp",
-          "thumb": "https://media.aquatome.com/video/wOFTF6CYtFc/p1-TEVEX3R1YmUuSlBH-480.webp",
+          "url": "https://media.aquatome.com/video/wOFTF6CYtFc/p0-dfZHJlc3MpLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/wOFTF6CYtFc/p0-dfZHJlc3MpLmpwZw-480.webp",
           "width": 960,
-          "height": 526,
+          "height": 631,
           "licence": "CC BY-SA 3.0",
-          "author": "Dmitry G",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:How_to_upgrade_fluorescent_lamp_with_electronic_ballast_to_LED_tube.JPG",
-          "caption": "Ống nhựa trong bọc ngoài bóng đèn huỳnh quang, loại bán ở cửa hàng điện."
+          "author": "Cymothoa exigua",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nimbochromis_polystigma_(mature_male,_breeding_dress).jpg",
+          "caption": "Cá đực cichlid Malawi đã lên màu xanh, bơi trên nền cát trong bể."
         }
       },
       {
-        "heading": "Bắt cá mẹ và lấy trứng ra",
+        "heading": "Vì sao có thể cân nhắc tự ấp",
         "moments": [
           {
-            "t": 15,
-            "url": "https://media.aquatome.com/video/wOFTF6CYtFc/t15.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể chính với lũa và đá trang trí chồng chất, cá bơi lẩn bên trong."
+            "t": 90,
+            "url": "https://media.aquatome.com/video/wOFTF6CYtFc/at90-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn cá con nhỏ li ti bơi gần đáy bể.",
+            "sharpness": 66.8
+          },
+          {
+            "t": 120,
+            "url": "https://media.aquatome.com/video/wOFTF6CYtFc/at120-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Một con cá cichlid nhỏ bơi phía trên khúc lũa trong bể.",
+            "sharpness": 324
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/wOFTF6CYtFc/p1-U2F1dmFnZSkuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/wOFTF6CYtFc/p1-U2F1dmFnZSkuanBn-480.webp",
+          "width": 960,
+          "height": 596,
+          "licence": "CC BY-SA 4.0",
+          "author": "Cichlids Scape",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Femelle_Cynotilapia_zebro%C3%AFde_Ndonga_Deep_(Sauvage).jpg",
+          "caption": "Cá cái họ cichlid đang bơi, phần cổ họng hơi phồng, có thể đang ngậm trứng."
+        }
+      },
+      {
+        "heading": "Làm ống đảo trứng",
+        "moments": [
+          {
+            "t": 145,
+            "url": "https://media.aquatome.com/video/wOFTF6CYtFc/at145-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Chọn ống nhựa trong bọc bóng đèn huỳnh quang ở tiệm đồ kim khí.",
+            "sharpness": 467.8
+          },
+          {
+            "t": 155,
+            "url": "https://media.aquatome.com/video/wOFTF6CYtFc/at155-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tháo hai nắp đầu ống và để riêng trên bàn.",
+            "sharpness": 947.6
           }
         ]
       },
       {
-        "heading": "Chỉnh sủi cho trứng lăn đều",
-        "moments": [],
+        "heading": "Lấy trứng khỏi miệng cá mẹ",
+        "moments": [
+          {
+            "t": 200,
+            "url": "https://media.aquatome.com/video/wOFTF6CYtFc/at200-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đổ nước lấy từ bể vào hộp nhựa trong để chuẩn bị.",
+            "sharpness": 259.6
+          },
+          {
+            "t": 230,
+            "url": "https://media.aquatome.com/video/wOFTF6CYtFc/at230-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Dùng dụng cụ mảnh nhỏ để cạy và lấy trứng ra.",
+            "sharpness": 85.3
+          }
+        ],
         "photo": {
-          "url": "https://media.aquatome.com/video/wOFTF6CYtFc/p5-uZF9zdG9uZS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/wOFTF6CYtFc/p5-uZF9zdG9uZS5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/wOFTF6CYtFc/p3-icm9vZGluZy5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/wOFTF6CYtFc/p3-icm9vZGluZy5qcGc-480.webp",
           "width": 960,
           "height": 720,
-          "licence": "CC BY-SA 4.0",
-          "author": "Ofkun",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Air_pump_and_stone.jpg",
-          "caption": "Máy sủi khí kèm dây và đầu sủi để chỉnh dòng khí cho ống ấp."
+          "licence": "CC BY-SA 2.0",
+          "author": "Alexandra Tyers",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tropheops_brooding.jpg",
+          "caption": "Cá cichlid mẹ trong bể, loại hay ấp trứng trong miệng."
         }
+      },
+      {
+        "heading": "Chọn trứng nào để ấp",
+        "moments": [
+          {
+            "t": 250,
+            "url": "https://media.aquatome.com/video/wOFTF6CYtFc/at250-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá con đã nở và bơi được, sẵn sàng thả vào bể.",
+            "sharpness": 113.3
+          },
+          {
+            "t": 255,
+            "url": "https://media.aquatome.com/video/wOFTF6CYtFc/at255-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Những quả trứng cá màu vàng đã lấy ra khỏi miệng cá mẹ.",
+            "sharpness": 6.8
+          }
+        ]
+      },
+      {
+        "heading": "Chuyển trứng vào ống",
+        "moments": [
+          {
+            "t": 285,
+            "url": "https://media.aquatome.com/video/wOFTF6CYtFc/at285-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đoạn dây oxy màu xanh được thả vào bể để hút trứng.",
+            "sharpness": 77.1
+          },
+          {
+            "t": 295,
+            "url": "https://media.aquatome.com/video/wOFTF6CYtFc/at295-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Trứng cá nằm trong nước trong hộp nhỏ sau khi hút sang.",
+            "sharpness": 17.5
+          }
+        ]
+      },
+      {
+        "heading": "Chỉnh ống đảo trứng khi ấp",
+        "moments": [
+          {
+            "t": 300,
+            "url": "https://media.aquatome.com/video/wOFTF6CYtFc/at300-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Dây oxy thả vào ống, sủi bọt khí đẩy nước bên trong.",
+            "sharpness": 107.9
+          },
+          {
+            "t": 320,
+            "url": "https://media.aquatome.com/video/wOFTF6CYtFc/at320-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Trứng cá nằm ở đáy ống ấp, đang lăn nhẹ trong dòng sủi.",
+            "sharpness": 1233.3
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/wOFTF6CYtFc/p6-UmFtX2VnZ3MuSlBH.webp",
+          "thumb": "https://media.aquatome.com/video/wOFTF6CYtFc/p6-UmFtX2VnZ3MuSlBH-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY-SA 3.0",
+          "author": "Aquakeeper14",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Blue_Ram_eggs.JPG",
+          "caption": "Trứng cá bám trên lá cây trong bể, nhìn rõ từng quả trứng."
+        }
+      },
+      {
+        "heading": "Cho cá con ăn gì",
+        "moments": [
+          {
+            "t": 345,
+            "url": "https://media.aquatome.com/video/wOFTF6CYtFc/at345-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bình ấp artemia sục khí, trứng artemia đang nở ở đáy.",
+            "sharpness": 120.6
+          }
+        ]
       }
     ]
   }

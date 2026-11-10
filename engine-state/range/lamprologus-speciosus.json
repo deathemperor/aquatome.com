@@ -1,0 +1,46 @@
+{
+  "id": "lamprologus-speciosus",
+  "native": {
+    "input": "d89a064bb24a9f07",
+    "at": "2026-11-09T12:58:06.259Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Lake Tanganyika",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the south-western end of Lake Tanganyika.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CD"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Lamprologus speciosus",
+    "status": "ACCEPTED",
+    "taxonKey": 2371681,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        4
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        3
+      ],
+      [
+        "7d8ed137-1d30-42f1-8b78-12a4957e4690",
+        3
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-09T12:58:06.259Z"
+  }
+}

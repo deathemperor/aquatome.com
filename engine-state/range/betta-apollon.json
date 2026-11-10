@@ -1,0 +1,48 @@
+{
+  "id": "betta-apollon",
+  "native": {
+    "input": "e102b6fd817644f9",
+    "at": "2026-11-09T20:43:02.940Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Betta apollon comes from forest streams in the hilly country west of Narathiwat in Thailand.",
+        "words": "Thailand",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Betta apollon",
+    "status": "ACCEPTED",
+    "taxonKey": 2394046,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        10
+      ],
+      [
+        "829277c2-f762-11e1-a439-00145eb45e9a",
+        8
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ]
+    ],
+    "native": [
+      "TH"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T20:43:02.940Z"
+  }
+}

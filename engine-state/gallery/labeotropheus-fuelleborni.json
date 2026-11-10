@@ -3,7 +3,8 @@
  "judged": [
   "File:Full on Fuelleborni.jpg",
   "File:Cichlid at CAS.jpg",
-  "File:Labeotropheus fuelleborni Katale OB morph - Flickr - Lee Nachtigal.jpg"
+  "File:Labeotropheus fuelleborni Katale OB morph - Flickr - Lee Nachtigal.jpg",
+  "inat:272264446"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/8c4c0f65263cb3ef.webp": "cb07063e3b6a4624",
@@ -12,7 +13,16 @@
   "https://media.aquatome.com/commons/9303338bc02c6cbd.webp": "a4c30f052f506869",
   "https://media.aquatome.com/commons/f02f6d49dad46364.webp": "422011039f1e3c99",
   "https://media.aquatome.com/commons/7ab8b06ad2e2f972.webp": "dd5d34e44727e6f2",
-  "https://media.aquatome.com/commons/066d1f698997c69f.webp": "b3e7e746169d4e08"
+  "https://media.aquatome.com/commons/066d1f698997c69f.webp": "b3e7e746169d4e08",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/272264446/large.jpeg": "433a0f0786466696"
  },
- "commons": "2026-11-08"
+ "commons": "2026-11-08",
+ "inat": {
+  "taxon": 103868,
+  "pass": "done",
+  "after": {
+   "research": 157465273,
+   "agree": 0
+  }
+ }
 }

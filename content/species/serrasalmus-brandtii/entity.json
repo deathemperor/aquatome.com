@@ -1,0 +1,188 @@
+{
+  "id": "serrasalmus-brandtii",
+  "scientificName": "Serrasalmus brandtii",
+  "order": "Characiformes",
+  "family": "Serrasalmidae",
+  "genus": "Serrasalmus",
+  "group": "other",
+  "places": [
+    "south-america",
+    "brazil",
+    "sao-francisco"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 5,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "seriouslyfish",
+        "value": {
+          "min": 2,
+          "max": 20
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 25
+      }
+    ],
+    "tankCm": [
+      {
+        "source": "seriouslyfish",
+        "value": 150
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "seriouslyfish",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/serrasalmus-brandtii",
+      "html": "<p>The white piranha, Serrasalmus brandtii, may be restricted to the rio São Francisco watershed in eastern Brazil. Also known as 'green piranha' or 'Brandt's pirambeba', it appears infrequently in the trade, and its name is sometimes misapplied to the distantly related Pygopristis denticulata. Adults are uniformly golden-bronze with dark fin margins and a concave head profile above the eye. It is best kept alone as a single specimen.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/serrasalmus-brandtii",
+      "html": "<p>Possibly restricted to the rio São Francisco watershed in eastern Brazil, where it has been recorded throughout the system including major tributaries including the rios das Velhas, Grande, and Urucuia. It may also occur in the rio Itapicuru which is located south of the São Francisco but is not connected to it. An introduced population inhabits the Pedra do Cavalo reservoir on the rio Paraguaçu, Bahia state.</p><p>Type locality is 'Lagoa Santa, Minas Gerais State, Brazil'.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/serrasalmus-brandtii",
+      "html": "<p>Has been recorded from main river channels, floodplain lakes, and appears to thrive in reservoirs formed by dam construction.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/serrasalmus-brandtii",
+      "html": "<p>Standard length: 25 cm SL. Aquarium base: 150 × 60 cm. Volume: ~540 litres.</p><p>An aquarium measuring at least 150 × 60 × 60 cm is required to house a single specimen.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/serrasalmus-brandtii",
+      "html": "<p>Choice of décor is not as critical as water quality and the amount of open swimming-space provided. Serrasalmids can behave skittishly when maintained in completely bare set-ups, however, therefore it is recommended to provide a degree of cover in the form of driftwood and/or surface vegetation.</p><p>Serrasalmus spp. typically produce a lot of waste so the use of one or more over-sized external filters is essential. If possible buy units with built-in heaterstats or at least fit a sturdy heater-guard since adults are capable of damaging submerged equipment. Sump systems also work well, and the heaterstat can be housed within.</p><p>Aim to change 30-50% of the aquarium volume each week and exercise extreme care when performing such maintenance or when netting the fish for any reason.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/serrasalmus-brandtii",
+      "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 5.0–8.0</li><li>Hardness: 2–20 dGH</li></ul>"
+    },
+    {
+      "key": "diet",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/serrasalmus-brandtii",
+      "html": "<p>Serrasalmus species tend to be somewhat opportunistic feeders in the wild, although they display a preference for small fishes, chunks of fish flesh, and fish fins.</p><p>In the aquarium small individuals can be offered chironomid larvae (bloodworm), small earthworms, chopped shellfish and suchlike, while adults will accept strips of fish flesh, live river shrimp, larger earthworms, etc.</p><p>This species should not be fed mammalian or avian meat such as beef heart or chicken since some of the lipids contained in these cannot be properly metabolised by the fish and can cause excessive fat deposition and even organ degeneration. Similarly, there is no benefit in the use of 'feeder' fish such as livebearers or small goldfish which carry the risk of parasite or disease introduction, and tend not have a high nutritional value unless properly conditioned beforehand.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/serrasalmus-brandtii",
+      "html": "<p>Best maintained alone as a single specimen.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/serrasalmus-brandtii",
+      "html": "<p>Unrecorded.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/serrasalmus-brandtii",
+      "html": "<p>Unrecorded in aquaria. Studies of wild populations indicate that S. brandtii remains reproductively active throughout the year, depositing batches of eggs when environmental conditions are favourable, with a peak of activity during the wet season.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/serrasalmus-brandtii",
+      "html": "<p>Etymology: Serrasalmus comes from the Latin serra, meaning 'saw', and salmo, meaning 'salmon', the former in reference to the serrated ventral keel in genus members, and the latter to the original placement of the type species in the genus Salmo. brandtii: unspecified, but possibly named in honour of German naturalist Johann Friedrich von Brandt (1802-1879).</p><p>This species is also known as 'green piranha' or 'Brandt's pirambeba', the latter a general vernacular term for Serrasalmus species which may have been first applied to S. brandtii. It appears infrequently in the aquarium trade but its name is sometimes misapplied to the distantly related Pygopristis denticulata.</p><p>A number of sources state that S. brandtii can be identified by the relatively anterior position of the anal-fin origin beneath the first few dorsal-fin rays. However, images of specimens collected from the rio São Francisco, where it is the only member of the genus present, suggest that this is not always the case and this is also supported by the figure from Eigenmann (1915). No recent diagnosis of the species is available.</p><p>Adult individuals are uniformly golden-bronze with some reflective scales on the flanks. The caudal-fin is dark at the base, and the dorsal, adipose, anal, and caudal fins have dark margins with the remainder often reddish or yellowish. The upper head profile is distinctly concave above the eye. Juveniles possess dark spots on the body, the fins are mostly hyaline, and the head profile is less concave.</p><p>The family Serrasalmidae contains 16 genera comprising the piranhas, pacus and relatives. Their characteristic features include a compressed body shape, long dorsal fin with 16 or more rays, and a variable number of sharp serrae formed by modified abdominal scales on the ventral surface. They are found in numerous habitat-types from lowland floodplains and flooded forests to upstream headwaters, and occur in all major South American river systems east of the Andes. Some species perform unique ecological functions such as seed dispersal, or sustain important inland fisheries and aquaculture projects.</p><p>Members display three main feeding habits: carnivory (flesh-eating), frugivory (fruit and seed-eating) and lepidophagy (eating the scales and fins of other fishes). Carnivorous species normally possess a single row of tricuspid teeth on each jaw, frugivores tend to have two series of incisor or molariform teeth on the premaxilla, one row of teeth on the dentaries and often a pair of symphyseal teeth, while in lepidophages the teeth are tuberculate and located on the outer edge of the premaxilla.</p><p>The evolutionary history of serrasalmids has been studied by various authors, with the most recent analyses (Thompson et al., 2014) supporting the existence of three major clades within the family. The 'pacu' clade contains the genera Colossoma, Mylossoma and Piaractus, the 'true piranha' clade includes Metynnis, Pygopristis, Pygocentrus, Pristobrycon, Catoprion, and Serrasalmus, and the Myleus clade comprises the Myleus-like pacus.</p>"
+    },
+    {
+      "key": "references",
+      "source": "seriouslyfish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/serrasalmus-brandtii",
+      "html": "<ul><li>Lütken, C. F. (1875). Characinae novae Brasiliae centralis a clarissimo J. Reinhardt in provincia Minas-Geraes circa oppidulum Lagoa Santa in lacu ejusdem nominis, flumine Rio das Velhas et rivulis affluentibus collectae, secundum characteres essentiales breviter descriptae. Oversigt over det Kongelige Danske Videnskabernes Selskabs Forhandlinger og dets Medlemmers Arbeider (Kjøbenhavn) 1874(3), 127-143</li><li>Anderson, J. T., T, Nuttle, J. S. Saldaña Rojas, T. H. Pendergast and A. S. Flecker (2009). Extremely long-distance seed dispersal by an overfished Amazonian frugivore. Proceedings of the Royal Society of London B: Biological Sciences 278(1723), 3329-3335</li><li>de Jesus Trindade, M. E. and R. Jucá-Chagas (2010). Diet of two serrasalmin species, Pygocentrus piraya and Serrasalmus brandtii (Teleostei: Characidae), along a stretch of the rio de Contas, Bahia, Brazil. Neotropical Ichthyology 6(4), 645-650</li><li>Freeman, B., L. G. Nico, M. Osentoski, H. L. Jelks and T. M. Collins (2007). Molecular systematics of Serrasalmidae: Deciphering the identities of piranha species and unraveling their evolutionary histories. Zootaxa 1484, 1-38</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Ortí, G., A. Sivasundar, K. Dietz, and M. Jégu (2008). Phylogeny of the Serrasalmidae (Characiformes) based on mitochondrial DNA sequences. Genetics and Molecular Biology 31(1), 343-351</li><li>Thompson, A. W., R. Betancur-R., H. López-Fernández and G. Ortí (2014). A time-calibrated, multi-locus phylogeny of piranhas and pacus (Characiformes: Serrasalmidae) and a comparison of species tree methods. Molecular Phylogenetics and Evolution 81, 242-257</li><li>Hubert, N., F. Duponchelle, J. Nunez, C. Garcia-Davila, D. Paugy, and J. F. Renno (2007). Phylogeography of the piranha genera Serrasalmus and Pygocentrus: implications for the diversification of the Neotropical ichthyofauna. Molecular Ecology 16(10), 2115-2136</li><li>Honorato-Sampaio, K., G. B. Santos, N. Bazzoli, and E. Rizzo (2009). Observations on the seasonal breeding biology and fine structure of the egg surface in the white piranha Serrasalmus brandtii from the São Francisco River basin, Brazil. Journal of Fish Biology 75, 1874-1882</li><li>Eigenmann, C. H. (1915). The Serrasalminae and Mylinae. Annals of the Carnegie Museum 9(3-4), 226-272</li></ul>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/78f187d4c78e86ae.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/78f187d4c78e86ae-480.webp",
+      "width": 800,
+      "height": 637,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/serrasalmus-brandtii",
+      "caption": "Image of S. brandtii specimens from Eigenmann (1915). Specimen 1, 59 mm, Pirapora, Minas Gerais state; 2, 85 mm, Pirapora; 3, 123 mm, Juazeiro, Bahia state; 4, 170 mm, Juazeiro.",
+      "source": "seriouslyfish"
+    },
+    {
+      "url": "https://media.aquatome.com/seriouslyfish/041ec67bbf88ae4a.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/041ec67bbf88ae4a-480.webp",
+      "width": 800,
+      "height": 600,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/serrasalmus-brandtii",
+      "caption": "Subadult from the rio São Francisco.",
+      "source": "seriouslyfish"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 150cm"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng ngoài công suất lớn",
+        "lọc sump"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá có lồng bảo vệ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá piranha",
+        "trùng huyết đông lạnh"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}
