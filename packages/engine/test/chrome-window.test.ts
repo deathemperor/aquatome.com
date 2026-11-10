@@ -11,8 +11,8 @@ function fakeChrome(failing = false) {
   const sent: Array<[string, unknown]> = []
   const cdp = {
     send: async (method: string, params?: unknown) => {
-      if (failing) throw new Error('no window')
       sent.push([method, params])
+      if (failing) throw new Error('no window')
       return { windowId: 7 }
     },
     detach: async () => {},
@@ -52,7 +52,7 @@ test('on the Mac a headed Chrome is minimized, and a Chrome that cannot be still
   expect(await open(undefined, 'linux')).toEqual([])
   expect(await open(true, 'darwin')).toEqual([])
   expect(await open(undefined, 'darwin')).toContain('Browser.setWindowBounds')
-  expect(await open(undefined, 'darwin', true)).toEqual([]) // and open() didn't throw
+  expect(await open(undefined, 'darwin', true)).toEqual(['Browser.getWindowForTarget']) // it tried, and open() didn't throw
   expect(launched.options).toMatchObject({ channel: 'chrome', headless: false, locale: 'en-US', viewport: { width: 1280, height: 900 } })
   expect(launched.options).not.toHaveProperty('args') // the browser's launch is as it was: nothing a site could read changes
 }, 30_000)
