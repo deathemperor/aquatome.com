@@ -4142,6 +4142,49 @@
       "kept": true
     }
   ],
+  "vi/guides/aquatome-cho-ca-sinh-san-giao-phoi-va-cham-ca-con#aquatome": [
+    {
+      "at": "2026-11-10T05:11:58Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "'Ấp nhân tạo': BEFORE 'nuôi cá bột nhân tạo' became 'tự nuôi cá bột', which loses 'nhân tạo' and may suggest the keeper raising them.",
+        "Checklist item 3: 'để kịp cho ăn khi cá bột tự bơi được' became 'để cá bột tự bơi được là có ăn ngay'. This is slightly looser but the meaning is the same.",
+        "Ở Việt Nam: 'Ở xứ nóng, mẻ giun không sống được lâu' became 'Trời nóng thì phải gây mẻ... thường hơn'. The causal framing is reordered but the facts are kept.",
+        "'Mất nhiều trứng hơn': no problem. The 'Cá dĩa... pH 6,3–6,6 là mức tốt nhất' became 'hợp nhất với pH 6,3–6,6', which is equivalent."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.85,
+        0.9,
+        0.9
+      ]
+    }
+  ],
+  "vi/guides/aquatome-chon-da-soi-cat-va-nen-trang-tri-cho-be-thuy-sinh#aquatome": [
+    {
+      "at": "2026-11-10T05:13:27Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "Checklist: 'Trên đá có ánh vàng đồng hay vân xanh, vân đỏ gỉ không?' — 'vân xanh lá hoặc xanh dương' merged to 'vân xanh'; small loss of precision (copper sign).",
+        "Checklist: 'đợi đủ thời gian' → 'chờ đủ ngày'; slight change of wording, trivial.",
+        "Tropica: 'trong 4 tuần đầu' moved before the water change instruction; meaning is the same.",
+        "Amazonia: 'nước máy kiềm cũng làm yếu tác dụng hạ pH' → 'khả năng hạ pH của nền'; fine, but 'của nền' is a small addition.",
+        "Step 3 Thử ngâm: 'thả đá vào ngâm' vs 'cho đá vào'; no loss.",
+        "Pyrite line: 'Đừng dùng' is slightly softer than 'Không dùng'; negligible.",
+        "Sỏi row: 'không làm đổi nước' is fine."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.82,
+        0.88,
+        0.82
+      ]
+    }
+  ],
   "vi/guides/aquatome-loc-tran-tren-cach-lap-dat-va-su-dung#aquatome": [
     {
       "at": "2026-11-07T06:41:58Z",
@@ -4174,6 +4217,26 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "vi/guides/aquatome-su-co-may-bom-nuoc-keu-to-giat-cuc-nong-yeu-nhiem-dien-chay#aquatome": [
+    {
+      "at": "2026-11-10T05:14:22Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "\"Có thể chạy sưởi, bơm và lọc bằng nguồn điện khác\" vs BEFORE \"chạy sưởi và bơm, lọc\": effectively the same meaning, only a small grouping change.",
+        "\"Theo một hướng dẫn nuôi cá, rotor đã hỏng thì phải thay chi tiết mới\": the attribution is moved to the start of the sentence. The meaning is the same.",
+        "\"Hướng dẫn này chia lịch\" vs \"Nguồn này\": which source is meant is slightly less clear, but nothing is lost.",
+        "\"đừng chờ\" and \"đi dép\" are only small wording changes. No fact, number or warning is lost."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.88,
+        0.88,
+        0.9
+      ]
     }
   ],
   "vi/guides/aquatome-ve-sinh-be-ca-va-lau-sach-kinh-xoa-vet-xuoc#aquatome": [
@@ -4353,6 +4416,282 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "vi/guides/glaser-en-18-toothcarps-killis-and-livebearers-rare-livebearers-en#glaser": [
+    {
+      "at": "2026-11-10T05:15:04Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "Shop talk (stock codes 278202 and 424873, wholesale-only note) and byline correctly dropped; no fix needed.",
+        "\"cá góa phụ vui vẻ (Merry Widow, ...)\": the common name is a literal rendering. Use the established Vietnamese name, or keep \"Merry Widow\" with a short gloss. Putting the English name in parentheses is acceptable but redundant.",
+        "\"một loài trông rất duyên\": a slightly colloquial rendering of \"charming\". Consider \"rất duyên dáng\" or \"rất đáng yêu\".",
+        "\"Gần đây đã nhập về\": the subject is missing, and \"We just received\" is a received-shipment statement. Use a neutral wording such as \"Gần đây đã nhận được một lượng nhỏ...\".",
+        "\"Nhưng dòng hoang dã mang màu tự nhiên\": \"Nevertheless\" is better as \"Tuy vậy\" or \"Dù vậy\". \"Nhưng\" is acceptable but a bit abrupt.",
+        "\"Limia Tiburon (Tiburon Limia, ...)\": the repeated name is redundant. Give it once, e.g. \"cá Limia tridens (Tiburon Limia)\".",
+        "\"artifical sports\" is rendered as \"dạng đột biến màu nhân tạo\". This is acceptable, but \"dạng đột biến do lai tạo\" is more accurate for hobby usage."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.85,
+        0.85
+      ]
+    },
+    {
+      "at": "2026-11-10T05:15:04Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "\"Các trại cá cảnh hầu như không cho đẻ dòng hoang dã\" – 'commercial breeders' is lost; use 'các trại nhân giống thương mại'. 'cho đẻ dòng hoang dã' is awkward; say 'nhân giống dòng hoang dã'.",
+        "\"các dòng lai tạo nhiều màu\" – 'artificial sports' means colour mutations/ornamental varieties bred artificially; use 'các dạng đột biến/biến dị màu nhân tạo'. 'Lai tạo' is not quite right.",
+        "\"Lý do đơn giản\" is added; the source gives no such framing. Fold it into 'vì ...'.",
+        "\"cá merry widow\" and \"Tiburon limia\" are left in English. Give an established Vietnamese name or a gloss, e.g. 'cá góa phụ vui vẻ (Merry Widow)'. Capitalise the common names consistently.",
+        "\"trông rất duyên\" – 'charming' is fine, but it is attached to the Merry Widow only, which is correct. The phrase 'in small numbers' is mistranslated as 'một ít cá'; make it explicit that the numbers are small.",
+        "\"Mới đây có về\" – 'We just received' is colloquial. Use 'Gần đây đã nhập về một số lượng nhỏ ...'.",
+        "The stock codes 278202 and 424873 and the wholesale-only note are dropped. This is acceptable as shop talk. The 'Text & photos' byline is also correctly dropped."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    }
+  ],
+  "vi/guides/glaser-en-25-perchlike-fishes-25a-perchlike-fishes-1-labyrinth-fishes-anabas-en#glaser": [
+    {
+      "at": "2026-11-10T05:15:34Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"tức cá rô đồng\" is an added fact/identification not in the source (Anabas testudineus is commonly called cá rô đồng, but the English doesn't say it, and the text then calls the group 'cá rô leo'); remove or verify.",
+        "\"chống hai nắp mang xuống đất\" – 'uses the strongly serrated and wide spread opercles' – fine, but 'Hai nắp mang này xòe rộng, mép có răng cưa rất sắc' adds 'sắc' (sharp) and 'mép' not in source; use 'có răng cưa rõ rệt'.",
+        "\"trèo ra khỏi vợt\" – the English says the fish climbs out of the net very fast; OK, but 'bỏ vào túi' (pack in a bag) is OK. Consider 'đóng túi' for packing.",
+        "\"chỉ là chuyện truyền miệng\" – source says 'pure legend' (hoàn toàn là huyền thoại/chuyện bịa); 'truyền miệng' slightly shifts meaning.",
+        "\"Lô cá này vẫn mang tên ... nhưng đó chỉ là ghi cho tiện\" – the English says 'for practical reasons' they listed it so; OK, but the 'stocklist' shop talk remains; consider dropping the stocklist mention.",
+        "\"Hai nắp mang\" – 'opercles' is plural of both sides; fine. 'cá barb' is acceptable, but 'cá da trơn' for catfish is OK.",
+        "\"trứng nổi lên và tản ra khắp mặt nước\" – source: eggs are spawned free in the water column and spread over the water surface; 'thả trôi' and 'nổi lên' add slight inference (floating up) not stated.",
+        "'Anabas không chăm trứng hay chăm con' – OK."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.93,
+        0.8,
+        0.8
+      ]
+    }
+  ],
+  "vi/guides/glaser-en-25-perchlike-fishes-25a-perchlike-fishes-1-labyrinth-fishes-betta-mahachaiensis-and-betta-siamorientalis-en#glaser": [
+    {
+      "at": "2026-11-10T05:15:55Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "Omitted fact: \"We have both species\" is dropped. Add a neutral equivalent, e.g. \"Cả hai loài đều đã được nuôi giữ\".",
+        "\"Trước khi có tên chính thức\" is added and slightly changes the meaning. The English says \"so far\", meaning these were tentative names used until now. Rephrase as \"Cho đến nay, B. mahachaiensis tạm được gọi là…\".",
+        "\"Cả hai loài đều rất đẹp\" is acceptable, but \"very nice\" followed by \"rất đẹp\" in the first sentence is repetitive. Consider \"rất ưa nhìn\" or \"rất đáng nuôi\".",
+        "\"so với các loài cá chọi khác thì khá hiền\" is acceptable for \"comparably peaceful\". \"Nuôi và cho đẻ giống như…\" is a bit abrupt. Use \"Cách nuôi và cho sinh sản tương tự…\".",
+        "\"cá chọi\" for fighting fishes is acceptable. The customer and stocklist paragraph and the byline are correctly dropped."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.85,
+        0.8,
+        0.8
+      ]
+    }
+  ],
+  "vi/guides/glaser-en-25-perchlike-fishes-25a-perchlike-fishes-1-labyrinth-fishes-many-varieties-of-snakehead-currently-available-at-aquarium-glaser-en#glaser": [
+    {
+      "at": "2026-11-10T05:17:11Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"là loài duy nhất trong số này đến từ châu Phi\" is slightly added emphasis. The English only says Africa, and the other species are Asian. Use \"đến từ châu Phi\".",
+        "\"lần đầu tiên có cá cho đẻ ở Đức\" is awkward for \"German bred\". Use \"lần đầu tiên có cá nhân giống/sinh sản tại Đức\".",
+        "\"đủ lớn để đẻ\" is not in the source, which only says they have reached maturity. Use \"đã trưởng thành\" and drop the added clause.",
+        "\"màu đẹp đến nghẹt thở\" is a bit literal and colloquial. Consider \"màu sắc đẹp ngoạn mục\".",
+        "\"Quản đốc Cachar\" for \"Superintendent of Cachar\" is a questionable rendering. Consider \"Giám sát viên/Tổng giám thị Cachar\".",
+        "\"Lớn hết cỡ thì chúng có thể dài tới 25 cm\" moves the maximum size out of its original parenthetical. This is fine, but the phrasing could be more natural: \"có thể đạt tới 25 cm\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.88,
+        0.9,
+        0.93
+      ]
+    },
+    {
+      "at": "2026-11-10T05:17:11Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "\"Parachanna obscura trước đây mang tên Channa obscura\" – the English only says Channa obscura is now placed in Parachanna; the Latin name was changed to Parachanna obscura and the added claim of a former name is an editorial rewrite. Keep the name as given: 'Channa obscura, nay xếp vào giống Parachanna'.",
+        "\"Cá đợt này\" / \"Đợt này\" – the English says the fish 'currently' on offer. The shop-talk is correctly dropped, but the translation drops that these are the wholesaler's fish; this is acceptable, so stay consistent in tone.",
+        "\"Channa gachua ... ấp trứng trong miệng\" – fine, but the English says 'adult' fish from India (Bengal); 'cá lớn' is ambiguous. Use 'cá trưởng thành'.",
+        "\"gốc ở Myanmar\" – the source says Burma; Myanmar is acceptable but note it is a modernisation.",
+        "\"Màu của nó không rực bằng loài trên. Bù lại\" – 'Bù lại' is added; the English only says 'but quite peaceful'. Remove the 'compensating' nuance or use 'nhưng'.",
+        "\"Lớn hết cỡ thì chúng có thể dài tới 25 cm\" – fine, but moved out of the English parenthetical; OK.",
+        "\"Đến giờ chưa thấy con nào lớn quá 12 cm\" – 'We have not seen them larger than 12 cm so far' is OK, but 'Channa sp. Dwarf Fire & Ice' lost its 'breathtakingly colourful' phrasing slightly; acceptable.",
+        "\"chắc chắn đã đủ lớn để đẻ\" – the English says 'have reached already maturity'; 'đã trưởng thành sinh dục' is more exact. It is also missing that the fish 'may be a bit larger' hedging: 'Có vẻ' is OK.",
+        "\"Giám đốc quận Cachar\" – 'Superintendent of Cachar' is better as 'Tổng giám sát/Quản đốc Cachar'; 'quận' is an added fact.",
+        "\"kẻ đớp\" for 'snapper' – the word 'snapper' is more usually rendered 'kẻ táp/kẻ đớp mồi'; check it against the explanatory 'referring to the airbreathing', which is rendered with an added explanation 'ngoi lên đớp khí trời'."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    }
+  ],
+  "vi/guides/glaser-en-25-perchlike-fishes-25d-perchlike-fishes-4-south-american-dwarf-cichlids-a-brandnew-dwarf-cichlid-apistogramma-sp-cristal-en#glaser": [
+    {
+      "at": "2026-11-10T05:17:30Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "Minor: \"Available in very limited numbers only!\" rendered as \"Cá về với số lượng rất ít\" loses the 'available' sense; consider \"Hiện chỉ có số lượng rất hạn chế.\"",
+        "\"từ Peru về\" is colloquial/awkward; prefer \"được nhập về từ Peru\".",
+        "\"Nhà xuất khẩu đặt tên cho nó\" is fine but \"cho loài này\" reads more naturally in an encyclopedia.",
+        "Stocklist code 618104 and wholesale note are shop talk and correctly dropped; byline dropped correctly."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.9,
+        0.9,
+        0.9
+      ]
+    }
+  ],
+  "vi/guides/glaser-en-25-perchlike-fishes-25d-perchlike-fishes-4-south-american-dwarf-cichlids-apistogramma-agassizii-tefe-ii-and-a-geisleri-en#glaser": [
+    {
+      "at": "2026-11-10T05:17:54Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Tefé I khác mọi dạng...\": the URL reference is dropped, which is acceptable as shop/link talk, but \"Tefé I\" is no longer tied to the \"see\" reference; this is fine.",
+        "\"ở tiệm cá\": the original says \"in the hobby\" (giới chơi cá cảnh). \"Tiệm cá\" narrows the meaning; use \"trong giới chơi cá cảnh\".",
+        "\"Tefé II thì dễ nhận ra hơn\": \"dễ nhận ra hơn\" is added and not in the source; use \"được đặc trưng bởi\" or remove it.",
+        "\"lưng phía trước màu vàng\": awkward; use \"phần lưng phía trước màu vàng\" or \"vùng lưng trước\".",
+        "\"Bù lại, chúng dễ thương\": \"Bù lại\" implies a contrast that the English does not state. The English says the fish are charming, lively and change pattern. Also \"Chừng đó đã đủ thú vị để bù cho\" is a loose rendering of \"This is interesting enough and compensates\".",
+        "\"bộ màu khá xỉn\": acceptable, but \"màu sắc khá xám xịt/kém nổi bật\" is more natural for drab coloration.",
+        "\"A. agassizii bắt ngoài tự nhiên\": \"khai thác ngoài tự nhiên\" or \"đánh bắt tự nhiên\" is more standard for wild-caught.",
+        "The stock codes and wholesale-only note are correctly dropped as shop talk."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    }
+  ],
+  "vi/guides/glaser-en-25-perchlike-fishes-25d-perchlike-fishes-4-south-american-dwarf-cichlids-biotoecus-special-en#glaser": [
+    {
+      "at": "2026-11-10T05:19:10Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Lần đầu tiên có cùng lúc cả hai loài\" lacks a subject and reads as a fragment. Say that both species are available for the first time.",
+        "\"những con đã quen bể và đang khỏe\" adds 'đang khỏe'. The English says only \"well adapted animals\".",
+        "\"Dòng Biotoecus opercularis từ Rio Curua cũng lần đầu được đưa về\" is awkward. \"Offer\" would be better than \"đưa về\".",
+        "\"Tuy màu không rực\" is a loose paraphrase of \"Nevertheless\". Fine, but make it more explicit.",
+        "\"khi cho đẻ thì tăng nhiệt độ lên hơn một chút\" is clumsy. Use \"cao hơn một chút\".",
+        "\"soft and acidic water\" is rendered as \"nước mềm, có tính axit\". This is acceptable, but \"nước mềm, hơi chua/axit\" is more standard.",
+        "\"con đực Biotoecus đắp một gò bằng cát mịn\" is fine. In \"cặp cá đẻ trứng\", \"cặp\" is not in the source, which says \"the fish spawn\". Minor.",
+        "The English also contains an omitted detail (\"Our specimens\"), now rendered as \"Những con vừa về\". This is acceptable. The URL and stocklist codes are shop talk and were correctly dropped.",
+        "\"Biotoecus chắc chắn không phải loài người ta tìm vì màu\" is understandable but slightly stiff. Use \"không được ưa chuộng vì màu sắc\"."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    },
+    {
+      "at": "2026-11-10T05:19:10Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "First sentence: \"Đến nay khoa học mới mô tả hai loài Biotoecus\" is ambiguous. The English says both species described so far are on offer. Rephrase, e.g. \"cả hai loài Biotoecus đã được mô tả khoa học cho đến nay\".",
+        "\"Cả hai đều thuộc hàng hiếm nhất trong số cá bán ngoài tiệm\": \"in the trade\" means the ornamental fish trade, not shops. Use \"trên thị trường cá cảnh\".",
+        "\"Nhưng con nào đã quen bể thì trông đẹp thật sự\" changes the meaning of \"well adapted animals are really beautiful\". Say the fish look really beautiful once they are settled or in good condition, and make \"Nevertheless\" clearer.",
+        "Omitted fact: \"as can be seen on the photos from our supplier\" is dropped. This is minor, but the clause should be kept neutrally or reworded, e.g. \"như thấy trên ảnh của nhà cung cấp\".",
+        "\"cặp cá đẻ trứng ngay trong hố đó\" is fine, but \"kiểu đẻ rất riêng\" is loose for \"unique breeding behaviour\". Use \"tập tính sinh sản độc đáo\".",
+        "\"cichlid\" is left untranslated. Use the established term \"cá cichlid (cá rồng rồng/cá慈鯛)\" or at least \"cá cichlid\" with the word \"cá\" in front. Likewise \"pop-art\" and \"pastel\" are left in English; consider \"màu sặc sỡ kiểu pop-art\" and \"tông màu nhạt/phấn\".",
+        "\"Chúng chịu ăn mọi loại thức ăn cá thông thường\": say \"ăn dễ dàng mọi loại thức ăn thông dụng\".",
+        "Omitted: the reference to the URL for B. opercularis from the Manaus area and the customer stock codes. The stock codes and wholesale-only note are shop talk, so dropping them is acceptable. The \"more information and pictures\" link is only a pointer to the shop site, so dropping it is also acceptable.",
+        "\"Hai loài này nuôi và cho đẻ hầu như giống nhau\" is acceptable. \"nâng cao hơn một chút\" reads awkwardly: use \"tăng nhiệt độ lên hơn một chút\"."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.7,
+        0.6,
+        0.7
+      ]
+    }
+  ],
+  "vi/guides/glaser-en-25-perchlike-fishes-25d-perchlike-fishes-4-south-american-dwarf-cichlids-many-fantastic-apistogramma-arrived-en#glaser": [
+    {
+      "at": "2026-11-10T05:19:35Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "Product codes (618641, 618712, 624782, 624812, 624822, 630713) were dropped — this is shop talk, so acceptable.",
+        "Dropping 'Our staff member Harald Jahn' is fine, but 'đặt từ ngư dân bên đó' now leaves out who ordered the fish; this is acceptable if neutral.",
+        "'Apstogramma diplotaenia' in the source is a typo; the translation correctly gives Apistogramma. Keep this.",
+        "'A. agassizii' differs from the source 'A. agassizi'. It is the correct spelling, so it is fine, but the Latin name was technically altered.",
+        "'Please note that we exclusively supply the wholesale trade' was omitted. This is shop talk, so it is acceptable.",
+        "'eyeburner' was translated as 'rực rỡ, nhìn là mê'. This is acceptable, but 'rất bắt mắt' would be more natural.",
+        "'đẹp đến nghẹt thở' is a slightly literal calque. 'đẹp ngoạn mục' reads more naturally.",
+        "'Ảnh dùng ở đây vì thế là những bức ảnh nổi tiếng' is slightly stiff. 'famous pictures' could be 'những bức ảnh quen thuộc/nổi tiếng'.",
+        "'giống loài ngay trên' is awkward; use 'giống loài liền trước'.",
+        "'Tuần này, ngay sau chuyến đi Brazil' loses the meaning that the staff member returned from the trip, and the fish arrived soon after him. Rephrase to 'sau chuyến đi Brazil của nhân viên, lô cá về ngay sau đó'."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.8,
+        0.8
+      ]
+    }
+  ],
+  "vi/guides/glaser-en-25-perchlike-fishes-25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america-bred-cichla-from-southeast-asia-en#glaser": [
+    {
+      "at": "2026-11-10T05:19:58Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Cá hoàng đế (giống Cichla)\": the English gives no common name. Use 'cá chim hoa (Cichla)' or just 'Các loài cichlid thuộc giống Cichla'. Don't invent or force a common name.",
+        "\"cá ăn ngon nhất\": the English says 'best food fish', so use 'cá làm thực phẩm ngon nhất'. It is also unclear whether 'người ở đó' means locals; use 'người dân địa phương'.",
+        "\"Con lớn nhất từng thấy\": the English says 'maximum size recorded', so use 'kích thước tối đa được ghi nhận'.",
+        "\"Các trại ở Đông Nam Á đã có cá trại\": 'cá trại' is awkward. Use 'cá nhân giống/cá sinh sản trong trại'. 'Trại nào cũng gọi' is also loose; use 'Các trại đều gọi'.",
+        "\"Hiện một số con đang được nuôi lớn\": the English says 'we have decided now to grow some specimens'. Make it neutral, e.g. 'đã quyết định nuôi lớn một số con'.",
+        "Latin names Cichla monoculus and C. temensis should be italic or marked as species names. 'Cichla sp. temensis' is left as is, which is fine.",
+        "The stocklist code and wholesale sentence were dropped as shop talk, which is correct. The photo and byline credit was also dropped, which is correct."
+      ],
+      "attempt": "first",
+      "kept": true,
+      "reads": [
+        0.8,
+        0.8,
+        0.7
+      ]
     }
   ],
   "vi/species/adontosternarchus-clarkae#glaser": [

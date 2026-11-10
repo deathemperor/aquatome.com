@@ -1,0 +1,47 @@
+{
+  "id": "crenicichla-marmorata",
+  "native": {
+    "input": "aa539286c6c959d4",
+    "at": "2026-11-10T04:57:39.069Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BR"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Crenicichla marmorata",
+    "status": "ACCEPTED",
+    "taxonKey": 2370986,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        15
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        10
+      ],
+      [
+        "0a4d7bde-0d92-46bb-88c7-2b0566383c86",
+        3
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-10T04:57:39.069Z"
+  }
+}

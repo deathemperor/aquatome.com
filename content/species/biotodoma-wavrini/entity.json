@@ -26,10 +26,11 @@
         "Rio Negro",
         "Casiquiare",
         "Río Cinaruco",
-        "Río Ventuari"
+        "Rio Preto da Eva"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -40,14 +41,15 @@
             "CO",
             "BR"
           ],
-          "regions": []
+          "regions": [
+            "Orinoco"
+          ]
         },
         {
           "source": "seriouslyfish",
           "quote": "Currently known from the middle and upper rio Negro basins in Brazil and Colombia, the Casiquiare system in Brazil and Venezuela, and the Orinoco watershed in Venezuela and Colombia.",
           "countries": [],
           "regions": [
-            "Orinoco",
             "Rio Negro",
             "Casiquiare"
           ]
@@ -61,11 +63,11 @@
           ]
         },
         {
-          "source": "seriouslyfish",
-          "quote": "Type locality is 'upper Río Orinoco in Venezuela between San Fernando de Atabapo and Río Casiquiare, Venezuela', which appears to correspond to the lower Río Ventuari, a tributary of the Orinoco.",
+          "source": "glaser",
+          "quote": "It is known scientifically that B. wavrini occurs in Brazil; there is even a quite isolated population reported from the Rio Preto da Eva.",
           "countries": [],
           "regions": [
-            "Río Ventuari"
+            "Rio Preto da Eva"
           ]
         }
       ]

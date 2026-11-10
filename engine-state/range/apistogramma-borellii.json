@@ -1,8 +1,8 @@
 {
   "id": "apistogramma-borellii",
   "native": {
-    "input": "64b27b9e3661703c",
-    "at": "2026-11-06T09:17:06.855Z",
+    "input": "cdb73381ee564619",
+    "at": "2026-11-10T04:57:39.069Z",
     "claims": [
       {
         "code": "BR",
@@ -35,27 +35,28 @@
         "quote": "Borelli's dwarf cichlid, Apistogramma borellii, is from southern Brazil, Paraguay, Argentina and Uruguay.",
         "words": "Uruguay",
         "ok": true
+      },
+      {
+        "code": "PY",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Paraguay.",
+        "words": "Paraguay",
+        "ok": true
       }
     ],
     "regions": [
       {
-        "name": "rio Paraguay",
+        "name": "Rio Paraguay",
         "source": "seriouslyfish",
         "quote": "Also known as the umbrella or yellow dwarf cichlid, it occurs in creeks and tributaries of the rio Paraguay, lower rio Paraná and Uruguay systems.",
         "ok": true
       },
       {
-        "name": "rio Paraná",
+        "name": "Rio Paraná",
         "source": "seriouslyfish",
-        "quote": "Also known as the umbrella or yellow dwarf cichlid, it occurs in creeks and tributaries of the rio Paraguay, lower rio Paraná and Uruguay systems.",
+        "quote": "It occurs in creeks and tributaries of both the Rio Paraguay and lower Rio Paraná basins.",
         "ok": true
-      },
-      {
-        "name": "Uruguay",
-        "source": "seriouslyfish",
-        "quote": "Also known as the umbrella or yellow dwarf cichlid, it occurs in creeks and tributaries of the rio Paraguay, lower rio Paraná and Uruguay systems.",
-        "ok": false,
-        "why": "a country"
       }
     ],
     "disputed": [],

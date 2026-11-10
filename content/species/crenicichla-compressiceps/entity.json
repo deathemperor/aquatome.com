@@ -10,6 +10,68 @@
     "brazil",
     "tocantins"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BR"
+      ],
+      "regions": [
+        "Rio Tocantins"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the lower Rio Tocantins basin, Brazil.",
+          "countries": [
+            "BR"
+          ],
+          "regions": [
+            "Rio Tocantins"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2370999,
+      "total": 7,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "BR",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          -50.625,
+          -14.0625,
+          1,
+          1
+        ],
+        [
+          -50.625,
+          -5.625,
+          3,
+          3
+        ],
+        [
+          -50.625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -49.21875,
+          -5.625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -1,8 +1,8 @@
 {
   "id": "crenicichla-lugubris",
   "native": {
-    "input": "d0b409480bcff806",
-    "at": "2026-11-09T05:57:45.266Z",
+    "input": "c128880d81eba37e",
+    "at": "2026-11-10T04:57:39.069Z",
     "claims": [
       {
         "code": "SR",
@@ -29,26 +29,10 @@
         "ok": true
       },
       {
-        "code": "SR",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Has been recorded from the Rio Corantijn in Suriname, Rio Essequibo in Guyana, Rio Negro and Rio Uatumã in Brazil and Rio Branco in both Brazil and Guyana.",
-        "words": "Suriname",
-        "ok": true
-      },
-      {
-        "code": "GY",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Has been recorded from the Rio Corantijn in Suriname, Rio Essequibo in Guyana, Rio Negro and Rio Uatumã in Brazil and Rio Branco in both Brazil and Guyana.",
-        "words": "Guyana",
-        "ok": true
-      },
-      {
         "code": "BR",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Has been recorded from the Rio Corantijn in Suriname, Rio Essequibo in Guyana, Rio Negro and Rio Uatumã in Brazil and Rio Branco in both Brazil and Guyana.",
+        "source": "glaser",
+        "quote": "Jutai is a municipality in western Brazil, named after the Rio Jutai, which is an affluent to the Amazon river.",
         "words": "Brazil",
         "ok": true
       }
@@ -86,6 +70,12 @@
         "name": "Rio Branco",
         "source": "seriouslyfish",
         "quote": "Has been recorded from the Rio Corantijn in Suriname, Rio Essequibo in Guyana, Rio Negro and Rio Uatumã in Brazil and Rio Branco in both Brazil and Guyana.",
+        "ok": true
+      },
+      {
+        "name": "Rio Jutai",
+        "source": "glaser",
+        "quote": "Jutai is a municipality in western Brazil, named after the Rio Jutai, which is an affluent to the Amazon river.",
         "country": "BR",
         "ok": true
       }

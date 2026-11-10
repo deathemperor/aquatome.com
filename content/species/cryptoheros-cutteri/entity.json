@@ -9,6 +9,90 @@
     "north-america",
     "honduras"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "HN"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "A smaller cichlid from Honduras.",
+          "countries": [
+            "HN"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2370310,
+      "total": 45,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "HN",
+          40
+        ],
+        [
+          "GT",
+          3
+        ],
+        [
+          "SV",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -90,
+          14.0625,
+          4,
+          1
+        ],
+        [
+          -90,
+          15.46875,
+          2,
+          0
+        ],
+        [
+          -88.59375,
+          14.0625,
+          8,
+          8
+        ],
+        [
+          -88.59375,
+          15.46875,
+          3,
+          3
+        ],
+        [
+          -87.1875,
+          14.0625,
+          2,
+          2
+        ],
+        [
+          -87.1875,
+          15.46875,
+          23,
+          23
+        ],
+        [
+          -85.78125,
+          14.0625,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

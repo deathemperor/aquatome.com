@@ -282,18 +282,20 @@
     "notes": []
   },
   "azolla": {
-    "at": "2026-11-09",
-    "from": "2026-11-09",
+    "at": "2026-11-10",
+    "from": "2026-11-10",
     "name": "Azolla",
     "confidence": "high",
-    "score": 0.72,
+    "score": 0.2,
     "notes": [
-      "Section 6: \"salinitas rendah (>8,4 g/l)\" keeps the source's \">\" sign, which is likely an error in the source too. It is an odd, contradictory claim for 'low salinity'. Check it or use \"hingga sekitar 8,4 g/L\" if that is what was meant. The sentence \"menyerap tembaga berkonsentrasi rendah\" in section 7 is fine.",
-      "Section 7 tankmates: \"white cloud\" drops \"mountain minnows\". Use \"white cloud mountain minnow\". \"corydoras pygmy\" has the wrong word order. Use \"corydoras kerdil (pygmy corydoras)\".",
-      "Section 7: \"toko online\" for \"online\" is fine. \"mas koki\" for goldfish is acceptable. \"Pilih spesies yang tahan teduh\" is awkward. Say \"toleran terhadap tempat teduh\".",
-      "Section 6: \"Suhu dingin (−4 °C ke bawah)\" and \"musim semi\" are literal. Indonesian hobbyists have no winter, so consider \"musim dingin/musim semi di daerah beriklim empat musim\". \"mati kembali\" for \"die back\" is unnatural. Use \"daunnya mati/layu\".",
-      "Section 5: \"disinfeksi\" and \"kekurangan oksigen\" are fine, but \"Pilih tanaman yang tunas dan akarnya berkembang baik\" is OK. \"Daun busuk\" and \"gejolak permukaan\" are stiff. Use \"riak/pergolakan permukaan air\".",
-      "Section 3: \"frond\" is left untranslated throughout. Use \"daun\" or \"daun (frond)\" at first mention. \"lobus dorsal daunnya\" is also fine."
+      "Item 5: the 'ID' text is correct Indonesian, but the 'EN' source is Vietnamese (bèo dâu...). This is a source/target mismatch in the data; check the source text.",
+      "Item 7: 'Air payau ... bersalinitas rendah (>8,4 g/l)' keeps the English's odd '>' sign. Verify against the original (probably <8.4 g/l) rather than copying a likely error.",
+      "Item 7: 'membuat paku ini mati bagian atasnya' adds 'bagian atasnya'; the English says 'die back'. Use 'mati merana' or 'layu dan mati'.",
+      "Item 8: 'Blender bersama tanah liat montmorilonit' does not say what is blended. Add 'Azolla'.",
+      "Item 4: 'minimal 40 liter' is fine, but 'Fairy moss' is rendered as 'Azolla' throughout while the common name stays elsewhere. Keep the term consistent.",
+      "Item 1: 'Frond (daun)' and later 'frond-nya' leave English untranslated. Use 'daun' or 'helai daun' consistently.",
+      "Item 6: 'Sering-seringlah mengurangi kelebihannya' is awkward. Use 'Pangkas kelebihannya secara berkala'.",
+      "Item 8: 'lobster air tawar' for crayfish is fine, but 'siput' for snails is inconsistent with 'keong' in item 5. Use one term."
     ]
   },
   "bacopa-australis": {
@@ -1302,18 +1304,14 @@
     ]
   },
   "limnophila-aromatica": {
-    "at": "2026-11-08",
-    "from": "2026-11-07",
+    "at": "2026-11-10",
+    "from": "2026-11-10",
     "name": "Limnophila aromatica",
-    "confidence": "high",
-    "score": 0.75,
+    "confidence": "medium",
+    "score": 0.9,
     "notes": [
-      "Item 1: \"dipakai sebagai daun aromatik\" – source says aromatic herb; use \"herba/sayuran beraroma\" or \"bumbu\" instead of \"daun aromatik\".",
-      "Item 1: \"diameter antara 5 dan 6 cm\" is faithful but the original is odd (likely stem/cluster width); acceptable, but \"Bentuk emersed/submersed\" could use \"emers/submers\" or Indonesian terms \"tumbuh di atas air / terendam\".",
-      "Item 2: \"Potong batang tepat di ruas\" – \"agak jauh di bawah tinggi akhir\" is a bit awkward; clearer: \"Potong batang pada ruas yang berada cukup jauh di bawah tinggi akhir yang diinginkan\".",
-      "Item 2: \"kemiringan yang cantik\" – \"slope\" is better as \"kontur miring yang rapi\"; \"cantik\" is slightly off.",
-      "Item 2: \"tahan terhadap naungan oleh dirinya sendiri\" is clumsy; use \"tahan terhadap saling menaungi antar-batang (self-shading)\".",
-      "Item 3: \"Nitrat rendah membuat ... jauh lebih merah\" fine; \"Pilih varietas\" fine. \"Spektrum cahaya merah/biru yang lebih kuat\" is OK."
+      "Item 1: \"Bentuk emersed\" / \"bentuk submerged\" are left in English; use \"bentuk emersed (di atas air)\" and \"bentuk submerged (terendam)\" or the common local term.",
+      "Item 2: the source says \"Ngò om\", but the translation says \"Limnophila aromatica\". Keep the local name, e.g. \"Ngò om (Limnophila aromatica)\", to stay faithful."
     ]
   },
   "limnophila-hippuridoides": {
@@ -1392,20 +1390,13 @@
     ]
   },
   "ludwigia-brevipes": {
-    "at": "2026-11-08",
-    "from": "2026-11-07",
+    "at": "2026-11-10",
+    "from": "2026-11-10",
     "name": "Ludwigia brevipes",
     "confidence": "high",
-    "score": 0.7,
+    "score": 0.95,
     "notes": [
-      "\"a few inches below\" became \"beberapa sentimeter\" – vague but acceptable; better give an approximate figure, e.g. \"sekitar 5–8 cm\".",
-      "\"Pemangkasan sebaiknya dibuat miring, makin rendah ke arah depan\" adds detail not in source (\"sloped to the front\"); rephrase more literally, e.g. \"miring ke arah depan\".",
-      "\"dengan percabangan dan warna yang lebih sedikit\": coloration is lessened, not fewer; use \"percabangan lebih jarang dan warna lebih pudar\".",
-      "\"Laju pertumbuhannya sedikit lebih sedang dibanding tanaman yang tumbuh lebih cepat\" is awkward; use \"laju pertumbuhannya sedang, sedikit lebih lambat dibanding...\".",
-      "\"kontras dengan baik terhadap\" is unnatural; use \"berkontras indah dengan\".",
-      "\"tanaman ini juga cukup tahan ditanam terlalu rapat\" is awkward; use \"cukup toleran terhadap tanaman yang terlalu rapat\".",
-      "\"rumpun yang lebih rimbun\" and \"lebih kurus\" for \"thinner\" – use \"lebih jarang/ramping\"; \"defisiensi\" should be \"kekurangan nutrisi\".",
-      "\"Tanaman batang\" for stem plant is fine, but \"air sadah\" for hard water is OK; \"tangguh\" for hardier – prefer \"lebih mudah dirawat/tahan\"."
+      "Item 2: the source text is Vietnamese, not English. The Indonesian follows its content faithfully, so no translation fix is needed, but the source field looks wrongly populated."
     ]
   },
   "ludwigia-glandulosa": {
@@ -1726,16 +1717,12 @@
     ]
   },
   "nymphaea-zenkeri": {
-    "at": "2026-10-30",
-    "from": "2026-10-29",
+    "at": "2026-11-10",
+    "from": "2026-11-10",
     "name": "Tiger Lotus",
     "confidence": "high",
-    "score": 0.85,
-    "notes": [
-      "\"tetapi yang terpenting adalah umbinya sehat\" is slightly awkward; better \"yang terpenting adalah umbi yang sehat\".",
-      "\"akar akan menancapkan umbi dengan kokoh\" is slightly unnatural; use \"akar akan menahan umbi dengan kokoh\".",
-      "\"daun teratai yang mengambang\": \"lily pads\" is rendered as \"daun teratai\", which is fine, but \"Tiger lotus ... daun apung\" is used for \"lily pad\" in pruning; keep the term consistent."
-    ]
+    "score": 0.95,
+    "notes": []
   },
   "nymphoides-aquatica": {
     "at": "2026-10-30",

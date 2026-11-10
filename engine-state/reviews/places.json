@@ -1042,6 +1042,18 @@
       "kept": true
     }
   ],
+  "id/places/bismarck-archipelago": [
+    {
+      "at": "2026-11-10T06:36:34Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "quần đảo Bismarck → Kepulauan Bismarck (the source name is Vietnamese; the Indonesian output is fine)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/biwa": [
     {
       "at": "2026-11-08T12:08:48Z",
@@ -2963,6 +2975,16 @@
       "kept": true
     }
   ],
+  "id/places/halmahera": [
+    {
+      "at": "2026-11-10T06:36:34Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/han-river": [
     {
       "at": "2026-11-09T11:45:44Z",
@@ -4413,6 +4435,18 @@
       "kept": true
     }
   ],
+  "id/places/lake-guinas": [
+    {
+      "at": "2026-11-10T06:36:34Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "hồ Guinas → Danau Guinas (the source name is Vietnamese; the Indonesian output is fine)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/lake-holmes": [
     {
       "at": "2026-11-06T12:35:46Z",
@@ -4807,6 +4841,16 @@
       "notes": [
         "Antillen Kecil (should be Antilla Kecil)"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/leyte": [
+    {
+      "at": "2026-11-10T06:36:34Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -5295,11 +5339,31 @@
       "kept": true
     }
   ],
+  "id/places/mahananda": [
+    {
+      "at": "2026-11-10T06:36:34Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/mahananda-river": [
     {
       "at": "2026-11-08T05:20:54Z",
       "model": "sonnet",
       "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/majinga": [
+    {
+      "at": "2026-11-10T06:36:34Z",
+      "model": "sonnet",
+      "score": 0.3,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -5827,6 +5891,18 @@
       "model": "sonnet",
       "score": 0.4,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/milne-bay": [
+    {
+      "at": "2026-11-10T06:36:34Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "vịnh Milne → Teluk Milne (the source name is Vietnamese; the Indonesian output is fine)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -7155,6 +7231,16 @@
       "at": "2026-11-09T15:40:54Z",
       "model": "sonnet",
       "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/preto-da-eva": [
+    {
+      "at": "2026-11-10T06:36:34Z",
+      "model": "sonnet",
+      "score": 0.3,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -8940,6 +9026,18 @@
       "kept": true
     }
   ],
+  "id/places/rupununi-river": [
+    {
+      "at": "2026-11-10T06:36:34Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "sông Rupununi → Rupununi (an Indonesian atlas would write \"Sungai Rupununi\")"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/ruvu": [
     {
       "at": "2026-11-06T13:59:22Z",
@@ -9427,6 +9525,16 @@
       "at": "2026-11-08T05:21:31Z",
       "model": "sonnet",
       "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/shanushi": [
+    {
+      "at": "2026-11-10T06:36:34Z",
+      "model": "sonnet",
+      "score": 0.3,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -22990,6 +23098,18 @@
       "kept": true
     }
   ],
+  "th/places/bismarck-archipelago": [
+    {
+      "at": "2026-11-10T06:47:14Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "The Thai names are mostly plausible, but the task asks about the Thai place names, and the source labels for three entries are Vietnamese. I scored only the Thai output. Possible issues:"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/biwa": [
     {
       "at": "2026-11-08T12:10:04Z",
@@ -25023,6 +25143,18 @@
       "kept": true
     }
   ],
+  "th/places/halmahera": [
+    {
+      "at": "2026-11-10T06:47:14Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "The Thai names are mostly plausible, but the task asks about the Thai place names, and the source labels for three entries are Vietnamese. I scored only the Thai output. Possible issues:"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/han-river": [
     {
       "at": "2026-11-09T11:49:05Z",
@@ -26627,6 +26759,19 @@
       "kept": true
     }
   ],
+  "th/places/lake-guinas": [
+    {
+      "at": "2026-11-10T06:47:14Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "The Thai names are mostly plausible, but the task asks about the Thai place names, and the source labels for three entries are Vietnamese. I scored only the Thai output. Possible issues:",
+        "ทะเลสาบกีนัส (hồ Guinas): the Thai transliteration of Guinas is uncertain."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/lake-hyanuary": [
     {
       "at": "2026-11-08T15:23:58Z",
@@ -27007,6 +27152,19 @@
       "model": "sonnet",
       "score": 0.72,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/leyte": [
+    {
+      "at": "2026-11-10T06:47:14Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "The Thai names are mostly plausible, but the task asks about the Thai place names, and the source labels for three entries are Vietnamese. I scored only the Thai output. Possible issues:",
+        "เลเต (Leyte): the usual Thai form is เลย์เต, so this may be wrong."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -27489,6 +27647,18 @@
       "kept": true
     }
   ],
+  "th/places/mahananda": [
+    {
+      "at": "2026-11-10T06:47:14Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "The Thai names are mostly plausible, but the task asks about the Thai place names, and the source labels for three entries are Vietnamese. I scored only the Thai output. Possible issues:"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/mahananda-river": [
     {
       "at": "2026-11-08T05:28:39Z",
@@ -27506,6 +27676,18 @@
       "score": 0.72,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/majinga": [
+    {
+      "at": "2026-11-10T06:47:14Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "The Thai names are mostly plausible, but the task asks about the Thai place names, and the source labels for three entries are Vietnamese. I scored only the Thai output. Possible issues:"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -28059,6 +28241,18 @@
       "model": "sonnet",
       "score": 0.8,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/milne-bay": [
+    {
+      "at": "2026-11-10T06:47:14Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "The Thai names are mostly plausible, but the task asks about the Thai place names, and the source labels for three entries are Vietnamese. I scored only the Thai output. Possible issues:"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -29505,6 +29699,19 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/preto-da-eva": [
+    {
+      "at": "2026-11-10T06:47:14Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "The Thai names are mostly plausible, but the task asks about the Thai place names, and the source labels for three entries are Vietnamese. I scored only the Thai output. Possible issues:",
+        "เปรตูดาเอวา (Preto da Eva): this is a doubtful transliteration. The Portuguese pronunciation would more likely be เปรตู ดา เอวา."
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -31416,6 +31623,19 @@
       "kept": true
     }
   ],
+  "th/places/rupununi-river": [
+    {
+      "at": "2026-11-10T06:47:14Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "The Thai names are mostly plausible, but the task asks about the Thai place names, and the source labels for three entries are Vietnamese. I scored only the Thai output. Possible issues:",
+        "รูปูนูนี (Rupununi River): the Thai output is missing the word for river (แม่น้ำ), so it reads as a bare name."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/ruvu": [
     {
       "at": "2026-11-06T14:05:41Z",
@@ -31933,6 +32153,18 @@
       "model": "sonnet",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/shanushi": [
+    {
+      "at": "2026-11-10T06:47:14Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "The Thai names are mostly plausible, but the task asks about the Thai place names, and the source labels for three entries are Vietnamese. I scored only the Thai output. Possible issues:"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -35353,6 +35585,18 @@
       "kept": true
     }
   ],
+  "vi/places/bismarck-archipelago": [
+    {
+      "at": "2026-11-10T06:32:58Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All ten names look right. Each one either keeps the source's spelling of the proper name or puts the generic word into Vietnamese (quần đảo, hồ, vịnh, sông)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/biwa": [
     {
       "at": "2026-11-08T12:08:20Z",
@@ -37900,6 +38144,18 @@
       "kept": true
     }
   ],
+  "vi/places/halmahera": [
+    {
+      "at": "2026-11-10T06:32:58Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All ten names look right. Each one either keeps the source's spelling of the proper name or puts the generic word into Vietnamese (quần đảo, hồ, vịnh, sông)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/han": [
     {
       "at": "2026-11-07T20:34:11Z",
@@ -40140,6 +40396,18 @@
       "kept": true
     }
   ],
+  "vi/places/lake-guinas": [
+    {
+      "at": "2026-11-10T06:32:58Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All ten names look right. Each one either keeps the source's spelling of the proper name or puts the generic word into Vietnamese (quần đảo, hồ, vịnh, sông)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/lake-hazar": [
     {
       "at": "2026-11-07T20:35:59Z",
@@ -40751,6 +41019,18 @@
       "notes": [
         "No wrong places found. All 99 names are either names Vietnamese readers already use, or the source's own name with the generic word put into Vietnamese.",
         "\"Tiểu Antilles\" for Lesser Antilles is a common Vietnamese form."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/leyte": [
+    {
+      "at": "2026-11-10T06:32:58Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All ten names look right. Each one either keeps the source's spelling of the proper name or puts the generic word into Vietnamese (quần đảo, hồ, vịnh, sông)."
       ],
       "attempt": "first",
       "kept": true
@@ -41383,6 +41663,18 @@
       "kept": true
     }
   ],
+  "vi/places/mahananda": [
+    {
+      "at": "2026-11-10T06:32:58Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All ten names look right. Each one either keeps the source's spelling of the proper name or puts the generic word into Vietnamese (quần đảo, hồ, vịnh, sông)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/mahananda-river": [
     {
       "at": "2026-11-07T20:36:52Z",
@@ -41399,6 +41691,18 @@
       "model": "sonnet",
       "score": 0.72,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/majinga": [
+    {
+      "at": "2026-11-10T06:32:58Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All ten names look right. Each one either keeps the source's spelling of the proper name or puts the generic word into Vietnamese (quần đảo, hồ, vịnh, sông)."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -42146,6 +42450,19 @@
       "model": "sonnet",
       "score": 0.72,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/milne-bay": [
+    {
+      "at": "2026-11-10T06:32:58Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All ten names look right. Each one either keeps the source's spelling of the proper name or puts the generic word into Vietnamese (quần đảo, hồ, vịnh, sông).",
+        "\"vịnh Milne\" is fine if the entry means the bay. If it means Milne Bay Province, Vietnamese sources sometimes write \"tỉnh Milne Bay\", but \"vịnh Milne\" is still an acceptable name."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -44191,6 +44508,18 @@
       "model": "sonnet",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/preto-da-eva": [
+    {
+      "at": "2026-11-10T06:32:58Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All ten names look right. Each one either keeps the source's spelling of the proper name or puts the generic word into Vietnamese (quần đảo, hồ, vịnh, sông)."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -46588,6 +46917,18 @@
       "kept": true
     }
   ],
+  "vi/places/rupununi-river": [
+    {
+      "at": "2026-11-10T06:32:58Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All ten names look right. Each one either keeps the source's spelling of the proper name or puts the generic word into Vietnamese (quần đảo, hồ, vịnh, sông)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/ruvu": [
     {
       "at": "2026-11-07T20:39:31Z",
@@ -47369,6 +47710,18 @@
       "model": "sonnet",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/shanushi": [
+    {
+      "at": "2026-11-10T06:32:58Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All ten names look right. Each one either keeps the source's spelling of the proper name or puts the generic word into Vietnamese (quần đảo, hồ, vịnh, sông)."
+      ],
       "attempt": "first",
       "kept": true
     }

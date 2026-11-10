@@ -36,9 +36,9 @@
         "BS"
       ],
       "regions": [
-        "Orinoco Delta",
         "Amazon",
-        "Rio Xingu",
+        "Orinoco",
+        "rio Xingu",
         "Greater Antilles",
         "Lesser Antilles"
       ],
@@ -48,26 +48,21 @@
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "The banded puffer, Colomesus psittacus, is a large puffer of coastal waters from Colombia and Venezuela through the Guianas to northeastern Brazil.",
+          "quote": "This species' known range extends eastwards from the Parque Nacional Natural Tayrona in Magdalena Department, Colombia, across northern Venezuela, the Gulf of Paria and Orinoco Delta, then southwards via the Guyanas and past the mouth of the Amazon, with the southernmost records from Sergipe state in northeastern Brazil.",
           "countries": [
             "CO",
             "VE",
             "BR"
           ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "It also occurs in Trinidad and Tobago and the Caribbean islands, and inhabits mangrove swamps, estuaries and the lower reaches of rivers.",
-          "countries": [
-            "TT"
-          ],
-          "regions": []
+          "regions": [
+            "Orinoco"
+          ]
         },
         {
           "source": "seriouslyfish",
           "quote": "It is also known from Trinidad and Tobago and Caribbean islands including the Greater Antilles, Lesser Antilles, and Bahamas.",
           "countries": [
+            "TT",
             "BS"
           ],
           "regions": [
@@ -77,19 +72,11 @@
         },
         {
           "source": "seriouslyfish",
-          "quote": "This species' known range extends eastwards from the Parque Nacional Natural Tayrona in Magdalena Department, Colombia, across northern Venezuela, the Gulf of Paria and Orinoco Delta, then southwards via the Guyanas and past the mouth of the Amazon, with the southernmost records from Sergipe state in northeastern Brazil.",
-          "countries": [],
-          "regions": [
-            "Orinoco Delta"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
           "quote": "Although it does penetrate the lower basins of rivers, particularly the Amazon where it has been collected from the rio Xingu several hundred kilometres from its mouth, this species is predominantly an inhabitant of mangrove swamps, estuaries, and other such saline habitats.",
           "countries": [],
           "regions": [
             "Amazon",
-            "Rio Xingu"
+            "rio Xingu"
           ]
         }
       ]

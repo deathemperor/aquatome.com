@@ -1,25 +1,9 @@
 {
   "id": "apistogramma-steindachneri",
   "native": {
-    "input": "9d3e5e376e98a564",
-    "at": "2026-11-06T09:17:06.855Z",
+    "input": "1b0d98639a9d8492",
+    "at": "2026-11-10T04:57:39.069Z",
     "claims": [
-      {
-        "code": "GY",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Steindachner's apisto, Apistogramma steindachneri, is a dwarf cichlid from the Essequibo, Demerara and other river systems of Guyana and Suriname.",
-        "words": "Guyana",
-        "ok": true
-      },
-      {
-        "code": "SR",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Steindachner's apisto, Apistogramma steindachneri, is a dwarf cichlid from the Essequibo, Demerara and other river systems of Guyana and Suriname.",
-        "words": "Suriname",
-        "ok": true
-      },
       {
         "code": "GY",
         "status": "native",
@@ -49,19 +33,11 @@
       {
         "name": "Essequibo",
         "source": "seriouslyfish",
-        "quote": "Steindachner's apisto, Apistogramma steindachneri, is a dwarf cichlid from the Essequibo, Demerara and other river systems of Guyana and Suriname.",
-        "country": "GY",
+        "quote": "Type locality is Georgetown which lies at the mouth of the Demerara River, eastern Guyana, and this species is also known to occur in the Essequibo, Mahaica and Berbice river systems as well as the Courantyne, Coppename and Suriname drainages in Suriname.",
         "ok": true
       },
       {
         "name": "Demerara",
-        "source": "seriouslyfish",
-        "quote": "Steindachner's apisto, Apistogramma steindachneri, is a dwarf cichlid from the Essequibo, Demerara and other river systems of Guyana and Suriname.",
-        "country": "GY",
-        "ok": true
-      },
-      {
-        "name": "Mahaica",
         "source": "seriouslyfish",
         "quote": "Type locality is Georgetown which lies at the mouth of the Demerara River, eastern Guyana, and this species is also known to occur in the Essequibo, Mahaica and Berbice river systems as well as the Courantyne, Coppename and Suriname drainages in Suriname.",
         "country": "GY",
@@ -71,7 +47,12 @@
         "name": "Berbice",
         "source": "seriouslyfish",
         "quote": "Type locality is Georgetown which lies at the mouth of the Demerara River, eastern Guyana, and this species is also known to occur in the Essequibo, Mahaica and Berbice river systems as well as the Courantyne, Coppename and Suriname drainages in Suriname.",
-        "country": "GY",
+        "ok": true
+      },
+      {
+        "name": "Mahaica",
+        "source": "seriouslyfish",
+        "quote": "Type locality is Georgetown which lies at the mouth of the Demerara River, eastern Guyana, and this species is also known to occur in the Essequibo, Mahaica and Berbice river systems as well as the Courantyne, Coppename and Suriname drainages in Suriname.",
         "ok": true
       },
       {

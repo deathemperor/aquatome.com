@@ -1,9 +1,33 @@
 {
   "id": "datnioides-polota",
   "native": {
-    "input": "6c0d741ea9429e5c",
-    "at": "2026-11-07T16:21:07.852Z",
+    "input": "876de5dbf599adfb",
+    "at": "2026-11-10T04:57:39.069Z",
     "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The silver tiger perch, Datnioides polota, is a tiger perch widely distributed in southeastern Asia, from India and Bangladesh east to Indonesia.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The silver tiger perch, Datnioides polota, is a tiger perch widely distributed in southeastern Asia, from India and Bangladesh east to Indonesia.",
+        "words": "Bangladesh",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The silver tiger perch, Datnioides polota, is a tiger perch widely distributed in southeastern Asia, from India and Bangladesh east to Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      },
       {
         "code": "IN",
         "status": "native",
@@ -75,14 +99,30 @@
         "quote": "Records from Papua New Guinea refer to the congener D. campbelli.",
         "words": "Papua New Guinea",
         "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'estuaries of the Ganges River, India [now Bangladesh]'.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "BD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'estuaries of the Ganges River, India [now Bangladesh]'.",
+        "words": "Bangladesh",
+        "ok": true
       }
     ],
     "regions": [
       {
         "name": "Ganges",
         "source": "seriouslyfish",
-        "quote": "Currently understood to be widely distributed in Southeastern Asia, with confirmed records from India (Chilka Lake, Mahanadi and Hooghly rivers), Bangladesh (Ganges River delta), Myanmar (Yangon and Salween rivers), Thailand (Songkhla Lake, Tha Taphap and Chao Phraya rivers), Vietnam (Mekong River Delta), Malaysia (Perak, Bernam, and Melaka rivers, Peninsular Malaysia; Sarawak and Rajang rivers, Sarawak, Borneo), Singapore (Pulau Ubin), and Indonesia (Batang Hari River, Sumatra; Sambas, Kapuas and Barito rivers, Kalimantan, Borneo).",
-        "country": "BD",
+        "quote": "Type locality is 'estuaries of the Ganges River, India [now Bangladesh]'.",
+        "country": "IN",
         "ok": true
       },
       {
@@ -107,16 +147,23 @@
         "ok": true
       },
       {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Currently understood to be widely distributed in Southeastern Asia, with confirmed records from India (Chilka Lake, Mahanadi and Hooghly rivers), Bangladesh (Ganges River delta), Myanmar (Yangon and Salween rivers), Thailand (Songkhla Lake, Tha Taphap and Chao Phraya rivers), Vietnam (Mekong River Delta), Malaysia (Perak, Bernam, and Melaka rivers, Peninsular Malaysia; Sarawak and Rajang rivers, Sarawak, Borneo), Singapore (Pulau Ubin), and Indonesia (Batang Hari River, Sumatra; Sambas, Kapuas and Barito rivers, Kalimantan, Borneo).",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Currently understood to be widely distributed in Southeastern Asia, with confirmed records from India (Chilka Lake, Mahanadi and Hooghly rivers), Bangladesh (Ganges River delta), Myanmar (Yangon and Salween rivers), Thailand (Songkhla Lake, Tha Taphap and Chao Phraya rivers), Vietnam (Mekong River Delta), Malaysia (Perak, Bernam, and Melaka rivers, Peninsular Malaysia; Sarawak and Rajang rivers, Sarawak, Borneo), Singapore (Pulau Ubin), and Indonesia (Batang Hari River, Sumatra; Sambas, Kapuas and Barito rivers, Kalimantan, Borneo).",
+        "country": "ID",
+        "ok": true
+      },
+      {
         "name": "Mahanadi",
         "source": "seriouslyfish",
         "quote": "Currently understood to be widely distributed in Southeastern Asia, with confirmed records from India (Chilka Lake, Mahanadi and Hooghly rivers), Bangladesh (Ganges River delta), Myanmar (Yangon and Salween rivers), Thailand (Songkhla Lake, Tha Taphap and Chao Phraya rivers), Vietnam (Mekong River Delta), Malaysia (Perak, Bernam, and Melaka rivers, Peninsular Malaysia; Sarawak and Rajang rivers, Sarawak, Borneo), Singapore (Pulau Ubin), and Indonesia (Batang Hari River, Sumatra; Sambas, Kapuas and Barito rivers, Kalimantan, Borneo).",
         "country": "IN",
-        "ok": true
-      },
-      {
-        "name": "Borneo",
-        "source": "seriouslyfish",
-        "quote": "Currently understood to be widely distributed in Southeastern Asia, with confirmed records from India (Chilka Lake, Mahanadi and Hooghly rivers), Bangladesh (Ganges River delta), Myanmar (Yangon and Salween rivers), Thailand (Songkhla Lake, Tha Taphap and Chao Phraya rivers), Vietnam (Mekong River Delta), Malaysia (Perak, Bernam, and Melaka rivers, Peninsular Malaysia; Sarawak and Rajang rivers, Sarawak, Borneo), Singapore (Pulau Ubin), and Indonesia (Batang Hari River, Sumatra; Sambas, Kapuas and Barito rivers, Kalimantan, Borneo).",
         "ok": true
       }
     ],

@@ -6612,6 +6612,50 @@
     ],
     "ruled": "1fb662b9d6dc4cdf"
   },
+  "vi/guides/aquatome-cho-ca-sinh-san-giao-phoi-va-cham-ca-con": {
+    "at": "2026-11-10",
+    "hash": "9d4d276a6b697ea9",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Trộn bột yến mạch với men và nước, đổ vào hộp thành lớp dày 1–4 cm.",
+        "problem": "The microworm culture steps never say to add a starter culture of live worms, so following them produces no worms.",
+        "fix": "Trộn bột yến mạch với men và nước, đổ vào hộp thành lớp dày 1–4 cm, rồi thả vào một ít giun giống xin hoặc mua từ mẻ có sẵn.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Nước ấm cũng khiến con đực làm tổ thường hơn.",
+        "problem": "Using 'thường hơn' to mean 'more often' is unnatural Vietnamese and reads as translated.",
+        "fix": "Nước ấm thì con đực cũng hay làm tổ hơn.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Trời nóng thì phải gây mẻ giun vi sinh mới thường hơn",
+        "problem": "Using 'thường hơn' to mean 'more often' is unnatural, and the wording also comes out awkward here.",
+        "fix": "Trời nóng thì phải gây mẻ giun vi sinh mới thường xuyên hơn",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "L12",
+        "quote": "Lý do là nhớt của bố mẹ có kháng thể",
+        "problem": "'Lý do là' is on the site's list of phrases to avoid and reads as translated.",
+        "fix": "Vì nhớt của bố mẹ có kháng thể, đạm và vi sinh vật có lợi cho cá con trong bốn tuần đầu.",
+        "rule": "The phrase 'lý do là' appears anywhere on a Vietnamese page.",
+        "field": "faq.4.a"
+      }
+    ],
+    "ruled": "9d4d276a6b697ea9"
+  },
   "vi/guides/aquatome-chon-ca-khoe-khi-mua-o-cua-hang-dau-hieu-ca-benh-can-tranh-va-cau-hoi-nen-hoi": {
     "at": "2026-11-01",
     "hash": "7d1b7f23277359c7",
@@ -7228,6 +7272,12 @@
       }
     ],
     "ruled": "1afaea1fcc203aa8"
+  },
+  "vi/guides/aquatome-su-co-may-bom-nuoc-keu-to-giat-cuc-nong-yeu-nhiem-dien-chay": {
+    "at": "2026-11-10",
+    "hash": "8e4ee1a5a59e8761",
+    "findings": [],
+    "ruled": "8e4ee1a5a59e8761"
   },
   "vi/guides/aquatome-tha-ca-moi-mua-vao-be-cach-thuan-nuoc-dung": {
     "at": "2026-11-07",
@@ -11211,6 +11261,40 @@
     ],
     "ruled": "74ce5bfdf0c283b3"
   },
+  "vi/guides/youtube-_079wgd6Nrc": {
+    "at": "2026-11-10",
+    "hash": "b1170c9cf5c58639",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Thác nước quá phức tạp để làm mà không có mẫu.",
+        "problem": "This keeps the English 'too complex to make without a template' structure and reads stiffly in Vietnamese.",
+        "fix": "Hệ thống thác phức tạp lắm, không có mẫu thì khó làm.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Selaginella uncinata: trồng thành từng khóm để thêm chất liệu.",
+        "problem": "'Thêm chất liệu' is a literal translation of 'add texture' and doesn't mean anything clear in Vietnamese.",
+        "fix": "Selaginella uncinata: trồng thành từng khóm cho bố cục có thêm kiểu lá khác.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Gắn cành nhỏ để tăng chiều cao và tạo tương phản về bề mặt.",
+        "problem": "'Tạo tương phản về bề mặt' is a translated phrase that a Vietnamese reader would stumble over.",
+        "fix": "Gắn thêm cành nhỏ cho bố cục cao hơn và có chỗ thô chỗ mịn.",
+        "field": "body"
+      }
+    ],
+    "ruled": "b1170c9cf5c58639"
+  },
   "vi/guides/youtube-_0xNpxtU9J0": {
     "at": "2026-11-08",
     "hash": "0b4676a52eed3a92",
@@ -11739,6 +11823,31 @@
     "findings": [],
     "ruled": "85cfd57c8bbc2cf7"
   },
+  "vi/guides/youtube-3OYP0CMIcf0": {
+    "at": "2026-11-10",
+    "hash": "81978a88d226ca0e",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "bị xói mòn và lũ lụt nhấn gần chìm trong nước",
+        "problem": "The phrase \"nhấn gần chìm\" breaks up the set phrase \"nhấn chìm\", so it reads clumsily.",
+        "fix": "bị xói mòn rồi bị lũ nhấn chìm gần hết",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Đổ hai thành phần silicone sang một xô khác và trộn đến khi đồng đều.",
+        "problem": "\"sang một xô khác\" implies a first bucket that the page never mentions, so the step reads like a literal translation.",
+        "fix": "Đổ cả hai thành phần silicone vào một cái xô và trộn đến khi đều màu.",
+        "field": "body"
+      }
+    ],
+    "ruled": "81978a88d226ca0e"
+  },
   "vi/guides/youtube-3rjwtQRT3pA": {
     "at": "2026-11-04",
     "hash": "c6242f49e81d49d6",
@@ -12197,6 +12306,12 @@
     "hash": "246cd8c4a084b778",
     "findings": [],
     "ruled": "246cd8c4a084b778"
+  },
+  "vi/guides/youtube-8_tZngg8rMA": {
+    "at": "2026-11-10",
+    "hash": "9151c23a551276f1",
+    "findings": [],
+    "ruled": "9151c23a551276f1"
   },
   "vi/guides/youtube-820T-yYBDrA": {
     "at": "2026-11-06",
@@ -13157,6 +13272,12 @@
     "findings": [],
     "ruled": "2d5a3444dff2cf65"
   },
+  "vi/guides/youtube-cfBKt5dc_IQ": {
+    "at": "2026-11-10",
+    "hash": "735af0d20a15c77d",
+    "findings": [],
+    "ruled": "735af0d20a15c77d"
+  },
   "vi/guides/youtube-cGTFcYJ_BQs": {
     "at": "2026-11-08",
     "hash": "f4022ca5f29745d2",
@@ -13325,6 +13446,12 @@
     ],
     "ruled": "b6d78afe00497a7a"
   },
+  "vi/guides/youtube-CuZeMDsjK70": {
+    "at": "2026-11-10",
+    "hash": "f3c1b796f97aa8ef",
+    "findings": [],
+    "ruled": "f3c1b796f97aa8ef"
+  },
   "vi/guides/youtube-CzyeWSYmJaQ": {
     "at": "2026-11-08",
     "hash": "8378cbcb39e245c5",
@@ -13426,6 +13553,22 @@
       }
     ],
     "ruled": "d556076b2f57ccb0"
+  },
+  "vi/guides/youtube-DRlTmK7l0uo": {
+    "at": "2026-11-10",
+    "hash": "f84b9d55328ae691",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "L5",
+        "quote": "Bơm đi kèm giá khỏe hơn thì tốt, vì dòng nước chưa đủ mạnh để thác chảy rõ.",
+        "problem": "The summary repeats the same garbled phrase 'đi kèm giá khỏe hơn'.",
+        "fix": "Bơm đi kèm mà khỏe hơn thì tốt hơn, vì dòng nước hiện chưa đủ mạnh để thác chảy rõ.",
+        "field": "summary.4"
+      }
+    ],
+    "ruled": "f84b9d55328ae691"
   },
   "vi/guides/youtube-dS6AJL3CAt0": {
     "at": "2026-11-04",
@@ -14136,6 +14279,12 @@
     "findings": [],
     "ruled": "15920e6f5cc977fa"
   },
+  "vi/guides/youtube-H_9lMeh3LsU": {
+    "at": "2026-11-10",
+    "hash": "9c51bdc5d5be0dee",
+    "findings": [],
+    "ruled": "9c51bdc5d5be0dee"
+  },
   "vi/guides/youtube-h_UXlf0XPTM": {
     "at": "2026-11-05",
     "hash": "f9c8ab0a017de31f",
@@ -14245,6 +14394,40 @@
     "hash": "b6c9d162ae3794b2",
     "findings": [],
     "ruled": "b6c9d162ae3794b2"
+  },
+  "vi/guides/youtube-hFw-Vgui7Fg": {
+    "at": "2026-11-10",
+    "hash": "4e6a5f52fc98ddf9",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "| Điểm được",
+        "problem": "\"Điểm được\" is not a natural Vietnamese column heading for advantages.",
+        "fix": "| Ưu điểm",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "dán giấy mờ (frost film) ở mặt sau sớm hơn",
+        "problem": "\"Sớm hơn\" has nothing to compare against here. The meaning is \"do it first, before everything goes in\".",
+        "fix": "dán giấy mờ (frost film) ở mặt sau ngay từ đầu",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "vì chúng có thể không phá được gì",
+        "problem": "This hedged reason reads like a word-for-word translation and sounds awkward.",
+        "fix": "vì rùa còn nhỏ chưa phá được cây",
+        "field": "body"
+      }
+    ],
+    "ruled": "4e6a5f52fc98ddf9"
   },
   "vi/guides/youtube-hL920TrlANg": {
     "at": "2026-11-07",
@@ -14442,6 +14625,29 @@
       }
     ],
     "ruled": "3befdcd20c1ee762"
+  },
+  "vi/guides/youtube-hTqxIrD_Vho": {
+    "at": "2026-11-10",
+    "hash": "9a986816fd0971c9",
+    "findings": [],
+    "ruled": "9a986816fd0971c9"
+  },
+  "vi/guides/youtube-HUa1u8usS5w": {
+    "at": "2026-11-10",
+    "hash": "1a7b58abe8c5399e",
+    "findings": [],
+    "rewrites": [
+      {
+        "at": "2026-11-10",
+        "field": "body",
+        "score": 0.88,
+        "kept": true,
+        "problems": [
+          "The sentence has no verb and reads as a broken fragment, so it doesn't say what the bulkheads do."
+        ]
+      }
+    ],
+    "ruled": "1a7b58abe8c5399e"
   },
   "vi/guides/youtube-HuWHarbSQUk": {
     "at": "2026-11-05",
@@ -15936,6 +16142,12 @@
     ],
     "ruled": "3b0bb10ec3ee409e"
   },
+  "vi/guides/youtube-NBR8ZLYW0dQ": {
+    "at": "2026-11-10",
+    "hash": "4f6d7081ecc31364",
+    "findings": [],
+    "ruled": "4f6d7081ecc31364"
+  },
   "vi/guides/youtube-NCmL_IIoTnY": {
     "at": "2026-11-09",
     "hash": "dee1e08d1fc51bbf",
@@ -16071,6 +16283,12 @@
     ],
     "ruled": "cc7d99ab51d8a6e5"
   },
+  "vi/guides/youtube-NnedKiWs71U": {
+    "at": "2026-11-10",
+    "hash": "848424c434224fb4",
+    "findings": [],
+    "ruled": "848424c434224fb4"
+  },
   "vi/guides/youtube-NNh8zd3zZdo": {
     "at": "2026-11-05",
     "hash": "c6a938734c733c36",
@@ -16151,6 +16369,12 @@
         "field": "body"
       }
     ]
+  },
+  "vi/guides/youtube-nvG0MbTO3Co": {
+    "at": "2026-11-10",
+    "hash": "509d72325fdab3e9",
+    "findings": [],
+    "ruled": "509d72325fdab3e9"
   },
   "vi/guides/youtube-nXDe9QF-Gu8": {
     "at": "2026-11-09",
@@ -16866,6 +17090,12 @@
     "findings": [],
     "ruled": "9c0ae8d45c216181"
   },
+  "vi/guides/youtube-Rdtk54dzU2k": {
+    "at": "2026-11-10",
+    "hash": "f812efc8071c424a",
+    "findings": [],
+    "ruled": "f812efc8071c424a"
+  },
   "vi/guides/youtube-rh8iBySuUpE": {
     "at": "2026-11-09",
     "hash": "2ec496d940ee067f",
@@ -17092,6 +17322,12 @@
       }
     ],
     "ruled": "e24eead0f785b3b0"
+  },
+  "vi/guides/youtube-sgorNs-99pc": {
+    "at": "2026-11-10",
+    "hash": "4344b10e51fbc0c8",
+    "findings": [],
+    "ruled": "4344b10e51fbc0c8"
   },
   "vi/guides/youtube-SIMNLeXB8Pc": {
     "at": "2026-11-09",
@@ -17469,6 +17705,12 @@
     ],
     "ruled": "2412285ce62e9b4a"
   },
+  "vi/guides/youtube-tlkKklEKeCI": {
+    "at": "2026-11-10",
+    "hash": "01d9656aae2b48a5",
+    "findings": [],
+    "ruled": "01d9656aae2b48a5"
+  },
   "vi/guides/youtube-tPkJ5PEBVYA": {
     "at": "2026-11-07",
     "hash": "032787910b2f8f4f",
@@ -17730,6 +17972,22 @@
       }
     ],
     "ruled": "70fa7d2fdeb829ae"
+  },
+  "vi/guides/youtube-UkkP80wMn_s": {
+    "at": "2026-11-10",
+    "hash": "70047aa945ece20f",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Đặt nằm bể xuống mặt sau, phủ một lớp keo bọt lên đỉnh hộp tràn rồi ghép đá lên.",
+        "problem": "The word order is scrambled (\"Đặt nằm bể\"), so the instruction to lay the tank on its back reads as garbled.",
+        "fix": "Đặt bể nằm ngửa, mặt sau úp xuống, phủ một lớp keo bọt lên đỉnh hộp tràn rồi ghép đá lên.",
+        "field": "body"
+      }
+    ],
+    "ruled": "70047aa945ece20f"
   },
   "vi/guides/youtube-ULCBqSQYaOY": {
     "at": "2026-11-05",
@@ -18177,6 +18435,22 @@
     "hash": "35cf9e835375f81c",
     "findings": [],
     "ruled": "35cf9e835375f81c"
+  },
+  "vi/guides/youtube-XfF2QNpEFPE": {
+    "at": "2026-11-10",
+    "hash": "8d4f7759b5600195",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "loài cá phổ biến mà nếu thích thì có thể thấy vừa bạo dạn vừa đẹp",
+        "problem": "The clause is awkward and reads like a word-for-word translation, and the repeated hedge \"nếu thích thì có thể thấy\" makes a native reader stumble.",
+        "fix": "Phần cá thì có thể thả cá ngựa vằn (zebra danio), loài cá dễ kiếm, bạo dạn và đẹp.",
+        "field": "body"
+      }
+    ],
+    "ruled": "8d4f7759b5600195"
   },
   "vi/guides/youtube-XiBrjkvbpaw": {
     "at": "2026-11-08",
