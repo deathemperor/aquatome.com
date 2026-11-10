@@ -63,6 +63,8 @@ pnpm engine guide-photos --limit 20 || log "guide-photos: failed"
 pnpm engine dead-screen --limit "${DEAD_SCREEN_LIMIT:-48}" || log "dead-screen: failed"
 # New guides' video stills and photos: none with a watermark (macOS Vision reads the text, the model judges it).
 pnpm engine watermarks --limit 20 || log "watermarks: failed"
+# A new video's title in each language whose pages show it, before the sweep: the site doesn't show a foreign video without one.
+for lang in vi id th ms; do pnpm engine video-titles --lang "$lang" --limit "${VIDEO_TITLES_LIMIT:-3}" || log "video-titles $lang: failed"; done
 # The content rules' safe fixes, as in the GitHub cycle (a new guide whose title promises a count it lacks: the tests fail on it).
 pnpm engine sweep || log "sweep: failed"
 # Last of the steps that write pages: what this run changed is read against the reader-fit checklist (gate.ts). A new page

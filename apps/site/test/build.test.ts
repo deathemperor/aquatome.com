@@ -236,6 +236,27 @@ test('species page has JSON-LD', () => {
   expect(page('/ca/ca-neon-vua/').html).toContain('application/ld+json')
 })
 
+describe("a species page's videos in the reader's language (the owner's report, 2026-11-10)", () => {
+  const { html, dom } = page('/ca/ca-phuong-hoang/')
+  const rows = dom.querySelectorAll('.videos li p')
+  const title = (i: number) => rows[i]!.childNodes[0]!.text
+  const under = (i: number) => rows[i]!.querySelector('small')!.text
+  test("its title translated, the real one kept beside it; those spoken in the page's language first", () => {
+    expect(rows.map((_, i) => title(i))).toEqual(['Nuôi cá phượng hoàng xanh', 'Cách nuôi cá phượng hoàng xanh', 'Đàn phượng hoàng xanh trong bể thủy sinh'])
+    expect(rows[1]!.getAttribute('data-title-from')).toBe('German blue ram care guide')
+    expect(rows[0]!.getAttribute('data-title-from')).toBeUndefined()
+  })
+  test('its language is a word, never a code; a generated one says so; one with no speech says that', () => {
+    expect(under(0)).toBe('2:05, tiếng Việt')
+    expect(under(1)).toBe('5:00, tiếng Anh, do AI tạo')
+    expect(under(2)).toBe('1:05, không lời')
+  })
+  test("a foreign video with no title in this language isn't shown", () => {
+    expect(html).not.toContain('Le ramirezi en aquarium')
+    expect(dom.querySelector('[data-youtube-id="frfrfrfrfrf"]')).toBeNull()
+  })
+})
+
 describe('browse pages', () => {
   const species = (path: string) => new Set(page(path).dom.querySelectorAll('a[href^="/ca/"]').map(a => a.getAttribute('href')))
   test('genus page lists both Paracheirodon', () => {

@@ -7,11 +7,14 @@ import { setsCookies } from './thumb'
 import { judgeQuality, speciesDepth } from './depth'
 import { isAllowedLicence } from './licence'
 import { isVietnamese, markVietnameseNames } from './text'
-import { BreedSchema, CaptionsSchema, OneVoiceSchema, PageDatesSchema, PictureHashesSchema, ChangelogSchema, EquipmentSchema, GallerySchema, GlossarySchema, GuideSchema, MarketSchema, mayPublish, PlaceSchema, PlantSchema, ProductSchema, SeriesSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
+import { videosForPage } from './videos'
+import { BreedSchema, CaptionsSchema, VideoGeneratedSchema, VideoTitlesSchema, OneVoiceSchema, PageDatesSchema, PictureHashesSchema, ChangelogSchema, EquipmentSchema, GallerySchema, GlossarySchema, GuideSchema, MarketSchema, mayPublish, PlaceSchema, PlantSchema, ProductSchema, SeriesSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
 import type { PictureHashes } from './pictures'
-import type { BreedEntity, ChangelogEntry, EquipmentGuide, GlossaryEntity, GuideEntity, Lang, Market, Photo, PlaceEntity, PlantEntity, ProductEntity, Section, Series, SourceId, SourceInfo, SpeciesEntity, Translation } from './types'
+import type { BreedEntity, ChangelogEntry, EquipmentGuide, GlossaryEntity, GuideEntity, Lang, Market, Photo, Video, PlaceEntity, PlantEntity, ProductEntity, Section, Series, SourceId, SourceInfo, SpeciesEntity, Translation } from './types'
 
 export const QUALITY_THRESHOLD = 0.75
+/** A video not spoken in the page's language shows only with its title translated (the owner's report, 2026-11-10). */
+const REQUIRE_VIDEO_TITLE = true
 /** The market (prices, shops) each site language serves. */
 export const MARKET: Record<Lang, string> = { vi: 'vn', id: 'id', th: 'th', ms: 'my' }
 
@@ -138,10 +141,18 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     return { ...x, t: { ...x.t, quality: judgeQuality(q, scoreOk, speciesDepth(x.sections).deep) } }
   }
 
+  // A video's title in the page's language, and the mark on a generated one. One with no title in this language isn't shown,
+  // unless it's spoken in the page's language.
+  const titlesFile = join(root, 'video-titles', `${lang}.json`)
+  const videoTitles = (await exists(titlesFile)) ? await readJson(titlesFile, VideoTitlesSchema) : {}
+  const generatedFile = join(root, 'video-generated.json')
+  const videoGenerated = (await exists(generatedFile)) ? await readJson(generatedFile, VideoGeneratedSchema) : {}
+  const forPage = <V extends Video>(videos: V[], o?: { order?: boolean; requireTitle?: boolean }) => videosForPage(videos, lang, videoTitles, videoGenerated, { requireTitle: REQUIRE_VIDEO_TITLE, ...o })
+
   const voices = (await exists(join(root, 'one-voice.json'))) ? await readJson(join(root, 'one-voice.json'), OneVoiceSchema) : {}
   // After the depth is judged: a block set aside here still counts for the page's place in search.
   const species = (await loadKind(root, 'species', SpeciesSchema, lang, leaveOutHeld))
-    .map(s => oneVoice(judgeDepth({ ...s, sections: cleanSections(s.sections), photos: cleanPhotos(s.photos), dataCard: cleanCard(s.dataCard, s.sections) }), voices[s.id]))
+    .map(s => oneVoice(judgeDepth({ ...s, sections: cleanSections(s.sections), photos: cleanPhotos(s.photos), videos: forPage(s.videos), dataCard: cleanCard(s.dataCard, s.sections) }), voices[s.id]))
     .filter(s => s.sections.length > 0)
   const plants = (await loadKind(root, 'plants', PlantSchema, lang, leaveOutHeld))
     .map(p => cleanQuality({ ...p, sections: cleanSections(p.sections), photos: cleanPhotos(p.photos) }))
@@ -191,7 +202,9 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   const products: Content['products'] = []
   for (const p of await loadKind(root, 'products', ProductSchema, lang)) {
     const file = join(root, 'products', p.id, `${MARKET[lang]}.json`)
-    products.push(await exists(file) ? { ...p, market: await readJson(file, MarketSchema) } : p)
+    // A product's reviews keep their order and all stay: the first is the one the page embeds, and its points cite them by number.
+    const shown = p.reviews ? { ...p, reviews: { ...p.reviews, videos: forPage(p.reviews.videos, { order: false, requireTitle: false }) } } : p
+    products.push(await exists(file) ? { ...shown, market: await readJson(file, MarketSchema) } : shown)
   }
 
   // A card in this language, unless the gate holds it back there or it's an event in another reader's country

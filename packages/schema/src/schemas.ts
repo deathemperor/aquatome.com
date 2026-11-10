@@ -38,7 +38,8 @@ const Section = z.object({ key: z.enum(SECTION_ORDER), source: SourceId, sourceU
  */
 const Photo = z.object({ url: z.string(), thumb: z.string().optional(), width: z.number(), height: z.number(), large: z.object({ url: z.string(), width: z.number(), height: z.number() }).optional(), licence: z.string(), author: z.string(), authorUrl: z.string().optional(), sourceUrl: z.string(), caption: z.string().optional(), source: SourceId.optional() })
 export const PhotoSchema = Photo
-const Video = z.object({ youtubeId: z.string(), title: z.string(), durationSec: z.number(), lang: z.string() })
+/** `originalTitle` and `generated` are the loader's (videosForPage): the engine writes neither. */
+const Video = z.object({ youtubeId: z.string(), title: z.string(), durationSec: z.number(), lang: z.string(), originalTitle: z.string().optional(), generated: z.literal(true).optional() })
 const ProductSlot = z.object({ category: z.string(), keywords: z.array(z.string()) })
 
 const CountryCode = z.string().refine(isCountryCode, { message: 'not an ISO 3166-1 alpha-2 country code' })
@@ -234,6 +235,10 @@ export const EquipmentSchema = z.object({
 /** `builtAt`: the last Commons + iNaturalist build (`updatedAt` also moves when a source adds a photo). */
 /** Photo captions written in Vietnamese, in one other language (content/captions/<lang>.json): Vietnamese caption → translation. */
 export const CaptionsSchema = z.record(z.string(), z.string())
+/** Video titles in one language (content/video-titles/<lang>.json): YouTube id → the title on that language's pages. */
+export const VideoTitlesSchema = z.record(z.string(), z.string())
+/** Videos made by generation (content/video-generated.json): YouTube id → what we saw. Each shows an AI label, and none feeds a guide, a loop or a still. */
+export const VideoGeneratedSchema = z.record(z.string(), z.string())
 /** content/picture-hashes.json: each photo's 64-bit difference hash (hex) by its address (pictures.ts). */
 export const PictureHashesSchema = z.record(z.string(), z.string().regex(/^[0-9a-f]{16}$/))
 /** The day each content file last changed for a reader, with its hash: file → "2026-11-10 ab12cd34ef56" (the engine's page-dates.ts). */

@@ -119,6 +119,18 @@ test('a video on the rejected list is never made a guide, nor written again by a
   expect((await videoGuides(d, { playlists: ['PL1'], redo: true })).written).toEqual([])
 })
 
+test('a generated video is never made a guide, and none on the site was', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'yt-'))
+  const { d } = deps(root, { videos: { a1: {}, a2: {} } })
+  await mkdir(join(root, 'content'), { recursive: true })
+  await writeFile(join(root, 'content/video-generated.json'), JSON.stringify({ a1: 'generated fish' }))
+  expect((await videoGuides(d, { playlists: ['PL1'] })).written).toEqual(['youtube-a2 (0.90)'])
+  expect(existsSync(join(root, 'content/guides/youtube-a1'))).toBe(false)
+  const repo = fileURLToPath(new URL('../../..', import.meta.url))
+  const generated = JSON.parse(await readFile(join(repo, 'content/video-generated.json'), 'utf8')) as Record<string, string>
+  expect(Object.keys(generated).filter(id => existsSync(join(repo, 'content/guides', `youtube-${id}`)))).toEqual([])
+})
+
 test('no guide on the site is made from a rejected video', async () => {
   const repo = fileURLToPath(new URL('../../..', import.meta.url))
   const rejected = JSON.parse(await readFile(join(repo, 'engine-state/_video-rejected.json'), 'utf8')) as Record<string, string>
