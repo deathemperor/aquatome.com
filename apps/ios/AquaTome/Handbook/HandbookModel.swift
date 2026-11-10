@@ -401,7 +401,12 @@ final class HandbookModel {
         : launch.contains("-newer-part") ? HandbookIndex.fixturePagesWithANewerPart
         : launch.contains("-long-page") ? HandbookIndex.fixturePagesLong
         : launch.contains("-long-part") ? HandbookIndex.fixturePagesWithLongParts : HandbookIndex.fixturePages
-      return PageCache(dir: dir, site: site, fetch: { _ in pages })
+      // `-slow-pages`: a page that takes its time to be read.
+      let slow = launch.contains("-slow-pages")
+      return PageCache(dir: dir, site: site, fetch: { _ in
+        if slow { try? await Task.sleep(for: .seconds(4)) }
+        return pages
+      })
     }
     #endif
     var dir = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0].appending(path: "pages")

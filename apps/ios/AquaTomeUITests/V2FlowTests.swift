@@ -174,6 +174,20 @@ final class V2FlowTests: XCTestCase {
     XCTAssertFalse(app.buttons["v2-fish-of-the-day"].exists, "a fish on a day planned without one")
   }
 
+  /// A guide opens on its photo and name however long its page takes to be read, not on an empty screen with a spinner: the
+  /// card zoomed into that, black in dark mode (the owner's report on build 339).
+  func testAGuideOpensOnItsPhotoAndNameWhileItsPageIsRead() {
+    let app = launch("-v2", "YES", "-plan", "-today", "2026-11-14", "-slow-pages")
+    app.launchForFlow()
+    let card = app.buttons.matching(NSPredicate(format: "label CONTAINS %@", "Nuôi cá neon trong bể nhỏ")).firstMatch
+    XCTAssertTrue(card.waitForExistence(timeout: 10), "not the editors' guide")
+    card.tap()
+    // The page's own, under the bar: the bar's title alone says nothing of what's on the screen.
+    XCTAssertTrue(app.descendants(matching: .any)["page-head"].waitForExistence(timeout: 2), "an empty screen while the page is read")
+    XCTAssertFalse(app.staticTexts["Bể và nước"].exists, "the page came too soon to show what it opens on")
+    XCTAssertTrue(app.staticTexts["Bể và nước"].waitForExistence(timeout: 8), "the page didn't come")
+  }
+
   /// A date the editors haven't planned has Hôm nay's own picks: for a reader with no fish yet, Cá neon.
   func testADayNotPlannedHasHomNaysOwnPicks() {
     let app = launch("-v2", "YES", "-plan", "-today", "2026-11-15")
