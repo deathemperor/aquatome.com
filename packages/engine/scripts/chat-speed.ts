@@ -153,7 +153,9 @@ function sender(healthy: KeyEntry[], store: HealthStore, began: number, calls: C
       const c = await clientFor(k)
       const feed = o.onText && !fed ? (d: string) => { fed = true; o.onText!(d) } : undefined
       try {
-        const m = await once(c, b, Math.min(left, o.timeoutMs), o, feed)
+        // What an earlier key's try used comes off both, as in api.ts.
+        const bounded = Math.min(left, o.timeoutMs)
+        const m = await once(c, b, bounded, { ...o, ...(o.writingMs ? { writingMs: o.writingMs - (o.timeoutMs - bounded) } : {}) }, feed)
         // The first line's call (0) is beside the run's: its key isn't the run's, as on the server.
         if (o.call !== 0) client = c
         return m
