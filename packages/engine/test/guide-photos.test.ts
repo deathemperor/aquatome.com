@@ -4,7 +4,7 @@ import { join } from 'node:path'
 import sharp from 'sharp'
 import { expect, test } from 'vitest'
 import { LlmError } from '../src/claude'
-import { screenGuidePhotos, type GuidePhotoDeps, type GuidePhotoVerdict } from '../src/guide-photos'
+import { guideSubject, screenGuidePhotos, type GuidePhotoDeps, type GuidePhotoVerdict } from '../src/guide-photos'
 import { videoStills, type StillDeps } from '../src/video-stills'
 
 const jpeg = sharp({ create: { width: 64, height: 48, channels: 3, background: '#468' } }).jpeg().toBuffer()
@@ -24,7 +24,7 @@ const json = async (root: string, path: string) => JSON.parse(await readFile(joi
 const urls = (xs: { url: string }[] = []) => xs.map(p => name(p.url))
 
 /** The model, as a fake: answers from a table, photo name → verdict (unlisted: nothing found). Records each sheet's photos. */
-function model(table: Record<string, Partial<GuidePhotoVerdict>>, o: { stop?: boolean } = {}) {
+function model(table: Record<string, Partial<Omit<GuidePhotoVerdict, 'other'>> & { other?: boolean | ((prompt: string) => boolean) }>, o: { stop?: boolean } = {}) {
   const seen: { prompt: string; photos: string[] }[] = []
   let sheet: string[] = []
   const d: GuidePhotoDeps = {
@@ -37,7 +37,7 @@ function model(table: Record<string, Partial<GuidePhotoVerdict>>, o: { stop?: bo
       const photos = sheet.filter(p => !p.includes('html'))
       sheet = []
       seen.push({ prompt, photos })
-      return { photos: photos.map((p, i) => ({ n: i + 1, person: false, mark: false, brand: false, note: p, ...table[p] })) }
+      return { photos: photos.map((p, i) => { const { other, ...rest } = table[p] ?? {}; return { n: i + 1, person: false, mark: false, brand: false, note: p, ...rest, other: typeof other === 'function' ? other(prompt) : other } }) }
     },
   }
   return { d, seen }
@@ -229,4 +229,76 @@ test('the limit caps model calls with video stills too: leads, then the stills, 
   const two = await screenGuidePhotos(root, d, { limit: 1 })
   expect(seen.map(s => s.photos)[1]).toEqual(['s5-hd', 's6-hd', 's7-hd', 't1'])
   expect(two.left).toBe(0)
+})
+
+test('what a guide is about: one kind of fish or plant, from its kind and title; not a how-to, a tank-mates list or a guide naming several', () => {
+  expect(guideSubject('care', 'aquariumcoop-blogs-aquarium-platy-care-guide')).toBe('platy')
+  expect(guideSubject('care', 'Hướng dẫn nuôi cá platy: cho ăn, sinh sản')).toBe('platy')
+  expect(guideSubject('plantCare', 'Cách buộc ráy (Anubias) lên lũa')).toBe('anubias')
+  expect(guideSubject('discovery', 'Top 10 loài cá chuột (Corydoras) đáng nuôi nhất')).toBe('corydoras')
+  expect(guideSubject('setup', 'Cách set bể cá betta đẹp')).toBeUndefined()
+  expect(guideSubject('aquascaping', 'Bày lũa cho bể cá rồng')).toBeUndefined()
+  expect(guideSubject('care', '10 loài cá nuôi chung tốt nhất với cá vàng')).toBeUndefined()
+  expect(guideSubject('care', 'Best tank mates for goldfish')).toBeUndefined()
+  expect(guideSubject('care', 'Set bể nuôi cá thần tiên, cá đĩa')).toBeUndefined()
+  expect(guideSubject('care', 'Cách cho cá ăn thức ăn đông lạnh')).toBeUndefined()
+  expect(guideSubject(undefined, 'platy')).toBeUndefined()
+})
+
+test('a guide about one fish: in the same call as the people check, a picture of another fish leaves that guide, joins no blocklist, and stays off after a re-read; a how-to is not asked', async () => {
+  // The owner's reports (2026-11-10): arowanas and a corydoras on the platy guide.
+  const id = 'aquariumcoop-blogs-aquarium-platy-care-guide'
+  const root = await store({
+    [id]: { kind: 'care', source: 'aquariumcoop', photos: [photo('platy'), photo('arowana')] },
+    'aquariumcoop-blogs-setup-a-tank': { kind: 'setup', source: 'aquariumcoop', photos: [photo('neon')] },
+  })
+  const { d, seen } = model({ arowana: { other: true, note: 'two silver arowana' }, neon: { other: true } })
+  const r = await screenGuidePhotos(root, d, { limit: 5 })
+  expect(seen).toHaveLength(1)
+  expect(seen[0]!.photos).toEqual(['platy', 'neon', 'arowana'])
+  expect(seen[0]!.prompt).toContain('- Photo 1: platy\n- Photo 3: platy')
+  expect(seen[0]!.prompt).not.toContain('- Photo 2:')
+  expect(urls((await json(root, `content/guides/${id}/entity.json`)).photos)).toEqual(['platy'])
+  expect(urls((await json(root, 'content/guides/aquariumcoop-blogs-setup-a-tank/entity.json')).photos)).toEqual(['neon'])
+  expect(r.subject).toEqual([`content/guides/${id}/entity.json: ${url('arowana')}: two silver arowana`])
+  expect(await json(root, 'engine-state/_photo-rejected.json')).toEqual({})
+  expect((await json(root, 'engine-state/_photo-guides.json'))[url('arowana')].other).toEqual({ platy: true })
+
+  const file = join(root, `content/guides/${id}/entity.json`)
+  await writeFile(file, JSON.stringify({ ...JSON.parse(await readFile(file, 'utf8')), photos: [photo('platy'), photo('arowana')] }))
+  const again = await screenGuidePhotos(root, d, { limit: 5 })
+  expect(seen).toHaveLength(1)
+  expect(again.subject).toHaveLength(1)
+  expect(urls((await json(root, `content/guides/${id}/entity.json`)).photos)).toEqual(['platy'])
+})
+
+test('a photo on two guides is asked about each subject, and leaves only the guide it is a stranger on', async () => {
+  const root = await store({
+    'aquariumcoop-arowana-care': { kind: 'care', source: 'aquariumcoop', photos: [photo('lead-a'), photo('both')] },
+    'aquariumcoop-platy-care': { kind: 'care', source: 'aquariumcoop', photos: [photo('lead-p'), photo('both')] },
+  })
+  const { d, seen } = model({ both: { other: prompt => /Photo 3: platy/.test(prompt) } })
+  await screenGuidePhotos(root, d, { limit: 5 })
+  await screenGuidePhotos(root, d, { limit: 5 })
+  expect(seen.map(s => s.photos)).toEqual([['lead-a', 'lead-p', 'both'], ['both']])
+})
+
+test('a photo judged before the subject was asked is asked once, ahead of photos not judged, and keeps its verdict; a still is not asked', async () => {
+  const id = 'aquariumcoop-platy-care'
+  const root = await store({
+    'aquariumcoop-new-tank': { kind: 'setup', source: 'aquariumcoop', photos: [photo('lead-n'), photo('unjudged')] },
+    [id]: { kind: 'care', source: 'aquariumcoop', photos: [photo('lead'), photo('old')], video: { title: 'x', figures: [{ heading: 'a', moments: [{ ...still(3, true), url: url('still-hd') }] }] } },
+  })
+  const verdict = { person: false, mark: false, brand: false, note: 'a platy, from before' }
+  await writeFile(join(root, 'engine-state/_photo-guides.json'), JSON.stringify({ [url('lead')]: { ...verdict, other: { platy: false } }, [url('lead-n')]: verdict, [url('old')]: verdict, [url('still-hd')]: verdict }))
+  const { d, seen } = model({ old: { person: true, note: 'a new note' }, unjudged: {} })
+  await screenGuidePhotos(root, d, { limit: 1 })
+  expect(seen[0]!.photos).toEqual(['old', 'unjudged'])
+  expect(seen[0]!.prompt).toContain('- Photo 1: platy')
+  expect(seen[0]!.prompt).not.toContain('- Photo 2:')
+  const after = await json(root, 'engine-state/_photo-guides.json')
+  expect(after[url('old')]).toEqual({ ...verdict, other: { platy: false } })
+  expect(urls((await json(root, `content/guides/${id}/entity.json`)).photos)).toEqual(['lead', 'old'])
+  expect((await screenGuidePhotos(root, d, { limit: 1 })).judged).toBe(0)
+  expect(seen).toHaveLength(1)
 })
