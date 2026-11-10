@@ -60,6 +60,10 @@ function once<T>(args: string[], cwd: string, input: string, token?: string): Pr
     const child = spawn('claude', args, { cwd, stdio: ['pipe', 'pipe', 'pipe'], ...(token ? { env: { ...env, CLAUDE_CODE_OAUTH_TOKEN: token } } : {}) })
     let out = ''
     let err = ''
+    // Decoded across chunks, as the engine's runner is (packages/engine/src/claude.ts): a chunk decoded by itself turns a
+    // character the pipe cut in two into U+FFFD, and a finding would quote a word the page doesn't have.
+    child.stdout.setEncoding('utf8')
+    child.stderr.setEncoding('utf8')
     child.stdout.on('data', d => (out += d))
     child.stderr.on('data', d => (err += d))
     child.on('error', reject)
