@@ -8,7 +8,9 @@ const yml = readFileSync(new URL('../../../.github/workflows/deploy.yml', import
 // live for hours. A step over its own limit fails the run, and a failed run is reported.
 test('a deploy that runs too long fails rather than being cancelled: its long step has its own limit, inside the job\'s', () => {
   const job = Number(/^ {4}timeout-minutes: (\d+)/m.exec(yml)?.[1])
-  const step = Number(/name: Build the real site[^\n]*\n\s+timeout-minutes: (\d+)/.exec(yml)?.[1])
-  expect(step, 'the step\'s limit; a deploy took 30 minutes on 10 Nov').toBeGreaterThanOrEqual(45)
-  expect(job, 'the job\'s limit leaves the steps before it their time').toBeGreaterThanOrEqual(step + 15)
+  const limit = (name: string) => Number(new RegExp(`name: ${name}[^\\n]*\\n\\s+timeout-minutes: (\\d+)`).exec(yml)?.[1])
+  const build = limit('Build the real site'), upload = limit('Upload it to Cloudflare')
+  expect(build, 'the step\'s limit; a deploy took 30 minutes on 10 Nov').toBeGreaterThanOrEqual(45)
+  expect(upload, 'the upload has a limit of its own, so a long build can\'t take its time').toBeGreaterThanOrEqual(5)
+  expect(job, 'the job\'s limit leaves every step its time').toBeGreaterThanOrEqual(build + upload + 10)
 })
