@@ -479,6 +479,23 @@ final class AccountFlowTests: XCTestCase {
 
   /// In the Tài khoản sheet (`open`; else on the first tab). `newPhone`: as a new install (signed out, nothing saved);
   /// otherwise the phone as the last launch left it.
+  /// On a page pushed inside the sheet, "Xong" closes the sheet, as on its first screen: the page's own dismiss would only go back.
+  func testXongOnAPagePushedInsideTheSheetClosesTheSheet() {
+    let app = launch(resetServer: true)
+    tap(app, "app-icon-row")
+    XCTAssertTrue(app.buttons["account-done"].waitForExistence(timeout: 5), "no Xong on the pushed page")
+    app.buttons["account-done"].tap()
+    XCTAssertTrue(app.buttons["account-done"].waitForNonExistence(timeout: 5), "Xong only went back")
+  }
+
+  /// The account's button comes after the tab's own, apart from them (the account sheet's spec).
+  func testTheAccountButtonComesAfterTheTabsOwn() {
+    let app = launch(resetServer: true, open: false)
+    tanksTab(app)
+    XCTAssertTrue(app.buttons["add"].waitForExistence(timeout: 5), "no + on the tanks tab")
+    XCTAssertLessThan(app.buttons["add"].frame.maxX, app.buttons["profile"].frame.minX, "the account's button isn't last")
+  }
+
   private func launch(resetServer: Bool = false, newPhone: Bool = true, accounts: String = "on", open: Bool = true, _ args: String...) -> XCUIApplication {
     let app = XCUIApplication()
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-fake-accounts", accounts]

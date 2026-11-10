@@ -26,8 +26,12 @@ struct AccountView: View {
             .accessibilityIdentifier("app-version")
         }
       }
+      // The first card close under the title, as the mock.
+      .contentMargins(.top, 14, for: .scrollContent)
+      .modifier(ClearUnderTopBar(shown: true, ground: Color(.systemGroupedBackground)))
       .navigationTitle("Tài khoản")
       .navigationBarTitleDisplayMode(.inline)
+      .modifier(RowLabel())
       .toolbar {
         ToolbarItem(placement: .confirmationAction) { Button("Xong") { dismiss() }.accessibilityIdentifier("account-done") }
       }
@@ -41,6 +45,8 @@ struct AccountView: View {
       .background { AppearanceProbe(id: "appearance-sheet") }
       #endif
     }
+    // On the stack, not its first screen: the pages pushed onto it read their environment from here.
+    .environment(\.closeAccountSheet, { dismiss() })
   }
 
   /// "AquaTome 1.0 (231)".
@@ -55,6 +61,10 @@ struct AccountView: View {
 struct Tile: View {
   /// The app's green as its light appearance has it, in the dark too: the dark one's mint is too light under white.
   static let green = Color(red: 0x2F / 255, green: 0x6B / 255, blue: 0x4F / 255)
+  /// Dark grey, a little lighter in the dark, where the card under it is grey too.
+  static let graphite = Color(UIColor { $0.userInterfaceStyle == .dark
+    ? UIColor(red: 0x61 / 255, green: 0x63 / 255, blue: 0x65 / 255, alpha: 1)
+    : UIColor(red: 0x3A / 255, green: 0x3A / 255, blue: 0x3B / 255, alpha: 1) })
 
   let symbol: String
   let color: Color
@@ -63,7 +73,7 @@ struct Tile: View {
   var body: some View {
     let side = min(scaled, 44)
     Image(systemName: symbol)
-      .font(.system(size: side * 15 / 29, weight: .semibold))
+      .font(.system(size: side * 12 / 29, weight: .semibold))
       .foregroundStyle(.white)
       .frame(width: side, height: side)
       .background(color, in: .rect(cornerRadius: side * 7 / 29, style: .continuous))
@@ -82,7 +92,7 @@ private struct AppSection: View {
 
   var body: some View {
     Section {
-      NavigationLink { AppIconPicker() } label: {
+      NavigationLink { AppIconPicker().accountSheetDone() } label: {
         Label { Text("Biểu tượng ứng dụng") } icon: { CurrentIcon() }
       }
       .accessibilityIdentifier("app-icon-row")
@@ -93,17 +103,18 @@ private struct AppSection: View {
         Button { openScreen(.kept) } label: {
           LabeledContent {
             HStack(spacing: 6) {
-              Text("\(kept) trang")
-              Image(systemName: "chevron.forward").font(.footnote.weight(.semibold)).foregroundStyle(.tertiary).accessibilityHidden(true)
+              // Colours by name: a button's hierarchical ones are shades of the tint.
+              Text("\(kept) trang").foregroundStyle(Color.secondary)
+              Image(systemName: "chevron.forward").font(.footnote.weight(.semibold)).foregroundStyle(Color(.tertiaryLabel)).accessibilityHidden(true)
             }
           } label: {
-            Label { Text("Đã tải để đọc offline").foregroundStyle(.primary) } icon: { Tile(symbol: "book.closed.fill", color: .blue) }
+            Label { Text("Đã tải để đọc offline").foregroundStyle(Color.primary) } icon: { Tile(symbol: "book.closed.fill", color: .blue) }
           }
         }
         .accessibilityIdentifier("kept-row")
       }
     } header: {
-      Text("Ứng dụng")
+      Text("Ứng dụng").font(.subheadline.weight(.semibold))
     } footer: {
       LanguageNote(choice: language)
     }
@@ -164,7 +175,7 @@ private struct PrivacySection: View {
       TelemetrySwitch()
       let blocked = handbook.safety.blocked.count
       if blocked > 0 {
-        NavigationLink { BlockedPage() } label: {
+        NavigationLink { BlockedPage().accountSheetDone() } label: {
           LabeledContent {
             Text(blocked, format: .number)
           } label: {
@@ -174,7 +185,7 @@ private struct PrivacySection: View {
         .accessibilityIdentifier("blocked-row")
       }
     } header: {
-      Text("Quyền riêng tư")
+      Text("Quyền riêng tư").font(.subheadline.weight(.semibold))
     } footer: {
       Text.linked(String(localized: "Thống kê không gồm tài khoản, tên bể, nội dung tìm kiếm hay ảnh."),
                   String(localized: "Chính sách bảo mật"),
@@ -187,10 +198,12 @@ private struct PrivacySection: View {
 /// page does (AboutTheSite).
 private struct AboutSection: View {
   var body: some View {
-    Section("Về AquaTome") {
+    Section {
       out("Giới thiệu", URL(string: String(localized: "https://aquatome.com/gioi-thieu/"))!, id: "about")
       out("Liên hệ", URL(string: String(localized: "https://aquatome.com/lien-he/"))!, id: "about-contact")
       out("Chính sách bảo mật", URL(string: String(localized: "https://aquatome.com/chinh-sach-bao-mat/"))!, id: "about-privacy")
+    } header: {
+      Text("Về AquaTome").font(.subheadline.weight(.semibold))
     }
   }
 
@@ -206,6 +219,49 @@ private struct AboutSection: View {
     // The page's name in the text's colour, as a settings row: the arrow says it leaves the app.
     .tint(.primary)
     .accessibilityIdentifier(id)
+  }
+}
+
+extension EnvironmentValues {
+  /// Closes the Tài khoản sheet from a page pushed inside it, where the page's own dismiss would only go back.
+  @Entry var closeAccountSheet: (() -> Void)?
+}
+
+extension View {
+  /// "Xong" on a page pushed inside the Tài khoản sheet, as on its first screen. Nothing where the page opens elsewhere.
+  func accountSheetDone() -> some View { modifier(AccountSheetDone()) }
+}
+
+private struct AccountSheetDone: ViewModifier {
+  @Environment(\.closeAccountSheet) private var close
+
+  func body(content: Content) -> some View {
+    content.toolbar {
+      if let close {
+        ToolbarItem(placement: .confirmationAction) { Button("Xong") { close() }.accessibilityIdentifier("account-done") }
+      }
+    }
+  }
+}
+
+/// At the accessibility sizes a row's words keep their own column beside its icon when they wrap, as the mock has them,
+/// not running back under it. A switch's label needs it on the label itself: the list's doesn't reach inside a switch.
+struct RowLabel: ViewModifier {
+  @Environment(\.dynamicTypeSize) private var size
+
+  func body(content: Content) -> some View {
+    if size.isAccessibilitySize { content.labelStyle(Hanging()) } else { content }
+  }
+
+  private struct Hanging: LabelStyle {
+    func makeBody(configuration: Configuration) -> some View {
+      HStack(alignment: .firstTextBaseline, spacing: 14) {
+        configuration.icon
+        configuration.title
+          .fixedSize(horizontal: false, vertical: true)
+          .alignmentGuide(.listRowSeparatorLeading) { $0[.leading] }
+      }
+    }
   }
 }
 
