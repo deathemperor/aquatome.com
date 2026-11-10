@@ -605,7 +605,11 @@ The layers above still check the result.
     of one is in it, whether a mark was added on it, and whether a shop's or dealer's brand shows in it (a maker's
     brand on its own product doesn't count). A
     person or a mark is the photo's: off every page and onto `_photo-rejected.json` ("people: …", "watermark: …"). A
-    brand leaves the guides ("logo: …"), and stays on an equipment guide, whose subject is the product. Each photo is
+    brand leaves the guides ("logo: …"), and stays on an equipment guide, whose subject is the product. On a guide
+    about one kind of fish or plant (`guideSubject`: not a how-to, a tank-mates list or a guide naming several), the
+    same call asks, with the guide's title, whether a photo plainly shows another kind, fish with fish and plant with plant: it leaves that guide alone, joins no blocklist as it may
+    be right elsewhere, and each run takes it off again. A video's stills aren't asked: a frame is the guide's own
+    video. Found by the owner (2026-11-10): arowanas and a corydoras on the platy guide. Each photo is
     judged once (`engine-state/_photo-guides.json`): 2,560 on 2026-11-07, about 430 calls, a day and a half. Found by a
     design review (2026-11-07): hands planting a sword plant and a person siphoning a tank leading two guides, and an
     Aquarium Co-op test-strip bottle in the betta setup guide, where only the face detector (no face in either) and the

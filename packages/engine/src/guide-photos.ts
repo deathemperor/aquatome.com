@@ -31,15 +31,21 @@ import { stripPhotos } from './watermarks'
  * false` in its guide. A still is judged once video-stills.ts won't change it again (`stillDone`) and it could show (it
  * passes the other bars), so a tile about to be replaced at a new address isn't judged twice, and a still taken off is one
  * it never brings back. video-stills.ts asks the same of the frames it makes, before they are uploaded.
+ *
+ * On a guide about one kind of fish or plant (`guideSubject`: not a how-to with stock tank shots, a tank-mates list or a
+ * guide naming several), the same call also asks, with the guide's title, whether a photo plainly shows another kind:
+ * fish with fish, plant with plant (`other`, per subject: a photo may be right on another guide, so it leaves this guide and joins no blocklist, and each run takes it off again if
+ * a re-read brings it back). The owner's report (2026-11-10): arowanas and a corydoras on the platy guide. A photo judged
+ * before this was asked is asked again, once, keeping its verdict. A still isn't asked: it's the guide's own video.
  */
-export type GuidePhotoVerdict = { person: boolean; mark: boolean; brand: boolean; note: string }
+export type GuidePhotoVerdict = { person: boolean; mark: boolean; brand: boolean; note: string; other?: Record<string, boolean> }
 export type GuidePhotoDeps = {
   get: (url: string) => Promise<Uint8Array>
-  look: (sheet: string, prompt: string) => Promise<{ photos: ({ n: number } & GuidePhotoVerdict)[] }>
+  look: (sheet: string, prompt: string) => Promise<{ photos: ({ n: number; other?: boolean } & Omit<GuidePhotoVerdict, 'other'>)[] }>
 }
 export const GUIDE_PHOTO_SCHEMA = {
   type: 'object', required: ['photos'],
-  properties: { photos: { type: 'array', items: { type: 'object', required: ['n', 'person', 'mark', 'brand', 'note'], properties: { n: { type: 'number' }, person: { type: 'boolean' }, mark: { type: 'boolean' }, brand: { type: 'boolean' }, note: { type: 'string' } } } } },
+  properties: { photos: { type: 'array', items: { type: 'object', required: ['n', 'person', 'mark', 'brand', 'note'], properties: { n: { type: 'number' }, person: { type: 'boolean' }, mark: { type: 'boolean' }, brand: { type: 'boolean' }, note: { type: 'string' }, other: { type: 'boolean' } } } } },
 }
 export const GUIDE_PHOTO_PROMPT = `Numbered photos and video frames from an aquarium handbook's guides. For each photo n:
 - person: true if a person or any part of one is in it: a hand or fingers (planting, holding, pointing, working in the tank), an arm, a foot, a face, a body seen from behind, even small, cut off at the edge, blurred or behind the glass; false if not.
@@ -47,10 +53,39 @@ export const GUIDE_PHOTO_PROMPT = `Numbered photos and video frames from an aqua
 - brand: true if a shop's or dealer's logo or name can be read or recognised in the photo: on a product it sells under its own name (such as an Aquarium Co-op bottle), a bag, a box, a sign or a price tag; false for a maker's own brand on its own product (Seachem, API, Fluval, Tetra, Oase and the like), for a product with no brand in view, and for text that isn't a brand.
 - note: a few words on what it shows and, for each true, what and where (e.g. "hands planting a sword plant in gravel"; "Aquarium Co-op logo on a test-strip bottle").
 Answer every photo, by its number.`
+const GUIDE_SUBJECT_PROMPT = `Some of these photos come from a guide about one kind of fish or plant. Each is listed below with that kind and the guide's title. For each photo listed, also answer:
+- other: true only if the photo is plainly of a different kind from the one named: on a guide about a fish, shrimp or snail, another fish, shrimp or snail; on a guide about a plant, another plant. Say what it shows in note. False if it shows the named kind in any variety or colour, or if you can't tell. False for anything the title names or suggests (tank mates, food, fish eating it), for a plant on a fish guide or a fish on a plant guide, and for a tank, a layout, equipment, water or a diagram.`
 export const PER_SHEET = 6
 
-type Item = { url: string; lead: boolean; equipment: boolean; still: boolean; wanted: boolean }
-type Guide = { photos?: { url: string }[]; video?: { figures?: { photo?: { url: string }; moments?: { t: number; url: string; width: number; height: number; sharpness?: number; person?: boolean }[] }[] } }
+/** The kinds of fish and plants a guide can be about, in the words its titles use. */
+const SUBJECTS: Record<string, string[]> = {
+  platy: ['platy', 'platies', 'cá bình tích'], guppy: ['guppy', 'guppies', 'bảy màu', 'endlers?'], molly: ['molly', 'mollies'], swordtail: ['swordtails?', 'cá kiếm'],
+  betta: ['bettas?', 'cá xiêm'], goldfish: ['goldfish', 'cá vàng'], koi: ['koi'], discus: ['discus', 'cá đĩa', 'cá dĩa'], angelfish: ['angelfish', 'angel fish', 'cá ông tiên', 'cá thần tiên'],
+  corydoras: ['corydoras', 'cory', 'cories', 'cá chuột'], gourami: ['gouramis?', 'cá sặc'], cichlid: ['cichlids?'], tetra: ['tetras?'], rasbora: ['rasboras?'], barb: ['barbs?'], danio: ['danios?'],
+  loach: ['loach', 'loaches', 'cá chạch'], pleco: ['plecos?', 'plecostomus'], killifish: ['killifish', 'killifishes'], rainbowfish: ['rainbowfish', 'rainbow fish'], arowana: ['arowanas?', 'cá rồng'], flowerhorn: ['flowerhorn', 'cá la hán'],
+  oscar: ['oscars?'], puffer: ['puffers?', 'pufferfish'], shrimp: ['(?<!brine )shrimp', 'tép'], snail: ['snails?', '(?<!vỏ )ốc'], stingray: ['stingrays?', 'cá đuối'],
+  anubias: ['anubias', 'ráy'], 'java fern': ['java fern', 'dương xỉ'], 'java moss': ['java moss', 'rêu java'], cryptocoryne: ['cryptocoryne', 'crypts?'], bucephalandra: ['bucephalandra'], vallisneria: ['vallisneria'],
+  'amazon sword': ['amazon sword', 'sword plants?'], ludwigia: ['ludwigia'], rotala: ['rotala'], hornwort: ['hornwort'], duckweed: ['duckweed', 'bèo tấm'], hygrophila: ['hygrophila'], 'monte carlo': ['monte carlo'],
+}
+const SUBJECT_WORDS = Object.entries(SUBJECTS).map(([s, ws]) => [s, new RegExp(`(?<![\\p{L}\\p{N}])(?:${ws.join('|')})(?![\\p{L}\\p{N}])`, 'iu')] as const)
+const SUBJECT_KINDS = new Set(['care', 'breeding', 'plantCare', 'discovery'])
+const OTHERS_EXPECTED = /tank.?mates?|bạn cùng bể|cá cùng bể|nuôi chung|sống chung|chung bể|thả chung|compatib/iu
+
+/**
+ * The one kind of fish or plant a guide is about, from its kind and title and, in `also`, its video's title or an
+ * article's slug; undefined if they name several, or tank mates are the headline (after a colon they're one topic of
+ * several: "Hướng dẫn nuôi cá platy: cho ăn, sinh sản và cá cùng bể" is about platies).
+ */
+export function guideSubject(kind: string | undefined, title: string, also = ''): string | undefined {
+  const [t, more] = [title, also].map(x => x.normalize('NFC').replaceAll('-', ' ')) as [string, string]
+  if (!SUBJECT_KINDS.has(kind ?? '') || OTHERS_EXPECTED.test(t.split(/[:–—]/)[0]!) || OTHERS_EXPECTED.test(more)) return undefined
+  const named = SUBJECT_WORDS.filter(([, w]) => w.test(`${t} ${more}`)).map(([x]) => x)
+  return named.length === 1 ? named[0] : undefined
+}
+
+type About = { subject: string; title: string }
+type Item = { url: string; lead: boolean; equipment: boolean; still: boolean; wanted: boolean; subjects: About[] }
+type Guide = { kind?: string; source?: string; photos?: { url: string }[]; video?: { title?: string; figures?: { photo?: { url: string }; moments?: { t: number; url: string; width: number; height: number; sharpness?: number; person?: boolean }[] }[] } }
 type Equipment = { hero?: { url: string }; types?: { photo?: { url: string } }[] }
 const readJson = async <T>(path: string): Promise<T | undefined> => readFile(path, 'utf8').then(s => JSON.parse(s) as T, () => undefined)
 
@@ -65,13 +100,16 @@ export function guidePhotoOff(v: GuidePhotoVerdict | undefined, brandKept: boole
   return v.person ? `people: ${v.note}` : v.mark ? `watermark: ${v.note}` : v.brand && !brandKept ? `logo: ${v.note}` : undefined
 }
 
-/** The model's verdict on each image (at most PER_SHEET), in order; one it didn't answer is undefined. */
-export async function judgeGuidePhotos(images: Buffer[], sheet: string, look: GuidePhotoDeps['look']): Promise<(GuidePhotoVerdict | undefined)[]> {
+/** The model's verdict on each image (at most PER_SHEET), in order; one it didn't answer is undefined. `subjects`: each image's guide's subject, if it's to be asked about. */
+export async function judgeGuidePhotos(images: Buffer[], sheet: string, look: GuidePhotoDeps['look'], subjects: (About | undefined)[] = []): Promise<(GuidePhotoVerdict | undefined)[]> {
   await writeFile(sheet, await contactSheet(images, 640, 480, 2, 'contain'))
   const out: (GuidePhotoVerdict | undefined)[] = images.map(() => undefined)
-  for (const p of (await look(sheet, GUIDE_PHOTO_PROMPT)).photos ?? []) {
+  const asked = subjects.flatMap((s, i) => (s ? [`- Photo ${i + 1} (${s.subject}): "${s.title}"`] : []))
+  const prompt = asked.length ? `${GUIDE_PHOTO_PROMPT}\n${GUIDE_SUBJECT_PROMPT}\n${asked.join('\n')}` : GUIDE_PHOTO_PROMPT
+  for (const p of (await look(sheet, prompt)).photos ?? []) {
     if (!(p.n - 1 in out) || typeof p.person !== 'boolean' || typeof p.mark !== 'boolean' || typeof p.brand !== 'boolean') continue
-    out[p.n - 1] = { person: p.person, mark: p.mark, brand: p.brand, note: String(p.note ?? '').slice(0, 120) }
+    const about = subjects[p.n - 1]
+    out[p.n - 1] = { person: p.person, mark: p.mark, brand: p.brand, note: String(p.note ?? '').slice(0, 120), ...(about ? { other: { [about.subject]: p.other === true } } : {}) }
   }
   return out
 }
@@ -83,15 +121,16 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
   const cache = (await readJson<Record<string, GuidePhotoVerdict>>(state('_photo-guides.json'))) ?? {}
   const rejected = (await readJson<Record<string, string>>(state('_photo-rejected.json'))) ?? {}
   const done = (await readJson<StillsState>(state('_video-stills.json'))) ?? {}
-  const report = { sheets: 0, judged: 0, cleared: 0, off: [] as string[], removed: [] as string[], kept: [] as string[], failed: [] as string[], left: 0, waiting: 0, stopped: '' }
+  const report = { sheets: 0, judged: 0, cleared: 0, off: [] as string[], removed: [] as string[], kept: [] as string[], failed: [] as string[], left: 0, waiting: 0, stopped: '', subject: [] as string[] }
 
   // Every photo a guide or an equipment guide shows, and every video still, with the files they are in.
   const files: string[] = []
+  const subjectOf = new Map<string, string>() // a guide's file → what it's about
   const items = new Map<string, Item>()
   let wanted = true
-  const add = (url: string, lead: boolean, equipment: boolean, still = false) => {
-    const it = items.get(url) ?? { url, lead, equipment, still, wanted }
-    items.set(url, { url, lead: it.lead || lead, equipment: it.equipment || equipment, still: it.still || still, wanted: it.wanted || wanted })
+  const add = (url: string, lead: boolean, equipment: boolean, still = false, about?: About) => {
+    const it = items.get(url) ?? { url, lead, equipment, still, wanted, subjects: [] }
+    items.set(url, { url, lead: it.lead || lead, equipment: it.equipment || equipment, still: it.still || still, wanted: it.wanted || wanted, subjects: about && !it.subjects.some(s => s.subject === about.subject) ? [...it.subjects, about] : it.subjects })
   }
   for (const id of (await readdir(join(content, 'guides')).catch(() => [] as string[])).sort()) {
     const file = join(content, 'guides', id, 'entity.json')
@@ -99,8 +138,13 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
     if (!g) continue
     files.push(file)
     wanted = !o.only || o.only.includes(id)
-    for (const [i, p] of (g.photos ?? []).entries()) add(p.url, i === 0, false)
-    for (const f of g.video?.figures ?? []) if (f.photo) add(f.photo.url, false, false)
+    const title = (await readJson<{ name?: string }>(join(content, 'guides', id, 'vi.json')))?.name ?? g.video?.title ?? id
+    // A video's id says nothing, and Glaser's addresses are its taxonomy's folders.
+    const subject = guideSubject(g.kind, title, [g.video?.title, g.source === 'youtube' || g.source === 'glaser' ? '' : id].filter(Boolean).join(' '))
+    const about = subject ? { subject, title } : undefined
+    if (subject) subjectOf.set(file, subject)
+    for (const [i, p] of (g.photos ?? []).entries()) add(p.url, i === 0, false, false, about)
+    for (const f of g.video?.figures ?? []) if (f.photo) add(f.photo.url, false, false, false, about)
     // A tile video-stills.ts will replace with the video's frame waits for that frame; a still the other bars keep off
     // the page needs no verdict.
     for (const m of (g.video?.figures ?? []).flatMap(f => f.moments ?? [])) {
@@ -119,8 +163,10 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
     for (const t of e.types ?? []) if (t.photo) add(t.photo.url, false, true)
   }
 
-  // 1. The model judges photos not judged yet, leads first, then video stills, then the rest; `limit` sheets this run.
-  const todo = [...items.values()].filter(x => x.wanted && !(x.url in cache) && !(x.url in rejected)).map((x, i) => ({ x, i })).sort((a, b) => Number(b.x.lead) - Number(a.x.lead) || Number(b.x.still) - Number(a.x.still) || a.i - b.i).map(({ x }) => x)
+  // 1. The model judges photos not judged yet, leads first, then video stills, then photos it judged before their guide's
+  // subject was asked, then the rest; `limit` sheets this run.
+  const ask = (x: Item) => x.subjects.find(s => cache[x.url]?.other?.[s.subject] === undefined)
+  const todo = [...items.values()].filter(x => x.wanted && !(x.url in rejected) && (!(x.url in cache) || ask(x))).map((x, i) => ({ x, i })).sort((a, b) => Number(b.x.lead) - Number(a.x.lead) || Number(b.x.still) - Number(a.x.still) || Number(b.x.url in cache) - Number(a.x.url in cache) || a.i - b.i).map(({ x }) => x)
   const batch = todo.slice(0, Math.max(0, o.limit) * PER_SHEET)
   report.left = todo.length - batch.length
   const sheets = Array.from({ length: Math.ceil(batch.length / PER_SHEET) }, (_, i) => batch.slice(i * PER_SHEET, (i + 1) * PER_SHEET))
@@ -128,19 +174,25 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
   try {
     await pool(sheets.map((s, i) => ({ s, i })), o.parallel ?? 1, async ({ s, i }) => {
       if (report.stopped) return
-      const ok: { url: string; b: Buffer }[] = []
+      const ok: { url: string; b: Buffer; about?: About }[] = []
       for (const x of s) {
         try {
           const b = Buffer.from(await d.get(x.url))
           await sharp(b).metadata() // not an image (an error page served as 200): left out, so the rest of the sheet is judged
-          ok.push({ url: x.url, b })
+          ok.push({ url: x.url, b, about: ask(x) })
         } catch (err) { report.failed.push(`${x.url}: ${(err as Error).message.slice(0, 120)}`) }
       }
       if (!ok.length) return
       try {
-        const verdicts = await judgeGuidePhotos(ok.map(x => x.b), join(dir, `sheet-${i}.jpg`), d.look)
+        const verdicts = await judgeGuidePhotos(ok.map(x => x.b), join(dir, `sheet-${i}.jpg`), d.look, ok.map(x => x.about))
         report.sheets++
-        verdicts.forEach((v, j) => { if (!v) return; cache[ok[j]!.url] = v; report.judged++ })
+        verdicts.forEach((v, j) => {
+          if (!v) return
+          const url = ok[j]!.url, before = cache[url]
+          // Asked again for its subject, a photo keeps the verdict that was acted on; the note says what a true found.
+          cache[url] = before ? { ...before, other: { ...before.other, ...v.other }, ...(Object.values(v.other ?? {}).some(Boolean) ? { note: v.note } : {}) } : v
+          report.judged++
+        })
       } catch (err) {
         if (err instanceof LlmError) report.stopped ||= err.message
         else report.failed.push(`sheet ${i}: ${(err as Error).message.slice(0, 120)}`)
@@ -164,7 +216,10 @@ export async function screenGuidePhotos(root: string, d: GuidePhotoDeps, o: { li
     const data = JSON.parse(raw) as Guide
     const removed: string[] = []
     const equipment = file.startsWith(join(content, 'equipment'))
-    stripPhotos(data, url => !!guidePhotoOff(cache[url], equipment || !!items.get(url)?.still), removed, report.kept)
+    const subject = subjectOf.get(file)
+    const another = (url: string) => !!subject && cache[url]?.other?.[subject] === true
+    stripPhotos(data, url => !!guidePhotoOff(cache[url], equipment || !!items.get(url)?.still) || another(url), removed, report.kept)
+    report.subject.push(...removed.filter(another).map(u => `${relative(root, file)}: ${u}: ${cache[u]!.note}`))
     // What's left of a guide's stills carries its verdict, which they need to show.
     let cleared = 0
     for (const m of (data.video?.figures ?? []).flatMap(f => f.moments ?? [])) {
