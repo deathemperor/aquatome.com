@@ -118,6 +118,7 @@ there: the script in every page (`OWNER_SCRIPT`) only loads it and may not grow.
 
   ```sh
   git config merge.jsonmap.driver 'node scripts/merge-json-map.mjs %O %A %B'
+  git config merge.regenerated.driver true
   git config merge.entity.driver 'node scripts/merge-entity.mjs %O %A %B'
   git config merge.changelog.driver 'node scripts/merge-changelog.mjs %O %A %B'
   ```

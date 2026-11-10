@@ -32,3 +32,6 @@ apps/site/src/i18n/th.json merge=jsonmap
 apps/site/src/i18n/ms.json merge=jsonmap
 engine-state/_fit.json merge=jsonmap
 engine-state/_cards-intl.json merge=jsonmap
+# Each run rewrites these reports, so either whole version can survive a merge.
+docs/review/fit.md merge=regenerated
+engine-state/fit-summary.json merge=regenerated
