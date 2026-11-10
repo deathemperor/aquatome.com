@@ -233,7 +233,9 @@ test('the limit caps model calls with video stills too: leads, then the stills, 
 
 test('what a guide is about: one kind of fish or plant, from its kind and title; not a how-to, a tank-mates list or a guide naming several', () => {
   expect(guideSubject('care', 'aquariumcoop-blogs-aquarium-platy-care-guide')).toBe('platy')
-  expect(guideSubject('care', 'Hướng dẫn nuôi cá platy: cho ăn, sinh sản')).toBe('platy')
+  expect(guideSubject('care', 'Hướng dẫn nuôi cá platy: cho ăn, sinh sản và cá cùng bể')).toBe('platy')
+  expect(guideSubject('discovery', 'Top 10 loài cá tetra cho bể cộng đồng')).toBe('tetra')
+  expect(guideSubject('care', 'Hướng dẫn chăm sóc cá chạch hề')).toBe('loach')
   expect(guideSubject('plantCare', 'Cách buộc ráy (Anubias) lên lũa')).toBe('anubias')
   expect(guideSubject('discovery', 'Top 10 loài cá chuột (Corydoras) đáng nuôi nhất')).toBe('corydoras')
   expect(guideSubject('setup', 'Cách set bể cá betta đẹp')).toBeUndefined()
@@ -243,22 +245,30 @@ test('what a guide is about: one kind of fish or plant, from its kind and title;
   expect(guideSubject('care', 'Set bể nuôi cá thần tiên, cá đĩa')).toBeUndefined()
   expect(guideSubject('care', 'Cách cho cá ăn thức ăn đông lạnh')).toBeUndefined()
   expect(guideSubject(undefined, 'platy')).toBeUndefined()
+  // Real titles a review caught: a word in passing, or a second animal the table didn't know.
+  expect(guideSubject('care', 'Bể Tanganyika cho cá sống trong vỏ ốc')).toBeUndefined()
+  expect(guideSubject('care', 'Cách chuyển cá rồng và cá đuối lớn sang hệ bể mới')).toBeUndefined()
+  expect(guideSubject('care', 'Cá endler, bảy màu và cá kiếm')).toBeUndefined()
+  expect(guideSubject('breeding', 'x', 'aquariumcoop-blogs-aquarium-baby-brine-shrimp')).toBeUndefined()
+  expect(guideSubject('care', 'Cách chuyển cá rồng sang bể mới và thả chung với cá khác')).toBeUndefined()
+  expect(guideSubject('care', 'x', 'aquariumcoop-blogs-goldfish-tank-mates')).toBeUndefined()
 })
 
 test('a guide about one fish: in the same call as the people check, a picture of another fish leaves that guide, joins no blocklist, and stays off after a re-read; a how-to is not asked', async () => {
   // The owner's reports (2026-11-10): arowanas and a corydoras on the platy guide.
   const id = 'aquariumcoop-blogs-aquarium-platy-care-guide'
   const root = await store({
-    [id]: { kind: 'care', source: 'aquariumcoop', photos: [photo('platy'), photo('arowana')] },
+    [id]: { kind: 'care', source: 'aquariumcoop', photos: [photo('platy'), photo('html-gone'), photo('arowana')] },
     'aquariumcoop-blogs-setup-a-tank': { kind: 'setup', source: 'aquariumcoop', photos: [photo('neon')] },
   })
   const { d, seen } = model({ arowana: { other: true, note: 'two silver arowana' }, neon: { other: true } })
   const r = await screenGuidePhotos(root, d, { limit: 5 })
   expect(seen).toHaveLength(1)
   expect(seen[0]!.photos).toEqual(['platy', 'neon', 'arowana'])
-  expect(seen[0]!.prompt).toContain('- Photo 1: platy\n- Photo 3: platy')
-  expect(seen[0]!.prompt).not.toContain('- Photo 2:')
-  expect(urls((await json(root, `content/guides/${id}/entity.json`)).photos)).toEqual(['platy'])
+  // A download that failed doesn't shift the numbers; the guide's title goes with its subject.
+  expect(seen[0]!.prompt).toContain(`- Photo 1 (platy): "${id}"\n- Photo 3 (platy): "${id}"`)
+  expect(seen[0]!.prompt).not.toContain('- Photo 2 ')
+  expect(urls((await json(root, `content/guides/${id}/entity.json`)).photos)).toEqual(['platy', 'html-gone'])
   expect(urls((await json(root, 'content/guides/aquariumcoop-blogs-setup-a-tank/entity.json')).photos)).toEqual(['neon'])
   expect(r.subject).toEqual([`content/guides/${id}/entity.json: ${url('arowana')}: two silver arowana`])
   expect(await json(root, 'engine-state/_photo-rejected.json')).toEqual({})
@@ -277,10 +287,12 @@ test('a photo on two guides is asked about each subject, and leaves only the gui
     'aquariumcoop-arowana-care': { kind: 'care', source: 'aquariumcoop', photos: [photo('lead-a'), photo('both')] },
     'aquariumcoop-platy-care': { kind: 'care', source: 'aquariumcoop', photos: [photo('lead-p'), photo('both')] },
   })
-  const { d, seen } = model({ both: { other: prompt => /Photo 3: platy/.test(prompt) } })
+  const { d, seen } = model({ both: { other: prompt => /Photo \d \(platy\)/.test(prompt) && !/Photo \d \(arowana\)/.test(prompt) } })
   await screenGuidePhotos(root, d, { limit: 5 })
   await screenGuidePhotos(root, d, { limit: 5 })
   expect(seen.map(s => s.photos)).toEqual([['lead-a', 'lead-p', 'both'], ['both']])
+  expect(urls((await json(root, 'content/guides/aquariumcoop-arowana-care/entity.json')).photos)).toEqual(['lead-a', 'both'])
+  expect(urls((await json(root, 'content/guides/aquariumcoop-platy-care/entity.json')).photos)).toEqual(['lead-p'])
 })
 
 test('a photo judged before the subject was asked is asked once, ahead of photos not judged, and keeps its verdict; a still is not asked', async () => {
@@ -294,8 +306,8 @@ test('a photo judged before the subject was asked is asked once, ahead of photos
   const { d, seen } = model({ old: { person: true, note: 'a new note' }, unjudged: {} })
   await screenGuidePhotos(root, d, { limit: 1 })
   expect(seen[0]!.photos).toEqual(['old', 'unjudged'])
-  expect(seen[0]!.prompt).toContain('- Photo 1: platy')
-  expect(seen[0]!.prompt).not.toContain('- Photo 2:')
+  expect(seen[0]!.prompt).toContain('- Photo 1 (platy): ')
+  expect(seen[0]!.prompt).not.toContain('- Photo 2 ')
   const after = await json(root, 'engine-state/_photo-guides.json')
   expect(after[url('old')]).toEqual({ ...verdict, other: { platy: false } })
   expect(urls((await json(root, `content/guides/${id}/entity.json`)).photos)).toEqual(['lead', 'old'])
