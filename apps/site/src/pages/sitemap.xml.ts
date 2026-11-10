@@ -27,7 +27,7 @@ export const GET: APIRoute = async ({ site }) => {
   // Other languages: their fixed pages and their indexable species, breed, photo, guide, plant (and its photos) and glossary pages.
   for (const lang of OTHER_LANGS) {
     const t = await getContent(lang)
-    paths.push(...PAGES[lang].filter(f => !f.includes('[')).map(f => `${routeIn(lang, f)}/`))
+    paths.push(...PAGES[lang].filter(f => !f.includes('[') && f !== 'tim-kiem/index.astro').map(f => `${routeIn(lang, f)}/`))
     if (served(lang, '/vi/ca/x/')) paths.push(...[...t.species, ...t.breeds].filter(s => s.t.quality.indexable).map(s => localizePath(lang, `/vi/ca/${s.t.slug}/`)))
     if (served(lang, '/vi/ca/x/anh/')) paths.push(...[...t.species, ...t.breeds].filter(s => s.t.quality.indexable && (t.galleries[s.id]?.length ?? 0) >= GALLERY_MIN).map(s => localizePath(lang, `/vi/ca/${s.t.slug}/anh/`)))
     if (served(lang, '/vi/thiet-bi/x/')) paths.push(...categoriesIn(lang, t).filter(u => t.equipment.find(e => e.category === u.category)?.quality?.indexable).map(u => localizePath(lang, `/vi/thiet-bi/${u.category}/`)))

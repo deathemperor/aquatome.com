@@ -15,7 +15,7 @@ import { excerpt } from '../../lib/meta'
 import GearList from '../../components/GearList.astro'
 import { categoryLabel } from '../../lib/format'
 import VideoPlayer from '../../components/VideoPlayer.astro'
-import { clock, guideChapters, isoDuration, watchUrl } from '../../lib/video'
+import { clock, guideChapters, isoDuration, videoPhoto, watchUrl } from '../../lib/video'
 import BackToTop from '../../components/BackToTop.astro'
 import { guideParts } from '../../lib/guide-page'
 import { i18n, langOf, isVietnamese } from '../../lib/i18n'
@@ -38,7 +38,7 @@ const description = excerpt(g.t.body ?? '')
 const jsonld: object[] = []
 if (v) {
   jsonld.push({
-    '@context': 'https://schema.org', '@type': 'VideoObject', name: v.title, description, thumbnailUrl: [ph?.url], ...(v.publishedAt ? { uploadDate: v.publishedAt } : {}),
+    '@context': 'https://schema.org', '@type': 'VideoObject', name: v.title, description, thumbnailUrl: [ph?.url ?? videoPhoto(v).url], ...(v.publishedAt ? { uploadDate: v.publishedAt } : {}),
     duration: isoDuration(v.durationSec), embedUrl: `https://www.youtube-nocookie.com/embed/${v.youtubeId}`, url: watchUrl(v.youtubeId), inLanguage: v.lang ?? 'en',
     author: { '@type': 'Person', name: v.channel, url: v.channelUrl },
     ...(guideChapters(v, g.t.chapters).length > 1 ? { hasPart: guideChapters(v, g.t.chapters).map(ch => ({ '@type': 'Clip', name: ch.title, startOffset: ch.start, endOffset: ch.end, url: watchUrl(v.youtubeId, ch.start) })) } : {}),

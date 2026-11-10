@@ -1,5 +1,6 @@
 import { describe, expect, test } from 'vitest'
-import { readFileSync } from 'node:fs'
+import { readdirSync, readFileSync } from 'node:fs'
+import { join } from 'node:path'
 import { DIST, page } from './dist'
 import { CATEGORY_ORDER } from '../src/lib/format'
 import { VI_SECTIONS } from '../worker/paths'
@@ -576,6 +577,23 @@ describe('video guide', () => {
   test('has no broken values', () => {
     expect(html).not.toMatch(/undefined|NaN|\[object Object\]/)
   })
+})
+
+/** Every page the build wrote that a search engine can reach. */
+const builtPages = (dir = DIST): string[] => readdirSync(dir, { withFileTypes: true }).flatMap(e =>
+  e.isDirectory() ? (['_astro', '_owner', 'pagefind', 'app', 'data'].includes(e.name) ? [] : builtPages(join(dir, e.name))) : e.name === 'index.html' ? [join(dir, e.name)] : [])
+
+// Google leaves a video out of its index when the mark-up names no thumbnail (Search Console, "No thumbnail URL provided").
+test('every video marked up on a page names a thumbnail, also a guide with no picture of its own', () => {
+  const videos = builtPages().flatMap(file => [...readFileSync(file, 'utf8').matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+    .map(m => JSON.parse(m[1]!)).filter(j => j['@type'] === 'VideoObject').map(v => ({ page: file.slice(DIST.length), thumbs: [v.thumbnailUrl].flat() })))
+  expect(videos.length).toBeGreaterThan(0)
+  expect(videos.filter(v => !v.thumbs.length || !v.thumbs.every(u => typeof u === 'string' && u.startsWith('https://')))).toEqual([])
+})
+
+test('the sitemap names no page that keeps itself out of search', () => {
+  const locs = [...readFileSync(`${DIST}/sitemap.xml`, 'utf8').matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => new URL(m[1]!).pathname)
+  expect(locs.filter(p => /<meta name="robots" content="[^"]*noindex/.test(page(p).html))).toEqual([])
 })
 
 describe('video pages', () => {
