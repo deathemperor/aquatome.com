@@ -43,7 +43,7 @@ import { cryptsPhotos } from './crypts-photos'
 import { ownPhotos } from './own-photos'
 import { httpAdmin, moderate } from './moderate'
 import { httpPhotoAdmin, moderatePhotos, photoPages, VERDICT_SCHEMA, type Verdict } from './reader-photos'
-import { runEngine } from './run'
+import { ARCHIVE_AFTER_BLOCKS, runEngine } from './run'
 import { cardGaps } from './card-fill'
 import { depthReport, popularityOrder, thinSpecies, type DepthReport } from './depth'
 import { SOURCES } from './sources'
@@ -224,6 +224,7 @@ if (cmd === 'run' || cmd === 'card-fill') {
     }
     console.table(report.perSource)
     if (report.needsHuman.length) console.log(`needs-human: ${report.needsHuman.join(', ')} — pass the browser check in the engine Chrome profile, then: pnpm engine run --sources <id> --retry-blocked`)
+    if (report.movedToArchive.length) console.log(`moved to the Internet Archive: ${report.movedToArchive.join(', ')} (browser checks on ${ARCHIVE_AFTER_BLOCKS} runs within a week)`)
     for (const e of report.errors) console.log(`error: ${e}`)
     console.log(`changed: ${report.changed.length}`)
     if (cmd === 'card-fill') {

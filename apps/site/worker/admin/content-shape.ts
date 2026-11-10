@@ -98,6 +98,8 @@ export type EngineStats = {
   sources: SourceRow[]
   /** Sources waiting for the owner to pass a browser check (engine-state/_sources.json). */
   needsHuman: { source: string; since: string }[]
+  /** Sources read through the Internet Archive since they kept meeting a browser check (engine-state/_sources.json). */
+  movedToArchive?: { source: string; since: string }[]
   /** The video-guide queue: every video of the playlists and single videos queued (engine-state/youtube*.json). */
   videos: {
     /** Videos listed, each once. */
