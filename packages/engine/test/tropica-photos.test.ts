@@ -163,6 +163,43 @@ test("reading a Tropica page again neither takes nor drops a photo: its photos a
   expect(asked).toBe(1)
 })
 
+test("another source's page read leaves Tropica's photos behind what the page had", async () => {
+  const mine = { url: 'https://media.aquatome.com/tropica/a.webp', width: 1000, height: 1000, licence: SOURCE_PHOTO_LICENCE, author: 'Tropica', sourceUrl: PAGE, source: 'tropica' as const }
+  const lead = { url: 'https://media.aquatome.com/commons/lead.webp', width: 900, height: 600, licence: 'CC BY-SA 4.0', author: 'A', sourceUrl: 'https://commons.wikimedia.org/wiki/File:Lead.jpg' }
+  const coop = { ...mine, url: 'https://media.aquatome.com/aquariumcoop/a.webp', author: 'Aquarium Co-op', sourceUrl: 'https://www.aquariumcoop.com/blogs/aquarium/x', source: 'aquariumcoop' as const }
+  // A read that brings nothing changes nothing: a source's photos sort ahead of open ones, and Tropica's must not ride that.
+  expect(await photosAfterRead([lead, mine], 'aquariumcoop', coop.sourceUrl, async () => [])).toEqual([lead, mine])
+  // One that brings a photo puts it first, as for any page, and Tropica's is still behind the photo that led.
+  expect(await photosAfterRead([lead, mine], 'aquariumcoop', coop.sourceUrl, async () => [coop])).toEqual([coop, lead, mine])
+})
+
+test('a page keeps eight photos of its own: what is over goes to its gallery, unmarked', async () => {
+  const had = [...Array(6)].map((_, i) => ({ url: `https://media.aquatome.com/commons/${i}.webp`, width: 900, height: 600, licence: 'CC BY-SA 4.0', author: 'A', sourceUrl: `https://commons.wikimedia.org/wiki/File:${i}.jpg` }))
+  const root = await repo({ 'bacopa-caroliniana': { photos: had } })
+  const { d } = await deps()
+  expect(await tropicaPhotos(root, d)).toEqual({ added: ['bacopa-caroliniana: 2 behind its photos, 1 in its gallery'], skipped: [], failed: [] })
+  const { photos } = await entity(root, 'bacopa-caroliniana')
+  expect(photos.slice(0, 6)).toEqual(had)
+  expect(photos.slice(6).map(p => [p.source, p.width])).toEqual([['tropica', 1200], ['tropica', 1000]])
+  const g = (await gallery(root, 'bacopa-caroliniana'))!
+  expect(g.photos.map(p => [p.source, p.width, p.best, p.kind])).toEqual([['tropica', 1000, undefined, 'other']])
+  // A full page takes none of its own, and a second run still asks for nothing.
+  const full = await repo({ 'full-plant': { photos: [...had, ...had.map(p => ({ ...p, url: `${p.url}?b` }))].slice(0, 8) } })
+  expect(await tropicaPhotos(full, d)).toEqual({ added: ['full-plant: 3 in its gallery'], skipped: [], failed: [] })
+  expect((await entity(full, 'full-plant')).photos).toHaveLength(8)
+  expect(await tropicaPhotos(full, d)).toEqual({ added: [], skipped: [], failed: [] })
+})
+
+test('an address that answers with no picture is left out, and the page keeps the rest', async () => {
+  const lead = { url: 'https://media.aquatome.com/commons/lead.webp', width: 900, height: 600, licence: 'CC BY-SA 4.0', author: 'A', sourceUrl: 'https://commons.wikimedia.org/wiki/File:Lead.jpg' }
+  const root = await repo({ 'bacopa-caroliniana': { photos: [lead] } })
+  const { d } = await deps()
+  const broken: TropicaDeps = { ...d, bytes: async (u, referer) => (u.includes('/3.png') ? new TextEncoder().encode('<html>File not found</html>') : d.bytes(u, referer)) }
+  expect(await tropicaPhotos(root, broken)).toEqual({ added: ['bacopa-caroliniana: 2 behind its photos'], skipped: [], failed: ['bacopa-caroliniana: /Plants/043 BDT/3.png is no picture'] })
+  expect((await entity(root, 'bacopa-caroliniana')).photos.map(p => p.width)).toEqual([900, 1200, 1000])
+  expect(await tropicaPhotos(root, broken)).toEqual({ added: [], skipped: [], failed: [] })
+})
+
 test("the photo backfill leaves Tropica's pages to their step", async () => {
   const root = await repo({ 'bacopa-caroliniana': {} })
   await writeFile(join(root, 'content/sources.json'), JSON.stringify({ tropica: { name: 'Tropica' } }))

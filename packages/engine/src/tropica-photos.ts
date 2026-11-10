@@ -6,6 +6,7 @@ import { parse } from 'node-html-parser'
 import sharp from 'sharp'
 import { rankGallery, type GalleryPhoto } from './gallery'
 import { largeSize } from './large-photos'
+import { MAX_PHOTOS } from './run'
 import { SOURCE_PHOTO_LICENCE, type Media } from './source-photos'
 
 /** Tropica's plant pages (content/sources.json has the permission, photos included: the owner, 2026-11-10). */
@@ -77,9 +78,11 @@ type Gallery = { photos: GalleryPhoto[]; seen: number; updatedAt: string; builtA
  * at the size Tropica keeps it and on white. A page is read again after a month if it gave none.
  *
  * Where they go (agreed with the Curation Lead, 2026-11-10): on a page that has photos, behind them, scenes before
- * cut-outs, so what leads stays. On a page with none, into its gallery, the widest scene marked `best`: lead-photos
- * tries the gallery's `best` first, and only a photo the photo check passed can lead. A scene wider than the stored
- * 1,200 px keeps its large copy too, for a card.
+ * cut-outs, so what leads stays; a page keeps eight of its own (run.ts), and what is over goes to its gallery. On a page
+ * with none, all go to its gallery, the widest scene marked `best`: the step that fills a page with no photo
+ * (lead-photos, once it takes plants) tries the gallery's `best` first, and only a photo the photo check passed can
+ * lead. Until then such a page shows them only once its gallery has six. A scene wider than the stored 1,200 px keeps
+ * its large copy too, for a card.
  *
  * `engine-state/_photo-tropica.json`: plant page → when it was read. `--limit`: pages a run.
  */
@@ -109,7 +112,10 @@ export async function tropicaPhotos(root: string, d: TropicaDeps, o: { limit?: n
         const key = `${TROPICA.source}/${sha16(src)}.webp`
         if (rejected[d.media.urlFor(key)]) continue
         await d.sleep(DELAY)
-        const shown = await asShown(await d.bytes(src, page))
+        const raw = await d.bytes(src, page) // a failed request fails the page, which is read again next run
+        // An address that answers with something that is no picture (an error page) is left out, and the page keeps the rest.
+        const shown = await asShown(raw).catch(() => undefined)
+        if (!shown) { report.failed.push(`${id}: ${image} is no picture`); continue }
         if (shown.width < MIN_WIDTH) continue
         const stored = await d.media.put(key, shown.bytes)
         const big = largeSize(shown)
@@ -121,16 +127,19 @@ export async function tropicaPhotos(root: string, d: TropicaDeps, o: { limit?: n
       const scenes = fresh.filter(p => p.scene).sort((a, b) => b.width / b.height - a.width / a.height)
       const ordered = [...scenes, ...fresh.filter(p => !p.scene)]
       const plain = ({ scene: _, ...p }: Photo & { scene: boolean }): Photo => p
-      if (e.photos.length) {
-        e.photos.push(...ordered.map(plain))
+      const empty = !e.photos.length
+      const own = empty ? [] : ordered.slice(0, Math.max(0, MAX_PHOTOS - e.photos.length))
+      const rest = ordered.slice(own.length)
+      if (own.length) {
+        e.photos.push(...own.map(plain))
         await writeFile(file, `${JSON.stringify(e, null, 2)}\n`)
-        report.added.push(`${id}: ${ordered.length} behind its photos`)
-      } else {
-        const photos = rankGallery([...(g?.photos ?? []), ...ordered.map((p, i) => ({ ...plain(p), kind: p.scene ? 'submersed' : 'other', ...(p.scene && i === 0 ? { best: true } : {}) }))])
+      }
+      if (rest.length) {
+        const photos = rankGallery([...(g?.photos ?? []), ...rest.map((p, i) => ({ ...plain(p), kind: p.scene ? 'submersed' : 'other', ...(empty && p.scene && i === 0 ? { best: true } : {}) }))])
         await mkdir(join(root, 'content/gallery'), { recursive: true })
         await writeFile(gfile, `${JSON.stringify(GallerySchema.parse({ id, photos, seen: g?.seen ?? 0, updatedAt: d.now().toISOString().slice(0, 10), ...(g?.builtAt ? { builtAt: g.builtAt } : {}) }), null, 2)}\n`)
-        report.added.push(`${id}: ${ordered.length} in its gallery`)
       }
+      report.added.push(`${id}: ${[own.length ? `${own.length} behind its photos` : '', rest.length ? `${rest.length} in its gallery` : ''].filter(Boolean).join(', ')}`)
     } catch (err) {
       report.failed.push(`${id}: ${(err as Error).message.slice(0, 160)}`) // read again next run
     }

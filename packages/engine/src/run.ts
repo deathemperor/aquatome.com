@@ -52,8 +52,13 @@ export type RunReport = { perSource: Partial<Record<SourceId, Counts>>; needsHum
 type Kind = 'species' | 'plants' | 'guides' | 'places' | 'glossary' | 'breeds'
 const readJson = async <T>(path: string): Promise<T | undefined> => readFile(path, 'utf8').then(s => JSON.parse(s) as T, () => undefined)
 const writeJson = async (path: string, data: unknown) => writeFile(path, `${JSON.stringify(data, null, 2)}\n`)
-const MAX_PHOTOS = 8
-const rank = (p: Photo) => (p.source ? SOURCE_IDS.indexOf(p.source) : SOURCE_IDS.length)
+/** The photos a page keeps as its own. */
+export const MAX_PHOTOS = 8
+/**
+ * A source's photos come before open-licence ones, in the registry's order. Not those a step of the source's own places
+ * (`photoStep`: Tropica): they keep the place that step gave them, behind what the page had, whichever source is read.
+ */
+const rank = (p: Photo) => (p.source && !SOURCES.find(s => s.id === p.source)?.photoStep ? SOURCE_IDS.indexOf(p.source) : SOURCE_IDS.length)
 
 const MAX_LLM_FAILURES = 3
 /** Pages in a row that failed on the network: it is the network, not the pages, so the source stops (their attempts last). */
