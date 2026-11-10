@@ -304,7 +304,12 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     for (const file of [join(content, s.kind, s.id, 'entity.json'), join(content, 'gallery', `${s.id}.json`)]) {
       const photos = (await readJson<{ photos?: (Photo & { unchecked?: boolean; source?: string })[] }>(file))?.photos ?? []
       if (file.endsWith('entity.json')) bare = !photos.length
-      for (const [i, p] of photos.entries()) shown.push({ file, url: p.url, page: s.id, ...(p.author ? { author: p.author } : {}), ...(p.sourceUrl ? { source: p.sourceUrl } : {}), ...(file.includes('/gallery/') && i >= STRIP ? { galleryOnly: true } : {}), ...(p.unchecked ? { waits: true } : {}), ...(i === 0 && file.endsWith('entity.json') ? { lead: true } : {}), ...(bare && file.includes('/gallery/') ? { bare: true, ...(p.source ? { sourced: true } : {}) } : {}) })
+      let place = 0
+      for (const [i, p] of photos.entries()) {
+        shown.push({ file, url: p.url, page: s.id, ...(p.author ? { author: p.author } : {}), ...(p.sourceUrl ? { source: p.sourceUrl } : {}), ...(file.includes('/gallery/') && place >= STRIP ? { galleryOnly: true } : {}), ...(p.unchecked ? { waits: true } : {}), ...(i === 0 && file.endsWith('entity.json') ? { lead: true } : {}), ...(bare && file.includes('/gallery/') ? { bare: true, ...(p.source ? { sourced: true } : {}) } : {}) })
+        // A photo that waits is on no page, so it takes no place in the strip.
+        if (p.unchecked !== true) place++
+      }
     }
   }
   const index = nameIndex(all)
