@@ -303,6 +303,9 @@ if part rewrite; then
     ahead pnpm engine localize-cards --lang "$lang"
   done
 fi
+# Letters lost in transit put back, one by one ("ที่��พาะ" for "ที่เพาะ": claude.ts decoded the model's answer chunk by chunk
+# until 2026-11-10, and 40 pages had one). No page with one, no call (ungarble.ts).
+pnpm engine ungarble || log "ungarble: failed"
 # Fish, plant, breed and guide pages in metric only (°C, cm, litres): a °F, inch or gallon figure a writer left (the tests fail on one).
 pnpm engine metric || log "metric: failed"
 # The content rules' safe fixes on every page (sweep.ts; the tests fail on a page left with one): the source site's
