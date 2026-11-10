@@ -52,7 +52,8 @@ export const SOURCES: SourceConfig[] = [
   { id: '2hraquarist', tier: 'specialist', discover: { kind: 'archive', prefix: '2hraquarist.com/blogs/' }, via: 'archive', include: /^https:\/\/www\.2hraquarist\.com\/blogs\/[a-z0-9-]+\/[a-z0-9-]+$/, delayMs: ARCHIVE_POLITE },
   { id: 'aquariumcoop', tier: 'specialist', discover: { kind: 'sitemap', urls: ['https://www.aquariumcoop.com/sitemap.xml'] }, include: /aquariumcoop\.com\/blogs\/aquarium\/[a-z0-9-]+$/, delayMs: POLITE },
   // Spruce: 416xxxx ids are category hubs (dogs, cats, …), not articles.
-  { id: 'sprucepets', tier: 'general', discover: { kind: 'crawl', start: ['https://www.thesprucepets.com/freshwater-fish-breeds-4162057'], scope: 'main' }, include: /thesprucepets\.com\/[a-z0-9-]+-\d{7,}$/, exclude: /-416\d{4}$/, cardWidth: 600, delayMs: POLITE },
+  // Cloudflare's browser check doesn't clear, for the engine or for a person (the owner, 2026-11-10), so its articles are read from the Internet Archive's copies.
+  { id: 'sprucepets', tier: 'general', discover: { kind: 'crawl', start: ['https://www.thesprucepets.com/freshwater-fish-breeds-4162057'], scope: 'main' }, via: 'archive', include: /thesprucepets\.com\/[a-z0-9-]+-\d{7,}$/, exclude: /-416\d{4}$/, cardWidth: 600, delayMs: ARCHIVE_POLITE },
   { id: 'aquariumbreeder', tier: 'specialist', discover: { kind: 'sitemap', urls: ['https://aquariumbreeder.com/sitemap_index.xml'] }, include: /aquariumbreeder\.com\/[a-z0-9-]+\/?$/, exclude: /\/(category|tag|page|author|shop|cart|contact|about|blog)/, delayMs: POLITE },
   // Old static site, ~4,000 catfish factsheets listed on one page per family; robots.txt asks 10 s between requests.
   // Each photo (500 px) has its own page with the photographer's credit.

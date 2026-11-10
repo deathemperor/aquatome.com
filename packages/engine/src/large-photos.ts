@@ -1,8 +1,8 @@
 import { createHash } from 'node:crypto'
-import { readFile, writeFile } from 'node:fs/promises'
+import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import type { Photo } from '@aq/schema'
-import { cardWorthy, readCalendar, readVerdicts } from './curation'
+import { across, cardWorthy, LARGE_PX, readCalendar, readVerdicts } from './curation'
 
 type Large = NonNullable<Photo['large']>
 export type LargeDeps = {
@@ -59,28 +59,54 @@ function photosIn(x: unknown, out: Photo[] = []): Photo[] {
 }
 
 /**
+ * The fish and breeds whose head photo is under the card's size, passes its checks and may have a larger original at its
+ * source: what the cycle gives a large copy (`--heads`). The same picture larger, so what leads doesn't change.
+ */
+export async function headsUnderBar(root: string) {
+  const v = await readVerdicts(root)
+  const { avoid } = await readCalendar(root)
+  const out: string[] = []
+  for (const kind of ['species', 'breeds']) {
+    for (const id of (await readdir(join(root, 'content', kind)).catch(() => [] as string[])).sort()) {
+      const raw = await readFile(join(root, 'content', kind, id, 'entity.json'), 'utf8').catch(() => null)
+      const head = raw ? (JSON.parse(raw) as { photos?: Photo[] }).photos?.[0] : undefined
+      if (head && !head.large && across(head, 'square') < LARGE_PX && largePlan(head) && cardWorthy(head.url, id, v, avoid)) out.push(id)
+    }
+  }
+  return out
+}
+
+/**
  * Large copies (largeSize: 1,200 on the short side) of the photos that may lead an app card (curation.ts cardWorthy) on
  * the fish and breed pages `ids`, in that order, their own photos and their galleries': the app's large cards need 1,140
  * across, and the page's copy stops at 1,200 wide, which a square crop of a landscape photo can't reach. The site's pages keep
  * showing `url`: their heroes load it with no srcset, and the live Lighthouse check budgets their largest paint. A full
- * size no bigger than the page's copy gets none. `limit`: photos fetched this run. Idempotent.
+ * size no bigger than the page's copy gets none, and is remembered (`engine-state/_large-none.json`), so each cycle doesn't
+ * fetch it again. `limit`: photos fetched this run. `headsOnly`: the page's first photo alone, never its other photos or
+ * its gallery, since one of those growing large enough could change which photo leads. Idempotent.
  */
-export async function largePhotos(root: string, ids: string[], d: LargeDeps, o: { limit?: number } = {}) {
+export async function largePhotos(root: string, ids: string[], d: LargeDeps, o: { limit?: number; headsOnly?: boolean } = {}) {
   const report = { added: 0, smaller: 0, skipped: 0, failed: [] as string[] }
   const v = await readVerdicts(root)
   const { avoid } = await readCalendar(root)
+  const noneFile = join(root, 'engine-state', '_large-none.json')
+  const none = JSON.parse(await readFile(noneFile, 'utf8').catch(() => '{}')) as Record<string, true>
+  const noneAtStart = Object.keys(none).length
   let fetched = 0
   // A photo on its page and in its gallery is fetched once.
   const done = new Map<string, Large>()
   const full = () => o.limit !== undefined && fetched >= o.limit
+  const saveNone = async () => { if (Object.keys(none).length > noneAtStart) await writeFile(noneFile, `${JSON.stringify(Object.fromEntries(Object.entries(none).sort()), null, 2)}\n`) }
   for (const id of ids) {
-    for (const file of [join(root, 'content/species', id, 'entity.json'), join(root, 'content/breeds', id, 'entity.json'), join(root, 'content/gallery', `${id}.json`)]) {
+    const pages = [join(root, 'content/species', id, 'entity.json'), join(root, 'content/breeds', id, 'entity.json')]
+    for (const file of o.headsOnly ? pages : [...pages, join(root, 'content/gallery', `${id}.json`)]) {
       const raw = await readFile(file, 'utf8').catch(() => null)
       if (!raw) continue
       const data = JSON.parse(raw) as unknown
       let changed = false
-      for (const p of photosIn(data)) {
+      for (const p of o.headsOnly ? photosIn((data as { photos?: Photo[] }).photos?.[0]) : photosIn(data)) {
         if (p.large || !cardWorthy(p.url, id, v, avoid)) continue
+        if (none[p.url]) { report.smaller++; continue }
         const known = done.get(p.url)
         if (known) { p.large = known; changed = true; continue }
         const plan = largePlan(p)
@@ -93,7 +119,7 @@ export async function largePhotos(root: string, ids: string[], d: LargeDeps, o: 
           for (const u of await plan.from(d)) { bytes = await d.bytes(u).catch(() => undefined); if (bytes) { from = u; break } }
           if (!bytes) throw new Error('no full size to fetch')
           const size = largeSize(await d.size(bytes))
-          if (size.width <= p.width) { report.smaller++; continue }
+          if (size.width <= p.width) { report.smaller++; none[p.url] = true; continue }
           if (plan.key) p.large = await d.put(plan.key, bytes, size.width)
           else {
             // Unsplash's, which the app loads from Unsplash at that width.
@@ -114,8 +140,9 @@ export async function largePhotos(root: string, ids: string[], d: LargeDeps, o: 
         const indent = raw.match(/^\{\n( +)/)?.[1]?.length ?? 2
         await writeFile(file, `${JSON.stringify(data, null, indent)}\n`)
       }
-      if (full()) return report
+      if (full()) { await saveNone(); return report }
     }
   }
+  await saveNone()
   return report
 }

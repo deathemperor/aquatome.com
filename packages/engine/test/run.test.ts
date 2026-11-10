@@ -444,3 +444,47 @@ test("card-fill reads only the profiles of pages whose card lacks a figure, most
   // Next cycle: the cardinal has Seriously Fish now; the danio is next; the rest are no card's gap.
   expect(await run(5)).toEqual(['danio-rerio'])
 })
+
+// The owner, 2026-11-10: "won't get pass the check, switch to internet archive for this. any site that are often blocked should use the same way."
+const blockedThenArchived = async (holds: boolean, gapDays: number) => {
+  const root = await fresh()
+  const { d } = deps(root)
+  let clock = Date.parse('2026-11-01T00:00:00Z')
+  let siteAsked = 0
+  const fetcher = { ...d.fetcher, text: async (u: string) => { siteAsked++; throw new ChallengeError(u) } }
+  const archive = { ...d.fetcher, get: async (u: string) => { if (!holds) throw new Error('no archived copy (HTTP 404)'); return { status: 200, html: sitemap(['paracheirodon-axelrodi']), finalUrl: u } } }
+  const run = () => runEngine({ ...d, now: () => new Date(clock), fetcher, archive }, { sources: ['seriouslyfish'] })
+  const first = await run()
+  clock += gapDays * 86_400_000
+  const second = await run()
+  const asked = siteAsked
+  clock += 2 * 86_400_000
+  const third = await run()
+  const blocks = JSON.parse(await readFile(join(root, 'engine-state/_sources.json'), 'utf8'))
+  return { first, second, third, entry: blocks.seriouslyfish, siteAskedThird: siteAsked - asked }
+}
+
+test('a source blocked on two runs within a week moves to the archive, and the owner is not asked', async () => {
+  const { first, second, third, entry, siteAskedThird } = await blockedThenArchived(true, 2)
+  expect(first.needsHuman).toEqual(['seriouslyfish'])
+  expect(first.movedToArchive).toEqual([])
+  expect(second.needsHuman).toEqual([])
+  expect(second.movedToArchive).toEqual(['seriouslyfish'])
+  expect(entry.archive).toBeTruthy()
+  expect(entry.blockedAt).toBeUndefined()
+  expect(third.needsHuman).toEqual([])
+  expect(siteAskedThird).toBe(0)
+})
+
+test('a source the archive does not hold still asks the owner', async () => {
+  const { second, entry } = await blockedThenArchived(false, 2)
+  expect(second.movedToArchive).toEqual([])
+  expect(second.needsHuman).toEqual(['seriouslyfish'])
+  expect(entry.archive).toBeUndefined()
+})
+
+test('two blocks more than a week apart do not move a source', async () => {
+  const { second } = await blockedThenArchived(true, 8)
+  expect(second.movedToArchive).toEqual([])
+  expect(second.needsHuman).toEqual(['seriouslyfish'])
+})

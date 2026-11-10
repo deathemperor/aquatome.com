@@ -396,6 +396,7 @@ function engineStats(dir: string, sourcesInfo: Json, now: Date): Omit<EngineStat
     sources.push(row)
   }
   const needsHuman = Object.entries(blocks).flatMap(([source, b]) => (b && typeof (b as Json).blockedAt === 'string' ? [{ source, since: (b as Json).blockedAt as string }] : []))
+  const movedToArchive = Object.entries(blocks).flatMap(([source, b]) => (b && typeof (b as Json).archive === 'string' ? [{ source, since: (b as Json).archive as string }] : []))
 
   // The video queue (youtube.ts videoGuides): each listed video once, playlists' then single videos', the skipped lists left out.
   const yt = (read(join(dir, 'youtube.json')) ?? {}) as Record<string, Json>
@@ -422,7 +423,7 @@ function engineStats(dir: string, sourcesInfo: Json, now: Date): Omit<EngineStat
   videos.writtenAt = Object.values(yt).filter(s => s.status === 'processed' && Date.parse(String(s.updatedAt)) >= since).map(s => new Date(String(s.updatedAt)).toISOString()).sort()
 
   return {
-    sources, needsHuman, videos,
+    sources, needsHuman, movedToArchive, videos,
     lastRun: lastRun ? { startedAt: String(lastRun.startedAt), finishedAt: String(lastRun.finishedAt), needsHuman: lastRun.needsHuman ?? [], errors: (lastRun.errors ?? []).length, changed: (lastRun.changed ?? []).length } : null,
   }
 }
