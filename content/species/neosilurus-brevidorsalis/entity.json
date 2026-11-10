@@ -12,6 +12,162 @@
     "papua-new-guinea",
     "fly-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "AU",
+        "PG"
+      ],
+      "regions": [
+        "Fly River",
+        "Jardine",
+        "Jackson",
+        "Cape York Peninsula"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The shortfin tandan, Neosilurus brevidorsalis, is a plotosid catfish restricted to the tips of northern Australia and southern Papua New Guinea.",
+          "countries": [
+            "AU",
+            "PG"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In Australia records exist only from the Jardine and Jackson river systems on the Cape York Peninsula, while in Papua New Guinea it's known from the Fly River plus some other drainages.",
+          "countries": [],
+          "regions": [
+            "Fly River",
+            "Jardine",
+            "Jackson",
+            "Cape York Peninsula"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5202610,
+      "total": 72,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "PG",
+          43
+        ],
+        [
+          "AU",
+          18
+        ],
+        [
+          "ID",
+          11
+        ]
+      ],
+      "cells": [
+        [
+          133.59375,
+          -7.03125,
+          2,
+          0
+        ],
+        [
+          133.59375,
+          -4.21875,
+          4,
+          0
+        ],
+        [
+          136.40625,
+          -5.625,
+          4,
+          0
+        ],
+        [
+          140.625,
+          -7.03125,
+          8,
+          7
+        ],
+        [
+          142.03125,
+          -14.0625,
+          2,
+          2
+        ],
+        [
+          142.03125,
+          -12.65625,
+          6,
+          6
+        ],
+        [
+          142.03125,
+          -11.25,
+          10,
+          10
+        ],
+        [
+          142.03125,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          142.03125,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          143.4375,
+          -8.4375,
+          2,
+          2
+        ],
+        [
+          143.4375,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          144.84375,
+          -9.84375,
+          1,
+          1
+        ],
+        [
+          146.25,
+          -9.84375,
+          7,
+          7
+        ],
+        [
+          146.25,
+          -8.4375,
+          20,
+          20
+        ],
+        [
+          147.65625,
+          -11.25,
+          1,
+          1
+        ],
+        [
+          149.0625,
+          -8.4375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

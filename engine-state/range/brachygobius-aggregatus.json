@@ -1,14 +1,14 @@
 {
   "id": "brachygobius-aggregatus",
   "native": {
-    "input": "7df7a6502843b569",
-    "at": "2026-11-06T21:19:39.004Z",
+    "input": "32a1f2e5d2e9e019",
+    "at": "2026-11-10T20:57:55.515Z",
     "claims": [
       {
         "code": "PH",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The schooling bumblebee goby, Brachygobius aggregatus, is a small goby described from the Philippines and recorded from the lower Mekong in Vietnam.",
+        "quote": "Described from 'Dumaguete, Oriental Negros, Philippines', and Rainboth (1996) recorded it from the lower Mekong, Vietnam.",
         "words": "Philippines",
         "ok": true
       },
@@ -16,24 +16,24 @@
         "code": "VN",
         "status": "native",
         "source": "seriouslyfish",
-        "quote": "The schooling bumblebee goby, Brachygobius aggregatus, is a small goby described from the Philippines and recorded from the lower Mekong in Vietnam.",
+        "quote": "Described from 'Dumaguete, Oriental Negros, Philippines', and Rainboth (1996) recorded it from the lower Mekong, Vietnam.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The specimens imported come from Vietnam (Mekong).",
         "words": "Vietnam",
         "ok": true
       },
       {
         "code": "PH",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Described from 'Dumaguete, Oriental Negros, Philippines', and Rainboth (1996) recorded it from the lower Mekong, Vietnam.",
+        "source": "glaser",
+        "quote": "The species was described from the Philippines; a scientific investigation is going on as to whether the Mekong species is really identical with B. aggregatus.",
         "words": "Philippines",
-        "ok": true
-      },
-      {
-        "code": "VN",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Described from 'Dumaguete, Oriental Negros, Philippines', and Rainboth (1996) recorded it from the lower Mekong, Vietnam.",
-        "words": "Vietnam",
         "ok": true
       }
     ],
@@ -42,6 +42,13 @@
         "name": "Mekong",
         "source": "seriouslyfish",
         "quote": "Described from 'Dumaguete, Oriental Negros, Philippines', and Rainboth (1996) recorded it from the lower Mekong, Vietnam.",
+        "country": "VN",
+        "ok": true
+      },
+      {
+        "name": "Mekong",
+        "source": "glaser",
+        "quote": "The specimens imported come from Vietnam (Mekong).",
         "country": "VN",
         "ok": true
       }

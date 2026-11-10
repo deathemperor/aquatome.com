@@ -1,0 +1,77 @@
+{
+  "id": "neritina-violacea",
+  "native": {
+    "input": "7f14d4ada1509005",
+    "at": "2026-11-10T20:57:55.515Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Neritina violacea",
+    "status": "ACCEPTED",
+    "taxonKey": 11096097,
+    "datasets": [
+      [
+        "71d7bac8-f762-11e1-a439-00145eb45e9a",
+        7
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        7
+      ],
+      [
+        "18680b2b-84db-4d45-8acd-0b0e9467fb33",
+        6
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        4
+      ],
+      [
+        "857bce66-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "e9ef15ac-1078-44c1-bc86-f1ecc4115a68",
+        3
+      ],
+      [
+        "44bcde48-ac71-46f2-bf73-24fc3c008b6c",
+        2
+      ],
+      [
+        "763f9aee-060c-4d71-a538-16c383e53a4d",
+        2
+      ],
+      [
+        "85487457-e02f-4dee-95ea-8dc0d220c52d",
+        2
+      ],
+      [
+        "8598edb6-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "7d8ed137-1d30-42f1-8b78-12a4957e4690",
+        1
+      ],
+      [
+        "7e2989f0-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-10T20:57:55.515Z"
+  }
+}

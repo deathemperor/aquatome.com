@@ -10,6 +10,67 @@
     "tanzania",
     "ruvu"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TZ"
+      ],
+      "regions": [
+        "Ruvu River"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Nothobranchius foerschi is a very beautiful species that originates from Tanzania.",
+          "countries": [
+            "TZ"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Nothobranchius foerschi is an annual killifish from eastern Tanzania that may be restricted to a small area of the Ruvu River catchment.",
+          "countries": [],
+          "regions": [
+            "Ruvu River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348609,
+      "total": 2,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "JP",
+          1
+        ],
+        [
+          "TZ",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          37.96875,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          136.40625,
+          36.5625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

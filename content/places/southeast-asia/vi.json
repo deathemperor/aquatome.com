@@ -1,10 +1,13 @@
 {
   "slug": "southeast-asia",
-  "name": "Southeast Asia",
-  "altNames": [],
+  "name": "Đông Nam Á",
+  "altNames": [
+    "Southeast Asia"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

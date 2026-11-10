@@ -10,6 +10,125 @@
     "united-states",
     "green-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "US"
+      ],
+      "regions": [
+        "Green River",
+        "Tennessee River",
+        "Roaring River",
+        "Cumberland River"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "North America: restricted to the Green River drainage in Kentucky and Tennessee, USA.",
+          "countries": [
+            "US"
+          ],
+          "regions": [
+            "Green River"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "The elegant madtom is found primarily in Tennessee and northern Alabama, in the upper and lower portions of the Tennessee River, and also in the Roaring River, the Green River drainage, Dunn Creek, Tennessee, and in Piney Creek, Paint Rock River, and Flint River, Alabama.",
+          "countries": [],
+          "regions": [
+            "Tennessee River"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "North America: Upper Green River drainage in Kentucky and Tennessee, USA; 1 record from Roaring River (Cumberland River drainage) in Tennessee.",
+          "countries": [],
+          "regions": [
+            "Roaring River",
+            "Cumberland River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2341031,
+      "total": 221,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "US",
+          221
+        ]
+      ],
+      "cells": [
+        [
+          -88.59375,
+          33.75,
+          1,
+          1
+        ],
+        [
+          -88.59375,
+          35.15625,
+          25,
+          25
+        ],
+        [
+          -88.59375,
+          36.5625,
+          1,
+          1
+        ],
+        [
+          -87.1875,
+          33.75,
+          1,
+          1
+        ],
+        [
+          -87.1875,
+          35.15625,
+          5,
+          5
+        ],
+        [
+          -87.1875,
+          36.5625,
+          75,
+          75
+        ],
+        [
+          -85.78125,
+          35.15625,
+          2,
+          2
+        ],
+        [
+          -85.78125,
+          36.5625,
+          108,
+          108
+        ],
+        [
+          -84.375,
+          35.15625,
+          1,
+          1
+        ],
+        [
+          -81.5625,
+          40.78125,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

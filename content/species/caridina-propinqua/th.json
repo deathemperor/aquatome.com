@@ -1,0 +1,19 @@
+{
+  "slug": "caridina-propinqua",
+  "name": "กุ้งคาริดิน่า โพรพินควา",
+  "altNames": [
+    "กุ้งแคระ Caridina propinqua"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Caridina cf. propinqua เป็นกุ้งสีส้ม โดยพื้นฐานแล้วเลี้ยงง่าย</p>",
+    "waterConditions:glaser": "<p>หากกุ้งเริ่มสีซีดลง ให้ลดค่า pH ลง</p>",
+    "notes:glaser": "<p>กุ้งชนิดนี้เป็นกุ้งที่จับมาจากธรรมชาติ</p>"
+  },
+  "quality": {
+    "score": 0.75,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.75
+    }
+  }
+}

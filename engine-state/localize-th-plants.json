@@ -1048,6 +1048,24 @@
       "Item 3: \"แนวเปลี่ยนผ่าน\" for \"passage\" is somewhat stiff; consider \"ช่วงเชื่อมระหว่าง\"."
     ]
   },
+  "hydrocotyle-leucocephala": {
+    "at": "2026-11-10",
+    "from": "2026-11-10",
+    "name": "บัวบกบราซิล",
+    "confidence": "medium",
+    "score": 0.6,
+    "notes": [
+      "Section 8 \"ปลาแพะแคระ (pygmy cory)\": pygmy cory catfish is Corydoras pygmaeus (ปลาคอรี่แคระ), not 'goat fish'. Fix the term.",
+      "Section 8 \"ปลาคาร์ป\" for koi: use ปลาคาร์พ/ปลาแฟนซีคาร์ป (koi). Plain 'carp' changes the meaning.",
+      "Section 8 \"หอยเจดีย์\" for Malaysian trumpet snails: use หอยเจดีย์มาเลเซีย or its usual name. The plain form is vague.",
+      "Section 8 \"ตัวอ่อนแมลงปอและแมลงปอเข็ม\": damselfly nymphs are ตัวอ่อนแมลงปอเข็ม. As written it reads as dragonfly nymphs plus adult damselflies.",
+      "Section 8 \"กุ้งฝอยใส (ghost shrimp)\": ghost shrimp is usually กุ้งแก้ว. Check this against the common name.",
+      "Section 6: \"คาร์บอนน้ำ\" is an unnatural rendering of liquid carbon. Use คาร์บอนน้ำ/ปุ๋ยคาร์บอนชนิดน้ำ with a clear explanation.",
+      "Section 5 \"เติมฟอสเฟตเล็กน้อย\" adds 'a little' (เล็กน้อย), which the English 'add some phosphate' does not say. Section 5 \"เปลี่ยนน้ำในปริมาณมาก\" for 'significant partial water change' drops the 'partial' sense.",
+      "Section 5 \"ตัดใบส่วนเกิน\" and \"ละลาย\" are acceptable; but 'Balling' \"จับตัวเป็นก้อน\" and 'Melting' headings are fine. Section 8: \"ปลาหางนกยูง\" is guppies and \"ปลาหางดาบ\" is swordtails, which are right.",
+      "Section 8 \"ธาตุอาหารส่วนเกิน\" and \"แหล่งหาอาหาร\" are fine. Section 8 \"ปลาแจ็คเดมป์ซีย์\" and \"ปลาซิลเวอร์ดอลลาร์\" are fine. Section 8: Asolene spixi is left in Latin, and 'rabbit snails' as \"หอยแรบบิท\" is a loose transliteration."
+    ]
+  },
   "hydrocotyle-tripartita": {
     "at": "2026-11-02",
     "from": "2026-10-30",

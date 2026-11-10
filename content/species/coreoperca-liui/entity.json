@@ -9,6 +9,26 @@
     "asia",
     "china"
   ],
+  "range": {
+    "records": {
+      "taxonKey": 8189391,
+      "total": 2,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "CN",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          118.125,
+          28.125,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

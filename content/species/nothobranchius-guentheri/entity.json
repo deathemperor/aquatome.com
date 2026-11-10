@@ -10,6 +10,58 @@
     "tanzania",
     "unguja"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TZ"
+      ],
+      "regions": [
+        "Unguja",
+        "Zanzibar"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Unguja, the main island of the Zanzibar archipelago, Tanzania.",
+          "countries": [
+            "TZ"
+          ],
+          "regions": [
+            "Unguja",
+            "Zanzibar"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348594,
+      "total": 7,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "TZ",
+          7
+        ]
+      ],
+      "cells": [
+        [
+          36.5625,
+          -8.4375,
+          1,
+          1
+        ],
+        [
+          37.96875,
+          -7.03125,
+          6,
+          6
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "lifeYears": [
       {

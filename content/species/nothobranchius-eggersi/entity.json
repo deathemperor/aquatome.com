@@ -10,6 +10,50 @@
     "tanzania",
     "rufiji"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TZ"
+      ],
+      "regions": [
+        "Rufiji"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Nothobranchius eggersi is an annual killifish apparently endemic to the lower Rufiji in eastern Tanzania, including freshwater parts of the delta.",
+          "countries": [
+            "TZ"
+          ],
+          "regions": [
+            "Rufiji"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2348645,
+      "total": 12,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "TZ",
+          12
+        ]
+      ],
+      "cells": [
+        [
+          37.96875,
+          -8.4375,
+          12,
+          12
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -1,0 +1,88 @@
+{
+  "id": "noturus-crypticus",
+  "native": {
+    "input": "6c9b930b17ce58fd",
+    "at": "2026-11-10T20:57:55.515Z",
+    "claims": [
+      {
+        "code": "US",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "North America: USA. Gulf Coast Drainages, Mississippi, Ohio, Tennessee, French Broad. Type locality: Little Chucky Creek at mouth of Jackson Branch, Greene County, Tennessee, U.S.A.",
+        "words": "USA",
+        "ok": true
+      },
+      {
+        "code": "US",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "USA: French Broad River basin, eastern Tennessee.",
+        "words": "USA",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "French Broad",
+        "source": "planetcatfish",
+        "quote": "North America: USA. Gulf Coast Drainages, Mississippi, Ohio, Tennessee, French Broad. Type locality: Little Chucky Creek at mouth of Jackson Branch, Greene County, Tennessee, U.S.A.",
+        "country": "US",
+        "ok": true
+      },
+      {
+        "name": "Mississippi",
+        "source": "planetcatfish",
+        "quote": "North America: USA. Gulf Coast Drainages, Mississippi, Ohio, Tennessee, French Broad. Type locality: Little Chucky Creek at mouth of Jackson Branch, Greene County, Tennessee, U.S.A.",
+        "country": "US",
+        "ok": true
+      },
+      {
+        "name": "Ohio",
+        "source": "planetcatfish",
+        "quote": "North America: USA. Gulf Coast Drainages, Mississippi, Ohio, Tennessee, French Broad. Type locality: Little Chucky Creek at mouth of Jackson Branch, Greene County, Tennessee, U.S.A.",
+        "country": "US",
+        "ok": true
+      },
+      {
+        "name": "Tennessee",
+        "source": "planetcatfish",
+        "quote": "North America: USA. Gulf Coast Drainages, Mississippi, Ohio, Tennessee, French Broad. Type locality: Little Chucky Creek at mouth of Jackson Branch, Greene County, Tennessee, U.S.A.",
+        "country": "US",
+        "ok": true
+      },
+      {
+        "name": "French Broad River",
+        "source": "scotcat",
+        "quote": "USA: French Broad River basin, eastern Tennessee.",
+        "country": "US",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Noturus crypticus",
+    "status": "ACCEPTED",
+    "taxonKey": 2341027,
+    "datasets": [
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        3
+      ],
+      [
+        "e90a588b-0eed-4077-8a4f-7e61da35b3f8",
+        1
+      ]
+    ],
+    "native": [
+      "US"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T20:57:55.515Z"
+  }
+}

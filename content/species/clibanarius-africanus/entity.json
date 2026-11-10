@@ -6,6 +6,40 @@
   "genus": "Clibanarius",
   "group": "other",
   "places": [],
+  "range": {
+    "records": {
+      "taxonKey": 4311742,
+      "total": 5,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "NG",
+          3
+        ],
+        [
+          "CD",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          2.8125,
+          5.625,
+          3
+        ],
+        [
+          11.25,
+          -7.03125,
+          2
+        ]
+      ]
+    }
+  },
+  "water": {
+    "kind": "brackish",
+    "source": "glaser",
+    "quote": "However, it seems that it can live in pure freshwater only for a few months, so it is much better to keep it in brackish water."
+  },
   "dataCard": {},
   "sections": [
     {

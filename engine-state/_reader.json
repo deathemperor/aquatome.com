@@ -820,6 +820,12 @@
     ],
     "ruled": "307604ca83d14f35"
   },
+  "vi/guides/aquariumbreeder-8-signs-your-shrimp-is-suffering-from-stress": {
+    "at": "2026-11-10",
+    "hash": "3aa8fb0bc0903a53",
+    "findings": [],
+    "ruled": "3aa8fb0bc0903a53"
+  },
   "vi/guides/aquariumbreeder-acrylic-vs-glass-tanks-pros-and-cons": {
     "at": "2026-11-08",
     "hash": "56e5a9bdc4eb8d2e",
@@ -1341,6 +1347,23 @@
       }
     ],
     "ruled": "efa8fff9b170427c"
+  },
+  "vi/guides/aquariumbreeder-grindal-worms-culture-guide": {
+    "at": "2026-11-10",
+    "hash": "13b6490c673147a3",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "## 1. Lỗ thoáng khí",
+        "problem": "The numbered setup steps sit at the same heading level as their parent section 'Các bước set thùng nuôi giun Grindal', so they read as separate sections and the parent looks empty.",
+        "fix": "### 1. Lỗ thoáng khí",
+        "rule": "A heading at the same level as the heading directly above it, with no text between them, where the lower one starts a numbered sequence.",
+        "field": "body"
+      }
+    ],
+    "ruled": "13b6490c673147a3"
   },
   "vi/guides/aquariumbreeder-how-acclimate-corals": {
     "at": "2026-11-09",
@@ -2005,6 +2028,33 @@
     ],
     "ruled": "8f1c582e8e604239"
   },
+  "vi/guides/aquariumbreeder-old-tank-syndrome": {
+    "at": "2026-11-10",
+    "hash": "fa7506e193617ab1",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "nên có thể không quen nổi với nước xấu trong bể mới",
+        "problem": "The source means the newly added animal's new environment, i.e. the old tank, but \"bể mới\" reads as \"new tank\" and confuses old tank syndrome with new tank syndrome.",
+        "fix": "nên có thể không quen nổi với nước xấu ở bể cũ mà chúng vừa được thả vào",
+        "field": "body"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-10",
+        "field": "body",
+        "score": 0.6,
+        "kept": false,
+        "problems": [
+          "The source means the newly added animal's new environment, i.e. the old tank, but \"bể mới\" reads as \"new tank\" and confuses old tank syndrome with new tank syndrome."
+        ]
+      }
+    ],
+    "ruled": "fa7506e193617ab1"
+  },
   "vi/guides/aquariumbreeder-optimize-your-biofilter-a-guide-to-ideal-biological-filtration": {
     "at": "2026-11-07",
     "hash": "05f35ba5cc76203f",
@@ -2228,6 +2278,32 @@
       }
     ],
     "ruled": "e2e4d630250a5cef"
+  },
+  "vi/guides/aquariumbreeder-shrimp-behavior-why-do-they-keep-swimming-around": {
+    "at": "2026-11-10",
+    "hash": "c2e9ef4725bf13de",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "## Cách xử lý",
+        "problem": "The unnumbered 'Cách xử lý' headings sit at the same level as the numbered sections 2.1–2.6 and break the numbered list, though they are subsections of each cause.",
+        "fix": "### Cách xử lý",
+        "rule": "An unnumbered heading at the same level placed between numbered headings (2.1, 2.2, …).",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Quy tắc này phải khắc vào đá!",
+        "problem": "The English idiom 'written in stone' is translated literally and reads unnaturally in Vietnamese.",
+        "fix": "Đây là nguyên tắc bất di bất dịch!",
+        "field": "body"
+      }
+    ],
+    "ruled": "c2e9ef4725bf13de"
   },
   "vi/guides/aquariumbreeder-shrimp-keeping-can-i-remineralize-tap-water": {
     "at": "2026-11-06",
@@ -8087,6 +8163,66 @@
     "findings": [],
     "ruled": "9a34ae26f1da2cce"
   },
+  "vi/guides/glaser-en-25-perchlike-fishes-25g-perchlike-fishes-7-remaining-groups-sunfish-special-en": {
+    "at": "2026-11-10",
+    "hash": "7501c80f246887ba",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "một bể cá sunfish sọc thuộc loại đẹp nhất",
+        "problem": "The section is about the bluespotted sunfish (đốm xanh), but here and in the next paragraph it is suddenly called 'sunfish sọc' (banded sunfish, a different species), so readers think a second fish is meant.",
+        "fix": "một bể cá sunfish đốm xanh thuộc loại đẹp nhất",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Như mọi loài sunfish, cá sunfish sọc thường không chịu ăn cám mảnh.",
+        "problem": "Same species called by a different name than the section's 'sunfish đốm xanh'.",
+        "fix": "Như mọi loài sunfish, cá sunfish đốm xanh thường không chịu ăn cám mảnh.",
+        "field": "body"
+      }
+    ],
+    "rewrites": [
+      {
+        "at": "2026-11-10",
+        "field": "body",
+        "score": 0.9,
+        "kept": true,
+        "problems": [
+          "'Ngoài môi trường gốc' reads as 'outside its native habitat', the opposite of the source, which says the fish reaches 25 cm in its native North American habitat."
+        ]
+      }
+    ],
+    "ruled": "7501c80f246887ba"
+  },
+  "vi/guides/glaser-en-29-lungfishes-lungfishes-from-the-congo": {
+    "at": "2026-11-10",
+    "hash": "4688f68efa3e98c9",
+    "findings": [],
+    "ruled": "4688f68efa3e98c9"
+  },
+  "vi/guides/glaser-en-32-all-the-rest-congo-importation-arrived-en": {
+    "at": "2026-11-10",
+    "hash": "dff04a22f6f6d729",
+    "findings": [],
+    "ruled": "dff04a22f6f6d729"
+  },
+  "vi/guides/glaser-en-32-all-the-rest-finally-an-import-from-guinea-en": {
+    "at": "2026-11-10",
+    "hash": "21234d8576fdbb63",
+    "findings": [],
+    "ruled": "21234d8576fdbb63"
+  },
+  "vi/guides/glaser-en-32-all-the-rest-guinea-import-arrived-en": {
+    "at": "2026-11-10",
+    "hash": "b91c1b19c945a3f9",
+    "findings": [],
+    "ruled": "b91c1b19c945a3f9"
+  },
   "vi/guides/glaser-en-fisharchive-black-winged-dwarf-hatchets-carnegiella-marthae-and-c-schereri": {
     "at": "2026-11-03",
     "hash": "956dea628b022f60",
@@ -12164,6 +12300,22 @@
     "findings": [],
     "ruled": "f077c78310b93b3f"
   },
+  "vi/guides/youtube-4a87l1r7_Yg": {
+    "at": "2026-11-10",
+    "hash": "1dc5c4c48c382d1c",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Đá nhỏ làm bể trông có tỉ lệ hơn và thêm nhiều chất liệu.",
+        "problem": "\"Trông có tỉ lệ hơn\" is a literal calque of \"gives a sense of scale\" and reads unnaturally in Vietnamese.",
+        "fix": "Đá nhỏ làm bể trông rộng và có chiều sâu hơn, bề mặt cũng thêm phong phú.",
+        "field": "body"
+      }
+    ],
+    "ruled": "1dc5c4c48c382d1c"
+  },
   "vi/guides/youtube-4GFdgPkH4WI": {
     "at": "2026-11-04",
     "hash": "c14cc77769b73745",
@@ -12434,6 +12586,12 @@
       }
     ],
     "ruled": "7ae07d5b26537ae1"
+  },
+  "vi/guides/youtube-6GyKUmf6gqY": {
+    "at": "2026-11-10",
+    "hash": "ebee5333836cdf1b",
+    "findings": [],
+    "ruled": "ebee5333836cdf1b"
   },
   "vi/guides/youtube-6mYLnYSWKWE": {
     "at": "2026-11-10",
@@ -12895,6 +13053,22 @@
     ],
     "ruled": "f812811e50106a20"
   },
+  "vi/guides/youtube-9UC5-o1zLXg": {
+    "at": "2026-11-10",
+    "hash": "1bd7fdadf55bea1b",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bài này đi qua các bước set một bể nano nước đen có trồng cây",
+        "problem": "\"Đi qua các bước\" is a word-for-word copy of the English \"walk through the steps\" and reads as a translation.",
+        "fix": "Dưới đây là cách set một bể nano nước đen có trồng cây",
+        "field": "body"
+      }
+    ],
+    "ruled": "1bd7fdadf55bea1b"
+  },
   "vi/guides/youtube-9WaC5d14Ij0": {
     "at": "2026-11-05",
     "hash": "f958f41ccbf3ba51",
@@ -13138,6 +13312,12 @@
       }
     ],
     "ruled": "4a17584e4f853ced"
+  },
+  "vi/guides/youtube-Ak-uEluqWlo": {
+    "at": "2026-11-10",
+    "hash": "d6df9c7cbe4e48f0",
+    "findings": [],
+    "ruled": "d6df9c7cbe4e48f0"
   },
   "vi/guides/youtube-aLvkYA8AqBY": {
     "at": "2026-11-06",
@@ -14056,6 +14236,31 @@
       }
     ],
     "ruled": "14bd9fb771f4bdad"
+  },
+  "vi/guides/youtube-e7czDMttN4Q": {
+    "at": "2026-11-10",
+    "hash": "2d0a0f20f08632ff",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "L9",
+        "quote": "Cả hai đều hiếu động nên bể lúc nào cũng nhộn nhịp.",
+        "problem": "The FAQ says the tank is always lively, while the body says it livens up at feeding time.",
+        "fix": "Cả hai đều hiếu động nên đến giờ ăn cả bể nhộn hẳn lên.",
+        "field": "faq.1.a"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "nghe hơi lạ là nó có nguồn gốc ngay ở Mỹ",
+        "problem": "'Ngay ở Mỹ' takes an American reader's point of view, which makes no sense for readers in Vietnam, Indonesia or Thailand.",
+        "fix": "Rainbow shiner là loài cá rất đẹp, có nguồn gốc ở Bắc Mỹ.",
+        "field": "body"
+      }
+    ],
+    "ruled": "2d0a0f20f08632ff"
   },
   "vi/guides/youtube-eaGHpCVz-zI": {
     "at": "2026-11-06",
@@ -16826,6 +17031,23 @@
     ],
     "ruled": "558cfe979523a1ae"
   },
+  "vi/guides/youtube-nhYS0j1dtbM": {
+    "at": "2026-11-10",
+    "hash": "73bf3b2e1bc498d8",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bể không viền thì rất nên lót một tấm neoprene dưới đáy để bể nằm cân.",
+        "problem": "The page uses \"rất nên\", which is on the site's list of words to avoid and is not how Vietnamese hobbyists write.",
+        "fix": "Bể không viền thì nên lót một tấm neoprene dưới đáy cho bể nằm cân.",
+        "rule": "The page contains the phrase \"rất nên\".",
+        "field": "body"
+      }
+    ],
+    "ruled": "73bf3b2e1bc498d8"
+  },
   "vi/guides/youtube-niYfzSsPvZ8": {
     "at": "2026-11-04",
     "hash": "ddd991b16fa337f0",
@@ -17285,6 +17507,22 @@
       }
     ],
     "ruled": "bf330ad1aed42327"
+  },
+  "vi/guides/youtube-PfpdJUIG9TQ": {
+    "at": "2026-11-10",
+    "hash": "fc9d6f52560ca7cf",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Sỏi lúc này hơi nổi quá",
+        "problem": "\"nổi\" can be read as the gravel floating rather than standing out visually.",
+        "fix": "Sỏi lúc này trông hơi nổi bật quá",
+        "field": "body"
+      }
+    ],
+    "ruled": "fc9d6f52560ca7cf"
   },
   "vi/guides/youtube-PhyjQmfD3cg": {
     "at": "2026-11-09",
@@ -17918,6 +18156,31 @@
     ],
     "ruled": "788f6e44801add2e"
   },
+  "vi/guides/youtube-S2FEjtl_PJo": {
+    "at": "2026-11-10",
+    "hash": "5fd6ae0f30c8b5c4",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Rắc lên trên một lớp chất kích phân nền (soil booster).",
+        "problem": "\"chất kích phân nền\" is an awkward, made-up rendering of soil booster that a Vietnamese hobbyist would stumble on.",
+        "fix": "Rắc lên trên một lớp phân lót (soil booster).",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Viên đầu tiên khá to và khối.",
+        "problem": "\"khối\" used as an adjective (chunky) reads like a literal translation and sounds unnatural.",
+        "fix": "Viên đầu tiên khá to và dày.",
+        "field": "body"
+      }
+    ],
+    "ruled": "5fd6ae0f30c8b5c4"
+  },
   "vi/guides/youtube-s2qLCc-Dp7w": {
     "at": "2026-11-04",
     "hash": "78cd800de30b0478",
@@ -18391,6 +18654,29 @@
       }
     ],
     "ruled": "86585aaf0e883d74"
+  },
+  "vi/guides/youtube-TIxrovnAx00": {
+    "at": "2026-11-10",
+    "hash": "ca280b96bf37e814",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Cứ chỗ nào cần dán thì lặp lại thao tác, với bố cục này là khoảng 10–15 lần",
+        "problem": "The section promises to explain how to glue, but it only lists the tools and then says to 'repeat the step', which it never describes (where the cotton goes, how the glue is dropped on)",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "## Dựng lũa đá kiểu rừng",
+        "problem": "This heading promises to show how to build the forest-style hardscape, but the section only names the materials and never explains how to arrange the wood and stones.",
+        "field": "body"
+      }
+    ],
+    "ruled": "ca280b96bf37e814"
   },
   "vi/guides/youtube-TkKqmLMj0Kg": {
     "at": "2026-11-10",
@@ -19183,6 +19469,31 @@
     ],
     "ruled": "a7e59b6bc5b79b52"
   },
+  "vi/guides/youtube-x7AVyEs1J48": {
+    "at": "2026-11-10",
+    "hash": "86c46e1ef940ccf7",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "| Loại làm sẵn của Dennerle\n| Rêu Java (Java moss)\n| Ba quả cỡ vừa",
+        "problem": "The three-column moss table has only seven cells, so the rows are misaligned and readers can't tell which moss goes on which ball.",
+        "fix": "| Loại làm sẵn của Dennerle | Rêu Java (Java moss) | |\n| Ba quả cỡ vừa | Rêu spiky (spiky moss) và rêu liễu (weeping moss) | |\n| Hai quả nhỏ ở phía sau | Rêu Pellia | Lên rất chậm, sau 8 tuần vẫn chưa phải tỉa |",
+        "rule": "A table whose cell count is not a multiple of its header column count.",
+        "field": "body"
+      },
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Sau này thả cá chili vào thì màu đỏ của cá lên rất rực, chủ yếu là nhờ đèn.",
+        "problem": "The light section says chili rasboras were added, but the fish section only suggests they could be added, as if the tank still had no fish.",
+        "field": "body"
+      }
+    ],
+    "ruled": "86c46e1ef940ccf7"
+  },
   "vi/guides/youtube-xaMPVEEhQzU": {
     "at": "2026-11-07",
     "hash": "547d4fbf7df918ee",
@@ -19330,6 +19641,22 @@
     "hash": "3dd7b06bbb1bfc5c",
     "findings": [],
     "ruled": "3dd7b06bbb1bfc5c"
+  },
+  "vi/guides/youtube-Y2HmhlumTYU": {
+    "at": "2026-11-10",
+    "hash": "c92f013760ad8557",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bài này đi qua từng bước set một bể nano Dutch nhiều màu",
+        "problem": "\"Đi qua từng bước\" is a literal calque of \"walks through\" and reads like a translation.",
+        "fix": "Dưới đây là từng bước set một bể nano Dutch nhiều màu",
+        "field": "body"
+      }
+    ],
+    "ruled": "c92f013760ad8557"
   },
   "vi/guides/youtube-Y6S_TH5qFoE": {
     "at": "2026-11-06",

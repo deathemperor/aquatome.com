@@ -9,6 +9,26 @@
     "asia",
     "thailand"
   ],
+  "range": {
+    "records": {
+      "taxonKey": 7601346,
+      "total": 1,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "VN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          108.28125,
+          11.25,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

@@ -1,0 +1,63 @@
+{
+  "id": "nothobranchius-guentheri",
+  "native": {
+    "input": "a5bee2186219457f",
+    "at": "2026-11-10T20:57:55.515Z",
+    "claims": [
+      {
+        "code": "TZ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Unguja, the main island of the Zanzibar archipelago, Tanzania.",
+        "words": "Tanzania",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Unguja",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Unguja, the main island of the Zanzibar archipelago, Tanzania.",
+        "country": "TZ",
+        "ok": true
+      },
+      {
+        "name": "Zanzibar",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Unguja, the main island of the Zanzibar archipelago, Tanzania.",
+        "country": "TZ",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Nothobranchius guentheri",
+    "status": "ACCEPTED",
+    "taxonKey": 2348594,
+    "datasets": [
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        3
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        2
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        2
+      ]
+    ],
+    "native": [
+      "TZ"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T20:57:55.515Z"
+  }
+}

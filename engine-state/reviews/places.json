@@ -1665,6 +1665,28 @@
       "kept": true
     }
   ],
+  "id/places/celebes": [
+    {
+      "at": "2026-11-10T22:48:50Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/central-java": [
+    {
+      "at": "2026-11-10T22:48:50Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [
+        "central-java: \"Trung Java\" (Vietnamese; should be Jawa Tengah is given as the target, but the first name shown is not Indonesian)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/central-kalimantan": [
     {
       "at": "2026-11-08T05:19:45Z",
@@ -2237,6 +2259,18 @@
       "model": "sonnet",
       "score": 0.8,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/cumberland-river": [
+    {
+      "at": "2026-11-10T22:48:50Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [
+        "cumberland-river: \"sông Cumberland\" (Vietnamese, not Indonesian; should be Sungai Cumberland)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -3284,6 +3318,18 @@
       "kept": true
     }
   ],
+  "id/places/hubei": [
+    {
+      "at": "2026-11-10T22:48:50Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [
+        "hubei: \"Hồ Bắc\" (Vietnamese; Indonesian is Hubei)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/hungary": [
     {
       "at": "2026-11-10T01:37:16Z",
@@ -3599,6 +3645,16 @@
       "kept": true
     }
   ],
+  "id/places/jackson": [
+    {
+      "at": "2026-11-10T22:48:50Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/jamaica": [
     {
       "at": "2026-11-06T19:55:55Z",
@@ -3614,6 +3670,16 @@
       "at": "2026-11-08T05:20:19Z",
       "model": "sonnet",
       "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/jardine": [
+    {
+      "at": "2026-11-10T22:48:50Z",
+      "model": "sonnet",
+      "score": 0.1,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -4309,6 +4375,18 @@
       "kept": true
     }
   ],
+  "id/places/kiso-river": [
+    {
+      "at": "2026-11-10T22:48:50Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [
+        "kiso-river: \"sông Kiso\" (Vietnamese; should be Sungai Kiso)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/ko-lanta": [
     {
       "at": "2026-11-08T05:20:20Z",
@@ -4900,6 +4978,18 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/lake-matano": [
+    {
+      "at": "2026-11-10T22:48:50Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [
+        "lake-matano: \"hồ Matano\" (Vietnamese; should be Danau Matano)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -6392,6 +6482,18 @@
       "kept": true
     }
   ],
+  "id/places/moluccas": [
+    {
+      "at": "2026-11-10T22:48:50Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [
+        "moluccas: \"quần đảo Maluku\" (Vietnamese; should be Kepulauan Maluku)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/momboyo-river": [
     {
       "at": "2026-11-08T05:20:55Z",
@@ -7076,6 +7178,16 @@
       "kept": true
     }
   ],
+  "id/places/ohio": [
+    {
+      "at": "2026-11-10T22:48:50Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/okano": [
     {
       "at": "2026-11-08T05:20:56Z",
@@ -7208,6 +7320,18 @@
       "model": "sonnet",
       "score": 0.1,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/ouachita-river": [
+    {
+      "at": "2026-11-10T22:48:51Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [
+        "ouachita-river: \"sông Ouachita\" (Vietnamese; should be Sungai Ouachita)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -9359,6 +9483,18 @@
       "kept": true
     }
   ],
+  "id/places/rio-teuchitlan": [
+    {
+      "at": "2026-11-10T22:48:51Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [
+        "rio-teuchitlan: \"sông Teuchitlán\" (Vietnamese; should be Sungai Teuchitlán)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/rio-tigre": [
     {
       "at": "2026-11-10T17:42:34Z",
@@ -9561,6 +9697,18 @@
       "kept": true
     }
   ],
+  "id/places/roaring-river": [
+    {
+      "at": "2026-11-10T22:48:51Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [
+        "roaring-river: \"sông Roaring\" (Vietnamese; should be Sungai Roaring)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/romania": [
     {
       "at": "2026-11-10T01:37:17Z",
@@ -9631,6 +9779,18 @@
       "model": "sonnet",
       "score": 0.9,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/ruvu-river": [
+    {
+      "at": "2026-11-10T22:48:51Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [
+        "ruvu-river: \"sông Ruvu\" (Vietnamese; should be Sungai Ruvu)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -10497,6 +10657,16 @@
       "kept": true
     }
   ],
+  "id/places/southeast-asia": [
+    {
+      "at": "2026-11-10T22:48:51Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/speke-gulf": [
     {
       "at": "2026-11-09T22:55:04Z",
@@ -10522,6 +10692,16 @@
       "at": "2026-11-08T05:22:00Z",
       "model": "sonnet",
       "score": 0.4,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/st-francis-river": [
+    {
+      "at": "2026-11-10T22:48:51Z",
+      "model": "sonnet",
+      "score": 0.1,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -10974,6 +11154,26 @@
       "kept": true
     }
   ],
+  "id/places/tennessee": [
+    {
+      "at": "2026-11-10T22:48:51Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/tennessee-river": [
+    {
+      "at": "2026-11-10T22:48:51Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/thade": [
     {
       "at": "2026-11-06T12:35:53Z",
@@ -11151,6 +11351,16 @@
   "id/places/togo-hills": [
     {
       "at": "2026-11-08T08:48:28Z",
+      "model": "sonnet",
+      "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/tonga": [
+    {
+      "at": "2026-11-10T22:48:51Z",
       "model": "sonnet",
       "score": 0.1,
       "notes": [],
@@ -26728,6 +26938,28 @@
       "kept": true
     }
   ],
+  "th/places/celebes": [
+    {
+      "at": "2026-11-10T22:53:23Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "สุลาเวสี is correct; the Thai names for the others are acceptable"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/central-java": [
+    {
+      "at": "2026-11-10T22:53:23Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/central-kalimantan": [
     {
       "at": "2026-11-08T05:27:08Z",
@@ -27342,6 +27574,16 @@
       "at": "2026-11-08T20:47:47Z",
       "model": "sonnet",
       "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/cumberland-river": [
+    {
+      "at": "2026-11-10T22:53:23Z",
+      "model": "sonnet",
+      "score": 0.8,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -28445,6 +28687,18 @@
       "kept": true
     }
   ],
+  "th/places/hubei": [
+    {
+      "at": "2026-11-10T22:53:23Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "หูเป่ย์ (hubei): standard Thai is หูเป่ย (no การันต์ on ย)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/hungary": [
     {
       "at": "2026-11-10T01:42:04Z",
@@ -28779,6 +29033,16 @@
       "kept": true
     }
   ],
+  "th/places/jackson": [
+    {
+      "at": "2026-11-10T22:53:23Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/jalisco": [
     {
       "at": "2026-11-06T12:36:00Z",
@@ -28806,6 +29070,16 @@
       "at": "2026-11-08T05:27:55Z",
       "model": "sonnet",
       "score": 0.72,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/jardine": [
+    {
+      "at": "2026-11-10T22:53:23Z",
+      "model": "sonnet",
+      "score": 0.8,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -29513,6 +29787,16 @@
       "kept": true
     }
   ],
+  "th/places/kiso-river": [
+    {
+      "at": "2026-11-10T22:53:23Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/ko-lanta": [
     {
       "at": "2026-11-08T05:27:56Z",
@@ -30163,6 +30447,16 @@
       "at": "2026-11-08T05:27:56Z",
       "model": "sonnet",
       "score": 0.72,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/lake-matano": [
+    {
+      "at": "2026-11-10T22:53:23Z",
+      "model": "sonnet",
+      "score": 0.8,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -31702,6 +31996,16 @@
       "kept": true
     }
   ],
+  "th/places/moluccas": [
+    {
+      "at": "2026-11-10T22:53:23Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/momboyo-river": [
     {
       "at": "2026-11-08T05:28:40Z",
@@ -32476,6 +32780,16 @@
       "kept": true
     }
   ],
+  "th/places/ohio": [
+    {
+      "at": "2026-11-10T22:53:23Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/okano": [
     {
       "at": "2026-11-08T05:28:40Z",
@@ -32604,6 +32918,18 @@
       "model": "sonnet",
       "score": 0.6,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/ouachita-river": [
+    {
+      "at": "2026-11-10T22:53:23Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "วอชิทอ (ouachita-river): Thai usage is typically วอชิตา; questionable"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -34827,6 +35153,18 @@
       "kept": true
     }
   ],
+  "th/places/rio-teuchitlan": [
+    {
+      "at": "2026-11-10T22:53:23Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "เตอุชิตลัน (rio-teuchitlan): questionable transcription, usually เตอูชิตลัน"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/rio-tiete": [
     {
       "at": "2026-11-06T12:36:00Z",
@@ -35093,6 +35431,16 @@
       "kept": true
     }
   ],
+  "th/places/roaring-river": [
+    {
+      "at": "2026-11-10T22:53:23Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/romania": [
     {
       "at": "2026-11-10T01:42:05Z",
@@ -35161,6 +35509,16 @@
       "at": "2026-11-06T14:05:41Z",
       "model": "sonnet",
       "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/ruvu-river": [
+    {
+      "at": "2026-11-10T22:53:23Z",
+      "model": "sonnet",
+      "score": 0.8,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -36057,6 +36415,16 @@
       "kept": true
     }
   ],
+  "th/places/southeast-asia": [
+    {
+      "at": "2026-11-10T22:53:23Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/speke-gulf": [
     {
       "at": "2026-11-09T22:57:23Z",
@@ -36084,6 +36452,16 @@
       "at": "2026-11-08T05:30:02Z",
       "model": "sonnet",
       "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/st-francis-river": [
+    {
+      "at": "2026-11-10T22:53:23Z",
+      "model": "sonnet",
+      "score": 0.8,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -36557,6 +36935,26 @@
       "kept": true
     }
   ],
+  "th/places/tennessee": [
+    {
+      "at": "2026-11-10T22:53:23Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/tennessee-river": [
+    {
+      "at": "2026-11-10T22:53:23Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/tha-sae": [
     {
       "at": "2026-11-06T12:36:07Z",
@@ -36767,6 +37165,16 @@
       "at": "2026-11-08T08:57:32Z",
       "model": "sonnet",
       "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/tonga": [
+    {
+      "at": "2026-11-10T22:53:23Z",
+      "model": "sonnet",
+      "score": 0.8,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -40064,6 +40472,30 @@
       "kept": true
     }
   ],
+  "vi/places/celebes": [
+    {
+      "at": "2026-11-10T22:46:13Z",
+      "model": "sonnet",
+      "score": 0.97,
+      "notes": [
+        "I found no wrong places. Every name is either the usual Vietnamese name (Sulawesi, Trung Java, Hồ Bắc, quần đảo Maluku, Đông Nam Á) or the source's name with its generic word put into Vietnamese (sông, hồ)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/central-java": [
+    {
+      "at": "2026-11-10T22:46:14Z",
+      "model": "sonnet",
+      "score": 0.97,
+      "notes": [
+        "I found no wrong places. Every name is either the usual Vietnamese name (Sulawesi, Trung Java, Hồ Bắc, quần đảo Maluku, Đông Nam Á) or the source's name with its generic word put into Vietnamese (sông, hồ)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/central-kalimantan": [
     {
       "at": "2026-11-07T20:33:13Z",
@@ -40841,6 +41273,16 @@
       "at": "2026-11-08T20:36:09Z",
       "model": "sonnet",
       "score": 0.96,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/cumberland-river": [
+    {
+      "at": "2026-11-10T22:46:14Z",
+      "model": "sonnet",
+      "score": 0.97,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -42255,6 +42697,18 @@
       "kept": true
     }
   ],
+  "vi/places/hubei": [
+    {
+      "at": "2026-11-10T22:46:14Z",
+      "model": "sonnet",
+      "score": 0.97,
+      "notes": [
+        "I found no wrong places. Every name is either the usual Vietnamese name (Sulawesi, Trung Java, Hồ Bắc, quần đảo Maluku, Đông Nam Á) or the source's name with its generic word put into Vietnamese (sông, hồ)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/hue": [
     {
       "at": "2026-11-07T20:34:11Z",
@@ -42678,6 +43132,18 @@
       "kept": true
     }
   ],
+  "vi/places/jackson": [
+    {
+      "at": "2026-11-10T22:46:14Z",
+      "model": "sonnet",
+      "score": 0.97,
+      "notes": [
+        "The score is a little below 1 for 'Jackson' and 'Jardine' (AU/PG regions). Leaving them unchanged is fine, but I couldn't be sure exactly which places they refer to."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/jalisco": [
     {
       "at": "2026-11-07T20:35:05Z",
@@ -42714,6 +43180,18 @@
       "model": "sonnet",
       "score": 0.92,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/jardine": [
+    {
+      "at": "2026-11-10T22:46:14Z",
+      "model": "sonnet",
+      "score": 0.97,
+      "notes": [
+        "The score is a little below 1 for 'Jackson' and 'Jardine' (AU/PG regions). Leaving them unchanged is fine, but I couldn't be sure exactly which places they refer to."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -43712,6 +44190,16 @@
       "kept": true
     }
   ],
+  "vi/places/kiso-river": [
+    {
+      "at": "2026-11-10T22:46:14Z",
+      "model": "sonnet",
+      "score": 0.97,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/ko-lanta": [
     {
       "at": "2026-11-07T20:35:06Z",
@@ -44646,6 +45134,16 @@
       "notes": [
         "No wrong places found. All 99 names are either names Vietnamese readers already use, or the source's own name with the generic word put into Vietnamese."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/lake-matano": [
+    {
+      "at": "2026-11-10T22:46:14Z",
+      "model": "sonnet",
+      "score": 0.97,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -46714,6 +47212,18 @@
       "kept": true
     }
   ],
+  "vi/places/moluccas": [
+    {
+      "at": "2026-11-10T22:46:14Z",
+      "model": "sonnet",
+      "score": 0.97,
+      "notes": [
+        "I found no wrong places. Every name is either the usual Vietnamese name (Sulawesi, Trung Java, Hồ Bắc, quần đảo Maluku, Đông Nam Á) or the source's name with its generic word put into Vietnamese (sông, hồ)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/momboyo-river": [
     {
       "at": "2026-11-08T05:15:07Z",
@@ -47765,6 +48275,16 @@
       "kept": true
     }
   ],
+  "vi/places/ohio": [
+    {
+      "at": "2026-11-10T22:46:14Z",
+      "model": "sonnet",
+      "score": 0.97,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/ohio-river": [
     {
       "at": "2026-11-07T20:37:55Z",
@@ -47948,6 +48468,16 @@
       "at": "2026-11-07T20:37:55Z",
       "model": "sonnet",
       "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/ouachita-river": [
+    {
+      "at": "2026-11-10T22:46:14Z",
+      "model": "sonnet",
+      "score": 0.97,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -50804,6 +51334,16 @@
       "kept": true
     }
   ],
+  "vi/places/rio-teuchitlan": [
+    {
+      "at": "2026-11-10T22:46:14Z",
+      "model": "sonnet",
+      "score": 0.97,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/rio-tiete": [
     {
       "at": "2026-11-07T20:39:30Z",
@@ -51152,6 +51692,18 @@
       "kept": true
     }
   ],
+  "vi/places/roaring-river": [
+    {
+      "at": "2026-11-10T22:46:14Z",
+      "model": "sonnet",
+      "score": 0.97,
+      "notes": [
+        "'sông Roaring' keeps the English proper name 'Roaring' instead of translating it. That is allowed, so it is not marked wrong."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/rondonia": [
     {
       "at": "2026-11-07T20:39:31Z",
@@ -51233,6 +51785,16 @@
       "notes": [
         "Every name refers to the right place. Generic words (river, Río/Rio, Islands, mountain range) are put into Vietnamese as sông, quần đảo and dãy, and the proper names keep the source spelling."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/ruvu-river": [
+    {
+      "at": "2026-11-10T22:46:14Z",
+      "model": "sonnet",
+      "score": 0.97,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -52479,6 +53041,18 @@
       "kept": true
     }
   ],
+  "vi/places/southeast-asia": [
+    {
+      "at": "2026-11-10T22:46:14Z",
+      "model": "sonnet",
+      "score": 0.97,
+      "notes": [
+        "I found no wrong places. Every name is either the usual Vietnamese name (Sulawesi, Trung Java, Hồ Bắc, quần đảo Maluku, Đông Nam Á) or the source's name with its generic word put into Vietnamese (sông, hồ)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/speke-gulf": [
     {
       "at": "2026-11-09T22:53:55Z",
@@ -52507,6 +53081,16 @@
       "at": "2026-11-07T20:40:25Z",
       "model": "sonnet",
       "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/st-francis-river": [
+    {
+      "at": "2026-11-10T22:46:14Z",
+      "model": "sonnet",
+      "score": 0.97,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -53194,6 +53778,26 @@
       "at": "2026-11-08T05:15:07Z",
       "model": "sonnet",
       "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/tennessee": [
+    {
+      "at": "2026-11-10T22:46:14Z",
+      "model": "sonnet",
+      "score": 0.97,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/tennessee-river": [
+    {
+      "at": "2026-11-10T22:46:14Z",
+      "model": "sonnet",
+      "score": 0.97,
       "notes": [],
       "attempt": "first",
       "kept": true

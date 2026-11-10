@@ -10,6 +10,50 @@
     "indonesia",
     "java"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Central Java"
+      ],
+      "sources": [
+        "aquariumbreeder"
+      ],
+      "quotes": [
+        {
+          "source": "aquariumbreeder",
+          "quote": "So far, these crabs are known to be endemic to an island in Central Java, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Central Java"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9030563,
+      "total": 1,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "ID",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          109.6875,
+          -8.4375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

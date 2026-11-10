@@ -1,8 +1,8 @@
 {
   "id": "carinotetraodon-borneensis",
   "native": {
-    "input": "39efdf036ab8f45c",
-    "at": "2026-11-07T02:19:57.912Z",
+    "input": "f12cf2115c22aee4",
+    "at": "2026-11-10T20:57:55.515Z",
     "claims": [
       {
         "code": "MY",
@@ -17,7 +17,7 @@
       {
         "name": "Borneo",
         "source": "seriouslyfish",
-        "quote": "Carinotetraodon borneensis is a small red-eyed puffer known only from southern Sarawak, Malaysia (Borneo), in the Sarawak, Sadong and Rajang rivers.",
+        "quote": "Known only from southern Sarawak state, Malaysia (Borneo), with confirmed records from the Sarawak, Sadong and Rajang river systems.",
         "country": "MY",
         "ok": true
       },
@@ -41,12 +41,20 @@
         "quote": "Known only from southern Sarawak state, Malaysia (Borneo), with confirmed records from the Sarawak, Sadong and Rajang river systems.",
         "country": "MY",
         "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "glaser",
+        "quote": "This pufferfish lives exclusively in pure freshwater on Borneo and is only very rarely imported.",
+        "ok": true
       }
     ],
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [],
+      "pagesOnly": [
+        "ID"
+      ],
       "sourcesOnly": []
     }
   },

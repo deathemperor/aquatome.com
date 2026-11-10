@@ -1077,6 +1077,25 @@
     "score": 0.97,
     "notes": []
   },
+  "hydrocotyle-leucocephala": {
+    "at": "2026-11-10",
+    "from": "2026-11-10",
+    "name": "Brazilian Pennywort",
+    "confidence": "medium",
+    "score": 0.7,
+    "notes": [
+      "Section 5, 'Melting after a few months' / floating advice: 'tidak suka terendam penuh' is fine, but 'Pertumbuhan lambat ... suplai CO2 yang cukup' conflicts with the floater statement; it is faithful to the source, so only check consistency. Real issue below.",
+      "Section 5: 'after every significant partial water change' was translated 'setiap kali selesai ganti air dalam jumlah cukup besar'; this is acceptable, but 'Ganti air sebagian juga membantu' is fine. The main error is next.",
+      "Section 5: 'Crooked roots' translated 'Akar bengkok' is OK, but 'Menggumpal (balling)' and 'Melting' are left as English jargon without a local equivalent; add 'meleleh/membusuk' for 'melting'.",
+      "Section 5: 'bogwood' was translated 'kayu', which loses the meaning and duplicates 'driftwood'; use 'kayu rawa (bogwood)' or 'kayu apung/akar kayu'.",
+      "Section 2: 'lebih dari sekitar 100 spesies' is contradictory; the source 'about 100+' should be 'sekitar 100 lebih spesies' or 'lebih dari 100 spesies'.",
+      "Section 2: 'bonggol' is the wrong botanical term for flower 'heads'; use 'kepala bunga' or 'karangan bunga bulat'.",
+      "Section 3: 'bogs' was translated 'rawa gambut', which adds the specific meaning of peat swamp; use 'rawa berlumpur' or simply 'rawa'.",
+      "Section 8: 'ikan mas koki' is redundant/non-standard; use 'ikan mas' or 'koki'.",
+      "Section 8: 'burayak' is non-standard for fry; use 'anakan ikan' or 'burayak' with a gloss.",
+      "Section 8: 'pearl gourami' as 'sepat mutiara' is fine, but 'Asolene spixi' and 'siput rabbit' are inconsistent; use 'siput rabbit (rabbit snail)'. Also, 'udang bamboo' should be 'udang bambu'."
+    ]
+  },
   "hydrocotyle-tripartita": {
     "at": "2026-11-02",
     "from": "2026-10-30",

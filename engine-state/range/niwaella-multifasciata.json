@@ -1,0 +1,47 @@
+{
+  "id": "niwaella-multifasciata",
+  "native": {
+    "input": "e87cf3375aa0d5ae",
+    "at": "2026-11-10T20:57:55.515Z",
+    "claims": [
+      {
+        "code": "KR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from river basins of southwestern Korea with type locality the Rakuto River.",
+        "words": "Korea",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rakuto River",
+        "source": "seriouslyfish",
+        "quote": "Known only from river basins of southwestern Korea with type locality the Rakuto River.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Niwaella multifasciata",
+    "status": "ACCEPTED",
+    "taxonKey": 2368102,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "KR"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T20:57:55.515Z"
+  }
+}

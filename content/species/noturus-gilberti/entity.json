@@ -10,6 +10,76 @@
     "united-states",
     "roanoke-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "US"
+      ],
+      "regions": [
+        "Roanoke River",
+        "Dan River"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "North America: Upper Roanoke River (including Dan River) drainage in Virginia and North Carolina, USA.",
+          "countries": [
+            "US"
+          ],
+          "regions": [
+            "Roanoke River",
+            "Dan River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2341023,
+      "total": 95,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "US",
+          95
+        ]
+      ],
+      "cells": [
+        [
+          -81.5625,
+          32.34375,
+          1,
+          1
+        ],
+        [
+          -81.5625,
+          35.15625,
+          13,
+          13
+        ],
+        [
+          -81.5625,
+          36.5625,
+          52,
+          52
+        ],
+        [
+          -80.15625,
+          36.5625,
+          28,
+          28
+        ],
+        [
+          -78.75,
+          36.5625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

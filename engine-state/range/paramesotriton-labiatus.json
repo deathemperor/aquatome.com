@@ -1,0 +1,37 @@
+{
+  "id": "paramesotriton-labiatus",
+  "native": {
+    "input": "68e1a02e8afafc72",
+    "at": "2026-11-10T20:57:55.515Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Paramesotriton labiatus",
+    "status": "ACCEPTED",
+    "taxonKey": 10701161,
+    "datasets": [
+      [
+        "88dc0756-f762-11e1-a439-00145eb45e9a",
+        331
+      ],
+      [
+        "cece4fc2-1fec-4bb5-a335-7252548e3f0b",
+        8
+      ],
+      [
+        "09c4287e-e6d5-4552-a07f-bff8a00833d8",
+        7
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-10T20:57:55.515Z"
+  }
+}

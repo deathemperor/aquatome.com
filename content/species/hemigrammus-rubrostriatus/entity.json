@@ -9,6 +9,26 @@
     "south-america",
     "colombia"
   ],
+  "range": {
+    "records": {
+      "taxonKey": 8568848,
+      "total": 6,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "VE",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          -67.5,
+          1.40625,
+          6
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {

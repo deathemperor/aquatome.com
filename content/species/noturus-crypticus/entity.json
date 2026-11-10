@@ -11,6 +11,66 @@
     "french-broad",
     "french-broad-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "US"
+      ],
+      "regions": [
+        "French Broad",
+        "Mississippi",
+        "Ohio",
+        "Tennessee",
+        "French Broad River"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "North America: USA. Gulf Coast Drainages, Mississippi, Ohio, Tennessee, French Broad. Type locality: Little Chucky Creek at mouth of Jackson Branch, Greene County, Tennessee, U.S.A.",
+          "countries": [
+            "US"
+          ],
+          "regions": [
+            "French Broad",
+            "Mississippi",
+            "Ohio",
+            "Tennessee"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "USA: French Broad River basin, eastern Tennessee.",
+          "countries": [],
+          "regions": [
+            "French Broad River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2341027,
+      "total": 4,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "US",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -84.375,
+          35.15625,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

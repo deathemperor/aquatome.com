@@ -1,0 +1,31 @@
+{
+  "id": "hemigrammus-rubrostriatus",
+  "native": {
+    "input": "7a541dd356e54db4",
+    "at": "2026-11-10T20:57:55.515Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CO"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hemigrammus rubrostriatus",
+    "status": "ACCEPTED",
+    "taxonKey": 8568848,
+    "datasets": [
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        6
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-10T20:57:55.515Z"
+  }
+}

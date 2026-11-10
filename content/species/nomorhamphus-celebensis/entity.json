@@ -10,6 +10,38 @@
     "indonesia",
     "sulawesi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Sulawesi"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Sulawesi (formerly known as Celebes), Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Sulawesi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2369042,
+      "total": 0,
+      "fetched": "2026-11-10",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

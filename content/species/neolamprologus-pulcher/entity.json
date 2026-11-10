@@ -13,6 +13,86 @@
     "tanzania",
     "zambia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TZ"
+      ],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Tanganyika, mainly in the southern half of the lake, where it replaces N. brichardi, with type locality the town of Kasanga in southwestern Tanzania.",
+          "countries": [
+            "TZ"
+          ],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371813,
+      "total": 20,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "ZM",
+          14
+        ],
+        [
+          "TZ",
+          3
+        ],
+        [
+          "BI",
+          2
+        ],
+        [
+          "CD",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          28.125,
+          -5.625,
+          1,
+          0
+        ],
+        [
+          28.125,
+          -4.21875,
+          2,
+          0
+        ],
+        [
+          29.53125,
+          -9.84375,
+          5,
+          0
+        ],
+        [
+          29.53125,
+          -8.4375,
+          3,
+          3
+        ],
+        [
+          30.9375,
+          -9.84375,
+          9,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

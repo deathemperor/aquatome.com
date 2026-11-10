@@ -1,0 +1,35 @@
+{
+  "id": "coreoperca-liui",
+  "native": {
+    "input": "f2e538d150302224",
+    "at": "2026-11-10T20:57:55.515Z",
+    "claims": [],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CN"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Coreoperca liui",
+    "status": "ACCEPTED",
+    "taxonKey": 8189391,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-10T20:57:55.515Z"
+  }
+}

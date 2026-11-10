@@ -10,6 +10,60 @@
     "indonesia",
     "sulawesi"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Sulawesi"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "This livebearing fish lives endemic (exclusively there) on the island of Sulawesi, formerly known as Celebes.",
+          "countries": [],
+          "regions": [
+            "Sulawesi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2369046,
+      "total": 13,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "ID",
+          13
+        ]
+      ],
+      "cells": [
+        [
+          120.9375,
+          -4.21875,
+          2
+        ],
+        [
+          120.9375,
+          -2.8125,
+          2
+        ],
+        [
+          122.34375,
+          -5.625,
+          5
+        ],
+        [
+          122.34375,
+          -4.21875,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "ph": [
       {

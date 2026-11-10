@@ -12,6 +12,94 @@
     "democratic-republic-of-the-congo",
     "tanzania"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BI",
+        "CD",
+        "TZ"
+      ],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Found in Burundi, DR Congo and Tanzania.",
+          "countries": [
+            "BI",
+            "CD",
+            "TZ"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Tanganyika.",
+          "countries": [],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371800,
+      "total": 30,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "TZ",
+          16
+        ],
+        [
+          "CD",
+          14
+        ]
+      ],
+      "cells": [
+        [
+          28.125,
+          -7.03125,
+          4,
+          4
+        ],
+        [
+          28.125,
+          -5.625,
+          4,
+          4
+        ],
+        [
+          28.125,
+          -4.21875,
+          5,
+          5
+        ],
+        [
+          29.53125,
+          -8.4375,
+          3,
+          3
+        ],
+        [
+          29.53125,
+          -7.03125,
+          7,
+          7
+        ],
+        [
+          29.53125,
+          -5.625,
+          7,
+          7
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

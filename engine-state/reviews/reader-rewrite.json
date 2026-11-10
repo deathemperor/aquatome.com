@@ -40,6 +40,21 @@
       "kept": true
     }
   ],
+  "vi/guides/aquariumbreeder-old-tank-syndrome#body": [
+    {
+      "at": "2026-11-10T21:53:32Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "\"bể mới\" changed to \"bể cũ\": contradicts BEFORE (new tank vs old tank)",
+        "\"Những con mới thả\" became \"Cá, tép mới thả\": adds specific animals (fish, shrimp) not in BEFORE",
+        "\"nơi nước tốt chuyển sang\" became \"vốn sống trong nước tốt\": the idea of moving from another place is weakened",
+        "added \"mà chúng vừa được thả vào\": redundant addition"
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/guides/aquatome-nuoc-be-ca-bi-xanh-do-tao-xanh-va-cach-xu-ly#body": [
     {
       "at": "2026-11-07T06:53:20Z",
@@ -63,6 +78,20 @@
         "\"Rõ ràng\" (Apparently/Clearly) hedge dropped; AFTER states breeding seasonality as flat fact.",
         "\"khá rõ\" (fairly pronounced) seasonality changed to plain \"chỉ sinh sản theo mùa\"; the degree is lost.",
         "\"hiếm khi có hàng nhập về nhất\" is awkward. It is still close to \"rarest imported\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/glaser-en-25-perchlike-fishes-25g-perchlike-fishes-7-remaining-groups-sunfish-special-en#body": [
+    {
+      "at": "2026-11-10T21:53:00Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"cá bản địa ở châu Âu\" -> \"cá sống hoang ở châu Âu\": arguably a more accurate wording, but the meaning shifts slightly",
+        "\"Ngoài môi trường gốc\" -> \"Ở môi trường gốc tại Bắc Mỹ\": adds \"Bắc Mỹ\", which is consistent with the later sentence",
+        "\"các quần thể pumpkinseed hoang dã\" -> \"pumpkinseed hoang dã\": minor"
       ],
       "attempt": "first",
       "kept": true

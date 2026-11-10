@@ -12,6 +12,74 @@
     "mozambique",
     "tanzania"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Lake Malawi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Lake Malawi.",
+          "countries": [],
+          "regions": [
+            "Lake Malawi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371145,
+      "total": 15,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "MW",
+          14
+        ],
+        [
+          "US",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -115.3125,
+          39.375,
+          1
+        ],
+        [
+          33.75,
+          -16.875,
+          1
+        ],
+        [
+          33.75,
+          -15.46875,
+          1
+        ],
+        [
+          33.75,
+          -14.0625,
+          6
+        ],
+        [
+          33.75,
+          -11.25,
+          1
+        ],
+        [
+          35.15625,
+          -15.46875,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {
