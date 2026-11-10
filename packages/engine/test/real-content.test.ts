@@ -62,6 +62,19 @@ test.each(Object.entries(BLUE_GREEN_ALGAE))('blue-green algae: %s names no produ
   expect(t.refs?.map(r => r.url)).toEqual(expect.arrayContaining(cited))
 })
 
+// Praziquantel mixed into food, in all four languages, by the fish's weight (University of Florida; a trial on grass carp doses
+// the same way). The guide had "35–125 mg/kg", which doesn't say a kilo of what, and a koi seller's own mix, per kilo of food,
+// that no second source backs (2026-11-10).
+test('the gill fluke guide gives praziquantel in food by the fish\'s weight, and the engine keeps it', async () => {
+  const dir = fileURLToPath(new URL('../../../content/guides/aquatome-ca-bi-san-mang-gill-flukes-dau-hieu-cach-chua-va-phong/', import.meta.url))
+  for (const lang of ['vi', 'id', 'th', 'ms']) {
+    const t = JSON.parse(await readFile(join(dir, `${lang}.json`), 'utf8')) as Translation
+    expect(t.bodyFixed, lang).toBe(true)
+    expect(t.body, lang).not.toMatch(/35–125|50–75 (?:mg|มก)/u)
+    expect(t.body, lang).toMatch(/<td>40 (?:mg|มก)/u)
+  }
+})
+
 // A fish's summary states its card's figures, as the card is now: the sweep sends back any that doesn't (cardProblems).
 // On 2026-11-07, 54 of 505 approved summaries didn't (size 27 figures, temperature 23, pH 18, hardness 10, difficulty 10,
 // minimum tank 5): checked once when written, against a card that changed after (Cá neon vua: 23–27 °C, card 23–29 °C).
