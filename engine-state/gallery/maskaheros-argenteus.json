@@ -5,5 +5,13 @@
   "https://media.aquatome.com/commons/971008f75e34aafd.webp": "0f078707171f1f03",
   "https://media.aquatome.com/commons/cd6fde25258d5c74.webp": "4d4f4d0d0f0d3d24"
  },
- "commons": "2026-11-08"
+ "commons": "2026-11-08",
+ "inat": {
+  "taxon": 568453,
+  "pass": "research",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ }
 }

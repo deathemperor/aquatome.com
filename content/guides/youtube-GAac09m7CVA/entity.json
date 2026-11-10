@@ -69,20 +69,13 @@
         "heading": "Cắt và dán bể kính thế nào",
         "moments": [
           {
-            "t": 45,
-            "url": "https://media.aquatome.com/video/GAac09m7CVA/at45-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Kẹp thanh thước thẳng lên tấm kính để chuẩn bị rạch đường cắt.",
-            "sharpness": 1868.5
-          },
-          {
             "t": 65,
             "url": "https://media.aquatome.com/video/GAac09m7CVA/at65-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Tấm kính đã được cắt tách đôi dọc theo đường rạch trên mặt bàn.",
-            "sharpness": 1142.7
+            "sharpness": 1142.7,
+            "person": false
           }
         ],
         "photo": {
@@ -98,16 +91,7 @@
       },
       {
         "heading": "Khoan lỗ đi dây ở lưng bể",
-        "moments": [
-          {
-            "t": 110,
-            "url": "https://media.aquatome.com/video/GAac09m7CVA/at110-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Vòng keo đất duct seal đắp trên kính ở chỗ cần khoan.",
-            "sharpness": 1648.1
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/GAac09m7CVA/p1-NfNjhEJTIyLkpQRw.webp",
           "thumb": "https://media.aquatome.com/video/GAac09m7CVA/p1-NfNjhEJTIyLkpQRw-480.webp",
@@ -123,20 +107,13 @@
         "heading": "Giấu máy bơm và máy tạo sương ở đâu",
         "moments": [
           {
-            "t": 160,
-            "url": "https://media.aquatome.com/video/GAac09m7CVA/at160-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khung kệ lưới ghép bằng dây rút được đặt thử vào trong bể.",
-            "sharpness": 563
-          },
-          {
             "t": 190,
             "url": "https://media.aquatome.com/video/GAac09m7CVA/at190-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Kệ lưới hai tầng đã đặt trong bể, chứa máy bơm và máy tạo sương.",
-            "sharpness": 982
+            "sharpness": 982,
+            "person": false
           }
         ]
       },
@@ -144,20 +121,13 @@
         "heading": "Xếp đá và lũa sao cho khỏi dùng foam",
         "moments": [
           {
-            "t": 255,
-            "url": "https://media.aquatome.com/video/GAac09m7CVA/at255-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Xoay thử viên đá cạnh tấm xơ dừa dán ở lưng bể.",
-            "sharpness": 3459
-          },
-          {
             "t": 280,
             "url": "https://media.aquatome.com/video/GAac09m7CVA/at280-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Các viên đá da voi xám xếp khít nhau trên lớp xốp lót đáy.",
-            "sharpness": 1625.5
+            "sharpness": 1625.5,
+            "person": false
           }
         ]
       },
@@ -170,15 +140,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Xô hỗn hợp nền trộn từ nhiều loại phân nền lấy từ bể cũ.",
-            "sharpness": 1057.6
-          },
-          {
-            "t": 390,
-            "url": "https://media.aquatome.com/video/GAac09m7CVA/at390-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Châm nước thử khối đá có rễ cây, sương tỏa trong bể.",
-            "sharpness": 2044.9
+            "sharpness": 1057.6,
+            "person": false
           }
         ],
         "photo": {
@@ -194,24 +157,7 @@
       },
       {
         "heading": "Trồng cây phần trên cạn",
-        "moments": [
-          {
-            "t": 440,
-            "url": "https://media.aquatome.com/video/GAac09m7CVA/at440-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây syngonium lá mũi tên và dương xỉ trồng trên nền phần trên cạn.",
-            "sharpness": 1196.2
-          },
-          {
-            "t": 470,
-            "url": "https://media.aquatome.com/video/GAac09m7CVA/at470-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cụm dương xỉ xanh mướt mọc giữa đá và rễ cây.",
-            "sharpness": 649.6
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/GAac09m7CVA/p5-ZF9wbGFudCkuanBn.webp",
           "thumb": "https://media.aquatome.com/video/GAac09m7CVA/p5-ZF9wbGFudCkuanBn-480.webp",
@@ -227,20 +173,13 @@
         "heading": "Hoàn thiện phần dưới nước",
         "moments": [
           {
-            "t": 485,
-            "url": "https://media.aquatome.com/video/GAac09m7CVA/at485-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng cọ san phẳng lớp cát garnet rải dưới đáy bể.",
-            "sharpness": 1530.1
-          },
-          {
             "t": 495,
             "url": "https://media.aquatome.com/video/GAac09m7CVA/at495-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Đặt thêm đá trên nền cát, cạnh vách đá da voi.",
-            "sharpness": 1507.8
+            "sharpness": 1507.8,
+            "person": false
           }
         ]
       },
@@ -253,7 +192,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Phần dưới nước để thoáng, chỉ có cát và đá để lộ vân đá.",
-            "sharpness": 853.4
+            "sharpness": 853.4,
+            "person": false
           },
           {
             "t": 645,
@@ -261,7 +201,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Phần trên cạn rậm rạp với cây lá to, rễ gỗ và đá.",
-            "sharpness": 2666.9
+            "sharpness": 2666.9,
+            "person": false
           }
         ],
         "photo": {

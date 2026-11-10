@@ -7,10 +7,10 @@ Written by `pnpm engine gallery` (2026-11-10). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 131 | 79 | 24 | 30 | 204 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 515 | 23 | 9 | 15 | 532 |
-| rest | 20 | 1608 | 80 | 0 | 28 | 1660 |
+| covered | 30 | 517 | 28 | 9 | 18 | 536 |
+| rest | 20 | 1649 | 75 | 0 | 29 | 1695 |
 
-## Short of target: every source read (228)
+## Short of target: every source read (247)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -208,6 +208,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/marosatherina-ladigesi | shop | 2 | 60 |
 | species/pseudomugil-gertrudae | shop | 10 | 60 |
 | species/atyopsis-moluccensis | shop | 6 | 60 |
+| species/vittina-waigiensis | shop | 5 | 60 |
 | species/clarias-batrachus | shop | 24 | 60 |
 | species/cyrtocara-moorii | shop | 5 | 60 |
 | species/amatitlania-nigrofasciata | shop | 51 | 60 |
@@ -234,7 +235,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/poecilia-wingei | popular | 31 | 40 |
 | species/oryzias-latipes | popular | 29 | 40 |
 | species/macropodus-opercularis | popular | 20 | 40 |
-| species/pelvicachromis-pulcher | popular | 10 | 40 |
+| species/pelvicachromis-pulcher | popular | 9 | 40 |
 | species/thorichthys-meeki | popular | 14 | 40 |
 | species/heros-severus | popular | 14 | 40 |
 | species/rocio-octofasciata | popular | 37 | 40 |
@@ -243,4 +244,22 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/channa-micropeltes | popular | 14 | 40 |
 | species/datnioides-microlepis | popular | 2 | 40 |
 | species/datnioides-pulcher | popular | 2 | 40 |
+| species/pangasianodon-hypophthalmus | popular | 30 | 40 |
+| species/dichotomyctere-nigroviridis | popular | 13 | 40 |
+| species/pomacea-diffusa | popular | 18 | 40 |
+| breeds/electric-blue-ram | covered | 1 | 30 |
+| breeds/blue-diamond-discus | covered | 1 | 30 |
+| breeds/glofish | covered | 14 | 30 |
+| breeds/crystal-red-shrimp | covered | 12 | 30 |
+| breeds/koi-angelfish | covered | 0 | 30 |
+| breeds/blue-velvet-shrimp | covered | 0 | 30 |
+| breeds/electric-blue-acara | covered | 0 | 30 |
+| breeds/platinum-angelfish | covered | 1 | 30 |
+| breeds/albino-oscar | covered | 8 | 30 |
+| species/epiplatys-annulatus | covered | 2 | 30 |
+| species/akysis-vespa | covered | 0 | 30 |
+| species/aguarunichthys-torosus | covered | 0 | 30 |
+| species/amblydoras-nauticus | covered | 0 | 30 |
+| species/aphanotorulus-unicolor | covered | 0 | 30 |
+| species/axelrodia-riesei | covered | 1 | 30 |
 | species/betta-macrostoma | covered | 0 | 30 |

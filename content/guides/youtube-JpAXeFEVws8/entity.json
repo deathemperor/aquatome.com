@@ -59,28 +59,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh nhỏ trồng nhiều cây và thảm cỏ xanh mướt.",
-            "sharpness": 3532.7
-          }
-        ]
-      },
-      {
-        "heading": "Dời bể 70 lít nhiều nền và đá thế nào",
-        "moments": [
-          {
-            "t": 200,
-            "url": "https://media.aquatome.com/video/JpAXeFEVws8/at200-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng ống hút nước ra khỏi bể thủy sinh đặt trên tủ.",
-            "sharpness": 3345.4
-          },
-          {
-            "t": 230,
-            "url": "https://media.aquatome.com/video/JpAXeFEVws8/at230-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Mực nước đã rút xuống ngay sát thảm cỏ trong bể.",
-            "sharpness": 1886.9
+            "sharpness": 3532.7,
+            "person": false
           }
         ]
       },
@@ -93,7 +73,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể cây xanh tốt, thảm cỏ phủ kín nền, đặt gần cửa sổ.",
-            "sharpness": 2385.4
+            "sharpness": 2385.4,
+            "person": false
           },
           {
             "t": 310,
@@ -101,7 +82,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh đặt cạnh cửa sổ, rèm kéo bên cạnh.",
-            "sharpness": 2470
+            "sharpness": 2470,
+            "person": false
           }
         ]
       },
@@ -114,7 +96,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh cũ bên cạnh bể mới đặt trên tủ đen.",
-            "sharpness": 2627.3
+            "sharpness": 2627.3,
+            "person": false
           },
           {
             "t": 370,
@@ -122,7 +105,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Tủ mới còn nguyên thùng, đặt trên sàn trong nhà.",
-            "sharpness": 1012.1
+            "sharpness": 1012.1,
+            "person": false
           }
         ]
       },
@@ -135,7 +119,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Tủ đen đã lắp xong, đặt sát tường trông khá to.",
-            "sharpness": 943.2
+            "sharpness": 943.2,
+            "person": false
           },
           {
             "t": 600,
@@ -143,7 +128,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bên trong tủ có ngăn và cánh cửa đã được gắn vào.",
-            "sharpness": 210.3
+            "sharpness": 210.3,
+            "person": false
           }
         ],
         "photo": {
@@ -161,20 +147,13 @@
         "heading": "Lọc thùng có sưởi bên trong cấu tạo ra sao",
         "moments": [
           {
-            "t": 690,
-            "url": "https://media.aquatome.com/video/JpAXeFEVws8/at690-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Toàn thân lọc thùng Oase BioMaster Thermo đặt cạnh tủ bể.",
-            "sharpness": 724.9
-          },
-          {
             "t": 740,
             "url": "https://media.aquatome.com/video/JpAXeFEVws8/at740-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Nắp lọc thùng Oase BioMaster Thermo với cổng nước vào, nước ra và nút bơm mồi xanh.",
-            "sharpness": 539.4
+            "sharpness": 539.4,
+            "person": false
           }
         ],
         "photo": {
@@ -191,14 +170,6 @@
       {
         "heading": "Vệ sinh ngăn lọc thô và mồi nước cho lọc",
         "moments": [
-          {
-            "t": 900,
-            "url": "https://media.aquatome.com/video/JpAXeFEVws8/at900-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ngăn lọc thô được nhấc ra khỏi thùng lọc, thấy lớp mút đỏ.",
-            "sharpness": 440.7
-          },
           {
             "t": 930,
             "url": "https://media.aquatome.com/video/JpAXeFEVws8/at930-hd.webp",
@@ -218,27 +189,6 @@
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_Sponge_Filter_foam_1.jpg",
           "caption": "Miếng mút lọc thô màu đen, loại hay dùng cho ngăn lọc thô."
         }
-      },
-      {
-        "heading": "Phụ kiện đi kèm lọc",
-        "moments": [
-          {
-            "t": 950,
-            "url": "https://media.aquatome.com/video/JpAXeFEVws8/at950-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bộ phụ kiện đi kèm lọc được lấy ra khỏi hộp.",
-            "sharpness": 815.2
-          },
-          {
-            "t": 960,
-            "url": "https://media.aquatome.com/video/JpAXeFEVws8/at960-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Thanh phun mưa (spray bar) kim loại lấy từ hộp phụ kiện.",
-            "sharpness": 382
-          }
-        ]
       }
     ]
   }

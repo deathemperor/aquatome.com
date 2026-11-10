@@ -45,14 +45,6 @@
             "height": 675,
             "caption": "Cận cảnh lớp rêu mềm bám trên thân lũa.",
             "sharpness": 132.3
-          },
-          {
-            "t": 225,
-            "url": "https://media.aquatome.com/video/K9d5oaWnvJY/at225-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể thủy sinh mới setup với lũa và cát nền, chưa có rêu.",
-            "sharpness": 447.2
           }
         ]
       },
@@ -65,7 +57,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cụm Cyperus lá mảnh mọc cao bên cạnh lũa trong hồ thủy sinh.",
-            "sharpness": 792.1
+            "sharpness": 792.1,
+            "person": false
           },
           {
             "t": 45,
@@ -96,7 +89,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Một con ốc ramshorn đỏ đang bò gặm trên khúc lũa.",
-            "sharpness": 265.1
+            "sharpness": 265.1,
+            "person": false
           }
         ],
         "photo": {
@@ -119,7 +113,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể thủy sinh với lũa và rêu hại bám lẫn trên rễ.",
-            "sharpness": 1628
+            "sharpness": 1628,
+            "person": false
           },
           {
             "t": 245,

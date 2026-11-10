@@ -95,20 +95,13 @@
         "heading": "Sơn lưng bể thế nào",
         "moments": [
           {
-            "t": 35,
-            "url": "https://media.aquatome.com/video/PfpdJUIG9TQ/at35-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lăn sơn đen lên mặt sau bể, khay sơn đặt bên cạnh.",
-            "sharpness": 884.9
-          },
-          {
             "t": 50,
             "url": "https://media.aquatome.com/video/PfpdJUIG9TQ/at50-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Lưng bể đã sơn đen mờ xong, bể đặt lên chân.",
-            "sharpness": 428.3
+            "sharpness": 428.3,
+            "person": false
           }
         ]
       },
@@ -129,28 +122,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lũa gỗ được ngâm trong xô nước để bớt nhả tanin.",
-            "sharpness": 259.6
-          }
-        ]
-      },
-      {
-        "heading": "Lót đáy và xếp đá, lũa thế nào cho tự nhiên",
-        "moments": [
-          {
-            "t": 125,
-            "url": "https://media.aquatome.com/video/PfpdJUIG9TQ/at125-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng cọ sơn gạt đều lớp Stratum trên đáy bể.",
-            "sharpness": 1316.6
-          },
-          {
-            "t": 180,
-            "url": "https://media.aquatome.com/video/PfpdJUIG9TQ/at180-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bố cục lũa và đá lớn đã được xếp xong trong bể.",
-            "sharpness": 2380.6
+            "sharpness": 259.6,
+            "person": false
           }
         ]
       },
@@ -163,15 +136,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đang châm nước vào bể, dòng nước được hướng nhẹ để nền đỡ xáo trộn.",
-            "sharpness": 1541.5
-          },
-          {
-            "t": 265,
-            "url": "https://media.aquatome.com/video/PfpdJUIG9TQ/at265-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cho vật liệu lọc vào lọc treo đặt khuất sau bố cục.",
-            "sharpness": 1019.8
+            "sharpness": 1541.5,
+            "person": false
           }
         ]
       },

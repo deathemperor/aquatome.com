@@ -39,14 +39,6 @@
         "heading": "Vì sao chọn phim dán kính mờ thay vì nền màu đặc",
         "moments": [
           {
-            "t": 90,
-            "url": "https://media.aquatome.com/video/M8-oNwl3X4k/at90-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tấm phim dán kính mờ được trải ra trên bàn, sẵn sàng cắt.",
-            "sharpness": 291.2
-          },
-          {
             "t": 130,
             "url": "https://media.aquatome.com/video/M8-oNwl3X4k/at130-hd.webp",
             "width": 1200,
@@ -70,33 +62,13 @@
         "heading": "Dán phim mờ lên kính sau thế nào",
         "moments": [
           {
-            "t": 150,
-            "url": "https://media.aquatome.com/video/M8-oNwl3X4k/at150-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tấm phim mờ đặt trên kính, tay đang xử lý mép phim.",
-            "sharpness": 335.7
-          },
-          {
             "t": 160,
             "url": "https://media.aquatome.com/video/M8-oNwl3X4k/at160-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể sau khi dán phim mờ lên kính sau, nền mờ đều.",
-            "sharpness": 402.1
-          }
-        ]
-      },
-      {
-        "heading": "Sao không làm nền đất phủ cát",
-        "moments": [
-          {
-            "t": 210,
-            "url": "https://media.aquatome.com/video/M8-oNwl3X4k/at210-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đổ phân nền đen vào bể kính trống để làm nền trồng cây.",
-            "sharpness": 215.2
+            "sharpness": 402.1,
+            "person": false
           }
         ]
       },

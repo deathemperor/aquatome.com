@@ -204,7 +204,12 @@
       "author": "5snake5",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Altolamprologus_calvus_-_Perlhuhn-Buntbarsch.jpg",
       "caption": "Altolamprologus calvus, lateral view.",
-      "thumb": "https://media.aquatome.com/commons/a3c759fb1d47d73e-480.webp"
+      "thumb": "https://media.aquatome.com/commons/a3c759fb1d47d73e-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/a3c759fb1d47d73e-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
     }
   ],
   "videos": [],
