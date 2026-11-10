@@ -218,9 +218,18 @@ struct SpeciesPage: View {
           .allowsHitTesting(false)
       }
     }
-    // The edge swipe back, whatever iOS's own does with its back button hidden and a zoom: under test, none of its gestures
-    // went back from a zoomed page. A drag from the left edge, across; alongside the page's own scrolling, so a thumb that
-    // starts on the edge and goes down the page scrolls it, and a tap there lands.
+    // iOS 26 on: iOS's zoom takes the page back on a swipe from anywhere, and a fast flick from the very edge comes here.
+    .background {
+      if #available(iOS 26, *) {
+        // Its colour off the tab as the swipe starts, as with the back button (`goBack`); on again if it's let go of.
+        PageSwipes(moved: { leaving in
+          if !leaving { if front { standOnColour() } } else if footGround?.wrappedValue?.page == me { footGround?.wrappedValue = nil }
+        }, flickedBack: goBack)
+        .frame(width: 0, height: 0)
+      }
+    }
+    // Before iOS 26, which has no swipe from the page's middle: a drag from the left edge, across; alongside the page's own
+    // scrolling, so a thumb that starts on the edge and goes down the page scrolls it, and a tap there lands.
     .simultaneousGesture(DragGesture(minimumDistance: 12).onChanged { drag in
       guard drag.startLocation.x < 16 else { return }
       // A new swipe, if the last one was cut short with no end.
@@ -233,7 +242,7 @@ struct SpeciesPage: View {
       // iOS's own.
       if $0.startLocation.x < 16, t.width > 60, t.width > abs(t.height) * 2, t.width >= furthest * 0.7,
         $0.predictedEndTranslation.width >= t.width - 4 { goBack() }
-    })
+    }, including: Self.iosSwipes ? .subviews : .all)
     // The band in the page's colour while that's under it, so white doesn't cut the colour; then the screen's.
     .modifier(ClearUnderTopBar(shown: scrolled, ground: colourAt.top ? colour : Color(.systemBackground)))
     // The name in the bar once it has left the page, on the colour too, in the bar's middle. The page's own, not iOS's
@@ -412,6 +421,8 @@ struct SpeciesPage: View {
 
   /// Its colour off the tab as the back starts, not once the page has gone; the page under it, a fish's too, sets its own
   /// as it appears.
+  private static var iosSwipes: Bool { if #available(iOS 26, *) { true } else { false } }
+
   private func goBack() {
     if footGround?.wrappedValue?.page == me { footGround?.wrappedValue = nil }
     dismiss()
@@ -568,6 +579,7 @@ struct SpeciesPage: View {
     .contentMargins(.horizontal, 20, for: .scrollContent)
     .scrollTargetBehavior(.viewAligned)
     .v2ShelfEdge()
+    .accessibilityIdentifier("v2-photos-row")
   }
 
   private var hasMates: Bool {
