@@ -134,7 +134,7 @@ struct NativePage: View {
     .onChange(of: phase) { reading?.inFront(phase == .active) }
     .navigationDestination(item: $onSite) { WebScreen(url: $0) }
     .navigationDestination(item: $gridAt) { place in
-      if let gallery { PhotoGrid(gallery: gallery, talk: talk, at: place, readerPhotos: $readerPhotos) }
+      if let gallery { PhotoGrid(gallery: gallery, talk: talk, at: place, readerPhotos: $readerPhotos).ownerScreen("photos") }
     }
     .alert(tip?.term ?? "", isPresented: Binding(get: { tip != nil }, set: { if !$0 { tip = nil } }), presenting: tip) { t in
       if let h = t.href, let u = URL(string: h) { Button("Xem thêm") { _ = open(u, nil) } }
@@ -1022,6 +1022,7 @@ struct ReadersPart: View {
       NavigationStack {
         List { BlockedList() }
           .modifier(ClearUnderTopBar(shown: true, ground: Color(.systemGroupedBackground)))
+          .ownerScreen("sheet blocked-readers")
           .navigationTitle("Người đã chặn")
           .navigationBarTitleDisplayMode(.inline)
           .toolbar { Button("Đóng") { managing = false } }

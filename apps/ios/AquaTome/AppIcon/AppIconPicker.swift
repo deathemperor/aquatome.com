@@ -174,7 +174,7 @@ extension View {
 private struct AppIconsForTests: ViewModifier {
   @State private var shown = ProcessInfo.processInfo.arguments.contains("-app-icons")
   func body(content: Content) -> some View {
-    content.sheet(isPresented: $shown) { NavigationStack { AppIconPicker() } }
+    content.sheet(isPresented: $shown) { NavigationStack { AppIconPicker() }.ownerScreen("sheet app-icon") }
   }
 }
 #endif

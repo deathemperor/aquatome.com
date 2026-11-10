@@ -129,6 +129,14 @@ final class ChatModel {
     var last: String?
   }
 
+  /// For the owner's report: this conversation as the bucket has it, and the answers on the screen by their numbers (`visible`
+  /// says which turns are; before iOS 18 it's empty, and the newest is taken as the one showing).
+  func onScreen(_ visible: [UUID: Bool]) -> OwnerShowing.Chat? {
+    guard let id = conversation?.id else { return nil }
+    let newest = thread.last?.id
+    return OwnerShowing.Chat(conversation: id.uuidString.lowercased(), answers: thread.compactMap { (visible[$0.id] ?? ($0.id == newest)) ? $0.reply.turn?.n : nil })
+  }
+
   /// What stops a question before it goes, shown over the box; the question stays in the box. (Signed out is the
   /// account's own state: its card shows while there's no account, and goes once one signs in.)
   enum Stop: Equatable {

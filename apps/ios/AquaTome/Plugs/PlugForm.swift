@@ -50,7 +50,7 @@ struct AddPlug: View {
       .navigationTitle("Thêm ổ cắm")
       .navigationBarTitleDisplayMode(.inline)
       .toolbar { ToolbarItem(placement: .cancellationAction) { Button("Hủy") { dismiss() } } }
-      .navigationDestination(item: $added) { id in PlugForm(deviceId: id) { dismiss() } }
+      .navigationDestination(item: $added) { id in PlugForm(deviceId: id) { dismiss() }.ownerScreen("plug-form") }
     }
   }
 

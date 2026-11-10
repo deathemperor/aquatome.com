@@ -47,6 +47,7 @@ struct AccountView: View {
     }
     // On the stack, not its first screen: the pages pushed onto it read their environment from here.
     .environment(\.closeAccountSheet, { dismiss() })
+    .ownerScreen("account")
   }
 
   /// "AquaTome 1.0 (231)".

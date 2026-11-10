@@ -49,6 +49,9 @@ func reportSaysHowThePictureCame() throws {
   let site = try #require(URL(string: "https://aquatome.com"))
   #expect(OwnerReportPlace(picture: "picked").fields(site: site)["picture"] == "picked")
   #expect(OwnerReportPlace(picture: "screen").fields(site: site)["picture"] == "screen")
+  let chat = OwnerReportPlace(conversation: "3f2b8c1e-7a4d-4e21-9b6a-1c2d3e4f5a6b", answers: "2,3").fields(site: site)
+  #expect(chat["conversation"] == "3f2b8c1e-7a4d-4e21-9b6a-1c2d3e4f5a6b")
+  #expect(chat["answers"] == "2,3")
   #expect(OwnerReportPlace().fields(site: site)["picture"] == nil)
 }
 

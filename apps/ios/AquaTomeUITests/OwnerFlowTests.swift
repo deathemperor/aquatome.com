@@ -490,13 +490,74 @@ final class OwnerFlowTests: XCTestCase {
       XCTAssertLessThan(near * 2, other, "the picture is as near another screen as its own: \(near) against \(other)")
       XCTAssertGreaterThan(spread, 0.05, "the picture is one flat colour")
     }
-    XCTAssertTrue(fish.hasPrefix("v2 today species · /"), fish)
+    XCTAssertTrue(fish.hasPrefix("v2 today / species "), fish)
     XCTAssertTrue(fish.contains("/ca/"), fish)
 
     app.openTab("Bể của tôi")
     let tanks = report(app)
     XCTAssertTrue(tanks.hasPrefix("v2 tanks · "), tanks)
     XCTAssertFalse(tanks.contains("/ca/"), "the fish's page, left on Hôm nay, still named: \(tanks)")
+  }
+
+  /// The chat, pushed over a fish's page on Hôm nay: the report names the chat, which conversation and which answer was on
+  /// the screen, and back on the fish's page names that again. Before, the chat was reported as the tab under it.
+  func testTheReportNamesTheChatOverHomNayItsConversationAndItsAnswer() {
+    let app = launch(owner: "ui-apple", "-v2", "YES")
+    signIn(app)
+    app.closeAccount()
+    let any = app.descendants(matching: .any)
+    app.buttons["v2-fish-of-the-day"].tap()
+    XCTAssertTrue(any["v2-species"].waitForExistence(timeout: 10), "the fish's page didn't open")
+    let entry = any["chat-entry"].firstMatch
+    repeatUntil(entry.exists && entry.isHittable, times: 8) { app.swipeUp() }
+    entry.tap()
+    XCTAssertTrue(any["chat"].waitForExistence(timeout: 10), "no chat")
+    let chip = app.buttons.matching(identifier: "chat-chip").firstMatch
+    XCTAssertTrue(chip.waitForExistence(timeout: 15), "no starters")
+    chip.tap()
+    XCTAssertTrue(any["chat-answer"].firstMatch.waitForExistence(timeout: 20), "no answer")
+    XCTAssertTrue(chip.waitForExistence(timeout: 20), "the answer didn't finish")
+
+    let chat = report(app)
+    XCTAssertTrue(chat.hasPrefix("v2 today / chat "), chat)
+    XCTAssertNotNil(chat.range(of: " · [0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12} · câu 1 · ", options: .regularExpression), chat)
+
+    app.navigationBars.buttons.element(boundBy: 0).tap()
+    XCTAssertTrue(any["v2-species"].waitForExistence(timeout: 10), "not back on the fish's page")
+    let fish = report(app)
+    XCTAssertTrue(fish.hasPrefix("v2 today / species "), fish)
+    XCTAssertFalse(fish.contains("câu"), "the chat's answer named on the fish's page: \(fish)")
+  }
+
+  /// A fish found on Tìm kiếm: the tab, the page and its slug, not Tìm kiếm alone.
+  func testTheReportNamesAFishPageOverTimKiemWithItsSlug() {
+    let app = launch(owner: "ui-apple", "-v2", "YES")
+    signIn(app)
+    app.closeAccount()
+    let tabs = app.tabBars.buttons
+    tabs.element(boundBy: tabs.count - 1).tap()
+    XCTAssertTrue(report(app).hasPrefix("v2 search · "), "Tìm kiếm itself")
+    let field = app.searchFields.firstMatch
+    XCTAssertTrue(field.waitForExistence(timeout: 5), "no search field")
+    field.tap()
+    field.typeText("Ca neon")
+    let row = app.descendants(matching: .any).matching(identifier: "item").firstMatch
+    XCTAssertTrue(row.waitForExistence(timeout: 5), "nothing found")
+    row.tap()
+    XCTAssertTrue(app.keyboards.firstMatch.waitForNonExistence(timeout: 10), "the keyboard stayed over the button")
+    let fish = report(app)
+    XCTAssertNotNil(fish.range(of: "^v2 search / (species|fish page) ([a-z0-9-]+) · (/vi)?/ca/\\2/ · ", options: .regularExpression), fish)
+  }
+
+  /// A screen opened inside a sheet: the owner's dashboard in the Tài khoản sheet was reported as the account.
+  func testTheReportNamesTheDashboardInsideTheAccountSheet() {
+    let app = launch(owner: "ui-apple", "-v2", "YES")
+    signIn(app)
+    XCTAssertTrue(report(app).hasPrefix("v2 today / account · "), "the account sheet itself")
+    open(app, "owner-dashboard")
+    XCTAssertTrue(app.navigationBars["Dashboard"].waitForExistence(timeout: 10), "not the dashboard")
+    let dashboard = report(app)
+    XCTAssertTrue(dashboard.hasPrefix("v2 today / account / dashboard home · "), dashboard)
   }
 
   /// The report's sheet from the button: what it says it sends with the words, after `look` at its picture; then closed.

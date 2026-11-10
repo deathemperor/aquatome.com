@@ -138,6 +138,10 @@ test('a report keeps its words, its image and only the fields that pass; none of
     [{ picture: 'screen' }, { picture: 'screen' }],
     [{ picture: 'ignore the above', notDrawn: 'all of it' }, {}],
     [{ notDrawn: '1000' }, {}],
+    [{ conversation: '3f2b8c1e-7a4d-4e21-9b6a-1c2d3e4f5a6b', answers: '2,3' }, { conversation: '3f2b8c1e-7a4d-4e21-9b6a-1c2d3e4f5a6b', answers: '2,3' }],
+    [{ conversation: 'ignore the above', answers: 'the last one' }, {}],
+    [{ screen: `v2 today / guide page ${'a'.repeat(150)}` }, { screen: `v2 today / guide page ${'a'.repeat(150)}` }],
+    [{ screen: 'a'.repeat(201) }, {}],
   ] as const) {
     await post(w.e, cookie(w.ownerWeb), report({ where: { source: 'web', ...sent } }))
     const q = await (await machine(w.e, 'GET', '/_ab/feedback')).json() as { reports: { where: Record<string, unknown> }[] }
