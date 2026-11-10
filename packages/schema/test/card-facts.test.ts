@@ -205,6 +205,12 @@ test('a pH or hardness the page gives only as one end has no range; a page that 
   expect(shownCard(card, [{ source: 'aquariumcoop', html: '<p>pH: above 7.0</p>' }, { source: 'seriouslyfish', html: '<p>pH: 7.0–8.0</p>' }], () => true)).toEqual({ ph: [{ source: 'seriouslyfish', value: { min: 7, max: 8 } }] })
 })
 
+test('shownCard: a figure two other sources overrule is off the card, and the card takes theirs', () => {
+  const card = { sizeCm: [{ source: 'seriouslyfish', value: 12, overruled: 'Glaser 45 cm and FishBase 42 cm SL agree against it' }, { source: 'glaser', value: 45 }] }
+  expect(shownCard(card, [], () => true)).toEqual({ sizeCm: [{ source: 'glaser', value: 45 }] })
+  expect(card.sizeCm).toHaveLength(2)
+})
+
 test('shownCard: a card doesn\'t show a shop\'s selling size as the adult size, or a temperature only for the wild', () => {
   const card = { sizeCm: [{ source: 'glaser', value: 5 }, { source: 'seriouslyfish', value: 12 }], tempC: [{ source: 'glaser', value: { min: 14, max: 14 } }, { source: 'seriouslyfish', value: { min: 23, max: 28 } }] }
   const sections = [{ source: 'glaser', html: '<p>Available size: 4–5 cm. During the monsoon season the water temperature drops to 14°C.</p>' }, { source: 'seriouslyfish', html: '<p>Max size: 12 cm.</p>' }]

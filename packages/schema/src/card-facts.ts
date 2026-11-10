@@ -12,7 +12,7 @@ import type { DataCardField, Range } from './types'
  *   a shorter tank than the card's: `litresOffCard`; a quick-facts line that does either goes: `dropOffItems`
  */
 
-type Card = Partial<Record<DataCardField, { source: string; value: Range | number; hidden?: string }[]>>
+type Card = Partial<Record<DataCardField, { source: string; value: Range | number; hidden?: string; overruled?: string }[]>>
 type Figure = Range | number
 
 /**
@@ -224,7 +224,7 @@ export function shownCard<C extends Card>(card: C, sections: { source: string; h
     Object.entries(card)
       .map(([field, values]) => [field, (values ?? []).filter(v => {
         const own = () => sections.filter(s => s.source === v.source).map(s => s.html).join('\n')
-        return allowed(v.source) && !v.hidden
+        return allowed(v.source) && !v.hidden && !v.overruled
           && !(field === 'tankCm' && typeof v.value === 'number' && tankIsVolume(own(), v.value))
           && !(field === 'sizeCm' && typeof v.value === 'number' && sizeIsForSale(own(), v.value))
           && !(field === 'tempC' && tempIsNotForKeeping(own(), v.value))

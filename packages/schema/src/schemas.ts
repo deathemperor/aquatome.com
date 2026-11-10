@@ -17,7 +17,12 @@ const Range = z.object({ min: z.number(), max: z.number() })
 /**
  * `ref`: a figure AquaTome researched (source 'aquatome'), the page in the species' `refs` it comes from.
  */
-const SourcedValue = z.object({ source: SourceId, value: z.union([Range, z.number()]), hidden: z.string().optional(), ref: z.number().int().nonnegative().optional() })
+/**
+ * `overruled`: why this figure is off the card though its source would otherwise win: two independent sources agree against
+ * it and the gap is wide (size 1.5 times or more, water ranges that don't overlap); a tank set for the smaller fish; or a figure
+ * against its source's own measured reading, with an independent source beside the reading. It stays while the source gives the same figure.
+ */
+const SourcedValue = z.object({ source: SourceId, value: z.union([Range, z.number()]), hidden: z.string().optional(), overruled: z.string().optional(), ref: z.number().int().nonnegative().optional() })
 const DataCardField = z.enum(['tempC', 'ph', 'gh', 'sizeCm', 'tankCm', 'difficulty', 'lifeYears'])
 
 /**

@@ -139,14 +139,16 @@
         "value": {
           "min": 8,
           "max": 18
-        }
+        },
+        "overruled": "The page takes BW Aquatics' 4–12, which sides with Seriously Fish's measured reading (chief's ruling, 2026-11-10)"
       },
       {
         "source": "seriouslyfish",
         "value": {
           "min": 15,
           "max": 30
-        }
+        },
+        "overruled": "Its keeping range contradicts its own measured reading on the same page, 90–180 ppm (5–10 dGH); BW Aquatics' 4–12 sides with the reading (chief's ruling, 2026-11-10)"
       },
       {
         "source": "aquariumcoop",
@@ -332,7 +334,8 @@
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pseudomugil-furcatus",
-      "html": "<ul><li>Temperature: 24–28°C</li><li>pH: 7.0–8.0</li><li>Hardness: 15–30 dGH</li></ul><p>Temperature: The air and water temperatures in its natural habitats do not vary a great deal and in aquaria the fish tend to fare poorly unless maintained within the range 24–28°C.</p>"
+      "html": "<ul><li>Temperature: 24–28°C</li><li>pH: 7.0–8.0</li></ul><p>Temperature: The air and water temperatures in its natural habitats do not vary a great deal and in aquaria the fish tend to fare poorly unless maintained within the range 24–28°C.</p>",
+      "fixed": true
     },
     {
       "key": "waterConditions",
