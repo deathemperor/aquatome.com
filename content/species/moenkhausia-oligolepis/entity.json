@@ -55,7 +55,8 @@
       },
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 5,
+        "overruled": "Glaser 12 cm and FishBase 10 cm SL (Lima et al. 2003) agree against it, twice the 5 cm given: the two-source exception, 2026-11-10"
       }
     ],
     "difficulty": [
@@ -149,7 +150,8 @@
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/bario-oligolepis",
-      "html": "<p>Standard length 50mm SL (2.0in SL). Aquarium base 60 × 38cm (24 × 15in). Volume ~68 litres (~18 US gal).</p><p>A 60 × 38 × 30 cm (24 × 15 × 12 in) tank, about 68 litres (18 US gal), could house a small group of these comfortably.</p>"
+      "html": "<p>Aquarium base 60 × 38cm (24 × 15in). Volume ~68 litres (~18 US gal).</p><p>A 60 × 38 × 30 cm (24 × 15 × 12 in) tank, about 68 litres (18 US gal), could house a small group of these comfortably.</p>",
+      "fixed": true
     },
     {
       "key": "maintenance",

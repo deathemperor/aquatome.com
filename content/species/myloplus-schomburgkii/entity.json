@@ -22,7 +22,8 @@
       },
       {
         "source": "seriouslyfish",
-        "value": 12
+        "value": 12,
+        "overruled": "Glaser 45 cm and FishBase 42 cm SL (Jégu 2003) agree against it, 3.5 times the 12 cm given: the two-source exception, 2026-11-10"
       }
     ],
     "tempC": [
@@ -88,7 +89,8 @@
       "key": "aquariumSize",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/myloplus-schomburgkii",
-      "html": "<p>Standard length: 12 cm SL.</p><p>Aquarium base: 120 × 38 cm.</p><p>Volume: ~173 litres (120 × 38 × 38 cm).</p>"
+      "html": "<p>Aquarium base: 120 × 38 cm.</p><p>Volume: ~173 litres (120 × 38 × 38 cm).</p>",
+      "fixed": true
     },
     {
       "key": "maintenance",

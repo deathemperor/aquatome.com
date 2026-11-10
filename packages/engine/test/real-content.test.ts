@@ -3,7 +3,7 @@ import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
-import { loadAll, type Translation } from '@aq/schema'
+import { loadAll, resolveDataCard, type Translation } from '@aq/schema'
 import { checkPages, RATCHETED, ratcheted, RULES } from '../src/content-rules'
 import { loadPages } from '../src/pages'
 import { ENGLISH_PLACE_WORD } from '../src/place-names'
@@ -122,6 +122,18 @@ test('a Vietnamese page that doses 35% oxy già says it isn\'t the pharmacy\'s 3
   const text = (p: (typeof pages)[number]) => [...p.fields.map(f => f.html), ...p.lines.map(l => l.text)].join(' ').replace(/<[^>]+>/g, ' ')
   expect(pages.filter(p => strong.test(text(p)) && !told.test(text(p))).map(p => p.path)).toEqual([])
 }, 300_000)
+
+// Two independent sources agreed against Seriously Fish on an adult size, far apart (Glaser, and FishBase from the checklist
+// of South American fishes): the figure they agree on is the page's, on the card and in the text, whatever a re-read writes.
+test('a size two independent sources overrule is gone from the card and the text', async () => {
+  const root = fileURLToPath(new URL('../../../content', import.meta.url))
+  const { species } = await loadAll({ root, lang: 'vi', publicBuild: true })
+  for (const [id, size, old] of [['myloplus-schomburgkii', 45, /\(SL\)\s*:?\s*12 cm/], ['moenkhausia-oligolepis', 12, /\(SL\)\s*:?\s*5 cm/]] as const) {
+    const fish = species.find(x => x.id === id)!
+    expect(resolveDataCard(fish.dataCard.sizeCm!, 'sizeCm')?.value, id).toBe(size)
+    expect(Object.values(fish.t.sections).join(' '), id).not.toMatch(old)
+  }
+}, 120_000)
 
 // The owner's report of 10 Nov: the Altum page said a hard, neutral tank is enough and that soft water is a must, under one
 // heading. Where the sources can't both be true, the page shows the one that speaks for that heading (Seriously Fish for
