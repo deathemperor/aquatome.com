@@ -113,9 +113,9 @@ func reportNetworkFault(code: URLError.Code, words: String) async {
     Issue.record("no failure")
   } catch let e as OwnerError {
     guard case .network(code.rawValue) = e else { Issue.record("\(e)"); return }
-    #expect(e.reportProblem.contains(words), "\(e.reportProblem)")
-    #expect(!e.reportProblem.contains("không có mạng"), "\(e.reportProblem)")
-    #expect(e.reportProblem.contains("Lời và ảnh vẫn còn đây"), "\(e.reportProblem)")
+    #expect(e.reportProblem().contains(words), "\(e.reportProblem())")
+    #expect(!e.reportProblem().contains("không có mạng"), "\(e.reportProblem())")
+    #expect(e.reportProblem().contains("Lời và ảnh vẫn còn đây"), "\(e.reportProblem())")
   } catch { Issue.record("\(error)") }
 }
 
@@ -123,8 +123,8 @@ func reportNetworkFault(code: URLError.Code, words: String) async {
 func reportProblemsInVietnamese() {
   let all: [OwnerError] = [.offline, .signedOut, .notFound, .badReply, .network(-1001), .network(-1005), .refused("rate_limited", message: nil), .refused("too_large", message: nil), .refused("http_500", message: nil)]
   for e in all {
-    #expect(!e.reportProblem.isEmpty)
-    for english in ["connection", "try again", "online", "wrong", "session"] { #expect(!e.reportProblem.lowercased().contains(english), "\(e): \(e.reportProblem)") }
+    #expect(!e.reportProblem().isEmpty)
+    for english in ["connection", "try again", "online", "wrong", "session"] { #expect(!e.reportProblem().lowercased().contains(english), "\(e): \(e.reportProblem())") }
   }
 }
 
@@ -146,4 +146,12 @@ func itemOfPath() {
   _ = try await answering(201, #"{"id":"x","waiting":1}"#) { box.request = $0 }.report(words: "Sai", place: place, jpeg: nil)
   let r = try #require(box.request)
   #expect(r.timeoutInterval == 120)
+}
+
+@Test func reportProblemNamesTheTime() {
+  #expect(OwnerError.network(-1001).reportProblem(after: 120).contains("120 giây"))
+  let lost = OwnerError.network(-1005).reportProblem(after: 3)
+  #expect(lost.contains("mã -1005"))
+  #expect(lost.contains("3 giây"))
+  #expect(!OwnerError.offline.reportProblem(after: 3).contains("giây"))
 }

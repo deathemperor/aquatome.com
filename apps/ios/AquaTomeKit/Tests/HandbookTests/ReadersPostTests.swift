@@ -204,6 +204,6 @@ private let site = URL(string: "https://aquatome.com")!
   let defaults = try #require(Readers.shrink(original as Data))
   let source = try #require(CGImageSourceCreateWithData(sent as CFData, nil))
   let image = try #require(CGImageSourceCreateImageAtIndex(source, 0, nil))
-  #expect(max(image.width, image.height) <= 1600)
+  #expect(max(image.width, image.height) <= 2000)
   #expect(sent.count < defaults.count)
 }

@@ -72,7 +72,7 @@ public struct OwnerReportPlace: Sendable, Equatable {
 
 extension OwnerError {
   /// What the report's sheet says of a report that didn't go: what really happened, in the app's language.
-  public var reportProblem: String {
+  public func reportProblem(after seconds: Int? = nil) -> String {
     let kept = "Lời và ảnh vẫn còn đây"
     switch self {
     case .offline: return "Điện thoại đang không có mạng. \(kept), có mạng thì gửi lại nhé."
@@ -80,8 +80,12 @@ extension OwnerError {
     case .refused("rate_limited", _): return "Đã gửi quá nhiều trong một giờ. \(kept), lát nữa thử lại nhé."
     case .refused("too_large", _): return "Ảnh quá lớn. Chọn ảnh khác nhé."
     case .refused(let why, _): return "Máy chủ chưa nhận báo lỗi này (\(why)). \(kept), thử lại nhé."
-    case .network(URLError.timedOut.rawValue): return "Mạng chậm nên gửi không kịp. \(kept), thử lại nhé."
-    case .network(let code): return "Kết nối bị lỗi khi đang gửi (mã \(code)). \(kept), thử lại nhé."
+    case .network(URLError.timedOut.rawValue):
+      if let seconds { return "Mạng chậm nên gửi không kịp (sau \(seconds) giây). \(kept), thử lại nhé." }
+      return "Mạng chậm nên gửi không kịp. \(kept), thử lại nhé."
+    case .network(let code):
+      if let seconds { return "Kết nối bị lỗi khi đang gửi (mã \(code), sau \(seconds) giây). \(kept), thử lại nhé." }
+      return "Kết nối bị lỗi khi đang gửi (mã \(code)). \(kept), thử lại nhé."
     case .notFound, .badReply: return "Chưa gửi được. \(kept), thử lại nhé."
     }
   }
