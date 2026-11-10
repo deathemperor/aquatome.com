@@ -21,7 +21,8 @@ Leads, the engine and main's iOS runs share one Mac. A booted simulator is the h
 - Other heavy work takes the checks queue: Astro builds, test suites, e2e and xcodebuild builds, as
   `scripts/checks.sh nice -n 10 <command>` from the repository's root, or `lockf -k ~/.cache/aquatome/checks.lock nice -n 10
   <command>` (`scripts/cycle-checks.sh`). A session's outside it is refused, since side by side they took the Mac to heavy
-  thermal pressure (2026-11-08). One test file needs no turn: `pnpm exec vitest run <file>`.
+  thermal pressure (2026-11-08). One test file needs no turn: `pnpm exec vitest run <file>`. A `lockf` on a queue's lock
+  without `-k` is refused: it deletes the link to the shared queue when it ends, as one did on 2026-11-09.
 - Both queues are first come, first served. Only the chief of staff, from their own thread, keeps the next turn in both for
   one run: `scripts/next-turn.py [--sim | --checks] <the run's pid, or a word only it has, such as its folder's> [minutes]`
   (30, at most 120; a pid keeps it in its own queue). Until that run has had it, a run that reaches the front steps back
@@ -36,7 +37,9 @@ Leads, the engine and main's iOS runs share one Mac. A booted simulator is the h
   --expected <frames>` says whether it kept every frame, and a recording offered as evidence of motion carries that count, or
   it isn't evidence (the chief of staff, 2026-11-10).
 - Stop a process only by a pid you started yourself, whether you're a lead, a helper or a reviewer: `pkill` and `killall` match
-  other people's runs (the chief of staff, 2026-11-10). Other projects on this Mac are the owner's and are never touched.
+  other people's runs (the chief of staff, 2026-11-10). A session's `pkill`, `killall`, `kill $(pgrep …)` and `pgrep … | xargs
+  kill` are refused, but the rule is wider than the refusal, which can't see a script file, `python -c`, a loop over `pgrep`,
+  `ps | grep` into `kill`, or a session without the hook. Other projects on this Mac are the owner's and are never touched.
 - Close a Device session when done: `agent-device close --shutdown`. `device_close` alone can leave the simulator running.
 - What's on screen is drawn every frame: WindowServer's compositing was a third of the GPU through the hot hours of
   2026-11-08. Simulators run headless (`xcrun simctl boot`, or xcodebuild's own); opening Simulator.app is refused. Watch

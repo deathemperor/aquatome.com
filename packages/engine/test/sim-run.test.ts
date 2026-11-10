@@ -463,3 +463,55 @@ test('the checks queue through scripts/checks.sh is the queue, for the hook and 
   const cycle = readFileSync(join(ROOT, 'scripts/cycle-checks.sh'), 'utf8')
   expect(cycle).toMatch(/\nturn\(\) \{ "\$CHECKS_SH" "\$@"; \}\nchecks\(\) \{[^\n]*else turn bash -c "\$1"/)
 })
+
+test('a session kills only by pid, and a lockf on a queue keeps the lock', () => {
+  const hook = (command: string) => spawnSync(HOOK, { input: JSON.stringify({ tool_input: { command } }), encoding: 'utf8' })
+  const refused = (command: string, why: string) => {
+    const r = hook(command)
+    expect(r.status, command).toBe(2)
+    expect(r.stderr, command).toContain(why)
+  }
+  for (const c of [
+    'pkill -f "sleep 25"',
+    'killall Simulator',
+    '/usr/bin/pkill -9 node',
+    'cd x && sudo pkill foo; echo done',
+    'sh -c "pkill -f foo"',
+    "bash -lc 'killall foo'",
+    'x=$(pkill foo)',
+    'echo foo | xargs pkill -f',
+    'kill $(pgrep -f foo)',
+    'kill -9 $(pgrep -f foo | head -1)',
+    'kill "$(pgrep -f foo)"',
+    'kill `pgrep -f foo`',
+    'sudo kill $(/usr/bin/pgrep foo)',
+    'pgrep -f foo | xargs kill',
+    'pgrep -f foo | head -1 | xargs -n1 kill -9',
+    "pgrep foo | xargs -I{} sh -c 'kill {}'",
+  ]) refused(c, 'a pid you started')
+  for (const c of [
+    'lockf -t 0 $HOME/.cache/aquatome/checks.lock true',
+    'lockf ~/.cache/aquatome/checks.lock pnpm test',
+    'nice -n 10 lockf -n /Users/Shared/aquatome/sim.lock true',
+    "sh -c 'lockf -t 0 ~/.cache/aquatome/checks.lock true'",
+  ]) refused(c, 'needs -k')
+  for (const c of [
+    'kill 12345',
+    'kill -TERM $!',
+    'kill $(cat my.pid)',
+    'kill 1; pgrep foo',
+    'pgrep -f foo',
+    'pgrep -f foo | wc -l',
+    'echo $(pgrep -f foo)',
+    'cat my.pids | xargs kill',
+    'pgrep foo; cat my.pids | xargs kill',
+    'git log --grep pkill',
+    'grep -rn "pkill" scripts',
+    'echo "do not pkill"',
+    'git commit -m "kill $(pgrep foo) is refused"',
+    'lockf -k ~/.cache/aquatome/checks.lock true',
+    'lockf -k -t 0 ~/.cache/aquatome/checks.lock true',
+    'lockf -kn ~/.cache/aquatome/sim.lock true',
+    'lockf -t 5 ~/some/other.lock true',
+  ]) expect(hook(c).status, c).toBe(0)
+})
