@@ -4,7 +4,7 @@ import { join } from 'node:path'
 import { GallerySchema, type Photo } from '@aq/schema'
 import { parse } from 'node-html-parser'
 import sharp from 'sharp'
-import { rankGallery, type GalleryPhoto } from './gallery'
+import { rankGallery, waiting, type GalleryPhoto } from './gallery'
 import { largeSize } from './large-photos'
 import { MAX_PHOTOS } from './run'
 import { SOURCE_PHOTO_LICENCE, type Media } from './source-photos'
@@ -137,7 +137,7 @@ export async function tropicaPhotos(root: string, d: TropicaDeps, o: { limit?: n
         await writeFile(file, `${JSON.stringify(e, null, 2)}\n`)
       }
       if (rest.length) {
-        const photos = rankGallery([...(g?.photos ?? []), ...rest.map((p, i) => ({ ...plain(p), kind: p.scene ? 'submersed' : 'other', ...(empty && p.scene && i === 0 ? { best: true } : {}) }))])
+        const photos = rankGallery([...(g?.photos ?? []), ...rest.map((p, i) => waiting({ ...plain(p), kind: p.scene ? 'submersed' : 'other', ...(empty && p.scene && i === 0 ? { best: true } : {}) }))])
         await mkdir(join(root, 'content/gallery'), { recursive: true })
         await writeFile(gfile, `${JSON.stringify(GallerySchema.parse({ id, photos, seen: g?.seen ?? 0, updatedAt: d.now().toISOString().slice(0, 10), ...(g?.builtAt ? { builtAt: g.builtAt } : {}) }), null, 2)}\n`)
       }

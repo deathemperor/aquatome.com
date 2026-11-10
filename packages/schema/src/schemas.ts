@@ -250,7 +250,13 @@ export const OneVoiceSchema = z.record(z.string(), z.partialRecord(z.enum(SECTIO
  * its picks of a contact sheet; `kind`, what it shows (male, female, colour form, juvenile, habitat; for a plant
  * submersed, emersed, flower…). Photos screened before these existed have neither.
  */
-const GalleryPhoto = Photo.extend({ best: z.boolean().optional(), kind: z.string().optional() })
+/**
+ * `unchecked`: a step added it to the gallery and the photo check (check-photos) has not judged it for this page yet, so
+ * no page shows it (load.ts). Set on every photo a step adds since 2026-11-10, when a tenth of the gallery photos the
+ * check had judged had been rejected, most as another fish; the check takes the mark off a photo it judges and leaves on.
+ * A photo without it was added before, or has been judged.
+ */
+const GalleryPhoto = Photo.extend({ best: z.boolean().optional(), kind: z.string().optional(), unchecked: z.boolean().optional() })
 export const GallerySchema = z.object({ id: z.string(), photos: z.array(GalleryPhoto), seen: z.number(), updatedAt: z.string(), builtAt: z.string().optional() })
 
 const ProductSpec = z.object({ key: z.string(), value: z.string(), source: z.number().int().optional() })

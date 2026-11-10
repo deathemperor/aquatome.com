@@ -35,7 +35,7 @@ export type LeadDeps = {
   look: (sheet: string, prompt: string) => Promise<{ pairs: { n: number; asWell: boolean; headInCrop?: boolean; why?: string }[] }>
 }
 export type Compared = Record<string, Record<string, boolean>>
-type GalleryPhoto = Photo & { best?: boolean; kind?: string }
+type GalleryPhoto = Photo & { best?: boolean; kind?: string; unchecked?: boolean }
 type Entity = { photos?: Photo[] }
 
 export const LEAD_SCHEMA = {
@@ -105,7 +105,9 @@ export async function screenLeads(root: string, d: LeadDeps, o: { limit: number;
       if (kind === 'plants' && !empty) continue
       if (o.only ? !o.only.includes(id) : o.calendar && !coming.has(ref) && !empty) continue
       const g = JSON.parse(await readFile(join(content, 'gallery', `${id}.json`), 'utf8').catch(() => '{}')) as { photos?: GalleryPhoto[] }
-      all.push({ ref, id, path, raw, entity: JSON.parse(raw) as Entity, gallery: g.photos ?? [] })
+      // A photo that waits for the photo check (`unchecked`) is on no page, so it leads none: a verdict from before it
+      // was added again could otherwise pass it.
+      all.push({ ref, id, path, raw, entity: JSON.parse(raw) as Entity, gallery: (g.photos ?? []).filter(p => !p.unchecked) })
     }
   }
   all.sort((a, b) => Number(coming.has(b.ref)) - Number(coming.has(a.ref)))

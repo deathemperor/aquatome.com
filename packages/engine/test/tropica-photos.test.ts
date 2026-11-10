@@ -126,6 +126,8 @@ test("on a page with no photo they go to its gallery, the scene marked best, and
   expect(g.photos[0]).toMatchObject({ source: 'tropica', best: true })
   expect(g.photos).toContainEqual(kept)
   expect(tropica.every(p => !('scene' in p))).toBe(true)
+  // In a gallery they wait for the photo check, as every photo a step adds to one does; the one already there doesn't.
+  expect(g.photos.map(p => !!p.unchecked).sort()).toEqual([false, true, true, true])
 })
 
 test('a photo taken off the site is not taken again, a page that gives none waits a month, and --limit is pages a run', async () => {

@@ -2,7 +2,7 @@ import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { GallerySchema, slugify, STAPLE_SPECIES, type Photo } from '@aq/schema'
 import { LlmError } from './claude'
-import { screen, type Candidate, type GalleryDeps } from './gallery'
+import { screen, waiting, type Candidate, type GalleryDeps } from './gallery'
 import { POPULAR } from './wanted'
 
 export const UNSPLASH_LICENCE = 'Unsplash License'
@@ -140,7 +140,7 @@ export async function unsplashPhotos(root: string, api: UnsplashApi, d: GalleryD
       // A breed page without a photo takes the best ones as its own (the first leads the page), the rest go to the gallery.
       const own = breed && !e.photos.length ? added.splice(0, 4) : []
       if (own.length) await writeFile(entityFile, `${JSON.stringify({ ...e, photos: own }, null, 2)}\n`)
-      if (added.length) await writeFile(file, `${JSON.stringify(GallerySchema.parse({ ...gallery, photos: [...gallery.photos, ...added], seen: gallery.seen + cands.length }), null, 2)}\n`)
+      if (added.length) await writeFile(file, `${JSON.stringify(GallerySchema.parse({ ...gallery, photos: [...gallery.photos, ...added.map(waiting)], seen: gallery.seen + cands.length }), null, 2)}\n`)
       tried[id] = d.now().toISOString().slice(0, 10)
       report.done.push(`${id}: ${own.length + added.length} of ${cands.length}`)
     } catch (err) {

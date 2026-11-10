@@ -582,7 +582,15 @@ The layers above still check the result.
     `docs/review/photo-subjects.md`, with the removals and the pages left with no photo (they show none; the check
     puts nothing in its place, and the photo steps fill it from their sources as for any page short of photos). A
     guide photo whose caption names one fish is judged against what the caption says, and only "something else"
-    leaves a guide; a guide photo that is a page's photo goes with that page's "something else". Most-read pages first, verdicts cached per photo and page (`_photo-subjects.json`). Found by
+    leaves a guide; a guide photo that is a page's photo goes with that page's "something else". Verdicts are cached per
+    photo and page (`_photo-subjects.json`). A photo a step adds to a gallery waits (`unchecked` in the gallery file),
+    and no page shows it until this check has judged it and left it on: of 2,611 gallery photos judged by 2026-11-10 the
+    check had taken off 272, most as another fish, and each had been on a page meanwhile. The order (`turn` in
+    `photo-check.ts`): the photos readers see now, Flickr's and Commons' first (17 and 12 in 100 taken off, against
+    iNaturalist's 7), then the waiting photos of a page with no photo of its own, then the other waiting photos, the
+    most-read pages first within each. A page's lead is judged in the first sheet its page gets, whatever its turn, so
+    no photo judged before it goes ahead of it. Before all of them, `PHOTO_CHECK_FILL` of a cycle's sheets go to a
+    permitted source's photos that fill a page with none. Found by
     the owner: a neon tetra on the green neon page, the tiger barb under the cherry barb, a range map on the angelfish
     page; the first check (2026-10) had reached under half the page photos, in alphabetical order, and no gallery.
     Until 2026-11-07 a fourth verdict, "its wild habitat, with or without it", stayed on the page and only went last:
