@@ -29,12 +29,12 @@ export const CurationDaySchema = z.object({
   /** The fish of the day: a species or breed page. */
   fish: Ref.optional(),
   /**
-   * The fish card's photo: one of the page's checked photos, big enough for a large card (the planner sets it). The app
-   * shows this one, never the index's small photo scaled up.
+   * The fish card's photo: the page's head photo, big enough for a large card (the planner sets it; never another photo).
+   * The app shows this one, never the index's small photo scaled up.
    */
   img: Img.optional(),
   guide: Ref.optional(),
-  /** The guide card's photo, when one is big enough for a large card; without it the card is drawn without a photo. */
+  /** The guide card's photo: the page's head photo when it's big enough for a large card; without it the card is drawn without a photo. */
   guideImg: Img.optional(),
   story: Story.optional(),
   /** A short card in the story's place, shown in the languages it's written in, within its `show` days. */

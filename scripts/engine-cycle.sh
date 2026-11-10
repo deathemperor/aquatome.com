@@ -165,6 +165,8 @@ if part photos; then
   # 3,868 stills, about 645 calls, each judged once video-stills has made it the video's own frame (about 140 calls a day
   # as it goes, so all judged in about 5 days).
   pnpm engine guide-photos --limit "${GUIDE_PHOTOS_LIMIT:-20}" || log "guide-photos: failed"
+  # The head photo of the fish on the coming days, which their cards show (lead-photo.ts), before curate reads it.
+  pnpm engine lead-photos --calendar --limit "${LEAD_PHOTOS_LIMIT:-10}" || log "lead-photos: failed"
   # Photo galleries topped up to each page's target (more for popular species: gallery-plan.ts), most popular first, fish
   # and plants: iNaturalist, then Commons, GBIF, Openverse; bred fish by their English names on Commons and Openverse;
   # open licences, screened (right species or line, no faces). GALLERY_SHEETS model calls a cycle (about 480 a day on
