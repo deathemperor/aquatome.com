@@ -3,8 +3,7 @@ import { fileURLToPath } from 'node:url'
 import { expect, test } from './fixtures'
 import type { BrowserContext, Page } from '@playwright/test'
 
-// The owner's picture in iPhone WebKit (the `iphone` project, E2E_IPHONE=1): its faults are WebKit's, and Chromium has none
-// of them. A drawn picture has to show what's on the screen or say it doesn't, because the owner reports what they see, and
+// The owner's picture in iPhone WebKit (the `iphone` project, E2E_IPHONE=1): most of its faults are WebKit's. A drawn picture has to show what's on the screen or say it doesn't, because the owner reports what they see, and
 // a false blank sends someone after a bug that isn't there. Sends are stand-ins, read where the page makes them.
 const flag = (context: BrowserContext, baseURL: string) => context.addCookies([{ name: 'aq_owner', value: '1', url: baseURL }])
 
@@ -69,6 +68,36 @@ const addPhoto = (page: Page, src: string) => page.evaluate(async ({ src, BOX })
   scrollTo(0, 0)
 }, { src, BOX })
 
+/** Text a little wider in the drawing than on the page, as it comes out in Chrome zoomed in or out: made certain here. */
+const widerInTheDrawing = (page: Page) => page.addInitScript(() => {
+  const real = XMLSerializer.prototype.serializeToString
+  XMLSerializer.prototype.serializeToString = function (node) {
+    if (node instanceof SVGElement) {
+      const wider = document.createElementNS('http://www.w3.org/1999/xhtml', 'style')
+      wider.textContent = '* { letter-spacing: 0.25px !important }'
+      node.querySelector('foreignObject')!.firstElementChild!.prepend(wider)
+    }
+    return real.call(this, node)
+  }
+})
+
+/** How tall the ink is inside a box of the sent picture, in page pixels: 0 for none. Against the box's first pixel. */
+const inkHeight = (page: Page, box: { x: number; y: number; width: number; height: number }) => page.evaluate(async box => {
+  const { image } = (window as unknown as { sent: { image: string } }).sent
+  const i = new Image(); i.src = image; await i.decode()
+  const c = document.createElement('canvas'); c.width = i.naturalWidth; c.height = i.naturalHeight
+  const x = c.getContext('2d')!; x.drawImage(i, 0, 0)
+  const scale = i.naturalWidth / innerWidth
+  const [left, top, width, height] = [box.x, box.y, box.width, box.height].map(v => Math.round(v * scale)) as [number, number, number, number]
+  const d = x.getImageData(left, top, width, height).data
+  let first = -1, last = -1
+  for (let row = 0; row < height; row++) for (let col = 0; col < width; col++) {
+    const at = (row * width + col) * 4
+    if ([0, 1, 2].some(k => Math.abs(d[at + k]! - d[k]!) > 70)) { if (first < 0) first = row; last = row }
+  }
+  return first < 0 ? 0 : (last - first + 1) / scale
+}, box)
+
 // A drawing takes seconds, more on a busy machine.
 test.describe.configure({ timeout: 120_000 })
 
@@ -107,6 +136,24 @@ test('a row scrolled sideways is drawn where it\'s scrolled to', async ({ page }
   const [r, g, b] = (await read(page, { x: BOX.x + 20, y: BOX.y + 20, width: BOX.width - 40, height: BOX.height - 40 })).first
   expect(b, `drew ${r},${g},${b}`).toBeGreaterThan(150)
   expect(g).toBeLessThan(120)
+})
+
+// The owner's Heckel page, 10 Nov: labels broke onto a second line in their chips, and a shop fell out of its row.
+test('a chip and the shop picker keep their lines when the text measures wider in the drawing', async ({ page }) => {
+  await widerInTheDrawing(page)
+  await page.goto('/ca/ca-neon-vua/')
+  const chip = page.locator('a[data-go]').first()
+  await chip.scrollIntoViewIfNeeded()
+  const shops = await page.locator('[data-shop-pick] button').all()
+  const lastShop = (await shops.at(-1)!.boundingBox())!, firstShop = (await shops[0]!.boundingBox())!
+  expect(lastShop.y, 'the shops are one row on the page').toBe(firstShop.y)
+  const box = (await chip.boundingBox())!
+  await send(page)
+  const label = await inkHeight(page, { x: box.x + 14, y: box.y + 3, width: box.width - 44, height: box.height - 6 })
+  expect(label, 'the label is one line').toBeGreaterThan(0)
+  expect(label, 'the label is one line').toBeLessThan(30)
+  const inPlace = await inkHeight(page, { x: lastShop.x + 6, y: lastShop.y + 8, width: lastShop.width - 12, height: lastShop.height - 16 })
+  expect(inPlace, 'the last shop is still in its row').toBeGreaterThan(0)
 })
 
 test('a photo is in the picture, not a blank', async ({ page }) => {
