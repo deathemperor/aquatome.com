@@ -362,3 +362,11 @@ test('a burst of likely automated tabs yesterday is something to look at; today\
   expect(care([{ day: '2026-11-05', sessions: 3, readers: 1, automated: 97 }])).toEqual([{ title: 'Likely automated visits yesterday: 97 fresh tabs', text: 'A burst of new tabs from one country, each opening a different page. Left out of the readers.', href: '/_ab/doc-gia/' }])
   expect(care([{ day: '2026-11-06', sessions: 3, readers: 1, automated: 40 }, { day: '2026-11-05', sessions: 3, readers: 1 }])).toEqual([])
 })
+
+test('a source that moved to the Internet Archive gets one line for a week, and asks nothing of the owner', () => {
+  const moved = (since: string): ComposeInput => input({ overview: { ...quiet(), content: { engine: { needsHuman: [], sources: [{ id: 'sprucepets', name: 'The Spruce Pets' }], movedToArchive: [{ source: 'sprucepets', since }], videos: { waiting: 0, writtenAt: [] } }, inventory: {} } as unknown as Overview['content'] } })
+  const fresh = compose(moved(new Date(NOW.getTime() - 86_400_000).toISOString()))
+  expect(fresh.text).toContain("The Spruce Pets moved to the Internet Archive's copies")
+  expect(fresh.care).toBe(0)
+  expect(compose(moved(new Date(NOW.getTime() - 8 * 86_400_000).toISOString())).text).not.toContain('Internet Archive')
+})

@@ -17,7 +17,12 @@ const Range = z.object({ min: z.number(), max: z.number() })
 /**
  * `ref`: a figure AquaTome researched (source 'aquatome'), the page in the species' `refs` it comes from.
  */
-const SourcedValue = z.object({ source: SourceId, value: z.union([Range, z.number()]), hidden: z.string().optional(), ref: z.number().int().nonnegative().optional() })
+/**
+ * `overruled`: why this figure is off the card though its source would otherwise win: two independent sources agree against
+ * it and the gap is wide (size 1.5 times or more, water ranges that don't overlap); a tank set for the smaller fish; or a figure
+ * against its source's own measured reading, with an independent source beside the reading. It stays while the source gives the same figure.
+ */
+const SourcedValue = z.object({ source: SourceId, value: z.union([Range, z.number()]), hidden: z.string().optional(), overruled: z.string().optional(), ref: z.number().int().nonnegative().optional() })
 const DataCardField = z.enum(['tempC', 'ph', 'gh', 'sizeCm', 'tankCm', 'difficulty', 'lifeYears'])
 
 /**
@@ -231,6 +236,8 @@ export const EquipmentSchema = z.object({
 export const CaptionsSchema = z.record(z.string(), z.string())
 /** content/picture-hashes.json: each photo's 64-bit difference hash (hex) by its address (pictures.ts). */
 export const PictureHashesSchema = z.record(z.string(), z.string().regex(/^[0-9a-f]{16}$/))
+/** The day each content file last changed for a reader, with its hash: file → "2026-11-10 ab12cd34ef56" (the engine's page-dates.ts). */
+export const PageDatesSchema = z.record(z.string(), z.string().regex(/^\d{4}-\d{2}-\d{2} [0-9a-f]{12}$/))
 
 /**
  * content/one-voice.json: a species' id, then a heading (section key), then the one source that speaks under it. Where the

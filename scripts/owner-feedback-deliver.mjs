@@ -29,7 +29,7 @@ function pictureLine({ picture, notDrawn }) {
   if (picture === 'screen') return ['- Picture: the app\'s own screen.']
   if (picture !== 'drawn') return []
   const n = Number(notDrawn) || 0
-  return [`- Picture: drawn by the page, not a photo of the screen, so a small visual difference in it may be the drawing's own (soft shadows are left out, and a line can break differently).${n ? ` ${n} thing${n > 1 ? 's' : ''} on the screen couldn't be drawn, marked NOT DRAWN in it: that's not a fault on the page.` : ''}`]
+  return [`- Picture: drawn by the page, not a photo of the screen, so a small visual difference in it may be the drawing's own (soft shadows are left out).${n ? ` ${n} thing${n > 1 ? 's' : ''} on the screen couldn't be drawn, marked NOT DRAWN in it: that's not a fault on the page.` : ''}`]
 }
 
 /**

@@ -19,7 +19,7 @@ const home = () => mkdtempSync(join(tmpdir(), 'aq-load-'))
 test('a simulator run waits for the one before it, across checkouts', async () => {
   const dir = home()
   const env = { ...process.env, HOME: dir }
-  const first = spawn(SIM_RUN, ['sh', '-c', `touch ${dir}/first; until [ -f ${dir}/release ]; do sleep 0.05; done`], { env, stdio: 'ignore' })
+  const first = spawn(SIM_RUN, ['sh', '-c', `touch ${dir}/first; for i in $(seq 1200); do [ -f ${dir}/release ] && break; sleep 0.05; done`], { env, stdio: 'ignore' })
   // Each run's end, heard from its start: the second can finish before node has seen the first close (CI, 2026-11-08).
   const firstEnd = new Promise(r => first.on('close', r))
   await until(() => existsSync(`${dir}/first`))
@@ -260,7 +260,12 @@ test('a session runs heavy work only in the checks queue', () => {
 // Simulator.app's window is WindowServer's to draw every frame, on top of the simulator's own rendering (2026-11-08: the
 // screen's compositing was a third of the GPU through a heavy thermal hour). Simulators run headless.
 test('a session boots simulators headless, never in Simulator.app', () => {
-  const hook = (command: string) => spawnSync(HOOK, { input: JSON.stringify({ tool_input: { command } }), encoding: 'utf8' })
+  // No simulators up: whether this Mac is at its cap just now isn't this test's business.
+  const dir = home()
+  mkdirSync(join(dir, 'bin'))
+  writeFileSync(join(dir, 'bin/xcrun'), '#!/bin/sh\necho \'{"devices": {}}\'\n')
+  chmodSync(join(dir, 'bin/xcrun'), 0o755)
+  const hook = (command: string) => spawnSync(HOOK, { input: JSON.stringify({ tool_input: { command } }), encoding: 'utf8', env: { ...process.env, PATH: `${dir}/bin:${process.env.PATH}` } })
   for (const c of [
     'open -a Simulator',
     'open -a Simulator.app',
@@ -284,7 +289,7 @@ function keptQueue(via: string[] = [SIM_RUN]) {
   writeFileSync(join(dir, '.config/aquatome/owner-report-thread'), 'cos\n')
   const env = { ...process.env, HOME: dir, SIM_RUN_NEXT_PAUSE: '0.1', CHECKS_NEXT_PAUSE: '0.1', T3CODE_THREAD_ID: 'cos' }
   const [queue, ...queueArgs] = via as [string, ...string[]]
-  const first = spawn(queue, [...queueArgs, 'sh', '-c', `touch ${dir}/up; until [ -f ${dir}/release ]; do sleep 0.05; done`], { env, stdio: 'ignore' })
+  const first = spawn(queue, [...queueArgs, 'sh', '-c', `touch ${dir}/up; for i in $(seq 1200); do [ -f ${dir}/release ] && break; sleep 0.05; done`], { env, stdio: 'ignore' })
   const firstEnd = new Promise(r => first.on('close', r))
   const run = (word: string, cwd = dir) => { const p = spawn(queue, [...queueArgs, 'sh', '-c', `echo ${word} >> ${dir}/order`], { env, cwd, stdio: 'ignore' }); return new Promise(r => p.on('close', r)) }
   const next = (thread: string, ...args: string[]) => spawnSync(NEXT_TURN, args, { env: { ...env, T3CODE_THREAD_ID: thread }, encoding: 'utf8' })
@@ -457,4 +462,64 @@ test('the checks queue through scripts/checks.sh is the queue, for the hook and 
   expect(hook('scripts/checks.sh nice -n 10 xcodebuild test -project a')).toBe(2) // a simulator run is still sim-run's
   const cycle = readFileSync(join(ROOT, 'scripts/cycle-checks.sh'), 'utf8')
   expect(cycle).toMatch(/\nturn\(\) \{ "\$CHECKS_SH" "\$@"; \}\nchecks\(\) \{[^\n]*else turn bash -c "\$1"/)
+})
+
+test('a session kills only by pid, and a lockf on a queue keeps the lock', () => {
+  const hook = (command: string) => spawnSync(HOOK, { input: JSON.stringify({ tool_input: { command } }), encoding: 'utf8' })
+  const refused = (command: string, why: string) => {
+    const r = hook(command)
+    expect(r.status, command).toBe(2)
+    expect(r.stderr, command).toContain(why)
+  }
+  for (const c of [
+    'pkill -f "sleep 25"',
+    'killall Simulator',
+    '/usr/bin/pkill -9 node',
+    'cd x && sudo pkill foo; echo done',
+    'sh -c "pkill -f foo"',
+    "bash -lc 'killall foo'",
+    'x=$(pkill foo)',
+    'echo foo | xargs pkill -f',
+    'kill $(pgrep -f foo)',
+    'kill -9 $(pgrep -f foo | head -1)',
+    'kill "$(pgrep -f foo)"',
+    'kill `pgrep -f foo`',
+    'sudo kill $(/usr/bin/pgrep foo)',
+    'pgrep -f foo | xargs kill',
+    'pgrep -f foo | head -1 | xargs -n1 kill -9',
+    "pgrep foo | xargs -I{} sh -c 'kill {}'",
+    'pgrep -f foo 2>&1 | xargs kill',
+    'pgrep -f foo |\n  xargs kill',
+    'kill $(\npgrep foo)',
+    'pgrep foo | xargs -r sudo kill',
+    'pgrep foo | xargs -I {} kill {}',
+  ]) refused(c, 'a pid you started')
+  for (const c of [
+    'lockf -t 0 $HOME/.cache/aquatome/checks.lock true',
+    'lockf ~/.cache/aquatome/checks.lock pnpm test',
+    'nice -n 10 lockf -n /Users/Shared/aquatome/sim.lock true',
+    "sh -c 'lockf -t 0 ~/.cache/aquatome/checks.lock true'",
+  ]) refused(c, 'needs -k')
+  for (const c of [
+    'kill 12345',
+    'kill -TERM $!',
+    'kill $(cat my.pid)',
+    'kill 1; pgrep foo',
+    'pgrep -f foo',
+    'pgrep -f foo | wc -l',
+    'echo $(pgrep -f foo)',
+    'cat my.pids | xargs kill',
+    'git ls-files | xargs grep -ln pkill',
+    'rg -l killall | xargs grep -n killall',
+    'pgrep foo | xargs echo kill',
+    'pgrep foo; cat my.pids | xargs kill',
+    'git log --grep pkill',
+    'grep -rn "pkill" scripts',
+    'echo "do not pkill"',
+    'git commit -m "kill $(pgrep foo) is refused"',
+    'lockf -k ~/.cache/aquatome/checks.lock true',
+    'lockf -k -t 0 ~/.cache/aquatome/checks.lock true',
+    'lockf -kn ~/.cache/aquatome/sim.lock true',
+    'lockf -t 5 ~/some/other.lock true',
+  ]) expect(hook(c).status, c).toBe(0)
 })

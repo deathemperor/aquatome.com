@@ -12,7 +12,7 @@ import { APP_PAGES, APP_PT, APP_SCREENSHOTS, APP_STATE, APP_STORE_ID, appDevice,
 import { LANGS, localizePath, toVi } from '../src/lib/i18n'
 import { qrPath } from '../src/lib/qr'
 import { APP_SWITCH } from '../worker/app-switch'
-import { DIST } from './dist'
+import { DIST, sitemapText } from './dist'
 
 // The app's invitations (lib/app.ts; the switch, worker/app-switch.ts). Each state is read from a real fixture build:
 // DIST is the switch's own (the build that deploys), and package.json's test builds the off and on states beside it
@@ -43,7 +43,7 @@ function found(dir: string): string[] {
     if (/<a\b[^>]*href="[^"]*\/(?:ung-dung|aplikasi|mobile-app)\/"/.test(text)) kinds.add('link to the page')
   }
   const named = (file: string) => APP_PAGES.some(p => readFileSync(join(dir, file), 'utf8').includes(p))
-  if (named('sitemap.xml')) kinds.add('sitemap')
+  if (APP_PAGES.some(p => sitemapText(dir).includes(p))) kinds.add('sitemap')
   if (named('llms.txt')) kinds.add('llms.txt')
   return [...kinds].sort()
 }
@@ -300,7 +300,7 @@ describe('the app page', () => {
     expect(on('/ung-dung/').dom.querySelectorAll('main img')).toHaveLength(1) // the badge
   })
   test('on: agents find it: the sitemap and llms.txt name it, and its markdown has the words and the link', () => {
-    const sitemap = readFileSync(join(ON, 'sitemap.xml'), 'utf8')
+    const sitemap = sitemapText(ON)
     for (const p of APP_PAGES) expect(sitemap).toContain(`https://aquatome.com${p}</loc>`)
     expect(readFileSync(join(ON, 'llms.txt'), 'utf8')).toContain('https://aquatome.com/ung-dung/')
     const md = toMarkdown(on('/ung-dung/').html)!

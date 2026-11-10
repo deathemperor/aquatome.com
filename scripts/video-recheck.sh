@@ -58,8 +58,9 @@ pnpm engine review-backfill --kind video-guide --reviewed-before "$VIDEO_RECHECK
 # Each once: after that its own review counts, under the bar or not; a skip leaves it as it is, and a failure goes to the
 # video job's retries. Once the rechecks have left none, it fetches nothing and calls nothing. 8 a run, paced on
 # 2026-11-08 from 30: nearly every guide rechecked falls under the bar, and 30 an hour (about 470 calls) was the account's
-# whole week in days. The riskiest still go first.
-pnpm engine videos --redo --rechecked-since "$VIDEO_RECHECK_SINCE" --limit "${VIDEO_REDO_LIMIT:-8}" --parallel "${VIDEO_PARALLEL:-4}" || log "videos redo: failed"
+# whole week in days. The riskiest still go first. Paused 2026-11-10 (0: the step picks no guide and calls nothing): six
+# in ten came out under the bar again, and a guide gets one go, so the rest wait for the writer's fix, measured on 30.
+pnpm engine videos --redo --rechecked-since "$VIDEO_RECHECK_SINCE" --limit "${VIDEO_REDO_LIMIT:-0}" --parallel "${VIDEO_PARALLEL:-4}" || log "videos redo: failed"
 # The content rules' safe fixes, as in the video job: on 2026-11-08 a run's tests failed on a defect the sweep fixes.
 pnpm engine sweep || log "sweep: failed"
 # Last of the steps that write pages: what this run changed is read against the reader-fit checklist (gate.ts). A new page

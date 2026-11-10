@@ -12,7 +12,7 @@ import type { DataCardField, Range } from './types'
  *   a shorter tank than the card's: `litresOffCard`; a quick-facts line that does either goes: `dropOffItems`
  */
 
-type Card = Partial<Record<DataCardField, { source: string; value: Range | number; hidden?: string }[]>>
+type Card = Partial<Record<DataCardField, { source: string; value: Range | number; hidden?: string; overruled?: string }[]>>
 type Figure = Range | number
 
 /**
@@ -171,12 +171,47 @@ export function sizeIsForSale(html: string, value: number): boolean {
 const NOT_KEEPING = /monsoon|in the wild|in nature|natural (?:waters?|habitat|range)|habitat|temperature there|the lake|falls below|breed|spawn|\bfry\b|drops? to|as low as|as high as|at times|winter|measured|recorded/i
 
 /** Whether a card's single temperature is one its source gives only for the wild or for breeding (a range is a keeper's target). */
+export function isOneEnded(html: string, field: DataCardField, value: Figure): boolean {
+  const label = ONE_ENDED[field]
+  if (!label || !isRange(value)) return false
+  const t = text(html)
+  const said = [...t.matchAll(label)].map(m => t.slice(m.index + m[0].length, m.index + m[0].length + 90).split(/[.;!?](?=\s|$)/)[0]!)
+  if (said.some(s => TWO_ENDS.test(s))) return false
+  const end = (n: string, unit: string | undefined, want: number) => {
+    const x = Number(n.replace(',', '.'))
+    return field === 'tempC' && /f/i.test(unit ?? '') ? Math.abs((x - 32) * 5 / 9 - want) < 0.6 : x === want
+  }
+  // The range's other end, stated beside it ("below 26°C in summer and around 17°C in winter"), is two ends, not one.
+  const stated = (want: number) => value.min !== value.max && said.some(s => new RegExp(String.raw`(?<![\d.,])${want}(?![\d])`).test(s))
+  return said.some(s => {
+    const low = NO_LESS.exec(s) ?? AT_LEAST_AFTER.exec(s)
+    const high = NO_MORE.exec(s) ?? AT_MOST_AFTER.exec(s)
+    return (!!low && end(low[1]!, low[2], value.min) && !stated(value.max)) || (!!high && end(high[1]!, high[2], value.max) && !stated(value.min))
+  })
+}
+
 export function tempIsNotForKeeping(html: string, value: Figure): boolean {
   if (!isRange(value) || !same(value.min, value.max)) return false
   const figure = new RegExp(String.raw`(?<![\d.,])${value.min}${DEG}`, 'i')
   const said = text(html).split(/(?<=[.!?;])\s+/).filter(x => figure.test(x))
   return said.length > 0 && said.every(x => NOT_KEEPING.test(x))
 }
+
+/**
+ * A figure the page gives only as one end ("pH above 7.5", "GH of at least 5°", "up to 28°C", "should not sink below 8"): a
+ * range for it has an end the page never gave (Aquarium Co-op's "at least 5 dGH" was 5–12 on the card), so it's no card
+ * figure, and the page's text keeps it one-sided. A statement of two ends about the same field, anywhere, is a range.
+ */
+const ONE_ENDED: Partial<Record<DataCardField, RegExp>> = {
+  ph: /\bp\.?H\b/gi, gh: /\b(?:d?GH|dH|hardness)\b/gi, tempC: /\btemperatures?\b/gi, lifeYears: /\b(?:life ?span|life expectancy|lives?|living)\b/gi,
+}
+const FIGURE = String.raw`(?:about\s+|around\s+|approximately\s+|~\s*)?(\d+(?:[.,]\d+)?)\s*(°\s*[CFHd]?|d?GH|dH|years?)?`
+const BEFORE = String.raw`^[^\d]{0,30}?`
+const TWO_ENDS = /\d(?:[.,]\d+)?\s*(?:°\s*[A-Za-z]*\s*)?(?:-|–|—|to)\s*\d/
+const NO_LESS = new RegExp(`${BEFORE}(?:(?<!not\\s(?:rise\\s|go\\s)?)\\b(?:above|over)\\b|\\bat least\\b|\\bmore than\\b|\\b(?:higher|greater|warmer) than\\b|\\bminimum(?: of)?\\b|\\bnot (?:fall|sink|drop|go) below\\b)\\s*${FIGURE}`, 'i')
+const NO_MORE = new RegExp(`${BEFORE}(?:(?<!not\\s(?:fall\\s|sink\\s|drop\\s|go\\s)?)\\b(?:below|under)\\b|\\bup to\\b|\\bat most\\b|\\bless than\\b|\\b(?:lower|cooler) than\\b|\\bmaximum(?: of)?\\b|\\bnot (?:rise|go) above\\b|\\bnot exceed(?:ing)?\\b)\\s*${FIGURE}`, 'i')
+const AT_LEAST_AFTER = new RegExp(`${BEFORE}${FIGURE}\\s*(?:or (?:more|higher|above|warmer)|and (?:above|up|higher))\\b`, 'i')
+const AT_MOST_AFTER = new RegExp(`${BEFORE}${FIGURE}\\s*(?:or (?:less|lower|below|under|cooler)|and (?:below|under))\\b`, 'i')
 
 /**
  * A data card as a page shows it: the values of the sources it may show (`allowed`), without a value the engine hid
@@ -189,10 +224,11 @@ export function shownCard<C extends Card>(card: C, sections: { source: string; h
     Object.entries(card)
       .map(([field, values]) => [field, (values ?? []).filter(v => {
         const own = () => sections.filter(s => s.source === v.source).map(s => s.html).join('\n')
-        return allowed(v.source) && !v.hidden
+        return allowed(v.source) && !v.hidden && !v.overruled
           && !(field === 'tankCm' && typeof v.value === 'number' && tankIsVolume(own(), v.value))
           && !(field === 'sizeCm' && typeof v.value === 'number' && sizeIsForSale(own(), v.value))
           && !(field === 'tempC' && tempIsNotForKeeping(own(), v.value))
+          && !isOneEnded(own(), field as DataCardField, v.value)
       })] as const)
       .filter(([, values]) => values.length > 0),
   ) as C

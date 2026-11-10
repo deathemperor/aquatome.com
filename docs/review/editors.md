@@ -268,3 +268,20 @@ nhãn của chính thuốc đó", "mỗi thuốc theo liều và lịch trên nh
 fish brought into the shopping list, whose facts never take it up: the writer now writes "Liều và lịch theo nhãn.", the
 house line is a note, not a sentence, and it's written only where the facts take up that topic.
 
+## Altum's water paragraph, one voice (Vietnamese, 2026-11-10)
+
+One paragraph, read five rounds, the bar 9 from three seats. OpenAI is Sol, its natural score listed and not held to the
+bar until two rounds behind it; Google sits out (Cursor refuses its model).
+
+| Round | Anthropic | OpenAI | xAI |
+| --- | --- | --- | --- |
+| 1 | 7 | 8 | 6 |
+| 2 | 8 | 8.5 | 8 |
+| 3 | 8 | 9 | 9 |
+| 4 | 8 | 9 (natural 8.5) | 8 |
+| 5 | 9 | 9 | 9 |
+
+Held by the references: "cứng vừa" for "cứng trung bình" (OpenAI, xAI; forum 2.0 and 2.6 a million words, the pages' 13.7
+and 1.9), "khó mà sống khỏe" for "không khỏe chút nào" ("khó mà" 25, "sống khỏe" 23 in the forum; Anthropic's "yếu hẳn"
+under 1). Both rare, two seats: "pH nước cần" (0), now one sentence with the temperature. Open, under no bar: "thường khó mà"
+and "nuôi bình thường" for "nếu không cho cá đẻ" (Anthropic); "bắt buộc phải" (xAI; forum 7, the pages' 103).

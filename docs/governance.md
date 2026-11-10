@@ -218,7 +218,7 @@ that would have caught it).
     (`test/owner-feedback-deliver.test.ts`). In the browser (`e2e/owner-report.spec.ts`): a reader loads none of it, the
     report's journey with the send a stand-in, a failed send keeping the words. The script in every page only loads the
     bar and may not grow (`worker/test/owner.test.ts`). The picture, in iPhone WebKit (`e2e/owner-capture.spec.ts`): a
-    drawing has to show what's on the screen or say it doesn't, so a large photo is in it, a soft shadow paints no block, what
+    drawing has to show what's on the screen or say it doesn't, so a large photo is in it, a soft shadow paints no block, a label stays on the lines the page gave it, what
     can't be drawn is marked and counted, and the message says whether it's a drawing or the screenshot the owner picked.
     In the app (`AquaTomeUITests/OwnerFlowTests.swift`, `AccountSyncTests/OwnerReportTests.swift`): the button and a
     screenshot's offer for the owner's account alone, none for another and gone at signing out, and the report's form with
@@ -294,6 +294,9 @@ that would have caught it).
 - Deploys from GitHub Actions (`deploy.yml`, which engine runs start too) run `pnpm test`, then the page checks and
   Lighthouse on the **real** build before uploading (`deploy.sh` with `E2E_GATE=1`). The fixture build's browser checks
   run in `ci.yml` only: the engine's pushes change `content/`, which the fixture build doesn't read.
+- The upload is a step of its own with its own time limit, so a long build can't use up its time. Changes that wait over 3
+  hours for a deploy open an issue (`deploy-late.yml`, hourly), which the daily report lists and which closes itself once a
+  deploy catches up. GitHub shows a run cut off at its job's limit as cancelled, so each long step carries its own limit.
 - A pull request that changes only the iOS app (`apps/ios/`, `ios.yml`, `testflight.yml`) skips the site's checks;
   `protocols/` is the site's too.
 - Every pull request's body says what it changes for the owner, in a `## Changelog` section (AGENTS.md): `ci.yml`'s
@@ -420,7 +423,7 @@ The layers above still check the result.
     the two never check one guide at once). From `VIDEO_RECHECK_SINCE`: `review-backfill --kind video-guide
     --reviewed-before` rechecks every guide with no review from that time on, whatever its score (and the ones never
     reviewed), `VIDEO_REREVIEW_LIMIT` a run (30); then `videos --redo --rechecked-since` writes again, from the
-    recheck's notes, the guides it left under the bar, `VIDEO_REDO_LIMIT` a run (8). Paced on 2026-11-08 from 60 and
+    recheck's notes, the guides it left under the bar, `VIDEO_REDO_LIMIT` a run (0: paused 2026-11-10 until the writer's fix is measured on 30 guides; it was 8). Paced on 2026-11-08 from 60 and
     30, when the engine's first account would have run out days before its weekly reset. Both `VIDEO_PARALLEL` (4) at
     once, on the engine's Claude accounts, stopping when every account is at its limit. The riskiest guides first:
     `RECHECK_FIRST` (a guide the chat quotes), then medicine, doses, chemicals and treatments, then water, then the rest,
@@ -598,7 +601,7 @@ The layers above still check the result.
       preserved, a hand, a person and the like, or whose verdict was the old habitat; then it finds none and calls no
       model. Found by the owner (2026-11-05): dead peacock bass piled at a market, with a round logo, leading their
       page; its note said so and the verdict was "yes".
-  - **A fish's head photo.** A card shows its page's head photo or none, never another (`curation.ts`). `pnpm engine lead-photos` gives way a head under the card's 1,140 px to a photo that passes the checks, once the model, shown the two side by side, says it shows the fish as well; no answer is no change, and each pair is asked once (`engine-state/_photo-leads.json`). A fish whose head doesn't pass stays off the calendar, and `pnpm engine curate --check` fails on a card whose photo isn't the head. Found by the owner (2026-11-10): the Altum on Hôm nay was a different photo from its page's, which flashed as one replaced the other.
+  - **A fish's head photo.** A card shows its page's head photo or none, never another (`curation.ts`). `pnpm engine lead-photos` gives way a head under the card's 1,140 px to a photo that passes the checks, once the model, shown the two side by side, says it shows the fish as well and that the second photo, as the card crops it, holds the fish's whole head, snout tip to gill cover with a little room (an eye inside isn't enough); no answer is no change, and each pair is asked once (`engine-state/_photo-leads.json`). Neither the site's cards nor the app's place a crop, so a photo whose crop leaves the head out doesn't lead and the old head stays (the chief of staff, 2026-11-10: five of 43 replacements looked at had it out). A change of head goes back with no model call when the old head now fills the card or a look has since said no. Where a head is under the card's size and its source holds a larger original (Commons, iNaturalist, Unsplash), `pnpm engine large-photos --heads` (each photos cycle, before `lead-photos`) keeps a copy large enough: the same picture larger, so it needs no look, and only the head, since another photo growing large enough could change what leads. A fish whose head doesn't pass stays off the calendar, and `pnpm engine curate --check` fails on a card whose photo isn't the head. Found by the owner (2026-11-10): the Altum on Hôm nay was a different photo from its page's, which flashed as one replaced the other. A page with no photo takes the best that passes, whatever its size, plants too, so no page shows nothing while a passed photo of it exists; a photo carrying a mark its source may keep leads only where nothing else passes, and is never a card.
   - **A source's "read next" cards.** The picker leaves out an image wrapped in a link to another page of the same site (`pickSourcePhotos`): that's the card of another article, not a picture of this one. The sweep takes any already stored off (the unplaced photos at exactly the source's `cardWidth`, `sources.ts`, that end a guide's list, never its lead) and onto `_photo-rejected.json`, so a re-read can't bring it back. Found by the owner (2026-11-10): arowanas and a corydoras on the platy guide; 23 card images sat in 107 places on 25 of The Spruce Pets' 26 guides.
   - **Guides' photos.** `pnpm engine guide-photos` (each photos cycle and the Mac's video job, 20 model calls each, 6
     photos a call, leads first) looks at what the subject check doesn't: every guide's photos (its lead and those under
