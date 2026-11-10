@@ -11,6 +11,7 @@ Cách viết:
 - Bài chỉ nói một chủ đề, đúng tiêu đề bài. Video lan sang chuyện khác (ví dụ video về giờ bật đèn mà cuối video nói về lọc phụ) thì bỏ phần đó: không viết nó thành một phần, một câu hỏi FAQ hay một ý tóm tắt.
 - Bỏ quảng cáo nhà tài trợ, mã giảm giá, giới thiệu cửa hàng hay kênh, lời kêu gọi like, subscribe.
 - Phụ đề tự động hay nghe nhầm (ví dụ "LG" là "algae"): hiểu theo ý tác giả. Chỗ nào không chắc nghĩa thì bỏ qua, đừng đoán ra con số hay chi tiết.
+- Phụ đề hay lẫn "nitrite" (nitrit) với "nitrate" (nitrat) vì hai từ đọc gần giống nhau. Xem người nói đang test gì: test cùng amoniac trước khi thả cá, hay chỉ vài mg/l mà đã bị gọi là độc, thì đó là nitrit.
 - Văn phong như người chơi cá nói với nhau: câu ngắn, cụ thể, xưng hô trung tính. Không mở đầu kiểu "Bạn có biết", "Trong bài viết này", "Hãy cùng tìm hiểu"; không dùng "thế giới thủy sinh đầy màu sắc", "không chỉ… mà còn", "đóng vai trò quan trọng", dấu chấm than.
 - Tên khoa học để nguyên. Dùng thuật ngữ quen thuộc với người chơi Việt (rêu hại, lũa, nền, phân nền, lọc, thay nước, CO2, đèn). Algae gọi là "rêu hại" (không gọi "tảo", trừ tảo silic); lần đầu nhắc một loại rêu hại hay một thuật ngữ khó, ghi kèm tên tiếng Anh trong ngoặc để người đọc tra cứu, ví dụ rêu râu đen (black beard algae, BBA).
 

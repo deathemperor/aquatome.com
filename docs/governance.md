@@ -917,7 +917,8 @@ The layers above still check the result.
   and no reviewer scores it, so the re-check's rule that a guide says only what its video says doesn't fight it. A note
   gives a dose only from a source it cites. A body fixed by hand is marked `bodyFixed`, and no writer replaces it
   or trims it (a source read again, a video or topic rewritten, a rewrite or reader pass, the off-topic check); the sweep's
-  fixed tidying rules still apply. Found
+  fixed tidying rules still apply. A video guide's questions fixed by hand with it are marked `faqFixed`, and a video
+  written again keeps them (`packages/engine/test/video-fixes.test.ts` holds each such fix to its lines). Found
   by the owner on the blue-green algae guide, which sent readers to a foreign product when a pharmacy's 3% hydrogen
   peroxide does the job (`merge.test.ts`, `real-content.test.ts`).
 

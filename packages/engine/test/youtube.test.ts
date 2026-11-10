@@ -380,6 +380,18 @@ test('redo keeps a body fixed by hand; the rest of the guide is the new version'
   expect(await read(root, 'content/guides/youtube-a1/vi.json')).toMatchObject({ name: 'Tiêu đề mới', body: '<p>người sửa</p>', bodyFixed: true })
 })
 
+// A fix made by hand in the FAQ as well as the body (2026-11-10: "nitrat" for the video's nitrite, in both): a new draft's
+// questions would bring the old line back.
+test('redo keeps a FAQ fixed by hand', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'yt-'))
+  await videoGuides(deps(root).d, { playlists: ['PL1'] })
+  const file = join(root, 'content/guides/youtube-a1/vi.json')
+  const faq = [{ q: 'Nước còn độc không?', a: 'người sửa' }]
+  await writeFile(file, JSON.stringify({ ...(await read(root, 'content/guides/youtube-a1/vi.json')), body: '<p>người sửa</p>', bodyFixed: true, faq, faqFixed: true }))
+  await videoGuides(deps(root, { drafts: [draft('Tiêu đề mới')] }).d, { playlists: ['PL1'], redo: true })
+  expect(await read(root, 'content/guides/youtube-a1/vi.json')).toMatchObject({ name: 'Tiêu đề mới', body: '<p>người sửa</p>', bodyFixed: true, faq, faqFixed: true })
+})
+
 test('redo rewrites a written guide with the same slug and cover; the reviewer is told the channel', async () => {
   const root = await mkdtemp(join(tmpdir(), 'yt-'))
   const first = deps(root)
