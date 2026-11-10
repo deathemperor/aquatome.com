@@ -52,6 +52,8 @@ struct SpeciesPage: View {
   @State private var onSite: URL?
   /// Its parts opened past their fold ("thêm", or a chip to them).
   @State private var opened: Set<Int> = []
+  /// The part it was opened at (a chat section's "Đọc tiếp"), until it's there.
+  @State private var openAt: String?
   /// The page has been asked for: nil after this, it didn't come (offline, and not kept).
   @State private var asked = false
   /// "Thử lại" pressed, so many times.
@@ -178,6 +180,11 @@ struct SpeciesPage: View {
     // "Thử lại" asks its photos again too.
     .environment(\.v2PhotoTries, retries)
     .task(id: "\(item.path) \(retries)") { await come() }
+    .task(id: item.path) {
+      guard let at = handbook.openingAt, handbook.item(at: at.path)?.path == item.path else { return }
+      handbook.openingAt = nil
+      openAt = at.heading
+    }
   }
 
   /// The page asked for, and worked out into its parts once.
@@ -267,6 +274,14 @@ struct SpeciesPage: View {
         .environment(\.openURL, OpenURLAction { follow($0, proxy) })
       }
       .onChange(of: player.asked) { withAnimation { proxy.scrollTo(PagePlayer.anchor(player.id), anchor: .center) } }
+      // Opened at a part: there once it's drawn, open, as a chip goes.
+      .task(id: whole != nil ? openAt : nil) {
+        guard let at = openAt, let whole else { return }
+        try? await Task.sleep(for: .milliseconds(150))
+        if let i = whole.ids.firstIndex(of: at) { opened.insert(i) }
+        jump(to: at, proxy)
+        openAt = nil
+      }
       .onChange(of: navigator.asked) { _, asked in go(to: asked, proxy) }
     }
     .environment(player)

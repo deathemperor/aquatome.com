@@ -172,9 +172,11 @@ private func key(_ b: Chat.Block) -> String {
     case .block(let b): blocks.append(b)
     case .done(let t): turn = t
     case .error: Issue.record("an error in an answer")
+    case .opening: Issue.record("a first line in a recording without one")
     }
   }
   let t = try #require(turn)
+  #expect(t.opening == nil)
   #expect(t.text == text && t.steps == steps && t.blocks.map(key) == blocks.map(key))
   #expect(t.n == 1 && t.covered && t.conversation == UUID(uuidString: "6f1c2a52-8d3e-4b7a-9c41-2e5d7f80b913"))
   #expect(!t.suggestions.isEmpty && t.suggestions.count <= 3)
@@ -522,4 +524,109 @@ private let guidePage = Chat.PageRef(kind: "guide", title: "Nuôi cá neon", pat
 
 @Test func theMatesStepIsRead() {
   guard case .step(.mates)? = Chat.event(ServerEvent(name: "step", data: #"{"kind":"mates"}"#)) else { Issue.record("no mates step"); return }
+}
+
+// MARK: Blocks
+
+@Test func aComparisonSaysWhatDiffersAndBoldsOnlyTheOneThatAloneDoes() {
+  #expect(Chat.differs([60, 60, 60]) == .init(differ: false, alone: nil))
+  // A missing figure is never a difference.
+  #expect(Chat.differs([60, 60, nil]) == .init(differ: false, alone: nil))
+  #expect(Chat.differs([60, 60, 80]) == .init(differ: true, alone: 2))
+  #expect(Chat.differs([60, 80, 60, nil]) == .init(differ: true, alone: 1))
+  // Two species, all different, two and two: "khác", none bold.
+  #expect(Chat.differs([60, 80]) == .init(differ: true, alone: nil))
+  #expect(Chat.differs([60, 80, 100]) == .init(differ: true, alone: nil))
+  #expect(Chat.differs([60, 60, 80, 80]) == .init(differ: true, alone: nil))
+  #expect(Chat.differs([60, nil, 80]) == .init(differ: true, alone: nil))
+}
+
+@Test func aSectionShowsWholeBlocksAndCountsWhatsLeft() {
+  let p = PageDoc.Block.paragraph([])
+  let steps = PageDoc.Block.list(ordered: true, items: [[p], [p], [p]])
+  let points = PageDoc.Block.list(ordered: false, items: [[p], [p]])
+  let parts = Chat.parts([p, steps, points, .heading("x", id: "x"), .web])
+  // A block the app can't read isn't lost in silence: it's counted among what's left.
+  #expect(parts.count == 7)
+  guard case .item(let n, _) = parts[3] else { Issue.record("no third step"); return }
+  #expect(n == 3)
+  var rest = Chat.Rest(parts.dropFirst(2))
+  #expect(rest.steps == 2 && rest.items == 2 && rest.paragraphs == 0 && rest.photos == 0 && rest.others == 1)
+  rest = Chat.Rest([])
+  #expect(rest.isEmpty)
+}
+
+@Test func aTankMatesBlockCarriesItsCheckAndTheReadersTankAndMayHaveNoLink() throws {
+  let data = #"""
+  {"t":"tool","tool":"tank-mates","name":"Nuôi chung","check":{"verdict":{"level":"no","text":"Không nên nuôi chung: Cá betta (cá xiêm) hung dữ."},"warnings":[]},
+   "tank":{"id":"t1","name":"Bể phòng khách","dims":{"l":60,"w":30,"h":36},"fish":[{"name":"Cá neon xanh","count":6},{"name":"Ốc lạ"}],"added":[{"name":"Cá betta","count":1}]}}
+  """#
+  guard case .block(.tool(let t))? = Chat.event(ServerEvent(name: "block", data: data)) else { Issue.record("no tool"); return }
+  #expect(t.path == nil)
+  let check = try #require(t.check.flatMap { try JSONSerialization.jsonObject(with: $0) as? [String: Any] })
+  #expect((check["verdict"] as? [String: Any])?["level"] as? String == "no")
+  let tank = try #require(t.tank)
+  #expect(tank.id == "t1" && tank.dims == [60, 30, 36] && tank.litres == nil)
+  #expect(tank.fish == [.init(name: "Cá neon xanh", count: 6), .init(name: "Ốc lạ", count: nil)] && tank.added == [.init(name: "Cá betta", count: 1)])
+  // Another tool needs its link; a link that isn't the site's own is no tool.
+  for d in [#"{"t":"tool","tool":"tank-volume","name":"Thể tích"}"#, #"{"t":"tool","tool":"tank-mates","name":"Nuôi chung","url":"https://x.com/"}"#] {
+    if case .block? = Chat.event(ServerEvent(name: "block", data: d)) { Issue.record("a tool read from \(d)") }
+  }
+}
+
+@Test func aPhotoTheTurnShowedIsLeftOutOfASectionAtAnySize() throws {
+  // As the recording has it: the card's at a width, the section's whole.
+  let image = #"{"t":"figure","img":{"src":"https://media.aquatome.com/a/4286e57c.webp","w":640,"h":402},"caption":[]}"#
+  let data = #"{"t":"section","page":{"kind":"guide","title":"G","url":"/vi/g/"},"blocks":[\#(image),{"t":"p","c":["x"]}]}"#
+  guard case .block(.section(_, _, let blocks))? = Chat.event(ServerEvent(name: "block", data: data)) else { Issue.record("no section"); return }
+  #expect(Chat.parts(blocks).count == 2)
+  #expect(Chat.parts(blocks, shown: ["https://media.aquatome.com/a/4286e57c-480.webp"]).count == 1)
+  #expect(Chat.parts(blocks, shown: ["https://media.aquatome.com/a/4286e57c.webp"]).count == 1)
+  #expect(Chat.parts(blocks, shown: ["https://media.aquatome.com/a/other-480.webp"]).count == 2)
+}
+
+@Test func aVietnamesePageAtTheRootIsStillTheSitesOwn() {
+  func block(_ json: String) -> Chat.Event? { Chat.event(ServerEvent(name: "block", data: json)) }
+  guard case .block(.species(let c))? = block(#"{"t":"species","page":{"id":"a","kind":"species","name":"A","url":"/ca/ca-neon/"}}"#)
+  else { Issue.record("the card went"); return }
+  #expect(c.page.path == "/ca/ca-neon/")
+}
+
+// MARK: The wait's first line
+
+@Test func theRecordedFirstLineComesFirstAndDoneKeepsIt() async throws {
+  let all = try await chat("chat-stream-opening.sse")
+  let line = "Mình đang tra cẩm nang về cách nuôi cá neon xanh theo đàn cho bạn."
+  guard case .opening(let first)? = all.first else { Issue.record("not first: \(all.first.map { "\($0)" } ?? "none")"); return }
+  #expect(first == line)
+  var r = Chat.Reply()
+  for e in all.prefix(2) { r.take(e) }
+  #expect(r.opening == line && r.steps.count == 1 && !r.writing)
+  for e in all.dropFirst(2) { r.take(e) }
+  #expect(r.turn?.opening == line)
+  #expect(r.opening == line, "done, with the same line, took it away")
+}
+
+@Test func doneWithoutTheFirstLineTakesItAwayAndOnlyTheFirstBeforeTheTextCounts() {
+  func done(_ extra: String) -> Chat.Event {
+    Chat.event(ServerEvent(name: "done", data: #"{"conversation":"0b7e4d2a-3c51-4f8e-a9d6-1e2f3a4b5c6d","n":1,"text":"Neon.","covered":true\#(extra)}"#))!
+  }
+  var r = Chat.Reply()
+  r.take(.step(.search("cá neon")))
+  // Always first even after a step; once.
+  r.take(.opening("Mình đang tra cẩm nang về cá neon."))
+  r.take(.opening("Một dòng nữa."))
+  #expect(r.opening == "Mình đang tra cẩm nang về cá neon.")
+  // Off topic: `done` without it has the last word.
+  r.take(done(""))
+  #expect(r.opening == nil)
+  // After the text has begun, a line is too late.
+  var late = Chat.Reply()
+  late.take(.text("Neon"))
+  late.take(.opening("Mình đang tra cẩm nang về cá neon."))
+  #expect(late.opening == nil)
+  // `done` alone (a turn back whole) carries its line.
+  var whole = Chat.Reply()
+  whole.take(done(#","opening":"Mình đang tra.""#))
+  #expect(whole.opening == "Mình đang tra." && whole.whole)
 }

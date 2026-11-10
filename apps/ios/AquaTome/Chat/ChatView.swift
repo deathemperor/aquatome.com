@@ -65,12 +65,16 @@ private struct ChatThread: View {
   /// with "Xem thêm" closed again).
   @State private var visible: [UUID: Bool] = [:]
   private var lastInView: Bool { model.thread.last.map { visible[$0.id] ?? true } ?? true }
+  /// A section closed with its heading off the screen: back to it.
+  @State private var scrollBack: String?
   /// Where the newest question's top is in the view (nil off it): near the top, the reader is still on its turn, so the
   /// first words and the keyboard going down put it back under the bar; scrolled into earlier turns or down the answer,
   /// nothing moves.
   @State private var lastTop: CGFloat?
   /// The box's height, with what's over it: the screen above it is what the reader sees.
   @State private var boxHeight: CGFloat = 0
+  /// The newest turn's own height, without the room kept below it.
+  @State private var lastContent: CGFloat = 0
 
   private var signedOut: Bool { account.user == nil }
 
@@ -89,6 +93,7 @@ private struct ChatThread: View {
             ForEach(model.thread) { a in
               let last = a.id == model.thread.last?.id
               turn(a, last: last)
+                .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { if last { lastContent = $0 } }
                 // The newest question keeps a screen's height below it: the scroll on sending can put it under the bar,
                 // and nothing that shrinks under it (the steps folding) moves it.
                 .frame(minHeight: last ? geo.size.height : nil, alignment: .top)
@@ -98,6 +103,8 @@ private struct ChatThread: View {
                 }
                 .onGeometryChange(for: CGFloat.self) { $0.frame(in: .scrollView).minY } action: { if last { lastTop = $0 } }
             }
+            // The thread's very end, for the round ↓: an answer can be taller than the screen.
+            Color.clear.frame(height: 0).id(Self.end)
           }
           .padding(.horizontal)
           .padding(.bottom, 16)
@@ -111,6 +118,11 @@ private struct ChatThread: View {
           Task { @MainActor in withAnimation(reduceMotion ? nil : .smooth(duration: 0.35)) { proxy.scrollTo(id, anchor: .top) } }
         }
         .onChange(of: model.thread.last?.outcome) { _, o in if o == .answered, !lastInView { newBelow = true } }
+        .onChange(of: scrollBack) { _, id in
+          guard let id else { return }
+          scrollBack = nil
+          withAnimation(reduceMotion ? nil : .smooth(duration: 0.35)) { proxy.scrollTo(id, anchor: .top) }
+        }
         // The first words, and the keyboard going down (an answer that came with it up, at the largest text): the question
         // back under the bar, with the keyboard's own glide, unless the reader has scrolled off its turn.
         .onChange(of: model.thread.last?.reply.writing) { _, w in if w == true { pinIfOnIt(proxy, height: geo.size.height) } }
@@ -122,7 +134,14 @@ private struct ChatThread: View {
             newBelow = false
             if let id = model.thread.last?.id { withAnimation { proxy.scrollTo(id, anchor: .top) } }
           } toEnd: {
-            if let id = model.thread.last?.id { withAnimation(reduceMotion ? nil : .smooth(duration: 0.35)) { proxy.scrollTo(id, anchor: .bottom) } }
+            // A last turn that fits above the box goes under the bar, where it sat when answered; a taller one to its end.
+            withAnimation(reduceMotion ? nil : .smooth(duration: 0.35)) {
+              if lastContent <= geo.size.height - boxHeight, let id = model.thread.last?.id {
+                proxy.scrollTo(id, anchor: .top)
+              } else {
+                proxy.scrollTo(Self.end, anchor: .bottom)
+              }
+            }
           }
           .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { boxHeight = $0 }
         }
@@ -140,6 +159,8 @@ private struct ChatThread: View {
     model.editAgain(question)
     if model.stop == nil { typing = true }
   }
+
+  private static let end = "chat-end"
 
   private var warned: Bool {
     if model.stop != nil { return true }
@@ -195,10 +216,12 @@ private struct ChatThread: View {
       Bubble(text: a.question, editAgain: last && model.answering ? nil : { editAgain(a.question) }).id(a.id)
       switch a.outcome {
       // Asked again only under the latest question.
-      case .failed(let code) where code != "cut" && !a.reply.text.isEmpty:
-        // Cut off after its text began: what was read stays, the card under it.
+      case .failed(let code) where code != "cut" && (!a.reply.text.isEmpty || a.reply.opening != nil):
+        // Cut off after its text began, or after the wait's first line: the box folded as at the first words, what was
+        // read stays, the card under it (the Worker gives the question back).
         if let fold = Chat.fold(a.reply.steps) { foldRow(fold, a) }
-        AnswerText(text: a.reply.text, whole: true, animate: false)
+        unfoldedList(a)
+        if !a.reply.text.isEmpty { AnswerText(text: a.reply.text, whole: true, animate: false) }
         CutOffCard(again: last ? { model.retry(a.id) } : nil).transition(.opacity)
       case .failed(let code):
         FailedCard(code: code, perAccount: model.perAccount, again: last ? { model.retry(a.id) } : nil).transition(.opacity)
@@ -216,25 +239,34 @@ private struct ChatThread: View {
   @ViewBuilder private func answer(_ a: ChatModel.Asked, last: Bool) -> some View {
     let r = a.reply
     if !r.writing {
-      // Waiting: each step done as it comes, above the one row that waits.
+      // Waiting: the first line, then each step done as it comes, above the one row that waits.
       VStack(alignment: .leading, spacing: 8) {
+        // Always first, even after a step that came before it; it fades in and the rows under it move down on one curve.
+        if let line = r.opening { openingLine(line).transition(.opacity) }
         ForEach(Array(r.steps.enumerated()), id: \.offset) { _, s in step(s, opens: false).transition(.opacity.combined(with: .offset(y: 4))) }
         if a.outcome == .asking { Waiting() }
       }
       .animation(reduceMotion ? nil : .easeOut(duration: 0.25), value: r.steps.count)
+      .animation(reduceMotion ? nil : .easeOut(duration: 0.2), value: r.opening)
+      // Read once as it comes, without cutting in: no haptic (the soft one stays with the first words).
+      .onChange(of: r.opening) { old, new in if old == nil, let new { Self.politely(new) } }
       // As the text starts, the row closes clipped, so its fading steps never paint over the first line.
       .transition(.closing)
     } else {
       if let fold = Chat.fold(r.steps) { foldRow(fold, a) }
-      if unfolded.contains(a.id) {
-        VStack(alignment: .leading, spacing: 8) { ForEach(Array(r.steps.enumerated()), id: \.offset) { _, s in step(s, opens: true) } }
-          .padding(.leading, 4)
-      }
+      unfoldedList(a)
       AnswerText(text: r.text, whole: r.turn != nil, animate: !a.resumed && !r.whole && !reduceMotion)
       if r.turn == nil, a.outcome == .asking { Pause(text: r.text) }
       if let t = r.turn {
         if !t.covered {
           Text("Đã ghi lại câu hỏi để cẩm nang viết thêm.").font(.footnote).foregroundStyle(.secondary)
+        }
+        // Once the text is whole: the blocks it leans on, then the next questions.
+        if !t.blocks.isEmpty {
+          ChatBlocks(blocks: t.blocks, about: model.route.start.about, covered: t.covered, staggered: !a.resumed && !r.whole && !reduceMotion, turn: a.id,
+                     reveal: { scrollBack = $0 }) { path in
+            if let u = URL(string: path, relativeTo: handbook.site)?.absoluteURL { open(u) }
+          }
         }
         if last, !t.suggestions.isEmpty {
           Chips(items: t.suggestions, dim: model.offline || model.stop != nil) { model.send($0) }
@@ -243,6 +275,32 @@ private struct ChatThread: View {
         }
       }
     }
+  }
+
+  /// The fold row opened: the wait's first line first, then the steps.
+  @ViewBuilder private func unfoldedList(_ a: ChatModel.Asked) -> some View {
+    if unfolded.contains(a.id) {
+      VStack(alignment: .leading, spacing: 8) {
+        if let line = a.reply.opening { openingLine(line) }
+        ForEach(Array(a.reply.steps.enumerated()), id: \.offset) { _, s in step(s, opens: true) }
+      }
+      .padding(.leading, 4)
+    }
+  }
+
+  /// The wait's first line (docs/design/chat.md, "The first line"): the steps' type, the box's full width, no glyph, plain
+  /// text. The answer's text, body size and primary under no box, never looks like it.
+  private func openingLine(_ line: String) -> some View {
+    Text(verbatim: line).font(.subheadline).foregroundStyle(.secondary)
+      .frame(maxWidth: .infinity, alignment: .leading)
+      .accessibilityIdentifier("chat-opening")
+  }
+
+  /// A polite announcement: spoken once what's being said ends, not over it.
+  static func politely(_ line: String) {
+    var words = AttributedString(line)
+    words.accessibilitySpeechAnnouncementPriority = .low
+    AccessibilityNotification.Announcement(words).post()
   }
 
   private func foldRow(_ fold: Chat.Fold, _ a: ChatModel.Asked) -> some View {
@@ -298,7 +356,12 @@ private struct ChatThread: View {
   }
 
   private func open(_ u: URL) {
-    if let screen = AppScreen.of(u, site: handbook.site, lang: handbook.lang, listed: { handbook.item(at: $0) != nil }) { openScreen(screen) } else { onSite = u }
+    guard let screen = AppScreen.of(u, site: handbook.site, lang: handbook.lang, listed: { handbook.item(at: $0) != nil }) else {
+      onSite = u
+      return
+    }
+    if case .page(let path) = screen, let heading = u.fragment(percentEncoded: false) { handbook.openingAt = (path, heading) }
+    openScreen(screen)
   }
 }
 
@@ -318,7 +381,7 @@ private struct ChatHeader: View {
     HStack(alignment: subject.fromPhoto ? .top : .center, spacing: 12) {
       Group {
         if let img = subject.img {
-          AsyncImage(url: img) { $0.resizable().scaledToFill() } placeholder: { Color.secondary.opacity(0.15) }
+          PageImage(src: img.absoluteString, ratio: 1, corner: 0)
         } else {
           Image(systemName: "photo").font(.title3).foregroundStyle(.secondary).frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(.fill.tertiary)
@@ -734,7 +797,7 @@ private struct Wrap: Layout {
   }
 }
 
-private extension View {
+extension View {
   /// Told whether this view is on screen as the thread scrolls (iOS 18 on; before, never told).
   @ViewBuilder func onScrollVisible(_ seen: @escaping (Bool) -> Void) -> some View {
     if #available(iOS 18.0, *) { onScrollVisibilityChange(threshold: 0.05, seen) } else { self }

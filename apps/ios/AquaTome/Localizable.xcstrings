@@ -331,6 +331,28 @@
         }
       }
     },
+    "%@, khác: %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@, berbeda: %2$@"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@, berbeza: %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ ต่างกัน: %2$@"
+          }
+        }
+      }
+    },
     "%@, ảnh %lld": {
       "localizations": {
         "id": {
@@ -349,6 +371,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "%@ ภาพที่ %lld"
+          }
+        }
+      }
+    },
+    "%lld bước": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld langkah"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld langkah"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld ขั้นตอน"
           }
         }
       }
@@ -573,6 +617,28 @@
         }
       }
     },
+    "%lld phần": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld bagian"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld bahagian"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld ส่วน"
+          }
+        }
+      }
+    },
     "%lld trang": {
       "localizations": {
         "id": {
@@ -657,6 +723,50 @@
           "stringUnit": {
             "state": "translated",
             "value": "งานที่ต้องทำ %lld รายการ"
+          }
+        }
+      }
+    },
+    "%lld ý": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld poin"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld perkara"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld ข้อ"
+          }
+        }
+      }
+    },
+    "%lld đoạn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld paragraf"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld perenggan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld ย่อหน้า"
           }
         }
       }
@@ -9813,6 +9923,50 @@
         }
       }
     },
+    "Mở": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buka"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buka"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปิด"
+          }
+        }
+      }
+    },
+    "Mở %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buka %@"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buka %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปิด %@"
+          }
+        }
+      }
+    },
     "Mở Cài đặt": {
       "localizations": {
         "id": {
@@ -9831,6 +9985,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "เปิดการตั้งค่า"
+          }
+        }
+      }
+    },
+    "Mở công cụ nuôi chung": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buka alat cek kecocokan ikan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buka alat semakan keserasian ikan"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปิดเครื่องมือตรวจการเลี้ยงปลารวม"
           }
         }
       }
@@ -11441,6 +11617,28 @@
         }
       }
     },
+    "Thu gọn": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ciutkan"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tunjuk kurang"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "แสดงน้อยลง"
+          }
+        }
+      }
+    },
     "Thuật ngữ": {
       "localizations": {
         "id": {
@@ -11525,6 +11723,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "เพิ่ม %@ ลงตู้"
+          }
+        }
+      }
+    },
+    "Thêm %@, chưa lưu vào bể.": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tambah %@, belum disimpan ke akuarium."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tambah %@, belum disimpan ke tangki."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เพิ่ม %@ ยังไม่ได้บันทึกลงตู้"
           }
         }
       }
@@ -12053,6 +12273,50 @@
           "stringUnit": {
             "state": "translated",
             "value": "เต็มจอ: %@"
+          }
+        }
+      }
+    },
+    "Trang gần nhất": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Halaman terdekat"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Halaman paling hampir"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "หน้าที่ใกล้เคียงที่สุด"
+          }
+        }
+      }
+    },
+    "Trang loài": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Halaman spesies"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Halaman spesies"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "หน้าปลา"
           }
         }
       }
@@ -14081,6 +14345,28 @@
         }
       }
     },
+    "Xem trang": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lihat halaman"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lihat halaman"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ดูหน้า"
+          }
+        }
+      }
+    },
     "Xem trong Bể của tôi →": {
       "localizations": {
         "id": {
@@ -14631,6 +14917,28 @@
         }
       }
     },
+    "ba loài kia": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "tiga spesies lainnya"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "tiga spesies lagi"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "อีกสามชนิด"
+          }
+        }
+      }
+    },
     "bằng %@": {
       "localizations": {
         "id": {
@@ -14719,6 +15027,28 @@
         }
       }
     },
+    "chưa có": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "belum ada"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "belum ada"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังไม่มี"
+          }
+        }
+      }
+    },
     "chưa có trang": {
       "localizations": {
         "id": {
@@ -14785,6 +15115,28 @@
         }
       }
     },
+    "còn tiếp: %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "masih ada: %@"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "bersambung: %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ยังมีอีก: %@"
+          }
+        }
+      }
+    },
     "cạnh áp tường": {
       "localizations": {
         "id": {
@@ -14847,6 +15199,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "ความยาวด้านที่ 2"
+          }
+        }
+      }
+    },
+    "hai loài kia": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "dua spesies lainnya"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "dua spesies lagi"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "อีกสองชนิด"
           }
         }
       }
@@ -14957,6 +15331,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "https://aquatome.com/th/privacy/#thong-ke-ung-dung"
+          }
+        }
+      }
+    },
+    "khác": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "berbeda"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "berbeza"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ต่างกัน"
           }
         }
       }
@@ -15115,6 +15511,28 @@
         }
       }
     },
+    "thêm %@": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "tambah %@"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "tambah %@"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เพิ่ม %@"
+          }
+        }
+      }
+    },
     "tối dần": {
       "localizations": {
         "id": {
@@ -15133,6 +15551,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "ค่อยๆ หรี่ลง"
+          }
+        }
+      }
+    },
+    "và %lld loài khác": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "dan %lld spesies lainnya"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "dan %lld spesies lain"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "และอีก %lld ชนิด"
           }
         }
       }
@@ -17817,6 +18257,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "อ่านต่อ"
+          }
+        }
+      }
+    },
+    "Đọc tiếp trong “%@”": {
+      "localizations": {
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Baca selengkapnya di “%@”"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Baca lanjut dalam “%@”"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "อ่านต่อใน “%@”"
           }
         }
       }

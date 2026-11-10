@@ -4,7 +4,8 @@ import XCTest
 /// kept with the run (`shot-…`), and put in the `ios-page-shots` artifact by apps/ios/scripts/shots.py. A fish, a plant,
 /// a guide, a video series and a kind of kit, in light, the fish and the kit in dark too, the fish's top at a large text
 /// size, and a guide's video playing in its page (the stand-in player); the fish-ID screen with its guesses, light and
-/// dark; photos as stand-ins (`-fixed-pictures`). Also the Tài khoản sheet with the ways to sign in, in light and in
+/// dark; the chat, empty, waiting and answered with one of each kind of block, light, dark and at the largest text; photos
+/// as stand-ins (`-fixed-pictures`). Also the Tài khoản sheet with the ways to sign in, in light and in
 /// dark, on a new phone. And a search's results under the kinds it finds, light and dark, at the default and the
 /// largest text size, with more found than listed, and with a kind picked that it finds none of, at both sizes; the app's
 /// icon picker; the lights tab's card for the fake light, its clock lost, warning of its outlet's timer on the stand-in
@@ -51,6 +52,9 @@ final class PageShotsFlowTests: XCTestCase {
   func testTheAccountSignedIn() { shootAccount("account-light") }
   func testTheAccountSignedInInTheDark() { shootAccount("account-dark", dark: true) }
   func testTheAccountSignedInInTheLargestText() { shootAccount("account-largest-light", size: largest) }
+  func testTheChat() { shootChat("chat-light") }
+  func testTheChatInTheDark() { shootChat("chat-dark", dark: true) }
+  func testTheChatInTheLargestText() { shootChat("chat-largest-light", size: largest) }
   func testFishId() { shootFishId("fish-id-light") }
   func testFishIdInTheDark() { shootFishId("fish-id-dark", dark: true) }
   func testAKindOfKit() { shoot("kit-light", "loc", "Lọc", more: ["-equipment"]) }
@@ -352,6 +356,31 @@ final class PageShotsFlowTests: XCTestCase {
     // From the top: the screen scrolls to the guesses when they come.
     for _ in 0..<4 { app.swipeDown() }
     capture(app, name, dark: dark, large: false, screens: 8)
+  }
+
+  /// The neon's chat: empty with its starters, the wait with its steps, then a whole answer with one of each kind of block,
+  /// from its top.
+  private func shootChat(_ name: String, dark: Bool = false, size: String? = nil) {
+    let app = launch(dark: dark, size: size, ["-fake-accounts", "on", "-reset-fake-server", "-chat-slow", "-chat-blocks"])
+    open(app, "ca neon", "Cá neon")
+    let entry = app.descendants(matching: .any)["chat-entry"].firstMatch
+    repeatUntil(entry.exists && entry.isHittable, times: 12) { app.swipeUp() }
+    entry.tap()
+    let sign = app.descendants(matching: .any)["apple-sign-in"].firstMatch
+    XCTAssertTrue(sign.waitForExistence(timeout: 5), "no sign-in")
+    sign.tap()
+    let chip = app.buttons.matching(identifier: "chat-chip").firstMatch
+    XCTAssertTrue(chip.waitForExistence(timeout: 10), "no starters")
+    capture(app, name + "-empty", dark: dark, large: true, screens: 1)
+    chip.tap()
+    XCTAssertTrue(app.descendants(matching: .any)["chat-step"].firstMatch.waitForExistence(timeout: 10), "no wait")
+    capture(app, name + "-wait", dark: dark, large: true, screens: 1)
+    XCTAssertTrue(app.descendants(matching: .any)["chat-answer"].firstMatch.waitForExistence(timeout: 60), "no whole answer")
+    // Its blocks too: they come after the text.
+    let tool = app.buttons.matching(identifier: "chat-tool").element(boundBy: 1)
+    XCTAssertTrue(tool.waitForExistence(timeout: 30), "no blocks")
+    for _ in 0..<4 { app.swipeDown() }
+    capture(app, name + "-answer", dark: dark, large: size != nil, screens: size == nil ? 16 : 20)
   }
 
   /// The handbook's row for `row`, found by `query`, opened.

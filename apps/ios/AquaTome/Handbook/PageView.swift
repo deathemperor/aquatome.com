@@ -26,6 +26,8 @@ struct PageView: View {
   @State private var pieces: [NativePage.Piece]?
   @State private var tried = false
   @State private var onWeb = false
+  /// The heading it was opened at (a chat section's "Đọc tiếp").
+  @State private var heading: String?
   /// The name under the page's photo on the screen: the bar's name hidden, not said twice. In view at first where the
   /// page says when it scrolls away (iOS 18 on): a page opens on its name, and the bar shouldn't show it then fade.
   @State private var nameInView: Bool = {
@@ -43,23 +45,35 @@ struct PageView: View {
     }
   }
 
+  /// The web page's address, at the heading it was opened at.
+  private var atHeading: URL {
+    guard let heading, var c = URLComponents(url: url, resolvingAgainstBaseURL: false) else { return url }
+    c.fragment = heading
+    return c.url ?? url
+  }
+
   @ViewBuilder private var page: some View {
     let native = handbook.drawsItself(item) && !onWeb
     Group {
       if native, let pieces {
         NativePage(pieces: pieces, facts: facts(inPage: true), put: inPagePut ? { putting = true } : nil, ask: chat.on ? ChatRoute(about: item) : nil,
-                   web: { onWeb = true }, nameInView: { nameInView = $0 }, path: item.path, at: at)
+                   web: { onWeb = true }, nameInView: { nameInView = $0 }, path: item.path, heading: heading, at: at)
       } else if native && !tried {
         ProgressView().frame(maxWidth: .infinity, maxHeight: .infinity)
       } else {
         // The site's tools save to "Bể của tôi": here, to the app's tanks (PageBridge).
-        WebPage(url: url, lang: handbook.lang, offline: $offline, failed: $failed, store: tanks.storeForPages(), saved: { tanks.mergeFromPage($0) }, open: openScreen)
+        WebPage(url: atHeading, lang: handbook.lang, offline: $offline, failed: $failed, store: tanks.storeForPages(), saved: { tanks.mergeFromPage($0) }, open: openScreen)
           // On the page alone: on the whole screen, it would take the place of the facts' own (an outer id wins).
           .accessibilityIdentifier("page")
           .ignoresSafeArea(edges: .bottom)
       }
     }
       .task(id: item.path) {
+        // Taken at once, whether the app draws the page or the web does: it's for this visit alone.
+        if let at = handbook.openingAt, handbook.item(at: at.path)?.path == item.path {
+          handbook.openingAt = nil
+          heading = at.heading
+        }
         // Opened before the index said the app draws this kind: the web page, for this visit (not a spinner later).
         guard handbook.drawsItself(item), !tried else { tried = true; return }
         let traits = item.kind == .fish ? FactsCard.traits(item.facts) : nil

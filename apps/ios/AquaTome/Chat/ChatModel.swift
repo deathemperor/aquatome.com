@@ -457,10 +457,14 @@ final class ChatModel {
       /// An answer cut off after its text began: the text read, so it comes back with its card (not counted), not as a
       /// counted failure with no text.
       let text: String?
+      /// The wait's first line of an answer that broke after it, so it comes back as cut off (not counted). An answered
+      /// turn's line is its `done`'s, and one `done` took back isn't kept.
+      let opening: String?
 
       var asked: Asked {
         var a = Asked(id: UUID(), question: question, key: key, anew: anew, last: last)
         a.outcome = switch outcome { case "asking": .asking; case "answered": .answered; case "lost": .lost; default: .failed(outcome) }
+        if let opening { a.reply.take(.opening(opening)) }
         if let text { a.reply.take(.text(text)) }
         if let last, let e = Chat.event(ServerEvent(name: outcome == "answered" ? "done" : "error", data: last)) { a.reply.take(e) }
         return a
@@ -484,8 +488,9 @@ final class ChatModel {
     }
     let items = thread.map { a in
       let o = switch a.outcome { case .asking: "asking"; case .answered: "answered"; case .lost: "lost"; case .failed(let c): c }
-      let cut: String? = if case .failed = a.outcome, a.reply.writing { a.reply.text } else { nil }
-      return Kept.Item(question: a.question, key: a.key, outcome: o, anew: a.anew, last: a.last, text: cut)
+      let failed = if case .failed = a.outcome { true } else { false }
+      let cut: String? = failed && a.reply.writing ? a.reply.text : nil
+      return Kept.Item(question: a.question, key: a.key, outcome: o, anew: a.anew, last: a.last, text: cut, opening: failed ? a.reply.opening : nil)
     }
     try? FileManager.default.createDirectory(at: Self.file.deletingLastPathComponent(), withIntermediateDirectories: true)
     try? JSONEncoder().encode(Kept(start: route.start, conversation: conversation, thread: items)).write(to: Self.file, options: .atomic)

@@ -142,10 +142,23 @@ private struct TankDetail: View {
   @State private var editing = false
   @State private var confirmDelete = false
   @State private var lifeSheet: LifeSheet?
+  /// The chat's check of this tank, opened from its answer.
+  @State private var trial: TankTrial?
   @Environment(TelemetryModel.self) private var telemetry
 
   var body: some View {
-    tank.onAppear { telemetry.telemetry.record(.view(.tank)) }
+    ScrollViewReader { proxy in
+      tank.onAppear {
+        telemetry.telemetry.record(.view(.tank))
+        guard let t = tanks.trial, t.tank == id else { return }
+        tanks.trial = nil
+        trial = t
+        Task {
+          try? await Task.sleep(for: .milliseconds(100))
+          withAnimation { proxy.scrollTo(t.added != nil && t.check != nil ? TankTrial.addedRow : TankTrial.verdictRow, anchor: .top) }
+        }
+      }
+    }
   }
 
   @ViewBuilder private var tank: some View {
@@ -161,7 +174,7 @@ private struct TankDetail: View {
         TankLifeSections(tank: t, sheet: $lifeSheet)
         // Whether its fish go together and fit the tank, as the site's tank-mates tool says (TankCheckView.swift): after
         // them, so a long answer never hides what's in the tank.
-        TankCheckSection(tank: t)
+        TankCheckSection(tank: t, trial: trial)
         // Guides that name its fish and plants (TankGuides.swift).
         TankGuidesSection(tank: t)
         if !lights.isEmpty {

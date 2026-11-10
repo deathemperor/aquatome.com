@@ -1,0 +1,86 @@
+import Foundation
+
+extension Chat {
+  /// One row of a comparison, its figure for each species (nil: none): whether they differ, and the one that alone does.
+  public struct Differs: Sendable, Equatable {
+    /// "khác": the figures the species have aren't all the same. A missing one is never a difference.
+    public let differ: Bool
+    /// Bold: among three or more figures, the one that alone differs while the others share one (60, 60, 80); none when
+    /// all differ, two and two do, or only two species have figures.
+    public let alone: Int?
+  }
+
+  /// How a row's figures compare. `values` are compared as given (difficulty by its number, not its word).
+  public static func differs<V: Hashable>(_ values: [V?]) -> Differs {
+    let present = values.compactMap { $0 }
+    let counts = Dictionary(present.map { ($0, 1) }, uniquingKeysWith: +)
+    guard counts.count > 1 else { return Differs(differ: false, alone: nil) }
+    guard present.count >= 3, counts.count == 2, let odd = counts.first(where: { $0.value == 1 })?.key,
+          counts.values.contains(where: { $0 >= 2 }) else { return Differs(differ: true, alone: nil) }
+    return Differs(differ: true, alone: values.firstIndex { $0 == odd })
+  }
+
+  /// A section's blocks as the screen shows them, whole: a paragraph, a list's item (a step when the list is
+  /// numbered), a photo; anything else whole as it is.
+  public enum Part: Sendable {
+    case paragraph([PageDoc.Run])
+    /// A list's item: its number when the list is numbered (from 1), and its blocks.
+    case item(n: Int?, [PageDoc.Block])
+    case figure(PageDoc.Image, caption: [PageDoc.Run], href: String?)
+    case other(PageDoc.Block)
+  }
+
+  /// One photo at any of its sizes: a card's has a width in its name ("…79-480.webp"), a figure's the whole ("…79.webp").
+  public static func samePhoto(_ src: String) -> String {
+    src.replacing(/-\d+(\.\w+)$/) { $0.output.1 }
+  }
+
+  /// A section's parts, in order. A photo the turn already showed (`shown`, by its source, at any size) is left out.
+  public static func parts(_ blocks: [PageDoc.Block], shown: Set<String> = []) -> [Part] {
+    let shown = Set(shown.map(samePhoto))
+    return blocks.flatMap { b -> [Part] in
+      switch b {
+      case .paragraph(let runs): [.paragraph(runs)]
+      case let .list(ordered, items): items.enumerated().map { .item(n: ordered ? $0.offset + 1 : nil, $0.element) }
+      case let .figure(img, caption, href): shown.contains(samePhoto(img.src)) ? [] : [.figure(img, caption: caption, href: href)]
+      case .heading: []
+      default: [.other(b)]
+      }
+    }
+  }
+
+  /// How tall a closed section stands: its first `lines` whole lines and the gaps between the parts they fall in, so the
+  /// cut lands under a line. Nil when all of it fits. `heights` are the parts as drawn; `spacing` is the room between a
+  /// part's lines, which its last line doesn't have. A tenth of a line either way, as drawn heights land on whole pixels.
+  public static func closedHeight(_ heights: [CGFloat], line: CGFloat, spacing: CGFloat, gap: CGFloat, lines: CGFloat = 5) -> CGFloat? {
+    var left = lines, height: CGFloat = 0
+    for (i, h) in heights.enumerated() {
+      let count = (h + spacing) / line
+      if count > left + 0.1 { return height + left * line - spacing }
+      left -= count
+      height += h
+      if left < 0.1 && i < heights.count - 1 { return height }
+      height += gap
+    }
+    return nil
+  }
+
+  /// What's left of a section past what shows ("còn tiếp: 3 bước, 1 ảnh"): its steps, list items, paragraphs, photos
+  /// and other parts, each counted.
+  public struct Rest: Sendable, Equatable {
+    public var steps = 0, items = 0, paragraphs = 0, photos = 0, others = 0
+    public var isEmpty: Bool { steps + items + paragraphs + photos + others == 0 }
+    public init() {}
+
+    public init(_ parts: some Sequence<Part>) {
+      for p in parts {
+        switch p {
+        case .paragraph: paragraphs += 1
+        case .item(let n, _): if n != nil { steps += 1 } else { items += 1 }
+        case .figure: photos += 1
+        case .other: others += 1
+        }
+      }
+    }
+  }
+}
