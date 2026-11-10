@@ -120,6 +120,7 @@ struct PhotoGrid: View {
         }
       }
     }
+    .modifier(ClearUnderTopBar(shown: true))
     .navigationTitle(barTitle)
     .navigationBarTitleDisplayMode(.inline)
     .task {

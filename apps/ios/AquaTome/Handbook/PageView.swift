@@ -66,6 +66,7 @@ struct PageView: View {
         pieces = await handbook.doc(item).map { NativePage.pieces($0, traits: traits) }
         tried = true
       }
+      .modifier(ClearUnderTopBar(shown: true))
       .navigationTitle(item.name)
       .navigationBarTitleDisplayMode(.inline)
       .toolbar {
@@ -187,8 +188,8 @@ private struct WebPage: UIViewRepresentable {
     config.userContentController.add(WeakHandler(context.coordinator), name: PageBridge.handler)
     context.coordinator.bridge(config.userContentController)
     let web = WKWebView(frame: .zero, configuration: config)
-    // As the app's own screens: a page's words passing under the title are cut off there, not shown behind it.
-    if #available(iOS 26.0, *) { web.scrollView.topEdgeEffect.style = .hard }
+    // The app's own band stands behind the title (ClearUnderTopBar on the page), as on its other screens.
+    if #available(iOS 26.0, *) { web.scrollView.topEdgeEffect.isHidden = true }
     web.navigationDelegate = context.coordinator
     web.allowsBackForwardNavigationGestures = true
     // Ads stay out of the app: AdSense isn't allowed in an app's web view that isn't registered with Google.

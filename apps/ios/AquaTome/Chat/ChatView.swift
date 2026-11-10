@@ -20,6 +20,7 @@ struct ChatView: View {
     }
     // The cards and chips stand on it, and the box fades into it.
     .background(Color(uiColor: .systemGroupedBackground).ignoresSafeArea())
+    .modifier(ClearUnderTopBar(shown: true, ground: Color(.systemGroupedBackground)))
     .navigationTitle("Hỏi AquaTome")
     .navigationBarTitleDisplayMode(.inline)
     // The box and its line sit at the foot of the screen.
