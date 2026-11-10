@@ -22,7 +22,8 @@
       },
       {
         "source": "seriouslyfish",
-        "value": 12
+        "value": 12,
+        "overruled": "Glaser 45 cm and FishBase 42 cm SL (Jégu 2003) agree against it, 3.5 times the 12 cm given: the two-source exception, 2026-11-10"
       }
     ],
     "tempC": [
@@ -55,7 +56,8 @@
     "tankCm": [
       {
         "source": "seriouslyfish",
-        "value": 120
+        "value": 120,
+        "overruled": "Set for a 12 cm fish; the page takes 45 cm and no source gives a tank for that size (chief's ruling, 2026-11-10)"
       }
     ],
     "difficulty": [
@@ -155,6 +157,16 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/myloplus-schomburgkii",
       "html": "<p>Similar in care and appearance to its close relative, the Redhook (Myloplus rubripinnis), Myleus schomburgkii is easily distinguished by the black vertical bar on the flanks. It is also a smaller adult fish. Despite this, it is sometimes offered for sale marked as a Redhook. This fish is also variously referred to as the Black-ear Pacu, Disc Pacu and Disk Tetra.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>The sources give no tank size for a fish reaching 45 cm.</p>",
+      "refs": [
+        0,
+        1
+      ]
     }
   ],
   "photos": [
@@ -237,5 +249,15 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-04"
+  "updatedAt": "2026-11-04",
+  "refs": [
+    {
+      "url": "https://www.aquariumglaser.de/en/fisharchive/myleus_schomburgkii_en/",
+      "title": "Aquarium Glaser: Myloplus schomburgkii"
+    },
+    {
+      "url": "https://fishbase.se/summary/Myloplus-schomburgkii.html",
+      "title": "FishBase: Myloplus schomburgkii"
+    }
+  ]
 }

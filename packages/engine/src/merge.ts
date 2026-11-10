@@ -96,7 +96,11 @@ export function mergeSpecies(existing: { entity?: SpeciesEntity; vi?: Translatio
   const dataCard: SpeciesEntity['dataCard'] = {}
   const fields = uniq([...Object.keys(prev?.dataCard ?? {}), ...Object.keys(page.dataCard)]) as (keyof SpeciesEntity['dataCard'])[]
   for (const f of fields) {
-    const values = [...(prev?.dataCard[f] ?? []).filter(v => v.source !== ctx.source), ...(page.dataCard[f] !== undefined ? [{ source: ctx.source, value: page.dataCard[f]! }] : [])]
+    const had = prev?.dataCard[f]?.find(v => v.source === ctx.source)
+    const value = page.dataCard[f]
+    // Overruled by two other sources (schemas.ts): so while this source gives the same figure; a new one is judged again.
+    const overruled = had?.overruled && JSON.stringify(had.value) === JSON.stringify(value) ? { overruled: had.overruled } : {}
+    const values = [...(prev?.dataCard[f] ?? []).filter(v => v.source !== ctx.source), ...(value !== undefined ? [{ source: ctx.source, value, ...overruled }] : [])]
     if (values.length) dataCard[f] = values
   }
   const entity: SpeciesEntity = {

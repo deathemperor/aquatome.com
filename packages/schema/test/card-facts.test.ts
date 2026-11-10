@@ -181,6 +181,12 @@ test('tempIsNotForKeeping: a single figure for the wild or breeding, never a kee
   expect(tempIsNotForKeeping('<p>No figure here.</p>', figure(25))).toBe(false)
 })
 
+test('shownCard: a figure two other sources overrule is off the card, and the card takes theirs', () => {
+  const card = { sizeCm: [{ source: 'seriouslyfish', value: 12, overruled: 'Glaser 45 cm and FishBase 42 cm SL agree against it' }, { source: 'glaser', value: 45 }] }
+  expect(shownCard(card, [], () => true)).toEqual({ sizeCm: [{ source: 'glaser', value: 45 }] })
+  expect(card.sizeCm).toHaveLength(2)
+})
+
 test('shownCard: a card doesn\'t show a shop\'s selling size as the adult size, or a temperature only for the wild', () => {
   const card = { sizeCm: [{ source: 'glaser', value: 5 }, { source: 'seriouslyfish', value: 12 }], tempC: [{ source: 'glaser', value: { min: 14, max: 14 } }, { source: 'seriouslyfish', value: { min: 23, max: 28 } }] }
   const sections = [{ source: 'glaser', html: '<p>Available size: 4–5 cm. During the monsoon season the water temperature drops to 14°C.</p>' }, { source: 'seriouslyfish', html: '<p>Max size: 12 cm.</p>' }]

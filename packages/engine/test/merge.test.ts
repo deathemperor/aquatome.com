@@ -228,3 +228,15 @@ test('a plant is written under its name as hobbyists write it, in its address to
   const fixed = mergePlant({ entity: moss.entity, vi: { ...moss.vi, name: 'Rêu java', nameFixed: true } }, page({ kind: 'plant', scientificName: 'Taxiphyllum barbieri', viName: 'Rêu java', plant: { ...plant, placement: ['background'] } }), { source: 'aquariumcoop', url: 'https://a/m', now: '2026-11-07', takenSlugs: new Set() })!
   expect(fixed.vi.name).toBe('Rêu java')
 })
+
+test('a figure overruled by two other sources stays overruled on a re-read of the same figure; a new figure is judged again', () => {
+  const a = mergeSpecies({}, page({ dataCard: { sizeCm: 12 } }), ctx('seriouslyfish'))
+  const overruled = 'Glaser 45 cm and FishBase 42 cm SL agree against it'
+  const entity = { ...a.entity, dataCard: { sizeCm: [{ source: 'seriouslyfish' as const, value: 12, overruled }, { source: 'glaser' as const, value: 45 }] } }
+  const same = mergeSpecies({ entity, vi: a.vi }, page({ dataCard: { sizeCm: 12 } }), ctx('seriouslyfish'))
+  expect(same.entity.dataCard.sizeCm).toEqual([{ source: 'glaser', value: 45 }, { source: 'seriouslyfish', value: 12, overruled }])
+  const other = mergeSpecies({ entity, vi: a.vi }, page({ dataCard: { tempC: { min: 24, max: 28 } } }), ctx('glaser'))
+  expect(other.entity.dataCard.sizeCm).toEqual([{ source: 'seriouslyfish', value: 12, overruled }])
+  const changed = mergeSpecies({ entity, vi: a.vi }, page({ dataCard: { sizeCm: 40 } }), ctx('seriouslyfish'))
+  expect(changed.entity.dataCard.sizeCm).toEqual([{ source: 'glaser', value: 45 }, { source: 'seriouslyfish', value: 40 }])
+})
