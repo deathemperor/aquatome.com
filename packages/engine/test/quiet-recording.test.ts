@@ -79,6 +79,14 @@ test('a run that has finished no longer shows as having the simulator turn', () 
   expect(status(m).stdout).toContain(`simulator turn: pid ${process.pid}`)
 })
 
+test('a failing xcrun does not stop the verdict', () => {
+  const m = mac()
+  stub(join(m.home, 'bin/xcrun'), 'exit 1')
+  const r = status(m)
+  expect(r.status).toBe(0)
+  expect(r.stdout).toContain('quiet enough to record')
+})
+
 test('--wait goes on as soon as the load has fallen, and says so if it never does', () => {
   expect(status(mac({ load: '500\n400\n150\n' }), '--wait', '1').status).toBe(0)
   expect(status(mac({ load: '500' }), '--wait', '0.001').status).toBe(1)
@@ -224,6 +232,52 @@ test('its queue process killed outright, a recording stops its command too', asy
   await r.until(() => r.probe('checks.lock') === 'free')
 }, 60_000)
 
+test.skipIf(process.platform !== 'darwin')('it keeps its place in the checks queue: a job that came after it goes after it', async () => {
+  const r = recording()
+  const lockFile = join(r.m.home, '.cache/aquatome/checks.lock')
+  const openers = () => spawnSync('lsof', ['-t', lockFile], { encoding: 'utf8' }).stdout.split('\n').filter(Boolean).length
+  const holder = r.hold('checks.lock')
+  await r.until(() => r.has('holding'))
+  const rec = spawn(QUIET, ['sh', '-c', `[ ! -f ${r.m.home}/second ] && touch ${r.m.home}/first`], { env: r.m.env, stdio: 'ignore' })
+  const end = r.closed(rec)
+  // The holder and the recording, which is in the queue once it has the file open.
+  await r.until(() => openers() >= 2)
+  const second = spawn('python3', ['-c', `import fcntl, os
+f = os.open(${JSON.stringify(lockFile)}, os.O_CREAT | os.O_RDWR)
+fcntl.flock(f, fcntl.LOCK_EX)
+open(${JSON.stringify(join(r.m.home, 'second'))}, "w").close()
+`], { stdio: 'ignore' })
+  const secondEnd = r.closed(second)
+  await r.until(() => openers() >= 3)
+  writeFileSync(join(r.m.home, 'release'), '')
+  expect(await end).toBe(0)
+  await secondEnd
+  expect(r.has('first')).toBe(true)
+  holder.kill()
+}, 60_000)
+
+test('the holding process killed, the command stops at once, without it the limit would never come', async () => {
+  const r = recording()
+  const rec = spawn(QUIET, r.long, { env: r.m.env, stdio: 'ignore' })
+  const end = r.closed(rec)
+  await r.until(() => r.has('pid'))
+  const holder = spawnSync('pgrep', ['-P', String(rec.pid)], { encoding: 'utf8' }).stdout.trim().split('\n')[0]
+  process.kill(Number(holder), 'SIGKILL')
+  await r.until(() => r.has('stopped'))
+  await end
+  await r.until(() => r.probe('checks.lock') === 'free')
+}, 60_000)
+
+test('killed while it waits for the Mac to quieten, it gives the checks turn back', async () => {
+  const r = recording()
+  writeFileSync(join(r.m.home, 'load'), '500')
+  const rec = spawn(QUIET, ['touch', join(r.m.home, 'recorded')], { env: { ...r.m.env, QUIET_WAIT_MINUTES: '5' }, stdio: 'ignore' })
+  await r.until(() => r.probe('checks.lock') === 'held')
+  rec.kill('SIGKILL')
+  await r.until(() => r.probe('checks.lock') === 'free')
+  expect(r.has('recorded')).toBe(false)
+}, 60_000)
+
 test('no checks turn in time: it gives the simulator turn back without recording', async () => {
   const r = recording()
   const holder = r.hold('checks.lock')
@@ -235,6 +289,25 @@ test('no checks turn in time: it gives the simulator turn back without recording
   expect(r.probe('sim.lock')).toBe('free')
   writeFileSync(join(r.m.home, 'release'), '')
   await held
+}, 60_000)
+
+test('stopped while it waits for the Mac to quieten, it gives both turns back at once', async () => {
+  const r = recording()
+  writeFileSync(join(r.m.home, 'load'), '500')
+  const rec = spawn(QUIET, ['touch', join(r.m.home, 'recorded')], { env: { ...r.m.env, QUIET_WAIT_MINUTES: '5' }, stdio: 'ignore' })
+  const end = r.closed(rec)
+  await r.until(() => r.probe('checks.lock') === 'held')
+  rec.kill('SIGTERM')
+  await end
+  await r.until(() => r.probe('checks.lock') === 'free' && r.probe('sim.lock') === 'free')
+  expect(r.has('recorded')).toBe(false)
+}, 60_000)
+
+test('a recording longer than the wait for the checks turn runs to its end', async () => {
+  const r = recording()
+  const rec = spawn(QUIET, ['sh', '-c', `sleep 3; touch ${r.m.home}/recorded`], { env: { ...r.m.env, QUIET_CHECKS_WAIT_MINUTES: '0.02' }, stdio: 'ignore' })
+  expect(await r.closed(rec)).toBe(0)
+  expect(r.has('recorded')).toBe(true)
 }, 60_000)
 
 test('too loaded after its wait, a recording gives its turns back without recording', () => {
@@ -281,6 +354,15 @@ test('a move with every frame passes', () => {
   expect(r.status).toBe(0)
   expect(r.stdout).toContain('18 of 18 expected, largest step 6%: kept')
   expect(r.stdout).toContain('every frame kept')
+})
+
+test('a pause of two frames is inside a move, and a longer one ends it', () => {
+  const up = ramp(8, 10, 8)
+  const at = up[up.length - 1]
+  const inside = frames([...still(5, 10), ...up, ...still(2, at), ...ramp(8, at, 8), ...still(5, at + 64)])('16')
+  expect(inside.status, inside.stdout).toBe(0)
+  const apart = frames([...still(5, 10), ...up, ...still(3, at), ...ramp(8, at, 8), ...still(5, at + 64)])('8,8')
+  expect(apart.status, apart.stdout).toBe(0)
 })
 
 test('a move that jumped loses, even with frames after the jump: one frame carrying most of the change', () => {

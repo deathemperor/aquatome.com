@@ -4,8 +4,8 @@ and the v2 Lab agreed on 2026-11-10.
 
   scripts/frames-check.py <video> --expected 18[,12]
 
-Expected is each big move's frames, in the order they come: its length in the app times the recording's rate. A take with
-fewer big moves than that fails. A move passes
+Expected is each big move's frames, in the order they come, as a floor: iOS's zoom sets its own length, so an open is 11 frames
+at least and a close 10 at 30 fps (the v2 Lab's clean takes). A take with fewer big moves than that fails. A move passes
 with 90% of them captured (frames that differ from the one before) and no one frame carrying over 30% of its change, which
 is what a capture that jumped looks like: in the take that lost a card's opening, its first frame carried 54%. Exits 0 if
 all pass, 1 if not, 2 if no move was found.
@@ -17,7 +17,7 @@ import sys
 W, H = 107, 232
 RATE = 30
 CHANGED = 0.4  # a frame's mean difference from the last, 0-255, that counts as changing
-GAP = 4  # still frames that end a move
+GAP = 3  # a move ends at a gap of more than 2 still frames: the page's text lands about 5 frames after a zoom, a step of its own
 BIG = 0.3  # of the largest move's change: smaller ones (a picture settling) aren't judged
 ENOUGH = 0.9
 LARGEST_STEP = 0.3

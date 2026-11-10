@@ -25,8 +25,8 @@ Leads, the engine and main's iOS runs share one Mac. A booted simulator is the h
 - Both queues are first come, first served. Only the chief of staff, from their own thread, keeps the next turn in both for
   one run: `scripts/next-turn.py [--sim | --checks] <the run's pid, or a word only it has, such as its folder's> [minutes]`
   (30, at most 120; a pid keeps it in its own queue). Until that run has had it, a run that reaches the front steps back
-  behind it, if it came through `sim-run.py` or `checks.sh`. A plain `lockf` job, one from an older `sim-run.py` and the
-  TestFlight upload (another user) don't step back: name a plain `lockf` job by its pid.
+  behind it, if it came through `sim-run.py` or `checks.sh`. A plain `lockf` job, one from an older `sim-run.py`, a recording
+  waiting for its checks turn and the TestFlight upload (another user) don't step back: name a plain `lockf` job by its pid.
 - At most 3 simulators up at once, 2 while heat has taken cores away: a session's `device_open` or `simctl boot` past that is
   refused, and told who is up. `scripts/mac-status.py` says the load, the heat, who is up and whether it's quiet enough to
   record.

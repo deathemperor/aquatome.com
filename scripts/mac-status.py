@@ -53,7 +53,10 @@ def cap(now):
 
 
 def simulators():
-    return [d for ds in json.loads(run("xcrun", "simctl", "list", "devices", "-j"))["devices"].values() for d in ds]
+    try:
+        return [d for ds in json.loads(run("xcrun", "simctl", "list", "devices", "-j"))["devices"].values() for d in ds]
+    except (OSError, ValueError, KeyError):
+        return []
 
 
 def booted(known):
