@@ -152,6 +152,10 @@ chief of staff, 2026-11-09, after a badge shipped without the mock's icon):
 - a checklist of every element on the screen: icon, text, order, size, colour, and tap target (what a tap opens). Each line
   reads "matches", or "differs on purpose: <why>, approved by <who>".
 
+The shots run on the iOS the owner's phone has, in a build made with the SDK TestFlight uses (this Mac's Xcode), and the
+checklist's first line names both. CI's simulator is an older iOS, which draws the bars, the tab bar, search and a sheet's
+edges differently: on 2026-11-10 the owner's phone (27.2) had a frosted band that no shot on 26.5 showed (the chief of staff).
+
 The design lead checks it before merge. A difference no one approved blocks the merge, and the build changes to match. A
 recording for the owner comes with the same checklist.
 
