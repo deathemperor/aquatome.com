@@ -1,5 +1,5 @@
 import type Anthropic from '@anthropic-ai/sdk'
-import { expect, test } from 'vitest'
+import { describe, expect, test } from 'vitest'
 import { runAgent, type AgentInput } from '../agent/loop'
 import type { Tool } from '../agent/tools'
 
@@ -217,6 +217,67 @@ test('a call is bounded at callMs until it begins writing, and may then take all
   const c = script([() => asks([{ name: 'echo', input: { q: 'x' } }]), () => answers()], clock)
   await runAgent(input(c.send, { clock: () => clock.now, limits: { ms: 27_000, callMs: 20_000 } }))
   expect(c.calls.map(x => [x.timeoutMs, x.writingMs])).toEqual([[20_000, 27_000], [20_000, 26_000]])
+})
+
+test('a call that has begun writing may run past the run\'s limit by its grace, a forced one too; before it writes it may not', async () => {
+  const clock = { now: 0, per: [1_000, 3_000] }
+  const c = script([() => asks([{ name: 'echo', input: { q: 'x' } }]), () => answers()], clock)
+  await runAgent(input(c.send, { clock: () => clock.now, limits: { ms: 27_000, callMs: 20_000, writingGraceMs: 3_000 } }))
+  expect(c.calls.map(x => [x.timeoutMs, x.writingMs])).toEqual([[20_000, 30_000], [20_000, 29_000]])
+  const paced = { now: 0, per: [2_000, 2_000] }
+  const f = script([() => asks([{ name: 'echo', input: { q: 'x' } }]), () => answers()], paced)
+  await runAgent(input(f.send, { clock: () => paced.now, effort: 'medium', pace: { answer: 7, quick: 6.5, first: 4 }, limits: { calls: 2, ms: 27_000, callMs: 20_000, writingGraceMs: 3_000 } }))
+  expect(f.calls[1]!.body.tool_choice!.type).toBe('none')
+  expect([f.calls[1]!.timeoutMs, f.calls[1]!.writingMs]).toEqual([25_000, 28_000])
+})
+
+describe('the last try', () => {
+  const lastTry = (begun = false) => ({ ms: 3_500, maxTokens: 2_048, word: 'Quick.', begun: () => begun })
+  /** Claude: the first call goes silent to its limit, then each `then` in turn. */
+  const silent = (then: (() => Anthropic.Message)[]) => {
+    const clock = { now: 0 }
+    const calls: { body: Body; timeoutMs: number; writingMs: number }[] = []
+    const send: AgentInput<string>['send'] = async (body, { timeoutMs, writingMs }) => {
+      calls.push({ body: structuredClone(body), timeoutMs, writingMs })
+      const reply = then[calls.length - 2]
+      if (!reply) { clock.now += timeoutMs; throw new Error('Request timed out.') }
+      clock.now += 2_000
+      return reply()
+    }
+    return { send, calls, clock: () => clock.now }
+  }
+  const limits = { ms: 27_000, callMs: 25_000, writingGraceMs: 3_000 }
+
+  test('a call still not writing with its time gone is given up for one that can only answer, with no thinking, short, and that answer stands', async () => {
+    const c = silent([() => answers()])
+    const r = await runAgent(input(c.send, { clock: c.clock, effort: 'medium', lastEffort: 'low', limits, thinking: { type: 'adaptive' }, lastTry: lastTry() }))
+    expect(c.calls.map(x => [x.timeoutMs, x.writingMs])).toEqual([[23_500, 30_000], [6_500, 6_500]])
+    expect(c.calls[0]!.body.thinking).toEqual({ type: 'adaptive' })
+    const last = c.calls[1]!.body
+    expect([last.tool_choice, last.thinking, last.max_tokens, last.output_config!.effort]).toEqual([{ type: 'none' }, { type: 'disabled' }, 2_048, 'low'])
+    expect((last.messages.at(-1)!.content as { text: string }[]).at(-1)!.text).toBe('Quick.')
+    expect(r).toMatchObject({ stopped: 'time', calls: 2 })
+    expect(r.error).toBeUndefined()
+    expect(r.message?.content).toEqual([{ type: 'text', text: '{"verdict":"fish","guesses":[]}' }])
+  })
+
+  test('none once the reader has some of the answer: a second answer can\'t follow it', async () => {
+    const c = silent([() => answers()])
+    const r = await runAgent(input(c.send, { clock: c.clock, limits, lastTry: lastTry(true) }))
+    expect(c.calls).toHaveLength(1)
+    expect(r.stopped).toBe('error')
+  })
+
+  test('none for a call that failed before its time, and only one', async () => {
+    const quick = script([() => { throw new Error('refused') }])
+    const r = await runAgent(input(quick.send, { limits, lastTry: lastTry() }))
+    expect(quick.calls).toHaveLength(1)
+    expect(r.stopped).toBe('error')
+    const c = silent([])
+    const twice = await runAgent(input(c.send, { clock: c.clock, limits, lastTry: lastTry() }))
+    expect(c.calls).toHaveLength(2)
+    expect(twice.stopped).toBe('error')
+  })
 })
 
 test('a tool that throws, and one Claude names that doesn\'t exist: an is_error result each, counted as tool calls; the run goes on', async () => {

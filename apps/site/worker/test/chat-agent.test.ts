@@ -4,7 +4,7 @@ import type Anthropic from '@anthropic-ai/sdk'
 import type { PageDoc } from '@aq/schema/app-page'
 import { LANGS } from '@aq/schema/langs'
 import { expect, test, vi } from 'vitest'
-import { answerQuestion, CHAT_LIMITS, firstMessage, HANDBOOK, HANDOVER_MS, LAST_WORD, MAX_TOKENS, OPENING_SYSTEM, SYSTEM, unaccented, type ChatOptions, type Start } from '../chat/agent'
+import { answerQuestion, CHAT_LIMITS, firstMessage, HANDBOOK, HANDOVER_MS, LAST_TRY, LAST_WORD, MAX_TOKENS, OPENING_SYSTEM, SYSTEM, unaccented, type ChatOptions, type Start } from '../chat/agent'
 import { ANSWER_SCHEMA, fill, MAX_BLOCKS, MIN_TEXT, OFF_TOPIC, picksReader, readAnswer, textReader, type Answer, type Choice } from '../chat/answer'
 import { handbookOf, type Handbook, type Item, type Source } from '../chat/handbook'
 import { fold, search, searchTopics } from '../chat/search'
@@ -653,6 +653,7 @@ test('a slow turn answers sooner, and quickly: the chat keeps the answer\'s time
 
 test('the run ends within fish ID\'s time, so it outlives a dropped connection (the platform keeps it 30 s), and an answer with no text is none', () => {
   expect(CHAT_LIMITS.ms).toBeLessThanOrEqual(27_000)
+  expect(CHAT_LIMITS.ms + CHAT_LIMITS.writingGraceMs!).toBeLessThanOrEqual(30_000)
   const said = (text: string) => readAnswer(message([{ type: 'text', text: JSON.stringify({ text, covered: true, blocks: [], suggestions: [] }) }]))
   expect(said('x')).toBeUndefined()
   expect(said('   ')).toBeUndefined()
@@ -895,6 +896,41 @@ test('words before a tool call that look like broken JSON never fail the call: b
     expect(out.error, words).toBeUndefined()
     expect(cards, words).toEqual(['species'])
   }
+})
+
+test('an answer the reader is already reading gets the chat\'s grace past the run\'s limit', async () => {
+  const opts: { timeoutMs: number; writingMs?: number }[] = []
+  await answerQuestion({
+    send: async (_, o) => { opts.push(o); return message([{ type: 'text', text: JSON.stringify({ offTopic: false, text: 'Cá neon xanh sống theo đàn, từ 6 con.', covered: true, blocks: [], suggestions: [] }) }]) },
+    model: 'claude-opus-5-5', lang: 'vi', question: 'Nuôi cá neon thế nào?', earlier: [], start: {}, handbook: await hb(), tanks: async () => [], clock: () => 0,
+  })
+  expect(opts.map(o => [o.timeoutMs, o.writingMs])).toEqual([[20_000, 30_000]])
+})
+
+test('a call still silent as time runs out is given up for a short answer; once the reader has words, there is no second answer', async () => {
+  const final = { offTopic: false, text: 'Cá neon xanh sống theo đàn, từ 6 con.', covered: true, blocks: [], suggestions: [] }
+  const ask = { model: 'claude-haiku-5-5', lang: 'vi' as const, question: 'Nuôi cá neon thế nào?', earlier: [], start: {}, handbook: await hb(), tanks: async () => [] }
+  let now = 0
+  const bodies: Anthropic.MessageCreateParamsNonStreaming[] = []
+  const out = await answerQuestion({ ...ask, clock: () => now, send: async (b, o) => {
+    bodies.push(b)
+    if (bodies.length === 1) { now += o.timeoutMs; throw new Error('Request timed out.') }
+    return message([{ type: 'text', text: JSON.stringify(final) }])
+  } })
+  expect(out).toMatchObject({ calls: 2, stopped: 'time', answer: final })
+  expect(bodies[1]).toMatchObject({ thinking: { type: 'disabled' }, max_tokens: LAST_TRY.maxTokens, tool_choice: { type: 'none' } })
+
+  let tries = 0
+  const said: string[] = []
+  const cut = await answerQuestion({ ...ask, clock: () => now, onText: p => said.push(p), send: async (_, o) => {
+    tries++
+    o.onText?.('{"offTopic":false,"text":"Cá neon xanh sống')
+    now += o.timeoutMs
+    throw new Error('Request timed out.')
+  } })
+  expect(said.join('')).toContain('Cá neon')
+  expect(tries).toBe(1)
+  expect(cut.stopped).toBe('error')
 })
 
 test('without onText a run is as before: no call is asked to stream, and a tool call after an answer\'s text still runs', async () => {
