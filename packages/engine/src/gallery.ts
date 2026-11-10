@@ -177,7 +177,13 @@ export async function screen(cands: Candidate[], name: string, viName: string, d
   return [...kept.filter(k => k.best), ...kept.filter(k => !k.best)].map(k => k.photo)
 }
 
-export type GalleryPhoto = Photo & { best?: boolean; kind?: string }
+export type GalleryPhoto = Photo & { best?: boolean; kind?: string; unchecked?: boolean }
+/**
+ * A photo as a step adds it to a gallery: `unchecked`, so no page shows it until the photo check has judged it and left
+ * it on (the chief of staff, 2026-11-10: of 2,611 gallery photos that check had judged, it took off 272, most as another
+ * fish, and each had been on a page meanwhile). Every step that adds to a gallery adds through this.
+ */
+export const waiting = <P extends Photo>(p: P): P & { unchecked: true } => ({ ...p, unchecked: true })
 const KIND_ORDER: string[] = [...FISH_KINDS, ...PLANT_KINDS]
 
 /** Round robin across kinds (male, female, colour form… in that order), each kind's largest photos first. */
@@ -456,7 +462,7 @@ export async function galleries(root: string, d: GalleryDeps, o: { sheets: numbe
           st.hashes[k.photo.url] = k.hash
           report.added[sourceOfKey(k.key)] = (report.added[sourceOfKey(k.key)] ?? 0) + 1
         }
-        gallery = rankGallery([...gallery, ...r.kept.map(k => ({ ...k.photo, best: k.best, kind: k.kind ?? 'other' }))])
+        gallery = rankGallery([...gallery, ...r.kept.map(k => waiting({ ...k.photo, best: k.best, kind: k.kind ?? 'other' }))])
         if (r.kept.length) {
           await mkdir(join(content, 'gallery'), { recursive: true })
           await writeFile(gfile, `${JSON.stringify(GallerySchema.parse({ id: t.id, photos: gallery, seen: seenCount, updatedAt: today, builtAt: today }), null, 2)}\n`)

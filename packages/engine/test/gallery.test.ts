@@ -480,6 +480,13 @@ test('a breed\'s gallery as the step writes it is the one the site loads for tha
   const written = await read(r, 'content/gallery/balloon-molly.json')
   const c = await loadAll({ root: join(r, 'content'), lang: 'vi', publicBuild: false })
   expect(c.breeds.map(b => b.id)).toContain('balloon-molly')
-  expect(c.galleries['balloon-molly']!.map(p => p.sourceUrl)).toEqual(urls(written))
-  expect(c.galleries['balloon-molly']).toHaveLength(4)
+  // What the step just added waits for the photo check, so no page shows it yet.
+  const photos = written.photos as { sourceUrl: string; unchecked?: boolean }[]
+  expect(photos.map(p => !!p.unchecked)).toEqual([true, true, true, true])
+  expect(c.galleries['balloon-molly']).toBeUndefined()
+  // Judged and left on, a photo loses the mark (photo-check.ts), and the site loads the gallery as the step wrote it.
+  await writeFile(join(r, 'content/gallery/balloon-molly.json'), JSON.stringify({ ...written, photos: photos.map(({ unchecked: _, ...p }) => p) }))
+  const after = await loadAll({ root: join(r, 'content'), lang: 'vi', publicBuild: false })
+  expect(after.galleries['balloon-molly']!.map(p => p.sourceUrl)).toEqual(urls(written))
+  expect(after.galleries['balloon-molly']).toHaveLength(4)
 })

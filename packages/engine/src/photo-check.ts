@@ -232,7 +232,27 @@ export async function recheckCandidates(root: string): Promise<Map<string, strin
 }
 
 /** Where a photo is shown: a page's own photos or gallery (`page`), or a guide (`page`: the fish its caption names, if any). */
-type Shown = { file: string; url: string; page?: string; guide?: boolean; caption?: string; galleryOnly?: boolean; author?: string; source?: string }
+/**
+ * `waits`: a gallery photo no page shows until this check has judged it (`unchecked`); `bare`: a gallery photo of a page
+ * with no photo of its own; `sourced`: a permitted source's own photo of what its page is about (Tropica's of its plant).
+ */
+type Shown = { file: string; url: string; page?: string; guide?: boolean; caption?: string; galleryOnly?: boolean; author?: string; source?: string; waits?: boolean; bare?: boolean; sourced?: boolean }
+
+/**
+ * Whose turn a photo not judged yet has (the chief of staff, 2026-11-10: of 2,611 gallery photos judged, 272 had been
+ * taken off, most as another fish, Flickr's 17 in 100, Commons' 12 and iNaturalist's 7, and some 6,300 more were on pages
+ * unjudged):
+ * 0. photos readers see now from Flickr and Commons, where most of the wrong fish are;
+ * 1. the other photos readers see now;
+ * 2. photos that wait (`unchecked`) on a page with no photo of its own, which they would fill;
+ * 3. the other photos that wait.
+ *
+ * Before all of them, a share of each run (`fill` sheets): a permitted source's own photos in the gallery of a page that
+ * has none, which give that page its first photo once judged (Tropica's on the plant pages with none: the chief of
+ * staff, 2026-11-10).
+ */
+export const turn = (x: Pick<Shown, 'waits' | 'bare' | 'source'>): 0 | 1 | 2 | 3 =>
+  x.waits ? (x.bare ? 2 : 3) : /\/\/(?:commons\.wikimedia\.org|(?:www\.)?flickr\.com)\//.test(x.source ?? '') ? 0 : 1
 
 /**
  * Every photo on a species, plant or breed page (its own photos and its gallery) must show that page's subject, judged
@@ -255,11 +275,17 @@ type Shown = { file: string; url: string; page?: string; guide?: boolean; captio
  *   photo shows none.
  * - A typical photo leads a species or plant page; an old "habitat" verdict goes last until it is asked again.
  *
- * Most-read pages first (`rank`), the photos a page shows itself before the rest of its gallery. `limit`: model calls this run; stops on a model failure (usage limit), and the rest wait.
+ * - A gallery photo a step added waits (`unchecked`, gallery.ts) and no page shows it: judged and left on, it loses the
+ *   mark here and shows from the next build.
+ *
+ * The order is `turn`'s, and within a turn most-read pages first (`rank`), the photos a page shows itself before the rest
+ * of its gallery. A page's last sheet is filled from its photos of a later turn, so no sheet goes out part empty.
+ * `limit`: model calls this run; stops on a model failure (usage limit), and the rest wait. `fill`: how many of them go
+ * first to a source's photos that fill a page with none (`turn`).
  * `recheck`: with it, only these photos are judged, where their verdict is from before the check asked about people
  * (`recheckCandidates`).
  */
-export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limit: number; parallel?: number; only?: string; today?: string; recheck?: Set<string> }) {
+export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limit: number; fill?: number; parallel?: number; only?: string; today?: string; recheck?: Set<string> }) {
   const content = join(root, 'content')
   const cacheFile = join(root, 'engine-state/_photo-subjects.json')
   const rejectedFile = join(root, 'engine-state/_photo-rejected.json')
@@ -272,8 +298,11 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const byId = new Map(all.map(s => [s.id, s]))
   const shown: Shown[] = []
   for (const s of all) {
+    let bare = false
     for (const file of [join(content, s.kind, s.id, 'entity.json'), join(content, 'gallery', `${s.id}.json`)]) {
-      for (const [i, p] of ((await readJson<{ photos?: Photo[] }>(file))?.photos ?? []).entries()) shown.push({ file, url: p.url, page: s.id, ...(p.author ? { author: p.author } : {}), ...(p.sourceUrl ? { source: p.sourceUrl } : {}), ...(file.includes('/gallery/') && i >= STRIP ? { galleryOnly: true } : {}) })
+      const photos = (await readJson<{ photos?: (Photo & { unchecked?: boolean })[] }>(file))?.photos ?? []
+      if (file.endsWith('entity.json')) bare = !photos.length
+      for (const [i, p] of photos.entries()) shown.push({ file, url: p.url, page: s.id, ...(p.author ? { author: p.author } : {}), ...(p.sourceUrl ? { source: p.sourceUrl } : {}), ...(file.includes('/gallery/') && i >= STRIP ? { galleryOnly: true } : {}), ...(p.unchecked ? { waits: true } : {}), ...(bare && file.includes('/gallery/') ? { bare: true, ...(p.source ? { sourced: true } : {}) } : {}) })
     }
   }
   const index = nameIndex(all)
@@ -315,12 +344,21 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   const queued = new Set<string>()
   // `only`: one page id, or several, comma-separated.
   const only = o.only ? new Set(o.only.split(',').map(x => x.trim()).filter(Boolean)) : undefined
-  const queue = (want: (x: Shown) => boolean) => {
+  const onPage = new Map<string, Shown[]>()
+  for (const x of shown) if (x.page) onPage.set(x.page, [...(onPage.get(x.page) ?? []), x])
+  const queue = (want: (x: Shown) => boolean, fill = 0) => {
     const from = sheets.length
-    for (const later of [false, true]) for (const s of all) {
-      if (sheets.length >= o.limit) break
+    // `first`: the share for a source's photos that fill a page with none, then each turn in order.
+    for (const now of ['first', 0, 1, 2, 3] as const) for (const later of [false, true]) for (const s of all) {
+      if (sheets.length >= o.limit || (now === 'first' && sheets.length - from >= fill)) break
       if (only && !only.has(s.id)) continue
-      const todo = [...new Set(shown.filter(x => x.page === s.id && !!x.galleryOnly === later && !(x.url in rejected) && want(x) && !queued.has(`${s.id}\n${x.url}`)).map(x => x.url))]
+      const open = (onPage.get(s.id) ?? []).filter(x => !(x.url in rejected) && want(x) && !queued.has(`${s.id}\n${x.url}`))
+      const mine = [...new Set(open.filter(x => (now === 'first' ? !!x.sourced : turn(x) === now) && !!x.galleryOnly === later).map(x => x.url))]
+      if (!mine.length) continue
+      // Its last sheet is filled from its photos whose turn comes later, the nearest turn first.
+      const room = (PER_SHEET - (mine.length % PER_SHEET)) % PER_SHEET
+      const more = [...new Set(open.filter(x => !mine.includes(x.url)).sort((a, b) => turn(a) - turn(b) || Number(!!a.galleryOnly) - Number(!!b.galleryOnly)).map(x => x.url))].slice(0, room)
+      const todo = [...mine, ...more]
       for (const u of todo) queued.add(`${s.id}\n${u}`)
       for (let i = 0; i < todo.length && sheets.length < o.limit; i += PER_SHEET) sheets.push({ s, urls: todo.slice(i, i + PER_SHEET) })
     }
@@ -361,7 +399,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       }
     })
   try {
-    await judge(queue(due))
+    await judge(queue(due, o.recheck ? 0 : o.fill ?? 0))
     // A photographer who stamps one photo may stamp others (a round logo in a corner, which the watermark step's text
     // reader missed: 2026-11-05). Not the sources whose every photo the watermark step's model has looked at.
     const stamped = new Set(shown.filter(x => logos.has(x.url) && x.author).map(x => x.author!))
@@ -403,6 +441,12 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     const data = JSON.parse(raw) as { photos?: Photo[] }
     const removed: string[] = []
     stripPhotos(data, blocked(file), removed, [])
+    // A gallery photo that waited (`unchecked`): judged for this page and left on, it shows from the next build.
+    const gallery = /\/gallery\/([^/]+)\.json$/.exec(file)?.[1]
+    if (gallery) for (const p of (data.photos ?? []) as (Photo & { unchecked?: boolean })[]) {
+      const v = p.unchecked ? verdict(p.url, gallery) : undefined
+      if (v && (v.person !== undefined || v.file)) delete p.unchecked
+    }
     const s = byId.get(file.split('/').at(-2)!)
     if (s && s.kind !== 'breeds' && file.endsWith('entity.json') && data.photos) {
       // A typical photo first, other photos of it next, an old "habitat" verdict last (until it is asked again).

@@ -173,7 +173,8 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   const galleries: Record<string, Photo[]> = {}
   for (const f of (await readdir(join(root, 'gallery')).catch(() => [] as string[])).filter(f => f.endsWith('.json'))) {
     const g = await readJson(join(root, 'gallery', f), GallerySchema)
-    const photos = cleanPhotos(g.photos)
+    // A photo the photo check has not judged yet (`unchecked`) waits: no page shows it, and it counts towards no album.
+    const photos = cleanPhotos(g.photos.filter(p => !p.unchecked))
     if (photos.length) galleries[g.id] = photos
   }
 

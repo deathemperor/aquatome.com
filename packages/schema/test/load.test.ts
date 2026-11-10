@@ -85,6 +85,22 @@ test('a breed\'s care figure the engine hid is left off its page', async () => {
   expect(b.care).toEqual({ sizeCm: [{ source: 0, value: 90 }] })
 })
 
+test('a gallery photo the photo check has not judged yet is on no page, and counts towards no album', async () => {
+  const { cp, mkdir, writeFile } = await import('node:fs/promises')
+  const dir = await mkdtemp(join(tmpdir(), 'aq-unchecked-'))
+  await cp(root, dir, { recursive: true })
+  const photo = (n: number) => ({ url: `https://x/${n}.jpg`, width: 4, height: 3, licence: 'CC BY 4.0', author: 'A', sourceUrl: `https://x/${n}` })
+  await mkdir(join(dir, 'gallery'))
+  await writeFile(join(dir, 'gallery/alpha.json'), JSON.stringify({ id: 'alpha', seen: 3, updatedAt: '2026-11-11', photos: [photo(1), { ...photo(2), unchecked: true }, { ...photo(3), best: true, kind: 'male' }] }))
+  // A gallery whose every photo waits is no gallery yet.
+  await writeFile(join(dir, 'gallery/beta.json'), JSON.stringify({ id: 'beta', seen: 1, updatedAt: '2026-11-11', photos: [{ ...photo(4), unchecked: true }] }))
+  for (const publicBuild of [true, false]) {
+    const c = await loadAll({ root: dir, lang: 'vi', publicBuild })
+    expect(c.galleries.alpha!.map(p => p.url)).toEqual(['https://x/1.jpg', 'https://x/3.jpg'])
+    expect(c.galleries.beta).toBeUndefined()
+  }
+})
+
 test('Vietnamese photo captions are shown translated in another language, or left off until they are', async () => {
   const { cp, mkdir, readFile, writeFile } = await import('node:fs/promises')
   const dir = await mkdtemp(join(tmpdir(), 'aq-captions-'))

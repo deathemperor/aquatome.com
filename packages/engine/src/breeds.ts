@@ -4,7 +4,7 @@ import { join } from 'node:path'
 import { BreedSchema, GallerySchema, metricPage, nameKey, QUALITY_THRESHOLD, slugify, TranslationSchema, type BreedEntity, type Range, type Translation } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
 import { lastKept, logReviews } from './review-log'
-import { commonsCandidates, screen, type GalleryDeps } from './gallery'
+import { commonsCandidates, screen, waiting, type GalleryDeps } from './gallery'
 import { pickSlug } from './merge'
 import { plainParts, sanitizeHtml, unescapePlain } from './sanitize'
 import { localName, TARGETS, type TargetLang } from './localize'
@@ -276,7 +276,7 @@ export async function makeBreed(root: string, d: { research: Llm; llm: Llm; gall
   await logReviews(root, 'breed', { id: `breeds/${id}`, lang: 'vi' }, tries, review, { now: d.gallery.now() })
   if (photos.length > 4) {
     await mkdir(join(content, 'gallery'), { recursive: true })
-    await writeFile(join(content, 'gallery', `${id}.json`), `${JSON.stringify(GallerySchema.parse({ id, photos: photos.slice(4), seen, updatedAt: today }), null, 2)}\n`)
+    await writeFile(join(content, 'gallery', `${id}.json`), `${JSON.stringify(GallerySchema.parse({ id, photos: prevPhotos ? photos.slice(4) : photos.slice(4).map(waiting), seen, updatedAt: today }), null, 2)}\n`)
   }
   return { id, slug: vi.slug, score: review.score, notes: review.notes, photos: `${photos.length} of ${seen}` }
 }
@@ -377,7 +377,7 @@ export async function breedPhotos(root: string, d: GalleryDeps, o: { limit?: num
         const g = JSON.parse(await readFile(gfile, 'utf8').catch(() => 'null')) as { photos: BreedEntity['photos']; seen: number; updatedAt: string } | null
         const have = new Set(g?.photos.map(p => p.url))
         await mkdir(join(content, 'gallery'), { recursive: true })
-        await writeFile(gfile, `${JSON.stringify(GallerySchema.parse({ id, photos: [...(g?.photos ?? []), ...photos.slice(4).filter(p => !have.has(p.url))], seen: (g?.seen ?? 0) + cands.length, updatedAt: g?.updatedAt ?? today }), null, 2)}\n`)
+        await writeFile(gfile, `${JSON.stringify(GallerySchema.parse({ id, photos: [...(g?.photos ?? []), ...photos.slice(4).filter(p => !have.has(p.url)).map(waiting)], seen: (g?.seen ?? 0) + cands.length, updatedAt: g?.updatedAt ?? today }), null, 2)}\n`)
       }
       tried[id] = today
       report.done.push(`${id}: ${photos.length} of ${cands.length}`)

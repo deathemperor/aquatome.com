@@ -54,6 +54,7 @@ test('searches by common name, screens, reports each kept photo, appends it to t
   expect(g.photos[1]).toEqual({
     url: 'https://images.unsplash.com/photo-b?ixid=x&w=1280&q=80&fm=jpg&fit=max', thumb: 'https://images.unsplash.com/photo-b?ixid=x&w=480&q=80&fm=jpg&fit=max',
     width: 1280, height: 960, licence: 'Unsplash License', author: 'Ann b', authorUrl: 'https://unsplash.com/@annb?utm_source=aquatome&utm_medium=referral', sourceUrl: 'https://unsplash.com/photos/b?utm_source=aquatome&utm_medium=referral', caption: 'Đàn cá',
+    unchecked: true, // it waits for the photo check: no page shows it until then
   })
   expect(g).toMatchObject({ seen: 13, updatedAt: '2026-10-01' }) // its refresh date stays the gallery step's
   expect(mirrorPlan(g.photos[1].url)).toBeUndefined() // never copied to our bucket

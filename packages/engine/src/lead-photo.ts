@@ -162,7 +162,7 @@ export async function screenLeads(root: string, d: LeadDeps, o: { limit: number;
     if (!c) continue
     if ('ask' in c) { report.waiting++; continue }
     const own = f.entity.photos ?? []
-    const { best: _b, kind: _k, ...photo } = c.lead as GalleryPhoto
+    const { best: _b, kind: _k, unchecked: _u, ...photo } = c.lead as GalleryPhoto & { unchecked?: boolean }
     const had = own.find(p => p.url === photo.url)
     const photos = [had ?? photo, ...own.filter(p => p.url !== photo.url)]
     ;(own.length ? report.changed : report.gained).push(`${f.ref}: ${own[0]?.url ?? 'none'} -> ${photo.url}`)
