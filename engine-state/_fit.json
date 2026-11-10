@@ -61600,44 +61600,58 @@
     ]
   },
   "vi/guides/youtube-HYlaY4msnK0": {
-    "at": "2026-11-08",
-    "hash": "023cb8d48d7f989b",
+    "at": "2026-11-10",
+    "hash": "474447c29a01e113",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
-        "part": "TITLE",
-        "quote": "Tự đóng bể mica nano 57 lít",
-        "why": "57 litres is a converted 15-gallon tank, a volume nobody in Vietnam would name.",
+        "part": "P1",
+        "quote": "Bể này là bể mica nano khoảng 57 lít, dài 61 cm, rộng 30,5 cm, cao 30,5 cm.",
+        "why": "A 15-gallon 24×12×12 inch tank converted to metric; no one in Vietnam sizes a tank like this.",
         "by": "model"
       },
       {
         "check": "units",
-        "part": "P2",
-        "quote": "đóng một bể mica 61 x 30,5 x 30,5 cm bằng mica dày 1,9 cm",
-        "why": "Tank size and sheet thickness are converted from 24 x 12 x 12 inches and 3/4 inch.",
+        "part": "P1",
+        "quote": "Toàn bộ vật liệu là mica (acrylic) dày 1,9 cm",
+        "why": "3/4-inch sheet thickness converted to 1,9 cm.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "một dải dài 244 cm, rộng 30,5 cm",
+        "why": "An 8 ft × 12 inch strip converted to metric.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P3",
-        "quote": "Phôi là một dải mica dày 1,9 cm, dài 244 cm, rộng 30,5 cm.",
-        "why": "An 8-foot by 12-inch strip of 3/4-inch acrylic converted into odd metric figures.",
+        "quote": "lưỡi 25 cm đầu hợp kim (carbide), 82 răng",
+        "why": "A 10-inch saw blade converted to centimetres.",
         "by": "model"
       },
       {
         "check": "units",
-        "part": "P7",
-        "quote": "lưỡi hợp kim đường kính 25 cm",
-        "why": "A 10-inch saw blade converted from imperial.",
+        "part": "P5",
+        "quote": "bóc lớp giấy bảo vệ lùi vào khoảng 5 cm tính từ mép",
+        "why": "A 2-inch margin converted to metric.",
         "by": "model"
       },
       {
         "check": "units",
-        "part": "L1",
-        "quote": "Một tấm mica dày 1,9 cm, dài 244 cm, rộng 30,5 cm",
-        "why": "The same imperial stock sizes repeated in the summary.",
+        "part": "P5",
+        "quote": "lót ghim cách nhau khoảng 30,5 cm",
+        "why": "12-inch pin spacing converted to 30,5 cm.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "lấy từ phần thừa sau khi đóng một bể lớn",
+        "why": "Refers to the original writer's own earlier tank build as if the reader knew it.",
         "by": "model"
       }
     ],
@@ -62510,63 +62524,79 @@
     "products": []
   },
   "vi/guides/youtube-jHg4Dx3rPSo": {
-    "at": "2026-11-08",
-    "hash": "203103582da48a3f",
+    "at": "2026-11-10",
+    "hash": "cf42afcdc05ec498",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "price",
         "part": "P1",
-        "quote": "Máy diệt khuẩn điện phân kiểu Twinstar có giá khoảng 150 USD.",
-        "why": "The price is in US dollars, not Vietnamese đồng.",
+        "quote": "Máy khử trùng nước Twinstar đặt trong bể có giá tầm 150 USD.",
+        "why": "The price is in US dollars, not Vietnamese dong.",
         "by": "model"
       },
       {
         "check": "price",
         "part": "P1",
-        "quote": "Bài này hướng dẫn làm một bản tự chế với chi phí khoảng 8 USD",
-        "why": "The build cost is in US dollars and based on US shop prices.",
+        "quote": "tự chế một thiết bị trông giống hệt Twinstar với chi phí khoảng 8 USD",
+        "why": "The build cost is in US dollars.",
         "by": "model"
       },
       {
         "check": "price",
         "part": "P1",
-        "quote": "Một khớp nối ống nhựa ABS cỡ phi 60, giá khoảng 1 USD.",
-        "why": "The part price is in US dollars.",
+        "quote": "5 USD (mua lúc giảm giá)",
+        "why": "The parts in the table are priced in US dollars from a sale abroad.",
         "by": "model"
       },
       {
         "check": "price",
-        "part": "P1",
-        "quote": "Pin tháo từ đèn bão giá rẻ (khoảng 5 USD) là đủ dùng.",
-        "why": "The battery price is in US dollars.",
+        "part": "L1",
+        "quote": "có thể tự làm một bản tương tự với giá khoảng 8 USD",
+        "why": "The summary repeats a US dollar price.",
         "by": "model"
       },
       {
         "check": "units",
         "part": "P1",
-        "quote": "Khớp nối 5 cm hơi dày so với nhu cầu. Cắt bỏ hai đầu, chỉ giữ lại một khoanh rộng khoảng 2,5 cm.",
-        "why": "These sizes were converted from a 2-inch fitting and a 1-inch ring, which is not how fittings are sized in Vietnam.",
+        "quote": "Vài feet dây loa cũ",
+        "why": "Feet is an imperial unit used as the reader's own unit.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P1",
+        "quote": "chỉ giữ lại một vòng rộng khoảng 2,5 cm",
+        "why": "2.5 cm is 1 inch converted, a figure nobody in Vietnam would pick.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
-        "quote": "Khi thử trên bể thật, cá không bị ảnh hưởng gì.",
-        "why": "This describes the original writer's own tank tests as if the reader knew about them.",
+        "quote": "Theo một ý kiến cá nhân, đèn UV có thể hiệu quả hơn nhiều",
+        "why": "It points to the personal opinion of an unnamed person from the source.",
         "by": "model"
       },
       {
         "check": "source",
-        "part": "L8",
-        "quote": "Trong lần thử trên bể thật, cá không bị ảnh hưởng gì.",
-        "why": "This refers to the source writer's own trial.",
+        "part": "P1",
+        "quote": "Mấy bể đem thử vốn không có vấn đề rêu hại hay vi khuẩn",
+        "why": "It describes the source writer's own test tanks as if the reader knew them.",
         "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Đèn lồng cắm trại rẻ tiền có pin 6 V",
+        "why": "\"Đèn lồng\" is a calque of 'lantern'; for a camping light Vietnamese say đèn cắm trại.",
+        "by": "model",
+        "fix": "đèn cắm trại"
       }
     ],
     "products": [
-      "Twinstar"
+      "Twinstar",
+      "Bondic"
     ]
   },
   "vi/guides/youtube-jhSeTo1Tdp0": {
@@ -62762,7 +62792,7 @@
     "products": []
   },
   "vi/guides/youtube-JpAXeFEVws8": {
-    "at": "2026-11-08",
+    "at": "2026-11-10",
     "hash": "6218574356de8397",
     "model": "opus",
     "checklist": 3,
@@ -62771,28 +62801,28 @@
         "check": "source",
         "part": "P1",
         "quote": "Hai bể cũ cần dời sang góc khác của phòng, cách đó khoảng 5 mét.",
-        "why": "The page tells the original writer's own room and tanks as if the reader knew them.",
+        "why": "The writer's own tanks and room are presented as if the reader knew them.",
         "by": "model"
       },
       {
         "check": "source",
-        "part": "P1",
-        "quote": "Người nhà khó đồng ý với một bể to đến vậy.",
-        "why": "This is the writer's personal family story, not advice for the reader.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P1",
-        "quote": "Các dòng lọc JBL dùng trước đây không có sưởi và ngăn lọc thô.",
-        "why": "It refers to the writer's own past filters as if the reader knew them.",
+        "part": "P3",
+        "quote": "Chỗ mới của hai bể nằm cạnh cửa sổ.",
+        "why": "Refers to the writer's own two tanks and window as if known to the reader.",
         "by": "model"
       },
       {
         "check": "elsewhere",
-        "part": "P1",
+        "part": "P4",
         "quote": "Căn hộ lại ở tầng 1 của tòa nhà, nên sàn có thể không chịu nổi sức nặng",
-        "why": "This is the European 'first floor' (one storey up) taken over literally; in Vietnam tầng 1 is the ground floor, so the worry about the floor holding the weight makes no sense.",
+        "why": "European floor numbering (first floor above ground) and the writer's own flat; in Vietnam tầng 1 is ground level.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P6",
+        "quote": "Các dòng lọc JBL dùng trước đây không có sưởi và ngăn lọc thô.",
+        "why": "The writer's own past equipment, given in their voice.",
         "by": "model"
       }
     ],
@@ -67677,67 +67707,69 @@
     "products": []
   },
   "vi/guides/youtube-PflID7JtZ3U": {
-    "at": "2026-11-08",
-    "hash": "dc6e29ae3d9b773f",
+    "at": "2026-11-10",
+    "hash": "1d412f52fdb9e993",
     "model": "opus",
     "checklist": 3,
     "findings": [
       {
         "check": "units",
-        "part": "P2",
-        "quote": "Mỗi chiều được cộng thêm chừng 1,3 cm so với bể",
-        "why": "A half inch converted to centimetres; no one in Vietnam would allow 1.3 cm clearance.",
+        "part": "P1",
+        "quote": "Chân tủ ở đây được tự đóng bằng gỗ 2x4 và ván ép",
+        "why": "2x4 is the American inch lumber size, not a timber size sold or named in Vietnam.",
         "by": "model"
       },
       {
         "check": "units",
-        "part": "P3",
-        "quote": "Ở đây dùng 12 cột gỗ 2x4 (thanh gỗ xẻ tiết diện khoảng 3,8 x 8,9 cm)",
-        "why": "American lumber size (2x4 inches) used as the reader's unit.",
+        "part": "P1",
+        "quote": "Đóng khung đáy dài khoảng 199,4 cm, rộng khoảng 97,8 cm.",
+        "why": "Odd figures converted from inches (78.5 x 38.5 in).",
         "by": "model"
       },
       {
         "check": "units",
-        "part": "P4",
-        "quote": "Đáy bể ván ép ban đầu chỉ dày khoảng 1,9 cm.",
-        "why": "3/4-inch plywood converted; Vietnamese plywood is sold as 18 or 20 mm.",
+        "part": "P1",
+        "quote": "Đáy bể chính ban đầu chỉ dày khoảng 1,9 cm",
+        "why": "1,9 cm is 3/4-inch plywood converted; local sheets come as 18 or 20 mm.",
         "by": "model"
       },
       {
         "check": "units",
-        "part": "P6",
-        "quote": "Bắt ván bằng vít 3,8 cm loại tự khoan.",
-        "why": "1.5-inch screw converted from imperial.",
-        "by": "model"
-      },
-      {
-        "check": "units",
-        "part": "P7",
-        "quote": "mỗi cặp chịu khoảng 18 kg",
-        "why": "A 40 lb hinge rating converted to kilograms.",
+        "part": "P1",
+        "quote": "Bắt ván bằng vít dài khoảng 3,8 cm",
+        "why": "1.5-inch screw length converted; local screws are sold in metric lengths.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
-        "quote": "Các con số dưới đây là của chiếc bể cụ thể này.",
-        "why": "Presents the source writer's own tank build as if the reader knew it.",
-        "by": "model"
-      },
-      {
-        "check": "source",
-        "part": "P8",
-        "quote": "Ở đây cửa mở ngược với thói quen thông thường, vì sump phải nghiêng mới lọt vào gầm.",
-        "why": "Refers to the source's own build ('ở đây') rather than the reader's.",
+        "quote": "Ở đây không phủ màu gỗ (stain), vì phòng đã có cả một bức tường ốp gỗ lẫn sàn gỗ",
+        "why": "The source writer's own room presented as if the reader knew it.",
         "by": "model"
       },
       {
         "check": "words",
-        "part": "L5",
-        "quote": "đưa được lọc thùng (sump) vào",
-        "why": "In Vietnam 'lọc thùng' means a canister filter, not a sump.",
+        "part": "P1",
+        "quote": "Dùng máy phay (router) xử lý cạnh",
+        "why": "Translated tool name with the English in brackets; Vietnamese woodworkers say máy soi.",
         "by": "model",
-        "fix": "lọc tràn (sump)"
+        "fix": "máy soi gỗ"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "bề mặt eggshell (hơi bóng mờ)",
+        "why": "English paint finish term not used for paint sold in Vietnam.",
+        "by": "model",
+        "fix": "sơn bán bóng / sơn mờ"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Sơn hay phủ màu gỗ",
+        "why": "Calque of 'stain'; local term is sơn lau màu gỗ.",
+        "by": "model",
+        "fix": "sơn lau màu gỗ"
       }
     ],
     "products": []
@@ -68597,8 +68629,8 @@
     "products": []
   },
   "vi/guides/youtube-qqHJr-5enM8": {
-    "at": "2026-11-08",
-    "hash": "87a12b7d294241d1",
+    "at": "2026-11-10",
+    "hash": "9e9e4d643dba3c1e",
     "model": "opus",
     "checklist": 3,
     "findings": [],
@@ -69128,27 +69160,11 @@
     ]
   },
   "vi/guides/youtube-RSbUTX0qyzs": {
-    "at": "2026-11-08",
-    "hash": "369da54968657322",
+    "at": "2026-11-10",
+    "hash": "22bc1051e9791ee5",
     "model": "opus",
     "checklist": 3,
-    "findings": [
-      {
-        "check": "units",
-        "part": "P1",
-        "quote": "Một đoạn ống PVC cỡ khoảng 2,5 cm.",
-        "why": "A 1-inch pipe converted to centimetres; in Vietnam PVC pipe is sold by its mm size (Ø27, Ø34).",
-        "by": "model"
-      },
-      {
-        "check": "words",
-        "part": "P1",
-        "quote": "một miếng tấm tán quang đèn (lighting diffuser, loại tấm nhựa ô lưới)",
-        "why": "A dictionary translation of 'lighting diffuser'; keepers call this plastic grid egg crate or a plastic grid panel.",
-        "by": "model",
-        "fix": "tấm egg crate / vỉ lưới nhựa"
-      }
-    ],
+    "findings": [],
     "products": []
   },
   "vi/guides/youtube-RSG9M7lgzG8": {
@@ -69459,7 +69475,7 @@
     ]
   },
   "vi/guides/youtube-seBch2HWlZs": {
-    "at": "2026-11-08",
+    "at": "2026-11-10",
     "hash": "2be913b1870b42d5",
     "model": "opus",
     "checklist": 3,
@@ -69468,30 +69484,22 @@
         "check": "units",
         "part": "P1",
         "quote": "dài khoảng 122 cm, rộng 16,5 cm, cao 15 cm",
-        "why": "122 × 16.5 cm is a 48 × 6.5 inch bridge converted to metric, not a size anyone in Vietnam would pick.",
+        "why": "Bridge dimensions are converted from 4 ft × 6.5 in × 6 in, not sizes a Vietnamese builder would choose.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
         "quote": "Bộ này còn chưa qua bước thử nước",
-        "why": "Talks about the original writer's own build as if the reader already knew it.",
+        "why": "Refers to the source author's own build and its status as if the reader knew it.",
         "by": "model"
       },
       {
         "check": "source",
         "part": "P1",
         "quote": "Hệ này không định trồng nhiều cây nên đèn không mạnh",
-        "why": "Describes the writer's own plans for their system, not the reader's.",
+        "why": "Describes the source author's own system and plans as the reader's.",
         "by": "model"
-      },
-      {
-        "check": "words",
-        "part": "P1",
-        "quote": "xả chân không trong cầu để nước rút xuống",
-        "why": "A word-for-word rendering of 'release the vacuum' that a Vietnamese keeper would not say.",
-        "by": "model",
-        "fix": "cho khí vào cầu (mở van xả khí) để nước rút xuống"
       }
     ],
     "products": []
@@ -71307,8 +71315,8 @@
     ]
   },
   "vi/guides/youtube-uHt88QgoeZY": {
-    "at": "2026-11-08",
-    "hash": "d83a292a570239f6",
+    "at": "2026-11-10",
+    "hash": "1c3cc69b7c92665e",
     "model": "opus",
     "checklist": 3,
     "findings": [],
