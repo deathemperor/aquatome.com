@@ -5,6 +5,7 @@ import sharp from 'sharp'
 import { expect, test } from 'vitest'
 import type { Photo } from '@aq/schema'
 import { leadChoice, screenLeads, TRIES, type LeadDeps } from '../src/lead-photo'
+import { mergePhotos } from '../src/run'
 
 const jpeg = sharp({ create: { width: 64, height: 48, channels: 3, background: '#468' } }).jpeg().toBuffer()
 const url = (n: string) => `https://media.example/${n}.webp`
@@ -31,6 +32,17 @@ test("a small head waits for the model's answer, gives way to a yes, and tries t
   expect(leadChoice([head, own], [gal], passes, { [own.url]: { [head.url]: true } })).toEqual({ lead: own })
   expect(leadChoice([head, own], [gal], passes, { [own.url]: { [head.url]: false } })).toEqual({ ask: { head, photo: gal } })
   expect(leadChoice([head, own], [gal], passes, { [own.url]: { [head.url]: false }, [gal.url]: { [head.url]: false } })).toBeUndefined()
+})
+
+test("a re-read of a source doesn't push down a head that fills the card, gallery photo or not; a smaller head goes back to source order, and one the read replaced goes", () => {
+  // A review, 2026-11-10: five of the seven new heads lost first place in a simulated re-read, and the owner's complaint came back.
+  const head = { ...big('promoted') }
+  const old = { ...photo('old'), source: 'seriouslyfish' as const, sourceUrl: 'https://x/fish' }
+  const fresh = { ...photo('fresh'), source: 'seriouslyfish' as const, sourceUrl: 'https://x/fish' }
+  expect(mergePhotos([head, old], 'seriouslyfish', 'https://x/fish', [fresh]).map(p => name(p.url))).toEqual(['promoted', 'fresh'])
+  expect(mergePhotos([photo('small'), old], 'seriouslyfish', 'https://x/fish', [fresh]).map(p => name(p.url))).toEqual(['fresh', 'small'])
+  const ownBig = { ...big('own-big'), source: 'seriouslyfish' as const, sourceUrl: 'https://x/fish' }
+  expect(mergePhotos([ownBig, old], 'seriouslyfish', 'https://x/fish', [fresh]).map(p => name(p.url))).toEqual(['fresh'])
 })
 
 test('at most a few photos a fish are asked about', () => {
@@ -112,4 +124,16 @@ test("a photo on the calendar's avoid list doesn't lead; --calendar touches only
   expect(seen).toEqual([['z-head', 'z-gal']])
   expect((await entity(root, 'zzz')).photos.map(p => name(p.url))).toEqual(['z-gal', 'z-head'])
   expect((await entity(root, 'aaa')).photos.map(p => name(p.url))).toEqual(['a-head'])
+})
+
+test("a download that fails leaves that pair out of the sheet, and the others are still numbered right", async () => {
+  const root = await store({ a: { photos: [photo('a-head')], gallery: [big('gone')] }, b: { photos: [photo('b-head')], gallery: [big('b-gal')] } })
+  const d: LeadDeps = {
+    get: async u => { if (u.includes('gone')) throw new Error('HTTP 404'); return new Uint8Array(await jpeg) },
+    look: async () => ({ pairs: [{ n: 1, asWell: true }] }),
+  }
+  const r = await screenLeads(root, d, { limit: 1 })
+  expect(r.failed).toHaveLength(1)
+  expect((await entity(root, 'b')).photos.map(p => name(p.url))).toEqual(['b-gal', 'b-head'])
+  expect((await entity(root, 'a')).photos.map(p => name(p.url))).toEqual(['a-head'])
 })

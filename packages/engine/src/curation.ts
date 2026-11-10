@@ -216,7 +216,9 @@ export async function candidates(root: string, o: { demand?: Map<string, number>
   for (const g of c.guides) {
     const ok = (p: Photo) => cardWorthy(p.url, g.id, v, avoid, true)
     out.push({
-      kind: 'guides', id: g.id, ref: `guides/${g.id}`, path: `/vi/huong-dan/${g.t.slug}/`, name: g.t.name, group: g.kind, source: g.source, ...photosFor(g.photos, ok), head: headOf(g.photos, ok),
+      kind: 'guides', id: g.id, ref: `guides/${g.id}`, path: `/vi/huong-dan/${g.t.slug}/`, name: g.t.name, group: g.kind, source: g.source, ...photosFor(g.photos, ok),
+      // A section's picture is never a guide's lead, and a video guide leads with its video (the page: guide-page.ts).
+      head: g.video || g.photos[0]?.section ? undefined : headOf(g.photos, ok),
       ...(await fitOf('guides', g.id)), indexable: g.t.quality?.indexable ?? true, updatedAt: g.updatedAt, facts: { places: [], coldwater: false }, demand: demandOf('guides', g.id),
     })
   }
@@ -418,6 +420,12 @@ export function checkCalendar(cur: Curation, cands: Candidate[], from: string, d
     if (d.story && !cur.off[d.story.page]) {
       const st = problem(byRef.get(d.story.page), 'guide', d.story.img, { photo: false }) ?? notHead(d.story.img, d.story.page)
       if (st) out.push(`${d.date} story ${d.story.page}: ${st}`)
+    }
+    // A language's own picks can name a photo too (the app shows it): the same rule.
+    for (const [lang, own] of Object.entries(d.by ?? {})) {
+      const fishRef = own.fish ?? d.fish, guideRef = own.guide ?? d.guide
+      const bad = [own.img && fishRef && notHead(own.img, fishRef), own.guideImg && guideRef && notHead(own.guideImg, guideRef)].find(Boolean)
+      if (bad) out.push(`${d.date} ${lang}: ${bad}`)
     }
     if (d.card) {
       const c = cards.get(d.card)

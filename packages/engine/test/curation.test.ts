@@ -273,3 +273,18 @@ test('a fish whose head photo is under the rule stays off the calendar, however 
   expect(calendar.days[0]!.fish).toBe('species/big1')
   expect(report.replaced).toEqual([{ date: '2026-11-09', slot: 'fish', was: 'species/small', why: 'head photo 608 px across, under 1140' }])
 })
+
+test("a head's address is its large copy's, and its size is that copy's; a head that doesn't pass isn't one", async () => {
+  const { headOf } = await import('../src/curation')
+  const p = { url: big(1), width: 960, height: 640, large: { url: big(2), width: 1800, height: 1200 }, licence: 'x', author: 'a', sourceUrl: 'x' }
+  expect(headOf([p], () => true)).toEqual({ url: big(2), px: { square: 1143, guide: 1800, wide: 1800 } })
+  expect(headOf([p], () => false)).toBeUndefined()
+  expect(headOf([], () => true)).toBeUndefined()
+})
+
+test("a language's own picks follow the same rule: a card's photo is the page's head", () => {
+  const a = fish('aaaa'), g = guide('gg')
+  const other = 'https://media.aquatome.com/commons/4444444444444444.webp'
+  const cur = CurationSchema.parse({ version: 1, weeks: [], days: [{ date: '2026-11-09', fish: 'species/aaaa', img: a.head!.url, guide: 'guides/gg', by: { id: { img: other } } }] })
+  expect(checkCalendar(cur, [a, g], '2026-11-09', 1)).toEqual(["2026-11-09 id: its card's photo isn't the page's head photo"])
+})

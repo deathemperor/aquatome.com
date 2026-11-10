@@ -2,6 +2,7 @@ import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { GuideSchema, mayPublish, metricPage, PlaceSchema, PlantSchema, SOURCE_IDS, SpeciesSchema, TranslationSchema, judgeQuality, nameKey, slugify, speciesDepth, type ChangelogEntry, type Photo, type Section, type SourceId, type Translation } from '@aq/schema'
 import type { z } from 'zod'
+import { across, LARGE_PX } from './curation'
 import { cardGaps } from './card-fill'
 import { appendChangelog } from './changelog'
 import { LlmError, type Llm } from './claude'
@@ -58,9 +59,16 @@ const MAX_LLM_FAILURES = 3
 const MAX_NETWORK_FAILURES = 3
 const BLOCK_MEMORY_MS = 86_400_000
 
-/** This page's fresh photos replace its old ones; source photos first (registry order), open-licence photos after. */
-export const mergePhotos = (prev: Photo[], source: SourceId, url: string, fresh: Photo[]) =>
-  [...fresh, ...prev.filter(p => !(p.source === source && p.sourceUrl === url))].map((p, i) => ({ p, i })).sort((a, b) => rank(a.p) - rank(b.p) || a.i - b.i).map(x => x.p).slice(0, MAX_PHOTOS)
+/**
+ * This page's fresh photos replace its old ones; source photos first (registry order), open-licence photos after. A head
+ * that fills the card stays first, unless this read replaced it: it's what the fish's cards show (lead-photo.ts).
+ */
+export const mergePhotos = (prev: Photo[], source: SourceId, url: string, fresh: Photo[]) => {
+  const replaced = (p: Photo) => p.source === source && p.sourceUrl === url
+  const merged = [...fresh, ...prev.filter(p => !replaced(p))].map((p, i) => ({ p, i })).sort((a, b) => rank(a.p) - rank(b.p) || a.i - b.i).map(x => x.p)
+  const head = prev[0] && !replaced(prev[0]) && across(prev[0].large ?? prev[0], 'square') >= LARGE_PX ? prev[0] : undefined
+  return (head ? [head, ...merged.filter(p => p.url !== head.url)] : merged).slice(0, MAX_PHOTOS)
+}
 
 /** content/ access for one run: existing items, taken slugs, validated writes. */
 function store(contentRoot: string) {
