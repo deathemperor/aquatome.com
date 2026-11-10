@@ -39,19 +39,21 @@ report says so. Never fill a seat with another provider's model.
 | Seat | Provider (`providerInstanceId`) | Model | Options |
 |---|---|---|---|
 | Anthropic | `claudeAgent` | `claude-opus-5-5` | `effort: xhigh` |
-| OpenAI | `cursor` (the owner's own Cursor plan) | `gpt-5.6-sol` | `reasoning: xhigh` |
+| OpenAI | `codex` (the owner's own login) | `gpt-6.1-sol` | `reasoningEffort: xhigh` |
 | Google | `cursor` | `gemini-4-argon` | `reasoning_effort: high` (its highest) |
 | xAI | `cursor` | `grok-4.7` | `reasoning_effort: xhigh`, `fastMode: false` |
 | Muse | (to fill: `muse`, off on 2026-11-07) | | |
 
-**Until 16 Nov 2026, two seats** (the owner, 2026-11-08: no more spend on Cursor, and its limit isn't raised): Anthropic
-and xAI only. Each score is marked two-editor in the record and the PR. Anything that first ships on two-editor scores
-goes on `docs/review/editors.md`'s re-score list, and after 16 Nov all four seats read it again.
+**Three seats** (2026-11-10): Anthropic, OpenAI and xAI. Google sits out (the owner, 2026-11-08: no more spend on
+Cursor, and its limit isn't raised): Cursor still refuses `gemini-4-argon`. Until it's back, each score is marked
+three-seat in the record and the PR. A seat missing from a round is named there, with why. What first shipped on
+two-editor scores stays on `docs/review/editors.md`'s re-read list, and after 16 Nov whichever seats exist then read it.
 
 Cursor lists most of its models only on a search, and each model names its options its own way: check a seat with
-`orchestrator_capabilities` (`search: "<model id>"`) before a round. GPT only through the owner's own plan (Cursor),
-never through Codex or a proxy (owner, 2026-11-07). With one seat seated, a score is one model's reading: say so in
-the record.
+`orchestrator_capabilities` (`search: "<model id>"`) before a round. OpenAI's seat is Sol, never Terra (the owner,
+2026-11-10: "Gpt terra is a mistake on codex. Must have sol astra.", then "use Sol for OpenAI council seat"). It runs on
+the owner's own login, never through a proxy (owner, 2026-11-07). With one seat seated, a score is one model's reading:
+say so in the record.
 
 ### Weighing the seats
 
