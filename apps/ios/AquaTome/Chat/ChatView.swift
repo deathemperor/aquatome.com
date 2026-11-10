@@ -113,6 +113,8 @@ private struct ChatThread: View {
     }
   }
 
+
+
   /// The empty screen over the box: the least move, with the keyboard, that puts the box's edge in a gap (`Chat.place`),
   /// found line by line from one line up. The keyboard going takes it back to where the reader had it; a draft of more
   /// than one line settles where the taller box cuts nothing.
@@ -126,6 +128,8 @@ private struct ChatThread: View {
       target = CGFloat(Chat.place(blocks.all.values.sorted { $0.top < $1.top }, boxTops: heights.map { Double(height - $0) }, from: Double(restPlace)))
     }
     guard abs(target - placed) > 0.5 else { return }
+    // Moved, the blocks report where the move put them: the next place would be worked out from those.
+    blocks.held = target != restPlace
     withAnimation(reduceMotion ? nil : .smooth(duration: 0.3)) { placed = target }
   }
 
@@ -191,8 +195,10 @@ private struct ChatThread: View {
         }
         .onChange(of: typing) { _, up in
           if up {
-            restPlace = max(0, scrolled)
+            // `scrolled` is read under the move.
+            restPlace = max(0, scrolled - (placed - restPlace))
             placed = restPlace
+            blocks.held = false
           } else {
             pinIfOnIt(proxy, height: geo.size.height)
           }
@@ -202,8 +208,9 @@ private struct ChatThread: View {
           if model.draft.isEmpty { emptyBox = boxHeight }
           placeEmpty(height: geo.size.height)
         }
-        .onChange(of: model.thread.isEmpty) { placed = 0; restPlace = 0 }
-        .onChange(of: signedOut) { blocks.all = [:] }
+        .onChange(of: model.thread.isEmpty) { placed = 0; restPlace = 0; blocks.held = false }
+        // The sign-in card or the starters, whichever was there: the rest stay, and report only when they move.
+        .onChange(of: signedOut) { blocks.all = blocks.all.filter { $0.key < 3 } }
         .safeAreaInset(edge: .bottom, spacing: 0) {
           // The newest question below the box: the reader is in earlier turns, its turn (a screen at least) all below.
           let farUp = !model.thread.isEmpty && (lastTop ?? 0) > geo.size.height - boxHeight
@@ -271,7 +278,7 @@ private struct ChatThread: View {
       } else {
         // Faded, not gone: the screen's place counts them, so a box emptied again sits where a fresh tap does.
         Chips(items: starters, stacked: true, dim: model.offline || model.stop != nil, placed: { i, r in
-          blocks.all[3 + i] = Chat.EmptyBlock(.starter, top: Double(r.minY), height: Double(r.height))
+          if !blocks.held { blocks.all[3 + i] = Chat.EmptyBlock(.starter, top: Double(r.minY), height: Double(r.height)) }
         }) { model.send($0) }
         .padding(.top, size.isAccessibilitySize ? 2 : 12)
         .opacity(model.draft.isEmpty ? 1 : 0)
@@ -875,13 +882,15 @@ private struct WhenReaderScrolls: ViewModifier {
 /// each wrote over the last, leaving only the starters.
 @MainActor private final class EmptyBlocks {
   var all: [Int: Chat.EmptyBlock] = [:]
+  /// While the screen is moved over the box: what they reported at rest stands.
+  var held = false
 }
 
 private extension View {
   /// Reports this block's place in the chat's content, for where the empty screen rests over the box.
   func emptyBlock(_ kind: Chat.EmptyBlock.Kind, _ i: Int, into blocks: EmptyBlocks) -> some View {
     onGeometryChange(for: CGRect.self) { $0.frame(in: .named(ChatThread.content)) } action: {
-      blocks.all[i] = Chat.EmptyBlock(kind, top: Double($0.minY), height: Double($0.height))
+      if !blocks.held { blocks.all[i] = Chat.EmptyBlock(kind, top: Double($0.minY), height: Double($0.height)) }
     }
   }
 }

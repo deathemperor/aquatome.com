@@ -130,7 +130,9 @@ final class ChatFlowTests: XCTestCase {
     element(app, "chat-box").tap()
     XCTAssertTrue(app.keyboards.firstMatch.waitForExistence(timeout: 5), "no keyboard")
     assertTheBoxsEdgeInAGap(app)
-    element(app, "chat").swipeDown()
+    // A drag down on the conversation, into the keyboard, lowers it (a flick doesn't reach it).
+    app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.3))
+      .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.97)), withVelocity: .slow, thenHoldForDuration: 0.1)
     XCTAssertTrue(soon(!app.keyboards.firstMatch.exists, timeout: 5), "the keyboard stayed")
     XCTAssertTrue(soon(abs(title.frame.minY - before) < 2, timeout: 3), "not back where the keyboard found it: \(title.frame.minY), was \(before)")
   }
@@ -155,7 +157,8 @@ final class ChatFlowTests: XCTestCase {
     let edge = element(app, "chat-box").frame.minY - 23, bar = app.navigationBars.firstMatch.frame.maxY
     let who = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH %@", "Claude")).firstMatch.frame
     XCTAssertTrue(who.maxY <= edge || who.minY >= edge, "the line about who answers is cut by the box: \(who), the edge at \(edge)")
-    XCTAssertTrue(who.minY >= bar || who.maxY <= bar, "the line about who answers is cut by the bar: \(who), the bar at \(bar)")
+    // Half a point: slid whole under the bar, its foot lands on the bar's edge give or take the frames' rounding.
+    XCTAssertTrue(who.minY >= bar - 0.5 || who.maxY <= bar + 0.5, "the line about who answers is cut by the bar: \(who), the bar at \(bar)")
     let chips = app.buttons.matching(identifier: "chat-chip")
     for i in 0..<chips.count {
       let f = chips.element(boundBy: i).frame
