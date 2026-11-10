@@ -738,7 +738,7 @@ final class ChatFlowTests: XCTestCase {
   }
 
   /// At the largest text: a card's two buttons stack, a comparison's figures each say whose they are with no list of names over
-  /// them, a section closed far down comes back to its heading, and a tool says where it goes.
+  /// them, each line opening its page, a section closed far down comes back to its heading, and a tool says where it goes.
   func testAtTheLargestTextTheBlocksRearrange() {
     let app = launch("-chat-blocks", "-seed-tanks", "litres", "-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL")
     answerWithEveryBlock(app)
@@ -752,6 +752,13 @@ final class ChatFlowTests: XCTestCase {
     reveal(app, differs, times: 40)
     XCTAssertTrue(differs.label.contains("Cá đĩa 120 cm"), differs.label)
     XCTAssertFalse(compare.buttons.matching(NSPredicate(format: "label == 'Cá đĩa'")).firstMatch.exists, "a list of names over the figures")
+    let fish = compare.descendants(matching: .any).matching(NSPredicate(format: "label == 'Cá đĩa: 120 cm'")).firstMatch
+    XCTAssertEqual(fish.elementType, .link, "a fish's line isn't announced as a link")
+    XCTAssertGreaterThanOrEqual(fish.frame.height, 44, "a fish's line is too small to tap")
+    reveal(app, fish, times: 10)
+    fish.tap()
+    XCTAssertTrue(element(app, "v2-species").waitForExistence(timeout: 10), "a fish's line didn't open its page")
+    app.buttons["v2-back"].tap()
     let heading = app.descendants(matching: .any).matching(identifier: "chat-section").firstMatch.descendants(matching: .any).matching(NSPredicate(format: "label CONTAINS 'Cho ăn'")).firstMatch
     reveal(app, heading, times: 40)
     // Its text, which is what opens it: a point partway down a card this tall can be behind the box.

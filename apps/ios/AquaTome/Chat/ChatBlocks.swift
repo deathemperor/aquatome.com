@@ -151,7 +151,7 @@ private struct SpeciesBlock: View {
         if own, let img = card.page.img {
           PageImage(src: img.absoluteString, ratio: 4 / 3, corner: 10).frame(width: large ? 120 : 64, height: large ? 90 : 48).accessibilityHidden(true)
         }
-        VStack(alignment: .leading, spacing: 3) {
+        VStack(alignment: .leading, spacing: own ? 0 : 1) {
           Text(card.page.name).font(own ? .headline : .system(size: nameSize, weight: .semibold))
           if let sci = card.page.sci { Text(sci).italic().font(.subheadline).foregroundStyle(.secondary) }
         }
@@ -223,7 +223,7 @@ private struct SpeciesBlock: View {
 
 /// Two to four species side by side: their photos, then the card's rows, a row whose figures differ marked "khác", a
 /// figure bold only when it alone differs among three or more; then their traits. At the largest text the photos and
-/// names go and each figure says whose it is, a species to a line.
+/// names go and each figure says whose it is, a species to a line, the line opening its page.
 private struct CompareBlock: View {
   let cards: [Chat.Card]
   let open: (String) -> Void
@@ -310,10 +310,10 @@ private struct CompareBlock: View {
 
   @ViewBuilder private func row(_ r: Row) -> some View {
     Divider()
-    VStack(alignment: .leading, spacing: 3) {
+    VStack(alignment: .leading, spacing: 0) {
       Text(heading(r)).font(.footnote)
       if size.isAccessibilitySize {
-        ForEach(Array(cards.indices), id: \.self) { i in Text(whose(r, i)).font(.subheadline) }
+        ForEach(Array(cards.indices), id: \.self) { i in line(r, i) }
       } else {
         HStack(alignment: .top, spacing: 8) {
           ForEach(Array(cards.indices), id: \.self) { i in
@@ -327,8 +327,25 @@ private struct CompareBlock: View {
     }
     .padding(.horizontal, 14)
     .padding(.vertical, 7)
-    .accessibilityElement(children: .ignore)
+    // At the largest text each line is a link of its own.
+    .accessibilityElement(children: size.isAccessibilitySize ? .contain : .ignore)
     .accessibilityLabel(Text(spoken(r)))
+  }
+
+  /// A species' line at the largest text: the whole of it opens its page, looking as the line does; one with no page, only
+  /// the line.
+  @ViewBuilder private func line(_ r: Row, _ i: Int) -> some View {
+    if let p = cards[i].page.path {
+      Button { open(p) } label: {
+        Text(whose(r, i)).font(.subheadline).frame(maxWidth: .infinity, minHeight: 44, alignment: .leading).contentShape(.rect)
+      }
+      .buttonStyle(.plain)
+      .accessibilityLabel(Text(verbatim: "\(cards[i].page.name): \(r.values[i] ?? String(localized: "chưa có"))"))
+      .accessibilityRemoveTraits(.isButton)
+      .accessibilityAddTraits(.isLink)
+    } else {
+      Text(whose(r, i)).font(.subheadline)
+    }
   }
 
   /// A row's label, then "· khác" in the tint when its figures differ.
@@ -402,8 +419,8 @@ private struct SectionBlock: View {
   @State private var tip: Tip?
   @Environment(\.dynamicTypeSize) private var size
   private let gap: CGFloat = 8
-  /// Between a part's lines: the subheadline's 18 made the design's 21.
-  private let spacing: CGFloat = 3
+  /// Between a part's lines: the subheadline's 20 made the design's 21.
+  private let spacing: CGFloat = 1
 
   /// A line of its text, the space under it included.
   private var line: CGFloat {
@@ -436,7 +453,7 @@ private struct SectionBlock: View {
     let cut = opened ? shown < drawn.count : !fits
     let rest = opened || fits ? Chat.Rest(drawn.dropFirst(shown) + undrawn) : Chat.Rest()
     BlockBox {
-      VStack(alignment: .leading, spacing: 6) {
+      VStack(alignment: .leading, spacing: 4) {
         HStack(spacing: 6) {
           Image(systemName: Self.icon(page.kind)).accessibilityHidden(true)
           // In capitals to the eye only: VoiceOver reads the words.
@@ -446,7 +463,7 @@ private struct SectionBlock: View {
         .foregroundStyle(.secondary)
         Text(heading?.text ?? page.title).font(.headline)
       }
-      .padding(EdgeInsets(top: 13, leading: 14, bottom: 0, trailing: 14))
+      .padding(EdgeInsets(top: 12, leading: 14, bottom: 0, trailing: 14))
       .accessibilityElement(children: .combine)
       .accessibilityAddTraits(.isHeader)
       .onScrollVisible { headingInView = $0 }
@@ -475,7 +492,7 @@ private struct SectionBlock: View {
         .contentShape(.rect)
         .onTapGesture { if !opened && !fits { change(to: true) } }
         .accessibilityAction(named: Text("Mở")) { if !fits { opened = true } }
-        .padding(.top, 8)
+        .padding(.top, 6)
         .padding(.horizontal, 14)
       }
       if opened || !rest.isEmpty {
@@ -682,7 +699,7 @@ private struct ToolBlock: View {
           .background(.tint.opacity(0.14), in: .rect(cornerRadius: square / 4))
           .accessibilityHidden(true)
         VStack(alignment: .leading, spacing: 6) {
-          VStack(alignment: .leading, spacing: 3) {
+          VStack(alignment: .leading, spacing: 1) {
             Text(tool.name).font(.callout.weight(.semibold))
             if let what = checked { Text(what).font(.system(size: small)).lineSpacing(2).foregroundStyle(.secondary) }
           }

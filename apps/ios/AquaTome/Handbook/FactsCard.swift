@@ -166,7 +166,7 @@ private struct Fact: View {
   var v2 = false
 
   var body: some View {
-    let fact = VStack(alignment: .leading, spacing: onCard ? 3 : large ? 4 : 2) {
+    let fact = VStack(alignment: .leading, spacing: onCard ? 0 : large ? 4 : 2) {
       Text(item.label).font(onCard || v2 ? .footnote : .caption).foregroundStyle(.secondary)
       if onCard {
         HStack(alignment: .firstTextBaseline, spacing: 4) {
