@@ -4,7 +4,7 @@ import { join } from 'node:path'
 import sharp from 'sharp'
 import { expect, test } from 'vitest'
 import type { Photo } from '@aq/schema'
-import { cardCrop, leadChoice, screenLeads, TRIES, type LeadDeps } from '../src/lead-photo'
+import { cardCrop, HEAD_IN_CROP, leadChoice, screenLeads, TRIES, type LeadDeps } from '../src/lead-photo'
 import { mergePhotos } from '../src/run'
 
 const jpeg = sharp({ create: { width: 64, height: 48, channels: 3, background: '#468' } }).jpeg().toBuffer()
@@ -186,4 +186,9 @@ test('a change of head goes back, with no model call, when the old head now fill
   // The sebae: a look said no, so the old head comes back, small as it is, and the other doesn't lead again.
   expect(leadChoice([promoted, small], [], yes, { [promoted.url]: { [small.url]: false } })).toEqual({ lead: small })
   expect(leadChoice([small, promoted], [], yes, { [promoted.url]: { [small.url]: false } })).toBeUndefined()
+})
+
+test('the guard asks about the whole head, snout to gill cover, not an eye inside the picture (the Devario, 2026-11-10)', () => {
+  expect(HEAD_IN_CROP).toMatch(/tip of its snout to its gill cover/)
+  expect(HEAD_IN_CROP).toMatch(/an eye inside the picture is not enough/)
 })

@@ -40,9 +40,11 @@ export const LEAD_SCHEMA = {
   type: 'object', required: ['pairs'],
   properties: { pairs: { type: 'array', items: { type: 'object', required: ['n', 'asWell', 'headInCrop'], properties: { n: { type: 'number' }, asWell: { type: 'boolean' }, headInCrop: { type: 'boolean' }, why: { type: 'string' } } } } },
 }
+/** The guard's question: the whole head, since a card with the eye in and the snout cut still shows a fish with no face (the Devario, 2026-11-10). */
+export const HEAD_IN_CROP = `headInCrop: true only if the third picture holds the main fish's whole head, from the tip of its snout to its gill cover (for a shrimp or snail, its head end), with a little room between the head and the picture's edge. False if the snout, the mouth or the gill cover is cut off by the edge or touches it: an eye inside the picture is not enough. If unsure, false.`
 const leadPrompt = (pairs: number) => `Numbered photos of aquarium fish, three to a row: photos 1 to 3 are pair 1${pairs > 1 ? ', 4 to 6 pair 2' : ''}${pairs > 2 ? ', 7 to 9 pair 3' : ''}. In each pair the first two show the same kind of fish. The first is the photo a page about that fish leads with today, the second a photo that could lead instead, and the third is that second photo as the page's card crops it. The sheet shows them at one size, so don't judge resolution.
 For each pair, asWell: true only if the second shows the fish at least as well as the first, as the picture a reader would want at the top of the page: the fish about as large in the frame, as sharp and as well lit, with its colours and pattern as clear, whole, and not blocked. False if the fish is smaller in the frame, blurred, dim, washed out, seen from an odd angle or lost in clutter, or if a ruler, a label, a logo, a box or any text is in the picture. If unsure, false.
-headInCrop: true only if the third picture has the main fish's head inside it, its eye and mouth (for a shrimp or snail, its head end). False if the head is cut off by the edge or outside the picture. If unsure, false.
+${HEAD_IN_CROP}
 Answer every pair, by its number: n is the pair, 1 to ${pairs}; why is a few words.`
 
 const PAIRS = 3
