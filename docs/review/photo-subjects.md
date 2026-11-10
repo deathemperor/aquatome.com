@@ -1,7 +1,7 @@
 # Photos that don't show their page's subject
 
 Written by `pnpm engine check-photos` (2026-11-10), most-read pages first. Rules: docs/governance.md, "Photos".
-5766 verdicts. Shows it: 3961; its habitat (asked again): 3; something else: 295; not a photo of it: 192; dead or as food: 273; a person in it: 91; a logo on it: 35; can't tell: 898.
+5655 verdicts. Shows it: 3878; its habitat (asked again): 3; something else: 291; not a photo of it: 187; dead or as food: 273; a person in it: 91; a logo on it: 35; can't tell: 879.
 
 ## Left with no photo (64)
 
@@ -70,7 +70,7 @@ Written by `pnpm engine check-photos` (2026-11-10), most-read pages first. Rules
 - species/thayeria-ifati
 - species/xenotilapia-sima
 
-## Can't tell: still shown (898)
+## Can't tell: still shown (879)
 
 | Page | Photo | What the model saw |
 | --- | --- | --- |
@@ -512,6 +512,12 @@ Written by `pnpm engine check-photos` (2026-11-10), most-read pages first. Rules
 | species/pterophyllum-altum | [photo](https://media.aquatome.com/commons/df845c128407e904.webp) | striped angelfish among vallisneria, altum vs scalare unclear |
 | species/sphaerichthys-vaillanti | [photo](https://media.aquatome.com/commons/580a0475f6e60819.webp) | small striped fish partly hidden behind plants |
 | species/sphaerichthys-vaillanti | [photo](https://media.aquatome.com/commons/5974f9381b212d40.webp) | small striped fish seen from far off in a planted tank |
+| species/stiphodon-atropurpureus | [photo](https://media.aquatome.com/inaturalist/198782077.webp) | patterned female-type goby on a rock in a stream; could be a female Stiphodon but the species can't be confirmed |
+| species/stiphodon-atropurpureus | [photo](https://media.aquatome.com/inaturalist/387228644.webp) | slender pale fish swimming over rock in a stream, distant and blurry, species can't be confirmed |
+| species/stiphodon-atropurpureus | [photo](https://media.aquatome.com/seriouslyfish/63111369d097b776.webp) | striped female Stiphodon goby on rock; females of the genus look alike |
+| species/stiphodon-atropurpureus | [photo](https://media.aquatome.com/seriouslyfish/f14cedd8719f327e.webp) | blue-chequered male Stiphodon with long dorsal filaments; pattern differs from typical atropurpureus |
+| species/stiphodon-ornatus | [photo](https://media.aquatome.com/seriouslyfish/309ac1ff66f48d1a.webp) | collage of striped females/juvenile gobies; can't confirm species |
+| species/stiphodon-ornatus | [photo](https://media.aquatome.com/seriouslyfish/6c721776bb00f6ac.webp) | strip of small, distant shots of a dark blue-headed goby; too small to confirm the species |
 | species/acestrorhynchus-altus | [photo](https://media.aquatome.com/seriouslyfish/9e0ea741a2b1d392.webp) | Acestrorhynchus with dark shoulder spot and yellowish fins, could be another species such as A. falcatus |
 | species/acestrorhynchus-falcatus | [photo](https://media.aquatome.com/commons/0034aeaae1b8b85e.webp) | distant fish in murky wild water, species unclear |
 | species/acestrorhynchus-falcatus | [photo](https://media.aquatome.com/inaturalist/147078781.webp) | distant Acestrorhynchus in clear wild stream, likely a different species (e.g. A. pantaneiro) |
@@ -654,6 +660,7 @@ Written by `pnpm engine check-photos` (2026-11-10), most-read pages first. Rules
 | species/enteromius-hulstaerti | [photo](https://media.aquatome.com/seriouslyfish/6658365c8547822f.webp) | Dark-bodied barb with a long dark side band and a tail spot; could be this species in dark colouring or a look-alike |
 | species/erethistes-pusillus | [photo](https://media.aquatome.com/commons/0828efd076c64be5.webp) | blurry top view of a mottled catfish among plants |
 | species/erethistes-pusillus | [photo](https://media.aquatome.com/scotcat/ad74649df912be39.webp) | reddish-brown, white-banded sisorid catfish; unusual colour, could be another Hara/Erethistes species |
+| species/etroplus-canarensis | [photo](https://media.aquatome.com/seriouslyfish/d886d0ce18dc6579.webp) | distant underwater group of yellowish, dark-banded fish in murky water; could be perch, too far away to confirm |
 | species/geophagus-brasiliensis | [photo](https://media.aquatome.com/inaturalist/295632865.webp) | murky underwater view of a pale fish with a dark mid-body spot and blue pelvic fins; too faint to confirm |
 | species/haludaria-fasciata | [photo](https://media.aquatome.com/inaturalist/181204630.webp) | banded barb in clear rocky stream, distant, faded markings |
 | species/haludaria-fasciata | [photo](https://media.aquatome.com/inaturalist/450098951.webp) | small banded fish among pebbles in stream, distant and blurry |
@@ -822,15 +829,10 @@ Written by `pnpm engine check-photos` (2026-11-10), most-read pages first. Rules
 | species/sinibotia-robusta | [photo](https://media.aquatome.com/seriouslyfish/df0a1dbee6b7fe2a.webp) | Sinibotia loach with fewer, broader bars; could be another Sinibotia such as S. pulchra |
 | species/sphaerichthys-selatanensis | [photo](https://media.aquatome.com/seriouslyfish/0b8ddfe53e1c35e7.webp) | many tiny fry in a plastic tub, too small to confirm species |
 | species/stigmatogobius-sadanundio | [photo](https://media.aquatome.com/inaturalist/425156099.webp) | brownish goby on shells and sand, not clearly knight goby |
-| species/stiphodon-atropurpureus | [photo](https://media.aquatome.com/inaturalist/198782077.webp) | patterned female-type goby on a rock in a stream; could be a female Stiphodon but the species can't be confirmed |
-| species/stiphodon-atropurpureus | [photo](https://media.aquatome.com/inaturalist/387228644.webp) | slender pale fish swimming over rock in a stream, distant and blurry, species can't be confirmed |
-| species/stiphodon-atropurpureus | [photo](https://media.aquatome.com/seriouslyfish/63111369d097b776.webp) | striped female Stiphodon goby on rock; females of the genus look alike |
-| species/stiphodon-atropurpureus | [photo](https://media.aquatome.com/seriouslyfish/f14cedd8719f327e.webp) | blue-chequered male Stiphodon with long dorsal filaments; pattern differs from typical atropurpureus |
-| species/stiphodon-ornatus | [photo](https://media.aquatome.com/seriouslyfish/309ac1ff66f48d1a.webp) | collage of striped females/juvenile gobies; can't confirm species |
-| species/stiphodon-ornatus | [photo](https://media.aquatome.com/seriouslyfish/6c721776bb00f6ac.webp) | strip of small, distant shots of a dark blue-headed goby; too small to confirm the species |
 | species/stiphodon-pelewensis | [photo](https://media.aquatome.com/seriouslyfish/81bf5a3ecf0a4ccb.webp) | striped female Stiphodon in aquarium; females of the genus look alike |
 | species/stiphodon-pelewensis | [photo](https://media.aquatome.com/seriouslyfish/ff75b6380e6691d3.webp) | distant striped gobies on stream rock, likely females |
 | species/synodontis-ocellifer | [photo](https://media.aquatome.com/commons/815e5845915aa9f5.webp) | dark, blurry catfish in a tank; ocellated spots can't be seen to confirm the species |
+| species/tachysurus-trilineatus | [photo](https://media.aquatome.com/inaturalist/179928819.webp) | blurry top view of small catfish with pale collar in shallow stream; ID unclear |
 | species/tateurndina-ocellicauda | [photo](https://media.aquatome.com/commons/6e79963b83d51702.webp) | elongated mottled goby guarding eggs on a leaf; slim build and dark head don't clearly match the peacock gudgeon |
 | species/tateurndina-ocellicauda | [photo](https://media.aquatome.com/inaturalist/309626844.webp) | reddish-spotted fish on sand in a tank, seen from a distance; maybe a peacock gudgeon but hard to confirm |
 | species/trichogaster-fasciata | [photo](https://media.aquatome.com/inaturalist/443340993.webp) | blue reticulated gourami under blue light; may be a blue dwarf gourami colour form |
@@ -909,7 +911,6 @@ Written by `pnpm engine check-photos` (2026-11-10), most-read pages first. Rules
 | species/dermogenys-pusilla | [photo](https://media.aquatome.com/commons/34ed03cded916901.webp) | dark halfbeak at the surface with its reflection; species unclear |
 | species/doryichthys-boaja | [photo](https://media.aquatome.com/commons/2158af2cd2193375.webp) | pipefish partly hidden behind leaf, foreshortened; species unclear |
 | species/esomus-metallicus | [photo](https://media.aquatome.com/inaturalist/642230652.webp) | blurry grey silhouette of a fish, can't be identified |
-| species/etroplus-canarensis | [photo](https://media.aquatome.com/seriouslyfish/d886d0ce18dc6579.webp) | distant underwater group of yellowish, dark-banded fish in murky water; could be perch, too far away to confirm |
 | species/garra-ceylonensis | [photo](https://media.aquatome.com/inaturalist/614307660.webp) | small distant fish seen through rippled surface, hard to identify |
 | species/gymnothorax-tile | [photo](https://media.aquatome.com/inaturalist/576184543.webp) | pale spotted eel in shallow water at night, flash-lit, hard to confirm species |
 | species/hemiancistrus-aspidolepis | [photo](https://media.aquatome.com/inaturalist/349527911.webp) | dark spotted pleco from above in very shallow water; tail cut off, can't confirm species against Hypostomus look-alikes |
@@ -948,7 +949,6 @@ Written by `pnpm engine check-photos` (2026-11-10), most-read pages first. Rules
 | species/pyrrhulina-filamentosa | [photo](https://media.aquatome.com/inaturalist/600597658.webp) | pale, washed-out fish over leaf litter in the wild; can't confirm the species |
 | species/satanoperca-lilith | [photo](https://media.aquatome.com/commons/52df042636343bda.webp) | slender juvenile cichlids with a single mid-body spot over sand, likely in the wild; ID unclear |
 | species/selenotoca-multifasciata | [photo](https://media.aquatome.com/inaturalist/730608979.webp) | striped fish seen from above in murky water, too distant and angled to confirm (possibly a terapon) |
-| species/tachysurus-trilineatus | [photo](https://media.aquatome.com/inaturalist/179928819.webp) | blurry top view of small catfish with pale collar in shallow stream; ID unclear |
 | species/trichogaster-labiosa | [photo](https://media.aquatome.com/inaturalist/382975035.webp) | yellow gourami by the tank glass; could be gold honey gourami rather than thick-lipped |
 | species/trichogaster-labiosa | [photo](https://media.aquatome.com/inaturalist/733955374.webp) | orange gouramis in a blue tank; gold thick-lipped vs gold honey gourami cannot be told apart |
 | species/xiphophorus-continens | [photo](https://media.aquatome.com/commons/6c6fb502aa802a7f.webp) | small Xiphophorus female with dark gravid spot and lateral stripe; can't rule out X. pygmaeus |
@@ -973,7 +973,7 @@ Written by `pnpm engine check-photos` (2026-11-10), most-read pages first. Rules
 | plants/eleocharis-montevidensis | [photo](https://media.aquatome.com/commons/85115f8f90919e97.webp) | Eleocharis spikelet close-up; species can't be confirmed |
 | plants/eriocaulon-sp-vietnam | [photo](https://media.aquatome.com/tropica/0b90f0a957ce8b39.webp) | close-up of narrow grass-like leaves underwater, no rosette visible to confirm |
 
-## Removed (872)
+## Removed (863)
 
 "Something else" names what the photo shows instead; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
 
