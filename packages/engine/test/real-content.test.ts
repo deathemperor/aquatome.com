@@ -125,15 +125,29 @@ test('a Vietnamese page that doses 35% oxy già says it isn\'t the pharmacy\'s 3
 
 // Two independent sources agreed against Seriously Fish on an adult size, far apart (Glaser, and FishBase from the checklist
 // of South American fishes): the figure they agree on is the page's, on the card and in the text, whatever a re-read writes.
-test('a size two independent sources overrule is gone from the card and the text', async () => {
+// Size and tank travel together: no source gives a tank for the larger fish, so the page shows none and says so.
+const shownText = (fish: { sections: { key: string; source: string }[]; t: Translation }) => fish.sections.map(s => fish.t.sections[`${s.key}:${s.source}`] ?? '').join(' ')
+test('a size two independent sources overrule is gone from the card and the text, and so is the tank set for the smaller fish', async () => {
   const root = fileURLToPath(new URL('../../../content', import.meta.url))
   const { species } = await loadAll({ root, lang: 'vi', publicBuild: true })
-  for (const [id, size, old] of [['myloplus-schomburgkii', 45, /\(SL\)\s*:?\s*12 cm/], ['moenkhausia-oligolepis', 12, /\(SL\)\s*:?\s*5 cm/]] as const) {
+  for (const [id, size, old] of [['myloplus-schomburgkii', 45, /\(SL\)\s*:?\s*12 cm|120 × 40/], ['moenkhausia-oligolepis', 12, /\(SL\)\s*:?\s*5 cm|60 × 40|45 × 25/]] as const) {
     const fish = species.find(x => x.id === id)!
     expect(resolveDataCard(fish.dataCard.sizeCm!, 'sizeCm')?.value, id).toBe(size)
-    expect(Object.values(fish.t.sections).join(' '), id).not.toMatch(old)
+    expect(fish.dataCard.tankCm, id).toBeUndefined()
+    expect(shownText(fish), id).not.toMatch(old)
+    expect(shownText(fish), id).toContain(`không ghi kích thước bể cho cá dài tới ${size} cm`)
   }
 }, 120_000)
+
+// Seriously Fish's keeping range for it contradicts the wild reading on its own page; BW Aquatics sides with the reading.
+test('a hardness against its source\'s own measured reading gives way to the source that sides with the reading, in every language', async () => {
+  const root = fileURLToPath(new URL('../../../content', import.meta.url))
+  for (const lang of ['vi', 'id', 'th'] as const) {
+    const fish = (await loadAll({ root, lang, publicBuild: true })).species.find(x => x.id === 'pseudomugil-furcatus')!
+    expect(resolveDataCard(fish.dataCard.gh!, 'gh'), lang).toMatchObject({ value: { min: 4, max: 12 }, sources: ['bwaquatics', 'aquariumcoop'] })
+    expect(shownText(fish), lang).not.toMatch(/15\s*[–-]\s*30/)
+  }
+}, 240_000)
 
 // The owner's report of 10 Nov: the Altum page said a hard, neutral tank is enough and that soft water is a must, under one
 // heading. Where the sources can't both be true, the page shows the one that speaks for that heading (Seriously Fish for
