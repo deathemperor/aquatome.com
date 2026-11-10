@@ -236,6 +236,7 @@ private struct ChatThread: View {
         if !t.covered {
           Text("Đã ghi lại câu hỏi để cẩm nang viết thêm.").font(.footnote).foregroundStyle(.secondary)
         }
+        if model.reportable(a) { ReportControl(reported: a.reported) { await model.report(a.id, reason: $0) } }
         if last, !t.suggestions.isEmpty {
           Chips(items: t.suggestions, dim: model.offline || model.stop != nil) { model.send($0) }
             .padding(.top, 4)
@@ -696,6 +697,111 @@ private struct Chips: View {
       }
       .buttonStyle(.plain)
       .accessibilityIdentifier("chat-chip")
+    }
+  }
+}
+
+/// "Báo sai" under a finished answer: quiet, there when an answer is wrong. Once sent or refused for good it says so and is
+/// no longer a button.
+private struct ReportControl: View {
+  let reported: Bool?
+  let send: (String) async -> ChatModel.ReportResult
+  @State private var asking = false
+
+  var body: some View {
+    Group {
+      switch reported {
+      case true?:
+        Label { Text("Đã báo. Cảm ơn bạn.") } icon: { Image(systemName: "checkmark") }
+          .accessibilityElement(children: .ignore)
+          .accessibilityLabel(Text("Đã báo"))
+          .accessibilityIdentifier("chat-reported")
+      case false?:
+        Text("Không báo được câu trả lời này.").accessibilityIdentifier("chat-report-refused")
+      case nil:
+        Button { asking = true } label: {
+          Label("Báo sai", systemImage: "flag").frame(minHeight: 44, alignment: .leading).contentShape(.rect)
+        }
+        .buttonStyle(.plain)
+        .accessibilityIdentifier("chat-report")
+      }
+    }
+    .font(.footnote)
+    .foregroundStyle(.secondary)
+    .sensoryFeedback(.success, trigger: reported) { _, new in new == true }
+    .sheet(isPresented: $asking) { ReportSheet(send: send) }
+  }
+}
+
+/// One optional line saying what's wrong; the keyboard's return sends. Failed, it stays to send again.
+private struct ReportSheet: View {
+  let send: (String) async -> ChatModel.ReportResult
+  @Environment(\.dismiss) private var dismiss
+  @Environment(\.dynamicTypeSize) private var size
+  @Environment(\.colorScheme) private var scheme
+  @State private var reason = ""
+  @State private var sending = false
+  @State private var failed = false
+  @State private var height: CGFloat = 260
+
+  var body: some View {
+    VStack(spacing: 12) {
+      ZStack {
+        Text("Báo câu trả lời sai").font(.headline).multilineTextAlignment(.center).padding(.horizontal, 44).accessibilityAddTraits(.isHeader)
+        HStack {
+          Spacer()
+          Button { dismiss() } label: {
+            Image(systemName: "xmark").font(.footnote.weight(.semibold)).foregroundStyle(.secondary)
+              .frame(width: 34, height: 34).background(Color(uiColor: .secondarySystemGroupedBackground), in: .circle)
+              .frame(width: 44, height: 44).contentShape(.rect)
+          }
+          .accessibilityLabel(Text("Đóng"))
+        }
+      }
+      TextField(size.isAccessibilitySize ? String(localized: "Sai ở đâu?") : String(localized: "Sai ở đâu? (không bắt buộc)"), text: $reason)
+        .submitLabel(.send)
+        .onSubmit(go)
+        .padding(12)
+        .background(Color(uiColor: .secondarySystemGroupedBackground), in: .rect(cornerRadius: 14))
+        .onChange(of: reason) { _, t in if t.count > Chat.reasonLimit { reason = String(t.prefix(Chat.reasonLimit)) } }
+        .accessibilityIdentifier("chat-report-reason")
+      Group {
+        if size.isAccessibilitySize { Text("Không bắt buộc. AquaTome sẽ xem lại câu trả lời này.") } else { Text("AquaTome sẽ xem lại câu trả lời này.") }
+      }
+      .font(.caption)
+      .foregroundStyle(.secondary)
+      .frame(maxWidth: .infinity, alignment: .leading)
+      Button(action: go) {
+        Group { if sending { Text("Đang gửi…") } else { Text("Gửi") } }
+          .font(.body.weight(.semibold))
+          .foregroundStyle(scheme == .dark ? Color(red: 0, green: 0x24 / 255, blue: 0x1B / 255) : Color.white)
+          .frame(maxWidth: .infinity, minHeight: 50)
+          .background(Color("AccentColor").opacity(sending ? 0.6 : 1), in: .capsule)
+          .contentShape(.capsule)
+      }
+      .buttonStyle(.plain)
+      .disabled(sending)
+      .accessibilityIdentifier("chat-report-send")
+      if failed {
+        Text("Chưa gửi được. Bấm Gửi lần nữa.").font(.footnote).foregroundStyle(.red).accessibilityIdentifier("chat-report-failed")
+      }
+    }
+    .padding()
+    .fixedSize(horizontal: false, vertical: true)
+    .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { height = $0 + 24 }
+    .presentationDetents([.height(height)])
+    .presentationDragIndicator(.visible)
+    .presentationBackground(Color(uiColor: .systemGroupedBackground))
+  }
+
+  private func go() {
+    guard !sending else { return }
+    sending = true
+    failed = false
+    Task {
+      let result = await send(reason)
+      sending = false
+      if result == .failed { failed = true } else { dismiss() }
     }
   }
 }

@@ -523,3 +523,43 @@ private let guidePage = Chat.PageRef(kind: "guide", title: "Nuôi cá neon", pat
 @Test func theMatesStepIsRead() {
   guard case .step(.mates)? = Chat.event(ServerEvent(name: "step", data: #"{"kind":"mates"}"#)) else { Issue.record("no mates step"); return }
 }
+
+/// A recorded answer's body and status.
+private func answer(_ name: String) throws -> (Data, Int) {
+  let o = try #require(JSONSerialization.jsonObject(with: recorded(name)) as? [String: Any])
+  return (try JSONSerialization.data(withJSONObject: try #require(o["body"])), try #require(o["status"] as? Int))
+}
+
+@Test func aReportSendsItsTurnAndTheTrimmedReasonAsTheContractSays() throws {
+  let id = try #require(UUID(uuidString: "6F1C2A52-8D3E-4B7A-9C41-2E5D7F80B913"))
+  let r = Chat.report(id, turn: 2, reason: "  sai liều thuốc \n", site: site, token: "t", version: "1.0", ownCopy: nil)
+  #expect(r.httpMethod == "POST")
+  #expect(r.url?.path() == "/api/chat/conversations/6f1c2a52-8d3e-4b7a-9c41-2e5d7f80b913/report")
+  #expect(r.value(forHTTPHeaderField: "Authorization") == "Bearer t")
+  let sent = try #require(r.httpBody)
+  let body = try #require(JSONSerialization.jsonObject(with: sent) as? [String: Any])
+  #expect(body["turn"] as? Int == 2 && body["reason"] as? String == "sai liều thuốc")
+  // No reason, or only spaces: none sent.
+  for typed in [nil, "   "] as [String?] {
+    let blank = try #require(Chat.report(id, turn: 1, reason: typed, site: site, token: "t", version: "1.0", ownCopy: nil).httpBody)
+    #expect(try #require(JSONSerialization.jsonObject(with: blank) as? [String: Any]).keys.sorted() == ["turn"])
+  }
+}
+
+@Test func aReasonIsOneLineOfAtMost140CharactersAsTheReaderSeesThem() {
+  #expect(Chat.reasonFits(String(repeating: "a", count: 140)))
+  #expect(!Chat.reasonFits(String(repeating: "a", count: 141)))
+  // A family emoji is one character to the reader, however many code points it takes.
+  #expect(Chat.reasonFits(String(repeating: "👨‍👩‍👧", count: 140)))
+  #expect(Chat.reasonFits("  " + String(repeating: "á", count: 140) + "  "))
+  #expect(!Chat.reasonFits("dòng một\ndòng hai"))
+  #expect(Chat.reasonFits(""))
+}
+
+@Test func aReportsAnswerSaysWhetherItWasKeptNowOrBefore() throws {
+  let (saved, s1) = try answer("chat-report-saved.json")
+  #expect(Chat.reported(saved, status: s1) == .saved)
+  let (already, s2) = try answer("chat-report-already.json")
+  #expect(Chat.reported(already, status: s2) == .already)
+  #expect(Chat.reported(Data(#"{"error":"unknown"}"#.utf8), status: 404) == nil)
+}

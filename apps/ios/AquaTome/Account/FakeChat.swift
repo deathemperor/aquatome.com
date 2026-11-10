@@ -29,6 +29,8 @@ final class FakeChat {
   private func number(_ flag: String) -> Int? {
     args.firstIndex(of: flag).flatMap { $0 + 1 < args.count ? Int(args[$0 + 1]) : nil }
   }
+  /// `-chat-report-fails`: the first report fails, the next goes.
+  private var reportFailed = false
   private var gap: Duration { args.contains("-chat-slow") ? .seconds(3) : .milliseconds(500) }
 
   init(_ args: [String], account: @escaping (String) -> String?) {
@@ -117,6 +119,23 @@ final class FakeChat {
       }
       c.onTermination = { _ in task.cancel() }
     }
+  }
+
+  /// The answer to a report, or nil for a request that isn't one.
+  func answer(_ r: URLRequest) async -> (Data, HTTPURLResponse)? {
+    guard let path = r.url?.path, path.hasPrefix("/api/chat/conversations/"), path.hasSuffix("/report") else { return nil }
+    if args.contains("-chat-report-slow") { try? await Task.sleep(for: .seconds(3)) }
+    func json(_ status: Int, _ o: Any) -> (Data, HTTPURLResponse) {
+      ((try? JSONSerialization.data(withJSONObject: o)) ?? Data(), Self.response(r, status, type: "application/json"))
+    }
+    let bearer = r.value(forHTTPHeaderField: "Authorization").map { String($0.dropFirst("Bearer ".count)) }
+    guard bearer.flatMap(account) != nil else { return json(401, ["error": "session"]) }
+    if args.contains("-chat-report-gone") { return json(404, ["error": "unknown"]) }
+    if args.contains("-chat-report-fails"), !reportFailed {
+      reportFailed = true
+      return json(500, ["error": "unavailable"])
+    }
+    return json(200, ["result": args.contains("-chat-report-already") ? "already" : "saved"])
   }
 
   private static func response(_ r: URLRequest, _ status: Int, type: String) -> HTTPURLResponse {

@@ -93,6 +93,7 @@ final class FakeServer {
     if slowPost, r.httpMethod == "POST", ["/_c", "/_p"].contains(r.url?.path) { try? await Task.sleep(for: .seconds(6)) }
     // A request whose task is cancelled meanwhile fails as cancelled, as URLSession's does.
     if slowSession, r.url?.path == "/api/v1/session" { try await Task.sleep(for: .seconds(15)) }
+    if let answer = await chat.answer(r) { return answer }
     if let status = chat.status(r) {
       if fake.offline { throw URLError(.notConnectedToInternet) }
       return status
