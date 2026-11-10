@@ -10958,6 +10958,39 @@
   ],
   "vi/guides/youtube-M8-oNwl3X4k": [
     {
+      "at": "2026-11-10T05:36:08Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "\"Phim mờ hơi trong, nên mắt không thấy rõ ranh giới\" / \"hơi trong\": the video says the film is somewhat translucent and gives the illusion of more depth; fix the wording to \"mờ đục/bán trong suốt\" and drop the claim about eyes not seeing the boundary, or hedge it as the effect.",
+        "\"Bể trông như sâu hơn thực tế\": the video only says the film gives an illusion of more depth; remove \"hơn thực tế\" wording or keep it as a hedge.",
+        "\"Chuyện này chủ yếu là sở thích. Nếu không ưng vẻ ngoài của nền đất phủ cát thì có thể chọn phân nền làm sẵn\": the video says the creator personally doesn't like the look and has other reasons; rewrite as one person's preference (\"có thể do không thích vẻ ngoài\") and remove the advice to choose ready-made soil, and the claim that it is mainly preference.",
+        "\"Nghe thì hơi đắt cho một miếng phim\": the video says it might not sound like a lot (14 dollars is not much) but it went a long way; this reverses the meaning. Correct to say the price is not high but the roll lasts for many tanks.",
+        "\"loại phân nền nghe nói đang được đánh giá tốt\" and \"Dùng thử rồi thì thấy thích, không hối tiếc khi chọn nó\": fine in content but phrased as note-style; \"Dùng rồi thấy thích, không hối tiếc\" in the summary is choppy, rewrite as natural Vietnamese.",
+        "\"Một lý do nữa để chọn phân nền tốt ngay từ đầu là để có mốc so sánh. Sau này nếu chuyển sang tự làm nền...\": the video links the baseline to later DIY soil experiments; phrase as an option (\"nếu sau này thử tự làm nền\") not as a general reason to choose.",
+        "\"Nó dùng được vào hai việc\" and the FAQ \"Làm sao dàn phân nền cho phẳng mà không dính lên đá?\": the \"không dính lên đá\" framing mixes the points; fix to say the brush helps clean soil off rocks and spread the soil evenly without grooves.",
+        "\"Dán phim bằng cách lau sạch kính sau, làm ướt...\" and \"Bóc lớp băng bảo vệ\": fine, but \"Sau khi đặt bể lên chân... còn hai việc cần làm trước khi trồng cây\" is invented framing; remove the claim that these are the two things needed before planting.",
+        "Summary and FAQ use choppy note-style fragments (\"Dùng rồi thấy thích, không hối tiếc.\", \"khá đắt\"): rewrite in smoother, natural Vietnamese; also the FAQ \"khá đắt\" is the creator's own view and should be hedged (\"theo cảm nhận là khá đắt\" without naming anyone, e.g. \"có thể coi là đắt\")."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-10T05:36:08Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "\"Cả hai đều ảnh hưởng tới cách bể trông ra sao về sau\": the video doesn't say this. Remove the sentence.",
+        "\"Người dùng ở đây hài lòng, không hối tiếc\" and \"Người dùng ở đây thích nó\": \"ở đây\" points back to the creator and reads awkwardly. Rewrite it neutrally, for example as a hedged opinion such as \"có thể thấy rất đáng dùng\", with no reference to a person.",
+        "\"Câu trả lời ở đây khá thẳng: không thích vẻ ngoài của nó\": this refers to the creator and sounds like a translation. Rephrase it as a personal preference, for example \"nếu không thích vẻ ngoài của nền đất phủ cát thì có thể chọn phân nền sẵn\". Do not present it as a general rule.",
+        "\"biết một loại nền tốt trông và chạy ra sao\": the video only says the soil gives a baseline of what is really good to compare against. Remove \"chạy ra sao\" (how it performs) and keep it as a comparison baseline.",
+        "\"Một cây cọ sơn cũ là đủ để làm phẳng\": \"là đủ\" is stronger than the video. Soften it to \"có thể dùng\" a paintbrush, one person's choice.",
+        "\"Một bao 9 lít\": the video never mentions a bag. Say \"9 lít\" only."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
+    {
       "at": "2026-11-08T21:26:38Z",
       "model": "sonnet",
       "score": 0.45,
@@ -11458,6 +11491,17 @@
     }
   ],
   "vi/guides/youtube-NNh8zd3zZdo": [
+    {
+      "at": "2026-11-10T05:36:55Z",
+      "model": "sonnet",
+      "score": 0.75,
+      "notes": [
+        "\"nên đọc kỹ hộp trước khi mua\": the video only says to look at the box if you come across an Eheim filter, because it lists how the filter works. Remove \"trước khi mua\" or hedge it as \"có thể xem hộp để biết cách máy vận hành\".",
+        "\"chỉ rộng vài inch\": the unit is left in inches. Convert to metric (a few inches is about 5–8 cm) or say \"khá mỏng\"."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
     {
       "at": "2026-11-08T21:26:53Z",
       "model": "sonnet",
@@ -14676,6 +14720,34 @@
   ],
   "vi/guides/youtube-UJjK2Kn9zb0": [
     {
+      "at": "2026-11-10T05:39:02Z",
+      "model": "sonnet",
+      "score": 0.75,
+      "notes": [
+        "Summary bullet \"nên tính trước chuyện mút lọc bị tắc và nước bốc hơi rồi khoan lỗ tràn dự phòng\": only the clogged-sponge fix is overflow holes. The evaporation fix is small holes in the pump compartment below the weir teeth. Reword so it doesn't call both \"lỗ tràn\".",
+        "\"Loại đèn này chỉ để chiếu sáng cho đẹp và ngắm cá, không dành cho trồng cây hay nuôi san hô\" is repeated in the summary, the lighting section and the FAQ. Keep it once. Also, the video says plants or coral, so keep that wording but don't repeat it.",
+        "\"Có cách rửa loại cát này, nhưng với nhãn hiệu cát dùng ở đây thì gần như không cần rửa\" reads like a translation (\"Có cách rửa\"). Say naturally that the sand could normally be rinsed but this brand doesn't need it. The same stiff phrasing appears in the FAQ."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-10T05:39:02Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "\"vì băng dính sẵn trên dây dùng lâu sẽ bong\" states the creator's own experience as a general fact. Hedge it to one person's experience, e.g. \"theo kinh nghiệm, băng dính sẵn có thể bong dần sau một thời gian\".",
+        "\"Để chặn chuyện này, khoan vài lỗ nhỏ ở ngăn bơm\" presents the fix as the only way. The video says \"one way to combat that\". Rewrite it as \"một cách là khoan vài lỗ nhỏ ở ngăn bơm...\".",
+        "\"Bể có nắp kín nên nước bốc hơi rất chậm\" overstates. The video says the tank is \"well covered\", not sealed. Change \"kín\" to \"được đậy khá kỹ\" or similar.",
+        "\"Vi sinh ở đây là các vi khuẩn có lợi sống trong vật liệu lọc, chuyển chất thải độc của cá thành chất ít độc hơn.\" The video doesn't give this explanation. Remove the sentence or cut it to a plain definition of cycled media.",
+        "\"Cách làm từng bước dưới đây vẫn dùng được làm ví dụ cho những ai muốn tự set một bể tương tự.\" is awkward filler that reads like a translation. Delete it or rewrite it naturally.",
+        "\"Bước này làm trước lúc ráp bể cũng được.\" turns the creator's hedged remark (\"you could probably do this before\") into a firm instruction. Hedge it, e.g. \"có thể làm trước khi ráp bể, nhưng có nước trong bể thì dễ thử hơn\".",
+        "\"Để nền thật phẳng lúc đầu thì sau này dễ so sánh xem cá đã làm gì với nó.\" The video only says the flat sand is a stark example of what the fish can do. Reword it as an example of what the fish can do, not as advice."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
+    {
       "at": "2026-11-08T22:27:24Z",
       "model": "sonnet",
       "score": 0.45,
@@ -15507,6 +15579,29 @@
   ],
   "vi/guides/youtube-WlM3Dbgf10I": [
     {
+      "at": "2026-11-10T05:38:37Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "\"Đồ làm rẻ, cách làm đơn giản\": the video only says the filter floss is cheap and easy to replace. It never says the whole build is cheap. Remove \"đồ làm rẻ\" or limit it to the bông lọc."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-10T05:38:37Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "\"Đây là lọc váng cho bể nước ngọt\": the video never says freshwater. It only says this is not a saltwater protein skimmer. Remove \"nước ngọt\" and keep just the contrast with the protein skimmer.",
+        "\"Có cần tắt lọc hay vệ sinh thường xuyên không?\": the video never raises turning the filter off or cleaning \"thường xuyên\". Reword the question to the video's point, which is how to maintain it and whether it can run all the time.",
+        "\"mà mình muốn có thứ gì đó tự động vớt đi\": this reads like a literal translation. Rewrite naturally, for example \"muốn rác nổi được vớt đi tự động\".",
+        "\"trước khi máy đẩy ra lại bể\": the video does not describe water being pushed back into the tank. Remove this clause and end at \"được lọc cơ học\"."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
+    {
       "at": "2026-11-08T23:29:50Z",
       "model": "sonnet",
       "score": 0.45,
@@ -15719,6 +15814,38 @@
     }
   ],
   "vi/guides/youtube-XX61L_oweGg": [
+    {
+      "at": "2026-11-10T05:40:01Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "\"theo sức kéo của thứ treo trên nó\": the video only says the wood bows toward gravity. Remove the added cause about the pull of what hangs on it.",
+        "\"Nhìn qua máy quay thì ván trông như cong vênh\": this points to the camera and so to the video. Rewrite it neutrally or drop it.",
+        "\"Đèn định treo chủ yếu là đèn shop light dài khoảng 120 cm\" (also in the summary bullet): the video says only \"most likely\" four-foot shop lights. Hedge it as \"nhiều khả năng sẽ dùng\" instead of \"chủ yếu\".",
+        "\"Nhưng nó chỉ 18 W và không sáng lắm, nên cuối cùng không được chọn\" and the FAQ \"Vì đèn yếu nên cuối cùng nó không được chọn\": the video does not give a firm reason. The creator says he won't use these lights, mentions only 18 W, and says he also wants plants. State it as the creator's own choice without a causal claim.",
+        "FAQ \"Đèn shop light LED 15 đô có dùng cho bể trồng cây được không?\": the video never says whether this light suits planted tanks. Reword the question and answer to what was said (cheap, low power, 18 W, not very bright, not chosen) or remove it.",
+        "\"Giá treo đèn bằng ván gỗ để lâu có bị võng không?\": \"để lâu\" is not in the video, which only says the wood will bow. Remove the long-term claim."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-10T05:40:01Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "\"vì ở đây sẽ có rất nhiều bể\": the video doesn't give this as the reason for choosing shop lights. It only says there will be a lot of projects. Remove the causal link.",
+        "\"Các ván cao bằng nhau, chỉ lệch nhau khoảng 2,5 cm\": this contradicts itself. The video says one board is about an inch (2.5 cm) higher than the rest, though it looks much higher. Say that instead.",
+        "\"theo trọng lực và theo sức kéo của thứ treo trên nó\": the video only says the wood bows with gravity. Remove the part about the pull of what hangs on it.",
+        "\"chỉ còn thấy đèn treo phía trên bể\": the video only says the black boards would blend into the rock wall. Remove the claim that only the lights stay visible.",
+        "\"nên không hợp nếu muốn trồng cây\" (summary bullet): the video never says this light is unsuitable for plants. The creator just won't use it because it is only 18 W and not bright. Replace with that reason.",
+        "\"nó không hợp, kể cả cây dễ không cần nhiều ánh sáng\": this is an invented firm verdict. The video wants plants, even easy low-light ones, but doesn't rule this light out for them. Remove or hedge it.",
+        "FAQ \"muốn trồng cây, kể cả cây dễ, thì không nên dùng\": this is advice the video doesn't give. Remove it and say only that the creator decided not to use the light because it is weak.",
+        "FAQ \"Nên treo ván cao bao nhiêu?\": this presents one person's setup (203 cm, 46 cm gap) as the answer to a general question. Hedge it as one way (\"một cách là…\") or reword it as what this setup uses."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
     {
       "at": "2026-11-08T15:28:44Z",
       "model": "sonnet",
@@ -20912,6 +21039,19 @@
   ],
   "vi/guides/youtube-hL271pKi_qY": [
     {
+      "at": "2026-11-10T05:34:05Z",
+      "model": "sonnet",
+      "score": 0.75,
+      "notes": [
+        "\"thay hoặc giặt bông lọc\" (summary) and \"Lấy lớp lọc cơ học ra giặt hoặc thay mới\" (cleaning steps): the video only says to remove or replace the mechanical media. Remove \"giặt\" (rinsing) from both places.",
+        "\"Đóng nắp lại, vặn thật chặt.\" (cleaning step 4): the video doesn't say to tighten the lid again during cleaning. It only says \"putting the cap back on\". Change it to just closing the lid.",
+        "\"Uniseal là loại gioăng cao su\": the video never says what the Uniseal is made of. Remove \"cao su\" and say only that it works like a bulkhead.",
+        "\"Khoan một lỗ ở phần dưới thành xô, sát đáy\": \"sát đáy\" (right at the bottom) is not in the video, which says only the lower part of the side. Drop \"sát đáy\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    },
+    {
       "at": "2026-11-08T21:25:38Z",
       "model": "sonnet",
       "score": 0.45,
@@ -23023,6 +23163,44 @@
     }
   ],
   "vi/guides/youtube-lnOzt5QoSzY": [
+    {
+      "at": "2026-11-10T05:34:50Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "\"Keo tản nhiệt để bôi lên mạch trước khi gắn bóng\" is listed as a separate item from the silicon heat-sink glue. The video only says to apply \"kéo tả nhiệt\" (probably thermal paste/glue) before mounting the LEDs. Treating them as two products is shaky; merge or clarify them as the video does, without inventing a distinction.",
+        "\"Bảng mạch để hàn bóng lên, mỗi mạch gắn 15 bóng\": the transcript says \"dùng 15 led\" for the build overall, not 15 per board. Correct to \"dùng 15 bóng LED\" without claiming 15 per board.",
+        "\"WRGB, tức là đèn có bóng trắng ghép với bóng đỏ, xanh lá và xanh dương\" is a definition the video never gives. Remove it or keep only the colours the video lists (đỏ, xanh dương, xanh lá, trắng 8500K, trắng 6500K).",
+        "\"Nguồn ổn dòng 48 V (LED driver) để cấp điện cho các bóng\": the \"LED driver\" label and the stated purpose come from outside the video (it only says nguồn ổn dòng 48V). Remove the added explanation.",
+        "\"Khi đặt mạch để hàn, xoay chữ trên mạch theo một hướng cố định\": this is vague and garbled. The video says the creator places the board with the letters facing one direction for himself. Hedge it as one way to do it, or drop it.",
+        "\"Nhìn kỹ chân bóng: đầu có dấu cộng là cực dương, đầu còn lại là cực âm. Đặt bóng cho đúng cực theo mạch\" adds detail. The transcript is garbled here and doesn't clearly say which end goes where on the board. Keep only that the plus mark means positive and the other end is negative; drop \"chân bóng\" and \"đúng cực theo mạch\".",
+        "\"Chọn dây màu trắng để dây không lộ ra ngoài\" is stated as firm advice. In the video it is one person's suggestion (\"nên tìm\"). Hedge it, e.g. \"có thể chọn dây màu trắng cho khó thấy\".",
+        "\"Phía sau lưng máng ốp 4 quạt tản nhiệt 12 V. Những đoạn ở giữa thì vặn ốp vào\" is unclear and copied nearly word for word from the transcript. Reword it, and say plainly that the fans are fitted behind the board without inventing a method for the middle sections.",
+        "The summary bullets repeat the body almost sentence by sentence (máng, phối màu, mạch lẻ chẵn, quạt). The prose also keeps a note-like style with short clauses. Rewrite in more natural, connected Vietnamese and cut the duplication.",
+        "\"Mạch chia hai nhóm lẻ và chẵn\" and \"Bắt đầu với các mạch lẻ 1, 3, 5, 7, 9, 11\": the video only says it starts soldering the odd boards first. Stating this as a fixed first step and \"11 mạch\" as the standard setup is stronger than the video. Hedge it as how this build was done (\"có thể hàn các mạch lẻ trước\")."
+      ],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-10T05:34:50Z",
+      "model": "sonnet",
+      "score": 0.5,
+      "notes": [
+        "\"Luxeon\" / \"loại Luxeon\": the transcript only has a mishearing (\"Lucian on xe ôm\"); the brand is not clear, so remove the brand and say only 1 W LED bulbs.",
+        "\"Mỗi màu bóng phải nằm đúng chỗ và đúng tỉ lệ thì đèn mới chuẩn\": \"đúng tỉ lệ\" is invented; the video only says colours must be mixed correctly. Remove the ratio claim.",
+        "\"Bảng mạch tròn\" / \"mạch tròn 15 bóng\": \"tròn\" (round) is not in the video (the transcript only says 15 LEDs and PCBs for soldering). Remove \"tròn\".",
+        "\"nên ánh sáng từ các màu không dồn vào một chỗ\": this reason for staggering is not given in the video. Remove it.",
+        "\"Nhóm chẵn chỉ cần gắn đúng màu vào đúng vị trí là được\" and \"giữ cùng một hướng cho mọi mạch để xếp màu không bị lệch\": the video only says to orient the text one way for the layout; the claimed reasons and the even-group instruction are invented. Remove or reduce to what is said.",
+        "\"Máng vừa để đỡ LED vừa để tản nhiệt\" appears together with \"Keo tản nhiệt để bôi lên mạch trước khi gắn bóng\" and \"Những đoạn ở giữa thì vặn ốp vào cho chắc\": \"cho chắc\" is invented; remove it.",
+        "\"Mạch được dán vào máng bằng keo silicon tản nhiệt\": the video does not say what the silicon glue is applied to; hedge or remove the claim that the circuits are glued to the trough.",
+        "\"rồi đấu vào nguồn ổn dòng 48 V\" (in the wiring section and FAQ): the video does not say the paralleled circuits are connected to the driver. Remove this.",
+        "\"Nên dùng dây màu trắng\" with \"Các mạch hàn song song\" is stated twice in the guide (summary, section, FAQ) and the summary repeats the body; the FAQ block and the bullet summary largely duplicate the text sentence by sentence, so cut the repetition.",
+        "\"Làm theo cách này thì chọn được màu bóng và cách xếp bóng theo ý mình\" and \"Bể 1,2 m cần một dàn đèn đủ dài và đủ màu cho cây\": benefit and need claims not in the video. Remove them."
+      ],
+      "attempt": "first",
+      "kept": false
+    },
     {
       "at": "2026-11-08T15:30:20Z",
       "model": "sonnet",
@@ -25229,6 +25407,16 @@
     }
   ],
   "vi/guides/youtube-rX-M8H1iGvM": [
+    {
+      "at": "2026-11-10T05:37:13Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"Kiểu này vẫn để hở trọn miệng sump, thò tay vào lúc nào cũng được\": the video only says Euro-style bracing keeps full access to the sump. Cut the \"thò tay vào lúc nào cũng được\" embellishment and write that the miệng sump stays fully accessible."
+      ],
+      "attempt": "first",
+      "kept": true
+    },
     {
       "at": "2026-11-08T21:28:42Z",
       "model": "sonnet",

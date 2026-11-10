@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-10",
   "video": {
     "youtubeId": "lnOzt5QoSzY",
     "title": "Hướng Dẫn Chế Đèn Led WRGB 1,2M cho Bể Thủy Sinh",
@@ -32,162 +32,180 @@
         "category": "den",
         "type": "thuy-sinh",
         "brand": "Luxeon",
+        "model": "1w",
         "t": 0
       },
       {
-        "category": "loc",
-        "type": "suc-khi",
-        "t": 93
-      },
-      {
-        "category": "thuc-an",
-        "type": "kho",
-        "t": 150
+        "category": "be-ca",
+        "type": "lon",
+        "t": 0
       }
     ],
     "figures": [
       {
-        "heading": "Cần chuẩn bị những gì",
+        "heading": "Cần chuẩn bị những linh kiện gì",
         "moments": [
           {
-            "t": 198,
-            "url": "https://media.aquatome.com/video/lnOzt5QoSzY/t198.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Máng đèn nhôm, mạch tròn và nguồn được bày ra trên bàn."
+            "t": 200,
+            "url": "https://media.aquatome.com/video/lnOzt5QoSzY/at200-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Các linh kiện làm đèn: máng đèn, nguồn, bảng mạch và bóng LED.",
+            "sharpness": 1431.9
           },
           {
-            "t": 218,
-            "url": "https://media.aquatome.com/video/lnOzt5QoSzY/t218.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Hai mạch tròn dùng để hàn bóng LED."
+            "t": 210,
+            "url": "https://media.aquatome.com/video/lnOzt5QoSzY/at210-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Nguồn ổn dòng LED driver dùng để cấp điện cho các bóng.",
+            "sharpness": 810.3
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/lnOzt5QoSzY/p0-RfZHJpdmVyLkpQRw.webp",
-          "thumb": "https://media.aquatome.com/video/lnOzt5QoSzY/p0-RfZHJpdmVyLkpQRw-480.webp",
-          "width": 960,
-          "height": 541,
-          "licence": "CC BY-SA 3.0",
-          "author": "Dmitry G",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:10W_LED_driver.JPG",
-          "caption": "Nguồn LED driver tháo vỏ, thấy rõ mạch bên trong."
-        }
+        ]
       },
       {
         "heading": "Vì sao phải phối màu cho đúng",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/lnOzt5QoSzY/p1-1bV9MaWdodC5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/lnOzt5QoSzY/p1-1bV9MaWdodC5qcGc-480.webp",
-          "width": 960,
-          "height": 666,
-          "licence": "CC BY-SA 3.0",
-          "author": "Lime Huang",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_Aquarium_Light.jpg",
-          "caption": "Bể thủy sinh cây xanh tốt dưới hệ đèn LED gắn phía trên."
-        }
+        "moments": [
+          {
+            "t": 220,
+            "url": "https://media.aquatome.com/video/lnOzt5QoSzY/at220-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Hai tấm bo đèn LED tròn dùng để gắn các bóng màu.",
+            "sharpness": 1584.4
+          },
+          {
+            "t": 240,
+            "url": "https://media.aquatome.com/video/lnOzt5QoSzY/at240-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bo mạch đèn LED tròn và các bóng LED rời chuẩn bị để phối màu.",
+            "sharpness": 2239.7
+          }
+        ]
       },
       {
-        "heading": "Bố trí mạch lẻ và mạch chẵn",
-        "moments": [],
+        "heading": "Chia mạch lẻ, mạch chẵn và xếp màu",
+        "moments": [
+          {
+            "t": 250,
+            "url": "https://media.aquatome.com/video/lnOzt5QoSzY/at250-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Sơ đồ hàn trên điện thoại cho thấy các ô màu trên mạch lẻ.",
+            "sharpness": 1472.7
+          },
+          {
+            "t": 280,
+            "url": "https://media.aquatome.com/video/lnOzt5QoSzY/at280-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đối chiếu sơ đồ hàn với các mạch tròn đã đặt trên bàn.",
+            "sharpness": 2620.3
+          }
+        ],
         "photo": {
-          "url": "https://media.aquatome.com/video/lnOzt5QoSzY/p2-FyZC0wNTQ4LmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/lnOzt5QoSzY/p2-FyZC0wNTQ4LmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/lnOzt5QoSzY/p2-UmVkLTI0NDMuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/lnOzt5QoSzY/p2-UmVkLTI0NDMuanBn-480.webp",
           "width": 960,
-          "height": 960,
+          "height": 540,
           "licence": "CC BY-SA 4.0",
           "author": "Raimond Spekking",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amazon_Echo_Dot_(RS03QR)_-_LED_and_microphone_board-0548.jpg",
-          "caption": "Mạch tròn có đèn LED xếp quanh mép, chữ in trên mạch giúp xác định hướng."
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Duo_SMD_LED_Module_on_a_printed_circuit_board._Red-2443.jpg",
+          "caption": "Mạch in xanh có chữ in sẵn, gắn một ô LED đỏ và dây hàn."
         }
       },
       {
-        "heading": "Hàn bóng lên mạch",
+        "heading": "Gắn bóng lên mạch",
         "moments": [
           {
-            "t": 316,
-            "url": "https://media.aquatome.com/video/lnOzt5QoSzY/t316.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đặt bóng LED lên mạch tròn đã bôi keo tản nhiệt."
+            "t": 330,
+            "url": "https://media.aquatome.com/video/lnOzt5QoSzY/at330-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh bóng LED cầm trên tay, nhìn rõ chân bóng để xác định cực.",
+            "sharpness": 101.1
           },
           {
-            "t": 326,
-            "url": "https://media.aquatome.com/video/lnOzt5QoSzY/t326.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh một bóng LED cần xác định chân dương, chân âm trước khi hàn."
+            "t": 340,
+            "url": "https://media.aquatome.com/video/lnOzt5QoSzY/at340-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Dùng nhíp đặt bóng LED lên mạch tròn đã bôi keo tản nhiệt.",
+            "sharpness": 1615
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/lnOzt5QoSzY/p3-TTURfMzUyOC5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/lnOzt5QoSzY/p3-TTURfMzUyOC5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/lnOzt5QoSzY/p3-Nzg0OTMwNSkuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/lnOzt5QoSzY/p3-Nzg0OTMwNSkuanBn-480.webp",
           "width": 960,
-          "height": 863,
-          "licence": "CC BY-SA 3.0",
-          "author": "Andrey Gvrv",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:LED_strip_SMD_3528.jpg",
-          "caption": "Mạch LED có in dấu cộng cạnh mỗi bóng để xác định chiều chân."
+          "height": 929,
+          "licence": "CC BY 2.0",
+          "author": "bengt-re from Sweden",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rebel_star_CW80_(5047849305).jpg",
+          "caption": "Bóng LED công suất gắn trên mạch sao, có ký hiệu cực dương và cực âm."
         }
       },
       {
-        "heading": "Gắn mạch vào máng và tản nhiệt",
+        "heading": "Lắp mạch vào máng và gắn quạt",
         "moments": [
           {
-            "t": 544,
-            "url": "https://media.aquatome.com/video/lnOzt5QoSzY/t544.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Các mạch LED đã được dán vào lòng máng nhôm."
+            "t": 550,
+            "url": "https://media.aquatome.com/video/lnOzt5QoSzY/at550-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Các mạch đèn LED tròn đã được dán dọc theo máng nhôm.",
+            "sharpness": 1303
           },
           {
-            "t": 554,
-            "url": "https://media.aquatome.com/video/lnOzt5QoSzY/t554.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Ốp quạt 12V vào sau lưng máng để tản nhiệt."
+            "t": 560,
+            "url": "https://media.aquatome.com/video/lnOzt5QoSzY/at560-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cầm hai quạt tản nhiệt 12 V để gắn vào lưng máng đèn.",
+            "sharpness": 1477.2
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/lnOzt5QoSzY/p4-hlYXRzaW5rLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/lnOzt5QoSzY/p4-hlYXRzaW5rLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/lnOzt5QoSzY/p4-zXzEzNV9tbS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/lnOzt5QoSzY/p4-zXzEzNV9tbS5qcGc-480.webp",
           "width": 960,
-          "height": 640,
+          "height": 723,
           "licence": "CC BY-SA 4.0",
-          "author": "Blackcat",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Arctic_Freezer_13_heatsink.jpg",
-          "caption": "Tản nhiệt nhôm có ống đồng gắn trên mạch, minh họa việc tản nhiệt cho đèn."
+          "author": "Jacek Halicki",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:2023_Wentylator_be_quiet!_Silent_Wings_135_mm.jpg",
+          "caption": "Quạt tản nhiệt máy tính màu đen, loại thường dùng làm quạt làm mát cho máng đèn."
         }
       },
       {
-        "heading": "Nối các mạch với nguồn",
+        "heading": "Đấu dây các mạch",
         "moments": [
           {
-            "t": 643,
-            "url": "https://media.aquatome.com/video/lnOzt5QoSzY/t643.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cuộn dây điện trắng cạnh các mạch LED tròn đặt trong máng."
+            "t": 650,
+            "url": "https://media.aquatome.com/video/lnOzt5QoSzY/at650-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cuộn dây điện dùng để nối song song các mạch đèn LED.",
+            "sharpness": 468.5
           },
           {
-            "t": 653,
-            "url": "https://media.aquatome.com/video/lnOzt5QoSzY/t653.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Dùng kìm cắt dây để nối các mạch LED tròn."
+            "t": 660,
+            "url": "https://media.aquatome.com/video/lnOzt5QoSzY/at660-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Các mạch đèn LED gắn trên thanh nhôm, chuẩn bị đấu dây với kìm.",
+            "sharpness": 630.2
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/lnOzt5QoSzY/p5-fdGlubmluZy5KUEc.webp",
-          "thumb": "https://media.aquatome.com/video/lnOzt5QoSzY/p5-fdGlubmluZy5KUEc-480.webp",
+          "url": "https://media.aquatome.com/video/lnOzt5QoSzY/p5-fYm9hcmRfMi5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/lnOzt5QoSzY/p5-fYm9hcmRfMi5qcGc-480.webp",
           "width": 960,
-          "height": 897,
+          "height": 717,
           "licence": "CC BY-SA 3.0",
-          "author": "Dmitry G",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wire_tinning.JPG",
-          "caption": "Dụng cụ nối dây điện: kìm cắt dây, mỏ hàn, thiếc hàn và dây điện."
+          "author": "Wsnyder0080",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Circuit_board_2.jpg",
+          "caption": "Mạch điện tự chế được nối bằng dây điện, đặt cạnh bể nước."
         }
       }
     ]
