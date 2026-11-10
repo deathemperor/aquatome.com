@@ -64,6 +64,10 @@ Two runs of our own checks from before our network was marked are left out by ti
 (`OUR_RUNS`, `worker/admin/ae.ts`): tabs from Vietnam on 7 November, 20:40 to 21:24 UTC (56), and on 8 November, 00:28 to
 00:44 UTC (23). They were a third of the tabs counted until then, so the week's sessions dip; the readers page lists them.
 
+The language chooser's table (readers page) counts views of the page at `aquatome.com/`, not visitors, and only when a
+small script on it runs in a browser, so a program that runs no script isn't a view. Our Lighthouse check counted 87 of them
+on 5 November, before it said it was ours; those are left out and listed with the other runs.
+
 ## Act
 
 | Key | What it counts | Baseline |
