@@ -1,4 +1,7 @@
 import { ct } from './ct'
+import { NOCOUNT } from '../lib/beacon'
+import { TERM_PAGE } from '../../worker/events'
+import { VISITOR_STATS } from '../../worker/stats-switch'
 
 type Box = { left: number; top: number; bottom: number }
 /** Where the card goes (viewport px): under the term, or over it when there's no room below; never off the sides. */
@@ -11,6 +14,19 @@ export function placeTip(term: Box, w: number, h: number, viewW: number, viewH: 
 /** Glossary terms, and source marks (lib/cite.ts: a text source's number, a photo's ©), which use the same card. */
 // A photo's © has no tip when it has no licence to name: its card is its author and the link to the photo's page.
 const SEL = 'a.gl[data-tip], a.cite[data-tip], a.cite.pic'
+
+/**
+ * A tap that showed a glossary term's card, or its link followed: which term, on which page, in the tab's session (the
+ * beacon's), and nothing after «Không đếm tôi». Only a term's: a source's mark and a data card's label share the card.
+ */
+function count(t: 'tip' | 'tipmore', a: HTMLAnchorElement) {
+  const x = new URL(a.href).pathname
+  if (!VISITOR_STATS || !a.matches('a.gl') || !TERM_PAGE.test(x)) return
+  try {
+    const sid = sessionStorage.getItem('ts_sid')
+    if (sid && !localStorage.getItem(NOCOUNT)) navigator.sendBeacon('/_e', JSON.stringify({ p: location.pathname.slice(0, 200), t, v: 1, sid, x }))
+  } catch { /* storage blocked: not counted */ }
+}
 
 /**
  * Glossary terms in the text (a.gl, dotted underline, with data-term / data-tip): hovering or focusing one shows what it
@@ -45,6 +61,7 @@ export function initGlossaryTips() {
       more.href = a.href
       if (a.rel) more.rel = a.rel
       more.textContent = a.dataset.more ?? ct('Đọc thêm →')
+      more.addEventListener('click', () => count('tipmore', a))
       tip.append(more)
     }
     tip.classList.toggle('tapped', tapped)
@@ -88,7 +105,10 @@ export function initGlossaryTips() {
     if (!a || !touch) return
     e.preventDefault()
     if (open === a) hide()
-    else show(a, true)
+    else {
+      show(a, true)
+      count('tip', a)
+    }
   })
   document.addEventListener('keydown', e => { touch = false; if (e.key === 'Escape') hide() })
   addEventListener('resize', hide)

@@ -36,6 +36,15 @@ test('the privacy page says an account keeps the id of the profile picture its r
   expect(page('/th/privacy/').dom.textContent).toContain('รูปโปรไฟล์ที่คุณเลือกจากชุดรูปปลาในแอป (เก็บเฉพาะรหัสของรูป);')
 })
 
+test('the privacy page says a tap on a glossary term\'s card is counted, with the term, in every language', () => {
+  const vi = page('/chinh-sach-bao-mat/').dom.textContent
+  expect(vi).toContain('lượt chạm mở thẻ giải thích một thuật ngữ hoặc bấm “Đọc thêm” trên thẻ đó (kèm thuật ngữ đó)')
+  expect(vi).toContain('taps that open a glossary term\'s card or follow its "Đọc thêm" (read more) link (with the term)')
+  expect(page('/id/kebijakan-privasi/').dom.textContent).toContain('mengikuti tautan “Baca selengkapnya” pada kartu itu (beserta istilahnya)')
+  expect(page('/th/privacy/').dom.textContent).toContain('แตะลิงก์ “อ่านเพิ่มเติม” บนการ์ดนั้น (พร้อมคำศัพท์นั้น)')
+  expect(page('/ms/dasar-privasi/').dom.textContent).toContain('mengikuti pautan “Baca lagi” pada kad itu (berserta istilahnya)')
+})
+
 test('the privacy page names the device word and says nothing else about the device is kept, in every language', () => {
   const vi = page('/chinh-sach-bao-mat/').dom.textContent
   expect(vi).toContain('quốc gia, loại thiết bị (điện thoại, máy tính bảng hay máy tính), mức cuộn')
