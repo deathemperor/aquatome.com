@@ -21,6 +21,21 @@ async function speciesWithVideo(request: APIRequestContext): Promise<string> {
   throw new Error('no species page has a video')
 }
 
+// The owner's report (2026-11-10): a Vietnamese page listing English titles. Read from the page, so it holds on the fixture
+// build and on aquatome.com: the title against the original the page keeps, not a guess at its language.
+test("a species page's videos read in the page's language", async ({ page, request }) => {
+  await page.goto(await speciesWithVideo(request))
+  const rows = await page.locator('.videos li p').evaluateAll(ps => ps.map(p => ({ title: p.firstChild?.textContent ?? '', from: p.getAttribute('data-title-from'), under: p.querySelector('small')?.textContent ?? '' })))
+  expect(rows.length).toBeGreaterThan(0)
+  for (const r of rows) {
+    expect(r.under, 'its language is a word, not a code').not.toMatch(/\b[A-Z]{2}(-[A-Z]{2})?\b/)
+    if (!r.under.includes('tiếng Việt')) {
+      expect(r.from, `"${r.title}" keeps its original beside it`).toBeTruthy()
+      expect(r.title, 'and it was translated').not.toBe(r.from)
+    }
+  }
+})
+
 test("a species page's video plays where it was tapped", async ({ page, request, errors }) => {
   await page.goto(await speciesWithVideo(request))
   await page.locator('.videos button[data-youtube-id]').first().click()

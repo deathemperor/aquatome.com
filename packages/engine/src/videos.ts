@@ -18,6 +18,13 @@ const KEEP = { type: 'object', properties: { keep: { type: 'array', items: { typ
 export const readVideoRejected = async (root: string) =>
   JSON.parse(await readFile(join(root, 'engine-state/_video-rejected.json'), 'utf8').catch(() => '{}')) as Record<string, string>
 
+/**
+ * Videos made by generation, `youtubeId → what we saw` (content/video-generated.json, by hand after a look): they stay on
+ * their species page with an AI label, and none feeds a guide (nor so a still). The owner, 2026-11-10.
+ */
+export const readVideoGenerated = async (root: string) =>
+  JSON.parse(await readFile(join(root, 'content/video-generated.json'), 'utf8').catch(() => '{}')) as Record<string, string>
+
 /** 2–4 relevant YouTube videos, none of `skip` (the rejected ones); [] when no YOUTUBE_API_KEY is configured. */
 export async function findVideos(names: string[], llm: Llm, http: (url: string) => Promise<unknown>, o: { apiKey?: string; skip?: Record<string, string> } = {}): Promise<Video[]> {
   const apiKey = o.apiKey ?? process.env.YOUTUBE_API_KEY
