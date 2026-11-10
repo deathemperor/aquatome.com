@@ -48,20 +48,26 @@ def start(args):
 
 
 def guard(seconds, closed_when_holder_goes, command):
-    """Runs the command, in this process's group, and stops the group at the limit or when the holder has gone, however it
+    """Runs the command in a group of its own and stops the group at the limit or when the holder has gone, however it
     went: the holder keeps the pipe's other end open, and the system closes it even after a SIGKILL."""
-    child = subprocess.Popen(command)
+    child = subprocess.Popen(command, start_new_session=True)
+
+    def signal_command(signum):
+        try:
+            os.killpg(child.pid, signum)
+        except (ProcessLookupError, PermissionError):  # it has just ended
+            pass
+
     deadline = time.time() + seconds
     while child.poll() is None:
         holder_gone = select.select([closed_when_holder_goes], [], [], 0.1)[0]
         out_of_time = time.time() > deadline
         if holder_gone or out_of_time:
-            signal.signal(signal.SIGTERM, signal.SIG_IGN)  # the group's stop is for the command
-            os.killpg(0, signal.SIGTERM)
+            signal_command(signal.SIGTERM)
             try:
                 child.wait(5)
             except subprocess.TimeoutExpired:
-                os.killpg(0, signal.SIGKILL)
+                signal_command(signal.SIGKILL)
             os._exit(124 if out_of_time else 1)
     sys.exit(child.returncode if child.returncode >= 0 else 128 - child.returncode)
 
@@ -106,7 +112,8 @@ def holding(wrapper, minutes, command):
         print("not recorded: still too loaded", file=sys.stderr)
         sys.exit(NOT_RECORDED)
 
-    # A session of its own: its group is what gets stopped. Started after the pipe, so a stop landing here still closes it.
+    # A session of its own, so a signal to the queue's group can't take the guard down. Started after the pipe, so a stop
+    # landing here still closes it.
     runner = subprocess.Popen([sys.executable, os.path.realpath(__file__), "--guard", str(minutes * MINUTE), str(read_end), *command],
                               start_new_session=True, pass_fds=(read_end,))
     os.close(read_end)

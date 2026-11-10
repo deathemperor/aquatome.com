@@ -276,6 +276,7 @@ test('killed while it waits for the Mac to quieten, it gives the checks turn bac
   rec.kill('SIGKILL')
   await r.until(() => r.probe('checks.lock') === 'free')
   expect(r.has('recorded')).toBe(false)
+  writeFileSync(join(r.m.home, 'load'), '50') // its load check, left running, ends with the Mac quiet
 }, 60_000)
 
 test('no checks turn in time: it gives the simulator turn back without recording', async () => {
@@ -325,6 +326,16 @@ test('a recording that runs out of time stops, and its limit is 20 minutes at mo
   const m = mac()
   expect(spawnSync(QUIET, ['21', 'true'], { encoding: 'utf8', env: m.env }).status).toBe(64)
   expect(spawnSync(QUIET, ['true'], { encoding: 'utf8', env: m.env }).status).toBe(0)
+}, 60_000)
+
+test('at the limit a command that ignores the stop is killed, and the exit still says it ran out of time', async () => {
+  const r = recording()
+  const stubborn = ['sh', '-c', `trap '' TERM; echo $$ > ${r.m.home}/pid; for i in $(seq 1200); do sleep 0.05; done`]
+  const rec = spawn(QUIET, ['1', ...stubborn], { env: { ...r.m.env, QUIET_MINUTE_SECONDS: '1' }, stdio: 'ignore' })
+  expect(await r.closed(rec)).toBe(124)
+  const pid = Number(readFileSync(join(r.m.home, 'pid'), 'utf8'))
+  await r.until(() => { try { process.kill(pid, 0); return false } catch { return true } })
+  expect(r.probe('sim.lock')).toBe('free')
 }, 60_000)
 
 test('a command that takes a queue itself is refused: it would wait for its own turn', () => {
