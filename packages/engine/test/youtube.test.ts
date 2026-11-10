@@ -5,6 +5,8 @@ import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { LlmError } from '../src/claude'
+import { fitRules } from '../src/fit'
+import type { Page } from '../src/pages'
 import { logReviews, readReviews } from '../src/review-log'
 import { chaptersFrom, crowdLines, parseTranscript, recheckedGuides, retry403, reviewDraft, storyboardInterval, videoGuides, ytApi, type VideoMeta, type YouTube } from '../src/youtube'
 
@@ -79,7 +81,7 @@ test('videoGuides writes a sanitised guide with video, series and quality; done 
   expect(vi.slug).toBe('cach-han-che-reu-hai-trong-be-thuy-sinh')
   expect(vi.body).toBe(`<p>Mở đầu.</p><h3>Vì sao rêu mọc</h3><p>Ánh sáng.</p><p>${LONG}</p>`)
   expect(vi.chapters).toEqual(['Mở đầu', 'Thay nước'])
-  expect(vi.faq).toEqual([{ q: 'Bao lâu thay nước?', a: 'Mỗi tuần, khoảng 19 lít.' }])
+  expect(vi.faq).toEqual([{ q: 'Bao lâu thay nước?', a: 'Mỗi tuần, khoảng 20 lít.' }])
   expect(vi.quality).toEqual({ score: 0.9, indexable: true, bySource: { youtube: 0.9 } })
   expect(await read(root, 'content/series/PL1.json')).toMatchObject({ playlistId: 'PL1', videoIds: ['a1'], vi: { slug: 'reu-hai-biet-de-tri', name: 'Rêu hại: biết để trị' } })
   expect((await read(root, 'content/changelog.json'))[0]).toMatchObject({ kind: 'guide', id: 'youtube-a1', source: 'youtube', action: 'new' })
@@ -390,6 +392,23 @@ test('redo keeps a FAQ fixed by hand', async () => {
   await writeFile(file, JSON.stringify({ ...(await read(root, 'content/guides/youtube-a1/vi.json')), body: '<p>người sửa</p>', bodyFixed: true, faq, faqFixed: true }))
   await videoGuides(deps(root, { drafts: [draft('Tiêu đề mới')] }).d, { playlists: ['PL1'], redo: true })
   expect(await read(root, 'content/guides/youtube-a1/vi.json')).toMatchObject({ name: 'Tiêu đề mới', body: '<p>người sửa</p>', bodyFixed: true, faq, faqFixed: true })
+})
+
+// The video jobs go videos, sweep, gate, with no rounding step between (engine-cycle.sh has one: `pnpm engine metric`).
+// So a draft's "bể 10 gallon" reached the gate as "bể 38 lít", which its units rule finds, and the new text was put back:
+// units was among the reasons for 26 of the 84 guides put back in the recheck job's runs of 8 to 10 Nov 2026.
+test('a volume a gallon conversion gives is rounded where the guide is written, so the gate finds no unit to put it back for', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'yt-'))
+  const d = { ...draft('Bể cho cá mới'), summary: ['Một bể 10 gallon là đủ.'], body: `<p>Bể 20 gallon dễ giữ ổn định hơn bể 10 gallon.</p><p>${LONG}</p>`, faq: [{ q: 'Bể bao lớn?', a: 'Từ 10 gallon trở lên.' }] }
+  await videoGuides(deps(root, { drafts: [d] }).d, { playlists: ['PL1'] })
+  const vi = await read(root, 'content/guides/youtube-a1/vi.json')
+  expect(vi.summary).toEqual(['Một bể 40 lít là đủ.'])
+  expect(vi.body).toContain('Bể 80 lít dễ giữ ổn định hơn bể 40 lít.')
+  expect(vi.faq[0].a).toBe('Từ 40 lít trở lên.')
+  const page: Page = { lang: 'vi', kind: 'guides', id: 'youtube-a1', title: vi.name, path: `/vi/huong-dan/${vi.slug}/`, fields: [{ field: 'body', html: vi.body }], lines: [{ field: 'summary.0', text: vi.summary[0] }, { field: 'faq.0.a', text: vi.faq[0].a }], captions: [], latinNames: [], card: [] }
+  expect(fitRules(page).filter(f => f.check === 'units')).toEqual([])
+  // What the gate found before: the same page with the figures as the writer converts them.
+  expect(fitRules({ ...page, fields: [{ field: 'body', html: '<p>Bể 76 lít dễ giữ ổn định hơn bể 38 lít.</p>' }] }).filter(f => f.check === 'units').length).toBeGreaterThan(0)
 })
 
 test('redo rewrites a written guide with the same slug and cover; the reviewer is told the channel', async () => {
