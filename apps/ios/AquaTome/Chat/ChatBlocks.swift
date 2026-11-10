@@ -311,13 +311,7 @@ private struct CompareBlock: View {
   @ViewBuilder private func row(_ r: Row) -> some View {
     Divider()
     VStack(alignment: .leading, spacing: 3) {
-      HStack(spacing: 4) {
-        Text(r.label).font(.footnote).foregroundStyle(.secondary)
-        if r.differs.differ {
-          Text(verbatim: "·").font(.footnote.weight(.semibold)).foregroundStyle(.tint)
-          Text("khác").font(.footnote.weight(.semibold)).foregroundStyle(.tint)
-        }
-      }
+      Text(heading(r)).font(.footnote)
       if size.isAccessibilitySize {
         ForEach(Array(cards.indices), id: \.self) { i in Text(whose(r, i)).font(.subheadline) }
       } else {
@@ -335,6 +329,17 @@ private struct CompareBlock: View {
     .padding(.vertical, 7)
     .accessibilityElement(children: .ignore)
     .accessibilityLabel(Text(spoken(r)))
+  }
+
+  /// A row's label, then "· khác" in the tint when its figures differ.
+  private func heading(_ r: Row) -> AttributedString {
+    var line = AttributedString(r.label)
+    line.foregroundColor = .secondary
+    guard r.differs.differ else { return line }
+    var mark = AttributedString(" · " + String(localized: "khác"))
+    mark.foregroundColor = .accentColor
+    mark.font = .footnote.weight(.semibold)
+    return line + mark
   }
 
   /// "Cá đĩa: **Khó 7/8**": the name quiet, the figure bold only when it alone differs.
@@ -415,12 +420,6 @@ private struct SectionBlock: View {
 
   private var fits: Bool { closed == nil }
 
-  /// Below the cut, closed: off the screen, so off VoiceOver's too. "Mở" brings it.
-  private func pastCut(_ i: Int) -> Bool {
-    guard !opened, let closed else { return false }
-    return drawn.indices.prefix(i).reduce(CGFloat(0)) { $0 + (heights[$1] ?? line) + gap } >= closed
-  }
-
   /// The parts shown open: whole ones, up to about fifteen lines (at least one).
   private var openCount: Int {
     var sum: CGFloat = 0
@@ -454,9 +453,7 @@ private struct SectionBlock: View {
       if !drawn.isEmpty {
         VStack(alignment: .leading, spacing: gap) {
           ForEach(Array(drawn.prefix(shown).enumerated()), id: \.offset) { i, p in
-            SectionPart(part: p)
-              .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { heights[i] = $0 }
-              .accessibilityHidden(pastCut(i))
+            SectionPart(part: p).onGeometryChange(for: CGFloat.self) { $0.size.height } action: { heights[i] = $0 }
           }
         }
         .font(.subheadline)
@@ -699,6 +696,8 @@ private struct ToolBlock: View {
             .padding(.top, 6)
           }
         }
+        // Beside the chevron's spacer its lines were measured a line short, and the last cut with "…".
+        .fixedSize(horizontal: false, vertical: true)
         if !large {
           Spacer(minLength: 0)
           if canGo {

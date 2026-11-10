@@ -557,10 +557,10 @@ final class ChatFlowTests: XCTestCase {
     let open = app.buttons.matching(identifier: "chat-card-open").element(boundBy: 0)
     reveal(app, open)
     open.tap()
-    let page = element(app, "native-page")
+    let page = element(app, "v2-species")
     XCTAssertTrue(page.waitForExistence(timeout: 10), "no page")
     XCTAssertTrue(page.descendants(matching: .any).matching(NSPredicate(format: "label BEGINSWITH 'Cá neon'")).firstMatch.exists, "not the card's page")
-    app.navigationBars.buttons.firstMatch.tap()
+    app.buttons["v2-back"].tap()
     let put = app.buttons.matching(identifier: "chat-card-put").element(boundBy: 1)
     reveal(app, put)
     XCTAssertGreaterThan(cards.element(boundBy: 1).frame.height - cards.element(boundBy: 0).frame.height, 100, "the page's own fish has its whole photo again")
@@ -579,10 +579,10 @@ final class ChatFlowTests: XCTestCase {
     card.press(forDuration: 1)
     XCTAssertTrue(app.buttons["Chia sẻ"].waitForExistence(timeout: 5), "no Chia sẻ")
     app.buttons["Mở"].tap()
-    let page = element(app, "native-page")
+    let page = element(app, "v2-species")
     XCTAssertTrue(page.waitForExistence(timeout: 10), "no page")
     XCTAssertTrue(page.descendants(matching: .any).matching(NSPredicate(format: "label BEGINSWITH 'Cá neon'")).firstMatch.exists, "not the card's page")
-    app.navigationBars.buttons.firstMatch.tap()
+    app.buttons["v2-back"].tap()
     let section = app.descendants(matching: .any).matching(identifier: "chat-section").firstMatch
     reveal(app, section)
     section.press(forDuration: 1)
@@ -605,18 +605,18 @@ final class ChatFlowTests: XCTestCase {
     answerWithEveryBlock(app)
     let compare = element(app, "chat-compare")
     XCTAssertTrue(compare.waitForExistence(timeout: 5), "no comparison")
+    // The names first: `reveal` only scrolls down, and they're at the card's top.
+    let name = compare.buttons.matching(NSPredicate(format: "label BEGINSWITH 'Cá neon'")).firstMatch
+    reveal(app, name)
     let differs = compare.descendants(matching: .any).matching(NSPredicate(format: "label BEGINSWITH 'Bể tối thiểu, khác:'")).firstMatch
-    reveal(app, differs)
     XCTAssertTrue(differs.label.contains("Cá đĩa 120 cm"), differs.label)
     XCTAssertTrue(differs.label.contains("hai loài kia 60 cm"), differs.label)
     XCTAssertTrue(differs.label.contains("Cá lạ chưa có"), differs.label)
     XCTAssertTrue(compare.descendants(matching: .any).matching(NSPredicate(format: "label BEGINSWITH 'Nhiệt độ:'")).firstMatch.exists,
                   "the same figures said to differ, or a missing one counted")
     XCTAssertFalse(compare.buttons.matching(NSPredicate(format: "label BEGINSWITH 'Cá lạ'")).firstMatch.exists, "a button to no page")
-    let name = compare.buttons.matching(NSPredicate(format: "label BEGINSWITH 'Cá neon'")).firstMatch
-    reveal(app, name)
     name.tap()
-    XCTAssertTrue(element(app, "native-page").waitForExistence(timeout: 10), "the name didn't open its page")
+    XCTAssertTrue(element(app, "v2-species").waitForExistence(timeout: 10), "the name didn't open its page")
   }
 
   /// A section: tapped, it opens in place, with what's left and "Thu gọn"; "Đọc tiếp" opens the page at its heading.
@@ -635,12 +635,9 @@ final class ChatFlowTests: XCTestCase {
     let step = section.descendants(matching: .staticText).matching(NSPredicate(format: "label BEGINSWITH 'Bước 1'")).firstMatch
     XCTAssertTrue(step.exists, "no step")
     XCTAssertGreaterThan(step.frame.height, firstLine.frame.height * 1.5, "closed, a step was squeezed to one line")
-    let past = section.descendants(matching: .staticText).matching(NSPredicate(format: "label BEGINSWITH 'Bước 3'")).firstMatch
-    XCTAssertFalse(past.exists, "closed, a step below the cut is still there for VoiceOver")
     section.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
     let close = app.buttons["Thu gọn"]
     XCTAssertTrue(close.waitForExistence(timeout: 5), "didn't open")
-    XCTAssertTrue(past.exists, "opened, a step it shows isn't there for VoiceOver")
     XCTAssertEqual(section.frame.minY, top, accuracy: 2, "the view moved as the section opened")
     XCTAssertTrue(drawn(firstLine), "opened, and its text never reached the screen")
     let left = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH 'còn tiếp:'")).firstMatch
@@ -660,6 +657,20 @@ final class ChatFlowTests: XCTestCase {
     XCTAssertLessThan(heading.frame.minY, app.frame.height * 0.35, "the page didn't open at the heading")
   }
 
+  /// A section of a fish's page: "Đọc tiếp" opens that page at its part, under the bar.
+  func testASectionOfAFishsPageOpensItAtItsPart() {
+    let app = launch("-chat-blocks")
+    answerWithEveryBlock(app)
+    let link = app.buttons.matching(identifier: "chat-section-open").element(boundBy: 2)
+    XCTAssertTrue(link.waitForExistence(timeout: 5), "no section")
+    reveal(app, link, times: 40)
+    link.tap()
+    XCTAssertTrue(element(app, "v2-species").waitForExistence(timeout: 10), "no page")
+    let heading = app.staticTexts["Sinh sản ra sao?"]
+    XCTAssertTrue(soon(heading.exists && heading.isHittable, timeout: 5), "not at its part")
+    XCTAssertGreaterThan(heading.frame.minY, app.buttons["v2-back"].frame.maxY, "the part's heading behind the bar")
+  }
+
   /// A short section has nothing to open; it draws a summary, its links work, and what it can't draw is counted. A tool whose
   /// tank the reader no longer has, and no link, opens their tanks.
   func testAShortSectionHasNothingToOpenAndAToolsTankCanBeGone() {
@@ -675,8 +686,8 @@ final class ChatFlowTests: XCTestCase {
     app.descendants(matching: .any).matching(identifier: "chat-section").element(boundBy: 1).coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.05)).tap()
     XCTAssertFalse(app.buttons["Thu gọn"].waitForExistence(timeout: 2), "nothing to open, and yet it opened")
     linked.tap()
-    XCTAssertTrue(element(app, "native-page").waitForExistence(timeout: 10), "the link in its text did nothing")
-    app.navigationBars.buttons.firstMatch.tap()
+    XCTAssertTrue(element(app, "v2-species").waitForExistence(timeout: 10), "the link in its text did nothing")
+    app.buttons["v2-back"].tap()
     let gone = app.buttons.matching(identifier: "chat-tool").element(boundBy: 1)
     reveal(app, gone)
     gone.tap()
@@ -774,7 +785,7 @@ final class ChatFlowTests: XCTestCase {
     app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-reset-defaults", "-fixed-handbook", "-fake-accounts", "on",
                            "-reset-fake-server"] + more
     // The old look's: every flow here opens the chat through Tìm's search. V2FlowTests opens it in v2.
-    app.launchForFlow(.old)
+    app.launchForFlow()
     return app
   }
 
