@@ -73,7 +73,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây cối và thực vật tự nhiên rậm rạp ở môi trường sống của rùa.",
-            "sharpness": 9571.2
+            "sharpness": 9571.2,
+            "person": false
           },
           {
             "t": 70,
@@ -81,7 +82,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Vùng đầm lầy Everglades nước nông, cây cỏ mọc ven bờ.",
-            "sharpness": 4509.2
+            "sharpness": 4509.2,
+            "person": false
           }
         ],
         "photo": {
@@ -97,16 +99,7 @@
       },
       {
         "heading": "Chuẩn bị bể và đường ống thế nào",
-        "moments": [
-          {
-            "t": 120,
-            "url": "https://media.aquatome.com/video/cfBKt5dc_IQ/at120-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tháo hộp tràn ở góc bể ra để lấy lại chỗ.",
-            "sharpness": 447.5
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/cfBKt5dc_IQ/p1-c19HLU1JTkUuanBn.webp",
           "thumb": "https://media.aquatome.com/video/cfBKt5dc_IQ/p1-c19HLU1JTkUuanBn-480.webp",
@@ -127,38 +120,14 @@
             "width": 1200,
             "height": 675,
             "caption": "Gốc bách cũ ngâm nước nhiều năm trong thùng ngoài trời.",
-            "sharpness": 1828
-          },
-          {
-            "t": 195,
-            "url": "https://media.aquatome.com/video/cfBKt5dc_IQ/at195-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Gốc bách được xếp ôm quanh cái xô đặt trong bể.",
-            "sharpness": 763.6
+            "sharpness": 1828,
+            "person": false
           }
         ]
       },
       {
         "heading": "Trồng cây và rải nền ở đâu",
-        "moments": [
-          {
-            "t": 260,
-            "url": "https://media.aquatome.com/video/cfBKt5dc_IQ/at260-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cỏ trồng sát phần đất nền đen, giữa các hốc đá.",
-            "sharpness": 1868.9
-          },
-          {
-            "t": 270,
-            "url": "https://media.aquatome.com/video/cfBKt5dc_IQ/at270-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Xịt nước rửa trôi cặn bẩn quanh bụi cỏ và đá.",
-            "sharpness": 999.5
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/cfBKt5dc_IQ/p3-X2ZvbGlhZ2UuanBn.webp",
           "thumb": "https://media.aquatome.com/video/cfBKt5dc_IQ/p3-X2ZvbGlhZ2UuanBn-480.webp",
@@ -180,14 +149,6 @@
             "height": 675,
             "caption": "Tấm đá phiến đã khoan lỗ để buộc xô vào.",
             "sharpness": 109.6
-          },
-          {
-            "t": 300,
-            "url": "https://media.aquatome.com/video/cfBKt5dc_IQ/at300-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cắt xô thứ hai để lấy phần trên lồng vào xô cũ.",
-            "sharpness": 925.7
           }
         ],
         "photo": {
@@ -205,20 +166,13 @@
         "heading": "Hoàn thiện phần đất, cây và đèn",
         "moments": [
           {
-            "t": 315,
-            "url": "https://media.aquatome.com/video/cfBKt5dc_IQ/at315-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nhét rêu sphagnum vào khe đá quanh xô để giữ đất.",
-            "sharpness": 787.5
-          },
-          {
             "t": 345,
             "url": "https://media.aquatome.com/video/cfBKt5dc_IQ/at345-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể sau khi hoàn thiện, nước gần trong và bố cục ổn định.",
-            "sharpness": 1323.4
+            "sharpness": 1323.4,
+            "person": false
           }
         ],
         "photo": {
@@ -241,7 +195,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đám bèo và cây thủy sinh mọc ở vùng nước nông cho rùa.",
-            "sharpness": 5147.5
+            "sharpness": 5147.5,
+            "person": false
           },
           {
             "t": 510,

@@ -52,8 +52,26 @@
   "File:Naturalis Biodiversity Center - ZMA.MOLL.314708 - Neripteron violaceum (Gmelin, 1791) - Neritidae - Mollusc shell.jpeg",
   "File:Naturalis Biodiversity Center - ZMA.MOLL.314710 - Neripteron violaceum (Gmelin, 1791) - Neritidae - Mollusc shell.jpeg",
   "File:Naturalis Biodiversity Center - ZMA.MOLL.314731 1 - Neripteron violaceum (Gmelin, 1791) - Neritidae - Mollusc shell.jpeg",
-  "File:Naturalis Biodiversity Center - ZMA.MOLL.314730 - Neripteron violaceum (Gmelin, 1791) - Neritidae - Mollusc shell.jpeg"
+  "File:Naturalis Biodiversity Center - ZMA.MOLL.314730 - Neripteron violaceum (Gmelin, 1791) - Neritidae - Mollusc shell.jpeg",
+  "inat:15212575",
+  "inat:15212566",
+  "inat:15212557",
+  "inat:363072748",
+  "inat:363072770",
+  "inat:363072786",
+  "inat:500895003",
+  "inat:748824599"
  ],
- "hashes": {},
- "commons": "2026-11-10"
+ "hashes": {
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/15212557/large.jpeg": "376eed702cad9c8e"
+ },
+ "commons": "2026-11-10",
+ "inat": {
+  "taxon": 701486,
+  "pass": "done",
+  "after": {
+   "research": 407478352,
+   "agree": 363753825
+  }
+ }
 }

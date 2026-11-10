@@ -2,6 +2,31 @@
   "id": "noturus-eleutherus",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/605723761.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/605723761-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "will shepard",
+      "sourceUrl": "https://www.inaturalist.org/photos/605723761",
+      "caption": "Cá mè madtom núi bơi trong hộp trong suốt ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/113721319.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/113721319-480.webp",
+      "width": 1200,
+      "height": 1600,
+      "licence": "CC BY",
+      "author": "Matt Berger",
+      "sourceUrl": "https://www.inaturalist.org/photos/113721319",
+      "caption": "Cá mè madtom núi với râu và vây rõ trong hộp trong suốt",
+      "best": true,
+      "kind": "other"
+    },
+    {
       "url": "https://media.aquatome.com/inaturalist/113721373.webp",
       "thumb": "https://media.aquatome.com/inaturalist/113721373-480.webp",
       "width": 1200,
@@ -26,16 +51,82 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/113721319.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/113721319-480.webp",
-      "width": 1200,
-      "height": 1600,
+      "url": "https://media.aquatome.com/inaturalist/113721335.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/113721335-480.webp",
+      "width": 1024,
+      "height": 768,
       "licence": "CC BY",
       "author": "Matt Berger",
-      "sourceUrl": "https://www.inaturalist.org/photos/113721319",
-      "caption": "Cá mè madtom núi với râu và vây rõ trong hộp trong suốt",
+      "sourceUrl": "https://www.inaturalist.org/photos/113721335",
+      "caption": "Cá madtom nâu vàng trên nền sỏi trong hộp trong suốt",
       "best": true,
-      "kind": "other"
+      "kind": "other",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/113721354.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/113721354-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Matt Berger",
+      "sourceUrl": "https://www.inaturalist.org/photos/113721354",
+      "caption": "Cá madtom sống trong bể ảnh nhỏ, nhìn nghiêng rõ nét",
+      "best": true,
+      "kind": "other",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/568834747.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/568834747-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Nick Tobler (Cowturtle)",
+      "sourceUrl": "https://www.inaturalist.org/photos/568834747",
+      "caption": "Cá madtom nhìn nghiêng trong bể kính, vây đuôi vàng nâu",
+      "best": true,
+      "kind": "other",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/568834813.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/568834813-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Nick Tobler (Cowturtle)",
+      "sourceUrl": "https://www.inaturalist.org/photos/568834813",
+      "caption": "Cá mè madtom núi sống nâu vàng trong hộp trong suốt",
+      "best": true,
+      "kind": "other",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/606630848.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/606630848-480.webp",
+      "width": 1024,
+      "height": 617,
+      "licence": "CC BY",
+      "author": "Gojilynx",
+      "sourceUrl": "https://www.inaturalist.org/photos/606630848",
+      "caption": "Cá mè madtom núi màu vàng xanh nhìn gần trong hộp",
+      "best": true,
+      "kind": "other",
+      "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/604017683.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/604017683-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "will shepard",
+      "sourceUrl": "https://www.inaturalist.org/photos/604017683",
+      "caption": "Cá mè madtom núi trong hộp quan sát bên bờ suối",
+      "best": false,
+      "kind": "habitat",
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/inaturalist/113721369.webp",
@@ -48,9 +139,22 @@
       "caption": "Cá mè madtom núi nhìn từ trên xuống trong hộp trong suốt",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/236196947.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/236196947-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Nick Tobler (Cowturtle)",
+      "sourceUrl": "https://www.inaturalist.org/photos/236196947",
+      "caption": "Cá madtom nhìn từ trên xuống, đặt trên lưới nhựa",
+      "best": false,
+      "kind": "other",
+      "unchecked": true
     }
   ],
-  "seen": 15,
-  "updatedAt": "2026-11-09",
-  "builtAt": "2026-11-09"
+  "seen": 47,
+  "updatedAt": "2026-11-10",
+  "builtAt": "2026-11-10"
 }

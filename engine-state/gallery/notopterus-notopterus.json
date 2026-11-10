@@ -21,7 +21,12 @@
   "File:Notopterus notopterus (10.3897-zse.93.13341) Figure 10.jpg",
   "File:Notopterus notopterus (10.3897-zse.93.13341) Figure 19.jpg",
   "File:Notopterus notopterus 186193326.jpg",
-  "File:Bronze featherback (Notopterus notopterus).jpg"
+  "File:Bronze featherback (Notopterus notopterus).jpg",
+  "inat:134514833",
+  "inat:186193326",
+  "inat:186193532",
+  "inat:250548185",
+  "inat:499705826"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/195f59af5eb61d05.webp": "6767e3e2f0f14937",
@@ -29,5 +34,13 @@
   "https://media.aquatome.com/commons/7dc0bff6a56fd94c.webp": "337323313733b563",
   "https://media.aquatome.com/commons/e09eb710e8af71ae.webp": "0f232b3c8d330f13"
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 107190,
+  "pass": "done",
+  "after": {
+   "research": 145815928,
+   "agree": 364320794
+  }
+ }
 }

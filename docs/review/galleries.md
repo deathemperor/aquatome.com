@@ -10,7 +10,7 @@ Written by `pnpm engine gallery` (2026-11-10). Targets: packages/engine/src/gall
 | covered | 30 | 535 | 28 | 9 | 18 | 554 |
 | rest | 20 | 1676 | 75 | 0 | 46 | 1705 |
 
-## Short of target: every source read (254)
+## Short of target: every source read (260)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -267,6 +267,12 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/brachyplatystoma-vaillantii | covered | 1 | 30 |
 | species/brevibora-dorsiocellata | covered | 1 | 30 |
 | species/brochis-multiradiatus | covered | 3 | 30 |
+| species/corydoras-fowleri | covered | 1 | 30 |
 | species/corydoras-habrosus | covered | 8 | 30 |
 | species/corydoras-semiaquilus | covered | 2 | 30 |
+| species/corydoras-septentrionalis | covered | 0 | 30 |
+| species/corydoras-splendens | covered | 1 | 30 |
+| species/denticetopsis-seducta | covered | 0 | 30 |
+| species/hypancistrus-inspector | covered | 0 | 30 |
+| species/kryptopterus-geminus | covered | 0 | 30 |
 | species/betta-macrostoma | covered | 0 | 30 |

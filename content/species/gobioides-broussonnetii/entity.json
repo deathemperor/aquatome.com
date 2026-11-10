@@ -556,17 +556,12 @@
       "licence": "CC BY-SA 4.0",
       "author": "Kitty Kat Katarina",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gobioides_broussonnetii.jpg",
-      "caption": "This is my own Violet Goby, roughly 6 inches long. Photo taken with my Galaxy S 5."
-    },
-    {
-      "url": "https://media.aquatome.com/commons/d19f517da301cb1a.webp",
-      "thumb": "https://media.aquatome.com/commons/d19f517da301cb1a-480.webp",
-      "width": 960,
-      "height": 541,
-      "licence": "CC BY-SA 4.0",
-      "author": "Cedricguppy - Loury Cédric",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gobioides_broussonnetii_-_Gobie_violet_-_Aqua_Porte_Dor%C3%A9e_16.JPG",
-      "caption": "Gobioides broussonnetii - Gobie violet - Aquarium du Palias de la Porte Dorée Paris, Ile de France, France"
+      "caption": "This is my own Violet Goby, roughly 6 inches long. Photo taken with my Galaxy S 5.",
+      "large": {
+        "url": "https://media.aquatome.com/commons/aa8afe9d489128a9-large.webp",
+        "width": 1600,
+        "height": 900
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/bc015b54e7d835fe.webp",
@@ -586,6 +581,16 @@
       "licence": "CC BY-SA 4.0",
       "author": "Cedricguppy - Loury Cédric",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gobioides_broussonnetii_-_Gobie_violet_-_Aqua_Porte_Dor%C3%A9e_13.JPG",
+      "caption": "Gobioides broussonnetii - Gobie violet - Aquarium du Palias de la Porte Dorée Paris, Ile de France, France"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/d19f517da301cb1a.webp",
+      "thumb": "https://media.aquatome.com/commons/d19f517da301cb1a-480.webp",
+      "width": 960,
+      "height": 541,
+      "licence": "CC BY-SA 4.0",
+      "author": "Cedricguppy - Loury Cédric",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gobioides_broussonnetii_-_Gobie_violet_-_Aqua_Porte_Dor%C3%A9e_16.JPG",
       "caption": "Gobioides broussonnetii - Gobie violet - Aquarium du Palias de la Porte Dorée Paris, Ile de France, France"
     }
   ],

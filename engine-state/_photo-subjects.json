@@ -1036,6 +1036,16 @@
       "guide": true
     }
   },
+  "https://media.aquatome.com/aquariumcoop/145dab5434a4d60b.webp": {
+    "dichotomyctere-ocellatus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "head-on close-up of figure eight puffer",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
   "https://media.aquatome.com/aquariumcoop/14ba084a030edf2f.webp": {
     "hydrocotyle-tripartita": {
       "ok": "yes",
@@ -1394,8 +1404,9 @@
     "hyphessobrycon-flammeus": {
       "ok": "yes",
       "typical": true,
-      "note": "flame tetra, golden front and red rear body, side view among plants",
+      "note": "red flame tetra, matches the caption",
       "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -5137,6 +5148,15 @@
       "file": true
     }
   },
+  "https://media.aquatome.com/commons/04349d06c18b4b73.webp": {
+    "devario-maetaengensis": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "pale silvery danio with short bars along a midline stripe; lacks the usual yellow body, could be a juvenile or a look-al",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/04444b1a55dc39ed.webp": {
     "hemigrammus-bleheri": {
       "ok": "yes",
@@ -5278,9 +5298,11 @@
   },
   "https://media.aquatome.com/commons/053c1c36be0143b1.webp": {
     "hemigrammus-stictus": {
-      "ok": "yes",
-      "typical": true,
-      "note": "seems to be the same photo as 1 or a near-duplicate: adult side view showing the red tail base"
+      "ok": "dead",
+      "typical": false,
+      "note": "red-base tetra specimen lying on white background, likely dead/lab specimen",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/05682876f662bfe1.webp": {
@@ -5469,7 +5491,9 @@
     "erethistes-pusillus": {
       "ok": "unsure",
       "typical": false,
-      "note": "blurry top view of a mottled catfish among plants"
+      "note": "blurry top-down view of small mottled catfish on sand",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/082fba088934e0a6.webp": {
@@ -5594,7 +5618,9 @@
     "hypselecara-temporalis": {
       "ok": "yes",
       "typical": true,
-      "note": "adult, reddish with dark midbody blotch and caudal spot, behind reflective glass"
+      "note": "adult red-headed emerald cichlid with dark mid-body blotch, flash glare",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/0957138ee905bd5a.webp": {
@@ -5625,7 +5651,9 @@
     "dichotomyctere-fluviatilis": {
       "ok": "unsure",
       "typical": false,
-      "note": "puffer with large brown blotches on grey back and orange shoulder patch; doesn't look like a typical green puffer, possi"
+      "note": "brownish puffer with large reticulated spots and orange patch; species unclear",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/0996c8928e74bf80.webp": {
@@ -5752,7 +5780,9 @@
     "hypselecara-temporalis": {
       "ok": "yes",
       "typical": true,
-      "note": "adult in clear side view: green-gold body, red head and fins, red eye"
+      "note": "adult with green-gold body and red head, side view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/0bbdfae84bcca19b.webp": {
@@ -6288,8 +6318,9 @@
     "ilyodon-furcidens": {
       "ok": "yes",
       "typical": true,
-      "note": "two adult Ilyodon goodeids, side view on dark background",
-      "logo": false
+      "note": "two Ilyodon adults in aquarium, dark background",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/12e1b6eac777134f.webp": {
@@ -6370,11 +6401,22 @@
       "logo": false
     }
   },
+  "https://media.aquatome.com/commons/13de8dd57759d6c8.webp": {
+    "herichthys-cyanoguttatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult side view, same fish as photo 1",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/13f62a01c97b2691.webp": {
     "hyphessobrycon-amapaensis": {
       "ok": "yes",
       "typical": true,
-      "note": "adult with darker bluish body, red stripe and red eye ring"
+      "note": "dark-bodied fish with full-length red stripe, red eye",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/141274ab191e6132.webp": {
@@ -6432,6 +6474,15 @@
       "ok": "yes",
       "typical": false,
       "note": "cluster of nerites in mixed colour forms on sand",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/14b8a80e38b4dfb7.webp": {
+    "heros-efasciatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "spotted yellowish severum adult with dark bars in tank",
       "logo": false,
       "person": false
     }
@@ -6680,10 +6731,11 @@
   },
   "https://media.aquatome.com/commons/16f72b06740945c7.webp": {
     "hemigrammus-rhodostomus": {
-      "ok": "unsure",
+      "ok": "yes",
       "typical": true,
-      "note": "group of rummy-nose type tetras in planted tank, too small to separate from H. bleheri/Petitella",
-      "logo": false
+      "note": "group of rummy-nose tetras in planted tank with driftwood",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/17209f01f389081b.webp": {
@@ -6823,6 +6875,15 @@
       "note": "Engraved drawing of Ancharius fuscus, side view from plate"
     }
   },
+  "https://media.aquatome.com/commons/1871764b680fd375.webp": {
+    "herichthys-cyanoguttatus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "head-on close-up of face against glass",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/1881b5ea5480ca6d.webp": {
     "nannostomus-marginatus": {
       "ok": "yes",
@@ -6865,10 +6926,11 @@
   },
   "https://media.aquatome.com/commons/18d32913b66a5819.webp": {
     "hyphessobrycon-flammeus": {
-      "ok": "yes",
+      "ok": "unsure",
       "typical": false,
-      "note": "pale, washed-out flame tetra with dark bars and reddish fins",
-      "logo": false
+      "note": "golden barred tetra, may be yellow tetra (H. bifasciatus) rather than flame tetra",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/18fbcd29fe9b7752.webp": {
@@ -7121,6 +7183,15 @@
       "ok": "yes",
       "typical": false,
       "note": "albino/red oscar colour form",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/1bbd7e8c95634545.webp": {
+    "gobioides-broussonnetii": {
+      "ok": "yes",
+      "typical": true,
+      "note": "whole fish on sand under blue lighting",
       "logo": false,
       "person": false
     }
@@ -8113,8 +8184,10 @@
   "https://media.aquatome.com/commons/26f594f208ee0ac6.webp": {
     "hypselecara-temporalis": {
       "ok": "yes",
-      "typical": false,
-      "note": "pale pinkish fish among plants, washed-out colours"
+      "typical": true,
+      "note": "pinkish adult among Vallisneria",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/270e0528ebbed75f.webp": {
@@ -8334,7 +8407,9 @@
     "devario-malabaricus": {
       "ok": "unsure",
       "typical": false,
-      "note": "pinkish-purple devario with blue lines and a dark bar behind the gill, look-alike can't be ruled out"
+      "note": "slender danio with purple-blue stripe, could be a young giant danio or a look-alike",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/2abf15ae3934d927.webp": {
@@ -8567,9 +8642,11 @@
   },
   "https://media.aquatome.com/commons/2db0d2cf9d39f01e.webp": {
     "hyphessobrycon-agulha": {
-      "ok": "unsure",
-      "typical": false,
-      "note": "small silvery tetra with red eye over sand; stripe faint, can't confirm the species"
+      "ok": "yes",
+      "typical": true,
+      "note": "slender grey tetra with red eye and dark lateral band, near plants",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/2dc6180128240a53.webp": {
@@ -8713,6 +8790,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/commons/2f28881880b45f97.webp": {
+    "hampala-macrolepidota": {
+      "ok": "dead",
+      "typical": false,
+      "note": "dead fish lying on a wooden board",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/2f3577aa2b861cef.webp": {
     "nannostomus-marilynae": {
       "ok": "dead",
@@ -8777,8 +8863,10 @@
   "https://media.aquatome.com/commons/2ff54310e70ccd24.webp": {
     "hyphessobrycon-erythrostigma": {
       "ok": "yes",
-      "typical": false,
-      "note": "pale specimen, likely female or young, small red spot, planted tank"
+      "typical": true,
+      "note": "pale bleeding heart tetra with red spot in planted tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/30047750998f6184.webp": {
@@ -8983,9 +9071,11 @@
   },
   "https://media.aquatome.com/commons/326b6896dd339b9b.webp": {
     "hyphessobrycon-agulha": {
-      "ok": "yes",
+      "ok": "unsure",
       "typical": true,
-      "note": "adult side view: red upper eye, dark iridescent blue lateral stripe"
+      "note": "slender tetra with iridescent blue band, no clear red tail base; can't confirm agulha",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/32a1b8f924040a8a.webp": {
@@ -9064,7 +9154,9 @@
     "devario-malabaricus": {
       "ok": "unsure",
       "typical": false,
-      "note": "slender pinkish devario with a dark shoulder mark, possibly another Devario such as 'purple passion'"
+      "note": "slender pinkish danio with blue stripe, maybe a young giant danio; distant view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/32ee98d443d158bd.webp": {
@@ -9267,7 +9359,9 @@
     "dichotomyctere-ocellatus": {
       "ok": "yes",
       "typical": true,
-      "note": "figure eight puffer swimming over brown rock, clear side view"
+      "note": "figure eight puffer over brown rock",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/35d7ceefb64645c3.webp": {
@@ -9392,6 +9486,15 @@
       "ok": "yes",
       "typical": true,
       "note": "two calico ryukins in a decorated tank",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/37cf4a368f5ffcc3.webp": {
+    "hampala-macrolepidota": {
+      "ok": "dead",
+      "typical": false,
+      "note": "dead fish laid on a rock/tarp surface",
       "logo": false,
       "person": false
     }
@@ -9911,6 +10014,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/commons/3cdd9fb0e1a2f90d.webp": {
+    "hypostomus-cochliodon": {
+      "ok": "dead",
+      "typical": false,
+      "note": "spotted pleco catch held up in gloved hands by a stream",
+      "logo": false,
+      "person": true
+    }
+  },
   "https://media.aquatome.com/commons/3cecec96aa8f48ba.webp": {
     "blood-parrot-cichlid": {
       "ok": "yes",
@@ -9935,6 +10047,15 @@
       "typical": false,
       "note": "large dark mudskipper with blue spots and big head, likely Periophthalmus barbarus or Periophthalmodon, not the dwarf sp",
       "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/3d10d5d6abc5a3b4.webp": {
+    "heros-efasciatus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "red-shoulder severum, blurry close view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/3d2ed5523891a3a6.webp": {
@@ -10467,7 +10588,9 @@
     "hypselecara-temporalis": {
       "ok": "yes",
       "typical": false,
-      "note": "Pale, washed-out colouring with only a mid-body blotch and a tail spot; the head shape fits H. temporalis; dark, dim sho"
+      "note": "pale, washed-out emerald cichlid with mid-body blotch and caudal spot, head-on angle",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/4431612bde0cc5ff.webp": {
@@ -10506,7 +10629,9 @@
     "hyphessobrycon-erythrostigma": {
       "ok": "yes",
       "typical": true,
-      "note": "adult male, long sickle dorsal, red heart spot, reddish body"
+      "note": "adult bleeding heart tetra with red heart spot and long dorsal",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/44e2a783b57f8df0.webp": {
@@ -10741,7 +10866,9 @@
     "dichotomyctere-ocellatus": {
       "ok": "yes",
       "typical": true,
-      "note": "adult figure eight puffer, side view, yellow wavy lines and dark ocelli"
+      "note": "figure eight puffer side view in tank, eyespots on back",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/48a204474c206f94.webp": {
@@ -11093,7 +11220,9 @@
     "homaloptera-parclitella": {
       "ok": "unsure",
       "typical": false,
-      "note": "field specimen in photo tank, duller brown saddled loach; may be a different Homaloptera"
+      "note": "loach in photo tank; muted brown saddle pattern, can't confirm species",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/4d256149a1e87c02.webp": {
@@ -11245,6 +11374,15 @@
       "ok": "yes",
       "typical": true,
       "note": "panda cory resting on a leaf, clear side view"
+    }
+  },
+  "https://media.aquatome.com/commons/4ecd018c4a3a24d6.webp": {
+    "herichthys-cyanoguttatus": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "spotted cichlid under blue light, could be Texas or green Texas cichlid",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/4ed2042725466dba.webp": {
@@ -11408,6 +11546,15 @@
       "ok": "yes",
       "typical": false,
       "note": "head close-up on black background, body cut off",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/5177ac8a72d74297.webp": {
+    "gobioides-broussonnetii": {
+      "ok": "yes",
+      "typical": false,
+      "note": "close-up of head only",
       "logo": false,
       "person": false
     }
@@ -12117,6 +12264,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/commons/5c0d0e7225cb1e82.webp": {
+    "geophagus-altifrons": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "Geophagus with black lateral spot under blue light; could be a surinamensis-group look-alike",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/5c0d18d3b3d08dad.webp": {
     "heros-severus": {
       "ok": "yes",
@@ -12146,10 +12302,11 @@
   },
   "https://media.aquatome.com/commons/5c5aa9250bdff345.webp": {
     "hemigrammus-rhodostomus": {
-      "ok": "unsure",
+      "ok": "yes",
       "typical": true,
-      "note": "single rummy-nose type tetra over driftwood, distant view",
-      "logo": false
+      "note": "rummy-nose tetra over driftwood, fairly small in frame",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/5c60a408b8a801e5.webp": {
@@ -12355,7 +12512,9 @@
     "dichotomyctere-fluviatilis": {
       "ok": "unsure",
       "typical": false,
-      "note": "yellow-brown puffer with dense small dark spots, no green colour; could be a faded green puffer or another Tetraodontid"
+      "note": "brown spotted puffer, possibly fluviatilis adult, can't confirm",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/5e7bd74adf8dd24c.webp": {
@@ -12586,6 +12745,13 @@
       "typical": false,
       "note": "its Commons file names Heros efasciatus",
       "file": true
+    },
+    "heros-efasciatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "greenish severum with red-orange belly and fins",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/619d495fc41a3d83.webp": {
@@ -12622,8 +12788,9 @@
     "hemigrammus-rhodostomus": {
       "ok": "unsure",
       "typical": true,
-      "note": "rummy-nose type; red extends behind gill, could be H. bleheri",
-      "logo": false
+      "note": "red spreads behind gill cover onto body; may be Hemigrammus bleheri",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/61f3d900435b48fa.webp": {
@@ -12644,9 +12811,11 @@
   },
   "https://media.aquatome.com/commons/620f905df7559320.webp": {
     "enteromius-jae": {
-      "ok": "yes",
+      "ok": "dead",
       "typical": false,
-      "note": "female or young: golden body, dark bars, red at dorsal base and tail base, on black background"
+      "note": "specimen with fins spread on black background",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/62917f886f8d3780.webp": {
@@ -12669,7 +12838,9 @@
     "hyphessobrycon-roseus": {
       "ok": "unsure",
       "typical": false,
-      "note": "Blurry school of small yellowish tetras with a black shoulder spot and bright red tails; the strong red tail doesn't fit"
+      "note": "blurry school of pale tetras with shoulder spot and red tails; poor view, look-alikes possible",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/62c35011e2b38e16.webp": {
@@ -12776,10 +12947,11 @@
   },
   "https://media.aquatome.com/commons/6459f66ab9a0f98e.webp": {
     "hyphessobrycon-flammeus": {
-      "ok": "yes",
+      "ok": "unsure",
       "typical": false,
-      "note": "pale, washed-out flame tetra with red lower rear body and fins; shoulder bars faint",
-      "logo": false
+      "note": "pale washed-out tetra with red fins, could be a faded flame tetra",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/6473b6e4bce9f7a4.webp": {
@@ -12873,6 +13045,15 @@
       "ok": "other",
       "typical": false,
       "note": "yellow standard koi (yamabuki-type); fins are normal length, not long and flowing"
+    }
+  },
+  "https://media.aquatome.com/commons/666377cf769dd0e7.webp": {
+    "hypostomus-hondae": {
+      "ok": "dead",
+      "typical": false,
+      "note": "young pleco catch held up in fingers out of water",
+      "logo": false,
+      "person": true
     }
   },
   "https://media.aquatome.com/commons/66756e48b27e8e5d.webp": {
@@ -12998,6 +13179,15 @@
       "ok": "yes",
       "typical": true,
       "note": "mottled adult in a white container, top view",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/67bf8fffef35b65a.webp": {
+    "heros-efasciatus": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "dark-headed red-throat severum, possibly Heros sp. 'Rotkeil'",
       "logo": false,
       "person": false
     }
@@ -13500,6 +13690,15 @@
       "note": "Dark male with forked tail and red pelvic filaments, white background"
     }
   },
+  "https://media.aquatome.com/commons/6dbf5295ab8d9be7.webp": {
+    "gobioides-broussonnetii": {
+      "ok": "yes",
+      "typical": false,
+      "note": "front half of the body, close-up, blue light",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/6dd16f4b303e6950.webp": {
     "aegagropila-linnaei": {
       "ok": "yes",
@@ -13593,6 +13792,15 @@
       "note": "pulled plant with dissected leaves held in hand against sky",
       "logo": false,
       "person": true
+    }
+  },
+  "https://media.aquatome.com/commons/6ea7a54ec58b2fe5.webp": {
+    "heros-efasciatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "red-shoulder severum with vertical bars over wood",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/6ea89d67b8bf76c4.webp": {
@@ -13753,6 +13961,15 @@
       "ok": "other",
       "typical": false,
       "note": "Australasian darter (bird) holding a long fish or eel on the ground"
+    }
+  },
+  "https://media.aquatome.com/commons/70cc4b4150f48782.webp": {
+    "gobioides-broussonnetii": {
+      "ok": "yes",
+      "typical": false,
+      "note": "head-on close-up of the face",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/70f0868406b91d56.webp": {
@@ -14205,7 +14422,9 @@
     "devario-malabaricus": {
       "ok": "unsure",
       "typical": false,
-      "note": "purple-tinted devario under purple light, ID unclear"
+      "note": "pinkish danio with blue and yellow stripes, purple lighting",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/77d39c00be687513.webp": {
@@ -14397,7 +14616,9 @@
     "desmopuntius-pentazona": {
       "ok": "yes",
       "typical": true,
-      "note": "Five-banded barb adult, five dark green-edged bars on orange body, a second one behind"
+      "note": "five-banded barb in a planted tank, second one blurred behind",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/797ee380743fcf6a.webp": {
@@ -14433,8 +14654,10 @@
   "https://media.aquatome.com/commons/7a0d70340c5b3baa.webp": {
     "hypselecara-temporalis": {
       "ok": "yes",
-      "typical": false,
-      "note": "orange-toned fish showing the dark lateral band and vertical bar (temporalis mark), stress/mood colouring"
+      "typical": true,
+      "note": "orange fish with dark lateral band and vertical bar (cross mark)",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/7a14569b9a22acf4.webp": {
@@ -14475,6 +14698,15 @@
       "ok": "yes",
       "typical": true,
       "note": "medaka side view on a dark background",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/7af2cd2159886c38.webp": {
+    "herichthys-cyanoguttatus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "live juvenile in a clear photo tank with ruler",
       "logo": false,
       "person": false
     }
@@ -14613,8 +14845,9 @@
     "hemigrammus-rhodostomus": {
       "ok": "yes",
       "typical": true,
-      "note": "rummy-nose tetra side view, red limited to head, striped tail",
-      "logo": false
+      "note": "single rummy-nose tetra, red snout, striped tail",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/7d4c2b3e6182f895.webp": {
@@ -14716,9 +14949,10 @@
   "https://media.aquatome.com/commons/7e767579502ca77d.webp": {
     "hyphessobrycon-flammeus": {
       "ok": "yes",
-      "typical": true,
-      "note": "adult flame tetra side view showing dark shoulder bars and red rear body",
-      "logo": false
+      "typical": false,
+      "note": "pale, washed-out flame tetra among plants, dark shoulder bars and red anal fin",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/7e8bad26ee97e922.webp": {
@@ -15214,9 +15448,11 @@
   },
   "https://media.aquatome.com/commons/840c8a5fcdaf9864.webp": {
     "hyphessobrycon-bifasciatus": {
-      "ok": "unsure",
-      "typical": false,
-      "note": "greenish tetra with two faint shoulder bars but grey-green fins; possibly a dull bifasciatus, look-alike not ruled out"
+      "ok": "yes",
+      "typical": true,
+      "note": "adult yellow tetra side view, two faint humeral bars, greenish-yellow body",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/84146b0c9a1840e2.webp": {
@@ -15660,6 +15896,15 @@
       "logo": false
     }
   },
+  "https://media.aquatome.com/commons/88fd200d542df808.webp": {
+    "geophagus-altifrons": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "Geophagus with red-edged fins, dark photo; species unclear",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/88fe99680ae8f994.webp": {
     "hyphessobrycon-amandae": {
       "ok": "yes",
@@ -15673,8 +15918,9 @@
     "hemigrammus-rhodostomus": {
       "ok": "yes",
       "typical": true,
-      "note": "rummy-nose tetra, red head, black-white tail bands, thin peduncle line",
-      "logo": false
+      "note": "rummy-nose tetra side view, red head limited to snout",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/894420aee3b52e47.webp": {
@@ -15844,6 +16090,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/commons/8cfa7595ec6fe553.webp": {
+    "enteromius-jae": {
+      "ok": "dead",
+      "typical": false,
+      "note": "pale specimen with fins spread on black background",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/8cfcc41ecef75124.webp": {
     "salminus-brasiliensis": {
       "ok": "unsure",
@@ -15911,6 +16166,15 @@
       "ok": "yes",
       "typical": true,
       "note": "pair, male with dark bars and a paler female",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/8e743813725e2af1.webp": {
+    "herichthys-cyanoguttatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult Texas cichlid side view, pearly spots and black blotches",
       "logo": false,
       "person": false
     }
@@ -16391,7 +16655,9 @@
     "hemigrammus-hyanuary": {
       "ok": "yes",
       "typical": true,
-      "note": "Adult January tetra, side view: iridescent stripe, black spot on the tail base with gold above it"
+      "note": "adult January tetra side view, iridescent stripe, black caudal peduncle spot",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/94d647683cabfcba.webp": {
@@ -16854,8 +17120,9 @@
     "hyphessobrycon-flammeus": {
       "ok": "yes",
       "typical": true,
-      "note": "male flame tetra, red body, black-edged anal fin",
-      "logo": false
+      "note": "flame tetra with red fins edged black",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/99e70b38d5f0d6bf.webp": {
@@ -16895,7 +17162,9 @@
     "herotilapia-multispinosa": {
       "ok": "yes",
       "typical": true,
-      "note": "Adult rainbow cichlid, side view: olive-yellow body with a dark blotchy stripe along the side, long spiny dorsal fin, or"
+      "note": "adult rainbow cichlid, yellow-olive with dark mid-lateral band, in aquarium",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/9a34349c8068bf14.webp": {
@@ -16992,9 +17261,11 @@
   },
   "https://media.aquatome.com/commons/9b9338f35b62109c.webp": {
     "dichotomyctere-fluviatilis": {
-      "ok": "unsure",
-      "typical": false,
-      "note": "Large yellow-green puffer with dark saddles and marbling, not the usual spotted green puffer; possibly a Pao species"
+      "ok": "yes",
+      "typical": true,
+      "note": "yellow-green puffer with dark saddles and reticulation on gravel",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/9b939a3af81a484d.webp": {
@@ -17215,9 +17486,11 @@
   },
   "https://media.aquatome.com/commons/9ebdb7cf38c8548c.webp": {
     "enteromius-fasciolatus": {
-      "ok": "unsure",
-      "typical": false,
-      "note": "school of slender silvery fish with thin vertical bars and red eyes; body looks too long and fins lack the red of E. fas"
+      "ok": "yes",
+      "typical": true,
+      "note": "group of banded barbs in a planted aquarium",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/9ec9045e7179c246.webp": {
@@ -17225,6 +17498,15 @@
       "ok": "yes",
       "typical": true,
       "note": "wild school of silver monos over reef",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/9f40df00476ef0dd.webp": {
+    "enteromius-jae": {
+      "ok": "dead",
+      "typical": false,
+      "note": "specimen with fins spread on black background",
       "logo": false,
       "person": false
     }
@@ -17732,7 +18014,9 @@
     "devario-malabaricus": {
       "ok": "yes",
       "typical": true,
-      "note": "group of adult giant danios in a planted tank: blue body with yellow stripes and bars"
+      "note": "group of giant danios with blue body and yellow stripes in a planted tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/a724a3914555df96.webp": {
@@ -17813,8 +18097,10 @@
   "https://media.aquatome.com/commons/a8ebfabcf3ae2854.webp": {
     "hypselecara-temporalis": {
       "ok": "yes",
-      "typical": false,
-      "note": "adult in red/pink colouring with dark bands, glare from tank light"
+      "typical": true,
+      "note": "large adult with magenta head and dark bands",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/a9298a704a36f8d8.webp": {
@@ -17926,6 +18212,15 @@
       "logo": false
     }
   },
+  "https://media.aquatome.com/commons/aa8afe9d489128a9.webp": {
+    "gobioides-broussonnetii": {
+      "ok": "yes",
+      "typical": true,
+      "note": "dragon goby resting on coloured gravel in a home tank",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/aaad67ba63f5375e.webp": {
     "echinodorus-cordifolius": {
       "ok": "yes",
@@ -17940,6 +18235,15 @@
       "ok": "yes",
       "typical": true,
       "note": "single red eye tetra side view",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/ab3504f41cedbc76.webp": {
+    "heros-efasciatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "red-shoulder (rotkeil) form severum",
       "logo": false,
       "person": false
     }
@@ -18024,7 +18328,9 @@
     "devario-malabaricus": {
       "ok": "unsure",
       "typical": false,
-      "note": "group of pinkish devarios in a planted tank, ID unclear"
+      "note": "group of slender pinkish danios, species unclear",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/ac65977605ff4e68.webp": {
@@ -18039,7 +18345,9 @@
     "hyphessobrycon-erythrostigma": {
       "ok": "unsure",
       "typical": false,
-      "note": "long-finned tetra with silvery-blue body, no heart spot visible; could be a look-alike"
+      "note": "silvery tetra with long dorsal, red heart spot not visible; possibly a related species",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/aca43c942f61b930.webp": {
@@ -18249,7 +18557,9 @@
     "hyphessobrycon-columbianus": {
       "ok": "yes",
       "typical": true,
-      "note": "clear close-up of adult with blue back and red fins"
+      "note": "Colombian tetra side view, blue back, red fins",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/af090342eddc5bde.webp": {
@@ -18653,6 +18963,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/commons/b4ee1059be074958.webp": {
+    "gobioides-broussonnetii": {
+      "ok": "yes",
+      "typical": false,
+      "note": "close-up of head on sand",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/b503a4df2db521e1.webp": {
     "hemigrammus-erythrozonus": {
       "ok": "yes",
@@ -18939,8 +19258,9 @@
     "hyphessobrycon-flammeus": {
       "ok": "yes",
       "typical": true,
-      "note": "flame tetra, slightly soft focus",
-      "logo": false
+      "note": "flame tetra side view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/b8d58ac1d413601a.webp": {
@@ -19180,7 +19500,9 @@
     "hypsophrys-nicaraguensis": {
       "ok": "yes",
       "typical": true,
-      "note": "Adult pair in an aquarium with fry: blue head, golden-orange body, black mid-lateral stripe and blotch"
+      "note": "Nicaragua cichlid pair guarding fry over sand in a tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/bb8bff362f94eebd.webp": {
@@ -19222,6 +19544,15 @@
       "ok": "other",
       "typical": false,
       "note": "Likely Campylomormyrus: long tubular snout, slender body, no Gnathonemus chin trunk"
+    }
+  },
+  "https://media.aquatome.com/commons/bc015b54e7d835fe.webp": {
+    "gobioides-broussonnetii": {
+      "ok": "yes",
+      "typical": true,
+      "note": "whole elongated goby on a rock, side view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/bc15f8c04fff4860.webp": {
@@ -19467,6 +19798,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/commons/bdd815eb76235f05.webp": {
+    "heros-efasciatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "red-shoulder severum with dark bars",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/bdf2f946cdc0bfd6.webp": {
     "andinoacara-pulcher": {
       "ok": "dead",
@@ -19691,6 +20031,15 @@
       "typical": false,
       "note": "old hand-coloured engraved plate (Règne Animal) of a long-adipose bagrid catfish, handwritten 'Bagrus bajad' on the moun",
       "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/c0c3ca2bd3f0766c.webp": {
+    "heros-efasciatus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "red-shoulder severum colour form over gravel",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/c0c66a46c6b3925b.webp": {
@@ -20020,6 +20369,15 @@
       "typical": true,
       "note": "group of spotted silver dollars with orange throats in an aquarium",
       "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/c4698a207a076cfe.webp": {
+    "enteromius-fasciolatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "live orange barb with black bars in a shallow white photo tray",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/c46df7276ec4e372.webp": {
@@ -20483,7 +20841,9 @@
     "hyphessobrycon-vilmae": {
       "ok": "yes",
       "typical": true,
-      "note": "Adult side view in tank: orange body, dark stripe"
+      "note": "single fish in tank, side view, orange back and dark stripe",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/c9857a32d9059795.webp": {
@@ -20599,7 +20959,9 @@
     "hypselecara-temporalis": {
       "ok": "yes",
       "typical": true,
-      "note": "Adult emerald cichlid, side view; dark band runs at a slant from mid-body up toward the dorsal fin and ends in a tail sp"
+      "note": "adult with dark band from mid-body to tail",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/cb67b5078fa9ba7b.webp": {
@@ -20807,7 +21169,9 @@
     "desmopuntius-hexazona": {
       "ok": "yes",
       "typical": true,
-      "note": "adult in aquarium on sand: dark bars, red-orange fins, green sheen on the bars"
+      "note": "banded barb on sand, pale colours, dark bars and orange fins",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/cdd9062beec2f8b0.webp": {
@@ -20966,7 +21330,9 @@
     "hyphessobrycon-pyrrhonotus": {
       "ok": "yes",
       "typical": true,
-      "note": "Adult with silvery body, bright red stripe along back, small red spot, red eye"
+      "note": "silvery fish with red stripe along the back, small red spot and long dorsal fin",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/d0daeb7dddcec3be.webp": {
@@ -20983,6 +21349,15 @@
       "ok": "yes",
       "typical": true,
       "note": "white-cream discus with orange-red worm pattern, red eye, some peppering",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/d0e5c091d509102b.webp": {
+    "herichthys-cyanoguttatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "yellowish Texas cichlid side view by plant",
       "logo": false,
       "person": false
     }
@@ -21094,6 +21469,15 @@
       "ok": "yes",
       "typical": true,
       "note": "close-up of a Sterba's cory on gravel, bluish colour cast, second fish behind",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/d19f517da301cb1a.webp": {
+    "gobioides-broussonnetii": {
+      "ok": "yes",
+      "typical": false,
+      "note": "close-up of the head on sand, blue lighting",
       "logo": false,
       "person": false
     }
@@ -21227,12 +21611,22 @@
       "logo": false
     }
   },
+  "https://media.aquatome.com/commons/d342678896330751.webp": {
+    "geophagus-altifrons": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "barred Geophagus, could be altifrons in stress colours or another species",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/d3522b158c15b71e.webp": {
     "hyphessobrycon-flammeus": {
       "ok": "yes",
       "typical": true,
-      "note": "flame tetra side view over gravel, shoulder bars visible",
-      "logo": false
+      "note": "flame tetra, red body with dark shoulder bars",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/d3991c6a37e496ce.webp": {
@@ -21496,8 +21890,9 @@
     "hyphessobrycon-flammeus": {
       "ok": "yes",
       "typical": true,
-      "note": "flame tetra among hornwort, red anal fin",
-      "logo": false
+      "note": "flame tetra among plants, golden front and red rear",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/d6aa138bbd99cba4.webp": {
@@ -21529,7 +21924,9 @@
     "dichotomyctere-ocellatus": {
       "ok": "yes",
       "typical": false,
-      "note": "front-on view of figure eight puffer under a rock; small and head-on"
+      "note": "small distant puffer, head-on view on sand",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/d6e664993c58a1ab.webp": {
@@ -21545,7 +21942,9 @@
     "hyphessobrycon-vilmae": {
       "ok": "yes",
       "typical": false,
-      "note": "Pale orange fish on white background, stripe faded (photo tank)"
+      "note": "single fish in photo tank, stripe faded, orange back",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/d711ef1f2b804270.webp": {
@@ -21889,6 +22288,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/commons/da6021292b2a31bc.webp": {
+    "enteromius-jae": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "yellow-orange barred barb in a photo tank; orange tail spot, not the usual red jae look",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/da91c1572f8c2738.webp": {
     "vittina-waigiensis": {
       "ok": "dead",
@@ -22020,6 +22428,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/commons/dd372b91247f7e47.webp": {
+    "gobioides-broussonnetii": {
+      "ok": "yes",
+      "typical": true,
+      "note": "live violet goby on sand, head and front body",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/dd381ed9322a3f64.webp": {
     "catlocarpio-siamensis": {
       "ok": "yes",
@@ -22119,6 +22536,15 @@
       "ok": "none",
       "typical": false,
       "note": "Old museum plate (Characidae Plate 14) with drawings of three characins, not a photo"
+    }
+  },
+  "https://media.aquatome.com/commons/de73ec9e0164ce41.webp": {
+    "heros-efasciatus": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "all-yellow cichlid, gold severum or yellow parrot hybrid",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/de97ac8e391c29fa.webp": {
@@ -22245,6 +22671,15 @@
       "ok": "unsure",
       "typical": true,
       "note": "striped angelfish among vallisneria, altum vs scalare unclear",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/dfb87fb2d8fa5fb4.webp": {
+    "enteromius-jae": {
+      "ok": "dead",
+      "typical": false,
+      "note": "two specimens with fins spread on black, likely freshly preserved",
       "logo": false,
       "person": false
     }
@@ -22482,6 +22917,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/commons/e3ac6ee6d28e66a3.webp": {
+    "heros-efasciatus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "group of red-shoulder/gold severums over sand",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/e3cffa169f7de8a9.webp": {
     "flowerhorn-cichlid": {
       "ok": "yes",
@@ -22530,6 +22974,15 @@
       "ok": "yes",
       "typical": true,
       "note": "adult over sand next to driftwood and clay pipes",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/e481e6ba85b6fba9.webp": {
+    "gobioides-broussonnetii": {
+      "ok": "yes",
+      "typical": true,
+      "note": "elongate violet goby along rock near tank equipment",
       "logo": false,
       "person": false
     }
@@ -22873,6 +23326,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/commons/ea51f884b038fabe.webp": {
+    "heros-efasciatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "plain greenish severum with yellow belly among plants",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/ea58cb384989e1ab.webp": {
     "dawkinsia-exclamatio": {
       "ok": "yes",
@@ -23058,6 +23520,15 @@
       "ok": "yes",
       "typical": true,
       "note": "kribensis over gravel, snail in front",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/ec3f285be0c858f2.webp": {
+    "hemigrammus-ocellifer": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult beacon tetra side view: shoulder spot, dark spot at the tail base with a pale patch, red eye",
       "logo": false,
       "person": false
     }
@@ -23770,8 +24241,10 @@
   "https://media.aquatome.com/commons/f514b7d54b659a41.webp": {
     "haludaria-fasciata": {
       "ok": "yes",
-      "typical": true,
-      "note": "three adult melon barbs in aquarium, pink body with broad black bands"
+      "typical": false,
+      "note": "three banded young among driftwood",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/f53d11b707c98f68.webp": {
@@ -24332,7 +24805,9 @@
     "exodon-paradoxus": {
       "ok": "yes",
       "typical": true,
-      "note": "Adult bucktooth tetra, side view: two large black spots (mid-body and tail base) and red-tipped fins"
+      "note": "live bucktooth tetra, two black spots, red-tipped fins, side view on black background",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/fd369850ce809f0d.webp": {
@@ -24468,7 +24943,9 @@
     "enteromius-jae": {
       "ok": "yes",
       "typical": true,
-      "note": "adult male in colour: red body with dark vertical bars, red fins"
+      "note": "red male jae barb with black bars in a planted tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/fe61173833b53e0d.webp": {
@@ -25897,8 +26374,9 @@
     "enteromius-fasciolatus": {
       "ok": "yes",
       "typical": true,
-      "note": "live reddish barb with thin dark vertical bars in a tank",
-      "logo": false
+      "note": "single banded barb side view in a tank, faded pinkish colours",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/gbif/2842166591-ced7b993d7101623.webp": {
@@ -26116,6 +26594,15 @@
       "ok": "yes",
       "typical": true,
       "note": "Adult in side view: mottled brown body with dark blotches, pointed snout, scute row"
+    }
+  },
+  "https://media.aquatome.com/glaser/76b373d0ef000900.webp": {
+    "homaloptera-parclitella": {
+      "ok": "yes",
+      "typical": true,
+      "note": "saddle-back loach on sand by rocks",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/glaser/86535868edb0efca.webp": {
@@ -26957,7 +27444,9 @@
     "homaloptera-parclitella": {
       "ok": "unsure",
       "typical": false,
-      "note": "same photo-tank specimen, side view; species not certain"
+      "note": "near-duplicate of photo 2; loach in photo tank, species not certain",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/154549847.webp": {
@@ -27355,7 +27844,9 @@
     "haludaria-fasciata": {
       "ok": "unsure",
       "typical": false,
-      "note": "banded barb in clear rocky stream, distant, faded markings"
+      "note": "distant banded fish over stones in wild, unclear",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/181304274.webp": {
@@ -28406,7 +28897,9 @@
     "desmopuntius-hexazona": {
       "ok": "unsure",
       "typical": false,
-      "note": "blurry barred reddish fish in murky tank; ID unclear, could be a loach"
+      "note": "blurry, dark reddish barred fish in a murky tank; can't confirm the species",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/250977235.webp": {
@@ -29519,9 +30012,11 @@
   },
   "https://media.aquatome.com/inaturalist/314903070.webp": {
     "haludaria-fasciata": {
-      "ok": "yes",
+      "ok": "unsure",
       "typical": false,
-      "note": "wild fish over sand in stream, banded pattern, washed-out view"
+      "note": "distant blurry banded fish in murky water",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/315155817.webp": {
@@ -29661,8 +30156,9 @@
     "hyphessobrycon-flammeus": {
       "ok": "yes",
       "typical": true,
-      "note": "flame tetra among plants",
-      "logo": false
+      "note": "adult flame tetra, side view in a planted tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/319701701.webp": {
@@ -30393,8 +30889,9 @@
     "ilyodon-furcidens": {
       "ok": "unsure",
       "typical": false,
-      "note": "small silvery striped fish, distant murky view; may be another species",
-      "logo": false
+      "note": "small striped fish in murky stream, distant; possibly juvenile",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/351678968.webp": {
@@ -30409,16 +30906,18 @@
     "ilyodon-furcidens": {
       "ok": "unsure",
       "typical": false,
-      "note": "small striped silvery fish among stones, distant view",
-      "logo": false
+      "note": "small striped fish among stones in stream, unclear species",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/351681992.webp": {
     "ilyodon-furcidens": {
       "ok": "unsure",
       "typical": false,
-      "note": "distant silvery fish with dark lateral stripe and yellow at tail base",
-      "logo": false
+      "note": "small fish with lateral stripe and yellow on tail in stream; may be juvenile or poeciliid",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/352914420.webp": {
@@ -31363,9 +31862,11 @@
   },
   "https://media.aquatome.com/inaturalist/427166572.webp": {
     "hyphessobrycon-erythrostigma": {
-      "ok": "unsure",
+      "ok": "yes",
       "typical": false,
-      "note": "blurry, pale tetra among plants; heart spot not clear"
+      "note": "bleeding heart tetra, faint spot, strong colour cast",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/427337940.webp": {
@@ -32315,7 +32816,9 @@
     "hyphessobrycon-columbianus": {
       "ok": "yes",
       "typical": false,
-      "note": "distant, pale fish over moss"
+      "note": "pale fish in planted tank, blurry",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/504511843.webp": {
@@ -32859,7 +33362,9 @@
     "hyphessobrycon-columbianus": {
       "ok": "yes",
       "typical": false,
-      "note": "group in tank, pale, washed-out colours"
+      "note": "group in tank, pale washed-out colours, red tails",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/545967345.webp": {
@@ -32938,7 +33443,9 @@
     "hyphessobrycon-columbianus": {
       "ok": "yes",
       "typical": false,
-      "note": "school with faded colours, red tails visible"
+      "note": "school in tank, faded silvery colours",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/553210753.webp": {
@@ -34172,8 +34679,10 @@
   "https://media.aquatome.com/inaturalist/631012652.webp": {
     "dichotomyctere-fluviatilis": {
       "ok": "unsure",
-      "typical": true,
-      "note": "Spotted puffer, yellow with round black spots; could be D. fluviatilis or D. nigroviridis, can't rule out the look-alike"
+      "typical": false,
+      "note": "yellow puffer with black spots; could be D. nigroviridis look-alike",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/631236296.webp": {
@@ -34207,16 +34716,18 @@
     "ilyodon-furcidens": {
       "ok": "yes",
       "typical": true,
-      "note": "female-type goodeid with dark bars over pebbles",
-      "logo": false
+      "note": "Ilyodon with dark bars over rocks in stream",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/631992152.webp": {
     "ilyodon-furcidens": {
       "ok": "yes",
       "typical": true,
-      "note": "spotted goodeid on stream gravel, wild underwater shot",
-      "logo": false
+      "note": "spotted Ilyodon on gravel in stream, wild",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/632862895.webp": {
@@ -34246,9 +34757,11 @@
   },
   "https://media.aquatome.com/inaturalist/637705907.webp": {
     "hampala-macrolepidota": {
-      "ok": "yes",
+      "ok": "unsure",
       "typical": false,
-      "note": "fish lit at night over rock; mid-body bar visible but colours muted"
+      "note": "dim underwater view of slender barb, markings unclear",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/637706593.webp": {
@@ -34262,7 +34775,9 @@
     "hampala-macrolepidota": {
       "ok": "unsure",
       "typical": false,
-      "note": "barb on rock at night, seen from above; bar faint, so can't confirm ID"
+      "note": "barbel-bearing fish in dim view from above, no bar visible",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/63953467.webp": {
@@ -35881,9 +36396,11 @@
   },
   "https://media.aquatome.com/scotcat/0750d9efc06db60e.webp": {
     "erethistes-pusillus": {
-      "ok": "yes",
+      "ok": "unsure",
       "typical": false,
-      "note": "close-up of mottled head and body of moth catfish"
+      "note": "close-up of mottled catfish head and pectoral spine",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/scotcat/0795bcc8c6536de2.webp": {
@@ -35945,6 +36462,15 @@
       "note": "live catfish side view on sand",
       "logo": false,
       "person": false
+    }
+  },
+  "https://media.aquatome.com/scotcat/0bd25fa86bf2470d.webp": {
+    "hypostomus-hondae": {
+      "ok": "dead",
+      "typical": false,
+      "note": "young pleco catch held up in fingers out of water, same fish as 2",
+      "logo": false,
+      "person": true
     }
   },
   "https://media.aquatome.com/scotcat/0c47e60d0f78ba34.webp": {
@@ -36376,6 +36902,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/scotcat/2f25ec3662800a8f.webp": {
+    "hypostomus-cochliodon": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "slender dark pleco with gold blotches on wood, possibly a different Hypostomus",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/scotcat/2f663a9653d438f0.webp": {
     "chaetostoma-leucomelas": {
       "ok": "dead",
@@ -36405,6 +36940,15 @@
       "typical": true,
       "note": "side view of an olive-brown pleco with wavy dark lines on the head, on a black background",
       "logo": false
+    }
+  },
+  "https://media.aquatome.com/scotcat/30e90b1cd7b6e702.webp": {
+    "hypostomus-hondae": {
+      "ok": "dead",
+      "typical": false,
+      "note": "specimen with collection tag held in a hand out of water",
+      "logo": false,
+      "person": true
     }
   },
   "https://media.aquatome.com/scotcat/310ea7100b5113a7.webp": {
@@ -36546,7 +37090,9 @@
     "erethistes-pusillus": {
       "ok": "yes",
       "typical": true,
-      "note": "adult side view on sand, tall dorsal fin, banded tail"
+      "note": "side view of brown mottled moth catfish on sand with banded tail",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/scotcat/3d588cbcd3c678c8.webp": {
@@ -36944,6 +37490,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/scotcat/5af4289cdd04cf31.webp": {
+    "hypostomus-cochliodon": {
+      "ok": "yes",
+      "typical": true,
+      "note": "orange and black banded apricot form on gravel",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/scotcat/5b8661aa5919b546.webp": {
     "brachyplatystoma-tigrinum": {
       "ok": "yes",
@@ -37154,6 +37709,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/scotcat/660b1c2b5abbc475.webp": {
+    "hypostomus-cochliodon": {
+      "ok": "yes",
+      "typical": true,
+      "note": "banded brown pleco in a bare tank",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/scotcat/662ea8c27ad2678e.webp": {
     "bagrichthys-obscurus": {
       "ok": "dead",
@@ -37266,9 +37830,11 @@
   },
   "https://media.aquatome.com/scotcat/70b7eb86b1602d0f.webp": {
     "erethistes-pusillus": {
-      "ok": "yes",
+      "ok": "unsure",
       "typical": false,
-      "note": "close-up of head with banded barbels and pectoral spine"
+      "note": "head close-up of catfish with long banded barbels",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/scotcat/7116b03d05d3746e.webp": {
@@ -37405,6 +37971,15 @@
       "ok": "yes",
       "typical": true,
       "note": "adult on gravel streambed, plain brown body, side view"
+    }
+  },
+  "https://media.aquatome.com/scotcat/7ebadaa35358703f.webp": {
+    "hypostomus-cochliodon": {
+      "ok": "yes",
+      "typical": true,
+      "note": "brown pleco with dark saddle blotches in a bare tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/scotcat/7eef1fa8ac9979f6.webp": {
@@ -37978,7 +38553,9 @@
     "erethistes-pusillus": {
       "ok": "unsure",
       "typical": false,
-      "note": "reddish-brown, white-banded sisorid catfish; unusual colour, could be another Hara/Erethistes species"
+      "note": "reddish banded erethistid catfish in glass tank, could be a different species",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/scotcat/af3cbbc8debd533f.webp": {
@@ -38941,7 +39518,9 @@
     "hyphessobrycon-columbianus": {
       "ok": "yes",
       "typical": true,
-      "note": "adult with blue-green iridescent back and red tail and fins"
+      "note": "adult Colombian tetra, blue-green back, red tail",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/0392857b4ce976b3.webp": {
@@ -39158,7 +39737,9 @@
     "homaloptera-parclitella": {
       "ok": "yes",
       "typical": true,
-      "note": "adult side view on leaf: cream body with brown saddles and red-orange fins"
+      "note": "saddle-back loach resting on leaf, side view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/0cf7dee590132166.webp": {
@@ -39657,12 +40238,30 @@
       "logo": false
     }
   },
+  "https://media.aquatome.com/seriouslyfish/23a50d89005e56fd.webp": {
+    "devario-maetaengensis": {
+      "ok": "yes",
+      "typical": true,
+      "note": "group of barred, orange-tinged danios underwater in a wild stream",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/seriouslyfish/23a67aa62219f959.webp": {
     "stiphodon-pelewensis": {
       "ok": "yes",
       "typical": true,
       "note": "male on rock, dark saddles, blue-edged fins",
       "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/23d90e425a9fcaad.webp": {
+    "heros-efasciatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "wild-type greenish severum among plants",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/247053de26b514a0.webp": {
@@ -39770,7 +40369,9 @@
     "hyphessobrycon-pyrrhonotus": {
       "ok": "yes",
       "typical": true,
-      "note": "Adult male with long dorsal fin, red back, small red shoulder spot"
+      "note": "adult with red back, small red shoulder spot and long dorsal fin, in front of plants",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/266bcd7279232b35.webp": {
@@ -40675,7 +41276,9 @@
     "homaloptera-parclitella": {
       "ok": "yes",
       "typical": true,
-      "note": "darker fish resting on rock, brown saddles and red fins"
+      "note": "darker-coloured saddle-back loach on a rock",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/4aa509f94425da53.webp": {
@@ -40729,10 +41332,11 @@
   },
   "https://media.aquatome.com/seriouslyfish/4c3aebe89ecb9d2e.webp": {
     "hemigrammus-rhodostomus": {
-      "ok": "yes",
+      "ok": "unsure",
       "typical": true,
-      "note": "rummy-nose tetra side view, red snout, striped tail",
-      "logo": false
+      "note": "rummy-nose type with red only around eye; could be false rummy-nose (Petitella georgiae)",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/4c882e874f147d16.webp": {
@@ -41298,7 +41902,9 @@
     "hyphessobrycon-columbianus": {
       "ok": "yes",
       "typical": true,
-      "note": "adult with blue sheen and red tail and anal fin"
+      "note": "Colombian tetra among plants",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/617d63108d068173.webp": {
@@ -41393,6 +41999,15 @@
       "ok": "none",
       "typical": false,
       "note": "river landscape with forested bank, no fish visible",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/66bb649a530d2a37.webp": {
+    "haludaria-fasciata": {
+      "ok": "yes",
+      "typical": true,
+      "note": "red adult male with dark mid-body blotch in tank",
       "logo": false,
       "person": false
     }
@@ -41555,7 +42170,9 @@
     "hampala-macrolepidota": {
       "ok": "yes",
       "typical": true,
-      "note": "adult with black bar below dorsal and red-orange tail lobes edged black"
+      "note": "live adult in the wild with black bar under dorsal, red-edged tail",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/6f588fa2aed1e4cf.webp": {
@@ -41628,7 +42245,9 @@
     "hyphessobrycon-amapaensis": {
       "ok": "yes",
       "typical": true,
-      "note": "adult in clear side view, bright red stripe above black and white bands"
+      "note": "adult with red stripe above black band, red eye",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/7306cf12e963af18.webp": {
@@ -41895,6 +42514,15 @@
       "typical": false,
       "note": "striped female Stiphodon in aquarium; females of the genus look alike",
       "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/82590c5ad0494919.webp": {
+    "hyphessobrycon-roseus": {
+      "ok": "unsure",
+      "typical": true,
+      "note": "small tetra with black shoulder spot and reddish tail base; iridescent colouring makes ID uncertain",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/825cc63a8eb5b0e1.webp": {
@@ -42254,7 +42882,9 @@
     "hyphessobrycon-vilmae": {
       "ok": "yes",
       "typical": true,
-      "note": "Two adults: orange-gold back, black lateral stripe, orange fin bases"
+      "note": "two chocolate neon tetras: black lateral stripe, orange-gold back",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/94858723d473628c.webp": {
@@ -42600,7 +43230,9 @@
     "homaloptera-parclitella": {
       "ok": "yes",
       "typical": false,
-      "note": "close-up of head and front body on rock, saddle pattern"
+      "note": "close-up of the head and front of the body only",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/a269f84912158d27.webp": {
@@ -42832,7 +43464,9 @@
     "hyphessobrycon-vilmae": {
       "ok": "unsure",
       "typical": false,
-      "note": "Olive-green fish with black stripe and no orange; could be a different Hyphessobrycon"
+      "note": "olive-backed tetra with black stripe on black background; could be another population or species",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/aa5e29dbea30db34.webp": {
@@ -43021,6 +43655,15 @@
       "typical": true,
       "note": "live barred loach on gravel, clear view, dark bar at tail base; look-alike nemacheilids not ruled out",
       "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/b25b12d0eb727097.webp": {
+    "geophagus-altifrons": {
+      "ok": "yes",
+      "typical": true,
+      "note": "golden adult eartheater with long fin filaments, side view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/b295aaadac2a6bdc.webp": {
@@ -43500,6 +44143,15 @@
       "logo": false
     }
   },
+  "https://media.aquatome.com/seriouslyfish/c7ba6647c2953ee6.webp": {
+    "haludaria-fasciata": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult with dark bands over rock",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/seriouslyfish/c7e20fb86b39307c.webp": {
     "channa-bleheri": {
       "ok": "yes",
@@ -43554,8 +44206,10 @@
   "https://media.aquatome.com/seriouslyfish/c9dbfa951dbc4df7.webp": {
     "desmopuntius-hexazona": {
       "ok": "yes",
-      "typical": false,
-      "note": "pale collected specimen of a six-barred barb on a measuring grid, colours faded"
+      "typical": true,
+      "note": "side view in a photo tank over a grid scale, six dark bars",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/c9f1dfdd2d562f63.webp": {
@@ -43694,6 +44348,15 @@
       "ok": "yes",
       "typical": true,
       "note": "adult male, reddish body with rows of red dots, blue-edged fins"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/cf74072e08772b86.webp": {
+    "devario-maetaengensis": {
+      "ok": "none",
+      "typical": false,
+      "note": "forest stream habitat, no fish visible",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/cf7cdec6d5e80b75.webp": {
@@ -43878,8 +44541,10 @@
   "https://media.aquatome.com/seriouslyfish/d983d0f1fe65e08a.webp": {
     "hyphessobrycon-amapaensis": {
       "ok": "yes",
-      "typical": true,
-      "note": "adult side view, red stripe over black band with pale line, red-rimmed eye; paler colouring"
+      "typical": false,
+      "note": "pale-coloured fish, red stripe over thin dark line, red eye",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/da67cb269c8aadbc.webp": {
@@ -43983,6 +44648,15 @@
       "ok": "unsure",
       "typical": false,
       "note": "brownish female-type betta with gold/black gill marks, no red bars; could be another species",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/dec2b4c5a4d81d8e.webp": {
+    "haludaria-fasciata": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult with dark blotches in bare tank",
       "logo": false,
       "person": false
     }
@@ -44162,6 +44836,13 @@
   },
   "https://media.aquatome.com/seriouslyfish/e9c6bfcc960fbe22.webp": {
     "acestrorhynchus-microlepis": {
+      "ok": "none",
+      "typical": false,
+      "note": "river/lake landscape with forest, no fish visible",
+      "logo": false,
+      "person": false
+    },
+    "hyphessobrycon-roseus": {
       "ok": "none",
       "typical": false,
       "note": "river/lake landscape with forest, no fish visible",
@@ -44441,7 +45122,9 @@
     "hampala-macrolepidota": {
       "ok": "yes",
       "typical": false,
-      "note": "juvenile with several dark vertical bands, over submerged wood"
+      "note": "juvenile with several dark bands among submerged roots",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/f4cf63383c3186fd.webp": {
@@ -44515,7 +45198,9 @@
     "devario-malabaricus": {
       "ok": "yes",
       "typical": true,
-      "note": "adult giant danio, side view, yellow bars behind gill and stripes on a blue-green body"
+      "note": "adult giant danio, side view, yellow stripes and bars on dark background",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/f76f99de0c45a7d7.webp": {

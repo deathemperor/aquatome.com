@@ -68,24 +68,7 @@
       },
       {
         "heading": "Gắn ráy lên lũa",
-        "moments": [
-          {
-            "t": 60,
-            "url": "https://media.aquatome.com/video/a0VXTk-GF_I/at60-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bôi keo 502 lên thân rễ ráy để dán vào khúc lũa.",
-            "sharpness": 406.7
-          },
-          {
-            "t": 80,
-            "url": "https://media.aquatome.com/video/a0VXTk-GF_I/at80-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ráy đã được gắn lên lũa, rễ buộc cố định chắc chắn.",
-            "sharpness": 625.9
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/a0VXTk-GF_I/p2-NfUGxhbnRzLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/a0VXTk-GF_I/p2-NfUGxhbnRzLmpwZw-480.webp",
@@ -106,7 +89,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá đô la móc đỏ bơi quanh khúc lũa có cây trong bể.",
-            "sharpness": 570.5
+            "sharpness": 570.5,
+            "person": false
           },
           {
             "t": 100,
@@ -114,7 +98,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá rồng bơi ngang qua khúc lũa gắn cây mà không đụng tới.",
-            "sharpness": 496.7
+            "sharpness": 496.7,
+            "person": false
           }
         ]
       },

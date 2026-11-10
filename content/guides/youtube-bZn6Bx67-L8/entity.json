@@ -73,20 +73,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Dãy thùng nhựa đen đặt ngoài trời dọc theo bức tường nhà.",
-            "sharpness": 1023
-          }
-        ]
-      },
-      {
-        "heading": "Chọn thùng nào",
-        "moments": [
-          {
-            "t": 10,
-            "url": "https://media.aquatome.com/video/bZn6Bx67-L8/at10-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Những thùng nhựa đen cỡ lớn đặt cạnh tường, bên cạnh có người đang làm việc.",
-            "sharpness": 415.3
+            "sharpness": 1023,
+            "person": false
           }
         ]
       },
@@ -99,7 +87,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Dãy thùng đen xếp cạnh tường, ống xả chạy dọc phía dưới.",
-            "sharpness": 921.2
+            "sharpness": 921.2,
+            "person": false
           }
         ]
       },

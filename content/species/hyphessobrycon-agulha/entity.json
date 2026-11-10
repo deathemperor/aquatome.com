@@ -575,16 +575,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/326b6896dd339b9b.webp",
-      "thumb": "https://media.aquatome.com/commons/326b6896dd339b9b-480.webp",
-      "width": 960,
-      "height": 483,
-      "licence": "CC BY 4.0",
-      "author": "A. Zarske, D. Bork, H.J. Franke, illust. Jurgen Scholz",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hyphessobrycon_agulha_(31536).png",
-      "caption": "Hyphessobrycon agulha (Fowler 1913). Live coloring."
-    },
-    {
       "url": "https://media.aquatome.com/commons/2db0d2cf9d39f01e.webp",
       "thumb": "https://media.aquatome.com/commons/2db0d2cf9d39f01e-480.webp",
       "width": 960,
@@ -593,6 +583,16 @@
       "author": "Oregon State University",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hyphessobrycon_agulha_by_Rafael_Leit%C3%A3o.jpg",
       "caption": "Hyphessobrycon agulha - Photo provided by OSU College of Agricultural Sciences."
+    },
+    {
+      "url": "https://media.aquatome.com/commons/326b6896dd339b9b.webp",
+      "thumb": "https://media.aquatome.com/commons/326b6896dd339b9b-480.webp",
+      "width": 960,
+      "height": 483,
+      "licence": "CC BY 4.0",
+      "author": "A. Zarske, D. Bork, H.J. Franke, illust. Jurgen Scholz",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hyphessobrycon_agulha_(31536).png",
+      "caption": "Hyphessobrycon agulha (Fowler 1913). Live coloring."
     }
   ],
   "videos": [
