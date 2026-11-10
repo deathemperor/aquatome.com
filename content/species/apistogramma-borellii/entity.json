@@ -22,11 +22,12 @@
         "UY"
       ],
       "regions": [
-        "rio Paraguay",
-        "rio Paraná"
+        "Rio Paraguay",
+        "Rio Paraná"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -45,8 +46,15 @@
           "quote": "Also known as the umbrella or yellow dwarf cichlid, it occurs in creeks and tributaries of the rio Paraguay, lower rio Paraná and Uruguay systems.",
           "countries": [],
           "regions": [
-            "rio Paraguay",
-            "rio Paraná"
+            "Rio Paraguay"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It occurs in creeks and tributaries of both the Rio Paraguay and lower Rio Paraná basins.",
+          "countries": [],
+          "regions": [
+            "Rio Paraná"
           ]
         }
       ]

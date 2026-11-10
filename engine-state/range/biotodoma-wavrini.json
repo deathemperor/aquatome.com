@@ -1,8 +1,8 @@
 {
   "id": "biotodoma-wavrini",
   "native": {
-    "input": "5b8aed4652fc4125",
-    "at": "2026-11-06T21:19:39.004Z",
+    "input": "f7c82abb76a56a21",
+    "at": "2026-11-10T04:57:39.069Z",
     "claims": [
       {
         "code": "VE",
@@ -31,33 +31,17 @@
       {
         "code": "BR",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Currently known from the middle and upper rio Negro basins in Brazil and Colombia, the Casiquiare system in Brazil and Venezuela, and the Orinoco watershed in Venezuela and Colombia.",
+        "source": "glaser",
+        "quote": "It is known scientifically that B. wavrini occurs in Brazil; there is even a quite isolated population reported from the Rio Preto da Eva.",
         "words": "Brazil",
         "ok": true
       },
       {
         "code": "CO",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Currently known from the middle and upper rio Negro basins in Brazil and Colombia, the Casiquiare system in Brazil and Venezuela, and the Orinoco watershed in Venezuela and Colombia.",
+        "source": "glaser",
+        "quote": "Most often it is obtained from Colombia, but this time the fish originate from Brazil.",
         "words": "Colombia",
-        "ok": true
-      },
-      {
-        "code": "VE",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Currently known from the middle and upper rio Negro basins in Brazil and Colombia, the Casiquiare system in Brazil and Venezuela, and the Orinoco watershed in Venezuela and Colombia.",
-        "words": "Venezuela",
-        "ok": true
-      },
-      {
-        "code": "VE",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "A natural habitat of this species is the Río Cinaruco, a low nutrient, blackwater tributary of the Orinoco in southwestern Venezuela which comprises a meandering river channel with numerous interconnected lagoons and floodplain lakes.",
-        "words": "Venezuela",
         "ok": true
       }
     ],
@@ -65,7 +49,7 @@
       {
         "name": "Orinoco",
         "source": "seriouslyfish",
-        "quote": "Currently known from the middle and upper rio Negro basins in Brazil and Colombia, the Casiquiare system in Brazil and Venezuela, and the Orinoco watershed in Venezuela and Colombia.",
+        "quote": "The Orinoco eartheater, Biotodoma wavrini, is a geophagine cichlid from the Orinoco and rio Negro basins of Venezuela, Colombia and Brazil.",
         "ok": true
       },
       {
@@ -88,9 +72,16 @@
         "ok": true
       },
       {
-        "name": "Río Ventuari",
-        "source": "seriouslyfish",
-        "quote": "Type locality is 'upper Río Orinoco in Venezuela between San Fernando de Atabapo and Río Casiquiare, Venezuela', which appears to correspond to the lower Río Ventuari, a tributary of the Orinoco.",
+        "name": "Rio Preto da Eva",
+        "source": "glaser",
+        "quote": "It is known scientifically that B. wavrini occurs in Brazil; there is even a quite isolated population reported from the Rio Preto da Eva.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "glaser",
+        "quote": "That species is distributed in the Orinoco and Rio Negro systems.",
         "ok": true
       }
     ],

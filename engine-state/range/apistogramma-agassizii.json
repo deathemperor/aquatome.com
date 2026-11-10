@@ -1,8 +1,8 @@
 {
   "id": "apistogramma-agassizii",
   "native": {
-    "input": "f0577cf722ef0f5f",
-    "at": "2026-11-09T20:43:02.940Z",
+    "input": "311f1f25363eddfe",
+    "at": "2026-11-10T04:57:39.069Z",
     "claims": [
       {
         "code": "PE",
@@ -23,7 +23,7 @@
     ],
     "regions": [
       {
-        "name": "Amazon",
+        "name": "Amazon/Solimões basin",
         "source": "seriouslyfish",
         "quote": "Apistogramma agassizii is a dwarf cichlid found through much of the Amazon/Solimões basin, from the Río Ucayali in Peru to the Capim River in Brazil.",
         "ok": true
@@ -39,13 +39,6 @@
         "name": "Capim River",
         "source": "seriouslyfish",
         "quote": "Apistogramma agassizii is a dwarf cichlid found through much of the Amazon/Solimões basin, from the Río Ucayali in Peru to the Capim River in Brazil.",
-        "country": "BR",
-        "ok": true
-      },
-      {
-        "name": "Lake Manacapurú",
-        "source": "seriouslyfish",
-        "quote": "The lectotype originates from Lake Manacapurú in Amazonas state, northwestern Brazil, just upstream from the city of Manaus and fed by the main Amazon river channel.",
         "country": "BR",
         "ok": true
       }

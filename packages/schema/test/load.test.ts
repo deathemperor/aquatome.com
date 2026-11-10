@@ -3,8 +3,8 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
-import { cardShownIn, loadAll } from '../src/index'
-import { withLocalNote } from '../src/load'
+import { cardShownIn, loadAll, type Section, type Translation } from '../src/index'
+import { oneVoice, withLocalNote } from '../src/load'
 
 const root = fileURLToPath(new URL('./fixtures/store', import.meta.url))
 const bad = fileURLToPath(new URL('./fixtures/bad', import.meta.url))
@@ -295,3 +295,11 @@ test("an event card in one of the readers' countries shows only in its language:
   expect(cardShownIn({}, 'id')).toBe(true)
 })
 
+test('a heading with one voice shows that source alone, and only once this language has its text', () => {
+  const block = (key: string, source: string) => ({ key, source, sourceUrl: `https://x/${source}`, html: 'x' }) as Section
+  const sections = [block('waterConditions', 'glaser'), block('waterConditions', 'seriouslyfish'), block('diet', 'glaser')]
+  const shown = (t: Record<string, string>) => oneVoice({ sections, t: { sections: t } as unknown as Translation }, { waterConditions: 'seriouslyfish' }).sections.map(s => `${s.key}:${s.source}`)
+  expect(shown({ 'waterConditions:glaser': 'a', 'waterConditions:seriouslyfish': 'b', 'diet:glaser': 'c' })).toEqual(['waterConditions:seriouslyfish', 'diet:glaser'])
+  expect(shown({ 'waterConditions:glaser': 'a', 'diet:glaser': 'c' })).toEqual(['waterConditions:glaser', 'waterConditions:seriouslyfish', 'diet:glaser'])
+  expect(oneVoice({ sections, t: { sections: {} } as unknown as Translation }, undefined).sections).toEqual(sections)
+})

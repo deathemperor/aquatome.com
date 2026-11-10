@@ -55,7 +55,8 @@
       },
       {
         "source": "seriouslyfish",
-        "value": 5
+        "value": 5,
+        "overruled": "Glaser 12 cm and FishBase 10 cm SL (Lima et al. 2003) agree against it, twice the 5 cm given: the two-source exception, 2026-11-10"
       }
     ],
     "difficulty": [
@@ -80,7 +81,8 @@
     "tankCm": [
       {
         "source": "seriouslyfish",
-        "value": 60
+        "value": 60,
+        "overruled": "Set for a 5 cm fish; the page takes 12 cm and no source gives a tank for that size (chief's ruling, 2026-11-10)"
       }
     ]
   },
@@ -185,13 +187,24 @@
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/bario-oligolepis",
-      "html": "<p>Can be bred in a similar way to other species in the genus. You'll need to set up a separate tank if you want to raise decent numbers of fry. Something around 18\" x 10\" x 10\" (about 45 × 25 × 25 cm) in size is fine. Use very dim lighting and add clumps of fine-leaved plants such as java moss or spawning mops, to give the fish somewhere to deposit their eggs. Alternatively you could cover the base of the tank with some kind of mesh. This should be of a large enough grade so that the eggs can fall through it, but small enough so that the adults cannot reach them. The water should be slightly soft and acidic in the range pH 6.0-7.0, gH 1-10, with a temperature of around 22–24.5°C (72–76°F). A small air-powered sponge filter bubbling away very gently is all that is needed in terms of filtration. It can be spawned in a group, with half a dozen specimens of each sex being a good number. Condition these with plenty of small live foods and spawning should not present too many problems. Alternatively, try spawning it in pairs. Under this technique the fish are conditioned in male and female groups in separate tanks. When the females are noticeably full of eggs and the males are displaying their best colours, select the fattest female and best-coloured male and transfer them to the spawning tank in the evening. They should spawn the following morning. In either situation the adults will eat the eggs given the chance and should be removed as soon as eggs are noticed. These will hatch in 24-36 hours, with the fry becoming free swimming 3-4 days later. They should be fed on an infusoria-type food for the first few days, until they are large enough to accept microworm or brine shrimp nauplii.</p>"
+      "html": "<p>Can be bred in a similar way to other species in the genus. You'll need to set up a separate tank if you want to raise decent numbers of fry. Use very dim lighting and add clumps of fine-leaved plants such as java moss or spawning mops, to give the fish somewhere to deposit their eggs. Alternatively you could cover the base of the tank with some kind of mesh. This should be of a large enough grade so that the eggs can fall through it, but small enough so that the adults cannot reach them. The water should be slightly soft and acidic in the range pH 6.0-7.0, gH 1-10, with a temperature of around 22–24.5°C (72–76°F). A small air-powered sponge filter bubbling away very gently is all that is needed in terms of filtration. It can be spawned in a group, with half a dozen specimens of each sex being a good number. Condition these with plenty of small live foods and spawning should not present too many problems. Alternatively, try spawning it in pairs. Under this technique the fish are conditioned in male and female groups in separate tanks. When the females are noticeably full of eggs and the males are displaying their best colours, select the fattest female and best-coloured male and transfer them to the spawning tank in the evening. They should spawn the following morning. In either situation the adults will eat the eggs given the chance and should be removed as soon as eggs are noticed. These will hatch in 24-36 hours, with the fry becoming free swimming 3-4 days later. They should be fed on an infusoria-type food for the first few days, until they are large enough to accept microworm or brine shrimp nauplii.</p>",
+      "fixed": true
     },
     {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/bario-oligolepis",
       "html": "<p>This species is one of a handful that closely resemble the popular red-eyed tetra, Bario sanctaefilomenae. This species is seen much less often in the hobby than its relative however and is also known as the glassy tetra.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>The sources give no tank size for a fish reaching 12 cm.</p>",
+      "refs": [
+        0,
+        1
+      ]
     }
   ],
   "photos": [],
@@ -227,5 +240,15 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-01"
+  "updatedAt": "2026-11-01",
+  "refs": [
+    {
+      "url": "https://www.aquariumglaser.de/en/fisharchive/moenkhausia-oligolepis-2/",
+      "title": "Aquarium Glaser: Moenkhausia oligolepis"
+    },
+    {
+      "url": "https://fishbase.se/summary/Moenkhausia-oligolepis.html",
+      "title": "FishBase: Bario oligolepis"
+    }
+  ]
 }

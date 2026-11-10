@@ -171,8 +171,8 @@ test('the page: drawn for a 60 cm mid-range tank without a script, in each langu
   // The tools index lists it in each language, and the sitemap has it.
   expect(page('/id/alat/').dom.querySelector('.tools a[href="/id/alat/anggaran-akuarium/"]')).not.toBeNull()
   expect(page('/th/tools/').dom.querySelector('.tools a[href="/th/tools/tank-budget/"]')).not.toBeNull()
-  const { DIST } = await import('./dist')
-  const sitemap = readFileSync(`${DIST}/sitemap.xml`, 'utf8')
+  const { DIST, sitemapText } = await import('./dist')
+  const sitemap = sitemapText()
   for (const path of ['/cong-cu/du-toan-be/', '/id/alat/anggaran-akuarium/', '/th/tools/tank-budget/']) expect(sitemap).toContain(path)
   // Malay has no page until Malaysia's tariff is researched: its tools index has every other card, each a link (not a
   // card whose link was dropped), and neither the build nor the sitemap has the page.

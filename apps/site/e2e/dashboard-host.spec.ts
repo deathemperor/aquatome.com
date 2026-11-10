@@ -2,6 +2,7 @@ import type { Page } from '@playwright/test'
 import { exportJWK, generateKeyPair, SignJWT } from 'jose'
 import { dashboardHostRoute } from '../worker/dashboard-host'
 import type { AdminEnv } from '../worker/dashboard'
+import { hostPath, WEB_PAGES } from '../worker/admin/shell'
 import { DASHBOARD_HOST, SITE_HOST } from '../worker/paths'
 import { expect, test } from './fixtures'
 import { LIVE } from './pages'
@@ -146,9 +147,38 @@ test('live: a stranger gets no dashboard from the host, and what the Worker does
   if (file.status() === 200) expect(file.headers()['x-robots-tag']).toContain('noindex')
 })
 
-test('live: the site\'s /_ab/ is either the dashboard\'s sign-in or, with Access on, a redirect to the host', async ({ request }) => {
+test('live: every page in the dashboard\'s list redirects from the site to its host, none a 404', async ({ request }) => {
   test.skip(!LIVE, 'the real Worker\'s vars')
-  const r = await request.get('/_ab/doc-gia/', { maxRedirects: 0 })
-  expect([200, 301]).toContain(r.status())
-  if (r.status() === 301) expect(r.headers().location).toBe(`${DASH}/doc-gia/`)
+  const wrong: string[] = []
+  for (const p of WEB_PAGES) {
+    const r = await request.get(p, { maxRedirects: 0 })
+    if (r.status() !== 301 || r.headers().location !== `${DASH}${hostPath(p)}`) wrong.push(`${p}: ${r.status()} ${r.headers().location ?? ''}`)
+  }
+  expect(wrong).toEqual([])
+})
+
+// The owner found this one (2026-11-10): the sign-in is all that stands between them and the dashboard, and a stranger's
+// "no" says nothing about whether anyone can get through. This goes as far as a machine can without an owner's login.
+test('live: the dashboard\'s sign-in offers a way in, and each way leads to a form', async ({ browser }) => {
+  test.skip(!LIVE, 'the real host and Access')
+  // A context of its own: the fixtures' page keeps to the site's own address.
+  const context = await browser.newContext()
+  const page = await context.newPage()
+  await page.goto(`${DASH}/`)
+  await page.waitForURL(/\.cloudflareaccess\.com\/cdn-cgi\/access\/login\//)
+  const cloudflare = page.locator('a[href*="/oauth2/auth"]')
+  const emailed = page.locator('input[type="email"]') // the code by email, once it's offered, is a form on this page
+  expect(await cloudflare.count() + await emailed.count(), 'ways in on the sign-in page').toBeGreaterThan(0)
+  if (await emailed.count()) await expect(emailed.first()).toBeVisible()
+  if (await cloudflare.count()) {
+    await cloudflare.first().click()
+    await page.waitForURL(/dash\.cloudflare\.com\//)
+    // A runner's address can be asked to prove it's a person, on any step of the way: then this check goes no further.
+    const challenged = async () => /just a moment/i.test(await page.title())
+    const form = page.locator('input[type="email"]')
+    await expect.poll(async () => (await form.count()) > 0 || challenged(), { timeout: 20_000 }).toBe(true)
+    test.skip(await challenged(), 'Cloudflare asked this runner to prove it is a person')
+    await expect(form.first()).toBeVisible()
+  }
+  await context.close()
 })

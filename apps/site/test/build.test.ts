@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 import { readdirSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { DIST, page } from './dist'
+import { DIST, page, sitemapText } from './dist'
 import { CATEGORY_ORDER } from '../src/lib/format'
 import { VI_SECTIONS } from '../worker/paths'
 import { LANGS } from '@aq/schema/langs'
@@ -210,7 +210,7 @@ test('low-quality page is noindex', () => {
 test('a thin page (one dealer\'s note) stays out of search; a heading over a few words is a quick fact instead', () => {
   const { html, dom } = page('/ca/ca-ong-tien/')
   expect(html).toMatch(/<meta name="robots" content="noindex/)
-  expect(readFileSync(`${DIST}/sitemap.xml`, 'utf8')).not.toContain('/ca/ca-ong-tien/')
+  expect(sitemapText()).not.toContain('/ca/ca-ong-tien/')
   // "Spawns on leaves." under its own heading becomes a line of the quick facts, with its source's mark; "Amazon basin."
   // is left out, the quick facts already say it. Its range (where it lives in the wild) is a section of its own.
   expect(dom.querySelectorAll('section[data-section]').map(s => s.getAttribute('data-section'))).toEqual(['quickFacts', 'range'])
@@ -592,7 +592,7 @@ test('every video marked up on a page names a thumbnail, also a guide with no pi
 })
 
 test('the sitemap names no page that keeps itself out of search', () => {
-  const locs = [...readFileSync(`${DIST}/sitemap.xml`, 'utf8').matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => new URL(m[1]!).pathname)
+  const locs = [...sitemapText().matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => new URL(m[1]!).pathname)
   expect(locs.filter(p => /<meta name="robots" content="[^"]*noindex/.test(page(p).html))).toEqual([])
 })
 
@@ -638,7 +638,7 @@ describe('video pages', () => {
   })
   test('Video is inside Hướng dẫn (no nav entry of its own); sitemap has the video pages', () => {
     expect(page('/').dom.querySelector('.nav a[href="/video/"], #site-menu a[href="/video/"]')).toBeNull()
-    const sm = readFileSync(`${DIST}/sitemap.xml`, 'utf8')
+    const sm = sitemapText()
     expect(sm).toContain('/video/</loc>')
     expect(sm).toContain('/video/reu-hai-tu-a-den-z/</loc>')
     expect(sm).toContain('/video/kenh/green-aqua/</loc>')
@@ -731,7 +731,7 @@ describe('product page', () => {
     expect(eq.querySelector('.creators strong a')?.getAttribute('href')).toBe('/san-pham/oase-biomaster-350/')
   })
   test('indexable products are in the sitemap', () => {
-    expect(readFileSync(`${DIST}/sitemap.xml`, 'utf8')).toContain('/san-pham/oase-biomaster-350/</loc>')
+    expect(sitemapText()).toContain('/san-pham/oase-biomaster-350/</loc>')
   })
   test('a product with no reviews and no control shows neither block', () => {
     expect(dom.querySelector('.reviews')).toBeNull()
@@ -880,7 +880,7 @@ describe('photo gallery', () => {
     for (const other of ['/ca/ca-la-han/anh/', '/cay/cryptocoryne-wendtii/anh/']) expect(page(other).dom.querySelector('[data-reader-photos]'), other).toBeNull()
   })
   test('sitemap lists the gallery page', () => {
-    expect(readFileSync(`${DIST}/sitemap.xml`, 'utf8')).toContain('/ca/ca-neon-vua/anh/')
+    expect(sitemapText()).toContain('/ca/ca-neon-vua/anh/')
   })
   test('a plant gets a gallery too: the strip on its page, a gallery page naming each photo site (Indonesian and Thai addresses: i18n.test.ts)', () => {
     const { dom } = page('/cay/cryptocoryne-wendtii/')
@@ -895,7 +895,7 @@ describe('photo gallery', () => {
     expect(g.querySelector('.lead a')!.textContent).toContain('Cách trồng')
     expect(g.querySelector('.crumb a[href="/cay/"]')).toBeTruthy()
     expect(page('/cay/ray-nana/').dom.querySelector('section.strip')).toBeNull()
-    expect(readFileSync(`${DIST}/sitemap.xml`, 'utf8')).toContain('/cay/cryptocoryne-wendtii/anh/')
+    expect(sitemapText()).toContain('/cay/cryptocoryne-wendtii/anh/')
   })
 })
 
@@ -977,7 +977,7 @@ describe('man-made fish (breeds)', () => {
     expect(page('/ca/ca-dia/').dom.querySelector('section.breeds img')!.getAttribute('loading')).toBe('lazy')
   })
   test('sitemap: indexable breed pages only', () => {
-    const sm = readFileSync(`${DIST}/sitemap.xml`, 'utf8')
+    const sm = sitemapText()
     expect(sm).toContain('/ca/ca-dia-pigeon-blood/')
     expect(sm).not.toContain('/ca/ca-la-han/')
   })

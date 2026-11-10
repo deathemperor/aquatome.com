@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { cardRepeats, dropCardRepeats, dropItems, dropLowCo2, dropOffItems, figuresOffCard, litresOffCard, shownCard, states, tankIsVolume } from '../src/index'
+import { cardRepeats, dropCardRepeats, dropItems, dropLowCo2, dropOffItems, figuresOffCard, litresOffCard, shownCard, sizeIsForSale, states, tankIsVolume, tempIsNotForKeeping } from '../src/index'
 
 // Cá neon vua and Cá chạch bùn as aquatome.com had them (design critique 2026-10-31): the card said 3,5 cm, pH 4,6–6,2,
 // 23–27 °C; The Spruce Pets' quick facts and Seriously Fish's water text said 5 cm, pH 3,5–7,5, 23–29 °C.
@@ -160,4 +160,37 @@ test('a plant\'s CO₂ row stays where it says more than the card', () => {
   expect(dropLowCo2(tropicaEn('<strong>CO2:</strong> Medium (6-14 mg/L)'), tropicaVi, 'none')).toBe(tropicaVi)
   // A translation whose list doesn't match the English one item for item is left alone.
   expect(dropLowCo2('<ul><li>CO2: Low</li></ul>', tropicaVi, 'none')).toBe(tropicaVi)
+})
+
+test('sizeIsForSale: a size a shop has in stock, never one the source also gives as the fish\'s', () => {
+  expect(sizeIsForSale('<p>Common name: Empire gudgeon. Available size: 4–5 cm. Origin: Indonesia.</p>', 5)).toBe(true)
+  expect(sizeIsForSale('<p>Currently the specimens are 20-25 cm long.</p>', 25)).toBe(true)
+  expect(sizeIsForSale('<p>Available size: 4–5 cm. Males reach 5 cm.</p>', 5)).toBe(false)
+  expect(sizeIsForSale('<p>Currently available: wonderful, fully grown (5-6 cm) fish.</p>', 6)).toBe(false)
+  expect(sizeIsForSale('<p>It grows to 12 cm.</p>', 12)).toBe(false)
+})
+
+test('tempIsNotForKeeping: a single figure for the wild or breeding, never a keeper\'s target', () => {
+  const figure = (t: number) => ({ min: t, max: t })
+  expect(tempIsNotForKeeping('<p>During the monsoon season the water temperature drops to 14°C.</p>', figure(14))).toBe(true)
+  expect(tempIsNotForKeeping('<p>It is used to temperatures as low as 10°C at times.</p>', figure(10))).toBe(true)
+  expect(tempIsNotForKeeping('<p>So far the breeding was possible only at 30°C.</p>', figure(30))).toBe(true)
+  expect(tempIsNotForKeeping('<p>Keep it warm, around 28°C.</p>', figure(28))).toBe(false)
+  expect(tempIsNotForKeeping('<p>In the wild it reaches 26°C. In the aquarium keep it at 26°C.</p>', figure(26))).toBe(false)
+  expect(tempIsNotForKeeping('<p>In the wild, 24 to 28°C.</p>', { min: 24, max: 28 })).toBe(false)
+  expect(tempIsNotForKeeping('<p>No figure here.</p>', figure(25))).toBe(false)
+})
+
+test('shownCard: a figure two other sources overrule is off the card, and the card takes theirs', () => {
+  const card = { sizeCm: [{ source: 'seriouslyfish', value: 12, overruled: 'Glaser 45 cm and FishBase 42 cm SL agree against it' }, { source: 'glaser', value: 45 }] }
+  expect(shownCard(card, [], () => true)).toEqual({ sizeCm: [{ source: 'glaser', value: 45 }] })
+  expect(card.sizeCm).toHaveLength(2)
+})
+
+test('shownCard: a card doesn\'t show a shop\'s selling size as the adult size, or a temperature only for the wild', () => {
+  const card = { sizeCm: [{ source: 'glaser', value: 5 }, { source: 'seriouslyfish', value: 12 }], tempC: [{ source: 'glaser', value: { min: 14, max: 14 } }, { source: 'seriouslyfish', value: { min: 23, max: 28 } }] }
+  const sections = [{ source: 'glaser', html: '<p>Available size: 4–5 cm. During the monsoon season the water temperature drops to 14°C.</p>' }, { source: 'seriouslyfish', html: '<p>Max size: 12 cm.</p>' }]
+  const shown = shownCard(card, sections, () => true)
+  expect(shown.sizeCm?.map(v => v.source)).toEqual(['seriouslyfish'])
+  expect(shown.tempC?.map(v => v.source)).toEqual(['seriouslyfish'])
 })

@@ -21,7 +21,8 @@
       ],
       "regions": [
         "Rio Negro",
-        "Orinoco"
+        "Orinoco",
+        "Atabapo"
       ],
       "sources": [
         "seriouslyfish",
@@ -30,20 +31,22 @@
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "The gulper catfish, Asterophysus batrachus, is a predatory auchenipterid catfish from the rio Negro in Brazil and the Orinoco in Venezuela.",
+          "quote": "Has been recorded throughout the rio Negro system in Brazil and Orinoco drainage in Venezuela.",
           "countries": [
             "BR",
             "VE"
           ],
-          "regions": []
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Has been recorded throughout the rio Negro system in Brazil and Orinoco drainage in Venezuela.",
-          "countries": [],
           "regions": [
             "Rio Negro",
             "Orinoco"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "According to the Check List of the Freshwater fishes of South and Central America, Asterophysus batrachus is distributed not only in the Orinoco basin (to which the Atabapo belongs), but also in the upper Rio Negro.",
+          "countries": [],
+          "regions": [
+            "Atabapo"
           ]
         }
       ]

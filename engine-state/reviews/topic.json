@@ -475,6 +475,35 @@
       "kept": true
     }
   ],
+  "id/guides/aquatome-cho-ca-sinh-san-giao-phoi-va-cham-ca-con": [
+    {
+      "at": "2026-11-10T06:38:38Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-10T06:38:38Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "\"Kalau ia terus mengejar betina, memindahkan betina adalah pilihan yang lebih aman\" - invented behavioural advice, not in the facts.",
+        "\"Kenapa guppy saya terus beranak padahal tidak ada jantan?\" - the FAQ framing is fine, but \"Lendir induk memberi nutrisi dan juga mikroorganisme\" is OK; the claim that discus fry can be raised artificially \"Bisa dibesarkan secara buatan\" is only loosely supported.",
+        "\"sepasang diskus memberi makan burayaknya\" and \"Ketiga ikan ... cupang jantan ... menjaga telurnya\" are fine, but \"Siapkan juga pakan hidup ... infusoria, mikroworm, dan artemia ... sebelum burayak mulai berenang bebas\" is applied to all three species, while the facts give these foods only for betta fry.",
+        "\"Hanya memberi mikroworm\" is framed as a common mistake. The facts only say microworms are not a complete diet for every species.",
+        "\"Pasangan yang akan memijah biasanya memisahkan diri dari kelompok\" turns \"possibly to cut down on the young being eaten\" into a general rule, and \"dimakan ikan lain\" is added detail."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.7,
+        0.72,
+        0.72
+      ]
+    }
+  ],
   "id/guides/aquatome-chon-da-soi-cat-va-nen-trang-tri-cho-be-thuy-sinh": [
     {
       "at": "2026-11-09T07:38:55Z",
@@ -677,6 +706,47 @@
       ],
       "attempt": "rewrite",
       "kept": true
+    }
+  ],
+  "id/guides/aquatome-su-co-may-bom-nuoc-keu-to-giat-cuc-nong-yeu-nhiem-dien-chay": [
+    {
+      "at": "2026-11-10T06:40:49Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"Jadi pada pompa seperti ini, mati sendiri bisa berarti pengamannya sedang bekerja\" is an inference the facts don't state.",
+        "\"Karena itu pengaman GFCI ... penting\" is a mild generalisation. The facts do recommend GFCI, but they don't say it is important for this reason.",
+        "\"Pompa menyala tanpa air (kering) bisa membuatnya kepanasan\" is listed under a symptom row. The facts support this cause. Linking it to \"Panas berlebih\" as the only cause is a small simplification.",
+        "\"Pompa sering kepanasan ... Cari penyebabnya\" in the worry section is a mild extrapolation. The fact about finding the cause applies only to the SuperFish PondECO Plus E."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.9,
+        0.85,
+        0.9
+      ]
+    },
+    {
+      "at": "2026-11-10T06:40:49Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "\"Jangan sentuh airnya\" is not in the facts.",
+        "\"Jika air akuarium sampai teraliri listrik (nyetrum), ini yang paling berbahaya\" is a ranking of danger that the facts don't give.",
+        "\"Bakteri baik ikut mati\" is stated as a certain result of tap water. The facts only say rinsing in tank water protects beneficial bacteria.",
+        "\"Pompa yang tiba-tiba mati belum tentu rusak\" is the guide's own inference, not stated in the facts.",
+        "\"Sebuah panduan akuarium menyarankan, ... stopkontak GFCI\" is correct, but \"biasanya penuh kotoran... impeler atau porosnya aus\" in the intro generalises the causes without support.",
+        "\"Selalu pegang peralatan listrik dengan tangan kering\" and \"misalnya saat ganti air\" are extra details not in the facts.",
+        "\"Pembuatnya menyarankan\" is applied to the fact that the unit stops for dry running, and that is fine. But \"Menurut pembuat pompa, matikan sekring\" matches the facts."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.82,
+        0.88,
+        0.82
+      ]
     }
   ],
   "id/guides/aquatome-trung-mo-neo-va-ran-ca-nhan-biet-va-cach-diet": [
@@ -2198,6 +2268,38 @@
       "kept": false
     }
   ],
+  "th/guides/aquatome-cho-ca-sinh-san-giao-phoi-va-cham-ca-con": [
+    {
+      "at": "2026-11-10T06:50:26Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.95,
+        0.96,
+        0.93
+      ]
+    },
+    {
+      "at": "2026-11-10T06:50:26Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "\"ทำได้\" (in answer to whether discus fry can be raised away from the parents) is not in the facts. They only say parent-raised fry survive better than fry raised on egg yolk or brine shrimp.",
+        "\"จุดที่ทั้งสองแหล่งพูดตรงกันคือมีแถบสีเข้มขึ้นที่ลำตัว\" is the guide's own reconciliation of two conflicting sources. One says the female turns darker with vertical bars. The other says she turns paler with dark bars. The facts do not say the sources agree on the bars.",
+        "The microorganism claim (\"พ่อแม่ยังส่งต่อจุลินทรีย์ที่มีประโยชน์ให้ลูกผ่านเมือก\") sits in a paragraph introduced with \"ตามรายงานข่าวชิ้นหนึ่ง\". In the facts it comes from a reference site, not the news report."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.85,
+        0.9,
+        0.88
+      ]
+    }
+  ],
   "th/guides/aquatome-chon-da-soi-cat-va-nen-trang-tri-cho-be-thuy-sinh": [
     {
       "at": "2026-11-09T07:52:50Z",
@@ -2363,6 +2465,47 @@
       ],
       "attempt": "first",
       "kept": false
+    }
+  ],
+  "th/guides/aquatome-su-co-may-bom-nuoc-keu-to-giat-cuc-nong-yeu-nhiem-dien-chay": [
+    {
+      "at": "2026-11-10T06:53:13Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "\"ร้อนจัด: การปล่อยให้ปั๊มเดินตัวเปล่า...\" — The facts say dry running can overheat and damage the pump, but the guide frames dry running as the cause of 'very hot' pumps in general, which is a slight narrowing.",
+        "\"ผู้ผลิตจึงกำหนดให้ใช้ปั๊มกับวงจรที่มีเครื่องตัดไฟรั่ว (GFCI) เท่านั้น\" in the FAQ — 'therefore' invents a causal link. The maker's GFCI rule and the magazine's stray-voltage points are separate facts.",
+        "\"ปั๊มสตาร์ทไม่ติด ซ่อมเองได้ไหม ... ส่วนผู้ผลิตแนะนำว่าไม่ควรซ่อมเอง\" — This sets the maker's 'do not repair yourself' rule against a shop guide's advice to clean a seized pump. The guide's own cleaning steps (taking the pump apart) partly clash with the maker's rule, and it never reconciles the two.",
+        "\"ใช้แปรงขนนุ่มขัดแล้วล้างด้วยน้ำจากตู้ปลา\" — fine as written; the 'ยกปั๊มออกจากตู้โดยยังไม่ถอดปลั๊ก' and 'ดึงปลั๊กที่เปียกออกเอง' items in the mistakes list are the guide's own framing, not listed as mistakes in the facts, though both are consistent with the facts."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.72,
+        0.8,
+        0.72
+      ]
+    },
+    {
+      "at": "2026-11-10T06:53:13Z",
+      "model": "sonnet",
+      "score": 0.68,
+      "notes": [
+        "\"หลังจากนั้นทำห่วงหยดน้ำที่สายไฟ เพื่อไม่ให้น้ำไหลตามสายไปถึงเต้ารับอีก\" - the FAQ presents the drip loop as a step after a wet plug; the facts only give it as prevention, not as a response to a wet plug.",
+        "\"ให้สายห้อยต่ำกว่าเต้ารับ น้ำที่ไหลตามสายจะหยดทิ้งก่อนถึงปลั๊ก\" - the facts say only that a drip loop lets water drip off the cord; they say nothing about the cord hanging lower than the outlet.",
+        "\"ส่วนใหญ่เกิดจากเศษสกปรกในใบพัด อากาศค้างในระบบ หรือแกนและบูชที่สึก\" - the facts say \"often\" and \"usually\" about separate symptoms; they do not say these are the main cause of all the symptoms together.",
+        "\"เพื่อรักษาแบคทีเรียที่มีประโยชน์ในวงจรไนโตรเจน\" - the facts mention beneficial bacteria but not the nitrogen cycle.",
+        "\"ปล่อยให้ปั๊มเดินตัวเปล่าตอนระดับน้ำลดลงระหว่างเปลี่ยนน้ำ\" - the facts do not link water-level drops to water changes.",
+        "\"ดังนั้นปั๊มที่หยุดเองแล้วกลับมาทำงานได้อาจไม่ได้เสีย แต่อาจกำลังเตือนว่ามีอะไรผิดปกติ\" - this conclusion is not in the facts.",
+        "\"ผู้ผลิตแนะนำให้ตรวจว่ามีน้ำไหลถึงปั๊มแล้ว\" and \"ถอดปลั๊กปั๊มกับฮีตเตอร์\" are fine, but \"ถอดปลั๊กปั๊มทุกครั้งก่อนยกออกจากตู้ปลาเพื่อตรวจหรือทำความสะอาด\" is correct. The \"ตู้ปลาที่ยังไม่มีเครื่องตัดไฟรั่ว\" warning item is an inference the facts do not state."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.68,
+        0.72,
+        0.68
+      ]
     }
   ],
   "th/guides/aquatome-trung-mo-neo-va-ran-ca-nhan-biet-va-cach-diet": [

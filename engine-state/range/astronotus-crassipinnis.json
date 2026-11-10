@@ -1,0 +1,91 @@
+{
+  "id": "astronotus-crassipinnis",
+  "native": {
+    "input": "67907b52bf6e771a",
+    "at": "2026-11-10T04:57:39.069Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Rio Guaporé",
+        "source": "glaser",
+        "quote": "However, current knowledge only allows specimens from the Rio Guaporé to be named A. crassipinnis without any doubt.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "PY",
+        "BR"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Astronotus crassipinnis",
+    "status": "ACCEPTED",
+    "taxonKey": 2370240,
+    "datasets": [
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        65
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        23
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        10
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        10
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        7
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        7
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        4
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        3
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        3
+      ],
+      [
+        "58414378-4fb2-47e0-8dd5-8b55d5c77117",
+        2
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "a9317b52-6c43-452c-87d5-ea43e4773058",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "f8ba5386-8b91-4976-95bd-692e5d105eae",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-10T04:57:39.069Z"
+  }
+}

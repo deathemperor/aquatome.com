@@ -16,11 +16,10 @@
         "VE"
       ],
       "regions": [
-        "Orinoco",
-        "Apure",
-        "Arauca",
-        "Caura",
-        "Río Portugesa"
+        "Río Orinoco",
+        "Río Apuré",
+        "Río Arauca",
+        "Río Caura"
       ],
       "sources": [
         "seriouslyfish"
@@ -33,10 +32,7 @@
             "VE"
           ],
           "regions": [
-            "Orinoco",
-            "Apure",
-            "Arauca",
-            "Caura"
+            "Río Orinoco"
           ]
         },
         {
@@ -44,7 +40,9 @@
           "quote": "Described from the Río Portugesa, a tributary of the Río Apuré in southwestern Venezuela and also recorded from the lower Río Arauca and Río Caura.",
           "countries": [],
           "regions": [
-            "Río Portugesa"
+            "Río Apuré",
+            "Río Arauca",
+            "Río Caura"
           ]
         }
       ]

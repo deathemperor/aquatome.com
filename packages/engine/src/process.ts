@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs'
-import { SECTION_ORDER, tankIsVolume, type SourceId } from '@aq/schema'
+import { SECTION_ORDER, sizeIsForSale, tankIsVolume, tempIsNotForKeeping, type SourceId } from '@aq/schema'
 import { z } from 'zod'
 import type { Llm } from './claude'
 import { sanitizeHtml } from './sanitize'
@@ -43,7 +43,9 @@ function saneCard(card: z.infer<typeof ProcessedPageSchema>['dataCard'], en: str
     const [lo, hi] = BOUNDS[k]
     const value = typeof v === 'number' ? v : { min: Math.min(v.min, v.max), max: Math.max(v.min, v.max) }
     const ok = typeof value === 'number' ? value >= lo && value <= hi : value.min >= lo && value.max <= hi
-    if (ok && !(k === 'tankCm' && typeof value === 'number' && tankIsVolume(en, value))) (out as Record<string, unknown>)[k] = value
+    if (ok && !(k === 'tankCm' && typeof value === 'number' && tankIsVolume(en, value))
+      && !(k === 'sizeCm' && typeof value === 'number' && sizeIsForSale(en, value))
+      && !(k === 'tempC' && tempIsNotForKeeping(en, value))) (out as Record<string, unknown>)[k] = value
   }
   return out
 }

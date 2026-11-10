@@ -12,7 +12,7 @@ import type { DataCardField, Range } from './types'
  *   a shorter tank than the card's: `litresOffCard`; a quick-facts line that does either goes: `dropOffItems`
  */
 
-type Card = Partial<Record<DataCardField, { source: string; value: Range | number; hidden?: string }[]>>
+type Card = Partial<Record<DataCardField, { source: string; value: Range | number; hidden?: string; overruled?: string }[]>>
 type Figure = Range | number
 
 /**
@@ -156,16 +156,44 @@ export function tankIsVolume(html: string, value: number): boolean {
   })
 }
 
+/** What a shop has in stock, not how big the fish gets: Glaser's "Available size: 4–5 cm", "currently 20–25 cm long". */
+const SOLD_SIZE = /available size:?\s*[\d.,]+(?:\s*(?:-|–|to)\s*[\d.,]+)?\s*cm|currently(?![^.]{0,40}fully grown)[^.]{0,60}?[\d.,]+(?:\s*(?:-|–|to)\s*[\d.,]+)?\s*cm(?:\s*long)?/gi
+
+/** Whether a card's adult size is really the size a shop sells: the source gives that figure only as what it has in stock. */
+export function sizeIsForSale(html: string, value: number): boolean {
+  if (!/available size|currently/i.test(html)) return false
+  const t = text(html)
+  if (!(t.match(SOLD_SIZE) ?? []).some(c => (c.match(/\d+(?:[.,]\d+)?/g) ?? []).some(n => same(num(n), value)))) return false
+  return !states(t.replace(SOLD_SIZE, ' '), 'sizeCm', value)
+}
+
+/** Said of the wild or of breeding, or a low the fish meets now and then: no temperature to keep it at. */
+const NOT_KEEPING = /monsoon|in the wild|in nature|natural (?:waters?|habitat|range)|habitat|temperature there|the lake|falls below|breed|spawn|\bfry\b|drops? to|as low as|as high as|at times|winter|measured|recorded/i
+
+/** Whether a card's single temperature is one its source gives only for the wild or for breeding (a range is a keeper's target). */
+export function tempIsNotForKeeping(html: string, value: Figure): boolean {
+  if (!isRange(value) || !same(value.min, value.max)) return false
+  const figure = new RegExp(String.raw`(?<![\d.,])${value.min}${DEG}`, 'i')
+  const said = text(html).split(/(?<=[.!?;])\s+/).filter(x => figure.test(x))
+  return said.length > 0 && said.every(x => NOT_KEEPING.test(x))
+}
+
 /**
  * A data card as a page shows it: the values of the sources it may show (`allowed`), without a value the engine hid
- * (`hidden`) or a tank length that is that source's tank volume (read in that source's sections). The build reads every
- * card this way, and so does the engine's card-fill step when it looks for the figures a card lacks.
+ * (`hidden`), a tank length that is that source's tank volume, a size that is what a shop sells or a temperature only for
+ * the wild or breeding (each read in that source's sections). The build reads every card this way, and so does the
+ * engine's card-fill step when it looks for the figures a card lacks.
  */
 export function shownCard<C extends Card>(card: C, sections: { source: string; html: string }[], allowed: (source: string) => boolean): C {
   return Object.fromEntries(
     Object.entries(card)
-      .map(([field, values]) => [field, (values ?? []).filter(v => allowed(v.source) && !v.hidden
-        && !(field === 'tankCm' && typeof v.value === 'number' && tankIsVolume(sections.filter(s => s.source === v.source).map(s => s.html).join('\n'), v.value)))] as const)
+      .map(([field, values]) => [field, (values ?? []).filter(v => {
+        const own = () => sections.filter(s => s.source === v.source).map(s => s.html).join('\n')
+        return allowed(v.source) && !v.hidden && !v.overruled
+          && !(field === 'tankCm' && typeof v.value === 'number' && tankIsVolume(own(), v.value))
+          && !(field === 'sizeCm' && typeof v.value === 'number' && sizeIsForSale(own(), v.value))
+          && !(field === 'tempC' && tempIsNotForKeeping(own(), v.value))
+      })] as const)
       .filter(([, values]) => values.length > 0),
   ) as C
 }

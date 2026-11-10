@@ -107,7 +107,7 @@ export function changedFiles(root: string): string[] {
 async function headPages(root: string, files: string[]): Promise<{ pages: Map<string, Page>; held: Map<string, Held> }> {
   if (!files.length) return { pages: new Map(), held: new Map() }
   const dirs = [...new Set(files.map(f => f.replace(/\/[^/]+$/, '')))]
-  const want = ['content/sources.json', 'content/changelog.json', 'content/picture-hashes.json', 'content/captions', ...dirs]
+  const want = ['content/sources.json', 'content/changelog.json', 'content/picture-hashes.json', 'content/one-voice.json', 'content/captions', ...dirs]
   const there = git(root, ['ls-tree', '--name-only', 'HEAD', '--', ...want]).split('\n').filter(Boolean)
   const dir = await mkdtemp(join(tmpdir(), 'gate-'))
   try {

@@ -32,13 +32,15 @@ language's app index (`/app/<lang>.json`, `apps/site/src/lib/curation.ts`):
 `pnpm engine curate` (`packages/engine/src/curation.ts`) fills every day of the next 21. A pick must pass two checks:
 
 1. **Reader fit.** The page isn't held back by the gate (`gate.ts`), and has no finding the gate holds a page for.
-2. **A checked photo big enough for its card.**
+2. **Its page's head photo, checked and big enough for its card.** A card shows the head photo or none, never another
+   photo. `pnpm engine lead-photos` gives a fish its head (`packages/engine/src/lead-photo.ts`).
    - "Checked" means judged the right subject and typical, with no person, logo, face or watermark (the engine's photo
      checks), and not on the `avoid` list.
    - "Big enough" means at least 1,140 px across once cropped to the card: Hôm nay's fish card is about 400×420 pt, its
      guide and story cards a 16:9 photo (400×225 pt at the widest, which a 1280×720 video still fills), and Khám phá's
-     top cards are wider than tall. A guide without one is still picked, and drawn without a photo; the planner gives
-     a kept guide or story a photo when its page gets one.
+     top cards are wider than tall. A guide whose head photo doesn't pass is still picked, and drawn without a photo;
+     the planner gives a kept guide or story a photo when its page's head passes. A fish whose head doesn't pass stays
+     off the calendar until it does.
    - A guide's photo has passed only the face and watermark checks, so the editor looks at each before the week goes
      out, and puts a diagram, a photo with words on it or two photos joined in `avoid`.
 3. **Variety.** No fish or guide comes back within four weeks, and no two days running show the same group of fish, or
@@ -191,13 +193,12 @@ A guide's "Trong video" stills, on the site and in the app, show only when they 
 (`stillShown`, `packages/schema`). A still that fails leaves its section its words, and the page keeps its video.
 - **At least 480p**: its shorter side is 480 px or more. A storyboard tile (90 or 180 px) or a frame from a lower-resolution
   video is a smudge on a phone. Stills are never stored larger than their source frame, so this is the source's resolution.
-- **Sharp**: `sharpness`, the variance of the Laplacian over the sharpest 5% of the frame, is 12 or more
+- **Sharp**: `sharpness`, the variance of the Laplacian over the sharpest 5% of the frame, is 160 or more
   (`still-sharpness.ts`). It's the sharpest part, not the whole frame, so a sharp fish on a plain background passes. A still
-  not yet measured isn't shown. The bar was tuned by eye on 58 stills seen whole at phone width
-  (`packages/engine/test/still-sharpness-labels.json`): it stops 3 of the 7 blurry and 1 of the 45 fine. It stops frames with
-  nothing in focus. It's a pixel measure, and video compression's blocks read as detail: 4 of the 7 blurry scored 25 to 82,
-  among 28 fine stills, so a higher bar costs most of the fine ones. The first labels, judged on full-size crops, put the bar
-  at 110, which hid frames that read well on a phone.
+  not yet measured isn't shown. The bar comes from 120 live stills judged blind at phone width on 2026-11-10
+  (`packages/engine/test/still-sharpness-labels.json`), drawn across the scores: every one called soft scored under 160, and
+  none of the 36 sampled above it was soft. It costs fine frames under 160 too, about 1 in 11 of the fine ones then live. A
+  bar of 12 (9 Nov) stopped only frames with nothing in focus, and the owner's report of blurry captures stayed open.
 
 - **No one in it**: `person` is false, the model's verdict that nobody is in the frame, hands included. A still not yet judged
   isn't shown. Video frames need this: of 30 sampled on 2026-11-09, 14 showed hands or a person, which the tiles had hidden.

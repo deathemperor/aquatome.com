@@ -4,6 +4,7 @@ import type { Photo, SourceId } from '@aq/schema'
 import { htmlToOutline, isChallenge } from './outline'
 import { mergePhotos } from './run'
 import { SOURCES, sourceById } from './sources'
+import { sourcesOnArchive } from './state'
 import { linkedPhotos, pickSourcePhotos, storeSourcePhotos, type Media } from './source-photos'
 import { withSections } from './guide-sections'
 import { WRITTEN_OTHER_LANGS } from '@aq/schema/langs'
@@ -38,6 +39,7 @@ export function scotcatUrl(scientificName?: string, family?: string): string | u
  * (a list of fish has one per fish): guides read before that are read once more. `kinds`: only those.
  */
 export async function backfillPhotos(root: string, d: BackfillDeps, opts: { limit?: number; kinds?: string[] } = {}): Promise<{ pages: number; added: number; errors: string[] }> {
+  const moved = await sourcesOnArchive(root)
   const triedFile = join(root, 'engine-state/_photo-backfill.json')
   const tried: Record<string, string> = JSON.parse(await readFile(triedFile, 'utf8').catch(() => '{}'))
   const names: Record<string, { name?: string }> = JSON.parse(await readFile(join(root, 'content/sources.json'), 'utf8').catch(() => '{}'))
@@ -65,7 +67,7 @@ export async function backfillPhotos(root: string, d: BackfillDeps, opts: { limi
       // Only sources the engine reads (not our own guides, Facebook or video), and not those read through the Internet
       // Archive: the archive keeps no usable copies of their photos.
       const due = (u: string) => !tried[u] || d.now().getTime() - Date.parse(tried[u]!) > RETRY_MS || (unsectioned && tried[u]! < SECTIONS_SINCE)
-      const urls = [...new Map(refs.map(r => [r.sourceUrl, r.source])).entries()].filter(([u, s]) => SOURCES.some(x => x.id === s) && sourceById(s).via !== 'archive' && due(u))
+      const urls = [...new Map(refs.map(r => [r.sourceUrl, r.source])).entries()].filter(([u, s]) => SOURCES.some(x => x.id === s) && sourceById(s).via !== 'archive' && !moved.has(s) && due(u))
       if (!urls.length) continue
       pages++
       const before = e.photos.length

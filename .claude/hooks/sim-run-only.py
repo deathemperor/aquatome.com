@@ -4,16 +4,18 @@ apps/ios/scripts/sim-run.py stops here and says so, and so does an Astro build, 
 build that isn't in the checks queue (scripts/checks.sh, or lockf on ~/.cache/aquatome/checks.lock): on 2026-11-08 they ran side by side, the
 Mac went to heavy thermal pressure and a 0.4 s job took up to 54 s. It reads the command as a shell would: only what runs
 counts, not a heredoc's text, a commit message or a search for those words. What it can't read passes. Simulator.app
-isn't opened: simulators run headless."""
+isn't opened: simulators run headless. Nothing is killed by name or pattern, and a queue's lock file stays."""
 import json
 import os
 import re
 import shlex
+import subprocess
 import sys
 
 WRAPPERS = {"exec", "nohup", "time", "nice", "timeout", "caffeinate", "env", "command", "builtin", "xcrun", "sudo", "stdbuf",
             "then", "do", "else", "elif", "if", "while", "until", "!", "{", "lockf"}
 SHELLS = {"sh", "bash", "zsh"}
+MAC_STATUS = os.path.join(os.path.dirname(os.path.realpath(__file__)), "../../scripts/mac-status.py")
 # xcodebuild's flags that take no value: after any other flag, the next word is that flag's.
 NO_VALUE = {"-quiet", "-verbose", "-json", "-showBuildSettings", "-allowProvisioningUpdates", "-allowProvisioningDeviceRegistration",
             "-skipUnavailableActions", "-hideShellScriptEnvironment", "-skipMacroValidation", "-skipPackagePluginValidation",
@@ -29,6 +31,15 @@ HEAVY_SCRIPTS = {"build", "test", "e2e"}
 SIM = "One simulator test run at a time on this Mac: start it as apps/ios/scripts/sim-run.py xcodebuild test ..."
 HEADLESS = ("Simulators run headless on this Mac (AGENTS.md, This Mac): xcrun simctl boot, or let xcodebuild boot one; "
             "watch one in the Device panel only while you need to, and close it.")
+KILL = ("Stop a process only by a pid you started yourself (AGENTS.md, This Mac): pkill, killall and a kill fed by pgrep match "
+        "other people's runs. Keep the pid when you start it, then kill <pid>.")
+KEEP_LOCK = ("A lockf on a queue's lock needs -k (AGENTS.md, This Mac): without it lockf deletes the link to the shared queue "
+             "when it ends. Add -k, as in lockf -k -t 0 <file> true to try it.")
+QUEUE_LOCKS = {"checks.lock", "sim.lock"}
+# A kill fed by pgrep within one word: kill "$(pgrep x)", or with backticks.
+PGREP_FED = re.compile(r"(\$\(|`)\s*(\S*/)?pgrep\b")
+PIPE = re.compile(r"\)*\|&?\n*")  # the lexer runs separators together: a pipe at a line's end comes with its newline
+XARGS_VALUE = {"-n", "-I", "-L", "-P", "-s", "-E", "-J", "-R", "-S"}
 GRANT = ("Only the chief of staff keeps the next turn for a run (AGENTS.md, This Mac): scripts/next-turn.py runs from their "
          "own thread.")
 QUEUE = ("Heavy work takes turns on this Mac (AGENTS.md, This Mac): start it as scripts/checks.sh nice -n 10 <command> (from the "
@@ -37,8 +48,10 @@ QUEUE = ("Heavy work takes turns on this Mac (AGENTS.md, This Mac): start it as 
 
 
 def segments(command):
+    """Each command in a line of shell: its words, and the separator that ended it ("" at the end)."""
     # A heredoc's body is text, not commands.
     command = re.sub(r"<<-?\s*['\"]?(\w+)['\"]?([^\n]*)\n.*?\n\s*\1[ \t]*(?=\n|$)", r"\2", command, flags=re.S)
+    command = re.sub(r"\d*>&\d*-?", " ", command)  # 2>&1's & separates nothing
     lexer = shlex.shlex(command, posix=True, punctuation_chars=";&|()\n")
     lexer.whitespace = " \t\r"
     lexer.whitespace_split = True
@@ -46,11 +59,11 @@ def segments(command):
     words = []
     for token in lexer:
         if token and all(c in ";&|()\n" for c in token):
-            yield words
+            yield words, token
             words = []
         else:
             words.append(token)
-    yield words
+    yield words, ""
 
 
 def unwrapped(words):
@@ -66,9 +79,14 @@ def unwrapped(words):
         if re.fullmatch(r"\w+=.*", word) or name in WRAPPERS or word.startswith("-") or re.fullmatch(r"\d+[smhd]?", word):
             i += 1
             if name == "lockf":  # its file comes next, after its flags (-t takes a number)
+                flags = []
                 while i < len(words) and words[i].startswith("-"):
+                    flags.append(words[i])
                     i += 2 if words[i] == "-t" else 1
-                queued = queued or (i < len(words) and os.path.basename(words[i]) == "checks.lock")
+                target = os.path.basename(words[i]) if i < len(words) else ""
+                if target in QUEUE_LOCKS and not any("k" in f for f in flags):
+                    return "lockf", [], queued  # the only way "lockf" comes back from here: it would delete a queue's lock
+                queued = queued or target == "checks.lock"
                 i += 1
             continue
         return name, words[i + 1:], queued
@@ -136,11 +154,39 @@ def granter():
     return bool(thread) and os.environ.get("T3CODE_THREAD_ID") == thread
 
 
+def kills_by_name(name, args, after_kill, pgrep_upstream):
+    """pkill or killall, through xargs too, or a kill that pgrep feeds, in its arguments or down a pipe."""
+    if name in ("pkill", "killall"):
+        return True
+    if name == "kill":
+        return any(PGREP_FED.search(a) for a in args)
+    if name == "pgrep":
+        return after_kill
+    if name == "xargs":
+        i = 0
+        while i < len(args) and args[i].startswith("-"):
+            i += 2 if args[i] in XARGS_VALUE else 1
+        runs, rest, _ = unwrapped(args[i:])
+        if runs in SHELLS:  # xargs -I{} sh -c 'kill {}'
+            return any(re.search(r"\b(pkill|killall)\b", a) or (pgrep_upstream and re.search(r"\bkill\b", a)) for a in rest)
+        return runs in ("pkill", "killall") or (pgrep_upstream and runs == "kill")
+    return False
+
+
 def bare_run(command, queued=False):
-    """What stops the command: a simulator run not through sim-run.py, or heavy work outside the checks queue."""
-    for words in segments(command):
+    """What stops the command: a simulator run not through sim-run.py, heavy work outside the checks queue, a kill by name or
+    pattern, or a lockf that would delete a queue's lock."""
+    after_kill, pgrep_upstream = False, False
+    for words, ended_by in segments(command):
         name, args, locked = unwrapped(words)
         locked = locked or queued
+        pgrep_upstream = pgrep_upstream or name == "pgrep"
+        if kills_by_name(name, args, after_kill, pgrep_upstream):
+            return KILL
+        if name == "lockf":
+            return KEEP_LOCK
+        after_kill = name == "kill" and ended_by.startswith("(")  # kill $(pgrep x): the $( ends this part, and pgrep starts the next
+        pgrep_upstream = pgrep_upstream and PIPE.fullmatch(ended_by) is not None
         if name == "xcodebuild" and runs_tests(args):
             return SIM
         if re.fullmatch(r"python[\d.]*", name or "") and args:  # python3 scripts/next-turn.py ...
@@ -152,8 +198,13 @@ def bare_run(command, queued=False):
             return HEADLESS
         if not locked and name and heavy(name, args):
             return QUEUE
-        if name in SHELLS and "-c" in args[:-1]:
-            reason = bare_run(args[args.index("-c") + 1], locked)
+        if name == "simctl" and args[:1] == ["boot"] and len(args) > 1:
+            cap = subprocess.run([sys.executable, MAC_STATUS, "--cap", args[1]], capture_output=True, text=True)
+            if cap.returncode == 2:
+                return cap.stderr.strip()
+        script = next((i + 1 for i, a in enumerate(args[:-1]) if re.fullmatch(r"-[a-z]*c", a)), None)  # sh -c, bash -lc
+        if name in SHELLS and script is not None:
+            reason = bare_run(args[script], locked)
             if reason:
                 return reason
     return None

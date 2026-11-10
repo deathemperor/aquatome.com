@@ -23,7 +23,7 @@ struct AccountSection: View {
       }
     case .off:
       Section {
-        Notice(icon: "icloud", title: "Lúc này chưa đăng nhập được tài khoản aquatome.com.", detail: "Các bể vẫn lưu trên máy này.", id: "account-off")
+        Notice(icon: "icloud.fill", title: "Lúc này chưa đăng nhập được tài khoản aquatome.com.", detail: "Các bể vẫn lưu trên máy này.", id: "account-off")
       }
     case .signedOut where !account.canSync:
       // A store on the phone this app can't keep whole (the tanks list says why): nothing to send.
@@ -79,7 +79,7 @@ private struct Notice: View {
   var body: some View {
     HStack(alignment: .firstTextBaseline, spacing: 12) {
       Image(systemName: icon).foregroundStyle(.secondary).accessibilityHidden(true)
-      (Text(title) + Text(verbatim: "\n") + Text(detail).foregroundStyle(.secondary))
+      (Text(title) + Text(verbatim: "\n") + Text(detail).font(.subheadline).foregroundStyle(.secondary))
         .accessibilityIdentifier(id)
     }
   }
@@ -98,12 +98,12 @@ private struct Who: View {
   @Environment(AccountModel.self) private var account
   @Environment(\.dynamicTypeSize) private var size
   /// The avatar's circle, growing with the text up to half again.
-  @ScaledMetric(relativeTo: .title3) private var circle: CGFloat = 56
+  @ScaledMetric(relativeTo: .title3) private var circle: CGFloat = 58
 
   var body: some View {
     // At the accessibility text sizes the avatar goes above the lines, which keep the row's width.
     let layout = size.isAccessibilitySize ? AnyLayout(VStackLayout(alignment: .leading, spacing: 10)) : AnyLayout(HStackLayout(spacing: 14))
-    let side = min(circle, 84)
+    let side = min(circle, 87)
     layout {
       // The account's fish once one's chosen (ProfilePictures), as on the profile button. Else the person in the app's
       // green, half the circle's height, on a pale wash of it: it reads on the card in light and dark (a grey circle was
@@ -130,7 +130,17 @@ private struct Who: View {
 
   private var since: String {
     guard let made = Self.date(user.createdAt) else { return String(localized: "bằng \(account.ways)") }
-    return String(localized: "bằng \(account.ways) · từ tháng \(made.formatted(.dateTime.month(.defaultDigits).year().locale(.app)))")
+    return String(localized: "bằng \(account.ways) · từ tháng \(Self.month(made))")
+  }
+
+  /// The month and year as each language writes them: Vietnamese "10/2026", Thai "ต.ค. 2569", Indonesian "Oktober 2026".
+  private static func month(_ d: Date) -> String {
+    let month: Date.FormatStyle.Symbol.Month = switch Locale.app.language.languageCode?.identifier {
+    case "vi": .defaultDigits
+    case "th": .abbreviated
+    default: .wide
+    }
+    return d.formatted(.dateTime.month(month).year().locale(.app))
   }
 
   /// The server's time (`2026-11-01T00:00:00.000Z`, or without the fraction).
@@ -171,7 +181,7 @@ private struct SyncRow: View {
       switch fault {
       case .offline:
         Status(alignment: .center, title: Text("Chưa có mạng")) {
-          symbol("icloud.fill", .secondary)
+          cloud
         } detail: {
           if let at = account.syncedAt {
             Text("Đồng bộ lần cuối lúc \(Self.when(at)) · các thay đổi vẫn lưu trên máy này")
@@ -198,7 +208,7 @@ private struct SyncRow: View {
       }
     } else {
       Status(alignment: .center, title: Text("Chưa đồng bộ")) {
-        symbol("icloud.fill", .secondary)
+        cloud
       } detail: {
         Text("\(n) bể trên máy này")
       } button: {
@@ -233,6 +243,11 @@ private struct SyncRow: View {
     Image(systemName: name).font(.title3).symbolRenderingMode(.palette).foregroundStyle(.white, style)
   }
 
+  /// A plain cloud, grey: nothing's wrong. One layer, so the palette above would paint it all white.
+  private var cloud: some View {
+    Image(systemName: "icloud.fill").font(.title3).foregroundStyle(Color(.tertiaryLabel))
+  }
+
   /// AquaTome where this copy came from: TestFlight for a TestFlight build (its receipt is the sandbox's), else the App
   /// Store.
   static let appStore = Bundle.main.appStoreReceiptURL?.lastPathComponent == "sandboxReceipt"
@@ -241,7 +256,9 @@ private struct SyncRow: View {
 
   /// A sync's time: today's alone, yesterday's said so, an older one with its day.
   static func when(_ d: Date) -> String {
-    let time = d.formatted(Date.FormatStyle(date: .omitted, time: .shortened, locale: .app))
+    var time = d.formatted(Date.FormatStyle(date: .omitted, time: .shortened, locale: .app))
+    // "9:38", as the spec writes it: some languages' short time is "09:38".
+    if time.first == "0" { time.removeFirst() }
     if Calendar.current.isDateInToday(d) { return time }
     if Calendar.current.isDateInYesterday(d) { return String(localized: "\(time) hôm qua") }
     return String(localized: "\(time) ngày \(d.formatted(.dateTime.day().month(.defaultDigits).locale(.app)))")
@@ -277,10 +294,9 @@ private struct Status<Symbol: View, Detail: View, Action: View>: View {
   }
 
   var body: some View {
-    // At the accessibility text sizes the symbol goes above the lines, as the header's avatar does, at its own size.
-    let layout = size.isAccessibilitySize ? AnyLayout(VStackLayout(alignment: .leading, spacing: 8)) : AnyLayout(HStackLayout(alignment: alignment, spacing: 14))
-    layout {
-      symbol.frame(minWidth: 28).accessibilityHidden(true)
+    // At the accessibility text sizes the symbol stays beside the title, level with its first line.
+    HStack(alignment: size.isAccessibilitySize ? .top : alignment, spacing: 14) {
+      symbol.frame(minWidth: 30).accessibilityHidden(true)
       ViewThatFits(in: .horizontal) {
         HStack(alignment: alignment, spacing: 8) {
           lines.frame(minWidth: 0, idealWidth: 150, maxWidth: .infinity, alignment: .leading)
@@ -374,24 +390,26 @@ private struct SignInCard: View {
         Text("Bể trên máy này vẫn còn.").font(.footnote).foregroundStyle(.secondary)
       } else {
         AppIconMark()
-        Text("Đồng bộ bể giữa các máy")
-          .font(.title3.weight(.bold))
-          .multilineTextAlignment(.center)
-          .accessibilityAddTraits(.isHeader)
-          .accessibilityIdentifier("account-header")
-        Text("Muốn xem bể của bạn trên aquatome.com hoặc trên máy khác? Đăng nhập để đồng bộ. Không bắt buộc: không đăng nhập thì bể vẫn lưu trên máy này.")
-          .font(.subheadline)
-          .foregroundStyle(.secondary)
-          .multilineTextAlignment(.center)
-        Ways(kinds: Self.order.filter(offered))
+        VStack(spacing: 6) {
+          Text("Đồng bộ bể giữa các máy")
+            .font(.title2.weight(.bold))
+            .multilineTextAlignment(.center)
+            .accessibilityAddTraits(.isHeader)
+            .accessibilityIdentifier("account-header")
+          Text("Muốn xem bể của bạn trên aquatome.com hoặc trên máy khác? Đăng nhập để đồng bộ. Không bắt buộc: không đăng nhập thì bể vẫn lưu trên máy này.")
+            .font(.subheadline)
+            .foregroundStyle(.secondary)
+            .multilineTextAlignment(.center)
+        }
+        Ways(kinds: Self.order.filter(offered)).padding(.top, 4)
       }
       AccountMessage()
-      Text.linked(String(localized: "Chỉ dùng để nhận ra bạn khi đăng nhập: không lưu tên, số điện thoại, và địa chỉ email chỉ lưu ở dạng mã hóa một chiều."),
+      if account.endedWays == nil { Text.linked(String(localized: "Chỉ dùng để nhận ra bạn khi đăng nhập: không lưu tên, số điện thoại, và địa chỉ email chỉ lưu ở dạng mã hóa một chiều."),
                   String(localized: "Chính sách bảo mật"),
                   URL(string: String(localized: "https://aquatome.com/chinh-sach-bao-mat/#tai-khoan"))!)
         .font(.footnote)
         .foregroundStyle(.secondary)
-        .multilineTextAlignment(.center)
+        .multilineTextAlignment(.center) }
     }
     .frame(maxWidth: .infinity)
     .padding(.vertical, 12)
@@ -429,15 +447,18 @@ private struct AppIconMark: View {
 private struct Ways: View {
   let kinds: [String]
   @Environment(AccountModel.self) private var account
+  @Environment(\.dynamicTypeSize) private var size
   @State private var email = false
 
   var body: some View {
     let small = kinds.filter { $0 == "passkey" || $0 == "email" }
+    // One above the other at the accessibility sizes: side by side the words break a letter to a line.
+    let pair = size.isAccessibilitySize ? AnyLayout(VStackLayout(spacing: 10)) : AnyLayout(HStackLayout(spacing: 10))
     VStack(spacing: 10) {
       ForEach(kinds.filter { !small.contains($0) }, id: \.self) { kind in
         if kind == "apple" {
-          AppleButton(radius: 24) { Task { await account.signInWithApple() } }
-            .frame(height: 48)
+          AppleButton(radius: 25) { Task { await account.signInWithApple() } }
+            .frame(height: 50)
             .disabled(account.working || !account.canSync)
             .opacity(account.working ? 0.5 : 1)
         } else {
@@ -445,7 +466,7 @@ private struct Ways: View {
         }
       }
       if !small.isEmpty {
-        HStack(spacing: 10) {
+        pair {
           ForEach(small, id: \.self) { kind in
             if kind == "passkey" {
               minor("Passkey", label: "Đăng nhập bằng passkey", symbol: "person.badge.key.fill", id: "passkey-sign-in") {
@@ -463,13 +484,19 @@ private struct Ways: View {
 
   private func minor(_ title: LocalizedStringKey, label: LocalizedStringKey, symbol: String, id: String, _ action: @escaping () -> Void) -> some View {
     Button(action: action) {
-      Label(title, systemImage: symbol)
-        .font(.body.weight(.semibold))
-        .frame(maxWidth: .infinity, minHeight: 36)
+      HStack(spacing: 8) {
+        Image(systemName: symbol).imageScale(.small).accessibilityHidden(true)
+        Text(title)
+      }
+        .font(.callout.weight(.semibold))
+        .foregroundStyle(.tint)
+        .frame(maxWidth: .infinity, minHeight: 44)
+        .background(.fill.tertiary, in: .capsule)
+        .contentShape(.capsule)
     }
-    .buttonStyle(.bordered)
-    .buttonBorderShape(.capsule)
+    .buttonStyle(.plain)
     .disabled(account.working || !account.canSync)
+    .opacity(account.working || !account.canSync ? 0.5 : 1)
     .accessibilityLabel(Text(label))
     .accessibilityIdentifier(id)
   }
@@ -484,7 +511,8 @@ struct SignInHint: View {
   var body: some View {
     if account.state == .signedOut {
       Button { openScreen(.account) } label: {
-        Text("Đã lưu bể trên aquatome.com hoặc máy khác?").foregroundStyle(.secondary)
+        // The colour by name: in a button, .secondary is a shade of the tint.
+        Text("Đã lưu bể trên aquatome.com hoặc máy khác?").foregroundStyle(Color.secondary)
           + Text(verbatim: "\n")
           + Text("Đăng nhập để lấy về").fontWeight(.semibold).foregroundStyle(.tint)
       }

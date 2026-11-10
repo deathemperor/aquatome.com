@@ -13,7 +13,9 @@ jobs:
   deploy:
     name: Test, build, check in a browser, upload
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # The job's limit is only a backstop: over it, GitHub calls the run cancelled and nothing reports it. The step's own limit
+    # below fails the run, and a failed run is reported.
+    timeout-minutes: 70
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Install Node, pnpm and the dependencies
@@ -30,12 +32,19 @@ jobs:
         run: pnpm test
       - name: Install Chromium for the browser checks before upload
         run: pnpm --filter site exec playwright install --with-deps chromium
-      - name: Build the real site, check it in a browser, upload it to Cloudflare
-        run: scripts/deploy.sh
+      - name: Build the real site and check it in a browser
+        timeout-minutes: 45
+        run: scripts/deploy.sh build
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           # deploy.sh checks a fixed sample of the real pages in a browser before uploading them.
           E2E_GATE: '1'
+      # A step of its own, with a limit of its own: a long build can't use up the upload's time, as it did on 10 Nov.
+      - name: Upload it to Cloudflare
+        timeout-minutes: 10
+        run: scripts/deploy.sh upload
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       - name: Keep the browser checks' report
         if: failure()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2

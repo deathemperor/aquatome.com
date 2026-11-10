@@ -354,8 +354,14 @@ test('sections are searched for on the first question alone, on the owner\'s acc
     return { e, me, store, account: await chatAccount('k', me.id) }
   }
   const owner = await setup('owner')
+  // A whole post with a saved tank: as today, nothing searched or handed over.
+  const whole = await setup('owner')
+  const w = claude(NEON)
+  expect((await run(ask(bearer(whole.me.token), { question: POST }), whole.e, deps(w.fetch))).body).toMatchObject({ n: 1 })
+  expect(searches).toEqual([])
+  expect(w.bodies.some(handed)).toBe(false)
   const c = claude(NEON)
-  expect((await run(ask(bearer(owner.me.token), { question: POST }), owner.e, deps(c.fetch))).body).toMatchObject({ n: 1 })
+  expect((await run(ask(bearer(owner.me.token), {}), owner.e, deps(c.fetch))).body).toMatchObject({ n: 1 })
   expect(searches).toEqual([{ topK: 5, namespace: 'vi', returnMetadata: 'all' }])
   expect(c.bodies.filter(b => b.tools).every(handed)).toBe(true)
   const key = [...owner.store.m.keys()].find(k => k.startsWith(`chat-run/${owner.account}/`))!
@@ -363,7 +369,7 @@ test('sections are searched for on the first question alone, on the owner\'s acc
   expect(owner.store.read<ChatRunRecord>(key)!.handed).toEqual([{ path: '/vi/ca/ca-neon-xanh/', heading: null }, { path: '/vi/huong-dan/thay-nuoc-dung-cach/', heading: null }])
   // The next question of the conversation: as today.
   const next = claude(NEON)
-  expect((await run(ask(bearer(owner.me.token), { question: POST }), owner.e, deps(next.fetch))).body).toMatchObject({ n: 2 })
+  expect((await run(ask(bearer(owner.me.token), {}), owner.e, deps(next.fetch))).body).toMatchObject({ n: 2 })
   expect(searches).toHaveLength(1)
   expect(next.bodies.some(handed)).toBe(false)
   // No saved tank on the owner's account, a short question or a whole post: as today.
@@ -377,7 +383,7 @@ test('sections are searched for on the first question alone, on the owner\'s acc
   // Chat open to everyone: as today, until the judged bar holds.
   const open = await setup('1')
   const o = claude(NEON)
-  await run(ask(bearer(open.me.token), { question: POST }), open.e, deps(o.fetch))
+  await run(ask(bearer(open.me.token), {}), open.e, deps(o.fetch))
   expect(searches).toHaveLength(1)
   expect(o.bodies.some(handed)).toBe(false)
 })

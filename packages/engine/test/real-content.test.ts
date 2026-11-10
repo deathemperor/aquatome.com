@@ -3,7 +3,7 @@ import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
-import { loadAll, type Translation } from '@aq/schema'
+import { loadAll, resolveDataCard, type Translation } from '@aq/schema'
 import { checkPages, RATCHETED, ratcheted, RULES } from '../src/content-rules'
 import { loadPages } from '../src/pages'
 import { ENGLISH_PLACE_WORD } from '../src/place-names'
@@ -62,6 +62,30 @@ test.each(Object.entries(BLUE_GREEN_ALGAE))('blue-green algae: %s names no produ
   expect(t.refs?.map(r => r.url)).toEqual(expect.arrayContaining(cited))
 })
 
+// Praziquantel mixed into food, in all four languages, by the fish's weight (University of Florida; a trial on grass carp doses
+// the same way). The guide had "35–125 mg/kg", which doesn't say a kilo of what, and a koi seller's own mix, per kilo of food,
+// that no second source backs (2026-11-10).
+test('the gill fluke guide gives praziquantel in food by the fish\'s weight, and the engine keeps it', async () => {
+  const dir = fileURLToPath(new URL('../../../content/guides/aquatome-ca-bi-san-mang-gill-flukes-dau-hieu-cach-chua-va-phong/', import.meta.url))
+  for (const lang of ['vi', 'id', 'th', 'ms']) {
+    const t = JSON.parse(await readFile(join(dir, `${lang}.json`), 'utf8')) as Translation
+    expect(t.bodyFixed, lang).toBe(true)
+    expect(t.body, lang).not.toMatch(/35–125|50–75 (?:mg|มก)/u)
+    expect(t.body, lang).toMatch(/<td>40 (?:mg|มก)/u)
+    expect(t.body, `${lang}: Florida's warning beside its food dose`).toMatch(/nghiên cứu|diteliti|dikaji|วิจัย/u)
+  }
+})
+
+// University of Florida's angelfish paper: "50mg/kg body weight for five consecutive days". A dose per kilo says a kilo of what.
+test('the hexamita guide says the food dose is per kilo of the fish, in every language', async () => {
+  const dir = fileURLToPath(new URL('../../../content/guides/aquatome-ca-di-phan-trang-benh-trung-roi-hexamita-ca-dia-nguyen-nhan-cach-chua/', import.meta.url))
+  for (const lang of ['vi', 'id', 'th', 'ms']) {
+    const t = JSON.parse(await readFile(join(dir, `${lang}.json`), 'utf8')) as Translation
+    expect(t.body, lang).toMatch(/50 (?:mg|มก\.)(?:\/(?:kg|กก\.) | cho mỗi kg )(?:berat|น้ำหนัก|trọng lượng)/u)
+    expect(t.body, lang).not.toMatch(/50 (?:mg|มก\.)\/(?:kg|กก\.)(?! (?:berat|น้ำหนัก))/u)
+  }
+})
+
 // A fish's summary states its card's figures, as the card is now: the sweep sends back any that doesn't (cardProblems).
 // On 2026-11-07, 54 of 505 approved summaries didn't (size 27 figures, temperature 23, pH 18, hardness 10, difficulty 10,
 // minimum tank 5): checked once when written, against a card that changed after (Cá neon vua: 23–27 °C, card 23–29 °C).
@@ -98,3 +122,41 @@ test('a Vietnamese page that doses 35% oxy già says it isn\'t the pharmacy\'s 3
   const text = (p: (typeof pages)[number]) => [...p.fields.map(f => f.html), ...p.lines.map(l => l.text)].join(' ').replace(/<[^>]+>/g, ' ')
   expect(pages.filter(p => strong.test(text(p)) && !told.test(text(p))).map(p => p.path)).toEqual([])
 }, 300_000)
+
+// Two independent sources agreed against Seriously Fish on an adult size, far apart (Glaser, and FishBase from the checklist
+// of South American fishes): the figure they agree on is the page's, on the card and in the text, whatever a re-read writes.
+// Size and tank travel together: no source gives a tank for the larger fish, so the page shows none and says so.
+const shownText = (fish: { sections: { key: string; source: string }[]; t: Translation }) => fish.sections.map(s => fish.t.sections[`${s.key}:${s.source}`] ?? '').join(' ')
+test('a size two independent sources overrule is gone from the card and the text, and so is the tank set for the smaller fish', async () => {
+  const root = fileURLToPath(new URL('../../../content', import.meta.url))
+  const { species } = await loadAll({ root, lang: 'vi', publicBuild: true })
+  for (const [id, size, old] of [['myloplus-schomburgkii', 45, /\(SL\)\s*:?\s*12 cm|120 × 40/], ['moenkhausia-oligolepis', 12, /\(SL\)\s*:?\s*5 cm|60 × 40|45 × 25/]] as const) {
+    const fish = species.find(x => x.id === id)!
+    expect(resolveDataCard(fish.dataCard.sizeCm!, 'sizeCm')?.value, id).toBe(size)
+    expect(fish.dataCard.tankCm, id).toBeUndefined()
+    expect(shownText(fish), id).not.toMatch(old)
+    expect(shownText(fish), id).toContain(`không ghi kích thước bể cho cá dài tới ${size} cm`)
+  }
+}, 120_000)
+
+// Seriously Fish's keeping range for it contradicts the wild reading on its own page; BW Aquatics sides with the reading.
+test('a hardness against its source\'s own measured reading gives way to the source that sides with the reading, in every language', async () => {
+  const root = fileURLToPath(new URL('../../../content', import.meta.url))
+  for (const lang of ['vi', 'id', 'th'] as const) {
+    const fish = (await loadAll({ root, lang, publicBuild: true })).species.find(x => x.id === 'pseudomugil-furcatus')!
+    expect(resolveDataCard(fish.dataCard.gh!, 'gh'), lang).toMatchObject({ value: { min: 4, max: 12 }, sources: ['bwaquatics', 'aquariumcoop'] })
+    expect(shownText(fish), lang).not.toMatch(/15\s*[–-]\s*30/)
+  }
+}, 240_000)
+
+// The owner's report of 10 Nov: the Altum page said a hard, neutral tank is enough and that soft water is a must, under one
+// heading. Where the sources can't both be true, the page shows the one that speaks for that heading (Seriously Fish for
+// water, the owner's rule of 2026-11-06), whatever a later read of a source writes back into the page's file.
+test('a heading whose sources could not both be true speaks with one voice', async () => {
+  const root = fileURLToPath(new URL('../../../content', import.meta.url))
+  const voices = JSON.parse(readFileSync(join(root, 'one-voice.json'), 'utf8')) as Record<string, Record<string, string>>
+  expect(Object.keys(voices)).toContain('pterophyllum-altum')
+  const { species } = await loadAll({ root, lang: 'vi', publicBuild: true })
+  const heard = (id: string, key: string) => species.find(s => s.id === id)?.sections.filter(x => x.key === key).map(x => x.source)
+  for (const [id, keep] of Object.entries(voices)) for (const [key, source] of Object.entries(keep)) expect(heard(id, key), `${id} ${key}`).toEqual([source])
+}, 120_000)

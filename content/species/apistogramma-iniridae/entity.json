@@ -10,6 +10,124 @@
     "venezuela",
     "rio-inirida"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE"
+      ],
+      "regions": [
+        "Rio Inirida"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Venezuela.",
+          "countries": [
+            "VE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "iniridae: after the type locality, the Rio Inirida.",
+          "countries": [],
+          "regions": [
+            "Rio Inirida"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371266,
+      "total": 66,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "VE",
+          46
+        ],
+        [
+          "CO",
+          19
+        ],
+        [
+          "BR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -71.71875,
+          -1.40625,
+          2,
+          0
+        ],
+        [
+          -71.71875,
+          0,
+          1,
+          0
+        ],
+        [
+          -68.90625,
+          1.40625,
+          6,
+          0
+        ],
+        [
+          -68.90625,
+          2.8125,
+          14,
+          6
+        ],
+        [
+          -68.90625,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          1.40625,
+          12,
+          10
+        ],
+        [
+          -67.5,
+          2.8125,
+          22,
+          22
+        ],
+        [
+          -67.5,
+          5.625,
+          4,
+          4
+        ],
+        [
+          -66.09375,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -66.09375,
+          7.03125,
+          2,
+          2
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

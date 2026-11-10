@@ -3,7 +3,7 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { robotsTxt } from '../src/lib/seo'
 import { createHash } from 'node:crypto'
-import { DIST, page } from './dist'
+import { DIST, page, sitemapText } from './dist'
 import { VI_SECTIONS } from '../worker/paths'
 import { LANGS } from '@aq/schema/langs'
 import { APP_PAGES, APP_STATE } from '../src/lib/app'
@@ -32,10 +32,39 @@ test('every page has one non-empty h1', () => {
 })
 
 test('sitemap lists indexable pages and omits noindex ones', () => {
-  const xml = readFileSync(join(DIST, 'sitemap.xml'), 'utf8')
+  const xml = sitemapText()
   expect(xml).toContain('/ca/ca-neon-vua/')
   expect(xml).not.toContain('/ca/ca-boraras-do/')
 })
+const sheet = (kind: string) => readFileSync(join(DIST, `sitemap-${kind}.xml`), 'utf8')
+const dateIn = (xml: string, path: string) => new RegExp(`<loc>https?://[^/]+${path}</loc>(?:<lastmod>([^<]+)</lastmod>)?`).exec(xml)
+
+test('/sitemap.xml is the index of one sitemap per kind of page, and a page is in one of them, once', () => {
+  const index = readFileSync(join(DIST, 'sitemap.xml'), 'utf8')
+  expect(index).toContain('<sitemapindex')
+  expect(index).not.toContain('<urlset')
+  const kinds = [...index.matchAll(/\/sitemap-([a-z-]+)\.xml<\/loc>/g)].map(m => m[1])
+  expect(kinds).toEqual(expect.arrayContaining(['fish', 'fish-photos', 'plants', 'plant-photos', 'guides', 'videos', 'glossary', 'equipment', 'products', 'other']))
+  const locs = [...sitemapText().matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1])
+  expect(locs.length).toBeGreaterThan(30)
+  expect(locs.filter((l, i) => locs.indexOf(l) !== i)).toEqual([])
+  expect(sheet('videos')).toContain('/huong-dan/bon-phan-cho-cay-thuy-sinh/</loc>')
+  expect(sheet('guides')).not.toContain('/huong-dan/bon-phan-cho-cay-thuy-sinh/</loc>')
+  expect(sheet('guides')).toContain('/huong-dan/setup-be-thuy-sinh-dau-tien/</loc>')
+})
+
+// The dates are the fixture's page-dates.json, all in the past: a page's own files, the latest of them.
+test('a page\'s last-changed date is the latest of its own files, never the build\'s; a page with no files of its own has none', () => {
+  expect(dateIn(sheet('fish'), '/ca/ca-neon-vua/')?.[1], 'entity, vi and summary: the summary is the latest').toBe('2026-11-04')
+  expect(dateIn(sheet('fish-photos'), '/ca/ca-neon-vua/anh/')?.[1], 'the gallery and the names, not the summary').toBe('2026-11-03')
+  expect(dateIn(sheet('guides'), '/huong-dan/setup-be-thuy-sinh-dau-tien/')?.[1]).toBe('2026-10-31')
+  const tools = dateIn(sheet('other'), '/cong-cu/')
+  expect(tools, 'the tools page is listed').not.toBeNull()
+  expect(tools?.[1], 'a fixed page').toBeUndefined()
+  const dates = new Set([...sitemapText().matchAll(/<lastmod>([^<]+)<\/lastmod>/g)].map(m => m[1]))
+  expect([...dates].sort()).toEqual(['2026-10-31', '2026-11-03', '2026-11-04'])
+})
+
 test('robots: production points to the sitemap, staging blocks everything', () => {
   expect(robotsTxt(false, 'https://example.com')).toBe('User-agent: *\nContent-Signal: ai-train=no, search=yes, ai-input=yes\nAllow: /\nDisallow: /go/\n\nSitemap: https://example.com/sitemap.xml\n')
   expect(robotsTxt(true, 'https://x.huuloc.com')).toBe('User-agent: *\nDisallow: /\n')
@@ -56,7 +85,7 @@ test('search leaves out photo galleries, reference lists, old names and other na
   expect(page('/ca/ca-neon-vua/').dom.querySelector('p.redirected')?.hasAttribute('data-pagefind-ignore')).toBe(true)
 })
 test('sitemap omits noindex glossary terms', () => {
-  expect(readFileSync(join(DIST, 'sitemap.xml'), 'utf8')).not.toContain('/thuat-ngu/gh/')
+  expect(sitemapText()).not.toContain('/thuat-ngu/gh/')
 })
 test('AdSense: ads.txt, account meta, and a loader that waits for the reader\'s first scroll, tap or key', () => {
   expect(readFileSync(join(DIST, 'ads.txt'), 'utf8')).toBe('google.com, pub-3032018142512489, DIRECT, f08c47fec0942fa0\n')
@@ -117,7 +146,7 @@ test('agent discovery files: llms.txt, OpenAPI, skills index whose digest matche
   expect(skill.url).toMatch(/\/\.well-known\/agent-skills\/aquatome-species\/SKILL\.md$/)
 })
 test('about, privacy and contact pages exist, are linked from the footer and listed in the sitemap', () => {
-  const xml = readFileSync(join(DIST, 'sitemap.xml'), 'utf8')
+  const xml = sitemapText()
   for (const p of ['/gioi-thieu/', '/chinh-sach-bao-mat/', '/lien-he/']) {
     expect(() => page(p)).not.toThrow()
     expect(page('/').dom.querySelector(`footer a[href="${p}"]`), p).not.toBeNull()

@@ -7,7 +7,7 @@ import { setsCookies } from './thumb'
 import { judgeQuality, speciesDepth } from './depth'
 import { isAllowedLicence } from './licence'
 import { isVietnamese, markVietnameseNames } from './text'
-import { BreedSchema, CaptionsSchema, PictureHashesSchema, ChangelogSchema, EquipmentSchema, GallerySchema, GlossarySchema, GuideSchema, MarketSchema, mayPublish, PlaceSchema, PlantSchema, ProductSchema, SeriesSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
+import { BreedSchema, CaptionsSchema, OneVoiceSchema, PageDatesSchema, PictureHashesSchema, ChangelogSchema, EquipmentSchema, GallerySchema, GlossarySchema, GuideSchema, MarketSchema, mayPublish, PlaceSchema, PlantSchema, ProductSchema, SeriesSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
 import type { PictureHashes } from './pictures'
 import type { BreedEntity, ChangelogEntry, EquipmentGuide, GlossaryEntity, GuideEntity, Lang, Market, Photo, PlaceEntity, PlantEntity, ProductEntity, Section, Series, SourceId, SourceInfo, SpeciesEntity, Translation } from './types'
 
@@ -45,6 +45,8 @@ export type Content = {
   changelog: ChangelogEntry[]
   /** Each photo's image hash by its address (content/picture-hashes.json): a page never shows one picture twice (pictures.ts). */
   pictureHashes: PictureHashes
+  /** The day each content file last changed for a reader (content/page-dates.json): the sitemap's dates. */
+  pageDates: Record<string, string>
   /** The app's short cards (content/cards, cards.ts) in this language, those the gate holds back left out. No page of their own. */
   cards: Card[]
 }
@@ -71,6 +73,13 @@ const marked = (lang: Lang, t: Translation): Translation => lang === 'vi' ? t : 
 
 /** A guide's note for this language's readers goes first in its text, wherever the text is read (schemas.ts localNote). */
 export const withLocalNote = (t: Translation): Translation => t.localNote ? { ...t, body: `${t.localNote.html}${t.body ?? ''}` } : t
+
+/** A heading whose sources can't both be true shows only the source content/one-voice.json names, once this language has its text. */
+export function oneVoice<S extends { sections: Section[]; t: Translation }>(x: S, keep: z.infer<typeof OneVoiceSchema>[string] | undefined): S {
+  if (!keep) return x
+  const written = (key: Section['key'], source: SourceId) => x.sections.some(s => s.key === key && s.source === source) && !!x.t.sections[`${key}:${source}`]
+  return { ...x, sections: x.sections.filter(s => { const k = keep[s.key]; return !k || s.source === k || !written(s.key, k) }) }
+}
 
 async function loadKind<S extends z.ZodType>(root: string, dir: string, schema: S, lang: Lang, leaveOutHeld = false): Promise<Localized<z.infer<S>>[]> {
   const base = join(root, dir)
@@ -129,8 +138,10 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     return { ...x, t: { ...x.t, quality: judgeQuality(q, scoreOk, speciesDepth(x.sections).deep) } }
   }
 
+  const voices = (await exists(join(root, 'one-voice.json'))) ? await readJson(join(root, 'one-voice.json'), OneVoiceSchema) : {}
+  // After the depth is judged: a block set aside here still counts for the page's place in search.
   const species = (await loadKind(root, 'species', SpeciesSchema, lang, leaveOutHeld))
-    .map(s => judgeDepth({ ...s, sections: cleanSections(s.sections), photos: cleanPhotos(s.photos), dataCard: cleanCard(s.dataCard, s.sections) }))
+    .map(s => oneVoice(judgeDepth({ ...s, sections: cleanSections(s.sections), photos: cleanPhotos(s.photos), dataCard: cleanCard(s.dataCard, s.sections) }), voices[s.id]))
     .filter(s => s.sections.length > 0)
   const plants = (await loadKind(root, 'plants', PlantSchema, lang, leaveOutHeld))
     .map(p => cleanQuality({ ...p, sections: cleanSections(p.sections), photos: cleanPhotos(p.photos) }))
@@ -208,5 +219,6 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     placeNames: Object.fromEntries(allPlaces.map(p => [p.id, p.t.name])),
     sources,
     pictureHashes: (await exists(join(root, 'picture-hashes.json'))) ? await readJson(join(root, 'picture-hashes.json'), PictureHashesSchema) : {},
+    pageDates: (await exists(join(root, 'page-dates.json'))) ? await readJson(join(root, 'page-dates.json'), PageDatesSchema) : {},
   }
 }

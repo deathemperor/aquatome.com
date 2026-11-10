@@ -17,7 +17,12 @@ const Range = z.object({ min: z.number(), max: z.number() })
 /**
  * `ref`: a figure AquaTome researched (source 'aquatome'), the page in the species' `refs` it comes from.
  */
-const SourcedValue = z.object({ source: SourceId, value: z.union([Range, z.number()]), hidden: z.string().optional(), ref: z.number().int().nonnegative().optional() })
+/**
+ * `overruled`: why this figure is off the card though its source would otherwise win: two independent sources agree against
+ * it and the gap is wide (size 1.5 times or more, water ranges that don't overlap); a tank set for the smaller fish; or a figure
+ * against its source's own measured reading, with an independent source beside the reading. It stays while the source gives the same figure.
+ */
+const SourcedValue = z.object({ source: SourceId, value: z.union([Range, z.number()]), hidden: z.string().optional(), overruled: z.string().optional(), ref: z.number().int().nonnegative().optional() })
 const DataCardField = z.enum(['tempC', 'ph', 'gh', 'sizeCm', 'tankCm', 'difficulty', 'lifeYears'])
 
 /**
@@ -177,16 +182,16 @@ const GuidePhoto = Photo.extend({ section: z.object({ vi: z.string(), ...section
  * A video still is shown only when it passes all three bars (the owner's report, 2026-11-09: unreadable smudges on a phone).
  * - Its shorter side is 480 px or more: a storyboard tile (90 or 180 px), or a frame from a video under 480p, doesn't.
  *   Stills are never stored larger than the frame they came from, so this is the source's resolution too.
- * - Its `sharpness` (the engine's still-sharpness.ts) is at the bar; a still not yet measured isn't shown. Tuned by eye
- *   on 58 stills seen whole at phone width: at 12 it stops 3 of the 7 blurry and 1 of the 45 fine. It stops the frames
- *   with nothing in focus. A soft frame with texture passes: stopping those would cost most of the fine ones
- *   (packages/engine/test/still-sharpness-labels.json).
+ * - Its `sharpness` (the engine's still-sharpness.ts) is at the bar; a still not yet measured isn't shown. Judged blind
+ *   at phone width on 120 live stills (2026-11-10, packages/engine/test/still-sharpness-labels.json), every one called
+ *   soft scored under 160 and none of the 36 sampled above it was soft. The cost is the fine frames under 160. At 12 (the
+ *   bar from 9 Nov) it stopped only frames with nothing in focus, and the owner's report of blurry captures stayed open.
  * - Its `person` verdict says no one is in it, hands included (PRODUCT.md). guide-photos.ts or video-stills.ts writes it once
  *   a model has looked; a still not yet judged isn't shown. Tiles hid the people in teaching videos: of 30 frames sampled on
  *   2026-11-09, 14 showed hands or a person.
  */
 export const STILL_MIN_SIDE = 480
-export const STILL_MIN_SHARPNESS = 12
+export const STILL_MIN_SHARPNESS = 160
 export const stillShown = (m: { width: number; height: number; sharpness?: number; person?: boolean }) =>
   Math.min(m.width, m.height) >= STILL_MIN_SIDE && (m.sharpness ?? 0) >= STILL_MIN_SHARPNESS && m.person === false
 
@@ -231,6 +236,14 @@ export const EquipmentSchema = z.object({
 export const CaptionsSchema = z.record(z.string(), z.string())
 /** content/picture-hashes.json: each photo's 64-bit difference hash (hex) by its address (pictures.ts). */
 export const PictureHashesSchema = z.record(z.string(), z.string().regex(/^[0-9a-f]{16}$/))
+/** The day each content file last changed for a reader, with its hash: file → "2026-11-10 ab12cd34ef56" (the engine's page-dates.ts). */
+export const PageDatesSchema = z.record(z.string(), z.string().regex(/^\d{4}-\d{2}-\d{2} [0-9a-f]{12}$/))
+
+/**
+ * content/one-voice.json: a species' id, then a heading (section key), then the one source that speaks under it. Where the
+ * sources under a heading can't both be true, the page shows that source's text alone (load.ts).
+ */
+export const OneVoiceSchema = z.record(z.string(), z.partialRecord(z.enum(SECTION_ORDER), SourceId))
 
 /**
  * A gallery photo can carry what the screening model said of it, so a top-up re-ranks the whole gallery: `best`, one of

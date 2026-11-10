@@ -268,18 +268,21 @@
     ]
   },
   "azolla": {
-    "at": "2026-11-09",
-    "from": "2026-11-09",
+    "at": "2026-11-10",
+    "from": "2026-11-10",
     "name": "แหนแดง",
     "confidence": "high",
     "score": 0.6,
     "notes": [
-      "Item 6 brackish water: English '(>8.4 g/l)' means greater than 8.4 g/l, but Thai says 'ต่ำกว่า 8.4 g/L' (lower than). The inequality is reversed, so the figure is changed. Fix the direction, or keep the source meaning faithfully.",
-      "Item 5 planting: 'น้ำยาฟอกขาว (สารละลายโซเดียมไฮโปคลอไรต์ หรือน้ำยาซักผ้าขาว)' adds explanatory content not in the source. Use just 'สารละลายคลอรีนฟอกขาว' or 'น้ำยาฟอกขาว'.",
-      "Item 5 propagation: 'การแตกแยกหรือหักของส่วนลำต้นและใบ' adds 'and leaves'. The source says 'vegetative parts'. Use 'ส่วนที่ไม่ใช่การสืบพันธุ์ (ส่วนลำต้น)'.",
-      "Item 3: 'สีเขียวเข้มหรือสีแดง' for 'intense green or reddish' is slightly off. 'ไทรโคม' for trichomes is non-standard. Consider 'ขนขนาดเล็ก (trichomes)'.",
-      "Item 7: 'ปลาคาร์พ/ปลาโคอิ' for koi is unnecessary. 'ปลาออโตซินคลัส (ออตโต)' and 'ปลาแอนด์เลอร์' are awkward. 'หอยศัตรู' for pest snails is OK but 'หอยรบกวน' is more natural. 'Mosquito fern' stays in English, which is acceptable.",
-      "Item 1: 'ใบ' for 'Fronds' is fine, but 'ไม้ลอยผิวน้ำ' for floater is a bit off. 'ไม้ลอยน้ำ' is the common term."
+      "Item 5: the 'TH' text is a translation of the Vietnamese passage; the Thai is fine, but it was checked against Vietnamese, not the English source. It also adds details not in the English item list (e.g. 'bèo chỉ nằm ở một phần bể'), so this item should be treated as non-English source.",
+      "Item 8: 'ปลาคาร์ดินัลจีน' for white cloud mountain minnow is awkward; the common Thai name is 'ปลาเรนโบว์/ปลาไวท์คลาวด์' (white cloud). Please fix.",
+      "Item 8: 'ปลาม้าลาย' for zebra danio is fine, but 'ปลาซิว' for rasboras is too generic; use 'ราสโบร่า'.",
+      "Item 8: 'หอยขมญี่ปุ่น' for Japanese trapdoor snail and 'หอยเจดีย์' for Malaysian trumpet snail are questionable; use 'หอยเจดีย์' only for MTS and check the others. 'หอยแบล็คเดวิล' and 'หอยแรบบิท' are transliterated only.",
+      "Item 8: 'ปลาคาร์ป' for koi should be 'ปลาคาร์ฟ/ปลาแฟนซีคาร์ป'; 'ปลาเท็กซัส' should be 'ปลาเท็กซัสซิกลิด' and 'แจ็คเดมป์ซีย์' should be 'ปลาแจ็คเดมป์ซีย์'.",
+      "Item 8: 'ฉีดยาฆ่าแมลง' for 'treated with pesticides' adds 'sprayed'; use 'ใช้ยาฆ่าแมลง/ผ่านการใช้สารกำจัดศัตรูพืช'.",
+      "Item 7: '(>8.4 g/l)' is kept from the source and is a possible source error; the Thai 'ความเค็มต่ำ' paired with '>' is contradictory. Translate faithfully but flag it.",
+      "Item 7: 'น้ำแข็งเป็นเวลานาน' for 'prolonged freezing' should be 'น้ำค้างแข็ง/การแข็งตัวของน้ำเป็นเวลานาน'. 'ฤดูใบไม้ผลิ' (spring) is not a natural fit for Thailand; consider 'ช่วงอากาศอุ่นขึ้น'.",
+      "Item 3: 'พื้นที่ชุ่มน้ำ บ่อ คู คลอง' translates 'ditches' as 'คูคลอง', which is acceptable. 'Anabaena azollae' and the item's wording 'แหนแดง' are fine. In item 1, 'ไม้ลอยผิวน้ำ' for 'floater' is acceptable."
     ]
   },
   "bacopa-australis": {
@@ -1271,18 +1274,15 @@
     ]
   },
   "limnophila-aromatica": {
-    "at": "2026-11-08",
-    "from": "2026-11-07",
+    "at": "2026-11-10",
+    "from": "2026-11-10",
     "name": "ผักแขยง",
     "confidence": "high",
-    "score": 0.7,
+    "score": 0.88,
     "notes": [
-      "Item 1: \"with a diameter of between 5 and 6 cm\" is rendered as \"พุ่มมีเส้นผ่านศูนย์กลางราว 5–6 ซม.\"; the added word \"พุ่ม\" (clump) is not in the source. The source says the stem diameter, or an unclear dimension, and the translation changes the meaning. Keep the wording neutral and close to the original.",
-      "Item 1: \"has more leaves (6-8) per node\" is rendered as \"ใบต่อข้อมากกว่า\". Make it clearer: \"มีใบต่อข้อมากกว่า\" or \"จำนวนใบต่อข้อมากกว่า\".",
-      "Item 1: \"Limnophila aromatica / hippuridoides เป็นไม้น้ำประเภทต้นที่เลี้ยงง่าย\" adds \"เลี้ยงง่าย\" to the first sentence. The source says \"simple stem plant\". Better: \"ไม้น้ำประเภทลำต้นที่ไม่ซับซ้อน\" or similar; the \"easy\" idea comes later in the source.",
-      "Item 1: \"will reach the water surface of most aquariums\" is rendered as \"สูงถึงผิวน้ำ\". This is fine, but \"emersed\" being in brackets is acceptable. \"สายพันธุ์\" for \"varieties\" is imprecise; use \"พันธุ์\" or \"วาไรตี้\".",
-      "Item 1: \"aggressive\" growth is rendered as \"แผ่ขยายเร็ว\". It is acceptable but loses the sense of vigorous growth; \"โตเร็วและรุกพื้นที่\" is closer.",
-      "Item 3: \"Stronger red/blue light spectrum\" is rendered as \"สเปกตรัมแสงสีแดง/น้ำเงินเข้มขึ้น\". Make it clearer by saying the red/blue portion of the spectrum is stronger, e.g. \"สัดส่วนแสงสีแดง/น้ำเงินมากขึ้น\"."
+      "Item 3: \"ตัดยอดที่แหลมออกนอกแนวลาด\" is slightly unclear for \"outlying shoots\"; use \"ยอดที่ยื่นออกนอกแนวลาด\".",
+      "Item 2: \"เปิดไฟน้อยก่อน\" is a little ambiguous for \"để đèn thấp\"; \"ใช้แสงอ่อน/ลดความแรงของไฟ\" is clearer.",
+      "Item 1: \"ต้นที่โตแบบบก (emersed)\" is fine, but \"ต้นที่เลี้ยงนอกน้ำ\" would read more naturally."
     ]
   },
   "limnophila-hippuridoides": {
@@ -1359,17 +1359,15 @@
     ]
   },
   "ludwigia-brevipes": {
-    "at": "2026-11-08",
-    "from": "2026-11-07",
-    "name": "Ludwigia brevipes",
+    "at": "2026-11-10",
+    "from": "2026-11-10",
+    "name": "ลัดวิเจีย เบรวิเปส",
     "confidence": "medium",
-    "score": 0.7,
+    "score": 0.85,
     "notes": [
-      "Section 2, Trimming: English says \"a few inches below the desired final height\"; Thai gives \"ประมาณ 5–10 ซม.\". A few inches is about 5–8 cm, so the 10 cm upper bound is a bit loose. Use \"ประมาณ 5–8 ซม.\" or a similar sensible rounding.",
-      "Section 2: \"ไม้น้ำ... ต้นจะผอมกว่ามาก\" and \"สีไม่ค่อยขึ้น\" are fine. But \"ต้นถึงจะได้ทรงและสีที่สวย\" is acceptable. Change \"จะเลื้อยไปทางด้านข้าง\" to \"จะแผ่/โน้มไปทางด้านข้าง\", because a stem plant that \"grows sideways\" does not creep.",
-      "Section 3: \"อัตราการเติบโตปานกลางกว่าเล็กน้อย\" is awkward and unclear. Rephrase as \"โตช้ากว่าเล็กน้อยเมื่อเทียบกับ...\" or \"โตปานกลาง ไม่เร็วเท่า...\".",
-      "Section 3: \"สเปกตรัมแสงสีแดง/น้ำเงินเข้มขึ้น\" is a vague rendering of \"Stronger red/blue light spectrum\". Say \"แสงสเปกตรัมสีแดง/น้ำเงินที่แรงขึ้น\".",
-      "Section 2: \"ใบอาจแดงได้มาก\" drops the sense of \"quite red\" and reads thin. This is minor."
+      "Item 3: \"หลายเซนติเมตร\" for \"a few inches\" is vague and reads like a larger number. Use a rounded metric range, e.g. \"ประมาณ 5–8 ซม.\", to match the 5–10 ซม. in item 2.",
+      "Item 4: \"อัตราการเติบโตค่อนข้างปานกลางกว่าเล็กน้อย\" is awkward. Say \"โตช้ากว่าเล็กน้อย\" or \"โตปานกลาง\".",
+      "Item 2: the source text is Vietnamese, not English. The Thai is faithful, but check that the source was supplied correctly."
     ]
   },
   "ludwigia-glandulosa": {
@@ -1683,20 +1681,12 @@
     "notes": []
   },
   "nymphaea-zenkeri": {
-    "at": "2026-10-30",
-    "from": "2026-10-29",
+    "at": "2026-11-10",
+    "from": "2026-11-10",
     "name": "ไทเกอร์โลตัส",
     "confidence": "medium",
-    "score": 0.85,
-    "notes": [
-      "\"ใบใต้น้ำที่จมอยู่ใต้น้ำทั้งหมด\" is redundant; use \"ใบใต้น้ำที่จมอยู่ทั้งใบ\" or \"ใบที่จมน้ำทั้งหมด\".",
-      "\"ลวดลายด่างสลับสี\" and \"ลายด่างสีแดง\" are slightly awkward for \"variegated\"; \"ลายด่าง/ลายแต้ม\" is more natural.",
-      "\"หัวบัวมักมาในกระถางพลาสติก\" reads a little unnatural; \"หัวบัวมักส่งมาในกระถางพลาสติกที่หุ้มด้วยใยหิน\" would be smoother.",
-      "\"ละลายหลังปลูก\" for \"melt away\" is a bit odd; \"เปื่อยยุ่ย/เน่าสลายไปหลังปลูก\" is more usual.",
-      "\"ตรงกลางตู้\" for \"midground\" is imprecise; \"ฉากกลาง\" or \"ระยะกลางของตู้\" is better.",
-      "\"ปุ๋ยฝังราก Easy Root Tabs\" mixes a descriptor with the brand name; the added descriptor is fine but \"ปุ๋ยเม็ดฝังราก\" is the usual hobby term.",
-      "\"การขยายพันธุ์ด้วยหัว\" is correct, but the sentence \"Another method\" follows a flower/seed sentence with no stated lead-in. Add \"การขยายพันธุ์: ด้วยเมล็ด\" or similar for clarity."
-    ]
+    "score": 0.95,
+    "notes": []
   },
   "nymphoides-aquatica": {
     "at": "2026-10-30",
