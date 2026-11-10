@@ -402,8 +402,11 @@ test.skipIf(!hasLockf)("in the checks queue too, the run the turn is kept for go
   const b = t.run('b')
   await wait(300)
   const named = spawn(CHECKS, ['sh', '-c', `echo named >> ${t.dir}/order`], { env: t.env, stdio: 'ignore' })
-  await wait(300)
-  const waiting = spawnSync('pgrep', ['-P', String(named.pid), 'lockf'], { encoding: 'utf8' }).stdout.trim()
+  // On a busy Mac checks.sh takes more than a moment to reach its lockf: a fixed wait read no pid, and kept nothing (2026-11-09).
+  let waiting = ''
+  await until(() => (waiting = spawnSync('pgrep', ['-P', String(named.pid), 'lockf'], { encoding: 'utf8' }).stdout.trim()) !== '')
+  // A name that came back blank keeps nothing, and says so.
+  expect(t.next('cos', '').status).not.toBe(0)
   expect(t.next('cos', waiting).status).toBe(0)
   t.release()
   await new Promise(res => named.on('close', res))
