@@ -178,6 +178,29 @@ test("a page's lead is judged no later than its other photos, so none of them go
   expect(await urls(r, 'content/species/aaa-fish/entity.json')).toEqual(['lead', 'o1', 'o2', 'o3'])
 })
 
+test("the photos a page shows itself are the first eight of its gallery that readers see: a photo that waits takes none of those places, and the lead that passes stays first", async () => {
+  // Four photos that wait sit at the head of the gallery file, as the gallery's ranking can put them. The site leaves
+  // them out, so its strip is s0 to s7. Counted by their place in the file, s4 to s7 were "the rest of its gallery" and
+  // waited for every other page's own photos.
+  const commons = (n: string, more: object = {}) => ({ ...photo(n), sourceUrl: `https://commons.wikimedia.org/wiki/File:${n}.jpg`, ...more })
+  const r = await root([
+    { id: 'aaa-fish', sci: 'Aaa fish', extra: { photos: [{ ...photo('lead'), sourceUrl: 'https://www.inaturalist.org/photos/1' }, commons('o1')] } },
+    { id: 'bbb-fish', sci: 'Bbb fish', extra: { photos: [commons('b-own')] } },
+  ])
+  const waits = ['w0', 'w1', 'w2', 'w3'], strip = ['s0', 's1', 's2', 's3', 's4', 's5', 's6', 's7']
+  await writeFile(join(r, 'content/gallery/aaa-fish.json'), `${JSON.stringify({ id: 'aaa-fish', photos: [...waits.map(n => commons(n, { unchecked: true })), ...strip.map(n => commons(n))], seen: 0, updatedAt: '' }, null, 2)}\n`)
+  const d = model(Object.fromEntries(['lead', 'o1', 'b-own', ...waits, ...strip].map(n => [n, { typical: true }])))
+  await checkPagePhotos(r, d, { limit: 2 })
+  // The page's lead, its other photo and its whole strip come before the next page's photo; the sheet's last two
+  // places go to photos that wait.
+  expect(d.seen.map(s => s.photos)).toEqual([['lead', 'o1', 's0', 's1', 's2', 's3'], ['s4', 's5', 's6', 's7', 'w0', 'w1']])
+  // Every photo judged is typical, the lead among them: it stays first.
+  expect(await urls(r, 'content/species/aaa-fish/entity.json')).toEqual(['lead', 'o1'])
+  await checkPagePhotos(r, d, { limit: 10 })
+  expect(d.seen.map(s => s.photos).slice(2)).toEqual([['b-own'], ['w2', 'w3']])
+  expect(await urls(r, 'content/species/aaa-fish/entity.json')).toEqual(['lead', 'o1'])
+})
+
 test('a gallery photo that waits shows once the check has judged it and left it on; one it rejects goes; one not judged yet still waits', async () => {
   const r = await root([{ id: 'danio-rerio', sci: 'Danio rerio', photos: ['own'] }])
   const file = join(r, 'content/gallery/danio-rerio.json')
