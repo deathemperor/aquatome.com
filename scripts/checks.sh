@@ -6,6 +6,14 @@
 [ $# -gt 0 ] || { echo "usage: scripts/checks.sh <command>" >&2; exit 64; }
 here=$(cd "$(dirname "$0")" && pwd)
 mkdir -p "$HOME/.cache/aquatome"
+# One queue for both users (apps/ios/README.md): a link to the shared file. A plain `lockf` without -k deletes its lock file
+# when it ends, and the next one makes a file of this user's, so from 2026-11-09 18:36 to 11-10 13:31 TestFlight's archive
+# ran beside everyone's builds and tests. Put back here, as every heavy job comes through.
+# Only a real home's: a test's stands in for one, and must never join the real queue.
+shared=${AQ_SHARED_LOCKS:-}
+case "$HOME" in /Users/*) shared=${shared:-/Users/Shared/aquatome} ;; esac
+lock=$HOME/.cache/aquatome/checks.lock
+if [ -n "$shared" ] && [ -f "$shared/checks.lock" ] && [ ! -L "$lock" ]; then ln -s "$shared/checks.lock" "$lock.$$" && mv -f "$lock.$$" "$lock"; fi
 back=$(mktemp "$HOME/.cache/aquatome/checks-back.XXXXXX") || exit 70
 trap 'rm -f "$back"' EXIT
 said=

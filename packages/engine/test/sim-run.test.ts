@@ -19,7 +19,7 @@ const home = () => mkdtempSync(join(tmpdir(), 'aq-load-'))
 test('a simulator run waits for the one before it, across checkouts', async () => {
   const dir = home()
   const env = { ...process.env, HOME: dir }
-  const first = spawn(SIM_RUN, ['sh', '-c', `touch ${dir}/first; until [ -f ${dir}/release ]; do sleep 0.05; done`], { env, stdio: 'ignore' })
+  const first = spawn(SIM_RUN, ['sh', '-c', `touch ${dir}/first; for i in $(seq 1200); do [ -f ${dir}/release ] && break; sleep 0.05; done`], { env, stdio: 'ignore' })
   // Each run's end, heard from its start: the second can finish before node has seen the first close (CI, 2026-11-08).
   const firstEnd = new Promise(r => first.on('close', r))
   await until(() => existsSync(`${dir}/first`))
@@ -260,7 +260,12 @@ test('a session runs heavy work only in the checks queue', () => {
 // Simulator.app's window is WindowServer's to draw every frame, on top of the simulator's own rendering (2026-11-08: the
 // screen's compositing was a third of the GPU through a heavy thermal hour). Simulators run headless.
 test('a session boots simulators headless, never in Simulator.app', () => {
-  const hook = (command: string) => spawnSync(HOOK, { input: JSON.stringify({ tool_input: { command } }), encoding: 'utf8' })
+  // No simulators up: whether this Mac is at its cap just now isn't this test's business.
+  const dir = home()
+  mkdirSync(join(dir, 'bin'))
+  writeFileSync(join(dir, 'bin/xcrun'), '#!/bin/sh\necho \'{"devices": {}}\'\n')
+  chmodSync(join(dir, 'bin/xcrun'), 0o755)
+  const hook = (command: string) => spawnSync(HOOK, { input: JSON.stringify({ tool_input: { command } }), encoding: 'utf8', env: { ...process.env, PATH: `${dir}/bin:${process.env.PATH}` } })
   for (const c of [
     'open -a Simulator',
     'open -a Simulator.app',
@@ -284,7 +289,7 @@ function keptQueue(via: string[] = [SIM_RUN]) {
   writeFileSync(join(dir, '.config/aquatome/owner-report-thread'), 'cos\n')
   const env = { ...process.env, HOME: dir, SIM_RUN_NEXT_PAUSE: '0.1', CHECKS_NEXT_PAUSE: '0.1', T3CODE_THREAD_ID: 'cos' }
   const [queue, ...queueArgs] = via as [string, ...string[]]
-  const first = spawn(queue, [...queueArgs, 'sh', '-c', `touch ${dir}/up; until [ -f ${dir}/release ]; do sleep 0.05; done`], { env, stdio: 'ignore' })
+  const first = spawn(queue, [...queueArgs, 'sh', '-c', `touch ${dir}/up; for i in $(seq 1200); do [ -f ${dir}/release ] && break; sleep 0.05; done`], { env, stdio: 'ignore' })
   const firstEnd = new Promise(r => first.on('close', r))
   const run = (word: string, cwd = dir) => { const p = spawn(queue, [...queueArgs, 'sh', '-c', `echo ${word} >> ${dir}/order`], { env, cwd, stdio: 'ignore' }); return new Promise(r => p.on('close', r)) }
   const next = (thread: string, ...args: string[]) => spawnSync(NEXT_TURN, args, { env: { ...env, T3CODE_THREAD_ID: thread }, encoding: 'utf8' })

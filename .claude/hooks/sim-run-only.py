@@ -9,11 +9,13 @@ import json
 import os
 import re
 import shlex
+import subprocess
 import sys
 
 WRAPPERS = {"exec", "nohup", "time", "nice", "timeout", "caffeinate", "env", "command", "builtin", "xcrun", "sudo", "stdbuf",
             "then", "do", "else", "elif", "if", "while", "until", "!", "{", "lockf"}
 SHELLS = {"sh", "bash", "zsh"}
+MAC_STATUS = os.path.join(os.path.dirname(os.path.realpath(__file__)), "../../scripts/mac-status.py")
 # xcodebuild's flags that take no value: after any other flag, the next word is that flag's.
 NO_VALUE = {"-quiet", "-verbose", "-json", "-showBuildSettings", "-allowProvisioningUpdates", "-allowProvisioningDeviceRegistration",
             "-skipUnavailableActions", "-hideShellScriptEnvironment", "-skipMacroValidation", "-skipPackagePluginValidation",
@@ -152,6 +154,10 @@ def bare_run(command, queued=False):
             return HEADLESS
         if not locked and name and heavy(name, args):
             return QUEUE
+        if name == "simctl" and args[:1] == ["boot"] and len(args) > 1:
+            cap = subprocess.run([sys.executable, MAC_STATUS, "--cap", args[1]], capture_output=True, text=True)
+            if cap.returncode == 2:
+                return cap.stderr.strip()
         if name in SHELLS and "-c" in args[:-1]:
             reason = bare_run(args[args.index("-c") + 1], locked)
             if reason:
