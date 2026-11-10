@@ -39,12 +39,18 @@ function walk(node: Node, out: string[]): void {
 /** `product`: the image sits in a shop product card (class or id naming "product"), e.g. Aquarium Co-Op's product tiles in its articles. */
 /** `page`: the photo's own page, when it has one; `author`: the photographer, when the source names one per photo. */
 /** `heading`: the heading it sits under (the last one before it), so a guide puts it in the same section. */
-export type PageImage = { src: string; alt: string; width?: number; height?: number; product?: true; page?: string; author?: string; heading?: string }
+/** `link`: where the link around it goes, if one does (source-photos.ts: a link to another article makes it that article's card). */
+export type PageImage = { src: string; alt: string; width?: number; height?: number; product?: true; page?: string; author?: string; heading?: string; link?: string }
 
 const PRODUCT_BOX = /product/i
 const inProduct = (i: HTMLElement) => {
   for (let n: HTMLElement | null = i; n && n.tagName; n = n.parentNode as HTMLElement | null) if (PRODUCT_BOX.test(`${n.getAttribute?.('class') ?? ''} ${n.getAttribute?.('id') ?? ''}`)) return true
   return false
+}
+
+const linkOf = (i: HTMLElement) => {
+  for (let n = i.parentNode as HTMLElement | null; n && n.tagName; n = n.parentNode as HTMLElement | null) if (n.rawTagName?.toLowerCase() === 'a') return n.getAttribute('href')
+  return undefined
 }
 
 /** Largest candidate: srcset entry with the biggest `w`, else the plain src with its width/height attributes. */
@@ -89,7 +95,8 @@ export function htmlToOutline(html: string, contentSelector?: string): { title: 
   const images = scope.querySelectorAll('img').flatMap(i => {
     const p = pageImage(i)
     const heading = under.get(i)
-    return p ? [{ ...p, ...(inProduct(i) ? { product: true as const } : {}), ...(heading ? { heading } : {}) }] : []
+    const link = linkOf(i)
+    return p ? [{ ...p, ...(inProduct(i) ? { product: true as const } : {}), ...(heading ? { heading } : {}), ...(link ? { link } : {}) }] : []
   })
   const out: string[] = []
   walk(scope, out)

@@ -100,6 +100,30 @@ test('the sweep makes every page pass the rules it fixes, keeps each file\'s ind
   expect((await sweep(root)).files).toEqual([])
 })
 
+test("the unplaced photos at its source's read-next card width that end a guide's list leave it and can't come back; the lead, a photo under a heading, an unplaced one earlier in the list, a wider one, a narrower one and another source's stay", async () => {
+  // The owner's report, 2026-11-10: arowanas and a corydoras on the platy guide.
+  const root = await store()
+  const pic = (name: string, width: number, section?: object) => ({ ...photo(`https://media.aquatome.com/sprucepets/${name}.webp`, name), width, ...(section ? { section } : {}) })
+  const put = async (id: string, source: string, photos: object[]) => {
+    await mkdir(join(root, 'content/guides', id), { recursive: true })
+    await writeFile(join(root, 'content/guides', id, 'entity.json'), `${JSON.stringify({ id, kind: 'discovery', source, sourceUrl: 'https://x/y', html: '', photos, mentions: [], updatedAt: '2026-10-01' }, null, 2)}\n`)
+    await writeFile(join(root, 'content/guides', id, 'vi.json'), `${JSON.stringify(vi('Cá bình tích', {}, { body: '<h3>Biến thể</h3><p>Cá bình tích khỏe.</p>' }), null, 2)}\n`)
+  }
+  await put('sprucepets-platy', 'sprucepets', [pic('lead', 600), pic('hifin', 600, { vi: 'Vây cao' }), pic('own', 600), pic('wide', 800), pic('arowana', 600), pic('corydoras', 600)])
+  await put('sprucepets-narrow', 'sprucepets', [pic('top', 1000), pic('barb', 500)])
+  await put('other-guide', 'aquariumcoop', [pic('first', 1000), pic('small', 600)])
+  const r = await sweep(root, {})
+  const urls = async (id: string) => ((await json(root, `content/guides/${id}/entity.json`)).photos as { url: string }[]).map(p => p.url.split('/').pop())
+  expect(await urls('sprucepets-platy')).toEqual(['lead.webp', 'hifin.webp', 'own.webp', 'wide.webp'])
+  expect(await urls('sprucepets-narrow')).toEqual(['top.webp', 'barb.webp'])
+  expect(await urls('other-guide')).toEqual(['first.webp', 'small.webp'])
+  expect(r.photos.filter(x => x.includes('read-next'))).toHaveLength(2)
+  const rejected = await json(root, 'engine-state/_photo-rejected.json')
+  expect(rejected['https://media.aquatome.com/sprucepets/arowana.webp']).toMatch(/^card:/)
+  expect(rejected['https://media.aquatome.com/sprucepets/corydoras.webp']).toMatch(/^card:/)
+  expect((await sweep(root, {})).photos.filter(x => x.includes('read-next'))).toEqual([])
+})
+
 test('a card figure whose reason went shows again', async () => {
   const root = await store()
   await sweep(root)

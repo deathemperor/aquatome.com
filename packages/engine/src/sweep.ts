@@ -12,6 +12,7 @@ import { rewriteTitle } from './reader'
 import { logReviews } from './review-log'
 import { viWording } from './sanitize'
 import { snapshotName } from './snapshot'
+import { SOURCES } from './sources'
 import { isShop, readVarietyPages, withoutShopTalk } from './species-sources'
 import { cardOf, cardProblems } from './summaries'
 import { carryTopicChecks } from './topic-check'
@@ -29,6 +30,8 @@ import { readVideoRejected } from './videos'
  * - a photo whose caption names another fish the site has, or is a map: off that page (its file and its gallery). A map
  *   leaves every page (engine-state/_photo-rejected.json); a photo of another fish may still join that fish's page, so
  *   it is taken off again whenever a later run brings it back here
+ * - a guide's photo that is its source's "read next" card (an unplaced photo at the source's card width): off the guide, and
+ *   onto engine-state/_photo-rejected.json so a re-read can't bring it back
  * - a rejected video (engine-state/_video-rejected.json): off every species and plant page
  * - a card figure out of bounds, upside down, or a tank shorter than twice the fish: hidden (`hidden`: why), not deleted;
  *   worked out again each run, so a figure whose reason went (a corrected size) shows again. The species' approved
@@ -357,6 +360,28 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
       await write(file, raw, { ...e, photos: e.photos!.filter(ph => !drop.has(ph.url)) })
       changed(file.slice(content.length + 1))
     }
+  }
+  // A source's "read next" cards, stored as a guide's photos before the picker knew them (source-photos.ts): the unplaced
+  // photos at the card's exact width that end a guide from that source's list, never its lead (an article's own photo that
+  // no heading took is earlier in the list). Another article's picture, so off the guide and never picked again.
+  const cardWidths = new Map(SOURCES.flatMap(s => (s.cardWidth ? [[s.id as string, s.cardWidth] as const] : [])))
+  for (const id of (await readdir(join(content, 'guides')).catch(() => [] as string[])).sort()) {
+    const file = join(content, 'guides', id, 'entity.json')
+    const raw = await readFile(file, 'utf8').catch(() => null)
+    if (!raw) continue
+    const e = JSON.parse(raw) as { source?: string; photos?: { url: string; width: number; section?: object }[] }
+    const width = cardWidths.get(e.source ?? '')
+    if (!width) continue
+    const photos = e.photos ?? []
+    let end = photos.length
+    while (end > 1 && !photos[end - 1]!.section && photos[end - 1]!.width === width) end--
+    if (end === photos.length) continue
+    for (const p of photos.slice(end)) {
+      report.photos.push(`guides/${id}: ${p.url} (a read-next card)`)
+      maps.set(p.url, `card: a read-next card of ${e.source}, not an article's photo`)
+    }
+    await write(file, raw, { ...e, photos: photos.slice(0, end) })
+    changed(`guides/${id}/entity.json`)
   }
   // A map or an ad's poster is no fish's photo: off every page, and never picked again.
   if (maps.size) {
