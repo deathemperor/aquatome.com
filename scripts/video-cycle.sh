@@ -75,7 +75,7 @@ if [ -z "$(git status --porcelain -- content engine-state docs/review)" ]; then 
 # stays in the reflog to publish by hand (the run of 2026-11-07 lost its work to timeouts).
 git add content engine-state docs/review
 git commit -q -m "content: videos $(date -u +%F)"
-if ! verify 'pnpm test'; then keep_timed_out videos; log "tests failed, not publishing (see $TEST_LOG)"; exit 1; fi
+if ! verify 'pnpm test'; then keep_unpublished videos; log "tests failed, not publishing (see $TEST_LOG)"; exit 1; fi
 # The GitHub engine pushes too; the files above merge through their drivers. Lines both changed (the photo verdicts
 # review page) give way to this run's, as engine-cycle.sh does; then the tests run again on the merge.
 for _ in 1 2 3; do
@@ -84,7 +84,7 @@ for _ in 1 2 3; do
     git rebase --abort 2>/dev/null || true
     if git pull -q --rebase -X theirs; then
       sweep_merged
-      verify 'pnpm test' || { keep_timed_out videos; log "tests failed after that merge, not publishing"; exit 1; }
+      verify 'pnpm test' || { keep_unpublished videos; log "tests failed after that merge, not publishing"; exit 1; }
     else
       git rebase --abort 2>/dev/null || true
     fi

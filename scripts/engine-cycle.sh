@@ -38,7 +38,7 @@ push() {
       if git pull -q --rebase -X theirs; then
         replan_merged "$clash"
         sweep_merged
-        verify_cycle || { keep_timed_out "$PART"; log "build/tests failed after that merge, not publishing"; return 1; }
+        verify_cycle || { keep_unpublished "$PART"; log "build/tests failed after that merge, not publishing"; return 1; }
       else
         git rebase --abort 2>/dev/null || true
       fi
@@ -330,12 +330,12 @@ fi
 git add content sources engine-state docs/review apps/site/src/i18n
 git commit -q -m "content: engine $PART $(date -u +%F)"
 # Checked on top of main as it is now (catch_up), not as it was when the cycle started hours ago: the suite must pass
-# (verify_cycle; deploy.yml builds the real site before it goes live). A commit that fails stays here unpushed, and the
-# next cycle drops it, unless its tests only ran out of time: then it's kept, and the next cycle publishes it first.
+# (verify_cycle; deploy.yml builds the real site before it goes live). A commit that fails twice is held, unpublished,
+# unless its tests only ran out of time: then it's kept, and the next cycle publishes it first (keep_unpublished).
 catch_up
 sweep_merged
 if ! verify_cycle; then
-  keep_timed_out "$PART"
+  keep_unpublished "$PART"
   log "build/tests failed, not publishing (see $TEST_LOG)"; exit 1
 fi
 push || exit 1
