@@ -4,7 +4,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { CurationSchema, type Curation } from '@aq/schema'
-import { across, candidates, cardsOf, cardWorthy, checkCalendar, LARGE_PX, plan, problem, TAGS, type Candidate } from '../src/curation'
+import { across, candidates, cardsOf, cardWorthy, checkCalendar, fishProblem as problemOf, LARGE_PX, plan, problem, TAGS, type Candidate } from '../src/curation'
 
 const big = (n: number) => `https://media.aquatome.com/commons/${n.toString(16).padStart(16, '0')}.webp`
 const fish = (id: string, o: Partial<Candidate> & { px?: number } = {}): Candidate => {
@@ -12,7 +12,7 @@ const fish = (id: string, o: Partial<Candidate> & { px?: number } = {}): Candida
   const px = o.px ?? 1200
   return {
     kind: 'species', id, ref: `species/${id}`, path: `/vi/ca/${id}/`, name: id, fit: true, indexable: true, demand: 0,
-    facts: { places: [], coldwater: false }, photo: { square: { url, px }, guide: { url, px }, wide: { url, px } }, checked: { [url]: { square: px, guide: px, wide: px } }, ...o,
+    facts: { places: [], coldwater: false }, photo: { square: { url, px }, guide: { url, px }, wide: { url, px } }, checked: { [url]: { square: px, guide: px, wide: px } }, head: { url, px: { square: px, guide: px, wide: px } }, ...o,
   }
 }
 const guide = (id: string, o: Partial<Candidate> = {}): Candidate => ({ ...fish(id, { px: 600 }), kind: 'guides', ref: `guides/${id}`, path: `/vi/huong-dan/${id}/`, ...o })
@@ -28,10 +28,11 @@ test('a guide or story card takes a 16:9 photo: a video still fills it that a fi
   const still = { width: 1280, height: 720 }
   expect(across(still, 'guide')).toBe(1280)
   expect(across(still, 'square')).toBe(686)
-  const { photosFor } = await import('../src/curation')
+  const { headOf, photosFor } = await import('../src/curation')
   const ph = (n: number) => ({ url: big(n), ...still, licence: 'CC BY 4.0', author: 'a', sourceUrl: 'https://example.org' })
-  const g = { ...guide('g1'), ...photosFor([ph(7)], () => true) }
-  const small = { ...guide('g2'), ...photosFor([{ ...ph(8), width: 640, height: 360 }], () => true) }
+  const g = { ...guide('g1'), ...photosFor([ph(7)], () => true), head: headOf([ph(7)], () => true) }
+  const smallest = [{ ...ph(8), width: 640, height: 360 }]
+  const small = { ...guide('g2'), ...photosFor(smallest, () => true), head: headOf(smallest, () => true) }
   // A guide kept from an earlier plan gets its photo; one whose photos are all too small is kept, without one.
   const cur = CurationSchema.parse({ version: 1, weeks: [], days: [
     { date: '2026-11-09', guide: 'guides/g1', story: { page: 'guides/g1' } },
@@ -234,4 +235,41 @@ test('a breed\'s card can use a checked photo from its gallery', async () => {
   await writeFile(join(root, 'engine-state', '_photo-subjects.json'), JSON.stringify({ [url]: { 'flowerhorn-cichlid': { ok: 'yes', typical: true, note: '' } } }))
   const fh = (await candidates(root)).find(c => c.ref === 'breeds/flowerhorn-cichlid')
   expect(fh?.photo.square?.url).toBe(url)
+})
+
+test("a card's photo is its page's head photo or none: never another, however big", async () => {
+  // The owner (2026-11-10): the Altum on Hôm nay was a different photo from the one its page opened on.
+  const url = 'https://media.aquatome.com/commons/1111111111111111.webp'
+  const bigger = 'https://media.aquatome.com/commons/2222222222222222.webp'
+  const head = (px: number) => ({ url, px: { square: px, guide: px, wide: px } })
+  const best = { square: { url: bigger, px: 1600 }, guide: { url: bigger, px: 1600 }, wide: { url: bigger, px: 1600 } }
+  const checked = { [url]: { square: 1200, guide: 1200, wide: 1200 }, [bigger]: { square: 1600, guide: 1600, wide: 1600 } }
+  const a = fish('aaaa', { head: head(1200), photo: best, checked })
+  const days = [{ date: '2026-11-09', fish: 'species/aaaa', img: bigger, guide: 'guides/gg', guideImg: bigger, story: { page: 'guides/gg', img: bigger } }]
+  const g = guide('gg', { head: head(1200), photo: best, checked })
+  const before = CurationSchema.parse({ version: 1, weeks: [], days })
+  expect(checkCalendar(before, [a, g], '2026-11-09', 1)).toEqual([
+    "2026-11-09 fish species/aaaa: its card's photo isn't the page's head photo",
+    "2026-11-09 guide guides/gg: its card's photo isn't the page's head photo",
+    "2026-11-09 story guides/gg: its card's photo isn't the page's head photo",
+  ])
+  const { calendar } = plan(before, [a, g], '2026-11-09', 1)
+  expect(calendar.days[0]).toMatchObject({ fish: 'species/aaaa', img: url, guideImg: url, story: { page: 'guides/gg', img: url } })
+  expect(checkCalendar(calendar, [a, g], '2026-11-09', 1)).toEqual([])
+
+  // A guide whose head is too small, or isn't checked, has no card photo, though a bigger one is there.
+  const small = guide('gg', { head: head(1000), photo: best, checked })
+  expect(plan(before, [a, small], '2026-11-09', 1).calendar.days[0]!.guideImg).toBeUndefined()
+  const unchecked = guide('gg', { head: undefined, photo: best, checked })
+  expect(plan(before, [a, unchecked], '2026-11-09', 1).calendar.days[0]!.guideImg).toBeUndefined()
+})
+
+test('a fish whose head photo is under the rule stays off the calendar, however big its gallery photos are', () => {
+  const big1 = fish('big1'), small = fish('small', { head: { url: 'https://media.aquatome.com/commons/3333333333333333.webp', px: { square: 608, guide: 900, wide: 900 } } })
+  expect(problemOf(small)).toBe('head photo 608 px across, under 1140')
+  expect(problemOf(fish('none', { head: undefined }))).toBe('no checked head photo')
+  const cur = CurationSchema.parse({ version: 1, weeks: [], days: [{ date: '2026-11-09', fish: 'species/small', img: small.photo.square!.url }] })
+  const { calendar, report } = plan(cur, [small, big1, guide('gg')], '2026-11-09', 1)
+  expect(calendar.days[0]!.fish).toBe('species/big1')
+  expect(report.replaced).toEqual([{ date: '2026-11-09', slot: 'fish', was: 'species/small', why: 'head photo 608 px across, under 1140' }])
 })

@@ -9,7 +9,9 @@ import type { PhotoVerdict } from './photo-check'
 /**
  * The editorial calendar's planner. It fills Hôm nay's days and checks every pick against what a featured page needs:
  * - it passes the reader-fit gate (gate.ts): not held back, and no finding the gate holds a page for;
- * - its card photo is checked (the right fish, typical, no person, logo or watermark) and big enough for the card.
+ * - its card photo is its page's head photo, checked (the right fish, typical, no person, logo or watermark) and big
+ *   enough for the card. A card shows the head photo or none, never another (the chief of staff, 2026-11-10: the Altum's
+ *   card and page differed, and the page flashed as one replaced the other).
  * A person's choice (`fixed`, or a week's own lists) is kept while it passes; a pick that stops passing is replaced.
  * Picks come from the week's theme (its `tags` and lists), how well known a fish is, readers' searches (Search Console),
  * and what's new, never the same fish twice in four weeks.
@@ -63,6 +65,8 @@ export type Candidate = {
   photo: Partial<Record<Slot, { url: string; px: number }>>
   /** Every checked photo of the page by address, with its pixels across each card shape: what a calendar's `img` may be. */
   checked: Record<string, Record<Slot, number>>
+  /** The page's head photo (its first) when it passes its checks: the address the app loads, and its pixels across each card shape. */
+  head?: { url: string; px: Record<Slot, number> }
   /** Passes the reader-fit gate in Vietnamese. */
   fit: boolean
   /** Why not, when it doesn't. */
@@ -119,6 +123,14 @@ export function photosFor(photos: Photo[], ok: (p: Photo) => boolean): Pick<Cand
     for (const slot of SLOTS) if (!photo[slot] || across(big, slot) > photo[slot].px) photo[slot] = { url: big.url, px: across(big, slot) }
   }
   return { photo, checked }
+}
+
+/** A page's head photo for its cards, when it passes its checks: by its large copy, the address the app loads. */
+export function headOf(own: Photo[], ok: (p: Photo) => boolean): Candidate['head'] {
+  const p = own[0]
+  if (!p || !ok(p)) return undefined
+  const big = p.large ?? p
+  return { url: big.url, px: Object.fromEntries(SLOTS.map(slot => [slot, across(big, slot)])) as Record<Slot, number> }
 }
 
 const json = async <T>(path: string, fallback: T): Promise<T> => JSON.parse(await readFile(path, 'utf8').catch(() => 'null')) ?? fallback
@@ -180,7 +192,7 @@ export async function candidates(root: string, o: { demand?: Map<string, number>
     // The group size the page asks for, as read from its text for the tank-mates checker (traits.ts).
     const school = (await json<{ schoolMin?: number | null }>(join(content, 'traits', `${s.id}.json`), {})).schoolMin ?? undefined
     out.push({
-      kind: 'species', id: s.id, ref: `species/${s.id}`, path: `/vi/ca/${s.t.slug}/`, name: s.t.name, ...photosFor(all, ok),
+      kind: 'species', id: s.id, ref: `species/${s.id}`, path: `/vi/ca/${s.t.slug}/`, name: s.t.name, ...photosFor(all, ok), head: headOf(s.photos, ok),
       ...(await fitOf('species', s.id)), indexable: s.t.quality.indexable, group: s.group, updatedAt: s.updatedAt,
       facts: {
         tempMin: typeof t === 'number' ? t : t?.min, sizeMax: typeof size === 'number' ? size : size?.max,
@@ -195,7 +207,7 @@ export async function candidates(root: string, o: { demand?: Map<string, number>
     const ok = (p: Photo) => cardWorthy(p.url, b.id, v, avoid)
     const t = b.care.tempC?.[0]?.value
     out.push({
-      kind: 'breeds', id: b.id, ref: `breeds/${b.id}`, path: `/vi/ca/${b.t.slug}/`, name: b.t.name, ...photosFor(photosOf(b.id, b.photos), ok),
+      kind: 'breeds', id: b.id, ref: `breeds/${b.id}`, path: `/vi/ca/${b.t.slug}/`, name: b.t.name, ...photosFor(photosOf(b.id, b.photos), ok), head: headOf(b.photos, ok),
       ...(await fitOf('breeds', b.id)), indexable: b.t.quality?.indexable ?? true, updatedAt: b.updatedAt,
       facts: { tempMin: typeof t === 'number' ? t : t?.min, places: [], coldwater: COLDWATER_OF.includes(b.basedOn ?? '') || /goldfish|koi/.test(b.id) },
       known: known.includes(b.id) ? known.indexOf(b.id) : undefined, demand: demandOf('breeds', b.id),
@@ -204,7 +216,7 @@ export async function candidates(root: string, o: { demand?: Map<string, number>
   for (const g of c.guides) {
     const ok = (p: Photo) => cardWorthy(p.url, g.id, v, avoid, true)
     out.push({
-      kind: 'guides', id: g.id, ref: `guides/${g.id}`, path: `/vi/huong-dan/${g.t.slug}/`, name: g.t.name, group: g.kind, source: g.source, ...photosFor(g.photos, ok),
+      kind: 'guides', id: g.id, ref: `guides/${g.id}`, path: `/vi/huong-dan/${g.t.slug}/`, name: g.t.name, group: g.kind, source: g.source, ...photosFor(g.photos, ok), head: headOf(g.photos, ok),
       ...(await fitOf('guides', g.id)), indexable: g.t.quality?.indexable ?? true, updatedAt: g.updatedAt, facts: { places: [], coldwater: false }, demand: demandOf('guides', g.id),
     })
   }
@@ -225,6 +237,15 @@ export function problem(c: Candidate | undefined, slot: Slot, img?: string, o: {
   return undefined
 }
 
+/** Why a fish can't be a day's fish: its card shows its page's head photo, which has to pass and fill the card. */
+export function fishProblem(c: Candidate | undefined): string | undefined {
+  if (!c) return 'no such page'
+  if (!c.fit) return `reader fit: ${c.fitWhy}`
+  if (!c.head) return 'no checked head photo'
+  if (c.head.px.square < LARGE_PX) return `head photo ${c.head.px.square} px across, under ${LARGE_PX}`
+  return undefined
+}
+
 /** A fish with a loop scores as much again as a large photo does: it moves up on its own, never past a week's own list. */
 const LOOP_BONUS = 1
 /** A week with no video guide yet takes one, after its own list's guides and before the rest. */
@@ -237,7 +258,7 @@ const score = (c: Candidate, w: CurationWeek | undefined, today: string, bonus =
   const tags = (w?.tags ?? []).filter(t => TAGS[t]?.(c.facts)).length
   const known = c.known === undefined ? 0 : 2 - c.known / 50
   const fresh = c.updatedAt && c.updatedAt >= addDays(today, -14) ? 0.5 : 0
-  const photo = (c.photo[c.kind === 'guides' ? 'guide' : 'square']?.px ?? 0) >= LARGE_PX ? 1 : 0
+  const photo = (c.head?.px[c.kind === 'guides' ? 'guide' : 'square'] ?? 0) >= LARGE_PX ? 1 : 0
   return inList + tags * 2 + known + photo + Math.log1p(c.demand) + fresh + (c.indexable ? 0.5 : 0) + bonus
 }
 
@@ -268,12 +289,13 @@ export function plan(cur: Curation, cands: Candidate[], from: string, days: numb
       const c = ref ? byRef.get(ref) : undefined
       // A guide is kept or replaced by its page; its photo is the guide card's to set or drop (guidePhoto).
       const p = ref
-        ? (slot === 'fish' ? problem(c, 'square', d.img) : problem(c, 'guide', undefined, { photo: false })) ??
+        ? (slot === 'fish' ? fishProblem(c) : problem(c, 'guide', undefined, { photo: false })) ??
           (slot === 'fish' && !d.fixed && c && !fitsWeek(c, w) ? `doesn't match this week's tags (${w!.tags.join(', ')})` : undefined)
         : 'empty'
       if (ref && !p) {
         report.kept.push(`${date} ${slot}`)
-        if (slot === 'guide') guidePhoto(d, c!)
+        if (slot === 'fish') d.img = c!.head!.url
+        else guidePhoto(d, c!)
         continue
       }
       if (ref) report.replaced.push({ date, slot, was: ref, why: p! })
@@ -287,7 +309,7 @@ export function plan(cur: Curation, cands: Candidate[], from: string, days: numb
         ![...out.values()].some(o => o.date !== date && w.from <= o.date && o.date <= w.to && video(byRef.get(o.guide ?? '')))
       const bonus = (x: Candidate) => (looped(x) ? LOOP_BONUS : 0) + (wantsVideo && video(x) ? VIDEO_BONUS : 0)
       const best = cands
-        .filter(x => kind.includes(x.kind) && !(slot === 'fish' ? problem(x, 'square') : problem(x, 'guide', undefined, { photo: false })) && !used(x.ref, date))
+        .filter(x => kind.includes(x.kind) && !(slot === 'fish' ? fishProblem(x) : problem(x, 'guide', undefined, { photo: false })) && !used(x.ref, date))
         .filter(x => slot !== 'fish' || fitsWeek(x, w))
         // Not the same group of fish, or kind or source of guide, two days running.
         .filter(x => { const y = byRef.get(yesterday?.[slot] ?? ''); return (!x.group || x.group !== y?.group) && (!x.source || x.source !== y?.source) })
@@ -295,8 +317,8 @@ export function plan(cur: Curation, cands: Candidate[], from: string, days: numb
         .sort((a, b) => b.s - a.s || a.x.ref.localeCompare(b.x.ref))[0]?.x
       if (!best) { delete d[slot]; report.empty.push(`${date} ${slot}`); continue }
       d[slot] = best.ref
-      // The card shows the best checked photo, and a guide's only when it is big enough for the card.
-      if (slot === 'fish') d.img = best.photo.square!.url
+      // The card shows the page's head photo, a guide's only when it is big enough for the card.
+      if (slot === 'fish') d.img = best.head!.url
       else { delete d.guideImg; guidePhoto(d, best) }
       delete d.fixed
       report.filled.push(`${date} ${slot}: ${best.ref}`)
@@ -310,9 +332,12 @@ export function plan(cur: Curation, cands: Candidate[], from: string, days: numb
       ]
       why.push(`${slot === 'fish' ? 'Fish' : 'Guide'}: ${best.name}, ${reasons.join(', ') || 'the best left with a big enough photo'}`)
     }
-    // A story without a photo gets its page's best for the same card, when one is big enough.
-    const sc = d.story && !d.story.img ? byRef.get(d.story.page) : undefined
-    if (d.story && sc?.fit && (sc.photo.guide?.px ?? 0) >= LARGE_PX) d.story = { ...d.story, img: sc.photo.guide!.url }
+    // A story's photo is its page's head photo when that is big enough for the card, else none.
+    const sc = d.story ? byRef.get(d.story.page) : undefined
+    if (d.story && sc?.fit) {
+      const { img: _, ...story } = d.story
+      d.story = (sc.head?.px.guide ?? 0) >= LARGE_PX ? { ...story, img: sc.head!.url } : story
+    }
     // One plain sentence for the owner's daily report.
     if (why.length) d.why = `${why.join('. ')}.`.slice(0, 300)
     out.set(date, d)
@@ -321,11 +346,9 @@ export function plan(cur: Curation, cands: Candidate[], from: string, days: numb
   return { calendar: { ...cur, days: sorted, off: offPages({ ...cur, days: sorted }, byRef, from) }, report }
 }
 
-/** A guide card's photo: the one set while it's big enough for the card, else the page's best that is, else none. */
+/** A guide card's photo: its page's head photo when that is big enough for the card, else none. */
 function guidePhoto(d: CurationDay, c: Candidate) {
-  if (d.guideImg && !problem(c, 'guide', d.guideImg)) return
-  const ph = c.photo.guide
-  if (ph && ph.px >= LARGE_PX) d.guideImg = ph.url
+  if ((c.head?.px.guide ?? 0) >= LARGE_PX) d.guideImg = c.head!.url
   else delete d.guideImg
 }
 
@@ -387,12 +410,13 @@ export function checkCalendar(cur: Curation, cands: Candidate[], from: string, d
     if (!d?.guide) out.push(`${date}: no guide`)
   }
   for (const d of cur.days.filter(x => x.date >= from)) {
-    const fish = d.fish && (d.img ? problem(byRef.get(d.fish), 'square', d.img) : 'no photo set for the card')
+    const notHead = (img: string | undefined, ref: string) => (img && img !== byRef.get(ref)?.head?.url ? "its card's photo isn't the page's head photo" : undefined)
+    const fish = d.fish && (fishProblem(byRef.get(d.fish)) ?? (d.img ? notHead(d.img, d.fish) : 'no photo set for the card'))
     if (fish) out.push(`${d.date} fish ${d.fish}: ${fish}`)
-    const guide = d.guide && problem(byRef.get(d.guide), 'guide', d.guideImg, { photo: false })
+    const guide = d.guide && (problem(byRef.get(d.guide), 'guide', d.guideImg, { photo: false }) ?? notHead(d.guideImg, d.guide))
     if (guide) out.push(`${d.date} guide ${d.guide}: ${guide}`)
     if (d.story && !cur.off[d.story.page]) {
-      const st = problem(byRef.get(d.story.page), 'guide', d.story.img, { photo: false })
+      const st = problem(byRef.get(d.story.page), 'guide', d.story.img, { photo: false }) ?? notHead(d.story.img, d.story.page)
       if (st) out.push(`${d.date} story ${d.story.page}: ${st}`)
     }
     if (d.card) {
