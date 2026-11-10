@@ -461,6 +461,33 @@ final class V2FlowTests: XCTestCase {
     }
   }
 
+  /// A page that got shorter since its copy on the phone: opened twice in one run, the kept copy then the site's. The folds
+  /// worked out for the first were places in its parts' pieces, and on the second the app crashed past the end of them.
+  func testAPageThatGotShorterOpensAgainInTheSameRun() {
+    func opened(_ more: String...) -> XCUIApplication {
+      let app = XCUIApplication()
+      app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-reset-defaults", "-v2", "YES", "-keep-pages"] + more
+      app.launchForFlow()
+      XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+      return app
+    }
+    let neon = URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!
+    func open(_ app: XCUIApplication) {
+      follow(app, neon)
+      XCTAssertTrue(app.descendants(matching: .any)["v2-species"].waitForExistence(timeout: 5), "the fish's page didn't open")
+      Thread.sleep(forTimeInterval: 1)
+    }
+    let long = opened("-long-part")
+    open(long)
+    long.terminate()
+    let app = opened()
+    open(app)
+    app.buttons["v2-back"].tap()
+    open(app)
+    XCTAssertEqual(app.state, .runningForeground, "the app crashed on the page's newer copy")
+    reveal(app, app.staticTexts["Cho ăn gì?"])
+  }
+
   /// A fold never stops on a line leading into what it hides ("…, gồm:"): the text before it ends in "thêm", and the line
   /// and its list come when it opens.
   func testAFoldDoesntStopOnALineLeadingIntoWhatItHides() {

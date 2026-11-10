@@ -59,6 +59,7 @@ struct SpeciesPage: View {
   @Environment(\.dynamicTypeSize) private var size
   @State private var colour: Color
   @State private var putting = false
+  @State private var foldMemo = FoldMemo()
   /// The gallery's photo shown full screen.
   @State private var viewing: Int?
   /// The page's photo grid (PhotoGrid), open where its way in opens it.
@@ -965,7 +966,7 @@ struct SpeciesPage: View {
     // Its sources' figures, compared, show whole: folded, the figure they disagree on is the one cut.
     let folds = if case .section = whole.parts[i] { true } else { false }
     let anchor = whole.ids[i].hasPrefix("part-") ? nil : whole.ids[i]
-    return V2Section(key: "\(item.path) \(whole.ids[i])", title: whole.titles[i], pieces: whole.pieces[i], folds: folds,
+    return V2Section(key: whole.ids[i], memo: foldMemo, title: whole.titles[i], pieces: whole.pieces[i], folds: folds,
                      open: Binding(get: { opened.contains(i) }, set: { if $0 { opened.insert(i) } }), width: width,
                      link: { open($0) }, full: { openFull(item, anchor) })
   }

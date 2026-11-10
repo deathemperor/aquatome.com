@@ -1,6 +1,13 @@
 import Handbook
 import SwiftUI
 
+/// The folds worked out for one copy of a page, which is what their places in a part's pieces are places in: a newer copy
+/// comes with a page of its own. Kept across the app, a part that had got shorter was drawn past its end.
+@available(iOS 18, *)
+final class FoldMemo {
+  fileprivate var worked: [String: V2Section.Fold] = [:]
+}
+
 /// A part of the page under its heading on v2's species page, as an app's description in the App Store: a long one shows
 /// its opening, then "thêm", which opens the rest in place; a short one shows whole. It never folds through a line, a
 /// photo or a table: the pieces that fit in about eight lines of text show whole, then the next text's opening to a
@@ -13,8 +20,10 @@ import SwiftUI
 /// at a width and a text size: the page draws again as its bar changes on the way down.
 @available(iOS 18, *)
 struct V2Section: View {
-  /// The page's and the part's, for the fold worked out once.
+  /// The part's, for the fold worked out once.
   let key: String
+  /// The folds worked out for this copy of the page.
+  let memo: FoldMemo
   let title: String?
   let pieces: [NativePage.Piece]
   /// Text folds; a part of figures to compare (its sources) shows whole.
@@ -35,16 +44,15 @@ struct V2Section: View {
   /// What shows, folded: its first pieces whole, then a text's first `chars` and "… thêm" (all of it and " thêm" when that
   /// fits); or, where what's next is a photo or a table and the last whole one isn't text, the whole pieces, "thêm" under
   /// them.
-  private enum Fold: Equatable { case none, pieces(Int), cut(Int, chars: Int) }
-  @MainActor private static var worked: [String: Fold] = [:]
+  fileprivate enum Fold: Equatable { case none, pieces(Int), cut(Int, chars: Int) }
   private static let moreScheme = "v2-more"
 
   private var fold: Fold {
     guard folds, !open, !voiceOver, !pieces.isEmpty else { return .none }
     let w = width > 0 ? width : 402, at = "\(key) \(w) \(size)"
-    if let f = Self.worked[at] { return f }
+    if let f = memo.worked[at] { return f }
     let f = fold(in: w - 40)
-    Self.worked[at] = f
+    memo.worked[at] = f
     return f
   }
 
