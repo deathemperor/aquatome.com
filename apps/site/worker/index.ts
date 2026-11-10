@@ -8,7 +8,7 @@ import { isBot } from './bots'
 import { apiCatalog, DISCOVERY_LINK } from './agents'
 import { adminRoute, bearerOk as dashBearer } from './dashboard'
 import { dashboardHostRoute } from './dashboard-host'
-import { dailyReportRoute } from './daily/api'
+import { changesRoute, dailyReportRoute } from './daily/api'
 import { feedbackQueue, sendFeedback } from './feedback'
 import { ownerApi } from './owner-api'
 import { ourNetworkRoute, usLinkRoute, whoIs, type Who } from './us'
@@ -265,6 +265,7 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
   if (url.pathname === '/_ab/our-network') return ourNetworkRoute(req, env)
   if (url.pathname === '/_ab/search-console') return searchConsoleRoute(req, env.AB, bearerOk(req, env))
   if (url.pathname === '/_ab/report') return dailyReportRoute(req, url, env)
+  if (url.pathname === '/_ab/changelog') return changesRoute(req, env)
   // The owner's reports waiting for the Mac (worker/feedback.ts): the dashboard token only.
   if (url.pathname === '/_ab/feedback' || url.pathname.startsWith('/_ab/feedback/')) return finish(await feedbackQueue(req, url, env), env)
   // The owner's dashboard (worker/dashboard.ts): every /_ab path, each behind the token.

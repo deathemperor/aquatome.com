@@ -229,7 +229,11 @@ that would have caught it).
     collector on GitHub's JSON: a cycle told from the engine's hourly check, a workflow failing with no later success,
     what GitHub won't give named rather than counted as none, the retries, a merged PR's product changes and no number,
     title or link of its own, the app's next 7 days from the editorial calendar (`content/curation.json`), and a body the
-    Worker reads (`apps/site/test/daily-report.test.ts`). A PR's changes are
+    Worker reads (`apps/site/test/daily-report.test.ts`). This Mac starts it at 06:58
+    (`scripts/install-daily-report-schedule.sh`, `packages/engine/test/machine-load.test.ts`), and GitHub's schedule, the
+    backstop, makes none once a started run has succeeded that day. Each push to main sends what merged to the change log
+    as well (`changelog.yml`, `POST /_ab/changelog`), so the dashboard's count never waits for the report, each line kept
+    once with the report's (`worker/test/daily-report.test.ts`). A PR's changes are
     its body's `## Changelog` lines (several, `none`, odd spacing, an example in a code block not one), else its title
     for a `feat` or `fix` outside the ci, test, docs and chore scopes and not the engine's content, labelled by its files:
     any in `apps/ios/` App, else any in `packages/engine/` Engine, else Site (`changelog.test.ts`). The composer: the

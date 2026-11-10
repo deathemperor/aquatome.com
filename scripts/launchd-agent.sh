@@ -13,6 +13,8 @@ every_3h() {
   for hour in $(seq "$1" 3 23); do printf '<dict><key>Hour</key><integer>%d</integer><key>Minute</key><integer>%d</integer></dict>' "$hour" "$2"; done
   printf '</array>'
 }
+# daily <hour> <minute>, on this Mac's clock
+daily() { printf '<key>StartCalendarInterval</key><dict><key>Hour</key><integer>%d</integer><key>Minute</key><integer>%d</integer></dict>' "$1" "$2"; }
 # hourly <minute>
 hourly() { printf '<key>StartCalendarInterval</key><dict><key>Minute</key><integer>%d</integer></dict>' "$1"; }
 

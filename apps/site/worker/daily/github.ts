@@ -90,6 +90,15 @@ const runs = (x: unknown): Runs => {
   return { runs: count(r.runs), failed: count(r.failed) }
 }
 
+/** What changelog.yml sends on each push to main, or null for a body to refuse. */
+export function parseChanges(body: string): Change[] | null {
+  try {
+    return list(record(JSON.parse(body)).changes, change, MAX_CHANGES)
+  } catch {
+    return null
+  }
+}
+
 /** The body as sent, or null for one to refuse. `runId` is the run's id: it keys the report (daily/log.ts). */
 export function parseGitHubSide(body: string): GitHubSide | null {
   try {

@@ -59,6 +59,22 @@ test('the sweep removes a worktree only when no work can be lost and nobody is i
     expect(worktreeVerdict({ ...wt, path })).not.toBe('remove')
 })
 
+// GitHub started the 07:00 report about 5 hours late, four days running.
+test("the owner's morning report is started from this Mac at 06:58, a minute's work before 07:00, by the same job", () => {
+  const dir = home()
+  mkdirSync(join(dir, 'bin'))
+  writeFileSync(join(dir, 'bin/launchctl'), `#!/bin/sh\necho "$@" >> "${dir}/calls"\n[ "$1" = print ] && exit 1\nexit 0\n`, { mode: 0o755 })
+  const r = spawnSync('bash', [join(ROOT, 'scripts/install-daily-report-schedule.sh')], { env: { ...process.env, HOME: dir, PATH: `${dir}/bin:${process.env.PATH}` }, encoding: 'utf8' })
+  expect(r.status, r.stderr).toBe(0)
+  const plist = readFileSync(join(dir, 'Library/LaunchAgents/run.aquatome.daily-report.plist'), 'utf8')
+  expect(plist).toContain('<key>StartCalendarInterval</key><dict><key>Hour</key><integer>6</integer><key>Minute</key><integer>58</integer></dict>')
+  expect(plist).toContain('gh workflow run daily-report.yml -R deathemperor/aquatome.com --ref main')
+  expect(plist).toContain('/opt/homebrew/bin')
+  expect(plist).not.toContain('RunAtLoad')
+  expect(readFileSync(join(dir, 'calls'), 'utf8')).toContain('bootstrap')
+  expect(spawnSync('plutil', ['-lint', '-'], { input: plist }).status ?? 0).toBe(0)
+})
+
 /** The engine's installer on a home of its own, with launchctl stood in for: `running` says a job is up. Its calls, its plists. */
 function install(running: boolean) {
   const dir = home()
