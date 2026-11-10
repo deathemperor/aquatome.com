@@ -18,7 +18,7 @@ import { recordSnapshot } from './admin/content'
 import { ownReferrer, parseEvent, toDataPoint, visitorOf } from './events'
 import { VISITOR_STATS } from './stats-switch'
 import { redirectFor } from './redirects'
-import { DASHBOARD_HOST, isViPage, withoutVi } from './paths'
+import { DASHBOARD_HOST, galleryParent, isViPage, withoutVi } from './paths'
 import { appPageClosed } from './app-switch'
 import { gonePage, isHidden, pagePath } from './hidden'
 import { prefersMarkdown } from './markdown'
@@ -282,6 +282,10 @@ export async function handle(req: Request, env: FullEnv, wait: (p: Promise<unkno
   if (res.status === 404 && isPage(url.pathname)) {
     const to = await redirectFor(env.ASSETS, url.origin, url.pathname)
     if (to) return finish(new Response(null, { status: 301, headers: { location: to } }), env)
+    const parent = galleryParent(url.pathname)
+    if (parent && (await env.ASSETS.fetch(new Request(`${url.origin}${parent}`))).ok) {
+      return finish(new Response(null, { status: 302, headers: { location: parent + url.search } }), env)
+    }
   }
   if (!res.headers.get('content-type')?.includes('text/html')) return finish(res, env)
   const extra: Record<string, string> = { Vary: 'Accept', 'Server-Timing': `asset;dur=${assetMs}` }

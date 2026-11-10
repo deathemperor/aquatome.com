@@ -21,6 +21,9 @@ export const isViPage = (path: string) => {
   return p === '/' || (VI_SECTIONS as readonly string[]).includes(p.split('/')[1]!)
 }
 
+/** "/ca/x/anh/" → "/ca/x/": a photo page goes when its album falls under six and can come back, so its address forwards for now. */
+export const galleryParent = (path: string) => /^(\/(?:ca|cay)\/[^/]+\/)anh\/?$/.exec(path)?.[1]
+
 /**
  * Apple's return address for the web's sign-in, in each language: the tanks page, as its Services ID (com.aquatome.web)
  * lists it. Apple refuses an address it doesn't list.
