@@ -46,61 +46,6 @@
     ],
     "figures": [
       {
-        "heading": "Dán mica dày theo cách kê ghim",
-        "moments": [
-          {
-            "t": 105,
-            "url": "https://media.aquatome.com/video/7nEatEnYWH8/at105-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tấm hông mica dựng đứng trên tấm đáy, giữ bằng khối gỗ ê ke.",
-            "sharpness": 292.8
-          },
-          {
-            "t": 155,
-            "url": "https://media.aquatome.com/video/7nEatEnYWH8/at155-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các tấm mica dựng trên bàn, có khối gỗ giữ thẳng đứng.",
-            "sharpness": 536.7
-          }
-        ]
-      },
-      {
-        "heading": "Lật khung và dán tấm đáy",
-        "moments": [
-          {
-            "t": 220,
-            "url": "https://media.aquatome.com/video/7nEatEnYWH8/at220-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tấm ván chèn giữa khung giúp đỡ khung không bị võng hay bung.",
-            "sharpness": 680.5
-          }
-        ]
-      },
-      {
-        "heading": "Chừa mép dư để phay cho đẹp",
-        "moments": [
-          {
-            "t": 235,
-            "url": "https://media.aquatome.com/video/7nEatEnYWH8/at235-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tấm đáy mica rộng hơn khung, chuẩn bị lật lên dán.",
-            "sharpness": 273.1
-          },
-          {
-            "t": 260,
-            "url": "https://media.aquatome.com/video/7nEatEnYWH8/at260-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể đã dán kẹp chặt, các tấm thò ra lệch để chờ phay.",
-            "sharpness": 622.3
-          }
-        ]
-      },
-      {
         "heading": "Viền giằng kiểu euro",
         "moments": [
           {
@@ -109,36 +54,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Dải mica được kẹp dọc mép miệng bể để làm viền giằng.",
-            "sharpness": 616.7
-          },
-          {
-            "t": 355,
-            "url": "https://media.aquatome.com/video/7nEatEnYWH8/at355-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dải mica ngang được kẹp cố định vào miệng bể trước khi dán.",
-            "sharpness": 442.4
-          }
-        ]
-      },
-      {
-        "heading": "Đóng chân bể bằng gỗ 2x4",
-        "moments": [
-          {
-            "t": 495,
-            "url": "https://media.aquatome.com/video/7nEatEnYWH8/at495-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khung đáy bằng gỗ 2x4 đang được bắt vít dưới sàn.",
-            "sharpness": 680.6
-          },
-          {
-            "t": 555,
-            "url": "https://media.aquatome.com/video/7nEatEnYWH8/at555-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Chân gỗ 2x4 đã đóng xong khung dưới và khung trên.",
-            "sharpness": 419.1
+            "sharpness": 616.7,
+            "person": false
           }
         ]
       },
@@ -151,7 +68,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh đầu nối của lọc thùng Eheim đời cũ.",
-            "sharpness": 12.6
+            "sharpness": 12.6,
+            "person": false
           },
           {
             "t": 640,
@@ -159,7 +77,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể mica đã đặt lên chân gỗ, bên cạnh là thùng chứa.",
-            "sharpness": 215
+            "sharpness": 215,
+            "person": false
           }
         ]
       },
@@ -172,7 +91,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể acrylic trống vừa dựng xong, chưa có nước và chưa có cá.",
-            "sharpness": 281.3
+            "sharpness": 281.3,
+            "person": false
           }
         ],
         "photo": {

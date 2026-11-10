@@ -1,17 +1,11 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Wallagonia_leerii.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Wallagonia_leerii.jpg/500px-Wallagonia_leerii.jpg",
-   "width": 1709,
-   "height": 1023,
-   "licence": "CC BY-SA 3.0",
-   "author": "Ginkgo100",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wallagonia_leerii.jpg",
-   "caption": "Helicopter catfish (Wallagonia leerii)",
-   "key": "File:Wallagonia leerii.jpg"
-  }
+ "queue": [],
+ "judged": [
+  "File:Wallagonia leerii.jpg"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/seriouslyfish/c2f529e1b60a67f9.webp": "9c9526662624a891",
+  "https://upload.wikimedia.org/wikipedia/commons/7/7d/Wallagonia_leerii.jpg": "ce4dffef773f2f77"
+ },
+ "commons": "2026-11-10"
 }

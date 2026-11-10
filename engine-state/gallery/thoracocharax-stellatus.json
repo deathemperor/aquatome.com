@@ -1,156 +1,36 @@
 {
- "queue": [
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/329070054/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/329070054/medium.jpeg",
-   "width": 1641,
-   "height": 2048,
-   "licence": "CC0",
-   "author": "demianlescano",
-   "sourceUrl": "https://www.inaturalist.org/photos/329070054",
-   "key": "inat:329070054"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/329070027/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/329070027/medium.jpeg",
-   "width": 1579,
-   "height": 2045,
-   "licence": "CC0",
-   "author": "demianlescano",
-   "sourceUrl": "https://www.inaturalist.org/photos/329070027",
-   "key": "inat:329070027"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/636697379/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/636697379/medium.jpg",
-   "width": 1536,
-   "height": 2048,
-   "licence": "CC0",
-   "author": "demianlescano",
-   "sourceUrl": "https://www.inaturalist.org/photos/636697379",
-   "key": "inat:636697379"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/689352206/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/689352206/medium.jpg",
-   "width": 1536,
-   "height": 2048,
-   "licence": "CC0",
-   "author": "demianlescano",
-   "sourceUrl": "https://www.inaturalist.org/photos/689352206",
-   "key": "inat:689352206"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/607486039/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/607486039/medium.jpg",
-   "width": 1536,
-   "height": 2048,
-   "licence": "CC0",
-   "author": "demianlescano",
-   "sourceUrl": "https://www.inaturalist.org/photos/607486039",
-   "key": "inat:607486039"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/592616815/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/592616815/medium.jpg",
-   "width": 2048,
-   "height": 1450,
-   "licence": "CC BY",
-   "author": "E Santos Ortega",
-   "sourceUrl": "https://www.inaturalist.org/photos/592616815",
-   "key": "inat:592616815"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/467470145/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/467470145/medium.jpeg",
-   "width": 2048,
-   "height": 1450,
-   "licence": "CC BY",
-   "author": "Douglas Lopes",
-   "sourceUrl": "https://www.inaturalist.org/photos/467470145",
-   "key": "inat:467470145"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/113302717/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/113302717/medium.jpeg",
-   "width": 2048,
-   "height": 1365,
-   "licence": "CC0",
-   "author": "demianlescano",
-   "sourceUrl": "https://www.inaturalist.org/photos/113302717",
-   "key": "inat:113302717"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/636697325/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/636697325/medium.jpg",
-   "width": 1349,
-   "height": 1799,
-   "licence": "CC0",
-   "author": "demianlescano",
-   "sourceUrl": "https://www.inaturalist.org/photos/636697325",
-   "key": "inat:636697325"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/113303389/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/113303389/medium.jpeg",
-   "width": 2042,
-   "height": 1228,
-   "licence": "CC0",
-   "author": "demianlescano",
-   "sourceUrl": "https://www.inaturalist.org/photos/113303389",
-   "key": "inat:113303389"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/188570431/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/188570431/medium.jpeg",
-   "width": 1600,
-   "height": 1200,
-   "licence": "CC BY",
-   "author": "Gabriel Albelda",
-   "sourceUrl": "https://www.inaturalist.org/photos/188570431",
-   "key": "inat:188570431"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/265970858/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/265970858/medium.jpeg",
-   "width": 1200,
-   "height": 1600,
-   "licence": "CC BY",
-   "author": "Gabriel Albelda",
-   "sourceUrl": "https://www.inaturalist.org/photos/265970858",
-   "key": "inat:265970858"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/266029946/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/266029946/medium.jpeg",
-   "width": 1200,
-   "height": 1600,
-   "licence": "CC BY",
-   "author": "Gabriel Albelda",
-   "sourceUrl": "https://www.inaturalist.org/photos/266029946",
-   "key": "inat:266029946"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/119149863/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/119149863/medium.jpeg",
-   "width": 1600,
-   "height": 1200,
-   "licence": "CC BY",
-   "author": "Gabriel Albelda",
-   "sourceUrl": "https://www.inaturalist.org/photos/119149863",
-   "key": "inat:119149863"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/119149877/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/119149877/medium.jpeg",
-   "width": 1600,
-   "height": 1200,
-   "licence": "CC BY",
-   "author": "Gabriel Albelda",
-   "sourceUrl": "https://www.inaturalist.org/photos/119149877",
-   "key": "inat:119149877"
-  }
+ "queue": [],
+ "judged": [
+  "inat:329070054",
+  "inat:329070027",
+  "inat:636697379",
+  "inat:689352206",
+  "inat:607486039",
+  "inat:592616815",
+  "inat:467470145",
+  "inat:113302717",
+  "inat:636697325",
+  "inat:113303389",
+  "inat:188570431",
+  "inat:265970858",
+  "inat:266029946",
+  "inat:119149863",
+  "inat:119149877",
+  "File:Thoracocharax stellatus 2zz.jpg",
+  "File:Thoracocharax stellatus 3zz.jpg",
+  "File:Thoracocharax stellatus 4zz.jpg",
+  "File:Gasteropelecidae Thoracocharax stellatus 1.jpg",
+  "File:Stream fish from Araguaia and Rio da Mortes basin.png",
+  "File:Fish species collected from sandy beaches of the Acre river Brazil (2 of 5).png"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/seriouslyfish/b4ec115409142986.webp": "36ebe3c70f9f4731",
+  "https://media.aquatome.com/seriouslyfish/0c69d65b34fd51c8.webp": "040d4f5d5d1c3a00",
+  "https://media.aquatome.com/seriouslyfish/b73efad031ac5045.webp": "3131a3a484c48181",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/467470145/original.jpeg": "00200b0f1f9a14c8",
+  "https://upload.wikimedia.org/wikipedia/commons/1/17/Thoracocharax_stellatus_2zz.jpg": "1211111a727694c4",
+  "https://upload.wikimedia.org/wikipedia/commons/3/33/Thoracocharax_stellatus_3zz.jpg": "a4b7b384262e0f3b",
+  "https://upload.wikimedia.org/wikipedia/commons/1/1a/Gasteropelecidae_Thoracocharax_stellatus_1.jpg": "731313232b3a96b4"
+ },
+ "commons": "2026-11-10"
 }

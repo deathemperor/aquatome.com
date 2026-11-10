@@ -1,16 +1,16 @@
 # Photo galleries
 
-Written by `pnpm engine gallery` (2026-11-09). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
+Written by `pnpm engine gallery` (2026-11-10). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
 
 | Tier | Target | Species | Plants | Breeds | At target | Below |
 | --- | --- | --- | --- | --- | --- | --- |
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 131 | 79 | 24 | 30 | 204 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 496 | 23 | 9 | 14 | 514 |
-| rest | 20 | 1614 | 79 | 0 | 29 | 1664 |
+| covered | 30 | 515 | 23 | 9 | 15 | 532 |
+| rest | 20 | 1608 | 80 | 0 | 28 | 1660 |
 
-## Short of target: every source read (217)
+## Short of target: every source read (228)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -232,4 +232,15 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/ancistrus-dolichopterus | popular | 5 | 40 |
 | species/hemigrammus-erythrozonus | popular | 6 | 40 |
 | species/poecilia-wingei | popular | 31 | 40 |
+| species/oryzias-latipes | popular | 29 | 40 |
+| species/macropodus-opercularis | popular | 20 | 40 |
+| species/pelvicachromis-pulcher | popular | 10 | 40 |
+| species/thorichthys-meeki | popular | 14 | 40 |
+| species/heros-severus | popular | 14 | 40 |
+| species/rocio-octofasciata | popular | 37 | 40 |
+| species/channa-barca | popular | 0 | 40 |
+| species/channa-bleheri | popular | 1 | 40 |
+| species/channa-micropeltes | popular | 14 | 40 |
+| species/datnioides-microlepis | popular | 2 | 40 |
+| species/datnioides-pulcher | popular | 2 | 40 |
 | species/betta-macrostoma | covered | 0 | 30 |

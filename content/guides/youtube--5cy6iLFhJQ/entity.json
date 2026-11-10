@@ -64,20 +64,13 @@
         "heading": "Chỉnh độ cao đèn",
         "moments": [
           {
-            "t": 95,
-            "url": "https://media.aquatome.com/video/-5cy6iLFhJQ/at95-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đèn đặt trên miệng bể, nằm khá sát mặt kính.",
-            "sharpness": 1774.7
-          },
-          {
             "t": 100,
             "url": "https://media.aquatome.com/video/-5cy6iLFhJQ/at100-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể sáng đều và rộng khi đèn được kê cao lên.",
-            "sharpness": 286.8
+            "sharpness": 286.8,
+            "person": false
           }
         ],
         "photo": {
@@ -107,7 +100,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đang rút nước trong bể 1m2 bằng ống hút.",
-            "sharpness": 2086.2
+            "sharpness": 2086.2,
+            "person": false
           }
         ],
         "photo": {
@@ -130,7 +124,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Các bụi Bucep xếp trên khay xốp cạnh thùng xốp đựng cây mới về.",
-            "sharpness": 1949.7
+            "sharpness": 1949.7,
+            "person": false
           },
           {
             "t": 235,
@@ -166,65 +161,16 @@
         }
       },
       {
-        "heading": "Gỡ lũa cũ",
-        "moments": [
-          {
-            "t": 320,
-            "url": "https://media.aquatome.com/video/-5cy6iLFhJQ/at320-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Miếng rêu xanh đặt trên khay, bên cạnh chậu rêu đã gỡ.",
-            "sharpness": 1115.6
-          },
-          {
-            "t": 345,
-            "url": "https://media.aquatome.com/video/-5cy6iLFhJQ/at345-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay cầm miếng rêu buộc trên nền, đang xử lý nhẹ nhàng.",
-            "sharpness": 665.5
-          }
-        ]
-      },
-      {
-        "heading": "Dán rêu lên lũa bằng keo",
-        "moments": [
-          {
-            "t": 410,
-            "url": "https://media.aquatome.com/video/-5cy6iLFhJQ/at410-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Mảng rêu xanh cầm trên tay, sẵn sàng dán lên khúc lũa.",
-            "sharpness": 4131.1
-          },
-          {
-            "t": 415,
-            "url": "https://media.aquatome.com/video/-5cy6iLFhJQ/at415-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay đặt mảng rêu lên lũa trong bể để dán.",
-            "sharpness": 3368.9
-          }
-        ]
-      },
-      {
         "heading": "Gắn Bucep lên lũa",
         "moments": [
-          {
-            "t": 525,
-            "url": "https://media.aquatome.com/video/-5cy6iLFhJQ/at525-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cầm một bụi Bucep nhỏ để chuẩn bị gắn lên lũa.",
-            "sharpness": 1252.1
-          },
           {
             "t": 540,
             "url": "https://media.aquatome.com/video/-5cy6iLFhJQ/at540-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bể với cành lũa lớn, sẵn sàng gắn Bucep lên lũa.",
-            "sharpness": 858.8
+            "sharpness": 858.8,
+            "person": false
           }
         ]
       }

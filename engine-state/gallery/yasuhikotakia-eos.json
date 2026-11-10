@@ -1,17 +1,10 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Yasuhikotakia_eos.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Yasuhikotakia_eos.jpg/500px-Yasuhikotakia_eos.jpg",
-   "width": 1500,
-   "height": 1000,
-   "licence": "CC BY-SA 3.0",
-   "author": "Lerdsuwa",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yasuhikotakia_eos.jpg",
-   "caption": "Yasuhikotakia eos. Size about 8cm SL.",
-   "key": "File:Yasuhikotakia eos.jpg"
-  }
+ "queue": [],
+ "judged": [
+  "File:Yasuhikotakia eos.jpg"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/seriouslyfish/fb6a298aeaba6f0b.webp": "99fbb3d2daccc66a"
+ },
+ "commons": "2026-11-10"
 }

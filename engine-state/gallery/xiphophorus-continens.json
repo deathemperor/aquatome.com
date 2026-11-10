@@ -1,28 +1,12 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Xiphophorus_Continens_Young_Alpha_Male_%28119157163%29.jpeg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Xiphophorus_Continens_Young_Alpha_Male_%28119157163%29.jpeg/500px-Xiphophorus_Continens_Young_Alpha_Male_%28119157163%29.jpeg",
-   "width": 2048,
-   "height": 1365,
-   "licence": "CC BY 3.0",
-   "author": "Volker Wirth",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xiphophorus_Continens_Young_Alpha_Male_(119157163).jpeg",
-   "caption": "500px provided description: Xiphophorus continens, not yet completely full-grown, I think. At least I would expect a mini-\"sword\"of 1mm or so at the male's tail",
-   "key": "File:Xiphophorus Continens Young Alpha Male (119157163).jpeg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Xiphophorus_Continens_Adolescent_Female_%28119157165%29.jpeg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Xiphophorus_Continens_Adolescent_Female_%28119157165%29.jpeg/500px-Xiphophorus_Continens_Adolescent_Female_%28119157165%29.jpeg",
-   "width": 2048,
-   "height": 1365,
-   "licence": "CC BY 3.0",
-   "author": "Volker Wirth",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xiphophorus_Continens_Adolescent_Female_(119157165).jpeg",
-   "caption": "500px provided description: Xiphophorus continens, not yet completely full-grown, I think. the female is the same size as the males of the same age and should b",
-   "key": "File:Xiphophorus Continens Adolescent Female (119157165).jpeg"
-  }
+ "queue": [],
+ "judged": [
+  "File:Xiphophorus Continens Young Alpha Male (119157163).jpeg",
+  "File:Xiphophorus Continens Adolescent Female (119157165).jpeg"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://upload.wikimedia.org/wikipedia/commons/c/c1/Xiphophorus_Continens_Young_Alpha_Male_%28119157163%29.jpeg": "0602240166b3c946",
+  "https://upload.wikimedia.org/wikipedia/commons/b/b0/Xiphophorus_Continens_Adolescent_Female_%28119157165%29.jpeg": "6d6b17362e2ee4d8"
+ },
+ "commons": "2026-11-10"
 }

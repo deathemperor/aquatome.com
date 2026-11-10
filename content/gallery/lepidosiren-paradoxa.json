@@ -2,6 +2,30 @@
   "id": "lepidosiren-paradoxa",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/109905718.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/109905718-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Leonel Roget",
+      "sourceUrl": "https://www.inaturalist.org/photos/109905718",
+      "caption": "Hai cá phổi Nam Mỹ thân dài trong bể kính",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/118537125.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/118537125-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Vincent A. Vos",
+      "sourceUrl": "https://www.inaturalist.org/photos/118537125",
+      "caption": "Cá phổi Nam Mỹ bò trên đường đất đỏ ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/84546b0ab0370f56.webp",
       "thumb": "https://media.aquatome.com/commons/84546b0ab0370f56-480.webp",
       "width": 1200,
@@ -12,6 +36,18 @@
       "caption": "Cá phổi Nam Mỹ trên nền cát trong bể trưng bày",
       "best": true,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/653117197.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/653117197-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Nicola Crockford",
+      "sourceUrl": "https://www.inaturalist.org/photos/653117197",
+      "caption": "Cá phổi Nam Mỹ cuộn mình trên nền đất ẩm ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/commons/cb581800510f8f29.webp",
@@ -72,9 +108,21 @@
       "caption": "Cá phổi Nam Mỹ lớn màu xanh xám trong bể",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/179491749.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/179491749-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Diogo Luiz",
+      "sourceUrl": "https://www.inaturalist.org/photos/179491749",
+      "caption": "Cá phổi Nam Mỹ nấp cạnh hốc đá trong bể",
+      "best": false,
+      "kind": "other"
     }
   ],
-  "seen": 15,
-  "updatedAt": "2026-11-09",
-  "builtAt": "2026-11-09"
+  "seen": 24,
+  "updatedAt": "2026-11-10",
+  "builtAt": "2026-11-10"
 }

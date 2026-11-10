@@ -77,43 +77,19 @@
         "heading": "Cần chuẩn bị những gì",
         "moments": [
           {
-            "t": 350,
-            "url": "https://media.aquatome.com/video/NnedKiWs71U/at350-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tấm nhựa egg crate dạng lưới ô vuông dùng làm ngăn lọc.",
-            "sharpness": 2141.2
-          },
-          {
             "t": 380,
             "url": "https://media.aquatome.com/video/NnedKiWs71U/at380-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Những khúc lũa spider wood dùng để tạo bố cục.",
-            "sharpness": 385.2
+            "sharpness": 385.2,
+            "person": false
           }
         ]
       },
       {
         "heading": "Thay tấm kính mặt trước thế nào",
-        "moments": [
-          {
-            "t": 90,
-            "url": "https://media.aquatome.com/video/NnedKiWs71U/at90-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng dao cạo cạo sạch đường silicone cũ bên trong bể kính.",
-            "sharpness": 1020.1
-          },
-          {
-            "t": 120,
-            "url": "https://media.aquatome.com/video/NnedKiWs71U/at120-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đặt thước kim loại lên tấm kính để rạch đường cắt kính.",
-            "sharpness": 847.5
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/NnedKiWs71U/p1-RFAyNDE5NTguanBn.webp",
           "thumb": "https://media.aquatome.com/video/NnedKiWs71U/p1-RFAyNDE5NTguanBn-480.webp",
@@ -129,20 +105,13 @@
         "heading": "Làm ngăn lọc và chỗ giấu bơm",
         "moments": [
           {
-            "t": 290,
-            "url": "https://media.aquatome.com/video/NnedKiWs71U/at290-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Vòng matít đắp trên tấm kính để chuẩn bị khoan lỗ.",
-            "sharpness": 1366
-          },
-          {
             "t": 310,
             "url": "https://media.aquatome.com/video/NnedKiWs71U/at310-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Bơm silicone dán lên tấm kính đã khoan lỗ tròn.",
-            "sharpness": 208.5
+            "sharpness": 208.5,
+            "person": false
           }
         ],
         "photo": {
@@ -160,20 +129,13 @@
         "heading": "Dựng khung lũa, đá và chạy thử thác",
         "moments": [
           {
-            "t": 420,
-            "url": "https://media.aquatome.com/video/NnedKiWs71U/at420-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Xếp đá lớn vào giữa các cành lũa trong bể đặt nằm nghiêng.",
-            "sharpness": 573.9
-          },
-          {
             "t": 470,
             "url": "https://media.aquatome.com/video/NnedKiWs71U/at470-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Khung lũa và đá đã cố định bằng foam, nhìn từ phía trước.",
-            "sharpness": 1036.3
+            "sharpness": 1036.3,
+            "person": false
           }
         ],
         "photo": {
@@ -191,20 +153,13 @@
         "heading": "Hoàn thiện vách cho giống bờ đất xói lở",
         "moments": [
           {
-            "t": 540,
-            "url": "https://media.aquatome.com/video/NnedKiWs71U/at540-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khung vách đã gắn đá cuội và rễ cây, đang áp tấm xơ dừa.",
-            "sharpness": 1181.1
-          },
-          {
             "t": 600,
             "url": "https://media.aquatome.com/video/NnedKiWs71U/at600-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh vách đá và rễ cây giống bờ đất bị xói lở.",
-            "sharpness": 708.3
+            "sharpness": 708.3,
+            "person": false
           }
         ]
       },

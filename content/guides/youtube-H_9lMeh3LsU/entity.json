@@ -77,20 +77,13 @@
         "heading": "Gom và làm sạch vật liệu thừa",
         "moments": [
           {
-            "t": 120,
-            "url": "https://media.aquatome.com/video/H_9lMeh3LsU/at120-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bày hết đống lũa, vỏ cây và đồ thừa ra sàn để kiểm kê.",
-            "sharpness": 1077.3
-          },
-          {
             "t": 135,
             "url": "https://media.aquatome.com/video/H_9lMeh3LsU/at135-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Dùng đầu bàn chải sắt gắn máy khoan để cọ sạch lũa.",
-            "sharpness": 515.2
+            "sharpness": 515.2,
+            "person": false
           }
         ]
       },
@@ -98,20 +91,13 @@
         "heading": "Ghép lũa vụn thành gốc cây thế nào",
         "moments": [
           {
-            "t": 180,
-            "url": "https://media.aquatome.com/video/H_9lMeh3LsU/at180-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các miếng lũa được bày thử trong góc bể, chống đỡ bằng xốp XPS.",
-            "sharpness": 624.1
-          },
-          {
             "t": 190,
             "url": "https://media.aquatome.com/video/H_9lMeh3LsU/at190-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Phần móng gốc cây ghép từ lũa vụn đã khá ưng ý.",
-            "sharpness": 492.9
+            "sharpness": 492.9,
+            "person": false
           }
         ]
       },
@@ -119,20 +105,13 @@
         "heading": "Làm nền cho phần nước",
         "moments": [
           {
-            "t": 310,
-            "url": "https://media.aquatome.com/video/H_9lMeh3LsU/at310-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Túi phân nền đã buộc kín, đặt trong bể.",
-            "sharpness": 91.4
-          },
-          {
             "t": 315,
             "url": "https://media.aquatome.com/video/H_9lMeh3LsU/at315-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Đổ cát tự nhiên phủ lên để giấu túi phân nền.",
-            "sharpness": 600.9
+            "sharpness": 600.9,
+            "person": false
           }
         ],
         "photo": {
@@ -147,27 +126,6 @@
         }
       },
       {
-        "heading": "Dẫn nước lên hai gốc cây",
-        "moments": [
-          {
-            "t": 345,
-            "url": "https://media.aquatome.com/video/H_9lMeh3LsU/at345-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dòng nước chảy xuống từ đỉnh gốc lũa trong bể.",
-            "sharpness": 1553.1
-          },
-          {
-            "t": 375,
-            "url": "https://media.aquatome.com/video/H_9lMeh3LsU/at375-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đầu nối và ống dẫn nước được gắn lên gốc cây.",
-            "sharpness": 805.2
-          }
-        ]
-      },
-      {
         "heading": "Giữ ẩm cho cây trên mặt nước thế nào",
         "moments": [
           {
@@ -176,7 +134,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Vải lưới đen vắt qua gốc lũa để dòng nước chảy êm xuống.",
-            "sharpness": 3593.8
+            "sharpness": 3593.8,
+            "person": false
           },
           {
             "t": 450,
@@ -184,7 +143,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Dương xỉ được nhét vào khe gốc, cạnh lớp vải lưới giữ ẩm.",
-            "sharpness": 1957.4
+            "sharpness": 1957.4,
+            "person": false
           }
         ],
         "photo": {
@@ -207,15 +167,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đổ cát tạo dốc nền giữa hai gốc cây lũa.",
-            "sharpness": 573.5
-          },
-          {
-            "t": 520,
-            "url": "https://media.aquatome.com/video/H_9lMeh3LsU/at520-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Rải sỏi từ bể cũ lên nền cát để tạo kết cấu.",
-            "sharpness": 2178.3
+            "sharpness": 573.5,
+            "person": false
           }
         ],
         "photo": {
@@ -238,7 +191,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cá Endler bơi giữa rễ lũa và cây lá rộng trong bể nhỏ.",
-            "sharpness": 106.5
+            "sharpness": 106.5,
+            "person": false
           },
           {
             "t": 740,
@@ -246,7 +200,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể có cây mọc vượt khỏi mép nước phía trên.",
-            "sharpness": 3102.1
+            "sharpness": 3102.1,
+            "person": false
           }
         ],
         "photo": {

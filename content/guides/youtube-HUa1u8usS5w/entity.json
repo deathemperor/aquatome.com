@@ -128,7 +128,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Co và van bi đã được vặn nối vào đường ống ở bulkhead.",
-            "sharpness": 163.2
+            "sharpness": 163.2,
+            "person": false
           }
         ],
         "photo": {
@@ -151,15 +152,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Vải địa kỹ thuật lót trong hốc đá để giữ phân nền.",
-            "sharpness": 1241.8
-          },
-          {
-            "t": 420,
-            "url": "https://media.aquatome.com/video/HUa1u8usS5w/at420-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cụm syngonium lá trắng xanh được trồng vào hốc đá.",
-            "sharpness": 807
+            "sharpness": 1241.8,
+            "person": false
           }
         ],
         "photo": {
@@ -172,27 +166,6 @@
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Syngonium_podophyllum_(_Arrowhead_plant).jpg",
           "caption": "Lá Syngonium 'White Butterfly' với gân trắng loang rất đẹp, chụp cận cảnh."
         }
-      },
-      {
-        "heading": "Làm nắp lưới",
-        "moments": [
-          {
-            "t": 545,
-            "url": "https://media.aquatome.com/video/HUa1u8usS5w/at545-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ghép các thanh khung lưới bằng ke góc trên mặt sàn.",
-            "sharpness": 1043.3
-          },
-          {
-            "t": 550,
-            "url": "https://media.aquatome.com/video/HUa1u8usS5w/at550-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng con lăn ép gioăng để gắn lưới vào khung.",
-            "sharpness": 5872.7
-          }
-        ]
       }
     ]
   }

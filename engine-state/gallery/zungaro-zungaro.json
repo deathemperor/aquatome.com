@@ -1,91 +1,19 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/7/7a/F_de_Castelnau-poissonsPl13.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/F_de_Castelnau-poissonsPl13.jpg/500px-F_de_Castelnau-poissonsPl13.jpg",
-   "width": 2849,
-   "height": 2132,
-   "licence": "Public domain",
-   "author": "François-Louis Laporte, comte de Castelnau",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:F_de_Castelnau-poissonsPl13.jpg",
-   "caption": "From top to bottom: Bagrus valenciennei Cast. = Ariidae cf. Sciades, Notarius Bagrus flavicans Cast. = Zungaro zungaro (Humboldt, 1821)",
-   "key": "File:F de Castelnau-poissonsPl13.jpg"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/346822464/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/346822464/medium.jpeg",
-   "width": 1536,
-   "height": 2048,
-   "licence": "CC BY",
-   "author": "Tim",
-   "sourceUrl": "https://www.inaturalist.org/photos/346822464",
-   "key": "inat:346822464"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/346822476/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/346822476/medium.jpeg",
-   "width": 1536,
-   "height": 2048,
-   "licence": "CC BY",
-   "author": "Tim",
-   "sourceUrl": "https://www.inaturalist.org/photos/346822476",
-   "key": "inat:346822476"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/346822486/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/346822486/medium.jpeg",
-   "width": 1536,
-   "height": 2048,
-   "licence": "CC BY",
-   "author": "Tim",
-   "sourceUrl": "https://www.inaturalist.org/photos/346822486",
-   "key": "inat:346822486"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/8/82/Dourada_%28brachyplatystoma_flavicans%29.png",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Dourada_%28brachyplatystoma_flavicans%29.png/500px-Dourada_%28brachyplatystoma_flavicans%29.png",
-   "width": 3398,
-   "height": 1835,
-   "licence": "CC BY 4.0",
-   "author": "Clara Costa D'Elia",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dourada_(brachyplatystoma_flavicans).png",
-   "caption": "Desenho à lápis do peixe Brachyplatystoma flavicans. Desenho originalmente comissionado pela ONG Rare Brazil (rare.org/program/fish-forever-in-brazil/).",
-   "key": "File:Dourada (brachyplatystoma flavicans).png"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Double_Ja%C3%BA.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Double_Ja%C3%BA.jpg/500px-Double_Ja%C3%BA.jpg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY-SA 4.0",
-   "author": "Waltman30",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Double_Ja%C3%BA.jpg",
-   "caption": "Jaú Double Catch",
-   "key": "File:Double Jaú.jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/3/38/Ja%C3%BA_catfish.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Ja%C3%BA_catfish.jpg/500px-Ja%C3%BA_catfish.jpg",
-   "width": 1536,
-   "height": 2048,
-   "licence": "CC BY-SA 4.0",
-   "author": "Waltman30",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ja%C3%BA_catfish.jpg",
-   "caption": "Jaú — Zungaro zungaro",
-   "key": "File:Jaú catfish.jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/4/41/Zungaro_zungaro_Napo.png",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Zungaro_zungaro_Napo.png/500px-Zungaro_zungaro_Napo.png",
-   "width": 1107,
-   "height": 481,
-   "licence": "CC BY 4.0",
-   "author": "Jonathan Valdiviezo-Rivera",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zungaro_zungaro_Napo.png",
-   "caption": "From Yasuní National Park, Ecuador (Napo River Basin)",
-   "key": "File:Zungaro zungaro Napo.png"
-  }
+ "queue": [],
+ "judged": [
+  "File:F de Castelnau-poissonsPl13.jpg",
+  "inat:346822464",
+  "inat:346822476",
+  "inat:346822486",
+  "File:Dourada (brachyplatystoma flavicans).png",
+  "File:Double Jaú.jpg",
+  "File:Jaú catfish.jpg",
+  "File:Zungaro zungaro Napo.png"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/scotcat/04b5479ca48b4234.webp": "9059985891f0c082",
+  "https://media.aquatome.com/scotcat/abd281d2c761f663.webp": "e96356d546c76af6",
+  "https://media.aquatome.com/scotcat/369d9e469c536649.webp": "6d3759e1f06c8b19"
+ },
+ "commons": "2026-11-10"
 }

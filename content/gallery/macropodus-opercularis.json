@@ -2,14 +2,14 @@
   "id": "macropodus-opercularis",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/654836322.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/654836322-480.webp",
+      "url": "https://media.aquatome.com/flickr/54093206470.webp",
+      "thumb": "https://media.aquatome.com/flickr/54093206470-480.webp",
       "width": 1024,
-      "height": 683,
-      "licence": "CC0",
-      "author": "observe-syz",
-      "sourceUrl": "https://www.inaturalist.org/photos/654836322",
-      "caption": "Cá cờ đực màu sẫm, vây đỏ, trong bể",
+      "height": 768,
+      "licence": "CC BY-SA 2.0",
+      "author": "Gunnar Ries zwo",
+      "sourceUrl": "https://www.flickr.com/photos/44949218@N02/54093206470",
+      "caption": "Cá cờ đực màu xanh đỏ trong bể thủy sinh có cây",
       "best": true,
       "kind": "male"
     },
@@ -24,6 +24,30 @@
       "caption": "Cá cờ bơi giữa rong trong môi trường nước",
       "best": true,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/flickr/54093206465.webp",
+      "thumb": "https://media.aquatome.com/flickr/54093206465-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-SA 2.0",
+      "author": "Gunnar Ries zwo",
+      "sourceUrl": "https://www.flickr.com/photos/44949218@N02/54093206465",
+      "caption": "Cá cờ đực vây đuôi đỏ bơi trong bể cảnh",
+      "best": true,
+      "kind": "male"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/654836322.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/654836322-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC0",
+      "author": "observe-syz",
+      "sourceUrl": "https://www.inaturalist.org/photos/654836322",
+      "caption": "Cá cờ đực màu sẫm, vây đỏ, trong bể",
+      "best": true,
+      "kind": "male"
     },
     {
       "url": "https://media.aquatome.com/commons/be02c86c3b6ed203.webp",
@@ -50,60 +74,60 @@
       "thumb": "https://media.aquatome.com/commons/9b0608ba7b77eb21-480.webp",
       "width": 1200,
       "height": 541,
-      "licence": "CC BY-SA 2.5",
-      "author": "André Karwath aka Aka, edited by Muhammad",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Macropodus_opercularis_-_side_(aka)_edit.jpg",
-      "caption": "Cá cờ đực sọc đỏ xanh rực rỡ, nền trắng",
       "large": {
         "url": "https://media.aquatome.com/commons/9b0608ba7b77eb21-large.webp",
         "width": 2220,
         "height": 1000
-      }
+      },
+      "licence": "CC BY-SA 2.5",
+      "author": "André Karwath aka Aka, edited by Muhammad",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Macropodus_opercularis_-_side_(aka)_edit.jpg",
+      "caption": "Cá cờ đực sọc đỏ xanh rực rỡ, nền trắng"
     },
     {
       "url": "https://media.aquatome.com/commons/bcc6a38465399681.webp",
       "thumb": "https://media.aquatome.com/commons/bcc6a38465399681-480.webp",
       "width": 1200,
       "height": 798,
-      "licence": "CC BY 2.0",
-      "author": "Daniella Vereeken",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:DV_Paradise_fish_male_01.jpg",
-      "caption": "Cá cờ đực thân sọc xanh cam trong bể thủy sinh",
       "large": {
         "url": "https://media.aquatome.com/commons/bcc6a38465399681-large.webp",
         "width": 1805,
         "height": 1200
-      }
+      },
+      "licence": "CC BY 2.0",
+      "author": "Daniella Vereeken",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:DV_Paradise_fish_male_01.jpg",
+      "caption": "Cá cờ đực thân sọc xanh cam trong bể thủy sinh"
     },
     {
       "url": "https://media.aquatome.com/commons/d2891acfc05ec577.webp",
       "thumb": "https://media.aquatome.com/commons/d2891acfc05ec577-480.webp",
       "width": 1200,
       "height": 871,
-      "licence": "CC BY 2.0",
-      "author": "Daniella Vereeken",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:DV_Paradise_fish_male_02.jpg",
-      "caption": "Cá cờ đực vây dài màu cam bơi trong bể cây",
       "large": {
         "url": "https://media.aquatome.com/commons/d2891acfc05ec577-large.webp",
         "width": 1654,
         "height": 1200
-      }
+      },
+      "licence": "CC BY 2.0",
+      "author": "Daniella Vereeken",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:DV_Paradise_fish_male_02.jpg",
+      "caption": "Cá cờ đực vây dài màu cam bơi trong bể cây"
     },
     {
       "url": "https://media.aquatome.com/commons/a98bc6e8c30f5298.webp",
       "thumb": "https://media.aquatome.com/commons/a98bc6e8c30f5298-480.webp",
       "width": 1200,
       "height": 933,
-      "licence": "CC BY 2.0",
-      "author": "Daniella Vereeken",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:DV_Paradise_fish_male_05.jpg",
-      "caption": "Cá cờ đực bơi nghiêng, vây đuôi dài trong bể thủy sinh",
       "large": {
         "url": "https://media.aquatome.com/commons/a98bc6e8c30f5298-large.webp",
         "width": 1544,
         "height": 1200
-      }
+      },
+      "licence": "CC BY 2.0",
+      "author": "Daniella Vereeken",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:DV_Paradise_fish_male_05.jpg",
+      "caption": "Cá cờ đực bơi nghiêng, vây đuôi dài trong bể thủy sinh"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/86338125.webp",
@@ -206,7 +230,7 @@
       "caption": "Cá cờ màu hồng xanh trong bể nền sỏi"
     }
   ],
-  "seen": 84,
-  "updatedAt": "2026-10-31",
-  "builtAt": "2026-10-31"
+  "seen": 89,
+  "updatedAt": "2026-11-10",
+  "builtAt": "2026-11-10"
 }

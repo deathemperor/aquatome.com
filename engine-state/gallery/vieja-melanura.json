@@ -1,160 +1,48 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/5/54/Paraneetroplus_synspilus_2015_G2.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Paraneetroplus_synspilus_2015_G2.jpg/500px-Paraneetroplus_synspilus_2015_G2.jpg",
-   "width": 4000,
-   "height": 2800,
-   "licence": "Public domain",
-   "author": "George Chernilevsky",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paraneetroplus_synspilus_2015_G2.jpg",
-   "caption": "Quetzel cichlid, redhead cichlid, firehead cichlid (Paraneetroplus synspilus)",
-   "key": "File:Paraneetroplus synspilus 2015 G2.jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/4/40/2017-11-19_AT_Wien_13_Hietzing%2C_Tiergarten_Sch%C3%B6nbrunn%2C_Paraneetroplus_synspilus_%2831443100318%29.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/2017-11-19_AT_Wien_13_Hietzing%2C_Tiergarten_Sch%C3%B6nbrunn%2C_Paraneetroplus_synspilus_%2831443100318%29.jpg/500px-2017-11-19_AT_Wien_13_Hietzing%2C_Tiergarten_Sch%C3%B6nbrunn%2C_Paraneetroplus_synspilus_%2831443100318%29.jpg",
-   "width": 3711,
-   "height": 2319,
-   "licence": "CC BY-SA 2.0",
-   "author": "Paul Korecky",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:2017-11-19_AT_Wien_13_Hietzing,_Tiergarten_Sch%C3%B6nbrunn,_Paraneetroplus_synspilus_(31443100318).jpg",
-   "caption": "2017-11-19 AT Wien 13 Hietzing, Tiergarten Schönbrunn, Paraneetroplus synspilus",
-   "key": "File:2017-11-19 AT Wien 13 Hietzing, Tiergarten Schönbrunn, Paraneetroplus synspilus (31443100318).jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/9/91/Paraneetroplus_synspilus_2015_G1.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Paraneetroplus_synspilus_2015_G1.jpg/500px-Paraneetroplus_synspilus_2015_G1.jpg",
-   "width": 3400,
-   "height": 2300,
-   "licence": "Public domain",
-   "author": "George Chernilevsky",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paraneetroplus_synspilus_2015_G1.jpg",
-   "caption": "Quetzel cichlid, redhead cichlid, firehead cichlid (Paraneetroplus synspilus)",
-   "key": "File:Paraneetroplus synspilus 2015 G1.jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/1/17/Vieja_synspila.JPG",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Vieja_synspila.JPG/500px-Vieja_synspila.JPG",
-   "width": 2474,
-   "height": 1669,
-   "licence": "CC BY-SA 3.0",
-   "author": "Shizhao",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vieja_synspila.JPG",
-   "caption": "​北京海洋馆的紫蓝火口",
-   "key": "File:Vieja synspila.JPG"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/468352797/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/468352797/medium.jpeg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC0",
-   "author": "kkacheltje",
-   "sourceUrl": "https://www.inaturalist.org/photos/468352797",
-   "key": "inat:468352797"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/651522026/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/651522026/medium.jpg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "Christine Loew",
-   "sourceUrl": "https://www.inaturalist.org/photos/651522026",
-   "key": "inat:651522026"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/651522024/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/651522024/medium.jpg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "Christine Loew",
-   "sourceUrl": "https://www.inaturalist.org/photos/651522024",
-   "key": "inat:651522024"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/651522023/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/651522023/medium.jpg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "Christine Loew",
-   "sourceUrl": "https://www.inaturalist.org/photos/651522023",
-   "key": "inat:651522023"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/494804138/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/494804138/medium.jpg",
-   "width": 1536,
-   "height": 2048,
-   "licence": "CC BY",
-   "author": "Mark",
-   "sourceUrl": "https://www.inaturalist.org/photos/494804138",
-   "key": "inat:494804138"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/494804319/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/494804319/medium.jpg",
-   "width": 1536,
-   "height": 2048,
-   "licence": "CC BY",
-   "author": "Mark",
-   "sourceUrl": "https://www.inaturalist.org/photos/494804319",
-   "key": "inat:494804319"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/486102245/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/486102245/medium.jpeg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "jlsnaddon",
-   "sourceUrl": "https://www.inaturalist.org/photos/486102245",
-   "key": "inat:486102245"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/354775147/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/354775147/medium.jpg",
-   "width": 1536,
-   "height": 2048,
-   "licence": "CC BY",
-   "author": "Kai Murphy",
-   "sourceUrl": "https://www.inaturalist.org/photos/354775147",
-   "key": "inat:354775147"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/354775164/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/354775164/medium.jpg",
-   "width": 1536,
-   "height": 2048,
-   "licence": "CC BY",
-   "author": "Kai Murphy",
-   "sourceUrl": "https://www.inaturalist.org/photos/354775164",
-   "key": "inat:354775164"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/354775185/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/354775185/medium.jpg",
-   "width": 1536,
-   "height": 2048,
-   "licence": "CC BY",
-   "author": "Kai Murphy",
-   "sourceUrl": "https://www.inaturalist.org/photos/354775185",
-   "key": "inat:354775185"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/61582079/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/61582079/medium.jpeg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "Christine Loew",
-   "sourceUrl": "https://www.inaturalist.org/photos/61582079",
-   "key": "inat:61582079"
-  }
+ "queue": [],
+ "judged": [
+  "File:Paraneetroplus synspilus 2015 G2.jpg",
+  "File:2017-11-19 AT Wien 13 Hietzing, Tiergarten Schönbrunn, Paraneetroplus synspilus (31443100318).jpg",
+  "File:Paraneetroplus synspilus 2015 G1.jpg",
+  "File:Vieja synspila.JPG",
+  "inat:468352797",
+  "inat:651522026",
+  "inat:651522024",
+  "inat:651522023",
+  "inat:494804138",
+  "inat:494804319",
+  "inat:486102245",
+  "inat:354775147",
+  "inat:354775164",
+  "inat:354775185",
+  "inat:61582079",
+  "File:Cichlasoma synspilum in Minsk Zoo.jpg",
+  "File:Paraneetroplus synspilus 2015 G3.jpg",
+  "File:Paraneetroplus synspilus 2015 G4.jpg",
+  "File:Paraneetroplus synspilus 2015 G5.jpg",
+  "File:Vieja melanura - Karlsruhe Zoo 01.jpg",
+  "File:Vieja melanura - Karlsruhe Zoo 02.jpg",
+  "File:Cichlidae Vieja melanura 1.jpg",
+  "File:Vieja melanurus 115943215.jpg",
+  "File:Vieja melanurus 25333104.jpg",
+  "File:Redheadcichlidmacalriver.jpg",
+  "File:Redheadcichlidbelizeriver.jpg",
+  "File:Male and female Redheaded cichlid (V. melanura).jpg",
+  "File:Plots from a salinity trial testing the effect of extended exposure to high salinity on juvenile blood parrot cichlids.png"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://upload.wikimedia.org/wikipedia/commons/5/54/Paraneetroplus_synspilus_2015_G2.jpg": "006671f4c5e63c3b",
+  "https://upload.wikimedia.org/wikipedia/commons/4/40/2017-11-19_AT_Wien_13_Hietzing%2C_Tiergarten_Sch%C3%B6nbrunn%2C_Paraneetroplus_synspilus_%2831443100318%29.jpg": "e5f9ee03ebe53edb",
+  "https://upload.wikimedia.org/wikipedia/commons/9/91/Paraneetroplus_synspilus_2015_G1.jpg": "873970cc8e9ce222",
+  "https://upload.wikimedia.org/wikipedia/commons/1/17/Vieja_synspila.JPG": "cf9f366084081333",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/468352797/original.jpeg": "21b79313142d9131",
+  "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Cichlasoma_synspilum_in_Minsk_Zoo.jpg/1280px-Cichlasoma_synspilum_in_Minsk_Zoo.jpg": "e161c49323673537",
+  "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Paraneetroplus_synspilus_2015_G3.jpg/1280px-Paraneetroplus_synspilus_2015_G3.jpg": "0f187066d4d9c34b",
+  "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Paraneetroplus_synspilus_2015_G4.jpg/1280px-Paraneetroplus_synspilus_2015_G4.jpg": "0c70f938d6703874",
+  "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/Paraneetroplus_synspilus_2015_G5.jpg/1280px-Paraneetroplus_synspilus_2015_G5.jpg": "d3f1d91c1ed0e2de",
+  "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Vieja_melanura_-_Karlsruhe_Zoo_01.jpg/1280px-Vieja_melanura_-_Karlsruhe_Zoo_01.jpg": "3627131d197e9891",
+  "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Vieja_melanura_-_Karlsruhe_Zoo_02.jpg/1280px-Vieja_melanura_-_Karlsruhe_Zoo_02.jpg": "621a1e12379ed865",
+  "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Male_and_female_Redheaded_cichlid_%28V._melanura%29.jpg/1280px-Male_and_female_Redheaded_cichlid_%28V._melanura%29.jpg": "1706190923036d59"
+ },
+ "commons": "2026-11-10"
 }

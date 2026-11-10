@@ -1,61 +1,16 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Xiphophorus_milleri.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Xiphophorus_milleri.jpg/500px-Xiphophorus_milleri.jpg",
-   "width": 2048,
-   "height": 1365,
-   "licence": "CC BY-SA 4.0",
-   "author": "Livebearerguy",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xiphophorus_milleri.jpg",
-   "caption": "This is the Catemaco platy (Xiphophorus milleri) to be found in Lake Catemaco in Mexico.",
-   "key": "File:Xiphophorus milleri.jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Xiphophorus_milleri_%282%29.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Xiphophorus_milleri_%282%29.jpg/500px-Xiphophorus_milleri_%282%29.jpg",
-   "width": 2048,
-   "height": 1365,
-   "licence": "CC BY-SA 4.0",
-   "author": "Livebearerguy",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xiphophorus_milleri_(2).jpg",
-   "caption": "This is the Catemaco platy (Xiphophorus milleri) to be found in Lake Catemaco in Mexico.",
-   "key": "File:Xiphophorus milleri (2).jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Xiphophorus_milleri_%28Catemaco_platy%29.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Xiphophorus_milleri_%28Catemaco_platy%29.jpg/500px-Xiphophorus_milleri_%28Catemaco_platy%29.jpg",
-   "width": 1024,
-   "height": 683,
-   "licence": "CC BY-SA 4.0",
-   "author": "Livebearerguy",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xiphophorus_milleri_(Catemaco_platy).jpg",
-   "caption": "This platy is also called \"Catemaco platy\". This species is endemic to the Papaloapan ecoregion (state of Veracruz) in Mexico. This platy is endemic to shallow ",
-   "key": "File:Xiphophorus milleri (Catemaco platy).jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Xyphopherous_Milleri_Male.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Xyphopherous_Milleri_Male.jpg/500px-Xyphopherous_Milleri_Male.jpg",
-   "width": 1436,
-   "height": 1165,
-   "licence": "CC BY 4.0",
-   "author": "Charliemouse69",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xyphopherous_Milleri_Male.jpg",
-   "caption": "Xyphopherous Milleri Male",
-   "key": "File:Xyphopherous Milleri Male.jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Female_Xiphophorus_milleri.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Female_Xiphophorus_milleri.jpg/500px-Female_Xiphophorus_milleri.jpg",
-   "width": 1024,
-   "height": 768,
-   "licence": "CC BY-SA 4.0",
-   "author": "Livebearerguy",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Female_Xiphophorus_milleri.jpg",
-   "caption": "This is a female Catemocao platy (Xiphophorus milleri).",
-   "key": "File:Female Xiphophorus milleri.jpg"
-  }
+ "queue": [],
+ "judged": [
+  "File:Xiphophorus milleri.jpg",
+  "File:Xiphophorus milleri (2).jpg",
+  "File:Xiphophorus milleri (Catemaco platy).jpg",
+  "File:Xyphopherous Milleri Male.jpg",
+  "File:Female Xiphophorus milleri.jpg"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://upload.wikimedia.org/wikipedia/commons/4/4e/Xiphophorus_milleri.jpg": "493de71909915961",
+  "https://upload.wikimedia.org/wikipedia/commons/c/c2/Xiphophorus_milleri_%28Catemaco_platy%29.jpg": "236f2b0f4f4c9cb8",
+  "https://upload.wikimedia.org/wikipedia/commons/9/9d/Xyphopherous_Milleri_Male.jpg": "387b2f0b2e329399"
+ },
+ "commons": "2026-11-10"
 }

@@ -139,24 +139,7 @@
     "figures": [
       {
         "heading": "Chọn bể nếu muốn rùa quen người",
-        "moments": [
-          {
-            "t": 145,
-            "url": "https://media.aquatome.com/video/NBR8ZLYW0dQ/at145-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể kính trong có lũa lớn bên trong, nhìn xuyên qua thành bể.",
-            "sharpness": 1692.9
-          },
-          {
-            "t": 160,
-            "url": "https://media.aquatome.com/video/NBR8ZLYW0dQ/at160-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể kính đặt trong tủ gỗ, nhìn rõ bên trong qua thành bể.",
-            "sharpness": 1180.7
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/NBR8ZLYW0dQ/p0-yZXRjaCUyMi5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/NBR8ZLYW0dQ/p0-yZXRjaCUyMi5qcGc-480.webp",
@@ -177,7 +160,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Tấm kim loại bắt bu lông inox ngang qua vết cắt trên thanh giằng.",
-            "sharpness": 242.8
+            "sharpness": 242.8,
+            "person": false
           },
           {
             "t": 175,
@@ -185,7 +169,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hai khung lưới cửa sổ làm sẵn dùng để làm nắp lưới.",
-            "sharpness": 7180.6
+            "sharpness": 7180.6,
+            "person": false
           }
         ]
       },
@@ -193,20 +178,13 @@
         "heading": "Nền nào an toàn cho rùa con",
         "moments": [
           {
-            "t": 245,
-            "url": "https://media.aquatome.com/video/NBR8ZLYW0dQ/at245-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Những viên phân nền nhỏ màu đen trên lòng bàn tay.",
-            "sharpness": 1080.4
-          },
-          {
             "t": 260,
             "url": "https://media.aquatome.com/video/NBR8ZLYW0dQ/at260-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Lớp phân nền dày được trải dưới đáy bể.",
-            "sharpness": 838.9
+            "sharpness": 838.9,
+            "person": false
           }
         ]
       },
@@ -219,15 +197,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ba khúc rễ lũa lớn đặt trong bể làm khung bố cục.",
-            "sharpness": 1205.8
-          },
-          {
-            "t": 305,
-            "url": "https://media.aquatome.com/video/NBR8ZLYW0dQ/at305-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đá cuội lớn kê dưới rễ lũa để giữ độ cao và độ chắc.",
-            "sharpness": 879.2
+            "sharpness": 1205.8,
+            "person": false
           }
         ]
       },
@@ -240,7 +211,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nhiều loại cây trồng ven bờ với lá xanh và hồng đa dạng.",
-            "sharpness": 2158.9
+            "sharpness": 2158.9,
+            "person": false
           },
           {
             "t": 335,
@@ -248,7 +220,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây lá đẹp có rễ ngâm trong bình nước, đặt trước bể thủy sinh.",
-            "sharpness": 1200.2
+            "sharpness": 1200.2,
+            "person": false
           }
         ],
         "photo": {
@@ -271,15 +244,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Rễ cây thả tự do giữa các hốc lũa, không cần lớp nền.",
-            "sharpness": 548.6
-          },
-          {
-            "t": 455,
-            "url": "https://media.aquatome.com/video/NBR8ZLYW0dQ/at455-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây lá đặt trên lũa, toàn bộ lá nằm trên mặt nước.",
-            "sharpness": 1337.3
+            "sharpness": 548.6,
+            "person": false
           }
         ],
         "photo": {
@@ -295,16 +261,7 @@
       },
       {
         "heading": "Lọc và châm nước cho bể rùa",
-        "moments": [
-          {
-            "t": 515,
-            "url": "https://media.aquatome.com/video/NBR8ZLYW0dQ/at515-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khay lọc thùng mở ra, thấy rõ vật liệu lọc bên trong.",
-            "sharpness": 194.7
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/NBR8ZLYW0dQ/p6-JfRmlsdGVyLmpwZw.webp",
           "thumb": "https://media.aquatome.com/video/NBR8ZLYW0dQ/p6-JfRmlsdGVyLmpwZw-480.webp",
@@ -325,7 +282,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hốc dưới lũa và đá cho rùa chui vào trốn.",
-            "sharpness": 107.7
+            "sharpness": 107.7,
+            "person": false
           },
           {
             "t": 615,
@@ -333,7 +291,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Tấm lũa phẳng có cây phía trên, đèn chiếu rọi bên trên.",
-            "sharpness": 1531.6
+            "sharpness": 1531.6,
+            "person": false
           }
         ]
       }
