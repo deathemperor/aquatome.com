@@ -22,7 +22,7 @@ import { QUALITY_THRESHOLD, gate, reviewTranslation } from './quality'
 import { logReviews, type Review } from './review-log'
 import { linkedPhotos, pickSourcePhotos, storeSourcePhotos, type Media } from './source-photos'
 import { snapshotHash, writeSnapshot } from './snapshot'
-import { ARCHIVE_POLITE } from './archive'
+import { ARCHIVE_POLITE, ArchiveRefused } from './archive'
 import { SOURCES, sourceById, type SourceConfig } from './sources'
 import { BROWSER_GONE, attemptsAfter, errorKind, loadState, moveToArchive, needsFetch, noteBlock, saveState, setSourceBlock, sourceBlockedSince, sourcesOnArchive, type UrlState } from './state'
 import { findVideos, readVideoRejected } from './videos'
@@ -369,6 +369,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       if (onArchive && found.length) await mkdir(join(root, 'engine-state'), { recursive: true }).then(() => writeFile(indexFile, `${JSON.stringify(found)}\n`))
     } catch (e) {
       if (e instanceof ChallengeError) { await block(); continue }
+      if (e instanceof ArchiveRefused) { report.errors.push(`${id}: not read: ${e.message}`); continue }
       const lastIndex = onArchive ? JSON.parse(await readFile(indexFile, 'utf8').catch(() => 'null')) as typeof found | null : null
       // No index yet: the pages already read are still there to read again.
       const kept = lastIndex?.length || !onArchive ? lastIndex : Object.keys(await loadState(root, id)).map(url => ({ url }))
@@ -441,6 +442,8 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
         await save({ ...base, hash, processedHash: hash, status: entityIds ? 'processed' : 'skipped', entityIds: entityIds ?? [], attempts: 0 })
         llmFailures = 0
       } catch (e) {
+        // Nothing is wrong with the page, so nothing is marked on it, and the source waits with the archive.
+        if (e instanceof ArchiveRefused) { report.errors.push(`${id}: not read: ${e.message}`); break }
         const message = (e as Error).message
         counts.errors++
         report.errors.push(`${url}: ${message}`)

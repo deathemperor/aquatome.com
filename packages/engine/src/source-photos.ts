@@ -2,6 +2,7 @@ import { createHash } from 'node:crypto'
 import sharp from 'sharp'
 import type { Photo, SourceId } from '@aq/schema'
 import { parse } from 'node-html-parser'
+import { ArchiveRefused } from './archive'
 import type { PageImage } from './outline'
 import { ARTWORK } from './photos'
 
@@ -113,6 +114,7 @@ export async function storeSourcePhotos(
     try {
       bytes = await deps.bytes(img.src, pageUrl)
     } catch (e) {
+      if (e instanceof ArchiveRefused) throw e // the page waits for the archive, rather than losing its pictures
       console.warn(`photo skipped ${img.src}: ${(e as Error).message}`) // one unreachable image doesn't fail the page
       continue
     }

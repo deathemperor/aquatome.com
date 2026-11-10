@@ -3,6 +3,7 @@ import { copyFile, mkdir, mkdtemp, readdir, readFile, writeFile } from 'node:fs/
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
+import { ArchiveRefused } from '../src/archive'
 import { LlmError } from '../src/claude'
 import { ChallengeError } from '../src/fetch'
 import { runEngine } from '../src/run'
@@ -164,6 +165,31 @@ test('the archive slowing us down stops that source at once, with no attempt use
   expect(r.perSource.seriouslyfish).toMatchObject({ processed: 1 })
   const state = JSON.parse(await readFile(join(root, 'engine-state/planetcatfish.json'), 'utf8')) as Record<string, { attempts: number }>
   expect(Object.values(state).map(s => s.attempts)).toEqual([0])
+})
+
+test('the archive refusing this Mac: the source stops, no page is marked, and the next archived source asks nothing', async () => {
+  const root = await fresh()
+  const { d } = deps(root)
+  const pages = [9, 10].map(n => `https://www.planetcatfish.com/common/species.php?species_id=${n}`)
+  let asked = 0
+  const archive = { ...d.fetcher, text: async () => `${pages.join('\n')}\n`, get: async () => { asked++; throw new ArchiveRefused('2026-11-10T12:00:00.000Z') } }
+  const r = await runEngine({ ...d, archive }, { sources: ['planetcatfish', 'seriouslyfish'] })
+  expect(asked).toBe(1)
+  expect(r.errors.join('\n')).toMatch(/planetcatfish: not read: the archive refused this Mac: no request before 2026-11-10T12:00:00.000Z/)
+  expect(r.perSource.seriouslyfish).toMatchObject({ processed: 1 })
+  expect(JSON.parse(await readFile(join(root, 'engine-state/planetcatfish.json'), 'utf8').catch(() => '{}'))).toEqual({})
+})
+
+test('the archive refusing this Mac at its index: no fallback on the last list, so no page is asked for', async () => {
+  const root = await fresh()
+  const { d } = deps(root)
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await writeFile(join(root, 'engine-state/_index-planetcatfish.json'), JSON.stringify([{ url: 'https://www.planetcatfish.com/common/species.php?species_id=9' }]))
+  let asked = 0
+  const archive = { ...d.fetcher, text: async () => { throw new ArchiveRefused('2026-11-10T12:00:00.000Z') }, get: async () => { asked++; throw new Error('should not be asked') } }
+  const r = await runEngine({ ...d, archive }, { sources: ['planetcatfish'] })
+  expect(asked).toBe(0)
+  expect(r.errors.join('\n')).toMatch(/planetcatfish: not read: the archive refused this Mac/)
 })
 
 test('a page read through the archive records its capture date beside the real address', async () => {
