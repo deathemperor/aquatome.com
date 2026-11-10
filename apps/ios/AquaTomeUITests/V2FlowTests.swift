@@ -183,7 +183,7 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(card.waitForExistence(timeout: 10), "not the editors' guide")
     card.tap()
     // The page's own, under the bar: the bar's title alone says nothing of what's on the screen.
-    XCTAssertTrue(app.descendants(matching: .any)["native-page"].waitForExistence(timeout: 2), "an empty screen while the page is read")
+    XCTAssertTrue(app.descendants(matching: .any)["page-head"].waitForExistence(timeout: 2), "an empty screen while the page is read")
     XCTAssertFalse(app.staticTexts["Bể và nước"].exists, "the page came too soon to show what it opens on")
     XCTAssertTrue(app.staticTexts["Bể và nước"].waitForExistence(timeout: 8), "the page didn't come")
   }

@@ -53,6 +53,8 @@ struct PageView: View {
         // Its photo and name while the page is read: a card zoomed into a screen with only a spinner on it, black in dark mode.
         NativePage(pieces: NativePage.head(item), web: {})
           .overlay(alignment: .bottom) { LateSpinner().padding(.bottom, 64) }
+          // Not the page's own id, which says the page has come: an outer id wins.
+          .accessibilityIdentifier("page-head")
       } else {
         // The site's tools save to "Bể của tôi": here, to the app's tanks (PageBridge).
         WebPage(url: url, lang: handbook.lang, offline: $offline, failed: $failed, store: tanks.storeForPages(), saved: { tanks.mergeFromPage($0) }, open: openScreen)
