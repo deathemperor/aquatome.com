@@ -10,7 +10,9 @@
     "brazil",
     "trombetas",
     "amazon",
-    "rio-trombetas"
+    "rio-trombetas",
+    "colombia",
+    "orinoco"
   ],
   "range": {
     "native": {
@@ -533,6 +535,10 @@
       {
         "source": "scotcat",
         "value": 6.5
+      },
+      {
+        "source": "glaser",
+        "value": 7
       }
     ],
     "tempC": [
@@ -568,6 +574,12 @@
       "html": "<ul><li>IUCN Red List: Least Concern (2023). Despite the little information available, the species has a wide range and no apparent threats.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/mastiglanis_asopos_en/",
+      "html": "<p>This dwarf catfish was described only in 1994, in a new genus. The maximum length is about 6-7 cm without the caudal fin. The body is very elongate. The extremely long pectoral fin rays are most obvious when seen from above. The eyes are placed very high in the head and have slit-shaped pupils.</p><p>The generic name \"Mastiglanis\" means \"Whip-Catfish\" because of the long first fin rays of the dorsal and pectoral fins.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1091",
@@ -578,6 +590,12 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/heptapteridae/mastiglanis_asopos.htm",
       "html": "<p>South America: Amazon, Capim and Orinoco River basins. Type locality: Brazil, Pará, Igarapé Saracazinho, tributary of Rio Trombetas, near Porto Trombetas.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/mastiglanis_asopos_en/",
+      "html": "<p>The species is not rare in the wild: it has an enormous range in the Amazon river. A single specimen was also obtained as an accidental bycatch with other fish from the Orinoco in Colombia in 2006. The imported fish came from Brazil.</p>"
     },
     {
       "key": "habitat",
@@ -596,6 +614,12 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/heptapteridae/mastiglanis_asopos.htm",
       "html": "<p>Small trichopteran larvae (ingested with the sand cases) and ephemeropterans constituted a considerable portion of the gut contents in a study of Mastiglanis asopos, but their foraging behavior allows a varied diet which includes large chironomid larvae and small adult beetles that would not be consumed by other sand-dwelling animals.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/mastiglanis_asopos_en/",
+      "html": "<p>Against each other these catfish are very peaceful.</p><p>Some specimens are darker and others lighter, but all are rather sand-coloured. This and the high-set eyes suggested that the fish might live burrowed in fine sand, but despite the harassment during their stay in the photo tank they made no attempt to bury themselves in the sand.</p>"
     },
     {
       "key": "reproduction",
@@ -695,5 +719,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-04"
+  "updatedAt": "2026-11-10"
 }

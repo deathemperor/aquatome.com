@@ -1,0 +1,123 @@
+{
+  "id": "gagata-cenia",
+  "scientificName": "Gagata cenia",
+  "order": "Siluriformes",
+  "family": "Sisoridae",
+  "genus": "Gagata",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "india"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 18,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 6.5,
+          "max": 8
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 10,
+          "max": 30
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 15
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/gagata_cenia_en/",
+      "html": "<p>The Assamese Clown Catfish attains a maximum length of about 15 cm, but matures at a length of less than 7 cm. It is a very active fish that is hardly ever found resting and is always on the move.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/gagata_cenia_en/",
+      "html": "<p>India.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/gagata_cenia_en/",
+      "html": "<p>Clown catfish are generally sensitive fish, because they originate from very clean, running waters. However, well settled animals are very hardy. The water temperature can lie between 18 and 26°C, the pH between 6.5 and 8, and the hardness between 10 and 30 dGH.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/gagata_cenia_en/",
+      "html": "<p>There should be a good current in the tank. The bottom should be covered with sand and some larger stones.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/gagata_cenia_en/",
+      "html": "<p>Gagata cenia should always be kept in groups, because the fish are very social.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "7BCGSQNtqCo",
+      "title": "Gagata cenia, (Indian clown catfish) feeding.",
+      "durationSec": 133,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "krQFb5e1K5g",
+      "title": "Gagata cenia, Ganges river",
+      "durationSec": 27,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "9SRVlqvmGEg",
+      "title": "Indian clown catfish, (Gagata cenia).",
+      "durationSec": 64,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "vb66ZivptyE",
+      "title": "Gagata cenia and Gogangra viridescens",
+      "durationSec": 60,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "lọc bể cá"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "đá lớn trang trí bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-10"
+}

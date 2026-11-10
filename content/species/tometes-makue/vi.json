@@ -1,0 +1,28 @@
+{
+  "slug": "ca-hong-phat-tometes-makue",
+  "name": "Cá hồng phát Tometes makue",
+  "altNames": [
+    "Silver dollar"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Tometes makue mãi đến năm 2002 mới được mô tả. Loài này có thể dài tới khoảng 40 cm, tính cả đuôi. Cá khỏe và dễ nuôi, đúng như những gì người nuôi Myleus vẫn quen.</p>",
+    "distribution:glaser": "<p>Loài này có ở Brazil (lưu vực sông Rio Negro) và Venezuela (lưu vực sông Caroni và sông Orinoco).</p>",
+    "behaviour:glaser": "<p>So với cá \"broadband\" (Myleus schomburgkii), lô cá mới nhập này hay gây gổ hơn. Tuy nhiên đây là loài hiếm và mới nhập về, nên chưa có nhiều thông tin về tập tính của nó.</p>",
+    "notes:glaser": "<p>Loài này từng bị định danh nhầm nhiều lần. Năm 1860, Kner nhầm nó là Mylesinus schomburgkii, rồi Nelson (1961), Hurtado Sepulveda (1989), Lasso và cộng sự (1995), Machado-Allison &amp; Fink (1995) cũng nhầm theo. Nó còn bị nhầm thành Myleus setiger và Utiaritichthys sennaebragai, sau đó mới có bản mô tả gốc với tên Tometes makue.</p>",
+    "references:glaser": "<p>Jégu, M. , G. M. dos Santos &amp; E. Belmont-Jégu (2002): Tometes makue n. sp. (Characidae: Serrasalminae), une nouvelle espèce du bouclier guyanais décrite des bassins du Rio Negro (Brésil) et de l’Orénoque (Venezuela). Cybium v. 26 (no. 4): 253-274.</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.8
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-11"
+  }
+}

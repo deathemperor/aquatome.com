@@ -1,0 +1,104 @@
+{
+  "id": "paludomus-loricata",
+  "scientificName": "Paludomus loricata",
+  "order": "",
+  "family": "Paludomidae",
+  "genus": "Paludomus",
+  "group": "snails",
+  "places": [
+    "asia",
+    "sri-lanka"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 18,
+          "max": 27
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 5.8,
+          "max": 7.1
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 0.5,
+          "max": 1.2
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/paludomus_loricatus_en/",
+      "html": "<p>Among the most unusual species of freshwater snail is the Red Spotted Bella Snail, Paludomus loricatus, from Sri Lanka. The eyes of this snail are very attractive coloured, brightly red-orange. Around the mantle are numerous folds of the same colour.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/paludomus_loricatus_en/",
+      "html": "<p>Sri Lanka. The snails inhabit clear, very clean, fast running streams in the crystalline uplands of South-West Sri Lanka (altitude 60-700 m).</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/paludomus_loricatus_en/",
+      "html": "<p>The snails prefer to crawl near the water surface on rocks and stones in a current between 30 and 100 cm/s; sometimes they are also found outside the water.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/paludomus_loricatus_en/",
+      "html": "<p>The water is very soft (total hardness 0.5-1.2°dH), the pH is between 5.8 and 7.1, the water temperature between 18 and 27.3°C.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/paludomus_loricatus_en/",
+      "html": "<p>The snails feed on Aufwuchs and detritus.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/paludomus_loricatus_en/",
+      "html": "<p>It is thought that they are – like all members of the genus Paludomus – ovo-viviparous, i.e. that they give birth to completely developed youngsters.</p>"
+    },
+    {
+      "key": "references",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/paludomus_loricatus_en/",
+      "html": "<p>Starmühlner, F. (1974): The freshwater gastropods of Ceylon. Bull. Fish. Res. Stn. Sri Lanka, 25, 97-181.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy bơm tạo dòng chảy",
+        "lọc bể thủy sinh"
+      ]
+    },
+    {
+      "category": "test-nuoc",
+      "keywords": [
+        "test pH nước",
+        "test GH KH"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-10"
+}

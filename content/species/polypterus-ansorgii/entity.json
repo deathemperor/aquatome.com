@@ -13,7 +13,7 @@
     "sizeCm": [
       {
         "source": "glaser",
-        "value": 60
+        "value": 80
       }
     ]
   },
@@ -21,18 +21,49 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/polypterus_ansorgii_xxl_en/",
-      "html": "<p>Impressive specimens, 50-60 cm long, of this rarest of all Polypterus species.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/polypterus-ansorgii/",
+      "html": "<p>Only two specimens of this bichir were received – the rarest of all bichir species. The currently imported specimens are 15-20 cm long. The species can reach a maximum length of about 80 cm and is thus the largest of all known Polypterus species.</p>"
     },
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/polypterus_ansorgii_xxl_en/",
-      "html": "<p>The fish originate from Guinea.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/polypterus-ansorgii/",
+      "html": "<p>Origin: Guinea.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/02-living-fossils/polypterus-ansorgii/",
+      "html": "<p>A German article on the species appeared in the current issue of Aqualog/Terralog News, which will be available in English in September.</p><p>Lexicon: ansorgii: dedication name for William John Ansorge (1850-1913).</p>"
     }
   ],
   "photos": [],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "hZRFuMwNq64",
+      "title": "Novos Peixes Primitivos no TANQUE PRIMITIVO Polypterus congicus, ansorgii, endlicherii e Peixe Corda",
+      "durationSec": 788,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "ViZ9PKfmHxY",
+      "title": "Polypterus ansorgii. The mighty GUINEAN Bichir! (Leopard Aquatic D017A)",
+      "durationSec": 58,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "TO8tkrpi0jg",
+      "title": "Polypterus Ansorgii (Guinea Bichirs)",
+      "durationSec": 13,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "lfnGE-OA-oI",
+      "title": "Guinea Bichir / Polypterus Ansorgii !!!",
+      "durationSec": 17,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -55,5 +86,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-29"
+  "updatedAt": "2026-11-10"
 }

@@ -5,7 +5,11 @@
   "family": "Soleidae",
   "genus": "Brachirus",
   "group": "other",
-  "places": [],
+  "places": [
+    "asia",
+    "india",
+    "vietnam"
+  ],
   "dataCard": {
     "sizeCm": [
       {
@@ -18,17 +22,46 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/26-flatfishes/euryglossa_panoides_en/",
-      "html": "<p>The small Indian Tongue (Euryglossa panoides, also sometimes referred to as Brachirus panoides) attains a maximum length of about 20 cm.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/26-flatfishes/euryglossa_panoides_en-2/",
+      "html": "<p>Flounders and tongues belong to a group of fishes that are rarely seen in the aquarium hobby. Whereas flounders have a well developed, clearly visible caudal fin, in the tongues the dorsal, ventral and caudal fins are melted. Euryglossa panoides, which is occasionally imported from India and Vietnam, belongs to the tongues. The fish can reach a maximum size of about 20 cm, but even in the wild it rarely gets that big, staying at about half that length.</p>"
     },
     {
-      "key": "habitat",
+      "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/26-flatfishes/euryglossa_panoides_en/",
-      "html": "<p>Many species of flatfish (of course not all of them) are wanderers between two worlds. They are very tolerant against different salinities and can live as happy in pure freshwater as in pure marine water. The common European Flounder (Platichthys flesus) for example is found occasionally as far upwards as Basel in the Rhine. However, they always return to the sea to spawn.</p><p>The small Indian Tongue has a similar way of life. Most often the adults are found in the river mouths.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/26-flatfishes/euryglossa_panoides_en-2/",
+      "html": "<p>Origin: India and Vietnam.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/26-flatfishes/euryglossa_panoides_en-2/",
+      "html": "<p>It can be kept in pure freshwater, but if the total hardness is below 10° dGH, a salt addition of about 5 ‰ is highly recommended.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/26-flatfishes/euryglossa_panoides_en-2/",
+      "html": "<p>It is very important that the fish can bury itself in fine sand, otherwise it will get skin diseases such as fungus and others.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/26-flatfishes/euryglossa_panoides_en-2/",
+      "html": "<p>The most preferred food is tubifex and bloodworm.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/82d20f740c6eecf3.webp",
+      "width": 960,
+      "height": 720,
+      "licence": "CC BY-SA 4.0",
+      "author": "Phoebus 28",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Feshwater_sole.jpg",
+      "caption": "Freshwater sole (𝐵𝑟𝑎𝑐ℎ𝑖𝑟𝑢𝑠 𝑝𝑎𝑛𝑜𝑖𝑑𝑒𝑠) for sale as ornamental fish at Sunday Market aka Srisomrat Market, part of Chatuchak Weekend Market (JJ Market), Bangkok. This species of fish is c",
+      "thumb": "https://media.aquatome.com/commons/82d20f740c6eecf3-480.webp"
+    }
+  ],
   "videos": [
     {
       "youtubeId": "al1k-wmE9Ow",

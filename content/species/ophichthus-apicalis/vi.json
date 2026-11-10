@@ -1,0 +1,26 @@
+{
+  "slug": "ca-chinh-ran-ophichthus-apicalis",
+  "name": "Cá chình rắn Ophichthus apicalis",
+  "altNames": [
+    "Bulky snake-eel"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Ophichthus apicalis thuộc họ cá chình rắn (Ophichthidae) và dài tới 45 cm. Chúng thường sống ở biển nhưng cũng rất hay gặp ở vùng nước lợ. Chi Ophichthus hiện có 75 loài được công nhận.</p>",
+    "beforeYouBuy:glaser": "<p>Cỡ đang có: 35-45 cm.</p>",
+    "distribution:glaser": "<p>Ngoài tự nhiên, loài này sống trên một vùng cực rộng ở Ấn Độ - Thái Bình Dương. Số cá nhập về đều có nguồn gốc từ Việt Nam.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.9
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-11"
+  }
+}

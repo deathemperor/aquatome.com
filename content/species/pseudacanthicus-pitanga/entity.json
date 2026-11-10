@@ -9,7 +9,8 @@
   "places": [
     "south-america",
     "brazil",
-    "tocantins"
+    "tocantins",
+    "rio-tocantins"
   ],
   "dataCard": {
     "tempC": [
@@ -36,6 +37,12 @@
       "html": "<ul><li>Scientific name: Pseudacanthicus pitanga Chamon, 2015</li><li>Common names: L024, Red Fin Cactus Pleco LDA118, Flame Pleco, Oliven Kaktussugemalle (Denmark)</li><li>Type locality: Serra dos Carajás, bedrock at rio Itacaiunas, Serra dos Carajás, Pará, Brazil</li><li>IUCN Red List: Not Evaluated</li><li>Etymology: Pseud- (Greek: false), Acanthicus (Greek: spiny, thorny), literally 'False Acanthicus', referring to this genus being similar to, yet different from, Acanthicus. The specific epithet comes from the Tupi-Guarani word for red, in reference to the colour of the fins.</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l24-has-been-described-pseudacanthicus-pitanga/",
+      "html": "<p>L24 has finally received a correct scientific description. The beautiful orange-finned cactus pleco from the Rio Tocantins is now named Pseudacanthicus pitanga. The specific name \"pitanga\" comes from the Tupi-Guarani language and means \"red\", in allusion to the colour of the fins.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=125",
@@ -46,6 +53,12 @@
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=125",
       "html": "<p>South America: Brazil: Rio Tocantins (Amazon, Lower Amazon, Tocantins, Itacaiúnas).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l24-has-been-described-pseudacanthicus-pitanga/",
+      "html": "<p>Rio Tocantins basin, northern Brazil. The species is very widely distributed in the Tocantins.</p>"
     },
     {
       "key": "equipment",
@@ -78,10 +91,22 @@
       "html": "<p>Unknown but almost certainly a cave / pipe spawner. There is but a single breeding report.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l24-has-been-described-pseudacanthicus-pitanga/",
+      "html": "<p>The scientific paper also discusses the risks of using this fish for the ornamental fish industry. The scientist states that this kind of use is no danger for wild populations. The only real danger for Pseudacanthicus pitanga is hydroelectric dams that change the water body in such a way that it is destroyed for fish that are specialised in fast-flowing waters, like L24. However, due to the very wide distribution of P. pitanga in the Tocantins, the species is currently not endangered at all.</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=125",
       "html": "<p>Zootaxa 3973 (no. 2), pp 310, Figs. 1-3.</p>"
+    },
+    {
+      "key": "references",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l24-has-been-described-pseudacanthicus-pitanga/",
+      "html": "<p>Chamon, C. C. (2015): Pseudacanthicus pitanga: a new species of Ancestrini (Siluriformes: Loricariidae: Hypostominae) from rio Tocantins Basin, North Brazil. Zootaxa 3973 (2): 309-320</p>"
     }
   ],
   "photos": [
@@ -131,13 +156,13 @@
     },
     {
       "url": "https://media.aquatome.com/commons/58928b10c4d02efd.webp",
+      "thumb": "https://media.aquatome.com/commons/58928b10c4d02efd-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY 4.0",
       "author": "B. Phalan",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudacanthicus_pitanga.jpg",
-      "caption": "Pseudacanthicus pitanga",
-      "thumb": "https://media.aquatome.com/commons/58928b10c4d02efd-480.webp"
+      "caption": "Pseudacanthicus pitanga"
     }
   ],
   "videos": [
@@ -188,5 +213,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-10"
 }

@@ -7,13 +7,39 @@
   "group": "catfish",
   "places": [
     "south-america",
-    "paraguay"
+    "paraguay",
+    "parana",
+    "brazil",
+    "argentina",
+    "bolivia"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 10
+      },
+      {
+        "source": "scotcat",
+        "value": 19
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
       }
     ]
   },
@@ -25,10 +51,52 @@
       "html": "<p>T. paraguayensis grows to around 10 cm long and can be kept in the same way as a larger species of Corydoras. This means: a peaceful fish, undemanding regarding food and likes to swim in company of its own kind.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/trachydoras_paraguayensis.htm",
+      "html": "<ul><li>Common name: Mouse Catfish</li><li>Synonym: Hemidoras paraguayensis</li><li>IUCN Red List: despite the little information available on this species, it has a wide range and no apparent threats. Therefore, it is assessed as Least Concern (IUCN 2024).</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/trachydoras_paraguayensis_en/",
       "html": "<p>This charming species of thorny catfish comes from Paraguay.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/trachydoras_paraguayensis.htm",
+      "html": "<p>South America: Paraná River basin Paraguay, Brazil, Argentina, Bolivia. Type locality: Corumba, Brazil.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/trachydoras_paraguayensis.htm",
+      "html": "<p>From the Paraguay River at Corumba, Brazil.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/trachydoras_paraguayensis.htm",
+      "html": "<p>Peaceful species for a mid sized community tank, planted with hiding places such as pipes or driftwood/bogwood.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/trachydoras_paraguayensis.htm",
+      "html": "<p>Tablet and pellet foods, frozen bloodworm and live foods should keep this catfish in good condition.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/trachydoras_paraguayensis.htm",
+      "html": "<p>Etymology: the specific name paraguayensis: –ensis, Latin suffix denoting place: Corumba, Paraguay, type locality.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/doradidae/trachydoras_paraguayensis.htm",
+      "html": "<p>Sabaj, M.H. and C.J. Ferraris, Jr. 2003 Doradidae (Thorny catfishes). p. 456-469. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</p><p>Salvador, G.N. 2024. Trachydoras paraguayensis. The IUCN Red List of Threatened Species 2024.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
@@ -77,7 +145,32 @@
       "source": "scotcat"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "bRr653SrHNA",
+      "title": "Trachydoras paraguayensis",
+      "durationSec": 54,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "7sUYe4xrm_I",
+      "title": "Trachydoras paraguayensis                            巴拉圭龍貓鐵甲",
+      "durationSec": 21,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "UCr_GsgP8EM",
+      "title": "Five foot South American aquarium",
+      "durationSec": 175,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "xMuGQlclOwQ",
+      "title": "Oddball tank",
+      "durationSec": 71,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",
@@ -108,5 +201,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-10"
 }

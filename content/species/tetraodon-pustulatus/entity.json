@@ -43,6 +43,10 @@
       {
         "source": "seriouslyfish",
         "value": 30
+      },
+      {
+        "source": "glaser",
+        "value": 36
       }
     ],
     "tankCm": [
@@ -66,10 +70,22 @@
       "html": "<p>Max size: 30 cm SL. Aquarium size: 150 × 60 cm. Temperature: 20–28°C. pH: 6.5–7.5. Hardness: 5–26 dGH.</p><p>Rated moderate (5 of 8 measures) because it needs a very large tank.</p><p>The Cross River pufferfish, Tetraodon pustulatus, is a puffer endemic to the Cross River basin of Nigeria and Cameroon. It lives in the moderately fast-flowing main channels and is assessed as endangered by the IUCN. Imports are scarce and costly. Primarily a molluscivore, it can share a tank with smaller, quick, peaceful fish, but similarly sized tankmates may be bitten.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/tetraodon-pustulatus-en/",
+      "html": "<p>The maximum size is quoted as 36 cm in the literature. The external shape and behaviour of adult animals resemble Tetraodon mbu.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/tetraodon-pustulatus",
       "html": "<p>Endemic to the Cross River basin of Nigeria and Cameroon, though virtually all aquarium specimens are caught in Cameroon and exported via Nigeria.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/tetraodon-pustulatus-en/",
+      "html": "<p>Tetraodon pustulatus was caught in the Cross River in Cameroon.</p>"
     },
     {
       "key": "habitat",
@@ -108,6 +124,12 @@
       "html": "<p>As a predator of mainly slow/sessile organisms, the Cross River Pufferfish can be considered a community fish, provided tank mates are chosen carefully. Significantly smaller, peaceful, quick fish will be largely ignored, whereas similarly sized animals such as Polypterus spp. and larger cichlids may be on the receiving end of inquisitive, biting behaviour.</p><p>Suitable tankmates include small to medium tetras, Otocinclus spp., smaller barbs etc.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/tetraodon-pustulatus-en/",
+      "html": "<p>Young animals kept together do not show any injuries, so it is safe to assume that they are not very aggressive.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/tetraodon-pustulatus",
@@ -124,6 +146,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/tetraodon-pustulatus",
       "html": "<p>Recent evaluations by the IUCN have revealed this species to be endangered. Large areas of the Cross River are subject to habitat degradation and pollution.</p><p>Due to the rarity of Tetraodon pustulatus and the inaccessibility of its native range, imports for the aquarium trade are incredibly scarce and costly.</p><p>Etymology: Tetraodon is Greek, from tetra, meaning four, and odous, meaning teeth, in reference to the four teeth of which the beak is composed. pustulatus is Latin, the past participle of pustulare, meaning to blister, referring to the bright circles likened to blistering.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/tetraodon-pustulatus-en/",
+      "html": "<p>Tetraodon pustulatus has to be regarded as a freshwater puffer. The information about its occurrence in brackish water and seawater in older publications is probably based on a mistake, because a similar-looking seawater puffer species (Ephippion guttifer) occurs in the Cross River. More hints and useful information can be found in AQUALOG (volume 16) The Puffers of Fresh- and Brackish Water.</p>"
     },
     {
       "key": "references",

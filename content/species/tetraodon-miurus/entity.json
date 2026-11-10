@@ -42,6 +42,10 @@
       {
         "source": "seriouslyfish",
         "value": 15
+      },
+      {
+        "source": "glaser",
+        "value": 15
       }
     ],
     "tankCm": [
@@ -65,10 +69,22 @@
       "html": "<p>The Congo puffer, Tetraodon miurus, is a predatory puffer from large rivers in the Republic of Congo and the Democratic Republic of Congo. A true ambush predator, it spends most of its time buried in the substrate, so a deep bed of sand is essential. It will eat any fish it can fit in its mouth, takes chunks from larger ones, and is not really safe with anything else.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/tetraodon-miurus-en/",
+      "html": "<p>The Congo Puffer is one of the most remarkable species of freshwater pufferfish. It is a strictly solitary predator. Maximum length is about 15 cm.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/tetraodon-miurus",
       "html": "<p>Republic of Congo, Democratic Republic of Congo.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/tetraodon-miurus-en/",
+      "html": "<p>Origin: D. R. Congo.</p>"
     },
     {
       "key": "habitat",
@@ -81,6 +97,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/tetraodon-miurus",
       "html": "<p>Standard length: 150 mm SL (15 cm). Aquarium base: 75 × 30 cm. Volume: ~68 litres.</p><p>75 × 30 × 30 cm (~68 litres) is fine as this is not a particularly active fish.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/tetraodon-miurus-en/",
+      "html": "<p>This species must be kept in a single-species tank as a single individual. The tank can be comparatively small, because the puffer does not swim a lot.</p>"
     },
     {
       "key": "maintenance",
@@ -101,10 +123,22 @@
       "html": "<p>An ambush predator in nature, T. miurus requires a meaty diet. Offer prawns, earthworms, lancefish, mussel etc. Some specimens may initally only take live foods but most will take dead alternatives.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/tetraodon-miurus-en/",
+      "html": "<p>The puffer is a predator. If potential prey comes along, it shoots out of the sand and bites the victim's belly off. Later the complete fish is eaten.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/tetraodon-miurus",
       "html": "<p>It is not really safe to house this species with anything else! It is a voracious predator that will eat any fish it can fit in its mouth, and will usually take chunks from larger tankmates. It is also completely intolerant of conspecifics. Some aquarists have had success keeping it with armoured Loricariids.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/tetraodon-miurus-en/",
+      "html": "<p>It prefers to spend the day completely burrowed in sand, with only the mouth and the eyes peeping out of the lair. The species is strictly solitary.</p><p>It can change its coloration: brick red, black, grey with black dots or marbled olive green. It uses this ability when no sandy bottom is available, in which case the fish simply mimics a stone.</p>"
     },
     {
       "key": "dimorphism",
@@ -123,51 +157,82 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/tetraodon-miurus",
       "html": "<p>Puffer fish are so called as they have the ability to inflate their elastic stomachs with water or air. This is usually a response to some kind of threat, although in the aquarium many specimens appear to inflate themselves for no apparent reason. The fish becomes 2 or 3 times its normal size, big enough to scare away many potential predators, or difficult to swallow. Puffers also have several other interesting adaptations. They are one of the few fish that can actually blink or close their eyes, which only serves to add further charm to what is already a fish with bags of character. They also have beak-like mouthparts, which are formed by a fusing of 2 teeth from each jaw (hence Tetraodon). These are used to crush shelled invertebrates, the favourite food of most puffers. Many parts of the body of puffers contain the deadly neurotoxin tetrodoxin. This is the same poison found in the notorious blue-ringed octopus. When ingested in sufficient quantities, it can cause paralysis and death. As yet, there is no known antitoxin and to humans it is over 1000 times deadlier than cyanide. Grotesquely, the victim usually remains conscious as he or she becomes paralysed. It's a famous delicacy in Japan, but is prepared only by highly-trained chefs, and even then many people have died from eating it. This need not worry you, but if you need to get rid of your puffer, sell it on: getting the barbecue out is not recommended!</p><p>T. miurus is a real oddball and is not recommended to the general aquarist, due to its nasty disposition. In a species tank however, it will show some interesting behaviour. It is a true ambush predator, spending most of its time buried in the substrate, lying in wait for potential food. It can also make itself resemble an algae-covered rock, if the substrate is not soft or deep enough to dig into. Its eyes are located on the top of it's head, and its mouth is upturned to assist in attacking prey items from below. It can also produce some surprising changes of colour, being able to take on deep red and orange colours depending on it's mood.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/tetraodon-miurus-en/",
+      "html": "<p>Tetraodon means \"with four teeth\". miurus means \"curtailed\".</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/8ed031b4f56048dd.webp",
+      "thumb": "https://media.aquatome.com/commons/8ed031b4f56048dd-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY 4.0",
       "author": "John P Friel",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tetraodon_miurus_14592153.jpg",
-      "caption": "Congo Puffer (Tetraodon miurus) in Republic of Congo",
-      "thumb": "https://media.aquatome.com/commons/8ed031b4f56048dd-480.webp"
+      "caption": "Congo Puffer (Tetraodon miurus) in Republic of Congo"
     },
     {
       "url": "https://media.aquatome.com/commons/1d1d7dd9e0a408fd.webp",
+      "thumb": "https://media.aquatome.com/commons/1d1d7dd9e0a408fd-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY 4.0",
       "author": "John P Friel",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tetraodon_miurus_14592156.jpg",
-      "caption": "Congo Puffer (Tetraodon miurus) in Republic of Congo",
-      "thumb": "https://media.aquatome.com/commons/1d1d7dd9e0a408fd-480.webp"
+      "caption": "Congo Puffer (Tetraodon miurus) in Republic of Congo"
     },
     {
       "url": "https://media.aquatome.com/commons/909059e2de3a105b.webp",
+      "thumb": "https://media.aquatome.com/commons/909059e2de3a105b-480.webp",
       "width": 800,
       "height": 298,
       "licence": "CC BY-SA 3.0",
       "author": "Tetrani",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Brauner_Kugelfisch.jpg",
-      "caption": "Tetraodon miurus",
-      "thumb": "https://media.aquatome.com/commons/909059e2de3a105b-480.webp"
+      "caption": "Tetraodon miurus"
     },
     {
       "url": "https://media.aquatome.com/commons/b809c8cea8dff9d3.webp",
+      "thumb": "https://media.aquatome.com/commons/b809c8cea8dff9d3-480.webp",
       "width": 960,
       "height": 289,
       "licence": "CC BY-SA 3.0",
       "author": "Zaire at German Wikipedia",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:L.Tetraodon_miurus.jpg",
-      "caption": "Congo pufferfish (tetraodon miurus) sitting in ambush",
-      "thumb": "https://media.aquatome.com/commons/b809c8cea8dff9d3-480.webp"
+      "caption": "Congo pufferfish (tetraodon miurus) sitting in ambush"
     }
   ],
-  "videos": [],
+  "videos": [
+    {
+      "youtubeId": "B2LEWxKAxzw",
+      "title": "How to care for the Tetraodon Miurus",
+      "durationSec": 337,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "kG0Fk1ZCVug",
+      "title": "The Ultimate Potato Pufferfish Care Guide: Everything You Need to Know!",
+      "durationSec": 1019,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "JkGfM5uxvAI",
+      "title": "Tetraodon Miurus (congo puffer) pt. 2 / new aquarium tank",
+      "durationSec": 79,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "NCEc7XElVYI",
+      "title": "Tetraodon Miurus: The Potato Pufferfish from The Congo Rivers",
+      "durationSec": 201,
+      "lang": "en"
+    }
+  ],
   "productSlots": [
     {
       "category": "be-ca",

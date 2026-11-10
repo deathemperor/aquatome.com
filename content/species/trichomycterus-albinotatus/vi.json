@@ -8,13 +8,19 @@
     "diet:planetcatfish": "<p>Cá thuộc giống này ăn tốt thức ăn sống hoặc đông lạnh. Chúng cũng nhận cả thức ăn khô bán sẵn. Bạn nhớ đừng cho ăn quá nhiều. Ngoài tự nhiên, chúng ăn các loài động vật không xương sống nhỏ sống dưới đáy.</p>",
     "reproduction:planetcatfish": "<p>Chưa có ghi nhận nào về việc loài này sinh sản trong bể nuôi.</p>",
     "notes:planetcatfish": "<p>Nguồn gốc tên gọi: Trichomycterus ghép từ hai chữ Hy Lạp là trichos (sợi tóc) và mykter (mũi). Cái tên này ám chỉ những sợi râu quanh miệng cá.</p>",
-    "references:planetcatfish": "<p>Revue française d'Aquariologie Herpétologie v. 18 (no. 4) [for 1991], pp 102, Figs. 1-2.</p>"
+    "references:planetcatfish": "<p>Revue française d'Aquariologie Herpétologie v. 18 (no. 4) [for 1991], pp 102, Figs. 1-2.</p>",
+    "quickFacts:scotcat": "<p>Trichomycterus albinotatus là loài khá thường gặp, nhưng số lượng không nhiều.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: thượng nguồn sông Rio Preto, các nhánh Ribeirão Santa Clara và Córrego das Cruzes, thuộc lưu vực sông Paraíba do Sul (bang Rio de Janeiro, Brazil).</p><p>Nơi thu mẫu định danh (type locality): bang Rio de Janeiro, Visconde de Mauá, cách thị trấn Maromba 1 km về phía tây, sông Rio Preto, lưu vực sông Paraíba [22º30'S 44º15'], Brazil.</p>",
+    "habitat:scotcat": "<p>Trichomycterus albinotatus chỉ có ở lưu vực sông Paraíba do Sul. Người ta thu được mẫu loài này khá thường xuyên, nhưng số lượng không nhiều.</p>",
+    "notes:scotcat": "<p>Từ nguyên: tên loài albinotatus ghép từ albus (Latin) là trắng và notatus (Latin) là có dấu, chỉ các vệt trắng ở phần trên thân cá.</p><p>Danh lục đỏ IUCN: loài này sống ở vùng chịu ảnh hưởng của đô thị hóa. Có vẻ chuyện này không đe dọa đáng kể tới quần thể của nó, và IUCN xếp loài này vào nhóm Ít lo ngại (LC) (IUCN 2022).</p>",
+    "references:scotcat": "<p>de Pínna, M.C.C. and W. Wosiacki, 2003. Trichomycteridae (pencil or parasitic catfishes). p. 270-290. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2024. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 08/2024 ).</p><p>Instituto Chico Mendes de Conservação da Biodiversidade (ICMBio). 2022. Trichomycterus albinotatus. The IUCN Red List of Threatened Species 2022.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
   },
   "quality": {
     "score": 0.82,
     "indexable": true,
     "bySource": {
-      "planetcatfish": 0.82
+      "planetcatfish": 0.82,
+      "scotcat": 0.9
     }
   }
 }

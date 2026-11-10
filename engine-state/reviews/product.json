@@ -1,4 +1,30 @@
 {
+  "vi/products/ada-aqua-soil": [
+    {
+      "at": "2026-11-10T22:45:03Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"cá khó chịu nổi\" is an embellishment; the facts only say it is not suited to cycling with fish because of the early ammonia spike.",
+        "\"Dark start (set bể, đổ nước, chạy lọc mà chưa thả con gì)\" is an explanation that is not in the facts. It is a plausible generalisation.",
+        "Steps 1–3 put the Supplement first and then the Power Sand \"beneath\". The facts do not give this order, so the sequence is slightly muddled."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-10T22:45:03Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "\"nền này hợp nhất với bể chỉ trồng cây hoặc bể chạy dark start\" - the facts say only that a retailer guide says it suits plant-only or dark-start tanks. \"Hợp nhất\" (best suited) is a stronger claim, and the attribution to the retailer is dropped in the intro.",
+        "\"Cỡ bao 9 L là cỡ có nhiều số liệu nhất\" - this is the page's own inference. The facts give coverage only for the 9 L bag but never say it has the most data.",
+        "\"Nền dùng được khoảng 2–3 năm\" is stated as a plain fact in the intro. In the facts it comes from a single retailer source."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/products/aquario-neo-soil": [
     {
       "at": "2026-11-09T10:46:42Z",

@@ -647,6 +647,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/auchenipteridae/tatia_intermedia.htm": {
+    "entityIds": [
+      "species/tatia-intermedia"
+    ],
+    "updatedAt": "2026-11-10T20:47:08.222Z",
+    "hash": "6226eeef32f2740a31efa7693e099c1dcc36b8c484eafbe1c6f593042ad3b3b7",
+    "processedHash": "6226eeef32f2740a31efa7693e099c1dcc36b8c484eafbe1c6f593042ad3b3b7",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/auchenipteridae/tatia_neivai.htm": {
     "entityIds": [
       "species/tatia-neivai"
@@ -704,6 +714,16 @@
     "updatedAt": "2026-11-04T06:42:48.043Z",
     "hash": "34af43c29b4061ab0cde6a8891ae191a12b1a3e5b9b39ee6d8b0348fb3b2774b",
     "processedHash": "34af43c29b4061ab0cde6a8891ae191a12b1a3e5b9b39ee6d8b0348fb3b2774b",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/bagridae/mystus_bocourti.htm": {
+    "entityIds": [
+      "species/mystus-bocourti"
+    ],
+    "updatedAt": "2026-11-10T20:44:26.830Z",
+    "hash": "f20ff294f93e5a99ded7f92033981e27eaa335a96370d2ee981317fe6508bb60",
+    "processedHash": "f20ff294f93e5a99ded7f92033981e27eaa335a96370d2ee981317fe6508bb60",
     "status": "processed",
     "attempts": 0
   },
@@ -984,6 +1004,16 @@
     "updatedAt": "2026-11-09T20:46:13.967Z",
     "hash": "bed31dc92ebb4f1f071cecd8eace69d350faa53574925a2ec3ed5936990deb15",
     "processedHash": "bed31dc92ebb4f1f071cecd8eace69d350faa53574925a2ec3ed5936990deb15",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/doradidae/trachydoras_paraguayensis.htm": {
+    "entityIds": [
+      "species/trachydoras-paraguayensis"
+    ],
+    "updatedAt": "2026-11-10T20:49:44.005Z",
+    "hash": "b2e7c121b982001e980f596b974e70458db7d880bf12a85591b1798190c50b76",
+    "processedHash": "b2e7c121b982001e980f596b974e70458db7d880bf12a85591b1798190c50b76",
     "status": "processed",
     "attempts": 0
   },
@@ -1952,6 +1982,56 @@
     "updatedAt": "2026-11-09T08:43:32.287Z",
     "hash": "92e2424727b0b89f273c9230877adecdf2baf4f7d2eeab8f66df3210ac028b72",
     "processedHash": "92e2424727b0b89f273c9230877adecdf2baf4f7d2eeab8f66df3210ac028b72",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/trichomycteridae/trichogenes_longipinnis.htm": {
+    "entityIds": [
+      "species/trichogenes-longipinnis"
+    ],
+    "updatedAt": "2026-11-10T20:51:52.241Z",
+    "hash": "d32efc5e224d8dc3cabbbb9bdc98ea06046ac86ca583664fe655362209011037",
+    "processedHash": "d32efc5e224d8dc3cabbbb9bdc98ea06046ac86ca583664fe655362209011037",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/trichomycteridae/trichomycterus_albinotatus.htm": {
+    "entityIds": [
+      "species/trichomycterus-albinotatus"
+    ],
+    "updatedAt": "2026-11-10T20:53:38.572Z",
+    "hash": "36bc5425f17eb3069357f441593e13662d2cb8e4ebaef7da10ac1cbccffe848a",
+    "processedHash": "36bc5425f17eb3069357f441593e13662d2cb8e4ebaef7da10ac1cbccffe848a",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/trichomycteridae/trichomycterus_alternatus.htm": {
+    "entityIds": [
+      "species/trichomycterus-alternatus"
+    ],
+    "updatedAt": "2026-11-10T20:55:04.553Z",
+    "hash": "e5dc5458dce65fe2b1ea018115d3ffbe7787745927b42761228f974efa8c60b8",
+    "processedHash": "e5dc5458dce65fe2b1ea018115d3ffbe7787745927b42761228f974efa8c60b8",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/trichomycteridae/trichomycterus_auroguttatus.htm": {
+    "entityIds": [
+      "species/trichomycterus-auroguttatus"
+    ],
+    "updatedAt": "2026-11-10T20:56:43.925Z",
+    "hash": "f380c971f2aa325c6f1b427468d4408736574f8736cb5e3ad6c1826a2b3d3d30",
+    "processedHash": "f380c971f2aa325c6f1b427468d4408736574f8736cb5e3ad6c1826a2b3d3d30",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/trichomycteridae/trichomycterus_immaculatus.htm": {
+    "entityIds": [
+      "species/trichomycterus-immaculatus"
+    ],
+    "updatedAt": "2026-11-10T20:59:11.787Z",
+    "hash": "27e4322ddb6bcc10ace7dc7f1432809ad6e0406c7063175b56e36d94ffbfc19f",
+    "processedHash": "27e4322ddb6bcc10ace7dc7f1432809ad6e0406c7063175b56e36d94ffbfc19f",
     "status": "processed",
     "attempts": 0
   }

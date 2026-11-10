@@ -1,0 +1,33 @@
+{
+  "slug": "ca-dao-mom-bo-nong",
+  "name": "Cá dao mõm bồ nông",
+  "altNames": [
+    "Cá dao ma Samuel",
+    "Pelicano Knifefish",
+    "Samuel's Ghost Knifefish"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>Compsaraia samueli là một trong những loài cá dao lạ nhất ở châu Mỹ. Con đực của loài cá dao mõm bồ nông này mọc ra chiếc mõm dài trông rất kỳ dị. Mãi đến năm 2009, loài này mới được mô tả khoa học. Cá lớn tối đa khoảng 23 cm.</p>",
+    "distribution:glaser": "<p>Loài cá dao này được bắt ở vùng quanh Iquitos, Peru.</p>",
+    "waterConditions:glaser": "<p>Loài cá dao này khá dễ tính về nước, nhưng tốt nhất vẫn là nuôi trong nước mềm, hơi chua và giữ nhiệt độ 22–26 °C.</p>",
+    "diet:glaser": "<p>Ở trại, cá được cho ăn trùng chỉ và cá mồi nhỏ (cá kim tơ, Tanichthys).</p>",
+    "behaviour:glaser": "<p>Cá đực hoàn toàn không chịu được nhau. Khi đánh nhau, chúng há rộng miệng lao vào nhau, giống kiểu hươu đực đánh nhau.</p>",
+    "dimorphism:glaser": "<p>Con đực mọc ra chiếc mõm dài trông rất kỳ dị.</p>",
+    "reproduction:glaser": "<p>Con đực dài khoảng 19 cm là đủ lớn để đẻ, còn con cái thì khoảng 15 cm.</p>",
+    "notes:glaser": "<p>Compsaraia lấy từ tiếng Hy Lạp cổ, nghĩa là \"có tia vây thanh nhã\". Tên chi này nói đến cấu trúc vây hậu môn của cá. Tên loài samueli được đặt để vinh danh Samuel Albert.</p>"
+  },
+  "quality": {
+    "score": 0.7,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.7
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-11"
+  }
+}

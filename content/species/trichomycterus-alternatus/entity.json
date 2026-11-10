@@ -8,19 +8,42 @@
   "places": [
     "south-america",
     "brazil",
-    "rio-de-janeiro"
+    "rio-de-janeiro",
+    "jequitinhonha"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 10
+      },
+      {
+        "source": "scotcat",
+        "value": 8
       }
     ],
     "tankCm": [
       {
         "source": "glaser",
         "value": 60
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
       }
     ]
   },
@@ -32,10 +55,22 @@
       "html": "<p>One of the easiest pencil catfishes to keep in the aquarium. It reaches a total length of about 10 cm and can be kept in aquariums from 60 cm in length.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/trichomycterus_alternatus.htm",
+      "html": "<p>Size: 8.0 cm.</p><p>Temperature: 24–28°C.</p><p>pH: 6.0–7.0.</p><p>Family: Trichomycteridae.</p><p>IUCN Red List: Least Concern (LC). Trichomycterus alternatus is widely distributed, frequent and abundant in the Paraíba do Sul River basin and coastal rivers from the states of Rio de Janeiro to Paraná. However, the high degree of degradation of the basins imposes diffuse threats on the different subpopulations of the species, which cannot yet be quantified but must be monitored. As current knowledge of these threats does not indicate a risk of extinction, the species has been listed as Least Concern (IUCN 2022).</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/trichomycterus_alternatus_en/",
       "html": "<p>The species originates from the Rio de Janeiro region in Brazil.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/trichomycterus_alternatus.htm",
+      "html": "<p>South America: Atlantic coastal river basins, Rio de Janeiro and Espírito Santo States, Jequitinhonha River basin, Minas Gerais, Brazil. Type locality: Rio Doce, near the village Rio Doce, Minas Gerais, Brazil [20°14'41\"S, 42°53'45\"W].</p>"
     },
     {
       "key": "habitat",
@@ -50,10 +85,28 @@
       "html": "<p>Good water hygiene and a high oxygen content are a must. A strong pump or a high-performance filter should provide a sufficient current.</p>"
     },
     {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/trichomycterus_alternatus.htm",
+      "html": "<p>Will feed on most aquarium fare such as tablet, frozen and live foods. It is an opportunistic predator that mainly feeds on insects, but also will take small crustaceans and plant material (algae and remains of phanerogams).</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/trichomycterus_alternatus_en/",
       "html": "<p>T. alternatus is not a parasite like some of its relatives from the group of the pencil or parasitic catfishes. Some of these are unpleasant, such as the urinophilic catfishes known in their homeland as Candiru, which are able to enter the human urethra. Usually, however, these little catfishes enter the gills of fishes, where their parasitic nature takes over by feeding on blood and bits of flesh.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/trichomycterus_alternatus.htm",
+      "html": "<p>Description: Body cross-section oval near head, gradually compressed posteriorly towards caudal fin. Body elongate with dorsal and ventral profiles slightly convex on trunk and nearly straight along caudal peduncle. Body depth approximately even along entire body, only slightly decreasing posterior to dorsal-fin origin (Vinícius et al. 2019).</p><p>Etymology: The specific name alternatus is Latin for alternated, referring to 10–14 large spots along the middle of the sides, frequently alternating with a series of spots above them and sometimes partly confluent with them, forming a longitudinal series or a series of irregular bars across the back.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/trichomycterus_alternatus.htm",
+      "html": "<p>de Pínna, M.C.C. and W. Wosiacki, 2003. Trichomycteridae (pencil or parasitic catfishes). p. 270-290. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2022. FishBase. World Wide Web electronic publication. www.fishbase.org, (08/2022).</p><p>Instituto Chico Mendes de Conservação da Biodiversidade (ICMBio). 2022. Trichomycterus alternatus. The IUCN Red List of Threatened Species 2022.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p><p>Vinícius J. C. Reis &amp; Mário de Pinna, The type specimens of Trichomycterus alternatus (Eigenmann, 1917) and Trichomycterus zonatus (Eigenmann, 1918), with elements for future revisionary work (Teleostei: Siluriformes: Trichomycteridae).</p>"
     }
   ],
   "photos": [
@@ -107,5 +160,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-10"
 }

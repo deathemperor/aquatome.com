@@ -1,0 +1,281 @@
+{
+  "found": true,
+  "specs": [
+    {
+      "key": "Manufacturer",
+      "value": "ADA (Aqua Design Amano), Japan",
+      "source": 3
+    },
+    {
+      "key": "Material",
+      "value": "Natural black soil (Ver.2)",
+      "source": 0
+    },
+    {
+      "key": "Grain size",
+      "value": "About 2–4 mm (normal type)",
+      "source": 2
+    },
+    {
+      "key": "Water chemistry",
+      "value": "Keeps water slightly acidic; ADA's test showed pH 5.8 at 2 weeks and 6.2 at 1.5 months",
+      "source": 1
+    },
+    {
+      "key": "Included additive",
+      "value": "Ver.2 comes with Amazonia Supplement pellets, which go underneath the soil",
+      "source": 0
+    },
+    {
+      "key": "Cation exchange capacity",
+      "value": "High CEC, so it takes up excess nutrients and waste from the water (shop claim)",
+      "source": 2
+    },
+    {
+      "key": "Coverage (9 L bag)",
+      "value": "1 bag for a 60×30×36 cm tank; 1.5 bags for 60×40×40 cm; 3 bags for a 90 cm tank; 5 bags per 1 m²",
+      "source": 2
+    },
+    {
+      "key": "Warranty",
+      "value": "Not stated (the shop lists it as 'being updated')",
+      "source": 2
+    }
+  ],
+  "variants": [
+    {
+      "name": "Aqua Soil-Amazonia Ver.2 9L (code 104-060)",
+      "specs": [
+        {
+          "key": "Volume",
+          "value": "9 L",
+          "source": 0
+        },
+        {
+          "key": "Grain",
+          "value": "Normal, 2–4 mm",
+          "source": 2
+        }
+      ]
+    },
+    {
+      "name": "Aqua Soil-Amazonia Ver.2 3L (code 104-061)",
+      "specs": [
+        {
+          "key": "Volume",
+          "value": "3 L",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "Aqua Soil-Amazonia Ver.2 Powder Type 3L (code 104-063)",
+      "specs": [
+        {
+          "key": "Volume",
+          "value": "3 L",
+          "source": 0
+        },
+        {
+          "key": "Role",
+          "value": "Fine-grained top layer for visible areas, not meant as the whole substrate",
+          "source": 6
+        }
+      ]
+    },
+    {
+      "name": "AQUA SOIL-AMAZONIA PRO 9L (code 104-028)",
+      "specs": [
+        {
+          "key": "Volume",
+          "value": "9 L",
+          "source": 0
+        },
+        {
+          "key": "Character",
+          "value": "Professional grade based on the original Amazonia; nutrient-rich and keeps water slightly acidic",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "name": "Amazonia Ver.1, gold-lettered bag (sold in Vietnam)",
+      "specs": [
+        {
+          "key": "Volume",
+          "value": "9 L",
+          "source": 7
+        }
+      ]
+    }
+  ],
+  "prices": [
+    {
+      "shop": "Thủy Sinh Tím (thuysinhtim.vn)",
+      "url": "https://thuysinhtim.vn/phan-nen-ada-amazonia-ver-2-9l",
+      "variant": "Amazonia Ver.2 9L (shop says nearly out of stock)",
+      "vnd": 900000,
+      "source": 2
+    },
+    {
+      "shop": "Thủy Sinh 4U (thuysinh4u.com)",
+      "url": "https://thuysinh4u.com/phan-nen-ada-amazonia-ver-2",
+      "variant": "Amazonia Ver.2 9L (sale price; out of stock; regular price 1,183,000₫)",
+      "vnd": 874650,
+      "source": 3
+    },
+    {
+      "shop": "Thủy Sinh Tím (thuysinhtim.vn)",
+      "url": "https://thuysinhtim.vn/phan-nen-ada-amazonia-ver-1-9l-bao-bi-chu-vang",
+      "variant": "Amazonia Ver.1 9L, gold-lettered bag (price from search listing only, page not opened)",
+      "vnd": 1250000,
+      "source": 7
+    }
+  ],
+  "fits": [
+    {
+      "fact": "Made for planted tanks; ADA says beginners and experienced hobbyists can both use Ver.2",
+      "source": 0
+    },
+    {
+      "fact": "The black soil makes leaf colours stand out; in ADA's test, plants were denser and more deeply coloured than on Amazonia II after 2 months",
+      "source": 1
+    },
+    {
+      "fact": "One 9 L bag covers a standard 60 cm tank (60×30×36 cm); a 90 cm tank needs 2–3 bags",
+      "source": 3
+    },
+    {
+      "fact": "A retailer guide says standard Ver.2 suits plant-only tanks or dark starts. For sensitive Caridina shrimp it suggests Amazonia Light, which releases less ammonia",
+      "source": 6
+    },
+    {
+      "fact": "Not suited to cycling with fish already in the tank, because of the early ammonia spike",
+      "source": 6
+    },
+    {
+      "fact": "Shops recommend using it with ADA Power Sand underneath plus the matching base additives",
+      "source": 2
+    }
+  ],
+  "usage": [
+    {
+      "fact": "Spread the Amazonia Supplement evenly over the tank bottom, then put the Ver.2 soil on top",
+      "source": 0
+    },
+    {
+      "fact": "You can add more or less Supplement to change how rich the substrate is, or put extra under particular areas of a large tank",
+      "source": 1
+    },
+    {
+      "fact": "Suggested layering: 15–25 mm of Power Sand, then 40–60 mm of soil, sloping from about 40 mm at the front to 80–100 mm at the back",
+      "source": 6
+    },
+    {
+      "fact": "New tank: change 30% of the water daily in week 1, 3 times in week 2 and twice in week 3, then weekly once stable",
+      "source": 2
+    },
+    {
+      "fact": "After 3 months to a year, you may need to change water more often again",
+      "source": 3
+    },
+    {
+      "fact": "Add livestock only after ammonia and nitrite have read zero for a while; test with liquid kits instead of following a fixed timeline",
+      "source": 5
+    },
+    {
+      "fact": "Lasts about 2–3 years. Nutrients are strongest in the first 8–12 months, so start liquid fertiliser around month 6 and replace the soil when growth slows",
+      "source": 6
+    }
+  ],
+  "issues": [
+    {
+      "fact": "Releases ammonia when new. In ADA's own test, Ver.2 reached NH4 5.0 mg/L at 2 weeks, compared with 2.0 for Amazonia II, and both read zero by 1.5 months",
+      "source": 1
+    },
+    {
+      "fact": "A retailer guide reports an ammonia peak of about 4–8 ppm around days 3–7 that clears by days 14–21. Too much ammonia without water changes can make plants melt",
+      "source": 6
+    },
+    {
+      "fact": "Forum users say Ver.2 releases noticeably less ammonia than the original Amazonia",
+      "source": 5
+    },
+    {
+      "fact": "Old soil can break down over time; one user reported bubbles, a bad smell and decay in the lower layers and replaced the whole substrate",
+      "source": 5
+    },
+    {
+      "fact": "Version differences: Ver.2 uses the same base as Amazonia II and comes with a pellet supplement. The original Ver.1 (gold-lettered bag) is still sold in Vietnam at a higher price",
+      "source": 1
+    },
+    {
+      "fact": "Stock is patchy in Vietnam: several shops list it as out of stock or ask you to contact them for a price",
+      "source": 4
+    }
+  ],
+  "alternatives": [
+    {
+      "brand": "Tropica",
+      "model": "Aquarium Soil",
+      "why": "Cheaper, with no sharp ammonia spike reported, but its nutrients run out sooner, so root tabs are needed after about 10–12 months"
+    },
+    {
+      "brand": "UNS",
+      "model": "Controsoil",
+      "why": "Reported to release much less ammonia at the start, so shrimp or fish can go in sooner"
+    },
+    {
+      "brand": "GEX",
+      "model": "Aqua soil (e.g. Best Bio Sand)",
+      "why": "Budget option, but the grains are softer and pack down faster, and pH buffering fades sooner, around month 9"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.adana.co.jp/en/contents/products/na_substrate/detail02.html",
+      "title": "ADA – Aqua Soil-Amazonia product page",
+      "kind": "manufacturer"
+    },
+    {
+      "url": "https://www.adana.co.jp/en/aquajournal/makeandkeep_20/",
+      "title": "ADA Aqua Journal – Make & Keep 'Aqua Soil-Amazonia Ver.2'",
+      "kind": "manufacturer"
+    },
+    {
+      "url": "https://thuysinhtim.vn/phan-nen-ada-amazonia-ver-2-9l",
+      "title": "Thủy Sinh Tím – Phân Nền ADA Amazonia Ver.2 (9L)",
+      "kind": "shop"
+    },
+    {
+      "url": "https://thuysinh4u.com/phan-nen-ada-amazonia-ver-2",
+      "title": "Thủy Sinh 4U – Phân Nền ADA Amazonia Ver 2 - Bao 9L",
+      "kind": "shop"
+    },
+    {
+      "url": "https://vuaqua.vn/ada/phan-nen-ada-aqua-soil-amazonia-ii-9l-hat-binh-thuong-mau-den/",
+      "title": "Vuaqua – Phân nền ADA Aqua Soil-Amazonia II 9L",
+      "kind": "shop"
+    },
+    {
+      "url": "https://scapecrunch.com/threads/expected-ammonium-peak-ada-amazonia-v2.2872",
+      "title": "ScapeCrunch – Expected ammonium peak ADA Amazonia V2",
+      "kind": "forum"
+    },
+    {
+      "url": "https://gensou.sg/?p=32452",
+      "title": "Gensou – ADA Aquasoil Amazonia Substrate Guide: Cycling and Layering",
+      "kind": "review"
+    },
+    {
+      "url": "https://thuysinhtim.vn/phan-nen-ada-amazonia-ver-1-9l-bao-bi-chu-vang",
+      "title": "Thủy Sinh Tím – Phân Nền ADA Amazonia Ver.1 (9L) chữ vàng",
+      "kind": "shop"
+    },
+    {
+      "url": "https://gensou.sg/best-aquarium-substrates-planted-tanks/",
+      "title": "Gensou – Best Aquarium Substrates for Planted Tanks: ADA, Tropica and Budget Options",
+      "kind": "review"
+    }
+  ]
+}

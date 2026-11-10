@@ -15,6 +15,28 @@
       {
         "source": "planetcatfish",
         "value": 6.1
+      },
+      {
+        "source": "scotcat",
+        "value": 6
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 24,
+          "max": 28
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
       }
     ]
   },
@@ -32,10 +54,28 @@
       "html": "<p>South America: Marimbondo River, tributary of the Preto River, Paraíba do Sul River basin. Rio de Janeiro State.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/trichomycterus_auroguttatus.htm",
+      "html": "<p>South America: Marimbondo River, tributary of the Preto River, Paraíba do Sul River basin.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/trichomycterus_auroguttatus.htm",
+      "html": "<p>Marimbondo River, tributary of the Preto River, Paraíba do Sul River basin (Costa et al. 2022).</p>"
+    },
+    {
       "key": "diet",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1232",
       "html": "<p>This genus takes live or frozen food, as well as commercial dry prepared foods. Be careful not to overfeed. In nature, they feed on small invertebrates living at the bottom.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/trichomycterus_auroguttatus.htm",
+      "html": "<p>Will feed on most aquarium fare such as tablet, frozen and live foods. It is an opportunistic predator that mainly feeds on insects, but also will take small crustaceans and plant material (algae and remains of phanerogams).</p>"
     },
     {
       "key": "reproduction",
@@ -44,52 +84,108 @@
       "html": "<p>Unreported. There is no breeding report.</p>"
     },
     {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/trichomycterus_auroguttatus.htm",
+      "html": "<p>Etymology: The specific name auroguttatus: aureus (L.), golden; guttatus (L.), spotted, referring to golden spots (alternating with dark spots) on posterior half of body, and a row of gold spots on midline of back, behind dorsal-fin base.</p><p>Trichomycterus auroguttatus is endemic to the Paraíba do Sul basin, being rare and not very abundant. It occurs in an area impacted by urbanisation, which apparently does not represent a significant threat that puts its population at risk, being categorised as Least Concern (LC) (IUCN 2022).</p>"
+    },
+    {
       "key": "references",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1232",
       "html": "<p>Revue française d'Aquariologie Herpétologie v. 18 (no. 4) [for 1991], pp 105, Fig. 6.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/trichomycterus_auroguttatus.htm",
+      "html": "<p>Costa, W.J.E.M.; Mattos, J.L.; Vilardo, P.J.; Amorim, P.F.; Katz, A.M. Perils of Underestimating Species Diversity: Revisiting Systematics of Psammocambeva Catfishes (Siluriformes: Trichomycteridae) from the Rio Paraíba do Sul Basin, South-Eastern Brazil. Taxonomy 2022. 2, 491-523.</p><p>de Pínna, M.C.C. and W. Wosiacki, 2003. Trichomycteridae (pencil or parasitic catfishes). p. 270-290. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil.</p><p>Froese, R. and D. Pauly. Editors. 2024. FishBase. www.fishbase.org (02/2024).</p><p>Instituto Chico Mendes de Conservação da Biodiversidade (ICMBio). 2022. Trichomycterus auroguttatus. The IUCN Red List of Threatened Species 2022.</p>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/scotcat/908a55007f22a645.webp",
+      "thumb": "https://media.aquatome.com/scotcat/908a55007f22a645-480.webp",
+      "width": 500,
+      "height": 143,
+      "licence": "dùng với sự cho phép",
+      "author": "Costa / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/trichomycterus_auroguttatus.htm",
+      "caption": "Trichomycterus auroguttatus: lateral view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/a5a2f97ff3339cee.webp",
+      "thumb": "https://media.aquatome.com/scotcat/a5a2f97ff3339cee-480.webp",
+      "width": 500,
+      "height": 235,
+      "licence": "dùng với sự cho phép",
+      "author": "Costa / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/trichomycterus_auroguttatus.htm",
+      "caption": "Trichomycterus auroguttatus: dorsal view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/8e280fcf696440df.webp",
+      "thumb": "https://media.aquatome.com/scotcat/8e280fcf696440df-480.webp",
+      "width": 500,
+      "height": 249,
+      "licence": "dùng với sự cho phép",
+      "author": "Costa / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/trichomycterus_auroguttatus.htm",
+      "caption": "Trichomycterus auroguttatus: ventral view",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/dae897dfdb2a0680.webp",
+      "thumb": "https://media.aquatome.com/scotcat/dae897dfdb2a0680-480.webp",
+      "width": 500,
+      "height": 333,
+      "licence": "dùng với sự cho phép",
+      "author": "Ivan Sazima / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/trichomycteridae/trichomycterus_auroguttatus.htm",
+      "caption": "Trichomycterus auroguttatus: Brazil, Maringá, Rio Preto, Bocaina de Minas",
+      "source": "scotcat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/8bb0fbad87baee99.webp",
+      "thumb": "https://media.aquatome.com/commons/8bb0fbad87baee99-480.webp",
       "width": 960,
       "height": 1254,
       "licence": "CC BY 4.0",
       "author": "Costa et al. (2022)",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trichomycterus_(10.3390-taxonomy2040032)_Figure_4.png",
-      "caption": "Figure 4. Left jaw suspensorium and opercular series, lateral view: (A) Trichomycterus auroguttatus; (B) Trichomycterus longibarbatus; (C) Trichomycterus puriventris; (D) Trichomycterus saquarema Cost",
-      "thumb": "https://media.aquatome.com/commons/8bb0fbad87baee99-480.webp"
+      "caption": "Figure 4. Left jaw suspensorium and opercular series, lateral view: (A) Trichomycterus auroguttatus; (B) Trichomycterus longibarbatus; (C) Trichomycterus puriventris; (D) Trichomycterus saquarema Cost"
     },
     {
       "url": "https://media.aquatome.com/commons/af33249ef79b7bdc.webp",
+      "thumb": "https://media.aquatome.com/commons/af33249ef79b7bdc-480.webp",
       "width": 960,
       "height": 1447,
       "licence": "CC BY 4.0",
       "author": "Costa et al. (2022)",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trichomycterus_(10.3390-taxonomy2040032)_Figure_2.png",
-      "caption": "Figure 2. Mesethmoidal region, middle and left portions, dorsal view: (A) Trichomycterus auroguttatus; (B) Trichomycterus goeldii'; (C) Trichomycterus puriventris; (D) Trichomycterus saquarema Costa, ",
-      "thumb": "https://media.aquatome.com/commons/af33249ef79b7bdc-480.webp"
+      "caption": "Figure 2. Mesethmoidal region, middle and left portions, dorsal view: (A) Trichomycterus auroguttatus; (B) Trichomycterus goeldii'; (C) Trichomycterus puriventris; (D) Trichomycterus saquarema Costa, "
     },
     {
       "url": "https://media.aquatome.com/commons/e85434e38d0c64d3.webp",
+      "thumb": "https://media.aquatome.com/commons/e85434e38d0c64d3-480.webp",
       "width": 960,
       "height": 1328,
       "licence": "CC BY 4.0",
       "author": "Costa et al. (2022)",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trichomycterus_(10.3390-taxonomy2040032)_Figure_9.png",
-      "caption": "Figure 9. Head, dorsal view: (A) Trichomycterus goeldii, UFRJ 7938, 57.9 mm SL; (B) Trichomycterus auroguttatus, UFRJ 11675, 59.2 mm SL. Black arrows, S6 pores; white arrows, S3 pores.",
-      "thumb": "https://media.aquatome.com/commons/e85434e38d0c64d3-480.webp"
+      "caption": "Figure 9. Head, dorsal view: (A) Trichomycterus goeldii, UFRJ 7938, 57.9 mm SL; (B) Trichomycterus auroguttatus, UFRJ 11675, 59.2 mm SL. Black arrows, S6 pores; white arrows, S3 pores."
     },
     {
       "url": "https://media.aquatome.com/commons/168c53c4f251bd86.webp",
+      "thumb": "https://media.aquatome.com/commons/168c53c4f251bd86-480.webp",
       "width": 960,
       "height": 298,
       "licence": "CC BY 4.0",
       "author": "Costa et al. (2022)",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trichomycterus_(10.3390-taxonomy2040032)_Figure_3.png",
-      "caption": "Figure 3. Partial ventral branchial skeleton, mid-left portion, dorsal view: (A) Trichomycterus auroguttatus; (B) Trichomycterus jacupiranga; (C) Trichomycterus saquarema Costa, Katz, Vilardo and Amor",
-      "thumb": "https://media.aquatome.com/commons/168c53c4f251bd86-480.webp"
+      "caption": "Figure 3. Partial ventral branchial skeleton, mid-left portion, dorsal view: (A) Trichomycterus auroguttatus; (B) Trichomycterus jacupiranga; (C) Trichomycterus saquarema Costa, Katz, Vilardo and Amor"
     }
   ],
   "videos": [],
@@ -109,5 +205,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-10"
 }

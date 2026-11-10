@@ -1,0 +1,12 @@
+---
+url: https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_sp_aporema_en/
+title: Geophagus sp. Aporema - Aquarium Glaser GmbH
+fetchedAt: 2026-11-10T21:41:47.792Z
+hash: 93d7fc8d23c02a33114c391ce012ea6317027401ecb6cd47644fd98af89275d1
+---
+
+Aquarium Glaser obtained in spring 2014 a boxed that contained a mixed group of Geophagus, which belonged to three different species. Among them were seven specimens that could not be applied to any known species of Geophagus so far. The fish were 7-8 cm long. Over the time the grew up to gorgeous, about 20 cm long specimens. They have not only grown to real beauties, but also spawned. So now Aquarium Glaser is able to offer exclusively the first bred specimens of the new eartheater at all.
+According to the supplier the new Geophagus has been collected in the Rio Aporema (basin of the Rio Araguari) in the Brazilian state of Amapa. Juveniles and subadults look very much alike Geophagus camopiensis. But this species – it originates from the system of the Rio Oyapock – has a comparatively drab coloration on the flanks, consisting mostly of green-beige colours. Geophagus sp. “Aporema” – this is how the new entries should be termed provisionally – becomes much deeper bodied than G. camopiensis, and much more colourful! There is a lot of strong yellow on the body and in the fins. Depending on mood and food the colours behind the opercles can become even orange.
+This fish should be kept in large aquaria, as it becomes pretty big. The tank should contain about 500 litres. It is best to keep this Geophagus in groups of six specimens or more, for eartheaters often like to swim in groups. And the fish show more of the interesting behaviour when kept along with a number of conspecifics. The sexes can be recognized only in full adults. There is no well marked sexual dimorphism or dichromatism. The females stay smaller and have a more swollen belly, that´s all. Soft, slightly acidic water with a temperature between 28 and 30°C fulfills the desires of the splendid animals. They should be fed with a broad variety of different food items that can contain flakes as well as frozen and live food items.
+For our customers: the animals have code 682122 on our stocklist. Please note that we exclusively supply the wholesale trade.
+Text: Thomas Weidner, photos: Thomas Weidner & Frank Schäfer

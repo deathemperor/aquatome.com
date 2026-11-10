@@ -1,0 +1,91 @@
+{
+  "id": "sphoeroides-annulatus",
+  "scientificName": "Sphoeroides annulatus",
+  "order": "Tetraodontiformes",
+  "family": "Tetraodontidae",
+  "genus": "Sphoeroides",
+  "group": "other",
+  "places": [
+    "south-america",
+    "colombia"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 40
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/sphoeroides_annulatus_en/",
+      "html": "<p>Sphoeroides annulatus is a pufferfish that is primarily a seawater fish, but juveniles are often found in pure freshwater. Keeping the species in brackish water is recommended. It can reach a maximum length of 40 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/sphoeroides_annulatus_en/",
+      "html": "<p>Origin: Colombia.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/sphoeroides_annulatus_en/",
+      "html": "<p>Most specimens are peaceful, but one should always keep in mind that puffers in general have an individual temper. Every now and then, even among peaceful species, single specimens exist that love to bite the fins of their tankmates.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [
+    {
+      "youtubeId": "Tuq3SAXaSVE",
+      "title": "Bullseye Pufferfish (Sphoeroides annulatus)",
+      "durationSec": 21,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "iSI3kb1_FMg",
+      "title": "Bullseye Pufferfish",
+      "durationSec": 15,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "PmhNRF_d6vA",
+      "title": "HDObservations : Bullseye Puffer (4K UHD)",
+      "durationSec": 62,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "otINdFbWkvk",
+      "title": "Bullseye Pufferfish burrowed in sand",
+      "durationSec": 14,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá nước lợ lớn",
+        "bể cá 400 lít"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể nước lợ",
+        "máy lọc cho cá nóc"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cho cá nóc",
+        "ốc sò đông lạnh cho cá nóc"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-10"
+}

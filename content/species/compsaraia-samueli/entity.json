@@ -1,0 +1,104 @@
+{
+  "id": "compsaraia-samueli",
+  "scientificName": "Compsaraia samueli",
+  "order": "Gymnotiformes",
+  "family": "Apteronotidae",
+  "genus": "Compsaraia",
+  "group": "other",
+  "places": [
+    "south-america",
+    "peru",
+    "iquitos"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 23
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/compsaraia-samueli-rn/",
+      "html": "<p>Compsaraia samueli is one of the most remarkable knifefishes of the New World. The males of this \"pelicano knifefish\" develop grotesque long snouts. The species was described scientifically only in 2009. Maximum size is about 23 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/compsaraia-samueli-rn/",
+      "html": "<p>The knifefish are collected in the vicinity of Iquitos, Peru.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/compsaraia-samueli-rn/",
+      "html": "<p>Regarding the water, the knifefish are quite undemanding. However, it is best to keep the fish in soft and slightly acidic water and temperatures between 22 and 26°C.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/compsaraia-samueli-rn/",
+      "html": "<p>In the fishhouse, the fish are fed with Tubifex and small feeder fish (Tanichthys).</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/compsaraia-samueli-rn/",
+      "html": "<p>The males are absolutely intolerant against each other. They fight with mouths wide open in a manner that is known from fighting male deer.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/compsaraia-samueli-rn/",
+      "html": "<p>The males develop grotesque long snouts.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/compsaraia-samueli-rn/",
+      "html": "<p>Males become sexually ripe at about 19 cm, females at 15 cm length.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/compsaraia-samueli-rn/",
+      "html": "<p>Compsaraia: from ancient Greek, means \"with elegant fin ray\"; the genus name refers to the anal fin structure. samueli: dedication name for Samuel Albert.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "trùng chỉ đông lạnh",
+        "thức ăn cho cá dao"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng cho bể cá lớn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-10"
+}

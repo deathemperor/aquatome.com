@@ -42,6 +42,10 @@
       {
         "source": "seriouslyfish",
         "value": 10
+      },
+      {
+        "source": "glaser",
+        "value": 12
       }
     ],
     "tankCm": [
@@ -65,10 +69,22 @@
       "html": "<p>Schistura spilota is a nemacheilid loach known only from tributaries of the upper Ping River basin in Chiang Mai Province, northern Thailand. The species turns up sporadically in shipments of wild fishes from Thailand. Its body bars tend to form roundish blotches along the flanks, and the caudal-fin is reddish with two vertical rows of dark spots. Feisty and reaching 90-100 mm, it is largely unsuitable for the general community aquarium.</p><ul><li>Needs strong current, with the filter turning the tank over 8–12 times an hour</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/schistura-spilota-en/",
+      "html": "<p>The loaches of the genus Schistura are spread all over South and Southeast Asia. They have much in common with the catfishes of the genus Corydoras from South America: they are present everywhere and there does exist a large number of species. Schistura spilota from Thailand is one of the largest species at all and reaches up to 12 cm in length. The coloration is very similar to many other species of Schistura: the black-red blotch on the origin of the dorsal fin and the stripes that differ individually a lot. But the size of S. spilota makes it unique.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/schistura-spilota",
       "html": "<p>Known only from tributaries of the upper Mae Nam Ping (Ping River) basin in Chiang Mai Province, northern Thailand. The Ping is a major tributary of the Chao Phraya River.</p><p>Type locality is 'Metang River, 35 miles north of Chieng Mai, northern Thailand'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/schistura-spilota-en/",
+      "html": "<p>Origin: Thailand.</p>"
     },
     {
       "key": "habitat",
@@ -95,6 +111,12 @@
       "html": "<ul><li>Temperature: 20–26°C</li><li>pH: 6.0–7.5</li><li>Hardness: 2–12 dGH</li></ul>"
     },
     {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/schistura-spilota-en/",
+      "html": "<p>One should keep these fishes in tanks with a sandy bottom and large plates of stone, under which the loaches burry a cave.</p>"
+    },
+    {
       "key": "diet",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/schistura-spilota",
@@ -107,10 +129,22 @@
       "html": "<p>This species is feisty and largely unsuitable for the general community aquarium. This is not to say it must be kept alone, rather that tankmates must be selected with care and proper research.</p><p>Slow-moving or long-finned species should certainly be omitted because they're likely to struggle with the necessary level of water movement and may end up with nipped fins.</p><p>Placid bottom-dwellers such as Corydoras or Pangio spp. also tend to be easy targets for territorial Schistura and are best avoided.</p><p>Fishes which inhabit similar biotopes in nature, especially those which swim in open water such as Danio, Devario, Mystacoleucus, smaller Barilius, Pethia, Puntius, and Rasbora spp. constitute the best options, and one or two schools can make a visible difference to the confidence of this naturally reclusive loach.</p><p>Other possibilities include current-loving loaches from genera such as Pseudogastromyzon, Beaufortia, or Sewellia plus benthic cyprinids such as Crossocheilus and Garra spp.</p><p>Similarly-shaped relatives like Nemacheilus, Acanthocobitis, and other Schistura spp. aren't recommended under most circumstances although a combination may work in larger aquaria.</p><p>While it can't be described as gregarious a group can be maintained together provided the set-up contains plenty of rocky structures and broken lines of sight.</p><p>Occasional skirmishes may occur, however, and in small or sparsely-decorated tanks conspecific aggression may escalate to an unacceptable level.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/schistura-spilota-en/",
+      "html": "<p>Schistura spilota fits good in a community tank with larger and rather sturdy other fish like many types of barb.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/schistura-spilota",
       "html": "<p>Young specimens can be tricky to sex accurately but mature males of many Schistura species tend to possess noticeably enlarged 'cheeks'; this being most obvious when the fish is viewed from above or head-on.</p><p>Females should be slightly thicker-bodied, especially when full of eggs.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/07-carp-like-fishes-1-loaches/schistura-spilota-en/",
+      "html": "<p>The males of S. spilota become very dark during breeding season and develop thick cheeks.</p>"
     },
     {
       "key": "reproduction",
@@ -210,5 +244,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-10"
 }

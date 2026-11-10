@@ -104,7 +104,7 @@
       },
       {
         "source": "glaser",
-        "value": 6
+        "value": 5
       }
     ],
     "tankCm": [
@@ -130,14 +130,20 @@
     {
       "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/carinotetraodon_borneensis_en/",
-      "html": "<p>This pufferfish lives exclusively in pure freshwater on Borneo and is only very rarely imported. The maximum length is about 6 cm (males) and 4 cm (females).</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/carinotetraodon-borneensis-en/",
+      "html": "<ul><li>Origin: Indonesia (stock); wild: Borneo (Sarawak)</li><li>Soft, acidic water in the wild</li></ul>"
     },
     {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/carinotetraodon-borneensis",
       "html": "<p>Known only from southern Sarawak state, Malaysia (Borneo), with confirmed records from the Sarawak, Sadong and Rajang river systems.</p><p>Type locality is 'Sarawak state, Borneo, East Malaysia'.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/carinotetraodon-borneensis-en/",
+      "html": "<p>Carinotetraodon borneensis is found in Borneo (Sarawak). Its close relatives are distributed as follows: C. lorteti: Thailand, Vietnam, Cambodia, Laos, Malaysia; C. irrubesco: Sumatra and Borneo (Kalimantan); C. salivator: Borneo (Sarawak).</p>"
     },
     {
       "key": "habitat",
@@ -148,8 +154,8 @@
     {
       "key": "habitat",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/carinotetraodon_borneensis_en/",
-      "html": "<p>In the wild this fish lives in soft and acidic water.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/carinotetraodon-borneensis-en/",
+      "html": "<p>Carinotetraodon borneensis is a pure freshwater species that lives in the wild in soft and acidic water.</p>"
     },
     {
       "key": "aquariumSize",
@@ -188,6 +194,12 @@
       "html": "<p>In males body colour is greyish and faintly mottled, and this is not distinctly separated from the whitish belly and underside of the head, rather merging into it gradually. There is a thin, yellowish stripe extending posteriorly from the eye to the caudal peduncle, plus a similarly-coloured, chevron-shaped marking on the dorsal surface and a narrow interorbital bar. The extremities of the chevron reach the upper posterior edge of the eye but are not in contact with the interorbital bar, while a second, smaller chevron extends anteriorly from the dorsal-fin base. All males possess a broad, red mid-ventral stripe and the dorsum is also sometimes red. The pectoral-fin is hyaline with a black base, anal-fin hyaline and sometimes tinged with red, dorsal-fin red with a dark marking at the base and caudal-fin bluish to yellowish or greyish with black and white distal bands.</p><p>No females were included in the redescription of the species by Tan (1999), but aquarium specimens possess a similar pale lateral stripe to that of males but it is broader, sometimes interrupted and may contain a few irregular brownish markings. The chevron markings are also present with the larger also broader than in males, and the remainder of the body is punctuated with irregular pale blotches. The belly is whitish but without brownish markings, and there is a darker blotch just anterior to the anal-fin origin. The fins are mostly hyaline but the dorsal contains faint stripes while the caudal is yellowish with reticulated markings and several dark bars.</p><p>The eye is red in both males and females, but sometimes appears greenish-blue in the former.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/carinotetraodon-borneensis-en/",
+      "html": "<p>In contrast to its close relatives, no clear sexual dichromatism can be observed in the specimens kept. All fish look very similar to each other.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/carinotetraodon-borneensis",
@@ -198,6 +210,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/carinotetraodon-borneensis",
       "html": "<p>This species is relatively uncommon in the aquarium hobby but is sometimes mixed in among shipments of the congener C. salivator. These two can be told apart by the fact that C. salivator possesses a series of distinct dark bars on the head and body in both sexes, a colour pattern unique within the genus.</p><p>C. borneensis is included in a group often referred to as 'red-eyed puffers', which currently contains four recognised species distributed in Indochina and the Greater Sunda Islands. It can be distinguished from C. irrubesco, C. lorteti and C. salivator, the remaining members of this group, by the following combination of characters: 12-13 dorsal-fin rays; 16 pectoral-fin rays; 11-13 anal-fin rays; 12 caudal-fin rays; eyes not bulging above the head; in males dorsal-fin orangeish, black spot on dorsal-fin base present, pectoral-fin base with a black bar, anal-fin hyaline with black edge, caudal-fin greyish proximally and black with white edge distally, throat unmarked, no bars on body.</p><p>Carinotetraodon is distinguished from other genera within the family Tetraodontidae by the presence of distinctive dorsal and ventral keels in males, plus distinct sexual dimorphism in terms of both morphology and colour pattern. Tetraodontidae is the most speciose group among Tetraodontiformes and its members mostly inhabit coastal waters in South America, Central Africa, and Southeast Asia. It is the only tetraodontiform family in which a number of members exclusively inhabit freshwater, and genetic evidence suggests that the timing of these invasions differed, occurring around 0–10 million years ago (MA) in South America, 17–38 MA in Central Africa and 48–78 MA in Southeast Asia.</p><p>Tetraodontids are commonly referred to as 'puffers' due to the ability of many species to inflate their body to an enormous size when stressed or threatened. This is achieved by drawing water into a specialised ventral diverticulum of the stomach, although air can also be used if the fish is removed from the water. As a result of these morphological adaptations puffers swim via a unique combination of pectoral and median fin undulations referred to as 'diodontiform' swimming. They are also able to produce sounds by grinding the jaw/pharyngeal teeth or vibrating the swim bladder. Puffers are secondary freshwater fishes, with the majority of members exclusively inhabiting marine environments.</p><p>Other defining characters of tetraodontids include a tough skin usually covered with small spines, a beak-like dental plate divided by a median suture, a reduced gill opening anterior to the pectoral-fin base, no pelvic fins or spinous fin rays, typically short-based dorsal and anal fins, and no ribs.</p><p>Puffer flesh is toxic and can cause clinical poisoning and human mortality, although it is regarded as a delicacy in certain countries. The predominant toxin, usually either tetrodotoxin or saxitoxin, is dependant on species, geographic area, and time of year. The toxins are not produced by the fishes themselves, but by bacteria living in symbiotic association, or they are acquired via the food chain.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/27-puffers/carinotetraodon-borneensis-en/",
+      "html": "<p>One of the most mysterious species of freshwater pufferfish. Although the species was described in 1903, it was considered for decades a junior synonym of a closely related species, C. lorteti. However, both species look extremely similar in alcohol.</p><p>In life the fish look quite different. Like all crested puffers, the fish can change its coloration amazingly.</p><p>This species, up to 5 cm long, is mainly of interest for specialized aquarists. Almost nothing is known so far about it. Observations of live fish in the aquarium can considerably help to understand the life history of the species.</p><p>Lexicon: Carinotetraodon: Latin, means \"Tetraodon with a keel\"; Tetraodon is another genus of pufferfish. borneensis: means \"coming from Borneo\".</p><p>Suggestion of a common name: milkcoffee crested puffer</p>"
     },
     {
       "key": "references",

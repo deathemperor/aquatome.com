@@ -11,13 +11,42 @@
     "chao-phraya",
     "laos",
     "mekong",
-    "cambodia"
+    "cambodia",
+    "vietnam"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 25
+      },
+      {
+        "source": "scotcat",
+        "value": 24
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 25
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        }
+      }
+    ],
+    "difficulty": [
+      {
+        "source": "scotcat",
+        "value": 4
       }
     ]
   },
@@ -29,10 +58,34 @@
       "html": "<p>Due to its extremely prolonged dorsal fin this fascinating species has also been placed in a genus on its own for a long time, namely Heterobagrus. The catfish becomes around 20-25 cm long. It is a very peaceful species; however, fish of small size will be taken as food, but neither congeners nor any other tankmate will be attacked by M. bocourti otherwise.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/mystus_bocourti.htm",
+      "html": "<p>Family: Bagridae. Size: 24 cm. Temperature: 22–25°C. pH: 6.5–7.5.</p><p>IUCN Red List: assessed as Vulnerable because of an inferred population decrease of more than 30% in the past ten years, as a result of high levels of pollution and hydrological alterations, including dams, in both the Chao Phraya and Mekong river basins.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/mystus_bocourti_en/",
       "html": "<p>Mystus bocourti comes from the river basins of the Mekong and the Chao Phraya in Thailand, Laos, and Cambodia.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/mystus_bocourti.htm",
+      "html": "<p>Asia: Mekong and Chao Phraya River basins. Type locality: Siam.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/mystus_bocourti.htm",
+      "html": "<p>Occurs in medium to large-sized rivers.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/mystus_bocourti.htm",
+      "html": "<p>Can only be kept with the same or larger species as this bagrid, as is common with many from this family, which can eat smaller fish. Keep 3–5 specimens in a large tank with plants to the background. The substrate should be sand, and hiding places should be provided, with good filtration.</p>"
     },
     {
       "key": "diet",
@@ -41,10 +94,34 @@
       "html": "<p>The fish feed readily on any usually frozen or live fish food and most often the animals don´t even refuse dried fish food.</p>"
     },
     {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/mystus_bocourti.htm",
+      "html": "<p>Adults feed on crustaceans and benthic invertebrates. In the aquarium, feed tablet and pellet foods, earthworms, and live and frozen foods.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/mystus_bocourti.htm",
+      "html": "<p>Oviparous, with distinct pairing possibly like other members of the same family.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10e-catfishes-from-asia/mystus_bocourti_en/",
       "html": "<p>Lexicon: Mystus: not known for sure, but most probably derived from the ancient Greek word for “beard”. bocourti: dedication name for F. Bocourt who collected the type specimens. Heterobagrus: means “different Bagrus”; Bagrus is another genus of catfish.</p><p>Suggestion of a common name: Highfin King Cat</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/mystus_bocourti.htm",
+      "html": "<p>Description: dorsal spines (total): 2; dorsal soft rays (total): 7; anal soft rays: 10; vertebrae: 43. Distinguished from all other Mystus (indeed, from all other Asian Bagridae except Bagrichthys hypselopterus) by its extraordinarily high dorsal fin, involving great elongation of the non-serrate dorsal fin spine and first three or four soft rays. Within Mystus sensu stricto, the mouth is relatively narrow.</p><p>Etymology: the genus name Mystus comes from \"Mystax\", meaning whiskered (hair on the upper lip); it was first used by Belon in 1553 to describe all fish with whiskers. The specific name bocourti honours the zoologist and artist Marie Firmin Bocourt (1819–1904), who collected the type and/or sent specimens to Bleeker for his review.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/bagridae/mystus_bocourti.htm",
+      "html": "<p>Baensch, H.A. and R. Riehl 1985 Aquarien atlas. Band 2. Mergus, Verlag für Natur- und Heimtierkunde GmbH, Melle, Germany. 1216 p. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (12/2009). Jenkins, A., Kullander, F.F. &amp; Tan, H.H. 2009. Mystus bocourti. The IUCN Red List of Threatened Species 2009. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [

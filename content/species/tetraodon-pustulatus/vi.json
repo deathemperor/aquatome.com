@@ -18,13 +18,18 @@
     "dimorphism:seriouslyfish": "<p>Chưa ai thấy dấu hiệu rõ ràng nào để phân biệt đực cái.</p>",
     "reproduction:seriouslyfish": "<p>Chưa ai cho loài này đẻ được trong bể. Có lẽ cách đẻ của nó cũng không khác Tetraodon mbu là mấy.</p>",
     "notes:seriouslyfish": "<p>Theo các đánh giá gần đây của IUCN, loài này đang ở mức nguy cấp. Nhiều đoạn dài của sông Cross bị ô nhiễm và môi trường sống ở đó đang xuống cấp.</p><p>Tetraodon pustulatus vốn hiếm, vùng sống của nó lại khó vào, nên cá nhập về bán cực kỳ ít và rất đắt.</p><p>Nguồn gốc tên gọi: Tetraodon là tiếng Hy Lạp, ghép từ tetra (bốn) và odous (răng), ý chỉ bốn chiếc răng tạo thành mỏ cá. pustulatus là tiếng Latin, quá khứ phân từ của pustulare (làm phồng rộp), ý chỉ những vòng tròn sáng màu trên mình cá trông như vết phồng rộp.</p>",
-    "references:seriouslyfish": "<ul><li>http://researcharchive.calacademy.org/research/ichthyology/catalog/fishcatmain.asp Eschmeyer's Catalog of Fishes</li><li>https://www.fishbase.de/summary/Tetraodon-pustulatus.html Fish Base</li></ul>"
+    "references:seriouslyfish": "<ul><li>http://researcharchive.calacademy.org/research/ichthyology/catalog/fishcatmain.asp Eschmeyer's Catalog of Fishes</li><li>https://www.fishbase.de/summary/Tetraodon-pustulatus.html Fish Base</li></ul>",
+    "distribution:glaser": "<p>Tetraodon pustulatus từng được bắt ở sông Cross, Cameroon.</p>",
+    "quickFacts:glaser": "<p>Tài liệu ghi loài này dài tối đa 36 cm. Cá lớn trông giống Tetraodon mbu, tính nết cũng giống.</p>",
+    "behaviour:glaser": "<p>Khi nuôi chung cá non với nhau, không thấy con nào bị thương. Có thể yên tâm là chúng không dữ lắm.</p>",
+    "notes:glaser": "<p>Tetraodon pustulatus là cá nóc nước ngọt. Một số tài liệu cũ ghi loài này có ở nước lợ và nước biển. Chuyện này có lẽ là do nhầm với Ephippion guttifer, một loài cá nóc biển trông giống nó và cũng sống ở sông Cross. Muốn tìm hiểu thêm thì xem AQUALOG (tập 16) The Puffers of Fresh- and Brackish Water.</p>"
   },
   "quality": {
     "score": 0.72,
     "indexable": false,
     "bySource": {
-      "seriouslyfish": 0.72
+      "seriouslyfish": 0.72,
+      "glaser": 0.8
     },
     "reason": "score"
   }
