@@ -34,6 +34,8 @@ cool
 git config merge.changelog.driver 'node scripts/merge-changelog.mjs %O %A %B'
 # The photo caches and run records in engine-state, and new pages, merge as the GitHub cycle merges them (.gitattributes).
 git config merge.jsonmap.driver 'node scripts/merge-json-map.mjs %O %A %B'
+# Each run rewrites the fit reports, so keep the current side when they clash.
+git config merge.regenerated.driver true
 git config merge.entity.driver 'node scripts/merge-entity.mjs %O %A %B'
 pnpm install --frozen-lockfile --silent
 publish_kept videos
