@@ -152,6 +152,17 @@ test('a hardness against its source\'s own measured reading gives way to the sou
 // The owner's report of 10 Nov: the Altum page said a hard, neutral tank is enough and that soft water is a must, under one
 // heading. Where the sources can't both be true, the page shows the one that speaks for that heading (Seriously Fish for
 // water, the owner's rule of 2026-11-06), whatever a later read of a source writes back into the page's file.
+// The owner's report of 10 Nov: the chat rightly said the Altum page disagreed with itself about water. One block now, our
+// figures first, the other source's reported in one sentence, and three editors at 9 (docs/review/editors.md).
+test('the Altum page speaks with one voice about water, its own figures first', async () => {
+  const root = fileURLToPath(new URL('../../../content', import.meta.url))
+  const fish = (await loadAll({ root, lang: 'vi', publicBuild: true })).species.find(s => s.id === 'pterophyllum-altum')!
+  expect(fish.sections.filter(s => s.key === 'waterConditions').map(s => s.source)).toEqual(['aquatome'])
+  const water = fish.t.sections['waterConditions:aquatome']!
+  expect(water.indexOf('4,8 đến 6,2')).toBeGreaterThan(-1)
+  expect(water.indexOf('4,8 đến 6,2')).toBeLessThan(water.indexOf('Có tài liệu khác lại ghi là'))
+}, 120_000)
+
 test('a heading whose sources could not both be true speaks with one voice', async () => {
   const root = fileURLToPath(new URL('../../../content', import.meta.url))
   const voices = JSON.parse(readFileSync(join(root, 'one-voice.json'), 'utf8')) as Record<string, Record<string, string>>
