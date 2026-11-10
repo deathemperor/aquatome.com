@@ -5,7 +5,7 @@ import { memoryR2 } from './r2'
 
 const A = '11111111-1111-4111-8111-111111111111'
 const NOW = new Date('2026-11-10T03:00:00Z')
-const report = (question: string, more: Partial<ChatReport> = {}): ChatReport => ({ at: '2026-11-09T10:00:00Z', question, text: `answer to ${question}`, ...more })
+const report = (question: string, more: Partial<ChatReport> = {}): ChatReport => ({ at: '2026-11-09T10:00:00Z', conversation: A, turn: 2, question, text: `answer to ${question}`, ...more })
 
 async function kept(reports: [string, ChatReport, string][]) {
   const r2 = memoryR2()
@@ -53,9 +53,16 @@ test('what a reader wrote is drawn as text, and an answer keeps its line breaks 
   expect(html).toMatch(/\.reports td\{[^}]*pre-line[^}]*overflow-wrap:anywhere/)
 })
 
+test('a report names its conversation and turn, so it can be found in the bucket, and never the account', async () => {
+  const r2 = await kept([[reportKey('the-account', A, 2), report('q'), '2026-11-09T00:00:00Z']])
+  const html = chatReportsPage(await recentReports(r2.bucket), NOW)
+  expect(html).toContain(`${A} turn 2`)
+  expect(html).not.toContain('the-account')
+})
+
 test('the page and the app say the same, and a missing reason is an empty cell', () => {
   const s = chatReportsSection({ total: 1, rows: [report('q')] }, NOW)
   const t = s.blocks.find(b => b.kind === 'table')
-  expect(t).toMatchObject({ columns: ['Reported', 'Question', 'Answer', 'Reason'], rows: [[{}, { text: 'q' }, { text: 'answer to q' }, { text: '' }]] })
+  expect(t).toMatchObject({ columns: ['Reported', 'Question', 'Answer', 'Reason', 'In the bucket'], rows: [[{}, { text: 'q' }, { text: 'answer to q' }, { text: '' }, { text: `${A} turn 2` }]] })
   expect(chatReportsPage({ total: 0, rows: [] }, NOW)).toContain('No reports yet.')
 })

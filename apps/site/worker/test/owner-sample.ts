@@ -141,8 +141,8 @@ export const FISH_30 = { ...FISH, stats: fishStats('d30'), period: 'd30' }
 export const CHAT_REPORTS = {
   total: 2,
   rows: [
-    { at: '2026-11-04T08:12:00Z', question: 'Cá betta ăn gì?', text: 'Cá betta ăn thức ăn hạt.', reason: 'Thiếu thức ăn tươi' },
-    { at: '2026-11-03T11:00:00Z', question: 'Bể 60 lít nuôi được mấy con?', text: 'Khoảng mười con.' },
+    { at: '2026-11-04T08:12:00Z', conversation: '6f1c2a52-8d3e-4b7a-9c41-2e5d7f80b913', turn: 2, question: 'Cá betta ăn gì?', text: 'Cá betta ăn thức ăn hạt.', reason: 'Thiếu thức ăn tươi' },
+    { at: '2026-11-03T11:00:00Z', conversation: '9a3e7d10-42b6-4c1f-8e77-5d0c1b2a3f44', turn: 1, question: 'Bể 60 lít nuôi được mấy con?', text: 'Khoảng mười con.' },
   ],
 }
 

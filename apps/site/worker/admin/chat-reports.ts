@@ -4,7 +4,7 @@ import { failedBox, isFailed, page, type Soft } from './shell'
 import { HOME_TZ, timeText } from './time'
 
 /** A reader's report of one chat answer as wrong (chat/past.ts), as it's kept in R2. */
-export type ChatReport = { at: string; question: string; text: string; reason?: string }
+export type ChatReport = { at: string; conversation: string; turn: number; question: string; text: string; reason?: string }
 export type ChatReports = { total: number; rows: ChatReport[] }
 
 const TITLE = 'Chat reports'
@@ -21,7 +21,7 @@ export async function recentReports(bucket: R2Bucket, limit = 120): Promise<Chat
 }
 
 const reportsTable = (d: ChatReports, now: Date, tz: string) =>
-  table(['Reported', 'Question', 'Answer', 'Reason'], d.rows.map(r => [{ text: timeText(r.at, tz, now) }, { text: r.question }, { text: r.text }, { text: r.reason ?? '' }]), { empty: NONE })
+  table(['Reported', 'Question', 'Answer', 'Reason', 'In the bucket'], d.rows.map(r => [{ text: timeText(r.at, tz, now) }, { text: r.question }, { text: r.text }, { text: r.reason ?? '' }, { text: `${r.conversation} turn ${r.turn}` }]), { empty: NONE })
 const newestOf = (d: ChatReports) => (d.total > d.rows.length ? `The newest ${d.rows.length} of ${d.total}.` : '')
 
 export function chatReportsPage(d: Soft<ChatReports | undefined>, now = new Date(), tz = HOME_TZ): string {
