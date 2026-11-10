@@ -29705,7 +29705,7 @@
  },
  "th/species/colomesus-asellus": {
   "at": "2026-11-10",
-  "hash": "9a4b27c0db42452d",
+  "hash": "ec8a0f19830b53ef",
   "model": "opus",
   "checklist": 3,
   "findings": [
@@ -29713,8 +29713,16 @@
     "check": "units",
     "part": "P10",
     "quote": "หากเป็น 208 ลิตรจะยิ่งดี",
-    "why": "208 litres is a converted 55-gallon tank size, not one used in Thailand.",
+    "why": "208 litres is a converted 55-gallon tank size, not one a Thai keeper would name.",
     "by": "model"
+   },
+   {
+    "check": "words",
+    "part": "P16",
+    "quote": "หอยเชอรี่จิ๋ว (bladder snail)",
+    "why": "หอยเชอรี่ is the apple snail; Thai keepers call bladder snails something else.",
+    "by": "model",
+    "fix": "หอยฟิสซ่า (หอยเล็ก)"
    }
   ],
   "products": [
