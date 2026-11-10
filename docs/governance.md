@@ -218,7 +218,7 @@ that would have caught it).
     (`test/owner-feedback-deliver.test.ts`). In the browser (`e2e/owner-report.spec.ts`): a reader loads none of it, the
     report's journey with the send a stand-in, a failed send keeping the words. The script in every page only loads the
     bar and may not grow (`worker/test/owner.test.ts`). The picture, in iPhone WebKit (`e2e/owner-capture.spec.ts`): a
-    drawing has to show what's on the screen or say it doesn't, so a large photo is in it, a soft shadow paints no block, what
+    drawing has to show what's on the screen or say it doesn't, so a large photo is in it, a soft shadow paints no block, a label stays on the lines the page gave it, what
     can't be drawn is marked and counted, and the message says whether it's a drawing or the screenshot the owner picked.
     In the app (`AquaTomeUITests/OwnerFlowTests.swift`, `AccountSyncTests/OwnerReportTests.swift`): the button and a
     screenshot's offer for the owner's account alone, none for another and gone at signing out, and the report's form with
