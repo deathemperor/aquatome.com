@@ -18,9 +18,13 @@ const tank: Tank = { id: 't1', name: 'Bể phòng khách', dims: { l: 60, w: 30,
 const POST = 'Bể em mới set được ba tuần, nước cứ đục trắng dù đã thay nước. '.repeat(4)
 const finds = (found: Found[]) => { const asked: string[] = []; const search: SectionSearch = async t => { asked.push(t); return found }; return { asked, search } }
 
-test('sections go only with a saved tank', () => {
-  expect(handsOver([])).toBe(false)
-  expect(handsOver([tank])).toBe(true)
+test('sections go only with a saved tank and a question under 150 characters, spaces around it not counted', () => {
+  expect(handsOver('Nước đục có sao không?', [])).toBe(false)
+  expect(handsOver('Nước đục có sao không?', [tank])).toBe(true)
+  expect(handsOver('á'.repeat(149), [tank])).toBe(true)
+  expect(handsOver('á'.repeat(150), [tank])).toBe(false)
+  expect(handsOver(`  ${'á'.repeat(149)}\n\n`, [tank])).toBe(true)
+  expect(handsOver(POST, [tank])).toBe(false)
 })
 
 test('a question with no tank is not searched and hands nothing over, a whole post too, in Thai too', async () => {
@@ -33,12 +37,18 @@ test('a question with no tank is not searched and hands nothing over, a whole po
   expect(asked).toEqual([])
 })
 
-test('Thai goes by the same rule as the other languages: a saved tank is searched, whatever the question\'s length', async () => {
+test('a whole post with a saved tank is not searched and hands nothing over, in every language', async () => {
+  const h = await hb()
+  const { asked, search } = finds([{ path: GUIDE, heading: null }])
+  for (const lang of ['vi', 'id', 'ms', 'th'] as const) expect(await handoverFor({ question: POST, start: {}, tanks: [tank], hb: h, lang, search })).toBeUndefined()
+  expect(asked).toEqual([])
+})
+
+test('Thai goes by the same rule as the other languages: a short question with a saved tank is searched', async () => {
   const h = await hb()
   const { asked, search } = finds([{ path: GUIDE, heading: null }])
   expect(await handoverFor({ question: 'น้ำเขียว แก้ยังไง', start: {}, tanks: [tank], hb: h, lang: 'th', search })).toBeDefined()
-  expect(await handoverFor({ question: POST, start: {}, tanks: [tank], hb: h, lang: 'th', search })).toBeDefined()
-  expect(asked).toEqual(['น้ำเขียว แก้ยังไง', POST])
+  expect(asked).toEqual(['น้ำเขียว แก้ยังไง'])
 })
 
 test('with a saved tank: the tank without its name, then what the search found that fits, each as read_page gives it', async () => {
@@ -56,15 +66,16 @@ test('with a saved tank: the tank without its name, then what the search found t
   expect(out.text).not.toContain('/vi/ca/ca-dia/')
 })
 
-test('a whole post with a saved tank hands over the tank and the sections; from a fish\'s page, that page first and the search told which fish', async () => {
+test('a short question with a saved tank hands over the tank and the sections; from a fish\'s page, that page first and the search told which fish', async () => {
   const h = await hb()
-  const post = await handoverFor({ question: POST, start: {}, tanks: [tank], hb: h, lang: 'vi', search: finds([{ path: GUIDE, heading: null }]).search })
-  expect(post!.text).toContain('saved tanks')
-  expect(post!.sections).toEqual([{ path: GUIDE, heading: null }])
+  const short = 'Nước đục có sao không?'
+  const plain = await handoverFor({ question: short, start: {}, tanks: [tank], hb: h, lang: 'vi', search: finds([{ path: GUIDE, heading: null }]).search })
+  expect(plain!.text).toContain('saved tanks')
+  expect(plain!.sections).toEqual([{ path: GUIDE, heading: null }])
   const { asked, search } = finds([{ path: NEON, heading: null }, { path: GUIDE, heading: null }])
-  const from = await handoverFor({ question: POST, start: { from: 'species', about: 'paracheirodon-innesi' }, tanks: [tank], hb: h, lang: 'vi', search })
+  const from = await handoverFor({ question: short, start: { from: 'species', about: 'paracheirodon-innesi' }, tanks: [tank], hb: h, lang: 'vi', search })
   const about = h.byId('paracheirodon-innesi')!
-  expect(asked).toEqual([`${about.name}${about.sub ? ` (${about.sub})` : ''}: ${POST}`])
+  expect(asked).toEqual([`${about.name}${about.sub ? ` (${about.sub})` : ''}: ${short}`])
   // The page once, though the search found it too.
   expect(from!.sections).toEqual([{ path: NEON, heading: null }, { path: GUIDE, heading: null }])
 })
