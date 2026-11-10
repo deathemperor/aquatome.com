@@ -738,7 +738,7 @@ final class V2FlowTests: XCTestCase {
     let field = app.searchFields.firstMatch
     XCTAssertTrue(field.waitForExistence(timeout: 5), "the search tab's field isn't there without a pull")
     XCTAssertTrue(field.isHittable, "the search tab's field can't be tapped without a pull")
-    app.noBandBehindTheBar(above: field.frame.minY - 2, "the search tab, dark")
+    app.noBandBehindTheBar("the search tab, dark")
   }
 
   func testTheTabBarStaysWholeWhileScrolling() {

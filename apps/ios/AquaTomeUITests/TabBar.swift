@@ -36,8 +36,11 @@ extension XCUIApplication {
   /// 154 page shots with it read 0 to 5 (8 Nov). Its soft edge leaves words: those with words behind read 134 (a guide) to
   /// 18,421 (Tìm's tools at the largest text). A blurred shape, a card or a photo, has no such edges either way.
   private func sharpBehindTheTitle() -> Int {
-    edges(in: CGRect(x: frame.width * 0.3, y: 22, width: frame.width * 0.4, height: 32), apart: 2) ?? .max
+    edges(in: clearStrip, apart: 2) ?? .max
   }
+
+  /// Between the status bar's clock and its icons, above the title's row.
+  private var clearStrip: CGRect { CGRect(x: frame.width * 0.3, y: 22, width: frame.width * 0.4, height: 32) }
 
   /// Whether a screen's large title can be seen, at rest. It stays in the accessibility tree under anything drawn over it, so
   /// this reads the pixels where it is: a band standing over the title's space left them flat (10 Nov).
@@ -49,10 +52,10 @@ extension XCUIApplication {
     XCTAssertGreaterThan(seen, 200, "\(title): its large title can't be seen", file: file, line: line)
   }
 
-  /// Whether the strip behind the bar, from the top of the screen down to `bottom`, is a dark page's own black. iOS 27's frosted
-  /// band read 8 of 255 there on the owner's phone, with a line of 32 at its foot; the app's own band reads 0 (10 Nov).
-  func noBandBehindTheBar(above bottom: CGFloat, _ screen: String, file: StaticString = #filePath, line: UInt = #line) {
-    let seen = grey(in: CGRect(x: frame.width * 0.3, y: 0, width: 2, height: bottom))?.px.max().map(Int.init) ?? 255
+  /// Whether the clear strip behind the bar is a dark page's own black. iOS 27's frosted band read 8 of 255 there on the owner's
+  /// phone; the app's own band reads 0 (10 Nov).
+  func noBandBehindTheBar(_ screen: String, file: StaticString = #filePath, line: UInt = #line) {
+    let seen = grey(in: clearStrip)?.px.max().map(Int.init) ?? 255
     print("the brightest behind the bar, \(screen): \(seen)")
     XCTAssertLessThan(seen, 4, "\(screen): a band stands behind the bar", file: file, line: line)
   }
