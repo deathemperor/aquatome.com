@@ -95,6 +95,78 @@ function markStuck(scroll: number, backgrounds: Set<string>): () => void {
 }
 
 /**
+ * The text on the screen as the page has laid it out. Each box keeps the page's width in a drawing, while the same words can
+ * measure a little wider there (Chrome zoomed in or out): a chip's label broke onto a second line and a shop fell out of its
+ * row, faults the page doesn't have. So where each line of text breaks is marked, for the copy to break there and nowhere
+ * else, and a wrapping row that's one row on the screen is marked to stay one.
+ */
+function markLines(): () => void {
+  const marked: HTMLElement[] = []
+  const lines = new Map<HTMLElement, Record<number, number[]>>()
+  const blockOf = (e: HTMLElement): HTMLElement => (e.parentElement && getComputedStyle(e).display === 'inline' ? blockOf(e.parentElement) : e)
+  const range = document.createRange()
+  const texts = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT)
+  let last: { block: HTMLElement; line: DOMRect } | undefined
+  for (let n = texts.nextNode() as Text | null; n; n = texts.nextNode() as Text | null) {
+    const parent = n.parentElement
+    if (!parent || !n.data.trim() || !onScreen(parent) || getComputedStyle(parent).whiteSpace !== 'normal') continue
+    const block = blockOf(parent)
+    const breaks: number[] = []
+    for (const word of n.data.matchAll(/\S+/g)) {
+      range.setStart(n, word.index)
+      range.setEnd(n, word.index + word[0].length)
+      const rects = range.getClientRects()
+      const first = rects[0], end = rects[rects.length - 1]
+      if (!first || !end) continue
+      // A word too long for its line, broken inside: left to wrap.
+      if (end.top > first.top + first.height / 2) parent.dataset.captureWraps = ''
+      const below = last?.block === block && first.top > last.line.top + last.line.height / 2
+      // A line the page itself ends with a <br> has one already.
+      if (below && !(word.index === n.data.search(/\S/) && n.previousSibling instanceof HTMLBRElement)) breaks.push(word.index)
+      last = { block, line: end }
+    }
+    const own = lines.get(parent) ?? {}
+    own[[...parent.childNodes].filter(c => c.nodeType === Node.TEXT_NODE).indexOf(n)] = breaks
+    lines.set(parent, own)
+    // What it stands in: the spaces between one inline and the next can break a line too.
+    if (!lines.has(block)) lines.set(block, {})
+  }
+  for (const [e, own] of lines) {
+    e.dataset.captureLines = JSON.stringify(own)
+    marked.push(e)
+  }
+  for (const e of document.querySelectorAll<HTMLElement>('body *')) {
+    if (getComputedStyle(e).flexWrap === 'nowrap' || !onScreen(e)) continue
+    const boxes = [...e.children].map(c => c.getBoundingClientRect()).filter(r => r.width && r.height)
+    if (boxes.length > 1 && Math.max(...boxes.map(r => r.top)) < Math.min(...boxes.map(r => r.bottom))) {
+      e.dataset.captureRow = ''
+      marked.push(e)
+    }
+  }
+  return () => {
+    for (const e of marked) {
+      delete e.dataset.captureLines
+      delete e.dataset.captureRow
+      delete e.dataset.captureWraps
+    }
+  }
+}
+
+/** The page's lines in the drawing's copy of an element (markLines). */
+function keepLines(clone: HTMLElement) {
+  if ('captureRow' in clone.dataset) clone.style.flexWrap = 'nowrap'
+  if (clone.dataset.captureLines === undefined) return
+  clone.style.whiteSpace = 'captureWraps' in clone.dataset ? 'normal' : 'nowrap'
+  const texts = [...clone.childNodes].filter((c): c is Text => c.nodeType === Node.TEXT_NODE)
+  for (const [i, breaks] of Object.entries(JSON.parse(clone.dataset.captureLines) as Record<string, number[]>)) {
+    for (const at of [...breaks].reverse()) {
+      const text = texts[Number(i)]
+      if (text) (at ? text.splitText(at) : text).before(document.createElement('br'))
+    }
+  }
+}
+
+/**
  * What's wholly off screen is drawn as an empty box of its size, so what's on screen stays where it is. Cloning a long
  * page node by node is most of the work: on a list of hundreds, this is what makes it take seconds. An element holding a
  * fixed one stays whole.
@@ -194,6 +266,7 @@ export async function captureViewport(shown: Shown[] = photosShowing()): Promise
   const frames = [...document.querySelectorAll('iframe')].filter(onScreen).length
   const backgrounds = new Set<string>()
   const unmark = markStuck(scroll, backgrounds)
+  const unline = markLines()
   const { hollow, unmark: unbox } = pruneOffScreen()
   try {
     const scale = Math.min(devicePixelRatio, 2)
@@ -215,6 +288,7 @@ export async function captureViewport(shown: Shown[] = photosShowing()): Promise
         const css = [clone.dataset.capturePosition, clone.dataset.captureBox].filter(Boolean).join(';')
         if (css) clone.style.cssText += `;${css}`
         if (clone.dataset.captureShift) clone.style.transform = clone.dataset.captureShift
+        keepLines(clone)
         if (clone.style.boxShadow) clone.style.boxShadow = hardShadows(clone.style.boxShadow)
         if (clone instanceof HTMLIFrameElement) {
           clone.removeAttribute('src')
@@ -280,6 +354,7 @@ export async function captureViewport(shown: Shown[] = photosShowing()): Promise
     return { blob, notDrawn: frames + missing.length + [...seen, ...backgrounds].filter(url => !sources.has(url)).length }
   } finally {
     unmark()
+    unline()
     unbox()
   }
 }
