@@ -95,6 +95,15 @@ test('a long source split into chunks scores as its weakest kept chunk, or its o
   expect(one.quality).toEqual({ score: 0.6, indexable: false, bySource: { seriouslyfish: 0.6 }, reason: 'score' })
 })
 
+test('a page out of search for its score goes before the pages in search; a thin one keeps its place', async () => {
+  const root = await setup(0.6) // species/x is out of search for its score
+  await put(root, 'species/a/entity.json', { id: 'a', sections: [{ key: 'diet', source: 'glaser', sourceUrl: 'u', html: '<p>diet</p>' }] })
+  await put(root, 'species/a/vi.json', { slug: 'ca-a', name: 'Cá A', sections: { 'diet:glaser': '<p>cũ</p>' }, quality: { score: 0.8, indexable: false, bySource: { glaser: 0.8 }, reason: 'thin' } })
+  const order = async (limit: number) => (await rewriteExisting(root, join(root, 's.json'), { llm: fake({ en: 0.9, vi: 0.9 }), opts: { mode: 'fix' }, now }, { limit, dry: true })).done.map(x => x.split(' ')[0])
+  expect(await order(1)).toEqual(['species/x'])
+  expect(await order(10)).toEqual(['species/x', 'guides/g', 'species/a', 'glossary/t'])
+})
+
 test('a rewrite keeps a thin page out of search: it changes the words, not the page\'s depth', async () => {
   const root = await setup()
   const file = join(root, 'species/x/vi.json')
