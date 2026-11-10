@@ -14,6 +14,8 @@ struct PageImage: View {
   var corner: CGFloat = 10
   /// One that doesn't come stays a plain fill, with no photo symbol: a cell among hundreds in the grid.
   var plain = false
+  /// A smaller copy of this picture, in memory already, to show until this one has come.
+  var until: String?
   @State private var picture: (src: String, image: UIImage)?
   /// The address of the one that didn't come (offline before it was kept, or gone from the site).
   @State private var missing: String?
@@ -22,16 +24,17 @@ struct PageImage: View {
   @Environment(\.displayScale) private var scale
   @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
-  init(src: String, ratio: CGFloat, alt: String? = nil, corner: CGFloat = 10, plain: Bool = false) {
+  init(src: String, ratio: CGFloat, alt: String? = nil, corner: CGFloat = 10, plain: Bool = false, until: String? = nil) {
     self.src = src
     self.ratio = ratio
     self.alt = alt
     self.corner = corner
     self.plain = plain
+    self.until = until
   }
 
   /// This address's picture: the one decoded for it here, else one in memory at any size.
-  private var image: UIImage? { picture?.src == src ? picture?.image : PageImages.cached(src) }
+  private var image: UIImage? { picture?.src == src ? picture?.image : PageImages.cached(src) ?? until.flatMap(PageImages.cached) }
 
   var body: some View {
     // The size, fixed with the task's id. The first layout's task (size zero) runs after the size has come; reading the

@@ -48,9 +48,11 @@ struct PageView: View {
     Group {
       if native, let pieces {
         NativePage(pieces: pieces, facts: facts(inPage: true), put: inPagePut ? { putting = true } : nil, ask: chat.on ? ChatRoute(about: item) : nil,
-                   web: { onWeb = true }, nameInView: { nameInView = $0 }, path: item.path, at: at)
+                   web: { onWeb = true }, nameInView: { nameInView = $0 }, path: item.path, at: at, stillPhoto: item.img)
       } else if native && !tried {
-        ProgressView().frame(maxWidth: .infinity, maxHeight: .infinity)
+        // Its photo and name while the page is read: a card zoomed into a screen with only a spinner on it, black in dark mode.
+        NativePage(pieces: NativePage.head(item), web: {})
+          .overlay(alignment: .bottom) { LateSpinner().padding(.bottom, 64) }
       } else {
         // The site's tools save to "Bể của tôi": here, to the app's tanks (PageBridge).
         WebPage(url: url, lang: handbook.lang, offline: $offline, failed: $failed, store: tanks.storeForPages(), saved: { tanks.mergeFromPage($0) }, open: openScreen)
@@ -327,6 +329,18 @@ private final class WeakHandler: NSObject, WKScriptMessageHandler {
   init(_ target: WKScriptMessageHandler) { self.target = target }
   func userContentController(_ content: WKUserContentController, didReceive message: WKScriptMessage) {
     target?.userContentController(content, didReceive: message)
+  }
+}
+
+/// A spinner for a wait long enough to need one: most pages come sooner, and one shown for a moment only flickers.
+private struct LateSpinner: View {
+  @State private var shown = false
+  var body: some View {
+    ProgressView().opacity(shown ? 1 : 0)
+      .task {
+        try? await Task.sleep(for: .milliseconds(700))
+        shown = true
+      }
   }
 }
 
