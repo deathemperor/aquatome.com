@@ -177,7 +177,7 @@ jobs:
     needs: changes
     if: needs.changes.outputs.app != '[]'
     runs-on: ${{ fromJSON(needs.changes.outputs.runner) }}
-    timeout-minutes: ${{ needs.changes.outputs.parallel != '' && 150 || 75 }}
+    timeout-minutes: ${{ needs.changes.outputs.parallel != '' && 150 || 120 }}
     strategy:
       fail-fast: false
       matrix:
@@ -303,7 +303,7 @@ jobs:
     needs: changes
     if: needs.changes.outputs.handbook != '[]'
     runs-on: ${{ fromJSON(needs.changes.outputs.runner) }}
-    timeout-minutes: ${{ needs.changes.outputs.parallel != '' && 150 || 75 }}
+    timeout-minutes: ${{ needs.changes.outputs.parallel != '' && 150 || 120 }}
     strategy:
       fail-fast: false
       matrix:
@@ -376,7 +376,7 @@ jobs:
     needs: changes
     if: needs.changes.outputs.lights != '[]'
     runs-on: ${{ fromJSON(needs.changes.outputs.runner) }}
-    timeout-minutes: ${{ needs.changes.outputs.parallel != '' && 150 || 75 }}
+    timeout-minutes: ${{ needs.changes.outputs.parallel != '' && 150 || 120 }}
     strategy:
       fail-fast: false
       matrix:
