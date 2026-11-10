@@ -61,7 +61,7 @@ Leads, the engine and main's iOS runs share one Mac. A booted simulator is the h
 
 ## Checks also run on aquatome.com
 
-`watch.yml` runs every browser check against the live site, with real content (about 800 species), after each deploy and
+`watch.yml` runs every browser check against the live site, with real content (about 2,300 species), after each deploy and
 nightly. A journey holds on both the fixture build and the live site when it reads names, slugs and counts from the page
 (`#tm-form`'s species file, the result line) or uses species both have. Try one against the live site from `apps/site`:
 
