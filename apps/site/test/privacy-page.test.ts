@@ -36,12 +36,28 @@ test('the privacy page says an account keeps the id of the profile picture its r
   expect(page('/th/privacy/').dom.textContent).toContain('รูปโปรไฟล์ที่คุณเลือกจากชุดรูปปลาในแอป (เก็บเฉพาะรหัสของรูป);')
 })
 
-// The page promises its date moves with its text (section 8): the visitor code's text, live in Vietnam on 9 November 2026,
-// moved it there.
+test('the privacy page names the device word and says nothing else about the device is kept, in every language', () => {
+  const vi = page('/chinh-sach-bao-mat/').dom.textContent
+  expect(vi).toContain('quốc gia, loại thiết bị (điện thoại, máy tính bảng hay máy tính), mức cuộn')
+  expect(vi).toContain('chúng tôi chỉ lưu một từ đó, không lưu thông tin trình duyệt hay kích thước màn hình.')
+  expect(vi).toContain('country, device type (phone, tablet or computer), scroll depth')
+  expect(vi).toContain("we keep only that one word, not your browser's details or screen size.")
+  for (const [path, type, kept] of [
+    ['/id/kebijakan-privasi/', 'jenis perangkat (ponsel, tablet, atau komputer)', 'kami hanya menyimpan satu kata itu'],
+    ['/th/privacy/', 'ประเภทอุปกรณ์ (โทรศัพท์ แท็บเล็ต หรือคอมพิวเตอร์)', 'เราเก็บเพียงคำเดียวนั้น'],
+    ['/ms/dasar-privasi/', 'jenis peranti (telefon, tablet atau komputer)', 'kami hanya menyimpan satu perkataan itu'],
+  ] as const) {
+    const text = page(path).dom.textContent
+    expect(text, path).toContain(type)
+    expect(text, path).toContain(kept)
+  }
+})
+
+// The page promises its date moves with its text (section 8): the device word's line moved it to 10 November 2026.
 test('the privacy page\'s date is the last approved edit\'s, in every language and the English block', () => {
   const updated = (path: string) => page(path).dom.querySelector('.updated')?.textContent
-  expect(updated('/chinh-sach-bao-mat/')).toBe('Cập nhật: 09/11/2026')
-  expect(updated('/id/kebijakan-privasi/')).toBe('Diperbarui: 09/11/2026')
-  expect(updated('/th/privacy/')).toBe('อัปเดต: 09/11/2026')
-  expect(page('/chinh-sach-bao-mat/').dom.textContent).toContain('Last updated: 9 November 2026.')
+  expect(updated('/chinh-sach-bao-mat/')).toBe('Cập nhật: 10/11/2026')
+  expect(updated('/id/kebijakan-privasi/')).toBe('Diperbarui: 10/11/2026')
+  expect(updated('/th/privacy/')).toBe('อัปเดต: 10/11/2026')
+  expect(page('/chinh-sach-bao-mat/').dom.textContent).toContain('Last updated: 10 November 2026.')
 })

@@ -13,18 +13,20 @@ export const VID_MS = 3.42e10
  * - a visitor code on each event: random, kept in local storage (aq_vid) with when it was made, and replaced after 13
  *   months; none when Global Privacy Control or Do Not Track is on, or when storage is blocked (the tab's count stays);
  * - clicks on what carries data-ev: "add to tank" (tank) and a page's source links (src);
+ * - the device on each event, one word worked out here: phone, tablet (an iPad on Safari says it's a Mac, so its touch
+ *   points tell) or desktop. The browser's own details and the screen's size stay in the browser;
  * - nothing at all, once «Không đếm tôi» on the privacy page set aq_nocount, in a tab already open too.
  * Under 1,500 characters either way (test/styles.test.ts).
  */
 export function beaconScript(on = VISITOR_STATS): string {
   const who = on
-    ? `var u='',n,L,g=!navigator.globalPrivacyControl&&navigator.doNotTrack!='1';try{L=localStorage;n=L.getItem('${NOCOUNT}');if(!n&&g){var a=(L.getItem('${VID}')||'').split('.');if(!(Date.now()-a[1]<${VID_MS})){a=[Math.random().toString(36).slice(2,12),Date.now()];L.setItem('${VID}',a.join('.'))}u=a[0]}}catch(e){}if(n)return;`
+    ? `var u='',n,L,g=!N.globalPrivacyControl&&N.doNotTrack!='1';try{L=localStorage;n=L.getItem('${NOCOUNT}');if(!n&&g){var a=(L.getItem('${VID}')||'').split('.');if(!(Date.now()-a[1]<${VID_MS})){a=[Math.random().toString(36).slice(2,12),Date.now()];L.setItem('${VID}',a.join('.'))}u=a[0]}}catch(e){}if(n)return;var y=N.userAgent,w=/^(?!.*iPad).*Mobi/.test(y)?'phone':/Mac|Android/.test(y)&&N.maxTouchPoints>1?'tablet':'desktop';`
     : ''
   // Each event looks again, so «Không đếm tôi» pressed in an open tab stops it there too, and a deleted code isn't sent.
   const check = on ? `try{if(L.getItem('${NOCOUNT}'))return;u=g?(L.getItem('${VID}')||'').split('.')[0]:''}catch(e){}` : ''
-  const body = on ? `{p:p,t:t,v:v,sid:i,r:t==='view'?r:'',u:u}` : `{p:p,t:t,v:v,sid:i,r:t==='view'?r:''}`
+  const body = on ? `{p:p,t:t,v:v,sid:i,r:t==='view'?r:'',u:u,d:w}` : `{p:p,t:t,v:v,sid:i,r:t==='view'?r:''}`
   const click = on ? `closest('a[rel~=sponsored],[data-ev]');a&&f(a.dataset.ev||'aff',1)` : `closest('a[rel~=sponsored]');a&&f('aff',1)`
-  return `(()=>{var go=function(){try{${who}var d=document.documentElement,k='ts_sid',i=sessionStorage.getItem(k);if(!i){i=(Math.random().toString(36).slice(2)+'000000000000').slice(0,12);sessionStorage.setItem(k,i)}var p=location.pathname.slice(0,200),r='';try{var h=document.referrer&&new URL(document.referrer).hostname;if(h)r=h.slice(0,100)}catch(e){}var f=function(t,v){${check}navigator.sendBeacon&&navigator.sendBeacon('/_e',JSON.stringify(${body}))},seen={};f('view',1);addEventListener('scroll',function(){var r=100*(scrollY+innerHeight)/d.scrollHeight;[50,90].forEach(function(m){if(r>=m&&!seen[m]){seen[m]=1;f('scroll',m)}})},{passive:true});[30,60,180].forEach(function(t){setTimeout(function(){document.visibilityState==='visible'&&f('time',t)},t*1e3)});document.addEventListener('click',function(e){var a=e.target.closest&&e.target.${click}},true)}catch(e){}};document.prerendering?document.addEventListener('prerenderingchange',go,{once:true}):go()})()`
+  return `(()=>{var D=document,N=navigator,go=()=>{try{${who}var d=D.documentElement,k='ts_sid',i=sessionStorage.getItem(k);if(!i){i=(Math.random().toString(36).slice(2)+'000000000000').slice(0,12);sessionStorage.setItem(k,i)}var p=location.pathname.slice(0,200),r='';try{var h=D.referrer&&new URL(D.referrer).hostname;if(h)r=h.slice(0,100)}catch(e){}var f=(t,v)=>{${check}N.sendBeacon&&N.sendBeacon('/_e',JSON.stringify(${body}))},seen={};f('view',1);addEventListener('scroll',()=>{var r=100*(scrollY+innerHeight)/d.scrollHeight;[50,90].forEach(m=>{if(r>=m&&!seen[m]){seen[m]=1;f('scroll',m)}})},{passive:true});[30,60,180].forEach(t=>{setTimeout(()=>{D.visibilityState==='visible'&&f('time',t)},t*1e3)});D.addEventListener('click',e=>{var a=e.target.closest&&e.target.${click}},true)}catch(e){}};D.prerendering?D.addEventListener('prerenderingchange',go,{once:true}):go()})()`
 }
 
 /** Cloudflare Web Analytics' loader starts with this with the switch on: «Không đếm tôi» stops every statistic. */
