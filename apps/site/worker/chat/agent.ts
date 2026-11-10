@@ -102,11 +102,19 @@ export const LAST_WORD = 'You can\'t read more pages now. Answer the reader as y
  */
 export const CHAT_PACE = { answer: 7, quick: 6.5, first: 4 }
 /**
+ * `lastTry` (loop.ts): with 4 s left and nothing written, a short answer in that and the grace, 7 s: at most 6.4 s on the
+ * real API. No answer of 745 began writing after 22.1 s of the 27 (2026-11-10), so it only meets a call that would have failed. Its tokens and what a
+ * given-up call wrote in its time stay inside one call's room, so `chatWorstCost` holds with a sixth call.
+ */
+export const LAST_TRY = { ms: 4_000, maxTokens: 2_048, word: `${LAST_WORD} Time is nearly up: keep it short, only the few things that matter most.` }
+/**
  * A chat turn reads more than an identification: more calls and tool calls, and no photos. It ends within fish ID's
  * time, for the same reason: the platform keeps a run going 30 s after the reader's connection drops (they left the
- * app mid-answer), and the handler still writes the turn and settles after it.
+ * app mid-answer), and the handler still writes the turn and settles after it. An answer already being written gets 3 s
+ * more, inside those 30 s: cut at 27 s the reader had an error after its first words, 5 times in 750 answers, each begun
+ * by 23.8 s, and writing took 6.4 s at most (2026-11-10).
  */
-export const CHAT_LIMITS: Limits = { calls: 5, tools: 8, photos: 0, inputTokens: 60_000, ms: 27_000, lastCallMs: 12_000, callMs: 20_000 }
+export const CHAT_LIMITS: Limits = { calls: 5, tools: 8, photos: 0, inputTokens: 60_000, ms: 27_000, lastCallMs: 12_000, callMs: 20_000, writingGraceMs: 3_000 }
 
 /**
  * The first line (`opening`): one line for the reader during the wait, in their language, before anything is read
@@ -266,8 +274,9 @@ export async function answerQuestion(o: ChatOptions): Promise<ChatRun> {
   // gone out (the contract's order: opening, step, text). Its call is sent as call 0: not one of the run's.
   let opening: string | undefined
   let begun = false
+  let wrote = false
   const onStep = (step: Step) => { begun = true; o.onStep?.(step) }
-  const onText = o.onText && ((piece: string) => { begun = true; o.onText!(piece) })
+  const onText = o.onText && ((piece: string) => { begun = wrote = true; o.onText!(piece) })
   const send = onText ? streaming(o.send, onText, onPick) : o.send
   const first = firstMessage(o.lang, o.question, o.earlier, o.start, o.handbook)
   const line = o.opening
@@ -298,6 +307,7 @@ export async function answerQuestion(o: ChatOptions): Promise<ChatRun> {
     // What the handover took comes out of the run's time: a Worker's request has only so long.
     limits: { ...CHAT_LIMITS, ...o.limits, ms: (o.limits?.ms ?? CHAT_LIMITS.ms) - (clock() - asked) },
     lastWord: LAST_WORD,
+    lastTry: { ...LAST_TRY, begun: () => wrote },
     onStep,
     clock: o.clock,
   })
