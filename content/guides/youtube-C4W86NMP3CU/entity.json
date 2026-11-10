@@ -64,7 +64,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh cạnh kính xanh của bể, thấy rõ mép kính.",
-            "sharpness": 136.1
+            "sharpness": 136.1,
+            "person": false
           }
         ]
       },
@@ -99,27 +100,6 @@
             "width": 159,
             "height": 90,
             "caption": "Cận cảnh đai ốc và gioăng của co xuyên vách."
-          },
-          {
-            "t": 300,
-            "url": "https://media.aquatome.com/video/C4W86NMP3CU/at300-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Mũi khoét kim cương dùng để khoét lỗ trên bể kính.",
-            "sharpness": 89.4
-          }
-        ]
-      },
-      {
-        "heading": "Các bước khoan",
-        "moments": [
-          {
-            "t": 380,
-            "url": "https://media.aquatome.com/video/C4W86NMP3CU/at380-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Máy khoan cầm tay có vòng chỉnh lực, chuẩn bị khoan bể.",
-            "sharpness": 114.3
           }
         ]
       },
@@ -136,19 +116,6 @@
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Quartz,_Tibet.jpg",
           "caption": "Tinh thể thạch anh trong suốt, thành phần chính của cát và thủy tinh."
         }
-      },
-      {
-        "heading": "Kính mỏng hay kính dày khó khoan hơn",
-        "moments": [
-          {
-            "t": 465,
-            "url": "https://media.aquatome.com/video/C4W86NMP3CU/at465-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lỗ khoan tròn trên tấm kính bể với nước chảy qua.",
-            "sharpness": 31.6
-          }
-        ]
       }
     ]
   }

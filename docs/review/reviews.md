@@ -8,40 +8,40 @@ under `<lang>/<path>`.
 
 | Kind | Pages reviewed | Under the bar | With notes |
 | --- | --- | --- | --- |
-| video-guide | 755 | 548 (vi 548) | 548 |
+| video-guide | 737 | 541 (vi 541) | 541 |
 | translation | 1274 | 220 (vi 220) | 220 |
-| vi-rewrite | 240 | 1 (vi 1) | 1 |
-| reader-rewrite | 19 | 0 | 0 |
+| vi-rewrite | 216 | 1 (vi 1) | 1 |
+| reader-rewrite | 18 | 0 | 0 |
 | title | 4 | 0 | 0 |
 | breed | 14 | 3 (ms 3) | 3 |
-| topic | 64 | 4 (ms 1, th 3) | 4 |
+| topic | 58 | 3 (ms 1, th 2) | 3 |
 | product | 11 | 0 | 0 |
 | product-reviews | 10 | 0 | 0 |
 | summary | 1342 | 52 (vi 52) | 52 |
-| localize | 1295 | 563 (id 244, ms 34, th 285) | 563 |
-| places | 5017 | 2967 (id 1008, ms 968, th 892, vi 99) | 532 |
+| localize | 1186 | 507 (id 210, ms 31, th 266) | 507 |
+| places | 4733 | 2719 (id 984, ms 754, th 882, vi 99) | 481 |
 | equipment | 5 | 0 | 0 |
-| planting | 31 | 0 | 0 |
+| planting | 28 | 0 | 0 |
 | species | 8 | 0 | 0 |
 
 ## video-guide: Vietnamese guides written from YouTube videos, against the transcript
 
-548 of 755 pages under the bar.
+541 of 737 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 488 | 1354 |
-| States as certain what the source hedges, or what garbled captions only hint at | 482 | 1487 |
-| Says what the source doesn't (invented, added) | 425 | 1109 |
-| Wording: unnatural, literal, stiff or chatty | 214 | 292 |
-| A number, unit, dose or price | 196 | 283 |
-| Repeats itself (intro, summary, steps and FAQ) | 103 | 122 |
-| Meaning changed or wrong | 99 | 109 |
+| Other | 485 | 1363 |
+| States as certain what the source hedges, or what garbled captions only hint at | 475 | 1439 |
+| Says what the source doesn't (invented, added) | 422 | 1134 |
+| Wording: unnatural, literal, stiff or chatty | 207 | 277 |
+| A number, unit, dose or price | 194 | 282 |
+| Repeats itself (intro, summary, steps and FAQ) | 98 | 118 |
+| Meaning changed or wrong | 95 | 105 |
 | Leaves out what the source says | 44 | 47 |
 | Hobby terms and names | 30 | 30 |
 | Names or points to the video, channel, creator or source | 23 | 23 |
-| Copied from the transcript or source | 17 | 19 |
-| Off the title's topic | 17 | 17 |
+| Copied from the transcript or source | 16 | 18 |
+| Off the title's topic | 14 | 14 |
 | Text left in another language | 5 | 5 |
 
 ### Other
@@ -90,7 +90,7 @@ under `<lang>/<path>`.
 
 - "Lắp từ dưới lên thì hợp lý hơn" / "Thứ tự đó khó theo" and "Nhà sản xuất có làm video hướng dẫn lắp, nên xem qua trước khi bắt tay vào": he said the manual made no sense to him and that he would watch the tutorial, but then dropped the ma… — vi/guides/youtube-JpAXeFEVws8, 0.40
 - "Nên dùng mica thay cho kính vì mica dễ cắt, dễ phay và dễ dán hơn nhiều" (also in FAQ and the summary): the video only says he chose acrylic because it is much easier to machine; no comparison on cutting/gluing and no recommendation. Redu… — vi/guides/youtube-seBch2HWlZs, 0.40
-- Remove "Hiểu sai một lần là mất luôn một mùa sinh sản". The video only says no babies were made because there were no plants. It never says a whole breeding season was lost. — vi/guides/youtube-7l1Ja0NL_UQ, 0.45
+- "Cắm một nhánh trầu bà (pothos) từ miệng hũ xuống nước. Vì miệng hũ để hở nên rễ ngâm trong nước còn lá vươn ra ngoài." adds roots in the water and leaves growing out, and the video doesn't say this. It says only that a stem of pothos is d… — vi/guides/youtube-YpQiCUFALSM, 0.40
 
 ### Hobby terms and names
 
@@ -214,7 +214,7 @@ under `<lang>/<path>`.
 
 ## vi-rewrite: older Vietnamese rewritten in the site's style
 
-1 of 240 pages under the bar.
+1 of 216 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
@@ -291,7 +291,7 @@ under `<lang>/<path>`.
 
 ## topic: AquaTome's own guides, against their research
 
-4 of 64 pages under the bar.
+3 of 58 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
@@ -389,21 +389,21 @@ under `<lang>/<path>`.
 
 ## localize: species and plant pages in Indonesian and Thai, against the English
 
-563 of 1295 pages under the bar.
+507 of 1186 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 530 | 1563 |
-| Wording: unnatural, literal, stiff or chatty | 493 | 1067 |
-| Meaning changed or wrong | 333 | 525 |
-| Says what the source doesn't (invented, added) | 328 | 477 |
-| Hobby terms and names | 305 | 398 |
-| A number, unit, dose or price | 290 | 373 |
-| Text left in another language | 215 | 281 |
-| Leaves out what the source says | 171 | 204 |
-| Repeats itself (intro, summary, steps and FAQ) | 159 | 179 |
-| States as certain what the source hedges, or what garbled captions only hint at | 135 | 149 |
-| Copied from the transcript or source | 19 | 19 |
+| Other | 476 | 1401 |
+| Wording: unnatural, literal, stiff or chatty | 446 | 971 |
+| Meaning changed or wrong | 300 | 479 |
+| Says what the source doesn't (invented, added) | 296 | 431 |
+| Hobby terms and names | 272 | 357 |
+| A number, unit, dose or price | 258 | 333 |
+| Text left in another language | 190 | 250 |
+| Leaves out what the source says | 158 | 188 |
+| Repeats itself (intro, summary, steps and FAQ) | 135 | 152 |
+| States as certain what the source hedges, or what garbled captions only hint at | 125 | 138 |
+| Copied from the transcript or source | 13 | 13 |
 | Off the title's topic | 1 | 1 |
 
 ### Other
@@ -478,13 +478,13 @@ under `<lang>/<path>`.
 
 ## places: place names in Indonesian and Thai (reviewed in batches)
 
-2967 of 5017 pages under the bar.
+2719 of 4733 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 463 | 520 |
-| Leaves out what the source says | 36 | 36 |
-| Meaning changed or wrong | 23 | 23 |
+| Other | 421 | 471 |
+| Leaves out what the source says | 28 | 28 |
+| Meaning changed or wrong | 21 | 21 |
 | Wording: unnatural, literal, stiff or chatty | 13 | 13 |
 | Hobby terms and names | 8 | 8 |
 | Text left in another language | 6 | 6 |
@@ -545,7 +545,7 @@ under `<lang>/<path>`.
 
 ## planting: plants' planting text, against their page and video guides
 
-0 of 31 pages under the bar.
+0 of 28 pages under the bar.
 
 ## species: species pages AquaTome writes from research, and what a species video adds to a page, against their research or video
 

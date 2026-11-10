@@ -7,10 +7,10 @@ Written by `pnpm engine gallery` (2026-11-10). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 131 | 79 | 24 | 30 | 204 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 517 | 28 | 9 | 18 | 536 |
-| rest | 20 | 1649 | 75 | 0 | 29 | 1695 |
+| covered | 30 | 516 | 25 | 9 | 16 | 534 |
+| rest | 20 | 1650 | 78 | 0 | 32 | 1696 |
 
-## Short of target: every source read (247)
+## Short of target: every source read (245)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -246,16 +246,15 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/datnioides-pulcher | popular | 2 | 40 |
 | species/pangasianodon-hypophthalmus | popular | 30 | 40 |
 | species/dichotomyctere-nigroviridis | popular | 13 | 40 |
-| species/pomacea-diffusa | popular | 18 | 40 |
 | breeds/electric-blue-ram | covered | 1 | 30 |
 | breeds/blue-diamond-discus | covered | 1 | 30 |
-| breeds/glofish | covered | 14 | 30 |
+| breeds/glofish | covered | 15 | 30 |
 | breeds/crystal-red-shrimp | covered | 12 | 30 |
 | breeds/koi-angelfish | covered | 0 | 30 |
 | breeds/blue-velvet-shrimp | covered | 0 | 30 |
 | breeds/electric-blue-acara | covered | 0 | 30 |
 | breeds/platinum-angelfish | covered | 1 | 30 |
-| breeds/albino-oscar | covered | 8 | 30 |
+| breeds/albino-oscar | covered | 7 | 30 |
 | species/epiplatys-annulatus | covered | 2 | 30 |
 | species/akysis-vespa | covered | 0 | 30 |
 | species/aguarunichthys-torosus | covered | 0 | 30 |
