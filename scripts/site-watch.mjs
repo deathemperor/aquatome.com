@@ -117,13 +117,21 @@ export function prComment(results, runUrl) {
   return [`### AI page review (advisory)`, '', head, ...why, '', ...(reviewed.length ? [...(lines.length ? lines : ['Nothing serious found.']), ''] : []), `[run](${runUrl}) · docs/governance.md, layer 3`].join('\n')
 }
 
+const locs = xml => [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1])
+/** The paths a site's sitemap lists: /sitemap.xml is an index of one sitemap per kind of page, or, on an older build, the list itself. */
+export async function sitemapPages(site, get = fetch) {
+  const read = async path => (await get(new URL(path, site))).text()
+  const top = await read('/sitemap.xml')
+  const sheets = top.includes('<sitemapindex') ? await Promise.all(locs(top).map(u => read(new URL(u).pathname))) : [top]
+  return sheets.flatMap(locs).map(u => new URL(u).pathname)
+}
+
 // Run as a script it acts; imported (its test, apps/site/test/site-watch.test.ts) it only defines.
 const main = import.meta.url === pathToFileURL(process.argv[1] ?? '').href
 const [cmd, ...args] = main ? process.argv.slice(2) : []
 if (cmd === 'prepare') {
   const [site, dir] = args
-  const xml = await (await fetch(new URL('/sitemap.xml', site))).text()
-  const pages = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => new URL(m[1]).pathname)
+  const pages = await sitemapPages(site)
   writeFileSync(join(dir, 'e2e-pages.json'), JSON.stringify(pages))
   const recheck = [...openIssues().values()].map(i => i.path).filter(Boolean)
   writeFileSync(join(dir, 'e2e-recheck.json'), JSON.stringify(recheck))

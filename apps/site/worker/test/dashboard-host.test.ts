@@ -587,7 +587,7 @@ test('no negative pattern in run_worker_first: one wins over every positive rule
 
 test('assets and the Indonesian and Thai pages stay as they were: no Worker before them, on either host', () => {
   for (const l of LANGS) if (LANG[l].prefix) expect(workerFirst(`${LANG[l].prefix}/`), l).toBe(false)
-  for (const p of ['/_astro/a.js', '/data/vi/species.json', '/app/vi.json', '/favicon.png', '/sitemap-index.xml', '/pagefind/pagefind.js', '/id/', '/id/ikan/x/', '/id/ikan/x/index.md', '/th/fish/x/']) expect(workerFirst(p), p).toBe(false)
+  for (const p of ['/_astro/a.js', '/data/vi/species.json', '/app/vi.json', '/favicon.png', '/sitemap.xml', '/sitemap-fish.xml', '/pagefind/pagefind.js', '/id/', '/id/ikan/x/', '/id/ikan/x/index.md', '/th/fish/x/']) expect(workerFirst(p), p).toBe(false)
 })
 
 test('what the Worker can\'t see on the host carries noindex: the host\'s rule in the build\'s _headers', () => {

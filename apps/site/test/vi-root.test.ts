@@ -3,7 +3,7 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { APP_VI_ROOT } from '../src/lib/i18n'
 import { VI_SECTIONS } from '../worker/paths'
-import { DIST, page } from './dist'
+import { DIST, page, sitemapText } from './dist'
 
 // Vietnamese pages live at the root (/ca/x/), and nothing the site builds links to the old /vi/… addresses, which the
 // Worker 301s (worker/test/handler.test.ts). The apps' files keep the /vi/ form until the app reads both (APP_VI_ROOT).
@@ -41,7 +41,7 @@ test('canonical, hreflang and x-default name the root addresses; the other langu
 })
 
 test('the sitemap and redirects.json give the root addresses', () => {
-  const locs = [...readFileSync(join(DIST, 'sitemap.xml'), 'utf8').matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => new URL(m[1]!).pathname)
+  const locs = [...sitemapText().matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => new URL(m[1]!).pathname)
   expect(locs).toContain('/')
   expect(locs).toContain('/ca/ca-neon-vua/')
   expect(locs).toContain('/id/')

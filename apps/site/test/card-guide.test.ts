@@ -3,7 +3,7 @@ import { expect, test } from 'vitest'
 import { NEED_RULES } from '@aq/schema'
 import { CONFLICT_ANCHOR, FIELD_ANCHORS, FIELD_TIPS, LEVEL_WORDS, NEED_LABELS, NEEDS_ANCHOR, TEMPERAMENT_WORDS, WHY_WORDS } from '../src/lib/card-guide'
 import { FIELD_LABELS, FIELD_ORDER } from '../src/lib/format'
-import { page } from './dist'
+import { page, sitemapText } from './dist'
 import { OTHER_LANGS } from '@aq/schema/langs'
 
 const GUIDE = { vi: '/gioi-thieu/bang-du-lieu/', id: '/id/tentang/tabel-data/', th: '/th/about/data-table/' }
@@ -20,7 +20,7 @@ test('the data card\'s explainer page is built in each language, with a section 
   }
   // It is linked from the about page and listed in the sitemap, in every language.
   expect(page('/gioi-thieu/').dom.querySelector(`a[href="${GUIDE.vi}"]`)).not.toBeNull()
-  const xml = readFileSync(new URL('../dist/sitemap.xml', import.meta.url), 'utf8')
+  const xml = sitemapText()
   for (const path of Object.values(GUIDE)) expect(xml).toContain(path)
 })
 

@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { checks, prComment } from '../../../scripts/site-watch.mjs'
+import { checks, prComment, sitemapPages } from '../../../scripts/site-watch.mjs'
 
 // One page's review in Playwright's JSON report, shaped as a real run writes it (ci.yml runs the phone project only).
 const LIMIT = "Claude usage limit: You've hit your weekly limit · resets Nov 5, 6am (UTC)"
@@ -35,4 +35,16 @@ test('pr-comment: a review that failed on its findings was reviewed; one that fa
 test('report: a review stopped by the limit neither fails nor passes, so its issue is left as it is', () => {
   const [c] = checks({ suites: [{ title: 'review.spec.ts', specs: [limited('/vi/')] }] })
   expect(c).toMatchObject({ failed: [], passed: [], notes: [], highs: [] })
+})
+
+test('the pages a site offers: through the index of its sitemaps, or an older build\'s plain list', async () => {
+  const files: Record<string, string> = {
+    '/sitemap.xml': '<sitemapindex><sitemap><loc>https://aquatome.com/sitemap-fish.xml</loc></sitemap><sitemap><loc>https://aquatome.com/sitemap-other.xml</loc></sitemap></sitemapindex>',
+    '/sitemap-fish.xml': '<urlset><url><loc>https://aquatome.com/ca/x/</loc><lastmod>2026-11-01</lastmod></url></urlset>',
+    '/sitemap-other.xml': '<urlset><url><loc>https://aquatome.com/</loc></url></urlset>',
+  }
+  const get = (async (u: URL) => new Response(files[u.pathname])) as typeof fetch
+  expect(await sitemapPages('https://aquatome.com', get)).toEqual(['/ca/x/', '/'])
+  files['/sitemap.xml'] = '<urlset><url><loc>https://aquatome.com/old/</loc></url></urlset>'
+  expect(await sitemapPages('https://aquatome.com', get)).toEqual(['/old/'])
 })

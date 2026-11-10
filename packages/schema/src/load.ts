@@ -7,7 +7,7 @@ import { setsCookies } from './thumb'
 import { judgeQuality, speciesDepth } from './depth'
 import { isAllowedLicence } from './licence'
 import { isVietnamese, markVietnameseNames } from './text'
-import { BreedSchema, CaptionsSchema, OneVoiceSchema, PictureHashesSchema, ChangelogSchema, EquipmentSchema, GallerySchema, GlossarySchema, GuideSchema, MarketSchema, mayPublish, PlaceSchema, PlantSchema, ProductSchema, SeriesSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
+import { BreedSchema, CaptionsSchema, OneVoiceSchema, PageDatesSchema, PictureHashesSchema, ChangelogSchema, EquipmentSchema, GallerySchema, GlossarySchema, GuideSchema, MarketSchema, mayPublish, PlaceSchema, PlantSchema, ProductSchema, SeriesSchema, SourcesSchema, SpeciesSchema, TranslationSchema } from './schemas'
 import type { PictureHashes } from './pictures'
 import type { BreedEntity, ChangelogEntry, EquipmentGuide, GlossaryEntity, GuideEntity, Lang, Market, Photo, PlaceEntity, PlantEntity, ProductEntity, Section, Series, SourceId, SourceInfo, SpeciesEntity, Translation } from './types'
 
@@ -45,6 +45,8 @@ export type Content = {
   changelog: ChangelogEntry[]
   /** Each photo's image hash by its address (content/picture-hashes.json): a page never shows one picture twice (pictures.ts). */
   pictureHashes: PictureHashes
+  /** The day each content file last changed for a reader (content/page-dates.json): the sitemap's dates. */
+  pageDates: Record<string, string>
   /** The app's short cards (content/cards, cards.ts) in this language, those the gate holds back left out. No page of their own. */
   cards: Card[]
 }
@@ -217,5 +219,6 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     placeNames: Object.fromEntries(allPlaces.map(p => [p.id, p.t.name])),
     sources,
     pictureHashes: (await exists(join(root, 'picture-hashes.json'))) ? await readJson(join(root, 'picture-hashes.json'), PictureHashesSchema) : {},
+    pageDates: (await exists(join(root, 'page-dates.json'))) ? await readJson(join(root, 'page-dates.json'), PageDatesSchema) : {},
   }
 }
