@@ -393,6 +393,19 @@ private struct OwnerScreenName: ViewModifier {
   }
 }
 
+/// A chat under a page pushed over it, or on another tab, stays alive and its answer keeps coming: only the chat in front says so.
+private struct OwnerChatShown: ViewModifier {
+  let chat: OwnerShowing.Chat?
+  @State private var shown = false
+
+  func body(content: Content) -> some View {
+    content
+      .onChange(of: chat) { if shown { OwnerShowing.chat = chat } }
+      .onAppear { shown = true; OwnerShowing.chat = chat }
+      .onDisappear { shown = false; OwnerShowing.chat = nil }
+  }
+}
+
 extension View {
   /// A screen's name in a report while it's up: "chat", "tool fish-id", "sheet tank-form".
   func ownerScreen(_ name: String, path: String? = nil) -> some View { modifier(OwnerScreenName(name: name, path: path)) }
@@ -408,13 +421,8 @@ extension View {
       .onDisappear { OwnerShowing.v2Tab = nil }
   }
 
-  /// The chat's conversation and the answers on the screen, while it's up. Again on each appearing: `onChange` isn't, and
-  /// the chat comes back from a page pushed over it.
-  func ownerShowsChat(_ chat: OwnerShowing.Chat?) -> some View {
-    onChange(of: chat, initial: true) { OwnerShowing.chat = chat }
-      .onAppear { OwnerShowing.chat = chat }
-      .onDisappear { OwnerShowing.chat = nil }
-  }
+  /// The chat's conversation and the answers on the screen, while it's up.
+  func ownerShowsChat(_ chat: OwnerShowing.Chat?) -> some View { modifier(OwnerChatShown(chat: chat)) }
 }
 
 /// What's showing now, for a report: the app's start says its tab, the hooks above the rest of the way up to the screen in
