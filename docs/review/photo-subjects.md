@@ -1386,6 +1386,7 @@ Written by `pnpm engine check-photos` (2026-11-10), most-read pages first. Rules
 | species/kryptopterus-geminus | [photo](https://media.aquatome.com/scotcat/3cbef066491aa899.webp) | dead: dead specimen lying on board with ruler and #548 tag |
 | species/loricaria-simillima | [photo](https://media.aquatome.com/commons/5377260d03d03a66.webp) | dead: numbered collage of field-caught fish specimens, many held in hands or lying on trays |
 | species/loricaria-simillima | [photo](https://media.aquatome.com/commons/b6b8c344ec243ab0.webp) | dead: preserved dark armoured catfish (callichthyid-like) cut out on white background |
+| species/mastiglanis-asopos | [photo](https://media.aquatome.com/commons/35d7ceefb64645c3.webp) | dead: Mastiglanis asopos with long filament fin rays, apparently a collected specimen laid flat on black for a lab photo |
 | species/megalancistrus-parananus | [photo](https://media.aquatome.com/scotcat/b28e625d01d88835.webp) | dead: spotted pleco, likely L113, held up out of water in a hand |
 | species/moenkhausia-oligolepis | [photo](https://media.aquatome.com/commons/af7aea8d64bdff10.webp) | dead: preserved museum specimens with tag and ruler |
 | species/moenkhausia-oligolepis | [photo](https://media.aquatome.com/commons/b0f832d8dcd1777e.webp) | dead: preserved museum specimens with tag and ruler |
@@ -1393,6 +1394,7 @@ Written by `pnpm engine check-photos` (2026-11-10), most-read pages first. Rules
 | species/pterophyllum-altum | [photo](https://media.aquatome.com/inaturalist/137501252.webp) | likely common angelfish P. scalare: shorter body, no notch above snout, plastic plants |
 | species/sphaerichthys-osphromenoides | [photo](https://media.aquatome.com/seriouslyfish/a980e23f293549d8.webp) | forest swamp habitat landscape, no fish visible |
 | species/sphaerichthys-osphromenoides | [photo](https://media.aquatome.com/seriouslyfish/fd218fdc09252be4.webp) | shallow blackwater habitat with plants, no fish visible |
+| species/tetraodon-mbu | [photo](https://media.aquatome.com/commons/4e937a6562221908.webp) | dead: two dead mbu puffers lying on a black plastic sheet next to a scale bar |
 | species/trichogaster-chuna | [photo](https://media.aquatome.com/seriouslyfish/01d9c8c57cfdebbb.webp) | bubble nest under a plant leaf; no fish visible |
 | species/trichogaster-chuna | [photo](https://media.aquatome.com/seriouslyfish/a15a7b9ce03ec530.webp) | bubble nest at the water surface; no fish visible |
 | plants/ceratophyllum-demersum | [photo](https://media.aquatome.com/commons/6a89bc09c7a06612.webp) | people: close-up of hornwort with pink flower bud, fingertip in shot |
@@ -1583,7 +1585,6 @@ Written by `pnpm engine check-photos` (2026-11-10), most-read pages first. Rules
 | species/marisa-cornuarietis | [photo](https://media.aquatome.com/commons/8f6404154764c203.webp) | dead: empty museum shells with Naturalis labels, Panama |
 | species/marisa-cornuarietis | [photo](https://media.aquatome.com/commons/94d647683cabfcba.webp) | dead: empty Marisa shell, museum-style multi-view specimen on black background |
 | species/marisa-cornuarietis | [photo](https://media.aquatome.com/inaturalist/248981318.webp) | dead: apparently empty Marisa-like shell lying on dry grass, no body visible |
-| species/mastiglanis-asopos | [photo](https://media.aquatome.com/commons/35d7ceefb64645c3.webp) | dead: Mastiglanis asopos with long filament fin rays, apparently a collected specimen laid flat on black for a lab photo |
 | species/maylandia-callainos | [photo](https://media.aquatome.com/commons/afadd1f9d913779d.webp) | its Commons file names Sciaenochromis fryeri |
 | species/megalancistrus-barrae | [photo](https://media.aquatome.com/scotcat/11abb21c93fc318c.webp) | people: live black spiny pleco held out of water in gloved hands, other side |
 | species/megalancistrus-barrae | [photo](https://media.aquatome.com/scotcat/6c1a46461b198d92.webp) | people: live black spiny pleco held out of water in gloved hands, white background |
@@ -1668,7 +1669,8 @@ Written by `pnpm engine check-photos` (2026-11-10), most-read pages first. Rules
 | species/synodontis-angelicus | [photo](https://media.aquatome.com/commons/f04d1e24a2e68e4a.webp) | dead: mounted museum specimen on a stand in a display case, with a label |
 | species/synodontis-ocellifer | [photo](https://media.aquatome.com/commons/28c02716657cb202.webp) | line drawing of an ocellated Synodontis, side and head views |
 | species/tetraodon-lineatus | [photo](https://media.aquatome.com/commons/6a713c7355815279.webp) | old engraved colour plate of Tetrodon lineatus, inflated |
-| species/tetraodon-mbu | [photo](https://media.aquatome.com/commons/4e937a6562221908.webp) | dead: two dead mbu puffers lying on a black plastic sheet next to a scale bar |
+| species/tetraodon-pustulatus | [photo](https://media.aquatome.com/commons/c298eaec3843694a.webp) | its Commons file names Tetraodon lineatus |
+| species/tetraodon-pustulatus | [photo](https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/Tetraodon_lineatus_-_Fahaka_Puffer_%288767208722%29.jpg/1280px-Tetraodon_lineatus_-_Fahaka_Puffer_%288767208722%29.jpg) | its Commons file names Tetraodon lineatus |
 | species/trichogaster-fasciata | [photo](https://media.aquatome.com/commons/0ae1a3b0779c0630.webp) | dead: banded gourami catch held in palm, may not be alive |
 | species/trichogaster-fasciata | [photo](https://media.aquatome.com/commons/2c88ac55356184ce.webp) | engraved plate 'Colisa vulgaris' |
 | species/trichogaster-fasciata | [photo](https://media.aquatome.com/commons/c1a0a78c3a6b7718.webp) | old colour drawing of a gourami |
@@ -1883,8 +1885,6 @@ Written by `pnpm engine check-photos` (2026-11-10), most-read pages first. Rules
 | species/silurichthys-hasseltii | [photo](https://media.aquatome.com/inaturalist/172962119.webp) | people: live leaf catfish with long barbels in a small photo container, front half only; looks like a hand holding the container |
 | species/sulcospira-testudinaria | [photo](https://media.aquatome.com/commons/ab7ef29218707e20.webp) | dead: single empty museum shell with Naturalis labels |
 | species/sulcospira-testudinaria | [photo](https://media.aquatome.com/commons/e1c1490121b0a7d3.webp) | dead: museum shells with Naturalis labels and a vial |
-| species/tetraodon-pustulatus | [photo](https://media.aquatome.com/commons/c298eaec3843694a.webp) | its Commons file names Tetraodon lineatus |
-| species/tetraodon-pustulatus | [photo](https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/Tetraodon_lineatus_-_Fahaka_Puffer_%288767208722%29.jpg/1280px-Tetraodon_lineatus_-_Fahaka_Puffer_%288767208722%29.jpg) | its Commons file names Tetraodon lineatus |
 | species/thayeria-ifati | [photo](https://media.aquatome.com/commons/015f996d8393188a.webp) | dead: preserved museum specimen with scale ruler and catalogue label |
 | species/tinca-tinca | [photo](https://media.aquatome.com/commons/04744fab0c981d6d.webp) | dead: mounted taxidermy tench on wood plaque with label 'lín obecný (Tinca tinca)' |
 | species/trigonopoma-gracile | [photo](https://media.aquatome.com/commons/a26b8b7eacced282.webp) | its Commons file names Rasbora einthovenii |
