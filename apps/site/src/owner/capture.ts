@@ -105,34 +105,53 @@ function markLines(): () => void {
   const lines = new Map<HTMLElement, Record<number, number[]>>()
   const blockOf = (e: HTMLElement): HTMLElement => (e.parentElement && getComputedStyle(e).display === 'inline' ? blockOf(e.parentElement) : e)
   const range = document.createRange()
-  const texts = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT)
-  let last: { block: HTMLElement; line: DOMRect } | undefined
-  for (let n = texts.nextNode() as Text | null; n; n = texts.nextNode() as Text | null) {
+  const wraps = new Set<HTMLElement>()
+  const flow = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT | NodeFilter.SHOW_ELEMENT)
+  // The line each block has reached. A <br> ends it, since what follows has its break already.
+  const line = new Map<HTMLElement, DOMRect>()
+  const below = (r: DOMRect, block: HTMLElement) => {
+    const was = line.get(block)
+    return !!was && r.top > was.top + was.height / 2
+  }
+  for (let n = flow.nextNode(); n; n = flow.nextNode()) {
     const parent = n.parentElement
-    if (!parent || !n.data.trim() || !onScreen(parent) || getComputedStyle(parent).whiteSpace !== 'normal') continue
+    if (!parent) continue
     const block = blockOf(parent)
+    if (n instanceof HTMLBRElement) line.delete(block)
+    if (n instanceof Element) {
+      // A box that sits in a line of text and can't be split. One that opens a line got there by wrapping, and only wrapping
+      // puts it there in the drawing.
+      if (!onScreen(n)) continue
+      const css = getComputedStyle(n)
+      if (!n.matches('img, svg') && !css.display.startsWith('inline-') && (css.display !== 'inline' || css.whiteSpace === 'normal')) continue
+      const box = n.getBoundingClientRect()
+      if (below(box, block)) wraps.add(block)
+      line.set(block, box)
+      continue
+    }
+    const text = n as Text
+    if (!text.data.trim() || !onScreen(parent) || getComputedStyle(parent).whiteSpace !== 'normal') continue
     const breaks: number[] = []
-    for (const word of n.data.matchAll(/\S+/g)) {
-      range.setStart(n, word.index)
-      range.setEnd(n, word.index + word[0].length)
+    for (const word of text.data.matchAll(/\S+/g)) {
+      range.setStart(text, word.index)
+      range.setEnd(text, word.index + word[0].length)
       const rects = range.getClientRects()
       const first = rects[0], end = rects[rects.length - 1]
       if (!first || !end) continue
       // A word too long for its line, broken inside: left to wrap.
       if (end.top > first.top + first.height / 2) parent.dataset.captureWraps = ''
-      const below = last?.block === block && first.top > last.line.top + last.line.height / 2
-      // A line the page itself ends with a <br> has one already.
-      if (below && !(word.index === n.data.search(/\S/) && n.previousSibling instanceof HTMLBRElement)) breaks.push(word.index)
-      last = { block, line: end }
+      if (below(first, block)) breaks.push(word.index)
+      line.set(block, end)
     }
     const own = lines.get(parent) ?? {}
-    own[[...parent.childNodes].filter(c => c.nodeType === Node.TEXT_NODE).indexOf(n)] = breaks
+    own[[...parent.childNodes].filter(c => c.nodeType === Node.TEXT_NODE).indexOf(text)] = breaks
     lines.set(parent, own)
     // What it stands in: the spaces between one inline and the next can break a line too.
     if (!lines.has(block)) lines.set(block, {})
   }
   for (const [e, own] of lines) {
     e.dataset.captureLines = JSON.stringify(own)
+    if (wraps.has(e)) e.dataset.captureWraps = ''
     marked.push(e)
   }
   for (const e of document.querySelectorAll<HTMLElement>('body *')) {

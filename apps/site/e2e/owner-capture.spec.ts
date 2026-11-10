@@ -139,6 +139,32 @@ test('a row scrolled sideways is drawn where it\'s scrolled to', async ({ page }
 })
 
 // The owner's Heckel page, 10 Nov: labels broke onto a second line in their chips, and a shop fell out of its row.
+test('the drawing keeps a line break and a wrapped box where the page has them', async ({ page }) => {
+  await widerInTheDrawing(page)
+  await page.goto('/ca/ca-neon-vua/')
+  const boxes = await page.evaluate(() => {
+    const panel = document.createElement('div')
+    panel.style.cssText = 'position:fixed;inset:0;z-index:99999;pointer-events:none;background:#fff;color:#000;font:16px/24px sans-serif'
+    panel.innerHTML = `
+      <p id="after-br" style="position:absolute;left:10px;top:10px;margin:0;width:150px">Một<br><strong>Hai</strong></p>
+      <p id="after-box" style="position:absolute;left:10px;top:90px;margin:0;width:150px">Từ <span style="display:inline-block;width:120px">Giá</span> rồi thêm một</p>
+      <p id="opens-line" style="position:absolute;left:10px;top:170px;margin:0;width:150px">Một hai ba bốn <span style="display:inline-block;width:100px">Năm</span></p>
+      <p id="no-wrap" style="position:absolute;left:10px;top:250px;margin:0;width:150px">Một hai ba bốn <span style="white-space:nowrap">Năm sáu</span> bảy</p>`
+    document.body.append(panel)
+    return ['after-br', 'after-box', 'opens-line', 'no-wrap'].map(id => {
+      const r = document.getElementById(id)!.getBoundingClientRect()
+      return { id, x: r.x, y: r.y, width: r.width, height: r.height }
+    })
+  })
+  await send(page)
+  for (const { id, ...box } of boxes) {
+    expect(box.height, `${id} is two lines on the page`).toBe(48)
+    expect(await inkHeight(page, { ...box, height: 72 }), `${id}: two lines in the drawing, no more`).toBeGreaterThan(30)
+    expect(await inkHeight(page, { ...box, height: 72 }), `${id}: two lines in the drawing, no more`).toBeLessThan(48)
+    expect(await inkHeight(page, { x: box.x + box.width + 8, y: box.y, width: 150, height: 48 }), `${id}: nothing runs out of its box`).toBe(0)
+  }
+})
+
 test('a chip and the shop picker keep their lines when the text measures wider in the drawing', async ({ page }) => {
   await widerInTheDrawing(page)
   await page.goto('/ca/ca-neon-vua/')
