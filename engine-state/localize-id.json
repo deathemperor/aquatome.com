@@ -8747,6 +8747,293 @@
       "Item 2: \"lele berlapis baja\" is a literal rendering. Hobbyists say \"corydoras\" or \"lele berlapis (armoured catfish)\"."
     ]
   },
+  "corydoras-atropersonatus": {
+    "at": "2026-11-10",
+    "from": "2026-11-02",
+    "name": "Corydoras atropersonatus",
+    "confidence": "medium",
+    "score": 0.8,
+    "notes": [
+      "#2: \"lebih sering lagi dengan C097\" changes meaning; \"more closely\" means it is more closely confused or resembles, not more often. Use \"dan lebih mirip lagi dengan C097\".",
+      "#14: \"alder cone\" is left in English without explanation; use \"kerucut alder (alder cone)\".",
+      "#7: \"kayu\" for driftwood is vague; use \"kayu apung/driftwood\" or \"kayu rambat\".",
+      "#9, #14: \"Tubifex\" is translated as \"cacing sutra\", while #8 handles it differently; keep the terms consistent across entries.",
+      "#14: \"peternak\" for breeders is slightly off; \"pembiak\" or \"penangkar\" is more natural."
+    ]
+  },
+  "corydoras-aurofrenatus": {
+    "at": "2026-11-10",
+    "from": "2026-11-06",
+    "name": "Corydoras aurofrenatus",
+    "confidence": "medium",
+    "score": 0.8,
+    "notes": [
+      "Item 7: \"sisik lateral (scute)\" – scutes are bony plates, not scales; use \"lempeng tulang lateral (scute)\".",
+      "Item 7: \"kelenjar aksila\" is awkward for axillary glands in fish; consider \"kelenjar aksilar\".",
+      "Item 6: \"sedang mengandung telur\" for \"gravid\" is slightly informal; \"sedang bertelur/penuh telur\" reads more naturally.",
+      "Item 1/5/7: \"lele berlapis baja\" is an unusual term; consider \"lele berzirah\" consistently or keep \"armoured catfish\" in brackets.",
+      "Item 5: \"jangan mengandalkan\" is repeated twice in one sentence; rephrase to avoid the repetition.",
+      "Item 2: the type locality 'Aguada near Arroyo Trementina' is left in English, which is acceptable as a proper name, but \"Rio Aquido Canigi\" may need a note that it refers to the Aquidabán."
+    ]
+  },
+  "corydoras-axelrodi": {
+    "at": "2026-11-10",
+    "from": "2026-11-03",
+    "name": "Corydoras axelrodi",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "Item 2: \"Sungai Meta mengalir melintasi Kolombia, menjadi perbatasan dengan Venezuela\" is fine, but \"daerah aliran sungai tersebut\" is OK. Consider making \"bukti yang mengarah bahwa\" more natural: \"bukti yang menunjukkan bahwa\".",
+      "Item 8: \"peternak\" is better rendered as \"pembiak\" or \"breeder\"; \"burayak\" is correct but \"anakan/benih\" is more common among Indonesian hobbyists.",
+      "Item 9: \"Rio Meta\" vs \"Río Meta\" is kept from the English source, so it is fine. \"C3\" in the source stays unchanged.",
+      "Item 1: \"lele berlapis baja\" is a literal rendering; hobbyists often say \"lele lapis baja\" or just \"corydoras\"; minor.",
+      "Item 10: \"nama karangan\" for \"fabricated names\" is awkward; use \"nama rekaan\" or \"nama yang dibuat-buat\"."
+    ]
+  },
+  "corydoras-boesemani": {
+    "at": "2026-11-10",
+    "from": "2026-11-08",
+    "name": "Corydoras boesemani",
+    "confidence": "medium",
+    "score": 0.88,
+    "notes": [
+      "Item 1: \"Boeseman's catfish\" left in English; add a local name or keep it as a trade name in brackets, e.g. \"lele Boeseman\".",
+      "Item 1/10: \"dikoleksi dari alam\" adds \"dari alam\" (from the wild), which the English does not say; use \"dikoleksi\" only.",
+      "Item 10: \"dunia ikan hias\" is acceptable, but \"hobi akuarium\" would be closer to the original.",
+      "Item 10: \"kelenjar aksila\" is too technical; consider \"kelenjar aksilar (axillary gland)\" or a short explanation.",
+      "Item 10: \"berzirah\" is an unusual word; \"berlapis baja\" alone is enough, or use \"lele lapis baja\" consistently.",
+      "Item 10: \"Jadi berhati-hatilah\" starts a sentence a bit informally; use \"Karena itu, berhati-hatilah saat menanganinya\"."
+    ]
+  },
+  "corydoras-bondi": {
+    "at": "2026-11-10",
+    "from": "2026-11-08",
+    "name": "Corydoras bondi",
+    "confidence": "medium",
+    "score": 0.8,
+    "notes": [
+      "Item 2: \"Río Yuruari, anak sungai Río Cuyuni\" — mixed \"Sungai\"/\"Río\" naming; use consistent \"Sungai Yuruari\" and \"Sungai Cuyuni\".",
+      "Item 2: \"affluent\" and \"tributaries\" both rendered \"anak sungai\"; acceptable but repetitive.",
+      "Item 8: \"kerabat segenus\" for \"congeners\" is fine, but \"jari-jari pertama sirip punggung\" in item 1 vs \"beberapa jari-jari pertama\" in item 8 is inconsistent with \"first dorsal-fin rays\"; harmonize wording.",
+      "Item 8: \"berzirah\" for 'mailed' is unnatural; consider \"bersisik keras/berlapis baja\" only, or drop it.",
+      "Item 8: \"kelenjar aksila\" (axillary glands) is stilted; consider \"kelenjar aksilar\" or \"kelenjar di pangkal sirip dada\".",
+      "Item 6: \"minimal 4–6 ekor\" is slightly awkward; better \"setidaknya 4–6 ekor\"."
+    ]
+  },
+  "corydoras-brevirostris": {
+    "at": "2026-11-10",
+    "from": "2026-11-08",
+    "name": "Corydoras brevirostris",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "Item 1/8: \"dark bars in the caudal fin\" translated as \"garis-garis gelap\"; \"bars\" is better rendered as \"pita/balok gelap\" or \"garis vertikal gelap\" (minor).",
+      "Item 8: \"sinonim dari H. brevirostre\" is fine, but \"Spotted cory\" in item 1 could use a hobby term such as \"lele kaca/korido bintik\"; consider italicising or keeping the English name in brackets.",
+      "Item 8: \"kelenjar aksila\" is a stiff term for axillary glands; consider \"kelenjar di pangkal sirip dada (kelenjar aksilar)\".",
+      "Item 5: \"cacing sutra\" for Tubifex is fine, but \"pakan\" repeated; \"cacing darah\" is OK (minor)."
+    ]
+  },
+  "corydoras-britskii": {
+    "at": "2026-11-10",
+    "from": "2026-11-04",
+    "name": "Corydoras britskii",
+    "confidence": "medium",
+    "score": 0.6,
+    "notes": [
+      "Item 7: '243 litres' for 120 × 45 cm base is unchanged from the source, so check; the figure is not a conversion error, but keep it consistent.",
+      "Item 17: the Vietnamese common names '(cá da trơn Britski)' and '(cá chuột ngọc lục bảo Mato Grosso)' were dropped; this is fine, but the English names 'Britski's catfish' and 'Mato-Grosso Emerald catfish' are left with no Indonesian equivalent. Add e.g. 'lele Britski' / 'lele zamrud Mato Grosso' in brackets.",
+      "Item 2/6: 'danau tapal kuda' for oxbow and 'genangan di tepi sungai' for backwaters are okay, but 'danau di tepi sungai' for marginal lakes is clumsy and nearly duplicates 'tepi sungai'; use 'danau tepian' or 'lagoa tepi'.",
+      "Item 5: the type locality is left in English, then 'Mato Grosso State, Brazil' is repeated in brackets. Keep the original name and drop the redundant bracket, or translate it consistently.",
+      "Item 2: 'lele berlapis baja' for armoured catfish is acceptable, but 'lele lapis baja' or 'lele berzirah' should be used consistently (item 18 uses both 'berlapis baja' and 'berzirah').",
+      "Item 11: 'cacing sutra' for Tubifex is fine; 'cacing darah' for bloodworm is fine. However 'Corydoras spp. adalah omnivora yang mencari makan di dasar' adds 'di dasar' (at the bottom), which the English 'foraging' does not say; remove it.",
+      "Item 7: the 120 × 45 cm base gives about 243 litres only at a depth of 45 cm, as in the source; fine.",
+      "Item 18: 'Ikan ini adalah penghirup udara fakultatif' is stiff; use 'Ikan ini mampu bernapas udara secara fakultatif'."
+    ]
+  },
+  "corydoras-burgessi": {
+    "at": "2026-11-10",
+    "from": "2026-11-04",
+    "name": "Corydoras burgessi",
+    "confidence": "medium",
+    "score": 0.8,
+    "notes": [
+      "Item 4: type locality 'Rio Unini, tributary of Rio Negro, Amazonas, Brazil' left in English; acceptable as a quote but consider 'anak sungai Rio Negro' for readability.",
+      "Item 14: 'bernapas dengan udara bila diperlukan (fakultatif)' is awkward; use 'pernapasan udara fakultatif' or 'bisa bernapas langsung dari udara'.",
+      "Item 14: 'detail kamuflase atau detail yang memecah bentuk tubuh' is clumsy for 'cryptic or otherwise disruptive details'; simplify.",
+      "Item 13: 'peternak' for 'breeders' is fine but 'pembiak' or 'breeder' is more common among hobbyists; 'alder cone' and 'microworm' left in English without gloss.",
+      "Item 7: 'akuarium dengan alas berukuran 80 × 30 cm' is slightly stiff; 'alas akuarium minimal 80 × 30 cm' is more natural.",
+      "Item 8: 'filter spons bertenaga aerator' is acceptable, but 'arus air yang tidak terlalu kuat masih bisa diterima' slightly changes 'a degree of water movement is acceptable'."
+    ]
+  },
+  "corydoras-carlae": {
+    "at": "2026-11-10",
+    "from": "2026-11-08",
+    "name": "Corydoras carlae",
+    "confidence": "medium",
+    "score": 0.8,
+    "notes": [
+      "Item 1: \"Size: 42 mm SL\" omits the English \"(1.7\")\" but that is a fine imperial removal; no fix needed on that.",
+      "Item 10: \"Mau menerima semua pakan buatan\" is awkward; use \"Dengan mudah menerima\" or \"Mudah menerima\" instead of \"Mau menerima\".",
+      "Item 10: \"diterima dengan lahap dan baik untuk mengondisikan\" is awkward; rephrase as \"diterima dengan lahap dan bagus untuk mengondisikan induk\".",
+      "Item 9: \"kayu bogwood\" mixes terms; use \"kayu bogwood\" or \"kayu apung (driftwood)\" consistently. \"mengais-ngais\" is informal; prefer \"menggali\" for dig.",
+      "Item 6: \"siklus nitrogennya belum matang\" is acceptable but \"biologically immature\" is better as \"belum matang secara biologis (belum cycling)\".",
+      "Item 5: \"loricariid\" left untranslated; consider \"lele Loricariidae (sapu-sapu)\".",
+      "Item 12: \"hidup bergerombol\" is fine, but \"shoaling\" could be kept as \"berkelompok\"; minor."
+    ]
+  },
+  "corydoras-caudimaculatus": {
+    "at": "2026-11-10",
+    "from": "2026-11-02",
+    "name": "Corydoras caudimaculatus",
+    "confidence": "medium",
+    "score": 0.7,
+    "notes": [
+      "#10: \"karena ikan ini sangat menggores tenggorokan\" is awkward and unclear; use e.g. \"karena duri-durinya sangat melukai/menggores tenggorokan pemangsa\".",
+      "#14: \"Sebagian besar pembiak\" - \"pembiak\" is non-standard; use \"peternak\" or \"pembudidaya\".",
+      "#14: \"spawning mop\" and \"microworm\" are left in English; consider \"spawning mop (kain/benang pemijahan)\" and \"cacing mikro\".",
+      "#2/#15: \"aksila\" for axillary glands is stiff; use \"kelenjar aksilar\" or explain in simple terms.",
+      "#12: \"betina yang sudah matang seksual\" - the English says \"individuals\" (sexually mature fish) are rounder than males; the Indonesian narrows it to females, which is a slight change. Use \"individu dewasa\" or \"ikan yang matang kelamin\".",
+      "#1: \"bertotol ekor\" is OK, but \"tidak berkerabat dekat\" is fine; \"batang ekor (pangkal ekor)\" in #2 is fine. #15: \"lele\" for Callichthyidae is OK, but the 'mailed' alternative is dropped (\"armoured\" or \"mailed\" -> only 'lapis baja').",
+      "#5: \"Lokasi tipe\" is stiff; use \"Lokalitas tipe\"."
+    ]
+  },
+  "corydoras-cochui": {
+    "at": "2026-11-10",
+    "from": "2026-11-06",
+    "name": "Corydoras cochui",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "\"lele berlapis baja\": common hobby term is \"lele lapis baja\" or keep \"armoured catfish\"; minor.",
+      "\"cacing sutra\" for Tubifex is fine, but \"cacing darah\" is usually \"jentik beku/cacing darah\" - minor.",
+      "\"kelenjar aksila\" is a rare term; consider \"kelenjar aksilar (axillary gland)\".",
+      "\"berzirah\" is slightly unnatural; use \"bersisik lempeng\" or keep with English in brackets.",
+      "\"Barredtail cory\" left untranslated as a common name; acceptable but could add \"(cory ekor bergaris)\" if a local name exists."
+    ]
+  },
+  "corydoras-concolor": {
+    "at": "2026-11-10",
+    "from": "2026-11-08",
+    "name": "Corydoras concolor",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "\"ikan lele berzirah\": 'zirah' is odd; the common hobby term is 'lele lapis baja' or 'lele berpelat/berbaju zirah' — consider \"lele berlapis baja\".",
+      "\"saat sedang bertelur\" for 'gravid': gravid means carrying eggs, not laying; use \"saat sedang membawa telur / bunting telur\".",
+      "\"satu-dua buah alder (alder cone)\": 'alder cone' should be translated as \"kerucut/runjung alder\", not just \"buah alder\".",
+      "\"Slate cory\" and \"kerabat satu genusnya\" are acceptable, but \"kerabat satu genus\" would read more naturally than \"kerabat satu genusnya\".",
+      "\"Tubifex\" rendered as \"cacing sutra\": fine, but 'foraging omnivores' as \"mencari makan di dasar\" adds 'di dasar' (bottom), which is not in the source."
+    ]
+  },
+  "corydoras-condiscipulus": {
+    "at": "2026-11-10",
+    "from": "2026-11-06",
+    "name": "Corydoras condiscipulus",
+    "confidence": "medium",
+    "score": 0.75,
+    "notes": [
+      "Item 10: 'loop' was translated as 'simpul' atau 'jerat' — 'jerat' (snare) is an added meaning; use 'lingkaran'/'lengkung' or just 'simpul'.",
+      "Item 7: 'Tubifex' translated as 'cacing sutra' is fine, but 'pakan yang tenggelam' is slightly awkward; 'pakan kering tenggelam' is more natural.",
+      "Item 9: 'sedang bertelur' for 'gravid' is slightly imprecise; use 'sedang membawa telur / bunting telur'.",
+      "Item 10: 'SL' left abbreviated after 'panjang standar' was spelled out earlier; use 'panjang standar' consistently.",
+      "Item 1/10: 'lele berlapis baja' is a literal rendering; hobbyists commonly say 'corydoras' or 'lele lapis baja'. Add a note of the common name."
+    ]
+  },
+  "corydoras-copei": {
+    "at": "2026-11-10",
+    "from": "2026-11-08",
+    "name": "Corydoras copei",
+    "confidence": "medium",
+    "score": 0.88,
+    "notes": [
+      "In #2, the English type-locality quote is left in English, though a gloss is given in brackets; the gloss drops 'Peru' and the coordinates. Add 'Peru' to the gloss, or translate the whole locality.",
+      "In #2, 'Lago Rimachi' is rendered 'Danau Rimachi'; this is fine, but 'anak sungai di tepi kanannya' is slightly awkward. Consider 'anak sungai tepi kanan'.",
+      "In #9, 'peternak' (breeders) is better as 'pembiak' or 'penangkar'. 'Burayak' is acceptable, but 'benih' or 'anakan' is more common among hobbyists.",
+      "In #10, 'berzirah' is an odd term for 'mailed'. Consider 'bersisik lempeng' or drop it. 'kelenjar aksila' is stiff; 'kelenjar aksiler' is the more usual form.",
+      "In #1, 'kerabat satu genusnya' for 'congeners' is wordy. Consider 'spesies sekerabat dalam genus yang sama'."
+    ]
+  },
+  "corydoras-crimmeni": {
+    "at": "2026-11-10",
+    "from": "2026-11-03",
+    "name": "Corydoras crimmeni",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"Sungai Rio Negro\" is redundant, since \"rio\" already means river in Portuguese. Use \"daerah aliran Rio Negro\" or \"Sungai Negro\"; this is minor.",
+      "\"cahaya datang dari arah depan ikan\" is a bit stiff. \"cahaya menyinari ikan dari depan\" would read more naturally; this is minor."
+    ]
+  },
+  "corydoras-cruziensis": {
+    "at": "2026-11-10",
+    "from": "2026-11-08",
+    "name": "Corydoras cruziensis",
+    "confidence": "low",
+    "score": 0.85,
+    "notes": [
+      "Item 6: \"Jangan sekali-kali mengandalkan ikan ini bertahan hidup ... atau mengandalkannya\" repeats \"mengandalkan\"; better \"Ikan ini tidak boleh dibiarkan bertahan hidup dari 'sisa' pakan ... atau diandalkan untuk 'membersihkan' akuarium\".",
+      "Items 1/9: \"lele berlapis baja\" is a literal rendering of \"armoured catfish\"; hobbyists commonly say \"lele lapis baja\" or just \"Corydoras\". \"berzirah\" for 'mailed' is rare; consider \"berlapis zirah\".",
+      "Item 1/2: \"daerah aliran\" for \"basin\" and \"drainages\" is acceptable, but \"cacing sutra\" for Tubifex is fine; \"garis di tengah sisi tubuh\" for \"midlateral stripe\" is slightly clumsy; consider \"garis horizontal di sisi tengah tubuh\"."
+    ]
+  },
+  "corydoras-davidsandsi": {
+    "at": "2026-11-10",
+    "from": "2026-11-08",
+    "name": "Corydoras davidsandsi",
+    "confidence": "medium",
+    "score": 0.72,
+    "notes": [
+      "Item 1: \"Bersama H. melini, garis tersebut terbelah dua\" reads as if the bar splits together with H. melini; rephrase: \"Seperti H. melini, garis tersebut terbelah dua di atas pangkal ekor\" (shared feature).",
+      "Item 1: \"Sand's cory (cory davidsandsi)\" adds a redundant invented common name; also \"adalah corydoras, ikan lele berbaju zirah\" is awkward; use \"sejenis ikan lele berbaju zirah\".",
+      "Item 2: \"endemik di sistem anak sungai tersebut, yang terletak di hilir Rio Negro\" is acceptable but \"lower rio Negro\" should be \"bagian hilir DAS Rio Negro\" to stay consistent with item 1.",
+      "Item 3: \"yang dimaksud pihak yang mendeskripsikan spesies ini\" is wordy; \"the author\" can be rendered more neutrally as \"deskripsi aslinya\".",
+      "Item 3: \"kesadahan nyaris tak terdeteksi, konduktivitas rendah\" breaks the parallel with \"warna gelap oleh senyawa organik\"; the original refers to organic chemicals making water stained, phrasing is slightly awkward.",
+      "Item 9: \"betina yang sudah matang kelamin ... dibanding jantan\" changes the meaning slightly: the English says sexually mature individuals (females) are rounder than males; acceptable but \"betina\" repeated; low priority.",
+      "Item 10: \"burayak\" is correct but \"Burayak tampaknya lebih jarang terserang penyakit\" - the English \"They\" likely refers to the fish generally (not only fry); the translation narrows the meaning to fry only; use \"Ikan ini\".",
+      "Item 10: \"pembiak\" is non-standard; use \"peternak/pembudidaya\"; \"microworm\" and \"alder cone\" are left in English without glosses, e.g. \"cacing mikro\", \"buah alder\"."
+    ]
+  },
+  "corydoras-delphax": {
+    "at": "2026-11-10",
+    "from": "2026-11-06",
+    "name": "Corydoras delphax",
+    "confidence": "medium",
+    "score": 0.8,
+    "notes": [
+      "Item 3: \"Ukuran alas minimal 90 × 30 cm disarankan\" is awkward passive word order; use \"Disarankan ukuran alas minimal 90 × 30 cm\".",
+      "Item 1/10: \"lele berlapis baja (armoured catfish)\" and \"kelompok lele 'berlapis baja' atau 'berzirah'\" are literal; \"lele berperisai\" or \"lele lapis baja\" is more common, though the meaning is intact.",
+      "Item 9: \"burayak\" is a less common word among hobbyists; \"larva\" or \"anakan\" is more natural. Also \"Burayaknya tidak termasuk yang paling mudah dibesarkan\" is awkward, since the English subject is the fish/species; use \"Ikan ini tidak termasuk yang paling mudah dibesarkan\".",
+      "Item 9: \"naupli artemia\" and \"microworm\" are mixed; use consistent forms such as \"nauplii Artemia\" and \"cacing mikro\".",
+      "Item 10: \"kelenjar aksila\" is a stiff term; \"kelenjar aksilar\" or a short explanation would be better. \"Mereka adalah pernapas udara fakultatif\" is stiff; \"Ikan ini dapat bernapas udara secara fakultatif\" is more natural.",
+      "Item 5: Using a space in \"22–27 °C\" is fine, but the decimal commas \"5,5–7,5\" are correct Indonesian, so no change is needed here."
+    ]
+  },
+  "corydoras-desana": {
+    "at": "2026-11-10",
+    "from": "2026-10-30",
+    "name": "Corydoras desana",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "Item 4: \"Mau menerima semua pakan buatan\" is awkward for a fish; use \"Mudah menerima semua pakan buatan yang tenggelam ke dasar akuarium\".",
+      "Item 3: \"kayu rendam\" for \"bogwood\" is non-standard; use \"kayu bogwood/driftwood\" or \"kayu apung\" consistently with the earlier \"kayu (driftwood)\".",
+      "Item 3: \"sungut ikan rusak saat ikan mengais dasar\" is slightly clumsy; \"merusak sungut ikan saat ikan menggali/mengais substrat\" is more natural.",
+      "Item 1: \"Data Deficient (kurang data; ...)\" is fine, but \"armour\" bracket could be dropped; \"lempeng pelindung\" is slightly unusual, \"lempeng tulang/sisik keras\" is more common.",
+      "Item 5: \"shoaling\" translated as \"suka hidup bergerombol\" is fine, but \"ikan komunitas\" is acceptable; no real issue.",
+      "Item 7: \"Unreported\" and \"no breeding report\" repeated; acceptable but could use \"Belum ada laporan\"."
+    ]
+  },
+  "corydoras-diphyes": {
+    "at": "2026-11-10",
+    "from": "2026-11-03",
+    "name": "Corydoras diphyes",
+    "confidence": "medium",
+    "score": 0.9,
+    "notes": [
+      "\"hanya tersedia sesekali\" is slightly stiff; \"hanya sesekali tersedia\" or \"jarang tersedia\" reads more naturally.",
+      "\"Padahal, spesies tersebut berasal dari negara bagian Sao Paulo\" adds a contrastive tone not in the source; \"namun spesies tersebut berasal dari...\" is closer to \"however\"."
+    ]
+  },
   "corydoras-paleatus": {
     "at": "2026-11-02",
     "from": "2026-11-02",

@@ -335,6 +335,43 @@
       "#4 \"agak aman berbanding pemangsa lain\": adds \"lain\" comparison wording; \"pemangsa yang agak aman\" is more natural. \"aman\" is better as \"tidak agresif/damai\"; \"secara berkumpulan\" could be \"dalam kumpulan\"."
     ]
   },
+  "acestrorhynchus-pantaneiro": {
+    "at": "2026-11-10",
+    "from": "2026-11-03",
+    "name": "Pantanal Barracuda Tetra",
+    "confidence": "low",
+    "score": 0.7,
+    "notes": [
+      "Item 7: 'Isi padu: ~2025 liter' – a conversion error; 2025 L is a gross figure. It should be rounded sensibly, e.g. '~2000 liter'. The source's ~535 US gal is also dropped, which is fine.",
+      "Item 8: 'tangki yang kitaran nitrogennya belum matang' – 'biologically immature' is rendered too specifically. Use 'tangki yang belum matang secara biologi' or 'belum cycle'.",
+      "Item 10: 'Seperti kebanyakan besar ikan pemangsa' – ungrammatical. Change to 'Seperti sebahagian besar/kebanyakan ikan pemangsa'.",
+      "Item 3: 'Sebagai ahli kumpulan A. lacustris yang mempunyai tompok humeral berbentuk bulat' – awkward; 'tompok humeral' could be explained as 'tompok di belakang penutup insang'.",
+      "Item 6: 'kawasan yang dinaiki air banjir' – unnatural; use 'kawasan yang dilimpahi banjir' or 'kawasan banjir'.",
+      "Item 14: 'bersaudara dengan yang lain' – ('sister to the rest') is unclear; use 'kumpulan saudara kepada spesies selebihnya'.",
+      "Item 4: 'masing-masing di Paraguay, Uruguay, Argentina dan Bolivia' – the order does not match the rivers listed, since Paraná, Uruguay, de la Plata and Mamoré are four rivers to four countries; check the pairing.",
+      "Item 1/9: 'tangki yang sudah lama stabil' – 'well-established' is better as 'tangki yang sudah matang'. Also 'Kekerasan air (GH)' adds GH to a dGH value; 'Kekerasan' is enough."
+    ]
+  },
+  "acheilognathus-macropterus": {
+    "at": "2026-11-10",
+    "from": "2026-10-29",
+    "name": "Giant Chinese Bitterling",
+    "confidence": "low",
+    "score": 0.95,
+    "notes": []
+  },
+  "acheilognathus-tonkinensis": {
+    "at": "2026-11-10",
+    "from": "2026-10-29",
+    "name": "Rainbow bitterling",
+    "confidence": "low",
+    "score": 0.75,
+    "notes": [
+      "#6: \"iaitu ikan cyprinid keperakan yang biasa-biasa sahaja\" is an added explanation not in the English; remove it or keep only \"whitefish\" in brackets.",
+      "#3: \"Pemeliharaan haiwan subtropika ini tidak menimbulkan sebarang masalah\" is acceptable, but \"Oleh itu\" adds a causal link the source does not state clearly. Consider \"Ini menjadikan ikan ini jimat tenaga dan mesra alam\".",
+      "#1: \"Rainbow bitterling\" is left in English as the common name. Consider adding a Malay form such as \"Bitterling pelangi\"."
+    ]
+  },
   "ancistrus-dolichopterus": {
     "at": "2026-11-06",
     "from": "2026-11-04",
@@ -761,12 +798,15 @@
     ]
   },
   "macropodus-opercularis": {
-    "at": "2026-11-07",
-    "from": "2026-10-30",
-    "name": "Ikan paradise",
+    "at": "2026-11-10",
+    "from": "2026-11-09",
+    "name": "Paradise fish",
     "confidence": "medium",
-    "score": 0.95,
-    "notes": []
+    "score": 0.88,
+    "notes": [
+      "#21: \"milt\" is left in English; use \"air mani\" or \"sperma\", or put \"milt\" in brackets after the Malay term.",
+      "#26: \"siripnya jauh lebih panjang\" for \"much larger fins\" narrows the meaning; \"jauh lebih besar\" or \"lebih besar dan panjang\" is closer."
+    ]
   },
   "mikrogeophagus-ramirezi": {
     "at": "2026-11-10",
@@ -1058,17 +1098,21 @@
     ]
   },
   "rocio-octofasciata": {
-    "at": "2026-11-07",
-    "from": "2026-10-30",
+    "at": "2026-11-10",
+    "from": "2026-11-09",
     "name": "Jack Dempsey",
     "confidence": "high",
-    "score": 0.85,
+    "score": 0.7,
     "notes": [
-      "Item 10: \"sisik dari vent hingga sisik interpelvis\" leaves English \"vent\" in place. Use \"dubur\" or \"lubang dubur\".",
-      "Item 10: \"gill-raker\" (twice) is left in English. Use \"sikat insang\" or \"gill raker (sikat insang)\".",
-      "Item 10: \"baris sisik pipi bermod 6 (4-7)\" is stiff and hard to read. Use \"biasanya 6 (4-7)\" for \"modally 6\".",
-      "Item 2: \"menganjur ke selatan\" is a bit unnatural. \"merentang ke selatan\" is more natural.",
-      "Item 2: \"jabatan Cortés dan Yoro\" for Honduran departments. \"jabatan\" is acceptable, but \"wilayah/jabatan (department)\" would be clearer."
+      "Item 7: 'jentik-jentik' for 'mosquito larvae' is fine, but 'prawn/shrimp' is reduced to 'udang' (acceptable); however 'kutu air (Daphnia)' is the wrong term: Daphnia is 'kutu air' but commonly 'water flea'. Check consistency.",
+      "Item 5: 'biologically immature aquarium' is rendered as 'kitaran nitrogennya belum matang'. This is a narrowed interpretation; use 'akuarium yang belum matang secara biologi' or 'belum dikitar sepenuhnya'.",
+      "Item 5: 'ia tidak boleh sekali-kali dimasukkan' uses 'ia' for plural fish. Reword to 'ikan ini'.",
+      "Item 10: 'bermod 6 (4-7)' is a literal rendering of 'modally' and is hard to read. Use 'lazimnya 6 (4-7)'.",
+      "Item 10: 'plat farinks', 'gigi simfisis' and 'liang dentari' are overly literal anatomical terms. Add the English term in brackets or use clearer Malay, e.g. 'plat esofagus/farinks'.",
+      "Item 10: 'lembangan' for 'drainage' is acceptable, but 'sungai Motagua' for 'ríos' is fine. 'jabatan' for 'departments' in Item 2 is odd in Malay. Use 'jabatan (wilayah)' or 'wilayah'.",
+      "Item 9: 'Bertelur di atas substrat, dan kedua-dua induk menjaga telur dan anak' adds 'anak' (fry care), which is not in the source. The source only says 'biparental'. Use 'Pembiak substrat dwi-induk (biparental)'.",
+      "Item 12: the reference list is correctly left untranslated, so no change is needed here.",
+      "Item 1: 'strain' and 'tangki' are acceptable, but 'Ikan teman setangki' is clumsy. Use 'Ikan sekolam/teman setangki'."
     ]
   },
   "scleropages-formosus": {

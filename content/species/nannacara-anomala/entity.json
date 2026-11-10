@@ -12,6 +12,156 @@
     "suriname",
     "marowijne"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GY",
+        "SR"
+      ],
+      "regions": [
+        "Rio Aruka",
+        "Rio Marowijne"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The golden dwarf cichlid, Nannacara anomala, ranges from the Rio Aruka in Guyana to the lower Rio Marowijne in Suriname.",
+          "countries": [
+            "GY",
+            "SR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The natural range of this species extends from the Rio Aruka in Guyana to the lower Rio Marowijne in Suriname.",
+          "countries": [],
+          "regions": [
+            "Rio Aruka",
+            "Rio Marowijne"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5208106,
+      "total": 201,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "GF",
+          119
+        ],
+        [
+          "SR",
+          50
+        ],
+        [
+          "GY",
+          21
+        ],
+        [
+          "BR",
+          11
+        ]
+      ],
+      "cells": [
+        [
+          -59.0625,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          5.625,
+          19,
+          19
+        ],
+        [
+          -59.0625,
+          7.03125,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          4.21875,
+          9,
+          9
+        ],
+        [
+          -56.25,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          -56.25,
+          4.21875,
+          29,
+          29
+        ],
+        [
+          -56.25,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -54.84375,
+          4.21875,
+          18,
+          3
+        ],
+        [
+          -54.84375,
+          5.625,
+          5,
+          4
+        ],
+        [
+          -53.4375,
+          2.8125,
+          3,
+          0
+        ],
+        [
+          -53.4375,
+          4.21875,
+          99,
+          0
+        ],
+        [
+          -52.03125,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -47.8125,
+          -2.8125,
+          3,
+          0
+        ],
+        [
+          -47.8125,
+          -1.40625,
+          8,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -10,6 +10,101 @@
     "india",
     "nilgiri-hills"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Western Ghats",
+        "Nilgiri Hills",
+        "Cardamom Hills",
+        "Panniyar"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Mesonoemacheilus guentheri is a loach from the Western Ghats of southern India, described from the Nilgiri Hills and since recorded in Kerala.",
+          "countries": [
+            "IN"
+          ],
+          "regions": [
+            "Western Ghats",
+            "Nilgiri Hills"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It's now known to have an extended range and has been recorded in the Periyar Tiger Reserve of the Cardamom Hills, Kerala, some distance further south.",
+          "countries": [],
+          "regions": [
+            "Cardamom Hills"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In the Panniyar river basin, Kerala it was collected alongside Haludaria fasciata, Tor khudree, Opsarius bakeri, Devario aequipinnatus, Rasbora daniconius, Garra mcclellandi, Homaloptera santhamparaiensis, the congener Mesonoemacheilus triangularis, and a Glyptothorax sp. during one study.",
+          "countries": [],
+          "regions": [
+            "Panniyar"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5205204,
+      "total": 73,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "IN",
+          73
+        ]
+      ],
+      "cells": [
+        [
+          74.53125,
+          11.25,
+          15,
+          15
+        ],
+        [
+          75.9375,
+          8.4375,
+          9,
+          9
+        ],
+        [
+          75.9375,
+          9.84375,
+          15,
+          15
+        ],
+        [
+          75.9375,
+          11.25,
+          23,
+          23
+        ],
+        [
+          75.9375,
+          12.65625,
+          6,
+          6
+        ],
+        [
+          80.15625,
+          22.5,
+          5,
+          5
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

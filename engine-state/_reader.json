@@ -11521,6 +11521,12 @@
     ],
     "ruled": "261b20775997fc9f"
   },
+  "vi/guides/youtube-_je30CT1MVw": {
+    "at": "2026-11-10",
+    "hash": "937c7eaf9419e47d",
+    "findings": [],
+    "ruled": "937c7eaf9419e47d"
+  },
   "vi/guides/youtube-_jeiH3OWyiA": {
     "at": "2026-11-04",
     "hash": "413b19bc1d128479",
@@ -11597,6 +11603,22 @@
     ],
     "ruled": "0de266b2de3c2814"
   },
+  "vi/guides/youtube--LWDlOsd634": {
+    "at": "2026-11-10",
+    "hash": "c16fdd4fe12b0ef7",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "cách xếp cây theo từng tầng và điểm khác nhau giữa hai kiểu châm CO2",
+        "problem": "The intro promises a comparison of two CO2 injection methods, but no section on the page covers it.",
+        "fix": "Dưới đây là cách ngâm và thử lũa, thứ tự làm lại bể và cách xếp cây theo từng tầng.",
+        "field": "body"
+      }
+    ],
+    "ruled": "c16fdd4fe12b0ef7"
+  },
   "vi/guides/youtube--MG8jX9LOvI": {
     "at": "2026-11-07",
     "hash": "d9e604d6f7a869e4",
@@ -11627,6 +11649,22 @@
       }
     ],
     "ruled": "a95f1c426a04b22c"
+  },
+  "vi/guides/youtube--XN4FMqNwPQ": {
+    "at": "2026-11-10",
+    "hash": "8372fce3adfa99c2",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bể chỉ cần cho cá ăn, thỉnh thoảng tỉa cây và châm thêm nước bù phần hao.",
+        "problem": "The tank itself is made the subject of feeding the fish and trimming plants, which reads oddly in Vietnamese.",
+        "fix": "Hằng ngày chỉ cần cho cá ăn, thỉnh thoảng tỉa cây và châm thêm nước bù phần hao.",
+        "field": "body"
+      }
+    ],
+    "ruled": "8372fce3adfa99c2"
   },
   "vi/guides/youtube--YXB8au4nnU": {
     "at": "2026-11-10",
@@ -11963,6 +12001,22 @@
     ],
     "ruled": "3461f7c60b1a976c"
   },
+  "vi/guides/youtube-27quC5jcKu0": {
+    "at": "2026-11-10",
+    "hash": "a9ba0ba8828a3c1a",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Iwagumi tạm dịch từ tiếng Nhật là vườn đá.",
+        "problem": "Iwagumi means 'rock formation' or 'rock arrangement', not 'rock garden', so the gloss given is wrong.",
+        "fix": "Iwagumi trong tiếng Nhật có nghĩa là cách sắp đá.",
+        "field": "body"
+      }
+    ],
+    "ruled": "a9ba0ba8828a3c1a"
+  },
   "vi/guides/youtube-2AKSK5DHDUw": {
     "at": "2026-11-06",
     "hash": "30e3d6d24d3cb80a",
@@ -12026,6 +12080,12 @@
       }
     ],
     "ruled": "0775c65521b6fcee"
+  },
+  "vi/guides/youtube-2M_UeDUR6ME": {
+    "at": "2026-11-10",
+    "hash": "dd876dc892a2dc54",
+    "findings": [],
+    "ruled": "dd876dc892a2dc54"
   },
   "vi/guides/youtube-2NdWisNvjL4": {
     "at": "2026-11-04",
@@ -12119,6 +12179,12 @@
       }
     ],
     "ruled": "c14cc77769b73745"
+  },
+  "vi/guides/youtube-4LpldhD2JHU": {
+    "at": "2026-11-10",
+    "hash": "517ed61eb3d07767",
+    "findings": [],
+    "ruled": "517ed61eb3d07767"
   },
   "vi/guides/youtube-4o4QdaCguWQ": {
     "at": "2026-11-06",
@@ -12260,6 +12326,12 @@
       }
     ],
     "ruled": "6c4408d0abde0408"
+  },
+  "vi/guides/youtube-5qzNHhM4FXE": {
+    "at": "2026-11-10",
+    "hash": "d04d3e8ec7abddf9",
+    "findings": [],
+    "ruled": "d04d3e8ec7abddf9"
   },
   "vi/guides/youtube-5TtDfNZFJE4": {
     "at": "2026-11-03",
@@ -13301,6 +13373,12 @@
     "findings": [],
     "ruled": "9f8aea373799d355"
   },
+  "vi/guides/youtube-biVHt3SckvI": {
+    "at": "2026-11-10",
+    "hash": "2106e49b61681632",
+    "findings": [],
+    "ruled": "2106e49b61681632"
+  },
   "vi/guides/youtube-BKdHgA1uO2E": {
     "at": "2026-11-10",
     "hash": "0707be08e7d04126",
@@ -13556,6 +13634,12 @@
     "findings": [],
     "ruled": "735af0d20a15c77d"
   },
+  "vi/guides/youtube-CfcC7FQV-vM": {
+    "at": "2026-11-10",
+    "hash": "bc87bbb46246efbe",
+    "findings": [],
+    "ruled": "bc87bbb46246efbe"
+  },
   "vi/guides/youtube-cGTFcYJ_BQs": {
     "at": "2026-11-08",
     "hash": "f4022ca5f29745d2",
@@ -13639,6 +13723,12 @@
       }
     ],
     "ruled": "c6e5db577f65d8e5"
+  },
+  "vi/guides/youtube-cOyhGhQmroU": {
+    "at": "2026-11-10",
+    "hash": "e0e6b92f46b112ac",
+    "findings": [],
+    "ruled": "e0e6b92f46b112ac"
   },
   "vi/guides/youtube-cPBLU4VMwWU": {
     "at": "2026-11-03",
@@ -14435,6 +14525,22 @@
     "findings": [],
     "ruled": "f90f76c5d6f27d09"
   },
+  "vi/guides/youtube-ga2nOeoqvg8": {
+    "at": "2026-11-10",
+    "hash": "ece4ad806939b181",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bài này đi qua toàn bộ quá trình",
+        "problem": "\"đi qua\" is a word-for-word calque of English \"walks through\" and sounds translated.",
+        "fix": "Bài này kể lại toàn bộ quá trình",
+        "field": "body"
+      }
+    ],
+    "ruled": "ece4ad806939b181"
+  },
   "vi/guides/youtube-gBhJ6AWEbXY": {
     "at": "2026-11-09",
     "hash": "698be79e23aa7248",
@@ -14464,6 +14570,22 @@
       }
     ],
     "ruled": "aea5eafe798f2492"
+  },
+  "vi/guides/youtube-gCY0m94RgAU": {
+    "at": "2026-11-10",
+    "hash": "75b820604bdee506",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "L5",
+        "quote": "Bèo nổi và một chai vi sinh lúc mới set giúp bể chạy êm, sau 2 tháng đá vẫn sạch rêu hại.",
+        "problem": "The summary credits floating plants and bacteria for the clean rocks, but the body says it is unclear why the rocks stayed clean.",
+        "fix": "Lúc mới set nên châm một chai vi sinh và thả bèo nổi. Sau 2 tháng đá vẫn sạch rêu hại, dù chưa rõ vì sao.",
+        "field": "summary.4"
+      }
+    ],
+    "ruled": "75b820604bdee506"
   },
   "vi/guides/youtube-GDaWgKk-hDo": {
     "at": "2026-11-04",
@@ -14539,6 +14661,31 @@
       }
     ],
     "ruled": "261292d1979714e5"
+  },
+  "vi/guides/youtube-GpybvkGpvuQ": {
+    "at": "2026-11-10",
+    "hash": "2f020068ddaf4289",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "L10",
+        "quote": "Còn với một bể nhỏ ít cá chạy hai lọc lớn",
+        "problem": "The body text only says a tank with few fish and two large filters. The FAQ adds that the tank is small, which the body never says.",
+        "fix": "Còn với bể ít cá lại chạy hai lọc lớn",
+        "field": "faq.1.a"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bể high-tech (bể châm CO2) chưa chắc đã sống ngắn.",
+        "problem": "Saying a tank \"sống ngắn\" reads as a word-for-word translation of \"short-lived\" and sounds odd in Vietnamese.",
+        "fix": "Bể high-tech (bể châm CO2) không hẳn là không giữ được lâu.",
+        "field": "body"
+      }
+    ],
+    "ruled": "2f020068ddaf4289"
   },
   "vi/guides/youtube-GtRKlzO4MNE": {
     "at": "2026-11-03",
@@ -14761,6 +14908,22 @@
     ],
     "ruled": "2619228e56826cf3"
   },
+  "vi/guides/youtube-hMKRY7EkfIk": {
+    "at": "2026-11-10",
+    "hash": "17d3296d9841d10d",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Cá tetra ember (Ember tetra) hợp không khí mùa thu",
+        "problem": "The fish's name is given twice, with the same name repeated in brackets, which the site's style says not to do.",
+        "fix": "Cá ember tetra hợp không khí mùa thu",
+        "field": "body"
+      }
+    ],
+    "ruled": "17d3296d9841d10d"
+  },
   "vi/guides/youtube-hn_Zl7I_9E0": {
     "at": "2026-11-09",
     "hash": "7371003901993b5d",
@@ -14972,6 +15135,31 @@
     ],
     "ruled": "208f9364ff5a933d"
   },
+  "vi/guides/youtube-hY1gr0_Xr-A": {
+    "at": "2026-11-10",
+    "hash": "433d319777a4925f",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "L4",
+        "quote": "rút nước vừa phải rồi chờ nước trong mới vớt cá",
+        "problem": "The summary says to drain a moderate amount, but the steps say to drain as much as possible while leaving enough water for the animals.",
+        "fix": "rút càng nhiều nước càng tốt nhưng chừa đủ cho cá tép, rồi chờ nước trong mới vớt cá",
+        "field": "summary.3"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "có lúc khử hoàn toàn đến mức không còn nitrat sinh ra",
+        "problem": "Denitrification removes nitrate rather than stopping it from being produced, so the sentence is wrong.",
+        "fix": "có lúc khử hết đến mức nitrat không còn tích lại trong bể",
+        "field": "body"
+      }
+    ],
+    "ruled": "433d319777a4925f"
+  },
   "vi/guides/youtube-i_juW-Tmwcs": {
     "at": "2026-11-09",
     "hash": "be0657bc99fa60fc",
@@ -15080,6 +15268,22 @@
     "hash": "7ae2aa78a62eeec2",
     "findings": [],
     "ruled": "7ae2aa78a62eeec2"
+  },
+  "vi/guides/youtube-IhNVrZCse48": {
+    "at": "2026-11-10",
+    "hash": "48dbdf38d37bfb3d",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bể lại không có nhiều cá dù được cho ăn 2–3 lần mỗi ngày.",
+        "problem": "The concessive 'dù' links fish count to feeding illogically, so the sentence reads as a garbled translation and its point (little fish waste to feed plants) is unclear.",
+        "fix": "Bể cũng không có nhiều cá. Cá được cho ăn 2–3 lần mỗi ngày, nhưng phân cá vẫn không đủ nuôi cây.",
+        "field": "body"
+      }
+    ],
+    "ruled": "48dbdf38d37bfb3d"
   },
   "vi/guides/youtube-Iinv7wWjhzA": {
     "at": "2026-11-09",
@@ -16137,6 +16341,22 @@
     "hash": "5e572a82dc5de787",
     "findings": [],
     "ruled": "5e572a82dc5de787"
+  },
+  "vi/guides/youtube-lM3-zxjaako": {
+    "at": "2026-11-10",
+    "hash": "fe00b12b6419c2b1",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "low",
+        "part": "P1",
+        "quote": "gần như bể 300 lít được kéo lên 76 cm",
+        "problem": "The wording can be read as the tank being made 76 cm taller, when 76 cm is the tank's total height.",
+        "fix": "gần như bể 300 lít nhưng cao tới 76 cm",
+        "field": "body"
+      }
+    ],
+    "ruled": "fe00b12b6419c2b1"
   },
   "vi/guides/youtube-lnOoJm-b5vs": {
     "at": "2026-11-05",
@@ -18055,6 +18275,22 @@
     ],
     "ruled": "4b8e4439af76532a"
   },
+  "vi/guides/youtube-SX2LQitiNBU": {
+    "at": "2026-11-10",
+    "hash": "7321cd3c33a552fb",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Một tấm bạt trải sàn để làm bẩn thì không dính ra sàn nhà.",
+        "problem": "Awkward phrasing: 'làm bẩn' has no subject and the sentence reads unnaturally.",
+        "fix": "Một tấm bạt trải sàn để nền với nước rơi vãi không làm bẩn sàn nhà.",
+        "field": "body"
+      }
+    ],
+    "ruled": "7321cd3c33a552fb"
+  },
   "vi/guides/youtube-sxmL1DxwnRg": {
     "at": "2026-11-08",
     "hash": "fae6c6a7d62c6b06",
@@ -18155,6 +18391,22 @@
       }
     ],
     "ruled": "86585aaf0e883d74"
+  },
+  "vi/guides/youtube-TkKqmLMj0Kg": {
+    "at": "2026-11-10",
+    "hash": "002b211dafead221",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Muốn gỡ một bể như vậy",
+        "problem": "\"gỡ một bể\" is an odd verb choice: a Vietnamese hobbyist would say rescue or fix the tank, not \"untangle\" it.",
+        "fix": "Muốn cứu một bể như vậy",
+        "field": "body"
+      }
+    ],
+    "ruled": "002b211dafead221"
   },
   "vi/guides/youtube-TKP37sn5BC0": {
     "at": "2026-11-01",
@@ -18789,6 +19041,12 @@
       }
     ],
     "ruled": "673e4b05756b51d8"
+  },
+  "vi/guides/youtube-WGrLKaTbst4": {
+    "at": "2026-11-10",
+    "hash": "bae99cd917dc000a",
+    "findings": [],
+    "ruled": "bae99cd917dc000a"
   },
   "vi/guides/youtube-Wh4n7nbLbi8": {
     "at": "2026-11-09",

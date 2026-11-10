@@ -10,6 +10,66 @@
     "colombia",
     "atrato"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Río Atrato",
+        "Río Truandó"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The Teddy Livebearer, as it is called to distinguish it from the actual Dwarf Livebearer Heterandria formosa, originates from Colombia.",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The tiger teddy, Neoheterandria elegans, is a small livebearer endemic to the Río Atrato drainage in northwestern Colombia.",
+          "countries": [],
+          "regions": [
+            "Río Atrato"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Río Truandó, a tributary of Lower Río Atrato, Colombia', and it may be restricted to that system.",
+          "countries": [],
+          "regions": [
+            "Río Truandó"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2350410,
+      "total": 4,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "CO",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          7.03125,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -10,6 +10,27 @@
     "vietnam",
     "hue"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VN"
+      ],
+      "regions": [],
+      "sources": [
+        "aquatome"
+      ],
+      "quotes": [
+        {
+          "source": "aquatome",
+          "quote": "Hiện người ta chỉ biết loài này ở vùng đất ngập nước tại một địa điểm gần Huế, miền Trung Việt Nam.",
+          "countries": [
+            "VN"
+          ],
+          "regions": []
+        }
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

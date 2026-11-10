@@ -10,6 +10,83 @@
     "chile",
     "biobio"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CL"
+      ],
+      "regions": [
+        "Biobío River",
+        "Laguna Grande San Pedro"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "South America: Chile.",
+          "countries": [
+            "CL"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Its probable extinction has been documented in the middle course of the Biobío River, and it was reported in Laguna Grande San Pedro in the Biobío Region up to the nineties, but sampling between March 2018 and February 2019 did not capture a single individual there.",
+          "countries": [],
+          "regions": [
+            "Biobío River",
+            "Laguna Grande San Pedro"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2338998,
+      "total": 23,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "CL",
+          23
+        ]
+      ],
+      "cells": [
+        [
+          -73.125,
+          -39.375,
+          1,
+          1
+        ],
+        [
+          -73.125,
+          -37.96875,
+          10,
+          10
+        ],
+        [
+          -71.71875,
+          -36.5625,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          -35.15625,
+          4,
+          4
+        ],
+        [
+          -71.71875,
+          -33.75,
+          7,
+          7
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

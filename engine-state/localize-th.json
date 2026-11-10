@@ -8126,6 +8126,304 @@
       "Item 10: \"ชนิดใกล้ชิด\" for \"sibling species\" is acceptable, but the opening \"Corydoras species known to scientists\" is rendered loosely."
     ]
   },
+  "corydoras-atropersonatus": {
+    "at": "2026-11-10",
+    "from": "2026-11-02",
+    "name": "คอรี่ อะโทรเพอร์โซนาตัส",
+    "confidence": "low",
+    "score": 0.62,
+    "notes": [
+      "Item 8: \"อาหารเม็ดแบบแผ่นอัด\" for 'tablets' is odd; use \"อาหารเม็ดจม/แท็บเล็ต\". Also 'Daphnia' = \"ไรแดง\" is fine, but 'white worm' left as transliteration \"ไวท์เวิร์ม\" is acceptable.",
+      "Item 14: \"ไหมพรมวางไข่\" for 'spawning mops' is non-standard; use \"ม็อปวางไข่\" (spawning mop).",
+      "Item 14: \"ลูกสนอัลเดอร์\" for 'alder cone' is wrong/awkward; use \"โคนอัลเดอร์\" or \"ผลอัลเดอร์\".",
+      "Item 14: 'Artemia nauplii' rendered as \"ลูกไรทะเล (Artemia) แรกฟัก\" is okay, but 'microworm' \"ไมโครเวิร์ม\" fine; 'fry ... fully-absorbed yolk sacs' fine.",
+      "Item 2/16: \"แฟรี่คอรี่\" is an invented-sounding name; verify the local common name or keep 'Fairy cory' in brackets.",
+      "Item 16: 'Callichthyidae' sentence omits 'group'/'mailed' nuance: \"mailed\" catfishes is dropped; add \"หรือ 'mailed'\" or note it.",
+      "Item 16: 'Dias et al. (2024)' and 'Corydoras...largest catfish genera' fine; but \"ชนิดแรก\" for 'the former' is ambiguous (refers to B. sychri) – clarify.",
+      "Item 15: 'Callum = hard skin' is the source's own error; keep, but \"ผิวหนังแข็ง\" fine.",
+      "Item 4: 'Tigre flows several hundred kilometers north' — \"ไหลขึ้นไปทางเหนือ\" is fine, but 'Loreto Department' as \"จังหวัด\" is acceptable; consider \"แคว้น/จังหวัด (department)\" for consistency with \"รัฐ Pastaza\".",
+      "Item 7: 'Substrate should be bordered with driftwood' rendered \"ขอบพื้นที่ควรจัดด้วย...\" is garbled; rephrase as \"ควรจัดขอบวัสดุปูพื้นด้วยขอนไม้และไม้น้ำ\"."
+    ]
+  },
+  "corydoras-aurofrenatus": {
+    "at": "2026-11-10",
+    "from": "2026-11-06",
+    "name": "คอรี่ ออโรฟรีนาตัส",
+    "confidence": "medium",
+    "score": 0.85,
+    "notes": [
+      "Item 1/7: 'ปลาแพะ' for Corydoras is fine, but item 7 uses 'ปลาหนังเกราะ' for armoured catfish; use one consistent term (e.g. ปลาแพะ/คอรี่ด๊อรัส) across items.",
+      "Item 7: 'ปลากลุ่มนี้หายใจด้วยอากาศได้เมื่อจำเป็น' is fine but 'ฮุบอากาศ' is slightly colloquial; consider 'งับอากาศ'.",
+      "Item 7: 'ชื่อพ้อง (junior synonym)' – more precise 'ชื่อพ้องรุ่นหลัง (junior synonym)'.",
+      "Item 7: 'ครีบหางมีแถบได้มากถึง 8 แถบ' reads slightly awkward; rephrase as 'ครีบหางมีแถบมากสุด 8 แถบ'.",
+      "Item 2: 'Aguada near Arroyo Trementina' is left in English within quotes (acceptable as a place name) but a brief Thai gloss would help readability."
+    ]
+  },
+  "corydoras-axelrodi": {
+    "at": "2026-11-10",
+    "from": "2026-11-03",
+    "name": "แพะแอ็กเซลรอดี",
+    "confidence": "low",
+    "score": 0.6,
+    "notes": [
+      "Item 1: \"แพะแอ็กเซลรอดี (Axelrod's cory)\" is awkward. \"Corydoras\" is called ปลาแพะ in Thailand, but \"ปลาแมวเกราะ\" for armoured catfish is non-standard. Use ปลาหนังเกราะ or ปลาแพะ consistently.",
+      "Item 1: \"pink corydoras\" is left in English without a Thai gloss. Add a Thai rendering such as ปลาแพะสีชมพู, with the English in brackets.",
+      "Item 2: \"จังหวัด Meta\" and \"เขตเทศบาล Puerto Gaitan\" use Thai administrative terms for Colombian units. Use \"จังหวัด (department)\" or \"แผนก\" carefully, or \"เทศบาล\". Also, \"forming the border with Venezuela in its lower reaches\" is rendered as \"ช่วงท้ายน้ำ\", which is acceptable.",
+      "Item 5: \"ไส้เดือนน้ำ\" for Tubifex is fine, but \"หนอนแดง\" for bloodworm is the usual term; keep \"Tubifex\" as ไส้เดือนน้ำ/หนอนแดง without mixing them up. Check that the two terms are not confused.",
+      "Item 8: \"ไหมพรมวางไข่แบบเส้นละเอียด\" is an unclear rendering of \"spawning mops\". Use ม็อปวางไข่ (spawning mop).",
+      "Item 9: In \"Rio Meta\" the translation keeps the English spelling, while items 1–2 use \"Río\". Make the spelling consistent. \"C3\" is not the same as \"C003\" used elsewhere; this is the source's wording, so it is acceptable.",
+      "Item 10: \"ต่อมใต้รักแร้ (axillary glands)\" is a wrong and odd term. Use ต่อมที่โคนครีบอก. \"ปลาหนัง\" for catfish is inconsistent with \"ปลาแมว\" used earlier.",
+      "Item 10: \"facultative air breathers\" rendered as \"หายใจจากอากาศได้เมื่อจำเป็น\" is acceptable. \"ฮุบอากาศ\" is fine."
+    ]
+  },
+  "corydoras-boesemani": {
+    "at": "2026-11-10",
+    "from": "2026-11-08",
+    "name": "คอรี่โบเซมานี",
+    "confidence": "low",
+    "score": 0.72,
+    "notes": [
+      "Item 10: \"or 'mailed'\" omitted from \"'armoured' or 'mailed' catfishes\" – minor omission; add the second name.",
+      "Item 10: \"among the largest catfish genera\" rendered as \"สกุลปลาหนัง\"; fine, but \"ปลาหนัง\" for catfish and \"ปลาหนังเกราะ\" are non-standard. Use \"ปลาแคทฟิชหุ้มเกราะ\" or \"ปลาหมูหุ้มเกราะ\"; hobbyists call Corydoras \"ปลาหมอ/ปลาแคทฟิช คอรี่\" (คอรี่ดอรัส).",
+      "Item 6: \"Tubifex\" translated as \"ไส้เดือนน้ำ\"; hobbyists in Thailand say \"หนอนแดง/ไทเฟกซ์\", and \"bloodworm\" is better \"หนอนแดง\" (bloodworm) vs Tubifex \"ไส้เดือนแดง\". Keep Tubifex Latin or use \"ไทเฟกซ์\".",
+      "Item 2: \"Brokopondo district\" rendered as \"เขต Brokopondo\"; use \"อำเภอ/เขตการปกครอง\" with the name consistently; also Gran Rio vs Gran Río spelling inconsistent with the source in the same passage.",
+      "Item 1/3/10: \"Boeseman's catfish\" left untranslated in the running text; add a Thai common name or keep with a bracket.",
+      "Item 3: \"overhanging vegetation\" is rendered as \"พืชพรรณยื่นปกคลุมเหนือน้ำ\"; stiff, consider \"พืชริมตลิ่งที่ห้อยคลุมผิวน้ำ\".",
+      "Item 9: \"cool water change\" rendered as \"น้ำที่เย็นกว่า\"; OK but add \"ด้วยน้ำเย็น\" to avoid ambiguity."
+    ]
+  },
+  "corydoras-bondi": {
+    "at": "2026-11-10",
+    "from": "2026-11-08",
+    "name": "คอรี่แถบดำ",
+    "confidence": "medium",
+    "score": 0.7,
+    "notes": [
+      "Item 2: \"3 kilometers east\" correctly became กม., but \"affluent\" is rendered \"สาขา\" fine; however 'Río' dropped to แม่น้ำ is fine. No issue there.",
+      "Item 8: \"Females tend... \" not here; issue: \"the fish are in optimum condition\" fine. Real issue: \"ซึ่งถูกกำหนดขอบเขตอีกชั้นด้วยจุดสีน้ำตาล\" is awkward/unclear for 'delimited by the brown spotting'; rephrase more naturally.",
+      "Item 8: \"dark dorsolateral spots\" translated as \"จุดสีเข้มบริเวณด้านบนและด้านข้างลำตัว\" is acceptable, but \"ลวดลายสามเส้นตรงกลาง\" for 'median trilineate pattern' is unclear; use 'ลายสามแถบตามแนวกลางลำตัว'.",
+      "Item 8: \"ปลาสกุลเดียวกัน\" for 'congeners' is OK, but \"แต่อาจไม่เป็นเช่นนั้น\" is vague; say 'แต่ปัจจุบันอาจไม่เป็นเช่นนั้นแล้ว'.",
+      "Item 8: \"หายใจจากอากาศได้เมื่อจำเป็น\" for 'facultative air breathers' is fine, but \"ลำไส้ที่ดัดแปลงและมีหลอดเลือดหนาแน่น\" is clumsy; use 'ลำไส้ที่ปรับเปลี่ยนรูปและมีเส้นเลือดฝอยมาก'.",
+      "Item 8: \"ก้านแข็งของครีบอก\" for 'stiffened pectoral-fin spines' should be 'เงี่ยงครีบอก' (hobby term); 'ทิ่ม' for 'sting' should be 'ต่อย/ตำ'.",
+      "Item 5: \"ไส้เดือนน้ำ (Tubifex)\" — Thai hobbyists say 'หนอนแดง' for bloodworm/ไส้เดือนแดง for Tubifex; 'หนอนแดง' for bloodworm may be confused with Tubifex locally (commonly 'หนอนแดง' = bloodworm, 'ไส้เดือนน้ำ' = Tubifex ok). Minor; consider 'หนอนน้ำ'."
+    ]
+  },
+  "corydoras-brevirostris": {
+    "at": "2026-11-10",
+    "from": "2026-11-08",
+    "name": "คอรี่ เบรวิโรสทริส",
+    "confidence": "low",
+    "score": 0.7,
+    "notes": [
+      "Item 8: 'ปลาหนังเสื้อเกราะ (mailed catfish)' is a clumsy, non-standard rendering; use the term hobbyists know, e.g. 'ปลาหนังหุ้มเกราะ' with the English in brackets, and don't present it as a separate name.",
+      "Item 8: 'อาจเจ็บปวดมากจากการถูกครีบแทง' reads awkwardly; rephrase, e.g. 'การถูกแทงอาจเจ็บปวดมาก'.",
+      "Item 8: 'C. wotroi ... บางครั้งถูกจัดเป็นชื่อพ้องของ H. brevirostre' is OK, but 'ปลาสกุลใกล้เคียง' for 'congeners' is wrong. Congeners are species in the same genus, yet the list includes Brochis. Use 'ปลาชนิดใกล้เคียง/ปลาที่มีความใกล้ชิดกัน'. The same issue occurs in item 1.",
+      "Item 1: 'ปลาแพะจุด' for 'spotted cory' is not a standard hobby name; Thai hobbyists use 'ปลาคอรี่' or 'คอรีดอรัส'. Add the common name with the Latin one.",
+      "Item 8: 'ขาดออกซิเจน' and 'ฮุบอากาศ' are acceptable, but 'ปลาหนังที่ใหญ่ที่สุด' is imprecise for 'among the largest catfish genera'; say 'สกุลที่มีจำนวนชนิดมากที่สุด'.",
+      "Item 5: 'ไส้เดือนน้ำ' for Tubifex is fine, but 'Corydoras spp.' is left in Latin letters alongside Thai; consider writing 'ปลาคอรี่ทุกชนิด'.",
+      "Item 7: 'พร้อมผสมพันธุ์' adds a detail not in the English ('sexually mature' is already covered by 'โตเต็มวัย'); drop it."
+    ]
+  },
+  "corydoras-britskii": {
+    "at": "2026-11-10",
+    "from": "2026-11-04",
+    "name": "บร็อคิส บริทสกี้",
+    "confidence": "low",
+    "score": 0.85,
+    "notes": [
+      "Item 17: 'ปลาแพะ' for catfish is non-standard. Thai hobbyists say 'ปลาหมูอารีย์' or 'คอรี่' for Corydoras/Brochis. Use a term such as 'ปลาหมูบริทสกี้' or 'บร็อคคิส' instead.",
+      "Item 11: 'หนอนแดง (ตัวอ่อนริ้นน้ำจืด)' for 'chironomid larvae (bloodworm)' is unclear. In Thai hobby usage 'หนอนแดง' is also what people call Tubifex. Write 'ตัวอ่อนแมลงบลัดเวิร์ม (bloodworm)' or similar. 'ไส้เดือนน้ำ' for Tubifex is fine, but 'ไทฟิเฟกซ์' or 'หนอนแดง' is the more common hobby name.",
+      "Item 6 and item 2: 'ทะเลสาบรูปแอก' for 'oxbows' is stiff. A more natural rendering is 'ทะเลสาบรูปแอกวัว' or 'ทะเลสาบโค้งแม่น้ำ'."
+    ]
+  },
+  "corydoras-burgessi": {
+    "at": "2026-11-10",
+    "from": "2026-11-04",
+    "name": "แพะเบอร์เกสซี",
+    "confidence": "medium",
+    "score": 0.62,
+    "notes": [
+      "Item 14: 'ปลากลุ่มนี้หายใจด้วยอากาศได้เมื่อจำเป็น' is fine, but the 'armoured' or 'mailed' catfishes sentence drops 'mailed' – only 'ปลาหนังเกราะ' is given. Minor omission.",
+      "Item 10: 'ตัวอ่อนของแมลงริ้นน้ำ chironomid ที่ไม่กัดคน' adds a fact not in the English ('that do not bite people'). Remove it; use 'ตัวอ่อนริ้นน้ำจืด (bloodworm)' or 'หนอนแดง'.",
+      "Item 10: 'ไส้เดือนน้ำ (Tubifex)' – Tubifex is commonly called 'หนอนแดง' in Thailand, which clashes with the 'หนอนแดง' used for chironomid/bloodworm. Distinguish them: use 'หนอนแดง' for Tubifex and 'ลูกน้ำแดง/ตัวอ่อนริ้น' for bloodworm.",
+      "Item 1: 'แพะ' is used for corydoras, which is the standard Thai hobby term; 'เรืองเป็นสี' and 'ท้ายทอย' are acceptable. Item 5: 'จุดเรืองแสง' implies bioluminescence/fluorescence; the English 'glowing' here means shining/reflecting. Use 'จุดสว่างวาว'.",
+      "Item 13: 'สปาว์นนิ่งมอป (ไหมพรมวางไข่)' is awkward transliteration; use 'สปอว์นนิงมอป' or 'ใยไหมพรมสำหรับวางไข่'. 'ลูกอัลเดอร์' is also not a familiar term; explain it as 'ลูกของต้นอัลเดอร์'.",
+      "Item 14: 'ลายพรางแบบตัดเส้นรอบรูป (disruptive pattern)' is hard to read; simplify. 'ต่อมใต้รักแร้ (axillary gland)' is a misleading literal translation; use 'ต่อมที่โคนครีบอก'.",
+      "Item 14: 'ปลาชนิดใกล้เคียง' for 'congeners' is inaccurate; it should be 'ปลาในสกุลเดียวกัน'. Also, 'Brochis imitator' is in a different genus, but this is kept as in the source.",
+      "Item 2/14: 'ปลาหนังเกราะ' for armoured catfish is fine, but 'ปลาชนิดใกล้เคียง' in item 2 repeats the congener problem."
+    ]
+  },
+  "corydoras-carlae": {
+    "at": "2026-11-10",
+    "from": "2026-11-08",
+    "name": "คอรี่คาร์เล",
+    "confidence": "low",
+    "score": 0.6,
+    "notes": [
+      "Item 1: 'Size: 42 มม. SL' – the 1.7\" figure is fine to drop, but 'SL' is left unexplained; write 'ความยาวมาตรฐาน (SL)'. Also 'Mrs.' left in English; use 'คุณนาย/นาง Carla Lindenaar-Sparrius'.",
+      "Item 7: Temperature 22.0–26.0 °C correct, but 'Item 8' is fine; no issue here.",
+      "Item 17: 'among the largest catfish genera' – ok, but 'armoured' or 'mailed' catfishes: 'mailed' omitted; the Thai gives only 'หุ้มเกราะ'. Minor omission.",
+      "Item 17: 'Fish ... assigned a C or CW number' is fine; however 'facultative air breathers' rendered 'หายใจด้วยอากาศได้เมื่อจำเป็น' is OK. Nothing to fix.",
+      "Item 10: 'ไส้เดือนน้ำ' for Tubifex is ok, but 'tablet' is rendered 'อาหารเม็ดแบบเม็ดแบน' awkwardly; use 'อาหารเม็ดจม/อาหารแบบเม็ดแบน (tablet)'. 'Daphnia' as 'ไรแดง' is correct.",
+      "Item 6: 'biologically immature set-up' translated as 'ตู้ที่วงจรไนโตรเจนยังไม่สมบูรณ์' – acceptable but add 'ตู้ที่ยังไม่ผ่านการเดินระบบ'.",
+      "Item 14: 'ปลาอวบ' fine. Item 12: 'shoaling' fine.",
+      "Item 2/17: 'แพะเกราะ' – hobbyists in Thailand usually say 'ปลาคอรี่/ปลาแพะ'; consider 'ปลาแพะ (คอรี่)' and 'Corydoras spp.' as 'คอรี่'.",
+      "Item 8: Hardness range and temperature 15–22 °C look odd against item 7 (22–26 °C) but follow the source; no change.",
+      "Item 11: 'ไม่ควรคาดหวังโดยเด็ดขาดว่า' is awkward; rephrase 'ไม่ควรหวังให้ปลาอยู่รอดด้วยเศษอาหารเท่านั้นเด็ดขาด'."
+    ]
+  },
+  "corydoras-caudimaculatus": {
+    "at": "2026-11-10",
+    "from": "2026-11-02",
+    "name": "แพะคอดิมาคูลาตัส",
+    "confidence": "low",
+    "score": 0.9,
+    "notes": [
+      "Item 15: \"'armoured' or 'mailed' catfishes\" – the second term 'mailed' is dropped; Thai gives only 'หุ้มเกราะ'. Minor.",
+      "Items 2/4/5: \"rio Guaporé\" is left in Latin script. Consider adding a Thai name, e.g. แม่น้ำกัวโปเร (rio Guaporé). Minor."
+    ]
+  },
+  "corydoras-cochui": {
+    "at": "2026-11-10",
+    "from": "2026-11-06",
+    "name": "คอริโดรัส โคชุย",
+    "confidence": "low",
+    "score": 0.7,
+    "notes": [
+      "Item 1/2: 'rio Araguaia' left in Latin letters inside Thai text; use 'แม่น้ำอารากัวยา' (drop 'rio' duplication with แม่น้ำ).",
+      "Item 1: 'คอรี่ barredtail' leaves the English common name untranslated; use a Thai name or transliteration (e.g. คอรีดอรัสบาร์เรดเทล) with English in brackets.",
+      "Item 1: 'โตได้ประมาณ 35 มม. (SL)' - SL (standard length) not explained; write 'ความยาวมาตรฐาน (SL) ประมาณ 35 มม.'. Also 'ได้รับรหัส C022 แยกจาก ...' is run together and reads as if the code separates it from H. habrosum; split into separate sentences.",
+      "Item 7: 'mailed' omitted from 'armoured' or 'mailed' catfishes; minor loss.",
+      "Item 7: 'Callichthyidae ... แผ่นกระดูกแทนเกล็ด' fine, but 'ไส้เดือนน้ำ' for Tubifex (item 5) is acceptable only if hobbyists use it; consider 'หนอนแดง/ทูบิเฟ็กซ์' wording.",
+      "Item 3: 'ถ้ารักษาความสะอาดอย่างสม่ำเสมอ' weakens 'scrupulously clean'; use 'สะอาดหมดจดอยู่เสมอ'.",
+      "Item 5: 'ไม่ควรคาดหวัง...โดยเด็ดขาด' placement is awkward; 'Under no circumstances' should clearly apply to both clauses.",
+      "Item 7: 'Dias et al. (2024) ... ห้าสกุล' acceptable; but 'ซึ่งขณะนั้นเป็นหนึ่งในสกุลปลาแคทฟิชที่ใหญ่ที่สุด' fine."
+    ]
+  },
+  "corydoras-concolor": {
+    "at": "2026-11-10",
+    "from": "2026-11-08",
+    "name": "ปลาแพะสเลต",
+    "confidence": "low",
+    "score": 0.9,
+    "notes": [
+      "Item 10: \"เส้นผ่านศูนย์กลางตาเป็น 1/3.2–1/4.0\" adds \"diameter\", which the English doesn't say. Use \"ตาโต (เป็น 1/3.2–1/4.0 ของความยาวหัว)\".",
+      "Item 10: the \"1/2.1–1/2.4\" ratio form is correct but hard to read. Consider \"อยู่ในความยาวมาตรฐานได้ 2.1–2.4 เท่า\" or add a short gloss.",
+      "Item 10: \"ต่อมรักแร้\" for axillary gland sounds odd to a hobbyist. Consider \"ต่อมที่โคนครีบอก\"."
+    ]
+  },
+  "corydoras-condiscipulus": {
+    "at": "2026-11-10",
+    "from": "2026-11-06",
+    "name": "แพะคอนดิซิพูลัส",
+    "confidence": "low",
+    "score": 0.85,
+    "notes": [
+      "Item 10: the translator inserted an explanatory gloss, 'คือความยาวจากปลายจะงอยปากถึงโคนหาง'. The English has no such definition, so it is added content. Keep it short, e.g. 'ความยาวมาตรฐาน (SL)', or drop the gloss.",
+      "Item 10: 'ปลาหนังสวมเสื้อเกราะ' for 'mailed catfish' is stiff and not a term hobbyists use. Use something simpler such as 'ปลาหนังมีเกราะ', or keep 'mailed catfish' in brackets only.",
+      "Item 10: the ratio sentences are rewritten at length, e.g. 'ความยาวมาตรฐานยาวเป็น 3.4–3.8 เท่าของความยาวก้านครีบอก'. The meaning is correct, but they are heavy to read. Tighten the wording."
+    ]
+  },
+  "corydoras-copei": {
+    "at": "2026-11-10",
+    "from": "2026-11-08",
+    "name": "คอรี่ โคเปอิ",
+    "confidence": "low",
+    "score": 0.75,
+    "notes": [
+      "Item 10: \"ต่อมรักแร้ (axillary gland)\" is an odd literal rendering; use something like \"ต่อที่โคนครีบอก\" (axillary gland).",
+      "Item 9: \"สปอนนิงม็อป (ใยสังเคราะห์วางไข่)\" is awkward. Hobbyists usually write \"สปอนนิงม็อป\" or \"ใยวางไข่\", and the explanation is unnecessary.",
+      "Item 9: \"ลูกไรทะเล (Artemia) แรกฟัก\" is fine, but \"ไส้เดือนน้ำ (Tubifex)\" in item 6 is a non-standard term. Hobbyists say \"หนอนแดง/หนอนหางหนู\" or \"ทูบิเฟกซ์\"; the common term should be used.",
+      "Item 10: \"ปลาชนิดนี้ถูกจัดอยู่ในสกุล Corydoras ... ได้แบ่งสกุลนี้ออกเป็นห้าสกุล\" is fine, but \"ปลาแคทฟิชหุ้มเกราะ\" for 'armoured catfish' is a more natural hobby term than the literal \"สวมเกราะ (mailed)\".",
+      "Item 6: \"ไม่ควรคาดหวังโดยเด็ดขาดว่า\" is stiff; \"ไม่ควรคาดหวังว่าปลาจะอยู่รอดได้ด้วย 'เศษอาหาร'\" reads more naturally.",
+      "Item 2: the type-locality string is left in English and then translated in brackets. This is acceptable, but \"Río Pastaza\" and \"Río Marañón\" could be given in Thai transliteration (แม่น้ำปาสตาซา, แม่น้ำมารัญญอน) for readability."
+    ]
+  },
+  "corydoras-crimmeni": {
+    "at": "2026-11-10",
+    "from": "2026-11-03",
+    "name": "แพะคริมเมนิ",
+    "confidence": "low",
+    "score": 0.95,
+    "notes": []
+  },
+  "corydoras-cruziensis": {
+    "at": "2026-11-10",
+    "from": "2026-11-08",
+    "name": "แพะครูซิเอนซิส",
+    "confidence": "low",
+    "score": 0.72,
+    "notes": [
+      "Item 2: the type locality quote is missing its closing quote after 'W' and before 'ความสูง'. The English has 'elevation 215 metres' inside the quote, and the Thai has changed the quote structure. Keep 'elevation' inside the quote and close it properly.",
+      "Item 9: 'หุ้มเกล็ดเกราะ' for 'mailed' is an awkward, non-standard rendering. Use 'ปลาแคทฟิชหุ้มเกราะ' or 'ปลาหนังเกราะ' and drop the clumsy double term.",
+      "Item 9: 'ต่อมรักแร้ (axillary gland)' is a literal anatomical term and reads oddly for fish. Use 'ต่อที่โคนครีบอก' or a similar phrase.",
+      "Item 9: 'ถูก ตำ' for a pectoral-spine 'sting' is acceptable but 'ทิ่มแทง' is more natural.",
+      "Item 1/9: 'ลายจุดสีเข้มบนลำตัวขนาดใหญ่กว่า' is ambiguous. It could read as a larger body. Use 'ลายสีเข้มบนลำตัวที่ใหญ่กว่า'.",
+      "Item 8: The English says sexually mature individuals are rounder than males. The Thai changes this to 'ตัวเมียที่เจริญพันธุ์เต็มที่', which adds an assumption. Use 'ตัวที่เจริญพันธุ์เต็มที่' or keep the original sense.",
+      "Item 6: 'ไส้เดือนน้ำ' for Tubifex is a common term, but 'หนอนแดง' for bloodworm is not accurate. Hobbyists use 'หนอนแดง' for bloodworm, so this is fine. The phrase 'โดยเด็ดขาด' placement at the end is slightly awkward. Move it to 'ไม่ควร...โดยเด็ดขาด' or use 'ห้าม'."
+    ]
+  },
+  "corydoras-davidsandsi": {
+    "at": "2026-11-10",
+    "from": "2026-11-08",
+    "name": "คอรี่เดวิดแซนด์ซี",
+    "confidence": "low",
+    "score": 0.7,
+    "notes": [
+      "Item 3: \"ผู้บรรยายชนิด\" for \"the author\" adds a specific reading (species describer) that the source does not state. Use a neutral phrase such as \"ผู้ที่ระบุข้อมูลนี้\".",
+      "Item 3: \"แทบวัดความกระด้างไม่ได้\" and \"ค่าการนำไฟฟ้าต่ำ\" are acceptable. \"ตามแบบฉบับ\" is slightly stiff; use \"ตามลักษณะทั่วไปของ\".",
+      "Item 10: \"ไหมพรมวางไข่แบบละเอียด\" is a clumsy rendering of \"fine spawning mops\". Use \"สปอว์นนิงม็อปแบบเส้นละเอียด\" or \"ม็อปวางไข่เส้นเล็ก\".",
+      "Item 10: \"ลูกสนอัลเดอร์\" is wrong. An alder cone is not a pine cone. Use \"ผลอัลเดอร์ (alder cone)\".",
+      "Item 10: \"ลูกไรทะเลแรกฟัก\" for Artemia nauplii is acceptable, but \"อาร์ทีเมียแรกฟัก\" is the term hobbyists more commonly use. \"ไมโครเวิร์ม\" is fine.",
+      "Item 11: \"ต่อมรักแร้ (axillary gland)\" is a literal rendering that reads oddly. Use \"ต่อมที่โคนครีบอก\".",
+      "Items 1 and 2: \"rio Unini\" and \"rio Negro\" are left in Latin script in running text. Use \"แม่น้ำอูนินี\" and \"แม่น้ำเนโกร\", possibly with the Latin name in brackets. \"Sand's cory\" is also left untranslated and needs a Thai name or a gloss.",
+      "Item 11: \"Their taxonomy can be confusing\" is rendered with \"อนุกรมวิธาน\", which is fine. However, \"ปลาชนิดนี้อยู่ในวงศ์ Callichthyidae ซึ่งสมาชิกในวงศ์...\" is repetitive."
+    ]
+  },
+  "corydoras-delphax": {
+    "at": "2026-11-10",
+    "from": "2026-11-06",
+    "name": "คอรี่เดลแฟกซ์",
+    "confidence": "medium",
+    "score": 0.7,
+    "notes": [
+      "Item 1/10: 'ปลาแพะ (ปลาหนังเกราะ)' – 'ปลาแพะ' is the Thai hobby name for Corydoras, but 'armoured catfish' (Callichthyidae) rendered as 'ปลาหนังเกราะ' is non-standard; use 'ปลาดุกหุ้มเกราะ' or 'ปลาแพะ' consistently. Item 10 uses 'ปลาดุกหุ้มเกราะ' for the same group, so the terms are inconsistent.",
+      "Item 6: 'ปลากินทั้งพืชและสัตว์ที่หากินตามพื้น' is clumsy; use 'ปลากินอาหารได้หลายชนิดที่หากินตามพื้นตู้'. Also 'ไส้เดือนน้ำ (ทูบิเฟ็กซ์)' – Thai hobbyists usually say 'หนอนแดง/ไส้เดือนน้ำ' loosely; keep 'Tubifex' consistent.",
+      "Item 9: 'ม็อบวางไข่' is a literal loan; add a descriptor such as 'ม็อบวางไข่ (spawning mop)' or explain it as a yarn mop. 'ตู้เปลือย' for bare-bottomed is acceptable but 'ตู้ที่ไม่ปูพื้น' is clearer.",
+      "Item 9: 'ลูกไรทะเลแรกฟัก' for Artemia nauplii is fine, but 'ไมโครเวิร์ม' needs the Thai hobby term 'ไส้เดือนฝอย' or a bracket.",
+      "Item 10: 'ปื้นสีเข้มที่ส่วนหน้าของครีบหลัง' – 'ปื้น' is uncommon; use 'แต้มสีเข้ม'. 'ต่อม axillary' leaves English untranslated; give a Thai term such as 'ต่อมที่โคนครีบอก' with the English in brackets.",
+      "Item 10: 'ปลาที่หน้าตาคล้ายกันผิดชนิด' – wording is awkward; 'ปลาสกุลเดียวกันที่หน้าตาคล้ายกันซึ่งถูกระบุชนิดผิด' reads more naturally.",
+      "Item 8: 'ตัวเมียมักโตกว่า' is fine, but 'sexually mature individuals' was changed to 'ตัวเมียที่เจริญพันธุ์แล้ว'; the English says individuals, so check the intended subject (sexually mature females) against the source."
+    ]
+  },
+  "corydoras-desana": {
+    "at": "2026-11-10",
+    "from": "2026-10-30",
+    "name": "คอรี่ออร์ก้า",
+    "confidence": "medium",
+    "score": 0.7,
+    "notes": [
+      "Item 5: added fact 'เลี้ยงรวมกับปลาอื่นในตู้รวมได้' — English only says 'peaceful, shoaling community fish'; reword as 'ปลาอยู่รวมฝูงที่นิสัยสงบ เหมาะกับตู้รวม' or avoid adding a claim beyond the source.",
+      "Item 4: 'Tubifex' translated as 'ไส้เดือนน้ำ' — hobbyists in Thailand say 'หนอนแดง' for bloodworm vs 'ไส้เดือนน้ำ/ทูบิเฟ็กซ์'; 'bloodworm' as 'หนอนแดง' is also ambiguous (in Thailand หนอนแดง often means tubifex-like worms); use 'ลูกน้ำแดง/หนอนแดง (bloodworm)' and 'ทูบิเฟ็กซ์/หนอนหางหนู (Tubifex)' to be clear. Also 'Daphnia' = 'ไรแดง' is the usual Thai term, fine.",
+      "Item 3: 'ปรับตัวและสงบลงได้' for 'settle these fish' is slightly wordy; 'ปลาคุ้ยหาอาหาร' fine. Consider 'ทำให้ปลาสบายใจ/นิ่งขึ้น'.",
+      "Item 2: the bracketed drainage hierarchy '(Amazon, Middle Amazon (Solimões), Negro ...)' was left in English; consider translating the 'Amazon' basin names or marking them as drainage ('ลุ่มน้ำ'). Also 'เมือง São Gabriel da Cachoeira' is a municipality; 'เทศบาล/อำเภอ' may be more accurate.",
+      "Item 1: 'Kopansermalle (Denmark)' fine; 'ดูได้จาก' for 'identified by' acceptable."
+    ]
+  },
+  "corydoras-diphyes": {
+    "at": "2026-11-10",
+    "from": "2026-11-03",
+    "name": "แพะไดฟายส์",
+    "confidence": "low",
+    "score": 0.75,
+    "notes": [
+      "Item 3: \"ปลาแมว Otocinclus mimulus\" – Otocinclus is an otocinclus/oto (ปลาอ็อตโต), not a generic \"ปลาแมว\"; use \"ปลาซักเกอร์/อ็อตโตซินคลัส\" or \"ปลาอ็อตโต\" instead of \"ปลาแมว\" (catfish), which is ambiguous.",
+      "Item 3: \"พยายามป้องกันตัวเอง\" attributes intent to the fish; acceptable but could say \"เพื่อป้องกันตัวจากผู้ล่า\" more naturally.",
+      "Item 1: \"บรรยายลักษณะทางวิทยาศาสตร์โดย\" is wordy; more natural: \"ได้รับการอนุกรมวิธาน/ตั้งชื่อโดย ... (2003)\" or \"ถูกบรรยายครั้งแรกโดย\".",
+      "Item 1: \"ตู้ปลารวม\" fine, but \"ปลาที่นิสัยสงบ\" could be \"ปลาที่ไม่ก้าวร้าว\"; and Thai hobby usually calls Corydoras \"ปลาคอรี่\" – consider adding it at first mention.",
+      "Item 4: \"รัฐเซาเปาลู\" – the common Thai spelling is \"เซาเปาโล\"."
+    ]
+  },
   "corydoras-paleatus": {
     "at": "2026-11-02",
     "from": "2026-11-02",

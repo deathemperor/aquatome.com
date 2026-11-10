@@ -286,5 +286,76 @@
       "url": "https://www.youtube.com/watch?v=9c_d4tiyUto",
       "title": "American Badis! The PYGMY SUNFISH Had Babies! Spawning Elassoma Gilberti - Spawning Update"
     }
-  ]
+  ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Suwannee",
+        "Waccasassa",
+        "Apalachicola",
+        "Ochlockonee",
+        "Choctawhatchee",
+        "Okeechobee"
+      ],
+      "sources": [
+        "aquatome"
+      ],
+      "quotes": [
+        {
+          "source": "aquatome",
+          "quote": "Vùng phân bố kéo từ sông Waccasassa về phía tây tới vịnh Choctawhatchee, tính cả hạ lưu sông Suwannee.",
+          "countries": [],
+          "regions": [
+            "Suwannee",
+            "Waccasassa"
+          ]
+        },
+        {
+          "source": "aquatome",
+          "quote": "Một danh sách khác kể ra các lưu vực Choctawhatchee, Apalachicola, Ochlockonee, Suwannee, hồ Okeechobee và những nhánh nhỏ đổ ra vịnh.",
+          "countries": [],
+          "regions": [
+            "Apalachicola",
+            "Ochlockonee",
+            "Choctawhatchee",
+            "Okeechobee"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5852306,
+      "total": 8,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "US",
+          8
+        ]
+      ],
+      "cells": [
+        [
+          -85.78125,
+          29.53125,
+          3
+        ],
+        [
+          -84.375,
+          29.53125,
+          3
+        ],
+        [
+          -82.96875,
+          28.125,
+          1
+        ],
+        [
+          -82.96875,
+          29.53125,
+          1
+        ]
+      ]
+    }
+  }
 }

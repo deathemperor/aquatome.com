@@ -10,6 +10,170 @@
     "guyana",
     "demerara"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GY"
+      ],
+      "regions": [
+        "Demerara River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The blackstripe pencilfish, Nannostomus harrisoni, is a lebiasinid that appears endemic to the Demerara River basin in eastern Guyana.",
+          "countries": [
+            "GY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Canal at Christianburg, Guyana' and this species appears endemic to the Demerara River basin, eastern Guyana including some its tributaries such as Haiama River, Kuruabaru River, Haiakwa Creek and Haianari Creek.",
+          "countries": [],
+          "regions": [
+            "Demerara River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2355653,
+      "total": 69,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "GY",
+          40
+        ],
+        [
+          "BR",
+          17
+        ],
+        [
+          "VE",
+          7
+        ],
+        [
+          "CO",
+          2
+        ],
+        [
+          "BO",
+          1
+        ],
+        [
+          "PE",
+          1
+        ],
+        [
+          "SR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -71.71875,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          1.40625,
+          8,
+          0
+        ],
+        [
+          -66.09375,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          -14.0625,
+          1,
+          0
+        ],
+        [
+          -60.46875,
+          2.8125,
+          16,
+          16
+        ],
+        [
+          -60.46875,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          -8.4375,
+          1,
+          0
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          4,
+          0
+        ],
+        [
+          -59.0625,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -59.0625,
+          5.625,
+          22,
+          22
+        ],
+        [
+          -57.65625,
+          -2.8125,
+          2,
+          0
+        ],
+        [
+          -57.65625,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          -56.25,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -56.25,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          -50.625,
+          -4.21875,
+          7,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

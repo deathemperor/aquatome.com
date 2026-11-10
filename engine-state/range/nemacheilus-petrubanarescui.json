@@ -1,0 +1,84 @@
+{
+  "id": "nemacheilus-petrubanarescui",
+  "native": {
+    "input": "25ec366bfe6bcf95",
+    "at": "2026-11-10T15:58:17.469Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Mesonoemacheilus petrubanarescui is a loach from the Netravati and Kabini river basins in the Western Ghats of southern India.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Netravati River, Dharmasthala, Karnataka State, India', with the species subsequently recorded from the Kabini (aka Kabani) River basin and it may be endemic to these two drainages, with all known localities within the Western Ghats mountain range.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Netravati",
+        "source": "seriouslyfish",
+        "quote": "Mesonoemacheilus petrubanarescui is a loach from the Netravati and Kabini river basins in the Western Ghats of southern India.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Kabini",
+        "source": "seriouslyfish",
+        "quote": "Mesonoemacheilus petrubanarescui is a loach from the Netravati and Kabini river basins in the Western Ghats of southern India.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Western Ghats",
+        "source": "seriouslyfish",
+        "quote": "Mesonoemacheilus petrubanarescui is a loach from the Netravati and Kabini river basins in the Western Ghats of southern India.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Kumaradhara",
+        "source": "seriouslyfish",
+        "quote": "It's unclear if M. petrubanarescui occurs elsewhere in the Cauvery basin but it has been recorded in the Kumaradhara drainage, a major tributary of the Netravati.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Nemacheilus petrubanarescui",
+    "status": "ACCEPTED",
+    "taxonKey": 5205326,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        7
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        5
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T15:58:17.469Z"
+  }
+}

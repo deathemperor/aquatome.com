@@ -10,6 +10,84 @@
     "guyana",
     "essequibo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GY"
+      ],
+      "regions": [
+        "Essequibo",
+        "Potaro",
+        "Mazaruni"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The least pencilfish, Nannostomus minimus, is a tiny lebiasinid from the Potaro and Mazaruni systems of the Essequibo basin in Guyana.",
+          "countries": [
+            "GY"
+          ],
+          "regions": [
+            "Essequibo",
+            "Potaro",
+            "Mazaruni"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2355648,
+      "total": 37,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "GY",
+          37
+        ]
+      ],
+      "cells": [
+        [
+          -60.46875,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -60.46875,
+          4.21875,
+          13,
+          13
+        ],
+        [
+          -60.46875,
+          5.625,
+          19,
+          19
+        ],
+        [
+          -59.0625,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          -59.0625,
+          4.21875,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

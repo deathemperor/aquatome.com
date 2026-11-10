@@ -1,0 +1,59 @@
+{
+  "id": "neolamprologus-brevis",
+  "native": {
+    "input": "205973977ba9e8ef",
+    "at": "2026-11-10T15:58:17.469Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Lake Tanganyika",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Tanganyika.",
+        "ok": true
+      },
+      {
+        "name": "Lake Tanganyika",
+        "source": "glaser",
+        "quote": "Lamprologus brevis was already described in 1899 from the area of Albertville, Congolese shore of Lake Tanganyika.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BI",
+        "CD",
+        "TZ",
+        "ZM"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Neolamprologus brevis",
+    "status": "ACCEPTED",
+    "taxonKey": 2371771,
+    "datasets": [
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        60
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        28
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        6
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-10T15:58:17.469Z"
+  }
+}

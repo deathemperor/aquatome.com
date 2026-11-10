@@ -10,6 +10,85 @@
     "india",
     "krishna"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Krishna River",
+        "Western Ghats",
+        "Tunga"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Nemachilichthys rueppelli is a nemacheilid loach from the upper Krishna River system in the Western Ghats, India.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Nemachilichthys rueppelli is currently known only from the upper reaches of the east-flowing Krishna River system in the Western Ghats.",
+          "countries": [],
+          "regions": [
+            "Krishna River",
+            "Western Ghats"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In particular, the species is reported from seven rivers, Indrayani (Dahanukar et al. 2012), Mula-Mutha, Nira, Krishna, Koyna, Hiranyakeshi and Tunga (Keskar et al., 2015).",
+          "countries": [],
+          "regions": [
+            "Tunga"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5205276,
+      "total": 35,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "IN",
+          35
+        ]
+      ],
+      "cells": [
+        [
+          73.125,
+          15.46875,
+          16,
+          16
+        ],
+        [
+          73.125,
+          16.875,
+          12,
+          12
+        ],
+        [
+          73.125,
+          18.28125,
+          4,
+          4
+        ],
+        [
+          74.53125,
+          12.65625,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

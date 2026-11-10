@@ -14,6 +14,119 @@
     "vietnam",
     "dong-nai"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "LA",
+        "KH",
+        "VN"
+      ],
+      "regions": [
+        "Mekong",
+        "Chao Phraya",
+        "Mae Klong",
+        "Dong Nai"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Nemacheilus pallidus is a nemacheilid loach from the Mae Klong, Chao Phraya and Mekong systems in Thailand, Laos, Cambodia and Vietnam.",
+          "countries": [
+            "TH",
+            "LA",
+            "KH",
+            "VN"
+          ],
+          "regions": [
+            "Mekong",
+            "Chao Phraya",
+            "Mae Klong"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "A relatively widespread species native to the Mae Klong and upper Chao Phraya river systems in Thailand plus the Mekong basin in Thailand, Laos, Cambodia and Vietnam, where it also occurs in the Dong Nai drainage.",
+          "countries": [],
+          "regions": [
+            "Dong Nai"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5205271,
+      "total": 14,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "KH",
+          10
+        ],
+        [
+          "TH",
+          3
+        ],
+        [
+          "LA",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          11.25,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          12.65625,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          11.25,
+          3,
+          3
+        ],
+        [
+          104.0625,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          12.65625,
+          3,
+          3
+        ],
+        [
+          105.46875,
+          14.0625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

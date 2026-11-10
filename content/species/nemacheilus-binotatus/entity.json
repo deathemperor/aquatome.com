@@ -10,6 +10,92 @@
     "thailand",
     "chao-phraya"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [
+        "Mae Klong",
+        "Chao Phraya"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Nemacheilus binotatus is a loach known only from the Mae Klong and Chao Phraya river systems of western and central Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the Mae Klong and Chao Phraya river systems, western and central Thailand.",
+          "countries": [],
+          "regions": [
+            "Mae Klong",
+            "Chao Phraya"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5205274,
+      "total": 15,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "TH",
+          13
+        ],
+        [
+          "KH",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          12.65625,
+          3,
+          3
+        ],
+        [
+          98.4375,
+          16.875,
+          2,
+          2
+        ],
+        [
+          98.4375,
+          18.28125,
+          3,
+          3
+        ],
+        [
+          99.84375,
+          16.875,
+          3,
+          3
+        ],
+        [
+          99.84375,
+          18.28125,
+          2,
+          2
+        ],
+        [
+          104.0625,
+          11.25,
+          2,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

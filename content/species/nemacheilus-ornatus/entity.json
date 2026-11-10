@@ -10,6 +10,56 @@
     "thailand",
     "tapi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [
+        "Tapi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Known only from the Tapi river drainage in Surat Thani province, southern Thailand with type locality 'Lake Sonkphan, Khlong Sok at Ban Khlong Sok, 8°49'N, 98°35'E, Tapi River basin, Surat Thani Province, Thailand'.",
+          "countries": [
+            "TH"
+          ],
+          "regions": [
+            "Tapi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5205297,
+      "total": 5,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "TH",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          8.4375,
+          4,
+          4
+        ],
+        [
+          99.84375,
+          14.0625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

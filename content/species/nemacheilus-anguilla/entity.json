@@ -9,6 +9,105 @@
     "asia",
     "india"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Western Ghats",
+        "Yenna River",
+        "Mula-Mutha River",
+        "Sharavathi",
+        "Pampa",
+        "Tunga"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Nemacheilus anguilla is a loach endemic to the Western Ghats of southwestern India, recorded from rivers in Maharashtra, Karnataka and Kerala.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the Western Ghats range of mountains, southwestern India.",
+          "countries": [],
+          "regions": [
+            "Western Ghats"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It was described from 'Yenna River at Medha, Satara District, Maharashtra (Mumbai Presidency), India', but has subsequently been recorded from numerous river drainages in the states of Maharashtra, Karnataka, and Kerala.",
+          "countries": [],
+          "regions": [
+            "Yenna River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "These include the Mula-Mutha River in Maharashtra, Sharavathi, Bhadra and Kali rivers in Karnataka and Pampa river in Kerala.",
+          "countries": [],
+          "regions": [
+            "Mula-Mutha River",
+            "Sharavathi",
+            "Pampa"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In the Tunga river sympatric species include Barilius bakerii, Devario malabaricus, Danio rerio, Rasbora daniconius, Dawkinsia arulius, D. assimilis, Haludaria fasciata, Pethia ticto, Puntius sahyadriensis, 'Puntius' narayani, Systomus sarana, Tor kudree, Garra mullya, Psilorhynchus tenura, Schistura nilgiriensis, S. semiarmatus, S. denisoni, Aplocheilus blockii, A. lineatus, Pristolepis marginata, and Channa gachua.",
+          "countries": [],
+          "regions": [
+            "Tunga"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5205302,
+      "total": 43,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "IN",
+          43
+        ]
+      ],
+      "cells": [
+        [
+          73.125,
+          14.0625,
+          2,
+          2
+        ],
+        [
+          73.125,
+          15.46875,
+          20,
+          20
+        ],
+        [
+          73.125,
+          16.875,
+          18,
+          18
+        ],
+        [
+          80.15625,
+          22.5,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

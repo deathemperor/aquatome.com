@@ -12,6 +12,104 @@
     "indonesia",
     "kalimantan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "ID"
+      ],
+      "regions": [
+        "Borneo"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Borneo, where it is known from the Malaysian states of Sarawak and Sabah, plus the Indonesian provinces East Kalimantan (Kalimantan Timur) and North Kalimantan (Kalimantan Utara).",
+          "countries": [
+            "MY",
+            "ID"
+          ],
+          "regions": [
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2367362,
+      "total": 67,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "MY",
+          66
+        ],
+        [
+          "ID",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          112.5,
+          1.40625,
+          2,
+          2
+        ],
+        [
+          112.5,
+          2.8125,
+          8,
+          8
+        ],
+        [
+          113.90625,
+          2.8125,
+          15,
+          15
+        ],
+        [
+          115.3125,
+          2.8125,
+          2,
+          2
+        ],
+        [
+          116.71875,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          116.71875,
+          4.21875,
+          17,
+          17
+        ],
+        [
+          116.71875,
+          5.625,
+          9,
+          9
+        ],
+        [
+          118.125,
+          4.21875,
+          10,
+          10
+        ],
+        [
+          118.125,
+          5.625,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

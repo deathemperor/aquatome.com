@@ -10,6 +10,84 @@
     "philippines",
     "mindanao"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PH"
+      ],
+      "regions": [
+        "Basilan",
+        "Mindanao",
+        "Palawan",
+        "Busuanga"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the southern Philippines with records from the islands of Basilan, Mindanao, Palawan, and Busuanga.",
+          "countries": [
+            "PH"
+          ],
+          "regions": [
+            "Basilan",
+            "Mindanao",
+            "Palawan",
+            "Busuanga"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2367363,
+      "total": 15,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "PH",
+          14
+        ],
+        [
+          "MY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          116.71875,
+          4.21875,
+          1,
+          0
+        ],
+        [
+          118.125,
+          8.4375,
+          4,
+          4
+        ],
+        [
+          119.53125,
+          11.25,
+          8,
+          8
+        ],
+        [
+          120.9375,
+          5.625,
+          1,
+          1
+        ],
+        [
+          123.75,
+          7.03125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

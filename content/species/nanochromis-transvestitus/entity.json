@@ -10,6 +10,56 @@
     "democratic-republic-of-the-congo",
     "lake-mai-ndombe"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CD"
+      ],
+      "regions": [
+        "Lake Mai-Ndombe"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "It is known only from Lake Mai-Ndombe in Democratic Republic of Congo.",
+          "countries": [
+            "CD"
+          ],
+          "regions": [
+            "Lake Mai-Ndombe"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2372696,
+      "total": 10,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "CD",
+          10
+        ]
+      ],
+      "cells": [
+        [
+          16.875,
+          -2.8125,
+          9,
+          9
+        ],
+        [
+          18.28125,
+          -2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

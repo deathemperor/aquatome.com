@@ -14,6 +14,93 @@
     "indonesia",
     "kalimantan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "BN",
+        "ID"
+      ],
+      "regions": [
+        "Borneo",
+        "Kajan River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to northern and central Borneo, with records from the Malaysian states of Sarawak and Sabah, Brunei Darussalam, and the Indonesian provinces North Kalimantan (Kalimantan Utara) and East Kalimantan (Kalimantan Timur).",
+          "countries": [
+            "MY",
+            "BN",
+            "ID"
+          ],
+          "regions": [
+            "Borneo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Kajan River, eastern slope of central Kalimantan, Indonesia [Borneo]'.",
+          "countries": [],
+          "regions": [
+            "Kajan River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2367368,
+      "total": 21,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "MY",
+          21
+        ]
+      ],
+      "cells": [
+        [
+          112.5,
+          1.40625,
+          10,
+          10
+        ],
+        [
+          113.90625,
+          2.8125,
+          4,
+          4
+        ],
+        [
+          116.71875,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          116.71875,
+          5.625,
+          3,
+          3
+        ],
+        [
+          118.125,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          118.125,
+          5.625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

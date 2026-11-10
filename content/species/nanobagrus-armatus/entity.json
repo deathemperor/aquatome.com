@@ -11,6 +11,59 @@
     "mahakam",
     "malaysia"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Mahakam River",
+        "Borneo"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Tepoe, Mahakam River, Borneo.",
+          "countries": [],
+          "regions": [
+            "Mahakam River"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Asia: east and west Borneo.",
+          "countries": [],
+          "regions": [
+            "Borneo"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2338166,
+      "total": 3,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "ID",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          111.09375,
+          -1.40625,
+          1
+        ],
+        [
+          112.5,
+          0,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

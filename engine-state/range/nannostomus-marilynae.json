@@ -1,0 +1,133 @@
+{
+  "id": "nannostomus-marilynae",
+  "native": {
+    "input": "d6a3f562db3ac884",
+    "at": "2026-11-10T15:58:17.469Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The greenstripe pencilfish, Nannostomus marilynae, occurs in the rio Negro in Brazil and the Río Vichada in the upper Orinoco basin, Colombia.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The greenstripe pencilfish, Nannostomus marilynae, occurs in the rio Negro in Brazil and the Río Vichada in the upper Orinoco basin, Colombia.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Additional records from the upper rio Negro and Orinoco basins in Venezuela may require confirmation.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Negro",
+        "source": "seriouslyfish",
+        "quote": "The greenstripe pencilfish, Nannostomus marilynae, occurs in the rio Negro in Brazil and the Río Vichada in the upper Orinoco basin, Colombia.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Orinoco",
+        "source": "seriouslyfish",
+        "quote": "The greenstripe pencilfish, Nannostomus marilynae, occurs in the rio Negro in Brazil and the Río Vichada in the upper Orinoco basin, Colombia.",
+        "country": "CO",
+        "ok": true
+      },
+      {
+        "name": "Río Vichada",
+        "source": "seriouslyfish",
+        "quote": "It has also been recorded further upstream in the Negro system at Cucui and downstream at Castanheiro, plus the Río Vichada in Meta department, Colombia, an affluent of the upper Orinoco basin and located much further north.",
+        "country": "CO",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "VE"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Nannostomus marilynae",
+    "status": "ACCEPTED",
+    "taxonKey": 2355658,
+    "datasets": [
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        45
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        17
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        13
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        9
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        6
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        5
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        5
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        5
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        4
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        4
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "CO"
+    ],
+    "requests": 12,
+    "at": "2026-11-10T15:58:17.469Z"
+  }
+}

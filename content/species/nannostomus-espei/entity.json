@@ -10,6 +10,96 @@
     "guyana",
     "mazaruni"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GY"
+      ],
+      "regions": [
+        "Mazaruni"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The barred pencilfish, Nannostomus espei, is a lebiasinid considered endemic to the Mazaruni River system in Guyana.",
+          "countries": [
+            "GY"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The original description contained no type locality but this species is currently considered endemic to the Mazaruni River system in Guyana, including many of its tributaries such as the Kurupung (where the species was first discovered in 1953), Eping, and Tabuba.",
+          "countries": [],
+          "regions": [
+            "Mazaruni"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2355637,
+      "total": 41,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "GY",
+          29
+        ],
+        [
+          "VE",
+          12
+        ]
+      ],
+      "cells": [
+        [
+          -68.90625,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          0,
+          1,
+          0
+        ],
+        [
+          -67.5,
+          1.40625,
+          5,
+          0
+        ],
+        [
+          -67.5,
+          2.8125,
+          4,
+          0
+        ],
+        [
+          -67.5,
+          5.625,
+          1,
+          0
+        ],
+        [
+          -61.875,
+          5.625,
+          2,
+          2
+        ],
+        [
+          -60.46875,
+          5.625,
+          27,
+          27
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

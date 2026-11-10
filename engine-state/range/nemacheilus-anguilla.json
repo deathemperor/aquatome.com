@@ -1,0 +1,91 @@
+{
+  "id": "nemacheilus-anguilla",
+  "native": {
+    "input": "51d3ebb615724c81",
+    "at": "2026-11-10T15:58:17.469Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Nemacheilus anguilla is a loach endemic to the Western Ghats of southwestern India, recorded from rivers in Maharashtra, Karnataka and Kerala.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Western Ghats range of mountains, southwestern India.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Western Ghats",
+        "source": "seriouslyfish",
+        "quote": "Endemic to the Western Ghats range of mountains, southwestern India.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Yenna River",
+        "source": "seriouslyfish",
+        "quote": "It was described from 'Yenna River at Medha, Satara District, Maharashtra (Mumbai Presidency), India', but has subsequently been recorded from numerous river drainages in the states of Maharashtra, Karnataka, and Kerala.",
+        "country": "IN",
+        "ok": true
+      },
+      {
+        "name": "Mula-Mutha River",
+        "source": "seriouslyfish",
+        "quote": "These include the Mula-Mutha River in Maharashtra, Sharavathi, Bhadra and Kali rivers in Karnataka and Pampa river in Kerala.",
+        "ok": true
+      },
+      {
+        "name": "Sharavathi",
+        "source": "seriouslyfish",
+        "quote": "These include the Mula-Mutha River in Maharashtra, Sharavathi, Bhadra and Kali rivers in Karnataka and Pampa river in Kerala.",
+        "ok": true
+      },
+      {
+        "name": "Pampa",
+        "source": "seriouslyfish",
+        "quote": "These include the Mula-Mutha River in Maharashtra, Sharavathi, Bhadra and Kali rivers in Karnataka and Pampa river in Kerala.",
+        "ok": true
+      },
+      {
+        "name": "Tunga",
+        "source": "seriouslyfish",
+        "quote": "In the Tunga river sympatric species include Barilius bakerii, Devario malabaricus, Danio rerio, Rasbora daniconius, Dawkinsia arulius, D. assimilis, Haludaria fasciata, Pethia ticto, Puntius sahyadriensis, 'Puntius' narayani, Systomus sarana, Tor kudree, Garra mullya, Psilorhynchus tenura, Schistura nilgiriensis, S. semiarmatus, S. denisoni, Aplocheilus blockii, A. lineatus, Pristolepis marginata, and Channa gachua.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Nemacheilus anguilla",
+    "status": "ACCEPTED",
+    "taxonKey": 5205302,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        23
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        20
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T15:58:17.469Z"
+  }
+}

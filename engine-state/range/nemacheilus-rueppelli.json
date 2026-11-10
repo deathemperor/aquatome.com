@@ -1,0 +1,78 @@
+{
+  "id": "nemacheilus-rueppelli",
+  "native": {
+    "input": "6e9669e186a77a60",
+    "at": "2026-11-10T15:58:17.469Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Nemachilichthys rueppelli is a nemacheilid loach from the upper Krishna River system in the Western Ghats, India.",
+        "words": "India",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Krishna River",
+        "source": "seriouslyfish",
+        "quote": "Nemachilichthys rueppelli is currently known only from the upper reaches of the east-flowing Krishna River system in the Western Ghats.",
+        "ok": true
+      },
+      {
+        "name": "Western Ghats",
+        "source": "seriouslyfish",
+        "quote": "Nemachilichthys rueppelli is currently known only from the upper reaches of the east-flowing Krishna River system in the Western Ghats.",
+        "ok": true
+      },
+      {
+        "name": "Tunga",
+        "source": "seriouslyfish",
+        "quote": "In particular, the species is reported from seven rivers, Indrayani (Dahanukar et al. 2012), Mula-Mutha, Nira, Krishna, Koyna, Hiranyakeshi and Tunga (Keskar et al., 2015).",
+        "ok": true
+      },
+      {
+        "name": "Bhima",
+        "source": "seriouslyfish",
+        "quote": "Sykes (1839) wrote \"Found in the Beema river at Taimbournee and Mota Mola near Puna.\"",
+        "ok": false,
+        "why": "its name is not in the quote"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Nemacheilus rueppelli",
+    "status": "ACCEPTED",
+    "taxonKey": 5205276,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        16
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        16
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ]
+    ],
+    "native": [
+      "IN"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T15:58:17.469Z"
+  }
+}

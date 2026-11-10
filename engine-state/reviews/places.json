@@ -343,6 +343,18 @@
       "kept": true
     }
   ],
+  "id/places/apalachicola-river-basin": [
+    {
+      "at": "2026-11-10T17:42:33Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The input names are in Vietnamese, but the answers are what get scored. Most answers are fine as Indonesian atlas names, but several are wrong:"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/approuage": [
     {
       "at": "2026-11-08T12:08:48Z",
@@ -672,6 +684,18 @@
       "kept": true
     }
   ],
+  "id/places/baria": [
+    {
+      "at": "2026-11-10T17:42:33Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The input names are in Vietnamese, but the answers are what get scored. Most answers are fine as Indonesian atlas names, but several are wrong:"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/barisan": [
     {
       "at": "2026-11-09T00:08:04Z",
@@ -719,6 +743,18 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/basilan": [
+    {
+      "at": "2026-11-10T17:42:33Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The input names are in Vietnamese, but the answers are what get scored. Most answers are fine as Indonesian atlas names, but several are wrong:"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -802,6 +838,19 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/belait-river": [
+    {
+      "at": "2026-11-10T17:42:33Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The input names are in Vietnamese, but the answers are what get scored. Most answers are fine as Indonesian atlas names, but several are wrong:",
+        "\"Belait\", \"Biobío\", \"Endau\", \"Mahakam\", \"Malinau\", \"Mula-Mutha\", \"Capim\", \"Marowijne\", \"Morona\", \"Pará\", \"Santiago\", \"Tigre\", \"Truandó\", \"Waccasassa\", \"Wacissa\", \"Yenna\": river names given without 'Sungai'. Indonesian atlases normally write 'Sungai X', so these are inconsistent with the Daerah Aliran Sungai answers elsewhere in the list."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -1056,6 +1105,19 @@
       "kept": true
     }
   ],
+  "id/places/biobio-river": [
+    {
+      "at": "2026-11-10T17:42:33Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The input names are in Vietnamese, but the answers are what get scored. Most answers are fine as Indonesian atlas names, but several are wrong:",
+        "\"Belait\", \"Biobío\", \"Endau\", \"Mahakam\", \"Malinau\", \"Mula-Mutha\", \"Capim\", \"Marowijne\", \"Morona\", \"Pará\", \"Santiago\", \"Tigre\", \"Truandó\", \"Waccasassa\", \"Wacissa\", \"Yenna\": river names given without 'Sungai'. Indonesian atlases normally write 'Sungai X', so these are inconsistent with the Daerah Aliran Sungai answers elsewhere in the list."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/bird-s-head-peninsula": [
     {
       "at": "2026-11-08T05:19:45Z",
@@ -1270,6 +1332,18 @@
       "kept": true
     }
   ],
+  "id/places/busuanga": [
+    {
+      "at": "2026-11-10T17:42:33Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The input names are in Vietnamese, but the answers are what get scored. Most answers are fine as Indonesian atlas names, but several are wrong:"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/buyuk-menderes": [
     {
       "at": "2026-11-08T05:19:45Z",
@@ -1428,6 +1502,19 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/cardamom-hills": [
+    {
+      "at": "2026-11-10T17:42:33Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The input names are in Vietnamese, but the answers are what get scored. Most answers are fine as Indonesian atlas names, but several are wrong:",
+        "\"Perbukitan Kardamom\" for Cardamom Hills in India: the usual Indonesian form is 'Bukit Kardamom' or 'Perbukitan Cardamom'. The spelling is doubtful."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -1836,6 +1923,30 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/choctawhatchee": [
+    {
+      "at": "2026-11-10T17:42:33Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The input names are in Vietnamese, but the answers are what get scored. Most answers are fine as Indonesian atlas names, but several are wrong:"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/choctawhatchee-river-basin": [
+    {
+      "at": "2026-11-10T17:42:33Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The input names are in Vietnamese, but the answers are what get scored. Most answers are fine as Indonesian atlas names, but several are wrong:"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -2545,6 +2656,19 @@
       "kept": true
     }
   ],
+  "id/places/endau-river": [
+    {
+      "at": "2026-11-10T17:42:34Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The input names are in Vietnamese, but the answers are what get scored. Most answers are fine as Indonesian atlas names, but several are wrong:",
+        "\"Belait\", \"Biobío\", \"Endau\", \"Mahakam\", \"Malinau\", \"Mula-Mutha\", \"Capim\", \"Marowijne\", \"Morona\", \"Pará\", \"Santiago\", \"Tigre\", \"Truandó\", \"Waccasassa\", \"Wacissa\", \"Yenna\": river names given without 'Sungai'. Indonesian atlases normally write 'Sungai X', so these are inconsistent with the Daerah Aliran Sungai answers elsewhere in the list."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/essequibo-river": [
     {
       "at": "2026-11-08T05:20:19Z",
@@ -2752,6 +2876,18 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/georgia": [
+    {
+      "at": "2026-11-10T17:42:34Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The input names are in Vietnamese, but the answers are what get scored. Most answers are fine as Indonesian atlas names, but several are wrong:"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -3752,6 +3888,19 @@
       "kept": true
     }
   ],
+  "id/places/kajan-river": [
+    {
+      "at": "2026-11-10T17:42:34Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The input names are in Vietnamese, but the answers are what get scored. Most answers are fine as Indonesian atlas names, but several are wrong:",
+        "\"Kayan\" for kajan-river: the river is the Kajan/Kayan in Borneo. Indonesian atlases write Sungai Kayan, but the answer omits the 'Sungai' generic."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/kaladan-river": [
     {
       "at": "2026-11-08T08:48:27Z",
@@ -4486,6 +4635,18 @@
       "kept": true
     }
   ],
+  "id/places/laguna-grande-san-pedro": [
+    {
+      "at": "2026-11-10T17:42:34Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The input names are in Vietnamese, but the answers are what get scored. Most answers are fine as Indonesian atlas names, but several are wrong:"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/lake-amuku": [
     {
       "at": "2026-11-08T05:20:20Z",
@@ -4793,6 +4954,18 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/lake-okeechobee-basin": [
+    {
+      "at": "2026-11-10T17:42:34Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The input names are in Vietnamese, but the answers are what get scored. Most answers are fine as Indonesian atlas names, but several are wrong:"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -5483,6 +5656,19 @@
       "kept": true
     }
   ],
+  "id/places/mahakam-river": [
+    {
+      "at": "2026-11-10T17:42:34Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The input names are in Vietnamese, but the answers are what get scored. Most answers are fine as Indonesian atlas names, but several are wrong:",
+        "\"Belait\", \"Biobío\", \"Endau\", \"Mahakam\", \"Malinau\", \"Mula-Mutha\", \"Capim\", \"Marowijne\", \"Morona\", \"Pará\", \"Santiago\", \"Tigre\", \"Truandó\", \"Waccasassa\", \"Wacissa\", \"Yenna\": river names given without 'Sungai'. Indonesian atlases normally write 'Sungai X', so these are inconsistent with the Daerah Aliran Sungai answers elsewhere in the list."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/mahanadi-river": [
     {
       "at": "2026-11-08T08:48:28Z",
@@ -5581,6 +5767,19 @@
       "model": "sonnet",
       "score": 0.1,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/malinau-river": [
+    {
+      "at": "2026-11-10T17:42:34Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The input names are in Vietnamese, but the answers are what get scored. Most answers are fine as Indonesian atlas names, but several are wrong:",
+        "\"Belait\", \"Biobío\", \"Endau\", \"Mahakam\", \"Malinau\", \"Mula-Mutha\", \"Capim\", \"Marowijne\", \"Morona\", \"Pará\", \"Santiago\", \"Tigre\", \"Truandó\", \"Waccasassa\", \"Wacissa\", \"Yenna\": river names given without 'Sungai'. Indonesian atlases normally write 'Sungai X', so these are inconsistent with the Daerah Aliran Sungai answers elsewhere in the list."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -6285,6 +6484,19 @@
       "kept": true
     }
   ],
+  "id/places/mula-mutha-river": [
+    {
+      "at": "2026-11-10T17:42:34Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The input names are in Vietnamese, but the answers are what get scored. Most answers are fine as Indonesian atlas names, but several are wrong:",
+        "\"Belait\", \"Biobío\", \"Endau\", \"Mahakam\", \"Malinau\", \"Mula-Mutha\", \"Capim\", \"Marowijne\", \"Morona\", \"Pará\", \"Santiago\", \"Tigre\", \"Truandó\", \"Waccasassa\", \"Wacissa\", \"Yenna\": river names given without 'Sungai'. Indonesian atlases normally write 'Sungai X', so these are inconsistent with the Daerah Aliran Sungai answers elsewhere in the list."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/mungo-river": [
     {
       "at": "2026-11-08T05:20:55Z",
@@ -6810,6 +7022,18 @@
       "kept": true
     }
   ],
+  "id/places/ochlockonee-river-basin": [
+    {
+      "at": "2026-11-10T17:42:34Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The input names are in Vietnamese, but the answers are what get scored. Most answers are fine as Indonesian atlas names, but several are wrong:"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/ocmulgee-river": [
     {
       "at": "2026-11-08T05:20:55Z",
@@ -6881,6 +7105,18 @@
       "score": 0.7,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/okeechobee": [
+    {
+      "at": "2026-11-10T17:42:34Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The input names are in Vietnamese, but the answers are what get scored. Most answers are fine as Indonesian atlas names, but several are wrong:"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -7082,6 +7318,18 @@
       "model": "sonnet",
       "score": 0.1,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/panniyar": [
+    {
+      "at": "2026-11-10T17:42:34Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The input names are in Vietnamese, but the answers are what get scored. Most answers are fine as Indonesian atlas names, but several are wrong:"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -7971,6 +8219,19 @@
       "kept": true
     }
   ],
+  "id/places/rio-capim": [
+    {
+      "at": "2026-11-10T17:42:34Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The input names are in Vietnamese, but the answers are what get scored. Most answers are fine as Indonesian atlas names, but several are wrong:",
+        "\"Belait\", \"Biobío\", \"Endau\", \"Mahakam\", \"Malinau\", \"Mula-Mutha\", \"Capim\", \"Marowijne\", \"Morona\", \"Pará\", \"Santiago\", \"Tigre\", \"Truandó\", \"Waccasassa\", \"Wacissa\", \"Yenna\": river names given without 'Sungai'. Indonesian atlases normally write 'Sungai X', so these are inconsistent with the Daerah Aliran Sungai answers elsewhere in the list."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/rio-caqueta": [
     {
       "at": "2026-11-08T05:21:29Z",
@@ -8487,6 +8748,19 @@
       "kept": true
     }
   ],
+  "id/places/rio-marowijne": [
+    {
+      "at": "2026-11-10T17:42:34Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The input names are in Vietnamese, but the answers are what get scored. Most answers are fine as Indonesian atlas names, but several are wrong:",
+        "\"Belait\", \"Biobío\", \"Endau\", \"Mahakam\", \"Malinau\", \"Mula-Mutha\", \"Capim\", \"Marowijne\", \"Morona\", \"Pará\", \"Santiago\", \"Tigre\", \"Truandó\", \"Waccasassa\", \"Wacissa\", \"Yenna\": river names given without 'Sungai'. Indonesian atlases normally write 'Sungai X', so these are inconsistent with the Daerah Aliran Sungai answers elsewhere in the list."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/rio-maues": [
     {
       "at": "2026-11-08T05:21:30Z",
@@ -8544,6 +8818,19 @@
       "score": 0.3,
       "notes": [
         "Moju (should be Sungai Moju)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/rio-morona": [
+    {
+      "at": "2026-11-10T17:42:34Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The input names are in Vietnamese, but the answers are what get scored. Most answers are fine as Indonesian atlas names, but several are wrong:",
+        "\"Belait\", \"Biobío\", \"Endau\", \"Mahakam\", \"Malinau\", \"Mula-Mutha\", \"Capim\", \"Marowijne\", \"Morona\", \"Pará\", \"Santiago\", \"Tigre\", \"Truandó\", \"Waccasassa\", \"Wacissa\", \"Yenna\": river names given without 'Sungai'. Indonesian atlases normally write 'Sungai X', so these are inconsistent with the Daerah Aliran Sungai answers elsewhere in the list."
       ],
       "attempt": "first",
       "kept": true
@@ -8667,6 +8954,19 @@
       "model": "sonnet",
       "score": 0.2,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/rio-para": [
+    {
+      "at": "2026-11-10T17:42:34Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The input names are in Vietnamese, but the answers are what get scored. Most answers are fine as Indonesian atlas names, but several are wrong:",
+        "\"Belait\", \"Biobío\", \"Endau\", \"Mahakam\", \"Malinau\", \"Mula-Mutha\", \"Capim\", \"Marowijne\", \"Morona\", \"Pará\", \"Santiago\", \"Tigre\", \"Truandó\", \"Waccasassa\", \"Wacissa\", \"Yenna\": river names given without 'Sungai'. Indonesian atlases normally write 'Sungai X', so these are inconsistent with the Daerah Aliran Sungai answers elsewhere in the list."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -8923,6 +9223,19 @@
       "kept": true
     }
   ],
+  "id/places/rio-santiago": [
+    {
+      "at": "2026-11-10T17:42:34Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The input names are in Vietnamese, but the answers are what get scored. Most answers are fine as Indonesian atlas names, but several are wrong:",
+        "\"Belait\", \"Biobío\", \"Endau\", \"Mahakam\", \"Malinau\", \"Mula-Mutha\", \"Capim\", \"Marowijne\", \"Morona\", \"Pará\", \"Santiago\", \"Tigre\", \"Truandó\", \"Waccasassa\", \"Wacissa\", \"Yenna\": river names given without 'Sungai'. Indonesian atlases normally write 'Sungai X', so these are inconsistent with the Daerah Aliran Sungai answers elsewhere in the list."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/rio-sao-bartolomeu": [
     {
       "at": "2026-11-09T18:15:13Z",
@@ -9046,6 +9359,19 @@
       "kept": true
     }
   ],
+  "id/places/rio-tigre": [
+    {
+      "at": "2026-11-10T17:42:34Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The input names are in Vietnamese, but the answers are what get scored. Most answers are fine as Indonesian atlas names, but several are wrong:",
+        "\"Belait\", \"Biobío\", \"Endau\", \"Mahakam\", \"Malinau\", \"Mula-Mutha\", \"Capim\", \"Marowijne\", \"Morona\", \"Pará\", \"Santiago\", \"Tigre\", \"Truandó\", \"Waccasassa\", \"Wacissa\", \"Yenna\": river names given without 'Sungai'. Indonesian atlases normally write 'Sungai X', so these are inconsistent with the Daerah Aliran Sungai answers elsewhere in the list."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/rio-tocuyo": [
     {
       "at": "2026-11-09T07:33:47Z",
@@ -9062,6 +9388,19 @@
       "model": "sonnet",
       "score": 0.1,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/rio-truando": [
+    {
+      "at": "2026-11-10T17:42:34Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The input names are in Vietnamese, but the answers are what get scored. Most answers are fine as Indonesian atlas names, but several are wrong:",
+        "\"Belait\", \"Biobío\", \"Endau\", \"Mahakam\", \"Malinau\", \"Mula-Mutha\", \"Capim\", \"Marowijne\", \"Morona\", \"Pará\", \"Santiago\", \"Tigre\", \"Truandó\", \"Waccasassa\", \"Wacissa\", \"Yenna\": river names given without 'Sungai'. Indonesian atlases normally write 'Sungai X', so these are inconsistent with the Daerah Aliran Sungai answers elsewhere in the list."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -9834,6 +10173,18 @@
       "kept": true
     }
   ],
+  "id/places/sharavathi": [
+    {
+      "at": "2026-11-10T17:42:34Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The input names are in Vietnamese, but the answers are what get scored. Most answers are fine as Indonesian atlas names, but several are wrong:"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/shikoku": [
     {
       "at": "2026-11-09T18:15:13Z",
@@ -10260,6 +10611,18 @@
       "kept": true
     }
   ],
+  "id/places/suwannee-river-basin": [
+    {
+      "at": "2026-11-10T17:42:34Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The input names are in Vietnamese, but the answers are what get scored. Most answers are fine as Indonesian atlas names, but several are wrong:"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/swarna": [
     {
       "at": "2026-11-09T15:40:54Z",
@@ -10286,6 +10649,18 @@
       "model": "sonnet",
       "score": 0.2,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/tadi": [
+    {
+      "at": "2026-11-10T17:42:34Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The input names are in Vietnamese, but the answers are what get scored. Most answers are fine as Indonesian atlas names, but several are wrong:"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -11177,6 +11552,45 @@
       "kept": true
     }
   ],
+  "id/places/waccasassa": [
+    {
+      "at": "2026-11-10T17:42:34Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The input names are in Vietnamese, but the answers are what get scored. Most answers are fine as Indonesian atlas names, but several are wrong:",
+        "\"Belait\", \"Biobío\", \"Endau\", \"Mahakam\", \"Malinau\", \"Mula-Mutha\", \"Capim\", \"Marowijne\", \"Morona\", \"Pará\", \"Santiago\", \"Tigre\", \"Truandó\", \"Waccasassa\", \"Wacissa\", \"Yenna\": river names given without 'Sungai'. Indonesian atlases normally write 'Sungai X', so these are inconsistent with the Daerah Aliran Sungai answers elsewhere in the list."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/waccasassa-river": [
+    {
+      "at": "2026-11-10T17:42:34Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The input names are in Vietnamese, but the answers are what get scored. Most answers are fine as Indonesian atlas names, but several are wrong:",
+        "\"Belait\", \"Biobío\", \"Endau\", \"Mahakam\", \"Malinau\", \"Mula-Mutha\", \"Capim\", \"Marowijne\", \"Morona\", \"Pará\", \"Santiago\", \"Tigre\", \"Truandó\", \"Waccasassa\", \"Wacissa\", \"Yenna\": river names given without 'Sungai'. Indonesian atlases normally write 'Sungai X', so these are inconsistent with the Daerah Aliran Sungai answers elsewhere in the list."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/wacissa-river": [
+    {
+      "at": "2026-11-10T17:42:34Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The input names are in Vietnamese, but the answers are what get scored. Most answers are fine as Indonesian atlas names, but several are wrong:",
+        "\"Belait\", \"Biobío\", \"Endau\", \"Mahakam\", \"Malinau\", \"Mula-Mutha\", \"Capim\", \"Marowijne\", \"Morona\", \"Pará\", \"Santiago\", \"Tigre\", \"Truandó\", \"Waccasassa\", \"Wacissa\", \"Yenna\": river names given without 'Sungai'. Indonesian atlases normally write 'Sungai X', so these are inconsistent with the Daerah Aliran Sungai answers elsewhere in the list."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/wadi-sirhan": [
     {
       "at": "2026-11-08T05:22:00Z",
@@ -11372,6 +11786,19 @@
       "score": 0.4,
       "notes": [
         "Sungai names given without \"Sungai\" (Singen, Sita, Sittang, Sittaung, St. Johns, Tanintharyi, Thamirabarani, Tocantins, Tonle Sap, Tshuapa, Vaal, Yamuna, Yom, Yangtze, Huang He): inconsistent with Indonesian atlas style, which uses \"Sungai X\""
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/yenna-river": [
+    {
+      "at": "2026-11-10T17:42:34Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "The input names are in Vietnamese, but the answers are what get scored. Most answers are fine as Indonesian atlas names, but several are wrong:",
+        "\"Belait\", \"Biobío\", \"Endau\", \"Mahakam\", \"Malinau\", \"Mula-Mutha\", \"Capim\", \"Marowijne\", \"Morona\", \"Pará\", \"Santiago\", \"Tigre\", \"Truandó\", \"Waccasassa\", \"Wacissa\", \"Yenna\": river names given without 'Sungai'. Indonesian atlases normally write 'Sungai X', so these are inconsistent with the Daerah Aliran Sungai answers elsewhere in the list."
       ],
       "attempt": "first",
       "kept": true
@@ -24906,6 +25333,16 @@
       "kept": true
     }
   ],
+  "th/places/apalachicola-river-basin": [
+    {
+      "at": "2026-11-10T17:43:56Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/approuage": [
     {
       "at": "2026-11-08T12:10:04Z",
@@ -25299,6 +25736,16 @@
       "kept": true
     }
   ],
+  "th/places/baria": [
+    {
+      "at": "2026-11-10T17:43:56Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/barisan": [
     {
       "at": "2026-11-09T00:10:26Z",
@@ -25336,6 +25783,16 @@
       "score": 0.55,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/basilan": [
+    {
+      "at": "2026-11-10T17:43:56Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -25410,6 +25867,18 @@
       "score": 0.6,
       "notes": [
         "sông Bắc Giang → เป่ย์เจียง (Bei River should be แม่น้ำเป๋ย/เป่ยเจียง; spelling เป่ย์ is odd)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/belait-river": [
+    {
+      "at": "2026-11-10T17:43:56Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "เบอไลต์ (Belait River): lacks the word แม่น้ำ, and the form is questionable; Thai usually writes บีเลต"
       ],
       "attempt": "first",
       "kept": true
@@ -25677,6 +26146,18 @@
       "kept": true
     }
   ],
+  "th/places/biobio-river": [
+    {
+      "at": "2026-11-10T17:43:56Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "Several river names (มาฮากัม, ปารา, ซันติอาโก, ติเกร, โมโรนา, มาโรไวเน, เยนนา, มูลา-มูทา, วากาแซสซา, วาซิสซา, มาลีเนา, กาจัน, บิโอบิโอ) lack แม่น้ำ, but are otherwise acceptable transliterations"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/bird-s-head-peninsula": [
     {
       "at": "2026-11-08T05:27:08Z",
@@ -25887,6 +26368,18 @@
       "kept": true
     }
   ],
+  "th/places/busuanga": [
+    {
+      "at": "2026-11-10T17:43:56Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "บูซวังกา (Busuanga): the usual Thai form is บูซวนกา or บูซูอังกา, so this is doubtful"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/buyuk-menderes": [
     {
       "at": "2026-11-08T05:27:08Z",
@@ -26054,6 +26547,16 @@
       "at": "2026-11-08T05:27:08Z",
       "model": "sonnet",
       "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/cardamom-hills": [
+    {
+      "at": "2026-11-10T17:43:56Z",
+      "model": "sonnet",
+      "score": 0.72,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -26496,6 +26999,26 @@
       "at": "2026-11-08T05:27:08Z",
       "model": "sonnet",
       "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/choctawhatchee": [
+    {
+      "at": "2026-11-10T17:43:56Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/choctawhatchee-river-basin": [
+    {
+      "at": "2026-11-10T17:43:57Z",
+      "model": "sonnet",
+      "score": 0.72,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -27236,6 +27759,18 @@
       "kept": true
     }
   ],
+  "th/places/endau-river": [
+    {
+      "at": "2026-11-10T17:43:57Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "เอินเดา (Endau River): lacks แม่น้ำ; the usual Thai form is เอนเดา"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/essequibo-river": [
     {
       "at": "2026-11-08T05:27:55Z",
@@ -27473,6 +28008,16 @@
       "score": 0.55,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/georgia": [
+    {
+      "at": "2026-11-10T17:43:57Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -28546,6 +29091,18 @@
       "kept": true
     }
   ],
+  "th/places/kajan-river": [
+    {
+      "at": "2026-11-10T17:43:57Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "Several river names (มาฮากัม, ปารา, ซันติอาโก, ติเกร, โมโรนา, มาโรไวเน, เยนนา, มูลา-มูทา, วากาแซสซา, วาซิสซา, มาลีเนา, กาจัน, บิโอบิโอ) lack แม่น้ำ, but are otherwise acceptable transliterations"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/kaladan-river": [
     {
       "at": "2026-11-08T08:57:32Z",
@@ -29346,6 +29903,16 @@
       "kept": true
     }
   ],
+  "th/places/laguna-grande-san-pedro": [
+    {
+      "at": "2026-11-10T17:43:57Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/lake-aitinjo": [
     {
       "at": "2026-11-06T12:36:07Z",
@@ -29646,6 +30213,16 @@
       "at": "2026-11-09T00:10:26Z",
       "model": "sonnet",
       "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/lake-okeechobee-basin": [
+    {
+      "at": "2026-11-10T17:43:57Z",
+      "model": "sonnet",
+      "score": 0.72,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -30344,6 +30921,18 @@
       "kept": true
     }
   ],
+  "th/places/mahakam-river": [
+    {
+      "at": "2026-11-10T17:43:57Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "Several river names (มาฮากัม, ปารา, ซันติอาโก, ติเกร, โมโรนา, มาโรไวเน, เยนนา, มูลา-มูทา, วากาแซสซา, วาซิสซา, มาลีเนา, กาจัน, บิโอบิโอ) lack แม่น้ำ, but are otherwise acceptable transliterations"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/mahanadi-river": [
     {
       "at": "2026-11-08T08:57:32Z",
@@ -30479,6 +31068,18 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/malinau-river": [
+    {
+      "at": "2026-11-10T17:43:57Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "Several river names (มาฮากัม, ปารา, ซันติอาโก, ติเกร, โมโรนา, มาโรไวเน, เยนนา, มูลา-มูทา, วากาแซสซา, วาซิสซา, มาลีเนา, กาจัน, บิโอบิโอ) lack แม่น้ำ, but are otherwise acceptable transliterations"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -31191,6 +31792,18 @@
       "kept": true
     }
   ],
+  "th/places/mula-mutha-river": [
+    {
+      "at": "2026-11-10T17:43:57Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "Several river names (มาฮากัม, ปารา, ซันติอาโก, ติเกร, โมโรนา, มาโรไวเน, เยนนา, มูลา-มูทา, วากาแซสซา, วาซิสซา, มาลีเนา, กาจัน, บิโอบิโอ) lack แม่น้ำ, but are otherwise acceptable transliterations"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/mungo-river": [
     {
       "at": "2026-11-08T05:28:40Z",
@@ -31813,6 +32426,16 @@
       "kept": true
     }
   ],
+  "th/places/ochlockonee-river-basin": [
+    {
+      "at": "2026-11-10T17:43:57Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/ocmulgee-river": [
     {
       "at": "2026-11-08T05:28:40Z",
@@ -31880,6 +32503,16 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/okeechobee": [
+    {
+      "at": "2026-11-10T17:43:57Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -32072,6 +32705,16 @@
       "at": "2026-11-08T05:28:40Z",
       "model": "sonnet",
       "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/panniyar": [
+    {
+      "at": "2026-11-10T17:43:57Z",
+      "model": "sonnet",
+      "score": 0.72,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -33006,6 +33649,18 @@
       "kept": true
     }
   ],
+  "th/places/rio-capim": [
+    {
+      "at": "2026-11-10T17:43:57Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "กาปิง (Capim): the usual Thai form is กาปิง, and it lacks แม่น้ำ"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/rio-caqueta": [
     {
       "at": "2026-11-08T05:29:24Z",
@@ -33561,6 +34216,18 @@
       "kept": true
     }
   ],
+  "th/places/rio-marowijne": [
+    {
+      "at": "2026-11-10T17:43:57Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "Several river names (มาฮากัม, ปารา, ซันติอาโก, ติเกร, โมโรนา, มาโรไวเน, เยนนา, มูลา-มูทา, วากาแซสซา, วาซิสซา, มาลีเนา, กาจัน, บิโอบิโอ) lack แม่น้ำ, but are otherwise acceptable transliterations"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/rio-maues": [
     {
       "at": "2026-11-08T05:29:24Z",
@@ -33628,6 +34295,18 @@
       "score": 0.55,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/rio-morona": [
+    {
+      "at": "2026-11-10T17:43:57Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "Several river names (มาฮากัม, ปารา, ซันติอาโก, ติเกร, โมโรนา, มาโรไวเน, เยนนา, มูลา-มูทา, วากาแซสซา, วาซิสซา, มาลีเนา, กาจัน, บิโอบิโอ) lack แม่น้ำ, but are otherwise acceptable transliterations"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -33745,6 +34424,18 @@
       "notes": [
         "Many entries are Thai-script transliterations, but several are questionable or incomplete.",
         "\"ปาปาโลอาปัน\" (sông Papaloapam): the Thai name should include แม่น้ำ, so the name is incomplete."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/rio-para": [
+    {
+      "at": "2026-11-10T17:43:57Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "Several river names (มาฮากัม, ปารา, ซันติอาโก, ติเกร, โมโรนา, มาโรไวเน, เยนนา, มูลา-มูทา, วากาแซสซา, วาซิสซา, มาลีเนา, กาจัน, บิโอบิโอ) lack แม่น้ำ, but are otherwise acceptable transliterations"
       ],
       "attempt": "first",
       "kept": true
@@ -34004,6 +34695,18 @@
       "kept": true
     }
   ],
+  "th/places/rio-santiago": [
+    {
+      "at": "2026-11-10T17:43:57Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "Several river names (มาฮากัม, ปารา, ซันติอาโก, ติเกร, โมโรนา, มาโรไวเน, เยนนา, มูลา-มูทา, วากาแซสซา, วาซิสซา, มาลีเนา, กาจัน, บิโอบิโอ) lack แม่น้ำ, but are otherwise acceptable transliterations"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/rio-sao-bartolomeu": [
     {
       "at": "2026-11-09T18:18:37Z",
@@ -34136,6 +34839,18 @@
       "kept": true
     }
   ],
+  "th/places/rio-tigre": [
+    {
+      "at": "2026-11-10T17:43:57Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "Several river names (มาฮากัม, ปารา, ซันติอาโก, ติเกร, โมโรนา, มาโรไวเน, เยนนา, มูลา-มูทา, วากาแซสซา, วาซิสซา, มาลีเนา, กาจัน, บิโอบิโอ) lack แม่น้ำ, but are otherwise acceptable transliterations"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/rio-tocuyo": [
     {
       "at": "2026-11-09T07:46:38Z",
@@ -34167,6 +34882,18 @@
         "Rio Trombetas → ตรงเบตัส (unnatural; should be ตรอมเบตัส/โตรมเบตาส)"
       ],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/rio-truando": [
+    {
+      "at": "2026-11-10T17:43:57Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "ตรูอันโด (Truandó): lacks แม่น้ำ, and the form is doubtful"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -35002,6 +35729,18 @@
       "kept": true
     }
   ],
+  "th/places/sharavathi": [
+    {
+      "at": "2026-11-10T17:43:57Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "ศราวตี (Sharavathi): the usual Thai form is ชารวตี or ศรวดี, so this is doubtful"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/shebelle": [
     {
       "at": "2026-11-06T12:36:07Z",
@@ -35456,6 +36195,16 @@
       "kept": true
     }
   ],
+  "th/places/suwannee-river-basin": [
+    {
+      "at": "2026-11-10T17:43:57Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/swarna": [
     {
       "at": "2026-11-09T15:46:43Z",
@@ -35486,6 +36235,16 @@
       "notes": [
         "Many entries are Thai-script transliterations, but several are questionable or incomplete."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/tadi": [
+    {
+      "at": "2026-11-10T17:43:57Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -36425,6 +37184,42 @@
       "kept": true
     }
   ],
+  "th/places/waccasassa": [
+    {
+      "at": "2026-11-10T17:43:57Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "Several river names (มาฮากัม, ปารา, ซันติอาโก, ติเกร, โมโรนา, มาโรไวเน, เยนนา, มูลา-มูทา, วากาแซสซา, วาซิสซา, มาลีเนา, กาจัน, บิโอบิโอ) lack แม่น้ำ, but are otherwise acceptable transliterations"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/waccasassa-river": [
+    {
+      "at": "2026-11-10T17:43:57Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "Several river names (มาฮากัม, ปารา, ซันติอาโก, ติเกร, โมโรนา, มาโรไวเน, เยนนา, มูลา-มูทา, วากาแซสซา, วาซิสซา, มาลีเนา, กาจัน, บิโอบิโอ) lack แม่น้ำ, but are otherwise acceptable transliterations"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/wacissa-river": [
+    {
+      "at": "2026-11-10T17:43:57Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "Several river names (มาฮากัม, ปารา, ซันติอาโก, ติเกร, โมโรนา, มาโรไวเน, เยนนา, มูลา-มูทา, วากาแซสซา, วาซิสซา, มาลีเนา, กาจัน, บิโอบิโอ) lack แม่น้ำ, but are otherwise acceptable transliterations"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/wadi-sirhan": [
     {
       "at": "2026-11-08T05:30:03Z",
@@ -36608,6 +37403,18 @@
       "score": 0.6,
       "notes": [
         "yellow: ฮวงโห (should be แม่น้ำเหลือง or หวงเหอ)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/yenna-river": [
+    {
+      "at": "2026-11-10T17:43:57Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "Several river names (มาฮากัม, ปารา, ซันติอาโก, ติเกร, โมโรนา, มาโรไวเน, เยนนา, มูลา-มูทา, วากาแซสซา, วาซิสซา, มาลีเนา, กาจัน, บิโอบิโอ) lack แม่น้ำ, but are otherwise acceptable transliterations"
       ],
       "attempt": "first",
       "kept": true
@@ -37376,6 +38183,18 @@
       "kept": true
     }
   ],
+  "vi/places/apalachicola-river-basin": [
+    {
+      "at": "2026-11-10T17:42:11Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All names either keep the source spelling of the proper name or put its generic word into Vietnamese correctly (sông, hồ, lưu vực, dãy đồi)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/approuage": [
     {
       "at": "2026-11-08T12:08:20Z",
@@ -37962,6 +38781,18 @@
       "kept": true
     }
   ],
+  "vi/places/baria": [
+    {
+      "at": "2026-11-10T17:42:11Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All names either keep the source spelling of the proper name or put its generic word into Vietnamese correctly (sông, hồ, lưu vực, dãy đồi)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/barisan": [
     {
       "at": "2026-11-09T00:06:30Z",
@@ -38017,6 +38848,18 @@
       "score": 0.93,
       "notes": [
         "No entry points to the wrong place. Every name is either a form Vietnamese readers use or the source spelling with its generic word in Vietnamese."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/basilan": [
+    {
+      "at": "2026-11-10T17:42:11Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All names either keep the source spelling of the proper name or put its generic word into Vietnamese correctly (sông, hồ, lưu vực, dãy đồi)."
       ],
       "attempt": "first",
       "kept": true
@@ -38150,6 +38993,18 @@
       "score": 0.93,
       "notes": [
         "No entry points to the wrong place. Every name is either a form Vietnamese readers use or the source spelling with its generic word in Vietnamese."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/belait-river": [
+    {
+      "at": "2026-11-10T17:42:11Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All names either keep the source spelling of the proper name or put its generic word into Vietnamese correctly (sông, hồ, lưu vực, dãy đồi)."
       ],
       "attempt": "first",
       "kept": true
@@ -38492,6 +39347,18 @@
       "kept": true
     }
   ],
+  "vi/places/biobio-river": [
+    {
+      "at": "2026-11-10T17:42:11Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All names either keep the source spelling of the proper name or put its generic word into Vietnamese correctly (sông, hồ, lưu vực, dãy đồi)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/bird-s-head-peninsula": [
     {
       "at": "2026-11-07T20:33:12Z",
@@ -38772,6 +39639,18 @@
       "kept": true
     }
   ],
+  "vi/places/busuanga": [
+    {
+      "at": "2026-11-10T17:42:11Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All names either keep the source spelling of the proper name or put its generic word into Vietnamese correctly (sông, hồ, lưu vực, dãy đồi)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/buyuk-menderes": [
     {
       "at": "2026-11-07T20:33:13Z",
@@ -38971,6 +39850,18 @@
       "model": "sonnet",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/cardamom-hills": [
+    {
+      "at": "2026-11-10T17:42:11Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All names either keep the source spelling of the proper name or put its generic word into Vietnamese correctly (sông, hồ, lưu vực, dãy đồi)."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -39510,6 +40401,30 @@
       "model": "sonnet",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/choctawhatchee": [
+    {
+      "at": "2026-11-10T17:42:12Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All names either keep the source spelling of the proper name or put its generic word into Vietnamese correctly (sông, hồ, lưu vực, dãy đồi)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/choctawhatchee-river-basin": [
+    {
+      "at": "2026-11-10T17:42:12Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All names either keep the source spelling of the proper name or put its generic word into Vietnamese correctly (sông, hồ, lưu vực, dãy đồi)."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -40392,6 +41307,18 @@
       "kept": true
     }
   ],
+  "vi/places/endau-river": [
+    {
+      "at": "2026-11-10T17:42:12Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All names either keep the source spelling of the proper name or put its generic word into Vietnamese correctly (sông, hồ, lưu vực, dãy đồi)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/esmeraldas": [
     {
       "at": "2026-11-07T20:34:11Z",
@@ -40699,6 +41626,19 @@
       "model": "sonnet",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/georgia": [
+    {
+      "at": "2026-11-10T17:42:12Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All names either keep the source spelling of the proper name or put its generic word into Vietnamese correctly (sông, hồ, lưu vực, dãy đồi).",
+        "\"Georgia\" is the usual Vietnamese name for the US state."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -42144,6 +43084,18 @@
       "kept": true
     }
   ],
+  "vi/places/kajan-river": [
+    {
+      "at": "2026-11-10T17:42:12Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All names either keep the source spelling of the proper name or put its generic word into Vietnamese correctly (sông, hồ, lưu vực, dãy đồi)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/kaladan": [
     {
       "at": "2026-11-07T20:35:05Z",
@@ -43246,6 +44198,19 @@
       "kept": true
     }
   ],
+  "vi/places/laguna-grande-san-pedro": [
+    {
+      "at": "2026-11-10T17:42:12Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All names either keep the source spelling of the proper name or put its generic word into Vietnamese correctly (sông, hồ, lưu vực, dãy đồi).",
+        "\"Laguna Grande San Pedro\" keeps the Spanish 'Laguna', but here it is part of the place's proper name, so keeping it is acceptable."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/lake-ac": [
     {
       "at": "2026-11-07T20:35:59Z",
@@ -43752,6 +44717,18 @@
       "score": 0.95,
       "notes": [
         "All 50 names point to the right place. None is a literal word-by-word translation, and none leaves a generic word in another language."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/lake-okeechobee-basin": [
+    {
+      "at": "2026-11-10T17:42:12Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All names either keep the source spelling of the proper name or put its generic word into Vietnamese correctly (sông, hồ, lưu vực, dãy đồi)."
       ],
       "attempt": "first",
       "kept": true
@@ -44708,6 +45685,18 @@
       "kept": true
     }
   ],
+  "vi/places/mahakam-river": [
+    {
+      "at": "2026-11-10T17:42:12Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All names either keep the source spelling of the proper name or put its generic word into Vietnamese correctly (sông, hồ, lưu vực, dãy đồi)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/mahanadi": [
     {
       "at": "2026-11-07T20:36:52Z",
@@ -44852,6 +45841,18 @@
       "model": "sonnet",
       "score": 0.72,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/malinau-river": [
+    {
+      "at": "2026-11-10T17:42:12Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All names either keep the source spelling of the proper name or put its generic word into Vietnamese correctly (sông, hồ, lưu vực, dãy đồi)."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -45853,6 +46854,18 @@
       "kept": true
     }
   ],
+  "vi/places/mula-mutha-river": [
+    {
+      "at": "2026-11-10T17:42:12Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All names either keep the source spelling of the proper name or put its generic word into Vietnamese correctly (sông, hồ, lưu vực, dãy đồi)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/mun": [
     {
       "at": "2026-11-07T20:36:54Z",
@@ -46678,6 +47691,18 @@
       "kept": true
     }
   ],
+  "vi/places/ochlockonee-river-basin": [
+    {
+      "at": "2026-11-10T17:42:12Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All names either keep the source spelling of the proper name or put its generic word into Vietnamese correctly (sông, hồ, lưu vực, dãy đồi)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/ocmulgee-river": [
     {
       "at": "2026-11-07T20:37:55Z",
@@ -46778,6 +47803,18 @@
       "model": "sonnet",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/okeechobee": [
+    {
+      "at": "2026-11-10T17:42:12Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All names either keep the source spelling of the proper name or put its generic word into Vietnamese correctly (sông, hồ, lưu vực, dãy đồi)."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -47078,6 +48115,18 @@
       "model": "sonnet",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/panniyar": [
+    {
+      "at": "2026-11-10T17:42:12Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All names either keep the source spelling of the proper name or put its generic word into Vietnamese correctly (sông, hồ, lưu vực, dãy đồi)."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -48362,6 +49411,18 @@
       "kept": true
     }
   ],
+  "vi/places/rio-capim": [
+    {
+      "at": "2026-11-10T17:42:12Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All names either keep the source spelling of the proper name or put its generic word into Vietnamese correctly (sông, hồ, lưu vực, dãy đồi)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/rio-caqueta": [
     {
       "at": "2026-11-07T20:38:46Z",
@@ -48991,6 +50052,19 @@
       "kept": true
     }
   ],
+  "vi/places/rio-marowijne": [
+    {
+      "at": "2026-11-10T17:42:12Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All names either keep the source spelling of the proper name or put its generic word into Vietnamese correctly (sông, hồ, lưu vực, dãy đồi).",
+        "Small doubt: 'rio-marowijne' is tagged GY, but the Marowijne River runs along the Suriname–French Guiana border. The name itself is still right."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/rio-maues": [
     {
       "at": "2026-11-08T05:15:07Z",
@@ -49057,6 +50131,18 @@
       "model": "sonnet",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/rio-morona": [
+    {
+      "at": "2026-11-10T17:42:12Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All names either keep the source spelling of the proper name or put its generic word into Vietnamese correctly (sông, hồ, lưu vực, dãy đồi)."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -49241,6 +50327,18 @@
       "score": 0.96,
       "notes": [
         "No wrong places found. Generic words are put into Vietnamese correctly: sông (river), vịnh (bay), hồ (lake), đảo (island). Proper names keep the source spelling."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/rio-para": [
+    {
+      "at": "2026-11-10T17:42:12Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All names either keep the source spelling of the proper name or put its generic word into Vietnamese correctly (sông, hồ, lưu vực, dãy đồi)."
       ],
       "attempt": "first",
       "kept": true
@@ -49538,6 +50636,18 @@
       "kept": true
     }
   ],
+  "vi/places/rio-santiago": [
+    {
+      "at": "2026-11-10T17:42:12Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All names either keep the source spelling of the proper name or put its generic word into Vietnamese correctly (sông, hồ, lưu vực, dãy đồi)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/rio-sao-bartolomeu": [
     {
       "at": "2026-11-09T18:14:05Z",
@@ -49706,6 +50816,18 @@
       "kept": true
     }
   ],
+  "vi/places/rio-tigre": [
+    {
+      "at": "2026-11-10T17:42:12Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All names either keep the source spelling of the proper name or put its generic word into Vietnamese correctly (sông, hồ, lưu vực, dãy đồi)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/rio-tiquie": [
     {
       "at": "2026-11-07T20:39:30Z",
@@ -49761,6 +50883,18 @@
       "score": 0.96,
       "notes": [
         "Every name refers to the right place. Generic words (river, Río/Rio, Islands, mountain range) are put into Vietnamese as sông, quần đảo and dãy, and the proper names keep the source spelling."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/rio-truando": [
+    {
+      "at": "2026-11-10T17:42:12Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All names either keep the source spelling of the proper name or put its generic word into Vietnamese correctly (sông, hồ, lưu vực, dãy đồi)."
       ],
       "attempt": "first",
       "kept": true
@@ -50936,6 +52070,18 @@
       "kept": true
     }
   ],
+  "vi/places/sharavathi": [
+    {
+      "at": "2026-11-10T17:42:12Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All names either keep the source spelling of the proper name or put its generic word into Vietnamese correctly (sông, hồ, lưu vực, dãy đồi)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/shebelle": [
     {
       "at": "2026-11-07T20:40:24Z",
@@ -51542,6 +52688,18 @@
       "kept": true
     }
   ],
+  "vi/places/suwannee-river-basin": [
+    {
+      "at": "2026-11-10T17:42:12Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All names either keep the source spelling of the proper name or put its generic word into Vietnamese correctly (sông, hồ, lưu vực, dãy đồi)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/swarna": [
     {
       "at": "2026-11-09T15:37:28Z",
@@ -51570,6 +52728,18 @@
       "model": "sonnet",
       "score": 0.93,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/tadi": [
+    {
+      "at": "2026-11-10T17:42:12Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All names either keep the source spelling of the proper name or put its generic word into Vietnamese correctly (sông, hồ, lưu vực, dãy đồi)."
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -52864,6 +54034,42 @@
       "kept": true
     }
   ],
+  "vi/places/waccasassa": [
+    {
+      "at": "2026-11-10T17:42:12Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All names either keep the source spelling of the proper name or put its generic word into Vietnamese correctly (sông, hồ, lưu vực, dãy đồi)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/waccasassa-river": [
+    {
+      "at": "2026-11-10T17:42:12Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All names either keep the source spelling of the proper name or put its generic word into Vietnamese correctly (sông, hồ, lưu vực, dãy đồi)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/wacissa-river": [
+    {
+      "at": "2026-11-10T17:42:12Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All names either keep the source spelling of the proper name or put its generic word into Vietnamese correctly (sông, hồ, lưu vực, dãy đồi)."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/wadi-sirhan": [
     {
       "at": "2026-11-07T20:41:17Z",
@@ -53143,6 +54349,18 @@
       "model": "sonnet",
       "score": 0.95,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/yenna-river": [
+    {
+      "at": "2026-11-10T17:42:12Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [
+        "All names either keep the source spelling of the proper name or put its generic word into Vietnamese correctly (sông, hồ, lưu vực, dãy đồi)."
+      ],
       "attempt": "first",
       "kept": true
     }
