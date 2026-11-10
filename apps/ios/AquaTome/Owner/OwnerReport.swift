@@ -285,6 +285,7 @@ private struct OwnerReportSheet: View {
           Section { Text(verbatim: sent).foregroundStyle(.green).accessibilityIdentifier("owner-report-sent") }
         }
       }
+      .modifier(ClearUnderTopBar(shown: true, ground: Color(.systemGroupedBackground)))
       .navigationTitle(Text(verbatim: "Báo lỗi"))
       .navigationBarTitleDisplayMode(.inline)
       .toolbar {

@@ -36,21 +36,36 @@ extension XCUIApplication {
   /// 154 page shots with it read 0 to 5 (8 Nov). Its soft edge leaves words: those with words behind read 134 (a guide) to
   /// 18,421 (Tìm's tools at the largest text). A blurred shape, a card or a photo, has no such edges either way.
   private func sharpBehindTheTitle() -> Int {
-    guard let shot = XCUIScreen.main.screenshot().image.cgImage else { return .max }
+    edges(in: CGRect(x: frame.width * 0.3, y: 22, width: frame.width * 0.4, height: 32), apart: 2) ?? .max
+  }
+
+  /// Whether a screen's large title can be seen, at rest. It stays in the accessibility tree under anything drawn over it, so
+  /// this reads the pixels where it is: a band standing over the title's space left them flat (10 Nov).
+  func largeTitleIsOnScreen(_ title: String, file: StaticString = #filePath, line: UInt = #line) {
+    let text = navigationBars.staticTexts[title].firstMatch
+    XCTAssertTrue(text.waitForExistence(timeout: 5), "no title \(title)", file: file, line: line)
+    let seen = edges(in: text.frame, apart: 60) ?? 0
+    print("the title's edges, \(title): \(seen)")
+    XCTAssertGreaterThan(seen, 200, "\(title): its large title can't be seen", file: file, line: line)
+  }
+
+  /// How many side-by-side or stacked pixel pairs in `rect` (in points) are `apart` or more grey levels apart.
+  private func edges(in rect: CGRect, apart: Int) -> Int? {
+    guard let shot = XCUIScreen.main.screenshot().image.cgImage else { return nil }
     let scale = CGFloat(shot.width) / frame.width
-    let band = CGRect(x: frame.width * 0.3 * scale, y: 22 * scale, width: frame.width * 0.4 * scale, height: 32 * scale).integral
-    guard let box = shot.cropping(to: band) else { return .max }
+    let band = CGRect(x: rect.minX * scale, y: rect.minY * scale, width: rect.width * scale, height: rect.height * scale).integral
+    guard let box = shot.cropping(to: band) else { return nil }
     let w = box.width, h = box.height
     var px = [UInt8](repeating: 0, count: w * h)
     guard let ctx = CGContext(data: &px, width: w, height: h, bitsPerComponent: 8, bytesPerRow: w,
-                              space: CGColorSpaceCreateDeviceGray(), bitmapInfo: CGImageAlphaInfo.none.rawValue) else { return .max }
+                              space: CGColorSpaceCreateDeviceGray(), bitmapInfo: CGImageAlphaInfo.none.rawValue) else { return nil }
     ctx.draw(box, in: CGRect(x: 0, y: 0, width: w, height: h))
     var sharp = 0
     for y in 0..<h {
       for x in 0..<w {
         let v = Int(px[y * w + x])
-        if x + 1 < w, abs(v - Int(px[y * w + x + 1])) >= 2 { sharp += 1 }
-        if y + 1 < h, abs(v - Int(px[(y + 1) * w + x])) >= 2 { sharp += 1 }
+        if x + 1 < w, abs(v - Int(px[y * w + x + 1])) >= apart { sharp += 1 }
+        if y + 1 < h, abs(v - Int(px[(y + 1) * w + x])) >= apart { sharp += 1 }
       }
     }
     return sharp

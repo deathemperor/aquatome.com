@@ -63,6 +63,7 @@ struct TankMatesView: View {
       if !chosen.isEmpty && tanks.canEdit { AnyView(save) }
     }
     .scrollDismissesKeyboard(.interactively)
+    .modifier(ClearUnderLargeTitle(ground: Color(.systemGroupedBackground)))
     .navigationTitle("Kiểm tra nuôi chung")
     .sheet(isPresented: $picking) { FishPicker(chosen: Set(chosen.map(\.id)), add: add) }
     .onChange(of: handbook.count, initial: true) { start() }
@@ -220,6 +221,7 @@ private struct FishPicker: View {
       // Scientific names are typed here, as on the site's search: not corrected, not capitalized.
       .autocorrectionDisabled()
       .textInputAutocapitalization(.never)
+      .modifier(ClearUnderTopBar(shown: true, ground: Color(.systemGroupedBackground)))
       .navigationTitle("Thêm loài")
       .navigationBarTitleDisplayMode(.inline)
       .toolbar { ToolbarItem(placement: .cancellationAction) { Button("Hủy") { dismiss() } } }

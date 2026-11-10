@@ -15,11 +15,7 @@ struct BrowseHome: View {
   @State private var recentShown: [HandbookIndex.Item] = []
   @State private var savedShown: [HandbookIndex.Item] = []
   @State private var held = false
-  /// The large title has gone up into the bar: the page's words are under the bar from here, and the band would hide the
-  /// title before this.
-  @State private var titleGone = false
   @State private var refreshes = 0
-  @ScaledMetric(relativeTo: .largeTitle) private var titleHeight: CGFloat = 44
   @Environment(HandbookModel.self) private var handbook
   @Environment(\.openScreen) private var openScreen
   @Environment(\.dynamicTypeSize) private var size
@@ -94,8 +90,7 @@ struct BrowseHome: View {
         .padding(.vertical, 12)
       }
       .v2ClearOfTheFade()
-      .onScrollGeometryChange(for: Bool.self) { [titleHeight] in $0.contentOffset.y + $0.contentInsets.top > min(titleHeight, V2Fade.largeTitleAtMost) } action: { _, gone in titleGone = gone }
-      .modifier(ClearUnderTopBar(shown: titleGone))
+      .modifier(ClearUnderLargeTitle())
       .accessibilityIdentifier("v2-browse")
       .v2ClearsFootGoingBack(path.count)
       .navigationTitle("Khám phá")

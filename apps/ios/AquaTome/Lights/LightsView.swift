@@ -32,6 +32,7 @@ struct LightsView: View {
         .padding()
       }
       .background(Color(.systemGroupedBackground))
+      .modifier(ClearUnderLargeTitle(ground: Color(.systemGroupedBackground)))
       .navigationTitle("Đèn Chihiros")
       .profileButton()
       // What just happened, and writing what is set, stay in view wherever the screen is scrolled (the site's write bar

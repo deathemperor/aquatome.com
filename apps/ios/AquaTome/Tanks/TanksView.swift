@@ -78,6 +78,7 @@ struct TanksView: View {
         if account.state != .unknown { Text(verbatim: "answered").font(.system(size: 1)).opacity(0.01).accessibilityIdentifier("account-answered") }
       }
       #endif
+      .modifier(ClearUnderLargeTitle(ground: Color(.systemGroupedBackground)))
       .navigationTitle("Bể của tôi")
       .profileButton()
       .navigationDestination(for: String.self) { id in TankDetail(id: id) }
@@ -183,6 +184,7 @@ private struct TankDetail: View {
         }
       }
       .readsPlugs()
+      .modifier(ClearUnderLargeTitle(ground: Color(.systemGroupedBackground)))
       .navigationTitle(t.name)
       // Fish and plants are named from the handbook's index, which may not be loaded yet if the Tìm tab wasn't opened.
       .task { if !t.species.isEmpty || !t.plants.isEmpty || !t.unlisted.isEmpty { await handbook.appear() } }

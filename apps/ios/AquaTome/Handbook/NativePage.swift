@@ -1004,6 +1004,7 @@ struct ReadersPart: View {
     .sheet(isPresented: $managing) {
       NavigationStack {
         List { BlockedList() }
+          .modifier(ClearUnderTopBar(shown: true, ground: Color(.systemGroupedBackground)))
           .navigationTitle("Người đã chặn")
           .navigationBarTitleDisplayMode(.inline)
           .toolbar { Button("Đóng") { managing = false } }

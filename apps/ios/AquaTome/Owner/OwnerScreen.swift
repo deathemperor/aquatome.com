@@ -56,6 +56,7 @@ struct OwnerScreen: View {
       // Read the first time: at the heading the link named.
       .onChange(of: section == nil) { if let anchor { proxy.scrollTo(anchor, anchor: .top) } }
     }
+    .modifier(ClearUnderLargeTitle(ground: Color(.systemGroupedBackground)))
     .navigationTitle(Text(verbatim: key.isEmpty ? "Dashboard" : section?.title ?? owner.dashboard?.name(of: key) ?? ""))
     .navigationBarTitleDisplayMode(.large)
     .toolbar {
