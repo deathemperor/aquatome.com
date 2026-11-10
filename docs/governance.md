@@ -779,7 +779,9 @@ The layers above still check the result.
   cm)"), a pipe as the size shops here sell ("ống PVC ¾ inch" → "ống PVC phi 27"), a change of temperature as its own
   size ("giảm 15 °F" → "giảm 8 °C"), a weight in grams ("1 lb" → "450 g"). `pnpm engine metric` runs before each
   cycle's build for anything a writer missed, and a test fails on any °F, inch, foot, gallon or pound figure left in
-  `content/`. Reference lists, titles, quoted labels and a bottle's size in ounces stay as published. Found on 263 fish,
+  `content/`. The video writer rounds a converted figure as it writes (`roundPage`): its jobs go from writing to the
+  reader-fit gate with no `metric` step between, and the gate put 26 guides back for such a figure (8 to 10 Nov 2026).
+  Reference lists, titles, quoted labels and a bottle's size in ounces stay as published. Found on 263 fish,
   plant and breed pages, then on 136 guide pages and 9 more fish pages whose sizes were written in inch marks (48" x
   15") (2026-11-01).
 - **One copy of each figure.** The data card holds a species' figures. Quick facts drop the items the card already has

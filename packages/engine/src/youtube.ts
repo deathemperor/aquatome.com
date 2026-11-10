@@ -11,6 +11,7 @@ import { LlmError, type Llm } from './claude'
 import { pickSlug } from './merge'
 import { gate } from './quality'
 import { lastKept, logReviews, readReviews } from './review-log'
+import { roundPage } from './round'
 import { plainParts, sanitizeHtml, unescapePlain } from './sanitize'
 import { loadState, saveState, type UrlState } from './state'
 import type { Finder } from './video-discovery'
@@ -555,7 +556,9 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
         video: { youtubeId: vid, title: m.title, channel: m.channel, channelUrl: m.channelUrl, durationSec: m.durationSec, ...(m.publishedAt ? { publishedAt: m.publishedAt } : {}), chapters: m.chapters, ...(series ? { series: { id: series.id, position } } : {}), thumb: m.thumb, ...(lang !== 'en' ? { lang } : {}), ...(ownTranscript || (unknown && !captions) ? { transcribed: true } : {}), ...(taxa ? { taxa } : {}), ...(gear ? { gear } : {}) },
       })
       const name = unescapePlain(d.viTitle).trim()
-      const vi = TranslationSchema.parse(metricPage({
+      // Rounded here too (round.ts): the video jobs have no rounding step before their gate, whose units rule finds a
+      // volume only a gallon conversion gives ("bể 38 lít") and puts the new text back for it.
+      const vi = TranslationSchema.parse(roundPage(metricPage({
         slug: prev.vi?.slug ?? pickSlug(name, 'video', await guideSlugs(contentRoot)), name, altNames: [], sections: {},
         body: prev.vi?.bodyFixed ? prev.vi.body : sanitizeHtml(d.body), ...plainParts(d.summary, prev.vi?.faqFixed ? prev.vi.faq ?? [] : d.faq),
         ...(m.chapters.length && d.chapters.length === m.chapters.length ? { chapters: d.chapters.map(c => c.trim()) } : {}),
@@ -566,7 +569,7 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
         ...(prev.vi?.localNote ? { localNote: prev.vi.localNote } : {}),
         ...(prev.vi?.bodyFixed ? { bodyFixed: true } : {}),
         ...(prev.vi?.faqFixed ? { faqFixed: true } : {}),
-      }, 'vi'))
+      }, 'vi'), 'vi'))
       await mkdir(dir, { recursive: true })
       await writeJson(join(dir, 'entity.json'), entity)
       await writeJson(join(dir, 'vi.json'), vi)
