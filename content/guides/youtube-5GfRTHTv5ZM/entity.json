@@ -6,9 +6,13 @@
   "html": "",
   "photos": [],
   "mentions": [
-    "bucephalandra-sp"
+    "bucephalandra-sp",
+    "micranthemum-tweediei",
+    "fissidens-fontanus",
+    "rotala-macrandra",
+    "rotala-rotundifolia"
   ],
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-11-10",
   "video": {
     "youtubeId": "5GfRTHTv5ZM",
     "title": "I'm Giving My Nano Cube a FRESH Look! - Rescaping a Nano Aquascape",
@@ -30,12 +34,11 @@
       "Micranthemum tweediei",
       "Fissidens fontanus",
       "Bucephalandra sp.",
+      "Vesicularia sp.",
       "Rotala macrandra",
+      "Rotala rotundifolia",
       "Cryptocoryne nevillii",
-      "Rotala sp.",
-      "Vesicularia montagnei",
-      "Taxiphyllum sp.",
-      "Fissidens sp."
+      "Fissidens nobilis"
     ],
     "gear": [
       {
@@ -47,7 +50,6 @@
       },
       {
         "category": "loc",
-        "type": "suc-khi",
         "t": 0
       },
       {
@@ -68,34 +70,19 @@
         "brand": "Tropica",
         "model": "Aquasoil",
         "t": 0
-      },
-      {
-        "category": "phan-nen",
-        "type": "soi",
-        "t": 270
       }
     ],
     "figures": [
       {
-        "heading": "Làm mới khác phá bể ở chỗ nào",
+        "heading": "Bể có những gì",
         "moments": [
           {
             "t": 10,
             "url": "https://media.aquatome.com/video/5GfRTHTv5ZM/at10-hd.webp",
             "width": 1200,
             "height": 675,
-            "caption": "Bể thủy sinh nano với khung lũa đá phủ rêu và cây rậm.",
-            "sharpness": 4620.4,
-            "person": false
-          },
-          {
-            "t": 1080,
-            "url": "https://media.aquatome.com/video/5GfRTHTv5ZM/at1080-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh lũa phủ rêu và cây mọc kín, bể đã rút bớt nước.",
-            "sharpness": 2109.1,
-            "person": false
+            "caption": "Bể thủy sinh với lũa, đá nham thạch và nhiều loại cây xanh um.",
+            "sharpness": 4620.4
           }
         ],
         "photo": {
@@ -106,82 +93,64 @@
           "licence": "CC0",
           "author": "Tdwittt",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Planted_Nano_Aquarium.JPG",
-          "caption": "Bể nano với khúc lũa, vài cây Anubias và nền cát đen."
+          "caption": "Bể có lũa, nền đen và vài bụi Anubias lá xanh."
         }
       },
       {
-        "heading": "Gỡ cây thân mà không làm đục nền",
+        "heading": "Gỡ cây cắt cắm mà không làm bể bẩn tung",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/5GfRTHTv5ZM/p1-J1LUluZGlhLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/5GfRTHTv5ZM/p1-J1LUluZGlhLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/5GfRTHTv5ZM/p2-J1LUluZGlhLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/5GfRTHTv5ZM/p2-J1LUluZGlhLmpwZw-480.webp",
           "width": 960,
           "height": 1280,
           "licence": "CC BY 4.0",
           "author": "Yercaud-elango",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rotala_rotundifolia_pink-2-veda_aquarium-bengaluru-India.jpg",
-          "caption": "Bụi Rotala thân đỏ mọc dày, cao phía sau bể thủy sinh."
+          "caption": "Bụi Rotala đỏ mọc dày ở hậu cảnh, sẵn sàng để cắt sát gốc."
         }
       },
       {
-        "heading": "Dọn thảm và vệ sinh bể",
-        "moments": [
-          {
-            "t": 510,
-            "url": "https://media.aquatome.com/video/5GfRTHTv5ZM/at510-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nền trống sau khi bóc thảm, chỉ còn rễ cây để yên.",
-            "sharpness": 791.6,
-            "person": false
-          }
-        ]
+        "heading": "Gỡ lũa đá và giữ rêu, Bucephalandra không bị khô",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/5GfRTHTv5ZM/p3-X2V4X3NpdHUuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/5GfRTHTv5ZM/p3-X2V4X3NpdHUuanBn-480.webp",
+          "width": 960,
+          "height": 587,
+          "licence": "CC BY-SA 4.0",
+          "author": "Manuel Werner / CC-BY-SA-3.0 Werner, Deutschland",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bucephalandra_Shine_Blue_and_Bucephalandra_pygmaea_ex_situ.jpg",
+          "caption": "Bể thủy sinh có đá nham thạch phủ rêu và Bucephalandra mọc xung quanh."
+        }
       },
       {
-        "heading": "Dựng lại bố cục với thay đổi nhỏ",
-        "moments": [
-          {
-            "t": 900,
-            "url": "https://media.aquatome.com/video/5GfRTHTv5ZM/at900-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bố cục lũa nhìn chính diện, khe giữa hai cụm lũa.",
-            "sharpness": 2403.4,
-            "person": false
-          },
-          {
-            "t": 920,
-            "url": "https://media.aquatome.com/video/5GfRTHTv5ZM/at920-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bể với hai cụm lũa và nền phía trước còn trống.",
-            "sharpness": 1096.4,
-            "person": false
-          }
-        ]
+        "heading": "Xử lý thảm Monte Carlo và bụi crypt",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/5GfRTHTv5ZM/p4-J1LUluZGlhLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/5GfRTHTv5ZM/p4-J1LUluZGlhLmpwZw-480.webp",
+          "width": 960,
+          "height": 720,
+          "licence": "CC BY 4.0",
+          "author": "Yercaud-elango",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Micranthemum_tweediei-1-veda_aquarium-bengaluru-India.jpg",
+          "caption": "Thảm Monte Carlo xanh dày phủ kín nền bể, có tép nhỏ bò trên đó."
+        }
       },
       {
-        "heading": "Trồng lại cây",
-        "moments": [
-          {
-            "t": 970,
-            "url": "https://media.aquatome.com/video/5GfRTHTv5ZM/at970-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây đã được phân loại, bày ra khay trước khi trồng lại.",
-            "sharpness": 1378.7,
-            "person": false
-          },
-          {
-            "t": 990,
-            "url": "https://media.aquatome.com/video/5GfRTHTv5ZM/at990-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cây đã được trồng lại vào bố cục mới trên nền đất.",
-            "sharpness": 2513.9,
-            "person": false
-          }
-        ]
+        "heading": "Cách phủ rêu lên lũa đá ban đầu",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/5GfRTHTv5ZM/p6-1NSlfOTE1My5KUEc.webp",
+          "thumb": "https://media.aquatome.com/video/5GfRTHTv5ZM/p6-1NSlfOTE1My5KUEc-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC0",
+          "author": "HermannSchachner",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fissidens_osmundoides_(a,_140317-471455)_9153.JPG",
+          "caption": "Thảm rêu Fissidens mọc dày, các tán lá dẹt xếp hai hàng rõ nét."
+        }
       }
     ]
   }
