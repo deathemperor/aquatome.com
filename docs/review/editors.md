@@ -5,10 +5,10 @@ naturalness findings, and how many the corpus check held (the phrase is far rare
 the site, and hobbyists use the replacement). A seat that judges a language well has most of its findings held over two
 rounds or more; the skill's "Weighing the seats" says what that changes.
 
-## To read again with all four seats, after 16 Nov 2026
+## To read again after 16 Nov 2026, with whichever seats exist then
 
-Until 16 Nov the editors sit with Anthropic and xAI only (the owner, 2026-11-08). What first shipped on those two-editor
-scores, to be read again by all four:
+Until 10 Nov the editors sat with Anthropic and xAI only (the owner, 2026-11-08). What first shipped on those two-editor
+scores, to be read again:
 - the app's card copy: the calendar's themes, shelf titles and story cards (`content/curation.json`);
 - the first two Hôm nay cards, medaka and climbing perch (`content/cards`);
 - the chat screen's new Vietnamese strings, read in the Design Lead's rounds (`docs/design/chat.md`, "Editors");
@@ -132,6 +132,7 @@ Findings about a sentence's shape, which no count can settle, aren't tallied.
 |---|---|---|---|---|---|---|
 | Anthropic (`claude-opus-5-5`) | 3–11 | 117 | 80 | 18 | 19 | yes, but check every name it offers |
 | OpenAI (`gpt-5.6-sol`) | 3–8 | 41 | 31 | 4 | 6 | yes |
+| OpenAI (`gpt-6.1-sol`) | | | | | | not yet: a new model, so `gpt-5.6-sol`'s record doesn't carry over; its natural score is listed, not held to the bar, until it has two rounds behind it |
 | Google (`gemini-4-argon`) | 3–8 | 72 | 58 | 9 | 5 | yes, but check every name it offers |
 | xAI (`grok-4.7`) | 3–11 | 91 | 62 | 12 | 17 | yes, but check every name it offers |
 

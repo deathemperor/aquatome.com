@@ -21,14 +21,15 @@ available there sits out, and the report says so. Never fill an empty or unavail
 | Seat | Provider (Infinitus `providerInstanceId`) | Model | Options |
 |---|---|---|---|
 | Anthropic | `claudeAgent` | `claude-opus-5-5` | `effort: xhigh` |
-| OpenAI | `cursor` | `gpt-5.6-sol` | `reasoning: xhigh` |
+| OpenAI | `codex` | `gpt-6.1-sol` | `reasoningEffort: xhigh` |
 | Google | `cursor` | `gemini-4-argon` | `reasoning_effort: high` |
 | xAI | `cursor` | `grok-4.7` | `reasoning_effort: xhigh` |
 | Muse | (to fill: `muse`) | (to fill) | |
 | Jester (below) | empty: Gemini sits as Google's member (2026-11-07) | | |
 
-The three `cursor` seats go through the owner's Cursor subscription; if `cursor` isn't signed in, all three sit out.
-Each model names its own options (`reasoning` or `reasoning_effort`): a wrong name is refused, so copy them from here.
+The `cursor` seats go through the owner's Cursor subscription; if `cursor` isn't signed in, they sit out. Google is out
+for now: Cursor still refuses `gemini-4-argon`. OpenAI's seat is Sol on Codex, never Terra. Each model names its own
+options (`reasoning`, `reasoning_effort` or `reasoningEffort`): a wrong name is refused, so copy them from here.
 
 ## A round
 
