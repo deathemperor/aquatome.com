@@ -5097,9 +5097,11 @@
   },
   "https://media.aquatome.com/commons/0653fe0db7d4a48b.webp": {
     "atractosteus-tristoechus": {
-      "ok": "unsure",
+      "ok": "yes",
       "typical": false,
-      "note": "plain grey gar-like fish seen from above in murky shallow water; head and snout not visible, so the species can't be con"
+      "note": "rear half of body and tail only, from above, with shadows across it",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/06a41720873f6ac6.webp": {
@@ -7704,7 +7706,9 @@
     "aspidoras-pauciradiatus": {
       "ok": "unsure",
       "typical": false,
-      "note": "darker reticulated catfish with no black dorsal blotch; may be another Aspidoras or Corydoras species"
+      "note": "resting on leaf; vermiculated banded pattern, possible look-alike",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/25df7bd2883f4c39.webp": {
@@ -8065,7 +8069,9 @@
     "aspidoras-pauciradiatus": {
       "ok": "yes",
       "typical": true,
-      "note": "adult on leaf, clear side view with black dorsal blotch and spotted tail"
+      "note": "adult resting on a leaf, black dorsal patch, spotted flanks",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/2bcda2c743a5393f.webp": {
@@ -12356,8 +12362,10 @@
   "https://media.aquatome.com/commons/668bda1939ff3411.webp": {
     "ariopsis-felis": {
       "ok": "yes",
-      "typical": false,
-      "note": "two sea catfish seen from above on gravel, poor angle"
+      "typical": true,
+      "note": "two sea catfish head-on over gravel, barbels visible, aquarium",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/66947e22c1b328b4.webp": {
@@ -12373,7 +12381,9 @@
     "aspidoras-pauciradiatus": {
       "ok": "yes",
       "typical": true,
-      "note": "two adults on gravel; pale body with dark blotches, black dorsal blotch"
+      "note": "two adults on gravel, black dorsal patch, spotted body",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/66b6c6d8e328b08f.webp": {
@@ -12831,8 +12841,9 @@
     "auchenoglanis-occidentalis": {
       "ok": "yes",
       "typical": true,
-      "note": "adult giraffe catfish on gravel, pointed snout and mottled body clearly visible",
-      "logo": false
+      "note": "adult with mottled body and spotted dorsal fin on gravel, tail cut off",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/6ca2d25ce387d93a.webp": {
@@ -13250,8 +13261,9 @@
     "asterophysus-batrachus": {
       "ok": "unsure",
       "typical": false,
-      "note": "grey-brown catfish in tank with head hidden under wood; can't confirm it is Asterophysus",
-      "logo": false
+      "note": "pale, washed-out fish under log in tank; head and mouth poorly seen",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/720dc56daa1c6572.webp": {
@@ -14188,8 +14200,9 @@
     "auchenoglanis-occidentalis": {
       "ok": "yes",
       "typical": true,
-      "note": "grey adult with pointed snout among rocks, other catfish behind it",
-      "logo": false
+      "note": "adult on rock, clear head view; other catfish in background",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/7f4d34259f7d3333.webp": {
@@ -22338,7 +22351,9 @@
     "aspidoras-pauciradiatus": {
       "ok": "unsure",
       "typical": false,
-      "note": "dark mottled catfish with spotted dorsal, not the typical pattern; possibly a different Aspidoras species"
+      "note": "on pebbles; dark banded pattern unlike spotted form, possible look-alike",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/ef003b0bbd18a6d2.webp": {
@@ -22862,8 +22877,9 @@
     "auchenoglanis-occidentalis": {
       "ok": "yes",
       "typical": true,
-      "note": "reticulated brown pattern, pointed snout, on sand",
-      "logo": false
+      "note": "pale fish with reticulated pattern and pointed snout on sand",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/f5b4163ba3fcd28e.webp": {
@@ -25583,9 +25599,11 @@
   },
   "https://media.aquatome.com/inaturalist/127738278.webp": {
     "ariopsis-felis": {
-      "ok": "unsure",
-      "typical": false,
-      "note": "dense group of sea catfish in shallow water seen from above; can't confirm the species"
+      "ok": "yes",
+      "typical": true,
+      "note": "dense group of live sea catfish seen from above in shallow water, no long fin filaments",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/127907167.webp": {
@@ -26105,7 +26123,9 @@
     "ariopsis-felis": {
       "ok": "yes",
       "typical": false,
-      "note": "group of sea catfish under a green night light, hard to see"
+      "note": "group of sea catfish at night under green dock light, colours distorted",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/171374225.webp": {
@@ -27537,9 +27557,11 @@
   },
   "https://media.aquatome.com/inaturalist/255805936.webp": {
     "ariopsis-felis": {
-      "ok": "yes",
+      "ok": "dead",
       "typical": false,
-      "note": "fish on a hook being pulled out of the water, odd angle"
+      "note": "catch on a hook being hauled out of the water",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/255805947.webp": {
@@ -29207,23 +29229,29 @@
   },
   "https://media.aquatome.com/inaturalist/346366987.webp": {
     "aspidoras-taurus": {
-      "ok": "yes",
-      "typical": true,
-      "note": "mottled Aspidoras on sandy bottom, side view, likely in the wild"
+      "ok": "unsure",
+      "typical": false,
+      "note": "dark-blotched small catfish on sand, maybe juvenile, pattern differs from adults",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/346367003.webp": {
     "aspidoras-taurus": {
-      "ok": "yes",
-      "typical": true,
-      "note": "adult with bold dark blotches and spotted fins on sand, clear side view"
+      "ok": "unsure",
+      "typical": false,
+      "note": "dark and cream blotched small catfish on sand, maybe juvenile, species unclear",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/346367021.webp": {
     "aspidoras-taurus": {
-      "ok": "yes",
+      "ok": "unsure",
       "typical": false,
-      "note": "head-on view of the same fish on sand, partly blurry"
+      "note": "blotched small catfish from the front on sand, partly blurred, species unclear",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/346813138.webp": {
@@ -29702,7 +29730,9 @@
     "ariopsis-felis": {
       "ok": "yes",
       "typical": true,
-      "note": "small school swimming over seagrass and soft corals"
+      "note": "three catfish swimming over weedy seabed in the wild",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/38200939.webp": {
@@ -30437,15 +30467,18 @@
     "ariopsis-felis": {
       "ok": "unsure",
       "typical": false,
-      "note": "two blurry catfish over the bottom in murky water"
+      "note": "two catfish seen faintly from above through murky shallow water, marks not clear",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/446544227.webp": {
     "ariopsis-felis": {
       "ok": "unsure",
       "typical": false,
-      "note": "two catfish seen from above through murky shallow water; too blurry to confirm species",
-      "logo": false
+      "note": "two catfish seen faintly from above through murky shallow water, marks not clear",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/447646962.webp": {
@@ -32320,7 +32353,9 @@
     "ariopsis-felis": {
       "ok": "unsure",
       "typical": false,
-      "note": "dark catfish group in murky blue water; can't rule out freshwater catfish"
+      "note": "blue-tinted catfish group from above in murky water, marks not visible",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/589928706.webp": {
@@ -34243,9 +34278,11 @@
   },
   "https://media.aquatome.com/inaturalist/86505605.webp": {
     "ariopsis-felis": {
-      "ok": "yes",
-      "typical": true,
-      "note": "adult hardhead catfish lying on a wooden dock, clear side view"
+      "ok": "dead",
+      "typical": false,
+      "note": "landed catch lying on a wooden dock",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/86518603.webp": {
@@ -35164,8 +35201,9 @@
     "auchenipterus-nigripinnis": {
       "ok": "unsure",
       "typical": false,
-      "note": "small pinkish catfish in bare tank, blurry; could be juvenile, ID not certain",
-      "logo": false
+      "note": "small pinkish-red headed fish in bare tank, poor view; blurred person's arm behind the glass",
+      "logo": false,
+      "person": true
     }
   },
   "https://media.aquatome.com/scotcat/33a6dc83a99cf9b0.webp": {
@@ -35478,8 +35516,9 @@
     "auchenipterus-nigripinnis": {
       "ok": "yes",
       "typical": true,
-      "note": "silvery shark-cat with dark-edged fins, side view in tank",
-      "logo": false
+      "note": "silvery adult shark cat side view in aquarium, long anal fin, dark-edged tail",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/scotcat/4c67cbff8aa34645.webp": {
@@ -35733,8 +35772,9 @@
     "auchenoglanis-occidentalis": {
       "ok": "yes",
       "typical": true,
-      "note": "plain grey adult resting on sand in aquarium",
-      "logo": false
+      "note": "adult grey giraffe catfish resting on sand among stones, side view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/scotcat/61e13c1eba3c259d.webp": {
@@ -35792,8 +35832,9 @@
     "auchenipterus-nigripinnis": {
       "ok": "unsure",
       "typical": false,
-      "note": "pinkish small catfish in bare tank, blurry; ID not certain",
-      "logo": false
+      "note": "small pale fish with reddish head in bare tank, unusual colour; blurred hand or arm behind the glass",
+      "logo": false,
+      "person": true
     }
   },
   "https://media.aquatome.com/scotcat/64a7ae396d73b732.webp": {
@@ -36668,10 +36709,11 @@
   },
   "https://media.aquatome.com/scotcat/b048cf319b46178b.webp": {
     "auchenoglanis-occidentalis": {
-      "ok": "unsure",
-      "typical": false,
-      "note": "dark, distant view of a large catfish; can't confirm the species",
-      "logo": false
+      "ok": "yes",
+      "typical": true,
+      "note": "adult on substrate in dim tank, pointed snout and barbels, dark view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/scotcat/b097620064ea86fd.webp": {
@@ -36844,8 +36886,9 @@
     "auchenipterus-nigripinnis": {
       "ok": "yes",
       "typical": true,
-      "note": "dark bluish shark-cat resting on rock among pebbles",
-      "logo": false
+      "note": "dark bluish-silver fish over rock and pebbles in aquarium, large eye, forked tail",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/scotcat/c360f2e4be53968b.webp": {
@@ -37444,10 +37487,11 @@
   },
   "https://media.aquatome.com/scotcat/f96051c32847a8aa.webp": {
     "auchenoglanis-occidentalis": {
-      "ok": "unsure",
-      "typical": false,
-      "note": "spotted catfish with long barbels; may be a different claroteid",
-      "logo": false
+      "ok": "yes",
+      "typical": true,
+      "note": "adult with dark spotted body and fins swimming over rocks",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/scotcat/f9e074275336b83d.webp": {
@@ -47068,6 +47112,363 @@
       "ok": "none",
       "typical": false,
       "note": "painting (Matisse-style still life) of a goldfish bowl on a table, not a photo; painted figures and the painter's signat",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/aquariumcoop/08a0711e9f8c5300.webp": {
+    "apistogramma-trifasciata": {
+      "ok": "yes",
+      "typical": true,
+      "note": "male side view on black background, matches caption",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/commons/0b0230b0768534bd.webp": {
+    "apistogramma-trifasciata": {
+      "ok": "yes",
+      "typical": true,
+      "note": "yellow fish with dark lateral band and spiky dorsal, likely female, side view",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/16eb5297cc833876.webp": {
+    "apistogramma-panduro": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult female, yellow with black marks, orange-edged tail, by driftwood",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/2cec57498ec0df5b.webp": {
+    "apistogramma-trifasciata": {
+      "ok": "yes",
+      "typical": false,
+      "note": "male with raised dorsal spines, strong orange colour cast",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/618961beb219e7b2.webp": {
+    "atractosteus-tristoechus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "head and front body from above, broad snout, shallow water",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/97afe7b21e65fe70.webp": {
+    "apistogramma-panduro": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult male in planted tank, red-edged tail, silvery-blue body",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/9e2ea185bfd6713c.webp": {
+    "atractosteus-tristoechus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "whole adult gar from above in shallow algae-covered pond, turtle nearby",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/b54952d71319001f.webp": {
+    "apistogramma-trifasciata": {
+      "ok": "yes",
+      "typical": true,
+      "note": "male with raised dorsal spines displaying at a mirror in the tank",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/bf11bac1f31f9143.webp": {
+    "apistogramma-panduro": {
+      "ok": "yes",
+      "typical": true,
+      "note": "male, blue-silver body, black and red tail, among plants",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/e8d4fa52e1b9e183.webp": {
+    "atractosteus-tristoechus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "close-up of broad head and front body from above",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/flickr/54093206465.webp": {
+    "macropodus-opercularis": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult paradise fish side view, banded body, red forked tail",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/flickr/54093206470.webp": {
+    "macropodus-opercularis": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult paradise fish, red and blue bars, in planted tank",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/glaser/fcbf1a2f2787a692.webp": {
+    "apistogramma-panduro": {
+      "ok": "none",
+      "typical": false,
+      "note": "Otumo company logo graphic on white, no fish",
+      "logo": true,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/inaturalist/237369134.webp": {
+    "anabas-testudineus": {
+      "ok": "dead",
+      "typical": false,
+      "note": "wet climbing perch lying on a metal tray or sink, landed catch, cannot tell it is alive",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/inaturalist/40662277.webp": {
+    "rocio-octofasciata": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult Jack Dempsey, dark blue body with iridescent spots, over green algae",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/inaturalist/60110632.webp": {
+    "rocio-octofasciata": {
+      "ok": "yes",
+      "typical": true,
+      "note": "two adult Jack Dempseys with blue-green spangles and dark bars, underwater in natural habitat",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/inaturalist/617719816.webp": {
+    "anabas-testudineus": {
+      "ok": "dead",
+      "typical": false,
+      "note": "fish with large open skin lesion lying motionless in shallow murky water, appears dead",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/scotcat/0c90019ddd411d0a.webp": {
+    "asterophysus-batrachus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult resting on sand, side view, dark body, white belly, wide mouth",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/scotcat/5d178338d4a77269.webp": {
+    "asterophysus-batrachus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "fish swimming over sand, clear side view, purplish-brown tone",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/scotcat/7616908563756506.webp": {
+    "asterophysus-batrachus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "live fish against blue background at tank glass, clear side view",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/scotcat/909bd49ea8f73c31.webp": {
+    "asterophysus-batrachus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "group of three, head-on view showing broad gulper mouths",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/1bc079711165145c.webp": {
+    "apistogramma-paulmuelleri": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult male with a duller female over sand",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/1efe5e15dab298cb.webp": {
+    "aspidoras-taurus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult, side view, long curved barbels, spotted body, plants behind",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/247053de26b514a0.webp": {
+    "aspidoras-taurus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult, side view, long barbels, spotted body and banded tail",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/394d9bc296716673.webp": {
+    "apistogramma-paulmuelleri": {
+      "ok": "yes",
+      "typical": true,
+      "note": "yellow breeding female with a paler fish near coconut cave",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/5599ffc19a2cbedb.webp": {
+    "apistogramma-paulmuelleri": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "only head of yellow fish peeking from coconut cave behind sand mound",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/56a9f4d321edecab.webp": {
+    "apistogramma-trifasciata": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "small distant yellow apisto, probably a female, on a coconut cave",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/61d5d5f357f2cf82.webp": {
+    "apistogramma-panduro": {
+      "ok": "yes",
+      "typical": true,
+      "note": "male with black tail base and red caudal edge, female behind reflected in glass",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/7b581f5bf26b8dcf.webp": {
+    "apistogramma-panduro": {
+      "ok": "yes",
+      "typical": true,
+      "note": "yellowish female with lateral spot and red-edged tail on gravel",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/996b5fef5a169b7a.webp": {
+    "aspidoras-taurus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "adult, close front three-quarter view, tail cut off, long barbels",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/9b3b988d4c4713b0.webp": {
+    "apistogramma-panduro": {
+      "ok": "yes",
+      "typical": true,
+      "note": "male, blue-grey body, black tail base, red-edged caudal",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/b430888765baaac4.webp": {
+    "apistogramma-paulmuelleri": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult male side view on sand, red facial marks, spotted flank",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/c44e63d27eefed19.webp": {
+    "aspidoras-pauciradiatus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult side view, spotted body, barred fins, over plants",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/f8c249dcf0cabb62.webp": {
+    "apistogramma-panduro": {
+      "ok": "yes",
+      "typical": true,
+      "note": "female in yellow-white breeding colours with black bars",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/video/PpVR2NkBtcw/p2-b3NhX2t6MDEuanBn.webp": {
+    "hygrophila-corymbosa": {
+      "ok": "yes",
+      "typical": true,
+      "note": "healthy green Hygrophila bush in a planted tank, Anubias-like leaves at left; small tank tag in scene",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/gLGThPLYY_w/p6-phdmFtb29zLmpwZw.webp": {
+    "taxiphyllum-barbieri": {
+      "ok": "yes",
+      "typical": true,
+      "note": "close-up of bright green java moss with spreading branches",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/jWVZOYY4gd8/p4-NwaXJhbGlzLmpwZw.webp": {
+    "cryptocoryne-spiralis": {
+      "ok": "yes",
+      "typical": true,
+      "note": "narrow-leaved Cryptocoryne rosette growing emersed on moist muddy ground, matches caption",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/ogiCy6qvGUs/p1-EU0MwNzk1Ny5KUEc.webp": {
+    "sagittaria-subulata": {
+      "ok": "yes",
+      "typical": true,
+      "note": "dense Sagittaria subulata in a botanical garden tank, name sign in scene, glass reflections",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/sHGqouoq1uM/p1-EU0MwNzk1Ny5KUEc.webp": {
+    "sagittaria-subulata": {
+      "ok": "yes",
+      "typical": true,
+      "note": "same view: dense low carpet of Sagittaria subulata with species name sign in scene",
       "logo": false,
       "person": false,
       "guide": true

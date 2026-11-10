@@ -752,10 +752,14 @@
     "reason": "vague"
   },
   "7WuDB1RXfKY": {
-    "at": "2026-11-07",
+    "at": "2026-11-10",
     "title": "Get to Know the Charming Checkered Barb - Oliotius oligolepis",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Oliotius oligolepis",
+    "page": "species/oliotius-oligolepis",
+    "done": "added",
+    "score": 0.86
   },
   "8_Ir9-q-C8I": {
     "at": "2026-11-07",
@@ -766,10 +770,12 @@
     "reason": "many species"
   },
   "8A_c0nJn0B4": {
-    "at": "2026-11-07",
+    "at": "2026-11-10",
     "title": "Hyphessobrycon seizi — the Silver Tetra",
     "channel": "CHRIS LUKHAUP",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "failed",
+    "reason": "yt-dlp: ERROR: [youtube] 8A_c0nJn0B4: This video is available to this channel's members on level: Aquatic Adventures  (or any higher level). Join this channel to get access to members-only content and"
   },
   "8btOmmhB8zw": {
     "at": "2026-11-07",
@@ -823,10 +829,15 @@
     "reason": "tank how-to"
   },
   "91J9w0-vZDM": {
-    "at": "2026-11-07",
+    "at": "2026-11-10",
     "title": "ASSASSIN SNAIL \"Clea helena\" (Species Spotlight)",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Anentome helena",
+    "page": "species/anentome-helena",
+    "done": "low",
+    "score": 0.5,
+    "reason": "[behaviour] 'Radula có răng rất nhỏ' fine, but 'bàn chân khỏe giữ chặt' ok; however 'tìm miệng vỏ' fine.; [notes] 'Nhiều người tưởng loài này ăn bằng ống thở' - the page already says the siphon is used for breathing and sniffing; the 'ăn bằng vòi' point partly repeats the page's 'dùng chiếc vòi để dò tìm con mồi' (which conflicts: video says siphon detects prey, proboscis feeds). The page mislabels the siphon as 'vòi'; NEW does not flag this difference."
   },
   "98gk-gSTe9w": {
     "at": "2026-11-07",

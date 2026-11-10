@@ -57,7 +57,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Các bể xếp theo cạnh dài chạy ra sau, đặt trên khung gỗ nhiều tầng.",
-            "sharpness": 186.4
+            "sharpness": 186.4,
+            "person": false
           },
           {
             "t": 60,
@@ -65,7 +66,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nhìn từ dưới: bể vắt ngang hai thanh gỗ đỡ phía trước và sau.",
-            "sharpness": 175
+            "sharpness": 175,
+            "person": false
           }
         ]
       },
@@ -78,14 +80,17 @@
             "width": 1200,
             "height": 675,
             "caption": "Dãy bể kính xếp trên giá gỗ, thấy rõ khoảng trống phía trên mỗi bể.",
-            "sharpness": 636.5
+            "sharpness": 636.5,
+            "person": false
           },
           {
             "t": 145,
-            "url": "https://media.aquatome.com/video/AIQYex-S3e4/at145.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Đèn treo phía trên các bể đặt cạnh nhau, chừa khoảng trống để chỉnh."
+            "url": "https://media.aquatome.com/video/AIQYex-S3e4/at145-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đèn treo phía trên các bể đặt cạnh nhau, chừa khoảng trống để chỉnh.",
+            "sharpness": 375.1,
+            "person": false
           }
         ],
         "photo": {
@@ -98,27 +103,6 @@
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sydney_Zoo_aquarium_exhibit_A,_front_view_crop_2023-02-05.jpg",
           "caption": "Bể dài có mực nước thấp, chừa khoảng trống phía trên để thò tay chỉnh đồ."
         }
-      },
-      {
-        "heading": "Tính sức chịu tải của kệ",
-        "moments": [
-          {
-            "t": 195,
-            "url": "https://media.aquatome.com/video/AIQYex-S3e4/at195-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hàng bể kính trống đặt trên kệ gỗ, có đèn phía trên.",
-            "sharpness": 751.7
-          },
-          {
-            "t": 255,
-            "url": "https://media.aquatome.com/video/AIQYex-S3e4/at255-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các bể xếp nhiều tầng trên khung kệ gỗ 2x4.",
-            "sharpness": 829.2
-          }
-        ]
       },
       {
         "heading": "Làm lọc vách mút Hamburg",
