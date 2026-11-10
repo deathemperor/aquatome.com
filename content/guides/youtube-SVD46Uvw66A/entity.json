@@ -76,16 +76,7 @@
       },
       {
         "heading": "Cá lớn ăn bao nhiêu: tính theo trọng lượng cơ thể",
-        "moments": [
-          {
-            "t": 275,
-            "url": "https://media.aquatome.com/video/SVD46Uvw66A/at275-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Chén thức ăn được cân sẵn để cho cá lớn ăn.",
-            "sharpness": 1356.3
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/SVD46Uvw66A/p2-lX1pvb18wMS5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/SVD46Uvw66A/p2-lX1pvb18wMS5qcGc-480.webp",
@@ -106,15 +97,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Thức ăn rắc xuống bể, đàn cá bơi lên đớp ở tầng giữa.",
-            "sharpness": 1145.6
-          },
-          {
-            "t": 360,
-            "url": "https://media.aquatome.com/video/SVD46Uvw66A/at360-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cá trong bể chung đang ăn những hạt thức ăn lơ lửng trong nước.",
-            "sharpness": 398.3
+            "sharpness": 1145.6,
+            "person": false
           }
         ],
         "photo": {
@@ -137,7 +121,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể cá cảnh hồ Tanganyika với đá xếp và rêu bám trên đá.",
-            "sharpness": 605
+            "sharpness": 605,
+            "person": false
           },
           {
             "t": 455,
@@ -145,7 +130,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh đá phủ rêu trong bể, cá bơi và gặm rêu.",
-            "sharpness": 443.4
+            "sharpness": 443.4,
+            "person": false
           }
         ],
         "photo": {
@@ -168,7 +154,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cân 2 g cám trên cân tiểu ly, bên cạnh là cám viên.",
-            "sharpness": 918.2
+            "sharpness": 918.2,
+            "person": false
           }
         ]
       },

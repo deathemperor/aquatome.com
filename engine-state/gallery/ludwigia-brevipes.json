@@ -1,14 +1,55 @@
 {
  "queue": [],
  "judged": [
-  "File:Ludwigia brevipes kz01.jpg"
+  "File:Ludwigia brevipes kz01.jpg",
+  "inat:400449259",
+  "inat:567115713",
+  "inat:567115853",
+  "inat:567120177",
+  "inat:567120389",
+  "inat:567120256",
+  "inat:657793285",
+  "inat:658880518",
+  "inat:658880515",
+  "inat:658880592",
+  "inat:702542678",
+  "inat:702542711",
+  "inat:702542729",
+  "inat:721366543",
+  "inat:721368047",
+  "inat:721368060",
+  "inat:741367151",
+  "inat:741367146",
+  "inat:741367595",
+  "inat:741367596"
  ],
  "hashes": {
   "https://media.aquatome.com/2hraquarist/0b37c442c890915e.webp": "d8d849652c378706",
   "https://media.aquatome.com/2hraquarist/23c32762f38f1076.webp": "5c5cc5c4c4dcf8e8",
   "https://media.aquatome.com/2hraquarist/370f9f563d36df11.webp": "080c0e1e0f0e0c0c",
   "https://media.aquatome.com/2hraquarist/881912be3f678bf6.webp": "5c5cccc4c4d8f8e8",
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/Ludwigia_brevipes_kz01.jpg/1280px-Ludwigia_brevipes_kz01.jpg": "31b18e857274584c"
+  "https://media.aquatome.com/commons/31102d7d3431858b.webp": "21b30e01327458ca",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/567115713/large.jpg": "fdc9230f0f9c58e3",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/567115853/large.jpg": "3505a71d1b366e5a",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/567120389/large.jpg": "a74f4b0f0e5a9aed",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/567120256/large.jpg": "2d45db952d346434",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/658880592/large.jpg": "16674c44523b1995",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/702542729/large.jpg": "27274dc7062f4444",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/721366543/large.jpg": "96a249ce3389c4b6",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/721368047/large.jpg": "a46c8e373696cae6",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/741367151/large.jpg": "656d2b2b4bd2f355"
  },
- "commons": "2026-11-10"
+ "commons": "2026-11-10",
+ "inat": {
+  "taxon": 164851,
+  "pass": "done",
+  "after": {
+   "research": 403756192,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 5421000,
+  "next": null
+ }
 }

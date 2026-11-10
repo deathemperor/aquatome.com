@@ -2,6 +2,18 @@
   "id": "maylandia-zebra",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/61728225.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/61728225-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Kai Squires",
+      "sourceUrl": "https://www.inaturalist.org/photos/61728225",
+      "caption": "Đàn cá zebra mbuna sọc xanh đen trong môi trường tự nhiên hồ Malawi",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
       "url": "https://media.aquatome.com/commons/258fe7812966db17.webp",
       "thumb": "https://media.aquatome.com/commons/258fe7812966db17-480.webp",
       "width": 1200,
@@ -26,7 +38,7 @@
       "kind": "form"
     }
   ],
-  "seen": 6,
-  "updatedAt": "2026-11-09",
-  "builtAt": "2026-11-09"
+  "seen": 10,
+  "updatedAt": "2026-11-10",
+  "builtAt": "2026-11-10"
 }

@@ -2,12 +2,24 @@
  "queue": [],
  "judged": [
   "File:Mesonauta festivus - Flag Cichlid.jpg",
-  "File:Potamotrygon motoro (National Aquarium in Washington, D.C.).jpg"
+  "File:Potamotrygon motoro (National Aquarium in Washington, D.C.).jpg",
+  "inat:118574431",
+  "inat:162002707",
+  "inat:162002718",
+  "inat:162002722"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/caf353eeb8b0331f.webp": "17161739790e8e1f",
   "https://media.aquatome.com/commons/3d21452665f2f5c8.webp": "2321344881c64861",
   "https://media.aquatome.com/commons/b0e952bdecea3b23.webp": "7c1cf6dfdcc98d89"
  },
- "commons": "2026-11-08"
+ "commons": "2026-11-08",
+ "inat": {
+  "taxon": 611582,
+  "pass": "done",
+  "after": {
+   "research": 97413043,
+   "agree": 325703569
+  }
+ }
 }

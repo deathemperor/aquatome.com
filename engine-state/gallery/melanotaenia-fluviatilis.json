@@ -1,13 +1,26 @@
 {
  "queue": [],
  "judged": [
-  "File:Sydney Zoo aquarium exhibit A, front view crop 2023-02-05.jpg"
+  "File:Sydney Zoo aquarium exhibit A, front view crop 2023-02-05.jpg",
+  "inat:6567204",
+  "inat:463490458",
+  "inat:463490473",
+  "inat:463490487"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/1df5866237ac9bf2.webp": "181b1f2f169b8b83",
   "https://media.aquatome.com/commons/a95f896a643797c5.webp": "8084868d8f83a74f",
   "https://media.aquatome.com/commons/6000f48bfdcd4e6e.webp": "1d47072d9bcb0e0b",
-  "https://media.aquatome.com/commons/7001505c05d86846.webp": "e2e74e644c5c4819"
+  "https://media.aquatome.com/commons/7001505c05d86846.webp": "e2e74e644c5c4819",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/6567204/large.jpg": "180e070307233501"
  },
- "commons": "2026-11-08"
+ "commons": "2026-11-08",
+ "inat": {
+  "taxon": 495397,
+  "pass": "done",
+  "after": {
+   "research": 258346267,
+   "agree": 327447306
+  }
+ }
 }

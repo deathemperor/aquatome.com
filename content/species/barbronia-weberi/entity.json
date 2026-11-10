@@ -313,7 +313,12 @@
       "author": "S.E. Thorpe",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Barbronia_weberi.jpg",
       "caption": "live Barbronia weberi",
-      "thumb": "https://media.aquatome.com/commons/c85b9cf0c4cef85f-480.webp"
+      "thumb": "https://media.aquatome.com/commons/c85b9cf0c4cef85f-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/c85b9cf0c4cef85f-large.webp",
+        "width": 1318,
+        "height": 940
+      }
     },
     {
       "url": "https://media.aquatome.com/aquariumbreeder/7090ea1ee021b5ae.webp",

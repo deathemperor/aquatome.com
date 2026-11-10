@@ -111,37 +111,8 @@
         ]
       },
       {
-        "heading": "Khoét khe bằng máy phay (router)",
-        "moments": [
-          {
-            "t": 260,
-            "url": "https://media.aquatome.com/video/SAO9fY_5ATA/at260-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tấm mica đặt trên bàn router, sẵn sàng đẩy vào lưỡi phay.",
-            "sharpness": 858.2
-          },
-          {
-            "t": 400,
-            "url": "https://media.aquatome.com/video/SAO9fY_5ATA/at400-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đẩy tấm mica dọc bàn phay để cắt khe theo thanh cữ.",
-            "sharpness": 1316.6
-          }
-        ]
-      },
-      {
         "heading": "Bo cạnh, cạo mép và dán bể",
         "moments": [
-          {
-            "t": 580,
-            "url": "https://media.aquatome.com/video/SAO9fY_5ATA/at580-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng dao cạo mica cạo dọc mép tấm để làm sạch vết cưa.",
-            "sharpness": 585.7
-          },
           {
             "t": 690,
             "url": "https://media.aquatome.com/video/SAO9fY_5ATA/at690-hd.webp",
@@ -213,7 +184,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lớp hạt thủy tinh xanh đã phủ kín đáy bể mica.",
-            "sharpness": 335.9
+            "sharpness": 335.9,
+            "person": false
           }
         ]
       },
@@ -226,7 +198,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Vật liệu lọc lơ lửng trong hộp lọc tầng sôi, sủi khí.",
-            "sharpness": 187.6
+            "sharpness": 187.6,
+            "person": false
           },
           {
             "t": 1440,
@@ -247,15 +220,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Máy sủi và dây điện đặt dưới chân đế bể, dây oxy chạy ra ngoài.",
-            "sharpness": 534.1
-          },
-          {
-            "t": 1620,
-            "url": "https://media.aquatome.com/video/SAO9fY_5ATA/at1620-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cầm van một chiều chuẩn bị lắp vào dây oxy, máy sủi nằm trên sàn.",
-            "sharpness": 467
+            "sharpness": 534.1,
+            "person": false
           }
         ]
       },
@@ -268,7 +234,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể nhỏ có khoang lọc chứa vật liệu lọc, nền cát xanh.",
-            "sharpness": 345.9
+            "sharpness": 345.9,
+            "person": false
           },
           {
             "t": 1900,

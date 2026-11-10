@@ -7,10 +7,10 @@ Written by `pnpm engine gallery` (2026-11-10). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 131 | 79 | 24 | 30 | 204 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 516 | 25 | 9 | 16 | 534 |
-| rest | 20 | 1650 | 78 | 0 | 32 | 1696 |
+| covered | 30 | 517 | 28 | 9 | 18 | 536 |
+| rest | 20 | 1662 | 75 | 0 | 34 | 1703 |
 
-## Short of target: every source read (245)
+## Short of target: every source read (250)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -66,13 +66,13 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/corydoras-aeneus | shop | 27 | 60 |
 | breeds/dumbo-ear-guppy | shop | 0 | 60 |
 | species/chromobotia-macracanthus | shop | 20 | 60 |
-| plants/aegagropila-linnaei | shop | 32 | 60 |
+| plants/aegagropila-linnaei | shop | 34 | 60 |
 | breeds/super-red-arowana | shop | 7 | 60 |
 | species/corydoras-paleatus | shop | 26 | 60 |
 | plants/cryptocoryne-wendtii | shop | 5 | 60 |
 | breeds/red-tailed-golden-arowana | shop | 7 | 60 |
 | species/corydoras-pygmaeus | shop | 6 | 60 |
-| plants/cryptocoryne-crispatula | shop | 0 | 60 |
+| plants/cryptocoryne-crispatula | shop | 3 | 60 |
 | breeds/crossback-golden-arowana | shop | 0 | 60 |
 | species/corydoras-hastatus | shop | 1 | 60 |
 | breeds/mickey-mouse-platy | shop | 3 | 60 |
@@ -82,23 +82,23 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/corydoras-adolfoi | shop | 1 | 60 |
 | breeds/pigeon-blood-discus | shop | 4 | 60 |
 | species/corydoras-caudimaculatus | shop | 0 | 60 |
-| plants/cyperus-helferi | shop | 0 | 60 |
+| plants/cyperus-helferi | shop | 1 | 60 |
 | species/garra-flavatra | shop | 8 | 60 |
 | plants/aponogeton-madagascariensis | shop | 1 | 60 |
 | plants/riccardia-chamedryfolia | shop | 56 | 60 |
 | species/synodontis-petricola | shop | 2 | 60 |
 | species/peckoltia-compta | shop | 0 | 60 |
 | plants/monosolenium-tenerum | shop | 3 | 60 |
-| plants/echinodorus-grisebachii | shop | 5 | 60 |
+| plants/echinodorus-grisebachii | shop | 7 | 60 |
 | species/caridina-multidentata | shop | 38 | 60 |
 | plants/hygrophila-difformis | shop | 14 | 60 |
 | species/leporacanthicus-joselimai | shop | 1 | 60 |
 | plants/hygrophila-corymbosa | shop | 7 | 60 |
 | species/melanotaenia-lacustris | shop | 1 | 60 |
-| plants/cryptocoryne-spiralis | shop | 3 | 60 |
+| plants/cryptocoryne-spiralis | shop | 6 | 60 |
 | species/melanotaenia-parkinsoni | shop | 1 | 60 |
 | species/alestopetersius-caudalis | shop | 1 | 60 |
-| plants/cryptocoryne-albida | shop | 0 | 60 |
+| plants/cryptocoryne-albida | shop | 4 | 60 |
 | species/trichogaster-lalius | shop | 34 | 60 |
 | plants/heteranthera-zosterifolia | shop | 6 | 60 |
 | species/hyphessobrycon-elachys | shop | 0 | 60 |
@@ -130,7 +130,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | plants/taxiphyllum-alternans | shop | 3 | 60 |
 | plants/fissidens-fontanus | shop | 18 | 60 |
 | species/poecilia-sphenops | shop | 17 | 60 |
-| plants/cryptocoryne-beckettii | shop | 0 | 60 |
+| plants/cryptocoryne-beckettii | shop | 1 | 60 |
 | species/corydoras-panda | shop | 14 | 60 |
 | species/corydoras-sterbai | shop | 14 | 60 |
 | species/scleropages-jardinii | shop | 3 | 60 |
@@ -159,17 +159,17 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/myxocyprinus-asiaticus | shop | 7 | 60 |
 | species/gnathonemus-petersii | shop | 10 | 60 |
 | species/cyphotilapia-frontosa | shop | 28 | 60 |
-| plants/cryptocoryne-nurii | shop | 0 | 60 |
+| plants/cryptocoryne-nurii | shop | 3 | 60 |
 | species/garra-rufa | shop | 10 | 60 |
-| plants/cryptocoryne-undulata | shop | 2 | 60 |
+| plants/cryptocoryne-undulata | shop | 5 | 60 |
 | species/ctenolucius-hujeta | shop | 7 | 60 |
-| plants/cryptocoryne-usteriana | shop | 1 | 60 |
+| plants/cryptocoryne-usteriana | shop | 5 | 60 |
 | species/astyanax-mexicanus | shop | 19 | 60 |
 | species/iriatherina-werneri | shop | 2 | 60 |
 | species/helostoma-temminckii | shop | 15 | 60 |
-| plants/bacopa-salzmannii | shop | 3 | 60 |
+| plants/bacopa-salzmannii | shop | 4 | 60 |
 | species/epalzeorhynchos-kalopterus | shop | 2 | 60 |
-| plants/cardamine-lyrata | shop | 2 | 60 |
+| plants/cardamine-lyrata | shop | 3 | 60 |
 | species/pseudomugil-furcatus | shop | 5 | 60 |
 | species/amphilophus-labiatus | shop | 5 | 60 |
 | species/epalzeorhynchos-bicolor | shop | 10 | 60 |
@@ -246,9 +246,10 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/datnioides-pulcher | popular | 2 | 40 |
 | species/pangasianodon-hypophthalmus | popular | 30 | 40 |
 | species/dichotomyctere-nigroviridis | popular | 13 | 40 |
+| species/pomacea-diffusa | popular | 18 | 40 |
 | breeds/electric-blue-ram | covered | 1 | 30 |
 | breeds/blue-diamond-discus | covered | 1 | 30 |
-| breeds/glofish | covered | 15 | 30 |
+| breeds/glofish | covered | 13 | 30 |
 | breeds/crystal-red-shrimp | covered | 12 | 30 |
 | breeds/koi-angelfish | covered | 0 | 30 |
 | breeds/blue-velvet-shrimp | covered | 0 | 30 |
@@ -261,4 +262,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/amblydoras-nauticus | covered | 0 | 30 |
 | species/aphanotorulus-unicolor | covered | 0 | 30 |
 | species/axelrodia-riesei | covered | 1 | 30 |
+| species/betta-siamorientalis | covered | 0 | 30 |
+| species/betta-unimaculata | covered | 0 | 30 |
+| species/brachyplatystoma-vaillantii | covered | 1 | 30 |
 | species/betta-macrostoma | covered | 0 | 30 |
