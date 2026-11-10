@@ -392,8 +392,9 @@ final class HandbookModel {
   private static func pageCache(_ source: Source, site: URL) -> PageCache {
     #if DEBUG
     if case .fixed = source {
-      let dir = FileManager.default.temporaryDirectory.appending(path: "pages-\(UUID().uuidString)")
       let launch = ProcessInfo.processInfo.arguments
+      // `-keep-pages`: the same folder from one launch to the next, so a page's kept copy can differ from the site's.
+      let dir = FileManager.default.temporaryDirectory.appending(path: launch.contains("-keep-pages") ? "pages-kept" : "pages-\(UUID().uuidString)")
       // `-newer-part`: the neon's page holds a part from a newer site, which this build can't draw.
       let pages = launch.contains("-equipment") ? HandbookIndex.fixtureKitPages
         : launch.contains("-vi-at-root") ? HandbookIndex.fixturePagesAtRoot
