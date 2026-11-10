@@ -369,7 +369,7 @@ test('a move with every frame passes', () => {
 
 test('a pause of two frames is inside a move, and a longer one ends it', () => {
   const up = ramp(8, 10, 8)
-  const at = up[up.length - 1]
+  const at = 74 // where that ramp ends
   const inside = frames([...still(5, 10), ...up, ...still(2, at), ...ramp(8, at, 8), ...still(5, at + 64)])('16')
   expect(inside.status, inside.stdout).toBe(0)
   const apart = frames([...still(5, 10), ...up, ...still(3, at), ...ramp(8, at, 8), ...still(5, at + 64)])('8,8')
