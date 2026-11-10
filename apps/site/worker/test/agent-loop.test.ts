@@ -19,9 +19,9 @@ const answers = (text = '{"verdict":"fish","guesses":[]}', stop = 'end_turn', u 
 
 /** A scripted Claude: each call gets the next reply (the last again past the end); every body and timeout it saw. */
 function script(replies: ((body: Body) => Anthropic.Message)[], clock?: { now: number; per?: number[] }) {
-  const calls: { body: Body; timeoutMs: number }[] = []
-  const send: AgentInput<string>['send'] = async (body, { timeoutMs }) => {
-    calls.push({ body: structuredClone(body), timeoutMs })
+  const calls: { body: Body; timeoutMs: number; writingMs: number }[] = []
+  const send: AgentInput<string>['send'] = async (body, { timeoutMs, writingMs }) => {
+    calls.push({ body: structuredClone(body), timeoutMs, writingMs })
     if (clock?.per) clock.now += clock.per[calls.length - 1] ?? 0
     return replies[Math.min(calls.length, replies.length) - 1]!(body)
   }
@@ -210,6 +210,13 @@ test('pace: a run at normal speed reads on to its limits, and its forced answer 
   const d = script([() => asks([{ name: 'echo', input: { q: 'x' } }]), () => asks([{ name: 'echo', input: { q: 'y' } }]), () => answers()], plain)
   await runAgent(input(d.send, { clock: () => plain.now, effort: 'medium', limits: { calls: 3 } }))
   expect(d.calls.map(x => [x.body.tool_choice!.type, x.body.output_config!.effort, x.timeoutMs])).toEqual([['auto', 'medium', 20_000], ['auto', 'medium', 20_000], ['none', 'medium', 20_000]])
+})
+
+test('a call is bounded at callMs until it begins writing, and may then take all the time left', async () => {
+  const clock = { now: 0, per: [1_000, 3_000] }
+  const c = script([() => asks([{ name: 'echo', input: { q: 'x' } }]), () => answers()], clock)
+  await runAgent(input(c.send, { clock: () => clock.now, limits: { ms: 27_000, callMs: 20_000 } }))
+  expect(c.calls.map(x => [x.timeoutMs, x.writingMs])).toEqual([[20_000, 27_000], [20_000, 26_000]])
 })
 
 test('a tool that throws, and one Claude names that doesn\'t exist: an is_error result each, counted as tool calls; the run goes on', async () => {

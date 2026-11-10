@@ -26,12 +26,20 @@ test('sections go with a saved tank or a whole post; a short question with neith
   expect(handsOver(`  ${'x'.repeat(WHOLE_POST - 1)}  `, [])).toBe(false)
 })
 
-test('a short question with no tank, or any question in Thai, is not searched and hands nothing over', async () => {
+test('a short question with no tank is not searched and hands nothing over, in Thai too', async () => {
   const h = await hb()
   const { asked, search } = finds([{ path: GUIDE, heading: null }])
   expect(await handoverFor({ question: 'Nước đục có sao không?', start: {}, tanks: [], hb: h, lang: 'vi', search })).toBeUndefined()
-  expect(await handoverFor({ question: POST, start: {}, tanks: [tank], hb: h, lang: 'th', search })).toBeUndefined()
+  expect(await handoverFor({ question: 'น้ำเขียว แก้ยังไง', start: {}, tanks: [], hb: h, lang: 'th', search })).toBeUndefined()
   expect(asked).toEqual([])
+})
+
+test('Thai goes by the same rule as the other languages: a saved tank or a whole post is searched', async () => {
+  const h = await hb()
+  const { asked, search } = finds([{ path: GUIDE, heading: null }])
+  expect(await handoverFor({ question: 'น้ำเขียว แก้ยังไง', start: {}, tanks: [tank], hb: h, lang: 'th', search })).toBeDefined()
+  expect(await handoverFor({ question: POST, start: {}, tanks: [], hb: h, lang: 'th', search })).toBeDefined()
+  expect(asked).toEqual(['น้ำเขียว แก้ยังไง', POST])
 })
 
 test('with a saved tank: the tank without its name, then what the search found that fits, each as read_page gives it', async () => {

@@ -184,7 +184,7 @@ export type ChatOptions = {
    * One call to Claude. With `onText`, the call streams, and each raw delta of its text content (never its thinking)
    * goes to `onText` as it comes; the call still returns its whole message.
    */
-  send: (body: Anthropic.MessageCreateParamsNonStreaming, opts: { timeoutMs: number; call: number; onText?: (delta: string) => void }) => Promise<Anthropic.Message>
+  send: (body: Anthropic.MessageCreateParamsNonStreaming, opts: { timeoutMs: number; writingMs?: number; call: number; onText?: (delta: string) => void }) => Promise<Anthropic.Message>
   model: string
   lang: Lang
   question: string

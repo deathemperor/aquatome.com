@@ -16,7 +16,9 @@ import { definition, type Tool } from './tools'
  *   not a hard cap: the forced call itself still runs.
  * - Past the tool calls, a `tool_use` gets a "limit reached" `is_error` result; a tool that throws, or one Claude names
  *   that doesn't exist, gets an `is_error` result with a short message. Both count as tool calls.
- * - No call runs past `ms` from the first: each call's timeout is what is left (at most `callMs`).
+ * - No call runs past `ms` from the first: each call's timeout is what is left (at most `callMs`). Once a call has begun
+ *   writing its text it may take all the time left (`writingMs`): stopping an answer on its way loses it, and a call
+ *   that answers first thing (handed sections, handover.ts) is the only one that can be writing at `callMs`.
  * - With `pace`, the time kept for the last call follows the run's own speed, so a slow hour reads less and still
  *   answers: see `pace`.
  * - `recheck` may send an answer Claude chose back once, with more to read. That answer is held: if a later call fails,
@@ -54,7 +56,7 @@ export type AgentRun<Step> = {
   history: Anthropic.MessageParam[]
 }
 export type AgentInput<Step> = {
-  send: (body: Anthropic.MessageCreateParamsNonStreaming, opts: { timeoutMs: number; call: number }) => Promise<Anthropic.Message>
+  send: (body: Anthropic.MessageCreateParamsNonStreaming, opts: { timeoutMs: number; writingMs: number; call: number }) => Promise<Anthropic.Message>
   model: string
   system: string
   tools: Tool<Step>[]
@@ -145,7 +147,7 @@ export async function runAgent<Step>(a: AgentInput<Step>): Promise<AgentRun<Step
         ...(a.thinking ? { thinking: a.thinking } : {}),
         output_config: { effort, format: { type: 'json_schema', schema: a.schema } },
         messages: forced && a.lastWord ? withWord(history, a.lastWord) : [...history],
-      }, { timeoutMs: forced && a.pace ? left : Math.min(left, lim.callMs), call: run.calls })
+      }, { timeoutMs: forced && a.pace ? left : Math.min(left, lim.callMs), writingMs: left, call: run.calls })
     } catch (e) {
       return held ? { ...run, message: held, stopped: 'answer' } : { ...run, stopped: 'error', error: e }
     }
