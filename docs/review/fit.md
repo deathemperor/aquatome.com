@@ -5,12 +5,12 @@ finding on any check but words. Rules run on every page; the model's findings co
 
 | Language | Pages | Read | Wrong for the reader | product | shop | price | dose | source | units | words | elsewhere | kit | harm | card | dose-purpose | dose-conflict | dose-caution | lethal |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Vietnamese | 3874 | 3446 | 1558 | 72 | 49 | 199 | 33 | 1006 | 458 | 2710 | 475 | 9 | 16 | 0 | 3 | 0 | 3 | 0 |
+| Vietnamese | 3881 | 3453 | 1570 | 73 | 49 | 200 | 35 | 1019 | 462 | 2721 | 479 | 9 | 16 | 0 | 3 | 0 | 3 | 0 |
 | Indonesian | 1192 | 1028 | 312 | 20 | 6 | 3 | 5 | 155 | 58 | 50 | 139 | 0 | 0 | 0 | 3 | 0 | 0 | 0 |
 | Thai | 1185 | 1022 | 296 | 18 | 4 | 4 | 3 | 137 | 71 | 72 | 127 | 0 | 0 | 0 | 1 | 0 | 0 | 0 |
 | Malay | 186 | 144 | 54 | 5 | 1 | 0 | 0 | 23 | 17 | 6 | 18 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 
-Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 9 of 121, Indonesian 2 of 52, Thai 2 of 52, Malay 1 of 17.
+Pages with a dose whose source isn't kept, so a missing caution can't be told: Vietnamese 9 of 124, Indonesian 2 of 52, Thai 2 of 52, Malay 1 of 17.
 
 ## Doses on more than one page
 
@@ -44,6 +44,7 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - easy iron: plants, wholeTank: 0.025 ml/l, 0.526 drop/l (1 pages)
 - fritzzyme 7: other, wholeTank: 3.132 ml/l, 1.579 ml/l (1 pages)
 - fritzzyme 7 freshwater: other, wholeTank: 3.132 ml/l, 1.579 ml/l (1 pages)
+- liquid fertiliser: plants, wholeTank: 0.02 ml/l, 0.04 ml/l (1 pages)
 - methylene blue: other, wholeTank: 0.421 drop/l (1 pages); parasites, dip: 2.241 ml/l (1 pages)
 - metronidazole and praziquantel: quarantine, wholeTank: 0.027 packet/l (1 pages); parasites, wholeTank: 0.03 packet/l (1 pages)
 - seachem flourish: plants, wholeTank: 0.022 ml/l, 0.017 ml/l (1 pages)
@@ -71,7 +72,7 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 
 - repashy: 48
 - panacur: 33
-- ada: 17
+- ada: 20
 - fluval stratum: 16
 - ada amazonia: 14
 - ada amazonia aqua soil: 14
@@ -80,6 +81,7 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - easy fry and small fish food: 12
 - hikari shrimp cuisine: 12
 - hikari vibra bites: 12
+- apt fix: 11
 - aquario neo soil: 11
 - eheim: 11
 - seachem fluorite: 11
@@ -87,7 +89,6 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - aquaclear: 9
 - carib sea eco-complete: 9
 - weld-on 4: 9
-- apt fix: 8
 - fluval: 8
 - jbl: 8
 - easy shrimp and snail shells: 7
@@ -96,6 +97,7 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - seachem flourite: 7
 - seachem flourite dark: 7
 - tetramin: 7
+- tropica: 7
 - twinstar: 7
 - caribsea eco-complete: 6
 - chihiros a2: 6
@@ -105,7 +107,6 @@ Per litre, by what the pages say each is for. A conflict is the same treatment, 
 - liquifry: 6
 - my chihiros: 6
 - pond armor: 6
-- tropica: 6
 - vibra bites: 6
 - aquaclear 70: 5
 - aquario neo flow: 5

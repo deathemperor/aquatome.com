@@ -176,6 +176,40 @@
       "kept": false
     }
   ],
+  "vi/species/crossocheilus-reticulatus#9wkUPrMzqfo": [
+    {
+      "at": "2026-11-10T14:42:33Z",
+      "model": "sonnet",
+      "score": 0.7,
+      "notes": [
+        "The size claim \"cá có thể dài tới 15 cm\" differs from the page's sizeCm 17. NEW doesn't say it differs, and it presents the figure as one keeper's observation when the video gives it as a general maximum.",
+        "\"cho gì cũng ăn\" and \"ăn tạp\" conflict with the page's advice to avoid protein-rich food. NEW doesn't say the video differs from the page here.",
+        "\"một người nuôi lâu năm\" is repeated in every section. The wording reads stiff and translated, for example \"Người này thì đợi cá ăn hết rêu\" and \"Cá của họ\".",
+        "\"nghe hơi lạ là bỏ thêm rêu tóc vào bể cho cá no\" is a clumsy rendering of the video's aside \"I know this sounds crazy\".",
+        "\"Dọn hết rêu chùm đen và rêu tóc xong, nó có xu hướng quay sang gặm hầu hết các loại moss\" is stated as the fish's behaviour in general. The video says this only about \"most types of moss\" in the keeper's own tanks.",
+        "\"còn tính thì hiền hơn hẳn hai loài kia\" partly repeats the page's \"Loài này nhìn chung hiền\". The shark comparison is new, but the gentleness itself is already on the page."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-10T14:42:33Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "[notes] 'Cá có thể dài tới 15 cm' – the page card already gives size 17 cm; the video's 15 cm differs from the page, but NEW doesn't say it differs from the page's 17 cm.",
+        "[maintenance] 'Một người nuôi loài này lâu năm chưa thấy nó đụng đến cây nào' – the 'long-time keeper' framing is fine, but the whole video is 'we' (a fish room); fine. Still, no explicit contrast with the page, which says Anubias/Microsorum are fine and tanks should be stream-style.",
+        "[maintenance] 'Dọn hết rêu chùm đen và rêu tóc xong, cá hay quay sang gặm hầu hết các loại moss' – stated as general fact in the wording ('hay'), while the video says it 'tends to'; acceptable, but 'Rêu trồng (moss)' is odd wording.",
+        "[maintenance] Second paragraph repeats the first paragraph's point (move the fish to a moss-free tank), redundant; 'cứ để cá dọn xong đám rêu này rồi hẵng bắt ra' is slightly changed from the video.",
+        "[diet] 'không loài cá nào sánh được với nó' – a keeper's experience, but 'rêu chùm đen (BBA...)' and 'sạch tận gốc' are fine; 'Không như vài loài cá ăn rêu khác, loài này càng lớn càng ăn rêu giỏi' is stated as a fact rather than the keeper's own observation.",
+        "[diet] 'cho gì cũng ăn' and 'ăn được nhiều thứ nên lớn nhanh' conflicts with the page's advice to avoid protein-rich food and its wild aufwuchs diet; the video differs from the page here and NEW doesn't say so.",
+        "[behaviour] 'tính nó hiền hơn hẳn' and the peaceful claim contradict nothing, but the page says small groups can be bullied and to keep 6+; NEW doesn't note differences.",
+        "[notes] Comparison with rainbow shark/red tail shark in notes and again in behaviour is duplicated."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/doryichthys-heterosoma": [
     {
       "at": "2026-11-09T11:49:28Z",
@@ -207,6 +241,33 @@
       ],
       "attempt": "first",
       "kept": true
+    }
+  ],
+  "vi/species/elassoma-gilberti": [
+    {
+      "at": "2026-11-10T14:40:14Z",
+      "model": "sonnet",
+      "score": 0.96,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-10T14:40:14Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "\"Hand-feeding... có người đứng đó chúng vẫn ra khỏi chỗ trốn\" is fine, but \"Con đực rất hay giành chỗ\" is okay; minor: \"cá con cũng không ra nữa\" (fry production stopped) is slightly reworded as fry not appearing, acceptable.",
+        "\"dài khoảng 2,5 cm\" is from the data card, supported.",
+        "\"Khi vào mùa đẻ\" for breeding females is a small embellishment; facts say 'breeding females'.",
+        "\"Chỉ có đá là sai\" slightly generalizes Rohde's comment about the biotope, minor.",
+        "\"Nó thường ở gần cây thủy sinh hoặc cành gỗ chìm, chủ yếu tại những chỗ nước lặng\" is supported; \"hơi thon hơn\" for 'slightly less deep' is acceptable.",
+        "\"Fritz Rohde, một chuyên gia về Elassoma\" is supported as 'expert Fritz Rohde' but the Elassoma specialization is a small inference.",
+        "\"Muốn giữ vài con đực lên màu... để chúng không nhìn thấy nhau\" is supported.",
+        "\"bo bo\" for daphnia and \"bể không sưởi... 20–27 °C\" are supported."
+      ],
+      "attempt": "first",
+      "kept": false
     }
   ],
   "vi/species/garra-panitvongi": [

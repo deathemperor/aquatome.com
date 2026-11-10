@@ -110764,5 +110764,651 @@
     "checklist": 2,
     "findings": [],
     "products": []
+  },
+  "vi/guides/youtube--LWDlOsd634": {
+    "at": "2026-11-10",
+    "hash": "ab88b45f65f4c94c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Hy vọng là cây mọc gọn và giữ màu đỏ với đèn của bể",
+        "why": "The writer's own hope for their own tank and light, presented as if the reader knew that tank.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Đây là một quan điểm riêng về đạo đức, không phải quy tắc.",
+        "why": "The source writer's personal voice, from someone the reader does not know.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "BioMaster 600 Thermo"
+    ]
+  },
+  "vi/guides/youtube-27quC5jcKu0": {
+    "at": "2026-11-10",
+    "hash": "0063ee9d844faf8b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "bể chắc là sẽ không rỉ nhiều amoniac",
+        "why": "\"Rỉ amoniac\" is a calque of English \"leach ammonia\"; keepers say the substrate releases it with \"nhả\".",
+        "by": "model",
+        "fix": "nhả nhiều amoniac"
+      }
+    ],
+    "products": [
+      "Power Sand",
+      "Amazonia",
+      "ADA",
+      "Bacter 100",
+      "Clear Super"
+    ]
+  },
+  "vi/guides/youtube-4LpldhD2JHU": {
+    "at": "2026-11-10",
+    "hash": "095404a17665eb66",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Lần này kính của bể không bẩn lắm vì cây quá dày",
+        "why": "Recounts the source's own tank session as if the reader knew that tank.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Cấp nước mới từ vòi, trộn nóng lạnh rồi thử bằng tay cho cân nhiệt độ.",
+        "why": "Assumes a hot and cold mixer tap for tank water, a household setup from abroad and not usual in Vietnam.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "ống thủy tinh ra vào",
+        "why": "Hand-translated term for glass lily pipes that keepers do not use.",
+        "by": "model",
+        "fix": "bộ in-out thủy tinh"
+      }
+    ],
+    "products": [
+      "ADA"
+    ],
+    "doses": [
+      {
+        "treatment": "liquid fertiliser",
+        "strength": "",
+        "amount": 2,
+        "amountMax": 0,
+        "unit": "ml",
+        "per": 100,
+        "perUnit": "litre",
+        "use": "plants",
+        "method": "wholeTank",
+        "quote": "Liều 2 ml cho 100 lít mỗi ngày"
+      },
+      {
+        "treatment": "liquid fertiliser",
+        "strength": "",
+        "amount": 3,
+        "amountMax": 0,
+        "unit": "ml",
+        "per": 75,
+        "perUnit": "litre",
+        "use": "plants",
+        "method": "wholeTank",
+        "quote": "bể 75 lít châm 3 ml"
+      }
+    ],
+    "sourceRead": true
+  },
+  "vi/guides/youtube-5qzNHhM4FXE": {
+    "at": "2026-11-10",
+    "hash": "ced0effaaa6e253e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Mới trồng xong thì bể chưa có gì ấn tượng, do không có đá lũa và cây còn rất nhỏ.",
+        "why": "Describes the source's own freshly planted tank as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Sáu loài là con số vẫn được khuyên cho bể cỡ này",
+        "why": "Refers to the size of the source's tank, which the page never gives.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "cây có thể cao tới 30 cm trong khi bể chỉ cao 35 cm",
+        "why": "Treats the source's particular 35 cm tank as the reader's own.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Hy vọng là với Hygrophila và Rotala lớn nhanh, bể sẽ tránh được rêu hại",
+        "why": "The writer's own hope about their own tank, left in the page's voice.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "1-2-Grow"
+    ]
+  },
+  "vi/guides/youtube-CfcC7FQV-vM": {
+    "at": "2026-11-10",
+    "hash": "a8a4d6e6c9dac9e2",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P5",
+        "quote": "hướng dẫn 26 trang cho người mới của Vin Kutty, một người chơi ở Mỹ",
+        "why": "Sends the reader to a guide by a US hobbyist they don't know and the page doesn't include.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "TwinStar 600 S",
+      "Osmocote"
+    ]
+  },
+  "vi/guides/youtube-cOyhGhQmroU": {
+    "at": "2026-11-10",
+    "hash": "f09205f591c387f5",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Bể 75 lít trong nhà có sưởi trung tâm, nhiệt độ phòng khoảng 21 °C",
+        "why": "A centrally heated house with a 21 °C room is a cold-climate home, not a home in Vietnam.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "L10",
+        "quote": "Bể 75 lít trong phòng khoảng 21 °C giữ ổn định 23 °C",
+        "why": "The heater sizing assumes a 21 °C room, which is the source's cold-climate home.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Một bể khác dùng sủi inline gắn trên đường ống lọc thùng BioMaster",
+        "why": "Refers to the source writer's other tank as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Sau một tuần set bể, cây đã lên rõ và chưa thấy rêu hại",
+        "why": "Reports the source writer's own tank progress as if the reader knew that tank.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Oase BioStyle",
+      "Aquael",
+      "BioMaster"
+    ]
+  },
+  "vi/guides/youtube-GpybvkGpvuQ": {
+    "at": "2026-11-10",
+    "hash": "25b1c635ad7a3c8d",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Có lần đo, nitrat trong bể còn thấp hơn nước máy.",
+        "why": "A measurement from the source writer's own tank, told as if the reader knew that tank.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Mở vòi đã chỉnh sẵn nhiệt độ rồi châm thuốc khử clo.",
+        "why": "Assumes a hot and cold mixer tap for filling the tank, which homes abroad have and Vietnamese homes rarely do.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-hMKRY7EkfIk": {
+    "at": "2026-11-10",
+    "hash": "31aa4e8c7ccbca72",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể 75 lít ở trên để đèn ở mức khá thấp cho rêu khỏi được đà.",
+        "why": "It speaks of the source's own tank as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "rêu cây (moss)",
+        "why": "Keepers do not say \"rêu cây\" for aquarium moss; it is a coined term.",
+        "by": "model",
+        "fix": "moss"
+      }
+    ],
+    "products": [
+      "Seachem Flourish Excel",
+      "Easy Carbo"
+    ]
+  },
+  "vi/guides/youtube-hY1gr0_Xr-A": {
+    "at": "2026-11-10",
+    "hash": "b6d7a71190960695",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Tép cherry (Neocaridina davidi) với cá hạc đỉnh (platy) lại đều rất khỏe.",
+        "why": "Speaks of the source writer's own fish and holding tank as if the reader knew them.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "có thể đổ vào hố ủ phân trong vườn",
+        "why": "Assumes the reader has a garden compost heap, a habit of the source's country.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-IhNVrZCse48": {
+    "at": "2026-11-10",
+    "hash": "22e321fd910e4c25",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "bỏ thêm khoảng 100 USD tiền cây",
+        "why": "A cost is given in US dollars rather than Vietnam's currency.",
+        "by": "model"
+      },
+      {
+        "check": "dose",
+        "part": "P1",
+        "quote": "có thể châm 5 ml Tropica Specialised Nutrition mỗi ngày",
+        "why": "A dose of a named commercial fertiliser, taken from the source's own tank.",
+        "by": "model",
+        "product": "Tropica Specialised Nutrition"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể lại không có nhiều cá dù được cho ăn 2–3 lần mỗi ngày.",
+        "why": "Describes the source's own tank as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Cây cắt cắm mọc phía sau có lẽ giúp giữ ổn định, vì anubias lớn rất chậm.",
+        "why": "Refers to plants in the source's specific tank that the reader cannot see.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Tropica Specialised Nutrition",
+      "ADA Power Sand",
+      "ADA"
+    ],
+    "doses": [
+      {
+        "treatment": "tropica specialised nutrition",
+        "strength": "",
+        "amount": 5,
+        "amountMax": 0,
+        "unit": "ml",
+        "per": 0,
+        "perUnit": "",
+        "use": "plants",
+        "method": "wholeTank",
+        "quote": "châm 5 ml Tropica Specialised Nutrition mỗi ngày"
+      }
+    ],
+    "sourceRead": true
+  },
+  "vi/guides/youtube-jOiyRfgw_HM": {
+    "at": "2026-11-10",
+    "hash": "8d33442fba53efaf",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Aquario"
+    ]
+  },
+  "vi/guides/youtube-lmUE5qbWfwg": {
+    "at": "2026-11-10",
+    "hash": "f6945adcc1b50ad9",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Wendtii brown có thể đặt ngay sau bụi Cryptocoryne nurii có sẵn và lấp vào một khe nhỏ.",
+        "why": "It describes the source's own tank, with its existing clump and gap, as if the reader knew it.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Tropica",
+      "1-2-Grow"
+    ]
+  },
+  "vi/guides/youtube-NjcLCelMEBQ": {
+    "at": "2026-11-10",
+    "hash": "0f2400775bdcf7b5",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "mỗi loài trồng vào một khu vực định sẵn, đúng chỗ đặt cốc cây",
+        "why": "It describes the source's own tank and pot placement as if the reader had seen it.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "1-2-Grow"
+    ]
+  },
+  "vi/guides/youtube-RdE5PY3Og7U": {
+    "at": "2026-11-10",
+    "hash": "e1cc163b384c419b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Rửa sạch dung dịch nuôi cấy bám trên cây.",
+        "why": "Dictionary term for the gel that tissue-culture plants come in.",
+        "by": "model",
+        "fix": "Rửa sạch gel (thạch) cấy mô bám trên cây."
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-SdInuxeH8a8": {
+    "at": "2026-11-10",
+    "hash": "1f058b44825833e0",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "vừa trồng đã có lá tàn. Hy vọng là sau đó cây thích nghi được với dạng dưới nước.",
+        "why": "The writer's own tank and planting story is told as if the reader knew it.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "BioMaster 600"
+    ]
+  },
+  "vi/guides/youtube-TkKqmLMj0Kg": {
+    "at": "2026-11-10",
+    "hash": "243c1f6f08428548",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể này gần như sạch rêu chỉ sau 4 ngày",
+        "why": "Treats the source's own tank as one the reader already knows.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Đầu ra của lọc nằm ở góc sau bên phải",
+        "why": "Describes the layout of the source's tank as if the reader could see it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Cụm đá chính được thay đổi, cục đá lót bên dưới được bỏ đi",
+        "why": "Recounts the source's own rescaping of a tank the reader never met.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Lần thử này có vẻ đã giúp đánh bật rêu",
+        "why": "Refers to the source's own trial as a story the reader knows.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "tảo silic",
+        "why": "Textbook term for diatoms; keepers call this brown algae by its hobby name.",
+        "by": "model",
+        "fix": "rêu nâu"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "bộ khuếch tán CO2 gắn trên đường ống",
+        "why": "Dictionary rendering of inline CO2 diffuser.",
+        "by": "model",
+        "fix": "bộ trộn CO2 inline"
+      }
+    ],
+    "products": [
+      "Seachem Flourish Excel"
+    ]
+  },
+  "vi/guides/youtube-uCDc0aAM_Cc": {
+    "at": "2026-11-10",
+    "hash": "1056cea0ae8d94e0",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Tropica Aquarium Soil"
+    ]
+  },
+  "vi/guides/youtube-veLhWs5XXMI": {
+    "at": "2026-11-10",
+    "hash": "16443737182b3216",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Dao cạo chống nước cắt được thảm cỏ tóc khá tốt",
+        "why": "Literal rendering of a waterproof electric shaver; keepers do not call this tool a 'dao cạo'.",
+        "by": "model",
+        "fix": "tông đơ chống nước"
+      }
+    ],
+    "products": [
+      "APT Fix",
+      "Tropica Specialized Nutrition"
+    ]
+  },
+  "vi/guides/youtube-ZbUcP1amgZ8": {
+    "at": "2026-11-10",
+    "hash": "add01798faa6d488",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "APT Fix",
+      "Tropica Specialised Nutrition",
+      "APT Complete"
+    ]
+  },
+  "vi/guides/youtube-zDZ2W-e1vRw": {
+    "at": "2026-11-10",
+    "hash": "0923ff6a4e3893e3",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "dose",
+        "part": "P1",
+        "quote": "Liều của APT Fix là 1 ml cho 10 lít nước",
+        "why": "Gives a per-volume dose of a named commercial algae product.",
+        "by": "model",
+        "product": "APT Fix"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "sang thu ngày ngắn đi đáng kể và nhiệt độ cũng thấp hơn",
+        "why": "Assumes a temperate autumn with much shorter, cooler days, which is not the reader's climate in most of Vietnam.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Ánh sáng thừa từ giếng trời, có lẽ là vấn đề lớn nhất trong trường hợp này.",
+        "why": "Refers to the source's own tank as a case the reader is supposed to know.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Rêu nặng đến mức này thì có thể dùng hóa chất",
+        "why": "Points at the specific tank from the source as if the reader could see it.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "những vệt nước cứng bám trên kính",
+        "why": "Calque of the English 'hard water stains'.",
+        "by": "model",
+        "fix": "vết ố canxi, cặn vôi bám trên kính"
+      }
+    ],
+    "products": [
+      "APT Fix"
+    ],
+    "doses": [
+      {
+        "treatment": "apt fix",
+        "strength": "",
+        "amount": 1,
+        "amountMax": 0,
+        "unit": "ml",
+        "per": 10,
+        "perUnit": "litre",
+        "use": "algae",
+        "method": "spot",
+        "quote": "Liều của APT Fix là 1 ml cho 10 lít nước"
+      }
+    ],
+    "sourceRead": true
+  },
+  "vi/species/elassoma-gilberti": {
+    "at": "2026-11-10",
+    "hash": "d5f74dfd76924132",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "một tài liệu ghi tối thiểu 38 lít",
+        "why": "38 litres is a converted 10 gallons that nobody in Vietnam would say.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "bắt đầu với bể khoảng 38 lít, sau đó nuôi cả đàn trong bể khoảng 208 lít",
+        "why": "38 and 208 litres are converted 10 and 55 gallon tanks.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "Một cặp đã đẻ trong bể khoảng 19 lít",
+        "why": "19 litres is a converted 5 gallon tank.",
+        "by": "model"
+      },
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "trong bể dưới 9,5 lít",
+        "why": "9.5 litres is a converted 2.5 gallon tank.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P5",
+        "quote": "Một nhà bán sỉ khuyên để nhiệt độ phòng 16–24 °C, không sưởi thêm",
+        "why": "A room at 16–24 °C belongs to a temperate country, not a home in Vietnam.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P5",
+        "quote": "đặt trong nhà khoảng 20 °C",
+        "why": "A house at about 20 °C is a temperate-country indoor climate, not a Vietnamese one.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P6",
+        "quote": "thức ăn vảy",
+        "why": "Calque of flake food; keepers call it cám.",
+        "by": "model",
+        "fix": "cám vảy"
+      },
+      {
+        "check": "words",
+        "part": "P6",
+        "quote": "ấu trùng muỗi",
+        "why": "Dictionary term; keepers say lăng quăng.",
+        "by": "model",
+        "fix": "lăng quăng"
+      }
+    ],
+    "products": []
   }
 }

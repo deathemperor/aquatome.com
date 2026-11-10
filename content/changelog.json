@@ -1,6 +1,251 @@
 [
   {
     "date": "2026-11-10",
+    "kind": "species",
+    "id": "zoogoneticus-tequila",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-10",
+    "kind": "species",
+    "id": "xenurolebias-myersi",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-10",
+    "kind": "species",
+    "id": "xenotoca-eiseni",
+    "source": "seriouslyfish",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-10",
+    "kind": "species",
+    "id": "xenotilapia-sima",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-10",
+    "kind": "species",
+    "id": "xenotilapia-melanogenys",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-10",
+    "kind": "species",
+    "id": "xenotilapia-flavipinnis",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-10",
+    "kind": "species",
+    "id": "wallago-attu",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-10",
+    "kind": "species",
+    "id": "vieja-zonata",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-10",
+    "kind": "species",
+    "id": "vieja-fenestrata",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-10",
+    "kind": "species",
+    "id": "vieja-bifasciata",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-10",
+    "kind": "species",
+    "id": "tyrannochromis-macrostoma",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-10",
+    "kind": "species",
+    "id": "tropheus-moorii",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-10",
+    "kind": "species",
+    "id": "tropheus-brichardi",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-10",
+    "kind": "species",
+    "id": "tropheops-tropheops",
+    "source": "seriouslyfish",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-10",
+    "kind": "species",
+    "id": "elassoma-gilberti",
+    "source": "aquatome",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-10",
+    "kind": "guide",
+    "id": "youtube-uCDc0aAM_Cc",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-10",
+    "kind": "guide",
+    "id": "youtube-lmUE5qbWfwg",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-10",
+    "kind": "guide",
+    "id": "youtube-GpybvkGpvuQ",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-10",
+    "kind": "guide",
+    "id": "youtube-hY1gr0_Xr-A",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-10",
+    "kind": "guide",
+    "id": "youtube-hMKRY7EkfIk",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-10",
+    "kind": "guide",
+    "id": "youtube-4LpldhD2JHU",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-10",
+    "kind": "guide",
+    "id": "youtube-IhNVrZCse48",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-10",
+    "kind": "guide",
+    "id": "youtube-TkKqmLMj0Kg",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-10",
+    "kind": "guide",
+    "id": "youtube-RdE5PY3Og7U",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-10",
+    "kind": "guide",
+    "id": "youtube-veLhWs5XXMI",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-10",
+    "kind": "guide",
+    "id": "youtube-ZbUcP1amgZ8",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-10",
+    "kind": "guide",
+    "id": "youtube-zDZ2W-e1vRw",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-10",
+    "kind": "guide",
+    "id": "youtube-27quC5jcKu0",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-10",
+    "kind": "guide",
+    "id": "youtube-jOiyRfgw_HM",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-10",
+    "kind": "guide",
+    "id": "youtube-NjcLCelMEBQ",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-10",
+    "kind": "guide",
+    "id": "youtube--LWDlOsd634",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-10",
+    "kind": "guide",
+    "id": "youtube-SdInuxeH8a8",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-10",
+    "kind": "guide",
+    "id": "youtube-CfcC7FQV-vM",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-10",
+    "kind": "guide",
+    "id": "youtube-5qzNHhM4FXE",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-10",
+    "kind": "guide",
+    "id": "youtube-cOyhGhQmroU",
+    "source": "youtube",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-10",
     "kind": "guide",
     "id": "youtube-XX61L_oweGg",
     "source": "youtube",
@@ -298,104 +543,6 @@
     "kind": "guide",
     "id": "youtube-GAac09m7CVA",
     "source": "youtube",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-10",
-    "kind": "species",
-    "id": "zoogoneticus-tequila",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-10",
-    "kind": "species",
-    "id": "xenurolebias-myersi",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-10",
-    "kind": "species",
-    "id": "xenotoca-eiseni",
-    "source": "seriouslyfish",
-    "action": "updated"
-  },
-  {
-    "date": "2026-11-10",
-    "kind": "species",
-    "id": "xenotilapia-sima",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-10",
-    "kind": "species",
-    "id": "xenotilapia-melanogenys",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-10",
-    "kind": "species",
-    "id": "xenotilapia-flavipinnis",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-10",
-    "kind": "species",
-    "id": "wallago-attu",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-10",
-    "kind": "species",
-    "id": "vieja-zonata",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-10",
-    "kind": "species",
-    "id": "vieja-fenestrata",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-10",
-    "kind": "species",
-    "id": "vieja-bifasciata",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-10",
-    "kind": "species",
-    "id": "tyrannochromis-macrostoma",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-10",
-    "kind": "species",
-    "id": "tropheus-moorii",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-10",
-    "kind": "species",
-    "id": "tropheus-brichardi",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-10",
-    "kind": "species",
-    "id": "tropheops-tropheops",
-    "source": "seriouslyfish",
     "action": "new"
   },
   {
@@ -3349,153 +3496,6 @@
     "date": "2026-11-09",
     "kind": "species",
     "id": "polypterus-palmas",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "species",
-    "id": "polypterus-ornatipinnis",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "species",
-    "id": "polypterus-endlicherii",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "species",
-    "id": "polypterus-delhezi",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "species",
-    "id": "polypterus-bichir",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "species",
-    "id": "schistura-kohchangensis",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "species",
-    "id": "placidochromis-milomo",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "species",
-    "id": "placidochromis-electra",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "species",
-    "id": "pimelodus-ornatus",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "species",
-    "id": "piabucus-dentatus",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "species",
-    "id": "phenacogaster-tegatus",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "species",
-    "id": "phalacronotus-bleekeri",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "species",
-    "id": "petrochromis-famula",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "species",
-    "id": "pethia-tiantian",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "species",
-    "id": "pethia-sharmai",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "species",
-    "id": "pethia-setnai",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "species",
-    "id": "pethia-reval",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "species",
-    "id": "pethia-punctata",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "species",
-    "id": "pethia-guganio",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "species",
-    "id": "pethia-cumingii",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "species",
-    "id": "pethia-canius",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "species",
-    "id": "periophthalmus-barbarus",
     "source": "seriouslyfish",
     "action": "new"
   }

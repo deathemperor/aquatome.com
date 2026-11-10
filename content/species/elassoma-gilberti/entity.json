@@ -1,0 +1,289 @@
+{
+  "id": "elassoma-gilberti",
+  "scientificName": "Elassoma gilberti",
+  "order": "Perciformes",
+  "family": "Elassomatidae",
+  "genus": "Elassoma",
+  "group": "other",
+  "places": [
+    "north-america",
+    "united-states",
+    "florida",
+    "georgia",
+    "choctawhatchee-river-basin",
+    "apalachicola-river-basin",
+    "ochlockonee-river-basin",
+    "suwannee-river-basin",
+    "lake-okeechobee-basin",
+    "waccasassa-river",
+    "wacissa-river",
+    "alabama"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "aquatome",
+        "value": {
+          "min": 16,
+          "max": 24
+        },
+        "ref": 7
+      }
+    ],
+    "ph": [
+      {
+        "source": "aquatome",
+        "value": {
+          "min": 6.5,
+          "max": 7.5
+        },
+        "ref": 2
+      }
+    ],
+    "gh": [
+      {
+        "source": "aquatome",
+        "value": {
+          "min": 0,
+          "max": 17
+        },
+        "ref": 2
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "aquatome",
+        "value": 2.5,
+        "ref": 3
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "aquatome",
+        "value": {
+          "min": 1,
+          "max": 2
+        },
+        "ref": 2
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "beforeYouBuy",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p><em>Elassoma gilberti</em> có được mua bán làm cá cảnh. Một nhà bán sỉ ở Đức từng chào hàng cá trại, nhưng chỉ bán cho khách sỉ.</p><p>Một người nuôi cá bắt ngoài tự nhiên đã phải dùng praziquantel ba đợt để trị ký sinh trùng đường ruột. Loài này cũng sống ngắn, muốn số lượng không hao dần thì phải nuôi thành đàn cho đẻ.</p>",
+      "refs": [
+        2,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "key": "distribution",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này sống ở các lưu vực đổ ra vịnh Mexico, thuộc tây bắc Florida và tận cùng tây nam Georgia, Mỹ. Vùng phân bố kéo từ sông Waccasassa về phía tây tới vịnh Choctawhatchee, tính cả hạ lưu sông Suwannee. Địa điểm mẫu chuẩn nằm gần Tallahassee, Florida.</p><p>Một danh sách khác kể ra các lưu vực Choctawhatchee, Apalachicola, Ochlockonee, Suwannee, hồ Okeechobee và những nhánh nhỏ đổ ra vịnh. Một nhà bán sỉ cá cảnh thì ghi xuất xứ là Florida và Alabama. Một người chơi từng tự bắt cá ở một nhánh của sông Wacissa, hạt Jefferson, Florida.</p>",
+      "refs": [
+        0,
+        1,
+        2,
+        4,
+        7,
+        8
+      ]
+    },
+    {
+      "key": "habitat",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này sống ở đầm lầy, lạch nước tù, mương và những đoạn nước quẩn của suối nhỏ. Nó thường ở gần cây thủy sinh hoặc cành gỗ chìm, chủ yếu tại những chỗ nước lặng, cây dày và nhiều lá mục.</p><p>Chuyên gia Fritz Rohde từng nhận xét một bể biotope (bể set giống nơi cá sống) mô phỏng nhánh suối nhỏ chảy chậm của sông Wacissa là khá sát với nơi sống của cá Elassoma. Điểm chưa đúng là đá trong bể, vì vùng cán chảo Florida không có đá.</p>",
+      "refs": [
+        1,
+        4,
+        8
+      ]
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Chưa có nguồn nào công bố chiều dài bể tối thiểu hay độ khó nuôi của loài này. Về thể tích, một tài liệu ghi tối thiểu 38 lít, tài liệu khác ghi 30 lít.</p><p>Cỡ bể người nuôi đã dùng khá khác nhau:</p><ul><li>Một người ép đẻ bắt đầu với bể khoảng 38 lít, sau đó nuôi cả đàn trong bể khoảng 208 lít.</li><li>Một cặp đã đẻ trong bể khoảng 19 lít.</li><li>Một người nuôi cho cá đẻ trong bể dưới 9,5 lít và nuôi cá con trong bể khoảng 15 lít.</li></ul><p>Muốn giữ vài con đực lên màu trong cùng một bể thì trồng cây hoặc đặt vật trang trí để chắn tầm nhìn giữa chúng.</p>",
+      "refs": [
+        2,
+        5,
+        6,
+        10,
+        11
+      ]
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Loài này đã đẻ trong nước pH 6,5, độ cứng 0 DH và cả trong nước pH 7,5, độ cứng 17 DH. Cũng có báo cáo cá đẻ ở 0 DH và 20 DH, nên có lẽ nó chịu được độ cứng trải khá rộng. Một tài liệu thì ghi độ cứng 5–12 °d.</p><p>Một nhà bán sỉ khuyên để nhiệt độ phòng 16–24 °C, không sưởi thêm. Có một cặp đã đẻ trong bể không sưởi, nhiệt độ phòng 20–27 °C. Một người ép đẻ cũng không thấy khác biệt rõ giữa nuôi có sưởi và không sưởi.</p><p>Hai bể cụ thể để tham khảo:</p><ul><li>Một bể đẻ không lọc, nước hơi kiềm trên lớp san hô vụn, đặt trong nhà khoảng 20 °C.</li><li>Một bể biotope cho cá bắt ngoài tự nhiên chạy ở 24 °C, pH 7,2, dòng chảy chậm.</li></ul><p>Bể cần có một góc hoàn toàn không có dòng chảy để cá nghỉ, dù chúng vẫn chơi đùa trong dòng mạnh.</p>",
+      "refs": [
+        1,
+        2,
+        5,
+        7,
+        8,
+        10,
+        11
+      ]
+    },
+    {
+      "key": "diet",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Ngoài tự nhiên, loài này chủ yếu ăn côn trùng, giáp xác và giun nhỏ xíu. Trong bể, chúng ăn blackworm, bloodworm đông lạnh cắt nhỏ và grindal worm gây nuôi. Một bể cho đẻ được cho ăn đồ tươi mỗi ngày, chủ yếu là grindal worm, thêm bo bo và ấu trùng muỗi.</p><p>Một đàn từng bị đổi sang thức ăn vảy, kết quả là có con chết đói và đàn ngừng ra cá con.</p><p>Cá con ăn microworm, luân trùng và các sinh vật li ti. Lúc bốn tuần tuổi, chúng vẫn chưa ăn nổi bo bo lớn nhưng ăn được bo bo con, cùng với nước xanh, tảo và vi sinh vật trong màng biofilm.</p>",
+      "refs": [
+        1,
+        2,
+        10,
+        11
+      ]
+    },
+    {
+      "key": "behaviour",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Đây là loài săn kiểu rình mồi. Nó nấp dưới chỗ che rồi lao ra vồ thức ăn tươi sống. Con đực rất hay giành chỗ và đuổi đối thủ cho khuất tầm mắt.</p><p>Nhìn màu là biết tâm trạng của cá. Con nào căng thẳng, chịu thua hoặc không khỏe sẽ nhợt đi và trong ra. Cho ăn bằng tay thì cá dạn hơn, có người đứng đó chúng vẫn ra khỏi chỗ trốn.</p><p>Cá đực còn có điệu nhảy riêng. Nó ngoáy vây để khoe ánh xanh, rồi đứng im hoàn toàn vài giây.</p>",
+      "refs": [
+        1,
+        2
+      ]
+    },
+    {
+      "key": "dimorphism",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Con đực lớn có màu đen, với các vạch xanh dương óng ánh ở hông và dưới mắt. Cá cái nhỏ hơn cá đực, và những con đang sinh sản thường có các vệt xanh ngắn ở dưới và sau mắt. Cá cái <em>E. okefenokee</em> không có các vệt này.</p>",
+      "refs": [
+        3,
+        4,
+        7
+      ]
+    },
+    {
+      "key": "reproduction",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Theo lời kể của một người nuôi, ngoài tự nhiên ở Florida loài này đẻ từ giữa và cuối mùa đông cho tới khi mùa mưa hè bắt đầu, lúc nước xuống thấp và mồi dày.</p><p>Trong bể, con đực cần một đám cây dày để chiếm làm chỗ của nó, cây thật hay cây giả đều được. Nó dụ cá cái vào bụi cây, và trứng thường lọt qua kẽ cây rơi xuống nền. Con đực canh chỗ đẻ tới khi trứng nở, sau 3–4 ngày. Cá con vừa nở là nó lại sẵn sàng tán tỉnh tiếp. Những đàn được ăn đủ thì đẻ liên tục.</p><p>Trứng và cá con đều bé xíu nên nuôi hơi khó. Cá con bám sát đáy, và từng được nuôi lớn bằng banana worm cùng các sinh vật nhỏ lấy từ xô nuôi bo bo. Một người nuôi vớt cá bố mẹ ra khi thấy trứng, rồi cho cá con ăn bo bo và Cyclops sống từ ao ngoài trời, nước ao còn mang theo tảo. Có người để đèn sáng 16–18 tiếng mỗi ngày cho tảo và nước xanh phát triển, và cá con của người đó lớn nhanh nhất theo cách này.</p><p>Đến bốn tuần tuổi, cá con chênh nhau nhiều về kích cỡ và bắt đầu lộ hoa văn. Những con lớn nhất có thể sớm ăn các con bé nhất trong bầy.</p><p>Trong một bể đẻ, isopod thủy sinh không đụng tới trứng còn sống. Ốc ramshorn thì một người nuôi khuyên để ngoài bể đẻ, vì chúng có lẽ sẽ ăn trứng. Trong các thử nghiệm ương, tỉ lệ nở không thay đổi đáng kể khi xử lý phôi bằng formalin, iốt hoặc oxy già ở các nồng độ khác nhau.</p>",
+      "refs": [
+        1,
+        2,
+        7,
+        9,
+        10,
+        11
+      ]
+    },
+    {
+      "key": "notes",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p><em>Elassoma gilberti</em> là một loài cá nhỏ thuộc họ Elassomatidae, bộ Perciformes, tiếng Anh gọi là Gulf Coast pygmy sunfish. Cá lớn dài khoảng 2,5 cm. Franklin F. Snelson Jr., Trevor J. Krabbenhoft và Joseph M. Quattro mô tả loài này vào năm 2009, và đặt tên để vinh danh Carter R. Gilbert, người từng phụ trách mảng cá ở Bảo tàng Lịch sử Tự nhiên Florida.</p><p>Trước khi có tên riêng, nó vẫn bị nhầm với loài chị em <em>Elassoma okefenokee</em>. Dữ liệu phân tử ở hai locus gen ủng hộ tách chúng thành hai loài. Hình dáng cũng có những điểm khác:</p><ul><li>Xương trước nắp mang có 4 lỗ ống cảm giác, còn <em>E. okefenokee</em> có 3.</li><li>Vây hậu môn thường có 7 tia, trong khi <em>E. okefenokee</em> thường có 8.</li><li>Thân hơi thon hơn, vây lưng và vây hậu môn cũng hơi nhỏ hơn.</li></ul><p>Hai bên thân có các vạch nâu sẫm, đầu và mình lấm tấm nhiều chấm đen. Ở gốc đuôi nổi lên hai đốm lớn màu kem, còn môi thì sáng màu.</p><p>IUCN xếp loài này vào nhóm Ít quan tâm (Least Concern) trong lần đánh giá ngày 29/11/2011. Tuổi thọ thì mỗi nơi nói một khác. Một người ép đẻ loài này cho biết cá sống 1–2 năm, một tài liệu ghi 4–5 năm, tài liệu khác lại ghi 8 năm.</p>",
+      "refs": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/Elassoma_Gilberti_male_in_breeding_colors.jpg/960px-Elassoma_Gilberti_male_in_breeding_colors.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "width": 960,
+      "height": 591,
+      "licence": "CC BY-SA 3.0",
+      "author": "Okiimiru (Erica Wieser)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Elassoma_Gilberti_male_in_breeding_colors.jpg",
+      "caption": "Elassoma gilberti (gulf coast pygmy sunfish) male in breeding colors. They stay in breeding colors regardless of the season as long as they're well fed and the dominant male. Subdominant males stay fa"
+    }
+  ],
+  "videos": [
+    {
+      "youtubeId": "9c_d4tiyUto",
+      "title": "American Badis! The PYGMY SUNFISH Had Babies! Spawning Elassoma Gilberti - Spawning Update",
+      "durationSec": 687,
+      "lang": "en"
+    },
+    {
+      "youtubeId": "tZFr3vjol5c",
+      "title": "Intro to: Elassoma Gilberti (Gulf Coast Pygmy Sunfish)",
+      "durationSec": 734,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "qoBiYIjKWsY",
+      "title": "Elassoma Gilberti Care Guide | Gulf Coast Pygmy Sunfish Care Guide",
+      "durationSec": 639,
+      "lang": "en-US"
+    },
+    {
+      "youtubeId": "wRMxFs4nTIs",
+      "title": "Discover The Pygmy Gulf Coast Sunfish! Elassoma Gilberti - The Best Native Nano Fish in The USA!",
+      "durationSec": 1494,
+      "lang": "en"
+    }
+  ],
+  "productSlots": [],
+  "updatedAt": "2026-11-10",
+  "refs": [
+    {
+      "url": "https://flmnhbulletin.com/index.php/flmnh/article/view/flmnh-vol48-no4",
+      "title": "Elassoma gilberti, a New Species of Pygmy Sunfish (Elassomatidae) from Florida and Georgia"
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Gulf_Coast_pygmy_sunfish",
+      "title": "Gulf Coast pygmy sunfish"
+    },
+    {
+      "url": "https://nanfa.org/fif/Egilberti.shtml",
+      "title": "Fish in Focus: Gulf Coast Pygmy Sunfish, Elassoma gilberti"
+    },
+    {
+      "url": "https://www.fishbase.se/summary/Elassoma-gilberti",
+      "title": "Elassoma gilberti, Pygmy sunfish"
+    },
+    {
+      "url": "https://www.floridamuseum.ufl.edu/discover-fish/florida-fishes-gallery/gulf-coast-pygmy-sunfish",
+      "title": "Elassoma gilberti"
+    },
+    {
+      "url": "https://www.theaquariumwiki.com/wiki/Elassoma_gilberti",
+      "title": "Pygmy Sunfish (Elassoma gilberti) - The Free Freshwater and Saltwater Aquarium Encyclopedia Anyone Can Edit - The Aquarium Wiki"
+    },
+    {
+      "url": "https://www.fishi-pedia.com/fishes/elassoma-gilberti",
+      "title": "Gulf coast pygmy sunfish • Elassoma gilberti • Fish sheet"
+    },
+    {
+      "url": "https://www.aquariumglaser.de/en/fisharchive/elassoma-gilberti-2/",
+      "title": "Elassoma gilberti - Aquarium Glaser GmbH"
+    },
+    {
+      "url": "https://biotopeaquariumproject.com/bam/wacissa-river-jefferson-county-florida-usa-kwright/",
+      "title": "Wacissa River, Jefferson County, Florida - BAP"
+    },
+    {
+      "url": "https://zendy.io/title/10.1111/jwas.12646",
+      "title": "Culture protocols for the Gulf Coast pygmy sunfish, Elassoma gilberti"
+    },
+    {
+      "url": "https://www.aquariacentral.com/forums/threads/breeding-report-on-gulf-coast-pygmy-sunfish-elassoma-gilberti.262053",
+      "title": "breeding report on gulf coast pygmy sunfish elassoma gilberti"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=9c_d4tiyUto",
+      "title": "American Badis! The PYGMY SUNFISH Had Babies! Spawning Elassoma Gilberti - Spawning Update"
+    }
+  ]
+}

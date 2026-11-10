@@ -856,10 +856,14 @@
     "reason": "equipment how-to"
   },
   "9c_d4tiyUto": {
-    "at": "2026-11-07",
+    "at": "2026-11-10",
     "title": "American Badis! The PYGMY SUNFISH Had Babies! Spawning Elassoma Gilberti - Spawning Update",
     "channel": "FISHTORY",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Elassoma gilberti",
+    "page": "species/elassoma-gilberti",
+    "done": "new page",
+    "score": 0.96
   },
   "9DxsK8_uBws": {
     "at": "2026-11-07",
@@ -870,10 +874,12 @@
     "reason": "breeding project statistics"
   },
   "9hpUMRQJPqU": {
-    "at": "2026-11-07",
+    "at": "2026-11-10",
     "title": "West Papua Crayfish Jakarta",
     "channel": "CHRIS LUKHAUP",
-    "kind": "profile"
+    "kind": "other",
+    "done": "skipped",
+    "reason": "shop: Visit to a crayfish farm in Jakarta showing many Cherax varieties"
   },
   "9IMUnyyKMNU": {
     "at": "2026-11-07",
@@ -900,10 +906,15 @@
     "reason": "feeding topic"
   },
   "9wkUPrMzqfo": {
-    "at": "2026-11-07",
+    "at": "2026-11-10",
     "title": "Meet the Best Algae Eating Fish The Silver Flying Fox - Crossocheilus reticulatus",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Crossocheilus reticulatus",
+    "page": "species/crossocheilus-reticulatus",
+    "done": "low",
+    "score": 0.7,
+    "reason": "The size claim \"cá có thể dài tới 15 cm\" differs from the page's sizeCm 17. NEW doesn't say it differs, and it presents the figure as one keeper's observation when the video gives it as a general maximum.; \"cho gì cũng ăn\" and \"ăn tạp\" conflict with the page's advice to avoid protein-rich food. NEW doesn't say the video differs from the page here."
   },
   "a-RvCZ-LGQU": {
     "at": "2026-11-07",
