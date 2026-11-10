@@ -237,21 +237,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/17a5d013a3d9aa17.webp",
-      "thumb": "https://media.aquatome.com/commons/17a5d013a3d9aa17-480.webp",
-      "width": 960,
-      "height": 745,
-      "licence": "CC BY-SA 4.0",
-      "author": "Raimond Spekking",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Diamant_Regenbogenfisch_(Melanotaenia_praecox).jpg",
-      "caption": "Dwarf rainbowfish (Melanotaenia praecox) at Zoo Duisburg",
-      "large": {
-        "url": "https://media.aquatome.com/commons/17a5d013a3d9aa17-large.webp",
-        "width": 1024,
-        "height": 795
-      }
-    },
-    {
       "url": "https://media.aquatome.com/commons/c815fb8a7fdb6337.webp",
       "thumb": "https://media.aquatome.com/commons/c815fb8a7fdb6337-480.webp",
       "width": 960,
@@ -264,6 +249,21 @@
         "url": "https://media.aquatome.com/commons/c815fb8a7fdb6337-large.webp",
         "width": 1885,
         "height": 1200
+      }
+    },
+    {
+      "url": "https://media.aquatome.com/commons/17a5d013a3d9aa17.webp",
+      "thumb": "https://media.aquatome.com/commons/17a5d013a3d9aa17-480.webp",
+      "width": 960,
+      "height": 745,
+      "licence": "CC BY-SA 4.0",
+      "author": "Raimond Spekking",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Diamant_Regenbogenfisch_(Melanotaenia_praecox).jpg",
+      "caption": "Dwarf rainbowfish (Melanotaenia praecox) at Zoo Duisburg",
+      "large": {
+        "url": "https://media.aquatome.com/commons/17a5d013a3d9aa17-large.webp",
+        "width": 1024,
+        "height": 795
       }
     },
     {

@@ -5,7 +5,7 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import type { Photo } from '@aq/schema'
 import { across, LARGE_PX, photosFor } from '../src/curation'
-import { largePhotos, largeSize, type LargeDeps } from '../src/large-photos'
+import { headsUnderBar, largePhotos, largeSize, type LargeDeps } from '../src/large-photos'
 
 const MEDIA = 'https://media.aquatome.com/'
 const sha16 = (s: string) => createHash('sha256').update(s).digest('hex').slice(0, 16)
@@ -97,4 +97,31 @@ test("a large copy of any shape clears the large cards' bar in both shapes", () 
   }
   // Never bigger than it came.
   expect(largeSize({ width: 1000, height: 700 })).toEqual({ width: 1000, height: 700 })
+})
+
+test("--heads: a large copy of a fish's head photo alone, the same picture larger, so what leads doesn't change; a head that fills or doesn't pass is left", async () => {
+  const root = await store()
+  const { d, put } = deps()
+  expect(await headsUnderBar(root)).toEqual(['betta-splendens'])
+  expect(await largePhotos(root, ['betta-splendens'], d, { headsOnly: true })).toEqual({ added: 1, smaller: 0, skipped: 0, failed: [] })
+  expect(put).toEqual([`commons/${sha16('Betta_male.jpg')}-large.webp`])
+  const [head, , inat] = await photosOf(root, 'content/species/betta-splendens/entity.json')
+  expect(head!.large?.width).toBe(1200)
+  expect(inat!.large).toBeUndefined()
+  for (const p of await photosOf(root, 'content/gallery/betta-splendens.json')) expect(p.large).toBeUndefined()
+  expect(await headsUnderBar(root)).toEqual([])
+})
+
+test('a head whose source holds nothing larger is remembered and not fetched again each cycle', async () => {
+  const root = await store()
+  const file = join(root, 'content/species/betta-splendens/entity.json')
+  const e = JSON.parse(await readFile(file, 'utf8')) as { photos: Photo[] }
+  await writeFile(file, JSON.stringify({ ...e, photos: [e.photos[1], e.photos[0]] }))
+  const first = deps()
+  let fetched = 0
+  const d = { ...first.d, bytes: async (u: string) => { fetched++; return first.d.bytes(u) } }
+  expect(await largePhotos(root, ['betta-splendens'], d, { headsOnly: true })).toMatchObject({ added: 0, smaller: 1 })
+  expect(fetched).toBe(1)
+  expect(await largePhotos(root, ['betta-splendens'], d, { headsOnly: true })).toMatchObject({ added: 0, smaller: 1 })
+  expect(fetched).toBe(1)
 })

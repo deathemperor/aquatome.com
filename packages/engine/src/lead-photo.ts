@@ -2,8 +2,9 @@ import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import type { Photo } from '@aq/schema'
+import sharp from 'sharp'
 import { LlmError } from './claude'
-import { across, cardWorthy, LARGE_PX, readCalendar, readVerdicts } from './curation'
+import { across, cardWorthy, LARGE_PX, readCalendar, readVerdicts, SLOT_RATIO } from './curation'
 import { contactSheet } from './video-images'
 
 /**
@@ -19,10 +20,17 @@ import { contactSheet } from './video-images'
  * (`engine-state/_photo-leads.json`, photo → head → answer), at most `TRIES` photos a fish, the page's own photos, then the
  * gallery's `best`, then the rest. A page with no photo of its own takes the first that passes: nothing to compare.
  * The head that gives way stays on the page, second; a gallery photo that leads stays in its gallery.
+ *
+ * A long fish filling a wide frame can lose its head to the card's crop, and both the site's cards and the app's centre
+ * the picture (the chief of staff, 2026-11-10: five of 43 replacements looked at had the head outside it). So the model
+ * also sees the second photo as the card crops it, and a photo whose crop leaves the fish's head out doesn't lead.
+ *
+ * A change of head goes back with no model call when the reason for it has gone (the old head now fills the card, a large
+ * copy having arrived, as the Altum's did) or a look has since said no (the sebae): `_photo-leads.json` says which.
  */
 export type LeadDeps = {
   get: (url: string) => Promise<Uint8Array>
-  look: (sheet: string, prompt: string) => Promise<{ pairs: { n: number; asWell: boolean; why?: string }[] }>
+  look: (sheet: string, prompt: string) => Promise<{ pairs: { n: number; asWell: boolean; headInCrop?: boolean; why?: string }[] }>
 }
 export type Compared = Record<string, Record<string, boolean>>
 type GalleryPhoto = Photo & { best?: boolean; kind?: string }
@@ -30,19 +38,26 @@ type Entity = { photos?: Photo[] }
 
 export const LEAD_SCHEMA = {
   type: 'object', required: ['pairs'],
-  properties: { pairs: { type: 'array', items: { type: 'object', required: ['n', 'asWell'], properties: { n: { type: 'number' }, asWell: { type: 'boolean' }, why: { type: 'string' } } } } },
+  properties: { pairs: { type: 'array', items: { type: 'object', required: ['n', 'asWell', 'headInCrop'], properties: { n: { type: 'number' }, asWell: { type: 'boolean' }, headInCrop: { type: 'boolean' }, why: { type: 'string' } } } } },
 }
-const leadPrompt = (pairs: number) => `Numbered photos of aquarium fish, in pairs: photos 1 and 2 are pair 1${pairs > 1 ? ', 3 and 4 pair 2' : ''}${pairs > 2 ? ', 5 and 6 pair 3' : ''}. In each pair both show the same kind of fish. The first is the photo a page about that fish leads with today, the second a photo that could lead instead. The sheet shows them at one size, so don't judge resolution.
+/** The guard's question: the whole head, since a card with the eye in and the snout cut still shows a fish with no face (the Devario, 2026-11-10). */
+export const HEAD_IN_CROP = `headInCrop: true only if the third picture holds the main fish's whole head, from the tip of its snout to its gill cover (for a shrimp or snail, its head end), with a little room between the head and the picture's edge. False if the snout, the mouth or the gill cover is cut off by the edge or touches it: an eye inside the picture is not enough. If unsure, false.`
+const leadPrompt = (pairs: number) => `Numbered photos of aquarium fish, three to a row: photos 1 to 3 are pair 1${pairs > 1 ? ', 4 to 6 pair 2' : ''}${pairs > 2 ? ', 7 to 9 pair 3' : ''}. In each pair the first two show the same kind of fish. The first is the photo a page about that fish leads with today, the second a photo that could lead instead, and the third is that second photo as the page's card crops it. The sheet shows them at one size, so don't judge resolution.
 For each pair, asWell: true only if the second shows the fish at least as well as the first, as the picture a reader would want at the top of the page: the fish about as large in the frame, as sharp and as well lit, with its colours and pattern as clear, whole, and not blocked. False if the fish is smaller in the frame, blurred, dim, washed out, seen from an odd angle or lost in clutter, or if a ruler, a label, a logo, a box or any text is in the picture. If unsure, false.
+${HEAD_IN_CROP}
 Answer every pair, by its number: n is the pair, 1 to ${pairs}; why is a few words.`
 
 const PAIRS = 3
 export const TRIES = 3
 const fills = (p: Photo) => across(p.large ?? p, 'square') >= LARGE_PX
+/** The picture as the narrowest card crops it, from the middle: neither the site's cards nor the app's place the crop. */
+export const cardCrop = (bytes: Uint8Array) => sharp(bytes).rotate().resize(640, Math.round(640 / SLOT_RATIO.square), { fit: 'cover', position: 'centre' }).jpeg({ quality: 85 }).toBuffer()
 
 /** What a fish's head should do: lead with this photo, or ask about this pair first; nothing if it stays. */
 export function leadChoice(own: Photo[], gallery: GalleryPhoto[], passes: (p: Photo) => boolean, compared: Compared): { lead: Photo } | { ask: { head: Photo; photo: Photo } } | undefined {
   const head = own[0]
+  const back = head && own.slice(1).find(o => { const said = compared[head.url]?.[o.url]; return passes(o) && (said === false || (said === true && fills(o))) })
+  if (back) return { lead: back }
   if (head && fills(head)) return undefined
   const seen = new Set<string>()
   const candidates = [...own.slice(1), ...gallery.filter(p => p.best), ...gallery.filter(p => !p.best)].filter(p => {
@@ -104,20 +119,20 @@ export async function screenLeads(root: string, d: LeadDeps, o: { limit: number;
           for (const pair of sheets[i]!) {
             try {
               const both = await Promise.all([d.get(pair.head.url), d.get(pair.photo.url)])
-              images.push(...both.map(b => Buffer.from(b)))
+              images.push(...both.map(b => Buffer.from(b)), await cardCrop(both[1]))
               ok.push(pair)
             } catch (err) { report.failed.push(`${pair.photo.url}: ${(err as Error).message.slice(0, 120)}`) }
           }
           if (!ok.length) continue
           try {
             const sheet = join(dir, `round-${round}-${i}.jpg`)
-            await writeFile(sheet, await contactSheet(images, 640, 480, 2, 'contain'))
+            await writeFile(sheet, await contactSheet(images, 640, 480, 3, 'contain'))
             const { pairs } = await d.look(sheet, leadPrompt(ok.length))
             report.sheets++
             for (const p of pairs ?? []) {
               const pair = ok[p.n - 1]
               if (!pair || typeof p.asWell !== 'boolean') continue
-              compared[pair.photo.url] = { ...compared[pair.photo.url], [pair.head.url]: p.asWell }
+              compared[pair.photo.url] = { ...compared[pair.photo.url], [pair.head.url]: p.asWell && p.headInCrop === true }
               report.compared++
             }
           } catch (err) {
