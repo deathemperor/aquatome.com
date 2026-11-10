@@ -38,31 +38,39 @@ cool() {
 CHECKS_SH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/checks.sh"
 turn() { "$CHECKS_SH" "$@"; }
 checks() { if [ -n "${GITHUB_ACTIONS:-}" ]; then bash -c "$1"; else turn bash -c "$1"; fi; }
-# The checks, a step an argument, their output in $TEST_LOG. Tests that ran out of time ran on a Mac too busy for them,
-# not on a broken build: the sf cycle of 2026-11-04 lost five hours of pages to 32 timeouts at a 5-minute load of 700 on
-# 16 cores (the next cycle starts by dropping a failed one's work). So once the load has fallen (calm), the step that
-# ran out of time runs once more, and the steps before it, which passed, don't: on 2026-11-07 the pages part's tests ran
-# out of time, and their second run queued the whole build again. Tests that run out of time on that run too set
-# TIMED_OUT, and the run's work is kept for the next run (keep_timed_out).
+# The checks, a step an argument, their output in $TEST_LOG. A step that fails runs once more, once the load has fallen
+# (calm), and the steps before it, which passed, don't: on 2026-11-07 the pages part's tests ran out of time, and their
+# second run queued the whole build again. Tests that ran out of time ran on a Mac too busy for them, not on a broken
+# build (the sf cycle of 2026-11-04 lost five hours of pages to 32 timeouts at a 5-minute load of 700 on 16 cores), and
+# one flaky test cost the sf cycle of 2026-11-10 its 207 files. It's the whole step, not the failed tests' files, because
+# the root `pnpm test` gives up at a package's first failure, so the others may not have finished, and a package can fail
+# with no test named. A step that passes the second time goes on, and its failed tests are logged as "flaky:" to be
+# fixed. If it fails again: TIMED_OUT when
+# tests ran out of time on that run, and the run's work is kept (keep_unpublished).
 verify() {
-  local step again= from
+  local step from first name names
   : >"$TEST_LOG"
   TIMED_OUT=
   calm
   for step in "$@"; do
     from=$(wc -c <"$TEST_LOG")
     checks "$step" >>"$TEST_LOG" 2>&1 && continue
-    ran_out "$from" || return 1
-    [ -z "$again" ] || { TIMED_OUT=1; return 1; }
-    again=1
-    log "tests ran out of time on a busy Mac: checking again once it is calmer"
+    first=$from
+    if ran_out "$first"; then log "tests ran out of time on a busy Mac: checking again once it is calmer"; else log "a check failed: running it once more once the Mac is calmer"; fi
     calm
     from=$(wc -c <"$TEST_LOG")
-    checks "$step" >>"$TEST_LOG" 2>&1 && continue
+    if checks "$step" >>"$TEST_LOG" 2>&1; then
+      names=$(failed_tests "$first")
+      [ -n "$names" ] || log "flaky: $step failed once and passed the second time, no test named"
+      while IFS= read -r name; do [ -z "$name" ] || log "flaky: $name"; done <<<"$names"
+      continue
+    fi
     ran_out "$from" && TIMED_OUT=1
     return 1
   done
 }
+# The tests that failed in $TEST_LOG since byte $1, one a line: vitest's FAIL lines, with pnpm's prefix and the colours off.
+failed_tests() { tail -c +"$(($1 + 1))" "$TEST_LOG" | sed -E "s/$(printf '\033')\[[0-9;]*m//g" | sed -nE 's/^([^[:space:]]+ test:)?[[:space:]]*FAIL[[:space:]]+//p' | sort -u; }
 # Whether the tests' output since byte $1 of $TEST_LOG has one that ran out of time. grep reads it all (-c, not -q): under
 # pipefail, tail cut off by grep's early exit would make a match read as none.
 ran_out() { tail -c +"$(($1 + 1))" "$TEST_LOG" | grep -c 'Test timed out in' >/dev/null; }
@@ -72,22 +80,38 @@ ran_out() { tail -c +"$(($1 + 1))" "$TEST_LOG" | grep -c 'Test timed out in' >/d
 # leaves alone, and that run publishes it before its own work (publish_kept). Until 2026-11-08 the next run dropped it:
 # that day a videos run and a photos run lost their work to load, redone from nothing. Only in the Mac's engine clones,
 # which a run resets as it starts: GitHub's runners keep nothing past a run, and any other checkout is someone's own.
-# `keep_timed_out <job>`, where a run gives up publishing.
+# A run whose checks failed twice for another reason goes on held/<job>/<when>, which nothing publishes: the Machine Load
+# Lead looks at those, never the owner, and a run drops its job's after 14 days (drop_old_held).
+# `keep_unpublished <job>`, where a run gives up publishing.
 engine_clone() { [ -z "${GITHUB_ACTIONS:-}" ] && case "$PWD/" in "$HOME/.local/share/aquatome/"*) true ;; *) false ;; esac; }
-keep_timed_out() {
-  [ -n "${TIMED_OUT:-}" ] && engine_clone || return 0
-  local branch
-  branch="kept/$1/$(date -u +%Y%m%dT%H%M%S)"
-  git branch -q -f "$branch" HEAD && log "tests ran out of time: this run's work is kept on $branch for the next run"
+keep_unpublished() {
+  engine_clone || return 0
+  local when
+  when=$(date -u +%Y%m%dT%H%M%S)
+  if [ -n "${TIMED_OUT:-}" ]; then
+    git branch -q -f "kept/$1/$when" HEAD && log "tests ran out of time: this run's work is kept on kept/$1/$when for the next run"
+  else
+    git branch -q -f "held/$1/$when" HEAD && log "checks failed twice: this run's work is on held/$1/$when, not published"
+  fi
+}
+HELD_DAYS=14
+drop_old_held() {
+  local cutoff branch
+  cutoff=$(date -u -v-"$HELD_DAYS"d +%Y%m%dT%H%M%S 2>/dev/null || date -u -d "$HELD_DAYS days ago" +%Y%m%dT%H%M%S)
+  for branch in $(git for-each-ref --format='%(refname:short)' "refs/heads/held/$1/"); do
+    [[ "${branch##*/}" < "$cutoff" ]] || continue
+    git branch -q -D "$branch" && log "$branch was held $HELD_DAYS days: dropped"
+  done
 }
 # The work earlier runs of <job> kept, oldest first: each on main as it is now, swept and checked as any run's commit is,
-# then pushed. Only tests that fail for real move it to kept-failed/<job>/<when>, never pushed, as the gate's crash keeps
+# then pushed. Only tests that fail twice for real move it to held/<job>/<when>, never pushed, as the gate's crash keeps
 # its work (gate_or_keep); anything else (tests out of time again, a push that didn't land, a clash it couldn't settle)
 # keeps it for the run after. Then this run's own work starts from main. `publish_kept <job>`, after the run's install
 # and merge drivers.
 publish_kept() {
   local branch
   engine_clone || return 0
+  drop_old_held "$1"
   for branch in $(git for-each-ref --sort=refname --format='%(refname:short)' "refs/heads/kept/$1/"); do
     log "publishing $branch, kept when its tests ran out of time"
     git reset -q --hard "$branch"
@@ -95,8 +119,8 @@ publish_kept() {
       git branch -q -D "$branch"
       log "published $branch"
     elif [ -n "$KEPT_FAILED" ]; then
-      git branch -q -M "$branch" "kept-failed/${branch#kept/}"
-      log "$branch failed its tests: on kept-failed/${branch#kept/}, not pushed"
+      git branch -q -M "$branch" "held/${branch#kept/}"
+      log "$branch failed its tests twice: on held/${branch#kept/}, not published"
     else
       log "$branch isn't published yet ($KEPT_WHY): it stays kept for the next run"
     fi

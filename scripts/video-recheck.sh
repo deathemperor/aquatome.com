@@ -72,7 +72,7 @@ if [ -z "$(git status --porcelain -- content engine-state docs/review)" ]; then 
 # stays in the reflog to publish by hand.
 git add content engine-state docs/review
 git commit -q -m "content: video guides checked again $(date -u +%F)"
-if ! verify 'pnpm test'; then keep_timed_out video-recheck; log "tests failed, not publishing (see $TEST_LOG)"; exit 1; fi
+if ! verify 'pnpm test'; then keep_unpublished video-recheck; log "tests failed, not publishing (see $TEST_LOG)"; exit 1; fi
 # The video job and the GitHub engine push too; the files merge through their drivers. Lines both changed give way to
 # this run's, as video-cycle.sh does; then the tests run again on the merge.
 for _ in 1 2 3; do
@@ -81,7 +81,7 @@ for _ in 1 2 3; do
     git rebase --abort 2>/dev/null || true
     if git pull -q --rebase -X theirs; then
       sweep_merged
-      verify 'pnpm test' || { keep_timed_out video-recheck; log "tests failed after that merge, not publishing"; exit 1; }
+      verify 'pnpm test' || { keep_unpublished video-recheck; log "tests failed after that merge, not publishing"; exit 1; }
     else
       git rebase --abort 2>/dev/null || true
     fi

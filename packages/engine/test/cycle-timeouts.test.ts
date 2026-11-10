@@ -40,8 +40,10 @@ test('tests that ran out of time on a busy Mac run once more before a cycle give
   const again = verify(['Error: Test timed out in 30000ms.', 'ok'])
   expect(again).toMatchObject({ code: 0, runs: 2 })
   expect(again.log).toContain('LOG tests ran out of time on a busy Mac')
-  // A test that fails for another reason fails the cycle at once; one that runs out of time twice, after the second run.
-  expect(verify(['AssertionError: expected 1 to be 2', 'ok'])).toMatchObject({ code: 1, runs: 1 })
+  // A test that fails for another reason runs once more too, and fails the cycle only if it fails again.
+  const failed = 'AssertionError: expected 1 to be 2'
+  expect(verify([failed, 'ok'])).toMatchObject({ code: 0, runs: 2 })
+  expect(verify([failed, failed])).toMatchObject({ code: 1, runs: 2 })
   expect(verify(['Error: Test timed out in 30000ms.', 'Error: Test timed out in 30000ms.'])).toMatchObject({ code: 1, runs: 2 })
 })
 
@@ -49,8 +51,8 @@ test('only the step that ran out of time runs again: the build before it passed,
   // 2026-11-07: the pages part's tests ran out of time, and their second run queued the whole build again.
   const steps = ['I18N_LENIENT=1 pnpm build', 'pnpm test']
   expect(verify(['ok', 'Error: Test timed out in 30000ms.', 'ok'], steps)).toMatchObject({ code: 0, runs: 3, steps: [steps[0], steps[1], steps[1]] })
-  // A failed build stops the checks there: no tests run on it, and nothing runs again.
-  expect(verify(['[ERROR] build failed', 'ok'], steps)).toMatchObject({ code: 1, runs: 1, steps: [steps[0]] })
+  // A build that fails twice stops the checks there: no tests run on it.
+  expect(verify(['[ERROR] build failed', '[ERROR] build failed', 'ok'], steps)).toMatchObject({ code: 1, runs: 2, steps: [steps[0], steps[0]] })
   // One more run a cycle: tests that ran out of time again fail it.
   expect(verify(['ok', 'Error: Test timed out in 30000ms.', 'Error: Test timed out in 30000ms.'], steps)).toMatchObject({ code: 1, runs: 3 })
 })
