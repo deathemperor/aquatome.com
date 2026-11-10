@@ -8,6 +8,7 @@ import { testD1 } from './d1'
 import { memoryR2 } from './r2'
 import { saveRun, type RunRecord } from '../fishid/transcript'
 import { LANGS } from '@aq/schema/langs'
+import { localizePath } from '../../src/lib/i18n'
 
 const PAGE = '<!doctype html><html lang="vi"><head><title>t</title></head><body><p>x</p></body></html>'
 const CHROME = 'Mozilla/5.0 (Macintosh) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0 Safari/537.36'
@@ -549,6 +550,30 @@ test('a missing fish or plant gallery 302s to its existing page, keeping the que
   live.push('/ca/x/anh/')
   const existing = await handle(get('/ca/x/anh/'), e)
   expect([existing.status, existing.headers.get('location')]).toEqual([200, null])
+})
+
+test('missing Indonesian and Thai fish or plant galleries forward to their pages, keeping the query', async () => {
+  for (const lang of ['id', 'th'] as const) {
+    const galleries = [localizePath(lang, '/vi/ca/x/anh/'), localizePath(lang, '/vi/cay/y/anh/')]
+    const parents = [localizePath(lang, '/vi/ca/x/'), localizePath(lang, '/vi/cay/y/')]
+    const live = [...parents]
+    const { e } = env({ ASSETS: { fetch: async (r: Request) => { const p = new URL(r.url).pathname; return p === '/redirects.json' ? Response.json({}) : live.includes(p) ? new Response(PAGE, { headers: { 'content-type': 'text/html; charset=utf-8' } }) : new Response('<h1>404</h1>', { status: 404, headers: { 'content-type': 'text/html' } }) } } as unknown as Fetcher })
+    for (const [i, gallery] of galleries.entries()) {
+      for (const from of [gallery, gallery.slice(0, -1), `${gallery}?a=1`]) {
+        const r = await handle(get(from), e)
+        expect([r.status, r.headers.get('location')], from).toEqual([302, `${parents[i]}${from.includes('?') ? '?a=1' : ''}`])
+        expect((await follow(r, e)).status, from).toBe(200)
+      }
+      expect((await handle(get(gallery.replace(/\/(x|y)\//, '/missing/')), e)).status).toBe(404)
+      expect((await handle(get(gallery.replace(/\/(x|y)\//, '/x/extra/')), e)).status).toBe(404)
+      live.push(gallery)
+      const existing = await handle(get(gallery), e)
+      expect([existing.status, existing.headers.get('location')]).toEqual([200, null])
+    }
+    for (const path of ['/id/ikan/x/anh/', '/id/ikan/x/photos/', '/th/fish/x/foto/', '/ca/x/foto/', '/id/ca/x/anh/']) {
+      expect((await handle(get(path), e)).status, path).toBe(404)
+    }
+  }
 })
 
 test('a page view never waits on KV: the list baked in at deploy answers until the live one is in, then the live one wins', async () => {
