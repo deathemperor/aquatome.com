@@ -27,6 +27,12 @@ Leads, the engine and main's iOS runs share one Mac. A booted simulator is the h
   (30, at most 120; a pid keeps it in its own queue). Until that run has had it, a run that reaches the front steps back
   behind it, if it came through `sim-run.py` or `checks.sh`. A plain `lockf` job, one from an older `sim-run.py` and the
   TestFlight upload (another user) don't step back: name a plain `lockf` job by its pid.
+- At most 3 simulators up at once, 2 while heat has taken cores away: a session's `device_open` or `simctl boot` past that is
+  refused, and told who is up. `scripts/mac-status.py` says the load, the heat, who is up and whether it's quiet enough to
+  record.
+- A screen recording runs as `scripts/quiet-recording.sh [minutes] <command>`, which holds both queues' turns so nothing of
+  ours builds or tests beside it, and gives them back unrecorded if the Mac stays too loaded. `scripts/frames-check.py <video>
+  --expected <frames>` says whether it kept every frame.
 - Close a Device session when done: `agent-device close --shutdown`. `device_close` alone can leave the simulator running.
 - What's on screen is drawn every frame: WindowServer's compositing was a third of the GPU through the hot hours of
   2026-11-08. Simulators run headless (`xcrun simctl boot`, or xcodebuild's own); opening Simulator.app is refused. Watch

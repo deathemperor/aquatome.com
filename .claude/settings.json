@@ -8,6 +8,12 @@
           { "type": "command", "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/main-merge.sh" },
           { "type": "command", "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/ready-push.sh" }
         ]
+      },
+      {
+        "matcher": "mcp__infinitus__device_open",
+        "hooks": [
+          { "type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR\"/scripts/mac-status.py --hook" }
+        ]
       }
     ]
   }
