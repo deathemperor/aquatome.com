@@ -161,10 +161,11 @@ if part photos; then
   # sheets on top of the 1,400 not judged yet: some 5 days with the video job's 20). recheck-photos takes first, once, those
   # whose notes say a dead fish, a hand or a person, or whose verdict was the old "habitat"; then it finds none.
   pnpm engine recheck-photos --limit "${PHOTO_RECHECK_LIMIT:-40}" || log "recheck-photos: failed"
-  # The check's order since 2026-11-11 (photo-check.ts `turn`): the photos readers see now first, Flickr's and Commons'
+  # The check's order since 2026-11-10 (photo-check.ts `turn`): the photos readers see now first, Flickr's and Commons'
   # before the rest, then the photos that wait. PHOTO_CHECK_FILL of the cycle's sheets go before all of them to a permitted
-  # source's photos that fill a page with none: 35 this once, for Tropica's on the 51 plant pages with no photo (a sheet a
-  # page, so two cycles; the chief of staff, 2026-11-10). The standing share replaces it with the sized plan of 11 Nov.
+  # source's photos that fill a page with none: 35, for Tropica's on the 51 plant pages with no photo (a sheet a page, so
+  # two cycles; the chief of staff, 2026-11-10: this once). With none left to fill, those sheets go in the usual order. A
+  # standing share is to replace the 35.
   pnpm engine check-photos --limit "${PHOTO_CHECK_LIMIT:-40}" --fill "${PHOTO_CHECK_FILL:-35}" || log "check-photos: failed"
   # No people or logos in guides' and equipment guides' photos, which the check above doesn't see, and no people or marks
   # on video guides' stills (guide-photos.ts): GUIDE_PHOTOS_LIMIT model calls of 6 photos a cycle, leads first, then

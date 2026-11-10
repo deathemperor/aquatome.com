@@ -4,7 +4,7 @@ import { join } from 'node:path'
 import { BreedSchema, GallerySchema, metricPage, nameKey, QUALITY_THRESHOLD, slugify, TranslationSchema, type BreedEntity, type Range, type Translation } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
 import { lastKept, logReviews } from './review-log'
-import { commonsCandidates, screen, waiting, type GalleryDeps } from './gallery'
+import { commonsCandidates, screen, waiting, type GalleryDeps, type GalleryPhoto } from './gallery'
 import { pickSlug } from './merge'
 import { plainParts, sanitizeHtml, unescapePlain } from './sanitize'
 import { localName, TARGETS, type TargetLang } from './localize'
@@ -232,10 +232,13 @@ export async function makeBreed(root: string, d: { research: Llm; llm: Llm; gall
   // A rewrite from kept research keeps the photos already screened.
   const was = JSON.parse(await readFile(join(dir, 'entity.json'), 'utf8').catch(() => 'null')) as BreedEntity | null
   const prevPhotos = kept ? was : null
-  const prevGallery = prevPhotos ? JSON.parse(await readFile(join(content, 'gallery', `${id}.json`), 'utf8').catch(() => 'null')) as { photos: BreedEntity['photos']; seen: number } | null : null
+  const prevGallery = prevPhotos ? JSON.parse(await readFile(join(content, 'gallery', `${id}.json`), 'utf8').catch(() => 'null')) as { photos: GalleryPhoto[]; seen: number } | null : null
   const enName = facts.enNames[0] ?? a.name
   const cands = prevPhotos ? [] : await commonsCandidates((facts.commons ?? enName).replace(/^Category:/i, '').trim(), d.gallery.http, 450, !facts.commons)
-  const photos = prevPhotos ? [...prevPhotos.photos, ...(prevGallery?.photos ?? [])] : await screen(cands.slice(0, 300), enName, w.name, d.gallery, true)
+  const photos: GalleryPhoto[] = prevPhotos ? [...prevPhotos.photos, ...(prevGallery?.photos ?? [])] : await screen(cands.slice(0, 300), enName, w.name, d.gallery, true)
+  // The page's own four are photos it may show: one that waits for the photo check stays in the gallery, with its mark.
+  const own = photos.filter(p => !p.unchecked).slice(0, 4)
+  const album = prevPhotos ? photos.filter(p => !own.includes(p)) : photos.slice(4).map(waiting)
   const seen = prevPhotos ? prevGallery?.seen ?? photos.length : cands.length
 
   const today = d.gallery.now().toISOString().slice(0, 10)
@@ -254,7 +257,7 @@ export async function makeBreed(root: string, d: { research: Llm; llm: Llm; gall
     ...(basedOn ? { basedOn } : {}),
     // The writer's Vietnamese name for each parent when it gave one per parent; else the researched name.
     parents: facts.parents.map((p, i) => ({ name: (w.parentNames?.length === facts.parents.length && w.parentNames[i]?.trim()) || (sci(p.scientificName) ? `${p.name} (${sci(p.scientificName)})` : p.name), ...(parentOf(i) ? { species: parentOf(i) } : {}), certain: p.certain })),
-    care, photos: photos.slice(0, 4), ...(facts.commons ? { commons: facts.commons } : {}),
+    care, photos: own, ...(facts.commons ? { commons: facts.commons } : {}),
     sources: facts.sources.filter((_, i) => web[i]).map(s => ({ ...s, at: today })), updatedAt: today,
   })
   // A name the owner fixed, and the addresses it had before, survive a --redo.
@@ -274,9 +277,9 @@ export async function makeBreed(root: string, d: { research: Llm; llm: Llm; gall
   await writeFile(join(dir, 'entity.json'), `${JSON.stringify(entity, null, 2)}\n`)
   await writeFile(join(dir, 'vi.json'), `${JSON.stringify(vi, null, 2)}\n`)
   await logReviews(root, 'breed', { id: `breeds/${id}`, lang: 'vi' }, tries, review, { now: d.gallery.now() })
-  if (photos.length > 4) {
+  if (album.length) {
     await mkdir(join(content, 'gallery'), { recursive: true })
-    await writeFile(join(content, 'gallery', `${id}.json`), `${JSON.stringify(GallerySchema.parse({ id, photos: prevPhotos ? photos.slice(4) : photos.slice(4).map(waiting), seen, updatedAt: today }), null, 2)}\n`)
+    await writeFile(join(content, 'gallery', `${id}.json`), `${JSON.stringify(GallerySchema.parse({ id, photos: album, seen, updatedAt: today }), null, 2)}\n`)
   }
   return { id, slug: vi.slug, score: review.score, notes: review.notes, photos: `${photos.length} of ${seen}` }
 }

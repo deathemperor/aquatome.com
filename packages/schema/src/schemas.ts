@@ -252,7 +252,7 @@ export const OneVoiceSchema = z.record(z.string(), z.partialRecord(z.enum(SECTIO
  */
 /**
  * `unchecked`: a step added it to the gallery and the photo check (check-photos) has not judged it for this page yet, so
- * no page shows it (load.ts). Set on every photo a step adds since 2026-11-11, when a tenth of the gallery photos the
+ * no page shows it (load.ts). Set on every photo a step adds since 2026-11-10, when a tenth of the gallery photos the
  * check had judged had been rejected, most as another fish; the check takes the mark off a photo it judges and leaves on.
  * A photo without it was added before, or has been judged.
  */

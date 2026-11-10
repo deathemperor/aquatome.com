@@ -162,6 +162,13 @@ test("--calendar fills an empty page with no model call; a plant is given a firs
   expect(await plant('full')).toEqual(['p-head'])
 })
 
+test('a gallery photo that waits for the photo check leads no page, whatever an old verdict says of it', async () => {
+  const root = await store({ waits: { photos: [], gallery: [{ ...photo('w-gal', 500, 400), unchecked: true }] }, shown: { photos: [], gallery: [photo('s-gal', 500, 400)] } })
+  await screenLeads(root, model(yes).d, { limit: 3 })
+  expect((await entity(root, 'waits')).photos).toEqual([])
+  expect((await entity(root, 'shown')).photos.map(p => name(p.url))).toEqual(['s-gal'])
+})
+
 test("a download that fails leaves that pair out of the sheet, and the others are still numbered right", async () => {
   const root = await store({ a: { photos: [photo('a-head')], gallery: [big('gone')] }, b: { photos: [photo('b-head')], gallery: [big('b-gal')] } })
   const d: LeadDeps = {

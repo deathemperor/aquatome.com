@@ -193,6 +193,17 @@ test('a page\'s score as the build judges it: a fish\'s or plant\'s shown source
   expect(lastReview([])).toBeUndefined()
 })
 
+test('a gallery photo that waits for the photo check is on no page, so the count leaves it out', () => {
+  const root = mkdtempSync(join(tmpdir(), 'aq-stats-'))
+  try {
+    mkdirSync(join(root, 'gallery'))
+    const p = (n: string, more: object = {}) => ({ url: `https://media.example/${n}.webp`, width: 1200, height: 800, licence: 'CC BY 4.0', author: 'a', sourceUrl: 'x', ...more })
+    writeFileSync(join(root, 'gallery/x.json'), JSON.stringify({ id: 'x', photos: [p('shown'), p('waits', { unchecked: true })] }))
+    writeFileSync(join(root, 'gallery/y.json'), JSON.stringify({ id: 'y', photos: [p('waits-too', { unchecked: true })] }))
+    expect(computeContentStats({ contentRoot: root, publicBuild: false, now: NOW }).photos.gallery).toEqual({ pages: 1, photos: 1 })
+  } finally { rmSync(root, { recursive: true, force: true }) }
+})
+
 test('sources and photos: what each source gives the pages, and where photos come from', () => {
   expect(stats.sources.seriouslyfish).toEqual({ name: 'Seriously Fish', fish: 7, plant: 0, guide: 0 })
   expect(stats.sources.youtube).toEqual({ name: 'YouTube', fish: 0, plant: 0, guide: 2 })

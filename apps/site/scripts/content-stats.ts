@@ -217,7 +217,8 @@ export function computeContentStats(o: StatsInput): ContentStats {
     photos.covered[kind] = { with: withPhoto, of: xs.length }
   }
   for (const f of files(join(root, 'gallery'))) {
-    const n = shown(read(join(root, 'gallery', f))?.photos).length
+    // A photo that waits for the photo check (`unchecked`) is on no page yet.
+    const n = shown(read(join(root, 'gallery', f))?.photos).filter(p => !p.unchecked).length
     if (n) { photos.gallery.pages++; photos.gallery.photos += n }
   }
 

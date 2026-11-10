@@ -121,7 +121,7 @@ test("whose turn: Flickr's and Commons' photos on pages now, then the other phot
   const d = model({})
   await checkPagePhotos(r, d, { limit: 10 })
   expect(d.seen.map(s => s.photos)).toEqual([
-    ['b1', 'b2', 'b-own', 'b3'], // Commons and Flickr first, the sheet filled from the page's other photos
+    ['b-own', 'b1', 'b2', 'b3'], // Commons and Flickr first, behind their page's lead, the sheet filled from the page's other photos
     ['a-own', 'a1', 'a2'], // then the other photos readers see, by page
     ['d-own', 'd1'], // a waiting photo rides on its page's sheet where there is room
     ['e1', 'e2', 'e3', 'e4', 'e5', 'e6'],
@@ -145,7 +145,7 @@ test("a share of the run goes first to a source's photos that fill a page with n
   // With no share, the usual order: Commons' photos readers see first.
   const usual = model({})
   await checkPagePhotos(r, usual, { limit: 1 })
-  expect(usual.seen.map(s => s.photos)).toEqual([['a1', 'a-own']])
+  expect(usual.seen.map(s => s.photos)).toEqual([['a-own', 'a1']])
   // With one, the page with none gets its source's photos judged first, the sheet filled from the rest of its gallery.
   const r2 = await root([{ id: 'aaa-fish', sci: 'Aaa fish', photos: ['a-own'] }, { kind: 'plants', id: 'bbb-plant', sci: 'Bbb plant' }, { kind: 'plants', id: 'ccc-plant', sci: 'Ccc plant' }])
   const gallery2 = (id: string, photos: object[]) => writeFile(join(r2, 'content/gallery', `${id}.json`), `${JSON.stringify({ id, photos, seen: 0, updatedAt: '' }, null, 2)}\n`)
@@ -154,13 +154,28 @@ test("a share of the run goes first to a source's photos that fill a page with n
   await gallery2('ccc-plant', [commons('c1')])
   const d = model({})
   await checkPagePhotos(r2, d, { limit: 10, fill: 1 })
-  expect(d.seen.map(s => s.photos)).toEqual([['b1', 'b2', 'b3'], ['a1', 'a-own'], ['c1']])
+  expect(d.seen.map(s => s.photos)).toEqual([['b1', 'b2', 'b3'], ['a-own', 'a1'], ['c1']])
   // The share is a ceiling on that pass, not on the run: once the one page is filled, the other sheets go in the usual
   // order (the first root again, where the first sheet above is already judged). A source's photo on a page that has a
   // photo is nothing to fill: it has its usual turn.
   const rest = model({})
   await checkPagePhotos(r, rest, { limit: 10, fill: 5 })
   expect(rest.seen.map(s => s.photos)).toEqual([['b1', 'b2', 'b3'], ['c1'], ['d-own', 'd1']])
+})
+
+test("a page's lead is judged no later than its other photos, so none of them goes ahead of a lead that passes", async () => {
+  // Found in review, 2026-11-10: Commons' photos have an earlier turn than a lead from elsewhere. Six of them filled a
+  // sheet, were judged typical and went ahead of the lead, which stayed behind once it was judged typical too.
+  const commons = (n: string) => ({ ...photo(n), sourceUrl: `https://commons.wikimedia.org/wiki/File:${n}.jpg` })
+  const r = await root([{ id: 'aaa-fish', sci: 'Aaa fish', extra: { photos: [{ ...photo('lead'), sourceUrl: 'https://www.inaturalist.org/photos/1' }, commons('o1'), commons('o2'), commons('o3')] } }])
+  await writeFile(join(r, 'content/gallery/aaa-fish.json'), `${JSON.stringify({ id: 'aaa-fish', photos: [commons('g1'), commons('g2'), commons('g3')], seen: 0, updatedAt: '' }, null, 2)}\n`)
+  const d = model(Object.fromEntries(['lead', 'o1', 'o2', 'o3', 'g1', 'g2', 'g3'].map(n => [n, { typical: true }])))
+  await checkPagePhotos(r, d, { limit: 1 })
+  expect(d.seen.map(s => s.photos)).toEqual([['lead', 'o1', 'o2', 'o3', 'g1', 'g2']])
+  expect(await urls(r, 'content/species/aaa-fish/entity.json')).toEqual(['lead', 'o1', 'o2', 'o3'])
+  await checkPagePhotos(r, d, { limit: 1 })
+  expect(d.seen.map(s => s.photos).slice(1)).toEqual([['g3']])
+  expect(await urls(r, 'content/species/aaa-fish/entity.json')).toEqual(['lead', 'o1', 'o2', 'o3'])
 })
 
 test('a gallery photo that waits shows once the check has judged it and left it on; one it rejects goes; one not judged yet still waits', async () => {

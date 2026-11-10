@@ -234,9 +234,10 @@ export async function recheckCandidates(root: string): Promise<Map<string, strin
 /** Where a photo is shown: a page's own photos or gallery (`page`), or a guide (`page`: the fish its caption names, if any). */
 /**
  * `waits`: a gallery photo no page shows until this check has judged it (`unchecked`); `bare`: a gallery photo of a page
- * with no photo of its own; `sourced`: a permitted source's own photo of what its page is about (Tropica's of its plant).
+ * with no photo of its own; `sourced`: a permitted source's own photo of what its page is about (Tropica's of its plant);
+ * `lead`: the page's first photo of its own.
  */
-type Shown = { file: string; url: string; page?: string; guide?: boolean; caption?: string; galleryOnly?: boolean; author?: string; source?: string; waits?: boolean; bare?: boolean; sourced?: boolean }
+type Shown = { file: string; url: string; page?: string; guide?: boolean; caption?: string; galleryOnly?: boolean; author?: string; source?: string; waits?: boolean; bare?: boolean; sourced?: boolean; lead?: boolean }
 
 /**
  * Whose turn a photo not judged yet has (the chief of staff, 2026-11-10: of 2,611 gallery photos judged, 272 had been
@@ -279,7 +280,8 @@ export const turn = (x: Pick<Shown, 'waits' | 'bare' | 'source'>): 0 | 1 | 2 | 3
  *   mark here and shows from the next build.
  *
  * The order is `turn`'s, and within a turn most-read pages first (`rank`), the photos a page shows itself before the rest
- * of its gallery. A page's last sheet is filled from its photos of a later turn, so no sheet goes out part empty.
+ * of its gallery. A page's lead is judged in the first sheet a run gives the page, so no photo of the page is judged
+ * before it. A page's last sheet is filled from its photos of a later turn, so no sheet goes out part empty.
  * `limit`: model calls this run; stops on a model failure (usage limit), and the rest wait. `fill`: how many of them go
  * first to a source's photos that fill a page with none (`turn`).
  * `recheck`: with it, only these photos are judged, where their verdict is from before the check asked about people
@@ -300,9 +302,9 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   for (const s of all) {
     let bare = false
     for (const file of [join(content, s.kind, s.id, 'entity.json'), join(content, 'gallery', `${s.id}.json`)]) {
-      const photos = (await readJson<{ photos?: (Photo & { unchecked?: boolean })[] }>(file))?.photos ?? []
+      const photos = (await readJson<{ photos?: (Photo & { unchecked?: boolean; source?: string })[] }>(file))?.photos ?? []
       if (file.endsWith('entity.json')) bare = !photos.length
-      for (const [i, p] of photos.entries()) shown.push({ file, url: p.url, page: s.id, ...(p.author ? { author: p.author } : {}), ...(p.sourceUrl ? { source: p.sourceUrl } : {}), ...(file.includes('/gallery/') && i >= STRIP ? { galleryOnly: true } : {}), ...(p.unchecked ? { waits: true } : {}), ...(bare && file.includes('/gallery/') ? { bare: true, ...(p.source ? { sourced: true } : {}) } : {}) })
+      for (const [i, p] of photos.entries()) shown.push({ file, url: p.url, page: s.id, ...(p.author ? { author: p.author } : {}), ...(p.sourceUrl ? { source: p.sourceUrl } : {}), ...(file.includes('/gallery/') && i >= STRIP ? { galleryOnly: true } : {}), ...(p.unchecked ? { waits: true } : {}), ...(i === 0 && file.endsWith('entity.json') ? { lead: true } : {}), ...(bare && file.includes('/gallery/') ? { bare: true, ...(p.source ? { sourced: true } : {}) } : {}) })
     }
   }
   const index = nameIndex(all)
@@ -355,10 +357,15 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       const open = (onPage.get(s.id) ?? []).filter(x => !(x.url in rejected) && want(x) && !queued.has(`${s.id}\n${x.url}`))
       const mine = [...new Set(open.filter(x => (now === 'first' ? !!x.sourced : turn(x) === now) && !!x.galleryOnly === later).map(x => x.url))]
       if (!mine.length) continue
+      // The page's lead, when it is not judged yet, heads the first sheet a run gives its page, whatever its turn, as it
+      // did before the turns: the typical-first order below would put a photo judged a run before the lead ahead of it,
+      // and leave it there once the lead passed too (found in review, 2026-11-10).
+      const lead = open.find(x => x.lead)?.url
+      const first = lead ? [lead, ...mine.filter(u => u !== lead)] : mine
       // Its last sheet is filled from its photos whose turn comes later, the nearest turn first.
-      const room = (PER_SHEET - (mine.length % PER_SHEET)) % PER_SHEET
-      const more = [...new Set(open.filter(x => !mine.includes(x.url)).sort((a, b) => turn(a) - turn(b) || Number(!!a.galleryOnly) - Number(!!b.galleryOnly)).map(x => x.url))].slice(0, room)
-      const todo = [...mine, ...more]
+      const room = (PER_SHEET - (first.length % PER_SHEET)) % PER_SHEET
+      const more = [...new Set(open.filter(x => !first.includes(x.url)).sort((a, b) => turn(a) - turn(b) || Number(!!a.galleryOnly) - Number(!!b.galleryOnly)).map(x => x.url))].slice(0, room)
+      const todo = [...first, ...more]
       for (const u of todo) queued.add(`${s.id}\n${u}`)
       for (let i = 0; i < todo.length && sheets.length < o.limit; i += PER_SHEET) sheets.push({ s, urls: todo.slice(i, i + PER_SHEET) })
     }
