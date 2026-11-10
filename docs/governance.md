@@ -766,6 +766,12 @@ The layers above still check the result.
   - Found on the sample (docs/research/species-range-sample.md): GBIF's records mix native and introduced
     populations, and its checklists call Betta splendens introduced in Thailand, so the native range comes from the
     sources.
+- **Letters whole.** Until 2026-11-10 the model's answer was read chunk by chunk, and a character the pipe cut in two
+  came out as "��" in the middle of a word (40 pages, 38 of them Thai). The runner reads the answer whole now
+  (`claude.ts`), and each cycle puts back what is still lost (`pnpm engine ungarble`, `ungarble.ts`): two model readers
+  see the words around a mark and name the one character that was there. It goes in only when both name the same one and
+  it can be what a cut loses; the mark alone goes when both say nothing belongs there. Every other byte of the file stays
+  as it was. A page they don't agree on stays as it is, for the next run.
 - **Metric only.** Fish, plant, breed and guide pages give °C, cm and litres in every language. Each writer of those
   pages passes its text through `toMetric` (`@aq/schema`): an imperial figure beside its metric one goes ("20–30°C
   (68–86°F)"), one before its metric one gives way to it ("2 inch (khoảng 5 cm)"), one alone is converted ("bể 10 gallon"
