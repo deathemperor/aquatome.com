@@ -298,10 +298,6 @@
     {
      "page": "species/maylandia-estherae",
      "img": "https://media.aquatome.com/commons/1f046c287b79d404-large.webp"
-    },
-    {
-     "page": "species/synodontis-eupterus",
-     "img": "https://media.aquatome.com/commons/246581693eccf859-large.webp"
     }
    ],
    "shelves": [
@@ -374,7 +370,7 @@
   {
    "date": "2026-11-10",
    "fish": "species/pterophyllum-altum",
-   "img": "https://media.aquatome.com/commons/302997e125c7870b.webp",
+   "img": "https://media.aquatome.com/commons/74ad92ff7bac6980-large.webp",
    "guide": "guides/sprucepets-platy-types-1381066",
    "guideImg": "https://media.aquatome.com/sprucepets/9d227b32ea4026ab.webp",
    "why": "Guide: Các biến thể của cá bình tích (Xiphophorus spp.), 4 search impressions."
@@ -382,7 +378,7 @@
   {
    "date": "2026-11-11",
    "fish": "breeds/oranda-goldfish",
-   "img": "https://media.aquatome.com/commons/4a72748522b76373-large.webp",
+   "img": "https://media.aquatome.com/commons/10e486e74625ccb7-large.webp",
    "guide": "guides/aquatome-cho-ca-an-bao-nhieu-va-may-lan-mot-ngay-tranh-cho-an-qua-nhieu",
    "why": "Guide: Cho cá ăn bao nhiêu, mấy lần một ngày: cách tránh cho ăn quá nhiều, on this week's list."
   },
@@ -396,11 +392,12 @@
   },
   {
    "date": "2026-11-13",
-   "fish": "species/devario-aequipinnatus",
-   "img": "https://media.aquatome.com/commons/797ee380743fcf6a-large.webp",
+   "fish": "species/hyphessobrycon-eques",
+   "img": "https://media.aquatome.com/commons/551d0bdb3f541228-large.webp",
    "guide": "guides/aquatome-ca-bay-mau-sinh-san-dau-hieu-sap-de-tach-ca-me-va-nuoi-ca-con",
    "card": "cards/trivia-medaka-space",
-   "why": "Fish: Cá devario sọc Ấn Độ, takes cool water."
+   "why": "Fish: Cá hồng nhung, chosen by hand: its page gives 20 °C as its lowest, so a heater once the room drops under 20 °C.",
+   "fixed": true
   },
   {
    "date": "2026-11-14",
@@ -412,10 +409,10 @@
   },
   {
    "date": "2026-11-15",
-   "fish": "species/monodactylus-sebae",
-   "img": "https://media.aquatome.com/commons/f951f81ed157dba7.webp",
+   "fish": "breeds/pearlscale-goldfish",
+   "img": "https://media.aquatome.com/commons/918d6b4152c16255-large.webp",
    "guide": "guides/aquatome-ca-di-phan-trang-benh-trung-roi-hexamita-ca-dia-nguyen-nhan-cach-chua",
-   "why": "Guide: Cá đĩa đi phân trắng: dấu hiệu, nguyên nhân và cách chữa trùng roi Hexamita, 3 search impressions."
+   "why": "Fish: Cá ping pong (Pearlscale goldfish), takes cool water, well known."
   },
   {
    "date": "2026-11-16",
@@ -509,7 +506,6 @@
   },
   {
    "date": "2026-11-27",
-   "fish": "species/dermogenys-pusilla",
    "img": "https://media.aquatome.com/commons/8679c734cd0bb8e0.webp",
    "guide": "guides/sprucepets-aquarium-catfish-breeds-5115234",
    "guideImg": "https://media.aquatome.com/sprucepets/eb26692e4b7b47a6.webp",
@@ -605,13 +601,40 @@
   }
  },
  "avoid": {
+  "https://media.aquatome.com/commons/f951f81ed157dba7.webp": "looked at: this photo does not stand as the sebae's head (chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/commons/8679c734cd0bb8e0.webp": "halfbeak: cards only, it stays on its page (chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/commons/a57ab47674cd2305.webp": "dark: cards only, it stays on its page until a clearer photo turns up (chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/inaturalist/436160058.webp": "a small fish in murk: cards only, it stays on its page until a clearer photo turns up (chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/inaturalist/268032912.webp": "a ruler and a brand printed in the picture",
   "https://media.aquatome.com/commons/d303bc24129e7273.webp": "betta: a dark tank where the fish is small; its caption says the fish is sick",
   "https://media.aquatome.com/aquariumcoop/f60636dca7caf019.webp": "a person",
   "https://media.aquatome.com/commons/f8dffac3dfb62633.webp": "fish out of water",
   "https://media.aquatome.com/seriouslyfish/df72499a9847ce5d.webp": "another subject",
   "https://media.aquatome.com/commons/fc9ccca176726701.webp": "red devil: looks like a juvenile or another cichlid, not the adult's look",
   "https://media.aquatome.com/aquariumbreeder/b40dca8c4c2540cf.webp": "a line diagram of a snail with English labels, not a photo",
-  "https://media.aquatome.com/2hraquarist/8a54f19dbc68c9c7.webp": "two photos joined side by side, with a slanted seam across the card"
+  "https://media.aquatome.com/2hraquarist/8a54f19dbc68c9c7.webp": "two photos joined side by side, with a slanted seam across the card",
+  "https://media.aquatome.com/commons/528d8e73e4cbf0de.webp": "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/commons/4756ceeedd3cc5ce.webp": "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/commons/0fada46707e939af.webp": "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/commons/b45de7d4ff14ef35.webp": "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/commons/556d7c9159783fd7.webp": "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/commons/a26f2b6f13c9afab.webp": "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/commons/77efa1b146855ade.webp": "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/commons/528556175948f729.webp": "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/commons/4f94899e8e811e8e.webp": "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/commons/606d5d90c9a59424.webp": "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/commons/18393583f25f86e2.webp": "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/commons/1f89ca62db0f0e31.webp": "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/commons/a9ce5abbcfa6ca8b.webp": "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/commons/ba2194af56ba9989.webp": "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/commons/246581693eccf859.webp": "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/commons/feb062f1ee4e466f.webp": "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/commons/19baaafa3f516888.webp": "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/inaturalist/669262813.webp": "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/commons/797ee380743fcf6a.webp": "snout cut by the card's left edge (the chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/seriouslyfish/496b416ce504f0ef.webp": "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/scotcat/7d5c3b1d13865c76.webp": "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/seriouslyfish/24e3739ae989c261.webp": "head outside the card's crop until the card can follow the head (the chief of staff, 2026-11-10)"
  },
  "off": {
   "breeds/ranchu-goldfish": "reader fit: source, units",

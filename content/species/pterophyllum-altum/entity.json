@@ -174,6 +174,21 @@
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/commons/74ad92ff7bac6980.webp",
+      "thumb": "https://media.aquatome.com/commons/74ad92ff7bac6980-480.webp",
+      "width": 960,
+      "height": 638,
+      "licence": "CC BY-SA 2.0",
+      "author": "Jeff Kubina",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Group_of_Pterophyllum_Altum.jpg",
+      "caption": "A group of Pterophyllum Altum taken off Flickr. Released under a CC-BY-SA 2.0 license. Taken by Jeff Kubina @ https://www.flickr.com/photos/kubina/131667858/Fish",
+      "large": {
+        "url": "https://media.aquatome.com/commons/74ad92ff7bac6980-large.webp",
+        "width": 1805,
+        "height": 1200
+      }
+    },
+    {
       "url": "https://media.aquatome.com/commons/302997e125c7870b.webp",
       "thumb": "https://media.aquatome.com/commons/302997e125c7870b-480.webp",
       "width": 1200,
@@ -184,16 +199,6 @@
       "caption": "Cá ông tiên altum nền trắng, thấy rõ thân và vây"
     },
     {
-      "url": "https://media.aquatome.com/commons/74ad92ff7bac6980.webp",
-      "thumb": "https://media.aquatome.com/commons/74ad92ff7bac6980-480.webp",
-      "width": 960,
-      "height": 638,
-      "licence": "CC BY-SA 2.0",
-      "author": "Jeff Kubina",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Group_of_Pterophyllum_Altum.jpg",
-      "caption": "A group of Pterophyllum Altum taken off Flickr. Released under a CC-BY-SA 2.0 license. Taken by Jeff Kubina @ https://www.flickr.com/photos/kubina/131667858/Fish"
-    },
-    {
       "url": "https://media.aquatome.com/commons/c405b5b006021e9e.webp",
       "thumb": "https://media.aquatome.com/commons/c405b5b006021e9e-480.webp",
       "width": 960,
@@ -201,7 +206,12 @@
       "licence": "CC BY-SA 4.0",
       "author": "Chris Sherlock",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Altum_Angel.jpeg",
-      "caption": "An Altum Angel (Pterophyllum altum)"
+      "caption": "An Altum Angel (Pterophyllum altum)",
+      "large": {
+        "url": "https://media.aquatome.com/commons/c405b5b006021e9e-large.webp",
+        "width": 1600,
+        "height": 1200
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/35857eb1c8cb97b7.webp",
