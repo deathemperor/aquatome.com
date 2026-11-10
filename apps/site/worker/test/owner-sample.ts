@@ -138,6 +138,14 @@ export const FISH = {
 /** The same at 30 days to yesterday: its own requests. */
 export const FISH_30 = { ...FISH, stats: fishStats('d30'), period: 'd30' }
 
+export const CHAT_REPORTS = {
+  total: 2,
+  rows: [
+    { at: '2026-11-04T08:12:00Z', question: 'Cá betta ăn gì?', text: 'Cá betta ăn thức ăn hạt.', reason: 'Thiếu thức ăn tươi' },
+    { at: '2026-11-03T11:00:00Z', question: 'Bể 60 lít nuôi được mấy con?', text: 'Khoảng mười con.' },
+  ],
+}
+
 export const KEPT_ID = '0b4c6a8e-1f2d-4c3b-9a8e-7d6c5b4a3f21'
 export const KEPT_ANON = '9e8d7c6b-5a4f-4e3d-8c2b-1a0f9e8d7c6b'
 export const KEPT = [

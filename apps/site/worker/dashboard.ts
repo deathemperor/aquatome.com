@@ -4,6 +4,7 @@ import { catalogOf, fishIdStatus, type FishIdEnv } from './fishid/api'
 import { deleteKept, keptImage, recentKept } from './fishid/kept'
 import { listRuns, readRun } from './fishid/transcript'
 import { RUNS_PATH, runPage, runsPage } from './admin/runs'
+import { chatReportsPage, chatReportsSection, recentReports } from './admin/chat-reports'
 import { loadHidden, updateHidden } from './hidden'
 import { OWNER_COOKIE, SITE_OWNER_COOKIE } from './owner'
 import { DASHBOARD_HOST } from './paths'
@@ -342,6 +343,8 @@ const PAGES: Record<Exclude<AdminPath, '/_ab/'>, View> = {
   }, commentsPage, commentsSection),
   '/_ab/tai-khoan/': view(async (env, _url, now, tz) => ({ now, tz, a: env.DB ? await soft('accounts', accountStats(env.DB, now, tz)) : unset('D1') }),
     d => accountsPage(d.a, d.now, d.tz), d => accountsSection(d.a, d.now, d.tz)),
+  '/_ab/bao-sai/': view(async (env, _url, now, tz) => ({ now, tz, d: env.UPLOADS ? await soft('chat reports', recentReports(env.UPLOADS)) : undefined }),
+    d => chatReportsPage(d.d, d.now, d.tz), d => chatReportsSection(d.d, d.now, d.tz)),
   '/_ab/bao-cao/': view((env, _url, now, tz) => loadReports(env, now, tz, ids => liveOwnerApps(env, ids, now)), reportsPage, reportsSection),
 }
 export const ADMIN_PAGES: AdminPath[] = ['/_ab/', ...(Object.keys(PAGES) as (keyof typeof PAGES)[])]

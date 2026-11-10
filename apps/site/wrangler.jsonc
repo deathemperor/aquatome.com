@@ -19,7 +19,7 @@
       // asked, so a page added to the dashboard adds its line here (a test names it). No negative patterns: one wins over
       // every positive rule, an app page's included. What skips the Worker on that host carries noindex (public/_headers).
       "/noi-dung/*", "/doc-gia/*", "/nhan-dien-ca/*", "/anh-nhan-dien/*", "/affiliate/*", "/muon-co/*", "/anh-ban-doc/*", "/an-trang/*",
-      "/binh-luan/*", "/tai-khoan/*", "/thanh-cong/*", "/bao-cao/*", "/thay-doi/*", "/thanh-cong.json", "/robots.txt"
+      "/binh-luan/*", "/tai-khoan/*", "/bao-sai/*", "/thanh-cong/*", "/bao-cao/*", "/thay-doi/*", "/thanh-cong.json", "/robots.txt"
     ]
   },
   // The owner's dashboard (/_ab/) opens only to the owner's account signed in on the site: secret OWNER_ACCOUNTS, the

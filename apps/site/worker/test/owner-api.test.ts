@@ -5,6 +5,7 @@ import { afterEach, expect, test, vi } from 'vitest'
 import { handle, type Env } from '../index'
 import { appPage, appSection, summariseApp } from '../admin/app'
 import { paged, tablePage, type Action, type Block, type FormField, type Section } from '../admin/blocks'
+import { chatReportsPage, chatReportsSection } from '../admin/chat-reports'
 import { scoreboardPage, scoreboardSection, summariseScoreboard } from '../admin/scoreboard'
 import { todayJson, todayPage, PAGE_GROUPS, type OwnerAct } from '../admin/today'
 import { CHANGE_COLUMN, changelogPage, changelogSection } from '../daily/changelog'
@@ -87,6 +88,13 @@ const VARIANTS: Record<string, [string, () => string, () => Section][]> = {
     ['failed', () => fishIdPage({ ...S.FISH, stats: F, keys: F }), () => fishIdSection({ ...S.FISH, stats: F, keys: F })],
     ['no keys', () => fishIdPage({ ...S.FISH, keys: undefined }), () => fishIdSection({ ...S.FISH, keys: undefined })],
     ['bad key lines, elsewhere', () => fishIdPage({ ...S.FISH, tz: 'America/New_York', keys: { rows: [], bad: 2, today: 0, model: 'm', counts: { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0, offTopic: 0 }, mostRefunds: 0, cap: 50, spend: [] } }), () => fishIdSection({ ...S.FISH, tz: 'America/New_York', keys: { rows: [], bad: 2, today: 0, model: 'm', counts: { fallback: 0, callLimit: 0, later400: 0, facts: 0, refunds: 0, offTopic: 0 }, mostRefunds: 0, cap: 50, spend: [] } })],
+  ],
+  'bao-sai': [
+    ['sample', () => chatReportsPage(S.CHAT_REPORTS, S.NOW, S.TZ), () => chatReportsSection(S.CHAT_REPORTS, S.NOW, S.TZ)],
+    ['none', () => chatReportsPage({ total: 0, rows: [] }, S.NOW, S.TZ), () => chatReportsSection({ total: 0, rows: [] }, S.NOW, S.TZ)],
+    ['more than shown', () => chatReportsPage({ ...S.CHAT_REPORTS, total: 300 }, S.NOW, S.TZ), () => chatReportsSection({ ...S.CHAT_REPORTS, total: 300 }, S.NOW, S.TZ)],
+    ['off', () => chatReportsPage(undefined, S.NOW, S.TZ), () => chatReportsSection(undefined, S.NOW, S.TZ)],
+    ['failed', () => chatReportsPage(F, S.NOW, S.TZ), () => chatReportsSection(F, S.NOW, S.TZ)],
   ],
   'anh-nhan-dien': [
     ['sample', () => keptPage(S.KEPT, S.NOW, S.TZ), () => keptSection(S.KEPT, S.NOW, S.TZ)],
