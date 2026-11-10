@@ -371,6 +371,42 @@
       "kept": true
     }
   ],
+  "vi/species/neocaridina-davidi#6pcqIM3VdwA": [
+    {
+      "at": "2026-11-09T23:39:28Z",
+      "model": "sonnet",
+      "score": 0.55,
+      "notes": [
+        "\"Ở Đức, tép Sunburst chỉ có một nơi phân phối\" – video says Garnelo sells exclusively in Germany, 'I even think worldwide'; the rewrite drops the 'I believe' hedge on the worldwide claim in a way that reads as fact",
+        "\"lứa Sunburst chỉ sau một tuần đã đậm hơn hẳn\" – video says a week after getting them they were more intense, but this is phrased as a general result and is redundant with the 1–2 weeks claim",
+        "\"mất một đến hai tuần mới lên đủ màu\" – stated generally ('tép mới về'); video says NEOS always need 1–2 weeks, but it is one keeper's view and mixed with the Sunburst-specific line, which is confusing",
+        "\"Một người nuôi thấy khoảng nhiệt tép chịu được rộng hơn mức thường nêu, từ 4–5 °C đến 28–29 °C\" – the PAGE already gives 16–28 °C; the contrast is OK, but 'mức thường nêu' isn't said in the video, and 30 °C line is fine",
+        "\"nghe nói đến từ Đài Loan\" – video says 'ich weiß' (he knows), not hearsay; also 'Skyfish' is a breeder name, fine, but 'dòng mới của loài này' should be hedged as a Neocaridina davidi selection",
+        "\"có thể là gốc của một dòng mới\" – the video says females with white, red and some orange could be the basis of a new line, and the future of breeding lies in such females; OK, but 'Một người nuôi đoán một hai năm tới' mixes the speaker's guess about other colors, not just orange-like Sunburst",
+        "\"Màu của nó có lẽ bắt nguồn từ những con tép cam chọn lọc, vốn không đều màu mà hơi ngả vàng\" – acceptable, but the sentence is clumsy translated Vietnamese ('hơi ngả vàng' for yellowish-orange)",
+        "Missing mention that the page's own claims on easy breeding in normal water overlap; the waterConditions text partly repeats the page's hardy/wide-range message"
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-09T23:39:28Z",
+      "model": "sonnet",
+      "score": 0.55,
+      "notes": [
+        "[beforeYouBuy] \"Một người nuôi loài này lâu năm thấy tép mới về luôn cần một đến hai tuần\": the video says this as a general statement (\"immer ein bis zwei Wochen\"). It is the speaker's own experience and should not be written as a rule with \"luôn\". It also adds a long-time-keeper framing the video doesn't give.",
+        "[waterConditions] \"4–5 °C đến 28–29 °C, lên 30 °C cũng không sao\": the page already gives 16–28°C, but NEW doesn't say the video differs. It should state plainly that the video's range is wider than the page's 16–28°C. The keeper claim also reads as a general rule for the species.",
+        "[waterConditions] \"từng để tép ngoài trời suốt một năm, trời lạnh mà chúng vẫn sống\": the video says it survived \"bei niedrigen Temperaturen\". The \"người nuôi lâu năm\" framing is invented, since the speaker only says he once kept them outside for a year.",
+        "[reproduction] \"Loài này đẻ được cả trong nước bình thường, không có bí quyết gì đặc biệt\": the page already says they breed very easily. This is mostly redundant, and the video's mocking remark about \"secrets\" is turned into a flat claim.",
+        "[reproduction] \"những con cái mang cả trắng, đỏ và một ít cam có thể là gốc của một dòng mới\": this is supported by the video, but it sits under reproduction when it is about colour or line development. The heading is a poor fit.",
+        "[notes] \"do Skyfish, một người lai tạo có tiếng ở đó, cho ra\": it names a breeder. This is said in the video, but \"cho ra\" states it more firmly than the speaker's \"ich weiß\".",
+        "[beforeYouBuy] \"Ở Đức, tép Sunburst chỉ có một nơi phân phối\": the video says exclusive in Germany, and the speaker believes worldwide. This is fine, but the claim is stated without the hedge about whether it is exclusive worldwide.",
+        "[notes] \"Màu của nó chắc là chọn lọc từ tép cam\": the video says \"wahrscheinlich\", so the hedge is kept. The wording \"chắc là\" and \"cho ra\" reads a bit like a translation."
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/species/otocinclus-vittatus#6C3cORsXseY": [
     {
       "at": "2026-11-09T17:54:19Z",
