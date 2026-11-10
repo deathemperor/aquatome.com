@@ -5,7 +5,7 @@ import type { KeptRow } from '../fishid/kept'
 import type { Hidden } from '../hidden'
 import { isViPage, withoutVi } from '../paths'
 import type { Excluded, Readers } from '../readers'
-import type { LangAsks } from '../lang-ask'
+import { CHOOSER_FROM, CHOOSER_OUR_RUNS, CHOOSER_SCRIPT_FROM, type LangAsks } from '../lang-ask'
 import type { Wanted } from '../wanted'
 import { chipHtml, chipOf, dayChart, dayLabel, dayName, deltaOf, esc, fmt, lastDays, rankTable, spark, tiles, usd, type Chip, type DayChart, type Ranked, type Tile } from './chart'
 import { chart, failedNote, figures, heading, note, rankBlock, table, tableHtml, textOf, type Action, type Block, type Cell, type PhotoItem, type RankRow, type Section, type TextTone } from './blocks'
@@ -482,6 +482,7 @@ function leftOutParts(r: Readers, tz: string, now: Date) {
     ...(auto ? [{ label: 'Likely automated: bursts of fresh tabs, one new page each', value: auto.sessions, cells: [fmt(auto.readers)] }] : []),
     // Left out by time (ae.ts OUR_RUNS), so not in `excluded`: listed while they're in the page's days.
     ...OUR_RUNS.filter(x => Date.parse(x.to) > now.getTime() - r.days * 86_400_000).map(x => ({ label: `Ours before our network was marked: ${x.cc}, ${timeText(x.from, tz, now)} to ${timeText(x.to, tz, now)}`, value: x.tabs, cells: ['—'] })),
+    ...CHOOSER_OUR_RUNS.filter(x => Date.parse(x.from) <= now.getTime() && Date.parse(x.to) > now.getTime() - r.days * 86_400_000).map(x => ({ label: `Chooser views from our Lighthouse check before it was marked: ${x.cc}, ${timeText(x.from, tz, now)} to ${timeText(x.to, tz, now)}`, value: x.views, cells: ['—'] })),
   ]
   const bursts = (auto?.bursts ?? []).map(b => `${esc(b.cc || '??')}: ${fmt(b.sessions)} tabs, ${timeTag(`${b.from.replace(' ', 'T')}Z`, tz, now)} to ${timeTag(`${b.to.replace(' ', 'T')}Z`, tz, now)}`)
   const app = r.app
@@ -531,13 +532,16 @@ function readersParts(now: Date, r: Readers, tz: string) {
   }
 }
 
-const ASKS_TITLE = 'The language chooser'
+const ASKS_TITLE = 'Chooser views, not visitors'
 const ASKS_HEAD = ['Country', 'Shown', ...LANGS.map(l => `Chose ${LANG_NAME[l]}`)]
 /** The language chooser (worker/lang-ask.ts): who saw it and what they picked, by country. */
-const asksParts = (a: LangAsks) => ({
-  lede: `A browser that asks for none of the site’s languages, from a country other than Vietnam, Indonesia or Thailand, is asked to choose one at aquatome.com/. How often the chooser showed and what was chosen, by country, the last ${a.days} days (bots and prefetches left out). Readers who came through it show as “(direct)” under Sources.`,
-  rows: a.rows.map(x => ({ label: esc(x.cc || '??'), value: x.shown, cells: LANGS.map(l => fmt(x.picked[l])) })) as Ranked[],
-})
+const asksParts = (a: LangAsks, now: Date) => {
+  const within = (iso: string) => now.getTime() - Date.parse(iso) < a.days * 86_400_000
+  return {
+    lede: `A browser that asks for none of the site’s languages, from a country other than Vietnam, Indonesia or Thailand, is asked to choose one at aquatome.com/. Views of that page and what was chosen, by country, ${within(CHOOSER_FROM) ? 'since 5 Nov' : `the last ${a.days} days`}: views, not people, and known bots left out. A view counts only when a small script on the page runs in a browser${within(CHOOSER_SCRIPT_FROM) ? ', so programs that run no script are out; views from before that change counted every request' : ''}. Readers who came through it show as “(direct)” under Sources.`,
+    rows: a.rows.map(x => ({ label: esc(x.cc || '??'), value: x.shown, cells: LANGS.map(l => fmt(x.picked[l])) })) as Ranked[],
+  }
+}
 
 export function readersPage(now: Date, r: Soft<Readers> | undefined, tz = HOME_TZ, asks?: Soft<LangAsks>): string {
   let body = '<h1>Readers</h1>'
@@ -559,7 +563,7 @@ ${tiles(p.tiles)}
   }
   if (asks && isFailed(asks)) body += `<h2>${ASKS_TITLE}</h2>${failedBox('the language chooser (Analytics Engine)', asks)}`
   else if (asks) {
-    const a = asksParts(asks)
+    const a = asksParts(asks, now)
     body += `<h2>${ASKS_TITLE}</h2><p class="lede">${a.lede}</p>${rankTable(a.rows, ASKS_HEAD)}`
   }
   return page('/_ab/doc-gia/', 'Readers', body, now, tz)
@@ -580,7 +584,7 @@ export function readersSection(now: Date, r: Soft<Readers> | undefined, tz = HOM
   }
   if (asks && isFailed(asks)) blocks.push(heading(ASKS_TITLE), failedNote('the language chooser (Analytics Engine)', asks))
   else if (asks) {
-    const a = asksParts(asks)
+    const a = asksParts(asks, now)
     blocks.push(heading(ASKS_TITLE), note(a.lede), rankBlock(a.rows, ASKS_HEAD))
   }
   return { title: 'Readers', blocks }
