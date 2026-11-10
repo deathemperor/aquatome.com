@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { cardRepeats, dropCardRepeats, dropItems, dropLowCo2, dropOffItems, figuresOffCard, litresOffCard, shownCard, sizeIsForSale, states, tankIsVolume, tempIsNotForKeeping } from '../src/index'
+import { cardRepeats, dropCardRepeats, dropItems, dropLowCo2, dropOffItems, figuresOffCard, isOneEnded, litresOffCard, shownCard, sizeIsForSale, states, tankIsVolume, tempIsNotForKeeping } from '../src/index'
 
 // Cá neon vua and Cá chạch bùn as aquatome.com had them (design critique 2026-10-31): the card said 3,5 cm, pH 4,6–6,2,
 // 23–27 °C; The Spruce Pets' quick facts and Seriously Fish's water text said 5 cm, pH 3,5–7,5, 23–29 °C.
@@ -179,6 +179,30 @@ test('tempIsNotForKeeping: a single figure for the wild or breeding, never a kee
   expect(tempIsNotForKeeping('<p>In the wild it reaches 26°C. In the aquarium keep it at 26°C.</p>', figure(26))).toBe(false)
   expect(tempIsNotForKeeping('<p>In the wild, 24 to 28°C.</p>', { min: 24, max: 28 })).toBe(false)
   expect(tempIsNotForKeeping('<p>No figure here.</p>', figure(25))).toBe(false)
+})
+
+// What the pages said (Aquarium Co-op, Glaser, 2026-11-10): one end only, and the card had a range with an end nobody gave.
+test('a pH or hardness the page gives only as one end has no range; a page that states a range does', () => {
+  expect(isOneEnded('<p>pH: above 7.0</p><p>GH: at least 5 dGH</p>', 'gh', { min: 5, max: 12 })).toBe(true)
+  expect(isOneEnded('<p>pH: above 7.0</p><p>GH: at least 5 dGH</p>', 'ph', { min: 7, max: 8 })).toBe(true)
+  expect(isOneEnded('<p>Basically, the pH should not fall below 7.</p>', 'ph', { min: 7, max: 8.5 })).toBe(true)
+  expect(isOneEnded('<p>The pH must be over 8.</p>', 'ph', { min: 8, max: 8 })).toBe(true)
+  expect(isOneEnded('<p>Keep the pH below 6.5.</p>', 'ph', { min: 5, max: 6.5 })).toBe(true)
+  expect(isOneEnded('<p>pH 6.0 – 7.5, and never below 6.</p>', 'ph', { min: 6, max: 7.5 })).toBe(false)
+  expect(isOneEnded('<p>Hardness: 15–30 dGH</p>', 'gh', { min: 15, max: 30 })).toBe(false)
+  expect(isOneEnded('<p>GH 1–12 dGH. Needs a tank at least 2 m long.</p>', 'gh', { min: 1, max: 12 })).toBe(false)
+  expect(isOneEnded('<p>Hardness less than 1° dH.</p>', 'gh', { min: 0, max: 1 })).toBe(true)
+  expect(isOneEnded('<p>A pH up to 8.</p>', 'ph', { min: 6, max: 8 })).toBe(true)
+  expect(isOneEnded('<p>pH above 7.5, temperature 25°C or warmer.</p>', 'tempC', { min: 25, max: 30 })).toBe(true)
+  expect(isOneEnded('<p>Temperature: up to 86°F.</p>', 'tempC', { min: 22, max: 30 })).toBe(true)
+  expect(isOneEnded('<p>Temperature: 24–28°C, never above 30°C.</p>', 'tempC', { min: 24, max: 28 })).toBe(false)
+  expect(isOneEnded('<p>Lifespan: up to 5 years.</p>', 'lifeYears', { min: 3, max: 5 })).toBe(true)
+  expect(isOneEnded('<p>Temperatures below 26°C in summer and around 17°C in winter are ideal.</p>', 'tempC', { min: 17, max: 26 })).toBe(false)
+  expect(isOneEnded('<p>pH: requires strictly acidic conditions within the range 4.0–6.5.</p><p>The pH should ideally be below 6.0.</p>', 'ph', { min: 4, max: 6.5 })).toBe(false)
+  expect(isOneEnded('<p>It lives 3–5 years.</p>', 'lifeYears', { min: 3, max: 5 })).toBe(false)
+  expect(isOneEnded('<p>The pH should not rise above 7.</p>', 'ph', { min: 6, max: 7 })).toBe(true)
+  const card = { ph: [{ source: 'aquariumcoop', value: { min: 7, max: 8 } }, { source: 'seriouslyfish', value: { min: 7, max: 8 } }] }
+  expect(shownCard(card, [{ source: 'aquariumcoop', html: '<p>pH: above 7.0</p>' }, { source: 'seriouslyfish', html: '<p>pH: 7.0–8.0</p>' }], () => true)).toEqual({ ph: [{ source: 'seriouslyfish', value: { min: 7, max: 8 } }] })
 })
 
 test('shownCard: a figure two other sources overrule is off the card, and the card takes theirs', () => {

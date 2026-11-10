@@ -144,7 +144,7 @@ test('a hardness against its source\'s own measured reading gives way to the sou
   const root = fileURLToPath(new URL('../../../content', import.meta.url))
   for (const lang of ['vi', 'id', 'th'] as const) {
     const fish = (await loadAll({ root, lang, publicBuild: true })).species.find(x => x.id === 'pseudomugil-furcatus')!
-    expect(resolveDataCard(fish.dataCard.gh!, 'gh'), lang).toMatchObject({ value: { min: 4, max: 12 }, sources: ['bwaquatics', 'aquariumcoop'] })
+    expect(resolveDataCard(fish.dataCard.gh!, 'gh'), lang).toMatchObject({ value: { min: 4, max: 12 }, sources: ['bwaquatics'] })
     expect(shownText(fish), lang).not.toMatch(/15\s*[–-]\s*30/)
   }
 }, 240_000)
