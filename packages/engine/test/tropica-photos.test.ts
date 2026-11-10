@@ -51,12 +51,14 @@ test('a cut-out is stored on white and is no scene; a photo that fills its frame
   expect(await asShown(await picture(900, 600, green))).toMatchObject({ width: 900, height: 600, scene: true })
 })
 
-async function repo(plants: Record<string, { photos?: object[]; tropica?: boolean }>) {
+const KEYS = ['description', 'careLevel', 'lighting', 'co2', 'placement', 'propagation', 'origin', 'notes']
+/** Plant pages written from Tropica, each with `sections` sections (eight unless said): a page shows its lead and one photo between each pair. */
+async function repo(plants: Record<string, { photos?: object[]; tropica?: boolean; sections?: number }>) {
   const root = await mkdtemp(join(tmpdir(), 'aq-tropica-'))
   await mkdir(join(root, 'engine-state'), { recursive: true })
   for (const [id, p] of Object.entries(plants)) {
     await mkdir(join(root, 'content/plants', id), { recursive: true })
-    await writeFile(join(root, 'content/plants', id, 'entity.json'), JSON.stringify({ scientificName: id, photos: p.photos ?? [], sections: p.tropica === false ? [{ source: 'aquariumcoop', sourceUrl: 'https://www.aquariumcoop.com/blogs/aquarium/x' }] : [{ source: 'tropica', sourceUrl: `${PAGE}?${id}` }] }))
+    await writeFile(join(root, 'content/plants', id, 'entity.json'), JSON.stringify({ scientificName: id, photos: p.photos ?? [], sections: p.tropica === false ? [{ key: 'description', source: 'aquariumcoop', sourceUrl: 'https://www.aquariumcoop.com/blogs/aquarium/x' }] : KEYS.slice(0, p.sections ?? 8).map(key => ({ key, source: 'tropica', sourceUrl: `${PAGE}?${id}` })) }))
   }
   return root
 }
@@ -188,6 +190,22 @@ test('a page keeps eight photos of its own: what is over goes to its gallery, un
   expect(await tropicaPhotos(full, d)).toEqual({ added: ['full-plant: 3 in its gallery'], skipped: [], failed: [] })
   expect((await entity(full, 'full-plant')).photos).toHaveLength(8)
   expect(await tropicaPhotos(full, d)).toEqual({ added: [], skipped: [], failed: [] })
+})
+
+test('a page takes only as many as it shows, its lead and one between each pair of sections: the rest go to its gallery', async () => {
+  const lead = { url: 'https://media.aquatome.com/commons/lead.webp', width: 900, height: 600, licence: 'CC BY-SA 4.0', author: 'A', sourceUrl: 'https://commons.wikimedia.org/wiki/File:Lead.jpg' }
+  const root = await repo({ 'one-section': { photos: [lead], sections: 1 }, 'two-sections': { photos: [lead], sections: 2 }, 'three-sections': { photos: [lead, { ...lead, url: `${lead.url}?2` }], sections: 3 } })
+  const { d } = await deps()
+  expect((await tropicaPhotos(root, d)).added).toEqual(['one-section: 3 in its gallery', 'three-sections: 1 behind its photos, 2 in its gallery', 'two-sections: 1 behind its photos, 2 in its gallery'])
+  // The one that shows is the scene, and what leads stays.
+  const two = (await entity(root, 'two-sections')).photos
+  expect(two[0]).toEqual(lead)
+  expect(two.slice(1).map(p => [p.source, p.width])).toEqual([['tropica', 1200]])
+  // A page with a lead gets none marked best: nothing there is waiting to lead.
+  const inGallery = (await gallery(root, 'one-section'))!.photos
+  expect(inGallery.map(p => `${p.width} ${p.kind}`).sort()).toEqual(['1000 other', '1000 other', '1200 submersed'])
+  expect(inGallery.some(p => p.best)).toBe(false)
+  expect((await entity(root, 'one-section')).photos).toEqual([lead])
 })
 
 test('an address that answers with no picture is left out, and the page keeps the rest', async () => {

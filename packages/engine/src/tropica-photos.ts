@@ -70,7 +70,7 @@ export async function asShown(raw: Uint8Array): Promise<{ bytes: Uint8Array; wid
   return { bytes, width: meta.width ?? 0, height: meta.height ?? 0, scene: white / edge < 0.2 }
 }
 
-type Entity = { photos: Photo[]; sections?: { source: string; sourceUrl: string }[] }
+type Entity = { photos: Photo[]; sections?: { key?: string; source: string; sourceUrl: string }[] }
 type Gallery = { photos: GalleryPhoto[]; seen: number; updatedAt: string; builtAt?: string }
 
 /**
@@ -78,11 +78,12 @@ type Gallery = { photos: GalleryPhoto[]; seen: number; updatedAt: string; builtA
  * at the size Tropica keeps it and on white. A page is read again after a month if it gave none.
  *
  * Where they go (agreed with the Curation Lead, 2026-11-10): on a page that has photos, behind them, scenes before
- * cut-outs, so what leads stays; a page keeps eight of its own (run.ts), and what is over goes to its gallery. On a page
- * with none, all go to its gallery, the widest scene marked `best`: the step that fills a page with no photo
- * (lead-photos, once it takes plants) tries the gallery's `best` first, and only a photo the photo check passed can
- * lead. Until then such a page shows them only once its gallery has six. A scene wider than the stored 1,200 px keeps
- * its large copy too, for a card.
+ * cut-outs, so what leads stays, and only as many as the page shows: its lead and one photo between each pair of its
+ * sections (the site's section-parts.ts), eight at most (run.ts). Most Tropica pages have two or three sections, and a
+ * photo past that would sit in the page's file and show nowhere, so the rest go to its gallery. On a page with none, all
+ * go to its gallery, the widest scene marked `best`: the step that fills a page with no photo (lead-photos, once it
+ * takes plants) tries the gallery's `best` first, and only a photo the photo check passed can lead. A gallery shows
+ * once it has six. A scene wider than the stored 1,200 px keeps its large copy too, for a card.
  *
  * `engine-state/_photo-tropica.json`: plant page → when it was read. `--limit`: pages a run.
  */
@@ -128,7 +129,8 @@ export async function tropicaPhotos(root: string, d: TropicaDeps, o: { limit?: n
       const ordered = [...scenes, ...fresh.filter(p => !p.scene)]
       const plain = ({ scene: _, ...p }: Photo & { scene: boolean }): Photo => p
       const empty = !e.photos.length
-      const own = empty ? [] : ordered.slice(0, Math.max(0, MAX_PHOTOS - e.photos.length))
+      const shows = Math.min(MAX_PHOTOS, new Set((e.sections ?? []).map(x => x.key)).size)
+      const own = empty ? [] : ordered.slice(0, Math.max(0, shows - e.photos.length))
       const rest = ordered.slice(own.length)
       if (own.length) {
         e.photos.push(...own.map(plain))
