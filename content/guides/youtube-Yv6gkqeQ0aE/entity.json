@@ -9,9 +9,11 @@
     "scleropages-formosus",
     "osteoglossum-bicirrhosum",
     "scleropages-jardinii",
-    "heterotis-niloticus"
+    "heterotis-niloticus",
+    "scleropages-leichardti",
+    "scleropages-inscriptus"
   ],
-  "updatedAt": "2026-11-03",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "Yv6gkqeQ0aE",
     "title": "Why the asian arowana is illegal in the united states.",
@@ -31,32 +33,34 @@
     },
     "taxa": [
       "Scleropages formosus",
-      "Osteoglossum bicirrhosum",
-      "Osteoglossum ferreirai",
       "Scleropages jardinii",
       "Scleropages leichardti",
-      "Heterotis niloticus",
       "Scleropages inscriptus",
-      "Arapaima gigas"
+      "Osteoglossum bicirrhosum",
+      "Osteoglossum ferreirai",
+      "Heterotis niloticus",
+      "Symphysodon sp."
     ],
     "gear": [],
     "figures": [
       {
-        "heading": "Vì sao gọi là cá rồng",
+        "heading": "Cá rồng châu Á có những màu nào",
         "moments": [
           {
-            "t": 49,
-            "url": "https://media.aquatome.com/video/Yv6gkqeQ0aE/t49.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cá rồng đỏ bơi trong bể, vảy lớn ánh đỏ rõ nét."
+            "t": 50,
+            "url": "https://media.aquatome.com/video/Yv6gkqeQ0aE/at50-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá rồng huyết long màu đỏ với vảy to như lớp giáp.",
+            "sharpness": 53.8
           },
           {
-            "t": 119,
-            "url": "https://media.aquatome.com/video/Yv6gkqeQ0aE/t119.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cận cảnh đầu cá rồng đỏ với đôi râu ở cằm."
+            "t": 70,
+            "url": "https://media.aquatome.com/video/Yv6gkqeQ0aE/at70-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Huyết long bơi trong bể, thân đỏ, vây ngực xòe ra.",
+            "sharpness": 138.1
           }
         ],
         "photo": {
@@ -67,80 +71,79 @@
           "licence": "CC BY-SA 3.0",
           "author": "Marcel Burkhard",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Arowana.jpg",
-          "caption": "Cá rồng đỏ cận mặt, thấy rõ cặp râu ở cằm và vảy ánh đỏ cam."
+          "caption": "Cá rồng huyết long với vảy to ánh đỏ cam, miệng rộng và đôi râu."
         }
       },
       {
-        "heading": "Môi trường sống tự nhiên và màu đỏ",
+        "heading": "Cơ thể cá rồng dùng để làm gì",
         "moments": [
           {
-            "t": 247,
-            "url": "https://media.aquatome.com/video/Yv6gkqeQ0aE/t247.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cá rồng đỏ với thân màu đỏ đậm nổi bật trên nền tối."
+            "t": 200,
+            "url": "https://media.aquatome.com/video/Yv6gkqeQ0aE/at200-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh đầu cá rồng với râu dưới cằm và mắt.",
+            "sharpness": 7.4
           },
           {
-            "t": 277,
-            "url": "https://media.aquatome.com/video/Yv6gkqeQ0aE/t277.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Đàn cá rồng đỏ bơi trong làn nước sẫm màu."
+            "t": 210,
+            "url": "https://media.aquatome.com/video/Yv6gkqeQ0aE/at210-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cá rồng bơi chậm rãi trong nước, thân dài thon và vây ngực rộng.",
+            "sharpness": 21.8
           }
         ]
       },
       {
-        "heading": "Con cá rồng ở cửa hàng là loài gì",
+        "heading": "Vì sao huyết long có màu đỏ",
+        "moments": [
+          {
+            "t": 280,
+            "url": "https://media.aquatome.com/video/Yv6gkqeQ0aE/at280-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đàn cá rồng đỏ bơi trong nước sẫm màu.",
+            "sharpness": 214
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/Yv6gkqeQ0aE/p2-dF9Cb3JuZW8uanBn.webp",
+          "thumb": "https://media.aquatome.com/video/Yv6gkqeQ0aE/p2-dF9Cb3JuZW8uanBn-480.webp",
+          "width": 960,
+          "height": 640,
+          "licence": "CC BY-SA 4.0",
+          "author": "Rahmad Widyo Utomo",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sungai_Kapuas_West_Borneo.jpg",
+          "caption": "Dòng sông rộng ở đảo Borneo, nước đục sẫm, quê hương của huyết long."
+        }
+      },
+      {
+        "heading": "Cá rồng bán rẻ ở tiệm Mỹ là cá gì",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/Yv6gkqeQ0aE/p3-pcnJob3N1bS5KUEc.webp",
-          "thumb": "https://media.aquatome.com/video/Yv6gkqeQ0aE/p3-pcnJob3N1bS5KUEc-480.webp",
+          "url": "https://media.aquatome.com/video/Yv6gkqeQ0aE/p4-pcnJob3N1bS5KUEc.webp",
+          "thumb": "https://media.aquatome.com/video/Yv6gkqeQ0aE/p4-pcnJob3N1bS5KUEc-480.webp",
           "width": 960,
           "height": 596,
           "licence": "CC BY-SA 3.0",
           "author": "User:Qwertzy2",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Osteoglossum_bicirrhosum.JPG",
-          "caption": "Cá rồng ngân long bơi trong bể, thân bạc ánh vàng, thấy rõ cả con."
+          "caption": "Cá rồng bạc (silver arowana) bơi trong bể, thấy rõ toàn thân và vảy."
         }
       },
       {
-        "heading": "Vì sao cá rồng châu Á đắt",
-        "moments": [
-          {
-            "t": 633,
-            "url": "https://media.aquatome.com/video/Yv6gkqeQ0aE/t633.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Cá rồng châu Á màu đỏ bơi trong bể tối."
-          }
-        ]
-      },
-      {
-        "heading": "Không nuôi được cá rồng châu Á thì chọn loài nào",
+        "heading": "Không nuôi được cá rồng châu Á thì nuôi loài nào",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/Yv6gkqeQ0aE/p5-yZWlyYWlfMi5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/Yv6gkqeQ0aE/p5-yZWlyYWlfMi5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/Yv6gkqeQ0aE/p6-yZWlyYWlfMi5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/Yv6gkqeQ0aE/p6-yZWlyYWlfMi5qcGc-480.webp",
           "width": 960,
           "height": 720,
           "licence": "CC BY-SA 4.0",
           "author": "NasserHalaweh",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Osteoglossidae_Osteoglossum_ferreirai_2.jpg",
-          "caption": "Cá rồng bạc bơi trong bể, thân ánh bạc, vảy to đặc trưng."
-        }
-      },
-      {
-        "heading": "Bắt đầu từ đâu",
-        "moments": [],
-        "photo": {
-          "url": "https://media.aquatome.com/video/Yv6gkqeQ0aE/p6-cm93YW5hXzEuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/Yv6gkqeQ0aE/p6-cm93YW5hXzEuanBn-480.webp",
-          "width": 960,
-          "height": 640,
-          "licence": "CC BY 2.0",
-          "author": "Amaury Laporte",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Silver_Arowana_1.jpg",
-          "caption": "Cá ngân long thân bạc, vảy lớn và hai râu rõ, bơi trong bể."
+          "caption": "Cá rồng bạc bơi trong bể kính, thân dài với vảy lớn ánh bạc."
         }
       }
     ]

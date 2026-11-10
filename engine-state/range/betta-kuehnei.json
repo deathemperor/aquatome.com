@@ -1,8 +1,8 @@
 {
   "id": "betta-kuehnei",
   "native": {
-    "input": "542c034367b67de2",
-    "at": "2026-11-06T18:08:44.169Z",
+    "input": "4224d775ae0869cd",
+    "at": "2026-11-09T12:58:06.259Z",
     "claims": [
       {
         "code": "MY",
@@ -21,10 +21,18 @@
         "ok": true
       },
       {
+        "code": "MY",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The most recently described species is Betta kuehnei from the northernmost province Kelantan of Malaysia and the southernmost parts of Thailand.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
         "code": "TH",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "It's also known from at least one locality across the border in Narathiwat province, southern Thailand.",
+        "source": "glaser",
+        "quote": "The most recently described species is Betta kuehnei from the northernmost province Kelantan of Malaysia and the southernmost parts of Thailand.",
         "words": "Thailand",
         "ok": true
       }

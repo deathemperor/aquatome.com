@@ -921,6 +921,24 @@ test('Vietnamese typed without accents is read as a keeper means it: the first m
   expect(said('id', 'ikan neon ada jamur putih')).not.toContain('without Vietnamese accents')
 })
 
+test('a long post\'s first line is written from its end; the run still reads the whole post', async () => {
+  const h = await hb()
+  const final = answer([], { text: 'Chia đèn hai đợt được.' })
+  const bodies: { call: number; body: Anthropic.MessageCreateParamsNonStreaming }[] = []
+  const question = `Dòng đầu của bài viết. ${'Bể em set 3 tháng, đèn 8 tiếng, thay nước mỗi tuần. '.repeat(12)}Lá ráy có đốm rêu xanh. Có nên chia đèn không?`
+  await answerQuestion({
+    send: async (body, opts) => {
+      bodies.push({ call: opts.call, body })
+      return message([{ type: 'text', text: opts.call === 0 ? '-' : JSON.stringify(final) }])
+    },
+    model: 'claude-haiku-5-5', lang: 'vi', question, earlier: [], start: {}, handbook: h, tanks: async () => [], opening: true,
+  })
+  const said = (n: number) => JSON.stringify(bodies.find(b => b.call === n)!.body.messages)
+  expect(said(0)).toContain('Có nên chia đèn không?')
+  expect(said(0)).not.toContain('Dòng đầu của bài viết')
+  expect(said(1)).toContain('Dòng đầu của bài viết')
+})
+
 test('the first line comes from a call of its own beside the run\'s first, before the first step; it counts in the turn\'s tokens, and the run\'s calls are as without it', async () => {
   const h = await hb()
   const final = answer([], { text: 'Cá neon xanh sống theo đàn.' })
@@ -1001,7 +1019,7 @@ test('a handover that takes too long is none, and what it took comes out of the 
 test('no first line is shown when it says the question is off topic, isn\'t in the reader\'s language, comes after the first step or the run, or its call fails; one shown is kept', async () => {
   const h = await hb()
   const final = answer([], { text: 'Cá neon xanh sống theo đàn.' })
-  const turn = async (o: { lang?: ChatOptions['lang']; line: () => Promise<Anthropic.Message>; first?: () => Promise<void>; text?: string; direct?: boolean }) => {
+  const turn = async (o: { lang?: ChatOptions['lang']; line: () => Promise<Anthropic.Message>; first?: () => Promise<void>; text?: string; direct?: boolean; onOpening?: (l: string) => void }) => {
     const shown: string[] = []
     const out = await answerQuestion({
       send: async (_, opts) => {
@@ -1010,13 +1028,19 @@ test('no first line is shown when it says the question is off topic, isn\'t in t
         return message([{ type: 'text', text: o.text ?? JSON.stringify(final) }])
       },
       model: 'claude-haiku-5-5', lang: o.lang ?? 'vi', question: 'x', earlier: [], start: {}, handbook: h, tanks: async () => [],
-      opening: true, onOpening: l => shown.push(l), onStep: () => stepped(),
+      opening: true, onOpening: o.onOpening ?? (l => shown.push(l)), onStep: () => stepped(),
     })
     return { shown, opening: out.opening, answered: out.answer?.text, output: out.spent.output }
   }
   let stepped = () => {}
   const text = (t: string) => async () => message([{ type: 'text', text: t }])
+  // The run's first call ends a moment after the line's (a task later: the line's call is all done by then).
+  const later = () => new Promise<void>(r => setTimeout(r, 0))
   expect(await turn({ line: text('-') })).toMatchObject({ shown: [], opening: undefined, answered: final.text })
+  // A line the word list holds, even wrongly, loses the line and nothing else; its tokens still count, 50 each call.
+  expect(await turn({ line: text('Mình đang tra cẩm nang về cá to vl trong bể của bạn.'), first: later })).toMatchObject({ shown: [], opening: undefined, answered: final.text, output: 150 })
+  // Nor does sending the line (a reader who has left) cost the answer.
+  expect(await turn({ line: text('Mình đang tra cẩm nang về cá neon xanh.'), first: later, onOpening: () => { throw new Error('the reader has left') } })).toMatchObject({ answered: final.text })
   expect(await turn({ lang: 'id', line: text('Mình sedang mencari panduan tentang air keruh.') })).toMatchObject({ shown: [], opening: undefined, answered: final.text })
   expect(await turn({ line: async () => { throw Object.assign(new Error('overloaded'), { status: 529 }) } })).toMatchObject({ shown: [], opening: undefined, answered: final.text, output: 100 })
   // The line's call answers only once the first step is out.
@@ -1027,8 +1051,6 @@ test('no first line is shown when it says the question is off topic, isn\'t in t
   const late = await turn({ direct: true, line: async () => { await new Promise(r => setTimeout(r, 20)); return message([{ type: 'text', text: 'Mình đang tra cẩm nang về cá neon xanh.' }]) }, text: JSON.stringify({ ...final, offTopic: true }) })
   expect(late).toMatchObject({ shown: [], opening: undefined, output: 100 })
   // Shown, then the answer is off topic: the run keeps the line it showed, for the transcript (the turn leaves it out: api.ts).
-  // The run's first call ends a moment after the line's (a task later: the line's call is all done by then).
-  const later = () => new Promise<void>(r => setTimeout(r, 0))
   const offTopic = await turn({ line: text('Mình đang tra cẩm nang về cá neon xanh.'), first: later, text: JSON.stringify({ ...final, offTopic: true }) })
   expect([offTopic.shown.length, offTopic.opening]).toEqual([1, 'Mình đang tra cẩm nang về cá neon xanh.'])
 })

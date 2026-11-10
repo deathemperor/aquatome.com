@@ -17,6 +17,12 @@
     },
     {
       "key": "maintenance",
+      "source": "aquatome",
+      "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
+      "html": "<p>Bèo tây Nam Mỹ là cây thả nổi, chỉ cần thả lên mặt nước chứ không trồng xuống nền. Loài này hợp nhất với bể hở, nhưng bể thường cũng nuôi đẹp. Bộ rễ dài và mảnh buông xuống trong nước, thành chỗ trốn cho cá sặc và các loài cá tầng mặt thích rễ cây nổi. Khi nước đủ phân và đèn đủ mạnh, lá mới sẽ vươn lên khỏi mặt nước, lúc đó có thể phải vớt bớt cho cây bên dưới còn chút ánh sáng. Nếu bèo bỗng lớn chậm hẳn lại thì đó là dấu hiệu nước đã cạn phân.</p>"
+    },
+    {
+      "key": "maintenance",
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Limnobiumlaevigatum(063TC)/4761",
       "html": "<p>If there are enough nutrients in the water and the light intensity is good, new leaves will appear above the water surface. It may become necessary to remove some so that the plants beneath still get some light. When the nutrient level in the water decreases, it will grow much slower, which makes it a great indicator of the available nutrients.</p>"
@@ -86,5 +92,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-09"
 }

@@ -20,6 +20,279 @@
     "fernando-po",
     "old-calabar-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "NG",
+        "GH",
+        "AO",
+        "CM"
+      ],
+      "regions": [
+        "Volta River",
+        "Shiloango",
+        "Fernando Po",
+        "Sanaga",
+        "Cross",
+        "Old Calabar River"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Old Calabar River, Nigeria.",
+          "countries": [
+            "NG"
+          ],
+          "regions": [
+            "Old Calabar River"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Africa: distributed along the coastal plain of west and central Africa from the lower Volta River (Ghana) to the Shiloango system (Angola and Congo DR), and on the Island of Fernando Po.",
+          "countries": [
+            "GH",
+            "AO"
+          ],
+          "regions": [
+            "Volta River",
+            "Shiloango",
+            "Fernando Po"
+          ]
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Waters include the Cross, Cameroon's Sanaga and Lokunje.",
+          "countries": [
+            "CM"
+          ],
+          "regions": [
+            "Sanaga",
+            "Cross"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342030,
+      "total": 174,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "CM",
+          60
+        ],
+        [
+          "NG",
+          24
+        ],
+        [
+          "GA",
+          22
+        ],
+        [
+          "BJ",
+          19
+        ],
+        [
+          "TG",
+          14
+        ],
+        [
+          "CG",
+          12
+        ],
+        [
+          "GQ",
+          10
+        ],
+        [
+          "CD",
+          7
+        ],
+        [
+          "AO",
+          4
+        ],
+        [
+          "CI",
+          1
+        ],
+        [
+          "GH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -8.4375,
+          5.625,
+          1,
+          0
+        ],
+        [
+          0,
+          5.625,
+          8,
+          1
+        ],
+        [
+          0,
+          7.03125,
+          2,
+          0
+        ],
+        [
+          0,
+          8.4375,
+          5,
+          0
+        ],
+        [
+          1.40625,
+          5.625,
+          13,
+          0
+        ],
+        [
+          1.40625,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          1.40625,
+          9.84375,
+          2,
+          0
+        ],
+        [
+          2.8125,
+          11.25,
+          3,
+          0
+        ],
+        [
+          5.625,
+          4.21875,
+          16,
+          16
+        ],
+        [
+          7.03125,
+          4.21875,
+          8,
+          8
+        ],
+        [
+          8.4375,
+          1.40625,
+          3,
+          3
+        ],
+        [
+          8.4375,
+          2.8125,
+          3,
+          2
+        ],
+        [
+          8.4375,
+          4.21875,
+          19,
+          19
+        ],
+        [
+          8.4375,
+          5.625,
+          5,
+          5
+        ],
+        [
+          9.84375,
+          -2.8125,
+          2,
+          0
+        ],
+        [
+          9.84375,
+          -1.40625,
+          6,
+          0
+        ],
+        [
+          9.84375,
+          0,
+          6,
+          0
+        ],
+        [
+          9.84375,
+          1.40625,
+          23,
+          18
+        ],
+        [
+          9.84375,
+          2.8125,
+          11,
+          11
+        ],
+        [
+          9.84375,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          9.84375,
+          5.625,
+          1,
+          1
+        ],
+        [
+          11.25,
+          -5.625,
+          4,
+          2
+        ],
+        [
+          11.25,
+          -4.21875,
+          11,
+          0
+        ],
+        [
+          11.25,
+          -2.8125,
+          9,
+          0
+        ],
+        [
+          11.25,
+          -1.40625,
+          1,
+          0
+        ],
+        [
+          12.65625,
+          -5.625,
+          8,
+          2
+        ],
+        [
+          12.65625,
+          0,
+          2,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

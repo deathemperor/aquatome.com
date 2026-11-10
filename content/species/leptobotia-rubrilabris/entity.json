@@ -10,6 +10,62 @@
     "china",
     "yangtze"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Yangtze"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Leptobotia rubrilabris is a riverine botiid loach native to the middle and upper Yangtze River in China, with most records from Sichuan and Hunan.",
+          "countries": [
+            "CN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to middle and upper sections of the Yangtze River (aka Chiang Jiang), China with most of the available records pertaining to Sichuan and Hunan provinces, with type locality given as 'Chang Jiang (Yangtze River), China'.",
+          "countries": [],
+          "regions": [
+            "Yangtze"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2368283,
+      "total": 2,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "CN",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          109.6875,
+          26.71875,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          25.3125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

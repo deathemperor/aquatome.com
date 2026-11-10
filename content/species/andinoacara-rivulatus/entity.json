@@ -319,21 +319,6 @@
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/5d6f4b08c069244b.webp",
-      "width": 960,
-      "height": 649,
-      "licence": "CC BY 2.5",
-      "author": "MidgleyDJ (Dr. David Midgley) at en.wikipedia.",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Andinoacara_rivulatus_-_20061112.jpg",
-      "caption": "A green terror (Andinoacara rivulatus).",
-      "thumb": "https://media.aquatome.com/commons/5d6f4b08c069244b-480.webp",
-      "large": {
-        "url": "https://media.aquatome.com/commons/5d6f4b08c069244b-large.webp",
-        "width": 999,
-        "height": 675
-      }
-    },
-    {
       "url": "https://media.aquatome.com/commons/894420aee3b52e47.webp",
       "width": 960,
       "height": 682,
@@ -376,6 +361,21 @@
         "url": "https://media.aquatome.com/commons/e4286ab1b51cff69-large.webp",
         "width": 1912,
         "height": 1200
+      }
+    },
+    {
+      "url": "https://media.aquatome.com/commons/5d6f4b08c069244b.webp",
+      "width": 960,
+      "height": 649,
+      "licence": "CC BY 2.5",
+      "author": "MidgleyDJ (Dr. David Midgley) at en.wikipedia.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Andinoacara_rivulatus_-_20061112.jpg",
+      "caption": "A green terror (Andinoacara rivulatus).",
+      "thumb": "https://media.aquatome.com/commons/5d6f4b08c069244b-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/5d6f4b08c069244b-large.webp",
+        "width": 999,
+        "height": 675
       }
     }
   ],

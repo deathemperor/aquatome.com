@@ -8,9 +8,11 @@
   "mentions": [
     "taxiphyllum-alternans",
     "bucephalandra-sp",
-    "rotala-rotundifolia"
+    "rotala-rotundifolia",
+    "glossostigma-elatinoides",
+    "monosolenium-tenerum"
   ],
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "Jth3Ks8lm6c",
     "title": "6 bước thực hiện hồ thủy sinh (Part 2 - bước 4, 5)",
@@ -31,15 +33,14 @@
     "transcribed": true,
     "lang": "vi",
     "taxa": [
-      "Eleocharis sp.",
-      "Taxiphyllum alternans",
-      "Taxiphyllum sp.",
-      "Bucephalandra sp.",
-      "Anubias sp.",
-      "Hemianthus callitrichoides",
       "Rotala rotundifolia",
       "Rotala sp.",
-      "Pterygoplichthys sp."
+      "Glossostigma elatinoides",
+      "Taxiphyllum sp.",
+      "Anubias sp.",
+      "Bucephalandra sp.",
+      "Monosolenium tenerum",
+      "Eleocharis sp."
     ],
     "gear": [
       {
@@ -48,78 +49,85 @@
         "t": 0
       },
       {
+        "category": "cay-thuy-sinh",
+        "type": "reu",
+        "t": 162
+      },
+      {
+        "category": "cay-thuy-sinh",
+        "type": "gan-lua",
+        "t": 182
+      },
+      {
+        "category": "cay-thuy-sinh",
+        "type": "trong-nen",
+        "t": 0
+      },
+      {
         "category": "co2",
-        "t": 740
+        "t": 735
+      },
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "t": 945
       }
     ],
     "figures": [
       {
-        "heading": "Chuẩn bị nền và dụng cụ trước khi trồng",
-        "moments": [
-          {
-            "t": 30,
-            "url": "https://media.aquatome.com/video/Jth3Ks8lm6c/t30.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Bể thủy sinh có nền đen và lũa đã xếp sẵn, chuẩn bị trồng cây."
-          }
-        ]
+        "heading": "Chuẩn bị nền trước khi trồng",
+        "moments": [],
+        "photo": {
+          "url": "https://media.aquatome.com/video/Jth3Ks8lm6c/p0-BcXVhcml1bS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/Jth3Ks8lm6c/p0-BcXVhcml1bS5qcGc-480.webp",
+          "width": 960,
+          "height": 638,
+          "licence": "CC BY 4.0",
+          "author": "Abhik.Mazumdar.73",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:An_Aquascapist_Planting_Aquatic_Plant_Anubias_Petite_with_Tweezers_in_an_Aquarium.jpg",
+          "caption": "Dùng nhíp trồng cây thủy sinh nhỏ vào nền trong bể."
+        }
       },
       {
         "heading": "Trồng ngưu mao chiên thế nào",
-        "moments": [
-          {
-            "t": 1031,
-            "url": "https://media.aquatome.com/video/Jth3Ks8lm6c/t1031.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Ngưu mao chiên đã trồng thành các bụi nhỏ trên nền, cạnh lũa."
-          },
-          {
-            "t": 1041,
-            "url": "https://media.aquatome.com/video/Jth3Ks8lm6c/t1041.webp",
-            "width": 160,
-            "height": 90,
-            "caption": "Thảm ngưu mao chiên xanh mọc rải rác giữa nền và lũa."
-          }
-        ],
+        "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/Jth3Ks8lm6c/p1-LWxlbm5hcnQuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/Jth3Ks8lm6c/p1-LWxlbm5hcnQuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/Jth3Ks8lm6c/p1-FNyU4RiVBMC5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/Jth3Ks8lm6c/p1-FNyU4RiVBMC5qcGc-480.webp",
           "width": 960,
-          "height": 337,
-          "licence": "CC BY-SA 4.0",
-          "author": "Lennart Jöhnk",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquascaping-minilandschaft-lennart.jpg",
-          "caption": "Thảm ngưu mao chiên xanh mướt phủ kín nền trong hồ thủy sinh."
+          "height": 720,
+          "licence": "CC BY-SA 3.0",
+          "author": "Billtsai1518",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E7%9F%AE%E7%8F%8D%E7%8F%A0.jpg",
+          "caption": "Thảm ngưu mao chiên xanh mướt, mọc dày và đều trong hồ thủy sinh."
         }
       },
       {
-        "heading": "Cây bám giá thể dán khác rêu ở chỗ nào",
+        "heading": "Trồng trân châu ngọc trai và giữ cho nền bò",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/Jth3Ks8lm6c/p3-X2V4X3NpdHUuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/Jth3Ks8lm6c/p3-X2V4X3NpdHUuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/Jth3Ks8lm6c/p4-dW1fVS5BLkUuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/Jth3Ks8lm6c/p4-dW1fVS5BLkUuanBn-480.webp",
           "width": 960,
-          "height": 587,
+          "height": 720,
           "licence": "CC BY-SA 4.0",
-          "author": "Manuel Werner / CC-BY-SA-3.0 Werner, Deutschland",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bucephalandra_Shine_Blue_and_Bucephalandra_pygmaea_ex_situ.jpg",
-          "caption": "Các bụi cây bám giá thể gắn trên đá lũa trong hồ thủy sinh."
+          "author": "Ranjith-chemmad",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Freshwater_aquarium_U.A.E.jpg",
+          "caption": "Thảm trân châu ngọc trai đã bò kín nền, phía sau là đá và cây thân."
         }
       },
       {
-        "heading": "Cắt và cắm cây cắt cắm",
+        "heading": "Trồng cây cắt cắm",
         "moments": [],
         "photo": {
-          "url": "https://media.aquatome.com/video/Jth3Ks8lm6c/p5-saWFfa3owMS5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/Jth3Ks8lm6c/p5-saWFfa3owMS5qcGc-480.webp",
+          "url": "https://media.aquatome.com/video/Jth3Ks8lm6c/p5-J1LUluZGlhLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/Jth3Ks8lm6c/p5-J1LUluZGlhLmpwZw-480.webp",
           "width": 960,
           "height": 1280,
-          "licence": "CC BY-SA 4.0",
-          "author": "Krzysztof Ziarnek, Kenraiz",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rotala_rotundifolia_kz01.jpg",
-          "caption": "Phần ngọn Rotala khỏe với lá xếp vòng tròn, thích hợp để cắt và cắm."
+          "licence": "CC BY 4.0",
+          "author": "Yercaud-elango",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rotala_rotundifolia_pink-2-veda_aquarium-bengaluru-India.jpg",
+          "caption": "Cụm cây cắt cắm thân đỏ mọc dày, khỏe trong hồ thủy sinh."
         }
       }
     ]

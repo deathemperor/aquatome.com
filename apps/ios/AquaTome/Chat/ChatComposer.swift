@@ -240,6 +240,8 @@ private struct StopCard: View {
 /// The chat's entry under a fish's or plant's facts: "Hỏi về cá neon xanh", answered from the handbook.
 struct AskEntry: View {
   let route: ChatRoute
+  /// On the colour under v2's photo: its line in the white the words around it have.
+  var onColour = false
   @Environment(\.colorScheme) private var scheme
 
   var body: some View {
@@ -254,12 +256,14 @@ struct AskEntry: View {
         .padding(.horizontal, 20)
         .padding(.vertical, 10)
         .frame(maxWidth: .infinity, minHeight: 50)
-        .background(.tint, in: .capsule)
+        // The asset, not `.tint`: `.tint` keeps the phone's scheme under a page's colour, dark words on dark green.
+        .background(Color("AccentColor"), in: .capsule)
         .contentShape(.capsule)
       }
       .buttonStyle(.plain)
       .accessibilityIdentifier("chat-entry")
-      Text("Trả lời dựa trên cẩm nang AquaTome").font(.footnote).foregroundStyle(.secondary).multilineTextAlignment(.center)
+      Text("Trả lời dựa trên cẩm nang AquaTome").font(.footnote)
+        .foregroundStyle(onColour ? AnyShapeStyle(.white.opacity(0.75)) : AnyShapeStyle(.secondary)).multilineTextAlignment(.center)
     }
   }
 }

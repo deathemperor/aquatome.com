@@ -1,8 +1,8 @@
 {
   "id": "apistogramma-baenschi",
   "native": {
-    "input": "cf71e8f6dffb4acf",
-    "at": "2026-11-06T09:17:06.855Z",
+    "input": "dc41b153a93e4c96",
+    "at": "2026-11-09T20:43:02.940Z",
     "claims": [
       {
         "code": "PE",
@@ -15,8 +15,8 @@
       {
         "code": "PE",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Type locality is 'Tributary of Rio Shanushi, lower Rio Huallaga System, Peru, near 6°03'S, 77°53'W' with additional records from between the towns of Tarapoto and Yurimaguas in the Shanushi and Paranapura drainages, both left-bank tributaries of the Huallaga.",
+        "source": "glaser",
+        "quote": "Apistogramma baenschi from Peru is for sure among the most beautiful species of dwarf cichlid.",
         "words": "Peru",
         "ok": true
       }
@@ -40,7 +40,6 @@
         "name": "Paranapura",
         "source": "seriouslyfish",
         "quote": "Type locality is 'Tributary of Rio Shanushi, lower Rio Huallaga System, Peru, near 6°03'S, 77°53'W' with additional records from between the towns of Tarapoto and Yurimaguas in the Shanushi and Paranapura drainages, both left-bank tributaries of the Huallaga.",
-        "country": "PE",
         "ok": true
       }
     ],

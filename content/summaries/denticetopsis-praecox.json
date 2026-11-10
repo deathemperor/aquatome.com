@@ -1,10 +1,18 @@
 {
   "id": "denticetopsis-praecox",
-  "summary": "Cá Denticetopsis praecox nhỏ, chỉ khoảng 5,3 cm khi trưởng thành, hợp với người đã quen nuôi nước axit và chấp nhận loài ít thông tin. Cần nước pH 4,3–5; hồ sơ không ghi bể tối thiểu, nhiệt độ hay độ khó. Điểm khó nhất là nước phải rất chua, còn sinh sản thì chưa có ghi nhận nào.",
+  "summary": "Cá Denticetopsis praecox nhỏ, dài 5,5 cm khi trưởng thành, hợp người đã quen nuôi cá nước chua. Cần nước 22–26 °C, pH 4,3–6,5, nền sỏi và đá cuội cho giống đoạn suối nước đen ngoài tự nhiên. Khó nhất là giữ pH thấp ổn định. Hồ sơ chưa nêu bể tối thiểu và chưa có ghi nhận nào về sinh sản.",
   "mistakes": [
-    "Nuôi trong nước trung tính hoặc kiềm là sai; giữ pH 4,3–5 như thẻ dữ liệu."
+    "Đừng để nước trung tính hay kiềm, vì cá đến từ suối nước đen; hãy giữ pH trong khoảng 4,3–6,5.",
+    "Đừng lót nền cát mịn hay để bể trống trơn, vì cá được bắt ở đoạn suối nền sỏi và đá cuội; hãy dùng nền sỏi, đá cuội.",
+    "Đừng chỉ cho ăn đồ khô một kiểu, vì ngoài tự nhiên cá ăn chủ yếu côn trùng thủy sinh; hãy ưu tiên thức ăn thuộc nhóm côn trùng."
   ],
-  "speciesUpdatedAt": "2026-10-30",
-  "generatedAt": "2026-10-31T17:41:39.332Z",
-  "review": "pending"
+  "speciesUpdatedAt": "2026-11-02",
+  "generatedAt": "2026-11-09T23:15:50.506Z",
+  "review": "pending",
+  "problems": [
+    "\"hợp người đã quen nuôi cá nước chua\": the page says nothing about who the species suits or about keeper experience. It only gives the natural pH.",
+    "\"Khó nhất là giữ pH thấp ổn định\": the page never says that keeping a stable low pH is difficult. It only reports the habitat pH.",
+    "\"Đừng lót nền cát mịn hay để bể trống trơn\": the page gives no tank-setup advice. It only says where the fish was collected (gravel and cobble), so the fine-sand and bare-tank warnings are invented.",
+    "\"Đừng chỉ cho ăn đồ khô một kiểu ... hãy ưu tiên thức ăn thuộc nhóm côn trùng\": the page only says the wild diet is mainly aquatic insects. It gives no captive feeding advice and says nothing about dry food."
+  ]
 }

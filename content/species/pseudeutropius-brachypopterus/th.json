@@ -1,20 +1,32 @@
 {
   "slug": "pseudeutropius-brachypopterus",
-  "name": "ซูโดยูโทรเปียส บราคีพอพเทอรัส",
+  "name": "ปลาแคทฟิชซูโดยูโทรเปียส",
   "altNames": [
-    "ยูโทรเปียส บราคีพอพเทอรัส"
+    "ซูโดยูโทรเปียส บราคีพอปเทอรัส",
+    "Schilbeid catfish"
   ],
   "sections": {
-    "quickFacts:planetcatfish": "<ul><li>ชื่อวิทยาศาสตร์: Pseudeutropius brachypopterus (Bleeker, 1858)</li><li>วงศ์: Horabagridae</li><li>ชื่อพ้อง: Eutropius brachypopterus</li><li>สถานที่พบตัวอย่างต้นแบบ: ปาเล็มบัง ทางตอนใต้ของเกาะสุมาตรา ประเทศอินโดนีเซีย</li><li>ที่มาของชื่อ: มาจากภาษากรีก pseudes แปลว่า ปลอม + ภาษากรีก eu แปลว่า ดี + กระดูกงู (keel) หมายถึงลำตัวที่แบนข้างของปลาชนิดนี้</li><li>ขนาด: 115 มม. SL (วัดจากปลายปากถึงโคนหาง)</li><li>สถานภาพใน IUCN Red List: กังวลน้อยที่สุด (Least Concern) (ประเมินครั้งล่าสุดปี 2018)</li></ul>",
-    "distribution:planetcatfish": "<p>เอเชีย: เกาะสุมาตราและเกาะบอร์เนียว อยู่ในเขตแปซิฟิก กลุ่มแม่น้ำบนหมู่เกาะซุนดาใหญ่ แหล่งน้ำบนเกาะสุมาตรา และเขตแปซิฟิก กลุ่มแม่น้ำบนหมู่เกาะซุนดาใหญ่ แหล่งน้ำบนเกาะบอร์เนียว</p>",
-    "reproduction:planetcatfish": "<p>การเพาะพันธุ์: ยังไม่มีรายงาน ยังไม่เคยมีรายงานการเพาะพันธุ์ปลาชนิดนี้</p>",
-    "references:planetcatfish": "<p>Acta Societatis Regiae Scientiarum Indo-Neêrlandicae v. 4 (art. 2), pp 169.</p>"
+    "quickFacts:planetcatfish": "<ul><li>ชื่อวิทยาศาสตร์: Pseudeutropius brachypopterus (Bleeker, 1858)</li><li>วงศ์: Horabagridae</li><li>ชื่อพ้อง: Eutropius brachypopterus</li><li>แหล่งที่พบตัวอย่างต้นแบบ: ปาเล็มบัง ทางตอนใต้ของเกาะสุมาตรา ประเทศอินโดนีเซีย</li><li>ที่มาของชื่อ: มาจากภาษากรีก pseudes แปลว่า ปลอม + ภาษากรีก eu แปลว่า ดี + กระดูกสัน (keel) หมายถึงลำตัวที่แบนข้างของปลาชนิดนี้</li><li>ขนาด: 115 มม. SL (ความยาวมาตรฐาน)</li><li>สถานะใน IUCN Red List: กังวลน้อยที่สุด (Least Concern) (ประเมินครั้งล่าสุดปี 2018)</li></ul>",
+    "quickFacts:scotcat": "<ul><li>ชื่อพ้อง: Eutropius brachypopterus</li></ul>",
+    "distribution:planetcatfish": "<p>เอเชีย: เกาะสุมาตราและเกาะบอร์เนียว เขตแปซิฟิก แม่น้ำในหมู่เกาะซุนดาใหญ่ แหล่งน้ำบนเกาะสุมาตรา และเขตแปซิฟิก แม่น้ำในหมู่เกาะซุนดาใหญ่ แหล่งน้ำบนเกาะบอร์เนียว</p>",
+    "distribution:scotcat": "<p>เอเชีย: แม่น้ำกาปัวส์ และเกาะสุมาตรา แหล่งที่พบตัวอย่างต้นแบบ: ปาเล็มบัง เกาะสุมาตรา</p><p>มีรายงานพบปลาชนิดนี้ตั้งแต่ลุ่มแม่น้ำเซียกลงไปทางใต้จนถึงลุ่มแม่น้ำมูซีบนเกาะสุมาตรา และตั้งแต่ลุ่มแม่น้ำกาปัวส์ และลุ่มแม่น้ำซัมปิต (เมินตายา) ไปทางตะวันออกจนถึงลุ่มแม่น้ำเซบังเกาบนเกาะบอร์เนียว ขอบเขตการกระจายพันธุ์ (EOO) ประเมินไว้ราว 540,000 ตร.กม. โดยอ้างอิงจากจุดพิกัดที่มีการบันทึก (GBIF 2019) และความเห็นของผู้เชี่ยวชาญ (H.H. Ng pers. comm. 2019) ยังไม่ทราบจำนวนแหล่งที่พบปลาชนิดนี้ แต่ด้วยพื้นที่การกระจายพันธุ์ที่กว้าง จึงน่าจะมีมากกว่า 10 แหล่ง</p>",
+    "habitat:scotcat": "<p>ปลาชนิดนี้อาศัยอยู่ได้ทั้งในแหล่งน้ำไหลและแหล่งน้ำนิ่ง โดยดูเหมือนจะพบมากในป่าพรุน้ำดำ (blackwater peat swamp)</p>",
+    "maintenance:scotcat": "<p>เป็นปลาที่ค่อนข้างขี้อาย จึงควรเลี้ยงในตู้ไม้น้ำเพื่อให้ปลารู้สึกปลอดภัยกับสภาพแวดล้อม ควรเลี้ยงอย่างน้อย 6 ตัวขึ้นไปให้อยู่กันเป็นฝูง</p>",
+    "waterConditions:scotcat": "<p>อุณหภูมิ: 22–26 °C ค่า pH: 6.0–7.0</p>",
+    "diet:scotcat": "<p>กินตัวอ่อนแมลงและสัตว์ไม่มีกระดูกสันหลังขนาดเล็กเป็นอาหาร</p>",
+    "behaviour:scotcat": "<p>พบอาศัยร่วมกับ P. moolenburghae โดยว่ายรวมฝูงไปด้วยกัน</p>",
+    "reproduction:planetcatfish": "<p>การเพาะพันธุ์: ยังไม่มีรายงาน ไม่มีรายงานการเพาะพันธุ์</p>",
+    "reproduction:scotcat": "<p>ออกลูกเป็นไข่ และไม่มีการเฝ้าไข่</p>",
+    "notes:scotcat": "<p>ที่มาของชื่อ: ชื่อชนิด brachypopterus มาจาก brachýs แปลว่า สั้น; –po ย่อมาจาก hypó แปลว่า ใต้ หรือน้อยกว่า; pterus มาจาก pterón หรือ ptéryx แปลว่า ปีกหรือครีบ หมายถึงครีบก้นที่สั้นกว่าเมื่อเทียบกับปลาสกุลเดียวกันจากเอเชียและแอฟริกาที่ขณะนั้นจัดอยู่ในสกุล Eutropius (=Schilbe ปัจจุบันอยู่ในวงศ์ Schilbeidae)</p><p>IUCN Red List: แม้จะยังไม่มีข้อมูลโดยละเอียดเกี่ยวกับสถานะประชากรของปลาชนิดนี้ แต่ข้อมูลจากการสำรวจบ่งชี้ว่ายังพบได้มากในหลายพื้นที่ของแหล่งกระจายพันธุ์ที่ทราบ จึงถูกประเมินให้อยู่ในสถานะกังวลน้อยที่สุด (Least Concern) อย่างไรก็ตาม ควรทราบว่าถิ่นอาศัยหลักของปลาชนิดนี้ (ป่าพรุน้ำดำ) ถูกทำลายและเสื่อมโทรมลงเป็นวงกว้าง และควรมีการศึกษาเพิ่มเติมถึงผลกระทบของการสูญเสียถิ่นอาศัยครั้งใหญ่นี้ต่อปลาชนิดนี้ โดยจำเป็นต้องประเมินสถานะใหม่อีกครั้งเมื่อมีข้อมูลเพิ่มเติมเกี่ยวกับผลกระทบของการสูญเสียถิ่นอาศัยต่อประชากร (IUCN 2019)</p>",
+    "references:planetcatfish": "<p>Acta Societatis Regiae Scientiarum Indo-Neêrlandicae v. 4 (art. 2), pp 169.</p>",
+    "references:scotcat": "<p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Froese, R. and D. Pauly. Editors. 2009. FishBase. World Wide Web electronic publication. www.fishbase.org, version (11/2009).</p><p>Kottelat, M., A.J. Whitten, S.N. Kartikasari and S. Wirjoatmodjo, 1993. Freshwater fishes of Western Indonesia and Sulawesi. Periplus Editions, Hong Kong. 221 p.</p><p>Ng, H.H. 2019. Pseudeutropius brachypopterus. The IUCN Red List of Threatened Species 2019.</p>"
   },
   "quality": {
-    "score": 0.6,
-    "indexable": false,
+    "score": 0.8,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.6
+      "planetcatfish": 0.8,
+      "scotcat": 0.8
     }
   }
 }

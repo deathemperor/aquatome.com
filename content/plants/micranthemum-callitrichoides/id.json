@@ -2,22 +2,25 @@
   "slug": "hc-cuba",
   "name": "HC Cuba",
   "altNames": [
-    "Hemianthus callitrichoides 'Cuba'",
-    "Micranthemum callitrichoides 'Cuba'",
+    "Hemianthus callitrichoides Cuba",
+    "Micranthemum callitrichoides Cuba",
     "Cuba",
+    "HC",
     "Dwarf Baby Tears"
   ],
   "sections": {
     "quickFacts:tropica": "<ul><li><strong>Jenis:</strong> Tanaman karpet</li><li><strong>Asal:</strong> Amerika Utara</li><li><strong>Kecepatan tumbuh:</strong> Sedang</li><li><strong>Tinggi:</strong> 3–5+ cm</li><li><strong>Kebutuhan cahaya:</strong> Tinggi</li><li><strong>CO2:</strong> Tinggi</li></ul>",
     "distribution:tropica": "<p>Ditemukan di Kuba, di sebelah barat Havana.</p>",
-    "maintenance:tropica": "<p>Hemianthus callitrichoides termasuk salah satu tanaman air terkecil di dunia. Tanaman ini merambat di dasar akuarium dengan daun bulat berukuran milimeter. Tanaman ini menarik dan populer sebagai tanaman latar depan untuk akuarium kecil. Sebenarnya tidak sulit, tetapi agar bisa tumbuh subur ia butuh kondisi yang baik, seperti cahaya yang cukup, tambahan CO2, sirkulasi air, dan pupuk. Kalau kondisi seperti itu sulit dipenuhi, Micranthemum 'Monte-Carlo' bisa dipakai sebagai alternatif karena tuntutannya lebih rendah.</p><p>Kalau ditanam dalam rumpun-rumpun kecil berjarak beberapa sentimeter, tanaman ini akan menyebar dengan cepat dan menutupi dasar seperti karpet. Pangkas karpetnya secara rutin. Kalau tidak, bagian bawahnya tidak akan mendapat cukup cahaya sehingga akarnya mati.</p>",
-    "notes:tropica": "<p>Di atas tanaman sering muncul butiran-butiran kecil gelembung oksigen (pearling), sehingga karpetnya terlihat sangat hidup.</p>"
+    "maintenance:aquatome": "<p>Cuba adalah tanaman karpet, tempatnya di bagian depan (foreground). Bagi tanaman menjadi rumpun-rumpun kecil lalu tanam di substrat dengan jarak beberapa cm antarrumpun. Tanaman ini akan cepat menjalar dan menutupi permukaan substrat seperti karpet. Setelah karpet terbentuk, tanaman harus rutin dipangkas. Kalau tidak dipangkas, lapisan daun di bagian bawah akan tertutup dan tidak kebagian cahaya, lalu akarnya perlahan mati.</p>",
+    "maintenance:tropica": "<p>Hemianthus callitrichoides adalah salah satu tanaman air terkecil di dunia, tumbuh menjalar di dasar dengan daun bulat berukuran milimeter. Tanaman ini menarik dan populer sebagai tanaman foreground untuk akuarium kecil. Tanaman ini tidak sulit, tetapi butuh kondisi yang baik agar tumbuh subur, seperti cahaya yang cukup, tambahan CO2, sirkulasi air, dan pupuk. Kalau kondisi ini sulit dipenuhi, Micranthemum 'Monte-Carlo' bisa dipakai sebagai alternatif karena tidak serewel itu.</p><p>Jika ditanam dalam rumpun-rumpun kecil berjarak beberapa sentimeter, tanaman ini akan cepat menyebar dan menutupi dasar seperti karpet. Pangkas karpetnya secara rutin, kalau tidak bagian bawahnya tidak kebagian cukup cahaya sehingga akarnya mati.</p>",
+    "notes:tropica": "<p>Sering muncul butiran-butiran kecil atau gelembung oksigen di atas tanaman (pearling), yang membuat karpet terlihat sangat hidup.</p>"
   },
   "quality": {
-    "score": 0.85,
-    "indexable": true,
+    "score": 0.3,
+    "indexable": false,
     "bySource": {
-      "tropica": 0.85
+      "tropica": 0.3,
+      "aquatome": 0.3
     }
   }
 }

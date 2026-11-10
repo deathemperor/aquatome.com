@@ -1,7 +1,7 @@
 import { readFile, readdir, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { HTMLElement, parse } from 'node-html-parser'
-import { headingRoles, imperialLeft, LANGS, ownNumber, WRITTEN_LANGS, type DataCardField, type Lang } from '@aq/schema'
+import { headingRoles, imperialLeft, LANGS, ownNumber, WRITTEN_LANGS, type DataCardField, type Lang, type WrittenLang } from '@aq/schema'
 import { tidyName } from './alt-names'
 import { METRIC_KINDS } from './metric'
 import { BOUNDS } from './process'
@@ -490,6 +490,15 @@ export function cardSlips<V extends { field: DataCardField; value: Figure }>(car
   for (const v of card) if (v.field === 'tankCm' && typeof v.value === 'number' && v.value < 2 * fish && !out.some(o => o.v === v)) out.push({ v, why: `shorter than twice the fish (${fish} cm)` })
   return out
 }
+/**
+ * Seriously Fish heads its rating "Difficulty 7 of 8 measures": the 7 is how many measures it could rate, and the rating is
+ * the word under it (process.ts sfDifficulty). The card reads the word, but a quick-facts line written from that heading can
+ * keep the count, as "Độ khó: 7/8 (khó)" beside a card and summary of 6/8. How each language labels that line:
+ */
+const DIFFICULTY_LABEL: Record<WrittenLang | 'en', string> = { en: 'difficulty', vi: 'độ khó', id: '(?:tingkat )?kesulitan', ms: '(?:tahap )?(?:kesukaran|kesulitan)', th: '(?:ระดับ)?ความยาก(?:ในการเลี้ยง)?' }
+/** Seriously Fish quick-facts text with the card's difficulty where its count of measures stood. The word and the reason around it stay. */
+export const sfScoreFixed = (html: string, lang: WrittenLang | 'en', score: number) =>
+  html.replace(new RegExp(`((?:${DIFFICULTY_LABEL[lang]})(?:</strong>)?\\s*:?\\s*(?:</strong>)?[^.<]{0,40}?)(?<![\\d.,])\\d(\\s*(?:of|/|dari|daripada|จาก)\\s*8)(?![\\d.,]*\\d)(?:\\s*(?:measures|tiêu chí|ด้าน))?`, 'giu'), (_, a: string, b: string) => `${a}${score}${b}`)
 const firstFew = (xs: string[], n = 3) => [...xs.slice(0, n).map(s => `"${s}"`), ...(xs.length > n ? [`and ${xs.length - n} more`] : [])]
 
 /** The kinds of page named for what they are about: a species, a plant, a breed (the sweep's name fix, alt-names.ts tidyName). */
@@ -508,6 +517,7 @@ export const RATCHETED: Readonly<Record<string, readonly PageKind[]>> = {
   name: NAMED_KINDS,
   wording: SWEPT_KINDS,
   caption: ['species', 'plants'], card: ['species', 'breeds'], imperial: METRIC_KINDS as readonly PageKind[],
+  'sf-count': ['species'],
 }
 /** The findings the real-content test holds at zero. */
 export const ratcheted = (findings: Finding[]) => findings.filter(f => RATCHETED[f.rule]?.includes(f.page.kind))
@@ -672,6 +682,15 @@ export const RULES: Rule[] = [
       const sizes = p.card.filter(c => c.field === 'sizeCm' && typeof c.value === 'number').map(c => c.value as number)
       if (tanks.length) out.push(`minimum tank ${Math.min(...tanks)} cm for a fish of ${Math.max(...sizes)} cm (less than twice its length)`)
       return out
+    },
+  },
+  {
+    id: 'sf-count', title: 'A count of measures written as a difficulty',
+    about: 'A Seriously Fish quick-facts line giving a difficulty other than the card\'s ("Độ khó: 7/8" over a card of 6/8): the 7 counts the measures Seriously Fish could rate. The sweep writes the card\'s figure there, in English and every language.',
+    check: p => {
+      const score = p.card.find(c => c.field === 'difficulty' && c.source === 'seriouslyfish')?.value
+      const f = p.fields.find(x => x.field === 'sections.quickFacts:seriouslyfish')
+      return typeof score === 'number' && f && sfScoreFixed(f.html, p.lang, score) !== f.html ? [`the line's count against the card's ${score}/8`] : []
     },
   },
 ]

@@ -1,0 +1,131 @@
+{
+  "id": "leptobarbus-hoevenii",
+  "native": {
+    "input": "a95fc6f99ee797da",
+    "at": "2026-11-09T16:24:16.651Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "They originate from Southeast Asia (Thailand to Borneo).",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Apparently native to Peninsular Malaysia plus the Greater Sunda Islands of Borneo, Sumatra, and Java.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Indonesia: Borneo: Kalimantan Selatan: Banjarmasin'.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Apparently native to Peninsular Malaysia plus the Greater Sunda Islands of Borneo, Sumatra, and Java.",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Apparently native to Peninsular Malaysia plus the Greater Sunda Islands of Borneo, Sumatra, and Java.",
+        "ok": true
+      },
+      {
+        "name": "Java",
+        "source": "seriouslyfish",
+        "quote": "Apparently native to Peninsular Malaysia plus the Greater Sunda Islands of Borneo, Sumatra, and Java.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "glaser",
+        "quote": "They originate from Southeast Asia (Thailand to Borneo).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Leptobarbus hoevenii",
+    "status": "ACCEPTED",
+    "taxonKey": 2365645,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        12
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        5
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        4
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        3
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        2
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        1
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ],
+      [
+        "8f79c802-a58c-447f-99aa-1d6a0790825a",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "ca22abc0-98a1-11de-b4da-b8a03c50a862",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "MY",
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T16:24:16.651Z"
+  }
+}

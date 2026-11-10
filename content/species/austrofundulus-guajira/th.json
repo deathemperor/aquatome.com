@@ -1,0 +1,24 @@
+{
+  "slug": "austrofundulus-guajira",
+  "name": "ออสโตรฟันดูลัส กัวจิรา",
+  "altNames": [
+    "ปลาคิลลี่ออสโตรฟันดูลัส",
+    "คิลลี่ฟิช Austrofundulus guajira"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>มีเข้ามาเป็นครั้งแรกในปริมาณจำกัด: Austrofundulus guajira ปลาที่เพาะในเยอรมนี เป็นยักษ์ตัวจริงของกลุ่มปลาคิลลี่ โตได้ถึง 8–9 ซม. นับเป็นหนึ่งในปลาคิลลี่ที่ใหญ่ที่สุดของโลกใหม่อย่างแท้จริง</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": true,
+    "bySource": {
+      "glaser": 0.9
+    }
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-10"
+  }
+}

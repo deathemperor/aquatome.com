@@ -1,109 +1,22 @@
 {
- "queue": [
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/600597284/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/600597284/medium.jpg",
-   "width": 1566,
-   "height": 1884,
-   "licence": "CC0",
-   "author": "Jean-Paul Boerekamps",
-   "sourceUrl": "https://www.inaturalist.org/photos/600597284",
-   "key": "inat:600597284"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/4/42/Pyrrhulina_filamentosa_159846453.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Pyrrhulina_filamentosa_159846453.jpg/500px-Pyrrhulina_filamentosa_159846453.jpg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY 4.0",
-   "author": "Guillaume Delaitre",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pyrrhulina_filamentosa_159846453.jpg",
-   "caption": "Pyrrhulina filamentosa",
-   "key": "File:Pyrrhulina filamentosa 159846453.jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/7/71/Pyrrhulina_filamentosa_5587386.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Pyrrhulina_filamentosa_5587386.jpg/500px-Pyrrhulina_filamentosa_5587386.jpg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY 4.0",
-   "author": "Julien Renoult",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pyrrhulina_filamentosa_5587386.jpg",
-   "caption": "Pyrrhulina filamentosa",
-   "key": "File:Pyrrhulina filamentosa 5587386.jpg"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/159846453/original.jpeg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/159846453/medium.jpeg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "Guillaume Delaitre",
-   "sourceUrl": "https://www.inaturalist.org/photos/159846453",
-   "key": "inat:159846453"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/5587386/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/5587386/medium.jpg",
-   "width": 2048,
-   "height": 1536,
-   "licence": "CC BY",
-   "author": "Julien Renoult",
-   "sourceUrl": "https://www.inaturalist.org/photos/5587386",
-   "key": "inat:5587386"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/600597658/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/600597658/medium.jpg",
-   "width": 1986,
-   "height": 1452,
-   "licence": "CC0",
-   "author": "Jean-Paul Boerekamps",
-   "sourceUrl": "https://www.inaturalist.org/photos/600597658",
-   "key": "inat:600597658"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/5587474/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/5587474/medium.jpg",
-   "width": 2048,
-   "height": 1366,
-   "licence": "CC BY",
-   "author": "Julien Renoult",
-   "sourceUrl": "https://www.inaturalist.org/photos/5587474",
-   "key": "inat:5587474"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/630615034/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/630615034/medium.jpg",
-   "width": 2048,
-   "height": 1365,
-   "licence": "CC BY",
-   "author": "Samuel GUIRAUDOU",
-   "sourceUrl": "https://www.inaturalist.org/photos/630615034",
-   "key": "inat:630615034"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/600597668/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/600597668/medium.jpg",
-   "width": 1050,
-   "height": 1319,
-   "licence": "CC0",
-   "author": "Jean-Paul Boerekamps",
-   "sourceUrl": "https://www.inaturalist.org/photos/600597668",
-   "key": "inat:600597668"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Pyrrhulina_filamentosa_GUY_14-03_44mm.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Pyrrhulina_filamentosa_GUY_14-03_44mm.jpg/500px-Pyrrhulina_filamentosa_GUY_14-03_44mm.jpg",
-   "width": 1024,
-   "height": 277,
-   "licence": "CC BY-SA 2.0",
-   "author": "Jonathan (Jon) Armbruster",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pyrrhulina_filamentosa_GUY_14-03_44mm.jpg",
-   "caption": "Pyrrhulina filamentosa",
-   "key": "File:Pyrrhulina filamentosa GUY 14-03 44mm.jpg"
-  }
+ "queue": [],
+ "judged": [
+  "inat:600597284",
+  "File:Pyrrhulina filamentosa 159846453.jpg",
+  "File:Pyrrhulina filamentosa 5587386.jpg",
+  "inat:159846453",
+  "inat:5587386",
+  "inat:600597658",
+  "inat:5587474",
+  "inat:630615034",
+  "inat:600597668",
+  "File:Pyrrhulina filamentosa GUY 14-03 44mm.jpg"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/inaturalist/600597658.webp": "4b6fa676d82d2418",
+  "https://media.aquatome.com/inaturalist/5587474.webp": "e6a6be9ea3e0f8dd",
+  "https://media.aquatome.com/inaturalist/630615034.webp": "02042a38e8260341",
+  "https://media.aquatome.com/commons/f1b0ed0d641fa8df.webp": "586557650a48a610"
+ },
+ "commons": "2026-11-09"
 }

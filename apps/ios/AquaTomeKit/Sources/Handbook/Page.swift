@@ -52,6 +52,9 @@ public struct PageDoc: Sendable {
     public var href: String?
     /// A glossary term's or a citation's explanation, shown when the link is tapped: (term, text).
     public var tip: (term: String, text: String)?
+    /// A source's note on a figure that differs from the page's data table ("… ghi khác bảng dữ liệu: …"): read beside
+    /// the figures, not as the part's opening line.
+    public var note = false
 
     public init(_ text: String) { self.text = text }
 
@@ -59,7 +62,7 @@ public struct PageDoc: Sendable {
     /// sources (`refs`). Shown small and raised after the words it backs; a word's tip has the word, not a number.
     public var isSourceMark: Bool { tip != nil && !text.isEmpty && text.allSatisfy { $0.isASCII && $0.isNumber } }
 
-    /// A string, or `{text, b?, i?, href?, tip?}`.
+    /// A string, or `{text, b?, i?, href?, tip?, note?}`.
     init?(json v: Any) {
       if let s = v as? String { self.init(s); return }
       guard let o = v as? [String: Any], let text = o["text"] as? String else { return nil }
@@ -67,6 +70,7 @@ public struct PageDoc: Sendable {
       bold = o["b"] as? Bool ?? false
       italic = o["i"] as? Bool ?? false
       href = o["href"] as? String
+      note = o["note"] as? Bool ?? false
       if let t = o["tip"] as? [String: Any], let term = t["term"] as? String, let text = t["text"] as? String { tip = (term, text) }
     }
     static func list(_ v: Any?) -> [Run]? { each(v) { Run(json: $0) } }

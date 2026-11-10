@@ -10,6 +10,52 @@
     "china",
     "yangtze"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Yangtze River",
+        "Dongting Lake"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to middle and upper sections of the Yangtze River (aka Chiang Jiang), China with most of the available records pertaining to Hunan province, including Dongting Lake.",
+          "countries": [
+            "CN"
+          ],
+          "regions": [
+            "Yangtze River",
+            "Dongting Lake"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2368289,
+      "total": 1,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "CN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          112.5,
+          28.125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

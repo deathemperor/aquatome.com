@@ -450,6 +450,10 @@
       {
         "source": "seriouslyfish",
         "value": 30
+      },
+      {
+        "source": "glaser",
+        "value": 30
       }
     ],
     "tankCm": [
@@ -473,10 +477,22 @@
       "html": "<p>The Texas cichlid, Herichthys cyanoguttatus, is native to the Rio Grande drainage in the southern United States and Mexico. The only cichlid occurring naturally in the USA, it is highly belligerent and territorial, digs constantly and needs a tank of at least 120 cm for a single specimen. The similar H. carpintis is sometimes sold under its name and has larger, scattered flank spots, where H. cyanoguttatus shows obvious lateral rows of small spots.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/pearl_cichlids_german_bred_ones_available__en/",
+      "html": "<ul><li>Maximum reported length: about 30 cm.</li><li>Young German-bred fish are offered at 4–5 cm.</li><li>Large specimens are among the most colorful cichlids.</li></ul>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/herichthys-cyanoguttatus",
       "html": "<p>The only species of cichlid occuring naturally in the USA, it inhabits the Rio Grande drainage in both the southern United States and Mexico. It's also been introduced to several areas outside its natural range where thriving populations now exist, including Florida.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/pearl_cichlids_german_bred_ones_available__en/",
+      "html": "<p>The large spotted form is believed to belong to the species Herichthys carpinte, which originates from Mexico, whereas the small spotted form is thought to represent the \"real\" Herichthys cyanoguttatum. The latter is the only native cichlid of the US and the northernmost species of cichlid at all.</p>"
     },
     {
       "key": "habitat",
@@ -531,28 +547,34 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/herichthys-cyanoguttatus",
       "html": "<p>Like many cichlids, members of the genus Herichthys share something of a confused taxonomic past. Erected in 1854 with H. cyanoguttatus the type species, its members were moved into Cichlasoma by Regan in 1905. However following a reclassification of Cichlasoma by Kullander in 1983 it was once again deemed valid. In 1996 Kullander suggested Herichthys should only contain species \"sharing a colour pattern of short vertical bars or black spots posteriorly from the middle of the side, and a unique breeding colour pattern in which the dorsal half of the entire head and anterior flank region turns a pale greyish in contrast to black or dark grey adjacent areas or the entire body turns pale\". There are currently ten member species, with the possibility of further changes at some point in the future.</p><p>Several geographical variants are known, which tend to vary slightly in patterning and colour. These can be tricky to identify correctly, as similar variations have also been recorded within particular populations of the species.</p><p>Confusion can also arise with the very similar H. carpintis, a Mexican species that is sometimes seen on sale mislabelled as H. cyanoguttatus or with the common name \"green Texas cichlid\". The two can usually be told apart by examining the form of the spotted markings on the flanks of the fish. These tend to form quite obvious lateral rows of small spots in H. cyanoguttatus, having a more irregular, scattered arrangement of larger spots in H. carpintis. H. carpintis is also the smaller species when adult, only reaching around 9 - 10\". Misidentification is still possible though, as some wild populations of H. carpintis resemble H. cyanoguttatus very closely.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/pearl_cichlids_german_bred_ones_available__en/",
+      "html": "<p>The Pearl cichlid was imported and successfully bred in Germany as early as 1902. Since then its name has changed several times: formerly known as Cichlasoma cyanoguttatum, it is now placed in the genus Herichthys.</p><p>Pearl cichlids are almost forgotten nowadays.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/8e743813725e2af1.webp",
+      "thumb": "https://media.aquatome.com/commons/8e743813725e2af1-480.webp",
       "width": 800,
       "height": 533,
       "licence": "CC BY-SA 2.0",
       "author": "Charles & Clint",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Herichthys_cyanoguttatum_(Rio_Grande_Cichlid).jpg",
-      "caption": "Herichthys cyanoguttatum (Rio Grande cichlid, Texas cichild).",
-      "thumb": "https://media.aquatome.com/commons/8e743813725e2af1-480.webp"
+      "caption": "Herichthys cyanoguttatum (Rio Grande cichlid, Texas cichild)."
     },
     {
       "url": "https://media.aquatome.com/commons/1871764b680fd375.webp",
+      "thumb": "https://media.aquatome.com/commons/1871764b680fd375-480.webp",
       "width": 960,
       "height": 1280,
       "licence": "CC BY 4.0",
       "author": "Mbrickn",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:BGSU_Herichthys_cyanoguttatus.jpg",
-      "caption": "BGSU Herichthys cyanoguttatus (Texas Cichlid) in an aquarium",
-      "thumb": "https://media.aquatome.com/commons/1871764b680fd375-480.webp"
+      "caption": "BGSU Herichthys cyanoguttatus (Texas Cichlid) in an aquarium"
     }
   ],
   "videos": [],
@@ -585,5 +607,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-09"
 }

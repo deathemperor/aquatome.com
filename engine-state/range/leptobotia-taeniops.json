@@ -1,0 +1,55 @@
+{
+  "id": "leptobotia-taeniops",
+  "native": {
+    "input": "f25671ef3ddbdc1f",
+    "at": "2026-11-09T16:24:16.651Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to middle and upper sections of the Yangtze River (aka Chiang Jiang), China with most of the available records pertaining to Hunan province, including Dongting Lake.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Yangtze River",
+        "source": "seriouslyfish",
+        "quote": "Native to middle and upper sections of the Yangtze River (aka Chiang Jiang), China with most of the available records pertaining to Hunan province, including Dongting Lake.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Dongting Lake",
+        "source": "seriouslyfish",
+        "quote": "Native to middle and upper sections of the Yangtze River (aka Chiang Jiang), China with most of the available records pertaining to Hunan province, including Dongting Lake.",
+        "country": "CN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Leptobotia taeniops",
+    "status": "ACCEPTED",
+    "taxonKey": 2368289,
+    "datasets": [
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "CN"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T16:24:16.651Z"
+  }
+}

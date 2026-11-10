@@ -1,0 +1,95 @@
+{
+  "id": "luciosoma-spilopleura",
+  "native": {
+    "input": "c24d7b865f9bdaa3",
+    "at": "2026-11-09T20:43:02.940Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Luciosoma spilopleura is a small cyprinid known only from Sumatra and the Indonesian part of Borneo, where it prefers fast-flowing headwater streams.",
+        "words": "Indonesian",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Can be considered endemic to Indonesia since it is known only from Sumatra and Kalimantan, the Indonesian portion of Borneo.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Can be considered endemic to Indonesia since it is known only from Sumatra and Kalimantan, the Indonesian portion of Borneo.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Can be considered endemic to Indonesia since it is known only from Sumatra and Kalimantan, the Indonesian portion of Borneo.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Musi",
+        "source": "seriouslyfish",
+        "quote": "On Sumatra it has been recorded from the Batang Hari and Musi river systems in the southern half of the island, while on Borneo it is known from the upper Kapuas River in West Kalimantan (Kalimantan Barat) province and the Mahakam drainage in East Kalimantan (Kalimantan Tengah).",
+        "ok": true
+      },
+      {
+        "name": "Batang Hari",
+        "source": "seriouslyfish",
+        "quote": "On Sumatra it has been recorded from the Batang Hari and Musi river systems in the southern half of the island, while on Borneo it is known from the upper Kapuas River in West Kalimantan (Kalimantan Barat) province and the Mahakam drainage in East Kalimantan (Kalimantan Tengah).",
+        "ok": true
+      },
+      {
+        "name": "Kapuas",
+        "source": "seriouslyfish",
+        "quote": "On Sumatra it has been recorded from the Batang Hari and Musi river systems in the southern half of the island, while on Borneo it is known from the upper Kapuas River in West Kalimantan (Kalimantan Barat) province and the Mahakam drainage in East Kalimantan (Kalimantan Tengah).",
+        "ok": true
+      },
+      {
+        "name": "Mahakam",
+        "source": "seriouslyfish",
+        "quote": "On Sumatra it has been recorded from the Batang Hari and Musi river systems in the southern half of the island, while on Borneo it is known from the upper Kapuas River in West Kalimantan (Kalimantan Barat) province and the Mahakam drainage in East Kalimantan (Kalimantan Tengah).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Luciosoma spilopleura",
+    "status": "ACCEPTED",
+    "taxonKey": 2360858,
+    "datasets": [
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T20:43:02.940Z"
+  }
+}

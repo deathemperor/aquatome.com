@@ -12,6 +12,104 @@
     "peru",
     "maranon"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "EC",
+        "PE"
+      ],
+      "regions": [
+        "Río Marañón",
+        "Ucayali",
+        "Huallaga",
+        "Santiago",
+        "Pastaza",
+        "Amazon"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The black band cory, Osteogaster zygata, long known as Corydoras zygatus, is an armoured catfish from the middle Río Marañón watershed in eastern Ecuador and northern Peru.",
+          "countries": [
+            "EC",
+            "PE"
+          ],
+          "regions": [
+            "Río Marañón"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known from the Ucayali (río Samiria), Huallaga, Santiago, and Pastaza (ríos Bobonaza and Pindo) river systems in eastern Ecuador and northern Peru.",
+          "countries": [],
+          "regions": [
+            "Ucayali",
+            "Huallaga",
+            "Santiago",
+            "Pastaza"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "These are all tributary drainages within the middle Río Marañón watershed, a major affluent of the upper Amazon river basin.",
+          "countries": [],
+          "regions": [
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342687,
+      "total": 10,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "PE",
+          9
+        ],
+        [
+          "BR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          -4.21875,
+          4,
+          4
+        ],
+        [
+          -77.34375,
+          -7.03125,
+          2,
+          2
+        ],
+        [
+          -75.9375,
+          -5.625,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          -71.71875,
+          -8.4375,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

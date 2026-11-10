@@ -1,0 +1,75 @@
+{
+  "id": "channa-panaw",
+  "native": {
+    "input": "b09e4066f931864d",
+    "at": "2026-11-09T12:58:06.259Z",
+    "claims": [
+      {
+        "code": "MM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Channa panaw has a fairly wide distribution in Burma, where it inhabits the area around the large rivers Sittang and Irrawaddy.",
+        "words": "Burma",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sittang",
+        "source": "glaser",
+        "quote": "Channa panaw has a fairly wide distribution in Burma, where it inhabits the area around the large rivers Sittang and Irrawaddy.",
+        "country": "MM",
+        "ok": true
+      },
+      {
+        "name": "Irrawaddy",
+        "source": "glaser",
+        "quote": "Channa panaw has a fairly wide distribution in Burma, where it inhabits the area around the large rivers Sittang and Irrawaddy.",
+        "country": "MM",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Channa panaw",
+    "status": "ACCEPTED",
+    "taxonKey": 2391520,
+    "datasets": [
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        10
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        2
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "MM"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T12:58:06.259Z"
+  }
+}

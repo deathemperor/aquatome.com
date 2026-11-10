@@ -1,0 +1,122 @@
+{
+  "id": "lobocheilos-rhabdoura",
+  "native": {
+    "input": "2103d94862dbdb86",
+    "at": "2026-11-09T16:24:16.651Z",
+    "claims": [
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Mekong River in Laos, Thailand, Cambodia, and Vietnam, the Dong Nai basin in southern Vietnam, the Chao Phraya and Mae Klong systems in central and western Thailand, and several smaller drainages in peninsular Thailand and northern Peninsular Malaysia.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Mekong River in Laos, Thailand, Cambodia, and Vietnam, the Dong Nai basin in southern Vietnam, the Chao Phraya and Mae Klong systems in central and western Thailand, and several smaller drainages in peninsular Thailand and northern Peninsular Malaysia.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Mekong River in Laos, Thailand, Cambodia, and Vietnam, the Dong Nai basin in southern Vietnam, the Chao Phraya and Mae Klong systems in central and western Thailand, and several smaller drainages in peninsular Thailand and northern Peninsular Malaysia.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Mekong River in Laos, Thailand, Cambodia, and Vietnam, the Dong Nai basin in southern Vietnam, the Chao Phraya and Mae Klong systems in central and western Thailand, and several smaller drainages in peninsular Thailand and northern Peninsular Malaysia.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the Mekong River in Laos, Thailand, Cambodia, and Vietnam, the Dong Nai basin in southern Vietnam, the Chao Phraya and Mae Klong systems in central and western Thailand, and several smaller drainages in peninsular Thailand and northern Peninsular Malaysia.",
+        "words": "Malaysia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Mekong",
+        "source": "seriouslyfish",
+        "quote": "Native to the Mekong River in Laos, Thailand, Cambodia, and Vietnam, the Dong Nai basin in southern Vietnam, the Chao Phraya and Mae Klong systems in central and western Thailand, and several smaller drainages in peninsular Thailand and northern Peninsular Malaysia.",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "seriouslyfish",
+        "quote": "Native to the Mekong River in Laos, Thailand, Cambodia, and Vietnam, the Dong Nai basin in southern Vietnam, the Chao Phraya and Mae Klong systems in central and western Thailand, and several smaller drainages in peninsular Thailand and northern Peninsular Malaysia.",
+        "ok": true
+      },
+      {
+        "name": "Mae Klong",
+        "source": "seriouslyfish",
+        "quote": "Native to the Mekong River in Laos, Thailand, Cambodia, and Vietnam, the Dong Nai basin in southern Vietnam, the Chao Phraya and Mae Klong systems in central and western Thailand, and several smaller drainages in peninsular Thailand and northern Peninsular Malaysia.",
+        "ok": true
+      },
+      {
+        "name": "Dong Nai",
+        "source": "seriouslyfish",
+        "quote": "Native to the Mekong River in Laos, Thailand, Cambodia, and Vietnam, the Dong Nai basin in southern Vietnam, the Chao Phraya and Mae Klong systems in central and western Thailand, and several smaller drainages in peninsular Thailand and northern Peninsular Malaysia.",
+        "country": "VN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Lobocheilos rhabdoura",
+    "status": "ACCEPTED",
+    "taxonKey": 5205930,
+    "datasets": [
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        12
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        4
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        3
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        1
+      ]
+    ],
+    "native": [
+      "LA",
+      "TH",
+      "KH",
+      "VN",
+      "MY"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T16:24:16.651Z"
+  }
+}

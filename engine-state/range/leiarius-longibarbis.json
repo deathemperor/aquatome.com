@@ -1,0 +1,109 @@
+{
+  "id": "leiarius-longibarbis",
+  "native": {
+    "input": "5d976c3f077c9591",
+    "at": "2026-11-09T12:58:06.259Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the Rio Orinoco in Colombia and Venezuela, Rio Essequibo in Guyana, and the Amazon basin in Brazil, Peru and Bolivia.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the Rio Orinoco in Colombia and Venezuela, Rio Essequibo in Guyana, and the Amazon basin in Brazil, Peru and Bolivia.",
+        "words": "Venezuela",
+        "ok": true
+      },
+      {
+        "code": "GY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the Rio Orinoco in Colombia and Venezuela, Rio Essequibo in Guyana, and the Amazon basin in Brazil, Peru and Bolivia.",
+        "words": "Guyana",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the Rio Orinoco in Colombia and Venezuela, Rio Essequibo in Guyana, and the Amazon basin in Brazil, Peru and Bolivia.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the Rio Orinoco in Colombia and Venezuela, Rio Essequibo in Guyana, and the Amazon basin in Brazil, Peru and Bolivia.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known from the Rio Orinoco in Colombia and Venezuela, Rio Essequibo in Guyana, and the Amazon basin in Brazil, Peru and Bolivia.",
+        "words": "Bolivia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Orinoco",
+        "source": "seriouslyfish",
+        "quote": "Known from the Rio Orinoco in Colombia and Venezuela, Rio Essequibo in Guyana, and the Amazon basin in Brazil, Peru and Bolivia.",
+        "ok": true
+      },
+      {
+        "name": "Rio Essequibo",
+        "source": "seriouslyfish",
+        "quote": "Known from the Rio Orinoco in Colombia and Venezuela, Rio Essequibo in Guyana, and the Amazon basin in Brazil, Peru and Bolivia.",
+        "country": "GY",
+        "ok": true
+      },
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Known from the Rio Orinoco in Colombia and Venezuela, Rio Essequibo in Guyana, and the Amazon basin in Brazil, Peru and Bolivia.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Leiarius longibarbis",
+    "status": "ACCEPTED",
+    "taxonKey": 2338860,
+    "datasets": [
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        2
+      ]
+    ],
+    "native": [
+      "CO",
+      "VE",
+      "GY",
+      "BR",
+      "PE",
+      "BO"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T12:58:06.259Z"
+  }
+}

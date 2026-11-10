@@ -1,8 +1,8 @@
 {
   "id": "apistogramma-cacatuoides",
   "native": {
-    "input": "38407839f930d5c8",
-    "at": "2026-11-06T09:17:06.855Z",
+    "input": "29687197ce061997",
+    "at": "2026-11-09T20:43:02.940Z",
     "claims": [
       {
         "code": "PE",
@@ -21,27 +21,19 @@
         "ok": true
       },
       {
-        "code": "PE",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "The species is currently considered widespread throughout much of the upper Amazon basin from the ríos Ucayali and Amazonas in Peru to the Solimões in western Brazil.",
-        "words": "Peru",
-        "ok": true
-      },
-      {
-        "code": "BR",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "The species is currently considered widespread throughout much of the upper Amazon basin from the ríos Ucayali and Amazonas in Peru to the Solimões in western Brazil.",
-        "words": "Brazil",
-        "ok": true
-      },
-      {
         "code": "SR",
         "status": "doubtful",
         "source": "seriouslyfish",
         "quote": "The type locality was originally given incorrectly as Paramaribo, Suriname but this was later amended by Kullander to the \"Amazon River basin, between 69°W and 71°W\".",
         "words": "Suriname",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Peru",
+        "words": "Peru",
         "ok": true
       }
     ],
@@ -49,21 +41,28 @@
       {
         "name": "Amazon",
         "source": "seriouslyfish",
-        "quote": "The species is currently considered widespread throughout much of the upper Amazon basin from the ríos Ucayali and Amazonas in Peru to the Solimões in western Brazil.",
+        "quote": "The cockatoo cichlid, Apistogramma cacatuoides, is a small cichlid from the upper Amazon basin, from the Ucayali in Peru to the Solimões in Brazil.",
         "ok": true
       },
       {
         "name": "Ucayali",
         "source": "seriouslyfish",
-        "quote": "The species is currently considered widespread throughout much of the upper Amazon basin from the ríos Ucayali and Amazonas in Peru to the Solimões in western Brazil.",
+        "quote": "The cockatoo cichlid, Apistogramma cacatuoides, is a small cichlid from the upper Amazon basin, from the Ucayali in Peru to the Solimões in Brazil.",
         "country": "PE",
         "ok": true
       },
       {
         "name": "Solimões",
         "source": "seriouslyfish",
-        "quote": "The species is currently considered widespread throughout much of the upper Amazon basin from the ríos Ucayali and Amazonas in Peru to the Solimões in western Brazil.",
+        "quote": "The cockatoo cichlid, Apistogramma cacatuoides, is a small cichlid from the upper Amazon basin, from the Ucayali in Peru to the Solimões in Brazil.",
         "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio Ucayali",
+        "source": "glaser",
+        "quote": "Currently wild-collected Apistogramma cacatuoides are available, which most probably originate from the surroundings of Pucallpa, at least for sure from the Rio Ucayali basin, Peru.",
+        "country": "PE",
         "ok": true
       }
     ],

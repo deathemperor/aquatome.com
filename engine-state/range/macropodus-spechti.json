@@ -1,0 +1,93 @@
+{
+  "id": "macropodus-spechti",
+  "native": {
+    "input": "afb4418438e6fe96",
+    "at": "2026-11-09T20:43:02.940Z",
+    "claims": [
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "bwaquatics",
+        "quote": "Native to central Vietnam, particularly the Thu Bồn River system in Quảng Nam province and the Hương (Perfume) River basin in Thừa Thiên-Huế province.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known with certainty from the Thu Bồn River system in Quảng Nam province, and the Hương (aka Perfume) River basin in Thừa Thiên-Huế province, central Vietnam.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "doubtful",
+        "source": "seriouslyfish",
+        "quote": "Type locality is erroneously given as 'Dutch Indies [Indonesia]'.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Thu Bồn",
+        "source": "bwaquatics",
+        "quote": "Native to central Vietnam, particularly the Thu Bồn River system in Quảng Nam province and the Hương (Perfume) River basin in Thừa Thiên-Huế province.",
+        "country": "VN",
+        "ok": true
+      },
+      {
+        "name": "Hương",
+        "source": "bwaquatics",
+        "quote": "Native to central Vietnam, particularly the Thu Bồn River system in Quảng Nam province and the Hương (Perfume) River basin in Thừa Thiên-Huế province.",
+        "country": "VN",
+        "ok": true
+      },
+      {
+        "name": "Thu Bồn",
+        "source": "seriouslyfish",
+        "quote": "Known with certainty from the Thu Bồn River system in Quảng Nam province, and the Hương (aka Perfume) River basin in Thừa Thiên-Huế province, central Vietnam.",
+        "country": "VN",
+        "ok": true
+      },
+      {
+        "name": "Hương",
+        "source": "seriouslyfish",
+        "quote": "Known with certainty from the Thu Bồn River system in Quảng Nam province, and the Hương (aka Perfume) River basin in Thừa Thiên-Huế province, central Vietnam.",
+        "country": "VN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Macropodus spechti",
+    "status": "ACCEPTED",
+    "taxonKey": 5211156,
+    "datasets": [
+      [
+        "e2980e63-d152-4219-8c1e-0ffdef3ea6aa",
+        13
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        11
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        1
+      ]
+    ],
+    "native": [
+      "VN"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T20:43:02.940Z"
+  }
+}

@@ -100,6 +100,26 @@
       "kept": true
     }
   ],
+  "vi/products/fluval-stratum": [
+    {
+      "at": "2026-11-09T22:50:43Z",
+      "model": "code",
+      "score": 1,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true
+    },
+    {
+      "at": "2026-11-09T22:50:43Z",
+      "model": "code",
+      "score": 0,
+      "notes": [
+        "\"pH nước máy (Seattle, chưa xử lý, lấy tại vòi)\" names Seattle: its reviews' titles and descriptions and our catalog have no such name, so the captions may have misheard it. Say it without the name (\"một đèn khác\")"
+      ],
+      "attempt": "first",
+      "kept": false
+    }
+  ],
   "vi/products/tuya-smart-life-power-strip": [
     {
       "at": "2026-11-09T06:27:32Z",

@@ -1,0 +1,128 @@
+{
+  "id": "lamontichthys-filamentosus",
+  "native": {
+    "input": "5ce2699d4db55b77",
+    "at": "2026-11-09T12:58:06.259Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the central and western Amazon basins in Brazil, Peru, Ecuador and Bolivia.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "PE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the central and western Amazon basins in Brazil, Peru, Ecuador and Bolivia.",
+        "words": "Peru",
+        "ok": true
+      },
+      {
+        "code": "EC",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the central and western Amazon basins in Brazil, Peru, Ecuador and Bolivia.",
+        "words": "Ecuador",
+        "ok": true
+      },
+      {
+        "code": "BO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to the central and western Amazon basins in Brazil, Peru, Ecuador and Bolivia.",
+        "words": "Bolivia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Amazon",
+        "source": "seriouslyfish",
+        "quote": "Native to the central and western Amazon basins in Brazil, Peru, Ecuador and Bolivia.",
+        "ok": true
+      },
+      {
+        "name": "Rio Jurua",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'vicinity of the mouth of Rio Embira, a tributary of Rio Tarauaca, which, in turn, is a tributary of Rio Jurua (700 15' W., 70 30' S.)'.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Lamontichthys filamentosus",
+    "status": "ACCEPTED",
+    "taxonKey": 2340128,
+    "datasets": [
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        15
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        9
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        9
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        3
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        3
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        3
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        3
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        3
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        2
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        2
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        2
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ]
+    ],
+    "native": [
+      "BR",
+      "PE",
+      "EC",
+      "BO"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T12:58:06.259Z"
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "id": "lasiancistrus-tentaculatus",
+  "native": {
+    "input": "c5dcccc9086a1b13",
+    "at": "2026-11-09T12:58:06.259Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Lasiancistrus tentaculatus (L092, L194) is a suckermouth catfish from Colombia and Venezuela that lives among driftwood snags in rivers.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "VE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Lasiancistrus tentaculatus (L092, L194) is a suckermouth catfish from Colombia and Venezuela that lives among driftwood snags in rivers.",
+        "words": "Venezuela",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Lasiancistrus tentaculatus",
+    "status": "ACCEPTED",
+    "taxonKey": 2339209,
+    "datasets": [
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        29
+      ],
+      [
+        "baff6941-ea14-45d2-a55f-15d90e370df2",
+        16
+      ],
+      [
+        "ec6ecdeb-d8b3-4f28-8057-dad68feb616b",
+        12
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        10
+      ],
+      [
+        "bb1f4643-8a9a-4d72-b631-88a41c0528bc",
+        4
+      ],
+      [
+        "f7739f2a-9d89-40c2-a262-813832add25d",
+        4
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        2
+      ],
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        1
+      ]
+    ],
+    "native": [
+      "CO",
+      "VE"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T12:58:06.259Z"
+  }
+}

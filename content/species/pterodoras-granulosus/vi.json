@@ -3,17 +3,27 @@
   "name": "Cá da trơn gai Pterodoras granulosus",
   "altNames": [
     "Cá da trơn gai",
-    "Thorny catfish"
+    "Thorny catfish",
+    "Cá da trơn hạt",
+    "Granulated catfish"
   ],
   "sections": {
     "quickFacts:glaser": "<p>Cá da trơn gai (họ Doradidae) là một họ cá da trơn nhỏ, chỉ sống ở Nam Mỹ. Hiện người ta đã biết 41 chi với 127 loài, và vẫn liên tục tìm ra thêm loài mới. Những loài lớn nhất có thể dài hơn 100 cm. Kỷ lục thế giới thuộc về Opsodoras niger, với con cá dài 120 cm và nặng 20 kg. Loài nhỏ nhất là Physopyxis lyra, chỉ dài 3,5 cm. Phần lớn các loài khi trưởng thành dài tối đa từ 10 đến 20 cm.</p><p>Pterodoras granulosus có nguồn gốc từ Peru. Đây là một loài cỡ lớn, có thể dài tới khoảng 70 cm. Lứa cá con từng nhập về dài 7-10 cm.</p>",
-    "behaviour:glaser": "<p>Loài này hiền như mọi loài cá da trơn gai khác. Dù vậy, bạn cần nhớ rằng nó có cái miệng rất to. Cá nhỏ hơn mà nuốt vừa miệng thì dĩ nhiên sẽ biến mất.</p>"
+    "behaviour:glaser": "<p>Loài này hiền như mọi loài cá da trơn gai khác. Dù vậy, bạn cần nhớ rằng nó có cái miệng rất to. Cá nhỏ hơn mà nuốt vừa miệng thì dĩ nhiên sẽ biến mất.</p>",
+    "quickFacts:scotcat": "<ul><li>Tên thường gọi: Cá trê hạt</li></ul>",
+    "distribution:scotcat": "<p>Nam Mỹ: lưu vực sông Amazon, sông Paraná và các hệ thống sông ven biển ở Guyana và Suriname.</p>",
+    "habitat:scotcat": "<p>Ngoài tự nhiên, chúng sống thành từng nhóm nhỏ. Thức ăn chủ yếu của chúng là động vật thân mềm và quả của cây Astrocaryum javary.</p>",
+    "aquariumSize:scotcat": "<p>Loài này cần bể lớn, có ống nhựa hoặc ống gốm cỡ lớn để chui vào nằm nghỉ. Nên nuôi chung với cá cùng cỡ hoặc to hơn.</p>",
+    "diet:scotcat": "<p>Cho ăn thức ăn viên, viên nén, tép mysis đông lạnh, các loại thức ăn dạng trùn và thịt trai. Có thể cho thử thêm trái cây, chẳng hạn chuối.</p>",
+    "notes:scotcat": "<p>Từ nguyên: tên loài granulosus ghép từ granum (tiếng Latinh) nghĩa là hạt, hạt ngũ cốc, và hậu tố –osus (tiếng Latinh) chỉ sự đầy, nhiều. Cái tên này có lẽ nói tới 23–28 tấm giáp nông (hay vảy cứng) chạy dọc thân. Những tấm giáp này có thể làm lớp da không vảy trông lấm tấm như phủ hạt.</p><p>Danh sách Đỏ IUCN: Thông tin về loài này còn ít, nhưng chúng phân bố rộng và không có mối đe dọa nào rõ ràng. Vì vậy loài này được xếp vào nhóm Ít quan tâm (IUCN 2023).</p>",
+    "references:scotcat": "<p>Salvador, G.N. 2023. Pterodoras granulosus. The IUCN Red List of Threatened Species 2023. ScotCat Factsheet no. 238. April 2016. The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
   },
   "quality": {
     "score": 0.85,
     "indexable": true,
     "bySource": {
-      "glaser": 0.85
+      "glaser": 0.85,
+      "scotcat": 0.88
     }
   }
 }

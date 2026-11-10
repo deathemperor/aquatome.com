@@ -9,7 +9,7 @@
     "scleropages-formosus",
     "carassius-auratus"
   ],
-  "updatedAt": "2026-11-03",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "LU_y6OK2qK0",
     "title": "DIY planted aquarium LED light",
@@ -29,45 +29,41 @@
     },
     "taxa": [
       "Rotala sp.",
-      "Scleropages formosus",
-      "Carassius auratus"
+      "Carassius auratus",
+      "Scleropages formosus"
     ],
     "gear": [
       {
         "category": "den",
         "type": "thuy-sinh",
         "brand": "Castle",
-        "t": 31
+        "model": "360 W",
+        "t": 32
       },
       {
         "category": "den",
         "type": "thuy-sinh",
         "brand": "Golson",
-        "model": "LED flood light 60W 6000K IP65",
-        "t": 257
+        "t": 287
       },
       {
-        "category": "test-nuoc",
-        "t": 513
+        "category": "den",
+        "type": "thuy-sinh",
+        "t": 227
       }
     ],
     "figures": [
       {
-        "heading": "Vì sao đèn pha LED dùng được cho bể thủy sinh",
+        "heading": "Chọn đèn pha LED thế nào",
         "moments": [
           {
             "t": 5,
-            "url": "https://media.aquatome.com/video/LU_y6OK2qK0/t5.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể thủy sinh nhỏ phủ thảm cây xanh dưới đèn."
-          },
-          {
-            "t": 267,
-            "url": "https://media.aquatome.com/video/LU_y6OK2qK0/t267.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Đèn pha LED nhìn từ phía trước, thấy rõ mảng chip LED."
+            "url": "https://media.aquatome.com/video/LU_y6OK2qK0/at5-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh nhỏ phủ thảm cây xanh dưới đèn pha.",
+            "sharpness": 675,
+            "person": false
           }
         ],
         "photo": {
@@ -78,58 +74,49 @@
           "licence": "CC BY-SA 3.0",
           "author": "Sokolshok",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_flood_outdoor_lamp.JPG",
-          "caption": "Đèn pha LED chip đơn, vỏ nhôm, đặt cạnh thước để so kích thước."
+          "caption": "Đèn pha LED chip đơn vỏ xám, đặt cạnh thước để thấy kích thước."
         }
       },
       {
-        "heading": "Đấu dây cho đèn thế nào",
+        "heading": "Đấu dây cho đèn",
         "moments": [
           {
-            "t": 331,
-            "url": "https://media.aquatome.com/video/LU_y6OK2qK0/t331.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Dây nối dài đã lột vỏ, lộ các lõi dây màu."
-          },
-          {
-            "t": 346,
-            "url": "https://media.aquatome.com/video/LU_y6OK2qK0/t346.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Mối nối dây được bọc kín bằng ống co nhiệt, bên cạnh là bật lửa."
+            "t": 315,
+            "url": "https://media.aquatome.com/video/LU_y6OK2qK0/at315-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đèn pha LED với dây điện chưa có phích cắm.",
+            "sharpness": 467.9,
+            "person": false
           }
         ]
       },
       {
-        "heading": "Treo đèn lên bể ra sao",
+        "heading": "Gắn đèn lên bể: cần cổ ngỗng hay nắp gỗ",
         "moments": [
           {
-            "t": 371,
-            "url": "https://media.aquatome.com/video/LU_y6OK2qK0/t371.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Đèn pha gắn trên cần cổ ngỗng đen, treo phía trên bể."
+            "t": 375,
+            "url": "https://media.aquatome.com/video/LU_y6OK2qK0/at375-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đèn pha kẹp trên cần cổ ngỗng, chiếu xuống bể.",
+            "sharpness": 192.7,
+            "person": false
           },
           {
-            "t": 489,
-            "url": "https://media.aquatome.com/video/LU_y6OK2qK0/t489.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Hộp gỗ chứa đèn được treo phía trên bể cây thủy sinh."
+            "t": 495,
+            "url": "https://media.aquatome.com/video/LU_y6OK2qK0/at495-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Nắp gỗ hộp treo phía trên bể, đèn gắn bên trong.",
+            "sharpness": 238.8,
+            "person": false
           }
         ]
       },
       {
-        "heading": "Đèn tự chế so với đèn chuyên dụng",
-        "moments": [
-          {
-            "t": 548,
-            "url": "https://media.aquatome.com/video/LU_y6OK2qK0/t548.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Máy đo lux đo độ sáng của bóng đèn pha LED tự chế."
-          }
-        ],
+        "heading": "Đèn sáng đến mức nào",
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/LU_y6OK2qK0/p3-ZGxvdnNrLTQuanBn.webp",
           "thumb": "https://media.aquatome.com/video/LU_y6OK2qK0/p3-ZGxvdnNrLTQuanBn-480.webp",
@@ -138,87 +125,54 @@
           "licence": "CC BY-SA 4.0",
           "author": "Jacek Halicki",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:2023_%C5%9Awiat%C5%82omierz_Sverdlovsk-4.jpg",
-          "caption": "Máy đo sáng cầm tay kiểu cũ, cùng loại dụng cụ đo cường độ ánh sáng."
+          "caption": "Một chiếc máy đo sáng cũ, dụng cụ đo cường độ ánh sáng."
         }
       },
       {
-        "heading": "Cần bao nhiêu bóng cho bể của bạn",
+        "heading": "Đèn pha khác đèn thủy sinh chuyên dụng ở đâu",
         "moments": [
           {
-            "t": 672,
-            "url": "https://media.aquatome.com/video/LU_y6OK2qK0/t672.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể dài trồng cây, đèn chiếu sáng phía trên trong phòng tối."
+            "t": 95,
+            "url": "https://media.aquatome.com/video/LU_y6OK2qK0/at95-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể cá được chiếu sáng bằng đèn pha, ánh sáng tỏa đều cả bể.",
+            "sharpness": 438,
+            "person": false
           }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/LU_y6OK2qK0/p4-1bV9MaWdodC5qcGc.webp",
-          "thumb": "https://media.aquatome.com/video/LU_y6OK2qK0/p4-1bV9MaWdodC5qcGc-480.webp",
-          "width": 960,
-          "height": 666,
-          "licence": "CC BY-SA 3.0",
-          "author": "Lime Huang",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_Aquarium_Light.jpg",
-          "caption": "Bể thủy sinh nano trồng nhiều cây, có đèn LED gắn phía trên."
-        }
+        ]
       },
       {
         "heading": "Dùng cho bể không trồng cây",
         "moments": [
           {
-            "t": 677,
-            "url": "https://media.aquatome.com/video/LU_y6OK2qK0/t677.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể không trồng cây, chỉ có đá và sỏi, sáng nhẹ."
+            "t": 680,
+            "url": "https://media.aquatome.com/video/LU_y6OK2qK0/at680-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể không trồng cây dài, chỉ chiếu sáng nhẹ bằng một cây đèn.",
+            "sharpness": 448.4,
+            "person": false
           },
           {
-            "t": 687,
-            "url": "https://media.aquatome.com/video/LU_y6OK2qK0/t687.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể cá rồng châu Á với ba bóng đèn pha treo phía trên."
+            "t": 695,
+            "url": "https://media.aquatome.com/video/LU_y6OK2qK0/at695-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể cá rồng châu Á với ba đèn thả tự chế phía trên.",
+            "sharpness": 1033,
+            "person": false
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/LU_y6OK2qK0/p5-ZV8yMDEyXzEuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/LU_y6OK2qK0/p5-ZV8yMDEyXzEuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/LU_y6OK2qK0/p6-MzJUE5XzEwLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/LU_y6OK2qK0/p6-MzJUE5XzEwLmpwZw-480.webp",
           "width": 960,
-          "height": 570,
-          "licence": "CC BY-SA 3.0",
-          "author": "Karelj",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scleropages_formosus_Prague_2012_1.jpg",
-          "caption": "Cá rồng châu Á bơi trong bể không trồng cây, ánh đèn phía trên chiếu xuống."
-        }
-      },
-      {
-        "heading": "Bắt đầu từ đâu",
-        "moments": [
-          {
-            "t": 282,
-            "url": "https://media.aquatome.com/video/LU_y6OK2qK0/t282.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Hai đèn pha LED đặt trên bàn, sẵn sàng để lắp cho bể."
-          },
-          {
-            "t": 311,
-            "url": "https://media.aquatome.com/video/LU_y6OK2qK0/t311.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Đèn pha LED với dây điện nối sẵn, chuẩn bị nối dài."
-          }
-        ],
-        "photo": {
-          "url": "https://media.aquatome.com/video/LU_y6OK2qK0/p6-b29yX2xhbXAuSlBH.webp",
-          "thumb": "https://media.aquatome.com/video/LU_y6OK2qK0/p6-b29yX2xhbXAuSlBH-480.webp",
-          "width": 960,
-          "height": 840,
-          "licence": "CC BY-SA 3.0",
-          "author": "Sokolshok",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_flood_outdoor_lamp.JPG",
-          "caption": "Đèn pha LED vỏ xám, dùng làm đèn cho bể trồng cây."
+          "height": 640,
+          "licence": "CC BY-SA 4.0",
+          "author": "Tylwyth Eldar",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oniria_-_Arowana_argent%C3%A9_10.jpg",
+          "caption": "Bể không trồng cây nuôi cá rồng châu Á bơi lội thoải mái."
         }
       }
     ]

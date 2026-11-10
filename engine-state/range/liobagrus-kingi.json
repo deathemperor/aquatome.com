@@ -1,0 +1,56 @@
+{
+  "id": "liobagrus-kingi",
+  "native": {
+    "input": "1d5ea26d8aa12351",
+    "at": "2026-11-09T16:24:16.651Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "China: Upper Yangtze River basin and Lake Dianchi.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Yangtze",
+        "source": "scotcat",
+        "quote": "China: Upper Yangtze River basin and Lake Dianchi.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Lake Dianchi",
+        "source": "scotcat",
+        "quote": "China: Upper Yangtze River basin and Lake Dianchi.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Jinsha Jiang",
+        "source": "scotcat",
+        "quote": "Liobagrus kingi is known from the Lake Dianchi basin, in the tributaries and its effluent river Zhangjiu and two tributaries of Jinsha Jiang (Upper Yangtze) in Sichuan and Yunnan Provinces.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Liobagrus kingi",
+    "status": "ACCEPTED",
+    "taxonKey": 2342836,
+    "datasets": [],
+    "native": [
+      "CN"
+    ],
+    "requests": 2,
+    "at": "2026-11-09T16:24:16.651Z"
+  }
+}

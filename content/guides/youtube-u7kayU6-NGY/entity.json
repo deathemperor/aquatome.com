@@ -9,7 +9,7 @@
     "scleropages-formosus",
     "potamotrygon-motoro"
   ],
-  "updatedAt": "2026-11-05",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "u7kayU6-NGY",
     "title": "HOW IT WORKS: Large aquarium",
@@ -34,43 +34,223 @@
     ],
     "gear": [
       {
+        "category": "be-ca",
+        "type": "lon",
+        "t": 62
+      },
+      {
         "category": "loc",
         "type": "sump",
         "t": 92
       },
       {
-        "category": "khac",
-        "brand": "Bio Max",
-        "model": "Biomax",
-        "t": 92
+        "category": "loc",
+        "type": "bot-bien",
+        "t": 169
       },
       {
-        "category": "be-ca",
-        "type": "lon",
-        "t": 62
+        "category": "khac",
+        "brand": "Quiet One",
+        "model": "6000",
+        "t": 217
+      },
+      {
+        "category": "suoi",
+        "type": "chinh-nhiet",
+        "t": 205
+      },
+      {
+        "category": "den",
+        "t": 92
       }
     ],
     "figures": [
       {
-        "heading": "Thông số bể và sump",
+        "heading": "Bể, nắp và đèn",
         "moments": [
           {
             "t": 0,
-            "url": "https://media.aquatome.com/video/u7kayU6-NGY/t0.webp",
-            "width": 159,
-            "height": 90,
-            "caption": "Toàn cảnh bể acrylic lớn đặt trên kệ, phần sump phía dưới."
+            "url": "https://media.aquatome.com/video/u7kayU6-NGY/at0-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Toàn cảnh bể mica dài trên kệ, có cá rồng và cá đuối bên trong.",
+            "sharpness": 635.2
+          },
+          {
+            "t": 70,
+            "url": "https://media.aquatome.com/video/u7kayU6-NGY/at70-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tấm ngăn mica trong bể, cá đuối motoro được tách sang một bên.",
+            "sharpness": 236.8
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/u7kayU6-NGY/p0-TmV3X1N1bXAuanBn.webp",
-          "thumb": "https://media.aquatome.com/video/u7kayU6-NGY/p0-TmV3X1N1bXAuanBn-480.webp",
+          "url": "https://media.aquatome.com/video/u7kayU6-NGY/p0-91c2V0cmFwLmpwZw.webp",
+          "thumb": "https://media.aquatome.com/video/u7kayU6-NGY/p0-91c2V0cmFwLmpwZw-480.webp",
+          "width": 960,
+          "height": 1280,
+          "licence": "CC BY-SA 4.0",
+          "author": "Issuemet",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_fish_tank_acrylic_divider_that_has_foothold_mousetrap.jpg",
+          "caption": "Tấm nắp bể dạng lưới ô vuông tự làm, có móc treo dây."
+        }
+      },
+      {
+        "heading": "Sump tháp nhỏ giọt gồm những gì",
+        "moments": [
+          {
+            "t": 125,
+            "url": "https://media.aquatome.com/video/u7kayU6-NGY/at125-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tháp bóng lọc màu xanh trong sump, nước tưới xuống từ phía trên.",
+            "sharpness": 63.8
+          },
+          {
+            "t": 200,
+            "url": "https://media.aquatome.com/video/u7kayU6-NGY/at200-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ngăn sump có mút lọc xanh và vật liệu lọc bên dưới.",
+            "sharpness": 16.2
+          }
+        ]
+      },
+      {
+        "heading": "Nước chảy qua sump theo đường nào",
+        "moments": [
+          {
+            "t": 205,
+            "url": "https://media.aquatome.com/video/u7kayU6-NGY/at205-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ngăn sump chứa lớp bóng lọc xanh phía trên, nhìn từ gần.",
+            "sharpness": 41.3
+          },
+          {
+            "t": 255,
+            "url": "https://media.aquatome.com/video/u7kayU6-NGY/at255-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đường ống PVC trắng nối bơm và van dưới gầm bể.",
+            "sharpness": 41
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/u7kayU6-NGY/p2-TmV3X1N1bXAuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/u7kayU6-NGY/p2-TmV3X1N1bXAuanBn-480.webp",
           "width": 960,
           "height": 720,
           "licence": "Public domain",
           "author": "Gtstricky",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reef_Aquarium_New_Sump.jpg",
-          "caption": "Bể sump acrylic nhiều ngăn đặt dưới tủ, có bơm và đường ống."
+          "caption": "Sump acrylic nhiều ngăn có tháp lọc và bơm, đang lắp đặt."
+        }
+      },
+      {
+        "heading": "Hai ống xả to nhỏ để bớt tiếng ồn",
+        "moments": [
+          {
+            "t": 120,
+            "url": "https://media.aquatome.com/video/u7kayU6-NGY/at120.webp",
+            "width": 159,
+            "height": 90,
+            "caption": "Nước chảy xuống ngăn sump trong, thấy ống và bọt nước."
+          },
+          {
+            "t": 165,
+            "url": "https://media.aquatome.com/video/u7kayU6-NGY/at165-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ống xả đen dẫn nước xuống bể sump bên dưới.",
+            "sharpness": 145.6
+          }
+        ]
+      },
+      {
+        "heading": "Lỗ chống siphon trên ống hồi",
+        "moments": [
+          {
+            "t": 270,
+            "url": "https://media.aquatome.com/video/u7kayU6-NGY/at270-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Ống hồi thò xuống mặt nước ở phía trên bể.",
+            "sharpness": 27.5
+          }
+        ]
+      },
+      {
+        "heading": "Chân bể",
+        "moments": [
+          {
+            "t": 310,
+            "url": "https://media.aquatome.com/video/u7kayU6-NGY/at310-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Khung chân bể bằng gỗ sẫm màu với các thanh đỡ chéo.",
+            "sharpness": 339
+          },
+          {
+            "t": 315,
+            "url": "https://media.aquatome.com/video/u7kayU6-NGY/at315.webp",
+            "width": 159,
+            "height": 90,
+            "caption": "Chân bể nhìn từ góc cạnh, thấy rõ trụ đứng và thanh đỡ."
+          }
+        ]
+      },
+      {
+        "heading": "Bảo dưỡng",
+        "moments": [
+          {
+            "t": 355,
+            "url": "https://media.aquatome.com/video/u7kayU6-NGY/at355-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Sump trong suốt với bông lọc xanh và vật liệu lọc xanh dương.",
+            "sharpness": 83.4
+          },
+          {
+            "t": 385,
+            "url": "https://media.aquatome.com/video/u7kayU6-NGY/at385-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đáy sump nơi từng có cổng xuyên vách, cạnh ống nhựa trắng.",
+            "sharpness": 328.3
+          }
+        ]
+      },
+      {
+        "heading": "Cá trong bể",
+        "moments": [
+          {
+            "t": 5,
+            "url": "https://media.aquatome.com/video/u7kayU6-NGY/at5-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Rồng Panda Gold bơi trên cặp cá đuối motoro dưới đáy bể.",
+            "sharpness": 469
+          },
+          {
+            "t": 60,
+            "url": "https://media.aquatome.com/video/u7kayU6-NGY/at60-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cận cảnh đĩa cá đuối cái có vết cắn do con đực.",
+            "sharpness": 19
+          }
+        ],
+        "photo": {
+          "url": "https://media.aquatome.com/video/u7kayU6-NGY/p7-ZV8yMDEyXzMuanBn.webp",
+          "thumb": "https://media.aquatome.com/video/u7kayU6-NGY/p7-ZV8yMDEyXzMuanBn-480.webp",
+          "width": 960,
+          "height": 509,
+          "licence": "CC BY-SA 3.0",
+          "author": "Karelj",
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scleropages_formosus_Prague_2012_3.jpg",
+          "caption": "Cá rồng vảy vàng bơi trong bể, thân dài và vảy ánh kim rõ nét."
         }
       }
     ]

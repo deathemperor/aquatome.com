@@ -14,7 +14,7 @@ gets it. The owner gets it first, alone: chat is on for the owner's account only
 | The kit reads a stop's count, "Báo sai" and the general-knowledge mark | iOS content lead | #894 |
 | Stop, and past conversations (listed, reopened, hidden) | iOS content lead | #767 |
 | The cards under an answer (species, comparison, section, tank-mates) | iOS content lead | #766 |
-| "Hỏi về cá …" on v2's fish page, directly under "Thêm vào bể" ([v2-fish-page.md](v2-fish-page.md)) | whichever of #921 and #765 lands second | |
+| "Hỏi về cá …" on v2's fish page, directly under "Thêm vào bể" ([v2-fish-page.md](v2-fish-page.md)) | v2 Lab | #921 |
 | Chat on for the owner's account alone | AI Lead | #939 |
 | A conversation's title, from its first answer | AI Lead | #913, once the editors pass it |
 | A question given back when an answer breaks after its text has begun | AI Lead | #939 |

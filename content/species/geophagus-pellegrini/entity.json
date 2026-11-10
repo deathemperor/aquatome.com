@@ -8,7 +8,8 @@
   "places": [
     "south-america",
     "colombia",
-    "san-juan"
+    "san-juan",
+    "atrato"
   ],
   "range": {
     "native": {
@@ -166,10 +167,22 @@
       "html": "<p>Needs a soft, sandy substrate: the most essential item of décor is a soft, sandy substrate so that the fish can browse naturally (see 'Diet').</p><p>The yellowhump eartheater, Geophagus pellegrini, is a cichlid from the Chocó and Antioquia departments of northwestern Colombia. The species is rare in the hobby, and most fish traded under its name are forms of 'G.' steindachneri or occasionally 'G.' crassilabris. Its yellowish colour pattern separates it from those two, the other members of the 'G.' steindachneri group. It is an ovophilous, maternal mouthbrooder.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_pellegrini_en/",
+      "html": "<p>This beautiful cichlid is only very rarely available; the last time it was offered was 5 years ago. The few specimens imported are almost adult.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-pellegrini",
       "html": "<p>Type locality is the Río San Juan at Tado, Chocó Department, northwestern Colombia, and this species is endemic to that region plus the neighbouring Department of Antioquia.</p><p>It's also been recorded from the Río Atrato and Río Baudó drainages.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_pellegrini_en/",
+      "html": "<p>This mouthbrooding cichlid comes from Colombia. It originates from the Chocó region in the west of the country. The main river of the Chocó region is the Rio Atrato.</p>"
     },
     {
       "key": "habitat",
@@ -218,6 +231,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/geophagus-pellegrini",
       "html": "<p>Ovophilous, maternal mouthbrooder forming weak pair bonds during the spawning process only.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/geophagus_pellegrini_en/",
+      "html": "<p>A mouthbrooding cichlid.</p>"
     },
     {
       "key": "notes",
@@ -297,5 +316,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-09"
 }

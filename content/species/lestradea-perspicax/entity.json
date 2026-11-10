@@ -12,6 +12,96 @@
     "democratic-republic-of-the-congo",
     "tanzania"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "BI",
+        "CD",
+        "TZ"
+      ],
+      "regions": [
+        "Lake Tanganyika"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the northern end of Lake Tanganyika (Burundi, DR Congo, Tanzania).",
+          "countries": [
+            "BI",
+            "CD",
+            "TZ"
+          ],
+          "regions": [
+            "Lake Tanganyika"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2372126,
+      "total": 49,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "CD",
+          15
+        ],
+        [
+          "TZ",
+          15
+        ],
+        [
+          "BI",
+          14
+        ],
+        [
+          "ZM",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          28.125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          28.125,
+          -4.21875,
+          26,
+          26
+        ],
+        [
+          29.53125,
+          -9.84375,
+          5,
+          0
+        ],
+        [
+          29.53125,
+          -8.4375,
+          9,
+          9
+        ],
+        [
+          29.53125,
+          -7.03125,
+          1,
+          1
+        ],
+        [
+          29.53125,
+          -5.625,
+          7,
+          7
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

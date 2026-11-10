@@ -10,6 +10,65 @@
     "sri-lanka",
     "kalu"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "LK"
+      ],
+      "regions": [
+        "Gin",
+        "Kelani",
+        "Kalu",
+        "Nilwala",
+        "Bentota"
+      ],
+      "sources": [
+        "seriouslyfish",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The ornate paradisefish, Malpulutta kretseri, is a labyrinth fish from the 'wet zone' of southwestern Sri Lanka.",
+          "countries": [
+            "LK"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "If it did once occur further north, it now appears restricted to Sri Lanka's 'wet zone', where it has been recorded from the Gin, Kelani, Kalu, Nilwala, and Bentota river basins.",
+          "countries": [],
+          "regions": [
+            "Gin",
+            "Kelani",
+            "Kalu",
+            "Nilwala",
+            "Bentota"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2393979,
+      "total": 2,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "LK",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          80.15625,
+          5.625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

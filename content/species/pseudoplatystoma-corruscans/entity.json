@@ -8,13 +8,41 @@
   "places": [
     "south-america",
     "brazil",
-    "rio-sao-francisco"
+    "rio-sao-francisco",
+    "sao-francisco",
+    "argentina",
+    "parana",
+    "paraguay",
+    "asia",
+    "thailand"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 180
+      },
+      {
+        "source": "scotcat",
+        "value": 150
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 22,
+          "max": 26
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7
+        }
       }
     ]
   },
@@ -26,43 +54,80 @@
       "html": "<p>The rarely traded, largest shovelnose catfish Pseudoplatystoma corruscans originates from the Rio Sao Francisco in Brazil. This predator becomes quite large (approx. 180 cm) and heavy (100 kg). They like to stay in groups and socialize well with rays, big characins, cichlids or other catfishes.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/pseudoplatystoma_corruscans.htm",
+      "html": "<p>Common name: Spotted shovelnose. Family: Pimelodidae. Size: 150 cm. Temperature: 22–26°C. pH: 6.0–7.0.</p><p>Synonyms: Sorubim caparary, Platystoma corruscans, Platystoma coruscans, Silurus macrocephalus.</p>"
+    },
+    {
       "key": "distribution",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10c-catfishes-remaining-catfish-from-south-america/pseudoplatystoma_corruscans_en/",
       "html": "<p>Origin: Brazil (Rio Sao Francisco).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/pseudoplatystoma_corruscans.htm",
+      "html": "<p>South America: São Francisco and Paraná River basins. Type locality: In flumine S. Francisci, Brazil.</p><p>It is now also found in Thailand, Asia, where this large South American pim has been introduced to large ponds and fishing lakes for sport fishing, along with other similar-sized members of the Pimelodidae such as Pseudoplatystoma fasciatum, Sorubimichthys planiceps and the red tail catfish Phractocephalus hemioliopterus.</p><p>The IUCN notes that P. corruscans occurs in the San Francisco and La Plata river basins. Decreased commercial fishing landings have been recorded at some points in the São Francisco and Paraná basins, which suggests a decline in the subpopulations in at least these two basins. The reduction is directly linked to the construction of hydroelectric plants and overfishing, with possible additional impacts of hybridisation with congeners and pollution. Contributions from the subpopulations of Argentina and Paraguay are expected to the Pantanal, where the subpopulations are still in the best state of conservation, but not for the subpopulations in the upper Paraná and São Francisco, which are more affected by fragmentation caused by successive dams. A population decline of 25% in the last 45 years (three generations) is suspected. P. corruscans is categorised as Near Threatened (NT), because it approaches VU A2bcde (IUCN 2023).</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/pseudoplatystoma_corruscans.htm",
+      "html": "<p>It should be housed in a very large tank. It can damage its large nose if kept in too confined an area, and it can become jumpy if it feels its barbels touch the tank sides as it turns around. It is best kept in public aquariums.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/pseudoplatystoma_corruscans.htm",
+      "html": "<p>The tank should have a shaded area at the back, such as a large branch, and plants to hide under, as the fish is nocturnal. The lighting should not be too bright.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/pseudoplatystoma_corruscans.htm",
+      "html": "<p>In their natural habitat they eat other fish such as characins and other catfish, and also freshwater crabs. In the aquarium, a diet of earthworms, freshwater fish such as trout, and shrimp and prawns is suitable. Feed only when the fish starts actively looking for food, as they rest for a few days after feeding to digest.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/pseudoplatystoma_corruscans.htm",
+      "html": "<p>Nocturnal. It should not be kept with any fish smaller than itself. The best companions would probably be large pacus or similar-sized fish that cannot be swallowed. It may go off its food if disturbed.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/pseudoplatystoma_corruscans.htm",
+      "html": "<p>Buitrago-Suárez and Burr (2007) described five new species to go alongside P. tigrinum, P. fasciatum and P. corruscans: P. punctifer (Castelnau), P. reticulatum Eigenmann &amp; Eigenmann, P. orinocoense, P. metaense and P. magdaleniatum. So far P. punctifer is the only one not accepted in some publications. Two species (P. punctifer? and P. tigrinum) are sympatric in the Amazon Basin, two (P. metaense and P. orinocoense) in the Orinoco Basin, and two others, P. corruscans and P. reticulatum, in the Paraná. P. magdaleniatum and P. fasciatum each occur as the only Pseudoplatystoma species in their ranges.</p><p>Etymology: the specific name corruscans is an apparent misspelling of coruscans (Latin), flaming, flashing or glittering, probably referring to the bright colouration, yellow-orange above and silver below.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/pseudoplatystoma_corruscans.htm",
+      "html": "<p>Buitrago-Suárez, U.A. and B.M. Burr, 2007. Taxonomy of the catfish genus Pseudoplatystoma Bleeker (Siluriformes: Pimelodidae) with recognition of eight species. Zootaxa 1512:1-38.</p><p>Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628.</p><p>Salvador, G.N. 2023. Pseudoplatystoma corruscans. The IUCN Red List of Threatened Species 2023.</p><p>The ETYFish Project Fish Name Etymology Database © Christopher Scharpf.</p>"
     }
   ],
   "photos": [
     {
-      "url": "https://media.aquatome.com/scotcat/56ebecff2e7e3ac4.webp",
-      "thumb": "https://media.aquatome.com/scotcat/56ebecff2e7e3ac4-480.webp",
-      "width": 500,
-      "height": 394,
-      "licence": "dùng với sự cho phép",
-      "author": "ScotCat",
-      "sourceUrl": "https://www.scotcat.com/pimelodidae/pseudoplatystoma_corruscans.htm",
-      "caption": "Catfish Stamp: Pseudoplatystoma corruscans",
-      "source": "scotcat"
-    },
-    {
       "url": "https://media.aquatome.com/commons/c3e8ad221db509ea.webp",
+      "thumb": "https://media.aquatome.com/commons/c3e8ad221db509ea-480.webp",
       "width": 960,
       "height": 860,
       "licence": "CC BY 4.0",
       "author": "Leandro Balboni, Facundo Vargas, Darío Colautti",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Edc92015cef494fe2e4ece2f1c1241dd1649f222_(1).jpg",
-      "caption": "A. Detail of a spine of Pseudoplatystoma corruscans in upper and lower views and B. detail of the proximal portion of the spine. Lines indicate the cuts positions. C. View of spine cut showing the ven",
-      "thumb": "https://media.aquatome.com/commons/c3e8ad221db509ea-480.webp"
+      "caption": "A. Detail of a spine of Pseudoplatystoma corruscans in upper and lower views and B. detail of the proximal portion of the spine. Lines indicate the cuts positions. C. View of spine cut showing the ven"
     },
     {
       "url": "https://media.aquatome.com/commons/1a31a8f823f6a12f.webp",
+      "thumb": "https://media.aquatome.com/commons/1a31a8f823f6a12f-480.webp",
       "width": 960,
       "height": 1011,
       "licence": "CC BY 4.0",
       "author": "Lucas A. Pachla, Paula B. Hartmann, Marthoni V. Massaro, Rodrigo Bastian, Fernando M. Pelicice, & David A. Reynalte-Tataje",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pseudoplatystoma_corruscans_mating_and_spawning.jpg",
-      "caption": "School of Pseudoplatystoma corruscans engaged in a “mating and spawning cycle,” as recorded in the main channel of the Uruguay River, southern Brazil. (a) shows the school of spotted surubim with fema",
-      "thumb": "https://media.aquatome.com/commons/1a31a8f823f6a12f-480.webp"
+      "caption": "School of Pseudoplatystoma corruscans engaged in a “mating and spawning cycle,” as recorded in the main channel of the Uruguay River, southern Brazil. (a) shows the school of spotted surubim with fema"
     }
   ],
   "videos": [
@@ -107,5 +172,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-30"
+  "updatedAt": "2026-11-09"
 }

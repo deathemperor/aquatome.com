@@ -1,0 +1,28 @@
+{
+  "slug": "ca-aequidens-patricki",
+  "name": "Cá Aequidens patricki",
+  "altNames": [],
+  "sections": {
+    "quickFacts:glaser": "<p>Cá lớn tối đa 12-15 cm. Loài này khá hiền và rất khỏe.</p>",
+    "beforeYouBuy:glaser": "<p>Aequidens patricki rất hiếm khi được nhập về. Mấy loài cá nhỏ bơi tầng mặt như cá rìu có thể bị nó ăn.</p><p>Những con vừa về gần đây, từ một trong những đợt nhập rất hiếm hoi từ Peru, dài 5-7 cm và mới vừa đủ lớn để đẻ.</p>",
+    "distribution:glaser": "<p>Loài cichlid này có nguồn gốc từ một điểm thu bắt khá nhỏ ở Peru.</p>",
+    "habitat:glaser": "<p>Ngoài tự nhiên, loài này sống trong nước mềm và chua.</p>",
+    "aquariumSize:glaser": "<p>Dù lớn tới 12-15 cm, cá vẫn cho đẻ được trong bể khá nhỏ, chỉ cần từ 200 lít trở lên.</p>",
+    "waterConditions:glaser": "<p>Loài này rất khỏe và chịu được nhiều điều kiện nước khác nhau trong bể.</p>",
+    "notes:glaser": "<p>Loài này từng được giới thiệu trong Newsletter Extra tuần 23 (3) năm 2013, nhưng bị ghi nhầm tên là Aequidens sp. Jenaro Herrera.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.9
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-10"
+  }
+}

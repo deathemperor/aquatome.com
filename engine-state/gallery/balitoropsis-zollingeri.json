@@ -3,7 +3,9 @@
  "judged": [
   "File:Homaloptera zollingeri Bleeker.jpg",
   "File:Homaloptera zollingeri Bleeker (cropped).jpg",
-  "File:Balitoropsis zollingeri (10.3897-BDJ.11.e100337) Figure 6.jpg"
+  "File:Balitoropsis zollingeri (10.3897-BDJ.11.e100337) Figure 6.jpg",
+  "gbif:1321190429:d046052f9a5cb25d",
+  "gbif:1321190429:f87b18cef6716543"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/af87b5a761f76db2.webp": "0ce4c190d010b1ce",
@@ -19,5 +21,9 @@
    "research": 0,
    "agree": 0
   }
+ },
+ "gbif": {
+  "key": 8597456,
+  "next": null
  }
 }

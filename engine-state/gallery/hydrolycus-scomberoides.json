@@ -2,7 +2,8 @@
  "queue": [],
  "judged": [
   "File:Payara.jpg",
-  "File:Hydrolycus scomberoides by OpenCage.jpg"
+  "File:Hydrolycus scomberoides by OpenCage.jpg",
+  "inat:158188075"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/5a9edbef6b18e50e.webp": "ce0e2e0e1827effc",
@@ -10,5 +11,13 @@
   "https://media.aquatome.com/commons/ba98fae74001fa35.webp": "e7e7c9fce6c9373f",
   "https://media.aquatome.com/commons/7f24eaf5cb9d9b6b.webp": "2501373c18233333"
  },
- "commons": "2026-11-08"
+ "commons": "2026-11-08",
+ "inat": {
+  "taxon": 342484,
+  "pass": "done",
+  "after": {
+   "research": 95307849,
+   "agree": 0
+  }
+ }
 }

@@ -6,7 +6,7 @@
   "html": "",
   "photos": [],
   "mentions": [],
-  "updatedAt": "2026-10-31",
+  "updatedAt": "2026-11-09",
   "video": {
     "youtubeId": "pY7e33xGcyQ",
     "title": "Kinh nghiệm chăm sóc bể thủy sinh mùa nóng #Greenhappiness",
@@ -26,8 +26,7 @@
     },
     "lang": "vi",
     "taxa": [
-      "Nymphaea sp.",
-      "Hemianthus micranthemoides"
+      "Nymphaea sp."
     ],
     "gear": [
       {
@@ -36,15 +35,8 @@
         "t": 356
       },
       {
-        "category": "phan-nen",
-        "type": "phan",
-        "brand": "Gex",
-        "t": 480
-      },
-      {
-        "category": "phan-nen",
-        "type": "soi",
-        "t": 480
+        "category": "den",
+        "t": 171
       },
       {
         "category": "khac",
@@ -53,8 +45,15 @@
         "t": 541
       },
       {
-        "category": "den",
-        "t": 171
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 468
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "brand": "Gex",
+        "t": 480
       }
     ],
     "figures": [
@@ -62,56 +61,62 @@
         "heading": "Hạ nhiệt bằng đèn và quạt",
         "moments": [
           {
-            "t": 218,
-            "url": "https://media.aquatome.com/video/pY7e33xGcyQ/t218.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cụm quạt làm mát gắn ở thành bể, hướng lên trên."
+            "t": 180,
+            "url": "https://media.aquatome.com/video/pY7e33xGcyQ/at180-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Đèn treo cao phía trên bể, có quạt làm mát gắn ở thành bể.",
+            "sharpness": 1093.6
           },
           {
-            "t": 223,
-            "url": "https://media.aquatome.com/video/pY7e33xGcyQ/t223.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Đèn treo cao phía trên mặt bể, quạt làm mát gắn bên thành."
+            "t": 220,
+            "url": "https://media.aquatome.com/video/pY7e33xGcyQ/at220-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cụm ba quạt gắn thành bể, hướng lên để tản hơi nóng.",
+            "sharpness": 448.6
           }
         ]
       },
       {
-        "heading": "Dùng đá lạnh sao cho đúng",
+        "heading": "Nước đá, chỗ đặt bể và thay nước",
         "moments": [
           {
-            "t": 233,
-            "url": "https://media.aquatome.com/video/pY7e33xGcyQ/t233.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Chai nước đá nhỏ thả nổi trong bể thủy sinh để hạ nhiệt."
+            "t": 235,
+            "url": "https://media.aquatome.com/video/pY7e33xGcyQ/at235-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Chai nước đá nhỏ nổi trong bể thủy sinh có đá và rêu.",
+            "sharpness": 998.2
           },
           {
-            "t": 238,
-            "url": "https://media.aquatome.com/video/pY7e33xGcyQ/t238.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Tay thả chai nước đá vào bể, gần đá và rêu."
+            "t": 240,
+            "url": "https://media.aquatome.com/video/pY7e33xGcyQ/at240-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Tay thả chai nước đá vào bể thủy sinh.",
+            "sharpness": 420.8
           }
         ]
       },
       {
-        "heading": "Vì sao cá ngoi lên mặt nước khi trời nóng",
+        "heading": "Chạy sủi oxy thế nào",
         "moments": [
           {
-            "t": 381,
-            "url": "https://media.aquatome.com/video/pY7e33xGcyQ/t381.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Quả sủi khí nhả bọt oxy trong bể thủy sinh đầy cây và lũa."
+            "t": 385,
+            "url": "https://media.aquatome.com/video/pY7e33xGcyQ/at385-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Cục sủi nhả bọt khí trong bể thủy sinh đầy cây.",
+            "sharpness": 1030.1
           },
           {
-            "t": 391,
-            "url": "https://media.aquatome.com/video/pY7e33xGcyQ/t391.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Dây sục khí và quả sủi làm mặt nước gợn sóng, tăng oxy hòa tan."
+            "t": 395,
+            "url": "https://media.aquatome.com/video/pY7e33xGcyQ/at395-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Dòng bọt oxy từ cục sủi làm mặt nước gợn sóng.",
+            "sharpness": 2020
           }
         ]
       },
@@ -119,40 +124,51 @@
         "heading": "Chọn cây chịu nóng",
         "moments": [
           {
-            "t": 421,
-            "url": "https://media.aquatome.com/video/pY7e33xGcyQ/t421.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Bể thủy sinh với các cây xanh khỏe, chịu nóng tốt."
+            "t": 405,
+            "url": "https://media.aquatome.com/video/pY7e33xGcyQ/at405-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Lá súng nổi trên mặt nước, loại cây chịu nóng tốt.",
+            "sharpness": 1319.8
+          },
+          {
+            "t": 425,
+            "url": "https://media.aquatome.com/video/pY7e33xGcyQ/at425-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Bể thủy sinh nhiều cây xanh khỏe trên lũa và đá.",
+            "sharpness": 1392
           }
         ],
         "photo": {
-          "url": "https://media.aquatome.com/video/pY7e33xGcyQ/p4-J1LUluZGlhLmpwZw.webp",
-          "thumb": "https://media.aquatome.com/video/pY7e33xGcyQ/p4-J1LUluZGlhLmpwZw-480.webp",
+          "url": "https://media.aquatome.com/video/pY7e33xGcyQ/p4-ydS1JbmRpYS5qcGc.webp",
+          "thumb": "https://media.aquatome.com/video/pY7e33xGcyQ/p4-ydS1JbmRpYS5qcGc-480.webp",
           "width": 960,
-          "height": 1280,
-          "licence": "CC BY 4.0",
+          "height": 918,
+          "licence": "CC BY-SA 3.0",
           "author": "Yercaud-elango",
-          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rotala_rotundifolia_pink-2-veda_aquarium-bengaluru-India.jpg",
-          "caption": "Bụi cây thân đỏ khỏe mạnh trong hồ thủy sinh, phù hợp mùa nóng."
+          "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nymphaea_zenkeri-3-veda_aquarium-bengaluru-India.jpg",
+          "caption": "Lá súng đỏ nổi trên mặt nước trong bể thủy sinh."
         }
       },
       {
-        "heading": "Giảm phân nước khi cây ngừng lớn",
+        "heading": "Giảm phân nước, có thể dùng vitamin",
         "moments": [
           {
-            "t": 554,
-            "url": "https://media.aquatome.com/video/pY7e33xGcyQ/t554.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Cầm lọ vitamin cho cây thủy sinh bên hồ thủy sinh đá và cây."
+            "t": 560,
+            "url": "https://media.aquatome.com/video/pY7e33xGcyQ/at560-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Nhỏ vitamin bằng lọ nhỏ giọt vào hồ cây thủy sinh.",
+            "sharpness": 350.5
           },
           {
-            "t": 564,
-            "url": "https://media.aquatome.com/video/pY7e33xGcyQ/t564.webp",
-            "width": 320,
-            "height": 180,
-            "caption": "Lọ vitamin nhỏ giọt đặt gần mặt hồ cây xanh um."
+            "t": 570,
+            "url": "https://media.aquatome.com/video/pY7e33xGcyQ/at570-hd.webp",
+            "width": 1200,
+            "height": 675,
+            "caption": "Lọ vitamin cho cây cầm trên tay, phía sau là hồ thủy sinh.",
+            "sharpness": 284.5
           }
         ]
       },
@@ -167,7 +183,7 @@
           "licence": "CC BY-SA 3.0",
           "author": "Taken by User:Pinpin - fr:Utilisateur:Pinpin",
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_-_dried_food2.jpg",
-          "caption": "Các loại thức ăn cho cá: thức ăn viên, thức ăn khô dạng mảnh và giun khô."
+          "caption": "Các loại thức ăn cho cá: vảy, viên nén và trùn khô."
         }
       }
     ]

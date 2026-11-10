@@ -1,0 +1,192 @@
+{
+  "id": "apistogramma-gephyra",
+  "scientificName": "Apistogramma gephyra",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Apistogramma",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-negro"
+  ],
+  "range": {
+    "records": {
+      "taxonKey": 2371247,
+      "total": 87,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "BR",
+          87
+        ]
+      ],
+      "cells": [
+        [
+          -66.09375,
+          -1.40625,
+          7
+        ],
+        [
+          -64.6875,
+          -9.84375,
+          1
+        ],
+        [
+          -64.6875,
+          -8.4375,
+          1
+        ],
+        [
+          -63.28125,
+          -9.84375,
+          7
+        ],
+        [
+          -63.28125,
+          -8.4375,
+          1
+        ],
+        [
+          -63.28125,
+          -1.40625,
+          6
+        ],
+        [
+          -61.875,
+          -9.84375,
+          6
+        ],
+        [
+          -61.875,
+          -8.4375,
+          18
+        ],
+        [
+          -61.875,
+          -2.8125,
+          2
+        ],
+        [
+          -61.875,
+          0,
+          1
+        ],
+        [
+          -61.875,
+          1.40625,
+          1
+        ],
+        [
+          -60.46875,
+          -7.03125,
+          2
+        ],
+        [
+          -60.46875,
+          -4.21875,
+          1
+        ],
+        [
+          -60.46875,
+          -2.8125,
+          3
+        ],
+        [
+          -60.46875,
+          1.40625,
+          1
+        ],
+        [
+          -59.0625,
+          -4.21875,
+          6
+        ],
+        [
+          -59.0625,
+          -2.8125,
+          1
+        ],
+        [
+          -56.25,
+          -4.21875,
+          1
+        ],
+        [
+          -56.25,
+          -2.8125,
+          19
+        ],
+        [
+          -53.4375,
+          -1.40625,
+          1
+        ],
+        [
+          -52.03125,
+          1.40625,
+          1
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 5
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_gephyra_en/",
+      "html": "<p>A pretty blackwater Apistogramma that is imported only very occasionally. It looks quite similar to A. agassizii and its aquarium maintenance is comparable to that well-known species. Available size: 3-5 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_gephyra_en/",
+      "html": "<p>The fish originates from Brazil, where it is found in the central Rio Negro and lower Rio Branco basins.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_gephyra_en/",
+      "html": "<p>The yellow face mask of the male is very obvious in the population currently available. Females stay much smaller than the males, as usual in Apistogramma.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_gephyra_en/",
+      "html": "<p>Apistogramma: ancient Greek, meaning \"with unreliable line\". It is not known whether the lateral line organ or the pattern is meant. gephyra: after the ancient Greek word for \"bridge\", which refers to the intermediate position of the species between Apistogramma agassizii and A. pertensis.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát mịn thủy sinh",
+        "sỏi nền bể cá"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá cảnh nhỏ",
+        "bể thủy sinh 60cm"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cichlid lùn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

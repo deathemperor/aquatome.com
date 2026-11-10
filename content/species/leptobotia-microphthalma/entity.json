@@ -10,6 +10,42 @@
     "china",
     "yangtze"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Yangtze",
+        "Min River",
+        "Jialing River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from the Min River (Min Jiang), an upper tributary of the Yangtze River (Chiang Jiang), Sichuan province, southwestern China and also recorded from the Jialing River, another tributary of the Yangtze in neighbouring Gansu province.",
+          "countries": [
+            "CN"
+          ],
+          "regions": [
+            "Yangtze",
+            "Min River",
+            "Jialing River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2368303,
+      "total": 0,
+      "fetched": "2026-11-09",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

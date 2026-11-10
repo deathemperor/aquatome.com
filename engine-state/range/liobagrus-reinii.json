@@ -1,0 +1,105 @@
+{
+  "id": "liobagrus-reinii",
+  "native": {
+    "input": "aaab3c86ee3f300d",
+    "at": "2026-11-09T16:24:16.651Z",
+    "claims": [
+      {
+        "code": "JP",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Asia: Japan. Type locality: Southern Japan.",
+        "words": "Japan",
+        "ok": true
+      },
+      {
+        "code": "JP",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Japan: Honshu, Shikoku and Kyushu Islands. Type locality: Lake Biwa, Japan.",
+        "words": "Japan",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Honshu",
+        "source": "scotcat",
+        "quote": "Japan: Honshu, Shikoku and Kyushu Islands. Type locality: Lake Biwa, Japan.",
+        "country": "JP",
+        "ok": true
+      },
+      {
+        "name": "Shikoku",
+        "source": "scotcat",
+        "quote": "Japan: Honshu, Shikoku and Kyushu Islands. Type locality: Lake Biwa, Japan.",
+        "country": "JP",
+        "ok": true
+      },
+      {
+        "name": "Kyushu",
+        "source": "scotcat",
+        "quote": "Japan: Honshu, Shikoku and Kyushu Islands. Type locality: Lake Biwa, Japan.",
+        "country": "JP",
+        "ok": true
+      },
+      {
+        "name": "Lake Biwa",
+        "source": "scotcat",
+        "quote": "Japan: Honshu, Shikoku and Kyushu Islands. Type locality: Lake Biwa, Japan.",
+        "country": "JP",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Liobagrus reinii",
+    "status": "ACCEPTED",
+    "taxonKey": 2342839,
+    "datasets": [
+      [
+        "869e4288-f762-11e1-a439-00145eb45e9a",
+        33
+      ],
+      [
+        "07b5664c-4dda-49e1-9f3a-c8273a7c12fb",
+        8
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        7
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        6
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ],
+      [
+        "bfff7519-92f1-4ed2-afa3-5655e91fc2a2",
+        1
+      ]
+    ],
+    "native": [
+      "JP"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T16:24:16.651Z"
+  }
+}

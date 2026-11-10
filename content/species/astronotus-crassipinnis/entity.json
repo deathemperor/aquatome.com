@@ -1,0 +1,74 @@
+{
+  "id": "astronotus-crassipinnis",
+  "scientificName": "Astronotus crassipinnis",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Astronotus",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "paraguay",
+    "rio-paraguay",
+    "brazil",
+    "rio-guapore"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 24
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/astronotus_cf_crassipinnis_en/",
+      "html": "<p>There is no other genus of larger cichlids from South America that is so poorly understood as the oscars (Astronotus). Currently only two species are widely accepted, namely A. ocellatus and A. crassipinnis. However, there are many more species, as can easily be observed with the naked eye. One of them, A. zebra, has been imported repeatedly in recent times.</p><p>Oscars have now been imported from Paraguay (Rio Paraguay, near Asuncion). Most probably the specimens belong to the species A. crassipinnis. However, current knowledge only allows specimens from the Rio Guaporé to be named A. crassipinnis without any doubt. So these fish are named A. cf. crassipinnis. The \"cf.\" stands for the Latin word \"conferre\", which means \"(to) compare (with)\".</p><p>Despite great individual variability in pattern, these very attractive animals show some unique features. First, the basic colour of the body is very dark, almost black. Second, there are no ocellated spots in the region of the dorsal fin, which are so characteristic of A. ocellatus.</p><p>Astronotus crassipinnis seems to stay a bit smaller than A. ocellatus. The maximum length reported for A. crassipinnis is 24 cm standard length (without the tail fin). The imported specimens were 14-18 cm long (including the tail fin). Hopefully the few fish (only 7 specimens) will form pairs that breed.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/commons/5f4043ad37841b5d.webp",
+      "width": 960,
+      "height": 752,
+      "licence": "CC BY-SA 3.0",
+      "author": "Sebastian jurado garcia",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_chocolate_(pez_chocolate).jpg",
+      "caption": "imagen del pez chocolate o astronotus crassipinnis",
+      "thumb": "https://media.aquatome.com/commons/5f4043ad37841b5d-480.webp"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 200cm",
+        "bể cá lớn nuôi cá la hán"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng ngoài bể lớn",
+        "máy bơm lọc công suất lớn"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá 300W"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá la hán",
+        "thức ăn viên cho cá rô phi lớn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

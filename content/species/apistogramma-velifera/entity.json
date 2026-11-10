@@ -1,0 +1,142 @@
+{
+  "id": "apistogramma-velifera",
+  "scientificName": "Apistogramma velifera",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Apistogramma",
+  "group": "cichlids",
+  "places": [
+    "south-america",
+    "venezuela",
+    "puerto-ayacucho"
+  ],
+  "range": {
+    "records": {
+      "taxonKey": 2371309,
+      "total": 2,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "VE",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -67.5,
+          5.625,
+          2
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "ph": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 5,
+          "max": 5
+        }
+      }
+    ],
+    "gh": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 0,
+          "max": 1
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 7
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_velifera_en/",
+      "html": "<p>Males of Apistogramma velifera grow to about 7 cm, females only 4 cm. Available size: (4) - 7 cm. Origin: captive bred.</p><p>Common names: Sailfin Apistogramma, Four stripes Apistogramma.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_velifera_en/",
+      "html": "<p>This pretty dwarf cichlid was known in the hobby under the names of Apistogramma sp. “Segelflossen” (=sailfin), A. sp. “Puerto Ayacucho” and A. sp. “Vierstreifen” (= four stripes) until it became described scientifically. The species has never been imported on a regular basis and currently no importations appear at all.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_velifera_en/",
+      "html": "<p>In the wild they are often found along with Altum angels.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_velifera_en/",
+      "html": "<p>The fish are not very demanding, although they live in the wild in quite extreme water: hardness less than 1° dH, pH around 5.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_velifera_en/",
+      "html": "<p>It is very interesting to watch the males displaying (males are comparably quarrelsome against other males). The male starts displaying by swimming laterally to the female. At that stage only the anteriormost part of the dorsal fin becomes unfolded. Now the male turns more and more in a head-down position and finally enfolds the complete dorsal fin. It happens now and then that the male stands even vertically in the water.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_velifera_en/",
+      "html": "<p>Males of Apistogramma velifera become about 7 cm long, females become only 4 cm long.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_velifera_en/",
+      "html": "<p>Sometimes the males participate in keeping the offspring in this species.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25d-perchlike-fishes-4-south-american-dwarf-cichlids/apistogramma_velifera_en/",
+      "html": "<p>Lexicon: Apistogramma: ancient Greek, means “with unreliable line”. It is not known whether the lateral line organ or the pattern is meant. velifera: Latin, means “bearing a sail”.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá thủy sinh mini"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng nhỏ",
+        "lọc sponge cho bể cá nhỏ"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cichlid cỡ nhỏ",
+        "artemia đông lạnh"
+      ]
+    },
+    {
+      "category": "phan-nen",
+      "keywords": [
+        "cát nền bể cá",
+        "lá bàng khô"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

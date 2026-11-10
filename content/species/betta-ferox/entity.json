@@ -10,6 +10,64 @@
     "thailand",
     "bori-pat"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The species is known so far only from a very small area in Thailand (Bori Pat).",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2393990,
+      "total": 31,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "TH",
+          31
+        ]
+      ],
+      "cells": [
+        [
+          98.4375,
+          5.625,
+          2,
+          2
+        ],
+        [
+          98.4375,
+          7.03125,
+          8,
+          8
+        ],
+        [
+          99.84375,
+          5.625,
+          17,
+          17
+        ],
+        [
+          99.84375,
+          7.03125,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

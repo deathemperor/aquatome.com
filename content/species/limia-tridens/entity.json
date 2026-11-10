@@ -6,6 +6,36 @@
   "genus": "Limia",
   "group": "livebearers",
   "places": [],
+  "range": {
+    "records": {
+      "taxonKey": 5203860,
+      "total": 5,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "DO",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          -71.71875,
+          18.28125,
+          3
+        ],
+        [
+          -71.71875,
+          19.6875,
+          1
+        ],
+        [
+          -70.3125,
+          18.28125,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

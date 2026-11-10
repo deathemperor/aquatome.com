@@ -1,10 +1,43 @@
 {
   "id": "anentome-helena",
   "native": {
-    "input": "6af6a56b2f93df3d",
-    "at": "2026-11-06T06:16:32.822Z",
-    "claims": [],
-    "regions": [],
+    "input": "c572d2c792ab9a64",
+    "at": "2026-11-09T20:43:02.940Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "aquariumcoop",
+        "quote": "This Southeast Asian snail is found in Thailand, Malaysia, and the island of Sumatra in Indonesia.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "aquariumcoop",
+        "quote": "This Southeast Asian snail is found in Thailand, Malaysia, and the island of Sumatra in Indonesia.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "aquariumcoop",
+        "quote": "This Southeast Asian snail is found in Thailand, Malaysia, and the island of Sumatra in Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sumatra",
+        "source": "aquariumcoop",
+        "quote": "This Southeast Asian snail is found in Thailand, Malaysia, and the island of Sumatra in Indonesia.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {
@@ -42,8 +75,12 @@
         1
       ]
     ],
-    "native": [],
-    "requests": 10,
-    "at": "2026-11-04T21:41:08.860Z"
+    "native": [
+      "TH",
+      "MY",
+      "ID"
+    ],
+    "requests": 13,
+    "at": "2026-11-09T20:43:02.940Z"
   }
 }

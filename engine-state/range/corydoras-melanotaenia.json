@@ -1,0 +1,72 @@
+{
+  "id": "corydoras-melanotaenia",
+  "native": {
+    "input": "f65bf859598a1cb9",
+    "at": "2026-11-09T12:58:06.259Z",
+    "claims": [
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The green-gold cory, Osteogaster melanotaenia, long known as Corydoras melanotaenia, is an armoured catfish from the Rio Meta basin in Colombia.",
+        "words": "Colombia",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Rio Meta basin, Colombia.",
+        "words": "Colombia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Rio Meta",
+        "source": "seriouslyfish",
+        "quote": "Rio Meta basin, Colombia.",
+        "country": "CO",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Corydoras melanotaenia",
+    "status": "ACCEPTED",
+    "taxonKey": 2342657,
+    "datasets": [
+      [
+        "b342ae04-f7fc-4120-969f-4353410d6baa",
+        4
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        3
+      ],
+      [
+        "03381bbc-ae81-4a9f-b317-09e1716d8849",
+        1
+      ],
+      [
+        "5099e00c-b9bc-41eb-8bc1-8bffda8878fe",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "CO"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T12:58:06.259Z"
+  }
+}

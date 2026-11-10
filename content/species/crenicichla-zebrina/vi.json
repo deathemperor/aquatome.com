@@ -1,0 +1,24 @@
+{
+  "slug": "ca-crenicichla-zebrina",
+  "name": "Cá Crenicichla zebrina",
+  "altNames": [],
+  "sections": {
+    "distribution:glaser": "<p>Crenicichla zebrina có nguồn gốc từ Venezuela.</p>",
+    "dimorphism:glaser": "<p>Đến nay vẫn chưa biết cách nào nhìn bên ngoài mà phân biệt được con đực với con cái của loài này. Tuy nhiên, trong số cá nhập về có một con thon hơn hẳn. Đốm trên vai của nó cũng to hơn nhiều, và họng đỏ đậm hơn con kia. Người ta đoán con này là cá đực, còn con kia là cá cái.</p>",
+    "notes:glaser": "<p>Loài này hiếm, mới chỉ nhập về được hai con, dài 15–20 cm.</p>"
+  },
+  "quality": {
+    "score": 0.9,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.9
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-10"
+  }
+}

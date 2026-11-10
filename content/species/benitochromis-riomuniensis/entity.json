@@ -1,0 +1,126 @@
+{
+  "id": "benitochromis-riomuniensis",
+  "scientificName": "Benitochromis riomuniensis",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Benitochromis",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "cameroon"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CM"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Wild-collected specimens of Benitochromis riomuniensis come from Cameroon.",
+          "countries": [
+            "CM"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2370870,
+      "total": 13,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "CM",
+          9
+        ],
+        [
+          "GQ",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          8.4375,
+          4.21875,
+          2,
+          2
+        ],
+        [
+          9.84375,
+          1.40625,
+          6,
+          2
+        ],
+        [
+          9.84375,
+          2.8125,
+          5,
+          5
+        ]
+      ]
+    }
+  },
+  "dataCard": {},
+  "sections": [
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/benitochromis_riomuniensis_en/",
+      "html": "<p>Wild-collected specimens of Benitochromis riomuniensis come from Cameroon.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/benitochromis_riomuniensis_en/",
+      "html": "<p>Benitochromis is closely related to the Pelvicachromis species and can be compared quite well with these peaceful and colorful cichlids regarding aquarium biology.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/benitochromis_riomuniensis_en/",
+      "html": "<p>In contrast to Pelvicachromis, which are cave brooders, Benitochromis are biparental, ovophilous mouthbrooders. This means that both parents take care of eggs and fry; eggs and fry are passed from parent to parent several times per day. The eggs are taken in the mouth immediately after spawning (= ovophilous).</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/benitochromis_riomuniensis_en/",
+      "html": "<p>There is no common name for this species so far; due to the pretty yellow lips and throat the name \"Golden Throated King Cichlid\" is suggested.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 100cm",
+        "bể cá cichlid"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy sục khí"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá cichlid"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

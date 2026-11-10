@@ -10,6 +10,64 @@
     "china",
     "yangtze"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Yangtze River",
+        "Wulin mountain range"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Leptobotia guilinensis is a botiid loach from southern China, described from Guangxi Province and also recorded from neighbouring Hunan.",
+          "countries": [
+            "CN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from a tributary of the Yangtze River (aka Chiang Jiang), Guangxi Province, southern China and also recorded from neighbouring Hunan Province including the Wulin mountain range to the northwest.",
+          "countries": [],
+          "regions": [
+            "Yangtze River",
+            "Wulin mountain range"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2368288,
+      "total": 3,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "CN",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          109.6875,
+          26.71875,
+          2,
+          2
+        ],
+        [
+          111.09375,
+          28.125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

@@ -12,6 +12,92 @@
     "guangdong",
     "fujian"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "HK",
+        "CN"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Macropodus hongkongensis is a paradisefish from Hong Kong and the neighbouring Chinese provinces of Guangdong and Fujian.",
+          "countries": [
+            "HK",
+            "CN"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5211149,
+      "total": 16,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "CN",
+          10
+        ],
+        [
+          "VN",
+          5
+        ],
+        [
+          "HK",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          104.0625,
+          35.15625,
+          5,
+          5
+        ],
+        [
+          106.875,
+          19.6875,
+          3,
+          0
+        ],
+        [
+          106.875,
+          21.09375,
+          4,
+          2
+        ],
+        [
+          109.6875,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          112.5,
+          22.5,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          22.5,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

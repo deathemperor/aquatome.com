@@ -9,13 +9,22 @@
     "maintenance:seriouslyfish": "<p>Loài này chủ yếu sống ở tầng đáy nên bạn hãy dùng nền cát mềm. Rễ lũa và cành lũa nên xếp sao cho tạo ra thật nhiều chỗ trú. Nhờ vậy những con đực yếu thế và con cái có chỗ lánh mặt con đực đầu đàn khi cần. Nếu thích, bạn cũng có thể dùng chậu đất nung, đoạn ống PVC, gáo dừa bổ đôi và những thứ tương tự cho cùng mục đích.</p><p>Ánh sáng nên để khá tối. Bạn có thể trồng thêm vài loại cây chịu được ánh sáng yếu như Anubias, Microsorum, Taxiphyllum, hoặc vài chậu Cryptocoryne. Thả vài mảng cây nổi để làm dịu ánh sáng chiếu vào bể cũng có ích. Lọc chỉ cần nhẹ, tạo chút gợn trên mặt nước là đủ.</p><p>Các loài Congochromis cần nước ổn định. Tuyệt đối không thả chúng vào bể chưa chín.</p>",
     "waterConditions:seriouslyfish": "<ul><li>Nhiệt độ: 24–28°C</li><li>pH: 6,0–7,5</li><li>Độ cứng: 5–15°dGH</li></ul>",
     "behaviour:seriouslyfish": "<p>Bạn có thể nuôi loài này trong bể cộng đồng, miễn là tìm hiểu kỹ và chọn bạn cùng bể cẩn thận. Các loài characid và cyprinid hiền, bơi ở tầng nước giữa là lựa chọn lý tưởng. Các loài cichlid khác thì tốt nhất nên tránh, trừ khi bể rất lớn. Kể cả khi bể lớn, bạn cũng chỉ nên thử với những loài thật cứng cáp.</p><p>Loài này không mấy thích sống thành đàn. Trừ những bể thật lớn, mỗi bể chỉ nên có một con đực, vì con đực đầu đàn thường không để cá khác ở trong lãnh thổ của nó. Mỗi con đực cũng nên đi với vài con cái để con cái không bị rượt đuổi quá mức. Đám cá cái này sẽ tự phân thứ bậc trên dưới với nhau.</p>",
-    "dimorphism:seriouslyfish": "<p>Con đực trưởng thành to hơn con cái. Ngoài ra, mặt dưới phần đầu của con đực có một vệt màu cam đỏ. Vệt này đậm lên khi cá giữ lãnh thổ hoặc tán tỉnh.</p>"
+    "dimorphism:seriouslyfish": "<p>Con đực trưởng thành to hơn con cái. Ngoài ra, mặt dưới phần đầu của con đực có một vệt màu cam đỏ. Vệt này đậm lên khi cá giữ lãnh thổ hoặc tán tỉnh.</p>",
+    "quickFacts:glaser": "<p>Ctenochromis polli sống ở sông Congo và là loài cichlid khá ít người nuôi. Con cái ấp trứng bằng miệng theo kiểu ấp muộn.</p>",
+    "distribution:glaser": "<p>Congo, hạ lưu sông Congo.</p>",
+    "aquariumSize:glaser": "<p>Cá chỉ dài tối đa 11 cm, nhưng vẫn không nên nuôi trong bể quá nhỏ. Bể nên dài từ 100 cm.</p>",
+    "equipment:glaser": "<p>Loài này cần nhiều chỗ trốn. Bày bể thật dày bằng lũa, đá và cây lớn.</p>",
+    "waterConditions:glaser": "<p>Nên giữ nhiệt độ từ 25 đến 28 °C.</p>",
+    "diet:glaser": "<p>Chúng thích đồ tươi sống và thức ăn đông lạnh. Khi đã quen bể, chúng cũng ăn cả cám mảnh hoặc cám viên.</p>",
+    "behaviour:glaser": "<p>Cá đực khá dữ. Chúng hay rượt đuổi cá cái và những con đực yếu thế hơn.</p>",
+    "reproduction:glaser": "<p>Con cái ấp trứng bằng miệng theo kiểu ấp muộn. Cá bột nuôi bằng Artemia mới nở và cám mảnh nhỏ là lên, không mấy khó khăn.</p>"
   },
   "quality": {
-    "score": 0.93,
+    "score": 0.85,
     "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.93
+      "seriouslyfish": 0.93,
+      "glaser": 0.85
     }
   }
 }

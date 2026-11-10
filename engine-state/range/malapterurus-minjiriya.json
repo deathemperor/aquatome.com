@@ -1,0 +1,103 @@
+{
+  "id": "malapterurus-minjiriya",
+  "native": {
+    "input": "9acdd8cc1e70679e",
+    "at": "2026-11-09T20:43:02.940Z",
+    "claims": [
+      {
+        "code": "NG",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Lake Kainji, lower Niger River basin, Nigeria",
+        "words": "Nigeria",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Kainji",
+        "source": "planetcatfish",
+        "quote": "Type locality: Lake Kainji, lower Niger River basin, Nigeria",
+        "country": "NG",
+        "ok": true
+      },
+      {
+        "name": "Niger River",
+        "source": "planetcatfish",
+        "quote": "Africa: known from the Niger River and Volta River system, the White Nile (Barro and Alvero Rivers) and the Omo River; probably also in the Chad and Senegal basins but has not been collected there.",
+        "ok": true
+      },
+      {
+        "name": "Volta River",
+        "source": "planetcatfish",
+        "quote": "Africa: known from the Niger River and Volta River system, the White Nile (Barro and Alvero Rivers) and the Omo River; probably also in the Chad and Senegal basins but has not been collected there.",
+        "ok": true
+      },
+      {
+        "name": "White Nile",
+        "source": "planetcatfish",
+        "quote": "Africa: known from the Niger River and Volta River system, the White Nile (Barro and Alvero Rivers) and the Omo River; probably also in the Chad and Senegal basins but has not been collected there.",
+        "ok": true
+      },
+      {
+        "name": "Omo River",
+        "source": "planetcatfish",
+        "quote": "Africa: known from the Niger River and Volta River system, the White Nile (Barro and Alvero Rivers) and the Omo River; probably also in the Chad and Senegal basins but has not been collected there.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "NE",
+        "ET"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Malapterurus minjiriya",
+    "status": "ACCEPTED",
+    "taxonKey": 2342028,
+    "datasets": [
+      [
+        "5e1d2d54-f5db-43ac-87c5-55a9f79ac718",
+        13
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        3
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        2
+      ],
+      [
+        "40a262b4-6627-4011-afbe-159c00ec97e7",
+        1
+      ],
+      [
+        "47f75ea9-ad74-47ab-919a-b8c8d4f1fce3",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        1
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        1
+      ]
+    ],
+    "native": [
+      "NG"
+    ],
+    "requests": 12,
+    "at": "2026-11-09T20:43:02.940Z"
+  }
+}

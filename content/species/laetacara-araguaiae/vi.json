@@ -2,7 +2,10 @@
   "slug": "ca-laetacara-araguaiae",
   "name": "Cá Laetacara araguaiae",
   "altNames": [
-    "Cá Buckelkopf"
+    "Cá Buckelkopf",
+    "Cá Laetacara Buckelkopf",
+    "Laetacara sp. Buckelkopf",
+    "Humphead"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<p>Laetacara araguaiae là một loài cichlid nhỏ ở lưu vực sông Araguaia, miền trung Brazil. Trước khi có mô tả khoa học, người chơi gọi nó là L. sp. 'Buckelkopf'. Cá lớn tới khoảng 35 mm SL. Loài này đẻ trứng lên giá thể, cả bố lẫn mẹ cùng chăm con. Vài quần thể có kiểu hoa văn màu khác nhau. Muốn phân biệt nó với mọi loài cùng giống thì đếm tia vây lưng: L. araguaiae chỉ có 7–8 tia.</p>",
@@ -16,7 +19,8 @@
     "score": 0.8,
     "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.8
+      "seriouslyfish": 0.8,
+      "glaser": 0.85
     }
   }
 }

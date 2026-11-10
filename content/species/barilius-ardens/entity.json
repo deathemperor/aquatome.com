@@ -15,9 +15,14 @@
       "countries": [
         "IN"
       ],
-      "regions": [],
+      "regions": [
+        "Western Ghats",
+        "Swarna",
+        "Sita"
+      ],
       "sources": [
-        "glaser"
+        "glaser",
+        "seriouslyfish"
       ],
       "quotes": [
         {
@@ -27,6 +32,16 @@
             "IN"
           ],
           "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Currently known from the Sita and Swarna rivers systems which drain the western slopes of the Western Ghats mountains in Karnataka state, southwestern India.",
+          "countries": [],
+          "regions": [
+            "Western Ghats",
+            "Swarna",
+            "Sita"
+          ]
         }
       ]
     },

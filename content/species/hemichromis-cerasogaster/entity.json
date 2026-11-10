@@ -1,0 +1,122 @@
+{
+  "id": "hemichromis-cerasogaster",
+  "scientificName": "Hemichromis cerasogaster",
+  "order": "Perciformes",
+  "family": "Cichlidae",
+  "genus": "Hemichromis",
+  "group": "cichlids",
+  "places": [
+    "africa",
+    "democratic-republic-of-the-congo",
+    "lake-mai-ndombe"
+  ],
+  "range": {
+    "native": {
+      "countries": [
+        "CD"
+      ],
+      "regions": [
+        "Lac Mai Ndombe"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The species lives exclusively in the Lac Mai Ndombe in the D. R. Congo.",
+          "countries": [
+            "CD"
+          ],
+          "regions": [
+            "Lac Mai Ndombe"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2371373,
+      "total": 12,
+      "fetched": "2026-11-09",
+      "countries": [
+        [
+          "CD",
+          12
+        ]
+      ],
+      "cells": [
+        [
+          16.875,
+          -2.8125,
+          12,
+          12
+        ]
+      ]
+    }
+  },
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 10
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/hemichromis_cerasogaster_en/",
+      "html": "<p>This small species of cichlid attains a maximum length of about 10 cm. It belongs to the so-called red cichlids, but has a lilac basic body coloration.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/hemichromis_cerasogaster_en/",
+      "html": "<p>There are usually no commercial importations of this species from that lake and so the fish is available only very occasionally.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/hemichromis_cerasogaster_en/",
+      "html": "<p>The species lives exclusively in the Lac Mai Ndombe in the D. R. Congo.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/hemichromis_cerasogaster_en/",
+      "html": "<p>This beautiful Hemichromis is told to be comparably peaceful.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/hemichromis_cerasogaster_en/",
+      "html": "<p>Typical features of Hemichromis cerasogaster are the golden face mask and the black spot in the dorsal fin, which is present in both sexes.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 100cm",
+        "bể cá cichlid"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy sục khí"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "sưởi bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-09"
+}

@@ -1,0 +1,70 @@
+{
+  "id": "hyphessobrycon-balbus",
+  "native": {
+    "input": "70541a8342676d54",
+    "at": "2026-11-09T16:24:16.651Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Psalidodon balbus is a small characid known only from upper Paraná basin headwaters in the Federal District and Goiás, central Brazil.",
+        "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Known only from headwaters of the upper Paraná river basin in the Federal District plus the neighbouring state of Goiás, central Brazil.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Paraná",
+        "source": "seriouslyfish",
+        "quote": "Known only from headwaters of the upper Paraná river basin in the Federal District plus the neighbouring state of Goiás, central Brazil.",
+        "country": "BR",
+        "ok": true
+      },
+      {
+        "name": "Rio São Bartolomeu",
+        "source": "seriouslyfish",
+        "quote": "Most records come from the rio São Bartolomeu, including the Bananal, Santa Maria-Torto and Gama tributary systems.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Hyphessobrycon balbus",
+    "status": "ACCEPTED",
+    "taxonKey": 2354637,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        5
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-09T16:24:16.651Z"
+  }
+}

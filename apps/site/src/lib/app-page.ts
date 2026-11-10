@@ -74,7 +74,7 @@ export function sectionBlocks(lang: Lang, c: Content, props: SectionProps): { bl
   const t = translator(lang)
   const { range } = fmt(lang)
   const { groups, refs, note, figAfter, wild, wildAt } = sectionParts(lang, c, props)
-  const fig = (field: string, v: Range | number) => (field === 'tempC' ? `${range(v)}°C` : field === 'sizeCm' || field === 'tankCm' || field === 'tankL' ? `${range(v)} cm` : field === 'gh' ? `${range(v)} dGH` : range(v))
+  const fig = (field: string, v: Range | number) => (field === 'tempC' ? `${range(v)}°C` : field === 'sizeCm' || field === 'tankCm' ? `${range(v)} cm` : field === 'gh' ? `${range(v)} dGH` : range(v))
   const blocks: Block[] = []
   const unknown = new Set<string>()
   const prose = (html: string) => { const r = proseBlocks(lang, html); r.unknown.forEach(u => unknown.add(u)); blocks.push(...r.blocks) }
@@ -96,11 +96,11 @@ export function sectionBlocks(lang: Lang, c: Content, props: SectionProps): { bl
     if (wild && i === wildAt) wildBlocks(wild)
     blocks.push({ t: 'h', text: t(QUESTION_LABELS[sec.key]), id: `muc-${sec.key}` })
     for (const b of sec.blocks) {
-      if (b.off.length) {
-        const figures = b.off.map(o => `${t(OFF_LABELS[o.field]!)} ${o.field === 'tankL' ? `${range(o.own)} ${t('lít')}` : fig(o.field, o.own)} (${t('bảng:')} ${fig(o.field, o.card)})`).join(', ')
-        blocks.push({ t: 'p', c: [`${t('{source} ghi khác bảng dữ liệu:', { source: b.name })} ${figures}.`] })
-      }
       prose(b.vi)
+      if (b.off.length) {
+        const figures = b.off.map(o => `${t(OFF_LABELS[o.field]!)} ${fig(o.field, o.card)}`).join(', ')
+        blocks.push({ t: 'p', c: [`${t('Thông số ở đầu trang ghi khác đoạn này:')} ${figures}.`] })
+      }
     }
     const f = figAfter.get(i)
     if (f) prose(figureHtml(lang, f))
@@ -290,7 +290,7 @@ export function plantDoc(lang: Lang, c: Content, p: Localized<PlantEntity>, list
   const t = translator(lang)
   const parts = plantParts(lang, c, p)
   const lead = image(lang, p.photos[0], `${p.t.name}, ${p.scientificName}`)
-  const { blocks: text } = sectionBlocks(lang, c, { sections: p.sections, t: p.t, self: `plant:${p.id}`, selfNames: [p.scientificName, p.t.name, ...p.t.altNames], figures: parts.figures.map(photo => ({ photo })), refs: p.refs })
+  const { blocks: text } = sectionBlocks(lang, c, { sections: p.sections, t: p.t, self: `plant:${p.id}`, selfNames: [p.scientificName, p.t.name, ...p.t.altNames], figures: parts.figures.map(photo => ({ photo })), co2: p.co2, refs: p.refs })
   return {
     v: PAGE_VERSION,
     kind: 'plant',

@@ -1,49 +1,14 @@
 {
- "queue": [
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/0/02/Aquarium_tropical_du_Palais_de_la_Porte_Dor%C3%A9e_-_Pygopristis_denticulata.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Aquarium_tropical_du_Palais_de_la_Porte_Dor%C3%A9e_-_Pygopristis_denticulata.jpg/500px-Aquarium_tropical_du_Palais_de_la_Porte_Dor%C3%A9e_-_Pygopristis_denticulata.jpg",
-   "width": 2256,
-   "height": 1496,
-   "licence": "CC BY-SA 3.0",
-   "author": "KoS",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_tropical_du_Palais_de_la_Porte_Dor%C3%A9e_-_Pygopristis_denticulata.jpg",
-   "caption": "Piranha - Pygopristis denticulata Aquarium tropical du Palais de la Porte Dorée. Paris. France.",
-   "key": "File:Aquarium tropical du Palais de la Porte Dorée - Pygopristis denticulata.jpg"
-  },
-  {
-   "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/268007768/original.jpg",
-   "thumb": "https://inaturalist-open-data.s3.amazonaws.com/photos/268007768/medium.jpg",
-   "width": 2048,
-   "height": 1312,
-   "licence": "CC0",
-   "author": "Whaldener Endo",
-   "sourceUrl": "https://www.inaturalist.org/photos/268007768",
-   "key": "inat:268007768"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Pygopristis_denticulata.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Pygopristis_denticulata.jpg/500px-Pygopristis_denticulata.jpg",
-   "width": 1600,
-   "height": 1023,
-   "licence": "CC BY 2.0",
-   "author": "Clinton & Charles Robertson",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pygopristis_denticulata.jpg",
-   "caption": "Pygopristis denticulata",
-   "key": "File:Pygopristis denticulata.jpg"
-  },
-  {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Aquarium_tropical_du_Palais_de_la_Porte_Dor%C3%A9e_-_Pygopristis_denticulata_%28cropped%29.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Aquarium_tropical_du_Palais_de_la_Porte_Dor%C3%A9e_-_Pygopristis_denticulata_%28cropped%29.jpg/500px-Aquarium_tropical_du_Palais_de_la_Porte_Dor%C3%A9e_-_Pygopristis_denticulata_%28cropped%29.jpg",
-   "width": 1273,
-   "height": 857,
-   "licence": "CC BY-SA 3.0",
-   "author": "KoS",
-   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_tropical_du_Palais_de_la_Porte_Dor%C3%A9e_-_Pygopristis_denticulata_(cropped).jpg",
-   "caption": "Piranha - Pygopristis denticulata Aquarium tropical du Palais de la Porte Dorée. Paris. France.",
-   "key": "File:Aquarium tropical du Palais de la Porte Dorée - Pygopristis denticulata (cropped).jpg"
-  }
+ "queue": [],
+ "judged": [
+  "File:Aquarium tropical du Palais de la Porte Dorée - Pygopristis denticulata.jpg",
+  "inat:268007768",
+  "File:Pygopristis denticulata.jpg",
+  "File:Aquarium tropical du Palais de la Porte Dorée - Pygopristis denticulata (cropped).jpg"
  ],
- "judged": [],
- "hashes": {}
+ "hashes": {
+  "https://media.aquatome.com/commons/c496c66cf702c87b.webp": "3f37e3c8c2631f4f",
+  "https://media.aquatome.com/commons/3612e02e6dfbe483.webp": "db470f07078f6723"
+ },
+ "commons": "2026-11-09"
 }

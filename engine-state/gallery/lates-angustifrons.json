@@ -1,10 +1,21 @@
 {
  "queue": [],
  "judged": [
-  "File:Lates angustifrons (juvénile).jpg"
+  "File:Lates angustifrons (juvénile).jpg",
+  "inat:53193496",
+  "inat:53193535",
+  "inat:520854600"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/88abb60aaa2416bf.webp": "41313278f270e484"
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 104097,
+  "pass": "done",
+  "after": {
+   "research": 289581373,
+   "agree": 342646494
+  }
+ }
 }
