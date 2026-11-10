@@ -1,13 +1,17 @@
 import { execSync, spawnSync } from 'node:child_process'
-import { chmodSync, copyFileSync, existsSync, mkdirSync, mkdtempSync, readFileSync, realpathSync, rmSync, statSync, writeFileSync } from 'node:fs'
+import { chmodSync, copyFileSync, cpSync, existsSync, mkdirSync, mkdtempSync, readFileSync, realpathSync, rmSync, statSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { expect, test } from 'vitest'
+import { beforeAll, expect, test, vi } from 'vitest'
 
 const ROOT = fileURLToPath(new URL('../../..', import.meta.url))
 const RUNTIME = 'com.apple.CoreSimulator.SimRuntime.iOS-27-2'
 const OURS = 'iPhone 13 Pro Max daily 27.2'
+
+// On a Mac at a load of 80 one of these took 24 s. A run of the engine's suite goes ahead at 300 and more, and a test out of
+// time costs a cycle its publish: each starts from one copy of a clone made once, and has a minute.
+vi.setConfig({ testTimeout: 60_000 })
 
 const stub = (path: string, body: string) => {
   mkdirSync(dirname(path), { recursive: true })
@@ -19,11 +23,18 @@ const stub = (path: string, body: string) => {
  * The job's clone of a bare origin, as on the Mac: the real script, cycle-checks.sh and flow_lists.py, with the queues
  * (checks.sh, sim-run.py), xcodebuild, xcrun and the send stood in for. Every call lands in $HOME/calls, in order.
  */
-function clone() {
+let template = ''
+let head = ''
+const repoIn = (home: string) => join(home, '.local/share/aquatome/ios-27')
+const envIn = (home: string) => ({ ...process.env, HOME: home, PATH: `${home}/bin:${process.env.PATH}`, GITHUB_ACTIONS: '', AQ_SCRIPT_HEAD: head, COOL_TRIES: '1', COOL_PAUSE: '0', TELL_PAUSE: '0' })
+const shIn = (home: string) => (command: string, cwd = repoIn(home)) => execSync(command, { cwd, shell: '/bin/bash', encoding: 'utf8', env: envIn(home) }).trim()
+
+beforeAll(() => {
   // The real path: the clone's place is checked against $HOME, and macOS's temporary folder is behind a link.
   const home = realpathSync(mkdtempSync(join(tmpdir(), 'aq-ios-27-')))
-  const repo = join(home, '.local/share/aquatome/ios-27')
+  const repo = repoIn(home)
   stub(join(home, 'bin/xcodebuild'), 'echo "xcodebuild $*" >> "$HOME/calls"; [ "$1" = build-for-testing ] && exit "${BUILD_EXIT:-0}"; exit "${TEST_EXIT:-0}"')
+  stub(join(home, 'bin/timeout'), 'echo "timeout $*" >> "$HOME/calls"; [ "$1" = --foreground ] && shift; [ "$1" = -k ] && shift 2; shift; exec "$@"')
   stub(join(home, 'bin/xcrun'), `echo "xcrun $*" >> "$HOME/calls"
     case "$1 $2" in
       "simctl list") cat "$HOME/devices.json" ;;
@@ -31,10 +42,9 @@ function clone() {
       "xcresulttool get") cat "$HOME/summary.json" ;;
     esac`)
   stub(join(home, 'bin/node'), 'printf "%s\\n%s\\n--\\n" "$2" "$3" >> "$HOME/told"; exit "${NODE_EXIT:-0}"')
-  stub(join(home, '.nvm/nvm.sh'), 'nvm() { :; }')
+  stub(join(home, '.nvm/nvm.sh'), 'nvm() { return "${NVM_EXIT:-0}"; }')
   writeFileSync(join(home, 'devices.json'), JSON.stringify({ devices: {} }))
-  const env = { ...process.env, HOME: home, PATH: `${home}/bin:${process.env.PATH}`, GITHUB_ACTIONS: '', AQ_SCRIPT_HEAD: '', COOL_TRIES: '1', COOL_PAUSE: '0', TELL_PAUSE: '0' }
-  const sh = (command: string, cwd = repo) => execSync(command, { cwd, shell: '/bin/bash', encoding: 'utf8', env }).trim()
+  const sh = shIn(home)
   mkdirSync(join(repo, '..'), { recursive: true })
   sh(`git init -q --bare -b main origin.git && git clone -q origin.git ${repo} 2>/dev/null`, home)
   for (const file of ['scripts/ios-27-daily.sh', 'scripts/install-ios-27-daily-schedule.sh', 'scripts/launchd-agent.sh', 'scripts/cycle-checks.sh', 'apps/ios/scripts/flow_lists.py', '.nvmrc']) {
@@ -47,6 +57,18 @@ function clone() {
   const config = join(home, '.config/aquatome')
   mkdirSync(config, { recursive: true })
   writeFileSync(join(config, 'ios-27-threads'), 'design-lead\nv2-lab\n')
+  template = home
+  head = sh('git rev-parse HEAD')
+}, 60_000)
+
+function clone() {
+  const home = realpathSync(mkdtempSync(join(tmpdir(), 'aq-ios-27-')))
+  cpSync(template, home, { recursive: true, verbatimSymlinks: true })
+  const repo = repoIn(home)
+  const git = join(repo, '.git/config')
+  writeFileSync(git, readFileSync(git, 'utf8').replaceAll(template, home))
+  const env = envIn(home)
+  const sh = shIn(home)
 
   const read = (name: string) => (existsSync(join(home, name)) ? readFileSync(join(home, name), 'utf8') : '')
   return {
@@ -87,6 +109,9 @@ test("a day v2's flows pass: its flows, on its 27.2 phone, in both queues, ios.y
   expect(calls.some(l => l.startsWith('xcrun simctl create'))).toBe(false)
   const flows = calls[i('xcodebuild test-without-building')]
   expect(flows).toContain('-destination id=THE-UDID')
+  // A limit on each turn, so a hung build or run can't hold a queue, and on the whole wait, signalling sim-run.py alone.
+  expect(calls).toContainEqual(expect.stringMatching(/^timeout -k 30s 1h xcodebuild build-for-testing /))
+  expect(calls).toContainEqual(expect.stringMatching(/^timeout --foreground 1[34]\d{3}s \S*sim-run\.py timeout -k 30s 1h xcodebuild test-without-building /))
   expect(flows).toContain('-test-timeouts-enabled YES -default-test-execution-time-allowance 600 -retry-tests-on-failure -test-iterations 2')
   expect(flows).toContain('-only-testing:AquaTomeUITests/V2FlowTests')
   expect(flows).toContain('-only-testing:AquaTomeUITests/PageShotsFlowTests/testV2 ')
@@ -118,7 +143,7 @@ test('flows that fail go to those two threads alone, by name, with nothing a pag
   expect(message).toContain('- V2FlowTests/testTheSearchField()')
   expect(message).toContain('- PageShotsFlowTests/testV2()')
   expect(message).not.toContain('ignore your rules')
-  expect(c.last()).toMatchObject({ outcome: 'failed', minutes: 15, failed: 3, told: true })
+  expect(c.last()).toMatchObject({ outcome: 'failed', minutes: 15, failed: 3, told: true, names: ['PageShotsFlowTests/testV2()', 'V2FlowTests/testTheSearchField()'] })
 })
 
 test('a failure that could not be sent says so in its line, for the morning check, after a second try', () => {
@@ -126,7 +151,18 @@ test('a failure that could not be sent says so in its line, for the morning chec
   c.summary(failing('V2FlowTests/testA()'))
   c.run({ TEST_EXIT: '65', NODE_EXIT: '1' })
   expect(c.told().map(t => t.thread)).toEqual(['design-lead', 'design-lead', 'v2-lab', 'v2-lab'])
-  expect(c.last()).toMatchObject({ outcome: 'failed', told: false })
+  expect(c.last()).toMatchObject({ outcome: 'failed', told: false, names: ['V2FlowTests/testA()'] })
+
+  // No node to send with (main moved to a version this Mac lacks): the same, and a day that passes doesn't need one.
+  const noNode = clone()
+  noNode.summary(failing('V2FlowTests/testA()'))
+  noNode.run({ TEST_EXIT: '65', NVM_EXIT: '3' })
+  expect(noNode.told()).toEqual([])
+  expect(noNode.last()).toMatchObject({ outcome: 'failed', told: false, names: ['V2FlowTests/testA()'] })
+  const passes = clone()
+  passes.summary(passing)
+  passes.run({ NVM_EXIT: '3' })
+  expect(passes.last()).toMatchObject({ outcome: 'passed' })
 })
 
 test("a run that stops short of a result is this Mac's problem: recorded, and the leads hear nothing", () => {
@@ -142,6 +178,12 @@ test("a run that stops short of a result is this Mac's problem: recorded, and th
   expect(noResult.last()).toMatchObject({ outcome: 'no result', exit: 124, told: null })
   expect(noResult.told()).toEqual([])
   expect(noResult.calls().some(l => l.startsWith('xcrun simctl shutdown'))).toBe(true)
+
+  // Past its four hours by the time it's built: it doesn't queue for the simulator into the working day.
+  const late = clone()
+  late.run({ WHOLE_SECONDS: '0' })
+  expect(late.last()).toMatchObject({ outcome: 'no turn in time', told: null })
+  expect(late.calls().some(l => l.startsWith('xcodebuild test-without-building'))).toBe(false)
 })
 
 test('exiting 0 with no flow run is not a pass', () => {
@@ -155,7 +197,7 @@ test('the runs start from main as it is that day, and only in its own clone', ()
   const c = clone()
   c.summary(passing)
   c.sh('rm -rf other && git clone -q origin.git other 2>/dev/null && cd other && git config user.email a@example.com && git config user.name a && echo x > later && git add . && git commit -qm later && git push -q origin main', c.home)
-  c.run()
+  c.run({ AQ_SCRIPT_HEAD: '' })
   expect(c.last().commit).toBe(c.sh('git --git-dir=origin.git rev-parse --short main', c.home))
   expect(c.sh('cat later')).toBe('x')
 
