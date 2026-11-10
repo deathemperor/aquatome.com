@@ -374,7 +374,7 @@
   {
    "date": "2026-11-10",
    "fish": "species/pterophyllum-altum",
-   "img": "https://media.aquatome.com/commons/302997e125c7870b.webp",
+   "img": "https://media.aquatome.com/commons/74ad92ff7bac6980-large.webp",
    "guide": "guides/sprucepets-platy-types-1381066",
    "guideImg": "https://media.aquatome.com/sprucepets/9d227b32ea4026ab.webp",
    "why": "Guide: Các biến thể của cá bình tích (Xiphophorus spp.), 4 search impressions."
@@ -412,10 +412,10 @@
   },
   {
    "date": "2026-11-15",
-   "fish": "species/monodactylus-sebae",
-   "img": "https://media.aquatome.com/commons/f951f81ed157dba7.webp",
+   "fish": "breeds/pearlscale-goldfish",
+   "img": "https://media.aquatome.com/commons/918d6b4152c16255-large.webp",
    "guide": "guides/aquatome-ca-di-phan-trang-benh-trung-roi-hexamita-ca-dia-nguyen-nhan-cach-chua",
-   "why": "Guide: Cá đĩa đi phân trắng: dấu hiệu, nguyên nhân và cách chữa trùng roi Hexamita, 3 search impressions."
+   "why": "Fish: Cá ping pong (Pearlscale goldfish), takes cool water, well known."
   },
   {
    "date": "2026-11-16",
@@ -509,7 +509,6 @@
   },
   {
    "date": "2026-11-27",
-   "fish": "species/dermogenys-pusilla",
    "img": "https://media.aquatome.com/commons/8679c734cd0bb8e0.webp",
    "guide": "guides/sprucepets-aquarium-catfish-breeds-5115234",
    "guideImg": "https://media.aquatome.com/sprucepets/eb26692e4b7b47a6.webp",
@@ -605,6 +604,11 @@
   }
  },
  "avoid": {
+  "https://media.aquatome.com/commons/f951f81ed157dba7.webp": "looked at: this photo does not stand as the sebae's head (chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/commons/8679c734cd0bb8e0.webp": "halfbeak: cards only, it stays on its page (chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/commons/a57ab47674cd2305.webp": "dark: cards only, it stays on its page until a clearer photo turns up (chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/inaturalist/436160058.webp": "a small fish in murk: cards only, it stays on its page until a clearer photo turns up (chief of staff, 2026-11-10)",
+  "https://media.aquatome.com/inaturalist/268032912.webp": "a ruler and a brand printed in the picture",
   "https://media.aquatome.com/commons/d303bc24129e7273.webp": "betta: a dark tank where the fish is small; its caption says the fish is sick",
   "https://media.aquatome.com/aquariumcoop/f60636dca7caf019.webp": "a person",
   "https://media.aquatome.com/commons/f8dffac3dfb62633.webp": "fish out of water",
