@@ -140,7 +140,7 @@ export async function codexNativeImage(prompt: string, dir: string, referenceFil
   if (!options?.observe) throw new Error('native image run requires attempt observation')
   const binary = await realpath(options.binary ?? installedCodex())
   const version = await probeCodexVersion(binary)
-  if (version !== 'codex-cli 0.167.0') throw new Error('native observer supports the audited CLI 0.167.0 only; no update or fallback')
+  if (version !== 'codex-cli 0.167.1') throw new Error('native observer supports the audited CLI 0.167.1 only; no update or fallback')
   await mkdir(dir, { recursive: true })
   // The CLI keeps its own direct provider connection and credentials. Only local JSON-RPC events cross this pipe.
   const args = ['app-server', '-c', 'forced_login_method="chatgpt"',
