@@ -158,3 +158,103 @@ test('an ordinary interrupted gallery write retries without duplicate entity or 
  expect((await imageSteps(f.root,async()=>f.d)).published).toBe(1)
  for(const path of [f.file,gallery])expect(JSON.parse(await readFile(path,'utf8')).photos.map((p:Photo)=>p.url)).toEqual([f.p.url])
 })
+
+test('an approved adopted credit records only a nameless mismatch and preserves the exact credit',async()=>{
+ const f=await setup();Object.assign(f.a,{creditMismatch:true})
+ const file=join(f.root,'content/photo-credit-mismatches.json')
+ // Existing audit order and legacy extra fields may not duplicate the row or carry lettering forward.
+ await writeFile(file,JSON.stringify([{differs:true,page:f.a.page,photo:f.p.original!.url,source:f.p.source,recordAuthor:'PRIVATE_EXTRA_FIELD'}]))
+ expect((await imageSteps(f.root,async()=>f.d)).published).toBe(1)
+ const rows=JSON.parse(await readFile(file,'utf8'))
+ expect(rows).toEqual([{source:f.p.source,photo:f.p.original!.url,page:f.a.page,differs:true}])
+ expect((await readFile(file,'utf8'))).not.toContain('PRIVATE_EXTRA_FIELD')
+ expect(JSON.parse(await readFile(f.file,'utf8')).photos[0].author).toBe(f.p.author)
+ expect(f.forbidden).not.toHaveBeenCalled()
+})
+
+test('an interrupted completion retries its approved credit audit without duplicating or losing it',async()=>{
+ const f=await setup();Object.assign(f.a,{creditMismatch:true})
+ const receipt=join(f.root,'engine-state/_owner-crops.json'),file=join(f.root,'content/photo-credit-mismatches.json');let stored=0
+ f.store.mockImplementation(async key=>{if(++stored===2)await mkdir(receipt,{recursive:true});return `https://media.aquatome.com/${key}`})
+ const first=await imageSteps(f.root,async()=>f.d)
+ expect(first.published).toBe(0);expect(first.failed.join()).toContain('completion receipt')
+ expect(JSON.parse(await readFile(file,'utf8'))).toEqual([{source:f.p.source,photo:f.p.original!.url,page:f.a.page,differs:true}])
+ await rm(receipt,{recursive:true});f.store.mockImplementation(async key=>`https://media.aquatome.com/${key}`)
+ expect((await imageSteps(f.root,async()=>f.d)).published).toBe(1)
+ expect(JSON.parse(await readFile(file,'utf8'))).toHaveLength(1);expect(f.forbidden).not.toHaveBeenCalled()
+})
+
+import { screenWatermarks } from '../src/watermarks'
+import { publishOwnerCrops } from '../src/owner-crops'
+async function stageScreen(f:Awaited<ReturnType<typeof setup>>) {
+ const bytes=await readFile(join(f.dir,'crop.webp'));let main:Uint8Array|undefined
+ await storeImageVariants(bytes,{altered:f.p.altered},async(key,b)=>{if(!key.endsWith('-480.webp'))main=b;return `https://media.aquatome.com/${key}`},true)
+ const root=join(f.root,'screen-stage'),cache=join(root,'screen.json');await mkdir(join(root,'content'),{recursive:true})
+ await writeFile(join(root,'content/photos.json'),JSON.stringify({photos:[f.p]}))
+ const read=vi.fn(async(files:string[])=>files.map(()=>[]))
+ const result=await screenWatermarks(root,cache,join(root,'rejected.json'),{get:async()=>main!,read,look:f.forbidden},{limit:0})
+ expect(result).toMatchObject({read:1,hits:0,judged:0,failed:[]});expect(read).toHaveBeenCalledOnce()
+ const record=JSON.parse(await readFile(cache,'utf8'))[f.p.url],raw=JSON.stringify({url:f.p.url,fileHash:hash(main!),record})+'\n'
+ await writeFile(join(f.dir,'screen.json'),raw);Object.assign(f.a,{screenRecordHash:hash(raw)})
+ await mkdir(join(f.root,'engine-state'),{recursive:true})
+ const old={...f.p,url:f.p.original!.url,ownerCrop:undefined,altered:undefined,original:undefined}
+ await writeFile(f.file,JSON.stringify({...f.e,photos:[old]}))
+ const state=join(f.root,'engine-state/_photo-watermarks.json'),oldRecord={ocr:[],watermark:false,kind:'none',what:'Existing observation'}
+ await writeFile(state,JSON.stringify({[old.url]:oldRecord}))
+ return {state,old,oldRecord}
+}
+
+test('the stage-owned empty screen record lands before content admission and preserves every older screen record',async()=>{
+ const f=await setup(),s=await stageScreen(f);let added=0
+ const result=await publishOwnerCrops(f.root,f.cache,f.store,async(_page,p)=>{
+  const records=JSON.parse(await readFile(s.state,'utf8'))
+  expect(records[p.url]).toEqual({ocr:[]});expect(records[s.old.url]).toEqual(s.oldRecord)
+  expect(JSON.parse(await readFile(f.file,'utf8')).photos[0].url).toBe(s.old.url)
+  await writeFile(f.file,JSON.stringify({...f.e,photos:[p,s.old]}));added++
+ },new AbortController().signal,approvals)
+ expect(result).toMatchObject({published:1,failed:[]});expect(added).toBe(1);expect(f.forbidden).not.toHaveBeenCalled()
+ const c=await loadAll({root:join(f.root,'content'),lang:'vi',publicBuild:true,photoScreen:'required'})
+ expect(c.species[0]!.photos[0]!.url).toBe(f.p.url)
+})
+
+test.each(['missing','file-hash','record-text','extra-field'] as const)('a %s screen receipt holds the crop before any upload and keeps its old head',async kind=>{
+ const f=await setup(),s=await stageScreen(f),file=join(f.dir,'screen.json')
+ if(kind==='missing')await rm(file)
+ else {
+  const r=JSON.parse(await readFile(file,'utf8'))
+  if(kind==='file-hash')r.fileHash='f'.repeat(64)
+  if(kind==='record-text')r.record.ocr=[{t:'Synthetic fixture',c:1}]
+  if(kind==='extra-field')r.record.note='PRIVATE_EXTRA_FIELD'
+  const raw=JSON.stringify(r);await writeFile(file,raw);Object.assign(f.a,{screenRecordHash:hash(raw)})
+ }
+ expect((await imageSteps(f.root,async()=>f.d)).published).toBe(0);expect(f.store).not.toHaveBeenCalled()
+ expect(JSON.parse(await readFile(f.file,'utf8')).photos[0].url).toBe(s.old.url)
+ expect(JSON.parse(await readFile(s.state,'utf8'))).toEqual({[s.old.url]:s.oldRecord})
+})
+
+test.each(['pending','refused'] as const)('an existing %s watermark decision is never replaced by a frozen empty read',async verdict=>{
+ const f=await setup(),s=await stageScreen(f),target=verdict==='pending'?{ocr:[{t:'Synthetic fixture',c:1}]}:{ocr:[],watermark:true}
+ await writeFile(s.state,JSON.stringify({[s.old.url]:s.oldRecord,[f.p.url]:target}))
+ expect((await imageSteps(f.root,async()=>f.d)).published).toBe(0);expect(f.store).not.toHaveBeenCalled()
+ expect(JSON.parse(await readFile(s.state,'utf8'))[f.p.url]).toEqual(target)
+ expect(JSON.parse(await readFile(f.file,'utf8')).photos[0].url).toBe(s.old.url)
+})
+
+test('a pending screen decision arriving after the content write withdraws only the new crop and restores the older head',async()=>{
+ const f=await setup(),s=await stageScreen(f)
+ const result=await publishOwnerCrops(f.root,f.cache,f.store,async(_page,p)=>{
+  await writeFile(f.file,JSON.stringify({...f.e,photos:[p,s.old]}))
+  await writeFile(s.state,JSON.stringify({[s.old.url]:s.oldRecord,[p.url]:{ocr:[{t:'Synthetic fixture',c:1}]}}))
+ },new AbortController().signal,approvals)
+ expect(result.published).toBe(0);expect(result.failed).toHaveLength(1)
+ expect(JSON.parse(await readFile(f.file,'utf8')).photos.map((p:Photo)=>p.url)).toEqual([s.old.url])
+ expect(f.forbidden).not.toHaveBeenCalled()
+})
+
+test.each(['missing','malformed'] as const)('a %s master screen cache is held without replacing it or uploading',async kind=>{
+ const f=await setup(),s=await stageScreen(f)
+ if(kind==='missing')await rm(s.state);else await writeFile(s.state,'{')
+ expect((await imageSteps(f.root,async()=>f.d)).published).toBe(0);expect(f.store).not.toHaveBeenCalled()
+ expect(JSON.parse(await readFile(f.file,'utf8')).photos[0].url).toBe(s.old.url)
+ if(kind==='missing')await expect(readFile(s.state)).rejects.toThrow();else expect(await readFile(s.state,'utf8')).toBe('{')
+})
