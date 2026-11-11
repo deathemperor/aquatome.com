@@ -152,46 +152,26 @@ struct SpeciesPage: View {
         }
         .v2Glass(false)
       }
-      if moreShown {
-        // Save and share in one ⋯ (the owner, 11 Nov: "2B").
-        ToolbarItem(placement: .topBarTrailing) {
-          let saved = handbook.isSaved(item)
-          Menu {
-            Button(saved ? "Bỏ lưu" : "Lưu để đọc sau", systemImage: saved ? "bookmark.fill" : "bookmark") {
-              handbook.toggleSaved(item)
-              savedFromMore += 1
-            }
-            .accessibilityIdentifier("save-for-later")
-            ShareLink(item: handbook.url(item)) { Label("Chia sẻ", systemImage: "square.and.arrow.up") }
-          } label: {
-            round("ellipsis")
-              .onGeometryChange(for: CGFloat.self) { $0.frame(in: .global).minX } action: { trailStart = $0 }
+      // Save and share in one ⋯, from the first screen, so the bar's items never change as the page scrolls (the owner,
+      // 11 Nov: "2B", and "Save and share: go with your recommendation").
+      ToolbarItem(placement: .topBarTrailing) {
+        let saved = handbook.isSaved(item)
+        Menu {
+          Button(saved ? "Bỏ lưu" : "Lưu để đọc sau", systemImage: saved ? "bookmark.fill" : "bookmark") {
+            handbook.toggleSaved(item)
+            savedFromMore += 1
           }
-            .buttonStyle(.plain)
-            .accessibilityLabel(Text("Thêm"))
-            .accessibilityIdentifier("page-more")
+          .accessibilityIdentifier("save-for-later")
+          ShareLink(item: handbook.url(item)) { Label("Chia sẻ", systemImage: "square.and.arrow.up") }
+        } label: {
+          round("ellipsis")
+            .onGeometryChange(for: CGFloat.self) { $0.frame(in: .global).minX } action: { trailStart = $0 }
         }
-        .v2Glass(!colourAt.top)
-      } else {
-        ToolbarItem(placement: .topBarTrailing) {
-          // Saved to read later, as v1's page saves it (the Tìm tab lists them).
-          let saved = handbook.isSaved(item)
-          Button { handbook.toggleSaved(item) } label: {
-            round(saved ? "bookmark.fill" : "bookmark")
-              .onGeometryChange(for: CGFloat.self) { $0.frame(in: .global).minX } action: { trailStart = $0 }
-          }
-            .buttonStyle(.plain)
-            .accessibilityLabel(Text(saved ? "Bỏ lưu" : "Lưu để đọc sau"))
-            .accessibilityIdentifier("save-for-later")
-        }
-        .v2Glass(!colourAt.top)
-        ToolbarItem(placement: .topBarTrailing) {
-          ShareLink(item: handbook.url(item)) { round("square.and.arrow.up") }
-            .buttonStyle(.plain)
-            .accessibilityLabel(Text("Chia sẻ"))
-        }
-        .v2Glass(!colourAt.top)
+          .buttonStyle(.plain)
+          .accessibilityLabel(Text("Thêm"))
+          .accessibilityIdentifier("page-more")
       }
+      .v2Glass(!colourAt.top)
     }
     // The bookmark isn't in the bar to fill: a save from the ⋯ is felt.
     .sensoryFeedback(.success, trigger: savedFromMore)
@@ -471,8 +451,6 @@ struct SpeciesPage: View {
       .contentShape(Circle())
   }
 
-  /// Save and share in one ⋯: once the band has come (B, approved). Before it, open with the owner.
-  private var moreShown: Bool { scrolled }
 
   private var header: some View {
     VStack(alignment: .leading, spacing: 6) {

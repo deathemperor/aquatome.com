@@ -422,8 +422,7 @@ final class V2FlowTests: XCTestCase {
     let app = ownersNeon("-long-part", "-fixed-pictures", "-white-pictures")
     let title = app.descendants(matching: .any)["page-navigator-title"].firstMatch
     XCTAssertTrue(title.waitForExistence(timeout: 5), "no title")
-    XCTAssertTrue(app.buttons["save-for-later"].exists, "the title crowds the bookmark into iOS's own ⋯")
-    XCTAssertTrue(app.buttons["Chia sẻ"].exists, "the title crowds the share button into iOS's own ⋯")
+    XCTAssertTrue(app.buttons["page-more"].exists, "the title crowds the ⋯ into iOS's own")
     Thread.sleep(forTimeInterval: 1)
     func linear(_ c: Int) -> Double { let v = Double(c) / 255; return v <= 0.03928 ? v / 12.92 : pow((v + 0.055) / 1.055, 2.4) }
     func tinted(_ c: (Int, Int, Int)) -> Bool { max(c.0, c.1, c.2) - min(c.0, c.1, c.2) > 40 }
@@ -608,7 +607,7 @@ final class V2FlowTests: XCTestCase {
     XCTAssertGreaterThan(title.frame.width, 100, "the title cut to nothing in the bar")
     XCTAssertLessThan(title.frame.minX - app.buttons["v2-back"].frame.maxX, 24, "the title isn't beside the back button")
     XCTAssertFalse(app.buttons["page-actions"].exists, "a ⋯ to choose it")
-    XCTAssertTrue(app.buttons["save-for-later"].exists, "the title crowds the bookmark into iOS's own ⋯")
+    XCTAssertTrue(app.buttons["page-more"].exists, "the title crowds the ⋯ into iOS's own")
     XCTAssertFalse(app.descendants(matching: .any)["v2-jumps"].exists, "the chips for whoever has the navigator")
     let parts = app.buttons.matching(identifier: "page-navigator-part")
     title.tap()
@@ -654,13 +653,17 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(app.buttons["v2-back"].exists, "a long part's name crowds the back button into iOS's own ⋯")
   }
 
-  /// Once scrolled, the bar holds back, Mục lục and one ⋯ (the owner, 11 Nov: "2B"): no save or share button of its own,
-  /// and Mục lục on one line, the part being read, the fish's name gone from over it. The ⋯ holds save, then share; a save
-  /// from it lists the page under Tìm's saved pages, and it says "Bỏ lưu" after. Before: both were the bar's buttons.
-  func testOnceScrolledTheBarHoldsBackMucLucAndOneMore() {
+  /// The bar holds back, Mục lục and one ⋯, at the top and scrolled (the owner, 11 Nov: "2B", and "Save and share: go with
+  /// your recommendation"): no save or share button of its own, and once scrolled, Mục lục on one line, the part being
+  /// read, the fish's name gone from over it. The ⋯ holds save, then share; a save from it lists the page under Tìm's
+  /// saved pages, and it says "Bỏ lưu" after. Before: both were the bar's buttons.
+  func testTheBarHoldsBackMucLucAndOneMoreAtTheTopAndScrolled() {
     let app = ownersNeon(animated: true, "-long-part")
     let title = app.descendants(matching: .any)["page-navigator-title"].firstMatch
     XCTAssertTrue(title.waitForExistence(timeout: 5), "no title for the owner")
+    XCTAssertTrue(app.buttons["v2-back"].exists && app.buttons["page-more"].exists, "not back and ⋯ at the top")
+    XCTAssertFalse(app.buttons["save-for-later"].exists, "a save button outside the ⋯ at the top")
+    XCTAssertFalse(app.buttons["Chia sẻ"].exists, "a share button outside the ⋯ at the top")
     title.tap()
     let part = app.buttons.matching(identifier: "page-navigator-part").matching(NSPredicate(format: "label == 'Cho ăn gì?'")).firstMatch
     XCTAssertTrue(part.waitForExistence(timeout: 5), "no part for feeding")
