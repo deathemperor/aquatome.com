@@ -399,6 +399,14 @@ The layers above still check the result.
     add something. `packages/engine/scripts/eval-fidelity.ts` measures it on the guides under the bar. Found by the
     owner (2026-11-06): a fresh draft fixed the old notes and invented new details, and every guide reviewed scored
     0.50–0.70.
+  - **A translation whose English grew keeps what passed** (`localizeSpecies`, `localize.ts`): the Indonesian, Thai and
+    Malay species and plant pages record each part's English (a hash) as it was translated. When the English changes,
+    a part whose English is the same keeps its text, and only new and changed parts are translated and reviewed, with the
+    kept ones shown beside them for names and words. Each source keeps its own score. New parts under the bar stay off the
+    page, which keeps its text and score, and are tried again after a week or when their English changes. A page made
+    before the parts were recorded is translated whole as before, but a passing translation is never replaced by one under
+    the bar. Found 2026-11-11: 18 pages had lost a passing translation that way, though no section they were made from had
+    changed, and in 110 of the reviewers' 158 notes on those redos the fault was in a part whose English was the same.
   - **A rewrite starts from them.** `videos --redo`, `breed --redo`, `topic --redo`, `product --redo`, the localizers'
     `--redo` and `rewrite-vi` give the writer the last kept review's notes, under the same rule as the rewrite within a
     run (under the bar, or any note for the pages checked against their research).
