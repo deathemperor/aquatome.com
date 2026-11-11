@@ -442,6 +442,11 @@ test('units: a figure the page\'s English gives in metric itself isn\'t counted;
   expect(units(fish('<p>Bể 10 gallon (38 lít).</p>', '<p>A 10-gallon (38 litre) tank.</p>'))).toEqual(['gallon'])
   // A section AquaTome wrote from many sources' facts has no English of its own: its figures still count.
   expect(units(fish('<p>Bể 38 lít là đủ.</p>', '<p>Bể 38 lít là đủ.</p>', {}, 'sections.aquariumSize:aquatome'))).toEqual(['38 lít'])
+  // The same words in two parts: each part's English must give the figure, whatever part the finding names.
+  const two = page('', { kind: 'species', fields: [{ field: 'sections.aquariumSize:seriouslyfish', html: '<p>Bể 38 lít.</p>' }, { field: 'sections.aquariumSize:aquariumcoop', html: '<p>Bể 38 lít.</p>' }], en: { 'sections.aquariumSize:seriouslyfish': '<p>A 10-gallon tank.</p>', 'sections.aquariumSize:aquariumcoop': '<p>A 38 litre tank.</p>' } })
+  expect(units(two)).toEqual(['38 lít'])
+  expect(units(two, [{ part: 'P2', quote: 'Bể 38 lít' }])).toEqual(['38 lít', 'Bể 38 lít'])
+  expect(units(fish('<p>Bể 38 lít là đủ.</p>', '<p>Kept in 38 litres.</p>'), [{ part: '', quote: 'Bể 38 lít là đủ' }, { part: 'P9', quote: 'bể 40 lít' }])).toEqual(['bể 40 lít'])
   // A guide keeps its source elsewhere: still counted.
   expect(units(page('<p>Bể 38 lít là đủ.</p>'))).toEqual(['38 lít'])
 })

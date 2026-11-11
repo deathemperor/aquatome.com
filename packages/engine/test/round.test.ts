@@ -60,4 +60,10 @@ test('metric figures as each language writes them, and whether the English sourc
   expect(sourceGives('bể 60 lít', 'a tank of 60 litres', 'vi')).toBe(true)
   expect(sourceGives('tangki 60 x 37.5 x 30 cm (71 liter)', '60 x 37.5 x 30 cm (71 litres)', 'ms')).toBe(true)
   expect(sourceGives('ít nhất 6 con', 'at least 6 fish', 'vi')).toBe(false) // no figure to give
+  // Every number a unit closes: a tank's sides, a choice, "ºC" with the ordinal sign.
+  expect(metricFigures('Bể 91 × 38 × 30 cm, 57 hoặc 76 lít, 22,8 ºC', 'vi')).toEqual(['91 cm', '38 cm', '30 cm', '57 l', '76 l', '22.8 c'])
+  expect(sourceGives('Bể 91 × 38 × 30 cm', 'A tank of 36 × 15 × 12 in. Adults reach 30 cm.', 'vi')).toBe(false)
+  expect(sourceGives('bể 57 hoặc 76 lít', 'A 15 or 20 gallon tank; 20 gallons (76 litres) is better.', 'vi')).toBe(false)
+  expect(sourceGives('nhiệt độ 22,8 ºC, bể 60 cm', 'at 73 °F, in a 60 cm tank', 'vi')).toBe(false)
+  expect(sourceGives('ตู้ยาว 2 ฟุต (60 ซม.)', 'a 2 ft (60 cm) tank', 'th')).toBe(false) // a foot left on the page
 })
