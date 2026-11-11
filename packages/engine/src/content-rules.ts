@@ -489,25 +489,37 @@ export const notAlive = (c: { caption: string; file?: string }) => {
  * guides, where a guide on a disease shows a sick fish. A first, wider list hit 21 of 14,615 captions, 7 of them wrongly:
  * a shipwreck ornament, "dead corals", "physical damage is rare", breeding tubercules twice, an owner's story of a fish
  * that died years after the photo, and a caption of ours.
+ * "Unwell" takes a photo off for good with nobody looking, so the lists lean to missing one (a reader's probes,
+ * 2026-11-11): damage or injuries said to be rare are none; damage is weighed in its own sentence, so a later one on
+ * how the fish behaves doesn't make it a fight's; damage to a place ("habitat heavily damaged") is not the fish's; a
+ * fungus counts only as an infection or on the fish; and on a breed's page a deformity or a growth is not asked, since
+ * it can be the breed's own shape (a balloon molly's spine, an oranda's cap).
  */
-const UNWELL = /\b(?:deceased|dead (?:specimens?|fish|individuals?|males?|females?|juveniles?|adults?)|skinny|emaciated|underweight|starv(?:ed|ing)|wounded|injured|missing an? (?:eye|fin)|diseased|infect(?:ed|ion)|fung(?:us|al)|tumou?rs?|ulcers?|lesions?|dropsy|deform(?:ed|ity|ities)|sick|moribund)\b/i
-const DAMAGE = /\b(?:damaged?(?! is rare)|injur(?:y|ies)|split (?:caudal|dorsal|anal|pectoral|pelvic|tail)?[- ]?fins?)\b/i
+const UNWELL = /\b(?:deceased|dead (?:specimens?|fish|individuals?|males?|females?|juveniles?|adults?)|skinny|emaciated|underweight|starv(?:ed|ing)|wounded|injured|missing an? (?:eye|fin)|diseased|infect(?:ed|ion)|fungal|fungus(?= (?:infection|growth|on (?:its|the|his|her)\b))|tumou?rs?|ulcers?|lesions?|dropsy|deform(?:ed|ity|ities)|sick|moribund)\b/gi
+const BREED_SHAPE = /^(?:deform|tumou?r)/i
+const DAMAGE = /\b(?:damaged?|injur(?:y|ies)|torn|split (?:caudal|dorsal|anal|pectoral|pelvic|tail)?[- ]?fins?)\b(?! (?:is|are) rare)/i
 /** Damage with a fight behind it, or more than slight: not a blemish. */
-const BADLY = /\b(?:caused by|fight\w*|fought|attack\w*|aggress\w*|bitten|bites?|torn|badly|severe(?:ly)?|heavily|serious(?:ly)?)\b/i
-export function captionFlaw(caption: string | undefined): { kind: 'unwell' | 'blemish'; word: string } | undefined {
+const BADLY = /\b(?:caused by|fight\w*|fought|attack\w*|aggress\w*|bitten|bites?|badly|severe(?:ly)?|heavily|serious(?:ly)?)\b/i
+const PLACE = /\b(?:habitats?|localit(?:y|ies)|rivers?|streams?|creeks?|lakes?|swamps?|forests?|reefs?|sites?)\b/i
+export function captionFlaw(caption: string | undefined, breed = false): { kind: 'unwell' | 'blemish'; word: string } | undefined {
   if (!caption || VI_LETTER.test(caption)) return undefined
-  const unwell = UNWELL.exec(caption)
+  const unwell = [...caption.matchAll(UNWELL)].find(m => !breed || !BREED_SHAPE.test(m[0]))
   if (unwell) return { kind: 'unwell', word: unwell[0].toLowerCase() }
-  const damage = DAMAGE.exec(caption)
-  return damage ? { kind: BADLY.test(caption) ? 'unwell' : 'blemish', word: damage[0].toLowerCase() } : undefined
+  for (const sentence of caption.split(/[.;]+/)) {
+    const damage = PLACE.test(sentence) ? null : DAMAGE.exec(sentence)
+    if (damage) return { kind: BADLY.test(sentence) ? 'unwell' : 'blemish', word: damage[0].toLowerCase() }
+  }
+  return undefined
 }
 /**
  * The photos of a fish's or a breed's page that come off as unwell: every one, its gallery's too, but the first of the
  * page's own where no other photo of its own would be left (`gone`: its own photos another rule takes off in the same run).
+ * A page with no photo of its own keeps none back: its gallery's photo is on no page until the head step picks it,
+ * and that step asks the caption too (curation.ts `cardWorthy`).
  */
-export function unwellOff(p: Pick<Page, 'kind' | 'captions' | 'own'>, gone: ReadonlySet<string> = new Set()): { off: { url: string; word: string }[]; kept?: { url: string; word: string } } {
+export function unwellOff(p: Pick<Page, 'kind' | 'captions' | 'album' | 'own'>, gone: ReadonlySet<string> = new Set()): { off: { url: string; word: string }[]; kept?: { url: string; word: string } } {
   if (p.kind !== 'species' && p.kind !== 'breeds') return { off: [] }
-  const unwell = p.captions.flatMap(c => { const f = captionFlaw(c.caption); return f?.kind === 'unwell' ? [{ url: c.url, word: f.word }] : [] })
+  const unwell = [...p.captions, ...(p.album ?? [])].flatMap(c => { const f = captionFlaw(c.caption, p.kind === 'breeds'); return f?.kind === 'unwell' ? [{ url: c.url, word: f.word }] : [] })
   const bad = new Set(unwell.map(x => x.url))
   const own = (p.own ?? []).filter(u => !gone.has(u))
   const kept = own.some(u => !bad.has(u)) ? undefined : unwell.find(x => x.url === own.find(u => bad.has(u)))
@@ -713,7 +725,7 @@ export const RULES: Rule[] = [
   {
     id: 'unwell', title: 'A photo of a fish its source calls unwell, on a page with another photo',
     about: 'A fish or breed photo whose own English caption says the fish is dead, thin, wounded, sick or deformed, or damaged in a fight, on a page that has another photo of its own. The sweep takes it off and it is never picked again. Where it is the page\'s only photo it stays, off every card, and is not counted here. A split or slightly damaged fin said in passing is no failure: that photo stays, as not typical.',
-    check: p => (p.lang !== 'vi' ? [] : unwellOff(p).off.map(x => `${x.word}: "${clip(p.captions.find(c => c.url === x.url)!.caption, 80)}"`)),
+    check: p => (p.lang !== 'vi' ? [] : unwellOff(p).off.map(x => `${x.word}: "${clip([...p.captions, ...(p.album ?? [])].find(c => c.url === x.url)!.caption, 80)}"`)),
   },
   {
     // The photos are the same in every language: checked on the Vietnamese page.

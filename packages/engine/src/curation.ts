@@ -131,8 +131,8 @@ const OWN_MARK = /^https?:\/\/(www\.)?aquariumglaser\.de\//
  * A photo that passes in every way but for a mark its own source may keep. It ranks below every unmarked photo, leads a page
  * only where nothing else passes (lead-photo.ts), and is never a card: `cardWorthy` still says no.
  */
-export function ownMarkOnly(p: Pick<Photo, 'url' | 'sourceUrl'>, page: string, v: Verdicts, avoid: Record<string, string>): boolean {
-  if (!OWN_MARK.test(p.sourceUrl) || p.url in v.rejected || p.url in avoid || (v.faces[p.url] ?? 0) > 0) return false
+export function ownMarkOnly(p: Pick<Photo, 'url' | 'sourceUrl' | 'caption'>, page: string, v: Verdicts, avoid: Record<string, string>): boolean {
+  if (!OWN_MARK.test(p.sourceUrl) || p.url in v.rejected || p.url in avoid || (v.faces[p.url] ?? 0) > 0 || captionFlaw(p.caption)) return false
   const own = v.subjects[p.url]?.[page]
   return !!own && !own.guide && own.ok === 'yes' && !!own.typical && !own.person && !!own.logo
 }

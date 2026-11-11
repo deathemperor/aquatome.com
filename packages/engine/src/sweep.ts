@@ -415,6 +415,33 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   }
   if (guides.length) await carryTopicChecks(root, guides)
 
+  // The owner, 2026-11-10: a card and its page's head are always the same photo, so a photo picked for a card becomes the head.
+  // Before the photo rules read the pages: a head picked from the gallery is one of the page's own photos from here on,
+  // so an unwell photo beside it is not kept as the page's only one and left for the next sweep (the cycle tests after
+  // one). No later step here moves a head, so the pick still has the last word.
+  const headPicks = JSON.parse(await readFile(join(root, 'engine-state', '_photo-head-picks.json'), 'utf8').catch(() => '{}')) as Record<string, string>
+  for (const [ref, url] of Object.entries(headPicks)) {
+    const file = join(content, ref, 'entity.json')
+    const raw = await readFile(file, 'utf8').catch(() => null)
+    if (!raw) continue
+    const e = JSON.parse(raw) as { photos?: Photo[] }
+    const own = e.photos ?? []
+    let picked = own.find(p => p.url === url)
+    if (!picked) {
+      const id = ref.split('/')[1]!
+      const gallery = JSON.parse(await readFile(join(content, 'gallery', `${id}.json`), 'utf8').catch(() => '{}')) as { photos?: (Photo & { best?: boolean; kind?: string; unchecked?: boolean })[] }
+      const found = gallery.photos?.find(p => p.url === url && !p.unchecked)
+      if (found) {
+        const { best: _b, kind: _k, unchecked: _u, ...photo } = found
+        picked = photo
+      }
+    }
+    if (!picked) { report.heads.push(`${ref}: picked photo isn't on the page`); continue }
+    if (own[0]?.url === url) continue
+    report.heads.push(`${ref}: ${own[0]?.url ?? 'none'} -> ${url}`)
+    await write(file, raw, { ...e, photos: [picked, ...own.filter(p => p.url !== url)] })
+    changed(`${ref}/entity.json`)
+  }
   // Photos: what the caption rule finds on a published page (Vietnamese: the photos are the same in every language).
   const all = await loadPages(content, ['vi'])
   const ctx = ctxOf(all)
@@ -491,30 +518,6 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     const rejected = JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')) as Record<string, string>
     for (const [url, why] of maps) if (!rejected[url]) { rejected[url] = why; report.rejected++ }
     if (report.rejected) await writeFile(rejectedFile, `${JSON.stringify(rejected, null, 2)}\n`)
-  }
-  // The owner, 2026-11-10: a card and its page's head are always the same photo, so a photo picked for a card becomes the head.
-  const headPicks = JSON.parse(await readFile(join(root, 'engine-state', '_photo-head-picks.json'), 'utf8').catch(() => '{}')) as Record<string, string>
-  for (const [ref, url] of Object.entries(headPicks)) {
-    const file = join(content, ref, 'entity.json')
-    const raw = await readFile(file, 'utf8').catch(() => null)
-    if (!raw) continue
-    const e = JSON.parse(raw) as { photos?: Photo[] }
-    const own = e.photos ?? []
-    let picked = own.find(p => p.url === url)
-    if (!picked) {
-      const id = ref.split('/')[1]!
-      const gallery = JSON.parse(await readFile(join(content, 'gallery', `${id}.json`), 'utf8').catch(() => '{}')) as { photos?: (Photo & { best?: boolean; kind?: string; unchecked?: boolean })[] }
-      const found = gallery.photos?.find(p => p.url === url && !p.unchecked)
-      if (found) {
-        const { best: _b, kind: _k, unchecked: _u, ...photo } = found
-        picked = photo
-      }
-    }
-    if (!picked) { report.heads.push(`${ref}: picked photo isn't on the page`); continue }
-    if (own[0]?.url === url) continue
-    report.heads.push(`${ref}: ${own[0]?.url ?? 'none'} -> ${url}`)
-    await write(file, raw, { ...e, photos: [picked, ...own.filter(p => p.url !== url)] })
-    changed(`${ref}/entity.json`)
   }
   // A rejected video (engine-state/_video-rejected.json: a thumbnail with a dead fish, …) leaves every page.
   const videoRejected = await readVideoRejected(root)

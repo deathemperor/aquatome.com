@@ -120,7 +120,9 @@ export async function screenLeads(root: string, d: LeadDeps, o: { limit: number;
     }
   }
   all.sort((a, b) => Number(coming.has(b.ref)) - Number(coming.has(a.ref)))
-  const choose = (f: Fish) => leadChoice(f.entity.photos ?? [], f.gallery, p => cardWorthy(p, f.id, verdicts, cur.avoid), compared, p => ownMarkOnly(p, f.id, verdicts, cur.avoid))
+  // What a caption says of the fish is asked of fish and breeds, not of a plant (content-rules.ts captionFlaw).
+  const asked = <P extends { caption?: string }>(f: Fish, { caption, ...p }: P) => (f.ref.startsWith('plants/') || caption === undefined ? p : { ...p, caption })
+  const choose = (f: Fish) => leadChoice(f.entity.photos ?? [], f.gallery, p => cardWorthy(asked(f, p), f.id, verdicts, cur.avoid), compared, p => ownMarkOnly(asked(f, p), f.id, verdicts, cur.avoid))
 
   // Asked in rounds, since a pair answered no sends its fish on to the next photo.
   const dir = await mkdtemp(join(tmpdir(), 'lead-photos-'))

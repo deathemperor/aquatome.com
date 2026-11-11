@@ -154,7 +154,8 @@ test("a caption in which the source calls the fish unwell, or names a split fin 
     'Recently-deceased specimen.', 'Two dead specimens of different ages, younger below.', 'Newly-imported, hence a little skinny, male of Barboides gracilis.', 'Skinny juvenile of Callochromis macrops',
     '...and can be violent affairs as this wounded specimen exemplifies.', 'Individual missing an eye due to conspecific aggression in the confines of an aquarium.',
     // Damage with a fight behind it is no blemish.
-    'Male specimen with fin damage caused by another male.',
+    'Male specimen with fin damage caused by another male.', 'Male with fins torn in a fight.',
+    'Specimen with a fungal infection on the tail.', 'Adult with fungus on its fins.',
   ]) expect(kind(c), c).toBe('unwell')
   for (const c of [
     // "Damaged" with no "slightly", and "minor injuries" of a split fin: still said in passing of an ordinary fish.
@@ -162,6 +163,8 @@ test("a caption in which the source calls the fish unwell, or names a split fin 
     'Note the split caudal-fin of the fish to the left; minor injuries such as this are not uncommon.',
     'Another specimen of R. dorsinotata with a slightly damaged caudal fin.', 'Subadult with slightly damaged caudal-fin.', 'Specimen from the Singapore aquarium trade with slight damage to lower caudal-fin lobe.',
     'Adult specimen with slight caudal-fin damage.', 'Adult male individual with slightly-damaged caudal-fin.',
+    // Torn with no fight named. And damage is weighed in its own sentence: what the fish bites is another matter.
+    'Fins torn in transit.', 'Slightly damaged fin; this species bites at plants.',
   ]) expect(kind(c), c).toBe('blemish')
   for (const c of [
     'Vài con cá piranha bụng đỏ bơi trong bể có xác tàu', 'Cá hổ báo biến dạng màu cam đen nhìn từ dưới trong bể',
@@ -170,13 +173,24 @@ test("a caption in which the source calls the fish unwell, or names a split fin 
     "I named him Rambo. He came with the aquarium I bought when 10 years old or so. When I was about 17 he died, shortly after which I sold my aquarium.",
     'The tubercules on the snout and raised rows of soft, raised, tuberculated tissue on the anterior pectoral rays are clearly visible here.', 'Detail of tubercules on snout; specimen from northern Peninsular Malaysia.',
     'Adult male.', undefined,
+    // Injuries said to be rare are none, a place's damage is not the fish's, and a fungus it eats is no infection.
+    'Males often fight but injuries are rare.', 'Habitat heavily damaged by logging.', 'It grazes on algae and fungus.',
   ]) expect(kind(c as string), c).toBeUndefined()
+  // On a breed's page a deformity or a growth can be the breed's own shape, and is not asked; the rest is.
+  for (const c of ['A balloon molly with its deformed spine.', 'The cap, a tumour-like growth over the head.']) {
+    expect(kind(c), c).toBe('unwell')
+    expect(captionFlaw(c, true), c).toBeUndefined()
+  }
+  expect(captionFlaw('Recently-deceased specimen.', true)?.kind).toBe('unwell')
 })
 
 test("a photo of an unwell fish fails its page where the page has another photo of its own, its gallery's too; a page's only photo, a plant's and a guide's do not", () => {
   const dead = { url: 'a', caption: 'Recently-deceased specimen.' }, well = { url: 'b', caption: 'Adult male.' }, album = { url: 'g', caption: 'Two dead specimens of different ages.' }, split = { url: 's', caption: 'Adult specimen with slight caudal-fin damage.' }
   expect(found(page({ kind: 'species', own: ['a', 'b', 's'], captions: [dead, well, split, album] }), 'unwell')).toEqual(['deceased: "Recently-deceased specimen."', 'dead specimens: "Two dead specimens of different ages."'])
   expect(found(page({ kind: 'breeds', own: ['a', 'b'], captions: [dead, well] }), 'unwell')).toEqual(['deceased: "Recently-deceased specimen."'])
+  // A breed's gallery is read too, and its own shape is not called unwell.
+  expect(found(page({ kind: 'breeds', own: ['b'], captions: [well], album: [album] }), 'unwell')).toEqual(['dead specimens: "Two dead specimens of different ages."'])
+  expect(found(page({ kind: 'breeds', own: ['a', 'b'], captions: [{ url: 'a', caption: 'A balloon molly with its deformed spine.' }, well] }), 'unwell')).toEqual([])
   // The page's only photo stays: nothing to fix, so nothing found. With two and nothing else, the first stays.
   expect(found(page({ kind: 'species', own: ['a'], captions: [dead] }), 'unwell')).toEqual([])
   expect(unwellOff(page({ kind: 'species', own: ['a'], captions: [dead] }))).toEqual({ off: [], kept: { url: 'a', word: 'deceased' } })

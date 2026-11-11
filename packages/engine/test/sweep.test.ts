@@ -198,6 +198,36 @@ test("a fish its source's caption calls unwell leaves a page that has another ph
   // Once the page has another photo of its own, the unwell one goes.
   await put('species/callochromis-macrops/entity.json', species('callochromis-macrops', 'Callochromis macrops', { photos: [thin, sf('adult', 'Adult male.')] }))
   expect((await sweep(root)).photos).toEqual([`species/callochromis-macrops: ${thin.url} (unwell: its source's caption says "skinny")`])
+  // A head a person picked from the gallery is one of the page's own photos in the same sweep, so the unwell photo
+  // beside it goes at once. A sweep later would leave the rule at one, and the cycle tests after one sweep.
+  const lone = sf('lone', 'Recently-deceased specimen.'), chosen = sf('chosen', 'Adult male.')
+  await put('species/aaa-picked/entity.json', species('aaa-picked', 'Aaa picked', { photos: [lone] }))
+  await put('species/aaa-picked/vi.json', vi('Cá chạch suối chọn', { 'distribution:seriouslyfish': '<p>Lào.</p>' }))
+  await put('gallery/aaa-picked.json', { id: 'aaa-picked', photos: [chosen], seen: 1, updatedAt: '2026-10-01' })
+  await writeFile(join(root, 'engine-state/_photo-head-picks.json'), JSON.stringify({ 'species/aaa-picked': chosen.url }))
+  const picked = await sweep(root)
+  expect(picked.heads).toEqual([`species/aaa-picked: ${lone.url} -> ${chosen.url}`])
+  expect(picked.photos).toEqual([`species/aaa-picked: ${lone.url} (unwell: its source's caption says "deceased")`])
+  expect((await json(root, 'content/species/aaa-picked/entity.json')).photos).toEqual([chosen])
+  expect(await unwell()).toBe(0)
+  // A photo that is one page's only photo and is also on a page with another leaves that other page and stays off the
+  // never-again list, which would take it off both.
+  const shared = sf('shared', 'Newly-imported, hence a little skinny, specimen.')
+  await put('species/bbb-only/entity.json', species('bbb-only', 'Bbb only', { photos: [shared] }))
+  await put('species/bbb-only/vi.json', vi('Cá chạch suối lẻ', { 'distribution:seriouslyfish': '<p>Lào.</p>' }))
+  await put('species/ccc-more/entity.json', species('ccc-more', 'Ccc more', { photos: [sf('fine', 'Adult male.'), shared] }))
+  await put('species/ccc-more/vi.json', vi('Cá chạch suối đôi', { 'distribution:seriouslyfish': '<p>Lào.</p>' }))
+  expect((await sweep(root)).photos).toEqual([`species/ccc-more: ${shared.url} (unwell: its source's caption says "skinny")`])
+  expect((await json(root, 'content/species/bbb-only/entity.json')).photos).toEqual([shared])
+  expect(Object.keys(await json(root, 'engine-state/_photo-rejected.json'))).not.toContain(shared.url)
+  // A breed's gallery is read too.
+  const bred = sf('bred', 'Two dead specimens of different ages.')
+  await put('breeds/ddd-breed/entity.json', { id: 'ddd-breed', kind: 'variety', parents: [], care: {}, photos: [sf('breed-own', 'Adult male.')], sources: [{ url: 'https://x/a', title: 'A', kind: 'article', at: '2026-10-01' }], updatedAt: '2026-10-01' })
+  await put('breeds/ddd-breed/vi.json', vi('Cá chạch lai', {}, { slug: 'ca-chach-lai', body: '<p>Một dòng lai.</p>' }))
+  await put('gallery/ddd-breed.json', { id: 'ddd-breed', photos: [bred], seen: 1, updatedAt: '2026-10-01' })
+  expect(await unwell()).toBe(1)
+  expect((await sweep(root)).photos).toEqual([`breeds/ddd-breed: ${bred.url} (unwell: its source's caption says "dead specimens")`])
+  expect((await json(root, 'content/gallery/ddd-breed.json')).photos).toEqual([])
 })
 
 test("a run that would take more photos off every page than its cap takes none off, lists them, and leaves the check failing for a person; with the cap raised they go", async () => {
