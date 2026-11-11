@@ -2,18 +2,6 @@
   "id": "bacopa-caroliniana",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/154045558.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/154045558-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Matt Berger",
-      "sourceUrl": "https://www.inaturalist.org/photos/154045558",
-      "caption": "Thảm Bacopa caroliniana nở hoa xanh tím ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/127117371.webp",
       "thumb": "https://media.aquatome.com/inaturalist/127117371-480.webp",
       "width": 768,
@@ -837,6 +825,18 @@
       "sourceUrl": "https://www.inaturalist.org/photos/33273578",
       "caption": "Bacopa caroliniana ngả đỏ mọc nhô khỏi mặt nước",
       "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/154045558.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/154045558-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Matt Berger",
+      "sourceUrl": "https://www.inaturalist.org/photos/154045558",
+      "caption": "Thảm Bacopa caroliniana nở hoa xanh tím ngoài tự nhiên",
+      "best": true,
       "kind": "habitat"
     }
   ],

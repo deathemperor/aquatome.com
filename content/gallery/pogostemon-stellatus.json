@@ -14,18 +14,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/commons/69b90479574f6db2.webp",
-      "thumb": "https://media.aquatome.com/commons/69b90479574f6db2-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY 4.0",
-      "author": "Kudapan21",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pogostemon_stellatus_(emersed_form).jpg",
-      "caption": "Bụi Cây Pogostemon stellatus mọc dưới nước trong bể thủy sinh",
-      "best": true,
-      "kind": "submersed"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/56578924.webp",
       "thumb": "https://media.aquatome.com/inaturalist/56578924-480.webp",
       "width": 1024,
@@ -89,18 +77,6 @@
       "source": "tropica",
       "kind": "submersed",
       "unchecked": true
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/288941429.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/288941429-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Alberto Alcalá",
-      "sourceUrl": "https://www.inaturalist.org/photos/288941429",
-      "caption": "Ngọn Pogostemon stellatus xanh tươi trong bể",
-      "best": false,
-      "kind": "emersed"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/56578941.webp",
@@ -173,6 +149,30 @@
       "caption": "Cây Pogostemon stellatus mọc ngoài tự nhiên với bông hoa",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/69b90479574f6db2.webp",
+      "thumb": "https://media.aquatome.com/commons/69b90479574f6db2-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY 4.0",
+      "author": "Kudapan21",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pogostemon_stellatus_(emersed_form).jpg",
+      "caption": "Bụi Cây Pogostemon stellatus mọc dưới nước trong bể thủy sinh",
+      "best": true,
+      "kind": "submersed"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/288941429.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/288941429-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Alberto Alcalá",
+      "sourceUrl": "https://www.inaturalist.org/photos/288941429",
+      "caption": "Ngọn Pogostemon stellatus xanh tươi trong bể",
+      "best": false,
+      "kind": "emersed"
     }
   ],
   "seen": 21,

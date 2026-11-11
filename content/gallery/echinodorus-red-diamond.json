@@ -2,23 +2,6 @@
   "id": "echinodorus-red-diamond",
   "photos": [
     {
-      "url": "https://media.aquatome.com/tropica/609c3cf03a27fc0e.webp",
-      "thumb": "https://media.aquatome.com/tropica/609c3cf03a27fc0e-480.webp",
-      "width": 1200,
-      "height": 750,
-      "large": {
-        "url": "https://media.aquatome.com/tropica/609c3cf03a27fc0e-large.webp",
-        "width": 1919,
-        "height": 1200
-      },
-      "licence": "dùng với sự cho phép",
-      "author": "Tropica",
-      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Echinodorus'RedDiamond'(074D)/4525",
-      "source": "tropica",
-      "best": true,
-      "kind": "submersed"
-    },
-    {
       "url": "https://media.aquatome.com/tropica/9b2ac3e8138a40b8.webp",
       "thumb": "https://media.aquatome.com/tropica/9b2ac3e8138a40b8-480.webp",
       "width": 1000,
@@ -50,6 +33,23 @@
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Echinodorus'RedDiamond'(074D)/4525",
       "source": "tropica",
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/tropica/609c3cf03a27fc0e.webp",
+      "thumb": "https://media.aquatome.com/tropica/609c3cf03a27fc0e-480.webp",
+      "width": 1200,
+      "height": 750,
+      "large": {
+        "url": "https://media.aquatome.com/tropica/609c3cf03a27fc0e-large.webp",
+        "width": 1919,
+        "height": 1200
+      },
+      "licence": "dùng với sự cho phép",
+      "author": "Tropica",
+      "sourceUrl": "https://tropica.com/en/plants/plantdetails/Echinodorus'RedDiamond'(074D)/4525",
+      "source": "tropica",
+      "best": true,
+      "kind": "submersed"
     }
   ],
   "seen": 0,

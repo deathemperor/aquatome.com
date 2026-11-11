@@ -1,9 +1,9 @@
 # Photos that don't show their page's subject
 
 Written by `pnpm engine check-photos` (2026-11-11), most-read pages first. Rules: docs/governance.md, "Photos".
-6093 verdicts. Shows it: 4158; its habitat (asked again): 3; something else: 306; not a photo of it: 208; dead or as food: 301; a person in it: 100; a logo on it: 39; can't tell: 959.
+6099 verdicts. Shows it: 4164; its habitat (asked again): 3; something else: 306; not a photo of it: 208; dead or as food: 301; a person in it: 100; a logo on it: 39; can't tell: 958.
 
-## Left with no photo (67)
+## Left with no photo (66)
 
 - species/hyphessobrycon-elachys
 - species/channa-stewartii
@@ -39,7 +39,6 @@ Written by `pnpm engine check-photos` (2026-11-11), most-read pages first. Rules
 - species/acestrorhynchus-falcirostris
 - species/acestrorhynchus-isalineae
 - species/ageneiosus-ucayalensis
-- species/ailia-coila
 - species/ailiichthys-punctata
 - species/akysis-variegatus
 - species/amblyceps-caecutiens
@@ -73,7 +72,7 @@ Written by `pnpm engine check-photos` (2026-11-11), most-read pages first. Rules
 - species/thayeria-ifati
 - species/xenotilapia-sima
 
-## Can't tell: still shown (959)
+## Can't tell: still shown (958)
 
 | Page | Photo | What the model saw |
 | --- | --- | --- |
@@ -113,7 +112,6 @@ Written by `pnpm engine check-photos` (2026-11-11), most-read pages first. Rules
 | breeds/ryukin-goldfish | [photo](https://media.aquatome.com/flickr/7363087118.webp) | red long-finned fancy goldfish seen from above in a blue tub with a net; could be ryukin or fantail, the hump can't be s |
 | breeds/super-red-arowana | [photo](https://images.unsplash.com/photo-1660749396166-75025432eab5?ixid=M3wxMTE4MjA2fDB8MXxzZWFyY2h8Mnx8c3VwZXIlMjByZWQlMjBhcm93YW5hfGVufDF8fHx8MTc5MzQ0NTMxNnww&ixlib=rb-4.1.0&w=1280&q=80&fm=jpg&fit=max) | head close-up under blue light, true color can't be judged |
 | breeds/super-red-arowana | [photo](https://media.aquatome.com/commons/882693881008ce4d.webp) | silvery juvenile arowanas with reddish fins, red line not yet clear |
-| species/betta-splendens | [photo](https://media.aquatome.com/commons/81a36ecb45e52d4f.webp) | blurry dark betta-like silhouette in a glass bowl |
 | species/poecilia-reticulata | [photo](https://media.aquatome.com/inaturalist/131701420.webp) | distant small pale fish in murky wild water |
 | species/poecilia-reticulata (a guide photo) | [photo](https://media.aquatome.com/video/4lG_4wSx_bQ/p6-uaXNfbWFsZS5qcGc.webp) | mosquitofish (Gambusia), caption is about the look-alike, not the guppy |
 | species/paracheirodon-innesi (a guide photo) | [photo](https://media.aquatome.com/video/cPBLU4VMwWU/p5-b25fdGV0cmEuanBn.webp) | tetra with blue stripe but no red visible on rear body; may be green neon, not clearly a neon tetra; rocks and grass tan |

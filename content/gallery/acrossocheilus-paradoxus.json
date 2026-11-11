@@ -53,18 +53,6 @@
       }
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/18967334.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/18967334-480.webp",
-      "width": 1024,
-      "height": 528,
-      "licence": "CC BY",
-      "author": "Lin Scott",
-      "sourceUrl": "https://www.inaturalist.org/photos/18967334",
-      "caption": "Cá barb sọc Đài Loan bơi trong suối tự nhiên",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/216633353.webp",
       "thumb": "https://media.aquatome.com/inaturalist/216633353-480.webp",
       "width": 1024,
@@ -377,6 +365,18 @@
       "caption": "Cá con sọc ngang trong hộp nước, bên cạnh thước",
       "best": false,
       "kind": "juvenile"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/18967334.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/18967334-480.webp",
+      "width": 1024,
+      "height": 528,
+      "licence": "CC BY",
+      "author": "Lin Scott",
+      "sourceUrl": "https://www.inaturalist.org/photos/18967334",
+      "caption": "Cá barb sọc Đài Loan bơi trong suối tự nhiên",
+      "best": true,
+      "kind": "habitat"
     }
   ],
   "seen": 182,

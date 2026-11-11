@@ -38,30 +38,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/528769518.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/528769518-480.webp",
-      "width": 1024,
-      "height": 921,
-      "licence": "CC BY",
-      "author": "Helen Waterman",
-      "sourceUrl": "https://www.inaturalist.org/photos/528769518",
-      "caption": "Cận cảnh các nhánh Rêu tản Riccardia xanh tươi",
-      "best": true,
-      "kind": "detail"
-    },
-    {
-      "url": "https://media.aquatome.com/gbif/6864345368-10af3844b97f0846.webp",
-      "thumb": "https://media.aquatome.com/gbif/6864345368-10af3844b97f0846-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY 4.0",
-      "author": "Niels Christian Staugaard Nielsen",
-      "sourceUrl": "https://www.gbif.org/occurrence/6864345368",
-      "caption": "Bụi Rêu tản Riccardia mọc ở nơi ẩm ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/102452375.webp",
       "thumb": "https://media.aquatome.com/inaturalist/102452375-480.webp",
       "width": 1024,
@@ -72,18 +48,6 @@
       "caption": "Cụm Rêu tản Riccardia xanh tươi cận cảnh",
       "best": true,
       "kind": "detail"
-    },
-    {
-      "url": "https://media.aquatome.com/gbif/5893916402-3f814dfb168fa188.webp",
-      "thumb": "https://media.aquatome.com/gbif/5893916402-3f814dfb168fa188-480.webp",
-      "width": 900,
-      "height": 1200,
-      "licence": "CC BY 4.0",
-      "author": "Janus Thulesen Dahl",
-      "sourceUrl": "https://www.gbif.org/occurrence/5893916402",
-      "caption": "Rêu tản Riccardia mọc trên nền đất ẩm ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/256897336.webp",
@@ -707,6 +671,42 @@
       "sourceUrl": "https://www.inaturalist.org/photos/115828639",
       "caption": "Riccardia mọc trên đá ẩm, cành phân nhánh rõ",
       "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/528769518.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/528769518-480.webp",
+      "width": 1024,
+      "height": 921,
+      "licence": "CC BY",
+      "author": "Helen Waterman",
+      "sourceUrl": "https://www.inaturalist.org/photos/528769518",
+      "caption": "Cận cảnh các nhánh Rêu tản Riccardia xanh tươi",
+      "best": true,
+      "kind": "detail"
+    },
+    {
+      "url": "https://media.aquatome.com/gbif/6864345368-10af3844b97f0846.webp",
+      "thumb": "https://media.aquatome.com/gbif/6864345368-10af3844b97f0846-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY 4.0",
+      "author": "Niels Christian Staugaard Nielsen",
+      "sourceUrl": "https://www.gbif.org/occurrence/6864345368",
+      "caption": "Bụi Rêu tản Riccardia mọc ở nơi ẩm ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/gbif/5893916402-3f814dfb168fa188.webp",
+      "thumb": "https://media.aquatome.com/gbif/5893916402-3f814dfb168fa188-480.webp",
+      "width": 900,
+      "height": 1200,
+      "licence": "CC BY 4.0",
+      "author": "Janus Thulesen Dahl",
+      "sourceUrl": "https://www.gbif.org/occurrence/5893916402",
+      "caption": "Rêu tản Riccardia mọc trên nền đất ẩm ngoài tự nhiên",
+      "best": true,
       "kind": "habitat"
     }
   ],

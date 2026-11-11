@@ -14,18 +14,6 @@
       "kind": "male"
     },
     {
-      "url": "https://media.aquatome.com/commons/4ed2042725466dba.webp",
-      "thumb": "https://media.aquatome.com/commons/4ed2042725466dba-480.webp",
-      "width": 1200,
-      "height": 687,
-      "licence": "CC BY-SA 3.0",
-      "author": "Marrabbio2",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Endler_male_1.jpg",
-      "caption": "Cá bảy màu Endler đực nhiều màu đuôi dài trong bể",
-      "best": true,
-      "kind": "form"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/674529349.webp",
       "thumb": "https://media.aquatome.com/inaturalist/674529349-480.webp",
       "width": 1024,
@@ -70,18 +58,6 @@
       "author": "Kaden Slone",
       "sourceUrl": "https://www.inaturalist.org/photos/452766789",
       "caption": "Đàn cá Endler đực nhiều màu trong bể có lá đỏ",
-      "best": true,
-      "kind": "group"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/746196666.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/746196666-480.webp",
-      "width": 1024,
-      "height": 576,
-      "licence": "CC BY",
-      "author": "Kaden Slone",
-      "sourceUrl": "https://www.inaturalist.org/photos/746196666",
-      "caption": "Đàn cá Endler đực màu sắc rực rỡ trong bể có cây",
       "best": true,
       "kind": "group"
     },
@@ -132,18 +108,6 @@
       "caption": "Đàn cá Endler bơi trong bể thủy sinh nhiều rong xanh",
       "best": true,
       "kind": "group"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/358769752.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/358769752-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Kaden Slone",
-      "sourceUrl": "https://www.inaturalist.org/photos/358769752",
-      "caption": "Cá Endler đực màu cam đen bơi trong bể xanh",
-      "best": true,
-      "kind": "male"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/396278608.webp",
@@ -226,18 +190,6 @@
       "author": "Kaden Slone",
       "sourceUrl": "https://www.inaturalist.org/photos/643307300",
       "caption": "Cá Endler đực đuôi cam bơi gần lá trong bể trồng cây",
-      "best": true,
-      "kind": "male"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/471890936.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/471890936-480.webp",
-      "width": 1024,
-      "height": 576,
-      "licence": "CC BY",
-      "author": "Kaden Slone",
-      "sourceUrl": "https://www.inaturalist.org/photos/471890936",
-      "caption": "Cá Endler đực màu cam đen nổi bật bơi giữa cây thủy sinh",
       "best": true,
       "kind": "male"
     },
@@ -371,6 +323,54 @@
       "sourceUrl": "https://www.inaturalist.org/photos/668134372",
       "caption": "Cá Endler đực sọc cam đen trong bể thủy sinh",
       "best": false,
+      "kind": "male"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/4ed2042725466dba.webp",
+      "thumb": "https://media.aquatome.com/commons/4ed2042725466dba-480.webp",
+      "width": 1200,
+      "height": 687,
+      "licence": "CC BY-SA 3.0",
+      "author": "Marrabbio2",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Endler_male_1.jpg",
+      "caption": "Cá bảy màu Endler đực nhiều màu đuôi dài trong bể",
+      "best": true,
+      "kind": "form"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/746196666.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/746196666-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Kaden Slone",
+      "sourceUrl": "https://www.inaturalist.org/photos/746196666",
+      "caption": "Đàn cá Endler đực màu sắc rực rỡ trong bể có cây",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/358769752.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/358769752-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Kaden Slone",
+      "sourceUrl": "https://www.inaturalist.org/photos/358769752",
+      "caption": "Cá Endler đực màu cam đen bơi trong bể xanh",
+      "best": true,
+      "kind": "male"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/471890936.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/471890936-480.webp",
+      "width": 1024,
+      "height": 576,
+      "licence": "CC BY",
+      "author": "Kaden Slone",
+      "sourceUrl": "https://www.inaturalist.org/photos/471890936",
+      "caption": "Cá Endler đực màu cam đen nổi bật bơi giữa cây thủy sinh",
+      "best": true,
       "kind": "male"
     }
   ],

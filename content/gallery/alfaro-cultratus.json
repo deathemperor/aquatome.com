@@ -26,18 +26,6 @@
       "kind": "group"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/474883874.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/474883874-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Tom Kennedy",
-      "sourceUrl": "https://www.inaturalist.org/photos/474883874",
-      "caption": "Cá bảy màu dao ngoài tự nhiên trong suối nước nông",
-      "best": false,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/commons/9522c8351ab860f6.webp",
       "thumb": "https://media.aquatome.com/commons/9522c8351ab860f6-480.webp",
       "width": 1200,
@@ -60,6 +48,18 @@
       "caption": "Cá bảy màu dao thân vàng ánh trong bể thủy sinh",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/474883874.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/474883874-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Tom Kennedy",
+      "sourceUrl": "https://www.inaturalist.org/photos/474883874",
+      "caption": "Cá bảy màu dao ngoài tự nhiên trong suối nước nông",
+      "best": false,
+      "kind": "habitat"
     }
   ],
   "seen": 20,

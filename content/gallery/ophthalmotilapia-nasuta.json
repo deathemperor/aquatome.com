@@ -2,18 +2,6 @@
   "id": "ophthalmotilapia-nasuta",
   "photos": [
     {
-      "url": "https://media.aquatome.com/commons/d6aa138bbd99cba4.webp",
-      "thumb": "https://media.aquatome.com/commons/d6aa138bbd99cba4-480.webp",
-      "width": 960,
-      "height": 546,
-      "licence": "CC BY-SA 3.0",
-      "author": "Jocke Sternborn",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ophthalmotilapia_nasuta_Kipili.jpg",
-      "caption": "Cá Ophthalmotilapia nasuta đực màu vàng trong bể nuôi",
-      "best": true,
-      "kind": "male"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/689265908.webp",
       "thumb": "https://media.aquatome.com/inaturalist/689265908-480.webp",
       "width": 1024,
@@ -25,6 +13,18 @@
       "best": true,
       "kind": "habitat",
       "unchecked": true
+    },
+    {
+      "url": "https://media.aquatome.com/commons/d6aa138bbd99cba4.webp",
+      "thumb": "https://media.aquatome.com/commons/d6aa138bbd99cba4-480.webp",
+      "width": 960,
+      "height": 546,
+      "licence": "CC BY-SA 3.0",
+      "author": "Jocke Sternborn",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ophthalmotilapia_nasuta_Kipili.jpg",
+      "caption": "Cá Ophthalmotilapia nasuta đực màu vàng trong bể nuôi",
+      "best": true,
+      "kind": "male"
     }
   ],
   "seen": 4,

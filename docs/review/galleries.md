@@ -7,10 +7,10 @@ Written by `pnpm engine gallery` (2026-11-11). Targets: packages/engine/src/gall
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 131 | 80 | 24 | 32 | 203 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 580 | 29 | 9 | 18 | 600 |
-| rest | 20 | 1687 | 75 | 0 | 52 | 1710 |
+| covered | 30 | 584 | 29 | 9 | 18 | 604 |
+| rest | 20 | 1688 | 75 | 0 | 52 | 1711 |
 
-## Short of target: every source read (296)
+## Short of target: every source read (297)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -311,4 +311,5 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/amaralia-hypsiura | covered | 0 | 30 |
 | species/ambastaia-nigrolineata | covered | 1 | 30 |
 | species/ambastaia-sidthimunki | covered | 1 | 30 |
+| species/anadoras-grypus | covered | 0 | 30 |
 | species/betta-macrostoma | covered | 0 | 30 |
