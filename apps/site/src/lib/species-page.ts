@@ -32,15 +32,33 @@ export function jumpRow<T extends { href: string }>(chips: T[]): T[] {
   return chips.filter(c => !out.has(c.href))
 }
 
+/** How many times this process has put a species' page together. The app's copy and the page share one. */
+let speciesAssemblies = 0
+export const speciesPartsBuilt = (): number => speciesAssemblies
+const speciesKept = new WeakMap<Content, WeakMap<Localized<SpeciesEntity>, Partial<Record<Lang, ReturnType<typeof assembleSpecies>>>>>()
+
 /**
  * What a species' page shows, put together once for the page (pages/ca/[slug].astro) and for the app's copy of it
  * (lib/app-page.ts), so the two can't differ: its country, summary, gallery strip, photos between the sections, breeds,
  * tank mates, videos and the guides that name it. Every picture is chosen here in page order, none twice
  * (lib/pictures.ts): the photo, the gallery's first photos, the photos between the sections, the breeds' cards. Then the
  * gallery's next photos, which fill the photo column on a tall computer screen: chosen last, so they never take a photo
- * from the parts the app's copy shares (it shows the strip alone).
+ * from the parts the app's copy shares (it shows the strip alone). Judging the tank mates walks every other species, so
+ * the result is kept for this content and this fish.
  */
-export async function speciesParts(lang: Lang, c: Content, s: Localized<SpeciesEntity>) {
+export function speciesParts(lang: Lang, c: Content, s: Localized<SpeciesEntity>) {
+  // By the species object, not its id: a test passes a rewritten fish of the same id, and that page is a different one.
+  const bySpecies = speciesKept.get(c) ?? speciesKept.set(c, new WeakMap()).get(c)!
+  const byLang = bySpecies.get(s) ?? bySpecies.set(s, {}).get(s)!
+  let parts = byLang[lang]
+  if (!parts) {
+    speciesAssemblies++
+    byLang[lang] = parts = assembleSpecies(lang, c, s)
+  }
+  return parts
+}
+
+async function assembleSpecies(lang: Lang, c: Content, s: Localized<SpeciesEntity>) {
   const t = translator(lang)
   const places = s.places.map(id => c.places.find(p => p.id === id)).filter(p => p !== undefined)
   const country = places.find(p => p.kind === 'country')
