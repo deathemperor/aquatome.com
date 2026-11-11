@@ -70,7 +70,7 @@ export async function headsUnderBar(root: string) {
     for (const id of (await readdir(join(root, 'content', kind)).catch(() => [] as string[])).sort()) {
       const raw = await readFile(join(root, 'content', kind, id, 'entity.json'), 'utf8').catch(() => null)
       const head = raw ? (JSON.parse(raw) as { photos?: Photo[] }).photos?.[0] : undefined
-      if (head && !head.large && across(head, 'square') < LARGE_PX && largePlan(head) && cardWorthy(head.url, id, v, avoid)) out.push(id)
+      if (head && !head.large && across(head, 'square') < LARGE_PX && largePlan(head) && cardWorthy(head, id, v, avoid)) out.push(id)
     }
   }
   return out
@@ -105,7 +105,7 @@ export async function largePhotos(root: string, ids: string[], d: LargeDeps, o: 
       const data = JSON.parse(raw) as unknown
       let changed = false
       for (const p of o.headsOnly ? photosIn((data as { photos?: Photo[] }).photos?.[0]) : photosIn(data)) {
-        if (p.large || !cardWorthy(p.url, id, v, avoid)) continue
+        if (p.large || !cardWorthy(p, id, v, avoid)) continue
         if (none[p.url]) { report.smaller++; continue }
         const known = done.get(p.url)
         if (known) { p.large = known; changed = true; continue }

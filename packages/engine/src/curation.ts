@@ -2,6 +2,7 @@ import { isOwnerCrop } from '@aq/schema/image-policy'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { addDays, cardShownIn, CardSchema, CurationSchema, LANGS, loadAll, resolveDataCard, STAPLE_SPECIES, POPULAR, POPULAR_BREEDS, type CardEntity, type Content, type Curation, type CurationDay, type CurationWeek, type Lang, type Photo, photoFitsCard } from '@aq/schema'
+import { captionFlaw } from './content-rules'
 import { fitKey, type FitState } from './fit'
 import { gateChecks } from './gate'
 import { loadPages, type Page } from './pages'
@@ -107,9 +108,14 @@ export const readVerdicts = async (root: string): Promise<Verdicts> => {
   }
 }
 
-/** Whether a photo may lead a card for this page: judged the right subject and typical, with no person or logo. */
-export function cardWorthy(url: string, page: string, v: Verdicts, avoid: Record<string, string>, guide = false): boolean {
+/**
+ * Whether a photo may lead a card for this page: judged the right subject and typical, with no person or logo, and of a
+ * fish its source's caption doesn't call unwell or blemished (content-rules.ts captionFlaw; a guide's photo is not asked).
+ */
+export function cardWorthy(photo: { url: string; caption?: string }, page: string, v: Verdicts, avoid: Record<string, string>, guide = false): boolean {
+  const url = photo.url
   if (url in v.rejected || url in avoid || (v.faces[url] ?? 0) > 0) return false
+  if (!guide && captionFlaw(photo.caption)) return false
   const own = v.subjects[url]?.[page]
   const verdict = own && !own.guide ? own : v.legacy[url]?.ok !== 'unsure' ? v.legacy[url] : undefined
   // A guide's photo is judged against its caption when it names a fish; one with no verdict has passed the face and
@@ -125,8 +131,8 @@ const OWN_MARK = /^https?:\/\/(www\.)?aquariumglaser\.de\//
  * A photo that passes in every way but for a mark its own source may keep. It ranks below every unmarked photo, leads a page
  * only where nothing else passes (lead-photo.ts), and is never a card: `cardWorthy` still says no.
  */
-export function ownMarkOnly(p: Pick<Photo, 'url' | 'sourceUrl'>, page: string, v: Verdicts, avoid: Record<string, string>): boolean {
-  if (!OWN_MARK.test(p.sourceUrl) || p.url in v.rejected || p.url in avoid || (v.faces[p.url] ?? 0) > 0) return false
+export function ownMarkOnly(p: Pick<Photo, 'url' | 'sourceUrl' | 'caption'>, page: string, v: Verdicts, avoid: Record<string, string>): boolean {
+  if (!OWN_MARK.test(p.sourceUrl) || p.url in v.rejected || p.url in avoid || (v.faces[p.url] ?? 0) > 0 || captionFlaw(p.caption)) return false
   const own = v.subjects[p.url]?.[page]
   return !!own && !own.guide && own.ok === 'yes' && !!own.typical && !own.person && !!own.logo
 }
@@ -208,7 +214,7 @@ export async function candidates(root: string, o: { demand?: Map<string, number>
   const out: Candidate[] = []
   const photosOf = (id: string, own: Photo[]) => [...own, ...(c.galleries[id] ?? [])]
   for (const s of c.species) {
-    const ok = (p: Photo) => cardWorthy(p.url, s.id, v, avoid)
+    const ok = (p: Photo) => cardWorthy(p, s.id, v, avoid)
     const all = photosOf(s.id, s.photos)
     const t = resolveDataCard(s.dataCard.tempC ?? [], 'tempC')?.value
     const size = resolveDataCard(s.dataCard.sizeCm ?? [], 'sizeCm')?.value
@@ -229,7 +235,7 @@ export async function candidates(root: string, o: { demand?: Map<string, number>
     })
   }
   for (const b of c.breeds) {
-    const ok = (p: Photo) => cardWorthy(p.url, b.id, v, avoid)
+    const ok = (p: Photo) => cardWorthy(p, b.id, v, avoid)
     const t = b.care.tempC?.[0]?.value
     out.push({
       kind: 'breeds', id: b.id, ref: `breeds/${b.id}`, path: `/vi/ca/${b.t.slug}/`, name: b.t.name, ...photosFor(photosOf(b.id, b.photos), ok), head: headOf(b.photos, ok),
@@ -239,7 +245,7 @@ export async function candidates(root: string, o: { demand?: Map<string, number>
     })
   }
   for (const g of c.guides) {
-    const ok = (p: Photo) => cardWorthy(p.url, g.id, v, avoid, true)
+    const ok = (p: Photo) => cardWorthy(p, g.id, v, avoid, true)
     out.push({
       kind: 'guides', id: g.id, ref: `guides/${g.id}`, path: `/vi/huong-dan/${g.t.slug}/`, name: g.t.name, group: g.kind, source: g.source, ...photosFor(g.photos, ok),
       // A section's picture is never a guide's lead, and a video guide leads with its video (the page: guide-page.ts).

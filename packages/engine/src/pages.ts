@@ -27,6 +27,12 @@ export type Page = {
   lines: { field: string; text: string }[]
   /** Captions of the page's photos and, for species and plants, of its gallery; `file`: a Wikimedia Commons photo's file there ("File:….jpg"). */
   captions: { url: string; caption: string; file?: string }[]
+  /** Species and breeds: the addresses of the page's own photos, first to last, its gallery's aside. */
+  own?: string[]
+  /** Breeds: its gallery's captions. Kept apart from `captions`, which the other caption rules read: only the unwell rule asks a breed's gallery. */
+  album?: { url: string; caption: string }[]
+  /** The head a person picked for the page, if one (engine-state/_photo-head-picks.json, beside the content root). */
+  picked?: string
   /** Species, plants and breeds: a person chose the name (`nameFixed`), and the engine leaves it as it is. */
   nameFixed?: boolean
   /** Species and plants: the Latin name, and the other Latin names the page goes by. */
@@ -106,7 +112,7 @@ export function pagesOf(lang: Lang, c: Content): Page[] {
   return [
     ...c.species.map(s => ({
       ...base('species', s.id, s.t.slug, s.t.name), ...textOf(s.t, s.t.sections), ...(s.t.nameFixed ? { nameFixed: true } : {}),
-      captions: captionsOf([...s.photos, ...(c.galleries[s.id] ?? [])]), sci: s.scientificName, latinNames: latin(s.t.altNames), card: card(s.dataCard),
+      captions: captionsOf([...s.photos, ...(c.galleries[s.id] ?? [])]), own: s.photos.map(x => x.url), sci: s.scientificName, latinNames: latin(s.t.altNames), card: card(s.dataCard),
       en: Object.fromEntries(s.sections.map(x => [`sections.${x.key}:${x.source}`, x.html])),
     })),
     ...c.plants.map(p => ({
@@ -116,7 +122,7 @@ export function pagesOf(lang: Lang, c: Content): Page[] {
     })),
     ...c.guides.map(g => ({ ...base('guides', g.id, g.t.slug, g.t.name), ...textOf(g.t), captions: captionsOf(g.photos), latinNames: [], card: [], origin: { source: g.source, url: g.sourceUrl }, ...(g.video ? { credited: [g.video.channel] } : {}) })),
     ...c.breeds.map(b => ({
-      ...base('breeds', b.id, b.t.slug, b.t.name), ...textOf(b.t), ...(b.t.nameFixed ? { nameFixed: true } : {}), captions: captionsOf(b.photos), latinNames: [],
+      ...base('breeds', b.id, b.t.slug, b.t.name), ...textOf(b.t), ...(b.t.nameFixed ? { nameFixed: true } : {}), captions: captionsOf(b.photos), album: captionsOf(c.galleries[b.id] ?? []).map(({ url, caption }) => ({ url, caption })), own: b.photos.map(x => x.url), latinNames: [],
       card: Object.entries(b.care).flatMap(([field, vs]) => (vs ?? []).map(v => ({ field: field as DataCardField, source: `source ${v.source + 1}`, value: v.value }))),
     })),
     ...c.glossary.map(g => ({ ...base('glossary', g.id, g.t.slug, g.t.name), ...textOf(g.t), captions: [], latinNames: [], card: [] })),
@@ -157,8 +163,12 @@ export async function fixedParts(dir: string): Promise<Set<string>> {
 }
 
 export async function loadPages(contentRoot: string, langs: readonly Lang[] = LANGS): Promise<Page[]> {
+  const picks = JSON.parse(await readFile(join(contentRoot, '..', 'engine-state', '_photo-head-picks.json'), 'utf8').catch(() => '{}')) as Record<string, string>
   const out: Page[] = []
-  for (const lang of langs) out.push(...pagesOf(lang, await loadAll({ root: contentRoot, lang, publicBuild: true })))
+  for (const lang of langs) for (const p of pagesOf(lang, await loadAll({ root: contentRoot, lang, publicBuild: true }))) {
+    const picked = picks[`${p.kind}/${p.id}`]
+    out.push(picked ? { ...p, picked } : p)
+  }
   return out
 }
 
