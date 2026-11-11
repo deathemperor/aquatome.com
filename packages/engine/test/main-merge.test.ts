@@ -101,6 +101,9 @@ function hook(dir: string, command: string, draft: boolean | null) {
   return spawnSync(HOOK, [], { input, env: { ...ENV, PATH: `${bin}:${process.env.PATH}` }, encoding: 'utf8' }).status
 }
 
+// Each command starts the hook, and the hook runs git merge-tree. At vitest's default workers on this Mac
+// (15 of 16 cores) that came to 27 s on 2026-11-11, against the package's 30 s. The checks are unchanged;
+// the limit is the time those processes need while the rest of the suite is using the machine.
 test("a ready pull request's branch takes main in only to resolve a conflict", () => {
   const r = repo()
   r.git('checkout', '-q', 'main')
@@ -125,4 +128,4 @@ test("a ready pull request's branch takes main in only to resolve a conflict", (
   r.git('update-ref', 'refs/remotes/origin/main', 'main')
   r.git('checkout', '-q', 'pr')
   expect(hook(r.dir, 'git merge origin/main', false)).toBe(0)
-})
+}, 90_000)

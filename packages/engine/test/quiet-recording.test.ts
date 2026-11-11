@@ -32,13 +32,17 @@ function mac({ load = '50', cores = 16 as number | null, up = [] as [string, str
   stub(join(home, 'bin/xcrun'), 'cat "$HOME/devices.json"')
   const devices = [...up.map(([udid, name]) => ({ udid, name, state: 'Booted' })), ...known.map(([udid, name]) => ({ udid, name, state: 'Shutdown' }))]
   writeFileSync(join(home, 'devices.json'), JSON.stringify({ devices: { 'iOS-27-2': devices } }))
-  const env = { ...process.env, HOME: home, PATH: `${home}/bin:${process.env.PATH}`, MAC_STATUS_PAUSE: '0.01', SIM_RUN_NEXT_PAUSE: '0.01' }
+  // SIM_RUN_QUIET_ROOT: this file's runs start sim-run.py, whose priority scan would otherwise lower another
+  // worker's analysis stand-in (sim-run.test.ts, 2026-11-11).
+  const env = { ...process.env, HOME: home, PATH: `${home}/bin:${process.env.PATH}`, MAC_STATUS_PAUSE: '0.01', SIM_RUN_NEXT_PAUSE: '0.01', SIM_RUN_QUIET_ROOT: home }
   return { home, env }
 }
 const status = (m: ReturnType<typeof mac>, ...args: string[]) => spawnSync('python3', [STATUS, ...args], { encoding: 'utf8', env: m.env })
 const THREE: [string, string][] = [['A', 'one'], ['B', 'two'], ['C', 'three']]
 const FOURTH: [string, string][] = [['D', 'four']]
 
+// One mac-status.py per reading. Beside the rest of the suite, at default workers, these readings took 22 s
+// on 2026-11-11, against the package's 30 s.
 test('quiet enough to record is the load and the cores the takes held at', () => {
   expect(status(mac({ load: '200' })).status).toBe(0)
   const loaded = status(mac({ load: '201' }))
@@ -48,7 +52,7 @@ test('quiet enough to record is the load and the cores the takes held at', () =>
   const hot = status(mac({ load: '50', cores: 10 }))
   expect(hot.status).toBe(1)
   expect(hot.stdout).toContain('heat has left 10 cores')
-})
+}, 60_000)
 
 test("what can't be read isn't quiet, and a counter that wrapped isn't either", () => {
   const unread = status(mac({ cores: null }))
