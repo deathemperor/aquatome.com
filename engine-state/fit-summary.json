@@ -1,5 +1,5 @@
 {
- "day": "2026-11-11",
+ "day": "2026-11-12",
  "baseline": {
   "day": "2026-11-08",
   "pct": {
@@ -11,25 +11,25 @@
  },
  "langs": {
   "vi": {
-   "pages": 4053,
-   "read": 3590,
-   "wrong": 1620,
-   "pct": 45,
-   "held": 407
+   "pages": 4076,
+   "read": 3656,
+   "wrong": 1675,
+   "pct": 46,
+   "held": 419
   },
   "id": {
    "pages": 1287,
-   "read": 1106,
-   "wrong": 329,
+   "read": 1116,
+   "wrong": 335,
    "pct": 30,
-   "held": 67
+   "held": 63
   },
   "th": {
    "pages": 1281,
-   "read": 1079,
-   "wrong": 305,
-   "pct": 28,
-   "held": 69
+   "read": 1089,
+   "wrong": 311,
+   "pct": 29,
+   "held": 65
   },
   "ms": {
    "pages": 180,
@@ -58,38 +58,51 @@
  },
  "sample": [
   {
-   "lang": "id",
-   "path": "/id/tanaman/creeping-jenny/",
-   "url": "https://aquatome.com/id/tanaman/creeping-jenny/",
-   "title": "Creeping Jenny",
+   "lang": "th",
+   "path": "/th/plants/ammannia-crassicaulis/",
+   "url": "https://aquatome.com/th/plants/ammannia-crassicaulis/",
+   "title": "แอมมาเนีย คราสซิคอลิส",
    "wrong": []
   },
   {
    "lang": "vi",
-   "path": "/vi/ca/ca-hoang-hau-vang/",
-   "url": "https://aquatome.com/ca/ca-hoang-hau-vang/",
-   "title": "Cá hoàng hậu vàng",
+   "path": "/vi/huong-dan/cach-lam-ca-betta-vui-khoe-voi-5-y-tuong-lam-phong-phu-moi/",
+   "url": "https://aquatome.com/huong-dan/cach-lam-ca-betta-vui-khoe-voi-5-y-tuong-lam-phong-phu-moi/",
+   "title": "Cách làm cá betta vui khỏe với 5 ý tưởng làm phong phú môi trường sống",
    "wrong": [
     {
-     "check": "words",
-     "quote": "phần lớn"
+     "check": "source",
+     "quote": "lắp đủ thiết bị theo hướng dẫn set bể betta"
     },
     {
-     "check": "words",
-     "quote": "dân chơi"
+     "check": "source",
+     "quote": "bạn có thể đọc bài về 10 loại cây hợp nhất cho bể betta"
     },
     {
-     "check": "words",
-     "quote": "cá nhân giống"
+     "check": "source",
+     "quote": "bạn có thể tìm đọc bài về 5 loài nuôi chung hợp nhất với cá betta"
     }
    ]
   },
   {
    "lang": "vi",
-   "path": "/vi/ca/ca-lau-kieng-violet-red-bruno/",
-   "url": "https://aquatome.com/ca/ca-lau-kieng-violet-red-bruno/",
-   "title": "Cá lau kiếng Violet Red Bruno",
-   "wrong": []
+   "path": "/vi/ca/ca-mui-do-hemigrammus/",
+   "url": "https://aquatome.com/ca/ca-mui-do-hemigrammus/",
+   "title": "Cá mũi đỏ",
+   "wrong": [
+    {
+     "check": "elsewhere",
+     "quote": "bạn có thể dùng gỗ dẻ gai châu Âu (beech), miễn là gỗ đã phơi thật khô và bóc sạch vỏ"
+    },
+    {
+     "check": "words",
+     "quote": "Phần lớn"
+    },
+    {
+     "check": "words",
+     "quote": "Bạn nên"
+    }
+   ]
   }
  ]
 }
