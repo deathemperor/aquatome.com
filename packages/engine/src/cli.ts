@@ -28,7 +28,7 @@ import { FIT_KINDS, fitDue, fitKey, fitReport, runFit, type FitState } from './f
 import { gate, writeFitSummary } from './gate'
 import { fitRewrite } from './fit-rewrite'
 import fitFront from './fit-front.json'
-import { frontEarly, frontHeld, orderFront } from './fit-front'
+import { firstRun, frontEarly, frontHeld, orderFront, type FirstRun } from './fit-front'
 import { candidates, cardsOf, checkCalendar, demandByPath, plan, readCalendar, writeCalendar } from './curation'
 import { phraseMatch } from './phrases'
 import { readerReport, readPages } from './reader'
@@ -617,12 +617,14 @@ if (cmd === 'run' || cmd === 'card-fill') {
   // The collection rewrite (fit-rewrite.ts): Vietnamese pages the reader-fit read found wrong for their reader, written
   // again and kept only when their reviewers pass them; the most-read fish and plants first, then breeds, then guides.
   // pnpm engine fit-rewrite [--limit N: pages] [--only vi/species/<id>,vi/guides/<id>: these, in this order, tried before or not] [--kind species,guides]
-  // [--front: that order, with the front list's pages first (fit-front.json). Nothing before the list's `first`, and held
-  // after the first run until cleared.]
+  // [--front: that order, with the front list's pages first (fit-front.json). Nothing before the list's `first`. Its
+  // first run is written to engine-state/_fit-front.json, and holds the next until the list is cleared.]
+  const firstFile = join(ROOT, 'engine-state/_fit-front.json')
+  const first = values.front ? (JSON.parse(await readFile(firstFile, 'utf8').catch(() => 'null')) as FirstRun | null) ?? undefined : undefined
   if (values.front && frontEarly(fitFront, new Date())) {
     console.log(`fit-rewrite: waits until ${fitFront.first}`)
-  } else if (values.front && frontHeld(fitFront, JSON.parse(await readFile(join(ROOT, 'engine-state/_fit-rewrite.json'), 'utf8').catch(() => '{}')) as Record<string, { at: string }>)) {
-    console.log('fit-rewrite: held: the first run\'s pages are with the chief of staff (packages/engine/src/fit-front.json, cleared)')
+  } else if (values.front && frontHeld(fitFront, first)) {
+    console.log('fit-rewrite: held: the first run\'s pages are with the chief of staff (engine-state/_fit-front.json; packages/engine/src/fit-front.json, cleared)')
   } else {
     const pages = (await loadPages(join(ROOT, 'content'), ['vi'])).filter(p => ['guides', 'species', 'plants', 'breeds'].includes(p.kind) && (!values.kind || values.kind.split(',').includes(p.kind)))
     const state = JSON.parse(await readFile(join(ROOT, 'engine-state/_fit.json'), 'utf8')) as FitState
@@ -634,6 +636,8 @@ if (cmd === 'run' || cmd === 'card-fill') {
     const r = await fitRewrite(ROOT, order, state, { llm: claudeCli, now: () => new Date() }, { limit: Number(values.limit ?? 10), retry: !!only })
     for (const x of [...r.rewritten.map(x => `rewritten: ${x}`), ...r.notKept.map(x => `not kept: ${x}`), ...r.skipped.map(x => `skipped: ${x}`), ...r.failed.map(x => `failed: ${x}`)]) console.log(x)
     console.log(`fit-rewrite: ${r.rewritten.length} rewritten, ${r.notKept.length} not kept, ${r.skipped.length} skipped, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+    const ran = values.front && !first ? firstRun(r, new Date().toISOString()) : undefined
+    if (ran) await writeFile(firstFile, `${JSON.stringify(ran, null, 1)}\n`)
   }
 } else if (cmd === 'gate') {
   // Last in each cycle (gate.ts): the pages whose text the cycle changed are read against the checklist; a new page that

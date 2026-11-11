@@ -13,18 +13,26 @@ const keyOf = (p: { lang: string; kind: string; id: string }) => `${p.lang}/${p.
 export const frontEarly = (list: { first: string }, now: Date) => !(now.getTime() >= Date.parse(list.first))
 
 /**
- * Whether a `--front` rewrite waits. The first scheduled run is looked at before another one runs: while `cleared` is
- * false, any try at or after `first` holds the command. A try from before `first` (the page tried by hand) does not.
+ * What the first scheduled rewrite did, as its command printed it (engine-state/_fit-front.json). Its own file: the
+ * rewrite's record of tries (_fit-rewrite.json) goes back to what was committed for a page the gate couldn't read
+ * (writer-records.ts), and the hold must outlast that.
  */
-export function frontHeld(list: { cleared: boolean; first: string }, tried: Record<string, { at: string } | undefined>): boolean {
-  if (list.cleared) return false
-  const start = Date.parse(list.first)
-  if (Number.isNaN(start)) return false
-  return Object.values(tried).some(e => {
-    const at = e ? Date.parse(e.at) : Number.NaN
-    return !Number.isNaN(at) && at >= start
-  })
+export type FirstRun = { at: string; rewritten: string[]; notKept: string[]; skipped: string[]; failed: string[]; stopped?: string }
+
+/**
+ * The first run's record, or nothing when the run got no page as far as an outcome (a usage limit before its first):
+ * the next cycle's is then still the first.
+ */
+export function firstRun(r: { rewritten: string[]; notKept: string[]; skipped: string[]; failed: string[]; stopped?: string }, at: string): FirstRun | undefined {
+  if (!r.rewritten.length && !r.notKept.length && !r.skipped.length && !r.failed.length) return
+  return { at, rewritten: r.rewritten, notKept: r.notKept, skipped: r.skipped, failed: r.failed, ...(r.stopped ? { stopped: r.stopped } : {}) }
 }
+
+/**
+ * Whether a `--front` rewrite waits: the first scheduled run is looked at before another one runs, so while `cleared`
+ * is false, a first run on file holds the command.
+ */
+export const frontHeld = (list: { cleared: boolean }, first: FirstRun | undefined) => !list.cleared && !!first
 
 /**
  * The front list's pages first, in the list's order, then every other page in the order given. A listed key with no

@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest'
 import { fitKey } from '../src/fit'
-import { frontEarly, frontHeld, orderFront } from '../src/fit-front'
+import { firstRun, frontEarly, frontHeld, orderFront } from '../src/fit-front'
 import list from '../src/fit-front.json'
 import type { Page } from '../src/pages'
 
@@ -25,22 +25,21 @@ test('nothing on the front list runs before first, or with a first that is no da
   expect(frontEarly({ first: 'soon' }, new Date('2026-11-14T00:00:00Z'))).toBe(true)
 })
 
-test('a run is not held when nothing has been tried', () => {
-  expect(frontHeld(front, {})).toBe(false)
+const none = { rewritten: [], notKept: [], skipped: [], failed: [], stopped: '' }
+
+test('a run that got no page to an outcome is not the first run: a limit before its first page leaves the next cycle free', () => {
+  expect(firstRun(none, '2026-11-13T02:00:00.000Z')).toBeUndefined()
+  expect(firstRun({ ...none, stopped: 'vi/species/a: claude failed: the engine\'s daily limit reached for fit-rewrite' }, '2026-11-13T02:00:00.000Z')).toBeUndefined()
+  expect(frontHeld(front, undefined)).toBe(false)
 })
 
-test('a run is not held when the only try is older than first', () => {
-  expect(frontHeld(front, { 'vi/species/a': { at: '2026-11-08T10:00:00.000Z' } })).toBe(false)
-  expect(frontHeld(front, { 'vi/species/a': { at: '2026-11-13T07:59:59+07:00' } })).toBe(false)
-})
-
-test('a run is held when a try is at or after first and the list is not cleared', () => {
-  expect(frontHeld(front, { 'vi/species/a': { at: '2026-11-13T08:00:00+07:00' } })).toBe(true)
-  expect(frontHeld(front, { 'vi/species/old': { at: '2026-11-08T10:00:00.000Z' }, 'vi/species/new': { at: '2026-11-13T09:00:00+07:00' } })).toBe(true)
-})
-
-test('a cleared list is not held', () => {
-  expect(frontHeld({ ...front, cleared: true }, { 'vi/species/a': { at: '2026-11-14T00:00:00.000Z' } })).toBe(false)
+test('the first run is kept as its command printed it, and holds the next until the list is cleared', () => {
+  const ran = firstRun({ ...none, rewritten: ['vi/species/a sections.care (0.86)'], notKept: ['vi/species/b body (0.61: thin)'], stopped: 'vi/species/c: claude failed: usage limit' }, '2026-11-13T02:00:00.000Z')
+  expect(ran).toEqual({ at: '2026-11-13T02:00:00.000Z', rewritten: ['vi/species/a sections.care (0.86)'], notKept: ['vi/species/b body (0.61: thin)'], skipped: [], failed: [], stopped: 'vi/species/c: claude failed: usage limit' })
+  expect(frontHeld(front, ran)).toBe(true)
+  // Nothing kept is still a first run to look at.
+  expect(frontHeld(front, firstRun({ ...none, skipped: ['vi/species/a body: the rewrite changed nothing'] }, '2026-11-13T02:00:00.000Z'))).toBe(true)
+  expect(frontHeld({ ...front, cleared: true }, ran)).toBe(false)
 })
 
 test('the front list file parses and names each page once', () => {

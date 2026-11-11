@@ -1035,8 +1035,8 @@ The layers above still check the result.
     (`fit-rewrite.test.ts`). It runs in GitHub's rewrite cycle before the gate, from 13 Nov 2026 08:00: the front list
     first (`packages/engine/src/fit-front.json`: pages kept off Khám phá's cards and the Hôm nay card, then the
     staples), then the most read, after a fresh read of the front list's pages whose read is of older text. After its
-    first run it waits until the chief of staff has looked at that run's pages and `cleared` is set in that file
-    (`fit-front.test.ts`).
+    first run (`engine-state/_fit-front.json` has what it did) it waits until the chief of staff has looked at that
+    run's pages and `cleared` is set in the list's file (`fit-front.test.ts`).
   - The app's short cards (`content/cards`, the Curation Lead's) pass the same gate, read with lines of their own: a
     dated source is expected on a card; a new species is "described", with its paper's date, never "discovered" unless
     the source says so; a trend names its figures and where they come from. A held card stays out of the app, and the
