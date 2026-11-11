@@ -4,7 +4,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { CurationSchema, type Curation } from '@aq/schema'
-import { across, candidates, cardsOf, cardWorthy, checkCalendar, fishProblem as problemOf, LARGE_PX, plan, problem, TAGS, type Candidate } from '../src/curation'
+import { across, candidates, cardsOf, cardWorthy, checkCalendar, fishProblem as problemOf, HERO_COUNT, LARGE_PX, plan, problem, TAGS, type Candidate } from '../src/curation'
 
 const big = (n: number) => `https://media.aquatome.com/commons/${n.toString(16).padStart(16, '0')}.webp`
 const fish = (id: string, o: Partial<Candidate> & { px?: number } = {}): Candidate => {
@@ -89,7 +89,8 @@ test('the planner fills every day from the week\'s list in order, never the same
   expect(calendar.days[0]!.img).toBe(cands[2]!.photo.square!.url)
   expect(calendar.days.some(d => d.guideImg)).toBe(false)
   expect(report.empty).toEqual([])
-  expect(checkCalendar(calendar, cands, '2026-11-09', 3)).toEqual([])
+  // Three fish can't make the week's five top cards: the check says so, and nothing else.
+  expect(checkCalendar(calendar, cands, '2026-11-09', 3)).toEqual(['week 2026-11-09: 3 top cards of 5'])
   // Three fish with a big enough photo and three guides can't fill five days without one coming back: the last two
   // are left for the app's rotation.
   const more = plan(empty, cands, '2026-11-09', 5)
@@ -184,7 +185,7 @@ test('a page the top cards, shelves or a story name that fails reader fit is lis
   const { calendar } = plan(cur, cands, '2026-11-09', 1)
   // A past week's picks aren't read.
   expect(calendar.off).toEqual({ 'guides/g2': 'reader fit: source', 'species/bad': 'reader fit: units', 'species/gone': 'no such page' })
-  expect(checkCalendar(calendar, cands, '2026-11-09', 1).filter(x => !x.includes(': no '))).toEqual([])
+  expect(checkCalendar(calendar, cands, '2026-11-09', 1).filter(x => !x.includes(': no ') && !x.includes('top cards of'))).toEqual([])
   const fixed = cands.map(c => (c.fit ? c : { ...c, fit: true, fitWhy: undefined }))
   expect(plan(calendar, fixed, '2026-11-09', 1).calendar.off).toEqual({ 'species/gone': 'no such page' })
 })
@@ -285,6 +286,8 @@ test("a head's address is its large copy's, and its size is that copy's; a head 
 const heroWeek = (hero: { page: string; img?: string }[]) => CurationSchema.parse({
   version: 1, weeks: [{ from: '2026-11-09', to: '2026-11-15', theme: { vi: 'x' }, hero }], days: [],
 })
+/** The check's lines about the top cards themselves, not the week's count. */
+const cardLines = (xs: string[]) => xs.filter(x => x.includes(' hero '))
 
 test("Khám phá's top card that opens a fish's page shows that page's head photo", () => {
   const other = 'https://media.aquatome.com/commons/5555555555555555.webp'
@@ -292,13 +295,13 @@ test("Khám phá's top card that opens a fish's page shows that page's head phot
   const px = { square: 1400, guide: 1400, wide: 1400 }
   const a = fish('aaaa', { head: { url: fishHead, px }, checked: { [fishHead]: px, [other]: px } })
   const cur = heroWeek([{ page: 'species/aaaa', img: other }])
-  expect(checkCalendar(cur, [a], '2026-11-09', 0)).toEqual([
+  expect(cardLines(checkCalendar(cur, [a], '2026-11-09', 0))).toEqual([
     "week 2026-11-09 hero species/aaaa: its card's photo isn't the page's head photo",
   ])
   const { calendar, report } = plan(cur, [a], '2026-11-09', 0)
   expect(calendar.weeks[0]!.hero[0]!.img).toBe(fishHead)
   expect(report.heroes).toEqual([`2026-11-09 species/aaaa: ${other} -> ${fishHead}`])
-  expect(checkCalendar(calendar, [a], '2026-11-09', 0)).toEqual([])
+  expect(cardLines(checkCalendar(calendar, [a], '2026-11-09', 0))).toEqual([])
 })
 
 test("a Khám phá card over a head too small for it takes the head anyway, and the check reports the head", () => {
@@ -311,7 +314,7 @@ test("a Khám phá card over a head too small for it takes the head anyway, and 
   const { calendar, report } = plan(cur, [small], '2026-11-09', 0)
   expect(calendar.weeks[0]!.hero[0]!.img).toBe(smallHead)
   expect(report.heroes).toEqual([`2026-11-09 species/small: ${smallImg} -> ${smallHead}`])
-  expect(checkCalendar(calendar, [small], '2026-11-09', 0)).toEqual([
+  expect(cardLines(checkCalendar(calendar, [small], '2026-11-09', 0))).toEqual([
     'week 2026-11-09 hero species/small: head photo 800 px across, under 1140',
   ])
 })
@@ -321,19 +324,43 @@ test("a Khám phá card that opens a guide keeps its photo and today's check", (
   const cur = heroWeek([{ page: 'guides/gg', img: g.head!.url }])
   const { calendar, report } = plan(cur, [g], '2026-11-09', 0)
   expect(calendar.weeks[0]!.hero[0]).toEqual(cur.weeks[0]!.hero[0])
-  expect(checkCalendar(cur, [g], '2026-11-09', 0)).toEqual([
+  expect(cardLines(checkCalendar(cur, [g], '2026-11-09', 0))).toEqual([
     'week 2026-11-09 hero guides/gg: photo 600 px across, under 1140',
   ])
   expect(report.heroes).toEqual([])
 })
 
-test("a Khám phá card taken off for reader fit takes its page's head too", () => {
+test("a planned week has no hidden top card: a fish that shows takes its place, and the check fails on one", () => {
   const other = 'https://media.aquatome.com/commons/5555555555555555.webp'
-  const a = fish('aaaa', { fit: false, fitWhy: 'source' })
-  const cur = { ...heroWeek([{ page: 'species/aaaa', img: other }]), off: { 'species/aaaa': 'reader fit: source' } }
-  const { calendar } = plan(cur, [a], '2026-11-09', 0)
-  expect(calendar.weeks[0]!.hero[0]!.img).toBe(a.head!.url)
-  expect(calendar.off['species/aaaa']).toBe('reader fit: source')
+  const cands = ['a', 'b', 'c', 'd', 'e', 'f'].map(id => fish(id))
+  const hidden = fish('hidden', { fit: false, fitWhy: 'source' })
+  const cur = { ...heroWeek([{ page: 'species/hidden', img: other }, { page: 'species/a' }]), off: { 'species/hidden': 'reader fit: source' } }
+  expect(checkCalendar(cur, [hidden, ...cands], '2026-11-09', 0)).toContain('week 2026-11-09 hero species/hidden: reader fit: source')
+  const { calendar, report } = plan(cur, [hidden, ...cands], '2026-11-09', 0)
+  const hero = calendar.weeks[0]!.hero
+  // In its place, so the week's order holds; then the week fills to five.
+  expect(hero.map(h => h.page)).toEqual(['species/b', 'species/a', 'species/c', 'species/d', 'species/e'])
+  expect(hero.length).toBe(HERO_COUNT)
+  expect(hero.every(h => h.img === cands.find(c => c.ref === h.page)!.head!.url)).toBe(true)
+  expect(report.heroes).toContain('2026-11-09 species/hidden out (reader fit: source), species/b in')
+  expect(checkCalendar(calendar, [hidden, ...cands], '2026-11-09', 0)).toEqual([])
+  expect(calendar.off).toEqual({})
+})
+
+test("a week fills its top cards from its own list first, never with a fish another week has within four weeks, nor one with a poor head", () => {
+  const cands = ['a', 'b', 'c', 'listed', 'twice', 'small', 'far'].map(id => fish(id, { px: id === 'small' ? 800 : 1200 }))
+  const week = (from: string, to: string, hero: string[], fish: string[] = []) => ({ from, to, theme: { vi: 'x' }, fish: fish.map(f => `species/${f}`), hero: hero.map(page => ({ page: `species/${page}` })) })
+  const cur = CurationSchema.parse({
+    version: 1, days: [],
+    weeks: [week('2026-10-05', '2026-10-11', ['far']), week('2026-11-02', '2026-11-08', ['twice']), week('2026-11-09', '2026-11-15', ['a'], ['twice', 'listed'])],
+  })
+  const { calendar } = plan(cur, cands, '2026-11-09', 0)
+  // The listed fish first; the one on last week's top cards isn't taken though listed; the one five weeks back may come.
+  expect(calendar.weeks[2]!.hero.map(h => h.page)).toEqual(['species/a', 'species/listed', 'species/b', 'species/c', 'species/far'])
+  // A past week is left as it was.
+  expect(calendar.weeks[1]).toEqual(cur.weeks[1])
+  expect(checkCalendar(calendar, cands, '2026-11-09', 0)).toEqual([])
+  expect(checkCalendar(cur, cands, '2026-11-09', 0)).toContain(`week 2026-11-09: 1 top cards of ${HERO_COUNT}`)
 })
 
 test('planning Khám phá cards does not change the calendar it was given', () => {
