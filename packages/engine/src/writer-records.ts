@@ -61,9 +61,27 @@ async function restoreMap(root: string, file: string, dirtyFiles: Set<string>, t
 
 const keyed = (keys: string[]) => (cur: Record<string, unknown>, head: Record<string, unknown>) => restoreKeys(cur, head, keys)
 
-/** A source record's `entityIds` names this page. youtube.json uses the guide's id alone, `youtube-<id>`, with no kind. */
-const namesPage = (entityIds: unknown, page: PageRef) => Array.isArray(entityIds) && entityIds.some(x =>
-  x === `${page.kind}/${page.id}` || (page.kind === 'guides' && page.id.startsWith('youtube-') && x === page.id))
+/** A source record's `entityIds` names this page, as `<kind>/<id>` (run.ts). */
+const namesPage = (entityIds: unknown, page: PageRef) => Array.isArray(entityIds) && entityIds.includes(`${page.kind}/${page.id}`)
+
+/**
+ * Planting writes its text in two places: the plant's entity.json, as a section of AquaTome's own, and the Vietnamese
+ * page. The gate puts back the page alone, and the step passes over a plant whose entity has that section
+ * (planting.ts, plantsWithoutPlanting), so the advice would never reach the page. The section this cycle added goes
+ * too, and with its record gone the step writes the plant again.
+ */
+async function dropNewPlanting(root: string, id: string) {
+  const file = `content/plants/${id}/entity.json`
+  const raw = await readFile(join(root, file), 'utf8').catch(() => '')
+  if (!raw) return
+  type Entity = { sections?: { source?: string }[] }
+  const own = (e: Entity) => e.sections?.some(x => x.source === 'aquatome') ?? false
+  const cur = JSON.parse(raw) as Entity
+  if (!own(cur) || own(committed(root, file) as Entity)) return
+  cur.sections = cur.sections!.filter(x => x.source !== 'aquatome')
+  const indent = raw.match(/^\{\n( +)/)?.[1]?.length ?? 2
+  await writeFile(join(root, file), `${JSON.stringify(cur, null, indent)}\n`)
+}
 
 /**
  * Puts each of these pages' entries, in the writers' records, back to the committed value. HEAD having no entry deletes
@@ -74,14 +92,17 @@ export async function restoreUnreadRecords(root: string, pages: PageRef[]): Prom
   const dirtyFiles = dirty(root)
   const map = (file: string, keys: string[]) => (keys.length ? restoreMap(root, file, dirtyFiles, keyed(keys)) : undefined)
   const vi = pages.filter(p => p.lang === 'vi')
-  // A source writes the Vietnamese page (run.ts, youtube.ts). One entry is a URL, or a video id, and names the page.
+  // A source writes the Vietnamese page (run.ts): an entry is a URL and names the pages it wrote. Only an entry that says
+  // the source wrote the page this cycle (`processed`, and not as HEAD has it) goes back. One that failed this cycle
+  // wrote nothing, and putting it back would take a failure off its count of attempts each time. A video guide isn't
+  // here: youtube.ts takes a video once, and a guide written again from its notes is chosen by its reviews, which the
+  // gate has already put back (review-log.ts, unkeep).
   if (vi.length) for (const source of SOURCE_IDS) {
     await restoreMap(root, `engine-state/${source}.json`, dirtyFiles, (cur, head) => {
       let changed = false
       for (const k of Object.keys(cur)) {
-        const entry = cur[k] as { entityIds?: unknown } | null
-        const named = vi.some(p => namesPage(entry?.entityIds, p) || namesPage((head[k] as { entityIds?: unknown } | null)?.entityIds, p))
-        if (!named) continue
+        const entry = cur[k] as { entityIds?: unknown; status?: unknown } | null
+        if (entry?.status !== 'processed' || !vi.some(p => namesPage(entry.entityIds, p))) continue
         if (Object.hasOwn(head, k) && JSON.stringify(entry) === JSON.stringify(head[k])) continue
         if (Object.hasOwn(head, k)) cur[k] = head[k]
         else delete cur[k]
@@ -98,7 +119,9 @@ export async function restoreUnreadRecords(root: string, pages: PageRef[]): Prom
   await map('engine-state/_fit-rewrite.json', viKeys)
   await map('engine-state/rewritten.json', viKeys)
   // Planting is tried once a plant (planting.ts), keyed by the plant's id.
-  await map('engine-state/_planting.json', vi.filter(p => p.kind === 'plants').map(p => p.id))
+  const plants = vi.filter(p => p.kind === 'plants').map(p => p.id)
+  await map('engine-state/_planting.json', plants)
+  for (const id of plants) await dropNewPlanting(root, id)
   // The translator's record, a file a language and one more for its plants (localize.ts).
   for (const lang of WRITTEN_OTHER_LANGS) {
     await map(`engine-state/localize-${lang}.json`, pages.filter(p => p.lang === lang && p.kind === 'species').map(p => p.id))

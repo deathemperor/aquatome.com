@@ -9,6 +9,7 @@ import { fitKey, fitText, type FitFinding, type FitState } from '../src/fit'
 import { changedFiles, fitPct, fitSummary, gate, gateCall, gateChecks, HELD_BY_HAND, putBackFile, wrongChecks } from '../src/gate'
 import { localizeSpecies, partHash } from '../src/localize'
 import { loadPages, type Page } from '../src/pages'
+import { plantsWithoutPlanting } from '../src/planting'
 import { lastKept, logReviews, readReviews } from '../src/review-log'
 import { needsFetch, type UrlState } from '../src/state'
 import { rewriteExisting } from '../src/vi-backfill'
@@ -714,40 +715,75 @@ test('unread: the Vietnamese rewrite takes the page up again after its new text 
   expect(again.done).toEqual([])
 })
 
-test('unread: a source is due again after the gate puts its page back', async () => {
+test('unread: a source is due again after the gate puts its page back, and one that only failed keeps its count', async () => {
   const root = await repo()
   const species = 'content/species/danio-margaritatus/vi.json'
   const url = 'https://www.seriouslyfish.com/species/danio-margaritatus'
   const other = 'https://www.seriouslyfish.com/species/other'
+  // A second source names the same fish and failed for the second time before this cycle.
+  const failing = 'https://www.planetcatfish.com/danio-margaritatus'
   const video = 'r53ZQW0m8VM'
   const fresh = (entityIds: string[], updatedAt: string, extra: Partial<UrlState> = {}): UrlState => ({ status: 'processed', entityIds, attempts: 0, updatedAt, ...extra })
   await writeFile(join(root, 'engine-state/seriouslyfish.json'), `${JSON.stringify({
     [url]: fresh(['species/danio-margaritatus'], '2026-01-01T00:00:00.000Z', { lastmod: '2026-01-01' }),
     [other]: fresh(['species/other'], '2026-01-01T00:00:00.000Z', { hash: 'old' }),
   }, null, 2)}\n`)
-  // youtube.json names the guide by its id, `youtube-<id>`, with no kind prefix.
+  await writeFile(join(root, 'engine-state/planetcatfish.json'), `${JSON.stringify({ [failing]: fresh(['species/danio-margaritatus'], '2026-11-08T00:00:00.000Z', { status: 'error', attempts: 2, error: 'HTTP 500' }) }, null, 2)}\n`)
   await writeFile(join(root, 'engine-state/youtube.json'), `${JSON.stringify({ [video]: fresh([`youtube-${video}`], '2025-01-01T00:00:00.000Z') }, null, 2)}\n`)
   await edit(root, 'content/sources.json', s => { const src = s.seriouslyfish as { publish: boolean; permission?: { date: string; file: string; scope: string[] } }; src.publish = true; src.permission = { date: '2026-10-29', file: 'noted', scope: ['text'] } })
   save(root, 'fetched once')
 
+  // This cycle: Seriously Fish wrote the fish's page again, the other source failed a third time and wrote nothing, and a
+  // step that keeps no record of its own changed a video guide.
   await edit(root, species, t => { t.name = `${t.name as string} mới` })
   await edit(root, GUIDE, t => { t.body = `${t.body as string}<p>Đã viết lại.</p>` })
   const doneFish = fresh(['species/danio-margaritatus'], '2026-11-09T00:00:00.000Z', { lastmod: '2026-10-28', hash: 'new', processedHash: 'new' })
-  const doneVideo = fresh([`youtube-${video}`], '2026-11-09T00:00:00.000Z', { hash: 'new' })
+  const third = fresh(['species/danio-margaritatus'], '2026-11-09T00:00:00.000Z', { status: 'error', attempts: 3, error: 'HTTP 500' })
+  const touchedVideo = fresh([`youtube-${video}`], '2026-11-09T00:00:00.000Z', { hash: 'new' })
   await writeFile(join(root, 'engine-state/seriouslyfish.json'), `${JSON.stringify({
     [url]: doneFish,
     [other]: fresh(['species/other'], '2026-11-09T00:00:00.000Z', { hash: 'touched' }),
   }, null, 2)}\n`)
-  await writeFile(join(root, 'engine-state/youtube.json'), `${JSON.stringify({ [video]: doneVideo }, null, 2)}\n`)
+  await writeFile(join(root, 'engine-state/planetcatfish.json'), `${JSON.stringify({ [failing]: third }, null, 2)}\n`)
+  await writeFile(join(root, 'engine-state/youtube.json'), `${JSON.stringify({ [video]: touchedVideo }, null, 2)}\n`)
   expect(needsFetch(doneFish, '2026-10-28', now())).toBe(false)
-  expect(needsFetch(doneVideo, undefined, now())).toBe(false)
 
-  await gate(root, { llm: limited, now })
+  const { report } = await gate(root, { llm: limited, now })
+  expect(report.unread).toHaveLength(2)
   const fish = await readJson(root, 'engine-state/seriouslyfish.json')
-  const yt = await readJson(root, 'engine-state/youtube.json')
   expect(needsFetch(fish[url], '2026-10-28', now())).toBe(true)
-  expect(needsFetch(yt[video], undefined, now())).toBe(true)
   expect(fish[other].hash).toBe('touched')
+  // The failure wrote nothing, so it isn't undone: put back, each cycle would take a failure off its three attempts.
+  expect((await readJson(root, 'engine-state/planetcatfish.json'))[failing]).toEqual(third)
+  // A video is taken once (youtube.ts), so its record isn't what would have the guide written again: left as it is.
+  expect((await readJson(root, 'engine-state/youtube.json'))[video]).toEqual(touchedVideo)
+})
+
+// Planting writes the plant's entity.json and its Vietnamese page, and passes over a plant whose entity has its section.
+// With the page put back and the entity left, the advice would never be on the page.
+test('unread: planting advice the gate puts back is written again: its section leaves the entity, and its record goes', async () => {
+  const root = await repo()
+  const id = 'cryptocoryne-wendtii'
+  const entityFile = `content/plants/${id}/entity.json`, pageFile = `content/plants/${id}/vi.json`
+  const without = async () => (await plantsWithoutPlanting(join(root, 'content'))).map(p => p.id)
+  await edit(root, 'content/sources.json', s => {
+    for (const k of ['tropica', '2hraquarist', 'aquatome']) { const src = s[k] as { publish: boolean; permission?: { date: string; file: string; scope: string[] } }; src.publish = true; src.permission = { date: '2026-10-29', file: 'noted', scope: ['text'] } }
+  })
+  save(root, 'the plant page is live')
+  expect(await without()).toContain(id)
+  const advice = '<p>Vùi rễ xuống nền, để hở cổ rễ.</p>'
+  await edit(root, entityFile, e => { (e.sections as unknown[]).push({ key: 'maintenance', source: 'aquatome', sourceUrl: 'https://aquatome.com/vi/gioi-thieu/', html: advice }); e.updatedAt = '2026-11-09' })
+  await edit(root, pageFile, t => { t.sections = { ...(t.sections as object), 'maintenance:aquatome': advice } })
+  await writeFile(join(root, 'engine-state/_planting.json'), `${JSON.stringify({ [id]: { at: '2026-11-09', score: 0.9, kept: true } }, null, 2)}\n`)
+  expect(await without()).not.toContain(id)
+
+  const { report } = await gate(root, { llm: limited, now })
+  expect(report.unread).toHaveLength(1)
+  expect((await readJson(root, pageFile)).sections['maintenance:aquatome']).toBeUndefined()
+  expect((await readJson(root, putBackFile({ kind: 'plants', id, lang: 'vi' }))).text.sections['maintenance:aquatome']).toBe(advice)
+  expect((await readJson(root, entityFile)).sections.some((x: { source: string }) => x.source === 'aquatome')).toBe(false)
+  expect((await readJson(root, 'engine-state/_planting.json'))[id]).toBeUndefined()
+  expect(await without()).toContain(id)
 })
 
 test('unread: a page put back for a check keeps the writer\'s record the cycle left', async () => {
