@@ -11,6 +11,99 @@
     "tanzania",
     "zanzibar"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "SC"
+      ],
+      "regions": [
+        "Mahé",
+        "Praslin",
+        "Silhouette",
+        "La Digue"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The Golden Panchax, Pachypanchax playfairii, is the only primary freshwater fish species from the Seychelles.",
+          "countries": [
+            "SC"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "A translocated population now exists on Zanzibar while in the Seychelles it's known from the islands of Mahé, Praslin, Silhouette and La Digue.",
+          "countries": [],
+          "regions": [
+            "Mahé",
+            "Praslin",
+            "Silhouette",
+            "La Digue"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2347797,
+      "total": 47,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "SC",
+          40
+        ],
+        [
+          "DE",
+          3
+        ],
+        [
+          "TZ",
+          3
+        ],
+        [
+          "JP",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          9.84375,
+          50.625,
+          3,
+          0
+        ],
+        [
+          37.96875,
+          -7.03125,
+          2,
+          0
+        ],
+        [
+          39.375,
+          -7.03125,
+          1,
+          0
+        ],
+        [
+          54.84375,
+          -5.625,
+          40,
+          40
+        ],
+        [
+          136.40625,
+          36.5625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

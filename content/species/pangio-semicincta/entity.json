@@ -12,6 +12,120 @@
     "indonesia",
     "sumatra"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY"
+      ],
+      "regions": [
+        "Sumatra",
+        "Borneo",
+        "Malay Peninsula",
+        "Rajang"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Currently accepted to occur in Peninsular Malaysia plus the Great Sunda Islands of Sumatra and Borneo but the true extent of its distribution is unclear.",
+          "countries": [
+            "MY"
+          ],
+          "regions": [
+            "Sumatra",
+            "Borneo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is given as Malay Peninsula (Malacca, Johore) which corresponds to what's now normally referred to as Mawai district collected in Johor state at the southern tip of Peninsular Malaysia, but similar-looking fish have been recorded from numerous localities across the above range.",
+          "countries": [],
+          "regions": [
+            "Malay Peninsula"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In the Rajang river basin, Sarawak state, Malaysian Borneo sympatric species include Cyclocheilichthys apogon, C. repasson, Garra borneensis, Osteochilus vittatus, Paracrossochilus vittatus, Rasbora argyrotaenia, R. dusonensis, R. kottelati, R. sarawakensis, 'Puntius' johorensis, 'P.' kuchingensis, 'P.' pentazona, Sundadanio margarition, Trigonopoma pauciperforatum, Pangio anguillaris, P. piperata, Syncrossus hymenophysa, several Gastromyzon, Homaloptera and Nemacheilus spp., Betta akarensis, Sphaerichthys osphromenoides and Carinotetraodon salivator.",
+          "countries": [],
+          "regions": [
+            "Rajang"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2367988,
+      "total": 16,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "MY",
+          14
+        ],
+        [
+          "ID",
+          1
+        ],
+        [
+          "TH",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          7.03125,
+          1,
+          0
+        ],
+        [
+          101.25,
+          2.8125,
+          5,
+          5
+        ],
+        [
+          101.25,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          1.40625,
+          5,
+          5
+        ],
+        [
+          102.65625,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          111.09375,
+          0,
+          1,
+          0
+        ],
+        [
+          111.09375,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          112.5,
+          1.40625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

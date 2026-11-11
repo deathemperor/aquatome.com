@@ -10,6 +10,46 @@
     "china",
     "yangtze"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Yangtze",
+        "Laixi River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is the town of Luxian, located north of Luzhou city, Sichuan province, southwest China.",
+          "countries": [
+            "CN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Luxian lies on the Laixi River, one of several tributaries converging with the main Yangtze river channel near Luzhou and forming part of the latter's upper drainage basin.",
+          "countries": [],
+          "regions": [
+            "Yangtze",
+            "Laixi River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2367862,
+      "total": 0,
+      "fetched": "2026-11-11",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

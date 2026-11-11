@@ -11,6 +11,65 @@
     "peru",
     "ucayali"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Ucayali",
+        "Amazon"
+      ],
+      "sources": [
+        "glaser",
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The species originates from Peru.",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Peru: Upper and Middle Ucayali drainage, Amazon basin.",
+          "countries": [],
+          "regions": [
+            "Ucayali",
+            "Amazon"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8072435,
+      "total": 3,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "PE",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          -9.84375,
+          2,
+          2
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

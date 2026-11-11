@@ -10,6 +10,60 @@
     "indonesia",
     "sulawesi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Sulawesi",
+        "Wolasi",
+        "Andambao"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Wolasi ricefish, Oryzias wolasi, is known from four localities south of Kendari in Southeast Sulawesi, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Known from four localities in the Regency of South Konawe (Konawe Selatan), south of Kendari, the capital of South East Sulawesi (Sulawesi Tenggara) province, Sulawesi, Indonesia including the rivers Wolasi and Andambao, the waterfalls at Sumbersari in Moramo District, and a spring-fed coastal stream in Laeya district.",
+          "countries": [],
+          "regions": [
+            "Sulawesi",
+            "Wolasi",
+            "Andambao"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7969678,
+      "total": 4,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "ID",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          122.34375,
+          -5.625,
+          4,
+          4
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

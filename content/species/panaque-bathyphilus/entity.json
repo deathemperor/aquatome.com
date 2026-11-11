@@ -12,6 +12,75 @@
     "tingo-maria",
     "solimoes"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "PE"
+      ],
+      "regions": [
+        "Solimões River",
+        "Amazon River"
+      ],
+      "sources": [
+        "glaser",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "P. bathyphilus occurs in Peru (surroundings of Tingo Maria).",
+          "countries": [
+            "PE"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "Peru: Solimões River (in the Amazon River drainage).",
+          "countries": [],
+          "regions": [
+            "Solimões River",
+            "Amazon River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339874,
+      "total": 7,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "PE",
+          6
+        ],
+        [
+          "BR",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -78.75,
+          -5.625,
+          5,
+          5
+        ],
+        [
+          -74.53125,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          -61.875,
+          -4.21875,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

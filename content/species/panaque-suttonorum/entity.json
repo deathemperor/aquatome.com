@@ -11,6 +11,61 @@
     "venezuela",
     "lake-maracaibo"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE",
+        "CO"
+      ],
+      "regions": [
+        "Lake Maracaibo",
+        "Río Negro"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "South America: Western and eastern tributaries of Lake Maracaibo, Venezuela and Colombia.",
+          "countries": [
+            "VE",
+            "CO"
+          ],
+          "regions": [
+            "Lake Maracaibo"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "Type locality: Río Negro below the mouth of the Río Yasa, Maracaibo basin, Venezuela.",
+          "countries": [],
+          "regions": [
+            "Río Negro"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339872,
+      "total": 1,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "CO",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -75.9375,
+          7.03125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

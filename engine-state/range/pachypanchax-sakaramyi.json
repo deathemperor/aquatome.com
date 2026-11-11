@@ -1,0 +1,66 @@
+{
+  "id": "pachypanchax-sakaramyi",
+  "native": {
+    "input": "aca80be0504a5c2e",
+    "at": "2026-11-11T02:57:45.598Z",
+    "claims": [
+      {
+        "code": "MG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Sakaramy River at village of Sakaramy, about 30 kilometers south of Antsiranana (Diego Suarez), 12°27'S, 49°16'E, Madagascar, elevation 500 meters', the Sakaramy being a tributary of the Sahakazoambany River, at the northernmost extremity of Madagascar.",
+        "words": "Madagascar",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Sakaramy River",
+        "source": "seriouslyfish",
+        "quote": "Museum specimens and interviews with local people suggest it was once distributed around the northern and eastern sides of the Ambohitra Massif, a volcanic formation at the northern tip of Madagascar, but the only remaining riverine populations are restricted to a short stretch of the Sakaramy river between Ambohitra (aka Joffreville) and the village of Sakaramy, plus the upper reaches of the adjacent Antongombato River.",
+        "ok": true
+      },
+      {
+        "name": "Antongombato River",
+        "source": "seriouslyfish",
+        "quote": "Museum specimens and interviews with local people suggest it was once distributed around the northern and eastern sides of the Ambohitra Massif, a volcanic formation at the northern tip of Madagascar, but the only remaining riverine populations are restricted to a short stretch of the Sakaramy river between Ambohitra (aka Joffreville) and the village of Sakaramy, plus the upper reaches of the adjacent Antongombato River.",
+        "ok": true
+      },
+      {
+        "name": "Ambohitra Massif",
+        "source": "seriouslyfish",
+        "quote": "Museum specimens and interviews with local people suggest it was once distributed around the northern and eastern sides of the Ambohitra Massif, a volcanic formation at the northern tip of Madagascar, but the only remaining riverine populations are restricted to a short stretch of the Sakaramy river between Ambohitra (aka Joffreville) and the village of Sakaramy, plus the upper reaches of the adjacent Antongombato River.",
+        "ok": true
+      },
+      {
+        "name": "Madagascar",
+        "source": "seriouslyfish",
+        "quote": "The genus Pachypanchax is endemic to Madagascar and the granitic Seychelles with one recently translocated population known from the island of Zanzibar.",
+        "ok": false,
+        "why": "a country"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pachypanchax sakaramyi",
+    "status": "ACCEPTED",
+    "taxonKey": 2347793,
+    "datasets": [
+      [
+        "ebc90ee8-ffdd-462c-b5dd-8a8fe3921e5a",
+        2
+      ]
+    ],
+    "native": [
+      "MG"
+    ],
+    "requests": 11,
+    "at": "2026-11-11T02:57:45.598Z"
+  }
+}

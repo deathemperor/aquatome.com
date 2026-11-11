@@ -1,0 +1,248 @@
+{
+  "id": "parachanna-obscura",
+  "native": {
+    "input": "80475da01664ccf6",
+    "at": "2026-11-11T02:57:45.598Z",
+    "claims": [
+      {
+        "code": "SN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The African snakehead, Parachanna obscura, is widespread in West Africa from Senegal to Cameroon and ranges inland across the continent to Sudan.",
+        "words": "Senegal",
+        "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The African snakehead, Parachanna obscura, is widespread in West Africa from Senegal to Cameroon and ranges inland across the continent to Sudan.",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "SD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "The African snakehead, Parachanna obscura, is widespread in West Africa from Senegal to Cameroon and ranges inland across the continent to Sudan.",
+        "words": "Sudan",
+        "ok": true
+      },
+      {
+        "code": "SN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species has a very wide natural distribution through almost every coastal northwest African country, from Senegal at its northernmost point southwards as far as Cameroon.",
+        "words": "Senegal",
+        "ok": true
+      },
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "This species has a very wide natural distribution through almost every coastal northwest African country, from Senegal at its northernmost point southwards as far as Cameroon.",
+        "words": "Cameroon",
+        "ok": true
+      },
+      {
+        "code": "BF",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Its range also extends inland into Burkina Faso and Niger and on across the continent through Chad, Democratic Republic of Congo and finally into Sudan.",
+        "words": "Burkina Faso",
+        "ok": true
+      },
+      {
+        "code": "NE",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Its range also extends inland into Burkina Faso and Niger and on across the continent through Chad, Democratic Republic of Congo and finally into Sudan.",
+        "words": "Niger",
+        "ok": true
+      },
+      {
+        "code": "TD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Its range also extends inland into Burkina Faso and Niger and on across the continent through Chad, Democratic Republic of Congo and finally into Sudan.",
+        "words": "Chad",
+        "ok": true
+      },
+      {
+        "code": "CD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Its range also extends inland into Burkina Faso and Niger and on across the continent through Chad, Democratic Republic of Congo and finally into Sudan.",
+        "words": "Democratic Republic of Congo",
+        "ok": true
+      },
+      {
+        "code": "SD",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Its range also extends inland into Burkina Faso and Niger and on across the continent through Chad, Democratic Republic of Congo and finally into Sudan.",
+        "words": "Sudan",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BJ",
+        "CF",
+        "CI",
+        "GA",
+        "GH",
+        "GN",
+        "ML",
+        "NG",
+        "CG",
+        "SL",
+        "TG",
+        "SS",
+        "GM"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Parachanna obscura",
+    "status": "ACCEPTED",
+    "taxonKey": 2391434,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        272
+      ],
+      [
+        "1c6b8a9f-5bd9-4358-9915-b7643779b03e",
+        20
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        18
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        13
+      ],
+      [
+        "5e1d2d54-f5db-43ac-87c5-55a9f79ac718",
+        13
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        13
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        10
+      ],
+      [
+        "d2724ca9-8ccd-416e-9837-7aee75f67422",
+        10
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        8
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        8
+      ],
+      [
+        "c43cabdf-1a3c-488c-9923-2466abd7df9b",
+        8
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        5
+      ],
+      [
+        "47f75ea9-ad74-47ab-919a-b8c8d4f1fce3",
+        5
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        4
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "ed820bdb-4345-4143-a280-4fbffaacd31d",
+        4
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        3
+      ],
+      [
+        "40a262b4-6627-4011-afbe-159c00ec97e7",
+        3
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        2
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "988007b1-1179-42e0-863c-bb9f1bdfa6f7",
+        2
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        2
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        2
+      ],
+      [
+        "34585f24-1ffe-4744-8734-7d563c918d18",
+        1
+      ],
+      [
+        "3fb7ddd8-07c0-490d-a0f1-32b5dec8d583",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "fba36b75-451a-40e3-af18-297f151bcc91",
+        1
+      ]
+    ],
+    "native": [
+      "SN",
+      "CM",
+      "SD",
+      "BF",
+      "NE",
+      "TD",
+      "CD"
+    ],
+    "requests": 13,
+    "at": "2026-11-11T02:57:45.598Z"
+  }
+}

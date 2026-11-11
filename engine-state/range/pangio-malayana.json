@@ -1,0 +1,96 @@
+{
+  "id": "pangio-malayana",
+  "native": {
+    "input": "abd6c59394dba1cb",
+    "at": "2026-11-11T02:57:45.598Z",
+    "claims": [
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Originally known only from Johor and Pahang states, Peninsular Malaysia, but since recorded from the Batang Hari river drainage, Sumatra and the Kapuas system, Kalimantan Barat (West Kalimantan) province, Indonesian Borneo.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Originally known only from Johor and Pahang states, Peninsular Malaysia, but since recorded from the Batang Hari river drainage, Sumatra and the Kapuas system, Kalimantan Barat (West Kalimantan) province, Indonesian Borneo.",
+        "words": "Indonesian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Batang Hari",
+        "source": "seriouslyfish",
+        "quote": "Originally known only from Johor and Pahang states, Peninsular Malaysia, but since recorded from the Batang Hari river drainage, Sumatra and the Kapuas system, Kalimantan Barat (West Kalimantan) province, Indonesian Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Kapuas",
+        "source": "seriouslyfish",
+        "quote": "Originally known only from Johor and Pahang states, Peninsular Malaysia, but since recorded from the Batang Hari river drainage, Sumatra and the Kapuas system, Kalimantan Barat (West Kalimantan) province, Indonesian Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "seriouslyfish",
+        "quote": "Originally known only from Johor and Pahang states, Peninsular Malaysia, but since recorded from the Batang Hari river drainage, Sumatra and the Kapuas system, Kalimantan Barat (West Kalimantan) province, Indonesian Borneo.",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "seriouslyfish",
+        "quote": "Originally known only from Johor and Pahang states, Peninsular Malaysia, but since recorded from the Batang Hari river drainage, Sumatra and the Kapuas system, Kalimantan Barat (West Kalimantan) province, Indonesian Borneo.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Tahan River",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Tahan River, Pahang, Malaysia'.",
+        "country": "MY",
+        "ok": true
+      },
+      {
+        "name": "Endau",
+        "source": "seriouslyfish",
+        "quote": "P. malayana is found living syntopically with P. semicincta across much of its range and in the Endau river drainage, southeastern Peninsular Malaysia sympatric fishes include Brevibora dorsiocellata, Rasbora cephalotaenia, R. einthovenii, R. dusonensis, R. paucisqualis, 'Puntius' johorensis, 'P.' partipentazona, Trigonopoma gracile, T. pauciperforatum, Betta pugnax, Sphaerichthys osphromenoides, Acanthopsoides molobrion, Vaillantella maassi, Pangio cuneovirgata, P. doriae, P. filinaris, P. piperata and P. shelfordii.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pangio malayana",
+    "status": "ACCEPTED",
+    "taxonKey": 2368010,
+    "datasets": [
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        2
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "MY",
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-11T02:57:45.598Z"
+  }
+}

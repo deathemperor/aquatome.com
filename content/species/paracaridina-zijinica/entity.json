@@ -6,6 +6,26 @@
   "genus": "Paracaridina",
   "group": "shrimp",
   "places": [],
+  "range": {
+    "records": {
+      "taxonKey": 4309708,
+      "total": 2,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "CN",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          113.90625,
+          23.90625,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {

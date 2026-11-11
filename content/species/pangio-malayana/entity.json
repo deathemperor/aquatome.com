@@ -12,6 +12,98 @@
     "indonesia",
     "kapuas"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MY",
+        "ID"
+      ],
+      "regions": [
+        "Batang Hari",
+        "Kapuas",
+        "Sumatra",
+        "Borneo",
+        "Tahan River",
+        "Endau"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Originally known only from Johor and Pahang states, Peninsular Malaysia, but since recorded from the Batang Hari river drainage, Sumatra and the Kapuas system, Kalimantan Barat (West Kalimantan) province, Indonesian Borneo.",
+          "countries": [
+            "MY",
+            "ID"
+          ],
+          "regions": [
+            "Batang Hari",
+            "Kapuas",
+            "Sumatra",
+            "Borneo"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Tahan River, Pahang, Malaysia'.",
+          "countries": [],
+          "regions": [
+            "Tahan River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "P. malayana is found living syntopically with P. semicincta across much of its range and in the Endau river drainage, southeastern Peninsular Malaysia sympatric fishes include Brevibora dorsiocellata, Rasbora cephalotaenia, R. einthovenii, R. dusonensis, R. paucisqualis, 'Puntius' johorensis, 'P.' partipentazona, Trigonopoma gracile, T. pauciperforatum, Betta pugnax, Sphaerichthys osphromenoides, Acanthopsoides molobrion, Vaillantella maassi, Pangio cuneovirgata, P. doriae, P. filinaris, P. piperata and P. shelfordii.",
+          "countries": [],
+          "regions": [
+            "Endau"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2368010,
+      "total": 4,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "MY",
+          3
+        ],
+        [
+          "ID",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          101.25,
+          2.8125,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          1.40625,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          2.8125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

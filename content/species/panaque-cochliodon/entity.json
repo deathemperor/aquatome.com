@@ -183,5 +183,86 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-09",
+  "range": {
+    "native": {
+      "countries": [
+        "CO"
+      ],
+      "regions": [
+        "Rio Magdalena",
+        "Rio Cauca"
+      ],
+      "sources": [
+        "scotcat",
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Colombia, Rio Magdalena.",
+          "countries": [
+            "CO"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "South America: Colombia, Rio Magdalena and Rio Cauca.",
+          "countries": [],
+          "regions": [
+            "Rio Magdalena",
+            "Rio Cauca"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2339868,
+      "total": 157,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "CO",
+          156
+        ],
+        [
+          "PE",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -77.34375,
+          -2.8125,
+          1,
+          0
+        ],
+        [
+          -75.9375,
+          4.21875,
+          3,
+          3
+        ],
+        [
+          -75.9375,
+          5.625,
+          10,
+          10
+        ],
+        [
+          -75.9375,
+          7.03125,
+          142,
+          142
+        ],
+        [
+          -75.9375,
+          9.84375,
+          1,
+          1
+        ]
+      ]
+    }
+  }
 }

@@ -1,0 +1,85 @@
+{
+  "id": "pangasius-nasutus",
+  "native": {
+    "input": "cf601dfc04d54bcc",
+    "at": "2026-11-11T02:57:45.598Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "planetcatfish",
+        "quote": "Type locality: Barito River, Bandjarmasin, southern Kalimantan, Borneo, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Barito River",
+        "source": "planetcatfish",
+        "quote": "Type locality: Barito River, Bandjarmasin, southern Kalimantan, Borneo, Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Borneo",
+        "source": "planetcatfish",
+        "quote": "Asia: Greater Sunda Island rivers in Sumatra and Borneo, and Peninsular Malaysia.",
+        "ok": true
+      },
+      {
+        "name": "Sumatra",
+        "source": "planetcatfish",
+        "quote": "Asia: Greater Sunda Island rivers in Sumatra and Borneo, and Peninsular Malaysia.",
+        "ok": true
+      },
+      {
+        "name": "Kalimantan",
+        "source": "planetcatfish",
+        "quote": "Type locality: Barito River, Bandjarmasin, southern Kalimantan, Borneo, Indonesia.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "MY"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Pangasius nasutus",
+    "status": "ACCEPTED",
+    "taxonKey": 5202450,
+    "datasets": [
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        4
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-11T02:57:45.598Z"
+  }
+}

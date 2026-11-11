@@ -11,6 +11,68 @@
     "karnataka",
     "kerala"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Tunga"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to India where it appears to be restricted to the southwesterly states of Karnataka and Kerala.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "In the former it has been collected from close to the city of Dandeli, Uttara Kannada (North Canara) district, the Fraserpett River, Coorg district and Korkanhalla stream, a tributary of the Tunga river at an altitude of 652 m above sea level, whereas in the latter the only information available is that it occurs in Wayanad district.",
+          "countries": [],
+          "regions": [
+            "Tunga"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2364294,
+      "total": 4,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "IN",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          73.125,
+          16.875,
+          2,
+          2
+        ],
+        [
+          74.53125,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          75.9375,
+          14.0625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

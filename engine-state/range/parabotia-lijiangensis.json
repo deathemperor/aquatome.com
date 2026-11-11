@@ -1,0 +1,49 @@
+{
+  "id": "parabotia-lijiangensis",
+  "native": {
+    "input": "b6cf175a01c4627b",
+    "at": "2026-11-11T02:57:45.598Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the Li River (Li Jiang) drainage close to the city of Guilin, Guangxi Zhuang Autonomous Region, southern China, but details regarding its wider distribution have not been obtained so far.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Li River",
+        "source": "seriouslyfish",
+        "quote": "Described from the Li River (Li Jiang) drainage close to the city of Guilin, Guangxi Zhuang Autonomous Region, southern China, but details regarding its wider distribution have not been obtained so far.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Pearl River",
+        "source": "seriouslyfish",
+        "quote": "The Li merges with a couple of other rivers in Pingle County, near Guilin, to form the Gui River, a tributary of the Xi River which itself is the major western tributary of the famous Pearl River (Zhu Jiang).",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Parabotia lijiangensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2367844,
+    "datasets": [],
+    "native": [
+      "CN"
+    ],
+    "requests": 2,
+    "at": "2026-11-11T02:57:45.598Z"
+  }
+}

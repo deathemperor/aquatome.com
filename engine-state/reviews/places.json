@@ -221,6 +221,18 @@
       "kept": true
     }
   ],
+  "id/places/ambohitra-massif": [
+    {
+      "at": "2026-11-11T04:59:56Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "khối núi Ambohitra (Vietnamese, not Indonesian)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/ambon-island": [
     {
       "at": "2026-11-08T05:19:45Z",
@@ -327,6 +339,28 @@
       "kept": true
     }
   ],
+  "id/places/andambao": [
+    {
+      "at": "2026-11-11T04:59:56Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/ankify-peninsula": [
+    {
+      "at": "2026-11-11T04:59:56Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "bán đảo Ankify (Vietnamese, not Indonesian)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/annamalai-river": [
     {
       "at": "2026-11-09T15:40:53Z",
@@ -377,6 +411,18 @@
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/antongombato-river": [
+    {
+      "at": "2026-11-11T04:59:56Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "sông Antongombato (Vietnamese; Indonesian would be Sungai Antongombato)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -791,6 +837,18 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/barra-seca-river": [
+    {
+      "at": "2026-11-11T04:59:56Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "sông Barra Sêca (Vietnamese)"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -3384,6 +3442,18 @@
       "kept": true
     }
   ],
+  "id/places/hanthayaw-river": [
+    {
+      "at": "2026-11-11T04:59:56Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "sông Hanthayaw (Vietnamese)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/hatchie-river": [
     {
       "at": "2026-11-06T12:35:46Z",
@@ -4195,6 +4265,18 @@
       "kept": true
     }
   ],
+  "id/places/kamoro-river": [
+    {
+      "at": "2026-11-11T04:59:56Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "sông Kamoro (Vietnamese)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/kampar": [
     {
       "at": "2026-11-06T12:35:46Z",
@@ -4779,6 +4861,16 @@
       "kept": true
     }
   ],
+  "id/places/la-digue": [
+    {
+      "at": "2026-11-11T04:59:56Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/labuk": [
     {
       "at": "2026-11-08T12:08:48Z",
@@ -4858,6 +4950,18 @@
       "score": 0.3,
       "notes": [
         "The input names are in Vietnamese, but the answers are what get scored. Most answers are fine as Indonesian atlas names, but several are wrong:"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/laixi-river": [
+    {
+      "at": "2026-11-11T04:59:56Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "sông Laixi (Vietnamese)"
       ],
       "attempt": "first",
       "kept": true
@@ -5027,6 +5131,18 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/lake-kinkony": [
+    {
+      "at": "2026-11-11T04:59:56Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "hồ Kinkony (Vietnamese, not Indonesian)"
+      ],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -5934,6 +6050,16 @@
       "kept": true
     }
   ],
+  "id/places/mahajamba": [
+    {
+      "at": "2026-11-11T04:59:56Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/mahakam-river": [
     {
       "at": "2026-11-10T17:42:34Z",
@@ -5972,6 +6098,26 @@
       "at": "2026-11-08T05:20:54Z",
       "model": "sonnet",
       "score": 0.1,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/mahavavy-du-sud": [
+    {
+      "at": "2026-11-11T04:59:56Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/mahe": [
+    {
+      "at": "2026-11-11T04:59:56Z",
+      "model": "sonnet",
+      "score": 0.3,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -6258,12 +6404,36 @@
       "kept": true
     }
   ],
+  "id/places/maroni-river": [
+    {
+      "at": "2026-11-11T04:59:56Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "sông Maroni (Vietnamese)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/maros-river": [
     {
       "at": "2026-11-11T01:41:42Z",
       "model": "sonnet",
       "score": 0.2,
       "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/marouini-river": [
+    {
+      "at": "2026-11-11T04:59:56Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [
+        "sông Marouini (Vietnamese)"
+      ],
       "attempt": "first",
       "kept": true
     }
@@ -6823,6 +6993,16 @@
         "The input names are in Vietnamese, but the answers are what get scored. Most answers are fine as Indonesian atlas names, but several are wrong:",
         "\"Belait\", \"Biobío\", \"Endau\", \"Mahakam\", \"Malinau\", \"Mula-Mutha\", \"Capim\", \"Marowijne\", \"Morona\", \"Pará\", \"Santiago\", \"Tigre\", \"Truandó\", \"Waccasassa\", \"Wacissa\", \"Yenna\": river names given without 'Sungai'. Indonesian atlases normally write 'Sungai X', so these are inconsistent with the Daerah Aliran Sungai answers elsewhere in the list."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/muna": [
+    {
+      "at": "2026-11-11T04:59:56Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -7788,6 +7968,16 @@
       "kept": true
     }
   ],
+  "id/places/parana-paraguay-river": [
+    {
+      "at": "2026-11-11T04:59:56Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/parana-river": [
     {
       "at": "2026-11-08T05:20:56Z",
@@ -8075,6 +8265,16 @@
       "at": "2026-11-09T15:40:54Z",
       "model": "sonnet",
       "score": 0.5,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/praslin": [
+    {
+      "at": "2026-11-11T04:59:56Z",
+      "model": "sonnet",
+      "score": 0.3,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -8637,6 +8837,16 @@
   "id/places/rio-caroni": [
     {
       "at": "2026-11-09T00:08:05Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/rio-cauca": [
+    {
+      "at": "2026-11-11T04:59:56Z",
       "model": "sonnet",
       "score": 0.3,
       "notes": [],
@@ -9615,6 +9825,16 @@
       "kept": true
     }
   ],
+  "id/places/rio-san-miguel": [
+    {
+      "at": "2026-11-11T04:59:56Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/rio-santiago": [
     {
       "at": "2026-11-10T17:42:34Z",
@@ -10183,6 +10403,16 @@
       "kept": true
     }
   ],
+  "id/places/sakaramy-river": [
+    {
+      "at": "2026-11-11T04:59:56Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/sakarya-river": [
     {
       "at": "2026-11-08T05:21:30Z",
@@ -10695,6 +10925,16 @@
       "kept": true
     }
   ],
+  "id/places/silhouette": [
+    {
+      "at": "2026-11-11T04:59:56Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/sinai": [
     {
       "at": "2026-11-06T12:35:53Z",
@@ -10830,6 +11070,16 @@
       "at": "2026-11-07T03:57:48Z",
       "model": "sonnet",
       "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/solimoes-river": [
+    {
+      "at": "2026-11-11T04:59:56Z",
+      "model": "sonnet",
+      "score": 0.3,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -11071,6 +11321,16 @@
       "kept": true
     }
   ],
+  "id/places/sungai-terengganu": [
+    {
+      "at": "2026-11-11T04:59:57Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "id/places/suriya": [
     {
       "at": "2026-11-08T05:22:00Z",
@@ -11150,6 +11410,16 @@
       "at": "2026-11-09T22:55:05Z",
       "model": "sonnet",
       "score": 0.96,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "id/places/tahan-river": [
+    {
+      "at": "2026-11-11T04:59:57Z",
+      "model": "sonnet",
+      "score": 0.3,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -12172,6 +12442,16 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "id/places/wolasi": [
+    {
+      "at": "2026-11-11T04:59:57Z",
+      "model": "sonnet",
+      "score": 0.3,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -25725,6 +26005,16 @@
       "kept": true
     }
   ],
+  "th/places/ambohitra-massif": [
+    {
+      "at": "2026-11-11T05:06:59Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/ambon-island": [
     {
       "at": "2026-11-08T05:27:07Z",
@@ -25835,6 +26125,26 @@
       "kept": true
     }
   ],
+  "th/places/andambao": [
+    {
+      "at": "2026-11-11T05:06:59Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/ankify-peninsula": [
+    {
+      "at": "2026-11-11T05:06:59Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/annamalai-river": [
     {
       "at": "2026-11-09T15:46:42Z",
@@ -25890,6 +26200,16 @@
       "at": "2026-11-09T00:10:26Z",
       "model": "sonnet",
       "score": 0.8,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/antongombato-river": [
+    {
+      "at": "2026-11-11T05:06:59Z",
+      "model": "sonnet",
+      "score": 0.88,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -26355,6 +26675,16 @@
       "score": 0.55,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/barra-seca-river": [
+    {
+      "at": "2026-11-11T05:06:59Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -29045,6 +29375,16 @@
       "kept": true
     }
   ],
+  "th/places/hanthayaw-river": [
+    {
+      "at": "2026-11-11T05:06:59Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/he-jiang": [
     {
       "at": "2026-11-08T08:57:32Z",
@@ -29901,6 +30241,16 @@
       "kept": true
     }
   ],
+  "th/places/kamoro-river": [
+    {
+      "at": "2026-11-11T05:06:59Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/kampar": [
     {
       "at": "2026-11-06T12:36:00Z",
@@ -30547,6 +30897,16 @@
       "kept": true
     }
   ],
+  "th/places/la-digue": [
+    {
+      "at": "2026-11-11T05:06:59Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/la-plata": [
     {
       "at": "2026-11-06T12:36:07Z",
@@ -30634,6 +30994,16 @@
       "at": "2026-11-10T17:43:57Z",
       "model": "sonnet",
       "score": 0.72,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/laixi-river": [
+    {
+      "at": "2026-11-11T05:06:59Z",
+      "model": "sonnet",
+      "score": 0.88,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -30801,6 +31171,16 @@
       "score": 0.55,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/lake-kinkony": [
+    {
+      "at": "2026-11-11T05:06:59Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -31711,6 +32091,16 @@
       "kept": true
     }
   ],
+  "th/places/mahajamba": [
+    {
+      "at": "2026-11-11T05:06:59Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/mahakam-river": [
     {
       "at": "2026-11-10T17:43:57Z",
@@ -31757,6 +32147,16 @@
       "kept": true
     }
   ],
+  "th/places/mahavavy-du-sud": [
+    {
+      "at": "2026-11-11T05:06:59Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/mahaweli": [
     {
       "at": "2026-11-06T12:36:17Z",
@@ -31764,6 +32164,16 @@
       "score": 0.72,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/mahe": [
+    {
+      "at": "2026-11-11T05:06:59Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -32053,11 +32463,31 @@
       "kept": true
     }
   ],
+  "th/places/maroni-river": [
+    {
+      "at": "2026-11-11T05:06:59Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/maros-river": [
     {
       "at": "2026-11-11T01:45:24Z",
       "model": "sonnet",
       "score": 0.82,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/marouini-river": [
+    {
+      "at": "2026-11-11T05:06:59Z",
+      "model": "sonnet",
+      "score": 0.88,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -32642,6 +33072,16 @@
       "notes": [
         "Several river names (มาฮากัม, ปารา, ซันติอาโก, ติเกร, โมโรนา, มาโรไวเน, เยนนา, มูลา-มูทา, วากาแซสซา, วาซิสซา, มาลีเนา, กาจัน, บิโอบิโอ) lack แม่น้ำ, but are otherwise acceptable transliterations"
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/muna": [
+    {
+      "at": "2026-11-11T05:06:59Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -33686,6 +34126,16 @@
       "kept": true
     }
   ],
+  "th/places/parana-paraguay-river": [
+    {
+      "at": "2026-11-11T05:06:59Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/parana-river": [
     {
       "at": "2026-11-08T05:28:40Z",
@@ -33987,6 +34437,16 @@
       "at": "2026-11-09T15:46:42Z",
       "model": "sonnet",
       "score": 0.6,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/praslin": [
+    {
+      "at": "2026-11-11T05:06:59Z",
+      "model": "sonnet",
+      "score": 0.88,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -34594,6 +35054,16 @@
       "score": 0.4,
       "notes": [],
       "attempt": "recheck",
+      "kept": true
+    }
+  ],
+  "th/places/rio-cauca": [
+    {
+      "at": "2026-11-11T05:06:59Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [],
+      "attempt": "first",
       "kept": true
     }
   ],
@@ -35601,6 +36071,16 @@
       "kept": true
     }
   ],
+  "th/places/rio-san-miguel": [
+    {
+      "at": "2026-11-11T05:06:59Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/rio-santiago": [
     {
       "at": "2026-11-10T17:43:57Z",
@@ -36214,6 +36694,16 @@
       "kept": true
     }
   ],
+  "th/places/sakaramy-river": [
+    {
+      "at": "2026-11-11T05:06:59Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/sakarya-river": [
     {
       "at": "2026-11-08T05:29:25Z",
@@ -36771,6 +37261,16 @@
       "kept": true
     }
   ],
+  "th/places/silhouette": [
+    {
+      "at": "2026-11-11T05:06:59Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/sinai": [
     {
       "at": "2026-11-06T12:36:07Z",
@@ -36908,6 +37408,18 @@
       "score": 0.62,
       "notes": [
         "Sok River → ซก (doubtful; the name is likely Sook/Sok and the Thai form is uncertain)"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/solimoes-river": [
+    {
+      "at": "2026-11-11T05:06:59Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "sông Solimões → โซลีมอยส์"
       ],
       "attempt": "first",
       "kept": true
@@ -37151,6 +37663,16 @@
       "kept": true
     }
   ],
+  "th/places/sungai-terengganu": [
+    {
+      "at": "2026-11-11T05:06:59Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/suriya": [
     {
       "at": "2026-11-08T05:30:02Z",
@@ -37242,6 +37764,16 @@
       "at": "2026-11-09T22:57:23Z",
       "model": "sonnet",
       "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "th/places/tahan-river": [
+    {
+      "at": "2026-11-11T05:06:59Z",
+      "model": "sonnet",
+      "score": 0.88,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -38322,6 +38854,16 @@
       "kept": true
     }
   ],
+  "th/places/wolasi": [
+    {
+      "at": "2026-11-11T05:06:59Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "th/places/wulin-mountain-range": [
     {
       "at": "2026-11-09T18:18:37Z",
@@ -38959,6 +39501,16 @@
       "kept": true
     }
   ],
+  "vi/places/ambohitra-massif": [
+    {
+      "at": "2026-11-11T04:59:38Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/ambon": [
     {
       "at": "2026-11-07T20:32:22Z",
@@ -39164,6 +39716,26 @@
       "kept": true
     }
   ],
+  "vi/places/andambao": [
+    {
+      "at": "2026-11-11T04:59:38Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/ankify-peninsula": [
+    {
+      "at": "2026-11-11T04:59:38Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/ann-chaung": [
     {
       "at": "2026-11-07T20:32:23Z",
@@ -39233,6 +39805,16 @@
       "notes": [
         "All 50 names point to the right place. None is a literal word-by-word translation, and none leaves a generic word in another language."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/antongombato-river": [
+    {
+      "at": "2026-11-11T04:59:38Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -39927,6 +40509,16 @@
       "notes": [
         "No entry points to the wrong place. Every name is either a form Vietnamese readers use or the source spelling with its generic word in Vietnamese."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/barra-seca-river": [
+    {
+      "at": "2026-11-11T04:59:38Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -43309,6 +43901,16 @@
       "kept": true
     }
   ],
+  "vi/places/hanthayaw-river": [
+    {
+      "at": "2026-11-11T04:59:38Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/hatchie-river": [
     {
       "at": "2026-11-07T20:34:11Z",
@@ -44458,6 +45060,16 @@
       "kept": true
     }
   ],
+  "vi/places/kamoro-river": [
+    {
+      "at": "2026-11-11T04:59:38Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/kampar": [
     {
       "at": "2026-11-07T20:35:05Z",
@@ -45340,6 +45952,16 @@
       "kept": true
     }
   ],
+  "vi/places/la-digue": [
+    {
+      "at": "2026-11-11T04:59:38Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/la-plata": [
     {
       "at": "2026-11-07T20:35:59Z",
@@ -45447,6 +46069,16 @@
         "All names either keep the source spelling of the proper name or put its generic word into Vietnamese correctly (sông, hồ, lưu vực, dãy đồi).",
         "\"Laguna Grande San Pedro\" keeps the Spanish 'Laguna', but here it is part of the place's proper name, so keeping it is acceptable."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/laixi-river": [
+    {
+      "at": "2026-11-11T04:59:38Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -45756,6 +46388,16 @@
       "notes": [
         "No wrong places found. All 99 names are either names Vietnamese readers already use, or the source's own name with the generic word put into Vietnamese."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/lake-kinkony": [
+    {
+      "at": "2026-11-11T04:59:38Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }
@@ -46979,6 +47621,16 @@
       "kept": true
     }
   ],
+  "vi/places/mahajamba": [
+    {
+      "at": "2026-11-11T04:59:38Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/mahakam": [
     {
       "at": "2026-11-07T20:36:52Z",
@@ -47043,11 +47695,33 @@
       "kept": true
     }
   ],
+  "vi/places/mahavavy-du-sud": [
+    {
+      "at": "2026-11-11T04:59:38Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [
+        "All other names either keep the source's proper name or add the correct Vietnamese generic word (sông, hồ, bán đảo, khối núi). \"Mahavavy du Sud\" keeps the source's spelling of the proper name, which is acceptable."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/mahaweli": [
     {
       "at": "2026-11-07T20:36:52Z",
       "model": "sonnet",
       "score": 0.72,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/mahe": [
+    {
+      "at": "2026-11-11T04:59:38Z",
+      "model": "sonnet",
+      "score": 0.9,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -47443,9 +48117,29 @@
       "kept": true
     }
   ],
+  "vi/places/maroni-river": [
+    {
+      "at": "2026-11-11T04:59:38Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/maros-river": [
     {
       "at": "2026-11-11T01:39:30Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/marouini-river": [
+    {
+      "at": "2026-11-11T04:59:38Z",
       "model": "sonnet",
       "score": 0.9,
       "notes": [],
@@ -48237,6 +48931,16 @@
       "at": "2026-11-07T20:36:54Z",
       "model": "sonnet",
       "score": 0.72,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/muna": [
+    {
+      "at": "2026-11-11T04:59:38Z",
+      "model": "sonnet",
+      "score": 0.9,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -49652,6 +50356,16 @@
       "kept": true
     }
   ],
+  "vi/places/parana-paraguay-river": [
+    {
+      "at": "2026-11-11T04:59:38Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/parana-river": [
     {
       "at": "2026-11-07T20:37:55Z",
@@ -50070,6 +50784,16 @@
       "at": "2026-11-09T15:37:28Z",
       "model": "sonnet",
       "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/praslin": [
+    {
+      "at": "2026-11-11T04:59:38Z",
+      "model": "sonnet",
+      "score": 0.9,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -50858,6 +51582,16 @@
       "at": "2026-11-07T20:38:46Z",
       "model": "sonnet",
       "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/rio-cauca": [
+    {
+      "at": "2026-11-11T04:59:38Z",
+      "model": "sonnet",
+      "score": 0.9,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -52044,6 +52778,16 @@
       "kept": true
     }
   ],
+  "vi/places/rio-san-miguel": [
+    {
+      "at": "2026-11-11T04:59:38Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/rio-santiago": [
     {
       "at": "2026-11-10T17:42:12Z",
@@ -52826,6 +53570,16 @@
       "at": "2026-11-09T15:37:28Z",
       "model": "sonnet",
       "score": 0.95,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/sakaramy-river": [
+    {
+      "at": "2026-11-11T04:59:38Z",
+      "model": "sonnet",
+      "score": 0.9,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -53634,6 +54388,16 @@
       "kept": true
     }
   ],
+  "vi/places/silhouette": [
+    {
+      "at": "2026-11-11T04:59:38Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/sinai": [
     {
       "at": "2026-11-07T20:40:24Z",
@@ -53831,6 +54595,16 @@
       "at": "2026-11-07T20:40:25Z",
       "model": "sonnet",
       "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/solimoes-river": [
+    {
+      "at": "2026-11-11T04:59:38Z",
+      "model": "sonnet",
+      "score": 0.9,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -54120,6 +54894,16 @@
       "kept": true
     }
   ],
+  "vi/places/sungai-terengganu": [
+    {
+      "at": "2026-11-11T04:59:38Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/places/surat-thani": [
     {
       "at": "2026-11-07T20:40:25Z",
@@ -54241,6 +55025,16 @@
       "at": "2026-11-09T22:53:56Z",
       "model": "sonnet",
       "score": 0.93,
+      "notes": [],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/tahan-river": [
+    {
+      "at": "2026-11-11T04:59:38Z",
+      "model": "sonnet",
+      "score": 0.9,
       "notes": [],
       "attempt": "first",
       "kept": true
@@ -55679,6 +56473,16 @@
       "notes": [
         "The known Vietnamese names are right: 'Hoàng Hà' (Yellow River), 'Châu Giang' (Pearl River), 'Tây Giang' (Xi River), 'Dương Tử' (Yangtze), 'Vân Nam' (Yunnan), 'Sê Kông' (Xe Kong), 'sông Nin Trắng' (White Nile), 'núi Bạch Vân' (Baiyun Shan), 'dãy Ghat Tây' (Western Ghats), and 'Trà Khúc' and 'Vệ', which are Vietnamese rivers."
       ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/places/wolasi": [
+    {
+      "at": "2026-11-11T04:59:38Z",
+      "model": "sonnet",
+      "score": 0.9,
+      "notes": [],
       "attempt": "first",
       "kept": true
     }

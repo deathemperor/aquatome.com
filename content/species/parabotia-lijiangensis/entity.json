@@ -10,6 +10,47 @@
     "china",
     "li"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Li River",
+        "Pearl River"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from the Li River (Li Jiang) drainage close to the city of Guilin, Guangxi Zhuang Autonomous Region, southern China, but details regarding its wider distribution have not been obtained so far.",
+          "countries": [
+            "CN"
+          ],
+          "regions": [
+            "Li River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The Li merges with a couple of other rivers in Pingle County, near Guilin, to form the Gui River, a tributary of the Xi River which itself is the major western tributary of the famous Pearl River (Zhu Jiang).",
+          "countries": [],
+          "regions": [
+            "Pearl River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2367844,
+      "total": 0,
+      "fetched": "2026-11-11",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "tempC": [
       {

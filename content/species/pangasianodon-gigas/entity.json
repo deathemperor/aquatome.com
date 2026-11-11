@@ -14,6 +14,74 @@
     "cambodia",
     "vietnam"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN",
+        "TH",
+        "LA",
+        "KH",
+        "VN"
+      ],
+      "regions": [
+        "Mekong"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The giant Mekong catfish, Pangasianodon gigas, is a pelagic shark catfish from the lower Mekong in China, Thailand, Laos, Cambodia and Vietnam.",
+          "countries": [
+            "CN",
+            "TH",
+            "LA",
+            "KH",
+            "VN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Native to the lower Mekong river running through parts of China, Thailand, Laos, Cambodia and Vietnam.",
+          "countries": [],
+          "regions": [
+            "Mekong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2340710,
+      "total": 4,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "TH",
+          3
+        ],
+        [
+          "VN",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          99.84375,
+          12.65625,
+          3,
+          3
+        ],
+        [
+          106.875,
+          9.84375,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

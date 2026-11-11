@@ -1,0 +1,48 @@
+{
+  "id": "parabotia-bimaculata",
+  "native": {
+    "input": "64d56709286998a4",
+    "at": "2026-11-11T02:57:45.598Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is the town of Luxian, located north of Luzhou city, Sichuan province, southwest China.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Yangtze",
+        "source": "seriouslyfish",
+        "quote": "Luxian lies on the Laixi River, one of several tributaries converging with the main Yangtze river channel near Luzhou and forming part of the latter's upper drainage basin.",
+        "ok": true
+      },
+      {
+        "name": "Laixi River",
+        "source": "seriouslyfish",
+        "quote": "Luxian lies on the Laixi River, one of several tributaries converging with the main Yangtze river channel near Luzhou and forming part of the latter's upper drainage basin.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Parabotia bimaculata",
+    "status": "ACCEPTED",
+    "taxonKey": 2367862,
+    "datasets": [],
+    "native": [
+      "CN"
+    ],
+    "requests": 2,
+    "at": "2026-11-11T02:57:45.598Z"
+  }
+}
