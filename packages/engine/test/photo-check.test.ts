@@ -5,7 +5,8 @@ import sharp from 'sharp'
 import { expect, test } from 'vitest'
 import { LlmError } from '../src/claude'
 import { SpeciesSchema } from '@aq/schema'
-import { captionSubject, checkPagePhotos, deadNote, peopleNote, recheckCandidates, type PhotoCheckDeps, type PhotoVerdict } from '../src/photo-check'
+import { rankGallery } from '../src/gallery'
+import { cantTellOn, captionSubject, checkPagePhotos, deadNote, peopleNote, recheckCandidates, type PhotoCheckDeps, type PhotoVerdict } from '../src/photo-check'
 
 const jpeg = sharp({ create: { width: 64, height: 48, channels: 3, background: '#e83' } }).jpeg().toBuffer()
 const url = (n: string) => `https://media.example/${n}.webp`
@@ -294,6 +295,57 @@ test('a typical photo judged in a later run goes ahead of a lead that passed as 
   await checkPagePhotos(g, d, { limit: 1 })
   expect(d.seen.at(-1)!.photos).toEqual(['real', 'typical'])
   expect(await urls(g, 'content/species/ccc-fish/entity.json')).toEqual(['real', 'typical', 'made'])
+})
+
+test("a photo the check can't tell never leads a page that has one it passed, a breed's too; with nothing passed it stays", async () => {
+  const hazy = { ok: 'unsure' as const, note: 'too small to tell' }
+  const r = await root([
+    { id: 'aaa-fish', sci: 'Aaa fish', photos: ['a-hazy', 'a-dim', 'a-passed', 'a-also'] },
+    { id: 'bbb-fish', sci: 'Bbb fish', photos: ['b-hazy', 'b-dim'] },
+    // The check leaves a breed's order as it is, but for this.
+    { kind: 'breeds', id: 'ccc-breed', vi: { name: 'Ccc' }, photos: ['c-hazy', 'c-passed', 'c-typical'] },
+    { kind: 'breeds', id: 'ddd-breed', vi: { name: 'Ddd' }, photos: ['d-passed', 'd-typical'] },
+  ])
+  const d = model({ 'a-hazy': hazy, 'a-dim': hazy, 'b-hazy': hazy, 'b-dim': hazy, 'c-hazy': hazy, 'c-typical': { typical: true }, 'd-typical': { typical: true } })
+  await checkPagePhotos(r, d, { limit: 10 })
+  // The first passed photo goes ahead of the lead, and nothing else moves.
+  expect(await urls(r, 'content/species/aaa-fish/entity.json')).toEqual(['a-passed', 'a-hazy', 'a-dim', 'a-also'])
+  expect(await urls(r, 'content/species/bbb-fish/entity.json')).toEqual(['b-hazy', 'b-dim'])
+  // A typical photo before another that passed.
+  expect(await urls(r, 'content/breeds/ccc-breed/entity.json')).toEqual(['c-typical', 'c-hazy', 'c-passed'])
+  expect(await urls(r, 'content/breeds/ddd-breed/entity.json')).toEqual(['d-passed', 'd-typical'])
+  // A second run moves nothing.
+  await checkPagePhotos(r, d, { limit: 10 })
+  expect(await urls(r, 'content/species/aaa-fish/entity.json')).toEqual(['a-passed', 'a-hazy', 'a-dim', 'a-also'])
+  expect(await urls(r, 'content/breeds/ccc-breed/entity.json')).toEqual(['c-typical', 'c-hazy', 'c-passed'])
+})
+
+test("in an album a photo the check can't tell comes after those it passed or has not reached, and the album step's ranking keeps it there", async () => {
+  const r = await root([{ id: 'aaa-fish', sci: 'Aaa fish', photos: ['own'] }])
+  const file = 'content/gallery/aaa-fish.json'
+  const album = [
+    { ...photo('hazy-best'), best: true, kind: 'male' }, { ...photo('best'), best: true, kind: 'female' },
+    { ...photo('old') }, { ...photo('hazy'), kind: 'other' }, { ...photo('later'), kind: 'other' }, { ...photo('waits'), kind: 'other', unchecked: true },
+  ]
+  await writeFile(join(r, file), `${JSON.stringify({ id: 'aaa-fish', photos: album, seen: 0, updatedAt: '' }, null, 2)}
+`)
+  // One sheet: the page's photo and the first five album photos. The sixth still waits, unjudged.
+  const d = model({ 'hazy-best': { ok: 'unsure', note: 'too small to tell' }, hazy: { ok: 'unsure', note: 'a blur' } })
+  await checkPagePhotos(r, d, { limit: 1 })
+  expect(d.seen.map(s => s.photos)).toEqual([['own', 'hazy-best', 'best', 'old', 'hazy', 'later']])
+  const after = ['best', 'old', 'later', 'waits', 'hazy-best', 'hazy']
+  expect(await urls(r, file)).toEqual(after)
+  // The album step re-ranks an album it adds to. With the check's record it puts them last too, so neither undoes the other.
+  const subjects = await json(r, 'engine-state/_photo-subjects.json')
+  const ranked = rankGallery((await json(r, file)).photos, cantTellOn(subjects, 'aaa-fish'))
+  expect(ranked.map(p => name(p.url))).toEqual(after)
+  // Without the record the album step would put its best pick back first.
+  expect(name(rankGallery((await json(r, file)).photos)[0]!.url)).toBe('hazy-best')
+  await writeFile(join(r, file), `${JSON.stringify({ id: 'aaa-fish', photos: ranked, seen: 0, updatedAt: '' }, null, 2)}
+`)
+  const before = await readFile(join(r, file), 'utf8')
+  await checkPagePhotos(r, d, { limit: 0 })
+  expect(await readFile(join(r, file), 'utf8')).toBe(before)
 })
 
 test('a gallery photo that waits shows once the check has judged it and left it on; one it rejects goes; one not judged yet still waits', async () => {

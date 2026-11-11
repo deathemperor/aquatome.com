@@ -1,6 +1,7 @@
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
+import { realPhotosFirst } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { galleryPlan } from './gallery-plan'
@@ -33,6 +34,18 @@ export const PHOTO_CHECK_SCHEMA = {
 }
 /** Verdicts that take a photo off its page. */
 export const OFF = new Set<PhotoVerdict['ok']>(['other', 'none', 'dead', 'no'])
+/**
+ * Whether the check could not tell that a photo shows this page's subject ("unsure"). Such a photo keeps showing (the
+ * owner, 2026-11-11), behind the others: it never leads a page that has a photo the check passed, and in an album it
+ * comes after every photo the check passed or has not reached yet.
+ */
+export const cantTellOn = (subjects: Record<string, Record<string, PhotoVerdict>>, page: string) => (url: string): boolean => {
+  const v = subjects[url]?.[page]
+  return !!v && !v.guide && v.ok === 'unsure'
+}
+/** "Can't tell" photos last, each group in the order it had. The album step ranks with it too (gallery.ts), so both agree. */
+export const cantTellLast = <P extends { url: string }>(photos: P[], cantTell: (url: string) => boolean): P[] =>
+  [...photos.filter(p => !cantTell(p.url)), ...photos.filter(p => cantTell(p.url))]
 /**
  * Why a photo leaves every page, whatever another page's verdict: it shows a dead fish or fish as food, a person or part
  * of one ("Photos never show people (hands count)", PRODUCT.md), or a logo.
@@ -495,6 +508,20 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       const r = (x: Photo) => { if (x.generated) return 3; const v = verdict(x.url, s.id); return v?.ok === 'yes' && v.typical ? 0 : v?.ok === 'habitat' ? 2 : 1 }
       data.photos = data.photos.map((x, i) => ({ x, i })).sort((a, b) => r(a.x) - r(b.x) || a.i - b.i).map(({ x }) => x)
     }
+    // A photo the check can't tell doesn't lead a page that has one it passed (the owner, 2026-11-11): the first passed
+    // photo, a typical one before another, goes ahead of it. A breed's page too, whose order is otherwise left as it is.
+    // Where nothing on the page passed, the lead stays: that may be the page's only photo.
+    if (s && file.endsWith('entity.json') && data.photos) {
+      const lead = data.photos.findIndex(x => !x.generated)
+      if (lead >= 0 && cantTellOn(cache, s.id)(data.photos[lead]!.url)) {
+        const passed = (typical: boolean) => data.photos!.findIndex(x => { const v = x.generated ? undefined : verdict(x.url, s.id); return v?.ok === 'yes' && (!typical || v.typical) })
+        const i = passed(true) >= 0 ? passed(true) : passed(false)
+        if (i > lead) data.photos.splice(lead, 0, ...data.photos.splice(i, 1))
+      }
+    }
+    // In an album it comes after the photos the check passed or has not reached. The album step ranks the same way, but
+    // only an album it adds to, so every album gets its order here, each run.
+    if (gallery && data.photos) data.photos = realPhotosFirst(cantTellLast(data.photos, cantTellOn(cache, gallery)))
     const out = `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`
     if (out === raw) continue
     report.removed.push(...removed.map(u => `${file.slice(content.length + 1)}: ${u}`))

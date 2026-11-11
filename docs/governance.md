@@ -599,6 +599,12 @@ The layers above still check the result.
     `_photo-rejected.json`. Can't tell stays and is listed in
     `docs/review/photo-subjects.md`, with the removals and the pages left with no photo (they show none; the check
     puts nothing in its place, and the photo steps fill it from their sources as for any page short of photos). A
+    "can't tell" photo keeps showing, behind the others (the owner, 2026-11-11): it never leads a page, a breed's
+    too, that has a photo of its own the check passed, and in an album it comes after every photo the check passed
+    or has not reached. The check orders every album so each run, and the album step's ranking does the same
+    (`rankGallery`), since that step re-ranks only an album it adds to. Where nothing on the page passed it still
+    leads: it may be the page's only photo. A passed photo that is only in the album does not take the lead from
+    it: that is the head-photo step's move, with its side-by-side look. A
     guide photo whose caption names one fish is judged against what the caption says, and only "something else"
     leaves a guide; a guide photo that is a page's photo goes with that page's "something else". Verdicts are cached per
     photo and page (`_photo-subjects.json`). A photo a step adds to a gallery waits (`unchecked` in the gallery file),
