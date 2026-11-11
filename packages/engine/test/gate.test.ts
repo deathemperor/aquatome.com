@@ -6,7 +6,7 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { LlmError, type Llm } from '../src/claude'
 import { fitKey, fitText, type FitFinding, type FitState } from '../src/fit'
-import { changedFiles, fitPct, fitSummary, gate, gateCall, gateChecks, wrongChecks } from '../src/gate'
+import { changedFiles, fitPct, fitSummary, gate, gateCall, gateChecks, HELD_BY_HAND, wrongChecks } from '../src/gate'
 import { loadPages, type Page } from '../src/pages'
 import { lastKept, logReviews, readReviews } from '../src/review-log'
 
@@ -292,6 +292,33 @@ test('a held page that changed and passes is let out; a kit holds a page the cyc
   await gate(root, { llm: reader(calls), now })
   expect(calls).toHaveLength(0)
   expect((await readJson(root, GUIDE)).held).toEqual({ checks: ['kit'], at: '2026-11-09' })
+})
+
+// The chief of staff, 2026-11-11: a catfish page filed under a marine worm's name is taken out of readers' view at once,
+// in every language, with no model call, and stays out whatever writes it until the engine files it under the fish.
+test('a page held by hand is held in every language it has, with no read, whatever writes it, until its line goes', async () => {
+  const root = await repo()
+  const VI = 'content/breeds/flowerhorn-cichlid/vi.json', MS = 'content/breeds/flowerhorn-cichlid/ms.json'
+  await writeFile(join(root, HELD_BY_HAND), JSON.stringify({ 'breeds/flowerhorn-cichlid': { checks: ['taxon'], why: 'another animal\'s name', at: '2026-11-11' } }))
+  await edit(root, VI, t => { t.name = 'Cá khác' })
+  const calls: string[] = []
+  const { report } = await gate(root, { llm: reader(calls), now })
+  expect(calls).toHaveLength(0)
+  for (const f of [VI, MS]) expect((await readJson(root, f)).held, f).toEqual({ checks: ['taxon'], at: '2026-11-11' })
+  expect(report.hold).toHaveLength(2)
+  git(root, '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-qam', 'held by hand')
+
+  // A writer that rewrites the page and drops the hold: held again, still unread.
+  await edit(root, VI, t => { delete t.held; t.name = 'Cá khác nữa' })
+  await gate(root, { llm: reader(calls), now })
+  expect(calls).toHaveLength(0)
+  expect((await readJson(root, VI)).held).toEqual({ checks: ['taxon'], at: '2026-11-11' })
+
+  // Its line taken out: the gate reads it like any held page and lets it out when it passes.
+  await writeFile(join(root, HELD_BY_HAND), '{}')
+  await gate(root, { llm: reader(calls), now })
+  expect(calls.length).toBeGreaterThan(0)
+  for (const f of [VI, MS]) expect((await readJson(root, f)).held, f).toBeUndefined()
 })
 
 test('with the accounts out, a new page waits held and a live one keeps its committed text; over the limit too', async () => {
