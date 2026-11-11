@@ -39,7 +39,7 @@ jobs:
       - name: Install Node, pnpm and the dependencies
         uses: ./.github/actions/setup
       - name: Install Chromium for Playwright, and Claude
-        run: pnpm --filter site exec playwright install --with-deps chromium && npm install -g @anthropic-ai/claude-code
+        run: scripts/install-browser.sh chromium && npm install -g @anthropic-ai/claude-code
       - name: Read the issue
         env:
           GH_TOKEN: ${{ github.token }}
@@ -108,7 +108,7 @@ jobs:
         name: Unit tests, typecheck and browser checks
         if: steps.apply.outputs.applied == '1'
         run: |
-          pnpm --filter site exec playwright install --with-deps chromium
+          scripts/install-browser.sh chromium
           pnpm test && pnpm typecheck && pnpm --filter site e2e && echo ok=1 >> "$GITHUB_OUTPUT" || echo ok=0 >> "$GITHUB_OUTPUT"
   publish:
     name: Open the draft PR, or say why on the issue
