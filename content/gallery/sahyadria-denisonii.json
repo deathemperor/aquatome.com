@@ -48,18 +48,6 @@
       }
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/553210753.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/553210753-480.webp",
-      "width": 881,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Afsar Nayakkan",
-      "sourceUrl": "https://www.inaturalist.org/photos/553210753",
-      "caption": "Cá hồng mi Ấn Độ sọc đen đỏ bơi nghiêng trên sườn đá",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/723580717.webp",
       "thumb": "https://media.aquatome.com/inaturalist/723580717-480.webp",
       "width": 1024,
@@ -325,6 +313,18 @@
       "sourceUrl": "https://www.inaturalist.org/photos/553210695",
       "caption": "Cá hồng mi Ấn Độ nhìn nghiêng với sọc đen ngang thân",
       "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/553210753.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/553210753-480.webp",
+      "width": 881,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Afsar Nayakkan",
+      "sourceUrl": "https://www.inaturalist.org/photos/553210753",
+      "caption": "Cá hồng mi Ấn Độ sọc đen đỏ bơi nghiêng trên sườn đá",
+      "best": true,
       "kind": "habitat"
     }
   ],

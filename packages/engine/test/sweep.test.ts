@@ -7,6 +7,7 @@ import { checkPages, RATCHETED, ratcheted, RULES } from '../src/content-rules'
 import { loadPages } from '../src/pages'
 import { checkPagePhotos } from '../src/photo-check'
 import { sweep, sweepTranslation } from '../src/sweep'
+import { atCeiling } from './at-ceiling'
 
 const photo = (url: string, caption: string) => ({ url, width: 1200, height: 800, licence: 'CC BY 4.0', author: 'A', sourceUrl: 'https://commons.wikimedia.org/x', caption })
 const species = (id: string, sci: string, o: { dataCard?: object; photos?: object[] } = {}) => ({
@@ -388,16 +389,18 @@ async function countedGuide(root: string, id: string) {
   await writeFile(join(dir, 'vi.json'), `${JSON.stringify(vi('10 cách xử lý rêu hại nhanh', {}, { body: CLEAN }), null, 2)}\n`)
 }
 
-test('a usage limit leaves counted titles as they are and stops the run', async () => {
+// Claude's own limit, and the step's ceiling for the day (ceiling.ts), which is to leave exactly the same: nothing
+// written, no number dropped, no review logged.
+test.each([WEEKLY, atCeiling('sweep')])('a usage limit leaves counted titles as they are and stops the run: %s', async limit => {
   const root = await store()
   await countedGuide(root, 'a')
   await countedGuide(root, 'b')
   const file = (id: string) => readFile(join(root, 'content/guides', id, 'vi.json'), 'utf8')
   const before = { a: await file('a'), b: await file('b') }
   let calls = 0
-  const r = await sweep(root, { llm: (async () => { calls++; throw new LlmError(WEEKLY) }) as Llm })
+  const r = await sweep(root, { llm: (async () => { calls++; throw new LlmError(limit) }) as Llm })
   expect(calls).toBe(1)
-  expect(r.stopped).toContain('weekly limit')
+  expect(r.stopped).toContain(limit)
   expect(r.titles.filter(t => t.includes('/guides/a') || t.includes('/guides/b'))).toEqual([])
   expect(await file('a')).toBe(before.a)
   expect(await file('b')).toBe(before.b)

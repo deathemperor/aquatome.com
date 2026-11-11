@@ -74,18 +74,6 @@
       "kind": "emersed"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/98294780.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/98294780-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Guy Taseski",
-      "sourceUrl": "https://www.inaturalist.org/photos/98294780",
-      "caption": "Hoa vàng của Cây mao lương thủy sinh ngoài tự nhiên",
-      "best": true,
-      "kind": "flower"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/564536573.webp",
       "thumb": "https://media.aquatome.com/inaturalist/564536573-480.webp",
       "width": 1024,
@@ -720,6 +708,18 @@
       "caption": "Hai cụm Cây mao lương mọc trên đất ven bờ",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/98294780.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/98294780-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Guy Taseski",
+      "sourceUrl": "https://www.inaturalist.org/photos/98294780",
+      "caption": "Hoa vàng của Cây mao lương thủy sinh ngoài tự nhiên",
+      "best": true,
+      "kind": "flower"
     }
   ],
   "seen": 124,

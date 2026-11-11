@@ -93,16 +93,6 @@
       }
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/258281751.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/258281751-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Mark Richman",
-      "sourceUrl": "https://www.inaturalist.org/photos/258281751",
-      "caption": "Cá zebra đỏ màu hồng trắng nhìn gần trong bể"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/427013945.webp",
       "thumb": "https://media.aquatome.com/inaturalist/427013945-480.webp",
       "width": 1024,
@@ -248,6 +238,16 @@
       "caption": "Đàn cá zebra đỏ bơi quanh lũa trong bể cá",
       "best": false,
       "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/258281751.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/258281751-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Mark Richman",
+      "sourceUrl": "https://www.inaturalist.org/photos/258281751",
+      "caption": "Cá zebra đỏ màu hồng trắng nhìn gần trong bể"
     }
   ],
   "seen": 39,

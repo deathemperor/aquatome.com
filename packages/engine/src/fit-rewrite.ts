@@ -13,18 +13,49 @@ import { fieldOf as partOf, norm, rewritePart, type ReaderFinding } from './read
  * - A guide by its own writer, from its source's facts and the market table (for-reader.ts), which every check holds.
  * - A fish, plant or breed page part by part: each part a finding quotes goes to the reader step's rewriter with the
  *   findings as notes (reader.ts rewritePart; a section with its English against that English), kept only when its
- *   reviewer passes it.
- * Left to others: units, which the code rounds (round.ts), words, which the phrase list carries, a kit, which no rewording
+ *   reviewer passes it. Units too, where the part's English gives the figure in US units ("a pair per 5 gallons (about
+ *   19 litres)"): the code rounds a converted figure as it is written (round.ts), but not every one, and a page already
+ *   written keeps it; written again, it's converted as the writer's rules say, which its reviewer holds. A part with
+ *   another finding here is mended for that alone, so a rounding its reviewer fails can't lose that mend.
+ * Left to others: units on a guide, which its writer rounds; a figure the English gives in metric ("tanks as small as 11
+ * litres"), which rounding would make say other than its source; words, which the phrase list carries; a kit, which no rewording
  * fixes (the gate holds it), advice on a fish, plant or breed page that would hurt (held too, for a person), and the doses
  * compared across pages, which a person settles. A title, a summary line or a question isn't rewritten here. engine-state/rewritten.json has each page rewritten, by its text's hash: the owner's list
  * of pages to look at (page-signals) shows a rewrite until the checker has read a newer text. engine-state/_fit-rewrite.json
- * has each page tried, by the text it read: one not kept or skipped waits until its text changes, or is named (`retry`).
+ * has each page tried, by the text it read: one not kept or skipped waits until its text changes, or is named (`retry`),
+ * and one tried MAX_TRIES times waits for a person to name it.
  */
-const MENDED: readonly FitCheck[] = ['product', 'shop', 'price', 'dose', 'source', 'elsewhere', 'dose-caution', 'lethal']
+const MENDED: readonly FitCheck[] = ['product', 'shop', 'price', 'dose', 'source', 'units', 'elsewhere', 'dose-caution', 'lethal']
 const PART_FIELD = /^(sections\.(?!references).+|body|definition)$/
+/**
+ * A figure in US units: gallons, inches (a number's "in" only as a measure: "30 × 12 in", "3 in long"), feet, °F,
+ * miles, pounds. Not "5 in a group", "Ft. Lauderdale" or "LB-12".
+ */
+const US_UNITS = /gallons?|\bgal\b|\binch(?:es)?\b|\d\s*"|\d\s*in\.?(?=\s*(?:[x×)\],;]|long|deep|tall|high|wide|SL|TL|$))|\d\s*(?:feet|foot|ft)\b|°\s?F\b|\d\s*miles?\b|\d\s*(?:pounds?|lbs?)\b/i
+/** A metric figure in Vietnamese ("11 lít", "2,5–5 cm", "21 °C") or English ("11 litres", "2.5 cm"): its numbers. */
+const METRIC_VI = /(\d+(?:,\d+)?)(?:\s*[–-]\s*(\d+(?:,\d+)?))?\s*(?:lít|l|cm|mm|m|km|°\s?C|độ C)(?![\p{L}\p{N}])/giu
+const METRIC_EN = /(\d+(?:\.\d+)?)(?:\s*[–-]\s*(\d+(?:\.\d+)?))?\s*(?:-?\s*(?:litres?|liters?|l|cm|mm|m|km|metres?|meters?|°\s?C))(?![\p{L}\p{N}])/giu
+const numbers = (text: string, re: RegExp) => [...text.matchAll(re)].flatMap(m => [m[1], m[2]]).filter((x): x is string => !!x).map(x => Number(x.replace(',', '.')))
+/**
+ * A units finding the rewrite can mend: its English gives the figure in US units, and none of the metric figures it
+ * quotes is one the English gives itself, alone or beside a US one ("~68 litres (~18 US gal)", "5 gallons (about 19
+ * litres)"): numbers stay as the source gives them (the chief of staff, 2026-11-11). A US unit left in the quote itself
+ * is always mended.
+ */
+export function convertible(quote: string, en: string): boolean {
+  if (US_UNITS.test(quote)) return true
+  if (!US_UNITS.test(en)) return false
+  const given = new Set(numbers(en, METRIC_EN))
+  return !numbers(quote, METRIC_VI).some(n => given.has(n))
+}
 export type Rewritten = Record<string, { at: string; hash: string }>
-/** Each page tried, by the hash of the text it read. */
-export type Tried = Record<string, { at: string; hash: string }>
+/** Each page tried, by the hash of the text it read, and how often on any of its texts (none: once, before the count). */
+export type Tried = Record<string, { at: string; hash: string; n?: number }>
+/**
+ * A page is tried at most this often, on any of its texts, unless named: a part its reviewers pass that the next read
+ * still faults would make the page due again on its new text, a cycle at a time, with only the step's ceiling to stop it.
+ */
+export const MAX_TRIES = 2
 
 /** What a page's parts are wrong for: its current reading's findings this step mends, by the field each quotes. */
 export function mendable(p: Page, state: FitState): Map<string, FitFinding[]> {
@@ -34,9 +65,15 @@ export function mendable(p: Page, state: FitState): Map<string, FitFinding[]> {
   if (!e || e.hash !== hash) return out
   const fs = fitFindings(p, e)
   const fieldOf = (f: FitFinding) => parts.find(x => x.id === f.part)?.field ?? parts.find(x => f.quote && norm(x.text).includes(norm(f.quote)))?.field
-  for (const f of fs.filter(f => MENDED.includes(f.check))) {
+  for (const f of fs.filter(f => MENDED.includes(f.check) && f.check !== 'units')) {
     const field = fieldOf(f)
     if (field && PART_FIELD.test(field)) out.set(field, [...(out.get(field) ?? []), f])
+  }
+  // Units: only a figure converted from the English's US units (convertible), on a part with nothing else to mend here.
+  const mine = new Set(out.keys())
+  for (const f of fs.filter(f => f.check === 'units')) {
+    const field = fieldOf(f)
+    if (field && PART_FIELD.test(field) && !mine.has(field) && convertible(f.quote ?? '', p.en?.[field] ?? '')) out.set(field, [...(out.get(field) ?? []), f])
   }
   // A part rewritten anyway takes its wording findings along.
   for (const f of fs.filter(f => f.check === 'words')) { const field = fieldOf(f); if (field && out.has(field)) out.get(field)!.push(f) }
@@ -53,7 +90,9 @@ export const rewriteDue = (p: Page, state: FitState) =>
 
 const asNote = (f: FitFinding): ReaderFinding => ({
   kind: 'language', severity: 'high', part: f.part, quote: f.quote,
-  problem: f.check === 'words' ? `A word keepers here don't use${f.fix ? `: write "${f.fix}"` : ''}.` : `${FIT_TITLE[f.check]}: ${f.why}. Write it for a keeper in Vietnam; drop what only holds abroad.`,
+  problem: f.check === 'words' ? `A word keepers here don't use${f.fix ? `: write "${f.fix}"` : ''}.`
+    : f.check === 'units' ? `${FIT_TITLE.units}: ${f.why}. Convert the English's US units as the writing rules say (a tank of 5 gallons or more to the nearest 5 litres: 5 gallons is 20 litres; inches to cm), and give no US figure. Never round a dose's amount or the water it goes into: convert those exactly.`
+    : `${FIT_TITLE[f.check]}: ${f.why}. Write it for a keeper in Vietnam; drop what only holds abroad.`,
   ...(f.fix ? { fix: f.fix } : {}),
 })
 
@@ -71,9 +110,16 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
   const tried = JSON.parse(await readFile(triedFile, 'utf8').catch(() => '{}')) as Tried
   const done: Page[] = []
   const at = d.now().toISOString()
-  for (const p of pages.filter(p => rewriteDue(p, state) && (o.retry || tried[fitKey(p)]?.hash !== fitText(p).hash)).slice(0, o.limit)) {
+  const triesOf = (k: string) => (tried[k] ? tried[k].n ?? 1 : 0)
+  const due = pages.filter(p => rewriteDue(p, state) && tried[fitKey(p)]?.hash !== fitText(p).hash)
+  // Tried MAX_TRIES times and due again: listed for a person to name (`--only`), never tried here.
+  const capped = o.retry ? [] : due.filter(p => triesOf(fitKey(p)) >= MAX_TRIES).map(fitKey)
+  if (capped.length) report.skipped.push(`${capped.length} page${capped.length > 1 ? 's' : ''} tried ${MAX_TRIES} times and due again, for a person to name: ${capped.slice(0, 10).join(', ')}${capped.length > 10 ? ', …' : ''}`)
+  for (const p of pages.filter(p => rewriteDue(p, state) && (o.retry || (tried[fitKey(p)]?.hash !== fitText(p).hash && triesOf(fitKey(p)) < MAX_TRIES))).slice(0, o.limit)) {
     const key = fitKey(p)
-    tried[key] = { at, hash: fitText(p).hash }
+    const before = tried[key]
+    // A page a person names doesn't use up one of its own tries.
+    tried[key] = { at, hash: fitText(p).hash, n: triesOf(key) + (o.retry ? 0 : 1) }
     let changed = 0
     try {
       if (p.kind === 'guides') {
@@ -106,7 +152,7 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
       }
     } catch (e) {
       // Stopped part way (the accounts out): what it kept is kept, and the page isn't counted as tried.
-      if (e instanceof LlmError) { delete tried[key]; if (changed) done.push(p); report.stopped = `${key}: ${e.message}`; break }
+      if (e instanceof LlmError) { if (before) tried[key] = before; else delete tried[key]; if (changed) done.push(p); report.stopped = `${key}: ${e.message}`; break }
       report.failed.push(`${key}: ${(e as Error).message.slice(0, 200)}`)
     }
     if (changed) done.push(p)

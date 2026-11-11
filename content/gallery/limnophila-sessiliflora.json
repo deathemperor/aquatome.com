@@ -26,18 +26,6 @@
       "kind": "submersed"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/26529369.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/26529369-480.webp",
-      "width": 768,
-      "height": 1024,
-      "licence": "CC0",
-      "author": "Ian Pfingsten",
-      "sourceUrl": "https://www.inaturalist.org/photos/26529369",
-      "caption": "Cụm Cây tiểu bảo tháp (Limnophila sessiliflora) mọc dày đặc trên cạn",
-      "best": true,
-      "kind": "emersed"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/221128489.webp",
       "thumb": "https://media.aquatome.com/inaturalist/221128489-480.webp",
       "width": 1024,
@@ -780,6 +768,18 @@
       "caption": "Các cụm lá Cây tiểu bảo tháp (Limnophila sessiliflora) trên mặt nước",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/26529369.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/26529369-480.webp",
+      "width": 768,
+      "height": 1024,
+      "licence": "CC0",
+      "author": "Ian Pfingsten",
+      "sourceUrl": "https://www.inaturalist.org/photos/26529369",
+      "caption": "Cụm Cây tiểu bảo tháp (Limnophila sessiliflora) mọc dày đặc trên cạn",
+      "best": true,
+      "kind": "emersed"
     }
   ],
   "seen": 140,

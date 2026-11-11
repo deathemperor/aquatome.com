@@ -2,18 +2,6 @@
   "id": "trichopsis-vittata",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/569742327.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/569742327-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-SA",
-      "author": "Abu Hamas",
-      "sourceUrl": "https://www.inaturalist.org/photos/569742327",
-      "caption": "Nhóm cá thài lài kêu trong bể nền sỏi núi lửa",
-      "best": true,
-      "kind": "group"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/250619520.webp",
       "thumb": "https://media.aquatome.com/inaturalist/250619520-480.webp",
       "width": 576,
@@ -24,30 +12,6 @@
       "caption": "Cá thài lài kêu ngoài tự nhiên, vây đuôi ánh xanh",
       "best": true,
       "kind": "habitat"
-    },
-    {
-      "url": "https://media.aquatome.com/commons/e96225bb097394c9.webp",
-      "thumb": "https://media.aquatome.com/commons/e96225bb097394c9-480.webp",
-      "width": 1200,
-      "height": 900,
-      "licence": "CC BY-SA 3.0",
-      "author": "Ahsan_al_hidayat",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trichopsis_vittata_2.jpg",
-      "caption": "Cá thài lài kêu vây xanh trong bể nền cát",
-      "best": true,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/569742325.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/569742325-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY-SA",
-      "author": "Abu Hamas",
-      "sourceUrl": "https://www.inaturalist.org/photos/569742325",
-      "caption": "Nhóm cá thài lài kêu bơi trên nền sỏi đá",
-      "best": true,
-      "kind": "group"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/246842861.webp",
@@ -86,18 +50,6 @@
       "kind": "group"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/543890514.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/543890514-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Nick Tobler (Cowturtle)",
-      "sourceUrl": "https://www.inaturalist.org/photos/543890514",
-      "caption": "Cá thài lài kêu trong bể kính chụp ngoài trời",
-      "best": false,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/543890446.webp",
       "thumb": "https://media.aquatome.com/inaturalist/543890446-480.webp",
       "width": 1024,
@@ -130,6 +82,54 @@
       "author": "Utain Pummarin",
       "sourceUrl": "https://www.inaturalist.org/photos/322697370",
       "caption": "Cá thài lài kêu bơi trong thau trắng, thân rõ nét",
+      "best": false,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/569742327.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/569742327-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-SA",
+      "author": "Abu Hamas",
+      "sourceUrl": "https://www.inaturalist.org/photos/569742327",
+      "caption": "Nhóm cá thài lài kêu trong bể nền sỏi núi lửa",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/e96225bb097394c9.webp",
+      "thumb": "https://media.aquatome.com/commons/e96225bb097394c9-480.webp",
+      "width": 1200,
+      "height": 900,
+      "licence": "CC BY-SA 3.0",
+      "author": "Ahsan_al_hidayat",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trichopsis_vittata_2.jpg",
+      "caption": "Cá thài lài kêu vây xanh trong bể nền cát",
+      "best": true,
+      "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/569742325.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/569742325-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY-SA",
+      "author": "Abu Hamas",
+      "sourceUrl": "https://www.inaturalist.org/photos/569742325",
+      "caption": "Nhóm cá thài lài kêu bơi trên nền sỏi đá",
+      "best": true,
+      "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/543890514.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/543890514-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Nick Tobler (Cowturtle)",
+      "sourceUrl": "https://www.inaturalist.org/photos/543890514",
+      "caption": "Cá thài lài kêu trong bể kính chụp ngoài trời",
       "best": false,
       "kind": "other"
     }

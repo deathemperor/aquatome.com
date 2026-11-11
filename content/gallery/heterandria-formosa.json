@@ -14,30 +14,6 @@
       "kind": "male"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/604374120.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/604374120-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "geosesarma",
-      "sourceUrl": "https://www.inaturalist.org/photos/604374120",
-      "caption": "Cặp cá bảy màu lùn trong bể ảnh nhỏ, bắt từ tự nhiên",
-      "best": true,
-      "kind": "pair"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/386790975.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/386790975-480.webp",
-      "width": 1024,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Audrey Witherington",
-      "sourceUrl": "https://www.inaturalist.org/photos/386790975",
-      "caption": "Cá bảy màu lùn ngoài tự nhiên, nhìn từ trên xuống trên nền đá",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/182122346.webp",
       "thumb": "https://media.aquatome.com/inaturalist/182122346-480.webp",
       "width": 1024,
@@ -84,18 +60,6 @@
       "caption": "Hai cá bảy màu lùn với sọc đen dọc thân trong bể",
       "best": true,
       "kind": "pair"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/120872198.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/120872198-480.webp",
-      "width": 1024,
-      "height": 988,
-      "licence": "CC0",
-      "author": "natalie",
-      "sourceUrl": "https://www.inaturalist.org/photos/120872198",
-      "caption": "Cá bảy màu lùn ngoài tự nhiên trên nền cát sỏi",
-      "best": true,
-      "kind": "habitat"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/344116294.webp",
@@ -372,6 +336,42 @@
       "caption": "Cá bảy màu lùn bơi trong nước, thân xanh xám",
       "best": false,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/604374120.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/604374120-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "geosesarma",
+      "sourceUrl": "https://www.inaturalist.org/photos/604374120",
+      "caption": "Cặp cá bảy màu lùn trong bể ảnh nhỏ, bắt từ tự nhiên",
+      "best": true,
+      "kind": "pair"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/386790975.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/386790975-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Audrey Witherington",
+      "sourceUrl": "https://www.inaturalist.org/photos/386790975",
+      "caption": "Cá bảy màu lùn ngoài tự nhiên, nhìn từ trên xuống trên nền đá",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/120872198.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/120872198-480.webp",
+      "width": 1024,
+      "height": 988,
+      "licence": "CC0",
+      "author": "natalie",
+      "sourceUrl": "https://www.inaturalist.org/photos/120872198",
+      "caption": "Cá bảy màu lùn ngoài tự nhiên trên nền cát sỏi",
+      "best": true,
+      "kind": "habitat"
     }
   ],
   "seen": 320,

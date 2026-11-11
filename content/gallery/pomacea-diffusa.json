@@ -62,18 +62,6 @@
       "kind": "pair"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/248052622.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/248052622-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Louis Backstrom",
-      "sourceUrl": "https://www.inaturalist.org/photos/248052622",
-      "caption": "Ốc Pomacea diffusa vỏ nâu cam bên mép nước",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/commons/b55acc72a14c7916.webp",
       "thumb": "https://media.aquatome.com/commons/b55acc72a14c7916-480.webp",
       "width": 1200,
@@ -86,18 +74,6 @@
       "kind": "other"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/248052636.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/248052636-480.webp",
-      "width": 1024,
-      "height": 683,
-      "licence": "CC BY",
-      "author": "Louis Backstrom",
-      "sourceUrl": "https://www.inaturalist.org/photos/248052636",
-      "caption": "Ốc Pomacea diffusa vỏ cam trong nước tối ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/commons/6a8b3200e88825ec.webp",
       "thumb": "https://media.aquatome.com/commons/6a8b3200e88825ec-480.webp",
       "width": 1200,
@@ -106,18 +82,6 @@
       "author": "Dat doris",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Blasenschnecke_04.jpg",
       "caption": "Ốc mystery sọc nâu bám trên gỗ trong bể thủy sinh",
-      "best": true,
-      "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/505012227.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/505012227-480.webp",
-      "width": 1024,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Luke Lythgoe",
-      "sourceUrl": "https://www.inaturalist.org/photos/505012227",
-      "caption": "Ốc mystery Pomacea diffusa bò trong bể thủy sinh",
       "best": true,
       "kind": "other"
     },
@@ -156,6 +120,42 @@
       "caption": "Ốc mystery ăn thức ăn trong bể thủy sinh",
       "best": false,
       "kind": "group"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/248052622.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/248052622-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Louis Backstrom",
+      "sourceUrl": "https://www.inaturalist.org/photos/248052622",
+      "caption": "Ốc Pomacea diffusa vỏ nâu cam bên mép nước",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/248052636.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/248052636-480.webp",
+      "width": 1024,
+      "height": 683,
+      "licence": "CC BY",
+      "author": "Louis Backstrom",
+      "sourceUrl": "https://www.inaturalist.org/photos/248052636",
+      "caption": "Ốc Pomacea diffusa vỏ cam trong nước tối ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/505012227.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/505012227-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Luke Lythgoe",
+      "sourceUrl": "https://www.inaturalist.org/photos/505012227",
+      "caption": "Ốc mystery Pomacea diffusa bò trong bể thủy sinh",
+      "best": true,
+      "kind": "other"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/128999990.webp",

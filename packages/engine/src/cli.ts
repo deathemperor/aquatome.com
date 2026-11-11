@@ -7,6 +7,7 @@ import { fileURLToPath } from 'node:url'
 import { parseArgs } from 'node:util'
 import { loadAll, SOURCE_IDS, vnDate, type SourceId } from '@aq/schema'
 import { WRITTEN_LANGS, WRITTEN_OTHER_LANGS } from '@aq/schema/langs'
+import { nameStep } from './ceiling'
 import { LlmError, claudeCli, claudeResearch, claudeVision } from './claude'
 import { accountReport, rejectedTokens } from './claude-accounts'
 import { makeProduct } from './products'
@@ -17,7 +18,8 @@ import { HOLD_CLASSES, holdGuides, type HoldClass } from './video-hold'
 import { ungarble } from './ungarble'
 import { redoUnread } from './unread-redo'
 import { videoMend } from './video-mend'
-import { BACKFILL_KINDS, reviewBackfill, type BackfillKind } from './review-backfill'
+import { BACKFILL_KINDS, lowVideoGuides, reviewBackfill, type BackfillKind } from './review-backfill'
+import { NEAR_BAR } from './quality'
 import { allTraces } from './review-log'
 import { reviewReport } from './review-report'
 import { auditPictures } from './audit'
@@ -146,7 +148,7 @@ const readersWanted = (() => {
 /** No people or marks: the model guide-photos and video-stills ask. */
 const guidePhotoLook: GuidePhotoDeps['look'] = (file, prompt) => claudeVision({ system: 'You look at pictures for an aquarium handbook. Reply only with JSON.', prompt, schema: GUIDE_PHOTO_SCHEMA, file, model: process.env.GUIDE_PHOTOS_MODEL ?? 'opus' })
 
-const { positionals, values } = parseArgs({ allowPositionals: true, options: { manifest: { type: 'string' }, heads: { type: 'boolean' }, 'back-check': { type: 'boolean' }, sources: { type: 'string' }, phrases: { type: 'boolean' }, calendar: { type: 'boolean' }, except: { type: 'string' }, limit: { type: 'string' }, fill: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' }, channels: { type: 'string' }, lang: { type: 'string' }, category: { type: 'string' }, type: { type: 'string' }, kind: { type: 'string' }, 'based-on': { type: 'string' }, match: { type: 'string' }, 'dry-run': { type: 'boolean' }, backfill: { type: 'boolean' }, seed: { type: 'string' }, parallel: { type: 'string' }, jobs: { type: 'string' }, sheets: { type: 'string' }, shard: { type: 'string' }, pages: { type: 'string' }, fix: { type: 'boolean' }, rewrites: { type: 'string' }, popular: { type: 'boolean' }, titles: { type: 'string' }, 'photo-cap': { type: 'string' }, records: { type: 'string' }, 'no-new-pages': { type: 'boolean' }, video: { type: 'string' }, 'reviewed-before': { type: 'string' }, 'rechecked-since': { type: 'string' }, class: { type: 'string' }, clear: { type: 'boolean' }, days: { type: 'string' }, check: { type: 'boolean' }, gsc: { type: 'string' }, from: { type: 'string' }, mends: { type: 'string' } } })
+const { positionals, values } = parseArgs({ allowPositionals: true, options: { manifest: { type: 'string' }, heads: { type: 'boolean' }, 'back-check': { type: 'boolean' }, sources: { type: 'string' }, phrases: { type: 'boolean' }, calendar: { type: 'boolean' }, except: { type: 'string' }, limit: { type: 'string' }, fill: { type: 'string' }, 'max-minutes': { type: 'string' }, only: { type: 'string' }, 'retry-blocked': { type: 'boolean' }, force: { type: 'boolean' }, top: { type: 'string' }, playlist: { type: 'string' }, redo: { type: 'boolean' }, channels: { type: 'string' }, lang: { type: 'string' }, category: { type: 'string' }, type: { type: 'string' }, kind: { type: 'string' }, 'based-on': { type: 'string' }, match: { type: 'string' }, 'dry-run': { type: 'boolean' }, backfill: { type: 'boolean' }, seed: { type: 'string' }, parallel: { type: 'string' }, jobs: { type: 'string' }, sheets: { type: 'string' }, shard: { type: 'string' }, pages: { type: 'string' }, fix: { type: 'boolean' }, rewrites: { type: 'string' }, popular: { type: 'boolean' }, titles: { type: 'string' }, 'photo-cap': { type: 'string' }, records: { type: 'string' }, 'no-new-pages': { type: 'boolean' }, video: { type: 'string' }, 'reviewed-before': { type: 'string' }, 'rechecked-since': { type: 'string' }, class: { type: 'string' }, clear: { type: 'boolean' }, days: { type: 'string' }, check: { type: 'boolean' }, gsc: { type: 'string' }, from: { type: 'string' }, mends: { type: 'string' }, first: { type: 'string' } } })
 
 /**
  * Openverse's API (anonymous: 20 requests a minute, 200 a day). A registered Openverse app raises that: its client id and
@@ -177,6 +179,8 @@ const galleryDeps = (): GalleryDeps => ({
   look: (file, prompt) => claudeVision<Vet>({ system: 'You pick photos for a fish or plant photo gallery. Reply only with JSON.', prompt, schema: GALLERY_VET, file }),
 })
 const cmd = positionals[0]
+// The command, wherever it stood among the options, is the name its model calls are counted under (ceiling.ts).
+nameStep(cmd)
 
 // At the end of every command that called Claude: what each account answered, and which were set aside and why
 // (claude-accounts.ts), in the log and on the GitHub run's summary page. 'exit': some commands end with process.exit().
@@ -681,10 +685,20 @@ if (cmd === 'run' || cmd === 'card-fill') {
   const r = await reviewBackfill({ root: ROOT, llm: claudeCli, now: () => new Date(), yt: youtube() }, {
     ...(kinds ? { kinds: kinds as BackfillKind[] } : {}), limit: Number(values.limit ?? 10), ...(values.only ? { only: values.only.split(',').map(s => s.trim()).filter(Boolean) } : {}),
     ...(before ? { reviewedBefore: before, rank: (p: { id: string }) => (p.id.startsWith('guides/') ? rank!(p.id.slice('guides/'.length)) : []) } : {}), parallel: Number(values.parallel ?? 1),
+    band: NEAR_BAR, // three reads within 0.2 of the bar, the middle one counts (the chief of staff, 2026-11-11)
   })
   for (const x of r.checked) console.log(`  ${x}`)
   for (const x of r.failed) console.log(`  failed: ${x}`)
   console.log(`review-backfill: ${r.checked.length} reviewed again, ${r.failed.length} failed, left ${Object.entries(r.left).map(([k, n]) => `${k} ${n}`).join(', ') || 'none'}${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+} else if (cmd === 'review-backfill-97') {
+  // The video guides in search whose newest second read failed at 0.55 or under: two more reads each, the middle one
+  // counts, before any closes (the chief of staff, 2026-11-11). A command of its own, so its spend is its own step's line
+  // in the daily ceilings, not second reads'. --limit N pages a run; --parallel N at once.
+  const ids = await lowVideoGuides(ROOT)
+  const r = await reviewBackfill({ root: ROOT, llm: claudeCli, now: () => new Date(), yt: youtube() }, { kinds: ['video-guide'], only: ids, limit: Number(values.limit ?? 20), parallel: Number(values.parallel ?? 1), fromLastRead: true, band: Infinity })
+  for (const x of r.checked) console.log(`  ${x}`)
+  for (const x of r.failed) console.log(`  failed: ${x}`)
+  console.log(`review-backfill-97: ${ids.length} low, ${r.checked.length} read again, ${r.failed.length} failed, left ${r.left['video-guide'] ?? 0}${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
 } else if (cmd === 'video-hold') {
   // Video guides held out of the chat until they pass the stricter reviewer (video-hold.ts): --class risk1 (medicine,
   // doses, chemicals, treatments), risk2 (water), risk3 (the rest) or all; --clear lets that class back in.
@@ -932,9 +946,10 @@ if (cmd === 'run' || cmd === 'card-fill') {
   // first, each page once, reviewer-gated:
   // pnpm engine rewrite-vi [--limit N] [--only guides,species,plants,glossary] [--match <regex>: re-edit pages containing it]
   //   [--phrases: re-edit pages with a phrase from the Vietnamese list (phrases.ts)] [--dry-run: list the pages and parts, no model call]
+  //   [--first species/<id>,…: these first, in this order, when due]
   const kinds = values.only?.split(',').filter((k): k is (typeof REWRITE_KINDS)[number] => (REWRITE_KINDS as readonly string[]).includes(k))
   const match = values.phrases ? phraseMatch('vi') : values.match ? new RegExp(values.match, 'i') : undefined
-  const r = await rewriteExisting(join(ROOT, 'content'), join(ROOT, 'engine-state/vi-rewrite.json'), { llm: claudeCli, opts: VI_WRITE, now: () => new Date() }, { limit: values.limit ? Number(values.limit) : 10, kinds, ...(match ? { match } : {}), dry: values['dry-run'] })
+  const r = await rewriteExisting(join(ROOT, 'content'), join(ROOT, 'engine-state/vi-rewrite.json'), { llm: claudeCli, opts: VI_WRITE, now: () => new Date() }, { limit: values.limit ? Number(values.limit) : 10, kinds, ...(match ? { match } : {}), dry: values['dry-run'], ...(values.first ? { first: values.first.split(',') } : {}) })
   if (values['dry-run']) console.log(`rewrite-vi (dry run): ${r.done.length} pages, ${r.done.reduce((n, x) => n + Number(/\((\d+) parts?\)/.exec(x)?.[1] ?? 0), 0)} parts, each a write and a review (and a second try under the bar)`)
   else console.log(`rewrite-vi: ${r.done.length} rewritten, ${r.kept.length} kept as they were, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
   for (const x of r.done) console.log(`${values['dry-run'] ? 'would rewrite' : 'rewritten'}: ${x}`)

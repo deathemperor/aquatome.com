@@ -7,6 +7,7 @@ import { OTHER_LANGS, type WrittenOtherLang } from '@aq/schema/langs'
 import { LlmError, type Llm } from './claude'
 import { itemReviews, lastKept, logReviews, type Review } from './review-log'
 import { pickSlug } from './merge'
+import { steadyRead, WRITER_BAND } from './quality'
 import { shopIds } from './shops'
 import { sanitizeHtml } from './sanitize'
 
@@ -248,11 +249,11 @@ export async function localizeSpecies(root: string, llm: Llm, lang: TargetLang, 
       if (changes) {
         const { prev, kept, due, still } = changes
         let w = await write(llm, lang, species, due, [], o.model, kept.flatMap(p => (prev.sections[p.id] ? [{ id: p.id, text: prev.sections[p.id]! }] : [])))
-        let r = await review(llm, lang, due, w.parts)
+        let r = await steadyRead(() => review(llm, lang, due, w.parts), WRITER_BAND)
         const tries = [r]
         if (r.score < QUALITY_THRESHOLD) {
           const again = await write(llm, lang, species, due, r.notes, o.model, kept.flatMap(p => (prev.sections[p.id] ? [{ id: p.id, text: prev.sections[p.id]! }] : [])))
-          const r2 = await review(llm, lang, due, again.parts)
+          const r2 = await steadyRead(() => review(llm, lang, due, again.parts), WRITER_BAND)
           tries.push(r2)
           if (r2.score > r.score) { w = again; r = r2 }
         }
@@ -284,11 +285,11 @@ export async function localizeSpecies(root: string, llm: Llm, lang: TargetLang, 
       // A redo starts from what the last review of the page on the site found, when it was under the bar.
       const before = o.redo ? await lastKept(root, { id: `${kind}/${id}`, lang }, ['localize']) : undefined
       let w = await write(llm, lang, species, parts, before && before.score < QUALITY_THRESHOLD ? before.notes : [], o.model)
-      let r = await review(llm, lang, parts, w.parts)
+      let r = await steadyRead(() => review(llm, lang, parts, w.parts), WRITER_BAND)
       const tries = [r]
       if (r.score < QUALITY_THRESHOLD) {
         const again = await write(llm, lang, species, parts, r.notes, o.model)
-        const r2 = await review(llm, lang, parts, again.parts)
+        const r2 = await steadyRead(() => review(llm, lang, parts, again.parts), WRITER_BAND)
         tries.push(r2)
         if (r2.score > r.score) { w = again; r = r2 }
       }
@@ -380,11 +381,11 @@ export async function localizeGlossary(root: string, llm: Llm, lang: TargetLang,
       // A redo starts from what the last reviews of these terms on the site found, when they were under the bar.
       const before = o.redo ? (await Promise.all(batch.map(x => lastKept(root, { id: `glossary/${x.id}`, lang }, ['glossary'])))).filter(t => !!t && t.score < QUALITY_THRESHOLD).flatMap(t => t!.notes) : []
       let w = await write([...new Set(before)])
-      let r = await review(w)
+      let r = await steadyRead(() => review(w), WRITER_BAND)
       const tries = [r]
       if (r.score < QUALITY_THRESHOLD) {
         const again = await write(r.notes)
-        const r2 = await review(again)
+        const r2 = await steadyRead(() => review(again), WRITER_BAND)
         tries.push(r2)
         if (r2.score > r.score) { w = again; r = r2 }
       }
@@ -464,7 +465,7 @@ export async function localizePlaces(root: string, llm: Llm, lang: TargetLang, o
     try {
       const w = await llm<{ places: { id: string; name: string }[] }>({ system: `You name places in ${TARGETS[lang].lang}. Reply only with JSON.`, schema: PLACES_SCHEMA, model: o.model, prompt: `${fill(PLACES, lang)}\n\n--- PLACES ---\n${batch.map(x => x.line).join('\n')}` })
       const named = new Map(w.places.map(p => [p.id, p.name.trim()]))
-      const checked = await reviewPlaces(llm, lang, batch, named)
+      const checked = await steadyRead(() => reviewPlaces(llm, lang, batch, named), WRITER_BAND)
       const score = checked.score
       report.reviews.push(`${batch[0]!.id}…: ${score}${checked.notes.length ? `\n  - ${checked.notes.join('\n  - ')}` : ''}`)
       for (const x of batch) {

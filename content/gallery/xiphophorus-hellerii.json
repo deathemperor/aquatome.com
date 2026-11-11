@@ -87,18 +87,6 @@
       }
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/177220108.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/177220108-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "Lawrence Hylton",
-      "sourceUrl": "https://www.inaturalist.org/photos/177220108",
-      "caption": "Cá kiếm xanh sống ngoài tự nhiên, bơi trên nền bùn cát",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/298703517.webp",
       "thumb": "https://media.aquatome.com/inaturalist/298703517-480.webp",
       "width": 1024,
@@ -668,6 +656,18 @@
       "caption": "Cá kiếm xanh cái nhỏ màu vàng trong bể chụp ảnh",
       "best": false,
       "kind": "female"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/177220108.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/177220108-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Lawrence Hylton",
+      "sourceUrl": "https://www.inaturalist.org/photos/177220108",
+      "caption": "Cá kiếm xanh sống ngoài tự nhiên, bơi trên nền bùn cát",
+      "best": true,
+      "kind": "habitat"
     }
   ],
   "seen": 258,

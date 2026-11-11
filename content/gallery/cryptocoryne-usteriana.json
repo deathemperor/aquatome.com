@@ -2,18 +2,6 @@
   "id": "cryptocoryne-usteriana",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/255933719.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/255933719-480.webp",
-      "width": 1024,
-      "height": 771,
-      "licence": "CC BY",
-      "author": "Creepy Crawlies",
-      "sourceUrl": "https://www.inaturalist.org/photos/255933719",
-      "caption": "Cryptocoryne usteriana mọc trên đá ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/tropica/e837776155d35e10.webp",
       "thumb": "https://media.aquatome.com/tropica/e837776155d35e10-480.webp",
       "width": 1000,
@@ -66,6 +54,18 @@
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Cryptocoryneusteriana(120)/18405",
       "source": "tropica",
       "kind": "submersed"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/255933719.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/255933719-480.webp",
+      "width": 1024,
+      "height": 771,
+      "licence": "CC BY",
+      "author": "Creepy Crawlies",
+      "sourceUrl": "https://www.inaturalist.org/photos/255933719",
+      "caption": "Cryptocoryne usteriana mọc trên đá ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
     }
   ],
   "seen": 3,

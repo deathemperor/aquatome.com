@@ -26,18 +26,6 @@
       "kind": "form"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/545966972.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/545966972-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "olmagon",
-      "sourceUrl": "https://www.inaturalist.org/photos/545966972",
-      "caption": "Cá sặc lùn màu cam nhạt bơi trong bể cảnh",
-      "best": true,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/186507841.webp",
       "thumb": "https://media.aquatome.com/inaturalist/186507841-480.webp",
       "width": 1024,
@@ -374,6 +362,18 @@
       "caption": "Cá sặc lùn đực màu đỏ sẫm trong bể",
       "best": false,
       "kind": "male"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/545966972.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/545966972-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "olmagon",
+      "sourceUrl": "https://www.inaturalist.org/photos/545966972",
+      "caption": "Cá sặc lùn màu cam nhạt bơi trong bể cảnh",
+      "best": true,
+      "kind": "other"
     }
   ],
   "seen": 73,

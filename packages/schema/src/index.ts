@@ -4,7 +4,7 @@ export { containsBox, coverWindow, validPixelBox, validCropGeometry, cropFitsFra
 export type * from './types'
 export { slugify } from './slug'
 export { isVietnamese, markVietnameseNames, nameKey } from './text'
-export { POPULAR, POPULAR_BREEDS, STAPLE_SPECIES } from './staples'
+export { FIRST_GUIDES, FIRST_PLANTS, POPULAR, POPULAR_BREEDS, STAPLE_SPECIES } from './staples'
 export { PLACE_ALIASES } from './places'
 export { countryCodes, countryKey, countryName, countryOf, isCountryCode, namesCountry, placeCountry } from './countries'
 export { byCount, CELL_DEG, recordsInside, recordsOutside, type Cell } from './range'

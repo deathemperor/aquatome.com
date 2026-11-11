@@ -43,9 +43,11 @@ jobs:
           if [ "$age" -ge $(( ${EVERY:-170} * 60 )) ]; then echo run=true >> "$GITHUB_OUTPUT"; else echo run=false >> "$GITHUB_OUTPUT"; fi
   cycle:
     needs: due
-    # CLAUDE_ON_CI=off pauses the rewrite. Unset, or any other value, and it runs.
-    # The due check above still runs.
-    if: needs.due.outputs.run == 'true' && vars.CLAUDE_ON_CI != 'off'
+    # CLAUDE_ON_CI=off pauses the rewrite. Unset, or any other value, and it runs. The due check above still runs.
+    # ENGINE_ON_CI=on runs the rewrite while CLAUDE_ON_CI stays off: the rewrite's model calls are logged and under
+    # its steps' ceilings (ceiling.ts), where the other workflows that switch pauses (the AI page review, the auto-fix,
+    # the nightly AI review) call Claude on the same accounts with no log and no ceiling.
+    if: needs.due.outputs.run == 'true' && (vars.CLAUDE_ON_CI != 'off' || vars.ENGINE_ON_CI == 'on')
     name: 'Content cycle: rewrite'
     runs-on: ubuntu-latest
     timeout-minutes: 355
@@ -64,6 +66,51 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           AB_DASH_TOKEN: ${{ secrets.AB_DASH_TOKEN }}
           CF_ACCOUNT_ID: ${{ vars.CF_ACCOUNT_ID }}
+      # The cost log is the day's spend, which each step's ceiling is counted from (ceiling.ts). A runner's /tmp is empty
+      # each run, so the newest copy is restored and this run's is saved under a key of its own (a run again is another
+      # attempt, so another key: a key can be saved once). Cycles never overlap (the `engine` group above), so the
+      # newest copy has every earlier run's lines. Lines older than 8 days go, so the file stays small.
+      - name: Restore the cost log
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: /tmp/aquatome-cost-rewrite.jsonl
+          key: engine-cost-log-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: engine-cost-log-
+      - name: Drop cost lines older than 8 days
+        run: |
+          node -e '
+          const fs = require("node:fs");
+          const p = "/tmp/aquatome-cost-rewrite.jsonl";
+          let text;
+          try { text = fs.readFileSync(p, "utf8"); } catch { process.exit(0); }
+          const cut = Date.now() - 8 * 24 * 3600 * 1000;
+          const keep = [];
+          for (const line of text.split("\n")) {
+            if (!line) continue;
+            try {
+              const at = new Date(JSON.parse(line).at).getTime();
+              if (Number.isNaN(at) || at >= cut) keep.push(line);
+            } catch { keep.push(line); }
+          }
+          fs.writeFileSync(p, keep.length ? keep.join("\n") + "\n" : "");
+          '
+      # Moderation runs in its own workflow and has no ceiling, but what it spends counts toward the day's backstop:
+      # ceiling.ts adds up every aquatome-cost-*.jsonl beside the rewrite's log. Each of its runs keeps its cost lines
+      # with the run (moderate.yml), and the last 30 runs' are brought here. A run that kept none is passed over, and a
+      # failure here leaves the day's sum without them rather than stopping the cycle.
+      - name: Bring moderation's cost lines beside the rewrite's
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          : > /tmp/aquatome-cost-moderate.jsonl
+          for id in $(gh run list -R "$GITHUB_REPOSITORY" -w moderate.yml -L 30 --json databaseId -q '.[].databaseId'); do
+            dir="$(mktemp -d)"
+            if gh run download "$id" -R "$GITHUB_REPOSITORY" -n moderate-cost-log -D "$dir" 2>/dev/null; then
+              cat "$dir"/*.jsonl >> /tmp/aquatome-cost-moderate.jsonl
+            fi
+          done
+          echo "moderation's cost lines: $(wc -l < /tmp/aquatome-cost-moderate.jsonl)"
       - name: Run this part, test, commit, push, deploy
         run: scripts/engine-cycle.sh rewrite
         env:
@@ -71,10 +118,17 @@ jobs:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # The owner's other Claude accounts, one token a line: the next when one is out (claude-accounts.ts).
           CLAUDE_CODE_OAUTH_TOKENS: ${{ secrets.CLAUDE_CODE_OAUTH_TOKENS }}
-          # The pace of the languages not served yet, which share the accounts' weekly limit with the served ones: repository
-          # variables, so it changes without a commit. AHEAD_BEFORE_MINUTES 0 pauses them; unset, engine-cycle.sh's defaults.
+          # The pace of the languages not served yet, and of Malay, which share the accounts' weekly limit with the others:
+          # repository variables, so it changes without a commit; unset, engine-cycle.sh's defaults. AHEAD_BEFORE_MINUTES 0
+          # pauses Malay's steps but its species, which run ungated (2026-11-12); LOCALIZE_AHEAD_LIMIT 0 pauses those.
           AHEAD_BEFORE_MINUTES: ${{ vars.AHEAD_BEFORE_MINUTES }}
           LOCALIZE_AHEAD_LIMIT: ${{ vars.LOCALIZE_AHEAD_LIMIT }}
+      - name: Save the cost log
+        if: always()
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: /tmp/aquatome-cost-rewrite.jsonl
+          key: engine-cost-log-${{ github.run_id }}-${{ github.run_attempt }}
       - name: Keep the cost log (a line a model call, with its account)
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2

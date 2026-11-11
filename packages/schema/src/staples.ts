@@ -21,6 +21,33 @@ export const POPULAR = [
   'Caridina cantonensis', 'Pomacea diffusa', 'Vittina natalensis',
 ]
 
+/**
+ * Khám phá's plants (plant ids), in the order a Vietnamese hobbyist meets them: first-tank plants, then those tied to
+ * wood and stone, easy rooted plants and stems, and carpets. Curation's list of 11 Nov 2026, from 436 Vietnamese forum
+ * and blog posts and each page's difficulty and placement.
+ */
+export const FIRST_PLANTS = [
+  'ceratophyllum-demersum', 'egeria-densa', 'spirodela-polyrrhiza', 'azolla', 'limnobium-laevigatum', 'salvinia-minima',
+  'ceratopteris-thalictroides', 'vallisneria-spiralis', 'taxiphyllum-barbieri', 'anubias-barteri-nana', 'microsorum-pteropus',
+  'taxiphyllum-alternans', 'vesicularia-montagnei', 'bucephalandra', 'aegagropila-linnaei', 'limnophila-sessiliflora',
+  'rotala-rotundifolia', 'hygrophila-polysperma-rosanervig', 'bacopa-monnieri', 'limnophila-aromatica', 'ludwigia-repens',
+  'cryptocoryne-x-willisii', 'echinodorus-grisebachii', 'hydrocotyle-tripartita', 'nymphaea-stellata', 'aponogeton-longiplumulosus',
+  'eleocharis-acicularis', 'helanthium-tenellum', 'staurogyne-repens', 'pogostemon-helferi', 'micranthemum-tweediei-monte-carlo',
+  'micranthemum-callitrichoides',
+]
+
+/**
+ * Khám phá's first guides (guide ids), in the order a beginner needs them: the whole picture, then the tank and its
+ * filter, a new tank's first weeks, the first fish, and the weekly and monthly jobs. Curation's list of 11 Nov 2026.
+ */
+export const FIRST_GUIDES = [
+  'youtube-vyNU5afRdkU', 'youtube-_ZxeBxNRdPU', 'youtube-8ov1q3r56Kw', 'youtube-P8xilUdFS08', 'youtube-NuqFo5_oJ2s',
+  'aquariumbreeder-new-tank-syndrome', 'youtube-WKr4WfuEQWU', 'aquatome-chon-ca-khoe-khi-mua-o-cua-hang-dau-hieu-ca-benh-can-tranh-va-cau-hoi-nen-hoi',
+  'aquatome-tha-ca-moi-mua-vao-be-cach-thuan-nuoc-dung', 'aquatome-cho-ca-an-bao-nhieu-va-may-lan-mot-ngay-tranh-cho-an-qua-nhieu',
+  'youtube-qgic_Fj3WS4', 'aquatome-ve-sinh-loc-be-ca-dung-cach-de-khong-mat-vi-sinh',
+  'aquatome-ngo-doc-amoni-va-nitrit-trong-be-ca-dau-hieu-va-cach-cuu-ca', 'aquatome-cach-ly-ca-moi-mua-be-cach-ly-va-quy-trinh',
+]
+
 /** The bred fish (breed ids) Vietnamese hobbyists and shops keep most, most popular first: their galleries are filled like what shops sell (engine/gallery-plan). */
 export const POPULAR_BREEDS = [
   'balloon-molly', 'koi', 'flowerhorn-cichlid', 'blood-parrot-cichlid',

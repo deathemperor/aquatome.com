@@ -27,6 +27,15 @@ trap 'rm -f "$PIDFILE"' EXIT
 . "$HOME/.nvm/nvm.sh" && nvm use --silent "$(cat .nvmrc)"
 COOKIES="$HOME/.config/aquatome/yt-cookies-from"
 [ -s "$COOKIES" ] && export YT_COOKIES_FROM="$(cat "$COOKIES")"
+# Claude: the engine's accounts, one token a line as in GitHub's CLAUDE_CODE_OAUTH_TOKENS, not the owner's own login
+# (as engine-cycle.sh). Until 11 Nov 2026 this job had no list and ran on the Mac's login, with no cost log: about 93
+# new video guides a day that no ceiling could count.
+CLAUDE_TOKENS="$HOME/.config/aquatome/claude-oauth-tokens"
+if [ -z "${CLAUDE_CODE_OAUTH_TOKEN:-}${CLAUDE_CODE_OAUTH_TOKENS:-}" ] && [ -s "$CLAUDE_TOKENS" ]; then
+  CLAUDE_CODE_OAUTH_TOKENS="$(cat "$CLAUDE_TOKENS")"; export CLAUDE_CODE_OAUTH_TOKENS
+fi
+# A line a model call: its cost, tokens and the account it went to (claude.ts), so a week's use can be split by job.
+export ENGINE_COST_LOG="${ENGINE_COST_LOG:-$HOME/Library/Logs/aquatome-cost-videos.jsonl}"
 
 # Start from GitHub's main: anything this clone held unpushed was a run whose push failed, and is redone.
 from_main "$@"
