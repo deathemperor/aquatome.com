@@ -27,6 +27,9 @@ COOL_MINUTES = float(os.environ.get("SIM_RUN_COOL_MINUTES", 30))
 COOL_PAUSE = float(os.environ.get("SIM_RUN_COOL_PAUSE", 30))
 # A simulator's own analysis daemons, never the Mac's: their path is inside a simulator runtime's RuntimeRoot.
 ANALYSIS = re.compile(r"/CoreSimulator/.*/RuntimeRoot/System/Library/PrivateFrameworks/(MediaAnalysis|PhotoAnalysis)\.framework/")
+# A test's own stand-ins only (`SIM_RUN_QUIET_ROOT`, its temporary home): unset, a real run lowers every simulator analysis
+# daemon it can see, and two tests' scans lowered each other's stand-ins.
+QUIET_ROOT = os.environ.get("SIM_RUN_QUIET_ROOT", "")
 QUIET_PAUSE = float(os.environ.get("SIM_RUN_QUIET_PAUSE", 20))
 # The run the next turn is kept for: "<until, epoch seconds> <pid, or a word from its folder or command>", which only the
 # chief of staff writes (scripts/next-turn.py).
@@ -82,7 +85,7 @@ def quiet():
             out = ""
         for line in out.splitlines():
             pid, _, args = line.strip().partition(" ")
-            if pid in done or not ANALYSIS.search(args):
+            if pid in done or not ANALYSIS.search(args) or (QUIET_ROOT and QUIET_ROOT not in args):
                 continue
             done.add(pid)
             try:

@@ -31,12 +31,15 @@ public struct HandbookShelves: Sendable {
   public let browsePlants: [HandbookIndex.Item]
   public let browseGuides: [HandbookIndex.Item]
 
-  /// How many of its list each of Khám phá's shelves shows, after the pages shown above it.
+  /// How many of its list each of Khám phá's shelves shows, after the pages shown above it: seven columns at most, as the
+  /// App Store's shelves (the owner, 11 Nov: "Appstore gives up to 7 columns in total"); fish and plants three to a
+  /// column, guides and video series one.
   public enum Shown {
-    public static let fish = 24
-    public static let plants = 24
-    public static let guides = 12
-    public static let videos = 12
+    public static let columns = 7
+    public static let fish = columns * 3
+    public static let plants = columns * 3
+    public static let guides = columns
+    public static let videos = columns
   }
 
   /// A shelf of `list`: the first `count` of it not among `shown` (the pages on a shelf above). Never more than the list

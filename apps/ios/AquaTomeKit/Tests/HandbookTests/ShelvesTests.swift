@@ -98,21 +98,28 @@ private let words = HandbookIndex.Labels([
   #expect(try paths(shelves(#","browse":{"fish":[]}"#)).isEmpty)
 }
 
-@Test func aShelfShows24AfterADropOf3AndWhatsLeftWhenTheDropIsBiggerThanItsSpare() {
+// Seven columns at most, as the App Store's shelves (the owner, 11 Nov: "Appstore gives up to 7 columns in total"): fish
+// and plants three to a column, guides and video series one.
+@Test func khamPhasShelvesStopAtSevenColumns() {
+  #expect(HandbookShelves.Shown.fish == 21 && HandbookShelves.Shown.plants == 21)
+  #expect(HandbookShelves.Shown.guides == 7 && HandbookShelves.Shown.videos == 7)
+}
+
+@Test func aShelfShows21AfterADropOf3AndWhatsLeftWhenTheDropIsBiggerThanItsSpare() {
   let thirty = (1...30).map { fish("f\($0)", "tetras") }
   let three = Set(["/vi/ca/f1/", "/vi/ca/f2/", "/vi/ca/f3/"])
   let shelf = HandbookShelves.shelf(thirty, showing: HandbookShelves.Shown.fish, after: three)
-  #expect(shelf.count == 24 && shelf.first?.path == "/vi/ca/f4/" && shelf.last?.path == "/vi/ca/f27/")
-  // Nine taken above, past its spare of six: the 21 left, none from past the list.
-  let nine = Set((1...9).map { "/vi/ca/f\($0 * 3)/" })
-  let short = HandbookShelves.shelf(thirty, showing: HandbookShelves.Shown.fish, after: nine)
-  #expect(short.count == 21 && short.allSatisfy { !nine.contains($0.path) } && short.last?.path == "/vi/ca/f30/")
+  #expect(shelf.count == 21 && shelf.first?.path == "/vi/ca/f4/" && shelf.last?.path == "/vi/ca/f24/")
+  // Twelve taken above, past its spare of nine: the 18 left, none from past the list.
+  let twelve = Set((1...12).map { "/vi/ca/f\($0 * 2)/" })
+  let short = HandbookShelves.shelf(thirty, showing: HandbookShelves.Shown.fish, after: twelve)
+  #expect(short.count == 18 && short.allSatisfy { !twelve.contains($0.path) } && short.last?.path == "/vi/ca/f30/")
   // Pages shown above that aren't on the list take nothing off it.
-  #expect(HandbookShelves.shelf(thirty, showing: 24, after: ["/vi/cay/nana/"]).count == 24)
-  // The site's lists of 32 plants and 14 guides: 24 plants, and 12 guides with the top's two of them taken.
+  #expect(HandbookShelves.shelf(thirty, showing: 21, after: ["/vi/cay/nana/"]).count == 21)
+  // The site's lists of 32 plants and 14 guides: 21 plants, and 7 guides with the top's two of them taken.
   let thirtyTwo = (1...32).map { fish("f\($0)", "tetras") }
-  #expect(HandbookShelves.shelf(thirtyTwo, showing: HandbookShelves.Shown.plants, after: three).count == 24)
-  #expect(HandbookShelves.shelf(Array(thirtyTwo.prefix(14)), showing: HandbookShelves.Shown.guides, after: ["/vi/ca/f1/", "/vi/ca/f2/"]).count == 12)
+  #expect(HandbookShelves.shelf(thirtyTwo, showing: HandbookShelves.Shown.plants, after: three).count == 21)
+  #expect(HandbookShelves.shelf(Array(thirtyTwo.prefix(14)), showing: HandbookShelves.Shown.guides, after: ["/vi/ca/f1/", "/vi/ca/f2/"]).count == 7)
 }
 
 @Test func theGlossaryGoesUnderItsFirstLettersAsVietnameseSortsThem() {
