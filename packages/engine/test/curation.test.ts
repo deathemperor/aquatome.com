@@ -282,6 +282,69 @@ test("a head's address is its large copy's, and its size is that copy's; a head 
   expect(headOf([], () => true)).toBeUndefined()
 })
 
+const heroWeek = (hero: { page: string; img?: string }[]) => CurationSchema.parse({
+  version: 1, weeks: [{ from: '2026-11-09', to: '2026-11-15', theme: { vi: 'x' }, hero }], days: [],
+})
+
+test("Khám phá's top card that opens a fish's page shows that page's head photo", () => {
+  const other = 'https://media.aquatome.com/commons/5555555555555555.webp'
+  const fishHead = 'https://media.aquatome.com/commons/6666666666666666.webp'
+  const px = { square: 1400, guide: 1400, wide: 1400 }
+  const a = fish('aaaa', { head: { url: fishHead, px }, checked: { [fishHead]: px, [other]: px } })
+  const cur = heroWeek([{ page: 'species/aaaa', img: other }])
+  expect(checkCalendar(cur, [a], '2026-11-09', 0)).toEqual([
+    "week 2026-11-09 hero species/aaaa: its card's photo isn't the page's head photo",
+  ])
+  const { calendar, report } = plan(cur, [a], '2026-11-09', 0)
+  expect(calendar.weeks[0]!.hero[0]!.img).toBe(fishHead)
+  expect(report.heroes).toEqual([`2026-11-09 species/aaaa: ${other} -> ${fishHead}`])
+  expect(checkCalendar(calendar, [a], '2026-11-09', 0)).toEqual([])
+})
+
+test("a Khám phá card over a head too small for it takes the head anyway, and the check reports the head", () => {
+  const smallHead = 'https://media.aquatome.com/commons/7777777777777777.webp'
+  const smallImg = 'https://media.aquatome.com/commons/8888888888888888.webp'
+  const wide = { square: 1400, guide: 1400, wide: 800 }
+  const big = { square: 1600, guide: 1600, wide: 1600 }
+  const small = fish('small', { head: { url: smallHead, px: wide }, checked: { [smallHead]: wide, [smallImg]: big } })
+  const cur = heroWeek([{ page: 'species/small', img: smallImg }])
+  const { calendar, report } = plan(cur, [small], '2026-11-09', 0)
+  expect(calendar.weeks[0]!.hero[0]!.img).toBe(smallHead)
+  expect(report.heroes).toEqual([`2026-11-09 species/small: ${smallImg} -> ${smallHead}`])
+  expect(checkCalendar(calendar, [small], '2026-11-09', 0)).toEqual([
+    'week 2026-11-09 hero species/small: head photo 800 px across, under 1140',
+  ])
+})
+
+test("a Khám phá card that opens a guide keeps its photo and today's check", () => {
+  const g = guide('gg')
+  const cur = heroWeek([{ page: 'guides/gg', img: g.head!.url }])
+  const { calendar, report } = plan(cur, [g], '2026-11-09', 0)
+  expect(calendar.weeks[0]!.hero[0]).toEqual(cur.weeks[0]!.hero[0])
+  expect(checkCalendar(cur, [g], '2026-11-09', 0)).toEqual([
+    'week 2026-11-09 hero guides/gg: photo 600 px across, under 1140',
+  ])
+  expect(report.heroes).toEqual([])
+})
+
+test("a Khám phá card taken off for reader fit takes its page's head too", () => {
+  const other = 'https://media.aquatome.com/commons/5555555555555555.webp'
+  const a = fish('aaaa', { fit: false, fitWhy: 'source' })
+  const cur = { ...heroWeek([{ page: 'species/aaaa', img: other }]), off: { 'species/aaaa': 'reader fit: source' } }
+  const { calendar } = plan(cur, [a], '2026-11-09', 0)
+  expect(calendar.weeks[0]!.hero[0]!.img).toBe(a.head!.url)
+  expect(calendar.off['species/aaaa']).toBe('reader fit: source')
+})
+
+test('planning Khám phá cards does not change the calendar it was given', () => {
+  const other = 'https://media.aquatome.com/commons/5555555555555555.webp'
+  const a = fish('aaaa')
+  const cur = heroWeek([{ page: 'species/aaaa', img: other }])
+  const given = structuredClone(cur)
+  plan(cur, [a], '2026-11-09', 0)
+  expect(cur).toEqual(given)
+})
+
 test("a language's own picks follow the same rule: a card's photo is the page's head", () => {
   const a = fish('aaaa'), g = guide('gg')
   const other = 'https://media.aquatome.com/commons/4444444444444444.webp'
