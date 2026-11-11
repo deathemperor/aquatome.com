@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { metricFigures, roundConverted, roundPage, sourceGives } from '../src/round'
+import { metricFigures, roundConverted, roundPage, sourceGives, US_UNITS } from '../src/round'
 
 const vi = (s: string) => roundConverted(s, 'vi')
 
@@ -66,4 +66,28 @@ test('metric figures as each language writes them, and whether the English sourc
   expect(sourceGives('bể 57 hoặc 76 lít', 'A 15 or 20 gallon tank; 20 gallons (76 litres) is better.', 'vi')).toBe(false)
   expect(sourceGives('nhiệt độ 22,8 ºC, bể 60 cm', 'at 73 °F, in a 60 cm tank', 'vi')).toBe(false)
   expect(sourceGives('ตู้ยาว 2 ฟุต (60 ซม.)', 'a 2 ft (60 cm) tank', 'th')).toBe(false) // a foot left on the page
+})
+
+test("one kind of joiner to a figure: a pH beside a temperature isn't read as degrees, nor a count of changes as litres", () => {
+  // A range, a choice and a range in one line are three figures: only the one the unit closes is read.
+  expect(metricFigures('pH 6.5–7.5 and 24–28 °C', 'en')).toEqual(['24 c', '28 c'])
+  expect(sourceGives('nhiệt độ 7,5 °C', 'pH 6.5–7.5 and 24–28 °C', 'vi')).toBe(false)
+  expect(metricFigures('a 38 litre tank at pH 6.8 to 7.0 and 23–24.5 °C', 'en')).toEqual(['38 l', '23 c', '24.5 c'])
+  expect(sourceGives('6,8 °C', 'a 38 litre tank at pH 6.8 to 7.0 and 23–24.5 °C', 'vi')).toBe(false)
+  expect(sourceGives('7 °C', 'a 38 litre tank at pH 6.8 to 7.0 and 23–24.5 °C', 'vi')).toBe(false)
+  expect(sourceGives('9,5 °C', 'The lake runs at pH 9.5-10.5 and 32-43.5 °C', 'vi')).toBe(false)
+  expect(metricFigures('pH 6.5 or 7.5 and 75 litres', 'en')).toEqual(['75 l'])
+  expect(metricFigures('26480-L 273-8 and 26480-L', 'en')).toEqual(['26480 l', '26480 l'])
+  // What one kind joins stays one figure.
+  expect(metricFigures('pH of 6–8 and temperatures between 24 and 27°C', 'en')).toEqual(['24 c', '27 c'])
+  expect(metricFigures('20 ลิตร ถึง 115 ลิตร, 24 ถึง 28 องศา', 'th')).toEqual(['20 l', '115 l', '24 c', '28 c'])
+  // "x" joins a tank's sides, never a count and litres or degrees.
+  expect(metricFigures('Do 2 x 10 litre water changes, 2x daily.', 'en')).toEqual(['10 l'])
+  expect(sourceGives('bể 2 lít', 'Do 2 x 10 litre water changes.', 'vi')).toBe(false)
+  expect(metricFigures('60x37.5x30cm, 30 x 12 in x 45 cm, 3 x 10 ml', 'en')).toEqual(['60 cm', '37.5 cm', '30 cm', '45 cm'])
+})
+
+test('the page languages\' US words count only as words of their own, and "kaki" only as a length', () => {
+  for (const s of ['1 gelen', '2 ฟุต', '5 ปอนด์', 'akuarium 3 kaki', 'kedalaman minimal 3–4 kaki', '10 gallon', 'bể 20 ga-lông']) expect(US_UNITS.test(s), s).toBe(true)
+  for (const s of ['menggeleng', 'gelengan', 'Angeleno', '2 ฟุตบอล', '11 ฟุตบอล', '4 kaki', 'kaki rambut', 'ikan berkaki 4']) expect(US_UNITS.test(s), s).toBe(false)
 })

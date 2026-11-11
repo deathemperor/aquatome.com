@@ -82,17 +82,30 @@ export function roundConverted(text: string, lang: UnitLang): string {
 
 /**
  * A figure in US units: gallons, inches (a number's "in" only as a measure: "30 × 12 in", "3 in long"), feet, °F,
- * miles, pounds. Not "5 in a group", "Ft. Lauderdale" or "LB-12". The page languages' own words for them too.
+ * miles, pounds. Not "5 in a group", "Ft. Lauderdale" or "LB-12". The page languages' own words for them too, each a
+ * word of its own ("menggeleng", "ฟุตบอล" aren't), and an Indonesian or Malay "kaki" only after a length word or a tank,
+ * as @aq/schema reads it, since it is a leg too.
  */
-export const US_UNITS = /gallons?|\bgal\b|galon|gelen|ga-?\s?lông|แกลลอน|\binch(?:es)?\b|\binci\b|นิ้ว|\d\s*"|\d\s*in\.?(?=\s*(?:[x×)\],;]|long|deep|tall|high|wide|SL|TL|$))|\d\s*(?:feet|foot|ft|kaki)\b|\d\s*(?:ฟุต|ปอนด์)|°\s?F\b|độ F|\d\s*miles?\b|\d\s*(?:pounds?|lbs?)\b/i
+export const US_UNITS = /gallons?|\bgal\b|galon|(?<!\p{L})gelen(?!\p{L})|ga-?\s?lông|แกลลอน|\binch(?:es)?\b|\binci\b|นิ้ว|\d\s*"|\d\s*in\.?(?=\s*(?:[x×)\],;]|long|deep|tall|high|wide|SL|TL|$))|\d\s*(?:feet|foot|ft)\b|(?<!\p{L})(?:kedalaman|panjang|tinggi|lebar|jarak|sedalam|setinggi|sepanjang|selebar|akuarium|tangki)(?:nya)?[^\d<>]{0,30}?\d+(?:[.,]\d+)?(?:\s*[–-]\s*\d+(?:[.,]\d+)?)?\s*kaki(?!\p{L})|\d\s*(?:ฟุต|ปอนด์)(?![\p{L}\p{M}\p{N}])|°\s?F\b|độ F|\d\s*miles?\b|\d\s*(?:pounds?|lbs?)\b/iu
 
 const END = String.raw`(?![\p{L}\p{N}])`
-/** Metric units, by kind, as the page languages and the English sources write them. Thai runs words together: no end. */
-const METRIC = String.raw`(?:(?<l>(?:lít|liters?|litres?|l)${END}|ลิตร)|(?<cm>(?:cm|centimet(?:er|re)s?)${END}|ซม\.?|เซนติเมตร)|(?<mm>(?:mm|millimet(?:er|re)s?)${END}|มม\.?|มิลลิเมตร)|(?<km>km${END}|กิโลเมตร)|(?<m>(?:m|mét|meters?|metres?)${END}|เมตร)|(?<c>(?:[°º]\s?C|độ C|degrees? C(?:elsius)?)${END}|องศา(?:เซลเซียส)?))`
+/** Metric lengths, by kind, as the page languages and the English sources write them. Thai runs words together: no end. */
+const LENGTHS = String.raw`(?<cm>(?:cm|centimet(?:er|re)s?)${END}|ซม\.?|เซนติเมตร)|(?<mm>(?:mm|millimet(?:er|re)s?)${END}|มม\.?|มิลลิเมตร)|(?<km>km${END}|กิโลเมตร)|(?<m>(?:m|mét|meters?|metres?)${END}|เมตร)`
+/** Metric units, by kind. */
+const METRIC = String.raw`(?:(?<l>(?:lít|liters?|litres?|l)${END}|ลิตร)|${LENGTHS}|(?<c>(?:[°º]\s?C|độ C|degrees? C(?:elsius)?)${END}|องศา(?:เซลเซียส)?))`
 const NUMBER = String.raw`\d+(?:[.,]\d+)*`
-/** What joins the numbers one unit closes: a range, a tank's sides ("91 × 38 × 30 cm"), a choice ("57 hoặc 76 lít"). */
-const JOINER = String.raw`(?:\s*[–\-×x*∗]\s*|\s+(?:to|or|and|đến|tới|hoặc|và|hingga|sampai|atau|dan)\s+|\s*(?:ถึง|หรือ|และ)\s*)`
-const FIGURE = new RegExp(String.raw`(?<![\d.,])(${NUMBER}(?:${JOINER}${NUMBER})*)\s*-?\s*${METRIC}`, 'giu')
+/**
+ * What joins the numbers one unit closes, one kind to a figure: a range ("2,5–5 cm", "24 to 28 °C"), a tank's sides
+ * ("91 × 38 × 30 cm"), a choice of two ("57 hoặc 76 lít", "between 24 and 28 °C"). Mixed, they are separate figures:
+ * "pH 6.5–7.5 and 24–28 °C" is 24 and 28 °C.
+ */
+const RANGE = String.raw`(?:\s*[–\-]\s*|\s+(?:to|đến|tới|hingga|sampai)\s+|\s*ถึง\s*)`
+const BY = String.raw`\s*[×x*∗]\s*`
+const CHOICE = String.raw`(?:\s+(?:or|and|hoặc|và|atau|dan)\s+|\s*(?:หรือ|และ)\s*)`
+/** A tank's sides: "x" joins lengths only ("2 x 10 litre water changes" are changes of 10 litres). */
+const BY_SIDES = new RegExp(String.raw`(?<![\d.,])(${NUMBER}(?:${BY}${NUMBER})+)\s*-?\s*(?:${LENGTHS})`, 'giu')
+/** One number, a range, or a choice of two whose first isn't joined to a number before it ("pH 6.5 or 7.5 and 75 litres" is 75 litres). */
+const FIGURE = new RegExp(String.raw`(?<![\d.,])(${NUMBER}(?:${RANGE}${NUMBER})?|(?<!\d(?:${RANGE}|${BY}|${CHOICE}))${NUMBER}${CHOICE}${NUMBER})\s*-?\s*${METRIC}`, 'giu')
 /** A number as a language writes it: "2,5" and "1.000" in Vietnamese and Indonesian, "2.5" and "1,000" in the others. */
 const numberIn = (s: string, lang: UnitLang | 'en') => Number(lang === 'vi' || lang === 'id' ? s.replace(/\./g, '').replace(',', '.') : s.replace(/,/g, ''))
 /**
@@ -100,7 +113,10 @@ const numberIn = (s: string, lang: UnitLang | 'en') => Number(lang === 'vi' || l
  * "5 cm"], "91 × 38 × 30 cm" three of cm, "11 litres" ["11 l"].
  */
 export function metricFigures(text: string, lang: UnitLang | 'en'): string[] {
-  return [...text.matchAll(FIGURE)].flatMap(m => {
+  const sides = [...text.matchAll(BY_SIDES)]
+  // The sides read, the rest of the text is read without them.
+  const rest = sides.reduce((t, m) => t.slice(0, m.index) + ' '.repeat(m[0].length) + t.slice(m.index + m[0].length), text)
+  return [...sides, ...rest.matchAll(FIGURE)].sort((a, b) => a.index - b.index).flatMap(m => {
     const kind = Object.entries(m.groups ?? {}).find(([, v]) => v !== undefined)![0]
     return m[1]!.match(new RegExp(NUMBER, 'g'))!.map(x => `${numberIn(x, lang)} ${kind}`)
   })
