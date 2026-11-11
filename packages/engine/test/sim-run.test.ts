@@ -171,7 +171,8 @@ test("a stand-in someone else's scan lowered before it was read is started afres
   expect(started).toHaveLength(7)
 })
 
-// The same with real processes and ps, a scan's lowering played by this test: setpriority, as sim-run.py's scan does.
+// The same with real processes and ps, a scan's lowering played by this test: nice 19 on the first stand-in (Node's
+// lowest; sim-run.py's scan sets 20 and a background policy). Any nice but the test's own is a lowered one here.
 test.skipIf(process.platform !== 'darwin')("a real stand-in lowered before it was read is replaced by one that isn't", async () => {
   const kids: ReturnType<typeof spawn>[] = []
   const nice = (pid?: number) => Number(spawnSync('ps', ['-o', 'nice=', '-p', String(pid)], { encoding: 'utf8' }).stdout.trim())
