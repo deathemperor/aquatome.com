@@ -115409,5 +115409,1264 @@
       "Seachem Flourish",
       "app Skylight"
     ]
+  },
+  "vi/guides/youtube--Vx8LD5r_Zs": {
+    "at": "2026-11-11",
+    "hash": "d178f2bfbed250e2",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/youtube-0iIGgk7f55M": {
+    "at": "2026-11-11",
+    "hash": "bacd9bf9b9b736aa",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Sau khoảng hai tuần không thay nước, rêu bám khá nhiều trên đá, lũa có lấm tấm rêu râu đen",
+        "why": "Describes the source's own tank as if the reader had seen it.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Dennerle"
+    ]
+  },
+  "vi/guides/youtube-0PZCQT-99qg": {
+    "at": "2026-11-11",
+    "hash": "232a53a6ee053c9a",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bài này đi qua cách chăm một bể cá Malawi cỡ 175 lít nuôi 10 con Chindongo",
+        "why": "Describes the source writer's own tank as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Lọc thùng của bể này đã được nâng từ loại 350 lên loại 600.",
+        "why": "The source's own tank and its filter model upgrade, unknown to the reader.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Theo kinh nghiệm khi làm cách này",
+        "why": "The source writer's own first-hand experience voice.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "L1",
+        "quote": "nên bể này thay ít nhất 50% nước mỗi tuần",
+        "why": "Refers to the source's own tank as 'this tank'.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "L8",
+        "quote": "Bể ở đây thay ít nhất 50% mỗi tuần",
+        "why": "Refers to the source's own tank as 'the tank here'.",
+        "by": "model"
+      }
+    ],
+    "products": [],
+    "doses": [
+      {
+        "treatment": "dechlorinator",
+        "strength": "",
+        "amount": 1,
+        "amountMax": 0,
+        "unit": "teaspoon",
+        "per": 150,
+        "perUnit": "litre",
+        "use": "water",
+        "method": "other",
+        "quote": "cho một muỗng cà phê gạt ngang vào xô đang hứng nước máy, lượng này đủ cho khoảng 150 lít"
+      }
+    ],
+    "sourceRead": true
+  },
+  "vi/guides/youtube-0xEdMSmpNHo": {
+    "at": "2026-11-11",
+    "hash": "411d64432ec1238c",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Ráy lấy từ bể cũ sang, còn rêu Christmas mini là đồ được tặng.",
+        "why": "Recounts the original writer's own tank history and gift as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P3",
+        "quote": "Lần này bể đã có nước sẵn để giữ lũa luôn ướt",
+        "why": "Refers to 'this time' on the source's own tank, a setup the reader never saw.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Tropica",
+      "keo 502"
+    ]
+  },
+  "vi/guides/youtube-2Wjd1L52uWE": {
+    "at": "2026-11-11",
+    "hash": "2dec58cda746748b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/youtube-4Wjl4LHy2gM": {
+    "at": "2026-11-11",
+    "hash": "b416477486b0362b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể này dùng cây cắt cắm (stem plant) nhiều hơn thường lệ.",
+        "why": "The page describes the source writer's own tank as if the reader already knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "kèm một cách xử lý đèn khi chủ bể đi vắng một tuần",
+        "why": "Refers to the tank's owner, a person the reader doesn't know, from the source's story.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Đây là một cách thử dựa trên suy đoán. Phòng đặt bể có ánh sáng tự nhiên khá tốt",
+        "why": "Carries over the writer's own trial and room, which the reader doesn't know.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "L13",
+        "quote": "Trong bể này, tép cherry và tép Amano vẫn sinh sôi rất mạnh",
+        "why": "The answer points to the source's own tank instead of giving general advice.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "ADA",
+      "Tropica",
+      "Oase Biomaster 600",
+      "Twinstar 1200",
+      "Twinstar Nano Plus",
+      "Green Leaf Aquariums",
+      "Tropica Specialised"
+    ]
+  },
+  "vi/guides/youtube-6d_crutxHts": {
+    "at": "2026-11-11",
+    "hash": "721020202c86bb52",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Ba bể thủy sinh high-tech cỡ 60 cm, 90 cm và 60 cm làm hết chắc khoảng 2 tiếng.",
+        "why": "It talks about the source writer's own three tanks as if the reader already knew them.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-6DwNB5l2CNU": {
+    "at": "2026-11-11",
+    "hash": "dbe7ea6b8ae9cb36",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Seachem Prime"
+    ]
+  },
+  "vi/guides/youtube-9uKsCQMvOuw": {
+    "at": "2026-11-11",
+    "hash": "8dd1b9184cf1eceb",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/youtube-aUeQBE8f--E": {
+    "at": "2026-11-11",
+    "hash": "e1c5baff4239fa5f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Lần set lại này, bể chạy lại hai lọc BioMaster Thermo 600 cho nước lưu thông đều hơn.",
+        "why": "Refers to the source writer's own tank and its rebuild as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "L4",
+        "quote": "Bể này lúc bỏ bớt một lọc thì các vấn đề nhỏ lộ rõ hơn",
+        "why": "Tells the source's own tank story as if the reader knew that tank.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "L14",
+        "quote": "Bể này từng bỏ bớt một lọc và sau đó các vấn đề nhỏ lộ rõ hơn",
+        "why": "Tells the source's own tank story as if the reader knew that tank.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Kessil A360WE Tuna Sun",
+      "A360X",
+      "Tropica Aquarium Soil",
+      "ADA Aqua Soil Amazonia",
+      "BioMaster Thermo 600",
+      "D-D P1",
+      "Tropica Specialised"
+    ],
+    "doses": [
+      {
+        "treatment": "tropica specialised",
+        "strength": "",
+        "amount": 10,
+        "amountMax": 0,
+        "unit": "ml",
+        "per": 0,
+        "perUnit": "",
+        "use": "plants",
+        "method": "wholeTank",
+        "quote": "Có thể cài châm 10 ml phân nước Tropica Specialised mỗi ngày."
+      }
+    ],
+    "sourceRead": true
+  },
+  "vi/guides/youtube-bFriwe5uIDA": {
+    "at": "2026-11-11",
+    "hash": "903ee96bd0bb2829",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/youtube-d7vJR8st364": {
+    "at": "2026-11-11",
+    "hash": "4419bbd6d736ab01",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "tép vẫn đẻ rất nhiều trong mấy bể đang nuôi",
+        "why": "Refers to the original writer's own tanks as if the reader knew them.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-dXwybqRdgUk": {
+    "at": "2026-11-11",
+    "hash": "a64b87b4b4b47d4f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Ở bể 120 cm này, đá giữ nguyên chỗ cũ.",
+        "why": "The page is built around the source writer's own tank, as if the reader already knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "có thể là Cryptocoryne spiralis 'Red' hoặc Cryptocoryne 'Tiger', chưa chắc là loại nào",
+        "why": "This is the original writer unsure about their own plant.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "nên dùng được cho bể nhỏ hơn 120 cm và hình như kéo được tới 140 cm",
+        "why": "The writer is guessing aloud about their own light.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "đầu vào cũng bằng thủy tinh, có lẽ của Blau",
+        "why": "The writer is unsure about their own gear.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Ống vào hiện cũng cần lau chùi một chút.",
+        "why": "This is a remark about the source's own tank at the time it was filmed.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bọt li ti tỏa khắp bể, hy vọng là cây nào cũng được ăn CO2 đều.",
+        "why": "This is the original writer speaking in their own voice about their own tank.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Twinstar 1200SA",
+      "Tropica Soil",
+      "Oase Biomaster 600",
+      "TMC",
+      "Blau"
+    ]
+  },
+  "vi/guides/youtube-eE9BEyCXouM": {
+    "at": "2026-11-11",
+    "hash": "59268c27a72c1b66",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể này vẫn châm CO2 và dùng đèn mạnh hơn mức cây cần, vì mục đích là cho cây lên đẹp nhanh để kịp đem đi triển lãm.",
+        "why": "Describes the source's own display tank and its plan for a show as if the reader knew it.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Tropica"
+    ]
+  },
+  "vi/guides/youtube-gpRfr0-deCw": {
+    "at": "2026-11-11",
+    "hash": "77730134cd0154f9",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể này trồng gần như toàn cây mọc chậm",
+        "why": "Refers to the source writer's own tank as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Ở đây không làm được vậy, chỉ thay được vài lần",
+        "why": "First-person account of the source writer's own tank and actions.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Seachem Flourish Excel"
+    ]
+  },
+  "vi/guides/youtube-HaupU28dhz0": {
+    "at": "2026-11-11",
+    "hash": "dcce7718f8dfa786",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể ở đây là bể 120 cm, đèn mạnh, châm CO2, trồng kín cây, đã qua giai đoạn bị rêu",
+        "why": "Presents the source creator's own tank as if the reader already knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Anubias 'Needle Leaf': loại rất hiếm, đang trồng thử.",
+        "why": "The source keeper's first-person trial of a plant in their own tank.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Lúc mới set, bể này trồng chưa đủ dày và chưa đủ cây lớn nhanh, nên bị rêu.",
+        "why": "Tells the story of the source's tank as if the reader knew it.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Tropica Aquarium Soil",
+      "Twinstar 1200SA",
+      "Oase BioMaster Thermo 600",
+      "Tropica Specialised Nutrition"
+    ],
+    "doses": [
+      {
+        "treatment": "tropica specialised nutrition",
+        "strength": "",
+        "amount": 20,
+        "amountMax": 0,
+        "unit": "ml",
+        "per": 0,
+        "perUnit": "",
+        "use": "plants",
+        "method": "wholeTank",
+        "quote": "20 ml mỗi ngày, châm tự động bằng máy châm phân một kênh"
+      }
+    ],
+    "sourceRead": true
+  },
+  "vi/guides/youtube-i47RRyZxXGY": {
+    "at": "2026-11-11",
+    "hash": "77cdc7128d8eba28",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "dose",
+        "part": "P1",
+        "quote": "Liều cho bể high energy: 5 ml cho mỗi 50 lít, mỗi ngày.",
+        "why": "Gives a dose per volume of a named commercial fertiliser, Aquascaper Complete.",
+        "by": "model",
+        "product": "Aquascaper Complete"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Ví dụ dưới đây là liều ghi trên chai cho bể high energy.",
+        "why": "'High energy' is the English label's term, left untranslated; keepers in Vietnam call such a tank a high-tech tank.",
+        "by": "model",
+        "fix": "bể high-tech (bể có CO2, đèn mạnh)"
+      }
+    ],
+    "products": [
+      "Aquascaper Complete"
+    ],
+    "doses": [
+      {
+        "treatment": "aquascaper complete",
+        "strength": "",
+        "amount": 5,
+        "amountMax": 0,
+        "unit": "ml",
+        "per": 50,
+        "perUnit": "litre",
+        "use": "plants",
+        "method": "wholeTank",
+        "quote": "Liều cho bể high energy: 5 ml cho mỗi 50 lít, mỗi ngày."
+      }
+    ],
+    "sourceRead": true
+  },
+  "vi/guides/youtube-igpCCJlHwb8": {
+    "at": "2026-11-11",
+    "hash": "f1eba1751c8d6867",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "Bể thủy sinh đẹp không nhất thiết phải tốn hàng trăm, hàng nghìn đô.",
+        "why": "Cost given in dollars, written for a reader abroad.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "có thể dưới 100 USD (hoặc dưới 100 bảng Anh)",
+        "why": "Used-kit price in USD and GBP.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "Đèn LED 20W giá khoảng 40–50 bảng Anh (50–60 USD)",
+        "why": "Light price in GBP and USD.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "khoảng 35–40 bảng Anh hoặc 35–40 USD một bao",
+        "why": "Substrate price in foreign currencies.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "Một cốc giá khoảng 5,99 USD",
+        "why": "Plant price in USD.",
+        "by": "model"
+      },
+      {
+        "check": "price",
+        "part": "P1",
+        "quote": "Tiền cây mua mới cho cả bể chỉ khoảng 20–30 bảng Anh.",
+        "why": "Plant budget in GBP.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể dùng ở đây là loại 60 lít trọn bộ, có sẵn đèn, sưởi và lọc trong.",
+        "why": "Describes the source's own tank as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Nghe nói có thể lên khá cao",
+        "why": "The source writer's personal voice and hearsay.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Cách này coi như một lần thử.",
+        "why": "The source's own experiment, told as the writer's story.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "có thể thay ít nhất 50% nước mỗi tuần như cách làm ở bể này",
+        "why": "Refers to the source's own tank routine.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "L6",
+        "quote": "Ở bể này châm phân nước khoảng 3 ml mỗi ngày",
+        "why": "Refers to the source's own tank.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "L12",
+        "quote": "Ở bể 60 lít này, cách làm là thay ít nhất 50% nước mỗi tuần",
+        "why": "Refers to the source's own tank.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "L14",
+        "quote": "Ở bể này tách khóm cỡ 1 cm, và hai cốc cấy mô là đủ.",
+        "why": "Refers to the source's own tank.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Tropica",
+      "1-2-Grow"
+    ],
+    "doses": [
+      {
+        "treatment": "liquid fertiliser",
+        "strength": "",
+        "amount": 3,
+        "amountMax": 0,
+        "unit": "ml",
+        "per": 60,
+        "perUnit": "litre",
+        "use": "plants",
+        "method": "wholeTank",
+        "quote": "Châm phân nước mỗi ngày, ở bể 60 lít này là khoảng 3 ml."
+      }
+    ],
+    "sourceRead": true
+  },
+  "vi/guides/youtube-IK84r-bSKm0": {
+    "at": "2026-11-11",
+    "hash": "b440502f5cd9df77",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể này dùng ba bao phân nền Tropica loại 9 lít.",
+        "why": "The page walks through the source writer's own tank as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Hy vọng là cho điểm đỏ hoặc nâu đỏ, tùy độ sáng",
+        "why": "The original writer's first-person hope about their own planting.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "Hardscape càng mạnh thì bể càng có tiềm năng đẹp.",
+        "why": "A calque of English 'strong hardscape'; Vietnamese keepers don't call a layout 'mạnh'.",
+        "by": "model",
+        "fix": "Bố cục lũa đá càng chắc, càng đẹp thì bể càng dễ đẹp"
+      }
+    ],
+    "products": [
+      "Tropica Aquarium Soil",
+      "Powder",
+      "keo 502"
+    ]
+  },
+  "vi/guides/youtube-kbXHTTdSWQg": {
+    "at": "2026-11-11",
+    "hash": "606576df8bd0f4a7",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Hai bể thủy sinh 75 lít và 115 lít ở đây cho thấy chuyện ngược lại.",
+        "why": "Introduces the original writer's own two tanks as if the reader knew them.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Một bể cá đĩa trồng cây hiện chỉ bật một bóng đèn mà cây vẫn lên tốt",
+        "why": "Mentions another of the writer's own tanks that the reader knows nothing about.",
+        "by": "model"
+      },
+      {
+        "check": "dose",
+        "part": "P1",
+        "quote": "3 lần bơm/ngày",
+        "why": "Gives a daily amount of a named commercial fertiliser for a 75-litre tank.",
+        "by": "model",
+        "product": "Tropica Specialized Nutrition"
+      },
+      {
+        "check": "dose",
+        "part": "P1",
+        "quote": "4 lần bơm/ngày",
+        "why": "Gives a daily amount of a named commercial fertiliser for a 115-litre tank.",
+        "by": "model",
+        "product": "Tropica Specialized Nutrition"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "cây ruby như Alternanthera",
+        "why": "A calque of the English 'ruby plants'; keepers in Vietnam just say red plants.",
+        "by": "model",
+        "fix": "cây màu đỏ"
+      }
+    ],
+    "products": [
+      "Tropica Specialized Nutrition",
+      "Sủi CO2 Tropica 3 trong 1",
+      "OASE FiltoSmart Thermo 100",
+      "BioMaster 600 Thermo"
+    ]
+  },
+  "vi/guides/youtube-LdxHhMZxX_w": {
+    "at": "2026-11-11",
+    "hash": "a635915c25a99541",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "kèm số liệu cụ thể từ một bể dài 120 cm đang chạy ổn định",
+        "why": "Refers to the source writer's own tank as the basis of the page.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P6",
+        "quote": "Bể 120 cm ở đây ban đầu chạy hai lọc, sau bớt còn một",
+        "why": "Tells the source's own tank story as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "elsewhere",
+        "part": "P2",
+        "quote": "Nếu nhà bạn lạnh thì nên tính tới điểm này.",
+        "why": "Assumes a cold-climate home where heating matters, written for readers abroad.",
+        "by": "model"
+      },
+      {
+        "check": "dose",
+        "part": "P8",
+        "quote": "Có thể dùng máy châm phân tự động, mỗi ngày bơm 20 ml vào bể.",
+        "why": "Gives an amount of a named commercial fertiliser.",
+        "by": "model",
+        "product": "Tropica Specialised Nutrition"
+      },
+      {
+        "check": "units",
+        "part": "P4",
+        "quote": "Kính càng dày thì càng thấy rõ khác biệt: với kính 12 mm",
+        "why": "Glass thickness likely converted from half an inch.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Twinstar 1200 SA",
+      "Kessil",
+      "Tropica Aquarium Soil",
+      "ADA Aqua Soil Amazonia",
+      "Oase BioMaster 600 Thermo",
+      "Tropica Specialised Nutrition"
+    ],
+    "doses": [
+      {
+        "treatment": "tropica specialised nutrition",
+        "strength": "",
+        "amount": 20,
+        "amountMax": 0,
+        "unit": "ml",
+        "per": 0,
+        "perUnit": "",
+        "use": "plants",
+        "method": "wholeTank",
+        "quote": "mỗi ngày bơm 20 ml vào bể"
+      }
+    ],
+    "sourceRead": true
+  },
+  "vi/guides/youtube-lSVI3YTPLyc": {
+    "at": "2026-11-11",
+    "hash": "40d683e9248da8b4",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Có vẻ các bụi Cryptocoryne lớn sống sót tốt nhất.",
+        "why": "The original writer reports what happened to their own plants as if the reader had seen it.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-MBq5PgFcmPU": {
+    "at": "2026-11-11",
+    "hash": "07c4acaa10c303a2",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Trong bể này, Hygrophila 'Siamensis 53B' đang hơi xanh nhạt, nghĩa là còn châm thêm được.",
+        "why": "Refers to the source creator's own tank as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể này châm khoảng 3–4 bọt mỗi giây qua bộ khuếch tán gắn trên đường ống (inline).",
+        "why": "Describes the original creator's tank setup as 'this tank'.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Có lúc bể này để cả tháng không thay nước mà vẫn ổn.",
+        "why": "The source's own tank story presented as known to the reader.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Lý do dùng nó ở đây chủ yếu là thực tế: được ngắm bể lâu hơn.",
+        "why": "The original creator's personal reasoning in their own voice.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "L14",
+        "quote": "Theo kinh nghiệm riêng thì nước cứng cần nhiều CO2 hơn",
+        "why": "The writer's personal experience voice from the source video.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "bộ khuếch tán gắn trên đường ống (inline)",
+        "why": "Dictionary rendering of 'inline diffuser'; keepers use a different term.",
+        "by": "model",
+        "fix": "sủi CO2 inline / bộ trộn CO2 inline"
+      }
+    ],
+    "products": [
+      "Tropica Specialised Nutrition"
+    ],
+    "doses": [
+      {
+        "treatment": "tropica specialised nutrition",
+        "strength": "",
+        "amount": 20,
+        "amountMax": 0,
+        "unit": "ml",
+        "per": 0,
+        "perUnit": "",
+        "use": "plants",
+        "method": "wholeTank",
+        "quote": "Có thể dùng phân nước tổng hợp, chẳng hạn Tropica Specialised Nutrition, châm 20 ml mỗi ngày."
+      }
+    ],
+    "sourceRead": true
+  },
+  "vi/guides/youtube-nJJ6DC3Ying": {
+    "at": "2026-11-11",
+    "hash": "80f703258a08e026",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Nhưng các chuyên gia được hỏi thấy không sao",
+        "why": "Refers to experts consulted by the original source, unknown to the reader.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Chủ bể đang cân nhắc tăng liều một chút",
+        "why": "The original tank owner's own plans, presented as if the reader knew him.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Sau đó chủ bể đi vắng gần một tuần.",
+        "why": "Narrates the source owner's personal story.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Một hướng đang được cân nhắc là bể biotope nước đen",
+        "why": "The source's own next project, not guidance for the reader.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "L9",
+        "quote": "Bể trong bài thay nước lớn hai lần mỗi tuần",
+        "why": "Points to the source's tank as if the reader knew it.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Oase Highline 175",
+      "Oase BioMaster 350 Thermo",
+      "Fluval Flex",
+      "Tropica",
+      "Tropica Premium",
+      "Twinstar 1200S",
+      "Oase BioMaster 600 Thermo",
+      "Tropica Specialised",
+      "D-D P1",
+      "GLA",
+      "Neo diffuser"
+    ],
+    "doses": [
+      {
+        "treatment": "tropica specialised",
+        "strength": "",
+        "amount": 15,
+        "amountMax": 0,
+        "unit": "ml",
+        "per": 0,
+        "perUnit": "",
+        "use": "plants",
+        "method": "wholeTank",
+        "quote": "Tropica Specialised, châm tự động bằng máy D-D P1, 15 ml mỗi ngày"
+      }
+    ],
+    "sourceRead": true
+  },
+  "vi/guides/youtube-no6VJHlHHgc": {
+    "at": "2026-11-11",
+    "hash": "9575f746b45adf96",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": []
+  },
+  "vi/guides/youtube-Pug-xKyFd0k": {
+    "at": "2026-11-11",
+    "hash": "202953680b675da9",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể này dài khoảng 150 cm, đóng theo kích thước riêng",
+        "why": "Describes the source creator's own custom tank as if the reader knew it.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "JBL Plant Start",
+      "Tropica Plant Growth Substrate"
+    ]
+  },
+  "vi/guides/youtube-q2nx915LKRA": {
+    "at": "2026-11-11",
+    "hash": "14068fd4543a95ba",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P4",
+        "quote": "Bố cục hoàn chỉnh ở đây chỉ gồm hai lớp đá: lớp trước 3 viên, lớp sau 4 viên",
+        "why": "Describes the source author's own tank as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P5",
+        "quote": "Tổng cộng bể dùng ba bao 9 lít và hai bao 3 lít, tức 33 lít",
+        "why": "Refers to the source's own tank build as if the reader had seen it.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P6",
+        "quote": "Chúng giúp bể chạy chu trình, ổn định sớm",
+        "why": "A word-for-word copy of the English 'cycle the tank'; Vietnamese keepers say 'chạy vi sinh'.",
+        "by": "model",
+        "fix": "giúp bể chạy vi sinh, ổn định sớm"
+      }
+    ],
+    "products": [
+      "Tropica Aquarium Soil"
+    ]
+  },
+  "vi/guides/youtube-RfvEeqEo4wo": {
+    "at": "2026-11-11",
+    "hash": "e55078bf451b0616",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bài này đi qua một bể 60 lít mới set được hai tuần",
+        "why": "The page is built around the original writer's own tank, which it treats as if the reader already knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể đặt trong phòng có cửa sổ trên mái và cửa ra vào đón nhiều nắng.",
+        "why": "It describes the source writer's own room and house as part of the story.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "ADA Amazonia",
+      "Beamswork",
+      "Aquascaper Complex",
+      "Dennerle Cleanator"
+    ]
+  },
+  "vi/guides/youtube-sWWz9DVKGXE": {
+    "at": "2026-11-11",
+    "hash": "8a11a2fc3b1fdc71",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [],
+    "products": [
+      "Tropica",
+      "1-2-Grow"
+    ]
+  },
+  "vi/guides/youtube-SXZ7LUPIFAk": {
+    "at": "2026-11-11",
+    "hash": "001c377d0ff17a48",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Hai đèn chạy cỡ 50% mà tổng lượng sáng đã nhiều hơn đèn Twin Star dùng trước đó.",
+        "why": "Talks about the original writer's own tank and old light as if the reader knew them.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Đã có lần cây Crypt bị nhũn lá (crypt melt) khi chuyển từ đèn Kessil sang Twin Star",
+        "why": "A first-person story from the source writer's own tank history.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Lần này chưa thấy nhũn, nhưng vẫn còn sớm.",
+        "why": "Points to the source writer's current light change, which the reader knows nothing about.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Chihiros RGB Vivid 2",
+      "Twin Star",
+      "Kessil",
+      "ADA Solar RGB"
+    ]
+  },
+  "vi/guides/youtube-TMSoZv8XrL8": {
+    "at": "2026-11-11",
+    "hash": "b1c5913748bc412f",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "elsewhere",
+        "part": "P1",
+        "quote": "Cây bán ở các trại cây châu Âu thường được trồng trên cạn",
+        "why": "Treats European plant nurseries as the reader's own source of plants.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "Twinstar 1200"
+    ]
+  },
+  "vi/guides/youtube-TwJC13KPcYM": {
+    "at": "2026-11-11",
+    "hash": "82595e2b5b95c8e0",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Đây cũng là cách bể được chăm trong mấy tuần cuối trước khi chụp ảnh gửi đi cuộc thi IAPLC.",
+        "why": "Tells the source's own contest-tank story as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Trước đây bể chạy hai lọc, khi thử bớt còn một thì vẫn chạy tốt với hệ này.",
+        "why": "History of the source's own tank, unknown to the reader.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Trước buổi chụp ảnh dự thi, bể còn cần thay nước thêm vài lần nữa cho sẵn sàng.",
+        "why": "Refers to the source writer's own upcoming contest shoot.",
+        "by": "model"
+      },
+      {
+        "check": "dose",
+        "part": "P1",
+        "quote": "Mỗi ngày châm 25 ml Tropica Specialised Nutrition để nuôi cây qua lá.",
+        "why": "Amount of a named commercial fertiliser for the source's tank.",
+        "by": "model",
+        "product": "Tropica Specialised Nutrition"
+      },
+      {
+        "check": "dose",
+        "part": "P1",
+        "quote": "khử clo bằng Fritz Aquatics ACCR: chỉ cần cho một muỗng bột khô vào bể",
+        "why": "Amount of a named commercial conditioner for the tank.",
+        "by": "model",
+        "product": "Fritz Aquatics ACCR"
+      }
+    ],
+    "products": [
+      "Twinstar 1200 SA",
+      "Oase BioMaster Thermo 600",
+      "Green Leaf Aquariums",
+      "CO2 Art",
+      "Tropica Specialised Nutrition",
+      "D-D P1",
+      "Fritz Aquatics ACCR",
+      "Fritz Aquatics"
+    ],
+    "doses": [
+      {
+        "treatment": "tropica specialised nutrition",
+        "strength": "",
+        "amount": 25,
+        "amountMax": 0,
+        "unit": "ml",
+        "per": 0,
+        "perUnit": "",
+        "use": "plants",
+        "method": "wholeTank",
+        "quote": "Mỗi ngày châm 25 ml Tropica Specialised Nutrition"
+      }
+    ],
+    "sourceRead": true
+  },
+  "vi/guides/youtube-X4FOLxBTsMQ": {
+    "at": "2026-11-11",
+    "hash": "1cc3e7895baab1da",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Sau một thời gian, rêu hại trong bể gần như đã lui hết.",
+        "why": "It describes the source's own tank over time as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P2",
+        "quote": "Phân châm bằng bơm châm phân tự động (dosing pump), chỉnh qua điện thoại.",
+        "why": "It describes the source writer's own setup as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P3",
+        "quote": "Trước đây đá trong bể thỉnh thoảng phải lấy bàn chải đánh răng chà cho sạch rêu, còn giờ thì không cần nữa.",
+        "why": "It is the writer's personal story about their own tank.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P4",
+        "quote": "Thêm vài chậu dương xỉ trident, đơn giản là vì thích",
+        "why": "It speaks in the original writer's personal voice about their tank.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P5",
+        "quote": "Bụi Cryptocoryne 'Pink Panther' đã rữa hoàn toàn (crypt melt).",
+        "why": "It talks about a plant in the source's tank as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "L3",
+        "quote": "Ở bể này, một đội tép Amano và ốc nerite giữ đá sạch",
+        "why": "It points at the source's tank, which the reader has never seen.",
+        "by": "model"
+      }
+    ],
+    "products": []
+  },
+  "vi/guides/youtube-XSNS68_iytQ": {
+    "at": "2026-11-11",
+    "hash": "731c1326eec08e8b",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể ở đây dùng toàn cây thuộc nhóm dễ.",
+        "why": "Refers to the source's showcase tank as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "bể này cần cây lên nhanh và khỏe nhất để đem đi triển lãm",
+        "why": "The source's own story of preparing its tank for an exhibition.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể này phải chở sang Đức, gặp nước khác, nên chỉ dùng ít crypt.",
+        "why": "The source's own story of shipping its tank to Germany.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Tép Amano hy vọng là sẽ dọn chỗ rêu này sớm.",
+        "why": "The original writer's voice hoping about their own tank.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Trong bể có thể thấy cả hai dạng lá.",
+        "why": "Points at a tank or picture the page doesn't have.",
+        "by": "model"
+      }
+    ],
+    "products": [
+      "sủi 3-trong-1 của Tropica",
+      "Tropica Soil",
+      "Tropica Specialised Nutrition",
+      "Premium Nutrition"
+    ]
+  },
+  "vi/guides/youtube-zJbjzGllWEk": {
+    "at": "2026-11-11",
+    "hash": "de102f29fd73865e",
+    "model": "opus",
+    "checklist": 3,
+    "findings": [
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Bể ở đây là một ví dụ. Đó là bể khoảng 300 lít",
+        "why": "The whole page describes the source's own tank as if the reader knew it.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Trước đây bể chạy hai lọc, giờ chỉ còn một mà chưa thấy vấn đề gì.",
+        "why": "This is the original owner's own history with the tank.",
+        "by": "model"
+      },
+      {
+        "check": "source",
+        "part": "P1",
+        "quote": "Đây là cây duy nhất trong bể đang tính thay.",
+        "why": "This is the source owner's own plan for their tank.",
+        "by": "model"
+      },
+      {
+        "check": "words",
+        "part": "P1",
+        "quote": "hợp với bể low energy",
+        "why": "'Low energy' is the source's English term; keepers in Vietnam say low-tech or no-CO2 tank.",
+        "by": "model",
+        "fix": "bể low-tech (không CO2)"
+      }
+    ],
+    "products": [
+      "Aquascaper 1200",
+      "Twinstar 1200",
+      "Oase BioMaster Thermo 600"
+    ]
   }
 }

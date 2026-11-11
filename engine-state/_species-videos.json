@@ -933,10 +933,12 @@
     "reason": "trailer"
   },
   "a5LsDyFgPJ4": {
-    "at": "2026-11-07",
+    "at": "2026-11-11",
     "title": "How to Breed White Cloud Mountain Minnows - Freshwater Aquarium Nano Fish",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "aC5TwJ6P_kg": {
     "at": "2026-11-07",
@@ -955,16 +957,21 @@
     "reason": "tank rehab"
   },
   "aIikRDZZQ30": {
-    "at": "2026-11-07",
+    "at": "2026-11-11",
     "title": "Spotted Corydoras CW027 - Rare Aquarium Catfish",
     "channel": "Aquadiction",
-    "kind": "profile"
+    "kind": "profile",
+    "done": "skipped",
+    "reason": "no scientific name given"
   },
   "aiVcRDpBSW0": {
-    "at": "2026-11-07",
+    "at": "2026-11-11",
     "title": "Pros & Cons of keeping Duckweed (Lemna Minor) in Your Aquarium",
     "channel": "Under Surface",
-    "kind": "profile"
+    "kind": "profile",
+    "species": "Lemna minor",
+    "done": "skipped",
+    "reason": "no plant page: a plant page comes from a licensed source"
   },
   "aLxwaPYThlY": {
     "at": "2026-11-07",
@@ -3245,6 +3252,12 @@
     "channel": "Aquadiction",
     "kind": "profile"
   },
+  "ptOLs3ZBnB0": {
+    "at": "2026-11-11",
+    "title": "A Pike Cichlid That Actually Stays Small",
+    "channel": "Steenfott Aquatics",
+    "kind": "profile"
+  },
   "Pu6HlJCRRvI": {
     "at": "2026-11-07",
     "title": "Trimming, Thinning & Maintaining Low-Tech Nature Tanks: DEEP DIVE! (+ Filterless Planted Aquariums )",
@@ -3640,6 +3653,14 @@
     "kind": "other",
     "done": "skipped",
     "reason": "species not named in title"
+  },
+  "tQZze4odY6M": {
+    "at": "2026-11-11",
+    "title": "SEAOURA SR-620 AQUARIUM LIGHT WITH REMOTE CONTROL",
+    "channel": "Daniel Keeping Fish",
+    "kind": "other",
+    "done": "skipped",
+    "reason": "Product: aquarium light"
   },
   "tscVdxWPPqE": {
     "at": "2026-11-07",

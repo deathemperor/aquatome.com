@@ -1,7 +1,7 @@
 # Photos that don't show their page's subject
 
 Written by `pnpm engine check-photos` (2026-11-11), most-read pages first. Rules: docs/governance.md, "Photos".
-6058 verdicts. Shows it: 4144; its habitat (asked again): 3; something else: 304; not a photo of it: 205; dead or as food: 297; a person in it: 99; a logo on it: 38; can't tell: 950.
+6004 verdicts. Shows it: 4111; its habitat (asked again): 3; something else: 299; not a photo of it: 200; dead or as food: 295; a person in it: 95; a logo on it: 38; can't tell: 945.
 
 ## Left with no photo (66)
 
@@ -72,7 +72,7 @@ Written by `pnpm engine check-photos` (2026-11-11), most-read pages first. Rules
 - species/thayeria-ifati
 - species/xenotilapia-sima
 
-## Can't tell: still shown (950)
+## Can't tell: still shown (945)
 
 | Page | Photo | What the model saw |
 | --- | --- | --- |
@@ -782,31 +782,30 @@ Written by `pnpm engine check-photos` (2026-11-11), most-read pages first. Rules
 | species/nemacheilus-corica | [photo](https://media.aquatome.com/seriouslyfish/b1c82b587bc1cedd.webp) | live barred loach on gravel, clear view, dark bar at tail base; look-alike nemacheilids not ruled out |
 | species/neoheterandria-elegans | [photo](https://media.aquatome.com/seriouslyfish/a670f640e0ed9320.webp) | close-up of rear body and long gonopodium only, head not shown; species hard to confirm |
 | species/neolamprologus-brevis | [photo](https://media.aquatome.com/seriouslyfish/2e79536786d5dbc3.webp) | live pinkish lamprologine-like cichlid with dark gill spot under blue light; slender body and colour cast make brevis un |
-| species/nothobranchius-foerschi | [photo](https://media.aquatome.com/commons/0a4250cfcd2d41b8.webp) | male Nothobranchius killifish, pale blue body with red scale edges, red tail, yellow fins; can't confirm it is N. foersc |
-| species/nothobranchius-rachovii | [photo](https://media.aquatome.com/aquariumbreeder/3350ab9a0c6df644.webp) | orange male killifish with blue fins; caudal lacks black edge, possibly related Nothobranchius |
-| species/nothobranchius-rachovii | [photo](https://media.aquatome.com/commons/0b04785b07ff6f3b.webp) | orange Nothobranchius male with iridescent blue fins; species unclear |
-| species/nothobranchius-rachovii | [photo](https://media.aquatome.com/commons/74a951c88518258c.webp) | purplish Nothobranchius with white-spotted scales in planted tank; species unclear |
-| species/nothobranchius-rachovii | [photo](https://media.aquatome.com/commons/8024b632755a53b3.webp) | orange Nothobranchius male with pale fins; looks like a different species, e.g. N. krysanovi/kadleci |
-| species/noturus-crypticus | [photo](https://media.aquatome.com/commons/e3d68bcd1d6f6b31.webp) | madtom-like catfish on gravel in a tank; can't confirm it's the Chucky madtom |
-| species/noturus-crypticus | [photo](https://media.aquatome.com/scotcat/f023328c990d8cc3.webp) | same madtom-like catfish in a tank, a near-duplicate of photo 2; species unconfirmed |
-| species/noturus-nocturnus | [photo](https://media.aquatome.com/scotcat/1bf6fdd484ed2b8a.webp) | dark madtom on white background, may be a specimen; species unclear |
-| species/oreichthys-crenuchoides | [photo](https://media.aquatome.com/seriouslyfish/7c71223047150189.webp) | pale fish with black-tipped dorsal and caudal spot; could be Oreichthys cosuatis |
+| species/nothobranchius-foerschi | [photo](https://media.aquatome.com/commons/0a4250cfcd2d41b8.webp) | male Nothobranchius, red-netted scales, red tail, yellow fins; can't rule out guentheri/other species |
+| species/nothobranchius-rachovii | [photo](https://media.aquatome.com/commons/0b04785b07ff6f3b.webp) | orange Nothobranchius with blue fins; may be a different species |
+| species/nothobranchius-rachovii | [photo](https://media.aquatome.com/commons/74a951c88518258c.webp) | purplish reticulated killifish among plants, poor view |
+| species/nothobranchius-rachovii | [photo](https://media.aquatome.com/commons/8024b632755a53b3.webp) | orange killifish with pale fins and black-edged tail; may be another Nothobranchius species |
+| species/noturus-crypticus | [photo](https://media.aquatome.com/commons/e3d68bcd1d6f6b31.webp) | madtom-like catfish on aquarium gravel, faint saddles; species can't be confirmed |
+| species/noturus-crypticus | [photo](https://media.aquatome.com/scotcat/0887020eee47bf21.webp) | reddish bottom fish with barbels over gravel; doesn't look like a madtom's usual colouring |
+| species/noturus-crypticus | [photo](https://media.aquatome.com/scotcat/f023328c990d8cc3.webp) | same madtom-like catfish, cropped version of photo 2 |
+| species/oreichthys-crenuchoides | [photo](https://media.aquatome.com/seriouslyfish/7c71223047150189.webp) | pale silvery barb with black-tipped dorsal; may be Oreichthys cosuatis |
 | species/oreochromis-niloticus | [photo](https://media.aquatome.com/inaturalist/194050540.webp) | single fish blurred in murky brown water |
 | species/oreochromis-niloticus | [photo](https://media.aquatome.com/inaturalist/207594794.webp) | two slender fish in shallow water seen from above; too unclear to confirm as tilapia |
 | species/oreochromis-niloticus | [photo](https://media.aquatome.com/panitvong/inat-231304834.webp) | dark pond surface with sky reflections, fish barely visible |
 | species/oreochromis-niloticus | [photo](https://media.aquatome.com/panitvong/inat-420644977.webp) | small distant fish over submerged log in murky water |
 | species/oryzias-dancena | [photo](https://media.aquatome.com/inaturalist/420679416.webp) | small fish school seen from above in shallow wild water; species hard to confirm |
-| species/oryzias-javanicus | [photo](https://media.aquatome.com/inaturalist/277794138.webp) | pale small fish over sand from above, motion blurred, unclear ID |
-| species/oryzias-javanicus | [photo](https://media.aquatome.com/inaturalist/330417115.webp) | single small dark fish over muddy bottom, distant view |
-| species/oryzias-javanicus | [photo](https://media.aquatome.com/inaturalist/363093154.webp) | swarm of tiny fry from above, species not identifiable |
-| species/oryzias-javanicus | [photo](https://media.aquatome.com/inaturalist/470816791.webp) | blurry small fish over gravel near a stick |
-| species/oryzias-woworae | [photo](https://media.aquatome.com/commons/407a99e94bc28277.webp) | group of pale whitish ricefish with red fin edges; possibly a pale form or another Oryzias |
-| species/otocinclus-macrospilus | [photo](https://media.aquatome.com/commons/75a4180f2e60f3cc.webp) | oto on gravel with continuous dark lateral stripe joining caudal blotch; could be O. vittatus/affinis |
-| species/oxyeleotris-marmorata | [photo](https://media.aquatome.com/commons/a10ae39242338925.webp) | two plain grey sleepers in a shop tank, marbling not visible |
-| species/oxyeleotris-marmorata | [photo](https://media.aquatome.com/inaturalist/125023594.webp) | pale yellowish sleeper from above in white tub, hard to confirm |
+| species/oryzias-javanicus | [photo](https://media.aquatome.com/inaturalist/277794138.webp) | pale ricefish-like fish from above over sand, can't confirm species |
+| species/oryzias-javanicus | [photo](https://media.aquatome.com/inaturalist/330417115.webp) | small dark fish over mud, distant and unclear |
+| species/oryzias-javanicus | [photo](https://media.aquatome.com/inaturalist/363093154.webp) | many tiny fry in a container, species not identifiable |
+| species/oryzias-javanicus | [photo](https://media.aquatome.com/inaturalist/470816791.webp) | blurry translucent fish over gravel near a stick |
+| species/oryzias-woworae | [photo](https://media.aquatome.com/commons/407a99e94bc28277.webp) | four pale ricefish with red fin edges over sand; very washed-out colour, could be another Oryzias |
+| species/otocinclus-macrospilus | [photo](https://media.aquatome.com/commons/75a4180f2e60f3cc.webp) | oto on gravel with a continuous dark lateral stripe that widens at the tail; could be another Otocinclus species |
+| species/oxyeleotris-marmorata | [photo](https://media.aquatome.com/commons/a10ae39242338925.webp) | two plain grey sleepers in shop tank, markings faint |
+| species/oxyeleotris-marmorata | [photo](https://media.aquatome.com/inaturalist/125023594.webp) | pale juvenile sleeper seen from above in white tub |
 | species/panaqolus-albivermis | [photo](https://media.aquatome.com/scotcat/b27c35f2259a16e6.webp) | dark pleco with yellow dotted lines and banded fins; could be L204 but pattern is more dots than worm lines |
-| species/panaque-cochliodon | [photo](https://media.aquatome.com/scotcat/1a076d54068972ac.webp) | dark pleco on black sand, eye not clearly blue, flash glare |
-| species/panaque-cochliodon | [photo](https://media.aquatome.com/scotcat/784afb8446c68d1c.webp) | dark pleco on sand, eye colour not visible |
+| species/panaque-cochliodon | [photo](https://media.aquatome.com/scotcat/1a076d54068972ac.webp) | distant dark pleco, eye not visible, flash glare |
+| species/panaque-cochliodon | [photo](https://media.aquatome.com/scotcat/784afb8446c68d1c.webp) | dark pleco on wood, no blue eye visible |
 | species/pangio-cuneovirgata | [photo](https://media.aquatome.com/inaturalist/374115290.webp) | orange-red kuhli with longer bars, possibly P. kuhlii/semicincta |
 | species/pangio-shelfordii | [photo](https://media.aquatome.com/commons/5663d8c5e2408a24.webp) | long speckled eel-like fish with a snail on its head among plants; pattern lacks shelfordii's clear saddles, could be an |
 | species/parailia-pellucida | [photo](https://media.aquatome.com/scotcat/0d3cca056da50cfa.webp) | silvery, more opaque schilbid-like catfish; could be a different schilbid |
@@ -1027,7 +1026,7 @@ Written by `pnpm engine check-photos` (2026-11-11), most-read pages first. Rules
 | plants/vallisneria-spiralis | [photo](https://media.aquatome.com/tropica/0ff2734906d4fd89.webp) | potted Vallisneria packshot, too small to see tiger markings |
 | plants/vallisneria-spiralis | [photo](https://media.aquatome.com/tropica/32a5549cfa5b0c5e.webp) | plain green Vallisneria leaves in a tank, no tiger stripes visible |
 
-## Removed (929)
+## Removed (913)
 
 "Something else" names what the photo shows instead; "dead" a dead fish or fish as food (a market, a catch, a preserved specimen), "people" a person or part of one (a hand holding the fish), and "logo" a mark added on the photo, all three off every page; the rest are maps, landscapes with no fish, hands, tanks, packshots and the like.
 
@@ -1661,9 +1660,10 @@ Written by `pnpm engine check-photos` (2026-11-11), most-read pages first. Rules
 | species/noturus-crypticus | [photo](https://media.aquatome.com/scotcat/0887020eee47bf21.webp) | pinkish catfish with deeply forked tail, not a madtom (madtoms have rounded tails) |
 | species/noturus-gladiator | [photo](https://media.aquatome.com/scotcat/39bd834b795547ae.webp) | dead: madtom lying belly-up on a measuring board |
 | species/noturus-gladiator | [photo](https://media.aquatome.com/scotcat/51f794c097d21bce.webp) | dead: madtom caught and held up in hands at a stream |
-| species/noturus-nocturnus | [photo](https://media.aquatome.com/commons/3bdad73f52ea8ca3.webp) | people: live dark madtom held in a palm |
-| species/noturus-nocturnus | [photo](https://media.aquatome.com/inaturalist/179389051.webp) | logo: pale yellow madtom on black background; faint copyright text bottom right |
-| species/noturus-nocturnus | [photo](https://media.aquatome.com/scotcat/8634d5136de536c3.webp) | people: reddish-brown madtom in viewing tank, fingers behind; colour unlike freckled madtom |
+| species/noturus-nocturnus | [photo](https://media.aquatome.com/commons/3bdad73f52ea8ca3.webp) | people: live madtom held in an open hand |
+| species/noturus-nocturnus | [photo](https://media.aquatome.com/inaturalist/179389051.webp) | logo: yellowish madtom on black background, possibly another Noturus; faint copyright text bottom right |
+| species/noturus-nocturnus | [photo](https://media.aquatome.com/scotcat/1bf6fdd484ed2b8a.webp) | dead: glossy madtom lying out of water on white background, likely a specimen |
+| species/noturus-nocturnus | [photo](https://media.aquatome.com/scotcat/8634d5136de536c3.webp) | people: reddish-brown madtom in photo tank, fingers visible behind; could be another Noturus |
 | species/opsarius-barna | [photo](https://media.aquatome.com/commons/f45c39dd0bd9fec1.webp) | engraved plate drawing of two fish |
 | species/oreochromis-niloticus | [photo](https://media.aquatome.com/panitvong/inat-420645007.webp) | people: canal with water hyacinth by a restaurant, no fish visible; possible fingertip blurred at bottom left |
 | species/osphronemus-laticlavius | [photo](https://media.aquatome.com/commons/d60c4207a9a541ad.webp) | logo: adult with red fins in public aquarium; copyright text bottom left |
