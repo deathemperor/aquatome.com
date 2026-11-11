@@ -1397,6 +1397,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/loricariidae/hypostomus_basilisko.htm": {
+    "entityIds": [
+      "species/hypostomus-basilisko"
+    ],
+    "updatedAt": "2026-11-11T08:53:18.183Z",
+    "hash": "ad139653f1eec47dc8d35b18f90800ccdf72db290f80c941346ef908ebf3a2b8",
+    "processedHash": "ad139653f1eec47dc8d35b18f90800ccdf72db290f80c941346ef908ebf3a2b8",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/loricariidae/hypostomus_gymnorhynchus.htm": {
     "entityIds": [
       "species/hypostomus-gymnorhynchus"
@@ -1454,6 +1464,16 @@
     "updatedAt": "2026-11-06T11:33:57.783Z",
     "hash": "955527d2bad855e4a37b1102301e64f2604493ba800cff0c6bbb19437df32a44",
     "processedHash": "955527d2bad855e4a37b1102301e64f2604493ba800cff0c6bbb19437df32a44",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/loricariidae/hypostomus_soniae.htm": {
+    "entityIds": [
+      "species/hypostomus-soniae"
+    ],
+    "updatedAt": "2026-11-11T09:01:57.806Z",
+    "hash": "95e844c072ea69b9244c944ba2f7b7edbce2167562400f0db99b4a4ca94dbb11",
+    "processedHash": "95e844c072ea69b9244c944ba2f7b7edbce2167562400f0db99b4a4ca94dbb11",
     "status": "processed",
     "attempts": 0
   },

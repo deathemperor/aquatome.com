@@ -114,6 +114,132 @@
   {
     "date": "2026-11-11",
     "kind": "species",
+    "id": "nomorhamphus-rex",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-11",
+    "kind": "species",
+    "id": "tetranematichthys-wallacei",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-11",
+    "kind": "species",
+    "id": "geophagus-harreri",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-11",
+    "kind": "species",
+    "id": "cyprinion-semiplotum",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-11",
+    "kind": "species",
+    "id": "datnioides-microlepis",
+    "source": "glaser",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-11",
+    "kind": "species",
+    "id": "lamontichthys-llanero",
+    "source": "glaser",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-11",
+    "kind": "guide",
+    "id": "glaser-en-10-catfishes-10b-catfishes-suckermouths-plecos-and-l-numbers-a-new-cactus-cat-related-to-l24-l25-en",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-11",
+    "kind": "species",
+    "id": "hyphessobrycon-megalopterus",
+    "source": "glaser",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-11",
+    "kind": "species",
+    "id": "laimosemion-tecminae",
+    "source": "glaser",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-11",
+    "kind": "species",
+    "id": "polypterus-delhezi",
+    "source": "glaser",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-11",
+    "kind": "guide",
+    "id": "aquariumbreeder-what-are-lps-and-sps-corals",
+    "source": "aquariumbreeder",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-11",
+    "kind": "guide",
+    "id": "aquariumbreeder-crab-external-anatomy",
+    "source": "aquariumbreeder",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-11",
+    "kind": "guide",
+    "id": "aquariumbreeder-crab-internal-anatomy",
+    "source": "aquariumbreeder",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-11",
+    "kind": "guide",
+    "id": "aquariumbreeder-paludarium-plants",
+    "source": "aquariumbreeder",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-11",
+    "kind": "guide",
+    "id": "aquariumbreeder-phosphates-in-reef-tanks",
+    "source": "aquariumbreeder",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-11",
+    "kind": "guide",
+    "id": "aquariumbreeder-how-to-culture-phytoplankton",
+    "source": "aquariumbreeder",
+    "action": "new"
+  },
+  {
+    "date": "2026-11-11",
+    "kind": "species",
+    "id": "hypostomus-soniae",
+    "source": "scotcat",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-11",
+    "kind": "species",
+    "id": "hypostomus-basilisko",
+    "source": "scotcat",
+    "action": "updated"
+  },
+  {
+    "date": "2026-11-11",
+    "kind": "species",
     "id": "heterocharax-virgulatus",
     "source": "glaser",
     "action": "new"
@@ -3372,131 +3498,5 @@
     "id": "youtube-G2iSTDzETi0",
     "source": "youtube",
     "action": "updated"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "species",
-    "id": "steatocranus-tinanti",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "species",
-    "id": "steatocranus-casuarius",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "species",
-    "id": "sperata-aor",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "species",
-    "id": "sorubim-lima",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "species",
-    "id": "sinibotia-superciliaris",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "species",
-    "id": "silurus-glanis",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "species",
-    "id": "sicyopus-zosterophorus",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "species",
-    "id": "sicyopus-exallisquamulus",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "species",
-    "id": "sicyopus-discordipinnis",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "species",
-    "id": "sicyopus-cebuensis",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "species",
-    "id": "sewellia-elongata",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "species",
-    "id": "serrasalmus-sanchezi",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "species",
-    "id": "serrasalmus-marginatus",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "species",
-    "id": "serrasalmus-manueli",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "species",
-    "id": "serrasalmus-maculatus",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "species",
-    "id": "serrasalmus-gouldingi",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "species",
-    "id": "serrasalmus-elongatus",
-    "source": "seriouslyfish",
-    "action": "new"
-  },
-  {
-    "date": "2026-11-09",
-    "kind": "species",
-    "id": "serrasalmus-brandtii",
-    "source": "seriouslyfish",
-    "action": "new"
   }
 ]

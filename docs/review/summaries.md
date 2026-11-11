@@ -1,4 +1,4 @@
-# Tóm tắt chờ duyệt (226)
+# Tóm tắt chờ duyệt (228)
 
 Bản qua kiểm tra tự động (số khớp thẻ dữ liệu, mọi ý có trong hồ sơ) đã được duyệt. Dưới đây là bản chưa qua, kèm lỗi kiểm tra tìm thấy.
 
@@ -1685,6 +1685,14 @@ Cá barb Mahecola (Puntius mahecola) hợp với người đã có kinh nghiệm
 - Mua nhầm cá Dawkinsia bán dưới tên 'mahecola barb'; hãy kiểm tra cá chỉ có một đốm sẫm ở cuống đuôi, nằm sau vây hậu môn.
 - Lọc yếu, nước ít oxy làm cá yếu đi; nên dùng một hoặc hai lọc thùng dư công suất và thay 30–50% nước mỗi tuần.
 
+## Cá pyrrhulina brevis (Pyrrhulina brevis)
+id: `pyrrhulina-brevis`
+
+Cá pyrrhulina brevis (Pyrrhulina brevis) dài 8 cm, ăn được mọi loại thức ăn cá thông dụng và không kén chất lượng nước. Nuôi được ở 22–30 °C, hiền và không phá cây. Điểm cần để ý là mùa sinh sản: cá đực giữ lãnh thổ nhỏ và bảo vệ ổ trứng rất hăng.
+
+- Đừng nghĩ cá hiền suốt năm; mùa đẻ cá đực giữ lãnh thổ nhỏ và canh ổ trứng rất hăng, nên theo dõi cá đực trong giai đoạn này.
+- Đừng coi cá là tetra thông thường; tập tính của chúng giống cichlid hơn các loài characin khác, nên quan sát cá đực giữ vùng trong mùa đẻ.
+
 ## Cá rasbora bạc (Rasbora argyrotaenia)
 id: `rasbora-argyrotaenia`
 
@@ -2003,6 +2011,13 @@ Cá chạch hổ xanh (Syncrossus hymenophysa) hợp với người đã có b�
 - Thả cá vào bể chưa ổn định vi sinh. Nên chờ bể chín rồi mới thả, và thay 30–50% nước mỗi tuần.
 - Chỉ nuôi một con hoặc hai ba con. Nên nuôi ít nhất 5–6 con, tốt nhất từ 10 con trở lên, để con đầu đàn không rượt và không cho các con còn lại ăn.
 - Không đậy nắp kín và để khe hẹp trong bể. Nên đậy nắp thật kín vì cá hay nhảy, và trám khe nhỏ bằng keo silicone loại dùng cho bể cá để cá không chui vào rồi bị kẹt.
+
+## Cá nheo Synodontis bastiani (Synodontis bastiani)
+id: `synodontis-bastiani`
+
+Cá nheo Synodontis bastiani trưởng thành khoảng 20,1 cm, nuôi ở nhiệt độ 22–25 °C. Hồ sơ không ghi bể tối thiểu, pH hay độ cứng nên chưa có số để tham khảo. Điểm khó nhất là gai vây lưng và vây ngực cứng, có răng cưa, bị đâm rất đau khi bắt cá. Loài này cũng chưa có báo cáo sinh sản.
+
+- Bắt cá mà không giữ đúng cách dễ bị gai vây sắc đâm; nên đặt cá nằm trên tay, đầu về phía lòng bàn tay, kẹp gai vây lưng giữa ngón giữa và ngón áp út.
 
 ## Cá trê lông Synodontis clarias (Synodontis clarias)
 id: `synodontis-clarias`

@@ -1,0 +1,21 @@
+{
+  "slug": "ca-rivulus-tecminae",
+  "name": "Cá rivulus tecminae",
+  "altNames": [],
+  "sections": {
+    "distribution:glaser": "<p>Loài cá này sống ở lưu vực sông Orinoco thuộc Venezuela và vùng thượng nguồn Rio Negro thuộc Brazil. Đây là lần đầu tiên loài này được nhập về, và những con đang bán đều có nguồn gốc từ Venezuela.</p>",
+    "notes:glaser": "<p>Rivulus từng là một trong những giống cá killi đông loài nhất. Ngày nay, các nhà khoa học đang dần chuyển nhiều loài trong đó sang những giống mới, nhỏ hơn. Cách tách này không phải lúc nào cũng được đa số giới khoa học đồng tình. Vì thế có người vẫn gọi tất cả các loài là Rivulus, có người lại theo cách phân loại mới. Nếu cách tách này đúng thì tecminae thuộc giống Laimosemion.</p>"
+  },
+  "quality": {
+    "score": 0.92,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.92
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [],
+    "at": "2026-11-11"
+  }
+}
