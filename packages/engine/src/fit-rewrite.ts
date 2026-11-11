@@ -7,7 +7,7 @@ import { rewriteForReader } from './for-reader'
 import { METRIC_KINDS } from './metric'
 import { fixedParts, loadPages, type Page } from './pages'
 import { fieldOf as partOf, norm, rewritePart, type ReaderFinding } from './reader'
-import { metricFigures, US_UNITS } from './round'
+import { metricFigures, TANK_RULE, US_UNITS } from './round'
 
 /**
  * The collection rewrite: Vietnamese pages the reader-fit read (fit.ts) found wrong for their reader, written again.
@@ -83,7 +83,7 @@ export const rewriteDue = (p: Page, state: FitState) =>
 const asNote = (f: FitFinding): ReaderFinding => ({
   kind: 'language', severity: 'high', part: f.part, quote: f.quote,
   problem: f.check === 'words' ? `A word keepers here don't use${f.fix ? `: write "${f.fix}"` : ''}.`
-    : f.check === 'units' ? `${FIT_TITLE.units}: ${f.why}. Convert the English's US units as the writing rules say (a tank of 5 gallons or more to the nearest 5 litres: 5 gallons is 20 litres; inches to cm), and give no US figure. Never round a dose's amount or the water it goes into: convert those exactly.`
+    : f.check === 'units' ? `${FIT_TITLE.units}: ${f.why}. Convert the English's US units as the writing rules say (${TANK_RULE.en}; inches to cm), and give no US figure. Never round a dose's amount or the water it goes into: convert those exactly.`
     : `${FIT_TITLE[f.check]}: ${f.why}. Write it for a keeper in Vietnam; drop what only holds abroad.`,
   ...(f.fix ? { fix: f.fix } : {}),
 })

@@ -856,6 +856,15 @@ The layers above still check the result.
   stay as the source gives them (the chief of staff, 2026-11-11). It let 19 held pages out and 75 live ones pass, in
   three languages of four. A section AquaTome wrote from many sources' facts, and a guide, have no English beside them:
   their figures still count.
+- **One size for a US tank.** A tank a source gives in US gallons is named by the size keepers here say, one table for
+  every writer, reviewer and the rounding (`US_TANKS`, round.ts: 10 gallons 40 litres, 20 gallons 80, 30 gallons 120):
+  the video writer had no rule and the others rounded to the nearest 5 litres, which gave 75, 115 and 210 litres, and
+  from 9 to 11 Nov 2026 every new guide with gallons arrived held. The table agrees with the site's ready-made tank
+  table (the same tank for a size as for its exact volume) but for 25 gallons, where 100 litres stands as the roomier
+  tank. A page held for units alone has such a figure mended by code (`pnpm engine units-mend`, units-mend.ts, from 13
+  Nov 2026 08:00, six a run, before the gate): only a volume that maps back to the table exactly, every place the page
+  gives it, each part changed in its figures alone and within a tenth; a range, a size in between, inches or degrees
+  stay held and are listed (the chief of staff, 2026-11-11).
 - **One copy of each figure.** The data card holds a species' figures. Quick facts drop the items the card already has
   for that source, and the family (merge, and the page for older content); a block that states a figure the card shows
   otherwise says above itself which source it follows (`@aq/schema` card-facts). Found in a review: Cá neon vua's text

@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs'
 import type { Llm } from './claude'
 import { hedgesAsk, hedgesLost, HEDGES_SCHEMA, type HedgePair } from './hedges'
+import { withTanks } from './round'
 
 import { QUALITY_THRESHOLD } from '@aq/schema'
 
@@ -23,7 +24,7 @@ export async function steadyRead<T extends { score: number }>(read: () => Promis
   const reads = [first, ...await Promise.all([read(), read()])]
   return { ...[...reads].sort((a, b) => a.score - b.score)[1]!, reads: reads.map(r => r.score) }
 }
-const TEMPLATE = readFileSync(new URL('./prompts/review.md', import.meta.url), 'utf8')
+const TEMPLATE = withTanks(readFileSync(new URL('./prompts/review.md', import.meta.url), 'utf8'))
 const SCHEMA = { type: 'object', properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } }, required: ['score', 'notes'] }
 /** `hedges`: the reviewer also pairs each hedged sentence with its new one (hedges.ts), and `lost` has those said more surely. */
 type Opts = { hedges?: boolean }

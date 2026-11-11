@@ -327,6 +327,10 @@ pnpm engine metric || log "metric: failed"
 # fish or a map taken off their page, card figures out of bounds hidden, titles promising a count their text lacks
 # rewritten (reviewer-gated) or their number dropped.
 pnpm engine sweep || log "sweep: failed"
+# A page held for units alone: a tank converted from US gallons some other way ("115 lít") becomes the size a keeper here
+# names ("120 lít"), by code with no model, six pages a run; the gate reads each next and lets it out if it passes. It
+# starts on 13 Nov 2026 08:00, the easy-fish guide first (the chief of staff, 2026-11-11; units-mend.ts).
+pnpm engine units-mend --first vi/guides/youtube-mGmIvhtIM9k || log "units-mend: failed"
 # Last of the steps that write pages: what this run changed is read against the reader-fit checklist (gate.ts). A new page
 # that fails is held, a live page that got worse keeps its committed text, a page built on a foreign shop's kit is held,
 # and a held page that now passes is let out. A page it can't read stays as readers have it; only a crash stops the run,
