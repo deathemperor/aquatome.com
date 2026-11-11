@@ -74,6 +74,8 @@ const SF_GROUP = new RegExp(String.raw`\b(?:(?:group|shoal|school|colony)s?\s+of
 /** A sentence about breeding, a pair or a harem, fish in the wild, or what a fish only can be kept in: no group it needs. */
 const NOT_A_GROUP = /\bpairs?\b|harem|juvenile|spawn|fry|trio|alone|singly|breeding|in nature|in the wild|observed|were found|occurr?(?:s|ing)? in|can be kept|can sometimes/i
 
+/** Sections that say nothing of the group to keep: papers, breeding, the sexes, and the wild ("schools of 30 in the river"). */
+const NOT_SCHOOL = ['references', 'reproduction', 'dimorphism', 'habitat', 'distribution']
 /**
  * The smallest group Seriously Fish says to keep the fish in, in its own words, or null where it gives none. The card's
  * school size takes it first, as the card's other figures take Seriously Fish's (the chief of staff, 2026-11-11: the
@@ -82,7 +84,7 @@ const NOT_A_GROUP = /\bpairs?\b|harem|juvenile|spawn|fry|trio|alone|singly|breed
 export function sfSchool(sections: { key: string; source: string; html: string }[]): number | null {
   const found: number[] = []
   for (const s of sections) {
-    if (s.source !== 'seriouslyfish' || ['references', 'reproduction', 'dimorphism'].includes(s.key)) continue
+    if (s.source !== 'seriouslyfish' || NOT_SCHOOL.includes(s.key)) continue
     for (const sentence of s.html.replace(/<[^>]+>/g, ' ').split(/(?<=[.!?])\s+/)) {
       if (NOT_A_GROUP.test(sentence)) continue
       for (const m of sentence.matchAll(SF_GROUP)) {
@@ -98,7 +100,7 @@ export function sfSchool(sections: { key: string; source: string; html: string }
 /** Another source's minimum in the words such pages use: "groups of 10 specimens or more", "never in groups of fewer than 10–12 individuals", "a school of at least six". */
 const OTHER_GROUP = new RegExp(String.raw`\b(?:(?:group|shoal|school|colony)s?\s+of\s+(?:(?:at least|a minimum of|no fewer than|not fewer than|fewer than)\s+${N}(?:\s*(?:-|–|to|or)\s*${N})?(?!\s*(?:cm|mm|in|l|litres?|liters?|gallons?)\b)|${N}(?:\s*(?:-|–|to|or)\s*${N})?\s*\+?\s*(?:or more\s+)?(?:specimens|individuals|fish|or more)\b)|(?:at least|a minimum of|no fewer than)\s+${N}(?:\s*(?:-|–|to)\s*${N})?\s+(?:specimens|individuals|fish)\b)`, 'gi')
 type Sec = { key: string; source: string; html: string }
-const groups = (sections: Sec[], take: (s: Sec) => boolean, re: RegExp) => sections.filter(s => take(s) && !['references', 'reproduction', 'dimorphism'].includes(s.key))
+const groups = (sections: Sec[], take: (s: Sec) => boolean, re: RegExp) => sections.filter(s => take(s) && !NOT_SCHOOL.includes(s.key))
   .flatMap(s => s.html.replace(/<[^>]+>/g, ' ').split(/(?<=[.!?])\s+/)).filter(x => !NOT_A_GROUP.test(x))
   .flatMap(x => [...x.matchAll(re)].map(m => { const w = m.slice(1).find(Boolean)!.toLowerCase(); return COUNT[w] ?? Number(w) })).filter(n => n >= 2 && n <= 50)
 
@@ -110,7 +112,10 @@ const groups = (sections: Sec[], take: (s: Sec) => boolean, re: RegExp) => secti
 export function cardSchool(sections: Sec[], shows: (source: string) => boolean): number | null {
   const sf = sfSchool(sections)
   if (sf === null) return null
-  return Math.max(sf, ...groups(sections, s => s.source !== 'seriouslyfish' && shows(s.source), OTHER_GROUP))
+  // Each source's own minimum ("at least 6, ideally 12 or more" is 6), then the highest of them.
+  const others = [...new Set(sections.filter(s => s.source !== 'seriouslyfish' && shows(s.source)).map(s => s.source))]
+  const floors = others.map(src => groups(sections, s => s.source === src, OTHER_GROUP)).filter(ns => ns.length).map(ns => Math.min(...ns))
+  return Math.max(sf, ...floors)
 }
 
 /**

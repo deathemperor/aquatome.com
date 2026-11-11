@@ -17,6 +17,7 @@ import { isShop, readVarietyPages, withoutShopTalk } from './species-sources'
 import { cardOf, cardProblems } from './summaries'
 import { carryTopicChecks } from './topic-check'
 import { breedsNamed } from './topics'
+import { schoolFromSeriouslyFish } from './traits'
 import { readVideoRejected } from './videos'
 
 /**
@@ -97,6 +98,8 @@ export type SweepReport = {
   /** Pages about one variety taken off a species page, `id: url`; `kept` when it is all the page has. */
   varieties: string[]
   titles: string[]
+  /** Fish cards whose school size was set to Seriously Fish's, never below another source's on the page (traits.ts cardSchool): ids. */
+  schools: string[]
   /** Other names taken off species pages, `lang/id: "name" (why)`, and off breed pages, `lang/breeds/id: …`. */
   names: string[]
   /** Breeds taken off a guide's mentions, its text naming them by none of their names: `guides/id: breed`. */
@@ -193,10 +196,13 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
   const cap = o.photoCap ?? PHOTO_CAP
   if (!Number.isInteger(cap) || cap < 0) throw new Error(`sweep: the photo cap is a whole number, 0 or more, not ${cap}`)
   const content = join(root, 'content')
-  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, held: [], heads: [], videos: [], card: [], summaries: [], tanks: [], shop: [], varieties: [], titles: [], names: [], mentions: [], links: [], unmatched: [], stopped: '' }
+  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, held: [], heads: [], videos: [], card: [], summaries: [], tanks: [], shop: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], stopped: '' }
   const changed = (f: string) => { if (!report.files.includes(f)) report.files.push(f) }
   const guides: { key: string; before: string; after: string }[] = []
   const counted: { file: string; raw: string; t: Stored; kind: string; lang: WrittenLang; id: string }[] = [] // raw: for its indentation
+  // A fish card's school size: Seriously Fish's, never below what another source on the page says (traits.ts), here so
+  // every part of the cycle has it before its tests, whatever changed a page's sections.
+  for (const id of report.schools = await schoolFromSeriouslyFish(content)) changed(`traits/${id}.json`)
   // A place's Vietnamese name with no generic word left in English (place-names.ts).
   for (const id of await sweepPlaceNames(root)) changed(`places/${id}/vi.json`)
 

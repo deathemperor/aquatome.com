@@ -118,4 +118,8 @@ test("the card never goes below the minimum another source on the page tells the
   expect(cardSchool([{ key: 'behaviour', source: 'seriouslyfish', html: '<p>Should be maintained in a group of at least 4-6 individuals, ideally 10 or more.</p>' }], all)).toBe(4)
   expect(cardSchool([sfSays, { key: 'behaviour', source: 'glaser', html: '<p>Keep them in groups of 12 specimens or more.</p>' }], s => s !== 'glaser')).toBe(8)
   expect(cardSchool([{ key: 'behaviour', source: 'glaser', html: '<p>Keep them in groups of 12 specimens or more.</p>' }], all)).toBeNull()
+  // A source's own minimum, not the most it hopes for; the wild is no school to keep.
+  expect(cardSchool([sfSays, { key: 'behaviour', source: 'aquariumcoop', html: '<p>Keep at least 6 fish, ideally in groups of 12 or more.</p>' }], all)).toBe(8)
+  expect(cardSchool([sfSays, { key: 'habitat', source: 'glaser', html: '<p>It lives in schools of 30 fish in slow streams.</p>' }], all)).toBe(8)
+  expect(cardSchool([{ key: 'habitat', source: 'seriouslyfish', html: '<p>Large shoals of at least 30 specimens gather in pools.</p>' }], all)).toBeNull()
 })
