@@ -249,7 +249,8 @@ test("a fish its source's caption calls unwell leaves a page that has another ph
   const two = sf('two', 'Adult male.'), three = sf('three', 'Adult female.')
   await put('species/ggg-picker/entity.json', species('ggg-picker', 'Ggg picker', { photos: [two, sf('plain-3', 'Adult male.')] }))
   await put('species/ggg-picker/vi.json', vi('Cá chạch suối nhất', { 'distribution:seriouslyfish': '<p>Lào.</p>' }))
-  await put('species/hhh-single/entity.json', species('hhh-single', 'Hhh single', { photos: [three] }))
+  // Listed twice among the page's own photos, as two pages have one today: still its only photo.
+  await put('species/hhh-single/entity.json', species('hhh-single', 'Hhh single', { photos: [three, three] }))
   await put('species/hhh-single/vi.json', vi('Cá chạch suối nhì', { 'distribution:seriouslyfish': '<p>Lào.</p>' }))
   await put('species/iii-says/entity.json', species('iii-says', 'Iii says', { photos: [sf('plain-4', 'Adult male.'), { ...two, caption: 'Skinny juvenile.' }, { ...three, caption: 'Emaciated female.' }] }))
   await put('species/iii-says/vi.json', vi('Cá chạch suối ba', { 'distribution:seriouslyfish': '<p>Lào.</p>' }))
@@ -262,7 +263,7 @@ test("a fish its source's caption calls unwell leaves a page that has another ph
   expect(Object.keys(await json(root, 'engine-state/_photo-rejected.json'))).not.toContain(three.url)
   await checkPagePhotos(root, { get: never, look: never }, { limit: 0 })
   expect((await json(root, 'content/species/ggg-picker/entity.json')).photos[0].url).toBe(two.url)
-  expect((await json(root, 'content/species/hhh-single/entity.json')).photos).toEqual([three])
+  expect((await json(root, 'content/species/hhh-single/entity.json')).photos).toEqual([three, three])
   expect(await unwell()).toBe(0)
   // Another rule's word still takes a photo off every page: a paper's plate on one page, though it is another page's
   // only photo and called unwell there.

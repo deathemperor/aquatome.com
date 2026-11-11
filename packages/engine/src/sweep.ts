@@ -479,7 +479,8 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   // caption says of it. Another rule's word (a map, a plate) still takes it off every page.
   for (const p of all) {
     const drop = off.get(`${p.kind}/${p.id}`)
-    const left = (p.own ?? []).filter(u => !drop?.has(u))
+    // Distinct photos: two pages today list one address twice among their own.
+    const left = [...new Set((p.own ?? []).filter(u => !drop?.has(u)))]
     for (const url of [...(left.length === 1 ? left : []), ...(p.picked && left.includes(p.picked) ? [p.picked] : [])]) if (everyPage.has(url)) maps.delete(url)
   }
   if (maps.size > cap) {
