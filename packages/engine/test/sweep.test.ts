@@ -126,6 +126,26 @@ test("the unplaced photos at its source's read-next card width that end a guide'
   expect((await sweep(root, {})).photos.filter(x => x.includes('read-next'))).toEqual([])
 })
 
+// The site puts a guide's photo under the heading its label names. A heading rewritten (a wording rule, a name, a writer)
+// left 19 photos waiting at their guide's end (2026-11-12): the betta foods guide's "#1 Trùn chỉ đỏ…" among them.
+test("a guide photo's label follows its heading: the sweep's wording, else the one heading with its number; one it can't place is listed and kept", async () => {
+  const root = await store()
+  const pic = (name: string, label?: string) => ({ ...photo(`https://media.aquatome.com/aquariumcoop/${name}.webp`, name), ...(label ? { section: { vi: label } } : {}) })
+  await mkdir(join(root, 'content/guides/coop-foods'), { recursive: true })
+  const photos = [pic('lead'), pic('worm', '#1 Trùn chỉ đỏ (bloodworm) đông lạnh'), pic('algae', '2. Dùng dụng cụ gỡ tảo'), pic('pellets', '3.  Thức ăn  viên'), pic('setup', 'Set bể cho apisto'), pic('twice', '4. Cá killifish')]
+  await writeFile(join(root, 'content/guides/coop-foods/entity.json'), `${JSON.stringify({ id: 'coop-foods', kind: 'care', source: 'aquariumcoop', sourceUrl: 'https://x/y', html: '', photos, mentions: [], updatedAt: '2026-10-01' }, null, 2)}\n`)
+  const body = '<h3>#1 Trùng huyết (bloodworm) đông lạnh</h3><p>Ngon.</p><h3>2. Gỡ tảo bằng tay</h3><p>Gỡ.</p><h3>3. Thức ăn viên</h3><p>Viên.</p><h3>Chuẩn bị bể cho apisto</h3><p>Bể.</p><h3>4. Cá killi</h3><p>A.</p><h3>4. Cá killi đuôi lửa</h3><p>B.</p>'
+  await writeFile(join(root, 'content/guides/coop-foods/vi.json'), `${JSON.stringify(vi('Thức ăn cho cá betta', {}, { body }), null, 2)}\n`)
+  const r = await sweep(root, {})
+  const labels = async () => ((await json(root, 'content/guides/coop-foods/entity.json')).photos as { section?: { vi: string } }[]).map(p => p.section?.vi)
+  expect(await labels()).toEqual([undefined, '#1 Trùng huyết (bloodworm) đông lạnh', '2. Gỡ tảo bằng tay', '3.  Thức ăn  viên', 'Set bể cho apisto', '4. Cá killifish'])
+  expect(r.text['photo-heading']).toEqual(['guides/coop-foods'])
+  expect(r.unplaced).toEqual(['guides/coop-foods: "Set bể cho apisto"', 'guides/coop-foods: "4. Cá killifish"'])
+  const again = await sweep(root, {})
+  expect(again.text['photo-heading']).toBeUndefined()
+  expect(await labels()).toEqual([undefined, '#1 Trùng huyết (bloodworm) đông lạnh', '2. Gỡ tảo bằng tay', '3.  Thức ăn  viên', 'Set bể cho apisto', '4. Cá killifish'])
+})
+
 test("a paper's plate leaves its page and its gallery for good, the page's lead or not; one plain photo named as a figure stays (the owner's report, 2026-11-11)", async () => {
   const root = await mkdtemp(join(tmpdir(), 'sweep-'))
   const c = join(root, 'content')

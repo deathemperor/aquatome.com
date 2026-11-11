@@ -1,5 +1,6 @@
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
+import { parse } from 'node-html-parser'
 import { loadAll, mayPublish, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type Photo, type DataCardField, type SpeciesEntity, type Summary, type WrittenLang } from '@aq/schema'
 import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, tidyNames, type BreedName, type NameOff } from './alt-names'
 import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
@@ -120,6 +121,8 @@ export type SweepReport = {
   links: string[]
   /** Breeds whose parents no longer match their research, left unlinked. */
   unmatched: string[]
+  /** Guide photos whose label names no heading of the guide, so the site shows them at its end: `guides/id: "label"`. */
+  unplaced: string[]
   stopped: string
 }
 
@@ -211,7 +214,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   const cap = o.photoCap ?? PHOTO_CAP
   if (!Number.isInteger(cap) || cap < 0) throw new Error(`sweep: the photo cap is a whole number, 0 or more, not ${cap}`)
   const content = join(root, 'content')
-  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, held: [], unwell: [], heads: [], videos: [], card: [], summaries: [], tanks: [], shop: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], stopped: '' }
+  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, held: [], unwell: [], heads: [], videos: [], card: [], summaries: [], tanks: [], shop: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], unplaced: [], stopped: '' }
   const changed = (f: string) => { if (!report.files.includes(f)) report.files.push(f) }
   const guides: { key: string; before: string; after: string }[] = []
   const counted: { file: string; raw: string; t: Stored; kind: string; lang: WrittenLang; id: string }[] = [] // raw: for its indentation
@@ -544,6 +547,35 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     await write(file, raw, { ...e, photos: photos.slice(0, end) })
     changed(`guides/${id}/entity.json`)
   }
+  // A guide's photo goes under the heading its label names (the site matches the two), so a label follows its heading when
+  // the heading is rewritten: the words the sweep writes another way ("Trùn chỉ đỏ" → "Trùng huyết"), else the one heading
+  // with the label's number ("2.", "#1"). One it can't place is listed and kept; the site shows it at the guide's end.
+  const near = (h: string) => h.replace(/\s+/g, ' ').trim().toLowerCase()
+  const numberOf = (h: string) => h.match(/^\s*(#?\d+)[.):]?\s/)?.[1]
+  for (const id of (await readdir(join(content, 'guides')).catch(() => [] as string[])).sort()) {
+    const file = join(content, 'guides', id, 'entity.json')
+    const raw = await readFile(file, 'utf8').catch(() => null)
+    const e = raw ? JSON.parse(raw) as { photos?: (Photo & { section?: Record<string, string> })[] } : null
+    if (!e?.photos?.some(p => p.section?.vi)) continue
+    const t = JSON.parse(await readFile(join(content, 'guides', id, 'vi.json'), 'utf8').catch(() => 'null')) as Stored | null
+    const headings = parse(t?.body ?? '').querySelectorAll('h3').map(h => h.textContent.replace(/\s+/g, ' ').trim()).filter(Boolean)
+    const named = (label: string) => headings.find(h => near(h) === near(label))
+    let moved = false
+    const photos = e.photos.map(p => {
+      const label = p.section?.vi
+      if (!label || named(label)) return p
+      const numbered = headings.filter(h => numberOf(h) !== undefined && numberOf(h) === numberOf(label))
+      const to = named(viWording(label)) ?? (numbered.length === 1 ? numbered[0] : undefined)
+      if (!to) { report.unplaced.push(`guides/${id}: "${label}"`); return p }
+      moved = true
+      return { ...p, section: { ...p.section, vi: to } }
+    })
+    if (!moved) continue
+    await write(file, raw!, { ...e, photos })
+    changed(`guides/${id}/entity.json`)
+    ;(report.text['photo-heading'] ??= []).push(`guides/${id}`)
+  }
+
   // A map, a paper's plate or an ad's poster is no fish's photo: off every page, and never picked again.
   if (maps.size) {
     const rejectedFile = join(root, 'engine-state', '_photo-rejected.json')
