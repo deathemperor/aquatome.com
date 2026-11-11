@@ -127,9 +127,10 @@ function archiveAndRemove(path, repo = REPO, archive = ARCHIVE, say = log) {
 }
 
 /**
- * --archive <path>...: saves and removes each worktree named, now. One a process is working in stays. So does one whose
- * thread is live (`live`, null when the threads can't be read: then every one stays), unless the caller names that path
- * again after --though-live. With --dry-run it says what it would save and remove, and does neither.
+ * --archive <path>...: saves and removes each worktree named, now. One a process is working in stays (`cwds`, null when
+ * lsof can't say: then every one stays). So does one whose thread is live (`live`, null when the threads can't be read:
+ * then every one stays), unless the caller names that path again after --though-live. With --dry-run it says what it
+ * would save and remove, and does neither.
  */
 export function archiveNamed(argv, { cwds, live, repo = REPO, archive = ARCHIVE, say = log }) {
   // The paths after a flag, up to the next flag, as git and lsof write them: no trailing slash, no link on the way.
@@ -140,6 +141,7 @@ export function archiveNamed(argv, { cwds, live, repo = REPO, archive = ARCHIVE,
   }
   const though = new Set(after('--though-live'))
   for (const path of after('--archive')) {
+    if (!cwds) { say(`kept ${path}: couldn't read whether a process is working in it`); continue }
     if (cwds.some(c => c === path || c.startsWith(`${path}/`))) { say(`kept ${path}: a process is working in it`); continue }
     if (!though.has(path) && (!live || live.has(path))) { say(`kept ${path}: ${live ? 'its thread is live' : "its thread couldn't be read"}. To save and remove it all the same, name it again after --though-live`); continue }
     if (argv.includes('--dry-run')) { say(`would save and remove ${path}`); continue }
@@ -283,7 +285,7 @@ function worktrees() {
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url) && process.argv.includes('--archive')) {
-  const cwds = (read('lsof', ['-d', 'cwd', '-Fn']) ?? '').split('\n').filter(l => l.startsWith('n')).map(l => l.slice(1))
+  const cwds = read('lsof', ['-d', 'cwd', '-Fn'])?.split('\n').filter(l => l.startsWith('n')).map(l => l.slice(1)) ?? null
   archiveNamed(process.argv, { cwds, live: liveWorktrees() })
 } else if (process.argv[1] === fileURLToPath(import.meta.url)) {
   // One pass failing leaves the others to run.

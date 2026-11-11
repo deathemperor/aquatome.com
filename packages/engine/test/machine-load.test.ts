@@ -135,7 +135,7 @@ test('--archive saves and removes a worktree its caller names, only says so with
   const dir = realpathSync(home()) // as git and lsof write a path
   const at = (name: string) => `${dir}/${name}`
   sh(dir, 'git init -q -b main main && cd main && echo a > a && git add a && git commit -qm base && for n in dry gone live named unread busy; do git worktree add -q -b $n ../$n; done')
-  const run = (argv: string[], live: Set<string> | null = new Set(), cwds: string[] = []) => {
+  const run = (argv: string[], live: Set<string> | null = new Set(), cwds: string[] | null = []) => {
     const said: string[] = []
     archiveNamed(argv, { cwds, live, repo: at('main'), archive: at('archive'), say: (line: string) => said.push(line) })
     return said
@@ -162,6 +162,8 @@ test('--archive saves and removes a worktree its caller names, only says so with
   expect(existsSync(at('unread'))).toBe(true)
   // The word is about the thread alone: a process working in it keeps it.
   expect(run(['--archive', at('busy'), '--though-live', at('busy')], new Set(), [`${at('busy')}/packages`])).toEqual([`kept ${at('busy')}: a process is working in it`])
+  // And when lsof can't say who is working where, nothing goes, named again or not.
+  expect(run(['--archive', at('busy'), '--though-live', at('busy')], new Set(), null)).toEqual([`kept ${at('busy')}: couldn't read whether a process is working in it`])
   expect(existsSync(at('busy'))).toBe(true)
 }, 60_000)
 
