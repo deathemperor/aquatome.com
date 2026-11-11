@@ -1,7 +1,7 @@
 ---
 url: https://www.scotcat.com/auchenipteridae/tetranematichthys_wallacei.htm
 title: Tetranematichthys wallacei Vari & Ferraris, 2006
-fetchedAt: 2026-11-11T14:42:23.738Z
+fetchedAt: 2026-11-11T17:42:51.891Z
 hash: 05860a04a11b220f5a1b0d9df72001b028fa50978e9f8d45e94aab4606fd6138
 ---
 

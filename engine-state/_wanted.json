@@ -30,7 +30,7 @@
       "guides/youtube-0i9qSwTrXIc",
       "guides/youtube-6MVlcgTchtE"
     ],
-    "mentions": 22
+    "mentions": 25
   },
   "barbodes-xouthos": {
     "name": "Barbodes xouthos",
@@ -40,6 +40,17 @@
       "species/dawkinsia-exclamatio",
       "species/dawkinsia-filamentosa",
       "species/dawkinsia-rohani"
+    ],
+    "mentions": 22
+  },
+  "lemna-minor": {
+    "name": "Lemna minor",
+    "mentionedIn": [
+      "guides/youtube-34R1VF2bzmg",
+      "guides/youtube-4a87l1r7_Yg",
+      "guides/youtube-CuZeMDsjK70",
+      "guides/youtube-JQiui3Wmurs",
+      "guides/youtube-MrmmzZYYBTU"
     ],
     "mentions": 22
   },
@@ -76,17 +87,6 @@
     ],
     "mentions": 26
   },
-  "lemna-minor": {
-    "name": "Lemna minor",
-    "mentionedIn": [
-      "guides/youtube-4a87l1r7_Yg",
-      "guides/youtube-CuZeMDsjK70",
-      "guides/youtube-JQiui3Wmurs",
-      "guides/youtube-NBR8ZLYW0dQ",
-      "guides/youtube-NnedKiWs71U"
-    ],
-    "mentions": 17
-  },
   "ficus-pumila": {
     "name": "Ficus pumila",
     "mentionedIn": [
@@ -118,8 +118,7 @@
       "species/akysis-vespa",
       "species/barilius-infrafasciatus"
     ],
-    "mentions": 16,
-    "onSource": "https://www.seriouslyfish.com/species/acanthocobitis-pictilis"
+    "mentions": 16
   },
   "platydoras-costatus": {
     "name": "Platydoras costatus",
@@ -141,7 +140,8 @@
       "species/baryancistrus-beggini",
       "species/baryancistrus-demantoides"
     ],
-    "mentions": 15
+    "mentions": 15,
+    "onSource": "https://www.scotcat.com/loricariidae/panaque_nigrolineatus_laurafabianae.htm"
   },
   "gastromyzon-embalohensis": {
     "name": "Gastromyzon embalohensis",
@@ -153,6 +153,17 @@
       "species/gastromyzon-farragus"
     ],
     "mentions": 13
+  },
+  "physella-acuta": {
+    "name": "Physella acuta",
+    "mentionedIn": [
+      "guides/youtube-34R1VF2bzmg",
+      "guides/youtube-LorZ64vB4ss",
+      "guides/youtube-NnedKiWs71U",
+      "guides/youtube-P7GTfHdl5E8",
+      "guides/youtube-SvweeFIvybY"
+    ],
+    "mentions": 15
   },
   "geophagus-gottwaldi": {
     "name": "Geophagus gottwaldi",
@@ -253,17 +264,6 @@
     ],
     "mentions": 10
   },
-  "physella-acuta": {
-    "name": "Physella acuta",
-    "mentionedIn": [
-      "guides/youtube-LorZ64vB4ss",
-      "guides/youtube-NnedKiWs71U",
-      "guides/youtube-P7GTfHdl5E8",
-      "guides/youtube-SvweeFIvybY",
-      "guides/youtube-VJ_EZRwwFZg"
-    ],
-    "mentions": 13
-  },
   "caridina-cantonensis": {
     "name": "Caridina cantonensis",
     "mentionedIn": [
@@ -352,6 +352,17 @@
     ],
     "mentions": 9
   },
+  "pontederia-crassipes": {
+    "name": "Pontederia crassipes",
+    "mentionedIn": [
+      "guides/youtube-7gf1xIZTJRg",
+      "guides/youtube-8SCxf-L1Nww",
+      "guides/youtube-8qCMy4BnnDI",
+      "guides/youtube-Asi_tzpiHxM",
+      "guides/youtube-HUa1u8usS5w"
+    ],
+    "mentions": 11
+  },
   "paracrossochilus-vittatus": {
     "name": "Paracrossochilus vittatus",
     "mentionedIn": [
@@ -407,6 +418,17 @@
     ],
     "mentions": 7
   },
+  "pistia-stratiotes": {
+    "name": "Pistia stratiotes",
+    "mentionedIn": [
+      "guides/youtube-34R1VF2bzmg",
+      "guides/youtube-8qCMy4BnnDI",
+      "guides/youtube-GIeCugnkfCQ",
+      "guides/youtube-SEnv3QWLIMw",
+      "guides/youtube-b0pr4vEjJ_k"
+    ],
+    "mentions": 7
+  },
   "vittina-natalensis": {
     "name": "Vittina natalensis",
     "mentionedIn": [
@@ -417,17 +439,6 @@
       "guides/youtube-e7czDMttN4Q"
     ],
     "mentions": 7
-  },
-  "pontederia-crassipes": {
-    "name": "Pontederia crassipes",
-    "mentionedIn": [
-      "guides/youtube-7gf1xIZTJRg",
-      "guides/youtube-8SCxf-L1Nww",
-      "guides/youtube-Asi_tzpiHxM",
-      "guides/youtube-HUa1u8usS5w",
-      "guides/youtube-KSLgl3QmGUw"
-    ],
-    "mentions": 10
   },
   "rasbora-sumatrana": {
     "name": "Rasbora sumatrana",
@@ -1414,6 +1425,15 @@
     ],
     "mentions": 3
   },
+  "boehlkea-fredcochui": {
+    "name": "Boehlkea fredcochui",
+    "mentionedIn": [
+      "guides/youtube-QRffuIKYrNg",
+      "guides/youtube-iKAv9xxkYoY",
+      "species/knodus-borki"
+    ],
+    "mentions": 3
+  },
   "geosesarma-dennerle": {
     "name": "Geosesarma dennerle",
     "mentionedIn": [
@@ -1429,6 +1449,15 @@
       "guides/youtube-Xb3Trilltik",
       "guides/youtube-iFtbrCxfsi8",
       "guides/youtube-uzhJRcM1tx4"
+    ],
+    "mentions": 3
+  },
+  "planorbarius-corneus": {
+    "name": "Planorbarius corneus",
+    "mentionedIn": [
+      "guides/youtube-gB277jXfVTM",
+      "species/marisa-cornuarietis",
+      "species/planorbella-duryi"
     ],
     "mentions": 3
   },
@@ -1964,8 +1993,7 @@
       "guides/seriouslyfish-articles-european-killifishes-part-1-the-genus-aphanius-in-spain",
       "species/apricaphanius-iberus"
     ],
-    "mentions": 2,
-    "onSource": "https://www.seriouslyfish.com/species/aphanius-iberus"
+    "mentions": 2
   },
   "aphanius-baeticus": {
     "name": "Aphanius baeticus",
@@ -1973,8 +2001,7 @@
       "guides/seriouslyfish-articles-european-killifishes-part-1-the-genus-aphanius-in-spain",
       "species/apricaphanius-baeticus"
     ],
-    "mentions": 2,
-    "onSource": "https://www.seriouslyfish.com/species/aphanius-baeticus"
+    "mentions": 2
   },
   "badis-laspiophilus": {
     "name": "Badis laspiophilus",
@@ -1998,8 +2025,7 @@
       "guides/seriouslyfish-articles-whaddaya-mean-too-hot",
       "species/paraphanius-mento"
     ],
-    "mentions": 2,
-    "onSource": "https://www.seriouslyfish.com/species/aphanius-mento"
+    "mentions": 2
   },
   "micralestes-acutidens": {
     "name": "Micralestes acutidens",
@@ -2041,6 +2067,14 @@
     ],
     "mentions": 2
   },
+  "ambystoma-mexicanum": {
+    "name": "Ambystoma mexicanum",
+    "mentionedIn": [
+      "guides/youtube-A2xRRZ06T7I",
+      "guides/youtube-jOktp87MxK0"
+    ],
+    "mentions": 2
+  },
   "lomariopsis-lineata": {
     "name": "Lomariopsis lineata",
     "mentionedIn": [
@@ -2078,14 +2112,6 @@
     "mentionedIn": [
       "guides/youtube-DRlTmK7l0uo",
       "guides/youtube-ld9WkDIP_o4"
-    ],
-    "mentions": 2
-  },
-  "pistia-stratiotes": {
-    "name": "Pistia stratiotes",
-    "mentionedIn": [
-      "guides/youtube-GIeCugnkfCQ",
-      "guides/youtube-SEnv3QWLIMw"
     ],
     "mentions": 2
   },
@@ -2151,14 +2177,6 @@
     "mentionedIn": [
       "guides/youtube-Pc-uoB80jyk",
       "guides/youtube-iFtbrCxfsi8"
-    ],
-    "mentions": 2
-  },
-  "boehlkea-fredcochui": {
-    "name": "Boehlkea fredcochui",
-    "mentionedIn": [
-      "guides/youtube-QRffuIKYrNg",
-      "species/knodus-borki"
     ],
     "mentions": 2
   },
@@ -2328,8 +2346,7 @@
       "species/anatolichthys-sureyanus",
       "species/anatolichthys-transgrediens"
     ],
-    "mentions": 2,
-    "onSource": "https://www.seriouslyfish.com/species/aphanius-anatoliae"
+    "mentions": 2
   },
   "incertae-sedis": {
     "name": "incertae sedis",
@@ -2963,14 +2980,6 @@
     "mentionedIn": [
       "species/lysmata-amboinensis",
       "species/lysmata-debelius"
-    ],
-    "mentions": 2
-  },
-  "planorbarius-corneus": {
-    "name": "Planorbarius corneus",
-    "mentionedIn": [
-      "species/marisa-cornuarietis",
-      "species/planorbella-duryi"
     ],
     "mentions": 2
   },
@@ -4022,6 +4031,13 @@
     ],
     "mentions": 1
   },
+  "aquarius-cordifolius": {
+    "name": "Aquarius cordifolius",
+    "mentionedIn": [
+      "guides/youtube-0mh3XMpsMvk"
+    ],
+    "mentions": 1
+  },
   "mentha-aquatica": {
     "name": "Mentha aquatica",
     "mentionedIn": [
@@ -4075,6 +4091,13 @@
     "name": "Lythrurus umbratilis",
     "mentionedIn": [
       "guides/youtube-7l1Ja0NL_UQ"
+    ],
+    "mentions": 1
+  },
+  "gymnocoronis-spilanthoides": {
+    "name": "Gymnocoronis spilanthoides",
+    "mentionedIn": [
+      "guides/youtube-8qCMy4BnnDI"
     ],
     "mentions": 1
   },
@@ -4202,6 +4225,13 @@
     "name": "Amphiprion percula",
     "mentionedIn": [
       "guides/youtube-J4e7xzevT5E"
+    ],
+    "mentions": 1
+  },
+  "limnophila-siamensis": {
+    "name": "Limnophila siamensis",
+    "mentionedIn": [
+      "guides/youtube-L8tiOsI7dyk"
     ],
     "mentions": 1
   },
@@ -4461,13 +4491,6 @@
     "name": "Begonia bowerae",
     "mentionedIn": [
       "guides/youtube-iFtbrCxfsi8"
-    ],
-    "mentions": 1
-  },
-  "ambystoma-mexicanum": {
-    "name": "Ambystoma mexicanum",
-    "mentionedIn": [
-      "guides/youtube-jOktp87MxK0"
     ],
     "mentions": 1
   },
@@ -4883,8 +4906,7 @@
     "mentionedIn": [
       "species/anatolichthys-villwocki"
     ],
-    "mentions": 1,
-    "onSource": "https://www.seriouslyfish.com/species/aphanius-villwocki"
+    "mentions": 1
   },
   "ancharius-griseus": {
     "name": "Ancharius griseus",
@@ -5094,8 +5116,7 @@
     "mentionedIn": [
       "species/barbodes-semifasciolatus"
     ],
-    "mentions": 1,
-    "onSource": "https://www.seriouslyfish.com/species/puntius-snyderi"
+    "mentions": 1
   },
   "barboides-britzi": {
     "name": "Barboides britzi",
@@ -5896,8 +5917,7 @@
     "mentionedIn": [
       "species/garra-bicornuta"
     ],
-    "mentions": 1,
-    "onSource": "https://www.seriouslyfish.com/species/nemachilichthys-shimogensis"
+    "mentions": 1
   },
   "garra-micropulvinus": {
     "name": "Garra micropulvinus",

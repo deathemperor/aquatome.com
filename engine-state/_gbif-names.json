@@ -901,6 +901,7 @@
   },
   "Amano khi": null,
   "Amano quanh": null,
+  "Amano shrimp": null,
   "Amano thay": null,
   "Amaralia hypsiura": {
     "canonicalName": "Amaralia hypsiura",
@@ -3507,6 +3508,7 @@
   "Bangka lies": null,
   "Bangladesh has": null,
   "Bao aquasoil": null,
+  "Bao ghi": null,
   "Bao nhi": null,
   "Bao quanh": null,
   "Barak comprises": null,
@@ -9913,6 +9915,13 @@
     "genus": "Aquarius",
     "matchType": "FUZZY"
   },
+  "Echinodorus fluitans": {
+    "canonicalName": "Aquarius cordifolius",
+    "order": "Alismatales",
+    "family": "Alismataceae",
+    "genus": "Aquarius",
+    "matchType": "EXACT"
+  },
   "Echinodorus major": {
     "canonicalName": "Aquarius major",
     "order": "Alismatales",
@@ -11625,6 +11634,7 @@
     "genus": "Glossostigma",
     "matchType": "EXACT"
   },
+  "Glossostigma elatostematoides": null,
   "Glutaraldehyde pha": null,
   "Glutaraldehyde trong": null,
   "Glutaraldehyde xuy": null,
@@ -11878,6 +11888,13 @@
     "order": "Perciformes",
     "family": "Ambassidae",
     "genus": "Gymnochanda",
+    "matchType": "EXACT"
+  },
+  "Gymnocoronis spilanthoides": {
+    "canonicalName": "Gymnocoronis spilanthoides",
+    "order": "Asterales",
+    "family": "Asteraceae",
+    "genus": "Gymnocoronis",
     "matchType": "EXACT"
   },
   "Gymnocorymbus bondi": {
@@ -12191,6 +12208,7 @@
   },
   "Helanthium cao": null,
   "Helanthium chung": null,
+  "Helanthium mua": null,
   "Helanthium quadricostatum": null,
   "Helanthium quadricostatus": null,
   "Helanthium tenellum": {
@@ -14565,6 +14583,7 @@
   "Khi amoniac": null,
   "Khi anubias": null,
   "Khi chu": null,
+  "Khi chui": null,
   "Khi chuy": null,
   "Khi cua": null,
   "Khi dinh": null,
@@ -15602,6 +15621,13 @@
     "genus": "Lepidothelphusa",
     "matchType": "EXACT"
   },
+  "Lepisosteus oculatus": {
+    "canonicalName": "Lepisosteus oculatus",
+    "order": "Lepisosteiformes",
+    "family": "Lepisosteidae",
+    "genus": "Lepisosteus",
+    "matchType": "EXACT"
+  },
   "Leporacanthicus joselimai": {
     "canonicalName": "Leporacanthicus joselimai",
     "order": "Siluriformes",
@@ -15942,6 +15968,13 @@
     "genus": "Limnophila",
     "matchType": "EXACT"
   },
+  "Limnophila siamensis": {
+    "canonicalName": "Limnophila siamensis",
+    "order": "Lamiales",
+    "family": "Plantaginaceae",
+    "genus": "Limnophila",
+    "matchType": "EXACT"
+  },
   "Limnopilos naiyanetri": {
     "canonicalName": "Limnopilos naiyanetri",
     "order": "Decapoda",
@@ -16270,6 +16303,13 @@
     "matchType": "EXACT"
   },
   "Ludwigia cao": null,
+  "Ludwigia glandularis": {
+    "canonicalName": "Ludwigia glandulosa",
+    "order": "Myrtales",
+    "family": "Onagraceae",
+    "genus": "Ludwigia",
+    "matchType": "FUZZY"
+  },
   "Ludwigia glandulosa": {
     "canonicalName": "Ludwigia glandulosa",
     "order": "Myrtales",
@@ -18754,6 +18794,7 @@
     "matchType": "EXACT"
   },
   "Neocaridina gracilirostris": null,
+  "Neocaridina nhi": null,
   "Neocaridina trong": null,
   "Neocaridina xanh": null,
   "Neochela dadiburjori": {
@@ -19394,6 +19435,7 @@
     "genus": "Nymphaea",
     "matchType": "EXACT"
   },
+  "Nymphoides taiwanensis": null,
   "Nyong drainages": null,
   "Nypa fruticans": {
     "canonicalName": "Nypa fruticans",
@@ -24813,6 +24855,7 @@
     "genus": "Rasbora",
     "matchType": "EXACT"
   },
+  "Rasbora xanh": null,
   "Rasboroides nigromarginata": {
     "canonicalName": "Rasboroides nigromarginatus",
     "order": "Cypriniformes",
@@ -29416,12 +29459,5 @@
     "genus": "Zungaro",
     "matchType": "EXACT"
   },
-  "Zwei neue": null,
-  "Lepisosteus oculatus": {
-    "canonicalName": "Lepisosteus oculatus",
-    "order": "Lepisosteiformes",
-    "family": "Lepisosteidae",
-    "genus": "Lepisosteus",
-    "matchType": "EXACT"
-  }
+  "Zwei neue": null
 }
