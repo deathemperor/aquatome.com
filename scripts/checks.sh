@@ -11,7 +11,7 @@ mkdir -p "$HOME/.cache/aquatome"
 # ran beside everyone's builds and tests. Put back here, as every heavy job comes through.
 # Only a real home's: a test's stands in for one, and must never join the real queue.
 shared=${AQ_SHARED_LOCKS:-}
-case "$HOME" in /Users/*) shared=${shared:-/Users/Shared/aquatome} ;; esac
+case "$HOME" in /Users/*/*) ;; /Users/*) shared=${shared:-/Users/Shared/aquatome} ;; esac
 lock=$HOME/.cache/aquatome/checks.lock
 if [ -n "$shared" ] && [ -f "$shared/checks.lock" ] && [ ! -L "$lock" ]; then ln -s "$shared/checks.lock" "$lock.$$" && mv -f "$lock.$$" "$lock"; fi
 back=$(mktemp "$HOME/.cache/aquatome/checks-back.XXXXXX") || exit 70

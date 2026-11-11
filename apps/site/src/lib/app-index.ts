@@ -188,7 +188,7 @@ export const appEquipment = (lang: Lang, c: Content) => (served(lang, '/vi/thiet
 export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = new Map(), everySpecies: Content['species'] = c.species, cur?: { calendar: Curation; today: string }): AppIndex {
   const t = translator(lang)
   const at = (viPath: string) => appPath(lang, viPath)
-  const img = (photos: Photo[]) => (photos[0] ? smallSrc(photos[0]) : undefined)
+  const img = (photos: Photo[]) => { const p = photos.find(p => !p.generated); return p ? smallSrc(p) : undefined }
   const aka = (names: string[]) => (names.length ? names : undefined)
   const items: AppItem[] = []
   const home: AppHome = { groups: [], fish: [], plants: [], guides: [] }

@@ -1,9 +1,11 @@
+import { createHash } from 'node:crypto'
 import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import type { z } from 'zod'
 import { shownCard } from './card-facts'
 import { cardShownIn, CardSchema, CardTextSchema, type Card } from './cards'
 import { setsCookies } from './thumb'
+import { generatedApproved, IMAGE_SWITCHES, MARK_RESIDUE_LIMIT, MARK_RESIDUE_VERSION, realPhotosFirst, type ImageSwitches } from './image-policy'
 import { judgeQuality, speciesDepth } from './depth'
 import { isAllowedLicence } from './licence'
 import { isVietnamese, markVietnameseNames } from './text'
@@ -19,7 +21,7 @@ export const MARKET: Record<Lang, string> = { vi: 'vn', id: 'id', th: 'th', ms: 
  * `leaveOutHeld`: a page the reader-fit gate holds back in this language (its `held`) is no page here, as one without a
  * translation. The site's build sets it; the engine reads every page, to read the held ones again and let them out.
  */
-export type LoadOptions = { root: string; lang: Lang; publicBuild: boolean; leaveOutHeld?: boolean }
+export type LoadOptions = { root: string; lang: Lang; publicBuild: boolean; leaveOutHeld?: boolean; imageSwitches?: Readonly<ImageSwitches> }
 export type Localized<E> = E & { t: Translation }
 export type Content = {
   species: Localized<SpeciesEntity>[]
@@ -99,9 +101,20 @@ async function loadKind<S extends z.ZodType>(root: string, dir: string, schema: 
 
 export async function loadAll(opts: LoadOptions): Promise<Content> {
   const { root, lang, publicBuild, leaveOutHeld = false } = opts
+  const images = opts.imageSwitches ?? IMAGE_SWITCHES
   const sources = await readJson(join(root, 'sources.json'), SourcesSchema)
   // Text, and everything written from it (sections, guides, card values, quality, changelog); photos have their own gate.
   const allowed = (s: SourceId) => !publicBuild || mayPublish(sources[s], 'text')
+  const approvals: { calibrationHash?: string; photos: Record<string, { page: string; recordHash: string; check: unknown }> } = images.publishGenerated ? await readFile(join(root, 'image-approvals.json'), 'utf8').then(s => JSON.parse(s) as { calibrationHash?: string; photos: Record<string, { page: string; recordHash: string; check: unknown }> }, () => ({ photos: {} })) : { photos: {} }
+  const generatedUrls = new Set<string>()
+  for (const [url, approval] of Object.entries(approvals.photos)) {
+    if (!/^(species|plants)\/[a-z0-9-]+$/.test(approval.page)) continue
+    const e = await readFile(join(root, approval.page, 'entity.json'), 'utf8').then(s => JSON.parse(s), () => undefined)
+    const gallery = await readFile(join(root, 'gallery', `${approval.page.split('/')[1]}.json`), 'utf8').then(s => JSON.parse(s), () => undefined)
+    const hash = e && createHash('sha256').update(JSON.stringify([e.scientificName, e.sections])).digest('hex')
+    const same = (p: Photo) => p.url === url && generatedApproved(p) && p.generated?.check?.calibrationHash === ('calibrationHash' in approvals ? approvals.calibrationHash : undefined) && JSON.stringify(p.generated?.check) === JSON.stringify(approval.check)
+    if (hash === approval.recordHash && e.photos.some(same) && gallery?.photos.some(same)) generatedUrls.add(url)
+  }
   const photoAllowed = (s: SourceId) => !publicBuild || mayPublish(sources[s], 'photos')
   const cleanSections = (xs: Section[]) => xs.filter(s => allowed(s.source))
   // Captions written in Vietnamese (galleries, breed photos) are shown in this language from content/captions/<lang>.json;
@@ -116,7 +129,34 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   /** Photos copied from a source follow that source's publish gate; others need an open licence. */
   // A public build shows no photo from a host that sets third-party cookies: it waits for `pnpm engine mirror-photos`
   // (2026-10-31: 487 Commons photos put on pages straight from Wikimedia failed best practices on every live page).
-  const cleanPhotos = <P extends Photo>(xs: P[]): P[] => xs.filter(p => (p.source ? photoAllowed(p.source) : isAllowedLicence(p.licence)) && !(publicBuild && setsCookies(p.url))).map(caption)
+  const cleanPhotos = <P extends Photo>(xs: P[]): P[] => realPhotosFirst(xs.flatMap(p => {
+    const removedMark = p.altered?.find(a => a.method === 'mark-removal')
+    const permission = p.source && sources[p.source]?.permission?.markRemoval
+    const markOn = images.removeMarks && !!permission && permission.allowed && permission.date === removedMark?.permissionDate
+    const revoked = p.altered?.length && (!images.publishAltered || (removedMark ? !markOn : !images.upscaleReal))
+    if (revoked && !p.generated) {
+      // One source's objection takes effect in the very next build. Its marked original stays hidden, except Glaser's
+      // own logo, whose original was permitted; an ordinary upscale always falls back to its unchanged original.
+      if (!p.original || (removedMark && p.source !== 'glaser')) return []
+      const { altered: _altered, original, large: _large, thumb: _thumb, ...rest } = p
+      return [{ ...rest, ...original } as P]
+    }
+    return [p]
+  }).filter(p => {
+    if (publicBuild && setsCookies(p.url)) return false
+    if (p.generated) return images.publishGenerated && generatedUrls.has(p.url) && generatedApproved(p) && !p.altered?.some(a => a.method === 'mark-removal')
+    if (p.altered?.length) {
+      if (!images.publishAltered) return false
+      for (const a of p.altered) {
+        if (a.method === 'lanczos3-upscale' && !images.upscaleReal) return false
+        if (a.method === 'mark-removal') {
+          const permission = p.source && sources[p.source]?.permission?.markRemoval
+          if (!images.removeMarks || !permission || !permission.allowed || permission.date !== a.permissionDate || a.outsideChanged !== 0 || a.noTrace !== 'pass' || !a.box || a.residue?.version !== MARK_RESIDUE_VERSION || a.residue.limit !== MARK_RESIDUE_LIMIT || !Number.isFinite(a.residue.score) || a.residue.score >= MARK_RESIDUE_LIMIT) return false
+        }
+      }
+    }
+    return p.source ? photoAllowed(p.source) : isAllowedLicence(p.licence)
+  }).map(caption))
   /** The card's values from sources this build may show, without a tank length that is that source's tank volume (card-facts). */
   const cleanCard = (card: SpeciesEntity['dataCard'], sections: Section[]): SpeciesEntity['dataCard'] => shownCard(card, sections, s => allowed(s as SourceId))
 
@@ -140,10 +180,12 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
 
   const voices = (await exists(join(root, 'one-voice.json'))) ? await readJson(join(root, 'one-voice.json'), OneVoiceSchema) : {}
   // After the depth is judged: a block set aside here still counts for the page's place in search.
-  const species = (await loadKind(root, 'species', SpeciesSchema, lang, leaveOutHeld))
+  const generatedPages = new Set<string>()
+  const rememberGenerated = <E extends { id: string; photos: Photo[] }>(page: E): E => { if (page.photos.some(p => p.generated)) generatedPages.add(page.id); return page }
+  const species = (await loadKind(root, 'species', SpeciesSchema, lang, leaveOutHeld)).map(rememberGenerated)
     .map(s => oneVoice(judgeDepth({ ...s, sections: cleanSections(s.sections), photos: cleanPhotos(s.photos), dataCard: cleanCard(s.dataCard, s.sections) }), voices[s.id]))
     .filter(s => s.sections.length > 0)
-  const plants = (await loadKind(root, 'plants', PlantSchema, lang, leaveOutHeld))
+  const plants = (await loadKind(root, 'plants', PlantSchema, lang, leaveOutHeld)).map(rememberGenerated)
     .map(p => cleanQuality({ ...p, sections: cleanSections(p.sections), photos: cleanPhotos(p.photos) }))
     .filter(p => p.sections.length > 0)
   const guides = (await loadKind(root, 'guides', GuideSchema, lang, leaveOutHeld))
@@ -181,7 +223,12 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   // Breeds share the species' address space: a clash would silently drop one page, so it stops the build.
   // A care figure the engine hid (out of bounds, a tank too short for the fish: `hidden`) stays off the page.
   const shownCare = (care: BreedEntity['care']) => Object.fromEntries(Object.entries(care).map(([f, vs]) => [f, (vs ?? []).filter(v => !v.hidden)] as const).filter(([, vs]) => vs.length)) as BreedEntity['care']
-  const breeds = (await loadKind(root, 'breeds', BreedSchema, lang, leaveOutHeld)).map(b => ({ ...b, care: shownCare(b.care), photos: cleanPhotos(b.photos) }))
+  const breeds = (await loadKind(root, 'breeds', BreedSchema, lang, leaveOutHeld)).map(rememberGenerated).map(b => ({ ...b, care: shownCare(b.care), photos: cleanPhotos(b.photos) }))
+  // A newly passed real album photo immediately leads a formerly generated-only page, even before lead-photos runs.
+  for (const page of [...species, ...plants, ...breeds]) if (page.photos[0]?.generated || (!page.photos.length && generatedPages.has(page.id))) {
+    const real = galleries[page.id]?.find(p => !p.generated)
+    if (real) page.photos = [real, ...page.photos.filter(p => p.url !== real.url)]
+  }
   const speciesSlugs = new Set(species.map(s => s.t.slug))
   const breedSlugs = new Set<string>()
   for (const b of breeds) {
@@ -206,7 +253,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     if (t.held) continue
     const { photo, ...card } = await readJson(join(cardsDir, id, 'entity.json'), CardSchema)
     if (!cardShownIn(card, lang)) continue
-    const shown = photo && cleanPhotos([photo])[0]
+    const shown = photo && !photo.generated ? cleanPhotos([photo])[0] : undefined
     cards.push({ ...card, ...(shown ? { photo: shown } : {}), t })
   }
 

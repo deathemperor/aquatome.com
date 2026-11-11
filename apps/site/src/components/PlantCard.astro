@@ -1,5 +1,5 @@
 ---
-import type { Localized, Photo, PlantEntity } from '@aq/schema'
+import { cleanPhoto, type Localized, type Photo, type PlantEntity } from '@aq/schema'
 import { plantMeta } from '../lib/list-data'
 import { smallSrc } from '../lib/img'
 import { i18n } from '../lib/i18n'
@@ -9,7 +9,8 @@ import { i18n } from '../lib/i18n'
  */
 interface Props { p: Localized<PlantEntity>; eager?: boolean; template?: boolean; photo?: Photo | null }
 const { p, eager = false, template = false, photo } = Astro.props
-const ph = photo !== undefined ? photo : p.photos[0]
+const chosen = photo !== undefined ? photo : cleanPhoto(p.photos)
+const ph = chosen?.generated ? undefined : chosen
 const { t } = i18n(Astro.url)
 ---
 <article class="pc" data-slug={template ? "" : p.t.slug}>

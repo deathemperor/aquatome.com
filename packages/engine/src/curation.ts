@@ -131,7 +131,7 @@ export function ownMarkOnly(p: Pick<Photo, 'url' | 'sourceUrl'>, page: string, v
 export function photosFor(photos: Photo[], ok: (p: Photo) => boolean): Pick<Candidate, 'photo' | 'checked'> {
   const photo: Candidate['photo'] = {}
   const checked: Candidate['checked'] = {}
-  for (const p of photos.filter(ok)) {
+  for (const p of photos.filter(p => !p.generated && ok(p))) {
     for (const x of p.large ? [p, p.large] : [p]) checked[x.url] = Object.fromEntries(SLOTS.map(slot => [slot, across(x, slot)])) as Record<Slot, number>
     const big = p.large ?? p
     for (const slot of SLOTS) if (!photo[slot] || across(big, slot) > photo[slot].px) photo[slot] = { url: big.url, px: across(big, slot) }
@@ -142,7 +142,7 @@ export function photosFor(photos: Photo[], ok: (p: Photo) => boolean): Pick<Cand
 /** A page's head photo for its cards, when it passes its checks: by its large copy, the address the app loads. */
 export function headOf(own: Photo[], ok: (p: Photo) => boolean): Candidate['head'] {
   const p = own[0]
-  if (!p || !ok(p)) return undefined
+  if (!p || p.generated || !ok(p)) return undefined
   const big = p.large ?? p
   return { url: big.url, px: Object.fromEntries(SLOTS.map(slot => [slot, across(big, slot)])) as Record<Slot, number> }
 }
@@ -399,6 +399,10 @@ export async function cardsOf(root: string): Promise<Map<string, CardShow>> {
       const parsed = CardSchema.safeParse(e)
       if (!parsed.success) {
         out.set(`cards/${id}`, { bad: parsed.error.issues.map(i => `${i.path.join('.') || 'entity'}: ${i.message}`).join('; ') })
+        continue
+      }
+      if (parsed.data.photo?.generated) {
+        out.set(`cards/${id}`, { bad: 'a generated image may not be the day\'s card' })
         continue
       }
       const langs: string[] = []

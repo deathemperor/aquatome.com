@@ -21,7 +21,8 @@ const { s, breed, eager = false, template = false, photo } = Astro.props
 // `t` below is the temperature range: the translator is `tr` here.
 const { t: tr, lang } = i18n(Astro.url)
 const { range } = fmt(lang)
-const p = photo !== undefined ? photo : breed ? breed.photos[0] : cleanPhoto(s.photos)
+const chosen = photo !== undefined ? photo : breed ? cleanPhoto(breed.photos) : cleanPhoto(s.photos)
+const p = chosen?.generated ? undefined : chosen
 const card = breed ? careCard(breed).card : s.dataCard
 const temp = template ? { value: { min: 0, max: 0 } } : resolveDataCard(card.tempC ?? [], 'tempC')
 const ph = template ? { value: { min: 0, max: 0 } } : resolveDataCard(card.ph ?? [], 'ph')

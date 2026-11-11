@@ -36,7 +36,18 @@ const Section = z.object({ key: z.enum(SECTION_ORDER), source: SourceId, sourceU
  * `large`: a copy for the app's large cards, 1,200 px on its short side (the engine's large-photos.ts); the site's pages
  * show `url`, at most 1,200 wide.
  */
-const Photo = z.object({ url: z.string(), thumb: z.string().optional(), width: z.number(), height: z.number(), large: z.object({ url: z.string(), width: z.number(), height: z.number() }).optional(), licence: z.string(), author: z.string(), authorUrl: z.string().optional(), sourceUrl: z.string(), caption: z.string().optional(), source: SourceId.optional() })
+const Hash = z.string().regex(/^[a-f0-9]{64}$/)
+const Generated = z.object({
+  model: z.string().min(1), driverModel: z.string().min(1), date: z.string().min(1), prompt: z.string().min(1), referenceHash: Hash,
+  check: z.object({ verdict: z.literal('pass'), version: Hash, model: z.string().min(1), at: z.string().min(1), referenceHash: Hash, pixelHash: Hash, calibrationHash: Hash }).optional(),
+})
+const Alteration = z.object({
+  method: z.enum(['mark-removal', 'lanczos3-upscale']), date: z.string().min(1), originalHash: Hash,
+  box: z.object({ x0: z.number().int().nonnegative(), y0: z.number().int().nonnegative(), x1: z.number().int().positive(), y1: z.number().int().positive() }).optional(),
+  outsideChanged: z.literal(0).optional(), noTrace: z.literal('pass').optional(), permissionDate: z.string().optional(), residue: z.object({ version: z.string(), score: z.number().min(0).max(1), limit: z.number().min(0).max(1) }).optional(),
+})
+const OriginalPicture = z.object({ url: z.string(), width: z.number(), height: z.number(), thumb: z.string().optional(), large: z.object({ url: z.string(), width: z.number(), height: z.number() }).optional() })
+const Photo = z.object({ url: z.string(), thumb: z.string().optional(), width: z.number(), height: z.number(), large: z.object({ url: z.string(), width: z.number(), height: z.number() }).optional(), licence: z.string(), author: z.string(), authorUrl: z.string().optional(), sourceUrl: z.string(), caption: z.string().optional(), source: SourceId.optional(), generated: Generated.optional(), altered: z.array(Alteration).optional(), original: OriginalPicture.optional() })
 export const PhotoSchema = Photo
 const Video = z.object({ youtubeId: z.string(), title: z.string(), durationSec: z.number(), lang: z.string() })
 const ProductSlot = z.object({ category: z.string(), keywords: z.array(z.string()) })
@@ -370,7 +381,7 @@ export const ChangelogSchema = z.array(ChangelogEntrySchema)
  */
 export const SourceInfoSchema = z.object({
   name: z.string(), homepage: z.string(), publish: z.union([z.boolean(), z.literal('photos')]),
-  permission: z.object({ date: z.string(), file: z.string(), scope: z.array(z.string()) }).optional(),
+  permission: z.object({ date: z.string(), file: z.string(), scope: z.array(z.string()), markRemoval: z.discriminatedUnion('allowed', [z.object({ allowed: z.literal(false) }), z.object({ allowed: z.literal(true), date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/), basis: z.string().optional() })]).optional() }).optional(),
 }).refine(s => !s.publish || s.permission !== undefined, { message: 'publish requires a permission record', path: ['permission'] })
 /** What a public build may show from a source: its text (and what is written from it), or its photos. */
 export const mayPublish = (info: { publish?: boolean | 'photos' } | undefined, what: 'text' | 'photos') =>

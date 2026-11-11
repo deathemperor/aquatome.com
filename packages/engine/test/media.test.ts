@@ -26,3 +26,10 @@ test('putRaw: the original bytes, unconverted, with their own content type; retu
   expect(calls[0]!.headers['content-type']).toBe('image/jpeg')
   expect(Buffer.from(calls[0]!.body).equals(jpg)).toBe(true)
 })
+
+test('ordinary uploads retain their existing unlimited transport when no image-step signal is supplied',async()=>{
+ const calls:RequestInit[]=[];vi.stubGlobal('fetch',async(_url:string,init:RequestInit)=>{calls.push(init);return new Response('{}')})
+ const bytes=await sharp({create:{width:20,height:10,channels:3,background:'#abcdef'}}).png().toBuffer(),m=r2Media({accountId:'acc',token:'fixture-token',bucket:'b',publicBase:'https://media.example'})
+ await m.put('plain.webp',bytes);await m.putLarge('large.webp',bytes,20);await m.putThumb('thumb.webp',bytes);await m.putRaw('raw.png',bytes,'image/png')
+ expect(calls).toHaveLength(5);for(const call of calls)expect(call.signal).toBeUndefined()
+})

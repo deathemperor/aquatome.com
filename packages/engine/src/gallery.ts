@@ -1,7 +1,7 @@
 import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { GallerySchema, hashDistance, isAllowedLicence, SAME_PICTURE, thumbOf, type Photo } from '@aq/schema'
+import { GallerySchema, hashDistance, isAllowedLicence, realPhotosFirst, SAME_PICTURE, thumbOf, type Photo } from '@aq/schema'
 import sharp from 'sharp'
 import { LlmError } from './claude'
 import { galleryPlan, TARGETS, TIER_ORDER, type PlanItem } from './gallery-plan'
@@ -204,7 +204,7 @@ function mix(photos: GalleryPhoto[]): GalleryPhoto[] {
  */
 export function rankGallery(photos: GalleryPhoto[]): GalleryPhoto[] {
   const tagged = (best: boolean) => photos.filter(p => p.kind !== undefined && !!p.best === best)
-  return [...mix(tagged(true)), ...photos.filter(p => p.kind === undefined), ...mix(tagged(false))]
+  return realPhotosFirst([...mix(tagged(true)), ...photos.filter(p => p.kind === undefined), ...mix(tagged(false))])
 }
 
 /**

@@ -169,6 +169,9 @@ if part photos; then
   # two cycles; the chief of staff, 2026-11-10: this once). With none left to fill, those sheets go in the usual order. A
   # standing share is to replace the 35.
   pnpm engine check-photos --limit "${PHOTO_CHECK_LIMIT:-40}" --fill "${PHOTO_CHECK_FILL:-35}" || log "check-photos: failed"
+  # Independent switches in schema/image-policy.ts are all off until the owner's activation. This step first recovers
+  # eligible real photos, then re-reads empty pages before any generation. Originals and quota ledger stay private.
+  pnpm engine images --limit 1 || log "images: candidates remain private"
   # No people or logos in guides' and equipment guides' photos, which the check above doesn't see, and no people or marks
   # on video guides' stills (guide-photos.ts): GUIDE_PHOTOS_LIMIT model calls of 6 photos a cycle, leads first, then
   # stills, which show only once judged, each judged once. On 2026-11-07: 2,560 photos, about 430 calls, a day and a half with the video job's 20; then

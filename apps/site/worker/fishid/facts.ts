@@ -1,4 +1,5 @@
 import { pageShard, shardCount } from '@aq/schema/app-page'
+import { isGenerated } from '@aq/schema/image-policy'
 import type { Catalog, CatalogEntry } from './catalog'
 import { lookOf, plainText } from './look'
 
@@ -84,7 +85,7 @@ export function buildFacts<P>(catalog: Catalog, pages: FactPages<P>, thumb: (p: 
     const look = e.kind === 'breed' ? undefined : lookOf(sections, undefined, e.kind === 'plant')
     if (look) f.look = look
     if (text) f.text = cut(text, TEXT_MAX)
-    f.photos = [...new Set([...p.photos, ...(opts.gallery?.(e.id) ?? [])].map(thumb))].slice(0, count)
+    f.photos = [...new Set([...p.photos, ...(opts.gallery?.(e.id) ?? [])].filter(p => !isGenerated(p)).map(thumb))].slice(0, count)
     return f
   })
 }

@@ -41,7 +41,7 @@ export const listedPaths = (lang: Lang, c: Content) => new Set(appIndex(lang, c)
 
 /** A photo with its credit, as the page credits it. `small`: its small copy, as a card or a thumbnail shows it. */
 const image = (lang: Lang, p: Photo | null | undefined, alt?: string, small = false): Image | undefined =>
-  p && p.width > 0 && p.height > 0
+  p && !(small && p.generated) && p.width > 0 && p.height > 0
     ? { src: small ? smallSrc(p) : p.url, w: Math.round(p.width), h: Math.round(p.height), ...(alt ? { alt } : {}), credit: photoCredit(lang, p) }
     : undefined
 /** A link to a page as this language's page has it: to its own page, none (the text alone) when it has none. */
@@ -120,6 +120,9 @@ export function sectionBlocks(lang: Lang, c: Content, props: SectionProps): { bl
  */
 function galleryBlock(lang: Lang, sources: Partial<Record<SourceId, SourceInfo>>, name: string, gallery: Photo[], strip: (Photo | null)[], viPath: string | undefined): Block[] {
   const t = translator(lang)
+  // The installed app's full album grid does not draw credit labels. Keep AI pictures out until it does.
+  gallery = gallery.filter(p => !p.generated)
+  strip = strip.map(p => p?.generated ? null : p)
   if (!strip.some(Boolean)) return []
   const photos = gallery.flatMap(p => {
     const img = image(lang, p, p.caption ?? name)

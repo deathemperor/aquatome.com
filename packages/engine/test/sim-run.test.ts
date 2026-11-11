@@ -1,5 +1,5 @@
 import { spawn, spawnSync } from 'node:child_process'
-import { chmodSync, existsSync, mkdirSync, mkdtempSync, readFileSync, symlinkSync, writeFileSync } from 'node:fs'
+import { chmodSync, existsSync, lstatSync, mkdirSync, mkdtempSync, readFileSync, symlinkSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -370,6 +370,15 @@ test("only the chief of staff's thread keeps a turn, and a kept turn lapses with
   expect(readFileSync(`${q.dir}/.cache/aquatome/checks.next`, 'utf8')).toContain(String(sleeper.pid))
   sleeper.kill()
 }, 30_000)
+
+// Durable caches can put test homes under /Users. They must never acquire the real Mac's queue.
+test.skipIf(!hasLockf)('a nested test home never links into the shared Mac queue', () => {
+  const dir = home(), nested = join(dir, 'nested-home')
+  mkdirSync(nested)
+  const r = spawnSync(CHECKS, ['true'], { env: { ...process.env, HOME: nested, AQ_SHARED_LOCKS: '' } })
+  expect(r.status).toBe(0)
+  expect(lstatSync(join(nested, '.cache/aquatome/checks.lock')).isSymbolicLink()).toBe(false)
+})
 
 // The checks queue: the grid's build waited behind two engine cycles, and its command says nothing of the grid: its folder does.
 test.skipIf(!hasLockf)("in the checks queue too, the run the turn is kept for goes first, named by its folder, and a plain lockf job by its pid", async () => {

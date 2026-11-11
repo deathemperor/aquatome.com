@@ -15,7 +15,8 @@
     "./depth": "./src/depth.ts",
     "./licence": "./src/licence.ts",
     "./thumb": "./src/thumb.ts",
-    "./staples": "./src/staples.ts"
+    "./staples": "./src/staples.ts",
+    "./image-policy": "./src/image-policy.ts"
   },
   "scripts": {
     "test": "vitest run",

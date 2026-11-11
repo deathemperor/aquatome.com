@@ -20,7 +20,7 @@ export function citeMark(lang: Lang, n: number, name: string, url: string, card?
   return `<a class="cite" href="${esc(url)}" rel="noopener" data-term="${esc(name)}" data-tip="${esc(tip)}" data-more="${esc(more)}" aria-label="${esc(t('Nguồn {n}: {name}', { n, name }))}">${n}</a>`
 }
 
-type Credited = Pick<Photo, 'author' | 'authorUrl' | 'licence' | 'sourceUrl'>
+type Credited = Pick<Photo, 'author' | 'authorUrl' | 'licence' | 'sourceUrl' | 'generated' | 'altered'>
 
 /** An Unsplash photo's line in the page's language (lib/unsplash.ts); `photo`: the photo's page, for the name without `authorUrl`. */
 export const unsplashLine = (lang: Lang, p: Pick<Photo, 'author' | 'authorUrl'>, photo?: string) => unsplashParts(translator(lang)('Ảnh: {author} trên {site}'), p.author, { ...(p.authorUrl ? { authorUrl: p.authorUrl } : {}), ...(photo ? { photo } : {}) })
@@ -33,6 +33,8 @@ export const partsHtml = (parts: CreditPart[]) => parts.map(x => (x.href ? `<a${
  */
 export function photoCredit(lang: Lang, p: Credited): { text: string; licence: string; url: string; authorUrl?: string; author?: string } {
   const t = translator(lang)
+  if (p.generated) return { text: t('Ảnh do AI tạo'), licence: '', url: p.sourceUrl }
+  if (p.altered?.length) return { text: `${t('Ảnh:')} ${p.author} · ${t('Ảnh đã chỉnh sửa')}`, licence: licenceLabel(p.licence), url: p.sourceUrl }
   if (isUnsplash(p.licence)) return { text: unsplashLine(lang, p).map(x => x.text).join(''), licence: licenceLabel(p.licence), url: p.sourceUrl, ...(p.authorUrl ? { authorUrl: p.authorUrl } : {}), author: p.author }
   return { text: `${t('Ảnh:')} ${p.author}`, licence: licenceLabel(p.licence), url: p.sourceUrl }
 }
@@ -43,6 +45,11 @@ export function photoCredit(lang: Lang, p: Credited): { text: string; licence: s
  */
 export function photoMark(lang: Lang, p: Credited): string {
   const t = translator(lang)
+  if (p.generated) return `<span class="pic-by ai-photo-label" data-credit-kind="generated" data-licence="" data-src="${esc(p.sourceUrl)}" data-author="AI"> ${esc(t('Ảnh do AI tạo'))}</span>`
+  if (p.altered?.length) {
+    const c = photoCredit(lang, p)
+    return `<span class="pic-by" data-credit-kind="altered" data-licence="${esc(c.licence)}" data-src="${esc(c.url)}" data-author="${esc(p.author)}"> <a href="${esc(c.url)}" rel="noopener">${esc(c.text)}</a>${c.licence ? ` · ${esc(c.licence)}` : ''}</span>`
+  }
   // After the caption's words on the same line, as the © (a space before it, which starts a line as nothing). The photo's
   // page for the app's copy (lib/page-blocks.ts), which reads the credit from here.
   if (isUnsplash(p.licence)) return `<span class="pic-by" data-src="${esc(p.sourceUrl)}" data-author="${esc(p.author)}"> ${partsHtml(unsplashLine(lang, p, p.sourceUrl))}</span>`
