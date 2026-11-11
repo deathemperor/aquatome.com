@@ -98,6 +98,7 @@ final class PhotoGridFlowTests: XCTestCase {
     let app = launch()
     openGrid(app)
     app.buttons["grid-photo-2"].tap()
+    app.showViewerWords()
     XCTAssertTrue(app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH '2/3 · '")).firstMatch.waitForExistence(timeout: 5), "not on the photo tapped")
     app.buttons["Đóng"].tap()
     XCTAssertTrue(gone(app.descendants(matching: .any)["gallery"]), "the viewer stayed open")
@@ -120,6 +121,7 @@ final class PhotoGridFlowTests: XCTestCase {
     let back = place - 8
     XCTAssertFalse(onScreen(app, app.buttons["grid-photo-\(back)"]), "photo \(back) was on the screen already")
     first.tap()
+    app.showViewerWords()
     XCTAssertTrue(counter(app, place).waitForExistence(timeout: 5), "not on photo \(place)")
     for k in 1...8 {
       app.swipeRight()
@@ -135,6 +137,7 @@ final class PhotoGridFlowTests: XCTestCase {
     let app = launch("-hundreds-gallery")
     openGrid(app)
     app.buttons["grid-photo-4"].tap()
+    app.showViewerWords()
     XCTAssertTrue(counter(app, 4).waitForExistence(timeout: 5), "not on photo 4")
     // Along the viewer's strip, which shows a few either side.
     for k in stride(from: 8, through: 40, by: 4) {
@@ -161,6 +164,7 @@ final class PhotoGridFlowTests: XCTestCase {
     openGrid(app)
     let title = app.staticTexts["300 ảnh"].frame
     app.buttons["grid-photo-4"].tap()
+    app.showViewerWords()
     XCTAssertTrue(counter(app, 4).waitForExistence(timeout: 5), "not on photo 4")
     app.swipeLeft()
     XCTAssertTrue(counter(app, 5).waitForExistence(timeout: 5), "didn't swipe to photo 5")

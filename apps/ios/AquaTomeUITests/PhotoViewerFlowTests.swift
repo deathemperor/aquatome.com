@@ -133,7 +133,8 @@ final class PhotoViewerFlowTests: XCTestCase {
     XCTAssertEqual(close.label, "Đóng")
     XCTAssertGreaterThan(close.frame.maxX, app.frame.width - 24, "the ✕ isn't at the right: \(close.frame)")
     XCTAssertLessThan(close.frame.minY, 120, "the ✕ isn't at the top: \(close.frame)")
-    XCTAssertFalse(app.navigationBars.firstMatch.exists, "a bar over the photo")
+    // The page's own bar is under the viewer, not over the photo: none to tap.
+    XCTAssertFalse(app.navigationBars.allElementsBoundByIndex.contains { $0.isHittable }, "a bar over the photo")
     XCTAssertFalse(app.staticTexts["Đàn cá neon trong bể"].exists, "its caption as it opens")
     XCTAssertFalse(counter(app, "1/3").exists, "its count as it opens")
     XCTAssertFalse(app.buttons["Ảnh 2 trên 3"].exists, "the strip as it opens")
