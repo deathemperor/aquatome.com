@@ -49,7 +49,7 @@ function model(table: Record<string, Partial<PhotoVerdict>>, seen: { prompt: str
   }
 }
 
-test('another fish and no photo of it leave the page and are rejected; can\'t tell stays and is listed; a typical photo leads', async () => {
+test('another fish and no photo of it leave the page and are rejected; can\'t tell stays and is listed; the lead that passes stays and a typical photo comes next', async () => {
   const r = await root([{ id: 'trigonostigma-heteromorpha', sci: 'Trigonostigma heteromorpha', vi: { name: 'Cá tam giác', altNames: ['Harlequin rasbora', 'Cá rasbora hề'] }, photos: ['pale', 'platy', 'typical', 'river', 'map', 'rare'] }])
   await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [url('old')]: 'watermark: a logo' }))
   const d = model({
@@ -59,7 +59,8 @@ test('another fish and no photo of it leave the page and are rejected; can\'t te
   const out = await checkPagePhotos(r, d, { limit: 10, today: '2026-11-02' })
   expect(d.seen[0]!.prompt).toContain('Trigonostigma heteromorpha (Cá tam giác, Harlequin rasbora)')
   expect(out.removed.map(name)).toEqual(['platy', 'map'])
-  expect(await urls(r, 'content/species/trigonostigma-heteromorpha/entity.json')).toEqual(['typical', 'pale', 'river', 'rare'])
+  // "pale" led the page and the check passed it, though not as typical: it still leads (the chief of staff, 2026-11-10).
+  expect(await urls(r, 'content/species/trigonostigma-heteromorpha/entity.json')).toEqual(['pale', 'typical', 'river', 'rare'])
   // Added to the blocklist; what was there stays.
   expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({
     [url('old')]: 'watermark: a logo',
@@ -101,12 +102,12 @@ test('most-read pages first, each page\'s own photos and gallery strip before th
   await checkPagePhotos(r, d, { limit: 1 })
   expect(d.seen.map(s => s.photos)).toEqual([['neon', 'n0', 'n1', 'n2', 'n3', 'n4']])
   await checkPagePhotos(r, d, { limit: 10 })
-  // The neon's own photo and strip (n0 to n7) make a sheet and a half: the half is filled from the rest of its gallery,
-  // then the next page's own photo, then what is left of the neon's gallery.
-  expect(d.seen.map(s => s.photos).slice(1)).toEqual([['n5', 'n6', 'n7', 'n8', 'n9', 'n10'], ['abr'], ['n11', 'n12', 'n13', 'n14', 'n15']])
+  // The next page's lead, which nothing has looked at, comes before what is left of the neon's strip (n5 to n7), whose
+  // half sheet is filled from the rest of its gallery; then what is left of that.
+  expect(d.seen.map(s => s.photos).slice(1)).toEqual([['abr'], ['n5', 'n6', 'n7', 'n8', 'n9', 'n10'], ['n11', 'n12', 'n13', 'n14', 'n15']])
 })
 
-test("whose turn: Flickr's and Commons' photos on pages now, then the other photos on pages, then waiting photos that fill a page with none, then the rest that wait", async () => {
+test("the leads nothing has looked at first, each sheet filled from its page; then the page with no photo of its own; then the rest that wait", async () => {
   const from = (n: string, sourceUrl: string, more: object = {}) => ({ ...photo(n), sourceUrl, ...more })
   const inat = (n: string, more?: object) => from(n, `https://www.inaturalist.org/photos/${n}`, more)
   const commons = (n: string, more?: object) => from(n, `https://commons.wikimedia.org/wiki/File:${n}.jpg`, more)
@@ -121,8 +122,8 @@ test("whose turn: Flickr's and Commons' photos on pages now, then the other phot
   const d = model({})
   await checkPagePhotos(r, d, { limit: 10 })
   expect(d.seen.map(s => s.photos)).toEqual([
-    ['b-own', 'b1', 'b2', 'b3'], // Commons and Flickr first, behind their page's lead, the sheet filled from the page's other photos
-    ['a-own', 'a1', 'a2'], // then the other photos readers see, by page
+    ['a-own', 'a1', 'a2'], // each page's lead, by page (none is Commons' or Flickr's here), the sheet filled from the page's other photos
+    ['b-own', 'b1', 'b2', 'b3'],
     ['d-own', 'd1'], // a waiting photo rides on its page's sheet where there is room
     ['e1', 'e2', 'e3', 'e4', 'e5', 'e6'],
     ['c1', 'c2'], // then the waiting photos of the page with none
@@ -140,9 +141,9 @@ test("a share of the run goes first to a source's photos that fill a page with n
   const gallery = (id: string, photos: object[]) => writeFile(join(r, 'content/gallery', `${id}.json`), `${JSON.stringify({ id, photos, seen: 0, updatedAt: '' }, null, 2)}\n`)
   await gallery('aaa-fish', [commons('a1')])
   await gallery('bbb-plant', [sourced('b1'), sourced('b2'), commons('b3')]) // no photo of its own: Tropica's would be its first
-  await gallery('ccc-plant', [commons('c1')]) // no photo of its own, but no source's photo: its turn is the usual one
+  await gallery('ccc-plant', [commons('c1')]) // no photo of its own, but no source's photo: it comes with the pages that have none, after the leads
   await gallery('ddd-plant', [sourced('d1')]) // has a photo: nothing to fill
-  // With no share, the usual order: Commons' photos readers see first.
+  // With no share, the usual order: the first page's lead.
   const usual = model({})
   await checkPagePhotos(r, usual, { limit: 1 })
   expect(usual.seen.map(s => s.photos)).toEqual([['a-own', 'a1']])
@@ -156,11 +157,11 @@ test("a share of the run goes first to a source's photos that fill a page with n
   await checkPagePhotos(r2, d, { limit: 10, fill: 1 })
   expect(d.seen.map(s => s.photos)).toEqual([['b1', 'b2', 'b3'], ['a-own', 'a1'], ['c1']])
   // The share is a ceiling on that pass, not on the run: once the one page is filled, the other sheets go in the usual
-  // order (the first root again, where the first sheet above is already judged). A source's photo on a page that has a
-  // photo is nothing to fill: it has its usual turn.
+  // order (the first root again, where the first sheet above is already judged): the lead nothing has looked at, then
+  // the page with no photo. A source's photo on a page that has a photo is nothing to fill: it rides on its page's sheet.
   const rest = model({})
   await checkPagePhotos(r, rest, { limit: 10, fill: 5 })
-  expect(rest.seen.map(s => s.photos)).toEqual([['b1', 'b2', 'b3'], ['c1'], ['d-own', 'd1']])
+  expect(rest.seen.map(s => s.photos)).toEqual([['b1', 'b2', 'b3'], ['d-own', 'd1'], ['c1']])
 })
 
 test("a page's lead is judged no later than its other photos, so none of them goes ahead of a lead that passes", async () => {
@@ -190,15 +191,69 @@ test("the photos a page shows itself are the first eight of its gallery that rea
   const waits = ['w0', 'w1', 'w2', 'w3'], strip = ['s0', 's1', 's2', 's3', 's4', 's5', 's6', 's7']
   await writeFile(join(r, 'content/gallery/aaa-fish.json'), `${JSON.stringify({ id: 'aaa-fish', photos: [...waits.map(n => commons(n, { unchecked: true })), ...strip.map(n => commons(n))], seen: 0, updatedAt: '' }, null, 2)}\n`)
   const d = model(Object.fromEntries(['lead', 'o1', 'b-own', ...waits, ...strip].map(n => [n, { typical: true }])))
-  await checkPagePhotos(r, d, { limit: 2 })
-  // The page's lead, its other photo and its whole strip come before the next page's photo; the sheet's last two
-  // places go to photos that wait.
-  expect(d.seen.map(s => s.photos)).toEqual([['lead', 'o1', 's0', 's1', 's2', 's3'], ['s4', 's5', 's6', 's7', 'w0', 'w1']])
+  await checkPagePhotos(r, d, { limit: 3 })
+  // The other page's lead is Commons' and nothing has looked at it, so it goes first. Then this page's lead, its other
+  // photo and its whole strip, s0 to s7; the second sheet's last two places go to photos that wait.
+  expect(d.seen.map(s => s.photos)).toEqual([['b-own'], ['lead', 'o1', 's0', 's1', 's2', 's3'], ['s4', 's5', 's6', 's7', 'w0', 'w1']])
   // Every photo judged is typical, the lead among them: it stays first.
   expect(await urls(r, 'content/species/aaa-fish/entity.json')).toEqual(['lead', 'o1'])
   await checkPagePhotos(r, d, { limit: 10 })
-  expect(d.seen.map(s => s.photos).slice(2)).toEqual([['b-own'], ['w2', 'w3']])
+  expect(d.seen.map(s => s.photos).slice(3)).toEqual([['w2', 'w3']])
   expect(await urls(r, 'content/species/aaa-fish/entity.json')).toEqual(['lead', 'o1'])
+})
+
+test("a lead nothing has looked at is judged first, Flickr's and Commons' before the rest; then the page with no photo of its own; then each photo in its turn (the chief of staff, 2026-11-11)", async () => {
+  // The owner found a parasite paper's plate as a page's only photo: it had come in from Commons three days before and
+  // the check had not reached it, behind every more-read page's gallery.
+  const from = (n: string, sourceUrl: string, more: object = {}) => ({ ...photo(n), sourceUrl, ...more })
+  const inat = (n: string, more?: object) => from(n, `https://www.inaturalist.org/photos/${n}`, more)
+  const commons = (n: string, more?: object) => from(n, `https://commons.wikimedia.org/wiki/File:${n}.jpg`, more)
+  // In page order: two pages whose lead the check has passed, one with a lead from iNaturalist and one with a lead
+  // from Commons that nothing has looked at, and one with no photo of its own.
+  const r = await root([
+    { id: 'aaa-fish', sci: 'Aaa fish', extra: { photos: [inat('a-own')] } },
+    { id: 'bbb-fish', sci: 'Bbb fish', extra: { photos: [inat('b-own')] } },
+    { id: 'ccc-fish', sci: 'Ccc fish', extra: { photos: [inat('c-own'), inat('c-two')] } },
+    { id: 'ddd-fish', sci: 'Ddd fish', extra: { photos: [commons('d-own')] } },
+    { id: 'eee-fish', sci: 'Eee fish' },
+  ])
+  const gallery = (id: string, photos: object[]) => writeFile(join(r, 'content/gallery', `${id}.json`), `${JSON.stringify({ id, photos, seen: 0, updatedAt: '' }, null, 2)}\n`)
+  await gallery('aaa-fish', [inat('a1')])
+  await gallery('bbb-fish', [commons('b1'), inat('b2')])
+  await gallery('ddd-fish', [commons('d1')])
+  await gallery('eee-fish', [inat('e1'), commons('e2', { unchecked: true })])
+  const seen = { ok: 'yes', typical: true, note: '', logo: false, person: false }
+  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({ [url('a-own')]: { 'aaa-fish': seen }, [url('b-own')]: { 'bbb-fish': seen } }))
+  const d = model({})
+  await checkPagePhotos(r, d, { limit: 10 })
+  expect(d.seen.map(s => s.photos)).toEqual([
+    ['d-own', 'd1'], // Commons' lead that nothing has looked at, its sheet filled from its page
+    ['c-own', 'c-two'], // then the other leads nothing has looked at
+    ['e1', 'e2'], // then the page with no photo of its own, what it shows and what waits
+    ['b1', 'b2'], // then the turns as before: Commons' photos readers see, the sheet filled from the page's later turn
+    ['a1'],
+  ])
+})
+
+test("the lead a page shows gives way to a typical photo only when the check takes it off, can't tell, or has not judged it", async () => {
+  const pages = ['aaa', 'bbb', 'ccc', 'ddd'].map(p => ({ id: `${p}-fish`, sci: `${p} fish`, photos: [`${p}-lead`, `${p}-typical`] }))
+  const r = await root(pages)
+  // The lead of the last page was judged "can't tell" in an earlier run, with nothing else on the page judged yet.
+  await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({ [url('ddd-lead')]: { 'ddd-fish': { ok: 'unsure', typical: false, note: 'too small to tell', logo: false, person: false } } }))
+  const d = model({
+    'aaa-typical': { typical: true }, // its lead passes, not as typical
+    'bbb-lead': { ok: 'unsure', note: 'too small to tell' }, 'bbb-typical': { typical: true },
+    'ccc-lead': { ok: 'other', note: 'another fish' }, 'ccc-typical': { typical: true },
+    'ddd-typical': { typical: true },
+  })
+  await checkPagePhotos(r, d, { limit: 10 })
+  expect(await urls(r, 'content/species/aaa-fish/entity.json')).toEqual(['aaa-lead', 'aaa-typical'])
+  expect(await urls(r, 'content/species/bbb-fish/entity.json')).toEqual(['bbb-typical', 'bbb-lead'])
+  expect(await urls(r, 'content/species/ccc-fish/entity.json')).toEqual(['ccc-typical'])
+  expect(await urls(r, 'content/species/ddd-fish/entity.json')).toEqual(['ddd-typical', 'ddd-lead'])
+  // A second run finds nothing to judge and moves nothing.
+  await checkPagePhotos(r, d, { limit: 10 })
+  expect(await urls(r, 'content/species/aaa-fish/entity.json')).toEqual(['aaa-lead', 'aaa-typical'])
 })
 
 test('a gallery photo that waits shows once the check has judged it and left it on; one it rejects goes; one not judged yet still waits', async () => {

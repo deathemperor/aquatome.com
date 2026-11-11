@@ -251,6 +251,11 @@ type Shown = { file: string; url: string; page?: string; guide?: boolean; captio
  * Before all of them, a share of each run (`fill` sheets): a permitted source's own photos in the gallery of a page that
  * has none, which give that page its first photo once judged (Tropica's on the plant pages with none: the chief of
  * staff, 2026-11-10).
+ *
+ * And before the turns (the chief of staff, 2026-11-11, after the owner found a parasite paper's plate as a page's only
+ * photo, which the check had not reached in three days): a page's lead that neither check has looked at, from Flickr and
+ * Commons first, then from the other sources; then the gallery of a page with no photo of its own, which gives it one
+ * once judged. A lead's sheet is filled with its page's other photos, as any sheet is.
  */
 export const turn = (x: Pick<Shown, 'waits' | 'bare' | 'source'>): 0 | 1 | 2 | 3 =>
   x.waits ? (x.bare ? 2 : 3) : /\/\/(?:commons\.wikimedia\.org|(?:www\.)?flickr\.com)\//.test(x.source ?? '') ? 0 : 1
@@ -274,13 +279,14 @@ export const turn = (x: Pick<Shown, 'waits' | 'bare' | 'source'>): 0 | 1 | 2 | 3
  *   in the same run (they may carry it too).
  * - "unsure" stays and is listed for review with the removals (docs/review/photo-subjects.md). A page left without a
  *   photo shows none.
- * - A typical photo leads a species or plant page; an old "habitat" verdict goes last until it is asked again.
+ * - The lead a species or plant page shows stays its lead while the check passes it; where it is taken off, can't be
+ *   told or is not judged yet, a typical photo leads. An old "habitat" verdict goes last until it is asked again.
  *
  * - A gallery photo a step added waits (`unchecked`, gallery.ts) and no page shows it: judged and left on, it loses the
  *   mark here and shows from the next build.
  *
- * The order is `turn`'s, and within a turn most-read pages first (`rank`), the photos a page shows itself before the rest
- * of its gallery. A page's lead is judged in the first sheet a run gives the page, so no photo of the page is judged
+ * The order: the leads nothing has looked at and the pages with no photo of their own (see `turn`), then `turn`'s, and
+ * within each most-read pages first (`rank`), the photos a page shows itself before the rest of its gallery. A page's lead is judged in the first sheet a run gives the page, so no photo of the page is judged
  * before it. A page's last sheet is filled from its photos of a later turn, so no sheet goes out part empty.
  * `limit`: model calls this run; stops on a model failure (usage limit), and the rest wait. `fill`: how many of them go
  * first to a source's photos that fill a page with none (`turn`).
@@ -349,6 +355,8 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   // it), then the rest of each gallery.
   const stale = (x: Shown) => { const v = verdict(x.url, x.page!, !x.guide); return v?.person === undefined && !v?.file }
   const due = (x: Shown) => (!o.recheck || o.recheck.has(x.url)) && stale(x)
+  /** Neither check has a verdict on it for its page (a verdict from before the check asked about people is one). */
+  const unseen = (x: Shown) => !verdict(x.url, x.page!, !x.guide)
   const sheets: { s: Subject; urls: string[] }[] = []
   const queued = new Set<string>()
   // `only`: one page id, or several, comma-separated.
@@ -357,12 +365,19 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
   for (const x of shown) if (x.page) onPage.set(x.page, [...(onPage.get(x.page) ?? []), x])
   const queue = (want: (x: Shown) => boolean, fill = 0) => {
     const from = sheets.length
-    // `first`: the share for a source's photos that fill a page with none, then each turn in order.
-    for (const now of ['first', 0, 1, 2, 3] as const) for (const later of [false, true]) for (const s of all) {
+    // `first`: the share for a source's photos that fill a page with none. Then the leads nothing has looked at
+    // (`lead0`: Flickr's and Commons', `lead1`: the rest), the pages with no photo of their own (`bare`), and each
+    // turn in order.
+    const phase = (x: Shown, now: 'first' | 'lead0' | 'lead1' | 'bare' | 0 | 1 | 2 | 3) =>
+      now === 'first' ? !!x.sourced
+      : now === 'lead0' || now === 'lead1' ? !!x.lead && unseen(x) && (turn(x) === 0) === (now === 'lead0')
+      : now === 'bare' ? !!x.bare
+      : turn(x) === now
+    for (const now of ['first', 'lead0', 'lead1', 'bare', 0, 1, 2, 3] as const) for (const later of [false, true]) for (const s of all) {
       if (sheets.length >= o.limit || (now === 'first' && sheets.length - from >= fill)) break
       if (only && !only.has(s.id)) continue
       const open = (onPage.get(s.id) ?? []).filter(x => !(x.url in rejected) && want(x) && !queued.has(`${s.id}\n${x.url}`))
-      const mine = [...new Set(open.filter(x => (now === 'first' ? !!x.sourced : turn(x) === now) && !!x.galleryOnly === later).map(x => x.url))]
+      const mine = [...new Set(open.filter(x => phase(x, now) && !!x.galleryOnly === later).map(x => x.url))]
       if (!mine.length) continue
       // The page's lead, when it is not judged yet, heads the first sheet a run gives its page, whatever its turn, as it
       // did before the turns: the typical-first order below would put a photo judged a run before the lead ahead of it,
@@ -454,6 +469,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     const raw = await readFile(file, 'utf8')
     const data = JSON.parse(raw) as { photos?: Photo[] }
     const removed: string[] = []
+    const head = data.photos?.[0]?.url
     stripPhotos(data, blocked(file), removed, [])
     // A gallery photo that waited (`unchecked`): judged for this page and left on, it shows from the next build.
     const gallery = /\/gallery\/([^/]+)\.json$/.exec(file)?.[1]
@@ -463,9 +479,13 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     }
     const s = byId.get(file.split('/').at(-2)!)
     if (s && s.kind !== 'breeds' && file.endsWith('entity.json') && data.photos) {
-      // A typical photo first, other photos of it next, an old "habitat" verdict last (until it is asked again).
+      // A typical photo first, other photos of it next, an old "habitat" verdict last (until it is asked again). But the
+      // lead the page shows stays its lead while the check passes it ("yes"), typical or not: which passing photo leads
+      // is lead-photos' side-by-side comparison to change, not this order's (the chief of staff, 2026-11-10 and 11-11).
+      // A lead taken off, one the check can't tell, and one not judged yet give way to a typical photo, as before.
       const r = (x: Photo) => { if (x.generated) return 3; const v = verdict(x.url, s.id); return v?.ok === 'yes' && v.typical ? 0 : v?.ok === 'habitat' ? 2 : 1 }
-      data.photos = data.photos.map((x, i) => ({ x, i })).sort((a, b) => r(a.x) - r(b.x) || a.i - b.i).map(({ x }) => x)
+      const stays = (x: Photo) => Number(x.url === head && !x.generated && verdict(x.url, s.id)?.ok === 'yes')
+      data.photos = data.photos.map((x, i) => ({ x, i })).sort((a, b) => stays(b.x) - stays(a.x) || r(a.x) - r(b.x) || a.i - b.i).map(({ x }) => x)
     }
     const out = `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`
     if (out === raw) continue

@@ -599,7 +599,13 @@ The layers above still check the result.
     iNaturalist's 7), then the waiting photos of a page with no photo of its own, then the other waiting photos, the
     most-read pages first within each. A page's lead is judged in the first sheet its page gets, whatever its turn, so
     no photo judged before it goes ahead of it. Before all of them, `PHOTO_CHECK_FILL` of a cycle's sheets go to a
-    permitted source's photos that fill a page with none. Found by
+    permitted source's photos that fill a page with none. And before the turns, since 2026-11-11: a page's lead that
+    neither check has looked at, Flickr's and Commons' first and then the other sources', each on a sheet filled from
+    its page; then the gallery of a page with no photo of its own. The owner had found a parasite paper's plate as a
+    page's only photo, three days on the page and not yet judged, behind every more-read page's gallery (the chief of
+    staff). A lead the check passes stays the lead, typical or not: a typical photo goes ahead of a lead only where the
+    check took the lead off, could not tell, or had not judged it. Which passing photo leads is `lead-photos`'
+    side-by-side comparison to change (the chief of staff, 2026-11-10). Found by
     the owner: a neon tetra on the green neon page, the tiger barb under the cherry barb, a range map on the angelfish
     page; the first check (2026-10) had reached under half the page photos, in alphabetical order, and no gallery.
     Until 2026-11-07 a fourth verdict, "its wild habitat, with or without it", stayed on the page and only went last:
