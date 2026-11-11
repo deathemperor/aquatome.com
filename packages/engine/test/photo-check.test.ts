@@ -201,6 +201,21 @@ test("the photos a page shows itself are the first eight of its gallery that rea
   expect(await urls(r, 'content/species/aaa-fish/entity.json')).toEqual(['lead', 'o1'])
 })
 
+test("a fish whose source's caption names a split fin counts as not typical, whatever the model said: a typical photo leads; a plant's caption is not asked", async () => {
+  const split = (n: string) => photo(n, 'Adult specimen with slight caudal-fin damage.')
+  const r = await root([
+    { id: 'aaa-fish', sci: 'Aaa fish', extra: { photos: [split('a-split'), photo('a-typical')] } },
+    // Nothing typical to lead instead: it stays the lead.
+    { id: 'bbb-fish', sci: 'Bbb fish', extra: { photos: [split('b-split'), photo('b-plain')] } },
+    { kind: 'plants', id: 'ccc-plant', sci: 'Ccc plant', extra: { photos: [split('c-split'), photo('c-typical')] } },
+  ])
+  const d = model({ 'a-split': { typical: true }, 'a-typical': { typical: true }, 'b-split': { typical: true }, 'c-split': { typical: true }, 'c-typical': { typical: true } })
+  await checkPagePhotos(r, d, { limit: 10 })
+  expect(await urls(r, 'content/species/aaa-fish/entity.json')).toEqual(['a-typical', 'a-split'])
+  expect(await urls(r, 'content/species/bbb-fish/entity.json')).toEqual(['b-split', 'b-plain'])
+  expect(await urls(r, 'content/plants/ccc-plant/entity.json')).toEqual(['c-split', 'c-typical'])
+})
+
 test('a gallery photo that waits shows once the check has judged it and left it on; one it rejects goes; one not judged yet still waits', async () => {
   const r = await root([{ id: 'danio-rerio', sci: 'Danio rerio', photos: ['own'] }])
   const file = join(r, 'content/gallery/danio-rerio.json')

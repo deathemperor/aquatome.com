@@ -120,7 +120,7 @@ export async function screenLeads(root: string, d: LeadDeps, o: { limit: number;
     }
   }
   all.sort((a, b) => Number(coming.has(b.ref)) - Number(coming.has(a.ref)))
-  const choose = (f: Fish) => leadChoice(f.entity.photos ?? [], f.gallery, p => cardWorthy(p.url, f.id, verdicts, cur.avoid), compared, p => ownMarkOnly(p, f.id, verdicts, cur.avoid))
+  const choose = (f: Fish) => leadChoice(f.entity.photos ?? [], f.gallery, p => cardWorthy(p, f.id, verdicts, cur.avoid), compared, p => ownMarkOnly(p, f.id, verdicts, cur.avoid))
 
   // Asked in rounds, since a pair answered no sends its fish on to the next photo.
   const dir = await mkdtemp(join(tmpdir(), 'lead-photos-'))

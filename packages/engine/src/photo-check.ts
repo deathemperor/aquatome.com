@@ -3,6 +3,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import sharp from 'sharp'
 import { LlmError } from './claude'
+import { captionFlaw } from './content-rules'
 import { galleryPlan } from './gallery-plan'
 import { contactSheet } from './video-images'
 import { LOGO_FOLDERS, retainedOwnMark, stripPhotos, type WatermarkEntry } from './watermarks'
@@ -464,7 +465,9 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     const s = byId.get(file.split('/').at(-2)!)
     if (s && s.kind !== 'breeds' && file.endsWith('entity.json') && data.photos) {
       // A typical photo first, other photos of it next, an old "habitat" verdict last (until it is asked again).
-      const r = (x: Photo) => { if (x.generated) return 3; const v = verdict(x.url, s.id); return v?.ok === 'yes' && v.typical ? 0 : v?.ok === 'habitat' ? 2 : 1 }
+      // A fish its source's caption calls unwell or blemished (a split fin) counts as not typical, whatever the model said.
+      const flawed = (x: Photo) => s.kind === 'species' && !!captionFlaw(x.caption)
+      const r = (x: Photo) => { if (x.generated) return 3; const v = verdict(x.url, s.id); return v?.ok === 'yes' && v.typical && !flawed(x) ? 0 : v?.ok === 'habitat' ? 2 : 1 }
       data.photos = data.photos.map((x, i) => ({ x, i })).sort((a, b) => r(a.x) - r(b.x) || a.i - b.i).map(({ x }) => x)
     }
     const out = `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`

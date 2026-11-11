@@ -478,6 +478,41 @@ export const notAlive = (c: { caption: string; file?: string }) => {
   const why = c.file ? unfitCommons({ title: c.file, description: c.caption }) : undefined
   return why?.startsWith('other') ? undefined : why
 }
+/**
+ * What a source's own caption says is wrong with the fish in a photo, on a fish's or a breed's page (the chief of staff,
+ * 2026-11-11, after a sick betta and three unwell fish were found on pages by eye; no model reads a caption).
+ * - "unwell": dead, thin, wounded, sick or deformed, or damaged in a fight. The photo comes off a page that has another
+ *   photo of its own (`unwellOff`, sweep.ts). Where it is the page's only photo it stays, never on a card.
+ * - "blemish": a split or damaged fin said in passing of an ordinary specimen. The photo stays and counts as not
+ *   typical, so a typical photo leads (photo-check.ts) and it is never on a card (curation.ts `cardWorthy`).
+ * English only: a caption with Vietnamese letters is one we wrote, not the source's words. Not for plants, and not for
+ * guides, where a guide on a disease shows a sick fish. A first, wider list hit 21 of 14,615 captions, 7 of them wrongly:
+ * a shipwreck ornament, "dead corals", "physical damage is rare", breeding tubercules twice, an owner's story of a fish
+ * that died years after the photo, and a caption of ours.
+ */
+const UNWELL = /\b(?:deceased|dead (?:specimens?|fish|individuals?|males?|females?|juveniles?|adults?)|skinny|emaciated|underweight|starv(?:ed|ing)|wounded|injured|missing an? (?:eye|fin)|diseased|infect(?:ed|ion)|fung(?:us|al)|tumou?rs?|ulcers?|lesions?|dropsy|deform(?:ed|ity|ities)|sick|moribund)\b/i
+const DAMAGE = /\b(?:damaged?(?! is rare)|injur(?:y|ies)|split (?:caudal|dorsal|anal|pectoral|pelvic|tail)?[- ]?fins?)\b/i
+/** Damage with a fight behind it, or more than slight: not a blemish. */
+const BADLY = /\b(?:caused by|fight\w*|fought|attack\w*|aggress\w*|bitten|bites?|torn|badly|severe(?:ly)?|heavily|serious(?:ly)?)\b/i
+export function captionFlaw(caption: string | undefined): { kind: 'unwell' | 'blemish'; word: string } | undefined {
+  if (!caption || VI_LETTER.test(caption)) return undefined
+  const unwell = UNWELL.exec(caption)
+  if (unwell) return { kind: 'unwell', word: unwell[0].toLowerCase() }
+  const damage = DAMAGE.exec(caption)
+  return damage ? { kind: BADLY.test(caption) ? 'unwell' : 'blemish', word: damage[0].toLowerCase() } : undefined
+}
+/**
+ * The photos of a fish's or a breed's page that come off as unwell: every one, its gallery's too, but the first of the
+ * page's own where no other photo of its own would be left (`gone`: its own photos another rule takes off in the same run).
+ */
+export function unwellOff(p: Pick<Page, 'kind' | 'captions' | 'own'>, gone: ReadonlySet<string> = new Set()): { off: { url: string; word: string }[]; kept?: { url: string; word: string } } {
+  if (p.kind !== 'species' && p.kind !== 'breeds') return { off: [] }
+  const unwell = p.captions.flatMap(c => { const f = captionFlaw(c.caption); return f?.kind === 'unwell' ? [{ url: c.url, word: f.word }] : [] })
+  const bad = new Set(unwell.map(x => x.url))
+  const own = (p.own ?? []).filter(u => !gone.has(u))
+  const kept = own.some(u => !bad.has(u)) ? undefined : unwell.find(x => x.url === own.find(u => bad.has(u)))
+  return { off: unwell.filter(x => x !== kept), ...(kept ? { kept } : {}) }
+}
 /** An ad video's title as a photo's caption ("video of: African Chop"): its poster, taken from an ad player in a source's article. */
 export const isAdPoster = (caption: string) => /^video of:/i.test(caption.trim())
 
@@ -531,7 +566,7 @@ export const RATCHETED: Readonly<Record<string, readonly PageKind[]>> = {
   'title-count': ['guides'],
   name: NAMED_KINDS,
   wording: SWEPT_KINDS,
-  caption: ['species', 'plants'], card: ['species', 'breeds'], imperial: METRIC_KINDS as readonly PageKind[],
+  caption: ['species', 'plants'], unwell: ['species', 'breeds'], card: ['species', 'breeds'], imperial: METRIC_KINDS as readonly PageKind[],
   'sf-count': ['species'],
 }
 /** The findings the real-content test holds at zero. */
@@ -674,6 +709,11 @@ export const RULES: Rule[] = [
       const left = [...new Set([...prose(p).map(f => lines(f.html)), ...p.lines.map(l => l.text)].flatMap(imperialLeft))]
       return left.length ? [firstFew(left).join('; ')] : []
     },
+  },
+  {
+    id: 'unwell', title: 'A photo of a fish its source calls unwell, on a page with another photo',
+    about: 'A fish or breed photo whose own English caption says the fish is dead, thin, wounded, sick or deformed, or damaged in a fight, on a page that has another photo of its own. The sweep takes it off and it is never picked again. Where it is the page\'s only photo it stays, off every card, and is not counted here. A split or slightly damaged fin said in passing is no failure: that photo stays, as not typical.',
+    check: p => (p.lang !== 'vi' ? [] : unwellOff(p).off.map(x => `${x.word}: "${clip(p.captions.find(c => c.url === x.url)!.caption, 80)}"`)),
   },
   {
     // The photos are the same in every language: checked on the Vietnamese page.

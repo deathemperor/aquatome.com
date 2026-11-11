@@ -5,6 +5,7 @@ import { expect, test } from 'vitest'
 import type { Llm } from '../src/claude'
 import { checkPages, RATCHETED, ratcheted, RULES } from '../src/content-rules'
 import { loadPages } from '../src/pages'
+import { checkPagePhotos } from '../src/photo-check'
 import { sweep, sweepTranslation } from '../src/sweep'
 
 const photo = (url: string, caption: string) => ({ url, width: 1200, height: 800, licence: 'CC BY 4.0', author: 'A', sourceUrl: 'https://commons.wikimedia.org/x', caption })
@@ -152,6 +153,51 @@ test("a paper's plate leaves its page and its gallery for good, the page's lead 
   const pages = await loadPages(c)
   expect(ratcheted(checkPages(pages, RULES.filter(x => x.id in RATCHETED)).findings).filter(f => f.rule === 'caption')).toEqual([])
   expect((await sweep(root)).photos).toEqual([])
+})
+
+test("a fish its source's caption calls unwell leaves a page that has another photo, for good; a page's only photo stays, off the never-again list, and is listed; a split fin stays", async () => {
+  const root = await mkdtemp(join(tmpdir(), 'sweep-'))
+  const c = join(root, 'content')
+  const put = async (path: string, data: unknown) => { await mkdir(join(c, path, '..'), { recursive: true }); await writeFile(join(c, path), `${JSON.stringify(data, null, 2)}\n`) }
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await mkdir(c, { recursive: true })
+  await copyFile(new URL('../../../content/sources.json', import.meta.url), join(c, 'sources.json'))
+  const sf = (name: string, caption: string) => ({ ...photo(`https://media.aquatome.com/seriouslyfish/${name}.webp`, caption), sourceUrl: 'https://www.seriouslyfish.com/species/x/' })
+  const dead = sf('dead', 'Recently-deceased specimen.'), well = sf('well', 'Adult male.'), split = sf('split', 'Adult specimen with slight caudal-fin damage.')
+  const torn = sf('torn', 'Male specimen with fin damage caused by another male.'), thin = sf('thin', 'Skinny juvenile of Callochromis macrops')
+  await put('species/schistura-spilota/entity.json', species('schistura-spilota', 'Schistura spilota', { photos: [dead, well, split] }))
+  await put('species/schistura-spilota/vi.json', vi('Cá chạch suối đốm', { 'distribution:seriouslyfish': '<p>Thái Lan.</p>' }))
+  await put('gallery/schistura-spilota.json', { id: 'schistura-spilota', photos: [torn], seen: 1, updatedAt: '2026-10-01' })
+  await put('species/callochromis-macrops/entity.json', species('callochromis-macrops', 'Callochromis macrops', { photos: [thin] }))
+  await put('species/callochromis-macrops/vi.json', vi('Cá hoàng đế mắt to', { 'distribution:seriouslyfish': '<p>Hồ Tanganyika.</p>' }))
+  const unwell = async () => ratcheted(checkPages(await loadPages(c), RULES.filter(x => x.id in RATCHETED)).findings).filter(f => f.rule === 'unwell').length
+  expect(await unwell()).toBe(2)
+  const r = await sweep(root)
+  expect(r.photos).toEqual([
+    `species/schistura-spilota: ${dead.url} (unwell: its source's caption says "deceased")`,
+    `species/schistura-spilota: ${torn.url} (unwell: its source's caption says "damage")`,
+  ])
+  // The lead goes, the gallery's goes, the split fin stays.
+  expect((await json(root, 'content/species/schistura-spilota/entity.json')).photos).toEqual([well, split])
+  expect((await json(root, 'content/gallery/schistura-spilota.json')).photos).toEqual([])
+  // A page's only photo stays and is listed. It is not on the never-again list, which would take it off every page.
+  expect((await json(root, 'content/species/callochromis-macrops/entity.json')).photos).toEqual([thin])
+  expect(r.unwell).toEqual([`species/callochromis-macrops: ${thin.url} (skinny; the page's only photo)`])
+  expect(await json(root, 'engine-state/_photo-rejected.json')).toEqual({
+    [dead.url]: 'unwell: its source\'s caption says "deceased" (species/schistura-spilota)',
+    [torn.url]: 'unwell: its source\'s caption says "damage" (species/schistura-spilota)',
+  })
+  expect(await unwell()).toBe(0)
+  // The photo check, which strips what is on that list, leaves the kept photo where it is.
+  const never = async (): Promise<never> => { throw new Error('no model call here') }
+  await checkPagePhotos(root, { get: never, look: never }, { limit: 0 })
+  expect((await json(root, 'content/species/callochromis-macrops/entity.json')).photos).toEqual([thin])
+  const again = await sweep(root)
+  expect(again.photos).toEqual([])
+  expect(again.unwell).toEqual(r.unwell)
+  // Once the page has another photo of its own, the unwell one goes.
+  await put('species/callochromis-macrops/entity.json', species('callochromis-macrops', 'Callochromis macrops', { photos: [thin, sf('adult', 'Adult male.')] }))
+  expect((await sweep(root)).photos).toEqual([`species/callochromis-macrops: ${thin.url} (unwell: its source's caption says "skinny")`])
 })
 
 test("a run that would take more photos off every page than its cap takes none off, lists them, and leaves the check failing for a person; with the cap raised they go", async () => {

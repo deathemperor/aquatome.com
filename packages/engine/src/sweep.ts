@@ -4,7 +4,7 @@ import { loadAll, mayPublish, QUALITY_THRESHOLD, resolveDataCard, shownCard, tan
 import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, tidyNames, type BreedName, type NameOff } from './alt-names'
 import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
 import { LlmError, type Llm } from './claude'
-import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, fixTranslation, isAdPoster, notAlive, isMap, NAMED_KINDS, renameStored, renameSwapped, renameSwappedIn, renumberLabels, sfScoreFixed, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
+import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, fixTranslation, isAdPoster, notAlive, isMap, unwellOff, NAMED_KINDS, renameStored, renameSwapped, renameSwappedIn, renumberLabels, sfScoreFixed, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
 import { loadPages, sectionFields } from './pages'
 import { sweepPlaceNames } from './place-names'
 import { sfDifficulty } from './process'
@@ -33,6 +33,9 @@ import { readVideoRejected } from './videos'
  *   it is a paper's plate, a microscope picture, a drawing or a dish: off that page (its file and its gallery). A map or
  *   a plate leaves every page (engine-state/_photo-rejected.json); a photo of another fish may still join that fish's page, so
  *   it is taken off again whenever a later run brings it back here
+ * - a photo of a fish its source's caption calls unwell (dead, thin, wounded, sick), on a fish's or a breed's page that
+ *   has another photo of its own: off the page and its gallery, and onto engine-state/_photo-rejected.json. A page's only
+ *   photo stays and is listed (`unwell`)
  * - a guide's photo that is its source's "read next" card (an unplaced photo at the source's card width): off the guide, and
  *   onto engine-state/_photo-rejected.json so a re-read can't bring it back
  * - a head photo a person picked (engine-state/_photo-head-picks.json, page → photo, from its own photos or its gallery):
@@ -88,6 +91,8 @@ export type SweepReport = {
   rejected: number
   /** Photos the caption rule would have taken off every page, left where they are: more than the cap in one run (`photoCap`), `url (why)`. */
   held: string[]
+  /** A page's only photo that its source's caption calls unwell: left on the page, off every card, `kind/id: url (word; …)`. */
+  unwell: string[]
   /** Heads a person picked (engine-state/_photo-head-picks.json) put first, `kind/id: old -> new`, or picks not found on the page. */
   heads: string[]
   /** Rejected videos (engine-state/_video-rejected.json) taken off a page, `kind/id: youtubeId (why)`. */
@@ -203,7 +208,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   const cap = o.photoCap ?? PHOTO_CAP
   if (!Number.isInteger(cap) || cap < 0) throw new Error(`sweep: the photo cap is a whole number, 0 or more, not ${cap}`)
   const content = join(root, 'content')
-  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, held: [], heads: [], videos: [], card: [], summaries: [], tanks: [], shop: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], stopped: '' }
+  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, held: [], unwell: [], heads: [], videos: [], card: [], summaries: [], tanks: [], shop: [], varieties: [], titles: [], schools: [], names: [], mentions: [], links: [], unmatched: [], stopped: '' }
   const changed = (f: string) => { if (!report.files.includes(f)) report.files.push(f) }
   const guides: { key: string; before: string; after: string }[] = []
   const counted: { file: string; raw: string; t: Stored; kind: string; lang: WrittenLang; id: string }[] = [] // raw: for its indentation
@@ -417,6 +422,22 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     if (why) off.set(`${p.kind}/${p.id}`, (off.get(`${p.kind}/${p.id}`) ?? new Map()).set(c.url, why))
     if ((unfit || !other) && why) maps.set(c.url, `${why} (${p.kind}/${p.id})`)
   }
+  // A fish its source's caption calls unwell (dead, thin, wounded, sick: content-rules.ts captionFlaw) is not shown where
+  // its page has another photo of its own: off the page and its gallery, and never picked again. A page's only photo
+  // stays, off every card (curation.ts cardWorthy), and is listed for a person.
+  const keptUnwell = new Set<string>()
+  for (const p of all) {
+    const key = `${p.kind}/${p.id}`
+    const { off: gone, kept } = unwellOff(p, new Set(off.get(key)?.keys()))
+    if (kept) { keptUnwell.add(kept.url); report.unwell.push(`${key}: ${kept.url} (${kept.word}; the page's only photo)`) }
+    for (const x of gone) {
+      const why = `unwell: its source's caption says "${x.word}"`
+      off.set(key, (off.get(key) ?? new Map()).set(x.url, why))
+      maps.set(x.url, `${why} (${key})`)
+    }
+  }
+  // A photo that is some page's only one is not taken off every page.
+  for (const url of keptUnwell) maps.delete(url)
   if (maps.size > cap) {
     // Too many to take off for good with nobody looking: they stay where they are, and a person is told (PHOTO_CAP).
     report.held = [...maps].map(([url, why]) => `${url} (${why})`)
