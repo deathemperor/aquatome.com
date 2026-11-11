@@ -7,6 +7,7 @@ import { ArchiveRefused } from '../src/archive'
 import { LlmError } from '../src/claude'
 import { ChallengeError } from '../src/fetch'
 import { runEngine } from '../src/run'
+import { moveToArchive } from '../src/state'
 
 const fx = (p: string) => readFileSync(new URL(`./fixtures/${p}`, import.meta.url), 'utf8')
 const SF = 'https://www.seriouslyfish.com/species/'
@@ -513,4 +514,26 @@ test('two blocks more than a week apart do not move a source', async () => {
   const { second } = await blockedThenArchived(true, 8)
   expect(second.movedToArchive).toEqual([])
   expect(second.needsHuman).toEqual(['seriouslyfish'])
+})
+
+test('a refusal during an archived source search stops that source, not the run, before reading or marking pages', async () => {
+  const root = await fresh()
+  // Two thin pages, made from one Glaser note each.
+  for (const [id, sci] of [['corydoras-panda', 'Corydoras panda'], ['betta-macrostoma', 'Betta macrostoma']]) {
+    await mkdir(join(root, 'content/species', id!), { recursive: true })
+    await writeFile(join(root, 'content/species', id!, 'entity.json'), JSON.stringify({ id, scientificName: sci, order: 'O', family: 'F', genus: sci!.split(' ')[0], group: 'other', places: [], dataCard: {}, sections: [{ key: 'notes', source: 'glaser', sourceUrl: 'https://www.aquariumglaser.de/en/x/y', html: '<p>A note.</p>' }], photos: [], videos: [], productSlots: [], updatedAt: '2026-10-01' }))
+    await writeFile(join(root, 'content/species', id!, 'vi.json'), JSON.stringify({ slug: id, name: id, altNames: [], sections: { 'notes:glaser': '<p>Ghi chú.</p>' }, quality: { score: 0.9, indexable: true, bySource: { glaser: 0.9 } } }))
+  }
+  const { d } = deps(root, { urls: ['aaa-new'] })
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await moveToArchive(root, 'seriouslyfish', '2026-10-27T10:00:00Z')
+  const refused = new ArchiveRefused('2026-11-10T12:00:00.000Z')
+  let asked = 0
+  let pages = 0
+  const archive = { ...d.fetcher, links: async () => { asked++; throw refused }, get: async (u: string) => { if (u.endsWith('/sitemap.xml')) return { status: 200, html: sitemap(['aaa-new']), finalUrl: u }; pages++; throw new Error('should not read a page') } }
+  const r = await runEngine({ ...d, archive }, { sources: ['seriouslyfish'] })
+  expect(r.errors.join('\n')).toMatch(/seriouslyfish: not read: the archive refused this Mac/)
+  expect(asked).toBe(1)
+  expect(pages).toBe(0)
+  expect(JSON.parse(await readFile(join(root, 'engine-state/seriouslyfish.json'), 'utf8').catch(() => '{}'))).toEqual({})
 })

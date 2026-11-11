@@ -159,3 +159,14 @@ test('the archive refusing a picture stops the page, which waits and keeps its p
   const picked = [{ src: 'https://x.test/a.jpg', alt: '' }]
   await expect(storeSourcePhotos('planetcatfish', 'PlanetCatfish', 'https://x.test/p', picked, { bytes: async () => { throw new ArchiveRefused('2026-11-10T12:00:00.000Z') }, media }, [])).rejects.toBeInstanceOf(ArchiveRefused)
 })
+
+test('a refusal on a linked photo page stops before the next photo page', async () => {
+  const refused = new ArchiveRefused('2026-11-10T12:00:00.000Z')
+  const asked: string[] = []
+  const html = [1, 2].map(n => `<a href="/photo${n}.htm"><img src="/thumb${n}.jpg"></a>`).join('')
+  await expect(linkedPhotos(html, 'https://source.test/species', /photo\d\.htm$/, async u => {
+    asked.push(u)
+    throw refused
+  })).rejects.toBe(refused)
+  expect(asked).toEqual(['https://source.test/photo1.htm'])
+})

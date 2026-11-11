@@ -80,7 +80,7 @@ export async function linkedPhotos(html: string, pageUrl: string, photoPage: Reg
   const out: PageImage[] = []
   for (const u of pages) {
     let page: string
-    try { page = (await get(u)).html } catch (e) { console.warn(`photo page skipped ${u}: ${(e as Error).message}`); continue }
+    try { page = (await get(u)).html } catch (e) { if (e instanceof ArchiveRefused) throw e; console.warn(`photo page skipped ${u}: ${(e as Error).message}`); continue }
     const img = parse(page).querySelectorAll('img').filter(i => !/\.(gif|png)$|thumbnails\//i.test(i.getAttribute('src') ?? '')).sort((a, b) => Number(b.getAttribute('width') ?? 0) - Number(a.getAttribute('width') ?? 0))[0]
     if (!img?.getAttribute('src')) continue
     // The credit follows the image; the site's own "©2026 SCOTCAT.COM" footer is further down.

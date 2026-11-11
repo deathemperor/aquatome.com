@@ -168,7 +168,7 @@ const outranked = (sections: Section[] | undefined, source: SourceId, url: strin
 
 /** Optional enrichment never fails a page. */
 async function soft<T>(what: string, f: () => Promise<T>, fallback: T): Promise<T> {
-  try { return await f() } catch (e) { console.warn(`${what} skipped: ${(e as Error).message}`); return fallback }
+  try { return await f() } catch (e) { if (e instanceof ArchiveRefused) throw e; console.warn(`${what} skipped: ${(e as Error).message}`); return fallback }
 }
 
 /**
@@ -394,7 +394,14 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
     const deeper = opts.cardFill ? deeperPages(found, gaps.filter(g => !g.sources.includes(id)), src) : deeperPages(found, thinNow.thin, src)
     // Not under our name in the index: the source's own search (not on targeted runs or card-fill).
     if (!opts.only && !opts.cardFill) {
-      const searched = await soft(`${id}: thin species search`, () => searchThin(src, thinNow.thin, new Set(deeper.values()), thinNow.families, u => links(u), searchCache, deps.now()), new Map<string, number>())
+      let searched: Map<string, number>
+      try {
+        searched = await soft(`${id}: thin species search`, () => searchThin(src, thinNow.thin, new Set(deeper.values()), thinNow.families, u => links(u), searchCache, deps.now()), new Map<string, number>())
+      } catch (e) {
+        if (!(e instanceof ArchiveRefused)) throw e
+        report.errors.push(`${id}: not read: ${e.message}`)
+        continue
+      }
       for (const [url, i] of searched) {
         if (!found.some(f => f.url === url)) found.push({ url })
         if (!deeper.has(url)) deeper.set(url, i)
