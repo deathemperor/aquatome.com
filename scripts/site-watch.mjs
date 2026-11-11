@@ -114,7 +114,11 @@ export function prComment(results, runUrl) {
   const lines = reviewed.flatMap(c => [...c.highs.map(h => `- **high**, ${c.title.replace(/ @\w+$/, '')}: ${h}`), ...c.notes.map(n => `- medium, ${c.title.replace(/ @\w+$/, '')}: ${n}`)])
   const head = reviewed.length ? `${reviewed.length} pages reviewed on the fixture build.` : reviews.length ? 'No page was reviewed.' : 'The review did not run.'
   const why = [...unrun].map(([reason, cs]) => `${cs.length} ${cs.length === 1 ? 'review' : 'reviews'} did not run: ${reason}`)
-  return [`### AI page review (advisory)`, '', head, ...why, '', ...(reviewed.length ? [...(lines.length ? lines : ['Nothing serious found.']), ''] : []), `[run](${runUrl}) · docs/governance.md, layer 3`].join('\n')
+  // A page not reviewed (a usage limit, the review's daily ceiling, a failure) is never to be taken for a clean one.
+  const missed = reviews.length - reviewed.length
+  const notAPass = missed ? [`**This is not a pass: ${missed} of ${reviews.length} pages ${missed === 1 ? 'was' : 'were'} not reviewed.**`] : []
+  const clean = missed ? `Nothing serious found on the ${reviewed.length} reviewed.` : 'Nothing serious found.'
+  return [`### AI page review (advisory)`, '', head, ...why, ...notAPass, '', ...(reviewed.length ? [...(lines.length ? lines : [clean]), ''] : []), `[run](${runUrl}) · docs/governance.md, layer 3`].join('\n')
 }
 
 const locs = xml => [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1])

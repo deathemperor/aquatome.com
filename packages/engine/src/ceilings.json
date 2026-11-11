@@ -23,7 +23,7 @@
     },
     {
       "from": "2026-11-12T13:00:00+07:00",
-      "note": "One sign-in's day, about $140 (the chief of staff, 11 Nov 2026): the third sign-in is back, on GitHub alone, so the Mac's share waits for its own. The steps' ceilings add up to $129 and the backstop to $150, each split between the machines by where a step runs. Second reads are $12 ($8 on the Mac, for video guides, and $4 on GitHub); the reader-fit rewrite's $5 comes out of the Vietnamese rewrite's $8.",
+      "note": "One sign-in's day, about $140 (the chief of staff, 11 Nov 2026): the third sign-in is back, on GitHub alone, so the Mac's share waits for its own. The steps' ceilings add up to $139 and the backstop to $150, each split between the machines by where a step runs. Second reads are $12 ($8 on the Mac, for video guides, and $4 on GitHub); the reader-fit rewrite's $5 comes out of the Vietnamese rewrite's $8. The workflows that call Claude outside the engine have lines on GitHub's side from the room under the column: the page review on pull requests, the auto-fix and the nightly review (scripts/claude-spend.mjs); starting figures, set again from their first logged days.",
       "mac": {
         "default": 1,
         "backstop": 90,
@@ -54,7 +54,10 @@
           "review-backfill": 4,
           "rewrite-vi": 3,
           "range": 2,
-          "localize-guides": 2
+          "localize-guides": 2,
+          "page-review": 4,
+          "autofix": 4,
+          "nightly-review": 2
         }
       }
     },
@@ -92,7 +95,10 @@
           "review-backfill": 6,
           "rewrite-vi": 6,
           "range": 4,
-          "localize-guides": 3
+          "localize-guides": 3,
+          "page-review": 8,
+          "autofix": 8,
+          "nightly-review": 3
         }
       }
     },
@@ -130,7 +136,10 @@
           "rewrite-vi": 9,
           "review-backfill": 7,
           "range": 6,
-          "localize-guides": 4
+          "localize-guides": 4,
+          "page-review": 12,
+          "autofix": 12,
+          "nightly-review": 4
         }
       }
     }
