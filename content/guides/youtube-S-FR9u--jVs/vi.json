@@ -40,9 +40,14 @@
     "chat": false
   },
   "bodyFixed": true,
+  "faqFixed": true,
   "localNote": {
-    "html": "<p><strong>Ghi chú của AquaTome, không có trong video:</strong> Nước máy một số nơi có cloramin, để qua đêm không hết; không chắc thì dùng chất khử clo. Một nghiên cứu về nước máy lấy từ nước ngầm ở Hà Nội (số liệu 1998–2001) thấy clo châm vào đó kết hợp với amoni có sẵn trong nước.</p>",
+    "html": "<p><strong>Ghi chú của AquaTome cho bạn đọc ở Việt Nam:</strong> Nước máy một số nơi có cloramin, để qua đêm không hết; không chắc thì dùng chất khử clo. Ở Hà Nội, một nghiên cứu về nước máy lấy từ nước ngầm (số liệu 1998–2001) thấy ở nguồn nước ngầm nhiều amoni, clo châm vào kết hợp với amoni thành cloramin.</p>",
     "refs": [
+      {
+        "url": "https://19january2017snapshot.epa.gov/www3/region9/water/chloramine.html",
+        "title": "Cơ quan Bảo vệ Môi trường Hoa Kỳ (EPA), Vùng 9: Chloramine (bản lưu năm 2017)"
+      },
       {
         "url": "https://doi.org/10.1016/S0043-1354(03)00138-6",
         "title": "Duong và cộng sự (2003), Trihalomethane formation by chlorination of ammonium- and bromide-containing groundwater in water supplies of Hanoi, Vietnam, Water Research 37(13)"

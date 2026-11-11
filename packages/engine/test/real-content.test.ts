@@ -247,7 +247,7 @@ test('no two guides in a language share a title, and none is only a name', async
 test('the tap-water fixes hold: Seachem Prime named at its dose, pure water only for a plant kept alone, our chloramine note, artemia salt in grams', () => {
   const root = fileURLToPath(new URL('../../../content', import.meta.url))
   const read = <T>(path: string) => JSON.parse(readFileSync(join(root, path), 'utf8')) as T
-  type Guide = { body: string; bodyFixed?: boolean; summary?: string[]; faq?: { q: string; a: string }[]; localNote?: { html: string; refs: { url: string }[] } }
+  type Guide = { body: string; bodyFixed?: boolean; faqFixed?: boolean; summary?: string[]; faq?: { q: string; a: string }[]; localNote?: { html: string; refs: { url: string }[] } }
   // Our dechlorinating guide: the dose's product is one the shops here sell, so the reader check doesn't hold the dose.
   const prime = read<Guide>('guides/aquatome-khu-clo-nuoc-may-cho-be-ca-cac-cach-va-cach-nao-an-toan/vi.json')
   expect(prime.bodyFixed).toBe(true)
@@ -255,7 +255,7 @@ test('the tap-water fixes hold: Seachem Prime named at its dose, pure water only
   expect(productOf('Seachem Prime', 'vi')?.status).toBe('sold')
   // Lucky bamboo: RO or distilled water alone is for the plant kept by itself; with animals, dechlorinated tap water or
   // RO water with minerals added back (the source allows dechlorinated tap water in its next sentence).
-  const shared = { en: /Where fish, shrimp or snails share the water, use dechlorinated tap water, or RO water with minerals added back\./, vi: /Bể có cá, tôm hay ốc sống chung thì dùng nước máy đã khử clo, hoặc nước RO đã bù khoáng\./, id: /Kalau ada ikan, udang, atau siput di air yang sama, gunakan air keran yang sudah dihilangkan klorinnya, atau air RO yang sudah ditambah mineral\./, th: /ถ้ามีปลา กุ้ง หรือหอยอยู่ในน้ำเดียวกัน ให้ใช้น้ำประปาที่กำจัดคลอรีนแล้ว หรือน้ำ RO ที่เติมแร่ธาตุแล้ว/ }
+  const shared = { en: /Where fish, shrimp or snails share the water, use dechlorinated tap water, or RO water with minerals added back\./, vi: /Bể có cá, tép hay ốc sống chung thì dùng nước máy đã khử clo, hoặc nước RO đã bù khoáng\./, id: /Kalau ada ikan, udang, atau siput di air yang sama, gunakan air keran yang sudah dihilangkan klorinnya, atau air RO yang sudah ditambah mineral\./, th: /ถ้ามีปลา กุ้ง หรือหอยอยู่ในน้ำเดียวกัน ให้ใช้น้ำประปาที่กำจัดคลอรีนแล้ว หรือน้ำ RO ที่เติมแร่ธาตุแล้ว/ }
   const only = { en: /Use only RO or distilled water|do not use tap water/, vi: /Chỉ dùng nước RO|chỉ nên dùng nước RO|không dùng nước máy/, id: /Gunakan hanya air RO|jangan gunakan air keran/, th: /ใช้เฉพาะน้ำ RO|ไม่ควรใช้น้ำประปา/ }
   const parts = read<{ sections: { key: string; source: string; html: string; fixed?: boolean }[] }>('plants/dracaena-sanderiana/entity.json').sections
   for (const key of ['maintenance', 'waterConditions']) {
@@ -271,9 +271,13 @@ test('the tap-water fixes hold: Seachem Prime named at its dose, pure water only
   }
   // The stand-tap-water video guide: the video's advice stays the video's, our note goes beside it, and "chỉ phí tiền" goes.
   const stand = read<Guide>('guides/youtube-S-FR9u--jVs/vi.json')
+  // The note is ours and says no more than its sources: EPA on chloramine left standing, and the Hanoi study, where only
+  // the groundwater high in ammonia bound the chlorine as chloramine. It names no video (the reader check's rule).
   expect(stand.bodyFixed).toBe(true)
-  expect(stand.localNote?.html).toMatch(/^<p><strong>Ghi chú của AquaTome, không có trong video:<\/strong> Nước máy một số nơi có cloramin, để qua đêm không hết; không chắc thì dùng chất khử clo\./)
-  expect(stand.localNote?.refs.map(r => r.url)).toEqual(['https://doi.org/10.1016/S0043-1354(03)00138-6'])
+  expect(stand.faqFixed).toBe(true)
+  expect(stand.localNote?.html).toMatch(/^<p><strong>Ghi chú của AquaTome cho bạn đọc ở Việt Nam:<\/strong> Nước máy một số nơi có cloramin, để qua đêm không hết; không chắc thì dùng chất khử clo\. Ở Hà Nội, [^<]*nguồn nước ngầm nhiều amoni/)
+  expect(stand.localNote?.html).not.toMatch(/video/i)
+  expect(stand.localNote?.refs.map(r => r.url)).toEqual(['https://19january2017snapshot.epa.gov/www3/region9/water/chloramine.html', 'https://doi.org/10.1016/S0043-1354(03)00138-6'])
   expect(JSON.stringify([stand.body, stand.summary, stand.faq])).not.toMatch(/phí tiền/)
   // Artemia hatching water: about 30 g of salt a litre, in grams alone (a tablespoon is nearer 18 g).
   const spoon = { vi: /30 g[^.]{0,40}1 muỗng canh/, id: /30 g[^.]{0,60}1 sendok makan/, th: /30 กรัม[^<"]{0,60}1 ช้อนโต๊ะ/, ms: /30 g[^.]{0,80}1 sudu besar/ }

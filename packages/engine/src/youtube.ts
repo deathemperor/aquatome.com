@@ -581,7 +581,8 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
       // volume only a gallon conversion gives ("bể 38 lít") and puts the new text back for it.
       const vi = TranslationSchema.parse(roundPage(metricPage({
         slug: prev.vi?.slug ?? pickSlug(name, 'video', await guideSlugs(contentRoot)), name, altNames: [], sections: {},
-        body: prev.vi?.bodyFixed ? prev.vi.body : sanitizeHtml(d.body), ...plainParts(d.summary, prev.vi?.faqFixed ? prev.vi.faq ?? [] : d.faq),
+        // A body fixed by hand keeps its summary, the body in short; questions fixed by hand keep theirs.
+        body: prev.vi?.bodyFixed ? prev.vi.body : sanitizeHtml(d.body), ...plainParts(prev.vi?.bodyFixed && prev.vi.summary?.length ? prev.vi.summary : d.summary, prev.vi?.faqFixed ? prev.vi.faq ?? [] : d.faq),
         ...(m.chapters.length && d.chapters.length === m.chapters.length ? { chapters: d.chapters.map(c => c.trim()) } : {}),
         // A guide held out of the chat (video-hold.ts) stays held while its new version is under the bar.
         quality: { score, indexable: score >= QUALITY_THRESHOLD, bySource: { youtube: score }, ...(held && score < QUALITY_THRESHOLD ? { chat: false as const } : {}) },
