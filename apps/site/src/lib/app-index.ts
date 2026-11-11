@@ -1,4 +1,4 @@
-import { photoFitsCard, resolveDataCard, type BreedEntity, type Content, type Curation, type Loop, type Photo, type PlantEntity, type Range, type Traits } from '@aq/schema'
+import { FIRST_GUIDES, FIRST_PLANTS, photoFitsCard, POPULAR, resolveDataCard, slugify, STAPLE_SPECIES, type BreedEntity, type Content, type Curation, type Loop, type Photo, type PlantEntity, type Range, type Traits } from '@aq/schema'
 import type { KindShards, PageDoc } from '@aq/schema/app-page'
 import type { SpeciesIndexItem } from '../scripts/filter'
 import { breedFigures, speciesOf, type BreedFigures } from './breeds'
@@ -151,7 +151,15 @@ export function appSeries(lang: Lang, c: Content): { s: Content['series'][number
  * What the site's home page leads with, so the app leads with the same (lib/home.ts), in its order: the fish groups
  * (with a photo of one of them), then fish, plants and guides by their path in this index.
  */
-export type AppHome = { groups: { id: string; img?: string }[]; fish: string[]; plants: string[]; guides: string[] } & AppCuration
+export type AppHome = {
+  groups: { id: string; img?: string }[]; fish: string[]; plants: string[]; guides: string[]
+  /**
+   * Khám phá's longer shelves. Fish start with `fish` in its order, so what shows first stays first, and go on with
+   * those hobbyists keep most. Plants and guides are Curation's lists in their order (FIRST_PLANTS, FIRST_GUIDES), then
+   * the home's own ranking, as long as Curation's list. An app that predates it shows `fish`, `plants` and `guides`.
+   */
+  browse?: { fish: string[]; plants: string[]; guides: string[] }
+} & AppCuration
 /**
  * The site's words, in this language, each entry a map of strings: for each key the items carry (fish groups, guide
  * subjects, plant care), and those of the taxon and origin pages (lib/taxa-places.ts), which the app draws as shelves.
@@ -192,6 +200,8 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   const aka = (names: string[]) => (names.length ? names : undefined)
   const items: AppItem[] = []
   const home: AppHome = { groups: [], fish: [], plants: [], guides: [] }
+  /** Each guide's path in this index, by its id. */
+  const guideAt = new Map<string, string>()
   const words = (labels: Record<string | number, string>) => Object.fromEntries(Object.entries(labels).map(([k, v]) => [k, t(v)]))
   const labels: AppLabels = {
     group: words(GROUP_LABELS), section: words(GUIDE_KIND_LABELS), ...(Object.fromEntries(Object.entries(PLANT_LABELS).map(([k, v]) => [k, words(v)])) as Pick<AppLabels, keyof typeof PLANT_LABELS>),
@@ -244,7 +254,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
       const plant = { difficulty: p.difficulty, light: p.light, co2: p.co2, growth: p.growth, placement: p.placement }
       items.push(clean({ kind: 'plant', id: p.id, name: p.t.name, sub: p.scientificName, aka: aka([...(p.synonyms ?? []), ...p.t.altNames]), path: at(`/vi/cay/${p.t.slug}/`), img: img(p.photos), plant }))
     }
-    home.plants = easyPlants(c, 30).map(p => at(`/vi/cay/${p.t.slug}/`))
+    home.plants = easyPlants(c, c.plants.length).map(p => at(`/vi/cay/${p.t.slug}/`))
   }
   if (served(lang, '/vi/huong-dan/x/')) {
     const mentions = mentionIndex(c).guides
@@ -254,7 +264,9 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
       const about = m ? [...m.species.map(s => s.id), ...m.plants.map(p => p.id)] : []
       // Its card's picture on the site: its own photo, else one from its video's sections, else a fish or plant it names.
       const ph = guideImage(c, g)
-      items.push(clean({ kind: 'guide', name: g.t.name, aka: aka(g.t.altNames), path: at(`/vi/huong-dan/${g.t.slug}/`), img: ph && smallSrc(ph), section: g.kind, about: about.length ? about : undefined, video: g.video?.durationSec }))
+      const path = at(`/vi/huong-dan/${g.t.slug}/`)
+      guideAt.set(g.id, path)
+      items.push(clean({ kind: 'guide', name: g.t.name, aka: aka(g.t.altNames), path, img: ph && smallSrc(ph), section: g.kind, about: about.length ? about : undefined, video: g.video?.durationSec }))
     }
     home.guides = leadGuides(c).map(g => at(`/vi/huong-dan/${g.t.slug}/`))
   }
@@ -275,9 +287,24 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   for (const [vi, name, own, short] of TOOLS) {
     if (served(lang, vi)) items.push(clean({ kind: 'tool', name: t(name), path: at(vi), words: own.map(w => t(w)), short: short && t(short) }))
   }
-  // Only what the index lists: a row's worth of each.
+  // Only what the index lists: a row's worth of each, for Tìm and Hôm nay.
   const paths = new Set(items.map(i => i.path))
-  for (const [k, n] of [['fish', 8], ['plants', 6], ['guides', 8]] as const) home[k] = home[k].filter(p => paths.has(p)).slice(0, n)
+  const listed = (k: 'fish' | 'plants' | 'guides') => home[k].filter(p => paths.has(p))
+  const row = { fish: listed('fish').slice(0, 8), plants: listed('plants').slice(0, 6), guides: listed('guides').slice(0, 8) }
+  // Khám phá's longer shelves. Fish start with that row in its order and go on with those hobbyists keep most, most kept
+  // first, each with a photo: past its staples the site's own ranking is the richest profile, not the best known. Plants
+  // and guides are Curation's lists in their order, each page only as this index lists it (one that stops passing reader
+  // fit drops out), then the home's own ranking, as long as Curation's list: a language with fewer of Curation's pages
+  // (most are Vietnamese) still fills its shelf, never shorter than the home's row.
+  const pictured = new Map(items.filter(i => i.kind === 'fish' && i.img).map(i => [i.id, i.path]))
+  const popular = [...STAPLE_SPECIES, ...POPULAR.map(slugify)].flatMap(id => pictured.get(id) ?? [])
+  const plantAt = new Map(items.filter(i => i.kind === 'plant').map(i => [i.id, i.path]))
+  home.browse = {
+    fish: [...new Set([...row.fish, ...popular])].slice(0, BROWSE_FISH),
+    plants: [...new Set([...FIRST_PLANTS.flatMap(id => plantAt.get(id) ?? []), ...listed('plants')])].slice(0, FIRST_PLANTS.length),
+    guides: [...new Set([...FIRST_GUIDES.flatMap(id => guideAt.get(id) ?? []), ...listed('guides')])].slice(0, FIRST_GUIDES.length),
+  }
+  Object.assign(home, row)
   const groups = new Set(items.map(i => i.group))
   home.groups = home.groups.filter(g => groups.has(g.id))
   // The editorial calendar's days and this week's picks, only those this index lists.
@@ -354,5 +381,10 @@ const TOOLS: readonly (readonly [string, string, readonly string[], string?])[] 
   ], 'Bể của tôi'],
 ]
 
+/**
+ * How many fish Khám phá's list holds (the Design Lead's spec, 2026-11-11): its shelf shows 24 after the pages shown above
+ * it, and this leaves it 6 to spare.
+ */
+const BROWSE_FISH = 30
 /** Leaves out empty fields, so the file stays small. */
 const clean = (i: AppItem): AppItem => Object.fromEntries(Object.entries(i).filter(([, v]) => v !== undefined)) as AppItem
