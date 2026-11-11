@@ -54,12 +54,12 @@ source/photographer credit from recorded data, without fresh lettering extractio
 Credits preserve the board's source/photographer and
 licence, followed by “Cropped to remove a source mark” in the reader's language.
 These six are excluded from Fish ID and the day's card regardless of their shape.
-Leptodoras cataniai fits the current head; the other five remain album-only.
-A lone album-only picture is currently invisible because the strip starts at six.
-The optional photo field `headFit: "contain"` is defined here but not assigned.
-The site lead implements whole-photo fitting first; a later reviewed placement
-change may assign it only where no safely framed real head exists. This change
-neither assigns that field nor changes the site's head renderer.
+The initial rollout gives Leptodoras cataniai its safely framed site head;
+the other five start album-only and invisible below the six-photo strip minimum.
+After the site's fitting consumer is confirmed live, the placement change below
+derives `headFit: "contain"` on a loaded whole-photo fallback head only. Raw
+records and approval fingerprints remain unchanged. The site's renderer is the
+site lead's separate change; these crops remain out of unsafe app lead frames.
 
 The owner's “look OK” on small compressed, pre-fix previews of Acanthocobitis
 rubidipinnis, Acheilognathus tonkinensis, Apistogramma atahualpa and Bangana behri
@@ -67,3 +67,23 @@ is a calibration observation only. All four kept repaints stay held and require
 fresh edits after the CLI pin is settled. It does not override the 0.400 cutoff
 or either judgment. Aphanius vladykovi stays held on the species disagreement;
 the dead Clupisoma stays refused. No generated picture is approved or made.
+
+### Whole-photo head placement (awaiting the site's fitting consumer)
+
+After the Chief confirms the site's renderer is live, an already admitted real
+crop may become a head with `headFit: "contain"` when no safely framed real head
+exists in the page or its album. The whole retained crop must contain the entire
+subject and its margin at native dimensions. A safely framed real photo arriving
+later takes the head immediately. The flag is derived on the loaded head only:
+raw photo/gallery records, pixels, credits and finite owner-approval fingerprints
+do not change, and this grants no new publication permission. Card and Fish ID
+exclusions remain unchanged.
+
+The current app's image contract omits headFit and its v2 detail banner fills a
+different frame. Crops failing the app/card frames stay out of app lead data;
+their album data and credits remain available. This includes a crop safe for the
+site's head but unsafe for the app banner. Ordinary heads retain their current
+behavior. An app fitting consumer and its data contract need separate work before
+these heads can be sent safely. No iOS or protocol file changes are made here.
+
+The app banner is protected at both data inputs: `apps/site/src/lib/app-page.ts` withholds a fitted or unsafe cropped lead, and `apps/site/src/lib/app-index.ts` withholds its index image. The loaded site head and album data keep the photo and its credit; no iOS or protocol change is included.

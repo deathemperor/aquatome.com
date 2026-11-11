@@ -10,6 +10,7 @@ import { PRODUCTS } from './market'
 import { loadCards, loadPages, pageUrl, type Page } from './pages'
 import { norm } from './reader'
 import { REVIEW_KINDS, reviewFile, unkeep, type Store } from './review-log'
+import { restoreUnreadRecords } from './writer-records'
 
 /**
  * Every page passes the checklist (fit.ts) before readers get it. Run last in each cycle, after everything that writes
@@ -23,7 +24,8 @@ import { REVIEW_KINDS, reviewFile, unkeep, type Store } from './review-log'
  *   and harm the rules find (a medicine in grams per litre: fit.ts, harmfulDoses) holds a page before any model reads it;
  * - a held page whose text changed and passes is let out;
  * - a page it can't read (the accounts out, over its limit) stays as readers have it: a live page keeps its committed text,
- *   a new one waits, held. The run still publishes; only a crash in the gate stops it.
+ *   the text the cycle wrote is kept with the others (engine-state/put-back/), and the writers' records of it go back to
+ *   what is committed, so they do the page again; a new one waits, held. The run still publishes; only a crash in the gate stops it.
  * "Passed before" counts the old text's saved read, a check whose every fault is quoted from a sentence the old text has
  * word for word, and, when the new text still looks worse, a fresh read of the old one: a model reading the same text twice
  * doesn't always find the same things, and a page isn't put back for that. So taking a sentence out isn't put back for a
@@ -51,8 +53,18 @@ export const MENDABLE: readonly FitCheck[] = ['shop', 'price', 'source', 'elsewh
  * an editor was called for, so not the last.
  */
 export type Mend = (p: Page, findings: FitFinding[]) => Promise<boolean | undefined>
-/** A text the gate put back, as the page's file had it, with the checks it was worse on and what they quote. */
-export type PutBack = { at: string; checks: FitCheck[]; findings: Pick<FitFinding, 'check' | 'quote' | 'why'>[]; text: unknown }
+/**
+ * A text the gate put back, as the page's file had it, with the checks it was worse on and what they quote.
+ * `unread`: the page was not read (the accounts out), so there are no checks.
+ */
+export type PutBack = {
+  at: string
+  checks: FitCheck[]
+  findings: Pick<FitFinding, 'check' | 'quote' | 'why'>[]
+  text: unknown
+  /** Set when the text was put back because the page could not be read, not for a check. */
+  unread?: true
+}
 /** Where a page's text put back is kept, one file a page: a later one replaces it. */
 export const putBackFile = (p: Pick<Page, 'kind' | 'id' | 'lang'>) => `engine-state/put-back/${p.kind}/${p.id}.${p.lang}.json`
 /** Pages wrong for the reader on 8 Nov 2026, when the checklist first read the site: the owner's number starts here. */
@@ -271,10 +283,17 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
 
   // A page the gate can't read (the accounts out, over the limit) stays as readers have it: a live page keeps its committed
   // text, and a new or held one waits, held. The run still publishes the rest; only a crash in the gate stops it.
-  const unread = (f: string, p: Page, held: boolean) => {
+  // `unreadKept`: live pages put back here, whose text is saved below. `redo`: those of them no read was had of (the
+  // accounts out, the run's reads spent, a read that failed), whose writers' records go back to HEAD so the page is done
+  // again. A page the gate itself failed on (`redo` false) keeps its record: the same failure every cycle would have its
+  // writer write it again every cycle, so it is listed in `failed` for a person, with its text kept.
+  const unreadKept: string[] = [], redo: string[] = []
+  const unread = (f: string, p: Page, held: boolean, again = true) => {
     report.unread.push(p.path)
     if (held) { pending.push(f); return }
     reverts.push(f)
+    unreadKept.push(f)
+    if (again) redo.push(f)
     // The text put back is held if its own saved read, or the rules, find a fault that holds a page.
     const old = head.pages.get(fitKey(p)), e = state[fitKey(p)]
     const back = old ? [...gateChecks(old, e?.hash === fitText(old).hash ? e : undefined)].sort() : []
@@ -334,11 +353,16 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
       } catch (e) {
         // One page's failure costs the others nothing: it stays as readers have it.
         report.failed.push(`${fitKey(p)}: ${(e as Error).message.slice(0, 200)}`)
-        unread(f, p, isNew || wasHeld)
+        unread(f, p, isNew || wasHeld, false)
       }
     }
   }))
-  // One checkout for all of them, after the reads. First, each text put back for a check is kept, with what was wrong.
+  // One checkout for all of them, after the reads. First, each text put back is kept. A page that could not be read has no
+  // checks: the file as the cycle wrote it. One already kept for a check (a later read failed) stays as that entry has it.
+  for (const f of unreadKept) {
+    if (thrown.has(f)) continue
+    thrown.set(f, { at: now().toISOString().slice(0, 19) + 'Z', checks: [], findings: [], unread: true, text: JSON.parse(await readFile(join(root, f), 'utf8')) })
+  }
   for (const f of reverts) {
     const t = thrown.get(f)
     if (!t) continue
@@ -356,6 +380,12 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
       if (!existsSync(reviewFile(root, kind))) continue
       await unkeep(root, kind, back, committed.has(f) ? JSON.parse(git(root, ['show', `HEAD:${f}`])) as Store : {})
     }
+    // A page put back for a check keeps the record the cycle left: it has had its go. One put back unread has not.
+    const unreadPages = [...new Set(redo)].flatMap(f => {
+      const m = FILE.exec(f)
+      return m ? [{ kind: m[1]!, id: m[2]!, lang: m[3]! }] : []
+    })
+    if (unreadPages.length) await restoreUnreadRecords(root, unreadPages)
   }
   for (const f of pending) if (!held.has(f)) { const h = { checks: [], at: day }; await setHeld(root, f, h); held.set(f, h) }
   for (const [f, checks] of holdAfter) { const h = { checks, at: day }; await setHeld(root, f, h); held.set(f, h); report.hold.push(`${byFile.get(f)!.path} (${checks.join(', ')})`) }

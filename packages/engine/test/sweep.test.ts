@@ -2,7 +2,7 @@ import { copyFile, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
-import type { Llm } from '../src/claude'
+import { LlmError, type Llm } from '../src/claude'
 import { checkPages, RATCHETED, ratcheted, RULES } from '../src/content-rules'
 import { loadPages } from '../src/pages'
 import { checkPagePhotos } from '../src/photo-check'
@@ -322,6 +322,49 @@ test('a shop\'s own talk and a page about one variety leave a species page, in e
   expect(r.summaries).toContain('corydoras-adolfoi')
   expect(JSON.parse(await readFile(file('gymnocorymbus-ternetzi', 'entity.json'), 'utf8')).sections).toHaveLength(1)
   expect((await sweep(root)).files).toEqual([])
+})
+
+const WEEKLY = "claude failed (1): You've hit your weekly limit · resets Nov 14 at 8am (Asia/Saigon)"
+// The guide body the sweep already leaves in place, so a counted title is the only thing that would change the file.
+const CLEAN = '<h3>Đèn</h3><p><strong>Sai lầm 1:</strong> đèn mạnh.</p><p><strong>Sai lầm 2:</strong> bật lâu.</p><h3>CO2</h3><p><strong>Sai lầm 3:</strong> thiếu CO2.</p><h3>Phân nền</h3><h3>Kết luận</h3><p>Kiên nhẫn là chính, thay nước đều đặn mỗi tuần và theo dõi cây.</p>'
+
+async function countedGuide(root: string, id: string) {
+  const dir = join(root, 'content/guides', id)
+  await mkdir(dir, { recursive: true })
+  await writeFile(join(dir, 'entity.json'), `${JSON.stringify({ id, kind: 'care', source: 'aquariumbreeder', sourceUrl: 'https://x/g', html: '', photos: [], mentions: [], updatedAt: '2026-10-01' }, null, 2)}\n`)
+  await writeFile(join(dir, 'vi.json'), `${JSON.stringify(vi('10 cách xử lý rêu hại nhanh', {}, { body: CLEAN }), null, 2)}\n`)
+}
+
+test('a usage limit leaves counted titles as they are and stops the run', async () => {
+  const root = await store()
+  await countedGuide(root, 'a')
+  await countedGuide(root, 'b')
+  const file = (id: string) => readFile(join(root, 'content/guides', id, 'vi.json'), 'utf8')
+  const before = { a: await file('a'), b: await file('b') }
+  let calls = 0
+  const r = await sweep(root, { llm: (async () => { calls++; throw new LlmError(WEEKLY) }) as Llm })
+  expect(calls).toBe(1)
+  expect(r.stopped).toContain('weekly limit')
+  expect(r.titles.filter(t => t.includes('/guides/a') || t.includes('/guides/b'))).toEqual([])
+  expect(await file('a')).toBe(before.a)
+  expect(await file('b')).toBe(before.b)
+  await expect(readFile(join(root, 'engine-state/reviews/title.json'), 'utf8')).rejects.toThrow()
+})
+
+test('a failure that is not the usage limit still drops the number from a counted title', async () => {
+  const once = async (llm: Llm) => {
+    const root = await store()
+    await countedGuide(root, 'a')
+    const r = await sweep(root, { llm })
+    return { r, name: (await json(root, 'content/guides/a/vi.json')).name as string }
+  }
+  const bad = await once(async () => { throw new Error('bad answer') })
+  expect(bad.name).toBe('Cách xử lý rêu hại nhanh')
+  expect(bad.r.titles.find(t => t.includes('/guides/a'))).toContain('rewrite failed: bad answer')
+  const other = await once(async () => { throw new LlmError('claude failed (1): no JSON in the reply') })
+  expect(other.name).toBe('Cách xử lý rêu hại nhanh')
+  expect(other.r.stopped).toContain('no JSON')
+  expect(other.r.titles.find(t => t.includes('/guides/a'))).toContain('number dropped')
 })
 
 test('a title rewritten by the model is kept when the reviewer passes it, and the number dropped when not', async () => {

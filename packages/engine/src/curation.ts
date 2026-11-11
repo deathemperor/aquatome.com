@@ -270,12 +270,16 @@ export function problem(c: Candidate | undefined, slot: Slot, img?: string, o: {
   return undefined
 }
 
-/** Why a fish can't be a day's fish: its card shows its page's head photo, which has to pass and fill the card. */
-export function fishProblem(c: Candidate | undefined): string | undefined {
+/**
+ * Why a fish can't be a day's fish: its card shows its page's head photo, which has to pass, fill the card, and keep the
+ * whole fish in the card's crop (`todayCut`, curation.json).
+ */
+export function fishProblem(c: Candidate | undefined, todayCut: Record<string, string> = {}): string | undefined {
   if (!c) return 'no such page'
   if (!c.fit) return `reader fit: ${c.fitWhy}`
   if (!c.head) return 'no checked head photo'
   if (c.head.px.square < LARGE_PX) return `head photo ${c.head.px.square} px across, under ${LARGE_PX}`
+  if (todayCut[c.head.url]) return `Hôm nay's card cuts its head photo: ${todayCut[c.head.url]}`
   return undefined
 }
 
@@ -331,7 +335,7 @@ export function plan(cur: Curation, cands: Candidate[], from: string, days: numb
       const c = ref ? byRef.get(ref) : undefined
       // A guide is kept or replaced by its page; its photo is the guide card's to set or drop (guidePhoto).
       const p = ref
-        ? (slot === 'fish' ? fishProblem(c) : problem(c, 'guide', undefined, { photo: false })) ??
+        ? (slot === 'fish' ? fishProblem(c, cur.todayCut) : problem(c, 'guide', undefined, { photo: false })) ??
           (slot === 'fish' && !d.fixed && c && !fitsWeek(c, w) ? `doesn't match this week's tags (${w!.tags.join(', ')})` : undefined)
         : 'empty'
       if (ref && !p) {
@@ -343,7 +347,7 @@ export function plan(cur: Curation, cands: Candidate[], from: string, days: numb
       if (ref) report.replaced.push({ date, slot, was: ref, why: p! })
       const kind = slot === 'fish' ? ['species', 'breeds'] : ['guides']
       const pool = (slot === 'fish' ? w?.fish : w?.guides) ?? []
-      const yesterday = out.get(addDays(date, -1))
+      const around = [out.get(addDays(date, -1)), out.get(addDays(date, 1))]
       // The fish with a loop (curation.json `loops`, real footage), and one video guide a week, on YouTube's own player.
       const looped = (x: Candidate) => x.kind !== 'guides' && !!cur.loops[x.id]
       const video = (x?: Candidate) => x?.source === 'youtube'
@@ -351,10 +355,11 @@ export function plan(cur: Curation, cands: Candidate[], from: string, days: numb
         ![...out.values()].some(o => o.date !== date && w.from <= o.date && o.date <= w.to && video(byRef.get(o.guide ?? '')))
       const bonus = (x: Candidate) => (looped(x) ? LOOP_BONUS : 0) + (wantsVideo && video(x) ? VIDEO_BONUS : 0)
       const best = cands
-        .filter(x => kind.includes(x.kind) && !(slot === 'fish' ? fishProblem(x) : problem(x, 'guide', undefined, { photo: false })) && !used(x.ref, date))
+        .filter(x => kind.includes(x.kind) && !(slot === 'fish' ? fishProblem(x, cur.todayCut) : problem(x, 'guide', undefined, { photo: false })) && !used(x.ref, date))
         .filter(x => slot !== 'fish' || fitsWeek(x, w))
-        // Not the same group of fish, or kind or source of guide, two days running.
-        .filter(x => { const y = byRef.get(yesterday?.[slot] ?? ''); return (!x.group || x.group !== y?.group) && (!x.source || x.source !== y?.source) })
+        // Not the same group of fish, or kind or source of guide, two days running: as the day before, nor as a day after
+        // that is already planned.
+        .filter(x => around.every(o => { const y = byRef.get(o?.[slot] ?? ''); return (!x.group || x.group !== y?.group) && (!x.source || x.source !== y?.source) }))
         .map(x => ({ x, s: score(x, w, from, bonus(x)) }))
         .sort((a, b) => b.s - a.s || a.x.ref.localeCompare(b.x.ref))[0]?.x
       if (!best) { delete d[slot]; report.empty.push(`${date} ${slot}`); continue }
@@ -495,7 +500,7 @@ export function checkCalendar(cur: Curation, cands: Candidate[], from: string, d
     if (!d?.guide) out.push(`${date}: no guide`)
   }
   for (const d of cur.days.filter(x => x.date >= from)) {
-    const fish = d.fish && (fishProblem(byRef.get(d.fish)) ?? (d.img ? notHead(d.img, d.fish) : 'no photo set for the card'))
+    const fish = d.fish && (fishProblem(byRef.get(d.fish), cur.todayCut) ?? (d.img ? notHead(d.img, d.fish) : 'no photo set for the card'))
     if (fish) out.push(`${d.date} fish ${d.fish}: ${fish}`)
     const guide = d.guide && (problem(byRef.get(d.guide), 'guide', d.guideImg, { photo: false }) ?? notHead(d.guideImg, d.guide))
     if (guide) out.push(`${d.date} guide ${d.guide}: ${guide}`)

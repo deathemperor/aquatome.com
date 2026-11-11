@@ -26,6 +26,11 @@ export function photoFitsHead(p: CroppedPhoto): boolean {
   const c = cropped(p)
   return !c || validCropGeometry(c.crop) && p.width === c.crop.window.x1-c.crop.window.x0 && p.height === c.crop.window.y1-c.crop.window.y0 && [4/3,16/9].every(r => cropFitsFrame(c.crop,r))
 }
+/** A whole-photo head needs the complete subject and margin inside the retained native crop, not a cover window. */
+export function photoFitsWholeHead(p: CroppedPhoto): boolean {
+  const c=cropped(p)
+  return !!c && validCropGeometry(c.crop) && p.width===c.crop.window.x1-c.crop.window.x0 && p.height===c.crop.window.y1-c.crop.window.y0
+}
 export function photoFitsCard(p: CroppedPhoto): boolean {
   const c = cropped(p)
   return !c || validCropGeometry(c.crop) && p.width === c.crop.window.x1-c.crop.window.x0 && p.height === c.crop.window.y1-c.crop.window.y0 && [4/3,400/420,16/9,1.6].every(r => cropFitsFrame(c.crop,r))

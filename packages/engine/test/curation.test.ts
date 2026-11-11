@@ -386,6 +386,34 @@ test("a week with no tags fills its top cards only from its own list", () => {
   expect(calendar.weeks[0]!.hero.map(h => h.page)).toEqual(['species/african'])
 })
 
+test("a fish whose head Hôm nay's card cuts is no day's fish, and stays a week's top card", () => {
+  // Ids of different lengths: the helper's photo address follows the id's length.
+  const cut = fish('cut'), whole = fish('whole'), why = 'its snout falls outside the card'
+  const cur = CurationSchema.parse({
+    version: 1, todayCut: { [cut.head!.url]: why },
+    weeks: [{ from: '2026-11-09', to: '2026-11-15', theme: { vi: 'x' }, fish: ['species/cut', 'species/whole'], hero: [{ page: 'species/cut', img: cut.head!.url }] }],
+    days: [{ date: '2026-11-09', fish: 'species/cut', img: cut.head!.url }],
+  })
+  const problem = `Hôm nay's card cuts its head photo: ${why}`
+  // A day that carries it is named, and the planner puts another fish there and on no day puts it back.
+  expect(checkCalendar(cur, [cut, whole], '2026-11-09', 1)).toContain(`2026-11-09 fish species/cut: ${problem}`)
+  const { calendar, report } = plan(cur, [cut, whole], '2026-11-09', 3)
+  expect(report.replaced).toEqual([{ date: '2026-11-09', slot: 'fish', was: 'species/cut', why: problem }])
+  expect(calendar.days.map(d => d.fish)).toEqual(['species/whole', undefined, undefined])
+  // Khám phá's wide card still shows it, on its head.
+  expect(calendar.weeks[0]!.hero[0]).toEqual({ page: 'species/cut', img: cut.head!.url })
+  expect(checkCalendar(calendar, [cut, whole], '2026-11-09', 1).filter(x => x.includes('species/cut'))).toEqual([])
+})
+
+test('a day filled between planned days differs in kind of fish from the day after too', () => {
+  const tetra = (id: string, o: Partial<Candidate> = {}) => fish(id, { group: 'tetras', ...o })
+  // The 10th is planned with a tetra; the 9th, filled now, would take the better-scoring tetra but for the day after it.
+  const cur = CurationSchema.parse({ version: 1, weeks: [], days: [{ date: '2026-11-10', fish: 'species/t1', img: tetra('t1').head!.url }] })
+  const cands = [tetra('t1'), tetra('t22', { demand: 500 }), fish('catfish', { group: 'catfish' })]
+  const { calendar } = plan(cur, cands, '2026-11-09', 2)
+  expect(calendar.days.map(d => d.fish)).toEqual(['species/catfish', 'species/t1'])
+})
+
 test('planning Khám phá cards does not change the calendar it was given', () => {
   const other = 'https://media.aquatome.com/commons/5555555555555555.webp'
   const a = fish('aaaa')
