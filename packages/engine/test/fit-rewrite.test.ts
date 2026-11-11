@@ -26,9 +26,9 @@ const reading = (p: Page, findings: Omit<FitFinding, 'by'>[]): FitState => ({ [f
 const found = (p: Page) => [
   { check: 'elsewhere' as const, part: part(p, 'sections.habitat:seriouslyfish'), quote: 'Ao cạn nhiều cỏ', why: 'x' },
   { check: 'words' as const, part: part(p, 'sections.habitat:seriouslyfish'), quote: 'cao nguyên Shan', why: 'y' },
-  { check: 'units' as const, part: part(p, 'sections.aquariumSize:sprucepets'), quote: '19 lít', why: 'z' },
   { check: 'words' as const, part: part(p, 'sections.quickFacts:sprucepets'), quote: 'ăn tạp', why: 'w' },
 ]
+const converted = (p: Page) => ({ check: 'units' as const, part: part(p, 'sections.aquariumSize:sprucepets'), quote: '8 lít', why: 'z' })
 
 /** A stand-in for the rewriter (each part it's given, changed) and its reviewer (a score). */
 const fakeLlm = (rewrite: (vi: string) => string, score: number, o: { outAfter?: number; hedges?: { from: string; to: string }[] } = {}) => {
@@ -45,15 +45,16 @@ const fakeLlm = (rewrite: (vi: string) => string, score: number, o: { outAfter?:
   return { llm, calls }
 }
 
-test('what a page has to mend: the parts its current reading faults for the reader, with their wording findings; units and words alone wait', async () => {
+test('what a page has to mend: the parts its current reading faults for the reader, with their wording findings; words alone wait, and units alone on a guide', async () => {
   const p = await danio(await content())
-  const state = reading(p, found(p))
-  expect([...mendable(p, state)].map(([field, fs]) => [field, fs.map(f => f.check)])).toEqual([['sections.habitat:seriouslyfish', ['elsewhere', 'words']]])
+  const state = reading(p, [...found(p), converted(p)])
+  expect([...mendable(p, state)].map(([field, fs]) => [field, fs.map(f => f.check)])).toEqual([['sections.habitat:seriouslyfish', ['elsewhere', 'words']], ['sections.aquariumSize:sprucepets', ['units']]])
   expect(rewriteDue(p, state)).toBe(true)
-  // A reading of an older text, units and words alone, or a kit, which the gate holds: nothing to rewrite here.
+  expect(rewriteDue(p, reading(p, [converted(p)]))).toBe(true)
+  // A reading of an older text, words alone, or a kit, which the gate holds: nothing to rewrite here.
   expect(rewriteDue(p, { [fitKey(p)]: { ...state[fitKey(p)]!, hash: 'old' } })).toBe(false)
-  expect(rewriteDue(p, reading(p, found(p).filter(f => f.check !== 'elsewhere')))).toBe(false)
-  expect(rewriteDue(p, reading(p, [...found(p), { check: 'kit', part: '', quote: 'Cá galaxy', why: 'k' }]))).toBe(false)
+  expect(rewriteDue(p, reading(p, found(p).filter(f => f.check === 'words')))).toBe(false)
+  expect(rewriteDue(p, reading(p, [...found(p), converted(p), { check: 'kit', part: '', quote: 'Cá galaxy', why: 'k' }]))).toBe(false)
   // A guide is written again whole, from its facts: due on any finding but units and words.
   const g = (await loadPages(join(await content(), 'content'), ['vi'])).find(x => x.kind === 'guides')!
   expect(rewriteDue(g, reading(g, [{ check: 'source', part: 'P1', quote: '', why: 's' }]))).toBe(true)
@@ -85,6 +86,24 @@ test('a part its reviewer passes is written and recorded with the page\'s new ha
   expect(JSON.parse(await readFile(file, 'utf8')).sections['habitat:seriouslyfish']).toContain('Vũng nước cạn, nhiều cỏ')
   const now = await danio(root)
   expect(JSON.parse(await readFile(join(root, 'engine-state/rewritten.json'), 'utf8'))).toEqual({ 'vi/species/danio-margaritatus': { at: '2026-11-08T09:00:00.000Z', hash: fitText(now).hash } })
+})
+
+test('a tank size converted from gallons, on a page already written, goes to the rewriter with a note to give it as a keeper here says it', async () => {
+  const root = await content()
+  const file = join(root, 'content/species', ID, 'vi.json')
+  // "bể chỉ 11 lít" is 3 gallons: the code rounds only the sizes it lists, so it stays as written.
+  await writeFile(file, (await readFile(file, 'utf8')).replace('Dung tích bể tối thiểu: 8 lít.', 'Dung tích bể tối thiểu: 11 lít.'))
+  const p = await danio(root)
+  const prompts: string[] = []
+  const { llm, calls } = fakeLlm(vi => vi.replace('11 lít', '10 lít'), 0.9)
+  const seen = (async (a: Parameters<Llm>[0]) => { prompts.push(a.prompt); return llm(a) }) as Llm
+  const units = [{ check: 'units' as const, part: part(p, 'sections.aquariumSize:sprucepets'), quote: 'Dung tích bể tối thiểu: 11 lít.', why: 'a volume that shows it was converted from gallons' }]
+  const r = await fitRewrite(root, [p], reading(p, units), { llm: seen, now: () => new Date('2026-11-12T09:00:00Z') }, { limit: 5 })
+  expect(r.rewritten).toEqual(['vi/species/danio-margaritatus sections.aquariumSize:sprucepets (0.90)'])
+  expect(calls).toEqual(['rewrite', 'review'])
+  expect(prompts[0]).toContain('a tank or water volume as the round size people name')
+  expect(prompts[0]).toContain('Dung tích bể tối thiểu: 11 lít.')
+  expect(JSON.parse(await readFile(file, 'utf8')).sections['aquariumSize:sprucepets']).toContain('Dung tích bể tối thiểu: 10 lít.')
 })
 
 test('a part a person fixed is not rewritten, whatever the reading finds in it', async () => {

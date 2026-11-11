@@ -13,14 +13,15 @@ import { fieldOf as partOf, norm, rewritePart, type ReaderFinding } from './read
  * - A guide by its own writer, from its source's facts and the market table (for-reader.ts), which every check holds.
  * - A fish, plant or breed page part by part: each part a finding quotes goes to the reader step's rewriter with the
  *   findings as notes (reader.ts rewritePart; a section with its English against that English), kept only when its
- *   reviewer passes it.
- * Left to others: units, which the code rounds (round.ts), words, which the phrase list carries, a kit, which no rewording
+ *   reviewer passes it. Units too: the code rounds a converted figure as it is written (round.ts), but not every one
+ *   ("bể chỉ 11 lít", 3 gallons; "một cặp cho mỗi 19 lít", which it reads as a dose), and a page already written keeps it.
+ * Left to others: units on a guide, which its writer rounds, words, which the phrase list carries, a kit, which no rewording
  * fixes (the gate holds it), advice on a fish, plant or breed page that would hurt (held too, for a person), and the doses
  * compared across pages, which a person settles. A title, a summary line or a question isn't rewritten here. engine-state/rewritten.json has each page rewritten, by its text's hash: the owner's list
  * of pages to look at (page-signals) shows a rewrite until the checker has read a newer text. engine-state/_fit-rewrite.json
  * has each page tried, by the text it read: one not kept or skipped waits until its text changes, or is named (`retry`).
  */
-const MENDED: readonly FitCheck[] = ['product', 'shop', 'price', 'dose', 'source', 'elsewhere', 'dose-caution', 'lethal']
+const MENDED: readonly FitCheck[] = ['product', 'shop', 'price', 'dose', 'source', 'units', 'elsewhere', 'dose-caution', 'lethal']
 const PART_FIELD = /^(sections\.(?!references).+|body|definition)$/
 export type Rewritten = Record<string, { at: string; hash: string }>
 /** Each page tried, by the hash of the text it read. */
@@ -53,7 +54,9 @@ export const rewriteDue = (p: Page, state: FitState) =>
 
 const asNote = (f: FitFinding): ReaderFinding => ({
   kind: 'language', severity: 'high', part: f.part, quote: f.quote,
-  problem: f.check === 'words' ? `A word keepers here don't use${f.fix ? `: write "${f.fix}"` : ''}.` : `${FIT_TITLE[f.check]}: ${f.why}. Write it for a keeper in Vietnam; drop what only holds abroad.`,
+  problem: f.check === 'words' ? `A word keepers here don't use${f.fix ? `: write "${f.fix}"` : ''}.`
+    : f.check === 'units' ? `${FIT_TITLE.units}: ${f.why}. Give it as a keeper in Vietnam says it: metric only, a tank or water volume as the round size people name (10, 20, 40 litres; a 60 cm tank). A dose keeps its label's figures.`
+    : `${FIT_TITLE[f.check]}: ${f.why}. Write it for a keeper in Vietnam; drop what only holds abroad.`,
   ...(f.fix ? { fix: f.fix } : {}),
 })
 
