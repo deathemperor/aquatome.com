@@ -1,6 +1,6 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
-import type { Content } from '@aq/schema'
+import { POPULAR, slugify, STAPLE_SPECIES, type Content } from '@aq/schema'
 import { pageShard, PageShard } from '@aq/schema/app-page'
 import { isVietnamese } from '@aq/schema/text'
 import { appBreeds, appIndex, appPlants, appSpecies, breedGroup, type AppIndex, type AppItem } from '../src/lib/app-index'
@@ -435,6 +435,40 @@ test('the home picks are the site home\'s, of what the index lists: groups with 
   expect(home.guides.every(p => byPath.get(p)?.kind === 'guide')).toBe(true)
   // The fixture lists no fish or plants in Indonesian: no picks for them.
   expect(index('id').home).toMatchObject({ groups: [], fish: [], plants: [] })
+})
+
+test('Khám phá\'s lists start with the home\'s row in its order and hold their count: the fish hobbyists keep most, then 19 plants and the 8 guides', async () => {
+  // The built index: each list starts with the row Tìm and Hôm nay read, every page once, each one the index lists.
+  for (const lang of LANGS) {
+    const { items, home } = index(lang)
+    const listed = new Set(items.map(i => i.path))
+    for (const k of ['fish', 'plants', 'guides'] as const) {
+      const list = home.browse![k]
+      expect(list.slice(0, home[k].length), `${lang} ${k}`).toEqual(home[k])
+      expect(new Set(list).size, `${lang} ${k}`).toBe(list.length)
+      expect(list.every(p => listed.has(p)), `${lang} ${k}`).toBe(true)
+    }
+  }
+  // Content with more of each than a shelf holds: 40 of the hobbyists' fish, 30 easy plants, 20 beginner guides.
+  const c = await getContent('vi')
+  const fish = c.species.find(s => s.id === 'paracheirodon-innesi')!
+  const popular = [...new Set([...STAPLE_SPECIES, ...POPULAR.map(slugify)])]
+  const species = [...c.species, ...popular.filter(id => !c.species.some(s => s.id === id)).slice(0, 40).map(id => ({ ...fish, id, t: { ...fish.t, slug: id } }))]
+  const plant = c.plants.find(p => p.photos.length && p.light !== 'high' && p.co2 !== 'required')!
+  const plants = [...c.plants, ...Array.from({ length: 30 }, (_, n) => ({ ...plant, id: `cay-${n}`, t: { ...plant.t, slug: `cay-${n}` } }))]
+  const many = appIndex('vi', { ...c, species, plants } as Content)
+  const { home } = many
+  expect(home.browse!.fish).toHaveLength(30)
+  expect(home.browse!.fish.slice(0, 8)).toEqual(home.fish)
+  // After the row, the hobbyists' order: none of the row again, and each with a photo.
+  const byPath = new Map(many.items.map(i => [i.path, i]))
+  const after = home.browse!.fish.slice(8).map(p => byPath.get(p)!)
+  expect(after.every(i => i.img && !home.fish.includes(i.path))).toBe(true)
+  const at = (id: string) => popular.indexOf(id)
+  expect(after.map(i => at(i.id!))).toEqual(after.map(i => at(i.id!)).toSorted((a, b) => a - b))
+  expect(home.browse!.plants).toHaveLength(19)
+  expect(home.browse!.plants.slice(0, 6)).toEqual(home.plants)
+  expect(home.browse!.guides).toEqual(home.guides)
 })
 
 test('a breed\'s group: what it\'s a form of first (a species, or a breed in turn), else a parent species', () => {

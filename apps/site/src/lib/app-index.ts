@@ -1,4 +1,4 @@
-import { resolveDataCard, type BreedEntity, type Content, type Curation, type Loop, type Photo, type PlantEntity, type Range, type Traits } from '@aq/schema'
+import { POPULAR, resolveDataCard, slugify, STAPLE_SPECIES, type BreedEntity, type Content, type Curation, type Loop, type Photo, type PlantEntity, type Range, type Traits } from '@aq/schema'
 import type { KindShards, PageDoc } from '@aq/schema/app-page'
 import type { SpeciesIndexItem } from '../scripts/filter'
 import { breedFigures, speciesOf, type BreedFigures } from './breeds'
@@ -151,7 +151,15 @@ export function appSeries(lang: Lang, c: Content): { s: Content['series'][number
  * What the site's home page leads with, so the app leads with the same (lib/home.ts), in its order: the fish groups
  * (with a photo of one of them), then fish, plants and guides by their path in this index.
  */
-export type AppHome = { groups: { id: string; img?: string }[]; fish: string[]; plants: string[]; guides: string[] } & AppCuration
+export type AppHome = {
+  groups: { id: string; img?: string }[]; fish: string[]; plants: string[]; guides: string[]
+  /**
+   * Khám phá's longer shelves: each starts with `fish`, `plants` and `guides` in their order, so what shows first stays
+   * first, and goes on only as far as its list is ranked by how well known (fish), how easy (plants) or how much a
+   * beginner needs it (guides). An app that predates it shows those three.
+   */
+  browse?: { fish: string[]; plants: string[]; guides: string[] }
+} & AppCuration
 /**
  * The site's words, in this language, each entry a map of strings: for each key the items carry (fish groups, guide
  * subjects, plant care), and those of the taxon and origin pages (lib/taxa-places.ts), which the app draws as shelves.
@@ -275,9 +283,20 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   for (const [vi, name, own, short] of TOOLS) {
     if (served(lang, vi)) items.push(clean({ kind: 'tool', name: t(name), path: at(vi), words: own.map(w => t(w)), short: short && t(short) }))
   }
-  // Only what the index lists: a row's worth of each.
+  // Only what the index lists: a row's worth of each, for Tìm and Hôm nay.
   const paths = new Set(items.map(i => i.path))
-  for (const [k, n] of [['fish', 8], ['plants', 6], ['guides', 8]] as const) home[k] = home[k].filter(p => paths.has(p)).slice(0, n)
+  const listed = (k: 'fish' | 'plants' | 'guides') => home[k].filter(p => paths.has(p))
+  const row = { fish: listed('fish').slice(0, 8), plants: listed('plants').slice(0, 6), guides: listed('guides').slice(0, 8) }
+  // Khám phá's longer shelves, each starting with that row in its order. Fish go on with those hobbyists keep most, most
+  // kept first, each with a photo: past its staples the site's own ranking is the richest profile, not the best known.
+  const pictured = new Map(items.filter(i => i.kind === 'fish' && i.img).map(i => [i.id, i.path]))
+  const popular = [...STAPLE_SPECIES, ...POPULAR.map(slugify)].flatMap(id => pictured.get(id) ?? [])
+  home.browse = {
+    fish: [...new Set([...row.fish, ...popular])].slice(0, BROWSE.fish),
+    plants: listed('plants').slice(0, Math.max(BROWSE.plants, row.plants.length)),
+    guides: listed('guides').slice(0, Math.max(BROWSE.guides, row.guides.length)),
+  }
+  Object.assign(home, row)
   const groups = new Set(items.map(i => i.group))
   home.groups = home.groups.filter(g => groups.has(g.id))
   // The editorial calendar's days and this week's picks, only those this index lists.
@@ -355,4 +374,11 @@ const TOOLS: readonly (readonly [string, string, readonly string[], string?])[] 
 ]
 
 /** Leaves out empty fields, so the file stays small. */
+/**
+ * How long Khám phá's lists are (the Design Lead's spec, 2026-11-11). Of each, a shelf shows 24 fish, 24 plants or 12
+ * guides after the pages shown above it, and never more: past these the site's ranking stops being how well known, how
+ * easy or how much a beginner needs it. Plants: after the staples, the easiest by how much the site has on them, which
+ * falls to a long tail past 19. Guides: past the beginner staples, by how many fish and plants a guide names.
+ */
+const BROWSE = { fish: 30, plants: 19, guides: 8 }
 const clean = (i: AppItem): AppItem => Object.fromEntries(Object.entries(i).filter(([, v]) => v !== undefined)) as AppItem

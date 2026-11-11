@@ -71,6 +71,31 @@ private let words = HandbookIndex.Labels([
   #expect(old.groups.isEmpty && old.featuredFish.isEmpty && old.all(.fish).count == 1)
 }
 
+@Test func khamPhasShelvesReadTheirLongerListsAndASiteBeforeThemGivesTheHomesPicks() {
+  let thirty = (1...30).map { fish("f\($0)", "tetras") }
+  let ix = HandbookIndex(lang: "vi", items: thirty + [plant("nana", ["epiphyte"]), guide("a", "setup")],
+                         home: .init(fish: thirty.prefix(8).map(\.path), plants: ["/vi/cay/nana/"], guides: ["/vi/huong-dan/a/"],
+                                     browse: .init(fish: thirty.map(\.path) + ["/vi/ca/gone/"], plants: ["/vi/cay/nana/"], guides: [])))
+  let s = HandbookShelves(ix)
+  #expect(s.browseFish.map(\.path) == thirty.map(\.path))
+  #expect(s.featuredFish.count == 8 && s.browsePlants.count == 1 && s.browseGuides.isEmpty)
+  let old = HandbookShelves(HandbookIndex(lang: "vi", items: thirty, home: .init(fish: thirty.prefix(8).map(\.path))))
+  #expect(old.browseFish.map(\.path) == old.featuredFish.map(\.path) && old.browseFish.count == 8)
+}
+
+@Test func aShelfShows24AfterADropOf3AndWhatsLeftWhenTheDropIsBiggerThanItsSpare() {
+  let thirty = (1...30).map { fish("f\($0)", "tetras") }
+  let three = Set(["/vi/ca/f1/", "/vi/ca/f2/", "/vi/ca/f3/"])
+  let shelf = HandbookShelves.shelf(thirty, showing: HandbookShelves.Shown.fish, after: three)
+  #expect(shelf.count == 24 && shelf.first?.path == "/vi/ca/f4/" && shelf.last?.path == "/vi/ca/f27/")
+  // Nine taken above, past its spare of six: the 21 left, none from past the list.
+  let nine = Set((1...9).map { "/vi/ca/f\($0 * 3)/" })
+  let short = HandbookShelves.shelf(thirty, showing: HandbookShelves.Shown.fish, after: nine)
+  #expect(short.count == 21 && short.allSatisfy { !nine.contains($0.path) } && short.last?.path == "/vi/ca/f30/")
+  // Pages shown above that aren't on the list take nothing off it.
+  #expect(HandbookShelves.shelf(thirty, showing: 24, after: ["/vi/cay/nana/"]).count == 24)
+}
+
 @Test func theGlossaryGoesUnderItsFirstLettersAsVietnameseSortsThem() {
   let g = { (n: String) in HandbookIndex.Item(kind: .glossary, name: n, path: "/vi/thuat-ngu/\(n)/") }
   let s = HandbookShelves(HandbookIndex(lang: "vi", items: [g("Đệm pH"), g("Ánh sáng"), g("dGH"), g("Amoniac"), g("Chu trình nitơ")]))

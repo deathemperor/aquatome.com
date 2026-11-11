@@ -251,22 +251,41 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
       }
     }
 
+    /// Khám phá's longer shelves, by item path: each starts with `fish`, `plants` and `guides` in their order, and goes on
+    /// only as far as the site's ranking is how well known, how easy or how much a beginner needs it.
+    public struct Browse: Codable, Sendable, Equatable {
+      public var fish: [String]
+      public var plants: [String]
+      public var guides: [String]
+      public init(fish: [String] = [], plants: [String] = [], guides: [String] = []) { self.fish = fish; self.plants = plants; self.guides = guides }
+
+      enum CodingKeys: String, CodingKey { case fish, plants, guides }
+      public init(from decoder: any Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        func read(_ k: CodingKeys) -> [String] { ((try? c.decodeIfPresent([String].self, forKey: k)) ?? nil) ?? [] }
+        fish = read(.fish); plants = read(.plants); guides = read(.guides)
+      }
+    }
+
     public var groups: [Group]
     public var fish: [String]
     public var plants: [String]
     public var guides: [String]
+    /// Nil from a site before it: Khám phá shows `fish`, `plants` and `guides`.
+    public var browse: Browse?
     public var days: [Day]
 
-    public init(groups: [Group] = [], fish: [String] = [], plants: [String] = [], guides: [String] = [], days: [Day] = []) {
-      self.groups = groups; self.fish = fish; self.plants = plants; self.guides = guides; self.days = days
+    public init(groups: [Group] = [], fish: [String] = [], plants: [String] = [], guides: [String] = [], browse: Browse? = nil, days: [Day] = []) {
+      self.groups = groups; self.fish = fish; self.plants = plants; self.guides = guides; self.browse = browse; self.days = days
     }
 
-    enum CodingKeys: String, CodingKey { case groups, fish, plants, guides, days }
+    enum CodingKeys: String, CodingKey { case groups, fish, plants, guides, browse, days }
 
     public init(from decoder: any Decoder) throws {
       let c = try decoder.container(keyedBy: CodingKeys.self)
       func read<T: Decodable>(_ k: CodingKeys) -> T? { (try? c.decodeIfPresent(T.self, forKey: k)) ?? nil }
       groups = read(.groups) ?? []; fish = read(.fish) ?? []; plants = read(.plants) ?? []; guides = read(.guides) ?? []
+      browse = read(.browse)
       // Day by day: one this app can't read costs only that day, which goes to the app's own picks.
       days = (read(.days) as [Lenient<Day>]?)?.compactMap(\.value) ?? []
     }
