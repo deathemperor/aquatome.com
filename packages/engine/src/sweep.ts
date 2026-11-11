@@ -1,7 +1,7 @@
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { parse } from 'node-html-parser'
-import { loadAll, mayPublish, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type Photo, type DataCardField, type SpeciesEntity, type Summary, type WrittenLang } from '@aq/schema'
+import { loadAll, mayPublish, ownNumber, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type Photo, type DataCardField, type SpeciesEntity, type Summary, type WrittenLang } from '@aq/schema'
 import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, tidyNames, type BreedName, type NameOff } from './alt-names'
 import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
 import { LlmError, type Llm } from './claude'
@@ -549,9 +549,9 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   }
   // A guide's photo goes under the heading its label names (the site matches the two), so a label follows its heading when
   // the heading is rewritten: the words the sweep writes another way ("Trùn chỉ đỏ" → "Trùng huyết"), else the one heading
-  // with the label's number ("2.", "#1"). One it can't place is listed and kept; the site shows it at the guide's end.
+  // with the label's own number ("2.", "#1", "Bước 2"; schema headings.ts, so a count title, "3 nguyên nhân chính", has
+  // none). One it can't place is listed and kept; the site shows it at the guide's end.
   const near = (h: string) => h.replace(/\s+/g, ' ').trim().toLowerCase()
-  const numberOf = (h: string) => h.match(/^\s*(#?\d+)[.):]?\s/)?.[1]
   for (const id of (await readdir(join(content, 'guides')).catch(() => [] as string[])).sort()) {
     const file = join(content, 'guides', id, 'entity.json')
     const raw = await readFile(file, 'utf8').catch(() => null)
@@ -564,7 +564,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     const photos = e.photos.map(p => {
       const label = p.section?.vi
       if (!label || named(label)) return p
-      const numbered = headings.filter(h => numberOf(h) !== undefined && numberOf(h) === numberOf(label))
+      const numbered = ownNumber(label) === undefined ? [] : headings.filter(h => ownNumber(h) === ownNumber(label))
       const to = named(viWording(label)) ?? (numbered.length === 1 ? numbered[0] : undefined)
       if (!to) { report.unplaced.push(`guides/${id}: "${label}"`); return p }
       moved = true
