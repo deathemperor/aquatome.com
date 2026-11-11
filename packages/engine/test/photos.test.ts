@@ -141,6 +141,18 @@ test("a paper's plate is no photo of the fish: microscope pictures, or several p
   }
 })
 
+test("a word about microscopes outside a file's name refuses no photo of the living animal: its skin described, or a photo contest's category (found on pages, 2026-11-11)", () => {
+  for (const f of [
+    // A page's lead, which the photo check had passed.
+    { title: 'File:The Electric Blue Acara (Andinoacara pulcher, electric blue morph).jpg', description: 'Iridophores (specialized reflective cells) in the fish’s skin contain microscopic crystal-like plates made of guanine.' },
+    { title: 'File:Креветка Амано.jpg', description: 'Amano Shrimp', categories: 'Caridina multidentata|Self-published work|Images from Wiki Science Competition 2018 in Russia|Microscopy images from Russian Science Photo Competition 2018' },
+  ]) expect(unfitCommons(f), f.title).toBeUndefined()
+  // A moss's leaf cells through a microscope, by its category, and any file named as one.
+  expect(unfitCommons({ title: 'File:Leptodictyum riparium (a, 144821-480959) 9489.JPG', description: 'Leptodictyum riparium', categories: 'Leptodictyum riparium|CC-Zero|Self-published work|Microscopic images of Hypnales - cells of the leaf base' })).toBe('not a photo: Microscopic images of')
+  expect(unfitCommons({ title: 'File:Gill fluke, microscope view.jpg' })).toBe('not a photo: microscope')
+  expect(unfitCommons({ title: 'File:IMG 2041.jpg', description: 'Scanning electron micrograph of a scale.' })).toBe('not a photo: Scanning electron')
+})
+
 test("a file named as a paper's figure is no page's photo straight from the search, plate or not: nothing has looked at it; a guide's search and a gallery's screen still see it", async () => {
   const [plain, named] = [FIGURES_OF_ONE[5]!, FIGURES_OF_ONE[0]!]
   const search = () => ({ query: { pages: Object.fromEntries([named, plain, PLATES[3]!].map(([title, description], i) => [String(i), { index: i + 1, title, imageinfo: [{

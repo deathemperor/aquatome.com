@@ -30,8 +30,15 @@ const UNFIT: { why: string; re: RegExp; in: ('title' | 'categories' | 'descripti
   // The old Britannica's figures are engravings ("EB9 - Angling - Fig 27", the tench's second photo until 2026-11-11).
   // Not "encyclopedia": the Encyclopedia of Life's files are photos.
   { why: 'drawing', re: word('EB9|EB1911|britannica'), in: ['title', 'categories'] },
-  // Pictures through a microscope, and ear stones, are no photo of the fish (PLATE below has the rest of a paper's plates).
-  { why: 'not a photo', re: word('micrographs?|photomicrographs?|microscop\\p{L}*|scanning electron|otoliths?'), in: ['title', 'categories', 'description'] },
+  // Pictures through a microscope, and ear stones, are no photo of the fish (`paperPlate` below has the rest of a
+  // paper's plates). "Microscopic" and "otolith" count in the file's name only. Of the 5,200 Commons files on pages
+  // and in albums on 2026-11-11, a description said "microscopic" of one, a living acara's ("microscopic crystal-like
+  // plates" in its skin), and a category said "Microscopy" of three living shrimp (a photo contest's "Microscopy
+  // images"). A category "Microscopic images of …" is a microscope's, or a close-up of a part: a moss's leaf cells, a
+  // floating fern's leaf hairs.
+  { why: 'not a photo', re: word('micrographs?|photomicrographs?|scanning electron'), in: ['title', 'categories', 'description'] },
+  { why: 'not a photo', re: word('microscop\\p{L}*|otoliths?'), in: ['title'] },
+  { why: 'not a photo', re: word('microscopic images of'), in: ['categories'] },
   { why: 'not a photo', re: word('maps?|charts?|diagrams?|logos?|svg|skeletons?|skulls?|x-rays?|radiographs?'), in: ['title', 'categories'] },
   { why: 'not a photo', re: word('range|distribution'), in: ['title'] },
   { why: 'dead', re: word('(?<!not )preserved|taxiderm\\p{L}*|formalin|fried|pickled|cooked|grilled|smoked'), in: ['title', 'categories', 'description'] },
