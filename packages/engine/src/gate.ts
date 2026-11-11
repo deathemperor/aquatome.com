@@ -1,11 +1,11 @@
 import { execFileSync } from 'node:child_process'
 import { existsSync } from 'node:fs'
-import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
+import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { LANGS, type Lang } from '@aq/schema'
 import { LlmError, type Llm } from './claude'
-import { doseGroups, FIT_KINDS, FIT_LABEL_VI, fitFindings, productOf, fitKey, fitOrder, fitSource, fitText, readFit, type FitCheck, type FitEntry, type FitState } from './fit'
+import { doseGroups, FIT_KINDS, FIT_LABEL_VI, fitFindings, productOf, fitKey, fitOrder, fitSource, fitText, readFit, type FitCheck, type FitEntry, type FitFinding, type FitState } from './fit'
 import { PRODUCTS } from './market'
 import { loadCards, loadPages, pageUrl, type Page } from './pages'
 import { norm } from './reader'
@@ -15,7 +15,9 @@ import { REVIEW_KINDS, reviewFile, unkeep, type Store } from './review-log'
  * Every page passes the checklist (fit.ts) before readers get it. Run last in each cycle, after everything that writes
  * pages: the pages whose text the cycle changed are read, and
  * - a new page that fails any check but words is held: kept in the repository with `held`, which the build leaves out;
- * - a live page whose new text fails a check its old text passed gets its committed text back;
+ * - a live page whose new text fails a check its old text passed gets its committed text back, and the new text is kept
+ *   with what was wrong (engine-state/put-back/), so the work that wrote it isn't lost; when all that is worse is a sentence
+ *   a mender may fix (MENDABLE, `mend`), it is fixed and the page read again first, and goes back only if still worse;
  * - a page with a fault no rewording fixes or advice that would hurt (HOLD_ALWAYS) is held, changed or not, unless it's a
  *   live page whose new text brought it, which gets its old text back; harm found in one language holds every language,
  *   and harm the rules find (a medicine in grams per litre: fit.ts, harmfulDoses) holds a page before any model reads it;
@@ -35,6 +37,22 @@ export const GATED_KINDS = [...GATE_KINDS, 'cards'] as const
  * would hurt, which readers mustn't have while it waits for a fix. A live page whose new text brings one gets its old text.
  */
 export const HOLD_ALWAYS: readonly FitCheck[] = ['kit', 'harm']
+/**
+ * The checks a mender may be sent: a sentence that names a shop, a price or a product from abroad, talks about the source,
+ * or is written for a reader elsewhere, which can go or be reworded with nothing else of the text changed. A list of what
+ * is allowed, so a new check stays out: harm, a dose and what a dose lacks are never reworded by a writer alone, a kit
+ * isn't a sentence, and units are rounded where the text is written (round.ts).
+ */
+export const MENDABLE: readonly FitCheck[] = ['shop', 'price', 'source', 'elsewhere', 'product']
+/**
+ * Fixes the sentences `findings` quote in a page's file, when it can: true once the file has the mended text, which the
+ * gate then reads again. False for a page it doesn't mend, or a mend its own reviewer didn't pass: the file as it was.
+ */
+export type Mend = (p: Page, findings: FitFinding[]) => Promise<boolean>
+/** A text the gate put back, as the page's file had it, with the checks it was worse on and what they quote. */
+export type PutBack = { at: string; checks: FitCheck[]; findings: Pick<FitFinding, 'check' | 'quote' | 'why'>[]; text: unknown }
+/** Where a page's text put back is kept, one file a page: a later one replaces it. */
+export const putBackFile = (p: Pick<Page, 'kind' | 'id' | 'lang'>) => `engine-state/put-back/${p.kind}/${p.id}.${p.lang}.json`
 /** Pages wrong for the reader on 8 Nov 2026, when the checklist first read the site: the owner's number starts here. */
 export const FIT_BASELINE = { day: '2026-11-08', pct: { vi: 50, id: 37, th: 31, ms: 51 } as Record<Lang, number> }
 
@@ -135,9 +153,13 @@ async function setHeld(root: string, file: string, held: Held | undefined) {
   await writeFile(path, `${JSON.stringify(held ? { ...t, held } : t, null, 2)}\n`)
 }
 
-export type GateReport = { pass: string[]; hold: string[]; release: string[]; revert: string[]; unread: string[]; failed: string[]; reads: number; stopped?: string }
+export type GateReport = { pass: string[]; hold: string[]; release: string[]; revert: string[]; /** Mended, then decided on like any other page (among `pass`, usually), with the checks it was mended for. */ mended: string[]; unread: string[]; failed: string[]; reads: number; stopped?: string }
 
-export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: number; limit?: number; now?: () => Date }): Promise<{ report: GateReport; state: FitState; pages: Page[]; held: Map<string, Held> }> {
+/**
+ * `mend`: what fixes a sentence instead of the whole text going back (cli.ts: the video guides', video-mend.ts); `mends`:
+ * how many pages a run it is given, each an edit and a review of its own and one more read here.
+ */
+export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: number; limit?: number; now?: () => Date; mend?: Mend; mends?: number }): Promise<{ report: GateReport; state: FitState; pages: Page[]; held: Map<string, Held> }> {
   const now = d.now ?? (() => new Date())
   const day = vnDay(now())
   const statePath = join(root, 'engine-state/_fit.json')
@@ -153,8 +175,9 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
   for (const f of held.keys()) changed.add(f)
   const files = [...changed].filter(f => byFile.has(f))
   const head = await headPages(root, files)
-  const report: GateReport = { pass: [], hold: [], release: [], revert: [], unread: [], failed: [], reads: 0 }
+  const report: GateReport = { pass: [], hold: [], release: [], revert: [], mended: [], unread: [], failed: [], reads: 0 }
   let budget = d.limit ?? 150
+  let mends = d.mend ? d.mends ?? 6 : 0
   const read = async (p: Page): Promise<FitEntry | undefined> => {
     if (report.stopped || budget <= 0) return undefined
     budget--; report.reads++
@@ -191,6 +214,36 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
     if (call.action === 'hold') { const h = { checks: call.checks, at: day }; await setHeld(root, f, h); held.set(f, h) }
     if (call.action === 'release') { await setHeld(root, f, undefined); held.delete(f) }
     if (call.action === 'revert') reverts.push(f)
+  }
+  // The texts put back for a check, as they were before any mend, to keep once they do go back.
+  const thrown = new Map<string, PutBack>()
+  /**
+   * A page worse only on sentences a mender may fix: they are sent to it (the faults of the checks it is worse on, not
+   * the ones the old text has too), and the mended text is read and decided on again, against what the old text's reads
+   * found. The call it gets then, or nothing: not mendable, the cap spent, no mend, or still worse.
+   */
+  const mended = async (f: string, p: Page, entry: FitEntry, worse: FitCheck[], old: Page, o: { isNew: boolean; wasHeld: boolean; oldChecks: FitCheck[] }): Promise<GateCall | undefined> => {
+    if (!d.mend || mends <= 0 || !worse.every(c => MENDABLE.includes(c))) return undefined
+    mends--
+    try {
+      if (!await d.mend(p, gateFindings(p, entry).filter(x => worse.includes(x.check)))) return undefined
+    } catch (e) {
+      if (e instanceof LlmError && /limit|rejected|no account/i.test(e.message)) report.stopped = e.message.slice(0, 200)
+      else report.failed.push(`${fitKey(p)}: mend: ${(e as Error).message.slice(0, 200)}`)
+      return undefined
+    }
+    // As a build reads it now.
+    const next = (p.kind === 'cards' ? await loadCards(join(root, 'content'), [p.lang]) : await loadPages(join(root, 'content'), [p.lang])).find(x => fileOf(x) === f)
+    const read2 = next && await read(next)
+    if (!next || !read2) return undefined
+    const call = gateCall(gateChecks(next, read2), { isNew: o.isNew, wasHeld: o.wasHeld, before: new Set([...o.oldChecks, ...carried(next, read2, old)]) })
+    if (call.action === 'revert') return undefined
+    // The mended text is the page's from here on: its read, and what the steps below and the report count.
+    state[fitKey(p)] = read2
+    byFile.set(f, next)
+    for (const list of [all, pages]) { const i = list.indexOf(p); if (i >= 0) list[i] = next }
+    report.mended.push(`${next.path} (${worse.join(', ')})`)
+    return call
   }
 
   // A page the gate can't read (the accounts out, over the limit) stays as readers have it: a live page keeps its committed
@@ -235,13 +288,21 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
             unread(f, p, false)
             continue
           }
-          const before = new Set([...(oldSaved ? gateChecks(old, oldSaved) : []), ...gateChecks(old, fresh), ...carried(p, entry, old)])
+          const oldChecks = [...(oldSaved ? gateChecks(old, oldSaved) : []), ...gateChecks(old, fresh)]
+          const before = new Set([...oldChecks, ...carried(p, entry, old)])
           call = gateCall(nowChecks, { isNew, wasHeld, before })
           if (call.action === 'revert') {
-            state[fitKey(p)] = fresh
-            // The text put back is held if it has a fault of that kind itself.
-            const back = [...before].sort()
-            if (back.some(c => HOLD_ALWAYS.includes(c))) holdAfter.push([f, back])
+            // What goes back if it does: the text as the cycle wrote it, before any mend.
+            const worse = call.checks
+            thrown.set(f, { at: now().toISOString().slice(0, 19) + 'Z', checks: worse, findings: gateFindings(p, entry).filter(x => worse.includes(x.check)).map(({ check, quote, why }) => ({ check, quote, why })), text: JSON.parse(await readFile(join(root, f), 'utf8')) })
+            const fixed = entry && await mended(f, p, entry, worse, old, { isNew, wasHeld, oldChecks })
+            if (fixed) { call = fixed; thrown.delete(f) }
+            else {
+              state[fitKey(p)] = fresh
+              // The text put back is held if it has a fault of that kind itself.
+              const back = [...before].sort()
+              if (back.some(c => HOLD_ALWAYS.includes(c))) holdAfter.push([f, back])
+            }
           }
         }
         // Put back now, so the texts the run ends with are known; the rest once harm beside them is.
@@ -254,7 +315,14 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
       }
     }
   }))
-  // One checkout for all of them, after the reads.
+  // One checkout for all of them, after the reads. First, each text put back for a check is kept, with what was wrong.
+  for (const f of reverts) {
+    const t = thrown.get(f)
+    if (!t) continue
+    const file = join(root, putBackFile(byFile.get(f)!))
+    await mkdir(join(file, '..'), { recursive: true })
+    await writeFile(file, `${JSON.stringify(t, null, 1)}\n`)
+  }
   if (reverts.length) {
     git(root, ['checkout', 'HEAD', '--', ...reverts])
     // The reviews of the texts they replaced are no longer the pages'.

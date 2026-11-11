@@ -7557,13 +7557,8 @@
     "parts": {
       "quickFacts:seriouslyfish": "b33bade3e246",
       "distribution:seriouslyfish": "c4f724efcd57",
-      "distribution:glaser": "4c81a9188cc7",
       "habitat:seriouslyfish": "62c5f4500d15",
-      "habitat:glaser": "15b9c58dc0dc",
-      "aquariumSize:glaser": "6ffa1cd08420",
       "diet:seriouslyfish": "867715ddfa21",
-      "diet:glaser": "0cdf4c4723d9",
-      "behaviour:glaser": "65aa8bb5f045",
       "reproduction:seriouslyfish": "bfc6e2dabd1a",
       "notes:seriouslyfish": "2cd7dcefb909",
       "references:seriouslyfish": "40f50cd60067"
@@ -12815,7 +12810,6 @@
     "parts": {
       "quickFacts:bwaquatics": "dac70182d758",
       "quickFacts:seriouslyfish": "5959358a5052",
-      "beforeYouBuy:bwaquatics": "534833d6e9fa",
       "distribution:bwaquatics": "4b1442dc33e2",
       "distribution:seriouslyfish": "9f76eadb4028",
       "habitat:bwaquatics": "b2bea16fa15b",
@@ -13514,18 +13508,14 @@
     "score": 0.95,
     "notes": [],
     "parts": {
-      "quickFacts:glaser": "0948c5033512",
       "quickFacts:sprucepets": "018277b74bb7",
-      "beforeYouBuy:glaser": "a6e844e47848",
-      "distribution:glaser": "adb67cfa1a9a",
       "distribution:sprucepets": "e86fb81fa7d6",
       "maintenance:sprucepets": "c4e77a40ff5f",
       "waterConditions:sprucepets": "19e162cd9c36",
       "diet:sprucepets": "e89313ff1858",
       "behaviour:sprucepets": "642f478c074a",
       "dimorphism:sprucepets": "97b885adb1af",
-      "reproduction:sprucepets": "730955a61c4e",
-      "notes:glaser": "2fe0e1423608"
+      "reproduction:sprucepets": "730955a61c4e"
     }
   },
   "radix-rubiginosa": {

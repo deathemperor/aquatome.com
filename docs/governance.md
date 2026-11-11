@@ -399,6 +399,14 @@ The layers above still check the result.
     add something. `packages/engine/scripts/eval-fidelity.ts` measures it on the guides under the bar. Found by the
     owner (2026-11-06): a fresh draft fixed the old notes and invented new details, and every guide reviewed scored
     0.50–0.70.
+  - **A translation whose English grew keeps what passed** (`localizeSpecies`, `localize.ts`): the Indonesian, Thai and
+    Malay species and plant pages record each part's English (a hash) as it was translated. When the English changes,
+    a part whose English is the same keeps its text, and only new and changed parts are translated and reviewed, with the
+    kept ones shown beside them for names and words. Each source keeps its own score. New parts under the bar stay off the
+    page, which keeps its text and score, and are tried again after a week or when their English changes. A page made
+    before the parts were recorded is translated whole as before, but a passing translation is never replaced by one under
+    the bar. Found 2026-11-11: 18 pages had lost a passing translation that way, though no section they were made from had
+    changed, and in 110 of the reviewers' 158 notes on those redos the fault was in a part whose English was the same.
   - **A rewrite starts from them.** `videos --redo`, `breed --redo`, `topic --redo`, `product --redo`, the localizers'
     `--redo` and `rewrite-vi` give the writer the last kept review's notes, under the same rule as the rewrite within a
     run (under the bar, or any note for the pages checked against their research).
@@ -972,6 +980,18 @@ The layers above still check the result.
     passes is let out. A page it can't read (the accounts out, over its limit) stays as readers have it: a live page keeps
     its committed text and a new one waits, held. The run still publishes; only a crash in the gate stops it
     (`gate.test.ts`).
+  - A text that goes back isn't thrown away. When all that is worse is a sentence that can go or be reworded (a shop,
+    a price or a product from abroad, talk about the source, something only true elsewhere: `MENDABLE`), the gate sends
+    the quotes to a mender and reads the page again, and puts it back only if it is still worse; harm, a dose and what a
+    dose lacks are never reworded this way. A video guide's mender is its own editor, with the transcript, and the video
+    reviewer reads the result (`video-mend.ts`; 6 pages a run, `--mends`). A price in a foreign currency isn't deleted:
+    it becomes the comparison it was there to make ("far cheaper than a ready-made one"), with no number and no
+    currency unless the video gives one in dong, and the mend's reviewer is told that is a fact kept, not lost (the
+    Writing Lead, 2026-11-11, after a guide on a cheap build lost its review with its five dollar prices). What does go back is kept as it was before
+    any mend, with the checks and their quotes, one file a page (`engine-state/put-back/`). The video writer rounds a
+    converted volume where it writes (`round.ts`), since the video jobs have no rounding step before their gate. Found
+    on 2026-11-10: of 94 new texts the recheck job's gate put back in two days, 43 had passed the video reviewer, most
+    were worse on one check, none was kept, and each guide had had its one go.
   - The rewrite (`pnpm engine fit-rewrite`, in small batches, the most-read pages first) writes a failing Vietnamese
     page again: a guide whole, from its source's facts and the market table; a fish, plant or breed page part by part,
     each part a finding quotes, kept only when its reviewer passes it and it says nothing more surely than what it was

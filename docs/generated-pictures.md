@@ -2,7 +2,7 @@
 
 Owner's direction, 10–11 November 2026. All seven switches and every source alteration permission remain **off**. The Chief of Staff arranges Astra's review; activation/publication waits for their word after the owner's private first-batch review. No iOS or protocol changes.
 
-**Selection and evidence.** Empty means no visible photo anywhere: the original 616 pages, including 486 with a recorded appearance description. Popular means the existing union of 70. Real photos come first. For missing-photo generation, unjudged real entity/album pictures, pending recovery and permitted source photographs missed by intake defer generation. For popular species, generated pictures may supplement passing real photographs, always behind them; generation remains paused until the owner answers. A missing repaint calibration leaves recovery pending. A newly found permitted checking photograph goes to the sourcing queue. Small-photo policy is unchanged; intake defects belong to sourcing. No new generation attempts are authorized while the owner considers the check; the private ledger is 64 after the separately approved single-edit CLI audit.
+**Selection and evidence.** Empty means no visible photo anywhere: the original 616 pages, including 486 with a recorded appearance description. Popular means the existing union of 70. Real photos come first. For missing-photo generation, unjudged real entity/album pictures, pending recovery and permitted source photographs missed by intake defer generation. For popular species, generated pictures may supplement passing real photographs, always behind them; generation remains paused until the owner answers. A missing repaint calibration leaves recovery pending. A newly found permitted checking photograph goes to the sourcing queue. Small-photo policy is unchanged; intake defects belong to sourcing. No new generation attempts are authorized while the owner considers the check; the separately approved single-edit CLI audit charged one attempt (63 → 64).
 
 Select diagnostic quotes verbatim from recorded external sources, separately from the writer. Record source URLs, species name and real-reference byte hashes. Insufficient appearance evidence means no generation. Checking photographs remain private, never displayed, put in albums or passed to the generator; delete study files afterward, retaining provenance. Before generation, compare real references with recorded facts separately from the candidate. Conflicts/uncertainty hold it. The candidate judge receives evidence and attachment roles, never the generation prompt. Every required identity, anatomy and visible feature must pass; people, hands, text and logos refuse. Unknown stays hidden. No live prose is changed.
 
@@ -18,8 +18,52 @@ Readiness pins all 58 paired controls and validates every measurement's shape, v
 
 **Records and readers.** Keep native originals, model alias/controller/date/prompt, evidence hashes and alteration methods; served variants embed XMP. Commit generated approval last, after entity and album; require all three records to agree. Name/section changes hide at build time; changed reference/manifest, reviewer/calibration, refusing recheck or error withdraws approval. Keep a passing real album lead. Recalibration invalidates approval before work and preserves ordinary conflicts separately. AI always shows translated “Ảnh do AI tạo”, with truthful mixed-album source lines; never recognition or the day's card. App gallery exclusion also covers carousel/viewer until every cell has visible/accessibility AI credit; labelled hero/inline data remain separate.
 
-**Off switches and runtime.** Missing/popular generation, generated upscaling, mark removal, real upscaling and generated/altered publication are separate code switches, all false. All off returns before dependencies/output. Generated interpolation targets large-copy bounds and is recorded; judge final served pixels. CLI 0.167.1 is the exact audited native pin and uses direct login transport: no token handling, authentication-file reads, proxy, API key or CLI update. Native alias `gpt-image-2`; actual renderer/Images 2.6 selection unconfirmed. Sol 5.6 controls/extracts/judges generated images; Sol 6.1 judges edits; never Terra. The earlier newer-Sol refusal used PATH's older CLI 0.153.4. Live quota surrounds calls; unknown, 90% or spend refusal stops work. Engine Claude cost: $0.
+**Off switches and runtime.** Missing/popular generation, generated upscaling, mark removal, real upscaling and generated/altered publication are separate code switches, all false. All off with no pending individual owner approval returns before dependencies/output; the six named crops below are the only reviewed exception. Generated interpolation targets large-copy bounds and is recorded; judge final served pixels. CLI 0.167.1 is the exact audited native pin and uses direct login transport: no token handling, authentication-file reads, proxy, API key or CLI update. Native alias `gpt-image-2`; actual renderer/Images 2.6 selection unconfirmed. Sol 5.6 controls/extracts/judges generated images; Sol 6.1 judges edits; never Terra. The earlier newer-Sol refusal used PATH's older CLI 0.153.4. Live quota surrounds calls; unknown, 90% or spend refusal stops work. Engine Claude cost: $0.
 
 The ledger counts observed native calls and stops its child at the second; already-started calls may overshoot by an unknown amount. Malformed/truncated/unclean runs are uncertain, charged at least two or all observed calls if more; another launch needs a fresh successful quota read. Live quota refusal is the real limit. Existing three-hour launchd cycles call the off step. Children/image uploads have bounded cancellation; unsignalled ordinary uploads retain their prior behavior.
 
 **Maintenance.** Add controls by (1) freezing private inputs/references and ground truth, (2) reviewing them, (3) extending pinned identities/tests, (4) exporting sanitized evidence and (5) rerunning the exact full set before activation. Partial uploads can leave orphaned objects: retry identical keys; cleanup separately inventories objects minus content/pending work, waits for in-flight runs and reviews deletion. Originals remain. No uploads or publication occurred in these studies. [Evidence, limitations and historical results](image-check-evidence.md).
+
+### Six individually approved crops, 11 November 2026
+
+The owner approved only the board 3 crops of Anablepsoides ornatus, Aphanius
+farsicus, Apteronotus macrostomus, Leptodoras cataniai, Macrognathus aculeatus and
+Ailia coila. A finite registry binds each approval to its page and scientific
+name, original bytes, decoded crop pixels, exact served addresses, geometry,
+paired species/ownership receipts, licence and complete credit. No source-wide
+permission or general alteration switch is enabled. Another crop, including a
+later edit of one of these six, needs another individual approval. An explicit
+source off switch still vetoes the individual approval.
+
+The scheduled images step publishes these already judged files from a durable
+private bundle. It verifies the original, lossless crop and retained pixels again;
+it never creates an image or calls a judge. Global rejection of the crop address
+and an ordinary refusal veto before encoding, before each upload, before content
+admission and before the completion receipt. A veto also withdraws an incomplete
+entity or gallery write; the marked original’s historical rejection does not veto
+its separately approved crop. Both variants are encoded and their exact addresses
+verified in memory before the first upload. It carries the two original species
+judgments into the ordinary photo-check cache, with the removed mark absent by
+geometry. Publication is acknowledged only after entity and gallery writes; a
+later refusal is not resurrected. An interrupted media upload can leave an
+unreferenced deterministic object; retry uses the same key, and ordinary media
+orphan cleanup can remove objects left without a content reference.
+
+The original is retained. The two ScotCat credits retain the existing combined
+source/photographer credit from recorded data, without fresh lettering extraction.
+Credits preserve the board's source/photographer and
+licence, followed by “Cropped to remove a source mark” in the reader's language.
+These six are excluded from Fish ID and the day's card regardless of their shape.
+Leptodoras cataniai fits the current head; the other five remain album-only.
+A lone album-only picture is currently invisible because the strip starts at six.
+The optional photo field `headFit: "contain"` is defined here but not assigned.
+The site lead implements whole-photo fitting first; a later reviewed placement
+change may assign it only where no safely framed real head exists. This change
+neither assigns that field nor changes the site's head renderer.
+
+The owner's “look OK” on small compressed, pre-fix previews of Acanthocobitis
+rubidipinnis, Acheilognathus tonkinensis, Apistogramma atahualpa and Bangana behri
+is a calibration observation only. All four kept repaints stay held and require
+fresh edits after the CLI pin is settled. It does not override the 0.400 cutoff
+or either judgment. Aphanius vladykovi stays held on the species disagreement;
+the dead Clupisoma stays refused. No generated picture is approved or made.

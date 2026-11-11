@@ -34,7 +34,7 @@ export const partsHtml = (parts: CreditPart[]) => parts.map(x => (x.href ? `<a${
 export function photoCredit(lang: Lang, p: Credited): { text: string; licence: string; url: string; authorUrl?: string; author?: string } {
   const t = translator(lang)
   if (p.generated) return { text: t('Ảnh do AI tạo'), licence: '', url: p.sourceUrl }
-  if (p.altered?.length) return { text: `${t('Ảnh:')} ${p.author} · ${t('Ảnh đã chỉnh sửa')}`, licence: licenceLabel(p.licence), url: p.sourceUrl }
+  if (p.altered?.length) return { text: `${t('Ảnh:')} ${p.author} · ${t(p.altered.some(a=>a.method==='mark-crop') ? 'Đã cắt bỏ dấu của nguồn ảnh' : 'Ảnh đã chỉnh sửa')}`, licence: licenceLabel(p.licence), url: p.sourceUrl }
   if (isUnsplash(p.licence)) return { text: unsplashLine(lang, p).map(x => x.text).join(''), licence: licenceLabel(p.licence), url: p.sourceUrl, ...(p.authorUrl ? { authorUrl: p.authorUrl } : {}), author: p.author }
   return { text: `${t('Ảnh:')} ${p.author}`, licence: licenceLabel(p.licence), url: p.sourceUrl }
 }

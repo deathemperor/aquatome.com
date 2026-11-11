@@ -59,10 +59,19 @@ export function resetAccounts() { accounts = undefined }
 const name = (a: Account) => `token ${a.n} (${a.hash})`
 const why = (o: Out) => (o.why === 'usage' ? `usage limit${o.reset ? ` until ${o.reset}` : ''}` : 'credential rejected')
 
-/** The child's environment: this account's token, and not the list (the call needs only its own). */
-export function envFor(token: string): NodeJS.ProcessEnv {
-  const { CLAUDE_CODE_OAUTH_TOKENS: _, ...env } = process.env
-  return { ...env, CLAUDE_CODE_OAUTH_TOKEN: token }
+/**
+ * The child's environment. A step run by hand from a session and a scheduled run call the model the same way
+ * (2026-11-11): every name starting with CLAUDE or ANTHROPIC is dropped, and MAX_THINKING_TOKENS, then this call's
+ * token is set when there is one. PATH, HOME and the rest pass through.
+ */
+export function envFor(token?: string): NodeJS.ProcessEnv {
+  const env: NodeJS.ProcessEnv = {}
+  for (const [name, value] of Object.entries(process.env)) {
+    if (name.startsWith('CLAUDE') || name.startsWith('ANTHROPIC') || name === 'MAX_THINKING_TOKENS') continue
+    env[name] = value
+  }
+  if (token) env.CLAUDE_CODE_OAUTH_TOKEN = token
+  return env
 }
 
 /**

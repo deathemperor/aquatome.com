@@ -98,14 +98,14 @@ export async function readReviews(root: string, kind: ReviewKind): Promise<Store
  * version the page now has (the same object as in `tries`; none when the page wasn't written). `recheck`: the version on
  * the page reviewed again, nothing written. `model`: the reviewer's (default: the engine's).
  */
-export function logReviews(root: string, kind: ReviewKind, page: PageRef, tries: Review[], kept: Review | undefined, o: { model?: string; now?: Date; recheck?: boolean; textHash?: string } = {}): Promise<void> {
+export function logReviews(root: string, kind: ReviewKind, page: PageRef, tries: Review[], kept: Review | undefined, o: { model?: string; now?: Date; recheck?: boolean; /** Every one of `tries` is of a version written again with notes: a later step's edit of a text an earlier run reviewed. */ rewrite?: boolean; textHash?: string } = {}): Promise<void> {
   if (!tries.length) return Promise.resolve()
   const at = (o.now ?? new Date()).toISOString().slice(0, 19) + 'Z'
   const model = modelOf(o.model)
   const traces: Trace[] = tries.map((r, i) => ({
     at, model, score: Math.round(r.score * 1000) / 1000,
     notes: r.notes.slice(0, NOTES).map(n => (n.length > NOTE_CHARS ? `${n.slice(0, NOTE_CHARS - 1)}…` : n)),
-    attempt: o.recheck ? 'recheck' : i === 0 ? 'first' : 'rewrite', kept: r === kept,
+    attempt: o.recheck ? 'recheck' : i === 0 && !o.rewrite ? 'first' : 'rewrite', kept: r === kept,
     ...(r.reads ? { reads: r.reads.map(s => Math.round(s * 1000) / 1000) } : {}),
     ...(o.textHash ? { textHash: o.textHash } : {}),
   }))

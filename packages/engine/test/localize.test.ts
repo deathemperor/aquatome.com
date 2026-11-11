@@ -39,11 +39,13 @@ test('every English part translated; local name; Thai addressed by scientific na
   expect(t.altNames).toEqual(['Test fish'])
   expect(Object.keys(t.sections).sort()).toEqual(e.sections.filter(s => s.html.trim()).map(s => `${s.key}:${s.source}`).sort())
   expect(t.quality).toMatchObject({ score: 0.9, indexable: true })
-  // English changed since (state says it was made from an older one): made again.
+  // The English's date moved but no part of it changed: nothing is translated again (2026-11-11).
   const stateFile = join(root, 'engine-state/localize-th.json')
   const st = JSON.parse(await readFile(stateFile, 'utf8'))
   await writeFile(stateFile, JSON.stringify({ ...st, [id]: { ...st[id], from: '2000-01-01' } }))
-  expect((await localizeSpecies(root, llm, 'th', [id], { now })).done).toHaveLength(1)
+  const asked = calls.length
+  expect((await localizeSpecies(root, llm, 'th', [id], { now })).skipped).toEqual([id])
+  expect(calls.length).toBe(asked)
   // Done once: skipped next time; a redo keeps the address.
   expect((await localizeSpecies(root, llm, 'th', [id], { now })).skipped).toEqual([id])
   await writeFile(join(root, 'content/species', id, 'th.json'), JSON.stringify({ ...t, slug: 'kept-address' }))
@@ -244,4 +246,96 @@ test('two Malay glossary terms under one address: the second takes its word for 
   expect(r.done).toHaveLength(2)
   const slug = async (id: string) => JSON.parse(await readFile(join(root, 'content/glossary', id, 'ms.json'), 'utf8')).slug as string
   expect([await slug('chu-trinh-nito'), await slug('gh')].sort()).toEqual(['takrif', 'takrif-istilah'])
+})
+
+// The Writing Lead's rule (the chief of staff, 2026-11-11): 18 pages lost a passing translation to a whole-page redo
+// under the bar when their English gained sections, though no section they were made from had changed.
+type Sec = { key: string; source: string; sourceUrl?: string; html: string }
+/** A translator that writes `<p>{tag} {id}</p>` for each part asked, and a reviewer whose score `score()` gives. */
+function translator(tag: () => string, score: () => number) {
+  const writes: string[] = []
+  const reviews: string[] = []
+  const llm = async <T,>(a: { prompt: string; schema: object }) => {
+    if ('required' in a.schema && (a.schema.required as string[]).includes('score')) { reviews.push(a.prompt); return { score: score(), notes: [] } as T }
+    writes.push(a.prompt)
+    const ids = [...a.prompt.split('--- PARTS ---')[1]!.matchAll(/^### (\S+)$/gm)].map(m => m[1])
+    return { name: 'ปลาทดสอบ', altNames: [], nameConfidence: 'high', parts: ids.map(i => ({ id: i, text: `<p>${tag()} ${i}</p>` })) } as T
+  }
+  return { llm, writes, reviews }
+}
+async function pageWith(root: string, id: string, change: (sections: Sec[]) => Sec[]) {
+  const f = join(root, 'content/species', id, 'entity.json')
+  const e = JSON.parse(await readFile(f, 'utf8')) as { sections: Sec[]; updatedAt: string }
+  await writeFile(f, JSON.stringify({ ...e, sections: change(e.sections), updatedAt: '2099-01-01' }))
+}
+const asked = (prompt: string) => [...prompt.split('--- PARTS ---')[1]!.matchAll(/^### (\S+)$/gm)].map(m => m[1])
+const NEW: Sec = { key: 'diet', source: 'aquariumcoop', sourceUrl: 'https://www.aquariumcoop.com/blogs/aquarium/x', html: '<p>Feeds on worms.</p>' }
+
+test('the English gains a section and changes one: only those two are translated and reviewed, beside the kept text; each source its own score', async () => {
+  const root = await site()
+  const id = (await import('node:fs')).readdirSync(join(root, 'content/species')).sort()[0]!
+  let tag = 'T1', score = 0.9
+  const t = translator(() => tag, () => score)
+  await localizeSpecies(root, t.llm, 'th', [id], { now })
+  const first = JSON.parse(await readFile(join(root, 'content/species', id, 'th.json'), 'utf8'))
+  const [changed, ...rest] = Object.keys(first.sections) as string[]
+  await pageWith(root, id, s => [...s.map(x => (`${x.key}:${x.source}` === changed ? { ...x, html: `${x.html}<p>One more line.</p>` } : x)), NEW])
+  tag = 'T2'; score = 0.8
+  const r = await localizeSpecies(root, t.llm, 'th', [id], { now })
+  expect(r.done).toHaveLength(1)
+  expect(t.writes).toHaveLength(2)
+  expect(asked(t.writes[1]!).sort()).toEqual([changed, 'diet:aquariumcoop'].sort())
+  expect(t.writes[1]).toContain('--- ALREADY ON THE PAGE ---')
+  expect(t.writes[1]).toContain(`T1 ${rest[0]}`)
+  expect(t.reviews[1]!.match(/^### \d+$/gm)).toHaveLength(2)
+  const after = JSON.parse(await readFile(join(root, 'content/species', id, 'th.json'), 'utf8'))
+  for (const k of rest) expect(after.sections[k]).toBe(first.sections[k])
+  expect(after.sections[changed!]).toBe(`<p>T2 ${changed}</p>`)
+  expect(after.sections['diet:aquariumcoop']).toBe('<p>T2 diet:aquariumcoop</p>')
+  expect(after.quality.bySource.aquariumcoop).toBe(0.8)
+  expect(after.quality).toMatchObject({ score: 0.8, indexable: true })
+  expect(after.name).toBe(first.name)
+})
+
+test('new sections under the bar stay off the page, which keeps its text and score, and wait a week before they are tried again', async () => {
+  const root = await site()
+  const id = (await import('node:fs')).readdirSync(join(root, 'content/species')).sort()[0]!
+  let score = 0.9
+  const t = translator(() => 'T', () => score)
+  await localizeSpecies(root, t.llm, 'th', [id], { now })
+  const file = join(root, 'content/species', id, 'th.json')
+  const before = await readFile(file, 'utf8')
+  await pageWith(root, id, s => [...s, NEW])
+  score = 0.5
+  const r = await localizeSpecies(root, t.llm, 'th', [id], { now })
+  expect(r.failed.join('\n')).toMatch(/new parts under the bar \(0.5\), the page keeps its text/)
+  expect(await readFile(file, 'utf8')).toBe(before)
+  const calls = t.writes.length + t.reviews.length
+  expect((await localizeSpecies(root, t.llm, 'th', [id], { now: () => new Date('2026-11-06T23:00:00Z') })).skipped).toEqual([id])
+  expect(t.writes.length + t.reviews.length).toBe(calls)
+  score = 0.9
+  expect((await localizeSpecies(root, t.llm, 'th', [id], { now: () => new Date('2026-11-08T00:00:00Z') })).done).toHaveLength(1)
+  expect(JSON.parse(await readFile(file, 'utf8')).sections['diet:aquariumcoop']).toBe('<p>T diet:aquariumcoop</p>')
+})
+
+test('a page made before parts were recorded keeps its passing text when the whole page again scores under the bar', async () => {
+  const root = await site()
+  const id = (await import('node:fs')).readdirSync(join(root, 'content/species')).sort()[0]!
+  let score = 0.9
+  const t = translator(() => 'T', () => score)
+  await localizeSpecies(root, t.llm, 'th', [id], { now })
+  const stateFile = join(root, 'engine-state/localize-th.json')
+  const st = JSON.parse(await readFile(stateFile, 'utf8'))
+  const { parts: _, ...old } = st[id]
+  await writeFile(stateFile, JSON.stringify({ ...st, [id]: old }))
+  const file = join(root, 'content/species', id, 'th.json')
+  const before = await readFile(file, 'utf8')
+  await pageWith(root, id, s => [...s, NEW])
+  score = 0.5
+  const r = await localizeSpecies(root, t.llm, 'th', [id], { now })
+  expect(r.failed.join('\n')).toMatch(/the whole page again was under the bar/)
+  expect(await readFile(file, 'utf8')).toBe(before)
+  const after = JSON.parse(await readFile(stateFile, 'utf8'))[id]
+  expect(Object.keys(after.failed.parts)).toEqual(['diet:aquariumcoop'])
+  expect(Object.keys(after.parts)).not.toContain('diet:aquariumcoop')
 })

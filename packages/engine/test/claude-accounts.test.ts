@@ -19,7 +19,7 @@ vi.mock('node:child_process', () => ({
     const token = opts.env?.CLAUDE_CODE_OAUTH_TOKEN
     spawned.push({ token: opts.env ? token : undefined, list: !!opts.env?.CLAUDE_CODE_OAUTH_TOKENS })
     const child = Object.assign(new EventEmitter(), { stdout: new PassThrough(), stderr: new PassThrough(), stdin: new PassThrough(), kill: () => true })
-    const a = opts.env ? ANSWERS[token!]! : ANSWERS['tok-ok']!
+    const a = token ? ANSWERS[token]! : ANSWERS['tok-ok']!
     child.stdin.on('finish', () => {
       child.stdout.end(JSON.stringify(a.json))
       setImmediate(() => child.emit('close', a.code))

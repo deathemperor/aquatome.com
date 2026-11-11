@@ -25,6 +25,8 @@ export const MARK_RESIDUE_LIMIT = 0.4
 export const MARK_RESIDUE_VERSION = 'box-detail-cosine-v1'
 
 /** Also refuses malformed or legacy generation markers in recognition paths. No runtime schema dependency. */
+export const isOwnerCrop = (p: unknown): boolean => !!p && typeof p === 'object' && 'ownerCrop' in p && (p as { ownerCrop?: unknown }).ownerCrop !== undefined
+
 export const isGenerated = (p: unknown): boolean => !!p && typeof p === 'object' && 'generated' in p && (p as { generated?: unknown }).generated !== undefined
 
 export type GeneratedRecord = {
