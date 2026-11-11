@@ -88,7 +88,7 @@ test('a part its reviewer passes is written and recorded with the page\'s new ha
   expect(JSON.parse(await readFile(join(root, 'engine-state/rewritten.json'), 'utf8'))).toEqual({ 'vi/species/danio-margaritatus': { at: '2026-11-08T09:00:00.000Z', hash: fitText(now).hash } })
 })
 
-test('a tank size converted from gallons, on a page already written, goes to the rewriter with a note to give it as a keeper here says it', async () => {
+test('a tank size its English gives in gallons, on a page already written, goes to the rewriter with a note to convert it as the writing rules say', async () => {
   const root = await content()
   const file = join(root, 'content/species', ID, 'vi.json')
   // "bể chỉ 11 lít" is 3 gallons: the code rounds only the sizes it lists, so it stays as written.
@@ -101,9 +101,25 @@ test('a tank size converted from gallons, on a page already written, goes to the
   const r = await fitRewrite(root, [p], reading(p, units), { llm: seen, now: () => new Date('2026-11-12T09:00:00Z') }, { limit: 5 })
   expect(r.rewritten).toEqual(['vi/species/danio-margaritatus sections.aquariumSize:sprucepets (0.90)'])
   expect(calls).toEqual(['rewrite', 'review'])
-  expect(prompts[0]).toContain('a tank or water volume as the round size people name')
+  expect(prompts[0]).toContain('Convert the English\'s US units as the writing rules say')
+  expect(prompts[0]).toContain('a dose\'s amount and the water it goes into are converted exactly, never rounded')
   expect(prompts[0]).toContain('Dung tích bể tối thiểu: 11 lít.')
   expect(JSON.parse(await readFile(file, 'utf8')).sections['aquariumSize:sprucepets']).toContain('Dung tích bể tối thiểu: 10 lít.')
+})
+
+test('units are mended only from US units in the English, and never ride along with another mend of the same part', async () => {
+  // The English gives "2 gallons": the writer converts it as its rules say, and its reviewer holds that.
+  const root = await content()
+  const p = await danio(root)
+  const shop = { check: 'source' as const, part: part(p, 'sections.aquariumSize:sprucepets'), quote: 'Bể trồng nhiều cây', why: 's' }
+  // With another finding on the part, the part is mended for that alone: a rounding its reviewer fails can't lose it.
+  expect([...mendable(p, reading(p, [converted(p), shop]))].map(([field, fs]) => [field, fs.map(f => f.check)])).toEqual([['sections.aquariumSize:sprucepets', ['source']]])
+  // The English already in litres ("tanks as small as 11 litres"): rounding it would say other than the source.
+  const entityFile = join(root, 'content/species', ID, 'entity.json')
+  await writeFile(entityFile, (await readFile(entityFile, 'utf8')).replace('<p>Minimum tank size: 2 gallons. A planted tank suits them.</p>', '<p>Minimum tank size: 8 litres. A planted tank suits them.</p>'))
+  const metric = await danio(root)
+  expect(mendable(metric, reading(metric, [converted(metric)])).size).toBe(0)
+  expect(rewriteDue(metric, reading(metric, [converted(metric)]))).toBe(false)
 })
 
 test('a part a person fixed is not rewritten, whatever the reading finds in it', async () => {

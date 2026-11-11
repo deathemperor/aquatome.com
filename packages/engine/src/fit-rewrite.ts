@@ -13,9 +13,12 @@ import { fieldOf as partOf, norm, rewritePart, type ReaderFinding } from './read
  * - A guide by its own writer, from its source's facts and the market table (for-reader.ts), which every check holds.
  * - A fish, plant or breed page part by part: each part a finding quotes goes to the reader step's rewriter with the
  *   findings as notes (reader.ts rewritePart; a section with its English against that English), kept only when its
- *   reviewer passes it. Units too: the code rounds a converted figure as it is written (round.ts), but not every one
- *   ("bể chỉ 11 lít", 3 gallons; "một cặp cho mỗi 19 lít", which it reads as a dose), and a page already written keeps it.
- * Left to others: units on a guide, which its writer rounds, words, which the phrase list carries, a kit, which no rewording
+ *   reviewer passes it. Units too, where the part's English gives the figure in US units ("a pair per 5 gallons (about
+ *   19 litres)"): the code rounds a converted figure as it is written (round.ts), but not every one, and a page already
+ *   written keeps it; written again, it's converted as the writer's rules say, which its reviewer holds. A part with
+ *   another finding here is mended for that alone, so a rounding its reviewer fails can't lose that mend.
+ * Left to others: units on a guide, which its writer rounds; a figure the English gives in metric ("tanks as small as 11
+ * litres"), which rounding would make say other than its source; words, which the phrase list carries; a kit, which no rewording
  * fixes (the gate holds it), advice on a fish, plant or breed page that would hurt (held too, for a person), and the doses
  * compared across pages, which a person settles. A title, a summary line or a question isn't rewritten here. engine-state/rewritten.json has each page rewritten, by its text's hash: the owner's list
  * of pages to look at (page-signals) shows a rewrite until the checker has read a newer text. engine-state/_fit-rewrite.json
@@ -23,6 +26,8 @@ import { fieldOf as partOf, norm, rewritePart, type ReaderFinding } from './read
  */
 const MENDED: readonly FitCheck[] = ['product', 'shop', 'price', 'dose', 'source', 'units', 'elsewhere', 'dose-caution', 'lethal']
 const PART_FIELD = /^(sections\.(?!references).+|body|definition)$/
+/** A figure in US units in a part's English: gallons, inches, feet, °F, miles, pounds. */
+const US_UNITS = /gallons?|\bgal\b|\binch(?:es)?\b|\d\s*(?:in\b|")|\b(?:feet|foot|ft)\b|°\s?F\b|\bmiles?\b|\b(?:pounds?|lbs?)\b/i
 export type Rewritten = Record<string, { at: string; hash: string }>
 /** Each page tried, by the hash of the text it read. */
 export type Tried = Record<string, { at: string; hash: string }>
@@ -35,9 +40,15 @@ export function mendable(p: Page, state: FitState): Map<string, FitFinding[]> {
   if (!e || e.hash !== hash) return out
   const fs = fitFindings(p, e)
   const fieldOf = (f: FitFinding) => parts.find(x => x.id === f.part)?.field ?? parts.find(x => f.quote && norm(x.text).includes(norm(f.quote)))?.field
-  for (const f of fs.filter(f => MENDED.includes(f.check))) {
+  for (const f of fs.filter(f => MENDED.includes(f.check) && f.check !== 'units')) {
     const field = fieldOf(f)
     if (field && PART_FIELD.test(field)) out.set(field, [...(out.get(field) ?? []), f])
+  }
+  // Units: only a part whose English gives the figure in US units, and has nothing else to mend here.
+  const mine = new Set(out.keys())
+  for (const f of fs.filter(f => f.check === 'units')) {
+    const field = fieldOf(f)
+    if (field && PART_FIELD.test(field) && !mine.has(field) && US_UNITS.test(p.en?.[field] ?? '')) out.set(field, [...(out.get(field) ?? []), f])
   }
   // A part rewritten anyway takes its wording findings along.
   for (const f of fs.filter(f => f.check === 'words')) { const field = fieldOf(f); if (field && out.has(field)) out.get(field)!.push(f) }
@@ -55,7 +66,7 @@ export const rewriteDue = (p: Page, state: FitState) =>
 const asNote = (f: FitFinding): ReaderFinding => ({
   kind: 'language', severity: 'high', part: f.part, quote: f.quote,
   problem: f.check === 'words' ? `A word keepers here don't use${f.fix ? `: write "${f.fix}"` : ''}.`
-    : f.check === 'units' ? `${FIT_TITLE.units}: ${f.why}. Give it as a keeper in Vietnam says it: metric only, a tank or water volume as the round size people name (10, 20, 40 litres; a 60 cm tank). A dose keeps its label's figures.`
+    : f.check === 'units' ? `${FIT_TITLE.units}: ${f.why}. Convert the English's US units as the writing rules say (a tank of 5 gallons or more to the nearest 5 litres: 5 gallons is 20 litres; inches to cm), and give no US figure. Round only a tank's size or the water a fish needs; a dose's amount and the water it goes into are converted exactly, never rounded.`
     : `${FIT_TITLE[f.check]}: ${f.why}. Write it for a keeper in Vietnam; drop what only holds abroad.`,
   ...(f.fix ? { fix: f.fix } : {}),
 })
