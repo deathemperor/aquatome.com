@@ -77,7 +77,7 @@ struct V2Section: View {
     // The next text's opening, to the eighth line, or two lines of it where one is all that's left: it ends inside a text,
     // its last line to the edge, as the App Store's description does. Never all of it: then its last line ends short.
     if n < pieces.count, let p = Self.prose(pieces[n]) {
-      let left = Int((shown - used - (n > 0 ? Self.gap : 0)) / tall.line), lines = tall.lines(p.text, inset: p.inset)
+      let left = Int((shown - used - (n > 0 ? Self.gap : 0)) / tall.line), lines = tall.fewestLines(p.text, inset: p.inset)
       if left >= 1, lines >= 2 {
         let show = min(max(left, 2), lines - 1)
         // Two lines more than show, as measured a little narrower than drawn: drawn, it runs past the last shown.
@@ -87,7 +87,7 @@ struct V2Section: View {
     // No room for a line of the next: the last whole text ends a line early instead, inside it, not a row of its own
     // under a gap; one of a single line, whole, "thêm" after it.
     if n > 0, let p = Self.prose(pieces[n - 1]) {
-      let lines = tall.lines(p.text, inset: p.inset)
+      let lines = tall.fewestLines(p.text, inset: p.inset)
       return .cut(n - 1, chars: p.text.characters.count, lines: lines >= 2 ? lines - 1 : nil)
     }
     // A label alone over a photo or a table: with it.
@@ -242,6 +242,10 @@ private struct PieceHeight {
 
   /// The lines a text of the body takes.
   func lines(_ s: AttributedString, inset: CGFloat = 0) -> Int { count(String(s.characters), inset) }
+
+  /// The fewest lines it can take as drawn, measured a little wider than drawn: a fold showing all but its last of these
+  /// lines ends inside the text, never on its short last line.
+  func fewestLines(_ s: AttributedString, inset: CGFloat = 0) -> Int { count(String(s.characters), inset - 16) }
 
   /// How much of a text shows in `lines` lines with "thêm" ending the last: all of it, where it fits with " thêm"; else the
   /// most, to a word's end, that fits with "… thêm".
