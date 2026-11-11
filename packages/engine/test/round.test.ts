@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { roundConverted, roundPage } from '../src/round'
+import { metricFigures, roundConverted, roundPage, sourceGives, US_UNITS } from '../src/round'
 
 const vi = (s: string) => roundConverted(s, 'vi')
 
@@ -49,4 +49,54 @@ test("a page's text is rounded, its reference lists aren't, and a second pass ch
   const once = roundPage(page, 'vi')
   expect(once).toEqual({ sections: { 'quickFacts:seriouslyfish': '<li>Bể: 40 lít</li>', 'references:seriouslyfish': '<p>Tank 38 l.</p>' }, body: '<p>Bể 80 lít.</p>', summary: ['23 °C'], faq: [{ q: 'Bể 20 lít?', a: '60 lít.' }] })
   expect(roundPage(once, 'vi')).toEqual(once)
+})
+
+test('metric figures as each language writes them, and whether the English source gives them all', () => {
+  expect(metricFigures('nền 2,5–5 cm, bể 1.000 lít, 24 °C', 'vi')).toEqual(['2.5 cm', '5 cm', '1000 l', '24 c'])
+  expect(metricFigures('ลึก 2.5 ซม. ในตู้ 110 ลิตรขึ้นไป', 'th')).toEqual(['2.5 cm', '110 l'])
+  expect(metricFigures('a 1,000-litre pond, 2.5 cm of sand, 6 m x 1.8 m', 'en')).toEqual(['1000 l', '2.5 cm', '6 m', '1.8 m'])
+  expect(metricFigures('5 lần, 3 loài', 'vi')).toEqual([])
+  expect(sourceGives('bể 60 lít', '<p>a 60 cm tank, 15 gallons</p>', 'vi')).toBe(false) // a length, not a volume
+  expect(sourceGives('bể 60 lít', 'a tank of 60 litres', 'vi')).toBe(true)
+  expect(sourceGives('tangki 60 x 37.5 x 30 cm (71 liter)', '60 x 37.5 x 30 cm (71 litres)', 'ms')).toBe(true)
+  expect(sourceGives('ít nhất 6 con', 'at least 6 fish', 'vi')).toBe(false) // no figure to give
+  // Every number a unit closes: a tank's sides, a choice, "ºC" with the ordinal sign.
+  expect(metricFigures('Bể 91 × 38 × 30 cm, 57 hoặc 76 lít, 22,8 ºC', 'vi')).toEqual(['91 cm', '38 cm', '30 cm', '57 l', '76 l', '22.8 c'])
+  expect(sourceGives('Bể 91 × 38 × 30 cm', 'A tank of 36 × 15 × 12 in. Adults reach 30 cm.', 'vi')).toBe(false)
+  expect(sourceGives('bể 57 hoặc 76 lít', 'A 15 or 20 gallon tank; 20 gallons (76 litres) is better.', 'vi')).toBe(false)
+  expect(sourceGives('nhiệt độ 22,8 ºC, bể 60 cm', 'at 73 °F, in a 60 cm tank', 'vi')).toBe(false)
+  expect(sourceGives('ตู้ยาว 2 ฟุต (60 ซม.)', 'a 2 ft (60 cm) tank', 'th')).toBe(false) // a foot left on the page
+})
+
+test("one kind of joiner to a figure: a pH beside a temperature isn't read as degrees, nor a count of changes as litres", () => {
+  // A range, a choice and a range in one line are three figures: only the one the unit closes is read.
+  expect(metricFigures('pH 6.5–7.5 and 24–28 °C', 'en')).toEqual(['24 c', '28 c'])
+  expect(sourceGives('nhiệt độ 7,5 °C', 'pH 6.5–7.5 and 24–28 °C', 'vi')).toBe(false)
+  expect(metricFigures('a 38 litre tank at pH 6.8 to 7.0 and 23–24.5 °C', 'en')).toEqual(['38 l', '23 c', '24.5 c'])
+  expect(sourceGives('6,8 °C', 'a 38 litre tank at pH 6.8 to 7.0 and 23–24.5 °C', 'vi')).toBe(false)
+  expect(sourceGives('7 °C', 'a 38 litre tank at pH 6.8 to 7.0 and 23–24.5 °C', 'vi')).toBe(false)
+  expect(sourceGives('9,5 °C', 'The lake runs at pH 9.5-10.5 and 32-43.5 °C', 'vi')).toBe(false)
+  expect(metricFigures('pH 6.5 or 7.5 and 75 litres', 'en')).toEqual(['75 l'])
+  expect(metricFigures('26480-L 273-8 and 26480-L', 'en')).toEqual(['26480 l', '26480 l'])
+  // What one kind joins stays one figure.
+  expect(metricFigures('pH of 6–8 and temperatures between 24 and 27°C', 'en')).toEqual(['24 c', '27 c'])
+  expect(metricFigures('20 ลิตร ถึง 115 ลิตร, 24 ถึง 28 องศา', 'th')).toEqual(['20 l', '115 l', '24 c', '28 c'])
+  // "x" joins a tank's sides, never a count and litres or degrees.
+  expect(metricFigures('Do 2 x 10 litre water changes, 2x daily.', 'en')).toEqual(['10 l'])
+  expect(sourceGives('bể 2 lít', 'Do 2 x 10 litre water changes.', 'vi')).toBe(false)
+  expect(metricFigures('60x37.5x30cm, 30 x 12 in x 45 cm, 3 x 10 ml', 'en')).toEqual(['60 cm', '37.5 cm', '30 cm', '45 cm'])
+})
+
+test('the page languages\' US words count only as words of their own, and "kaki" only as a length', () => {
+  for (const s of ['1 gelen', '2 ฟุต', '5 ปอนด์', 'akuarium 3 kaki', 'kedalaman minimal 3–4 kaki', '10 gallon', 'bể 20 ga-lông']) expect(US_UNITS.test(s), s).toBe(true)
+  for (const s of ['menggeleng', 'gelengan', 'Angeleno', '2 ฟุตบอล', '11 ฟุตบอล', '4 kaki', 'kaki rambut', 'ikan berkaki 4']) expect(US_UNITS.test(s), s).toBe(false)
+})
+
+// The independent reader's third read, 2026-11-11: a "kaki" figure written as @aq/schema reads it.
+test('an Indonesian or Malay foot figure in kaki is read as the schema reads it: sides, a fraction, a word range, any dash', () => {
+  for (const s of ['akuarium 3 x 2 kaki (90 cm)', 'panjang 3 sampai 4 kaki', 'panjang 1/2 kaki', 'kedalaman 3—4 kaki', 'kedalaman minimal 3–4 kaki', 'akuarium 3 kaki', 'tinggi 1,5 kaki'])
+    expect(US_UNITS.test(s), s).toBe(true)
+  for (const s of ['4 kaki', 'ikan berkaki empat', 'kaki ikan 2 cm']) expect(US_UNITS.test(s), s).toBe(false)
+  expect(sourceGives('akuarium 3 x 2 kaki (90 cm)', 'a 3 x 2 ft (90 cm) tank', 'id')).toBe(false)
+  for (const to of ['đến', 'tới', 'hoặc', 'ถึง', 'หรือ', 'sampai']) expect(sourceGives(`panjang 3 ${to} 4 kaki (90 cm)`, '3 to 4 ft (90 cm)', 'id'), to).toBe(false)
 })

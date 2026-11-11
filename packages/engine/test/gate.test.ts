@@ -876,3 +876,30 @@ test('a held card that passes now is let out: the gate sees held cards, which th
   expect((await readJson(root, 'content/cards/card-held/vi.json')).held).toBeUndefined()
   expect(r.report.release).toEqual(['/vi/cards/card-held/'])
 })
+
+test('a page held for units alone is let out, with no read, once its saved read\'s only figures are its English\'s own', async () => {
+  const held = async (en: string) => {
+    const root = await repo()
+    const dir = 'content/species/danio-margaritatus'
+    await edit(root, 'content/sources.json', s => { const sf = s.seriouslyfish as { publish: boolean; permission?: { date: string; file: string; scope: string[] } }; sf.publish = true; sf.permission = { date: '2026-10-29', file: 'noted', scope: ['translation'] } })
+    await edit(root, `${dir}/entity.json`, e => { (e.sections as { key: string; source: string; html: string }[]).find(s => s.key === 'habitat' && s.source === 'seriouslyfish')!.html = en })
+    await edit(root, `${dir}/vi.json`, t => { (t.sections as Record<string, string>)['habitat:seriouslyfish'] = '<p>Nuôi được trong bể chỉ 38 lít.</p>'; t.held = { checks: ['units'], at: '2026-11-09' } })
+    const p = (await loadPages(join(root, 'content'), ['vi'])).find(x => x.id === 'danio-margaritatus')!
+    const state: FitState = { [fitKey(p)]: { at: '2026-11-09', hash: fitText(p).hash, model: 'm', products: [], findings: [], checklist: 3 } }
+    await writeFile(join(root, 'engine-state/_fit.json'), `${JSON.stringify(state)}\n`)
+    git(root, 'add', '.'); git(root, '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-qm', 'held for units')
+    const calls: string[] = []
+    const { report } = await gate(root, { llm: reader(calls), now })
+    return { report, calls, held: (await readJson(root, `${dir}/vi.json`)).held }
+  }
+  // The English gives 38 litres itself: the rules find nothing now, and the saved read is of this text.
+  const own = await held('<p>Kept in tanks as small as 38 litres.</p>')
+  expect(own.held).toBeUndefined()
+  expect(own.report.release).toEqual(['/vi/ca/ca-galaxy/'])
+  expect(own.calls).toEqual([])
+  // The English gives gallons: "38 lít" is the writer's conversion, and the page stays held.
+  const converted = await held('<p>Kept in tanks as small as 10 gallons.</p>')
+  expect(converted.held).toEqual({ checks: ['units'], at: '2026-11-09' })
+  expect(converted.report.release).toEqual([])
+  expect(converted.calls).toEqual([])
+})

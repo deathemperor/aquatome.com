@@ -874,7 +874,11 @@ The layers above still check the result.
   reader-fit gate with no `metric` step between, and the gate put 26 guides back for such a figure (8 to 10 Nov 2026).
   Reference lists, titles, quoted labels and a bottle's size in ounces stay as published. Found on 263 fish,
   plant and breed pages, then on 136 guide pages and 9 more fish pages whose sizes were written in inch marks (48" x
-  15") (2026-11-01).
+  15") (2026-11-01). A metric figure a fish or plant page's English gives itself stays as given, and the reader-fit check
+  doesn't count it ("tanks as small as 11 litres", "120 × 45 × 37,5 cm – 212 lít"; `sourceGives`, round.ts): numbers
+  stay as the source gives them (the chief of staff, 2026-11-11). It let 19 held pages out and 75 live ones pass, in
+  three languages of four. A section AquaTome wrote from many sources' facts, and a guide, have no English beside them:
+  their figures still count.
 - **One copy of each figure.** The data card holds a species' figures. Quick facts drop the items the card already has
   for that source, and the family (merge, and the page for older content); a block that states a figure the card shows
   otherwise says above itself which source it follows (`@aq/schema` card-facts). Found in a review: Cá neon vua's text

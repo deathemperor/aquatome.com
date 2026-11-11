@@ -80,6 +80,67 @@ export function roundConverted(text: string, lang: UnitLang): string {
   return text.split(/(<[^>]+>)/).map((seg, i) => (i % 2 ? seg : round(seg))).join('')
 }
 
+// A "kaki" figure as @aq/schema's units.ts reads it (its N, TO and BY): a fraction or decimal, a word range, or sides
+// joined by x, × or *, after a length word or a tank ("akuarium 3 x 2 kaki", "panjang 1/2 kaki", "kedalaman 3—4 kaki").
+const KAKI_N = String.raw`(?:\d+\s+\d\/\d{1,2}|\d\/\d{1,2}|\d+(?:[.,]\d+)*(?:\s?[½¼¾])?|[½¼¾])`
+const KAKI_TO = String.raw`(?:\s*[–—−-]\s*|\s+(?:to|đến|tới|hoặc|sampai|hingga|sehingga|ke|atau|ถึง|หรือ)\s+)`
+const KAKI_BY = String.raw`(?:\s*[×x*]\s*|\s+\/\s+)`
+const KAKI = String.raw`(?<!\p{L})(?:kedalaman|panjang|tinggi|lebar|jarak|sedalam|setinggi|sepanjang|selebar|akuarium|tangki)(?:nya)?[^\d<>]{0,30}?(?<![\d.,A-Za-z])${KAKI_N}(?:${KAKI_TO}${KAKI_N}|(?:${KAKI_BY}${KAKI_N})+)?\s*kaki(?!\p{L})`
+/**
+ * A figure in US units: gallons, inches (a number's "in" only as a measure: "30 × 12 in", "3 in long"), feet, °F,
+ * miles, pounds. Not "5 in a group", "Ft. Lauderdale" or "LB-12". The page languages' own words for them too, each a
+ * word of its own ("menggeleng", "ฟุตบอล" aren't), and an Indonesian or Malay "kaki" only after a length word or a tank,
+ * as @aq/schema reads it, since it is a leg too.
+ */
+export const US_UNITS = new RegExp(String.raw`gallons?|\bgal\b|galon|(?<!\p{L})gelen(?!\p{L})|ga-?\s?lông|แกลลอน|\binch(?:es)?\b|\binci\b|นิ้ว|\d\s*"|\d\s*in\.?(?=\s*(?:[x×)\],;]|long|deep|tall|high|wide|SL|TL|$))|\d\s*(?:feet|foot|ft)\b|${KAKI}|\d\s*(?:ฟุต|ปอนด์)(?![\p{L}\p{M}\p{N}])|°\s?F\b|độ F|\d\s*miles?\b|\d\s*(?:pounds?|lbs?)\b`, 'iu')
+
+const END = String.raw`(?![\p{L}\p{N}])`
+/** Metric lengths, by kind, as the page languages and the English sources write them. Thai runs words together: no end. */
+const LENGTHS = String.raw`(?<cm>(?:cm|centimet(?:er|re)s?)${END}|ซม\.?|เซนติเมตร)|(?<mm>(?:mm|millimet(?:er|re)s?)${END}|มม\.?|มิลลิเมตร)|(?<km>km${END}|กิโลเมตร)|(?<m>(?:m|mét|meters?|metres?)${END}|เมตร)`
+/** Metric units, by kind. */
+const METRIC = String.raw`(?:(?<l>(?:lít|liters?|litres?|l)${END}|ลิตร)|${LENGTHS}|(?<c>(?:[°º]\s?C|độ C|degrees? C(?:elsius)?)${END}|องศา(?:เซลเซียส)?))`
+const NUMBER = String.raw`\d+(?:[.,]\d+)*`
+/**
+ * What joins the numbers one unit closes, one kind to a figure: a range ("2,5–5 cm", "24 to 28 °C"), a tank's sides
+ * ("91 × 38 × 30 cm"), a choice of two ("57 hoặc 76 lít", "between 24 and 28 °C"). Mixed, they are separate figures:
+ * "pH 6.5–7.5 and 24–28 °C" is 24 and 28 °C.
+ */
+const RANGE = String.raw`(?:\s*[–\-]\s*|\s+(?:to|đến|tới|hingga|sampai)\s+|\s*ถึง\s*)`
+const BY = String.raw`\s*[×x*∗]\s*`
+const CHOICE = String.raw`(?:\s+(?:or|and|hoặc|và|atau|dan)\s+|\s*(?:หรือ|และ)\s*)`
+/** A tank's sides: "x" joins lengths only ("2 x 10 litre water changes" are changes of 10 litres). */
+const BY_SIDES = new RegExp(String.raw`(?<![\d.,])(${NUMBER}(?:${BY}${NUMBER})+)\s*-?\s*(?:${LENGTHS})`, 'giu')
+/** One number, a range, or a choice of two whose first isn't joined to a number before it ("pH 6.5 or 7.5 and 75 litres" is 75 litres). */
+const FIGURE = new RegExp(String.raw`(?<![\d.,])(${NUMBER}(?:${RANGE}${NUMBER})?|(?<!\d(?:${RANGE}|${BY}|${CHOICE}))${NUMBER}${CHOICE}${NUMBER})\s*-?\s*${METRIC}`, 'giu')
+/** A number as a language writes it: "2,5" and "1.000" in Vietnamese and Indonesian, "2.5" and "1,000" in the others. */
+const numberIn = (s: string, lang: UnitLang | 'en') => Number(lang === 'vi' || lang === 'id' ? s.replace(/\./g, '').replace(',', '.') : s.replace(/,/g, ''))
+/**
+ * A text's metric figures, each number with its unit's kind, every number the unit closes: "2,5–5 cm" is ["2.5 cm",
+ * "5 cm"], "91 × 38 × 30 cm" three of cm, "11 litres" ["11 l"].
+ */
+export function metricFigures(text: string, lang: UnitLang | 'en'): string[] {
+  const sides = [...text.matchAll(BY_SIDES)]
+  // The sides read, the rest of the text is read without them.
+  const rest = sides.reduce((t, m) => t.slice(0, m.index) + ' '.repeat(m[0].length) + t.slice(m.index + m[0].length), text)
+  return [...sides, ...rest.matchAll(FIGURE)].sort((a, b) => a.index - b.index).flatMap(m => {
+    const kind = Object.entries(m.groups ?? {}).find(([, v]) => v !== undefined)![0]
+    return m[1]!.match(new RegExp(NUMBER, 'g'))!.map(x => `${numberIn(x, lang)} ${kind}`)
+  })
+}
+/**
+ * Whether every figure a quote gives is metric and one its English source gives in metric itself, alone or beside a US
+ * one ("tanks as small as 11 litres", "5 gallons (about 19 litres)"): numbers stay as the source gives them (the chief
+ * of staff, 2026-11-11), so the reader-fit check doesn't count them. A US unit in the quote, or one figure the source
+ * doesn't give, still counts.
+ */
+export function sourceGives(quote: string, en: string, lang: UnitLang): boolean {
+  if (US_UNITS.test(quote)) return false
+  const figures = metricFigures(quote, lang)
+  if (!figures.length) return false
+  const given = new Set(metricFigures(en, 'en'))
+  return figures.every(x => given.has(x))
+}
+
 type Page = { sections?: Record<string, string>; body?: string; summary?: string[]; faq?: { q: string; a: string }[] }
 /** A page's text rounded (`roundConverted`): what `metricPage` (@aq/schema) reads, and reference lists stay as published. */
 export function roundPage<T extends Page>(page: T, lang: UnitLang): T {
