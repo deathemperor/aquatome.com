@@ -22,15 +22,21 @@ import { fieldOf as partOf, norm, rewritePart, type ReaderFinding } from './read
  * fixes (the gate holds it), advice on a fish, plant or breed page that would hurt (held too, for a person), and the doses
  * compared across pages, which a person settles. A title, a summary line or a question isn't rewritten here. engine-state/rewritten.json has each page rewritten, by its text's hash: the owner's list
  * of pages to look at (page-signals) shows a rewrite until the checker has read a newer text. engine-state/_fit-rewrite.json
- * has each page tried, by the text it read: one not kept or skipped waits until its text changes, or is named (`retry`).
+ * has each page tried, by the text it read: one not kept or skipped waits until its text changes, or is named (`retry`),
+ * and one tried MAX_TRIES times waits for a person to name it.
  */
 const MENDED: readonly FitCheck[] = ['product', 'shop', 'price', 'dose', 'source', 'units', 'elsewhere', 'dose-caution', 'lethal']
 const PART_FIELD = /^(sections\.(?!references).+|body|definition)$/
 /** A figure in US units in a part's English: gallons, inches, feet, °F, miles, pounds. */
 const US_UNITS = /gallons?|\bgal\b|\binch(?:es)?\b|\d\s*(?:in\b|")|\b(?:feet|foot|ft)\b|°\s?F\b|\bmiles?\b|\b(?:pounds?|lbs?)\b/i
 export type Rewritten = Record<string, { at: string; hash: string }>
-/** Each page tried, by the hash of the text it read. */
-export type Tried = Record<string, { at: string; hash: string }>
+/** Each page tried, by the hash of the text it read, and how often on any of its texts (none: once, before the count). */
+export type Tried = Record<string, { at: string; hash: string; n?: number }>
+/**
+ * A page is tried at most this often, on any of its texts, unless named: a part its reviewers pass that the next read
+ * still faults would make the page due again on its new text, a cycle at a time, with only the step's ceiling to stop it.
+ */
+export const MAX_TRIES = 2
 
 /** What a page's parts are wrong for: its current reading's findings this step mends, by the field each quotes. */
 export function mendable(p: Page, state: FitState): Map<string, FitFinding[]> {
@@ -85,9 +91,11 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
   const tried = JSON.parse(await readFile(triedFile, 'utf8').catch(() => '{}')) as Tried
   const done: Page[] = []
   const at = d.now().toISOString()
-  for (const p of pages.filter(p => rewriteDue(p, state) && (o.retry || tried[fitKey(p)]?.hash !== fitText(p).hash)).slice(0, o.limit)) {
+  const triesOf = (k: string) => (tried[k] ? tried[k].n ?? 1 : 0)
+  for (const p of pages.filter(p => rewriteDue(p, state) && (o.retry || (tried[fitKey(p)]?.hash !== fitText(p).hash && triesOf(fitKey(p)) < MAX_TRIES))).slice(0, o.limit)) {
     const key = fitKey(p)
-    tried[key] = { at, hash: fitText(p).hash }
+    const before = tried[key]
+    tried[key] = { at, hash: fitText(p).hash, n: triesOf(key) + 1 }
     let changed = 0
     try {
       if (p.kind === 'guides') {
@@ -120,7 +128,7 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
       }
     } catch (e) {
       // Stopped part way (the accounts out): what it kept is kept, and the page isn't counted as tried.
-      if (e instanceof LlmError) { delete tried[key]; if (changed) done.push(p); report.stopped = `${key}: ${e.message}`; break }
+      if (e instanceof LlmError) { if (before) tried[key] = before; else delete tried[key]; if (changed) done.push(p); report.stopped = `${key}: ${e.message}`; break }
       report.failed.push(`${key}: ${(e as Error).message.slice(0, 200)}`)
     }
     if (changed) done.push(p)

@@ -122,6 +122,28 @@ test('units are mended only from US units in the English, and never ride along w
   expect(rewriteDue(metric, reading(metric, [converted(metric)]))).toBe(false)
 })
 
+test('a page is tried twice at most on any of its texts, unless named; a usage limit leaves its count as it was', async () => {
+  const root = await content()
+  const p = await danio(root)
+  const state = reading(p, found(p))
+  const triedFile = join(root, 'engine-state/_fit-rewrite.json')
+  // Tried once on an older text, before the count: a second try on this text.
+  await writeFile(triedFile, JSON.stringify({ [fitKey(p)]: { at: '2026-11-08', hash: 'older' } }))
+  const out = fakeLlm(vi => vi, 0.9, { outAfter: 0 })
+  expect((await fitRewrite(root, [p], state, { llm: out.llm, now: () => new Date() }, { limit: 5 })).stopped).toContain('usage limit')
+  expect(JSON.parse(await readFile(triedFile, 'utf8'))).toEqual({ [fitKey(p)]: { at: '2026-11-08', hash: 'older' } })
+  const second = fakeLlm(vi => vi.replace('Ao cạn nhiều cỏ', 'Vũng nước cạn, nhiều cỏ'), 0.5)
+  expect((await fitRewrite(root, [p], state, { llm: second.llm, now: () => new Date('2026-11-13T02:00:00Z') }, { limit: 5 })).notKept).toHaveLength(1)
+  expect(JSON.parse(await readFile(triedFile, 'utf8'))[fitKey(p)]).toMatchObject({ hash: fitText(p).hash, n: 2 })
+  // Its text changes and the read still faults it: twice is enough, until a person names it.
+  await writeFile(triedFile, JSON.stringify({ [fitKey(p)]: { at: '2026-11-13', hash: 'changed since', n: 2 } }))
+  const third = fakeLlm(vi => vi, 0.9)
+  await fitRewrite(root, [p], state, { llm: third.llm, now: () => new Date() }, { limit: 5 })
+  expect(third.calls).toEqual([])
+  await fitRewrite(root, [p], state, { llm: third.llm, now: () => new Date() }, { limit: 5, retry: true })
+  expect(third.calls).not.toEqual([])
+})
+
 test('a part a person fixed is not rewritten, whatever the reading finds in it', async () => {
   const root = await content()
   const dir = join(root, 'content/species', ID)
