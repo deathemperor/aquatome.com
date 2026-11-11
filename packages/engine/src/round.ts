@@ -80,13 +80,19 @@ export function roundConverted(text: string, lang: UnitLang): string {
   return text.split(/(<[^>]+>)/).map((seg, i) => (i % 2 ? seg : round(seg))).join('')
 }
 
+// A "kaki" figure as @aq/schema's units.ts reads it (its N, TO and BY): a fraction or decimal, a word range, or sides
+// joined by x, × or *, after a length word or a tank ("akuarium 3 x 2 kaki", "panjang 1/2 kaki", "kedalaman 3—4 kaki").
+const KAKI_N = String.raw`(?:\d+\s+\d\/\d{1,2}|\d\/\d{1,2}|\d+(?:[.,]\d+)*(?:\s?[½¼¾])?|[½¼¾])`
+const KAKI_TO = String.raw`(?:\s*[–—−-]\s*|\s+(?:to|sampai|hingga|sehingga|ke|atau)\s+)`
+const KAKI_BY = String.raw`(?:\s*[×x*]\s*|\s+\/\s+)`
+const KAKI = String.raw`(?<!\p{L})(?:kedalaman|panjang|tinggi|lebar|jarak|sedalam|setinggi|sepanjang|selebar|akuarium|tangki)(?:nya)?[^\d<>]{0,30}?(?<![\d.,A-Za-z])${KAKI_N}(?:${KAKI_TO}${KAKI_N}|(?:${KAKI_BY}${KAKI_N})+)?\s*kaki(?!\p{L})`
 /**
  * A figure in US units: gallons, inches (a number's "in" only as a measure: "30 × 12 in", "3 in long"), feet, °F,
  * miles, pounds. Not "5 in a group", "Ft. Lauderdale" or "LB-12". The page languages' own words for them too, each a
  * word of its own ("menggeleng", "ฟุตบอล" aren't), and an Indonesian or Malay "kaki" only after a length word or a tank,
  * as @aq/schema reads it, since it is a leg too.
  */
-export const US_UNITS = /gallons?|\bgal\b|galon|(?<!\p{L})gelen(?!\p{L})|ga-?\s?lông|แกลลอน|\binch(?:es)?\b|\binci\b|นิ้ว|\d\s*"|\d\s*in\.?(?=\s*(?:[x×)\],;]|long|deep|tall|high|wide|SL|TL|$))|\d\s*(?:feet|foot|ft)\b|(?<!\p{L})(?:kedalaman|panjang|tinggi|lebar|jarak|sedalam|setinggi|sepanjang|selebar|akuarium|tangki)(?:nya)?[^\d<>]{0,30}?\d+(?:[.,]\d+)?(?:\s*[–-]\s*\d+(?:[.,]\d+)?)?\s*kaki(?!\p{L})|\d\s*(?:ฟุต|ปอนด์)(?![\p{L}\p{M}\p{N}])|°\s?F\b|độ F|\d\s*miles?\b|\d\s*(?:pounds?|lbs?)\b/iu
+export const US_UNITS = new RegExp(String.raw`gallons?|\bgal\b|galon|(?<!\p{L})gelen(?!\p{L})|ga-?\s?lông|แกลลอน|\binch(?:es)?\b|\binci\b|นิ้ว|\d\s*"|\d\s*in\.?(?=\s*(?:[x×)\],;]|long|deep|tall|high|wide|SL|TL|$))|\d\s*(?:feet|foot|ft)\b|${KAKI}|\d\s*(?:ฟุต|ปอนด์)(?![\p{L}\p{M}\p{N}])|°\s?F\b|độ F|\d\s*miles?\b|\d\s*(?:pounds?|lbs?)\b`, 'iu')
 
 const END = String.raw`(?![\p{L}\p{N}])`
 /** Metric lengths, by kind, as the page languages and the English sources write them. Thai runs words together: no end. */
