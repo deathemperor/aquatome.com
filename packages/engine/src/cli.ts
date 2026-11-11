@@ -623,9 +623,10 @@ if (cmd === 'run' || cmd === 'card-fill') {
     for (const x of r.replaced) console.log(`  replaced ${x.date} ${x.slot} ${x.was}: ${x.why}`)
     for (const x of r.filled) console.log(`  filled ${x}`)
     for (const x of r.empty) console.log(`  empty ${x}`)
+    for (const x of r.heroes) console.log(`  hero ${x}`)
     const left = checkCalendar(calendar, cands, today, days, cards)
     for (const x of left) console.log(`  still wrong: ${x}`)
-    console.log(`curate: ${r.kept.length} kept, ${r.filled.length} filled, ${r.replaced.length} replaced, ${r.empty.length} left empty; ${left.length} problems`)
+    console.log(`curate: ${r.kept.length} kept, ${r.filled.length} filled, ${r.replaced.length} replaced, ${r.empty.length} left empty, ${r.heroes.length} heroes on their head; ${left.length} problems`)
   }
 } else if (cmd === 'traits') {
   // Temperament / fin-nipping / school size from each page's text, for the tank-mates checker: new or changed pages, then
