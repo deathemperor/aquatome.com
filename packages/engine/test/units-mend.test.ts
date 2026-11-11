@@ -6,7 +6,7 @@ import { expect, test } from 'vitest'
 import { fitKey, fitText, type FitFinding, type FitState } from '../src/fit'
 import { loadPages } from '../src/pages'
 import { amountsOutside } from '../src/for-reader'
-import { clauseBefore, DOSE_WATER, numberIn, TANK_RULE, US_TANKS, usTankOf, withTanks } from '../src/round'
+import { doseWaterAt, numberIn, TANK_RULE, US_TANKS, usTankOf, withTanks } from '../src/round'
 import { reviewRewrite } from '../src/quality'
 import { namesTwice, onlyFigures, unitsMend, UNITS_MEND_FROM } from '../src/units-mend'
 
@@ -257,7 +257,7 @@ test("a dose's water keeps its figure however many words come between the dose a
   const root = await held(`<p>Bể 115 lít.</p>${kept.map(k => `<p>${k}</p>`).join('')}`, ['Bể 115 lít'])
   await unitsMend(root, { now: after })
   expect((await file(root)).body).toBe(`<p>Bể 120 lít.</p>${kept.map(k => `<p>${k}</p>`).join('')}`)
-  const water = (s: string) => DOSE_WATER.test(clauseBefore(s, s.search(/\d+ (?:lít|liter|ลิตร)/)))
+  const water = (s: string) => doseWaterAt(s, s.search(/\d+ (?:lít|liter|ลิตร)/))
   expect(['5 มล. ใน 115 ลิตร', '5 ml dengan 38 liter air.', '5 ml bagi 38 liter air.', 'Pha 5 ml. vào 38 lít nước.', '1 gram muối vào 38 lít.'].map(water)).toEqual([true, true, true, true, true])
   expect(['Cho ăn 1 viên trong bể 115 lít.', 'Pha 5 ml. Bể 38 lít là đủ.', 'Thả cá. Bể 115 lít.'].map(water)).toEqual([false, false, false])
   // The writer check reads the clause the same way.
@@ -271,16 +271,18 @@ test("the style rewrite's reviewer has the tank table its writer has", async () 
   expect(asked).toContain(TANK_RULE.en)
 })
 
-// The independent reader's fifth round, 2026-11-12: where the looser reading of round four went too far.
-test("a new sentence after a dose, a comma, a fish's weight, a later hour and \"đồng hồ\" leave a tank a tank; a Thai unit's period keeps a dose's water", async () => {
-  const tanks = ['Pha 5 ml. Với 115 lít là đủ.', 'Pha 5 ml. Cho cá vào 115 lít.', 'Pha 5 ml thuốc trị nấm một lần, với 115 lít là đủ cho cả đàn.', 'Cá nặng 5 gam trong 115 lít.', 'Thả vào bể 115 lít trong một tiếng sau.', 'Ngâm trong bể 115 lít một tiếng đồng hồ.']
-  const root = await held(tanks.map(t => `<p>${t}</p>`).join(''), ['Với 115 lít là đủ'])
+// The independent reader's fifth and sixth rounds, 2026-11-12: each finer line drawn between a dose's water and a tank
+// opened another hole, so a volume with a dose beside it is read as the dose's water and stays held for a writer.
+test("a volume with a dose in its sentence or the one before stays as it is unless a tank word stands before it; a fish's weight is no dose, and a pump's hour is a flow", async () => {
+  const beside = ['Pha 5 ml. Với 115 lít là đủ.', 'Pha 5 ml. Cho vào 115 lít nước.', 'Hòa 1 gam muối. Cho vào 115 lít nước.', 'Pha 5 ml thuốc, rồi cho vào 115 lít nước.', 'Pha 5 ml dung dịch 3% vào 115 lít nước.', 'Máy bơm 115 lít một tiếng đồng hồ.', 'Bơm 115 lít mỗi giờ sau khi thay nước.']
+  const tanks = ['Cá nặng tới 5 gam trong 115 lít.', 'Thả vào bể 115 lít trong một tiếng sau.', 'Ngâm trong bể 115 lít một tiếng đồng hồ.', 'Pha 5 ml rồi đổ vào bể 115 lít.']
+  const root = await held([...beside, ...tanks].map(t => `<p>${t}</p>`).join(''), ['Thả vào bể 115 lít trong một tiếng sau'])
   await unitsMend(root, { now: after })
-  expect((await file(root)).body).toBe(tanks.map(t => `<p>${t.replace('115', '120')}</p>`).join(''))
-  const water = (s: string) => DOSE_WATER.test(clauseBefore(s, s.search(/\d+ (?:lít|liter|ลิตร)/)))
-  expect(['5 มิลลิลิตร. ใน 115 ลิตร', '5 กรัม. ใน 115 ลิตร', '5 gam muối trong 115 lít nước', 'Pha 5 ml. vào 38 lít nước.'].map(water)).toEqual([true, true, true, true])
-  expect(['5 ml. Tangki dengan 115 liter.', 'Cá nặng khoảng 5 gam trong 115 lít.', 'Pha 15 ml thuốc, với 115 lít là đủ.'].map(water)).toEqual([false, false, false])
-  // The writer check refuses the exact conversion of a tank in each.
-  for (const s of ['Pha 5 ml. Với 38 lít là đủ.', 'Pha 5 ml thuốc trị nấm một lần, với 38 lít là đủ.', 'Cá nặng 5 gam trong 38 lít.'])
-    expect(amountsOutside(s, 'Add 5 ml of medicine to a 10 gallon tank.'), s).toEqual(['38 l'])
+  expect((await file(root)).body).toBe([...beside, ...tanks.map(t => t.replace('115', '120'))].map(t => `<p>${t}</p>`).join(''))
+  const water = (s: string) => doseWaterAt(s, s.search(/\d+ (?:lít|liter|ลิตร)/))
+  expect(['5 มิลลิลิตร. ใน 115 ลิตร', '5 กรัม. ใน 115 ลิตร', '5 มล. ต่อน้ำ 115 ลิตร', 'Cho 5 giọt, vào 115 lít nước.', 'Pha 5 ml. Seachem Prime vào 115 lít nước.'].map(water)).toEqual([true, true, true, true, true])
+  expect(['Ikan beratnya 5 gram dalam 115 liter.', 'Cá nặng hơn 5 gam trong 115 lít.', 'Thả cá. Bể 115 lít.', 'Pha 5 ml. Bể 38 lít là đủ.'].map(water)).toEqual([false, false, false, false])
+  // The writer check reads them the same way: a dose's exact water passes, a tank's exact conversion doesn't.
+  expect(amountsOutside('Pha 5 ml. Cho vào 38 lít nước.', 'Add 5 ml to 10 gallons of water.')).toEqual([])
+  expect(amountsOutside('Cá nặng tới 5 gam trong 38 lít.', 'A 5 gram fish in a 10 gallon tank.')).toEqual(['38 l'])
 })
