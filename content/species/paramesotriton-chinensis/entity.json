@@ -9,6 +9,74 @@
     "asia",
     "china"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: China.",
+          "countries": [
+            "CN"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2431846,
+      "total": 17,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "CN",
+          13
+        ],
+        [
+          "HK",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          106.875,
+          25.3125,
+          1,
+          1
+        ],
+        [
+          109.6875,
+          23.90625,
+          1,
+          1
+        ],
+        [
+          113.90625,
+          21.09375,
+          4,
+          0
+        ],
+        [
+          118.125,
+          29.53125,
+          3,
+          3
+        ],
+        [
+          119.53125,
+          28.125,
+          8,
+          8
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

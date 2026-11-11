@@ -1,0 +1,60 @@
+{
+  "id": "parancistrus-nudiventris",
+  "native": {
+    "input": "068bcc0f39d67295",
+    "at": "2026-11-11T08:59:40.517Z",
+    "claims": [
+      {
+        "code": "BR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Parancistrus nudiventris is endemic to Brazil and is distributed along the Xingu River, mainly in the Volta Grande region, in the state of Pará.",
+        "words": "Brazil",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Xingu",
+        "source": "scotcat",
+        "quote": "Parancistrus nudiventris is endemic to Brazil and is distributed along the Xingu River, mainly in the Volta Grande region, in the state of Pará.",
+        "country": "BR",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Parancistrus nudiventris",
+    "status": "ACCEPTED",
+    "taxonKey": 2340138,
+    "datasets": [
+      [
+        "f8cf09b6-555e-48d8-b926-fa32b019efca",
+        14
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        9
+      ],
+      [
+        "ffe38a37-d659-4b1a-a935-5a5264e3cc0a",
+        2
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ]
+    ],
+    "native": [
+      "BR"
+    ],
+    "requests": 11,
+    "at": "2026-11-11T08:59:40.517Z"
+  }
+}

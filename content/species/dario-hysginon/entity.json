@@ -16,22 +16,29 @@
         "MM"
       ],
       "regions": [
-        "Irrawaddy",
-        "Lake Indawgyi"
+        "Lake Indawgyi",
+        "Irrawaddy"
       ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
           "source": "seriouslyfish",
-          "quote": "Endemic to Myanmar where it has been recorded from small streams and tributaries close to the city of Myitkyina in Kachin State as well as in nearby Lake Indawgyi, the largest inland lake in Southeast Asia, with all known habitats within the Irrawaddy/Ayeyarwady river system.",
+          "quote": "Dario hysginon is a tiny badid endemic to Myanmar, known from streams near Myitkyina in Kachin State and from nearby Lake Indawgyi.",
           "countries": [
             "MM"
           ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to Myanmar where it has been recorded from small streams and tributaries close to the city of Myitkyina in Kachin State as well as in nearby Lake Indawgyi, the largest inland lake in Southeast Asia, with all known habitats within the Irrawaddy/Ayeyarwady river system.",
+          "countries": [],
           "regions": [
-            "Irrawaddy",
-            "Lake Indawgyi"
+            "Lake Indawgyi",
+            "Irrawaddy"
           ]
         }
       ]

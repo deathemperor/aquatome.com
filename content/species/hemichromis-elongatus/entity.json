@@ -30,11 +30,15 @@
         "AO",
         "NA",
         "BW",
-        "ZW"
+        "ZW",
+        "NG"
       ],
-      "regions": [],
+      "regions": [
+        "Benue"
+      ],
       "sources": [
-        "seriouslyfish"
+        "seriouslyfish",
+        "glaser"
       ],
       "quotes": [
         {
@@ -49,13 +53,23 @@
             "ZW"
           ],
           "regions": []
+        },
+        {
+          "source": "glaser",
+          "quote": "The photographed specimens originate from the Benue river in Nigeria and are still youngsters.",
+          "countries": [
+            "NG"
+          ],
+          "regions": [
+            "Benue"
+          ]
         }
       ]
     },
     "records": {
       "taxonKey": 2371378,
       "total": 954,
-      "fetched": "2026-11-08",
+      "fetched": "2026-11-11",
       "countries": [
         [
           "CD",
@@ -205,19 +219,19 @@
           2.8125,
           5.625,
           1,
-          0
+          1
         ],
         [
           5.625,
           4.21875,
           4,
-          0
+          4
         ],
         [
           7.03125,
           4.21875,
           3,
-          0
+          3
         ],
         [
           8.4375,

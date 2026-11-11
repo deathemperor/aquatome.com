@@ -9,6 +9,46 @@
     "asia",
     "myanmar"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "MM"
+      ],
+      "regions": [],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The humphead perchlet, Chanda pulcinella, is a freshwater ambassid endemic to Myanmar, where it inhabits large, fast-flowing, clear streams.",
+          "countries": [
+            "MM"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2387211,
+      "total": 6,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "MM",
+          6
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          14.0625,
+          6,
+          6
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

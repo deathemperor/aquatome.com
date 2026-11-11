@@ -1,14 +1,22 @@
 {
   "id": "neolamprologus-pulcher",
   "native": {
-    "input": "c8a764d1362d947e",
-    "at": "2026-11-10T20:57:55.515Z",
+    "input": "761e118b64ab3ffa",
+    "at": "2026-11-11T08:59:40.517Z",
     "claims": [
       {
         "code": "TZ",
         "status": "native",
         "source": "seriouslyfish",
         "quote": "Endemic to Lake Tanganyika, mainly in the southern half of the lake, where it replaces N. brichardi, with type locality the town of Kasanga in southwestern Tanzania.",
+        "words": "Tanzania",
+        "ok": true
+      },
+      {
+        "code": "TZ",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The type locality is Kasanga on the southeastern coast, the place belongs to Tanzania.",
         "words": "Tanzania",
         "ok": true
       }

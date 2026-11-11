@@ -10,6 +10,67 @@
     "china",
     "yangtze"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN"
+      ],
+      "regions": [
+        "Changjiang",
+        "Po-He",
+        "Huanggai Lake"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Type locality: known only from the headwaters of the Po-He, a tributary flowing into Huanggai Lake in the middle Chang-Jiang basin, at Chibi City, South Hubei Province, China.",
+          "countries": [
+            "CN"
+          ],
+          "regions": [
+            "Po-He",
+            "Huanggai Lake"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "East Asia: middle and lower Changjiang [= Yangtze River].",
+          "countries": [],
+          "regions": [
+            "Changjiang"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2342842,
+      "total": 4,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "CN",
+          4
+        ]
+      ],
+      "cells": [
+        [
+          104.0625,
+          37.96875,
+          3,
+          3
+        ],
+        [
+          120.9375,
+          26.71875,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

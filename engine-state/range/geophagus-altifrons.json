@@ -1,8 +1,8 @@
 {
   "id": "geophagus-altifrons",
   "native": {
-    "input": "db07e0dd30a91d7e",
-    "at": "2026-11-10T07:58:31.896Z",
+    "input": "e9c5efef52f1a0d7",
+    "at": "2026-11-11T08:59:40.517Z",
     "claims": [
       {
         "code": "BR",
@@ -59,11 +59,12 @@
         "ok": true
       },
       {
-        "name": "Negro",
+        "name": "Rio Negro",
         "source": "seriouslyfish",
         "quote": "Geophagus altifrons is a large cichlid from the middle-to-lower Amazon basin in Brazil, including the Xingu, Tapajós, Madeira, Negro and Purus.",
         "country": "BR",
-        "ok": true
+        "ok": false,
+        "why": "its name is not in the quote"
       },
       {
         "name": "Purus",

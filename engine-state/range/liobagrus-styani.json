@@ -1,0 +1,73 @@
+{
+  "id": "liobagrus-styani",
+  "native": {
+    "input": "6fdddfa67fdb3b81",
+    "at": "2026-11-11T08:59:40.517Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Type locality: known only from the headwaters of the Po-He, a tributary flowing into Huanggai Lake in the middle Chang-Jiang basin, at Chibi City, South Hubei Province, China.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "The real L. styani is represented by the population found in the Po-He, a tributary of the lake Huanggai system in the middle Chang-Jiang basin, at Chibi City, South Hubei Province, China.",
+        "words": "China",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Changjiang",
+        "source": "scotcat",
+        "quote": "East Asia: middle and lower Changjiang [= Yangtze River].",
+        "ok": true
+      },
+      {
+        "name": "Po-He",
+        "source": "scotcat",
+        "quote": "Type locality: known only from the headwaters of the Po-He, a tributary flowing into Huanggai Lake in the middle Chang-Jiang basin, at Chibi City, South Hubei Province, China.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Huanggai Lake",
+        "source": "scotcat",
+        "quote": "Type locality: known only from the headwaters of the Po-He, a tributary flowing into Huanggai Lake in the middle Chang-Jiang basin, at Chibi City, South Hubei Province, China.",
+        "country": "CN",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Liobagrus styani",
+    "status": "ACCEPTED",
+    "taxonKey": 2342842,
+    "datasets": [
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        3
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ]
+    ],
+    "native": [
+      "CN"
+    ],
+    "requests": 11,
+    "at": "2026-11-11T08:59:40.517Z"
+  }
+}

@@ -188,5 +188,67 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-11"
+  "updatedAt": "2026-11-11",
+  "range": {
+    "native": {
+      "countries": [
+        "BR",
+        "PY"
+      ],
+      "regions": [
+        "Rio Paraguay"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "It occurs in the Rio Paraguay, both in Brazil and Paraguay.",
+          "countries": [
+            "BR",
+            "PY"
+          ],
+          "regions": [
+            "Rio Paraguay"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9458802,
+      "total": 50,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "BR",
+          49
+        ],
+        [
+          "PY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          -57.65625,
+          -25.3125,
+          1,
+          1
+        ],
+        [
+          -57.65625,
+          -22.5,
+          4,
+          4
+        ],
+        [
+          -57.65625,
+          -21.09375,
+          45,
+          45
+        ]
+      ]
+    }
+  }
 }

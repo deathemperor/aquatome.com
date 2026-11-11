@@ -1,0 +1,65 @@
+{
+  "id": "neolebias-trewavasae",
+  "native": {
+    "input": "05afa1f6537aeee5",
+    "at": "2026-11-11T08:59:40.517Z",
+    "claims": [
+      {
+        "code": "CM",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Cameroon.",
+        "words": "Cameroon",
+        "ok": false,
+        "why": "no sentence"
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "CM"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Neolebias trewavasae",
+    "status": "ACCEPTED",
+    "taxonKey": 2355762,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        163
+      ],
+      [
+        "b8ed9b7c-5b73-4e6d-a6e1-b0911a09f947",
+        18
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        9
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        3
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        3
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-11T08:59:40.517Z"
+  }
+}

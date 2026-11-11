@@ -1,8 +1,8 @@
 {
   "id": "mesonauta-festivus",
   "native": {
-    "input": "a9aa8004a38423ae",
-    "at": "2026-11-10T07:58:31.896Z",
+    "input": "4cbd098fdc6f1bbc",
+    "at": "2026-11-11T08:59:40.517Z",
     "claims": [
       {
         "code": "VE",
@@ -45,41 +45,35 @@
         "ok": true
       },
       {
-        "code": "PE",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Widespread through much of South America, it's been recorded from Peru, Brazil, Bolivia and Paraguay.",
-        "words": "Peru",
-        "ok": true
-      },
-      {
         "code": "BR",
         "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Widespread through much of South America, it's been recorded from Peru, Brazil, Bolivia and Paraguay.",
+        "source": "glaser",
+        "quote": "Origin: Brazil.",
         "words": "Brazil",
-        "ok": true
-      },
-      {
-        "code": "BO",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Widespread through much of South America, it's been recorded from Peru, Brazil, Bolivia and Paraguay.",
-        "words": "Bolivia",
-        "ok": true
-      },
-      {
-        "code": "PY",
-        "status": "native",
-        "source": "seriouslyfish",
-        "quote": "Widespread through much of South America, it's been recorded from Peru, Brazil, Bolivia and Paraguay.",
-        "words": "Paraguay",
         "ok": true
       }
     ],
     "regions": [
       {
         "name": "Rio Tapajós",
+        "source": "seriouslyfish",
+        "quote": "It's found in numerous river drainages, including the Rio Tapajós, Rio Jamari, Rio Madre de Dios, Rio Guaporé, Rio Mamoré, Rio Paraguay and Rio Paraná.",
+        "ok": true
+      },
+      {
+        "name": "Rio Madre de Dios",
+        "source": "seriouslyfish",
+        "quote": "It's found in numerous river drainages, including the Rio Tapajós, Rio Jamari, Rio Madre de Dios, Rio Guaporé, Rio Mamoré, Rio Paraguay and Rio Paraná.",
+        "ok": true
+      },
+      {
+        "name": "Rio Guaporé",
+        "source": "seriouslyfish",
+        "quote": "It's found in numerous river drainages, including the Rio Tapajós, Rio Jamari, Rio Madre de Dios, Rio Guaporé, Rio Mamoré, Rio Paraguay and Rio Paraná.",
+        "ok": true
+      },
+      {
+        "name": "Rio Mamoré",
         "source": "seriouslyfish",
         "quote": "It's found in numerous river drainages, including the Rio Tapajós, Rio Jamari, Rio Madre de Dios, Rio Guaporé, Rio Mamoré, Rio Paraguay and Rio Paraná.",
         "ok": true
@@ -92,24 +86,6 @@
       },
       {
         "name": "Rio Paraná",
-        "source": "seriouslyfish",
-        "quote": "It's found in numerous river drainages, including the Rio Tapajós, Rio Jamari, Rio Madre de Dios, Rio Guaporé, Rio Mamoré, Rio Paraguay and Rio Paraná.",
-        "ok": true
-      },
-      {
-        "name": "Rio Madre de Dios",
-        "source": "seriouslyfish",
-        "quote": "It's found in numerous river drainages, including the Rio Tapajós, Rio Jamari, Rio Madre de Dios, Rio Guaporé, Rio Mamoré, Rio Paraguay and Rio Paraná.",
-        "ok": true
-      },
-      {
-        "name": "Rio Mamoré",
-        "source": "seriouslyfish",
-        "quote": "It's found in numerous river drainages, including the Rio Tapajós, Rio Jamari, Rio Madre de Dios, Rio Guaporé, Rio Mamoré, Rio Paraguay and Rio Paraná.",
-        "ok": true
-      },
-      {
-        "name": "Rio Guaporé",
         "source": "seriouslyfish",
         "quote": "It's found in numerous river drainages, including the Rio Tapajós, Rio Jamari, Rio Madre de Dios, Rio Guaporé, Rio Mamoré, Rio Paraguay and Rio Paraná.",
         "ok": true
