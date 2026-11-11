@@ -758,6 +758,13 @@ The layers above still check the result.
     text yet, found by the name in the address.
   - The profile is read like any page: translated, reviewed, and its figures go through the same prompt rules and
     guards (a volume gives no length). A figure no published source states stays empty.
+- **A card's school size: Seriously Fish first, never below the page's own text.** The traits step's model read the
+  smallest group from the Vietnamese profile, so the cardinal tetra's card said 6 (The Spruce Pets) where Seriously Fish
+  says 8 to 10. After each traits run, `schoolFromSeriouslyFish` (`traits.ts`, no model) sets each card whose Seriously
+  Fish profile gives a group ("a group of at least 8-10 specimens": 8) to that figure. It never sets it below the
+  minimum another source on the page tells the reader ("groups of 10 specimens or more": 10). Only sources a public
+  build shows count. A pair, a harem, fish in the wild and breeding groups are not a school. A card with no Seriously
+  Fish figure keeps the model's reading (the chief of staff, 2026-11-11).
 - **Where a fish lives, from its sources only.** A species' `range` (`pnpm engine range`, `range.ts`, each rewrite cycle):
   - `native`: the model reads what its cited sources say (distribution, habitat, quick facts, notes; `RANGE_LIMIT`
     species a cycle whose text is new or changed) and gives each country with the source's sentence. The engine keeps
