@@ -61,7 +61,8 @@ private enum OwnerShot {
     let image = UIGraphicsImageRenderer(bounds: window.bounds).image { _ in
       window.drawHierarchy(in: window.bounds, afterScreenUpdates: false)
     }
-    return image.jpegData(compressionQuality: 0.8)
+    let whole = image.jpegData(compressionQuality: 0.95)
+    return whole.flatMap { Readers.shrinkForReport($0) } ?? whole
   }
 }
 
@@ -315,7 +316,7 @@ private struct OwnerReportSheet: View {
 
   /// A photo they picked, as the app sends any photo: no metadata, any format the site takes, and a size it does.
   private func take(_ data: Data?) async {
-    if let data, let small = await Task.detached(operation: { Readers.shrink(data) }).value {
+    if let data, let small = await Task.detached(operation: { Readers.shrinkForReport(data) }).value {
       jpeg = small
       theirs = true
       problem = nil
@@ -335,25 +336,21 @@ private struct OwnerReportSheet: View {
     defer { sending = false }
     var place = place
     place.picture = jpeg == nil ? nil : theirs ? "picked" : "screen"
+    let started = Date()
     do {
       let waiting = try await owner.ask { [place] in try await $0.report(words: words, place: place, jpeg: jpeg) }
       sent = waiting > 1 ? "Đã gửi. \(waiting) báo lỗi đang chờ máy Mac nhận." : "Đã gửi."
       try? await Task.sleep(for: .seconds(waiting > 1 ? 2.5 : 0.9))
       close()
     } catch {
-      problem = await say(error)
+      problem = await say(error, after: Int(Date().timeIntervalSince(started)))
     }
   }
 
-  private func say(_ e: Error) async -> String? {
-    switch e as? OwnerError {
-    case .refused("rate_limited", _)?: return "Đã gửi quá nhiều trong một giờ. Lời và ảnh vẫn còn đây, lát nữa thử lại nhé."
-    case .refused("too_large", _)?: return "Ảnh quá lớn. Chọn ảnh khác nhé."
-    case .signedOut?:
-      await owner.failed(e, overview: false)
-      return "Phiên đăng nhập đã hết nên chưa gửi được. Đăng nhập lại rồi gửi nhé."
-    default: return await owner.say(e, overview: false)
-    }
+  private func say(_ e: Error, after seconds: Int) async -> String? {
+    if e is CancellationError { return nil }
+    await owner.failed(e, overview: false)
+    return (e as? OwnerError)?.reportProblem(after: seconds) ?? "Chưa gửi được. Lời và ảnh vẫn còn đây, thử lại nhé."
   }
 }
 
