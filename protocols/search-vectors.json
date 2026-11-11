@@ -1,5 +1,5 @@
 {
-  "$comment": "A search's first results: the pages named exactly what was searched for, by their name or one of their other names, as the site's search puts them first (namedFirst, apps/site/src/scripts/search-rank.ts). A name and a query are compared as readers type them (nameKey): no accents, đ as d, any case, nothing in brackets, no leading \"cá\". The site's tests run namedFirst on these cases (apps/site/test/search-rank.test.ts), and the iOS app's tests run its own search (AquaTomeKit Handbook/Handbook.swift, HandbookSearch.find): both must start with `first`, in any order. `items`: the pages the query finds, as Pagefind could order them for the site's test (the named ones after others: Pagefind ranks short pages up, so a breed can come before its species), each as the app index has it: its name, scientific name (`sub`; breeds have none), other names (`aka`) and kind. The site's page carries `sub` and `aka` as its Pagefind `aka` metadata (searchAliases, apps/site/src/lib/search.ts). The order after `first` is not shared: the site leaves it to Pagefind, the app to its own ranks.",
+  "$comment": "A search's first results: the pages named exactly what was searched for, by their name or one of their other names, as the site's search puts them first (namedFirst, apps/site/src/scripts/search-rank.ts). A name and a query are compared as readers type them (nameKey): no accents, đ as d, any case, nothing in brackets, no leading word for \"fish\" (\"cá\", \"ikan\", Thai \"ปลา\" with or without a space after it). The site's tests run namedFirst on these cases (apps/site/test/search-rank.test.ts), and the iOS app's tests run its own search (AquaTomeKit Handbook/Handbook.swift, HandbookSearch.find): both must start with `first`, in any order. `items`: the pages the query finds, as Pagefind could order them for the site's test (the named ones after others: Pagefind ranks short pages up, so a breed can come before its species), each as the app index has it: its name, scientific name (`sub`; breeds have none), other names (`aka`) and kind. The site's page carries `sub` and `aka` as its Pagefind `aka` metadata (searchAliases, apps/site/src/lib/search.ts). The order after `first` is not shared: the site leaves it to Pagefind, the app to its own ranks.",
   "cases": [
     {
       "note": "live, 2026-11-05: the app listed the koi guppy first, ahead of the species",
@@ -74,6 +74,41 @@
         { "name": "Cá betta (cá xiêm)", "sub": "Betta splendens", "aka": ["Cá xiêm"], "kind": "fish" }
       ],
       "first": ["Cá betta (cá xiêm)"]
+    },
+    {
+      "note": "live (id), 2026-11-12, Curation: the betta's own page, \"Ikan cupang\", wasn't in the first five; its varieties named \"Cupang …\" were. Readers leave out \"ikan\", as \"cá\"",
+      "query": "cupang",
+      "items": [
+        { "name": "Cupang picta", "sub": "Betta picta", "aka": ["Spotted betta", "Cupang alam picta"], "kind": "fish" },
+        { "name": "Cupang Coccina", "sub": "Betta coccina", "aka": ["Cupang alam coccina", "Scarlet betta", "Wine red betta"], "kind": "fish" },
+        { "name": "Cupang imbellis", "sub": "Betta imbellis", "aka": ["Imbellis", "Cupang alam imbellis", "Peaceful betta", "Crescent betta"], "kind": "fish" },
+        { "name": "Cupang Koi (Koi Betta)", "aka": ["Cupang Koi Galaxy", "Cupang Koi Nemo"], "kind": "fish" },
+        { "name": "Cupang Serit (Crowntail)", "aka": ["Crowntail betta"], "kind": "fish" },
+        { "name": "Ikan cupang", "sub": "Betta splendens", "aka": ["Cupang hias", "Betta", "Ikan laga", "Siamese fighting fish"], "kind": "fish" }
+      ],
+      "first": ["Ikan cupang"]
+    },
+    {
+      "note": "live (id), 2026-11-12, Curation: the goldfish's own page came fourth, after three varieties. One of its other names is \"Ikan koki\"",
+      "query": "koki",
+      "items": [
+        { "name": "Koki Bubble Eye (Bubble Eye Goldfish)", "aka": ["Mas koki mata balon"], "kind": "fish" },
+        { "name": "Koki Lionhead (Lionhead Goldfish)", "aka": ["Mas koki lionhead"], "kind": "fish" },
+        { "name": "Koki Mutiara (Pearlscale Goldfish)", "kind": "fish" },
+        { "name": "Ikan mas koki", "sub": "Carassius auratus", "aka": ["Maskoki", "Ikan koki", "Goldfish", "Ikan Komet"], "kind": "fish" }
+      ],
+      "first": ["Ikan mas koki"]
+    },
+    {
+      "note": "live (th), 2026-11-12, Curation: a gudgeon (\"…กัดเจียน\", a sound) came before ปลากัด. Thai writes ปลา with no space before the name",
+      "query": "กัด",
+      "items": [
+        { "name": "ปลาไชนีส ฟอลส์ กัดเจียน", "sub": "Abbottina rivularis", "aka": ["Chinese false gudgeon", "ปลาแอบบอททิน่า", "Abbottina"], "kind": "fish" },
+        { "name": "ปลากัดป่าภาคใต้", "sub": "Betta imbellis", "aka": ["ปลากัดป่าใต้", "ปลากัดอิมเบลลิส", "อิมเบลลิส", "Peaceful betta", "Crescent betta"], "kind": "fish" },
+        { "name": "ปลากัดพาย", "sub": "Betta pi", "aka": ["ปลากัดอมไข่พาย", "เบตต้าพาย", "ปลากัดป่าพาย", "ปลากัดช้าง"], "kind": "fish" },
+        { "name": "ปลากัด", "sub": "Betta splendens", "aka": ["ปลากัดไทย", "ปลากัดสยาม", "Siamese fighting fish", "เบตต้า (Betta)"], "kind": "fish" }
+      ],
+      "first": ["ปลากัด"]
     }
   ]
 }

@@ -2,8 +2,13 @@
 export const NAMED_WINDOW = 20
 
 const fold = (s: string) => s.normalize('NFD').replace(/\p{M}/gu, '').replace(/đ/gi, 'd').toLowerCase()
-/** A name as a reader types it: no accents, no leading "cá", nothing in brackets ("Cá betta (cá xiêm)" → "betta"). */
-const nameKey = (s: string) => fold(s).replace(/\([^)]*\)/g, ' ').replace(/[^\p{L}\p{N}]+/gu, ' ').trim().replace(/^ca /, '')
+/**
+ * A name as a reader types it: no accents, nothing in brackets, and no leading word for "fish", which readers leave out:
+ * Vietnamese "cá", Indonesian and Malay "ikan", Thai "ปลา" with or without a space after it ("Cá betta (cá xiêm)" →
+ * "betta", "Ikan cupang" → "cupang", "ปลากัด" → "กัด", accents dropped).
+ */
+const nameKey = (s: string) =>
+  fold(s).replace(/\([^)]*\)/g, ' ').replace(/[^\p{L}\p{N}]+/gu, ' ').trim().replace(/^(ca|ikan) /, '').replace(/^ปลา ?(?=\S)/u, '')
 
 /**
  * Pagefind's results with the pages named exactly what was searched for first: by their title or one of their other
