@@ -179,6 +179,23 @@ test('place names: every place named in the language; a name with Vietnamese let
   expect([...prompts[0]!.matchAll(/^### (\S+)/gm)].map(m => m[1]).sort()).toEqual(['china', 'peru'])
 })
 
+test('the translator\'s reviewers of place names and glossary terms read a batch within 0.1 of the bar three times; the middle read counts', async () => {
+  const root = await site()
+  let reads = 0
+  const llm = async <T,>(a: { prompt: string; schema: object }) => {
+    if ('required' in a.schema && (a.schema.required as string[]).includes('score')) return { score: [0.7, 0.9, 0.8][reads++ % 3]!, notes: [] } as T
+    const ids = [...a.prompt.matchAll(/^### (\S+)/gm)].map(m => m[1]!)
+    if ((a.schema as { required?: string[] }).required?.includes('terms')) return { terms: ids.map(i => ({ id: i, name: `คำ ${i}`, definition: `ความหมาย ${i}` })) } as T
+    return { places: ids.map(i => ({ id: i, name: `ประเทศ ${i}` })) } as T
+  }
+  await localizePlaces(root, llm, 'th')
+  expect(reads).toBe(3)
+  expect(JSON.parse(await readFile(join(root, 'content/places/brazil/th.json'), 'utf8')).quality).toMatchObject({ score: 0.8, indexable: true })
+  reads = 0
+  await localizeGlossary(root, llm, 'th')
+  expect(reads).toBe(3) // 0.7 alone would have sent the batch back to be written again
+})
+
 test('fish native to a country: listed under it or under a place inside it', async () => {
   const root = await site()
   const file = join(root, 'content/species/paracheirodon-axelrodi/entity.json')

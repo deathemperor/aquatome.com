@@ -8,7 +8,7 @@ import { LlmError } from '../src/claude'
 import { fitRules } from '../src/fit'
 import type { Page } from '../src/pages'
 import { logReviews, readReviews } from '../src/review-log'
-import { chaptersFrom, crowdLines, parseTranscript, recheckedGuides, retry403, reviewDraft, storyboardInterval, videoGuides, ytApi, type VideoMeta, type YouTube } from '../src/youtube'
+import { chaptersFrom, crowdLines, lowVideoGuides, parseTranscript, recheckedGuides, retry403, reviewDraft, storyboardInterval, videoGuides, ytApi, type VideoMeta, type YouTube } from '../src/youtube'
 
 const ev = (s: number, text: string) => ({ tStartMs: s * 1000, segs: [{ utf8: text }] })
 
@@ -268,20 +268,23 @@ test('--only limits a run to the videos named', async () => {
 })
 
 const SINCE = '2026-11-07T12:00:00Z'
-const recheck = (root: string, vid: string, score: number, notes: string[], at = '2026-11-07T13:00:00Z') => { const r = { score, notes }; return logReviews(root, 'video-guide', { id: `guides/youtube-${vid}`, lang: 'vi' }, [r], r, { now: new Date(at), recheck: true }) }
+const recheck = (root: string, vid: string, score: number, notes: string[], at = '2026-11-07T13:00:00Z', reads?: number[]) => { const r = { score, notes, ...(reads ? { reads } : {}) }; return logReviews(root, 'video-guide', { id: `guides/youtube-${vid}`, lang: 'vi' }, [r], r, { now: new Date(at), recheck: true }) }
 /** The redo runs after the rechecks. */
 const later = (root: string, o: Parameters<typeof deps>[1] = {}) => { const x = deps(root, o); return { ...x, d: { ...x.d, now: () => new Date('2026-11-08T00:00:00Z') } } }
 
 test('a redo after a recheck: the guides it left under the bar with notes, the owner\'s first, then the lowest, --limit a run, each once', async () => {
   const root = await mkdtemp(join(tmpdir(), 'yt-'))
-  const videos = { a1: {}, a2: {}, a3: {}, a4: {}, a5: {} }
+  const videos = { a1: {}, a2: {}, a3: {}, a4: {}, a5: {}, a6: {} }
   await videoGuides(deps(root, { videos }).d, { playlists: ['PL1'] })
   await recheck(root, 'a1', 0.6, ['Says many people do it; the speaker says only he does'])
   await recheck(root, 'a2', 0.9, ['A small slip']) // above the bar
   await recheck(root, 'a3', 0.6, []) // nothing for the writer to go on
   await recheck(root, 'a4', 0.5, ['Adds a dose the video never gives'], '2026-11-07T11:00:00Z') // before the cutoff
-  await recheck(root, 'a5', 0.5, ['Adds a step the video never gives'])
+  await recheck(root, 'a5', 0.5, ['Adds a step the video never gives'], undefined, [0.5, 0.45, 0.6])
+  // In search, failed at 0.55 or under on one read: it waits for its two more reads (review-backfill-97) before a redo.
+  await recheck(root, 'a6', 0.5, ['Adds a price the video never gives'])
   await writeFile(join(root, 'engine-state/youtube-videos.json'), JSON.stringify([{ id: 'a1', by: 'owner' }]))
+  expect(await lowVideoGuides(root)).toEqual(['youtube-a4', 'youtube-a6'])
   expect(await recheckedGuides(root, SINCE)).toEqual([{ id: 'a1', series: 'PL1' }, { id: 'a5', series: 'PL1' }])
 
   const first = later(root, { videos })

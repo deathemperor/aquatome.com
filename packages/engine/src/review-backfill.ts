@@ -11,6 +11,7 @@ import { setHold } from './video-hold'
 import { byRank } from './video-order'
 import { recheckTopic } from './topics'
 import { reviewDraft, throttled, VIDEO_GAP_MS, type YouTube } from './youtube'
+export { lowVideoGuides } from './youtube'
 
 /**
  * Pages under the bar whose review left no notes (it ran before reviews were kept), reviewed again as they are, nothing
@@ -73,23 +74,6 @@ async function jobs(root: string, kind: BackfillKind, all = false): Promise<Job[
   return out.sort((a, b) => Number(!!b.first) - Number(!!a.first) || a.score - b.score || reviewKey(a.page).localeCompare(reviewKey(b.page)))
 }
 
-/**
- * The video guides in search whose newest second read failed at 0.55 or under, not yet read three times: each gets two
- * more reads before any closes (the chief of staff, 2026-11-11; `review-backfill-97`, its own daily ceiling). Ids as
- * `youtube-<id>`.
- */
-export async function lowVideoGuides(root: string): Promise<string[]> {
-  const traced = await readReviews(root, 'video-guide')
-  const out: string[] = []
-  for (const id of (await list(join(root, 'content/guides'))).filter(d => d.startsWith('youtube-'))) {
-    const last = traced[reviewKey({ id: `guides/${id}`, lang: 'vi' })]?.[0]
-    if (!last || last.attempt !== 'recheck' || last.reads || last.score > 0.55) continue
-    const q = (await json<Translation>(join(root, 'content/guides', id, 'vi.json')))?.quality
-    if (q && q.score >= QUALITY_THRESHOLD) out.push(id)
-  }
-  return out.sort()
-}
-
 const matches = (only: string[], p: PageRef) => only.some(x => p.id === x || p.id.endsWith(`/${x}`) || reviewKey(p) === x)
 
 /**
@@ -123,7 +107,7 @@ export async function reviewBackfill(d: BackfillDeps, o: { kinds?: readonly Back
           try {
             const lines = await Promise.all(ids.map(id => placeLine(join(content, 'places'), id)))
             const named = new Map(await Promise.all(ids.map(async id => [id, (await json<Translation>(join(content, 'places', id, `${lang}.json`)))?.name ?? ''] as [string, string])))
-            const r = await reviewPlaces(d.llm, lang, lines, named)
+            const r = await steadyRead(() => reviewPlaces(d.llm, lang, lines, named), o.band ?? 0)
             calls++
             for (const [k, j] of batch.entries()) {
               const it = itemReviews([r], r, lines.map(l => [l.id, l.line.replace(/^### [^:]*: /, ''), named.get(l.id) ?? '']), k)
@@ -150,6 +134,8 @@ export async function reviewBackfill(d: BackfillDeps, o: { kinds?: readonly Back
       // The newest second read, as the first of three (fromLastRead).
       const last = traced[reviewKey(j.page)]?.[0]
       const given = o.fromLastRead && last?.attempt === 'recheck' && !last.reads ? { score: last.score, notes: last.notes } : undefined
+      // Its newest second read changed since it was listed (another job read it): nothing to start from, so no read.
+      if (o.fromLastRead && !given) { report.failed.push(`${reviewKey(j.page)}: no single second read to start from`); return }
       const steady = <T extends { score: number; notes: string[] }>(read: () => Promise<T>) => steadyRead(read, o.band ?? 0, given as T | undefined)
       try {
         let r

@@ -178,6 +178,6 @@ export async function lastKept(root: string, page: PageRef, kinds: readonly Revi
 export function itemReviews(tries: Review[], kept: Review | undefined, names: string[][], i: number): { tries: Review[]; kept: Review | undefined } {
   const has = (note: string, ns: string[]) => ns.some(n => n.trim().length > 1 && note.toLowerCase().includes(n.trim().toLowerCase()))
   const mine = (note: string) => has(note, names[i]!) || !names.some(ns => has(note, ns))
-  const out = new Map(tries.map(r => [r, { score: r.score, notes: r.notes.filter(mine) }]))
+  const out = new Map(tries.map(r => [r, { score: r.score, notes: r.notes.filter(mine), ...(r.reads ? { reads: r.reads } : {}) }]))
   return { tries: tries.map(r => out.get(r)!), kept: kept && out.get(kept) }
 }

@@ -219,19 +219,58 @@ test('second reads read three times within the band given; the low video guides 
   await guide(root, 'near', 0.6) // under the bar: second reads take it
   await guide(root, 'low', 0.8) // in search, its newest second read 0.4
   await guide(root, 'out', 0.5) // out of search already
-  const r0 = { score: 0.4, notes: ['old'] }
-  for (const vid of ['low', 'out']) await logReviews(root, 'video-guide', { id: `guides/youtube-${vid}`, lang: 'vi' }, [r0], r0, { recheck: true, now: new Date('2026-11-08T00:00:00Z') })
+  await guide(root, 'edge', 0.8) // in search, its second read 0.55: one of them
+  await guide(root, 'over', 0.8) // in search, its second read 0.6: the regular second reads' band takes it
+  const log = (vid: string, score: number) => { const r = { score, notes: ['old'] }; return logReviews(root, 'video-guide', { id: `guides/youtube-${vid}`, lang: 'vi' }, [r], r, { recheck: true, now: new Date('2026-11-08T00:00:00Z') }) }
+  for (const [vid, score] of [['low', 0.4], ['out', 0.4], ['edge', 0.55], ['over', 0.6]] as const) await log(vid, score)
   let n = 0
-  const llm: Llm = async <T,>() => ({ score: [0.7, 0.8, 0.6][n++ % 3]!, notes: [] }) as T
+  const llm: Llm = async <T,>() => ({ score: [0.6, 0.8, 0.7][n++ % 3]!, notes: [] }) as T
   const d = { root, llm, yt, now: () => new Date('2026-11-13T01:00:00Z'), sleep: async () => {} }
   await reviewBackfill(d, { kinds: ['video-guide'], limit: 5, only: ['youtube-near'], band: NEAR_BAR })
-  expect((await readReviews(root, 'video-guide'))['vi/guides/youtube-near']![0]).toMatchObject({ score: 0.7, reads: [0.7, 0.8, 0.6] })
+  // 0.6 alone keeps it under the bar; the middle of 0.6, 0.8 and 0.7 is what counts.
+  expect((await readReviews(root, 'video-guide'))['vi/guides/youtube-near']![0]).toMatchObject({ score: 0.7, reads: [0.6, 0.8, 0.7] })
   expect(n).toBe(3)
 
-  expect(await lowVideoGuides(root)).toEqual(['youtube-low'])
+  expect(await lowVideoGuides(root)).toEqual(['youtube-edge', 'youtube-low'])
   n = 0
-  await reviewBackfill(d, { kinds: ['video-guide'], limit: 5, only: await lowVideoGuides(root), fromLastRead: true, band: Infinity })
+  await reviewBackfill(d, { kinds: ['video-guide'], limit: 5, only: ['youtube-low'], fromLastRead: true, band: Infinity })
   expect(n).toBe(2) // the newest second read is the first of the three
-  expect((await readReviews(root, 'video-guide'))['vi/guides/youtube-low']![0]).toMatchObject({ attempt: 'recheck', score: 0.7, reads: [0.4, 0.7, 0.8] })
-  expect(await lowVideoGuides(root)).toEqual([]) // read three times: done
+  expect((await readReviews(root, 'video-guide'))['vi/guides/youtube-low']![0]).toMatchObject({ attempt: 'recheck', score: 0.6, reads: [0.4, 0.6, 0.8] })
+  expect(await lowVideoGuides(root)).toEqual(['youtube-edge']) // read three times: done
+})
+
+test('the low video guides: a usage limit on the second or third read saves nothing and counts nothing; a guide read since it was listed is passed over', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'rb-'))
+  await guide(root, 'low', 0.8)
+  const r0 = { score: 0.4, notes: ['old'] }
+  await logReviews(root, 'video-guide', { id: 'guides/youtube-low', lang: 'vi' }, [r0], r0, { recheck: true, now: new Date('2026-11-08T00:00:00Z') })
+  const before = await readReviews(root, 'video-guide')
+  let n = 0
+  const out: Llm = async <T,>() => { if (n++ === 1) throw new LlmError('usage limit'); return { score: 0.7, notes: [] } as T }
+  const d = { root, llm: out, yt, now: () => new Date('2026-11-13T01:00:00Z'), sleep: async () => {} }
+  const r = await reviewBackfill(d, { kinds: ['video-guide'], limit: 5, only: ['youtube-low'], fromLastRead: true, band: Infinity })
+  expect(r.stopped).toContain('usage limit')
+  expect(r.checked).toEqual([])
+  expect(await readReviews(root, 'video-guide')).toEqual(before)
+  expect(await lowVideoGuides(root)).toEqual(['youtube-low'])
+  // Read three times by another job after it was listed: nothing to start from, so no read.
+  const r3 = { score: 0.5, notes: [], reads: [0.4, 0.5, 0.6] }
+  await logReviews(root, 'video-guide', { id: 'guides/youtube-low', lang: 'vi' }, [r3], r3, { recheck: true, now: new Date('2026-11-13T02:00:00Z') })
+  n = 0
+  const counted: Llm = async <T,>() => { n++; return { score: 0.7, notes: [] } as T }
+  const again = await reviewBackfill({ ...d, llm: counted }, { kinds: ['video-guide'], limit: 5, only: ['youtube-low'], fromLastRead: true, band: Infinity })
+  expect(n).toBe(0)
+  expect(again.failed).toEqual(['vi/guides/youtube-low: no single second read to start from'])
+})
+
+test('place names on second reads are read three times within the band, and each name keeps the reads', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'rb-'))
+  await put(root, 'content/places/rio-negro/entity.json', { id: 'rio-negro', name: 'Rio Negro', kind: 'river', country: 'Brazil' })
+  await put(root, 'content/places/rio-negro/vi.json', { slug: 'rio-negro', name: 'sông Rio Negro', altNames: [], sections: {} })
+  await put(root, 'content/places/rio-negro/id.json', { slug: 'rio-negro', name: 'Sungai Rio Negro', altNames: [], sections: {}, quality: { score: 0.6, indexable: false } })
+  let n = 0
+  const llm: Llm = async <T,>() => ({ score: [0.6, 0.8, 0.7][n++ % 3]!, notes: [] }) as T
+  await reviewBackfill({ root, llm, now: () => new Date('2026-11-13T01:00:00Z') }, { kinds: ['places'], limit: 5, band: NEAR_BAR })
+  expect(n).toBe(3)
+  expect((await readReviews(root, 'places'))['id/places/rio-negro']![0]).toMatchObject({ attempt: 'recheck', score: 0.7, reads: [0.6, 0.8, 0.7] })
 })
