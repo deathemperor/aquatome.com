@@ -3,7 +3,7 @@ import { slugify } from '@aq/schema/slug'
 import { basedOn, breedGallery, breedsOf, careCard, type Breed } from './breeds'
 import { GALLERY_MIN, GALLERY_STRIP } from './gallery'
 import { isVietnamese, type Lang } from './i18n'
-import { guideImages, guidesMentioning, linkTargets } from './mentions'
+import { guideImages, guidesMentioning, mentionIndex } from './mentions'
 import { distinctPhotos, pagePictures, takeEach } from './pictures'
 
 /**
@@ -36,8 +36,9 @@ export function breedParts(lang: Lang, c: Content, b: Breed) {
   const strip = gallery.slice(0, GALLERY_STRIP).map(p => pics.take([p]) ?? null)
   const lines = breedsOf(lang, c, b.id)
   const linePhotos = takeEach(pics, lines, x => x.photos)
-  // Its own text links the species, glossary terms and other pages it names, never itself.
-  const body = b.t.body ? linkTerms(b.t.body, linkTargets(c).filter(t => t.key !== key), 'ml').html : ''
+  // Its own text links the species, glossary terms and other pages it names, never itself. The list is the one
+  // mentionIndex keeps for this content: building it walks every species, plant and breed name.
+  const body = b.t.body ? linkTerms(b.t.body, mentionIndex(c).targets.filter(t => t.key !== key), 'ml').html : ''
   const mentioning = guidesMentioning(c, key)
   // The video guides' cards last, as on the page: two of one channel can carry the same photo.
   const videoGuides = mentioning.filter(g => g.video)

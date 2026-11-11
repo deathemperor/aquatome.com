@@ -43,7 +43,12 @@ const specific = (all: string[]) => {
   return (n: string, own: string[] = []) => lower.filter(o => o.startsWith(`${n.toLowerCase()} `) && !own.some(x => x.toLowerCase() === o)).length < 2
 }
 
+/** How many times this process has walked every name to build the link list. The app's pages do that once a language. */
+let linkListBuilds = 0
+export const linkListsBuilt = (): number => linkListBuilds
+
 export function linkTargets(c: Content): LinkTarget[] {
+  linkListBuilds++
   const out: LinkTarget[] = []
   const ok = specific([...c.species, ...c.plants].flatMap(x => [x.scientificName, x.t.name, ...x.t.altNames]).concat(c.plants.flatMap(p => p.synonyms ?? []), c.breeds.flatMap(b => [b.t.name, ...b.t.altNames])))
   // A man-made fish before the species: "cá vàng Ranchu" is the Ranchu page, not the goldfish one.
