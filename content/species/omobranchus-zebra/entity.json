@@ -11,6 +11,98 @@
     "bay-of-bengal",
     "singapore"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "SG"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The species has a large distribution along the coastline of the Indo-West-Pacific, ranging from the Bay of Bengal in the west to Singapore in the east.",
+          "countries": [
+            "SG"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2396159,
+      "total": 10,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "TH",
+          4
+        ],
+        [
+          "IN",
+          2
+        ],
+        [
+          "SG",
+          2
+        ],
+        [
+          "MY",
+          1
+        ],
+        [
+          "NC",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          80.15625,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          84.375,
+          19.6875,
+          1,
+          0
+        ],
+        [
+          99.84375,
+          12.65625,
+          1,
+          0
+        ],
+        [
+          101.25,
+          1.40625,
+          1,
+          0
+        ],
+        [
+          101.25,
+          11.25,
+          3,
+          0
+        ],
+        [
+          102.65625,
+          0,
+          2,
+          2
+        ],
+        [
+          165.9375,
+          -22.5,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

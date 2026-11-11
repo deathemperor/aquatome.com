@@ -386,6 +386,16 @@ test('redo keeps a body fixed by hand; the rest of the guide is the new version'
   expect(await read(root, 'content/guides/youtube-a1/vi.json')).toMatchObject({ name: 'Tiêu đề mới', body: '<p>người sửa</p>', bodyFixed: true })
 })
 
+// Two guides from one channel had one title (the owner's "Duplicated", 2026-11-11); the titles picked by hand stay.
+test('redo keeps a title picked by hand', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'yt-'))
+  await videoGuides(deps(root).d, { playlists: ['PL1'] })
+  const file = join(root, 'content/guides/youtube-a1/vi.json')
+  await writeFile(file, JSON.stringify({ ...(await read(root, 'content/guides/youtube-a1/vi.json')), name: 'Tiêu đề người chọn', nameFixed: true }))
+  await videoGuides(deps(root, { drafts: [draft('Tiêu đề mới')] }).d, { playlists: ['PL1'], redo: true })
+  expect(await read(root, 'content/guides/youtube-a1/vi.json')).toMatchObject({ name: 'Tiêu đề người chọn', nameFixed: true })
+})
+
 // A fix made by hand in the FAQ as well as the body (2026-11-10: "nitrat" for the video's nitrite, in both): a new draft's
 // questions would bring the old line back.
 test('redo keeps a FAQ fixed by hand', async () => {

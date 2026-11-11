@@ -18,6 +18,7 @@ language's app index (`/app/<lang>.json`, `apps/site/src/lib/curation.ts`):
 | `weeks[].shelves` | `home.shelves` | collections after the fixed shelves |
 | `loops.<id>` | `items[].loop` | a fish's short silent loop, wherever its card is |
 | `avoid` | none | photos that never lead a card, with the reason |
+| `todayCut` | none | head photos (the `-large` address a card loads) whose fish Hôm nay's card cuts, with the reason: they still lead their page and Khám phá's wide card, but their fish isn't a day's fish |
 | `off` | none: the build leaves these pages out | the pages the top cards, shelves and stories name that don't pass reader fit now, with why; the planner writes it afresh each run, so a page comes back once it passes |
 
 - **Pages are named by content id** (`species/<id>`, `breeds/<id>`, `guides/<id>`), so one pick serves every language.
@@ -43,8 +44,11 @@ language's app index (`/app/<lang>.json`, `apps/site/src/lib/curation.ts`):
      off the calendar until it does.
    - A guide's photo has passed only the face and watermark checks, so the editor looks at each before the week goes
      out, and puts a diagram, a photo with words on it or two photos joined in `avoid`.
+   - Hôm nay's fish card crops its photo by the middle to the space under the fish's name, and a long fish's snout can
+     fall outside. The editor looks at each fish's head on that card before the week goes out, and puts one it cuts in
+     `todayCut`: it stays the fish's Khám phá card.
 3. **Variety.** No fish or guide comes back within four weeks, and no two days running show the same group of fish, or
-   guides of the same kind or from the same source.
+   guides of the same kind or from the same source: a day filled before one already planned differs from both.
 
 Among the pages that pass, it scores:
 - the week's own lists first, in their order;

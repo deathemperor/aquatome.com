@@ -10,6 +10,53 @@
     "tanzania",
     "lake-tanganyika"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TZ"
+      ],
+      "regions": [
+        "Lake Tanganyika",
+        "Kerenge Island",
+        "Mvuna Island",
+        "Ulwile Island",
+        "Nkondwe Island"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The type locality of J. marksmithi is Kerenge Island on the Tanzanian coast of Lake Tanganyika.",
+          "countries": [
+            "TZ"
+          ],
+          "regions": [
+            "Lake Tanganyika",
+            "Kerenge Island"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "So far the species is known only from Kipili and the islands nearby (Mvuna Island, Ulwile Island, Kerenge Island, Nkondwe Island), and from the somewhat more northern Cape Mpimbwe (Msalaba).",
+          "countries": [],
+          "regions": [
+            "Mvuna Island",
+            "Ulwile Island",
+            "Nkondwe Island"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9786478,
+      "total": 0,
+      "fetched": "2026-11-11",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

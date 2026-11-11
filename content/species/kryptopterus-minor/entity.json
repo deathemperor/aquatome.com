@@ -10,6 +10,58 @@
     "indonesia",
     "kapuas"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2337916,
+      "total": 5,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "ID",
+          5
+        ]
+      ],
+      "cells": [
+        [
+          109.6875,
+          0,
+          2,
+          2
+        ],
+        [
+          111.09375,
+          -1.40625,
+          2,
+          2
+        ],
+        [
+          111.09375,
+          0,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {

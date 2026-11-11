@@ -577,6 +577,13 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/amblycipitidae/xiurenbagrus_xiurenensis.htm": {
+    "entityIds": [],
+    "updatedAt": "2026-11-11T11:43:57.453Z",
+    "status": "error",
+    "attempts": 0,
+    "error": "claude failed (1): You've hit your weekly limit · resets Nov 14 at 8am (Asia/Saigon)"
+  },
   "https://www.scotcat.com/anchariidae/ancharius_fuscus.htm": {
     "entityIds": [
       "species/ancharius-fuscus"
@@ -726,6 +733,13 @@
     "processedHash": "5625255222e042abcdee04a963c585791c3600ad2be8f1eb4327bf6c4d970a26",
     "status": "processed",
     "attempts": 0
+  },
+  "https://www.scotcat.com/auchenipteridae/tetranematichthys_wallacei.htm": {
+    "entityIds": [],
+    "updatedAt": "2026-11-11T11:43:46.777Z",
+    "status": "error",
+    "attempts": 0,
+    "error": "claude failed (1): You've hit your weekly limit · resets Nov 14 at 8am (Asia/Saigon)"
   },
   "https://www.scotcat.com/auchenipteridae/trachelyopterus_insignis.htm": {
     "entityIds": [

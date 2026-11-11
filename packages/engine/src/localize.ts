@@ -70,12 +70,40 @@ export async function nativeTo(root: string, place: string): Promise<Set<string>
  * fish, pages a language the site serves already has (so the sites end up with the same fish), the country's own wild
  * fish, then the rest.
  */
-export async function speciesOrder(root: string, lang: TargetLang): Promise<string[]> {
+export async function speciesOrder(root: string, lang: TargetLang, today = new Date().toISOString().slice(0, 10)): Promise<string[]> {
   const all = (await readdir(join(root, 'content/species'))).sort()
   const others = OTHER_LANGS.filter(l => l !== lang)
   const has = async (id: string) => (await readdir(join(root, 'content/species', id)).catch(() => [] as string[])).some(f => others.some(l => f === `${l}.json`))
   const elsewhere = (await Promise.all(all.map(async id => ((await has(id)) ? id : '')))).filter(Boolean)
-  return [...new Set([...STAPLE_SPECIES, ...await shopIds(root, [lang]), ...POPULAR.map(slugify), ...elsewhere, ...await nativeTo(root, TARGETS[lang].place), ...all])].filter(id => all.includes(id))
+  // Ahead of all of them (the chief of staff, 2026-11-11): pages whose English gained sections the translation lacks, then
+  // the fish on Khám phá's top cards that have no page in the language yet.
+  return [...new Set([...await newPartsIn(root, lang, all), ...await heroesWithout(root, lang, 'species', today), ...STAPLE_SPECIES, ...await shopIds(root, [lang]), ...POPULAR.map(slugify), ...elsewhere, ...await nativeTo(root, TARGETS[lang].place), ...all])].filter(id => all.includes(id))
+}
+
+/** Species translated part by part (their record's `parts`) whose English now has a part the translation wasn't made from. */
+async function newPartsIn(root: string, lang: TargetLang, ids: string[]): Promise<string[]> {
+  const state = JSON.parse(await readFile(join(root, `engine-state/localize-${lang}.json`), 'utf8').catch(() => '{}')) as Record<string, { parts?: Record<string, string> }>
+  const translatable = await translatableIn(root)
+  const out: string[] = []
+  for (const id of ids) {
+    const made = state[id]?.parts
+    if (!made) continue
+    const e = JSON.parse(await readFile(join(root, 'content/species', id, 'entity.json'), 'utf8').catch(() => '{}')) as { sections?: Section[] }
+    if ((e.sections ?? []).some(s => s.html.trim() && translatable(s.source) && made[`${s.key}:${s.source}`] !== partHash(s.html))) out.push(id)
+  }
+  return out
+}
+
+/**
+ * The pages on Khám phá's top cards (content/curation.json, each week's `hero`) of this kind with no page in the language,
+ * from the week showing today on, earliest week first: a language without them shows fewer than five cards.
+ */
+export async function heroesWithout(root: string, lang: TargetLang, kind: 'species' | 'breeds', today: string): Promise<string[]> {
+  const c = JSON.parse(await readFile(join(root, 'content/curation.json'), 'utf8').catch(() => '{}')) as { weeks?: { from: string; to: string; hero?: { page: string }[] }[] }
+  const weeks = (c.weeks ?? []).filter(w => w.to >= today).sort((a, b) => a.from.localeCompare(b.from))
+  const ids = weeks.flatMap(w => (w.hero ?? []).map(h => h.page.split('/')).filter(([k]) => k === kind).map(([, id]) => id!))
+  const missing = await Promise.all(ids.map(async id => (await readFile(join(root, 'content', kind, id, `${lang}.json`)).then(() => '', () => id))))
+  return [...new Set(missing.filter(Boolean))]
 }
 
 const fill = (s: string, lang: TargetLang, species = '') =>

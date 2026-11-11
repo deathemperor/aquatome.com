@@ -10,6 +10,64 @@
     "china",
     "vietnam"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "CN",
+        "VN"
+      ],
+      "regions": [],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "It originates from China and Vietnam, but is currently imported from China only.",
+          "countries": [
+            "CN",
+            "VN"
+          ],
+          "regions": []
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5205365,
+      "total": 6,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "CN",
+          3
+        ],
+        [
+          "VN",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          102.65625,
+          21.09375,
+          3,
+          3
+        ],
+        [
+          108.28125,
+          23.90625,
+          2,
+          2
+        ],
+        [
+          108.28125,
+          25.3125,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

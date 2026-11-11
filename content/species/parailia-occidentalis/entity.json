@@ -15,6 +15,125 @@
     "cuanza",
     "quanza"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "GA"
+      ],
+      "regions": [
+        "Ogowe",
+        "Congo",
+        "Quanza",
+        "Luculla",
+        "Chiloango"
+      ],
+      "sources": [
+        "planetcatfish",
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Cape Lopez, Gabon.",
+          "countries": [
+            "GA"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "Africa: Ogowe, Congo, Quanza, Luculla, Chiloango.",
+          "countries": [],
+          "regions": [
+            "Ogowe",
+            "Congo",
+            "Quanza",
+            "Luculla",
+            "Chiloango"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2341600,
+      "total": 28,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "GA",
+          12
+        ],
+        [
+          "CD",
+          9
+        ],
+        [
+          "CG",
+          4
+        ],
+        [
+          "AO",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          8.4375,
+          -1.40625,
+          1,
+          1
+        ],
+        [
+          9.84375,
+          -4.21875,
+          1,
+          1
+        ],
+        [
+          9.84375,
+          -1.40625,
+          6,
+          6
+        ],
+        [
+          9.84375,
+          0,
+          1,
+          1
+        ],
+        [
+          11.25,
+          -5.625,
+          8,
+          0
+        ],
+        [
+          11.25,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          12.65625,
+          -7.03125,
+          8,
+          0
+        ],
+        [
+          12.65625,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          12.65625,
+          -1.40625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

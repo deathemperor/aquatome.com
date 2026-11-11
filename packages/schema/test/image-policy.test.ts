@@ -73,12 +73,41 @@ test('ordinary empty pages keep the pre-feature loader behavior with switches of
  const root=await fixture([],[real]);expect((await load(root)).species[0]!.photos).toEqual([])
 })
 
-test('an album-only real crop keeps its full image in the album and prevents an AI lead',async()=>{
+test('a whole-subject crop leads fitted, remains in its album and prevents an AI lead',async()=>{
  const pair:[string,string]=[hash,'b'.repeat(64)],crop={originalWidth:800,originalHeight:600,window:{x0:0,y0:0,x1:800,y1:520},subject:{x0:30,y0:180,x1:760,y1:420},margin:15}
  const p:Photo={...real,source:'glaser',width:800,height:520,altered:[{method:'mark-crop',date:'2026-11-11',permissionDate:'2026-11-10',originalHash:hash,crop,excludedMarks:[{x0:20,y0:550,x1:780,y1:590}],retainedChanged:0,checks:{species:pair,ownership:pair}}]}
  const root=await fixture([ai,p]),file=join(root,'sources.json'),sources=JSON.parse(await readFile(file,'utf8'));sources.glaser={name:'Fixture source',homepage:'https://example.org/',publish:true,permission:{date:'2026-11-10',file:'owner word',scope:['photos'],markRemoval:{allowed:true,date:'2026-11-10'}}};await writeFile(file,JSON.stringify(sources))
  const c=await loadAll({root,lang:'vi',publicBuild:true,imageSwitches:{...IMAGE_SWITCHES,publishGenerated:true,publishAltered:true,removeMarks:true}})
- expect(c.species[0]!.photos).toEqual([]);expect(c.galleries.alpha?.map(p=>p.url)).toEqual([p.url,ai.url])
+ expect(c.species[0]!.photos).toEqual([{...p,headFit:'contain'}]);expect(c.galleries.alpha?.map(p=>p.url)).toEqual([p.url,ai.url])
+})
+
+import { photoFitsHead, photoFitsWholeHead, photoFitsCard } from '../src/image-geometry'
+const wholeCrop = ():Photo => ({...real,url:'https://media.aquatome.com/cropped.webp',source:'glaser',width:800,height:520,altered:[{method:'mark-crop',date:'2026-11-11',permissionDate:'2026-11-10',originalHash:hash,crop:{originalWidth:800,originalHeight:600,window:{x0:0,y0:0,x1:800,y1:520},subject:{x0:30,y0:180,x1:760,y1:420},margin:15},excludedMarks:[{x0:20,y0:550,x1:780,y1:590}],retainedChanged:0,checks:{species:[hash,'b'.repeat(64)],ownership:[hash,'b'.repeat(64)]}}]})
+async function cropFixture(photos:Photo[],gallery:Photo[]=[]){
+ const root=await fixture(photos,gallery),file=join(root,'sources.json'),sources=JSON.parse(await readFile(file,'utf8'))
+ sources.glaser={name:'Fixture source',homepage:'https://example.org/',publish:true,permission:{date:'2026-11-10',file:'fixture permission',scope:['photos'],markRemoval:{allowed:true,date:'2026-11-10'}}};await writeFile(file,JSON.stringify(sources))
+ return {root,opts:{root,lang:'vi' as const,publicBuild:true,imageSwitches:{...IMAGE_SWITCHES,removeMarks:true,publishAltered:true}}}
+}
+test('a safely framed real head wins before and after a whole-photo crop arrives',async()=>{
+ const crop=wholeCrop(),f=await cropFixture([crop],[real])
+ let c=await loadAll(f.opts);expect(c.species[0]!.photos[0]).toEqual(real);expect(c.species[0]!.photos[0]!.headFit).toBeUndefined();expect(c.galleries.alpha?.some(p=>p.url===crop.url)).toBe(true)
+ const file=join(f.root,'species/alpha/entity.json'),entity=JSON.parse(await readFile(file,'utf8'));entity.photos=[real,crop];await writeFile(file,JSON.stringify(entity))
+ c=await loadAll(f.opts);expect(c.species[0]!.photos[0]).toEqual(real)
+})
+test('an admitted crop in an otherwise headless album can become a whole-photo head without writing its record',async()=>{
+ const crop=wholeCrop(),f=await cropFixture([],[crop]),file=join(f.root,'gallery/alpha.json'),before=await readFile(file,'utf8')
+ const c=await loadAll(f.opts);expect(c.species[0]!.photos).toEqual([{...crop,headFit:'contain'}]);expect(await readFile(file,'utf8')).toBe(before);expect(c.galleries.alpha?.[0]?.headFit).toBeUndefined()
+})
+test('whole-photo eligibility still requires native dimensions and the complete subject with its margin',()=>{
+ const p=wholeCrop();expect(photoFitsWholeHead(p)).toBe(true);expect(photoFitsHead(p)).toBe(false);const fitted:Photo={...p,headFit:'contain'};expect(photoFitsCard(fitted)).toBe(false)
+ expect(photoFitsWholeHead({...p,width:799})).toBe(false)
+ expect(photoFitsWholeHead({...p,altered:[{...p.altered![0]!,crop:{...p.altered![0]!.crop!,margin:5}}]})).toBe(false)
+ expect(photoFitsWholeHead({...p,altered:[{...p.altered![0]!,crop:{...p.altered![0]!.crop!,subject:{x0:0,y0:0,x1:800,y1:520}}}]})).toBe(false)
+ expect(photoFitsWholeHead(real)).toBe(false)
+})
+test('the placement gate cannot admit a seventh unapproved crop or bypass any off switch',async()=>{
+ const p=wholeCrop(),f=await cropFixture([p]);expect((await loadAll(f.opts)).species[0]!.photos[0]?.headFit).toBe('contain')
+ const off=await loadAll({...f.opts,imageSwitches:IMAGE_SWITCHES});expect(off.species[0]!.photos).toEqual([]);expect(off.galleries.alpha).toBeUndefined()
 })
 
 test('a crop no frame fits heads its page when marked to show whole, and leaves the album',async()=>{

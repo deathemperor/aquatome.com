@@ -48,6 +48,8 @@ git config merge.entity.driver 'node scripts/merge-entity.mjs %O %A %B'
 pnpm install --frozen-lockfile --silent
 publish_kept video-recheck
 log "video recheck start"
+# Records left saying pages were done on 11 Nov 2026, when the usage limit stopped the gate, put back before a writer runs.
+pnpm engine redo-unread || log "redo-unread: failed"
 # When the stricter reviewer went live. Every guide on the site then (496) was scored before it.
 VIDEO_RECHECK_SINCE=2026-11-07T12:00:00Z
 # Every guide with no review from then on, whatever its score, reviewed again against its transcript, nothing rewritten:

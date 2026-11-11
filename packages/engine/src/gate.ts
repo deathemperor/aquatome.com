@@ -142,6 +142,14 @@ async function headPages(root: string, files: string[]): Promise<{ pages: Map<st
   }
 }
 
+/**
+ * Pages a person holds back, by `kind/id`: a fault no read of the checklist finds, such as a catfish page filed under a
+ * marine worm's name (2026-11-11). Every language file the page has, now or later, is held with the listed checks, and the
+ * gate neither reads it nor lets it out until its line leaves the file. No model call.
+ */
+export const HELD_BY_HAND = 'engine-state/held-by-hand.json'
+export type HandHold = { checks: string[]; why: string; at: string }
+
 /** Every held page in the working tree, by its language file. */
 async function heldNow(root: string, pages: Page[]): Promise<Map<string, Held>> {
   const out = new Map<string, Held>()
@@ -171,13 +179,23 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
   const all = [...pages, ...await loadCards(join(root, 'content'))]
   const byFile = new Map(all.map(p => [fileOf(p), p]))
   const held = await heldNow(root, all)
+  // A page held by hand is held in every language it has, whatever wrote it since, and is no more of the gate's business.
+  const byHand = (await json<Record<string, HandHold>>(join(root, HELD_BY_HAND))) ?? {}
+  const handHeld: string[] = []
+  for (const p of all) {
+    const h = byHand[`${p.kind}/${p.id}`], f = fileOf(p)
+    if (!h) continue
+    const want = { checks: h.checks, at: h.at }
+    if (JSON.stringify(held.get(f)) !== JSON.stringify(want)) { await setHeld(root, f, want); handHeld.push(`${p.path} (${h.checks.join(', ')}, by hand)`) }
+    held.set(f, want)
+  }
   const changed = new Set(changedFiles(root))
   // Every held page is looked at again: one left unread (the accounts out) is read now, and one a batch read has since
   // passed is let out. A saved read costs no call.
   for (const f of held.keys()) changed.add(f)
-  const files = [...changed].filter(f => byFile.has(f))
+  const files = [...changed].filter(f => byFile.has(f) && !byHand[`${byFile.get(f)!.kind}/${byFile.get(f)!.id}`])
   const head = await headPages(root, files)
-  const report: GateReport = { pass: [], hold: [], release: [], revert: [], mended: [], unread: [], failed: [], reads: 0 }
+  const report: GateReport = { pass: [], hold: [...handHeld], release: [], revert: [], mended: [], unread: [], failed: [], reads: 0 }
   let budget = d.limit ?? 150
   let mends = d.mend ? d.mends ?? 6 : 0
   const read = async (p: Page): Promise<FitEntry | undefined> => {

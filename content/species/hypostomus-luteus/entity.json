@@ -16,7 +16,8 @@
   "range": {
     "native": {
       "countries": [
-        "BR"
+        "BR",
+        "PY"
       ],
       "regions": [
         "Uruguay River",
@@ -24,7 +25,8 @@
       ],
       "sources": [
         "planetcatfish",
-        "scotcat"
+        "scotcat",
+        "glaser"
       ],
       "quotes": [
         {
@@ -36,6 +38,14 @@
           "regions": [
             "Rio Pelotas"
           ]
+        },
+        {
+          "source": "glaser",
+          "quote": "Origin: Paraguay.",
+          "countries": [
+            "PY"
+          ],
+          "regions": []
         },
         {
           "source": "planetcatfish",
@@ -50,7 +60,7 @@
     "records": {
       "taxonKey": 5202268,
       "total": 68,
-      "fetched": "2026-11-09",
+      "fetched": "2026-11-11",
       "countries": [
         [
           "BR",

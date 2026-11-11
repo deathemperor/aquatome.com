@@ -1,4 +1,4 @@
-import { FIRST_GUIDES, FIRST_PLANTS, POPULAR, resolveDataCard, slugify, STAPLE_SPECIES, type BreedEntity, type Content, type Curation, type Loop, type Photo, type PlantEntity, type Range, type Traits } from '@aq/schema'
+import { FIRST_GUIDES, FIRST_PLANTS, photoFitsCard, POPULAR, resolveDataCard, slugify, STAPLE_SPECIES, type BreedEntity, type Content, type Curation, type Loop, type Photo, type PlantEntity, type Range, type Traits } from '@aq/schema'
 import type { KindShards, PageDoc } from '@aq/schema/app-page'
 import type { SpeciesIndexItem } from '../scripts/filter'
 import { breedFigures, speciesOf, type BreedFigures } from './breeds'
@@ -196,7 +196,7 @@ export const appEquipment = (lang: Lang, c: Content) => (served(lang, '/vi/thiet
 export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = new Map(), everySpecies: Content['species'] = c.species, cur?: { calendar: Curation; today: string }): AppIndex {
   const t = translator(lang)
   const at = (viPath: string) => appPath(lang, viPath)
-  const img = (photos: Photo[]) => { const p = photos.find(p => !p.generated); return p ? smallSrc(p) : undefined }
+  const img = (photos: Photo[]) => { const p = photos.find(p => !p.generated && p.headFit !== 'contain' && photoFitsCard(p)); return p ? smallSrc(p) : undefined }
   const aka = (names: string[]) => (names.length ? names : undefined)
   const items: AppItem[] = []
   const home: AppHome = { groups: [], fish: [], plants: [], guides: [] }
@@ -315,7 +315,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
     for (const b of appBreeds(lang, c)) refs.set(`breeds/${b.id}`, at(`/vi/ca/${b.t.slug}/`))
     for (const g of appGuides(lang, c)) refs.set(`guides/${g.id}`, at(`/vi/huong-dan/${g.t.slug}/`))
     for (const p of appPlants(lang, c)) refs.set(`plants/${p.id}`, at(`/vi/cay/${p.t.slug}/`))
-    Object.assign(home, curationFor(cur.calendar, lang, cur.today, ref => { const p = refs.get(ref); return p && paths.has(p) ? p : undefined }, c.cards))
+    Object.assign(home, curationFor(cur.calendar, lang, cur.today, ref => { const p = refs.get(ref); return p && paths.has(p) ? p : undefined }, c.cards, new Set(c.waitingPhotos)))
   }
   const codes = [...new Set(items.flatMap(i => [...(i.range?.native ?? []), ...(i.range?.records?.outside ?? []).map(([code]) => code)]))].sort()
   const nameOf = countryNames(lang, c.places, paged)

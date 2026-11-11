@@ -1,4 +1,4 @@
-# Tóm tắt chờ duyệt (228)
+# Tóm tắt chờ duyệt (229)
 
 Bản qua kiểm tra tự động (số khớp thẻ dữ liệu, mọi ý có trong hồ sơ) đã được duyệt. Dưới đây là bản chưa qua, kèm lỗi kiểm tra tìm thấy.
 
@@ -1052,6 +1052,13 @@ Cá tetra Buenos Aires (Hyphessobrycon anisitsi) hợp với người đã có b
 - Nuôi ít con hoặc bể chật thì cá dễ cắn vây; nuôi đàn tối thiểu 8-10 con trong bể đáy 90 × 30 cm trở lên.
 - Ghép chung với cá nhát, bơi chậm hoặc vây dài như nhiều loài cá đẻ con, cichlid, cá mê cung; nên chọn cá khỏe, cỡ tương đương như các loài characid bơi vùng nước thoáng.
 - Để cá lâu ngày ở nhiệt độ sát ngưỡng trên của khoảng 16–28 °C; nên giữ thấp hơn mức đó.
+
+## Cá lau kiếng L137 (Hypostomus soniae)
+id: `hypostomus-soniae`
+
+Cá lau kiếng L137 (Hypostomus soniae) hợp với người thích loài ít gặp, có đôi mắt xanh, cỡ vừa, lớn tối đa 20 cm. Hồ sơ không nêu thông số nước, bể tối thiểu hay độ khó, nên cần tìm thêm trước khi chọn bể. Điểm khó nhất là khâu nhận diện: màu vây mỗi con một kiểu, dễ nhầm với con "Bruno" từ Paraguay.
+
+- Nhận diện L137 chỉ qua màu vây dễ nhầm với con "Bruno" từ Paraguay (mã 27510); nên nhìn đôi mắt xanh, vì trong chi Hypostomus chỉ loài này có mắt như vậy.
 
 ## Cá gai giáp (Indostomus paradoxus)
 id: `indostomus-paradoxus`

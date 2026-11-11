@@ -6,6 +6,31 @@
   "genus": "Ilyodon",
   "group": "livebearers",
   "places": [],
+  "range": {
+    "records": {
+      "taxonKey": 2347634,
+      "total": 28,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "MX",
+          28
+        ]
+      ],
+      "cells": [
+        [
+          -105.46875,
+          18.28125,
+          3
+        ],
+        [
+          -104.0625,
+          18.28125,
+          25
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {

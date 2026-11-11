@@ -51,6 +51,8 @@ export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transc
   const e = JSON.parse(await readFile(join(dir, 'entity.json'), 'utf8')) as GuideEntity
   const vi = JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8')) as Translation
   if (e.source !== 'youtube' || !e.video || vi.bodyFixed || vi.faqFixed) return undefined
+  // A title a person picked (nameFixed) isn't the editor's to change, so a fault quoted in it can't be mended here.
+  if (vi.nameFixed && findings.some(f => f.part === 'T')) return undefined
   const paragraphs = [vi.name, ...(vi.summary ?? []), ...render(sanitizeHtml(vi.body ?? '')).split('\n'), ...(vi.faq ?? []).flatMap(f => [f.q, f.a])].map(norm)
   if (findings.some(f => (f.check === 'product' || f.check === 'price') && givesDose(sentenceOf(paragraphs, norm(f.quote))))) return undefined
   const lang = e.video.lang ?? 'en'

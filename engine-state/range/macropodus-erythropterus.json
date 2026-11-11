@@ -1,9 +1,17 @@
 {
   "id": "macropodus-erythropterus",
   "native": {
-    "input": "d092bb3346662421",
-    "at": "2026-11-09T20:43:02.940Z",
+    "input": "dcbd47e56a20b363",
+    "at": "2026-11-11T08:59:40.517Z",
     "claims": [
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Macropodus erythropterus is a paradisefish from coastal hill streams of central Vietnam, in Quang Binh and Quang Tri provinces.",
+        "words": "Vietnam",
+        "ok": true
+      },
       {
         "code": "VN",
         "status": "native",
@@ -11,31 +19,17 @@
         "quote": "Known from the coastal Quảng Trị, Cam Lo, and Giang river systems, between the cities of Đồng Hới and Đông Hà in Quảng Bình and Quảng Trị provinces, central Vietnam (Freyhof & Herder, 2002).",
         "words": "Vietnam",
         "ok": true
-      }
-    ],
-    "regions": [
-      {
-        "name": "Quảng Trị",
-        "source": "seriouslyfish",
-        "quote": "Known from the coastal Quảng Trị, Cam Lo, and Giang river systems, between the cities of Đồng Hới and Đông Hà in Quảng Bình and Quảng Trị provinces, central Vietnam (Freyhof & Herder, 2002).",
-        "country": "VN",
-        "ok": true
       },
       {
-        "name": "Cam Lo",
-        "source": "seriouslyfish",
-        "quote": "Known from the coastal Quảng Trị, Cam Lo, and Giang river systems, between the cities of Đồng Hới and Đông Hà in Quảng Bình and Quảng Trị provinces, central Vietnam (Freyhof & Herder, 2002).",
-        "country": "VN",
-        "ok": true
-      },
-      {
-        "name": "Giang",
-        "source": "seriouslyfish",
-        "quote": "Known from the coastal Quảng Trị, Cam Lo, and Giang river systems, between the cities of Đồng Hới and Đông Hà in Quảng Bình and Quảng Trị provinces, central Vietnam (Freyhof & Herder, 2002).",
-        "country": "VN",
+        "code": "VN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "This paradise fish comes from Vietnam.",
+        "words": "Vietnam",
         "ok": true
       }
     ],
+    "regions": [],
     "disputed": [],
     "outranked": [],
     "origin": {

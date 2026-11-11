@@ -8,11 +8,13 @@ import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmptyHeadings, dropP
 import { loadPages, sectionFields } from './pages'
 import { sweepPlaceNames } from './place-names'
 import { sfDifficulty } from './process'
+import { retitleGuide, sourceTitle, titleClashes, titleKey } from './guide-titles'
 import { rewriteTitle } from './reader'
 import { logReviews } from './review-log'
 import { viWording } from './sanitize'
 import { snapshotName } from './snapshot'
 import { SOURCES } from './sources'
+import { errorKind } from './state'
 import { isShop, readVarietyPages, withoutShopTalk } from './species-sources'
 import { cardOf, cardProblems } from './summaries'
 import { carryTopicChecks } from './topic-check'
@@ -56,7 +58,11 @@ import { readVideoRejected } from './videos'
  *   smaller or mini tank the model named ("bể cá mini 20cm" for a betta whose card says 45 cm). A page with no tank row,
  *   or a card with no minimum tank, is left as it is
  * - a guide's title promising a count its text lacks: with `llm`, rewritten by the model (`titles` at most a run, reviewer-gated:
- *   reader.ts rewriteTitle); otherwise, or when the rewrite isn't kept, the number dropped from it. The address stays.
+ *   reader.ts rewriteTitle); otherwise, or when the rewrite isn't kept, the number dropped from it. A call that failed
+ *   for the usage limit leaves that title, and every later one this run, as it is. The address stays.
+ * - a guide's title another guide in its language has, or that is only a name ("Dou Mok"): with `llm`, written again by
+ *   the model (`retitles` at most a run, reviewer-gated: guide-titles.ts retitleGuide), a person's name kept as the credit.
+ *   The address stays.
  * - a fish's summary (content/summaries): the words Vietnamese readers write another way written their way (sanitize.ts
  *   viWording), as the page's own text has them (fixTranslation)
  * - a fish's old name, on a Vietnamese page, its summary or a buying guide: its name now, when the sentence says which fish
@@ -190,7 +196,10 @@ async function sfWord(root: string, card: Partial<Record<DataCardField, Value[]>
  */
 export const PHOTO_CAP = 10
 
-export async function sweep(root: string, o: { llm?: Llm; titles?: number; model?: string; photoCap?: number } = {}): Promise<SweepReport> {
+/** Guides whose title is shared or only a name, written again at most a run (each a write and a review). */
+export const GUIDE_RETITLES = 10
+
+export async function sweep(root: string, o: { llm?: Llm; titles?: number; retitles?: number; model?: string; photoCap?: number } = {}): Promise<SweepReport> {
   // Before anything is written. Not a whole number ("1O" for 10 reads as none), every comparison with it is false and
   // the cap would be off (the independent reader, 2026-11-11).
   const cap = o.photoCap ?? PHOTO_CAP
@@ -203,6 +212,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
   // A fish card's school size: Seriously Fish's, never below what another source on the page says (traits.ts), here so
   // every part of the cycle has it before its tests, whatever changed a page's sections.
   for (const id of report.schools = await schoolFromSeriouslyFish(content)) changed(`traits/${id}.json`)
+  const titled: { file: string; raw: string; t: Stored; lang: WrittenLang; id: string; title: string }[] = []
   // A place's Vietnamese name with no generic word left in English (place-names.ts).
   for (const id of await sweepPlaceNames(root)) changed(`places/${id}/vi.json`)
 
@@ -226,6 +236,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
           if (kind === 'guides' && before.body !== undefined) guides.push({ key: lang === 'vi' ? id : `${id}:${lang}`, before: before.body, after: t.body! })
         }
         if (kind === 'guides' && t.name && t.body && countMismatch(t.name, t.body)) counted.push({ file, raw, t, kind, lang, id })
+        if (kind === 'guides' && t.name) titled.push({ file, raw, t, lang, id, title: t.name })
       }
     }
   }
@@ -352,6 +363,11 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
         else how = `number dropped; rewrite "${r.title}" not kept (${r.score.toFixed(2)}${r.notes.length ? `: ${r.notes.slice(0, 2).join('; ')}` : ''})`
         await logReviews(root, 'title', { id: `${c.kind}/${c.id}`, lang: c.lang }, [r], title === r.title ? r : undefined, { model: o.model })
       } catch (e) {
+        // Every account is out of its limit: dropping the number would keep the title from being offered again.
+        if (e instanceof LlmError && errorKind(e.message) === 'usage') {
+          report.stopped = `title ${c.lang}/${c.kind}/${c.id}: ${e.message}`
+          break
+        }
         if (e instanceof LlmError) report.stopped = `title ${c.lang}/${c.kind}/${c.id}: ${e.message}`
         else how = `number dropped; rewrite failed: ${(e as Error).message.slice(0, 120)}`
       }
@@ -360,6 +376,37 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
     await write(c.file, c.raw, { ...c.t, name: title })
     changed(`${c.kind}/${c.id}/${c.lang}.json`)
     report.titles.push(`${c.lang}/${c.kind}/${c.id}: "${old}" → "${title}" (${how})`)
+  }
+
+  // A guide's title another guide in its language has, or that is only a name (guide-titles.ts): the model's title when
+  // it passes its review, `retitles` at most a run. One taken by a guide the run already titled is never written.
+  let retitles = o.llm ? (o.retitles ?? GUIDE_RETITLES) : 0
+  const taken = (lang: WrittenLang) => new Set(titled.filter(g => g.lang === lang).map(g => titleKey(g.title)))
+  for (const c of titleClashes(titled)) {
+    if (c.guide.t.nameFixed) continue // a title a person chose stays
+    if (retitles <= 0 || report.stopped) break
+    retitles--
+    const g = c.guide
+    const old = g.title
+    try {
+      const e = JSON.parse(await readFile(join(content, 'guides', g.id, 'entity.json'), 'utf8').catch(() => '{}')) as Parameters<typeof sourceTitle>[1]
+      const r = await retitleGuide(o.llm!, { title: g.title, body: g.t.body ?? '', lang: g.lang, why: c.why, source: await sourceTitle(root, e), others: c.with.map(w => ({ title: w.title, body: w.t.body ?? '' })), taken: taken(g.lang) }, o.model)
+      await logReviews(root, 'title', { id: `guides/${g.id}`, lang: g.lang }, [r], r.score >= QUALITY_THRESHOLD ? r : undefined, { model: o.model })
+      if (r.score < QUALITY_THRESHOLD) {
+        report.titles.push(`${g.lang}/guides/${g.id}: "${old}" (${c.why === 'name' ? 'only a name' : 'shared'}): "${r.title}" not kept (${r.score.toFixed(2)}${r.notes.length ? `: ${r.notes.slice(0, 2).join('; ')}` : ''})`)
+        continue
+      }
+      const raw = await readFile(g.file, 'utf8')
+      const now = JSON.parse(raw) as Stored
+      if (now.name !== g.title) continue // the count step wrote it this run
+      await write(g.file, raw, { ...now, name: r.title })
+      g.title = r.title
+      changed(`guides/${g.id}/${g.lang}.json`)
+      report.titles.push(`${g.lang}/guides/${g.id}: "${old}" (${c.why === 'name' ? 'only a name' : 'shared'}) → "${r.title}" (${r.score.toFixed(2)})`)
+    } catch (e) {
+      if (e instanceof LlmError) report.stopped = `title guides/${g.id}/${g.lang}: ${e.message}`
+      else report.titles.push(`${g.lang}/guides/${g.id}: retitle failed: ${(e as Error).message.slice(0, 120)}`)
+    }
   }
   if (guides.length) await carryTopicChecks(root, guides)
 

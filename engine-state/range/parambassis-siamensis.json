@@ -1,0 +1,198 @@
+{
+  "id": "parambassis-siamensis",
+  "native": {
+    "input": "be51ae44af85e422",
+    "at": "2026-11-11T08:59:40.517Z",
+    "claims": [
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Chanda siamensis is a small glass fish from Thailand, Laos, Cambodia, Vietnam, Malaysia, Singapore and Indonesia.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Chanda siamensis is a small glass fish from Thailand, Laos, Cambodia, Vietnam, Malaysia, Singapore and Indonesia.",
+        "words": "Laos",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Chanda siamensis is a small glass fish from Thailand, Laos, Cambodia, Vietnam, Malaysia, Singapore and Indonesia.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Chanda siamensis is a small glass fish from Thailand, Laos, Cambodia, Vietnam, Malaysia, Singapore and Indonesia.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "MY",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Chanda siamensis is a small glass fish from Thailand, Laos, Cambodia, Vietnam, Malaysia, Singapore and Indonesia.",
+        "words": "Malaysia",
+        "ok": true
+      },
+      {
+        "code": "SG",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Chanda siamensis is a small glass fish from Thailand, Laos, Cambodia, Vietnam, Malaysia, Singapore and Indonesia.",
+        "words": "Singapore",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Chanda siamensis is a small glass fish from Thailand, Laos, Cambodia, Vietnam, Malaysia, Singapore and Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It has a very wide distribution through Thailand, Vietnam, Cambodia, and Laos.",
+        "words": "Thailand",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It has a very wide distribution through Thailand, Vietnam, Cambodia, and Laos.",
+        "words": "Vietnam",
+        "ok": true
+      },
+      {
+        "code": "KH",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It has a very wide distribution through Thailand, Vietnam, Cambodia, and Laos.",
+        "words": "Cambodia",
+        "ok": true
+      },
+      {
+        "code": "LA",
+        "status": "native",
+        "source": "glaser",
+        "quote": "It has a very wide distribution through Thailand, Vietnam, Cambodia, and Laos.",
+        "words": "Laos",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Parambassis siamensis",
+    "status": "ACCEPTED",
+    "taxonKey": 2387246,
+    "datasets": [
+      [
+        "80f63c1e-f762-11e1-a439-00145eb45e9a",
+        2112
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        60
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        45
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        15
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        14
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        11
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        6
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        5
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        4
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1
+      ],
+      [
+        "2a79f202-3f3a-4d54-88fa-09aa8de1ac73",
+        1
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        1
+      ],
+      [
+        "5853051c-42f5-4246-bfde-4aaba3ef3bf8",
+        1
+      ],
+      [
+        "85bc2470-98a1-11de-b4da-b8a03c50a862",
+        1
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "b7dd8170-98a0-11de-b4d9-b8a03c50a862",
+        1
+      ]
+    ],
+    "native": [
+      "TH",
+      "LA",
+      "KH",
+      "VN",
+      "MY",
+      "SG",
+      "ID"
+    ],
+    "requests": 12,
+    "at": "2026-11-11T08:59:40.517Z"
+  }
+}

@@ -1,7 +1,7 @@
 import { isOwnerCrop } from '@aq/schema/image-policy'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { addDays, cardShownIn, CardSchema, CurationSchema, LANGS, loadAll, resolveDataCard, STAPLE_SPECIES, POPULAR, POPULAR_BREEDS, type CardEntity, type Content, type Curation, type CurationDay, type CurationWeek, type Photo, photoFitsCard } from '@aq/schema'
+import { addDays, cardShownIn, CardSchema, CurationSchema, LANGS, loadAll, resolveDataCard, STAPLE_SPECIES, POPULAR, POPULAR_BREEDS, type CardEntity, type Content, type Curation, type CurationDay, type CurationWeek, type Lang, type Photo, photoFitsCard } from '@aq/schema'
 import { fitKey, type FitState } from './fit'
 import { gateChecks } from './gate'
 import { loadPages, type Page } from './pages'
@@ -88,6 +88,8 @@ export type Candidate = {
   group?: string
   /** A guide's source (a blog, a channel, AquaTome's own), likewise never two days running: a series came five in a row. */
   source?: string
+  /** The served languages it has a page in, not held there: a card shows only in those (the site's lib/curation.ts). */
+  langs: Lang[]
 }
 
 /** Goldfish and koi lines: cold-water fish whatever their pages' figures say. */
@@ -190,6 +192,10 @@ export async function candidates(root: string, o: { demand?: Map<string, number>
     for (const [path, x] of o.demand ?? []) if (path.endsWith(`/${id}/`) || pages.get(`${kind}/${id}`)?.path === path) n += x
     return n
   }
+  const langsOf = async (kind: string, id: string): Promise<Lang[]> => {
+    const has = await Promise.all(LANGS.map(async l => { const t = await json<{ held?: unknown } | null>(join(content, kind, id, `${l}.json`), null); return !!t && !t.held }))
+    return LANGS.filter((_, i) => has[i])
+  }
   const fitOf = async (kind: string, id: string): Promise<{ fit: boolean; fitWhy?: string }> => {
     const held = (await json<{ held?: { checks: string[] } }>(join(content, kind, id, 'vi.json'), {})).held
     if (held) return { fit: false, fitWhy: `held: ${held.checks.join(', ')}` }
@@ -212,7 +218,7 @@ export async function candidates(root: string, o: { demand?: Map<string, number>
     const school = (await json<{ schoolMin?: number | null }>(join(content, 'traits', `${s.id}.json`), {})).schoolMin ?? undefined
     out.push({
       kind: 'species', id: s.id, ref: `species/${s.id}`, path: `/vi/ca/${s.t.slug}/`, name: s.t.name, ...photosFor(all, ok), head: headOf(s.photos, ok),
-      ...(await fitOf('species', s.id)), indexable: s.t.quality.indexable, group: s.group, updatedAt: s.updatedAt,
+      ...(await fitOf('species', s.id)), langs: await langsOf('species', s.id), indexable: s.t.quality.indexable, group: s.group, updatedAt: s.updatedAt,
       facts: {
         tempMin: typeof t === 'number' ? t : t?.min, sizeMax: typeof size === 'number' ? size : size?.max,
         difficulty: typeof diff === 'number' ? diff : diff?.max, tankCm: typeof tank === 'number' ? tank : tank?.min, schoolMin: school, places: s.places,
@@ -227,7 +233,7 @@ export async function candidates(root: string, o: { demand?: Map<string, number>
     const t = b.care.tempC?.[0]?.value
     out.push({
       kind: 'breeds', id: b.id, ref: `breeds/${b.id}`, path: `/vi/ca/${b.t.slug}/`, name: b.t.name, ...photosFor(photosOf(b.id, b.photos), ok), head: headOf(b.photos, ok),
-      ...(await fitOf('breeds', b.id)), indexable: b.t.quality?.indexable ?? true, updatedAt: b.updatedAt,
+      ...(await fitOf('breeds', b.id)), langs: await langsOf('breeds', b.id), indexable: b.t.quality?.indexable ?? true, updatedAt: b.updatedAt,
       facts: { tempMin: typeof t === 'number' ? t : t?.min, places: [], coldwater: COLDWATER_OF.includes(b.basedOn ?? '') || /goldfish|koi/.test(b.id) },
       known: known.includes(b.id) ? known.indexOf(b.id) : undefined, demand: demandOf('breeds', b.id),
     })
@@ -238,7 +244,7 @@ export async function candidates(root: string, o: { demand?: Map<string, number>
       kind: 'guides', id: g.id, ref: `guides/${g.id}`, path: `/vi/huong-dan/${g.t.slug}/`, name: g.t.name, group: g.kind, source: g.source, ...photosFor(g.photos, ok),
       // A section's picture is never a guide's lead, and a video guide leads with its video (the page: guide-page.ts).
       head: g.video || g.photos[0]?.section ? undefined : headOf(g.photos, ok),
-      ...(await fitOf('guides', g.id)), indexable: g.t.quality?.indexable ?? true, updatedAt: g.updatedAt, facts: { places: [], coldwater: false }, demand: demandOf('guides', g.id),
+      ...(await fitOf('guides', g.id)), langs: await langsOf('guides', g.id), indexable: g.t.quality?.indexable ?? true, updatedAt: g.updatedAt, facts: { places: [], coldwater: false }, demand: demandOf('guides', g.id),
     })
   }
   return out
@@ -258,12 +264,16 @@ export function problem(c: Candidate | undefined, slot: Slot, img?: string, o: {
   return undefined
 }
 
-/** Why a fish can't be a day's fish: its card shows its page's head photo, which has to pass and fill the card. */
-export function fishProblem(c: Candidate | undefined): string | undefined {
+/**
+ * Why a fish can't be a day's fish: its card shows its page's head photo, which has to pass, fill the card, and keep the
+ * whole fish in the card's crop (`todayCut`, curation.json).
+ */
+export function fishProblem(c: Candidate | undefined, todayCut: Record<string, string> = {}): string | undefined {
   if (!c) return 'no such page'
   if (!c.fit) return `reader fit: ${c.fitWhy}`
   if (!c.head) return 'no checked head photo'
   if (c.head.px.square < LARGE_PX) return `head photo ${c.head.px.square} px across, under ${LARGE_PX}`
+  if (todayCut[c.head.url]) return `Hôm nay's card cuts its head photo: ${todayCut[c.head.url]}`
   return undefined
 }
 
@@ -319,7 +329,7 @@ export function plan(cur: Curation, cands: Candidate[], from: string, days: numb
       const c = ref ? byRef.get(ref) : undefined
       // A guide is kept or replaced by its page; its photo is the guide card's to set or drop (guidePhoto).
       const p = ref
-        ? (slot === 'fish' ? fishProblem(c) : problem(c, 'guide', undefined, { photo: false })) ??
+        ? (slot === 'fish' ? fishProblem(c, cur.todayCut) : problem(c, 'guide', undefined, { photo: false })) ??
           (slot === 'fish' && !d.fixed && c && !fitsWeek(c, w) ? `doesn't match this week's tags (${w!.tags.join(', ')})` : undefined)
         : 'empty'
       if (ref && !p) {
@@ -331,7 +341,7 @@ export function plan(cur: Curation, cands: Candidate[], from: string, days: numb
       if (ref) report.replaced.push({ date, slot, was: ref, why: p! })
       const kind = slot === 'fish' ? ['species', 'breeds'] : ['guides']
       const pool = (slot === 'fish' ? w?.fish : w?.guides) ?? []
-      const yesterday = out.get(addDays(date, -1))
+      const around = [out.get(addDays(date, -1)), out.get(addDays(date, 1))]
       // The fish with a loop (curation.json `loops`, real footage), and one video guide a week, on YouTube's own player.
       const looped = (x: Candidate) => x.kind !== 'guides' && !!cur.loops[x.id]
       const video = (x?: Candidate) => x?.source === 'youtube'
@@ -339,10 +349,11 @@ export function plan(cur: Curation, cands: Candidate[], from: string, days: numb
         ![...out.values()].some(o => o.date !== date && w.from <= o.date && o.date <= w.to && video(byRef.get(o.guide ?? '')))
       const bonus = (x: Candidate) => (looped(x) ? LOOP_BONUS : 0) + (wantsVideo && video(x) ? VIDEO_BONUS : 0)
       const best = cands
-        .filter(x => kind.includes(x.kind) && !(slot === 'fish' ? fishProblem(x) : problem(x, 'guide', undefined, { photo: false })) && !used(x.ref, date))
+        .filter(x => kind.includes(x.kind) && !(slot === 'fish' ? fishProblem(x, cur.todayCut) : problem(x, 'guide', undefined, { photo: false })) && !used(x.ref, date))
         .filter(x => slot !== 'fish' || fitsWeek(x, w))
-        // Not the same group of fish, or kind or source of guide, two days running.
-        .filter(x => { const y = byRef.get(yesterday?.[slot] ?? ''); return (!x.group || x.group !== y?.group) && (!x.source || x.source !== y?.source) })
+        // Not the same group of fish, or kind or source of guide, two days running: as the day before, nor as a day after
+        // that is already planned.
+        .filter(x => around.every(o => { const y = byRef.get(o?.[slot] ?? ''); return (!x.group || x.group !== y?.group) && (!x.source || x.source !== y?.source) }))
         .map(x => ({ x, s: score(x, w, from, bonus(x)) }))
         .sort((a, b) => b.s - a.s || a.x.ref.localeCompare(b.x.ref))[0]?.x
       if (!best) { delete d[slot]; report.empty.push(`${date} ${slot}`); continue }
@@ -374,18 +385,22 @@ export function plan(cur: Curation, cands: Candidate[], from: string, days: numb
   }
   const sorted = [...out.values()].sort((a, b) => a.date.localeCompare(b.date))
   // Khám phá's top cards, week by week from the one that holds `from`. A card whose page fails reader fit would be hidden,
-  // so a fish that passes takes its place, and a week short of five takes more: its own list first, then its tags, never
-  // a fish another week's top cards had or have within four weeks (the chief of staff, 2026-11-11). A fish's card shows
+  // so a fish that passes takes its place, and a week short of five takes more: one with a page in every language first
+  // (a card shows only where its page is), then its own list, then its tags, never a fish another week's top cards had or
+  // have within four weeks (the chief of staff, 2026-11-11). A hand-picked card stays. A fish's card shows
   // its page's head photo, even one too small for the wide card, which the check reports until the head is fixed (the
   // owner, 2026-11-11). A guide's card keeps its photo.
+  const everywhere = (c: Candidate) => LANGS.every(l => c.langs.includes(l))
+  // A week's theme: its tags, or, with none, its own list ("Cá châu Phi" has no tag, so any fish would do).
+  const themed = (c: Candidate, w: CurationWeek) => (w.tags.length || !w.fish.length ? fitsWeek(c, w) : w.fish.includes(c.ref))
   const weeks = [...cur.weeks]
   weeks.forEach((w, i) => {
     if (w.to < from) return
     const near = (ref: string) => weeks.some(o => o !== w && Math.abs(Date.parse(o.from) - Date.parse(w.from)) < REPEAT_DAYS * 86400_000 && o.hero.some(h => h.page === ref))
     const pool = cands
-      .filter(x => x.kind !== 'guides' && !fishHeroProblem(x) && fitsWeek(x, w) && !w.hero.some(h => h.page === x.ref) && !near(x.ref))
+      .filter(x => x.kind !== 'guides' && !fishHeroProblem(x) && themed(x, w) && !w.hero.some(h => h.page === x.ref) && !near(x.ref))
       .map(x => ({ x, s: score(x, w, from) }))
-      .sort((a, b) => b.s - a.s || a.x.ref.localeCompare(b.x.ref))
+      .sort((a, b) => Number(everywhere(b.x)) - Number(everywhere(a.x)) || b.s - a.s || a.x.ref.localeCompare(b.x.ref))
       .map(({ x }) => x)
     const hero = w.hero.flatMap(h => {
       const c = byRef.get(h.page)
@@ -479,7 +494,7 @@ export function checkCalendar(cur: Curation, cands: Candidate[], from: string, d
     if (!d?.guide) out.push(`${date}: no guide`)
   }
   for (const d of cur.days.filter(x => x.date >= from)) {
-    const fish = d.fish && (fishProblem(byRef.get(d.fish)) ?? (d.img ? notHead(d.img, d.fish) : 'no photo set for the card'))
+    const fish = d.fish && (fishProblem(byRef.get(d.fish), cur.todayCut) ?? (d.img ? notHead(d.img, d.fish) : 'no photo set for the card'))
     if (fish) out.push(`${d.date} fish ${d.fish}: ${fish}`)
     const guide = d.guide && (problem(byRef.get(d.guide), 'guide', d.guideImg, { photo: false }) ?? notHead(d.guideImg, d.guide))
     if (guide) out.push(`${d.date} guide ${d.guide}: ${guide}`)

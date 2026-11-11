@@ -10,6 +10,81 @@
     "south-korea",
     "somjin"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "KR"
+      ],
+      "regions": [
+        "Somjin",
+        "Dongin",
+        "Tamjin",
+        "Geogeum Island"
+      ],
+      "sources": [
+        "scotcat"
+      ],
+      "quotes": [
+        {
+          "source": "scotcat",
+          "quote": "Etymology: –ensis, suffix denoting place: Somjin River, South Korea, the type locality.",
+          "countries": [
+            "KR"
+          ],
+          "regions": []
+        },
+        {
+          "source": "scotcat",
+          "quote": "L. somjinensis is restricted to rivers flowing to the west coast and Geogeum Island, the Somjin, Dongin and Tamjin rivers (Kim S-h, et al. 2023).",
+          "countries": [],
+          "regions": [
+            "Somjin",
+            "Dongin",
+            "Tamjin"
+          ]
+        },
+        {
+          "source": "scotcat",
+          "quote": "East Asia: western and southern coasts of Korea and Geogeum Island.",
+          "countries": [],
+          "regions": [
+            "Geogeum Island"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5961307,
+      "total": 71,
+      "fetched": "2026-11-11",
+      "countries": [
+        [
+          "KR",
+          71
+        ]
+      ],
+      "cells": [
+        [
+          126.5625,
+          33.75,
+          46,
+          46
+        ],
+        [
+          126.5625,
+          35.15625,
+          5,
+          5
+        ],
+        [
+          127.96875,
+          33.75,
+          20,
+          20
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

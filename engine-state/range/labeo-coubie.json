@@ -1,0 +1,145 @@
+{
+  "id": "labeo-coubie",
+  "native": {
+    "input": "d0cea3dff1e9d378",
+    "at": "2026-11-11T08:59:40.517Z",
+    "claims": [
+      {
+        "code": "NG",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: Nigeria",
+        "words": "Nigeria",
+        "ok": true
+      },
+      {
+        "code": "EG",
+        "status": "native",
+        "source": "glaser",
+        "quote": "coubie: after the vernacular name of the species on the fish market in Cairo (Egypt), from where the type specimens originate.",
+        "words": "Egypt",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Niger",
+        "source": "glaser",
+        "quote": "This brings the number of Labeo species known from the Niger to four: Labeo parvus, L. roseopunctatus, L. senegalensis, and L. coubie.",
+        "ok": false,
+        "why": "a country"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "NE"
+      ],
+      "sourcesOnly": [
+        "EG"
+      ]
+    }
+  },
+  "records": {
+    "matched": "Labeo coubie",
+    "status": "ACCEPTED",
+    "taxonKey": 5206092,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        93
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        35
+      ],
+      [
+        "d2724ca9-8ccd-416e-9837-7aee75f67422",
+        18
+      ],
+      [
+        "1c6b8a9f-5bd9-4358-9915-b7643779b03e",
+        17
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        17
+      ],
+      [
+        "5e1d2d54-f5db-43ac-87c5-55a9f79ac718",
+        13
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        10
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        7
+      ],
+      [
+        "698535ed-f0fd-4740-b6ad-cafdf51d9802",
+        7
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        7
+      ],
+      [
+        "ed820bdb-4345-4143-a280-4fbffaacd31d",
+        7
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        5
+      ],
+      [
+        "c43cabdf-1a3c-488c-9923-2466abd7df9b",
+        5
+      ],
+      [
+        "40a262b4-6627-4011-afbe-159c00ec97e7",
+        3
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        2
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        2
+      ],
+      [
+        "34585f24-1ffe-4744-8734-7d563c918d18",
+        1
+      ],
+      [
+        "3fb7ddd8-07c0-490d-a0f1-32b5dec8d583",
+        1
+      ],
+      [
+        "4caf2040-83ad-4fa7-ba13-005bced721eb",
+        1
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        1
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        1
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        1
+      ]
+    ],
+    "native": [
+      "NG",
+      "EG"
+    ],
+    "requests": 13,
+    "at": "2026-11-11T08:59:40.517Z"
+  }
+}

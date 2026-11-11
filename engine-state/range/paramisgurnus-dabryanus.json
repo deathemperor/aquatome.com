@@ -1,0 +1,210 @@
+{
+  "id": "paramisgurnus-dabryanus",
+  "native": {
+    "input": "de161f5ee8c4aca6",
+    "at": "2026-11-11T08:59:40.517Z",
+    "claims": [
+      {
+        "code": "CN",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the Yangtze Jiang (Yangtze River) basin in China and currently-accepted to occur throughout middle and lower reaches of both the Yangtze and Zhu Jiang (Pearl River), plus various smaller drainages of Taiwan.",
+        "words": "China",
+        "ok": true
+      },
+      {
+        "code": "TW",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Described from the Yangtze Jiang (Yangtze River) basin in China and currently-accepted to occur throughout middle and lower reaches of both the Yangtze and Zhu Jiang (Pearl River), plus various smaller drainages of Taiwan.",
+        "words": "Taiwan",
+        "ok": true
+      },
+      {
+        "code": "RU",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "It has been introduced to the Amur river system in far-eastern Russia and to Japan.",
+        "words": "Russia",
+        "ok": true
+      },
+      {
+        "code": "JP",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "It has been introduced to the Amur river system in far-eastern Russia and to Japan.",
+        "words": "Japan",
+        "ok": true
+      },
+      {
+        "code": "HK",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "M. dabryanus itself has now been recorded outside its natural range in Japan, Russia, Hong Kong, the USA (California), Germany, Switzerland, Spain and France.",
+        "words": "Hong Kong",
+        "ok": true
+      },
+      {
+        "code": "US",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "M. dabryanus itself has now been recorded outside its natural range in Japan, Russia, Hong Kong, the USA (California), Germany, Switzerland, Spain and France.",
+        "words": "USA",
+        "ok": true
+      },
+      {
+        "code": "DE",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "M. dabryanus itself has now been recorded outside its natural range in Japan, Russia, Hong Kong, the USA (California), Germany, Switzerland, Spain and France.",
+        "words": "Germany",
+        "ok": true
+      },
+      {
+        "code": "CH",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "M. dabryanus itself has now been recorded outside its natural range in Japan, Russia, Hong Kong, the USA (California), Germany, Switzerland, Spain and France.",
+        "words": "Switzerland",
+        "ok": true
+      },
+      {
+        "code": "ES",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "An introduced population was discovered close to Barcelona, Spain in 2008 but apparently has not become established due to rotenone treatment in 2009.",
+        "words": "Spain",
+        "ok": true
+      },
+      {
+        "code": "FR",
+        "status": "introduced",
+        "source": "seriouslyfish",
+        "quote": "M. dabryanus itself has now been recorded outside its natural range in Japan, Russia, Hong Kong, the USA (California), Germany, Switzerland, Spain and France.",
+        "words": "France",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Yangtze",
+        "source": "seriouslyfish",
+        "quote": "Described from the Yangtze Jiang (Yangtze River) basin in China and currently-accepted to occur throughout middle and lower reaches of both the Yangtze and Zhu Jiang (Pearl River), plus various smaller drainages of Taiwan.",
+        "country": "CN",
+        "ok": true
+      },
+      {
+        "name": "Zhu Jiang",
+        "source": "seriouslyfish",
+        "quote": "Described from the Yangtze Jiang (Yangtze River) basin in China and currently-accepted to occur throughout middle and lower reaches of both the Yangtze and Zhu Jiang (Pearl River), plus various smaller drainages of Taiwan.",
+        "ok": true
+      },
+      {
+        "name": "Taiwan",
+        "source": "seriouslyfish",
+        "quote": "Described from the Yangtze Jiang (Yangtze River) basin in China and currently-accepted to occur throughout middle and lower reaches of both the Yangtze and Zhu Jiang (Pearl River), plus various smaller drainages of Taiwan.",
+        "ok": false,
+        "why": "a country"
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Paramisgurnus dabryanus",
+    "status": "ACCEPTED",
+    "taxonKey": 2368319,
+    "datasets": [
+      [
+        "c6859214-65a4-4563-8d17-d464541af191",
+        233
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        69
+      ],
+      [
+        "83cbdde7-998f-4354-95de-72d885cc5863",
+        60
+      ],
+      [
+        "869e4288-f762-11e1-a439-00145eb45e9a",
+        59
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        32
+      ],
+      [
+        "59f905d4-fd46-4e45-a80d-ea519e91114d",
+        17
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        15
+      ],
+      [
+        "0a0b594e-0c5e-4766-a5d7-66043160de5f",
+        12
+      ],
+      [
+        "98436813-7443-41cf-ae89-c53d199af8d0",
+        12
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        10
+      ],
+      [
+        "b7dd8170-98a0-11de-b4d9-b8a03c50a862",
+        5
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        5
+      ],
+      [
+        "ca22abc0-98a1-11de-b4da-b8a03c50a862",
+        3
+      ],
+      [
+        "d6cc311c-c5ab-4f23-9a20-10514f9eb9c4",
+        2
+      ],
+      [
+        "2a79f202-3f3a-4d54-88fa-09aa8de1ac73",
+        1
+      ],
+      [
+        "38b4c89f-584c-41bb-bd8f-cd1def33e92f",
+        1
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        1
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        1
+      ],
+      [
+        "f1d263a0-98a0-11de-b4d9-b8a03c50a862",
+        1
+      ],
+      [
+        "f5c13912-4f12-4fd0-b1c2-0d74564a5374",
+        1
+      ]
+    ],
+    "native": [
+      "CN",
+      "TW"
+    ],
+    "requests": 14,
+    "at": "2026-11-11T08:59:40.517Z"
+  }
+}

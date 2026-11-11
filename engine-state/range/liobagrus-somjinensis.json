@@ -1,0 +1,89 @@
+{
+  "id": "liobagrus-somjinensis",
+  "native": {
+    "input": "dfb09f6852825e14",
+    "at": "2026-11-11T08:59:40.517Z",
+    "claims": [
+      {
+        "code": "KR",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Etymology: –ensis, suffix denoting place: Somjin River, South Korea, the type locality.",
+        "words": "South Korea",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Somjin",
+        "source": "scotcat",
+        "quote": "L. somjinensis is restricted to rivers flowing to the west coast and Geogeum Island, the Somjin, Dongin and Tamjin rivers (Kim S-h, et al. 2023).",
+        "ok": true
+      },
+      {
+        "name": "Dongin",
+        "source": "scotcat",
+        "quote": "L. somjinensis is restricted to rivers flowing to the west coast and Geogeum Island, the Somjin, Dongin and Tamjin rivers (Kim S-h, et al. 2023).",
+        "ok": true
+      },
+      {
+        "name": "Tamjin",
+        "source": "scotcat",
+        "quote": "L. somjinensis is restricted to rivers flowing to the west coast and Geogeum Island, the Somjin, Dongin and Tamjin rivers (Kim S-h, et al. 2023).",
+        "ok": true
+      },
+      {
+        "name": "Geogeum Island",
+        "source": "scotcat",
+        "quote": "East Asia: western and southern coasts of Korea and Geogeum Island.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Liobagrus somjinensis",
+    "status": "ACCEPTED",
+    "taxonKey": 5961307,
+    "datasets": [
+      [
+        "f1fc52ac-895e-47f2-9361-d033c6479f7c",
+        30
+      ],
+      [
+        "a332915e-9950-4747-ab3b-b7eeafaf46d8",
+        18
+      ],
+      [
+        "7cd90515-4e27-4b7e-b793-48d4dbd96ec0",
+        10
+      ],
+      [
+        "6c827cf4-5d22-454e-98b1-4acbf0cb5aca",
+        5
+      ],
+      [
+        "e3fa679e-4b19-441f-bdbb-f292416e5d34",
+        5
+      ],
+      [
+        "d74d1313-04f6-4e91-8732-b6d5282416dc",
+        2
+      ],
+      [
+        "bee4a65e-e1cb-4b60-89e8-0c1c9d9f36ee",
+        1
+      ]
+    ],
+    "native": [
+      "KR"
+    ],
+    "requests": 11,
+    "at": "2026-11-11T08:59:40.517Z"
+  }
+}

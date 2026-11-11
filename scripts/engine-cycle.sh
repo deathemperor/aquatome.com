@@ -103,6 +103,9 @@ git config merge.regenerated.driver true
 git config merge.entity.driver 'node scripts/merge-entity.mjs %O %A %B'
 pnpm install --frozen-lockfile --silent
 publish_kept "$PART"
+# 11 Nov 2026: the accounts' usage limit stopped the gate reading pages two cycles had changed, so it put the readers'
+# text back, and the writers' records still say those pages were done. Put the records back before a step writes a page.
+pnpm engine redo-unread || log "redo-unread: failed"
 if part pages; then
   pnpm engine run --max-minutes "${ENGINE_MAX_MINUTES:-300}" ${ENGINE_ARGS:---except seriouslyfish}
   # Plants' other scientific names (sources' "previously named …", GBIF, a few hobby names): linked, checked, searched.
@@ -199,7 +202,7 @@ if part pages sf photos; then
   pnpm engine mirror-photos --limit "${MIRROR_LIMIT:-200}" || log "mirror-photos: failed"
   # No watermarks (credits, dealer logos, site names): text on a photo is judged once by the model, a marked photo leaves
   # every page and stays blocked. After mirroring, so a gallery's Commons photo is screened under the URL pages use.
-  pnpm engine watermarks --limit "${WATERMARK_LIMIT:-40}" || log "watermarks: failed (unscreened photos may publish)"
+  pnpm engine watermarks --limit "${WATERMARK_LIMIT:-40}" || log "watermarks: failed (the photos it has not judged wait, unshown: packages/schema/src/photo-screen.ts)"
   # Card thumbs for photos stored before thumbs existed; a failure only means full-size photos on cards.
   pnpm engine thumbs || log "thumbs: some failed (cards fall back to full photos)"
   # Wikimedia photos credited before Commons' placeholder authors were tidied on import: "RuthJM", not its sentence.

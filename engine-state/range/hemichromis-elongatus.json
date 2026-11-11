@@ -1,8 +1,8 @@
 {
   "id": "hemichromis-elongatus",
   "native": {
-    "input": "5987156bce1f1922",
-    "at": "2026-11-08T13:58:00.601Z",
+    "input": "97f40cc785672622",
+    "at": "2026-11-11T08:59:40.517Z",
     "claims": [
       {
         "code": "GN",
@@ -51,9 +51,25 @@
         "quote": "Officially recorded from Guinea, Cameroon, Angola, Namibia, Botswana and Zimbabwe.",
         "words": "Zimbabwe",
         "ok": true
+      },
+      {
+        "code": "NG",
+        "status": "native",
+        "source": "glaser",
+        "quote": "The photographed specimens originate from the Benue river in Nigeria and are still youngsters.",
+        "words": "Nigeria",
+        "ok": true
       }
     ],
-    "regions": [],
+    "regions": [
+      {
+        "name": "Benue",
+        "source": "glaser",
+        "quote": "The photographed specimens originate from the Benue river in Nigeria and are still youngsters.",
+        "country": "NG",
+        "ok": true
+      }
+    ],
     "disputed": [],
     "outranked": [],
     "origin": {
@@ -160,9 +176,10 @@
       "AO",
       "NA",
       "BW",
-      "ZW"
+      "ZW",
+      "NG"
     ],
     "requests": 14,
-    "at": "2026-11-08T13:58:00.601Z"
+    "at": "2026-11-11T08:59:40.517Z"
   }
 }

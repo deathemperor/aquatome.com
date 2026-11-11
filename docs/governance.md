@@ -528,7 +528,8 @@ The layers above still check the result.
 - **Photos.** No people, and hands count (PRODUCT.md: faces dropped by Apple Vision, and the model asks about any person
   or part of one wherever it looks), no watermarks (credits, dealer logos, site names or species names added on the
   photo: `pnpm engine watermarks`, macOS Vision reads the text and the model judges it; a marked photo is blocked for
-  good), no shop's or dealer's brand in a guide's photo (on its own-brand products too; a maker's brand on its own product is
+  good; a photo that screen still owes a look waits, and no public build shows it on a page, in an album, a guide or a
+  card until it is judged: on 2026-11-11 the model ran out of quota and 36 photos reached main with no look), no shop's or dealer's brand in a guide's photo (on its own-brand products too; a maker's brand on its own product is
   fine), no dead fish or fish as food (markets, plates, catches landed or held,
   preserved, mounted or museum specimens), each photo must show its species (a landscape where it can't be picked out
   doesn't), open licences or permission only.
@@ -607,7 +608,18 @@ The layers above still check the result.
     iNaturalist's 7), then the waiting photos of a page with no photo of its own, then the other waiting photos, the
     most-read pages first within each. A page's lead is judged in the first sheet its page gets, whatever its turn, so
     no photo judged before it goes ahead of it. Before all of them, `PHOTO_CHECK_FILL` of a cycle's sheets go to a
-    permitted source's photos that fill a page with none. Found by
+    permitted source's photos that fill a page with none. And before the turns, since 2026-11-11: a page's lead that
+    neither check has a verdict on that counts (a first check's "can't tell" does not), Flickr's and Commons' first and then the other sources', each on a sheet filled from
+    its page; then the gallery of a page with no photo of its own. The owner had found a parasite paper's plate as a
+    page's only photo, three days on the page and not yet judged, behind every more-read page's gallery (the chief of
+    staff). A lead the check passes as typical stays the lead. One that passes but isn't typical gives way to a
+    typical photo in the run that judges that photo, as before this order: no pair is compared and no call added
+    (the chief of staff, 2026-11-11). What follows a move is as it was: a head a person picked comes back first in
+    the sweep, which has the last word each cycle (`_photo-head-picks.json`). Any other head can move, a card's
+    fish too: the cycle's planner then points the day's card at the new head, and no cycle runs `curate --check`,
+    which would name a card and a head that differ. A
+    lead's sheet is filled with its page's own photos before its gallery's, so a photo that takes a removed lead's
+    place has been judged beside it. Found by
     the owner: a neon tetra on the green neon page, the tiger barb under the cherry barb, a range map on the angelfish
     page; the first check (2026-10) had reached under half the page photos, in alphabetical order, and no gallery.
     Until 2026-11-07 a fourth verdict, "its wild habitat, with or without it", stayed on the page and only went last:
@@ -748,6 +760,14 @@ The layers above still check the result.
   Pets' "10 gallons (about 38 litres)" became 40 cm on 19 cards), when the engine reads a page and again at every build
   (`tankIsVolume`). Where sources disagree, every page shows the range they all accept; a lifespan, no care target,
   the widest (Seriously Fish's when it gives one).
+- **A guide's title says what it is about, and no two share one.** The owner's "Duplicated" (2026-11-11): the app's
+  list of guides showed four rows reading "Dou Mok". 2Hr Aquarist's tank pages were titled with the aquascaper's name
+  alone (27 pages), and two videos from one channel had one title. The `guide-title` content rule finds a guide whose
+  title another guide in its language has, or whose title has no word of its language (`guide-titles.ts onlyAName`), in
+  every language. The real-content test fails on any page beyond those of 11 Nov. The sweep has each one written again
+  by the model, `GUIDE_RETITLES` a run, reviewer-gated: what the page is about, from its own text. A finished tank is
+  titled by its style and what stands out, with the aquascaper as the credit after a dash ("… – Dou Mok"). A title a
+  person chose (`nameFixed`) stays. The writer of new guides is told the same (`prompts/process.md`).
 - **Card figures from sources that state them.** A data card lacks a figure when no source read for the page states
   it. On 2026-11-01, 445 of 1,016 species pages showed no minimum tank, among them the betta, neon tetra and cherry
   barb, whose sources (The Spruce Pets, Aquarium Co-op, BW Aquatics, Glaser) give a tank as a volume or not at all.
