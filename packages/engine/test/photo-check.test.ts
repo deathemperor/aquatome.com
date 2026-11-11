@@ -256,6 +256,34 @@ test("the lead a page shows gives way to a typical photo only when the check tak
   expect(await urls(r, 'content/species/aaa-fish/entity.json')).toEqual(['aaa-lead', 'aaa-typical'])
 })
 
+test("a lead's sheet takes the page's own photos before its gallery's, so a photo that takes a removed lead's place was judged beside it", async () => {
+  const r = await root([{ id: 'aaa-fish', sci: 'Aaa fish', photos: ['lead', 'second'] }])
+  // Commons' photos have the first turn, the page's own (another source's) the second: by turn alone they would fill the sheet.
+  const commons = ['g1', 'g2', 'g3', 'g4', 'g5'].map(n => ({ ...photo(n), sourceUrl: `https://commons.wikimedia.org/wiki/File:${n}.jpg` }))
+  await writeFile(join(r, 'content/gallery/aaa-fish.json'), `${JSON.stringify({ id: 'aaa-fish', photos: commons, seen: 0, updatedAt: '' }, null, 2)}\n`)
+  const d = model({ lead: { ok: 'other', note: 'another fish' } })
+  await checkPagePhotos(r, d, { limit: 1 })
+  expect(d.seen.map(s => s.photos)).toEqual([['lead', 'second', 'g1', 'g2', 'g3', 'g4']])
+  expect(await urls(r, 'content/species/aaa-fish/entity.json')).toEqual(['second'])
+  expect((await json(r, 'engine-state/_photo-subjects.json'))[url('second')]['aaa-fish'].ok).toBe('yes')
+})
+
+test('a lead that passes stays when a typical photo is judged in a later run, and when a generated picture is first in the file', async () => {
+  const r = await root([{ id: 'aaa-fish', sci: 'Aaa fish', photos: ['lead', 'o1', 'o2', 'o3', 'o4', 'o5', 'late'] }])
+  const d = model({ late: { typical: true }, typical: { typical: true } })
+  // One sheet a run: the lead with five of its page's photos, then the seventh, which is typical.
+  await checkPagePhotos(r, d, { limit: 1 })
+  await checkPagePhotos(r, d, { limit: 1 })
+  expect(d.seen.map(s => s.photos)).toEqual([['lead', 'o1', 'o2', 'o3', 'o4', 'o5'], ['late']])
+  expect(await urls(r, 'content/species/aaa-fish/entity.json')).toEqual(['lead', 'late', 'o1', 'o2', 'o3', 'o4', 'o5'])
+  // A page's lead is its first real photo: judged in the run that first touches the page, it stays ahead of the typical
+  // one, and the generated picture goes last.
+  const g = await root([{ id: 'bbb-fish', sci: 'Bbb fish', extra: { photos: [{ ...photo('made'), generated: { model: 'x' } }, photo('real'), photo('typical')] } }])
+  await checkPagePhotos(g, d, { limit: 1 })
+  expect(d.seen[2]!.photos).toEqual(['real', 'typical'])
+  expect(await urls(g, 'content/species/bbb-fish/entity.json')).toEqual(['real', 'typical', 'made'])
+})
+
 test('a gallery photo that waits shows once the check has judged it and left it on; one it rejects goes; one not judged yet still waits', async () => {
   const r = await root([{ id: 'danio-rerio', sci: 'Danio rerio', photos: ['own'] }])
   const file = join(r, 'content/gallery/danio-rerio.json')
