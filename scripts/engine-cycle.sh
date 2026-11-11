@@ -103,6 +103,9 @@ git config merge.regenerated.driver true
 git config merge.entity.driver 'node scripts/merge-entity.mjs %O %A %B'
 pnpm install --frozen-lockfile --silent
 publish_kept "$PART"
+# 11 Nov 2026: the accounts' usage limit stopped the gate reading pages two cycles had changed, so it put the readers'
+# text back, and the writers' records still say those pages were done. Put the records back before a step writes a page.
+pnpm engine redo-unread || log "redo-unread: failed"
 if part pages; then
   pnpm engine run --max-minutes "${ENGINE_MAX_MINUTES:-300}" ${ENGINE_ARGS:---except seriouslyfish}
   # Plants' other scientific names (sources' "previously named …", GBIF, a few hobby names): linked, checked, searched.
