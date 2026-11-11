@@ -7,6 +7,7 @@ import { rewriteForReader } from './for-reader'
 import { METRIC_KINDS } from './metric'
 import { fixedParts, loadPages, type Page } from './pages'
 import { fieldOf as partOf, norm, rewritePart, type ReaderFinding } from './reader'
+import { metricFigures, US_UNITS } from './round'
 
 /**
  * The collection rewrite: Vietnamese pages the reader-fit read (fit.ts) found wrong for their reader, written again.
@@ -18,7 +19,7 @@ import { fieldOf as partOf, norm, rewritePart, type ReaderFinding } from './read
  *   written keeps it; written again, it's converted as the writer's rules say, which its reviewer holds. A part with
  *   another finding here is mended for that alone, so a rounding its reviewer fails can't lose that mend.
  * Left to others: units on a guide, which its writer rounds; a figure the English gives in metric ("tanks as small as 11
- * litres"), which rounding would make say other than its source; words, which the phrase list carries; a kit, which no rewording
+ * litres"), which the check doesn't count (round.ts sourceGives); words, which the phrase list carries; a kit, which no rewording
  * fixes (the gate holds it), advice on a fish, plant or breed page that would hurt (held too, for a person), and the doses
  * compared across pages, which a person settles. A title, a summary line or a question isn't rewritten here. engine-state/rewritten.json has each page rewritten, by its text's hash: the owner's list
  * of pages to look at (page-signals) shows a rewrite until the checker has read a newer text. engine-state/_fit-rewrite.json
@@ -28,25 +29,16 @@ import { fieldOf as partOf, norm, rewritePart, type ReaderFinding } from './read
 const MENDED: readonly FitCheck[] = ['product', 'shop', 'price', 'dose', 'source', 'units', 'elsewhere', 'dose-caution', 'lethal']
 const PART_FIELD = /^(sections\.(?!references).+|body|definition)$/
 /**
- * A figure in US units: gallons, inches (a number's "in" only as a measure: "30 × 12 in", "3 in long"), feet, °F,
- * miles, pounds. Not "5 in a group", "Ft. Lauderdale" or "LB-12".
- */
-const US_UNITS = /gallons?|\bgal\b|\binch(?:es)?\b|\d\s*"|\d\s*in\.?(?=\s*(?:[x×)\],;]|long|deep|tall|high|wide|SL|TL|$))|\d\s*(?:feet|foot|ft)\b|°\s?F\b|\d\s*miles?\b|\d\s*(?:pounds?|lbs?)\b/i
-/** A metric figure in Vietnamese ("11 lít", "2,5–5 cm", "21 °C") or English ("11 litres", "2.5 cm"): its numbers. */
-const METRIC_VI = /(\d+(?:,\d+)?)(?:\s*[–-]\s*(\d+(?:,\d+)?))?\s*(?:lít|l|cm|mm|m|km|°\s?C|độ C)(?![\p{L}\p{N}])/giu
-const METRIC_EN = /(\d+(?:\.\d+)?)(?:\s*[–-]\s*(\d+(?:\.\d+)?))?\s*(?:-?\s*(?:litres?|liters?|l|cm|mm|m|km|metres?|meters?|°\s?C))(?![\p{L}\p{N}])/giu
-const numbers = (text: string, re: RegExp) => [...text.matchAll(re)].flatMap(m => [m[1], m[2]]).filter((x): x is string => !!x).map(x => Number(x.replace(',', '.')))
-/**
  * A units finding the rewrite can mend: its English gives the figure in US units, and none of the metric figures it
  * quotes is one the English gives itself, alone or beside a US one ("~68 litres (~18 US gal)", "5 gallons (about 19
- * litres)"): numbers stay as the source gives them (the chief of staff, 2026-11-11). A US unit left in the quote itself
- * is always mended.
+ * litres)"): numbers stay as the source gives them (the chief of staff, 2026-11-11; round.ts sourceGives). A US unit
+ * left in the quote itself is always mended.
  */
 export function convertible(quote: string, en: string): boolean {
   if (US_UNITS.test(quote)) return true
   if (!US_UNITS.test(en)) return false
-  const given = new Set(numbers(en, METRIC_EN))
-  return !numbers(quote, METRIC_VI).some(n => given.has(n))
+  const given = new Set(metricFigures(en, 'en'))
+  return !metricFigures(quote, 'vi').some(n => given.has(n))
 }
 export type Rewritten = Record<string, { at: string; hash: string }>
 /** Each page tried, by the hash of the text it read, and how often on any of its texts (none: once, before the count). */

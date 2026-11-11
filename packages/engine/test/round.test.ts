@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { roundConverted, roundPage } from '../src/round'
+import { metricFigures, roundConverted, roundPage, sourceGives } from '../src/round'
 
 const vi = (s: string) => roundConverted(s, 'vi')
 
@@ -49,4 +49,15 @@ test("a page's text is rounded, its reference lists aren't, and a second pass ch
   const once = roundPage(page, 'vi')
   expect(once).toEqual({ sections: { 'quickFacts:seriouslyfish': '<li>Bể: 40 lít</li>', 'references:seriouslyfish': '<p>Tank 38 l.</p>' }, body: '<p>Bể 80 lít.</p>', summary: ['23 °C'], faq: [{ q: 'Bể 20 lít?', a: '60 lít.' }] })
   expect(roundPage(once, 'vi')).toEqual(once)
+})
+
+test('metric figures as each language writes them, and whether the English source gives them all', () => {
+  expect(metricFigures('nền 2,5–5 cm, bể 1.000 lít, 24 °C', 'vi')).toEqual(['2.5 cm', '5 cm', '1000 l', '24 c'])
+  expect(metricFigures('ลึก 2.5 ซม. ในตู้ 110 ลิตรขึ้นไป', 'th')).toEqual(['2.5 cm', '110 l'])
+  expect(metricFigures('a 1,000-litre pond, 2.5 cm of sand, 6 m x 1.8 m', 'en')).toEqual(['1000 l', '2.5 cm', '6 m', '1.8 m'])
+  expect(metricFigures('5 lần, 3 loài', 'vi')).toEqual([])
+  expect(sourceGives('bể 60 lít', '<p>a 60 cm tank, 15 gallons</p>', 'vi')).toBe(false) // a length, not a volume
+  expect(sourceGives('bể 60 lít', 'a tank of 60 litres', 'vi')).toBe(true)
+  expect(sourceGives('tangki 60 x 37.5 x 30 cm (71 liter)', '60 x 37.5 x 30 cm (71 litres)', 'ms')).toBe(true)
+  expect(sourceGives('ít nhất 6 con', 'at least 6 fish', 'vi')).toBe(false) // no figure to give
 })

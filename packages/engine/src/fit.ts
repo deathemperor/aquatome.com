@@ -10,7 +10,7 @@ import { mentions, PRODUCTS } from './market'
 import { LANG_NAME, type Page, type PageKind } from './pages'
 import { PHRASES, phraseQuotes } from './phrases'
 import { label, norm, readable, render, RETRACTED } from './reader'
-import { CONVERTED_LITRES } from './round'
+import { CONVERTED_LITRES, sourceGives } from './round'
 import { snapshotName } from './snapshot'
 
 /**
@@ -536,7 +536,22 @@ export function fitFindings(p: Page, entry?: FitEntry): FitFinding[] {
   })
   // What it's for, not how: two readers agree on the first and not on the second, which is only for comparing doses.
   const unsaid = (entry?.doses ?? []).filter(d => !d.use).map(d => ({ check: 'dose-purpose' as const, part: '', quote: clip(d.quote), why: 'doesn\'t say what this dose is for', by: 'model' as const }))
-  return dedupe([...fitRules(p), ...(entry?.findings ?? []), ...named, ...unsaid])
+  const all = dedupe([...fitRules(p), ...(entry?.findings ?? []), ...named, ...unsaid])
+  return p.en && all.some(f => f.check === 'units') ? all.filter(f => !givenBySource(p, f)) : all
+}
+
+/**
+ * A units finding whose figures the page's English gives in metric itself (sourceGives): the English of the part it
+ * quotes, or all of it for a part with none of its own (a summary line, a question). A section AquaTome wrote from many
+ * sources' facts (`:aquatome`) has no English of its own, and a guide keeps its source elsewhere (fitSource): their
+ * figures still count.
+ */
+function givenBySource(p: Page, f: FitFinding): boolean {
+  if (f.check !== 'units' || !p.en) return false
+  const field = fitText(p).parts.find(x => x.id === f.part)?.field
+  const own = Object.entries(p.en).filter(([k]) => !k.endsWith(':aquatome'))
+  const en = field && p.en[field] !== undefined ? (field.endsWith(':aquatome') ? '' : p.en[field]) : own.map(([, v]) => v).join('\n')
+  return sourceGives(f.quote, render(en), p.lang)
 }
 
 /** Product names the table has no row for: what to look up next, with how many pages name each. */

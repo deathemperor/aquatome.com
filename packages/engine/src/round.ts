@@ -80,6 +80,39 @@ export function roundConverted(text: string, lang: UnitLang): string {
   return text.split(/(<[^>]+>)/).map((seg, i) => (i % 2 ? seg : round(seg))).join('')
 }
 
+/**
+ * A figure in US units: gallons, inches (a number's "in" only as a measure: "30 × 12 in", "3 in long"), feet, °F,
+ * miles, pounds. Not "5 in a group", "Ft. Lauderdale" or "LB-12". The page languages' own words for them too.
+ */
+export const US_UNITS = /gallons?|\bgal\b|galon|ga-?\s?lông|แกลลอน|\binch(?:es)?\b|\binci\b|นิ้ว|\d\s*"|\d\s*in\.?(?=\s*(?:[x×)\],;]|long|deep|tall|high|wide|SL|TL|$))|\d\s*(?:feet|foot|ft)\b|°\s?F\b|độ F|\d\s*miles?\b|\d\s*(?:pounds?|lbs?)\b/i
+
+const END = String.raw`(?![\p{L}\p{N}])`
+/** Metric units, by kind, as the page languages and the English sources write them. Thai runs words together: no end. */
+const METRIC = String.raw`(?:(?<l>(?:lít|liters?|litres?|l)${END}|ลิตร)|(?<cm>(?:cm|centimet(?:er|re)s?)${END}|ซม\.?|เซนติเมตร)|(?<mm>(?:mm|millimet(?:er|re)s?)${END}|มม\.?|มิลลิเมตร)|(?<km>km${END}|กิโลเมตร)|(?<m>(?:m|mét|meters?|metres?)${END}|เมตร)|(?<c>(?:°\s?C|độ C|degrees? C(?:elsius)?)${END}|องศา(?:เซลเซียส)?))`
+const FIGURE = new RegExp(String.raw`(?<![\d.,])(\d+(?:[.,]\d+)*)(?:\s*(?:[–-]|to|đến|tới|hingga|sampai|ถึง)\s*(\d+(?:[.,]\d+)*))?\s*-?\s*${METRIC}`, 'giu')
+/** A number as a language writes it: "2,5" and "1.000" in Vietnamese and Indonesian, "2.5" and "1,000" in the others. */
+const numberIn = (s: string, lang: UnitLang | 'en') => Number(lang === 'vi' || lang === 'id' ? s.replace(/\./g, '').replace(',', '.') : s.replace(/,/g, ''))
+/** A text's metric figures, each number with its unit's kind: "2,5–5 cm" is ["2.5 cm", "5 cm"]; "11 litres" ["11 l"]. */
+export function metricFigures(text: string, lang: UnitLang | 'en'): string[] {
+  return [...text.matchAll(FIGURE)].flatMap(m => {
+    const kind = Object.entries(m.groups ?? {}).find(([, v]) => v !== undefined)![0]
+    return [m[1], m[2]].filter((x): x is string => !!x).map(x => `${numberIn(x, lang)} ${kind}`)
+  })
+}
+/**
+ * Whether every figure a quote gives is metric and one its English source gives in metric itself, alone or beside a US
+ * one ("tanks as small as 11 litres", "5 gallons (about 19 litres)"): numbers stay as the source gives them (the chief
+ * of staff, 2026-11-11), so the reader-fit check doesn't count them. A US unit in the quote, or one figure the source
+ * doesn't give, still counts.
+ */
+export function sourceGives(quote: string, en: string, lang: UnitLang): boolean {
+  if (US_UNITS.test(quote)) return false
+  const figures = metricFigures(quote, lang)
+  if (!figures.length) return false
+  const given = new Set(metricFigures(en, 'en'))
+  return figures.every(x => given.has(x))
+}
+
 type Page = { sections?: Record<string, string>; body?: string; summary?: string[]; faq?: { q: string; a: string }[] }
 /** A page's text rounded (`roundConverted`): what `metricPage` (@aq/schema) reads, and reference lists stay as published. */
 export function roundPage<T extends Page>(page: T, lang: UnitLang): T {
