@@ -64,3 +64,20 @@ test('"setup bể" is written "set bể", with a capital where a sentence starts
   for (const kept of ['setup một bể nhỏ', 'setup ly thủy sinh', 'SETUP Bể', 'bộ setup bểx']) expect(viWording(kept)).toBe(kept)
   expect(wordingSlips('Cách setup bể cá betta đẹp')).toEqual(['"setup bể" → "set bể"'])
 })
+
+// The reader check's wording findings on top-card pages (2026-11-08); the keepers' forum writes the right-hand words.
+test('"trùn chỉ đỏ" is written "trùng huyết", "nửa tá" "6 con", "thủng lỗ đầu" "lủng đầu"; a sentence that gave both names keeps one', () => {
+  expect(viWording('cho ăn trùn chỉ đỏ (bloodworm) và artemia')).toBe('cho ăn trùng huyết (bloodworm) và artemia')
+  expect(viWording('<p>Trùn chỉ đỏ đông lạnh rất tốt.</p>')).toBe('<p>Trùng huyết đông lạnh rất tốt.</p>')
+  expect(viWording('ấu trùng muỗi lắc chironomid (trùn chỉ đỏ/trùn huyết) sống')).toBe('ấu trùng muỗi lắc chironomid (trùng huyết) sống')
+  expect(viWording('ấu trùng chironomid (trùn chỉ đỏ, hay trùng huyết), giun')).toBe('ấu trùng chironomid (trùng huyết), giun')
+  expect(viWording('cho ăn trùn chỉ đỏ (trùng huyết, tức ấu trùng muỗi chironomid)')).toBe('cho ăn trùng huyết (tức ấu trùng muỗi chironomid)')
+  for (const kept of ['trùn chỉ sống', 'trùn chỉ', 'trùng huyết', 'nửa tá loài', 'thủng lỗ']) expect(viWording(kept)).toBe(kept)
+  expect(viWording('nuôi thành đàn từ nửa tá con trở lên; mỗi giới nửa tá con đực và nửa tá con cái'))
+    .toBe('nuôi thành đàn từ 6 con trở lên; mỗi giới 6 con đực và 6 con cái')
+  expect(viWording('Lúc nào cũng nên mua ít nhất nửa tá. Nửa tá con là đủ.')).toBe('Lúc nào cũng nên mua ít nhất 6 con. 6 con là đủ.')
+  expect(viWording('<li>dễ mắc bệnh thủng lỗ đầu,</li>')).toBe('<li>dễ mắc bệnh lủng đầu,</li>')
+  const once = viWording('trùn chỉ đỏ/trùn huyết, nửa tá con, thủng lỗ đầu')
+  expect(viWording(once)).toBe(once)
+  expect(wordingSlips('trùn chỉ đỏ (bloodworm) và nửa tá con')).toEqual(['"trùn chỉ đỏ" → "trùng huyết"', '"nửa tá con" → "6 con"'])
+})
