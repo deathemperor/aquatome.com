@@ -234,7 +234,72 @@
       "html": "<p>The genus Hyphessobrycon, as it is currently defined, represents an artificial assemblage of species which are not very closely related. So the placement of H. elachys in Hyphessobrycon is only provisional and it will surely be placed in another genus in case of a revision of Hyphessobrycon.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/86491903bd1e042e2f80e713a6807df1.webp",
+      "thumb": "https://media.aquatome.com/processed/86491903bd1e042e2f80e713a6807df1-480.webp",
+      "width": 850,
+      "height": 432,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hyphessobrycon-elachys-2/",
+      "source": "glaser",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-hyphessobrycon-elachys",
+        "pixelHash": "221599c02cd75cac628cb7c3938cc8ec3f679fd7a82f5cdfac759c1c30fed929"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T10:41:58.363Z",
+          "originalHash": "f6e7b66a6d7347e91eaa1902742919c98867ca5ecec3f52b076d00342b80d646",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 850,
+            "originalHeight": 567,
+            "window": {
+              "x0": 0,
+              "y0": 135,
+              "x1": 850,
+              "y1": 567
+            },
+            "subject": {
+              "x0": 160,
+              "y0": 151,
+              "x1": 660,
+              "y1": 449
+            },
+            "margin": 15
+          },
+          "excludedMarks": [
+            {
+              "x0": 18,
+              "y0": 16,
+              "x1": 823,
+              "y1": 129
+            }
+          ],
+          "checks": {
+            "species": [
+              "c514c6880c145be53d5f1f0bb9f266971970a31202a6246be19bd95a3924fdad",
+              "7ad142acf16d592a3f967bb383a29759b94c8fd647d6d0053564e820f373983a"
+            ],
+            "ownership": [
+              "61ee3a06979d8c2a0827f5624b5f68729214531914c617ad1fd8d660697bb8bc",
+              "aa188bd0a0d1955fd76d1d9fa0bf6bbc9b66c2ada2aa4e9c6771093ee63f1c14"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/glaser/22121263868452ff.webp",
+        "width": 850,
+        "height": 567,
+        "thumb": "https://media.aquatome.com/glaser/22121263868452ff-480.webp"
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {

@@ -119,7 +119,72 @@
       "html": "<p>Important note: As wild-caught Parosphromenus parvulus, these fish are extremely sensitive to any deviation from soft, acidic, tannin-rich conditions. Acclimate slowly and avoid sudden changes in pH, hardness, or temperature. They thrive only in mature, biologically stable systems with abundant botanicals and extremely gentle flow. Stress, bright lighting, or insufficient cover can significantly shorten lifespan and interfere with breeding behavior. A dedicated blackwater microhabitat is essential for long-term success.</p><p>This fish is highly endangered, and only aquarists with significant experience maintaining peat-swamp blackwater species should attempt to keep it.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/5b9ed889d8dde862f01378f9f029c0d7.webp",
+      "thumb": "https://media.aquatome.com/processed/5b9ed889d8dde862f01378f9f029c0d7-480.webp",
+      "width": 1200,
+      "height": 1409,
+      "licence": "dùng với sự cho phép",
+      "author": "BW Aquatics",
+      "sourceUrl": "https://bwaquatics.com/products/parosphromenus-linkei-9g6xs-y9399",
+      "source": "bwaquatics",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-parosphromenus-parvulus",
+        "pixelHash": "55a43eff247a8a361076d776f461701a0a9346c8970c5a1d48cf0e1966b70802"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T10:56:11.085Z",
+          "originalHash": "357c6602a2ff003770c51acbc256e5de85c88e5243fa4ac98d382cab2a5abee1",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 1200,
+            "originalHeight": 1500,
+            "window": {
+              "x0": 0,
+              "y0": 0,
+              "x1": 1200,
+              "y1": 1409
+            },
+            "subject": {
+              "x0": 211,
+              "y0": 438,
+              "x1": 969,
+              "y1": 976
+            },
+            "margin": 30
+          },
+          "excludedMarks": [
+            {
+              "x0": 406,
+              "y0": 1421,
+              "x1": 792,
+              "y1": 1447
+            }
+          ],
+          "checks": {
+            "species": [
+              "f8f6479108dd015e7f32e98fa829887266529936aea1223db3364e81667ebeac",
+              "3bdff996187a78df9bf2c77c4b3b792fe2d2d998465e8374feab56887a181ace"
+            ],
+            "ownership": [
+              "22ef59413f3518ee2afdd0445fa7155335847fb4484554a44bb52a06e833d736",
+              "843cb775329a5b8c3c7a9ef2fd5a143b11839e2add1f99af45c1939f67f78819"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/bwaquatics/668aaa1b7139e46b.webp",
+        "width": 1200,
+        "height": 1500,
+        "thumb": "https://media.aquatome.com/bwaquatics/668aaa1b7139e46b-480.webp"
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {

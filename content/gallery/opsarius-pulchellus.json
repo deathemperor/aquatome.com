@@ -1,0 +1,71 @@
+{
+  "id": "opsarius-pulchellus",
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/c8db88cb4bd24d28582277362591ec08.webp",
+      "thumb": "https://media.aquatome.com/processed/c8db88cb4bd24d28582277362591ec08-480.webp",
+      "width": 850,
+      "height": 408,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/08-carp-like-fishes-2-barbs-minnows-carps-goldfish-etc/opsarius_pulchellus_en/",
+      "source": "glaser",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-opsarius-pulchellus",
+        "pixelHash": "ab19f1d967c3703a76b9605f0f736a8f96b69f3bf7f38571c954c1f2287f2eff"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T10:52:49.472Z",
+          "originalHash": "cc9e8a3629b96f6914175320b762cf10c9c538869099c3836ffb926d63af042e",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 850,
+            "originalHeight": 558,
+            "window": {
+              "x0": 0,
+              "y0": 150,
+              "x1": 850,
+              "y1": 558
+            },
+            "subject": {
+              "x0": 31,
+              "y0": 183,
+              "x1": 802,
+              "y1": 464
+            },
+            "margin": 14
+          },
+          "excludedMarks": [
+            {
+              "x0": 27,
+              "y0": 28,
+              "x1": 831,
+              "y1": 144
+            }
+          ],
+          "checks": {
+            "species": [
+              "42777524ecc524d6ba79f0df7128702be597d1845739efa8b0fcbd042dd0ae6d",
+              "e3800904963cb670ccc1ae6fb437537dd09c7b0d6ddb29bd2fd785e6606e6682"
+            ],
+            "ownership": [
+              "dfbef10e02b089f48ba9b6314e1929aba404867ca6b26c59f7d845fffd492b71",
+              "e616d7b64321fc6e519a344937d6ad4856d34eb0dd6c49d8a746b111388e0c9f"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/glaser/5b8e42811030ccf3.webp",
+        "width": 850,
+        "height": 558,
+        "thumb": "https://media.aquatome.com/glaser/5b8e42811030ccf3-480.webp"
+      }
+    }
+  ],
+  "seen": 0,
+  "updatedAt": "2026-11-11"
+}

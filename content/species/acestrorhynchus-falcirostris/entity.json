@@ -804,7 +804,73 @@
       "html": "<ul><li>Géry, J. (1977). Characoids of the World. T.F.H. Publications, Inc., 1-672</li><li>López-Fernández, H. and K. O. Winemiller (2003). Morphological variation in Acestrorhynchus microlepis and A. falcatus (Characiformes: Acestrorhynchidae), reassessment of A. apurensis and distribution of Acestrorhynchus in Venezuela. Ichthyological Exploration of Freshwaters 14(3), 193-208</li><li>Menezes, N. A. (1969). Systematics and evolution of the tribe Acestrorhynchini (Pisces, Characidae). Arquivos de Zoologia (São Paulo) 18(1-2), 1-150</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Prettia, V. Q., D. Calcagnottoa, M. Toledo-Piza and L. F. de Almeida-Toledo (2009). Phylogeny of the Neotropical genus Acestrorhynchus (Ostariophysi: Characiformes) based on nuclear and mitochondrial gene sequences and morphology: A total evidence approach. Molecular Phylogenetics and Evolution 52(2), 312–320</li><li>Toledo-Piza, M. (2007). Phylogenetic relationships among Acestrorhynchus species (Ostariophysi: Characiformes: Acestrorhynchidae). Zoological Journal of the Linnean Society 151(4), 691–757</li></ul>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/afe1c00cd905d372b2f1a242019fe066.webp",
+      "thumb": "https://media.aquatome.com/processed/afe1c00cd905d372b2f1a242019fe066-480.webp",
+      "width": 827,
+      "height": 587,
+      "licence": "dùng với sự cho phép",
+      "author": "Enrico Richter",
+      "sourceUrl": "https://www.seriouslyfish.com/species/acestrorhynchus-falcirostris",
+      "caption": "...seen in juveniles.",
+      "source": "seriouslyfish",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-acestrorhynchus-falcirostris",
+        "pixelHash": "205062d828a9bb4ac00746a3664c3525cb2d10495465afa1fb58fb7ff3074d09"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T09:09:00.799Z",
+          "originalHash": "a228724667bf5f696eb8f8e84fa24465ef4e21386aa735d3a92b39fbfcbb73ba",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 827,
+            "originalHeight": 620,
+            "window": {
+              "x0": 0,
+              "y0": 33,
+              "x1": 827,
+              "y1": 620
+            },
+            "subject": {
+              "x0": 159,
+              "y0": 179,
+              "x1": 689,
+              "y1": 401
+            },
+            "margin": 16
+          },
+          "excludedMarks": [
+            {
+              "x0": 12,
+              "y0": 8,
+              "x1": 185,
+              "y1": 26
+            }
+          ],
+          "checks": {
+            "species": [
+              "75c4bbc172aa8370279104de9ce17cc12b62f830ff1c8ce6b7396886a3be3ab1",
+              "f2a103ee295528f7a8655fda0278bf6c679ae32d24b1b4367903c03c0fd00daf"
+            ],
+            "ownership": [
+              "2960bd4dedb163763c5823e86fbca2fc449d5a2e1a82944aaf9f7fe3a610e3d6",
+              "5ea7d17c2c5760fab022c202fdd603497ea919eae0b5cab787c2342a03911683"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/seriouslyfish/54795495077d35be.webp",
+        "width": 827,
+        "height": 620,
+        "thumb": "https://media.aquatome.com/seriouslyfish/54795495077d35be-480.webp"
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
