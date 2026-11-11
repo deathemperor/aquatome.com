@@ -1,3 +1,4 @@
+import { pendingOwnerCrops, publishOwnerCrops } from './owner-crops'
 import { beforeDeadline } from './image-deadline'
 import { mkdir, readdir, readFile, writeFile, rename } from 'node:fs/promises'
 import { join } from 'node:path'
@@ -83,10 +84,12 @@ async function withdrawGenerated(root: string, page: Pick<ImagePage, 'kind' | 'i
   }
 }
 
-/** All switches OFF returns before constructing credentials, reading quota, using a model or touching any output. */
+/** All general switches OFF leaves only the individually approved, model-free crop publisher. */
 export async function imageSteps(root: string, makeDeps: () => Promise<ImageStepDeps>, switches: Readonly<ImageSwitches> = IMAGE_SWITCHES, limit = 1, budgetMs = 12 * 60_000, cancellation?: AbortSignal) {
   const report = { generated: 0, repaired: 0, upscaled: 0, published: 0, waiting: [] as string[], failed: [] as string[], off: !Object.values(switches).some(Boolean) }
-  if (report.off) return report
+  cancellation?.throwIfAborted()
+  const ownerPending=await pendingOwnerCrops(root)
+  if (report.off && !ownerPending.length) return report
   if (!Number.isSafeInteger(limit) || limit < 0 || limit > 5) throw new Error('images limit must be an integer from 0 to 5')
   cancellation?.throwIfAborted()
   const deadline = Date.now() + budgetMs
@@ -100,6 +103,12 @@ export async function imageSteps(root: string, makeDeps: () => Promise<ImageStep
     extract: async (...args) => { reserve(); return originalDeps.extract(...args) },
     judge: async <T>(...args: Parameters<ImageStepDeps['judge']>) => { reserve(); return originalDeps.judge<T>(...args) },
     locateMark: async (...args) => { reserve(); return originalDeps.locateMark(...args) },
+  }
+  if(ownerPending.length) {
+    const owner=await publishOwnerCrops(root,d.cache,d.store,(page,p)=>addPhoto(root,page,p),signal)
+    report.repaired+=owner.published;report.published+=owner.published
+    report.waiting.push(...owner.waiting);report.failed.push(...owner.failed)
+    if(report.off)return {...report,off:false}
   }
   const sources = SourcesSchema.parse(await json(join(root, 'content/sources.json'), {}))
   const meter = (kind: string, prompt: string, reference?: string) => meteredImage(d.cache, kind, prompt, { quota: d.quota, generate: (p, dir, observe) => d.native(p, dir, reference, observe) })

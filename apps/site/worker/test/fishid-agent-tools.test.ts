@@ -241,3 +241,13 @@ test('recheck: an answer that stands is not sent back (sure enough, not a fish o
   // A plant unsure: its genus is listed as a fish's would be.
   expect(recheckOf(CATALOG, said({ verdict: 'plant', guesses: [guess('Rotala rotundifolia', 0.4)] }))).toHaveLength(1)
 })
+
+test('individually approved crops never supply Fish ID catalog or facts pictures',()=>{
+ const crop={url:'https://media.aquatome.com/owner-crop.webp',ownerCrop:{id:'fixture',pixelHash:'a'.repeat(64)}}
+ const real={url:'https://media.aquatome.com/real.webp'}
+ const page={id:'fixture',scientificName:'Fixture species',photos:[crop,real],sections:[],t:{name:'Fixture',altNames:[],slug:'fixture'}}
+ const pages={species:[page],breeds:[],plants:[]},catalog=buildCatalog([{lang:'vi',pages,at:p=>p}],p=>p.url)
+ expect(catalog.entries[0]?.img).toBe(real.url)
+ const facts=buildFacts(catalog,pages,p=>p.url,{gallery:()=>[crop]})
+ expect(JSON.stringify(facts)).not.toContain(crop.url);expect(JSON.stringify(facts)).toContain(real.url)
+})

@@ -24,6 +24,7 @@
   "packages/engine/src/mark-residue.ts",
   "packages/engine/src/marked-photo-history.ts",
   "packages/engine/src/marked-photos.ts",
+  "packages/engine/src/owner-crops.ts",
   "packages/engine/src/private-lettering-digests.json",
   "packages/engine/src/public-image-evidence.ts",
   "packages/engine/test/generated-photo-regressions.test.ts",
@@ -41,9 +42,13 @@
   "packages/engine/test/mark-boundary.test.ts",
   "packages/engine/test/mark-residue.test.ts",
   "packages/engine/test/marked-history.test.ts",
+  "packages/engine/test/owner-crops.test.ts",
   "packages/engine/test/public-image-evidence.test.ts",
   "packages/engine/test/public-image-files.json",
   "packages/schema/src/image-geometry.ts",
   "packages/schema/src/image-policy.ts",
-  "packages/schema/test/image-policy.test.ts"
+  "packages/schema/src/owner-crops.json",
+  "packages/schema/src/owner-crops.ts",
+  "packages/schema/test/image-policy.test.ts",
+  "packages/schema/test/owner-crops-registry.test.ts"
 ]
