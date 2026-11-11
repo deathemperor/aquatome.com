@@ -8,15 +8,74 @@ import type { UnitLang } from '@aq/schema'
 export const CONVERTED_LITRES: readonly number[] = [19, 38, 57, 76, 95, 113, 114, 151, 189, 208, 210, 284, 285, 341, 379, 380, 454, 473, 568, 681, 757, 946, 950]
 /** The tank sizes a keeper here names, in litres. */
 const TANK_LITRES = [20, 30, 40, 50, 60, 80, 100, 120, 150, 200, 250, 300, 350, 400, 450, 500, 600, 700, 750, 800, 1000]
-/** A rounded figure stays within this of the source's: 110 litres is as far from 100 as from 120, and stays 110. */
-const WITHIN = 0.07
+/**
+ * A size a keeper names stays within a tenth of the exact figure, and never more than a twentieth under it: a minimum
+ * mustn't drop by 9% (the chief of staff, 2026-11-11 and 12).
+ */
+const WITHIN = 0.1
+const UNDER = 0.05
 /** A tank's side in cm that only an inch or foot conversion gives (13, 15, 16, 18, 20, 24, 30, 36, 48, 60, 72, 84, 96 in). */
 const INCH_SIDES = new Set([33, 38, 41, 46, 51, 61, 76, 91, 122, 152, 183, 213, 244])
 /** A tank's length in cm that only a foot conversion gives (2 to 8 ft): "bể dài 122 cm". */
 const FOOT_LENGTHS = new Set([61, 91, 122, 152, 183, 213, 244])
 
 const near = (n: number) => TANK_LITRES.reduce((b, x) => (Math.abs(x - n) < Math.abs(b - n) || (Math.abs(x - n) === Math.abs(b - n) && x > b) ? x : b))
-const litres = (n: number) => { const r = near(n); return CONVERTED_LITRES.includes(n) && Math.abs(r - n) / n <= WITHIN ? r : n }
+/**
+ * The tank size a keeper here names for a volume: the nearest of TANK_LITRES, or the next one up where the nearest is
+ * more than a twentieth under it (29 gallons, 110 litres, is 120, not 100), when that is within a tenth.
+ */
+const keeperLitres = (n: number): number | undefined => {
+  const r = n - near(n) > n * UNDER ? TANK_LITRES.find(x => x >= n)! : near(n)
+  return Math.abs(r - n) / n <= WITHIN ? r : undefined
+}
+const litres = (n: number) => (CONVERTED_LITRES.includes(n) ? keeperLitres(n) ?? n : n)
+
+/** A US gallon, in litres. */
+export const GALLON = 3.785411784
+/**
+ * The one rule for a tank a source names in US gallons: the size a keeper here names it, in litres (`keeperLitres` of
+ * the exact volume). The writers' prompts give it ({{TANKS_EN}}, {{TANKS_VI}}: `withTanks`), the units mender maps a
+ * figure converted another way back to it (`usTankOf`, units-mend.ts), and `roundConverted` rounds to the same sizes.
+ * The site's ready-made tank table (@aq/schema READY_TANKS, the tank volume tool) reads each size as the same tank as
+ * its exact volume, but for 25 gallons: 95 litres is a 70 cm tank there, 100 an 80 cm one. 100 stands, as roundConverted
+ * already writes it and the roomier tank is the safer advice (the chief of staff, 2026-11-11).
+ */
+export const US_TANKS: readonly (readonly [gallons: number, litres: number])[] =
+  [5, 5.5, 10, 15, 20, 25, 29, 30, 40, 50, 55, 65, 75, 90, 100, 110, 120, 125, 150, 180, 200, 210, 220, 250].map(g => [g, keeperLitres(g * GALLON)!] as const)
+/**
+ * The US tank a volume in litres is a conversion of, by the exact figure (to the litre either way, or with a decimal:
+ * 113, 114, 113,6 for 30 gallons) or to the nearest 5 litres (115): what writers made of it before this table. Any other
+ * figure, a size in between (470 for 125 gallons), maps to none.
+ */
+export function usTankOf(litres: number): readonly [gallons: number, litres: number] | undefined {
+  return US_TANKS.find(([g]) => Math.abs(litres - g * GALLON) < 1 || litres === Math.round((g * GALLON) / 5) * 5)
+}
+/** The table as the writers' prompts give it, in English and in Vietnamese. */
+const sizes = (gal: string, l: string) => {
+  const byLitres = new Map<number, number[]>()
+  for (const [g, x] of US_TANKS) byLitres.set(x, [...(byLitres.get(x) ?? []), g])
+  return [...byLitres].map(([x, gs]) => `${gs.join(' hoặc ').replace(/(\d)\.(\d)/g, '$1,$2')} ${gal} ${x} ${l}`)
+}
+export const TANK_RULE = {
+  en: `a tank given in US gallons is named by the size keepers here say, never its exact conversion or one to the nearest 5 litres: ${sizes('gallons', 'litres').map(s => s.replaceAll(' hoặc ', ' or ').replace(/(\d),(\d)/g, '$1.$2')).join(', ')}. A tank size not listed is converted and rounded to whole litres`,
+  vi: `bể ghi theo gallon Mỹ thì gọi bằng cỡ người chơi ở đây vẫn gọi, không đổi chính xác, không làm tròn tới 5 lít: ${sizes('gallon', 'lít').join(', ')}. Cỡ bể không có ở đây thì đổi ra lít, làm tròn tới số nguyên`,
+}
+/**
+ * The units a dose is measured in, each language's (fit.ts and topics.ts read doses in the same ones, and the pages'
+ * own: "1 cốc (240 ml) muối", "1 ช้อนชา (5 มล.)"). Thai writes the next word on, so its units need no word end.
+ */
+const DOSE_UNITS = String.raw`(?:(?:ml|mililít|mililit|cc|mg|kg|gam|gram|gr|g|gói|viên|thìa|muỗng|giọt|nắp|cốc|chén|chai|sachet|tablet|butir|sendok|tetes|titis|sudu|sdt|sdm|tutup|gelas|cangkir|tsp|tbsp|drops?|capfuls?|cups?)\.?(?![\p{L}])|(?:มิลลิลิตร|มล|มิลลิกรัม|มก|กรัม|ซอง|เม็ด|หยด|ช้อน|ฝา|แก้ว|ถ้วย))`
+/** An amount in a dose's unit ("5 ml", "1 gam", "5 มล."). Not a weight: "Cá nặng (tới) 5 gam", "beratnya 5 gram". */
+const DOSE_AMOUNT = new RegExp(String.raw`(?<![\d.,])(?<!(?:nặng|weighs?|weighing|berat(?:nya)?|seberat|หนัก)\s*(?:(?:tới|đến|hơn|gần|khoảng|chừng|about|up to|over|sekitar|hingga|ประมาณ)\s*)?)\d[\d.,–-]*\s*${DOSE_UNITS}`, 'iu')
+/**
+ * Whether a text gives a dose anywhere, its tags aside: then any volume in it may be the water a dose goes into, whose
+ * figure is the exact conversion and is never rounded. Read as wide as that on purpose (the independent reader's rounds
+ * 4 to 7, 2026-11-11 and 12: every narrower window, a clause, a sentence, a sentence back, had an edge a dose crossed).
+ * A tank taken for a dose's water stays held for a writer; a dose's water taken for a tank would misdose a reader's fish.
+ */
+export const givesDose = (text: string) => DOSE_AMOUNT.test(text.replace(/<[^>]+>/g, ' '))
+/** A writer's or reviewer's prompt with the table in place of {{TANKS_EN}} and {{TANKS_VI}}. */
+export const withTanks = (prompt: string) => prompt.replaceAll('{{TANKS_EN}}', TANK_RULE.en).replaceAll('{{TANKS_VI}}', TANK_RULE.vi)
 const side = (n: number) => (n < 100 ? Math.round(n / 5) * 5 : Math.round(n / 10) * 10)
 
 const L = String.raw`(?:lít|liter|litre|ลิตร|L|l)(?![\p{L}\p{N}])`
@@ -113,7 +172,12 @@ const BY_SIDES = new RegExp(String.raw`(?<![\d.,])(${NUMBER}(?:${BY}${NUMBER})+)
 /** One number, a range, or a choice of two whose first isn't joined to a number before it ("pH 6.5 or 7.5 and 75 litres" is 75 litres). */
 const FIGURE = new RegExp(String.raw`(?<![\d.,])(${NUMBER}(?:${RANGE}${NUMBER})?|(?<!\d(?:${RANGE}|${BY}|${CHOICE}))${NUMBER}${CHOICE}${NUMBER})\s*-?\s*${METRIC}`, 'giu')
 /** A number as a language writes it: "2,5" and "1.000" in Vietnamese and Indonesian, "2.5" and "1,000" in the others. */
-const numberIn = (s: string, lang: UnitLang | 'en') => Number(lang === 'vi' || lang === 'id' ? s.replace(/\./g, '').replace(',', '.') : s.replace(/,/g, ''))
+export const numberIn = (s: string, lang: UnitLang | 'en') => {
+  // One separator and one or two digits after it is a decimal in any language: "75.7", "2,5". Three is a thousand.
+  const d = /^(\d+)[.,](\d{1,2})$/.exec(s)
+  if (d) return Number(`${d[1]}.${d[2]}`)
+  return Number(lang === 'vi' || lang === 'id' ? s.replace(/\./g, '').replace(',', '.') : s.replace(/,/g, ''))
+}
 /**
  * A text's metric figures, each number with its unit's kind, every number the unit closes: "2,5–5 cm" is ["2.5 cm",
  * "5 cm"], "91 × 38 × 30 cm" three of cm, "11 litres" ["11 l"].

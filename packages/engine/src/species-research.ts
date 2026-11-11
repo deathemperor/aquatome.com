@@ -16,8 +16,9 @@ import { lastKept, logReviews, type Review } from './review-log'
 import { sanitizeHtml } from './sanitize'
 import type { VideoMeta } from './youtube'
 import { VI_STYLE as STYLE } from './phrases'
+import { TANK_RULE, withTanks } from './round'
 
-const WRITE = readFileSync(new URL('./prompts/species.md', import.meta.url), 'utf8')
+const WRITE = withTanks(readFileSync(new URL('./prompts/species.md', import.meta.url), 'utf8'))
 
 /** The parts of a species page research fills, in the page's order (the rest come from licensed sources only). */
 const SECTIONS = ['notes', 'distribution', 'habitat', 'beforeYouBuy', 'aquariumSize', 'waterConditions', 'diet', 'behaviour', 'dimorphism', 'reproduction'] as const satisfies readonly SectionKey[]
@@ -147,7 +148,7 @@ const SECTIONS_SCHEMA = {
 }
 type Written = { sections: { key: Part; html: string; facts: string[] }[] }
 const REVIEW_SCHEMA = { type: 'object', required: ['score', 'notes'], properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } } }
-const GROUNDED = `Below are FACTS gathered about a fish species (facts; figures, its data card; missing, the card's figures no source gives) and a Vietnamese PAGE written from them. Score 0–1 how well the PAGE sticks to the FACTS: 1.0 = every claim, number, place, name and recommendation is supported by the facts (saying a "missing" figure is not published is supported); 0.75 = small unsupported generalities; below 0.75 = an invented number, place, name, care advice or claim, care carried over from related species, or a fact turned around. A figure converted to metric is that figure.
+const GROUNDED = `Below are FACTS gathered about a fish species (facts; figures, its data card; missing, the card's figures no source gives) and a Vietnamese PAGE written from them. Score 0–1 how well the PAGE sticks to the FACTS: 1.0 = every claim, number, place, name and recommendation is supported by the facts (saying a "missing" figure is not published is supported); 0.75 = small unsupported generalities; below 0.75 = an invented number, place, name, care advice or claim, care carried over from related species, or a fact turned around. A figure converted to metric is that figure (${TANK_RULE.en}).
 notes: up to 10 unsupported or wrong claims (in English), quoting the phrase. Empty if none.`
 
 /** Write, review, and write once more with the reviewer's notes when the page is under the bar or has any: the better-reviewed one is kept. */

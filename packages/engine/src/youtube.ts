@@ -11,7 +11,7 @@ import { LlmError, type Llm } from './claude'
 import { pickSlug } from './merge'
 import { gate } from './quality'
 import { lastKept, logReviews, readReviews, reviewKey } from './review-log'
-import { roundPage } from './round'
+import { roundPage, withTanks } from './round'
 import { plainParts, sanitizeHtml, unescapePlain } from './sanitize'
 import { loadState, saveState, type UrlState } from './state'
 import type { Finder } from './video-discovery'
@@ -53,8 +53,8 @@ const base = (l?: string | null) => (l ?? '').toLowerCase().split(/[-_]/)[0] || 
 
 const KINDS = ['setup', 'care', 'breeding', 'disease', 'aquascaping', 'plantCare', 'discovery'] as const
 export type Draft = { relevant: boolean; kind: GuideEntity['kind']; viTitle: string; summary: string[]; body: string; faq: { q: string; a: string }[]; chapters: string[] }
-const WRITE = readFileSync(new URL('./prompts/video-guide.md', import.meta.url), 'utf8')
-const REVIEW = readFileSync(new URL('./prompts/video-review.md', import.meta.url), 'utf8')
+const WRITE = withTanks(readFileSync(new URL('./prompts/video-guide.md', import.meta.url), 'utf8'))
+const REVIEW = withTanks(readFileSync(new URL('./prompts/video-review.md', import.meta.url), 'utf8'))
 const EDIT = readFileSync(new URL('./prompts/video-edit.md', import.meta.url), 'utf8')
 const FIX = readFileSync(new URL('./prompts/video-fix.md', import.meta.url), 'utf8')
 const MEND = readFileSync(new URL('./prompts/video-mend.md', import.meta.url), 'utf8')

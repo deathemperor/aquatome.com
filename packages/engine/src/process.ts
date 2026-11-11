@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs'
 import { isOneEnded, SECTION_ORDER, sizeIsForSale, tankIsVolume, tempIsNotForKeeping, type SourceId } from '@aq/schema'
 import { z } from 'zod'
 import type { Llm } from './claude'
+import { withTanks } from './round'
 import { sanitizeHtml } from './sanitize'
 
 const Range = z.object({ min: z.number(), max: z.number() })
@@ -65,7 +66,7 @@ export function sfDifficulty(page: string): number | null | undefined {
 }
 
 const SYSTEM = 'You are a meticulous aquarium-science editor and English→Vietnamese translator. Reply only with the requested JSON.'
-const TEMPLATE = readFileSync(new URL('./prompts/process.md', import.meta.url), 'utf8')
+const TEMPLATE = withTanks(readFileSync(new URL('./prompts/process.md', import.meta.url), 'utf8'))
 const KEYS = new Set<string>(SECTION_ORDER)
 
 export async function processPage(llm: Llm, input: { source: SourceId; url: string; title: string; outline: string; glossary: string[]; notes?: string[] }): Promise<ProcessedPage> {

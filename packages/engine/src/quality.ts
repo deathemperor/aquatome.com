@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs'
 import type { Llm } from './claude'
 import { hedgesAsk, hedgesLost, HEDGES_SCHEMA, type HedgePair } from './hedges'
+import { TANK_RULE, withTanks } from './round'
 
 import { QUALITY_THRESHOLD } from '@aq/schema'
 
@@ -23,7 +24,7 @@ export async function steadyRead<T extends { score: number }>(read: () => Promis
   const reads = [first, ...await Promise.all([read(), read()])]
   return { ...[...reads].sort((a, b) => a.score - b.score)[1]!, reads: reads.map(r => r.score) }
 }
-const TEMPLATE = readFileSync(new URL('./prompts/review.md', import.meta.url), 'utf8')
+const TEMPLATE = withTanks(readFileSync(new URL('./prompts/review.md', import.meta.url), 'utf8'))
 const SCHEMA = { type: 'object', properties: { score: { type: 'number' }, notes: { type: 'array', items: { type: 'string' } } }, required: ['score', 'notes'] }
 /** `hedges`: the reviewer also pairs each hedged sentence with its new one (hedges.ts), and `lost` has those said more surely. */
 type Opts = { hedges?: boolean }
@@ -43,7 +44,7 @@ export async function reviewTranslation(llm: Llm, sections: { en: string; vi: st
 
 const SAME = `Two Vietnamese versions of the same aquarium-handbook text: BEFORE, and AFTER (a rewrite for natural style, with no English source to check against).
 Score 0–1 how faithfully AFTER keeps BEFORE's content: 1.0 = every fact, number, name, example, caution and the strength of praise or criticism kept, nothing added; 0.75 = small nuance lost; below 0.75 = a fact, number, warning or caveat dropped, changed or added, or a hedge turned into a certainty.
-The editor is told to do these, so they are correct, not errors: converting US/imperial units to metric with sensible rounding, keeping the original only when it adds precision (inches → mm/cm, gallons → litres, °F → °C); writing the source's "I"/"we" as attribution to the source by name ("Theo Aquarium Breeder…") or neutrally; plainer everyday wording for the same thing; established Vietnamese hobby terms. Judge a converted number by whether the conversion is right.
+The editor is told to do these, so they are correct, not errors: converting US/imperial units to metric with sensible rounding, keeping the original only when it adds precision (inches → mm/cm, gallons → litres, °F → °C); writing the source's "I"/"we" as attribution to the source by name ("Theo Aquarium Breeder…") or neutrally; plainer everyday wording for the same thing; established Vietnamese hobby terms. Judge a converted number by whether the conversion is right; a tank's litres that are a US gallon size's exact conversion become the size keepers say (${TANK_RULE.en}).
 notes: up to 10 short, concrete problems (in English), quoting the phrase. Empty if none.`
 
 /** For text with no English source: does a style rewrite keep the old Vietnamese's meaning? (0–1, like reviewTranslation.) */

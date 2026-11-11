@@ -8,11 +8,12 @@ import { LlmError, type Llm } from './claude'
 import { itemReviews, lastKept, logReviews, type Review } from './review-log'
 import { pickSlug } from './merge'
 import { steadyRead, WRITER_BAND } from './quality'
+import { withTanks } from './round'
 import { shopIds } from './shops'
 import { sanitizeHtml } from './sanitize'
 
-const WRITE = readFileSync(new URL('./prompts/localize.md', import.meta.url), 'utf8')
-const REVIEW = readFileSync(new URL('./prompts/localize-review.md', import.meta.url), 'utf8')
+const WRITE = withTanks(readFileSync(new URL('./prompts/localize.md', import.meta.url), 'utf8'))
+const REVIEW = withTanks(readFileSync(new URL('./prompts/localize-review.md', import.meta.url), 'utf8'))
 const GLOSSARY = readFileSync(new URL('./prompts/localize-glossary.md', import.meta.url), 'utf8')
 const GLOSSARY_REVIEW = readFileSync(new URL('./prompts/localize-glossary-review.md', import.meta.url), 'utf8')
 const PLACES = readFileSync(new URL('./prompts/localize-places.md', import.meta.url), 'utf8')
