@@ -68,6 +68,38 @@
       "kept": false
     }
   ],
+  "vi/species/ambastaia-sidthimunki#axPlxg-ortg": [
+    {
+      "at": "2026-11-11T15:48:54Z",
+      "model": "sonnet",
+      "score": 0.72,
+      "notes": [
+        "\"Nếu bể bạn đang nuôi ốc cảnh\": the video only says snail-eating can be a plus or minus depending on how you feel about snails. It never mentions ornamental snails.",
+        "The snail-eating point (\"rất mê ốc\") is already on the PAGE, which says they eat small snails. It is only partly new.",
+        "The video says snail-eating can be a plus, as pest control. The PAGE says to never treat them as pest control. NEW does not say that the video differs from the PAGE here.",
+        "\"không dữ, chỉ ồn ào và bạo dạn\": the PAGE already says nobody has seen them bully other fish. It also lists reports of fin and eye damage that conflict with this. NEW does not point out that the video differs from the PAGE.",
+        "\"Cá cầu vồng cũng nuôi chung được\": the video does say this, but the sentence is a bare fact in the keeper's voice with no attribution. It is also loosely tied to the keeper framing of the neighbouring sentences.",
+        "\"Một người nuôi loài này lâu năm\" is repeated in three sections. It is acceptable, but it reads a bit stiff and formulaic.",
+        "\"Cá heo hề\" for clown loach and the wording \"hay để ý đến chúng\" are slightly awkward. Facts are intact."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-11T15:48:54Z",
+      "model": "sonnet",
+      "score": 0.82,
+      "notes": [
+        "Behaviour: \"Ngoài các loài cá nuôi chung đã kể, chúng cũng sống được với cá cầu vồng\" refers to species \"đã kể\" that NEW never lists. It is awkward, and the page's own list (tetra, rasbora, cá chuột) is only implied.",
+        "Behaviour: \"chỉ là tò mò lại xem\" and \"lúc nào cũng mò mẫm\" overlap with the page, which already says the fish are curious and swim up to look at new fish.",
+        "Waterconditions: \"khoảng 25–26 °C\" is a conversion of the video's 78°F. It is credited to one keeper, which is fine. The video's \"can swing back and forth\" is left out, so the point is only partly conveyed.",
+        "Notes: the claim that the \"chuỗi\" name comes from the pattern is supported by the video. The wording \"mắt xích nối nhau\" is the writer's own paraphrase of \"chain-like\", though the page already describes the pattern at length.",
+        "Diet: the snail-eating detail from the video is not used. This is a minor omission and does not make NEW wrong."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/species/anentome-helena#91J9w0-vZDM": [
     {
       "at": "2026-11-10T06:36:40Z",
