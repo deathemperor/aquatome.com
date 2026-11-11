@@ -6,11 +6,13 @@ const yml = readFileSync(new URL('../../../.github/workflows/deploy.yml', import
 // 10 Nov: three deploys in a row reached the job's 30 minutes with every check passed and the upload still to do. GitHub
 // calls a job over its limit "cancelled", as it does a run replaced in the queue, so nothing was reported and nothing went
 // live for hours. A step over its own limit fails the run, and a failed run is reported.
+// 11 Nov: the static build, not the browser checks, is what fills the step. A long run was near 28 minutes and still
+// rising, so the floor is 60 minutes. That is a stopgap of about two weeks, not a faster build. The checks are unchanged.
 test('a deploy that runs too long fails rather than being cancelled: its long step has its own limit, inside the job\'s', () => {
   const job = Number(/^ {4}timeout-minutes: (\d+)/m.exec(yml)?.[1])
   const limit = (name: string) => Number(new RegExp(`name: ${name}[^\\n]*\\n\\s+timeout-minutes: (\\d+)`).exec(yml)?.[1])
   const build = limit('Build the real site'), upload = limit('Upload it to Cloudflare')
-  expect(build, 'the step\'s limit; a deploy took 30 minutes on 10 Nov').toBeGreaterThanOrEqual(45)
+  expect(build, 'the step\'s limit; a long real-site build was near 28 minutes on 11 Nov and still rising').toBeGreaterThanOrEqual(60)
   expect(upload, 'the upload has a limit of its own, so a long build can\'t take its time').toBeGreaterThanOrEqual(5)
   expect(job, 'the job\'s limit leaves every step its time').toBeGreaterThanOrEqual(build + upload + 10)
 })
