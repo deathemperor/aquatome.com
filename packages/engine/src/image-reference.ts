@@ -135,11 +135,19 @@ export const CALIBRATION_CASES = ['neon-conflict', 'lookalike', 'fin-pattern', '
   'lookalike-limnophila-sessiliflora--mayaca-fluviatilis',
   'lookalike-staurogyne-repens--gratiola-viscidula',
   'lookalike-gratiola-viscidula--staurogyne-repens'] as const
-export type Calibration = { version: string; model: string; cases: { id: string; expected: 'pass' | 'refuse' | 'conflict'; actual: 'pass' | 'fail' | 'unsure'; reason?: string; conflicts: number; pixelHash: string; referenceHash: string; realReferenceHashes: string[]; judgments?: JudgmentPairReceipt; referenceJudgments?: JudgmentPairReceipt }[] }
+export const NEUTRAL_CALIBRATION_POLICY = 'all-attachments-hash-paths-v1'
+export type NeutralAttachmentProof = {policy:string;pixelHash:string;referenceHash:string;referenceFiles:string[];candidateFiles:string[]}
+export function validNeutralAttachmentProof(row:{pixelHash:string;referenceHash:string;realReferenceHashes:string[];attachments?:NeutralAttachmentProof}) {
+  const p=row.attachments
+  return !!p&&p.policy===NEUTRAL_CALIBRATION_POLICY&&p.pixelHash===row.pixelHash&&p.referenceHash===row.referenceHash
+    &&JSON.stringify(p.referenceFiles)===JSON.stringify(row.realReferenceHashes)&&Array.isArray(p.candidateFiles)
+    &&p.candidateFiles.length===3*(row.realReferenceHashes.length+1)&&p.candidateFiles.every(h=>typeof h==='string'&&/^[a-f0-9]{64}$/.test(h))
+}
+export type Calibration = { version: string; model: string; cases: { id: string; expected: 'pass' | 'refuse' | 'conflict'; actual: 'pass' | 'fail' | 'unsure'; reason?: string; conflicts: number; pixelHash: string; referenceHash: string; realReferenceHashes: string[]; attachments?: NeutralAttachmentProof; judgments?: JudgmentPairReceipt; referenceJudgments?: JudgmentPairReceipt }[] }
 export function calibrationReady(c: Calibration | undefined): c is Calibration {
   return !!c && Array.isArray(c.cases) && c.cases.every(x => !!x && typeof x === 'object' && Array.isArray(x.realReferenceHashes)) && c.cases.length === reviewedControls.generated.length && c.cases.every(x => {
     const frozen = reviewedControls.generated.find(f => f.id === x.id)
-    return !!frozen && validJudgmentPair(x.judgments) && (frozen.referenceJudgmentsRequired ? validJudgmentPair(x.referenceJudgments) : !x.referenceJudgments || validJudgmentPair(x.referenceJudgments))
+    return !!frozen && validNeutralAttachmentProof(x) && validJudgmentPair(x.judgments) && (frozen.referenceJudgmentsRequired ? validJudgmentPair(x.referenceJudgments) : !x.referenceJudgments || validJudgmentPair(x.referenceJudgments))
       && ((x.actual === 'pass') === (x.judgments.pass && (!x.referenceJudgments || x.referenceJudgments.pass)))
       && x.expected === frozen.expected && x.pixelHash === frozen.pixelHash && x.referenceHash === frozen.referenceHash && JSON.stringify(x.realReferenceHashes) === JSON.stringify(frozen.realReferenceHashes)
       && (x.expected === 'pass' || x.actual !== 'pass')

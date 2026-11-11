@@ -5,7 +5,7 @@ import { LARGE_LONG, LARGE_SHORT } from './large-photos'
 import { sha256 } from './image-reference'
 import { mkdir } from 'node:fs/promises'
 import { join } from 'node:path'
-import { residuePass, type ResidueMeasurement } from './mark-residue'
+import { residuePass, validResidueMeasurement, type ResidueMeasurement } from './mark-residue'
 import type { ImageReference } from './image-reference'
 import { blendMarkPixels, MARK_BLEND_VERSION } from './image-blend'
 import { validJudgmentPair, type JudgmentPairReceipt } from './image-judgments'
@@ -66,16 +66,22 @@ export const NO_TRACE_SCHEMA = { type: 'object', required: ['verdict', 'residual
 export const noTracePass = (v: NoTraceVerdict | undefined) => v?.verdict === 'pass' && v.residual === false && v.newMark === false
 export const NO_TRACE_MODEL = 'gpt-6.1-sol'
 export const NO_TRACE_INSTRUCTION = 'Examine the full photograph and enlarged removed-mark box for any residual lettering, signature stroke, logo outline, ghost, unnatural smear, patch or new mark, including faint traces. Pass only if no trace is visible and the patch looks natural. If uncertain, unsure. First attachment: candidate. Second: enlarged box. Failures stay private. Never transcribe lettering, signatures or personal names; report only that lettering is present and where it remains.'
-export const noTraceVersion = () => sha256(JSON.stringify([NO_TRACE_MODEL, 'high', NO_TRACE_INSTRUCTION, NO_TRACE_SCHEMA, MARK_RESIDUE_VERSION, MARK_RESIDUE_LIMIT, MARK_BLEND_VERSION]))
-export type NoTraceCalibration = { version: string; cases: { id?: string; n?: number; expected: 'pass' | 'refuse'; actual: 'pass' | 'refuse'; pixelHash: string; outside: number; originalHash: string; box: MarkBox; measurement: ResidueMeasurement; measurementTemplateHash?: string; judgments?: JudgmentPairReceipt; reason?: string }[] }
+export const ACCEPTED_MARK_RESIDUE = Object.freeze({ strength: 0.05, date: '2026-11-11', authority: 'accepted by the owner after viewing' })
+export const noTraceVersion = () => sha256(JSON.stringify([ACCEPTED_MARK_RESIDUE, NO_TRACE_MODEL, 'high', NO_TRACE_INSTRUCTION, NO_TRACE_SCHEMA, MARK_RESIDUE_VERSION, MARK_RESIDUE_LIMIT, MARK_BLEND_VERSION]))
+export type NoTraceCalibration = { version: string; subLimitMisses: {id:string;strength:number;score:number|null}[]; cases: { id?: string; n?: number; expected: 'pass' | 'refuse'; actual: 'pass' | 'refuse'; pixelHash: string; outside: number; originalHash: string; box: MarkBox; measurement: ResidueMeasurement; measurementTemplateHash?: string; judgments?: JudgmentPairReceipt; reason?: string }[] }
 const reviewedMarkControls = [...reviewedControls.marks.map(f => ({ ...f, id: `frozen-${f.n}`, measurementTemplateHash: undefined as string | undefined })), ...reviewedControls.markSupplement.map(f => ({ ...f, measurementTemplateHash: 'measurementTemplateHash' in f ? f.measurementTemplateHash : undefined }))]
-/** All submitted safety controls bind readiness. A known clean refusal loses yield; any residue pass closes the gate. */
-export const noTraceCalibrationReady = (c: NoTraceCalibration | undefined): c is NoTraceCalibration => !!c && c.version === noTraceVersion() && Array.isArray(c.cases) && c.cases.length === reviewedMarkControls.length && c.cases.every(x=>!!x&&typeof x==='object') && reviewedMarkControls.every(f => {
+const residueStrength = (id:string) => /^residue-\d+-(0\.\d+)$/.exec(id)?.[1]
+export const subLimitMarkMisses = (cases:NoTraceCalibration['cases']) => cases.flatMap(r=>{
+  const strength=Number(residueStrength(r.id??''))
+  return strength>0&&strength<ACCEPTED_MARK_RESIDUE.strength&&r.actual==='pass'?[{id:r.id!,strength,score:r.measurement.score}]:[]
+})
+/** All submitted safety controls bind readiness. Clean refusals lose yield; residues at the accepted strength require both eyes and measurement to refuse. */
+export const noTraceCalibrationReady = (c: NoTraceCalibration | undefined): c is NoTraceCalibration => !!c && c.version === noTraceVersion() && Array.isArray(c.cases) && c.cases.length === reviewedMarkControls.length && c.cases.every(x=>!!x&&typeof x==='object'&&validResidueMeasurement(x.measurement)&&x.measurement.score!==null) && JSON.stringify(c.subLimitMisses)===JSON.stringify(subLimitMarkMisses(c.cases)) && reviewedMarkControls.every(f => {
   const rows = c.cases.filter(x => (x.id ?? `frozen-${x.n}`) === f.id), r = rows[0]
   return rows.length === 1 && !!r && r.expected === f.expected && r.pixelHash === f.pixelHash && r.originalHash === f.originalHash && JSON.stringify(r.box) === JSON.stringify(f.box) && r.measurementTemplateHash === f.measurementTemplateHash
     && r.outside === 0 && validJudgmentPair(r.judgments) && !!r.measurement && ['pass','refuse'].includes(r.actual)
     && (r.actual === 'pass' ? r.judgments.pass && residuePass(r.measurement) : !r.judgments.pass || !residuePass(r.measurement))
-    && (f.expected === 'refuse' ? r.actual === 'refuse' : r.actual === 'pass' || !!r.reason?.trim())
+    && (f.expected === 'refuse' ? (Number(residueStrength(f.id))>0 ? Number(residueStrength(f.id))<ACCEPTED_MARK_RESIDUE.strength || r.judgments.judgments.every(j=>!j.passes)&&!residuePass(r.measurement) : r.actual==='refuse') : r.actual === 'pass' || !!r.reason?.trim())
 })
 
 

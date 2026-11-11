@@ -27,5 +27,10 @@ export async function measureMarkResidue(original: Uint8Array, candidate: Uint8A
   const score = originalEnergy <= 0 ? null : candidateEnergy === 0 ? 0 : Math.max(0, Math.min(1, dot / Math.sqrt(originalEnergy * candidateEnergy)))
   return { version: MARK_RESIDUE_VERSION, score, limit: MARK_RESIDUE_LIMIT, originalEnergy, candidateEnergy }
 }
+/** Invalid policy or malformed data is unavailable evidence, never a successful residue detection. */
+export const validResidueMeasurement = (m: ResidueMeasurement | undefined): m is ResidueMeasurement =>
+  !!m && m.version === MARK_RESIDUE_VERSION && m.limit === MARK_RESIDUE_LIMIT
+  && Number.isFinite(m.originalEnergy) && m.originalEnergy >= 0 && Number.isFinite(m.candidateEnergy) && m.candidateEnergy >= 0
+  && (m.score === null ? m.originalEnergy === 0 : Number.isFinite(m.score) && m.score >= 0 && m.score <= 1 && m.originalEnergy > 0)
 export const residuePass = (m: ResidueMeasurement | undefined): m is ResidueMeasurement & { score: number } =>
-  m?.version === MARK_RESIDUE_VERSION && m.limit === MARK_RESIDUE_LIMIT && m.score !== null && Number.isFinite(m.score) && m.score >= 0 && m.score < MARK_RESIDUE_LIMIT && m.originalEnergy > 0 && m.candidateEnergy >= 0
+  validResidueMeasurement(m) && m.score !== null && m.score < MARK_RESIDUE_LIMIT

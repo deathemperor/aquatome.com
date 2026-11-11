@@ -5,7 +5,7 @@ import { homedir } from 'node:os'
 import { join } from 'node:path'
 import sharp from 'sharp'
 import { calibrateGenerated, calibrateMarks } from '../src/image-calibration'
-import { calibrationReady, generatedGateVersion, referenceHash, sha256, type Calibration, type ImageReference } from '../src/image-reference'
+import { calibrationReady, generatedGateVersion, referenceHash, sha256, NEUTRAL_CALIBRATION_POLICY, type Calibration, type ImageReference } from '../src/image-reference'
 import { noTraceCalibrationReady, noTraceVersion, pixelHash, type NoTraceCalibration } from '../src/image-transforms'
 import generatedResults from '../../../docs/image-calibration-results.json'
 import markResults from '../../../docs/mark-calibration-results.json'
@@ -35,18 +35,19 @@ test.each([false,true])('calibration preserves ordinary conflicts and reconstruc
  const cache=await dir(),file=join(cache,'real.png');await sharp({create:{width:10,height:10,channels:3,background:'#abcdef'}}).png().toFile(file)
  const reference:ImageReference={page:'species/neon',scientificName:'Test species',facts:[{source:'seriouslyfish',sourceUrl:'https://example.org/',quote:'The blue stripe begins at the nose.'}],images:[{file,sourceUrl:'https://example.org/',sha256:sha256(await readFile(file))}]}
  const ordinary=[{page:'species/ordinary',quote:'Existing conflict remains'}];await writeFile(join(cache,'source-conflicts.json'),JSON.stringify(ordinary));await writeFile(join(cache,'calibration.json'),JSON.stringify({version:generatedGateVersion()}))
- const record={id:'neon-conflict',expected:'conflict',actual:'unsure',conflicts:1,pixelHash:await pixelHash(await readFile(file)),referenceHash:referenceHash(reference),realReferenceHashes:reference.images.map(i=>i.sha256),judgments:fixtureJudgments(false),referenceJudgments:fixtureJudgments(false,'conflict'),verdicts:[{note:'conflict'},{note:'conflict'}],referenceVerdicts:[{verdict:'conflict',conflicts:[{n:1,note:'Actually starts at eye'}]},{verdict:'conflict',conflicts:[{n:1,note:'Actually starts at eye'}]}]}
+ const record={id:'neon-conflict',expected:'conflict',actual:'unsure',conflicts:1,pixelHash:await pixelHash(await readFile(file)),referenceHash:referenceHash(reference),realReferenceHashes:reference.images.map(i=>i.sha256),attachments:{policy:NEUTRAL_CALIBRATION_POLICY,pixelHash:await pixelHash(await readFile(file)),referenceHash:referenceHash(reference),referenceFiles:reference.images.map(i=>i.sha256),candidateFiles:Array(6).fill(sha256(await readFile(file)))},judgments:fixtureJudgments(false),referenceJudgments:fixtureJudgments(false,'conflict'),verdicts:[{note:'conflict'},{note:'conflict'}],referenceVerdicts:[{verdict:'conflict',conflicts:[{n:1,note:'Actually starts at eye'}]},{verdict:'conflict',conflicts:[{n:1,note:'Actually starts at eye'}]}]}
  if(cached)await writeFile(join(cache,'calibration-results.json'),JSON.stringify([record]));const judge=vi.fn(async prompt=>prompt.startsWith('Check only')?{verdict:'conflict',conflicts:[{n:1,note:'Actually starts at eye'}]}:{verdict:'fail',note:'Mismatch',conflicts:[]});await calibrateGenerated([{id:'neon-conflict',expected:'conflict',file,reference}],cache,judge as Parameters<typeof calibrateGenerated>[2])
  if(cached)expect(judge).not.toHaveBeenCalled();else expect(judge).toHaveBeenCalledTimes(4);expect(JSON.parse(await readFile(join(cache,'source-conflicts.json'),'utf8'))).toEqual(ordinary);expect(JSON.parse(await readFile(join(cache,'calibration-conflicts.json'),'utf8')).every((c:{quote:string})=>c.quote===reference.facts[0]!.quote)).toBe(true)
 })
 
-test('legacy singles cannot qualify either paired gate, and the 3-percent safety miss closes the full mark set',()=>{
+test('legacy singles cannot qualify either paired gate, and sub-limit misses must remain reported in the full mark set',()=>{
  expect(calibrationReady({...generatedResults,model:generatedResults.reviewer} as Calibration)).toBe(false)
- const old={version:noTraceVersion(),cases:markResults.cases.map(x=>({...x,...reviewed.marks.find(f=>f.n===x.n)}))} as NoTraceCalibration
+ const old={version:noTraceVersion(),subLimitMisses:[],cases:markResults.cases.map(x=>({...x,...reviewed.marks.find(f=>f.n===x.n)}))} as NoTraceCalibration
  expect(noTraceCalibrationReady(old)).toBe(false)
  const paired=fixtureMarkCalibration();expect(noTraceCalibrationReady(paired)).toBe(true)
  const missed={...paired,cases:paired.cases.map(x=>x.id==='residue-2-0.03'?{...x,actual:'pass' as const,judgments:fixtureJudgments(true),measurement:{...x.measurement,score:.3903539555209733}}:x)}
  expect(noTraceCalibrationReady(missed)).toBe(false)
+ expect(noTraceCalibrationReady({...missed,subLimitMisses:[{id:'residue-2-0.03',strength:.03,score:.3903539555209733}]})).toBe(true)
  expect(noTraceCalibrationReady({...paired,cases:paired.cases.filter(x=>x.id?.startsWith('frozen-'))})).toBe(false)
 })
 

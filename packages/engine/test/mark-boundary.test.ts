@@ -1,5 +1,5 @@
 import { afterEach, expect, test, vi } from 'vitest'
-import { mkdir, mkdtemp, rm } from 'node:fs/promises'
+import { mkdir, mkdtemp, readFile, readdir, rm, writeFile } from 'node:fs/promises'
 import { homedir } from 'node:os'
 import { join } from 'node:path'
 import sharp from 'sharp'
@@ -42,4 +42,20 @@ test('a transport failure holds the repair and the retry reuses its retained nat
  await expect(removeSourceMark(photo,bytes,source,mark,{cache,edit,noTrace:async()=>{throw Error('transport unavailable')},now:()=>new Date()},flags)).rejects.toThrow('incomplete')
  const result=await removeSourceMark(photo,bytes,source,mark,{cache,edit,noTrace:async()=>({verdict:'pass',residual:false,newMark:false,note:'Controlled fixture.'}),now:()=>new Date()},flags)
  expect(result).toBeDefined();expect(edit).toHaveBeenCalledTimes(1)
+})
+
+test.each(['corrupt','interrupted'] as const)('a %s retained edit holds recovery without another image attempt',async mode=>{
+ await mkdir(join(homedir(),'.cache/aquatome'),{recursive:true});const cache=await mkdtemp(join(homedir(),'.cache/aquatome/mark-atomic-'));dirs.push(cache)
+ const photo:Photo={url:'https://media.aquatome.com/glaser/retry.webp',width:100,height:80,source:'glaser',licence:'dùng với sự cho phép',author:'Aquarium Glaser',sourceUrl:'https://www.aquariumglaser.de/en/fish/'}
+ const source:SourceInfo={name:'Aquarium Glaser',homepage:'https://www.aquariumglaser.de/',publish:true,permission:{date:'2026-11-10',file:'owner word',scope:['photos'],markRemoval:{allowed:true,date:'2026-11-10'}}}
+ const bytes=await sharp({create:{width:100,height:80,channels:3,background:'#abcdef'}}).png().toBuffer(),edit=vi.fn(async()=>bytes),mark={owner:'source' as const,text:'Aquarium Glaser',sourceUrl:photo.sourceUrl,box:{x0:0,y0:0,x1:100,y1:80}},flags={...IMAGE_SWITCHES,removeMarks:true}
+ measure.mockResolvedValue({version:'box-detail-cosine-v1',limit:.4,score:.1,originalEnergy:1,candidateEnergy:1})
+ const deps={cache,edit,noTrace:async()=>{throw Error('transport unavailable')},now:()=>new Date()}
+ await expect(removeSourceMark(photo,bytes,source,mark,deps,flags)).rejects.toThrow('incomplete')
+ const directories=await readdir(join(cache,'alterations')),directory=join(cache,'alterations',directories[0]!),files=await readdir(directory),native=join(directory,files.find(f=>f.endsWith('.image'))!)
+ expect(files.some(f=>f.endsWith('.next'))).toBe(false)
+ if(mode==='corrupt')await writeFile(native,bytes.subarray(0,40))
+ else{await writeFile(native+'.partial.next',bytes.subarray(0,40));await rm(native)}
+ await expect(removeSourceMark(photo,bytes,source,mark,deps,flags)).rejects.toThrow(/held for recovery/)
+ expect(edit).toHaveBeenCalledTimes(1)
 })

@@ -10,7 +10,7 @@ test('www on the source mark is the same host, without allowing another site',()
 })
 test.each(['seriouslyfish','scotcat'] as const)('covered %s signatures adopt a credit and record a mismatch without retaining the wrong author link',id=>{
  const {photo,source}=make(id),m=mark(photo);expect(ownsMark(photo,source,m)).toBe(true)
- expect(alteredCredit(photo,source,[m])).toEqual({author:'Fixture contributor',mismatch:{source:id,photo:photo.url,recordAuthor:'Earlier credit',differs:true}})
+ expect(alteredCredit(photo,source,[m])).toEqual({author:'Fixture contributor',mismatch:{source:id,photo:photo.url,differs:true}})
  expect(ownsMark(photo,source,mark(photo,{credit:'FC'}))).toBe(true)
  expect(ownsMark({...photo,author:''},source,m)).toBe(true)
 })

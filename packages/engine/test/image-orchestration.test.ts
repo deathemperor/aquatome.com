@@ -144,7 +144,7 @@ test('the enabled whole crop step publishes a credited real original with zero r
  const flags={...on,removeMarks:true,publishAltered:true},result=await imageSteps(f.root,async()=>f.d,flags)
  expect(result).toMatchObject({repaired:1,published:1,generated:0,failed:[]});expect(f.d.native).not.toHaveBeenCalled();expect(f.d.judge).toHaveBeenCalledTimes(2);expect(f.d.locateMark).toHaveBeenCalledTimes(2)
  const p=(await read(f.file)).photos[0];expect(p).toMatchObject({author:'Fixture contributor',licence:photo.licence,altered:[{method:'mark-crop',retainedChanged:0}]});expect(p.authorUrl).toBeUndefined();expect(p.large).toBeUndefined();expect(p.original.large.url).toBe(photo.large.url);expect(p.altered[0].noTrace).toBeUndefined();expect(p.altered[0].residue).toBeUndefined()
- expect(await read(join(f.root,'content/photo-credit-mismatches.json'))).toEqual([{source:'seriouslyfish',photo:photo.url,recordAuthor:'Earlier credit',differs:true}])
+ expect(await read(join(f.root,'content/photo-credit-mismatches.json'))).toEqual([{source:'seriouslyfish',photo:photo.url,differs:true,page:'species/alpha'}])
  const shown=await loadAll({root:join(f.root,'content'),lang:'vi',publicBuild:true,imageSwitches:flags});expect(shown.species[0]!.photos[0]!.url).toBe(p.url)
  sources.seriouslyfish.permission.markRemoval.allowed=false;await save(sourcesFile,sources);const revoked=await loadAll({root:join(f.root,'content'),lang:'vi',publicBuild:true,imageSwitches:flags});expect(revoked.species[0]!.photos).toHaveLength(0);expect(revoked.galleries.alpha).toBeUndefined()
 })

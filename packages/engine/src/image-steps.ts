@@ -12,7 +12,8 @@ import { alteredCredit, canRemoveMark, cropSourceMarks, removeSourceMark, upscal
 import { PHOTO_CHECK_SCHEMA, type PhotoVerdict } from './photo-check'
 import { recoverMarkedHistory } from './marked-photo-history'
 import type { MarkCandidate } from './marked-photos'
-import { originalSpecies, originalSpeciesPrompt, inspectMarks, preservedSubject, markInspectionPrompt, MARK_INSPECTION_SCHEMA, PRESERVATION_SCHEMA, PRESERVATION_INSTRUCTION, REAL_IMAGE_MODEL } from './image-real-checks'
+import { originalSpecies, originalSpeciesPrompt, inspectMarks, ownershipEvidence, preservedSubject, markInspectionPrompt, MARK_INSPECTION_SCHEMA, PRESERVATION_SCHEMA, PRESERVATION_INSTRUCTION, REAL_IMAGE_MODEL } from './image-real-checks'
+import { publicImageEvidence } from './public-image-evidence'
 import { permittedCheckingImages } from './image-reference'
 import { IMAGE_PAIR_POLICY, pairedJudgments, judgmentReceipt, judgmentHashes, validJudgmentPair, type JudgmentPairReceipt } from './image-judgments'
 
@@ -156,9 +157,10 @@ export async function imageSteps(root: string, makeDeps: () => Promise<ImageStep
       if(species.pair.incomplete){report.waiting.push(`${pageKey}: original species judgment incomplete; real recovery pending`);continue}
       if(!species.pair.pass){await save(workFile,{key,status:'refused',reason:'original species refused, uncertain or disagreed'});finishRealCandidate(name,pageKey);report.waiting.push(`${pageKey}: original species pair did not pass`);continue}
       const ownershipKey=sha256(JSON.stringify([c.photo,source.permission,markInspectionPrompt(c.photo,source.name),REAL_IMAGE_MODEL]))
-      const ownershipFile=join(dir,ownershipKey+'.ownership.json'), priorOwnership=await json<Awaited<ReturnType<typeof inspectMarks>>|null>(ownershipFile,null)
-      const ownership=priorOwnership&&validJudgmentPair(priorOwnership.pair)?priorOwnership:await inspectMarks(file,c.photo,source,()=>d.locateMark(file,c.photo,source.name),switches)
-      await save(ownershipFile,ownership)
+      const ownershipFile=join(dir,ownershipKey+'.ownership.json')
+      // Necessary signature credits exist only for this invocation, never in a reusable evidence cache.
+      const ownership=await inspectMarks(file,c.photo,source,()=>d.locateMark(file,c.photo,source.name),switches)
+      await save(ownershipFile,ownershipEvidence(ownership))
       if(ownership.pair.incomplete){report.waiting.push(`${pageKey}: mark ownership judgment incomplete; real recovery pending`);continue}
       const marks=ownership.marks
       if(!ownership.pair.pass||!marks?.length||marks.some(mark=>!canRemoveMark(c.photo,source,mark,switches))){await save(workFile,{key,status:'refused',reason:'mark ownership, inventory or credit did not agree'});finishRealCandidate(name,pageKey);report.waiting.push(`${pageKey}: mark ownership pair did not agree`);continue}
@@ -202,7 +204,14 @@ export async function imageSteps(root: string, makeDeps: () => Promise<ImageStep
       signal.throwIfAborted()
       const adopted=alteredCredit(c.photo,source,marks),{author:_author,authorUrl:_authorUrl,...otherCredit}=credit
       await addPhoto(root, c.page, { ...otherCredit,author:adopted.author,...('authorUrl'in adopted?{authorUrl:adopted.authorUrl}:{}), ...stored, altered: result.altered, original: { url, width, height, thumb, large } }, c.photo.url)
-      if('mismatch'in adopted){const mismatchFile=join(root,'content/photo-credit-mismatches.json'),mismatches=await json<object[]>(mismatchFile,[]);if(!mismatches.some(m=>JSON.stringify(m)===JSON.stringify(adopted.mismatch)))await save(mismatchFile,[...mismatches,adopted.mismatch])}
+      if('mismatch'in adopted&&adopted.mismatch){
+        const mismatchFile=join(root,'content/photo-credit-mismatches.json')
+        const prior=await json<{source:string;photo:string;page?:string;differs:boolean}[]>(mismatchFile,[])
+        const mismatches=prior.map(m=>({source:m.source,photo:m.photo,...(m.page?{page:m.page}:{}),differs:m.differs===true}))
+        const mismatch={...adopted.mismatch,page:pageKey}
+        if(!mismatches.some(m=>JSON.stringify(m)===JSON.stringify(mismatch)))mismatches.push(mismatch)
+        await save(mismatchFile,mismatches)
+      }
       const verdictFile = join(root, 'engine-state/_photo-subjects.json'), verdicts = await json<Record<string, Record<string, PhotoVerdict>>>(verdictFile, {})
       verdicts[stored.url] = { ...verdicts[stored.url], [c.page.id]: verdict }; await save(verdictFile, verdicts)
       await save(workFile, { key, status: 'published' }); finishRealCandidate(name,pageKey)
@@ -279,10 +288,10 @@ export async function imageSteps(root: string, makeDeps: () => Promise<ImageStep
           const cached = await json<{ key: string; pair: JudgmentPairReceipt; verdicts: ReferenceVerdict[] } | null>(consistencyFile, null)
           const pair = cached?.key === key && validJudgmentPair(cached.pair) ? undefined : await pairedJudgments(() => d.judge<ReferenceVerdict>(refs[0]!, referenceCheckPrompt(reference), REFERENCE_CHECK_SCHEMA, refs.slice(1)), v => v.verdict === 'consistent' && v.conflicts.length === 0, v => v.verdict)
           const consistency = pair ? { key, pair: judgmentReceipt(pair), verdicts: [pair.first.value, pair.second.value].filter((v): v is ReferenceVerdict => !!v) } : cached!
-          await save(consistencyFile, consistency)
+          await save(consistencyFile, publicImageEvidence(consistency))
           if (!consistency.pair.pass) {
             const conflictFile = join(d.cache, 'source-conflicts.json'), previous = await json<ImageConflict[]>(conflictFile, [])
-            await save(conflictFile, [...previous, ...consistency.verdicts.flatMap(v => sourceConflicts(reference, v, d.now().toISOString()))]); report.waiting.push(`${page.id}: source/reference conflict, uncertainty or disagreement`); continue
+            await save(conflictFile, publicImageEvidence([...previous, ...consistency.verdicts.flatMap(v => sourceConflicts(reference, v, d.now().toISOString()))])); report.waiting.push(`${page.id}: source/reference conflict, uncertainty or disagreement`); continue
           }
         }
         const prompt = `Realistic aquarium photograph of ${entity.scientificName}, ${page.kind === 'plants' ? 'one complete submerged plant or clump' : 'one whole living adult'}, entire subject visible. Appearance facts: ${reference.facts.map(f => f.quote).join(' ')}. Natural light, realistic anatomy. No people, body parts, hands, text, logos or watermarks.`
@@ -320,7 +329,7 @@ export async function imageSteps(root: string, makeDeps: () => Promise<ImageStep
         if (!consistency.pass) {
           const conflictFile = join(d.cache, 'source-conflicts.json'), previous = await json<ImageConflict[]>(conflictFile, [])
           const conflicts = [consistency.first.value, consistency.second.value].flatMap(v => v ? sourceConflicts(candidate!.reference, v, d.now().toISOString()) : [])
-          await save(conflictFile, [...previous, ...conflicts])
+          await save(conflictFile, publicImageEvidence([...previous, ...conflicts]))
           await withdrawGenerated(root, page)
           await save(decisionFile, { key: decisionKey, refused: true })
           report.waiting.push(`${page.id}: independent records and real reference conflict or cannot be reconciled`); continue
@@ -330,7 +339,7 @@ export async function imageSteps(root: string, makeDeps: () => Promise<ImageStep
         const views = await generatedViews(checkFile, candidate.reference, join(d.cache, 'views', hash))
         const pair = await pairedJudgments(() => d.judge<GeneratedVerdict>(views.files[0]!, generatedCheckPrompt(candidate!.reference, views.roles), GENERATED_CHECK_SCHEMA, views.files.slice(1)), v => positiveGeneratedVerdict(v, candidate!.reference), v => positiveGeneratedVerdict(v, candidate!.reference) ? 'pass' : v.verdict === 'pass' ? 'incomplete-features' : v.verdict)
         const receipt = judgmentReceipt(pair)
-        await save(join(d.cache, 'views', hash, 'verdict.json'), { version: generatedGateVersion(), referenceHash: referenceHash(candidate.reference), pixelHash: hash, pair: receipt, verdicts: [pair.first.value, pair.second.value] })
+        await save(join(d.cache, 'views', hash, 'verdict.json'), { version: generatedGateVersion(), referenceHash: referenceHash(candidate.reference), pixelHash: hash, pair: receipt, verdicts: publicImageEvidence([pair.first.value, pair.second.value]) })
         if (!pair.pass) {
           await save(decisionFile, { key: decisionKey, refused: true }); await withdrawGenerated(root, page); delete candidate.generated.check; await save(file, candidate); report.waiting.push(`${page.id}: generated picture refused or uncertain`); continue }
         candidate.generated.check = { passes: 2, judgments: receipt.judgments.map(j => sha256(JSON.stringify(j))) as [string,string], verdict: 'pass', version: generatedGateVersion(), model: GENERATED_CHECK_MODEL, at: d.now().toISOString(), referenceHash: referenceHash(candidate.reference), pixelHash: hash, calibrationHash: sha256(JSON.stringify(calibration)) }
