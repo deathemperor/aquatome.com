@@ -62,20 +62,23 @@ test('the sentences the gate quotes go to the video\'s editor with the transcrip
 })
 
 test('a mend the page can\'t have leaves the file as it was', async () => {
-  const cases: [string, Parameters<typeof setup>, Parameters<typeof deps>[1], Partial<Page>][] = [
-    ['another language', [], {}, { lang: 'id' }],
-    ['not a guide', [], {}, { kind: 'species' }],
-    ['a guide from an article', [{}, { source: 'aquariumcoop', video: undefined }], {}, {}],
-    ['a body a person fixed', [{ bodyFixed: true }], {}, {}],
-    ['questions a person fixed', [{ faqFixed: true }], {}, {}],
-    ['no transcript on this Mac', [], { transcript: null }, {}],
-    ['an edit that came back broken', [], { fixed: { relevant: false } }, {}],
-    ['an edit that left a quoted sentence in, here in the FAQ', [], { fixed: { faq: [{ q: 'Mua lọc ở đâu?', a: 'Mua lọc ở Petco.' }] } }, {}],
-    ['a review under the bar and under the page\'s', [], { score: 0.7 }, {}],
+  // The last column: false once an editor was called, which the gate counts among a run's mends; nothing when none was.
+  const cases: [string, Parameters<typeof setup>, Parameters<typeof deps>[1], Partial<Page>, false | undefined][] = [
+    ['another language', [], {}, { lang: 'id' }, undefined],
+    ['not a guide', [], {}, { kind: 'species' }, undefined],
+    ['a guide from an article', [{}, { source: 'aquariumcoop', video: undefined }], {}, {}, undefined],
+    ['a body a person fixed', [{ bodyFixed: true }], {}, {}, undefined],
+    ['questions a person fixed', [{ faqFixed: true }], {}, {}, undefined],
+    ['no transcript on this Mac', [], { transcript: null }, {}, undefined],
+    ['an edit that came back broken', [], { fixed: { relevant: false } }, {}, false],
+    ['an edit that left a quoted sentence in, here in the FAQ', [], { fixed: { faq: [{ q: 'Mua lọc ở đâu?', a: 'Mua lọc ở Petco.' }] } }, {}, false],
+    ['a review under the bar and under the page\'s', [], { score: 0.7 }, {}, false],
   ]
-  for (const [name, s, d, p] of cases) {
+  for (const [name, s, d, p, out] of cases) {
     const { root, file, was } = await setup(...s)
-    expect(await deps(root, d).mend(page(p), [shop, price]), name).toBe(false)
+    const { mend, prompts } = deps(root, d)
+    expect(await mend(page(p), [shop, price]), name).toBe(out)
+    expect(prompts.length > 0, name).toBe(out === false)
     expect(await readFile(file, 'utf8'), name).toBe(was)
   }
 })
@@ -87,7 +90,7 @@ test('a product or a price quoted in a sentence that gives a dose is not mended:
   for (const [name, findings] of [['a product in a dose sentence', [product]], ['a price beside an amount', [packet]], ['one of several', [shop, product]]] as const) {
     const { root, file, was } = await setup({ body: `${dosed}<p>Mua lọc ở Petco.</p>` })
     const { mend, prompts } = deps(root)
-    expect(await mend(page(), [...findings]), name).toBe(false)
+    expect(await mend(page(), [...findings]), name).toBeUndefined()
     expect(prompts, name).toEqual([]) // no editor, no reviewer: the text goes back as before
     expect(await readFile(file, 'utf8'), name).toBe(was)
   }
