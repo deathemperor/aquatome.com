@@ -14,18 +14,6 @@
       "kind": "group"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/194050540.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/194050540-480.webp",
-      "width": 1024,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Claire Herzog",
-      "sourceUrl": "https://www.inaturalist.org/photos/194050540",
-      "caption": "Cá rô phi bơi trong nước đục gần bờ",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/135041281.webp",
       "thumb": "https://media.aquatome.com/inaturalist/135041281-480.webp",
       "width": 1024,
@@ -36,18 +24,6 @@
       "caption": "Cá rô phi đang há miệng gần mặt nước",
       "best": true,
       "kind": "other"
-    },
-    {
-      "url": "https://media.aquatome.com/inaturalist/207594794.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/207594794-480.webp",
-      "width": 1024,
-      "height": 917,
-      "licence": "CC BY",
-      "author": "Suanne Pyle",
-      "sourceUrl": "https://www.inaturalist.org/photos/207594794",
-      "caption": "Hai cá rô phi bơi trong vùng nước nông có cỏ",
-      "best": true,
-      "kind": "group"
     },
     {
       "url": "https://media.aquatome.com/inaturalist/24951836.webp",
@@ -396,6 +372,30 @@
       "caption": "Cá rô phi bơi giữa các tảng đá ở suối nước nông",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/194050540.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/194050540-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Claire Herzog",
+      "sourceUrl": "https://www.inaturalist.org/photos/194050540",
+      "caption": "Cá rô phi bơi trong nước đục gần bờ",
+      "best": true,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/207594794.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/207594794-480.webp",
+      "width": 1024,
+      "height": 917,
+      "licence": "CC BY",
+      "author": "Suanne Pyle",
+      "sourceUrl": "https://www.inaturalist.org/photos/207594794",
+      "caption": "Hai cá rô phi bơi trong vùng nước nông có cỏ",
+      "best": true,
+      "kind": "group"
     }
   ],
   "seen": 180,

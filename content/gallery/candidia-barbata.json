@@ -194,18 +194,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/298292300.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/298292300-480.webp",
-      "width": 1024,
-      "height": 684,
-      "licence": "CC BY",
-      "author": "Yung-Lun Lin",
-      "sourceUrl": "https://www.inaturalist.org/photos/298292300",
-      "caption": "Cá Candidia barbata nhìn nghiêng trong bể chụp có thước",
-      "best": false,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/389826265.webp",
       "thumb": "https://media.aquatome.com/inaturalist/389826265-480.webp",
       "width": 1024,
@@ -288,6 +276,18 @@
       "caption": "Nhóm cá Candidia barbata trong suối đá",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/298292300.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/298292300-480.webp",
+      "width": 1024,
+      "height": 684,
+      "licence": "CC BY",
+      "author": "Yung-Lun Lin",
+      "sourceUrl": "https://www.inaturalist.org/photos/298292300",
+      "caption": "Cá Candidia barbata nhìn nghiêng trong bể chụp có thước",
+      "best": false,
+      "kind": "other"
     }
   ],
   "seen": 84,

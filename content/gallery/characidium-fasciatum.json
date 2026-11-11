@@ -2,18 +2,6 @@
   "id": "characidium-fasciatum",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/250270540.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/250270540-480.webp",
-      "width": 1200,
-      "height": 675,
-      "licence": "CC BY-SA",
-      "author": "Ericson Cernawsky Igual",
-      "sourceUrl": "https://www.inaturalist.org/photos/250270540",
-      "caption": "Cá phi tiêu Nam Mỹ trên nền đá ngoài tự nhiên",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/commons/535775e2217bf5fa.webp",
       "thumb": "https://media.aquatome.com/commons/535775e2217bf5fa-480.webp",
       "width": 1200,
@@ -24,6 +12,18 @@
       "caption": "Cá phi tiêu Nam Mỹ sọc vằn trong bể có sỏi",
       "best": true,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/250270540.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/250270540-480.webp",
+      "width": 1200,
+      "height": 675,
+      "licence": "CC BY-SA",
+      "author": "Ericson Cernawsky Igual",
+      "sourceUrl": "https://www.inaturalist.org/photos/250270540",
+      "caption": "Cá phi tiêu Nam Mỹ trên nền đá ngoài tự nhiên",
+      "best": true,
+      "kind": "habitat"
     }
   ],
   "seen": 7,

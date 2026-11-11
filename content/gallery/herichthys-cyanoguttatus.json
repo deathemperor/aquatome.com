@@ -74,18 +74,6 @@
       "kind": "habitat"
     },
     {
-      "url": "https://media.aquatome.com/commons/4ecd018c4a3a24d6.webp",
-      "thumb": "https://media.aquatome.com/commons/4ecd018c4a3a24d6-480.webp",
-      "width": 1200,
-      "height": 729,
-      "licence": "CC BY-SA 3.0",
-      "author": "User:Valeriej",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_at_the_Audubon_Aquarium_of_the_Americas.jpeg",
-      "caption": "Cá rô phi Texas trưởng thành màu xanh ánh sáng trong bể",
-      "best": true,
-      "kind": "other"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/95601949.webp",
       "thumb": "https://media.aquatome.com/inaturalist/95601949-480.webp",
       "width": 1024,
@@ -384,6 +372,18 @@
       "caption": "Cá rô phi Texas bơi sát đáy cát trong môi trường tự nhiên",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/commons/4ecd018c4a3a24d6.webp",
+      "thumb": "https://media.aquatome.com/commons/4ecd018c4a3a24d6-480.webp",
+      "width": 1200,
+      "height": 729,
+      "licence": "CC BY-SA 3.0",
+      "author": "User:Valeriej",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish_at_the_Audubon_Aquarium_of_the_Americas.jpeg",
+      "caption": "Cá rô phi Texas trưởng thành màu xanh ánh sáng trong bể",
+      "best": true,
+      "kind": "other"
     }
   ],
   "seen": 303,

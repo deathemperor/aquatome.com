@@ -86,18 +86,6 @@
       "kind": "flower"
     },
     {
-      "url": "https://media.aquatome.com/inaturalist/111784032.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/111784032-480.webp",
-      "width": 1024,
-      "height": 768,
-      "licence": "CC BY",
-      "author": "chiuluan",
-      "sourceUrl": "https://www.inaturalist.org/photos/111784032",
-      "caption": "Ngọn Rong đuôi chó Egeria với các vòng lá rõ nét",
-      "best": true,
-      "kind": "detail"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/111345151.webp",
       "thumb": "https://media.aquatome.com/inaturalist/111345151-480.webp",
       "width": 1024,
@@ -818,6 +806,18 @@
       "caption": "Thảm Rong đuôi chó Egeria nở hoa trắng dày đặc ngoài tự nhiên",
       "best": false,
       "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/111784032.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/111784032-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "chiuluan",
+      "sourceUrl": "https://www.inaturalist.org/photos/111784032",
+      "caption": "Ngọn Rong đuôi chó Egeria với các vòng lá rõ nét",
+      "best": true,
+      "kind": "detail"
     }
   ],
   "seen": 160,

@@ -8,17 +8,17 @@ under `<lang>/<path>`.
 
 | Kind | Pages reviewed | Under the bar | With notes |
 | --- | --- | --- | --- |
-| video-guide | 810 | 588 (vi 588) | 588 |
-| translation | 1440 | 245 (vi 245) | 245 |
+| video-guide | 826 | 598 (vi 598) | 598 |
+| translation | 1452 | 246 (vi 246) | 246 |
 | vi-rewrite | 287 | 15 (vi 15) | 15 |
 | reader-rewrite | 24 | 0 | 0 |
-| title | 4 | 0 | 0 |
+| title | 24 | 0 | 0 |
 | breed | 14 | 3 (ms 3) | 3 |
 | topic | 70 | 5 (ms 1, th 4) | 5 |
 | product | 13 | 1 (vi 1) | 1 |
 | product-reviews | 12 | 0 | 0 |
 | summary | 1717 | 78 (vi 78) | 78 |
-| localize | 1540 | 698 (id 318, ms 35, th 345) | 698 |
+| localize | 1567 | 715 (id 329, ms 35, th 351) | 715 |
 | places | 5399 | 3148 (id 1136, ms 968, th 945, vi 99) | 628 |
 | equipment | 5 | 0 | 0 |
 | planting | 31 | 0 | 0 |
@@ -26,21 +26,21 @@ under `<lang>/<path>`.
 
 ## video-guide: Vietnamese guides written from YouTube videos, against the transcript
 
-588 of 810 pages under the bar.
+598 of 826 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 519 | 1414 |
-| States as certain what the source hedges, or what garbled captions only hint at | 511 | 1557 |
-| Says what the source doesn't (invented, added) | 447 | 1142 |
-| Wording: unnatural, literal, stiff or chatty | 229 | 316 |
-| A number, unit, dose or price | 201 | 291 |
-| Repeats itself (intro, summary, steps and FAQ) | 116 | 138 |
+| Other | 528 | 1430 |
+| States as certain what the source hedges, or what garbled captions only hint at | 521 | 1585 |
+| Says what the source doesn't (invented, added) | 454 | 1156 |
+| Wording: unnatural, literal, stiff or chatty | 235 | 328 |
+| A number, unit, dose or price | 202 | 292 |
+| Repeats itself (intro, summary, steps and FAQ) | 121 | 143 |
 | Meaning changed or wrong | 102 | 112 |
 | Leaves out what the source says | 45 | 48 |
-| Hobby terms and names | 37 | 37 |
+| Hobby terms and names | 38 | 38 |
 | Names or points to the video, channel, creator or source | 25 | 25 |
-| Copied from the transcript or source | 20 | 22 |
+| Copied from the transcript or source | 21 | 23 |
 | Off the title's topic | 20 | 20 |
 | Text left in another language | 6 | 6 |
 
@@ -124,17 +124,17 @@ under `<lang>/<path>`.
 
 ## translation: source pages translated into Vietnamese, against the English
 
-245 of 1440 pages under the bar.
+246 of 1452 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 236 | 735 |
-| Says what the source doesn't (invented, added) | 199 | 391 |
-| Wording: unnatural, literal, stiff or chatty | 191 | 367 |
-| Meaning changed or wrong | 157 | 251 |
-| Hobby terms and names | 119 | 158 |
+| Other | 237 | 737 |
+| Says what the source doesn't (invented, added) | 200 | 393 |
+| Wording: unnatural, literal, stiff or chatty | 192 | 369 |
+| Meaning changed or wrong | 158 | 252 |
+| Hobby terms and names | 120 | 160 |
 | Text left in another language | 85 | 106 |
-| Leaves out what the source says | 80 | 110 |
+| Leaves out what the source says | 81 | 112 |
 | States as certain what the source hedges, or what garbled captions only hint at | 72 | 84 |
 | A number, unit, dose or price | 65 | 85 |
 | Repeats itself (intro, summary, steps and FAQ) | 54 | 65 |
@@ -300,7 +300,7 @@ under `<lang>/<path>`.
 
 ## title: titles rewritten to promise only what the text has
 
-0 of 4 pages under the bar.
+0 of 24 pages under the bar.
 
 ## breed: breed pages, against their research
 
@@ -453,20 +453,20 @@ under `<lang>/<path>`.
 
 ## localize: species and plant pages in Indonesian and Thai, against the English
 
-698 of 1540 pages under the bar.
+715 of 1567 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 657 | 1933 |
-| Wording: unnatural, literal, stiff or chatty | 612 | 1333 |
-| Says what the source doesn't (invented, added) | 423 | 615 |
-| Meaning changed or wrong | 392 | 615 |
-| Hobby terms and names | 391 | 521 |
-| A number, unit, dose or price | 354 | 459 |
-| Text left in another language | 273 | 346 |
-| Leaves out what the source says | 229 | 271 |
-| Repeats itself (intro, summary, steps and FAQ) | 206 | 234 |
-| States as certain what the source hedges, or what garbled captions only hint at | 161 | 178 |
+| Other | 673 | 1991 |
+| Wording: unnatural, literal, stiff or chatty | 629 | 1364 |
+| Says what the source doesn't (invented, added) | 435 | 634 |
+| Meaning changed or wrong | 401 | 625 |
+| Hobby terms and names | 401 | 536 |
+| A number, unit, dose or price | 361 | 468 |
+| Text left in another language | 276 | 348 |
+| Leaves out what the source says | 232 | 274 |
+| Repeats itself (intro, summary, steps and FAQ) | 211 | 239 |
+| States as certain what the source hedges, or what garbled captions only hint at | 163 | 181 |
 | Copied from the transcript or source | 26 | 26 |
 | Off the title's topic | 1 | 1 |
 

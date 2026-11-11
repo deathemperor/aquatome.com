@@ -2,18 +2,6 @@
   "id": "fissidens-fontanus",
   "photos": [
     {
-      "url": "https://media.aquatome.com/inaturalist/654013920.webp",
-      "thumb": "https://media.aquatome.com/inaturalist/654013920-480.webp",
-      "width": 1024,
-      "height": 1024,
-      "licence": "CC BY",
-      "author": "Julien",
-      "sourceUrl": "https://www.inaturalist.org/photos/654013920",
-      "caption": "Thảm Rêu Fissidens fontanus phủ dày bên dòng suối",
-      "best": true,
-      "kind": "habitat"
-    },
-    {
       "url": "https://media.aquatome.com/inaturalist/14229490.webp",
       "thumb": "https://media.aquatome.com/inaturalist/14229490-480.webp",
       "width": 768,
@@ -273,6 +261,18 @@
       "sourceUrl": "https://www.inaturalist.org/photos/700131234",
       "caption": "Rêu Fissidens fontanus mọc rải rác trên nền cát ven suối",
       "best": false,
+      "kind": "habitat"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/654013920.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/654013920-480.webp",
+      "width": 1024,
+      "height": 1024,
+      "licence": "CC BY",
+      "author": "Julien",
+      "sourceUrl": "https://www.inaturalist.org/photos/654013920",
+      "caption": "Thảm Rêu Fissidens fontanus phủ dày bên dòng suối",
+      "best": true,
       "kind": "habitat"
     }
   ],
