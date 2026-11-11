@@ -938,6 +938,7 @@
     "matchType": "EXACT"
   },
   "Amazon frogbit": null,
+  "Amazonia trong": null,
   "Amazonie occidentale": null,
   "Ambassis miops": {
     "canonicalName": "Ambassis miops",
@@ -1114,6 +1115,13 @@
     "order": "Hypnales",
     "family": "Amblystegiaceae",
     "genus": "Amblystegium",
+    "matchType": "EXACT"
+  },
+  "Ambystoma mexicanum": {
+    "canonicalName": "Ambystoma mexicanum",
+    "order": "Caudata",
+    "family": "Ambystomatidae",
+    "genus": "Ambystoma",
     "matchType": "EXACT"
   },
   "Ameca splendens": {
@@ -4532,6 +4540,7 @@
     "genus": "Boraras",
     "matchType": "FUZZY"
   },
+  "Boston ferns": null,
   "Bostrychus zonatus": {
     "canonicalName": "Bostrychus zonatus",
     "order": "Perciformes",
@@ -12266,6 +12275,7 @@
     "genus": "Micranthemum",
     "matchType": "EXACT"
   },
+  "Hemianthus callitriodes": null,
   "Hemianthus glomeratus": {
     "canonicalName": "Micranthemum glomeratum",
     "order": "Lamiales",
@@ -14054,6 +14064,13 @@
     "genus": "Hypostomus",
     "matchType": "EXACT"
   },
+  "Hypostomus soniae": {
+    "canonicalName": "Hypostomus soniae",
+    "order": "Siluriformes",
+    "family": "Loricariidae",
+    "genus": "Hypostomus",
+    "matchType": "EXACT"
+  },
   "Hypostomus surinamensis": {
     "canonicalName": "Hypostomus surinamensis",
     "order": "Siluriformes",
@@ -14389,6 +14406,13 @@
     "matchType": "EXACT"
   },
   "Irrawaddy drainages": null,
+  "Isochrysis galbana": {
+    "canonicalName": "Isochrysis galbana",
+    "order": "Isochrysidales",
+    "family": "Isochrysidaceae",
+    "genus": "Isochrysis",
+    "matchType": "EXACT"
+  },
   "Isorineloricaria acuarius": {
     "canonicalName": "Isorineloricaria acuarius",
     "order": "Siluriformes",
@@ -14542,6 +14566,7 @@
   "Khi anubias": null,
   "Khi chu": null,
   "Khi chuy": null,
+  "Khi cua": null,
   "Khi dinh": null,
   "Khi gai": null,
   "Khi giao": null,
@@ -14562,6 +14587,7 @@
   "Khi nhi": null,
   "Khi nitrat": null,
   "Khi nitrit": null,
+  "Khi pha": null,
   "Khi phao": null,
   "Khi phay": null,
   "Khi pheromone": null,
@@ -16065,6 +16091,13 @@
     "genus": "Lithodoras",
     "matchType": "EXACT"
   },
+  "Lobelia brasiliensis": {
+    "canonicalName": "Lobelia brasiliensis",
+    "order": "Asterales",
+    "family": "Campanulaceae",
+    "genus": "Lobelia",
+    "matchType": "EXACT"
+  },
   "Lobocheilos melanotaenia": {
     "canonicalName": "Lobocheilos melanotaenia",
     "order": "Cypriniformes",
@@ -16084,6 +16117,13 @@
     "order": "Cypriniformes",
     "family": "Cyprinidae",
     "genus": "Lobocheilos",
+    "matchType": "EXACT"
+  },
+  "Lockhartia oerstedii": {
+    "canonicalName": "Lockhartia oerstedii",
+    "order": "Asparagales",
+    "family": "Orchidaceae",
+    "genus": "Lockhartia",
     "matchType": "EXACT"
   },
   "Loei provinces": null,
@@ -18206,6 +18246,13 @@
     "genus": "Nannocharax",
     "matchType": "EXACT"
   },
+  "Nannochloropsis oculata": {
+    "canonicalName": "Nannochloropsis oculata",
+    "order": "Eustigmatales",
+    "family": "Monodopsidaceae",
+    "genus": "Nannochloropsis",
+    "matchType": "EXACT"
+  },
   "Nannopetersius ansorgii": {
     "canonicalName": "Nannopetersius ansorgii",
     "order": "Characiformes",
@@ -20163,6 +20210,13 @@
     "matchType": "EXACT"
   },
   "Overzigt der": null,
+  "Oxycaryum cubense": {
+    "canonicalName": "Cyperus blepharoleptos",
+    "order": "Poales",
+    "family": "Cyperaceae",
+    "genus": "Cyperus",
+    "matchType": "EXACT"
+  },
   "Oxydoras niger": {
     "canonicalName": "Oxydoras niger",
     "order": "Siluriformes",
@@ -21957,6 +22011,13 @@
     "genus": "Phyllanthus",
     "matchType": "EXACT"
   },
+  "Phyllantus fluitans": {
+    "canonicalName": "Phyllanthus fluitans",
+    "order": "Malpighiales",
+    "family": "Phyllanthaceae",
+    "genus": "Phyllanthus",
+    "matchType": "FUZZY"
+  },
   "Physa acuta": {
     "canonicalName": "Physella acuta",
     "family": "Physidae",
@@ -22947,6 +23008,7 @@
     "genus": "Pseudacanthicus",
     "matchType": "EXACT"
   },
+  "Pseudacanthicus ngh": null,
   "Pseudacanthicus pirarara": {
     "canonicalName": "Pseudacanthicus pirarara",
     "order": "Siluriformes",
@@ -25374,6 +25436,13 @@
     "genus": "Salvinia",
     "matchType": "EXACT"
   },
+  "Salvinia oblongifolia": {
+    "canonicalName": "Salvinia oblongifolia",
+    "order": "Salviniales",
+    "family": "Salviniaceae",
+    "genus": "Salvinia",
+    "matchType": "EXACT"
+  },
   "Salween drainages": null,
   "Salween located": null,
   "Sammlung von": null,
@@ -27765,6 +27834,13 @@
     "genus": "Tetragonopterus",
     "matchType": "FUZZY"
   },
+  "Tetranematichthys wallacei": {
+    "canonicalName": "Tetranematichthys wallacei",
+    "order": "Siluriformes",
+    "family": "Auchenipteridae",
+    "genus": "Tetranematichthys",
+    "matchType": "EXACT"
+  },
   "Tetraodon baileyi": {
     "canonicalName": "Pao baileyi",
     "order": "Tetraodontiformes",
@@ -28435,6 +28511,7 @@
   "Trong mulm": null,
   "Trong nghi": null,
   "Trong nhi": null,
+  "Trong paludarium": null,
   "Trong thi": null,
   "Tropheops macrophthalmus": {
     "canonicalName": "Tropheops macrophthalmus",
@@ -29323,6 +29400,13 @@
     "order": "Coleoptera",
     "family": "Tenebrionidae",
     "genus": "Zophobas",
+    "matchType": "EXACT"
+  },
+  "Zosterella dubia": {
+    "canonicalName": "Heteranthera dubia",
+    "order": "Commelinales",
+    "family": "Pontederiaceae",
+    "genus": "Heteranthera",
     "matchType": "EXACT"
   },
   "Zungaro zungaro": {
