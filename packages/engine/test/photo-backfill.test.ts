@@ -5,12 +5,19 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { backfillPhotos } from '../src/photo-backfill'
 
+// Kept out of /tmp (a restart empties it); the folder is made first, since a clean machine (CI) has none.
+const tempRoot = async (prefix: string) => {
+  const base = join(homedir(), '.cache/aquatome/photo-intake-real-size')
+  await mkdir(base, { recursive: true })
+  return mkdtemp(join(base, prefix))
+}
+
 const URL_ = 'https://www.seriouslyfish.com/species/acanthopsoides-robertsi/'
 const page = `<html><head><title>Acanthopsoides robertsi</title></head><body><main><h1>Acanthopsoides robertsi</h1><p>${'A small sand-diving loach. '.repeat(20)}</p>
 <img src="/images/robertsi.jpg" alt="Acanthopsoides robertsi" width="600" height="233"><img src="/images/robertsi-2.jpg" alt="Acanthopsoides robertsi" width="550" height="236"></main></body></html>`
 
 test('re-reads the source page of a photo-less species once, adds the photos, then waits a month', async () => {
-  const root = await mkdtemp(join(homedir(), '.cache/aquatome/photo-intake-real-size/pb-'))
+  const root = await tempRoot('pb-')
   const dir = join(root, 'content', 'species', 'acanthopsoides-robertsi')
   await mkdir(dir, { recursive: true })
   await mkdir(join(root, 'engine-state'), { recursive: true })
@@ -38,7 +45,7 @@ test('re-reads the source page of a photo-less species once, adds the photos, th
 })
 
 test('archive-read sources are left out; ScotCat photos come from their own pages', async () => {
-  const root = await mkdtemp(join(homedir(), '.cache/aquatome/photo-intake-real-size/pb-'))
+  const root = await tempRoot('pb-')
   await mkdir(join(root, 'engine-state'), { recursive: true })
   const sp = (id: string, sections: object[]) => mkdir(join(root, 'content', 'species', id), { recursive: true }).then(() => writeFile(join(root, 'content', 'species', id, 'entity.json'), JSON.stringify({ scientificName: id, photos: [], sections })))
   await sp('pc', [{ source: 'planetcatfish', sourceUrl: 'https://www.planetcatfish.com/common/species.php?species_id=1' }])
@@ -63,7 +70,7 @@ test('archive-read sources are left out; ScotCat photos come from their own page
 })
 
 test('catfish from other sources get ScotCat photos at its guessed factsheet address; a 404 waits a month; 10 s between ScotCat requests', async () => {
-  const root = await mkdtemp(join(homedir(), '.cache/aquatome/photo-intake-real-size/pb-'))
+  const root = await tempRoot('pb-')
   await mkdir(join(root, 'engine-state'), { recursive: true })
   const SF = 'https://www.seriouslyfish.com/species/x/'
   const sp = (id: string, scientificName: string, family: string) => mkdir(join(root, 'content', 'species', id), { recursive: true }).then(() => writeFile(join(root, 'content', 'species', id, 'entity.json'), JSON.stringify({ scientificName, family, photos: [], sections: [{ source: 'seriouslyfish', sourceUrl: SF }] })))
@@ -102,7 +109,7 @@ test('catfish from other sources get ScotCat photos at its guessed factsheet add
 
 
 test('recently tried empty source pages get one intake retry, paced by the existing page limit', async () => {
-  const root = await mkdtemp(join(homedir(), '.cache/aquatome/photo-intake-real-size/retry-'))
+  const root = await tempRoot('retry-')
   await mkdir(join(root, 'engine-state'), { recursive: true })
   const urls = ['https://www.aquariumglaser.de/en/fish/a/', 'https://www.aquariumglaser.de/en/fish/b/', 'https://www.seriouslyfish.com/species/c/']
   for (const [i, url] of urls.entries()) {
@@ -128,7 +135,7 @@ test('recently tried empty source pages get one intake retry, paced by the exist
 
 
 test('the one-time retry caps a guide at four photos and consumes a failed page attempt too', async () => {
-  const root = await mkdtemp(join(homedir(), '.cache/aquatome/photo-intake-real-size/retry-'))
+  const root = await tempRoot('retry-')
   await mkdir(join(root, 'engine-state'), { recursive: true })
   const url = 'https://www.aquariumglaser.de/en/fish/guide/'
   const dir = join(root, 'content/guides/fish')
