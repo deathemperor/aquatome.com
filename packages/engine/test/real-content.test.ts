@@ -257,7 +257,7 @@ test('no two guides in a language share a title, and none is only a name', async
 
 // The chief of staff's rulings of 2026-11-12 on the tap-water report. Each is a hand fix the engine keeps: a guide's body
 // marked bodyFixed, a page's part marked fixed (in English and in each language beside it), a note of ours in localNote.
-test('the tap-water fixes hold: Seachem Prime named at its dose, pure water only for a plant kept alone, our chloramine note, artemia salt in grams', () => {
+test('the tap-water fixes hold: Seachem Prime named at its dose, our note on water for lucky bamboo beside its source\'s, our chloramine note, artemia salt in grams', () => {
   const root = fileURLToPath(new URL('../../../content', import.meta.url))
   const read = <T>(path: string) => JSON.parse(readFileSync(join(root, path), 'utf8')) as T
   type Guide = { body: string; bodyFixed?: boolean; faqFixed?: boolean; summary?: string[]; faq?: { q: string; a: string }[]; localNote?: { html: string; refs: { url: string }[] } }
@@ -266,21 +266,40 @@ test('the tap-water fixes hold: Seachem Prime named at its dose, pure water only
   expect(prime.bodyFixed).toBe(true)
   expect(prime.body).toMatch(/<h3>Liều dùng Seachem Prime theo nhà sản xuất<\/h3>\s*<p>[^<]*<\/p>\s*<ul>\s*<li>1 nắp \(5 mL\) cho 200 L/)
   expect(productOf('Seachem Prime', 'vi')?.status).toBe('sold')
-  // Lucky bamboo: RO or distilled water alone is for the plant kept by itself; with animals, dechlorinated tap water or
-  // RO water with minerals added back (the source allows dechlorinated tap water in its next sentence).
-  const shared = { en: /Where fish, shrimp or snails share the water, use dechlorinated tap water, or RO water with minerals added back\./, vi: /Bể có cá, tép hay ốc sống chung thì dùng nước máy đã khử clo, hoặc nước RO đã bù khoáng\./, id: /Kalau ada ikan, udang, atau siput di air yang sama, gunakan air keran yang sudah dihilangkan klorinnya, atau air RO yang sudah ditambah mineral\./, th: /ถ้ามีปลา กุ้ง หรือหอยอยู่ในน้ำเดียวกัน ให้ใช้น้ำประปาที่กำจัดคลอรีนแล้ว หรือน้ำ RO ที่เติมแร่ธาตุแล้ว/ }
-  const only = { en: /Use only RO or distilled water|do not use tap water/, vi: /Chỉ dùng nước RO|chỉ nên dùng nước RO|không dùng nước máy/, id: /Gunakan hanya air RO|jangan gunakan air keran/, th: /ใช้เฉพาะน้ำ RO|ไม่ควรใช้น้ำประปา/ }
-  const parts = read<{ sections: { key: string; source: string; html: string; fixed?: boolean }[] }>('plants/dracaena-sanderiana/entity.json').sections
+  // Lucky bamboo (the chief of staff, 2026-11-12: a source is never credited with words it did not say). Aquarium Breeder's
+  // parts keep what it says, RO or distilled water and dechlorinated tap water if you use it; the ruling, RO with minerals
+  // added back where animals share the water and pure water only for the plant by itself, is our own part, labelled, with
+  // its sources, in every language the page has.
+  const ours = { en: /^<p><strong>AquaTome's note:<\/strong> RO or distilled water with no minerals added back, as above, is for lucky bamboo kept by itself\. Where fish, shrimp or snails share the water, use RO water with minerals added back: shrimp and snails need minerals that pure water lacks\.<\/p>$/, vi: /^<p><strong>Ghi chú của AquaTome:<\/strong> [^<]*chỉ hợp khi trồng trúc phú quý riêng\. Bể có cá, tép hay ốc sống chung thì dùng nước RO đã bù khoáng, vì tép và ốc cần khoáng/, id: /^<p><strong>Catatan AquaTome:<\/strong> [^<]*hanya cocok kalau bambu hoki dipelihara sendiri\. Kalau ada ikan, udang, atau siput di air yang sama, gunakan air RO yang sudah ditambah mineral, karena udang dan siput butuh mineral/, th: /^<p><strong>หมายเหตุจาก AquaTome:<\/strong> [^<]*เหมาะเฉพาะเมื่อปลูกไผ่กวนอิมไว้อย่างเดียว ถ้ามีปลา กุ้ง หรือหอยอยู่ในน้ำเดียวกัน ให้ใช้น้ำ RO ที่เติมแร่ธาตุแล้ว เพราะกุ้งและหอยต้องการแร่ธาตุ/ }
+  // Tap water is Aquarium Breeder's to say (its care part), so the note leaves it out.
+  const tap = { en: /tap water/i, vi: /nước máy|khử clo/, id: /air keran|klorin/, th: /น้ำประปา|คลอรีน/ }
+  const ruling = { en: /minerals added back|kept by itself/, vi: /bù khoáng|trồng (?:trúc phú quý )?riêng/, id: /ditambah mineral|dipelihara sendiri/, th: /เติมแร่ธาตุ|ไว้อย่างเดียว/ }
+  const plant = read<{ sections: { key: string; source: string; html: string; refs?: number[]; fixed?: boolean }[]; refs?: { url: string }[] }>('plants/dracaena-sanderiana/entity.json')
+  const note = plant.sections.find(s => s.key === 'waterConditions' && s.source === 'aquatome')!
+  expect(note.fixed).toBe(true)
+  expect(note.html).toMatch(ours.en)
+  // Its mark names the page its facts come from (docs/governance.md): shrimp need minerals in the water, RO/DI water takes a
+  // remineralizer, and snails suffer in distilled water, which has none (the last in its author's reply there). No page it
+  // cites says otherwise: Seneye's RO page, which says pure RO is never used on its own, isn't cited (the third
+  // independent read). Whom the advice is for, fish included, is the ruling's, by the label.
+  expect(note.refs!.map(i => plant.refs![i]!.url)).toEqual(['https://aquariumbreeder.com/shrimp-keeping-can-i-remineralize-tap-water/'])
+  expect(note.html).not.toMatch(tap.en)
+  // What Aquarium Breeder says stays its own, in every language: RO or distilled water, tap water dechlorinated first.
+  const says = { vi: [/nước RO hoặc nước cất/, /khử clo trước/], id: [/air RO atau air suling/, /hilangkan klorinnya dulu/], th: [/น้ำ RO หรือน้ำกลั่น/, /ต้องกำจัดคลอรีนก่อน/] }
+  for (const lang of ['vi', 'id', 'th'] as const) {
+    const t = read<{ sections: Record<string, string> }>(`plants/dracaena-sanderiana/${lang}.json`).sections
+    expect(t['waterConditions:aquatome'], lang).toMatch(ours[lang])
+    expect(t['waterConditions:aquatome'], lang).not.toMatch(tap[lang])
+    for (const key of ['maintenance', 'waterConditions']) expect(t[`${key}:aquariumbreeder`], `${lang} ${key}`).not.toMatch(ruling[lang])
+    expect(t['maintenance:aquariumbreeder'], lang).toMatch(says[lang][0]!)
+    expect(t['maintenance:aquariumbreeder'], lang).toMatch(says[lang][1]!)
+    expect(t['waterConditions:aquariumbreeder'], lang).toMatch(says[lang][0]!)
+  }
   for (const key of ['maintenance', 'waterConditions']) {
-    const en = parts.find(s => s.key === key && s.source === 'aquariumbreeder')!
-    expect(en.fixed, key).toBe(true)
-    expect(en.html, key).toMatch(shared.en)
-    expect(en.html, key).not.toMatch(only.en)
-    for (const lang of ['vi', 'id', 'th'] as const) {
-      const html = read<{ sections: Record<string, string> }>(`plants/dracaena-sanderiana/${lang}.json`).sections[`${key}:aquariumbreeder`]
-      expect(html, `${lang} ${key}`).toMatch(shared[lang])
-      expect(html, `${lang} ${key}`).not.toMatch(only[lang])
-    }
+    const ab = plant.sections.find(s => s.key === key && s.source === 'aquariumbreeder')!
+    expect(ab.html, key).toMatch(/Use only RO or distilled water/)
+    if (key === 'maintenance') expect(ab.html).toMatch(/If you still use tap water, dechlorinate it first/)
+    expect(ab.html, key).not.toMatch(ruling.en)
   }
   // The stand-tap-water video guide: the video's advice stays the video's, our note goes beside it, and "chỉ phí tiền" goes.
   const stand = read<Guide>('guides/youtube-S-FR9u--jVs/vi.json')
