@@ -55,3 +55,30 @@ test('a crop preserves the existing combined source and contributor credit befor
  expect(credit.text).toBe('Ảnh: Fixture contributor / ScotCat · Đã cắt bỏ dấu của nguồn ảnh')
  expect(credit.url).toBe(p.sourceUrl);expect(photoMark('vi',p)).toContain(credit.text)
 })
+
+test('an unsafe cropped head stays out of app lead data until the app can fit it, while album data and credits remain',async()=>{
+ const c=await loadAll({root:fileURLToPath(new URL('./fixture-content',import.meta.url)),lang:'vi',publicBuild:false}),s=c.species.find(s=>s.id==='paracheirodon-innesi')!
+ const crop:Photo={...real,width:800,height:520,headFit:'contain',altered:[{method:'mark-crop',date:'2026-11-11',originalHash:'a'.repeat(64),crop:{originalWidth:800,originalHeight:600,window:{x0:0,y0:0,x1:800,y1:520},subject:{x0:30,y0:180,x1:760,y1:420},margin:15}}]}
+ s.photos=[crop];c.galleries[s.id]=Array.from({length:6},(_,i)=>({...crop,url:`https://media.aquatome.com/crop-${i}.webp`}))
+ const doc=await fishDoc('vi',c,s,listedPaths('vi',c));expect(doc.lead).toBeUndefined()
+ const album=doc.blocks.find(b=>b.t==='gallery');expect(album?.t==='gallery'&&album.photos.length).toBe(6);expect(album?.t==='gallery'&&album.photos[0]?.credit?.text).toContain('Đã cắt bỏ dấu của nguồn ảnh')
+ // Site-shaped alone does not make the current app's much taller banner safe.
+ s.photos=[{...crop,headFit:undefined,altered:[{...crop.altered![0]!,crop:{...crop.altered![0]!.crop!,subject:{x0:110,y0:180,x1:690,y1:420}}}]}]
+ const shaped=await fishDoc('vi',c,s,listedPaths('vi',c));expect(shaped.lead).toBeUndefined()
+ s.photos=[real];expect((await fishDoc('vi',c,s,listedPaths('vi',c))).lead?.src).toBe(real.url)
+})
+
+import { appIndex } from '../src/lib/app-index'
+for(const lang of ['vi','ms'] as const)test(`${lang}: a loaded whole-photo head never reaches either app banner input`,async()=>{
+ const c=await loadAll({root:fileURLToPath(new URL('./fixture-content',import.meta.url)),lang,publicBuild:false})
+ const s=c.species.find(s=>s.id==='apistogramma-cacatuoides')!
+ // The site's cockatoo cichlid fixture carries headFit, outside the shared vectors and with no crop alteration.
+ expect(s.photos[0]?.headFit).toBe('contain')
+ const photo=s.photos[0]!,before=JSON.stringify(s.photos)
+ expect((await fishDoc(lang,c,s,listedPaths(lang,c))).lead).toBeUndefined()
+ expect(appIndex(lang,c).items.find(i=>i.id===s.id)?.img).toBeUndefined()
+ expect(JSON.stringify(s.photos)).toBe(before)
+ s.photos=[{...photo,headFit:undefined}]
+ expect((await fishDoc(lang,c,s,listedPaths(lang,c))).lead?.src).toBe(photo.url)
+ expect(appIndex(lang,c).items.find(i=>i.id===s.id)?.img).toBeTruthy()
+})
