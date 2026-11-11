@@ -242,6 +242,18 @@ struct FootGround: Equatable {
   let colour: Color
 }
 
+/// A guide's or a series' page, opened with iOS's zoom: iOS takes it back on a swipe from anywhere, but starts nothing for a
+/// fast flick from the very edge or the fastest from the middle. Those come here (PageSwipes), as on a fish's page.
+private struct FlicksBack: ViewModifier {
+  @Environment(\.dismiss) private var dismiss
+
+  func body(content: Content) -> some View {
+    content.background {
+      if #available(iOS 26, *) { PageSwipes(moved: { _ in }, flickedBack: { dismiss() }).frame(width: 0, height: 0) }
+    }
+  }
+}
+
 @available(iOS 18, *)
 private struct Destinations: ViewModifier {
   let zoom: Namespace.ID
@@ -252,7 +264,11 @@ private struct Destinations: ViewModifier {
       .navigationDestination(for: HandbookIndex.Item.self) { item in
         Group {
           // A fish's or a plant's: v2's own, the whole page.
-          if item.kind == .fish || item.kind == .plant { SpeciesPage(item: item) } else { PageView(item: item, url: handbook.url(item)).v2ClearOfTheFade() }
+          if item.kind == .fish || item.kind == .plant {
+            SpeciesPage(item: item)
+          } else {
+            PageView(item: item, url: handbook.url(item)).v2ClearOfTheFade().modifier(FlicksBack())
+          }
         }
         .navigationTransition(.zoom(sourceID: item.path, in: zoom))
       }

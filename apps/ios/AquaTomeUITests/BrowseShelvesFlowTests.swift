@@ -40,4 +40,36 @@ final class BrowseShelvesFlowTests: XCTestCase {
     XCTAssertTrue(shown(), "no 21st fish at the shelf's end")
     XCTAssertFalse(fish("Cá quen 20").exists, "a 22nd fish on the shelf: more than seven columns")
   }
+
+  /// An app left open doesn't keep its first index until iOS ends it (the owner, 11 Nov: the longer lists, on the site that
+  /// evening, didn't show). Back in front once the index in use is older than `HandbookModel.staleAfter` (3 s here), it's
+  /// read again: a fish the site added meanwhile (`-index-changes-after`: a read 15 s after the one before finds it) comes
+  /// first on the shelf, the shelf there all along and the page where the reader left it.
+  func testBackInFrontAfterAWhileTheShelvesAreTheSitesCurrentOnes() {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-reset-defaults",
+                           "-index-stale-after", "3", "-index-changes-after", "15"]
+    app.launchForFlow()
+    app.openTab("Khám phá")
+    let heading = app.staticTexts["Loài quen thuộc"].firstMatch
+    XCTAssertTrue(heading.waitForExistence(timeout: 10), "no Loài quen thuộc")
+    for _ in 0..<8 where heading.frame.minY > app.frame.height * 0.3 {
+      let from = app.coordinate(withNormalizedOffset: CGVector(dx: 0.05, dy: 0.8))
+      let by = min(heading.frame.minY - app.frame.height * 0.2, app.frame.height * 0.5)
+      from.press(forDuration: 0.05, thenDragTo: from.withOffset(CGVector(dx: 0, dy: -by)), withVelocity: .slow, thenHoldForDuration: 0.3)
+    }
+    let added = app.buttons.matching(NSPredicate(format: "label == %@ OR label BEGINSWITH %@", "Cá mới đến", "Cá mới đến,")).firstMatch
+    XCTAssertTrue(app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Cá neon")).firstMatch.exists, "the shelf isn't the fixture's")
+    XCTAssertFalse(added.exists, "the added fish on the shelf before the site added it")
+    let at = heading.frame.minY
+    // Away long enough for the site's change, the index read when Khám phá showed now older than its age.
+    Thread.sleep(forTimeInterval: 16)
+    XCUIDevice.shared.press(.home)
+    sleep(1)
+    app.activate()
+    XCTAssertTrue(heading.waitForExistence(timeout: 3) && heading.isHittable, "the shelf went on coming back")
+    XCTAssertTrue(added.waitForExistence(timeout: 10), "back in front, the shelf is still the index read before the app left")
+    XCTAssertEqual(heading.frame.minY, at, accuracy: 2, "the page moved while the index was read again")
+    XCTAssertTrue(app.tabBars.buttons["Khám phá"].isSelected, "not on Khám phá any more")
+  }
 }

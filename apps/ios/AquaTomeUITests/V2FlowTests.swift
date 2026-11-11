@@ -874,10 +874,121 @@ final class V2FlowTests: XCTestCase {
     }
   }
 
+  /// A rightward swipe that starts anywhere on a page goes back, as in iOS's own apps: from its middle and from its right
+  /// third, on a fish's page (whose back button is the page's own) and a guide.
+  func testASwipeFromAnywhereOnThePageGoesBack() {
+    // With animations on: iOS's swipe doesn't go back without them.
+    let app = launch("-v2", "YES")
+    app.launch()
+    let swipes = { (card: XCUIElement, shown: XCUIElement, what: String) in
+      for (from, place) in [(0.5, "middle"), (0.654, "right third")] {
+        XCTAssertTrue(card.waitForExistence(timeout: 10), "no way into \(what)")
+        card.tap()
+        XCTAssertTrue(shown.waitForExistence(timeout: 8), "\(what) didn't open")
+        // High on the page, clear of what scrolls sideways.
+        self.flick(app, from: from, at: 0.25)
+        XCTAssertTrue(shown.waitForNonExistence(timeout: 5), "a swipe from the \(place) didn't go back from \(what)")
+      }
+    }
+    swipes(app.buttons["v2-fish-of-the-day"], app.buttons["v2-back"], "a fish's page")
+    swipes(app.buttons.matching(NSPredicate(format: "label CONTAINS %@", "Nuôi cá neon trong bể nhỏ")).firstMatch,
+           app.descendants(matching: .any)["native-page"], "a guide")
+  }
+
+  /// The right third and the middle, 12 flicks each at three heights, the flick and the heights counted against Settings on
+  /// iOS 27.2: a swipe back there is as sure as in iOS's own apps, not most of the time.
+  func testAFlickFromTheMiddleOrRightThirdGoesBackEveryTime() {
+    let app = launch("-v2", "YES")
+    app.launch()
+    for (from, place) in [(0.5, "middle"), (0.654, "right third")] {
+      for dy in Array(repeating: [0.56, 0.32, 0.76], count: 4).flatMap({ $0 }) {
+        let back = openFish(app)
+        flick(app, from: from, at: dy)
+        XCTAssertTrue(back.waitForNonExistence(timeout: 5), "a flick from the \(place), \(dy) down the page, didn't go back")
+      }
+    }
+  }
+
+  /// A fast flick from the very edge goes back as it does from any screen: at a fish's top over its photo and below it, and
+  /// scrolled, where it can start on the strip of photos. iOS's zoom starts nothing for it (`PageSwipes`).
+  func testAFastFlickFromTheVeryEdgeGoesBack() {
+    let app = launch("-v2", "YES")
+    app.launch()
+    for (scrolled, dy) in Array(repeating: [(false, 0.2), (false, 0.6), (true, 0.5)], count: 2).flatMap({ $0 }) {
+      let back = openFish(app)
+      if scrolled { app.swipeUp() }
+      flick(app, from: 0.01, to: 0.93, at: dy)
+      XCTAssertTrue(back.waitForNonExistence(timeout: 5), "a fast flick from the edge, \(dy) down the page\(scrolled ? ", scrolled" : ""), didn't go back")
+    }
+  }
+
+  /// A guard, never broken: a slow drag from the edge is the commonest way back, and iOS's own, at a fish's top and scrolled.
+  func testASlowDragFromTheEdgeGoesBack() {
+    let app = launch("-v2", "YES")
+    app.launch()
+    for scrolled in [false, true] {
+      let back = openFish(app)
+      if scrolled { app.swipeUp() }
+      app.coordinate(withNormalizedOffset: CGVector(dx: 0.01, dy: 0.6))
+        .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.93, dy: 0.6)), withVelocity: .slow, thenHoldForDuration: 0)
+      XCTAssertTrue(back.waitForNonExistence(timeout: 5), "a slow drag from the edge\(scrolled ? ", scrolled" : "") didn't go back")
+    }
+  }
+
+  /// A swipe let go of leaves nothing behind: the page still goes back from the edge and from the middle.
+  func testASwipeLetGoOfLeavesTheOthersGoingBack() {
+    let app = launch("-v2", "YES")
+    app.launch()
+    for (from, to, place) in [(0.01, 0.93, "edge"), (0.5, 0.99, "middle")] {
+      let back = openFish(app)
+      app.coordinate(withNormalizedOffset: CGVector(dx: 0.7, dy: 0.6))
+        .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.82, dy: 0.6)), withVelocity: .slow, thenHoldForDuration: 0.2)
+      XCTAssertFalse(back.waitForNonExistence(timeout: 2), "a short drag let go of went back")
+      flick(app, from: from, to: to, at: 0.6)
+      XCTAssertTrue(back.waitForNonExistence(timeout: 5), "after a swipe let go of, one from the \(place) didn't go back")
+    }
+  }
+
+  /// A thumb's flick across the page, a tenth of a second from start to end, as the swipes counted against Settings on
+  /// iOS 27.2. XCUITest's own pace is a slow drag, which iOS's zoom takes from anywhere: the fault a flick shows, it hides.
+  private func flick(_ app: XCUIApplication, from: CGFloat, to: CGFloat = 0.99, at dy: CGFloat) {
+    let across = (to - from) * app.frame.width
+    app.coordinate(withNormalizedOffset: CGVector(dx: from, dy: dy))
+      .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: to, dy: dy)), withVelocity: XCUIGestureVelocity(across / 0.1), thenHoldForDuration: 0)
+  }
+
+  /// Hôm nay's fish opened; its back button, there until the page has gone.
+  private func openFish(_ app: XCUIApplication) -> XCUIElement {
+    let card = app.buttons["v2-fish-of-the-day"], back = app.buttons["v2-back"]
+    XCTAssertTrue(card.waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    card.tap()
+    XCTAssertTrue(back.waitForExistence(timeout: 8), "the fish's page didn't open")
+    return back
+  }
+
+  /// A guard, never broken: a swipe that starts on what scrolls sideways is its own, as in the App Store: the page stays.
+  func testASwipeOnAStripDoesntGoBack() {
+    // With animations on, or no swipe would go back from anywhere.
+    let app = launch("-v2", "YES", "-long-part")
+    app.launch()
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
+    follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
+    let back = app.buttons["v2-back"]
+    XCTAssertTrue(back.waitForExistence(timeout: 8), "the fish's page didn't open")
+    for id in ["v2-jumps", "v2-photos-row"] {
+      let strip = app.descendants(matching: .any)[id].firstMatch
+      repeatUntil(strip.exists && strip.isHittable, times: 8) { app.swipeUp() }
+      XCTAssertTrue(strip.isHittable, "no \(id) on the fish's page")
+      strip.swipeRight()
+      XCTAssertFalse(back.waitForNonExistence(timeout: 2), "a swipe on \(id) went back")
+    }
+  }
+
   /// The edge swipe goes back from a fish's top, where the back button on the bar is the page's own, not iOS's.
   func testAFishsPageGoesBackByTheEdgeSwipe() {
+    // With animations on: iOS's swipe doesn't go back without them.
     let app = launch("-v2", "YES")
-    app.launchForFlow()
+    app.launch()
     XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 10), "no fish of the day on Hôm nay")
     follow(app, URL(string: "aquatome://open?url=" + "https://aquatome.com/ca/ca-neon/".addingPercentEncoding(withAllowedCharacters: .alphanumerics)!)!)
     let back = app.buttons["v2-back"], lead = app.links["John Roe"]
