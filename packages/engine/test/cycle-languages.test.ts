@@ -21,10 +21,18 @@ test("Malay's steps: at 10 species a cycle, at the others' pace for the rest, ea
   for (const line of block.split('\n').filter(l => l.includes('pnpm'))) expect(line.trim(), line).toMatch(/^ahead pnpm /)
 })
 
-test('they give first: after everything readers see, before the checks; the gate leaves room for the longest step inside the slot', () => {
+test('the rewrite part spends on the Vietnamese rewrite and every translation first, Malay inside them, then the rest; the gate leaves room for the longest step inside the slot', () => {
   const at = (s: string) => { const i = script.indexOf(s); expect(i, s).toBeGreaterThan(-1); return i }
-  expect(at('write-ideas --limit')).toBeLessThan(at('for lang in ms; do'))
+  // The chief of staff, 2026-11-11: the rewrites and translations go before any other step spends, so a sign-in that runs
+  // out part way, or a step's ceiling, takes the steps after them; and Malay's ten reach the 135-minute gate early.
+  const part = script.slice(at('if part rewrite; then'), at('pnpm engine ungarble'))
+  const steps = [...part.matchAll(/^\s*(?:ahead )?pnpm engine ([a-z-]+)/gm)].map(m => m[1]!)
+  expect(steps[0]).toBe('rewrite-vi')
+  const lastTranslation = steps.lastIndexOf('localize-cards')
+  expect(steps.slice(1, lastTranslation + 1).every(s => /^(localize|wikidata-names|shop-names|name-places-vi)/.test(s)), steps.join(' ')).toBe(true)
+  for (const later of ['forum', 'ideas', 'range', 'water', 'breed-care', 'planting', 'review-backfill', 'topic-check', 'reader', 'write-ideas']) expect(steps.indexOf(later), later).toBeGreaterThan(lastTranslation)
   expect(at('scripts/translate-ui.ts /tmp/aq-i18n-missing.json')).toBeLessThan(at('for lang in ms; do'))
+  expect(at('for lang in ms; do')).toBeLessThan(at('pnpm engine range'))
   expect(at('for lang in ms; do')).toBeLessThan(at('pnpm engine metric'))
   const gate = Number(/AHEAD_BEFORE_MINUTES:-(\d+)/.exec(script)![1])
   // engine.yml's job `due`: ENGINE_EVERY_MINUTES since the last cycle started, 170 when unset. A longer one leaves more room.

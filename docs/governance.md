@@ -725,12 +725,15 @@ The layers above still check the result.
     shop's list seeded later adds only the species the list lacks, after it. Its robots.txt (Cloudflare's) says `search=yes, ai-train=no,
     use=reference`.
 - **A language ahead of the site.** The engine writes a language with `served: false` in the language table
-  (`packages/schema/src/langs.ts`; Malay now) before the site serves it, last in each rewrite cycle. Its files reach
+  (`packages/schema/src/langs.ts`; Malay now) before the site serves it, right after the served languages in each rewrite
+  cycle. Its files reach
   `content/` and `apps/site/src/i18n/`, and nothing reads them: `apps/site/test/unserved-langs.test.ts` builds the site
   with one of each and holds its pages, lists, app files and counts to none, and `worker/test/unserved-langs.test.ts`
   holds the root, the cookie and the chooser.
-  - Each of its steps starts only while the cycle has run under `AHEAD_BEFORE_MINUTES` (135): it gives first, so a long
-    cycle costs the unserved language its turn, not the served ones theirs. The buying guides go two a cycle and the UI
+  - Each of its steps starts only while the cycle has run under `AHEAD_BEFORE_MINUTES` (135). Since 12 Nov 2026 the
+    rewrite cycle runs the Vietnamese rewrite and every translation before any other step spends (the chief of staff,
+    11 Nov), so the block starts inside the first half hour and the steps after it give instead when a cycle runs long;
+    what they change is translated at the next cycle (about six hours on, at the owner's 350 minutes). The buying guides go two a cycle and the UI
     text 120 strings a cycle, its first runs being the long ones. No build asks for its UI text, so the strings come from
     a served language's dictionary (`translate-ui.ts --unserved`).
   - Written like any page, and held like one: reviewed writing, `pnpm engine metric` and the real-content test on imperial

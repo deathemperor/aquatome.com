@@ -69,15 +69,17 @@ async function jobs(contentRoot: string, kinds: readonly Kind[], match?: RegExp)
  * reviewer passes it: against the English (≥ threshold, or better than before), or, with no English, as keeping the
  * old Vietnamese's meaning (≥ threshold). Names, slugs and data never change. Stops on a model failure (usage limit).
  */
-export async function rewriteExisting(contentRoot: string, stateFile: string, d: { llm: Llm; opts: RewriteOpts; now: () => Date }, o: { limit: number; kinds?: readonly Kind[]; match?: RegExp; /** List the pages and how many parts each would send; call no model, write nothing. */ dry?: boolean }) {
+export async function rewriteExisting(contentRoot: string, stateFile: string, d: { llm: Llm; opts: RewriteOpts; now: () => Date }, o: { limit: number; kinds?: readonly Kind[]; match?: RegExp; /** List the pages and how many parts each would send; call no model, write nothing. */ dry?: boolean; /** Pages ("species/<id>") that go first, in this order, when due. */ first?: readonly string[] }) {
   const root = dirname(contentRoot)
   const state = await json<RewriteState>(stateFile).catch(() => ({}) as RewriteState)
   const report = { done: [] as string[], kept: [] as string[], failed: [] as string[], stopped: '' }
   const names = await json<Record<string, { name: string }>>(join(contentRoot, 'sources.json')).catch(() => ({}) as Record<string, { name: string }>)
   const due = (s: RewriteState[string] | undefined) => !s || (s.rewritten < s.of && (s.v ?? 1) < REWRITE_V)
   // `match` re-edits the pages that contain it (after a style rule changes), whether or not they were rewritten before.
-  // Pages out of search for their score go first, each group in the kinds' and folders' order (the sort is stable).
-  for (const job of (await jobs(contentRoot, o.kinds ?? REWRITE_KINDS, o.match)).filter(j => o.match || due(state[j.id])).sort((a, b) => Number(b.low) - Number(a.low))) {
+  // Pages named first go first, then pages out of search for their score, each group in the kinds' and folders' order
+  // (the sort is stable).
+  const rank = (j: Job) => { const i = o.first?.indexOf(j.id) ?? -1; return i >= 0 ? i - o.first!.length - 1 : -Number(j.low) }
+  for (const job of (await jobs(contentRoot, o.kinds ?? REWRITE_KINDS, o.match)).filter(j => o.match || due(state[j.id])).sort((a, b) => rank(a) - rank(b))) {
     if (report.done.length + report.kept.length + report.failed.length >= o.limit) break
     if (o.dry) { report.done.push(`${job.id} (${job.groups.length} part${job.groups.length > 1 ? 's' : ''})`); continue }
     const file = join(contentRoot, job.kind, job.slug, 'vi.json')

@@ -73,6 +73,21 @@ test('a model failure stops the run and leaves the page for next time; --limit b
   expect(Object.keys(await read(root, 's.json'))).toEqual(['guides/g'])
 })
 
+test('pages named first go first, in their order, ahead of guides and of pages out of search; one not due is passed over', async () => {
+  const root = await setup(0.6)
+  for (const id of ['y', 'z']) {
+    await put(root, `species/${id}/entity.json`, { id, sections: [{ key: 'diet', source: 'seriouslyfish', sourceUrl: 'u', html: '<p>diet</p>' }] })
+    await put(root, `species/${id}/vi.json`, { slug: id, name: id, sections: { 'diet:seriouslyfish': '<p>cũ</p>' }, quality: { score: 0.9, indexable: true } })
+  }
+  const state = join(root, 's.json')
+  // species/x is out of search (0.6) and would go first; g is a guide, the first kind. Named: z, then y, then a page done.
+  await writeFile(state, JSON.stringify({ 'species/done': { at: '2026-10-29', rewritten: 1, of: 1, scores: [0.9], v: 2 } }))
+  const r = await rewriteExisting(root, state, { llm: fake({ en: 0.9, vi: 0.9 }), opts: { mode: 'fix' }, now }, { limit: 3, first: ['species/z', 'species/y', 'species/done'], dry: true })
+  expect(r.done.map(x => x.split(' ')[0])).toEqual(['species/z', 'species/y', 'species/x'])
+  const plain = await rewriteExisting(await setup(0.6), state, { llm: fake({ en: 0.9, vi: 0.9 }), opts: { mode: 'fix' }, now }, { limit: 2, dry: true })
+  expect(plain.done.map(x => x.split(' ')[0])).toEqual(['species/x', 'guides/g'])
+})
+
 test('a long source split into chunks scores as its weakest kept chunk, or its old score where a chunk was not kept', async () => {
   const big = 'x'.repeat(7000)
   const make = async (scores: number[]) => {
