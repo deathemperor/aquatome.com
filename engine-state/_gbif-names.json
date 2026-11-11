@@ -4123,6 +4123,13 @@
     "genus": "Beaufortia",
     "matchType": "EXACT"
   },
+  "Beaufortia leveretti": {
+    "canonicalName": "Beaufortia leveretti",
+    "order": "Cypriniformes",
+    "family": "Balitoridae",
+    "genus": "Beaufortia",
+    "matchType": "EXACT"
+  },
   "Beaufortia polylepis": {
     "canonicalName": "Beaufortia polylepis",
     "order": "Cypriniformes",
@@ -4712,6 +4719,13 @@
     "order": "Pleuronectiformes",
     "family": "Soleidae",
     "genus": "Brachirus",
+    "matchType": "EXACT"
+  },
+  "Brachydanio albolineatus": {
+    "canonicalName": "Danio albolineatus",
+    "order": "Cypriniformes",
+    "family": "Cyprinidae",
+    "genus": "Danio",
     "matchType": "EXACT"
   },
   "Brachydanio frankei": {
@@ -5607,6 +5621,13 @@
     "order": "Characiformes",
     "family": "Serrasalmidae",
     "genus": "Catoprion",
+    "matchType": "EXACT"
+  },
+  "Caulastrea furcata": {
+    "canonicalName": "Caulastraea furcata",
+    "order": "Scleractinia",
+    "family": "Merulinidae",
+    "genus": "Caulastraea",
     "matchType": "EXACT"
   },
   "Caura drainages": null,
@@ -6737,6 +6758,13 @@
     "genus": "Cirrhinus",
     "matchType": "EXACT"
   },
+  "Citharinus citharus": {
+    "canonicalName": "Citharinus citharus",
+    "order": "Characiformes",
+    "family": "Citharinidae",
+    "genus": "Citharinus",
+    "matchType": "EXACT"
+  },
   "Cladogonium ogishimae": null,
   "Cladophora aegagropila": {
     "canonicalName": "Aegagropila linnaei",
@@ -7122,6 +7150,13 @@
   },
   "Colour genotypes": null,
   "Comportamento alimentar": null,
+  "Compsaraia samueli": {
+    "canonicalName": "Compsaraia samueli",
+    "order": "Gymnotiformes",
+    "family": "Apteronotidae",
+    "genus": "Compsaraia",
+    "matchType": "EXACT"
+  },
   "Condylactis gigantea": {
     "canonicalName": "Condylactis gigantea",
     "order": "Actiniaria",
@@ -8357,6 +8392,7 @@
     "genus": "Rhadinoloricaria",
     "matchType": "EXACT"
   },
+  "Cruzes drainages": null,
   "Cryptanthus acaulis": {
     "canonicalName": "Cryptanthus acaulis",
     "order": "Poales",
@@ -9683,6 +9719,13 @@
     "genus": "Distichodus",
     "matchType": "EXACT"
   },
+  "Distichodus rostratus": {
+    "canonicalName": "Distichodus rostratus",
+    "order": "Characiformes",
+    "family": "Distichodontidae",
+    "genus": "Distichodus",
+    "matchType": "EXACT"
+  },
   "Distichodus sexfasciatus": {
     "canonicalName": "Distichodus sexfasciatus",
     "order": "Characiformes",
@@ -9772,6 +9815,13 @@
     "matchType": "EXACT"
   },
   "Duffill has": null,
+  "Duncanopsammia axifuga": {
+    "canonicalName": "Duncanopsammia axifuga",
+    "order": "Scleractinia",
+    "family": "Dendrophylliidae",
+    "genus": "Duncanopsammia",
+    "matchType": "EXACT"
+  },
   "Duopalatinus malarmo": {
     "canonicalName": "Platysilurus malarmo",
     "order": "Siluriformes",
@@ -10166,6 +10216,13 @@
     "genus": "Crossocheilus",
     "matchType": "EXACT"
   },
+  "Ephippion guttifer": {
+    "canonicalName": "Ephippion guttifer",
+    "order": "Tetraodontiformes",
+    "family": "Tetraodontidae",
+    "genus": "Ephippion",
+    "matchType": "EXACT"
+  },
   "Epiplatys annulatus": {
     "canonicalName": "Epiplatys annulatus",
     "order": "Cyprinodontiformes",
@@ -10434,6 +10491,20 @@
     "order": "Siluriformes",
     "family": "Mochokidae",
     "genus": "Euchilichthys",
+    "matchType": "EXACT"
+  },
+  "Euphyllia divisa": {
+    "canonicalName": "Fimbriaphyllia divisa",
+    "order": "Scleractinia",
+    "family": "Euphylliidae",
+    "genus": "Fimbriaphyllia",
+    "matchType": "EXACT"
+  },
+  "Euphyllia glabrescens": {
+    "canonicalName": "Euphyllia glabrescens",
+    "order": "Scleractinia",
+    "family": "Euphylliidae",
+    "genus": "Euphyllia",
     "matchType": "EXACT"
   },
   "Euro quanh": null,
@@ -10769,6 +10840,13 @@
   "Furcata nhanh": null,
   "Gabon killi": null,
   "Gabunense marginatum": null,
+  "Gagata cenia": {
+    "canonicalName": "Gagata cenia",
+    "order": "Siluriformes",
+    "family": "Sisoridae",
+    "genus": "Gagata",
+    "matchType": "EXACT"
+  },
   "Gagata gagata": {
     "canonicalName": "Gagata gagata",
     "order": "Siluriformes",
@@ -11454,6 +11532,13 @@
     "genus": "Glossogobius",
     "matchType": "EXACT"
   },
+  "Glossolepis dorityi": {
+    "canonicalName": "Glossolepis dorityi",
+    "order": "Atheriniformes",
+    "family": "Melanotaeniidae",
+    "genus": "Glossolepis",
+    "matchType": "EXACT"
+  },
   "Glossolepis incisa": {
     "canonicalName": "Glossolepis incisus",
     "order": "Atheriniformes",
@@ -11744,6 +11829,7 @@
     "genus": "Gymnocorymbus",
     "matchType": "EXACT"
   },
+  "Gymnocorymbus comprises": null,
   "Gymnocorymbus socolofi": {
     "canonicalName": "Gymnocorymbus bondi",
     "order": "Characiformes",
@@ -12307,6 +12393,13 @@
     "genus": "Opsodoras",
     "matchType": "EXACT"
   },
+  "Hemidoras paraguayensis": {
+    "canonicalName": "Trachydoras paraguayensis",
+    "order": "Siluriformes",
+    "family": "Doradidae",
+    "genus": "Trachydoras",
+    "matchType": "EXACT"
+  },
   "Hemidoras stenopeltis": {
     "canonicalName": "Hemidoras stenopeltis",
     "order": "Siluriformes",
@@ -12850,6 +12943,13 @@
     "matchType": "EXACT"
   },
   "Hiang drainages": null,
+  "Hippichthys penicillus": {
+    "canonicalName": "Hippichthys penicillus",
+    "order": "Syngnathiformes",
+    "family": "Syngnathidae",
+    "genus": "Hippichthys",
+    "matchType": "EXACT"
+  },
   "Hippichthys spicifer": {
     "canonicalName": "Hippichthys spicifer",
     "order": "Syngnathiformes",
@@ -17163,6 +17263,13 @@
     "genus": "Micromoema",
     "matchType": "FUZZY"
   },
+  "Micromussa lordhowensis": {
+    "canonicalName": "Micromussa lordhowensis",
+    "order": "Scleractinia",
+    "family": "Lobophylliidae",
+    "genus": "Micromussa",
+    "matchType": "EXACT"
+  },
   "Micronemacheilus cruciatus": {
     "canonicalName": "Yunnanilus cruciatus",
     "order": "Cypriniformes",
@@ -17583,6 +17690,13 @@
     "matchType": "EXACT"
   },
   "Myitmaka thu": null,
+  "Mylesinus schomburgkii": {
+    "canonicalName": "Mylesinus schomburgkii",
+    "order": "Characiformes",
+    "family": "Serrasalmidae",
+    "genus": "Mylesinus",
+    "matchType": "EXACT"
+  },
   "Myleus clade": null,
   "Myleus lobatus": {
     "canonicalName": "Myloplus lobatus",
@@ -17603,6 +17717,13 @@
     "order": "Characiformes",
     "family": "Serrasalmidae",
     "genus": "Myloplus",
+    "matchType": "EXACT"
+  },
+  "Myleus setiger": {
+    "canonicalName": "Myleus setiger",
+    "order": "Characiformes",
+    "family": "Serrasalmidae",
+    "genus": "Myleus",
     "matchType": "EXACT"
   },
   "Myleus ternetzi": {
@@ -17870,6 +17991,13 @@
     "order": "Siluriformes",
     "family": "Bagridae",
     "genus": "Hemibagrus",
+    "matchType": "EXACT"
+  },
+  "Mystus sensu": {
+    "canonicalName": "Mystus",
+    "order": "Siluriformes",
+    "family": "Bagridae",
+    "genus": "Mystus",
     "matchType": "EXACT"
   },
   "Mystus singaringan": {
@@ -18441,6 +18569,7 @@
     "genus": "Nematogenys",
     "matchType": "EXACT"
   },
+  "Neocaridina chung": null,
   "Neocaridina davidi": {
     "canonicalName": "Neocaridina davidi",
     "order": "Decapoda",
@@ -19264,6 +19393,13 @@
     "genus": "Onychostoma",
     "matchType": "EXACT"
   },
+  "Ophichthus apicalis": {
+    "canonicalName": "Ophichthus apicalis",
+    "order": "Anguilliformes",
+    "family": "Ophichthidae",
+    "genus": "Ophichthus",
+    "matchType": "EXACT"
+  },
   "Ophiocephalus coramota": {
     "canonicalName": "Channa gachua",
     "order": "Perciformes",
@@ -20003,6 +20139,12 @@
     "matchType": "EXACT"
   },
   "Pahang states": null,
+  "Paludomus loricatus": {
+    "canonicalName": "Paludomus loricata",
+    "family": "Paludomidae",
+    "genus": "Paludomus",
+    "matchType": "FUZZY"
+  },
   "Panagrellus nepenthicola": {
     "canonicalName": "Panagrellus nepenthicola",
     "order": "Rhabditida",
@@ -21549,6 +21691,13 @@
     "genus": "Phenacogaster",
     "matchType": "EXACT"
   },
+  "Phenacogaster bondi": {
+    "canonicalName": "Gymnocorymbus bondi",
+    "order": "Characiformes",
+    "family": "Characidae",
+    "genus": "Gymnocorymbus",
+    "matchType": "EXACT"
+  },
   "Phenacogaster tegatus": {
     "canonicalName": "Phenacogaster tegatus",
     "order": "Characiformes",
@@ -22347,6 +22496,13 @@
   },
   "Potamotrygon leopoldi": {
     "canonicalName": "Potamotrygon leopoldi",
+    "order": "Myliobatiformes",
+    "family": "Potamotrygonidae",
+    "genus": "Potamotrygon",
+    "matchType": "EXACT"
+  },
+  "Potamotrygon menchacai": {
+    "canonicalName": "Potamotrygon falkneri",
     "order": "Myliobatiformes",
     "family": "Potamotrygonidae",
     "genus": "Potamotrygon",
@@ -25196,6 +25352,7 @@
     "genus": "Schismatogobius",
     "matchType": "EXACT"
   },
+  "Schismatogobius has": null,
   "Schismatorhynchos holorhynchos": {
     "canonicalName": "Schismatorhynchos holorhynchos",
     "order": "Cypriniformes",
@@ -26551,6 +26708,13 @@
     "matchType": "EXACT"
   },
   "Stromgebiet des": null,
+  "Strophidon sathete": {
+    "canonicalName": "Strophidon sathete",
+    "order": "Anguilliformes",
+    "family": "Muraenidae",
+    "genus": "Strophidon",
+    "matchType": "EXACT"
+  },
   "Strozyk has": null,
   "Sturisoma barbatum": {
     "canonicalName": "Sturisoma barbatum",
@@ -26810,6 +26974,13 @@
     "genus": "Synodontis",
     "matchType": "EXACT"
   },
+  "Synodontis batensoda": {
+    "canonicalName": "Synodontis batensoda",
+    "order": "Siluriformes",
+    "family": "Mochokidae",
+    "genus": "Synodontis",
+    "matchType": "EXACT"
+  },
   "Synodontis brichardi": {
     "canonicalName": "Synodontis brichardi",
     "order": "Siluriformes",
@@ -27020,6 +27191,13 @@
     "order": "Siluriformes",
     "family": "Mochokidae",
     "genus": "Synodontis",
+    "matchType": "EXACT"
+  },
+  "Syntripsa matannensis": {
+    "canonicalName": "Syntripsa matannensis",
+    "order": "Decapoda",
+    "family": "Gecarcinucidae",
+    "genus": "Syntripsa",
     "matchType": "EXACT"
   },
   "Systema naturae": null,
@@ -27499,6 +27677,12 @@
     "matchType": "FUZZY"
   },
   "Thi xong": null,
+  "Thiara cancellata": {
+    "canonicalName": "Thiara cancellata",
+    "family": "Thiaridae",
+    "genus": "Thiara",
+    "matchType": "EXACT"
+  },
   "Thiara torulosa": {
     "canonicalName": "Stenomelania torulosa",
     "family": "Thiaridae",
@@ -27581,6 +27765,13 @@
   "Tivi hai": null,
   "Tocantins drainages": null,
   "Tocantins traded": null,
+  "Tometes makue": {
+    "canonicalName": "Tometes makue",
+    "order": "Characiformes",
+    "family": "Serrasalmidae",
+    "genus": "Tometes",
+    "matchType": "EXACT"
+  },
   "Tonina fluviatilis": {
     "canonicalName": "Paepalanthus fluviatilis",
     "order": "Poales",
@@ -28193,6 +28384,13 @@
     "matchType": "EXACT"
   },
   "Uruguay drainages": null,
+  "Utiaritichthys sennaebragai": {
+    "canonicalName": "Utiaritichthys sennaebragai",
+    "order": "Characiformes",
+    "family": "Serrasalmidae",
+    "genus": "Utiaritichthys",
+    "matchType": "EXACT"
+  },
   "Vaillantella cinnamomea": {
     "canonicalName": "Vaillantella cinnamomea",
     "order": "Cypriniformes",
