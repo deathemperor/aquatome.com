@@ -267,12 +267,23 @@ private struct PieceHeight {
   }
 
   /// Its lines at the body's size, a few points narrower than drawn: links and bold runs set a little wider than the
-  /// body's own font measures, and a line short of room would push "thêm" onto one more.
+  /// body's own font measures, and a line short of room would push "thêm" onto one more. Counted as they're laid out, not
+  /// from their height: Vietnamese's marks stand taller than the font's line, and a height rounded up counted one too many.
   private func count(_ s: String, _ inset: CGFloat) -> Int {
-    let f = font(.body)
-    let r = (s as NSString).boundingRect(with: CGSize(width: max(width - inset - 8, 1), height: .greatestFiniteMagnitude),
-                                         options: [.usesLineFragmentOrigin, .usesFontLeading], attributes: [.font: f], context: nil)
-    return max(1, Int((r.height / f.lineHeight - 0.05).rounded(.up)))
+    let storage = NSTextStorage(string: s, attributes: [.font: font(.body)])
+    let layout = NSLayoutManager()
+    storage.addLayoutManager(layout)
+    let box = NSTextContainer(size: CGSize(width: max(width - inset - 8, 1), height: .greatestFiniteMagnitude))
+    box.lineFragmentPadding = 0
+    layout.addTextContainer(box)
+    var lines = 0, glyph = 0
+    while glyph < layout.numberOfGlyphs {
+      var line = NSRange()
+      layout.lineFragmentRect(forGlyphAt: glyph, effectiveRange: &line)
+      lines += 1
+      glyph = NSMaxRange(line)
+    }
+    return max(1, lines)
   }
 
   func text(_ s: AttributedString, _ style: UIFont.TextStyle = .body, inset: CGFloat = 0) -> CGFloat {
