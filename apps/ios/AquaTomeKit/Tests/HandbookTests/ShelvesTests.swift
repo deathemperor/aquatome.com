@@ -109,6 +109,10 @@ private let words = HandbookIndex.Labels([
   #expect(short.count == 21 && short.allSatisfy { !nine.contains($0.path) } && short.last?.path == "/vi/ca/f30/")
   // Pages shown above that aren't on the list take nothing off it.
   #expect(HandbookShelves.shelf(thirty, showing: 24, after: ["/vi/cay/nana/"]).count == 24)
+  // The site's lists of 32 plants and 14 guides: 24 plants, and 12 guides with the top's two of them taken.
+  let thirtyTwo = (1...32).map { fish("f\($0)", "tetras") }
+  #expect(HandbookShelves.shelf(thirtyTwo, showing: HandbookShelves.Shown.plants, after: three).count == 24)
+  #expect(HandbookShelves.shelf(Array(thirtyTwo.prefix(14)), showing: HandbookShelves.Shown.guides, after: ["/vi/ca/f1/", "/vi/ca/f2/"]).count == 12)
 }
 
 @Test func theGlossaryGoesUnderItsFirstLettersAsVietnameseSortsThem() {

@@ -155,8 +155,8 @@ export type AppHome = {
   groups: { id: string; img?: string }[]; fish: string[]; plants: string[]; guides: string[]
   /**
    * Khám phá's longer shelves. Fish start with `fish` in its order, so what shows first stays first, and go on with
-   * those hobbyists keep most. Plants and guides are Curation's lists in their order (FIRST_PLANTS, FIRST_GUIDES). An
-   * app that predates it shows `fish`, `plants` and `guides`.
+   * those hobbyists keep most. Plants and guides are Curation's lists in their order (FIRST_PLANTS, FIRST_GUIDES), then
+   * the home's own ranking, as long as Curation's list. An app that predates it shows `fish`, `plants` and `guides`.
    */
   browse?: { fish: string[]; plants: string[]; guides: string[] }
 } & AppCuration
@@ -254,7 +254,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
       const plant = { difficulty: p.difficulty, light: p.light, co2: p.co2, growth: p.growth, placement: p.placement }
       items.push(clean({ kind: 'plant', id: p.id, name: p.t.name, sub: p.scientificName, aka: aka([...(p.synonyms ?? []), ...p.t.altNames]), path: at(`/vi/cay/${p.t.slug}/`), img: img(p.photos), plant }))
     }
-    home.plants = easyPlants(c, 30).map(p => at(`/vi/cay/${p.t.slug}/`))
+    home.plants = easyPlants(c, c.plants.length).map(p => at(`/vi/cay/${p.t.slug}/`))
   }
   if (served(lang, '/vi/huong-dan/x/')) {
     const mentions = mentionIndex(c).guides
@@ -293,15 +293,16 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   const row = { fish: listed('fish').slice(0, 8), plants: listed('plants').slice(0, 6), guides: listed('guides').slice(0, 8) }
   // Khám phá's longer shelves. Fish start with that row in its order and go on with those hobbyists keep most, most kept
   // first, each with a photo: past its staples the site's own ranking is the richest profile, not the best known. Plants
-  // and guides are Curation's lists in their order, each page only as this index lists it, so one that stops passing
-  // reader fit drops out.
+  // and guides are Curation's lists in their order, each page only as this index lists it (one that stops passing reader
+  // fit drops out), then the home's own ranking, as long as Curation's list: a language with fewer of Curation's pages
+  // (most are Vietnamese) still fills its shelf, never shorter than the home's row.
   const pictured = new Map(items.filter(i => i.kind === 'fish' && i.img).map(i => [i.id, i.path]))
   const popular = [...STAPLE_SPECIES, ...POPULAR.map(slugify)].flatMap(id => pictured.get(id) ?? [])
   const plantAt = new Map(items.filter(i => i.kind === 'plant').map(i => [i.id, i.path]))
   home.browse = {
     fish: [...new Set([...row.fish, ...popular])].slice(0, BROWSE_FISH),
-    plants: FIRST_PLANTS.flatMap(id => plantAt.get(id) ?? []),
-    guides: FIRST_GUIDES.flatMap(id => guideAt.get(id) ?? []),
+    plants: [...new Set([...FIRST_PLANTS.flatMap(id => plantAt.get(id) ?? []), ...listed('plants')])].slice(0, FIRST_PLANTS.length),
+    guides: [...new Set([...FIRST_GUIDES.flatMap(id => guideAt.get(id) ?? []), ...listed('guides')])].slice(0, FIRST_GUIDES.length),
   }
   Object.assign(home, row)
   const groups = new Set(items.map(i => i.group))

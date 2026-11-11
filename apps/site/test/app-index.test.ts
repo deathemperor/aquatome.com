@@ -4,7 +4,7 @@ import { FIRST_GUIDES, FIRST_PLANTS, POPULAR, slugify, STAPLE_SPECIES, type Cont
 import { pageShard, PageShard } from '@aq/schema/app-page'
 import { isVietnamese } from '@aq/schema/text'
 import { appBreeds, appIndex, appPlants, appSpecies, breedGroup, type AppIndex, type AppItem } from '../src/lib/app-index'
-import { leadGuides } from '../src/lib/home'
+import { easyPlants, leadGuides } from '../src/lib/home'
 import { getContent } from '../src/lib/content'
 import { appPath, LANGS, localizePath, OTHER_LANGS } from '../src/lib/i18n'
 import { appHref, appPage, DIST, page } from './dist'
@@ -440,11 +440,13 @@ test('the home picks are the site home\'s, of what the index lists: groups with 
 
 test('Khám phá\'s lists: the fish start with the home\'s row and go on with those hobbyists keep most; the plants and guides are Curation\'s, in order', async () => {
   // The built index: the fish start with the row Tìm and Hôm nay read; the plants and guides are Curation's lists, as
-  // far as this language lists them; every page once, each one the index lists.
+  // far as this language lists them, then the home's ranking; every page once, each one the index lists.
   for (const lang of LANGS) {
     const { items, home } = index(lang)
     const listed = new Set(items.map(i => i.path))
     expect(home.browse!.fish.slice(0, home.fish.length), lang).toEqual(home.fish)
+    // Never shorter than the home's row.
+    for (const k of ['plants', 'guides'] as const) expect(home.browse![k].length, `${lang} ${k}`).toBeGreaterThanOrEqual(home[k].length)
     for (const k of ['fish', 'plants', 'guides'] as const) {
       const list = home.browse![k]
       expect(new Set(list).size, `${lang} ${k}`).toBe(list.length)
@@ -462,11 +464,11 @@ test('Khám phá\'s lists: the fish start with the home\'s row and go on with th
   const gonePlant = FIRST_PLANTS[2]!
   const goneGuide = FIRST_GUIDES[4]!
   const plant = c.plants.find(p => p.photos.length && p.light !== 'high' && p.co2 !== 'required')!
-  const curatedPlants = FIRST_PLANTS.filter(id => id !== gonePlant && !c.plants.some(p => p.id === id)).toReversed()
-  const plants = [...c.plants.filter(p => p.id !== gonePlant), ...[...curatedPlants, ...Array.from({ length: 10 }, (_, n) => `cay-${n}`)].map(id => ({ ...plant, id, t: { ...plant.t, slug: id } }))]
+  const addedPlants = FIRST_PLANTS.filter(id => id !== gonePlant && !c.plants.some(p => p.id === id)).toReversed()
+  const plants = [...c.plants.filter(p => p.id !== gonePlant), ...[...addedPlants, ...Array.from({ length: 10 }, (_, n) => `cay-${n}`)].map(id => ({ ...plant, id, t: { ...plant.t, slug: id } }))]
   const lead = leadGuides(c)[0]!
-  const curatedGuides = FIRST_GUIDES.filter(id => id !== goneGuide && !c.guides.some(g => g.id === id)).toReversed()
-  const guides = [...c.guides.filter(g => g.id !== goneGuide), ...[...curatedGuides, ...Array.from({ length: 12 }, (_, n) => `${lead.id}-${n}`)].map(id => ({ ...lead, id, t: { ...lead.t, slug: id } }))]
+  const addedGuides = FIRST_GUIDES.filter(id => id !== goneGuide && !c.guides.some(g => g.id === id)).toReversed()
+  const guides = [...c.guides.filter(g => g.id !== goneGuide), ...[...addedGuides, ...Array.from({ length: 12 }, (_, n) => `${lead.id}-${n}`)].map(id => ({ ...lead, id, t: { ...lead.t, slug: id } }))]
   const many = appIndex('vi', { ...c, species, plants, guides } as Content)
   const { home } = many
   // The hobbyists' fish with no photo is listed, but not on the shelf.
@@ -475,23 +477,62 @@ test('Khám phá\'s lists: the fish start with the home\'s row and go on with th
   expect(home.browse!.fish).not.toContain(bare!.path)
   expect(home.browse!.fish).toHaveLength(30)
   expect(home.browse!.fish.slice(0, 8)).toEqual(home.fish)
-  // After the row, the hobbyists' order: none of the row again, and each with a photo.
+  // After the row, the hobbyists' fish in their order, each with a photo, none of the row again.
   const byPath = new Map(many.items.map(i => [i.path, i]))
   const after = home.browse!.fish.slice(8).map(p => byPath.get(p)!)
   expect(after.every(i => i.img && !home.fish.includes(i.path))).toBe(true)
-  const at = (id: string) => popular.indexOf(id)
-  expect(after.map(i => at(i.id!))).toEqual(after.map(i => at(i.id!)).toSorted((a, b) => a - b))
-  // Plants: Curation's 32 in its order, less the one that dropped out; none of the others, though easy.
+  const pictured = new Map(many.items.filter(i => i.kind === 'fish' && i.img).map(i => [i.id!, i.path]))
+  expect(home.browse!.fish).toEqual([...new Set([...home.fish, ...popular.flatMap(id => pictured.get(id) ?? [])])].slice(0, 30))
+  // Plants: Curation's 32 in its order, less the one that dropped out, whose place goes to the home's first easy plant
+  // that isn't Curation's.
   const plantPath = new Map(many.items.filter(i => i.kind === 'plant').map(i => [i.id!, i.path]))
-  expect(home.browse!.plants).toHaveLength(31)
-  expect(home.browse!.plants).toEqual(FIRST_PLANTS.filter(id => id !== gonePlant).map(id => plantPath.get(id)))
+  const curatedPlants = FIRST_PLANTS.filter(id => id !== gonePlant).map(id => plantPath.get(id)!)
+  expect(home.browse!.plants).toHaveLength(32)
+  expect(home.browse!.plants.slice(0, 31)).toEqual(curatedPlants)
+  expect(home.browse!.plants[31]).toBe(easyPlants({ ...c, plants } as Content, plants.length).map(p => `/vi/cay/${p.t.slug}/`).find(p => !curatedPlants.includes(p)))
   expect(home.plants).toHaveLength(6)
-  // Guides: Curation's 14 in its order, less the one that dropped out, though more beginner guides are listed.
-  expect(leadGuides({ ...c, guides } as Content).length).toBeGreaterThan(14)
-  expect(home.browse!.guides).toHaveLength(13)
+  // Guides: Curation's 14 in its order, less the one that dropped out, whose place goes to the home's first lead guide
+  // that isn't Curation's.
   const slugOf = new Map(guides.map(g => [g.id, g.t.slug]))
-  expect(home.browse!.guides).toEqual(FIRST_GUIDES.filter(id => id !== goneGuide).map(id => `/vi/huong-dan/${slugOf.get(id)}/`))
+  const curatedGuides = FIRST_GUIDES.filter(id => id !== goneGuide).map(id => `/vi/huong-dan/${slugOf.get(id)}/`)
+  expect(home.browse!.guides).toHaveLength(14)
+  expect(home.browse!.guides.slice(0, 13)).toEqual(curatedGuides)
+  expect(home.browse!.guides[13]).toBe(leadGuides({ ...c, guides } as Content).map(g => `/vi/huong-dan/${g.t.slug}/`).find(p => !curatedGuides.includes(p)))
   expect(home.guides).toHaveLength(8)
+})
+
+test('a language with few of Curation\'s pages fills Khám phá\'s plants and guides from the home\'s ranking, as long as Curation\'s lists', async () => {
+  // As Malay today: 6 of Curation's plants and 1 of its guides, among more easy plants and lead guides than a shelf holds.
+  const c = await getContent('vi')
+  const plant = c.plants.find(p => p.photos.length && p.light !== 'high' && p.co2 !== 'required')!
+  const lead = leadGuides(c)[0]!
+  const keptPlants = FIRST_PLANTS.slice(10, 16)
+  const keptGuide = FIRST_GUIDES[13]!
+  const clone = <T extends { id: string; t: { slug: string } }>(of: T, id: string): T => ({ ...of, id, t: { ...of.t, slug: id } })
+  const plants = [
+    ...c.plants.filter(p => !FIRST_PLANTS.includes(p.id) || keptPlants.includes(p.id)),
+    ...[...keptPlants.filter(id => !c.plants.some(p => p.id === id)), ...Array.from({ length: 40 }, (_, n) => `cay-${n}`)].map(id => clone(plant, id)),
+  ]
+  const guides = [
+    ...c.guides.filter(g => !FIRST_GUIDES.includes(g.id) || g.id === keptGuide),
+    ...[...(c.guides.some(g => g.id === keptGuide) ? [] : [keptGuide]), ...Array.from({ length: 20 }, (_, n) => `${lead.id}-${n}`)].map(id => clone(lead, id)),
+  ]
+  const content = { ...c, plants, guides } as Content
+  const { home, items } = appIndex('vi', content)
+  const listed = new Set(items.map(i => i.path))
+  const plantAt = new Map(items.filter(i => i.kind === 'plant').map(i => [i.id!, i.path]))
+  const guideAt = (id: string) => `/vi/huong-dan/${guides.find(g => g.id === id)!.t.slug}/`
+  // Plants: Curation's 6 in its order, then the easy plants in the home's order, 32 in all; the home's row unchanged.
+  const curatedPlants = keptPlants.map(id => plantAt.get(id)!)
+  const easy = easyPlants(content, plants.length).map(p => `/vi/cay/${p.t.slug}/`).filter(p => listed.has(p))
+  expect(home.browse!.plants).toHaveLength(32)
+  expect(home.browse!.plants).toEqual([...curatedPlants, ...easy.filter(p => !curatedPlants.includes(p))].slice(0, 32))
+  expect(home.plants).toEqual(easy.slice(0, 6))
+  // Guides: Curation's one, then the lead guides in the home's order, 14 in all; the home's row unchanged.
+  const lead14 = leadGuides(content).map(g => guideAt(g.id)).filter(p => listed.has(p))
+  expect(home.browse!.guides).toHaveLength(14)
+  expect(home.browse!.guides).toEqual([guideAt(keptGuide), ...lead14.filter(p => p !== guideAt(keptGuide))].slice(0, 14))
+  expect(home.guides).toEqual(lead14.slice(0, 8))
 })
 
 test('a breed\'s group: what it\'s a form of first (a species, or a breed in turn), else a parent species', () => {

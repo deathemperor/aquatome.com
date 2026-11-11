@@ -25,7 +25,8 @@ public struct HandbookShelves: Sendable {
   public let easyPlants: [HandbookIndex.Item]
   public let firstGuides: [HandbookIndex.Item]
   /// Khám phá's longer lists (`HandbookIndex.Home.Browse`): the fish starting with those above in their order, the
-  /// plants and guides Curation's own; a list the index doesn't have, or that this app can't read, is the one above.
+  /// plants and guides Curation's, then the home's ranking; a list the index doesn't have, or that this app can't read,
+  /// is the one above.
   public let browseFish: [HandbookIndex.Item]
   public let browsePlants: [HandbookIndex.Item]
   public let browseGuides: [HandbookIndex.Item]

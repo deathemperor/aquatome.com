@@ -252,8 +252,8 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
     }
 
     /// Khám phá's longer shelves, by item path: the fish start with `fish` in its order and go on with those hobbyists
-    /// keep most; the plants and guides are Curation's lists, in its order. A list missing or unreadable is nil, and its
-    /// shelf shows the home's own list, not an empty one.
+    /// keep most; the plants and guides are Curation's lists in its order, then the home's own ranking. A list missing or
+    /// unreadable is nil, and its shelf shows the home's own list, not an empty one.
     public struct Browse: Codable, Sendable, Equatable {
       public var fish: [String]?
       public var plants: [String]?
