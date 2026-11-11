@@ -392,25 +392,26 @@ final class V2FlowTests: XCTestCase {
     XCTAssertFalse(app.buttons["v2-part-elsewhere"].exists, "a part left to v1's page")
   }
 
-  /// A long part folds between its pieces, never through a line: its first paragraphs whole, the next one's opening to a
-  /// word's end with "… thêm" ending its last line, not laid over its words, and the rest not there to read or touch until
-  /// "thêm" opens it in place. A part of one long paragraph shows its opening the same way, and a link in it works.
+  /// A long part folds between its pieces: its first paragraphs whole, then the next one's first lines with "thêm" at the
+  /// end of the last, and the rest not there to read or touch until "thêm" opens it in place. A part of one long paragraph
+  /// shows its opening the same way, and a link in it works.
   func testALongPartFoldsBetweenItsPiecesAndWhatShowsWorks() {
     let app = openNeon("-long-part")
     func text(_ s: String) -> XCUIElement { app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", s)).firstMatch }
     reveal(app, app.staticTexts["Cho ăn gì?"])
     XCTAssertTrue(text("Thức ăn viên nhỏ").exists, "the part's opening isn't there")
     XCTAssertFalse(text("Đoạn cuối về cho ăn").exists, "a paragraph folded away is still there to read")
-    let cut = app.staticTexts.matching(NSPredicate(format: "label ENDSWITH %@", "… thêm")).firstMatch
-    XCTAssertTrue(cut.exists, "no text ends in '… thêm': it lies over the words, or stands on a row of its own")
-    let more = app.links["thêm"].firstMatch
-    reveal(app, more)
+    let folded = folds(app).firstMatch
+    reveal(app, folded)
+    guard let more = moreOnItsLastLine(app, folded) else { return XCTFail("no thêm at the end of the folded text's last line") }
     more.tap()
     XCTAssertTrue(text("Đoạn cuối về cho ăn").waitForExistence(timeout: 3), "thêm didn't open the part")
     // The long paragraph: its first lines, and the link in them.
     let mate = app.links["cá ngựa vằn"]
     reveal(app, mate)
-    XCTAssertTrue(text("Muốn cho đẻ").label.hasSuffix("… thêm"), "the long paragraph isn't folded")
+    let breeding = folds(app).allElementsBoundByIndex
+      .first { $0.staticTexts.firstMatch.label.contains("Muốn cho đẻ") }
+    XCTAssertNotNil(breeding.flatMap { moreOnItsLastLine(app, $0) }, "the long paragraph isn't folded")
     mate.tap()
     XCTAssertTrue(app.staticTexts["Cá ngựa vằn"].waitForExistence(timeout: 5), "a link in a folded part's first lines doesn't work")
   }
@@ -508,10 +509,47 @@ final class V2FlowTests: XCTestCase {
     let app = openNeon("-long-part")
     func text(_ s: String) -> XCUIElement { app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", s)).firstMatch }
     reveal(app, app.staticTexts["Cần thiết bị gì?"])
-    XCTAssertTrue(text("Bể nhỏ cho cá neon").label.hasSuffix("thêm"), "the text before the lead-in doesn't end in thêm")
+    let before = folds(app).allElementsBoundByIndex.first { $0.staticTexts.firstMatch.label.contains("Bể nhỏ cho cá neon") }
+    XCTAssertNotNil(before.flatMap { moreOnItsLastLine(app, $0) }, "the text before the lead-in doesn't end in thêm")
     XCTAssertFalse(text("gồm:").exists, "the fold stopped on a line leading into what it hides")
     openFold(app, of: text("Bể nhỏ cho cá neon"))
     XCTAssertTrue(text("gồm:").waitForExistence(timeout: 3), "thêm didn't open the part")
+  }
+
+  /// A fold ends as the App Store's description ends (the owner, 10 Nov: "the more on appstore looks very nicer than us"),
+  /// dark and light: its last line runs to the column's edge and is cut there, no "…"; its words fade out over 1.75 em
+  /// before "thêm", which stands on that line at the column's right edge, 20 points in.
+  func testAFoldEndsAsTheAppStoresDescription() {
+    for dark in [false, true] {
+      let app = dark ? openNeon("-long-part", "-dark") : openNeon("-long-part")
+      reveal(app, app.staticTexts["Cho ăn gì?"])
+      let folded = folds(app).firstMatch
+      reveal(app, folded)
+      let look = dark ? "dark" : "light"
+      XCTAssertFalse(folded.staticTexts.firstMatch.label.contains("…"), "a fold ends in '…', \(look)")
+      guard let more = moreOnItsLastLine(app, folded) else { XCTFail("no thêm at the end of the last line, \(look)"); continue }
+      // The words, at the body's 17 points (size L): "thêm" starts 12 points inside its button, which is 44 tall.
+      let em: CGFloat = 17, word = more.frame.minX + 12
+      let line = CGRect(x: 0, y: folded.frame.maxY - 22, width: app.frame.width, height: 22)
+      guard let shot = XCUIScreen.main.screenshot().image.cgImage else { XCTFail("no screenshot"); continue }
+      let start = ink(shot, app, CGRect(x: 20, y: line.minY, width: em * 1.75, height: line.height))
+      let end = ink(shot, app, CGRect(x: word - em * 1.75, y: line.minY, width: em * 1.75, height: line.height))
+      XCTAssertGreaterThan(start, 0.01, "no words at the last line's start, \(look)")
+      XCTAssertLessThan(end, start * 0.3, "the words don't fade out before thêm, \(look): \(end) against \(start)")
+      app.terminate()
+    }
+  }
+
+  /// The viewer counts the photos its note counts: opened from the photos under the top, where the top photo is the first
+  /// of the gallery's, its "2/3" is the gallery's (the owner, 10 Nov: "1/8", then "9 ảnh").
+  func testTheViewerCountsTheGalleryItsNoteCounts() {
+    let app = openNeon("-lead-in-gallery")
+    let row = app.descendants(matching: .any)["v2-photos-row"].firstMatch
+    reveal(app, row)
+    row.buttons.firstMatch.tap()
+    let counter = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH %@", "2/3 · 3 ảnh")).firstMatch
+    XCTAssertTrue(counter.waitForExistence(timeout: 5),
+                  "the viewer doesn't count the gallery: \(app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", " ảnh")).firstMatch.label)")
   }
 
   /// A list's lines stand apart, a long one wrapping under its own words: as one text, it ran on under its bullet.
@@ -1091,13 +1129,44 @@ final class V2FlowTests: XCTestCase {
   /// "thêm" at the end of this text: the page has one in each folded part.
   private func openFold(_ app: XCUIApplication, of paragraph: XCUIElement) {
     reveal(app, paragraph)
-    let box = paragraph.frame
-    let more = app.links.matching(NSPredicate(format: "label == %@", "thêm")).allElementsBoundByIndex.first {
-      box.contains(CGPoint(x: $0.frame.midX, y: $0.frame.midY))
-    }
+    let more = folds(app).allElementsBoundByIndex.first { $0.staticTexts.firstMatch.label == paragraph.label }.flatMap { moreOnItsLastLine(app, $0) }
     guard let more else { return XCTFail("no thêm in \(paragraph.label)") }
     reveal(app, more)
     more.tap()
+  }
+
+  /// The texts folds end in, as the eye sees them: the lines shown, not the text cut a line further.
+  private func folds(_ app: XCUIApplication) -> XCUIElementQuery {
+    app.descendants(matching: .any).matching(identifier: "v2-folded")
+  }
+
+  /// The fold's "thêm", where the App Store has its "more": its right edge on the column's, 20 points in, and its middle on
+  /// the last line shown.
+  private func moreOnItsLastLine(_ app: XCUIApplication, _ folded: XCUIElement) -> XCUIElement? {
+    let more = folded.buttons["v2-more"]
+    guard more.exists else { return nil }
+    let edge = abs(more.frame.maxX - (app.frame.width - 20)) <= 1
+    let onLast = more.frame.midY <= folded.frame.maxY && more.frame.midY >= folded.frame.maxY - 26
+    return edge && onLast ? more : nil
+  }
+
+  /// How much a box of the screen differs from its own ground, on average: its words' ink, 0 for none.
+  private func ink(_ shot: CGImage, _ app: XCUIApplication, _ box: CGRect) -> Double {
+    let scale = CGFloat(shot.width) / app.frame.width
+    guard let crop = shot.cropping(to: CGRect(x: box.minX * scale, y: box.minY * scale, width: box.width * scale, height: box.height * scale).integral)
+    else { return 0 }
+    let w = crop.width, h = crop.height
+    var px = [UInt8](repeating: 0, count: w * h * 4)
+    guard let ctx = CGContext(data: &px, width: w, height: h, bitsPerComponent: 8, bytesPerRow: w * 4, space: CGColorSpace(name: CGColorSpace.sRGB)!,
+                              bitmapInfo: CGImageAlphaInfo.noneSkipLast.rawValue) else { return 0 }
+    ctx.draw(crop, in: CGRect(x: 0, y: 0, width: w, height: h))
+    func gray(_ i: Int) -> Double { (0.2126 * Double(px[i]) + 0.7152 * Double(px[i + 1]) + 0.0722 * Double(px[i + 2])) / 255 }
+    var often: [Int: Int] = [:]
+    for i in stride(from: 0, to: px.count, by: 4) { often[Int(gray(i) * 255), default: 0] += 1 }
+    guard let ground = often.max(by: { $0.value < $1.value })?.key else { return 0 }
+    var sum = 0.0
+    for i in stride(from: 0, to: px.count, by: 4) { sum += abs(gray(i) - Double(ground) / 255) }
+    return sum / Double(w * h)
   }
 
   private func goBack(_ app: XCUIApplication) {

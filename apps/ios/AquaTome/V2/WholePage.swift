@@ -9,11 +9,12 @@ final class FoldMemo {
 }
 
 /// A part of the page under its heading on v2's species page, as an app's description in the App Store: a long one shows
-/// its opening, then "thêm", which opens the rest in place; a short one shows whole. It never folds through a line, a
-/// photo or a table: the pieces that fit in about eight lines of text show whole, then the next text's opening to a
-/// word's end, "… thêm" ending its last line, never over its words. What's folded away isn't drawn, touched or read until
-/// it opens; what shows works as ever, its links too. With VoiceOver on, it doesn't fold: VoiceOver reads on past what
-/// the eye sees, and a fold would only stand in its way.
+/// its opening, then "thêm", which opens the rest in place; a short one shows whole. It never folds through a photo or a
+/// table: the pieces that fit in about eight lines of text show whole, then the next text's first lines, the last of them
+/// to the column's edge and cut where it ends, its words fading out before "thêm" at that line's end (`FoldedText`), as
+/// the App Store's description does. A tap on "thêm" or on the folded part opens it. What's folded away isn't drawn,
+/// touched or read until it opens; what shows works as ever, its links too. With VoiceOver on, it doesn't fold:
+/// VoiceOver reads on past what the eye sees, and a fold would only stand in its way.
 ///
 /// Where it folds is worked out from its pieces' words and photos before it's drawn, not measured after: drawn whole and
 /// then shrunk, a part moved what was laid out under it, so a chip's jump landed past its part. Worked out once for a part
@@ -36,16 +37,16 @@ struct V2Section: View {
   /// v1's page, for a part this one can't draw.
   let full: () -> Void
   @Environment(\.accessibilityVoiceOverEnabled) private var voiceOver
+  @Environment(\.accessibilityReduceMotion) private var reduceMotion
   @Environment(\.dynamicTypeSize) private var size
   /// The page's own way with a link in the text, for every link but "thêm".
   @Environment(\.openURL) private var follow
 
   private static let gap: CGFloat = 14
-  /// What shows, folded: its first pieces whole, then a text's first `chars` and "… thêm" (all of it and " thêm" when that
-  /// fits); or, where what's next is a photo or a table and the last whole one isn't text, the whole pieces, "thêm" under
-  /// them.
-  fileprivate enum Fold: Equatable { case none, pieces(Int), cut(Int, chars: Int) }
-  private static let moreScheme = "v2-more"
+  /// What shows, folded: its first pieces whole, then a text's first `lines` lines (of its first `chars`, a line more than
+  /// they show), "thêm" ending the last; or, where what's next is a photo or a table and the last whole one isn't text, the
+  /// whole pieces, "thêm" under them.
+  fileprivate enum Fold: Equatable { case none, pieces(Int), cut(Int, chars: Int, lines: Int) }
 
   private var fold: Fold {
     guard folds, !open, !voiceOver, !pieces.isEmpty else { return .none }
@@ -75,11 +76,13 @@ struct V2Section: View {
     // The next text's opening, to the eighth line.
     if n < pieces.count, let p = Self.prose(pieces[n]) {
       let left = Int((shown - used - (n > 0 ? Self.gap : 0)) / tall.line)
-      if left >= 2 { return .cut(n, chars: tall.cut(p.text, lines: left, inset: p.inset)) }
+      if left >= 2 {
+        return .cut(n, chars: tall.cut(p.text, lines: left + 1, inset: p.inset), lines: min(left, tall.lines(p.text, inset: p.inset)))
+      }
     }
     // Too little room for its lines: the last whole text ends in "thêm" instead, not a row of its own under a gap.
     if n > 0, let p = Self.prose(pieces[n - 1]) {
-      return .cut(n - 1, chars: tall.cut(p.text, lines: tall.lines(p.text, inset: p.inset), inset: p.inset))
+      return .cut(n - 1, chars: p.text.characters.count, lines: tall.lines(p.text, inset: p.inset))
     }
     // A label alone over a photo or a table: with it.
     if n == 1, Self.leadsIn(pieces[0]) { return pieces.count > 2 ? .pieces(2) : .none }
@@ -103,7 +106,7 @@ struct V2Section: View {
     let fold = fold
     let whole = switch fold {
     case .none: pieces.count
-    case let .pieces(n), let .cut(n, _): n
+    case let .pieces(n), let .cut(n, _, _): n
     }
     VStack(alignment: .leading, spacing: 10) {
       if let title {
@@ -115,13 +118,12 @@ struct V2Section: View {
           V2Piece(piece: pieces[j], open: link, full: full)
         }
         switch fold {
-        case let .cut(n, chars):
+        case let .cut(n, chars, lines):
           if case let .text(s, anchor, look) = pieces[n] {
-            V2Piece(piece: .text(Self.ending(s, at: chars), anchor: anchor, look: look), open: link, full: full)
-              .environment(\.openURL, OpenURLAction { url in
-                if url.scheme == Self.moreScheme { withAnimation(.easeInOut(duration: 0.25)) { open = true } } else { follow(url) }
-                return .handled
-              })
+            let end = s.characters.index(s.startIndex, offsetBy: min(chars, s.characters.count))
+            // A boxed text's words as a paragraph's, its box drawn around them: the fade is the words', never the box's.
+            FoldedText(piece: .text(AttributedString(s[s.startIndex..<end]), anchor: anchor, look: look == .boxed ? .body : look),
+                       lines: lines, boxed: look == .boxed, link: link, full: full, more: unfold)
           }
         case .pieces:
           more.frame(maxWidth: .infinity, alignment: .trailing)
@@ -129,30 +131,83 @@ struct V2Section: View {
           EmptyView()
         }
       }
+      // Folded, a tap anywhere on it opens it, as on the App Store's; a link in it still goes where it goes.
+      .contentShape(.rect)
+      .simultaneousGesture(TapGesture().onEnded { unfold() }, including: fold == .none ? .subviews : .all)
     }
     .frame(maxWidth: .infinity, alignment: .leading)
     .padding(.horizontal, 20)
   }
 
-  /// A text's first `chars`, then "… thêm" (" thêm" after all of it), "thêm" a link that opens the part.
-  private static func ending(_ s: AttributedString, at chars: Int) -> AttributedString {
-    let end = s.characters.index(s.startIndex, offsetBy: min(chars, s.characters.count))
-    var more = AttributedString(String(localized: "thêm"))
-    more.link = URL(string: "\(moreScheme):open")
-    more.font = .body.weight(.semibold)
-    return AttributedString(s[s.startIndex..<end]) + AttributedString(end == s.endIndex ? " " : "… ") + more
+  /// The part open in place, its height growing over a quarter of a second; at once with Reduce Motion.
+  private func unfold() {
+    guard !open else { return }
+    withAnimation(reduceMotion ? nil : .easeInOut(duration: 0.25)) { open = true }
   }
 
   /// "thêm" on its own under whole pieces, a photo or a table next.
   private var more: some View {
-    Button { withAnimation(.easeInOut(duration: 0.25)) { open = true } } label: {
-      Text("thêm").font(.body.weight(.semibold))
-    }
-    .buttonStyle(.plain)
-    .foregroundStyle(Color.accentColor)
-    .frame(minHeight: 44)
-    .contentShape(.rect)
-    .accessibilityIdentifier("v2-more")
+    Button(action: unfold) { Text("thêm").font(.body) }
+      .buttonStyle(.plain)
+      .foregroundStyle(Color.accentColor)
+      .frame(minHeight: 44)
+      .contentShape(.rect)
+      .accessibilityIdentifier("v2-more")
+  }
+}
+
+/// The text a fold ends in, as the App Store's description ends: its first `lines` lines, the last running to the column's
+/// edge and cut wherever it ends, mid-word too, with no "…"; on that line its words fade out over 1.75 em, ending half an
+/// em before "thêm", which stands on the line's baseline at the column's right edge in the text's own size and weight. The
+/// fade is the words' own, so they fade into whatever is behind them. Measured off the owner's capture of the App Store
+/// (11 Nov), at the body's size and so in em at any size.
+@available(iOS 18, *)
+private struct FoldedText: View {
+  let piece: NativePage.Piece
+  let lines: Int
+  /// A boxed text: its words, and so its fade and "thêm", sit inside the box's 14 points, the box drawn here.
+  let boxed: Bool
+  let link: (URL) -> Void
+  let full: () -> Void
+  let more: () -> Void
+  @Environment(\.dynamicTypeSize) private var size
+
+  var body: some View {
+    let f = UIFont.preferredFont(forTextStyle: .body, compatibleWith: UITraitCollection(preferredContentSizeCategory: UIContentSizeCategory(size)))
+    let em = f.pointSize
+    let link = ceil((String(localized: "thêm") as NSString).size(withAttributes: [.font: f]).width)
+    // Its lines and the 3 points v2 puts between them (`V2Piece`).
+    let height = CGFloat(lines) * f.lineHeight + CGFloat(max(lines - 1, 0)) * 3
+    V2Piece(piece: piece, open: self.link, full: full)
+      .fixedSize(horizontal: false, vertical: true)
+      .frame(height: height, alignment: .top)
+      .clipped()
+      .mask {
+        VStack(spacing: 0) {
+          Color.black
+          HStack(spacing: 0) {
+            Color.black
+            LinearGradient(colors: [.black, .clear], startPoint: .leading, endPoint: .trailing).frame(width: (em * 1.75).rounded())
+            Color.clear.frame(width: (em * 0.5).rounded() + link)
+          }
+          .frame(height: f.lineHeight)
+        }
+      }
+      .overlay(alignment: .bottomTrailing) {
+        // 44 points to tap, the look unchanged: the room is the button's, outside the word's own frame.
+        Button(action: more) {
+          Text("thêm").font(.body).padding(.vertical, 11).padding(.leading, 12).contentShape(.rect)
+        }
+        .buttonStyle(.plain)
+        .foregroundStyle(Color.accentColor)
+        .padding(.vertical, -11).padding(.leading, -12)
+        .accessibilityIdentifier("v2-more")
+      }
+      .padding(boxed ? 14 : 0)
+      .background(boxed ? AnyShapeStyle(.fill.quaternary) : AnyShapeStyle(Color.clear), in: .rect(cornerRadius: 12))
+      // Its place in the part, for the checks: the lines shown, not the text cut a line further.
+      .accessibilityElement(children: .contain)
+      .accessibilityIdentifier("v2-folded")
   }
 }
 
