@@ -99,7 +99,7 @@ test('an admitted crop in an otherwise headless album can become a whole-photo h
  const c=await loadAll(f.opts);expect(c.species[0]!.photos).toEqual([{...crop,headFit:'contain'}]);expect(await readFile(file,'utf8')).toBe(before);expect(c.galleries.alpha?.[0]?.headFit).toBeUndefined()
 })
 test('whole-photo eligibility still requires native dimensions and the complete subject with its margin',()=>{
- const p=wholeCrop();expect(photoFitsWholeHead(p)).toBe(true);expect(photoFitsHead(p)).toBe(false);expect(photoFitsCard({...p,headFit:'contain'})).toBe(false)
+ const p=wholeCrop();expect(photoFitsWholeHead(p)).toBe(true);expect(photoFitsHead(p)).toBe(false);const fitted:Photo={...p,headFit:'contain'};expect(photoFitsCard(fitted)).toBe(false)
  expect(photoFitsWholeHead({...p,width:799})).toBe(false)
  expect(photoFitsWholeHead({...p,altered:[{...p.altered![0]!,crop:{...p.altered![0]!.crop!,margin:5}}]})).toBe(false)
  expect(photoFitsWholeHead({...p,altered:[{...p.altered![0]!,crop:{...p.altered![0]!.crop!,subject:{x0:0,y0:0,x1:800,y1:520}}}]})).toBe(false)
