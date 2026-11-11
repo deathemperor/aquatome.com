@@ -462,15 +462,17 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
   const keptUnwell = new Set<string>()
   for (const p of all) {
     const key = `${p.kind}/${p.id}`
-    const { off: gone, kept } = unwellOff(p, new Set(off.get(key)?.keys()))
+    const { off: gone, kept, picked } = unwellOff(p, new Set(off.get(key)?.keys()))
     if (kept) { keptUnwell.add(kept.url); report.unwell.push(`${key}: ${kept.url} (${kept.word}; the page's only photo)`) }
+    // A head a person picked stays until a person says it goes: listed each run with its caption, at the size readers see.
+    if (picked) { keptUnwell.add(picked.url); report.unwell.push(`${key}: ${picked.url} (${picked.word}; a head a person picked. Its caption: "${p.captions.find(c => c.url === picked.url)?.caption ?? ''}")`) }
     for (const x of gone) {
       const why = `unwell: its source's caption says "${x.word}"`
       off.set(key, (off.get(key) ?? new Map()).set(x.url, why))
       maps.set(x.url, `${why} (${key})`)
     }
   }
-  // A photo that is some page's only one is not taken off every page.
+  // A photo that is some page's only one, or a head a person picked, is not taken off every page.
   for (const url of keptUnwell) maps.delete(url)
   if (maps.size > cap) {
     // Too many to take off for good with nobody looking: they stay where they are, and a person is told (PHOTO_CAP).

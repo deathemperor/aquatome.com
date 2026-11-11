@@ -220,6 +220,26 @@ test("a fish its source's caption calls unwell leaves a page that has another ph
   expect((await sweep(root)).photos).toEqual([`species/ccc-more: ${shared.url} (unwell: its source's caption says "skinny")`])
   expect((await json(root, 'content/species/bbb-only/entity.json')).photos).toEqual([shared])
   expect(Object.keys(await json(root, 'engine-state/_photo-rejected.json'))).not.toContain(shared.url)
+  // A head a person picked is not taken off by a caption's words (the chief of staff, 2026-11-11): it stays first, off
+  // the never-again list, and is listed with its caption each run until a person says it goes.
+  const pick = sf('pick', 'Skinny juvenile.')
+  await put('species/eee-chosen/entity.json', species('eee-chosen', 'Eee chosen', { photos: [sf('plain', 'Adult male.'), pick] }))
+  await put('species/eee-chosen/vi.json', vi('Cá chạch suối quý', { 'distribution:seriouslyfish': '<p>Lào.</p>' }))
+  await writeFile(join(root, 'engine-state/_photo-head-picks.json'), JSON.stringify({ 'species/eee-chosen': pick.url }))
+  const held = await sweep(root)
+  expect(held.photos).toEqual([])
+  expect(held.unwell).toContain(`species/eee-chosen: ${pick.url} (skinny; a head a person picked. Its caption: "Skinny juvenile.")`)
+  expect((await json(root, 'content/species/eee-chosen/entity.json')).photos.map((x: { url: string }) => x.url)).toEqual([pick.url, 'https://media.aquatome.com/seriouslyfish/plain.webp'])
+  expect(Object.keys(await json(root, 'engine-state/_photo-rejected.json'))).not.toContain(pick.url)
+  expect(await unwell()).toBe(0)
+  await checkPagePhotos(root, { get: never, look: never }, { limit: 0 })
+  expect((await json(root, 'content/species/eee-chosen/entity.json')).photos[0].url).toBe(pick.url)
+  // The same photo on a page where nobody picked it leaves that page, and still stays off the never-again list.
+  await put('species/fff-other/entity.json', species('fff-other', 'Fff other', { photos: [sf('plain-2', 'Adult male.'), pick] }))
+  await put('species/fff-other/vi.json', vi('Cá chạch suối khác', { 'distribution:seriouslyfish': '<p>Lào.</p>' }))
+  expect((await sweep(root)).photos).toEqual([`species/fff-other: ${pick.url} (unwell: its source's caption says "skinny")`])
+  expect(Object.keys(await json(root, 'engine-state/_photo-rejected.json'))).not.toContain(pick.url)
+  expect((await json(root, 'content/species/eee-chosen/entity.json')).photos[0].url).toBe(pick.url)
   // A breed's gallery is read too.
   const bred = sf('bred', 'Two dead specimens of different ages.')
   await put('breeds/ddd-breed/entity.json', { id: 'ddd-breed', kind: 'variety', parents: [], care: {}, photos: [sf('breed-own', 'Adult male.')], sources: [{ url: 'https://x/a', title: 'A', kind: 'article', at: '2026-10-01' }], updatedAt: '2026-10-01' })

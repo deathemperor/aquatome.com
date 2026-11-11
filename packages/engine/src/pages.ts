@@ -31,6 +31,8 @@ export type Page = {
   own?: string[]
   /** Breeds: its gallery's captions. Kept apart from `captions`, which the other caption rules read: only the unwell rule asks a breed's gallery. */
   album?: { url: string; caption: string }[]
+  /** The head a person picked for the page, if one (engine-state/_photo-head-picks.json, beside the content root). */
+  picked?: string
   /** Species, plants and breeds: a person chose the name (`nameFixed`), and the engine leaves it as it is. */
   nameFixed?: boolean
   /** Species and plants: the Latin name, and the other Latin names the page goes by. */
@@ -161,8 +163,12 @@ export async function fixedParts(dir: string): Promise<Set<string>> {
 }
 
 export async function loadPages(contentRoot: string, langs: readonly Lang[] = LANGS): Promise<Page[]> {
+  const picks = JSON.parse(await readFile(join(contentRoot, '..', 'engine-state', '_photo-head-picks.json'), 'utf8').catch(() => '{}')) as Record<string, string>
   const out: Page[] = []
-  for (const lang of langs) out.push(...pagesOf(lang, await loadAll({ root: contentRoot, lang, publicBuild: true })))
+  for (const lang of langs) for (const p of pagesOf(lang, await loadAll({ root: contentRoot, lang, publicBuild: true }))) {
+    const picked = picks[`${p.kind}/${p.id}`]
+    out.push(picked ? { ...p, picked } : p)
+  }
   return out
 }
 

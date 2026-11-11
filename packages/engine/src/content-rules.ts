@@ -516,14 +516,17 @@ export function captionFlaw(caption: string | undefined, breed = false): { kind:
  * page's own where no other photo of its own would be left (`gone`: its own photos another rule takes off in the same run).
  * A page with no photo of its own keeps none back: its gallery's photo is on no page until the head step picks it,
  * and that step asks the caption too (curation.ts `cardWorthy`).
+ * A head a person picked is not taken off by a caption's words (the chief of staff, 2026-11-11): a pick is a person's
+ * look at the photo, a caption word a guess. It stays, off every card, and is listed until a person says it goes.
  */
-export function unwellOff(p: Pick<Page, 'kind' | 'captions' | 'album' | 'own'>, gone: ReadonlySet<string> = new Set()): { off: { url: string; word: string }[]; kept?: { url: string; word: string } } {
+export function unwellOff(p: Pick<Page, 'kind' | 'captions' | 'album' | 'own' | 'picked'>, gone: ReadonlySet<string> = new Set()): { off: { url: string; word: string }[]; kept?: { url: string; word: string }; picked?: { url: string; word: string } } {
   if (p.kind !== 'species' && p.kind !== 'breeds') return { off: [] }
   const unwell = [...p.captions, ...(p.album ?? [])].flatMap(c => { const f = captionFlaw(c.caption, p.kind === 'breeds'); return f?.kind === 'unwell' ? [{ url: c.url, word: f.word }] : [] })
   const bad = new Set(unwell.map(x => x.url))
   const own = (p.own ?? []).filter(u => !gone.has(u))
-  const kept = own.some(u => !bad.has(u)) ? undefined : unwell.find(x => x.url === own.find(u => bad.has(u)))
-  return { off: unwell.filter(x => x !== kept), ...(kept ? { kept } : {}) }
+  const picked = unwell.find(x => x.url === p.picked)
+  const kept = picked || own.some(u => !bad.has(u)) ? undefined : unwell.find(x => x.url === own.find(u => bad.has(u)))
+  return { off: unwell.filter(x => x !== kept && x !== picked), ...(kept ? { kept } : {}), ...(picked ? { picked } : {}) }
 }
 /** An ad video's title as a photo's caption ("video of: African Chop"): its poster, taken from an ad player in a source's article. */
 export const isAdPoster = (caption: string) => /^video of:/i.test(caption.trim())
