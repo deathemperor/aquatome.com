@@ -129,15 +129,18 @@ test('a map shown as a photo of the fish, in a caption', () => {
 test("a paper's plate, a drawing or a dish from Wikimedia Commons shown as a photo of the fish, by the file's own words", () => {
   const p = page({ kind: 'species', sci: 'Hemichromis elongatus', captions: [
     { url: 'a', file: 'File:Parasite180080-Figure4 Compound micrographs of Cychlidogyrus spp. (Monogenea, Dactylogyridae).png', caption: 'Figure 4 of paper Compound micrographs of (a–c) Cichlidogyrus bixlerzavalai n. sp.' },
-    { url: 'b', file: 'File:Aquatic Biodiversity in the Amazon (1020205-f7).png', caption: 'Examples of species collected only in the Alto Purús.(A) Cichlasoma boliviense, 79 mm.(B) Dianema longibarbis, 73 mm.' },
+    { url: 'b', file: 'File:Aquatic Biodiversity in the Amazon (1020205-f7).png', caption: 'Examples of species collected only in the Alto Purús.(A) Cichlasoma boliviense, 79 mm.(B) Dianema longibarbis, 73 mm.(C) Pimelodus sp. 2, 112 mm.' },
     { url: 'c', file: 'File:EB9 - Angling - Fig 27.png', caption: 'Fig. 27.—The Tench.' },
     // One plain photo named as a figure stays, and so does a photo from anywhere else, whatever its caption says.
     { url: 'd', file: 'File:Clarias leiacanthus (10.3897-BDJ.11.e100337) Figure 20.jpg', caption: 'Figure 20 Clarias leiacanthus.' },
     { url: 'e', caption: 'Figure 2; (a) male (b) female' },
+    // One photo of a pair, and a photo once filed under another name: only a look tells, so neither is taken off for good.
+    { url: 'f', file: 'File:Hemichromis elongatus pair.jpg', caption: 'Male (A) and female (B) Hemichromis elongatus, same tank.' },
+    { url: 'g', file: 'File:Hemichromis elongatus.jpg', caption: 'Hemichromis elongatus, first misidentified as another jewel cichlid.' },
   ] })
   expect(found(p, 'caption')).toEqual([
     'not a photo: micrographs, not the fish: "Figure 4 of paper Compound micrographs of (a–c) Cichlidogyrus bixlerzavalai n.…"',
-    'not a photo: a paper\'s plate, (a), (b), not the fish: "Examples of species collected only in the Alto Purús.(A) Cichlasoma boliviense,…"',
+    'not a photo: a paper\'s plate, (a), (b), (c), not the fish: "Examples of species collected only in the Alto Purús.(A) Cichlasoma boliviense,…"',
     'drawing: EB9, not the fish: "Fig. 27.—The Tench."',
   ])
 })

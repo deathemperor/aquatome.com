@@ -28,23 +28,22 @@ const UNFIT: { why: string; re: RegExp; in: ('title' | 'categories' | 'descripti
   { why: 'drawing', re: word('prints?|biodiversity heritage library|internet archive book images'), in: ['title', 'categories'] },
   { why: 'drawing', re: word('view book online'), in: ['description'] },
   // The old Britannica's figures are engravings ("EB9 - Angling - Fig 27", the tench's second photo until 2026-11-11).
-  // Not "encyclopedia": the Encyclopedia of Life's files are photos.
-  { why: 'drawing', re: word('EB9|EB1911|britannica'), in: ['title', 'categories'] },
+  // Not "encyclopedia": the Encyclopedia of Life's files are photos. Not "britannica" alone: a species' name ("Inula britannica").
+  { why: 'drawing', re: word('EB9|EB1911|encyclop(?:ae|æ|e)dia britannica'), in: ['title', 'categories'] },
   // Pictures through a microscope, and ear stones, are no photo of the fish (`paperPlate` below has the rest of a
   // paper's plates). "Microscopic" and "otolith" count in the file's name only. Of the 5,200 Commons files on pages
   // and in albums on 2026-11-11, a description said "microscopic" of one, a living acara's ("microscopic crystal-like
   // plates" in its skin), and a category said "Microscopy" of three living shrimp (a photo contest's "Microscopy
-  // images"). A category "Microscopic images of …" is a microscope's, or a close-up of a part: a moss's leaf cells, a
-  // floating fern's leaf hairs.
+  // images"). A category "Microscopic images of …" held one microscope picture (a moss's leaf cells) and two close-ups
+  // of a living floating fern's leaf hairs, so it refuses none either: the photo check looks.
   { why: 'not a photo', re: word('micrographs?|photomicrographs?|scanning electron'), in: ['title', 'categories', 'description'] },
   { why: 'not a photo', re: word('microscop\\p{L}*|otoliths?'), in: ['title'] },
-  { why: 'not a photo', re: word('microscopic images of'), in: ['categories'] },
   { why: 'not a photo', re: word('maps?|charts?|diagrams?|logos?|svg|skeletons?|skulls?|x-rays?|radiographs?'), in: ['title', 'categories'] },
   { why: 'not a photo', re: word('range|distribution'), in: ['title'] },
   { why: 'dead', re: word('(?<!not )preserved|taxiderm\\p{L}*|formalin|fried|pickled|cooked|grilled|smoked'), in: ['title', 'categories', 'description'] },
   { why: 'dead', re: word('specimens?|plates?|herbari(?:um|a)|holotypes?|paratypes?|lectotypes?|syntypes?|markets?'), in: ['title'] },
   { why: 'dead', re: word('markets?|fishmongers?|dried fish|dishes|cuisine|as food|seafood|fish collections?'), in: ['categories'] },
-  { why: 'other', re: /misidentif\p{L}*|errata/iu, in: ['description'] },
+  { why: 'other', re: word('misidentif\\p{L}*|errata'), in: ['description'] }, // a word: not the "errata" in "serrata"
 ]
 
 const FIGURE = /(?<![\p{L}\p{N}])fig(?:ure|\.)?s?\.? ?\d+(?! ?puffer)/iu // not the fish: "Figure 8 pufferfish"
@@ -61,9 +60,9 @@ export const paperFigure = (f: { title: string; description?: string }) => FIGUR
 
 /**
  * What a Commons file's description says when it is a paper's plate, several pictures in one with a letter or a number
- * on each: the words that list its panels. "(a–c) …" or "A–H, …" (a run of panels), "(A) … (B) …" or "(8) … (9) …"
- * (each in brackets), and, in a file named as a figure (`paperFigure`), "(a) …" alone or "a … b …", "A … B …",
- * "a. …; b. …" with no brackets. Found 2026-11-11 by the owner on Hemichromis elongatus, whose only photo was a parasite paper's plate of
+ * on each: the words that list its panels. "(a–c) …" or "A–H, …" (a run of panels), "(A) … (B) … (C) …" or
+ * "(73) … (74) … (75) …" (each in brackets; two are enough in a file named as a figure, `paperFigure`), and, in a
+ * file named as a figure, "(a) …" alone or "a … b …", "A … B …", "a. …; b. …" with no brackets. Found 2026-11-11 by the owner on Hemichromis elongatus, whose only photo was a parasite paper's plate of
  * microscope pictures: the Commons search for a fish's name finds the papers about its parasites, bones and eggs. Of
  * the 28 photos on pages that were named as a figure, 20 were such plates and one an engraving, and each plate's
  * description listed its panels; the 7 plain photos of a fish or plant had none ("Figure 20 Clarias leiacanthus.").
@@ -71,15 +70,22 @@ export const paperFigure = (f: { title: string; description?: string }) => FIGUR
  */
 export function paperPlate(f: { title: string; description?: string }): string | undefined {
   const d = text(f.description)
-  // A run of panels, in brackets or opening the description: "(a–c)", "A–H, …".
-  const run = /\(([a-h])[–-]([b-z])\)|^([a-h])[–-]([b-z])(?![\p{L}\p{N}])/iu.exec(d)
-  if (run && (run[1] ?? run[3])! < (run[2] ?? run[4])!) return run[0]
-  // Each panel in brackets: "(A)" and "(B)", or two numbers in a row, "(8)" and "(9)".
-  if (/\(a\)/i.test(d) && /\(b\)/i.test(d)) return '(a), (b)'
+  // A file named as a figure is a plate at two panels. Any other file at three: "male (a) and female (b)" is one photo
+  // of a pair, and "(1)" and "(2)" number the files of a series (the independent reader, 2026-11-11). Each plate of
+  // the first 25 that was named as no figure listed three in the 200 characters a page's photo keeps.
+  const figure = paperFigure(f)
+  const least = figure ? 2 : 3
+  // A run of panels, in brackets or opening the description: "(a–c)", "A–H, …" (not "A–Z of aquarium fishes").
+  const run = /\(([a-h])[–-]([b-z])\)|^([a-h])[–-]([b-z])(?=[,:;.])/iu.exec(d)
+  if (run && (run[2] ?? run[4])!.toLowerCase().charCodeAt(0) - (run[1] ?? run[3])!.toLowerCase().charCodeAt(0) + 1 >= least) return run[0]
+  // Each panel in brackets: "(A)", "(B)" and "(C)", or numbers in a row, "(8)", "(9)" and "(10)".
+  const letters = ['a', 'b', 'c'].slice(0, least)
+  if (letters.every(l => new RegExp(`\\(${l}\\)`, 'i').test(d))) return letters.map(l => `(${l})`).join(', ')
   const numbers = [...d.matchAll(/\((\d{1,2})\)/g)].map(m => Number(m[1]))
-  const next = numbers.find(n => numbers.includes(n + 1))
-  if (next !== undefined) return `(${next}), (${next + 1})`
-  if (!paperFigure(f)) return undefined
+  const row = (n: number) => Array.from({ length: least }, (_, i) => n + i)
+  const first = numbers.find(n => row(n).every(x => numbers.includes(x)))
+  if (first !== undefined) return row(first).map(n => `(${n})`).join(', ')
+  if (!figure) return undefined
   // In a file named as a figure, the first panel in brackets is enough: a page's photo keeps only the start of its
   // description, and "(b)" may be past the cut.
   if (/\(a\)/i.test(d)) return '(a)'

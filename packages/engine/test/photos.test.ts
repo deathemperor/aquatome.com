@@ -109,9 +109,9 @@ const PLATES: [title: string, description: string, why: string][] = [
   ['File:Odontobutid otoliths.jpg', 'A–H, otoliths from the Chapelcorner Fish Beds, photos and interpretative drawings of right (A–B) and left (C–H) otoliths (sagittae) in medial view.', 'not a photo: otoliths'],
   ['File:Fossil ear stones.jpg', 'A–H, from the fish beds, photos and interpretative drawings of right (A–B) and left (C–H) ones in medial view.', "not a photo: a paper's plate, A–H"],
   ['File:Cosmetocleithrum leandroi (10.3897-zoologia.35.e23917) Figures 8–14.jpg', 'Figures 8–14; Cosmetocleithrum leandroi sp. nov.: (8) holotype whole-mount, ventral; (9) copulatory complex; (10) hook; (11) ventral bar', "not a photo: a paper's plate, (8), (9)"],
-  ['File:Fish fauna from Río Pilcomayo National Park (7 of 7).png', 'Fish fauna from the Rio Pilcomayo National Park. Per the source, they are listed as:(73) Cichlasoma dimerus;(74) Crenicichla lepidota;(75) Crenicichla semifasciata', "not a photo: a paper's plate, (73), (74)"],
-  ['File:Aquatic Biodiversity in the Amazon (1020205-f7).png', 'Examples of species collected only in the Alto Purús.(A) Cichlasoma boliviense, 79 mm.(B) Dianema longibarbis, 73 mm.(C) Pimelodus sp. 2, 112 mm.', "not a photo: a paper's plate, (a), (b)"],
-  ['File:Actinopterygii in the Guareí River basin 04 (1676-0611-BN-2020-1031).jpg', '(a) Pimelodella gracilis 60.1 mm SL; (b) Rhamdia quelen, 47.6 mm SL; (c) Iheringichthys labrosus, 101.8 mm SL', "not a photo: a paper's plate, (a), (b)"],
+  ['File:Fish fauna from Río Pilcomayo National Park (7 of 7).png', 'Fish fauna from the Rio Pilcomayo National Park. Per the source, they are listed as:(73) Cichlasoma dimerus;(74) Crenicichla lepidota;(75) Crenicichla semifasciata', "not a photo: a paper's plate, (73), (74), (75)"],
+  ['File:Aquatic Biodiversity in the Amazon (1020205-f7).png', 'Examples of species collected only in the Alto Purús.(A) Cichlasoma boliviense, 79 mm.(B) Dianema longibarbis, 73 mm.(C) Pimelodus sp. 2, 112 mm.', "not a photo: a paper's plate, (a), (b), (c)"],
+  ['File:Actinopterygii in the Guareí River basin 04 (1676-0611-BN-2020-1031).jpg', '(a) Pimelodella gracilis 60.1 mm SL; (b) Rhamdia quelen, 47.6 mm SL; (c) Iheringichthys labrosus, 101.8 mm SL', "not a photo: a paper's plate, (a), (b), (c)"],
   ['File:Trichomycterus (10.3390-taxonomy2040032) Figure 9.png', 'Figure 9. Head, dorsal view: (A) Trichomycterus goeldii, UFRJ 7938, 57.9 mm SL; (B) Trichomycterus auroguttatus, UFRJ 11675, 59.2 mm SL.', "not a photo: a paper's plate, (a), (b)"],
   // A page's photo keeps the first 200 characters of its description: "(b)" is past the cut.
   ['File:Notopterus notopterus (10.3897-zse.93.13341) Figure 12.jpg', 'Figure 12; Hatching process and the free embryonic stages in Notopterus notopterus. (a) Stage 24: just hatched-embryo after breaking the weak egg envelope, caudal part is relieved, anterior part still', "not a photo: a paper's plate, (a)"],
@@ -146,11 +146,32 @@ test("a word about microscopes outside a file's name refuses no photo of the liv
     // A page's lead, which the photo check had passed.
     { title: 'File:The Electric Blue Acara (Andinoacara pulcher, electric blue morph).jpg', description: 'Iridophores (specialized reflective cells) in the fish’s skin contain microscopic crystal-like plates made of guanine.' },
     { title: 'File:Креветка Амано.jpg', description: 'Amano Shrimp', categories: 'Caridina multidentata|Self-published work|Images from Wiki Science Competition 2018 in Russia|Microscopy images from Russian Science Photo Competition 2018' },
+    // A category "Microscopic images of …" holds close-ups of a living floating fern's leaf hairs, and a moss's leaf cells
+    // through a microscope: the words can't tell them apart, so the photo check looks.
+    { title: 'File:Kleiner Büschelfarn 06.jpg', description: 'Schneebesenhaare auf der Blattoberfläche vom Schwimmfarn "Salvinia minima".', categories: 'Salvinia minima|Self-published work|Microscopic images of Salvinia leaves - trichomes' },
+    { title: 'File:Leptodictyum riparium (a, 144821-480959) 9489.JPG', description: 'Leptodictyum riparium', categories: 'Leptodictyum riparium|CC-Zero|Self-published work|Microscopic images of Hypnales - cells of the leaf base' },
   ]) expect(unfitCommons(f), f.title).toBeUndefined()
-  // A moss's leaf cells through a microscope, by its category, and any file named as one.
-  expect(unfitCommons({ title: 'File:Leptodictyum riparium (a, 144821-480959) 9489.JPG', description: 'Leptodictyum riparium', categories: 'Leptodictyum riparium|CC-Zero|Self-published work|Microscopic images of Hypnales - cells of the leaf base' })).toBe('not a photo: Microscopic images of')
+  // A file named as a microscope's picture is one.
   expect(unfitCommons({ title: 'File:Gill fluke, microscope view.jpg' })).toBe('not a photo: microscope')
   expect(unfitCommons({ title: 'File:IMG 2041.jpg', description: 'Scanning electron micrograph of a scale.' })).toBe('not a photo: Scanning electron')
+})
+
+test("one photo's own words are no plate's: a pair told apart by two letters, a series' file numbers, a species' name (the independent reader, 2026-11-11)", () => {
+  for (const f of [
+    { title: 'File:Betta splendens pair.jpg', description: 'Male (A) and female (B) Betta splendens, same tank.' },
+    { title: 'File:Betta splendens pair 2.jpg', description: 'A pair of Betta splendens: male (a) and female (b) in a breeding tank.' },
+    { title: 'File:Apistogramma agassizii (3).jpg', description: 'See also Apistogramma agassizii (1) and Apistogramma agassizii (2).' },
+    { title: 'File:Blackwater tank.jpg', description: 'Kept in a tank with (1) soft water and (2) leaf litter.' },
+    { title: 'File:Aquarium fishes.jpg', description: 'A–Z of aquarium fishes, the cover photo' },
+    { title: 'File:Stream.jpg', description: 'E-W oriented stream, the habitat of the species' },
+    { title: 'File:Betta splendens male.jpg', description: 'Betta splendens male (a-b cross)' },
+    { title: 'File:Mud crab.jpg', description: 'Scylla serrata in a mangrove creek' },
+    { title: 'File:Inula britannica 2.jpg', categories: 'Inula britannica' },
+  ]) expect(unfitCommons(f), f.title).toBeUndefined()
+  // Three panels are a plate in any file, and two in a file named as a figure.
+  expect(unfitCommons({ title: 'File:Betta splendens.jpg', description: 'Betta splendens: (A) male, (B) female, (C) eggs in the nest' })).toBe("not a photo: a paper's plate, (a), (b), (c)")
+  expect(unfitCommons({ title: 'File:Betta (10.3897-zookeys.1.1) Figure 3.jpg', description: 'Figure 3. Betta splendens: (A) male, (B) female' })).toBe("not a photo: a paper's plate, (a), (b)")
+  expect(unfitCommons({ title: 'File:Errata slip.jpg', description: 'Errata to the plate of Betta splendens' })).toBe('other: Errata')
 })
 
 test("a file named as a paper's figure is no page's photo straight from the search, plate or not: nothing has looked at it; a guide's search and a gallery's screen still see it", async () => {

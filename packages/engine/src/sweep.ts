@@ -188,6 +188,10 @@ async function sfWord(root: string, card: Partial<Record<DataCardField, Value[]>
 export const PHOTO_CAP = 10
 
 export async function sweep(root: string, o: { llm?: Llm; titles?: number; model?: string; photoCap?: number } = {}): Promise<SweepReport> {
+  // Before anything is written. Not a whole number ("1O" for 10 reads as none), every comparison with it is false and
+  // the cap would be off (the independent reader, 2026-11-11).
+  const cap = o.photoCap ?? PHOTO_CAP
+  if (!Number.isInteger(cap) || cap < 0) throw new Error(`sweep: the photo cap is a whole number, 0 or more, not ${cap}`)
   const content = join(root, 'content')
   const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, held: [], heads: [], videos: [], card: [], summaries: [], tanks: [], shop: [], varieties: [], titles: [], names: [], mentions: [], links: [], unmatched: [], stopped: '' }
   const changed = (f: string) => { if (!report.files.includes(f)) report.files.push(f) }
@@ -367,7 +371,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
     if (why) off.set(`${p.kind}/${p.id}`, (off.get(`${p.kind}/${p.id}`) ?? new Map()).set(c.url, why))
     if ((unfit || !other) && why) maps.set(c.url, `${why} (${p.kind}/${p.id})`)
   }
-  if (maps.size > (o.photoCap ?? PHOTO_CAP)) {
+  if (maps.size > cap) {
     // Too many to take off for good with nobody looking: they stay where they are, and a person is told (PHOTO_CAP).
     report.held = [...maps].map(([url, why]) => `${url} (${why})`)
     for (const drop of off.values()) for (const url of maps.keys()) drop.delete(url)

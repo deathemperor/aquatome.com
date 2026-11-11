@@ -134,7 +134,7 @@ test("a paper's plate leaves its page and its gallery for good, the page's lead 
   const commons = (name: string, file: string, caption: string) => ({ ...photo(`https://media.aquatome.com/commons/${name}.webp`, caption), sourceUrl: `https://commons.wikimedia.org/wiki/File:${encodeURIComponent(file.replaceAll(' ', '_'))}` })
   const plate = commons('plate', 'Parasite180080-Figure4 Compound micrographs of Cychlidogyrus spp. (Monogenea, Dactylogyridae).png', 'Figure 4 of paper Compound micrographs of (a–c) Cichlidogyrus bixlerzavalai n. sp. from Tylochromis praecox')
   // Its words name the page's fish among others: a plate is no photo of any of them.
-  const many = commons('many', 'Aquatic Biodiversity in the Amazon (1020205-f7).png', 'Examples of species collected only in the Alto Purús.(A) Hemichromis elongatus, 79 mm.(B) Clarias leiacanthus, 73 mm.')
+  const many = commons('many', 'Aquatic Biodiversity in the Amazon (1020205-f7).png', 'Examples of species collected only in the Alto Purús.(A) Hemichromis elongatus, 79 mm.(B) Clarias leiacanthus, 73 mm.(C) Pimelodus sp. 2, 112 mm.')
   const one = commons('one', 'Clarias leiacanthus (10.3897-BDJ.11.e100337) Figure 20.jpg', 'Figure 20 Clarias leiacanthus.')
   await put('species/hemichromis-elongatus/entity.json', species('hemichromis-elongatus', 'Hemichromis elongatus', { photos: [plate] }))
   await put('species/hemichromis-elongatus/vi.json', vi('Cá cichlid năm sao', { 'distribution:seriouslyfish': '<p>Tây Phi.</p>' }))
@@ -172,6 +172,10 @@ test("a run that would take more photos off every page than its cap takes none o
   const left = async () => (await json(root, 'content/species/corydoras-adolfoi/entity.json')).photos.map((p: { url: string }) => p.url.split('/').pop())
   const found = async () => ratcheted(checkPages(await loadPages(c), RULES.filter(x => x.id in RATCHETED)).findings).filter(f => f.rule === 'caption').length
 
+  // A cap that is no whole number stops the run before it writes anything: "1O" for 10 would switch the cap off.
+  await expect(sweep(root, { photoCap: Number('1O') })).rejects.toThrow('the photo cap is a whole number')
+  await expect(sweep(root, { photoCap: -1 })).rejects.toThrow('the photo cap is a whole number')
+  expect(await left()).toEqual(['own.webp', 'plate-1.webp', 'plate-2.webp', 'plate-3.webp', 'sterbai.webp'])
   const held = await sweep(root, { photoCap: 2 })
   expect(held.held).toHaveLength(3)
   expect(held.held[0]).toBe("https://media.aquatome.com/commons/plate-1.webp (not a photo: a paper's plate, (a), (b), not Corydoras adolfoi (species/corydoras-adolfoi))")

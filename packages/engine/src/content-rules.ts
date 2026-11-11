@@ -469,9 +469,13 @@ export const isMap = (caption: string) => MAP.test(caption)
  * a microscope picture, a drawing, a map, a dish (photos.ts `unfitCommons`, the screen a new photo passes, on the file's
  * name and the start of its description, which is a page photo's caption until a look writes another). The search for a
  * fish's name finds the papers about its parasites and bones, and photos from before a word was screened for stay: found
- * 2026-11-11 by the owner, on a page whose only photo was a parasite paper's plate.
+ * 2026-11-11 by the owner, on a page whose only photo was a parasite paper's plate. Not the screen's "other" (a
+ * description that says "misidentified"): "first misidentified as …" is said of a photo of the right fish too, and only a look tells.
  */
-export const notAlive = (c: { caption: string; file?: string }) => (c.file ? unfitCommons({ title: c.file, description: c.caption }) : undefined)
+export const notAlive = (c: { caption: string; file?: string }) => {
+  const why = c.file ? unfitCommons({ title: c.file, description: c.caption }) : undefined
+  return why?.startsWith('other') ? undefined : why
+}
 /** An ad video's title as a photo's caption ("video of: African Chop"): its poster, taken from an ad player in a source's article. */
 export const isAdPoster = (caption: string) => /^video of:/i.test(caption.trim())
 

@@ -558,10 +558,12 @@ The layers above still check the result.
     file's title and categories naming art (a drawing, illustration, engraving, plate, print, stamp, "1865 in art", a
     book scan), a map or X-ray, a preserved or taxidermied specimen, food or a fish market, or its description saying it
     is misidentified; a source article's caption naming a drawing, plate or stamp ("Liobagrus kingi: line drawing"). A
-    paper's plate is none either (`paperPlate`): microscope pictures, or a description that lists its panels by letter
-    or number ("(a–c) …", "(A) … (B) …", "(8) holotype … (9) …"). The owner found one on 2026-11-11 as the only photo
-    of Hemichromis elongatus, a parasite paper's plate: the search for a fish's name finds the papers on its parasites,
-    bones and eggs. 25 such plates were on 16 pages, each never judged by the photo check. The Commons fallback for a
+    paper's plate is none either (`paperPlate`): a file named as a microscope's picture, or a description that lists
+    its panels by letter or number ("(a–c) …", "(A) … (B) … (C) …", "(73) … (74) … (75) …"): three panels, or two in a
+    file named as a figure, since "male (a) and female (b)" is one photo of a pair. The owner found one on 2026-11-11
+    as the only photo of Hemichromis elongatus, a parasite paper's plate: the search for a fish's name finds the papers
+    on its parasites, bones and eggs. 25 such plates were on 16 pages; the photo check had looked at one of them and
+    could not tell. The Commons fallback for a
     page with no photo (`findPhotos`) also skips rejected photos, and any file named as a paper's figure
     (`paperFigure`): its photo goes on a page with no look at it, and some figures are one plain photo of the fish, which
     the words can't tell from a plate, so a figure reaches a page only through a gallery, where the screen and the photo
