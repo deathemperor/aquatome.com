@@ -92,9 +92,18 @@ final class PhotoViewerFlowTests: XCTestCase {
   /// gallery's strip names ten.
   func testAPagesPhotoRowShowsSixThenItsButton() {
     let app = launch("-large-gallery")
-    let sixth = rowPhoto(app, "Ảnh thử 6")
-    XCTAssertTrue(sixth.exists, "no sixth photo in the row")
-    XCTAssertFalse(app.buttons["Ảnh thử 7"].exists, "a seventh photo in the row")
+    let first = rowPhoto(app, "Ảnh thử 1"), y = first.frame.midY
+    // Along the row to its end, a few photos a swipe: those off the screen aren't there to count until it gets to them.
+    var seen = Set<String>(), still = 0
+    for _ in 0..<12 where still < 2 {
+      let now = Set(app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "Ảnh thử ")).allElementsBoundByIndex.map { $0.label })
+      still = now.isSubset(of: seen) ? still + 1 : 0
+      seen.formUnion(now)
+      app.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(dx: app.frame.width * 0.85, dy: y))
+        .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(dx: app.frame.width * 0.15, dy: y)),
+               withVelocity: .default, thenHoldForDuration: 0.1)
+    }
+    XCTAssertEqual(seen, Set((1...6).map { "Ảnh thử \($0)" }), "the row isn't its first six photos")
     XCTAssertTrue(app.buttons["gallery-all"].exists, "no button to all the photos")
   }
 

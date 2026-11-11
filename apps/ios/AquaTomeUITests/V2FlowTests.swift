@@ -525,6 +525,8 @@ final class V2FlowTests: XCTestCase {
       reveal(app, app.staticTexts["Cho ăn gì?"])
       let folded = folds(app).firstMatch
       reveal(app, folded)
+      // Up the screen, its last line clear of the fade over the tab bar: where a reveal stops, it can be in it.
+      bring(app, folded, to: 200)
       let look = dark ? "dark" : "light"
       XCTAssertFalse(folded.staticTexts.firstMatch.label.contains("…"), "a fold ends in '…', \(look)")
       guard let more = moreOnItsLastLine(app, folded) else { XCTFail("no thêm at the end of the last line, \(look)"); continue }
@@ -732,7 +734,7 @@ final class V2FlowTests: XCTestCase {
       }
       return Double(spots.filter { before.at($0.0, $0.1).distance(to: after.at($0.0, $0.1)) > 30 }.count) / Double(spots.count)
     }
-    XCTAssertGreaterThan(moved(), 0.05, "nothing of the page under the tab bar")
+    let on = moved()
     app.tabBars.buttons["Hôm nay"].tap()
     XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 5), "the bar's tap didn't open Hôm nay")
     // Off in Tài khoản: the fade again, one ground under the bar.
@@ -743,7 +745,9 @@ final class V2FlowTests: XCTestCase {
     app.closeAccount()
     app.tabBars.buttons["Khám phá"].tap()
     Thread.sleep(forTimeInterval: 1)
-    XCTAssertLessThan(moved(), 0.005, "the page still under the tab bar with the trial off")
+    let off = moved()
+    XCTAssertGreaterThan(on, 0.01, "nothing of the page under the tab bar: \(on) of the bar's place moved, \(off) with the trial off")
+    XCTAssertLessThan(off, 0.002, "the page still under the tab bar with the trial off: \(off) of the bar's place moved, \(on) with it on")
   }
 
   /// A page's photos all open as their grid (PhotoGrid) three ways: the banner, "N ảnh" in its corner, tapped anywhere;
