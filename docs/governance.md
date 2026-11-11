@@ -498,20 +498,20 @@ The layers above still check the result.
     workers at most, and the pull request's comment says the pages were not reviewed and that this is not a pass
     (`claude-accounts.ts`, `site-watch.mjs`). The auto-fix is one session of up to 50 minutes, so it runs under the
     CLI's own cap (`--max-budget-usd`, what is left of its day): the CLI ends the session once its estimate of the
-    spend reaches it, a response late at most. The session is held to a 200K context and 32K of answer a response,
-    so that response is cents as a rule and $2.24 at the most (200K tokens new to the cache and a 32K answer, at
-    Opus 5.5's list price): one run spends at most what was left plus $2.24, under twice the day's line at every
-    line, and a test holds the lines to that. The CLI keeps its sign-in out of what it hands the commands the agent
-    runs. Its agent has Bash and works from an issue's text, so its line is made and kept by a job the agent never
-    ran in (`cost`, in `fix.yml`): one plain number of dollars crosses from the agent's job, kept to the cent, and a
-    session that left no such number is counted at the whole of what it was allowed, a lost runner's too. Only a job
-    that said its runner was there and never said a session was about to start writes no line
-    (`claude-spend.test.ts` runs the workflow's own script). A day that can't be counted stops all three. The
-    rewrite's cycle brings their lines beside its own log, so GitHub's day total has them. What it doesn't hold:
-    runs that start together each count the same day, so together they can pass a line by a run each; a job run
-    again by itself runs on the allowance its first attempt was given; the dollars are the agent's job's own word,
-    so an agent set on it could report fewer than it spent (its own run is still held to the cap); and keeping the
-    sign-in out of the agent's commands is not a wall, since they run as the same user as the CLI that holds it.
+    spend reaches it, a response late at most. That response is cents as a rule, and on paper as much as $10.56 (the
+    model's 1M context new to the cache and a 128K answer, at Opus 5.5's list price): the session keeps the model's
+    whole context, and stopped by money, a response late, is the bound (the chief of staff, 11 Nov). The CLI keeps
+    its sign-in out of what it hands the commands the agent runs. Its agent has Bash and works from an issue's text,
+    so its line is made and kept by a job the agent never ran in (`cost`, in `fix.yml`): one plain number of dollars
+    crosses from the agent's job, kept to the cent, and a session that left no such number is counted at the whole
+    of what it was allowed, a lost runner's too. Only a job that said its runner was there and never said a session
+    was about to start writes no line (`claude-spend.test.ts` runs the workflow's own script). A day that can't be
+    counted stops all three. The rewrite's cycle brings their lines beside its own log, so GitHub's day total has
+    them. What it doesn't hold: runs that start together each count the same day, so together they can pass a line
+    by a run each; a job run again by itself runs on the allowance its first attempt was given; the dollars are the
+    agent's job's own word, so an agent set on it could report fewer than it spent (its own run is still held to the
+    cap); and keeping the sign-in out of the agent's commands is not a wall, since they run as the same user as the
+    CLI that holds it.
 - **On topic.** A guide covers what its title promises. The guide writer and its reviewer are told to leave out a
   video's detours (`prompts/video-guide.md`, `video-review.md`). `pnpm engine topic-check` reads every new or changed
   guide and drops sections about another subject, with their FAQ and summary lines. It never drops more than half a

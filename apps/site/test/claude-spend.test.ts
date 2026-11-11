@@ -171,9 +171,6 @@ test("the auto-fix's public line is made where the agent never ran, and the sess
   expect(agent).toContain('budget=(--max-budget-usd "$LEFT")')
   expect(agent).toContain('"${budget[@]}"')
   expect(agent).toContain("CLAUDE_CODE_SUBPROCESS_ENV_SCRUB: '1'")
-  // A 200K context and 32K of answer: what bounds one response's cost, and so how far a run can pass its cap.
-  expect(agent).toContain("CLAUDE_CODE_DISABLE_1M_CONTEXT: '1'")
-  expect(agent).toContain("CLAUDE_CODE_MAX_OUTPUT_TOKENS: '32000'")
   expect(agent).toContain('needs: budget')
   // The budget job counts with no token of Claude's, and only reads.
   expect(budget).not.toContain('CLAUDE_CODE_OAUTH_TOKEN')
@@ -188,19 +185,4 @@ test('the real ceilings file has a line for each of the three on GitHub from 12 
   expect(lines('2026-11-13T08:00:00+07:00')).toEqual([8, 3, 8])
   expect(lines('2026-11-14T08:00:00+07:00')).toEqual([12, 4, 12])
   for (const t of real.tables) for (const s of ['page-review', 'nightly-review', 'autofix']) expect(Object.hasOwn(t.mac.steps, s), `${t.from} mac ${s}`).toBe(false)
-})
-
-test("one auto-fix run can't spend past twice its day's line: no line is under what one response can cost", () => {
-  // A run is stopped a response late at most (fix.yml). Held to a 200K context and 32K of answer, that response is
-  // 200K tokens new to the cache and a 32K answer at the most: Opus 5.5's list price, $8 (an hour's keep) and $20 a
-  // million.
-  const RESPONSE = (200_000 * 8 + 32_000 * 20) / 1e6
-  expect(RESPONSE).toBe(2.24)
-  const real = JSON.parse(readFileSync(new URL('../../../packages/engine/src/ceilings.json', import.meta.url), 'utf8'))
-  const lines: [string, number][] = real.tables.flatMap((t: { from: string; github: { steps: Record<string, number | null | undefined> } }) => {
-    const line = t.github.steps.autofix
-    return line == null ? [] : [[t.from, line]]
-  })
-  expect(lines.length).toBe(3)
-  for (const [from, line] of lines) expect(line + RESPONSE, `the auto-fix's line from ${from}`).toBeLessThanOrEqual(2 * line)
 })

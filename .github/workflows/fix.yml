@@ -90,12 +90,11 @@ jobs:
       # One session, up to this job's hour, so a count before it starts would stop nothing. The session runs under the
       # CLI's own cap, --max-budget-usd, set to what the auto-fix has left of its day: the CLI adds up its estimate of
       # the spend after each response and ends the session once that reaches the cap, so a run passes it by one
-      # response at most. That is cents as a rule, and $2.24 at the most at Opus 5.5's list price: the session is held
-      # to a 200K context and 32K of answer a response (the two settings below; the model's own are 1M and 128K), so
-      # one response reads 200K tokens at most, all of them new to the cache at its dearest ($8 a million, an hour's
-      # keep), and writes 32K ($20 a million). So one run spends at most what was left of the day plus $2.24, which
-      # is under twice the day's line at every line there is ($4, $8, $12; `claude-spend.test.ts` holds the lines to
-      # that). With nothing left, no session starts, and the issue is told why. The step has 50 of the job's 60 minutes.
+      # response at most. That is cents as a rule. On paper it is as much as $10.56 at Opus 5.5's list price: the
+      # model's 1M context, all of it new to the cache at its dearest ($8 a million, an hour's keep), and a 128K answer
+      # ($20 a million). The session keeps the model's whole context, so the fixer is no less able: stopped by money, a
+      # response late at most, is the bound (the chief of staff, 11 Nov). With nothing left, no session starts, and the
+      # issue is told why. The step has 50 of the job's 60 minutes.
       # The step before it says a session is about to start, for the job that keeps the cost line: said before the
       # agent runs, so the agent can't have touched it. A job that failed before that (an install) spent nothing.
       - id: go
@@ -110,10 +109,6 @@ jobs:
           # said here so it stays so): the agent's Bash isn't handed the token to start a second session outside the
           # cap with. It is not a wall: a command runs as the same user as the CLI, which holds the token.
           CLAUDE_CODE_SUBPROCESS_ENV_SCRUB: '1'
-          # A 200K context, not the model's 1M, and 32K of answer a response, not 128K: together they bound what one
-          # response can cost (above). The session compacts at the 200K boundary.
-          CLAUDE_CODE_DISABLE_1M_CONTEXT: '1'
-          CLAUDE_CODE_MAX_OUTPUT_TOKENS: '32000'
           LEFT: ${{ needs.budget.outputs.left }}
           GO: ${{ needs.budget.outputs.go }}
         run: |
