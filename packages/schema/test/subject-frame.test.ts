@@ -31,6 +31,9 @@ test('up to SUBJECT_CUT of the fish lost reads as whole: exactly that stays cent
   expect(subjectFrame({ width: 1000, height: 1000, subject: { x0: 0, y0: 225, x1: 1000, y1: 725 } }, 2)).toEqual(centred)
   // 26 above loses 5.2%: the window moves to 224 to 724, and loses none.
   at(subjectFrame({ width: 1000, height: 1000, subject: { x0: 0, y0: 224, x1: 1000, y1: 724 } }, 2), 0.5, 224 / 500)
+  // Exactly 5% where the window's edge isn't a whole number: 820.8 of 1000 across, moved onto a fish 864 long, it cuts 43.2,
+  // which the arithmetic makes a hair over 0.05. It still covers.
+  at(subjectFrame({ width: 1000, height: 1080, subject: { x0: 0, y0: 0, x1: 864, y1: 1080 } }, 19 / 25), 21.6 / 179.2, 0.5)
 })
 
 test('a crop moved onto the fish mends what the centred one cuts, held inside the photo', () => {
@@ -54,6 +57,12 @@ test('the record\'s fractions become the photo\'s pixels, rounded outward and ke
   expect(subjectPixels({ x: 0.1234, y: 0, w: 0.5, h: 1 }, 1000, 600)).toEqual({ x0: 123, y0: 0, x1: 624, y1: 600 })
   expect(subjectPixels({ x: 0.9, y: 0, w: 0.2, h: 1 }, 1000, 600)).toEqual({ x0: 900, y0: 0, x1: 1000, y1: 600 })
   expect(subjectPixels({ x: 0.5, y: 0.5, w: 0, h: 0.2 }, 1000, 600)).toBeUndefined()
+  // A box past the photo's left or top edge keeps what is inside, as one past the right does; so does a photo whose size
+  // isn't a whole number of pixels.
+  expect(subjectPixels({ x: -0.2, y: 0, w: 1.4, h: 1 }, 1000, 600)).toEqual({ x0: 0, y0: 0, x1: 1000, y1: 600 })
+  expect(subjectPixels({ x: 0.1, y: -0.1, w: 0.5, h: 0.5 }, 1000, 600)).toEqual({ x0: 100, y0: 0, x1: 600, y1: 240 })
+  expect(subjectPixels({ x: 0, y: 0, w: 1, h: 1 }, 1000.4, 800)).toEqual({ x0: 0, y0: 0, x1: 1000, y1: 800 })
+  expect(subjectPixels({ x: 1.1, y: 0, w: 0.2, h: 1 }, 1000, 600)).toBeUndefined()
 })
 
 test('the loader gives a photo its box only with the switch on, from the record alone', async () => {
@@ -68,15 +77,28 @@ test('the loader gives a photo its box only with the switch on, from the record 
   const album = { url: 'https://media.test/commons/album.webp', width: 1200, height: 800, licence: 'CC BY 4.0', author: 'A', sourceUrl: 'https://x/album' }
   await mkdir(join(store, 'gallery'))
   await writeFile(join(store, 'gallery/alpha.json'), JSON.stringify({ id: 'alpha', seen: 1, updatedAt: '2026-11-12', photos: [album] }))
+  // A video guide's figure photo, and an equipment guide's head and type photos, which the loader screens apart from pages.
+  const own = { x0: 1, y0: 1, x1: 2, y1: 2 }
+  const pic = (name: string) => ({ url: `https://media.test/${name}.webp`, width: 1000, height: 500, licence: 'CC BY 4.0', author: 'A', sourceUrl: `https://x/${name}`, subject: own })
+  await mkdir(join(store, 'guides', 'g'), { recursive: true })
+  await writeFile(join(store, 'guides', 'g', 'entity.json'), JSON.stringify({
+    id: 'g', kind: 'care', source: 'seriouslyfish', sourceUrl: 'https://x/g', html: '<h2>One</h2>', photos: [], mentions: [], updatedAt: '2026-11-12',
+    video: { youtubeId: 'abcdefghijk', title: 'T', channel: 'C', channelUrl: 'https://x/c', durationSec: 60, chapters: [], figures: [{ heading: 'One', moments: [], photo: pic('figure') }] },
+  }))
+  await writeFile(join(store, 'guides', 'g', 'vi.json'), await readFile(join(store, 'species', 'alpha', 'vi.json'), 'utf8'))
+  await mkdir(join(store, 'equipment'))
+  await writeFile(join(store, 'equipment/loc.json'), JSON.stringify({ category: 'loc', name: 'loc', lead: '', intro: '', hero: pic('hero'), types: [{ id: 'a', name: 'A', match: 'a', desc: '', pick: '', buy: 'a', photo: pic('type') }], choose: [], mistakes: [], faq: [] }))
   await mkdir(join(site, 'engine-state'))
   await writeFile(join(site, 'engine-state', PHOTO_BOXES_FILE), JSON.stringify({
     'https://x/ok.jpg': { x: 0.25, y: 0.25, w: 0.5, h: 0.5 },
     'https://media.test/seriouslyfish/a.webp': null,
     [album.url]: { x: 0, y: 0.1, w: 1, h: 0.8 },
+    ...Object.fromEntries(['figure', 'hero', 'type'].map(n => [`https://media.test/${n}.webp`, { x: 0.1, y: 0.2, w: 0.5, h: 0.6 }])),
   }))
   const boxes = async (on?: boolean) => {
     const c = await loadAll({ root: store, lang: 'vi', publicBuild: false, ...(on === undefined ? {} : { subjectFrames: on }) })
-    return [...c.species.find(s => s.id === 'alpha')!.photos, ...c.galleries.alpha!].map(p => [p.url, p.subject])
+    const e = c.equipment.find(x => x.category === 'loc')!
+    return [...c.species.find(s => s.id === 'alpha')!.photos, ...c.galleries.alpha!, c.guides.find(x => x.id === 'g')!.video!.figures![0]!.photo!, e.hero, e.types[0]!.photo!].map(p => [p.url, p.subject])
   }
   // Off by default, until the owner has seen the Design Lead's "whole".
   expect(SUBJECT_FRAMES).toBe(false)
@@ -87,5 +109,6 @@ test('the loader gives a photo its box only with the switch on, from the record 
     ['https://media.test/seriouslyfish/a.webp', undefined],
     ['https://media.test/glaser/b.webp', undefined],
     [album.url, { x0: 0, y0: 80, x1: 1200, y1: 720 }],
+    ...['figure', 'hero', 'type'].map(n => [`https://media.test/${n}.webp`, { x0: 100, y0: 100, x1: 600, y1: 400 }]),
   ])
 })

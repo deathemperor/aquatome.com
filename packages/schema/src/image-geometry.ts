@@ -38,9 +38,12 @@ export function photoFitsCard(p: CroppedPhoto): boolean {
 
 /** Where the fish is, as the engine's box step records it: fractions of the photo from its top-left corner (photo-boxes.ts). */
 export type SubjectFractions = { x: number; y: number; w: number; h: number }
-/** The box in a photo's pixels, its edges rounded outward; none where it doesn't fit the photo. */
+/** The box in a photo's whole pixels, its edges rounded outward and kept inside the photo; none where nothing of it is. */
 export function subjectPixels(f: SubjectFractions, width: number, height: number): PixelBox | undefined {
-  const b = { x0: Math.floor(f.x*width+1e-6), y0: Math.floor(f.y*height+1e-6), x1: Math.min(width, Math.ceil((f.x+f.w)*width-1e-6)), y1: Math.min(height, Math.ceil((f.y+f.h)*height-1e-6)) }
+  const b = {
+    x0: Math.max(0, Math.floor(f.x*width+1e-6)), y0: Math.max(0, Math.floor(f.y*height+1e-6)),
+    x1: Math.min(Math.floor(width), Math.ceil((f.x+f.w)*width-1e-6)), y1: Math.min(Math.floor(height), Math.ceil((f.y+f.h)*height-1e-6)),
+  }
   return validPixelBox(b, width, height) ? b : undefined
 }
 /**
@@ -69,7 +72,8 @@ export function subjectFrame(p: { width: number; height: number; subject?: Pixel
   const across = w.x1-w.x0 < p.width
   const [len, span, a, b] = across ? [p.width, w.x1-w.x0, s.x0, s.x1] : [p.height, w.y1-w.y0, s.y0, s.y1]
   const lost = (at: number) => (Math.max(0, at-a)+Math.max(0, b-at-span))/(b-a)
-  const at = [(len-span)/2, Math.min(Math.max((a+b-span)/2, 0), len-span)].find(at => lost(at) <= SUBJECT_CUT)
+  // A hair of slack, so the last bit of a window's edge can't turn exactly SUBJECT_CUT into more.
+  const at = [(len-span)/2, Math.min(Math.max((a+b-span)/2, 0), len-span)].find(at => lost(at) <= SUBJECT_CUT+1e-9)
   if (at === undefined) return { fit: 'whole' }
   const pos = span < len ? at/(len-span) : 0.5
   return across ? { fit: 'cover', x: pos, y: 0.5 } : { fit: 'cover', x: 0.5, y: pos }

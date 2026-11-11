@@ -279,7 +279,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   const guides = (await loadKind(root, 'guides', GuideSchema, lang, leaveOutHeld))
     .filter(g => allowed(g.source))
     // A video's sections show a photo and stills of their own, and a section's photo can lead the guide or a card.
-    .map(g => ({ ...g, photos: cleanPhotos(g.photos), ...(g.video?.figures ? { video: { ...g.video, figures: g.video.figures.map(f => ({ ...f, moments: f.moments.filter(screened), ...(f.photo && !screened(f.photo) ? { photo: undefined } : {}) })) } } : {}) }))
+    .map(g => ({ ...g, photos: cleanPhotos(g.photos), ...(g.video?.figures ? { video: { ...g.video, figures: g.video.figures.map(f => ({ ...f, moments: f.moments.filter(screened), ...(f.photo ? { photo: screened(f.photo) ? boxed(f.photo) : undefined } : {}) })) } } : {}) }))
 
   const changelogPath = join(root, 'changelog.json')
   const changelog = (await exists(changelogPath) ? await readJson(changelogPath, ChangelogSchema) : []).filter(e => allowed(e.source))
@@ -292,9 +292,9 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     if (lang !== 'vi' && !(await exists(file))) continue
     const e = await readJson(file, EquipmentSchema)
     const ok = (p: Photo) => cleanPhotos([p]).length > 0
-    const types = e.types.map(t => (t.photo && !ok(t.photo) ? { ...t, photo: undefined } : t))
+    const types = e.types.map(t => (!t.photo ? t : { ...t, photo: ok(t.photo) ? boxed(t.photo) : undefined }))
     // Its head picture waits like any other: a type's photo stands in, and with none to stand in the guide waits too.
-    const hero = screened(e.hero) ? e.hero : types.find(t => t.photo)?.photo
+    const hero = screened(e.hero) ? boxed(e.hero) : types.find(t => t.photo)?.photo
     if (hero) equipment.push({ ...e, hero, types })
   }
 
