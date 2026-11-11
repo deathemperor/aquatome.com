@@ -2,8 +2,8 @@ import { spawn } from 'node:child_process'
 import { appendFileSync, mkdtempSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
-import { ceilingMessage, stepName } from './ceiling'
-import { envFor, onAccounts, tokenHash } from './claude-accounts'
+import { ceilingMessage, costLog, stepName } from './ceiling'
+import { envFor, NotTheAccount, onAccounts, tokenHash } from './claude-accounts'
 import { MARKETPLACE_DOMAINS } from './marketplaces'
 
 // Where a call that reads no files runs: a folder of its own, empty. At its start the CLI lists the files under where it
@@ -23,14 +23,14 @@ type RunOpts = { tools: string; deny?: string[]; cwd: string; model?: string; ti
 
 /**
  * One call on the owner's Claude accounts, the next one when an account is out of its limit or rejected (claude-accounts.ts).
- * First the step's ceiling for the day (ceiling.ts): the engine's own limit, so a step at it fails here, with no call
- * made and no account set aside.
+ * Before each try, the step's ceiling for the day (ceiling.ts): the engine's own limit, so a step at it fails here with
+ * no call made, no account set aside and the next account not tried.
  */
-const run = <T>(system: string, prompt: string, schema: object, opts: RunOpts): Promise<T> => {
-  const capped = ceilingMessage(stepName(), process.env.ENGINE_COST_LOG)
-  if (capped) return Promise.reject(new LlmError(capped))
-  return onAccounts(token => once<T>(system, prompt, schema, opts, token), m => new LlmError(m))
-}
+const run = <T>(system: string, prompt: string, schema: object, opts: RunOpts): Promise<T> => onAccounts(token => {
+  const capped = ceilingMessage(stepName(), costLog())
+  if (capped) return Promise.reject(new NotTheAccount(capped))
+  return once<T>(system, prompt, schema, opts, token)
+}, m => new LlmError(m))
 
 function once<T>(system: string, prompt: string, schema: object, opts: RunOpts, token?: string): Promise<T> {
   return new Promise<T>((resolve, reject) => {
@@ -54,10 +54,11 @@ function once<T>(system: string, prompt: string, schema: object, opts: RunOpts, 
         const r = JSON.parse(out)
         // ENGINE_COST_LOG: one line a call (what the CLI reports it would cost on the API, its tokens, the wall time, the CLI
         // command it ran in and the account it went to, by its token's hash), to split a week's use by job and account.
-        if (process.env.ENGINE_COST_LOG) {
+        const log = costLog()
+        if (log) {
           const u = r.usage ?? {}
           try {
-            appendFileSync(process.env.ENGINE_COST_LOG, `${JSON.stringify({ at: new Date().toISOString(), step: stepName(), account: token ? tokenHash(token) : 'login', model: modelOf(opts.model), ms: Date.now() - started, usd: r.total_cost_usd, in: u.input_tokens, cacheWrite: u.cache_creation_input_tokens, cacheRead: u.cache_read_input_tokens, out: u.output_tokens, error: !!r.is_error })}\n`)
+            appendFileSync(log, `${JSON.stringify({ at: new Date().toISOString(), step: stepName(), account: token ? tokenHash(token) : 'login', model: modelOf(opts.model), ms: Date.now() - started, usd: r.total_cost_usd, in: u.input_tokens, cacheWrite: u.cache_creation_input_tokens, cacheRead: u.cache_read_input_tokens, out: u.output_tokens, error: !!r.is_error })}\n`)
           } catch (e) {
             console.warn(`ENGINE_COST_LOG: ${(e as Error).message}`) // a log it can't write never fails the call
           }

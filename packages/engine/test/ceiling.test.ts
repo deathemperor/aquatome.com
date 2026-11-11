@@ -2,7 +2,7 @@ import { chmod, mkdir, mkdtemp, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
-import { CEILINGS, ceilingMessage, machine, spentToday, stepName, tableInForce, type CeilingTable, type Ceilings, type Place } from '../src/ceiling'
+import { CEILINGS, ceilingMessage, costLog, handLog, machine, nameStep, spentToday, stepName, tableInForce, type CeilingTable, type Ceilings, type Place } from '../src/ceiling'
 import { LlmError } from '../src/claude'
 import { accountsOut } from '../src/gate'
 import { errorKind } from '../src/state'
@@ -153,6 +153,25 @@ test('a call is counted under the engine\'s command, or the name of a script run
   expect(stepName(['node', '/repo/packages/engine/scripts/translate-ui.ts', '--lang', 'ms'])).toBe('translate-ui')
   expect(stepName(['node', '/x/dist/cli.mjs', 'gate'])).toBe('gate')
   expect(stepName(['node'])).toBe('unnamed')
+  // The engine's own parser has the last word: the command wherever it stood among the options.
+  try {
+    nameStep('gate')
+    expect(stepName(['node', '/repo/packages/engine/src/cli.ts', '--limit', '1', 'gate'])).toBe('gate')
+  } finally {
+    nameStep(undefined)
+  }
+  expect(stepName(['node', '/repo/packages/engine/src/cli.ts', '--limit', '1', 'gate'])).toBe('cli')
+})
+
+test('every call has a cost log: the one a cycle names, else the hand runs\'; only the tests have none', () => {
+  expect(costLog({ ENGINE_COST_LOG: '/logs/aquatome-cost-pages.jsonl' })).toBe('/logs/aquatome-cost-pages.jsonl')
+  // A step or a script run by itself, with nothing named: counted like a cycle's, not let through.
+  expect(costLog({})).toBe(handLog())
+  expect(costLog({ ENGINE_COST_LOG: '' })).toBe(handLog())
+  expect(handLog()).toMatch(/aquatome-cost-hand\.jsonl$/)
+  // vitest.config.ts: these tests' stand-in calls are written nowhere.
+  expect(costLog({ ENGINE_COST_LOG: 'off' })).toBeUndefined()
+  expect(process.env.ENGINE_COST_LOG).toBe('off')
 })
 
 // The file the engine goes by.

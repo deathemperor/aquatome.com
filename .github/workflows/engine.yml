@@ -94,6 +94,23 @@ jobs:
           }
           fs.writeFileSync(p, keep.length ? keep.join("\n") + "\n" : "");
           '
+      # Moderation runs in its own workflow and has no ceiling, but what it spends counts toward the day's backstop:
+      # ceiling.ts adds up every aquatome-cost-*.jsonl beside the rewrite's log. Each of its runs keeps its cost lines
+      # with the run (moderate.yml), and the last 30 runs' are brought here. A run that kept none is passed over, and a
+      # failure here leaves the day's sum without them rather than stopping the cycle.
+      - name: Bring moderation's cost lines beside the rewrite's
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          : > /tmp/aquatome-cost-moderate.jsonl
+          for id in $(gh run list -R "$GITHUB_REPOSITORY" -w moderate.yml -L 30 --json databaseId -q '.[].databaseId'); do
+            dir="$(mktemp -d)"
+            if gh run download "$id" -R "$GITHUB_REPOSITORY" -n moderate-cost-log -D "$dir" 2>/dev/null; then
+              cat "$dir"/*.jsonl >> /tmp/aquatome-cost-moderate.jsonl
+            fi
+          done
+          echo "moderation's cost lines: $(wc -l < /tmp/aquatome-cost-moderate.jsonl)"
       - name: Run this part, test, commit, push, deploy
         run: scripts/engine-cycle.sh rewrite
         env:

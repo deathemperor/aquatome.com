@@ -30,20 +30,35 @@ export const vnDay = (d: Date) => new Date(d.getTime() + 7 * 3600_000).toISOStri
 /** Where this process runs: GitHub's runners set GITHUB_ACTIONS, and anything else is the Mac. */
 export const machine = (env: NodeJS.ProcessEnv = process.env): Machine => (env.GITHUB_ACTIONS === 'true' ? 'github' : 'mac')
 
+let named: string | undefined
+/** The engine's command, as cli.ts parsed it: the name its calls are counted under, wherever it stood among the options. */
+export const nameStep = (step: string | undefined) => { named = step }
+
 /**
- * The name a call is counted under, and the one its line in the cost log has: the engine's command
- * (`pnpm engine <command>`), or for a script run by itself, the script's name. Never empty, so a logged call always
- * has a ceiling.
+ * The name a call is counted under, and the one its line in the cost log has: the engine's command, as its own parser
+ * read it (`nameStep`), or for a script run by itself, the script's name. Never empty, so a logged call always has a
+ * ceiling.
  */
 export function stepName(argv: readonly string[] = process.argv): string {
+  if (named) return named
   const script = basename(argv[1] ?? '').replace(/\.[cm]?[jt]s$/, '')
   const command = argv[2]
   if (script === 'cli' && command && !command.startsWith('-')) return command
   return script || 'unnamed'
 }
 
-/** Where a step run by hand logs its calls when no log is named (cli.ts), so it is counted like a cycle's. */
+/** Where a call logs when no log is named: a step or a script run by hand, counted like a cycle's. */
 export const handLog = () => join(process.platform === 'darwin' ? join(homedir(), 'Library/Logs') : tmpdir(), 'aquatome-cost-hand.jsonl')
+
+/**
+ * The cost log a call is written to and counted from: the one ENGINE_COST_LOG names (a cycle's), else the hand runs'.
+ * So every call the engine makes is logged and has a ceiling, whatever started it. `off` is none: the tests, which
+ * make no model call (vitest.config.ts).
+ */
+export function costLog(env: NodeJS.ProcessEnv = process.env): string | undefined {
+  if (env.ENGINE_COST_LOG === 'off') return undefined
+  return env.ENGINE_COST_LOG || handLog()
+}
 
 /** Before the first table, and with none in the file: nothing calls but the gate and moderation. */
 const NOTHING: Place = { default: 0, backstop: 0, steps: { gate: null, moderate: null } }
@@ -113,9 +128,8 @@ const dollars = (n: number) => (Number.isInteger(n) ? String(n) : n.toFixed(2))
 /**
  * Nothing when the call may go; else the failure's message. It starts "claude failed" and says "limit reached" or
  * "usage limit", which errorKind (state.ts) classes as a usage limit, and the gate as a page it can't read.
- * With no cost log there is nothing to count from, and the call goes: the tests, which call no model (vitest.config.ts
- * clears the variable). The cycles name a log and so does the engine's command (cli.ts). A log that can't be written
- * stops the call, since what it spent would never be counted.
+ * With no cost log there is nothing to count from, and the call goes: only the tests have none (costLog). A log that
+ * can't be written stops the call, since what it spent would never be counted.
  */
 export function ceilingMessage(step: string, log: string | undefined, ceilings: Ceilings = CEILINGS, now = new Date(), where: Machine = machine()): string | undefined {
   if (!log) return

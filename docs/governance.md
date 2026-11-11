@@ -486,9 +486,11 @@ The layers above still check the result.
   (`ceiling.test.ts`, and the limit tests of `water`, `range` and `sweep`, run with the ceiling's own message). A
   cost log that can't be written stops a step that has a ceiling. Found with: on 11 Nov 2026 the engine's sign-ins
   ran out of their week four days early, at $542 a day where one sign-in's week allows $140.
-  - It covers every call the engine makes (`claude.ts`). The AI page review on pull requests, the auto-fix and the
-    nightly AI review call Claude on the same accounts by another road, with no log and no ceiling: `CLAUDE_ON_CI=off`
-    pauses them, and `ENGINE_ON_CI=on` runs the rewrite while they stay paused.
+  - It covers every call the engine makes to Claude (`claude.ts`), whatever started it: a call with no log named is
+    written to the hand runs' log and counted from there. Not covered: the AI page review on pull requests, the
+    auto-fix and the nightly AI review, which call Claude on the same accounts by another road, with no log and no
+    ceiling (`CLAUDE_ON_CI=off` pauses them, and `ENGINE_ON_CI=on` runs the rewrite while they stay paused); and
+    picture generation, which goes to Codex on its own sign-in and quota (`codex-images.ts`).
 - **On topic.** A guide covers what its title promises. The guide writer and its reviewer are told to leave out a
   video's detours (`prompts/video-guide.md`, `video-review.md`). `pnpm engine topic-check` reads every new or changed
   guide and drops sections about another subject, with their FAQ and summary lines. It never drops more than half a

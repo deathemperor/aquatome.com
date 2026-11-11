@@ -32,14 +32,14 @@ const call = () => claudeCli<{ ok: boolean }>({ system: 's', prompt: 'p', schema
 // No account but a test's own: the engine's runs have theirs in the environment (on 8 November GitHub's
 // CLAUDE_CODE_OAUTH_TOKEN made a line name it, and the rewrite part's cycle didn't publish).
 const noAccounts = () => { delete process.env.CLAUDE_CODE_OAUTH_TOKEN; delete process.env.CLAUDE_CODE_OAUTH_TOKENS; resetAccounts() }
-// The cycles export ENGINE_COST_LOG and then run these tests. A mocked call must not append to that file.
+// A stand-in call must not be written to a real cost log (vitest.config.ts): `off` is no log.
 // These calls are made as the gate, the step with no ceiling (ceiling.ts), so a test that names a cost log doesn't go by
 // the day it is run on. The ceiling's own test names its step.
 const ARGV = [...process.argv]
 const asStep = (step: string) => process.argv.splice(1, process.argv.length - 1, '/repo/packages/engine/src/cli.ts', step)
-beforeEach(() => { delete process.env.ENGINE_COST_LOG; asStep('gate'); noAccounts() })
+beforeEach(() => { process.env.ENGINE_COST_LOG = 'off'; asStep('gate'); noAccounts() })
 afterEach(() => { process.argv.splice(0, process.argv.length, ...ARGV) })
-afterEach(() => { delete process.env.ENGINE_COST_LOG; noAccounts() })
+afterEach(() => { process.env.ENGINE_COST_LOG = 'off'; noAccounts() })
 
 test('a call that reads no files runs from an empty folder, not /tmp, whose every checkout the CLI would list', async () => {
   spawned.length = 0
@@ -182,7 +182,7 @@ test('under its ceiling the call is made; at the ceiling no claude is spawned an
     vi.useRealTimers()
     if (github === undefined) delete process.env.GITHUB_ACTIONS
     else process.env.GITHUB_ACTIONS = github
-    delete process.env.ENGINE_COST_LOG
+    process.env.ENGINE_COST_LOG = 'off'
     delete process.env.CLAUDE_CODE_OAUTH_TOKENS
     resetAccounts()
   }
