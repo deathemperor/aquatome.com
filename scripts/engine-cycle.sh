@@ -203,6 +203,9 @@ if part pages sf photos; then
   # No watermarks (credits, dealer logos, site names): text on a photo is judged once by the model, a marked photo leaves
   # every page and stays blocked. After mirroring, so a gallery's Commons photo is screened under the URL pages use.
   pnpm engine watermarks --limit "${WATERMARK_LIMIT:-40}" || log "watermarks: failed (the photos it has not judged wait, unshown: packages/schema/src/photo-screen.ts)"
+  # Where the fish is in each fish and breed photo (photo-boxes.ts: macOS Vision, no model call), heads first, each photo
+  # once: what keeps a tile, a banner or a card from cutting the fish. After mirroring, so it reads the addresses pages use.
+  pnpm engine photo-boxes --limit "${PHOTO_BOXES_LIMIT:-400}" || log "photo-boxes: failed (new photos carry no box: drawn as today)"
   # Card thumbs for photos stored before thumbs existed; a failure only means full-size photos on cards.
   pnpm engine thumbs || log "thumbs: some failed (cards fall back to full photos)"
   # Wikimedia photos credited before Commons' placeholder authors were tidied on import: "RuthJM", not its sentence.
