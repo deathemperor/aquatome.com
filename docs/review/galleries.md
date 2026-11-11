@@ -1,16 +1,16 @@
 # Photo galleries
 
-Written by `pnpm engine gallery` (2026-11-10). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
+Written by `pnpm engine gallery` (2026-11-11). Targets: packages/engine/src/gallery-plan.ts; rules: docs/governance.md, "Photos".
 
 | Tier | Target | Species | Plants | Breeds | At target | Below |
 | --- | --- | --- | --- | --- | --- | --- |
 | staple | 100 | 12 | 0 | 0 | 4 | 8 |
 | shop | 60 | 131 | 80 | 24 | 32 | 203 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
-| covered | 30 | 535 | 28 | 9 | 18 | 554 |
-| rest | 20 | 1676 | 75 | 0 | 46 | 1705 |
+| covered | 30 | 554 | 28 | 9 | 18 | 573 |
+| rest | 20 | 1686 | 76 | 0 | 51 | 1711 |
 
-## Short of target: every source read (260)
+## Short of target: every source read (275)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -267,6 +267,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/brachyplatystoma-vaillantii | covered | 1 | 30 |
 | species/brevibora-dorsiocellata | covered | 1 | 30 |
 | species/brochis-multiradiatus | covered | 3 | 30 |
+| species/colomesus-asellus | covered | 2 | 30 |
 | species/corydoras-fowleri | covered | 1 | 30 |
 | species/corydoras-habrosus | covered | 8 | 30 |
 | species/corydoras-semiaquilus | covered | 2 | 30 |
@@ -274,5 +275,19 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/corydoras-splendens | covered | 1 | 30 |
 | species/denticetopsis-seducta | covered | 0 | 30 |
 | species/hypancistrus-inspector | covered | 0 | 30 |
+| species/hypancistrus-zebra | covered | 0 | 30 |
 | species/kryptopterus-geminus | covered | 0 | 30 |
+| species/lepthoplosternum-pectorale | covered | 0 | 30 |
+| species/mastiglanis-asopos | covered | 0 | 30 |
+| species/megalancistrus-parananus | covered | 1 | 30 |
+| species/moenkhausia-oligolepis | covered | 2 | 30 |
+| species/myloplus-schomburgkii | covered | 2 | 30 |
+| species/pterophyllum-altum | covered | 13 | 30 |
+| species/sphaerichthys-osphromenoides | covered | 1 | 30 |
+| species/sphaerichthys-vaillanti | covered | 3 | 30 |
+| species/stiphodon-atropurpureus | covered | 3 | 30 |
+| species/stiphodon-ornatus | covered | 0 | 30 |
+| species/tetraodon-mbu | covered | 23 | 30 |
+| species/trichogaster-chuna | covered | 10 | 30 |
+| species/acentronichthys-leptos | covered | 0 | 30 |
 | species/betta-macrostoma | covered | 0 | 30 |

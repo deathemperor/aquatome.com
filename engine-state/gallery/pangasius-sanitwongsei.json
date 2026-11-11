@@ -21,7 +21,16 @@
   "File:Oniria - Poisson 72.jpg",
   "File:Oniria - Poisson 73.jpg",
   "File:Oniria - Poisson 75.jpg",
-  "File:People carrying the Giant Pangasius.jpg"
+  "File:People carrying the Giant Pangasius.jpg",
+  "inat:186193335",
+  "inat:186193719",
+  "inat:186193713",
+  "inat:179818821",
+  "inat:179818824",
+  "inat:251151839",
+  "inat:319833961",
+  "inat:346195024",
+  "inat:486530763"
  ],
  "hashes": {
   "https://media.aquatome.com/scotcat/2f3928ee192c232e.webp": "060a9af2eeccdf15",
@@ -34,7 +43,20 @@
   "https://media.aquatome.com/commons/1f996ff0301510c4.webp": "0f6fe58d4d3f978e",
   "https://media.aquatome.com/commons/31ee82e61c172146.webp": "c743c39b27236381",
   "https://media.aquatome.com/commons/20878ce771f07220.webp": "693b3373e6de2c0f",
-  "https://media.aquatome.com/commons/ef35434cd34f85c5.webp": "7e5c243426e6dbe3"
+  "https://media.aquatome.com/commons/ef35434cd34f85c5.webp": "7e5c243426e6dbe3",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/179818821/large.jpeg": "7f5f3737ebd75f3f",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/179818824/large.jpeg": "0301137360644706",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/319833961/large.jpg": "f792158b971f4bda",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/346195024/large.jpeg": "f4f4d45773336d66",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/486530763/large.jpeg": "8c8cdcb424030e39"
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 108337,
+  "pass": "done",
+  "after": {
+   "research": 110379578,
+   "agree": 270547253
+  }
+ }
 }

@@ -60,27 +60,6 @@
     ],
     "figures": [
       {
-        "heading": "Hạ kính trước để bể dễ thao tác",
-        "moments": [
-          {
-            "t": 10,
-            "url": "https://media.aquatome.com/video/fXiFGMTtUyk/at10-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đặt thước thẳng lên kính và kẹp chặt để đánh dấu đường cắt.",
-            "sharpness": 956.9
-          },
-          {
-            "t": 70,
-            "url": "https://media.aquatome.com/video/fXiFGMTtUyk/at70-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Dùng dây rạch đứt silicone dọc cạnh tấm kính cần tháo.",
-            "sharpness": 349.7
-          }
-        ]
-      },
-      {
         "heading": "Làm hộp bơm từ tấm PVC",
         "moments": [
           {
@@ -102,80 +81,8 @@
         ]
       },
       {
-        "heading": "Ghép đá thành vòm nhìn được từ ba mặt",
-        "moments": [
-          {
-            "t": 350,
-            "url": "https://media.aquatome.com/video/fXiFGMTtUyk/at350-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay đeo găng xếp đá lớn tựa vào hộp PVC trong bể.",
-            "sharpness": 1013.5
-          },
-          {
-            "t": 380,
-            "url": "https://media.aquatome.com/video/fXiFGMTtUyk/at380-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đặt viên đá lớn làm điểm nối giữa hai chân vòm.",
-            "sharpness": 1025.7
-          }
-        ]
-      },
-      {
-        "heading": "Lắp bơm và tạo dòng nước rỉ qua rêu",
-        "moments": [
-          {
-            "t": 450,
-            "url": "https://media.aquatome.com/video/fXiFGMTtUyk/at450-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ống vinyl cứng được nối vào đầu máy bơm nhỏ.",
-            "sharpness": 317.3
-          },
-          {
-            "t": 510,
-            "url": "https://media.aquatome.com/video/fXiFGMTtUyk/at510-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Ống gân quấn quanh khối đá và cố định bằng dây inox.",
-            "sharpness": 2247.3
-          }
-        ]
-      },
-      {
-        "heading": "Thêm lũa và rêu cho khối đá đỡ đơn điệu",
-        "moments": [
-          {
-            "t": 630,
-            "url": "https://media.aquatome.com/video/fXiFGMTtUyk/at630-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Gài cành manzanita ôm quanh khối đá để che ống.",
-            "sharpness": 1885.8
-          },
-          {
-            "t": 690,
-            "url": "https://media.aquatome.com/video/fXiFGMTtUyk/at690-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đặt mảng rêu đầu tiên lên khối đá giữa các cành lũa.",
-            "sharpness": 2398.3
-          }
-        ]
-      },
-      {
         "heading": "Trồng phần cạn sao cho cảnh trông rộng",
-        "moments": [
-          {
-            "t": 720,
-            "url": "https://media.aquatome.com/video/fXiFGMTtUyk/at720-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Selaginella lá mịn được đặt giữa các mảng rêu phủ trên lũa.",
-            "sharpness": 2787.5
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/fXiFGMTtUyk/p5-hbmFfcXRsMS5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/fXiFGMTtUyk/p5-hbmFfcXRsMS5qcGc-480.webp",
@@ -196,15 +103,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cát sáng đã trải trong bể, đặt cạnh các khối đá rồng và lũa.",
-            "sharpness": 1399.7
-          },
-          {
-            "t": 800,
-            "url": "https://media.aquatome.com/video/fXiFGMTtUyk/at800-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Rải thêm đá nhỏ quanh khối đá chính trên nền cát để tạo chiều sâu.",
-            "sharpness": 1235.8
+            "sharpness": 1399.7,
+            "person": false
           }
         ]
       },
@@ -217,15 +117,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hồ thủy sinh bán cạn với lũa và cây trồng trên cạn.",
-            "sharpness": 1960.9
-          },
-          {
-            "t": 940,
-            "url": "https://media.aquatome.com/video/fXiFGMTtUyk/at940-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh rêu và dương xỉ bám trên khúc lũa phần trên cạn.",
-            "sharpness": 2247.3
+            "sharpness": 1960.9,
+            "person": false
           }
         ],
         "photo": {
@@ -256,7 +149,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể nhỏ với đá, lũa và rêu trên nền cát.",
-            "sharpness": 2020.8
+            "sharpness": 2020.8,
+            "person": false
           }
         ],
         "photo": {

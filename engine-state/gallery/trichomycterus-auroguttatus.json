@@ -7,7 +7,23 @@
   "https://media.aquatome.com/commons/8bb0fbad87baee99.webp": "aac8aaccabcc6c70",
   "https://media.aquatome.com/commons/af33249ef79b7bdc.webp": "aaccc8cee8ec8ac8",
   "https://media.aquatome.com/commons/e85434e38d0c64d3.webp": "c686869282a68682",
-  "https://media.aquatome.com/commons/168c53c4f251bd86.webp": "72d4c6e94aa896d2"
+  "https://media.aquatome.com/commons/168c53c4f251bd86.webp": "72d4c6e94aa896d2",
+  "https://media.aquatome.com/scotcat/908a55007f22a645.webp": "0203030f0f480000",
+  "https://media.aquatome.com/scotcat/a5a2f97ff3339cee.webp": "0000101533363c10",
+  "https://media.aquatome.com/scotcat/8e280fcf696440df.webp": "10103e2711580000",
+  "https://media.aquatome.com/scotcat/dae897dfdb2a0680.webp": "3be1c38f3743d187"
  },
- "commons": "2026-11-10"
+ "commons": "2026-11-10",
+ "inat": {
+  "taxon": 1439760,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 2343203,
+  "next": null
+ }
 }

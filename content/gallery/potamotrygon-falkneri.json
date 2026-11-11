@@ -2,6 +2,19 @@
   "id": "potamotrygon-falkneri",
   "photos": [
     {
+      "url": "https://media.aquatome.com/inaturalist/566172490.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/566172490-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Donald Davesne",
+      "sourceUrl": "https://www.inaturalist.org/photos/566172490",
+      "caption": "Cá đuối đốm lớn bơi trên đáy sỏi đá trong suối tự nhiên",
+      "best": true,
+      "kind": "habitat",
+      "unchecked": true
+    },
+    {
       "url": "https://media.aquatome.com/commons/c64e5992947eb70d.webp",
       "thumb": "https://media.aquatome.com/commons/c64e5992947eb70d-480.webp",
       "width": 1200,
@@ -12,6 +25,19 @@
       "caption": "Cá đuối đốm lớn màu nâu trên nền cát trong bể",
       "best": true,
       "kind": "other"
+    },
+    {
+      "url": "https://media.aquatome.com/inaturalist/566172672.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/566172672-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC BY",
+      "author": "Donald Davesne",
+      "sourceUrl": "https://www.inaturalist.org/photos/566172672",
+      "caption": "Cá đuối đốm lớn trong môi trường tự nhiên, đáy đá và gỗ chìm",
+      "best": true,
+      "kind": "habitat",
+      "unchecked": true
     },
     {
       "url": "https://media.aquatome.com/commons/aa86031c5973c927.webp",
@@ -50,7 +76,7 @@
       "kind": "other"
     }
   ],
-  "seen": 5,
-  "updatedAt": "2026-11-09",
-  "builtAt": "2026-11-09"
+  "seen": 13,
+  "updatedAt": "2026-11-11",
+  "builtAt": "2026-11-11"
 }

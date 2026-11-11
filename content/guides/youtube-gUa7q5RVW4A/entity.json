@@ -68,20 +68,13 @@
         "heading": "Chuẩn bị gỗ thế nào",
         "moments": [
           {
-            "t": 150,
-            "url": "https://media.aquatome.com/video/gUa7q5RVW4A/at150-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Xưởng mộc nơi cắt và bào gỗ theo kích thước cho bộ khung.",
-            "sharpness": 1097.2
-          },
-          {
             "t": 155,
             "url": "https://media.aquatome.com/video/gUa7q5RVW4A/at155-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Các thanh gỗ đã cắt sẵn với nhiều độ dài khác nhau để ghép khung.",
-            "sharpness": 658.1
+            "sharpness": 658.1,
+            "person": false
           }
         ],
         "photo": {
@@ -104,7 +97,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Khung chữ nhật làm đế đã đóng xong, bên cạnh là các thanh gỗ.",
-            "sharpness": 272.5
+            "sharpness": 272.5,
+            "person": false
           },
           {
             "t": 270,
@@ -112,7 +106,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Các chân gỗ được dựng lên trên khung đế.",
-            "sharpness": 491.2
+            "sharpness": 491.2,
+            "person": false
           }
         ]
       },
@@ -133,7 +128,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Thanh nhôm dựng thẳng được gắn cố định vào tủ bể.",
-            "sharpness": 504
+            "sharpness": 504,
+            "person": false
           }
         ]
       },
@@ -141,20 +137,13 @@
         "heading": "Hoàn thiện tủ",
         "moments": [
           {
-            "t": 525,
-            "url": "https://media.aquatome.com/video/gUa7q5RVW4A/at525-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bên trong tủ gỗ để hở phía sau, đặt lọc thùng gọn gàng.",
-            "sharpness": 227.2
-          },
-          {
             "t": 530,
             "url": "https://media.aquatome.com/video/gUa7q5RVW4A/at530-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Tủ gỗ mộc hoàn thiện, để màu gỗ tự nhiên, mặt sau để hở.",
-            "sharpness": 1286.3
+            "sharpness": 1286.3,
+            "person": false
           }
         ],
         "photo": {

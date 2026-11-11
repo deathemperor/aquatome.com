@@ -12,5 +12,17 @@
   "https://media.aquatome.com/commons/58928b10c4d02efd.webp": "5a9b1373f1f3dfcf",
   "https://media.aquatome.com/inaturalist/291397080.webp": "2267e3e260711900"
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 1015364,
+  "pass": "done",
+  "after": {
+   "research": 0,
+   "agree": 168166317
+  }
+ },
+ "gbif": {
+  "key": 8504004,
+  "next": null
+ }
 }

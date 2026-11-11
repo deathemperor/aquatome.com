@@ -96,15 +96,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể kính trống đã sẵn sàng để gắn background.",
-            "sharpness": 710.8
-          },
-          {
-            "t": 85,
-            "url": "https://media.aquatome.com/video/fV5MucIp1M8/at85-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bôi silicone lên mặt sau tấm background làm sẵn.",
-            "sharpness": 407.9
+            "sharpness": 710.8,
+            "person": false
           }
         ]
       },
@@ -117,15 +110,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Khúc lũa Malaysia đặt thử trong bể trống để xem tỷ lệ.",
-            "sharpness": 974.7
-          },
-          {
-            "t": 145,
-            "url": "https://media.aquatome.com/video/fV5MucIp1M8/at145-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Lũa được kê lên các viên đá làm chân đỡ trong bể.",
-            "sharpness": 1334.7
+            "sharpness": 974.7,
+            "person": false
           }
         ]
       },
@@ -133,20 +119,13 @@
         "heading": "Trải nền thế nào khi nuôi ếch lớn",
         "moments": [
           {
-            "t": 190,
-            "url": "https://media.aquatome.com/video/fV5MucIp1M8/at190-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nền Flourite đỏ nâu được trải dọc phía sau bể.",
-            "sharpness": 1704.7
-          },
-          {
             "t": 215,
             "url": "https://media.aquatome.com/video/fV5MucIp1M8/at215-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Phủ thêm lớp sỏi sáng lên trên nền Flourite cho có nhiều lớp.",
-            "sharpness": 1797.9
+            "sharpness": 1797.9,
+            "person": false
           }
         ]
       },
@@ -154,20 +133,13 @@
         "heading": "Trồng cây gì và trồng ở đâu",
         "moments": [
           {
-            "t": 260,
-            "url": "https://media.aquatome.com/video/fV5MucIp1M8/at260-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khóm Syngonium podophyllum lá xanh tươi cạnh khúc lũa và đá.",
-            "sharpness": 677.5
-          },
-          {
             "t": 310,
             "url": "https://media.aquatome.com/video/fV5MucIp1M8/at310-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Các khóm Acorus đã trồng phía trước, nền phủ sỏi giữ gốc.",
-            "sharpness": 1395.1
+            "sharpness": 1395.1,
+            "person": false
           }
         ],
         "photo": {
@@ -190,15 +162,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Xả nước vào lũa cho dòng nước tản ra, nước hơi đục.",
-            "sharpness": 990.4
-          },
-          {
-            "t": 435,
-            "url": "https://media.aquatome.com/video/fV5MucIp1M8/at435-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Hộp lọc ngoài Zoo Med Turtle Clean 511 cùng ống và phụ kiện.",
-            "sharpness": 1904.2
+            "sharpness": 990.4,
+            "person": false
           }
         ],
         "photo": {
@@ -213,27 +178,6 @@
         }
       },
       {
-        "heading": "Tự làm nắp lưới thế nào",
-        "moments": [
-          {
-            "t": 495,
-            "url": "https://media.aquatome.com/video/fV5MucIp1M8/at495-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cắt và xếp các thanh khung để ráp nắp lưới.",
-            "sharpness": 422.7
-          },
-          {
-            "t": 505,
-            "url": "https://media.aquatome.com/video/fV5MucIp1M8/at505-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Khung nắp lưới đã ráp xong, căng lưới sợi thủy tinh bên trong.",
-            "sharpness": 356.3
-          }
-        ]
-      },
-      {
         "heading": "Đèn và những ngày đầu sau khi thả ếch",
         "moments": [
           {
@@ -242,7 +186,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Thanh đèn LED đặt trên nắp bể.",
-            "sharpness": 474.9
+            "sharpness": 474.9,
+            "person": false
           },
           {
             "t": 720,
@@ -250,7 +195,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể sau một ngày thả ếch, nước hơi đục và cây xộc xệch.",
-            "sharpness": 1282.5
+            "sharpness": 1282.5,
+            "person": false
           }
         ],
         "photo": {
@@ -273,7 +219,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể bán thủy có ếch, cây thủy sinh xanh và nền cát sỏi.",
-            "sharpness": 1104.5
+            "sharpness": 1104.5,
+            "person": false
           },
           {
             "t": 785,

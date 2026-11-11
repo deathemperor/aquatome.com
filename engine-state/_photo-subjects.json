@@ -1009,6 +1009,16 @@
       "logo": false
     }
   },
+  "https://media.aquatome.com/aquariumcoop/119c1e0779cfe6f9.webp": {
+    "mikrogeophagus-altispinosus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Bolivian ram in planted tank, side view",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
   "https://media.aquatome.com/aquariumcoop/12cfca446d901156.webp": {
     "oryzias-woworae": {
       "ok": "yes",
@@ -1349,7 +1359,9 @@
     "julidochromis-marlieri": {
       "ok": "yes",
       "typical": true,
-      "note": "adult marlieri, clear side view: chequered dark-and-cream pattern on a planted gravel bottom",
+      "note": "adult Julidochromis marlieri, checkered pattern, side view over gravel",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -1593,6 +1605,16 @@
       "ok": "other",
       "typical": false,
       "note": "school of red phantom tetras (Hyphessobrycon sweglesi): orange-red body, no black fins",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/aquariumcoop/358efcf934ae748f.webp": {
+    "monocirrhus-polyacanthus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "yellow-brown leaffish, clear side view",
       "logo": false,
       "person": false,
       "guide": true
@@ -2124,7 +2146,9 @@
     "julidochromis-marlieri": {
       "ok": "yes",
       "typical": true,
-      "note": "adult marlieri, clear side view; looks like the same image as photo 2",
+      "note": "adult Julidochromis marlieri, checkered pattern, side view over gravel",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -3169,6 +3193,15 @@
       "guide": true
     }
   },
+  "https://media.aquatome.com/aquariumcoop/a3a5c03bbb571b73.webp": {
+    "jordanella-floridae": {
+      "ok": "other",
+      "typical": false,
+      "note": "potted aquarium plant packshot, not the fish",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/aquariumcoop/a4253e56fe290226.webp": {
     "apistogramma-cacatuoides": {
       "ok": "yes",
@@ -3251,6 +3284,15 @@
       "logo": false,
       "person": false,
       "guide": true
+    }
+  },
+  "https://media.aquatome.com/aquariumcoop/a7525c17fdb35a85.webp": {
+    "tetraodon-mbu": {
+      "ok": "yes",
+      "typical": true,
+      "note": "mbu puffer side view in rocky aquarium",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/aquariumcoop/a77ba3bc54e22977.webp": {
@@ -5140,6 +5182,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/commons/03f712a2dbe308fa.webp": {
+    "tetraodon-mbu": {
+      "ok": "yes",
+      "typical": true,
+      "note": "mbu puffer in rocky tank with cichlids",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/041fa1d9016d9b26.webp": {
     "mogurnda-mogurnda": {
       "ok": "other",
@@ -5407,6 +5458,15 @@
       "typical": true,
       "note": "orange barb with black chequered bars underwater in the wild; fish logo top left, © Beta Mahatvaraj signature bottom rig",
       "logo": true
+    }
+  },
+  "https://media.aquatome.com/commons/075215d23f3c51ff.webp": {
+    "mikrogeophagus-altispinosus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "Bolivian ram front-on view by coconut cave",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/07577e6b9f36e1a6.webp": {
@@ -5761,7 +5821,9 @@
     "leporinus-friderici": {
       "ok": "yes",
       "typical": false,
-      "note": "juvenile with dark spots and faint bars, studio shot"
+      "note": "juvenile with spots and faint bars in a photo tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/0b50511348d0540d.webp": {
@@ -5921,8 +5983,9 @@
     "monocirrhus-polyacanthus": {
       "ok": "yes",
       "typical": true,
-      "note": "adult leaffish head-down, mottled brown, in aquarium with artificial plants",
-      "logo": false
+      "note": "leaffish head-down, mottled brown",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/0d9b1232d95aabfb.webp": {
@@ -6517,8 +6580,9 @@
     "monocirrhus-polyacanthus": {
       "ok": "yes",
       "typical": true,
-      "note": "golden-brown leaffish side view against yellow-green background",
-      "logo": false
+      "note": "yellowish leaffish side view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/151442fe993ad513.webp": {
@@ -6534,8 +6598,9 @@
     "metynnis-lippincottianus": {
       "ok": "unsure",
       "typical": false,
-      "note": "same spotted red-throated fish as photo 3, possibly juvenile piranha",
-      "logo": false
+      "note": "greenish spotted fish with dark blotch and red belly; species unclear",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/152050227c838485.webp": {
@@ -6627,7 +6692,9 @@
     "liobagrus-reinii": {
       "ok": "yes",
       "typical": true,
-      "note": "group of adults under stone, clear head and barbels"
+      "note": "group of catfish piled under rock",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/15e74ab17a18c73f.webp": {
@@ -6819,8 +6886,9 @@
     "moenkhausia-pittieri": {
       "ok": "yes",
       "typical": true,
-      "note": "adult diamond tetra among plants, red eye",
-      "logo": false
+      "note": "diamond tetra side view among plant leaves",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/17c056917fc666da.webp": {
@@ -6828,6 +6896,15 @@
       "ok": "yes",
       "typical": true,
       "note": "blue GloFish tetra on black background",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/180151452e0d32c3.webp": {
+    "melanotaenia-australis": {
+      "ok": "yes",
+      "typical": true,
+      "note": "small group in the wild over sandy bottom, dark midlateral band, red tails",
       "logo": false,
       "person": false
     }
@@ -7173,9 +7250,11 @@
   },
   "https://media.aquatome.com/commons/1b8cfd8ef46ca8b0.webp": {
     "luciocephalus-pulcher": {
-      "ok": "yes",
-      "typical": true,
-      "note": "pikehead swimming in planted tank, side view, somewhat small"
+      "ok": "unsure",
+      "typical": false,
+      "note": "slender fish with spotted tail swimming over plants; distant view, might be a young gar or pike characin rather than pik",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/1ba5d761cc3126ba.webp": {
@@ -7448,6 +7527,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/commons/1df5866237ac9bf2.webp": {
+    "melanotaenia-splendida": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "pale bluish-green rainbowfish, species unclear",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/1e056bfc7483adb4.webp": {
     "protopterus-dolloi": {
       "ok": "dead",
@@ -7648,7 +7736,18 @@
     "julidochromis-marlieri": {
       "ok": "yes",
       "typical": true,
-      "note": "adult on wood, dark body with rows of yellow checker marks"
+      "note": "chequered julie over wood",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/20ff2d5ca4a73b3e.webp": {
+    "mikrogeophagus-altispinosus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "Bolivian ram showing dark barred stress/breeding pattern",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/213696c7a2ad8eec.webp": {
@@ -7657,6 +7756,15 @@
       "typical": false,
       "note": "old greyscale drawing of a small tetra; no clear glowlight stripe, so species can't be confirmed",
       "logo": false
+    }
+  },
+  "https://media.aquatome.com/commons/214ac2d5cb02bc0a.webp": {
+    "mikrogeophagus-altispinosus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "close-up of Bolivian ram head and body spot",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/2158af2cd2193375.webp": {
@@ -8075,6 +8183,15 @@
       "note": "Full Day plate with four Ophiocephalus species drawn on it; not a photo"
     }
   },
+  "https://media.aquatome.com/commons/254883af60c6ca5a.webp": {
+    "mikrogeophagus-altispinosus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Bolivian ram over mossy stone",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/254bcb32d4ce6754.webp": {
     "glossolepis-incisus": {
       "ok": "yes",
@@ -8211,17 +8328,19 @@
   "https://media.aquatome.com/commons/273011b320ded9fa.webp": {
     "moenkhausia-pittieri": {
       "ok": "yes",
-      "typical": false,
-      "note": "diamond tetra partly hidden behind plant leaf, through glass",
-      "logo": false
+      "typical": true,
+      "note": "diamond tetra by plant leaves in tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/2764b4d255d0f9c2.webp": {
     "monocirrhus-polyacanthus": {
       "ok": "yes",
       "typical": true,
-      "note": "Leaf-shaped mottled grey adult leaffish, head down among plants and dead leaves in aquarium",
-      "logo": false
+      "note": "dark grey-green mottled leaffish among plants, slightly hazy view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/278c3bb48f9cc21a.webp": {
@@ -9039,8 +9158,9 @@
     "metynnis-lippincottianus": {
       "ok": "unsure",
       "typical": false,
-      "note": "spotted fish with red throat, possibly juvenile piranha",
-      "logo": false
+      "note": "spotted fish with red belly; species unclear",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/32069be1829f95c5.webp": {
@@ -9100,7 +9220,9 @@
     "ladigesia-roloffi": {
       "ok": "yes",
       "typical": true,
-      "note": "two adults, clear side view: iridescent body, orange-red tail lobes"
+      "note": "two fish, iridescent body, orange fin edges",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/32cb8e997d42e297.webp": {
@@ -9490,6 +9612,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/commons/37af2da26ced4e00.webp": {
+    "jordanella-floridae": {
+      "ok": "yes",
+      "typical": true,
+      "note": "flagfish in a viewing jar, dull colours",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/37cf4a368f5ffcc3.webp": {
     "hampala-macrolepidota": {
       "ok": "dead",
@@ -9677,6 +9808,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/commons/391f45e9ace526ed.webp": {
+    "lepidosiren-paradoxa": {
+      "ok": "dead",
+      "typical": false,
+      "note": "lungfish lying on red soil, covered in dirt, apparently dead",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/3930dc3856385794.webp": {
     "pseudorasbora-parva": {
       "ok": "yes",
@@ -9857,9 +9997,11 @@
   },
   "https://media.aquatome.com/commons/3b7f6ac23491a713.webp": {
     "knodus-borki": {
-      "ok": "unsure",
+      "ok": "yes",
       "typical": true,
-      "note": "iridescent blue tetra, deeper body and dark caudal peduncle; could be Boehlkea fredcochui (Cochu's blue tetra) rather th"
+      "note": "blue tetra side view, dark caudal peduncle mark",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/3b83c57aaadccbb0.webp": {
@@ -9918,6 +10060,15 @@
       "ok": "unsure",
       "typical": false,
       "note": "purple-bodied fish with red rear stripe and bars; odd colouring, possibly choprae under unusual lighting",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/3c0dea58b276480b.webp": {
+    "cetopsis-coecutiens": {
+      "ok": "dead",
+      "typical": false,
+      "note": "dead fish lying on a white board",
       "logo": false,
       "person": false
     }
@@ -10232,8 +10383,9 @@
     "metynnis-lippincottianus": {
       "ok": "unsure",
       "typical": false,
-      "note": "spotted greenish fish with red throat and dark shoulder spot, looks like juvenile piranha",
-      "logo": false
+      "note": "greenish fish with heavy spots, dark shoulder blotch and red belly; look-alike can't be ruled out",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/3fbb9f980c09b05f.webp": {
@@ -10333,9 +10485,11 @@
   },
   "https://media.aquatome.com/commons/40d57b407eb8c4f7.webp": {
     "liobagrus-reinii": {
-      "ok": "unsure",
+      "ok": "yes",
       "typical": false,
-      "note": "pale yellowish catfish partly hidden under wood, likely the same tank as photo 1"
+      "note": "catfish partly hidden under driftwood, head visible",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/40eb06954f03705c.webp": {
@@ -10374,8 +10528,9 @@
     "moenkhausia-pittieri": {
       "ok": "yes",
       "typical": true,
-      "note": "adult male diamond tetra with long violet fins over plants",
-      "logo": false
+      "note": "male diamond tetra with long purple fins over plants",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/42080b094170b78e.webp": {
@@ -10552,12 +10707,22 @@
       "note": "dark snakehead with white speckles, yellow chevrons and blue fins, no orange spots; likely C. barca/stewartii group"
     }
   },
+  "https://media.aquatome.com/commons/43f593b59bb687ed.webp": {
+    "tetraodon-mbu": {
+      "ok": "yes",
+      "typical": false,
+      "note": "mbu puffer facing camera in planted tank",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/43f8b151fc517104.webp": {
     "metynnis-lippincottianus": {
       "ok": "unsure",
       "typical": false,
-      "note": "spotted fish with red throat, possibly juvenile red-bellied piranha, beside silver disc fish",
-      "logo": false
+      "note": "heavily spotted fish with red gill patch, possibly juvenile piranha or another Metynnis; plain silver dollar at left",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/43feca8b8e2a0767.webp": {
@@ -11046,8 +11211,9 @@
     "moenkhausia-pittieri": {
       "ok": "yes",
       "typical": true,
-      "note": "diamond tetra close-up showing sparkling scales and red eye",
-      "logo": false
+      "note": "diamond tetra close-up, glittering scales",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/4ac0d44d1f0e87b7.webp": {
@@ -11154,7 +11320,9 @@
     "liobagrus-reinii": {
       "ok": "yes",
       "typical": true,
-      "note": "several torrent catfish resting under rock in tank"
+      "note": "two catfish resting under rock",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/4c3c7b66f3ed8a5e.webp": {
@@ -11311,6 +11479,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/commons/4e48471f68141ae7.webp": {
+    "limia-melanogaster": {
+      "ok": "yes",
+      "typical": true,
+      "note": "male (yellow-edged tail with black band) and female blue limia in planted tank",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/4e5d56690eb2750a.webp": {
     "koi": {
       "ok": "yes",
@@ -11417,6 +11594,15 @@
       "ok": "none",
       "typical": false,
       "note": "botanical drawing of the plant with flower stalks"
+    }
+  },
+  "https://media.aquatome.com/commons/4f99729ca41e18c6.webp": {
+    "mikrogeophagus-altispinosus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Bolivian ram, eye bar and red-edged fins",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/4f9a23602701dc33.webp": {
@@ -11555,6 +11741,15 @@
       "ok": "yes",
       "typical": false,
       "note": "close-up of head only",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/51b000740ceba4f4.webp": {
+    "laubuka-dadiburjori": {
+      "ok": "yes",
+      "typical": true,
+      "note": "orange fish with dark midlateral stripe on black background",
       "logo": false,
       "person": false
     }
@@ -11804,8 +11999,9 @@
     "moenkhausia-pittieri": {
       "ok": "yes",
       "typical": true,
-      "note": "two adult diamond tetras with sparkly scales, black background",
-      "logo": false
+      "note": "two diamond tetras on black background",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/5401ef9dc4762f5f.webp": {
@@ -12014,6 +12210,15 @@
       "ok": "yes",
       "typical": false,
       "note": "close-up of stem with forked leaves and a pink flower/fruit",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/56a63b7bb7d4fcae.webp": {
+    "tetraodon-mbu": {
+      "ok": "yes",
+      "typical": true,
+      "note": "mbu puffer resting on gravel, darker blotched pattern",
       "logo": false,
       "person": false
     }
@@ -12237,6 +12442,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/commons/5b33519cba1a803b.webp": {
+    "mikrogeophagus-altispinosus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "two Bolivian rams in a planted tank",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/5ba21324557c8f31.webp": {
     "betta-livida": {
       "ok": "unsure",
@@ -12260,6 +12474,15 @@
       "ok": "yes",
       "typical": true,
       "note": "three doctor fish over algae-covered rock in tank",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/5bfe4a6085554db4.webp": {
+    "dawkinsia-assimilis": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult mascara barb side view, black blotch, red and black tail tips",
       "logo": false,
       "person": false
     }
@@ -12914,9 +13137,11 @@
   },
   "https://media.aquatome.com/commons/63d594abd592bc43.webp": {
     "leptobarbus-hoevenii": {
-      "ok": "unsure",
+      "ok": "yes",
       "typical": false,
-      "note": "subadult slender barb with orange pelvic fins and dark shoulder mark; possibly juvenile mad barb"
+      "note": "subadult over gravel by driftwood, greyish colour",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/63dcdb538a7ed1a4.webp": {
@@ -13110,7 +13335,9 @@
     "leporinus-friderici": {
       "ok": "yes",
       "typical": true,
-      "note": "adult, silver body with three dark spots along the side, clear side view"
+      "note": "adult with three dark spots in a public aquarium",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/66bba50e701e4410.webp": {
@@ -13270,6 +13497,15 @@
       "ok": "unsure",
       "typical": false,
       "note": "emersed bushy plant with reddish stems and white buds, unclear ID",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/68fbdc34eb702291.webp": {
+    "mikrogeophagus-altispinosus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Bolivian ram on gravel by rock, side view",
       "logo": false,
       "person": false
     }
@@ -13453,10 +13689,11 @@
   },
   "https://media.aquatome.com/commons/6a9b12e919601405.webp": {
     "malapterurus-beninensis": {
-      "ok": "yes",
+      "ok": "unsure",
       "typical": false,
-      "note": "head-on close-up of a spotted electric catfish in a white container",
-      "logo": false
+      "note": "head-on view of an electric catfish (Malapterurus) on white background; can't confirm the species, could be M. electricu",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/6aa9c3e3a5912b3e.webp": {
@@ -13531,9 +13768,11 @@
   },
   "https://media.aquatome.com/commons/6be44392d0a8456f.webp": {
     "kryptopterus-cryptopterus": {
-      "ok": "yes",
-      "typical": true,
-      "note": "group of semi-translucent silvery glass catfish with long barbels in public aquarium"
+      "ok": "unsure",
+      "typical": false,
+      "note": "group of greenish striped sheatfish, possibly Phalacronotus species",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/6bfa815a6d6cf01e.webp": {
@@ -13610,7 +13849,9 @@
     "liobagrus-reinii": {
       "ok": "yes",
       "typical": true,
-      "note": "group under rock, long rounded tail and barbels visible"
+      "note": "several catfish under rock, side view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/6d2147040025a630.webp": {
@@ -13687,7 +13928,9 @@
     "macropodus-spechti": {
       "ok": "yes",
       "typical": true,
-      "note": "Dark male with forked tail and red pelvic filaments, white background"
+      "note": "brownish Macropodus with lyre tail and red-edged fins on white background",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/6dbf5295ab8d9be7.webp": {
@@ -13934,8 +14177,9 @@
     "moenkhausia-pittieri": {
       "ok": "yes",
       "typical": true,
-      "note": "diamond tetras in planted tank under rippled light",
-      "logo": false
+      "note": "diamond tetras swimming in planted tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/7095d9b95fdbc485.webp": {
@@ -14155,8 +14399,9 @@
     "monocirrhus-polyacanthus": {
       "ok": "yes",
       "typical": true,
-      "note": "pale leaffish with snout barbel, clear side view in planted tank",
-      "logo": false
+      "note": "pale mottled leaffish with chin barbel in planted tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/73fc737cbf8735cd.webp": {
@@ -14224,7 +14469,9 @@
     "julidochromis-marlieri": {
       "ok": "yes",
       "typical": true,
-      "note": "adult in side view, black and white checkered pattern, on a rock"
+      "note": "chequered julie on rock, side view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/7500c3f9c922957e.webp": {
@@ -14326,8 +14573,9 @@
     "moenkhausia-pittieri": {
       "ok": "yes",
       "typical": true,
-      "note": "close-up of an adult, gold tint from green lighting",
-      "logo": false
+      "note": "diamond tetra adult close-up, sparkly scales, red eye, green-lit",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/76ead7216b8a7406.webp": {
@@ -14648,7 +14896,9 @@
     "maylandia-callainos": {
       "ok": "unsure",
       "typical": false,
-      "note": "dull purple-blue fish, possibly female or stressed; could be another mbuna"
+      "note": "dull purplish-blue fish, possibly a female or subdominant fish",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/7a0d70340c5b3baa.webp": {
@@ -14792,6 +15042,15 @@
       "ok": "yes",
       "typical": true,
       "note": "white cloud swimming, slightly soft",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/7be24c506651d719.webp": {
+    "mystus-gulio": {
+      "ok": "yes",
+      "typical": true,
+      "note": "grey long-whiskered Mystus catfish in aquarium, side view",
       "logo": false,
       "person": false
     }
@@ -15287,7 +15546,9 @@
     "maylandia-callainos": {
       "ok": "yes",
       "typical": true,
-      "note": "bright cobalt blue adult among rocks"
+      "note": "cobalt-blue adult beside rocks",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/826aa2d38f21f591.webp": {
@@ -15354,7 +15615,9 @@
     "macropodus-spechti": {
       "ok": "yes",
       "typical": true,
-      "note": "adult male: dark unbarred body, red-edged fins with long trailing tips"
+      "note": "dark male with lyre tail and red fin edges among plants",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/8310c6fbb2b90e3b.webp": {
@@ -15482,6 +15745,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/commons/84546b0ab0370f56.webp": {
+    "lepidosiren-paradoxa": {
+      "ok": "yes",
+      "typical": true,
+      "note": "lungfish resting on sandy bottom of a tank",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/847faa59c0a77091.webp": {
     "asellus-aquaticus": {
       "ok": "yes",
@@ -15591,8 +15863,9 @@
     "moenkhausia-pittieri": {
       "ok": "yes",
       "typical": true,
-      "note": "diamond tetra side view, clear and sharp",
-      "logo": false
+      "note": "diamond tetra side view, red-topped eye",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/859e9f1beda52f54.webp": {
@@ -15959,6 +16232,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/commons/8a8179fc78f85055.webp": {
+    "tetraodon-mbu": {
+      "ok": "yes",
+      "typical": true,
+      "note": "mbu puffer swimming in planted tank with small fish",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/8aa63710890e49bc.webp": {
     "glossostigma-elatinoides": {
       "ok": "yes",
@@ -16170,6 +16452,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/commons/8e5b0ec7f9e9fd99.webp": {
+    "tetraodon-mbu": {
+      "ok": "yes",
+      "typical": true,
+      "note": "mbu puffer resting on sand",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/8e743813725e2af1.webp": {
     "herichthys-cyanoguttatus": {
       "ok": "yes",
@@ -16201,8 +16492,9 @@
     "melanotaenia-splendida": {
       "ok": "yes",
       "typical": true,
-      "note": "adult with checkered scale rows and yellow fins in aquarium",
-      "logo": false
+      "note": "checkered rainbowfish with yellow fins in aquarium",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/8f0ffb5d462587de.webp": {
@@ -16526,7 +16818,9 @@
     "lepidocephalichthys-guntea": {
       "ok": "yes",
       "typical": true,
-      "note": "adult side view on a rock: golden-orange body peppered with dark spots, barbels visible"
+      "note": "peppered orange-brown loach on a rock, side view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/930a65b4a0d7cdab.webp": {
@@ -16822,8 +17116,9 @@
     "melanotaenia-splendida": {
       "ok": "yes",
       "typical": true,
-      "note": "group of checkered golden rainbowfish with red fins in a tank",
-      "logo": false
+      "note": "group of rainbowfish, males and females, in a tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/968784cefda5f792.webp": {
@@ -17086,7 +17381,9 @@
     "julidochromis-marlieri": {
       "ok": "unsure",
       "typical": false,
-      "note": "dark, short-bodied fish with rows of pale blue/yellow dashes, blurry and side-on; body too deep for a typical julie, so "
+      "note": "blurry dark Julidochromis with rows of pale spots; could be J. transcriptus, can't confirm",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/999d5de667fde783.webp": {
@@ -17129,8 +17426,9 @@
     "metynnis-lippincottianus": {
       "ok": "yes",
       "typical": true,
-      "note": "clear side view of a spotted adult with a long anal fin",
-      "logo": false
+      "note": "spotted silver dollar in aquarium, dark spots on body",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/99e8238a712389f2.webp": {
@@ -17326,7 +17624,9 @@
     "ladigesia-roloffi": {
       "ok": "yes",
       "typical": false,
-      "note": "group with motion blur and strong green cast, colours washed out"
+      "note": "fish under strong green colour cast, partly blurred",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/9cf12cb3c9d6ab30.webp": {
@@ -17407,10 +17707,11 @@
   },
   "https://media.aquatome.com/commons/9db072f6dd0834ae.webp": {
     "melanotaenia-splendida": {
-      "ok": "yes",
-      "typical": true,
-      "note": "two checkered bluish rainbowfish among grass-like plants",
-      "logo": false
+      "ok": "unsure",
+      "typical": false,
+      "note": "two bluish rainbowfish over plants, look-alike species can't be ruled out",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/9dc682897233ff5b.webp": {
@@ -17498,6 +17799,15 @@
       "ok": "yes",
       "typical": true,
       "note": "wild school of silver monos over reef",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/9f0828c7842ffab9.webp": {
+    "mikrogeophagus-altispinosus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Bolivian ram, yellow-toned, in a planted tank",
       "logo": false,
       "person": false
     }
@@ -17635,7 +17945,9 @@
     "liobagrus-reinii": {
       "ok": "yes",
       "typical": true,
-      "note": "brownish torrent catfish resting on stones, long barbels"
+      "note": "catfish under rock in aquarium, snails nearby",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/a2769188d12caeb4.webp": {
@@ -18311,8 +18623,9 @@
     "microctenopoma-ansorgii": {
       "ok": "yes",
       "typical": true,
-      "note": "live red dwarf bushfish, side view, faint bars and orange fins, in front of an orange rock",
-      "logo": false
+      "note": "adult ornate ctenopoma, side view on orange rock: dark bars on body, orange fins with white edges",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/ac2927cb87aea86b.webp": {
@@ -18389,8 +18702,9 @@
     "monocirrhus-polyacanthus": {
       "ok": "yes",
       "typical": true,
-      "note": "adult leaffish side view, brown and yellow blotches, pointed snout",
-      "logo": false
+      "note": "leaffish close side view, brown-yellow mottling",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/ad14344d2862d3a6.webp": {
@@ -18469,8 +18783,9 @@
     "metynnis-lippincottianus": {
       "ok": "yes",
       "typical": true,
-      "note": "adult silver dollar with faint spots and orange anal fin, side view in tank",
-      "logo": false
+      "note": "silver disc-shaped fish with faint spots and orange anal fin edge in tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/adefc5456b2fc2c3.webp": {
@@ -18534,7 +18849,9 @@
     "ladigesia-roloffi": {
       "ok": "yes",
       "typical": true,
-      "note": "close side view of one adult, other fish blurred around it"
+      "note": "close side view, other fish blurred",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/ae9489934765d1ea.webp": {
@@ -18551,6 +18868,15 @@
       "typical": false,
       "note": "old black-and-white photo of a preserved museum specimen; figure number '2' printed below the fish",
       "logo": true
+    }
+  },
+  "https://media.aquatome.com/commons/aee6c5b5dee56b0b.webp": {
+    "lepidosiren-paradoxa": {
+      "ok": "yes",
+      "typical": true,
+      "note": "close-up of lungfish head in planted tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/af07cfdc28e44612.webp": {
@@ -18841,8 +19167,9 @@
     "melanotaenia-splendida": {
       "ok": "yes",
       "typical": true,
-      "note": "fish swimming low over sandy bottom, side view",
-      "logo": false
+      "note": "rainbowfish with spotted rows over sandy bottom",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/b2cee6c0737b2af4.webp": {
@@ -18873,8 +19200,10 @@
   "https://media.aquatome.com/commons/b327ff00ab8c34bd.webp": {
     "liobagrus-reinii": {
       "ok": "yes",
-      "typical": false,
-      "note": "fish partly hidden under rock, head obscured"
+      "typical": true,
+      "note": "catfish under driftwood on gravel, slightly blurry",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/b33bf2187b30d8ae.webp": {
@@ -19059,6 +19388,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/commons/b625b43950cd9276.webp": {
+    "laubuka-dadiburjori": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "silvery fish with blue stripe, possibly juvenile or pale individual; small signature text bottom left",
+      "logo": true,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/b6603402a1100676.webp": {
     "heteranthera-zosterifolia": {
       "ok": "yes",
@@ -19105,7 +19443,9 @@
     "maylandia-callainos": {
       "ok": "unsure",
       "typical": false,
-      "note": "whitish pearl-type mbuna, washed-out colour; ID uncertain"
+      "note": "pale whitish cichlid, unclear view, can't rule out a look-alike",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/b6f21a52e3969e7a.webp": {
@@ -19199,8 +19539,9 @@
     "moenkhausia-pittieri": {
       "ok": "yes",
       "typical": true,
-      "note": "adult diamond tetra, long dorsal fin, planted tank",
-      "logo": false
+      "note": "diamond tetra among plants",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/b81769d9074f3a6a.webp": {
@@ -19285,6 +19626,15 @@
       "ok": "yes",
       "typical": true,
       "note": "cushion of lobed thalloid liverwort on driftwood",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/b93d274bd1ea9c4d.webp": {
+    "microsynodontis-polli": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "reddish elongate Microsynodontis-like catfish on slate; species unclear",
       "logo": false,
       "person": false
     }
@@ -19496,6 +19846,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/commons/bb64e6dd05ea9b5f.webp": {
+    "tetraodon-mbu": {
+      "ok": "yes",
+      "typical": true,
+      "note": "mbu puffer side view with vermiculated pattern in planted tank",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/bb7ac2e634c413c0.webp": {
     "hypsophrys-nicaraguensis": {
       "ok": "yes",
@@ -19659,9 +20018,11 @@
   },
   "https://media.aquatome.com/commons/bc9a34397cfe8885.webp": {
     "kryptopterus-cryptopterus": {
-      "ok": "yes",
-      "typical": true,
-      "note": "adult semi-translucent sheatfish with long barbels and forked tail, side view in aquarium"
+      "ok": "unsure",
+      "typical": false,
+      "note": "greenish striped sheatfish, possibly Phalacronotus/Micronema look-alike",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/bc9c858e7a31e596.webp": {
@@ -20016,6 +20377,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/commons/c094518e0034f09e.webp": {
+    "lepidosiren-paradoxa": {
+      "ok": "yes",
+      "typical": true,
+      "note": "South American lungfish swimming in aquarium",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/c0ab2ae862c197ee.webp": {
     "lobelia-cardinalis": {
       "ok": "yes",
@@ -20271,8 +20641,9 @@
     "melanotaenia-splendida": {
       "ok": "yes",
       "typical": true,
-      "note": "adult with orange-red fins in a photo tank",
-      "logo": false
+      "note": "adult male with orange-red fins in a small tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/c357b9cda35a711b.webp": {
@@ -20316,6 +20687,15 @@
       "file": true
     }
   },
+  "https://media.aquatome.com/commons/c3b533ceeecac364.webp": {
+    "mikrogeophagus-altispinosus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult Bolivian ram with tall dorsal and red fin edges",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/c40455a7a0c89c2a.webp": {
     "hemigrammus-stictus": {
       "ok": "yes",
@@ -20337,6 +20717,15 @@
       "ok": "other",
       "typical": false,
       "note": "brown, wavy-leaved Cryptocoryne (wendtii 'Brown'-type) growing on wood, not the green form"
+    }
+  },
+  "https://media.aquatome.com/commons/c412218c3a2b9733.webp": {
+    "lepidosiren-paradoxa": {
+      "ok": "yes",
+      "typical": true,
+      "note": "spotted lungfish resting on sand in aquarium",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/c41748bc1fa1cad9.webp": {
@@ -20365,10 +20754,11 @@
   },
   "https://media.aquatome.com/commons/c445f64f0901e2bb.webp": {
     "metynnis-lippincottianus": {
-      "ok": "yes",
-      "typical": true,
-      "note": "group of spotted silver dollars with orange throats in an aquarium",
-      "logo": false
+      "ok": "unsure",
+      "typical": false,
+      "note": "group of spotted, red-bellied fish; species unclear",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/c4698a207a076cfe.webp": {
@@ -20819,7 +21209,9 @@
     "leptobarbus-hoevenii": {
       "ok": "yes",
       "typical": true,
-      "note": "adult mad barb in public aquarium with a golden barb below"
+      "note": "mad barb with Jullien's golden carp below",
+      "logo": false,
+      "person": false
     },
     "leptobarbus-rubripinna": {
       "ok": "other",
@@ -20939,6 +21331,15 @@
       "note": "small mottled berried dwarf shrimp (Caridina/Neocaridina type), no fan-bearing claws"
     }
   },
+  "https://media.aquatome.com/commons/cb581800510f8f29.webp": {
+    "lepidosiren-paradoxa": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "heavy, spotted lungfish on sand; could be an African Protopterus",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/cb58208be655b322.webp": {
     "trichogaster-lalius": {
       "ok": "yes",
@@ -21009,6 +21410,15 @@
       "ok": "yes",
       "typical": true,
       "note": "flowering stem with pale violet star-shaped flowers above lanceolate leaves",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/cbccb99c15c6b0a8.webp": {
+    "lepidosiren-paradoxa": {
+      "ok": "yes",
+      "typical": true,
+      "note": "lungfish swimming above plants in a large display tank",
       "logo": false,
       "person": false
     }
@@ -21292,6 +21702,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/commons/cfca77ed7bcba691.webp": {
+    "tetraodon-mbu": {
+      "ok": "yes",
+      "typical": true,
+      "note": "mbu puffer side view in planted tank with small fish",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/d000c22043f53239.webp": {
     "phractocephalus-hemioliopterus": {
       "ok": "yes",
@@ -21366,7 +21785,9 @@
     "julidochromis-marlieri": {
       "ok": "yes",
       "typical": true,
-      "note": "julie over gravel with a second marlieri at the right edge"
+      "note": "julies on gravel, another cichlid in background",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/d11030dc5c5018d5.webp": {
@@ -21731,8 +22152,9 @@
     "mesoheros-festae": {
       "ok": "yes",
       "typical": true,
-      "note": "red terror with orange body and black bars over gravel",
-      "logo": false
+      "note": "orange-red fish with black vertical bars over gravel in a tank, fairly small in frame",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/d50f3ea5630ff569.webp": {
@@ -21822,6 +22244,15 @@
       "ok": "yes",
       "typical": false,
       "note": "emersed Alternanthera reineckii bush, purple leaves with red stems",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/d63bff14661e9df5.webp": {
+    "lepidosiren-paradoxa": {
+      "ok": "yes",
+      "typical": true,
+      "note": "same lungfish, cropped view in aquarium",
       "logo": false,
       "person": false
     }
@@ -21934,6 +22365,15 @@
       "ok": "yes",
       "typical": true,
       "note": "orange-red pigeon blood discus with a red net pattern and red eye, no dark bars",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/d7066bfa193f9336.webp": {
+    "tetraodon-mbu": {
+      "ok": "yes",
+      "typical": false,
+      "note": "mbu puffer head-on close-up among plants",
       "logo": false,
       "person": false
     }
@@ -22457,9 +22897,11 @@
   },
   "https://media.aquatome.com/commons/dd95b54aeaa69232.webp": {
     "liobagrus-reinii": {
-      "ok": "unsure",
-      "typical": false,
-      "note": "two pale yellowish catfish under wood; eyes look large and colour pale for L. reinii, could be another species"
+      "ok": "yes",
+      "typical": true,
+      "note": "two torrent catfish resting under driftwood in tank, yellowish tone",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/dda2d52aeec32221.webp": {
@@ -23161,8 +23603,9 @@
     "monocirrhus-polyacanthus": {
       "ok": "yes",
       "typical": true,
-      "note": "grey mottled leaffish head-down against green blurred plants",
-      "logo": false
+      "note": "grey mottled leaffish head-down",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/e81aeb8cff825be9.webp": {
@@ -23240,7 +23683,9 @@
     "ladigesia-roloffi": {
       "ok": "unsure",
       "typical": false,
-      "note": "mixed fish under green light; small one may be this species, larger fish may be another species"
+      "note": "mixed group with larger tetras; green cast, can't tell which is the main subject",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/e96225bb097394c9.webp": {
@@ -23461,7 +23906,9 @@
     "julidochromis-marlieri": {
       "ok": "unsure",
       "typical": false,
-      "note": "pinkish-brown checkered julie; the colour form is unclear and could be transcriptus or a hybrid"
+      "note": "pale pinkish-brown chequered julie; odd colour, possibly another form or hybrid",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/ebe1aaad5e48cab1.webp": {
@@ -23551,6 +23998,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/commons/ec529a0192561ed3.webp": {
+    "tetraodon-mbu": {
+      "ok": "yes",
+      "typical": true,
+      "note": "mbu puffer over sand, three-quarter front view, blue-tinted",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/ec5acf5422467340.webp": {
     "rasbora-vulcanus": {
       "ok": "yes",
@@ -23595,6 +24051,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/commons/ecbe8fba94f7889f.webp": {
+    "danio-roseus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "duller pinkish-silver fish, likely a female rosy danio",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/ecbee2ff318ed33f.webp": {
     "halfmoon-betta": {
       "ok": "unsure",
@@ -23633,7 +24098,9 @@
     "julidochromis-marlieri": {
       "ok": "unsure",
       "typical": false,
-      "note": "black julie with neat rows of light dashes; could be J. transcriptus or a regani-type form rather than marlieri"
+      "note": "black julie with broken horizontal light dashes; could be J. transcriptus or regani",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/ed8d8c79ee95fcc0.webp": {
@@ -23668,6 +24135,15 @@
       "ok": "yes",
       "typical": true,
       "note": "two red male guppies with red delta tails in a clear tank",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/edffc61b1db3ef22.webp": {
+    "tetraodon-mbu": {
+      "ok": "yes",
+      "typical": true,
+      "note": "mbu puffer swimming over sand in large tank",
       "logo": false,
       "person": false
     }
@@ -24066,12 +24542,22 @@
       "note": "line drawing of stem with leaves and flower"
     }
   },
+  "https://media.aquatome.com/commons/f33fd1e0e60e18bc.webp": {
+    "cetopsis-coecutiens": {
+      "ok": "dead",
+      "typical": false,
+      "note": "landed catch with a bloody mouth on a boat, held down by a gloved hand",
+      "logo": false,
+      "person": true
+    }
+  },
   "https://media.aquatome.com/commons/f3981236ca4c840b.webp": {
     "monocirrhus-polyacanthus": {
-      "ok": "unsure",
+      "ok": "yes",
       "typical": false,
-      "note": "small brown fish head-down among plants; snout hidden, can't confirm the species",
-      "logo": false
+      "note": "small leaffish among plants in planted tank, smaller in frame",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/f39ab6bc1b08ba00.webp": {
@@ -24146,6 +24632,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/commons/f4401fa814e93227.webp": {
+    "tetraodon-mbu": {
+      "ok": "yes",
+      "typical": false,
+      "note": "close-up of mbu puffer's mouth and beak teeth",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/f45970607ae6e3c9.webp": {
     "apteronotus-albifrons": {
       "ok": "yes",
@@ -24184,7 +24679,9 @@
     "knodus-borki": {
       "ok": "yes",
       "typical": true,
-      "note": "slender adult with iridescent blue flank and red-topped eye, side view over plants"
+      "note": "slender blue iridescent tetra, side view in planted tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/f4a5ecdab4c7e6de.webp": {
@@ -24540,7 +25037,9 @@
     "maylandia-callainos": {
       "ok": "yes",
       "typical": true,
-      "note": "blue adult beside plants, side view"
+      "note": "blue fish among plants in a tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/f91f06dd69e8ae1e.webp": {
@@ -24670,6 +25169,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/commons/fb3e7ef519b3754c.webp": {
+    "mystus-leucophasis": {
+      "ok": "yes",
+      "typical": true,
+      "note": "black catfish with long barbels in a small glass tank",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/commons/fb645fc661ecb3ba.webp": {
     "micranthemum-callitrichoides": {
       "ok": "unsure",
@@ -24718,6 +25226,15 @@
       "ok": "yes",
       "typical": true,
       "note": "hornwort shoots in clear shallow water",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/fbd2e52069060705.webp": {
+    "lepidosiren-paradoxa": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "greenish lungfish in display tank; unusual colour, species unclear",
       "logo": false,
       "person": false
     }
@@ -24806,6 +25323,15 @@
       "ok": "yes",
       "typical": true,
       "note": "live bucktooth tetra, two black spots, red-tipped fins, side view on black background",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/commons/fd0b95ae6b6d24ae.webp": {
+    "mikrogeophagus-altispinosus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "Bolivian ram, side view with flank spot and tail streamers",
       "logo": false,
       "person": false
     }
@@ -25003,8 +25529,10 @@
   "https://media.aquatome.com/commons/ff0219ecc978ae07.webp": {
     "julidochromis-marlieri": {
       "ok": "yes",
-      "typical": false,
-      "note": "close-up of head and front body, black with irregular yellowish checker pattern; tail cut off"
+      "typical": true,
+      "note": "close-up of chequered julie head and body",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/ff191e98c1c99ccb.webp": {
@@ -25026,7 +25554,9 @@
     "leiarius-marmoratus": {
       "ok": "unsure",
       "typical": false,
-      "note": "small brown/orange banded juvenile catfish with long white barbels; lacks the marbled pattern, possibly another pimelodi"
+      "note": "juvenile pimelodid with orange head and bands on white background; species unclear",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/commons/ff5788afebc63174.webp": {
@@ -26700,7 +27230,9 @@
     "leptobarbus-hoevenii": {
       "ok": "unsure",
       "typical": false,
-      "note": "group of large barbs in murky pond seen from above, too unclear"
+      "note": "pond fish seen from above in murky water",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/1034083.webp": {
@@ -26725,7 +27257,9 @@
     "leptobarbus-hoevenii": {
       "ok": "unsure",
       "typical": false,
-      "note": "top-down view of large carp-like fish in murky pond; could be grass carp or another cyprinid, no lateral stripe or fin c"
+      "note": "pond fish seen from above in murky water",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/103640684.webp": {
@@ -26814,6 +27348,15 @@
       "ok": "yes",
       "typical": true,
       "note": "emersed flowering stem with hairy stem and pale lilac flower in the wild",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/inaturalist/109905718.webp": {
+    "lepidosiren-paradoxa": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "lungfish in plastic container, poor view; could be Protopterus",
       "logo": false,
       "person": false
     }
@@ -26981,6 +27524,15 @@
       "ok": "unsure",
       "typical": false,
       "note": "large-scaled red-eyed tetras in the wild with other fish; no black tail spot visible, so can't confirm the species",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/inaturalist/118537125.webp": {
+    "lepidosiren-paradoxa": {
+      "ok": "dead",
+      "typical": false,
+      "note": "lungfish lying on dirt road out of water, likely dead or stranded",
       "logo": false,
       "person": false
     }
@@ -27401,7 +27953,9 @@
     "lepidocephalichthys-guntea": {
       "ok": "yes",
       "typical": true,
-      "note": "adult in an aquarium over pebbles, brown mottled body with a row of blotches along the side"
+      "note": "spotted loach on pebbles in a tank",
+      "logo": true,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/153996045.webp": {
@@ -28756,6 +29310,15 @@
       "ok": "yes",
       "typical": true,
       "note": "striped croaking gourami in a clear container",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/inaturalist/247541667.webp": {
+    "melanotaenia-australis": {
+      "ok": "yes",
+      "typical": true,
+      "note": "single fish among rocks in the wild, dark band with lines",
       "logo": false,
       "person": false
     }
@@ -30210,8 +30773,9 @@
     "moenkhausia-pittieri": {
       "ok": "yes",
       "typical": true,
-      "note": "group of diamond tetras by driftwood, slightly blurry",
-      "logo": false
+      "note": "group of diamond tetras over driftwood",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/319833160.webp": {
@@ -31037,7 +31601,9 @@
     "luciocephalus-pulcher": {
       "ok": "yes",
       "typical": true,
-      "note": "Adult pikehead in a planted tank with leaf litter, side view: long pointed head, brown body with light lateral stripe, t"
+      "note": "pikehead in tank among leaf litter, long thread-like pelvic fins visible",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/359192195.webp": {
@@ -31091,6 +31657,15 @@
       "note": "silver arowana by driftwood in display tank",
       "logo": false,
       "person": false
+    }
+  },
+  "https://media.aquatome.com/inaturalist/360070911.webp": {
+    "jordanella-floridae": {
+      "ok": "yes",
+      "typical": true,
+      "note": "male flagfish in a viewing tank, fingers holding the tank at the bottom",
+      "logo": false,
+      "person": true
     }
   },
   "https://media.aquatome.com/inaturalist/360109705.webp": {
@@ -31802,11 +32377,22 @@
       "logo": false
     }
   },
+  "https://media.aquatome.com/inaturalist/422828687.webp": {
+    "jordanella-floridae": {
+      "ok": "yes",
+      "typical": true,
+      "note": "group of flagfish in a viewing tank",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/inaturalist/422913835.webp": {
     "liobagrus-reinii": {
       "ok": "yes",
       "typical": true,
-      "note": "side view of reddish-brown adult in viewing tank"
+      "note": "reddish-brown catfish side view in small viewing tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/423648215.webp": {
@@ -32273,6 +32859,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/inaturalist/455975442.webp": {
+    "jordanella-floridae": {
+      "ok": "yes",
+      "typical": true,
+      "note": "flagfish with side spot in a viewing tank",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/inaturalist/457053335.webp": {
     "haludaria-fasciata": {
       "ok": "unsure",
@@ -32672,8 +33267,9 @@
     "metynnis-lippincottianus": {
       "ok": "yes",
       "typical": true,
-      "note": "spotted silver dollar on black background, side view",
-      "logo": false
+      "note": "spotted silver dollar side view on black background",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/487219627.webp": {
@@ -33054,8 +33650,9 @@
     "mystus-gulio": {
       "ok": "yes",
       "typical": true,
-      "note": "live grey Mystus catfish with long barbels in aquarium, second fish partly visible",
-      "logo": false
+      "note": "grey Mystus catfish swimming in aquarium, another below",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/52313117.webp": {
@@ -33551,7 +34148,9 @@
     "liobagrus-reinii": {
       "ok": "yes",
       "typical": true,
-      "note": "side view of orange-brown adult in acrylic viewing box"
+      "note": "orange catfish in small acrylic viewing tank, handwritten label under tank in scene",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/561355629.webp": {
@@ -33610,9 +34209,11 @@
   },
   "https://media.aquatome.com/inaturalist/563557335.webp": {
     "leporinus-friderici": {
-      "ok": "unsure",
+      "ok": "yes",
       "typical": false,
-      "note": "blurry fish from above in a clear stream; spots hard to see, so the ID can't be confirmed"
+      "note": "seen from above in clear water, faint spots, distorted view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/564536573.webp": {
@@ -34742,8 +35343,10 @@
   "https://media.aquatome.com/inaturalist/632862901.webp": {
     "leporinus-friderici": {
       "ok": "yes",
-      "typical": false,
-      "note": "three-spotted fish among plants in a clear stream, distant view"
+      "typical": true,
+      "note": "swimming among aquatic plants, spots visible",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/63387791.webp": {
@@ -34916,6 +35519,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/inaturalist/647909677.webp": {
+    "melanotaenia-australis": {
+      "ok": "yes",
+      "typical": true,
+      "note": "yellowish adult side view in a photo tank, red gill spot",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/inaturalist/651006167.webp": {
     "salminus-brasiliensis": {
       "ok": "yes",
@@ -34945,6 +35557,15 @@
       "ok": "yes",
       "typical": true,
       "note": "dense mat of crowded, upright leaves outdoors",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/inaturalist/653117197.webp": {
+    "lepidosiren-paradoxa": {
+      "ok": "dead",
+      "typical": false,
+      "note": "lungfish dug out and lying on soil, a catch out of water",
       "logo": false,
       "person": false
     }
@@ -35044,6 +35665,15 @@
       "note": "spotted puffer with red eye resting on stones, underwater in the wild",
       "logo": false,
       "person": false
+    }
+  },
+  "https://media.aquatome.com/inaturalist/663744865.webp": {
+    "melanotaenia-australis": {
+      "ok": "yes",
+      "typical": true,
+      "note": "yellowish adult in a small tank, red gill spot, fine stripes; blurred hand behind glass",
+      "logo": false,
+      "person": true
     }
   },
   "https://media.aquatome.com/inaturalist/666055063.webp": {
@@ -35465,6 +36095,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/inaturalist/714758885.webp": {
+    "jordanella-floridae": {
+      "ok": "yes",
+      "typical": true,
+      "note": "flagfish with black side spot in a viewing tank",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/inaturalist/717541579.webp": {
     "stiphodon-pelewensis": {
       "ok": "yes",
@@ -35614,8 +36253,9 @@
     "metynnis-lippincottianus": {
       "ok": "unsure",
       "typical": false,
-      "note": "small, blurry, distant disc-shaped fish against a blue background",
-      "logo": false
+      "note": "distant small disc-shaped fish, spots not visible",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/7368781.webp": {
@@ -35650,6 +36290,15 @@
       "typical": false,
       "note": "swamp eels in a basin for sale as food at a market",
       "logo": false
+    }
+  },
+  "https://media.aquatome.com/inaturalist/744720987.webp": {
+    "melanotaenia-australis": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult with red-orange stripes and red gill spot against a rock background",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/746196666.webp": {
@@ -35694,6 +36343,15 @@
       "typical": false,
       "note": "blurry public aquarium view of uarus with stingray",
       "logo": false
+    }
+  },
+  "https://media.aquatome.com/inaturalist/748286976.webp": {
+    "melanotaenia-australis": {
+      "ok": "yes",
+      "typical": true,
+      "note": "adult with red stripes in a tank with a rock background",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/inaturalist/748819447.webp": {
@@ -36562,9 +37220,11 @@
   },
   "https://media.aquatome.com/scotcat/11b0fbc26f8a5333.webp": {
     "leiarius-marmoratus": {
-      "ok": "yes",
-      "typical": true,
-      "note": "dark catfish with pale marbled network on gravel by driftwood"
+      "ok": "unsure",
+      "typical": false,
+      "note": "dark catfish with white network lines and red tail; could be a hybrid or Perrunichthys look-alike",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/scotcat/12f98e152ae7d195.webp": {
@@ -36756,7 +37416,9 @@
     "leiarius-marmoratus": {
       "ok": "yes",
       "typical": false,
-      "note": "juvenile with spotted sail dorsal and marbling; a pale catfish partly in frame"
+      "note": "spotted juvenile on gravel next to a pale fish",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/scotcat/2263707a38156c82.webp": {
@@ -36934,6 +37596,15 @@
       "note": "pale yellowish slender catfish with long barbels; can't confirm the species"
     }
   },
+  "https://media.aquatome.com/scotcat/3084bb596e4768c5.webp": {
+    "cetopsis-coecutiens": {
+      "ok": "yes",
+      "typical": true,
+      "note": "close-up of a live bluish whale catfish with tiny eyes",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/scotcat/3096cc16d089ecb1.webp": {
     "lasiancistrus-caucanus": {
       "ok": "yes",
@@ -36990,12 +37661,30 @@
       "logo": false
     }
   },
+  "https://media.aquatome.com/scotcat/342d4d7cbbd70e93.webp": {
+    "cetopsis-coecutiens": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "brown-backed whale catfish in a blue tub; can't tell which species",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/scotcat/3485a53d526aefb8.webp": {
     "megalonema-platycephalum": {
       "ok": "dead",
       "typical": false,
       "note": "catfish lying on a wooden board, a landed catch",
       "logo": false
+    }
+  },
+  "https://media.aquatome.com/scotcat/3553a4a1bae4be58.webp": {
+    "cetopsis-coecutiens": {
+      "ok": "dead",
+      "typical": false,
+      "note": "four dead whale catfish laid on the ground",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/scotcat/35a9f4add4c693d9.webp": {
@@ -37378,6 +38067,15 @@
       "person": false
     }
   },
+  "https://media.aquatome.com/scotcat/50151c895ebe7c62.webp": {
+    "kryptopterus-cryptopterus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "sheatfish swimming above plants in tank",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/scotcat/5075655210ab82d3.webp": {
     "centromochlus-heckelii": {
       "ok": "yes",
@@ -37481,6 +38179,15 @@
       "person": true
     }
   },
+  "https://media.aquatome.com/scotcat/59a6941c1bcdd00c.webp": {
+    "mystus-leucophasis": {
+      "ok": "yes",
+      "typical": true,
+      "note": "black white-spotted catfish upside down among plants",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/scotcat/5a1741353d2d636c.webp": {
     "corydoras-fowleri": {
       "ok": "yes",
@@ -37534,7 +38241,9 @@
     "leiarius-marmoratus": {
       "ok": "yes",
       "typical": false,
-      "note": "juvenile, clear side view of marbled body and spotted tall dorsal"
+      "note": "spotted juvenile with tall dorsal fin on gravel",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/scotcat/5f09e9a65e1b519b.webp": {
@@ -37754,9 +38463,11 @@
   },
   "https://media.aquatome.com/scotcat/69705c8400bca4bf.webp": {
     "liobagrus-reinii": {
-      "ok": "unsure",
-      "typical": false,
-      "note": "old print, possibly a painting; pale spots on flank not typical of L. reinii"
+      "ok": "yes",
+      "typical": true,
+      "note": "orange-brown torrent catfish side view on gravel, older printed photo",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/scotcat/6a2e5bfa6463e9c1.webp": {
@@ -37970,7 +38681,18 @@
     "liobagrus-reinii": {
       "ok": "yes",
       "typical": true,
-      "note": "adult on gravel streambed, plain brown body, side view"
+      "note": "torrent catfish on gravel streambed",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/scotcat/7df9c01f34714068.webp": {
+    "kryptopterus-cryptopterus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "silvery sheatfish over gravel in aquarium with cichlids",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/scotcat/7ebadaa35358703f.webp": {
@@ -38369,6 +39091,15 @@
       "person": true
     }
   },
+  "https://media.aquatome.com/scotcat/a48348111ea091c2.webp": {
+    "microsynodontis-polli": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "pinkish catfish with feathery barbels in a small tank; Microsynodontis species unclear",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/scotcat/a4bbc8a5b2174b2a.webp": {
     "brochis-multiradiatus": {
       "ok": "yes",
@@ -38757,6 +39488,15 @@
       "note": "L091 on gravel, pointed snout, orange dorsal, caudal and pectoral fin edges"
     }
   },
+  "https://media.aquatome.com/scotcat/c40579c44a007920.webp": {
+    "mystus-leucophasis": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "brownish catfish with white spots in a glass tank, colour unusual",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/scotcat/c42c0b873dbd3add.webp": {
     "akysis-ephippifer": {
       "ok": "unsure",
@@ -38881,6 +39621,15 @@
       "typical": false,
       "note": "preserved specimen, dorsal view on black background",
       "logo": false
+    }
+  },
+  "https://media.aquatome.com/scotcat/cf14e012b4202deb.webp": {
+    "kryptopterus-cryptopterus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "silvery sheatfish swimming over gravel",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/scotcat/d15746a4d4c9294f.webp": {
@@ -39059,10 +39808,11 @@
   },
   "https://media.aquatome.com/scotcat/de7bb43074e63597.webp": {
     "mystus-gulio": {
-      "ok": "yes",
-      "typical": true,
-      "note": "live adult in a tank, clear side view with stripes and barbels",
-      "logo": false
+      "ok": "unsure",
+      "typical": false,
+      "note": "orange-brown striped Mystus in photo tank; could be a striped look-alike",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/scotcat/df5d3128c16a8188.webp": {
@@ -39085,6 +39835,15 @@
       "ok": "yes",
       "typical": true,
       "note": "Live Amblyceps torrent catfish in side view on black: yellowish-tan, deeply forked tail with long lobes, long barbels. M"
+    }
+  },
+  "https://media.aquatome.com/scotcat/e3adf1743b5848e4.webp": {
+    "microsynodontis-polli": {
+      "ok": "yes",
+      "typical": true,
+      "note": "pygmy synodontis on sand, slightly blurred",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/scotcat/e3ae38ee88e1fdbd.webp": {
@@ -39125,6 +39884,15 @@
       "typical": false,
       "note": "specimen lying next to a measuring scale",
       "logo": false
+    }
+  },
+  "https://media.aquatome.com/scotcat/e882aa43a24da5ae.webp": {
+    "kryptopterus-cryptopterus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "translucent bluish sheatfish, clear side view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/scotcat/e8edf0c854726c00.webp": {
@@ -39258,6 +40026,15 @@
       "logo": false
     }
   },
+  "https://media.aquatome.com/scotcat/eff6b35e4e863eb4.webp": {
+    "cetopsis-coecutiens": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "Cetopsis-like catfish with a brown back in a blue tub; can't tell which species",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/scotcat/f01c82e8332624ac.webp": {
     "hypostomus-pusarum": {
       "ok": "yes",
@@ -39298,6 +40075,15 @@
       "person": true
     }
   },
+  "https://media.aquatome.com/scotcat/f4ce9d73619f6fa7.webp": {
+    "microsynodontis-polli": {
+      "ok": "yes",
+      "typical": true,
+      "note": "mottled pygmy synodontis on sand, side view",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/scotcat/f52afa197f153ec5.webp": {
     "hoplosternum-punctatum": {
       "ok": "yes",
@@ -39326,10 +40112,11 @@
   },
   "https://media.aquatome.com/scotcat/f715ef527dedcf8c.webp": {
     "mystus-gulio": {
-      "ok": "yes",
-      "typical": true,
-      "note": "two live adult long-whiskered catfish in a tank, side view",
-      "logo": false
+      "ok": "unsure",
+      "typical": false,
+      "note": "two striped brownish Mystus in photo tank; stripes suggest another Mystus species",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/scotcat/f8ad06aeffc4772c.webp": {
@@ -39373,6 +40160,15 @@
       "note": "caught spotted pleco held up in two hands",
       "logo": false,
       "person": true
+    }
+  },
+  "https://media.aquatome.com/scotcat/fbbb82eac83ccd38.webp": {
+    "mystus-leucophasis": {
+      "ok": "yes",
+      "typical": true,
+      "note": "black white-spotted catfish swimming upside down among plants",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/scotcat/fbf09a9fba1b7539.webp": {
@@ -39430,6 +40226,15 @@
       "note": "small brownish catfish lying in an open palm, possibly a catch; can't tell whether it is alive",
       "logo": false,
       "person": true
+    }
+  },
+  "https://media.aquatome.com/scotcat/ff6138fe186585c5.webp": {
+    "mystus-leucophasis": {
+      "ok": "yes",
+      "typical": true,
+      "note": "dark catfish on gravel by a rock",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/scotcat/ffba96049085669e.webp": {
@@ -39779,7 +40584,9 @@
     "leptobarbus-hoevenii": {
       "ok": "unsure",
       "typical": false,
-      "note": "pale slender juvenile cyprinid among plants, no dark stripe visible; can't confirm"
+      "note": "plain silver slender fish among plants, no clear marks",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/0f1be69de08334a6.webp": {
@@ -40143,7 +40950,9 @@
     "lepidocephalichthys-guntea": {
       "ok": "unsure",
       "typical": false,
-      "note": "silvery loaches with a thin dark side stripe and a banded botiid loach; not the usual peppered guntea pattern, can't con"
+      "note": "striped loaches with a dark banded loach",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/1e02e74db113e6be.webp": {
@@ -40693,6 +41502,15 @@
       "logo": false
     }
   },
+  "https://media.aquatome.com/seriouslyfish/31e0363505be4f51.webp": {
+    "lepidocephalichthys-guntea": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "striped loach on sand; not clearly guntea",
+      "logo": false,
+      "person": false
+    }
+  },
   "https://media.aquatome.com/seriouslyfish/31e6a39c3a62288a.webp": {
     "parosphromenus-opallios": {
       "ok": "yes",
@@ -40968,6 +41786,15 @@
       "ok": "yes",
       "typical": true,
       "note": "wild-type greenish fish with dark irregular bars and spots over rocks"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/3daa1ca4a24e844a.webp": {
+    "leporinus-friderici": {
+      "ok": "yes",
+      "typical": true,
+      "note": "side view on white background, dark spots along flank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/3df49c98dc4013ed.webp": {
@@ -42289,6 +43116,13 @@
       "ok": "yes",
       "typical": true,
       "note": "adult pearl danio, iridescent blue-violet body with orange rear stripe, clear side view"
+    },
+    "danio-roseus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "male rosy danio, blue-violet body with orange fins, side view in planted tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/7426aa3a0c83cc86.webp": {
@@ -42303,6 +43137,15 @@
       "ok": "yes",
       "typical": true,
       "note": "Adult fireline devario, side view: silvery body with an orange-red stripe along the rear lower flank"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/76a2694f6918766a.webp": {
+    "laubuka-dadiburjori": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "two tiny fry among plants, too small to identify",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/76ac3d43f145df02.webp": {
@@ -42672,7 +43515,9 @@
     "leptobarbus-hoevenii": {
       "ok": "yes",
       "typical": true,
-      "note": "adult mad barb, side view, silvery large scales with orange-tinted fins"
+      "note": "adult mad barb side view in dark tank",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/899a9ae9741a9aec.webp": {
@@ -42770,6 +43615,15 @@
       "ok": "unsure",
       "typical": false,
       "note": "same orange red-eyed tetra; lacks lemon tetra fin markings",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/8d88619d5ffc724f.webp": {
+    "lepidocephalichthys-guntea": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "two silvery loaches with a sharp black side stripe; not the usual peppered guntea look",
       "logo": false,
       "person": false
     }
@@ -43904,7 +44758,9 @@
     "maylandia-callainos": {
       "ok": "yes",
       "typical": false,
-      "note": "pearl/white colour form with blue fins and yellow egg spots"
+      "note": "pale pearl-white form with egg spots on the fins",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/bbe33f2b27c2a401.webp": {
@@ -44690,7 +45546,9 @@
     "ladigesia-roloffi": {
       "ok": "yes",
       "typical": true,
-      "note": "small group in planted tank; orange-edged tail lobes and orange dorsal visible"
+      "note": "small group with orange-tipped fins among plants",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/e02f3c961e8ba97c.webp": {
@@ -44698,6 +45556,15 @@
       "ok": "yes",
       "typical": true,
       "note": "red male with green-blue blotch on flank, side view by a pipe",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/e096141fc9e4111e.webp": {
+    "leporinus-friderici": {
+      "ok": "dead",
+      "typical": false,
+      "note": "dead fish lying on a dirty surface",
       "logo": false,
       "person": false
     }
@@ -44726,9 +45593,11 @@
   },
   "https://media.aquatome.com/seriouslyfish/e1848bc34499f5db.webp": {
     "macropodus-spechti": {
-      "ok": "yes",
-      "typical": true,
-      "note": "Adult male with forked lyre tail and filaments, red pelvics, among plants"
+      "ok": "unsure",
+      "typical": false,
+      "note": "paradise fish with bluish lattice fins; may be a different Macropodus",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/e1e0c3fcad6f702f.webp": {
@@ -44736,6 +45605,15 @@
       "ok": "yes",
       "typical": true,
       "note": "female, more orange-gold with a smaller black spot",
+      "logo": false,
+      "person": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/e29945b705077f44.webp": {
+    "mikrogeophagus-altispinosus": {
+      "ok": "yes",
+      "typical": false,
+      "note": "Bolivian ram in pale, speckled colouring",
       "logo": false,
       "person": false
     }
@@ -44798,9 +45676,11 @@
   },
   "https://media.aquatome.com/seriouslyfish/e73358d5ce83d264.webp": {
     "macropodus-spechti": {
-      "ok": "yes",
+      "ok": "unsure",
       "typical": false,
-      "note": "Dark fish with short rounded fins and red pelvics, probably female or subadult"
+      "note": "dark blue-black fish with rounded tail and red ventral fins; could be a look-alike",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/e7740e460b859421.webp": {
@@ -44865,6 +45745,15 @@
       "typical": false,
       "note": "reddish fish with pointed snout, possibly display colour; stripe not visible",
       "logo": false
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/eb03c70ae8a33a30.webp": {
+    "lepidocephalichthys-guntea": {
+      "ok": "unsure",
+      "typical": false,
+      "note": "three silvery striped loaches on sand; could be another striped species",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/eb277a729507474c.webp": {
@@ -44948,7 +45837,9 @@
     "macropodus-spechti": {
       "ok": "unsure",
       "typical": false,
-      "note": "Pale small fish, likely female or juvenile; colour too washed out to confirm"
+      "note": "small pale golden fish on leaf; hard to identify, possibly a female or juvenile",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/ed8eab78641b69c0.webp": {
@@ -44962,9 +45853,11 @@
   },
   "https://media.aquatome.com/seriouslyfish/edae2830460bcef9.webp": {
     "macropodus-spechti": {
-      "ok": "yes",
-      "typical": true,
-      "note": "Adult male, dark scaled body, blue-netted fins, red pelvic fins, red eye"
+      "ok": "unsure",
+      "typical": false,
+      "note": "grey paradise fish with blue latticed fins and rounded tail; not the usual dark lyre-tailed look",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/edc60df4011da74b.webp": {
@@ -45090,6 +45983,15 @@
       "note": "river landscape habitat, no fish visible; tiny figures possibly wading near right bank",
       "logo": false,
       "person": true
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/f3bbcca2af5ead70.webp": {
+    "laubuka-dadiburjori": {
+      "ok": "yes",
+      "typical": true,
+      "note": "orange chela with dark spots and stripe, side view",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/f41d869e3da84162.webp": {
@@ -45391,6 +46293,15 @@
       "ok": "yes",
       "typical": true,
       "note": "Adult male side view: brown body, green sheen on the gill cover, blue edge on the anal fin"
+    }
+  },
+  "https://media.aquatome.com/seriouslyfish/fe9534234d29e9f0.webp": {
+    "dawkinsia-assimilis": {
+      "ok": "unsure",
+      "typical": true,
+      "note": "Dawkinsia barb with elongated peduncle blotch and red-tipped dark tail on black background; can't rule out other Dawkins",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/seriouslyfish/fea40b9d87936a6f.webp": {
@@ -46160,6 +47071,15 @@
       "logo": false,
       "person": false,
       "guide": true
+    }
+  },
+  "https://media.aquatome.com/sprucepets/c885b27022b8e259.webp": {
+    "monocirrhus-polyacanthus": {
+      "ok": "yes",
+      "typical": true,
+      "note": "leaffish side view among plants",
+      "logo": false,
+      "person": false
     }
   },
   "https://media.aquatome.com/sprucepets/cd680af245b9ec84.webp": {
@@ -49573,9 +50493,21 @@
   },
   "https://media.aquatome.com/video/QRffuIKYrNg/p0-lfKGxpdmUpLnBuZw.webp": {
     "knodus-borki": {
-      "ok": "unsure",
+      "ok": "yes",
       "typical": true,
-      "note": "same image as 1: blue iridescent body and tail on green plants as the caption says, but the species may be Boehlkea fred",
+      "note": "metallic blue tetra, side view, matches caption",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/QhPgAnEku_o/p7-JhX2Zpc2gpLmpwZw.webp": {
+    "knodus-borki": {
+      "ok": "other",
+      "typical": false,
+      "note": "GloFish blue skirt tetra (Gymnocorymbus), deep body, not Knodus borki",
+      "logo": false,
+      "person": false,
       "guide": true
     }
   },
@@ -50094,6 +51026,16 @@
       "ok": "yes",
       "typical": false,
       "note": "several colour-bred platies (orange, red, tuxedo-like) in a planted tank, matches caption",
+      "logo": false,
+      "person": false,
+      "guide": true
+    }
+  },
+  "https://media.aquatome.com/video/Z3jAT8oNNAo/p2-9tYmlhbnVzLmpwZw.webp": {
+    "knodus-borki": {
+      "ok": "other",
+      "typical": false,
+      "note": "Colombian tetra (Hyphessobrycon columbianus): deep body, red fins",
       "logo": false,
       "person": false,
       "guide": true

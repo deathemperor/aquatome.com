@@ -108,7 +108,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh đá, sỏi, cát phối quanh gốc lũa, nửa trái để trống.",
-            "sharpness": 469
+            "sharpness": 469,
+            "person": false
           }
         ]
       },
@@ -116,43 +117,19 @@
         "heading": "Lót đáy và đặt lũa đá theo thứ tự nào",
         "moments": [
           {
-            "t": 125,
-            "url": "https://media.aquatome.com/video/e7czDMttN4Q/at125-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tấm lưới nhựa egg crate lót đáy bể, phân nền rải ở bên phải.",
-            "sharpness": 1191.1
-          },
-          {
             "t": 160,
             "url": "https://media.aquatome.com/video/e7czDMttN4Q/at160-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Khúc lũa gốc cây đặt xong, xếp vài viên đá lớn quanh lũa.",
-            "sharpness": 704
+            "sharpness": 704,
+            "person": false
           }
         ]
       },
       {
         "heading": "Phủ nền bằng bốn loại vật liệu ra sao",
-        "moments": [
-          {
-            "t": 240,
-            "url": "https://media.aquatome.com/video/e7czDMttN4Q/at240-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay rải sỏi hạt đậu quanh viên đá lớn trên nền hồ.",
-            "sharpness": 2342.1
-          },
-          {
-            "t": 280,
-            "url": "https://media.aquatome.com/video/e7czDMttN4Q/at280-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cát màu tự nhiên được rải phủ phần đáy còn lại, bên cạnh đá cuội.",
-            "sharpness": 901.3
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/e7czDMttN4Q/p3-MDM1NjA5NSkuanBn.webp",
           "thumb": "https://media.aquatome.com/video/e7czDMttN4Q/p3-MDM1NjA5NSkuanBn-480.webp",
@@ -166,16 +143,7 @@
       },
       {
         "heading": "Trồng cây theo thứ tự nào",
-        "moments": [
-          {
-            "t": 305,
-            "url": "https://media.aquatome.com/video/e7czDMttN4Q/at305-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Đang trồng cây lớn cạnh khúc lũa, đám cây non mới xuống nền.",
-            "sharpness": 317
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/e7czDMttN4Q/p4-0aWNvMTUwMC5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/e7czDMttN4Q/p4-0aWNvMTUwMC5qcGc-480.webp",
@@ -196,7 +164,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây xanh mọc um tùm quanh khúc lũa và đá trong bể.",
-            "sharpness": 1424.6
+            "sharpness": 1424.6,
+            "person": false
           },
           {
             "t": 445,
@@ -204,7 +173,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể còn thưa với đá, lũa và cây mới trồng, khoảng trống bên trái.",
-            "sharpness": 1709.2
+            "sharpness": 1709.2,
+            "person": false
           }
         ],
         "photo": {
@@ -227,7 +197,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Một con tép bơi gần gốc lũa và bụi cây thủy sinh.",
-            "sharpness": 372.9
+            "sharpness": 372.9,
+            "person": false
           },
           {
             "t": 510,
@@ -235,7 +206,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đàn cá nhỏ bơi quanh bụi cây và đá trong bể.",
-            "sharpness": 536.7
+            "sharpness": 536.7,
+            "person": false
           }
         ],
         "photo": {

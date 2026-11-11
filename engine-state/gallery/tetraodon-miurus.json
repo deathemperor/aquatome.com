@@ -2,7 +2,11 @@
  "queue": [],
  "judged": [
   "File:Tetraodon miurus 14554205.jpg",
-  "File:T.Muirus.jpg"
+  "File:T.Muirus.jpg",
+  "inat:14554205",
+  "inat:14554198",
+  "inat:14592153",
+  "inat:14592156"
  ],
  "hashes": {
   "https://media.aquatome.com/commons/8ed031b4f56048dd.webp": "3571ccc4ecdc78f1",
@@ -11,5 +15,17 @@
   "https://media.aquatome.com/commons/b809c8cea8dff9d3.webp": "ed2dcdc8cc5e1959",
   "https://media.aquatome.com/commons/9bb00e9c07693cd1.webp": "5b60e49c8ef4f071"
  },
- "commons": "2026-11-10"
+ "commons": "2026-11-10",
+ "inat": {
+  "taxon": 113935,
+  "pass": "done",
+  "after": {
+   "research": 10493076,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 5213550,
+  "next": null
+ }
 }

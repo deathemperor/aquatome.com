@@ -50,15 +50,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bên trong vỏ còi báo khói có pin 9V, cảm biến và còi.",
-            "sharpness": 476.2
-          },
-          {
-            "t": 140,
-            "url": "https://media.aquatome.com/video/gfgUPBApY7s/at140-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Mặt sau bo mạch với các đường nối giữa các điểm hàn.",
-            "sharpness": 506.4
+            "sharpness": 476.2,
+            "person": false
           }
         ],
         "photo": {
@@ -76,20 +69,13 @@
         "heading": "Nối dây vào còi",
         "moments": [
           {
-            "t": 200,
-            "url": "https://media.aquatome.com/video/gfgUPBApY7s/at200-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Còi báo nối pin 9V, có sợi dây mảnh gắn vào mạch.",
-            "sharpness": 579.7
-          },
-          {
             "t": 205,
             "url": "https://media.aquatome.com/video/gfgUPBApY7s/at205-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Mạch còi với hai sợi dây đã gắn vào điểm cần nối.",
-            "sharpness": 471.8
+            "sharpness": 471.8,
+            "person": false
           }
         ],
         "photo": {
@@ -112,7 +98,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Còi đã dán lên thành bể, hai sợi dây vắt qua mép bể.",
-            "sharpness": 953
+            "sharpness": 953,
+            "person": false
           },
           {
             "t": 265,
@@ -120,7 +107,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Giác hút gắn ở lưng còi, dán sát vào thành kính của bể.",
-            "sharpness": 467.3
+            "sharpness": 467.3,
+            "person": false
           }
         ]
       },
@@ -133,7 +121,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Còi báo đặt cạnh tấm chắn, hai sợi dây đi xuống từ còi.",
-            "sharpness": 927
+            "sharpness": 927,
+            "person": false
           },
           {
             "t": 290,
@@ -141,7 +130,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Còi báo với hai sợi dây dán băng keo cố định trên sàn.",
-            "sharpness": 589
+            "sharpness": 589,
+            "person": false
           }
         ]
       },
@@ -154,7 +144,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Còi báo mở nắp, thấy mạch điện bên trong chạy bằng pin 9V.",
-            "sharpness": 610.2
+            "sharpness": 610.2,
+            "person": false
           }
         ],
         "photo": {

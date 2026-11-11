@@ -1,7 +1,21 @@
 {
   "id": "tetraodon-pustulatus",
-  "photos": [],
-  "seen": 2,
-  "updatedAt": "2026-11-10",
-  "builtAt": "2026-11-10"
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/inaturalist/601003490.webp",
+      "thumb": "https://media.aquatome.com/inaturalist/601003490-480.webp",
+      "width": 1024,
+      "height": 768,
+      "licence": "CC0",
+      "author": "tuirnee",
+      "sourceUrl": "https://www.inaturalist.org/photos/601003490",
+      "caption": "Cá nóc Cross River bơi trong bể kính, thân hồng có đốm đỏ",
+      "best": true,
+      "kind": "other",
+      "unchecked": true
+    }
+  ],
+  "seen": 4,
+  "updatedAt": "2026-11-11",
+  "builtAt": "2026-11-11"
 }

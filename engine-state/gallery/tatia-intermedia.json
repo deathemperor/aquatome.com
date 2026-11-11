@@ -1,7 +1,8 @@
 {
  "queue": [],
  "judged": [
-  "File:Fish fauna (10.3897-BDJ.11.e98632) Figure 4.jpg"
+  "File:Fish fauna (10.3897-BDJ.11.e98632) Figure 4.jpg",
+  "inat:18549949"
  ],
  "hashes": {
   "https://media.aquatome.com/scotcat/280bfa2c73142c06.webp": "4a4a304090ac3e07",
@@ -9,5 +10,17 @@
   "https://media.aquatome.com/scotcat/55dc60cf2611fcca.webp": "060401308182c083",
   "https://media.aquatome.com/scotcat/4d68cf9c616b0221.webp": "a550e030e6163616"
  },
- "commons": "2026-11-10"
+ "commons": "2026-11-10",
+ "inat": {
+  "taxon": 342456,
+  "pass": "done",
+  "after": {
+   "research": 12794634,
+   "agree": 0
+  }
+ },
+ "gbif": {
+  "key": 2344637,
+  "next": null
+ }
 }

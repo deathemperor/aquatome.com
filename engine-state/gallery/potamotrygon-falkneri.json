@@ -5,14 +5,36 @@
   "File:River stingray vancouver.jpg",
   "File:Potamotrygon ripley.jpg",
   "File:Potamotrygon shedd.jpg",
-  "File:Potamotrygon national zoo.jpg"
+  "File:Potamotrygon national zoo.jpg",
+  "inat:396729964",
+  "inat:396730051",
+  "inat:445771573",
+  "inat:445771603",
+  "inat:566172490",
+  "inat:566172518",
+  "inat:566172672",
+  "inat:714317166"
  ],
  "hashes": {
   "https://media.aquatome.com/seriouslyfish/f60ac405bf885946.webp": "060737e74fc5171f",
   "https://media.aquatome.com/commons/c64e5992947eb70d.webp": "3f7f37c04c4481c2",
   "https://media.aquatome.com/commons/aa86031c5973c927.webp": "16160e77dfeff908",
   "https://media.aquatome.com/commons/67078a8f9eb46c26.webp": "1123070f1717968f",
-  "https://media.aquatome.com/commons/d054741157a74845.webp": "236341cb0f13674f"
+  "https://media.aquatome.com/commons/d054741157a74845.webp": "236341cb0f13674f",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/566172490/large.jpg": "4b736b7773271733",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/566172672/large.jpg": "4343726677760637"
  },
- "commons": "2026-11-09"
+ "commons": "2026-11-09",
+ "inat": {
+  "taxon": 110331,
+  "pass": "done",
+  "after": {
+   "research": 389937960,
+   "agree": 370542654
+  }
+ },
+ "gbif": {
+  "key": 2419343,
+  "next": null
+ }
 }
