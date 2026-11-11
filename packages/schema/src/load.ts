@@ -60,6 +60,11 @@ export type Content = {
   pictureHashes: PictureHashes
   /** The day each content file last changed for a reader (content/page-dates.json): the sitemap's dates. */
   pageDates: Record<string, string>
+  /**
+   * Pictures this build holds back until the watermark screen has judged them (photo-screen.ts), by address, each with its
+   * thumb and larger copy: what names a picture by address alone (the calendar's days) leaves these out too.
+   */
+  waitingPhotos?: string[]
   /** The app's short cards (content/cards, cards.ts) in this language, those the gate holds back left out. No page of their own. */
   cards: Card[]
 }
@@ -112,15 +117,15 @@ async function loadKind<S extends z.ZodType>(root: string, dir: string, schema: 
 
 /** The watermark screen's record, in the engine's state beside the content root. */
 export const PHOTO_SCREEN_FILE = '_photo-watermarks.json'
-const screens = new Map<string, { at: number; record: Promise<Record<string, PhotoScreenEntry>> }>()
+const screens = new Map<string, { at: string; record: Promise<Record<string, PhotoScreenEntry>> }>()
 /**
- * The record beside this content root, read once per change of the file. None where the root has none beside it (a
+ * The record beside this content root, read once per change of the file (its modified time and size). None where the root has none beside it (a
  * fixture, a test's store), unless it is `required`: a missing record must not show the real content's every photo
  * unscreened.
  */
 async function photoScreenOf(root: string, required: boolean): Promise<Record<string, PhotoScreenEntry> | undefined> {
   const file = join(dirname(root), 'engine-state', PHOTO_SCREEN_FILE)
-  const at = await stat(file).then(s => s.mtimeMs, () => undefined)
+  const at = await stat(file).then(s => `${s.mtimeMs} ${s.size}`, () => undefined)
   if (at === undefined) {
     if (required) throw new Error(`${file}: the watermark screen's record is missing, so no photo can be shown as screened`)
     return undefined
@@ -153,6 +158,15 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   // album, a guide or a card, and shows by itself once judged. The engine's own reads see every photo.
   const screen = !publicBuild || opts.photoScreen === false ? undefined
     : typeof opts.photoScreen === 'object' ? opts.photoScreen : await photoScreenOf(root, opts.photoScreen === 'required')
+  // Every picture a build takes from content asks this: a page's, an album's, a guide's and its video sections', a
+  // card's, an equipment guide's. What it holds back is listed (`waitingPhotos`), each with its thumb and larger copy,
+  // for what names a picture by address alone (the calendar).
+  const waiting = new Set<string>()
+  const screened = (p: { url: string; thumb?: string; large?: { url: string } }): boolean => {
+    if (!screen || !awaitsScreen(p.url, screen[p.url])) return true
+    for (const u of [p.url, p.thumb, p.large?.url]) if (u) waiting.add(u)
+    return false
+  }
   const cleanSections = (xs: Section[]) => xs.filter(s => allowed(s.source))
   // Captions written in Vietnamese (galleries, breed photos) are shown in this language from content/captions/<lang>.json;
   // one not translated yet is left off, so the photo's alt text falls back to the page's name.
@@ -186,7 +200,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     return [p]
   }).filter(p => {
     if (publicBuild && setsCookies(p.url)) return false
-    if (screen && awaitsScreen(p.url, screen[p.url])) return false
+    if (!screened(p)) return false
     if (p.generated) return images.publishGenerated && generatedUrls.has(p.url) && generatedApproved(p) && !p.altered?.some(a => a.method === 'mark-removal' || a.method === 'mark-crop')
     if (p.altered?.length) {
       if (!images.publishAltered && !isOwnerCrop(p)) return false
@@ -235,7 +249,8 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     .filter(p => p.sections.length > 0)
   const guides = (await loadKind(root, 'guides', GuideSchema, lang, leaveOutHeld))
     .filter(g => allowed(g.source))
-    .map(g => ({ ...g, photos: cleanPhotos(g.photos) }))
+    // A video's sections show a photo and stills of their own, and a section's photo can lead the guide or a card.
+    .map(g => ({ ...g, photos: cleanPhotos(g.photos), ...(g.video?.figures ? { video: { ...g.video, figures: g.video.figures.map(f => ({ ...f, moments: f.moments.filter(screened), ...(f.photo && !screened(f.photo) ? { photo: undefined } : {}) })) } } : {}) }))
 
   const changelogPath = join(root, 'changelog.json')
   const changelog = (await exists(changelogPath) ? await readJson(changelogPath, ChangelogSchema) : []).filter(e => allowed(e.source))
@@ -248,7 +263,10 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     if (lang !== 'vi' && !(await exists(file))) continue
     const e = await readJson(file, EquipmentSchema)
     const ok = (p: Photo) => cleanPhotos([p]).length > 0
-    equipment.push({ ...e, types: e.types.map(t => (t.photo && !ok(t.photo) ? { ...t, photo: undefined } : t)) })
+    const types = e.types.map(t => (t.photo && !ok(t.photo) ? { ...t, photo: undefined } : t))
+    // Its head picture waits like any other: a type's photo stands in, and with none to stand in the guide waits too.
+    const hero = screened(e.hero) ? e.hero : types.find(t => t.photo)?.photo
+    if (hero) equipment.push({ ...e, hero, types })
   }
 
   const series: Series[] = []
@@ -314,6 +332,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   const allPlaces = await loadKind(root, 'places', PlaceSchema, lang)
   return {
     species, plants, guides, changelog, equipment, series, galleries, products, breeds, cards,
+    ...(waiting.size ? { waitingPhotos: [...waiting].sort() } : {}),
     glossary: await loadKind(root, 'glossary', GlossarySchema, lang),
     // Another language's species pages are still being made: it has the places one of its fish comes from, so no origin
     // page is empty and no link points at one it lacks. Vietnamese has every place.

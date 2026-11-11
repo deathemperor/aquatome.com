@@ -276,6 +276,36 @@ test('a public build shows no photo the watermark screen still owes a look: it w
   record['https://media.test/commons/never-read.webp'] = { ocr: [] }
   await write()
   expect(await shown(true)).toEqual({ own, album: ['commons/album-text', 'commons/album-no-text'] })
+  // What the build holds back is listed for what names a picture by address alone (the calendar); nothing, once judged.
+  const waiting = async () => ((await loadAll({ root: store, lang: 'vi', publicBuild: true })).waitingPhotos ?? []).filter(u => u.startsWith('https://media.test/'))
+  expect(await waiting()).toEqual([])
+
+  // A video guide's section photos and stills, and an equipment guide's head picture, wait the same way.
+  const waits = photo('commons/section-text'), clear = photo('commons/section-no-text')
+  const still = (name: string) => ({ t: 1, url: `https://media.test/${name}.webp`, width: 1280, height: 720, caption: 'c' })
+  const section = (await loadAll({ root: store, lang: 'vi', publicBuild: false })).species.find(x => x.id === 'alpha')!.sections[0]!
+  await mkdir(join(store, 'guides', 'g'), { recursive: true })
+  await writeFile(join(store, 'guides', 'g', 'entity.json'), JSON.stringify({
+    id: 'g', kind: 'care', source: section.source, sourceUrl: 'https://x/g', html: '<h2>One</h2><h2>Two</h2>', photos: [], mentions: [], updatedAt: '2026-11-11',
+    video: { youtubeId: 'abcdefghijk', title: 'T', channel: 'C', channelUrl: 'https://x/c', durationSec: 60, chapters: [], figures: [{ heading: 'One', moments: [still('stills/text'), still('stills/no-text')], photo: waits }, { heading: 'Two', moments: [], photo: clear }] },
+  }))
+  await writeFile(join(store, 'guides', 'g', 'vi.json'), await readFile(join(store, 'species', 'alpha', 'vi.json'), 'utf8'))
+  const equip = (category: string, hero: object, types: object[]) => ({ category, name: category, lead: '', intro: '', hero, types, choose: [], mistakes: [], faq: [] })
+  await mkdir(join(store, 'equipment'))
+  await writeFile(join(store, 'equipment/loc.json'), JSON.stringify(equip('loc', waits, [{ id: 'a', name: 'A', match: 'a', desc: '', pick: '', buy: 'a', photo: clear }])))
+  await writeFile(join(store, 'equipment/den.json'), JSON.stringify(equip('den', waits, [])))
+  Object.assign(record, {
+    [waits.url]: { ocr: text }, [clear.url]: { ocr: [] },
+    'https://media.test/stills/text.webp': { ocr: text }, 'https://media.test/stills/no-text.webp': { ocr: [] },
+  })
+  await write()
+  const c = await loadAll({ root: store, lang: 'vi', publicBuild: true })
+  const figures = c.guides.find(g => g.id === 'g')!.video!.figures!
+  expect(figures.map(f => [f.photo?.url, f.moments.map(m => m.url)])).toEqual([[undefined, ['https://media.test/stills/no-text.webp']], [clear.url, []]])
+  // A type's photo stands in for a head that waits; with none to stand in, the guide waits too.
+  expect(c.equipment.map(e => [e.category, e.hero.url])).toEqual([['loc', clear.url]])
+  expect(await waiting()).toEqual([waits.url, 'https://media.test/stills/text.webp'].sort())
+
   // A build of the real content stops without the record: a missing one must not show every photo unscreened.
   await rm(recordFile)
   await expect(loadAll({ root: store, lang: 'vi', publicBuild: true, photoScreen: 'required' })).rejects.toThrow(/watermark screen's record is missing/)
