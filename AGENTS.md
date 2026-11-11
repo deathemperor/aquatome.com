@@ -11,6 +11,9 @@ and the rules every change follows) before changing the site. Commands and layou
   tests another checkout's build.
 - A bug fix comes with a check that fails without it. Lighthouse budgets (`apps/site/e2e/lighthouse.spec.ts`) only
   tighten.
+- A test's own scratch files go in the system temp folder, which every machine has. `~/.cache/aquatome` is for work worth
+  keeping (the rule under "This Mac" about `/tmp` is about that work, not about tests). On 2026-11-11 five tests made their
+  temp folders under a `~/.cache/aquatome` folder that existed only on this Mac, passed here and would have failed on GitHub.
 
 ## This Mac
 
@@ -42,6 +45,11 @@ Leads, the engine and main's iOS runs share one Mac. A booted simulator is the h
   `ps | grep` into `kill`, or a session without the hook. Other projects on this Mac are the owner's and are never touched.
 - Delete a branch only by its exact name, and only one you made. A pattern (a glob, or a loop over `git for-each-ref`)
   takes other sessions' branches, as one did to four on 2026-11-10 (the chief of staff).
+- A helper or a reviewer that runs anything (a test file, pnpm) does it in its own checkout with its own installation,
+  never in a scratch copy linked to another checkout's `node_modules`. pnpm brings an installation in line with the
+  package files it is run beside, and on 2026-11-11 a reviewer's scratch copy, linked to the main checkout's
+  installation, had pnpm rewrite that shared installation while an engine cycle was running (the chief of staff). A
+  delegate that will run anything is started with its own checkout (`isolation: "worktree"`).
 - Close a Device session when done: `agent-device close --shutdown`. `device_close` alone can leave the simulator running.
 - What's on screen is drawn every frame: WindowServer's compositing was a third of the GPU through the hot hours of
   2026-11-08. Simulators run headless (`xcrun simctl boot`, or xcodebuild's own); opening Simulator.app is refused. Watch
