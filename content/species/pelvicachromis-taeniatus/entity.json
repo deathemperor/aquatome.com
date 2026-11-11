@@ -10,7 +10,8 @@
     "nigeria",
     "cameroon",
     "benin",
-    "lokundje"
+    "lokundje",
+    "benue"
   ],
   "dataCard": {
     "tempC": [
@@ -56,6 +57,10 @@
       {
         "source": "seriouslyfish",
         "value": 2
+      },
+      {
+        "source": "glaser",
+        "value": 2
       }
     ]
   },
@@ -67,6 +72,12 @@
       "html": "<p>The striped kribensis, Pelvicachromis taeniatus, is a cichlid from still and slow-moving forest streams and rivers in Nigeria and Cameroon. Over a dozen morphs are available, including 'Dehane', 'Moliwe', 'Lobe' and 'Nigeria Red', and these should not be cross bred if the lines are to stay pure. A more pronounced upper lip, often bright yellow, separates it from congeners, and unlike most Pelvicachromis the males rival the females in colour.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/pelvicachromis_taeniatus_en/",
+      "html": "<p>Wild-collected P. kribensis from Cameroon (from Nyete and Bipindi) are available, as well as captive-bred \"real\" P. taeniatus: the attractive variety \"Nigeria Red Cheek\" and the classic \"Nigeria Red\". The pictured specimens are wild-collected P. taeniatus that arrived as bycatch from the Benue river in Nigeria. They best fit the colour variety known in the hobby as \"Nigeria Yellow\".</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/pelvicachromis-taeniatus",
@@ -75,8 +86,8 @@
     {
       "key": "distribution",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/pelvicachromis_taeniatus_lokundje__en/",
-      "html": "<p>Numerous variants and local forms of Pelvicachromis taeniatus exist in the western parts of Africa. One of the most beautiful variants is Pelvicachromis taeniatus \"Lokundje\" (a river in the south of Cameroon).</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/pelvicachromis_taeniatus_en/",
+      "html": "<p>Nigeria. The pictured wild-collected specimens came from the Benue river.</p>"
     },
     {
       "key": "habitat",
@@ -135,8 +146,14 @@
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/pelvicachromis_taeniatus_lokundje__en/",
-      "html": "<p>The photo shows an impressive male; a picture of the equally beautiful female is stored in the picture database.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/pelvicachromis_taeniatus_en/",
+      "html": "<p>The names of well-known aquarium fishes have changed once more. For decades the different forms of Pelvicachromis taeniatus were regarded as mere colour varieties of one and the same biological species. A new study now places almost all the \"varieties\" from Cameroon under the taxon Pelvicachromis kribensis. Only one Cameroon \"variety\" proved so distinct that a new species, P. drachenfelsi, was described for it. In the hobby this fish was previously known as P. taeniatus \"Wouri\". The name P. taeniatus should from now on be used only for fishes from Nigeria, although this may not be the last word on the matter.</p><p>All the species and forms mentioned are very beautiful, easy-to-keep aquarium fish.</p>"
+    },
+    {
+      "key": "references",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25c-perchlike-fishes-3-remaining-cichlids-from-africa/pelvicachromis_taeniatus_en/",
+      "html": "<p>Lamboj, A., D. Bartel and E. Dell’ampio (2014): Revision of the Pelvicachromis taeniatus-group (Perciformes), with revalidation of the taxon Pelvicachromis kribensis (Boulenger, 1911) and description of a new species. Cybium v. 38 (no. 3): 205-222.</p>"
     }
   ],
   "photos": [],
@@ -195,5 +212,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-11"
 }

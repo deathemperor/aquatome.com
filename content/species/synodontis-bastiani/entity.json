@@ -8,7 +8,8 @@
   "places": [
     "africa",
     "cote-d-ivoire",
-    "bandama"
+    "bandama",
+    "nigeria"
   ],
   "dataCard": {
     "tempC": [
@@ -24,6 +25,10 @@
       {
         "source": "planetcatfish",
         "value": 20.1
+      },
+      {
+        "source": "glaser",
+        "value": 30
       }
     ]
   },
@@ -35,10 +40,46 @@
       "html": "<p><strong>Scientific name:</strong> Synodontis bastiani Daget, 1948</p><p><strong>Common names:</strong> Bastian's Synodontis, Elfenbein-Fiederbartwels (Germany)</p><p><strong>Type locality:</strong> Bouaffé, Ivory Coast.</p><p><strong>Size:</strong> 20.1 cm (7.9\") SL. FishBase also lists a maximum TL of 28.1 cm.</p><p><strong>Temperature:</strong> 22.0-25.0°C (71.6-77°F)</p><p><strong>IUCN Red List:</strong> Least Concern (last assessed 2006).</p><p><strong>Breeding:</strong> Unreported.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/synodontis_bastiani_en/",
+      "html": "<p>Synodontis bastiani (S. eburneensis is a well-known synonym) can best be recognized by the dark shoulder spot. The body coloration can be plain or spotted, which differs individually. According to the literature it can attain a maximum length of 25-30 cm.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1166",
       "html": "<p>Africa: Sassandra, Bandama and Bia basins (Côte d'Ivoire), also from the Comoe and Agnébi Rivers.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/synodontis_bastiani_en/",
+      "html": "<p>Nigeria.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/synodontis_bastiani_en/",
+      "html": "<p>Spacious tanks with lots of hiding places are essential for keeping these fish. Most Synodontis species attain a maximum length of 15-20 cm in the aquarium.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/synodontis_bastiani_en/",
+      "html": "<p>Regarding water chemistry squeakers are undemanding. They will live happily in any type of tap water.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/synodontis_bastiani_en/",
+      "html": "<p>Food of squeakers is mostly composed of meat; in the wild Synodontis feed on insects, small fish and Aufwuchs.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/synodontis_bastiani_en/",
+      "html": "<p>Squeakers have a complicated social structure. One should always try to keep them in groups. If a Synodontis is caught and held out of the water it makes a loud squeaking sound, which is the reason for the common name of the genus.</p>"
     },
     {
       "key": "dimorphism",
@@ -57,6 +98,12 @@
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1166",
       "html": "<p>All species in the genus Synodontis have a hardened head cap that has attached a process (humeral process) which is situated behind the gill opening and pointed towards the posterior. The dorsal fin and pectoral fins have a hardened first ray which is serrated. Caudal fin is always forked. There is one pair of maxillary barbels, sometimes having membranes and occasionally branched. The two pairs of mandibular barbels are often branched and can have nodes attached. The cone-shaped teeth in the upper jaw are short, S-shaped and movable in the lower jaw. These fish produce audible sounds when disturbed by rubbing the base of the pectoral spine against the pectoral girdle.</p><p>Etymology: According to Cuvier, Synodontis is an \"ancient name for an undetermined fish from the Nile\". It is apparently not derived, as often reported, from syn-, together and odous, tooth, presumed etymology of the lizardfish genus Synodus and in reference to the closely-spaced lower jaw teeth of both genera.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/synodontis_bastiani_en/",
+      "html": "<p>No special juvenile coloration has been described for this species so far. However, the smallest imported individuals still had two light bands on the caudal peduncle, a typical feature of many juvenile squeakers.</p>"
     },
     {
       "key": "references",
@@ -89,5 +136,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-11"
 }

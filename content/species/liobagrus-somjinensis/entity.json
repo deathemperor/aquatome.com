@@ -1,0 +1,119 @@
+{
+  "id": "liobagrus-somjinensis",
+  "scientificName": "Liobagrus somjinensis",
+  "order": "Siluriformes",
+  "family": "Amblycipitidae",
+  "genus": "Liobagrus",
+  "group": "catfish",
+  "places": [
+    "asia",
+    "south-korea",
+    "somjin"
+  ],
+  "dataCard": {
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 18,
+          "max": 22
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
+      }
+    ],
+    "sizeCm": [
+      {
+        "source": "scotcat",
+        "value": 10
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_somjinensis.htm",
+      "html": "<ul><li>IUCN Red List: assessed as Least Concern (IUCN 2019).</li></ul>"
+    },
+    {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_somjinensis.htm",
+      "html": "<p>East Asia: western and southern coasts of Korea and Geogeum Island.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_somjinensis.htm",
+      "html": "<p>L. somjinensis is restricted to rivers flowing to the west coast and Geogeum Island, the Somjin, Dongin and Tamjin rivers (Kim S-h, et al. 2023).</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_somjinensis.htm",
+      "html": "<p>Distinguished from its congeners by the following characters: a relatively long dorsal spine (7.3–12.4 % SL) and outer mental barbel (15.3–21.6 % SL), and a short distance from dorsal-fin insertion to adipose-fin origin (13.5–22.0 % SL).</p><p>Colouration: a broad yellowish, vertical, crescent-shaped band in the middle of the caudal fin; deep black colouration on the outer margin of the dorsal, anal and caudal fins.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_somjinensis.htm",
+      "html": "<p>Etymology: –ensis, suffix denoting place: Somjin River, South Korea, the type locality.</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_somjinensis.htm",
+      "html": "<p>Froese, R. and D. Pauly. Editors. 2023. FishBase. World Wide Web electronic publication. www.fishbase.org, (06/2023).</p><p>Park, J.-Y. and S.-H. Kim, 2010. Liobagrus somjinensis, a new species of torrent catfish (Siluriformes: Amblycipitidae) from Korea. Ichthyol. Explor. Freshwat. 21(4):345-352.</p><p>Won, S.-Y. 2023. Liobagrus somjinensis. The IUCN Red List of Threatened Species 2023.</p>"
+    }
+  ],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/scotcat/08e63d9e7f8256ea.webp",
+      "thumb": "https://media.aquatome.com/scotcat/08e63d9e7f8256ea-480.webp",
+      "width": 500,
+      "height": 137,
+      "licence": "dùng với sự cho phép",
+      "author": "Kim S-h, et al. 2023 / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_somjinensis.htm",
+      "caption": "Liobagrus somjinensis: Male, Somjin River, Namwon-si, South Korea",
+      "source": "scotcat"
+    },
+    {
+      "url": "https://media.aquatome.com/scotcat/21b1c9cf870655d7.webp",
+      "thumb": "https://media.aquatome.com/scotcat/21b1c9cf870655d7-480.webp",
+      "width": 500,
+      "height": 198,
+      "licence": "dùng với sự cho phép",
+      "author": "taek-guen-im / ScotCat",
+      "sourceUrl": "https://www.scotcat.com/amblycipitidae/liobagrus_somjinensis.htm",
+      "caption": "Liobagrus somjinensis",
+      "source": "scotcat"
+    }
+  ],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "suoi",
+      "keywords": [
+        "máy làm mát bể cá",
+        "chiller bể cá nước lạnh"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc bể cá dòng chảy mạnh",
+        "máy tạo sóng bể cá"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-11"
+}

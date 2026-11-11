@@ -1,0 +1,25 @@
+{
+  "slug": "ca-crenicara-punctulatum",
+  "name": "Cá Crenicara punctulatum",
+  "altNames": [
+    "Cá bàn cờ",
+    "Checkerboard cichlid"
+  ],
+  "sections": {
+    "notes:glaser": "<p>Con đực có vây to hẳn ra. Ở cả con đực lẫn con cái, phía trên nắp mang có thể có một đốm cam. Hoa văn trên nắp mang khá giống loài họ hàng gần là Crenicara latruncularium, nhưng công thức vây thì giống hệt C. punctulatum. Dù là quần thể mới hay loài mới thì con Crenicara này cũng rất đẹp.</p>"
+  },
+  "quality": {
+    "score": 0.95,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.95
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-11"
+  }
+}

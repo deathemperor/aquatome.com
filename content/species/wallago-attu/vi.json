@@ -3,7 +3,9 @@
   "name": "Cá leo",
   "altNames": [
     "Cá trực thăng",
-    "Helicopter Catfish"
+    "Helicopter Catfish",
+    "Boal",
+    "Freshwater shark"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<ul><li>Độ khó: Khó, vì loài này cần bể dài ít nhất 2 m.</li></ul>",
@@ -17,19 +19,23 @@
     "behaviour:seriouslyfish": "<p>Chỉ nên nuôi một con riêng một bể. Con cá nào lọt vừa cái miệng rộng của nó là bị nuốt, còn con nào không nuốt được thì thường cũng bị nó giết.</p>",
     "dimorphism:seriouslyfish": "<p>Chưa rõ.</p>",
     "reproduction:seriouslyfish": "<p>Chưa ai cho cá leo đẻ trong bể được, chuyện này dễ hiểu. Nhưng ở Malaysia đã có trại cho chúng đẻ trong ao.</p>",
-    "notes:seriouslyfish": "<p>Cá leo rõ ràng không phải cá cảnh, và may là cá này cũng ít khi được nhập về. Nhưng đôi khi tiệm vẫn có bán cá con. Trông dễ thương đến mấy cũng đừng mua. Cỡ cá lớn khổng lồ không phải rắc rối duy nhất của W. attu, vì miệng nó còn đầy răng nhọn như kim, chĩa ngược vào trong. Lúc cho ăn cá cắn rất dữ, nhất là khi bị cầm nắm, và một con lớn có thể dễ dàng cắn đứt bàn tay, hoặc còn tệ hơn. Nuôi loài này là nguy hiểm thật sự. Chỉ người chơi thật nhiều kinh nghiệm, có đủ điều kiện để nuôi nó cho đúng cách, mới nên tính tới.</p>"
+    "notes:seriouslyfish": "<p>Cá leo rõ ràng không phải cá cảnh, và may là cá này cũng ít khi được nhập về. Nhưng đôi khi tiệm vẫn có bán cá con. Trông dễ thương đến mấy cũng đừng mua. Cỡ cá lớn khổng lồ không phải rắc rối duy nhất của W. attu, vì miệng nó còn đầy răng nhọn như kim, chĩa ngược vào trong. Lúc cho ăn cá cắn rất dữ, nhất là khi bị cầm nắm, và một con lớn có thể dễ dàng cắn đứt bàn tay, hoặc còn tệ hơn. Nuôi loài này là nguy hiểm thật sự. Chỉ người chơi thật nhiều kinh nghiệm, có đủ điều kiện để nuôi nó cho đúng cách, mới nên tính tới.</p>",
+    "quickFacts:glaser": "<p>Wallago attu dài tối đa khoảng 2 m. Trong các loài cá da trơn săn mồi ở châu Á, nó thuộc hàng háu ăn nhất.</p>",
+    "distribution:glaser": "<p>Nguồn gốc: Ấn Độ.</p>",
+    "notes:glaser": "<p>Cái miệng khổng lồ của nó kéo dài ra tận phía sau mắt, bên trong đầy răng nhọn. Bị cầm lên là con cá này cắn ngay những tay câu khó chịu mà không chút ngần ngại. Con mồi đã dính hàm răng ấy thì coi như hết đường thoát. Có lẽ vì vậy mà người theo đạo Hindu dâng loài cá da trơn này cho nữ thần Kali, nữ thần của cái chết và sự hủy diệt, nhưng cũng là nữ thần của sự tái sinh.</p>"
   },
   "quality": {
-    "score": 0.85,
+    "score": 0.8,
     "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.85
+      "seriouslyfish": 0.85,
+      "glaser": 0.8
     }
   },
   "held": {
     "checks": [
       "elsewhere"
     ],
-    "at": "2026-11-10"
+    "at": "2026-11-11"
   }
 }

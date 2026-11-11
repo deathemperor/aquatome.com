@@ -1,0 +1,74 @@
+{
+  "id": "hypostomus-soniae",
+  "scientificName": "Hypostomus soniae",
+  "order": "Siluriformes",
+  "family": "Loricariidae",
+  "genus": "Hypostomus",
+  "group": "catfish",
+  "lNumber": "L137",
+  "places": [
+    "south-america",
+    "brazil",
+    "rio-tapajos"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 20
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l137_hypostomus_soniae_cochliodon_soniae_en/",
+      "html": "<p>The pretty, blue-eyed L137 from the Rio Tapajós is only rarely offered. It is a medium-sized species of Hypostomus that can reach a maximum length of about 20 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l137_hypostomus_soniae_cochliodon_soniae_en/",
+      "html": "<p>Rio Tapajós, Brazil.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l137_hypostomus_soniae_cochliodon_soniae_en/",
+      "html": "<p>The colour of the fish is quite variable. Specimens exist that have rather brown fins, others have spotted fins and again others have bright orange-red fins. The latter might be confused with the similar “Bruno” from Paraguay (code 27510), but L137 can always be identified by the blue eyes, which are unique within the genus Hypostomus.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/l137_hypostomus_soniae_cochliodon_soniae_en/",
+      "html": "<p>Etymology: Hypostomus: from ancient Greek, means “with inferior mouth”. Cochliodon: means “with mussel-shaped tooth”. soniae: dedication name for Sonia Fisch-Muller, curator for fishes at the Museum of Geneva.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 120cm",
+        "bể cá lớn nuôi cá lau kiếng"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy bơm tạo dòng chảy"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá lau kiếng",
+        "viên rau củ cho cá da trơn"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-11"
+}

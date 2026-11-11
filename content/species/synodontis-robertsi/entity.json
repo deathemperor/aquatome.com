@@ -1,0 +1,88 @@
+{
+  "id": "synodontis-robertsi",
+  "scientificName": "Synodontis robertsi",
+  "order": "Siluriformes",
+  "family": "Mochokidae",
+  "genus": "Synodontis",
+  "group": "catfish",
+  "places": [
+    "africa",
+    "democratic-republic-of-the-congo",
+    "lukenie"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 10
+      }
+    ],
+    "lifeYears": [
+      {
+        "source": "glaser",
+        "value": {
+          "min": 10,
+          "max": 10
+        }
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/synodontis_robertsi_en/",
+      "html": "<p>Synodontis robertsi is among the prettiest, smallest and rarest species of Synodontis. It became known to science only in 1974. The maximum length reported is about 10 cm.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/synodontis_robertsi_en/",
+      "html": "<p>As far as is known, it lives exclusively in the river Lukenie, a tributary of the central Congo river, in D. R. Congo.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/synodontis_robertsi_en/",
+      "html": "<p>Squeakers are omnivorous fishes that feed readily on any type of usual fish food.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/synodontis_robertsi_en/",
+      "html": "<p>Against conspecifics and other fish this squeaker is completely peaceful. Squeakers are most active at dawn, but well settled specimens leave their hiding places also during daytime, especially when the fish are fed.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10d-catfishes-from-africa/synodontis_robertsi_en/",
+      "html": "<p>The genus Synodontis is very species-rich, with more than 130 species, all originating from Africa. In their countries of origin most species are used for food. These fish usually become very old in aquaria and easily reach an age of 10 years or more.</p><p>Synodontis: an ancient name for a now unknown species of fish in the Nile river. robertsi: dedication name.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 90cm",
+        "bể cá cộng đồng"
+      ]
+    },
+    {
+      "category": "loc",
+      "keywords": [
+        "lọc thùng bể cá",
+        "máy bơm sục khí"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá nheo đáy",
+        "thức ăn viên chìm"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-11"
+}

@@ -1,0 +1,59 @@
+{
+  "id": "heterocharax-virgulatus",
+  "scientificName": "Heterocharax virgulatus",
+  "order": "Characiformes",
+  "family": "Acestrorhynchidae",
+  "genus": "Heterocharax",
+  "group": "tetras",
+  "places": [
+    "south-america",
+    "venezuela"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 4
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/heterocharax_virgulatus_en/",
+      "html": "<p>The fish grow to about 4 cm long and always swim in closely aggregated schools. They settled in without problems after import.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/heterocharax_virgulatus_en/",
+      "html": "<p>Venezuela.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/heterocharax_virgulatus_en/",
+      "html": "<p>This breathtaking species of tetra was imported from Venezuela for the first time. The brilliant glittering colours (blue, green, violet) vanish completely under flash, or the fish look silvery all over the body, which makes them a real challenge to photograph.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể cá 60cm",
+        "bể cá thủy sinh"
+      ]
+    },
+    {
+      "category": "thuc-an",
+      "keywords": [
+        "thức ăn cá tetra",
+        "thức ăn cá nhỏ"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-11"
+}

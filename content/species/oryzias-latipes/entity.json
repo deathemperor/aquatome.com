@@ -537,6 +537,10 @@
       {
         "source": "aquariumcoop",
         "value": 4
+      },
+      {
+        "source": "glaser",
+        "value": 4
       }
     ],
     "tankCm": [
@@ -579,10 +583,22 @@
       "html": "<p>Oryzias latipes is commonly known as the Medaka or Japanese ricefish. The genus name comes from the Greek word for \"rice\" because these fish are frequently found in rice paddies. This torpedo-shaped fish grows up to 4 cm and often has a blue or silvery eye. Hundreds of colours and varieties have been line bred, such as gold, pearl galaxy, Yokihi orange, Orochi black, blue, Tancho red cap, Miyuki blue and platinum white.</p><p>They are incredibly hardy, peaceful and energetic, which makes them one of the most beginner-friendly fish. In the wild they live only 1–2 years, but in captivity their lifespan can reach up to 5 years.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/oryzias_latipes_en/",
+      "html": "<p>The Japanese Ricefish or Medaka is the typical pet of the Japanese scientists that work on genetics. Uncountable numbers of scientific papers exist about this fish. Nevertheless the wild type of Medaka is a top rarity in the ornamental fish trade. The glittering scales of the fish are very obvious. O. latipes can reach a maximum length of about 4 cm and can be even kept in garden ponds in mild climates.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "aquariumcoop",
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/medaka-rice-fish",
       "html": "<p>Medaka usually sell for a few dollars per fish, but for very rare and desirable strains a clutch of eggs may cost much more. Hobbyists report that ricefish are quite friendly and will come to the front of the tank to beg for food. They have been raised as pet fish in Japan for hundreds of years. In 1994 they became the first vertebrate to mate and lay eggs that hatched in space.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/18-toothcarps-killis-and-livebearers/oryzias_latipes_en/",
+      "html": "<p>Origin: bred.</p>"
     },
     {
       "key": "distribution",
@@ -711,15 +727,15 @@
       "thumb": "https://media.aquatome.com/commons/4f94899e8e811e8e-480.webp",
       "width": 1200,
       "height": 800,
-      "licence": "CC BY-SA 3.0",
-      "author": "根川孝太郎 (Kotaro Negawa)",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kitano_Medaka_Male_by_Hino,_Tokyo.jpg",
-      "caption": "Cá medaka đực vây vàng nhìn nghiêng",
       "large": {
         "url": "https://media.aquatome.com/commons/4f94899e8e811e8e-large.webp",
         "width": 1800,
         "height": 1200
-      }
+      },
+      "licence": "CC BY-SA 3.0",
+      "author": "根川孝太郎 (Kotaro Negawa)",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kitano_Medaka_Male_by_Hino,_Tokyo.jpg",
+      "caption": "Cá medaka đực vây vàng nhìn nghiêng"
     },
     {
       "url": "https://media.aquatome.com/seriouslyfish/5ef06ca703a18172.webp",
@@ -764,39 +780,6 @@
       "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/medaka-rice-fish",
       "caption": "Care Guide for Medaka Rice Fish — Best Cool Water Fish for Beginners - Aquarium Co-Op",
       "source": "aquariumcoop"
-    },
-    {
-      "url": "https://media.aquatome.com/aquariumcoop/a568484d43a43b1c.webp",
-      "thumb": "https://media.aquatome.com/aquariumcoop/a568484d43a43b1c-480.webp",
-      "width": 1000,
-      "height": 667,
-      "licence": "dùng với sự cho phép",
-      "author": "Aquarium Co-op",
-      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/medaka-rice-fish",
-      "caption": "Platinum white Medaka",
-      "source": "aquariumcoop"
-    },
-    {
-      "url": "https://media.aquatome.com/aquariumcoop/e431abda7fb9b3b8.webp",
-      "thumb": "https://media.aquatome.com/aquariumcoop/e431abda7fb9b3b8-480.webp",
-      "width": 1000,
-      "height": 667,
-      "licence": "dùng với sự cho phép",
-      "author": "Aquarium Co-op",
-      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/medaka-rice-fish",
-      "caption": "Medaka living in outdoor mini pond",
-      "source": "aquariumcoop"
-    },
-    {
-      "url": "https://media.aquatome.com/aquariumcoop/54d4fe95b31aeb35.webp",
-      "thumb": "https://media.aquatome.com/aquariumcoop/54d4fe95b31aeb35-480.webp",
-      "width": 1000,
-      "height": 667,
-      "licence": "dùng với sự cho phép",
-      "author": "Aquarium Co-op",
-      "sourceUrl": "https://www.aquariumcoop.com/blogs/aquarium/medaka-rice-fish",
-      "caption": "Medaka rice fish living in planted community tank",
-      "source": "aquariumcoop"
     }
   ],
   "videos": [],
@@ -830,5 +813,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-11"
 }

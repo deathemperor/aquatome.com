@@ -596,6 +596,12 @@
       "html": "<ul><li>Name: Black Military Helmet Snail</li><li>Other names: Black nerite snail, Baseball cap nerite, Red lipped nerite, Dusky nerite, Black Racer Nerite Snail</li><li>Optimal tank size: 40 litres</li><li>Breeding: very difficult</li><li>Nitrate: less than 40 ppm</li><li>Diet: algae eater/omnivore</li><li>Temperament: peaceful</li><li>Colour: from dark olive to almost black</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/neritina_pulligera_en/",
+      "html": "<p>Pitchblack racing snail (Neritina pulligera). Origin: Thailand.</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/neritina-pulligera-detailed-guide-care-diet-and-breeding/",
@@ -644,10 +650,22 @@
       "html": "<p>They are primarily herbivorous. In the wild they mostly eat algae and biofilm on rocks and plants, so keep live plants in the tank to encourage algae growth, and leaves for biofilm. They are one of few nerite species (besides Horned Nerite snails) that may even eat black beard algae.</p><p>Slow-growing large-leaved plants such as Anubias, Cryptocoryne and Java fern are ideal. They can be too heavy for grass-like plants such as dwarf hairgrass and Pogostemon quadrifolius.</p><p>Do not rely on their scavenging alone to survive (unless the tank is huge and full of algae), as they may starve. Supplement with other foods:</p><ul><li>Blanched vegetables (broccoli, cabbage, carrot, cucumber, lettuce, corn, spinach, peas, squash, leafy greens, etc.).</li><li>Fruits (sweet apple, banana, pear, melon, mango, etc.).</li><li>Leaves.</li></ul><p>Calcium is vital for snails, most obviously for shell formation.</p><p>Diet type: mostly herbivore/omnivore. Food preference: algae. Feeding frequency: 2–3 times a week.</p><p>Feeding problems: some aquarists report that their snails eat nothing but algae and biofilm, which becomes a problem once the tank is clean. Algae can be grown on rocks in a separate container:</p><ul><li>Use any transparent container (large bottle, spare tank, etc.).</li><li>Fill it with water from water changes.</li><li>Add many small, clean, aquarium-safe rocks such as marble chips and ceramic filter media.</li><li>Leave it under the strongest lighting available, ideally 24/7.</li><li>Optional: add a fertiliser for plants and/or an airstone to boost algae growth.</li><li>Once the rocks turn green, place a few in the tank for the snails, then repeat.</li></ul><p>Keep training the snails to eat algae wafers and vegetables, giving them time to learn these are food.</p><p>Plant safety: they are safe in planted tanks. They only graze on plant surfaces and have no interest in eating live plants.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/neritina_pulligera_en/",
+      "html": "<p>Like its close relative, the Zebra snail Neritina turrita, this snail is an excellent algae eater.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/neritina-pulligera-detailed-guide-care-diet-and-breeding/",
       "html": "<p>They are non-aggressive, solitary and very shy, and need a calm environment and peaceful tank mates. Like most snails they are nocturnal; activity starts at dusk and gradually stops before sunrise, mainly to avoid visual predators while feeding. At dusk, algae hold maximum nutrients at the end of the photosynthetic period, which suits grazers.</p><p>They are not natural diggers; even if they can burrow in soft substrate, they do not move under it.</p><p>When disturbed or threatened they close the shell completely with the operculum, and it may take time before they move again.</p><p>Social: no. Active: at night. Peaceful: yes. Burrower: no.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/neritina_pulligera_en/",
+      "html": "<p>Experience with this snail is that they do not leave the water, in contrast to other species of the genus.</p>"
     },
     {
       "key": "dimorphism",
@@ -660,6 +678,12 @@
       "source": "aquariumbreeder",
       "sourceUrl": "https://aquariumbreeder.com/neritina-pulligera-detailed-guide-care-diet-and-breeding/",
       "html": "<p>Black Military Helmet snails are not successfully bred in captivity. All available animals are wild-caught, which poses a potential biohazard and depletes natural populations. No successful breeding in laboratory conditions has been reported either. They need brackish water to breed and do not reproduce in freshwater.</p><p>The scarce scientific information says:</p><ul><li>Neritidae have internal fertilisation and encapsulate their eggs afterwards.</li><li>Females can store sperm from males, which permits continuous spawning.</li><li>Eggs are protected in a hard capsule, relatively large (1.4–1.8 mm long).</li><li>Each capsule contains 200 to 300 embryos (veliger larvae).</li><li>Females deposit clusters of 4–39 egg capsules, with about 10 minutes between ovipositions.</li><li>Capsules are usually attached to rocky substrate and to the shells of other snails.</li><li>In nature, females release free-swimming veligers into freshwater, where the current sweeps them into brackish lagoons or the open sea.</li><li>The veligers remain in marine plankton for at least several weeks, completing metamorphosis into small copies of the adults.</li><li>The larvae cannot develop in freshwater.</li><li>The veligers feed on microplankton (phyto- and zooplankton).</li></ul><p>By laying capsules on the shells of other snails, they increase their survival rate. The eggs and markings eventually dissolve in freshwater.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/31-crayfishes-shrimps-crabs-snails-mussels/neritina_pulligera_en/",
+      "html": "<p>The species does not breed in the aquarium.</p>"
     },
     {
       "key": "notes",
@@ -738,5 +762,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-11"
 }

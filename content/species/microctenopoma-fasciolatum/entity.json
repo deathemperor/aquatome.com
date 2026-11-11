@@ -217,6 +217,10 @@
       {
         "source": "seriouslyfish",
         "value": 8
+      },
+      {
+        "source": "glaser",
+        "value": 9
       }
     ],
     "tankCm": [
@@ -240,10 +244,22 @@
       "html": "<p>The banded ctenopoma, Microctenopoma fasciolatum, is an anabantoid from the Congo basin and a handful of rivers in Cameroon. In nature it is found in clear water with plenty of surface and overhanging vegetation. Less shy than M. ansorgei, it is still slow-moving and easily out-competed by boisterous species. Males are territorial. A bubblenester, it has been bred in captivity.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/microctenopoma_fasciolatum_en/",
+      "html": "<p>Microctenopoma fasciolatum, the Striped bushfish, is a dwarf bushfish that is found only very rarely in the trade. It is imported from the D.R. Congo. Maximum length is around 8–9 cm.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/microctenopoma-fasciolatum",
       "html": "<p>Known from the Congo basin in both the Republic of Congo and Democratic Republic of Congo, as well as a handful of rivers in Cameroon.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/microctenopoma_fasciolatum_en/",
+      "html": "<p>D.R. Congo.</p>"
     },
     {
       "key": "habitat",
@@ -276,10 +292,22 @@
       "html": "<p>Small live foods and frozen foods. Dried food is rarely taken.</p>"
     },
     {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/microctenopoma_fasciolatum_en/",
+      "html": "<p>In the wild it feeds on small insects, crustaceans etc. In the aquarium it feeds on all types of dried, frozen and live food.</p>"
+    },
+    {
       "key": "behaviour",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/microctenopoma-fasciolatum",
       "html": "<p>Less shy than M. ansorgei this is still quite a slow-moving fish and will easily be out-competed by more boisterous species at feeding time, so is best kept with small, peaceful species that inhabit the upper and lower parts of the tank such as hatchetfish, lampeyes, corydoras and small loricariids. Males are territorial so a larger tank should be provided if several are to be kept together.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/microctenopoma_fasciolatum_en/",
+      "html": "<p>In care and behaviour it can be compared best with the gouramis of the genera Colisa and Trichogaster. It is a peaceful fish and becomes only a bit quarrelsome during the breeding period, when the bubble nest is built and defended.</p>"
     },
     {
       "key": "dimorphism",
@@ -288,16 +316,34 @@
       "html": "<p>The male has filamentous extensions to the dorsal and anal fins and brighter colouration than the female.</p>"
     },
     {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/microctenopoma_fasciolatum_en/",
+      "html": "<p>Males and females can be distinguished best by the coloration of the fins, which are spotted in males and plain in females. The coloration differs drastically depending on mood. For example, sometimes the fish show a cream white horizontal stripe which cannot be spotted at all in other mood-dependent patterns.</p>"
+    },
+    {
       "key": "reproduction",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/microctenopoma-fasciolatum",
       "html": "<p>Has been achieved in captivity. Bubblenester. A dimly-lit, well-planted aquarium with lots of floating plants and soft, acidic water is required to spawn these fish. Condition them with live food. The male will build a fairly complex bubblenest amongst floating vegetation or under a broad leaf. Spawning occurs under the nest in a typical anabantoid embrace. The eggs hatch in around 24 hours and become free-swimming in 2-3 days. It is best to remove the parents after hatching. The fry are tiny and should be fed infusoria for the first week, after which they will accept brine shrimp nauplii.</p>"
     },
     {
+      "key": "reproduction",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/microctenopoma_fasciolatum_en/",
+      "html": "<p>The fish become sexually mature at about 5 cm total length. Males build and defend a bubble nest.</p>"
+    },
+    {
       "key": "notes",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/microctenopoma-fasciolatum",
       "html": "<p>M. fasciolatum is found in clear water with lots of surface and overhanging vegetation in nature.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/microctenopoma_fasciolatum_en/",
+      "html": "<p>Lexicon: Microctenopoma means \"small Ctenopoma\"; Ctenopoma is another genus of bushfish. fasciolatum means \"striped\".</p>"
     }
   ],
   "photos": [],
@@ -330,5 +376,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-11"
 }

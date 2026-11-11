@@ -4,21 +4,29 @@
   "altNames": [
     "Cá hề Assam",
     "Assamese Clown Catfish",
-    "Clown Catfish"
+    "Clown Catfish",
+    "Cá da trơn hề"
   ],
   "sections": {
     "quickFacts:glaser": "<p>Cá da trơn hề Assam lớn tối đa khoảng 15 cm, nhưng chưa tới 7 cm đã đủ lớn để đẻ. Loài này rất hiếu động. Hầu như không lúc nào thấy nó nằm nghỉ, lúc nào cũng bơi tới bơi lui.</p>",
     "distribution:glaser": "<p>Ấn Độ.</p>",
     "waterConditions:glaser": "<p>Cá da trơn hề thường khá nhạy cảm, vì ngoài tự nhiên chúng sống ở những dòng nước chảy rất sạch. Tuy nhiên, khi đã quen bể thì chúng rất khỏe. Nhiệt độ nước giữ trong khoảng 18–26 °C, pH 6,5–8 và độ cứng 10–30 dGH.</p>",
     "equipment:glaser": "<p>Bể cần có dòng chảy mạnh. Nền rải cát, thêm vài viên đá to.</p>",
-    "behaviour:glaser": "<p>Gagata cenia rất thích sống thành đàn, nên lúc nào cũng phải nuôi theo nhóm.</p>"
+    "behaviour:glaser": "<p>Gagata cenia rất thích sống thành đàn, nên lúc nào cũng phải nuôi theo nhóm.</p>",
+    "quickFacts:scotcat": "<ul><li>Tên thường gọi: Clown Catfish</li><li>Tên đồng nghĩa: Pimelodus cenia</li></ul>",
+    "distribution:scotcat": "<p>Châu Á. Loài này có mặt rộng khắp lưu vực sông Hằng, hệ thống sông Indus và sông Mahanadi. Lưu vực sông Brahmaputra cũng thuộc vùng phân bố của nó. Ngoài ra còn có báo cáo thấy nó ở sông Salween và Myanmar.</p>",
+    "habitat:scotcat": "<p>Ngoài tự nhiên, loài cá này sống ở đáy sông, chỗ nền cát hoặc bùn.</p>",
+    "maintenance:scotcat": "<p>Đây là loài cá hiền. Nuôi thành đàn khoảng 6 con thì hơn, và bể phải có nhiều chỗ bơi. Loài này không thuộc loại dễ nuôi trong bể, nên phải có lọc tốt và sục khí đầy đủ. Dùng nền cát, còn trồng cây hay không thì tùy.</p>",
+    "diet:scotcat": "<p>Chúng ăn đồ tươi sống, thức ăn đông lạnh và thức ăn viên.</p>",
+    "notes:scotcat": "<p>Mô tả: vây lưng có tổng cộng 6 tia mềm. Vây hậu môn có 9–12 tia mềm. Cá có 35–36 đốt sống và đã đủ lớn để đẻ khi chưa tới 7 cm chiều dài chuẩn (SL). Vây hậu môn gồm 4–5 tia đơn và 9–11 tia phân nhánh. Hàm trên và xương cung mang thứ 4 không có răng. Hàm dưới có vài chiếc răng hình nón nằm trong một túi hoặc chỗ lõm gần khớp hai nửa hàm. Nhìn nghiêng thì đầu mõm nhọn, tách khỏi phần còn lại của mõm bằng một khía thấy rõ. Màu sắc: trên lưng có các vệt sẫm hình yên ngựa, chỉ kéo xuống tới đường bên. Vây đuôi có một vạch đen chạy ngang cuống đuôi, và giữa mỗi thùy đuôi có một đốm đen tròn hoặc vuông. Vây lưng có đốm đen ở phần ngoài của mấy tia phía trước.</p><p>Từ nguyên: tên giống Gagata lấy từ kenyakatta, tên người dân vùng Bengal gọi loài cá này. Tên loài cenia cũng bắt nguồn từ tên gọi địa phương của nó (sinia).</p><p>Danh lục đỏ IUCN: thông tin về quần thể toàn cầu và xu hướng biến động của loài này còn ít, nhưng nó vẫn khá phổ biến, nhất là ở hệ thống sông Hằng–Brahmaputra. Hiện chưa thấy mối đe dọa nào rõ rệt, tuy vẫn cần nghiên cứu thêm. Phân loại học của loài cũng cần xem xét lại, chẳng hạn việc nó có mặt ở lưu vực sông Indus tại Pakistan vẫn chưa được xác nhận. Loài được xếp vào mức Ít quan tâm, nhưng đánh giá này cần cập nhật (IUCN 2010).</p>",
+    "references:scotcat": "<p>Baensch, H.A. and R. Riehl, 1991. Aquarien atlas. Bd. 3. Melle: Mergus, Verlag für Natur-und Heimtierkunde, Germany. 1104 p. Froese, R. and D. Pauly. Editors. 2011. FishBase. World Wide Web electronic publication. www.fishbase.org, version. Mahbubur Rahman Sampod pers comm 2023. Ng, H.H. 2010. Gagata cenia. The IUCN Red List of Threatened Species 2010. Roberts, T.R. and C.J. Ferraris Jr., 1998. Review of South Asian sisorid catfish genera Gagata and Nangra, with descriptions of a new genus and five new species. Proc. Calif. Acad. Sci. 50(14):315-345. Talwar, P.K. and A.G. Jhingran, 1991. Inland fishes of India and adjacent countries. Volume 2. A.A. Balkema, Rotterdam, i-xxii + 543-1158, 1 pl.</p>"
   },
   "quality": {
     "score": 0.85,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "glaser": 0.85
-    },
-    "reason": "thin"
+      "glaser": 0.85,
+      "scotcat": 0.85
+    }
   }
 }

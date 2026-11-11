@@ -6,7 +6,9 @@
     "Cá răng chó",
     "Vampire fish",
     "Cachorra",
-    "Pirandirá"
+    "Pirandirá",
+    "Cá răng nanh khổng lồ",
+    "Giant Waterwolve"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<ul><li>Cần bể dài ít nhất 2 m</li></ul>",
@@ -20,13 +22,18 @@
     "behaviour:seriouslyfish": "<p>Loài này dữ, nhất là với đồng loại và những con cá có dáng giống nó. Tốt nhất là nuôi một mình, hoặc nuôi chung với cá lớn sống ở đáy như cá đuối Potamotrygon.</p>",
     "reproduction:seriouslyfish": "<p>Chưa có tư liệu.</p>",
     "notes:seriouslyfish": "<p>Xét cỡ lúc lớn và tập tính ngoài tự nhiên, H. armatus có lẽ không nên nuôi trong bể gia đình. Hiện mới biết có vài người chơi tư nhân đủ điều kiện để nuôi nó lâu dài.</p><p>Đáng tiếc là cá con đôi khi vẫn được đem bán, mà thường không kèm đủ thông tin về cách nuôi lâu dài.</p><p>Loài này còn có các tên gọi khác như 'vampire fish', 'Cachorra' hay 'Pirandirá'. Hai tên sau dùng ở Brazil, và ở đó người ta cũng dùng hai tên này cho các loài cùng chi.</p><p>Người ta hay nhầm nó với H. scomberoides, một loài cùng chi nhỏ hơn. H. scomberoides chỉ lớn tới khoảng 300 mm (30 cm) nên có lẽ hợp với bể cá nhân hơn, nhưng vẫn cần bể rất lớn và cách chăm chuyên biệt.</p><p>Có thể phân biệt loài này với các loài cùng chi qua tổ hợp đặc điểm sau: thân và đầu màu bạc, phía lưng hơi sẫm hơn, các vây trong, phần gốc vây đuôi và vây hậu môn ngả vàng, vây đuôi và vây hậu môn có một dải đen gần mép và viền trắng, phần ngọn các tia vây lưng có sắc tố sẫm.</p><p>Đặc biệt, trong cả chi không loài nào khác có viền trắng ở vây hậu môn và vây đuôi.</p><p>Hydrolycus dễ phân biệt với các chi khác trong họ Cynodontidae. Gốc vây lưng của nó nằm hẳn phía trước đường thẳng đứng kẻ qua gốc vây hậu môn. Thêm vào đó, phần phình theo chiều lưng–bụng của gai mesethmoid nhìn ngang có hình gần tròn, và to ra ở Hydrolycus scomberoides, H. armatus và H. tatauaia.</p><p>Chi này đôi khi được xếp vào phân họ giả định Cynodontinae, cùng với Cynodon và Rhaphiodon. Nhóm này khác các Characiformes còn lại ở một loạt đặc điểm phái sinh, cộng thêm miệng xiên và cặp răng nanh trên xương răng rất phát triển.</p><p>Cặp răng nanh này cắm vừa vào một cặp lỗ tương ứng ở hàm trên, nên cá vẫn ngậm kín miệng được.</p><p>Cynodontinae gồm hai dòng đơn ngành chính. Một dòng là chi Hydrolycus, dòng kia là nhánh gồm các loài Cynodon và Rhaphiodon. Các loài trong phân họ đôi khi được gọi chung là 'cá tetra răng chó'.</p>",
-    "references:seriouslyfish": "<ul><li>W. Jardine (ed.) (1841). The Natural history of fishes of Guiana - Part I. The Naturalists' Library. Vol. 3. W. H. Lizars, Edinburgh, 17-263</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Toledo-Piza, M. (2000). The Neotropical Fish Subfamily Cynodontinae (Teleostei: Ostariophysi: Characiformes): A Phylogenetic Study and a Revision of Cynodon and Rhaphiodon. American Museum Novitates 3286, 1-88</li><li>Toledo-Piza, M., N. A. Menezes and G. M. dos Santos (1999). Revision of the neotropical fish genus Hydrolycus (Ostariophysi: Cynodontinae) with the description of two new species. Ichthyological Exploration of Freshwaters 10(3), 255-280</li></ul>"
+    "references:seriouslyfish": "<ul><li>W. Jardine (ed.) (1841). The Natural history of fishes of Guiana - Part I. The Naturalists' Library. Vol. 3. W. H. Lizars, Edinburgh, 17-263</li><li>Reis, R. E., S. O. Kullander and C. J. Ferraris, Jr. (eds) (2003). Check list of the freshwater fishes of South and Central America. CLOFFSCA. EDIPUCRS, Porto Alegre, i-xi + 1-729</li><li>Toledo-Piza, M. (2000). The Neotropical Fish Subfamily Cynodontinae (Teleostei: Ostariophysi: Characiformes): A Phylogenetic Study and a Revision of Cynodon and Rhaphiodon. American Museum Novitates 3286, 1-88</li><li>Toledo-Piza, M., N. A. Menezes and G. M. dos Santos (1999). Revision of the neotropical fish genus Hydrolycus (Ostariophysi: Cynodontinae) with the description of two new species. Ichthyological Exploration of Freshwaters 10(3), 255-280</li></ul>",
+    "quickFacts:glaser": "<p>Cá sói nước khổng lồ là cá săn mồi chuyên ăn cá. Nó dài tối đa 75 cm và là loài lớn nhất trong bốn loài của chi Hydrolycus. Tên Hydrolycus nghĩa là \"sói nước\", còn armatus nghĩa là \"có giáp\".</p>",
+    "beforeYouBuy:glaser": "<p>Người có bể thật lớn và các thủy cung công cộng rất muốn có loài này. Tiếc là cá lớn khó vận chuyển. Vì thế, dù ngoài tự nhiên chúng không hề hiếm, loài này hầu như không có hàng nhập. Gần đây cá con từ sông Orinoco đã được nhập về nhiều hơn, và cỡ này rất hợp để tập cho quen với đời sống trong bể.</p>",
+    "distribution:glaser": "<p>Sông Orinoco.</p>",
+    "behaviour:glaser": "<p>Hydrolycus rất hiền với đồng loại và với những con cá quá lớn để làm mồi cho nó. Có thể nuôi chúng thành đàn, dù đây là cá săn mồi.</p>"
   },
   "quality": {
     "score": 0.88,
     "indexable": true,
     "bySource": {
-      "seriouslyfish": 0.88
+      "seriouslyfish": 0.88,
+      "glaser": 0.92
     }
   }
 }

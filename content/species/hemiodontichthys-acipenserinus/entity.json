@@ -522,10 +522,6 @@
   "dataCard": {
     "sizeCm": [
       {
-        "source": "glaser",
-        "value": 10
-      },
-      {
         "source": "seriouslyfish",
         "value": 13.5
       }
@@ -573,27 +569,27 @@
   "sections": [
     {
       "key": "quickFacts",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hemiodontichthys_acipenserinus_en/",
-      "html": "<p>This species has been named “Pinocchio cat” in the trade due to its funny looking nose. The species represents the smallest of all mouthbrooding whiptail cats – it usually grows only to 10 cm total length in aquaria – and is thus very well suited for keeping.</p>"
-    },
-    {
-      "key": "quickFacts",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hemiodontichthys-acipenserinus",
       "html": "<p>The Pinocchio whiptail catfish, Hemiodontichthys acipenserinus, is a loricariid from Guyana, French Guiana, Peru, Bolivia and Brazil. Also known as the knob nosed whiptail, it is hard to confuse with any other Loricariid thanks to its diamond shape seen from above and the enlarged tip of its rostrum. Imports often arrive weak from oxygen deprivation and early losses are high, but once acclimatised it is quite easy to keep over the soft sand in which it partially buries itself.</p>"
     },
     {
-      "key": "distribution",
+      "key": "quickFacts",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hemiodontichthys_acipenserinus_en/",
-      "html": "<p>Imported from Peru.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hemiodontichthys_acipenserinus_en-2/",
+      "html": "<p>These strange whiptail catfish, in nature living in a sandy habitat, are regularly imported, although in low numbers.</p>"
     },
     {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hemiodontichthys-acipenserinus",
       "html": "<p>Guyana, French Guiana, Peru, Bolivia and Brazil.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hemiodontichthys_acipenserinus_en-2/",
+      "html": "<p>Peru.</p>"
     },
     {
       "key": "habitat",
@@ -614,6 +610,12 @@
       "html": "<p>There are two essential elements to a setup for this species. The first is a soft, sandy substrate because, in nature, it partially buries itself in the substrate as a form of camouflage. It will fare much better if allowed to do so in the aquarium. The second is a good level of oxygenation, preferably with a degree of water movement. Other decor can include dried leaves (oak and beech are non-toxic and work particularly well), with perhaps some twisted branches (again, beech is good) and the occasional rounded stone for effect. A stringent water change regime is also in order as the species is very sensitive to poor water conditions.</p>"
     },
     {
+      "key": "maintenance",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hemiodontichthys_acipenserinus_en-2/",
+      "html": "<p>This species requires a sandy substrate, in which they can hide themselves. Because this is a shy fish absolute care needs be taken in the choice of tank mates. Catching this fish should be taken with care because of the odontods (little bony hairs on the exoskeleton) on the rostrum. These can be entangled in the fishnet and could damage the fish beyond repair.</p>"
+    },
+    {
       "key": "waterConditions",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hemiodontichthys-acipenserinus",
@@ -624,6 +626,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hemiodontichthys-acipenserinus",
       "html": "<p>Omnivorous but mainly feeds on aquatic invertebrates by nature, so feed plenty of live and frozen foods such as bloodworm, daphnia, chopped earthworm etc. This diet can be supplemented with dried sinking foods and the occasional slice of cucumber or courgette.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hemiodontichthys_acipenserinus_en-2/",
+      "html": "<p>Concerning feeding, this species is not very picky and it will accept all available fish food, like frozen, flake or pellets. Especially freshly hatched brine shrimps are taken eagerly.</p>"
     },
     {
       "key": "behaviour",
@@ -652,6 +660,17 @@
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/seriouslyfish/ac05736ff63c0e2b.webp",
+      "thumb": "https://media.aquatome.com/seriouslyfish/ac05736ff63c0e2b-480.webp",
+      "width": 671,
+      "height": 300,
+      "licence": "dùng với sự cho phép",
+      "author": "Seriously Fish",
+      "sourceUrl": "https://www.seriouslyfish.com/species/hemiodontichthys-acipenserinus",
+      "caption": "Pinocchio Whiptail Catfish (Hemiodontichthys acipenserinus)",
+      "source": "seriouslyfish"
+    },
+    {
       "url": "https://media.aquatome.com/scotcat/4b8c9c2f4a413be7.webp",
       "thumb": "https://media.aquatome.com/scotcat/4b8c9c2f4a413be7-480.webp",
       "width": 500,
@@ -672,17 +691,6 @@
       "sourceUrl": "https://www.scotcat.com/loricariidae/hemiodontichthys_acipenserinus.htm",
       "caption": "Hemiodontichthys acipenserinus",
       "source": "scotcat"
-    },
-    {
-      "url": "https://media.aquatome.com/seriouslyfish/ac05736ff63c0e2b.webp",
-      "thumb": "https://media.aquatome.com/seriouslyfish/ac05736ff63c0e2b-480.webp",
-      "width": 671,
-      "height": 300,
-      "licence": "dùng với sự cho phép",
-      "author": "Seriously Fish",
-      "sourceUrl": "https://www.seriouslyfish.com/species/hemiodontichthys-acipenserinus",
-      "caption": "Pinocchio Whiptail Catfish (Hemiodontichthys acipenserinus)",
-      "source": "seriouslyfish"
     },
     {
       "url": "https://media.aquatome.com/scotcat/3bc3831530865ffd.webp",
@@ -743,5 +751,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-11"
 }

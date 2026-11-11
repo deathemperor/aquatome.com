@@ -58,6 +58,45 @@
       "kept": false
     }
   ],
+  "vi/products/chihiros-a2-series": [
+    {
+      "at": "2026-11-11T04:45:26Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "\"Cỡ 35 cm và cỡ 40 cm có cùng công suất và độ sáng\" is true for the 15 W / 1700 lm figures, but \"chỉ khác nhau ở chiều dài đèn\" ignores the LED count, which is also the same, so it is acceptable; it is a minor inference.",
+        "\"Cần mạnh hơn nữa thì có WRGB2 Slim\" is acceptable, but \"Đèn thường ngắn hơn số cm ghi trên cỡ một chút để đặt vừa lên viền bể\" gives an invented reason. The facts give lengths but not why they are shorter.",
+        "\"Kính bể dày hơn 8 mm thì chân đèn không kẹp vừa\" is an inference. The facts only say the legs clip onto glass up to 8 mm.",
+        "\"Bể kính dày hơn 8 mm cũng nên xem mẫu này\" is a recommendation the facts don't make. The facts only say the A2 Max takes glass up to 12 mm.",
+        "\"Kính bể dày 10 mm thì kẹp được không? Không.\" is a definite claim that goes beyond the facts, which only give an 8 mm maximum.",
+        "\"Chân nghiêng được... Kẹp chân acrylic trong suốt lên viền bể\" is supported. However, \"Cắm hẳn dây nguồn và lắp chân vào đèn cho chắc\" is a loose paraphrase of fitting the cord and legs fully.",
+        "\"Đèn dài 58.5 cm, đặt vừa lên viền bể\" for the A2 601 is supported only for the length. That it fits on the rim is an unsupported assertion.",
+        "\"Chihiros A1: đời cũ, rẻ hơn\" is supported, but \"Bể có nắp kính đậy kín... Không nên\" is a firmer recommendation than the facts, which only say the light isn't designed for use under a closed lid.",
+        "\"Vỏ đèn chỉ đạt chuẩn IP43, tức là chịu được nước bắn\" is supported by the facts."
+      ],
+      "attempt": "rewrite",
+      "kept": false
+    },
+    {
+      "at": "2026-11-11T04:45:26Z",
+      "model": "sonnet",
+      "score": 0.62,
+      "notes": [
+        "\"Bảng phiên bản cho thấy cỡ 35 cm và cỡ 40 cm có cùng công suất và độ sáng\" is wrong: 35 cm is 15 W, 1700 lm and 40 cm is also 15 W, 1700 lm. They match, but the 35 and 40 cm models also differ in LED count? No, both have 40 LEDs. This is correct, but \"chỉ khác nhau ở chiều dài đèn\" is fine.",
+        "\"Cần mạnh hơn nữa thì có WRGB2 Slim\" is placed after A2 Max, and that is supported.",
+        "\"Số trong tên mẫu chính là chiều dài bể... Các cỡ còn lại cũng đặt tên theo cách đó\" is a generalisation. The facts say the 35 cm model is 351/361, 45 cm is 451 and 50 cm is 501. The naming rule does not hold for 361, and the shop confusion makes it unreliable.",
+        "\"Kẹp chân acrylic trong suốt lên viền bể\" is given as an install step for every unit. The facts only say clear acrylic legs clamp on the rim, which is acceptable.",
+        "\"Muốn treo đèn cao hơn thì phải mua chân nâng\" and \"treo cao hơn mặt bể\" go beyond the facts. The facts say riser legs are sold separately, but not that they are for hanging the light higher.",
+        "\"Bể có nắp đậy kín\" and \"Có hai kiểu bể không hợp với đèn này\" present the 8 mm glass limit as a hard exclusion. This is reasonable, but the page does not mention the IP43 splash-resistance spec.",
+        "\"A1... đời cũ, rẻ hơn\" is supported by the facts.",
+        "\"đủ để trồng cây trải nền như trân châu\" is stated as a causal claim. The facts only say a shop says it can grow carpeting plants.",
+        "\"Vài người dùng gặp lỗi này thỉnh thoảng\" slightly generalises the report from owners.",
+        "\"hộp có kèm chân nối dài\" for the A2 Max is supported as \"comes with extension legs\"."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/products/chihiros-c-ii": [
     {
       "at": "2026-11-07T03:38:14Z",

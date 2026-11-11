@@ -502,6 +502,7 @@
   "Aff kriegi": null,
   "Aff metae": null,
   "Aff mirifica": null,
+  "Aff rostrata": null,
   "Aff tigrinus": null,
   "Aff trilineata": null,
   "Africa became": null,
@@ -22373,6 +22374,13 @@
     "genus": "Pseudomugil",
     "matchType": "EXACT"
   },
+  "Popondetta furcata": {
+    "canonicalName": "Pseudomugil furcatus",
+    "order": "Atheriniformes",
+    "family": "Pseudomugilidae",
+    "genus": "Pseudomugil",
+    "matchType": "EXACT"
+  },
   "Popta described": null,
   "Poptella paraguayensis": {
     "canonicalName": "Poptella paraguayensis",
@@ -24686,6 +24694,13 @@
     "order": "Siluriformes",
     "family": "Heptapteridae",
     "genus": "Rhamdia",
+    "matchType": "EXACT"
+  },
+  "Rhamphichthys rostratus": {
+    "canonicalName": "Rhamphichthys rostratus",
+    "order": "Gymnotiformes",
+    "family": "Rhamphichthyidae",
+    "genus": "Rhamphichthys",
     "matchType": "EXACT"
   },
   "Rhaphiodon vulpinus": {

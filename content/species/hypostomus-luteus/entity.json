@@ -10,7 +10,8 @@
     "brazil",
     "rio-pelotas",
     "uruguay",
-    "uruguay-river"
+    "uruguay-river",
+    "paraguay"
   ],
   "range": {
     "native": {
@@ -165,6 +166,12 @@
       "html": "<ul><li>Common name: none</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypostomus_luteus_en-2/",
+      "html": "<p>Hypostomus luteus is considered the most beautiful of all plecos. Only fully grown specimens display the reddish-yellow coloration, whereas young fish are black with light spots.</p>"
+    },
+    {
       "key": "distribution",
       "source": "planetcatfish",
       "sourceUrl": "https://www.planetcatfish.com/common/species.php?species_id=1034",
@@ -175,6 +182,12 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_luteus.htm",
       "html": "<p>South America: Brazil, upper Uruguay River basin. Type locality: Rio Pelotas, Volta Grande 2, Marcelino Ramos, RS, Brazil. The holotype is in the personal collection of M. Godoy.</p><p>Hypostomus luteus is endemic to Brazil, occurring in the Uruguay, Canoas, Pelotas, Forquilha, Passo Fundo, Ijuí and Jaguari rivers, in the upper Uruguay River basin. The species is widely distributed, frequent, but not very abundant. As no significant threats to its population have been detected, Hypostomus luteus has been categorised as Least Concern (LC) (IUCN 2022).</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypostomus_luteus_en-2/",
+      "html": "<p>Origin: Paraguay.</p>"
     },
     {
       "key": "aquariumSize",
@@ -199,6 +212,12 @@
       "source": "scotcat",
       "sourceUrl": "https://www.scotcat.com/loricariidae/hypostomus_luteus.htm",
       "html": "<p>Will eat all manner of foods in the aquarium: vegetables, tablet and pellet foods and good-quality flake.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/hypostomus_luteus_en-2/",
+      "html": "<p>Young fish are black with light spots; fully grown fish are reddish-yellow.</p>"
     },
     {
       "key": "reproduction",
@@ -318,5 +337,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-03"
+  "updatedAt": "2026-11-11"
 }

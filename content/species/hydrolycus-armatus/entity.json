@@ -620,6 +620,10 @@
       {
         "source": "seriouslyfish",
         "value": 66
+      },
+      {
+        "source": "glaser",
+        "value": 75
       }
     ],
     "tankCm": [
@@ -643,16 +647,34 @@
       "html": "<ul><li>Needs a tank at least 2 m long</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hydrolycus_armatus_en-2/",
+      "html": "<p>The Giant Waterwolve is a fish-eating predator that attains a maximum length of 75 cm and is the largest species of the four members of the genus Hydrolycus. Hydrolycus means \"water wolf\"; armatus means \"armoured\".</p>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hydrolycus-armatus",
       "html": "<p>Needs a tight-fitting lid as this species is known to jump.</p><p>The payara, Hydrolycus armatus, is a large, predatory dogtooth characin from the eastern Amazon, the Orinoco and the Essequibo in Guyana. Given its eventual size and natural behaviour it probably should not be considered a home aquarium subject at all, though juveniles are sometimes sold. It is regularly confused with the smaller H. scomberoides, and no other member of the genus has white margins to the anal and caudal fins.</p>"
     },
     {
+      "key": "beforeYouBuy",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hydrolycus_armatus_en-2/",
+      "html": "<p>This animal is much sought after by owners of really big tanks and public aquaria; sadly larger specimens are difficult to transport, which is why this fish, although anything but rare in the wild, is hardly ever imported. Juveniles from the Orinoco have now been imported in larger numbers and are perfectly suited for acclimatization in aquaria.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hydrolycus-armatus",
       "html": "<p>Type locality is 'sandbars in vicinity of Maipuri campsite, 4°34'N, 58°35'W, Essequibo River, Guyana', with current records suggesting it to occur in the eastern Amazon basin in Brazil, Río Orinoco in Venezuela and Essequibo drainage in Guyana.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hydrolycus_armatus_en-2/",
+      "html": "<p>Orinoco.</p>"
     },
     {
       "key": "habitat",
@@ -689,6 +711,12 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/hydrolycus-armatus",
       "html": "<p>This species is aggressive, especially towards conspecifics and similar-looking fishes, so is best-maintained alone or alongside large benthic fishes such as Potamotrygon spp.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/hydrolycus_armatus_en-2/",
+      "html": "<p>Towards conspecifics and other fish that are too big to be seen as prey, Hydrolycus are absolutely peaceful. It is possible to keep a group of these predators.</p>"
     },
     {
       "key": "reproduction",
@@ -751,5 +779,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-08"
+  "updatedAt": "2026-11-11"
 }

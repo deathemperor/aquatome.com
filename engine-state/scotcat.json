@@ -537,6 +537,46 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/amblycipitidae/liobagrus_somjinensis.htm": {
+    "entityIds": [
+      "species/liobagrus-somjinensis"
+    ],
+    "updatedAt": "2026-11-11T02:51:54.945Z",
+    "hash": "ceb6389f9df0106ea4b72a86d0c62286007339563b3d85977311433babccfa6d",
+    "processedHash": "ceb6389f9df0106ea4b72a86d0c62286007339563b3d85977311433babccfa6d",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/amblycipitidae/liobagrus_styani.htm": {
+    "entityIds": [
+      "species/liobagrus-styani"
+    ],
+    "updatedAt": "2026-11-11T02:53:33.422Z",
+    "hash": "327042eaac1231ae5c81b877ffc345ede67dedb4973842bf76f6503ad0b771ba",
+    "processedHash": "327042eaac1231ae5c81b877ffc345ede67dedb4973842bf76f6503ad0b771ba",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/amblycipitidae/xiurenbagrus_dorsalis.htm": {
+    "entityIds": [
+      "species/xiurenbagrus-dorsalis"
+    ],
+    "updatedAt": "2026-11-11T02:54:43.799Z",
+    "hash": "5b3a14fe7417e805abbf037a86da7986de201cd963c9aa4db20fa30d168af056",
+    "processedHash": "5b3a14fe7417e805abbf037a86da7986de201cd963c9aa4db20fa30d168af056",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/amblycipitidae/xiurenbagrus_gigas.htm": {
+    "entityIds": [
+      "species/xiurenbagrus-gigas"
+    ],
+    "updatedAt": "2026-11-11T02:56:52.704Z",
+    "hash": "4ada323a843ac2440aa16457bf2fbe8c34f3ab37769da48f5aa2bddc8ea9c3a0",
+    "processedHash": "4ada323a843ac2440aa16457bf2fbe8c34f3ab37769da48f5aa2bddc8ea9c3a0",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/anchariidae/ancharius_fuscus.htm": {
     "entityIds": [
       "species/ancharius-fuscus"
@@ -594,6 +634,16 @@
     "updatedAt": "2026-11-09T20:44:02.876Z",
     "hash": "7a7e99ae8b9b2b62ea96c81e4f8ebf74a238a85587a6abac6777d61d3639bea0",
     "processedHash": "7a7e99ae8b9b2b62ea96c81e4f8ebf74a238a85587a6abac6777d61d3639bea0",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/aspredinidae/xyliphius_lepturus.htm": {
+    "entityIds": [
+      "species/xyliphius-lepturus"
+    ],
+    "updatedAt": "2026-11-11T02:48:32.119Z",
+    "hash": "f9dd4916c7d617e9f799cc49f1e10e9390a640ebedf085cfdddec4b9cbe6fc98",
+    "processedHash": "f9dd4916c7d617e9f799cc49f1e10e9390a640ebedf085cfdddec4b9cbe6fc98",
     "status": "processed",
     "attempts": 0
   },
@@ -684,6 +734,16 @@
     "updatedAt": "2026-11-10T15:00:04.378Z",
     "hash": "8b7970214e8ba885d61dfb588d7a35ada8ad0bb6be36ed2b55517bd66669b069",
     "processedHash": "8b7970214e8ba885d61dfb588d7a35ada8ad0bb6be36ed2b55517bd66669b069",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/auchenipteridae/tympanopleura_atronasus.htm": {
+    "entityIds": [
+      "species/tympanopleura-atronasus"
+    ],
+    "updatedAt": "2026-11-11T02:45:17.462Z",
+    "hash": "0550c61d9287036eb3729d92e4c9a4ddcd0e736e5faefeea033b99e07a2b2ca0",
+    "processedHash": "0550c61d9287036eb3729d92e4c9a4ddcd0e736e5faefeea033b99e07a2b2ca0",
     "status": "processed",
     "attempts": 0
   },
@@ -1855,6 +1915,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/pimelodidae/zungaro_zungaro.htm": {
+    "entityIds": [
+      "species/zungaro-zungaro"
+    ],
+    "updatedAt": "2026-11-11T02:50:04.960Z",
+    "hash": "e8c4168fc6db3c44c482867a061515ebb09ca87cfb48d618e5a94708046c623a",
+    "processedHash": "e8c4168fc6db3c44c482867a061515ebb09ca87cfb48d618e5a94708046c623a",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/pseudopimelodidae/batrochoglanis_raninus.htm": {
     "entityIds": [
       "species/batrochoglanis-raninus"
@@ -1955,6 +2025,16 @@
     "status": "processed",
     "attempts": 0
   },
+  "https://www.scotcat.com/sisoridae/gagata_cenia.htm": {
+    "entityIds": [
+      "species/gagata-cenia"
+    ],
+    "updatedAt": "2026-11-11T02:41:33.985Z",
+    "hash": "5d78176ce50d08a8a3ea2676158b86cd1df1a68009150bae2f742ab38817bc6d",
+    "processedHash": "5d78176ce50d08a8a3ea2676158b86cd1df1a68009150bae2f742ab38817bc6d",
+    "status": "processed",
+    "attempts": 0
+  },
   "https://www.scotcat.com/trichomycteridae/listrura_nematopteryx.htm": {
     "entityIds": [
       "species/listrura-nematopteryx"
@@ -2032,6 +2112,36 @@
     "updatedAt": "2026-11-10T20:59:11.787Z",
     "hash": "27e4322ddb6bcc10ace7dc7f1432809ad6e0406c7063175b56e36d94ffbfc19f",
     "processedHash": "27e4322ddb6bcc10ace7dc7f1432809ad6e0406c7063175b56e36d94ffbfc19f",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/trichomycteridae/trichomycterus_itatiayae.htm": {
+    "entityIds": [
+      "species/trichomycterus-itatiayae"
+    ],
+    "updatedAt": "2026-11-11T02:43:19.789Z",
+    "hash": "dcde45655135edcaad31f4f49e90a1e42d805f55af7aa3e54fdf06ed4a2e7e27",
+    "processedHash": "dcde45655135edcaad31f4f49e90a1e42d805f55af7aa3e54fdf06ed4a2e7e27",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/trichomycteridae/trichomycterus_mirissumba.htm": {
+    "entityIds": [
+      "species/trichomycterus-mirissumba"
+    ],
+    "updatedAt": "2026-11-11T02:44:12.966Z",
+    "hash": "f3aa796b22ec5caf692fbd1d33ae7a3569cc6282b25c68df218c9a0bf50c0ce2",
+    "processedHash": "f3aa796b22ec5caf692fbd1d33ae7a3569cc6282b25c68df218c9a0bf50c0ce2",
+    "status": "processed",
+    "attempts": 0
+  },
+  "https://www.scotcat.com/trichomycteridae/vandellia_sanguinea.htm": {
+    "entityIds": [
+      "species/vandellia-sanguinea"
+    ],
+    "updatedAt": "2026-11-11T02:46:52.346Z",
+    "hash": "3c26b55794695801dd0297c415f4baae8ac860c005f97b98a691353d42243b02",
+    "processedHash": "3c26b55794695801dd0297c415f4baae8ac860c005f97b98a691353d42243b02",
     "status": "processed",
     "attempts": 0
   }

@@ -339,6 +339,12 @@
       "html": "<p>An ideal species for the newcomer to 'oddballs'. It is exceptionally hardy, long-lived (it can survive for over 15 years when cared for properly) and exhibits some interesting behaviour. It appears to have evolved convergently with leaf fish of the genera Polycentrus and Monocirrhus (they're not closely related). All these species mimic leaves and other aquatic debris to assist them in hunting their prey. If you add live food to its tank, you will see the typical stalking behaviour, which is great fun to watch.</p><p>It goes by several common names, and is often sold as 'spotted climbing perch'. While it is indeed related to Anabas species, it is not known to have the ability to cross areas of dry ground.</p><p>Like others in the suborder Anabantoidei, the species possesses an accessory breathing organ known as the labyrinth organ. So-called due to its maze-like structure, this organ allows the fish to breathe atmospheric air to a certain extent. It is formed by a modification of the first gill arch, and consists of many highly vascularised, folded flaps of skin. The structure of the organ varies in complexity between species, tending to be more well-developed in those inhabiting particularly oxygen-deprived conditions.</p>"
     },
     {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25a-perchlike-fishes-1-labyrinth-fishes/ctenopoma_acutirostre_wild_en-2/",
+      "html": "<p>The current import from the D. R. Congo also contained some wild-collected leopard bushfish. This species has been available as bred fish from Indonesia in recent years, but wild-collected ones are very rare in the trade. The animals show an extremely variable pattern, and each individual has a different coloration. One of the fish even has regular stripes on the sides – this has never been seen in C. acutirostre before.</p><p>Available in limited numbers only.</p>"
+    },
+    {
       "key": "references",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/ctenopoma-acutirostre",
@@ -348,28 +354,28 @@
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/0cc00e4e5bfef51a.webp",
+      "thumb": "https://media.aquatome.com/commons/0cc00e4e5bfef51a-480.webp",
       "width": 960,
       "height": 796,
-      "licence": "CC BY-SA 3.0",
-      "author": "Zaire",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Leopard-Buschfisch.jpg",
-      "caption": "Leopard-Buschfisch (Ctenopoma acutirostre)",
-      "thumb": "https://media.aquatome.com/commons/0cc00e4e5bfef51a-480.webp",
       "large": {
         "url": "https://media.aquatome.com/commons/0cc00e4e5bfef51a-large.webp",
         "width": 994,
         "height": 824
-      }
+      },
+      "licence": "CC BY-SA 3.0",
+      "author": "Zaire",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Leopard-Buschfisch.jpg",
+      "caption": "Leopard-Buschfisch (Ctenopoma acutirostre)"
     },
     {
       "url": "https://media.aquatome.com/commons/b8a8f138a548e04c.webp",
+      "thumb": "https://media.aquatome.com/commons/b8a8f138a548e04c-480.webp",
       "width": 960,
       "height": 720,
       "licence": "Public domain",
       "author": "Karelj",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ctenopoma_acutirostre_1.JPG",
-      "caption": "Ctenopoma acutirostre. Photo taken in Prague (Czech Republic).",
-      "thumb": "https://media.aquatome.com/commons/b8a8f138a548e04c-480.webp"
+      "caption": "Ctenopoma acutirostre. Photo taken in Prague (Czech Republic)."
     }
   ],
   "videos": [],
@@ -403,5 +409,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-11"
 }

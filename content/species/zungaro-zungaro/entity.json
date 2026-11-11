@@ -10,13 +10,38 @@
     "brazil",
     "amazon",
     "venezuela",
-    "orinoco"
+    "orinoco",
+    "peru",
+    "asia",
+    "thailand"
   ],
   "dataCard": {
     "sizeCm": [
       {
         "source": "glaser",
         "value": 140
+      },
+      {
+        "source": "scotcat",
+        "value": 140
+      }
+    ],
+    "tempC": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 20,
+          "max": 24
+        }
+      }
+    ],
+    "ph": [
+      {
+        "source": "scotcat",
+        "value": {
+          "min": 6,
+          "max": 7.5
+        }
       }
     ]
   },
@@ -28,10 +53,22 @@
       "html": "<p>Zungaro zungaro is one of the largest catfish species of South America. It reaches a length of up to 140 cm and a weight of up to 50 kg.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/zungaro_zungaro.htm",
+      "html": "<ul><li>Common names: Gilded catfish, Jau cat</li></ul>"
+    },
+    {
       "key": "beforeYouBuy",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/zungaro-zungaro-2/",
       "html": "<p>Such giants are only suitable for zoos, show aquariums and specialists with correspondingly large tanks. Juveniles of 15-20 cm length, still carrying the juvenile markings, have been imported from Brazil.</p>"
+    },
+    {
+      "key": "beforeYouBuy",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/zungaro_zungaro.htm",
+      "html": "<p>Not suited to the home aquarium due to its final adult size and its predatory instincts.</p>"
     },
     {
       "key": "distribution",
@@ -40,10 +77,52 @@
       "html": "<p>Z. zungaro occurs in the Amazon and Orinoco rivers. The very similar Z. jahu, which grows to exactly the same size, comes from the Paraná-Paraguay system.</p>"
     },
     {
+      "key": "distribution",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/zungaro_zungaro.htm",
+      "html": "<p>South America: Amazon and Orinoco River basins. Introduced to fishing lakes in Thailand. Type locality: Tomependa, Río Marañon [Amazon River basin, Peru].</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/zungaro_zungaro.htm",
+      "html": "<p>In the Amazon, this fish is found quite far upstream, in the main bed of the big tributaries with muddy bottom. Mainly piscivorous, it hunts at night, sometimes going into flood-prone areas of rivers. Some migrations in pursuit of migrating Triportheus and Anodus have been reported.</p>"
+    },
+    {
+      "key": "diet",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/zungaro_zungaro.htm",
+      "html": "<p>Mainly piscivorous.</p>"
+    },
+    {
+      "key": "dimorphism",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/zungaro_zungaro.htm",
+      "html": "<p>The adults are olive green with a white belly region, with villiform conical teeth in the palate and the pterygoid bone, forming developed patches. Juveniles and sub-adults are spotted and the adults are usually without spots. As this species grows the barbels shorten in length in relation to body size.</p>"
+    },
+    {
+      "key": "reproduction",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/zungaro_zungaro.htm",
+      "html": "<p>Sexually mature upon reaching 10 kg weight. The nursery ground is at the river mouths.</p>"
+    },
+    {
       "key": "notes",
       "source": "glaser",
       "sourceUrl": "https://www.aquariumglaser.de/en/10-catfishes/zungaro-zungaro-2/",
       "html": "<p>There were all kinds of debates about its name; for a long time it sailed under Pseudopimelodus zungaro or Paulicea luetkeni. Because of its gigantic size the species is difficult to study, and it undergoes an enormous colour change from a leopard-like patterned juvenile to a monochrome grey giant.</p><p>DNA studies suggest that there are other species besides the two generally recognized Zungaro species.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/zungaro_zungaro.htm",
+      "html": "<p>This large South American pim has been introduced to some fishing lakes in Thailand. Robust body with quadrangular and depressed head. Dorsal fin rays 1-6. Specimens measuring 130 cm and weighing 50 kg are not rare.</p><p>Etymology: The specific name zungaro comes from the native name \"Zungaro\", which is applied to many large pimelodids.</p><p>IUCN Red List: despite the little information available on this species, it has a wide range and no apparent threats. Therefore, it is assessed as Least Concern (IUCN 2023).</p>"
+    },
+    {
+      "key": "references",
+      "source": "scotcat",
+      "sourceUrl": "https://www.scotcat.com/pimelodidae/zungaro_zungaro.htm",
+      "html": "<p>Conservación Internacional; seris de Guías Tropicales De Campo. Pecos del medio Amazonas Región de Leticia. 546 p. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Froese, R. and D. Pauly. Editors. 2009. FishBase.World Wide Web electronic publication.www.fishbase.org, version (09/2010). Grant, S. 1999 (29 Dec.) [ref. 24295] Pseudopimelodus, Bleeker, 1858 &amp; some related genera (Siluriformes: Pimelodidae). Catfish Compendium: 44-58. Salvador, G.N. 2023. Zungaro zungaro. The IUCN Red List of Threatened Species 2023. Silfvergrip, A.M.C., 1992. Zungaro, a senior synonym of Paulicea (Teleostei: Pimelodidae). Ichthyol. Explor. Freshwat. 3(4):305-310.</p>"
     }
   ],
   "photos": [
@@ -104,5 +183,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-02"
+  "updatedAt": "2026-11-11"
 }

@@ -757,10 +757,22 @@
       "html": "<p>The flag cichlid, Mesonauta festivus, is a cichlid recorded from Venezuela, Peru, Brazil, Bolivia and Paraguay. It lives in well planted, slower-moving waters. Flag cichlids are found in most aquatic stores, but the fish usually sold under the name is M. insignis. It is peaceful, but becomes more aggressive when breeding.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/mesonauta_festivus_en/",
+      "html": "<p>Wild-collected flag cichlids from Brazil. M. festivus is usually not kept for its coloration, which is not very spectacular, but for its interesting and peaceful behaviour.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/mesonauta-festivus",
       "html": "<p>Widespread through much of South America, it's been recorded from Peru, Brazil, Bolivia and Paraguay. It's found in numerous river drainages, including the Rio Tapajós, Rio Jamari, Rio Madre de Dios, Rio Guaporé, Rio Mamoré, Rio Paraguay and Rio Paraná.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/mesonauta_festivus_en/",
+      "html": "<p>Origin: Brazil.</p>"
     },
     {
       "key": "habitat",
@@ -799,6 +811,12 @@
       "html": "<p>Peaceful cichlid, although becomes more aggressive when breeding. Can be kept with other peaceful cichlids such as geophagus and apistogramma and other peaceful community species such as tetras, barbs and small catfish.</p>"
     },
     {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/mesonauta_festivus_en/",
+      "html": "<p>The fish are very curious and tame. Mesonauta usually are rather shy during the phase of acclimatization.</p>"
+    },
+    {
       "key": "dimorphism",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/mesonauta-festivus",
@@ -815,38 +833,44 @@
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/mesonauta-festivus",
       "html": "<p>Flag Cichlids are enduringly popular in the hobby and can be found in most aquatic stores. Interestingly, this species is not the species most commonly sold as the Flag cichlid. It is usually M. insignis that makes it into dealers' tanks.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/mesonauta_festivus_en/",
+      "html": "<p>The animals have a very interesting blue pattern in the face, and the scales show an attractive blue shine.</p><p>Lexicon: Mesonauta: composed from the words for \"middle\" and \"sailor\"; the meaning of the name is unknown. festivus: means \"pretty\".</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/caf353eeb8b0331f.webp",
+      "thumb": "https://media.aquatome.com/commons/caf353eeb8b0331f-480.webp",
       "width": 960,
       "height": 706,
       "licence": "CC BY-SA 3.0",
       "author": "Citron",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mesonauta_festivus.jpg",
-      "caption": "Mesonauta festivus",
-      "thumb": "https://media.aquatome.com/commons/caf353eeb8b0331f-480.webp"
+      "caption": "Mesonauta festivus"
     },
     {
       "url": "https://media.aquatome.com/commons/3d21452665f2f5c8.webp",
+      "thumb": "https://media.aquatome.com/commons/3d21452665f2f5c8-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY-SA 4.0",
       "author": "Cesar Augusto Chirosa Horie",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:REBIO_do_Uatuma_Cesar_Augusto_Chirosa_Horie_(09).jpg",
-      "caption": "Reserva Biológica do Uatumã de nível Federal, localizado (a) em Urucará (AM), São Sebastião do Uatumã (AM), Presidente Figueiredo (AM)",
-      "thumb": "https://media.aquatome.com/commons/3d21452665f2f5c8-480.webp"
+      "caption": "Reserva Biológica do Uatumã de nível Federal, localizado (a) em Urucará (AM), São Sebastião do Uatumã (AM), Presidente Figueiredo (AM)"
     },
     {
       "url": "https://media.aquatome.com/commons/b0e952bdecea3b23.webp",
+      "thumb": "https://media.aquatome.com/commons/b0e952bdecea3b23-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY-SA 4.0",
       "author": "Cesar Augusto Chirosa Horie",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:REBIO_do_Uatuma_Cesar_Augusto_Chirosa_Horie_(10).jpg",
-      "caption": "Reserva Biológica do Uatumã de nível Federal, localizado (a) em Urucará (AM), São Sebastião do Uatumã (AM), Presidente Figueiredo (AM)",
-      "thumb": "https://media.aquatome.com/commons/b0e952bdecea3b23-480.webp"
+      "caption": "Reserva Biológica do Uatumã de nível Federal, localizado (a) em Urucará (AM), São Sebastião do Uatumã (AM), Presidente Figueiredo (AM)"
     }
   ],
   "videos": [],
@@ -876,5 +900,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-11"
 }

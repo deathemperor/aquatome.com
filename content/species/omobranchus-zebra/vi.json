@@ -1,0 +1,32 @@
+{
+  "slug": "ca-blenny-zebra",
+  "name": "Cá blenny zebra",
+  "altNames": [
+    "Cá blenny vằn",
+    "Zebra blenny"
+  ],
+  "sections": {
+    "distribution:glaser": "<p>Loài này phân bố rộng dọc bờ biển vùng Ấn Độ – Tây Thái Bình Dương, từ vịnh Bengal ở phía tây sang tới Singapore ở phía đông.</p>",
+    "habitat:glaser": "<p>Cá hầu như chỉ sống ở nước lợ và nước ngọt, dù nghe nói chúng chịu được cả nước biển hoàn toàn. Chúng đẻ trong các hốc dưới đáy ở vùng rừng ngập mặn. Ấu trùng thì lớn lên ngoài biển.</p>",
+    "waterConditions:glaser": "<p>Đến nay, những con cá này tỏ ra rất lanh lợi và khỏe, kể cả khi không pha muối. Chẳng hạn, mấy con được đem chụp ảnh đã sống khoảng mười ngày trong bể chụp với nước ngọt hoàn toàn cho quen dần, và trông rõ là rất thoải mái. Nhưng vẫn nên pha thêm một ít muối, khoảng 5 g/l. Nếu pha muối lâu dài thì dùng loại muối biển công nghiệp làm cho bể cá biển san hô.</p>",
+    "diet:glaser": "<p>Cá ăn ngay mọi loại thức ăn cá cảnh thông thường. Ngoài tự nhiên, chúng là cá ăn thịt và săn những con nhỏ như tép, ốc.</p>",
+    "behaviour:glaser": "<p>Giống mọi loài cá blenny, chúng hay giành một khoảng nhỏ làm chỗ của mình, nhưng thường không làm bị thương cá cùng loài hay cá khác nuôi chung.</p>",
+    "dimorphism:glaser": "<p>Con đực và con cái màu gần giống nhau, nhưng vây lưng và các đốm hai bên thân ở con đực đậm hơn. Cách phân biệt đực cái dễ nhất là nhìn vây hậu môn. Ở con đực, bốn tia đầu tiên của vây này dẹt ở chóp. Ngoài ra, con đực lớn hơn con cái. Đực cái còn khác nhau ở nhiều điểm nữa. Ai muốn tìm hiểu kỹ có thể đọc bài của Springer &amp; Gomon (1975).</p>",
+    "quickFacts:glaser": "<p>Omobranchus thuộc họ Blenniidae, một họ mà hầu hết các loài sống ở biển. Chỉ rất ít loài sống hẳn ở nước ngọt hoặc nước lợ. Cá dài tối đa khoảng 7 cm.</p>",
+    "references:glaser": "<p>Springer, V. G. &amp; M. F. Gomon (1975): Revision of the blenniid fish genus Omobranchus with descriptions of three new species and notes on other species of the tribe Omobranchini. Smithonian contributions to zoology 177.</p>"
+  },
+  "quality": {
+    "score": 0.7,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.7
+    },
+    "reason": "score"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-11"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "id": "paramesotriton-chinensis",
+  "scientificName": "Paramesotriton chinensis",
+  "order": "Caudata",
+  "family": "Salamandridae",
+  "genus": "Paramesotriton",
+  "group": "other",
+  "places": [
+    "asia",
+    "china"
+  ],
+  "dataCard": {
+    "sizeCm": [
+      {
+        "source": "glaser",
+        "value": 15
+      }
+    ]
+  },
+  "sections": [
+    {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/30-amphibians-and-reptiles/paramesotriton_chinensis_en/",
+      "html": "<p>Paramesotriton chinensis is a very warty but attractive newt that grows to about 12–15 cm long. Origin: China.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/30-amphibians-and-reptiles/paramesotriton_chinensis_en/",
+      "html": "<p>The regular temperature should not become higher than 18–20°C. The water must always be very clean and clear.</p>"
+    },
+    {
+      "key": "equipment",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/30-amphibians-and-reptiles/paramesotriton_chinensis_en/",
+      "html": "<p>The tank should imitate a brook in a wood, with a good current. Take care that the somewhat clumsy newts cannot be sucked in and hurt by the filter. The aqua-terrarium must always be perfectly covered, because newts can walk even on vertical glass.</p>"
+    },
+    {
+      "key": "behaviour",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/30-amphibians-and-reptiles/paramesotriton_chinensis_en/",
+      "html": "<p>Similar to the better-known species of Pleurodeles and Cynops, Paramesotriton chinensis prefers to live in the water the whole year through. Only when the temperature becomes too high do they leave the water and hide on land. Towards conspecifics this newt is peaceful.</p>"
+    }
+  ],
+  "photos": [],
+  "videos": [],
+  "productSlots": [
+    {
+      "category": "loc",
+      "keywords": [
+        "máy lọc tạo dòng chảy",
+        "bơm tạo sóng"
+      ]
+    },
+    {
+      "category": "suoi",
+      "keywords": [
+        "máy làm lạnh nước bể cá",
+        "quạt làm mát bể cá"
+      ]
+    },
+    {
+      "category": "be-ca",
+      "keywords": [
+        "bể thủy trần có nắp đậy"
+      ]
+    }
+  ],
+  "updatedAt": "2026-11-11"
+}

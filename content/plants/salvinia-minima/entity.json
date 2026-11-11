@@ -2,7 +2,7 @@
   "id": "salvinia-minima",
   "scientificName": "Salvinia minima",
   "difficulty": 1,
-  "light": "low",
+  "light": "high",
   "co2": "none",
   "growth": "fast",
   "placement": [
@@ -16,52 +16,104 @@
       "html": "<ul><li>Type: floating plant</li><li>Origin: cosmopolitan</li><li>Height: 3 - 5+ cm after two months in the tank</li><li>Light demand: low</li><li>CO2: low</li></ul>"
     },
     {
+      "key": "quickFacts",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/water-spangles-care-guide-planting-growing-and-propagation/",
+      "html": "<ul><li><strong>Common name:</strong> Water spangles</li><li><strong>Other names:</strong> Common Salvinia, Floating fern</li><li><strong>Scientific name:</strong> Salvinia minima</li><li><strong>Lighting:</strong> Moderate to high</li><li><strong>Water hardness:</strong> Soft to hard (does not matter)</li><li><strong>Substrate:</strong> Not needed</li><li><strong>Growth rate:</strong> Very fast (invasive)</li><li><strong>Placement in tank:</strong> Floating</li><li><strong>Can be grown emersed:</strong> No</li><li><strong>Size of the leaves:</strong> up to 1.5 cm</li><li><strong>CO2:</strong> Not needed</li><li><strong>Propagation:</strong> Spore production, or vegetatively through fragmentation or by splitting</li><li><strong>Color:</strong> Light green</li></ul><p>Interesting fact: Salvinia minima exhibits antimicrobial properties against various test pathogens.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/water-spangles-care-guide-planting-growing-and-propagation/",
+      "html": "<p>This is a species of free-floating fern that belongs to Salviniaceae. Salviniaceae is a family of rootless, aquatic ferns that float on the surface of the water. Salvinia is the only genus in this family, and it contains 12 species that are predominantly found in the tropics of America and Africa.</p><p>Although native to South America, Salvinia minima was first reported in New York in 1814, with later discoveries in southern states.</p><p>Water spangles are considered an invasive/noxious species due to their ability to overpopulate, outcompete and inhibit the growth of native water plants. They can also clog irrigation systems and waterways, deplete oxygen levels and reduce light penetration, thereby degrading the habitats of native species.</p>"
+    },
+    {
+      "key": "habitat",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/water-spangles-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Water spangles inhabit the surface of warm, stagnant or slow-moving freshwater bodies, including ponds, streams, lakes and canals.</p><p>Since the fern can tolerate low salinity levels of 4 to 7 ppt (1.003–1.005 SG), it also grows in brackish marshes, swamps and wetlands.</p>"
+    },
+    {
+      "key": "aquariumSize",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/water-spangles-care-guide-planting-growing-and-propagation/",
+      "html": "<p>The plant lies flat on the water surface, so it can be kept in tanks of varying sizes and depths. Because of its fast growth, it should be grown in a tank of at least 20 litres.</p>"
+    },
+    {
+      "key": "maintenance",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/water-spangles-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Water spangles are relatively easy to care for, as a beginner plant, but effort should go into preventing the plant from overshadowing the entire water surface.</p><p>The plant grows fast and forms new shoots in record time. Under optimal conditions it can easily double or triple in size in 7–10 days. Keep growth in check by constantly pruning dense foliage, or the shoots will overcrowd the surface and block light from plants at the bottom of the tank. Use this opportunity to remove sick or damaged leaves and dispose of them with the clipped foliage in plastic bags.</p><p>Apply liquid fertilizers rich in essential nutrients to replenish what the plant needs. Lack of nutrients results in deficiency, often shown by discoloured leaves and poor growth.</p><p>Water flow is crucial to the health of the plant, so provide low currents, as it thrives in slow-moving waters in the wild.</p><p>Maintain good water quality by changing about 25% of the tank water every two weeks with clean, dechlorinated freshwater.</p><p><strong>Planting and propagation:</strong> to cultivate it in your aquarium, split the plant into several portions and disinfect them to get rid of snails and other unwanted pests/parasites. Then spread the portions evenly over the water surface. Covering the whole surface is not needed, since the plants will grow and form numerous new shoots. You can form a ring with airline tubing or other suitable equipment to confine the plants to one area, so light penetrates the water column more easily and there is less shading.</p><p>In nature, Water spangles reproduce mainly through spores. In the aquarium, the plant propagates vegetatively through fragmentation, i.e. continuous branching and breaking away of lateral and terminal shoots. You can also split the horizontal branches formed by existing plants to create new, independent plants.</p>"
+    },
+    {
+      "key": "waterConditions",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/water-spangles-care-guide-planting-growing-and-propagation/",
+      "html": "<p><strong>Temperature:</strong> Water spangles grow in warm water. They can thrive from 20 °C up to 30 °C, but it is ideal to keep the temperature above 22 °C for optimal growth and development of shoots.</p><p><strong>pH:</strong> the plant tolerates a relatively wide pH range, but pH 6.0–8.0 is considered optimal.</p><p><strong>Hardness:</strong> they thrive in soft to hard water, from 3 to 18 dGH.</p><p><strong>Lighting:</strong> they grow best under bright lighting. In moderate to high light the plant keeps a healthy appearance and grows rapidly, whereas in low light growth declines significantly and new shoots may struggle. Supply bright light from an artificial source such as an LED, turned on for a minimum of 10 hours daily.</p><p><strong>Water flow:</strong> the plant comes from still or slow-moving waters, so replicate such conditions. Provide still water or low currents, or the plant will not survive in the long run.</p><p><strong>CO2 and fertilization:</strong> the plant does not require additional CO2 as it gets enough from the air, so CO2 injection is optional. It appreciates liquid fertilizers in the water column, since it absorbs a great deal of its nutrients from the water.</p><p>Important: if you keep shrimp in the tank with Water spangles, note that a high level of CO2 and copper (most fertilizers contain copper) is extremely dangerous to shrimp.</p>"
+    },
+    {
       "key": "notes",
       "source": "tropica",
       "sourceUrl": "https://tropica.com/en/plants/plantdetails/Salviniaminima(011TC)/4767",
       "html": "<p>Salvinia minima is a cosmopolitan floating fern, 1-3 cm, that grows quickly if there is sufficient nutrition and light. Light leaves are a sign of a shortage of micronutrients. It tends to shade light from the plants at the bottom. Salvinia varieties have small hairs on their leaves, making them water resistant. Helps prevent algae by shading parts of the aquarium and using nutrients in the water. Grows very big in the wild and in optimum conditions. A decorative plant for open aquariums.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "aquariumbreeder",
+      "sourceUrl": "https://aquariumbreeder.com/water-spangles-care-guide-planting-growing-and-propagation/",
+      "html": "<p>Water spangles is a small, perennial, free-floating aquatic fern. It has whorls of three leaves: a pair of nearly sessile, round to broad-oval or elliptical leaves, while the third is a modified, submerged leaf that dangles and is finely dissected into 5–7 segments (about 2.5–7 cm long).</p><p>Interesting fact: these root-like projections are not true roots, they are modified leaves.</p><p>Salvinia minima can be differentiated from other Salvinia species such as Salvinia natans, S. molesta, S. auriculata and S. rotundifolia by leaf traits. The leaf hairs (multiple four-pronged hairs) on the upper surface of S. molesta, S. natans and S. rotundifolia are joined at the tip, forming a somewhat \"egg-beater\" shape, whereas the leaf hairs of Salvinia minima are spreading and free at the tips.</p><p>The plant bears numerous leaves 1 to 1.5 cm in size, with specialized cells that facilitate buoyancy. The leaves are usually green with white hairs spread over the surface. Its prolific spore-producing ability enables it to form new plants within short periods under favorable conditions.</p><p><strong>Benefits</strong></p><ul><li>Aesthetics: covers the top layer of the aquarium and adorns it beautifully.</li><li>Removal of excess nutrients: it absorbs heavy metals and harmful substances from fish waste, decayed plant matter and tap water, such as nitrate, CO2, ammonia and phosphates. In experiments, it reduced ammonia (NH3) by 89.9% in untreated wastewater after 8 days. It also showed good results at removing copper from water.</li><li>Filtration: extremely efficient at removing organic pollutants.</li><li>Algae control: it takes up nutrients very fast, outcompetes algae and reduces the number of algae cells in the water column.</li><li>Shelter/cover: some fish and fry use it as shelter. Other aquatic species, both animals and plants, appreciate the shade it provides. Shrimp will love it.</li><li>Foraging place: it acts as a buffet of biofilm, an ideal first food for newly hatched fry and shrimplets. Shrimp love to nibble on its roots.</li><li>Light filtering: it can filter light if you have plants that do not need much (for example Java Fern, Amazon Sword, Marimo Moss Ball, Anubias).</li><li>Prevents fish jumping: once it covers the surface, it keeps fish from jumping when there is no lid.</li><li>Easy to remove and control: it grows in chains, so you can clear the tank within minutes.</li></ul><p><strong>Problems</strong></p><ul><li>Overgrowth: it can overrun the tank due to fast growth (luckily not as fast as duckweed). Prune excess foliage frequently, or it will overcrowd the surface, create shade and block light from live plants lower in the tank.</li><li>Discoloration: a sign of poor health, usually caused by a lack of nutrients in the water column or light. Apply plant fertilizers and iron supplements regularly in the right doses; nutrient-rich water rewards the plants with even, lush green colour and robust growth. If that fails, try increasing the lighting duration.</li><li>The plant becomes smaller: Salvinia minima does not like flow and prefers still water. If new plants are smaller than the original ones, flow may be the reason. You can make a protected circular area with airline tubing around the plants to reduce the impact of the flow.</li><li>Oxygen depletion: because low water currents are a key requirement, surface agitation (which promotes gas exchange) decreases, which affects how much oxygen dissolves in the water. Keep a small number of plants so they do not form a thick layer over the whole surface and deplete dissolved oxygen to the detriment of the tank's inhabitants.</li></ul><p><strong>Compatible tankmates</strong></p><p>Water spangles suit aquatic species that thrive in a shaded aquarium, as well as fish that build bubble nests.</p><p>Fish: the filamentous leaves create a favorable medium for egg spawning. Anabantids such as bettas and gouramis appreciate the spot formed by the root-like leaves. Other fish such as Neon Tetras, Ember Tetras, Platies, Guppies, Corydoras catfish, Zebra Danios, Celestial Pearl Danios, Cherry Barbs, Endlers, Mollies, Otocinclus catfish and Pygmy Cory catfish can also be kept with it.</p><p>Dwarf shrimp and snails: invertebrates such as dwarf shrimp, freshwater snails, freshwater crabs and crayfish are equally compatible.</p><ul><li>Dwarf shrimp: all varieties of Neocaridina (Red Cherry, Blue Velvet, Snowball, Black Rose, Orange Sakura, Green Jade, Rili, etc.) or Caridina species (for example Crystal Red, Caridina cf. babaulti, Blue Tiger, etc.), Amano shrimp, Ghost shrimp, Bamboo shrimp, Vampire shrimp. Basically any shrimp species can be kept with it.</li><li>Snails: for example Japanese trapdoor snails, Ramshorn snails, Nerite snails, Malaysian Trumpet snails, Black Devil snails, Asolene spixi, Rabbit snails, etc.</li></ul><p>Crayfish and crabs can be very hard to keep in planted tanks. Most species try to uproot and eat everything. Floating plants are a good choice for them because they simply cannot get to them.</p><p><strong>Avoid or be careful:</strong> try to avoid large, aggressive fish such as Scats, Oscars, Jack Dempsey, Koi, Buenos Aires Tetras and Silver Dollars, which will chew the fronds.</p><p><strong>Buying:</strong> the plant is popular and widely available at local fish stores and online. Look for vibrant green colour and healthy shoots without rips, holes, algae, decay or discoloration.</p><p><strong>Quarantine:</strong> unless you are completely sure the plant is safe, for example it was grown in vitro and the pot is undamaged and unopened, quarantine and disinfect it to avoid contamination.</p><ul><li>The plant can carry parasites and hitchhikers such as pest snails, or even predators (dragonfly and damselfly nymphs, etc.).</li><li>It could also have been treated with pesticides to remove parasites, snails, etc. These chemicals are extremely poisonous to fish, shrimp and other invertebrates.</li></ul><p><strong>Conclusion:</strong> Salvinia minima is one of the best floating plants for freshwater aquaria. It is quite undemanding and can form thick mats on the water surface very quickly, with or without CO2 and fertilizers.</p><p>Warning: this species is invasive in most of the southern United States, where it is a significant threat to aquatic systems. Do NOT throw it down the drain or anything similar.</p>"
     }
   ],
   "photos": [
     {
+      "url": "https://media.aquatome.com/aquariumbreeder/54c92427754326cc.webp",
+      "thumb": "https://media.aquatome.com/aquariumbreeder/54c92427754326cc-480.webp",
+      "width": 1200,
+      "height": 800,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Breeder",
+      "sourceUrl": "https://aquariumbreeder.com/water-spangles-care-guide-planting-growing-and-propagation/",
+      "source": "aquariumbreeder"
+    },
+    {
       "url": "https://media.aquatome.com/commons/e2b9cb0832d221cb.webp",
+      "thumb": "https://media.aquatome.com/commons/e2b9cb0832d221cb-480.webp",
       "width": 960,
       "height": 720,
       "licence": "CC BY 3.0",
       "author": "Forest & Kim Starr",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Starr_031108-3177_Salvinia_minima.jpg",
-      "caption": "Salvinia minima (habit). Location: Florida, Long Key",
-      "thumb": "https://media.aquatome.com/commons/e2b9cb0832d221cb-480.webp"
+      "caption": "Salvinia minima (habit). Location: Florida, Long Key"
     },
     {
       "url": "https://media.aquatome.com/commons/a840cc3e727952c7.webp",
+      "thumb": "https://media.aquatome.com/commons/a840cc3e727952c7-480.webp",
       "width": 960,
       "height": 686,
       "licence": "CC BY-SA 4.0",
       "author": "Krzysztof Ziarnek, Kenraiz",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Salvinia_minima_kz04.jpg",
-      "caption": "Salvinia minima in Wrocław University Botanical Garden",
-      "thumb": "https://media.aquatome.com/commons/a840cc3e727952c7-480.webp"
+      "caption": "Salvinia minima in Wrocław University Botanical Garden"
     },
     {
       "url": "https://media.aquatome.com/commons/a80188d6e234abe0.webp",
+      "thumb": "https://media.aquatome.com/commons/a80188d6e234abe0-480.webp",
       "width": 960,
       "height": 1280,
       "licence": "CC BY-SA 4.0",
       "author": "Dat doris",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kleiner_B%C3%BCschelfarn_06.jpg",
-      "caption": "Schneebesenhaare auf der Blattoberfläche vom Schwimmfarn \"Salvinia minima\".",
-      "thumb": "https://media.aquatome.com/commons/a80188d6e234abe0-480.webp"
+      "caption": "Schneebesenhaare auf der Blattoberfläche vom Schwimmfarn \"Salvinia minima\"."
     },
     {
       "url": "https://media.aquatome.com/commons/98d2c8b405835b8f.webp",
+      "thumb": "https://media.aquatome.com/commons/98d2c8b405835b8f-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC BY 4.0",
       "author": "Claire Herzog",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Salvinia_minima_193892640.jpg",
-      "caption": "water spangles (Salvinia minima)",
-      "thumb": "https://media.aquatome.com/commons/98d2c8b405835b8f-480.webp"
+      "caption": "water spangles (Salvinia minima)"
     }
   ],
   "productSlots": [
@@ -79,5 +131,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-11"
 }

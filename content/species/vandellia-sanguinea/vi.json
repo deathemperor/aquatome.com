@@ -1,19 +1,29 @@
 {
   "slug": "ca-nen-sanguinea",
   "name": "Cá nến sanguinea",
-  "altNames": [],
+  "altNames": [
+    "Cá candiru"
+  ],
   "sections": {
     "quickFacts:planetcatfish": "<ul><li>Eigenmann mô tả loài này năm 1917.</li><li>Nơi thu mẫu chuẩn: San Antonio de Rio Madeira, Brazil.</li><li>Từ nguyên: tên chi Vandellia đặt theo tên M Vandelli.</li></ul>",
     "distribution:planetcatfish": "<p>Loài này sống ở Nam Mỹ, trong các lưu vực sông Amazon, Orinoco và Essequibo. Vùng phân bố gồm cả vùng nước Guyana và các con sông ven biển của vùng Guiana.</p>",
     "reproduction:planetcatfish": "<p>Sinh sản: hiện chưa có ghi nhận nào về việc loài này sinh sản.</p>",
-    "references:planetcatfish": "<p>Proc. Am. Philos. Soc.v. 56 - pp701</p>"
+    "references:planetcatfish": "<p>Proc. Am. Philos. Soc.v. 56 - pp701</p>",
+    "quickFacts:scotcat": "<ul><li>Tên thường gọi: không có</li><li>Tên đồng nghĩa: không có</li></ul>",
+    "beforeYouBuy:scotcat": "<p>Loài này không dễ nuôi và phải nuôi riêng một bể. Cá lớn hơn thả chung sẽ thành con mồi, vì chúng chui vào khoang mang để hút máu.</p>",
+    "distribution:scotcat": "<p>Nam Mỹ: lưu vực các sông Amazon, Orinoco và Essequibo. Nơi thu mẫu chuẩn: San Antonio de Rio Madeira.</p>",
+    "equipment:scotcat": "<p>Nền cát là hợp nhất vì chúng hay chui xuống vùi mình. Loài này sợ ánh sáng, nên thả thêm cây nổi để che bớt đèn.</p>",
+    "diet:scotcat": "<p>Cho ăn rất khó. Các tài liệu dường như đều cho thấy chúng phải có cá lớn hơn để hút máu.</p>",
+    "behaviour:scotcat": "<p>Các loài trong chi Vandellia đều ký sinh hút máu, giống mọi loài khác trong phân họ Vandelliinae. V. sanguinea tìm vật chủ bằng mắt và bằng khứu giác hóa học. Chúng đi kiếm ăn cả ngày lẫn đêm.</p><p>Chi này có 3 loài đã được mô tả: V. cirrhosa (lưu vực sông Amazon), V. beccarii (lưu vực sông Orinoco và các sông ở Guyana) và V. sanguinea (lưu vực các sông Amazon, Orinoco và Essequibo). V. cirrosa có vẻ là loài candiru hay gặp hơn cả. Chính loài này mang tiếng đáng sợ vì chui vào khoang mang của cá lớn để hút máu ở mang. Đáng sợ nhất có lẽ là thói chui vào lỗ niệu sinh dục của động vật có vú, kể cả người đang tắm dưới sông. Khi đã vào trong, nó dựng gai nắp mang và gai gian nắp mang để mắc chặt lại, và phải phẫu thuật mới lấy ra được.</p>",
+    "notes:scotcat": "<p>Từ nguyên: tên loài sanguinea trong tiếng Latin nghĩa là đỏ như máu hoặc đẫm máu. Lúc mô tả, loài hút máu này được ghi là \"trong suốt\". Về sau (1918), Eigenmann thấy ống tiêu hóa của nó \"căng đầy máu\", nên có lẽ cá chỉ đỏ máu sau khi ăn no.</p><p>Danh sách Đỏ IUCN: thông tin về loài này còn ít, nhưng nó có vẻ phổ biến và phân bố rộng, nên được xếp mức Ít quan tâm (IUCN 2023).</p>",
+    "references:scotcat": "<p>Brejão, G.L. 2023. Vandellia sanguinea. The IUCN Red List of Threatened Species 2023. de Pínna, M.C.C. and W. Wosiacki, 2003. Trichomycteridae (pencil or parasitic catfishes). p. 270-290. In R.E. Reis, S.O. Kullander and C.J. Ferraris, Jr. (eds.) Checklist of the Freshwater Fishes of South and Central America. Porto Alegre: EDIPUCRS, Brasil. Ferraris, C.J. Jr., 2007. Checklist of catfishes, recent and fossil (Osteichthyes: Siluriformes), and catalogue of siluriform primary types. Zootaxa 1418:1-628. Fish in the News 2025. Froese, R. and D. Pauly. Editors. 2014. FishBase. World Wide Web electronic publication. www.fishbase.org, ( 11/2014 ). Montaña, C. G., C. Nimee, S. Scott, et al. 2025. “Parasites Are Paramount: Vertical Trophic Positions of Parasitic Catfishes in a Tropical River Food Web.” Ecology of Freshwater Fish 34, no. 4: e70025.</p>"
   },
   "quality": {
     "score": 0.8,
-    "indexable": false,
+    "indexable": true,
     "bySource": {
-      "planetcatfish": 0.8
-    },
-    "reason": "thin"
+      "planetcatfish": 0.8,
+      "scotcat": 0.9
+    }
   }
 }

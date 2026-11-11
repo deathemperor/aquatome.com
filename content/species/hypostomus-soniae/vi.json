@@ -1,0 +1,28 @@
+{
+  "slug": "ca-lau-kieng-l137",
+  "name": "Cá lau kiếng L137",
+  "altNames": [
+    "Cá tỳ bà L137",
+    "L137"
+  ],
+  "sections": {
+    "quickFacts:glaser": "<p>L137 đến từ sông Rio Tapajós, là một con cá đẹp có đôi mắt xanh, ít khi thấy bán. Loài này thuộc chi Hypostomus, cỡ vừa, dài tối đa khoảng 20 cm.</p>",
+    "distribution:glaser": "<p>Rio Tapajós, Brazil.</p>",
+    "dimorphism:glaser": "<p>Màu của loài này khá thất thường. Có con vây hơi nâu, có con vây lốm đốm, lại có con vây đỏ cam rực. Những con vây đỏ cam dễ bị nhầm với con “Bruno” từ Paraguay (mã 27510) vì hai con trông khá giống nhau. Nhưng L137 lúc nào cũng nhận ra được nhờ đôi mắt xanh, vì trong chi Hypostomus chỉ loài này có mắt như vậy.</p>",
+    "notes:glaser": "<p>Nguồn gốc tên gọi: Hypostomus lấy từ tiếng Hy Lạp cổ, nghĩa là “miệng nằm phía dưới”. Cochliodon nghĩa là “răng hình vỏ trai”. Tên soniae đặt để vinh danh Sonia Fisch-Muller, người phụ trách bộ sưu tập cá của Bảo tàng Geneva.</p>"
+  },
+  "quality": {
+    "score": 0.8,
+    "indexable": false,
+    "bySource": {
+      "glaser": 0.8
+    },
+    "reason": "thin"
+  },
+  "held": {
+    "checks": [
+      "source"
+    ],
+    "at": "2026-11-11"
+  }
+}

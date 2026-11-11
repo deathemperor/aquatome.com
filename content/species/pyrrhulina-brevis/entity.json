@@ -9,53 +9,37 @@
     "south-america",
     "peru"
   ],
-  "dataCard": {
-    "tempC": [
-      {
-        "source": "glaser",
-        "value": {
-          "min": 22,
-          "max": 30
-        }
-      }
-    ],
-    "sizeCm": [
-      {
-        "source": "glaser",
-        "value": 8
-      }
-    ]
-  },
+  "dataCard": {},
   "sections": [
-    {
-      "key": "quickFacts",
-      "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina-brevis-2/",
-      "html": "<p>Pyrrhulina brevis grows to about 7-8 cm in length, eats all common fish food and has no special requirements on the water quality. The water temperature can be between 22 and 30°C.</p>"
-    },
     {
       "key": "behaviour",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina-brevis-2/",
-      "html": "<p>The characins of the genus Pyrrhulina can be better compared to cichlids than to other characins in terms of their behavior. The males occupy small territories in the breeding season, color themselves splendidly and defend the spawn energetically until the young hatch.</p><p>Apart from the territoriality of the males at spawning time, the species can be considered peaceful, plants are not damaged.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina_cf_brevis_red_spots_en/",
+      "html": "<p>Despite the fact that the males are quarrelling quite a lot, these quarrels are harmless and don't even lead to fin damage.</p>"
     },
     {
       "key": "dimorphism",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina-brevis-2/",
-      "html": "<p>The generic name Pyrrhulina means “small bullfinch” because the males of many species develop splendid reds in the coloring in the breeding mood, that remind of the red plumage of the male bullfinch. Pyrrhulina brevis from Peru also has this characteristic. As spawning readiness increases, the males get strong orange fins and later additionally develop cherry red spots on the body.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina_cf_brevis_red_spots_en/",
+      "html": "<p>When the males came into breeding mood in the photo tank and started to quarrel, they became even more colourful. At a glance, deep red spots developed on the scales, which were hardly visible before. Females don't get these spots at all.</p>"
+    },
+    {
+      "key": "notes",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/pyrrhulina_cf_brevis_red_spots_en/",
+      "html": "<p>Lexicon: Pyrrhulina means \"little bullfinch\". brevis: Latin, means \"short\".</p><p>Suggestion of a common name: Red Spotted Pyrrhulina.</p>"
     }
   ],
   "photos": [
     {
       "url": "https://media.aquatome.com/commons/0ac0a314eea8fea5.webp",
+      "thumb": "https://media.aquatome.com/commons/0ac0a314eea8fea5-480.webp",
       "width": 960,
       "height": 640,
       "licence": "CC BY 4.0",
       "author": "(c) karsten_s, some rights reserved (CC BY)",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pyrrhulina_brevis_iNaturalist.jpg",
-      "caption": "Photo of Pyrrhulina brevis uploaded from iNaturalist.",
-      "thumb": "https://media.aquatome.com/commons/0ac0a314eea8fea5-480.webp"
+      "caption": "Photo of Pyrrhulina brevis uploaded from iNaturalist."
     }
   ],
   "videos": [
@@ -106,5 +90,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-10-31"
+  "updatedAt": "2026-11-11"
 }

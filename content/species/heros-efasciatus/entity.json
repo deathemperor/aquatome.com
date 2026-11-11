@@ -9,7 +9,8 @@
     "south-america",
     "brazil",
     "amazon",
-    "peru"
+    "peru",
+    "rio-negro"
   ],
   "range": {
     "native": {
@@ -349,10 +350,22 @@
       "html": "<p>The severum, Heros efasciatus, is a cichlid from the Amazon main channel and the Rio Solimoes, also recorded from the Rio Xingu. One of the most popular and readily available cichlids in the hobby, it is sold in the standard green form and in gold. Many buyers do not realise it grows fairly large, often 20 to 25 cm in aquaria, and it needs a tank of at least 120 cm. Outside spawning it is fairly mild-mannered for its size.</p>"
     },
     {
+      "key": "quickFacts",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/heros_cf_efasciatus_japaueri_en/",
+      "html": "<p>Heros cf. efasciatus \"Japaueri\" is a wild-collected Heros from Brazil. Available size: 6–10 cm.</p><p>Suggested common name: Red spotted Heros.</p>"
+    },
+    {
       "key": "distribution",
       "source": "seriouslyfish",
       "sourceUrl": "https://www.seriouslyfish.com/species/heros-efasciatus",
       "html": "<p>Widespread throughout the Amazon main channel and rio Solimoes and also recorded from the rio Xingu.</p>"
+    },
+    {
+      "key": "distribution",
+      "source": "glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/heros_cf_efasciatus_japaueri_en/",
+      "html": "<p>The fish were collected in the Rio Negro in the municipality of Japaueri, Brazil, according to the supplier.</p>"
     },
     {
       "key": "habitat",
@@ -399,8 +412,8 @@
     {
       "key": "dimorphism",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/heros_cf_efasciatus_red_shoulder_en/",
-      "html": "<p>Males can be distinguished from the females by the pattern of the head; both sexes have the red shoulder.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/heros_cf_efasciatus_japaueri_en/",
+      "html": "<p>The most obvious difference to other varieties of Heros is the red spots all over the body. The newly imported fish become sexually ripe quite early: the largest specimens are about 10 cm long and fully sexually differentiated.</p>"
     },
     {
       "key": "reproduction",
@@ -417,8 +430,8 @@
     {
       "key": "notes",
       "source": "glaser",
-      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/heros_cf_efasciatus_red_shoulder_en/",
-      "html": "<p>Wonderful wild-collected specimens of this extraordinary species were received from Peru. Currently the fish are 9-12 cm long. Experts are still debating whether these fish belong to the species Heros efasciatus or to a scientifically still undescribed species of Heros. But all agree that they represent the most attractive Heros of all.</p>"
+      "sourceUrl": "https://www.aquariumglaser.de/en/25-perchlike-fishes/25e-perchlike-fishes-5-remaining-cichlids-from-south-and-central-america/heros_cf_efasciatus_japaueri_en/",
+      "html": "<p>Heros efasciatus has been reported to become more than twice as long as 10 cm, and the red spotted \"Japaueri\" is also expected to grow much larger under aquarium conditions.</p><p>Lexicon: Heros means \"hero\"; efasciatus means \"without stripes\".</p>"
     }
   ],
   "photos": [
@@ -499,5 +512,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-11"
 }
