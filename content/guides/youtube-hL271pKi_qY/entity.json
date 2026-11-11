@@ -54,7 +54,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Xô nhựa trắng có quai xách, loại khoảng 19 lít dùng làm bộ lọc.",
-            "sharpness": 173.9
+            "sharpness": 173.9,
+            "person": false
           },
           {
             "t": 56,
@@ -80,14 +81,6 @@
         "heading": "Nắp gamma seal hoạt động thế nào",
         "moments": [
           {
-            "t": 60,
-            "url": "https://media.aquatome.com/video/hL271pKi_qY/at60-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nắp gamma seal gồm vòng ngoài và phần nắp giữa tách rời.",
-            "sharpness": 181.7
-          },
-          {
             "t": 70,
             "url": "https://media.aquatome.com/video/hL271pKi_qY/at70-hd.webp",
             "width": 1200,
@@ -101,20 +94,13 @@
         "heading": "Làm đường nước vào và ra bằng Uniseal",
         "moments": [
           {
-            "t": 136,
-            "url": "https://media.aquatome.com/video/hL271pKi_qY/at136-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Gioăng Uniseal đã lắp vào lỗ khoan sát đáy thành xô.",
-            "sharpness": 169.5
-          },
-          {
             "t": 156,
             "url": "https://media.aquatome.com/video/hL271pKi_qY/at156-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Xô có gioăng Uniseal trên nắp và một gioăng ở dưới thành xô.",
-            "sharpness": 359
+            "sharpness": 359,
+            "person": false
           }
         ]
       },
@@ -158,7 +144,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Thùng lọc tự chế có lỗ ở đáy để nước chảy ra.",
-            "sharpness": 340.1
+            "sharpness": 340.1,
+            "person": false
           },
           {
             "t": 220,
@@ -166,7 +153,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nắp thùng lọc tự chế có lỗ trên nắp để nước vào.",
-            "sharpness": 297.4
+            "sharpness": 297.4,
+            "person": false
           }
         ],
         "photo": {
@@ -179,19 +167,6 @@
           "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fluval_FX6_Canister_Filter.jpg",
           "caption": "Lọc thùng đặt trong tủ bể với ống nước vào và ra nối lên trên."
         }
-      },
-      {
-        "heading": "Vệ sinh lọc",
-        "moments": [
-          {
-            "t": 206,
-            "url": "https://media.aquatome.com/video/hL271pKi_qY/at206-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Cận cảnh thùng lọc màu trắng với phần nắp đang được vặn.",
-            "sharpness": 337.6
-          }
-        ]
       }
     ]
   }

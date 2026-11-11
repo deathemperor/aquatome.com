@@ -8,9 +8,9 @@ Written by `pnpm engine gallery` (2026-11-11). Targets: packages/engine/src/gall
 | shop | 60 | 131 | 80 | 24 | 32 | 203 |
 | popular | 40 | 20 | 0 | 0 | 1 | 19 |
 | covered | 30 | 554 | 28 | 9 | 18 | 573 |
-| rest | 20 | 1686 | 76 | 0 | 51 | 1711 |
+| rest | 20 | 1686 | 76 | 0 | 54 | 1708 |
 
-## Short of target: every source read (275)
+## Short of target: every source read (294)
 
 Open-licence photos run out for these; each is read again 30 days after it ran dry.
 
@@ -278,6 +278,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/hypancistrus-zebra | covered | 0 | 30 |
 | species/kryptopterus-geminus | covered | 0 | 30 |
 | species/lepthoplosternum-pectorale | covered | 0 | 30 |
+| species/loricaria-simillima | covered | 0 | 30 |
 | species/mastiglanis-asopos | covered | 0 | 30 |
 | species/megalancistrus-parananus | covered | 1 | 30 |
 | species/moenkhausia-oligolepis | covered | 2 | 30 |
@@ -287,7 +288,25 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/sphaerichthys-vaillanti | covered | 3 | 30 |
 | species/stiphodon-atropurpureus | covered | 3 | 30 |
 | species/stiphodon-ornatus | covered | 0 | 30 |
-| species/tetraodon-mbu | covered | 23 | 30 |
+| species/tetraodon-mbu | covered | 21 | 30 |
 | species/trichogaster-chuna | covered | 10 | 30 |
 | species/acentronichthys-leptos | covered | 0 | 30 |
+| species/acestridium-dichromum | covered | 0 | 30 |
+| species/acestrorhynchus-altus | covered | 0 | 30 |
+| species/acestrorhynchus-falcatus | covered | 4 | 30 |
+| species/acestrorhynchus-pantaneiro | covered | 3 | 30 |
+| species/acheilognathus-macropterus | covered | 1 | 30 |
+| species/acnodon-normani | covered | 1 | 30 |
+| species/acrochordonichthys-rugosus | covered | 0 | 30 |
+| species/ageneiosus-magoi | covered | 0 | 30 |
+| species/aguarunichthys-tocantinsensis | covered | 0 | 30 |
+| species/akysis-hendricksoni | covered | 0 | 30 |
+| species/akysis-longifilis | covered | 0 | 30 |
+| species/akysis-maculipinnis | covered | 0 | 30 |
+| species/akysis-portellus | covered | 0 | 30 |
+| species/akysis-prashadi | covered | 0 | 30 |
+| species/akysis-varius | covered | 0 | 30 |
+| species/amaralia-hypsiura | covered | 0 | 30 |
+| species/ambastaia-nigrolineata | covered | 1 | 30 |
+| species/ambastaia-sidthimunki | covered | 1 | 30 |
 | species/betta-macrostoma | covered | 0 | 30 |

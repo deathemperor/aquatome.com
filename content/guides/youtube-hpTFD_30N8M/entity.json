@@ -150,7 +150,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đá xếp trên lớp phân nền tối màu trong bể.",
-            "sharpness": 2774.7
+            "sharpness": 2774.7,
+            "person": false
           },
           {
             "t": 650,
@@ -164,19 +165,6 @@
         ]
       },
       {
-        "heading": "Xếp vật liệu trong lọc OASE Biomaster 850",
-        "moments": [
-          {
-            "t": 790,
-            "url": "https://media.aquatome.com/video/hpTFD_30N8M/at790-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Tay lấy các khay vật liệu lọc có mút xanh ra khỏi thùng lọc.",
-            "sharpness": 771.7
-          }
-        ]
-      },
-      {
         "heading": "Châm nước mà không làm hỏng nền và đá",
         "moments": [
           {
@@ -185,7 +173,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Nước châm xối thẳng xuống nền, làm lệch đường nền đã vuốt.",
-            "sharpness": 2798
+            "sharpness": 2798,
+            "person": false
           }
         ]
       },
@@ -198,7 +187,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bể đã châm nước, nền và đá đã đắp xong, đang chạy chờ cây.",
-            "sharpness": 548.8
+            "sharpness": 548.8,
+            "person": false
           },
           {
             "t": 1110,
@@ -206,7 +196,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Ống lọc đã lắp vào bể thủy sinh đầy nước, chạy trước khi trồng cây.",
-            "sharpness": 543.6
+            "sharpness": 543.6,
+            "person": false
           }
         ],
         "photo": {

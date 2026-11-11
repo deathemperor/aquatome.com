@@ -84,7 +84,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể với khối lũa xếp thành kệ ở các độ cao khác nhau.",
-            "sharpness": 2250.9
+            "sharpness": 2250.9,
+            "person": false
           },
           {
             "t": 60,
@@ -92,7 +93,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bố cục lũa chồng nhiều tầng, tạo các đoạn kệ để giữ nền và trồng cây.",
-            "sharpness": 2421.4
+            "sharpness": 2421.4,
+            "person": false
           }
         ]
       },
@@ -105,7 +107,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Tấm vải địa kỹ thuật màu đen chuẩn bị làm túi giữ nền.",
-            "sharpness": 878.7
+            "sharpness": 878.7,
+            "person": false
           },
           {
             "t": 85,
@@ -113,7 +116,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Tấm vải địa kỹ thuật đặt võng xuống chỗ lõm của lũa.",
-            "sharpness": 1194.7
+            "sharpness": 1194.7,
+            "person": false
           }
         ],
         "photo": {
@@ -131,20 +135,13 @@
         "heading": "Chuẩn bị cây trước khi trồng",
         "moments": [
           {
-            "t": 135,
-            "url": "https://media.aquatome.com/video/iFtbrCxfsi8/at135-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Bộ rễ cây đã gỡ giá thể, đang tách các phần cây.",
-            "sharpness": 1300.4
-          },
-          {
             "t": 145,
             "url": "https://media.aquatome.com/video/iFtbrCxfsi8/at145-hd.webp",
             "width": 1200,
             "height": 675,
             "caption": "Cây đã tách thành từng cây nhỏ, rễ sạch, dễ trồng.",
-            "sharpness": 4618.5
+            "sharpness": 4618.5,
+            "person": false
           }
         ]
       },
@@ -157,7 +154,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Đổ nền dinh dưỡng vào xô LECA đã ngâm trước.",
-            "sharpness": 929.5
+            "sharpness": 929.5,
+            "person": false
           },
           {
             "t": 225,
@@ -165,7 +163,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Hỗn hợp nền sau khi trộn, hạt LECA là thành phần chính.",
-            "sharpness": 976.2
+            "sharpness": 976.2,
+            "person": false
           }
         ],
         "photo": {
@@ -188,15 +187,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Lớp LECA được rải làm lớp lót giữa các khe đá và lũa.",
-            "sharpness": 1987.8
-          },
-          {
-            "t": 280,
-            "url": "https://media.aquatome.com/video/iFtbrCxfsi8/at280-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Các cây nhỏ được trồng thêm vào bố cục sau khi phủ nền.",
-            "sharpness": 488.5
+            "sharpness": 1987.8,
+            "person": false
           }
         ],
         "photo": {
@@ -212,24 +204,7 @@
       },
       {
         "heading": "Trồng cây ở những chỗ không có nền",
-        "moments": [
-          {
-            "t": 310,
-            "url": "https://media.aquatome.com/video/iFtbrCxfsi8/at310-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Quấn rễ cây bằng rêu sphagnum ẩm trước khi gắn vào phông nền.",
-            "sharpness": 772.3
-          },
-          {
-            "t": 325,
-            "url": "https://media.aquatome.com/video/iFtbrCxfsi8/at325-hd.webp",
-            "width": 1200,
-            "height": 675,
-            "caption": "Nhét cây đã quấn rêu vào khe trên phông nền.",
-            "sharpness": 1740
-          }
-        ],
+        "moments": [],
         "photo": {
           "url": "https://media.aquatome.com/video/iFtbrCxfsi8/p5-sbGV5X2JvZy5qcGc.webp",
           "thumb": "https://media.aquatome.com/video/iFtbrCxfsi8/p5-sbGV5X2JvZy5qcGc-480.webp",
@@ -250,7 +225,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Bờ cây um tùm phía trên bể, lá to nhỏ đan xen như ven sông.",
-            "sharpness": 2289.8
+            "sharpness": 2289.8,
+            "person": false
           },
           {
             "t": 460,
@@ -258,7 +234,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cận cảnh các loại cây lá khác nhau mọc sát nhau tạo độ tương phản.",
-            "sharpness": 1748.9
+            "sharpness": 1748.9,
+            "person": false
           }
         ]
       },
@@ -271,7 +248,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Toàn cảnh bể mới trồng, cây um tùm và lá vươn gần tới đèn.",
-            "sharpness": 2711
+            "sharpness": 2711,
+            "person": false
           },
           {
             "t": 505,
@@ -279,7 +257,8 @@
             "width": 1200,
             "height": 675,
             "caption": "Cây mới trồng còn lộn xộn, lá vươn lên về phía đèn.",
-            "sharpness": 2266.6
+            "sharpness": 2266.6,
+            "person": false
           }
         ],
         "photo": {

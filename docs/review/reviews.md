@@ -10,16 +10,16 @@ under `<lang>/<path>`.
 | --- | --- | --- | --- |
 | video-guide | 775 | 558 (vi 558) | 558 |
 | translation | 1392 | 240 (vi 240) | 240 |
-| vi-rewrite | 267 | 12 (vi 12) | 12 |
-| reader-rewrite | 20 | 0 | 0 |
+| vi-rewrite | 279 | 14 (vi 14) | 14 |
+| reader-rewrite | 22 | 0 | 0 |
 | title | 4 | 0 | 0 |
 | breed | 14 | 3 (ms 3) | 3 |
-| topic | 64 | 4 (ms 1, th 3) | 4 |
+| topic | 66 | 4 (ms 1, th 3) | 4 |
 | product | 12 | 0 | 0 |
 | product-reviews | 11 | 0 | 0 |
 | summary | 1590 | 75 (vi 75) | 75 |
-| localize | 1442 | 643 (id 285, ms 35, th 323) | 643 |
-| places | 5232 | 3092 (id 1080, ms 968, th 945, vi 99) | 608 |
+| localize | 1490 | 670 (id 302, ms 35, th 333) | 670 |
+| places | 5321 | 3122 (id 1110, ms 968, th 945, vi 99) | 618 |
 | equipment | 5 | 0 | 0 |
 | planting | 31 | 0 | 0 |
 | species | 9 | 0 | 0 |
@@ -214,51 +214,51 @@ under `<lang>/<path>`.
 
 ## vi-rewrite: older Vietnamese rewritten in the site's style
 
-12 of 267 pages under the bar.
+14 of 279 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 12 | 34 |
-| Wording: unnatural, literal, stiff or chatty | 11 | 19 |
-| Says what the source doesn't (invented, added) | 10 | 25 |
-| Meaning changed or wrong | 10 | 13 |
-| A number, unit, dose or price | 8 | 10 |
-| Hobby terms and names | 6 | 9 |
-| States as certain what the source hedges, or what garbled captions only hint at | 5 | 6 |
-| Leaves out what the source says | 4 | 7 |
-| Text left in another language | 3 | 3 |
-| Repeats itself (intro, summary, steps and FAQ) | 3 | 3 |
+| Other | 14 | 37 |
+| Wording: unnatural, literal, stiff or chatty | 13 | 23 |
+| Says what the source doesn't (invented, added) | 12 | 32 |
+| Meaning changed or wrong | 12 | 17 |
+| A number, unit, dose or price | 9 | 11 |
+| Hobby terms and names | 7 | 12 |
+| States as certain what the source hedges, or what garbled captions only hint at | 6 | 7 |
+| Leaves out what the source says | 5 | 8 |
+| Text left in another language | 5 | 5 |
+| Repeats itself (intro, summary, steps and FAQ) | 5 | 5 |
 | Names or points to the video, channel, creator or source | 1 | 1 |
 
 ### Other
 
 - Item 5: 'plain species ... tend to be nipped and driven out' — the VI says 'mấy con Corydoras trơn màu này hay bị cắn', which is correct, but 'mấy con' is colloquial. Use 'các loài/cá thể Corydoras này'. — vi/species/brachyrhamdia-imitator (scotcat), 0.60
+- Item 10: 'đuổi mọi thứ lại gần khu của chúng' - 'against all comers' OK; 'mấy người/mấy con' colloquial register ('mấy người chơi cá Mỹ', 'mấy con còn lại') is too casual for an encyclopedia. — vi/species/cincelichthys-bocourti (seriouslyfish), 0.62
 - "Muối hột hay muối ăn thì tuyệt đối không dùng để pha!": the English says 'simple aquarium salt or table salt'. 'Muối hột' is not 'aquarium salt'. Use 'muối hồ cá (muối aquarium) hoặc muối ăn'. This changes the care advice. — vi/guides/aquariumbreeder-fiddler-crab-tank-setup (aquariumbreeder), 0.70
-- Item 5: 'Dĩ nhiên loài cá này nhạy cảm khi lượng chất thải hữu cơ lên xuống thất thường' is a loose rendering. Say 'nhạy cảm với chất thải hữu cơ dao động'. — vi/species/apistogramma-baenschi (seriouslyfish), 0.70
 
 ### Wording: unnatural, literal, stiff or chatty
 
 - Item 4: 'Cho ăn viên chìm dạng viên dẹt và thức ăn viên' is awkward and repetitive. Use 'viên nén chìm và thức ăn viên'. 'Đồ đông lạnh và đồ tươi sống' is colloquial; use 'thức ăn đông lạnh và thức ăn sống'. — vi/species/brachyrhamdia-imitator (scotcat), 0.60
+- Item 8: 'golden mojarra' translated 'cá mojarra vàng (tức loài này)' is awkward; also 'Lago Izabel' → 'hồ Izabal' fine. 'Điều kiện là phải bày đá, lũa' adds 'đá, lũa' not in English (decor). — vi/species/cincelichthys-bocourti (seriouslyfish), 0.62
 - "Hình như có ai đó nói một lần rồi giờ ai cũng nhắc lại điều vô lý ấy": fine. But 'Vấn đề của sỏi luôn và chỉ là chuyện cua không đào hang được' is a bit awkward; rephrase. — vi/guides/aquariumbreeder-fiddler-crab-tank-setup (aquariumbreeder), 0.70
-- Item 4: "nghe nói trước đây còn tới 3 m" - the first "formerly" is garbled. Say "nghe nói trước đây có con dài tới 3 m". "ngày xưa cái gì cũng hơn" is clumsy; use "ngày xưa cái gì cũng tốt hơn". — vi/species/atractosteus-tristoechus (glaser), 0.70
 
 ### Says what the source doesn't (invented, added)
 
 - Item 3: 'Chừa một khu trồng cây trong bể' is fine. 'nền rải xen kẽ từng mảng cát và sỏi' adds 'từng mảng' (patches), which is not in the source's 'alternating'. Use 'nền cát và sỏi xen kẽ'. — vi/species/brachyrhamdia-imitator (scotcat), 0.60
+- Item 10: 'A tank of around 6' in length' = ~1.8 m is OK, but 'Cặp cá có thể chịu để yên cho cá khác một thời gian' is a reversal/addition: the English says tankmates tolerated by the pair for a while; fine, but 'giết chúng' ok. Main issue:… — vi/species/cincelichthys-bocourti (seriouslyfish), 0.62
 - "Cua vĩ cầm thở bằng phổi, phải lên khỏi mặt nước mới thở được": 'lungs' claim is kept from the source, but 'phải lên khỏi mặt nước' adds an explanation that is slightly stronger than the English. Prefer 'phải lên cạn để thở'. — vi/guides/aquariumbreeder-fiddler-crab-tank-setup (aquariumbreeder), 0.70
-- Item 8: 'Muốn thả chung với cá hiền' adds 'cá hiền'. The English says 'community aquarium', so use 'bể cộng đồng'. — vi/species/apistogramma-baenschi (seriouslyfish), 0.70
 
 ### Meaning changed or wrong
 
 - Item 5: 'Batesian form of shoaling' was rendered as 'bắt chước kiểu Peckham' — 'Peckham' is wrong (Peckhamian mimicry is a different thing) and the original says Batesian. Use 'kiểu Bates' or 'mô phỏng kiểu Bates'. — vi/species/brachyrhamdia-imitator (scotcat), 0.60
+- Item 1: 'Cá răng đục' and 'tiệm cá' - 'tiệm cá' for 'the trade' is shop-like; use 'thị trường cá cảnh'. 'Max size: 300 mm SL' fine. The sentence 'kể cả khi nuôi trong bể rất lớn cũng phải chọn cá nuôi chung' alters meaning (English: in a v… — vi/species/cincelichthys-bocourti (seriouslyfish), 0.62
 - "Dưới đây là từng bước ... Bước 4.4 missing": the numbering jumps from 4.3 to 4.5, which mirrors the source. Not an error. — vi/guides/aquariumbreeder-fiddler-crab-tank-setup (aquariumbreeder), 0.70
-- Item 4: '72 lít' is wrong for the converted volume. The English gives 72 litres (19 US gal), so keep 72 litres. The 80×30 cm base is fine. — vi/species/apistogramma-baenschi (seriouslyfish), 0.70
 
 ### A number, unit, dose or price
 
+- Item 4: 'Pair needs 540 litres' OK; item 6 pH advice faithful. — vi/species/cincelichthys-bocourti (seriouslyfish), 0.62
 - "Nuôi trong bể nhỏ ... bể 40 lít": the original 10 gallons = 40 litres is right, but the sentence "Bể cho 3–5 con thì nên bắt đầu từ 40 lít" drops the recommendation framing ("I would recommend ... a tank size of 10 gallons"). Minor. — vi/guides/aquariumbreeder-fiddler-crab-tank-setup (aquariumbreeder), 0.70
-- Item 1/4: 'khoảng 41 lít' kept as in the source (tank volume is under 5 gallons threshold? 11 gal ≈ 40 L) - round to about 40 lít. — vi/species/apistogramma-alacrina (seriouslyfish), 0.72
-- Item 4: "~54 litres (~14 US gal)" became "khoảng 54 lít" – fine; but "with a group requiring larger quarters" fine. No issue. — vi/species/apistogramma-panduro (seriouslyfish), 0.72
+- Item 4: '72 lít' is wrong for the converted volume. The English gives 72 litres (19 US gal), so keep 72 litres. The 80×30 cm base is fine. — vi/species/apistogramma-baenschi (seriouslyfish), 0.70
 
 ### Hobby terms and names
 
@@ -269,8 +269,8 @@ under `<lang>/<path>`.
 ### States as certain what the source hedges, or what garbled captions only hint at
 
 - "Khay sâu ít nhất 8–10 cm": the English reads '3 – 4 inches' (garbled with 'niches'). 3–4 in = 7.5–10 cm. Rounding to 8–10 cm is acceptable. — vi/guides/aquariumbreeder-fiddler-crab-tank-setup (aquariumbreeder), 0.70
+- Item 4: "nghe nói trước đây còn tới 3 m" - the first "formerly" is garbled. Say "nghe nói trước đây có con dài tới 3 m". "ngày xưa cái gì cũng hơn" is clumsy; use "ngày xưa cái gì cũng tốt hơn". — vi/species/atractosteus-tristoechus (glaser), 0.70
 - Item 5: "vật dựng" for "structure" is unclear; use "vật cản/chỗ ẩn nấp" or "cấu trúc trang trí". — vi/species/apistogramma-panduro (seriouslyfish), 0.72
-- Item 7: 'Hầu hết các loài rồi cũng tập ăn được thức ăn khô' - 'rồi cũng' is colloquial; 'bo bo (Daphnia)' is a questionable name (bo bo = water flea in Vietnamese, ok) ; 'Thức ăn viên thì chúng thích hơn' - fine but 'generally preferred' i… — vi/species/apistogramma-trifasciata (seriouslyfish), 0.72
 
 ### Leaves out what the source says
 
@@ -280,15 +280,15 @@ under `<lang>/<path>`.
 
 ### Text left in another language
 
+- Item 5: 'bể càng tự nhiên' added; 'could also add to the effect' is not stated that way. Item 11: Latin 'Chisel-toothed' left in English in quotes - acceptable but unnecessary. — vi/species/cincelichthys-bocourti (seriouslyfish), 0.62
 - Item 5: "Để làm nước giống tự nhiên, cũng có thể dùng nón alder (quả cây alder, Alnus)" leaves "alder" untranslated. Use the Vietnamese name "cây tống quán sủi" or just "nón/quả cây Alnus (alder)". Also "giống tự nhiên" is repeated in the … — vi/species/apistogramma-viejita (seriouslyfish), 0.72
 - Item 6: 'aufwuchs' is left in English with a gloss; prefer the Vietnamese term 'lớp sinh vật bám' and drop the foreign word. — vi/species/beaufortia-szechuanensis (seriouslyfish), 0.72
-- Items 5 and 10: "set một bể" is English slang left in Vietnamese. Use "chuẩn bị/lập một bể". — vi/species/betta-gladiator (seriouslyfish), 0.72
 
 ### Repeats itself (intro, summary, steps and FAQ)
 
+- Item 10: 'Cá đẻ giống nhiều loài cichlid khác ... Cứ thế, có thể có tới 500 trứng' OK; but 'Trứng nở sau 2–3 ngày' repeats; fine. 'ống đẻ' should be 'ống đẻ trứng (ovipositor)' - acceptable. — vi/species/cincelichthys-bocourti (seriouslyfish), 0.62
 - Item 1: "có thể bắt chước (nhại)" has a redundant bracketed synonym. Use "có thể nhại hình" (mimic) only. Also "các loài cá Pimelodella spp." is redundant: either "các loài Pimelodella" or "Pimelodella spp.". — vi/species/brachyrhamdia-heteropleura (scotcat), 0.70
-- Item 4: 'Cho ăn viên chìm dạng viên dẹt và thức ăn viên' is awkward and repetitive. Use 'viên nén chìm và thức ăn viên'. 'Đồ đông lạnh và đồ tươi sống' is colloquial; use 'thức ăn đông lạnh và thức ăn sống'. — vi/species/brachyrhamdia-imitator (scotcat), 0.60
-- Item 5: "Để làm nước giống tự nhiên, cũng có thể dùng nón alder (quả cây alder, Alnus)" leaves "alder" untranslated. Use the Vietnamese name "cây tống quán sủi" or just "nón/quả cây Alnus (alder)". Also "giống tự nhiên" is repeated in the … — vi/species/apistogramma-viejita (seriouslyfish), 0.72
+- Item 10: 'sống chung thủy một cặp' for 'monogamous' and 'tách riêng cặp đó ra' (separating them as they do so) is acceptable, but 'Hai con lặp lại' — the sentence omits that the process is the female laying and male fertilising repeatedly;… — vi/species/cleithracara-maronii (seriouslyfish), 0.72
 
 ### Names or points to the video, channel, creator or source
 
@@ -296,7 +296,7 @@ under `<lang>/<path>`.
 
 ## reader-rewrite: parts the reader step rewrote with its findings
 
-0 of 20 pages under the bar.
+0 of 22 pages under the bar.
 
 ## title: titles rewritten to promise only what the text has
 
@@ -331,7 +331,7 @@ under `<lang>/<path>`.
 
 ## topic: AquaTome's own guides, against their research
 
-4 of 64 pages under the bar.
+4 of 66 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
@@ -430,20 +430,20 @@ under `<lang>/<path>`.
 
 ## localize: species and plant pages in Indonesian and Thai, against the English
 
-643 of 1442 pages under the bar.
+670 of 1490 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 605 | 1786 |
-| Wording: unnatural, literal, stiff or chatty | 562 | 1219 |
-| Says what the source doesn't (invented, added) | 384 | 554 |
-| Meaning changed or wrong | 368 | 578 |
-| Hobby terms and names | 357 | 475 |
-| A number, unit, dose or price | 328 | 429 |
-| Text left in another language | 252 | 323 |
-| Leaves out what the source says | 210 | 247 |
-| Repeats itself (intro, summary, steps and FAQ) | 182 | 207 |
-| States as certain what the source hedges, or what garbled captions only hint at | 152 | 169 |
+| Other | 630 | 1854 |
+| Wording: unnatural, literal, stiff or chatty | 585 | 1269 |
+| Says what the source doesn't (invented, added) | 404 | 587 |
+| Meaning changed or wrong | 379 | 594 |
+| Hobby terms and names | 375 | 498 |
+| A number, unit, dose or price | 342 | 445 |
+| Text left in another language | 263 | 336 |
+| Leaves out what the source says | 219 | 261 |
+| Repeats itself (intro, summary, steps and FAQ) | 193 | 219 |
+| States as certain what the source hedges, or what garbled captions only hint at | 155 | 172 |
 | Copied from the transcript or source | 24 | 24 |
 | Off the title's topic | 1 | 1 |
 
@@ -519,11 +519,11 @@ under `<lang>/<path>`.
 
 ## places: place names in Indonesian and Thai (reviewed in batches)
 
-3092 of 5232 pages under the bar.
+3122 of 5321 pages under the bar.
 
 | Fault | Pages | Notes |
 | --- | --- | --- |
-| Other | 521 | 578 |
+| Other | 531 | 588 |
 | Meaning changed or wrong | 58 | 58 |
 | Leaves out what the source says | 37 | 37 |
 | Wording: unnatural, literal, stiff or chatty | 14 | 14 |

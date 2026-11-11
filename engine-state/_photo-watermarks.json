@@ -100526,6 +100526,9 @@
   "https://media.aquatome.com/inaturalist/1004055.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/100463487.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/100930812.webp": {
     "ocr": []
   },
@@ -100687,6 +100690,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/105635341.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/105894442.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/106386.webp": {
@@ -101460,6 +101466,12 @@
   "https://media.aquatome.com/inaturalist/127916662.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/12800367.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/12800368.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/128082324.webp": {
     "ocr": []
   },
@@ -101534,6 +101546,9 @@
     "watermark": true,
     "kind": "stamp",
     "what": "OPPO Reno5 5G shot-on mark with date/location, bottom left"
+  },
+  "https://media.aquatome.com/inaturalist/129013028.webp": {
+    "ocr": []
   },
   "https://media.aquatome.com/inaturalist/129213426.webp": {
     "ocr": []
@@ -101994,6 +102009,15 @@
   "https://media.aquatome.com/inaturalist/153365148.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/153605042.webp": {
+    "ocr": [
+      {
+        "t": "cococa",
+        "c": 0.3,
+        "at": "bottom left"
+      }
+    ]
+  },
   "https://media.aquatome.com/inaturalist/153656387.webp": {
     "ocr": []
   },
@@ -102058,6 +102082,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/155348898.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/155426152.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/155552960.webp": {
@@ -102488,8 +102515,23 @@
   "https://media.aquatome.com/inaturalist/168733.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/168865258.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/16887966.webp": {
     "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/168966837.webp": {
+    "ocr": [
+      {
+        "t": "•Pauline Walsh Jacabson",
+        "c": 1,
+        "at": "top right"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "what": "\"© Pauline Walsh Jacobson\" signature, top right"
   },
   "https://media.aquatome.com/inaturalist/169045606.webp": {
     "ocr": []
@@ -102509,8 +102551,80 @@
   "https://media.aquatome.com/inaturalist/169306254.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/169364743.webp": {
+    "ocr": [
+      {
+        "t": "© Puuline Walch Jacabson",
+        "c": 1,
+        "at": "bottom right"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "what": "\"© Pauline Walsh Jacobson\" signature, bottom right"
+  },
   "https://media.aquatome.com/inaturalist/169396414.webp": {
     "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/169478735.webp": {
+    "ocr": [
+      {
+        "t": "• Pauline Walsh Jacobson",
+        "c": 1,
+        "at": "bottom left"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "what": "© Pauline Walsh Jacobson credit, bottom left"
+  },
+  "https://media.aquatome.com/inaturalist/169479307.webp": {
+    "ocr": [
+      {
+        "t": "© Pautine Walsh Jacabson",
+        "c": 1,
+        "at": "bottom left"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "what": "© Pauline Walsh Jacobson credit, bottom left"
+  },
+  "https://media.aquatome.com/inaturalist/169480391.webp": {
+    "ocr": [
+      {
+        "t": "©Pauline Walsh Jacobson",
+        "c": 1,
+        "at": "bottom right"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "what": "\"© Pauline Walsh Jacobson\" signature, bottom right"
+  },
+  "https://media.aquatome.com/inaturalist/169480394.webp": {
+    "ocr": [
+      {
+        "t": "•Pauline Walsh Jacabson",
+        "c": 1,
+        "at": "top left"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "what": "\"© Pauline Walsh Jacobson\" signature, top left"
+  },
+  "https://media.aquatome.com/inaturalist/169480580.webp": {
+    "ocr": [
+      {
+        "t": "©Puuline Walsh Jucabson",
+        "c": 1,
+        "at": "bottom left"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "what": "© Pauline Walsh Jacobson credit, bottom left"
   },
   "https://media.aquatome.com/inaturalist/169568077.webp": {
     "ocr": [
@@ -103170,6 +103284,23 @@
     "kind": "stamp",
     "what": "\"Redmi Note 8 AI Quad Camera\" shot-on mark, bottom left"
   },
+  "https://media.aquatome.com/inaturalist/181705647.webp": {
+    "ocr": [
+      {
+        "t": "•Pauline:",
+        "c": 1,
+        "at": "top right"
+      },
+      {
+        "t": "Walsh Jacabson",
+        "c": 1,
+        "at": "top right"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "what": "\"© Pauline Walsh Jacobson\" signature, top right"
+  },
   "https://media.aquatome.com/inaturalist/182017813.webp": {
     "ocr": []
   },
@@ -103438,6 +103569,9 @@
     "what": "© Sandipan Das credit, bottom right"
   },
   "https://media.aquatome.com/inaturalist/188281877.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/188303409.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/188379192.webp": {
@@ -103739,6 +103873,9 @@
   "https://media.aquatome.com/inaturalist/198414981.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/198415027.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/198425930.webp": {
     "ocr": []
   },
@@ -103871,6 +104008,9 @@
   "https://media.aquatome.com/inaturalist/2036283.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/204733976.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/20490922.webp": {
     "ocr": []
   },
@@ -103917,6 +104057,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/206970000.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/207020661.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/207091427.webp": {
@@ -104814,6 +104957,12 @@
   "https://media.aquatome.com/inaturalist/229099941.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/229120093.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/229120126.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/229318483.webp": {
     "ocr": []
   },
@@ -105106,6 +105255,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/23786292.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/23792.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/237929745.webp": {
@@ -105471,6 +105623,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/248052636.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/248111680.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/248508095.webp": {
@@ -106197,6 +106352,15 @@
   "https://media.aquatome.com/inaturalist/259009614.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/259109338.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/259109345.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/259109392.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/259121616.webp": {
     "ocr": []
   },
@@ -106294,6 +106458,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/261005598.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/26106249.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/2610794.webp": {
@@ -106592,6 +106759,9 @@
   "https://media.aquatome.com/inaturalist/268507492.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/268510550.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/268520112.webp": {
     "ocr": []
   },
@@ -106761,6 +106931,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/278837501.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/279014775.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/279043861.webp": {
@@ -107211,6 +107384,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/292347510.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/29266257.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/293282371.webp": {
@@ -108455,6 +108631,9 @@
   "https://media.aquatome.com/inaturalist/308506514.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/308523092.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/308740440.webp": {
     "ocr": []
   },
@@ -109286,6 +109465,9 @@
   "https://media.aquatome.com/inaturalist/332850360.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/333026255.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/333038754.webp": {
     "ocr": []
   },
@@ -109548,6 +109730,12 @@
   "https://media.aquatome.com/inaturalist/339570129.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/339686404.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/339686414.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/339881586.webp": {
     "ocr": []
   },
@@ -109623,6 +109811,9 @@
   "https://media.aquatome.com/inaturalist/341926932.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/342068256.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/342156022.webp": {
     "ocr": []
   },
@@ -109690,6 +109881,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/34429364.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/344294327.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/344412431.webp": {
@@ -109930,6 +110124,9 @@
     "watermark": false,
     "kind": "none",
     "what": "Ruler scale on photo tank in scene"
+  },
+  "https://media.aquatome.com/inaturalist/34795653.webp": {
+    "ocr": []
   },
   "https://media.aquatome.com/inaturalist/348008050.webp": {
     "ocr": []
@@ -110252,6 +110449,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/357344752.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/357465608.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/357515289.webp": {
@@ -113131,6 +113331,12 @@
   "https://media.aquatome.com/inaturalist/462700271.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/462754959.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/462754962.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/462837791.webp": {
     "ocr": []
   },
@@ -113387,6 +113593,9 @@
     "what": "Camera date stamp 2025.02.16 13:56, bottom right"
   },
   "https://media.aquatome.com/inaturalist/4705204.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/470661742.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/470663234.webp": {
@@ -116300,6 +116509,12 @@
   "https://media.aquatome.com/inaturalist/588306823.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/58851990.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/58852337.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/58908759.webp": {
     "ocr": []
   },
@@ -116564,6 +116779,23 @@
   },
   "https://media.aquatome.com/inaturalist/595892979.webp": {
     "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/595986162.webp": {
+    "ocr": [
+      {
+        "t": "Karim Haddad",
+        "c": 1,
+        "at": "bottom centre"
+      },
+      {
+        "t": "28 novembre 2025 à 14:00",
+        "c": 1,
+        "at": "bottom centre"
+      }
+    ],
+    "watermark": true,
+    "kind": "credit",
+    "what": "\"Karim Haddad\" name with date/time stamp \"28 novembre 2025 à 14:00\", bottom centre"
   },
   "https://media.aquatome.com/inaturalist/595987331.webp": {
     "ocr": [
@@ -117030,6 +117262,12 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/608189612.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/608386783.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/608386802.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/608400629.webp": {
@@ -117688,6 +117926,9 @@
   "https://media.aquatome.com/inaturalist/637732839.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/638001032.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/638414207.webp": {
     "ocr": []
   },
@@ -117984,6 +118225,9 @@
   "https://media.aquatome.com/inaturalist/65592566.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/65620325.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/656413146.webp": {
     "ocr": []
   },
@@ -118225,6 +118469,12 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/67329332.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/673322352.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/673322401.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/673322673.webp": {
@@ -120069,6 +120319,9 @@
   "https://media.aquatome.com/inaturalist/97634475.webp": {
     "ocr": []
   },
+  "https://media.aquatome.com/inaturalist/9766662.webp": {
+    "ocr": []
+  },
   "https://media.aquatome.com/inaturalist/97717536.webp": {
     "ocr": []
   },
@@ -120103,6 +120356,9 @@
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/98492050.webp": {
+    "ocr": []
+  },
+  "https://media.aquatome.com/inaturalist/98533660.webp": {
     "ocr": []
   },
   "https://media.aquatome.com/inaturalist/98568921.webp": {

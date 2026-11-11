@@ -218,7 +218,12 @@
       "author": "Juan R. Lascorz",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:05.Inpaichtys_kerri.JPG",
       "caption": "Inpaichtys kerri",
-      "thumb": "https://media.aquatome.com/commons/e6c68eaa315549bb-480.webp"
+      "thumb": "https://media.aquatome.com/commons/e6c68eaa315549bb-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/e6c68eaa315549bb-large.webp",
+        "width": 1234,
+        "height": 741
+      }
     },
     {
       "url": "https://media.aquatome.com/commons/1bfbe837bda5c404.webp",
