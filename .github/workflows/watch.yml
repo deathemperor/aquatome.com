@@ -59,12 +59,25 @@ jobs:
       - name: Install Chromium for Playwright
         run: pnpm --filter site exec playwright install --with-deps chromium
       # The AI review (layer 3) runs at night and on demand, not after every deploy: it costs model time.
+      # CLAUDE_ON_CI=off pauses it. Unset, or any other value, and it runs. The checks themselves still run.
       - name: Install Claude for the AI page review (nightly and by hand)
-        if: github.event_name != 'workflow_run'
+        if: github.event_name != 'workflow_run' && vars.CLAUDE_ON_CI != 'off'
         run: npm install -g @anthropic-ai/claude-code && echo E2E_REVIEW=1 >> "$GITHUB_ENV"
       - name: List the sitemap's pages and the pages of open issues
         run: node scripts/site-watch.mjs prepare https://aquatome.com apps/site
+      # After a deploy, and while Claude is paused: the same checks, and no token, so nothing tries to review.
       - name: Browser checks, today's sample of pages
+        if: github.event_name == 'workflow_run' || vars.CLAUDE_ON_CI == 'off'
+        working-directory: apps/site
+        run: E2E_SEED=$((10#$(date -u +%j))) pnpm e2e
+        env:
+          E2E_BASE_URL: https://aquatome.com
+          E2E_PAGES: e2e-pages.json
+          E2E_RECHECK: e2e-recheck.json
+          E2E_JSON: e2e-results.json
+          E2E_REVIEW: ''
+      - name: Browser checks, today's sample of pages, with the AI review
+        if: github.event_name != 'workflow_run' && vars.CLAUDE_ON_CI != 'off'
         working-directory: apps/site
         run: E2E_SEED=$((10#$(date -u +%j))) pnpm e2e
         env:

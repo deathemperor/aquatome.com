@@ -80,6 +80,9 @@ node ../../scripts/site-watch.mjs prepare https://aquatome.com .
 E2E_BASE_URL=https://aquatome.com E2E_PAGES=e2e-pages.json pnpm exec playwright test <spec>
 ```
 
+`CLAUDE_ON_CI=off` (a repository variable) pauses Claude in the workflows: the AI page review, the auto-fix and the
+content rewrite. Comment and photo moderation stays on. Unset, or any other value, they run.
+
 ## The owner's reports
 
 The owner sends a report from a page or an app screen (`apps/site/worker/feedback.ts`, `protocols/owner-feedback.openapi.json`).
