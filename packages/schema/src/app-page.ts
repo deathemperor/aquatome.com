@@ -39,12 +39,19 @@ export const Text = z.array(Inline)
  * the name as the line shows it (an Unsplash photo's), so a reader links that text without parsing each language's words.
  */
 export const Credit = z.object({ text: z.string(), licence: z.string(), url: z.string().optional(), authorUrl: z.string().optional(), author: z.string().optional() })
+/**
+ * Where the fish is in a photo: fractions of it from its top-left corner, right for every resized copy (the engine's box,
+ * from the Mac's Vision). A frame keeps the fish by it (protocols/photo-crop-vectors.json); none draws as today.
+ */
+export const Box = z.object({ x: z.number().min(0).max(1), y: z.number().min(0).max(1), w: z.number().gt(0).max(1), h: z.number().gt(0).max(1) })
+/** `box`: where the fish is, on a fish's or a breed's lead photo, once the site's switch for it is on (image-geometry.ts). */
 export const Image = z.object({
   src: z.string(),
   w: z.number().int().positive(),
   h: z.number().int().positive(),
   alt: z.string().optional(),
   credit: Credit.optional(),
+  box: Box.optional(),
 })
 
 export const Heading = z.object({ t: z.literal('h'), text: z.string(), id: z.string().optional() })
@@ -227,6 +234,7 @@ export const PageDoc = z.object({
 export type Inline = z.infer<typeof Inline>
 export type Run = z.infer<typeof Run>
 export type Image = z.infer<typeof Image>
+export type Box = z.infer<typeof Box>
 export type Block = BlockT
 export type PageDoc = z.infer<typeof PageDoc>
 

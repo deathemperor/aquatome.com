@@ -1,6 +1,6 @@
 export * from './schemas'
 export { APPROVED_GENERATED_GATE, MARK_RESIDUE_LIMIT, MARK_RESIDUE_VERSION, IMAGE_SWITCHES, generatedApproved, isGenerated, isOwnerCrop, realPhotosFirst, validImageJudgmentHashes, type Alteration, type GeneratedRecord, type ImageSwitches } from './image-policy'
-export { containsBox, coverWindow, validPixelBox, validCropGeometry, cropFitsFrame, markOutsideCrop, photoFitsHead, photoFitsWholeHead, photoFitsCard, SUBJECT_CUT, SUBJECT_FRAMES, subjectFrame, subjectPixels, type CropGeometry, type PixelBox, type SubjectFractions, type SubjectFrame } from './image-geometry'
+export { containsBox, coverWindow, validPixelBox, validCropGeometry, cropFitsFrame, markOutsideCrop, photoFitsHead, photoFitsWholeHead, photoFitsCard, boxFractions, frameOf, SUBJECT_CUT, SUBJECT_FRAMES, SUBJECT_SLACK, subjectFrame, subjectPixels, type CropGeometry, type PixelBox, type SubjectFractions, type SubjectFrame } from './image-geometry'
 export type * from './types'
 export { slugify } from './slug'
 export { isVietnamese, markVietnameseNames, nameKey } from './text'
