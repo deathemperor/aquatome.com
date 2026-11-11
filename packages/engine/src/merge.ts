@@ -66,9 +66,12 @@ function mergeSections(prev: Section[], prevVi: Record<string, string>, page: Pr
   }
   for (const k of fixed) parts.delete(k)
   const added: Section[] = [...parts.values()].map(s => ({ key: s.key, source: ctx.source, sourceUrl: ctx.url, html: s.en }))
-  // Under one heading, a part of ours (a local note, a video's tips) reads after the source's it adds to.
-  const ours = (s: Section) => (s.source === 'aquatome' ? 1 : 0)
-  const sections = [...kept, ...added].map((s, i) => [s, i] as const).sort((a, b) => order(a[0].key) - order(b[0].key) || ours(a[0]) - ours(b[0]) || a[1] - b[1]).map(([s]) => s)
+  // A source read again keeps its part's place under the heading: a note of ours set after it stays after it, a planting
+  // how-to set first under care (planting.ts) stays first. A part the source didn't have before goes last.
+  const was = new Map(prev.map((s, i) => [s, i] as const))
+  const slot = new Map(prev.flatMap((s, i) => (s.source === ctx.source && !s.fixed ? [[s.key, i] as const] : [])))
+  const at = (s: Section, i: number) => was.get(s) ?? slot.get(s.key) ?? prev.length + i
+  const sections = [...kept, ...added].map((s, i) => [s, at(s, i)] as const).sort((a, b) => order(a[0].key) - order(b[0].key) || a[1] - b[1]).map(([s]) => s)
   const vi = Object.fromEntries(Object.entries(prevVi).filter(([k]) => !k.endsWith(`:${ctx.source}`) || fixed.has(k.slice(0, -ctx.source.length - 1))))
   for (const s of parts.values()) vi[`${s.key}:${ctx.source}`] = s.vi
   return { sections, vi }

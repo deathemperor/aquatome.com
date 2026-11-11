@@ -251,19 +251,24 @@ test('an L record is kept as keepers write it: from a source, and the one on fil
 
 // The independent read of the lucky bamboo note (2026-11-12): a page with text or figures of ours that cite its `refs` lost
 // them when another source was read again, and the schema then refused the page, so the source's update never landed.
-// And a part of ours went above the source's under the same heading.
-test('a source read again keeps the page\'s refs, so its own parts still cite them; under one heading the source comes before ours', () => {
+// And the source's part, read again, moved below a note of ours set after it.
+test('a source read again keeps the page\'s refs, so its own parts still cite them, and its place beside a part of ours', () => {
   const plantCtx = { source: 'aquariumbreeder' as const, url: 'https://aquariumbreeder.com/lucky-bamboo', now: '2026-11-12', takenSlugs: new Set<string>() }
   const plant = page({ kind: 'plant', scientificName: 'Dracaena sanderiana', viName: 'Trúc phát tài', plant: { difficulty: 1, light: 'low', co2: 'none', growth: 'slow', placement: ['background'] }, sections: [{ key: 'waterConditions', en: '<p>Use RO.</p>', vi: '<p>Dùng RO.</p>' }] })
   const first = mergePlant({}, plant, plantCtx)!
   const ours = { key: 'waterConditions' as const, source: 'aquatome' as const, sourceUrl: 'https://aquatome.com/vi/gioi-thieu/', html: '<p>Our note.</p>', refs: [0], fixed: true as const }
   const refs = [{ url: 'https://aquariumbreeder.com/shrimp-minerals', title: 'Aquarium Breeder: shrimp and minerals' }]
-  const had = { entity: { ...first.entity, sections: [ours, ...first.entity.sections], refs }, vi: { ...first.vi, sections: { ...first.vi.sections, 'waterConditions:aquatome': '<p>Ghi chú.</p>' } } }
-  const again = mergePlant(had, { ...plant, sections: [{ key: 'waterConditions', en: '<p>Use RO, or tap water dechlorinated.</p>', vi: '<p>Dùng RO.</p>' }] }, plantCtx)!
+  const vi = { ...first.vi, sections: { ...first.vi.sections, 'waterConditions:aquatome': '<p>Ghi chú.</p>' } }
+  const reread = { ...plant, sections: [{ key: 'waterConditions' as const, en: '<p>Use RO, or tap water dechlorinated.</p>', vi: '<p>Dùng RO.</p>' }] }
+  const again = mergePlant({ entity: { ...first.entity, sections: [...first.entity.sections, ours], refs }, vi }, reread, plantCtx)!
   expect(() => PlantSchema.parse(again.entity)).not.toThrow()
   expect(again.entity.refs).toEqual(refs)
   expect(again.entity.sections.map(x => `${x.key}:${x.source}`)).toEqual(['waterConditions:aquariumbreeder', 'waterConditions:aquatome'])
+  expect(again.entity.sections[0]!.html).toBe('<p>Use RO, or tap water dechlorinated.</p>')
   expect(again.vi.sections['waterConditions:aquatome']).toBe('<p>Ghi chú.</p>')
+  // A part of ours set first (a planting how-to) stays first.
+  const first2 = mergePlant({ entity: { ...first.entity, sections: [ours, ...first.entity.sections], refs }, vi }, reread, plantCtx)!
+  expect(first2.entity.sections.map(x => `${x.key}:${x.source}`)).toEqual(['waterConditions:aquatome', 'waterConditions:aquariumbreeder'])
   // A fish page: a figure of ours on the card cites refs too.
   const fish = mergeSpecies({}, page(), ctx('seriouslyfish'))
   const fishRefs = [{ url: 'https://example.org/paper', title: 'A paper' }]

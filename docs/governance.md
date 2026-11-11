@@ -1048,8 +1048,10 @@ The layers above still check the result.
   A source is never credited with words it did not say (the chief of staff, 2026-11-12). A ruling of the owner's or the
   chief of staff's that changes what a sourced page says goes in the same way, in our own voice: a guide's `localNote`,
   or on a species or plant page a part of its own (source `aquatome`, labelled "Ghi chú của AquaTome", marked `fixed`,
-  citing the pages it rests on), in every language the page has. The source's part keeps what the source says. First
-  done on the lucky bamboo page's water.
+  citing the pages it rests on), in every language the page has. The source's part keeps what the source says, and the
+  note doesn't repeat it. A part's marks name the pages its facts come from, as on a page AquaTome researched: each fact
+  is in at least one page it cites, and no page it cites says otherwise; what the ruling makes of them (whom the
+  advice is for) is ours, by the label. First done on the lucky bamboo page's water.
 
 - **Written for the reader** (`packages/engine/src/fit.ts`, `gate.ts`). One fixed checklist (`prompts/fit.md`) reads
   every served guide, species, plant and breed page for what shows it was written for a reader somewhere else: the
