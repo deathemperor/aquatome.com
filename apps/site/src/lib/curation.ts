@@ -53,9 +53,12 @@ const SHELF_MIN = 3
  * ("species/<id>" → "/id/ikan/<slug>/"), or nothing when the index doesn't list it: that pick is dropped. Copy this
  * language has no words for is left out, and the app uses the page's own. `cards` are this language's short cards, those
  * the gate holds back already left out: a day's card shows only where it's written, and only within its `show` days.
+ * `waiting`: pictures the build holds back until the watermark screen has judged them (the content's `waitingPhotos`).
+ * The calendar names a picture by its address, so one of those is left off here, and the app shows the page's own.
  */
-export function curationFor(cur: Curation, lang: Lang, today: string, pathOf: (ref: string) => string | undefined, cards: Card[] = []): AppCuration {
+export function curationFor(cur: Curation, lang: Lang, today: string, pathOf: (ref: string) => string | undefined, cards: Card[] = [], waiting: ReadonlySet<string> = new Set()): AppCuration {
   const word = (c?: CurationCopy) => c?.[lang]
+  const shown = (img?: string) => (img && !waiting.has(img) ? img : undefined)
   // A page the planner found failing reader fit (`off`) is left out, as one this language has no page for.
   const page = (ref?: string) => (ref && !cur.off[ref] ? pathOf(ref) : undefined)
   const clean = <T extends object>(o: T) => Object.fromEntries(Object.entries(o).filter(([, v]) => v !== undefined)) as T
@@ -65,12 +68,12 @@ export function curationFor(cur: Curation, lang: Lang, today: string, pathOf: (r
     const own = d.by?.[lang]
     const fish = page(own?.fish ?? d.fish)
     // A language's own fish brings its own photo, or none: the day's photo is of the day's fish.
-    const img = fish && (own?.fish ? own.img : (own?.img ?? d.img))
+    const img = shown(fish && (own?.fish ? own.img : (own?.img ?? d.img)))
     const guide = page(own?.guide ?? d.guide)
     // Likewise the guide's photo is of the day's guide, or of the language's own.
-    const guideImg = guide && (own?.guide ? own.guideImg : d.guideImg)
+    const guideImg = shown(guide && (own?.guide ? own.guideImg : d.guideImg))
     const sp = page(d.story?.page)
-    const story = sp && d.story ? clean({ path: sp, img: d.story.img, eyebrow: word(d.story.eyebrow), title: word(d.story.title), dek: word(d.story.dek) }) : undefined
+    const story = sp && d.story ? clean({ path: sp, img: shown(d.story.img), eyebrow: word(d.story.eyebrow), title: word(d.story.title), dek: word(d.story.dek) }) : undefined
     const c = d.card && cards.find(x => `cards/${x.id}` === d.card && x.show.from <= d.date && d.date <= x.show.until)
     const card: AppCard | undefined = c ? clean({
       id: c.id, type: c.type, eyebrow: c.t.eyebrow, title: c.t.title, body: c.t.body,
@@ -87,7 +90,7 @@ export function curationFor(cur: Curation, lang: Lang, today: string, pathOf: (r
   out.week = clean({ from: w.from, to: w.to, theme: word(w.theme) })
   const hero = w.hero.flatMap(h => {
     const path = page(h.page)
-    return path ? [clean({ path, img: h.img, eyebrow: word(h.eyebrow), title: word(h.title) })] : []
+    return path ? [clean({ path, img: shown(h.img), eyebrow: word(h.eyebrow), title: word(h.title) })] : []
   })
   if (hero.length) out.hero = hero
   const shelves = w.shelves.flatMap(s => {
