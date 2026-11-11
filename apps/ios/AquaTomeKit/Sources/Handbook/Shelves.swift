@@ -24,8 +24,8 @@ public struct HandbookShelves: Sendable {
   public let featuredFish: [HandbookIndex.Item]
   public let easyPlants: [HandbookIndex.Item]
   public let firstGuides: [HandbookIndex.Item]
-  /// Khám phá's longer lists, starting with the three above in their order (`HandbookIndex.Home.Browse`); from a site
-  /// before them, those three.
+  /// Khám phá's longer lists (`HandbookIndex.Home.Browse`): the fish starting with those above in their order, the
+  /// plants and guides Curation's own; a list the index doesn't have, or that this app can't read, is the one above.
   public let browseFish: [HandbookIndex.Item]
   public let browsePlants: [HandbookIndex.Item]
   public let browseGuides: [HandbookIndex.Item]
@@ -115,9 +115,9 @@ public struct HandbookShelves: Sendable {
     featuredFish = home.fish.compactMap { byPath[$0] }
     easyPlants = home.plants.compactMap { byPath[$0] }
     firstGuides = home.guides.compactMap { byPath[$0] }
-    browseFish = home.browse.map { $0.fish.compactMap { byPath[$0] } } ?? featuredFish
-    browsePlants = home.browse.map { $0.plants.compactMap { byPath[$0] } } ?? easyPlants
-    browseGuides = home.browse.map { $0.guides.compactMap { byPath[$0] } } ?? firstGuides
+    browseFish = home.browse?.fish.map { $0.compactMap { byPath[$0] } } ?? featuredFish
+    browsePlants = home.browse?.plants.map { $0.compactMap { byPath[$0] } } ?? easyPlants
+    browseGuides = home.browse?.guides.map { $0.compactMap { byPath[$0] } } ?? firstGuides
     plan = Dictionary(home.days.map { d in
       let fish = d.fish.flatMap { byPath[$0] }, guide = d.guide.flatMap { byPath[$0] }, story = d.story.flatMap { byPath[$0.path] }
       return (d.date, Planned(fish: fish, img: fish == nil ? nil : d.img, guide: guide, guideImg: guide == nil ? nil : d.guideImg,

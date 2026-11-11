@@ -251,18 +251,19 @@ public struct HandbookIndex: Codable, Sendable, Equatable {
       }
     }
 
-    /// Khám phá's longer shelves, by item path: each starts with `fish`, `plants` and `guides` in their order, and goes on
-    /// only as far as the site's ranking is how well known, how easy or how much a beginner needs it.
+    /// Khám phá's longer shelves, by item path: the fish start with `fish` in its order and go on with those hobbyists
+    /// keep most; the plants and guides are Curation's lists, in its order. A list missing or unreadable is nil, and its
+    /// shelf shows the home's own list, not an empty one.
     public struct Browse: Codable, Sendable, Equatable {
-      public var fish: [String]
-      public var plants: [String]
-      public var guides: [String]
-      public init(fish: [String] = [], plants: [String] = [], guides: [String] = []) { self.fish = fish; self.plants = plants; self.guides = guides }
+      public var fish: [String]?
+      public var plants: [String]?
+      public var guides: [String]?
+      public init(fish: [String]? = nil, plants: [String]? = nil, guides: [String]? = nil) { self.fish = fish; self.plants = plants; self.guides = guides }
 
       enum CodingKeys: String, CodingKey { case fish, plants, guides }
       public init(from decoder: any Decoder) throws {
         let c = try decoder.container(keyedBy: CodingKeys.self)
-        func read(_ k: CodingKeys) -> [String] { ((try? c.decodeIfPresent([String].self, forKey: k)) ?? nil) ?? [] }
+        func read(_ k: CodingKeys) -> [String]? { (try? c.decodeIfPresent([String].self, forKey: k)) ?? nil }
         fish = read(.fish); plants = read(.plants); guides = read(.guides)
       }
     }

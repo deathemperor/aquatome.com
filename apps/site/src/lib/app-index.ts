@@ -1,4 +1,4 @@
-import { POPULAR, resolveDataCard, slugify, STAPLE_SPECIES, type BreedEntity, type Content, type Curation, type Loop, type Photo, type PlantEntity, type Range, type Traits } from '@aq/schema'
+import { FIRST_GUIDES, FIRST_PLANTS, POPULAR, resolveDataCard, slugify, STAPLE_SPECIES, type BreedEntity, type Content, type Curation, type Loop, type Photo, type PlantEntity, type Range, type Traits } from '@aq/schema'
 import type { KindShards, PageDoc } from '@aq/schema/app-page'
 import type { SpeciesIndexItem } from '../scripts/filter'
 import { breedFigures, speciesOf, type BreedFigures } from './breeds'
@@ -154,9 +154,9 @@ export function appSeries(lang: Lang, c: Content): { s: Content['series'][number
 export type AppHome = {
   groups: { id: string; img?: string }[]; fish: string[]; plants: string[]; guides: string[]
   /**
-   * Khám phá's longer shelves: each starts with `fish`, `plants` and `guides` in their order, so what shows first stays
-   * first, and goes on only as far as its list is ranked by how well known (fish), how easy (plants) or how much a
-   * beginner needs it (guides). An app that predates it shows those three.
+   * Khám phá's longer shelves. Fish start with `fish` in its order, so what shows first stays first, and go on with
+   * those hobbyists keep most. Plants and guides are Curation's lists in their order (FIRST_PLANTS, FIRST_GUIDES). An
+   * app that predates it shows `fish`, `plants` and `guides`.
    */
   browse?: { fish: string[]; plants: string[]; guides: string[] }
 } & AppCuration
@@ -200,6 +200,8 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   const aka = (names: string[]) => (names.length ? names : undefined)
   const items: AppItem[] = []
   const home: AppHome = { groups: [], fish: [], plants: [], guides: [] }
+  /** Each guide's path in this index, by its id. */
+  const guideAt = new Map<string, string>()
   const words = (labels: Record<string | number, string>) => Object.fromEntries(Object.entries(labels).map(([k, v]) => [k, t(v)]))
   const labels: AppLabels = {
     group: words(GROUP_LABELS), section: words(GUIDE_KIND_LABELS), ...(Object.fromEntries(Object.entries(PLANT_LABELS).map(([k, v]) => [k, words(v)])) as Pick<AppLabels, keyof typeof PLANT_LABELS>),
@@ -262,7 +264,9 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
       const about = m ? [...m.species.map(s => s.id), ...m.plants.map(p => p.id)] : []
       // Its card's picture on the site: its own photo, else one from its video's sections, else a fish or plant it names.
       const ph = guideImage(c, g)
-      items.push(clean({ kind: 'guide', name: g.t.name, aka: aka(g.t.altNames), path: at(`/vi/huong-dan/${g.t.slug}/`), img: ph && smallSrc(ph), section: g.kind, about: about.length ? about : undefined, video: g.video?.durationSec }))
+      const path = at(`/vi/huong-dan/${g.t.slug}/`)
+      guideAt.set(g.id, path)
+      items.push(clean({ kind: 'guide', name: g.t.name, aka: aka(g.t.altNames), path, img: ph && smallSrc(ph), section: g.kind, about: about.length ? about : undefined, video: g.video?.durationSec }))
     }
     home.guides = leadGuides(c).map(g => at(`/vi/huong-dan/${g.t.slug}/`))
   }
@@ -287,14 +291,17 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   const paths = new Set(items.map(i => i.path))
   const listed = (k: 'fish' | 'plants' | 'guides') => home[k].filter(p => paths.has(p))
   const row = { fish: listed('fish').slice(0, 8), plants: listed('plants').slice(0, 6), guides: listed('guides').slice(0, 8) }
-  // Khám phá's longer shelves, each starting with that row in its order. Fish go on with those hobbyists keep most, most
-  // kept first, each with a photo: past its staples the site's own ranking is the richest profile, not the best known.
+  // Khám phá's longer shelves. Fish start with that row in its order and go on with those hobbyists keep most, most kept
+  // first, each with a photo: past its staples the site's own ranking is the richest profile, not the best known. Plants
+  // and guides are Curation's lists in their order, each page only as this index lists it, so one that stops passing
+  // reader fit drops out.
   const pictured = new Map(items.filter(i => i.kind === 'fish' && i.img).map(i => [i.id, i.path]))
   const popular = [...STAPLE_SPECIES, ...POPULAR.map(slugify)].flatMap(id => pictured.get(id) ?? [])
+  const plantAt = new Map(items.filter(i => i.kind === 'plant').map(i => [i.id, i.path]))
   home.browse = {
-    fish: [...new Set([...row.fish, ...popular])].slice(0, BROWSE.fish),
-    plants: listed('plants').slice(0, Math.max(BROWSE.plants, row.plants.length)),
-    guides: listed('guides').slice(0, Math.max(BROWSE.guides, row.guides.length)),
+    fish: [...new Set([...row.fish, ...popular])].slice(0, BROWSE_FISH),
+    plants: FIRST_PLANTS.flatMap(id => plantAt.get(id) ?? []),
+    guides: FIRST_GUIDES.flatMap(id => guideAt.get(id) ?? []),
   }
   Object.assign(home, row)
   const groups = new Set(items.map(i => i.group))
@@ -373,12 +380,10 @@ const TOOLS: readonly (readonly [string, string, readonly string[], string?])[] 
   ], 'Bể của tôi'],
 ]
 
-/** Leaves out empty fields, so the file stays small. */
 /**
- * How long Khám phá's lists are (the Design Lead's spec, 2026-11-11). Of each, a shelf shows 24 fish, 24 plants or 12
- * guides after the pages shown above it, and never more: past these the site's ranking stops being how well known, how
- * easy or how much a beginner needs it. Plants: after the staples, the easiest by how much the site has on them, which
- * falls to a long tail past 19. Guides: past the beginner staples, by how many fish and plants a guide names.
+ * How many fish Khám phá's list holds (the Design Lead's spec, 2026-11-11): its shelf shows 24 after the pages shown above
+ * it, and this leaves it 6 to spare.
  */
-const BROWSE = { fish: 30, plants: 19, guides: 8 }
+const BROWSE_FISH = 30
+/** Leaves out empty fields, so the file stays small. */
 const clean = (i: AppItem): AppItem => Object.fromEntries(Object.entries(i).filter(([, v]) => v !== undefined)) as AppItem

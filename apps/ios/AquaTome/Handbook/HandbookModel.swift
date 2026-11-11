@@ -355,6 +355,10 @@ final class HandbookModel {
   static func defaultSource() -> Source {
     #if DEBUG
     let args = ProcessInfo.processInfo.arguments
+    // `-index-file PATH`: the index read from a file on this Mac (one built from today's content), for parity shots with the
+    // site's real pages.
+    if let i = args.firstIndex(of: "-index-file"), i + 1 < args.count, let data = FileManager.default.contents(atPath: args[i + 1]),
+       let ix = try? JSONDecoder().decode(HandbookIndex.self, from: data) { return .fixed(ix) }
     if args.contains("-large-handbook") { return .fixed(.large) }
     if args.contains("-fixed-handbook") {
       // `-vi-at-root`: the site has taken "/vi" out of its Vietnamese pages' addresses.
@@ -378,6 +382,13 @@ final class HandbookModel {
       }
       // `-plan`: the editors have planned Hôm nay's days (`fixtureDays`).
       var home = f.home
+      // `-familiar N`: Khám phá's fish shelf runs long, N fish after the fixture's own, as the hobbyists' list does.
+      if let n = args.firstIndex(of: "-familiar").flatMap({ $0 + 1 < args.count ? Int(args[$0 + 1]) : nil }), n > 0 {
+        let more = (1...n).map { HandbookIndex.Item(kind: .fish, contentId: "quen-\($0)", name: "Cá quen \($0)", sub: "Genus familiaris", path: "/vi/ca/ca-quen-\($0)/", group: "tetras") }
+        items += more
+        let browse = HandbookIndex.Home.Browse(fish: (home?.fish ?? []) + more.map(\.path), plants: home?.plants ?? [], guides: home?.guides ?? [])
+        home?.browse = browse
+      }
       if args.contains("-plan") { home?.days = HandbookIndex.fixtureDays }
       // `-site-telemetry`: the site takes the app's anonymous telemetry (the fixed index says nothing of it otherwise).
       return .fixed(HandbookIndex(lang: f.lang, items: items, home: home, labels: f.labels, pages: pages, places: f.places,

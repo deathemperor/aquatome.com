@@ -83,6 +83,21 @@ private let words = HandbookIndex.Labels([
   #expect(old.browseFish.map(\.path) == old.featuredFish.map(\.path) && old.browseFish.count == 8)
 }
 
+@Test func aKhamPhaListTheAppCantReadIsTheHomesOwnNotAnEmptyShelf() throws {
+  func shelves(_ browse: String) throws -> HandbookShelves {
+    let json = #"{"version":1,"lang":"vi","items":[{"kind":"fish","name":"Cá neon","path":"/vi/ca/neon/"},{"kind":"fish","name":"Cá đĩa","path":"/vi/ca/dia/"}],"home":{"fish":["/vi/ca/neon/"],"plants":[],"guides":[]"# + browse + "}}"
+    return HandbookShelves(try JSONDecoder().decode(HandbookIndex.self, from: Data(json.utf8)))
+  }
+  let paths = { (s: HandbookShelves) in s.browseFish.map(\.path) }
+  #expect(try paths(shelves(#","browse":{"fish":["/vi/ca/neon/","/vi/ca/dia/"]}"#)) == ["/vi/ca/neon/", "/vi/ca/dia/"])
+  // None, an empty object, a list in a newer shape, or not an object at all: the home's own fish.
+  for browse in ["", #","browse":{}"#, #","browse":{"fish":[{"path":"/vi/ca/dia/"}]}"#, #","browse":[]"#] {
+    #expect(try paths(shelves(browse)) == ["/vi/ca/neon/"], "\(browse)")
+  }
+  // A list the site sends empty stays empty (a language with no fish).
+  #expect(try paths(shelves(#","browse":{"fish":[]}"#)).isEmpty)
+}
+
 @Test func aShelfShows24AfterADropOf3AndWhatsLeftWhenTheDropIsBiggerThanItsSpare() {
   let thirty = (1...30).map { fish("f\($0)", "tetras") }
   let three = Set(["/vi/ca/f1/", "/vi/ca/f2/", "/vi/ca/f3/"])
