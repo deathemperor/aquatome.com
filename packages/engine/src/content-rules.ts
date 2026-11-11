@@ -9,6 +9,7 @@ import { dropEmptyBlocks, tidyHeadings, tidyHtml, unescapePlain, unescapeTwice, 
 import { LANG_NAME, pageUrl, type Page, type PageKind } from './pages'
 import { SWAPPED } from './names'
 import { PHRASES, phraseSlips } from './phrases'
+import { unfitCommons } from './photos'
 
 /**
  * Rules every published page is checked against, every cycle, in each language (`pnpm engine audit`). Each is a small
@@ -463,6 +464,18 @@ export function wrongFish(caption: string, sci: string, others: string[], ctx: C
 }
 /** A caption saying the photo is a map. */
 export const isMap = (caption: string) => MAP.test(caption)
+/**
+ * What a Wikimedia Commons photo's own words say it is when it is no photo of the living fish or plant: a paper's plate,
+ * a microscope picture, a drawing, a map, a dish (photos.ts `unfitCommons`, the screen a new photo passes, on the file's
+ * name and the start of its description, which is a page photo's caption until a look writes another). The search for a
+ * fish's name finds the papers about its parasites and bones, and photos from before a word was screened for stay: found
+ * 2026-11-11 by the owner, on a page whose only photo was a parasite paper's plate. Not the screen's "other" (a
+ * description that says "misidentified"): "first misidentified as …" is said of a photo of the right fish too, and only a look tells.
+ */
+export const notAlive = (c: { caption: string; file?: string }) => {
+  const why = c.file ? unfitCommons({ title: c.file, description: c.caption }) : undefined
+  return why?.startsWith('other') ? undefined : why
+}
 /** An ad video's title as a photo's caption ("video of: African Chop"): its poster, taken from an ad player in a source's article. */
 export const isAdPoster = (caption: string) => /^video of:/i.test(caption.trim())
 
@@ -653,13 +666,14 @@ export const RULES: Rule[] = [
   },
   {
     // The photos are the same in every language: checked on the Vietnamese page.
-    id: 'caption', title: "A photo caption naming another fish, a map or an ad video's poster",
-    about: 'A species or plant photo whose caption names another species the site has a page for, and not the page\'s, with nothing saying the fish is still the page\'s; or says it is a map, or is an ad video\'s title ("video of: …"). The sweep takes the photo off the page; a map or an ad\'s poster leaves every page (engine-state/_photo-rejected.json), a photo of another fish only this one, so it may still join that fish\'s page. Checked on the Vietnamese page; the photos are the same in every language.',
+    id: 'caption', title: "A photo caption naming another fish, a map, a paper's plate or an ad video's poster",
+    about: 'A species or plant photo whose caption names another species the site has a page for, and not the page\'s, with nothing saying the fish is still the page\'s; or says it is a map, or is an ad video\'s title ("video of: …"); or a Wikimedia Commons photo whose file name or description says it is a paper\'s plate, a microscope picture, a drawing, a map or a dish. The sweep takes the photo off the page; a map, a plate or an ad\'s poster leaves every page (engine-state/_photo-rejected.json), a photo of another fish only this one, so it may still join that fish\'s page. Checked on the Vietnamese page; the photos are the same in every language.',
     check: (p, ctx) => (!p.sci || p.lang !== 'vi' ? [] : [...new Set(p.captions.flatMap(c => {
       const other = wrongFish(c.caption, p.sci!, p.latinNames, ctx)
       // Found by the reader's eye (2026-11-01): "Pterophyllum scalare map" shown as a photo of the fish.
       return [...(other ? [`${other}: "${clip(c.caption, 80)}"`] : []), ...(isMap(c.caption) ? [`a map, not the fish: "${clip(c.caption, 80)}"`] : []),
-        ...(isAdPoster(c.caption) ? [`an ad video's poster, not the fish: "${clip(c.caption, 80)}"`] : [])]
+        ...(isAdPoster(c.caption) ? [`an ad video's poster, not the fish: "${clip(c.caption, 80)}"`] : []),
+        ...(notAlive(c) ? [`${notAlive(c)}, not the fish: "${clip(c.caption, 80)}"`] : [])]
     }))]),
   },
   {

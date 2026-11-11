@@ -124,6 +124,73 @@ test("the unplaced photos at its source's read-next card width that end a guide'
   expect((await sweep(root, {})).photos.filter(x => x.includes('read-next'))).toEqual([])
 })
 
+test("a paper's plate leaves its page and its gallery for good, the page's lead or not; one plain photo named as a figure stays (the owner's report, 2026-11-11)", async () => {
+  const root = await mkdtemp(join(tmpdir(), 'sweep-'))
+  const c = join(root, 'content')
+  const put = async (path: string, data: unknown) => { await mkdir(join(c, path, '..'), { recursive: true }); await writeFile(join(c, path), `${JSON.stringify(data, null, 2)}\n`) }
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await mkdir(c, { recursive: true })
+  await copyFile(new URL('../../../content/sources.json', import.meta.url), join(c, 'sources.json'))
+  const commons = (name: string, file: string, caption: string) => ({ ...photo(`https://media.aquatome.com/commons/${name}.webp`, caption), sourceUrl: `https://commons.wikimedia.org/wiki/File:${encodeURIComponent(file.replaceAll(' ', '_'))}` })
+  const plate = commons('plate', 'Parasite180080-Figure4 Compound micrographs of Cychlidogyrus spp. (Monogenea, Dactylogyridae).png', 'Figure 4 of paper Compound micrographs of (a–c) Cichlidogyrus bixlerzavalai n. sp. from Tylochromis praecox')
+  // Its words name the page's fish among others: a plate is no photo of any of them.
+  const many = commons('many', 'Aquatic Biodiversity in the Amazon (1020205-f7).png', 'Examples of species collected only in the Alto Purús.(A) Hemichromis elongatus, 79 mm.(B) Clarias leiacanthus, 73 mm.(C) Pimelodus sp. 2, 112 mm.')
+  const one = commons('one', 'Clarias leiacanthus (10.3897-BDJ.11.e100337) Figure 20.jpg', 'Figure 20 Clarias leiacanthus.')
+  await put('species/hemichromis-elongatus/entity.json', species('hemichromis-elongatus', 'Hemichromis elongatus', { photos: [plate] }))
+  await put('species/hemichromis-elongatus/vi.json', vi('Cá cichlid năm sao', { 'distribution:seriouslyfish': '<p>Tây Phi.</p>' }))
+  await put('gallery/hemichromis-elongatus.json', { id: 'hemichromis-elongatus', photos: [many], seen: 1, updatedAt: '2026-10-01' })
+  await put('species/clarias-leiacanthus/entity.json', species('clarias-leiacanthus', 'Clarias leiacanthus', { photos: [one, many] }))
+  await put('species/clarias-leiacanthus/vi.json', vi('Cá trê Borneo', { 'distribution:seriouslyfish': '<p>Borneo.</p>' }))
+  const r = await sweep(root)
+  expect(r.photos).toHaveLength(3)
+  expect((await json(root, 'content/species/hemichromis-elongatus/entity.json')).photos).toEqual([])
+  expect((await json(root, 'content/gallery/hemichromis-elongatus.json')).photos).toEqual([])
+  expect((await json(root, 'content/species/clarias-leiacanthus/entity.json')).photos).toEqual([one])
+  // Off every page, and the search and the gallery step skip what is on this list.
+  expect(Object.keys(await json(root, 'engine-state/_photo-rejected.json')).sort()).toEqual([many.url, plate.url])
+  expect((await json(root, 'engine-state/_photo-rejected.json'))[plate.url]).toBe('not a photo: micrographs, not Hemichromis elongatus (species/hemichromis-elongatus)')
+  const pages = await loadPages(c)
+  expect(ratcheted(checkPages(pages, RULES.filter(x => x.id in RATCHETED)).findings).filter(f => f.rule === 'caption')).toEqual([])
+  expect((await sweep(root)).photos).toEqual([])
+})
+
+test("a run that would take more photos off every page than its cap takes none off, lists them, and leaves the check failing for a person; with the cap raised they go", async () => {
+  const root = await mkdtemp(join(tmpdir(), 'sweep-'))
+  const c = join(root, 'content')
+  const put = async (path: string, data: unknown) => { await mkdir(join(c, path, '..'), { recursive: true }); await writeFile(join(c, path), `${JSON.stringify(data, null, 2)}\n`) }
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await mkdir(c, { recursive: true })
+  await copyFile(new URL('../../../content/sources.json', import.meta.url), join(c, 'sources.json'))
+  // Three plates on one page, with a photo of another fish, which only ever leaves this page and isn't counted.
+  const plates = [1, 2, 3].map(n => ({ ...photo(`https://media.aquatome.com/commons/plate-${n}.webp`, `Figure ${n}; (a) the whole fish, (b) its scales`), sourceUrl: `https://commons.wikimedia.org/wiki/File:Paper_Figure_${n}.jpg` }))
+  const other = photo('https://media.aquatome.com/commons/sterbai.webp', 'Corydoras sterbai')
+  const own = photo('https://media.aquatome.com/commons/own.webp', 'Corydoras adolfoi')
+  await put('species/corydoras-adolfoi/entity.json', species('corydoras-adolfoi', 'Corydoras adolfoi', { photos: [own, ...plates, other] }))
+  await put('species/corydoras-adolfoi/vi.json', vi('Cá chuột Adolfo', { 'distribution:seriouslyfish': '<p>Brazil.</p>' }))
+  await put('species/corydoras-sterbai/entity.json', species('corydoras-sterbai', 'Corydoras sterbai', { photos: [other] }))
+  await put('species/corydoras-sterbai/vi.json', vi('Cá chuột sterbai', { 'distribution:seriouslyfish': '<p>Brazil.</p>' }))
+  const left = async () => (await json(root, 'content/species/corydoras-adolfoi/entity.json')).photos.map((p: { url: string }) => p.url.split('/').pop())
+  const found = async () => ratcheted(checkPages(await loadPages(c), RULES.filter(x => x.id in RATCHETED)).findings).filter(f => f.rule === 'caption').length
+
+  // A cap that is no whole number stops the run before it writes anything: "1O" for 10 would switch the cap off.
+  await expect(sweep(root, { photoCap: Number('1O') })).rejects.toThrow('the photo cap is a whole number')
+  await expect(sweep(root, { photoCap: -1 })).rejects.toThrow('the photo cap is a whole number')
+  expect(await left()).toEqual(['own.webp', 'plate-1.webp', 'plate-2.webp', 'plate-3.webp', 'sterbai.webp'])
+  const held = await sweep(root, { photoCap: 2 })
+  expect(held.held).toHaveLength(3)
+  expect(held.held[0]).toBe("https://media.aquatome.com/commons/plate-1.webp (not a photo: a paper's plate, (a), (b), not Corydoras adolfoi (species/corydoras-adolfoi))")
+  expect(held.rejected).toBe(0)
+  expect(await left()).toEqual(['own.webp', 'plate-1.webp', 'plate-2.webp', 'plate-3.webp'])
+  await expect(readFile(join(root, 'engine-state/_photo-rejected.json'), 'utf8')).rejects.toThrow()
+  expect(await found()).toBe(3) // each still fails the check the cycle's suite runs
+  // A person has looked: the cap raised to what the run listed.
+  const r = await sweep(root, { photoCap: 3 })
+  expect(r.held).toEqual([])
+  expect(r.rejected).toBe(3)
+  expect(await left()).toEqual(['own.webp'])
+  expect(await found()).toBe(0)
+})
+
 test('a card figure whose reason went shows again', async () => {
   const root = await store()
   await sweep(root)
