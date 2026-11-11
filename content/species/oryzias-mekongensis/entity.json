@@ -12,6 +12,124 @@
     "laos",
     "cambodia"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "LA",
+        "KH"
+      ],
+      "regions": [
+        "Mekong"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "Endemic to the Mekong River system and has been recorded from various tributary drainages in northeastern Thailand, Laos and Cambodia.",
+          "countries": [
+            "TH",
+            "LA",
+            "KH"
+          ],
+          "regions": [
+            "Mekong"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2368385,
+      "total": 12,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "TH",
+          6
+        ],
+        [
+          "VN",
+          3
+        ],
+        [
+          "KH",
+          1
+        ],
+        [
+          "LA",
+          1
+        ],
+        [
+          "MY",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          101.25,
+          2.8125,
+          1,
+          0
+        ],
+        [
+          102.65625,
+          15.46875,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          16.875,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          8.4375,
+          1,
+          0
+        ],
+        [
+          104.0625,
+          11.25,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          14.0625,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          15.46875,
+          1,
+          1
+        ],
+        [
+          104.0625,
+          16.875,
+          2,
+          2
+        ],
+        [
+          105.46875,
+          9.84375,
+          1,
+          0
+        ],
+        [
+          106.875,
+          11.25,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

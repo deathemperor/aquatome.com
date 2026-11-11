@@ -10,6 +10,102 @@
     "indonesia",
     "sumatra"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Sumatra",
+        "Danau Maninjau",
+        "Aek Sibundung",
+        "Aek Sumuran",
+        "Aek Garoga",
+        "Batang Gadis"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The checkered barb, Oliotius oligolepis, is a small cyprinid apparently endemic to western central Sumatra, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Apparently endemic to western central Sumatra, Indonesia, but the full extent of its distribution is unclear.",
+          "countries": [],
+          "regions": [
+            "Sumatra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Lake Meninju, Sumatra, Indonesia', which corresponds to the crater lake Danau Maninjau in Sumatera Barat (West Sumatra) province.",
+          "countries": [],
+          "regions": [
+            "Danau Maninjau"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The few recent records that exist pertain to lower basins of the Aek Sibundung, Aek Sumuran, and Aek Garoga rivers in Sumatera Utara (North Sumatra) province, with the Batang Gadis drainage and associated National Park possibly representing the northern limit of its range (D. Lumbantobing, pers. comm.).",
+          "countries": [],
+          "regions": [
+            "Aek Sibundung",
+            "Aek Sumuran",
+            "Aek Garoga",
+            "Batang Gadis"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7654632,
+      "total": 7,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "ID",
+          5
+        ],
+        [
+          "MY",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          94.21875,
+          4.21875,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          1.40625,
+          3,
+          3
+        ],
+        [
+          102.65625,
+          1.40625,
+          2,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

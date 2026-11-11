@@ -10,6 +10,45 @@
     "brazil",
     "rio-aripuana"
   ],
+  "range": {
+    "native": {
+      "countries": [],
+      "regions": [
+        "Rio Aripuana"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "It is endemic in the Rio Aripuana.",
+          "countries": [],
+          "regions": [
+            "Rio Aripuana"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7576119,
+      "total": 24,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "BR",
+          24
+        ]
+      ],
+      "cells": [
+        [
+          -60.46875,
+          -11.25,
+          24
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

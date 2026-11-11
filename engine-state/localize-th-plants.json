@@ -1016,6 +1016,23 @@
       "Item 2: \"ไม่ค่อยเรื่องมาก\" is colloquial; consider \"ไม่ต้องดูแลมาก\"."
     ]
   },
+  "hemianthus-micranthemoides": {
+    "at": "2026-11-11",
+    "from": "2026-11-10",
+    "name": "เพิร์ลกราส",
+    "confidence": "medium",
+    "score": 0.6,
+    "notes": [
+      "Item 8: \"keep the lights on for up to 10 hours daily\" -> \"ควรเปิดไฟไม่เกิน 10 ชั่วโมง\" is acceptable, but 'Fertilizer: essential' conflicts with item 1 'ควรใส่' (recommended); make consistent with each source.",
+      "Item 9: \"pearl and honey gouramis\" -> \"ปลากระดี่มุก\" is fine, but \"Japanese trapdoor\" snail -> \"หอยขมญี่ปุ่น\" is wrong (Japanese trapdoor snail is Viviparus; it is not 'หอยขม'); also \"Malaysian trumpet\" -> \"หอยมาเลเซีย\" drops 'trumpet' (use หอยเทพมาเลเซีย/หอยจุ๊บแจง style term or 'Malaysian trumpet snail').",
+      "Item 9: \"zebra danios\" -> \"ปลาม้าลาย\" ok, but \"clown loaches\" -> \"ปลาหมูอินเดีย\" is wrong; clown loach is ปลาหมูปลาตัวตลก/'ปลาหมูข้างลาย' (ปลาหมูบอลลูน? no). Use the proper name \"ปลาหมูอารีย์/โคลวน์โลช\".",
+      "Item 9: \"pygmy corydoras\" -> \"ปลาแพะแคระ\" is unusual; use \"ปลาคอรี่แคระ\".",
+      "Item 9: \"Amano\" shrimp -> \"กุ้งยามาโตะ\" ok; \"ghost shrimp\" -> \"กุ้งฝอยใส\" ok; \"koi\" -> \"ปลาคาร์ป\" loses specificity, use \"ปลาคาร์ปโคอิ\".",
+      "Item 2: \"Choose only healthy specimens\" and \"bleach solution\" -> \"น้ำยาฟอกขาวเจือจาง\" adds 'diluted' not in the source; also no dilution ratio given, which is risky care advice—state concentration or omit 'เจือจาง' consistently.",
+      "Item 6: \"Let them grow to about 5–6 cm\" fine; but \"until it takes hold it is not a rapid grower\" fine. \"Heavy trimming promotes ... giving a carpet-like look\" ok.",
+      "Item 11: \"Hard to plant\" heading -> \"ปลูกยาก\" ok; \"Yellowing leaves: ... high pH\" ok. \"Pot variant\" -> \"แบบกระถาง\" is fine."
+    ]
+  },
   "heteranthera-zosterifolia": {
     "at": "2026-11-03",
     "from": "2026-11-03",

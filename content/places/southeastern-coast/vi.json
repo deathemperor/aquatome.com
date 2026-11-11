@@ -1,10 +1,13 @@
 {
   "slug": "southeastern-coast",
-  "name": "Southeastern coast",
-  "altNames": [],
+  "name": "bờ biển đông nam",
+  "altNames": [
+    "Southeastern coast"
+  ],
   "sections": {},
   "quality": {
     "score": 1,
     "indexable": true
-  }
+  },
+  "nameFixed": true
 }

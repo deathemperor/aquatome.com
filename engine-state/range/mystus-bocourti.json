@@ -1,8 +1,8 @@
 {
   "id": "mystus-bocourti",
   "native": {
-    "input": "69812e5bea587175",
-    "at": "2026-11-10T20:57:55.515Z",
+    "input": "32a22e09be99d476",
+    "at": "2026-11-10T23:57:51.686Z",
     "claims": [
       {
         "code": "TH",
@@ -27,6 +27,14 @@
         "quote": "Mystus bocourti comes from the river basins of the Mekong and the Chao Phraya in Thailand, Laos, and Cambodia.",
         "words": "Cambodia",
         "ok": true
+      },
+      {
+        "code": "TH",
+        "status": "native",
+        "source": "scotcat",
+        "quote": "Type locality: Siam.",
+        "words": "Siam",
+        "ok": true
       }
     ],
     "regions": [
@@ -41,12 +49,26 @@
         "source": "glaser",
         "quote": "Mystus bocourti comes from the river basins of the Mekong and the Chao Phraya in Thailand, Laos, and Cambodia.",
         "ok": true
+      },
+      {
+        "name": "Mekong",
+        "source": "scotcat",
+        "quote": "Asia: Mekong and Chao Phraya River basins.",
+        "ok": true
+      },
+      {
+        "name": "Chao Phraya",
+        "source": "scotcat",
+        "quote": "Asia: Mekong and Chao Phraya River basins.",
+        "ok": true
       }
     ],
     "disputed": [],
     "outranked": [],
     "origin": {
-      "pagesOnly": [],
+      "pagesOnly": [
+        "VN"
+      ],
       "sourcesOnly": []
     }
   },

@@ -1,9 +1,26 @@
 {
   "id": "brachirus-panoides",
   "native": {
-    "input": "88a147699e5a2508",
-    "at": "2026-11-10T20:57:55.515Z",
-    "claims": [],
+    "input": "75357ac93f5ef327",
+    "at": "2026-11-10T23:57:51.686Z",
+    "claims": [
+      {
+        "code": "IN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: India and Vietnam.",
+        "words": "India",
+        "ok": true
+      },
+      {
+        "code": "VN",
+        "status": "native",
+        "source": "glaser",
+        "quote": "Origin: India and Vietnam.",
+        "words": "Vietnam",
+        "ok": true
+      }
+    ],
     "regions": [],
     "disputed": [],
     "outranked": [],
@@ -54,8 +71,11 @@
         1
       ]
     ],
-    "native": [],
-    "requests": 10,
-    "at": "2026-11-10T20:57:55.515Z"
+    "native": [
+      "IN",
+      "VN"
+    ],
+    "requests": 12,
+    "at": "2026-11-10T23:57:51.686Z"
   }
 }

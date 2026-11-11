@@ -1,0 +1,63 @@
+{
+  "id": "oryzias-eversi",
+  "native": {
+    "input": "2d187e0b3b8a4515",
+    "at": "2026-11-10T23:57:51.686Z",
+    "claims": [
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Oryzias eversi is a ricefish known only from a single karst pool in the Salo Sadang drainage, Tana Toraja, South Sulawesi, Indonesia.",
+        "words": "Indonesia",
+        "ok": true
+      },
+      {
+        "code": "ID",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Salo Sadang drainage, stream close to village Tilanga, about 8 km south of Rantepao, 3°02.126'S, 119°53.232'E, Tana Toraja, South Sulawesi Province, Sulawesi, Indonesia', and the species is currently known only from this single location.",
+        "words": "Indonesia",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Salo Sadang",
+        "source": "seriouslyfish",
+        "quote": "Oryzias eversi is a ricefish known only from a single karst pool in the Salo Sadang drainage, Tana Toraja, South Sulawesi, Indonesia.",
+        "country": "ID",
+        "ok": true
+      },
+      {
+        "name": "Sulawesi",
+        "source": "seriouslyfish",
+        "quote": "Type locality is 'Salo Sadang drainage, stream close to village Tilanga, about 8 km south of Rantepao, 3°02.126'S, 119°53.232'E, Tana Toraja, South Sulawesi Province, Sulawesi, Indonesia', and the species is currently known only from this single location.",
+        "country": "ID",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Oryzias eversi",
+    "status": "ACCEPTED",
+    "taxonKey": 7193254,
+    "datasets": [
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        2
+      ]
+    ],
+    "native": [
+      "ID"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T23:57:51.686Z"
+  }
+}

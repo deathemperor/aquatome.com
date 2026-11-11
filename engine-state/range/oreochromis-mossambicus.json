@@ -1,0 +1,541 @@
+{
+  "id": "oreochromis-mossambicus",
+  "native": {
+    "input": "6a5f985ae6c85ae8",
+    "at": "2026-11-10T23:57:51.686Z",
+    "claims": [
+      {
+        "code": "MZ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to southeastern Africa, in Mozambique, South Africa, Eswatini, Zimbabwe, Botswana and Malawi.",
+        "words": "Mozambique",
+        "ok": true
+      },
+      {
+        "code": "ZA",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to southeastern Africa, in Mozambique, South Africa, Eswatini, Zimbabwe, Botswana and Malawi.",
+        "words": "South Africa",
+        "ok": true
+      },
+      {
+        "code": "SZ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to southeastern Africa, in Mozambique, South Africa, Eswatini, Zimbabwe, Botswana and Malawi.",
+        "words": "Eswatini",
+        "ok": true
+      },
+      {
+        "code": "ZW",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to southeastern Africa, in Mozambique, South Africa, Eswatini, Zimbabwe, Botswana and Malawi.",
+        "words": "Zimbabwe",
+        "ok": true
+      },
+      {
+        "code": "BW",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to southeastern Africa, in Mozambique, South Africa, Eswatini, Zimbabwe, Botswana and Malawi.",
+        "words": "Botswana",
+        "ok": true
+      },
+      {
+        "code": "MW",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "Native to southeastern Africa, in Mozambique, South Africa, Eswatini, Zimbabwe, Botswana and Malawi.",
+        "words": "Malawi",
+        "ok": true
+      }
+    ],
+    "regions": [],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Oreochromis mossambicus",
+    "status": "ACCEPTED",
+    "taxonKey": 2372396,
+    "datasets": [
+      [
+        "3ea542dc-885d-4c8a-91a3-64d0a5d78301",
+        1930
+      ],
+      [
+        "9c2cc134-5b4c-497a-8445-c45610722317",
+        1684
+      ],
+      [
+        "1aaec653-c71c-4695-9b6e-0e26214dd817",
+        1559
+      ],
+      [
+        "e4473544-f4cd-4429-b791-39d6e1fdb0a4",
+        528
+      ],
+      [
+        "83cbdde7-998f-4354-95de-72d885cc5863",
+        488
+      ],
+      [
+        "50c9509d-22c7-4a22-a47d-8c48425ef4a7",
+        446
+      ],
+      [
+        "ec79bfca-83fc-4f89-baad-9a76d320953b",
+        265
+      ],
+      [
+        "d8cd16ba-bb74-4420-821e-083f2bac17c2",
+        190
+      ],
+      [
+        "d27a7bf0-d78e-46d4-bc74-6b2ae4705367",
+        165
+      ],
+      [
+        "d6cc311c-c5ab-4f23-9a20-10514f9eb9c4",
+        149
+      ],
+      [
+        "a9576a23-3690-4c27-8d19-0db353957177",
+        121
+      ],
+      [
+        "ba5b0f3a-73dd-459f-a7f1-9abc327aed00",
+        108
+      ],
+      [
+        "5da288d0-94ca-4355-a438-11890b726f5b",
+        96
+      ],
+      [
+        "419e0d91-3510-485d-96f2-40499fa58495",
+        76
+      ],
+      [
+        "7f6f33a0-f762-11e1-a439-00145eb45e9a",
+        73
+      ],
+      [
+        "7c95ae39-b477-4863-8dda-2d74dc48b067",
+        69
+      ],
+      [
+        "7f71a9aa-f762-11e1-a439-00145eb45e9a",
+        66
+      ],
+      [
+        "f6cc0fcc-1605-4bd4-bbea-dd12f697a2ba",
+        57
+      ],
+      [
+        "1b18bab9-abdb-41b4-83c8-368ca2e6d391",
+        50
+      ],
+      [
+        "a79c2b50-6c8a-11de-8226-b8a03c50a862",
+        45
+      ],
+      [
+        "e8989ab2-94dc-4570-9783-c3ab92300872",
+        44
+      ],
+      [
+        "dce8feb0-6c89-11de-8225-b8a03c50a862",
+        39
+      ],
+      [
+        "6080b6cc-1c24-41ff-ad7f-0ebe7b56f311",
+        33
+      ],
+      [
+        "793c3890-6c8a-11de-8226-b8a03c50a862",
+        29
+      ],
+      [
+        "faf9bd60-071c-4ed4-8705-faa17e645f60",
+        28
+      ],
+      [
+        "040c5662-da76-4782-a48e-cdea1892d14c",
+        27
+      ],
+      [
+        "59825263-9f89-43a9-8f22-c22a6a53b8fc",
+        27
+      ],
+      [
+        "7c93d290-6c8b-11de-8226-b8a03c50a862",
+        26
+      ],
+      [
+        "5fab027d-14b6-4659-9a7e-8a0d4bd3e12b",
+        24
+      ],
+      [
+        "0160cea6-4ff3-46a1-880d-de8c3a48f1e9",
+        23
+      ],
+      [
+        "2a47dd25-4813-4d3c-99c1-1bc1aeb774e7",
+        23
+      ],
+      [
+        "872b0fcc-d7dc-44c8-8175-f5bf18cc28a1",
+        23
+      ],
+      [
+        "7fc7f94a-f762-11e1-a439-00145eb45e9a",
+        22
+      ],
+      [
+        "80f63c1e-f762-11e1-a439-00145eb45e9a",
+        20
+      ],
+      [
+        "63b115a8-da75-4d45-92f5-d43d99de95f3",
+        18
+      ],
+      [
+        "7a25f7aa-03fb-4322-aaeb-66719e1a9527",
+        16
+      ],
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        15
+      ],
+      [
+        "d499aef2-b1d9-4890-aeb3-5f0d1237b513",
+        15
+      ],
+      [
+        "4ec633b0-8b1f-405e-86cf-7f782a3ced53",
+        14
+      ],
+      [
+        "2a79f202-3f3a-4d54-88fa-09aa8de1ac73",
+        13
+      ],
+      [
+        "4e328d6a-62e2-4b5a-b2f2-e8362c4ff0b7",
+        13
+      ],
+      [
+        "5d6c10bd-ea31-4363-8b79-58c96d859f5b",
+        12
+      ],
+      [
+        "6ff42543-528d-4249-99bd-350bdd21b424",
+        11
+      ],
+      [
+        "dc3bfd08-0141-45ae-9603-91ac50cdc33b",
+        11
+      ],
+      [
+        "3601a96a-c1aa-4cf3-ae65-1c0cccdf342f",
+        10
+      ],
+      [
+        "6aca6910-1f48-434d-ba57-a4a639ede7d9",
+        10
+      ],
+      [
+        "e1a01804-881b-42ae-8f97-1e80f697fd56",
+        10
+      ],
+      [
+        "e30b2ef2-8923-4682-8f1c-1cf41a459f68",
+        9
+      ],
+      [
+        "2ca312ee-40cf-49e0-b864-31531b7eba81",
+        8
+      ],
+      [
+        "96582dc4-f762-11e1-a439-00145eb45e9a",
+        8
+      ],
+      [
+        "f113b6a8-e363-44fc-90fd-0711bc4c9315",
+        8
+      ],
+      [
+        "afc30a94-6107-488a-b9c0-ba9c4fa68b7c",
+        7
+      ],
+      [
+        "ba1e6e34-8196-422a-ae31-f71717dd1de8",
+        7
+      ],
+      [
+        "cd6fe3a0-eee9-4066-8420-e36313ed833d",
+        7
+      ],
+      [
+        "26098c25-8f7f-4c71-97ac-1d3db181c65e",
+        6
+      ],
+      [
+        "6ac3f774-d9fb-4796-b3e9-92bf6c81c084",
+        6
+      ],
+      [
+        "91aa3d5b-6f77-4135-a823-cef438a60dfa",
+        6
+      ],
+      [
+        "f553f8f9-b147-4f09-86e5-0d1ce1a91ce0",
+        6
+      ],
+      [
+        "18896efa-22df-4fbd-9782-42f47257e753",
+        5
+      ],
+      [
+        "6ed43f52-25d1-4d56-a821-63a8564b81f6",
+        5
+      ],
+      [
+        "a4edfc8b-ab0e-4427-aecd-897d2a0b9925",
+        5
+      ],
+      [
+        "ca58433a-3ff8-492f-9d7b-6f6d289eb6d6",
+        5
+      ],
+      [
+        "18d357a9-ffd9-4ab4-b453-9945817954bc",
+        4
+      ],
+      [
+        "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+        4
+      ],
+      [
+        "8498cbf2-f762-11e1-a439-00145eb45e9a",
+        4
+      ],
+      [
+        "b7dd8170-98a0-11de-b4d9-b8a03c50a862",
+        4
+      ],
+      [
+        "f1d263a0-98a0-11de-b4d9-b8a03c50a862",
+        4
+      ],
+      [
+        "fa375330-6c8a-11de-8226-b8a03c50a862",
+        4
+      ],
+      [
+        "372ac467-9b19-4373-8a0f-85fb3a91b6ca",
+        3
+      ],
+      [
+        "3dbd76b0-31c9-4402-aa41-2f1102d74d45",
+        3
+      ],
+      [
+        "52ff7a75-4354-464c-9765-eca68cf90859",
+        3
+      ],
+      [
+        "7e380070-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "8008770e-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "80cdb1cc-f762-11e1-a439-00145eb45e9a",
+        3
+      ],
+      [
+        "84a649ce-ff81-420d-9c41-aa1de59e3766",
+        3
+      ],
+      [
+        "8a1073ce-54a4-4712-89a6-e14d82836d9e",
+        3
+      ],
+      [
+        "8b8c78fb-53d7-434c-b800-61f38b30d0c9",
+        3
+      ],
+      [
+        "f58922e2-93ed-4703-ba22-12a0674d1b54",
+        3
+      ],
+      [
+        "0b1150c9-dfa8-4904-8bc5-b79b4e1930e6",
+        2
+      ],
+      [
+        "383287ee-19c5-46e2-8b58-f9320a7aa091",
+        2
+      ],
+      [
+        "4d749d70-e2e1-11dd-8102-b8a03c50a862",
+        2
+      ],
+      [
+        "805bbcde-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "84899ff6-f762-11e1-a439-00145eb45e9a",
+        2
+      ],
+      [
+        "96fcee17-f4b5-4640-a826-8e6462679cb9",
+        2
+      ],
+      [
+        "b0e3d03c-3f19-4ab7-b153-7d831d0b3727",
+        2
+      ],
+      [
+        "d5bc5320-abec-47a7-bc29-48847a2a68ae",
+        2
+      ],
+      [
+        "d71e908c-f944-4fdd-9872-178754a00805",
+        2
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        2
+      ],
+      [
+        "038b9c13-f1ad-49e0-aeea-4458e0b6dcbe",
+        1
+      ],
+      [
+        "05b90d06-58a6-477a-bade-046a5a5b1887",
+        1
+      ],
+      [
+        "0b81b94a-9761-46e5-a483-df6fcb840cc5",
+        1
+      ],
+      [
+        "18c93d12-34fb-4d3f-903c-b77215a1dcc9",
+        1
+      ],
+      [
+        "2f8a1bdb-1ef9-418b-abc7-a5535746f316",
+        1
+      ],
+      [
+        "3633e0e7-8c25-4c3d-b9c7-078c0be25665",
+        1
+      ],
+      [
+        "39905320-6c8a-11de-8226-b8a03c50a862",
+        1
+      ],
+      [
+        "4c027fd8-4e80-424d-a3c3-20c3e03be79b",
+        1
+      ],
+      [
+        "4fc42f17-eaeb-4296-949d-34b8414eb1c1",
+        1
+      ],
+      [
+        "50dc97cf-251f-471e-997d-2f9d7d39a1be",
+        1
+      ],
+      [
+        "6a901195-ee9a-43ad-a43d-9095fd2aab0c",
+        1
+      ],
+      [
+        "701b3ecf-3c35-4373-81cc-a570d3be7368",
+        1
+      ],
+      [
+        "8d455dd5-0640-4211-acd1-8e88b171cfda",
+        1
+      ],
+      [
+        "9c0c7f86-142f-43e0-9162-3d1284cef41e",
+        1
+      ],
+      [
+        "9de1e948-106f-402a-8105-41729e9fa502",
+        1
+      ],
+      [
+        "a2254f58-8bbf-41e6-ac4e-03d1683e0ce5",
+        1
+      ],
+      [
+        "b6015b60-6f96-43a9-88e5-2f41854e8f07",
+        1
+      ],
+      [
+        "bbae6ccc-af83-4866-bed0-498b9adacbbe",
+        1
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        1
+      ],
+      [
+        "c6b86c40-ff71-4e5e-902c-111f400d0d56",
+        1
+      ],
+      [
+        "cb45ec5b-e2d8-4ccc-ba9f-8caeb8a5c26c",
+        1
+      ],
+      [
+        "ce1b2519-0427-441e-9fc6-4fb83b53b5d9",
+        1
+      ],
+      [
+        "d51f93a6-a5b7-4025-83a9-3f7b8525755a",
+        1
+      ],
+      [
+        "dcce70f7-06be-4de3-aed1-d811343566ea",
+        1
+      ],
+      [
+        "e56a116e-0cfc-4382-a772-162ac2a44a7c",
+        1
+      ],
+      [
+        "eaad657f-7bda-4705-a181-053d9e38033f",
+        1
+      ],
+      [
+        "ffd67559-7ebe-41cc-9280-74fc40000f01",
+        1
+      ]
+    ],
+    "native": [
+      "MZ",
+      "ZA",
+      "SZ",
+      "ZW",
+      "BW",
+      "MW"
+    ],
+    "requests": 18,
+    "at": "2026-11-10T23:57:51.686Z"
+  }
+}

@@ -10,6 +10,102 @@
     "united-states",
     "mississippi-river"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "US"
+      ],
+      "regions": [
+        "Mississippi River",
+        "Homochitto River",
+        "North Fork Obion River"
+      ],
+      "sources": [
+        "planetcatfish"
+      ],
+      "quotes": [
+        {
+          "source": "planetcatfish",
+          "quote": "Type locality: Brushy Creek, about 1.6 km above its mouth in Homochitto River, hamlet of Homochitto, Amite County, Mississippi, U.S.A.",
+          "countries": [
+            "US"
+          ],
+          "regions": []
+        },
+        {
+          "source": "planetcatfish",
+          "quote": "North America: tributaries of the Mississippi River in the USA from North Fork Obion River in southwestern Kentucky to Homochitto River in southern Mississippi.",
+          "countries": [],
+          "regions": [
+            "Mississippi River",
+            "Homochitto River",
+            "North Fork Obion River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 4286751,
+      "total": 257,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "US",
+          257
+        ]
+      ],
+      "cells": [
+        [
+          -95.625,
+          37.96875,
+          6,
+          6
+        ],
+        [
+          -91.40625,
+          30.9375,
+          82,
+          82
+        ],
+        [
+          -91.40625,
+          32.34375,
+          2,
+          2
+        ],
+        [
+          -90,
+          32.34375,
+          12,
+          12
+        ],
+        [
+          -90,
+          33.75,
+          50,
+          50
+        ],
+        [
+          -90,
+          35.15625,
+          23,
+          23
+        ],
+        [
+          -88.59375,
+          33.75,
+          2,
+          2
+        ],
+        [
+          -88.59375,
+          35.15625,
+          80,
+          80
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

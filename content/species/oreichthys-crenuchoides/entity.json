@@ -11,6 +11,75 @@
     "assam",
     "brahmaputra"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "IN"
+      ],
+      "regions": [
+        "Brahmaputra",
+        "Jorai River",
+        "Himalayas"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "The original home of this species is in the north of India, in Assam and northern Bengal.",
+          "countries": [
+            "IN"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Possibly endemic to tributaries of the Brahmaputra River in West Bengal state, eastern India.",
+          "countries": [],
+          "regions": [
+            "Brahmaputra"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The type specimens came from the Jorai River, close to the border with Assam, but it has been collected elsewhere, including the Ghoti Ganga River, Cooch Behar district (A. Rao, pers. comm.).",
+          "countries": [],
+          "regions": [
+            "Jorai River"
+          ]
+        },
+        {
+          "source": "glaser",
+          "quote": "In their homeland, at the foot of the Himalayas, it gets very hot in summer, but during the monsoon season the water temperature drops to 14°C.",
+          "countries": [],
+          "regions": [
+            "Himalayas"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2366582,
+      "total": 2,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "IN",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          88.59375,
+          25.3125,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

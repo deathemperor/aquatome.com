@@ -20,40 +20,29 @@
         "MM"
       ],
       "regions": [
-        "Mekong",
-        "Nam Khwe River",
-        "Nam Lawe River"
+        "Mekong"
       ],
       "sources": [
+        "glaser",
         "seriouslyfish"
       ],
       "quotes": [
         {
-          "source": "seriouslyfish",
-          "quote": "Described from the Mekong River basin in Nong Khai and Chiang Rai Provinces, northern Thailand, and Louangphabang Province, northern Laos but now known to occur further north having been recorded at several localities in northern Myanmar.",
+          "source": "glaser",
+          "quote": "Brachydanio roseus originates from northern Thailand, northern Laos and northern Burma. It becomes around 5-6 cm long.",
           "countries": [
             "TH",
             "LA",
             "MM"
           ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from the Mekong River basin in Nong Khai and Chiang Rai Provinces, northern Thailand, and Louangphabang Province, northern Laos but now known to occur further north having been recorded at several localities in northern Myanmar.",
+          "countries": [],
           "regions": [
             "Mekong"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "In images the Nam Khwe River, Myanmar contains quite shallow, turbid, moderately fast-flowing water; the substrate is composed of variably-sized boulders with some relatively little streamside vegetation.",
-          "countries": [],
-          "regions": [
-            "Nam Khwe River"
-          ]
-        },
-        {
-          "source": "seriouslyfish",
-          "quote": "Sympatric species include Danio albolineatus plus unidentified members of Barilius and Opsarius. In the larger Nam Lawe River, also Myanmar, it lives alongside Badis ruber, Colisa labiosa, Lepidocephalichthys berdmorei and an unidentified Danio species.",
-          "countries": [],
-          "regions": [
-            "Nam Lawe River"
           ]
         }
       ]

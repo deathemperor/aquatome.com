@@ -12,6 +12,48 @@
     "myanmar",
     "tanintharyi"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "MM"
+      ],
+      "regions": [
+        "Tennaserim Hills"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Origin: Thailand.",
+          "countries": [
+            "TH"
+          ],
+          "regions": []
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "It appears to occur in river systems on both sides of the Tennaserim Hills in Ranong, Phang-nga and Pattani provinces in peninsular Thailand, plus Tanintharyi (formerly Tennaserim) Division, Myanmar, all located south of the Isthmus of Kra.",
+          "countries": [
+            "MM"
+          ],
+          "regions": [
+            "Tennaserim Hills"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 7193663,
+      "total": 0,
+      "fetched": "2026-11-10",
+      "countries": [],
+      "cells": []
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

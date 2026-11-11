@@ -1,0 +1,58 @@
+{
+  "id": "geophagus-mirabilis",
+  "native": {
+    "input": "343ac02e82551d9a",
+    "at": "2026-11-10T23:57:51.686Z",
+    "claims": [],
+    "regions": [
+      {
+        "name": "Rio Aripuana",
+        "source": "glaser",
+        "quote": "It is endemic in the Rio Aripuana.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [
+        "BR"
+      ],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Geophagus mirabilis",
+    "status": "ACCEPTED",
+    "taxonKey": 7576119,
+    "datasets": [
+      [
+        "e178e91b-7893-4ada-a94a-0d5a8191c44c",
+        13
+      ],
+      [
+        "c0e8647d-dd4b-4300-8ad1-8c362fb21d75",
+        6
+      ],
+      [
+        "fef834cd-98f0-4095-af8a-a8c66c1eff24",
+        2
+      ],
+      [
+        "5c3f06f2-561d-41c9-8fe2-1a4b5f3ef9e0",
+        1
+      ],
+      [
+        "a75b2ed4-f805-42ba-a965-dca3541aee24",
+        1
+      ],
+      [
+        "fd75a653-e7bd-4094-9adf-301386d9d35c",
+        1
+      ]
+    ],
+    "native": [],
+    "requests": 10,
+    "at": "2026-11-10T23:57:51.686Z"
+  }
+}

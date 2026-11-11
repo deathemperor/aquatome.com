@@ -1054,6 +1054,24 @@
       "Item 2: \"lapisan substratnya kaya nutrisi\" is acceptable, but \"bottom layer\" could be \"dasar akuarium yang kaya nutrisi\"."
     ]
   },
+  "hemianthus-micranthemoides": {
+    "at": "2026-11-11",
+    "from": "2026-11-10",
+    "name": "Hemianthus micranthemoides",
+    "confidence": "medium",
+    "score": 0.72,
+    "notes": [
+      "Item 1: the English says Fertilizer 'recommended', but item 8 says 'essential' (wajib). The ID follows the source in both places, so this is not a translation error. No fix needed here.",
+      "Item 8: 'Substrat: substrat apa saja' reads repetitively. Use 'Substrat: bisa memakai substrat apa saja'.",
+      "Item 11: the heading 'Leggy bottom leaves' is rendered as 'Daun bawah menguning dan batang jadi gundul'. This adds the idea of a bare stem, and the source heading only covers leggy bottom leaves. Use a closer wording such as 'Daun bawah menjadi jarang/rontok'.",
+      "Item 6: 'Tips membuat karpet' is fine. 'Pearlweed akan mengeluarkan runner' is awkward. Use 'menumbuhkan sulur/runner'.",
+      "Item 9: 'Asolene spixi' is left as a Latin name, which is correct. 'black devil' should be 'siput black devil' so it reads as a snail.",
+      "Item 9: 'mas koki' is the common name for goldfish, but 'botia' for clown loaches should be 'botia badut' or 'clown loach', because 'botia' alone is a generic term.",
+      "Item 5: 'akan butuh sering dipangkas' is awkward. Use 'akan sering perlu dipangkas'.",
+      "Item 11: 'burayak' is acceptable for fry. 'Daun yang tembus pandang' is fine, so no change is needed there.",
+      "Item 4: 'cocok untuk berbagai bagian akuarium besar, sedang, bahkan nano' is slightly awkward. Use 'cocok untuk berbagai area di akuarium berukuran besar, sedang, bahkan nano'."
+    ]
+  },
   "heteranthera-zosterifolia": {
     "at": "2026-11-03",
     "from": "2026-11-03",

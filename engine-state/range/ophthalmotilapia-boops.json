@@ -1,0 +1,51 @@
+{
+  "id": "ophthalmotilapia-boops",
+  "native": {
+    "input": "01cdaf0eddf21915",
+    "at": "2026-11-10T23:57:51.686Z",
+    "claims": [
+      {
+        "code": "TZ",
+        "status": "native",
+        "source": "seriouslyfish",
+        "quote": "It is found only along the southern Tanzanian coastline.",
+        "words": "Tanzanian",
+        "ok": true
+      }
+    ],
+    "regions": [
+      {
+        "name": "Lake Tanganyika",
+        "source": "seriouslyfish",
+        "quote": "Endemic to Lake Tanganyika.",
+        "ok": true
+      }
+    ],
+    "disputed": [],
+    "outranked": [],
+    "origin": {
+      "pagesOnly": [],
+      "sourcesOnly": []
+    }
+  },
+  "records": {
+    "matched": "Ophthalmotilapia boops",
+    "status": "ACCEPTED",
+    "taxonKey": 2371960,
+    "datasets": [
+      [
+        "9cfa6cb6-5833-44b2-97f1-18a3c12fed47",
+        27
+      ],
+      [
+        "c2e3081a-ba91-40cf-b2df-9885a24b37dc",
+        3
+      ]
+    ],
+    "native": [
+      "TZ"
+    ],
+    "requests": 11,
+    "at": "2026-11-10T23:57:51.686Z"
+  }
+}

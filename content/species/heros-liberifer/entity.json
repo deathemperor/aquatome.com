@@ -10,6 +10,56 @@
     "venezuela",
     "orinoco"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "VE"
+      ],
+      "regions": [
+        "Rio Orinoco"
+      ],
+      "sources": [
+        "glaser"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Heros liberifer comes from the Rio Orinoco drainage in Venezuela.",
+          "countries": [
+            "VE"
+          ],
+          "regions": [
+            "Rio Orinoco"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 9384953,
+      "total": 2,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "VE",
+          2
+        ]
+      ],
+      "cells": [
+        [
+          -68.90625,
+          5.625,
+          1,
+          1
+        ],
+        [
+          -67.5,
+          5.625,
+          1,
+          1
+        ]
+      ]
+    }
+  },
   "dataCard": {},
   "sections": [
     {

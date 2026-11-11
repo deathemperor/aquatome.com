@@ -868,6 +868,40 @@
     ],
     "ruled": "56e5a9bdc4eb8d2e"
   },
+  "vi/guides/aquariumbreeder-all-about-power-outage-in-shrimp-and-fish-tanks": {
+    "at": "2026-11-11",
+    "hash": "da876456fdf41e7d",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Quấn kín mọi góc và cả phía trên bể.",
+        "problem": "The page says to wrap the top of the tank tightly, then says right after that the top must not be sealed.",
+        "fix": "Quấn kín mọi góc và quấn cả phía trên bể, nhưng chừa lại một khe nhỏ.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Đổ nước nóng hoặc lạnh vào chai rồi thả chai vào bể để hạ hoặc tăng nhiệt độ nước.",
+        "problem": "The order pairs hot water with lowering the temperature and cold water with raising it, which is backwards.",
+        "fix": "Đổ nước nóng hoặc lạnh vào chai rồi thả chai vào bể để tăng hoặc hạ nhiệt độ nước.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "## 4.1. Rút điện thiết bị",
+        "problem": "Subsections 4.1–4.4 are headings at the same level as section 4, while subsections 1.1–3.3 are plain lines, so 4.1–4.4 look like sections of their own.",
+        "rule": "A numbered subheading x.y at the same heading level as its parent section x.",
+        "field": "body"
+      }
+    ],
+    "ruled": "da876456fdf41e7d"
+  },
   "vi/guides/aquariumbreeder-amano-shrimp-and-dwarf-shrimp-species-compatibility": {
     "at": "2026-11-07",
     "hash": "e71d57cb9291add7",
@@ -925,6 +959,66 @@
       }
     ],
     "ruled": "da1391d8f9d48df9"
+  },
+  "vi/guides/aquariumbreeder-best-corals-for-a-nano-reef-tank": {
+    "at": "2026-11-11",
+    "hash": "47290ca5ba92fec5",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "dòng chảy trung bình đến mạnh và thông số nước ổn định",
+        "problem": "The Xenia text calls for moderate-to-strong flow, but the care list right below it says low-to-moderate flow.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Nhớ chừa đủ khoảng cách giữa san hô colt và các san hô khác trong bể.",
+        "problem": "The GSP section suddenly calls it 'colt coral', which is a different soft coral (Klyxum) and is not on this list. The error comes from the source.",
+        "fix": "Nhớ chừa đủ khoảng cách giữa GSP và các san hô khác trong bể.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "San hô colt và Xenia sẽ là một cặp rất hợp trong bể reef nano",
+        "problem": "The conclusion recommends colt coral, which is not one of the ten corals on the page. It should say GSP.",
+        "fix": "GSP và Xenia sẽ là một cặp rất hợp trong bể reef nano",
+        "field": "body"
+      },
+      {
+        "kind": "unsupported",
+        "severity": "low",
+        "part": "P1",
+        "quote": "cho ăn mồi nhỏ như tép, giáp xác nhỏ",
+        "problem": "The source only says 'smaller invertebrates'. The page adds shrimp and small crustaceans as examples on its own.",
+        "fix": "cho ăn mồi nhỏ",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "San hô tổ chim (Seriatopora hystrix)",
+        "problem": "A leftover photo-caption line sits alone under heading 9 as if it were body text.",
+        "rule": "a line that only repeats the heading's name with a scientific name in brackets, right under that heading",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "những loài đã cho thấy qua thời gian là khỏe và bền, chịu được nhiệt độ và hóa học nước lên xuống",
+        "problem": "The sentence is a word-for-word translation ('proven over time', 'water chemistry') and reads unnaturally.",
+        "fix": "những loài đã nuôi lâu năm thấy khỏe và bền, chịu được nhiệt độ và thông số nước lên xuống",
+        "field": "body"
+      }
+    ],
+    "ruled": "47290ca5ba92fec5"
   },
   "vi/guides/aquariumbreeder-bio-balls-in-aquariums": {
     "at": "2026-11-09",
@@ -1085,6 +1179,12 @@
       }
     ],
     "ruled": "7aa00f6e2efbee55"
+  },
+  "vi/guides/aquariumbreeder-crossbreeding-can-you-mix-different-color-shrimp": {
+    "at": "2026-11-11",
+    "hash": "49e797ee705f6b84",
+    "findings": [],
+    "ruled": "49e797ee705f6b84"
   },
   "vi/guides/aquariumbreeder-cryptocoryne-disease-identifying-and-addressing-plant-issues": {
     "at": "2026-11-01",
@@ -1381,6 +1481,32 @@
       }
     ],
     "ruled": "09c9576bf0b3b033"
+  },
+  "vi/guides/aquariumbreeder-how-do-i-know-if-my-shrimp-are-happy": {
+    "at": "2026-11-11",
+    "hash": "e685599a0e443b00",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "## 1. Bể đã cycle xong",
+        "problem": "The care steps under \"Làm sao cho tép sống vui?\" restart at 1. on the same heading level as the five signs, so the page reads as two clashing numbered lists; in the source they are sub-headings of that section.",
+        "fix": "### 1. Bể đã cycle xong",
+        "rule": "A numbered heading list that restarts at 1 on the same heading level after an unnumbered heading.",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Đổi lại, những con thả chung với tép cũng chỉ nên là loài hiền, ít động",
+        "problem": "\"Đổi lại\" (in return) is the wrong connector for the source's \"Therefore\", and \"ít động\" (not very active) is added: the source only says calm and peaceful.",
+        "fix": "Vì vậy, những con thả chung với tép cũng chỉ nên là loài hiền, chẳng hạn:",
+        "field": "body"
+      }
+    ],
+    "ruled": "e685599a0e443b00"
   },
   "vi/guides/aquariumbreeder-how-to-anchor-aquarium-plants-pros-and-cons-of-different-methods": {
     "at": "2026-11-09",
@@ -7510,6 +7636,12 @@
     ],
     "ruled": "8b32268b678c5e10"
   },
+  "vi/guides/glaser-en-01-rays-stingray-babies": {
+    "at": "2026-11-11",
+    "hash": "a6f4357468da8f16",
+    "findings": [],
+    "ruled": "a6f4357468da8f16"
+  },
   "vi/guides/glaser-en-03-bony-tongues-scleropages-jardinii-and-s-leichardti-en": {
     "at": "2026-11-07",
     "hash": "eed206abd2ec8be4",
@@ -7719,6 +7851,31 @@
     ],
     "ruled": "68a0622768320100"
   },
+  "vi/guides/glaser-en-09-characoids-tetra-relationship-distichodus-rostratus-d-engycephalus-and-d-brevipinnis-from-nigeria-en": {
+    "at": "2026-11-11",
+    "hash": "4bf6c56143fe54dd",
+    "findings": [
+      {
+        "kind": "unsupported",
+        "severity": "low",
+        "part": "P1",
+        "quote": "loại trước đó chưa ai nhận ra là con gì",
+        "problem": "The source says these Distichodus were unknown to the importer ('unknown to us'), but the page makes it sound as if nobody had ever identified them.",
+        "fix": "loại mà trước đó bên nhập chưa từng gặp",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "thì màu gần như đều một màu",
+        "problem": "The word 'màu' appears twice, which makes the phrase clumsy.",
+        "fix": "thì thân gần như một màu",
+        "field": "body"
+      }
+    ],
+    "ruled": "4bf6c56143fe54dd"
+  },
   "vi/guides/glaser-en-09-characoids-tetra-relationship-gigantic-black-piranha-arrived-en": {
     "at": "2026-11-03",
     "hash": "36d202b36ee48adb",
@@ -7795,6 +7952,22 @@
     "hash": "625c03f34785749b",
     "findings": [],
     "ruled": "625c03f34785749b"
+  },
+  "vi/guides/glaser-en-10-catfishes-10a-catfishes-corydoras-co-corydoras-cochui-and-c-habrosus-en": {
+    "at": "2026-11-11",
+    "hash": "bc160f224fb92556",
+    "findings": [
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Nguồn gốc Brazil, Colombia. Cỡ cá thường bán 2–3 cm.",
+        "problem": "This closing line is a leftover of the supplier's data table, written as a note fragment, and it leaves out Venezuela, which the text itself names as an origin of C. habrosus.",
+        "fix": "C. cochui đến từ Brazil, còn C. habrosus đến từ Colombia và Venezuela. Cá bán ngoài tiệm thường dài 2–3 cm.",
+        "field": "body"
+      }
+    ],
+    "ruled": "bc160f224fb92556"
   },
   "vi/guides/glaser-en-10-catfishes-10a-catfishes-corydoras-co-corydoras-eques-c-sp-aff-armatus-and-corydoras-duplicareus-en": {
     "at": "2026-11-05",
@@ -8210,6 +8383,12 @@
     "hash": "dff04a22f6f6d729",
     "findings": [],
     "ruled": "dff04a22f6f6d729"
+  },
+  "vi/guides/glaser-en-32-all-the-rest-drought-in-singapore-and-malaysia": {
+    "at": "2026-11-11",
+    "hash": "0510ac007ccbb94d",
+    "findings": [],
+    "ruled": "0510ac007ccbb94d"
   },
   "vi/guides/glaser-en-32-all-the-rest-finally-an-import-from-guinea-en": {
     "at": "2026-11-10",
@@ -11786,6 +11965,22 @@
     ],
     "ruled": "a95f1c426a04b22c"
   },
+  "vi/guides/youtube--UPryAP14hY": {
+    "at": "2026-11-11",
+    "hash": "2d28fe16a2353f3f",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bể cao khoảng 40 cm.",
+        "problem": "The page first gives the tank as 35 x 35 x 45 cm, then says it is about 40 cm tall (also in L8), so the two heights don't match.",
+        "fix": "Bể cao khoảng 45 cm.",
+        "field": "body"
+      }
+    ],
+    "ruled": "2d28fe16a2353f3f"
+  },
   "vi/guides/youtube--XN4FMqNwPQ": {
     "at": "2026-11-10",
     "hash": "8372fce3adfa99c2",
@@ -13519,6 +13714,40 @@
     "findings": [],
     "ruled": "9c2871136b79eb0f"
   },
+  "vi/guides/youtube-B4DB-iHBofo": {
+    "at": "2026-11-11",
+    "hash": "3a43ef7b16a45523",
+    "findings": [
+      {
+        "kind": "contradiction",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "rêu đã phủ kín và mọc loang lổ từng mảng",
+        "problem": "The sentence says the moss covers everything ('phủ kín') and also that it grows in uneven patches, which can't both be true.",
+        "fix": "rêu đã phủ khắp bố cục, mọc loang lổ từng mảng",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Bài này đi qua từng bước set một bể 45P như vậy",
+        "problem": "'đi qua từng bước' is a word-for-word copy of the English 'walks through' and sounds odd in Vietnamese.",
+        "fix": "Bài này hướng dẫn từng bước set một bể 45P như vậy",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Một phần rêu phượng vĩ (Fissidens) là đủ phủ cả bố cục",
+        "problem": "'Một phần rêu' is vague, so the reader can't tell how much moss to buy. It reads like a translation of 'one portion'.",
+        "fix": "Một cốc rêu phượng vĩ (Fissidens) là đủ phủ cả bố cục",
+        "field": "body"
+      }
+    ],
+    "ruled": "3a43ef7b16a45523"
+  },
   "vi/guides/youtube-B8fj1mf64yE": {
     "at": "2026-11-09",
     "hash": "7f34eaa5f83dff68",
@@ -13636,6 +13865,31 @@
       }
     ],
     "ruled": "e39f0222b70a4a7f"
+  },
+  "vi/guides/youtube-C1nL0JhS3oo": {
+    "at": "2026-11-11",
+    "hash": "127d861c77865497",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "rồi gắn keo co 90 độ có đầu gai cắm ống ở phía ngoài",
+        "problem": "The word \"keo\" (glue) slipped in where the part is a 90-degree barbed elbow fitting, so the phrase is garbled.",
+        "fix": "rồi gắn co 90 độ có đầu gai cắm ống ở phía ngoài",
+        "field": "body"
+      },
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "có thể lót thêm một tấm tự cân bằng",
+        "problem": "\"Tấm tự cân bằng\" reads as a literal rendering of \"self-levelling mat\" and is unclear in Vietnamese.",
+        "fix": "có thể lót thêm một tấm lót cho đáy bể nằm phẳng",
+        "field": "body"
+      }
+    ],
+    "ruled": "127d861c77865497"
   },
   "vi/guides/youtube-c2RrfFVcJew": {
     "at": "2026-11-08",
@@ -13872,6 +14126,37 @@
       }
     ],
     "ruled": "e3a2036989772dc4"
+  },
+  "vi/guides/youtube-cm6gzwF8EbI": {
+    "at": "2026-11-11",
+    "hash": "1a717df709ab4d99",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Một loại cây mọc rất chậm, hợp với những chỗ khuất sáng ở tầng dưới.",
+        "problem": "The plant list under 'Một số cây có thể dùng' gives unnamed plants ('một loại cây…'), so the reader cannot tell which plants to buy.",
+        "field": "body"
+      },
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Dọc mép nước có thể gắn một loại cây vốn hay trồng xuống nền.",
+        "problem": "Another plant in the list is described but never named, so the section doesn't give what its heading promises.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "cây Ludwigia Super Red bên dưới bắt đầu ngả xanh",
+        "problem": "Ludwigia Super Red is mentioned in the lighting section but missing from the list of plants to grow, so the reader doesn't know it is part of the setup.",
+        "field": "body"
+      }
+    ],
+    "ruled": "1a717df709ab4d99"
   },
   "vi/guides/youtube-CMyGtuekZb4": {
     "at": "2026-11-04",
@@ -14406,6 +14691,22 @@
     ],
     "ruled": "c8136e2f5a2695b6"
   },
+  "vi/guides/youtube-esteJB9Ji0Y": {
+    "at": "2026-11-11",
+    "hash": "e3e9b07d35934f32",
+    "findings": [
+      {
+        "kind": "numbers",
+        "severity": "medium",
+        "part": "P1",
+        "quote": "Mực nước khoảng 20 cm nên lượng nước thực tế ít hơn một chút",
+        "problem": "With the water at 20 cm in a 60 x 30 cm tank, the real volume is about 36 litres, a third less than 54 litres, not just 'a little less'.",
+        "fix": "Mực nước khoảng 20 cm nên lượng nước thực tế chỉ còn khoảng 36 lít, vẫn đủ rộng cho cá.",
+        "field": "body"
+      }
+    ],
+    "ruled": "e3e9b07d35934f32"
+  },
   "vi/guides/youtube-eSwWIBG7Skg": {
     "at": "2026-11-09",
     "hash": "953667124fd8287c",
@@ -14776,6 +15077,22 @@
     ],
     "ruled": "aea5eafe798f2492"
   },
+  "vi/guides/youtube-Gco4K1OuLaE": {
+    "at": "2026-11-11",
+    "hash": "912c5c14f754678f",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "nhưng về sau mọi thứ vào khuôn rất đẹp",
+        "problem": "\"Vào khuôn\" is an unnatural calque for things fitting together nicely, and a Vietnamese reader would stumble on it.",
+        "fix": "nhưng về sau mọi thứ khớp với nhau rất đẹp",
+        "field": "body"
+      }
+    ],
+    "ruled": "912c5c14f754678f"
+  },
   "vi/guides/youtube-gCY0m94RgAU": {
     "at": "2026-11-10",
     "hash": "75b820604bdee506",
@@ -15081,6 +15398,22 @@
       }
     ],
     "ruled": "4e6a5f52fc98ddf9"
+  },
+  "vi/guides/youtube-HK0vWQGwNOE": {
+    "at": "2026-11-11",
+    "hash": "49208af83b331d74",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Sáu con ếch vào bể nhanh và tỏ ra tò mò ngay sau đó.",
+        "problem": "\"vào bể nhanh\" is awkward and unclear: it could mean the frogs were added quickly or that they settled in fast.",
+        "fix": "Sáu con ếch quen bể rất nhanh và tò mò khám phá ngay sau khi thả.",
+        "field": "body"
+      }
+    ],
+    "ruled": "49208af83b331d74"
   },
   "vi/guides/youtube-hL920TrlANg": {
     "at": "2026-11-07",
@@ -17396,6 +17729,23 @@
     "findings": [],
     "ruled": "c8ed5e6320369498"
   },
+  "vi/guides/youtube-OrW6PZgqKSM": {
+    "at": "2026-11-11",
+    "hash": "24d982662e3e7f40",
+    "findings": [],
+    "rewrites": [
+      {
+        "at": "2026-11-11",
+        "field": "body",
+        "score": 0.85,
+        "kept": true,
+        "problems": [
+          "\"Không chịu nước\" means \"not water-resistant\", but the intended meaning is that these pieces don't touch the water, so the sentence says the opposite of the reason."
+        ]
+      }
+    ],
+    "ruled": "24d982662e3e7f40"
+  },
   "vi/guides/youtube-OSR9EPaO78Q": {
     "at": "2026-11-06",
     "hash": "7d062f67f32d36a1",
@@ -17468,6 +17818,30 @@
       }
     ],
     "ruled": "515508fb83966606"
+  },
+  "vi/guides/youtube-OZv7556vO-E": {
+    "at": "2026-11-11",
+    "hash": "85611182931b5383",
+    "findings": [
+      {
+        "kind": "structure",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Set bể paludarium rừng rậm nước đen cho đàn cá tetra",
+        "problem": "The title promises a setup for a school of tetras, but the page never mentions tetras or which fish to stock.",
+        "field": "body"
+      },
+      {
+        "kind": "other",
+        "severity": "low",
+        "part": "P1",
+        "quote": "chừa đủ khoảng trống dưới cửa sổ cho bố cục mới",
+        "problem": "This refers to a window in the source's own room that the page never introduces, so the reader can't tell what it means.",
+        "fix": "Có thể tính trước từ lúc làm chân bể, chừa đủ khoảng trống phía trên bể cho bố cục mới.",
+        "field": "body"
+      }
+    ],
+    "ruled": "85611182931b5383"
   },
   "vi/guides/youtube-P1Y2Y_iJldE": {
     "at": "2026-11-06",
@@ -19421,6 +19795,23 @@
     "findings": [],
     "ruled": "ee4ff189667f396e"
   },
+  "vi/guides/youtube-Wvboi3dLLrM": {
+    "at": "2026-11-11",
+    "hash": "240f305946b78803",
+    "findings": [],
+    "rewrites": [
+      {
+        "at": "2026-11-11",
+        "field": "body",
+        "score": 0.93,
+        "kept": true,
+        "problems": [
+          "\"Quá liều\" means a drug overdose, so it is the wrong word for \"too risky\" here."
+        ]
+      }
+    ],
+    "ruled": "240f305946b78803"
+  },
   "vi/guides/youtube-WVCXRvyshIA": {
     "at": "2026-11-03",
     "hash": "48531652cd90f45c",
@@ -19436,6 +19827,22 @@
       }
     ],
     "ruled": "48531652cd90f45c"
+  },
+  "vi/guides/youtube-WVpke0jbuGM": {
+    "at": "2026-11-11",
+    "hash": "b318ead43906e195",
+    "findings": [
+      {
+        "kind": "language",
+        "severity": "low",
+        "part": "P1",
+        "quote": "Xẻ vài đường ở đầu ống để bịt kín đầu ống lại.",
+        "problem": "Slitting the tube end does not by itself seal it; the step is unclear and leaves out how the end is closed (e.g. folding the slit end and tying it).",
+        "fix": "Xẻ vài đường ở đầu ống rồi gập lại, dùng dây rút buộc chặt để bịt kín đầu ống.",
+        "field": "body"
+      }
+    ],
+    "ruled": "b318ead43906e195"
   },
   "vi/guides/youtube-X-55vLo-F6M": {
     "at": "2026-11-01",
@@ -19945,6 +20352,12 @@
       }
     ],
     "ruled": "506b306e30ef3d17"
+  },
+  "vi/guides/youtube-YVHk7_7S7vM": {
+    "at": "2026-11-11",
+    "hash": "97b32fa1ae45fe56",
+    "findings": [],
+    "ruled": "97b32fa1ae45fe56"
   },
   "vi/guides/youtube-Yvw0qjsNVQc": {
     "at": "2026-11-06",

@@ -1,8 +1,8 @@
 {
   "id": "mastiglanis-asopos",
   "native": {
-    "input": "ed74da719b25c793",
-    "at": "2026-11-10T07:58:31.896Z",
+    "input": "724a1b2b4709afb2",
+    "at": "2026-11-10T23:57:51.686Z",
     "claims": [
       {
         "code": "BR",
@@ -18,6 +18,14 @@
         "source": "scotcat",
         "quote": "Type locality: Brazil, Pará, Igarapé Saracazinho, tributary of Rio Trombetas, near Porto Trombetas.",
         "words": "Brazil",
+        "ok": true
+      },
+      {
+        "code": "CO",
+        "status": "native",
+        "source": "glaser",
+        "quote": "A single specimen was also obtained as an accidental bycatch with other fish from the Orinoco in Colombia in 2006.",
+        "words": "Colombia",
         "ok": true
       }
     ],
@@ -55,8 +63,9 @@
       },
       {
         "name": "Orinoco",
-        "source": "scotcat",
-        "quote": "South America: Amazon, Capim and Orinoco River basins.",
+        "source": "glaser",
+        "quote": "A single specimen was also obtained as an accidental bycatch with other fish from the Orinoco in Colombia in 2006.",
+        "country": "CO",
         "ok": true
       }
     ],
@@ -154,9 +163,10 @@
       ]
     ],
     "native": [
-      "BR"
+      "BR",
+      "CO"
     ],
     "requests": 12,
-    "at": "2026-11-10T07:58:31.896Z"
+    "at": "2026-11-10T23:57:51.686Z"
   }
 }

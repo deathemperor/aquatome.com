@@ -12,6 +12,121 @@
     "east-timor",
     "mota-talau"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Celebes",
+        "Sulawesi",
+        "Timor",
+        "Maros River",
+        "Lake Tempe",
+        "Cerekang River"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Oryzias celebensis, the Celebes rice fish, originates from Indonesia, where it inhabits the island of Celebes.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Celebes"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The Celebes ricefish, Oryzias celebensis, lives in rivers and streams of southwestern Sulawesi, Indonesia, with a further record from Timor.",
+          "countries": [],
+          "regions": [
+            "Sulawesi",
+            "Timor"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is given as 'Makassar, Maros River near Maros, Sulawesi, Indonesia'.",
+          "countries": [],
+          "regions": [
+            "Maros River"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Described from the Maros River (Salo Maros), southwestern Sulawesi, Indonesia and subsequently recorded from rivers and streams throughout the southwestern arm of the island including Lake Tempe (Danau Tempe), plus the Mota Talau River, East Timor state on the nearby island of Timor.",
+          "countries": [],
+          "regions": [
+            "Lake Tempe"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "More recently Herder and Chapuis (2010) reported it to be more widespread on Sulawesi, with new records pertaining to an unnamed small stream within the upper Cerekang River system, close to Lake Matano in the central part of the island (though within the boundaries of South Sulawesi province).",
+          "countries": [],
+          "regions": [
+            "Cerekang River"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 2368381,
+      "total": 6,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "ID",
+          4
+        ],
+        [
+          "CN",
+          1
+        ],
+        [
+          "JP",
+          1
+        ]
+      ],
+      "cells": [
+        [
+          109.6875,
+          19.6875,
+          1,
+          0
+        ],
+        [
+          118.125,
+          -5.625,
+          1,
+          1
+        ],
+        [
+          120.9375,
+          -2.8125,
+          1,
+          1
+        ],
+        [
+          122.34375,
+          -4.21875,
+          2,
+          2
+        ],
+        [
+          136.40625,
+          36.5625,
+          1,
+          0
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "ph": [
       {

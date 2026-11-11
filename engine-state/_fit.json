@@ -3636,6 +3636,26 @@
   "findings": [],
   "products": []
  },
+ "id/plants/hemianthus-micranthemoides": {
+  "at": "2026-11-11",
+  "hash": "6252d2e702d34a7d",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "harm",
+    "part": "P2",
+    "quote": "Sebelum ditanam, rendam batangnya dalam larutan pemutih untuk membasmi siput hama, alga, dan parasit.",
+    "why": "A bleach soak with no dilution or time given would likely kill this delicate stem plant.",
+    "by": "model"
+   }
+  ],
+  "products": [
+   "Easy Green",
+   "Brightwell FlorinMulti",
+   "Seachem"
+  ]
+ },
  "id/plants/heteranthera-zosterifolia": {
   "at": "2026-11-08",
   "hash": "10c6f5e8f2f29d30",
@@ -5483,10 +5503,10 @@
   "products": []
  },
  "id/species/ambastaia-nigrolineata": {
-  "at": "2026-11-08",
-  "hash": "db72a002d53cb605",
+  "at": "2026-11-11",
+  "hash": "c9c729dd3124264a",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [],
   "products": [
    "Panacur"
@@ -10467,7 +10487,7 @@
   "products": []
  },
  "id/species/cetopsis-coecutiens": {
-  "at": "2026-11-09",
+  "at": "2026-11-11",
   "hash": "40011c448740c00b",
   "model": "opus",
   "checklist": 3,
@@ -11101,16 +11121,16 @@
   "products": []
  },
  "id/species/chromobotia-macracanthus": {
-  "at": "2026-11-08",
-  "hash": "79a7c61f2059eaae",
+  "at": "2026-11-11",
+  "hash": "adbe0b5690440fff",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "source",
-    "part": "P22",
+    "part": "P24",
     "quote": "Satu-satunya pengamatan berarti di akuarium pribadi yang diketahui dilakukan oleh anggota forum Colin Dunlop",
-    "why": "Refers to the source's own forum and its member as if the reader knew them.",
+    "why": "Introduces a member of the source site's unnamed forum as if the reader knew it.",
     "by": "model"
    }
   ],
@@ -11243,6 +11263,14 @@
  "id/species/cirrhinus-molitorella": {
   "at": "2026-11-10",
   "hash": "ece57854a58f4968",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/citharinus-citharus": {
+  "at": "2026-11-11",
+  "hash": "f878d75a0a0cfb06",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -11539,6 +11567,14 @@
     "by": "model"
    }
   ],
+  "products": []
+ },
+ "id/species/compsaraia-samueli": {
+  "at": "2026-11-11",
+  "hash": "25eb3605c22398a6",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
   "products": []
  },
  "id/species/congochromis-dimidiatus": {
@@ -11994,6 +12030,153 @@
   "model": "opus",
   "checklist": 3,
   "findings": [],
+  "products": []
+ },
+ "id/species/corydoras-flaveolus": {
+  "at": "2026-11-11",
+  "hash": "4752b52f2de6d79b",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/corydoras-fowleri": {
+  "at": "2026-11-11",
+  "hash": "4f7850564d6f439d",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P18",
+    "quote": "Foto-foto pada profil ini adalah contoh ikan yang disebut sebagai C. fowleri yang diduga.",
+    "why": "Refers to photos from the original profile that this page does not have.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "id/species/corydoras-fulleri": {
+  "at": "2026-11-11",
+  "hash": "8b2bcabf2813113f",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/corydoras-geryi": {
+  "at": "2026-11-11",
+  "hash": "53eba0e1b1b57e66",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P9",
+    "quote": "Musim ini bertepatan dengan musim dingin di belahan bumi utara, jadi jika percobaan pemijahan pada musim panas di sana gagal",
+    "why": "Advice to wait for winter is written for a northern-hemisphere keeper; Indonesia has no summer or winter.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "id/species/corydoras-gladysae": {
+  "at": "2026-11-11",
+  "hash": "72e35b489dca0950",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/corydoras-gomezi": {
+  "at": "2026-11-11",
+  "hash": "43f8877a22044e2b",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/corydoras-gossei": {
+  "at": "2026-11-11",
+  "hash": "c6148605500d9c35",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/corydoras-gracilis": {
+  "at": "2026-11-11",
+  "hash": "53e38edba5481bcf",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/corydoras-granti": {
+  "at": "2026-11-11",
+  "hash": "3effc1ce55efaf39",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/corydoras-griseus": {
+  "at": "2026-11-11",
+  "hash": "bf57f1e97079e057",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/corydoras-guapore": {
+  "at": "2026-11-11",
+  "hash": "1cd4726c66e680d2",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "id/species/corydoras-habrosus": {
+  "at": "2026-11-11",
+  "hash": "2d4a2ffbd436d6e1",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [
+   "Repashy"
+  ]
+ },
+ "id/species/corydoras-haraldschultzi": {
+  "at": "2026-11-11",
+  "hash": "2a4623eeecd1721c",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "akhirnya tersedia lagi – dalam ukuran kontes!",
+    "why": "This is the source shop's stock news, which means nothing to this reader.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "id/species/corydoras-hastatus": {
+  "at": "2026-11-11",
+  "hash": "301cbc3e71ab9340",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "words",
+    "part": "P1",
+    "quote": "yang biasa disebut lele berzirah kerdil",
+    "why": "Literal calque of 'dwarf armored catfish'; Indonesian keepers call these pygmy corys.",
+    "by": "model",
+    "fix": "cory pygmy"
+   }
+  ],
   "products": []
  },
  "id/species/corydoras-paleatus": {
@@ -12639,6 +12822,14 @@
     "fix": "isopoda"
    }
   ],
+  "products": []
+ },
+ "id/species/glossolepis-dorityi": {
+  "at": "2026-11-11",
+  "hash": "5f1c1c5ecc6fd6c9",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
   "products": []
  },
  "id/species/glossolepis-incisus": {
@@ -22471,6 +22662,18 @@
   "findings": [],
   "products": []
  },
+ "th/plants/hemianthus-micranthemoides": {
+  "at": "2026-11-11",
+  "hash": "89764152887aeced",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [
+   "Easy Green",
+   "Brightwell FlorinMulti",
+   "Seachem"
+  ]
+ },
  "th/plants/heteranthera-zosterifolia": {
   "at": "2026-11-08",
   "hash": "18bb83db31217711",
@@ -24425,9 +24628,10 @@
   "products": []
  },
  "th/species/ambastaia-nigrolineata": {
-  "at": "2026-11-07",
-  "hash": "03616aa18fb0d028",
+  "at": "2026-11-11",
+  "hash": "ced4e30385272439",
   "model": "opus",
+  "checklist": 3,
   "findings": [],
   "products": [
    "Panacur"
@@ -29436,7 +29640,7 @@
   "products": []
  },
  "th/species/cetopsis-coecutiens": {
-  "at": "2026-11-09",
+  "at": "2026-11-11",
   "hash": "c3c228990a91340d",
   "model": "opus",
   "checklist": 3,
@@ -30095,11 +30299,28 @@
   "products": []
  },
  "th/species/chromobotia-macracanthus": {
-  "at": "2026-11-08",
-  "hash": "81f92405b790065a",
+  "at": "2026-11-11",
+  "hash": "71979a0bd92cef20",
   "model": "opus",
   "checklist": 3,
-  "findings": [],
+  "findings": [
+   {
+    "check": "words",
+    "part": "P14",
+    "quote": "พึงระลึกว่าปลาหมูก็เหมือนปลาแมว คือไวต่อยาบางชนิดมาก",
+    "why": "\"ปลาแมว\" is a literal calque of English \"catfish\"; Thai keepers don't use it.",
+    "by": "model",
+    "fix": "ปลาแคทฟิช / ปลาหนัง"
+   },
+   {
+    "check": "words",
+    "part": "P20",
+    "quote": "และปลาแมวอีกหลายชนิด",
+    "why": "\"ปลาแมว\" is a literal calque of English \"catfish\".",
+    "by": "model",
+    "fix": "ปลาแคทฟิช / ปลาหนัง"
+   }
+  ],
   "products": [
    "Panacur"
   ]
@@ -30227,6 +30448,14 @@
  "th/species/cirrhinus-molitorella": {
   "at": "2026-11-10",
   "hash": "863311342a1100e3",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/citharinus-citharus": {
+  "at": "2026-11-11",
+  "hash": "dd5afdd0007276b4",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -30519,6 +30748,22 @@
     "part": "P4",
     "quote": "อย่างน้อย 300 × 90 × 90 ซม. หรือราว 2550 ลิตร",
     "why": "300 × 90 × 90 cm comes to about 2430 litres, so 2550 litres was converted from a 10 × 3 × 3 foot tank.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "th/species/compsaraia-samueli": {
+  "at": "2026-11-11",
+  "hash": "6ef6fcad98449ac2",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P4",
+    "quote": "ในโรงเลี้ยงปลา ปลาชนิดนี้ได้รับอาหารเป็นไส้เดือนน้ำ (Tubifex)",
+    "why": "It talks about the source exporter's own fish house and stock as if the reader knew it.",
     "by": "model"
    }
   ],
@@ -31008,6 +31253,151 @@
  "th/species/corydoras-eques": {
   "at": "2026-11-10",
   "hash": "0343a5f4cf00f5d2",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/corydoras-flaveolus": {
+  "at": "2026-11-11",
+  "hash": "fa2fc7b134bfcbcf",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/corydoras-fowleri": {
+  "at": "2026-11-11",
+  "hash": "d7c79b9e8d34bced",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P18",
+    "quote": "จนถึงปัจจุบันยังไม่ได้สำเนามา",
+    "why": "The source writer's own voice about not having obtained a copy of the description.",
+    "by": "model"
+   },
+   {
+    "check": "source",
+    "part": "P18",
+    "quote": "ภาพที่แนบมากับข้อมูลนี้เป็นตัวอย่างของปลาที่คาดว่าเป็น C. fowleri",
+    "why": "Points at attached images the page does not have.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "th/species/corydoras-fulleri": {
+  "at": "2026-11-11",
+  "hash": "3cb49862bfc635f9",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/corydoras-geryi": {
+  "at": "2026-11-11",
+  "hash": "b6a175964c82dc70",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "elsewhere",
+    "part": "P9",
+    "quote": "ซึ่งตรงกับช่วงฤดูหนาวของสหราชอาณาจักร ดังนั้นหากพยายามเพาะในช่วงฤดูร้อนแล้วไม่สำเร็จ อาจลองรอจนถึงฤดูหนาวแล้วค่อยลองใหม่",
+    "why": "Breeding timing is given by UK seasons, as if the reader lived in Britain.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "th/species/corydoras-gladysae": {
+  "at": "2026-11-11",
+  "hash": "597ce46a9cfd16a7",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/corydoras-gomezi": {
+  "at": "2026-11-11",
+  "hash": "b277e342b3a72223",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/corydoras-gossei": {
+  "at": "2026-11-11",
+  "hash": "4341d073f103be2f",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/corydoras-gracilis": {
+  "at": "2026-11-11",
+  "hash": "d5584b2ec424ca24",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/corydoras-granti": {
+  "at": "2026-11-11",
+  "hash": "7b1c765fb269c62f",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/corydoras-griseus": {
+  "at": "2026-11-11",
+  "hash": "14f2b2755b9d8ee9",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/corydoras-guapore": {
+  "at": "2026-11-11",
+  "hash": "5c56d71a0defdffc",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": []
+ },
+ "th/species/corydoras-habrosus": {
+  "at": "2026-11-11",
+  "hash": "8a9bd9cc4f29948f",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
+  "products": [
+   "Repashy"
+  ]
+ },
+ "th/species/corydoras-haraldschultzi": {
+  "at": "2026-11-11",
+  "hash": "3487beaba3781200",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "source",
+    "part": "P1",
+    "quote": "ก็กลับมามีจำหน่ายอีกครั้ง และเป็นปลาขนาดโชว์ด้วย!",
+    "why": "This is the source shop's stock news, not something the reader in Thailand can act on.",
+    "by": "model"
+   }
+  ],
+  "products": []
+ },
+ "th/species/corydoras-hastatus": {
+  "at": "2026-11-11",
+  "hash": "754d12ad44c43336",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -31715,6 +32105,14 @@
     "fix": "แมลงหางดีด (สปริงเทล)"
    }
   ],
+  "products": []
+ },
+ "th/species/glossolepis-dorityi": {
+  "at": "2026-11-11",
+  "hash": "d4a7daaabe8dc68f",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [],
   "products": []
  },
  "th/species/glossolepis-incisus": {
@@ -46382,6 +46780,31 @@
   ],
   "products": []
  },
+ "vi/guides/aquatome-cach-lam-be-thuy-sinh-mini-be-don-gian": {
+  "at": "2026-11-11",
+  "hash": "9540002ef23d5bb8",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "words",
+    "part": "P1",
+    "quote": "Chạy chu trình (cycle) trước khi thả cá.",
+    "why": "Literal calque of English 'cycling'; Vietnamese keepers say 'chạy vi sinh'.",
+    "by": "model",
+    "fix": "chạy vi sinh (cycle bể)"
+   },
+   {
+    "check": "words",
+    "part": "P1",
+    "quote": "có thể để nước máy đứng 24 giờ",
+    "why": "Calque of 'let water stand'; Vietnamese keepers say 'phơi nước'.",
+    "by": "model",
+    "fix": "phơi nước 24 giờ"
+   }
+  ],
+  "products": []
+ },
  "vi/guides/aquatome-cach-ly-ca-moi-mua-be-cach-ly-va-quy-trinh": {
   "at": "2026-11-08",
   "hash": "0925a7f5edcc13ee",
@@ -47283,6 +47706,101 @@
    }
   ],
   "products": []
+ },
+ "vi/guides/aquatome-reu-hai-trong-be-thuy-sinh-nguyen-nhan-va-cach-loai-bo": {
+  "at": "2026-11-11",
+  "hash": "3ce3090948eb2014",
+  "model": "opus",
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "dose",
+    "part": "P1",
+    "quote": "1 ml cho mỗi 50 L (liều thường) hoặc 2 ml cho mỗi 50 L (liều gấp đôi)",
+    "why": "Dose of a named commercial carbon product.",
+    "by": "model",
+    "product": "Easy Carbo"
+   }
+  ],
+  "products": [
+   "Easy Carbo",
+   "Flourish Excel"
+  ],
+  "doses": [
+   {
+    "treatment": "hydrogen peroxide",
+    "strength": "3%",
+    "amount": 5,
+    "amountMax": 0,
+    "unit": "ml",
+    "per": 30,
+    "perUnit": "litre",
+    "use": "algae",
+    "method": "spot",
+    "quote": "5 ml cho mỗi 30 L nước bể (ví dụ 20 ml cho bể 120 L, khoảng 5 mg/L H2O2)"
+   },
+   {
+    "treatment": "easy carbo",
+    "strength": "",
+    "amount": 1,
+    "amountMax": 2,
+    "unit": "ml",
+    "per": 50,
+    "perUnit": "litre",
+    "use": "algae",
+    "method": "spot",
+    "quote": "1 ml cho mỗi 50 L (liều thường) hoặc 2 ml cho mỗi 50 L (liều gấp đôi)"
+   },
+   {
+    "treatment": "flourish excel",
+    "strength": "",
+    "amount": 5,
+    "amountMax": 0,
+    "unit": "ml",
+    "per": 40,
+    "perUnit": "litre",
+    "use": "plants",
+    "method": "wholeTank",
+    "quote": "5 mL cho 40 L lúc mới bắt đầu hoặc sau một lần thay hơn 40% nước"
+   },
+   {
+    "treatment": "bleach",
+    "strength": "",
+    "amount": 1,
+    "amountMax": 0,
+    "unit": "phần",
+    "per": 20,
+    "perUnit": "phần nước",
+    "use": "algae",
+    "method": "bath",
+    "quote": "pha 1 phần thuốc tẩy với 20 phần nước"
+   },
+   {
+    "treatment": "nitrate",
+    "strength": "",
+    "amount": 5,
+    "amountMax": 0,
+    "unit": "ppm",
+    "per": 0,
+    "perUnit": "",
+    "use": "cyanobacteria",
+    "method": "wholeTank",
+    "quote": "châm nitrate lên khoảng 5 ppm"
+   },
+   {
+    "treatment": "phosphate",
+    "strength": "",
+    "amount": 0.5,
+    "amountMax": 2,
+    "unit": "ppm",
+    "per": 0,
+    "perUnit": "",
+    "use": "algae",
+    "method": "wholeTank",
+    "quote": "châm phosphate (PO4) lên mức 0,5–2,0 ppm"
+   }
+  ],
+  "sourceRead": true
  },
  "vi/guides/aquatome-reu-hai-trong-be-thuy-sinh-nhan-biet-tung-loai-reu-va-cach-diet": {
   "at": "2026-11-08",
@@ -48983,23 +49501,23 @@
   "products": []
  },
  "vi/guides/glaser-en-32-all-the-rest-drought-in-singapore-and-malaysia": {
-  "at": "2026-11-10",
-  "hash": "77cf89cccf9a178d",
+  "at": "2026-11-11",
+  "hash": "a20108d6c62e9741",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "source",
     "part": "P1",
-    "quote": "Một nhà cung cấp cá viết:",
-    "why": "It quotes a supplier's message to the original shop, which the reader doesn't know, about that shop's orders and stock.",
+    "quote": "Lô hàng của quý vị có thể bị thiếu một số loại",
+    "why": "Quotes a supplier's stock notice to its trade customers, a source the reader doesn't know.",
     "by": "model"
    },
    {
     "check": "source",
     "part": "P1",
-    "quote": "Với lô hàng của quý vị, chúng tôi có thể thiếu hàng một số loại",
-    "why": "This is the supplier talking about the original shop's own shipments, which have nothing to do with this reader.",
+    "quote": "Xem thêm về chuyện này tại:",
+    "why": "Points the reader to an outside news article the page does not contain.",
     "by": "model"
    }
   ],
@@ -69860,64 +70378,78 @@
   ]
  },
  "vi/guides/youtube-nF0uT_39Ots": {
-  "at": "2026-11-09",
-  "hash": "d392370a900ed4d8",
+  "at": "2026-11-11",
+  "hash": "624b8817322ee62e",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "units",
     "part": "P1",
-    "quote": "một bể gỗ ép hình ngũ giác góc (corner pentagon) cao 76 cm, đặt trên chân cao khoảng 86 cm",
-    "why": "76 cm and 86 cm are converted from 30 and 34 inches.",
+    "quote": "cao 76 cm, đặt trên chân cao khoảng 86 cm",
+    "why": "Heights converted from 30 and 34 inches.",
     "by": "model"
    },
    {
     "check": "units",
     "part": "P1",
-    "quote": "Tổng chiều cao khoảng 163 cm, còn chừa khoảng 30 cm tới trần cao 2,1 m.",
-    "why": "Heights converted from feet and inches (64 in, 1 ft, 7 ft).",
+    "quote": "Tổng chiều cao khoảng 163 cm, còn chừa khoảng 30 cm tới trần cao 2,1 m",
+    "why": "Figures converted from feet and inches (a 7 ft ceiling).",
     "by": "model"
    },
    {
     "check": "units",
     "part": "P1",
     "quote": "17 thanh gỗ 2x4 để đóng khung bể.",
-    "why": "2x4 is American nominal lumber sized in inches, not how timber is sold in Vietnam.",
+    "why": "2x4 is a US lumber size in inches, not sold or named that way in Vietnam.",
     "by": "model"
    },
    {
     "check": "units",
     "part": "P1",
-    "quote": "chừa gờ tối thiểu khoảng 3,8 cm khi lắp tấm nhìn",
-    "why": "3,8 cm is a converted 1.5 inches.",
+    "quote": "15 thanh gỗ 2x6 để đóng chân bể.",
+    "why": "2x6 is a US lumber size in inches.",
+    "by": "model"
+   },
+   {
+    "check": "units",
+    "part": "P1",
+    "quote": "chừa gờ tối thiểu khoảng 3,8 cm",
+    "why": "Converted from 1.5 inches.",
     "by": "model"
    },
    {
     "check": "units",
     "part": "P1",
     "quote": "vùng nhìn còn khoảng 114 x 66 cm",
-    "why": "Converted from 45 x 26 inches.",
+    "why": "Viewing area converted from inches.",
     "by": "model"
    },
    {
     "check": "units",
     "part": "P1",
-    "quote": "khoảng 1.380 lít, nhưng chứa thật chỉ khoảng 1.170 lít",
-    "why": "Volumes converted from US gallons.",
+    "quote": "bể khoảng 1.100 lít này làm xong nặng chừng 90 kg",
+    "why": "Volume and weight converted from 300 gallons and 200 pounds.",
     "by": "model"
    },
    {
     "check": "units",
     "part": "P1",
-    "quote": "chỉ khi làm cỡ lớn, khoảng 1.100–1.900 lít trở lên",
-    "why": "Converted from 300–500 gallons.",
+    "quote": "khi làm cỡ lớn, khoảng 1.100–1.900 lít trở lên",
+    "why": "Range converted from 300–500 gallons.",
+    "by": "model"
+   },
+   {
+    "check": "units",
+    "part": "P1",
+    "quote": "Mười bể 450 lít kích thước tiêu chuẩn",
+    "why": "Converted from a standard US 120-gallon tank.",
     "by": "model"
    },
    {
     "check": "price",
     "part": "P1",
-    "quote": "Toàn bộ phần khung làm trong một ngày, tốn khoảng 300 đô.",
+    "quote": "tốn khoảng 300 đô",
     "why": "Cost given in US dollars.",
     "by": "model"
    },
@@ -69925,43 +70457,51 @@
     "check": "price",
     "part": "P1",
     "quote": "tự đóng hay mua đều khoảng 500 đô một bể",
-    "why": "Tank prices given in US dollars.",
+    "why": "Tank price in US dollars, the price in the source's market.",
     "by": "model"
    },
    {
     "check": "elsewhere",
     "part": "P1",
-    "quote": "Bể này nằm ngay cạnh cửa sổ tầng hầm.",
-    "why": "A basement egress window is an American house feature, not a Vietnamese one.",
+    "quote": "Bể này nằm ngay cạnh cửa sổ tầng hầm",
+    "why": "A basement with an egress window describes a North American house.",
     "by": "model"
    },
    {
     "check": "elsewhere",
     "part": "P1",
-    "quote": "thay vì khoảng 40 cm như vách nhà",
-    "why": "Assumes timber stud walls at 16-inch centres, the way houses are built in North America.",
+    "quote": "cách nhau 15 cm thay vì khoảng 40 cm như vách nhà",
+    "why": "16-inch stud spacing of North American timber-frame walls; Vietnamese houses are brick.",
     "by": "model"
    },
    {
     "check": "source",
     "part": "P1",
     "quote": "Nhà có mèo hay nhảy cao 1,5–1,8 m, nên bể này sẽ có thêm nắp đậy.",
-    "why": "The original builder's own house and cat, told as if the reader knew them.",
+    "why": "The original writer's own home and cat, presented as if the reader knew them.",
     "by": "model"
    },
    {
     "check": "source",
     "part": "P1",
-    "quote": "Thời gian trung bình (ước tính của một người đã đóng nhiều bể)",
-    "why": "Cites an unnamed source person the reader doesn't know.",
+    "quote": "ước tính của một người đã đóng nhiều bể",
+    "why": "Refers to the source's writer as the person giving the estimates.",
     "by": "model"
    },
    {
     "check": "source",
     "part": "P1",
     "quote": "Bể gỗ ép này làm để nuôi 7 con cá oscar.",
-    "why": "The source's own tank project, treated as known to the reader.",
+    "why": "The source's own tank project, told as the reader's story.",
     "by": "model"
+   },
+   {
+    "check": "words",
+    "part": "P1",
+    "quote": "hình ngũ giác góc (corner pentagon)",
+    "why": "Literal calque of the English 'corner pentagon'.",
+    "by": "model",
+    "fix": "bể ngũ giác đặt góc"
    }
   ],
   "products": []
@@ -70165,8 +70705,8 @@
   ]
  },
  "vi/guides/youtube-nn20HPPwGRY": {
-  "at": "2026-11-10",
-  "hash": "44136ad14b786f84",
+  "at": "2026-11-11",
+  "hash": "334949543f1c6cd0",
   "model": "opus",
   "checklist": 3,
   "findings": [
@@ -70176,37 +70716,6 @@
     "quote": "Bể Dutch đem ra so sánh ở đây không có lũa, đá",
     "why": "Refers to the source's own Dutch tank as if the reader knew it.",
     "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P1",
-    "quote": "Trong tuần chủ bể đi vắng, hai người cùng cho ăn nên cá nhận ít nhất gấp đôi lượng cần",
-    "why": "Tells the source writer's own tank story about an owner the reader does not know.",
-    "by": "model"
-   },
-   {
-    "check": "words",
-    "part": "P1",
-    "quote": "Giữ cây thủy sinh",
-    "why": "Calque of the English 'keeping aquatic plants'.",
-    "by": "model",
-    "fix": "Chơi thủy sinh"
-   },
-   {
-    "check": "words",
-    "part": "P1",
-    "quote": "Chỗ để sai",
-    "why": "Calque of the English 'room for error'.",
-    "by": "model",
-    "fix": "Độ dễ sửa sai"
-   },
-   {
-    "check": "words",
-    "part": "P1",
-    "quote": "tảo silic",
-    "why": "Textbook term for what keepers call brown algae.",
-    "by": "model",
-    "fix": "rêu nâu"
    }
   ],
   "products": []
@@ -70905,8 +71414,8 @@
   "products": []
  },
  "vi/guides/youtube-ogiCy6qvGUs": {
-  "at": "2026-11-10",
-  "hash": "2b4c63164f4684fb",
+  "at": "2026-11-11",
+  "hash": "ca904b5fac8c26e6",
   "model": "opus",
   "checklist": 3,
   "findings": [
@@ -70914,29 +71423,29 @@
     "check": "harm",
     "part": "P1",
     "quote": "Nối ống vào vòi bồn rửa trong bếp để cấp nước mới vào bể.",
-    "why": "Running untreated, chlorinated tap water straight into a shrimp tank for a long change, with no dechlorinating step, can kill shrimp and fish.",
+    "why": "Running chlorinated tap water straight into a shrimp tank in a long continuous change, with no dechlorinating, can hurt shrimp and fish.",
     "by": "model"
    },
    {
     "check": "words",
     "part": "P1",
-    "quote": "cốc nuôi cấy",
-    "why": "Calque of 'tissue culture cup'; keepers in Vietnam call these tissue-culture plants 'cấy mô'.",
+    "quote": "Với khóm cây cắt cắm, có thể cắt vát để phần dưới dốc hơn.",
+    "why": "Calque of 'stem plants'; Vietnamese keepers do not say 'cây cắt cắm'.",
     "by": "model",
-    "fix": "cốc cấy mô"
+    "fix": "cây thân đứng"
    },
    {
     "check": "words",
     "part": "P1",
-    "quote": "Đầu vào và đầu ra của lọc",
-    "why": "Literal rendering of 'inlet and outlet'; keepers in Vietnam call these pipes in-out.",
+    "quote": "Trồng cây cắt cắm mới từ cốc nuôi cấy",
+    "why": "Calque of 'tissue culture cup'; local keepers say cây mô / cốc mô.",
     "by": "model",
-    "fix": "bộ in-out của lọc"
+    "fix": "cây cốc mô"
    }
   ],
   "products": [
-   "Tropica Premium Nutrition",
-   "1-2-Grow"
+   "1-2-Grow",
+   "Tropica Premium Nutrition"
   ]
  },
  "vi/guides/youtube-oHh1FU_k1jo": {
@@ -71180,40 +71689,31 @@
   "products": []
  },
  "vi/guides/youtube-OrW6PZgqKSM": {
-  "at": "2026-11-09",
-  "hash": "da9c852a861a0322",
+  "at": "2026-11-11",
+  "hash": "5882a65bf5a10749",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
-    "check": "source",
+    "check": "units",
     "part": "P1",
-    "quote": "Cá từng nuôi trong chính chiếc bể này đã nhảy ra ngoài.",
-    "why": "Refers to the source author's own tank and past fish as if the reader knew them.",
+    "quote": "Thể tích của nó chỉ khoảng 91 lít",
+    "why": "91 litres is a converted 24-gallon tank volume, not a size anyone in Vietnam would quote.",
     "by": "model"
    },
    {
     "check": "units",
-    "part": "P1",
-    "quote": "Thể tích của nó chỉ khoảng 91 lít",
-    "why": "A tank volume converted from gallons (24 gal) that nobody in Vietnam would quote.",
+    "part": "L2",
+    "quote": "khoảng 91 lít",
+    "why": "Repeats the gallon-converted 91-litre tank volume.",
     "by": "model"
    },
    {
-    "check": "words",
+    "check": "source",
     "part": "P1",
-    "quote": "một viên giun đỏ (bloodworm)",
-    "why": "Dictionary term for bloodworm; keepers in Vietnam use a different name.",
-    "by": "model",
-    "fix": "một viên trùn huyết"
-   },
-   {
-    "check": "words",
-    "part": "P1",
-    "quote": "hơn một nghìn năm lai chọn",
-    "why": "\"Lai chọn\" is a clipped rendering of \"selectively bred\", not hobby usage.",
-    "by": "model",
-    "fix": "lai tạo"
+    "quote": "Cá từng nuôi trong chính chiếc bể này đã nhảy ra ngoài.",
+    "why": "Refers to the source writer's own tank and past fish as if the reader knew them.",
+    "by": "model"
    }
   ],
   "products": []
@@ -76974,60 +77474,38 @@
   ]
  },
  "vi/guides/youtube-Wvboi3dLLrM": {
-  "at": "2026-11-09",
-  "hash": "dad890dc775d74f7",
+  "at": "2026-11-11",
+  "hash": "ab1c4ab4472efa89",
   "model": "opus",
   "checklist": 3,
   "findings": [
    {
     "check": "source",
     "part": "P1",
-    "quote": "Chuyện chuyển bể bắt đầu từ một lần thay nước bình thường",
-    "why": "Tells the original keeper's own story as if the reader knew it.",
-    "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P1",
-    "quote": "Bể này có mặt trước nông",
-    "why": "Refers to the source's own build as if the reader could see it.",
+    "quote": "Đây là lần đầu tiên cá bị hút nhầm trong suốt mấy năm nuôi bể này",
+    "why": "Tells the source writer's own tank story as if the reader knew it.",
     "by": "model"
    },
    {
     "check": "source",
     "part": "P1",
     "quote": "Lần này dùng dung dịch thử nitrate của một bộ test nước",
-    "why": "Narrates what the original maker did on this occasion.",
+    "why": "Refers to the source's own build session ('this time').",
     "by": "model"
    },
    {
     "check": "source",
     "part": "P1",
-    "quote": "tảng đá lớn ở đây tình cờ giữ được nước",
-    "why": "Points to the source's particular rock and tank, unknown to the reader.",
+    "quote": "tảng đá lớn ở đây tình cờ giữ được nước và tự tạo thành một dòng thác nhỏ",
+    "why": "Describes the source's own rock and tank as if the reader saw it.",
     "by": "model"
    },
    {
     "check": "source",
     "part": "P1",
-    "quote": "ở đây là 10 con đực",
-    "why": "Gives the source's own stocking as if the reader were watching it.",
+    "quote": "Lần này đếm được 59 con, cộng thêm ít nhất 5 con đoán là còn trốn trong bể cũ",
+    "why": "Reports the source writer's own fish count from their tank.",
     "by": "model"
-   },
-   {
-    "check": "source",
-    "part": "P1",
-    "quote": "Lần này đếm được 59 con",
-    "why": "Reports the source keeper's own count of their own colony.",
-    "by": "model"
-   },
-   {
-    "check": "words",
-    "part": "P1",
-    "quote": "dán lớp phim mờ ở mặt sau",
-    "why": "Literal rendering of frosted film; keepers call the backing sheet decal.",
-    "by": "model",
-    "fix": "dán decal mờ ở mặt sau"
    }
   ],
   "products": []
@@ -90256,10 +90734,10 @@
   "products": []
  },
  "vi/species/centrochir-crocodili": {
-  "at": "2026-11-08",
-  "hash": "65d6439044461c2c",
+  "at": "2026-11-11",
+  "hash": "0e0da4f68d1c72cc",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [],
   "products": []
  },
@@ -90411,26 +90889,11 @@
   "products": []
  },
  "vi/species/chaetostoma-fischeri": {
-  "at": "2026-11-08",
-  "hash": "df28c5c999ef2767",
+  "at": "2026-11-11",
+  "hash": "582ff1e66116c882",
   "model": "opus",
-  "checklist": 2,
-  "findings": [
-   {
-    "check": "elsewhere",
-    "part": "P1",
-    "quote": "Cách phát âm: KATE oh STOW mah.",
-    "why": "An English-speaker respelling of the name, written for English readers, not Vietnamese ones.",
-    "by": "model"
-   },
-   {
-    "check": "units",
-    "part": "P5",
-    "quote": "không sâu lắm, chỉ khoảng 0,3-0,9 m",
-    "why": "0.3–0.9 m is a direct conversion of 1–3 feet.",
-    "by": "model"
-   }
-  ],
+  "checklist": 3,
+  "findings": [],
   "products": []
  },
  "vi/species/chaetostoma-formosae": {
@@ -90648,11 +91111,20 @@
   "products": []
  },
  "vi/species/channa-barca": {
-  "at": "2026-11-08",
-  "hash": "683e8b60147f5b1d",
+  "at": "2026-11-11",
+  "hash": "caf5c2bd492783d3",
   "model": "opus",
-  "checklist": 2,
-  "findings": [],
+  "checklist": 3,
+  "findings": [
+   {
+    "check": "words",
+    "part": "P8",
+    "quote": "trùng chỉ đỏ (ấu trùng muỗi chironomid)",
+    "why": "Chironomid larvae (bloodworms) are called trùn huyết by Vietnamese keepers; trùng chỉ usually means tubifex.",
+    "by": "model",
+    "fix": "trùn huyết"
+   }
+  ],
   "products": []
  },
  "vi/species/channa-bleheri": {
@@ -90747,8 +91219,8 @@
   "products": []
  },
  "vi/species/channa-maculata": {
-  "at": "2026-11-09",
-  "hash": "622e9cf390be67d2",
+  "at": "2026-11-11",
+  "hash": "c6d08eb2251a8df1",
   "model": "opus",
   "checklist": 3,
   "findings": [],
@@ -90803,27 +91275,11 @@
   "products": []
  },
  "vi/species/channa-micropeltes": {
-  "at": "2026-11-08",
-  "hash": "5942194f6b99c72a",
+  "at": "2026-11-11",
+  "hash": "074970c7d19c5070",
   "model": "opus",
-  "checklist": 2,
-  "findings": [
-   {
-    "check": "words",
-    "part": "P8",
-    "quote": "lăng quăng đỏ (trùng chỉ huyết)",
-    "why": "\"Trùng chỉ huyết\" is a garbled rendering of bloodworm; Vietnamese keepers call it trùn huyết.",
-    "by": "model",
-    "fix": "trùn huyết"
-   },
-   {
-    "check": "elsewhere",
-    "part": "P2",
-    "quote": "Ngoài tiệm, cá con thường được bán dưới tên cá lóc \"red\" hay \"redline\"",
-    "why": "These English trade names come from shops abroad. In Vietnam the fish is sold as cá lóc bông.",
-    "by": "model"
-   }
-  ],
+  "checklist": 3,
+  "findings": [],
   "products": []
  },
  "vi/species/channa-orientalis": {
@@ -91313,10 +91769,10 @@
   "products": []
  },
  "vi/species/cincelichthys-bocourti": {
-  "at": "2026-11-08",
-  "hash": "c51be8851faf9d38",
+  "at": "2026-11-11",
+  "hash": "d0ab5c08db30b58f",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [],
   "products": []
  },
@@ -91516,9 +91972,10 @@
   "sourceRead": true
  },
  "vi/species/cleithracara-maronii": {
-  "at": "2026-11-07",
-  "hash": "4462ee8881d3abcd",
+  "at": "2026-11-11",
+  "hash": "0c5fbca081407cb7",
   "model": "opus",
+  "checklist": 3,
   "findings": [],
   "products": []
  },
@@ -91563,18 +92020,18 @@
   "products": []
  },
  "vi/species/clupisoma-prateri": {
-  "at": "2026-11-08",
-  "hash": "520284b36db88e8d",
+  "at": "2026-11-11",
+  "hash": "faec764f3663bef0",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [
    {
     "check": "words",
     "part": "P3",
     "quote": "một đôi râu nách",
-    "why": "Mistranslation of 'maxillary barbels'; 'nách' means armpit, not jaw.",
+    "why": "\"Râu nách\" (armpit barbel) is a mistranslation of maxillary barbel; Vietnamese says râu hàm trên.",
     "by": "model",
-    "fix": "râu hàm"
+    "fix": "râu hàm trên"
    }
   ],
   "products": []
@@ -92106,9 +92563,10 @@
   "products": []
  },
  "vi/species/corydoras-caudimaculatus": {
-  "at": "2026-11-07",
-  "hash": "9cbd8b41c55d152f",
+  "at": "2026-11-11",
+  "hash": "ce719dba201f33ab",
   "model": "opus",
+  "checklist": 3,
   "findings": [],
   "products": []
  },
@@ -92330,25 +92788,17 @@
   ]
  },
  "vi/species/corydoras-haraldschultzi": {
-  "at": "2026-11-08",
-  "hash": "63c1575ed3d846c7",
+  "at": "2026-11-11",
+  "hash": "ba996ed42cb0f39e",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [
    {
     "check": "source",
     "part": "P1",
     "quote": "Sau một thời gian vắng bóng, loài này đã có lại, và lần này cá đã đạt cỡ trưng bày!",
-    "why": "This is the source shop's stock news, which the reader doesn't know about.",
+    "why": "This is a foreign shop's stock news, written as if the reader knew that shop's earlier stock.",
     "by": "model"
-   },
-   {
-    "check": "words",
-    "part": "P11",
-    "quote": "giun vi mô (microworm)",
-    "why": "A literal translation of microworm; Vietnamese keepers use a different name.",
-    "by": "model",
-    "fix": "trùn vi sinh"
    }
   ],
   "products": []
@@ -92719,37 +93169,30 @@
   "products": []
  },
  "vi/species/corydoras-panda": {
-  "at": "2026-11-08",
-  "hash": "8c4bd571019b36e5",
+  "at": "2026-11-11",
+  "hash": "d5b3ec6aa5ff0de7",
   "model": "opus",
-  "checklist": 2,
+  "checklist": 3,
   "findings": [
    {
     "check": "elsewhere",
     "part": "P13",
-    "quote": "Ở quê nhà, chúng sinh sản vào mùa mưa, trùng với mùa đông ở Anh.",
-    "why": "Treats British seasons as the reader's own and advises waiting for winter to spawn.",
+    "quote": "trùng với mùa đông ở Anh. Vì vậy, nếu cho đẻ vào mùa hè mà mãi không được",
+    "why": "Seasonal breeding advice is framed around the British winter and summer, not Vietnam's climate.",
     "by": "model"
    },
    {
     "check": "elsewhere",
     "part": "P7",
     "quote": "có thể dùng cành dẻ gai (beech) thông thường, miễn là phơi thật khô và bóc sạch vỏ",
-    "why": "Beech branches are a common resource in Europe, not something a keeper in Vietnam has to hand.",
+    "why": "Beech branches are a common material in Europe, not in Vietnam.",
     "by": "model"
    },
    {
     "check": "elsewhere",
     "part": "P7",
     "quote": "lá dẻ gai hay lá sồi đều dùng được",
-    "why": "Beech and oak leaves are temperate European leaf litter, not what a Vietnamese keeper would collect.",
-    "by": "model"
-   },
-   {
-    "check": "elsewhere",
-    "part": "P13",
-    "quote": "thả một quả tống quán sủi (alder) vào thùng ấp",
-    "why": "Alder cones are a European tree product, not available to Vietnamese hobbyists.",
+    "why": "Beech and oak leaves are European leaf litter that Vietnamese keepers don't normally use.",
     "by": "model"
    }
   ],

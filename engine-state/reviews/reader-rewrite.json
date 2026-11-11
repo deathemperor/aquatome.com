@@ -294,6 +294,19 @@
       "kept": false
     }
   ],
+  "vi/guides/youtube-OrW6PZgqKSM#body": [
+    {
+      "at": "2026-11-11T00:42:01Z",
+      "model": "sonnet",
+      "score": 0.85,
+      "notes": [
+        "\"không chịu nước\" became \"không chạm nước\": this changes the reason given. The original says the pieces are not water-resistant. The rewrite says they don't touch water, which is a small nuance shift.",
+        "The polycarbonate option is kept as a hedge (\"có thể\"), and the drawback is kept."
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
   "vi/guides/youtube-QhPgAnEku_o#body": [
     {
       "at": "2026-11-09T13:59:44Z",
@@ -356,6 +369,19 @@
       "notes": [
         "\"cộng cá hiền\" -> \"toàn cá hiền\": slight wording shift, same meaning",
         "\"Bài này giới thiệu\" -> \"Dưới đây là\": minor framing change, no content lost"
+      ],
+      "attempt": "first",
+      "kept": true
+    }
+  ],
+  "vi/guides/youtube-Wvboi3dLLrM#body": [
+    {
+      "at": "2026-11-11T00:40:30Z",
+      "model": "sonnet",
+      "score": 0.93,
+      "notes": [
+        "\"quá liều\" -> \"quá mạo hiểm\": slight nuance shift, but same meaning",
+        "\"chia đều lực\" -> \"chia đều sức nặng của đá\": small elaboration only"
       ],
       "attempt": "first",
       "kept": true

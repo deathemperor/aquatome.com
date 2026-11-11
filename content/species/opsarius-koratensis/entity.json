@@ -18,6 +18,218 @@
     "dong-nai",
     "yunnan"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "TH",
+        "KH",
+        "LA",
+        "CN",
+        "VN"
+      ],
+      "regions": [
+        "Mekong",
+        "Chao Phraya",
+        "Mae Klong",
+        "Dong Nai",
+        "Xe Bangfai",
+        "Mun"
+      ],
+      "sources": [
+        "glaser",
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "glaser",
+          "quote": "Opsarius koratensis is relatively widespread in Southeast Asia and colonizes the river systems of the Mekong, the Chao Phraya and the Xe Bangfai (Thailand, Cambodia, Laos and parts of China).",
+          "countries": [
+            "TH",
+            "KH",
+            "LA",
+            "CN"
+          ],
+          "regions": [
+            "Xe Bangfai"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "The Mun is a tributary of the Mekong River and this species is widely-distributed throughout the middle and lower Mekong in Thailand, Laos, and Cambodia, as well as the Chao Phraya and Mae Klong systems in central and western Thailand, respectively, plus the Dong Nai drainage in southern Vietnam.",
+          "countries": [
+            "VN"
+          ],
+          "regions": [
+            "Mekong",
+            "Chao Phraya",
+            "Mae Klong",
+            "Dong Nai"
+          ]
+        },
+        {
+          "source": "seriouslyfish",
+          "quote": "Type locality is 'Mun River at Tachang (Ta-Chang), Nakorn-Rajsima, Korat District, eastern Thailand'.",
+          "countries": [],
+          "regions": [
+            "Mun"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 5205418,
+      "total": 78,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "TH",
+          33
+        ],
+        [
+          "LA",
+          24
+        ],
+        [
+          "KH",
+          21
+        ]
+      ],
+      "cells": [
+        [
+          97.03125,
+          16.875,
+          1,
+          1
+        ],
+        [
+          98.4375,
+          12.65625,
+          3,
+          3
+        ],
+        [
+          98.4375,
+          14.0625,
+          2,
+          2
+        ],
+        [
+          98.4375,
+          18.28125,
+          3,
+          3
+        ],
+        [
+          99.84375,
+          16.875,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          18.28125,
+          1,
+          1
+        ],
+        [
+          99.84375,
+          19.6875,
+          8,
+          8
+        ],
+        [
+          101.25,
+          16.875,
+          6,
+          6
+        ],
+        [
+          101.25,
+          18.28125,
+          2,
+          2
+        ],
+        [
+          101.25,
+          19.6875,
+          10,
+          10
+        ],
+        [
+          101.25,
+          21.09375,
+          1,
+          1
+        ],
+        [
+          102.65625,
+          11.25,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          15.46875,
+          2,
+          2
+        ],
+        [
+          102.65625,
+          18.28125,
+          2,
+          2
+        ],
+        [
+          104.0625,
+          11.25,
+          5,
+          5
+        ],
+        [
+          104.0625,
+          14.0625,
+          3,
+          3
+        ],
+        [
+          104.0625,
+          15.46875,
+          7,
+          7
+        ],
+        [
+          104.0625,
+          16.875,
+          1,
+          1
+        ],
+        [
+          105.46875,
+          12.65625,
+          12,
+          12
+        ],
+        [
+          105.46875,
+          14.0625,
+          3,
+          3
+        ],
+        [
+          106.875,
+          12.65625,
+          1,
+          1
+        ],
+        [
+          106.875,
+          14.0625,
+          2,
+          2
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "tempC": [
       {

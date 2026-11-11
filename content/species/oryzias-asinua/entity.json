@@ -10,6 +10,50 @@
     "indonesia",
     "sulawesi-tenggara"
   ],
+  "range": {
+    "native": {
+      "countries": [
+        "ID"
+      ],
+      "regions": [
+        "Sulawesi"
+      ],
+      "sources": [
+        "seriouslyfish"
+      ],
+      "quotes": [
+        {
+          "source": "seriouslyfish",
+          "quote": "The Asinua ricefish, Oryzias asinua, is known only from the Sungai Asinua in Southeast Sulawesi, Indonesia.",
+          "countries": [
+            "ID"
+          ],
+          "regions": [
+            "Sulawesi"
+          ]
+        }
+      ]
+    },
+    "records": {
+      "taxonKey": 8369694,
+      "total": 3,
+      "fetched": "2026-11-10",
+      "countries": [
+        [
+          "ID",
+          3
+        ]
+      ],
+      "cells": [
+        [
+          120.9375,
+          -4.21875,
+          3,
+          3
+        ]
+      ]
+    }
+  },
   "dataCard": {
     "sizeCm": [
       {

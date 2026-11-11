@@ -3114,6 +3114,48 @@
       "kept": true
     }
   ],
+  "vi/guides/aquatome-cach-lam-be-thuy-sinh-mini-be-don-gian": [
+    {
+      "at": "2026-11-11T01:50:31Z",
+      "model": "sonnet",
+      "score": 0.88,
+      "notes": [
+        "\"mỗi lần thả vài con\" – the facts say to add fish slowly but give no number of fish per batch.",
+        "\"để mồi ống\" – the facts only say never to siphon by mouth. The reason given is added by the guide.",
+        "\"để chúng xử lý chất thải của cá\" – this definition of cycling is not in the facts, though it is a mild generality."
+      ],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.88,
+        0.88,
+        0.82
+      ]
+    },
+    {
+      "at": "2026-11-11T01:50:31Z",
+      "model": "sonnet",
+      "score": 0.6,
+      "notes": [
+        "\"Bác sĩ thú y khuyên dùng thuốc khử clo\" is fine, but the claim that the drip loop means \"Nước có chảy theo dây cũng nhỏ xuống ở chỗ võng\" is an added explanation, only mildly supported.",
+        "\"Xin vật liệu lọc từ bể không rõ nguồn gốc. Nó có thể mang theo sâu bọ, ốc hại\" - the facts say pests and pathogens; \"ốc hại\" (harmful snails) is invented.",
+        "\"Vi khuẩn cần có thức ăn, để bể trống lâu thì chúng sẽ đói\" - an embellishment; the facts only say the bacteria need a food source.",
+        "\"Bể nhỏ cần chăm thường xuyên, đặt ở chỗ khó với tới thì sẽ ngại làm\" - unsupported reasoning.",
+        "\"Sỏi cỡ khoảng 3 mm là loại hay dùng cho bể cỡ vừa\" is in the facts, but the guide's \"Theo một bài báo\" is acceptable. The \"Cá ngáp trên mặt nước\" detail is a minor addition.",
+        "\"Nếu nền là cát, sỏi trơ không có dinh dưỡng thì cứ khoảng ba tháng nhét phân\" - the facts only say inert substrate; \"cát\" is slightly extended.",
+        "\"Một nguồn khác ghi thay tối đa 25% nước mỗi tuần\" is supported, but the claim \"Các nguồn ghi hơi khác nhau\" is a minor framing.",
+        "\"Cá endler (Poecilia wingei)\" and \"cá chuột pygmy\" - common names are added without support in the facts.",
+        "\"Sưởi và nhiệt kế\" is listed as required equipment; the facts only mention fitting them, not that they are needed for every nano tank."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.6,
+        0.6,
+        0.6
+      ]
+    }
+  ],
   "vi/guides/aquatome-cho-ca-an-khi-vang-nha-di-xa-va-dip-tet": [
     {
       "at": "2026-11-08T05:35:05Z",
@@ -3408,6 +3450,38 @@
       ],
       "attempt": "recheck",
       "kept": true
+    }
+  ],
+  "vi/guides/aquatome-reu-hai-trong-be-thuy-sinh-nguyen-nhan-va-cach-loai-bo": [
+    {
+      "at": "2026-11-11T01:58:39Z",
+      "model": "sonnet",
+      "score": 0.95,
+      "notes": [],
+      "attempt": "rewrite",
+      "kept": true,
+      "reads": [
+        0.95,
+        0.95,
+        0.92
+      ]
+    },
+    {
+      "at": "2026-11-11T01:58:39Z",
+      "model": "sonnet",
+      "score": 0.8,
+      "notes": [
+        "\"Lúc này phải sục khí ngay\" – the facts say cyanobacteria can use up oxygen and fish may gasp, but they don't advise aerating as an emergency step for that case.",
+        "\"Nhà sản xuất một loại carbon lỏng ... châm quá liều ... Vallisneria ... Anacharis\" – the facts give these warnings about Seachem Flourish Excel, and the guide never names it. It also lumps it in with Easy Carbo, which the facts never do.",
+        "\"Giữ ở mức đó\" for phosphate – the facts give a target dose of 0.5–2.0 ppm but no schedule for holding it."
+      ],
+      "attempt": "first",
+      "kept": false,
+      "reads": [
+        0.85,
+        0.7,
+        0.8
+      ]
     }
   ],
   "vi/guides/aquatome-su-co-may-bom-nuoc-keu-to-giat-cuc-nong-yeu-nhiem-dien-chay": [
