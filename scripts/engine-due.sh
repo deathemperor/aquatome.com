@@ -20,5 +20,7 @@ case "$every" in '' | *[!0-9]*) log "engine: not started: no pace to go by (ENGI
 # overdue too.
 age="$(gh run list -R "$REPO" -w engine.yml -L 30 --json createdAt,updatedAt,status -q '[.[] | select(.status != "completed" or ((.updatedAt | fromdateiso8601) - (.createdAt | fromdateiso8601)) > 600) | .createdAt | fromdateiso8601] | max | if . then (now - . | floor) else empty end')"
 if [ -z "$age" ] || [ "$age" -ge $((every * 60)) ]; then
-  gh workflow run engine.yml -R "$REPO" && log "engine: started on GitHub (last cycle ${age:+$((age / 60)) min ago}${age:-none in 30 runs}, every $every min)" || log "engine: could not start it"
+  last="none in 30 runs"
+  [ -z "$age" ] || last="$((age / 60)) min ago"
+  gh workflow run engine.yml -R "$REPO" && log "engine: started on GitHub (last cycle $last, every $every min)" || log "engine: could not start it"
 fi

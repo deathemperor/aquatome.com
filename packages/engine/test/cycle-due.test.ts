@@ -27,6 +27,8 @@ esac
   const r = spawnSync('bash', [SCRIPT], { env: { ...process.env, PATH: `${dir}:${process.env.PATH}` }, encoding: 'utf8' })
   return { started: existsSync(join(dir, 'started')), out: r.stdout, status: r.status }
 }
+/** Each call runs the script once, most of a second on a loaded machine: room for a slow one. */
+const SLOW = 60_000
 /** The pace engine.yml's own job uses when no setting is made: the one figure, and it is the workflow's. */
 const workflowDefault = Number(/\$\{EVERY:-(\d+)\}/.exec(readFileSync(join(ROOT, '.github/workflows/engine.yml'), 'utf8'))![1])
 
@@ -38,16 +40,18 @@ test('the starter goes by the repository\'s pace, not one of its own', () => {
   expect(due({ every: '350', minutes: 349 }).started).toBe(false)
   const late = due({ every: '350', minutes: 350 })
   expect(late.started).toBe(true)
-  expect(late.out).toContain('every 350 min')
+  expect(late.out).toContain('(last cycle 350 min ago, every 350 min)')
   expect(due({ every: '60', minutes: 61 }).started).toBe(true)
-  expect(due({ every: '350' }).started).toBe(true) // none in the last 30 runs is overdue
-})
+  const none = due({ every: '350' }) // none in the last 30 runs is overdue
+  expect(none.started).toBe(true)
+  expect(none.out).toContain('(last cycle none in 30 runs, every 350 min)')
+}, SLOW)
 
 test('with no setting made it goes by the default written in engine.yml, the one the workflow\'s job uses', () => {
   expect(workflowDefault).toBeGreaterThan(0)
   expect(due({ every: '', minutes: workflowDefault - 1 }).started).toBe(false)
   expect(due({ every: '', minutes: workflowDefault }).started).toBe(true)
-})
+}, SLOW)
 
 test('with no pace to go by, nothing starts: a setting that is not a number, or one that cannot be read', () => {
   const odd = due({ every: 'often', minutes: 9999 })
@@ -56,7 +60,7 @@ test('with no pace to go by, nothing starts: a setting that is not a number, or 
   const down = due({ every: '350', minutes: 9999, ghFails: true })
   expect(down.started).toBe(false)
   expect(down.status).not.toBe(0)
-})
+}, SLOW)
 
 test('the starter has no figure of its own for the pace', () => {
   const s = readFileSync(SCRIPT, 'utf8').split('\n').filter(l => !l.trimStart().startsWith('#')).join('\n')
