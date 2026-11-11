@@ -701,6 +701,45 @@ final class V2FlowTests: XCTestCase {
     XCTAssertTrue(list.label.contains("1"), list.label)
   }
 
+  /// The owner's trial of the tab bar as the App Store's (TabBarGlass, the owner, 11 Nov: "Try bottom bar glass effect like
+  /// Appstore's"): Khám phá's shelves run on under the bar, so the strip beside the home indicator shows the page, not one
+  /// flat ground; the bar's own tap is still the bar's; and the switch in Tài khoản brings the fade back at once.
+  func testForTheOwnerThePageShowsUnderTheTabBarAndItsSwitchBringsTheFadeBack() {
+    let app = XCUIApplication()
+    app.launchArguments = ["-AppleLanguages", "(vi)", "-AppleLocale", "vi_VN", "-fixed-handbook", "-reset-defaults", "-v2", "YES",
+                           "-fake-accounts", "on", "-reset-fake-server", "-fake-owner", "ui-apple"]
+    app.launch()
+    XCTAssertTrue(app.tabBars.buttons["Hôm nay"].waitForExistence(timeout: 10), "no Hôm nay")
+    app.openAccount()
+    app.scrollToAndTap("apple-sign-in")
+    XCTAssertTrue(app.descendants(matching: .any)["owner-dashboard"].waitForExistence(timeout: 20), "not the owner")
+    app.closeAccount()
+    app.tabBars.buttons["Khám phá"].tap()
+    XCTAssertTrue(app.descendants(matching: .any)["v2-browse"].waitForExistence(timeout: 5), "no Khám phá")
+    // Shelves of photos at the foot: the familiar fish's.
+    let fish = app.staticTexts["Loài quen thuộc"]
+    repeatUntil(fish.exists && fish.frame.minY < app.frame.height * 0.55, times: 8) { app.swipeUp(velocity: .slow) }
+    Thread.sleep(forTimeInterval: 1)
+    // Under the bar, beside the home indicator: the page's own colours, or one ground.
+    func spread() -> Double {
+      let shot = Pixels(XCUIScreen.main.screenshot()), y = app.frame.maxY - 6
+      let line = stride(from: 24.0, to: 110.0, by: 2.0).map { shot.at($0, y) }
+      return line.map { $0.distance(to: line[0]) }.max() ?? 0
+    }
+    XCTAssertGreaterThan(spread(), 30, "nothing of the page under the tab bar")
+    app.tabBars.buttons["Hôm nay"].tap()
+    XCTAssertTrue(app.buttons["v2-fish-of-the-day"].waitForExistence(timeout: 5), "the bar's tap didn't open Hôm nay")
+    // Off in Tài khoản: the fade again, one ground under the bar.
+    app.openAccount()
+    let toggle = app.switches["tab-bar-glass-switch"]
+    XCTAssertTrue(app.scrolledDown(to: toggle).exists, "no switch for the trial")
+    toggle.switches.firstMatch.exists ? toggle.switches.firstMatch.tap() : toggle.tap()
+    app.closeAccount()
+    app.tabBars.buttons["Khám phá"].tap()
+    Thread.sleep(forTimeInterval: 1)
+    XCTAssertLessThan(spread(), 12, "the page still under the tab bar with the trial off")
+  }
+
   /// A page's photos all open as their grid (PhotoGrid) three ways: the banner, "N ảnh" in its corner, tapped anywhere;
   /// the carousel's last tile; and the title list's "Ảnh" with its count, which leaves the page where it was.
   func testAPagesPhotosOpenTheirGridFromTheBannerTheRowAndTheTitle() {
