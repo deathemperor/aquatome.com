@@ -40,6 +40,8 @@ Leads, the engine and main's iOS runs share one Mac. A booted simulator is the h
   other people's runs (the chief of staff, 2026-11-10). A session's `pkill`, `killall`, `kill $(pgrep …)` and `pgrep … | xargs
   kill` are refused, but the rule is wider than the refusal, which can't see a script file, `python -c`, a loop over `pgrep`,
   `ps | grep` into `kill`, or a session without the hook. Other projects on this Mac are the owner's and are never touched.
+- Delete a branch only by its exact name, and only one you made. A pattern (a glob, or a loop over `git for-each-ref`)
+  takes other sessions' branches, as one did to four on 2026-11-10 (the chief of staff).
 - Close a Device session when done: `agent-device close --shutdown`. `device_close` alone can leave the simulator running.
 - What's on screen is drawn every frame: WindowServer's compositing was a third of the GPU through the hot hours of
   2026-11-08. Simulators run headless (`xcrun simctl boot`, or xcodebuild's own); opening Simulator.app is refused. Watch
@@ -133,6 +135,13 @@ the next run keeps the fix. A hand edit to one item needs a guard the engine res
 - The repository is public. Secrets stay in `~/.config/aquatome/` and GitHub secrets, out of commits and logs. Device
   addresses, personal emails and personal names stay out too. One exception, with the owner's OK: the Love Ecology
   light's recorded commands (`apps/ios/AquaTomeKit/Sources/FishLamp/love-ecology.json`).
+- The owner's sign-ins (Codex, Cursor, Claude, GitHub, Cloudflare, Apple) never pass through code of ours and are never
+  held by it, in memory or on disk. A provider's own tool talks to its provider directly: no proxy, base-address
+  override or wrapper in between, and its sign-in file is never read (the chief of staff, 2026-11-11, after a local
+  proxy carried one for one run).
+- Lettering read off a photo (a signature, a watermark, a sign) is never written out in a commit, a PR, a test, a
+  fixture, a note or a log: say that lettering is there and where, not what it says. A photographer's name belongs in
+  the page's credit line (the chief of staff, 2026-11-11).
 - A challenge page (Cloudflare, Turnstile) marks a source `needs-human`, and the owner passes it by hand in the engine's
   Chrome profile. Marketplaces (Shopee, Lazada, Tiki, Tokopedia) are reached only through their affiliate APIs.
 - Every app merge uploads to TestFlight's internal "Owner" group without asking (`testflight.yml`). Ask the owner first
