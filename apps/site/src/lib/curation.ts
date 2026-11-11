@@ -28,6 +28,8 @@ export type AppCuration = {
   week?: { from: string; to: string; theme?: string }
   hero?: { path: string; img?: string; eyebrow?: string; title?: string }[]
   shelves?: { id: string; title: string; paths: string[] }[]
+  /** Tìm's suggested searches in this language, in order; none, and the app shows no section. */
+  searches?: string[]
 }
 
 let cached: Curation | null | undefined
@@ -87,6 +89,8 @@ export function curationFor(cur: Curation, lang: Lang, today: string, pathOf: (r
   }
   const w = cur.weeks.find(w => w.from <= today && today <= w.to)
   const out: AppCuration = days.length ? { days } : {}
+  const searches = cur.searches[lang]
+  if (searches) out.searches = searches
   if (!w) return out
   out.week = clean({ from: w.from, to: w.to, theme: word(w.theme) })
   const hero = w.hero.flatMap(h => {
