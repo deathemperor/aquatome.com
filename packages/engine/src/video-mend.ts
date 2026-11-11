@@ -38,23 +38,24 @@ function sentenceOf(paragraphs: string[], quote: string): string {
  *
  * The file is written, and true returned, only when the edit took every quoted sentence out and its review is at the bar,
  * or no lower than the review of the text it mends (a mend never leaves a guide worse, as a redo never does). Its review
- * is then the page's. False, and the file as it was: not a Vietnamese video guide, a text a person fixed, no transcript on
- * this Mac, a broken edit, a sentence left in, or a review under both. Nor is a mend tried when a product or a price
- * is quoted in a sentence that gives a dose: the editor turns a product into its kind, and "5 ml of that product for
- * 200 litres" would become a dose for every product of the kind (the Writing Lead, 2026-11-11). That text goes back.
+ * is then the page's. False, and the file as it was: a broken edit, a sentence left in, or a review under both. Nothing,
+ * with no editor called, so the gate doesn't count it among a run's mends: not a Vietnamese video guide, a text a person
+ * fixed, no transcript on this Mac. Nor is a mend tried when a product or a price is quoted in a sentence that gives a
+ * dose: the editor turns a product into its kind, and "5 ml of that product for 200 litres" would become a dose for every
+ * product of the kind (the Writing Lead, 2026-11-11). That text goes back.
  */
 export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transcript' | 'transcribe'>; now?: () => Date; write?: WriteOpts }): Mend => async (p: Page, findings: FitFinding[]) => {
-  if (p.lang !== 'vi' || p.kind !== 'guides' || !findings.length) return false
+  if (p.lang !== 'vi' || p.kind !== 'guides' || !findings.length) return undefined
   const contentRoot = join(root, 'content')
   const dir = join(contentRoot, 'guides', p.id)
   const e = JSON.parse(await readFile(join(dir, 'entity.json'), 'utf8')) as GuideEntity
   const vi = JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8')) as Translation
-  if (e.source !== 'youtube' || !e.video || vi.bodyFixed || vi.faqFixed) return false
+  if (e.source !== 'youtube' || !e.video || vi.bodyFixed || vi.faqFixed) return undefined
   const paragraphs = [vi.name, ...(vi.summary ?? []), ...render(sanitizeHtml(vi.body ?? '')).split('\n'), ...(vi.faq ?? []).flatMap(f => [f.q, f.a])].map(norm)
-  if (findings.some(f => (f.check === 'product' || f.check === 'price') && givesDose(sentenceOf(paragraphs, norm(f.quote))))) return false
+  if (findings.some(f => (f.check === 'product' || f.check === 'price') && givesDose(sentenceOf(paragraphs, norm(f.quote))))) return undefined
   const lang = e.video.lang ?? 'en'
   const transcript = (e.video.transcribed ? null : await d.yt.transcript(e.video.youtubeId, lang)) ?? (await d.yt.transcribe?.(e.video.youtubeId, lang)) ?? null
-  if (!transcript) return false
+  if (!transcript) return undefined
 
   const draft: Draft = { relevant: true, kind: e.kind, viTitle: vi.name, summary: vi.summary ?? [], body: vi.body ?? '', faq: vi.faq ?? [], chapters: vi.chapters ?? [] }
   const notes = findings.map(f => `"${f.quote}": ${FIT_TITLE[f.check]} (${f.why})`)

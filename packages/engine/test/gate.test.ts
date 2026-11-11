@@ -190,6 +190,22 @@ test('advice that would hurt is never the mender\'s to reword, and it mends so m
   expect(sent).toHaveLength(1)
 })
 
+// The pages run put back 10 fish pages on 11 Nov 2026 for a sentence a mender may fix. The video guides' mender turns
+// each away with no call, and each would take one of the run's 6 mends: a guide after six of them would go back unmended.
+test('a page the mender turns away, with no editor called, is not one of the run\'s mends', async () => {
+  const root = await repo()
+  const OTHER = 'content/guides/youtube-vl1Lx9iWDYU/vi.json'
+  for (const f of [GUIDE, OTHER]) await edit(root, f, t => { t.body = `${t.body as string}<p>Mua ở Petco.</p>` })
+  // The first page offered is turned away, the second goes to the editor.
+  const sent: FitFinding[][] = []
+  let offered = 0
+  const second = async (p: Page, fs: FitFinding[]) => (offered++ ? cutter(root, sent, `content/guides/${p.id}/vi.json`)(p, fs) : undefined)
+  const r = await gate(root, { llm: reader(), now, mend: second, mends: 1, jobs: 1 })
+  expect(offered).toBe(2)
+  expect(r.report.mended).toHaveLength(1)
+  expect(r.report.revert).toHaveLength(1)
+})
+
 test('a fault the old text had too, found again on a fresh read, is not worse', async () => {
   const root = await repo()
   await edit(root, GUIDE, t => { t.body = `<p>Mua ở Petco.</p>${t.body as string}` })

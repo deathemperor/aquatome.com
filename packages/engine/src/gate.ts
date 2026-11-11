@@ -46,9 +46,11 @@ export const HOLD_ALWAYS: readonly FitCheck[] = ['kit', 'harm']
 export const MENDABLE: readonly FitCheck[] = ['shop', 'price', 'source', 'elsewhere', 'product']
 /**
  * Fixes the sentences `findings` quote in a page's file, when it can: true once the file has the mended text, which the
- * gate then reads again. False for a page it doesn't mend, or a mend its own reviewer didn't pass: the file as it was.
+ * gate then reads again. False for a mend that didn't hold (a broken edit, one its own reviewer didn't pass), and nothing
+ * for a page it sends to no editor (not one it mends, no transcript): the file as it was. A run's `mends` count the pages
+ * an editor was called for, so not the last.
  */
-export type Mend = (p: Page, findings: FitFinding[]) => Promise<boolean>
+export type Mend = (p: Page, findings: FitFinding[]) => Promise<boolean | undefined>
 /** A text the gate put back, as the page's file had it, with the checks it was worse on and what they quote. */
 export type PutBack = { at: string; checks: FitCheck[]; findings: Pick<FitFinding, 'check' | 'quote' | 'why'>[]; text: unknown }
 /** Where a page's text put back is kept, one file a page: a later one replaces it. */
@@ -226,7 +228,10 @@ export async function gate(root: string, d: { llm: Llm; model?: string; jobs?: n
     if (!d.mend || mends <= 0 || !worse.every(c => MENDABLE.includes(c))) return undefined
     mends--
     try {
-      if (!await d.mend(p, gateFindings(p, entry).filter(x => worse.includes(x.check)))) return undefined
+      const done = await d.mend(p, gateFindings(p, entry).filter(x => worse.includes(x.check)))
+      // A page turned away with no editor called isn't one of the run's mends: to the video guides' mender, every fish page.
+      if (done === undefined) mends++
+      if (!done) return undefined
     } catch (e) {
       if (e instanceof LlmError && /limit|rejected|no account/i.test(e.message)) report.stopped = e.message.slice(0, 200)
       else report.failed.push(`${fitKey(p)}: mend: ${(e as Error).message.slice(0, 200)}`)
