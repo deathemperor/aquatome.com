@@ -175,34 +175,35 @@ test('ceilings.json: it names its clock, its tables are in order, one is always 
   }
 })
 
-test('ceilings.json: the stretch on the third sign-in is one allowance on GitHub, and from 13 Nov 08:00 it is one sign-in\'s day', () => {
-  // 12 Nov, before 13:00: nothing.
-  expect(cap('2026-11-12T12:59:00+07:00', 'github', 'localize')).toBe(0)
-  // 12 Nov 13:00 to midnight: translation and the Vietnamese rewrite on GitHub, nothing else anywhere.
-  const evening = '2026-11-12T23:00:00+07:00'
-  expect(cap(evening, 'github', 'localize')).toBe(25)
-  expect(cap(evening, 'github', 'rewrite-vi')).toBe(3)
-  for (const step of ['run', 'reader', 'review-backfill', 'videos', 'fit-rewrite', 'anything-new']) expect(cap(evening, 'github', step)).toBe(0)
-  for (const step of ['run', 'localize', 'rewrite-vi', 'videos', 'anything-new']) expect(cap(evening, 'mac', step)).toBe(0)
-  // Past midnight the day's sums start again, so the same table would allow the $25 twice: nothing more until 08:00.
-  for (const where of ['mac', 'github'] as const) for (const step of ['localize', 'rewrite-vi', 'run']) expect(cap('2026-11-13T01:00:00+07:00', where, step)).toBe(0)
-  expect(cap('2026-11-13T07:59:00+07:00', 'github', 'localize')).toBe(0)
-  // 13 Nov 08:00 on: the one-sign-in column.
-  const day = '2026-11-13T09:00:00+07:00'
-  const t = tableInForce(CEILINGS.tables, new Date(day))!
+test('ceilings.json: nothing until the third sign-in is back, then one, two and three sign-ins\' days', () => {
+  // Until 12 Nov 13:00 every sign-in is out, and nothing has a ceiling above $0.
+  for (const where of ['mac', 'github'] as const) for (const step of ['run', 'localize', 'rewrite-vi', 'videos', 'anything-new']) expect(cap('2026-11-12T12:59:00+07:00', where, step)).toBe(0)
   const sum = (p: Place) => Object.values(p.steps).reduce<number>((n, x) => n + (x ?? 0), 0)
-  expect(sum(t.mac) + sum(t.github)).toBe(129)
-  expect(t.mac.backstop + t.github.backstop).toBe(150)
-  expect(t.mac.default).toBe(1)
-  expect(t.github.default).toBe(1)
-  expect(cap(day, 'mac', 'run')).toBe(30)
-  expect(cap(day, 'github', 'localize')).toBe(25)
-  // Second reads are $12 between the machines, the 97 video guides have $10 of their own, and the reader-fit rewrite's
-  // $5 comes out of the Vietnamese rewrite's $8.
-  expect(cap(day, 'mac', 'review-backfill')! + cap(day, 'github', 'review-backfill')!).toBe(12)
-  expect(cap(day, 'mac', 'review-backfill-97')).toBe(10)
-  expect(cap(day, 'github', 'fit-rewrite')! + cap(day, 'github', 'rewrite-vi')!).toBe(8)
-  // A step that runs on the other machine, or a new one, has the small ceiling.
-  expect(cap(day, 'github', 'run')).toBe(1)
-  expect(cap(day, 'mac', 'anything-new')).toBe(1)
+  // The ceilings follow the sign-ins that are back (the owner and the chief of staff, 11 Nov 2026): the third on
+  // 12 Nov 13:00, the first on 13 Nov 08:00, the second on 14 Nov 08:00. `steps` is every named ceiling added up.
+  const periods = [
+    { from: '2026-11-12T13:00:00+07:00', to: '2026-11-13T07:59:00+07:00', steps: 129, backstop: 150, small: 1, run: 30, localize: 25, second: 12, fit: 5, vi: 3, crops: 1 },
+    { from: '2026-11-13T08:00:00+07:00', to: '2026-11-14T07:59:00+07:00', steps: 250, backstop: 300, small: 2, run: 70, localize: 50, second: 18, fit: 10, vi: 6, crops: 4 },
+    { from: '2026-11-14T08:00:00+07:00', to: '2026-12-31T00:00:00+07:00', steps: 352, backstop: 450, small: 4, run: 105, localize: 75, second: 21, fit: 15, vi: 9, crops: 1 },
+  ]
+  for (const p of periods) for (const when of [p.from, p.to]) {
+    const t = tableInForce(CEILINGS.tables, new Date(when))!
+    expect(sum(t.mac) + sum(t.github)).toBe(p.steps)
+    expect(t.mac.backstop + t.github.backstop).toBe(p.backstop)
+    expect([t.mac.default, t.github.default]).toEqual([p.small, p.small])
+    expect(cap(when, 'mac', 'run')).toBe(p.run)
+    expect(cap(when, 'github', 'localize')).toBe(p.localize)
+    // Second reads are split between the machines: video guides on the Mac, the rest on GitHub.
+    expect(cap(when, 'mac', 'review-backfill')! + cap(when, 'github', 'review-backfill')!).toBe(p.second)
+    // The reader-fit rewrite's share comes out of the Vietnamese rewrite's line.
+    expect(cap(when, 'github', 'fit-rewrite')).toBe(p.fit)
+    expect(cap(when, 'github', 'rewrite-vi')).toBe(p.vi)
+    // The 97 video guides' two more reads have $10 of their own, whatever the column.
+    expect(cap(when, 'mac', 'review-backfill-97')).toBe(10)
+    // The card crops: $4 for their first day, 13 Nov, then $1.
+    expect(cap(when, 'mac', 'card-crops')).toBe(p.crops)
+    // A step that runs on the other machine, or a new one, has the small ceiling, never none.
+    expect(cap(when, 'github', 'run')).toBe(p.small)
+    expect(cap(when, 'mac', 'anything-new')).toBe(p.small)
+  }
 })

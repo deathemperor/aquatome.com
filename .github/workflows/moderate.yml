@@ -50,3 +50,14 @@ jobs:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # The owner's other Claude accounts, one token a line: the next when one is out (claude-accounts.ts).
           CLAUDE_CODE_OAUTH_TOKENS: ${{ secrets.CLAUDE_CODE_OAUTH_TOKENS }}
+          # A line a model call (claude.ts). Moderation has no ceiling (ceiling.ts), and its spend is on the record.
+          ENGINE_COST_LOG: ${{ runner.temp }}/aquatome-cost-moderate.jsonl
+      # Kept with the run, like the rewrite's: the day's spend is the two added. The rewrite's backstop counts its own
+      # log alone, since a run here can't see this file.
+      - name: Keep the cost log (a line a model call, with its account)
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: moderate-cost-log
+          path: ${{ runner.temp }}/aquatome-cost-moderate.jsonl
+          if-no-files-found: ignore

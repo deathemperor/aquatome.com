@@ -158,7 +158,7 @@ test('under its ceiling the call is made; at the ceiling no claude is spawned an
   delete process.env.GITHUB_ACTIONS // the Mac's share, on GitHub's test run too
   asStep('run')
   vi.useFakeTimers({ toFake: ['Date'] })
-  vi.setSystemTime(new Date('2026-11-14T03:00:00Z')) // 10:00 in Vietnam, under the one-sign-in table: `run` has $30 on the Mac
+  vi.setSystemTime(new Date('2026-11-12T08:00:00Z')) // 15:00 in Vietnam on 12 Nov, one sign-in's day: `run` has $30 on the Mac
   process.env.CLAUDE_CODE_OAUTH_TOKENS = 'tok-ceiling'
   resetAccounts()
   spawned.length = 0

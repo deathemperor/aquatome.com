@@ -477,8 +477,18 @@ The layers above still check the result.
   runs first in its source's next run, with no backoff. A usage limit uses none of its 3 attempts, and 3 pages in a
   row failing on the network stop the source, so an outage doesn't use up every page's attempts. Found with the
   above: after one browser crash (2026-10-29), 115 Seriously Fish pages waited behind hundreds of new ones.
-- **Daily ceiling.** Each step may spend only so many dollars on the model in one Asia/Saigon day. The amounts are in
-  `packages/engine/src/ceilings.json`. The gate has none. A step at its ceiling stops as it does for Claude's usage limit.
+- **Daily ceiling.** Each step may spend only so many dollars on the model in a day, counted from the cost log before
+  every call (`ceiling.ts`). The amounts are in `packages/engine/src/ceilings.json`, a table a period, with the clock
+  a day runs on. A step the file doesn't name has the small ceiling, never none. The gate and moderation have none, and
+  log what they spend. A backstop over everything stops every step with a ceiling once the day's logged total reaches
+  it. Each machine counts its own logs, so a table gives the Mac and GitHub each a share. A step at its ceiling fails
+  its call as it does for Claude's usage limit and leaves the same: nothing written, no mark, no review logged
+  (`ceiling.test.ts`, and the limit tests of `water`, `range` and `sweep`, run with the ceiling's own message). A
+  cost log that can't be written stops a step that has a ceiling. Found with: on 11 Nov 2026 the engine's sign-ins
+  ran out of their week four days early, at $542 a day where one sign-in's week allows $140.
+  - It covers every call the engine makes (`claude.ts`). The AI page review on pull requests, the auto-fix and the
+    nightly AI review call Claude on the same accounts by another road, with no log and no ceiling: `CLAUDE_ON_CI=off`
+    pauses them, and `ENGINE_ON_CI=on` runs the rewrite while they stay paused.
 - **On topic.** A guide covers what its title promises. The guide writer and its reviewer are told to leave out a
   video's detours (`prompts/video-guide.md`, `video-review.md`). `pnpm engine topic-check` reads every new or changed
   guide and drops sections about another subject, with their FAQ and summary lines. It never drops more than half a

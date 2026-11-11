@@ -81,7 +81,9 @@ E2E_BASE_URL=https://aquatome.com E2E_PAGES=e2e-pages.json pnpm exec playwright 
 ```
 
 `CLAUDE_ON_CI=off` (a repository variable) pauses Claude in the workflows: the AI page review, the auto-fix and the
-content rewrite. Comment and photo moderation stays on. Unset, or any other value, they run.
+content rewrite. Comment and photo moderation stays on. Unset, or any other value, they run. `ENGINE_ON_CI=on` runs the
+content rewrite while the rest stay paused: its calls are logged and under each step's daily ceiling
+(`packages/engine/src/ceilings.json`), and theirs are not.
 
 ## The owner's reports
 
