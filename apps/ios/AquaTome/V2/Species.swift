@@ -586,7 +586,6 @@ struct SpeciesPage: View {
     .contentMargins(.horizontal, 20, for: .scrollContent)
     .scrollTargetBehavior(.viewAligned)
     .v2ShelfEdge()
-    .accessibilityIdentifier("v2-photos-row")
   }
 
   private var hasMates: Bool {
