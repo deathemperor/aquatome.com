@@ -122,3 +122,9 @@ test('the title is the editor\'s only when a fault was in it', async () => {
   expect(await deps(root).mend(page(), [{ ...shop, part: 'T' }])).toBe(true)
   expect(JSON.parse(await readFile(file, 'utf8'))).toMatchObject({ name: 'Tên khác', slug: 'dung-be-nho' })
 })
+
+test('a title a person picked stays, even when a check quotes it', async () => {
+  const { root, file } = await setup({ name: 'Mua lọc ở Petco cho bể nhỏ', nameFixed: true })
+  expect(await deps(root).mend(page(), [{ ...shop, quote: 'Mua lọc ở Petco cho bể nhỏ', part: 'T' }])).toBe(false) // the quote stays, so no mend
+  expect(JSON.parse(await readFile(file, 'utf8'))).toMatchObject({ name: 'Mua lọc ở Petco cho bể nhỏ', nameFixed: true })
+})

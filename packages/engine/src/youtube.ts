@@ -557,7 +557,8 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
         mentions: [...new Set([...(prev.entity?.mentions ?? []), ...await resolveTaxa(contentRoot, taxa ?? [])])],
         video: { youtubeId: vid, title: m.title, channel: m.channel, channelUrl: m.channelUrl, durationSec: m.durationSec, ...(m.publishedAt ? { publishedAt: m.publishedAt } : {}), chapters: m.chapters, ...(series ? { series: { id: series.id, position } } : {}), thumb: m.thumb, ...(lang !== 'en' ? { lang } : {}), ...(ownTranscript || (unknown && !captions) ? { transcribed: true } : {}), ...(taxa ? { taxa } : {}), ...(gear ? { gear } : {}) },
       })
-      const name = unescapePlain(d.viTitle).trim()
+      // A title a person picked (nameFixed: the owner's "Duplicated", 2026-11-11) stays through a new version.
+      const name = prev.vi?.nameFixed ? prev.vi.name : unescapePlain(d.viTitle).trim()
       // Rounded here too (round.ts): the video jobs have no rounding step before their gate, whose units rule finds a
       // volume only a gallon conversion gives ("bể 38 lít") and puts the new text back for it.
       const vi = TranslationSchema.parse(roundPage(metricPage({
@@ -569,6 +570,7 @@ export async function videoGuides(deps: VideoDeps, opts: { playlists?: string[];
         ...(prev.vi?.cover ? { cover: prev.vi.cover } : {}),
         // A note for local readers isn't the video's: a new version of the guide keeps it.
         ...(prev.vi?.localNote ? { localNote: prev.vi.localNote } : {}),
+        ...(prev.vi?.nameFixed ? { nameFixed: true } : {}),
         ...(prev.vi?.bodyFixed ? { bodyFixed: true } : {}),
         ...(prev.vi?.faqFixed ? { faqFixed: true } : {}),
       }, 'vi'), 'vi'))

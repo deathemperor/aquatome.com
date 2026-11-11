@@ -61,8 +61,9 @@ export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transc
   const notes = findings.map(f => `"${f.quote}": ${FIT_TITLE[f.check]} (${f.why})`)
   const fixed = await fixDraft(d.llm, transcript, draft, notes, { ...d.write, lang, reader: true })
   if (!fixed) return false
-  // The title only when a fault was in it: a guide's name isn't the editor's to change otherwise.
-  const name = findings.some(f => f.part === 'T') ? unescapePlain(fixed.viTitle).trim() : vi.name
+  // The title only when a fault was in it, and never one a person picked (nameFixed): a guide's name isn't the editor's
+  // to change otherwise.
+  const name = findings.some(f => f.part === 'T') && !vi.nameFixed ? unescapePlain(fixed.viTitle).trim() : vi.name
   const text = norm([name, ...fixed.summary, render(sanitizeHtml(fixed.body)), ...fixed.faq.flatMap(f => [f.q, f.a])].join('\n'))
   if (findings.some(f => text.includes(norm(f.quote)))) return false
 

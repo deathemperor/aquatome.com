@@ -47,7 +47,7 @@ test('a new title is scored only when it is new, not a name alone and no other g
   }) as Llm
   const g = { title: 'Dou Mok', body: '<p>Bể Iwagumi với đá xám và thảm cỏ.</p>', lang: 'vi' as const, why: 'name' as const, source: 'Dou Mok | Iwagumi - The 2Hr Aquarist', others: [{ title: 'Dou Mok', body: '<p>Bể nature style với lũa.</p>' }], taken: new Set(['dou mok', 'bể nature lũa và rêu – dou mok']) }
   expect(await retitleGuide(llm('Bể Iwagumi đá xám, thảm cỏ ngắn – Dou Mok'), g)).toEqual({ title: 'Bể Iwagumi đá xám, thảm cỏ ngắn – Dou Mok', score: 0.9, notes: [] })
-  expect(prompts[0]).toContain('then a spaced en dash and the person or studio as its credit ("Bể Iwagumi đá xám, thảm cỏ ngắn – Dou Mok")')
+  expect(prompts[0]).toContain('then a spaced en dash and the person or studio who made the tank as its credit, never the site that published the page ("Bể Iwagumi đá xám, thảm cỏ ngắn – Dou Mok")')
   expect(prompts[0]).toContain("THE SOURCE'S OWN TITLE: Dou Mok | Iwagumi")
   expect(prompts[0]).toContain('--- OTHER GUIDE 1 ---\nTITLE: Dou Mok')
   expect(prompts[1]).toContain('NEW: Bể Iwagumi đá xám, thảm cỏ ngắn – Dou Mok')

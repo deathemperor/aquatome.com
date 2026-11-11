@@ -77,10 +77,10 @@ export async function retitleGuide(llm: Llm, g: { title: string; body: string; l
     system: 'You write titles for an aquarium handbook. Reply only with JSON.', ...m, schema: TITLE,
     prompt: `A guide in an aquarium handbook, in ${L}. Its title has to change: ${g.why === 'name' ? 'it is only a name, which tells a reader nothing about the page' : 'another guide in the handbook has the same title, so a list of guides shows the same row twice'}.
 Write a new title in ${L} that says what this page is about, the way ${L}-speaking fishkeepers would put it, in at most about 12 words.
-- A page that shows one person's or one studio's finished aquarium (an aquascape to look at, not a how-to): say what the tank is, by its style and one or two things that stand out in it (wood, stone, a plant, the fish, its size), joined as a phrase ("và", "cùng", "trên"), not a comma list, then a spaced en dash and the person or studio as its credit ("Bể Iwagumi đá xám, thảm cỏ ngắn – Dou Mok"). The name is never the whole title. A style keeps the name hobbyists use for it (Iwagumi, Nature, Dutch, Diorama, biotope), not a loose translation.
+- A page that shows one person's or one studio's finished aquarium (an aquascape to look at, not a how-to): say what the tank is, by its style and one or two things that stand out in it (wood, stone, a plant, the fish, its size), joined as a phrase ("và", "cùng", "trên"), not a comma list, then a spaced en dash and the person or studio who made the tank as its credit, never the site that published the page ("Bể Iwagumi đá xám, thảm cỏ ngắn – Dou Mok"). The name is never the whole title. A style keeps the name hobbyists use for it (Iwagumi, Nature, Dutch, Diorama, biotope), not a loose translation.
 - A page another guide shares its title with: keep what the page is about, and add what this page has that the other doesn't (the fish it is for, what it is for, the method), from this page's own text. A page for several fish doesn't name only one: name them, or none.
 - Plain words, as a fishkeeper would say them; not a pile of adjectives.
-- Only what this page's text says: no style, size, plant or fish it doesn't name. Names of people, studios and places exactly as written.
+- Only what this page's text says: no style, size, plant or fish it doesn't name. Names of people, studios and places as written, each part of a person's name capitalised.
 - It must differ from every title listed below.
 
 CURRENT TITLE: ${g.title}
