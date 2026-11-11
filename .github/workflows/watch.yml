@@ -57,7 +57,7 @@ jobs:
       - name: Install Node, pnpm and the dependencies
         uses: ./.github/actions/setup
       - name: Install Chromium for Playwright
-        run: pnpm --filter site exec playwright install --with-deps chromium
+        run: scripts/install-browser.sh chromium
       # The AI review (layer 3) runs at night and on demand, not after every deploy: it costs model time.
       # CLAUDE_ON_CI=off pauses it. Unset, or any other value, and it runs. The checks themselves still run.
       - name: Install Claude for the AI page review (nightly and by hand)
@@ -76,6 +76,14 @@ jobs:
           E2E_RECHECK: e2e-recheck.json
           E2E_JSON: e2e-results.json
           E2E_REVIEW: ''
+      # The nightly review has a line in the engine's daily ceilings (packages/engine/src/ceilings.json, GitHub's side).
+      # What is left of its day is counted from the cost lines its earlier runs kept. No model, no token of Claude's.
+      # If the day can't be counted, the review says so and does not run.
+      - id: left
+        name: What the nightly review has left of its day
+        if: github.event_name != 'workflow_run'
+        continue-on-error: true
+        run: node scripts/claude-spend.mjs left nightly-review
       - name: Browser checks, today's sample of pages, with the AI review
         if: github.event_name != 'workflow_run' && vars.CLAUDE_ON_CI != 'off'
         working-directory: apps/site
@@ -88,6 +96,20 @@ jobs:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # The owner's other Claude accounts, one token a line: the next when one is out (claude-accounts.ts).
           CLAUDE_CODE_OAUTH_TOKENS: ${{ secrets.CLAUDE_CODE_OAUTH_TOKENS }}
+          # A line a call, and no call once this run has spent what was left (claude-accounts.ts).
+          CLAUDE_COST_STEP: nightly-review
+          CLAUDE_COST_LOG: ${{ runner.temp }}/aquatome-cost-nightly-review.jsonl
+          CLAUDE_SPEND_LEFT: ${{ steps.left.outputs.left }}
+      # Kept with the run: later runs count the day from these. A line has the time, the step, the account's hash, the
+      # model, dollars and tokens, and nothing of a page, a prompt or an answer. Named by the run's attempt: a job run
+      # again keeps the first attempt's lines too.
+      - name: Keep the nightly review's cost lines
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: cost-log-nightly-review-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/aquatome-cost-nightly-review.jsonl
+          if-no-files-found: ignore
       - name: Hand the results to the report
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
@@ -116,7 +138,7 @@ jobs:
       - name: Install Node, pnpm and the dependencies
         uses: ./.github/actions/setup
       - name: Install Chromium for Playwright
-        run: pnpm --filter site exec playwright install --with-deps chromium
+        run: scripts/install-browser.sh chromium
       - name: List the sitemap's pages
         run: node scripts/site-watch.mjs prepare https://aquatome.com apps/site
       - name: Lighthouse, one page at a time

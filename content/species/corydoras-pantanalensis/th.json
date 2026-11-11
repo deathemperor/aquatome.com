@@ -31,7 +31,9 @@
     }
   },
   "held": {
-    "checks": [],
+    "checks": [
+      "elsewhere"
+    ],
     "at": "2026-11-11"
   }
 }

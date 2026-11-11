@@ -309,6 +309,18 @@ if part rewrite; then
   # a rubric; Vietnamese wording it flags is rewritten, reviewer-gated, READER_REWRITES parts at most; the rest goes to
   # docs/review/reader.md.
   pnpm engine reader --limit "${READER_LIMIT:-20}" --rewrites "${READER_REWRITES:-3}" || log "reader: failed"
+  # Reader fit, from the front list's start (fit-front.json, first) and, like the guides below, only with time left of
+  # the job's 355 minutes: a rewrite is a writer's and a reviewer's call for each part it mends.
+  if [ "$SECONDS" -lt $(( ${FIT_BEFORE_MINUTES:-260} * 60 )) ]; then
+    # The front list's pages whose saved reader-fit read is of older text are read again first, so the rewrite can
+    # take them.
+    pnpm engine fit --front --limit "${FIT_FRONT_LIMIT:-6}" || log "fit: failed"
+    # The reader-fit rewrite (fit-rewrite.ts): pages on the site that fail reader fit, the front list first, then the
+    # most read. Held after its first run until its pages have been looked at (fit-front.json, cleared).
+    pnpm engine fit-rewrite --front --limit "${FIT_REWRITE_LIMIT:-12}" || log "fit-rewrite: failed"
+  else
+    log "fit-rewrite: skipped, the cycle has run $(( SECONDS / 60 )) min"
+  fi
   # AquaTome's own guides on the most asked ideas, IDEAS_PER_DAY a day, last: each is a full research run (up to ~25
   # min), so only with an hour and a half left of the job's 355 minutes (a rewrite job has taken 266).
   if [ "$SECONDS" -lt $(( ${IDEAS_BEFORE_MINUTES:-260} * 60 )) ]; then

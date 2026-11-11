@@ -5,11 +5,11 @@ import { homedir } from 'node:os'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import sharp from 'sharp'
-import { IMAGE_SWITCHES, loadAll, type Photo } from '@aq/schema'
+import { IMAGE_SWITCHES, loadAll, PHOTO_SCREEN_FILE, type Photo, type PhotoScreenEntry } from '@aq/schema'
 import generatedResults from '../../../docs/image-calibration-results.json'
 import markResults from '../../../docs/mark-calibration-results.json'
 import reviewed from '../src/image-controls.json'
-import { imagePlan, imageSteps, type ImageStepDeps } from '../src/image-steps'
+import { generationPurpose, imagePlan, imageSteps, type ImageStepDeps } from '../src/image-steps'
 import { sha256 } from '../src/image-reference'
 import { noTraceVersion } from '../src/image-transforms'
 const dirs: string[] = []
@@ -58,10 +58,45 @@ test.each(['name', 'quote', 'manifest', 'reference-bytes', 'calibration', 'revie
 })
 test('planner defers unjudged real entity and album photos, popular too', async () => {
  const f = await fixture(); f.e.photos = [real]; await save(f.file, f.e)
+ await save(join(f.root, 'engine-state', PHOTO_SCREEN_FILE), { [real.url]: { ocr: [], watermark: false } })
  expect((await imagePlan(f.root))[0]).toMatchObject({ waitingReal: true, popular: true })
  await imageSteps(f.root, async () => f.d, { ...on, generatePopular: true }); expect(f.d.native).not.toHaveBeenCalled()
  await save(join(f.root, 'engine-state/_photo-subjects.json'), { [real.url]: { alpha: { ok: 'yes', person: false, logo: false } } }); expect((await imagePlan(f.root))[0]!.waitingReal).toBe(false)
  f.e.photos = []; await save(f.file, f.e); await mkdir(join(f.root, 'content/gallery'), { recursive: true }); await save(join(f.root, 'content/gallery/alpha.json'), { id: 'alpha', seen: 1, updatedAt: '2026-11-10', photos: [{ ...real, url: real.url + '?second' }] }); expect((await imagePlan(f.root))[0]!.waitingReal).toBe(true)
+})
+test.each(['entity', 'album'] as const)('a subject-approved %s photo awaiting the watermark screen defers the enabled image step', async placement => {
+ for (const pending of ['no-record', 'text-awaits-verdict', 'source-awaits-verdict'] as const) {
+  const f = await fixture()
+  const photo = { ...real, url: pending === 'source-awaits-verdict' ? 'https://media.aquatome.com/seriouslyfish/waiting.webp' : real.url }
+  if (placement === 'entity') { f.e.photos = [photo]; await save(f.file, f.e) }
+  else { await mkdir(join(f.root, 'content/gallery'), { recursive: true }); await save(join(f.root, 'content/gallery/alpha.json'), { id: 'alpha', seen: 1, updatedAt: '2026-11-11', photos: [photo] }) }
+  // Isolate the watermark wait: the ordinary species check is already positive and there is no unchecked flag.
+  await save(join(f.root, 'engine-state/_photo-subjects.json'), { [photo.url]: { alpha: { ok: 'yes', person: false, logo: false } } })
+  const screen: Record<string, PhotoScreenEntry> = pending === 'no-record' ? {} : { [photo.url]: { ocr: pending === 'text-awaits-verdict' ? [{ t: 'Synthetic fixture', c: 1 }] : [] } }
+  const screenFile = join(f.root, 'engine-state', PHOTO_SCREEN_FILE)
+  await save(screenFile, screen)
+  const page = (await imagePlan(f.root, on))[0]!
+  expect(page, pending).toMatchObject({ empty: true, waitingReal: true, popular: true })
+  for (const flags of [on, { ...IMAGE_SWITCHES, generatePopular: true, publishGenerated: true }]) {
+   expect(generationPurpose(page, flags), pending).toBeUndefined()
+   const result = await imageSteps(f.root, async () => f.d, flags)
+   expect(result, pending).toMatchObject({ generated: 0, published: 0, failed: [] })
+  }
+  for (const call of [f.d.native, f.d.extract, f.d.judge, f.d.store, f.d.quota]) expect(call, pending).not.toHaveBeenCalled()
+  // A real screen verdict releases the wait; an already visible real photo may then be supplemented for popularity.
+  await save(screenFile, { [photo.url]: { ocr: [], watermark: false } })
+  const cleared = (await imagePlan(f.root, on))[0]!
+  expect(cleared, pending).toMatchObject({ empty: false, waitingReal: false })
+  expect(generationPurpose(cleared, on)).toBeUndefined()
+  expect(generationPurpose(cleared, { ...IMAGE_SWITCHES, generatePopular: true })).toBe('popular')
+ }
+})
+test('a missing screen file still defers a subject-approved real photo', async () => {
+ const f = await fixture(); f.e.photos = [real]; await save(f.file, f.e)
+ await save(join(f.root, 'engine-state/_photo-subjects.json'), { [real.url]: { alpha: { ok: 'yes', person: false, logo: false } } })
+ expect((await imagePlan(f.root))[0]).toMatchObject({ waitingReal: true })
+ await imageSteps(f.root, async () => f.d, { ...on, generatePopular: true })
+ expect(f.d.native).not.toHaveBeenCalled(); expect(f.d.quota).not.toHaveBeenCalled()
 })
 test('absent mark calibration preserves real recovery pending before generation', async () => {
  const f = await fixture(), file = join(f.root, 'content/sources.json'), sources = await read(file)

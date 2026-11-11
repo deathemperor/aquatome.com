@@ -32,7 +32,7 @@ Open-licence photos run out for these; each is read again 30 days after it ran d
 | species/gymnocorymbus-ternetzi | shop | 50 | 60 |
 | plants/blyxa-japonica | shop | 2 | 60 |
 | breeds/oranda-goldfish | shop | 29 | 60 |
-| species/xiphophorus-maculatus | shop | 44 | 60 |
+| species/xiphophorus-maculatus | shop | 43 | 60 |
 | plants/pogostemon-helferi | shop | 4 | 60 |
 | breeds/ranchu-goldfish | shop | 3 | 60 |
 | species/hemigrammus-bleheri | shop | 11 | 60 |

@@ -1,6 +1,6 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { modelOf } from './claude'
+import { cliVersion, modelOf, modelRan } from './claude'
 
 /**
  * What every quality review found, kept: engine-state/reviews/<kind>.json, so a page out of search can say why, a rewrite
@@ -55,7 +55,7 @@ export const TEXT_KINDS: readonly ReviewKind[] = ['translation', 'vi-rewrite', '
 export type Review = { score: number; notes: string[]; reads?: number[] }
 /** first: the first version; rewrite: the one written again with the notes; recheck: the version already on the page, reviewed again. */
 export type Attempt = 'first' | 'rewrite' | 'recheck'
-export type Trace = { at: string; model: string; score: number; notes: string[]; attempt: Attempt; /** This version is the one the page has. */ kept: boolean; /** The reads a median score was taken from. */ reads?: number[]; /** A translation recheck: hash of the source text it read. */ textHash?: string }
+export type Trace = { at: string; model: string; /** The full model the alias last answered with, and the command's version (claude.ts). */ ran?: string; cli?: string; score: number; notes: string[]; attempt: Attempt; /** This version is the one the page has. */ kept: boolean; /** The reads a median score was taken from. */ reads?: number[]; /** A translation recheck: hash of the source text it read. */ textHash?: string }
 /** A page: its content path (`species/<id>`, `guides/<id>`), language, and the part reviewed when it is reviewed in parts. */
 export type PageRef = { id: string; lang: string; part?: string }
 export type PageTrace = Trace & PageRef & { kind: ReviewKind }
@@ -101,9 +101,9 @@ export async function readReviews(root: string, kind: ReviewKind): Promise<Store
 export function logReviews(root: string, kind: ReviewKind, page: PageRef, tries: Review[], kept: Review | undefined, o: { model?: string; now?: Date; recheck?: boolean; /** Every one of `tries` is of a version written again with notes: a later step's edit of a text an earlier run reviewed. */ rewrite?: boolean; textHash?: string } = {}): Promise<void> {
   if (!tries.length) return Promise.resolve()
   const at = (o.now ?? new Date()).toISOString().slice(0, 19) + 'Z'
-  const model = modelOf(o.model)
+  const model = modelOf(o.model), ran = modelRan(o.model), cli = cliVersion()
   const traces: Trace[] = tries.map((r, i) => ({
-    at, model, score: Math.round(r.score * 1000) / 1000,
+    at, model, ...(ran !== model ? { ran } : {}), ...(cli ? { cli } : {}), score: Math.round(r.score * 1000) / 1000,
     notes: r.notes.slice(0, NOTES).map(n => (n.length > NOTE_CHARS ? `${n.slice(0, NOTE_CHARS - 1)}…` : n)),
     attempt: o.recheck ? 'recheck' : i === 0 && !o.rewrite ? 'first' : 'rewrite', kept: r === kept,
     ...(r.reads ? { reads: r.reads.map(s => Math.round(s * 1000) / 1000) } : {}),

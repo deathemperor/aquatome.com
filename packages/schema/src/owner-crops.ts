@@ -1,6 +1,6 @@
 import approvals from './owner-crops.json' with {type:'json'}
 import type { Photo } from './types'
-export type OwnerCropApproval = { id: string; approved: boolean; page: string; scientificName: string; date: string; authority: string; originalHash: string; pixelHash: string; recordHash: string }
+export type OwnerCropApproval = { id: string; approved: boolean; page: string; scientificName: string; date: string; authority: string; originalHash: string; pixelHash: string; recordHash: string; creditMismatch?: boolean; screenRecordHash?: string }
 /** Individually approved files, never a permission for another crop or source. */
 export const OWNER_CROPS: readonly OwnerCropApproval[] = approvals
 const ordered = (v: unknown): unknown => Array.isArray(v) ? v.map(ordered) : v && typeof v === 'object' ? Object.fromEntries(Object.entries(v).filter(([,v])=>v!==undefined).sort(([a],[b])=>a.localeCompare(b)).map(([k,v])=>[k,ordered(v)])) : v

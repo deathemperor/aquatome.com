@@ -86,6 +86,26 @@ test('ENGINE_COST_LOG gets a line a call; a log it cannot write never fails the 
   expect(await call()).toEqual({ ok: true })
 })
 
+// The chief of staff, 2026-11-11: scores on file and today's differed by up to 0.35 on 8 of 14 pages, and nothing said
+// which model or which version of the command each came from. The engine asks for an alias, which moves with the version.
+test('the cost log and each review name the full model the alias answered with, and the command\'s version', async () => {
+  const { logReviews, readReviews } = await import('../src/review-log')
+  const log = join(await mkdtemp(join(tmpdir(), 'cost-')), 'cost.jsonl')
+  process.env.ENGINE_COST_LOG = log
+  process.env.ENGINE_CLI_VERSION = '2.1.322'
+  printed.chunks = [Buffer.from(JSON.stringify({ structured_output: { ok: true }, total_cost_usd: 0.1, usage: {}, modelUsage: { 'claude-haiku-5-5': { outputTokens: 12 }, 'claude-opus-5-5': { outputTokens: 400 } } }))]
+  try {
+    await call()
+    expect(JSON.parse(await readFile(log, 'utf8'))).toMatchObject({ model: 'opus', ran: 'claude-opus-5-5', cli: '2.1.322' })
+    const root = await mkdtemp(join(tmpdir(), 'rev-'))
+    await logReviews(root, 'translation', { id: 'species/x', lang: 'vi' }, [{ score: 0.8, notes: [] }], undefined, { model: 'opus', now: new Date('2026-11-12T00:00:00Z') })
+    expect(Object.values(await readReviews(root, 'translation'))[0]![0]).toMatchObject({ model: 'opus', ran: 'claude-opus-5-5', cli: '2.1.322' })
+  } finally {
+    delete process.env.ENGINE_CLI_VERSION
+    process.env.ENGINE_CLI_VERSION = ''
+  }
+})
+
 // 2026-11-08: a week's use couldn't be split by job or account, as the log didn't say which account a call went to.
 test('each line names the account the call went to, by its token\'s hash, never the token', async () => {
   const log = join(await mkdtemp(join(tmpdir(), 'cost-')), 'cost.jsonl')

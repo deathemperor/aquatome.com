@@ -5,6 +5,7 @@ import { expect, test } from 'vitest'
 import { LlmError, type Llm } from '../src/claude'
 import { checkPages, RATCHETED, ratcheted, RULES } from '../src/content-rules'
 import { loadPages } from '../src/pages'
+import { checkPagePhotos } from '../src/photo-check'
 import { sweep, sweepTranslation } from '../src/sweep'
 import { atCeiling } from './at-ceiling'
 
@@ -153,6 +154,134 @@ test("a paper's plate leaves its page and its gallery for good, the page's lead 
   const pages = await loadPages(c)
   expect(ratcheted(checkPages(pages, RULES.filter(x => x.id in RATCHETED)).findings).filter(f => f.rule === 'caption')).toEqual([])
   expect((await sweep(root)).photos).toEqual([])
+})
+
+test("a fish its source's caption calls unwell leaves a page that has another photo, for good; a page's only photo stays, off the never-again list, and is listed; a split fin stays", async () => {
+  const root = await mkdtemp(join(tmpdir(), 'sweep-'))
+  const c = join(root, 'content')
+  const put = async (path: string, data: unknown) => { await mkdir(join(c, path, '..'), { recursive: true }); await writeFile(join(c, path), `${JSON.stringify(data, null, 2)}\n`) }
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await mkdir(c, { recursive: true })
+  await copyFile(new URL('../../../content/sources.json', import.meta.url), join(c, 'sources.json'))
+  const sf = (name: string, caption: string) => ({ ...photo(`https://media.aquatome.com/seriouslyfish/${name}.webp`, caption), sourceUrl: 'https://www.seriouslyfish.com/species/x/' })
+  const dead = sf('dead', 'Recently-deceased specimen.'), well = sf('well', 'Adult male.'), split = sf('split', 'Adult specimen with slight caudal-fin damage.')
+  const torn = sf('torn', 'Male specimen with fin damage caused by another male.'), thin = sf('thin', 'Skinny juvenile of Callochromis macrops')
+  await put('species/schistura-spilota/entity.json', species('schistura-spilota', 'Schistura spilota', { photos: [dead, well, split] }))
+  await put('species/schistura-spilota/vi.json', vi('Cá chạch suối đốm', { 'distribution:seriouslyfish': '<p>Thái Lan.</p>' }))
+  await put('gallery/schistura-spilota.json', { id: 'schistura-spilota', photos: [torn], seen: 1, updatedAt: '2026-10-01' })
+  await put('species/callochromis-macrops/entity.json', species('callochromis-macrops', 'Callochromis macrops', { photos: [thin] }))
+  await put('species/callochromis-macrops/vi.json', vi('Cá hoàng đế mắt to', { 'distribution:seriouslyfish': '<p>Hồ Tanganyika.</p>' }))
+  const unwell = async () => ratcheted(checkPages(await loadPages(c), RULES.filter(x => x.id in RATCHETED)).findings).filter(f => f.rule === 'unwell').length
+  expect(await unwell()).toBe(2)
+  const r = await sweep(root)
+  expect(r.photos).toEqual([
+    `species/schistura-spilota: ${dead.url} (unwell: its source's caption says "deceased")`,
+    `species/schistura-spilota: ${torn.url} (unwell: its source's caption says "damage")`,
+  ])
+  // The lead goes, the gallery's goes, the split fin stays.
+  expect((await json(root, 'content/species/schistura-spilota/entity.json')).photos).toEqual([well, split])
+  expect((await json(root, 'content/gallery/schistura-spilota.json')).photos).toEqual([])
+  // A page's only photo stays and is listed. It is not on the never-again list, which would take it off every page.
+  expect((await json(root, 'content/species/callochromis-macrops/entity.json')).photos).toEqual([thin])
+  expect(r.unwell).toEqual([`species/callochromis-macrops: ${thin.url} (skinny; the page's only photo)`])
+  expect(await json(root, 'engine-state/_photo-rejected.json')).toEqual({
+    [dead.url]: 'unwell: its source\'s caption says "deceased" (species/schistura-spilota)',
+    [torn.url]: 'unwell: its source\'s caption says "damage" (species/schistura-spilota)',
+  })
+  expect(await unwell()).toBe(0)
+  // The photo check, which strips what is on that list, leaves the kept photo where it is.
+  const never = async (): Promise<never> => { throw new Error('no model call here') }
+  await checkPagePhotos(root, { get: never, look: never }, { limit: 0 })
+  expect((await json(root, 'content/species/callochromis-macrops/entity.json')).photos).toEqual([thin])
+  const again = await sweep(root)
+  expect(again.photos).toEqual([])
+  expect(again.unwell).toEqual(r.unwell)
+  // Once the page has another photo of its own, the unwell one goes.
+  await put('species/callochromis-macrops/entity.json', species('callochromis-macrops', 'Callochromis macrops', { photos: [thin, sf('adult', 'Adult male.')] }))
+  expect((await sweep(root)).photos).toEqual([`species/callochromis-macrops: ${thin.url} (unwell: its source's caption says "skinny")`])
+  // A head a person picked from the gallery is one of the page's own photos in the same sweep, so the unwell photo
+  // beside it goes at once. A sweep later would leave the rule at one, and the cycle tests after one sweep.
+  const lone = sf('lone', 'Recently-deceased specimen.'), chosen = sf('chosen', 'Adult male.')
+  await put('species/aaa-picked/entity.json', species('aaa-picked', 'Aaa picked', { photos: [lone] }))
+  await put('species/aaa-picked/vi.json', vi('Cá chạch suối chọn', { 'distribution:seriouslyfish': '<p>Lào.</p>' }))
+  await put('gallery/aaa-picked.json', { id: 'aaa-picked', photos: [chosen], seen: 1, updatedAt: '2026-10-01' })
+  await writeFile(join(root, 'engine-state/_photo-head-picks.json'), JSON.stringify({ 'species/aaa-picked': chosen.url }))
+  const picked = await sweep(root)
+  expect(picked.heads).toEqual([`species/aaa-picked: ${lone.url} -> ${chosen.url}`])
+  expect(picked.photos).toEqual([`species/aaa-picked: ${lone.url} (unwell: its source's caption says "deceased")`])
+  expect((await json(root, 'content/species/aaa-picked/entity.json')).photos).toEqual([chosen])
+  expect(await unwell()).toBe(0)
+  // A photo that is one page's only photo and is also on a page with another leaves that other page and stays off the
+  // never-again list, which would take it off both.
+  const shared = sf('shared', 'Newly-imported, hence a little skinny, specimen.')
+  await put('species/bbb-only/entity.json', species('bbb-only', 'Bbb only', { photos: [shared] }))
+  await put('species/bbb-only/vi.json', vi('Cá chạch suối lẻ', { 'distribution:seriouslyfish': '<p>Lào.</p>' }))
+  await put('species/ccc-more/entity.json', species('ccc-more', 'Ccc more', { photos: [sf('fine', 'Adult male.'), shared] }))
+  await put('species/ccc-more/vi.json', vi('Cá chạch suối đôi', { 'distribution:seriouslyfish': '<p>Lào.</p>' }))
+  expect((await sweep(root)).photos).toEqual([`species/ccc-more: ${shared.url} (unwell: its source's caption says "skinny")`])
+  expect((await json(root, 'content/species/bbb-only/entity.json')).photos).toEqual([shared])
+  expect(Object.keys(await json(root, 'engine-state/_photo-rejected.json'))).not.toContain(shared.url)
+  // A head a person picked is not taken off by a caption's words (the chief of staff, 2026-11-11): it stays first, off
+  // the never-again list, and is listed with its caption each run until a person says it goes.
+  const pick = sf('pick', 'Skinny juvenile.')
+  await put('species/eee-chosen/entity.json', species('eee-chosen', 'Eee chosen', { photos: [sf('plain', 'Adult male.'), pick] }))
+  await put('species/eee-chosen/vi.json', vi('Cá chạch suối quý', { 'distribution:seriouslyfish': '<p>Lào.</p>' }))
+  // Picked from the gallery, where its copy stays: one photo in two files, kept in both.
+  await put('gallery/eee-chosen.json', { id: 'eee-chosen', photos: [pick], seen: 1, updatedAt: '2026-10-01' })
+  await writeFile(join(root, 'engine-state/_photo-head-picks.json'), JSON.stringify({ 'species/eee-chosen': pick.url }))
+  const held = await sweep(root)
+  expect(held.photos).toEqual([])
+  expect(held.unwell).toContain(`species/eee-chosen: ${pick.url} (skinny; a head a person picked. Its caption: "Skinny juvenile.")`)
+  expect((await json(root, 'content/species/eee-chosen/entity.json')).photos.map((x: { url: string }) => x.url)).toEqual([pick.url, 'https://media.aquatome.com/seriouslyfish/plain.webp'])
+  expect((await json(root, 'content/gallery/eee-chosen.json')).photos).toEqual([pick])
+  expect(Object.keys(await json(root, 'engine-state/_photo-rejected.json'))).not.toContain(pick.url)
+  expect(await unwell()).toBe(0)
+  await checkPagePhotos(root, { get: never, look: never }, { limit: 0 })
+  expect((await json(root, 'content/species/eee-chosen/entity.json')).photos[0].url).toBe(pick.url)
+  // The same photo on a page where nobody picked it leaves that page, and still stays off the never-again list.
+  await put('species/fff-other/entity.json', species('fff-other', 'Fff other', { photos: [sf('plain-2', 'Adult male.'), pick] }))
+  await put('species/fff-other/vi.json', vi('Cá chạch suối khác', { 'distribution:seriouslyfish': '<p>Lào.</p>' }))
+  expect((await sweep(root)).photos).toEqual([`species/fff-other: ${pick.url} (unwell: its source's caption says "skinny")`])
+  expect(Object.keys(await json(root, 'engine-state/_photo-rejected.json'))).not.toContain(pick.url)
+  expect((await json(root, 'content/species/eee-chosen/entity.json')).photos[0].url).toBe(pick.url)
+  // One photo with two captions: healthy on the page that picked it, or on the page it is the only photo of, and unwell
+  // on another page. It leaves the other page and stays off the never-again list, so the first page keeps it.
+  const two = sf('two', 'Adult male.'), three = sf('three', 'Adult female.')
+  await put('species/ggg-picker/entity.json', species('ggg-picker', 'Ggg picker', { photos: [two, sf('plain-3', 'Adult male.')] }))
+  await put('species/ggg-picker/vi.json', vi('Cá chạch suối nhất', { 'distribution:seriouslyfish': '<p>Lào.</p>' }))
+  // Listed twice among the page's own photos, as two pages have one today: still its only photo.
+  await put('species/hhh-single/entity.json', species('hhh-single', 'Hhh single', { photos: [three, three] }))
+  await put('species/hhh-single/vi.json', vi('Cá chạch suối nhì', { 'distribution:seriouslyfish': '<p>Lào.</p>' }))
+  await put('species/iii-says/entity.json', species('iii-says', 'Iii says', { photos: [sf('plain-4', 'Adult male.'), { ...two, caption: 'Skinny juvenile.' }, { ...three, caption: 'Emaciated female.' }] }))
+  await put('species/iii-says/vi.json', vi('Cá chạch suối ba', { 'distribution:seriouslyfish': '<p>Lào.</p>' }))
+  await writeFile(join(root, 'engine-state/_photo-head-picks.json'), JSON.stringify({ 'species/eee-chosen': pick.url, 'species/ggg-picker': two.url }))
+  expect((await sweep(root)).photos).toEqual([
+    `species/iii-says: ${two.url} (unwell: its source's caption says "skinny")`,
+    `species/iii-says: ${three.url} (unwell: its source's caption says "emaciated")`,
+  ])
+  expect(Object.keys(await json(root, 'engine-state/_photo-rejected.json'))).not.toContain(two.url)
+  expect(Object.keys(await json(root, 'engine-state/_photo-rejected.json'))).not.toContain(three.url)
+  await checkPagePhotos(root, { get: never, look: never }, { limit: 0 })
+  expect((await json(root, 'content/species/ggg-picker/entity.json')).photos[0].url).toBe(two.url)
+  expect((await json(root, 'content/species/hhh-single/entity.json')).photos).toEqual([three, three])
+  expect(await unwell()).toBe(0)
+  // Another rule's word still takes a photo off every page: a paper's plate on one page, though it is another page's
+  // only photo and called unwell there.
+  const plate = { ...sf('plate', 'Skinny juvenile.'), sourceUrl: 'https://commons.wikimedia.org/wiki/File:Jjj_lone.jpg' }
+  await put('species/jjj-lone/entity.json', species('jjj-lone', 'Jjj lone', { photos: [plate] }))
+  await put('species/jjj-lone/vi.json', vi('Cá chạch suối tư', { 'distribution:seriouslyfish': '<p>Lào.</p>' }))
+  await put('species/kkk-plate/entity.json', species('kkk-plate', 'Kkk plate', { photos: [sf('plain-5', 'Adult male.'), { ...plate, caption: 'Figure 1; (a) the whole fish, (b) its scales' }] }))
+  await put('species/kkk-plate/vi.json', vi('Cá chạch suối năm', { 'distribution:seriouslyfish': '<p>Lào.</p>' }))
+  expect((await sweep(root)).photos).toEqual([`species/kkk-plate: ${plate.url} (not a photo: a paper's plate, (a), (b), not Kkk plate)`])
+  expect(Object.keys(await json(root, 'engine-state/_photo-rejected.json'))).toContain(plate.url)
+  // A breed's gallery is read too.
+  const bred = sf('bred', 'Two dead specimens of different ages.')
+  await put('breeds/ddd-breed/entity.json', { id: 'ddd-breed', kind: 'variety', parents: [], care: {}, photos: [sf('breed-own', 'Adult male.')], sources: [{ url: 'https://x/a', title: 'A', kind: 'article', at: '2026-10-01' }], updatedAt: '2026-10-01' })
+  await put('breeds/ddd-breed/vi.json', vi('Cá chạch lai', {}, { slug: 'ca-chach-lai', body: '<p>Một dòng lai.</p>' }))
+  await put('gallery/ddd-breed.json', { id: 'ddd-breed', photos: [bred], seen: 1, updatedAt: '2026-10-01' })
+  expect(await unwell()).toBe(1)
+  expect((await sweep(root)).photos).toEqual([`breeds/ddd-breed: ${bred.url} (unwell: its source's caption says "dead specimens")`])
+  expect((await json(root, 'content/gallery/ddd-breed.json')).photos).toEqual([])
 })
 
 test("a run that would take more photos off every page than its cap takes none off, lists them, and leaves the check failing for a person; with the cap raised they go", async () => {

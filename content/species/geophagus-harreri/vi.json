@@ -24,7 +24,9 @@
     "reason": "thin"
   },
   "held": {
-    "checks": [],
+    "checks": [
+      "source"
+    ],
     "at": "2026-11-11"
   }
 }
