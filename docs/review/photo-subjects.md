@@ -1,7 +1,7 @@
 # Photos that don't show their page's subject
 
 Written by `pnpm engine check-photos` (2026-11-11), most-read pages first. Rules: docs/governance.md, "Photos".
-6161 verdicts. Shows it: 4209; its habitat (asked again): 3; something else: 310; not a photo of it: 208; dead or as food: 304; a person in it: 100; a logo on it: 41; can't tell: 966.
+6161 verdicts. Shows it: 4209; its habitat (asked again): 3; something else: 310; not a photo of it: 208; dead or as food: 304; a person in it: 100; a logo on it: 41; can't tell: 961.
 
 ## Left with no photo (66)
 
@@ -72,7 +72,7 @@ Written by `pnpm engine check-photos` (2026-11-11), most-read pages first. Rules
 - species/thayeria-ifati
 - species/xenotilapia-sima
 
-## Can't tell: still shown (966)
+## Can't tell: still shown (961)
 
 | Page | Photo | What the model saw |
 | --- | --- | --- |
@@ -343,7 +343,6 @@ Written by `pnpm engine check-photos` (2026-11-11), most-read pages first. Rules
 | species/gnathonemus-petersii | [photo](https://media.aquatome.com/inaturalist/420403716.webp) | mormyrid with long slender snout, no bands seen; possibly Campylomormyrus |
 | plants/cryptocoryne-nurii | [photo](https://media.aquatome.com/cryptspages/nur_B802_x_2494.webp) | clump of narrow dark leaves among dry grass in the wild, too unclear to identify |
 | plants/cryptocoryne-nurii | [photo](https://media.aquatome.com/cryptspages/nur_B803_x_2502.webp) | blurry spathe and bullate leaf, species unclear |
-| species/osphronemus-goramy | [photo](https://media.aquatome.com/inaturalist/53544572.webp) | blurry fish head at a murky water surface |
 | species/osphronemus-goramy | [photo](https://media.aquatome.com/inaturalist/53544577.webp) | blurry fish mouths at a murky water surface |
 | plants/cryptocoryne-undulata | [photo](https://media.aquatome.com/cryptspages/und_x_B195_834.webp) | close-up of a Cryptocoryne spathe only |
 | plants/cryptocoryne-undulata | [photo](https://media.aquatome.com/cryptspages/und_x_B195_835.webp) | opened Cryptocoryne spathe kettle showing flower parts |
@@ -547,7 +546,6 @@ Written by `pnpm engine check-photos` (2026-11-11), most-read pages first. Rules
 | species/amia-calva | [photo](https://media.aquatome.com/inaturalist/401928889.webp) | elongated fish seen through a round viewer from above, details unclear |
 | species/anabas-testudineus | [photo](https://media.aquatome.com/inaturalist/427337940.webp) | two brown elongated fish in a blue bucket, look more like sleeper gobies; poor view |
 | species/anabas-testudineus | [photo](https://media.aquatome.com/inaturalist/455287801.webp) | blurry fish in murky green water |
-| species/anabas-testudineus | [photo](https://media.aquatome.com/inaturalist/617710654.webp) | blurry elongated fish in murky water, likely snakehead |
 | species/anostomus-ternetzi | [photo](https://media.aquatome.com/seriouslyfish/cf7cdec6d5e80b75.webp) | group of striped headstanders on rocks; pale body with black stripes, could be another Anostomus |
 | species/apistogramma-agassizii | [photo](https://media.aquatome.com/seriouslyfish/8287338095814717.webp) | reddish fish with net-patterned scales and barred rounded tail; not like agassizii, possibly another Apistogramma |
 | species/apistogramma-borellii | [photo](https://media.aquatome.com/commons/c7c34a71e9da38b5.webp) | pale fish with dark stripes and red cheek marks; maybe another Apistogramma |
@@ -853,7 +851,6 @@ Written by `pnpm engine check-photos` (2026-11-11), most-read pages first. Rules
 | species/pygocentrus-piraya | [photo](https://media.aquatome.com/commons/98a579d603697f0a.webp) | dark spangled piranha with reddish anal fin; could be P. nattereri |
 | species/pygocentrus-piraya | [photo](https://media.aquatome.com/commons/e969c9eebef0421b.webp) | silvery spangled piranha with red-orange belly; looks like red-bellied piranha |
 | species/pygocentrus-piraya | [photo](https://media.aquatome.com/commons/ec2007803a9140fa.webp) | group of piranhas, dark body with reddish belly; could be red-bellied piranha |
-| species/pygocentrus-piraya | [photo](https://media.aquatome.com/seriouslyfish/6d7a554669c5a6d3.webp) | close-up of a large piranha head and flank with orange sheen; species hard to confirm |
 | species/rasbora-paucisqualis | [photo](https://media.aquatome.com/inaturalist/251817466.webp) | pale, washed-out fish in a photo tank; poor view |
 | species/rasbora-paucisqualis | [photo](https://media.aquatome.com/seriouslyfish/b6f64ccde6069438.webp) | slender rasbora with gold-green iridescence on dark background; can't confirm species |
 | species/rasbora-vulcanus | [photo](https://media.aquatome.com/commons/2d57b8c7b49c12c7.webp) | two fish on white background, deeper body, uncertain ID |
