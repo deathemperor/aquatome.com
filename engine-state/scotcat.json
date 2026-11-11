@@ -579,10 +579,10 @@
   },
   "https://www.scotcat.com/amblycipitidae/xiurenbagrus_xiurenensis.htm": {
     "entityIds": [],
-    "updatedAt": "2026-11-11T11:43:57.453Z",
+    "updatedAt": "2026-11-11T14:42:23.927Z",
     "status": "error",
     "attempts": 0,
-    "error": "claude failed (1): You've hit your weekly limit · resets Nov 14 at 8am (Asia/Saigon)"
+    "error": "claude failed: the engine's daily limit reached for every step ($129.85 of $90 today)"
   },
   "https://www.scotcat.com/anchariidae/ancharius_fuscus.htm": {
     "entityIds": [
@@ -736,10 +736,10 @@
   },
   "https://www.scotcat.com/auchenipteridae/tetranematichthys_wallacei.htm": {
     "entityIds": [],
-    "updatedAt": "2026-11-11T11:43:46.777Z",
+    "updatedAt": "2026-11-11T14:42:19.199Z",
     "status": "error",
     "attempts": 0,
-    "error": "claude failed (1): You've hit your weekly limit · resets Nov 14 at 8am (Asia/Saigon)"
+    "error": "claude failed: the engine's daily limit reached for every step ($129.85 of $90 today)"
   },
   "https://www.scotcat.com/auchenipteridae/trachelyopterus_insignis.htm": {
     "entityIds": [
