@@ -641,14 +641,14 @@ if (cmd === 'run' || cmd === 'card-fill') {
   const order = popularityOrder(await popularFirst(ROOT))
   const r = await speciesRanges(ROOT, { llm: claudeCli, gbif, now: () => new Date(), order }, { limit: Number(values.limit ?? 20), records: Number(values.records ?? 20), ...(values.only ? { only: values.only.split(',') } : {}) })
   for (const x of [...r.disputed.map(x => `disputed (left out): ${x}`), ...r.outranked.map(x => `only a general site (left out): ${x}`), ...r.origin.map(x => `origin pages differ: ${x}`), ...r.native.failed.map(x => `native failed: ${x}`), ...r.records.failed.map(x => `records failed: ${x}`), ...r.records.unmatched.map(x => `no GBIF match: ${x}`)]) console.log(`  ${x}`)
-  console.log(`range: ${r.native.read.length} read (${r.native.calls} model calls), ${r.native.quiet.length} with nothing on where they live, ${r.native.failed.length} failed; records for ${r.records.fetched.length} (${r.records.requests} GBIF requests), ${r.records.unmatched.length} unmatched, ${r.records.failed.length} failed`)
+  console.log(`range: ${r.native.read.length} read (${r.native.calls} model calls), ${r.native.quiet.length} with nothing on where they live, ${r.native.failed.length} failed; records for ${r.records.fetched.length} (${r.records.requests} GBIF requests), ${r.records.unmatched.length} unmatched, ${r.records.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
 } else if (cmd === 'water') {
   // Whether each species is kept in brackish or sea water (water.ts), from a quoted sentence of its sources: --limit
   // model calls, for species whose sources' text is new or changed and mentions salt or the sea; the rest are fresh.
   const order = popularityOrder(await popularFirst(ROOT))
   const r = await speciesWater(ROOT, { llm: claudeCli, now: () => new Date(), order }, { limit: Number(values.limit ?? 20), ...(values.only ? { only: values.only.split(',') } : {}) })
   for (const x of [...r.salt, ...r.failed.map(x => `failed: ${x}`)]) console.log(`  ${x}`)
-  console.log(`water: ${r.read.length} read (${r.calls} model calls), ${r.quiet.length} fresh with no call, ${r.salt.length} brackish or marine, ${r.failed.length} failed`)
+  console.log(`water: ${r.read.length} read (${r.calls} model calls), ${r.quiet.length} fresh with no call, ${r.salt.length} brackish or marine, ${r.failed.length} failed${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
 } else if (cmd === 'source-kinds') {
   // Guide research tagged before the kinds a page names its sources by, tagged again (source-kinds.ts): --only id,id,
   // --dry-run prints what would change and writes nothing.

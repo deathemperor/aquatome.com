@@ -14,6 +14,7 @@ import { logReviews } from './review-log'
 import { viWording } from './sanitize'
 import { snapshotName } from './snapshot'
 import { SOURCES } from './sources'
+import { errorKind } from './state'
 import { isShop, readVarietyPages, withoutShopTalk } from './species-sources'
 import { cardOf, cardProblems } from './summaries'
 import { carryTopicChecks } from './topic-check'
@@ -57,7 +58,8 @@ import { readVideoRejected } from './videos'
  *   smaller or mini tank the model named ("bể cá mini 20cm" for a betta whose card says 45 cm). A page with no tank row,
  *   or a card with no minimum tank, is left as it is
  * - a guide's title promising a count its text lacks: with `llm`, rewritten by the model (`titles` at most a run, reviewer-gated:
- *   reader.ts rewriteTitle); otherwise, or when the rewrite isn't kept, the number dropped from it. The address stays.
+ *   reader.ts rewriteTitle); otherwise, or when the rewrite isn't kept, the number dropped from it. A call that failed
+ *   for the usage limit leaves that title, and every later one this run, as it is. The address stays.
  * - a guide's title another guide in its language has, or that is only a name ("Dou Mok"): with `llm`, written again by
  *   the model (`retitles` at most a run, reviewer-gated: guide-titles.ts retitleGuide), a person's name kept as the credit.
  *   The address stays.
@@ -361,6 +363,11 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
         else how = `number dropped; rewrite "${r.title}" not kept (${r.score.toFixed(2)}${r.notes.length ? `: ${r.notes.slice(0, 2).join('; ')}` : ''})`
         await logReviews(root, 'title', { id: `${c.kind}/${c.id}`, lang: c.lang }, [r], title === r.title ? r : undefined, { model: o.model })
       } catch (e) {
+        // Every account is out of its limit: dropping the number would keep the title from being offered again.
+        if (e instanceof LlmError && errorKind(e.message) === 'usage') {
+          report.stopped = `title ${c.lang}/${c.kind}/${c.id}: ${e.message}`
+          break
+        }
         if (e instanceof LlmError) report.stopped = `title ${c.lang}/${c.kind}/${c.id}: ${e.message}`
         else how = `number dropped; rewrite failed: ${(e as Error).message.slice(0, 120)}`
       }
