@@ -993,8 +993,9 @@ The layers above still check the result.
     (changed or not; a live page whose new text brought it gets its old text back; harm found in one language holds the
     page in every language, written as they are from the same facts), and a held page that changes and
     passes is let out. A page it can't read (the accounts out, over its limit) stays as readers have it: a live page keeps
-    its committed text and a new one waits, held. The run still publishes; only a crash in the gate stops it
-    (`gate.test.ts`).
+    its committed text, the text the cycle wrote is kept with the others (`engine-state/put-back/`), and the writer's record
+    of that page goes back to what is committed, so the writer does the page again; a new one waits, held. The run still
+    publishes; only a crash in the gate stops it (`gate.test.ts`).
   - A text that goes back isn't thrown away. When all that is worse is a sentence that can go or be reworded (a shop,
     a price or a product from abroad, talk about the source, something only true elsewhere: `MENDABLE`), the gate sends
     the quotes to a mender and reads the page again, and puts it back only if it is still worse; harm, a dose and what a

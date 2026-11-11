@@ -6,9 +6,13 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { LlmError, type Llm } from '../src/claude'
 import { fitKey, fitText, type FitFinding, type FitState } from '../src/fit'
-import { changedFiles, fitPct, fitSummary, gate, gateCall, gateChecks, HELD_BY_HAND, wrongChecks } from '../src/gate'
+import { changedFiles, fitPct, fitSummary, gate, gateCall, gateChecks, HELD_BY_HAND, putBackFile, wrongChecks } from '../src/gate'
+import { localizeSpecies, partHash } from '../src/localize'
 import { loadPages, type Page } from '../src/pages'
 import { lastKept, logReviews, readReviews } from '../src/review-log'
+import { needsFetch, type UrlState } from '../src/state'
+import { rewriteExisting } from '../src/vi-backfill'
+import { VI_WRITE } from '../src/vi-rewrite'
 
 const FIXTURE = new URL('../../../apps/site/test/fixture-content', import.meta.url).pathname
 const GUIDE = 'content/guides/youtube-r53ZQW0m8VM/vi.json'
@@ -631,6 +635,201 @@ test("a card is read and held like a page; the report and the owner's number lea
   expect(r.report.hold).toEqual(['/vi/cards/card-bad/ (shop)'])
   expect(r.pages.some(p => p.kind === 'cards')).toBe(false)
   expect(fitSummary(r.pages, r.state, r.held, '2026-11-09').langs.vi?.held).toBe(0)
+})
+
+/** The accounts are out: the message the gate treats as a limit, so a changed page is not read. */
+const limited = (async () => { throw new LlmError("claude failed (1): You've hit your weekly limit · resets Nov 14 at 8am (Asia/Saigon)") }) as Llm
+const save = (root: string, message: string) => { git(root, 'add', '.'); git(root, '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-qm', message) }
+
+test('unread: a live page the gate cannot read is put back, and the text it wrote is kept', async () => {
+  const root = await repo()
+  const committed = await readFile(join(root, GUIDE), 'utf8')
+  await edit(root, GUIDE, t => { t.body = `${t.body as string}<p>Đã viết lại.</p>` })
+  const written = await readJson(root, GUIDE)
+  const path = (await guidePage(root)).path
+  const { report } = await gate(root, { llm: limited, now })
+  expect(await readFile(join(root, GUIDE), 'utf8')).toBe(committed)
+  expect(report.unread).toContain(path)
+  const kept = await readJson(root, PUT_BACK)
+  expect(kept).toMatchObject({ at: '2026-11-09T00:00:00Z', checks: [], findings: [], unread: true })
+  expect(kept.text).toEqual(written)
+})
+
+test('unread: the translator takes the page up again after its new text is put back', async () => {
+  const root = await repo()
+  const idFile = 'content/species/danio-margaritatus/id.json'
+  const stateFile = 'engine-state/localize-id.json'
+  await cp(join(root, 'content/species/danio-margaritatus/vi.json'), join(root, idFile))
+  await edit(root, 'content/sources.json', s => {
+    const sf = s.seriouslyfish as { publish: boolean; permission?: { date: string; file: string; scope: string[] } }
+    sf.publish = true
+    sf.permission = { date: '2026-10-29', file: 'noted', scope: ['translation'] }
+  })
+  const entity = await readJson(root, 'content/species/danio-margaritatus/entity.json') as { updatedAt: string; sections: { key: string; source: string; html: string }[] }
+  const old = { at: '2026-01-01', from: '2026-01-01', name: 'Cá galaxy', confidence: 'high', score: 0.9 }
+  await writeFile(join(root, stateFile), `${JSON.stringify({ 'danio-margaritatus': old, 'left-alone': { at: '2026-01-01', from: '2026-01-01', name: 'Other', confidence: 'low', score: 0.5 } }, null, 2)}\n`)
+  save(root, 'translated once')
+
+  const parts = Object.fromEntries(entity.sections.filter(s => s.source === 'seriouslyfish' && s.html.trim()).map(s => [`${s.key}:${s.source}`, partHash(s.html)]))
+  await edit(root, idFile, t => { t.name = 'Ikan galaxy' })
+  const state = await readJson(root, stateFile) as Record<string, unknown>
+  state['danio-margaritatus'] = { at: '2026-11-09', from: entity.updatedAt, name: 'Ikan galaxy', confidence: 'high', score: 0.95, notes: [], parts }
+  state['left-alone'] = { at: '2026-01-01', from: '2026-01-01', name: 'Touched', confidence: 'low', score: 0.5 }
+  await writeFile(join(root, stateFile), `${JSON.stringify(state, null, 2)}\n`)
+  // As the cycle left it, the page was made from the English it has now: the translator leaves it.
+  const before = await localizeSpecies(root, limited, 'id', ['danio-margaritatus'], { now })
+  expect(before.skipped).toContain('danio-margaritatus')
+  expect(before.stopped).toBe('')
+
+  const { report } = await gate(root, { llm: limited, now })
+  expect(report.unread.length).toBeGreaterThan(0)
+  expect((await readJson(root, idFile)).name).toBe('Cá galaxy')
+  const again = await localizeSpecies(root, limited, 'id', ['danio-margaritatus'], { now })
+  expect(again.stopped).toContain('danio-margaritatus')
+  expect(again.skipped.some(s => s.startsWith('danio-margaritatus'))).toBe(false)
+  expect((await readJson(root, stateFile))['left-alone'].name).toBe('Touched')
+})
+
+test('unread: the Vietnamese rewrite takes the page up again after its new text is put back', async () => {
+  const root = await repo()
+  const file = 'content/guides/aquariumcoop-thay-nuoc/vi.json'
+  const stateFile = join(root, 'engine-state/vi-rewrite.json')
+  const opts = { llm: limited, opts: VI_WRITE, now }
+  // Published at HEAD: otherwise the build there has no page, and the gate treats the file as new.
+  await edit(root, 'content/sources.json', s => { const src = s.aquariumcoop as { publish: boolean; permission?: { date: string; file: string; scope: string[] } }; src.publish = true; src.permission = { date: '2026-10-29', file: 'noted', scope: ['text'] } })
+  const dry = await rewriteExisting(join(root, 'content'), stateFile, opts, { limit: 1000, dry: true })
+  const id = 'guides/aquariumcoop-thay-nuoc'
+  const done = { at: '2026-10-01', rewritten: 1, of: 1, scores: [1], v: 2 }
+  const state = Object.fromEntries(dry.done.map(line => [line.split(' ')[0]!, done]))
+  state[id] = { at: '2026-10-01', rewritten: 0, of: 1, scores: [], v: 1 }
+  await writeFile(stateFile, `${JSON.stringify(state, null, 2)}\n`)
+  save(root, 'rewrite so far')
+
+  await edit(root, file, t => { t.body = `${t.body as string}<p>Đã viết lại.</p>` })
+  state[id] = { at: '2026-11-09', rewritten: 1, of: 1, scores: [0.9], v: 2 }
+  await writeFile(stateFile, `${JSON.stringify(state, null, 2)}\n`)
+  await gate(root, { llm: limited, now })
+  const again = await rewriteExisting(join(root, 'content'), stateFile, opts, { limit: 5 })
+  expect(again.stopped).toContain(id)
+  expect(again.done).toEqual([])
+})
+
+test('unread: a source is due again after the gate puts its page back', async () => {
+  const root = await repo()
+  const species = 'content/species/danio-margaritatus/vi.json'
+  const url = 'https://www.seriouslyfish.com/species/danio-margaritatus'
+  const other = 'https://www.seriouslyfish.com/species/other'
+  const video = 'r53ZQW0m8VM'
+  const fresh = (entityIds: string[], updatedAt: string, extra: Partial<UrlState> = {}): UrlState => ({ status: 'processed', entityIds, attempts: 0, updatedAt, ...extra })
+  await writeFile(join(root, 'engine-state/seriouslyfish.json'), `${JSON.stringify({
+    [url]: fresh(['species/danio-margaritatus'], '2026-01-01T00:00:00.000Z', { lastmod: '2026-01-01' }),
+    [other]: fresh(['species/other'], '2026-01-01T00:00:00.000Z', { hash: 'old' }),
+  }, null, 2)}\n`)
+  // youtube.json names the guide by its id, `youtube-<id>`, with no kind prefix.
+  await writeFile(join(root, 'engine-state/youtube.json'), `${JSON.stringify({ [video]: fresh([`youtube-${video}`], '2025-01-01T00:00:00.000Z') }, null, 2)}\n`)
+  await edit(root, 'content/sources.json', s => { const src = s.seriouslyfish as { publish: boolean; permission?: { date: string; file: string; scope: string[] } }; src.publish = true; src.permission = { date: '2026-10-29', file: 'noted', scope: ['text'] } })
+  save(root, 'fetched once')
+
+  await edit(root, species, t => { t.name = `${t.name as string} mới` })
+  await edit(root, GUIDE, t => { t.body = `${t.body as string}<p>Đã viết lại.</p>` })
+  const doneFish = fresh(['species/danio-margaritatus'], '2026-11-09T00:00:00.000Z', { lastmod: '2026-10-28', hash: 'new', processedHash: 'new' })
+  const doneVideo = fresh([`youtube-${video}`], '2026-11-09T00:00:00.000Z', { hash: 'new' })
+  await writeFile(join(root, 'engine-state/seriouslyfish.json'), `${JSON.stringify({
+    [url]: doneFish,
+    [other]: fresh(['species/other'], '2026-11-09T00:00:00.000Z', { hash: 'touched' }),
+  }, null, 2)}\n`)
+  await writeFile(join(root, 'engine-state/youtube.json'), `${JSON.stringify({ [video]: doneVideo }, null, 2)}\n`)
+  expect(needsFetch(doneFish, '2026-10-28', now())).toBe(false)
+  expect(needsFetch(doneVideo, undefined, now())).toBe(false)
+
+  await gate(root, { llm: limited, now })
+  const fish = await readJson(root, 'engine-state/seriouslyfish.json')
+  const yt = await readJson(root, 'engine-state/youtube.json')
+  expect(needsFetch(fish[url], '2026-10-28', now())).toBe(true)
+  expect(needsFetch(yt[video], undefined, now())).toBe(true)
+  expect(fish[other].hash).toBe('touched')
+})
+
+test('unread: a page put back for a check keeps the writer\'s record the cycle left', async () => {
+  const root = await repo()
+  const file = 'content/guides/aquariumcoop-thay-nuoc/vi.json'
+  const stateFile = join(root, 'engine-state/vi-rewrite.json')
+  const opts = { llm: limited, opts: VI_WRITE, now }
+  await edit(root, 'content/sources.json', s => { const src = s.aquariumcoop as { publish: boolean; permission?: { date: string; file: string; scope: string[] } }; src.publish = true; src.permission = { date: '2026-10-29', file: 'noted', scope: ['text'] } })
+  const dry = await rewriteExisting(join(root, 'content'), stateFile, opts, { limit: 1000, dry: true })
+  const id = 'guides/aquariumcoop-thay-nuoc'
+  const state = Object.fromEntries(dry.done.map(line => [line.split(' ')[0]!, { at: '2026-10-01', rewritten: 1, of: 1, scores: [1], v: 2 }]))
+  state[id] = { at: '2026-10-01', rewritten: 0, of: 1, scores: [], v: 1 }
+  await writeFile(stateFile, `${JSON.stringify(state, null, 2)}\n`)
+  save(root, 'rewrite so far')
+
+  await edit(root, file, t => { t.body = `${t.body as string}<p>Mua ở Petco.</p>` })
+  state[id] = { at: '2026-11-09', rewritten: 1, of: 1, scores: [0.9], v: 2 }
+  await writeFile(stateFile, `${JSON.stringify(state, null, 2)}\n`)
+  const { report } = await gate(root, { llm: reader(), now })
+  expect(report.revert).toHaveLength(1)
+  expect(report.unread).toEqual([])
+  const kept = await readJson(root, putBackFile({ kind: 'guides', id: 'aquariumcoop-thay-nuoc', lang: 'vi' }))
+  expect(kept.checks).toEqual(['shop'])
+  expect(kept.unread).toBeUndefined()
+  expect((await readJson(root, 'engine-state/vi-rewrite.json'))[id].rewritten).toBe(1)
+  const again = await rewriteExisting(join(root, 'content'), stateFile, opts, { limit: 5 })
+  expect(again.stopped).toBe('')
+  expect(again.done).toEqual([])
+})
+
+// A failure of the gate's own on one page isn't the accounts being out: the same failure next cycle would have the writer
+// write the page again every cycle. The text is kept and the failure listed, for a person.
+test('unread: a page the gate itself fails on keeps its text and the record the cycle left', async () => {
+  const root = await repo()
+  const file = 'content/guides/aquariumcoop-thay-nuoc/vi.json'
+  const stateFile = join(root, 'engine-state/vi-rewrite.json')
+  const opts = { llm: limited, opts: VI_WRITE, now }
+  await edit(root, 'content/sources.json', s => { const src = s.aquariumcoop as { publish: boolean; permission?: { date: string; file: string; scope: string[] } }; src.publish = true; src.permission = { date: '2026-10-29', file: 'noted', scope: ['text'] } })
+  const dry = await rewriteExisting(join(root, 'content'), stateFile, opts, { limit: 1000, dry: true })
+  const id = 'guides/aquariumcoop-thay-nuoc'
+  const state = Object.fromEntries(dry.done.map(line => [line.split(' ')[0]!, { at: '2026-10-01', rewritten: 1, of: 1, scores: [1], v: 2 }]))
+  state[id] = { at: '2026-10-01', rewritten: 0, of: 1, scores: [], v: 1 }
+  await writeFile(stateFile, `${JSON.stringify(state, null, 2)}\n`)
+  save(root, 'rewrite so far')
+  const committed = await readFile(join(root, file), 'utf8')
+
+  await edit(root, file, t => { t.body = `${t.body as string}<p>Mua ở Petco.</p>` })
+  const written = await readJson(root, file)
+  state[id] = { at: '2026-11-09', rewritten: 1, of: 1, scores: [0.9], v: 2 }
+  await writeFile(stateFile, `${JSON.stringify(state, null, 2)}\n`)
+  // Both texts are read, the new one is worse, and the gate fails once as it goes to keep it.
+  const calls: string[] = []
+  let failed = false
+  const failing = () => { if (calls.length === 2 && !failed) { failed = true; throw new Error('boom') } return now() }
+  const { report } = await gate(root, { llm: reader(calls), now: failing })
+  expect(report.failed).toEqual([`vi/${id}: boom`])
+  expect(report.unread).toHaveLength(1)
+  expect(await readFile(join(root, file), 'utf8')).toBe(committed)
+  const kept = await readJson(root, putBackFile({ kind: 'guides', id: 'aquariumcoop-thay-nuoc', lang: 'vi' }))
+  expect(kept.unread).toBe(true)
+  expect(kept.text).toEqual(written)
+  expect((await readJson(root, 'engine-state/vi-rewrite.json'))[id].rewritten).toBe(1)
+  const again = await rewriteExisting(join(root, 'content'), stateFile, opts, { limit: 5 })
+  expect(again.stopped).toBe('')
+  expect(again.done).toEqual([])
+})
+
+test('unread: a new page the gate cannot read waits held, and its text and records stay', async () => {
+  const root = await repo()
+  const dir = 'content/guides/youtube-r53ZQW0m8VM'
+  await cp(join(root, dir), join(root, 'content/guides/new-one'), { recursive: true })
+  await edit(root, 'content/guides/new-one/entity.json', e => { e.id = 'new-one' })
+  await edit(root, 'content/guides/new-one/vi.json', t => { t.slug = 'new-one'; t.body = '<p>Mới.</p>' })
+  const url = 'https://example.invalid/new-one'
+  await writeFile(join(root, 'engine-state/seriouslyfish.json'), `${JSON.stringify({ [url]: { status: 'processed', entityIds: ['guides/new-one'], attempts: 0, updatedAt: '2026-11-09T00:00:00.000Z' } }, null, 2)}\n`)
+  const { report } = await gate(root, { llm: limited, now })
+  const page = await readJson(root, 'content/guides/new-one/vi.json')
+  expect(page.body).toBe('<p>Mới.</p>')
+  expect(page.held).toEqual({ checks: [], at: '2026-11-09' })
+  expect(report.unread).toHaveLength(1)
+  expect(existsSync(join(root, 'engine-state/put-back/guides/new-one.vi.json'))).toBe(false)
+  expect((await readJson(root, 'engine-state/seriouslyfish.json'))[url].status).toBe('processed')
 })
 
 test('a held card that passes now is let out: the gate sees held cards, which the build leaves out', async () => {
