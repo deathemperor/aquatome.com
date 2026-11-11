@@ -244,7 +244,12 @@
       "author": "Jesse de Vries",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Melanotaenia_maccullochi_187466468.jpg",
       "caption": "McCulloch's Rainbowfish (Melanotaenia maccullochi) in Australia",
-      "thumb": "https://media.aquatome.com/commons/f996149b35deb60c-480.webp"
+      "thumb": "https://media.aquatome.com/commons/f996149b35deb60c-480.webp",
+      "large": {
+        "url": "https://media.aquatome.com/commons/f996149b35deb60c-large.webp",
+        "width": 1800,
+        "height": 1200
+      }
     }
   ],
   "videos": [],

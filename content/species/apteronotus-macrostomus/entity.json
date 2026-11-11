@@ -148,7 +148,72 @@
       "html": "<p>Purely externally, the nine species cannot be distinguished on live animals. Since there are no significant external differences between the Brown Ghost species, they will probably continue to be referred to as “Apteronotus leptorhynchus” in the trade.</p>"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "url": "https://media.aquatome.com/processed/23e12dcc495e42c9848e7cfe2547f5d2.webp",
+      "thumb": "https://media.aquatome.com/processed/23e12dcc495e42c9848e7cfe2547f5d2-480.webp",
+      "width": 850,
+      "height": 440,
+      "licence": "dùng với sự cho phép",
+      "author": "Aquarium Glaser",
+      "sourceUrl": "https://www.aquariumglaser.de/en/11-gymnotiformes-knifefishes-of-the-new-world/apteronotus-leptorhynchus-a-macrostomus-2/",
+      "source": "glaser",
+      "ownerCrop": {
+        "id": "owner-crop-20261111-apteronotus-macrostomus",
+        "pixelHash": "03d8bdade2660557aee2e693ce8c1c5158c15dfaef721151910d58c09ebf2211"
+      },
+      "altered": [
+        {
+          "method": "mark-crop",
+          "date": "2026-11-11T07:32:37.812Z",
+          "originalHash": "acf80e4e63afd9301812de477933373ed9c2696c632207c19999fa2be8041f0c",
+          "permissionDate": "2026-11-10",
+          "retainedChanged": 0,
+          "crop": {
+            "originalWidth": 850,
+            "originalHeight": 567,
+            "window": {
+              "x0": 0,
+              "y0": 127,
+              "x1": 850,
+              "y1": 567
+            },
+            "subject": {
+              "x0": 62,
+              "y0": 278,
+              "x1": 772,
+              "y1": 424
+            },
+            "margin": 15
+          },
+          "excludedMarks": [
+            {
+              "x0": 24,
+              "y0": 8,
+              "x1": 828,
+              "y1": 121
+            }
+          ],
+          "checks": {
+            "species": [
+              "be08c8460bb7e18a5c5d604eff07306779b2e4dc7c4d3315a6166a96f7b4fa67",
+              "eab9d88bd31c21dba9f506ed9b602bca1a17e3d2f24f8b1b11ea5336c0d4decf"
+            ],
+            "ownership": [
+              "4b5930a3877bf153036f4cd40ba3c3a081123e4575b84327bc900d88403374e5",
+              "3cbbde5cf4967b8263a1d3e1a4f15d5fa40e5646d214160b48d81c969bf0703b"
+            ]
+          }
+        }
+      ],
+      "original": {
+        "url": "https://media.aquatome.com/glaser/99557db83336f0db.webp",
+        "width": 850,
+        "height": 567,
+        "thumb": "https://media.aquatome.com/glaser/99557db83336f0db-480.webp"
+      }
+    }
+  ],
   "videos": [],
   "productSlots": [
     {
