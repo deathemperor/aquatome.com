@@ -43,10 +43,11 @@ struct V2Section: View {
   @Environment(\.openURL) private var follow
 
   private static let gap: CGFloat = 14
-  /// What shows, folded: its first pieces whole, then a text's first `lines` lines (of its first `chars`, a line more than
-  /// they show), "thêm" ending the last; or, where what's next is a photo or a table and the last whole one isn't text, the
-  /// whole pieces, "thêm" under them.
-  fileprivate enum Fold: Equatable { case none, pieces(Int), cut(Int, chars: Int, lines: Int) }
+  /// What shows, folded: its first pieces whole, then a text's first `lines` lines (of its first `chars`, more than they
+  /// show, so the last runs to the edge), "thêm" ending the last; or the last whole text, all of it (`lines` nil), "thêm"
+  /// ending it; or, where what's next is a photo or a table and the last whole one isn't text, the whole pieces, "thêm"
+  /// under them.
+  fileprivate enum Fold: Equatable { case none, pieces(Int), cut(Int, chars: Int, lines: Int?) }
 
   private var fold: Fold {
     guard folds, !open, !voiceOver, !pieces.isEmpty else { return .none }
@@ -77,12 +78,13 @@ struct V2Section: View {
     if n < pieces.count, let p = Self.prose(pieces[n]) {
       let left = Int((shown - used - (n > 0 ? Self.gap : 0)) / tall.line)
       if left >= 2 {
-        return .cut(n, chars: tall.cut(p.text, lines: left + 1, inset: p.inset), lines: min(left, tall.lines(p.text, inset: p.inset)))
+        // Two lines more than show, as measured a little narrower than drawn: drawn, it runs past the last shown.
+        return .cut(n, chars: tall.cut(p.text, lines: left + 2, inset: p.inset), lines: min(left, tall.lines(p.text, inset: p.inset)))
       }
     }
     // Too little room for its lines: the last whole text ends in "thêm" instead, not a row of its own under a gap.
     if n > 0, let p = Self.prose(pieces[n - 1]) {
-      return .cut(n - 1, chars: p.text.characters.count, lines: tall.lines(p.text, inset: p.inset))
+      return .cut(n - 1, chars: p.text.characters.count, lines: nil)
     }
     // A label alone over a photo or a table: with it.
     if n == 1, Self.leadsIn(pieces[0]) { return pieces.count > 2 ? .pieces(2) : .none }
@@ -94,6 +96,10 @@ struct V2Section: View {
   private static func leadsIn(_ piece: NativePage.Piece) -> Bool {
     guard case let .text(s, _, look) = piece else { return false }
     return [.heading, .subheading].contains(look) || String(s.characters).trimmingCharacters(in: .whitespacesAndNewlines).hasSuffix(":")
+  }
+
+  private static func isText(_ piece: NativePage.Piece) -> Bool {
+    if case .text = piece { true } else { false }
   }
 
   /// A text a fold can end in, and how far it's set in from the column's edges: a paragraph, a boxed one, a list's lines.
@@ -115,7 +121,12 @@ struct V2Section: View {
       }
       VStack(alignment: .leading, spacing: Self.gap) {
         ForEach(0..<whole, id: \.self) { j in
-          V2Piece(piece: pieces[j], open: link, full: full)
+          // Folded, a tap on its words opens it, as on the App Store's; not on a photo or a table, which have their own.
+          if fold != .none, Self.isText(pieces[j]) {
+            V2Piece(piece: pieces[j], open: link, full: full).contentShape(.rect).simultaneousGesture(TapGesture().onEnded { unfold() })
+          } else {
+            V2Piece(piece: pieces[j], open: link, full: full)
+          }
         }
         switch fold {
         case let .cut(n, chars, lines):
@@ -131,9 +142,6 @@ struct V2Section: View {
           EmptyView()
         }
       }
-      // Folded, a tap anywhere on it opens it, as on the App Store's; a link in it still goes where it goes.
-      .contentShape(.rect)
-      .simultaneousGesture(TapGesture().onEnded { unfold() }, including: fold == .none ? .subviews : .all)
     }
     .frame(maxWidth: .infinity, alignment: .leading)
     .padding(.horizontal, 20)
@@ -156,15 +164,16 @@ struct V2Section: View {
   }
 }
 
-/// The text a fold ends in, as the App Store's description ends: its first `lines` lines, the last running to the column's
-/// edge and cut wherever it ends, mid-word too, with no "…"; on that line its words fade out over 1.75 em, ending half an
-/// em before "thêm", which stands on the line's baseline at the column's right edge in the text's own size and weight. The
-/// fade is the words' own, so they fade into whatever is behind them. Measured off the owner's capture of the App Store
+/// The text a fold ends in, as the App Store's description ends: its first `lines` lines (nil: all of it), the last running
+/// to the column's edge and cut wherever it ends, mid-word too, with no "…"; on that line its words fade out over 1.75 em,
+/// ending half an em before "thêm", which stands on the line's baseline at the column's right edge in the text's own size
+/// and weight. The fade is the words' own, so they fade into whatever is behind them. A tap on it, as on "thêm", opens the
+/// part, as the App Store's does; a link in it still goes where it goes. Measured off the owner's capture of the App Store
 /// (11 Nov), at the body's size and so in em at any size.
 @available(iOS 18, *)
 private struct FoldedText: View {
   let piece: NativePage.Piece
-  let lines: Int
+  let lines: Int?
   /// A boxed text: its words, and so its fade and "thêm", sit inside the box's 14 points, the box drawn here.
   let boxed: Bool
   let link: (URL) -> Void
@@ -176,8 +185,9 @@ private struct FoldedText: View {
     let f = UIFont.preferredFont(forTextStyle: .body, compatibleWith: UITraitCollection(preferredContentSizeCategory: UIContentSizeCategory(size)))
     let em = f.pointSize
     let link = ceil((String(localized: "thêm") as NSString).size(withAttributes: [.font: f]).width)
+    let line = f.lineHeight
     // Its lines and the 3 points v2 puts between them (`V2Piece`).
-    let height = CGFloat(lines) * f.lineHeight + CGFloat(max(lines - 1, 0)) * 3
+    let height = lines.map { CGFloat($0) * line + CGFloat(max($0 - 1, 0)) * 3 }
     V2Piece(piece: piece, open: self.link, full: full)
       .fixedSize(horizontal: false, vertical: true)
       .frame(height: height, alignment: .top)
@@ -190,7 +200,7 @@ private struct FoldedText: View {
             LinearGradient(colors: [.black, .clear], startPoint: .leading, endPoint: .trailing).frame(width: (em * 1.75).rounded())
             Color.clear.frame(width: (em * 0.5).rounded() + link)
           }
-          .frame(height: f.lineHeight)
+          .frame(height: line)
         }
       }
       .overlay(alignment: .bottomTrailing) {
@@ -203,6 +213,8 @@ private struct FoldedText: View {
         .padding(.vertical, -11).padding(.leading, -12)
         .accessibilityIdentifier("v2-more")
       }
+      .contentShape(.rect)
+      .simultaneousGesture(TapGesture().onEnded { more() })
       .padding(boxed ? 14 : 0)
       .background(boxed ? AnyShapeStyle(.fill.quaternary) : AnyShapeStyle(Color.clear), in: .rect(cornerRadius: 12))
       // Its place in the part, for the checks: the lines shown, not the text cut a line further.

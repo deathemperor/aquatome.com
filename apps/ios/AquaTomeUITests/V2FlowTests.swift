@@ -536,6 +536,15 @@ final class V2FlowTests: XCTestCase {
       let end = ink(shot, app, CGRect(x: word - em * 1.75, y: line.minY, width: em * 1.75, height: line.height))
       XCTAssertGreaterThan(start, 0.01, "no words at the last line's start, \(look)")
       XCTAssertLessThan(end, start * 0.3, "the words don't fade out before thêm, \(look): \(end) against \(start)")
+      // The line runs on to where the fade starts (1.75 em and half an em before the word), not ending short of it.
+      let edge = ink(shot, app, CGRect(x: word - em * 4.25, y: line.minY, width: em * 2, height: line.height))
+      XCTAssertGreaterThan(edge, start * 0.3, "the last line stops short of the fade, \(look): \(edge) against \(start)")
+      if !dark {
+        // A tap on its words, away from "thêm", opens it, as the App Store's does.
+        let before = folds(app).count
+        folded.coordinate(withNormalizedOffset: CGVector(dx: 0.25, dy: 0.3)).tap()
+        XCTAssertLessThan(folds(app).count, before, "a tap on the folded words didn't open the part")
+      }
       app.terminate()
     }
   }
