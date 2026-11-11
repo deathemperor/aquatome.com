@@ -76,7 +76,7 @@ final class PhotoViewerFlowTests: XCTestCase {
     XCTAssertTrue(eighth.waitForExistence(timeout: 5), "no photo 8 in the strip")
     eighth.tap()
     XCTAssertTrue(counter(app, "8/28").waitForExistence(timeout: 5), "not on photo 8")
-    // Photo 11: in the strip now, and not in the page's row (its first ten), so its thumbnail in memory is the strip's.
+    // Photo 11: in the strip now, and not in the page's row (its first six), so its thumbnail in memory is the strip's.
     let eleventh = app.buttons["Ảnh 11 trên 28"]
     XCTAssertTrue(eleventh.waitForExistence(timeout: 5), "no photo 11 in the strip")
     settle(1)
@@ -86,6 +86,16 @@ final class PhotoViewerFlowTests: XCTestCase {
     // A stand-in thumbnail is 600 pixels across.
     let pixels = app.descendants(matching: .any)["picture-pixels"]
     XCTAssertTrue(wait(pixels, label: "600", timeout: 5), "its thumbnail is shown \(pixels.label) pixels across, not 600")
+  }
+
+  /// A page's row of photos stops at six, then its button to all 28 (PhotoRow): seven columns, as Khám phá's shelves. The
+  /// gallery's strip names ten.
+  func testAPagesPhotoRowShowsSixThenItsButton() {
+    let app = launch("-large-gallery")
+    let sixth = rowPhoto(app, "Ảnh thử 6")
+    XCTAssertTrue(sixth.exists, "no sixth photo in the row")
+    XCTAssertFalse(app.buttons["Ảnh thử 7"].exists, "a seventh photo in the row")
+    XCTAssertTrue(app.buttons["gallery-all"].exists, "no button to all the photos")
   }
 
   /// A full photo that didn't come (no stand-ins: `-fixed-handbook` alone) is fetched again by "Thử lại".

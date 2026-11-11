@@ -534,7 +534,7 @@ struct SpeciesPage: View {
     var shown = Set<String>()
     for case let .gallery(_, _, list, strip, _) in doc?.blocks ?? [] { shown.formUnion(strip.map { list[$0].src }) }
     let row = all.filter { shown.contains($0.p.src) }
-    return row.isEmpty ? all : row
+    return Array((row.isEmpty ? all : row).prefix(PhotoRow.shown))
   }
 
   /// The page's other photos as a carousel, each opening full screen.
