@@ -557,8 +557,15 @@ The layers above still check the result.
     words say it is no photo of it alive (`unfitCommons` and `ARTWORK` in `packages/engine/src/photos.ts`): a Commons
     file's title and categories naming art (a drawing, illustration, engraving, plate, print, stamp, "1865 in art", a
     book scan), a map or X-ray, a preserved or taxidermied specimen, food or a fish market, or its description saying it
-    is misidentified; a source article's caption naming a drawing, plate or stamp ("Liobagrus kingi: line drawing"). The
-    Commons fallback for a page with no photo (`findPhotos`) also skips rejected photos. Each word counts only where it
+    is misidentified; a source article's caption naming a drawing, plate or stamp ("Liobagrus kingi: line drawing"). A
+    paper's plate is none either (`paperPlate`): microscope pictures, or a description that lists its panels by letter
+    or number ("(a–c) …", "(A) … (B) …", "(8) holotype … (9) …"). The owner found one on 2026-11-11 as the only photo
+    of Hemichromis elongatus, a parasite paper's plate: the search for a fish's name finds the papers on its parasites,
+    bones and eggs. 25 such plates were on 16 pages, each never judged by the photo check. The Commons fallback for a
+    page with no photo (`findPhotos`) also skips rejected photos, and any file named as a paper's figure
+    (`paperFigure`): its photo goes on a page with no look at it, and some figures are one plain photo of the fish, which
+    the words can't tell from a plate, so a figure reaches a page only through a gallery, where the screen and the photo
+    check look first. Each word counts only where it
     means that: "specimens" in a category is a botanical garden's live plants, "Fishing in India" files a gourami in a
     tank, "museum" a public aquarium, and a description's "illustration for a quiz", "30 mm SL" or "sold in markets"
     are about live fish (the first sweep's false hits, looked at by eye). A guide's pictures aren't screened this way:
@@ -828,8 +835,12 @@ The layers above still check the result.
       dropped, its paragraph too when it is all there is (owner, 2026-11-05). A sentence that only has the words ("Chỉ
       bắt cá với sự cho phép của cơ quan quản lý.") stays. No audit rule holds it at zero yet: the sweep alone
     - a photo whose caption names another species the site has a page for, with nothing saying the fish is still the
-      page's ("in a batch of", "here with", "known as"), or that is a map: off its page. A map leaves every page
-      (`engine-state/_photo-rejected.json`); a photo of another fish only that page, so it may still join its own fish's
+      page's ("in a batch of", "here with", "known as"), or that is a map, or a Wikimedia Commons photo whose file name
+      or description says it is no photo of the living fish (a paper's plate, a microscope picture, a drawing, a dish:
+      the screen a new photo passes, `unfitCommons`, run again on every page): off its page. A map or a plate leaves
+      every page (`engine-state/_photo-rejected.json`), at most 10 a run (`PHOTO_CAP`): nobody looks first, so a run
+      that finds more takes none off and lists them, this check keeps failing, and a person looks before running
+      `pnpm engine sweep --photo-cap <N>` (the chief of staff, 2026-11-11). A photo of another fish leaves only that page, so it may still join its own fish's
       (taken off again if a later run brings it back). A Latin name no page has is listed for a person ("may name
       another fish"), not removed.
     - a card figure out of bounds, upside down, or a minimum tank shorter than twice the fish: hidden from the card

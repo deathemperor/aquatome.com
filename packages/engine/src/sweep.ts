@@ -4,7 +4,7 @@ import { loadAll, mayPublish, QUALITY_THRESHOLD, resolveDataCard, shownCard, tan
 import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, tidyNames, type BreedName, type NameOff } from './alt-names'
 import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
 import { LlmError, type Llm } from './claude'
-import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, fixTranslation, isAdPoster, isMap, NAMED_KINDS, renameStored, renameSwapped, renameSwappedIn, renumberLabels, sfScoreFixed, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
+import { cardSlips, countMismatch, ctxOf, cutFurniture, dropEmptyHeadings, dropPermissionNotes, dropRepeats, fixTranslation, isAdPoster, notAlive, isMap, NAMED_KINDS, renameStored, renameSwapped, renameSwappedIn, renumberLabels, sfScoreFixed, stripCount, SWEPT_KINDS, wrongFish } from './content-rules'
 import { loadPages, sectionFields } from './pages'
 import { sweepPlaceNames } from './place-names'
 import { sfDifficulty } from './process'
@@ -27,8 +27,9 @@ import { readVideoRejected } from './videos'
  * - empty headings and blocks: dropped; a repeated paragraph: the later copy dropped; labels out of order: renumbered
  * - a sentence that only says the text is translated, adapted or used with permission (the source's note under an
  *   article it reprints): dropped, its paragraph too when it is all there is (dropPermissionNotes)
- * - a photo whose caption names another fish the site has, or is a map: off that page (its file and its gallery). A map
- *   leaves every page (engine-state/_photo-rejected.json); a photo of another fish may still join that fish's page, so
+ * - a photo whose caption names another fish the site has, or is a map, or a Wikimedia Commons photo whose own words say
+ *   it is a paper's plate, a microscope picture, a drawing or a dish: off that page (its file and its gallery). A map or
+ *   a plate leaves every page (engine-state/_photo-rejected.json); a photo of another fish may still join that fish's page, so
  *   it is taken off again whenever a later run brings it back here
  * - a guide's photo that is its source's "read next" card (an unplaced photo at the source's card width): off the guide, and
  *   onto engine-state/_photo-rejected.json so a re-read can't bring it back
@@ -78,6 +79,8 @@ export type SweepReport = {
   text: Record<string, string[]>
   photos: string[]
   rejected: number
+  /** Photos the caption rule would have taken off every page, left where they are: more than the cap in one run (`photoCap`), `url (why)`. */
+  held: string[]
   /** Rejected videos (engine-state/_video-rejected.json) taken off a page, `kind/id: youtubeId (why)`. */
   videos: string[]
   card: string[]
@@ -171,9 +174,18 @@ async function sfWord(root: string, card: Partial<Record<DataCardField, Value[]>
   return [`difficulty ${was} → ${d ?? 'none'} (Seriously Fish's word)`]
 }
 
-export async function sweep(root: string, o: { llm?: Llm; titles?: number; model?: string } = {}): Promise<SweepReport> {
+/**
+ * The photos a run takes off every page for good by its caption rule (a map, a paper's plate, an ad's poster), at most:
+ * nobody looks at them first, and a word that starts to match more than it should would empty pages for good. A run
+ * that finds more takes none off and lists them (`held`), the content rules' check keeps finding them, so the cycle's
+ * suite holds what it wrote until a person has looked and run `pnpm engine sweep --photo-cap <N>` (the chief of staff,
+ * 2026-11-11). The first run of the paper's-plate rule found 28, each looked at on a contact sheet before it ran.
+ */
+export const PHOTO_CAP = 10
+
+export async function sweep(root: string, o: { llm?: Llm; titles?: number; model?: string; photoCap?: number } = {}): Promise<SweepReport> {
   const content = join(root, 'content')
-  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, videos: [], card: [], summaries: [], tanks: [], shop: [], varieties: [], titles: [], names: [], mentions: [], links: [], unmatched: [], stopped: '' }
+  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, held: [], videos: [], card: [], summaries: [], tanks: [], shop: [], varieties: [], titles: [], names: [], mentions: [], links: [], unmatched: [], stopped: '' }
   const changed = (f: string) => { if (!report.files.includes(f)) report.files.push(f) }
   const guides: { key: string; before: string; after: string }[] = []
   const counted: { file: string; raw: string; t: Stored; kind: string; lang: WrittenLang; id: string }[] = [] // raw: for its indentation
@@ -345,9 +357,17 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
   const maps = new Map<string, string>() // url → why
   for (const p of pages) for (const c of p.captions) {
     const other = wrongFish(c.caption, p.sci!, p.latinNames, ctx)
-    const why = other ? `caption names ${other}, not ${p.sci}` : isMap(c.caption) ? `a map, not ${p.sci}` : isAdPoster(c.caption) ? `an ad video's poster, not ${p.sci}` : ''
+    // A plate's words name every fish on it, the page's among others: it is no photo of any of them.
+    const unfit = notAlive(c)
+    const why = unfit ? `${unfit}, not ${p.sci}` : other ? `caption names ${other}, not ${p.sci}` : isMap(c.caption) ? `a map, not ${p.sci}` : isAdPoster(c.caption) ? `an ad video's poster, not ${p.sci}` : ''
     if (why) off.set(`${p.kind}/${p.id}`, (off.get(`${p.kind}/${p.id}`) ?? new Map()).set(c.url, why))
-    if (!other && why) maps.set(c.url, `${why} (${p.kind}/${p.id})`)
+    if ((unfit || !other) && why) maps.set(c.url, `${why} (${p.kind}/${p.id})`)
+  }
+  if (maps.size > (o.photoCap ?? PHOTO_CAP)) {
+    // Too many to take off for good with nobody looking: they stay where they are, and a person is told (PHOTO_CAP).
+    report.held = [...maps].map(([url, why]) => `${url} (${why})`)
+    for (const drop of off.values()) for (const url of maps.keys()) drop.delete(url)
+    maps.clear()
   }
   for (const [page, drop] of off) {
     const [kind, id] = page.split('/') as [string, string]
@@ -383,7 +403,7 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
     await write(file, raw, { ...e, photos: photos.slice(0, end) })
     changed(`guides/${id}/entity.json`)
   }
-  // A map or an ad's poster is no fish's photo: off every page, and never picked again.
+  // A map, a paper's plate or an ad's poster is no fish's photo: off every page, and never picked again.
   if (maps.size) {
     const rejectedFile = join(root, 'engine-state', '_photo-rejected.json')
     const rejected = JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')) as Record<string, string>

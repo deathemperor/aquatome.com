@@ -124,6 +124,24 @@ test('a map shown as a photo of the fish, in a caption', () => {
   expect(found(p, 'caption')).toEqual(['a map, not the fish: "Pterophyllum scalare map"', 'a map, not the fish: "Bản đồ phân bố"'])
 })
 
+// The owner's report, 2026-11-11: the only photo of Hemichromis elongatus was a parasite paper's plate from Wikimedia
+// Commons. A Commons photo's own words (its file's name, and the start of its description as its caption) say so.
+test("a paper's plate, a drawing or a dish from Wikimedia Commons shown as a photo of the fish, by the file's own words", () => {
+  const p = page({ kind: 'species', sci: 'Hemichromis elongatus', captions: [
+    { url: 'a', file: 'File:Parasite180080-Figure4 Compound micrographs of Cychlidogyrus spp. (Monogenea, Dactylogyridae).png', caption: 'Figure 4 of paper Compound micrographs of (a–c) Cichlidogyrus bixlerzavalai n. sp.' },
+    { url: 'b', file: 'File:Aquatic Biodiversity in the Amazon (1020205-f7).png', caption: 'Examples of species collected only in the Alto Purús.(A) Cichlasoma boliviense, 79 mm.(B) Dianema longibarbis, 73 mm.' },
+    { url: 'c', file: 'File:EB9 - Angling - Fig 27.png', caption: 'Fig. 27.—The Tench.' },
+    // One plain photo named as a figure stays, and so does a photo from anywhere else, whatever its caption says.
+    { url: 'd', file: 'File:Clarias leiacanthus (10.3897-BDJ.11.e100337) Figure 20.jpg', caption: 'Figure 20 Clarias leiacanthus.' },
+    { url: 'e', caption: 'Figure 2; (a) male (b) female' },
+  ] })
+  expect(found(p, 'caption')).toEqual([
+    'not a photo: micrographs, not the fish: "Figure 4 of paper Compound micrographs of (a–c) Cichlidogyrus bixlerzavalai n.…"',
+    'not a photo: a paper\'s plate, (a), (b), not the fish: "Examples of species collected only in the Alto Purús.(A) Cichlasoma boliviense,…"',
+    'drawing: EB9, not the fish: "Fig. 27.—The Tench."',
+  ])
+})
+
 // Live on two Seriously Fish species pages (2026-11-03): an ad player's poster taken from inside the source's article.
 test("an ad video's poster shown as a photo of the fish, in a caption", () => {
   const p = page({ kind: 'species', sci: 'Nannocharax brevis', captions: [{ url: 'a', caption: 'video of: African Chop' }, { url: 'b', caption: 'A video of the species spawning was filmed in 2019.' }] })
