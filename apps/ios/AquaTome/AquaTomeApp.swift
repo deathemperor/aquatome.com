@@ -150,6 +150,8 @@ struct AquaTomeApp: App {
         guard phase == .active else { return }
         chat.inFront(true)
         Task { await account.refresh() }
+        // The index again if this run's is old (HandbookModel.staleAfter): what's new and the day's card come with it.
+        Task { await handbook.cameToFront() }
         // Whether the chat is on: its entries show only then.
         Task { await chat.refresh(account: account, site: handbook.site) }
       }
