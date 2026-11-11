@@ -276,9 +276,10 @@ test('a public build shows no photo the watermark screen still owes a look: it w
   record['https://media.test/commons/never-read.webp'] = { ocr: [] }
   await write()
   expect(await shown(true)).toEqual({ own, album: ['commons/album-text', 'commons/album-no-text'] })
-  // What the build holds back is listed for what names a picture by address alone (the calendar); nothing, once judged.
-  const waiting = async () => ((await loadAll({ root: store, lang: 'vi', publicBuild: true })).waitingPhotos ?? []).filter(u => u.startsWith('https://media.test/'))
-  expect(await waiting()).toEqual([])
+  // The calendar names a picture by address alone, so the build answers for an address, a thumb's and a larger copy's
+  // too: nothing waits once judged.
+  const held = async (...names: string[]) => { const c = await loadAll({ root: store, lang: 'vi', publicBuild: true }); return names.filter(n => c.photoWaits!(`https://media.test/${n}.webp`)) }
+  expect(await held(...own, ...own.map(n => `${n}-480`), ...own.map(n => `${n}-large`))).toEqual([])
 
   // A video guide's section photos and stills, and an equipment guide's head picture, wait the same way.
   const waits = photo('commons/section-text'), clear = photo('commons/section-no-text')
@@ -304,7 +305,28 @@ test('a public build shows no photo the watermark screen still owes a look: it w
   expect(figures.map(f => [f.photo?.url, f.moments.map(m => m.url)])).toEqual([[undefined, ['https://media.test/stills/no-text.webp']], [clear.url, []]])
   // A type's photo stands in for a head that waits; with none to stand in, the guide waits too.
   expect(c.equipment.map(e => [e.category, e.hero.url])).toEqual([['loc', clear.url]])
-  expect(await waiting()).toEqual([waits.url, 'https://media.test/stills/text.webp'].sort())
+  expect(await held('commons/section-text', 'commons/section-text-large', 'commons/section-text-480', 'stills/text', 'commons/section-no-text', 'stills/no-text'))
+    .toEqual(['commons/section-text', 'commons/section-text-large', 'commons/section-text-480', 'stills/text'])
+  // A picture this build did not load (on a page this language lacks, or one the gate holds) is asked of the record:
+  // one it owes a look waits, one it judged clean shows, and one it does not know waits.
+  const elsewhere = 'https://media.test/commons/elsewhere-text.webp', clean = 'https://media.test/commons/elsewhere-clean.webp'
+  Object.assign(record, { [elsewhere]: { ocr: text }, [clean]: { ocr: text, watermark: false, kind: 'none', what: '' } })
+  await write()
+  const asked = ['commons/elsewhere-text', 'commons/elsewhere-text-large', 'commons/elsewhere-clean', 'commons/elsewhere-clean-large', 'commons/elsewhere-clean-480', 'commons/unknown']
+  expect(await held(...asked)).toEqual(['commons/elsewhere-text', 'commons/elsewhere-text-large', 'commons/unknown'])
+  // A build with no screen answers for none.
+  expect((await loadAll({ root: store, lang: 'vi', publicBuild: false })).photoWaits).toBeUndefined()
+  // The record is read again when it changes with its modified time put back: at another size, then at the same size.
+  const { stat } = await import('node:fs/promises')
+  const rewrite = async () => { const at = await stat(recordFile); await writeFile(recordFile, JSON.stringify(record)); await utimes(recordFile, at.atime, at.mtime); return at }
+  record['https://media.test/commons/unknown.webp'] = { ocr: [] }
+  const grown = await rewrite()
+  expect((await stat(recordFile)).mtimeMs).toBe(grown.mtimeMs)
+  expect(await held(...asked)).toEqual(['commons/elsewhere-text', 'commons/elsewhere-text-large'])
+  ;[record[elsewhere], record[clean]] = [record[clean], record[elsewhere]]
+  const same = await rewrite()
+  expect([(await stat(recordFile)).mtimeMs, (await stat(recordFile)).size]).toEqual([same.mtimeMs, same.size])
+  expect(await held(...asked)).toEqual(['commons/elsewhere-clean', 'commons/elsewhere-clean-large', 'commons/elsewhere-clean-480'])
 
   // A build of the real content stops without the record: a missing one must not show every photo unscreened.
   await rm(recordFile)

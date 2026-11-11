@@ -4,7 +4,7 @@ import { dirname, join } from 'node:path'
 import type { z } from 'zod'
 import { shownCard } from './card-facts'
 import { cardShownIn, CardSchema, CardTextSchema, type Card } from './cards'
-import { setsCookies } from './thumb'
+import { setsCookies, THUMB_WIDTH } from './thumb'
 import { awaitsScreen, type PhotoScreenEntry } from './photo-screen'
 import { ownerCropApproved, ownerCropCanonical } from './owner-crops'
 import { generatedApproved, isOwnerCrop, IMAGE_SWITCHES, MARK_RESIDUE_LIMIT, MARK_RESIDUE_VERSION, realPhotosFirst, validImageJudgmentHashes, type ImageSwitches } from './image-policy'
@@ -35,6 +35,8 @@ export type LoadOptions = {
 }
 export type Localized<E> = E & { t: Translation }
 export type Content = {
+  /** The language this content was loaded in. A content put together by hand (a test's) may have none: read as Vietnamese. */
+  lang?: Lang
   species: Localized<SpeciesEntity>[]
   plants: Localized<PlantEntity>[]
   guides: Localized<GuideEntity>[]
@@ -61,10 +63,12 @@ export type Content = {
   /** The day each content file last changed for a reader (content/page-dates.json): the sitemap's dates. */
   pageDates: Record<string, string>
   /**
-   * Pictures this build holds back until the watermark screen has judged them (photo-screen.ts), by address, each with its
-   * thumb and larger copy: what names a picture by address alone (the calendar's days) leaves these out too.
+   * Whether this build holds a picture back until the watermark screen has judged it (photo-screen.ts), asked by any of
+   * the picture's addresses: its own, its thumb's or its larger copy's. For what names a picture by address alone (the
+   * calendar). It asks the screen's record, not only what this language's build loaded, so a picture on a page this
+   * build leaves out is answered too, and one the record doesn't know waits. None where the build has no screen.
    */
-  waitingPhotos?: string[]
+  photoWaits?: (address: string) => boolean
   /** The app's short cards (content/cards, cards.ts) in this language, those the gate holds back left out. No page of their own. */
   cards: Card[]
 }
@@ -119,13 +123,14 @@ async function loadKind<S extends z.ZodType>(root: string, dir: string, schema: 
 export const PHOTO_SCREEN_FILE = '_photo-watermarks.json'
 const screens = new Map<string, { at: string; record: Promise<Record<string, PhotoScreenEntry>> }>()
 /**
- * The record beside this content root, read once per change of the file (its modified time and size). None where the root has none beside it (a
+ * The record beside this content root, read once per change of the file (a write, a replacement, a change of size or
+ * of either of its times). None where the root has none beside it (a
  * fixture, a test's store), unless it is `required`: a missing record must not show the real content's every photo
  * unscreened.
  */
 async function photoScreenOf(root: string, required: boolean): Promise<Record<string, PhotoScreenEntry> | undefined> {
   const file = join(dirname(root), 'engine-state', PHOTO_SCREEN_FILE)
-  const at = await stat(file).then(s => `${s.mtimeMs} ${s.size}`, () => undefined)
+  const at = await stat(file).then(s => `${s.ino} ${s.ctimeMs} ${s.mtimeMs} ${s.size}`, () => undefined)
   if (at === undefined) {
     if (required) throw new Error(`${file}: the watermark screen's record is missing, so no photo can be shown as screened`)
     return undefined
@@ -159,13 +164,23 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   const screen = !publicBuild || opts.photoScreen === false ? undefined
     : typeof opts.photoScreen === 'object' ? opts.photoScreen : await photoScreenOf(root, opts.photoScreen === 'required')
   // Every picture a build takes from content asks this: a page's, an album's, a guide's and its video sections', a
-  // card's, an equipment guide's. What it holds back is listed (`waitingPhotos`), each with its thumb and larger copy,
-  // for what names a picture by address alone (the calendar).
-  const waiting = new Set<string>()
+  // card's, an equipment guide's. Each one's addresses (its own, its thumb's, its larger copy's) are kept by the answer,
+  // for what names a picture by address alone (the calendar: `photoWaits`).
+  const shown = new Set<string>(), waiting = new Set<string>()
   const screened = (p: { url: string; thumb?: string; large?: { url: string } }): boolean => {
-    if (!screen || !awaitsScreen(p.url, screen[p.url])) return true
-    for (const u of [p.url, p.thumb, p.large?.url]) if (u) waiting.add(u)
-    return false
+    if (!screen) return true
+    const waits = awaitsScreen(p.url, screen[p.url])
+    for (const u of [p.url, p.thumb, p.large?.url]) if (u) (waits ? waiting : shown).add(u)
+    return !waits
+  }
+  // An address this build did not load (a picture on a page this language lacks, or one the gate holds) is asked of the
+  // record by its photo's own address: in our store a thumb's and a larger copy's are the photo's with "-480" or
+  // "-large" before ".webp" (thumb.ts, the engine's large-photos.ts). One the record doesn't know waits.
+  const photoWaits = (address: string): boolean => {
+    if (shown.has(address)) return false
+    if (waiting.has(address)) return true
+    const photo = address.replace(new RegExp(`-(?:${THUMB_WIDTH}|large)\\.webp$`), '.webp')
+    return awaitsScreen(photo, screen![photo])
   }
   const cleanSections = (xs: Section[]) => xs.filter(s => allowed(s.source))
   // Captions written in Vietnamese (galleries, breed photos) are shown in this language from content/captions/<lang>.json;
@@ -331,8 +346,8 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
 
   const allPlaces = await loadKind(root, 'places', PlaceSchema, lang)
   return {
-    species, plants, guides, changelog, equipment, series, galleries, products, breeds, cards,
-    ...(waiting.size ? { waitingPhotos: [...waiting].sort() } : {}),
+    lang, species, plants, guides, changelog, equipment, series, galleries, products, breeds, cards,
+    ...(screen ? { photoWaits } : {}),
     glossary: await loadKind(root, 'glossary', GlossarySchema, lang),
     // Another language's species pages are still being made: it has the places one of its fish comes from, so no origin
     // page is empty and no link points at one it lacks. Vietnamese has every place.
