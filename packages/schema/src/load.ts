@@ -8,7 +8,7 @@ import { setsCookies, THUMB_WIDTH } from './thumb'
 import { awaitsScreen, type PhotoScreenEntry } from './photo-screen'
 import { ownerCropApproved, ownerCropCanonical } from './owner-crops'
 import { generatedApproved, isOwnerCrop, IMAGE_SWITCHES, MARK_RESIDUE_LIMIT, MARK_RESIDUE_VERSION, realPhotosFirst, validImageJudgmentHashes, type ImageSwitches } from './image-policy'
-import { markOutsideCrop, photoFitsCard, photoFitsHead, photoFitsWholeHead, validCropGeometry } from './image-geometry'
+import { markOutsideCrop, photoFitsCard, photoFitsHead, photoFitsWholeHead, SUBJECT_FRAMES, subjectPixels, validCropGeometry, type SubjectFractions } from './image-geometry'
 import { judgeQuality, speciesDepth } from './depth'
 import { isAllowedLicence } from './licence'
 import { isVietnamese, markVietnameseNames } from './text'
@@ -32,6 +32,8 @@ export type LoadOptions = {
    * stops without it. A record given here stands in for it; `false`: none, every photo shows.
    */
   photoScreen?: Record<string, PhotoScreenEntry> | 'required' | false
+  /** Whether photos get their box from the engine's record (`subject`): by default SUBJECT_FRAMES (image-geometry.ts). */
+  subjectFrames?: boolean
 }
 export type Localized<E> = E & { t: Translation }
 export type Content = {
@@ -121,24 +123,28 @@ async function loadKind<S extends z.ZodType>(root: string, dir: string, schema: 
 
 /** The watermark screen's record, in the engine's state beside the content root. */
 export const PHOTO_SCREEN_FILE = '_photo-watermarks.json'
-const screens = new Map<string, { at: string; record: Promise<Record<string, PhotoScreenEntry>> }>()
+/** The engine's box of where the fish is in each photo, by address (null: no animal found), beside the content root. */
+export const PHOTO_BOXES_FILE = '_photo-boxes.json'
+const records = new Map<string, { at: string; record: Promise<unknown> }>()
 /**
- * The record beside this content root, read once per change of the file (a write, a replacement, a change of size or
- * of either of its times). None where the root has none beside it (a
- * fixture, a test's store), unless it is `required`: a missing record must not show the real content's every photo
- * unscreened.
+ * An engine record beside this content root (engine-state/<name>), read once per change of the file (a write, a
+ * replacement, a change of size or of either of its times). None where the root has none beside it (a fixture, a test's
+ * store).
  */
-async function photoScreenOf(root: string, required: boolean): Promise<Record<string, PhotoScreenEntry> | undefined> {
-  const file = join(dirname(root), 'engine-state', PHOTO_SCREEN_FILE)
+async function stateRecord<T>(root: string, name: string): Promise<T | undefined> {
+  const file = join(dirname(root), 'engine-state', name)
   const at = await stat(file).then(s => `${s.ino} ${s.ctimeMs} ${s.mtimeMs} ${s.size}`, () => undefined)
-  if (at === undefined) {
-    if (required) throw new Error(`${file}: the watermark screen's record is missing, so no photo can be shown as screened`)
-    return undefined
-  }
-  const had = screens.get(file)
-  if (had?.at === at) return had.record
-  const record = readFile(file, 'utf8').then(s => JSON.parse(s) as Record<string, PhotoScreenEntry>)
-  screens.set(file, { at, record })
+  if (at === undefined) return undefined
+  const had = records.get(file)
+  if (had?.at === at) return had.record as Promise<T>
+  const record = readFile(file, 'utf8').then(s => JSON.parse(s) as T)
+  records.set(file, { at, record })
+  return record
+}
+/** The watermark screen's record, unless it is `required`: a missing record must not show the real content's every photo unscreened. */
+async function photoScreenOf(root: string, required: boolean): Promise<Record<string, PhotoScreenEntry> | undefined> {
+  const record = await stateRecord<Record<string, PhotoScreenEntry>>(root, PHOTO_SCREEN_FILE)
+  if (!record && required) throw new Error(`${join(dirname(root), 'engine-state', PHOTO_SCREEN_FILE)}: the watermark screen's record is missing, so no photo can be shown as screened`)
   return record
 }
 
@@ -187,6 +193,14 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   // one not translated yet is left off, so the photo's alt text falls back to the page's name.
   const captionsFile = join(root, 'captions', `${lang}.json`)
   const captions = lang !== 'vi' && (await exists(captionsFile)) ? await readJson(captionsFile, CaptionsSchema) : {}
+  // Where the fish is in each photo, from the engine's record alone and behind its switch (SUBJECT_FRAMES): with it off
+  // no photo has a box. A photo the record doesn't know, or where it found no animal, has none.
+  const boxes = (opts.subjectFrames ?? SUBJECT_FRAMES) ? await stateRecord<Record<string, SubjectFractions | null>>(root, PHOTO_BOXES_FILE) : undefined
+  const boxed = <P extends Photo>(p: P): P => {
+    const { subject: _own, ...rest } = p
+    const f = boxes?.[p.url], subject = f && subjectPixels(f, p.width, p.height)
+    return subject ? { ...rest, subject } as P : _own ? rest as P : p
+  }
   const caption = <P extends Photo>(p: P): P => {
     if (lang === 'vi' || !p.caption || !isVietnamese(p.caption)) return p
     const { caption: vi, ...rest } = p
@@ -230,7 +244,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
       }
     }
     return p.source ? photoAllowed(p.source) : isAllowedLicence(p.licence)
-  }).map(caption))
+  }).map(p => caption(boxed(p))))
   /** The card's values from sources this build may show, without a tank length that is that source's tank volume (card-facts). */
   const cleanCard = (card: SpeciesEntity['dataCard'], sections: Section[]): SpeciesEntity['dataCard'] => shownCard(card, sections, s => allowed(s as SourceId))
 
@@ -265,7 +279,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
   const guides = (await loadKind(root, 'guides', GuideSchema, lang, leaveOutHeld))
     .filter(g => allowed(g.source))
     // A video's sections show a photo and stills of their own, and a section's photo can lead the guide or a card.
-    .map(g => ({ ...g, photos: cleanPhotos(g.photos), ...(g.video?.figures ? { video: { ...g.video, figures: g.video.figures.map(f => ({ ...f, moments: f.moments.filter(screened), ...(f.photo && !screened(f.photo) ? { photo: undefined } : {}) })) } } : {}) }))
+    .map(g => ({ ...g, photos: cleanPhotos(g.photos), ...(g.video?.figures ? { video: { ...g.video, figures: g.video.figures.map(f => ({ ...f, moments: f.moments.filter(screened), ...(f.photo ? { photo: screened(f.photo) ? boxed(f.photo) : undefined } : {}) })) } } : {}) }))
 
   const changelogPath = join(root, 'changelog.json')
   const changelog = (await exists(changelogPath) ? await readJson(changelogPath, ChangelogSchema) : []).filter(e => allowed(e.source))
@@ -278,9 +292,9 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     if (lang !== 'vi' && !(await exists(file))) continue
     const e = await readJson(file, EquipmentSchema)
     const ok = (p: Photo) => cleanPhotos([p]).length > 0
-    const types = e.types.map(t => (t.photo && !ok(t.photo) ? { ...t, photo: undefined } : t))
+    const types = e.types.map(t => (!t.photo ? t : { ...t, photo: ok(t.photo) ? boxed(t.photo) : undefined }))
     // Its head picture waits like any other: a type's photo stands in, and with none to stand in the guide waits too.
-    const hero = screened(e.hero) ? e.hero : types.find(t => t.photo)?.photo
+    const hero = screened(e.hero) ? boxed(e.hero) : types.find(t => t.photo)?.photo
     if (hero) equipment.push({ ...e, hero, types })
   }
 
