@@ -235,6 +235,54 @@ test('a public build shows no photo from a host that sets third-party cookies; a
   expect(await urls(false)).toContain('https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/A.jpg/960px-A.jpg')
 })
 
+test('a public build shows no photo the watermark screen still owes a look: it waits, and shows by itself once judged', async () => {
+  const { mkdir, rm, utimes } = await import('node:fs/promises')
+  const site = await mkdtemp(join(tmpdir(), 'aq-screen-'))
+  const store = join(site, 'content')
+  await cp(root, store, { recursive: true })
+  const photo = (name: string) => ({ url: `https://media.test/${name}.webp`, width: 960, height: 640, licence: 'CC BY 4.0', author: 'A', sourceUrl: `https://x/${name}` })
+  const file = join(store, 'species', 'alpha', 'entity.json')
+  const e = JSON.parse(await readFile(file, 'utf8'))
+  const own = ['commons/no-text', 'commons/text', 'commons/text-judged', 'scotcat/logo-source', 'commons/never-read']
+  e.photos = own.map(photo)
+  await writeFile(file, JSON.stringify(e))
+  await mkdir(join(store, 'gallery'))
+  await writeFile(join(store, 'gallery/alpha.json'), JSON.stringify({ id: 'alpha', seen: 2, updatedAt: '2026-11-11', photos: [photo('commons/album-text'), photo('commons/album-no-text')] }))
+  const text = [{ t: '© a credit', c: 0.9, at: 'bottom right' }]
+  const record: Record<string, unknown> = {
+    'https://media.test/commons/no-text.webp': { ocr: [] },
+    'https://media.test/commons/text.webp': { ocr: text },
+    'https://media.test/commons/text-judged.webp': { ocr: text, watermark: false, kind: 'none', what: '' },
+    'https://media.test/scotcat/logo-source.webp': { ocr: [] },
+    'https://media.test/commons/album-text.webp': { ocr: text },
+    'https://media.test/commons/album-no-text.webp': { ocr: [] },
+  }
+  const recordFile = join(site, 'engine-state', '_photo-watermarks.json')
+  await mkdir(join(site, 'engine-state'))
+  let written = 0
+  const write = async () => { await writeFile(recordFile, JSON.stringify(record)); written += 5; await utimes(recordFile, new Date(), new Date(Date.now() + written * 1000)) }
+  await write()
+  const shown = async (publicBuild: boolean) => {
+    const c = await loadAll({ root: store, lang: 'vi', publicBuild })
+    const short = (u: string) => u.replace('https://media.test/', '').replace('.webp', '')
+    return { own: c.species.find(s => s.id === 'alpha')!.photos.map(p => short(p.url)), album: (c.galleries.alpha ?? []).map(p => short(p.url)) }
+  }
+  // Text the model has not judged, a logo source's photo it has not judged, and a photo the reader never read all wait.
+  expect(await shown(true)).toEqual({ own: ['commons/no-text', 'commons/text-judged'], album: ['commons/album-no-text'] })
+  // The engine's own reads see every photo: the photo is still in content, waiting, not refused.
+  expect(await shown(false)).toEqual({ own, album: ['commons/album-text', 'commons/album-no-text'] })
+  // Judged clean, each shows by itself in the next build; the reader's read lets a photo with no text show.
+  for (const name of ['commons/text', 'scotcat/logo-source', 'commons/album-text']) record[`https://media.test/${name}.webp`] = { ocr: name.endsWith('text') ? text : [], watermark: false, kind: 'none', what: '' }
+  record['https://media.test/commons/never-read.webp'] = { ocr: [] }
+  await write()
+  expect(await shown(true)).toEqual({ own, album: ['commons/album-text', 'commons/album-no-text'] })
+  // A build of the real content stops without the record: a missing one must not show every photo unscreened.
+  await rm(recordFile)
+  await expect(loadAll({ root: store, lang: 'vi', publicBuild: true, photoScreen: 'required' })).rejects.toThrow(/watermark screen's record is missing/)
+  // A root with no record beside it (the fixture build, a test's store) has no screen.
+  expect((await shown(true)).own).toEqual(own)
+})
+
 test('a photos-only source shows its photos in a public build, and nothing written from its text', async () => {
   const { mkdir } = await import('node:fs/promises')
   const store = await mkdtemp(join(tmpdir(), 'store-'))

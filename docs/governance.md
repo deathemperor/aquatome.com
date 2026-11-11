@@ -528,7 +528,8 @@ The layers above still check the result.
 - **Photos.** No people, and hands count (PRODUCT.md: faces dropped by Apple Vision, and the model asks about any person
   or part of one wherever it looks), no watermarks (credits, dealer logos, site names or species names added on the
   photo: `pnpm engine watermarks`, macOS Vision reads the text and the model judges it; a marked photo is blocked for
-  good), no shop's or dealer's brand in a guide's photo (on its own-brand products too; a maker's brand on its own product is
+  good; a photo that screen still owes a look waits, and no public build shows it on a page, in an album, a guide or a
+  card until it is judged: on 2026-11-11 the model ran out of quota and 36 photos reached main with no look), no shop's or dealer's brand in a guide's photo (on its own-brand products too; a maker's brand on its own product is
   fine), no dead fish or fish as food (markets, plates, catches landed or held,
   preserved, mounted or museum specimens), each photo must show its species (a landscape where it can't be picked out
   doesn't), open licences or permission only.

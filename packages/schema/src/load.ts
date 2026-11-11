@@ -1,10 +1,11 @@
 import { createHash } from 'node:crypto'
-import { readdir, readFile } from 'node:fs/promises'
-import { join } from 'node:path'
+import { readdir, readFile, stat } from 'node:fs/promises'
+import { dirname, join } from 'node:path'
 import type { z } from 'zod'
 import { shownCard } from './card-facts'
 import { cardShownIn, CardSchema, CardTextSchema, type Card } from './cards'
 import { setsCookies } from './thumb'
+import { awaitsScreen, type PhotoScreenEntry } from './photo-screen'
 import { ownerCropApproved, ownerCropCanonical } from './owner-crops'
 import { generatedApproved, isOwnerCrop, IMAGE_SWITCHES, MARK_RESIDUE_LIMIT, MARK_RESIDUE_VERSION, realPhotosFirst, validImageJudgmentHashes, type ImageSwitches } from './image-policy'
 import { markOutsideCrop, photoFitsCard, photoFitsHead, validCropGeometry } from './image-geometry'
@@ -23,7 +24,15 @@ export const MARKET: Record<Lang, string> = { vi: 'vn', id: 'id', th: 'th', ms: 
  * `leaveOutHeld`: a page the reader-fit gate holds back in this language (its `held`) is no page here, as one without a
  * translation. The site's build sets it; the engine reads every page, to read the held ones again and let them out.
  */
-export type LoadOptions = { root: string; lang: Lang; publicBuild: boolean; leaveOutHeld?: boolean; imageSwitches?: Readonly<ImageSwitches> }
+export type LoadOptions = {
+  root: string; lang: Lang; publicBuild: boolean; leaveOutHeld?: boolean; imageSwitches?: Readonly<ImageSwitches>
+  /**
+   * The watermark screen's record, for a public build: by default the one in the engine's state beside the content root,
+   * where there is one (a fixture has none, and shows every photo). `'required'`: a build of the real content, which
+   * stops without it. A record given here stands in for it; `false`: none, every photo shows.
+   */
+  photoScreen?: Record<string, PhotoScreenEntry> | 'required' | false
+}
 export type Localized<E> = E & { t: Translation }
 export type Content = {
   species: Localized<SpeciesEntity>[]
@@ -101,6 +110,28 @@ async function loadKind<S extends z.ZodType>(root: string, dir: string, schema: 
   return out
 }
 
+/** The watermark screen's record, in the engine's state beside the content root. */
+export const PHOTO_SCREEN_FILE = '_photo-watermarks.json'
+const screens = new Map<string, { at: number; record: Promise<Record<string, PhotoScreenEntry>> }>()
+/**
+ * The record beside this content root, read once per change of the file. None where the root has none beside it (a
+ * fixture, a test's store), unless it is `required`: a missing record must not show the real content's every photo
+ * unscreened.
+ */
+async function photoScreenOf(root: string, required: boolean): Promise<Record<string, PhotoScreenEntry> | undefined> {
+  const file = join(dirname(root), 'engine-state', PHOTO_SCREEN_FILE)
+  const at = await stat(file).then(s => s.mtimeMs, () => undefined)
+  if (at === undefined) {
+    if (required) throw new Error(`${file}: the watermark screen's record is missing, so no photo can be shown as screened`)
+    return undefined
+  }
+  const had = screens.get(file)
+  if (had?.at === at) return had.record
+  const record = readFile(file, 'utf8').then(s => JSON.parse(s) as Record<string, PhotoScreenEntry>)
+  screens.set(file, { at, record })
+  return record
+}
+
 export async function loadAll(opts: LoadOptions): Promise<Content> {
   const { root, lang, publicBuild, leaveOutHeld = false } = opts
   const images = opts.imageSwitches ?? IMAGE_SWITCHES
@@ -118,6 +149,10 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     if (hash === approval.recordHash && e.photos.some(same) && gallery?.photos.some(same)) generatedUrls.add(url)
   }
   const photoAllowed = (s: SourceId) => !publicBuild || mayPublish(sources[s], 'photos')
+  // A public build shows no photo the watermark screen still owes a look (photo-screen.ts): it waits, on a page, in an
+  // album, a guide or a card, and shows by itself once judged. The engine's own reads see every photo.
+  const screen = !publicBuild || opts.photoScreen === false ? undefined
+    : typeof opts.photoScreen === 'object' ? opts.photoScreen : await photoScreenOf(root, opts.photoScreen === 'required')
   const cleanSections = (xs: Section[]) => xs.filter(s => allowed(s.source))
   // Captions written in Vietnamese (galleries, breed photos) are shown in this language from content/captions/<lang>.json;
   // one not translated yet is left off, so the photo's alt text falls back to the page's name.
@@ -151,6 +186,7 @@ export async function loadAll(opts: LoadOptions): Promise<Content> {
     return [p]
   }).filter(p => {
     if (publicBuild && setsCookies(p.url)) return false
+    if (screen && awaitsScreen(p.url, screen[p.url])) return false
     if (p.generated) return images.publishGenerated && generatedUrls.has(p.url) && generatedApproved(p) && !p.altered?.some(a => a.method === 'mark-removal' || a.method === 'mark-crop')
     if (p.altered?.length) {
       if (!images.publishAltered && !isOwnerCrop(p)) return false

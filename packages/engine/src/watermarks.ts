@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url'
 import { promisify } from 'node:util'
 import { LlmError } from './claude'
 import { contactSheet } from './video-images'
-import { IMAGE_SWITCHES } from '@aq/schema'
+import { IMAGE_SWITCHES, LOGO_FOLDERS, logoFolder, ocrHit } from '@aq/schema'
 import { rememberMarkedPhotos } from './marked-photos'
 
 /** A line of text macOS Vision read on a photo: confidence 0–1, box 0–1 from the top left. */
@@ -47,22 +47,9 @@ async function pool<T, R>(items: T[], n: number, f: (x: T) => Promise<R>): Promi
 
 const third = (v: number, lo: string, mid: string, hi: string) => (v < 1 / 3 ? lo : v > 2 / 3 ? hi : mid)
 const at = (l: TextLine) => `${third(l.y + l.h / 2, 'top', 'middle', 'bottom')} ${third(l.x + l.w / 2, 'left', 'centre', 'right')}`
-const MARK = /©|\(c\)|copyright|www\.|https?:|\.(com|net|org|de|co|vn|th|id|uk)\b/i
-
-/**
- * The intake rule: text on a photo worth a model's look. A credit sign or a web address always; otherwise a line Vision
- * is sure of with at least 3 letters or digits (fish scales and plant stems read as stray "I", "ll" or "W").
- */
-export function ocrHit(lines: { t: string; c: number }[]): boolean {
-  return lines.some(l => MARK.test(l.t) || (l.c >= 0.5 && (l.t.match(/[\p{L}\p{N}]/gu)?.length ?? 0) >= 3))
-}
-
-/**
- * R2 folders (sources) whose photos all go to the model, text read or not: the 2026-10-31 scan found marks on 15–96% of
- * their photos, some a logo with no letters or a signature too faint for Vision.
- */
-export const LOGO_FOLDERS = ['glaser', 'seriouslyfish', 'bwaquatics', 'scotcat', 'panitvong']
-const logoFolder = (url: string) => LOGO_FOLDERS.some(f => url.includes(`/${f}/`))
+// The intake rule (text worth a model's look) and the logo sources are the schema's (photo-screen.ts): the build reads
+// them too, to keep a photo the screen has not judged off pages.
+export { LOGO_FOLDERS, ocrHit }
 
 export const WATERMARK_SCHEMA = {
   type: 'object', required: ['photos'],
