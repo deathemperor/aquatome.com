@@ -125,6 +125,8 @@ test('the title is the editor\'s only when a fault was in it', async () => {
 
 test('a title a person picked stays, even when a check quotes it', async () => {
   const { root, file } = await setup({ name: 'Mua lọc ở Petco cho bể nhỏ', nameFixed: true })
-  expect(await deps(root).mend(page(), [{ ...shop, quote: 'Mua lọc ở Petco cho bể nhỏ', part: 'T' }])).toBe(false) // the quote stays, so no mend
+  const { mend, prompts } = deps(root)
+  expect(await mend(page(), [{ ...shop, quote: 'Mua lọc ở Petco cho bể nhỏ', part: 'T' }])).toBeUndefined() // no editor called
+  expect(prompts).toEqual([])
   expect(JSON.parse(await readFile(file, 'utf8'))).toMatchObject({ name: 'Mua lọc ở Petco cho bể nhỏ', nameFixed: true })
 })

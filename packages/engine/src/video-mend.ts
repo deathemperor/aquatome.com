@@ -51,6 +51,8 @@ export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transc
   const e = JSON.parse(await readFile(join(dir, 'entity.json'), 'utf8')) as GuideEntity
   const vi = JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8')) as Translation
   if (e.source !== 'youtube' || !e.video || vi.bodyFixed || vi.faqFixed) return undefined
+  // A title a person picked (nameFixed) isn't the editor's to change, so a fault quoted in it can't be mended here.
+  if (vi.nameFixed && findings.some(f => f.part === 'T')) return undefined
   const paragraphs = [vi.name, ...(vi.summary ?? []), ...render(sanitizeHtml(vi.body ?? '')).split('\n'), ...(vi.faq ?? []).flatMap(f => [f.q, f.a])].map(norm)
   if (findings.some(f => (f.check === 'product' || f.check === 'price') && givesDose(sentenceOf(paragraphs, norm(f.quote))))) return undefined
   const lang = e.video.lang ?? 'en'
@@ -61,9 +63,8 @@ export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transc
   const notes = findings.map(f => `"${f.quote}": ${FIT_TITLE[f.check]} (${f.why})`)
   const fixed = await fixDraft(d.llm, transcript, draft, notes, { ...d.write, lang, reader: true })
   if (!fixed) return false
-  // The title only when a fault was in it, and never one a person picked (nameFixed): a guide's name isn't the editor's
-  // to change otherwise.
-  const name = findings.some(f => f.part === 'T') && !vi.nameFixed ? unescapePlain(fixed.viTitle).trim() : vi.name
+  // The title only when a fault was in it: a guide's name isn't the editor's to change otherwise.
+  const name = findings.some(f => f.part === 'T') ? unescapePlain(fixed.viTitle).trim() : vi.name
   const text = norm([name, ...fixed.summary, render(sanitizeHtml(fixed.body)), ...fixed.faq.flatMap(f => [f.q, f.a])].join('\n'))
   if (findings.some(f => text.includes(norm(f.quote)))) return false
 
