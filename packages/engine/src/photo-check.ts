@@ -498,6 +498,8 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       if (v && (v.person !== undefined || v.file)) delete p.unchecked
     }
     const s = byId.get(file.split('/').at(-2)!)
+    // A fish its source's caption calls unwell or blemished (a split fin) counts as not typical, whatever the model said.
+    const flawed = (x: Photo) => s?.kind === 'species' && !!captionFlaw(x.caption)
     if (s && s.kind !== 'breeds' && file.endsWith('entity.json') && data.photos) {
       // A typical photo first, other photos of it next, an old "habitat" verdict last (until it is asked again), each
       // group in the order it had. So a lead the check passes as typical stays the lead, and one that passes but isn't
@@ -506,8 +508,6 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       // person picked is put back first by the sweep, which has the last word each cycle (_photo-head-picks.json).
       // Any other head can move, a card's fish too: the cycle's planner then points the day's card at the new head
       // (curation.ts), and no cycle runs `curate --check`, which would name a card and a head that differ.
-      // A fish its source's caption calls unwell or blemished (a split fin) counts as not typical, whatever the model said.
-      const flawed = (x: Photo) => s.kind === 'species' && !!captionFlaw(x.caption)
       const r = (x: Photo) => { if (x.generated) return 3; const v = verdict(x.url, s.id); return v?.ok === 'yes' && v.typical && !flawed(x) ? 0 : v?.ok === 'habitat' ? 2 : 1 }
       data.photos = data.photos.map((x, i) => ({ x, i })).sort((a, b) => r(a.x) - r(b.x) || a.i - b.i).map(({ x }) => x)
     }
@@ -517,7 +517,7 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     if (s && file.endsWith('entity.json') && data.photos) {
       const lead = data.photos.findIndex(x => !x.generated)
       if (lead >= 0 && cantTellOn(cache, s.id)(data.photos[lead]!.url)) {
-        const passed = (typical: boolean) => data.photos!.findIndex(x => { const v = x.generated ? undefined : verdict(x.url, s.id); return v?.ok === 'yes' && (!typical || v.typical) })
+        const passed = (typical: boolean) => data.photos!.findIndex(x => { const v = x.generated ? undefined : verdict(x.url, s.id); return v?.ok === 'yes' && (!typical || (v.typical && !flawed(x))) })
         const i = passed(true) >= 0 ? passed(true) : passed(false)
         if (i > lead) data.photos.splice(lead, 0, ...data.photos.splice(i, 1))
       }

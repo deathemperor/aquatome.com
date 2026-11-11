@@ -210,12 +210,15 @@ test("a fish whose source's caption names a split fin counts as not typical, wha
     // Nothing typical to lead instead: it stays the lead.
     { id: 'bbb-fish', sci: 'Bbb fish', extra: { photos: [split('b-split'), photo('b-plain')] } },
     { kind: 'plants', id: 'ccc-plant', sci: 'Ccc plant', extra: { photos: [split('c-split'), photo('c-typical')] } },
+    // Behind a lead the check can't tell, the first photo it passed goes ahead, not the one with the split fin.
+    { id: 'ddd-fish', sci: 'Ddd fish', extra: { photos: [photo('d-hazy'), photo('d-plain'), split('d-split')] } },
   ])
-  const d = model({ 'a-split': { typical: true }, 'a-typical': { typical: true }, 'b-split': { typical: true }, 'c-split': { typical: true }, 'c-typical': { typical: true } })
+  const d = model({ 'a-split': { typical: true }, 'a-typical': { typical: true }, 'b-split': { typical: true }, 'c-split': { typical: true }, 'c-typical': { typical: true }, 'd-hazy': { ok: 'unsure', note: 'too small to tell' }, 'd-split': { typical: true } })
   await checkPagePhotos(r, d, { limit: 10 })
   expect(await urls(r, 'content/species/aaa-fish/entity.json')).toEqual(['a-typical', 'a-split'])
   expect(await urls(r, 'content/species/bbb-fish/entity.json')).toEqual(['b-split', 'b-plain'])
   expect(await urls(r, 'content/plants/ccc-plant/entity.json')).toEqual(['c-split', 'c-typical'])
+  expect(await urls(r, 'content/species/ddd-fish/entity.json')).toEqual(['d-plain', 'd-hazy', 'd-split'])
 })
 
 test("a lead nothing has looked at is judged first, Flickr's and Commons' before the rest; then the page with no photo of its own; then each photo in its turn (the chief of staff, 2026-11-11)", async () => {
