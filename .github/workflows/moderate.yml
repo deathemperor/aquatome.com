@@ -2,6 +2,7 @@ name: Comment and photo moderation
 # Comments and reader photos, every hour, so a reader's photo shows within the hour instead of the next night. The
 # moderation itself runs on macOS (Apple Vision's face screen), which the iOS jobs queue for too: a small Linux job asks
 # the site whether anything waits, and macOS starts only when something does (or when it's run by hand).
+# CLAUDE_ON_CI does not pause this: a comment or a photo waiting is still moderated.
 on:
   schedule:
     - cron: '17 * * * *'

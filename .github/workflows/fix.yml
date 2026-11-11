@@ -5,7 +5,8 @@ name: Auto-fix from an issue
 #
 # Three jobs keep the agent's work away from write access: `agent` holds only the Claude token and hands over a patch;
 # `verify` runs the patched code with no secrets; `publish` holds the write token but runs no repository code, only the
-# publish script as it is on main, and refuses patches to the workflows or to the fix and watch scripts.
+# publish script as it is on main, and refuses patches to the workflows or to the fix and watch scripts. While
+# CLAUDE_ON_CI is off, none of those three run: the run stays green and says Claude is paused.
 on:
   workflow_dispatch:
     inputs:
@@ -23,7 +24,9 @@ env:
 jobs:
   agent:
     name: Claude reproduces and fixes the issue (read-only token)
-    if: github.event_name == 'workflow_dispatch' || github.event.label.name == 'autofix'
+    # CLAUDE_ON_CI=off pauses Claude in the workflows. This run stays green and says it is paused.
+    # Unset, or any other value, and the fix runs.
+    if: (github.event_name == 'workflow_dispatch' || github.event.label.name == 'autofix') && vars.CLAUDE_ON_CI != 'off'
     runs-on: ubuntu-latest
     timeout-minutes: 60
     permissions:
@@ -65,9 +68,19 @@ jobs:
         with:
           name: fix
           path: /tmp/fix
+  # watch.yml starts this workflow for a new problem. While the switch is off that run stays green and says why it did nothing.
+  paused:
+    name: Claude is paused
+    if: (github.event_name == 'workflow_dispatch' || github.event.label.name == 'autofix') && vars.CLAUDE_ON_CI == 'off'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Say the fix is paused
+        run: echo "CLAUDE_ON_CI is off, so Claude is paused."
   verify:
     name: Every check on the patch (no secrets)
     needs: agent
+    if: vars.CLAUDE_ON_CI != 'off'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     permissions:
@@ -100,7 +113,7 @@ jobs:
   publish:
     name: Open the draft PR, or say why on the issue
     needs: [agent, verify]
-    if: always() && needs.agent.result == 'success'
+    if: always() && needs.agent.result == 'success' && vars.CLAUDE_ON_CI != 'off'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:

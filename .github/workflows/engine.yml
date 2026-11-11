@@ -43,7 +43,9 @@ jobs:
           if [ "$age" -ge $(( ${EVERY:-170} * 60 )) ]; then echo run=true >> "$GITHUB_OUTPUT"; else echo run=false >> "$GITHUB_OUTPUT"; fi
   cycle:
     needs: due
-    if: needs.due.outputs.run == 'true'
+    # CLAUDE_ON_CI=off pauses the rewrite. Unset, or any other value, and it runs.
+    # The due check above still runs.
+    if: needs.due.outputs.run == 'true' && vars.CLAUDE_ON_CI != 'off'
     name: 'Content cycle: rewrite'
     runs-on: ubuntu-latest
     timeout-minutes: 355

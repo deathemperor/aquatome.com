@@ -89,9 +89,10 @@ jobs:
           E2E_IPHONE: '1'
       # The AI page review (docs/governance.md, layer 3) on PRs that change the site's code: advisory, as a PR comment.
       # Only for this repository's branches (a fork's PR never sees the token).
+      # CLAUDE_ON_CI=off pauses Claude in the workflows. Unset, or any other value, and this review runs.
       - id: review
         name: AI page review (pull requests that change apps/site/src)
-        if: needs.changes.outputs.review == 'true' && github.event.pull_request.head.repo.full_name == github.repository
+        if: needs.changes.outputs.review == 'true' && github.event.pull_request.head.repo.full_name == github.repository && vars.CLAUDE_ON_CI != 'off'
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # The owner's other Claude accounts, one token a line: the next when one is out (claude-accounts.ts).
