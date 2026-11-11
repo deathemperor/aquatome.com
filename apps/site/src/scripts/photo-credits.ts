@@ -14,14 +14,13 @@ export function creditPhoto(p: CardPhoto) {
   const ul = document.querySelector('#photo-credits ul')
   const button = document.querySelector<HTMLButtonElement>('button.credits-btn[popovertarget="photo-credits"]')
   if (!ul || !button || [...ul.querySelectorAll(PHOTO)].some(a => a.getAttribute('href') === p.url)) return
-  const row = [...ul.querySelectorAll<HTMLLIElement>('li')].find(li => li.dataset.author === p.author && li.dataset.licence === p.licence && li.dataset.authorUrl === p.authorUrl && (li.dataset.altered !== undefined) === !!p.altered && (li.dataset.cropped !== undefined) === !!p.cropped)
+  const row = [...ul.querySelectorAll<HTMLLIElement>('li')].find(li => li.dataset.author === p.author && li.dataset.licence === p.licence && li.dataset.authorUrl === p.authorUrl && (li.dataset.altered !== undefined) === !!p.altered)
     ?? ul.appendChild(document.createElement('li'))
   const urls = [...row.querySelectorAll(PHOTO)].map(a => a.getAttribute('href')!).concat(p.url)
   row.dataset.author = p.author
   row.dataset.licence = p.licence
   if (p.authorUrl) row.dataset.authorUrl = p.authorUrl
   if (p.altered) row.dataset.altered = ''
-  if (p.cropped) row.dataset.cropped = ''
   const el = <K extends keyof HTMLElementTagNameMap>(tag: K, text: string, attrs: Record<string, string> = {}) => {
     const e = document.createElement(tag)
     e.textContent = text
@@ -39,7 +38,7 @@ export function creditPhoto(p: CardPhoto) {
   const more = [p.licence, nums ? ct('{n} ảnh', { n: urls.length }) : ''].filter(Boolean).join(' · ')
   row.replaceChildren(
     ...who,
-    ...(p.altered ? [el('span', ` · ${(p.cropped ? ct('Đã cắt bỏ dấu của nguồn ảnh') : ct('Ảnh đã chỉnh sửa'))}`)] : []),
+    ...(p.altered ? [el('span', ` · ${ct('Ảnh đã chỉnh sửa')}`)] : []),
     ...(more ? [el('span', ` · ${more}`, { class: 'lic' })] : []),
   )
   if (nums) {
