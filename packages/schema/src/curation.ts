@@ -44,8 +44,6 @@ export const CurationDaySchema = z.object({
   why: z.string().max(300).optional(),
   /** A person chose this day: the planner keeps it as long as its pages pass. */
   fixed: z.literal(true).optional(),
-  /** The owner chose this card's photo from the page's album: it may differ from the page's head, and the planner keeps it while it passes. */
-  imgChosen: z.literal(true).optional(),
 }).refine(d => !(d.story && d.card), { message: 'a day has a story or a card, not both' })
 
 export const CurationWeekSchema = z.object({

@@ -1,6 +1,6 @@
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { loadAll, mayPublish, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type DataCardField, type SpeciesEntity, type Summary, type WrittenLang } from '@aq/schema'
+import { loadAll, mayPublish, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type Photo, type DataCardField, type SpeciesEntity, type Summary, type WrittenLang } from '@aq/schema'
 import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, tidyNames, type BreedName, type NameOff } from './alt-names'
 import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
 import { LlmError, type Llm } from './claude'
@@ -79,6 +79,7 @@ export type SweepReport = {
   photos: string[]
   rejected: number
   /** Rejected videos (engine-state/_video-rejected.json) taken off a page, `kind/id: youtubeId (why)`. */
+  heads: string[]
   videos: string[]
   card: string[]
   /** Summaries sent back to be written again, their card having changed. */
@@ -173,7 +174,7 @@ async function sfWord(root: string, card: Partial<Record<DataCardField, Value[]>
 
 export async function sweep(root: string, o: { llm?: Llm; titles?: number; model?: string } = {}): Promise<SweepReport> {
   const content = join(root, 'content')
-  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, videos: [], card: [], summaries: [], tanks: [], shop: [], varieties: [], titles: [], names: [], mentions: [], links: [], unmatched: [], stopped: '' }
+  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, heads: [], videos: [], card: [], summaries: [], tanks: [], shop: [], varieties: [], titles: [], names: [], mentions: [], links: [], unmatched: [], stopped: '' }
   const changed = (f: string) => { if (!report.files.includes(f)) report.files.push(f) }
   const guides: { key: string; before: string; after: string }[] = []
   const counted: { file: string; raw: string; t: Stored; kind: string; lang: WrittenLang; id: string }[] = [] // raw: for its indentation
@@ -389,6 +390,30 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
     const rejected = JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')) as Record<string, string>
     for (const [url, why] of maps) if (!rejected[url]) { rejected[url] = why; report.rejected++ }
     if (report.rejected) await writeFile(rejectedFile, `${JSON.stringify(rejected, null, 2)}\n`)
+  }
+  // The owner, 2026-11-10: a card and its page's head are always the same photo, so a photo picked for a card becomes the head.
+  const headPicks = JSON.parse(await readFile(join(root, 'engine-state', '_photo-head-picks.json'), 'utf8').catch(() => '{}')) as Record<string, string>
+  for (const [ref, url] of Object.entries(headPicks)) {
+    const file = join(content, ref, 'entity.json')
+    const raw = await readFile(file, 'utf8').catch(() => null)
+    if (!raw) continue
+    const e = JSON.parse(raw) as { photos?: Photo[] }
+    const own = e.photos ?? []
+    let picked = own.find(p => p.url === url)
+    if (!picked) {
+      const id = ref.split('/')[1]!
+      const gallery = JSON.parse(await readFile(join(content, 'gallery', `${id}.json`), 'utf8').catch(() => '{}')) as { photos?: (Photo & { best?: boolean; kind?: string; unchecked?: boolean })[] }
+      const found = gallery.photos?.find(p => p.url === url && !p.unchecked)
+      if (found) {
+        const { best: _b, kind: _k, unchecked: _u, ...photo } = found
+        picked = photo
+      }
+    }
+    if (!picked) { report.heads.push(`${ref}: picked photo isn't on the page`); continue }
+    if (own[0]?.url === url) continue
+    report.heads.push(`${ref}: ${own[0]?.url ?? 'none'} -> ${url}`)
+    await write(file, raw, { ...e, photos: [picked, ...own.filter(p => p.url !== url)] })
+    changed(`${ref}/entity.json`)
   }
   // A rejected video (engine-state/_video-rejected.json: a thumbnail with a dead fish, …) leaves every page.
   const videoRejected = await readVideoRejected(root)
