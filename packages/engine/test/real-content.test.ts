@@ -270,7 +270,7 @@ test('the tap-water fixes hold: Seachem Prime named at its dose, our note on wat
   // parts keep what it says, RO or distilled water and dechlorinated tap water if you use it; the ruling, RO with minerals
   // added back where animals share the water and pure water only for the plant by itself, is our own part, labelled, with
   // its sources, in every language the page has.
-  const ours = { en: /^<p><strong>AquaTome's note:<\/strong> The plain RO or distilled water above is for lucky bamboo kept by itself\. Where fish, shrimp or snails share the water, use RO water with minerals added back/, vi: /^<p><strong>Ghi chú của AquaTome:<\/strong> [^<]*chỉ hợp khi trồng trúc phú quý riêng\. Bể có cá, tép hay ốc sống chung thì dùng nước RO đã bù khoáng/, id: /^<p><strong>Catatan AquaTome:<\/strong> [^<]*hanya cocok kalau bambu hoki dipelihara sendiri\. Kalau ada ikan, udang, atau siput di air yang sama, gunakan air RO yang sudah ditambah mineral/, th: /^<p><strong>หมายเหตุจาก AquaTome:<\/strong> [^<]*เหมาะเฉพาะเมื่อปลูกไผ่กวนอิมไว้อย่างเดียว ถ้ามีปลา กุ้ง หรือหอยอยู่ในน้ำเดียวกัน ให้ใช้น้ำ RO ที่เติมแร่ธาตุแล้ว/ }
+  const ours = { en: /^<p><strong>AquaTome's note:<\/strong> RO or distilled water with no minerals added back, as above, is for lucky bamboo kept by itself\. Where fish, shrimp or snails share the water, use RO water with minerals added back: shrimp and snails need minerals that pure water lacks\.<\/p>$/, vi: /^<p><strong>Ghi chú của AquaTome:<\/strong> [^<]*chỉ hợp khi trồng trúc phú quý riêng\. Bể có cá, tép hay ốc sống chung thì dùng nước RO đã bù khoáng, vì tép và ốc cần khoáng/, id: /^<p><strong>Catatan AquaTome:<\/strong> [^<]*hanya cocok kalau bambu hoki dipelihara sendiri\. Kalau ada ikan, udang, atau siput di air yang sama, gunakan air RO yang sudah ditambah mineral, karena udang dan siput butuh mineral/, th: /^<p><strong>หมายเหตุจาก AquaTome:<\/strong> [^<]*เหมาะเฉพาะเมื่อปลูกไผ่กวนอิมไว้อย่างเดียว ถ้ามีปลา กุ้ง หรือหอยอยู่ในน้ำเดียวกัน ให้ใช้น้ำ RO ที่เติมแร่ธาตุแล้ว เพราะกุ้งและหอยต้องการแร่ธาตุ/ }
   // Tap water is Aquarium Breeder's to say (its care part), so the note leaves it out.
   const tap = { en: /tap water/i, vi: /nước máy|khử clo/, id: /air keran|klorin/, th: /น้ำประปา|คลอรีน/ }
   const ruling = { en: /minerals added back|kept by itself/, vi: /bù khoáng|trồng (?:trúc phú quý )?riêng/, id: /ditambah mineral|dipelihara sendiri/, th: /เติมแร่ธาตุ|ไว้อย่างเดียว/ }
@@ -278,10 +278,11 @@ test('the tap-water fixes hold: Seachem Prime named at its dose, our note on wat
   const note = plant.sections.find(s => s.key === 'waterConditions' && s.source === 'aquatome')!
   expect(note.fixed).toBe(true)
   expect(note.html).toMatch(ours.en)
-  // Its marks name the pages its facts come from (docs/governance.md): pure water has no minerals, fish need them (Seneye,
-  // which says pure RO is never used on its own with them), shrimp need them and snails suffer in distilled water (the
-  // shrimp page, the last in its author's reply there). Whom it's for is the ruling's, by the label.
-  expect(note.refs!.map(i => plant.refs![i]!.url)).toEqual(['https://aquariumbreeder.com/shrimp-keeping-can-i-remineralize-tap-water/', 'https://answers.seneye.com/en/water_chemistry/RO_water_(reverse_osmosis)'])
+  // Its mark names the page its facts come from (docs/governance.md): shrimp need minerals in the water, RO/DI water takes a
+  // remineralizer, and snails suffer in distilled water, which has none (the last in its author's reply there). No page it
+  // cites says otherwise: Seneye's RO page, which says pure RO is never used on its own, isn't cited (the third
+  // independent read). Whom the advice is for, fish included, is the ruling's, by the label.
+  expect(note.refs!.map(i => plant.refs![i]!.url)).toEqual(['https://aquariumbreeder.com/shrimp-keeping-can-i-remineralize-tap-water/'])
   expect(note.html).not.toMatch(tap.en)
   // What Aquarium Breeder says stays its own, in every language: RO or distilled water, tap water dechlorinated first.
   const says = { vi: [/nước RO hoặc nước cất/, /khử clo trước/], id: [/air RO atau air suling/, /hilangkan klorinnya dulu/], th: [/น้ำ RO หรือน้ำกลั่น/, /ต้องกำจัดคลอรีนก่อน/] }

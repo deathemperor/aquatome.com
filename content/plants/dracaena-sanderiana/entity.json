@@ -50,10 +50,9 @@
       "key": "waterConditions",
       "source": "aquatome",
       "sourceUrl": "https://aquatome.com/vi/gioi-thieu/",
-      "html": "<p><strong>AquaTome's note:</strong> The plain RO or distilled water above is for lucky bamboo kept by itself. Where fish, shrimp or snails share the water, use RO water with minerals added back: pure water has none of the minerals they need.</p>",
+      "html": "<p><strong>AquaTome's note:</strong> RO or distilled water with no minerals added back, as above, is for lucky bamboo kept by itself. Where fish, shrimp or snails share the water, use RO water with minerals added back: shrimp and snails need minerals that pure water lacks.</p>",
       "refs": [
-        0,
-        1
+        0
       ],
       "fixed": true
     },
@@ -98,10 +97,6 @@
     {
       "url": "https://aquariumbreeder.com/shrimp-keeping-can-i-remineralize-tap-water/",
       "title": "Aquarium Breeder: Shrimp Keeping: Can I Remineralize Tap Water?"
-    },
-    {
-      "url": "https://answers.seneye.com/en/water_chemistry/RO_water_(reverse_osmosis)",
-      "title": "Seneye: RO water (reverse osmosis)"
     }
   ]
 }
