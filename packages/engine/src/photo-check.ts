@@ -476,7 +476,6 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     const raw = await readFile(file, 'utf8')
     const data = JSON.parse(raw) as { photos?: Photo[] }
     const removed: string[] = []
-    const head = data.photos?.find(x => !x.generated)?.url
     stripPhotos(data, blocked(file), removed, [])
     // A gallery photo that waited (`unchecked`): judged for this page and left on, it shows from the next build.
     const gallery = /\/gallery\/([^/]+)\.json$/.exec(file)?.[1]
@@ -486,15 +485,14 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
     }
     const s = byId.get(file.split('/').at(-2)!)
     if (s && s.kind !== 'breeds' && file.endsWith('entity.json') && data.photos) {
-      // A typical photo first, other photos of it next, an old "habitat" verdict last (until it is asked again). But the
-      // lead the page shows (its first real photo) stays its lead while the check passes it ("yes"), typical or not:
-      // this order no longer picks between passing photos (the chief of staff, 2026-11-10 and 11-11). lead-photos
-      // replaces a head only where it is too small for a card or carries its source's mark, so a large lead that
-      // passes and isn't typical stays. A lead taken off, one the check can't tell, one not judged yet and one with an
-      // old "habitat" verdict give way to a typical photo, as before.
+      // A typical photo first, other photos of it next, an old "habitat" verdict last (until it is asked again), each
+      // group in the order it had. So a lead the check passes as typical stays the lead, and one that passes but isn't
+      // typical gives way to a typical photo in the run that judges that photo, this one or a later one: no pair is
+      // compared and no call added (the chief of staff, 2026-11-11). The guards on a head are as they were: one a
+      // person picked is put back first by the sweep, which has the last word each cycle (_photo-head-picks.json), and
+      // a card whose photo isn't its page's head fails `curate --check`.
       const r = (x: Photo) => { if (x.generated) return 3; const v = verdict(x.url, s.id); return v?.ok === 'yes' && v.typical ? 0 : v?.ok === 'habitat' ? 2 : 1 }
-      const stays = (x: Photo) => Number(x.url === head && !x.generated && verdict(x.url, s.id)?.ok === 'yes')
-      data.photos = data.photos.map((x, i) => ({ x, i })).sort((a, b) => stays(b.x) - stays(a.x) || r(a.x) - r(b.x) || a.i - b.i).map(({ x }) => x)
+      data.photos = data.photos.map((x, i) => ({ x, i })).sort((a, b) => r(a.x) - r(b.x) || a.i - b.i).map(({ x }) => x)
     }
     const out = `${JSON.stringify(data, null, raw.match(/^\{\n( +)/)?.[1]?.length ?? 2)}\n`
     if (out === raw) continue

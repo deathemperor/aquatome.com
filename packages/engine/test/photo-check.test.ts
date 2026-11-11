@@ -49,7 +49,7 @@ function model(table: Record<string, Partial<PhotoVerdict>>, seen: { prompt: str
   }
 }
 
-test('another fish and no photo of it leave the page and are rejected; can\'t tell stays and is listed; the lead that passes stays and a typical photo comes next', async () => {
+test('another fish and no photo of it leave the page and are rejected; can\'t tell stays and is listed; a typical photo leads', async () => {
   const r = await root([{ id: 'trigonostigma-heteromorpha', sci: 'Trigonostigma heteromorpha', vi: { name: 'Cá tam giác', altNames: ['Harlequin rasbora', 'Cá rasbora hề'] }, photos: ['pale', 'platy', 'typical', 'river', 'map', 'rare'] }])
   await writeFile(join(r, 'engine-state/_photo-rejected.json'), JSON.stringify({ [url('old')]: 'watermark: a logo' }))
   const d = model({
@@ -59,8 +59,8 @@ test('another fish and no photo of it leave the page and are rejected; can\'t te
   const out = await checkPagePhotos(r, d, { limit: 10, today: '2026-11-02' })
   expect(d.seen[0]!.prompt).toContain('Trigonostigma heteromorpha (Cá tam giác, Harlequin rasbora)')
   expect(out.removed.map(name)).toEqual(['platy', 'map'])
-  // "pale" led the page and the check passed it, though not as typical: it still leads (the chief of staff, 2026-11-10).
-  expect(await urls(r, 'content/species/trigonostigma-heteromorpha/entity.json')).toEqual(['pale', 'typical', 'river', 'rare'])
+  // "pale" led the page and the check passed it, though not as typical: the typical photo leads.
+  expect(await urls(r, 'content/species/trigonostigma-heteromorpha/entity.json')).toEqual(['typical', 'pale', 'river', 'rare'])
   // Added to the blocklist; what was there stays.
   expect(await json(r, 'engine-state/_photo-rejected.json')).toEqual({
     [url('old')]: 'watermark: a logo',
@@ -179,7 +179,7 @@ test("a page's lead is judged no later than its other photos, so none of them go
   expect(await urls(r, 'content/species/aaa-fish/entity.json')).toEqual(['lead', 'o1', 'o2', 'o3'])
 })
 
-test("the photos a page shows itself are the first eight of its gallery that readers see: a photo that waits takes none of those places, and the lead that passes stays first", async () => {
+test("the photos a page shows itself are the first eight of its gallery that readers see: a photo that waits takes none of those places, and a typical lead stays first", async () => {
   // Four photos that wait sit at the head of the gallery file, as the gallery's ranking can put them. The site leaves
   // them out, so its strip is s0 to s7. Counted by their place in the file, s4 to s7 were "the rest of its gallery" and
   // waited for every other page's own photos.
@@ -235,8 +235,8 @@ test("a lead nothing has looked at is judged first, Flickr's and Commons' before
   ])
 })
 
-test("the lead a page shows gives way to a typical photo only when the check takes it off, can't tell, or has not judged it", async () => {
-  const pages = ['aaa', 'bbb', 'ccc', 'ddd'].map(p => ({ id: `${p}-fish`, sci: `${p} fish`, photos: [`${p}-lead`, `${p}-typical`] }))
+test("the lead a page shows stays where the check passes it as typical, and gives way to a typical photo where it passes as less, can't be told, is taken off, or has not been judged", async () => {
+  const pages = ['aaa', 'bbb', 'ccc', 'ddd', 'eee'].map(p => ({ id: `${p}-fish`, sci: `${p} fish`, photos: [`${p}-lead`, `${p}-typical`] }))
   const r = await root(pages)
   // The lead of the last page was judged "can't tell" in an earlier run, with nothing else on the page judged yet.
   await writeFile(join(r, 'engine-state/_photo-subjects.json'), JSON.stringify({ [url('ddd-lead')]: { 'ddd-fish': { ok: 'unsure', typical: false, note: 'too small to tell', logo: false, person: false } } }))
@@ -245,15 +245,19 @@ test("the lead a page shows gives way to a typical photo only when the check tak
     'bbb-lead': { ok: 'unsure', note: 'too small to tell' }, 'bbb-typical': { typical: true },
     'ccc-lead': { ok: 'other', note: 'another fish' }, 'ccc-typical': { typical: true },
     'ddd-typical': { typical: true },
+    'eee-lead': { typical: true }, 'eee-typical': { typical: true },
   })
   await checkPagePhotos(r, d, { limit: 10 })
-  expect(await urls(r, 'content/species/aaa-fish/entity.json')).toEqual(['aaa-lead', 'aaa-typical'])
+  expect(await urls(r, 'content/species/aaa-fish/entity.json')).toEqual(['aaa-typical', 'aaa-lead'])
   expect(await urls(r, 'content/species/bbb-fish/entity.json')).toEqual(['bbb-typical', 'bbb-lead'])
   expect(await urls(r, 'content/species/ccc-fish/entity.json')).toEqual(['ccc-typical'])
   expect(await urls(r, 'content/species/ddd-fish/entity.json')).toEqual(['ddd-typical', 'ddd-lead'])
+  // Both typical: the lead stays the lead.
+  expect(await urls(r, 'content/species/eee-fish/entity.json')).toEqual(['eee-lead', 'eee-typical'])
   // A second run finds nothing to judge and moves nothing.
   await checkPagePhotos(r, d, { limit: 10 })
-  expect(await urls(r, 'content/species/aaa-fish/entity.json')).toEqual(['aaa-lead', 'aaa-typical'])
+  expect(await urls(r, 'content/species/aaa-fish/entity.json')).toEqual(['aaa-typical', 'aaa-lead'])
+  expect(await urls(r, 'content/species/eee-fish/entity.json')).toEqual(['eee-lead', 'eee-typical'])
 })
 
 test("a lead's sheet takes the page's own photos before its gallery's, so a photo that takes a removed lead's place was judged beside it", async () => {
@@ -268,20 +272,28 @@ test("a lead's sheet takes the page's own photos before its gallery's, so a phot
   expect((await json(r, 'engine-state/_photo-subjects.json'))[url('second')]['aaa-fish'].ok).toBe('yes')
 })
 
-test('a lead that passes stays when a typical photo is judged in a later run, and when a generated picture is first in the file', async () => {
-  const r = await root([{ id: 'aaa-fish', sci: 'Aaa fish', photos: ['lead', 'o1', 'o2', 'o3', 'o4', 'o5', 'late'] }])
-  const d = model({ late: { typical: true }, typical: { typical: true } })
+test('a typical photo judged in a later run goes ahead of a lead that passed as less, and behind a lead that passed as typical; a generated picture goes last', async () => {
   // One sheet a run: the lead with five of its page's photos, then the seventh, which is typical.
-  await checkPagePhotos(r, d, { limit: 1 })
-  await checkPagePhotos(r, d, { limit: 1 })
-  expect(d.seen.map(s => s.photos)).toEqual([['lead', 'o1', 'o2', 'o3', 'o4', 'o5'], ['late']])
-  expect(await urls(r, 'content/species/aaa-fish/entity.json')).toEqual(['lead', 'late', 'o1', 'o2', 'o3', 'o4', 'o5'])
-  // A page's lead is its first real photo: judged in the run that first touches the page, it stays ahead of the typical
-  // one, and the generated picture goes last.
-  const g = await root([{ id: 'bbb-fish', sci: 'Bbb fish', extra: { photos: [{ ...photo('made'), generated: { model: 'x' } }, photo('real'), photo('typical')] } }])
+  const seven = (p: string) => [`${p}-lead`, ...[1, 2, 3, 4, 5].map(n => `${p}-o${n}`), `${p}-late`]
+  const less = await root([{ id: 'aaa-fish', sci: 'Aaa fish', photos: seven('a') }])
+  const d = model({ 'a-late': { typical: true }, 'b-lead': { typical: true }, 'b-late': { typical: true }, real: { typical: true }, typical: { typical: true } })
+  await checkPagePhotos(less, d, { limit: 1 })
+  // The lead passed, not as typical, and nothing typical has been judged yet: it leads.
+  expect(await urls(less, 'content/species/aaa-fish/entity.json')).toEqual(seven('a'))
+  await checkPagePhotos(less, d, { limit: 1 })
+  expect(d.seen.map(s => s.photos)).toEqual([seven('a').slice(0, 6), ['a-late']])
+  // From the run that judges the typical photo, that photo leads (the chief of staff, 2026-11-11).
+  expect(await urls(less, 'content/species/aaa-fish/entity.json')).toEqual(['a-late', ...seven('a').slice(0, 6)])
+  // A lead that passed as typical stays ahead of a typical photo judged later.
+  const typical = await root([{ id: 'bbb-fish', sci: 'Bbb fish', photos: seven('b') }])
+  await checkPagePhotos(typical, d, { limit: 1 })
+  await checkPagePhotos(typical, d, { limit: 1 })
+  expect(await urls(typical, 'content/species/bbb-fish/entity.json')).toEqual(['b-lead', 'b-late', ...seven('b').slice(1, 6)])
+  // A generated picture first in the file is not the lead: the first real photo is, and the generated one goes last.
+  const g = await root([{ id: 'ccc-fish', sci: 'Ccc fish', extra: { photos: [{ ...photo('made'), generated: { model: 'x' } }, photo('real'), photo('typical')] } }])
   await checkPagePhotos(g, d, { limit: 1 })
-  expect(d.seen[2]!.photos).toEqual(['real', 'typical'])
-  expect(await urls(g, 'content/species/bbb-fish/entity.json')).toEqual(['real', 'typical', 'made'])
+  expect(d.seen.at(-1)!.photos).toEqual(['real', 'typical'])
+  expect(await urls(g, 'content/species/ccc-fish/entity.json')).toEqual(['real', 'typical', 'made'])
 })
 
 test('a gallery photo that waits shows once the check has judged it and left it on; one it rejects goes; one not judged yet still waits', async () => {

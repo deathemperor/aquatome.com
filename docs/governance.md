@@ -603,10 +603,11 @@ The layers above still check the result.
     neither check has a verdict on that counts (a first check's "can't tell" does not), Flickr's and Commons' first and then the other sources', each on a sheet filled from
     its page; then the gallery of a page with no photo of its own. The owner had found a parasite paper's plate as a
     page's only photo, three days on the page and not yet judged, behind every more-read page's gallery (the chief of
-    staff). A lead the check passes stays the lead, typical or not: a typical photo goes ahead of a lead only where the
-    check took the lead off, could not tell, had not judged it, or gave it the old "habitat" verdict. The check no
-    longer picks between passing photos (the chief of staff, 2026-11-10), and `lead-photos` replaces a head only where
-    it is too small for a card or carries its source's mark: a large lead that passes and isn't typical stays. A
+    staff). A lead the check passes as typical stays the lead. One that passes but isn't typical gives way to a
+    typical photo in the run that judges that photo, as before this order: no pair is compared and no call added
+    (the chief of staff, 2026-11-11). The guards on a head are as they were: one a person picked comes back first in
+    the sweep, which has the last word each cycle (`_photo-head-picks.json`), and a card whose photo isn't its
+    page's head fails `curate --check`. A
     lead's sheet is filled with its page's own photos before its gallery's, so a photo that takes a removed lead's
     place has been judged beside it. Found by
     the owner: a neon tetra on the green neon page, the tiger barb under the cherry barb, a range map on the angelfish
