@@ -11,6 +11,7 @@ import { readForumState, topicLeads } from './forum'
 import { lethalFigures, NAMES_TREATMENT } from './fit'
 import { steadyRead } from './quality'
 import { VI_STYLE as STYLE } from './phrases'
+import { TANK_RULE } from './round'
 
 /**
  * What a source is: the research tags each one, and the writers and the checker get each fact's source with its kind, so a
@@ -178,7 +179,7 @@ const WRITE_SCHEMA = {
 type Written = { name: string; summary: string[]; body: string; faq: { q: string; a: string }[] }
 const INTL_SCHEMA = { ...WRITE_SCHEMA, required: [...WRITE_SCHEMA.required, 'slug'], properties: { ...WRITE_SCHEMA.properties, slug: { type: 'string' } } }
 
-const GROUNDED = `Below are FACTS gathered about a fishkeeping topic and a Vietnamese GUIDE written from them. Score 0–1 how well the GUIDE sticks to the FACTS: 1.0 = every claim, dose, number, product and recommendation is supported by the facts; 0.75 = small unsupported generalities; below 0.75 = an invented dose, number, medicine, cause or claim, or a fact turned around. A fact's figure converted to metric (°F → °C, inches → cm, gallons → litres, sensibly rounded) is that fact's figure.
+const GROUNDED = `Below are FACTS gathered about a fishkeeping topic and a Vietnamese GUIDE written from them. Score 0–1 how well the GUIDE sticks to the FACTS: 1.0 = every claim, dose, number, product and recommendation is supported by the facts; 0.75 = small unsupported generalities; below 0.75 = an invented dose, number, medicine, cause or claim, or a fact turned around. A fact's figure converted to metric (°F → °C, inches → cm, gallons → litres, sensibly rounded; ${TANK_RULE.en}) is that fact's figure.
 Each fact's source is a number, and the facts' sources list gives each number's kind. A page names a source as its kind (${NAMED_LIST}); naming one as another kind (a society called a guide, a shop called a vet, a forum post called a study) is a wrong claim.
 By the label: the writer's rules make it dose every medicine, product or salt the facts give no dose for by its label or its maker's directions ("theo nhãn", "sesuai label", "ikut label", "ตามฉลาก"). That counts as supported, whether or not the facts mention a label: score it as a supported line, and it is never one of the notes.
 notes: up to 10 unsupported or wrong claims (in English), quoting the phrase. Empty if none.`

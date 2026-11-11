@@ -3,8 +3,8 @@ import { join } from 'node:path'
 import { fitFindings, fitKey, fitRules, fitSource, fitText, type FitFinding, type FitState } from './fit'
 import { gateChecks, GATE_KINDS, HELD_BY_HAND, type HandHold, type Held } from './gate'
 import { loadPages, type Page } from './pages'
-import { norm, readable } from './reader'
-import { numberIn, usTankOf } from './round'
+import { norm, readable, render } from './reader'
+import { metricFigures, numberIn, usTankOf } from './round'
 
 /**
  * The units mender: a page the gate holds for units alone, whose saved read of its text as it stands quotes a tank's
@@ -25,11 +25,20 @@ const UNIT = String.raw`(?:lít|liter|litre|l)(?![\p{L}\p{N}])|ลิตร`
 const US = String.raw`gallons?|galon|gal|แกลลอน`
 /** A volume in litres, with a US figure in brackets after it if there is one: the figure and its unit. */
 const VOLUME = () => new RegExp(String.raw`(?<![\d.,])(\d+(?:[.,]\d+)*)(\s*)(${UNIT})(\s*\(\s*(\d+(?:[.,]\d+)?)\s*(?:${US})\s*\))?`, 'giu')
-/** A range's other end, before or after: "75–", "đến ", "–115". */
-const RANGE_BEFORE = /(?:\d\s*[–-]|\d\s*(?:đến|tới|hingga|sampai|ถึง|to))\s*$/iu
+/** A range's other end, before or after, its unit written or not: "75–", "70 lít đến ", "–115". */
+const RANGE_BEFORE = /\d(?:\s*(?:lít|liter|litre|ลิตร|l(?![\p{L}\p{N}])))?\s*(?:[–-]|đến|tới|hingga|sampai|ถึง|to)\s*$/iu
 const RANGE_AFTER = /^\s*(?:[–-]|đến|tới|hingga|sampai|ถึง|to)\s*\d/iu
 /** A dose's water: "cho mỗi 38 lít", "per 38 liter" (round.ts keeps these too). */
 const PER = /(?:mỗi|cho|trên|per|setiap|untuk|ต่อ|\/)\s*(?:khoảng\s*)?$/iu
+/** A dose's amount earlier in the clause: "Pha 5 ml vào 38 lít nước" (fit.ts DOSE's units). */
+const DOSE = /\d[\d.,–-]*\s*(?:ml|gói|viên|thìa|muỗng|giọt|mg|g|nắp|sachet|tablet|butir|sendok|ซอง|เม็ด|หยด|ช้อน)(?![\p{L}])/iu
+/** A flow, not a tank: "115 lít mỗi giờ", "lít/giờ", "per hour". */
+const RATE_AFTER = /^\s*(?:\/\s*(?:h|giờ|jam|ชม)|mỗi giờ|một giờ|trong (?:một|1) giờ|per hour|an hour|per jam|sejam|ต่อชั่วโมง)/iu
+/** Whether the volume at `at` in `text` is a tank's: not a range's end, a dose's water, or a flow. */
+const tankAt = (text: string, at: number, end: number) => {
+  const clause = text.slice(0, at).split(/[.;!?\n>]/).at(-1) ?? ''
+  return !PER.test(text.slice(Math.max(0, at - 24), at)) && !DOSE.test(clause) && !RANGE_BEFORE.test(text.slice(0, at)) && !RANGE_AFTER.test(text.slice(end)) && !RATE_AFTER.test(text.slice(end))
+}
 /** A metric figure that isn't a volume: a length or a temperature, which only a writer can put right. */
 const NOT_VOLUME = /\d\s*(?:cm|mm|ซม|มม|°|độ C)|\d\s*m(?![\p{L}\p{N}])/iu
 
@@ -57,6 +66,7 @@ function mendOf(f: FitFinding, lang: Page['lang']): { volumes: number[] } | { wh
   if (NOT_VOLUME.test(f.quote.replace(VOLUME(), ''))) return { why: `"${f.quote}": a length or a temperature` }
   for (const v of vs) {
     if (RANGE_BEFORE.test(f.quote.slice(0, v.at)) || RANGE_AFTER.test(f.quote.slice(v.end))) return { why: `"${f.quote}": a range` }
+    if (!tankAt(f.quote, v.at, v.end)) return { why: `"${f.quote}": a dose's water or a flow, not a tank` }
     const tank = usTankOf(v.n)
     if (!tank) return { why: `"${v.all}": no US tank size converts to it exactly or to the nearest 5 litres` }
     if (tank[1] === v.n && v.gallons === undefined) return { why: `"${v.all}": already the size a keeper names` }
@@ -65,12 +75,12 @@ function mendOf(f: FitFinding, lang: Page['lang']): { volumes: number[] } | { wh
   return { volumes: vs.map(v => v.n) }
 }
 
-/** A text with each of these volumes as the size a keeper names, but in a range or a dose's water. */
+/** A text with each of these volumes as the size a keeper names, where it is a tank's (tankAt). */
 function mendText(text: string, lang: Page['lang'], mend: Set<number>): string {
   let out = '', from = 0
   for (const v of volumes(text, lang)) {
     const tank = usTankOf(v.n)
-    if (!mend.has(v.n) || !tank || PER.test(text.slice(Math.max(0, v.at - 24), v.at)) || RANGE_BEFORE.test(text.slice(0, v.at)) || RANGE_AFTER.test(text.slice(v.end))) continue
+    if (!mend.has(v.n) || !tank || !tankAt(text, v.at, v.end)) continue
     out += `${text.slice(from, v.at)}${figure(tank[1], lang)}${v.space}${v.unit}`
     from = v.end
   }
@@ -175,8 +185,17 @@ export async function unitsMend(root: string, o: { limit?: number; first?: reado
     }
     if (unsourced) { leave(unsourced); continue }
     // Every part the checker reads, mended where it gives one of these volumes.
-    const parts = [{ field: 'name', text: p.title }, ...readable(p).map(f => ({ field: f.field, text: f.html })), ...p.lines.map(l => ({ field: l.field, text: l.text }))]
-    const changes = parts.flatMap(x => { const n = mendText(x.text, p.lang, mend); return n === x.text ? [] : [{ field: x.field, old: x.text, now: n }] })
+    // A name a person fixed stays (nameFixed): the rules keep the page held if it still has a units fault.
+    const parts = [...(p.nameFixed ? [] : [{ field: 'name', text: p.title }]), ...readable(p).map(f => ({ field: f.field, text: f.html })), ...p.lines.map(l => ({ field: l.field, text: l.text }))]
+    // In a part whose source the repository keeps, a volume is mended only where that source gives the tank in gallons
+    // and not the litres themselves ("Raise the fry in 75 litres" in another section stays).
+    const changes: { field: string; old: string; now: string }[] = []
+    for (const x of parts) {
+      const from = await writtenFrom(root, p, x.field)
+      const here = from ? new Set([...mend].filter(n => gallonsIn(from).has(usTankOf(n)![0]) && !metricFigures(render(from), 'en').includes(`${n} l`))) : mend
+      const n = mendText(x.text, p.lang, here)
+      if (n !== x.text) changes.push({ field: x.field, old: x.text, now: n })
+    }
     const next: Page = {
       ...p,
       title: changes.find(c => c.field === 'name')?.now ?? p.title,

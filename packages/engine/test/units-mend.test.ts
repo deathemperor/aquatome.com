@@ -5,7 +5,8 @@ import { READY_TANKS, tankLengthFor } from '@aq/schema'
 import { expect, test } from 'vitest'
 import { fitKey, fitText, type FitFinding, type FitState } from '../src/fit'
 import { loadPages } from '../src/pages'
-import { TANK_RULE, US_TANKS, usTankOf, withTanks } from '../src/round'
+import { amountsOutside } from '../src/for-reader'
+import { numberIn, TANK_RULE, US_TANKS, usTankOf, withTanks } from '../src/round'
 import { namesTwice, onlyFigures, unitsMend, UNITS_MEND_FROM } from '../src/units-mend'
 
 const FIXTURE = new URL('../../../apps/site/test/fixture-content', import.meta.url).pathname
@@ -134,36 +135,69 @@ test('every writer and reviewer converting a tank gets the one table: no prompt 
     for (const l of loads) expect(l, f).toContain('withTanks(')
   }
   // The video guide's writer had no rule at all, and wrote "115 lít" for 30 gallons (8 to 11 Nov 2026).
-  expect(withTable).toEqual(expect.arrayContaining(['video-guide.md', 'video-review.md', 'vi-rewrite.md', 'localize.md', 'localize-review.md', 'review.md', 'process.md']))
+  expect(withTable).toEqual(expect.arrayContaining(['video-guide.md', 'video-review.md', 'vi-rewrite.md', 'localize.md', 'localize-review.md', 'review.md', 'process.md', 'guide-write.md', 'breed.md', 'breed-intl.md']))
 })
 
-test('a fish page is mended only where its English gives the tank in gallons: a figure the English gives in litres stays', async () => {
-  const fish = async (en: string, vi: string) => {
-    const root = await mkdtemp(join(tmpdir(), 'units-mend-fish-'))
-    await cp(FIXTURE, join(root, 'content'), { recursive: true })
-    await mkdir(join(root, 'engine-state'))
-    const dir = join(root, 'content/species/danio-margaritatus')
-    const sources = JSON.parse(await readFile(join(root, 'content/sources.json'), 'utf8'))
-    sources.seriouslyfish = { ...sources.seriouslyfish, publish: true, permission: { date: '2026-10-29', file: 'noted', scope: ['translation'] } }
-    await writeFile(join(root, 'content/sources.json'), JSON.stringify(sources, null, 2))
-    const e = JSON.parse(await readFile(join(dir, 'entity.json'), 'utf8'))
-    e.sections.find((s: { key: string; source: string }) => s.key === 'habitat' && s.source === 'seriouslyfish').html = en
-    await writeFile(join(dir, 'entity.json'), JSON.stringify(e, null, 2))
-    const t = JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8'))
-    t.sections['habitat:seriouslyfish'] = vi
-    t.held = { checks: ['units'], at: '2026-11-10' }
-    await writeFile(join(dir, 'vi.json'), JSON.stringify(t, null, 2))
-    const p = (await loadPages(join(root, 'content'), ['vi'])).find(x => x.id === 'danio-margaritatus')!
-    const part = fitText(p).parts.find(x => x.field === 'sections.habitat:seriouslyfish')!.id
-    const quote = vi.replace(/<[^>]+>/g, '').replace(/\.$/, '')
-    await writeFile(join(root, 'engine-state/_fit.json'), JSON.stringify({ [fitKey(p)]: { at: '2026-11-10', hash: fitText(p).hash, model: 'm', products: [], checklist: 3, findings: [{ check: 'units', part, quote, why: 'converted', by: 'model' }] } }))
-    const r = await unitsMend(root, { now: after })
-    return { r, text: JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8')).sections['habitat:seriouslyfish'] }
+/** The fixture's danio-margaritatus held for units alone: its seriouslyfish sections' English and Vietnamese, and a saved read quoting `quote` in the habitat. */
+async function fish(sections: Record<string, [en: string, vi: string]>, quote: string, o: { name?: string; nameFixed?: boolean } = {}) {
+  const root = await mkdtemp(join(tmpdir(), 'units-mend-fish-'))
+  await cp(FIXTURE, join(root, 'content'), { recursive: true })
+  await mkdir(join(root, 'engine-state'))
+  const dir = join(root, 'content/species/danio-margaritatus')
+  const sources = JSON.parse(await readFile(join(root, 'content/sources.json'), 'utf8'))
+  sources.seriouslyfish = { ...sources.seriouslyfish, publish: true, permission: { date: '2026-10-29', file: 'noted', scope: ['translation'] } }
+  await writeFile(join(root, 'content/sources.json'), JSON.stringify(sources, null, 2))
+  const e = JSON.parse(await readFile(join(dir, 'entity.json'), 'utf8'))
+  const t = JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8'))
+  for (const [key, [en, vi]] of Object.entries(sections)) {
+    e.sections.find((s: { key: string; source: string }) => s.key === key && s.source === 'seriouslyfish').html = en
+    t.sections[`${key}:seriouslyfish`] = vi
   }
-  const gallons = await fish('<p>A standard 20 gallon US is the minimum for a pair.</p>', '<p>Một cặp cần tối thiểu bể tiêu chuẩn 75 lít.</p>')
-  expect(gallons.text).toBe('<p>Một cặp cần tối thiểu bể tiêu chuẩn 80 lít.</p>')
+  await writeFile(join(dir, 'entity.json'), JSON.stringify(e, null, 2))
+  await writeFile(join(dir, 'vi.json'), JSON.stringify({ ...t, ...(o.name ? { name: o.name } : {}), ...(o.nameFixed ? { nameFixed: true } : {}), held: { checks: ['units'], at: '2026-11-10' } }, null, 2))
+  const p = (await loadPages(join(root, 'content'), ['vi'])).find(x => x.id === 'danio-margaritatus')!
+  const part = fitText(p).parts.find(x => x.field === 'sections.habitat:seriouslyfish')!.id
+  await writeFile(join(root, 'engine-state/_fit.json'), JSON.stringify({ [fitKey(p)]: { at: '2026-11-10', hash: fitText(p).hash, model: 'm', products: [], checklist: 3, findings: [{ check: 'units', part, quote, why: 'converted', by: 'model' }] } }))
+  const r = await unitsMend(root, { now: after })
+  return { r, t: JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8')) }
+}
+
+test('a fish page is mended only where its English gives the tank in gallons: a figure the English gives in litres stays', async () => {
+  const gallons = await fish({ habitat: ['<p>A standard 20 gallon US is the minimum for a pair.</p>', '<p>Một cặp cần tối thiểu bể tiêu chuẩn 75 lít.</p>'] }, 'Một cặp cần tối thiểu bể tiêu chuẩn 75 lít')
+  expect(gallons.t.sections['habitat:seriouslyfish']).toBe('<p>Một cặp cần tối thiểu bể tiêu chuẩn 80 lít.</p>')
   // The English's own "about 108 litres", rounded by a translator to 110, isn't the 29-gallon tank 110 maps back to.
-  const litres = await fish('<p>A tank of 120 × 30 cm should be the smallest considered (about 108 litres).</p>', '<p>Bể nhỏ nhất nên dùng là khoảng 110 lít.</p>')
+  const litres = await fish({ habitat: ['<p>A tank of 120 × 30 cm should be the smallest considered (about 108 litres).</p>', '<p>Bể nhỏ nhất nên dùng là khoảng 110 lít.</p>'] }, 'Bể nhỏ nhất nên dùng là khoảng 110 lít')
   expect(litres.r.left).toEqual([expect.stringContaining('gives no 29 gallons')])
-  expect(litres.text).toBe('<p>Bể nhỏ nhất nên dùng là khoảng 110 lít.</p>')
+  expect(litres.t.sections['habitat:seriouslyfish']).toBe('<p>Bể nhỏ nhất nên dùng là khoảng 110 lít.</p>')
+  // The same number in another section whose English gives it in litres stays; a name a person fixed stays.
+  const other = await fish({
+    habitat: ['<p>A standard 20 gallon tank.</p>', '<p>Cần bể 75 lít.</p>'],
+    quickFacts: ['<p>Raise the fry in 75 litres.</p>', '<p>Nuôi cá bột trong 75 lít.</p>'],
+  }, 'Cần bể 75 lít', { name: 'Cá galaxy bể 75 lít', nameFixed: true })
+  expect(other.t.sections['habitat:seriouslyfish']).toBe('<p>Cần bể 80 lít.</p>')
+  expect(other.t.sections['quickFacts:seriouslyfish']).toBe('<p>Nuôi cá bột trong 75 lít.</p>')
+  expect(other.t.name).toBe('Cá galaxy bể 75 lít')
+})
+
+test('a range\'s far end with its own unit, a dose\'s water and a flow keep their figures; a decimal is read as one', async () => {
+  for (const [body, quote] of [['<p>Bể từ 70 lít đến 76 lít.</p>', '76 lít'], ['<p>Bể 75 lít – 115 lít.</p>', '115 lít']] as [string, string][]) {
+    const root = await held(body, [quote])
+    expect((await unitsMend(root, { now: after })).mended).toEqual([])
+    expect((await file(root)).body).toBe(body)
+  }
+  const flow = await held('<p>Bể 115 lít.</p><p>Máy bơm 115 lít mỗi giờ.</p><p>Pha 5 ml vào 115 lít nước.</p>', ['Bể 115 lít'])
+  await unitsMend(flow, { now: after })
+  expect((await file(flow)).body).toBe('<p>Bể 120 lít.</p><p>Máy bơm 115 lít mỗi giờ.</p><p>Pha 5 ml vào 115 lít nước.</p>')
+  const dose = await held('<p>Pha 5 ml vào 115 lít nước.</p>', ['Pha 5 ml vào 115 lít nước'])
+  expect((await unitsMend(dose, { now: after })).left).toEqual([expect.stringContaining('a dose\'s water or a flow')])
+  // "75.7" is 75.7 litres, 20 gallons, in any language, never 757; "1.325" is still a thousand and more.
+  expect([numberIn('75.7', 'vi'), numberIn('75,7', 'th'), numberIn('2,5', 'vi'), numberIn('1.325', 'vi'), numberIn('1,325', 'th')]).toEqual([75.7, 75.7, 2.5, 1325, 1325])
+  const decimal = await held('<p>Cần 75.7 lít.</p>', ['Cần 75.7 lít'])
+  await unitsMend(decimal, { now: after })
+  expect((await file(decimal)).body).toBe('<p>Cần 80 lít.</p>')
+})
+
+test('the guide writer\'s figure check takes a US tank only as the size the table names', () => {
+  expect(amountsOutside('Mỗi con cần khoảng 115 lít.', 'Give them at least 30 gallons of water per fish.')).toEqual(['115 l'])
+  expect(amountsOutside('Mỗi con cần khoảng 120 lít.', 'Give them at least 30 gallons of water per fish.')).toEqual([])
 })

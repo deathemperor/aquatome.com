@@ -152,7 +152,12 @@ const BY_SIDES = new RegExp(String.raw`(?<![\d.,])(${NUMBER}(?:${BY}${NUMBER})+)
 /** One number, a range, or a choice of two whose first isn't joined to a number before it ("pH 6.5 or 7.5 and 75 litres" is 75 litres). */
 const FIGURE = new RegExp(String.raw`(?<![\d.,])(${NUMBER}(?:${RANGE}${NUMBER})?|(?<!\d(?:${RANGE}|${BY}|${CHOICE}))${NUMBER}${CHOICE}${NUMBER})\s*-?\s*${METRIC}`, 'giu')
 /** A number as a language writes it: "2,5" and "1.000" in Vietnamese and Indonesian, "2.5" and "1,000" in the others. */
-export const numberIn = (s: string, lang: UnitLang | 'en') => Number(lang === 'vi' || lang === 'id' ? s.replace(/\./g, '').replace(',', '.') : s.replace(/,/g, ''))
+export const numberIn = (s: string, lang: UnitLang | 'en') => {
+  // One separator and one or two digits after it is a decimal in any language: "75.7", "2,5". Three is a thousand.
+  const d = /^(\d+)[.,](\d{1,2})$/.exec(s)
+  if (d) return Number(`${d[1]}.${d[2]}`)
+  return Number(lang === 'vi' || lang === 'id' ? s.replace(/\./g, '').replace(',', '.') : s.replace(/,/g, ''))
+}
 /**
  * A text's metric figures, each number with its unit's kind, every number the unit closes: "2,5–5 cm" is ["2.5 cm",
  * "5 cm"], "91 × 38 × 30 cm" three of cm, "11 litres" ["11 l"].
