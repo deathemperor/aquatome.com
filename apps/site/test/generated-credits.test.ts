@@ -49,3 +49,9 @@ for(const lang of LANGS)test(`${lang}: cropped credit keeps source, licence and 
  const {blocks}=htmlBlocks(`<figure><img src="${p.url}" width="800" height="600" alt="Fish"><figcaption>${mark}</figcaption></figure>`)
  expect(blocks[0]?.t==='figure'&&blocks[0].img.credit?.text).toContain(label)
 })
+test('a crop preserves the existing combined source and contributor credit before its notice',()=>{
+ const p:Photo={...real,source:'scotcat',author:'Fixture contributor / ScotCat',altered:[{method:'mark-crop',date:'2026-11-11',originalHash:'a'.repeat(64)}]}
+ const credit=photoCredit('vi',p)
+ expect(credit.text).toBe('Ảnh: Fixture contributor / ScotCat · Đã cắt bỏ dấu của nguồn ảnh')
+ expect(credit.url).toBe(p.sourceUrl);expect(photoMark('vi',p)).toContain(credit.text)
+})

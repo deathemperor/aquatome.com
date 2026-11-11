@@ -14,3 +14,10 @@ test('the schema accepts an optional head-only fitting directive without assigni
  const p={url:'https://example.org/photo',width:800,height:600,author:'Fixture source',licence:'CC0',sourceUrl:'https://example.org/'}
  expect(PhotoSchema.parse(p).headFit).toBeUndefined();expect(PhotoSchema.parse({...p,headFit:'contain'}).headFit).toBe('contain');expect(PhotoSchema.safeParse({...p,headFit:'cover'}).success).toBe(false)
 })
+
+test('the registry loads through native Node, as the browser-check configuration does',async()=>{
+ const {execFile}=await import('node:child_process'),{promisify}=await import('node:util')
+ const file=new URL('../src/owner-crops.ts',import.meta.url).href
+ const {stdout}=await promisify(execFile)('node',['--input-type=module','-e',`const m=await import(${JSON.stringify(file)});console.log(m.OWNER_CROPS.length)`],{timeout:10000})
+ expect(stdout.trim()).toBe('6')
+})

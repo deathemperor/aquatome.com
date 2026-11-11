@@ -18,7 +18,7 @@ Readiness pins all 58 paired controls and validates every measurement's shape, v
 
 **Records and readers.** Keep native originals, model alias/controller/date/prompt, evidence hashes and alteration methods; served variants embed XMP. Commit generated approval last, after entity and album; require all three records to agree. Name/section changes hide at build time; changed reference/manifest, reviewer/calibration, refusing recheck or error withdraws approval. Keep a passing real album lead. Recalibration invalidates approval before work and preserves ordinary conflicts separately. AI always shows translated “Ảnh do AI tạo”, with truthful mixed-album source lines; never recognition or the day's card. App gallery exclusion also covers carousel/viewer until every cell has visible/accessibility AI credit; labelled hero/inline data remain separate.
 
-**Off switches and runtime.** Missing/popular generation, generated upscaling, mark removal, real upscaling and generated/altered publication are separate code switches, all false. All off returns before dependencies/output. Generated interpolation targets large-copy bounds and is recorded; judge final served pixels. CLI 0.167.0 uses direct login transport: no token handling, authentication-file reads, proxy, API key or CLI update. Native alias `gpt-image-2`; actual renderer/Images 2.6 selection unconfirmed. Sol 5.6 controls/extracts/judges generated images; Sol 6.1 judges edits; never Terra. The earlier newer-Sol refusal used PATH's older CLI 0.153.4. Live quota surrounds calls; unknown, 90% or spend refusal stops work. Engine Claude cost: $0.
+**Off switches and runtime.** Missing/popular generation, generated upscaling, mark removal, real upscaling and generated/altered publication are separate code switches, all false. All off with no pending individual owner approval returns before dependencies/output; the six named crops below are the only reviewed exception. Generated interpolation targets large-copy bounds and is recorded; judge final served pixels. CLI 0.167.0 uses direct login transport: no token handling, authentication-file reads, proxy, API key or CLI update. Native alias `gpt-image-2`; actual renderer/Images 2.6 selection unconfirmed. Sol 5.6 controls/extracts/judges generated images; Sol 6.1 judges edits; never Terra. The earlier newer-Sol refusal used PATH's older CLI 0.153.4. Live quota surrounds calls; unknown, 90% or spend refusal stops work. Engine Claude cost: $0.
 
 The ledger counts observed native calls and stops its child at the second; already-started calls may overshoot by an unknown amount. Malformed/truncated/unclean runs are uncertain, charged at least two or all observed calls if more; another launch needs a fresh successful quota read. Live quota refusal is the real limit. Existing three-hour launchd cycles call the off step. Children/image uploads have bounded cancellation; unsignalled ordinary uploads retain their prior behavior.
 
@@ -37,14 +37,21 @@ source off switch still vetoes the individual approval.
 
 The scheduled images step publishes these already judged files from a durable
 private bundle. It verifies the original, lossless crop and retained pixels again;
-it never creates an image or calls a judge. It carries the two original species
+it never creates an image or calls a judge. Global rejection of the crop address
+and an ordinary refusal veto before encoding, before each upload, before content
+admission and before the completion receipt. A veto also withdraws an incomplete
+entity or gallery write; the marked original’s historical rejection does not veto
+its separately approved crop. Both variants are encoded and their exact addresses
+verified in memory before the first upload. It carries the two original species
 judgments into the ordinary photo-check cache, with the removed mark absent by
 geometry. Publication is acknowledged only after entity and gallery writes; a
 later refusal is not resurrected. An interrupted media upload can leave an
 unreferenced deterministic object; retry uses the same key, and ordinary media
 orphan cleanup can remove objects left without a content reference.
 
-The original is retained. Credits preserve the board's source/photographer and
+The original is retained. The two ScotCat credits retain the existing combined
+source/photographer credit from recorded data, without fresh lettering extraction.
+Credits preserve the board's source/photographer and
 licence, followed by “Cropped to remove a source mark” in the reader's language.
 These six are excluded from Fish ID and the day's card regardless of their shape.
 Leptodoras cataniai fits the current head; the other five remain album-only.
