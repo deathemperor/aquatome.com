@@ -5,7 +5,7 @@ import { homedir } from 'node:os'
 import { join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { parseArgs } from 'node:util'
-import { loadAll, SOURCE_IDS, vnDate, type SourceId } from '@aq/schema'
+import { loadAll, PHOTO_BOXES_FILE, SOURCE_IDS, vnDate, type SourceId } from '@aq/schema'
 import { WRITTEN_LANGS, WRITTEN_OTHER_LANGS } from '@aq/schema/langs'
 import { nameStep } from './ceiling'
 import { LlmError, claudeCli, claudeResearch, claudeVision } from './claude'
@@ -318,7 +318,7 @@ if (cmd === 'run' || cmd === 'card-fill') {
   for (const f of r.failed.slice(0, 30)) console.log(`failed: ${f}`)
 } else if (cmd === 'photo-boxes') {
   // Where the fish is in every fish and breed photo (macOS Vision, no model call), heads first, each photo once.
-  const r = await boxPhotos(join(ROOT, 'content'), join(ROOT, 'engine-state/_photo-boxes.json'), {
+  const r = await boxPhotos(join(ROOT, 'content'), join(ROOT, 'engine-state', PHOTO_BOXES_FILE), {
     get: async u => { const res = await fetch(u, { headers: { 'user-agent': UA } }); if (!res.ok) throw new Error(`HTTP ${res.status}`); return new Uint8Array(await res.arrayBuffer()) },
     find: visionSubjects,
   }, { limit: values.limit ? Number(values.limit) : 400 })
