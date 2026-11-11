@@ -564,6 +564,7 @@ struct SpeciesPage: View {
       }
       .scrollTargetLayout()
     }
+    .accessibilityIdentifier("v2-photos-row")
     .contentMargins(.horizontal, 20, for: .scrollContent)
     .scrollTargetBehavior(.viewAligned)
     .v2ShelfEdge()

@@ -74,17 +74,21 @@ struct V2Section: View {
       n -= 1
       used -= heights[n]
     }
-    // The next text's opening, to the eighth line.
+    // The next text's opening, to the eighth line, or two lines of it where one is all that's left: it ends inside a text,
+    // its last line to the edge, as the App Store's description does. Never all of it: then its last line ends short.
     if n < pieces.count, let p = Self.prose(pieces[n]) {
-      let left = Int((shown - used - (n > 0 ? Self.gap : 0)) / tall.line)
-      if left >= 2 {
+      let left = Int((shown - used - (n > 0 ? Self.gap : 0)) / tall.line), lines = tall.lines(p.text, inset: p.inset)
+      if left >= 1, lines >= 2 {
+        let show = min(max(left, 2), lines - 1)
         // Two lines more than show, as measured a little narrower than drawn: drawn, it runs past the last shown.
-        return .cut(n, chars: tall.cut(p.text, lines: left + 2, inset: p.inset), lines: min(left, tall.lines(p.text, inset: p.inset)))
+        return .cut(n, chars: tall.cut(p.text, lines: show + 2, inset: p.inset), lines: show)
       }
     }
-    // Too little room for its lines: the last whole text ends in "thêm" instead, not a row of its own under a gap.
+    // No room for a line of the next: the last whole text ends a line early instead, inside it, not a row of its own
+    // under a gap; one of a single line, whole, "thêm" after it.
     if n > 0, let p = Self.prose(pieces[n - 1]) {
-      return .cut(n - 1, chars: p.text.characters.count, lines: nil)
+      let lines = tall.lines(p.text, inset: p.inset)
+      return .cut(n - 1, chars: p.text.characters.count, lines: lines >= 2 ? lines - 1 : nil)
     }
     // A label alone over a photo or a table: with it.
     if n == 1, Self.leadsIn(pieces[0]) { return pieces.count > 2 ? .pieces(2) : .none }
