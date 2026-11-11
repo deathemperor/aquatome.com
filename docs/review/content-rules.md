@@ -101,7 +101,7 @@ The same paragraph (60 characters or more) twice on one page: in two of its text
 
 ## Words Vietnamese readers write another way (0)
 
-"Phi châu" for "châu Phi" ("cá rô phi châu Phi", African tilapia, stays), "setup bể" for "set bể", "và/hoặc" for "hoặc". The sweep writes each the readers' way (sanitize.ts viWording) in a page's name, other names, text, summary and FAQ, and in the fish summaries.
+"Phi châu" for "châu Phi" ("cá rô phi châu Phi", African tilapia, stays), "setup bể" for "set bể", "và/hoặc" for "hoặc", "trùn chỉ đỏ" or "trùng chỉ đỏ" for "trùng huyết", "nửa tá" for "6 con", "thủng lỗ đầu" or "lủng lỗ đầu" for "lủng đầu". The sweep writes each the readers' way (sanitize.ts viWording) in a page's name, other names, text, summary and FAQ, in the fish summaries, and in a page's shop searches (real-content.test.ts holds those).
 
 - none
 

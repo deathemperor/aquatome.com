@@ -1,17 +1,15 @@
 # Photos that don't show their page's subject
 
 Written by `pnpm engine check-photos` (2026-11-11), most-read pages first. Rules: docs/governance.md, "Photos".
-6161 verdicts. Shows it: 4209; its habitat (asked again): 3; something else: 310; not a photo of it: 208; dead or as food: 304; a person in it: 100; a logo on it: 41; can't tell: 961.
+6194 verdicts. Shows it: 4242; its habitat (asked again): 3; something else: 310; not a photo of it: 208; dead or as food: 304; a person in it: 100; a logo on it: 41; can't tell: 961.
 
-## Left with no photo (66)
+## Left with no photo (59)
 
-- species/hyphessobrycon-elachys
 - species/channa-stewartii
 - species/symphysodon-discus
 - species/kryptopterus-geminus
 - species/bagrichthys-hypselopterus
 - species/bangana-behri
-- species/barilius-bakeri
 - species/batrochoglanis-villosus
 - species/betta-bellica
 - species/betta-falx
@@ -36,17 +34,13 @@ Written by `pnpm engine check-photos` (2026-11-11), most-read pages first. Rules
 - species/potamotrygon-scobina
 - species/pseudanos-trimaculatus
 - plants/bucephalandra-sp-dark-skeleton-king
-- species/acestrorhynchus-falcirostris
 - species/acestrorhynchus-isalineae
 - species/ageneiosus-ucayalensis
 - species/ailiichthys-punctata
 - species/akysis-variegatus
 - species/amblyceps-caecutiens
 - species/ancistrus-pirareta
-- species/aphanius-vladykovi
 - species/aphyocharax-rathbuni
-- species/aphyosemion-bualanum
-- species/apistogrammoides-pucallpaensis
 - species/barbodes-everetti
 - species/catoprion-mento
 - species/channa-ornatipinnis
@@ -65,7 +59,6 @@ Written by `pnpm engine check-photos` (2026-11-11), most-read pages first. Rules
 - species/laides-longibarbis
 - species/lobocheilos-melanotaenia
 - species/melanochromis-chipokae
-- species/opsarius-pulchellus
 - species/parambassis-wolffii
 - species/serrasalmus-manueli
 - species/silurichthys-hasseltii
