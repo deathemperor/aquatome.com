@@ -1,8 +1,9 @@
 {
   "slug": "ca-geophagus-winemilleri",
-  "name": "Cá Geophagus winemilleri",
+  "name": "Cá hải hồ winemilleri",
   "altNames": [
-    "Cá ăn đất winemilleri"
+    "Cá ăn đất winemilleri",
+    "Cá Geophagus winemilleri"
   ],
   "sections": {
     "beforeYouBuy:seriouslyfish": "<ul><li>Cần bể rất lớn.</li><li>Cần nền cát mềm. Đây là thứ quan trọng nhất khi bày bể, vì cá phải được xúc nền kiếm ăn như ngoài tự nhiên (xem mục 'Thức ăn').</li></ul><p>Geophagus winemilleri là một loài cichlid ở miền nam Venezuela, có lẽ có cả ở miền bắc Brazil. Người ta đã bắt được nó ở thượng nguồn Río Negro, Río Siapa và Casiquiare. Cá này hiếm thấy ở tiệm, dù đôi khi có loài khác bị bán dưới tên nó. Muốn nhận ra nó thì xem vết đen ở nắp mang trước và bốn vạch xiên chúc xuống phía bụng trên mỗi bên thân. Loài này có thể chỉ sống trong nước đen có tính axit.</p>",
@@ -24,5 +25,6 @@
     "bySource": {
       "seriouslyfish": 0.9
     }
-  }
+  },
+  "nameFixed": true
 }

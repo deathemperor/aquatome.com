@@ -38,6 +38,9 @@ export type Page = {
   /** Species and plants: the Latin name, and the other Latin names the page goes by. */
   sci?: string
   latinNames: string[]
+  /** Species: the family, and the L numbers on record (a pleco's name shows one: l-numbers.ts). */
+  family?: string
+  lNumber?: string
   card: CardValue[]
   /** Species and plants: the English each section was translated from, by field. */
   en?: Record<string, string>
@@ -113,6 +116,7 @@ export function pagesOf(lang: Lang, c: Content): Page[] {
     ...c.species.map(s => ({
       ...base('species', s.id, s.t.slug, s.t.name), ...textOf(s.t, s.t.sections), ...(s.t.nameFixed ? { nameFixed: true } : {}),
       captions: captionsOf([...s.photos, ...(c.galleries[s.id] ?? [])]), own: s.photos.map(x => x.url), sci: s.scientificName, latinNames: latin(s.t.altNames), card: card(s.dataCard),
+      family: s.family, ...(s.lNumber ? { lNumber: s.lNumber } : {}),
       en: Object.fromEntries(s.sections.map(x => [`sections.${x.key}:${x.source}`, x.html])),
     })),
     ...c.plants.map(p => ({

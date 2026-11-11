@@ -1,9 +1,10 @@
 {
   "slug": "ca-geophagus-camopiensis",
-  "name": "Cá Geophagus camopiensis",
+  "name": "Cá hải hồ camopiensis",
   "altNames": [
     "Cá Geophagus Oiapoque",
-    "Oiapoque Eartheater"
+    "Oiapoque Eartheater",
+    "Cá Geophagus camopiensis"
   ],
   "sections": {
     "quickFacts:seriouslyfish": "<ul><li>Cần bể rất lớn, nuôi theo đàn và bể phải chạy ổn định lâu</li></ul>",
@@ -26,5 +27,6 @@
     "bySource": {
       "seriouslyfish": 0.9
     }
-  }
+  },
+  "nameFixed": true
 }

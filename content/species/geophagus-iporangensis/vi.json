@@ -1,7 +1,9 @@
 {
   "slug": "ca-geophagus-iporangensis",
-  "name": "Cá Geophagus iporangensis",
-  "altNames": [],
+  "name": "Cá hải hồ iporangensis",
+  "altNames": [
+    "Cá Geophagus iporangensis"
+  ],
   "sections": {
     "beforeYouBuy:seriouslyfish": "<p>Loài này cần nền cát mềm. Trong cả bể, nền cát mềm là thứ quan trọng nhất, vì cá cần nó để bới tìm thức ăn như ngoài tự nhiên (xem mục 'Thức ăn').</p><p>Geophagus iporangensis là một loài cichlid chỉ mới được ghi nhận ở lưu vực sông Ribeira de Iguapé, vùng giáp ranh giữa hai bang São Paulo và Paraná ở miền nam Brazil. Cá thuộc nhóm 'G.' brasiliensis và dài khoảng 90 đến 100 mm. Cỡ này dễ nuôi hơn một số loài họ hàng. Lúc còn nhỏ, cá rất dễ bị nhầm với các loài khác trong nhóm. Khi trưởng thành thì nó nhỏ hơn và có khá ít vảy xanh ánh kim. Trong giới chơi cá, loài này không phổ biến.</p>",
     "distribution:seriouslyfish": "<p>Loài này chỉ mới được ghi nhận ở lưu vực sông Ribeira de Iguapé. Lưu vực nằm trong Vale do Ribeira, một thung lũng ven biển do chính dòng sông tạo ra, trải qua vùng giáp ranh giữa hai bang São Paulo và Paraná ở miền nam Brazil.</p><p>Nơi thu mẫu chuẩn được ghi là 'Mountain streams of Rio Ribeira de Iguapé, Iporanga, Brazil', tức các suối núi thuộc sông Ribeira de Iguapé, Iporanga, Brazil.</p>",
@@ -22,5 +24,6 @@
     "bySource": {
       "seriouslyfish": 0.85
     }
-  }
+  },
+  "nameFixed": true
 }

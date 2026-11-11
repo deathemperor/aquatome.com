@@ -4,6 +4,7 @@ import type { Taxon } from './gbif'
 import { fixFirst } from './guide-sections'
 import type { ProcessedPage } from './process'
 import { isShop, withoutShopTalk } from './species-sources'
+import { cleanLRecord } from './l-numbers'
 
 // takenNames: other items' names as nameKey keys (two fish under one name can't be told apart, or picked by name in the tools).
 type Ctx = { source: SourceId; url: string; now: string; takenSlugs: Set<string>; takenNames?: Set<string>; quality?: Translation['quality'] }
@@ -91,7 +92,9 @@ export function mergeSpecies(existing: { entity?: SpeciesEntity; vi?: Translatio
   const { taxon } = ctx
   const prev = existing.entity
   const genus = taxon.genus ?? taxon.canonicalName.split(' ')[0] ?? ''
-  const lNumber = prev?.lNumber ?? page.lNumber
+  // The record on file first, written as keepers write it (l-numbers.ts).
+  const record = prev?.lNumber ?? page.lNumber
+  const lNumber = record ? cleanLRecord(record) : undefined
   const { sections, vi } = mergeSections(prev?.sections ?? [], existing.vi?.sections ?? {}, page, ctx)
   const dataCard: SpeciesEntity['dataCard'] = {}
   const fields = uniq([...Object.keys(prev?.dataCard ?? {}), ...Object.keys(page.dataCard)]) as (keyof SpeciesEntity['dataCard'])[]
