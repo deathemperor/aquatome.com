@@ -10,8 +10,9 @@
 
 export const L_FAMILY = 'Loricariidae'
 /** An L or LDA number as anyone writes it: "L46", "L 46", "L046", "L-046", "LDA 008", "L201a". */
-const TOKEN = /(?<![\p{L}\p{N}])(LDA|L)[\s-]?0*(\d{1,3})([a-dX])?(?![\p{L}\p{N}])/gu
-const clean = (_m: string, prefix: string, n: string, form?: string) => `${prefix}${Number(n)}${form ?? ''}`
+const TOKEN = /(?<![\p{L}\p{N}])(LDA|L)[\s-]?0*(\d{1,3})([a-dA-DxX])?(?![\p{L}\p{N}])/gu
+/** A form's letter is written small, as "L201a": "L056X" and "L56x" are one number. */
+const clean = (_m: string, prefix: string, n: string, form?: string) => `${prefix}${Number(n)}${form?.toLowerCase() ?? ''}`
 
 /** A record as keepers write it: each L and LDA number clean, the others (C, CW, A, P) as they are, one ", " between. */
 export function cleanLRecord(record: string): string {
@@ -31,7 +32,7 @@ export function lNumbersOf(record?: string): string[] {
 export function withLNumber(name: string, family: string | undefined, record: string | undefined): string {
   const own = family === L_FAMILY ? lNumbersOf(record) : []
   if (!own.length) return name
-  const tidy = name.replace(/\(\s*((?:LDA|L)[\s-]?\d{1,3}[a-dX]?)\s*\)/gu, '$1').replace(TOKEN, clean).replace(/\s{2,}/g, ' ').trim()
+  const tidy = name.replace(/\(\s*((?:LDA|L)[\s-]?\d{1,3}[a-dA-DxX]?)\s*\)/gu, '$1').replace(TOKEN, clean).replace(/\s{2,}/g, ' ').trim()
   const given = lNumbersOf(tidy)
   return own.some(n => given.includes(n)) ? tidy : `${tidy} ${own[0]}`
 }

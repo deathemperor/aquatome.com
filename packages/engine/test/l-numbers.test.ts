@@ -3,7 +3,7 @@ import { cleanLRecord, lNumbersOf, showsLNumber, withLNumber } from '../src/l-nu
 
 test("an L record is written as keepers write it, from the five ways it came in; a cory's, an apisto's or a ray's number is left as it is", () => {
   expect(['L 46', 'L046', 'L31', 'LDA 008', 'L027, LDA077', 'L 1, L 22', 'L201a', 'L056X', 'C055, C105', 'CW 35', 'A188', 'P11'].map(cleanLRecord))
-    .toEqual(['L46', 'L46', 'L31', 'LDA8', 'L27, LDA77', 'L1, L22', 'L201a', 'L56X', 'C055, C105', 'CW 35', 'A188', 'P11'])
+    .toEqual(['L46', 'L46', 'L31', 'LDA8', 'L27, LDA77', 'L1, L22', 'L201a', 'L56x', 'C055, C105', 'CW 35', 'A188', 'P11'])
   expect(lNumbersOf('L027, LDA077')).toEqual(['L27', 'LDA77'])
   expect(lNumbersOf('C055, A188, CW 35')).toEqual([])
 })
@@ -20,6 +20,7 @@ test("a pleco's name shows its first L number after it, written clean; a name wi
   expect(pleco('Pleco L22', 'L1, L22')).toBe('Pleco L22') // one of its own, not the first: kept
   expect(pleco('Cá L134', 'L134')).toBe('Cá L134') // only its number: stays
   expect(pleco('Cá L201a Big Spots', 'L201a')).toBe('Cá L201a Big Spots')
+  expect(pleco('Cá L56x Parancistrus', 'L056X')).toBe('Cá L56x Parancistrus') // a form's letter in either case
   expect(pleco('Cá lau kiếng vàng')).toBe('Cá lau kiếng vàng') // no number on record
   expect(withLNumber('Cá chuột panda', 'Callichthyidae', 'C020')).toBe('Cá chuột panda')
   expect(withLNumber('Cá sặc L46', 'Osphronemidae', 'L46')).toBe('Cá sặc L46')
