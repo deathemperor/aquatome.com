@@ -16,6 +16,7 @@ import re
 import signal
 import subprocess
 import sys
+import tempfile
 import threading
 import time
 
@@ -27,9 +28,12 @@ COOL_MINUTES = float(os.environ.get("SIM_RUN_COOL_MINUTES", 30))
 COOL_PAUSE = float(os.environ.get("SIM_RUN_COOL_PAUSE", 30))
 # A simulator's own analysis daemons, never the Mac's: their path is inside a simulator runtime's RuntimeRoot.
 ANALYSIS = re.compile(r"/CoreSimulator/.*/RuntimeRoot/System/Library/PrivateFrameworks/(MediaAnalysis|PhotoAnalysis)\.framework/")
-# A test's own stand-ins only (`SIM_RUN_QUIET_ROOT`, its temporary home): unset, a real run lowers every simulator analysis
-# daemon it can see, and two tests' scans lowered each other's stand-ins.
+# A test's own stand-ins only (`SIM_RUN_QUIET_ROOT`, its temporary home): two tests' scans lowered each other's stand-ins.
+# Unset, a real run lowers every simulator analysis daemon it can see but those in the system temp folder, under any of
+# its names, where tests make their stand-ins and no simulator runs: on 2026-11-12 a lead's run lowered the photos
+# cycle's stand-in 0.2 s after it started, and the cycle didn't publish.
 QUIET_ROOT = os.environ.get("SIM_RUN_QUIET_ROOT", "")
+TEMP = tuple({os.path.join(p, "") for p in ("/tmp", "/private/tmp", "/var/folders", "/private/var/folders", tempfile.gettempdir(), os.path.realpath(tempfile.gettempdir()))})
 QUIET_PAUSE = float(os.environ.get("SIM_RUN_QUIET_PAUSE", 20))
 # The run the next turn is kept for: "<until, epoch seconds> <pid, or a word from its folder or command>", which only the
 # chief of staff writes (scripts/next-turn.py).
@@ -73,6 +77,13 @@ def cool():
         print(f"sim-run: went on after {waited / 60:.0f} min", flush=True)
 
 
+def lowered(args):
+    """Whether quiet() lowers this process, by its command line."""
+    if not ANALYSIS.search(args):
+        return False
+    return QUIET_ROOT in args if QUIET_ROOT else not args.startswith(TEMP)
+
+
 def quiet():
     """A simulator's photo and media analysis (mediaanalysisd, photoanalysisd) runs at background priority while a run
     has its turn. On 2026-11-08, after main's simulator booted, mediaanalysisd took 3.4 cores at normal priority for 8 min,
@@ -85,7 +96,7 @@ def quiet():
             out = ""
         for line in out.splitlines():
             pid, _, args = line.strip().partition(" ")
-            if pid in done or not ANALYSIS.search(args) or (QUIET_ROOT and QUIET_ROOT not in args):
+            if pid in done or not lowered(args):
                 continue
             done.add(pid)
             try:
