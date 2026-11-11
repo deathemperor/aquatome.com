@@ -1,0 +1,62 @@
+{
+  "id": "youtube-3O3L-qZTRps",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=3O3L-qZTRps",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "danio-rerio",
+    "melanotaenia-praecox",
+    "caridina-multidentata"
+  ],
+  "updatedAt": "2026-11-11",
+  "video": {
+    "youtubeId": "3O3L-qZTRps",
+    "title": "I Created a Vortex River In My Aquarium (Minisode)",
+    "channel": "MD Fish Tanks",
+    "channelUrl": "https://www.youtube.com/channel/UC3uQXzXSPspf2LoGdtYGiHw",
+    "durationSec": 482,
+    "publishedAt": "2025-09-23",
+    "chapters": [],
+    "series": {
+      "id": "PLNQZ_M0udEWvZYP0uLmei829zZ6UHKHWr",
+      "position": 2
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/3O3L-qZTRps/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Boston ferns",
+      "Danio rerio",
+      "Melanotaenia praecox",
+      "Caridina multidentata"
+    ],
+    "gear": [
+      {
+        "category": "loc",
+        "type": "tao-dong",
+        "t": 139
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 0
+      },
+      {
+        "category": "suoi",
+        "t": 320
+      },
+      {
+        "category": "loc",
+        "t": 191
+      },
+      {
+        "category": "den",
+        "t": 30
+      }
+    ]
+  }
+}

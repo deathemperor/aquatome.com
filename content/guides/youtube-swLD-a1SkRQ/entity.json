@@ -1,0 +1,67 @@
+{
+  "id": "youtube-swLD-a1SkRQ",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=swLD-a1SkRQ",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "eleocharis-acicularis",
+    "hygrophila-polysperma",
+    "hygrophila-pinnatifida"
+  ],
+  "updatedAt": "2026-11-11",
+  "video": {
+    "youtubeId": "swLD-a1SkRQ",
+    "title": "AQUASCAPE FOR UNDER $10 - No CO2 No filter No heater Max Fun!",
+    "channel": "George Farmer",
+    "channelUrl": "https://www.youtube.com/channel/UC210QPUiYoCjm9IEuu5SHLQ",
+    "durationSec": 915,
+    "publishedAt": "2019-07-17",
+    "chapters": [],
+    "series": {
+      "id": "PLKedE6P1X5OzHvLkpRy5WEFF6gjX0U3mN",
+      "position": 12
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/swLD-a1SkRQ/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Zosterella dubia",
+      "Hemianthus callitrichoides",
+      "Eleocharis acicularis",
+      "Micranthemus tweediei",
+      "Hygrophila polysperma",
+      "Anubias sp.",
+      "Hygrophila pinnatifida"
+    ],
+    "gear": [
+      {
+        "category": "be-ca",
+        "type": "nano",
+        "t": 0
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "t": 150
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 270
+      },
+      {
+        "category": "cay-thuy-sinh",
+        "type": "gan-lua",
+        "t": 270
+      },
+      {
+        "category": "den",
+        "t": 90
+      }
+    ]
+  }
+}

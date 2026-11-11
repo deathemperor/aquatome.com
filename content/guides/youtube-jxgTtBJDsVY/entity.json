@@ -1,0 +1,82 @@
+{
+  "id": "youtube-jxgTtBJDsVY",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=jxgTtBJDsVY",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "anubias-barteri",
+    "bucephalandra-sp",
+    "micranthemum-tweediei",
+    "staurogyne-repens",
+    "helanthium-tenellum",
+    "paracheirodon-simulans",
+    "neocaridina-davidi",
+    "caridina-multidentata"
+  ],
+  "updatedAt": "2026-11-11",
+  "video": {
+    "youtubeId": "jxgTtBJDsVY",
+    "title": "Non-CO2 Planted Tank Aquascape - 6 month update!",
+    "channel": "George Farmer",
+    "channelUrl": "https://www.youtube.com/channel/UC210QPUiYoCjm9IEuu5SHLQ",
+    "durationSec": 540,
+    "publishedAt": "2018-06-16",
+    "chapters": [],
+    "series": {
+      "id": "PLKedE6P1X5OzHvLkpRy5WEFF6gjX0U3mN",
+      "position": 5
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/jxgTtBJDsVY/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Anubias barteri",
+      "Bucephalandra sp.",
+      "Cryptocoryne sp.",
+      "Micranthemum tweediei",
+      "Staurogyne repens",
+      "Helanthium tenellum",
+      "Paracheirodon simulans",
+      "Neocaridina davidi",
+      "Caridina multidentata"
+    ],
+    "gear": [
+      {
+        "category": "be-ca",
+        "type": "chuan",
+        "brand": "Mirabella",
+        "model": "60",
+        "t": 60
+      },
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "t": 60
+      },
+      {
+        "category": "loc",
+        "type": "bot-bien",
+        "t": 90
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "t": 90
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 90
+      },
+      {
+        "category": "thuc-an",
+        "type": "kho",
+        "t": 250
+      }
+    ]
+  }
+}

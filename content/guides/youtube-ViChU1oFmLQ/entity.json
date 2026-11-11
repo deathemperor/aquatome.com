@@ -1,0 +1,55 @@
+{
+  "id": "youtube-ViChU1oFmLQ",
+  "kind": "plantCare",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=ViChU1oFmLQ",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "microsorum-pteropus"
+  ],
+  "updatedAt": "2026-11-11",
+  "video": {
+    "youtubeId": "ViChU1oFmLQ",
+    "title": "Budget Non-CO2 Aquascape - BBA Nightmare!",
+    "channel": "George Farmer",
+    "channelUrl": "https://www.youtube.com/channel/UC210QPUiYoCjm9IEuu5SHLQ",
+    "durationSec": 890,
+    "publishedAt": "2018-03-18",
+    "chapters": [],
+    "series": {
+      "id": "PLKedE6P1X5OzHvLkpRy5WEFF6gjX0U3mN",
+      "position": 3
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/ViChU1oFmLQ/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Hemianthus callitrichoides",
+      "Micranthemus tweediei",
+      "Microsorum pteropus",
+      "Cryptocoris sp."
+    ],
+    "gear": [
+      {
+        "category": "khac",
+        "brand": "Seachem",
+        "model": "Flourish Excel",
+        "t": 211
+      },
+      {
+        "category": "khac",
+        "brand": "Easy Life",
+        "model": "Easy Carbo",
+        "t": 211
+      },
+      {
+        "category": "loc",
+        "type": "treo",
+        "t": 120
+      }
+    ]
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "id": "youtube--dljx2cn2-A",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=-dljx2cn2-A",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "astyanax-mexicanus"
+  ],
+  "updatedAt": "2026-11-11",
+  "video": {
+    "youtubeId": "-dljx2cn2-A",
+    "title": "Making A Mystical Cave Aquarium For BLIND FISH!",
+    "channel": "MD Fish Tanks",
+    "channelUrl": "https://www.youtube.com/channel/UC3uQXzXSPspf2LoGdtYGiHw",
+    "durationSec": 552,
+    "publishedAt": "2025-10-07",
+    "chapters": [],
+    "series": {
+      "id": "PLNQZ_M0udEWvZYP0uLmei829zZ6UHKHWr",
+      "position": 0
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/-dljx2cn2-A/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Astyanax mexicanus",
+      "Otocinclus sp.",
+      "Rotala sp.",
+      "Limnophila sp.",
+      "Eleocharis sp.",
+      "Lemna sp."
+    ],
+    "gear": [
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 0
+      },
+      {
+        "category": "phan-nen",
+        "type": "cat",
+        "t": 93
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "t": 93
+      },
+      {
+        "category": "loc",
+        "type": "thung",
+        "t": 303
+      },
+      {
+        "category": "loc",
+        "type": "treo",
+        "t": 303
+      },
+      {
+        "category": "den",
+        "type": "thuy-sinh",
+        "t": 513
+      }
+    ]
+  }
+}

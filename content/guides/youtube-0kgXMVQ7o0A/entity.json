@@ -1,0 +1,102 @@
+{
+  "id": "youtube-0kgXMVQ7o0A",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=0kgXMVQ7o0A",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "cryptocoryne-wendtii",
+    "bucephalandra-sp",
+    "utricularia-graminifolia"
+  ],
+  "updatedAt": "2026-11-11",
+  "video": {
+    "youtubeId": "0kgXMVQ7o0A",
+    "title": "Scape School Sunday - Budgets and Substrates",
+    "channel": "George Farmer",
+    "channelUrl": "https://www.youtube.com/channel/UC210QPUiYoCjm9IEuu5SHLQ",
+    "durationSec": 2716,
+    "publishedAt": "2018-12-09",
+    "chapters": [],
+    "series": {
+      "id": "PLKedE6P1X5OzHDXyOG9I-0YQZ16G8K8-M",
+      "position": 1
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/0kgXMVQ7o0A/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Cryptocoryne wendtii",
+      "Cryptocoryne sp.",
+      "Anubias sp.",
+      "Bucephalandra sp.",
+      "Hygrophila sp.",
+      "Utricularia graminifolia",
+      "Eleocharis sp."
+    ],
+    "gear": [
+      {
+        "category": "be-ca",
+        "type": "nano",
+        "t": 184
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "brand": "ADA",
+        "model": "Aqua Soil Amazonia",
+        "t": 1281
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "brand": "Tropica",
+        "model": "Soil",
+        "t": 1395
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "brand": "Tropica",
+        "model": "Plant Growth Substrate",
+        "t": 1015
+      },
+      {
+        "category": "phan-nen",
+        "type": "phan",
+        "brand": "Tropica",
+        "model": "Root capsules",
+        "t": 1118
+      },
+      {
+        "category": "phan-nen",
+        "type": "soi",
+        "t": 765
+      },
+      {
+        "category": "khac",
+        "brand": "Tropica",
+        "model": "Specialised plant nutrition",
+        "t": 1847
+      },
+      {
+        "category": "khac",
+        "brand": "Aquascape Complete Liquid Plant Food",
+        "t": 1784
+      },
+      {
+        "category": "khac",
+        "brand": "Thrive",
+        "t": 1822
+      },
+      {
+        "category": "co2",
+        "type": "mini",
+        "t": 515
+      }
+    ]
+  }
+}

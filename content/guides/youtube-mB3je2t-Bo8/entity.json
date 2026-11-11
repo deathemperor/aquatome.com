@@ -1,0 +1,93 @@
+{
+  "id": "youtube-mB3je2t-Bo8",
+  "kind": "setup",
+  "source": "youtube",
+  "sourceUrl": "https://www.youtube.com/watch?v=mB3je2t-Bo8",
+  "html": "",
+  "photos": [],
+  "mentions": [
+    "paracheirodon-axelrodi",
+    "microsorum-pteropus",
+    "danio-margaritatus",
+    "tanichthys-albonubes",
+    "neocaridina-davidi",
+    "betta-splendens",
+    "eleocharis-acicularis"
+  ],
+  "updatedAt": "2026-11-11",
+  "video": {
+    "youtubeId": "mB3je2t-Bo8",
+    "title": "Super Low Tech Aquascape Tour with MD Fish Tanks",
+    "channel": "George Farmer",
+    "channelUrl": "https://www.youtube.com/channel/UC210QPUiYoCjm9IEuu5SHLQ",
+    "durationSec": 1696,
+    "publishedAt": "2019-07-29",
+    "chapters": [],
+    "series": {
+      "id": "PLKedE6P1X5OzHvLkpRy5WEFF6gjX0U3mN",
+      "position": 13
+    },
+    "thumb": {
+      "url": "https://i.ytimg.com/vi/mB3je2t-Bo8/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    "taxa": [
+      "Symphysodon sp.",
+      "Paracheirodon axelrodi",
+      "Microsorum pteropus",
+      "Anubias sp.",
+      "Salvinia sp.",
+      "Lemna minor",
+      "Danio margaritatus",
+      "Tanichthys albonubes",
+      "Neocaridina davidi",
+      "Pterapogon kauderni",
+      "Betta splendens",
+      "Amphiprion ocellaris",
+      "Nephrolepis exaltata",
+      "Eleocharis acicularis"
+    ],
+    "gear": [
+      {
+        "category": "den",
+        "type": "diu",
+        "t": 345
+      },
+      {
+        "category": "den",
+        "brand": "Lux Bird",
+        "t": 432
+      },
+      {
+        "category": "den",
+        "t": 887
+      },
+      {
+        "category": "loc",
+        "type": "bot-bien",
+        "t": 1360
+      },
+      {
+        "category": "co2",
+        "type": "mini",
+        "t": 1015
+      },
+      {
+        "category": "phan-nen",
+        "type": "cat",
+        "t": 1185
+      },
+      {
+        "category": "cay-thuy-sinh",
+        "type": "noi",
+        "t": 1342
+      },
+      {
+        "category": "loc",
+        "type": "treo",
+        "t": 90
+      }
+    ]
+  }
+}
