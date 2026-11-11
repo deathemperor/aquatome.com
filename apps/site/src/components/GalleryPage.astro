@@ -4,7 +4,7 @@ import AiPhotoLabel from './AiPhotoLabel.astro'
 import Browse from '../layouts/Browse.astro'
 import { getContent } from '../lib/content'
 import { creditsFor } from '../lib/credits'
-import { galleryLine, licenceUrl, photoFrom } from '../lib/gallery'
+import { alterationNotice, galleryLine, licenceUrl, photoFrom } from '../lib/gallery'
 import { smallSrc } from '../lib/img'
 import { i18n, isVietnamese, licenceLabel } from '../lib/i18n'
 import { isUnsplash } from '../lib/unsplash'
@@ -37,7 +37,7 @@ const jsonld = [{
   <ul class="grid" data-gallery>
     {photos.map((p, i) => (
       <li id={`a${i + 1}`}>
-        <a href={p.url} data-i={i} data-full={p.url} data-w={p.width} data-h={p.height} data-cap={p.caption ?? ''} data-author={p.author} data-lic={p.generated ? '' : licenceLabel(p.licence)} data-src={p.sourceUrl} data-by={p.authorUrl} data-ai={p.generated ? t('Ảnh do AI tạo') : undefined} data-altered={p.altered?.length ? t(p.altered.some(a=>a.method==='mark-crop') ? 'Đã cắt bỏ dấu của nguồn ảnh' : 'Ảnh đã chỉnh sửa') : undefined} data-unsplash={isUnsplash(p.licence) ? '' : undefined}>
+        <a href={p.url} data-i={i} data-full={p.url} data-w={p.width} data-h={p.height} data-cap={p.caption ?? ''} data-author={p.author} data-lic={p.generated ? '' : licenceLabel(p.licence)} data-src={p.sourceUrl} data-by={p.authorUrl} data-ai={p.generated ? t('Ảnh do AI tạo') : undefined} data-altered={alterationNotice(p) ? t('Ảnh đã chỉnh sửa') : undefined} data-unsplash={isUnsplash(p.licence) ? '' : undefined}>
           <img src={smallSrc(p)} alt={p.caption ?? name} width={p.width} height={p.height} loading={i < 4 ? 'eager' : 'lazy'} decoding="async" />
           <AiPhotoLabel photo={p} />
         </a>

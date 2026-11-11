@@ -51,8 +51,8 @@ orphan cleanup can remove objects left without a content reference.
 
 The original is retained. The two ScotCat credits retain the existing combined
 source/photographer credit from recorded data, without fresh lettering extraction.
-Credits preserve the board's source/photographer and
-licence, followed by “Cropped to remove a source mark” in the reader's language.
+On 11 Nov 2026 the owner said a cropped photo's credit names the photographer,
+the source and the licence, and says nothing about the crop.
 These six are excluded from Fish ID and the day's card regardless of their shape.
 The initial rollout gives Leptodoras cataniai its safely framed site head;
 the other five start album-only and invisible below the six-photo strip minimum.
