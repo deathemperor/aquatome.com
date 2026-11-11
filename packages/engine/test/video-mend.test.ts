@@ -53,6 +53,7 @@ test('the sentences the gate quotes go to the video\'s editor with the transcrip
   // reviewer is told that is the video's fact kept, so the mend isn't scored down for the price it took out.
   expect(prompts[0]).toContain('viết lại thành điều mà cái giá ấy muốn nói')
   expect(prompts[0]).toContain('trừ khi video nêu giá bằng đồng Việt Nam')
+  expect(prompts[0]).toContain('Câu nào cho liều của một sản phẩm thì giữ tên sản phẩm; không đổi thành loại.')
   expect(prompts[1]).toContain('TRANSCRIPT:')
   expect(prompts[1]).toContain('by MJ Aquascaping')
   expect(prompts[1]).toContain('turned into the comparison the price was there to make')
@@ -76,6 +77,26 @@ test('a mend the page can\'t have leaves the file as it was', async () => {
     const { root, file, was } = await setup(...s)
     expect(await deps(root, d).mend(page(p), [shop, price]), name).toBe(false)
     expect(await readFile(file, 'utf8'), name).toBe(was)
+  }
+})
+
+test('a product or a price quoted in a sentence that gives a dose is not mended: one product\'s dose would become its kind\'s', async () => {
+  const dosed = `<p>Bể nhỏ dễ dựng. Châm 5 ml Seachem Prime cho 200 lít mỗi lần thay nước. Lọc thì mua loại nào cũng được.</p><p>Thức ăn Hikari gói 20 g giá 5 USD là đủ dùng lâu.</p><p>${LONG}</p>`
+  const product: FitFinding = { check: 'product', part: 'P1', quote: 'Seachem Prime', why: 'a product not sold here', by: 'model' }
+  const packet: FitFinding = { check: 'price', part: 'P2', quote: 'giá 5 USD', why: 'a price in dollars', by: 'rule' }
+  for (const [name, findings] of [['a product in a dose sentence', [product]], ['a price beside an amount', [packet]], ['one of several', [shop, product]]] as const) {
+    const { root, file, was } = await setup({ body: `${dosed}<p>Mua lọc ở Petco.</p>` })
+    const { mend, prompts } = deps(root)
+    expect(await mend(page(), [...findings]), name).toBe(false)
+    expect(prompts, name).toEqual([]) // no editor, no reviewer: the text goes back as before
+    expect(await readFile(file, 'utf8'), name).toBe(was)
+  }
+  // The same product named where no dose is given goes to the editor as before, and so does a shop in a guide that gives a dose elsewhere.
+  for (const [body, findings] of [[`<p>Seachem Prime là loại khử clo quen thuộc.</p><p>${LONG}</p>`, [product]], [`${dosed}<p>Mua lọc ở Petco.</p>`, [shop]]] as const) {
+    const { root } = await setup({ body })
+    const { mend, prompts } = deps(root, { fixed: { body: `<p>Bể nhỏ dễ dựng.</p><p>${LONG}</p>` } })
+    expect(await mend(page(), [...findings])).toBe(true)
+    expect(prompts).toHaveLength(2)
   }
 })
 

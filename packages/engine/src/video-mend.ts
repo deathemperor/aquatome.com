@@ -3,7 +3,7 @@ import { readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { metricPage, QUALITY_THRESHOLD, TranslationSchema, type GuideEntity, type Translation } from '@aq/schema'
 import type { Llm } from './claude'
-import { FIT_TITLE, type FitFinding } from './fit'
+import { FIT_TITLE, givesDose, type FitFinding } from './fit'
 import type { Mend } from './gate'
 import type { Page } from './pages'
 import { norm, render } from './reader'
@@ -16,6 +16,18 @@ import { fixDraft, reviewDraft, type Draft, type WriteOpts, type YouTube } from 
 /** What the mender's editor is told to do, said to its reviewer: a foreign price turned into the comparison it makes is a fact kept (the Writing Lead's ruling, 2026-11-11). */
 const REVIEW_NOTE = readFileSync(new URL('./prompts/video-mend-review.md', import.meta.url), 'utf8')
 
+/** The sentence a quote sits in, within its paragraph (both as `norm` gives them); the quote alone when no paragraph has it whole. */
+function sentenceOf(paragraphs: string[], quote: string): string {
+  for (const p of paragraphs) {
+    const i = p.indexOf(quote)
+    if (i < 0) continue
+    const start = Math.max(p.lastIndexOf('. ', i), p.lastIndexOf('? ', i), p.lastIndexOf('! ', i)) + 1
+    const end = p.slice(i + quote.length).search(/[.?!](?:\s|$)/)
+    return p.slice(start, end < 0 ? p.length : i + quote.length + end + 1)
+  }
+  return quote
+}
+
 /**
  * The gate's mender for a Vietnamese video guide (gate.ts `mend`). A new version the video reviewer passed went back
  * whole when one sentence of it named a shop abroad or gave a price in dollars, and the guide had had its one go: 43 of
@@ -27,7 +39,9 @@ const REVIEW_NOTE = readFileSync(new URL('./prompts/video-mend-review.md', impor
  * The file is written, and true returned, only when the edit took every quoted sentence out and its review is at the bar,
  * or no lower than the review of the text it mends (a mend never leaves a guide worse, as a redo never does). Its review
  * is then the page's. False, and the file as it was: not a Vietnamese video guide, a text a person fixed, no transcript on
- * this Mac, a broken edit, a sentence left in, or a review under both.
+ * this Mac, a broken edit, a sentence left in, or a review under both. Nor is a mend tried when a product or a price
+ * is quoted in a sentence that gives a dose: the editor turns a product into its kind, and "5 ml of that product for
+ * 200 litres" would become a dose for every product of the kind (the Writing Lead, 2026-11-11). That text goes back.
  */
 export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transcript' | 'transcribe'>; now?: () => Date; write?: WriteOpts }): Mend => async (p: Page, findings: FitFinding[]) => {
   if (p.lang !== 'vi' || p.kind !== 'guides' || !findings.length) return false
@@ -36,6 +50,8 @@ export const videoMend = (root: string, d: { llm: Llm; yt: Pick<YouTube, 'transc
   const e = JSON.parse(await readFile(join(dir, 'entity.json'), 'utf8')) as GuideEntity
   const vi = JSON.parse(await readFile(join(dir, 'vi.json'), 'utf8')) as Translation
   if (e.source !== 'youtube' || !e.video || vi.bodyFixed || vi.faqFixed) return false
+  const paragraphs = [vi.name, ...(vi.summary ?? []), ...render(sanitizeHtml(vi.body ?? '')).split('\n'), ...(vi.faq ?? []).flatMap(f => [f.q, f.a])].map(norm)
+  if (findings.some(f => (f.check === 'product' || f.check === 'price') && givesDose(sentenceOf(paragraphs, norm(f.quote))))) return false
   const lang = e.video.lang ?? 'en'
   const transcript = (e.video.transcribed ? null : await d.yt.transcript(e.video.youtubeId, lang)) ?? (await d.yt.transcribe?.(e.video.youtubeId, lang)) ?? null
   if (!transcript) return false
