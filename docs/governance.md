@@ -477,6 +477,20 @@ The layers above still check the result.
   runs first in its source's next run, with no backoff. A usage limit uses none of its 3 attempts, and 3 pages in a
   row failing on the network stop the source, so an outage doesn't use up every page's attempts. Found with the
   above: after one browser crash (2026-10-29), 115 Seriously Fish pages waited behind hundreds of new ones.
+- **Daily ceiling.** Each step may spend only so many dollars on the model in a day, counted from the cost log before
+  every call (`ceiling.ts`). The amounts are in `packages/engine/src/ceilings.json`, a table a period, with the clock
+  a day runs on. A step the file doesn't name has the small ceiling, never none. The gate and moderation have none, and
+  log what they spend. A backstop over everything stops every step with a ceiling once the day's logged total reaches
+  it. Each machine counts its own logs, so a table gives the Mac and GitHub each a share. A step at its ceiling fails
+  its call as it does for Claude's usage limit and leaves the same: nothing written, no mark, no review logged
+  (`ceiling.test.ts`, and the limit tests of `water`, `range` and `sweep`, run with the ceiling's own message). A
+  cost log that can't be written stops a step that has a ceiling. Found with: on 11 Nov 2026 the engine's sign-ins
+  ran out of their week four days early, at $542 a day where one sign-in's week allows $140.
+  - It covers every call the engine makes to Claude (`claude.ts`), whatever started it: a call with no log named is
+    written to the hand runs' log and counted from there. Not covered: the AI page review on pull requests, the
+    auto-fix and the nightly AI review, which call Claude on the same accounts by another road, with no log and no
+    ceiling (`CLAUDE_ON_CI=off` pauses them, and `ENGINE_ON_CI=on` runs the rewrite while they stay paused); and
+    picture generation, which goes to Codex on its own sign-in and quota (`codex-images.ts`).
 - **On topic.** A guide covers what its title promises. The guide writer and its reviewer are told to leave out a
   video's detours (`prompts/video-guide.md`, `video-review.md`). `pnpm engine topic-check` reads every new or changed
   guide and drops sections about another subject, with their FAQ and summary lines. It never drops more than half a
@@ -529,7 +543,7 @@ The layers above still check the result.
   or part of one wherever it looks), no watermarks (credits, dealer logos, site names or species names added on the
   photo: `pnpm engine watermarks`, macOS Vision reads the text and the model judges it; a marked photo is blocked for
   good; a photo that screen still owes a look waits, and no public build shows it on a page, in an album, a guide or a
-  card until it is judged: on 2026-11-11 the model ran out of quota and 36 photos reached main with no look), no shop's or dealer's brand in a guide's photo (on its own-brand products too; a maker's brand on its own product is
+  card until it is judged, and the calendar, which names a picture by address, asks the screen's record about each one whatever that language's build loaded; an equipment guide whose pictures all wait is left out, and a kind of kit is linked only where the language builds its page; the homepage's cover (a site picture chosen by hand) and a video's own thumbnail (YouTube's, never in our store) are no fetched photos and are not asked: on 2026-11-11 the model ran out of quota and 36 photos reached main with no look), no shop's or dealer's brand in a guide's photo (on its own-brand products too; a maker's brand on its own product is
   fine), no dead fish or fish as food (markets, plates, catches landed or held,
   preserved, mounted or museum specimens), each photo must show its species (a landscape where it can't be picked out
   doesn't), open licences or permission only.

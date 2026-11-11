@@ -28,7 +28,7 @@ vi.mock('node:child_process', () => ({
   },
 }))
 const { LlmError, claudeCli } = await import('../src/claude')
-const { accountReport, outOf, parseTokens, rejectedTokens, resetAccounts, resetOf, tokenHash } = await import('../src/claude-accounts')
+const { accountReport, NotTheAccount, onAccounts, outOf, parseTokens, rejectedTokens, resetAccounts, resetOf, tokenHash } = await import('../src/claude-accounts')
 const { errorKind } = await import('../src/state')
 const call = () => claudeCli<{ ok: boolean }>({ system: 's', prompt: 'p', schema: {} })
 const h = (t: string) => tokenHash(t)
@@ -42,6 +42,8 @@ const setTokens = (list?: string, one?: string) => {
 }
 let logs: string[] = []
 beforeEach(() => {
+  // A stand-in call must not be written to a real cost log (vitest.config.ts): `off` is no log.
+  process.env.ENGINE_COST_LOG = 'off'
   spawned.length = 0
   logs = []
   resetAccounts()
@@ -132,6 +134,38 @@ test('the list, then the single secret: the first account takes its turn last, a
   expect(spawned.map(s => s.token)).toEqual(['tok-weekly', 'tok-bad'])
   expect(errorKind(e.message)).toBe('usage')
   expect(rejectedTokens()).toBe(`token 2 (${h('tok-bad')}) in CLAUDE_CODE_OAUTH_TOKEN`)
+})
+
+// The engine's own ceiling for the day (ceiling.ts) reads as a usage limit to the steps. It is not the account's: the
+// account stays in use and the next one isn't tried, before the first try or between two.
+test('a stop that is not the account\'s goes straight up: no account is set aside and the next is not tried', async () => {
+  const ceiling = 'claude failed: the engine\'s daily limit reached for run ($30.00 of $30 today)'
+  const fail = (m: string) => new LlmError(m)
+  setTokens('tok-one\ntok-two')
+  const tried: (string | undefined)[] = []
+  const first = await onAccounts(async t => { tried.push(t); throw new NotTheAccount(ceiling) }, fail).catch((e: unknown) => e)
+  expect(first).toBeInstanceOf(LlmError)
+  expect((first as Error).message).toBe(ceiling)
+  expect(errorKind((first as Error).message)).toBe('usage')
+  expect(tried).toEqual(['tok-one'])
+  // The first account runs out for real, and by the time the second would be tried the step is at its ceiling.
+  tried.length = 0
+  const second = await onAccounts(async t => {
+    tried.push(t)
+    throw t === 'tok-one' ? new LlmError("claude failed (1): You've hit your weekly limit · resets Nov 14 at 8am (Asia/Saigon)") : new NotTheAccount(ceiling)
+  }, fail).catch((e: unknown) => e)
+  expect((second as Error).message).toBe(ceiling)
+  expect(tried).toEqual(['tok-one', 'tok-two'])
+  const report = accountReport()
+  expect(report).toHaveLength(2)
+  expect(report[0]).toContain('usage limit')
+  expect(report[1]).toBe(`token 2 (${tokenHash('tok-two')}): 0 answered`)
+  // With no account at all (the CLI's own login), the same.
+  setTokens()
+  resetAccounts()
+  const none = await onAccounts(async () => { throw new NotTheAccount(ceiling) }, fail).catch((e: unknown) => e)
+  expect(none).toBeInstanceOf(LlmError)
+  expect((none as Error).message).toBe(ceiling)
 })
 
 test('any other failure fails the call on its own account, which stays in use', async () => {

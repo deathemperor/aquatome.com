@@ -75,13 +75,27 @@ export function envFor(token?: string): NodeJS.ProcessEnv {
 }
 
 /**
+ * A call stopped before it was made, for a reason that isn't its account's: the engine's own ceiling for the day
+ * (ceiling.ts). Its message reads as a usage limit to the steps, so it is told apart here by its class.
+ */
+export class NotTheAccount extends Error {}
+
+/**
  * One call on the first account not set aside. Out of its limit or rejected, that account is set aside and the same call
  * goes to the next. With every account set aside it fails, without calling, with what the last one out of its limit said
  * (so errorKind still says 'usage'), else the last rejection. No accounts: the call as it is, on the CLI's own login.
  */
 export async function onAccounts<T>(call: (token?: string) => Promise<T>, fail: (message: string) => Error): Promise<T> {
   const all = list()
-  if (!all.length) return call()
+  // A stop that isn't the account's goes straight up: no account is set aside for it, and the next isn't tried.
+  const stopped = (e: unknown) => (e instanceof NotTheAccount ? fail(e.message) : undefined)
+  if (!all.length) {
+    try {
+      return await call()
+    } catch (e) {
+      throw stopped(e) ?? e
+    }
+  }
   for (;;) {
     const a = all.find(x => !x.out)
     if (!a) throw fail((all.findLast(x => x.out?.why === 'usage') ?? all.at(-1)!).out!.message)
@@ -90,6 +104,8 @@ export async function onAccounts<T>(call: (token?: string) => Promise<T>, fail: 
       a.answered++
       return r
     } catch (e) {
+      const stop = stopped(e)
+      if (stop) throw stop
       const out = outOf((e as Error).message)
       if (!out) throw e
       if (!a.out) {

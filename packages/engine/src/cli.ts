@@ -7,6 +7,7 @@ import { fileURLToPath } from 'node:url'
 import { parseArgs } from 'node:util'
 import { loadAll, SOURCE_IDS, vnDate, type SourceId } from '@aq/schema'
 import { WRITTEN_LANGS, WRITTEN_OTHER_LANGS } from '@aq/schema/langs'
+import { nameStep } from './ceiling'
 import { LlmError, claudeCli, claudeResearch, claudeVision } from './claude'
 import { accountReport, rejectedTokens } from './claude-accounts'
 import { makeProduct } from './products'
@@ -17,7 +18,8 @@ import { HOLD_CLASSES, holdGuides, type HoldClass } from './video-hold'
 import { ungarble } from './ungarble'
 import { redoUnread } from './unread-redo'
 import { videoMend } from './video-mend'
-import { BACKFILL_KINDS, reviewBackfill, type BackfillKind } from './review-backfill'
+import { BACKFILL_KINDS, lowVideoGuides, reviewBackfill, type BackfillKind } from './review-backfill'
+import { NEAR_BAR } from './quality'
 import { allTraces } from './review-log'
 import { reviewReport } from './review-report'
 import { auditPictures } from './audit'
@@ -179,6 +181,8 @@ const galleryDeps = (): GalleryDeps => ({
   look: (file, prompt) => claudeVision<Vet>({ system: 'You pick photos for a fish or plant photo gallery. Reply only with JSON.', prompt, schema: GALLERY_VET, file }),
 })
 const cmd = positionals[0]
+// The command, wherever it stood among the options, is the name its model calls are counted under (ceiling.ts).
+nameStep(cmd)
 
 // At the end of every command that called Claude: what each account answered, and which were set aside and why
 // (claude-accounts.ts), in the log and on the GitHub run's summary page. 'exit': some commands end with process.exit().
@@ -726,10 +730,20 @@ if (cmd === 'run' || cmd === 'card-fill') {
   const r = await reviewBackfill({ root: ROOT, llm: claudeCli, now: () => new Date(), yt: youtube() }, {
     ...(kinds ? { kinds: kinds as BackfillKind[] } : {}), limit: Number(values.limit ?? 10), ...(values.only ? { only: values.only.split(',').map(s => s.trim()).filter(Boolean) } : {}),
     ...(before ? { reviewedBefore: before, rank: (p: { id: string }) => (p.id.startsWith('guides/') ? rank!(p.id.slice('guides/'.length)) : []) } : {}), parallel: Number(values.parallel ?? 1),
+    band: NEAR_BAR, // three reads within 0.2 of the bar, the middle one counts (the chief of staff, 2026-11-11)
   })
   for (const x of r.checked) console.log(`  ${x}`)
   for (const x of r.failed) console.log(`  failed: ${x}`)
   console.log(`review-backfill: ${r.checked.length} reviewed again, ${r.failed.length} failed, left ${Object.entries(r.left).map(([k, n]) => `${k} ${n}`).join(', ') || 'none'}${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
+} else if (cmd === 'review-backfill-97') {
+  // The video guides in search whose newest second read failed at 0.55 or under: two more reads each, the middle one
+  // counts, before any closes (the chief of staff, 2026-11-11). A command of its own, so its spend is its own step's line
+  // in the daily ceilings, not second reads'. --limit N pages a run; --parallel N at once.
+  const ids = await lowVideoGuides(ROOT)
+  const r = await reviewBackfill({ root: ROOT, llm: claudeCli, now: () => new Date(), yt: youtube() }, { kinds: ['video-guide'], only: ids, limit: Number(values.limit ?? 20), parallel: Number(values.parallel ?? 1), fromLastRead: true, band: Infinity })
+  for (const x of r.checked) console.log(`  ${x}`)
+  for (const x of r.failed) console.log(`  failed: ${x}`)
+  console.log(`review-backfill-97: ${ids.length} low, ${r.checked.length} read again, ${r.failed.length} failed, left ${r.left['video-guide'] ?? 0}${r.stopped ? ` (stopped: ${r.stopped})` : ''}`)
 } else if (cmd === 'video-hold') {
   // Video guides held out of the chat until they pass the stricter reviewer (video-hold.ts): --class risk1 (medicine,
   // doses, chemicals, treatments), risk2 (water), risk3 (the rest) or all; --clear lets that class back in.

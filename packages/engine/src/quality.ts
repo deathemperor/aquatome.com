@@ -7,10 +7,19 @@ import { QUALITY_THRESHOLD } from '@aq/schema'
 export { QUALITY_THRESHOLD }
 /** Within this of the bar, a check's first read is read twice more: the same text read twice moves about ±0.06. */
 export const NEAR_BAR = 0.2
-/** A check read once, or, near the bar, three times: then the median read counts, its notes with it, and `reads` has all three. */
-export async function steadyRead<T extends { score: number }>(read: () => Promise<T>): Promise<T & { reads?: number[] }> {
-  const first = await read()
-  if (Math.abs(first.score - QUALITY_THRESHOLD) >= NEAR_BAR) return first
+/**
+ * The band the page writer's and the translator's reviewers read three times in (the chief of staff, 2026-11-11): within 0.2,
+ * 93-99% of their reads would be read three times, and a page they turn back is tried again anyway. Second reads, which move
+ * a page in or out of search, keep NEAR_BAR.
+ */
+export const WRITER_BAND = 0.1
+/**
+ * A check read once, or, within `band` of the bar, three times: then the median read counts, its notes with it, and `reads`
+ * has all three. `given`: a read already made, which counts as the first of the three.
+ */
+export async function steadyRead<T extends { score: number }>(read: () => Promise<T>, band = NEAR_BAR, given?: T): Promise<T & { reads?: number[] }> {
+  const first = given ?? await read()
+  if (Math.abs(first.score - QUALITY_THRESHOLD) >= band) return first
   const reads = [first, ...await Promise.all([read(), read()])]
   return { ...[...reads].sort((a, b) => a.score - b.score)[1]!, reads: reads.map(r => r.score) }
 }

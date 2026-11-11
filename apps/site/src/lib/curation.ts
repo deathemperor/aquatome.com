@@ -53,12 +53,13 @@ const SHELF_MIN = 3
  * ("species/<id>" → "/id/ikan/<slug>/"), or nothing when the index doesn't list it: that pick is dropped. Copy this
  * language has no words for is left out, and the app uses the page's own. `cards` are this language's short cards, those
  * the gate holds back already left out: a day's card shows only where it's written, and only within its `show` days.
- * `waiting`: pictures the build holds back until the watermark screen has judged them (the content's `waitingPhotos`).
- * The calendar names a picture by its address, so one of those is left off here, and the app shows the page's own.
+ * `waits`: whether the build holds a picture back until the watermark screen has judged it (the content's
+ * `photoWaits`, which asks the screen's record whatever this language's build loaded). The calendar names a picture by
+ * its address, so one that waits is left off here, and the app shows the page's own.
  */
-export function curationFor(cur: Curation, lang: Lang, today: string, pathOf: (ref: string) => string | undefined, cards: Card[] = [], waiting: ReadonlySet<string> = new Set()): AppCuration {
+export function curationFor(cur: Curation, lang: Lang, today: string, pathOf: (ref: string) => string | undefined, cards: Card[] = [], waits: (address: string) => boolean = () => false): AppCuration {
   const word = (c?: CurationCopy) => c?.[lang]
-  const shown = (img?: string) => (img && !waiting.has(img) ? img : undefined)
+  const shown = (img?: string) => (img && !waits(img) ? img : undefined)
   // A page the planner found failing reader fit (`off`) is left out, as one this language has no page for.
   const page = (ref?: string) => (ref && !cur.off[ref] ? pathOf(ref) : undefined)
   const clean = <T extends object>(o: T) => Object.fromEntries(Object.entries(o).filter(([, v]) => v !== undefined)) as T

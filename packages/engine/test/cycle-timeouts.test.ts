@@ -78,6 +78,8 @@ test('video guides are checked again by their own job alone, recheck then redo, 
   expect(recheck).toContain('source scripts/cycle-checks.sh')
   expect(recheck.match(/\bverify '/g)).toHaveLength(2)
   expect(recheck).toMatch(/^pnpm engine review-backfill --kind video-guide --reviewed-before .*\n(#.*\n)*pnpm engine videos --redo --rechecked-since /m)
+  // The low guides in search get their two more reads first, under their own command's ceiling (2026-11-11).
+  expect(recheck).toMatch(/^pnpm engine review-backfill-97 .*\n(#.*\n)*pnpm engine review-backfill --kind video-guide /m)
   // The video job checks none again, so the two never check one guide at once.
   expect(readFileSync(join(ROOT, 'scripts/video-cycle.sh'), 'utf8')).not.toMatch(/^pnpm engine (review-backfill|videos --redo)/m)
 })

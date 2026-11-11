@@ -176,14 +176,11 @@
   },
   "https://www.aquariumglaser.de/en/02-living-fossils/polypterus-delhezi-en/": {
     "lastmod": "2016-12-19T14:31:40+00:00",
-    "entityIds": [
-      "species/polypterus-delhezi"
-    ],
-    "updatedAt": "2026-11-11T09:40:34.320Z",
-    "hash": "71e0a4735bbda74b892142948c54ea35383f34544f55dfd9e84f9b29c2a87be5",
-    "processedHash": "71e0a4735bbda74b892142948c54ea35383f34544f55dfd9e84f9b29c2a87be5",
-    "status": "processed",
-    "attempts": 0
+    "entityIds": [],
+    "updatedAt": "2026-11-10T21:59:40.513Z",
+    "status": "error",
+    "attempts": 1,
+    "error": "R2 upload 403: {\"success\":false,\"errors\":[{\"code\":10042,\"message\":\"Please enable R2 through the Cloudflare Dashboard.\"}],\"messages\":[],\"result\":null}"
   },
   "https://www.aquariumglaser.de/en/02-living-fossils/polypterus-endlicherii-gold-en/": {
     "lastmod": "2016-12-19T14:34:57+00:00",
@@ -2909,17 +2906,6 @@
     "status": "processed",
     "attempts": 0
   },
-  "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/megalamphodus_megalopterus_en/": {
-    "lastmod": "2017-01-04T14:21:41+00:00",
-    "entityIds": [
-      "species/hyphessobrycon-megalopterus"
-    ],
-    "updatedAt": "2026-11-11T09:49:13.019Z",
-    "hash": "bedb3054739c8aad2cd55dd8e67e267e44e17f6f376051431bd4f8415fd22ffa",
-    "processedHash": "bedb3054739c8aad2cd55dd8e67e267e44e17f6f376051431bd4f8415fd22ffa",
-    "status": "processed",
-    "attempts": 0
-  },
   "https://www.aquariumglaser.de/en/09-characoids-tetra-relationship/megalamphodus_roseus_en/": {
     "lastmod": "2016-11-21T15:58:45+00:00",
     "entityIds": [
@@ -5028,17 +5014,6 @@
     "hash": "835c1ed95051e9a5c34d7c646830550a95736c09dc5bdf203291b2761c87fa9d",
     "processedHash": "835c1ed95051e9a5c34d7c646830550a95736c09dc5bdf203291b2761c87fa9d",
     "status": "skipped",
-    "attempts": 0
-  },
-  "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/lamontichthys_llanero_en/": {
-    "lastmod": "2017-01-04T14:25:48+00:00",
-    "entityIds": [
-      "species/lamontichthys-llanero"
-    ],
-    "updatedAt": "2026-11-11T09:55:51.495Z",
-    "hash": "e28f183eead4b6436a3c9a9c59c26f58a9423c61ad0eb366c278e9a313a67cef",
-    "processedHash": "e28f183eead4b6436a3c9a9c59c26f58a9423c61ad0eb366c278e9a313a67cef",
-    "status": "processed",
     "attempts": 0
   },
   "https://www.aquariumglaser.de/en/10-catfishes/10b-catfishes-suckermouths-plecos-and-l-numbers/leporacanthicus_from_the_rio_tapajos_l263_and_l264_en/": {
@@ -11586,17 +11561,6 @@
     "updatedAt": "2026-11-10T15:56:27.734Z",
     "hash": "64981ea16bac3af5381cec7d57d8dca48ac534e76bfbc35cf45ab729e4d1b6af",
     "processedHash": "64981ea16bac3af5381cec7d57d8dca48ac534e76bfbc35cf45ab729e4d1b6af",
-    "status": "processed",
-    "attempts": 0
-  },
-  "https://www.aquariumglaser.de/en/25-perchlike-fishes/25g-perchlike-fishes-7-remaining-groups/datnioides_microlepis_en/": {
-    "lastmod": "2017-01-04T14:31:46+00:00",
-    "entityIds": [
-      "species/datnioides-microlepis"
-    ],
-    "updatedAt": "2026-11-11T10:06:32.850Z",
-    "hash": "e59ae219e8ff5879b3b8466fe2bae9c66b4121c446710d7036ccd6bc2e22a13f",
-    "processedHash": "e59ae219e8ff5879b3b8466fe2bae9c66b4121c446710d7036ccd6bc2e22a13f",
     "status": "processed",
     "attempts": 0
   },
