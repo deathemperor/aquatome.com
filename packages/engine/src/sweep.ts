@@ -1,6 +1,6 @@
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { loadAll, mayPublish, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type DataCardField, type SpeciesEntity, type Summary, type WrittenLang } from '@aq/schema'
+import { loadAll, mayPublish, QUALITY_THRESHOLD, resolveDataCard, shownCard, tankSearch, WRITTEN_LANGS, type Photo, type DataCardField, type SpeciesEntity, type Summary, type WrittenLang } from '@aq/schema'
 import { breedKin, breedNames, cleanAltNames, cleanBreedAltNames, tidyNames, type BreedName, type NameOff } from './alt-names'
 import { linkBreed, speciesResolver, type BreedFacts } from './breeds'
 import { LlmError, type Llm } from './claude'
@@ -33,6 +33,8 @@ import { readVideoRejected } from './videos'
  *   it is taken off again whenever a later run brings it back here
  * - a guide's photo that is its source's "read next" card (an unplaced photo at the source's card width): off the guide, and
  *   onto engine-state/_photo-rejected.json so a re-read can't bring it back
+ * - a head photo a person picked (engine-state/_photo-head-picks.json, page → photo, from its own photos or its gallery):
+ *   first on its page, the old head second. The steps before the sweep may reorder a page's photos; this has the last word
  * - a rejected video (engine-state/_video-rejected.json): off every species and plant page
  * - a card figure out of bounds, upside down, or a tank shorter than twice the fish: hidden (`hidden`: why), not deleted;
  *   worked out again each run, so a figure whose reason went (a corrected size) shows again. The species' approved
@@ -81,6 +83,8 @@ export type SweepReport = {
   rejected: number
   /** Photos the caption rule would have taken off every page, left where they are: more than the cap in one run (`photoCap`), `url (why)`. */
   held: string[]
+  /** Heads a person picked (engine-state/_photo-head-picks.json) put first, `kind/id: old -> new`, or picks not found on the page. */
+  heads: string[]
   /** Rejected videos (engine-state/_video-rejected.json) taken off a page, `kind/id: youtubeId (why)`. */
   videos: string[]
   card: string[]
@@ -185,7 +189,7 @@ export const PHOTO_CAP = 10
 
 export async function sweep(root: string, o: { llm?: Llm; titles?: number; model?: string; photoCap?: number } = {}): Promise<SweepReport> {
   const content = join(root, 'content')
-  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, held: [], videos: [], card: [], summaries: [], tanks: [], shop: [], varieties: [], titles: [], names: [], mentions: [], links: [], unmatched: [], stopped: '' }
+  const report: SweepReport = { files: [], text: {}, photos: [], rejected: 0, held: [], heads: [], videos: [], card: [], summaries: [], tanks: [], shop: [], varieties: [], titles: [], names: [], mentions: [], links: [], unmatched: [], stopped: '' }
   const changed = (f: string) => { if (!report.files.includes(f)) report.files.push(f) }
   const guides: { key: string; before: string; after: string }[] = []
   const counted: { file: string; raw: string; t: Stored; kind: string; lang: WrittenLang; id: string }[] = [] // raw: for its indentation
@@ -409,6 +413,30 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; model
     const rejected = JSON.parse(await readFile(rejectedFile, 'utf8').catch(() => '{}')) as Record<string, string>
     for (const [url, why] of maps) if (!rejected[url]) { rejected[url] = why; report.rejected++ }
     if (report.rejected) await writeFile(rejectedFile, `${JSON.stringify(rejected, null, 2)}\n`)
+  }
+  // The owner, 2026-11-10: a card and its page's head are always the same photo, so a photo picked for a card becomes the head.
+  const headPicks = JSON.parse(await readFile(join(root, 'engine-state', '_photo-head-picks.json'), 'utf8').catch(() => '{}')) as Record<string, string>
+  for (const [ref, url] of Object.entries(headPicks)) {
+    const file = join(content, ref, 'entity.json')
+    const raw = await readFile(file, 'utf8').catch(() => null)
+    if (!raw) continue
+    const e = JSON.parse(raw) as { photos?: Photo[] }
+    const own = e.photos ?? []
+    let picked = own.find(p => p.url === url)
+    if (!picked) {
+      const id = ref.split('/')[1]!
+      const gallery = JSON.parse(await readFile(join(content, 'gallery', `${id}.json`), 'utf8').catch(() => '{}')) as { photos?: (Photo & { best?: boolean; kind?: string; unchecked?: boolean })[] }
+      const found = gallery.photos?.find(p => p.url === url && !p.unchecked)
+      if (found) {
+        const { best: _b, kind: _k, unchecked: _u, ...photo } = found
+        picked = photo
+      }
+    }
+    if (!picked) { report.heads.push(`${ref}: picked photo isn't on the page`); continue }
+    if (own[0]?.url === url) continue
+    report.heads.push(`${ref}: ${own[0]?.url ?? 'none'} -> ${url}`)
+    await write(file, raw, { ...e, photos: [picked, ...own.filter(p => p.url !== url)] })
+    changed(`${ref}/entity.json`)
   }
   // A rejected video (engine-state/_video-rejected.json: a thumbnail with a dead fish, …) leaves every page.
   const videoRejected = await readVideoRejected(root)
