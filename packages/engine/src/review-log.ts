@@ -55,7 +55,7 @@ export const TEXT_KINDS: readonly ReviewKind[] = ['translation', 'vi-rewrite', '
 export type Review = { score: number; notes: string[]; reads?: number[] }
 /** first: the first version; rewrite: the one written again with the notes; recheck: the version already on the page, reviewed again. */
 export type Attempt = 'first' | 'rewrite' | 'recheck'
-export type Trace = { at: string; model: string; score: number; notes: string[]; attempt: Attempt; /** This version is the one the page has. */ kept: boolean; /** The reads a median score was taken from. */ reads?: number[] }
+export type Trace = { at: string; model: string; score: number; notes: string[]; attempt: Attempt; /** This version is the one the page has. */ kept: boolean; /** The reads a median score was taken from. */ reads?: number[]; /** A translation recheck: hash of the source text it read. */ textHash?: string }
 /** A page: its content path (`species/<id>`, `guides/<id>`), language, and the part reviewed when it is reviewed in parts. */
 export type PageRef = { id: string; lang: string; part?: string }
 export type PageTrace = Trace & PageRef & { kind: ReviewKind }
@@ -98,7 +98,7 @@ export async function readReviews(root: string, kind: ReviewKind): Promise<Store
  * version the page now has (the same object as in `tries`; none when the page wasn't written). `recheck`: the version on
  * the page reviewed again, nothing written. `model`: the reviewer's (default: the engine's).
  */
-export function logReviews(root: string, kind: ReviewKind, page: PageRef, tries: Review[], kept: Review | undefined, o: { model?: string; now?: Date; recheck?: boolean } = {}): Promise<void> {
+export function logReviews(root: string, kind: ReviewKind, page: PageRef, tries: Review[], kept: Review | undefined, o: { model?: string; now?: Date; recheck?: boolean; textHash?: string } = {}): Promise<void> {
   if (!tries.length) return Promise.resolve()
   const at = (o.now ?? new Date()).toISOString().slice(0, 19) + 'Z'
   const model = modelOf(o.model)
@@ -107,6 +107,7 @@ export function logReviews(root: string, kind: ReviewKind, page: PageRef, tries:
     notes: r.notes.slice(0, NOTES).map(n => (n.length > NOTE_CHARS ? `${n.slice(0, NOTE_CHARS - 1)}…` : n)),
     attempt: o.recheck ? 'recheck' : i === 0 ? 'first' : 'rewrite', kept: r === kept,
     ...(r.reads ? { reads: r.reads.map(s => Math.round(s * 1000) / 1000) } : {}),
+    ...(o.textHash ? { textHash: o.textHash } : {}),
   }))
   return change(root, kind, store => {
     const key = reviewKey(page)

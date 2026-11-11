@@ -5,6 +5,7 @@ import { OTHER_LANGS } from '@aq/schema/langs'
 import { LlmError, type Llm } from './claude'
 import { placeLine, review as reviewLocalized, reviewPlaces, translatableIn, type TargetLang } from './localize'
 import { reviewTranslation } from './quality'
+import { applySourceRechecks, sourceTextHash } from './recheck-score'
 import { itemReviews, logReviews, readReviews, reviewKey, type PageRef, type ReviewKind } from './review-log'
 import { setHold } from './video-hold'
 import { byRank } from './video-order'
@@ -22,7 +23,10 @@ import { reviewDraft, throttled, VIDEO_GAP_MS, type YouTube } from './youtube'
  * - video-guide: the guide against its transcript (yt; the video job's, on the Mac). The videos the owner added first,
  *   then the lowest scores.
  * - translation: a Vietnamese species or plant page's text from one source, against that source's English. A guide
- *   translated from a source keeps no English to check against, so it waits for its next translation.
+ *   translated from a source keeps no English to check against, so it waits for its next translation. A recheck
+ *   at or above the bar is copied onto that source when it read the text still on the page (recheck-score.ts);
+ *   the page's score is then the minimum across its sources. A topic guide already does this, because its one
+ *   score is the check's.
  * - localize: an Indonesian or Thai species or plant page, against the English.
  * - places: Indonesian and Thai place names, a batch a call.
  * - topic: a guide AquaTome wrote, in any language, against the facts its writer had (topics.ts recheckTopic). A guide's
@@ -72,6 +76,8 @@ async function jobs(root: string, kind: BackfillKind, all = false): Promise<Job[
 const matches = (only: string[], p: PageRef) => only.some(x => p.id === x || p.id.endsWith(`/${x}`) || reviewKey(p) === x)
 
 export async function reviewBackfill(d: BackfillDeps, o: { kinds?: readonly BackfillKind[]; limit: number; only?: string[]; reviewedBefore?: string; rank?: (p: PageRef) => number[]; parallel?: number }): Promise<BackfillReport> {
+  // Rechecks already in the log, applied before any new model call. A passing one of a source still on the page raises that source.
+  await applySourceRechecks(d.root)
   const report: BackfillReport = { checked: [], failed: [], stopped: '', left: {} }
   const content = join(d.root, 'content')
   const recheck = () => ({ recheck: true, now: d.now() })
@@ -121,6 +127,7 @@ export async function reviewBackfill(d: BackfillDeps, o: { kinds?: readonly Back
       const at = join(content, dir, id)
       try {
         let r
+        let textHash: string | undefined
         if (kind === 'topic') r = await recheckTopic(d.root, d.llm, id, j.page.lang as 'vi' | TargetLang)
         else if (kind === 'video-guide') {
           const e = await json<GuideEntity>(join(at, 'entity.json'))
@@ -138,13 +145,14 @@ export async function reviewBackfill(d: BackfillDeps, o: { kinds?: readonly Back
           const sections = (e?.sections ?? []).filter(s => s.html.trim() && (kind === 'translation' ? s.source === j.page.part && s.key !== 'references' : translatable(s.source)))
           const parts = sections.map(s => ({ id: `${s.key}:${s.source}`, en: s.html })).filter(p => kind === 'localize' || t?.sections[p.id])
           if (!parts.length || !t) { report.failed.push(`${reviewKey(j.page)}: no text to check`); return }
+          if (kind === 'translation') textHash = sourceTextHash(parts.map(p => ({ id: p.id, en: p.en, vi: t.sections[p.id]! })))
           r = kind === 'translation'
             ? await reviewTranslation(d.llm, parts.map(p => ({ en: p.en, vi: t.sections[p.id]! })))
             : await reviewLocalized(d.llm, j.page.lang as TargetLang, parts, new Map(Object.entries(t.sections)))
         }
         calls++
         done++
-        await logReviews(d.root, kind, j.page, [r], r, recheck())
+        await logReviews(d.root, kind, j.page, [r], r, { ...recheck(), ...(textHash ? { textHash } : {}) })
         // A video guide held out of the chat (video-hold.ts) that passes goes back in; under the bar, it waits for its redo.
         const back = kind === 'video-guide' && r.score >= QUALITY_THRESHOLD && await setHold(content, id, false)
         report.checked.push(`${kind} ${reviewKey(j.page)}: ${r.score.toFixed(2)} (was ${j.score.toFixed(2)}), ${r.notes.length} notes${back ? ', back in the chat' : ''}`)
