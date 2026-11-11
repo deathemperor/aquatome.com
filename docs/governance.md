@@ -542,7 +542,8 @@ The layers above still check the result.
 - **Photos.** No people, and hands count (PRODUCT.md: faces dropped by Apple Vision, and the model asks about any person
   or part of one wherever it looks), no watermarks (credits, dealer logos, site names or species names added on the
   photo: `pnpm engine watermarks`, macOS Vision reads the text and the model judges it; a marked photo is blocked for
-  good), no shop's or dealer's brand in a guide's photo (on its own-brand products too; a maker's brand on its own product is
+  good; a photo that screen still owes a look waits, and no public build shows it on a page, in an album, a guide or a
+  card until it is judged: on 2026-11-11 the model ran out of quota and 36 photos reached main with no look), no shop's or dealer's brand in a guide's photo (on its own-brand products too; a maker's brand on its own product is
   fine), no dead fish or fish as food (markets, plates, catches landed or held,
   preserved, mounted or museum specimens), each photo must show its species (a landscape where it can't be picked out
   doesn't), open licences or permission only.
@@ -612,6 +613,12 @@ The layers above still check the result.
     `_photo-rejected.json`. Can't tell stays and is listed in
     `docs/review/photo-subjects.md`, with the removals and the pages left with no photo (they show none; the check
     puts nothing in its place, and the photo steps fill it from their sources as for any page short of photos). A
+    "can't tell" photo keeps showing, behind the others (the owner, 2026-11-11): it never leads a page, a breed's
+    too, that has a photo of its own the check passed, and in an album it comes after every photo the check passed
+    or has not reached. The check orders every album so each run, and the album step's ranking does the same
+    (`rankGallery`), since that step re-ranks only an album it adds to. Where nothing on the page passed it still
+    leads: it may be the page's only photo. A passed photo that is only in the album does not take the lead from
+    it: that is the head-photo step's move, with its side-by-side look. A
     guide photo whose caption names one fish is judged against what the caption says, and only "something else"
     leaves a guide; a guide photo that is a page's photo goes with that page's "something else". Verdicts are cached per
     photo and page (`_photo-subjects.json`). A photo a step adds to a gallery waits (`unchecked` in the gallery file),
@@ -621,7 +628,18 @@ The layers above still check the result.
     iNaturalist's 7), then the waiting photos of a page with no photo of its own, then the other waiting photos, the
     most-read pages first within each. A page's lead is judged in the first sheet its page gets, whatever its turn, so
     no photo judged before it goes ahead of it. Before all of them, `PHOTO_CHECK_FILL` of a cycle's sheets go to a
-    permitted source's photos that fill a page with none. Found by
+    permitted source's photos that fill a page with none. And before the turns, since 2026-11-11: a page's lead that
+    neither check has a verdict on that counts (a first check's "can't tell" does not), Flickr's and Commons' first and then the other sources', each on a sheet filled from
+    its page; then the gallery of a page with no photo of its own. The owner had found a parasite paper's plate as a
+    page's only photo, three days on the page and not yet judged, behind every more-read page's gallery (the chief of
+    staff). A lead the check passes as typical stays the lead. One that passes but isn't typical gives way to a
+    typical photo in the run that judges that photo, as before this order: no pair is compared and no call added
+    (the chief of staff, 2026-11-11). What follows a move is as it was: a head a person picked comes back first in
+    the sweep, which has the last word each cycle (`_photo-head-picks.json`). Any other head can move, a card's
+    fish too: the cycle's planner then points the day's card at the new head, and no cycle runs `curate --check`,
+    which would name a card and a head that differ. A
+    lead's sheet is filled with its page's own photos before its gallery's, so a photo that takes a removed lead's
+    place has been judged beside it. Found by
     the owner: a neon tetra on the green neon page, the tiger barb under the cherry barb, a range map on the angelfish
     page; the first check (2026-10) had reached under half the page photos, in alphabetical order, and no gallery.
     Until 2026-11-07 a fourth verdict, "its wild habitat, with or without it", stayed on the page and only went last:
@@ -1007,8 +1025,9 @@ The layers above still check the result.
     (changed or not; a live page whose new text brought it gets its old text back; harm found in one language holds the
     page in every language, written as they are from the same facts), and a held page that changes and
     passes is let out. A page it can't read (the accounts out, over its limit) stays as readers have it: a live page keeps
-    its committed text and a new one waits, held. The run still publishes; only a crash in the gate stops it
-    (`gate.test.ts`).
+    its committed text, the text the cycle wrote is kept with the others (`engine-state/put-back/`), and the writer's record
+    of that page goes back to what is committed, so the writer does the page again; a new one waits, held. The run still
+    publishes; only a crash in the gate stops it (`gate.test.ts`).
   - A text that goes back isn't thrown away. When all that is worse is a sentence that can go or be reworded (a shop,
     a price or a product from abroad, talk about the source, something only true elsewhere: `MENDABLE`), the gate sends
     the quotes to a mender and reads the page again, and puts it back only if it is still worse; harm, a dose and what a

@@ -8,7 +8,7 @@ import { galleryPlan, TARGETS, TIER_ORDER, type PlanItem } from './gallery-plan'
 import { gbifMediaPage, gbifUsageKey } from './gbif'
 import { inatPage, inatTaxon, newInatCursor, type InatCursor } from './inat'
 import { openversePage } from './openverse'
-import { OFF, type PhotoVerdict } from './photo-check'
+import { cantTellLast, cantTellOn, OFF, type PhotoVerdict } from './photo-check'
 import { isRejected, unfitCommons } from './photos'
 import { contactSheet } from './video-images'
 import { authorText } from './wiki-author'
@@ -200,11 +200,13 @@ function mix(photos: GalleryPhoto[]): GalleryPhoto[] {
 /**
  * A gallery's order: the model's best picks first, mixed so the first screen shows the range (male, female, colour
  * forms, young, the wild fish; a plant under water, emersed, in flower), the largest of each first; then photos screened
- * before kinds were recorded, in their order; then the other kept photos, mixed the same way.
+ * before kinds were recorded, in their order; then the other kept photos, mixed the same way. Last, whatever their rank,
+ * the photos the photo check could not tell show the page's subject (`cantTell`: photo-check.ts cantTellOn), so a later run
+ * keeps the place the check gave them.
  */
-export function rankGallery(photos: GalleryPhoto[]): GalleryPhoto[] {
+export function rankGallery(photos: GalleryPhoto[], cantTell: (url: string) => boolean = () => false): GalleryPhoto[] {
   const tagged = (best: boolean) => photos.filter(p => p.kind !== undefined && !!p.best === best)
-  return realPhotosFirst([...mix(tagged(true)), ...photos.filter(p => p.kind === undefined), ...mix(tagged(false))])
+  return realPhotosFirst(cantTellLast([...mix(tagged(true)), ...photos.filter(p => p.kind === undefined), ...mix(tagged(false))], cantTell))
 }
 
 /**
@@ -462,7 +464,7 @@ export async function galleries(root: string, d: GalleryDeps, o: { sheets: numbe
           st.hashes[k.photo.url] = k.hash
           report.added[sourceOfKey(k.key)] = (report.added[sourceOfKey(k.key)] ?? 0) + 1
         }
-        gallery = rankGallery([...gallery, ...r.kept.map(k => waiting({ ...k.photo, best: k.best, kind: k.kind ?? 'other' }))])
+        gallery = rankGallery([...gallery, ...r.kept.map(k => waiting({ ...k.photo, best: k.best, kind: k.kind ?? 'other' }))], cantTellOn(subjects, t.id))
         if (r.kept.length) {
           await mkdir(join(content, 'gallery'), { recursive: true })
           await writeFile(gfile, `${JSON.stringify(GallerySchema.parse({ id: t.id, photos: gallery, seen: seenCount, updatedAt: today, builtAt: today }), null, 2)}\n`)

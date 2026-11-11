@@ -49,6 +49,8 @@ git config merge.entity.driver 'node scripts/merge-entity.mjs %O %A %B'
 pnpm install --frozen-lockfile --silent
 publish_kept videos
 log "videos start"
+# Records left saying pages were done on 11 Nov 2026, when the usage limit stopped the gate, put back before a writer runs.
+pnpm engine redo-unread || log "redo-unread: failed"
 pnpm engine videos --max-minutes "${VIDEO_MAX_MINUTES:-90}" || log "videos: failed"
 # Guides are checked again (review-backfill) and redone from the notes by their own hourly job, video-recheck.sh, not
 # here: the two jobs never check one guide at once.
