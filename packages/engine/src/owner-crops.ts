@@ -13,10 +13,11 @@ const hash = (s: string | Uint8Array) => createHash('sha256').update(s).digest('
 const read = async (file: string) => JSON.parse(await readFile(file,'utf8'))
 const decisions = async (file:string):Promise<Record<string, any>> => {
   const value=await read(file).catch(e=>{if(e.code==='ENOENT')return {};throw e})
-  if(!value||typeof value!=='object'||Array.isArray(value))throw new Error('decision cache invalid')
+  if(!value||typeof value!=='object'||Array.isArray(value))throw new CropFailure('decision cache invalid')
   return value
 }
-class PhotoVeto extends Error {}
+class CropFailure extends Error {}
+class PhotoVeto extends CropFailure {}
 async function permitted(root:string,p:Photo,page:string) {
   const rejected=await decisions(join(root,'engine-state/_photo-rejected.json'))
   // The original's watermark rejection is expected. Only the approved crop URL is vetoed here.
@@ -43,19 +44,19 @@ type CropScreenReceipt = {url:string;fileHash:string;record:PhotoScreenEntry}
 async function screenReceipt(dir:string,a:OwnerCropApproval,p:Photo,main:Uint8Array):Promise<CropScreenReceipt|undefined> {
   if(!a.screenRecordHash)return
   const raw=await readFile(join(dir,'screen.json'))
-  if(hash(raw)!==a.screenRecordHash)throw new Error('watermark receipt changed')
+  if(hash(raw)!==a.screenRecordHash)throw new CropFailure('watermark receipt changed')
   const r=JSON.parse(raw.toString()) as CropScreenReceipt
   // Only the stage's empty native read is transferable. Never manufacture a model verdict or copy lettering.
   if(!r||Object.keys(r).sort().join(',')!=='fileHash,record,url'||r.url!==p.url||r.fileHash!==hash(main)
-    ||!r.record||Object.keys(r.record).join(',')!=='ocr'||!Array.isArray(r.record.ocr)||r.record.ocr.length||awaitsScreen(p.url,r.record))throw new Error('watermark receipt does not bind this empty native read')
+    ||!r.record||Object.keys(r.record).join(',')!=='ocr'||!Array.isArray(r.record.ocr)||r.record.ocr.length||awaitsScreen(p.url,r.record))throw new CropFailure('watermark receipt does not bind this empty native read')
   return r
 }
 async function screenState(root:string):Promise<Record<string,PhotoScreenEntry>> {
   try {
     const cache=await read(join(root,'engine-state/_photo-watermarks.json'))
-    if(!cache||typeof cache!=='object'||Array.isArray(cache))throw new Error('invalid screen state')
+    if(!cache||typeof cache!=='object'||Array.isArray(cache))throw new CropFailure('invalid screen state')
     return cache
-  } catch { throw new PhotoVeto('watermark state unavailable') }
+  } catch(cause) { throw new PhotoVeto('watermark state unavailable',{cause}) }
 }
 function screenAllows(cache:Record<string,PhotoScreenEntry>,url:string,required:boolean) {
   if(!Object.hasOwn(cache,url)) { if(required)throw new PhotoVeto('crop awaits watermark record');return }
@@ -78,7 +79,7 @@ async function recordCreditMismatch(root:string,a:OwnerCropApproval,p:Photo) {
   if(a.creditMismatch!==true)return
   const file=join(root,'content/photo-credit-mismatches.json')
   const prior=await read(file).catch(e=>{if(e.code==='ENOENT')return [];throw e})
-  if(!Array.isArray(prior))throw new Error('credit mismatch list invalid')
+  if(!Array.isArray(prior))throw new CropFailure('credit mismatch list invalid')
   const rows=prior.map(m=>({source:m.source,photo:m.photo,...(m.page?{page:m.page}:{}),differs:m.differs===true}))
   const row={source:p.source!,photo:p.original!.url,page:a.page,differs:true}
   if(!rows.some(m=>m.source===row.source&&m.photo===row.photo&&m.page===row.page&&m.differs))rows.push(row)
@@ -86,8 +87,20 @@ async function recordCreditMismatch(root:string,a:OwnerCropApproval,p:Photo) {
 }
 async function completed(root:string):Promise<string[]> {
   const data=await read(stateFile(root)).catch(e=>{if(e.code==='ENOENT')return [];throw e})
-  if(!Array.isArray(data)||data.some(v=>typeof v!=='string'))throw new Error('owner crop receipt invalid')
+  if(!Array.isArray(data)||data.some(v=>typeof v!=='string'))throw new CropFailure('owner crop receipt invalid')
   return data
+}
+/** Keep causes privately without recording arbitrary provider text, file paths or photo lettering. */
+async function failureLog(cache:string,a:OwnerCropApproval,stage:string,error:unknown) {
+  const cause=(e:unknown,depth=0):unknown=>{
+    const message=e instanceof Error?e.message:String(e)
+    const code=(e as NodeJS.ErrnoException|undefined)?.code
+    return {message:e instanceof CropFailure?message:'External error detail withheld',messageHash:hash(message),
+      ...(typeof code==='string'&&/^(?:E[A-Z0-9_]+|ABORT_ERR)$/.test(code)?{code}:{}),
+      ...(depth<2&&e instanceof Error&&e.cause!==undefined?{cause:cause(e.cause,depth+1)}:{})}
+  }
+  const dir=join(cache,'owner-crop-failures');await mkdir(dir,{recursive:true})
+  await writeImageCache(join(dir,a.id+'.json'),JSON.stringify({at:new Date().toISOString(),id:a.id,stage,cause:cause(error)})+'\n')
 }
 /** No model, credentials or media client is constructed for an ordinary all-off fixture. */
 export async function pendingOwnerCrops(root:string, entries=OWNER_CROPS):Promise<OwnerCropApproval[]> {
@@ -115,11 +128,11 @@ export async function publishOwnerCrops(root:string,cache:string,store:ImageStor
     let stage='identity', approved:Photo|undefined
     try {
       const page=await read(join(root,'content',a.page,'entity.json'))
-      if(!/^species\/[a-z0-9-]+$/.test(a.page)||page.scientificName!==a.scientificName)throw new Error('page identity changed')
+      if(!/^species\/[a-z0-9-]+$/.test(a.page)||page.scientificName!==a.scientificName)throw new CropFailure('page identity changed')
       const dir=join(cache,'owner-crops',a.id)
       stage='bundle record'
       const p=PhotoSchema.parse(await read(join(dir,'photo.json')))
-      if(!validOwnerCropRecord(p,a))throw new Error('approval changed')
+      if(!validOwnerCropRecord(p,a))throw new CropFailure('approval changed')
       approved=p
       const pageId=a.page.slice('species/'.length)
       const check=async(required=false)=>{
@@ -131,10 +144,10 @@ export async function publishOwnerCrops(root:string,cache:string,store:ImageStor
       await check()
       stage='species receipts'
       const species=await read(join(dir,'species.json'))
-      if(!validJudgmentPair(species.pair)||!species.pair.pass||JSON.stringify(judgmentHashes(species.pair))!==JSON.stringify(p.altered![0]!.checks!.species)||!Array.isArray(species.verdicts)||species.verdicts.length!==2||species.verdicts.some((v:PhotoVerdict)=>v.ok!=='yes'||v.person!==false))throw new Error('original species receipts changed')
+      if(!validJudgmentPair(species.pair)||!species.pair.pass||JSON.stringify(judgmentHashes(species.pair))!==JSON.stringify(p.altered![0]!.checks!.species)||!Array.isArray(species.verdicts)||species.verdicts.length!==2||species.verdicts.some((v:PhotoVerdict)=>v.ok!=='yes'||v.person!==false))throw new CropFailure('original species receipts changed')
       stage='pixel proof'
       const [original,bytes]=await Promise.all([readFile(join(dir,'original')),readFile(join(dir,'crop.webp'))])
-      if(hash(original)!==a.originalHash || await pixelHash(bytes)!==a.pixelHash || await retainedPixelProof(original,bytes,p.altered![0]!.crop!.window)!==0)throw new Error('approved crop pixels changed')
+      if(hash(original)!==a.originalHash || await pixelHash(bytes)!==a.pixelHash || await retainedPixelProof(original,bytes,p.altered![0]!.crop!.window)!==0)throw new CropFailure('approved crop pixels changed')
       // Encode into memory first. Validate the exact addresses and fresh decisions before any public upload.
       stage='encoded record'
       const objects:{key:string;bytes:Uint8Array;mime:string;url:string}[]=[]
@@ -143,16 +156,16 @@ export async function publishOwnerCrops(root:string,cache:string,store:ImageStor
         objects.push({key,bytes,mime,url});return url
       },true,signal)
       const actual={...p,...variants}
-      if(!validOwnerCropRecord(actual,a)||objects.length!==2)throw new Error('encoded crop differs from approved record')
+      if(!validOwnerCropRecord(actual,a)||objects.length!==2)throw new CropFailure('encoded crop differs from approved record')
       stage='watermark receipt'
       const main=objects.find(o=>`https://media.aquatome.com/${o.key}`===actual.url)
-      if(!main)throw new Error('encoded main photo missing')
+      if(!main)throw new CropFailure('encoded main photo missing')
       const screen=await screenReceipt(dir,a,actual,main.bytes)
       await check()
       stage='media variants'
       for(const object of objects) {
         await check()
-        if(await store(object.key,object.bytes,object.mime,signal)!==object.url)throw new Error('stored crop address changed')
+        if(await store(object.key,object.bytes,object.mime,signal)!==object.url)throw new CropFailure('stored crop address changed')
       }
       stage='admission decisions'
       const subjects=await check()
@@ -181,8 +194,10 @@ export async function publishOwnerCrops(root:string,cache:string,store:ImageStor
       done.push(a.id);await mkdir(join(root,'engine-state'),{recursive:true});await writeImageCache(stateFile(root),JSON.stringify(done)+'\n')
       report.published++
     } catch(e) {
+      // Cancellation must not bypass withdrawal after a veto or an interrupted content write.
+      if((e instanceof PhotoVeto || signal.aborted) && approved)await withdraw(root,a.page,approved.url)
+      await failureLog(cache,a,stage,e).catch(()=>undefined)
       signal.throwIfAborted()
-      if(e instanceof PhotoVeto && approved)await withdraw(root,a.page,approved.url)
       if((e as NodeJS.ErrnoException).code==='ENOENT')report.waiting.push(`${a.page}: approved crop bundle unavailable`)
       else report.failed.push(`${a.page}: approved crop held (${stage})`)
     }

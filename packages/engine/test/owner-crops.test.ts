@@ -7,7 +7,7 @@ import sharp from 'sharp'
 import { createHash } from 'node:crypto'
 const { approvals }=vi.hoisted(()=>({approvals:[] as import('@aq/schema').OwnerCropApproval[]}))
 vi.mock('../../schema/src/owner-crops.json',()=>({default:approvals}))
-import { IMAGE_SWITCHES, loadAll, ownerCropCanonical, ownerCropApproved, PhotoSchema, type Photo } from '@aq/schema'
+import { IMAGE_SWITCHES, loadAll, ownerCropCanonical, ownerCropApproved, PhotoSchema, type Photo, type OwnerCropApproval } from '@aq/schema'
 import { imageSteps, type ImageStepDeps } from '../src/image-steps'
 import { pixelHash } from '../src/image-transforms'
 import { cropOriginal } from '../src/image-crop'
@@ -32,7 +32,7 @@ async function setup() {
  p=PhotoSchema.parse(p)
  const store=vi.fn(async(key:string)=>`https://media.aquatome.com/${key}`)
  p=PhotoSchema.parse({...p,...await storeImageVariants(bytes,{altered:p.altered},store,true)});store.mockClear()
- const a={id:p.ownerCrop!.id,approved:true,page:'species/alpha',scientificName:e.scientificName,date:'2026-11-11',authority:'owner viewed board 3',originalHash:hash(original),pixelHash:p.ownerCrop!.pixelHash,recordHash:hash(ownerCropCanonical(p,'species/alpha',e.scientificName))};approvals.push(a)
+ const a:OwnerCropApproval={id:p.ownerCrop!.id,approved:true,page:'species/alpha',scientificName:e.scientificName,date:'2026-11-11',authority:'owner viewed board 3',originalHash:hash(original),pixelHash:p.ownerCrop!.pixelHash,recordHash:hash(ownerCropCanonical(p,'species/alpha',e.scientificName))};approvals.push(a)
  const cache=join(root,'private'),dir=join(cache,'owner-crops',a.id);await mkdir(dir,{recursive:true})
  await Promise.all([writeFile(join(dir,'original'),original),writeFile(join(dir,'crop.webp'),bytes),writeFile(join(dir,'photo.json'),JSON.stringify(p)),writeFile(join(dir,'species.json'),JSON.stringify({pair,verdicts:[1,2].map(()=>({ok:'yes',person:false,typical:true}))}))])
  const sourceFile=join(root,'content/sources.json'),sources=JSON.parse(await readFile(sourceFile,'utf8'));sources.glaser={name:'Fixture source',homepage:'https://example.org/',publish:true,permission:{date:'2026-11-10',file:'owner permission',scope:['photos']}};await writeFile(sourceFile,JSON.stringify(sources))
@@ -257,4 +257,42 @@ test.each(['missing','malformed'] as const)('a %s master screen cache is held wi
  expect((await imageSteps(f.root,async()=>f.d)).published).toBe(0);expect(f.store).not.toHaveBeenCalled()
  expect(JSON.parse(await readFile(f.file,'utf8')).photos[0].url).toBe(s.old.url)
  if(kind==='missing')await expect(readFile(s.state)).rejects.toThrow();else expect(await readFile(s.state,'utf8')).toBe('{')
+})
+
+
+test('changed screen receipt bytes cannot reuse the approved fingerprint even when its content is equivalent',async()=>{
+ const positive=await setup();await stageScreen(positive)
+ expect((await imageSteps(positive.root,async()=>positive.d)).published).toBe(1)
+ const f=await setup(),s=await stageScreen(f),file=join(f.dir,'screen.json'),approvedHash=f.a.screenRecordHash
+ const raw=await readFile(file,'utf8');await writeFile(file,raw+'\n')
+ expect(hash(await readFile(file))).not.toBe(approvedHash);expect(f.a.screenRecordHash).toBe(approvedHash)
+ const result=await imageSteps(f.root,async()=>f.d)
+ expect(result.published).toBe(0);expect(result.failed.join()).toContain('watermark receipt');expect(f.store).not.toHaveBeenCalled()
+ expect(JSON.parse(await readFile(f.file,'utf8')).photos[0].url).toBe(s.old.url)
+ expect(JSON.parse(await readFile(s.state,'utf8'))).toEqual({[s.old.url]:s.oldRecord})
+ const diagnostic=JSON.parse(await readFile(join(f.cache,'owner-crop-failures',f.a.id+'.json'),'utf8'))
+ expect(diagnostic).toMatchObject({stage:'watermark receipt',cause:{message:'watermark receipt changed'}})
+})
+
+test('cancellation cannot skip withdrawal when the screen cache disappears after content admission',async()=>{
+ const f=await setup(),s=await stageScreen(f),controller=new AbortController(),gallery=join(f.root,'content/gallery/alpha.json')
+ await expect(publishOwnerCrops(f.root,f.cache,f.store,async(_page,p)=>{
+  await writeFile(f.file,JSON.stringify({...f.e,photos:[p,s.old]}))
+  await mkdir(join(f.root,'content/gallery'),{recursive:true});await writeFile(gallery,JSON.stringify({photos:[p,s.old]}))
+  await rm(s.state);controller.abort(new Error('fixture cancellation'))
+ },controller.signal,approvals)).rejects.toThrow('fixture cancellation')
+ for(const file of [f.file,gallery])expect(JSON.parse(await readFile(file,'utf8')).photos.map((p:Photo)=>p.url)).toEqual([s.old.url])
+ await expect(readFile(join(f.root,'engine-state/_owner-crops.json'))).rejects.toThrow()
+ expect(f.store).toHaveBeenCalledTimes(2);expect(f.forbidden).not.toHaveBeenCalled()
+ const diagnostic=JSON.parse(await readFile(join(f.cache,'owner-crop-failures',f.a.id+'.json'),'utf8'))
+ expect(diagnostic).toMatchObject({stage:'content writes',cause:{message:'watermark state unavailable',cause:{code:'ENOENT'}}})
+})
+
+test('private publisher diagnostics retain external error identity without arbitrary text',async()=>{
+ const f=await setup();await stageScreen(f)
+ f.store.mockRejectedValueOnce(Object.assign(new Error('PRIVATE_EXTERNAL_DETAIL'),{code:'ECONNRESET'}))
+ expect((await imageSteps(f.root,async()=>f.d)).published).toBe(0)
+ const raw=await readFile(join(f.cache,'owner-crop-failures',f.a.id+'.json'),'utf8'),diagnostic=JSON.parse(raw)
+ expect(diagnostic).toMatchObject({stage:'media variants',cause:{message:'External error detail withheld',messageHash:hash('PRIVATE_EXTERNAL_DETAIL'),code:'ECONNRESET'}})
+ expect(raw).not.toContain('PRIVATE_EXTERNAL_DETAIL');expect(f.forbidden).not.toHaveBeenCalled()
 })
