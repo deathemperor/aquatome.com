@@ -10,15 +10,32 @@ export type SubjectBox = { x: number; y: number; w: number; h: number }
 export type Found = SubjectBox | null | 'unreadable'
 export type BoxDeps = { get: (url: string) => Promise<Uint8Array>; find: (files: string[]) => Promise<Found[]> }
 
+const fraction = (v: unknown) => typeof v === 'number' && v >= 0 && v <= 1
+/**
+ * One batch's answers from vision/subject.swift, one line per image in order. Anything else (a line too few or too many,
+ * a value that is no box, null or "unreadable") throws, so nothing is recorded against the wrong photo.
+ */
+export function parseSubjects(stdout: string, n: number): Found[] {
+  const lines = stdout.trim().split('\n')
+  if (lines.length !== n) throw new Error(`subject: ${lines.length} lines for ${n} images`)
+  return lines.map((l, i) => {
+    const x = JSON.parse(l) as unknown
+    if (x === null || x === 'unreadable') return x
+    const b = x as SubjectBox
+    if (b && typeof b === 'object' && [b.x, b.y, b.w, b.h].every(fraction) && b.w > 0 && b.h > 0) return { x: b.x, y: b.y, w: b.w, h: b.h }
+    throw new Error(`subject: line ${i + 1} is no box: ${l.slice(0, 80)}`)
+  })
+}
+
 /** Where the animal is in each image, via macOS Vision's subject lifting (vision/subject.swift); the engine runs on the Mac. */
 export async function visionSubjects(files: string[]): Promise<Found[]> {
   const script = fileURLToPath(new URL('../vision/subject.swift', import.meta.url))
   const out: Found[] = []
   for (let i = 0; i < files.length; i += 200) {
-    const { stdout } = await promisify(execFile)('swift', [script, ...files.slice(i, i + 200)], { maxBuffer: 1 << 22 })
-    out.push(...stdout.trim().split('\n').map(l => JSON.parse(l) as Found))
+    const batch = files.slice(i, i + 200)
+    const { stdout } = await promisify(execFile)('swift', [script, ...batch], { maxBuffer: 1 << 22 })
+    out.push(...parseSubjects(stdout, batch.length))
   }
-  if (out.length !== files.length) throw new Error(`subject: ${out.length} results for ${files.length} images`)
   return out
 }
 

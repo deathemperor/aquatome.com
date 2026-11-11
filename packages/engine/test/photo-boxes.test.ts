@@ -2,7 +2,7 @@ import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
-import { boxPhotos, type Found } from '../src/photo-boxes'
+import { boxPhotos, parseSubjects, type Found } from '../src/photo-boxes'
 
 const page = async (root: string, kind: string, id: string, photos: string[], album: { url: string; unchecked?: boolean }[] = []) => {
   await mkdir(join(root, kind, id), { recursive: true })
@@ -36,4 +36,13 @@ test('boxes heads first, then pages\' other photos, then albums; records none as
   expect(r.failed).toEqual(['a-2: HTTP 404', 'a-album: unreadable'])
   expect(asked).toEqual(['a-head', 'b-head', 'a-album'])
   expect(Object.keys(JSON.parse(await readFile(record, 'utf8')))).toEqual(['a-head', 'b-head'])
+})
+
+test('a batch of Vision\'s answers is taken only whole: a line per image, each a box, null or "unreadable"', () => {
+  expect(parseSubjects('{"x":0.1,"y":0.2,"w":0.5,"h":0.4}\nnull\n"unreadable"\n', 3)).toEqual([{ x: 0.1, y: 0.2, w: 0.5, h: 0.4 }, null, 'unreadable'])
+  // A batch a line short (or long) would put one photo's answer on the next: it throws, and the run records nothing.
+  expect(() => parseSubjects('null\nnull', 3)).toThrow(/2 lines for 3 images/)
+  expect(() => parseSubjects('null\nnull\nnull\nnull', 3)).toThrow(/4 lines for 3 images/)
+  for (const bad of ['false', '{"x":0.1,"y":0.2,"w":0.5}', '{"x":-0.1,"y":0,"w":0.5,"h":0.5}', '{"x":0,"y":0,"w":0,"h":0.5}', '{"x":0,"y":0,"w":1.2,"h":0.5}', '"cat"'])
+    expect(() => parseSubjects(bad, 1)).toThrow(/no box/)
 })
