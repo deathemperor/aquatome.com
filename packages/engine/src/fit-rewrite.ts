@@ -27,8 +27,27 @@ import { fieldOf as partOf, norm, rewritePart, type ReaderFinding } from './read
  */
 const MENDED: readonly FitCheck[] = ['product', 'shop', 'price', 'dose', 'source', 'units', 'elsewhere', 'dose-caution', 'lethal']
 const PART_FIELD = /^(sections\.(?!references).+|body|definition)$/
-/** A figure in US units in a part's English: gallons, inches, feet, °F, miles, pounds. */
-const US_UNITS = /gallons?|\bgal\b|\binch(?:es)?\b|\d\s*(?:in\b|")|\b(?:feet|foot|ft)\b|°\s?F\b|\bmiles?\b|\b(?:pounds?|lbs?)\b/i
+/**
+ * A figure in US units: gallons, inches (a number's "in" only as a measure: "30 × 12 in", "3 in long"), feet, °F,
+ * miles, pounds. Not "5 in a group", "Ft. Lauderdale" or "LB-12".
+ */
+const US_UNITS = /gallons?|\bgal\b|\binch(?:es)?\b|\d\s*"|\d\s*in\.?(?=\s*(?:[x×)\],;]|long|deep|tall|high|wide|SL|TL|$))|\d\s*(?:feet|foot|ft)\b|°\s?F\b|\d\s*miles?\b|\d\s*(?:pounds?|lbs?)\b/i
+/** A metric figure in Vietnamese ("11 lít", "2,5–5 cm", "21 °C") or English ("11 litres", "2.5 cm"): its numbers. */
+const METRIC_VI = /(\d+(?:,\d+)?)(?:\s*[–-]\s*(\d+(?:,\d+)?))?\s*(?:lít|l|cm|mm|m|km|°\s?C|độ C)(?![\p{L}\p{N}])/giu
+const METRIC_EN = /(\d+(?:\.\d+)?)(?:\s*[–-]\s*(\d+(?:\.\d+)?))?\s*(?:-?\s*(?:litres?|liters?|l|cm|mm|m|km|metres?|meters?|°\s?C))(?![\p{L}\p{N}])/giu
+const numbers = (text: string, re: RegExp) => [...text.matchAll(re)].flatMap(m => [m[1], m[2]]).filter((x): x is string => !!x).map(x => Number(x.replace(',', '.')))
+/**
+ * A units finding the rewrite can mend: its English gives the figure in US units, and none of the metric figures it
+ * quotes is one the English gives itself, alone or beside a US one ("~68 litres (~18 US gal)", "5 gallons (about 19
+ * litres)"): numbers stay as the source gives them (the chief of staff, 2026-11-11). A US unit left in the quote itself
+ * is always mended.
+ */
+export function convertible(quote: string, en: string): boolean {
+  if (US_UNITS.test(quote)) return true
+  if (!US_UNITS.test(en)) return false
+  const given = new Set(numbers(en, METRIC_EN))
+  return !numbers(quote, METRIC_VI).some(n => given.has(n))
+}
 export type Rewritten = Record<string, { at: string; hash: string }>
 /** Each page tried, by the hash of the text it read, and how often on any of its texts (none: once, before the count). */
 export type Tried = Record<string, { at: string; hash: string; n?: number }>
@@ -50,11 +69,11 @@ export function mendable(p: Page, state: FitState): Map<string, FitFinding[]> {
     const field = fieldOf(f)
     if (field && PART_FIELD.test(field)) out.set(field, [...(out.get(field) ?? []), f])
   }
-  // Units: only a part whose English gives the figure in US units, and has nothing else to mend here.
+  // Units: only a figure converted from the English's US units (convertible), on a part with nothing else to mend here.
   const mine = new Set(out.keys())
   for (const f of fs.filter(f => f.check === 'units')) {
     const field = fieldOf(f)
-    if (field && PART_FIELD.test(field) && !mine.has(field) && US_UNITS.test(p.en?.[field] ?? '')) out.set(field, [...(out.get(field) ?? []), f])
+    if (field && PART_FIELD.test(field) && !mine.has(field) && convertible(f.quote ?? '', p.en?.[field] ?? '')) out.set(field, [...(out.get(field) ?? []), f])
   }
   // A part rewritten anyway takes its wording findings along.
   for (const f of fs.filter(f => f.check === 'words')) { const field = fieldOf(f); if (field && out.has(field)) out.get(field)!.push(f) }
@@ -72,7 +91,7 @@ export const rewriteDue = (p: Page, state: FitState) =>
 const asNote = (f: FitFinding): ReaderFinding => ({
   kind: 'language', severity: 'high', part: f.part, quote: f.quote,
   problem: f.check === 'words' ? `A word keepers here don't use${f.fix ? `: write "${f.fix}"` : ''}.`
-    : f.check === 'units' ? `${FIT_TITLE.units}: ${f.why}. Convert the English's US units as the writing rules say (a tank of 5 gallons or more to the nearest 5 litres: 5 gallons is 20 litres; inches to cm), and give no US figure. Round only a tank's size or the water a fish needs; a dose's amount and the water it goes into are converted exactly, never rounded.`
+    : f.check === 'units' ? `${FIT_TITLE.units}: ${f.why}. Convert the English's US units as the writing rules say (a tank of 5 gallons or more to the nearest 5 litres: 5 gallons is 20 litres; inches to cm), and give no US figure. Never round a dose's amount or the water it goes into: convert those exactly.`
     : `${FIT_TITLE[f.check]}: ${f.why}. Write it for a keeper in Vietnam; drop what only holds abroad.`,
   ...(f.fix ? { fix: f.fix } : {}),
 })
@@ -92,10 +111,15 @@ export async function fitRewrite(root: string, pages: Page[], state: FitState, d
   const done: Page[] = []
   const at = d.now().toISOString()
   const triesOf = (k: string) => (tried[k] ? tried[k].n ?? 1 : 0)
+  const due = pages.filter(p => rewriteDue(p, state) && tried[fitKey(p)]?.hash !== fitText(p).hash)
+  // Tried MAX_TRIES times and due again: listed for a person to name (`--only`), never tried here.
+  const capped = o.retry ? [] : due.filter(p => triesOf(fitKey(p)) >= MAX_TRIES).map(fitKey)
+  if (capped.length) report.skipped.push(`${capped.length} page${capped.length > 1 ? 's' : ''} tried ${MAX_TRIES} times and due again, for a person to name: ${capped.slice(0, 10).join(', ')}${capped.length > 10 ? ', …' : ''}`)
   for (const p of pages.filter(p => rewriteDue(p, state) && (o.retry || (tried[fitKey(p)]?.hash !== fitText(p).hash && triesOf(fitKey(p)) < MAX_TRIES))).slice(0, o.limit)) {
     const key = fitKey(p)
     const before = tried[key]
-    tried[key] = { at, hash: fitText(p).hash, n: triesOf(key) + 1 }
+    // A page a person names doesn't use up one of its own tries.
+    tried[key] = { at, hash: fitText(p).hash, n: triesOf(key) + (o.retry ? 0 : 1) }
     let changed = 0
     try {
       if (p.kind === 'guides') {

@@ -4,7 +4,7 @@ import { join } from 'node:path'
 import { expect, test } from 'vitest'
 import { LlmError, type Llm } from '../src/claude'
 import { CHECKLIST, fitKey, fitText, type FitFinding, type FitState } from '../src/fit'
-import { fitRewrite, mendable, rewriteDue } from '../src/fit-rewrite'
+import { convertible, fitRewrite, mendable, rewriteDue } from '../src/fit-rewrite'
 import { loadPages, type Page } from '../src/pages'
 
 const FIXTURE = new URL('../../../apps/site/test/fixture-content', import.meta.url).pathname
@@ -102,7 +102,7 @@ test('a tank size its English gives in gallons, on a page already written, goes 
   expect(r.rewritten).toEqual(['vi/species/danio-margaritatus sections.aquariumSize:sprucepets (0.90)'])
   expect(calls).toEqual(['rewrite', 'review'])
   expect(prompts[0]).toContain('Convert the English\'s US units as the writing rules say')
-  expect(prompts[0]).toContain('a dose\'s amount and the water it goes into are converted exactly, never rounded')
+  expect(prompts[0]).toContain('Never round a dose\'s amount or the water it goes into: convert those exactly')
   expect(prompts[0]).toContain('Dung tích bể tối thiểu: 11 lít.')
   expect(JSON.parse(await readFile(file, 'utf8')).sections['aquariumSize:sprucepets']).toContain('Dung tích bể tối thiểu: 10 lít.')
 })
@@ -142,6 +142,30 @@ test('a page is tried twice at most on any of its texts, unless named; a usage l
   expect(third.calls).toEqual([])
   await fitRewrite(root, [p], state, { llm: third.llm, now: () => new Date() }, { limit: 5, retry: true })
   expect(third.calls).not.toEqual([])
+})
+
+test('a figure the English gives in metric is the source\'s own, beside a US one or not; only one converted from US units is mended', () => {
+  // Numbers stay as the source gives them (the chief of staff, 2026-11-11).
+  expect(convertible('Dung tích tối thiểu: 8 lít.', '<p>Minimum tank size: 2 gallons.</p>')).toBe(true)
+  expect(convertible('Bể tối thiểu khoảng 68 lít.', '<p>Volume: ~68 litres (~18 US gal).</p><p>Footprint 76 × 30 cm (30 × 12 in).</p>')).toBe(false)
+  expect(convertible('Một cặp cho mỗi 19 lít nước.', '<p>A pair per 5 gallons (about 19 litres) of water.</p>')).toBe(false)
+  expect(convertible('Lớp nền dày 2,5 cm.', '<p>A substrate 2.5 cm (1 inch) deep.</p>')).toBe(false)
+  expect(convertible('nhiệt độ 15,5–21 °C', '<p>15.5 – 21°C (60 – 70°F)</p>')).toBe(false)
+  // A US unit left in the Vietnamese is always mended; prose that only looks like a unit isn't one.
+  expect(convertible('Dài 2-2,5" (5-6 cm).', '<p>2-2.5" (5-6 cm) long.</p>')).toBe(true)
+  expect(convertible('Bể 11 lít.', '<p>Keep 5 in a group, described in 1859 in Ft. Lauderdale; LB-12.</p>')).toBe(false)
+})
+
+test('a page tried twice and due again is listed for a person; naming it doesn\'t use up a try', async () => {
+  const root = await content()
+  const p = await danio(root)
+  const triedFile = join(root, 'engine-state/_fit-rewrite.json')
+  await writeFile(triedFile, JSON.stringify({ [fitKey(p)]: { at: '2026-11-13', hash: 'changed since', n: 2 } }))
+  const r = await fitRewrite(root, [p], reading(p, found(p)), { llm: fakeLlm(vi => vi, 0.9).llm, now: () => new Date() }, { limit: 5 })
+  expect(r.skipped).toEqual(['1 page tried 2 times and due again, for a person to name: vi/species/danio-margaritatus'])
+  await writeFile(triedFile, '{}')
+  await fitRewrite(root, [p], reading(p, found(p)), { llm: fakeLlm(vi => vi, 0.5).llm, now: () => new Date() }, { limit: 5, retry: true })
+  expect(JSON.parse(await readFile(triedFile, 'utf8'))[fitKey(p)]).toMatchObject({ n: 0 })
 })
 
 test('a part a person fixed is not rewritten, whatever the reading finds in it', async () => {
