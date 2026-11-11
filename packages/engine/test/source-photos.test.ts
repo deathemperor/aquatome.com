@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs'
 import { expect, test } from 'vitest'
+import { ArchiveRefused } from '../src/archive'
 import { htmlToOutline } from '../src/outline'
 import { linkedPhotos, pickSourcePhotos, storeSourcePhotos } from '../src/source-photos'
 
@@ -151,4 +152,21 @@ test('a photo taken off the site before (a watermark) is not stored again when i
   const again = await storeSourcePhotos('glaser', 'Aquarium Glaser', 'https://x.test/p', picked, { bytes: async u => (fetched.push(u), new Uint8Array(1)), media, blocked }, [])
   expect(again.map(p => p.url)).toEqual([first[1]!.url])
   expect(fetched).toEqual(['https://x.test/clean.jpg'])
+})
+
+test('the archive refusing a picture stops the page, which waits and keeps its pictures', async () => {
+  const media = { urlFor: (k: string) => `https://media.test/${k}`, put: async () => { throw new Error('nothing to store') } }
+  const picked = [{ src: 'https://x.test/a.jpg', alt: '' }]
+  await expect(storeSourcePhotos('planetcatfish', 'PlanetCatfish', 'https://x.test/p', picked, { bytes: async () => { throw new ArchiveRefused('2026-11-10T12:00:00.000Z') }, media }, [])).rejects.toBeInstanceOf(ArchiveRefused)
+})
+
+test('a refusal on a linked photo page stops before the next photo page', async () => {
+  const refused = new ArchiveRefused('2026-11-10T12:00:00.000Z')
+  const asked: string[] = []
+  const html = [1, 2].map(n => `<a href="/photo${n}.htm"><img src="/thumb${n}.jpg"></a>`).join('')
+  await expect(linkedPhotos(html, 'https://source.test/species', /photo\d\.htm$/, async u => {
+    asked.push(u)
+    throw refused
+  })).rejects.toBe(refused)
+  expect(asked).toEqual(['https://source.test/photo1.htm'])
 })

@@ -22,7 +22,7 @@ import { QUALITY_THRESHOLD, gate, reviewTranslation } from './quality'
 import { logReviews, type Review } from './review-log'
 import { linkedPhotos, pickSourcePhotos, storeSourcePhotos, type Media } from './source-photos'
 import { snapshotHash, writeSnapshot } from './snapshot'
-import { ARCHIVE_POLITE } from './archive'
+import { ARCHIVE_POLITE, ArchiveRefused } from './archive'
 import { SOURCES, sourceById, type SourceConfig } from './sources'
 import { BROWSER_GONE, attemptsAfter, errorKind, loadState, moveToArchive, needsFetch, noteBlock, saveState, setSourceBlock, sourceBlockedSince, sourcesOnArchive, type UrlState } from './state'
 import { findVideos, readVideoRejected } from './videos'
@@ -168,7 +168,7 @@ const outranked = (sections: Section[] | undefined, source: SourceId, url: strin
 
 /** Optional enrichment never fails a page. */
 async function soft<T>(what: string, f: () => Promise<T>, fallback: T): Promise<T> {
-  try { return await f() } catch (e) { console.warn(`${what} skipped: ${(e as Error).message}`); return fallback }
+  try { return await f() } catch (e) { if (e instanceof ArchiveRefused) throw e; console.warn(`${what} skipped: ${(e as Error).message}`); return fallback }
 }
 
 /**
@@ -369,6 +369,7 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
       if (onArchive && found.length) await mkdir(join(root, 'engine-state'), { recursive: true }).then(() => writeFile(indexFile, `${JSON.stringify(found)}\n`))
     } catch (e) {
       if (e instanceof ChallengeError) { await block(); continue }
+      if (e instanceof ArchiveRefused) { report.errors.push(`${id}: not read: ${e.message}`); continue }
       const lastIndex = onArchive ? JSON.parse(await readFile(indexFile, 'utf8').catch(() => 'null')) as typeof found | null : null
       // No index yet: the pages already read are still there to read again.
       const kept = lastIndex?.length || !onArchive ? lastIndex : Object.keys(await loadState(root, id)).map(url => ({ url }))
@@ -393,7 +394,14 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
     const deeper = opts.cardFill ? deeperPages(found, gaps.filter(g => !g.sources.includes(id)), src) : deeperPages(found, thinNow.thin, src)
     // Not under our name in the index: the source's own search (not on targeted runs or card-fill).
     if (!opts.only && !opts.cardFill) {
-      const searched = await soft(`${id}: thin species search`, () => searchThin(src, thinNow.thin, new Set(deeper.values()), thinNow.families, u => links(u), searchCache, deps.now()), new Map<string, number>())
+      let searched: Map<string, number>
+      try {
+        searched = await soft(`${id}: thin species search`, () => searchThin(src, thinNow.thin, new Set(deeper.values()), thinNow.families, u => links(u), searchCache, deps.now()), new Map<string, number>())
+      } catch (e) {
+        if (!(e instanceof ArchiveRefused)) throw e
+        report.errors.push(`${id}: not read: ${e.message}`)
+        continue
+      }
       for (const [url, i] of searched) {
         if (!found.some(f => f.url === url)) found.push({ url })
         if (!deeper.has(url)) deeper.set(url, i)
@@ -441,6 +449,8 @@ export async function runEngine(deps: Deps, opts: { sources?: SourceId[]; limit?
         await save({ ...base, hash, processedHash: hash, status: entityIds ? 'processed' : 'skipped', entityIds: entityIds ?? [], attempts: 0 })
         llmFailures = 0
       } catch (e) {
+        // Nothing is wrong with the page, so nothing is marked on it, and the source waits with the archive.
+        if (e instanceof ArchiveRefused) { report.errors.push(`${id}: not read: ${e.message}`); break }
         const message = (e as Error).message
         counts.errors++
         report.errors.push(`${url}: ${message}`)

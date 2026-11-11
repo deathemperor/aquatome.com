@@ -3,9 +3,11 @@ import { copyFile, mkdir, mkdtemp, readdir, readFile, writeFile } from 'node:fs/
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
+import { ArchiveRefused } from '../src/archive'
 import { LlmError } from '../src/claude'
 import { ChallengeError } from '../src/fetch'
 import { runEngine } from '../src/run'
+import { moveToArchive } from '../src/state'
 
 const fx = (p: string) => readFileSync(new URL(`./fixtures/${p}`, import.meta.url), 'utf8')
 const SF = 'https://www.seriouslyfish.com/species/'
@@ -164,6 +166,31 @@ test('the archive slowing us down stops that source at once, with no attempt use
   expect(r.perSource.seriouslyfish).toMatchObject({ processed: 1 })
   const state = JSON.parse(await readFile(join(root, 'engine-state/planetcatfish.json'), 'utf8')) as Record<string, { attempts: number }>
   expect(Object.values(state).map(s => s.attempts)).toEqual([0])
+})
+
+test('the archive refusing this Mac: the source stops, no page is marked, and the next archived source asks nothing', async () => {
+  const root = await fresh()
+  const { d } = deps(root)
+  const pages = [9, 10].map(n => `https://www.planetcatfish.com/common/species.php?species_id=${n}`)
+  let asked = 0
+  const archive = { ...d.fetcher, text: async () => `${pages.join('\n')}\n`, get: async () => { asked++; throw new ArchiveRefused('2026-11-10T12:00:00.000Z') } }
+  const r = await runEngine({ ...d, archive }, { sources: ['planetcatfish', 'seriouslyfish'] })
+  expect(asked).toBe(1)
+  expect(r.errors.join('\n')).toMatch(/planetcatfish: not read: the archive refused this Mac: no request before 2026-11-10T12:00:00.000Z/)
+  expect(r.perSource.seriouslyfish).toMatchObject({ processed: 1 })
+  expect(JSON.parse(await readFile(join(root, 'engine-state/planetcatfish.json'), 'utf8').catch(() => '{}'))).toEqual({})
+})
+
+test('the archive refusing this Mac at its index: no fallback on the last list, so no page is asked for', async () => {
+  const root = await fresh()
+  const { d } = deps(root)
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await writeFile(join(root, 'engine-state/_index-planetcatfish.json'), JSON.stringify([{ url: 'https://www.planetcatfish.com/common/species.php?species_id=9' }]))
+  let asked = 0
+  const archive = { ...d.fetcher, text: async () => { throw new ArchiveRefused('2026-11-10T12:00:00.000Z') }, get: async () => { asked++; throw new Error('should not be asked') } }
+  const r = await runEngine({ ...d, archive }, { sources: ['planetcatfish'] })
+  expect(asked).toBe(0)
+  expect(r.errors.join('\n')).toMatch(/planetcatfish: not read: the archive refused this Mac/)
 })
 
 test('a page read through the archive records its capture date beside the real address', async () => {
@@ -487,4 +514,26 @@ test('two blocks more than a week apart do not move a source', async () => {
   const { second } = await blockedThenArchived(true, 8)
   expect(second.movedToArchive).toEqual([])
   expect(second.needsHuman).toEqual(['seriouslyfish'])
+})
+
+test('a refusal during an archived source search stops that source, not the run, before reading or marking pages', async () => {
+  const root = await fresh()
+  // Two thin pages, made from one Glaser note each.
+  for (const [id, sci] of [['corydoras-panda', 'Corydoras panda'], ['betta-macrostoma', 'Betta macrostoma']]) {
+    await mkdir(join(root, 'content/species', id!), { recursive: true })
+    await writeFile(join(root, 'content/species', id!, 'entity.json'), JSON.stringify({ id, scientificName: sci, order: 'O', family: 'F', genus: sci!.split(' ')[0], group: 'other', places: [], dataCard: {}, sections: [{ key: 'notes', source: 'glaser', sourceUrl: 'https://www.aquariumglaser.de/en/x/y', html: '<p>A note.</p>' }], photos: [], videos: [], productSlots: [], updatedAt: '2026-10-01' }))
+    await writeFile(join(root, 'content/species', id!, 'vi.json'), JSON.stringify({ slug: id, name: id, altNames: [], sections: { 'notes:glaser': '<p>Ghi chú.</p>' }, quality: { score: 0.9, indexable: true, bySource: { glaser: 0.9 } } }))
+  }
+  const { d } = deps(root, { urls: ['aaa-new'] })
+  await mkdir(join(root, 'engine-state'), { recursive: true })
+  await moveToArchive(root, 'seriouslyfish', '2026-10-27T10:00:00Z')
+  const refused = new ArchiveRefused('2026-11-10T12:00:00.000Z')
+  let asked = 0
+  let pages = 0
+  const archive = { ...d.fetcher, links: async () => { asked++; throw refused }, get: async (u: string) => { if (u.endsWith('/sitemap.xml')) return { status: 200, html: sitemap(['aaa-new']), finalUrl: u }; pages++; throw new Error('should not read a page') } }
+  const r = await runEngine({ ...d, archive }, { sources: ['seriouslyfish'] })
+  expect(r.errors.join('\n')).toMatch(/seriouslyfish: not read: the archive refused this Mac/)
+  expect(asked).toBe(1)
+  expect(pages).toBe(0)
+  expect(JSON.parse(await readFile(join(root, 'engine-state/seriouslyfish.json'), 'utf8').catch(() => '{}'))).toEqual({})
 })
