@@ -131,6 +131,12 @@ bình CO2 (125 in the videos), cây cắt cắm; no pointer to the source's own 
 about as often), "cá hồng đào" for the cherry barb (1.3 in the forum), "cây đứng" for a plant that stops growing (0),
 "yếm khí", "bị ảnh hưởng", "tác dụng phụ" and "vì vậy nên" (the references write them as often as the site).
 
+The reader check's wording findings on top-card pages (2026-11-08), swapped by the sweep from 2026-11-12 (sanitize.ts
+WORDING) and listed for the writers, per million words, site species | forum | videos: "trùn chỉ đỏ" 13 | 0 | 0, written
+"trùng huyết" (the site's own word for the bloodworm, 403 | 19 | 0; every one of the 56 uses was read in its sentence and
+means the bloodworm); "nửa tá" 8 | 0 | 0, written "6 con" (102 | 24 | 7); "thủng lỗ đầu" 0.4 | 0 | 0, written "lủng đầu"
+(0.4 | 11 | 0).
+
 Left out on purpose:
 - Topic words the references don't cover (lưu vực, mẫu chuẩn, quần thể, thông số nước): a species profile needs them.
 - Words the site overuses only two or three times over (vì vậy, khá, ngoài ra, cân nhắc): the style guide's "one idea

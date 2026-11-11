@@ -73,6 +73,11 @@ export const unescapePlain = (s: string) => {
  *   lài doesn't exist in Vietnamese"; the keepers' forum and videos never write it, and "thài lài" is a plant, the
  *   dayflower). The fish it named are written by their names on the site, a gourami otherwise "cá sặc". The content rule
  *   `fish-words` lists any other "thài lài" said of a fish ("họ thài lài", "nuôi thài lài"), for the page to be written again.
+ * - "trùn chỉ đỏ", "nửa tá (con)", "thủng lỗ đầu": the reader check's wording findings on top-card pages (2026-11-08), which
+ *   the keepers' forum never writes; it writes "trùng huyết", "6 con" and "lủng đầu" (the chief of staff, 2026-11-12). Every
+ *   "trùn chỉ đỏ" on the site was read in its sentence: each is the bloodworm, a midge larva, as the site already says
+ *   "trùng huyết" 1,079 times ("trùn chỉ" alone is Tubifex, another worm, and stays). A sentence that already gave both
+ *   ("trùn chỉ đỏ/trùn huyết", "trùn chỉ đỏ, hay trùng huyết") keeps one.
  * No capture groups in `find`: viWording reads the match's offset as the replacer's second argument.
  */
 const THAI_LAI = (qualifier: string) => new RegExp(`(?<!\\p{L})[Cc]á thài lài ${qualifier}(?!\\p{L})`, 'gu')
@@ -98,12 +103,21 @@ const WORDING: { find: RegExp; use: string }[] = [
   { find: /(?<!\p{L})[Ss]etup bể(?!\p{L})/gu, use: 'set bể' },
   { find: /(?<!\p{L})[Cc]hỉtiêu(?!\p{L})/gu, use: 'chỉ tiêu' },
   { find: /(?<!\p{L})[Vv]à\s*\/\s*hoặc(?!\p{L})/gu, use: 'hoặc' },
+  { find: /(?<!\p{L})[Tt]rùn chỉ đỏ(?:\s*\/\s*|,\s*hay\s+)tr(?:ùng|ùn) huyết(?!\p{L})/gu, use: 'trùng huyết' },
+  { find: /(?<!\p{L})[Tt]rùn chỉ đỏ \(tr(?:ùng|ùn) huyết, (?=tức )/gu, use: 'trùng huyết (' },
+  { find: /(?<!\p{L})[Tt]rùn chỉ đỏ(?!\p{L})/gu, use: 'trùng huyết' },
+  { find: /(?<!\p{L})[Nn]ửa tá(?: con(?!\p{L})|(?=\s*(?:[.,;:!?)]|$)))/gu, use: '6 con' },
+  { find: /(?<!\p{L})(?:[Tt]hủng|[Ll]ủng) lỗ đầu(?!\p{L})/gu, use: 'lủng đầu' },
 ]
-const SENTENCE_START = /(?:^\s*|[.!?…]\s+|<(?:p|li|h3|td|th)>\s*)$/
+// A heading's or a list item's number ("#1 ", "1) ") still leaves the words after it at the start.
+const SENTENCE_START = /(?:^\s*|[.!?…]\s+|<(?:p|li|h3|td|th)>\s*)(?:(?:#\d+[.):]?|\d+[.)])\s+)?$/
 
 /** Text (plain or HTML) with the words in WORDING written the way Vietnamese readers write them. */
 export const viWording = (s: string) => WORDING.reduce((out, w) =>
   out.replace(w.find, (_m, at: number, all: string) => (SENTENCE_START.test(all.slice(0, at)) ? w.use[0]!.toUpperCase() + w.use.slice(1) : w.use)), s)
+
+/** A shop search's words with WORDING's, in lowercase as a search is typed. */
+export const viSearchWords = (s: string) => WORDING.reduce((out, w) => out.replace(w.find, w.use), s)
 
 /**
  * "thài lài" said of a fish, which no Vietnamese keeper writes (WORDING): each, with a few words before it. The plant

@@ -12,7 +12,7 @@ import { sfDifficulty } from './process'
 import { retitleGuide, sourceTitle, titleClashes, titleKey } from './guide-titles'
 import { rewriteTitle } from './reader'
 import { logReviews } from './review-log'
-import { viWording } from './sanitize'
+import { viSearchWords, viWording } from './sanitize'
 import { snapshotName } from './snapshot'
 import { SOURCES } from './sources'
 import { errorKind } from './state'
@@ -273,6 +273,22 @@ export async function sweep(root: string, o: { llm?: Llm; titles?: number; retit
     await write(file, raw, next)
     changed(`summaries/${f}`)
     ;(report.text.wording ??= []).push(`summaries/${f.replace(/\.json$/, '')}`)
+  }
+
+  // A page's shop searches, in the words its text uses. Fish and plants are the pages with them.
+  for (const kind of ['species', 'plants']) {
+    for (const id of (await readdir(join(content, kind)).catch(() => [] as string[])).sort()) {
+      const file = join(content, kind, id, 'entity.json')
+      const raw = await readFile(file, 'utf8').catch(() => null)
+      if (!raw) continue
+      const e = JSON.parse(raw) as { productSlots?: { keywords: string[] }[] }
+      const before = JSON.stringify(e.productSlots ?? [])
+      for (const row of e.productSlots ?? []) row.keywords = row.keywords.map(viSearchWords)
+      if (JSON.stringify(e.productSlots ?? []) === before) continue
+      await write(file, raw, e)
+      changed(`${kind}/${id}/entity.json`)
+      ;(report.text.wording ??= []).push(`${kind}/${id}/searches`)
+    }
   }
 
   // A species' other names: its own, each once.
