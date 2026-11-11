@@ -8,7 +8,7 @@ import { hedged, hedgesLost, text } from './hedges'
 import { marketFor, type ProblemId } from './market'
 import type { Page } from './pages'
 import { VI_STYLE } from './phrases'
-import { US_TANKS, withTanks } from './round'
+import { DOSE_WATER, GALLON, US_TANKS, withTanks } from './round'
 import { plainParts, sanitizeHtml, unescapePlain } from './sanitize'
 
 /**
@@ -58,7 +58,8 @@ const WORDS = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'e
 /**
  * Amounts with a figure neither the facts nor the market table has. A source's "three days" is the guide's "3 ngày", and
  * its "10 gallons" a tank of 40 litres: a US tank in the table passes only as the size it names (round.ts US_TANKS, so
- * "115 lít" for 30 gallons is outside), any other gallon figure as a volume within 10% of it. A dose has no such room: it
+ * "115 lít" for 30 gallons is outside), any other gallon figure as a volume within 10% of it, and the water a dose goes
+ * into ("Pha 5 ml vào 38 lít" for 10 gallons) at its exact conversion. A dose's amount has no such room: it
  * comes with its source's own figure, or it reads "theo hướng dẫn trên nhãn", and the reviewer sees it.
  */
 export function amountsOutside(text: string, allowed: string): string[] {
@@ -69,7 +70,13 @@ export function amountsOutside(text: string, allowed: string): string[] {
   const gallons = given.filter(g => !US_TANKS.some(([x]) => x === g)).map(g => g * 3.785)
   if (/\bper gallon\b|\ba gallon\b/i.test(allowed)) gallons.push(3.785)
   const near = (l: number) => tanks.has(l) || gallons.some(g => Math.abs(g - l) <= g * 0.1)
-  return [...new Set(amounts(text))].filter(a => { const [n, u] = a.split(' '); return !figures.has(n!) && !(u === 'l' && near(Number(n))) })
+  // A dose's water ("Pha 5 ml vào 38 lít" for 10 gallons) keeps the exact conversion, to the litre.
+  const exact = [...given.map(g => g * GALLON), ...(/\bper gallon\b|\ba gallon\b/i.test(allowed) ? [GALLON] : [])]
+  const water = (l: number, at: number) => DOSE_WATER.test(text.slice(0, at).split(/[.;!?\n>]/).at(-1) ?? '') && exact.some(g => Math.abs(g - l) <= 1)
+  return [...new Set([...text.matchAll(AMOUNTS)].flatMap(m => {
+    const n = m[1]!.replace(',', '.'), u = m[2]!.toLowerCase().replace(/^lít$/, 'l')
+    return figures.has(n) || (u === 'l' && (near(Number(n)) || water(Number(n), m.index))) ? [] : [`${n} ${u}`]
+  }))]
 }
 
 /** As the reviewer reads it: the body as hedgesLost reads it too, so a quote of it is found. */

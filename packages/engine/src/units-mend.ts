@@ -4,7 +4,7 @@ import { fitFindings, fitKey, fitRules, fitSource, fitText, type FitFinding, typ
 import { gateChecks, GATE_KINDS, HELD_BY_HAND, type HandHold, type Held } from './gate'
 import { loadPages, type Page } from './pages'
 import { norm, readable, render } from './reader'
-import { metricFigures, numberIn, usTankOf } from './round'
+import { DOSE_WATER, metricFigures, numberIn, usTankOf } from './round'
 
 /**
  * The units mender: a page the gate holds for units alone, whose saved read of its text as it stands quotes a tank's
@@ -30,14 +30,12 @@ const RANGE_BEFORE = /\d(?:\s*(?:lít|liter|litre|ลิตร|l(?![\p{L}\p{N}])
 const RANGE_AFTER = /^\s*(?:[–-]|đến|tới|hingga|sampai|ถึง|to)\s*\d/iu
 /** A dose's water: "cho mỗi 38 lít", "per 38 liter" (round.ts keeps these too). */
 const PER = /(?:mỗi|cho|trên|per|setiap|untuk|ต่อ|\/)\s*(?:khoảng\s*)?$/iu
-/** A dose's amount earlier in the clause: "Pha 5 ml vào 38 lít nước" (fit.ts DOSE's units). */
-const DOSE = /\d[\d.,–-]*\s*(?:ml|gói|viên|thìa|muỗng|giọt|mg|g|nắp|sachet|tablet|butir|sendok|ซอง|เม็ด|หยด|ช้อน)(?![\p{L}])/iu
-/** A flow, not a tank: "115 lít mỗi giờ", "lít/giờ", "per hour". */
-const RATE_AFTER = /^\s*(?:\/\s*(?:h|giờ|jam|ชม)|mỗi giờ|một giờ|trong (?:một|1) giờ|per hour|an hour|per jam|sejam|ต่อชั่วโมง)/iu
+/** A flow, not a tank: "115 lít mỗi giờ", "lít/giờ", "per hour". Not "một giờ sau" (an hour later) or "lít/hồ". */
+const RATE_AFTER = /^\s*(?:\/\s*(?:h|giờ|jam|ชม)(?![\p{L}])|(?:mỗi|một) giờ(?![\p{L}])(?!\s+(?:sau|nữa|trước))|trong (?:một|1) giờ(?![\p{L}])|per hour|an hour|per jam|sejam|ต่อชั่วโมง)/iu
 /** Whether the volume at `at` in `text` is a tank's: not a range's end, a dose's water, or a flow. */
 const tankAt = (text: string, at: number, end: number) => {
   const clause = text.slice(0, at).split(/[.;!?\n>]/).at(-1) ?? ''
-  return !PER.test(text.slice(Math.max(0, at - 24), at)) && !DOSE.test(clause) && !RANGE_BEFORE.test(text.slice(0, at)) && !RANGE_AFTER.test(text.slice(end)) && !RATE_AFTER.test(text.slice(end))
+  return !PER.test(text.slice(Math.max(0, at - 24), at)) && !DOSE_WATER.test(clause) && !RANGE_BEFORE.test(text.slice(0, at)) && !RANGE_AFTER.test(text.slice(end)) && !RATE_AFTER.test(text.slice(end))
 }
 /** A metric figure that isn't a volume: a length or a temperature, which only a writer can put right. */
 const NOT_VOLUME = /\d\s*(?:cm|mm|ซม|มม|°|độ C)|\d\s*m(?![\p{L}\p{N}])/iu
@@ -111,16 +109,19 @@ export function namesTwice(old: string, now: string, lang: Page['lang']): boolea
 /**
  * What a part was written from, as the repository keeps it: a fish or plant section's English, the research facts
  * behind AquaTome's own sections, an article's or a topic's text for a guide. A video's transcript is kept on one Mac
- * only, so a video guide has none here, and the code's checks stand alone (the chief of staff, 2026-11-11).
+ * only, so a video guide has none here (undefined), and the code's checks stand alone (the chief of staff, 2026-11-11).
+ * A part whose source is kept but empty (a section with no English, no research file) has nothing to mend from: "".
  */
-async function writtenFrom(root: string, p: Page, field: string): Promise<string> {
+async function writtenFrom(root: string, p: Page, field: string): Promise<string | undefined> {
   const research = async () => ((JSON.parse(await readFile(join(root, 'engine-state/species-research', `${p.id}.json`), 'utf8').catch(() => '{}')) as { facts?: { fact: string }[] }).facts ?? []).map(f => f.fact).join('\n')
   if (p.en) {
     if (field.endsWith(':aquatome')) return research()
     return p.en[field] ?? [...Object.entries(p.en).filter(([k]) => !k.endsWith(':aquatome')).map(([, v]) => v), await research()].join('\n')
   }
-  return p.kind === 'guides' && p.origin?.source === 'youtube' ? '' : fitSource(root, p)
+  return p.kind === 'guides' && p.origin?.source === 'youtube' ? undefined : fitSource(root, p)
 }
+/** A source as text: an English section's HTML read as the checker reads it, a research fact as it is. */
+const asText = (from: string) => render(from) || from
 /** The US tank sizes a source gives in gallons: "a 20-gallon tank", "50 gallons", "5.5 gal". */
 const gallonsIn = (text: string) => new Set([...text.matchAll(/(\d+(?:\.\d+)?)[\s-]*(?:US\s+)?gal(?:lon)?s?\b/gi)].map(m => Number(m[1])))
 
@@ -180,19 +181,20 @@ export async function unitsMend(root: string, o: { limit?: number; first?: reado
     for (const [i, f] of units.entries()) {
       const from = await writtenFrom(root, p, read.find(x => x.id === f.part)?.field ?? '')
       const v = plans[i] as { volumes: number[] }
-      const missing = from ? v.volumes.map(n => usTankOf(n)!).find(([g]) => !gallonsIn(from).has(g)) : undefined
+      const missing = from !== undefined ? v.volumes.map(n => usTankOf(n)!).find(([g]) => !gallonsIn(from).has(g)) : undefined
       if (missing) { unsourced = `"${f.quote}": what it was written from gives no ${missing[0]} gallons`; break }
     }
     if (unsourced) { leave(unsourced); continue }
     // Every part the checker reads, mended where it gives one of these volumes.
     // A name a person fixed stays (nameFixed): the rules keep the page held if it still has a units fault.
-    const parts = [...(p.nameFixed ? [] : [{ field: 'name', text: p.title }]), ...readable(p).map(f => ({ field: f.field, text: f.html })), ...p.lines.map(l => ({ field: l.field, text: l.text }))]
+    const parts = [...(p.nameFixed || t.nameFixed ? [] : [{ field: 'name', text: p.title }]), ...readable(p).map(f => ({ field: f.field, text: f.html })), ...p.lines.map(l => ({ field: l.field, text: l.text }))]
     // In a part whose source the repository keeps, a volume is mended only where that source gives the tank in gallons
     // and not the litres themselves ("Raise the fry in 75 litres" in another section stays).
     const changes: { field: string; old: string; now: string }[] = []
     for (const x of parts) {
       const from = await writtenFrom(root, p, x.field)
-      const here = from ? new Set([...mend].filter(n => gallonsIn(from).has(usTankOf(n)![0]) && !metricFigures(render(from), 'en').includes(`${n} l`))) : mend
+      // A part with no source kept mends nothing; a video guide, whose source isn't in the repository, mends all.
+      const here = from === undefined ? mend : new Set([...mend].filter(n => gallonsIn(from).has(usTankOf(n)![0]) && !metricFigures(asText(from), 'en').includes(`${n} l`)))
       const n = mendText(x.text, p.lang, here)
       if (n !== x.text) changes.push({ field: x.field, old: x.text, now: n })
     }

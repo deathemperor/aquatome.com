@@ -11,7 +11,7 @@ import { readForumState, topicLeads } from './forum'
 import { lethalFigures, NAMES_TREATMENT } from './fit'
 import { steadyRead } from './quality'
 import { VI_STYLE as STYLE } from './phrases'
-import { TANK_RULE } from './round'
+import { TANK_RULE, withTanks } from './round'
 
 /**
  * What a source is: the research tags each one, and the writers and the checker get each fact's source with its kind, so a
@@ -42,7 +42,7 @@ const NAMED_AS: Record<SourceKind, string> = {
   news: 'a news report', reference: 'a reference site', forum: 'a forum post', farm: 'a fish-farming guide', other: 'a source',
 }
 const NAMED_LIST = KINDS.map(k => `${k}: ${NAMED_AS[k]}`).join('; ')
-const WRITE = readFileSync(new URL('./prompts/topic.md', import.meta.url), 'utf8')
+const WRITE = withTanks(readFileSync(new URL('./prompts/topic.md', import.meta.url), 'utf8'))
 const INTL = readFileSync(new URL('./prompts/topic-intl.md', import.meta.url), 'utf8').replace('{{SOURCE_KINDS}}', NAMED_LIST)
 
 const SECTIONS = ['what', 'signs', 'causes', 'firstAid', 'treatment', 'steps', 'prevention', 'mistakes', 'vietnam', 'myths', 'other'] as const

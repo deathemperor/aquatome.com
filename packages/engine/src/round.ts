@@ -31,7 +31,7 @@ const keeperLitres = (n: number): number | undefined => {
 const litres = (n: number) => (CONVERTED_LITRES.includes(n) ? keeperLitres(n) ?? n : n)
 
 /** A US gallon, in litres. */
-const GALLON = 3.785411784
+export const GALLON = 3.785411784
 /**
  * The one rule for a tank a source names in US gallons: the size a keeper here names it, in litres (`keeperLitres` of
  * the exact volume). The writers' prompts give it ({{TANKS_EN}}, {{TANKS_VI}}: `withTanks`), the units mender maps a
@@ -61,6 +61,12 @@ export const TANK_RULE = {
   vi: `bể ghi theo gallon Mỹ thì gọi bằng cỡ người chơi ở đây vẫn gọi, không đổi chính xác, không làm tròn tới 5 lít: ${sizes('gallon', 'lít').join(', ')}. Cỡ bể không có ở đây thì đổi ra lít, làm tròn tới số nguyên`,
 }
 /** A writer's or reviewer's prompt with the table in place of {{TANKS_EN}} and {{TANKS_VI}}. */
+/**
+ * Text before a volume that makes it a dose's water, not a tank: an amount in a dose's unit that goes into it ("Pha 5 ml
+ * vào 38 lít", "cho 3 ml Easy Dechlorinator vào 120 lít", "1 gói cho mỗi 25 lít"). The dose's own water keeps its exact
+ * figure. "Cho ăn 1 viên trong bể 115 lít" names a tank: the pellet is food, and the litres are the tank's.
+ */
+export const DOSE_WATER = /\d[\d.,–-]*\s*(?:ml|mg|g|gói|viên|thìa|muỗng|giọt|nắp|sachet|tablet|butir|sendok|ซอง|เม็ด|หยด|ช้อน)(?![\p{L}])(?:\s+[^\s\d.;!?<>]+){0,3}?(?:\s+(?:vào|cho|trong|với|per|for|into|in|to|ke|dalam|untuk)|\s*(?:ใน|ลงใน|ต่อ))\s*(?:(?:mỗi|khoảng|chừng|every|each|about|setiap|sekitar|ประมาณ)\s*)*$/iu
 export const withTanks = (prompt: string) => prompt.replaceAll('{{TANKS_EN}}', TANK_RULE.en).replaceAll('{{TANKS_VI}}', TANK_RULE.vi)
 const side = (n: number) => (n < 100 ? Math.round(n / 5) * 5 : Math.round(n / 10) * 10)
 
