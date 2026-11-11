@@ -2,7 +2,7 @@ import SwiftUI
 import UIKit
 
 /// Behind a page that opens with iOS's zoom and hides iOS's back button (iOS 26 on). iOS's zoom takes the page back on a swipe
-/// from anywhere, a slow one from the edge included, but starts nothing for a fast flick from the very edge: that one is here.
+/// from anywhere, but starts nothing for a fast flick from the very edge, or for the fastest ones elsewhere: those are here.
 /// Says when the page starts to leave, and when it's back in front (a swipe let go of).
 @available(iOS 26, *)
 struct PageSwipes: UIViewControllerRepresentable {
@@ -19,6 +19,7 @@ struct PageSwipes: UIViewControllerRepresentable {
     var moved: (Bool) -> Void = { _ in }
     var flickedBack: () -> Void = {}
     private var edge: UIPanGestureRecognizer?
+    private var fromEdge = false
 
     override func viewDidAppear(_ animated: Bool) {
       super.viewDidAppear(animated)
@@ -41,12 +42,22 @@ struct PageSwipes: UIViewControllerRepresentable {
 
     @objc private func panned(_ pan: UIPanGestureRecognizer) {
       guard pan.state == .ended else { return }
-      let across = pan.translation(in: pan.view)
-      if across.x > 60, across.x > abs(across.y) * 2, pan.velocity(in: pan.view).x >= 0 { flickedBack() }
+      let across = pan.translation(in: pan.view), speed = pan.velocity(in: pan.view).x
+      // From the edge, as the swipe before iOS 26 went; elsewhere, only a flick: iOS's zoom has every slower swipe.
+      if across.x > 60, across.x > abs(across.y) * 2, speed >= (fromEdge ? 0 : 600) { flickedBack() }
     }
 
-    // Only a touch that starts on the very edge: anywhere else is iOS's.
-    func gestureRecognizer(_ gesture: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool { touch.location(in: gesture.view).x < 16 }
+    // From the very edge, whatever is under it; elsewhere, not from what scrolls sideways (the photos, the chips), as in the App Store.
+    func gestureRecognizer(_ gesture: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+      fromEdge = touch.location(in: gesture.view).x < 16
+      if fromEdge { return true }
+      var under = touch.view
+      while let v = under {
+        if let s = v as? UIScrollView, s.isScrollEnabled, s.contentSize.width > s.bounds.width + 1 { return false }
+        under = v.superview
+      }
+      return true
+    }
 
     func gestureRecognizer(_: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith _: UIGestureRecognizer) -> Bool { true }
   }
