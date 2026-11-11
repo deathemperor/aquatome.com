@@ -59,8 +59,9 @@ export function boxFractions(p: { width: number; height: number; subject?: Pixel
 }
 /**
  * How much of the fish's length a frame may cut and still show it whole: fin tips (the chief of staff, 2026-11-12, set by
- * eye on tiles at the app's size; the Design Lead confirmed it on 27.2 the same day). One constant: the app's tests read
- * it from protocols/photo-crop-vectors.json, which packages/schema/test/photo-crop-vectors.test.ts writes from here.
+ * eye on tiles at the app's size; the Design Lead confirmed it on 27.2 the same day). One constant: it is written into
+ * protocols/photo-crop-vectors.json (packages/schema/test/photo-crop-vectors.test.ts), for the app's tests to hold its own
+ * rule and cut to.
  */
 export const SUBJECT_CUT = 0.05
 /** The rule's slack on SUBJECT_CUT, so the last bit of a window's edge can't turn exactly SUBJECT_CUT into more. */
@@ -74,20 +75,25 @@ export const SUBJECT_FRAMES = false
 /** How a frame shows a photo: covering it, its window placed at `x`, `y` (CSS object-position, 0–1), or the photo whole. */
 export type SubjectFrame = { fit: 'cover'; x: number; y: number } | { fit: 'whole' }
 /**
- * How a frame of `ratio` (width over height) shows a photo so it keeps the fish (`subject`, the loader's): centred, as
- * today, where that cuts SUBJECT_CUT of the fish or less; else moved onto the fish where that does; else the photo
- * whole. A photo with no box (not boxed yet, or no animal found) is centred, as today, never whole.
+ * The rule as the app runs it, on what the app is sent: how a frame of `ratio` (width over height) shows a photo of
+ * `aspect` (its width over height) whose fish is at `box` (fractions, as `box` and `imgBox` carry it). Centred, as today,
+ * where that cuts SUBJECT_CUT of the fish or less; else moved onto the fish where that does; else the photo whole. No
+ * box (not boxed yet, or no animal found): centred, as today, never whole. protocols/photo-crop-vectors.json has its cases.
  */
-export function subjectFrame(p: { width: number; height: number; subject?: PixelBox }, ratio: number): SubjectFrame {
-  const s = p.subject
-  if (!validPixelBox(s, p.width, p.height)) return { fit: 'cover', x: 0.5, y: 0.5 }
-  const w = coverWindow({ x0: 0, y0: 0, x1: p.width, y1: p.height }, ratio)
-  // A cover window cuts one side only: along it, the photo's length, the window's, and where the fish starts and ends.
-  const across = w.x1-w.x0 < p.width
-  const [len, span, a, b] = across ? [p.width, w.x1-w.x0, s.x0, s.x1] : [p.height, w.y1-w.y0, s.y0, s.y1]
+export function frameOf(aspect: number, box: SubjectFractions | undefined, ratio: number): SubjectFrame {
+  if (!box || !(box.w > 0 && box.h > 0)) return { fit: 'cover', x: 0.5, y: 0.5 }
+  // A cover window cuts one side only: along it, the window's share of the photo, and where the fish starts and ends.
+  const across = aspect > ratio
+  const [span, a, b] = across ? [ratio/aspect, box.x, box.x+box.w] : [aspect/ratio, box.y, box.y+box.h]
   const lost = (at: number) => (Math.max(0, at-a)+Math.max(0, b-at-span))/(b-a)
-  const at = [(len-span)/2, Math.min(Math.max((a+b-span)/2, 0), len-span)].find(at => lost(at) <= SUBJECT_CUT+SUBJECT_SLACK)
+  const at = [(1-span)/2, Math.min(Math.max((a+b-span)/2, 0), 1-span)].find(at => lost(at) <= SUBJECT_CUT+SUBJECT_SLACK)
   if (at === undefined) return { fit: 'whole' }
-  const pos = span < len ? at/(len-span) : 0.5
+  const pos = span < 1 ? at/(1-span) : 0.5
   return across ? { fit: 'cover', x: pos, y: 0.5 } : { fit: 'cover', x: 0.5, y: pos }
 }
+/**
+ * How a frame of `ratio` shows a photo with the loader's box (`subject`): frameOf on the fractions the app is sent
+ * (boxFractions), so the site and the app decide alike.
+ */
+export const subjectFrame = (p: { width: number; height: number; subject?: PixelBox }, ratio: number): SubjectFrame =>
+  frameOf(p.width/p.height, boxFractions(p), ratio)

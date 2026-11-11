@@ -37,8 +37,8 @@ test('up to SUBJECT_CUT of the fish lost reads as whole: exactly that stays cent
 })
 
 test('a crop moved onto the fish mends what the centred one cuts, held inside the photo', () => {
-  // A fish from 100 to 1150 loses 100 of 1050 (9.5%) centred; a window from 25 to 1225 holds it: 25 of the 400 it can move.
-  at(subjectFrame(wide({ x0: 100, y0: 200, x1: 1150, y1: 700 }), 4 / 3), 25 / 400, 0.5)
+  // A fish from 100 to 1148 loses 100 of 1048 (9.5%) centred; a window from 24 to 1224 holds it: 24 of the 400 it can move.
+  at(subjectFrame(wide({ x0: 100, y0: 200, x1: 1148, y1: 700 }), 4 / 3), 24 / 400, 0.5)
   // A fish at the photo's left edge: the window goes as far left as it can.
   at(subjectFrame(wide({ x0: 0, y0: 200, x1: 1000, y1: 700 }), 4 / 3), 0, 0.5)
   // A tall photo, 600×900 at 4:3: the window is 450 tall; a fish near the top takes it to the top.

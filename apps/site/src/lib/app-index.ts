@@ -6,7 +6,7 @@ import { curationFor, loopOf, type AppCuration } from './curation'
 import { categoriesIn } from './equipment'
 import { categoryLabel, GROUP_LABELS, GUIDE_KIND_LABELS, PLANT_LABELS } from './format'
 import { easyPlants, featuredSpecies, groupTiles, leadGuides, listOrder } from './home'
-import { smallSrc } from './img'
+import { resizeOf, sameShape, smallSrc } from './img'
 import { appPath, served, translator, type Lang } from './i18n'
 import { guideImage, mentionIndex } from './mentions'
 import { toIndexItem } from './species-index'
@@ -201,7 +201,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
   const at = (viPath: string) => appPath(lang, viPath)
   const leadOf = (photos: Photo[]) => photos.find(p => !p.generated && p.headFit !== 'contain' && photoFitsCard(p))
   const img = (photos: Photo[]) => { const p = leadOf(photos); return p ? smallSrc(p) : undefined }
-  const imgBox = (photos: Photo[]) => { const p = leadOf(photos); return p && boxFractions(p) }
+  const imgBox = (photos: Photo[]) => { const p = leadOf(photos); return p && resizeOf(p, smallSrc(p)) ? boxFractions(p) : undefined }
   const aka = (names: string[]) => (names.length ? names : undefined)
   const items: AppItem[] = []
   const home: AppHome = { groups: [], fish: [], plants: [], guides: [] }
@@ -252,7 +252,7 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
       }))
     }
     home.groups = groupTiles(lang, c).map(g => {
-      const box = g.photo && boxFractions(g.photo)
+      const box = g.photo && resizeOf(g.photo, smallSrc(g.photo)) ? boxFractions(g.photo) : undefined
       return g.photo ? { id: g.group, img: smallSrc(g.photo), ...(box ? { imgBox: box } : {}) } : { id: g.group }
     })
     home.fish = featuredSpecies(lang, c, 30).map(s => at(`/vi/ca/${s.t.slug}/`))
@@ -323,16 +323,20 @@ export function appIndex(lang: Lang, c: Content, traits: Map<string, Traits> = n
     for (const b of appBreeds(lang, c)) refs.set(`breeds/${b.id}`, at(`/vi/ca/${b.t.slug}/`))
     for (const g of appGuides(lang, c)) refs.set(`guides/${g.id}`, at(`/vi/huong-dan/${g.t.slug}/`))
     for (const p of appPlants(lang, c)) refs.set(`plants/${p.id}`, at(`/vi/cay/${p.t.slug}/`))
-    // Where the fish is in each fish and breed photo the calendar can name by address: its page copy, its small copy, and a
-    // large copy of the same shape (one more than 1% off it is another framing: no box).
-    const boxes = new Map<string, Box>()
+    // Where the fish is in each fish and breed photo the calendar can name by address: the photo's own address first, then
+    // its copies only resized (its small copy, a large copy of the same shape). An address two photos' copies claim with
+    // different boxes gets none.
+    const own = new Map<string, Box>(), copies = new Map<string, Box | null>()
+    const copy = (u: string, box: Box) => copies.set(u, copies.has(u) && JSON.stringify(copies.get(u)) !== JSON.stringify(box) ? null : box)
     for (const p of [...c.species.flatMap(s => s.photos), ...c.breeds.flatMap(b => b.photos), ...Object.values(c.galleries).flat()]) {
       const box = boxFractions(p)
       if (!box) continue
-      for (const u of [p.url, p.thumb, smallSrc(p)]) if (u) boxes.set(u, box)
-      if (p.large && Math.abs(p.large.width / p.large.height / (p.width / p.height) - 1) <= 0.01) boxes.set(p.large.url, box)
+      own.set(p.url, box)
+      for (const u of new Set([p.thumb, smallSrc(p)])) if (u && u !== p.url && resizeOf(p, u)) copy(u, box)
+      if (p.large && sameShape(p, p.large)) copy(p.large.url, box)
     }
-    Object.assign(home, curationFor(cur.calendar, lang, cur.today, ref => { const p = refs.get(ref); return p && paths.has(p) ? p : undefined }, c.cards, c.photoWaits, u => boxes.get(u)))
+    const boxAt = (u: string) => (own.has(u) ? own.get(u) : copies.get(u) ?? undefined)
+    Object.assign(home, curationFor(cur.calendar, lang, cur.today, ref => { const p = refs.get(ref); return p && paths.has(p) ? p : undefined }, c.cards, c.photoWaits, boxAt))
   }
   const codes = [...new Set(items.flatMap(i => [...(i.range?.native ?? []), ...(i.range?.records?.outside ?? []).map(([code]) => code)]))].sort()
   const nameOf = countryNames(lang, c.places, paged)
