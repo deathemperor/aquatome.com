@@ -27,8 +27,8 @@ const DataCardField = z.enum(['tempC', 'ph', 'gh', 'sizeCm', 'tankCm', 'difficul
 
 /**
  * `refs`: text AquaTome wrote from web research (source 'aquatome'), the pages in the species' `refs` its facts come from.
- * `fixed`: a person rewrote this part, in English and in the Vietnamese beside it, and reading its source again never
- * replaces it, as `nameFixed` holds a name.
+ * `fixed`: a person rewrote this part, in English and in each language beside it, and neither reading its source again
+ * nor translating the page replaces it, as `nameFixed` holds a name.
  */
 const Section = z.object({ key: z.enum(SECTION_ORDER), source: SourceId, sourceUrl: z.string(), html: z.string(), refs: z.array(z.number().int().nonnegative()).optional(), fixed: z.literal(true).optional() })
 /** `authorUrl`: the photographer's own page (an Unsplash profile), which their credit links. */

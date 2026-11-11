@@ -215,9 +215,13 @@ export async function localizeSpecies(root: string, llm: Llm, lang: TargetLang, 
       const done = await readFile(file, 'utf8').then(() => true, () => false)
       const made = state[id]?.parts
       if (!o.redo && done && !made && (state[id]?.from ?? '') >= e.updatedAt) { report.skipped.push(id); continue }
-      const parts = e.sections.filter(s => s.html.trim() && translatable(s.source)).map(s => ({ id: `${s.key}:${s.source}`, en: s.html }))
+      const parts = e.sections.filter(s => s.html.trim() && translatable(s.source)).map(s => ({ id: `${s.key}:${s.source}`, en: s.html, fixed: s.fixed === true }))
       if (!parts.length) { report.skipped.push(`${id}: no English`); continue }
       const at = (o.now?.() ?? new Date()).toISOString()
+      // A part fixed by hand (`fixed`, in English and in each language beside it) keeps the text it has here, and is taken
+      // as made from its English as it is now: no translation replaces it, part by part or a whole page.
+      const here = done ? TranslationSchema.safeParse(JSON.parse(await readFile(file, 'utf8'))).data?.sections ?? {} : {}
+      const held = (p: { id: string; fixed: boolean }) => p.fixed && here[p.id] !== undefined
       let changes: { prev: Translation; kept: typeof parts; due: typeof parts; still: Record<string, string> } | undefined
       if (!o.redo && done && made) {
         // The English changed, and the page knows what each part was made from: a part whose English is the same keeps its
@@ -225,9 +229,9 @@ export async function localizeSpecies(root: string, llm: Llm, lang: TargetLang, 
         const prev = TranslationSchema.parse(JSON.parse(await readFile(file, 'utf8')))
         const failed = state[id]?.failed
         const waiting = (p: { id: string; en: string }) => !!failed && failed.parts[p.id] === partHash(p.en) && Date.parse(at) - Date.parse(failed.at) < NEW_PARTS_RETRY_DAYS * 86_400_000
-        const kept = parts.filter(p => made[p.id] === partHash(p.en))
-        const due = parts.filter(p => made[p.id] !== partHash(p.en) && !waiting(p))
-        const still = Object.fromEntries(Object.entries(made).filter(([k]) => parts.some(p => p.id === k)))
+        const kept = parts.filter(p => made[p.id] === partHash(p.en) || held(p))
+        const due = parts.filter(p => made[p.id] !== partHash(p.en) && !waiting(p) && !held(p))
+        const still = { ...Object.fromEntries(Object.entries(made).filter(([k]) => parts.some(p => p.id === k))), ...Object.fromEntries(parts.filter(held).map(p => [p.id, partHash(p.en)])) }
         if (!due.length) {
           if (state[id]!.from !== e.updatedAt || JSON.stringify(state[id]!.parts) !== JSON.stringify(still)) {
             state[id] = { ...state[id]!, from: e.updatedAt, parts: still }
@@ -320,7 +324,7 @@ export async function localizeSpecies(root: string, llm: Llm, lang: TargetLang, 
       const fresh = [...new Set([w.name, ...w.altNames].map(n => n.trim()).filter(n => n && n !== name))].slice(0, 5)
       const t = TranslationSchema.parse(metricPage({
         slug, name, altNames: [...new Set([...(prev?.nameFixed ? prev.altNames : []), ...fresh])].filter(n => n !== name),
-        sections: Object.fromEntries(parts.filter(p => w.parts.get(p.id)).map(p => [p.id, w.parts.get(p.id)!])),
+        sections: Object.fromEntries(parts.filter(p => held(p) || w.parts.get(p.id)).map(p => [p.id, held(p) ? here[p.id]! : w.parts.get(p.id)!])),
         quality: { score: r.score, indexable: r.score >= QUALITY_THRESHOLD, bySource: Object.fromEntries(sources.map(s => [s, r.score])) },
         ...(prev?.nameFixed ? { nameFixed: true } : {}),
       }, lang))

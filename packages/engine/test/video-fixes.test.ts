@@ -5,7 +5,7 @@ import type { Translation } from '@aq/schema'
 
 // Video guides fixed by hand in the real content/, each against its transcript: the line as the video has it, in the body
 // and the FAQ, and the marks that keep a rewrite from putting the old line back (bodyFixed, faqFixed). A video written again
-// still gets a new summary, so the old line is held out of that too: a run that brought it back fails here, unpublished.
+// keeps a fixed body's summary too; the old line is held out of it as well, so a summary that brought it back fails here.
 const guide = async (id: string) => JSON.parse(await readFile(fileURLToPath(new URL(`../../../content/guides/${id}/vi.json`, import.meta.url)), 'utf8')) as Translation
 const answers = (t: Translation) => (t.faq ?? []).map(f => f.a).join('\n')
 const summary = (t: Translation) => (t.summary ?? []).join('\n')

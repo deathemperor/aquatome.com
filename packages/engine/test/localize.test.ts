@@ -398,3 +398,34 @@ test('a page made before parts were recorded keeps its passing text when the who
   expect(Object.keys(after.failed.parts)).toEqual(['diet:aquariumcoop'])
   expect(Object.keys(after.parts)).not.toContain('diet:aquariumcoop')
 })
+
+// The independent read of the tap-water fixes (2026-11-12): a part fixed by hand (`fixed`, in English and in each language
+// beside it) was translated again whenever its English changed, so the hand-written text of the lucky bamboo's water parts
+// would have gone with the next batch.
+test('a part fixed by hand keeps its text in each language: not translated again, part by part or a whole page, and taken as made from its English', async () => {
+  const root = await site()
+  const id = (await import('node:fs')).readdirSync(join(root, 'content/species')).sort()[0]!
+  let tag = 'T1'
+  const t = translator(() => tag, () => 0.9)
+  await localizeSpecies(root, t.llm, 'th', [id], { now })
+  const file = join(root, 'content/species', id, 'th.json')
+  const first = JSON.parse(await readFile(file, 'utf8'))
+  const [held, other] = Object.keys(first.sections) as string[]
+  await writeFile(file, JSON.stringify({ ...first, sections: { ...first.sections, [held!]: '<p>by hand</p>' } }))
+  const fixedEn = '<p>Fixed by hand.</p>'
+  await pageWith(root, id, s => [...s.map(x => (`${x.key}:${x.source}` === held ? { ...x, html: fixedEn, fixed: true } : x)), NEW])
+  tag = 'T2'
+  expect((await localizeSpecies(root, t.llm, 'th', [id], { now })).done).toHaveLength(1)
+  expect(asked(t.writes[1]!)).toEqual(['diet:aquariumcoop'])
+  const after = JSON.parse(await readFile(file, 'utf8'))
+  expect(after.sections[held!]).toBe('<p>by hand</p>')
+  expect(after.sections['diet:aquariumcoop']).toBe('<p>T2 diet:aquariumcoop</p>')
+  const stateFile = join(root, 'engine-state/localize-th.json')
+  expect(JSON.parse(await readFile(stateFile, 'utf8'))[id].parts[held!]).toBe(partHash(fixedEn))
+  // A whole page again (a redo): every other part is written anew, the fixed one keeps its text.
+  tag = 'T3'
+  await localizeSpecies(root, t.llm, 'th', [id], { now, redo: true })
+  const redone = JSON.parse(await readFile(file, 'utf8'))
+  expect(redone.sections[held!]).toBe('<p>by hand</p>')
+  if (other) expect(redone.sections[other]).toBe(`<p>T3 ${other}</p>`)
+})
