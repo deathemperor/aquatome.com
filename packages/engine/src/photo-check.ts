@@ -279,9 +279,9 @@ export const turn = (x: Pick<Shown, 'waits' | 'bare' | 'source'>): 0 | 1 | 2 | 3
  *   in the same run (they may carry it too).
  * - "unsure" stays and is listed for review with the removals (docs/review/photo-subjects.md). A page left without a
  *   photo shows none.
- * - The lead a species or plant page shows stays its lead while the check passes it; where it is taken off, can't be
- *   told or is not judged yet, a typical photo leads. An old "habitat" verdict goes last until it is asked again. A
- *   lead that passes and isn't typical stays: nothing here or in lead-photos puts a typical photo ahead of it.
+ * - On a species or plant page a typical photo comes first, each group in the order it had: a lead the check passes as
+ *   typical stays the lead, and one that passes as less, can't be told, is taken off or is not judged yet gives way to
+ *   a typical photo in the run that judges that photo. An old "habitat" verdict goes last until it is asked again.
  *
  * - A gallery photo a step added waits (`unchecked`, gallery.ts) and no page shows it: judged and left on, it loses the
  *   mark here and shows from the next build.
@@ -488,9 +488,10 @@ export async function checkPagePhotos(root: string, d: PhotoCheckDeps, o: { limi
       // A typical photo first, other photos of it next, an old "habitat" verdict last (until it is asked again), each
       // group in the order it had. So a lead the check passes as typical stays the lead, and one that passes but isn't
       // typical gives way to a typical photo in the run that judges that photo, this one or a later one: no pair is
-      // compared and no call added (the chief of staff, 2026-11-11). The guards on a head are as they were: one a
-      // person picked is put back first by the sweep, which has the last word each cycle (_photo-head-picks.json), and
-      // a card whose photo isn't its page's head fails `curate --check`.
+      // compared and no call added (the chief of staff, 2026-11-11). What follows a move is as it was: a head a
+      // person picked is put back first by the sweep, which has the last word each cycle (_photo-head-picks.json).
+      // Any other head can move, a card's fish too: the cycle's planner then points the day's card at the new head
+      // (curation.ts), and no cycle runs `curate --check`, which would name a card and a head that differ.
       const r = (x: Photo) => { if (x.generated) return 3; const v = verdict(x.url, s.id); return v?.ok === 'yes' && v.typical ? 0 : v?.ok === 'habitat' ? 2 : 1 }
       data.photos = data.photos.map((x, i) => ({ x, i })).sort((a, b) => r(a.x) - r(b.x) || a.i - b.i).map(({ x }) => x)
     }

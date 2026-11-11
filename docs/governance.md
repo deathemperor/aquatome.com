@@ -605,9 +605,10 @@ The layers above still check the result.
     page's only photo, three days on the page and not yet judged, behind every more-read page's gallery (the chief of
     staff). A lead the check passes as typical stays the lead. One that passes but isn't typical gives way to a
     typical photo in the run that judges that photo, as before this order: no pair is compared and no call added
-    (the chief of staff, 2026-11-11). The guards on a head are as they were: one a person picked comes back first in
-    the sweep, which has the last word each cycle (`_photo-head-picks.json`), and a card whose photo isn't its
-    page's head fails `curate --check`. A
+    (the chief of staff, 2026-11-11). What follows a move is as it was: a head a person picked comes back first in
+    the sweep, which has the last word each cycle (`_photo-head-picks.json`). Any other head can move, a card's
+    fish too: the cycle's planner then points the day's card at the new head, and no cycle runs `curate --check`,
+    which would name a card and a head that differ. A
     lead's sheet is filled with its page's own photos before its gallery's, so a photo that takes a removed lead's
     place has been judged beside it. Found by
     the owner: a neon tetra on the green neon page, the tiger barb under the cherry barb, a range map on the angelfish
