@@ -3,6 +3,7 @@ import { copyFile, mkdir, mkdtemp, readdir, readFile, writeFile } from 'node:fs/
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { expect, test } from 'vitest'
+import sharp from 'sharp'
 import { ArchiveRefused } from '../src/archive'
 import { LlmError } from '../src/claude'
 import { ChallengeError } from '../src/fetch'
@@ -28,7 +29,7 @@ function deps(root: string, opts: { urls?: string[]; score?: number; page?: obje
       if (url.endsWith('broken-fish')) throw new Error('net::ERR_CONNECTION_RESET')
       return { status: 200, html: fx(url.endsWith('blocked-fish') ? 'pages/challenge.html' : 'pages/seriouslyfish-cardinal.html'), finalUrl: url }
     },
-    bytes: async (url: string) => { calls.images++; return new TextEncoder().encode(url) },
+    bytes: async () => { calls.images++; return sharp({ create: { width: 800, height: 600, channels: 3, background: 'gray' } }).jpeg().toBuffer() },
   }
   const media = { urlFor: (k: string) => `https://media.test/${k}`, put: async (k: string) => ({ url: `https://media.test/${k}`, width: 800, height: 600 }) }
   const llm = async <T,>(a: { prompt: string; schema: object }): Promise<T> => {

@@ -7,8 +7,11 @@ import type { PageImage } from './outline'
 import { ARTWORK } from './photos'
 
 export type Media = { urlFor: (key: string) => string; put: (key: string, bytes: Uint8Array) => Promise<{ url: string; thumb?: string; width: number; height: number }> }
-/** `probe`: the page gave no pixel size (missing or "100%"), so the real size is checked after download. */
-type Picked = PageImage & { probe?: boolean }
+/** Layout dimensions are never a file size. Filename alternatives wait for retrieval before collapsing. */
+type Picked = PageImage & { probe?: boolean; extra?: boolean; minWidth?: number; alternatives?: Picked[] }
+/** At most four extra requests per page: newly eligible layout sizes and fallback addresses share this budget. */
+const EXTRA_DOWNLOADS = 4
+const THUMBNAIL = /\/(?:icons?|thumbs?|thumbnails?)\//i
 
 const JUNK = /logo|icon|sprite|avatar|banner|badge|placeholder|gravatar|payment|flag|button|spinner|loader|emoji|pixel|tracking/i
 /** QR codes for the page's own address (PlanetCatfish: quickchart.io/qr?…, /cache/qr/…). */
@@ -42,7 +45,7 @@ function linksElsewhere(link: string, pageUrl: string) {
 /** Best photos from a source page: real photos (not chrome), big enough, about the subject; the subject itself before scenery. */
 export function pickSourcePhotos(images: PageImage[], pageUrl: string, names: string[], max = 4, kind: 'subject' | 'guide' = 'subject', minWidth = MIN_WIDTH): Picked[] {
   const terms = [...new Set(names.flatMap(n => [n.toLowerCase(), ...n.toLowerCase().split(/\s+/).filter(w => w.length >= 4)]))]
-  const seen = new Set<string>()
+  const seen = new Map<string, Picked>()
   const seenAlt = new Set<string>()
   const ranked: { img: Picked; score: number }[] = []
   for (const img of images) {
@@ -50,21 +53,29 @@ export function pickSourcePhotos(images: PageImage[], pageUrl: string, names: st
     try { src = new URL(img.src, pageUrl).href } catch { continue }
     if (!/^https?:/.test(src) || /\.(svg|gif)(\?|$)/i.test(src) || JUNK.test(`${file(src)} ${img.alt}`) || QR.test(src)) continue
     if (img.link && linksElsewhere(img.link, pageUrl)) continue
+    const thumbnailWidth = Number(file(src).match(/-(\d+)x\d+\.[a-z0-9]+$/i)?.[1])
+    if (THUMBNAIL.test(src) || (thumbnailWidth && thumbnailWidth < minWidth)) continue
     if (img.width && img.width < minWidth) continue
     if (img.width && img.height && !okShape(img.width, img.height)) continue
     if (kind === 'subject' && PRODUCT.test(`${file(src)} ${img.alt}`)) continue
     // A drawing, plate or stamp the source shows ("Liobagrus kingi: line drawing", "Pieter Bleeker's drawing of…"): not a photo of it.
     if (kind === 'subject' && ARTWORK.test(words(`${file(src)} ${img.alt}`))) continue
     if (kind === 'guide' && img.product) continue // a shop's product tile is an ad, not a picture of what the article says
+    const picked: Picked = { ...img, src, minWidth, ...(!img.width ? { probe: true } : {}), ...(img.displayWidth && img.displayWidth < minWidth ? { extra: true } : {}) }
     const key = dedupeKey(src)
     const altKey = img.alt.toLowerCase().trim()
     // Photos from pages of their own share captions ("Hoplisoma sterbai") without being copies.
-    if (seen.has(key) || (altKey && !img.page && seenAlt.has(altKey))) continue
-    seen.add(key)
+    const duplicate = seen.get(key)
+    if (duplicate) {
+      if (src !== duplicate.src && !duplicate.alternatives?.some(a => a.src === src)) (duplicate.alternatives ??= []).push(picked)
+      continue
+    }
+    if (altKey && !img.page && seenAlt.has(altKey)) continue
     if (altKey) seenAlt.add(altKey)
     const text = words(`${file(src)} ${img.alt}`)
     const score = (terms.some(t => text.includes(t)) ? 2 : 0) + ((img.width ?? 0) >= 1000 ? 0.5 : 0) - (SCENERY.test(img.alt) ? 1.5 : 0)
-    ranked.push({ img: { ...img, src, ...(img.width ? {} : { probe: true }) }, score: score - (img.width ? 0 : 0.25) })
+    seen.set(key, picked)
+    ranked.push({ img: picked, score: score - (img.width ? 0 : 0.25) })
   }
   return ranked.map((r, i) => ({ ...r, i })).sort((a, b) => b.score - a.score || a.i - b.i).slice(0, max).map(r => r.img)
 }
@@ -88,7 +99,7 @@ export async function linkedPhotos(html: string, pageUrl: string, photoPage: Reg
     const author = page.slice(at, at + 600).match(/(?:©|&copy;)(?:\s|&nbsp;|<[^>]+>)*([^<]+)/)?.[1]?.replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim()
     const width = Number(img.getAttribute('width')) || undefined
     const height = Number(img.getAttribute('height')) || undefined
-    out.push({ src: new URL(img.getAttribute('src')!, u).href, alt: (img.getAttribute('alt') ?? '').replace(/\s*=\s*/, ': ').trim(), ...(width ? { width } : {}), ...(height ? { height } : {}), page: u, ...(author ? { author } : {}) })
+    out.push({ src: new URL(img.getAttribute('src')!, u).href, alt: (img.getAttribute('alt') ?? '').replace(/\s*=\s*/, ': ').trim(), ...(width ? { displayWidth: width } : {}), ...(height ? { displayHeight: height } : {}), page: u, ...(author ? { author } : {}) })
   }
   return out
 }
@@ -105,25 +116,31 @@ export async function storeSourcePhotos(
   deps: { bytes: (url: string, referer: string) => Promise<Uint8Array>; media: Media; size?: (bytes: Uint8Array) => Promise<{ width?: number; height?: number }>; blocked?: Record<string, string> }, existing: Photo[],
 ): Promise<SourcePhoto[]> {
   const out: SourcePhoto[] = []
-  for (const img of picked) {
-    const key = `${source}/${createHash('sha256').update(img.src).digest('hex').slice(0, 16)}.webp`
-    if (deps.blocked?.[deps.media.urlFor(key)]) continue
-    const known = existing.find(p => p.url === deps.media.urlFor(key))
-    if (known) { out.push(img.heading ? { ...known, heading: img.heading } : known); continue }
-    let bytes: Uint8Array
-    try {
-      bytes = await deps.bytes(img.src, pageUrl)
-    } catch (e) {
-      if (e instanceof ArchiveRefused) throw e // the page waits for the archive, rather than losing its pictures
-      console.warn(`photo skipped ${img.src}: ${(e as Error).message}`) // one unreachable image doesn't fail the page
-      continue
-    }
-    if (img.probe) {
+  let extra = 0
+  for (const first of picked) {
+    for (const [i, img] of [first, ...(first.alternatives ?? [])].entries()) {
+      const key = `${source}/${createHash('sha256').update(img.src).digest('hex').slice(0, 16)}.webp`
+      if (deps.blocked?.[deps.media.urlFor(key)]) continue
+      const known = existing.find(p => p.url === deps.media.urlFor(key))
+      if (known) { out.push(img.heading ? { ...known, heading: img.heading } : known); break }
+      if (img.extra || i > 0) {
+        if (extra >= EXTRA_DOWNLOADS) continue
+        extra++
+      }
+      let bytes: Uint8Array
+      try {
+        bytes = await deps.bytes(img.src, pageUrl)
+      } catch (e) {
+        if (e instanceof ArchiveRefused) throw e // the page waits for the archive, rather than losing its pictures
+        console.warn(`photo skipped ${img.src}: ${(e as Error).message}`) // one unreachable image doesn't fail the page
+        continue
+      }
       const { width = 0, height = 0 } = await (deps.size ?? (b => sharp(b).metadata()))(bytes).catch(() => ({ width: 0, height: 0 }))
-      if (width < MIN_WIDTH || !okShape(width, height)) continue
+      if (width < (img.minWidth ?? MIN_WIDTH) || !okShape(width, height)) continue
+      const stored = await deps.media.put(key, bytes) // storage failures (token, bucket) fail the page so it is retried
+      out.push({ ...stored, licence: SOURCE_PHOTO_LICENCE, author: img.author ? `${img.author} / ${sourceName}` : sourceName, sourceUrl: pageUrl, ...(img.alt ? { caption: img.alt.slice(0, 200) } : {}), source, ...(img.heading ? { heading: img.heading } : {}) })
+      break
     }
-    const stored = await deps.media.put(key, bytes) // storage failures (token, bucket) fail the page so it is retried
-    out.push({ ...stored, licence: SOURCE_PHOTO_LICENCE, author: img.author ? `${img.author} / ${sourceName}` : sourceName, sourceUrl: pageUrl, ...(img.alt ? { caption: img.alt.slice(0, 200) } : {}), source, ...(img.heading ? { heading: img.heading } : {}) })
   }
   return out
 }

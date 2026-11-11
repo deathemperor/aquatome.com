@@ -1,15 +1,18 @@
 import { readFileSync } from 'node:fs'
+import sharp from 'sharp'
 import { expect, test } from 'vitest'
 import { ArchiveRefused } from '../src/archive'
 import { htmlToOutline } from '../src/outline'
 import { linkedPhotos, pickSourcePhotos, storeSourcePhotos } from '../src/source-photos'
+
+const jpeg = (width = 800, height = 600) => sharp({ create: { width, height, channels: 3, background: 'gray' } }).jpeg().toBuffer()
 
 const SF = 'https://www.seriouslyfish.com/species/paracheirodon-axelrodi'
 const html = readFileSync(new URL('./fixtures/pages/seriouslyfish-cardinal.html', import.meta.url), 'utf8')
 
 test('outline images carry sizes; srcset picks the largest candidate', () => {
   const imgs = htmlToOutline('<main><img src="/s.jpg" srcset="/s.jpg 300w, /l.jpg 1200w" alt="A"><img src="/x.jpg" width="640" height="480"></main>').images
-  expect(imgs).toEqual([{ src: '/l.jpg', alt: 'A', width: 1200 }, { src: '/x.jpg', alt: '', width: 640, height: 480 }])
+  expect(imgs).toEqual([{ src: '/l.jpg', alt: 'A', width: 1200 }, { src: '/x.jpg', alt: '', displayWidth: 640, displayHeight: 480 }])
 })
 
 test('picks the best source photos from a real page', () => {
@@ -18,7 +21,8 @@ test('picks the best source photos from a real page', () => {
   expect(new Set(picked.map(p => p.src)).size).toBe(4)
   for (const p of picked) {
     expect(p.src).toMatch(/^https:\/\/www\.seriouslyfish\.com\/images\//)
-    expect(p.width).toBeGreaterThanOrEqual(600)
+    if (p.width) expect(p.width).toBeGreaterThanOrEqual(600)
+    else expect(p.probe).toBe(true)
   }
   expect(picked[0]!.alt).not.toMatch(/habitat/i) // the hero is the fish, not the biotope
 })
@@ -61,7 +65,7 @@ test("a drawing, plate or stamp a source shows is no photo of the species: ScotC
 test('stores picked photos once, credited to the source', async () => {
   const uploads: string[] = []
   const deps = {
-    bytes: async (url: string, referer: string) => { expect(referer).toBe(SF); return new TextEncoder().encode(url) },
+    bytes: async (url: string, referer: string) => { expect(referer).toBe(SF); return jpeg() },
     media: { urlFor: (key: string) => `https://media.test/${key}`, put: async (key: string) => { uploads.push(key); return { url: `https://media.test/${key}`, width: 800, height: 600 } } },
   }
   const picked = [{ src: 'https://www.seriouslyfish.com/images/a.jpg', alt: 'Adult male.', width: 800, height: 600 }]
@@ -125,31 +129,31 @@ test('photos on pages of their own (ScotCat): each thumbnail\'s page gives the f
     asked.push(u)
     if (u.endsWith('3.htm')) throw new Error('HTTP 404')
     const n = Number(u.match(/(\d)\.htm$/)![1])
-    return { html: photoPage(n, n === 1 ? 'Hoplisoma sterbai = spawning embrace' : 'Hoplisoma sterbai', n === 1 ? 'Helen\n   Burns' : n === 2 ? 'Mark Duffill' : '') }
+    return { html: photoPage(n, n === 1 ? 'Hoplisoma sterbai = spawning embrace' : 'Hoplisoma sterbai', n === 1 ? 'Photographer\n   A' : n === 2 ? 'Photographer B' : '') }
   }
   const images = await linkedPhotos(page, SC, /^https:\/\/www\.scotcat\.com\/[a-z]+idae\/[a-z0-9_]+\d\.htm$/, get)
   // Four photo pages at most; the one that fails is skipped.
   expect(asked).toHaveLength(4)
-  expect(images[0]).toEqual({ src: 'https://www.scotcat.com/images/c_sterbai1.jpg', alt: 'Hoplisoma sterbai: spawning embrace', width: 500, height: 316, page: 'https://www.scotcat.com/callichthyidae/hoplisoma_sterbai1.htm', author: 'Helen Burns' })
+  expect(images[0]).toEqual({ src: 'https://www.scotcat.com/images/c_sterbai1.jpg', alt: 'Hoplisoma sterbai: spawning embrace', displayWidth: 500, displayHeight: 316, page: 'https://www.scotcat.com/callichthyidae/hoplisoma_sterbai1.htm', author: 'Photographer A' })
   // No credit under a photo: no author (never the site's footer).
-  expect(images.map(i => i.author)).toEqual(['Helen Burns', 'Mark Duffill', undefined])
+  expect(images.map(i => i.author)).toEqual(['Photographer A', 'Photographer B', undefined])
   // 500 px photos only where the source allows them; shared captions are not duplicates here.
-  expect(pickSourcePhotos(images, SC, ['Hoplisoma sterbai'])).toEqual([])
+  expect(await storeSourcePhotos('scotcat', 'ScotCat', SC, pickSourcePhotos(images, SC, ['Hoplisoma sterbai']), { bytes: async () => jpeg(500, 316), media: { urlFor: k => k, put: async () => { throw new Error('too small') } } }, [])).toEqual([])
   const picked = pickSourcePhotos(images, SC, ['Hoplisoma sterbai'], 4, 'subject', 500)
   expect(picked).toHaveLength(3)
   const media = { urlFor: (key: string) => `https://media.test/${key}`, put: async (key: string) => ({ url: `https://media.test/${key}`, width: 500, height: 316 }) }
-  const [stored] = await storeSourcePhotos('scotcat', 'ScotCat', SC, picked.slice(0, 1), { bytes: async () => new Uint8Array(1), media }, [])
-  expect(stored).toMatchObject({ author: 'Helen Burns / ScotCat', sourceUrl: SC, caption: 'Hoplisoma sterbai: spawning embrace', source: 'scotcat' })
+  const [stored] = await storeSourcePhotos('scotcat', 'ScotCat', SC, picked.slice(0, 1), { bytes: async () => jpeg(500, 316), media }, [])
+  expect(stored).toMatchObject({ author: 'Photographer A / ScotCat', sourceUrl: SC, caption: 'Hoplisoma sterbai: spawning embrace', source: 'scotcat' })
 })
 
 test('a photo taken off the site before (a watermark) is not stored again when its source page is re-read', async () => {
   const fetched: string[] = []
   const media = { urlFor: (key: string) => `https://media.test/${key}`, put: async (key: string) => ({ url: `https://media.test/${key}`, width: 800, height: 600 }) }
   const picked = [{ src: 'https://x.test/logo-stamped.jpg', alt: 'a' }, { src: 'https://x.test/clean.jpg', alt: 'b' }]
-  const first = await storeSourcePhotos('glaser', 'Aquarium Glaser', 'https://x.test/p', picked, { bytes: async u => (fetched.push(u), new Uint8Array(1)), media }, [])
+  const first = await storeSourcePhotos('glaser', 'Aquarium Glaser', 'https://x.test/p', picked, { bytes: async u => (fetched.push(u), jpeg()), media }, [])
   const blocked = { [first[0]!.url]: 'watermark: Aquarium Glaser banner, top' }
   fetched.length = 0
-  const again = await storeSourcePhotos('glaser', 'Aquarium Glaser', 'https://x.test/p', picked, { bytes: async u => (fetched.push(u), new Uint8Array(1)), media, blocked }, [])
+  const again = await storeSourcePhotos('glaser', 'Aquarium Glaser', 'https://x.test/p', picked, { bytes: async u => (fetched.push(u), jpeg()), media, blocked }, [])
   expect(again.map(p => p.url)).toEqual([first[1]!.url])
   expect(fetched).toEqual(['https://x.test/clean.jpg'])
 })
@@ -169,4 +173,69 @@ test('a refusal on a linked photo page stops before the next photo page', async 
     throw refused
   })).rejects.toBe(refused)
   expect(asked).toEqual(['https://source.test/photo1.htm'])
+})
+
+
+test('a full-size file displayed at 350 px is measured; actual files under 600 px and thumbnails stay out', async () => {
+  const images = htmlToOutline(`<main>
+    <img src="/uploads/fish-large.jpg" width="350" height="233">
+    <img src="/uploads/fish-small.jpg" width="350" height="233">
+    <img src="/uploads/fish-150x100.jpg" width="150" height="100">
+    <img src="/thumbnails/fish.jpg" width="100" height="67">
+    <img src="/icon.png" width="32" height="32">
+  </main>`).images
+  const fetched: string[] = []
+  const picked = pickSourcePhotos(images, 'https://source.test/fish', [])
+  const out = await storeSourcePhotos('glaser', 'Source', 'https://source.test/fish', picked, {
+    bytes: async u => { fetched.push(u); return sharp({ create: { width: u.includes('large') ? 850 : 599, height: 567, channels: 3, background: 'gray' } }).jpeg().toBuffer() },
+    media: { urlFor: k => `https://media.test/${k}`, put: async (k, b) => { const m = await sharp(b).metadata(); return { url: `https://media.test/${k}`, width: m.width!, height: m.height! } } },
+  }, [])
+  expect(fetched).toEqual(['https://source.test/uploads/fish-large.jpg', 'https://source.test/uploads/fish-small.jpg'])
+  expect(out).toHaveLength(1)
+  expect(out[0]).toMatchObject({ width: 850, height: 567 })
+})
+
+test('a dead filename duplicate cannot hide a working address; a retrieved duplicate is not fetched again', async () => {
+  const page = 'https://source.test/fish'
+  const images = htmlToOutline(`<main>
+    <img src="/old/fish.jpg" srcset="/old/fish.jpg 850w" alt="An adult fish">
+    <img src="/current/fish.jpg" srcset="/current/fish.jpg 850w" alt="An adult fish">
+    <img src="/another/fish.jpg" srcset="/another/fish.jpg 850w" alt="An adult fish">
+  </main>`).images
+  const fetched: string[] = []
+  const out = await storeSourcePhotos('glaser', 'Source', page, pickSourcePhotos(images, page, []), {
+    bytes: async u => { fetched.push(u); if (u.includes('/old/')) throw new Error('HTTP 404'); return jpeg(850, 567) },
+    media: { urlFor: k => `https://media.test/${k}`, put: async k => ({ url: `https://media.test/${k}`, width: 850, height: 567 }) },
+  }, [])
+  expect(fetched).toEqual(['https://source.test/old/fish.jpg', 'https://source.test/current/fish.jpg'])
+  expect(out).toHaveLength(1)
+})
+
+
+test('srcset file widths decide even when the page draws the image larger', () => {
+  const images = htmlToOutline('<main><img src="/a.jpg" srcset="/small.jpg 300w, /full.jpg 850w" width="1200" height="800"></main>').images
+  expect(images).toEqual([{ src: '/full.jpg', alt: '', width: 850 }])
+})
+
+test('newly eligible layout sizes and fallback addresses share at most four extra downloads, including on guides', async () => {
+  const page = 'https://source.test/guide'
+  const images = htmlToOutline(`<main>${Array.from({ length: 20 }, (_, n) => `<img src="/fish-${n}.jpg" width="350" height="233">`).join('')}</main>`).images
+  const fetched: string[] = []
+  const out = await storeSourcePhotos('glaser', 'Source', page, pickSourcePhotos(images, page, [], Infinity, 'guide'), {
+    bytes: async u => { fetched.push(u); return new Uint8Array(1) },
+    size: async () => ({ width: 850, height: 567 }),
+    media: { urlFor: k => `https://media.test/${k}`, put: async k => ({ url: `https://media.test/${k}`, width: 850, height: 567 }) },
+  }, [])
+  expect(fetched).toHaveLength(4)
+  expect(out).toHaveLength(4)
+})
+
+
+test('the downloaded file must pass the real minimum even when srcset claims a larger width', async () => {
+  const page = 'https://source.test/fish'
+  const picked = pickSourcePhotos(htmlToOutline('<main><img src="/fish.jpg" srcset="/fish.jpg 850w"></main>').images, page, [])
+  expect(await storeSourcePhotos('glaser', 'Source', page, picked, {
+    bytes: async () => jpeg(599, 400),
+    media: { urlFor: k => k, put: async () => { throw new Error('too small to upload') } },
+  }, [])).toEqual([])
 })
