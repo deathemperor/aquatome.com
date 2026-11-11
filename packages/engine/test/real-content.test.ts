@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url'
 import { expect, test } from 'vitest'
 import { loadAll, mayPublish, resolveDataCard, type Translation } from '@aq/schema'
 import { checkPages, RATCHETED, ratcheted, RULES } from '../src/content-rules'
+import { productOf } from '../src/fit'
 import { loadPages } from '../src/pages'
 import { ENGLISH_PLACE_WORD } from '../src/place-names'
 import { fishThaiLai } from '../src/sanitize'
@@ -240,3 +241,45 @@ test('no two guides in a language share a title, and none is only a name', async
   expect(errors).toEqual([])
   expect(findings.map(f => `${f.page.lang}/${f.page.id}: ${f.detail}`)).toEqual([])
 }, 300_000)
+
+// The chief of staff's rulings of 2026-11-12 on the tap-water report. Each is a hand fix the engine keeps: a guide's body
+// marked bodyFixed, a page's part marked fixed (in English and in each language beside it), a note of ours in localNote.
+test('the tap-water fixes hold: Seachem Prime named at its dose, pure water only for a plant kept alone, our chloramine note, artemia salt in grams', () => {
+  const root = fileURLToPath(new URL('../../../content', import.meta.url))
+  const read = <T>(path: string) => JSON.parse(readFileSync(join(root, path), 'utf8')) as T
+  type Guide = { body: string; bodyFixed?: boolean; summary?: string[]; faq?: { q: string; a: string }[]; localNote?: { html: string; refs: { url: string }[] } }
+  // Our dechlorinating guide: the dose's product is one the shops here sell, so the reader check doesn't hold the dose.
+  const prime = read<Guide>('guides/aquatome-khu-clo-nuoc-may-cho-be-ca-cac-cach-va-cach-nao-an-toan/vi.json')
+  expect(prime.bodyFixed).toBe(true)
+  expect(prime.body).toMatch(/<h3>Liều dùng Seachem Prime theo nhà sản xuất<\/h3>\s*<p>[^<]*<\/p>\s*<ul>\s*<li>1 nắp \(5 mL\) cho 200 L/)
+  expect(productOf('Seachem Prime', 'vi')?.status).toBe('sold')
+  // Lucky bamboo: RO or distilled water alone is for the plant kept by itself; with animals, dechlorinated tap water or
+  // RO water with minerals added back (the source allows dechlorinated tap water in its next sentence).
+  const shared = { en: /Where fish, shrimp or snails share the water, use dechlorinated tap water, or RO water with minerals added back\./, vi: /Bể có cá, tôm hay ốc sống chung thì dùng nước máy đã khử clo, hoặc nước RO đã bù khoáng\./, id: /Kalau ada ikan, udang, atau siput di air yang sama, gunakan air keran yang sudah dihilangkan klorinnya, atau air RO yang sudah ditambah mineral\./, th: /ถ้ามีปลา กุ้ง หรือหอยอยู่ในน้ำเดียวกัน ให้ใช้น้ำประปาที่กำจัดคลอรีนแล้ว หรือน้ำ RO ที่เติมแร่ธาตุแล้ว/ }
+  const only = { en: /Use only RO or distilled water|do not use tap water/, vi: /Chỉ dùng nước RO|chỉ nên dùng nước RO|không dùng nước máy/, id: /Gunakan hanya air RO|jangan gunakan air keran/, th: /ใช้เฉพาะน้ำ RO|ไม่ควรใช้น้ำประปา/ }
+  const parts = read<{ sections: { key: string; source: string; html: string; fixed?: boolean }[] }>('plants/dracaena-sanderiana/entity.json').sections
+  for (const key of ['maintenance', 'waterConditions']) {
+    const en = parts.find(s => s.key === key && s.source === 'aquariumbreeder')!
+    expect(en.fixed, key).toBe(true)
+    expect(en.html, key).toMatch(shared.en)
+    expect(en.html, key).not.toMatch(only.en)
+    for (const lang of ['vi', 'id', 'th'] as const) {
+      const html = read<{ sections: Record<string, string> }>(`plants/dracaena-sanderiana/${lang}.json`).sections[`${key}:aquariumbreeder`]
+      expect(html, `${lang} ${key}`).toMatch(shared[lang])
+      expect(html, `${lang} ${key}`).not.toMatch(only[lang])
+    }
+  }
+  // The stand-tap-water video guide: the video's advice stays the video's, our note goes beside it, and "chỉ phí tiền" goes.
+  const stand = read<Guide>('guides/youtube-S-FR9u--jVs/vi.json')
+  expect(stand.bodyFixed).toBe(true)
+  expect(stand.localNote?.html).toMatch(/^<p><strong>Ghi chú của AquaTome, không có trong video:<\/strong> Nước máy một số nơi có cloramin, để qua đêm không hết; không chắc thì dùng chất khử clo\./)
+  expect(stand.localNote?.refs.map(r => r.url)).toEqual(['https://doi.org/10.1016/S0043-1354(03)00138-6'])
+  expect(JSON.stringify([stand.body, stand.summary, stand.faq])).not.toMatch(/phí tiền/)
+  // Artemia hatching water: about 30 g of salt a litre, in grams alone (a tablespoon is nearer 18 g).
+  const spoon = { vi: /30 g[^.]{0,40}1 muỗng canh/, id: /30 g[^.]{0,60}1 sendok makan/, th: /30 กรัม[^<"]{0,60}1 ช้อนโต๊ะ/, ms: /30 g[^.]{0,80}1 sudu besar/ }
+  for (const [lang, said] of Object.entries(spoon)) {
+    const g = read<Guide>(`guides/aquatome-ap-trung-artemia-lam-thuc-an-cho-ca-con-cach-lam-tai-nha/${lang}.json`)
+    expect(g.bodyFixed, lang).toBe(true)
+    expect(JSON.stringify([g.body, g.summary, g.faq]), lang).not.toMatch(said)
+  }
+})
